@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: Crear un centro de preferencias"
-article_title: "POST: Crear centro de preferencias"
+article_title: "POST: Crear un centro de preferencias"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,7 +9,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ---
 {% api %}
-# Crear un centro de preferencias
+# Crear un centro de preferencias {#create-preference-center}
 {% apimethod post %}
 /preference_center/v1
 {% endapimethod %}
@@ -18,15 +18,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.update`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -55,48 +55,48 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`name`| Obligatoria | Cadena | El nombre del centro de preferencias que cumple los siguientes requisitos: <br>- Solo contiene letras, números, guiones y guiones bajos <br>- No tiene espacios |
-|`preference_center_title`| Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será por defecto "Preference Center". |
-|`preference_center_page_html`| Obligatoria | Cadena | El HTML de la página del centro de preferencias. |
-|`confirmation_page_html`| Obligatoria | Cadena | El HTML de la página de confirmación. |
-|`state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
-|`options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Cuando esté presente, se añadirá una metaetiqueta `viewport` a la página con `content= <value of attribute>`.<br><br> `link-tags`: Establece un favicon para la página. Cuando se establece, se añade a la página una etiqueta `<link>` con un atributo rel.  |
+| `name` | Obligatorio | Cadena | El nombre del centro de preferencias que cumple los siguientes requisitos: <br>- Solo contiene letras, números, guiones y guiones bajos <br>- No tiene espacios |
+| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será por defecto "Preference Center". |
+| `preference_center_page_html` | Obligatorio | Cadena | El HTML de la página del centro de preferencias. |
+| `confirmation_page_html` | Obligatorio | Cadena | El HTML de la página de confirmación. |
+| `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
+| `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Cuando esté presente, se añadirá una metaetiqueta `viewport` a la página con `content= <value of attribute>`.<br><br> `link-tags`: Establece un favicon para la página. Cuando se establece, se añade a la página una etiqueta `<link>` con un atributo rel. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
 El nombre del centro de preferencias no se puede editar una vez creado.
 {% endalert %}
 
-### Etiquetas de Liquid
+### Etiquetas de Liquid {#liquid-tags}
 
 Consulta las siguientes etiquetas de Liquid que puedes incluir en tu HTML para generar el estado de suscripción de un usuario en la página del centro de preferencias.
 
 {% raw %}
 
-#### Estado de suscripción del usuario
+#### Estado de suscripción del usuario {#user-subscription-state}
 
 | Liquid | Descripción |
 | --------- | ---------|
-|`{{subscribed_state.${email_global}}}`| Obtiene el estado global de suscripción al correo electrónico del usuario (como "opted_in", "subscribed" o "unsubscribed"). |
-|`{{subscribed_state.${<subscription_group_id>}}}`| Obtiene el estado de suscripción del grupo de suscripción especificado para el usuario (como "subscribed" o "unsubscribed"). |
+| `{{subscribed_state.${email_global}}}` | Obtiene el estado global de suscripción al correo electrónico del usuario (como "opted_in", "subscribed" o "unsubscribed"). |
+| `{{subscribed_state.${<subscription_group_id>}}}` | Obtiene el estado de suscripción del grupo de suscripción especificado para el usuario (como "subscribed" o "unsubscribed"). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Entradas y acción del formulario
+#### Entradas y acción del formulario {#form-inputs-and-action}
 
 | Liquid | Descripción |
 | --------- | ---------|
-|`{% form_field_name :email_global_state %}`| Indica que un elemento de entrada de formulario específico corresponde al estado de suscripción global al correo electrónico del usuario. El estado de selección del usuario debe ser "opted_in", "subscribed" o "unsubscribed" cuando se envía el formulario con datos de selección para el estado global de suscripción al correo electrónico. Si es una casilla de verificación, el usuario estará "opted_in" o "unsubscribed". Para una entrada oculta, el estado "subscribed" también será válido. |
-|`{% form_field_name :subscription_group <subscription_group_id> %}`| Indica que un elemento de entrada de formulario específico corresponde a un grupo de suscripción determinado. El estado de selección del usuario debe ser "subscribed" o "unsubscribed" cuando el formulario se envía con datos de selección de un grupo de suscripción específico. |
-|`{{preference_center_submit_url}}`| Genera la URL para el envío del formulario. |
+| `{% form_field_name :email_global_state %}` | Indica que un elemento de entrada de formulario específico corresponde al estado de suscripción global al correo electrónico del usuario. El estado de selección del usuario debe ser "opted_in", "subscribed" o "unsubscribed" cuando se envía el formulario con datos de selección para el estado global de suscripción al correo electrónico. Si es una casilla de verificación, el usuario estará "opted_in" o "unsubscribed". Para una entrada oculta, el estado "subscribed" también será válido. |
+| `{% form_field_name :subscription_group <subscription_group_id> %}` | Indica que un elemento de entrada de formulario específico corresponde a un grupo de suscripción determinado. El estado de selección del usuario debe ser "subscribed" o "unsubscribed" cuando el formulario se envía con datos de selección de un grupo de suscripción específico. |
+| `{{preference_center_submit_url}}` | Genera la URL para el envío del formulario. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endraw %}
 
-## Ejemplos de respuestas
+## Ejemplos de respuestas {#example-responses}
 
 ### Crear un centro de preferencias
 
@@ -111,7 +111,7 @@ Consulta las siguientes etiquetas de Liquid que puedes incluir en tu HTML para g
 ```
 {% endraw %}
 
-### HTML con entradas de formulario
+### HTML con entradas de formulario {#html-with-form-inputs}
 
 {% raw %}
 ```

@@ -1,0 +1,359 @@
+---
+nav_title: Verschachtelte angepasste Attribute
+article_title: Verschachtelte angepasste Attribute
+alias: "/nested_custom_attribute_support/"
+page_order: 3
+page_type: reference
+description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter angepasster Attribute als Datentyp für angepasste Attribute, einschließlich Einschränkungen und Anwendungsbeispielen."
+---
+
+# Verschachtelte angepasste Attribute {#nested-custom-attributes}
+
+> Diese Seite behandelt verschachtelte angepasste Attribute, die es Ihnen ermöglichen, eine Reihe von Attributen als Eigenschaft eines anderen Attributs zu definieren. Mit anderen Worten: Wenn Sie ein angepasstes Attribut-Objekt definieren, können Sie eine Reihe von zusätzlichen Attributen für dieses Objekt festlegen.
+
+{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+
+{% multi_lang_include nested_attribute_objects/supported_data_types.md %}
+
+## Hinweise {#considerations}
+
+- Verschachtelte angepasste Attribute sind für angepasste Attribute gedacht, die über das Braze SDK oder die API gesendet werden.
+- Objekte haben eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Objekt 100&nbsp;KB überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.
+- Schlüsselnamen und String-Werte dürfen maximal 255 Zeichen lang sein.
+- Schlüsselnamen dürfen keine Leerzeichen enthalten.
+- Punkte (`.`) und Dollarzeichen (`$`) sind keine unterstützten Zeichen in einer API-Nutzlast, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
+- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
+- Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
+- Standardmäßig enthält der Segmentfilter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ Objekt, Array-of-Object-Attribute und angepasste Attribute vom Typ Array. Wenn Sie ein Attribut auswählen, enthält der Eigenschafts-Schema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute auf oberster Ebene vom Typ Array aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/).
+
+## API-Beispiel {#api-example}
+
+{% tabs local %}
+{% tab Erstellen %}
+Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song“-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekt-Eigenschaften auflistet.
+
+```json
+{
+  "attributes": [
+    {
+      "external_id": "user_id",
+      "most_played_song": {
+        "song_name": "Solea",
+        "artist_name": "Miles Davis",
+        "album_name": "Sketches of Spain",
+        "genre": "Jazz",
+        "play_analytics": {
+            "count": 1000,
+            "top_10_listeners": true
+        }
+      }
+    }
+  ]
+}
+```
+
+{% endtab %}
+{% tab Aktualisieren %}
+Um ein bestehendes Objekt zu aktualisieren, senden Sie einen POST an `users/track` mit dem Parameter `_merge_objects` in der Anfrage. Dadurch wird Ihr Update per Deep Merge mit den vorhandenen Objektdaten zusammengeführt. Deep Merging stellt sicher, dass alle Ebenen eines Objekts in ein anderes Objekt zusammengeführt werden und nicht nur die erste Ebene. In diesem Beispiel haben wir bereits ein `most_played_song`-Objekt in Braze und fügen nun ein neues Feld, `year_released`, zum `most_played_song`-Objekt hinzu.
+
+```json
+{
+  "attributes": [
+    {
+      "external_id": "user_id",
+      "_merge_objects": true,
+      "most_played_song": {
+          "year_released": 1960
+      }
+    }
+  ]
+}
+```
+
+Nach dem Empfang dieser Anfrage sieht das angepasste Attribut-Objekt wie folgt aus:
+
+```json
+{"most_played_song": {
+  "song_name": "Solea",
+  "artist_name" : "Miles Davis",
+  "album_name": "Sketches of Spain",
+  "year_released": 1960,
+  "genre": "Jazz",
+  "play_analytics": {
+     "count": 1000,
+     "top_10_listeners": true
+  }
+}}
+```
+
+{% alert warning %}
+Sie müssen `_merge_objects` auf `true` setzen, da Ihre Objekte sonst überschrieben werden. `_merge_objects` ist standardmäßig `false`.
+{% endalert %}
+
+{% endtab %}
+{% tab Löschen %}
+Um ein angepasstes Attribut-Objekt zu löschen, senden Sie einen POST an `users/track`, wobei das angepasste Attribut-Objekt auf `null` gesetzt wird.
+
+```json
+{
+  "attributes": [
+    {
+      "external_id": "user_id",
+      "most_played_song": null
+    }
+  ]
+}
+```
+
+{% alert note %}
+Dieser Ansatz kann nicht verwendet werden, um einen verschachtelten Schlüssel innerhalb eines [Objekt-Arrays]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) zu löschen.
+{% endalert %}
+
+{% endtab %}
+{% endtabs %}
+
+## SDK-Beispiel {#sdk-example}
+
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+
+{% tabs local %}
+{% tab Android SDK %}
+
+**Erstellen**
+```kotlin
+val json = JSONObject()
+    .put("song_name", "Solea")
+    .put("artist_name", "Miles Davis")
+    .put("album_name", "Sketches of Spain")
+    .put("genre", "Jazz")
+    .put(
+        "play_analytics",
+        JSONObject()
+            .put("count", 1000)
+            .put("top_10_listeners", true)
+    )
+
+braze.getCurrentUser { user ->
+    user.setCustomUserAttribute("most_played_song", json)
+}
+```
+
+**Aktualisieren**
+```kotlin
+val json = JSONObject()
+    .put("year_released", 1960)
+
+braze.getCurrentUser { user ->
+    user.setCustomUserAttribute("most_played_song", json, true)
+}
+```
+
+**Löschen**
+```kotlin
+braze.getCurrentUser { user ->
+    user.unsetCustomUserAttribute("most_played_song")
+}
+```
+
+{% endtab %}
+{% tab Swift SDK %}
+
+**Erstellen**
+```swift
+let json: [String: Any?] = [
+  "song_name": "Solea",
+  "artist_name": "Miles Davis",
+  "album_name": "Sketches of Spain",
+  "genre": "Jazz",
+  "play_analytics": [
+    "count": 1000,
+    "top_10_listeners": true,
+  ],
+]
+
+braze.user.setCustomAttribute(key: "most_played_song", dictionary: json)
+```
+
+**Aktualisieren**
+```swift
+let json: [String: Any?] = [
+  "year_released": 1960
+]
+
+braze.user.setCustomAttribute(key: "most_played_song", dictionary: json, merge: true)
+```
+
+**Löschen**
+```swift
+braze.user.unsetCustomAttribute(key: "most_played_song")
+```
+
+{% endtab %}
+{% tab Web SDK %}
+
+**Erstellen**
+```javascript
+import * as braze from "@braze/web-sdk";
+const json = {
+  "song_name": "Solea",
+  "artist_name": "Miles Davis",
+  "album_name": "Sketches of Spain",
+  "genre": "Jazz",
+  "play_analytics": {
+    "count": 1000,
+    "top_10_listeners": true
+  }
+};
+braze.getUser().setCustomUserAttribute("most_played_song", json);
+```
+
+**Aktualisieren**
+```javascript
+import * as braze from "@braze/web-sdk";
+const json = {
+  "year_released": 1960
+};
+braze.getUser().setCustomUserAttribute("most_played_song", json, true);
+
+```
+
+**Löschen**
+```javascript
+import * as braze from "@braze/web-sdk";
+braze.getUser().setCustomUserAttribute("most_played_song", null);
+```
+
+{% endtab %}
+{% endtabs %}
+
+## Datumsangaben als Objekt-Eigenschaften erfassen {#capturing-dates-as-object-properties}
+
+Um Datumsangaben als Objekt-Eigenschaften zu erfassen, müssen Sie den Schlüssel `$time` verwenden. Im folgenden Beispiel wird ein „Important Dates“-Objekt verwendet, um die Objekt-Eigenschaften `birthday` und `wedding_anniversary` zu erfassen. Der Wert für diese Datumsangaben ist ein Objekt mit einem `$time`-Schlüssel, der kein Null-Wert sein darf.
+
+{% alert note %}
+Wenn Sie Datumsangaben nicht von Anfang an als Objekt-Eigenschaften erfasst haben, empfehlen wir, diese Daten mit dem `$time`-Schlüssel für alle Nutzer:innen erneut zu senden. Andernfalls kann dies zu unvollständigen Segmenten bei der Verwendung des `$time`-Attributs führen. Wenn der Wert für `$time` in einem verschachtelten angepassten Attribut jedoch nicht korrekt formatiert ist, wird das gesamte verschachtelte angepasste Attribut nicht aktualisiert.
+{% endalert %}
+
+```json
+{
+  "attributes": [
+    {
+      "external_id": "time_with_nca_test",
+      "important_dates": {
+        "birthday": {"$time" : "1980-01-01"},
+        "wedding_anniversary": {"$time" : "2020-05-28"}
+      }
+    }
+  ]
+}
+```
+
+{% alert note %}
+Bei verschachtelten angepassten Attributen speichert Braze keine Werte, wenn das Jahr kleiner als 0 oder größer als 3000 ist.
+{% endalert %}
+
+## Liquid-Templating {#liquid-templating}
+
+Das folgende Liquid-Templating-Beispiel zeigt, wie Sie die angepassten Attribut-Objekt-Eigenschaften referenzieren, die aus der vorherigen API-Anfrage gespeichert wurden, und sie in Ihrem Messaging verwenden können.
+
+Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punkt-Notation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts (und die Position im Array, wenn Sie ein Objekt-Array referenzieren) an, gefolgt von einem Punkt, gefolgt vom Eigenschaftsnamen.
+
+{% raw %}
+`{{custom_attribute.${most_played_song}[0].artist_name}}` — „Miles Davis“
+<br> `{{custom_attribute.${most_played_song}[0].song_name}}` — „Solea“
+<br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — „1000“
+{% endraw %}
+
+![Verwendung von Liquid zum Einfügen eines Songnamens und der Anzahl der Wiedergaben in eine Nachricht]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+
+### Personalisierung {#personalization}
+
+Über das Modal **Personalisierung hinzufügen** können Sie auch verschachtelte angepasste Attribute in Ihr Messaging einfügen. Wählen Sie **Verschachtelte angepasste Attribute** als Personalisierungstyp aus. Wählen Sie dann das übergeordnete Attribut und den Attribut-Schlüssel aus.
+
+Im folgenden Personalisierungs-Modal wird beispielsweise das verschachtelte angepasste Attribut eines lokalen Nachbarschaftsbüros basierend auf den Präferenzen der Nutzer:innen eingefügt.
+
+![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+
+{% alert tip %}
+Überprüfen Sie, ob ein Schema generiert wurde, wenn Sie die Option zum Einfügen verschachtelter angepasster Attribute nicht sehen.
+{% endalert %}
+
+## Schemas neu generieren {#regenerate-schema}
+
+Nachdem ein Schema generiert wurde, können Sie es **einmal pro Kalendertag** (basierend auf der Zeitzone Ihres Unternehmens) neu generieren. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+
+So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
+
+1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
+2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
+3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus"></i> **Schema verwalten** aus, um das Schema zu verwalten.
+4. Ein Modal wird angezeigt. Wählen Sie **Schema neu generieren**.
+
+Die Aktion **Schema neu generieren** ist auf **einmal pro Kalendertag** in der Zeitzone Ihres Unternehmens beschränkt. Sie können keine weitere Neugenerierung starten, während ein Schema-Job bereits **in Bearbeitung** ist (die Option ist nicht verfügbar, solange der Status **Wird generiert** lautet). Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
+
+{% alert important %}
+Um das Schema für ein Objekt-Array mit einem vorhandenen Objekt zurückzusetzen, müssen Sie ein neues angepasstes Attribut erstellen. Die Schema-Neugenerierung löscht keine vorhandenen Objekte.
+{% endalert %}
+
+Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, wird das Attribut möglicherweise nicht häufig genug erfasst. Nutzerdaten werden auf Basis zuvor an Braze gesendeter Daten für das jeweilige verschachtelte Attribut gesampelt. Wenn das Attribut nicht häufig genug erfasst wird, wird es nicht für das Schema berücksichtigt.
+
+## Änderungen an verschachtelten angepassten Attributen triggern {#trigger-nested-custom-attribute-changes}
+
+Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
+
+In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Change Custom Attribute Value**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
+
+![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger „Change Custom Attribute Value“ für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+
+## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
+
+Wenn Sie mehrere `Nested Custom Attribute`-Filter mit UND-Logik verwenden, um auf einem Objekt-Array zu segmentieren, wird jeder Filter unabhängig über alle Elemente im Array ausgewertet. Eine Nutzer:in qualifiziert sich für das Segment, wenn _irgendein_ Element im Array jeden einzelnen Filter erfüllt – die Filter müssen nicht auf _dasselbe_ Element zutreffen.
+
+Angenommen, eine Nutzer:in hat das folgende Array:
+
+```json
+{
+  "orders": [
+    {"product": "Shoes", "price": 80},
+    {"product": "Hat", "price": 25}
+  ]
+}
+```
+
+Ein Segment mit den folgenden UND-Filtern:
+
+- `orders[].price` ist größer als 50
+- `orders[].price` ist kleiner als 30
+
+Diese Nutzer:in würde sich qualifizieren, da der erste Filter auf das „Shoes“-Element zutrifft (80 > 50) und der zweite Filter auf das „Hat“-Element zutrifft (25 < 30). Obwohl kein einzelnes Element beide Bedingungen erfüllt, wird die Nutzer:in dennoch in das Segment aufgenommen.
+
+Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
+
+## Datenpunkte {#data-points}
+
+Jeder gesendete Schlüssel verbraucht einen Datenpunkt. Beispielsweise verbraucht dieses im Nutzerprofil initialisierte Objekt sieben (7) Datenpunkte:
+
+```json
+{
+  "attributes": [
+    {
+      "external_id": "user_id",
+      "most_played_song": {
+        "song_name": "Solea",
+        "artist_name": "Miles Davis",
+        "album_name": "Sketches of Spain",
+        "year_released": 1960,
+        "genre": "Jazz",
+        "play_analytics": {
+          "count": 1000,
+          "top_10_listeners": true
+        }
+      }
+    }
+  ]
+}
+```
+
+{% alert note %}
+Das Aktualisieren eines angepassten Attribut-Objekts auf `null` verbraucht ebenfalls einen Datenpunkt.
+{% endalert %}

@@ -23,7 +23,7 @@ Certain browser extensions may cause issues with our email editor. One example i
 - Edit Braze emails in a browser that does not have Grammarly as a browser extension
 - Contact your Braze account manager and ask to switch your email editors to HTML only or plain text. 
 
-The plain text view removes your ```WYSIWYG``` (what you see is what you get) editor, so you should first confirm that all team members are comfortable with HTML before making this request.
+The plain text view removes your `WYSIWYG` (what you see is what you get) editor, so you should first confirm that all team members are comfortable with HTML before making this request.
 
 ### Email rendering
 

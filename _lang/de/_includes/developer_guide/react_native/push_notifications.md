@@ -2,38 +2,38 @@
 
 ## Push-Benachrichtigungen einrichten {#setting-up-push-notifications}
 
-### 1. Schritt: Ersteinrichtung abschließen
+### 1. Schritt: Ersteinrichtung abschließen {#step-1-complete-the-initial-setup}
 
 {% tabs local %}
 {% tab Expo %}
-#### Voraussetzungen
+#### Voraussetzungen {#prerequisites}
 
 Bevor Sie Expo für Push-Benachrichtigungen verwenden können, müssen Sie [das Braze Expo Plugin einrichten]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/sdk_integration/?tab=expo).
 
-#### Schritt 1.1: Ihre `app.json`-Datei aktualisieren
+#### Schritt 1.1: Ihre `app.json`-Datei aktualisieren {#step-11-update-your-appjson-file}
 
 Aktualisieren Sie als Nächstes Ihre `app.json`-Datei für Android und iOS:
 
 - **Android:** Fügen Sie die Option `enableFirebaseCloudMessaging` hinzu.
 - **iOS:** Fügen Sie die Option `enableBrazeIosPush` hinzu.
 
-#### Schritt 1.2: Ihre Google-Absender-ID hinzufügen
+#### Schritt 1.2: Ihre Google-Absender-ID hinzufügen {#step-12-add-your-google-sender-id}
 
-Gehen Sie zunächst zur Firebase-Konsole, öffnen Sie Ihr Projekt und wählen Sie dann <i class="fa-solid fa-gear"></i>&nbsp;**Einstellungen** > **Projekteinstellungen**.
+Gehen Sie zunächst zur Firebase-Konsole, öffnen Sie Ihr Projekt und wählen Sie dann <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
 
-![Das Firebase-Projekt mit geöffnetem Menü „Einstellungen".]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
+![Das Firebase-Projekt mit geöffnetem Menü „Settings“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-Wählen Sie **Cloud Messaging** und kopieren Sie dann unter **Firebase Cloud Messaging API (V1)** die **Absender-ID** in Ihre Zwischenablage.
+Wählen Sie **Cloud Messaging** und kopieren Sie dann unter **Firebase Cloud Messaging API (V1)** die **Sender ID** in Ihre Zwischenablage.
 
-![Die Seite „Cloud Messaging" des Firebase-Projekts mit hervorgehobener „Sender-ID".]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
+![Die Seite „Cloud Messaging“ des Firebase-Projekts mit hervorgehobener „Sender ID“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-Öffnen Sie als Nächstes die Datei `app.json` Ihres Projekts und setzen Sie die Eigenschaft `firebaseCloudMessagingSenderId` auf die Absender-ID in Ihrer Zwischenablage. Zum Beispiel:
+Öffnen Sie als Nächstes die Datei `app.json` Ihres Projekts und setzen Sie die Eigenschaft `firebaseCloudMessagingSenderId` auf die Sender ID in Ihrer Zwischenablage. Zum Beispiel:
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
 ```
 
-#### Schritt 1.3: Den Pfad zu Ihrer Google Services JSON hinzufügen
+#### Schritt 1.3: Den Pfad zu Ihrer Google Services JSON hinzufügen {#step-13-add-the-path-to-your-google-services-json}
 
 Fügen Sie in der Datei `app.json` Ihres Projekts den Pfad zu Ihrer `google-services.json`-Datei hinzu. Diese Datei wird benötigt, wenn Sie `enableFirebaseCloudMessaging: true` in Ihrer Konfiguration festlegen.
 
@@ -70,17 +70,17 @@ Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdes
 {% tab iOS Native %}
 Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, registrieren Sie sich für Push, indem Sie die folgenden Schritte aus der [Anleitung zur nativen iOS-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) befolgen:
 
-#### Schritt 1.1: Push-Berechtigungen anfordern
+#### Schritt 1.1: Push-Berechtigungen anfordern {#step-11-request-for-push-permissions}
 
 Wenn Sie nicht vorhaben, Push-Berechtigungen beim Start der App anzufordern, lassen Sie den Aufruf `requestAuthorizationWithOptions:completionHandler:` in Ihrem AppDelegate weg. Fahren Sie dann mit [Schritt 2](#reactnative_step-2-request-push-notifications-permission) fort. Andernfalls folgen Sie der [nativen iOS-Integrationsanleitung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/?tab=objective-c#automatic-push-integration).
 
-#### Schritt 1.2 (optional): Push-Schlüssel migrieren
+#### Schritt 1.2 (optional): Push-Schlüssel migrieren {#step-12-optional-migrate-your-push-key}
 
 Wenn Sie zuvor `expo-notifications` zur Verwaltung Ihres Push-Schlüssels verwendet haben, führen Sie `expo fetch:ios:certs` aus dem Stammordner Ihrer Anwendung aus. Dadurch wird Ihr Push-Schlüssel (eine .p8-Datei) heruntergeladen, der dann in das Braze-Dashboard hochgeladen werden kann.
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Berechtigung für Push-Benachrichtigungen anfordern
+### 2. Schritt: Berechtigung für Push-Benachrichtigungen anfordern {#step-2-request-push-notifications-permission}
 
 Verwenden Sie die Methode `Braze.requestPushPermission()` (verfügbar ab v1.38.0), um die Berechtigung für Push-Benachrichtigungen von Nutzer:innen unter iOS und Android 13+ anzufordern. Bei Android 12 und älter hat diese Methode keine Auswirkung.
 
@@ -97,12 +97,12 @@ const permissionOptions = {
 Braze.requestPushPermission(permissionOptions);
 ```
 
-#### Schritt 2.1: Auf Push-Benachrichtigungen lauschen (optional)
+#### Schritt 2.1: Auf Push-Benachrichtigungen lauschen (optional) {#step-21-listen-for-push-notifications-optional}
 
 Sie können zusätzlich Ereignisse abonnieren, bei denen Braze eine eingehende Push-Benachrichtigung erkannt und verarbeitet hat. Verwenden Sie den Listener-Schlüssel `Braze.Events.PUSH_NOTIFICATION_EVENT`.
 
 {% alert important %}
-Empfangene iOS-Push-Events werden nur für Benachrichtigungen im Vordergrund sowie für Hintergrundbenachrichtigungen mit `content-available` getriggert. Für Benachrichtigungen, die im beendeten Zustand empfangen werden, oder für Hintergrundbenachrichtigungen ohne das Feld `content-available` werden sie nicht getriggert.
+Empfangene iOS-Push-Ereignisse werden nur für Benachrichtigungen im Vordergrund sowie für Hintergrundbenachrichtigungen mit `content-available` ausgelöst. Für Benachrichtigungen, die im beendeten Zustand empfangen werden, oder für Hintergrundbenachrichtigungen ohne das Feld `content-available` werden sie nicht ausgelöst.
 {% endalert %}
 
 ```javascript
@@ -112,11 +112,11 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 });
 ```
 
-##### Ereignisfelder für Push-Benachrichtigungen
+##### Ereignisfelder für Push-Benachrichtigungen {#push-notification-event-fields}
 
 Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in der folgenden Tabelle:
 
-| Feldname         | Typ      | Beschreibung |
+| Feldname           | Typ       | Beschreibung |
 | ------------------ | --------- | ----------- |
 | `payload_type`     | String    | Gibt den Nutzlasttyp der Benachrichtigung an. Die beiden Werte, die vom Braze React Native SDK gesendet werden, sind `push_opened` und `push_received`. |
 | `url`              | String    | Gibt die URL an, die durch die Benachrichtigung geöffnet wurde. |
@@ -127,26 +127,33 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 | `badge_count`      | Zahl   | Stellt die Badge-Anzahl der Benachrichtigung dar. |
 | `timestamp`        | Zahl | Stellt den Zeitpunkt dar, zu dem die Nutzlast von der Anwendung empfangen wurde. |
 | `is_silent`        | Boolescher Wert   | Wenn `true`, wird die Nutzlast still empfangen. Einzelheiten zum Senden von stillen Push-Benachrichtigungen unter Android finden Sie unter [Stille Push-Benachrichtigungen unter Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Einzelheiten zum Senden von stillen Push-Benachrichtigungen unter iOS finden Sie unter [Stille Push-Benachrichtigungen unter iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Boolescher Wert   | Dies ist `true`, wenn eine Benachrichtigungsnutzlast für eine interne SDK-Funktion gesendet wurde, wie z. B. die Synchronisierung von Geofences, die Synchronisierung von Feature-Flags oder das Uninstall-Tracking. Die Nutzlast wird für die Nutzer:innen unbemerkt empfangen. |
+| `is_braze_internal`| Boolescher Wert   | Dies ist `true`, wenn eine Benachrichtigungsnutzlast für eine interne SDK-Funktion gesendet wurde, wie z. B. die Synchronisierung von Feature-Flags oder das Uninstall-Tracking. Die Nutzlast wird für die Nutzer:innen unbemerkt empfangen. |
 | `image_url`        | String    | Gibt die URL an, die mit dem Benachrichtigungsbild verknüpft ist. |
-| `braze_properties` | Objekt    | Stellt die mit der Kampagne verbundenen Braze-Eigenschaften dar (Schlüssel-Wert-Paare). |
+| `braze_properties` | Objekt    | Stellt die mit der Campaign verbundenen Braze-Eigenschaften dar (Schlüssel-Wert-Paare). |
 | `ios`              | Objekt    | Stellt iOS-spezifische Felder dar. |
 | `android`          | Objekt    | Stellt Android-spezifische Felder dar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
-### 3. Schritt: Deeplinking aktivieren (optional)
+### 3. Schritt: Deeplinking aktivieren (optional) {#step-3-enable-deep-linking-optional}
 
 Um Braze in die Lage zu versetzen, Deeplinks innerhalb von React-Komponenten zu verarbeiten, wenn auf eine Push-Benachrichtigung geklickt wird, implementieren Sie zunächst die Schritte, die in der Bibliothek [React Native Linking](https://reactnative.dev/docs/linking) beschrieben sind, oder verwenden Sie die Lösung Ihrer Wahl. Folgen Sie dann den weiteren Schritten unten.
 
-Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+
+{% alert important %}
+Wenn Sie eine bestehende React Native Push-Integration migrieren, testen Sie das Deeplinking erneut, nachdem Sie das Braze SDK, React Native, Expo oder zugehörige Bibliotheken aktualisiert haben. Stellen Sie sicher, dass:
+- [React Native Linking](https://reactnative.dev/docs/linking) weiterhin konfiguriert ist und Ihre Deeplink-URLs verarbeitet.
+- Ihre iOS-Verarbeitung der initialen Push-Nutzlast (siehe [Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern](#step-3-1)) implementiert ist und weiterhin beim App-Start aufgerufen wird.
+- Alle nativen Delegate- oder Listener-Methoden, die Sie zur Verarbeitung von Push-Klick-Ereignissen verwenden, weiterhin registriert und wie erwartet aufgerufen werden.
+{% endalert %}
 
 {% tabs local %}
 {% tab Android Native %}
 Wenn Sie das [Braze Expo Plugin]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option) verwenden, können Sie Push-Benachrichtigungs-Deeplinks automatisch verarbeiten, indem Sie `androidHandlePushDeepLinksAutomatically` in Ihrer `app.json` auf `true` setzen.
 
-Um Deeplinks stattdessen manuell zu verarbeiten, lesen Sie die native Android-Dokumentation: [Deeplinks hinzufügen]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
+Um Deeplinks stattdessen manuell zu verarbeiten, lesen Sie die native Android-Dokumentation: [Deeplinks hinzufügen]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
 
-#### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern
+#### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern {#step-31-store-the-push-notification-payload-on-app-launch}
 
 {% alert note %}
 Dies wird ab React Native SDK 19.1.0 unterstützt.
@@ -161,7 +168,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-#### Schritt 3.2: Deeplinks aus einem geschlossenen Zustand heraus behandeln
+#### Schritt 3.2: Deeplinks aus einem geschlossenen Zustand heraus behandeln {#step-32-handle-deep-links-from-a-closed-state}
 
 Zusätzlich zu den Basisszenarien, die von [React Native Linking](https://reactnative.dev/docs/linking) behandelt werden, implementieren Sie die Methode `Braze.getInitialPushPayload` und rufen den Wert `url` ab, um Deeplinks von Push-Benachrichtigungen zu berücksichtigen, die Ihre App öffnen, wenn sie nicht läuft. Zum Beispiel:
 
@@ -187,7 +194,7 @@ Um Deeplinks aus Push-Benachrichtigungen unter iOS zu verarbeiten, müssen Sie a
 {% endalert %}
 
 Dazu gehört die Registrierung eines benutzerdefinierten URL-Schemas und die Implementierung eines URL-Handlers in Ihrem `AppDelegate`. Eine vollständige Einrichtungsanleitung finden Sie unter [Deeplinks verarbeiten]({{site.baseurl}}/developer_guide/platforms/swift/in_app_messages/deep_linking/?tab=objective-c) in der nativen iOS-Dokumentation.
-#### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern
+#### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern {#step-3-1}
 {% alert note %}
 Überspringen Sie Schritt 3.1, wenn Sie das Braze Expo Plugin verwenden, da diese Funktionalität automatisch abgewickelt wird.
 {% endalert %}
@@ -254,7 +261,7 @@ Braze.getInitialPushPayload(pushPayload => {
 Für diese Methode ist die native Einrichtung in Schritt 3.1 für Ihre Plattform erforderlich. Wenn Sie das Braze Expo Plugin verwenden, wird dies möglicherweise automatisch abgewickelt.
 {% endalert %}
 
-#### Schritt 3.3: Universal Links aktivieren (optional)
+#### Schritt 3.3: Universal Links aktivieren (optional) {#step-33-enable-universal-links-optional}
 
 Um die Unterstützung für [Universal Links]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#universal-links) zu aktivieren, implementieren Sie einen Braze-Delegaten, der festlegt, ob eine bestimmte URL geöffnet werden soll, und registrieren Sie diesen anschließend bei Ihrer Braze-Instanz.
 
@@ -298,18 +305,18 @@ Erstellen und registrieren Sie dann Ihr `BrazeReactDelegate` in `didFinishLaunch
 import BrazeKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  
+
   static var braze: Braze?
-  
+
   // Keep a strong reference to the BrazeDelegate so it is not deallocated.
   private var brazeDelegate: BrazeReactDelegate?
-  
+
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
     // Other setup code (e.g., Braze initialization)
-    
+
     brazeDelegate = BrazeReactDelegate()
     AppDelegate.braze?.delegate = brazeDelegate
     return true
@@ -386,7 +393,7 @@ Eine beispielhafte Integration finden Sie in unserer Beispiel-App [hier](https:/
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Vordergrundbenachrichtigungen behandeln
+### 4. Schritt: Vordergrundbenachrichtigungen behandeln {#step-4-handle-foreground-notifications}
 
 Die Behandlung von Benachrichtigungen im Vordergrund funktioniert je nach Plattform und Konfiguration unterschiedlich. Wählen Sie den Ansatz, der zu Ihrer Integration passt:
 
@@ -439,14 +446,14 @@ Braze.getInitialPushPayload((payload) => {
 ```
 
 {% alert note %}
-Im Expo-verwalteten Workflow übernimmt das Braze Expo Plugin automatisch die native Push-Verarbeitung. Sie steuern die UI im Vordergrund über die oben gezeigten Präsentationsoptionen für Expo-Benachrichtigungen.
+Im von Expo verwalteten Workflow übernimmt das Braze Expo Plugin automatisch die native Push-Verarbeitung. Sie steuern die UI im Vordergrund über die oben gezeigten Präsentationsoptionen für Expo-Benachrichtigungen.
 {% endalert %}
 
 Für Bare-Workflow-Integrationen verwenden Sie stattdessen die nativen Ansätze für iOS und Android.
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Test-Push-Benachrichtigung senden
+### 5. Schritt: Test-Push-Benachrichtigung senden {#step-5-send-a-test-push-notification}
 
 Sie sollten nun in der Lage sein, Benachrichtigungen an die Geräte zu senden. Führen Sie die folgenden Schritte durch, um Ihre Push-Integration zu testen.
 
@@ -455,16 +462,16 @@ Ab macOS 13 können Sie auf bestimmten Geräten iOS-Push-Benachrichtigungen mith
 {% endalert %}
 
 1. Setzen Sie eine:n aktive:n Nutzer:in in der React Native-Anwendung, indem Sie die Methode `Braze.changeUserId('your-user-id')` aufrufen.
-2. Gehen Sie zu **Kampagnen** und erstellen Sie eine neue Push-Benachrichtigungskampagne. Wählen Sie die Plattformen aus, die Sie testen möchten.
-3. Verfassen Sie Ihre Testbenachrichtigung und wechseln Sie zum Tab **Test**. Fügen Sie dieselbe `user-id` als Testnutzer:in hinzu und klicken Sie auf **Test senden**. Sie sollten die Benachrichtigung in Kürze auf Ihrem Gerät erhalten.
+2. Gehen Sie zu **Campaigns** und erstellen Sie eine neue Push-Benachrichtigungs-Campaign. Wählen Sie die Plattformen aus, die Sie testen möchten.
+3. Verfassen Sie Ihre Testbenachrichtigung und wechseln Sie zum Tab **Test**. Fügen Sie dieselbe `user-id` als Testnutzer:in hinzu und klicken Sie auf **Send Test**. Sie sollten die Benachrichtigung in Kürze auf Ihrem Gerät erhalten.
 
-![Eine Braze-Push-Kampagne, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Push-Benachrichtigung zu testen.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
+![Eine Braze-Push-Campaign, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Push-Benachrichtigung zu testen.]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 
-## Verwendung des Expo-Plugins
+## Verwendung des Expo-Plugins {#using-the-expo-plugin}
 
 Nachdem Sie [Push-Benachrichtigungen für Expo eingerichtet haben](#reactnative_setting-up-push-notifications), können Sie damit die folgenden Verhaltensweisen für Push-Benachrichtigungen verarbeiten&#8212;ohne Code in den nativen Android- oder iOS-Schichten schreiben zu müssen.
 
-### Weiterleitung von Android-Push an zusätzliche FMS
+### Weiterleitung von Android-Push an zusätzliche FMS {#forwarding-android-push-to-additional-fms}
 
 Wenn Sie einen zusätzlichen Firebase Messaging Service (FMS) verwenden möchten, können Sie einen Fallback-FMS angeben, der aufgerufen wird, wenn Ihre Anwendung einen Push erhält, der nicht von Braze stammt. Zum Beispiel:
 
@@ -491,7 +498,7 @@ Wenn Sie Expo Application Services (EAS) verwenden und `enableBrazeIosRichPush` 
 
 Eine Möglichkeit besteht darin, die Konfiguration `appExtensions` in der Datei `app.json` zu verwenden. Weitere Informationen hierzu finden Sie in der [Expo-Dokumentation zu App-Erweiterungen](https://docs.expo.dev/build-reference/app-extensions/). Alternativ können Sie die Einstellung `multitarget` in der Datei `credentials.json` einrichten. Weitere Informationen hierzu finden Sie in der [Expo-Dokumentation zu lokalen Zugangsdaten](https://docs.expo.dev/app-signing/local-credentials/#multi-target-project).
 
-### Fehlerbehebung
+### Fehlerbehebung {#troubleshooting}
 
 Dies sind allgemeine Schritte zur Fehlerbehebung für die Integration von Push-Benachrichtigungen mit dem Braze React Native SDK und dem Expo-Plugin.
 
@@ -513,3 +520,14 @@ Für iOS-Integrationen können Sie auch unser [Tutorial zur Einrichtung von Push
 Sollte Ihr Geräte-Token nicht bei Braze registriert werden, überprüfen Sie zunächst, ob [Push-Benachrichtigungen nicht mehr funktionieren](#troubleshooting-stopped-working).
 
 Sollte das Problem weiterhin bestehen, besteht die Möglichkeit, dass eine separate Abhängigkeit die Konfiguration Ihrer Braze-Push-Benachrichtigungen beeinträchtigt. Sie können versuchen, diese zu entfernen oder stattdessen manuell `Braze.registerPushToken` aufzurufen.
+
+#### Deeplinks aus Push-Benachrichtigungen öffnen sich nicht {#troubleshooting-deep-links}
+
+Wenn sich Deeplinks aus Push-Benachrichtigungen nach einer Migration nicht mehr öffnen, überprüfen Sie Folgendes:
+
+1. Stellen Sie sicher, dass Ihre [React Native Linking](https://reactnative.dev/docs/linking)-Konfiguration in Ihrer aktualisierten App weiterhin gültig ist.
+2. Bestätigen Sie bei nativen iOS-Integrationen, dass Sie `populateInitialPayloadFromLaunchOptions` und `Braze.getInitialPushPayload` implementiert haben, damit die App beim Start aus einem beendeten Zustand die initiale Push-Nutzlast abrufen und deren `url` an Ihren Deeplink-Handler übergeben kann.
+3. Wenn Sie das Braze Expo Plugin verwenden, überprüfen Sie, ob `androidHandlePushDeepLinksAutomatically` für Ihre Implementierung korrekt gesetzt ist.
+4. Überprüfen Sie kürzlich hinzugefügte Abhängigkeiten auf Überschreibungen der Benachrichtigungsverarbeitung oder des App-Delegate-Verhaltens.
+
+Wenn Sie diese Prüfungen abgeschlossen haben und das Problem weiterhin besteht, [erstellen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/) und fügen Sie SDK-Logs sowie Schritte zur Reproduktion bei.

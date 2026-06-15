@@ -2,7 +2,7 @@
 nav_title: Inkit
 article_title: Inkit
 alias: /partners/inkit/
-description: "この参考記事では、BrazeとInkitのパートナーシップについて概説している。Inkitは、ダイレクトメール・キャンペーンを自動化することで時間と労力を節約し、オフラインの顧客をオンラインに戻すことを可能にする。"
+description: "このリファレンス記事では、BrazeとInkitのパートナーシップについて説明します。このパートナーシップにより、ダイレクトメールキャンペーンを自動化して時間と労力を節約し、オフラインの顧客をオンラインに呼び戻すことができます。"
 page_type: partner
 search_tag: Partner
 
@@ -10,60 +10,60 @@ search_tag: Partner
 
 # Inkit
 
-> [Inkit](https://www.inkit.com) と Braze により、デジタルでもダイレクトメールでも、企業が安全に文書を作成して配布することができます。
+> [Inkit](https://www.inkit.com)とBrazeにより、デジタルでもダイレクトメールでも、企業が安全にドキュメントを作成して配布することができます。
 
-_この統合は Inkit によって管理されます。_
+_この統合はInkitによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と Inkit の統合により、文書を生成し、Braze Webhook を使用して Braze ユーザーに直接メールで送信できます。
+BrazeとInkitの統合により、ドキュメントを生成し、Braze webhookを使用してBrazeユーザーに直接メールで送信できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-|必要条件| 説明|
-| ---| ---|
-|Inkitアカウント | このパートナーシップを活用するには、[Inkit アカウント](https://www.inkit.com/)が必要です。 |
-| Inkit API キー<br><br>`<INKIT_API_TOKEN>` | このキーは [Inkit Dashboard](https://app.inkit.io/#/account/integrations) の [**Development**] タブにあります。このキーにより Braze アカウントと Inkit アカウントを接続できるようになります。|
-| Inkitテンプレート ID<br><br>`<INKIT_TEMPLATE_ID>` | テンプレートを作成した後、**テンプレート**タブからテンプレートIDをコピーしてBrazeのテンプレートで使用することができる。<br><br>たとえば、Inkit 環境にテンプレート ID: `tmpl_3bDScFl9cwr3OAVR1RSdEC` で `invoice_template` というテンプレートを作成できます。
-| HTTPヘッダー | HTTPヘッダーは、BrazeからInkitに送信するAPIリクエストの一部である。この中には、Inkit API の呼び出しを認証および許可するための Inkit API キーが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| 必要条件 | 説明 |
+| --- | --- |
+| Inkitアカウント | このパートナーシップを活用するには、[Inkitアカウント](https://www.inkit.com/)が必要です。 |
+| Inkit APIキー<br><br>`<INKIT_API_TOKEN>` | このキーは[Inkitダッシュボード](https://app.inkit.io/#/account/integrations)の**Development**タブにあり、BrazeアカウントとInkitアカウントを接続できるようになります。|
+| InkitテンプレートID<br><br>`<INKIT_TEMPLATE_ID>` | テンプレートを作成した後、**テンプレート**タブからテンプレートIDをコピーして、Brazeのテンプレートで使用できます。<br><br>たとえば、Inkit環境にテンプレートID: `tmpl_3bDScFl9cwr3OAVR1RSdEC` で `invoice_template` というテンプレートを作成できます。
+| HTTPヘッダー | HTTPヘッダーは、BrazeからInkitに送信するAPIリクエストの一部です。この中には、Inkit APIの呼び出しを認証および許可するためのInkit APIキーが含まれます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Inkit テンプレートを作成する
+### ステップ 1: Inkitテンプレートを作成する {#step-1-create-an-inkit-template}
 
-Inkitプラットフォーム上で、Brazeキャンペーンで使用するテンプレートをHTML、Word、PowerPoint、ExcelまたはPDFで作成する。詳細については、[Inkit のドキュメント](https://docs.inkit.com/docs/create-a-template)を参照してください。
+Inkitプラットフォーム上で、BrazeのCampaignで使用するテンプレートをHTML、Word、PowerPoint、Excel、またはPDFで作成します。詳細については、[Inkitのドキュメント](https://docs.inkit.com/docs/create-a-template)を参照してください。
 
-### ステップ2:BrazeのWebhookテンプレートを作成する
+### ステップ 2: Braze Webhookテンプレートを作成する {#step-2-create-your-braze-webhook-template}
 
-今後のキャンペーンやCanvasで使用するInkitウェブフックテンプレートを作成するには、Brazeプラットフォームの**「テンプレート**」>「**ウェブフックテンプレート**」に移動する。 
+今後のCampaignやCanvasで使用するInkit Webhookテンプレートを作成するには、Brazeプラットフォームで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
-単発のInkitウェブフックキャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeの**ウェブフックを**選択する。
+単発のInkit WebhookのCampaignを作成したい場合、または既存のテンプレートを使用したい場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
 
-![テンプレート s & メディアセクションのWebhook テンプレート s タブで、使用可能な符号付きWebhook テンプレートs を選択します。]({% image_buster /assets/img/inkit-webhook-template.png %})
+![テンプレートとメディアセクションのWebhookテンプレートタブで利用可能な事前デザイン済みWebhookテンプレートの選択画面。]({% image_buster /assets/img/inkit-webhook-template.png %})
 
-Inkitウェブフック・テンプレートを選択すると、以下のように表示される：
-- **Webhook URL**:空白
-- **リクエスト本文**:Raw Text
+Inkit Webhookテンプレートを選択すると、以下のように表示されます:
+- **Webhook URL**: 空白
+- **リクエスト本文**: Raw Text
 
-Webhook URL フィールドで、[create](https://docs.inkit.com/docs/set-up-a-webhook-to-an-event) を入力し、Inkit Webhook URL を入力します。
+Webhook URLフィールドで、Inkit Webhook URLを[作成](https://docs.inkit.com/docs/set-up-a-webhook-to-an-event)して入力します。
 
-![Braze Webhook ビルダー作成タブに表示されているリクエスト本文のコードと Webhook URL。]({% image_buster /assets/img/inkit-integration.png %})
+![Braze Webhookビルダーの作成タブに表示されているリクエスト本文のコードとWebhook URL。]({% image_buster /assets/img/inkit-integration.png %})
 
-#### リクエストヘッダと方法
+#### リクエストヘッダーとメソッド {#request-headers-and-method}
 
-Inkit の認証には、Base64 でエンコードされた Inkit API キーを含む `HTTP Header` が必要です。以下の内容はすでにキーと値のペアとしてテンプレートに含まれていますが、[**設定**] タブで `<INKIT_API_TOKEN>` を Inkit API キーに置き換える必要があります。
+Inkitの認証には、Base64でエンコードされたInkit APIキーを含む`HTTP Header`が必要です。以下の内容はすでにキーと値のペアとしてテンプレートに含まれていますが、**設定**タブで`<INKIT_API_TOKEN>`をInkit APIキーに置き換える必要があります。
 
 {% raw %}
-- **HTTPメソッド**：POST
+- **HTTPメソッド**: POST
 - **リクエストヘッダー**:
-  - **Authorization**:Basic `{{ '<INKIT_API_TOKEN>' | base64_encode }}`
+  - **Authorization**: Basic `{{ '<INKIT_API_TOKEN>' | base64_encode }}`
   - **Content-Type**: application/json
 {% endraw %}
 
-#### Request body
+#### リクエスト本文 {#request-body}
 
-Liquid が、以下の必須フィールドとオプションフィールドに関連付けられている適切なカスタム属性を照合することを確認します。また、どのリクエストにもカスタムデータフィールドを追加できます。
+Liquidが、以下の必須フィールドとオプションフィールドに関連付けられている適切なカスタム属性と一致していることを確認してください。また、どのリクエストにもカスタムデータフィールドを追加できます。
 
 ```json
 {% raw %}{
@@ -84,14 +84,12 @@ Liquid が、以下の必須フィールドとオプションフィールドに�
 }{% endraw %}
 ```
 
-### ステップ3:リクエストをプレビューする
+### ステップ 3: リクエストをプレビューする {#step-3-preview-your-request}
 
-生のテキストが適切な Braze タグである場合、このテキストが自動的に強調表示されます。この Webhook を送信するには、`street`、`unit`、`state`、`zip` が[カスタム属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes)として設定されている必要があります。
+生のテキストが適切なBrazeタグである場合、自動的にハイライト表示されます。このWebhookを送信するには、`street`、`unit`、`state`、`zip`が[カスタム属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes)として設定されている必要があります。
 
-**Preview**パネルでリクエストをプレビューするか、**Test**タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、ウェブフックをテストするために自分でカスタマイズする。
+**プレビュー**パネルでリクエストをプレビューするか、**テスト**タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、独自にカスタマイズしてWebhookをテストします。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないこと！<br>更新されたWebhookテンプレートは、新しい[Webhookキャンペーンを]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/)作成するときに、**保存されたWebhookテンプレート**リストで見つけることができる。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
-
-

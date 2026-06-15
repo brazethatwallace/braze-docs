@@ -29,7 +29,7 @@ The minimum SDK version that satisfies WCAG 2.1 is close to v3.4.0. However, we 
 | **3.1.2** | Minor | Default alt text for images |
 | **2.4.1** | **Major** | Semantic HTML (`h1` or `button`), ARIA attributes, keyboard navigation, focus management |
 | **2.0.5** | Minor | Focus management, keyboard navigation, labels |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
 
 ## Supported accessibility features
 

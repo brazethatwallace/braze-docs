@@ -24,9 +24,9 @@ There are two subscription states for SMS and RCS users: `subscribed` and `unsub
 
 | State | Definition |
 | --------- | ---------- |
-| Subscribed | User has explicitly confirmed that they want to receive SMS and RCS from a specific subscription group. A user can be subscribed either by having their subscription state updated through the Braze subscription API or by texting an opt-in keyword response. A user must be subscribed to an SMS or RCS subscription group in order to receive SMS, RCS, or both. |
-| Unsubscribed | User has explicitly opt-ed out of messaging from your SMS and RCS subscription group and the sending-phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or a brand can unsubscribed users through the [Braze subscription API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Users unsubscribed from an SMS and RCS subscription group will no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Subscribed | User is subscribed to receive SMS and RCS from a specific subscription group. A user can be subscribed either by having their subscription state updated through the Braze subscription API or by texting an opt-in keyword response. A user must be subscribed to an SMS or RCS subscription group to receive SMS, RCS, or both. When [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) is enabled, users must confirm their opt-in intent before their subscription status updates to `Subscribed`. |
+| Unsubscribed | User has explicitly opted out of messaging from your SMS and RCS subscription group and the sending phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or you can unsubscribe users through the [Braze subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Users unsubscribed from an SMS and RCS subscription group will no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Set a user's state
 
@@ -48,6 +48,8 @@ When updating a user's subscription group status as part of a Canvas flow, use a
 
 If you use a webhook to update subscription groups, the user advances as soon as the webhook is sent—not when the subscription change finishes processing. This can create a race condition where a follow-up SMS step executes before the user is subscribed, causing the message to fail for a portion of users. If you must use a webhook, add a Delay step of at least 1 minute before the next messaging step.
 
+#{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ### Check a user's group
 
 To check a user's subscription group, use one of the following methods:
@@ -64,6 +66,10 @@ In adherence with international [telecommunication compliance and guidelines]({{
 {% endalert %}
 
 ![SMS composer with the subscription group dropdown open and "Messaging Service A for SMS" highlighted by the user.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+
+## SMS subscription group best practices
+
+Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace. When you operate in multiple countries, consider separate groups by region to support local compliance rules—for example, Brazil's restrictions on promotional send windows.
 
 ## Enable subscription groups
 
@@ -92,6 +98,28 @@ Depending on your integration, Braze can add RCS-verified senders to your existi
 {% endtab %}
 {% endtabs %}
 
+## Handle natural language opt-outs in the Agent Console
+
+For comprehensive subscription management, you can capture opt-out intent that falls outside of standard or custom keywords (such as "Please don’t text me"). By creating an AI agent, you can use sentiment analysis to help identify and act on these requests automatically.
+
+### Setup
+
+1. In the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/), create an "SMS Sentiment Analysis Agent".
+
+{% alert tip %}
+Use [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) to assist with the initial agent configuration.
+{% endalert %}
+
+{: start="2"}
+2. Create an action-based Canvas triggered by **Send an SMS inbound message**, within the **Other** keyword category.
+3. Add the [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) to the Canvas to identify opt-out intent.
+4. Add a subsequent SMS [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) to confirm the request: "It looks like you're trying to unsubscribe from SMS, so we are going to unsubscribe you. If this is a mistake, text START to opt back in."
+5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
+
+{% alert note %}
+Using the Agent Console consumes Message or Action Credits.
+{% endalert %}
+
 ## Migrate SMS traffic to RCS
 
 If you have separate SMS and RCS subscription groups, you can migrate users from SMS to RCS using a one-step Canvas. 
@@ -103,6 +131,7 @@ Braze recommends that you test sending RCS to smaller volumes of users initially
 Create a Canvas and name it something easily identifiable (such as “SMS-RCS Subscription Group User Transfer”). Then, schedule the campaign whenever is convenient for you.
 
 ### Step 2: Define your audience
+{: #step-2-define-your-audience}
 
 Define your audience using one of the following methods. Next, go to the **Send Settings** step and select **Users who are subscribed or opted-in**.
 
@@ -110,7 +139,7 @@ Define your audience using one of the following methods. Next, go to the **Send 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Create a segment**         | Build a segment that includes all users in a subscription group or a subset using segmentation filters (such as a random 5-10%). Segments update before each send to reflect your current user base.        |
 | **Apply campaign or Canvas filters** | Refine the audience in the **Target Audience** step of your campaign or Canvas. Adjust targeting options without leaving the page for added flexibility.                                         |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### Step 3: Configure a User Update step
 
@@ -172,5 +201,7 @@ Choose descriptive and clear subscription group names so that the correct group 
 ### Separate groups by country
 
 SMS regulations vary by country. We suggest separating SMS subscription groups by country. This helps you meet compliance standards in all regions where you send messages.
+
+For each subscription group, you can also configure a country allowlist under **Geographic Permissions** so SMS, MMS, and RCS are only sent to approved regions. For more information, see [Geographic permissions]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/).
 
 For example, in Brazil, sending marketing messages outside the hours of 9 am and 9 pm local time is prohibited, and the country spans three time zones. To comply with these regulations, you might set up separate groups for sending messages to Brazil and the United States. This prevents users in Brazil from receiving marketing messages during prohibited hours.

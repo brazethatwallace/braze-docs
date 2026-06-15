@@ -111,7 +111,7 @@ One of the following is required: `aliases_to_identify`, `emails_to_identify`, o
 | `aliases_to_identify`       | Required | Array of aliases to identify object | See [alias to identify object]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) and [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
 | `emails_to_identify`        | Required | Array of aliases to identify object | Required if `email` is specified as the identifier. Email addresses to identify users. See [Identifying users by email](#identifying-users-by-email).                                                                                                              |
 | `phone_numbers_to_identify` | Required | Array of aliases to identify object | Phone numbers to identify users.                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Identifying users by email addresses and phone numbers
 

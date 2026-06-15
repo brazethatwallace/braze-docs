@@ -13,7 +13,7 @@ guide_featured_list:
   link: /docs/user_guide/brazeai/generative_ai/copywriting
   image: /assets/img/braze_icons/edit-05.svg
 - name: AI Image Generator
-  link: /docs/user_guide/messaging/design_and_edit/media_library#generate-ai
+  link: /docs/user_guide/brazeai/generative_ai/images
   image: /assets/img/braze_icons/image-03.svg
 - name: AI Content QA
   link: /docs/user_guide/brazeai/generative_ai/content_qa

@@ -17,7 +17,7 @@ We also recommend checking out our [Testing and Troubleshooting](https://learnin
 
 ## Prerequisites
 
-To create and manage internal groups, you need the [Access Dev Console legacy permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) or these [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions):
+To create and manage internal groups, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
 
 - View API Keys
 - Edit API Keys
@@ -33,8 +33,6 @@ To create and manage internal groups, you need the [Access Dev Console legacy pe
 - Edit SDK Debugger
 - View SDK Debugger
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ## Creating an internal group
 
 To create an internal group: 
@@ -49,7 +47,7 @@ To create an internal group:
 | **User Event Group**   | Use this to verify events or logs from your test device.                                    |
 | **Content Test Group** | Use this across push, email, and in-app messages to send a rendered copy of the message. |
 | **Seed Group**         | Automatically sends a copy of the email to everyone in the Seed Group upon send.               |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating an internal group" }
 
 {:start="5"}
 
@@ -67,7 +65,7 @@ After you create your internal group, add test users as members of that group.
 | **Add identified user** | Search for the user by their external user ID, email address, phone number, or push token.                                                                                                                                                           |
 | **Add anonymous user**  | Search by IP address. Then, provide a name for each test user you add. This is the name that all event logs are associated with on the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) page. |
 | **Bulk add users**      | Copy and paste a list of email addresses or external IDs. You can add only users who are already known in the dashboard. For more information, refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).          |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Adding test users" }
 
 ![Internal Group Settings when creating a new internal group]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
@@ -93,9 +91,9 @@ Seed Groups are only supported for the email channel. Add users to a Seed Group 
 
 Seed Groups aren't available for API campaigns, but you can include Seed Groups using an API-triggered entry in the campaign. Use this to measure deliverability metrics and to keep a record of your email content for historical and archival purposes. 
 
-After creating an internal group and tagging it to be used as a Seed Group, select it from the **Target Audiences** step of the campaign editor, or on the **Send Settings** step in a Canvas. 
+After creating an internal group and tagging it to be used as a Seed Group, select it from the **Target Audiences** step of the campaign editor, or on the **Send Settings** step in a Canvas.
 
-Seed emails will have `[SEED]` appended to the start of the email subject line. Note that seed emails **do not**:
+Seed emails have `[SEED]` prepended to the subject line. Note that seed emails **do not**:
 
 - Increment sends in the dashboard analytics.
 - Impact email analytics or retargeting. 
@@ -108,7 +106,9 @@ Seed emails will have `[SEED]` appended to the start of the email subject line. 
 Seed sends are designed for internal QA and review, so they intentionally bypass subscription checks for the seeded company users. This means users with valid email addresses who are part of a Seed Group receive the message even if they are not subscribed. However, the message must be configured to send seed copies to that group.
 
 {% alert tip %}
-If your Seed Group members report not seeing the message in their inbox, check that they're listed in the internal group, verify that your subject lines are different and that Gmail has not bundled the emails together, or have them check their spam folders.
+If Seed Group members don't see the message, confirm they're in the internal group, use distinct subject lines so Gmail doesn't thread messages together, and ask them to check spam.
+
+If the email uses [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), Seed Group members must still satisfy the abort condition to receive the send.
 {% endalert %}
 
 #### For campaigns

@@ -9,30 +9,34 @@ description: "이 문서에서는 사용자 추적 Braze 엔드포인트에 대�
 toc_headers: h2
 ---
 {% api %}
-# 사용자 만들기 및 업데이트
+# 사용자 만들기 및 업데이트 {#create-and-update-users}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 커스텀 이벤트 및 구매를 기록하고 고객 프로필 속성을 업데이트하세요.
 
-{% alert note %}
-Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 고객은 불필요한 데이터 포인트 로깅을 최소화하기 위해 델타(변경된 데이터)만 전달해야 합니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/data/data_points/)를 참조하세요.
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 불필요한 데이터 포인트 로깅을 최소화하기 위해 델타(변경된 데이터)만 전달해야 합니다.
+
+## 대량으로 사용자를 업데이트해야 하나요? {#need-to-update-users-in-bulk}
+
+[`/users/track/bulk` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/)를 사용하여 더 큰 배치를 전송하고 요청 볼륨을 줄이세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `users.track` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
 
 서버 간 호출에 API를 사용하는 고객이 방화벽 뒤에 있는 경우 `rest.iad-01.braze.com`을 허용 목록에 추가해야 할 수 있습니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users track' %}
 
-## 요청 본문
+## 요청 본문 {#request-body}
 
 ```
 Content-Type: application/json
@@ -47,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### 요청 매개변수
+### 요청 매개변수 {#request-parameters}
 
 {% alert important %}
 다음 표에 나열된 각 요청 구성요소에 대해 `external_id`, `user_alias`, `braze_id`, `email` 또는 `phone` 중 하나를 포함해야 합니다.
@@ -55,12 +59,12 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/) 보기 |
+| `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) 보기 |
 | `events` | 선택 사항 | 이벤트 오브젝트 배열 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) 보기 |
 | `purchases` | 선택 사항 | 구매 오브젝트 배열 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-### 식별자 확인
+### 식별자 확인 {#identifier-resolution}
 
 각 요청 오브젝트에는 하나 이상의 식별자가 포함되어야 합니다. 다음 표에서는 Braze가 고객 프로필 조회에 사용할 식별자를 결정하는 방법을 설명합니다.
 
@@ -68,7 +72,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | --------------- | ----------- | -------- |
 | 기본 | `external_id`, `user_alias`, `braze_id` | 고객 프로필 조회에 사용됩니다. 요청 오브젝트당 하나의 기본 식별자만 허용되며, 둘 이상을 포함하면 해당 오브젝트가 거부됩니다. |
 | 보조 | `email`, `phone` | 기본 식별자가 없는 경우에**만** 고객 프로필 조회에 사용됩니다. 기본 식별자 없이 `email`과 `phone`이 모두 포함된 경우 `email`이 우선합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 기본 식별자가 있는 경우 동일한 요청 오브젝트의 `email` 또는 `phone` 값은 사용자 조회를 위한 식별자가 아닌 프로필 속성으로 처리됩니다. 예를 들어, 요청에 `external_id`와 `email`이 모두 포함된 경우:
 
@@ -79,9 +83,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 기존 프로필과 일치하지 않는 기본 식별자를 포함하면, 동일한 요청의 `email` 또는 `phone`이 기존 프로필과 일치하더라도 중복 프로필이 생성될 수 있습니다. 자세한 내용은 [중복 고객 프로필 생성을 방지하려면 어떻게 해야 하나요?](#how-do-i-avoid-creating-duplicate-user-profiles)를 참조하세요.
 {% endalert %}
 
-## 요청 예시
+## 요청 예시 {#example-requests}
 
-### 이메일 주소로 고객 프로필 업데이트
+### 이메일 주소로 고객 프로필 업데이트 {#update-a-user-profile-by-email-address}
 
 `/users/track` 엔드포인트를 사용하여 이메일 주소로 고객 프로필을 업데이트할 수 있습니다.
 
@@ -154,7 +158,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }'
 ```
 
-### 전화번호로 고객 프로필 업데이트
+### 전화번호로 고객 프로필 업데이트 {#update-a-user-profile-by-phone-number}
 
 `/users/track` 엔드포인트를 사용하여 전화번호로 고객 프로필을 업데이트할 수 있습니다. 이 엔드포인트는 유효한 전화번호를 포함하는 경우에만 작동합니다.
 
@@ -181,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
 }'
 ```
-### 구독 그룹 설정
+### 구독 그룹 설정 {#set-subscription-groups}
 
 이 예시에서는 사용자를 만들고 사용자 속성 오브젝트 내에서 구독 그룹을 설정하는 방법을 보여줍니다.
 
@@ -217,10 +221,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-SMS 구독 그룹의 경우, 그룹의 `subscription_state`를 `subscribed`로 설정할 때 해당 구독 그룹 오브젝트 내에 선택적 `use_double_opt_in_logic` 매개변수를 `true`로 설정하여 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/keywords/double_opt_in/) 워크플로에 진입시킬 수 있습니다. `subscription_state`가 `subscribed`일 때 이 매개변수를 생략하거나 `false`로 설정하면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. 이 매개변수는 `subscription_state`가 `unsubscribed`와 같은 다른 값으로 설정된 경우에는 적용되지 않습니다.
+SMS 구독 그룹의 경우, 그룹의 `subscription_state`를 `subscribed`로 설정할 때 해당 구독 그룹 오브젝트 내에 선택적 `use_double_opt_in_logic` 매개변수를 `true`로 설정하여 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 워크플로에 진입시킬 수 있습니다. `subscription_state`가 `subscribed`일 때 이 매개변수를 생략하거나 `false`로 설정하면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. 이 매개변수는 `subscription_state`가 `unsubscribed`와 같은 다른 값으로 설정된 경우에는 적용되지 않습니다.
 {% endalert %}
 
-### 별칭 전용 사용자 만들기 요청 예시
+### 별칭 전용 사용자 만들기 요청 예시 {#example-request-to-create-an-alias-only-user}
 
 `/users/track` 엔드포인트를 사용하여 요청 본문에서 `_update_existing_only` 키를 `false` 값으로 설정하면 별칭 전용 사용자를 만들 수 있습니다. 이 값을 생략하면 Braze는 별칭 전용 고객 프로필을 생성하지 않습니다. 별칭 전용 사용자를 사용하면 해당 별칭을 가진 프로필이 하나만 존재하게 됩니다. 이는 통합을 구축할 때 특히 유용하며, Braze가 중복된 고객 프로필을 생성하는 것을 방지할 수 있습니다.
 
@@ -229,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -244,11 +247,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 
-## 응답
+## 응답 {#responses}
 
 앞서 언급한 API 요청을 사용할 때 [성공 메시지](#successful-message), [치명적이지 않은 오류가 있는 성공 메시지](#successful-message-with-non-fatal-errors), [심각한 오류가 있는 메시지](#message-with-fatal-errors) 등 세 가지 일반적인 응답 중 하나를 받게 됩니다.
 
-### 성공 메시지
+### 성공 메시지 {#successful-message}
 
 성공 메시지는 다음과 같은 응답을 반환합니다:
 
@@ -261,7 +264,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }
 ```
 
-### 치명적이지 않은 오류가 있는 성공 메시지
+### 치명적이지 않은 오류가 있는 성공 메시지 {#successful-message-with-non-fatal-errors}
 
 메시지는 성공했지만 긴 이벤트 목록 중 하나의 잘못된 이벤트 오브젝트와 같이 치명적이지 않은 오류가 있는 경우 다음과 같은 응답을 받게 됩니다:
 
@@ -278,7 +281,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 성공 메시지의 경우 Braze는 `errors` 배열의 오류에 영향을 받지 않는 모든 데이터를 계속 처리합니다.
 
-### 심각한 오류가 있는 메시지
+### 심각한 오류가 있는 메시지 {#message-with-fatal-errors}
 
 메시지에 심각한 오류가 있는 경우 다음과 같은 응답을 받게 됩니다:
 
@@ -293,13 +296,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }
 ```
 
-### 심각한 오류 응답 코드
+### 심각한 오류 응답 코드 {#fatal-error-response-codes}
 
 요청에 심각한 오류가 발생할 경우 Braze가 반환하는 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
 
 "provided external_id is blacklisted and disallowed"라는 오류가 표시되는 경우 요청에 "더미 사용자"가 포함된 것일 수 있습니다. 자세한 내용은 [스팸 차단]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)을 참조하세요.
 
-### 엔드포인트별 오류
+### 엔드포인트별 오류 {#endpoint-specific-errors}
 
 다음 오류는 `/users/track` 엔드포인트에 한정된 것이며 응답의 `errors` 배열에 반환됩니다. 이를 사용하여 요청의 개별 오브젝트 관련 문제를 해결하세요.
 
@@ -321,24 +324,24 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 | `EMAIL_BAD_FORMAT` | `email`에 제공된 값이 유효한 이메일 주소가 아닙니다. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | `external_id`가 최대 허용 길이인 987바이트를 초과합니다. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info`는 유효한 속성이 아닙니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
-## 자주 묻는 질문
+## 자주 묻는 질문 {#frequently-asked-questions}
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 
-### 동일한 이메일 주소를 가진 프로필이 여러 개 발견되면 어떻게 되나요?
+### 동일한 이메일 주소를 가진 프로필이 여러 개 발견되면 어떻게 되나요? {#what-happens-when-multiple-profiles-with-the-same-email-address-are-found}
 `external_id`가 존재하는 경우, Braze는 외부 ID가 있는 가장 최근에 업데이트된 프로필을 우선적으로 업데이트합니다. `external_id`가 존재하지 않는 경우 Braze는 가장 최근에 업데이트된 프로필을 우선적으로 업데이트합니다.
 
-### 이메일 주소가 포함된 프로필이 없는 경우 어떻게 되나요?
+### 이메일 주소가 포함된 프로필이 없는 경우 어떻게 되나요? {#what-happens-if-no-profile-with-the-email-address-exists}
 Braze는 이메일 주소로 고객 프로필 업데이트 요청 예시에 나와 있는 것처럼 프로필과 이메일 전용 사용자를 생성하고 이메일 필드를 test@braze.com으로 설정합니다. Braze는 별칭을 만들지 않습니다.
 
-### 기존 사용자 데이터를 가져오기 위해 `/users/track`을 어떻게 사용하나요?
+### 기존 사용자 데이터를 가져오기 위해 `/users/track`을 어떻게 사용하나요? {#how-do-you-use-userstrack-to-import-legacy-user-data}
 아직 모바일 앱을 사용하지 않은 사용자를 위해 Braze API를 통해 데이터를 제출하여 고객 프로필을 생성할 수 있습니다. 이후 사용자가 애플리케이션을 사용하면 SDK를 통해 식별된 후의 모든 정보가 API 호출로 생성한 기존 고객 프로필과 병합됩니다. 식별 전에 SDK에 의해 익명으로 기록된 모든 사용자 행동은 기존 API 생성 고객 프로필과 병합되면 손실됩니다.
 
 세분화 툴에는 앱 참여 여부와 관계없이 이러한 사용자가 포함됩니다. 사용자 API를 사용하여 업로드한 사용자 중 아직 앱에 참여하지 않은 사용자를 제외하려면 `Session Count > 0` 필터를 추가하세요.
 
-### 중복 고객 프로필 생성을 방지하려면 어떻게 해야 하나요?
+### 중복 고객 프로필 생성을 방지하려면 어떻게 해야 하나요? {#how-do-i-avoid-creating-duplicate-user-profiles}
 
 중복 프로필은 요청에 기존 프로필과 일치하지 않는 기본 식별자(예: `external_id`)가 포함되어 있고, 동시에 기존 프로필과 일치하는 `email` 또는 `phone` 값이 포함된 경우 발생할 수 있습니다. 기본 식별자가 사용자 조회에 사용되므로, Braze는 인식되지 않는 `external_id`에 대해 기존 이메일 전용 또는 전화번호 전용 프로필을 업데이트하는 대신 새 프로필을 생성합니다.
 
@@ -347,15 +350,27 @@ Braze는 이메일 주소로 고객 프로필 업데이트 요청 예시에 나�
 - 이메일 전용 또는 전화번호 전용 프로필에서 식별된 프로필로 사용자를 전환할 때, `/users/track`에 둘 다 보내는 대신 [`/users/identify` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)를 사용하여 기존 프로필에 `external_id`를 할당하세요.
 - 중복이 이미 존재하는 경우 [`/users/merge` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)를 사용하여 병합하세요.
 
-### `/users/track`에서는 중복 이벤트를 어떻게 처리하나요?
+### `/users/track`에서는 중복 이벤트를 어떻게 처리하나요? {#how-does-userstrack-handle-duplicate-events}
 
 이벤트 배열의 각 이벤트 오브젝트는 지정된 시간에 사용자가 수행한 커스텀 이벤트의 단일 발생을 나타냅니다. 즉, Braze에 수집된 각 이벤트에는 고유한 이벤트 ID가 있으므로 "중복" 이벤트는 별도의 고유한 이벤트로 취급됩니다.
 
-### `/users/track`에서는 잘못된 중첩 커스텀 속성을 어떻게 처리하나요?
+### `/users/track`에서는 잘못된 중첩 커스텀 속성을 어떻게 처리하나요? {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
 중첩 커스텀 속성에 유효하지 않은 값(예: 잘못된 시간 형식 또는 null 값)이 포함된 경우 Braze는 요청의 모든 중첩 커스텀 속성 업데이트를 처리에서 삭제합니다. 이는 해당 특정 속성 내의 모든 중첩 구조에 적용됩니다. 성공적인 처리를 위해 전송하기 전에 중첩 커스텀 속성 내의 모든 값이 유효한지 확인하세요.
 
-## 월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU
+### `/users/track` 응답이 예상보다 느린 이유는 무엇인가요? {#why-is-my-userstrack-response-slower-than-i-expect}
+
+성공적인 `/users/track` 호출은 일반적으로 빠르게 수락되지만, Braze는 속성, 이벤트 및 구매 업데이트를 비동기적으로 처리합니다. 페이로드가 크거나 [REST 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)로의 네트워크 라우팅이 느린 경우 체감 지연 시간이 증가할 수 있습니다. 사용자별 동기 확인 또는 호출 간 더 엄격한 순서가 필요한 경우 [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)(**제한된 베타**)를 참조하세요.
+
+### 사용량 제한은 `/users/track`에 어떤 영향을 미치나요? {#how-do-rate-limits-affect-userstrack}
+
+[사용량 제한](#rate-limit)에 근접하면 `429` 응답을 받게 됩니다. `429`가 아닌 응답의 경우 지원되는 계약에서 [월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU에 대한 사용량 제한 헤더](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)에 설명된 `X-RateLimit-*` 응답 헤더를 사용하여 현재 기간의 남은 양을 확인할 수 있습니다.
+
+### `400 Bad Request`와 함께 구문 또는 구문 분석 오류가 발생하는 이유는 무엇인가요? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
+
+구문 또는 구문 분석 오류가 포함된 HTTP `400`은 일반적으로 요청 본문이 유효한 JSON이 아님을 의미합니다. 일반적인 원인으로는 후행 쉼표, JSON 내부의 주석, 작은따옴표로 묶인 문자열, 페이로드 앞의 추가 여는 `{`, 또는 `Content-Type` 헤더가 `application/json`인 상태에서 JSON이 아닌 본문을 전송하는 경우가 있습니다. 전송하기 전에 JSON 린터로 페이로드를 검증하고, HTTP 클라이언트가 오브젝트를 JSON으로 인코딩하는지(원시 문자열을 연결하는 것이 아닌지) 확인하고, 본문이 UTF-8로 인코딩되어 있는지 확인하세요. 기타 `400` 응답(예: 페이로드 크기 및 요청당 오브젝트 제한)에 대해서는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors) 및 이 페이지의 [엔드포인트별 오류](#endpoint-specific-errors) 표를 참조하세요.
+
+## 월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 새 요금제를 사용하는 고객의 경우 회사 수준에서 사용량 제한이 적용됩니다. 고객은 워크스페이스별 시간당 사용량 제한을 설정할 수 있지만 버스트 제한은 여전히 모든 워크스페이스 간에 공유됩니다.
 
@@ -364,18 +379,18 @@ Braze는 이메일 주소로 고객 프로필 업데이트 요청 예시에 나�
 - 시간당 제한 외에도 Braze는 3초마다 전송할 수 있는 요청 수에 버스트 제한을 적용합니다.
 - 각 요청은 속성, 이벤트 또는 구매 오브젝트에 걸쳐 최대 75개의 업데이트를 일괄 처리할 수 있습니다.
 
-예상 수집량에 따른 현재 제한은 대시보드의 **설정** > **API 및 식별자** > **API 사용량 대시보드**에서 확인할 수 있습니다. 시스템 안정성을 보호하거나 계정의 데이터 처리량 증가를 허용하기 위해 사용량 제한을 수정할 수 있습니다. 시간당 또는 초당 요청 제한 및 비즈니스 요구 사항에 대한 질문이나 우려 사항이 있는 경우 Braze 고객지원 또는 고객 성공 매니저에게 문의하세요.
+예상 수집량에 따른 현재 제한은 대시보드의 **설정** > **API 키** > **API 사용량 대시보드**에서 확인할 수 있습니다. 시스템 안정성을 보호하거나 계정의 데이터 처리량 증가를 허용하기 위해 사용량 제한을 수정할 수 있습니다. 시간당 또는 초당 요청 제한 및 비즈니스 요구 사항에 대한 질문이나 우려 사항이 있는 경우 Braze 고객지원 또는 고객 성공 매니저에게 문의하세요.
 
-### 월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU에 대한 사용량 제한 헤더
+### 월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU에 대한 사용량 제한 헤더 {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 사용량 제한이 적용되지 않은 모든 응답(예: `429`가 아닌 응답)에는 클라이언트에 시간당 사용량 제한 기간의 상태를 나타내는 다음 HTTP 응답 헤더가 포함됩니다. 이 헤더를 사용하여 요청 비율을 관리하세요:
 
-| 헤더 이름             | 설명                                                                                 |
+| 헤더 이름 | 설명 |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | 기간당 허용되는 요청 수                                              |
-| `X-RateLimit-Remaining` | 기간 내에 남아 있는 대략적인 요청 수                                |
-| `X-RateLimit-Reset`     | 현재 기간이 재설정되기까지 남은 시간(초)                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `X-RateLimit-Limit`     | 기간당 허용되는 요청 수 |
+| `X-RateLimit-Remaining` | 기간 내에 남아 있는 대략적인 요청 수 |
+| `X-RateLimit-Reset`     | 현재 기간이 재설정되기까지 남은 시간(초) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 HTTP `429` 오류가 발생하면 `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` 헤더는 반환되지 않습니다. 오류가 발생하면 해당 헤더는 요청을 다시 시작할 수 있는 시간(초)을 나타내는 정수를 반환하는 `X-Ratelimit-Retry-After` 헤더로 대체됩니다.
 

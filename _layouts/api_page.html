@@ -51,11 +51,19 @@ hide_binary_feedback: false
     <div id="api-main">
 
     <div id="api_list" class="flex mx-auto">
-      <div id="content_start"></div>
+      <div id="content_start" tabindex="-1"></div>
       {%- unless hide_breadcrumb -%}
       <div id="breadcrumb">
       </div>
       {%- endunless -%}
+
+      {%- comment -%} Add Copy for LLM button for supported collection pages {%- endcomment -%}
+      {%- assign llm_supported_collections = "user_guide,developer_guide,api,partners,releases" | split: "," -%}
+      {%- if llm_supported_collections contains page.collection -%}
+      <div class="copy-for-llm-page-header">
+        {% include copy_for_llm_button.html %}
+      </div>
+      {%- endif -%}
 
       {% include ai_translation_banner.html %}
       {{content}}

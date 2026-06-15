@@ -1,0 +1,340 @@
+---
+nav_title: SQL-Editor
+article_title: "Cloud-Datenaufnahme: SQL-Editor"
+description: "Erfahren Sie, wie Sie Cloud-Datenaufnahme-Synchronisierungen mit SQL-Anfragen erstellen und validieren."
+page_order: 11
+page_type: reference
+toc_headers: h2
+---
+
+# Cloud-Datenaufnahme: SQL-Editor {#cloud-data-ingestion-sql-editor}
+
+> Auf dieser Seite erfahren Sie, wie Sie den SQL-Editor der Braze Cloud-Datenaufnahme (CDI) verwenden, um Synchronisierungen mit SQL-Anfragen zu erstellen und zu validieren.
+
+Der SQL-Editor der Cloud-Datenaufnahme ermöglicht es Ihnen, Synchronisierungen zu erstellen, indem Sie SQL-Anfragen direkt gegen Ihr Data Warehouse schreiben. Dadurch entfällt die Notwendigkeit, eine dedizierte CDI-Tabelle zu erstellen oder zu pflegen, was zuvor in [Schritt 1.1 der Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) erforderlich war.
+
+Verwenden Sie den SQL-Editor, wenn Sie:
+
+- Daten synchronisieren möchten, ohne vorgelagerte Tabellen zu ändern
+- Mit Rohdaten in Ihrem Warehouse arbeiten möchten
+- Die Erstellung einer `PAYLOAD`-Spalte vermeiden möchten
+- Komplexere Datenanwendungsfälle mit SQL bearbeiten möchten
+
+{% alert important %}
+Der SQL-Editor der Cloud-Datenaufnahme befindet sich in der Beta-Phase. Kontaktieren Sie Ihren Customer-Success-Manager oder Account Manager für den Zugang.
+{% endalert %}
+
+## Voraussetzungen und Einschränkungen {#prerequisites-and-limitations}
+
+Während der Beta-Phase gelten für den SQL-Editor die folgenden Einschränkungen:
+
+- Verfügbar nur für **User Attributes**-Synchronisierungen
+- Unterstützt eine Warehouse-Quelle: **Snowflake**
+
+{% alert note %}
+Braze führt nur lesende Anfragen gegen Ihre Daten aus und ändert Ihre zugrunde liegenden Tabellen nicht. Braze kann während der Anfrageausführung temporäre Objekte erstellen, speichert diese jedoch nicht dauerhaft.
+{% endalert %}
+
+## Eine neue SQL-Editor-Synchronisierung erstellen {#create-a-new-sql-editor-sync}
+
+Befolgen Sie diese Schritte, um eine Synchronisierung mit dem SQL-Editor zu erstellen. Wenn Sie bereits eine Snowflake-Quelle für CDI eingerichtet haben, fahren Sie mit Schritt 3 fort.
+
+### 1. Schritt: Snowflake-Rolle, Berechtigungen, Warehouse und Nutzer:in einrichten {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
+
+Bevor Sie Ihre Snowflake-Quelle in CDI erstellen, stellen Sie sicher, dass die Snowflake-Nutzer:in, die Braze verwendet, Zugriff auf die Daten hat, die Sie abfragen möchten, sowie ein Warehouse zum Ausführen von Anfragen.
+
+#### Schritt 1.1: (Optional) Datenbank und Schema erstellen {#step-11-optional-create-a-database-and-schema}
+
+Falls erforderlich, erstellen Sie eine dedizierte Datenbank und ein Schema für Ihre CDI-Daten:
+
+```sql
+CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
+CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
+```
+
+#### Schritt 1.2: Rolle und Datenbankberechtigungen einrichten {#step-12-set-up-role-and-database-permissions}
+
+Gewähren Sie Zugriff auf die Tabellen, die Sie synchronisieren möchten:
+
+```sql
+CREATE ROLE BRAZE_INGESTION_ROLE;
+
+GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
+GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
+GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.MY_USER_TABLE TO ROLE BRAZE_INGESTION_ROLE;
+```
+
+Sie können auch Zugriff auf mehrere oder zukünftige Tabellen gewähren, je nach Anwendungsfall. Um beispielsweise Zugriff auf alle zukünftigen Tabellen in einem Schema zu gewähren:
+
+```sql
+GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
+```
+
+#### Schritt 1.3: Warehouse einrichten und Zugriff für die Braze-Rolle gewähren {#step-13-set-up-the-warehouse-and-grant-access-to-the-braze-role}
+
+Erstellen Sie ein Warehouse, damit Braze Anfragen ausführen kann:
+
+```sql
+CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
+GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
+```
+
+{% alert note %}
+Das Warehouse muss die automatische Wiederaufnahme aktiviert haben. Falls nicht, gewähren Sie Braze zusätzliche `OPERATE`-Berechtigungen für das Warehouse, damit Braze es einschalten kann, wenn die Anfrage ausgeführt wird.
+{% endalert %}
+
+#### Schritt 1.4: Snowflake-Nutzer:in erstellen {#step-14-create-a-snowflake-user}
+
+Erstellen Sie eine Nutzer:in für Braze und weisen Sie die Rolle zu:
+
+```sql
+CREATE USER BRAZE_INGESTION_USER;
+GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
+```
+
+Sie verwenden diese Nutzer:in, wenn Sie Ihre Snowflake-Quelle in Braze konfigurieren.
+
+### 2. Schritt: Eine neue Quelle im Braze-Dashboard erstellen {#step-2-create-a-new-source-in-the-braze-dashboard}
+
+In diesem Schritt erstellen Sie Ihre Snowflake-Quelle in Braze und validieren die Verbindung.
+
+#### Schritt 2.1: Snowflake-Quelle hinzufügen {#step-21-add-a-snowflake-source}
+
+1. Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Quellen**.
+2. Wählen Sie **Datenquelle hinzufügen**.
+3. Wählen Sie **Snowflake**.
+
+#### Schritt 2.2: Verbindungsdetails eingeben {#step-22-enter-connection-details}
+
+Wählen Sie einen Namen für Ihre Quelle und geben Sie Ihre Snowflake-Zugangsdaten und Konfiguration ein.
+
+{% alert note %}
+Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Account-Bezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein, der typischerweise einem Format wie `xy12345.us-east-1.aws` folgt. Dies ist nicht dasselbe wie ein Datenbankname oder Warehouse-Name.
+{% endalert %}
+
+#### Schritt 2.3: RSA-Schlüssel-Einrichtung abschließen {#step-23-complete-rsa-key-setup}
+
+Nachdem Sie Ihre Zugangsdaten und Konfiguration eingegeben haben, wählen Sie **Save credentials** und generieren Sie einen RSA-Schlüssel. Gehen Sie dann zurück zu Snowflake, um die Einrichtung abzuschließen. Fügen Sie den im Dashboard angezeigten öffentlichen Schlüssel der Nutzer:in hinzu, die Sie für die Verbindung von Braze mit Snowflake erstellt haben.
+
+Weitere Informationen finden Sie unter [Snowflake-Schlüsselpaar-Authentifizierung](https://docs.snowflake.com/en/user-guide/key-pair-auth). Wenn Sie Schlüssel zu einem beliebigen Zeitpunkt rotieren möchten, kann Braze ein neues Schlüsselpaar generieren und den neuen öffentlichen Schlüssel bereitstellen.
+
+```sql
+ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
+```
+
+Wählen Sie in Braze **Test connection**, um den Quellzugriff zu überprüfen, und erstellen Sie dann die Quelle.
+
+### 3. Schritt: Eine neue Synchronisierung erstellen und Ihre SQL-Anfrage schreiben {#step-3-create-a-new-sync-and-write-your-sql-query}
+
+1. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Synchronisierungen**.
+2. Wählen Sie **Create data sync**.
+3. Wählen Sie **User Attributes** unter **Data Type**.
+4. Referenzieren Sie die Snowflake-Quelle aus Schritt 2.
+5. Wählen Sie **SQL** und schreiben Sie eine SQL-Anfrage, die Nutzerdaten aus Ihrem Warehouse zurückgibt. Ihre SQL-Anfrage definiert die Daten, die mit Braze synchronisiert werden. Das Anfrageergebnis wird zum Schema für Ihre Synchronisierung.
+
+![Der Ablauf „Datensynchronisierung erstellen“ mit ausgewähltem SQL und einer Beispielanfrage im SQL-Editor.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
+
+Ihre SQL-Anfrage muss Folgendes zurückgeben:
+
+- Einen Nutzerbezeichner (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` und `ALIAS_LABEL`, `EMAIL` oder `PHONE`)
+- Eine `UPDATED_AT`-Spalte
+- Mindestens eine zusätzliche Spalte (Attribut)
+
+{% alert note %}
+Es werden nur lesende Anfragen unterstützt, einschließlich `JOIN`-Klauseln. Weitere Details finden Sie unter [SQL-Einschränkungen](#sql-constraints).
+{% endalert %}
+
+### 4. Schritt: Anfrage in der Vorschau anzeigen und validieren {#step-4-preview-and-validate-your-query}
+
+Wählen Sie **Preview and validate**, um Ihre Anfrage auszuführen.
+
+Die Vorschau:
+
+- Zeigt Ergebnisse im Tabellenformat an
+- Zeigt bis zu 100 Zeilen an
+- Zeigt bis zu 250 Spalten an
+
+Sie müssen Ihre Anfrage erfolgreich in der Vorschau anzeigen und validieren, bevor Sie fortfahren können. Details zu Fehlern und Korrekturen finden Sie unter [Validierungsverhalten](#validation-behavior) und [Fehlerbehebung](#troubleshooting).
+
+### 5. Schritt: Attribut-Zuordnung überprüfen und Synchronisierung erstellen {#step-5-review-attribute-mapping-and-create-sync}
+
+Nach der Validierung:
+
+- Die Bezeichner-Spalte ordnet Nutzer:innen zu
+- Die `UPDATED_AT`-Spalte steuert die inkrementelle Synchronisierung
+- Braze synchronisiert alle anderen Spalten als Attribute
+
+Wenn die Validierung erfolgreich ist, fahren Sie mit **Next: Notifications** fort und erstellen Sie Ihre Synchronisierung.
+
+{% alert important %}
+Eine ungenaue SQL-Konfiguration kann zu unbeabsichtigten Ergebnissen führen, einschließlich eines übermäßigen Verbrauchs von Datenpunkten und weiterer betrieblicher Risiken. Sie sind dafür verantwortlich, dass Ihre Anfragelogik korrekt ist, und sollten alle Ergebnisse sorgfältig in der Vorschau prüfen, bevor Sie eine Synchronisierung aktivieren.
+{% endalert %}
+
+## SQL-Einschränkungen {#sql-constraints}
+
+Ihre Anfrage muss die folgenden Anforderungen erfüllen.
+
+### Einen Nutzerbezeichner einschließen {#include-a-user-identifier}
+
+Ihre Anfrage muss mindestens einen der folgenden Bezeichner enthalten:
+
+- `EXTERNAL_ID`
+- `BRAZE_ID`
+- `EMAIL`
+- `PHONE`
+- `ALIAS_NAME` und `ALIAS_LABEL`
+
+Wenn kein gültiger Bezeichner erkannt wird, schlägt die Validierung fehl.
+
+{% alert note %}
+Beachten Sie, dass diese Bezeichner die Groß-/Kleinschreibung beachten und in Großbuchstaben geschrieben werden müssen.
+{% endalert %}
+
+### `UPDATED_AT` einschließen {#include-updated_at}
+
+Ihre Anfrage muss eine `UPDATED_AT`-Spalte enthalten.
+
+`UPDATED_AT` beachtet die Groß-/Kleinschreibung und muss in Großbuchstaben geschrieben werden.
+
+Wenn sie fehlt, schlägt die Validierung fehl.
+
+### Mindestens eine Attribut-Spalte einschließen {#include-at-least-one-attribute-column}
+
+Ihre Anfrage muss mindestens eine Spalte zusätzlich zu folgenden enthalten:
+
+- Nutzerbezeichner-Spalte(n)
+- `UPDATED_AT`
+
+Andernfalls schlägt die Validierung fehl.
+
+### Nur `SELECT`-Anfragen verwenden {#use-select-queries-only}
+
+Es werden nur lesende Anfragen unterstützt.
+
+Sie können verwenden:
+
+- `SELECT`
+- `WITH` (CTEs)
+- `JOIN`
+
+Sie können nicht verwenden:
+
+- `INSERT`, `UPDATE` oder `DELETE`
+- `CREATE` oder `DROP`
+- Mehrere Anweisungen, getrennt durch `;`
+
+### Eine einzelne Anweisung verwenden {#use-a-single-statement}
+
+Ihre Anfrage muss eine einzelne ausführbare Anweisung sein.
+
+## Validierungsverhalten {#validation-behavior}
+
+Der SQL-Editor validiert Ihre Anfrage, bevor Sie fortfahren können.
+
+### SQL-Fehler {#sql-errors}
+
+Wenn Ihre Anfrage Syntaxfehler enthält:
+
+- Die Validierung schlägt fehl
+- Es wird keine Vorschau angezeigt
+- Ihr Warehouse gibt eine Fehlermeldung zurück
+
+### Kompilierungsfehler {#compilation-errors}
+
+Wenn Ihre Anfrage auf ungültige Tabellen, Spalten oder nicht autorisierte Objekte verweist:
+
+- Die Validierung schlägt fehl
+- Es wird keine Vorschau angezeigt
+- Ihr Warehouse gibt eine Fehlermeldung zurück
+
+### Verbindungsfehler {#connection-errors}
+
+Wenn Braze keine Verbindung zu Ihrem Warehouse herstellen kann:
+
+- Die Validierung schlägt fehl
+- Es wird keine Vorschau angezeigt
+- Eine Verbindungsfehlermeldung wird angezeigt
+
+### Anfrage-Timeout {#query-timeout}
+
+Wenn Ihre Anfrage zu lange läuft:
+
+- Braze beendet die Anfrage
+- Die Validierung schlägt fehl
+- Ein Timeout-Fehler wird angezeigt
+
+### Fehlende erforderliche Spalten {#missing-required-columns}
+
+Wenn Ihre Anfrage kompiliert wird, kann die Validierung dennoch fehlschlagen, wenn:
+
+- Keine Bezeichner-Spalte gefunden wird
+- `UPDATED_AT` fehlt
+- Keine Attribut-Spalten vorhanden sind
+
+In diesem Fall wird die Vorschau dennoch angezeigt, um Ihnen bei einer erfolgreichen Validierung zu helfen.
+
+### Ergebnisse mit null Zeilen {#zero-row-results}
+
+Wenn Ihre Anfrage null Zeilen zurückgibt:
+
+- Die Validierung ist **erfolgreich**
+- Sie können die Synchronisierung trotzdem erstellen
+- Es werden keine Nutzer:innen aktualisiert, bis Zeilen zurückgegeben werden
+
+## `PAYLOAD`-Unterstützung (Legacy) {#payload-support-legacy}
+
+Der SQL-Editor unterstützt [Legacy-CDI-Tabellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views), in denen eine `PAYLOAD`-Spalte vorhanden ist.
+
+Wenn Ihre Anfrage Folgendes enthält:
+
+- Einen gültigen Bezeichner
+- `UPDATED_AT`
+- Eine `PAYLOAD`-Spalte
+- Zusätzliche Spalten
+
+Dann:
+
+- Braze synchronisiert nur die `PAYLOAD`-Spalte
+- Braze ignoriert zusätzliche Spalten
+
+## Eine SQL-Synchronisierung bearbeiten {#edit-a-sql-sync}
+
+Beim Bearbeiten einer bestehenden Synchronisierung:
+
+- Jede SQL-Änderung erfordert eine erneute Validierung
+- Sie können ungültige Änderungen nicht speichern
+- Gültige Änderungen werden nach dem Speichern wirksam
+
+Wenn bereits eine Synchronisierung läuft, werden Ihre Änderungen beim nächsten Durchlauf wirksam.
+
+## Fehlerbehebung {#troubleshooting}
+
+Dieser Abschnitt enthält häufige Fehler und Hinweise zur Fehlerbehebung.
+
+### „Keine Vorschau verfügbar“ {#no-preview-available}
+
+Wenn „Keine Vorschau verfügbar“ angezeigt wird, kann einer der folgenden zugrunde liegenden Fehlertypen die Ursache sein.
+
+| Fehlertyp | Schritte zur Behebung |
+|---|---|
+| „Keine Vorschau verfügbar“ | Lesen Sie das Fehlerbanner für Hinweise. |
+| „Verbindung zur Quelle nicht möglich“ | Überprüfen Sie den konfigurierten Nutzernamen, den Account Locator und die RSA-Schlüsselpaar-Authentifizierungseinrichtung.<br>Stellen Sie sicher, dass das Warehouse läuft.<br>Bestätigen Sie den Netzwerkzugriff. |
+| „SQL-Syntaxfehler“ | Überprüfen Sie Ihre SQL-Syntax. |
+| „Objekt existiert nicht oder nicht autorisiert“ | Stellen Sie sicher, dass die Rolle `SELECT`-Zugriff auf die Tabelle hat.<br>Bestätigen Sie die Datenbank- und Schemaberechtigungen.<br>Überprüfen Sie Tippfehler im Tabellennamen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="„Keine Vorschau verfügbar“" }
+
+### „Bezeichner-Spalte erforderlich“ {#identity-column-required}
+
+Stellen Sie sicher, dass Ihre Anfrage einen gültigen Bezeichner enthält, wie z. B. `external_id`.
+
+### „`UPDATED_AT`-Spalte fehlt“ {#updated_at-column-is-missing}
+
+Fügen Sie eine Zeitstempel-Spalte für die inkrementelle Synchronisierung hinzu.
+
+### „Keine Attribute zum Synchronisieren“ {#no-attributes-to-sync}
+
+Fügen Sie mindestens eine zusätzliche Spalte neben dem Bezeichner und `UPDATED_AT` hinzu.
+
+### „Anfrageausführung hat das Zeitlimit überschritten“ {#query-execution-timed-out}
+
+Optimieren Sie Ihre Anfrage oder verwenden Sie ein größeres Warehouse.

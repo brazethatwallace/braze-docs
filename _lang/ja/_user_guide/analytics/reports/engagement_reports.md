@@ -1,0 +1,155 @@
+---
+nav_title: エンゲージメントレポート
+article_title: エンゲージメントレポート
+page_order: 5
+local_redirect:
+  report-glossary: '/docs/user_guide/analytics/metrics_glossary'
+page_type: tutorial
+description: "このハウツー記事では、CampaignsおよびCanvasesのエンゲージメントレポートの作成、カスタマイズ、スケジュール設定について説明します。"
+tool:
+  - Campaigns
+  - Canvas
+  - Reports
+---
+
+# エンゲージメントレポート {#engagement-reports}
+
+> エンゲージメントレポートを使用すると、CampaignsやCanvasesの特定のメッセージからエンゲージメント統計を取得し、希望の時間にメールで受け取ることができます。
+
+{% alert note %}
+エンゲージメントレポートを実行するには、「Export User Data」権限が必要です。
+{% endalert %}
+
+エンゲージメントレポートでは、メールレポートに含めるCampaignsやCanvasesを手動で選択するか、ルールを指定して関連するCampaignsやCanvasesを自動的に選択できます。
+
+選択したCampaignsやCanvasesの数に関係なく、最大2つのCSVファイルが生成されます。1つはすべてのCampaignデータ用、もう1つはすべてのCanvasデータ用です。これらのCSVファイルには、レポートメール内に埋め込まれたリンクからアクセスできます。エンゲージメントレポートはBrazeダッシュボードには保存されません。
+
+一部のデータは、個々のCampaignバリアントやキャンバスステップレベルではなく、CampaignまたはCanvasレベルで集計されます。[起動後にキャンバスステップを削除]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#canvas-details)すると、エンゲージメントレポートからもデータが削除されます。
+
+{% alert tip %}
+レポートを再実行して、更新された統計を生成できます。
+{% endalert %}
+
+## 新しいレポートの作成 {#creating-a-new-report}
+
+### ステップ 1: レポートを作成する {#step-1-create-a-report}
+
+ダッシュボードアカウントで、**Analytics** > **Engagement Reports** に移動します。**+ Create New Report** を選択します。
+
+### ステップ 2: メッセージを追加する {#step-2-add-messages}
+
+レポートにまとめたいCampaignsおよびCanvasメッセージを追加します。メッセージの選択方法は2つあります。
+
+- CampaignsとCanvasesを手動で選択する
+- 特定のルールに基づいてCampaignsとCanvasesを自動的に選択する
+
+![エンゲージメントレポートのメッセージ選択画面]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+
+#### CampaignsまたはCanvasesを手動で選択する {#manually-select-campaigns-or-canvases}
+
+このオプションでは、レポートに含めたいCampaignsまたはCanvasesを自由に選択できます。
+
+#### CampaignsまたはCanvasesを自動的に選択する {#automatically-select-campaigns-or-canvases}
+
+このオプションでは、特定の[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を含むすべてのメッセージを自動的に含めることができます。リストされたタグのいずれか1つまたはすべてを持つメッセージをターゲットにできます。このオプションは、定期的なレポートを設定し、エンゲージメントメッセージに定期的にタグを付けている場合に便利です。
+
+{% alert important %}
+レポートを生成するには、タグが少なくとも1つのCampaignまたはCanvasに一致する必要があります。**特定のルールに基づいてCampaignsとCanvasesを自動的に選択**を使用してエラーが表示された場合は、少なくとも1つのCampaignまたはCanvasがタグやその他のフィルターに一致していることを確認してください（例えば、リストされたすべてのタグを必要とする場合、一致するすべてのメッセージがすべてのタグを持っている必要があります）。
+{% endalert %}
+
+### ステップ 3: 統計を追加する {#add-statistics-to-your-reports}
+
+**統計を追加**ステップでは、選択したCampaignsまたはCanvasesの種類に応じた統計が表示されます。例えば、メールメッセージを選択した場合、関連するメール統計のみが表示されます。メールとプッシュの組み合わせを選択した場合、それら2つのチャネルの統計が表示されます。
+
+![エンゲージメントレポートの統計追加画面]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+
+エンゲージメントレポートはCampaignまたはCanvasごとにデータを集計しますが、ワークスペースレベルでは集計しません。すべてのアクティブなCampaignsおよびCanvasesにわたる合計送信数やインプレッション数（ワークスペース全体のチャネルごとの送信数やインプレッション数など）を監視するには、[レポートビルダー]({{site.baseurl}}/report_builder/)を使用してください。
+
+{% alert note %}
+*キャリアへの送信数*は非推奨ですが、すでに使用しているユーザーには引き続きサポートされます。
+{% endalert %}
+
+| チャネル | 利用可能な統計 |
+| ------| --------------|
+| メール | 送信数、開封数、ユニーク開封数、クリック数、ユニーククリック数、クリック開封率、配信停止数、バウンス数、配信数、スパム報告数 |
+| プッシュ | 送信数、開封数、影響を受けた開封数、バウンス数、本文クリック数 |
+| Webプッシュ | 送信数、開封数、バウンス数、本文クリック数 |
+| アプリ内メッセージ | インプレッション数、クリック数、第1ボタンクリック数、第2ボタンクリック数 |
+| Webhook | 送信数、エラー数 |
+| SMS | 送信数、キャリアへの送信数、確認済み配信数、配信失敗数、拒否数 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 3: 統計を追加する #add-statistics-to-your-reports" }
+
+### ステップ 4: レポート設定を完了する {#step-4-complete-report-setup}
+
+レポートに名前を付け、レポートのフォーマットを選択し、受信者を選択します。デフォルトでは、エンゲージメントレポートはZIPファイルとして送信され、データはカンマ区切り（各データがカンマで区切られる）です。
+
+以下の圧縮およびデリミタオプションから選択できます。
+
+- **圧縮:** ZIP、非圧縮、またはgzip
+- **デリミタ:** カンマ（`,`）、コロン（`:`）、セミコロン（`;`）、またはパイプ（`|`）
+
+{% alert note %}
+統計はレポートで指定された日付範囲のみ収集されます。正確な開封率とクリック率の統計を受け取るには、CampaignsおよびCanvasesの送信イベントが実行された時期を含む日付範囲を選択してください。
+{% endalert %}
+
+#### 期間を選択する {#select-time-frame}
+
+デフォルトでは、表示されるデータ範囲は会社のタイムゾーンに基づいており、選択された最も古いメッセージから現在の日付までとなります。日付ドロップダウンを選択してカスタム範囲選択を使用するか、次のラジオボタンを選択して利用可能なドロップダウンオプションで日付範囲を定義することでカスタマイズできます。
+
+#### データ表示を選択する {#select-data-display}
+
+デフォルトでは、エンゲージメントレポートに表示されるデータは日次（1日単位）です。異なる間隔でデータを表示するには、レポートのデータを集計する明示的な日数または週数を選択します。日次指標の代わりに、週次、月次、四半期ごと、または同様の単位でエンゲージメントを表示できます。時間ベースの集計では不十分な場合は、CampaignまたはCanvasレベルでデータをエクスポートすることもできます。
+
+![エンゲージメントレポートのデータカバレッジ画面]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### CampaignまたはCanvas全体でデータを表示する {#show-data-by-entire-campaign-or-canvas}
+
+**Show Data by Entire Campaign or Canvas** を選択すると、Brazeはレポートの期間全体にわたって1,825日（5年）のチャンク単位で指標を集計します。
+
+期間が1つのチャンクを超える場合、同じCampaignまたはCanvasに対して日付列に異なる日付を持つ複数の行が表示されることがあります。一部の行には、期間の後半に記録された指標のみが含まれる場合があります（例えば、配信停止数）。また、日付がワークスペースで送信を開始するよりも数年前になることもあります。これは、エクスポートのチャンク境界を反映しているためであり、最初の送信日のみを反映しているわけではありません。
+
+日付列を選択したCampaignsやCanvasesの実際の送信時期に合わせるには、レポートの[**期間を選択する**](#select-time-frame)で開始日をファイルに含めたい最も早い日付（通常、それらのメッセージが送信を開始した時期）に設定してください。選択された最も古いメッセージまで遡るデフォルトの範囲をそのまま使用しないでください。
+
+#### レポートをスケジュールする {#schedule-your-report}
+
+レポートのスケジュール設定には2つのオプションがあります。
+
+- **すぐに送信:** レポートが起動された後、Brazeはこのレポートをすぐに送信します。
+- **指定した時間に送信:** このオプションでは、レポートを受け取る頻度を柔軟に選択できます。設定した日数、週数、または月数ごとにレポートを送信するよう選択できます。レポートの送信を停止する時期も定義できます。
+
+![エンゲージメントレポートのスケジュール設定画面]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+
+### ステップ 5: 確認して起動する {#step-5-review-and-launch}
+
+レポート設定の最終ステップでは、設定したオプションの読み取り専用の概要が表示されます。レポートを確認し、問題がなければ **Launch Report** を選択します。
+
+### ステップ 6: メールを確認する {#step-6-check-your-email}
+
+選択した時間またはスケジュールに従って、レポートへのリンクが記載されたメールが届きます。**これらのリンクはレポート送信後1時間で期限切れになります。**提供されたリンクを選択すると、CSVファイルを含むZIPファイルが自動的にダウンロードされます（すべてのCampaigns用に1つ）。
+
+レポートには、設定プロセスの[統計を追加](#add-statistics-to-your-reports)セクションで選択したすべての統計が含まれます。
+
+## トラブルシューティング {#troubleshooting}
+
+### エンゲージメントレポートがCanvasまたはCampaignの指標と一致しない {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
+
+#### 期間の不一致 {#mismatched-time-range}
+
+エンゲージメントレポートの日付がCanvasまたはCampaignの分析の日付と一致していることを確認してください（例えば、両方が12月1日〜15日をカバーしている場合）。Canvasが1回しか送信されていない場合でも同様です。エンゲージメントレポートの設定で、**Data Display** を確認して、正しいCanvasまたはCampaignを表示していることを確認してください。**Data Display** が *X* 日ごとにデータを表示するように設定されている場合、各ステップの指標が記録された日付ごとに1行が表示されます。
+
+スプレッドシートで合計が正しくない場合は、エクスポートの追加フィルターをクリアしてください。日次の行を合計して、同じ期間のCanvasまたはCampaignの合計と照合できます。
+
+{% alert note %}
+日次、週次、またはその他の定期的なバケットではなく、CampaignまたはCanvas全体で集計された行を取得したい場合は、**Data Display** を **Show Data by Entire Campaign or Canvas** に設定してください。行数や日付がCSVで正しくない場合は、[CampaignまたはCanvas全体でデータを表示する](#show-data-by-entire-campaign-or-canvas)を参照してください。
+{% endalert %}
+
+#### HTMLアプリ内メッセージでのボタンクリックの重複 {#duplicate-button-clicks-in-html-in-app-messages}
+
+HTMLアプリ内メッセージを使用していて、エンゲージメントレポートで**本文クリック数**が高く見える場合、クリックログが2回発火している可能性があります。例えば、一般的な本文クリックに対して`brazeBridge.logClick()`を呼び出し、同じインタラクションで`brazeBridge.logClick('body click')`（または別のID）も呼び出している場合です。マークアップで`brazeBridge.logClick(`を検索し、コントロールごとに1つのパターンに統一してください。推奨される使用方法については、[ボタントラッキング]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements)を参照してください。
+
+#### メールで送信されたエンゲージメントレポートのリンク切れ {#broken-links-in-emailed-engagement-reports}
+
+スケジュールされたエンゲージメントレポートのメール内のリンクがメールクライアントで正しく開けない場合は、以下の手順をお試しください。
+
+1. レポートをGmailの受信トレイに転送し、Google Chromeでリンクを開きます。
+2. エンゲージメントレポートの設定で、**Report Schedule** が期待どおりに送信されるように設定されていることを確認します（例えば、遅延スケジュールではなく、レポート生成直後に送信されるようにする）。

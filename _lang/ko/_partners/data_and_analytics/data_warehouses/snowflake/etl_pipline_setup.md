@@ -1,22 +1,22 @@
 ---
-nav_title: "ETL Event Pipeline Setup"
-article_title: Snowflake ETL Event Pipeline Setup
+nav_title: "ETL 이벤트 파이프라인 설정"
+article_title: Snowflake ETL 이벤트 파이프라인 설정
 page_order: 2
-description: "This partner page offers an example set up for an Email Clicks query to reference when setting up your own queries."
+description: "이 파트너 페이지에서는 자체 쿼리를 설정할 때 참조할 수 있는 이메일 클릭 수 쿼리의 예시 설정을 제공합니다."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# ETL event pipeline setup
+# ETL 이벤트 파이프라인 설정 {#etl-event-pipeline-setup}
 
-> This partner page offers an example set up for an email clicks query to reference when setting up your own queries.
+> 이 파트너 페이지에서는 자체 쿼리를 설정할 때 참조할 수 있는 이메일 클릭 수 쿼리의 예시 설정을 제공합니다.
 
-You can use this email clicks query to analyze the interactions with specific emails in your Braze campaigns and Canvases.
+이 이메일 클릭 수 쿼리를 사용하여 Braze Campaigns 및 Canvases의 특정 이메일과의 상호작용을 분석할 수 있습니다.
 
-## Set up this query
+## 이 쿼리 설정하기 {#set-up-this-query}
 
-Create a database for `BRAZE`, then create a database if none exists for `BRAZE_CURRENTS;`:
+`BRAZE`용 데이터베이스를 생성한 다음, `BRAZE_CURRENTS;`용 데이터베이스가 없는 경우 생성합니다:
 
 ```sql
 use schema BRAZE_CURRENTS.public;
@@ -32,7 +32,7 @@ alter stage braze_currents.public.braze_data set file_format = braze_currents.pu
 show stages;
 ```
 
-Use the following command to create your table:
+다음 명령을 사용하여 테이블을 생성합니다:
 
 ```sql
 CREATE TABLE
@@ -58,7 +58,7 @@ CREATE TABLE
   );
 ```
 
-Use the following command to create or replace your pipe:
+다음 명령을 사용하여 파이프를 생성하거나 교체합니다:
 
 ```sql
 CREATE OR REPLACE PIPE
@@ -94,18 +94,18 @@ COPY INTO
 show pipes;
 ```
 
-## Do more with this query example
+## 이 쿼리 예시로 더 많은 작업 수행하기 {#do-more-with-this-query-example}
 
-Copy the `notification_channel` from the output of the preceding command and use that when configuring S3 bucket notifications.
+앞의 명령 출력에서 `notification_channel`을 복사하여 S3 버킷 알림을 구성할 때 사용합니다.
 
-Manually sync from S3 to Snowflake for the following pipe name given:
+지정된 다음 파이프 이름에 대해 S3에서 Snowflake로 수동 동기화합니다:
 ```sql
 ALTER PIPE
   pipe_users_messages_email_click
   refresh ;
 ```
 
-Check the pipe status, which will show when the message was forwarded from S3 into Snowflake:
+파이프 상태를 확인합니다. 이를 통해 메시지가 S3에서 Snowflake로 전달된 시점을 확인할 수 있습니다:
 ```sql
 SELECT
   SYSTEM$PIPE_STATUS(
@@ -113,7 +113,7 @@ SELECT
   )
 ```
 
-Finally, show the copy history for the table by selecting `*` from:
+마지막으로, 다음에서 `*`를 선택하여 테이블의 복사 기록을 확인합니다:
 ```sql
 table(braze_currents.information_schema.copy_history(table_name=>'users_messages_email_click', start_time=> dateadd(hours, -1, current_timestamp())));
 ```

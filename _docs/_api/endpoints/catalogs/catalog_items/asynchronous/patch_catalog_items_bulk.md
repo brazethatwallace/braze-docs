@@ -35,14 +35,14 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `catalog_name` | Required | String | Name of the catalog. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request parameters
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `items` | Required | Array | An array that contains item objects. The item objects should contain fields that exist in the catalog. Up to 50 item objects are allowed per request. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -56,9 +56,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -85,7 +86,8 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-The `$add` and `$remove` operators are only applicable to array type fields, and are only supported by PATCH endpoints.
+- The `Location` field uses the `geo` data type, which expects an array formatted as `[longitude, latitude]`.
+- The `$add` and `$remove` operators are only applicable to array type fields, and are only supported by PATCH endpoints.
 {% endalert %}
 
 ## Response
@@ -143,6 +145,6 @@ The following table lists possible returned errors and their associated troubles
 | `request-includes-too-many-items` | Your request has too many items. The item limit per request is 50. |
 | `too-deep-nesting-in-value-object` | Item objects can't have more than 50 levels of nesting. |
 | `unable-to-coerce-value` | Item types can't be converted. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

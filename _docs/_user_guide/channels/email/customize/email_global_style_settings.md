@@ -14,7 +14,7 @@ tool:
 
 > With global style settings, you can personalize the look of your email campaigns and Canvases. You can add and customize a default theme for your drag-and-drop editor. This includes editing your styles for email titles, text, buttons, and more. Using a combination of these settings can help create a consistent look across your email messaging.
 
-To edit your global style settings, go to **Settings** > **Email Preferences** > **Drag-and-Drop Email Preferences**. After editing the styles in the drag-and-drop email editor, select **Save**. To further customize your email campaigns and Canvases, check out how you can incorporate [drag-and-drop editor blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks).
+To edit your global style settings, go to **Settings** > **Email Preferences** > **Drag-and-Drop Email Preferences**. After editing the styles in the drag-and-drop email editor, select **Save**. To further customize your email campaigns and Canvases, check out how you can incorporate [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email).
 
 ![Email Global Style Settings section in the Drag-And-Drop Email Editor Settings tab.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 

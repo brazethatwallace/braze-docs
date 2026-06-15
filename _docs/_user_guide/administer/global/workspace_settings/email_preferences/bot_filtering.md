@@ -81,7 +81,7 @@ Braze will send the fields `is_suspected_bot_click` and `suspected_bot_click_rea
 | Field | Data type | Description |
 | `is_suspected_bot_click` | Boolean | Indicates that this is a suspected bot click. This will send as null values until you turn on the **Remove bots clicks** workspace setting. This approach allows you to programmatically understand when the filtering of suspected bot clicks has started in your workspace so you can accurately compare that against the data in Currents and Snowflake. |
 | `suspected_bot_click_reason` | Array | Indicates the reason why this is a suspected bot click. This will populate with values, such as `user_agent` and `ip_address`, even if the bot filtering workspace setting is disabled. This field can provide insight into the potential impact of turning on this setting by comparing the number of clicks deriving from suspected bot clicks to human interactions. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields in Email Click events for Currents and Snowflake" }
 
 ## Frequently asked questions
 

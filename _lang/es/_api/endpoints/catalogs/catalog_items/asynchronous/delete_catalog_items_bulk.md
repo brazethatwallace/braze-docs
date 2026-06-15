@@ -1,49 +1,49 @@
 ---
 nav_title: "DELETE: Eliminar varios elementos del catálogo"
 article_title: "DELETE: Eliminar varios elementos del catálogo"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Eliminar varios elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Eliminar varios elementos del catálogo de Braze."
 
 ---
 {% api %}
-# Eliminar varios elementos del catálogo
+# Eliminar varios elementos del catálogo {#delete-multiple-catalog-items}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utilice este punto final para eliminar varios elementos de su catálogo.
+> Usa este punto de conexión para eliminar varios elementos de tu catálogo.
 
-Cada solicitud puede admitir hasta 50 elementos. Este punto final es asíncrono.
+Cada solicitud puede admitir hasta 50 elementos. Este punto de conexión es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#647c82e8-8b38-4df2-bde2-b1d8e19fd332 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete_items`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.delete_items`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## Parámetros de la ruta
+## Parámetros de la ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalog_name` | Obligatoria | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `items` | Obligatoria | Matriz | Un array que contiene objetos item. Los objetos de elemento deben contener un `id` que haga referencia a los elementos que Braze debe eliminar. Se permite un máximo de 50 objetos por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | Obligatorio | Matriz | Un array que contiene objetos de elemento. Los objetos de elemento deben contener un `id` que haga referencia a los elementos que Braze debe eliminar. Se permite un máximo de 50 objetos por solicitud. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -58,11 +58,11 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto final: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 
@@ -72,9 +72,9 @@ El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -90,19 +90,19 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `catalog-not-found` | Compruebe que el nombre del catálogo es válido. |
-| `ids-too-large` | Los ID de los artículos no pueden tener más de 250 caracteres. |
+| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
+| `ids-too-large` | Los ID de los elementos no pueden tener más de 250 caracteres. |
 | `ids-not-unique` | Comprueba que los ID de los elementos sean únicos en la solicitud. |
-| `ids-not-strings` | Los ID de artículo deben ser de tipo cadena. |
-| `items-missing-ids` | Algunos artículos no tienen ID de artículo. Compruebe que cada artículo tiene un ID de artículo. |
+| `ids-not-strings` | Los ID de los elementos deben ser de tipo cadena. |
+| `items-missing-ids` | Algunos elementos no tienen ID de elemento. Comprueba que cada elemento tiene un ID de elemento. |
 | `invalid-ids` | Los ID de elementos solo pueden incluir letras, números, guiones y guiones bajos. |
-| `request-includes-too-many-items` | Su solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `request-includes-too-many-items` | Tu solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

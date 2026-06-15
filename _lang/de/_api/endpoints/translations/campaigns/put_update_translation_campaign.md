@@ -1,27 +1,25 @@
 ---
-nav_title: "PUT: Update der Übersetzung in einer Kampagne"
-article_title: "PUT: Übersetzung in einer Kampagne aktualisieren"
-search_tag: Endpunkt
+nav_title: "PUT: Übersetzung in einer Campaign aktualisieren"
+article_title: "PUT: Übersetzung in einer Campaign aktualisieren"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "In diesem Artikel erfahren Sie mehr über die Update-Übersetzung in einem Endpunkt einer Kampagne."
+description: "In diesem Artikel erfahren Sie mehr über den Endpunkt „Übersetzung in einer Campaign aktualisieren“."
 ---
 
 {% api %}
-# Update der Übersetzung in einer Kampagne
+# Übersetzung in einer Campaign aktualisieren {#update-translation-in-a-campaign}
 {% apimethod put %}
-/kampagnen/übersetzungen
+/campaigns/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für eine Kampagne zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [„Locales in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)“.
+> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für eine Campaign zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-Wenn Sie Übersetzungen aktualisieren möchten, nachdem eine Kampagne gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/).
+Wenn Sie Übersetzungen aktualisieren möchten, nachdem eine Campaign gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.translations.update`.
 
@@ -29,25 +27,25 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Pfad-Parameter
+## Pfadparameter {#path-parameters}
 
 Für diesen Endpunkt gibt es keine Pfadparameter.
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Erforderlich | String | Die ID Ihrer Kampagne. |
-| `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariation. |
-| `locale_id`| Erforderlich | String | Die ID (UUID) der Locale. |
+| `campaign_id` | Erforderlich | String | Die ID Ihrer Campaign. |
+| `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
+| `locale_id` | Erforderlich | String | Die ID (UUID) des Locale. |
 | `translation_map` | Erforderlich | Objekt | Objekt, das die neuen Übersetzungen enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```json
 {
@@ -60,11 +58,11 @@ Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die
 }
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
 ```json
 {
@@ -72,9 +70,9 @@ Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {

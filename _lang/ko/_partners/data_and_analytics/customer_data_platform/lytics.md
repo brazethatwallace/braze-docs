@@ -1,7 +1,7 @@
 ---
 nav_title: Lytics
 article_title: Lytics
-description: "This reference article covers the Braze and Lytics integration. Lytics is an enterprise Customer Data platform for marketers, analysts, and technologists. This integration allows brands to sync and map their Lytics data directly to Braze."
+description: "이 참조 문서에서는 Braze와 Lytics 통합에 대해 다룹니다. Lytics는 마케터, 분석가, 기술자를 위한 엔터프라이즈 고객 데이터 플랫폼입니다. 이 통합을 통해 브랜드는 Lytics 데이터를 Braze에 직접 동기화하고 매핑할 수 있습니다."
 alias: /partners/lytics/
 page_type: partner
 search_tag: Partner
@@ -9,73 +9,73 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/) is the customer data platform (CDP) of choice for the next generation of customer-centric businesses. Lytics Decision Engine, Conductor, and Cloud Connect solutions provide marketers and data teams opportunities to perform identity resolution, orchestration, and campaign optimization in real time and in a privacy-compliant manner.
+> [Lytics](https://www.lytics.com/)는 차세대 고객 중심 비즈니스를 위한 고객 데이터 플랫폼(CDP)입니다. Lytics Decision Engine, Conductor, Cloud Connect 솔루션은 마케터와 데이터 팀에게 실시간으로 개인정보 보호를 준수하면서 ID 확인, 오케스트레이션, 캠페인 최적화를 수행할 수 있는 기회를 제공합니다.
 
-_This integration is maintained by Lytics._
+_이 통합은 Lytics에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-The Braze and Lytics integration provides a unified view of your customers to enable powerful personalization and to drive optimized campaigns using the next best action orchestration and decisions.
+Braze와 Lytics 통합은 고객에 대한 통합 뷰를 제공하여 강력한 개인화를 가능하게 하고, 최적의 다음 행동 오케스트레이션과 의사결정을 활용하여 최적화된 캠페인을 추진합니다.
 
-The integration allows brands to:
+이 통합을 통해 브랜드는 다음을 수행할 수 있습니다:
 
-- Export audiences to Braze directly from Lytics
-- Send events from Braze campaigns or Canvases to Lytics in real-time for personalized campaigns and to build rich user profiles
+- Lytics에서 Braze로 직접 오디언스 내보내기
+- Braze Campaigns 또는 Canvases에서 Lytics로 실시간 이벤트를 전송하여 개인화된 캠페인을 구성하고 풍부한 고객 프로필을 구축
 
-## Use cases
+## 활용 사례 {#use-cases}
 
-Connect Braze to Lytics to [import](#importing-data-from-braze-to-lytics) email, SMS, and push activity to enrich Lytics user profiles. Using Braze and Lytics together, you can also [export](#integration) Lytics' cross-channel, behavioral-driven audiences to build highly personalized Braze customer journeys using first-party data.
+Braze를 Lytics에 연결하여 이메일, SMS, 푸시 활동을 [가져와](#importing-data-from-braze-to-lytics) Lytics 고객 프로필을 강화할 수 있습니다. Braze와 Lytics를 함께 사용하면 Lytics의 크로스채널, 행동 기반 오디언스를 [내보내](#integration) 퍼스트파티 데이터를 활용한 고도로 개인화된 Braze 고객 여정을 구축할 수도 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Lytics account | A Lytics account is required to take advantage of this integration. |
-| Lytics account number | A Lytics account number is necessary for configuring the webhook endpoint URL. |
-| Lytics API Token | A Lytics REST API Token with Data Manager permissions. <br><br> This can be created within the Lytics dashboard from **Account Settings Console** > **Access Tokens** > **Create New Token**. |
-| Braze REST API key | A Braze REST API key with `users.track` permission. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze instance | Your [Braze instance]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints). Contact your Braze onboarding manager for this information if you aren't sure. |
+| Lytics 계정 | 이 통합을 활용하려면 Lytics 계정이 필요합니다. |
+| Lytics 계정 번호 | 웹훅 엔드포인트 URL을 구성하려면 Lytics 계정 번호가 필요합니다. |
+| Lytics API 토큰 | Data Manager 권한이 있는 Lytics REST API 토큰입니다. <br><br> Lytics 대시보드에서 **Account Settings Console** > **Access Tokens** > **Create New Token**으로 이동하여 생성할 수 있습니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다. |
+| Braze 인스턴스 | 사용 중인 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)입니다. 확실하지 않은 경우 Braze 온보딩 매니저에게 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Integration
+## 통합 {#integration}
 
-This section describes how to export Lytics data into Braze.
+이 섹션에서는 Lytics 데이터를 Braze로 내보내는 방법을 설명합니다.
 
-### Step 1: Create an authorization
+### 1단계: 승인 생성 {#step-1-create-an-authorization}
 
-In Lytics, navigate to the **Authorization** dashboard within the **Data** console in the navigation bar. Select **Create New Authorization** and search for and select **Braze**.
+Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Authorization** 대시보드로 이동합니다. **Create New Authorization**를 선택하고 **Braze**를 검색하여 선택합니다.
 
-In the **Configure Authorization** prompt that appears, provide a label and a description and input your REST API key and Braze instance. Select **Complete** when finished.
+표시되는 **Configure Authorization** 프롬프트에서 레이블과 설명을 입력하고 REST API 키와 Braze 인스턴스를 입력합니다. 완료되면 **Complete**를 선택합니다.
 
 ![]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
-### 2단계: Create a new job
+### 2단계: 새 작업 생성 {#step-2-create-a-new-job}
 
-In Lytics, navigate to the **Jobs** dashboard within the **Data** console in the navigation bar. Select **Create New Job** and search for and select **Braze**.  In the **Select Job Type** prompt that appears, select **Export Audience**.
+Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Jobs** 대시보드로 이동합니다. **Create New Job**을 선택하고 **Braze**를 검색하여 선택합니다. 표시되는 **Select Job Type** 프롬프트에서 **Export Audience**를 선택합니다.
 
 ![]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
 
-Next, choose an authorization within the **Select Authorization** options.
+다음으로, **Select Authorization** 옵션에서 승인을 선택합니다.
 
 ![]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
 
-### 3단계: Configure the job
+### 3단계: 작업 구성 {#step-3-configure-the-job}
 
-Within the **Configure Job** prompt, provide a label and an optional description. Next, From the **Braze External User ID Field** input, select the field in Lytics that contains the Braze external user ID (`braze_id`). The next step is the most important—select the audiences to export to Braze.
+**Configure Job** 프롬프트에서 레이블과 선택적 설명을 입력합니다. 다음으로, **Braze External User ID Field** 입력란에서 Braze 외부 사용자 ID(`braze_id`)가 포함된 Lytics 필드를 선택합니다. 다음 단계가 가장 중요합니다—Braze로 내보낼 오디언스를 선택합니다.
 
 ![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
 
-Finally, choose the preferable option for the **Existing Users** checkbox. Leaving this box checked will add users who already exist in the selected Lytics audience. If unchecked, users will only be exported to Braze when entering or exiting the audience after the workflow begins.
+마지막으로, **Existing Users** 체크박스에서 원하는 옵션을 선택합니다. 이 체크박스를 선택한 상태로 두면 선택한 Lytics 오디언스에 이미 존재하는 사용자가 추가됩니다. 선택을 해제하면 워크플로가 시작된 후 오디언스에 진입하거나 이탈하는 사용자만 Braze로 내보내집니다.
 
 {% alert note %}
-By checking this box, all existing users in the selected audience will be pushed into Braze. Braze 요금제에 데이터 포인트가 포함된 경우 그에 따라 데이터 포인트 사용량을 모니터링하세요.
+이 체크박스를 선택하면 선택한 오디언스의 모든 기존 사용자가 Braze로 푸시됩니다. Braze 요금제에 데이터 포인트가 포함된 경우 그에 따라 데이터 포인트 사용량을 모니터링하세요.
 {% endalert %}
 
-Click **Complete** when finished to initiate the export and save.
+완료되면 **Complete**를 클릭하여 내보내기를 시작하고 저장합니다.
 
 ![]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
-After the export job is configured, Lytics will send the selected audiences to Braze through the native integration. The following is a sample audience showing the JSON structure of the audience sent to Braze.
+내보내기 작업이 구성되면 Lytics는 네이티브 통합을 통해 선택한 오디언스를 Braze로 전송합니다. 다음은 Braze로 전송되는 오디언스의 JSON 구조를 보여주는 샘플 오디언스입니다.
 
 ```json
 {
@@ -103,47 +103,47 @@ After the export job is configured, Lytics will send the selected audiences to B
 }
 ```
 
-A new user will be created in Braze for any `external_id` included within the audience export that does not yet exist in Braze. 
+오디언스 내보내기에 포함된 `external_id` 중 Braze에 아직 존재하지 않는 항목에 대해 새 사용자가 Braze에 생성됩니다.
 
-## Importing data from Braze to Lytics
+## Braze에서 Lytics로 데이터 가져오기 {#importing-data-from-braze-to-lytics}
 
-You can import audience data from Braze to Lytics using the following methods:
+다음 방법을 사용하여 Braze에서 Lytics로 오디언스 데이터를 가져올 수 있습니다:
 
-- [Using webhooks](#using-webhooks)
-- [From a CSV file](#from-a-csv-file)
+- [웹훅 사용](#using-webhooks)
+- [CSV 파일에서 가져오기](#from-a-csv-file)
 
-### Using webhooks
+### 웹훅 사용 {#using-webhooks}
 
-#### Step 1: Create a Lytics API Token
+#### 1단계: Lytics API 토큰 생성 {#step-1-create-a-lytics-api-token}
 
-Navigate to the Lytics Account Menu in the bottom left corner by selecting your account name, and select **Access Tokens** from the dropdown menu. Next, select **Create API Token**
+왼쪽 하단의 계정 이름을 선택하여 Lytics 계정 메뉴로 이동하고, 드롭다운 메뉴에서 **Access Tokens**를 선택합니다. 다음으로, **Create API Token**을 선택합니다.
 
 ![]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Input a name, an optional description, and a token expiration period. Next, toggle the **Data Manager** scope for API Permissions and click on **Generate Token**. Copy the token and store it in a secure place.
+이름, 선택적 설명, 토큰 만료 기간을 입력합니다. 다음으로, API 권한에서 **Data Manager** 범위를 토글하고 **Generate Token**을 클릭합니다. 토큰을 복사하여 안전한 곳에 보관합니다.
 
 ![]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
-#### 2단계: Configure the Lytics webhook URL
+#### 2단계: Lytics 웹훅 URL 구성 {#step-2-configure-the-lytics-webhook-url}
 
-The Lytics webhook URL is used by Braze to send a message to the Lytics API from Braze. This message can be used to personalize your campaigns in Lytics or can be used to enrich your Lytics Customer Profile. The following two parameters are required to be added within the Lytics webhook URL:
+Lytics 웹훅 URL은 Braze에서 Lytics API로 메시지를 전송하는 데 사용됩니다. 이 메시지는 Lytics에서 캠페인을 개인화하거나 Lytics 고객 프로필을 강화하는 데 사용할 수 있습니다. Lytics 웹훅 URL에 다음 두 가지 매개변수를 추가해야 합니다:
 
-- Lytics Account Number
-- Lytics API token
+- Lytics 계정 번호
+- Lytics API 토큰
 
-Configure your webhook URL as follows:
+웹훅 URL을 다음과 같이 구성합니다:
 
 ```
 https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
 ```
 
-Replace `<ACCOUNT-NUMBER>` with your account number and `<LYTICS-API-TOKEN>` with your Lytics API token.
+`<ACCOUNT-NUMBER>`를 계정 번호로, `<LYTICS-API-TOKEN>`을 Lytics API 토큰으로 교체합니다.
 
-#### Step 3: Create a Webhook on Braze 
+#### 3단계: Braze에서 웹훅 생성 {#step-3-create-a-webhook-on-braze}
 
-In Braze, create a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/). Add the Lytics webhook URL in the **Webhook URL** field.
+Braze에서 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성합니다. **Webhook URL** 필드에 Lytics 웹훅 URL을 추가합니다.
 
-After defining the request type (HTTP `POST` method) and configuring the rest of the webhook details, your webhook is ready for testing and deployment. Here is a sample body of the POST request after configuring the webhook in Braze:
+요청 유형(HTTP `POST` 메서드)을 정의하고 나머지 웹훅 세부 정보를 구성하면 웹훅을 테스트하고 배포할 준비가 됩니다. 다음은 Braze에서 웹훅을 구성한 후의 POST 요청 본문 샘플입니다:
 
 ```json
 {
@@ -158,47 +158,40 @@ After defining the request type (HTTP `POST` method) and configuring the rest of
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
   "email": "john.smith@email.com",
-  "braze_id": "xxxxxx" 
+  "braze_id": "xxxxxx"
 }
 ```
 
-### From a CSV file
+### CSV 파일에서 가져오기 {#from-a-csv-file}
 
-This section describes how to import Braze user data from a segment into Lytics.
+이 섹션에서는 Braze 사용자 데이터를 Segment에서 Lytics로 가져오는 방법을 설명합니다.
 
-#### Step 1: Create an authorization
+#### 1단계: 승인 생성
 
-In Lytics, navigate to the **Authorization** dashboard within the **Data** console in the navigation bar. Select **Create New Authorization** and search for and select **Custom Integrations**.
+Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Authorization** 대시보드로 이동합니다. **Create New Authorization**를 선택하고 **Custom Integrations**를 검색하여 선택합니다.
 
-Select the preferred type of SFTP authorization based on your business and security requirements. The following authorization types are supported for importing files into Lytics via SFTP:
+비즈니스 및 보안 요구 사항에 따라 원하는 SFTP 승인 유형을 선택합니다. SFTP를 통해 Lytics로 파일을 가져오기 위해 지원되는 승인 유형은 다음과 같습니다:
 
 - Client SFTP Server Authorization
 - Client SFTP Server Authorization with PGP Private Key
 - Lytics Managed SFTP Server Authorization
 
-Public key SFTP authorizations are for SFTP export only.
+공개 키 SFTP 승인은 SFTP 내보내기 전용입니다.
 
 ![]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
 
-In the **Configure Authorization** prompt that appears, provide a label and a description and complete the rest of the configuration requirements. Click **Complete** when finished.
+표시되는 **Configure Authorization** 프롬프트에서 레이블과 설명을 입력하고 나머지 구성 요구 사항을 완료합니다. 완료되면 **Complete**를 클릭합니다.
 
-#### Step 2: Export your segment data to CSV
+#### 2단계: Segment 데이터를 CSV로 내보내기 {#step-2-export-your-segment-data-to-csv}
 
-In Braze, navigate to **Audience** > **Segments**. Locate the segment you want to export, then select <i class="fas fa-gear" aria-label="Settings"></i> and then **CSV Export User Data**. You can export up to 500,000 users in a segment. For details, refer to [Exporting segment data to CSV]({{site.baseurl}}/user_guide/data/export_braze_data/segment_data_to_csv/).
+Braze에서 **오디언스** > **Segments**로 이동합니다. 내보내려는 Segment를 찾은 다음 <i class="fas fa-gear" aria-label="설정"></i>을 선택하고 **CSV Export User Data**를 선택합니다. Segment에서 최대 500,000명의 사용자를 내보낼 수 있습니다. 자세한 내용은 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)를 참조하세요.
 
-#### Step 3: Configure a CSV Import Job
+#### 3단계: CSV 가져오기 작업 구성 {#step-3-configure-a-csv-import-job}
 
-In Lytics, navigate to the **Jobs** dashboard within the **Data** console in the navigation bar. Select **Create New Job** and search for and select **Custom Integrations**.
+Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Jobs** 대시보드로 이동합니다. **Create New Job**을 선택하고 **Custom Integrations**를 검색하여 선택합니다.
 
-Next, select the job type. To import Braze CSV files into Lytics, select **Import CSV** as the job type.
+다음으로, 작업 유형을 선택합니다. Braze CSV 파일을 Lytics로 가져오려면 작업 유형으로 **Import CSV**를 선택합니다.
 
 ![]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
 
-Finally, input a label and optional description for the job and configure any other required details. Click **Complete** to initiate and save the job.
-
-
-
-
-
-
-
+마지막으로, 작업의 레이블과 선택적 설명을 입력하고 기타 필요한 세부 정보를 구성합니다. **Complete**를 클릭하여 작업을 시작하고 저장합니다.

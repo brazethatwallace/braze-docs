@@ -1,4 +1,4 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} Additionally, you'll need to [set up silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android).
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
 ## Setting up geofences {#setting-up-geofences}
 
@@ -274,9 +274,3 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% alert important %}
 Geofences can only be requested once per session, either automatically by the SDK or manually with this method.
 {% endalert %}
-
-### Enabling push-to-sync
-
-Note that Braze syncs geofences to devices using background push. In most cases, this will involve no code changes, as this feature requires no further integration on the part of the app.
-
-However, note that if your application is stopped, receiving a background push will launch it in the background and its `Application.onCreate()` method will be called. If you have a custom `Application.onCreate()` implementation, you should defer automatic server calls and any other actions you would not want to be triggered by background push.

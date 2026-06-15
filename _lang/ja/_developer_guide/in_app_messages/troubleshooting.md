@@ -2,15 +2,15 @@
 nav_title: トラブルシューティング
 article_title: Braze SDKのアプリ内メッセージのトラブルシューティング
 page_order: 50
-description: "Braze SDKのアプリ内メッセージのトラブルシューティングにお困りですか？ここから始める"
+description: "Braze SDKのアプリ内メッセージのトラブルシューティングにお困りですか？ここから始めましょう！"
 channel:
   - in-app messages
 
 ---
 
-# トラブルシューティング
+# トラブルシューティング {#troubleshooting}
 
-> Braze SDKのアプリ内メッセージのトラブルシューティングにお困りですか？ここから始める
+> Braze SDKのアプリ内メッセージのトラブルシューティングにお困りですか？ここから始めましょう！
 
 {% sdktabs %}
 {% sdktab web %}

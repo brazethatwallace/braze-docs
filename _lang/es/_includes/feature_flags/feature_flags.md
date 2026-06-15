@@ -1,4 +1,4 @@
-# Conmutadores de características
+# Conmutadores de características {#feature-flags}
 
 > Los conmutadores de características te permiten habilitar o deshabilitar a distancia la funcionalidad para una selección específica o aleatoria de usuarios. Y lo que es más importante, te permiten activar y desactivar una característica en producción sin necesidad de desplegar código adicional ni actualizar la tienda de aplicaciones. Esto te permite desplegar nuevas características con seguridad y confianza.
 
@@ -6,21 +6,21 @@
 Cuando estés listo para crear tus propios conmutadores de características, consulta [Crear conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/create/).
 {% endalert %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Estas son las versiones mínimas del SDK necesarias para empezar a utilizar los conmutadores de características:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
-### Despliegues graduales
+### Despliegues graduales {#gradual-rollouts}
 
 Utiliza los conmutadores de características para habilitar gradualmente características a una muestra de población. Por ejemplo, puedes hacer un lanzamiento suave de una nueva característica primero a tus usuarios VIP. Esta estrategia ayuda a mitigar los riesgos asociados con el envío de nuevas características a todo el mundo a la vez y ayuda a detectar errores con antelación.
 
 ![Imagen en movimiento del control deslizante de tráfico de despliegue pasando de 0% a 100%.]({% image_buster /assets/img/feature_flags/feature-flags-rollout.gif %})
 
-Por ejemplo, supongamos que hemos decidido añadir un nuevo enlace de "Asistencia por chat en vivo" a nuestra aplicación para agilizar el servicio al cliente. Podríamos ofrecer esta característica a todos los clientes a la vez. Sin embargo, un lanzamiento amplio conlleva riesgos, como estos: 
+Por ejemplo, supongamos que hemos decidido añadir un nuevo enlace de "Asistencia por chat en vivo" a nuestra aplicación para agilizar el servicio al cliente. Podríamos ofrecer esta característica a todos los clientes a la vez. Sin embargo, un lanzamiento amplio conlleva riesgos, como estos:
 
 * Nuestro equipo de soporte aún está en formación, y los clientes podrán iniciar tickets de soporte una vez que esté disponible. Esto no nos da margen en caso de que el equipo de soporte necesite más tiempo.
 * No estamos seguros del volumen real de nuevos casos de asistencia que recibiremos, por lo que es posible que no contemos con el personal adecuado.
@@ -37,7 +37,7 @@ Para desplegar gradualmente esta característica, podemos [crear un conmutador d
 
 ![Detalles del conmutador de características de un ejemplo llamado Widget de chat en vivo. El ID es enable_live_chat. La descripción de este conmutador de características indica que el widget de chat en vivo se mostrará en la página de asistencia.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
-En el código de nuestra aplicación, solo mostraremos el botón **Iniciar chat en vivo** cuando el conmutador de características de Braze esté habilitado:
+En el código de nuestra aplicación, solo mostraremos el botón **Start Live Chat** cuando el conmutador de características de Braze esté habilitado:
 
 {% tabs %}
 {% tab JavaScript %}
@@ -118,7 +118,7 @@ let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
 var liveChatEnabled = featureFlag?.enabled ?? false
 
 // Listen for updates from the Braze SDK
-braze.featureFlags.subscribeToUpdates() { _ in  
+braze.featureFlags.subscribeToUpdates() { _ in
   let newValue = braze.featureFlags.featureFlag(id: "enable_live_chat")?.enabled ?? false
   liveChatEnabled = newValue
 }
@@ -130,7 +130,7 @@ liveChatView.isHidden = !liveChatEnabled
 {% endtab %}
 {% endtabs %}
 
-### Controla a distancia las variables de la aplicación
+### Controla a distancia las variables de la aplicación {#remotely-control-app-variables}
 
 Utiliza conmutadores de características para modificar la funcionalidad de tu aplicación en producción. Esto puede ser especialmente importante para las aplicaciones móviles, donde las aprobaciones de las tiendas de aplicaciones impiden que los cambios se apliquen rápidamente a todos los usuarios.
 
@@ -223,7 +223,7 @@ Ahora, el día antes de Acción de Gracias, solo tenemos que cambiar esos valore
 
 Como resultado, la próxima vez que alguien cargue la aplicación, verá las nuevas ofertas de Acción de Gracias.
 
-### Coordinación de mensajes
+### Coordinación de mensajes {#message-coordination}
 
 Utiliza conmutadores de características para sincronizar el despliegue de una característica y la mensajería, y reforzar la colaboración entre los equipos de producto y marketing. Al coordinar los lanzamientos de características y la mensajería a través de conmutadores de características, ambos equipos pueden alinear sus estrategias y crear experiencias de usuario consistentes.
 
@@ -239,7 +239,7 @@ A continuación, en Canvas, crearemos un [paso de conmutador de características
 
 Ahora, los usuarios de este segmento empezarán a ver el nuevo programa de fidelización y, una vez habilitado, se enviarán automáticamente un correo electrónico y un cuestionario para ayudar a nuestros equipos a recabar opiniones.
 
-### Experimentación de características
+### Experimentación de características {#feature-experimentation}
 
 Utiliza los conmutadores de características para experimentar y confirmar tus hipótesis en torno a tu nueva característica. Al dividir el tráfico en dos o más grupos, puedes comparar el impacto de un conmutador de características en todos los grupos y determinar el mejor curso de acción en función de los resultados.
 
@@ -260,7 +260,7 @@ import * as braze from "@braze/web-sdk";
 const featureFlag = braze.getFeatureFlag("enable_checkout_v2");
 braze.logFeatureFlagImpression("enable_checkout_v2");
 if (featureFlag?.enabled) {
-  return <NewCheckoutFlow />  
+  return <NewCheckoutFlow />
 } else {
   return <OldCheckoutFlow />
 }
@@ -316,7 +316,7 @@ Ahora, el 50% de los usuarios verán la experiencia antigua, mientras que el otr
 
 Una vez determinado el ganador, podemos detener esta campaña y aumentar el porcentaje de despliegue del conmutador de características al 100% para todos los usuarios, mientras nuestro equipo de ingeniería lo codifica en la próxima versión de la aplicación.
 
-### Segmentación
+### Segmentación {#segmentation}
 
 Utiliza el filtro **Conmutador de características** para crear un segmento o dirigir la mensajería a los usuarios en función de si tienen habilitado un conmutador de características. Por ejemplo, supongamos que tenemos un conmutador de características que controla el contenido premium en nuestra aplicación. Podríamos crear un segmento que filtre a los usuarios que no tienen habilitado el conmutador de características, y luego enviar a ese segmento un mensaje instándoles a actualizar su cuenta para ver contenido premium.
 
@@ -328,7 +328,7 @@ Para más información sobre cómo filtrar por segmentos, consulta [Crear un seg
 Para evitar segmentos recursivos, no es posible crear un segmento que haga referencia a otros conmutadores de características.
 {% endalert %}
 
-## Limitaciones del plan
+## Limitaciones del plan {#plan-limitations}
 
 Estas son las limitaciones de los conmutadores de características para los planes gratuitos y de pago.
 
@@ -337,7 +337,7 @@ Estas son las limitaciones de los conmutadores de características para los plan
 | [Conmutadores de características activos](#active-feature-flags)                                                                     | 10 por espacio de trabajo | 110 por espacio de trabajo |
 | [Experimentos activos de campaña]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | 1 por espacio de trabajo  | 100 por espacio de trabajo |
 | [Pasos en Canvas de conmutador de características]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Sin límites        | Sin límites         |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
 
 Se considera que un conmutador de características está activo y contará para tu límite si se da alguna de las siguientes circunstancias:
 

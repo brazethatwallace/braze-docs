@@ -5,40 +5,42 @@ page_order: 0
 noindex: true
 ---
 
-# Ejemplo de diseño: Glosario
+# Ejemplo de diseño: Glosario {#example-layout-glossary}
 
-> El diseño del glosario está en YAML. Requiere varios componentes y parámetros. Los diseños de glosario son buenos para contenido localizado que se puede buscar, como diccionarios y categorías específicas de contenidos.
+> El diseño del glosario está en YAML. Requiere varios componentes y parámetros. Los diseños de glosario son buenos para contenido localizado que se puede buscar, como diccionarios y categorías específicas de contenido.
 
-## Componentes necesarios
+## Componentes necesarios {#required-components}
 
-1. Notación YAML de apertura y cierre. En otras palabras, `---` antes del contenido, y `---` después. 
+1. Notación YAML de apertura y cierre. En otras palabras, `---` antes del contenido, y `---` después.
 2. Comillas alrededor del contenido de ciertos parámetros. (Parámetros de encabezado, parámetros de texto, contenido con guiones u otros caracteres especiales).
-3. Notación de glosario de etiquetas (son etiquetas para filtrar)
+3. Notación de etiquetas de glosario (son etiquetas de filtro)
 
-## Parámetros requeridos
+## Parámetros obligatorios {#required-parameters}
 
-|Parámetro | Tipo de contenido | Detalles |
+| Parámetro | Tipo de contenido | Detalles |
 |---|---|---|
-|`page_order`| numérico | Ordena la página dentro de la sección. Este orden se reflejará en la navegación de la izquierda. |
-| `nav-title`| Alfanumérico | Título que aparecerá en la navegación de la izquierda. |
-|`layout`| Alfanumérico - Sin espacios | Selecciona un diseño en la [sección de diseño](https://github.com/Appboy/braze-docs/tree/develop/_layouts) de la documentación. | 
-|`glossary_top_header` | Alfanumérico | Requiere comillas dobles. El título aparece en la parte superior de la página. |
-|`glossary_top_text`| Cadena, alfanumérico | Describe tu página de glosario. Aparecerá encima de la barra de búsqueda y de los filtros (si decides tenerlos). Esto está escrito esencialmente en HTML, por lo que puedes utilizar \`\`\`.<br> para crear saltos de línea. | 
-|`glossary_tag_name` | Una palabra, alfanumérico | Pon nombre a tus filtros. Aparecerán en casillas de verificación debajo de la barra de búsqueda, así como en los datos de abajo. | 
-|`glossary_filter_text`| Cadena, alfanumérico | Describe tus filtros. Suele utilizarse para instrucción. | 
-|`glossary_tags`| Más contenido adicional YAML. | Formato como se muestra a continuación: <br> glossary_tags: <br>  \- nombre: Tarjetas de contenido <br>  \- nombre: Correo electrónico | 
-| `glossaries`| Más contenido adicional YAML. | Ver [Parámetros de glosarios](#glossaries-parameters) más abajo. |
+| `page_order` | Numérico | Ordena la página dentro de la sección. Este orden se reflejará en la navegación de la izquierda. |
+| `nav-title` | Alfanumérico | Título que aparecerá en la navegación de la izquierda. |
+| `layout` | Alfanumérico - Sin espacios | Selecciona un diseño en la [sección de diseño](https://github.com/Appboy/braze-docs/tree/develop/_layouts) de la documentación. |
+| `glossary_top_header` | Alfanumérico | Requiere comillas dobles. El título aparece en la parte superior de la página. |
+| `glossary_top_text` | Cadena, alfanumérico | Describe tu página de glosario. Aparecerá encima de la barra de búsqueda y de los filtros (si decides tenerlos). Esto está escrito esencialmente en HTML, por lo que puedes utilizar ```<br> para crear saltos de línea. |
+| `glossary_tag_name` | Una palabra, alfanumérico | Pon nombre a tus filtros. Aparecerán en casillas de verificación debajo de la barra de búsqueda, así como en los datos de abajo. |
+| `glossary_filter_text` | Cadena, alfanumérico | Describe tus filtros. Suele utilizarse para dar instrucciones. |
+| `glossary_tags` | Más contenido adicional YAML. | Formato como se muestra a continuación: <br> glossary_tags: <br>  - name: Content Cards <br>  - name: Email |
+| `glossaries` | Más contenido adicional YAML. | Consulta [Parámetros de glosarios](#glossaries-parameters) más abajo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
 
-### Parámetros de glosarios
+### Parámetros de glosarios {#glossaries-parameters}
 
-|Parámetro | Tipo de contenido | Detalles |
+| Parámetro | Tipo de contenido | Detalles |
 |---|---|---|
-|`name`| Alfanumérico | Nombra tu elemento del glosario.| 
-|`description`| Cadena, alfanumérico | Describe tu elemento del glosario. | 
-|`calculation`| Cadena | (opcional) Describe cómo se calcula tu elemento del glosario (normalmente se utiliza cuando se describen datos o métricas. | 
-|`tags`| Alfanumérico | Debe coincidir con lo que figura como `name` en `glossary_tags`. Enumera todos los que correspondan. Si escribes `All`, el elemento se incluirá en todos los filtros.|
+| `name` | Alfanumérico | Nombra tu elemento del glosario. |
+| `description` | Cadena, alfanumérico | Describe tu elemento del glosario. |
+| `calculation` | Cadena | (opcional) Describe cómo se calcula tu elemento del glosario (normalmente se utiliza cuando se describen datos o métricas). |
+| `tags` | Alfanumérico | Debe coincidir con lo que figura como `name` en `glossary_tags`. Enumera todos los que correspondan. Si escribes `All`, el elemento se incluirá en todos los filtros. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Glossaries Parameters" }
 
-## Ejemplo
+## Ejemplo {#example}
 
 ```
 ---

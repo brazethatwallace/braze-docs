@@ -1,28 +1,28 @@
-## Intégration du SDK Cordova
+## Intégration du SDK Cordova {#integrating-the-cordova-sdk}
 
-### Conditions préalables
+### Conditions préalables {#prerequisites}
 
-Avant de commencer, veuillez vérifier que votre environnement est pris en charge par la [dernière version du SDK Braze Cordova](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements).
+Avant de commencer, vérifiez que votre environnement est pris en charge par la [dernière version du SDK Braze Cordova](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements).
 
-### Étape 1 : Ajoutez le SDK à votre projet
+### Étape 1 : Ajoutez le SDK à votre projet {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
-Veuillez ajouter le SDK Braze Cordova uniquement en utilisant les méthodes ci-dessous. Veuillez ne pas tenter d'effectuer l'installation par d'autres moyens, car cela pourrait entraîner une faille de sécurité.
+Ajoutez le SDK Braze Cordova uniquement en utilisant les méthodes ci-dessous. N'essayez pas d'effectuer l'installation par d'autres moyens, car cela pourrait entraîner une faille de sécurité.
 {% endalert %}
 
-Si vous utilisez Cordova 6 ou une version ultérieure, vous pouvez ajouter le SDK directement depuis GitHub. Vous pouvez également télécharger un ZIP du [référentiel GitHub](https://github.com/braze-inc/braze-cordova-sdk) et ajouter le SDK manuellement.
+Si vous utilisez Cordova 6 ou une version ultérieure, vous pouvez ajouter le SDK directement depuis GitHub. Vous pouvez également télécharger un ZIP du [dépôt GitHub](https://github.com/braze-inc/braze-cordova-sdk) et ajouter le SDK manuellement.
 
 {% tabs local %}
-{% tab geofence disabled %}
-Si vous ne prévoyez pas d'utiliser la collecte des localisations et les géorepérages, utilisez la branche `master` de GitHub.
+{% tab géorepérage désactivé %}
+Si vous ne prévoyez pas d'utiliser la collecte de localisation et les géorepérages, utilisez la branche `master` de GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 ```
 {% endtab %}
 
-{% tab geofence enabled %}
-Si vous prévoyez d'utiliser la collecte des localisations et les géorepérages, utilisez la `geofence-branch` de GitHub.
+{% tab géorepérage activé %}
+Si vous prévoyez d'utiliser la collecte de localisation et les géorepérages, utilisez la `geofence-branch` de GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
@@ -31,10 +31,10 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtabs %}
 
 {% alert tip %}
-Vous pouvez passer de`master`  à`geofence-branch`  à tout moment en répétant cette étape.
+Vous pouvez passer de `master` à `geofence-branch` à tout moment en répétant cette étape.
 {% endalert %}
 
-### Étape 2 : Configurez votre projet
+### Étape 2 : Configurez votre projet {#step-2-configure-your-project}
 
 Ensuite, ajoutez les préférences suivantes à l'élément `platform` dans le fichier `config.xml` de votre projet.
 
@@ -54,13 +54,13 @@ Ensuite, ajoutez les préférences suivantes à l'élément `platform` dans le f
 {% endtab %}
 {% endtabs %}
 
-Remplacez les éléments suivants :
+Remplacez les éléments suivants :
 
-| Valeur                 | Description                                                                                                                      |
+| Valeur                | Description                                                                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `BRAZE_API_KEY`       | Votre [clé API REST de Braze]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys).              |
-| `CUSTOM_API_ENDPOINT` | Un endpoint d'API personnalisé. Cet endpoint est utilisé pour acheminer les données de votre instance Braze vers le groupe d'applications adéquat dans votre tableau de bord Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `CUSTOM_API_ENDPOINT` | Un endpoint d'API personnalisé. Cet endpoint est utilisé pour acheminer les données de votre instance Braze vers le groupe d'applications adéquat dans votre tableau de bord de Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurez votre projet" }
 
 L'élément `platform` de votre fichier `config.xml` devrait ressembler à ce qui suit :
 
@@ -84,15 +84,15 @@ L'élément `platform` de votre fichier `config.xml` devrait ressembler à ce qu
 {% endtab %}
 {% endtabs %}
 
-## Syntaxe spécifique à la plateforme
+## Syntaxe spécifique à la plateforme {#platform-specific-syntax}
 
-La section suivante traite de la syntaxe spécifique à la plateforme lors de l'utilisation de cordova avec iOS ou Android.
+La section suivante traite de la syntaxe spécifique à la plateforme lors de l'utilisation de Cordova avec iOS ou Android.
 
-### Entiers
+### Entiers {#integers}
 
 {% tabs %}
 {% tab ios %}
-Les préférences entières sont lues comme des représentations de chaînes, comme dans l'exemple suivant :
+Les préférences entières sont lues comme des représentations de chaînes de caractères, comme dans l'exemple suivant :
 
 ```xml
 <platform name="ios">
@@ -103,7 +103,7 @@ Les préférences entières sont lues comme des représentations de chaînes, co
 {% endtab %}
 
 {% tab android %}
-En raison de la manière dont le framework Cordova 8.0.0+ gère les préférences, les préférences de nombres entiers uniquement (comme les identifiants d'expéditeur) doivent être définies sur des chaînes de caractères précédées de `str_`, comme dans l'exemple suivant :
+En raison de la manière dont le framework Cordova 8.0.0+ gère les préférences, les préférences de nombres entiers uniquement (comme les identifiants d'expéditeur) doivent être définies sur des chaînes de caractères précédées de `str_`, comme dans l'exemple suivant :
 
 ```xml
 <platform name="android">
@@ -114,11 +114,11 @@ En raison de la manière dont le framework Cordova 8.0.0+ gère les préférence
 {% endtab %}
 {% endtabs %}
 
-### Booléens
+### Booléens {#booleans}
 
 {% tabs %}
 {% tab ios %}
-Les préférences booléennes sont lues par le SDK en utilisant les mots-clés `YES` et `NO` comme une représentation sous forme de chaîne de caractères, comme dans l'exemple suivant :
+Les préférences booléennes sont lues par le SDK en utilisant les mots-clés `YES` et `NO` comme représentation sous forme de chaîne de caractères, comme dans l'exemple suivant :
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ Les préférences booléennes sont lues par le SDK en utilisant les mots-clés `
 {% endtab %}
 
 {% tab android %}
-Les préférences booléennes sont lues par le SDK en utilisant les mots-clés `true` et `false` comme une représentation sous forme de chaîne de caractères, comme dans l'exemple suivant :
+Les préférences booléennes sont lues par le SDK en utilisant les mots-clés `true` et `false` comme représentation sous forme de chaîne de caractères, comme dans l'exemple suivant :
 
 ```xml
 <platform name="android">
@@ -146,72 +146,72 @@ Vous pouvez ajouter l'une des préférences suivantes à l'élément `platform` 
 
 {% tabs %}
 {% tab ios %}
-| Méthode | Description |
+| Méthode                                           | Description                                                                                                                                                                                                                                           |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-\|`ios_api_key`                                      | Définit la clé API pour votre application.                                                                                                                                                                                                                |
-\|`ios_api_endpoint`                                 | Définit l'[endpoint]({{site.baseurl}}/api/basics/#endpoints) [SDK]({{site.baseurl}}/api/basics/#endpoints) pour votre application.                                                                                                                                         |
-\|`ios_disable_automatic_push_registration`          | Détermine si l'enregistrement automatique par push doit être désactivé.                                                                                                                                                                                          |
-\|`ios_disable_automatic_push_handling` Détermine si la gestion automatique des notifications push doit être désactivée. |
-\|`ios_enable_idfa_automatic_collection` Détermine si le SDK Braze doit collecter automatiquement les informations IDFA. Pour plus d'informations, veuillez consulter [la documentation relative à la méthode Braze IDFA](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
-|                      `enable_location_collection` | Détermine si la collecte automatique de l'emplacement est activée (si l'utilisateur l'autorise). Le                                                                                                `geofence-branch`                                                 |
-| Détermine si les `geofences_enabled`géorepérages sont activés. |
-\|`ios_session_timeout`                              | Définit le délai d'expiration de la session Braze pour votre application en secondes. La valeur par défaut est de 10 secondes. |
-|                      `sdk_authentication_enabled` | Détermine si la fonctionnalité [d'authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) doit être activée.                                                                                              |
-\|`display_foreground_push_notifications` Détermine si les notifications push doivent s'afficher lorsque l'application est au premier plan. |
-\|`ios_disable_un_authorization_option_provisional`  | Détermine si`UNAuthorizationOptionProvisional`  doit être désactivé.                                                                                                                                                                                   |
-|    `trigger_action_minimum_time_interval_seconds` | Définit l'intervalle de temps minimum en secondes entre les déclencheurs. La valeur par défaut est de 30 secondes. |
-\|`ios_push_app_group`                               | Définit l'ID du groupe d'applications pour les extensions push iOS.                                                                                                                                                                                                        |
-\|`ios_forward_universal_links`                      | Détermine si le SDK reconnaît et transfère automatiquement les liens universels vers les méthodes système. Nécessaire pour que les liens profonds à partir des notifications push fonctionnent sur iOS. Désactivé par défaut.
-\|`ios_log_level`                                    | Définit le niveau de journalisation minimum pour `Braze.Configuration.Logger`.                                                                                                                                                              |
-\|`ios_use_uuid_as_device_id`                        | Détermine si un UUID généré aléatoirement doit être utilisé comme ID de l'appareil.                                                                                                                                                                                    |
-|                      `ios_flush_interval_seconds` | Définit l'intervalle en secondes entre les vidages automatiques des données. La valeur par défaut est de 10 secondes. |
-|                `ios_use_automatic_request_policy` | Détermine si la politique de demande pour`Braze.Configuration.Api`  doit être automatique ou manuelle.                                                                                                                                                          |
-\|`should_opt_in_when_push_authorized` Détermine si l'état d'abonnement aux notifications push d'un utilisateur doit être automatiquement défini sur`optedIn`lorsque les autorisations push sont accordées. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `ios_api_key`                                     | Définit la clé API pour votre application.                                                                                                                                                                                                            |
+| `ios_api_endpoint`                                | Définit l'[endpoint SDK]({{site.baseurl}}/api/basics/#endpoints) pour votre application.                                                                                                                                                              |
+| `ios_disable_automatic_push_registration`         | Détermine si l'enregistrement automatique des notifications push doit être désactivé.                                                                                                                                                                 |
+| `ios_disable_automatic_push_handling`             | Détermine si la gestion automatique des notifications push doit être désactivée.                                                                                                                                                                      |
+| `ios_enable_idfa_automatic_collection`            | Détermine si le SDK Braze doit collecter automatiquement les informations IDFA. Pour plus d'informations, consultez [la documentation relative à la méthode Braze IDFA](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/). |
+| `enable_location_collection`                      | Détermine si la collecte automatique de la localisation est activée (si l'utilisateur l'autorise). La `geofence-branch`                                                                                                                              |
+| `geofences_enabled`                               | Détermine si les géorepérages sont activés.                                                                                                                                                                                                           |
+| `ios_session_timeout`                             | Définit le délai d'expiration de la session Braze pour votre application en secondes. La valeur par défaut est de 10 secondes.                                                                                                                        |
+| `sdk_authentication_enabled`                      | Détermine si la fonctionnalité d'[authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) doit être activée.                                                                                      |
+| `display_foreground_push_notifications`           | Détermine si les notifications push doivent s'afficher lorsque l'application est au premier plan.                                                                                                                                                     |
+| `ios_disable_un_authorization_option_provisional` | Détermine si `UNAuthorizationOptionProvisional` doit être désactivé.                                                                                                                                                                                  |
+| `trigger_action_minimum_time_interval_seconds`    | Définit l'intervalle de temps minimum en secondes entre les déclencheurs. La valeur par défaut est de 30 secondes.                                                                                                                                    |
+| `ios_push_app_group`                              | Définit l'ID du groupe d'applications pour les extensions push iOS.                                                                                                                                                                                   |
+| `ios_forward_universal_links`                     | Détermine si le SDK reconnaît et transfère automatiquement les liens universels vers les méthodes système. Nécessaire pour que les liens profonds à partir des notifications push fonctionnent sur iOS. Désactivé par défaut.                          |
+| `ios_log_level`                                   | Définit le niveau de journalisation minimum pour `Braze.Configuration.Logger`.                                                                                                                                                                        |
+| `ios_use_uuid_as_device_id`                       | Détermine si un UUID généré aléatoirement doit être utilisé comme identifiant de l'appareil.                                                                                                                                                          |
+| `ios_flush_interval_seconds`                      | Définit l'intervalle en secondes entre les vidages automatiques des données. La valeur par défaut est de 10 secondes.                                                                                                                                 |
+| `ios_use_automatic_request_policy`                | Détermine si la politique de requête pour `Braze.Configuration.Api` doit être automatique ou manuelle.                                                                                                                                                |
+| `should_opt_in_when_push_authorized`              | Détermine si l'état d'abonnement aux notifications d'un utilisateur doit être automatiquement défini sur `optedIn` lorsque les autorisations push sont accordées.                                                                                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurations optionnelles #optional" }
 
 {% alert tip %}
-Pour plus d'informations détaillées, voir [GitHub : Plug-in Cordova iOS Braze](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m).
+Pour plus d'informations, consultez [GitHub : plug-in Cordova iOS Braze](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m).
 {% endalert %}
 {% endtab %}
 
 {% tab android %}
-| Méthode | Description |
+| Méthode                                                           | Description                                                                                                                                                                                   |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                `android_api_key`  | Définit la clé API pour votre application.                                                                                                                                |
-\|`android_api_endpoint`                                             | Définit l'[endpoint]({{site.baseurl}}/api/basics/#endpoints) [SDK]({{site.baseurl}}/api/basics/#endpoints) pour votre application.                                                                                                         |
-\|`android_small_notification_icon`                                  | Définit la petite icône de notification.                                                                                                                                     |
-\|`android_large_notification_icon`                                  | Définit la grande icône de notification.                                                                                                                                     |
-\|`android_notification_accent_color`                                | Définit la couleur d'accentuation des notifications à l'aide d'une représentation hexadécimale.                                                                                                                        |
-\|`android_default_session_timeout`                                  | Définit le délai d'expiration de la session Braze pour votre application en secondes. La valeur par défaut est de 10 secondes. |
-|                    `android_handle_push_deep_links_automatically` | Détermine si le SDK Braze gère automatiquement les liens profonds push. Nécessaire pour que les liens profonds à partir des notifications push fonctionnent sur Android. Désactivé par défaut. |
-|                                                `android_log_level`| Définit le niveau de journalisation pour votre application. Le niveau de journalisation par défaut est de 4 et va enregistrer le minimum d’informations. Pour activer la journalisation détaillée à des fins de débogage, veuillez utiliser le niveau de journalisation 2.
-\|`firebase_cloud_messaging_registration_enabled` Détermine s'il convient d'utiliser Firebase Cloud Messaging pour les notifications push. |
-\|`android_fcm_sender_id`                                            | Définit l'ID de l'expéditeur Firebase Cloud Messaging.                                                                                                                                                  |
-\|`enable_location_collection`                                       | Détermine si la collecte automatique de l'emplacement est activée (si l'utilisateur l'autorise).                                                                                                              |
-\|`geofences_enabled` Détermine si les géorepérages sont activés. |
-\|`android_disable_auto_session_tracking`                            | Désactivez le plugin Android cordova afin qu'il ne suive pas automatiquement les sessions. Pour plus d'informations, veuillez consulter la section [Désactivation du suivi automatique des sessions](#cordova_disable-automatic-session-tracking).
-\|`sdk_authentication_enabled`                                       | Détermine si la fonctionnalité [d'authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) doit être activée.                                      |
-|                    `trigger_action_minimum_time_interval_seconds` | Définit l'intervalle de temps minimum en secondes entre les déclencheurs. La valeur par défaut est de 30 secondes. |
-\|`is_session_start_based_timeout_enabled`                           | Détermine si le comportement de délai d'expiration de session doit être basé sur les événements de début ou de fin de session.                                                                                          |
-\|`default_notification_channel_name`                                | Définit le nom affiché à l'utilisateur tel qu'il apparaît via`NotificationChannel.getName`  pour la valeur par défaut de `NotificationChannel`Braze.                                                                              |
-|                        `default_notification_channel_description` | Définit la description visible par l'utilisateur via`NotificationChannel.getDescription`  pour la valeur par défaut de `NotificationChannel`Braze.                                                                |
-\|`does_push_story_dismiss_on_click` Détermine si le contenu push est automatiquement supprimé lorsqu'on clique dessus. |
-|                  `is_fallback_firebase_messaging_service_enabled` | Détermine si l'utilisation d'un service de Cloud Messaging de secours est activée.                                                                                                               |
-\|`fallback_firebase_messaging_service_classpath` Définit le chemin d'accès aux classes pour le service d'envoi de messages cloud Firebase de secours. |
-| Détermine si la barre d'indication visuelle «`is_content_cards_unread_visual_indicator_enabled` Non lu » des cartes de contenu est activée. |
-\|`is_firebase_messaging_service_on_new_token_registration_enabled`  | Détermine si le SDK Braze enregistrera automatiquement les jetons dans `com.google.firebase.messaging.FirebaseMessagingService.onNewToken`.                                                         |
-\|`is_push_deep_link_back_stack_activity_enabled` Détermine si Braze ajoutera une activité à la pile arrière lors du suivi automatique des liens profonds pour les notifications push. |
-\|`push_deep_link_back_stack_activity_class_name`                    | Définit l'activité que Braze ajoutera à la pile arrière lors du suivi automatique des liens profonds pour les notifications push.                                                                                     |
-\|`should_opt_in_when_push_authorized`                               | Détermine si Braze doit automatiquement proposer l'abonnement à l'utilisateur lorsque la notification push est autorisée.                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `android_api_key`                                                 | Définit la clé API pour votre application.                                                                                                                                                    |
+| `android_api_endpoint`                                            | Définit l'[endpoint SDK]({{site.baseurl}}/api/basics/#endpoints) pour votre application.                                                                                                      |
+| `android_small_notification_icon`                                 | Définit la petite icône de notification.                                                                                                                                                      |
+| `android_large_notification_icon`                                 | Définit la grande icône de notification.                                                                                                                                                      |
+| `android_notification_accent_color`                               | Définit la couleur d'accentuation des notifications à l'aide d'une représentation hexadécimale.                                                                                               |
+| `android_default_session_timeout`                                 | Définit le délai d'expiration de la session Braze pour votre application en secondes. La valeur par défaut est de 10 secondes.                                                                |
+| `android_handle_push_deep_links_automatically`                    | Détermine si le SDK Braze gère automatiquement les liens profonds push. Nécessaire pour que les liens profonds à partir des notifications push fonctionnent sur Android. Désactivé par défaut. |
+| `android_log_level`                                               | Définit le niveau de journalisation pour votre application. Le niveau par défaut est 4 et enregistre un minimum d'informations. Pour activer la journalisation détaillée à des fins de débogage, utilisez le niveau 2. |
+| `firebase_cloud_messaging_registration_enabled`                   | Détermine s'il convient d'utiliser Firebase Cloud Messaging pour les notifications push.                                                                                                      |
+| `android_fcm_sender_id`                                           | Définit l'ID de l'expéditeur Firebase Cloud Messaging.                                                                                                                                        |
+| `enable_location_collection`                                      | Détermine si la collecte automatique de la localisation est activée (si l'utilisateur l'autorise).                                                                                            |
+| `geofences_enabled`                                               | Détermine si les géorepérages sont activés.                                                                                                                                                   |
+| `android_disable_auto_session_tracking`                           | Désactive le suivi automatique des sessions par le plug-in Android Cordova. Pour plus d'informations, consultez [Désactivation du suivi automatique des sessions](#cordova_disable-automatic-session-tracking). |
+| `sdk_authentication_enabled`                                      | Détermine si la fonctionnalité d'[authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) doit être activée.                              |
+| `trigger_action_minimum_time_interval_seconds`                    | Définit l'intervalle de temps minimum en secondes entre les déclencheurs. La valeur par défaut est de 30 secondes.                                                                            |
+| `is_session_start_based_timeout_enabled`                          | Détermine si le comportement de délai d'expiration de session doit être basé sur les événements de début ou de fin de session.                                                                |
+| `default_notification_channel_name`                               | Définit le nom visible par l'utilisateur via `NotificationChannel.getName` pour le `NotificationChannel` par défaut de Braze.                                                                 |
+| `default_notification_channel_description`                        | Définit la description visible par l'utilisateur via `NotificationChannel.getDescription` pour le `NotificationChannel` par défaut de Braze.                                                  |
+| `does_push_story_dismiss_on_click`                                | Détermine si une Push Story est automatiquement fermée lorsqu'on clique dessus.                                                                                                               |
+| `is_fallback_firebase_messaging_service_enabled`                  | Détermine si l'utilisation d'un service Firebase Cloud Messaging de secours est activée.                                                                                                      |
+| `fallback_firebase_messaging_service_classpath`                   | Définit le chemin d'accès aux classes pour le service Firebase Cloud Messaging de secours.                                                                                                    |
+| `is_content_cards_unread_visual_indicator_enabled`                | Détermine si l'indicateur visuel de Content Cards non lues est activé.                                                                                                                        |
+| `is_firebase_messaging_service_on_new_token_registration_enabled` | Détermine si le SDK Braze enregistrera automatiquement les jetons dans `com.google.firebase.messaging.FirebaseMessagingService.onNewToken`.                                                   |
+| `is_push_deep_link_back_stack_activity_enabled`                   | Détermine si Braze ajoutera une activité à la pile arrière lors du suivi automatique des liens profonds pour les notifications push.                                                          |
+| `push_deep_link_back_stack_activity_class_name`                   | Définit l'activité que Braze ajoutera à la pile arrière lors du suivi automatique des liens profonds pour les notifications push.                                                             |
+| `should_opt_in_when_push_authorized`                              | Détermine si Braze doit automatiquement abonner l'utilisateur lorsque les notifications push sont autorisées.                                                                                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurations optionnelles #optional" }
 
 {% alert tip %}
-Pour plus d'informations détaillées, voir [GitHub : Plug-in Cordova Braze Android](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt).
+Pour plus d'informations, consultez [GitHub : plug-in Cordova Android Braze](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt).
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-Voici un exemple de fichier `config.xml` avec des configurations supplémentaires :
+Voici un exemple de fichier `config.xml` avec des configurations supplémentaires :
 
 {% tabs %}
 {% tab ios %}
@@ -272,7 +272,7 @@ Voici un exemple de fichier `config.xml` avec des configurations supplémentaire
 
 ## Désactivation du suivi automatique des sessions (Android uniquement) {#disable-automatic-session-tracking}
 
-Par défaut, le plugin Android Cordova assure automatiquement le suivi des sessions. Pour désactiver le suivi automatique des sessions, ajoutez la préférence suivante à l'élément `platform` du fichier `config.xml` de votre projet :
+Par défaut, le plug-in Android Cordova assure automatiquement le suivi des sessions. Pour désactiver le suivi automatique des sessions, ajoutez la préférence suivante à l'élément `platform` dans le fichier `config.xml` de votre projet :
 
 ```xml
 <platform name="android">
@@ -280,4 +280,4 @@ Par défaut, le plugin Android Cordova assure automatiquement le suivi des sessi
 </platform>
 ```
 
-Pour recommencer à suivre les sessions, appelez `BrazePlugin.startSessionTracking()`. Gardez à l'esprit que seules les sessions commencées après le prochain `Activity.onStart()` seront suivies.
+Pour recommencer à suivre les sessions, appelez `BrazePlugin.startSessionTracking()`. Gardez à l'esprit que seules les sessions démarrées après le prochain `Activity.onStart()` seront suivies.

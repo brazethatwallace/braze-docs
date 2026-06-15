@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Learn how to delete an individual user or a segment of users directly through the Braze dashboard.
 
-{% alert important %}
-Deleting users is currently in early access. Contact your customer success manager if you're interested in participating.
-{% endalert %}
-
 ## Prerequisites
 
 To delete users, you must be an admin or have the **Delete Users** permission. To view user deletion records, you must be an admin or have the **View User Deletion Records** permission. The following permissions control user deletion and deletion records:
@@ -23,7 +19,7 @@ To delete users, you must be an admin or have the **Delete Users** permission. T
 |------------|-------------|
 | Delete Users | Permanently delete users individually or in bulk. |
 | View User Deletion Records | View user deletion records. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## About user deletion
 
@@ -31,10 +27,10 @@ User deletion lets you manage your database by removing profiles that are no lon
 
 | Consideration | Details |
 |---------------|---------|
-| Maximum size | You can delete up to 100 million user profiles when deleting a segment. |
+| Maximum size | You can delete up to 10 million user profiles when deleting a segment. |
 | Waiting period | All segment deletions require a 7-day waiting period plus the time it takes to process deletions. |
 | Job limits | Only one segment can be deleted at a single time, which includes the 7-day waiting period. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
 
 ## Deleting users
 
@@ -90,7 +86,7 @@ You have 7 days to cancel pending segment deletions. To cancel, go to **Audience
 
 ![The 'Delete Users' tab in the 'Manage Audience' section of the Braze dashboard.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Next to a pending segment deletion, select <i class="fa-solid fa-eye"></i> to open the deletion record details.
+Next to a pending segment deletion, select <i class="fa-solid fa-eye"></i> **View details** to open the deletion record details.
 
 ![A pending segment deletion on the 'Delete Users' tab.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -132,9 +128,9 @@ On this page, you can find the following general information for all current and
 | Requester | The user who initiated the deletion request. |
 | Segment Name | The name of the segment used to select the users pending deletion. |
 | Status | Shows whether the deletion request is pending, in progress, or complete. |  
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
 
-For more details about a specific request, select <i class="fa-solid fa-eye"></i> to show the deletion record details. Here you can also [cancel pending segment deletions](#cancel).
+For more details about a specific request, select <i class="fa-solid fa-eye"></i> **View details** to show the deletion record details. Here you can also [cancel pending segment deletions](#cancel).
 
 ![A pending segment deletion on the 'Delete Users' tab.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -144,17 +140,13 @@ You can also check the status of previous deletions by downloading a security ev
 
 ## Frequently asked questions {#faq}
 
-### Can I delete segments with more than 100 million users?
+### Can I delete segments with more than 10 million users?
 
-No. You cannot delete segments with more than 100 million users. If you need help deleting a segment of this size, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+No. You cannot delete segments with more than 10 million users. If you need help deleting a segment of this size, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
-### It looks like I am not able to delete 100 million users and am limited to deleting only 10 million. Is this a bug?
+### I can only delete up to 10 million users at a time. Is this a bug?
 
-No, this is not a bug. Certain customers are limited in the number of users they can delete during the early access (EA) program.
-
-As the EA program progresses, this capacity is designed to increase until all customers can delete up to 100 million users.
-
-If you want to increase this capacity, contact your Braze account manager. Requests are granted at the discretion of the product team.
+No, this is not a bug. The maximum number of user profiles that can be deleted in one segment deletion run is 10 million.
 
 ### Does automated user merging affect user deletion?
 
@@ -173,3 +165,7 @@ Yes. However, you can add a segment inclusion filter to exclude all users with t
 Deleting individual users are permanent.
 
 You can [cancel segment deletions](#cancel) within the first 7 days after. However, any users already deleted before cancelling cannot be restored.
+
+### Can I delete users with the API instead of the dashboard?
+
+Yes. For smaller batches, you can use the [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), which accepts up to 50 identifiers per request and is subject to that endpoint's [rate limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit). Segment-based dashboard deletion is better suited to very large audiences but includes the [7-day waiting period](#about-user-deletion).

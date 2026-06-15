@@ -85,9 +85,9 @@ The following table describes possible metrics.
 | Conversion Rate (Recipients) | Calculated as: (Number of conversions) / (Number of recipients) |
 | Attribution method | Defined by the [attribution method](#attribution-methods) you selected when you set up the report. For Last Touch attribution or if multiple channels are selected, this appears as [Touches](#terms-to-know). |
 | Conversion Rate (Attribution method) | Defined by the [attribution method](#attribution-methods) you selected when you set up the report. If multiple channels are selected, this defaults to last-touch attribution. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion details" }
 
-If you selected breakdown-level details for campaigns or Canvases when [setting up your report](#setting-up-your-report) (step 5), you can click <i class="fas fa-angle-down"></i> to expand the table.
+If you selected breakdown-level details for campaigns or Canvases when [setting up your report](#setting-up-your-report) (step 5), you can select <i class="fas fa-angle-down"></i> **Expand** to expand the table.
 
 ### Conversion funnel
 
@@ -107,7 +107,7 @@ This graph only shows data for a single channel at a time. Use the **Channel** d
 
 This time series graph includes a representation of the conversions per campaign or Canvas over time. By default, all selected campaigns and Canvases are shown. To deselect a campaign or Canvas, click on the name of the campaign or Canvas that you'd like to exclude.
 
-To download the time series data, select <i class="fas fa-bars"></i> and then select your download option. Available options are PNG, JPEG, PDF, SVG, or CSV.
+To download the time series data, select <i class="fas fa-bars" title="Chart context menu"></i> **Chart context menu** and then select your download option. Available options are PNG, JPEG, PDF, SVG, or CSV.
 
 ![Conversions over time time series graph for two email campaigns, showing conversions by day.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
@@ -121,14 +121,14 @@ To download the time series data, select <i class="fas fa-bars"></i> and then se
 | Upon Click | Total number of conversions that occurred message click | Calculated as (Unique Click Conversions) / (Unique Recipients) | {::nomarkdown}<ul><li>Upon email click</li><li>Upon Content Card click</li><li>Upon IAM click</li></ul>{:/} |
 | Upon Impression | Total number of conversions that occurred after an impression | Calculated as (Unique Impression Conversions) / (Unique Recipients) | {::nomarkdown}<ul><li>Upon IAM impression</li><li>Upon Content Card impression</li></ul>{:/} |
 | Upon Last-Touch | Conversions that give all credit to the last-touched or clicked message during the conversion window. | Calculated as (Number of Touches) / (Unique Recipients) | Last-touch attribution is automatically selected if multiple channels are added to the report.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attribution methods" }
 
 ## Terms to know
 
 | Term | Definition |
 | --- | --- |
 | Touch | A physical interaction or touchpoint with a message.<br><br>Touches can include:<br>{::nomarkdown}<ul><li>Email Click</li><li>Push Open</li><li>Content Card Click</li><li>In-App Message Click</li><li>SMS Click</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Terms to know" }
 
 ## Troubleshooting
 

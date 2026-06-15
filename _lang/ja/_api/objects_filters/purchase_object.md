@@ -1,23 +1,23 @@
 ---
-nav_title: "購入対象"
+nav_title: "購入オブジェクト"
 article_title: API購入オブジェクト
 page_order: 8
 page_type: reference
-description: "この参考記事では、購入オブジェクトのさまざまなコンポーネント、正しい使用方法、参考となる例について説明します。"
+description: "このリファレンス記事では、購入オブジェクトのさまざまなコンポーネント、正しい使用方法、参考となる例について説明します。"
 
 ---
 
-# 購入対象
+# 購入オブジェクト {#purchase-object}
 
 > この記事では、購入オブジェクトのさまざまなコンポーネント、正しい使用方法、ベストプラクティス、参考となる例について説明します。
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-## 購入オブジェクトとは何ですか？
+## 購入オブジェクトとは {#what-is-a-purchase-object}
 
-購入オブジェクトは、購入が行われたときにAPIを通じて渡されるオブジェクトです。各購入オブジェクトは購入配列内にあり、各オブジェクトは特定のユーザーが特定の時間に行った単一の購入です。購入オブジェクトにはさまざまなフィールドがあり、Braze のバックエンドはこの情報を保存して、カスタマイズ、データ収集、パーソナライゼーションに使用できます。
+購入オブジェクトは、購入が行われたときにAPIを通じて渡されるオブジェクトです。各購入オブジェクトは購入配列内に配置され、各オブジェクトは特定のユーザーが特定の時間に行った単一の購入を表します。購入オブジェクトにはさまざまなフィールドがあり、Brazeのバックエンドはこの情報を保存して、カスタマイズ、データ収集、パーソナライゼーションに使用できます。
 
-### オブジェクト本体
+### オブジェクト本体 {#object-body}
 
 ```json
 {
@@ -43,35 +43,35 @@ description: "この参考記事では、購入オブジェクトのさまざま
 }
 ```
 
-- [外部ユーザ ID]({{site.baseurl}}/api/basics/#user-ids)
+- [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
 - [ISO 4217 通貨コード Wiki](http://en.wikipedia.org/wiki/ISO_4217)
 - [ISO 8601 時間コード Wiki](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-一部の識別子ペアは一緒に使用できず、`email` は`phone` の両方が指定された場合に優先されます。詳しくは、[識別子再ソリューション]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution)を参照してください。
+一部の識別子ペアは一緒に使用できません。また、両方が指定された場合は`email`が`phone`よりも優先されます。詳しくは、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution)を参照してください。
 {% endalert %}
 
-## 購入製品 ID
+## 購入製品 ID {#purchase-product-id}
 
-購入オブジェクト内では、`product_id` は購入の識別子です (`Product Name` や `Product Category` など)。
+購入オブジェクト内では、`product_id`は購入の識別子です（`Product Name`や`Product Category`など）。
 
-- Braze では、ダッシュボードに最大 5,000 個の `product_id` を保存できます。
-- `product_id` は最大 255 文字までです。
+- Brazeでは、ダッシュボードに最大5,000個の`product_id`を保存できます。
+- `product_id`は最大255文字までです。
 
-### 命名規則
+### 命名規則 {#naming-conventions}
 
-Brazeでは、購入オブジェクト`product_id`の一般的な命名規則を提供しています。`product_id` を選択する場合、Braze は、記録されたすべての項目をこの `product_id` でグループ化することを目的として、(SKU ではなく) 製品名や製品カテゴリなどの単純な名前を使用することを提案します。
+Brazeでは、購入オブジェクトの`product_id`に関する一般的な命名規則を提供しています。`product_id`を選択する際、Brazeは記録されたすべてのアイテムをこの`product_id`でグループ化することを目的として、（SKUではなく）製品名や製品カテゴリなどのシンプルな名前を使用することを推奨しています。
 
-これにより、セグメンテーションやトリガーの識別が容易になります。
+これにより、セグメンテーションやトリガーの際に製品を識別しやすくなります。
 
-### 注文レベルでの購入記録
+### 注文レベルでの購入記録 {#log-purchases-at-the-order-level}
 
-商品レベルではなく、注文レベルで購入を記録したい場合は、注文名または注文カテゴリを `product_id` (`Online Order` や `Completed Order` など) として使用できます。
+製品レベルではなく注文レベルで購入を記録したい場合は、注文名または注文カテゴリを`product_id`として使用できます（`Online Order`や`Completed Order`など）。
 
-Web SDK で注文レベルの購入を記録する例は以下のとおりです。
+たとえば、Web SDKで注文レベルの購入を記録するには以下のようにします。
 
-```html
+`````````html
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -94,41 +94,29 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## プロパティオブジェクトを購入
+## 購入プロパティオブジェクト {#purchase-properties-object}
 
-カスタムイベントと購入にはイベントプロパティが含まれる場合があります。「プロパティ」値は、キーがプロパティ名で値がプロパティ値であるオブジェクトである必要があります。プロパティ名は、255 文字以下の空でない文字列でなければならず、先頭にドル記号は使用できません。
+{% include data_activation/purchase_event_property_data_types.md %}
 
-プロパティ値は、次のデータ型のいずれでもかまいません。
+カスタム属性、イベントプロパティ、カタログにわたるデータタイプの統合リファレンスについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#purchase-event-property-data-types)を参照してください。
 
-| データ型 | 説明 |
-| --- | --- |
-| 数値 | [整数](https://en.wikipedia.org/wiki/Integer)または[浮動小数点数として](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
-| ブール値 |  |
-| 日時 | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)または`yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式の文字列としてフォーマットされる。アレイ内ではサポートされていない。 |
-| 文字列 | 255 文字以下。 |
-| 配列 | 配列に日時を含めることはできない。 |
-| オブジェクト | オブジェクトは文字列として取り込まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### 購入プロパティ {#purchase-properties}
 
-配列またはオブジェクト値を含むイベントプロパティオブジェクトには、最大 50 KB のイベントプロパティペイロードを設定できます。
+[購入プロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)は、Liquidを使用したメッセージのトリガーやパーソナライゼーションに使用でき、これらのプロパティに基づいてセグメント化することもできます。
 
-### 購入プロパティ
+#### 命名規則 {#naming-conventions}
 
-[購入プロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)は、Liquid を使用したメッセージのトリガーやパーソナライゼーションに使用でき、これらのプロパティに基づいてセグメント化することもできます。
+この機能は購入ごとではなく、**製品ごとに**有効であることに注意してください。たとえば、個別の製品が大量にあっても、それぞれのプロパティが同じである場合、セグメンテーションは不要になる可能性があります。
 
-#### 命名規則
-
-この機能は購入ごとではなく、**製品ごとに**有効であることに注意することが重要です。例えば、個別の製品が大量にあったとしても、それぞれの特性が同じである場合、セグメンテーションは不要になる可能性があります。
-
-この場合、データストラクチャを設定するときに、トランスアクションレベルの識別子s ではなく、"group-level"でプロダクト名を使用することをお勧めします。例えば、トレーニングチケット企業では、「片道」、「往復」、「複数市区町村」の製品を持つべきであり、「取引123」や「取引046」などの特定の取引ではありません。または、たとえば、「食べ物」の購入イベントでは、プロパティは「ケーキ」と「サンドイッチ」に設定するのが最適です。
+この場合、データ構造を設定する際に、トランザクションレベルの識別子ではなく「グループレベル」で製品名を使用することをお勧めします。たとえば、鉄道チケット会社では、「片道」、「往復」、「複数都市」といった製品を用意すべきであり、「取引123」や「取引046」などの特定の取引名にすべきではありません。別の例として、「食べ物」の購入イベントでは、プロパティは「ケーキ」や「サンドイッチ」に設定するのが最適です。
 
 {% alert important %}
-Braze REST API を使用して製品を追加することができます。たとえば、`/users/track` エンドポイントにコールを送信し、新しい購入ID を含めると、Braze は自動的にダッシュボードの**データ設定** > **製品** セクションに製品を作成します。
+Braze REST APIを使用して製品を追加できます。たとえば、`/users/track`エンドポイントにコールを送信し、新しい購入IDを含めると、Brazeは自動的にダッシュボードの**データ設定** > **製品**セクションに製品を作成します。
 {% endalert %}
 
-### 購入オブジェクトの例
+### 購入オブジェクトの例 {#example-purchase-object}
 
-```html
+`````````html
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -176,10 +164,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### 購入オブジェクト、イベントオブジェクト、およびwebhook
+### 購入オブジェクト、イベントオブジェクト、およびWebhook {#purchase-objects-event-objects-and-webhooks}
 
-提供された例を使用すると、誰かが色、モノグラム、チェックアウト期間、サイズ、およびブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)を使用してこれらのプロパティを持つセグメントを作成したり、Liquidを使用してチャネルを通じてカスタムメッセージを送信したりできます。例えば、「こんにちは **Ann F.**、**赤のミディアムバックパック** を購入していただきありがとうございます。価格は **$40.00** です！」お買い物は**Backpack Locker**でありがとうございました！
+提供された例を使用すると、誰かが色、モノグラム、チェックアウト時間、サイズ、ブランドのプロパティを持つバックパックを購入したことがわかります。次に、[購入イベントプロパティ]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-properties)を使用してこれらのプロパティでセグメントを作成したり、Liquidを使用してチャネル経由でカスタムメッセージを送信したりできます。たとえば、「こんにちは **Ann F.** さん、**赤のミディアムバックパック**を **$40.00** でご購入いただきありがとうございます！**Backpack Locker** でのお買い物ありがとうございました！」
 
-セグメント化に使用するプロパティを保存、保管、追跡する場合は、それらをカスタム属性として設定する必要があります。これは[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/)を使用して行うことができ、カスタムイベントやそのユーザープロファイルの生涯にわたって保存される購入行動に基づいてユーザーをターゲットにすることができます。
-
-
+プロパティを保存、保管、追跡してセグメント化に使用する場合は、それらをカスタム属性として設定する必要があります。これは[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して行うことができ、カスタムイベントやそのユーザープロファイルの生涯にわたって保存される購入行動に基づいてユーザーをターゲットにすることができます。

@@ -9,11 +9,22 @@ tool: Reports
 
 # Funnel reports
 
-> The **Funnel Report** page offers a visual report that allows you to analyze the journeys your customers take after receiving a campaign or Canvas. ![Funnel Report 2]({% image_buster /assets/img/funnel_report/funnel_report2.png %}){: style="float:right;max-width:15%;margin-bottom:15px; border: 0"}
+> The **Funnel Report** page offers a visual report that allows you to analyze the journeys your customers take after receiving a campaign or Canvas, including the different actions customers take on their path to conversion and where drop-offs occur. ![Screenshot of the Funnel Report page showing a conversion funnel for campaign or Canvas performance]({% image_buster /assets/img/funnel_report/funnel_report2.png %}){: style="float:right;max-width:15%;margin-bottom:15px; border: 0"}
 
 If your campaign or Canvas uses a control group or multiple variants, you can understand how the different variants have impacted the conversion funnel at a more granular level and optimize based on this data.
 
 ![Funnel Report 1]({% image_buster /assets/img/funnel_report/funnel_report1.jpg %}){: style="max-width:80%;"}
+
+## Use cases
+
+Funnel reports can answer questions such as:
+
+- **Onboarding:** After you send a "Welcome, newcomer!" Canvas, how many users completed each step of the onboarding path?
+- **Purchase completion:** Where did purchase drop-offs occur for a seasonal promotion?
+- **Custom conversions:** What share of users started a session, listened to a track, and created a playlist after a "New release" push?
+- **Upsell drop-offs:** On an upsell Canvas, where did users exit before subscribing?
+- **Post-engagement behaviors:** Which email variant drove more purchases after users opened it?
+- **Conversion frequency:** What percentage of users referred a friend at least three times after receiving a campaign?
 
 ## Setting up funnel reports
 
@@ -48,7 +59,7 @@ For every funnel report, the first event is when the user receives your message.
 
 | Campaign | Started Session, Made Purchase, Performed Custom Event, Message Engagement Event |
 | Canvas | Started Session, Made Purchase, Performed Custom Event, Received Canvas Step, Interacted with Step |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available funnel report events" }
 
 {% alert note %}
 The **Interacted with Step** report event can only be used with Canvas steps that use the Email or push messaging channels.
@@ -90,13 +101,33 @@ Orphaned users are not tracked in funnel reports. When an anonymous user enters 
 
 ## Frequently asked questions
 
+### Does a user fall out of the report if they skip an event?
+
+Yes. A user leaves the funnel at the first step where they don't perform the next event in the exact sequence you configured.
+
+### How many events can I include in a funnel report?
+
+There isn't a hard limit, but four to six events covers most use cases. Very long funnels can run slowly or time out.
+
+### What channels support the **Interacted with Step** funnel event?
+
+**Interacted with Step** is available for Canvas steps that use **email** or **push** channels.
+
+### Why is my funnel report taking a long time to load?
+
+Large queries can time out. Try a shorter report window, fewer funnel steps, or both.
+
 ### Why are the analytics on the Canvas different from the funnel report?
 
-Canvas step-level analytics and funnel reports use different scoping rules for the same date range, so they are not expected to match. The differences come down to how each report defines "which events count."
+Canvas step analytics can show higher counts than the funnel for the same calendar dates because step analytics include broader engagement and conversions, while the funnel enforces event order and timing rules.
 
-**Canvas analytics (Analyze Variants):** The date range filters events by **when they occurred**. If you select January 1–7, you see all entries and conversion events that happened during that window—regardless of when the user entered the Canvas. A user who entered on January 1 but converted on January 8 would show one entry and zero conversions, because the conversion fell outside the selected dates. The conversion window configured on the Canvas step can also extend well beyond 14 days, so step-level analytics may capture conversions over a longer horizon.
+#### Canvas analytics (Analyze Variants)
 
-**Funnel reports:** The date range filters users by **when they entered** the Canvas. If you select January 1–7, the report includes every user who entered during that window, then tracks their actions for up to 14 days after entry (or whatever window you configure in the funnel). The same user who entered on January 1 and converted on January 8 would show one entry and one conversion, because the conversion happened within the post-entry window.
+The date range filters events by **when they occurred**. If you select January 1–7, you see all entries and conversion events that happened during that window—regardless of when the user entered the Canvas. A user who entered on January 1 but converted on January 8 would show one entry and zero conversions, because the conversion fell outside the selected dates. The conversion window configured on the Canvas step can extend beyond the funnel's maximum follow-up window, so step-level analytics may capture conversions over a longer horizon.
+
+#### Funnel reports
+
+The date range filters users by **when they entered** the Canvas. If you select January 1–7, the report includes every user who entered during that window, then tracks their actions for the funnel completion window you configure (up to 30 days after entry). The same user who entered on January 1 and converted on January 8 would show one entry and one conversion, because the conversion happened within the post-entry window.
 
 Additionally, funnel reports require events to occur in the specified order and count each user at most once, while Canvas analytics count all conversions and engagement without an ordering constraint.
 

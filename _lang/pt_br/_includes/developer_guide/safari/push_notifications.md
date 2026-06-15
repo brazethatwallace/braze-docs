@@ -32,7 +32,7 @@ Adicione a seguinte tag `<link>` ao elemento `<head>` de seu site, apontando par
 <link rel="manifest" href="/manifest.json" />
 ```
 
-### Etapa 3: Adicionar um service worker{#service-worker}
+### Etapa 3: Adicionar um service worker {#service-worker}
 
 Seu site precisa ter um arquivo de service worker que importe a biblioteca de service worker da Braze, conforme descrito em nosso [guia de integração de push para web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-1-configure-your-sites-service-worker).
 

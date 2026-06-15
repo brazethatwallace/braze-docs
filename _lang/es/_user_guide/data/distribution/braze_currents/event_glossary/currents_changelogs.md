@@ -1,968 +1,342 @@
 ---
-nav_title: Eventos Currents Registro de cambios
+nav_title: Registro de cambios de eventos de Currents
 page_order: 6
 description: "Esta página incluye los cambios en los eventos para cada versión de Currents."
 tool: Currents
 ---
 
-# Registro de cambios de Currents
-
-## Cambios en la versión 6 (fecha de lanzamiento: 04-03-2026)
-
-### Cambios en el almacenamiento
-
-* Cambios de campo al tipo de evento`agentconsole.AgentExecuted`:
-    * Se ha añadido un nuevo`string`campo`error`: Descripción del error
-
-* Cambios de campo al tipo de evento`agentconsole.ToolInvocation`:
-    * Se ha añadido un nuevo`string`campo`request_id`: ID único para esta solicitud LLM global y ejecución completa.
-
-* Cambios de campo al tipo de evento`users.messages.rcs.InboundReceive`:
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-
-### Cambios en el intercambio de datos
-
-* Cambios de campo al tipo de evento`agentconsole.AgentExecuted`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`error`: Nombre del error
-
-* Cambios de campo al tipo de evento`agentconsole.ToolInvocation`:
-    * Se ha añadido un nuevo`string`campo`request_id`: ID único para esta solicitud LLM global y ejecución completa.
-
-* Cambios de campo al tipo de evento`users.behaviors.subscription.GlobalStateChange`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.behaviors.subscriptiongroup.StateChange`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.campaigns.Conversion`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`conversion_behavior`: Cadena codificada en JSON que describe el comportamiento de la conversión.
-
-* Cambios de campo al tipo de evento`users.campaigns.EnrollInControl`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.canvas.Conversion`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`conversion_behavior`: Cadena codificada en JSON que describe el comportamiento de la conversión.
-
-* Cambios de campo al tipo de evento`users.canvas.Entry`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.canvas.exit.MatchedAudience`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.canvas.exit.PerformedEvent`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.canvas.experimentstep.Conversion`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`experiment_split_name`: Nombre de la división del experimento
-    * Se ha añadido un nuevo`string`campo`conversion_behavior`: Cadena codificada en JSON que describe el comportamiento de la conversión.
-
-* Cambios de campo al tipo de evento`users.canvas.experimentstep.SplitEntry`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`experiment_split_name`: Nombre de la división del experimento
-
-* Cambios de campo al tipo de evento`users.canvasstep.Progression`:
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.banner.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.messages.banner.Click`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.messages.banner.Impression`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.messages.contentcard.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.contentcard.Click`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.contentcard.Dismiss`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.contentcard.Impression`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.contentcard.Send`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Bounce`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Click`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Deferral`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Delivery`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.MarkAsSpam`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Open`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Retry`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Send`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.SoftBounce`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.email.Unsubscribe`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.featureflag.Impression`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.messages.inappmessage.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.inappmessage.Click`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.inappmessage.Impression`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.line.Retry`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Bounce`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.InfluencedOpen`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.IosForeground`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Open`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Retry`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Send`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.rcs.InboundReceive`:
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-
-* Cambios de campo al tipo de evento`users.messages.sms.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.CarrierSend`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.Delivery`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.DeliveryFailure`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.InboundReceive`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.Rejection`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.Retry`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.Send`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.sms.ShortLinkClick`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.webhook.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.webhook.Failure`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.messages.webhook.Retry`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.webhook.Send`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Abort`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Click`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Delivery`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Failure`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.InboundReceive`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Read`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Retry`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Send`:
-    * Se ha añadido un nuevo`string`campo`campaign_name`: Nombre de la campaña
-    * Se ha añadido un nuevo`string`campo`canvas_name`: Nombre del Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_step_name`: Nombre del paso en Canvas
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * Se ha añadido un nuevo`string`campo`message_variation_name`: Nombre de la variación del mensaje
-
-## Cambios en la versión 5 (fecha de lanzamiento: 04/02/2026)
-
-### Cambios en el almacenamiento
-
-* Se ha añadido un nuevo tipo de evento`agentconsole.AgentExecuted`.
-
-* Se ha añadido un nuevo tipo de evento`agentconsole.ToolInvocation`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Retry`.
-
-* Cambios de campo al tipo de evento`users.behaviors.pushnotification.TokenStateChange`:
-    * Se ha añadido un nuevo`long`campo`time_ms`: Tiempo en milisegundos en el que ocurrió el evento.
-
-### Cambios en el intercambio de datos
-
-* Se ha añadido un nuevo tipo de evento`agentconsole.AgentExecuted`.
-
-* Se ha añadido un nuevo tipo de evento`agentconsole.ToolInvocation`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Retry`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Retry`.
-
-* Cambios de campo al tipo de evento`users.behaviors.pushnotification.TokenStateChange`:
-    * Se ha añadido un nuevo`long`campo`time_ms`: Tiempo en milisegundos en el que ocurrió el evento.
-
-## Cambios en la versión 4 (fecha de lanzamiento: 7 de enero de 2026)
-
-### Cambios en el almacenamiento
-
-* Cambios de campo al tipo de evento`users.behaviors.pushnotification.TokenStateChange`:
-    * Se ha añadido un nuevo`string`campo`push_token`: Envía el token del evento.
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Bounce`:
-    * Se ha añadido un nuevo`string`campo`push_token`: Envía el token del evento.
-
-* Cambios de campo al tipo de evento`users.messages.pushnotification.Send`:
-    * Se ha añadido un nuevo`string`campo`push_token`: Envía el token del evento.
-
-* Cambios de campo al tipo de evento`users.messages.rcs.Click`:
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * El campo  ahora`user_phone_number` es *opcional*.
-
-* Cambios de campo al tipo de evento`users.messages.rcs.InboundReceive`:
-    * El campo  ahora`user_id` es *opcional*.
-
-* Cambios de campo al tipo de evento`users.messages.rcs.Rejection`:
-    * Se ha añadido un nuevo`string`campo`canvas_step_message_variation_id`: API ID de la variación del mensaje del paso Canvas que recibió este usuario
-
-### Cambios en el intercambio de datos
-
-* Cambios de campo al tipo de evento`users.messages.rcs.Click`:
-    * Se ha añadido un nuevo`string`campo`canvas_variation_name`: Nombre de la variación de Canvas que recibió este usuario
-    * El campo  ahora`user_phone_number` es *opcional*.
-
-* Cambios de campo al tipo de evento`users.messages.rcs.InboundReceive`:
-    * El campo  ahora`user_id` es *opcional*.
-
-* Cambios de campo al tipo de evento`users.messages.rcs.Rejection`:
-    * Se ha añadido un nuevo`string`campo`canvas_step_message_variation_api_id`: API ID de la variación del mensaje del paso Canvas que recibió este usuario
-
-## Cambios en la versión 3 (fecha de lanzamiento: 08-10-2025)
-
-### Cambios en el almacenamiento
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Click`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.InboundReceive`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Click`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Delivery`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.InboundReceive`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Read`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Rejection`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Send`.
-
-* Cambios de campo al tipo de evento`users.messages.sms.Delivery`:
-    * Se ha añadido un nuevo`boolean`campo`is_sms_fallback`: Indica que se ha enviado un mensaje SMS alternativo debido a que se ha rechazado un mensaje RCS. El mensaje puede ser entregado, no entregado o rechazado. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho.
-
-* Cambios de campo al tipo de evento`users.messages.sms.DeliveryFailure`:
-    * Se ha añadido un nuevo`boolean`campo`is_sms_fallback`: Indica que se ha enviado un mensaje SMS alternativo debido a que se ha rechazado un mensaje RCS. El mensaje puede ser entregado, no entregado o rechazado. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho.
-
-* Cambios de campo al tipo de evento`users.messages.sms.Rejection`:
-    * Se ha añadido un nuevo`boolean`campo`is_sms_fallback`: Indica que se ha enviado un mensaje SMS alternativo debido a que se ha rechazado un mensaje RCS. El mensaje puede ser entregado, no entregado o rechazado. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho. (Propiedad del evento)
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Delivery`:
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Failure`:
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.InboundReceive`:
-    * Se ha añadido un nuevo`string`campo`catalog_id`: ID de catálogo de un producto si se hace referencia a un producto en el mensaje de entrada. Si no, vacío.
-    * Se ha añadido un nuevo`string`campo`product_id`: El SKU del producto si se hace referencia a un producto en el mensaje de entrada. Si no, vacío.
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`flow_response_json`: [PII] Los valores del formulario que el usuario ha respondido. Presente si el usuario está respondiendo a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-    * Se ha añadido un nuevo`string`campo`in_reply_to`: Elmessage_id  del mensaje al que respondía este mensaje.
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Read`:
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
-
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Send`:
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en WhatsApp Administrador. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-
-### Cambios en el intercambio de datos
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Click`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.InboundReceive`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.line.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Abort`.
+# Registro de cambios de Currents {#currents-changelog}
 
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Click`.
+## Cambios en la versión 9 (fecha de lanzamiento: 03-06-2026) {#changes-in-version-9-release-date-2026-06-03}
 
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Delivery`.
+### Cambios en el almacenamiento: {#changes-for-storage}
 
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.InboundReceive`.
+* Cambios de campo en el tipo de evento `users.messages.email.Send`:
+    * Se añadió un nuevo campo `string` `from_domain`: dominio de envío del correo electrónico
 
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Read`.
+## Cambios en la versión 8 (fecha de lanzamiento: 06-05-2026) {#changes-in-version-8-release-date-2026-05-06}
 
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Rejection`.
+### Cambios en el almacenamiento:
 
-* Se ha añadido un nuevo tipo de evento`users.messages.rcs.Send`.
+* Se añadió un nuevo tipo de evento `users.messages.banner.Dismiss`.
 
-* Cambios de campo al tipo de evento`users.messages.sms.Delivery`:
-    * Se ha añadido un nuevo`boolean`campo`is_sms_fallback`: Indica si se intentó la alternativa por SMS para este mensaje RCS rechazado. Está vinculado/emparejado al evento de entrega de SMS.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Abort`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del destinatario asociado a este evento.
 
-* Cambios de campo al tipo de evento`users.messages.sms.DeliveryFailure`:
-    * Se ha añadido un nuevo`boolean`campo`is_sms_fallback`: Indica si se intentó la alternativa por SMS para este mensaje RCS rechazado. Está vinculado/emparejado al evento de entrega de SMS.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Delivery`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del destinatario asociado a este evento.
 
-* Cambios de campo al tipo de evento`users.messages.sms.Rejection`:
-    * Se ha añadido un nuevo`boolean`campo`is_sms_fallback`: Indica si se intentó la alternativa por SMS para este mensaje RCS rechazado. Está vinculado/emparejado al evento de entrega de SMS.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Failure`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del destinatario asociado a este evento.
 
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Delivery`:
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.InboundReceive`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del usuario del que se recibió el mensaje.
+    * El campo `user_phone_number` ahora es *opcional*.
 
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Failure`:
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Read`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del destinatario asociado a este evento.
 
-* Cambios de campo al tipo de evento`users.messages.whatsapp.InboundReceive`:
-    * Se ha añadido un nuevo`string`campo`catalog_id`: ID de catálogo de un producto si se hace referencia a un producto en el mensaje de entrada. Si no, vacío.
-    * Se ha añadido un nuevo`string`campo`product_id`: ID del producto adquirido
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`flow_response_json`: [PII] Los valores del formulario que el usuario ha respondido. Presente si el usuario está respondiendo a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-    * Se ha añadido un nuevo`string`campo`in_reply_to`: Elmessage_id  del mensaje al que respondía este mensaje.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Retry`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del destinatario asociado a este evento.
 
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Read`:
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Send`:
+    * Se añadió un nuevo campo `string` `bsuid`: el ID de usuario con ámbito de negocio de WhatsApp del destinatario asociado a este evento.
 
-* Cambios de campo al tipo de evento`users.messages.whatsapp.Send`:
-    * Se ha añadido un nuevo`string`campo`flow_id`: El ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
-    * Se ha añadido un nuevo`string`campo`template_name`: [PII] Nombre de la plantilla en el administrador de WhatsApp. Presente si envías un mensaje de plantilla
-    * Se ha añadido un nuevo`string`campo`message_id`: El ID único generado por Meta para este mensaje.
+## Cambios en la versión 7 (fecha de lanzamiento: 01-04-2026) {#changes-in-version-7-release-date-2026-04-01}
 
-## Cambios en la versión 2 (fecha de lanzamiento nula)
+### Cambios en el almacenamiento:
 
-### Cambios en el almacenamiento
+* Se añadió un nuevo tipo de evento `users.profile.Update`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.FirstSession`.
+* Cambios de campo en el tipo de evento `users.messages.banner.Abort`:
+    * Se añadió un nuevo campo `string` `canvas_name`: nombre del Canvas
+    * Se añadió un nuevo campo `string` `canvas_step_name`: nombre del paso en Canvas
+    * Se añadió un nuevo campo `string` `canvas_variation_name`: nombre de la variación de Canvas que recibió este usuario
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_step_id`: ID de API del paso en Canvas al que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_step_message_variation_id`: ID de API de la variación del mensaje del paso en Canvas que recibió este usuario
+    * Se añadió un nuevo campo `string` `canvas_variation_id`: ID de API de la variación de Canvas a la que pertenece este evento
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.SessionEnd`.
+* Cambios de campo en el tipo de evento `users.messages.banner.Click`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_step_id`: ID de API del paso en Canvas al que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_name`: nombre del Canvas
+    * Se añadió un nuevo campo `string` `canvas_step_name`: nombre del paso en Canvas
+    * Se añadió un nuevo campo `string` `canvas_step_message_variation_id`: ID de API de la variación del mensaje del paso en Canvas que recibió este usuario
+    * Se añadió un nuevo campo `string` `canvas_variation_id`: ID de API de la variación de Canvas a la que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_variation_name`: nombre de la variación de Canvas que recibió este usuario
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.SessionStart`.
+* Cambios de campo en el tipo de evento `users.messages.banner.Impression`:
+    * Se añadió un nuevo campo `string` `canvas_id`: ID de API del Canvas al que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_step_id`: ID de API del paso en Canvas al que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_name`: nombre del Canvas
+    * Se añadió un nuevo campo `string` `canvas_step_name`: nombre del paso en Canvas
+    * Se añadió un nuevo campo `string` `canvas_step_message_variation_id`: ID de API de la variación del mensaje del paso en Canvas que recibió este usuario
+    * Se añadió un nuevo campo `string` `canvas_variation_id`: ID de API de la variación de Canvas a la que pertenece este evento
+    * Se añadió un nuevo campo `string` `canvas_variation_name`: nombre de la variación de Canvas que recibió este usuario
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.CustomEvent`.
+## Cambios en la versión 6 (fecha de lanzamiento: 04-03-2026) {#changes-in-version-6-release-date-2026-03-04}
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.InstallAttribution`.
+### Cambios en el almacenamiento:
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.liveactivity.PushToStartTokenChange`.
+* Cambios de campo en el tipo de evento `agentconsole.AgentExecuted`:
+    * Se añadió un nuevo campo `string` `error`: descripción del error
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.liveactivity.UpdateTokenChange`.
+* Cambios de campo en el tipo de evento `agentconsole.ToolInvocation`:
+    * Se añadió un nuevo campo `string` `request_id`: ID único para esta solicitud LLM global y ejecución completa
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.Location`.
+* Cambios de campo en el tipo de evento `users.messages.rcs.InboundReceive`:
+    * Se añadió un nuevo campo `string` `canvas_variation_name`: nombre de la variación de Canvas que recibió este usuario
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.Purchase`.
+## Cambios en la versión 5 (fecha de lanzamiento: 04-02-2026) {#changes-in-version-5-release-date-2026-02-04}
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.pushnotification.TokenStateChange`.
+### Cambios en el almacenamiento:
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.subscription.GlobalStateChange`.
+* Se añadió un nuevo tipo de evento `agentconsole.AgentExecuted`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.subscriptiongroup.StateChange`.
+* Se añadió un nuevo tipo de evento `agentconsole.ToolInvocation`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.Uninstall`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Retry`.
 
-* Se ha añadido un nuevo tipo de evento`users.campaigns.Conversion`.
+* Se añadió un nuevo tipo de evento `users.messages.line.Retry`.
 
-* Se ha añadido un nuevo tipo de evento`users.campaigns.EnrollInControl`.
+* Se añadió un nuevo tipo de evento `users.messages.pushnotification.Retry`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.Conversion`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.Retry`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.Entry`.
+* Se añadió un nuevo tipo de evento `users.messages.webhook.Retry`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.exit.MatchedAudience`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Retry`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.exit.PerformedEvent`.
+* Cambios de campo en el tipo de evento `users.behaviors.pushnotification.TokenStateChange`:
+    * Se añadió un nuevo campo `long` `time_ms`: tiempo en milisegundos en el que ocurrió el evento
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.experimentstep.Conversion`.
+## Cambios en la versión 4 (fecha de lanzamiento: 07-01-2026) {#changes-in-version-4-release-date-2026-01-07}
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.experimentstep.SplitEntry`.
+### Cambios en el almacenamiento:
 
-* Se ha añadido un nuevo tipo de evento`users.canvasstep.Progression`.
+* Cambios de campo en el tipo de evento `users.behaviors.pushnotification.TokenStateChange`:
+    * Se añadió un nuevo campo `string` `push_token`: token de notificaciones push del evento
 
-* Se ha añadido un nuevo tipo de evento`users.messages.banner.Abort`.
+* Cambios de campo en el tipo de evento `users.messages.pushnotification.Bounce`:
+    * Se añadió un nuevo campo `string` `push_token`: token de notificaciones push del evento
 
-* Se ha añadido un nuevo tipo de evento`users.messages.banner.Click`.
+* Cambios de campo en el tipo de evento `users.messages.pushnotification.Send`:
+    * Se añadió un nuevo campo `string` `push_token`: token de notificaciones push del evento
 
-* Se ha añadido un nuevo tipo de evento`users.messages.banner.Impression`.
+* Cambios de campo en el tipo de evento `users.messages.rcs.Click`:
+    * Se añadió un nuevo campo `string` `canvas_variation_name`: nombre de la variación de Canvas que recibió este usuario
+    * El campo `user_phone_number` ahora es *opcional*.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Abort`.
+* Cambios de campo en el tipo de evento `users.messages.rcs.InboundReceive`:
+    * El campo `user_id` ahora es *opcional*.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Click`.
+* Cambios de campo en el tipo de evento `users.messages.rcs.Rejection`:
+    * Se añadió un nuevo campo `string` `canvas_step_message_variation_id`: ID de API de la variación del mensaje del paso en Canvas que recibió este usuario
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Dismiss`.
+## Cambios en la versión 3 (fecha de lanzamiento: 08-10-2025) {#changes-in-version-3-release-date-2025-10-08}
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Impression`.
+### Cambios en el almacenamiento:
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Send`.
+* Se añadió un nuevo tipo de evento `users.messages.line.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Abort`.
+* Se añadió un nuevo tipo de evento `users.messages.line.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Bounce`.
+* Se añadió un nuevo tipo de evento `users.messages.line.InboundReceive`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Click`.
+* Se añadió un nuevo tipo de evento `users.messages.line.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Deferral`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Delivery`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.MarkAsSpam`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.Delivery`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Open`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.InboundReceive`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Send`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.Read`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.SoftBounce`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.Rejection`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Unsubscribe`.
+* Se añadió un nuevo tipo de evento `users.messages.rcs.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.featureflag.Impression`.
+* Cambios de campo en el tipo de evento `users.messages.sms.Delivery`:
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: indica que se envió un mensaje SMS alternativo debido al rechazo de un mensaje RCS. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.inappmessage.Abort`.
+* Cambios de campo en el tipo de evento `users.messages.sms.DeliveryFailure`:
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: indica que se envió un mensaje SMS alternativo debido al rechazo de un mensaje RCS. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.inappmessage.Click`.
+* Cambios de campo en el tipo de evento `users.messages.sms.Rejection`:
+    * Se añadió un nuevo campo `boolean` `is_sms_fallback`: indica que se envió un mensaje SMS alternativo debido al rechazo de un mensaje RCS. El mensaje puede resultar en entrega, fallo de entrega o rechazo. Se puede vincular al evento de rechazo RCS mediante un ID de envío y un ID de despacho. (Propiedad del evento)
 
-* Se ha añadido un nuevo tipo de evento`users.messages.inappmessage.Impression`.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Delivery`:
+    * Se añadió un nuevo campo `string` `flow_id`: el ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
+    * Se añadió un nuevo campo `string` `template_name`: [PII] nombre de la plantilla en el administrador de WhatsApp. Presente si se envía un mensaje de plantilla.
+    * Se añadió un nuevo campo `string` `message_id`: el ID único generado por Meta para este mensaje.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.liveactivity.Outcome`.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Failure`:
+    * Se añadió un nuevo campo `string` `message_id`: el ID único generado por Meta para este mensaje.
+    * Se añadió un nuevo campo `string` `template_name`: [PII] nombre de la plantilla en el administrador de WhatsApp. Presente si se envía un mensaje de plantilla.
+    * Se añadió un nuevo campo `string` `flow_id`: el ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.liveactivity.Send`.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.InboundReceive`:
+    * Se añadió un nuevo campo `string` `catalog_id`: ID de catálogo de un producto si se hace referencia a un producto en el mensaje de entrada. De lo contrario, vacío.
+    * Se añadió un nuevo campo `string` `product_id`: SKU del producto si se hace referencia a un producto en el mensaje de entrada. De lo contrario, vacío.
+    * Se añadió un nuevo campo `string` `flow_id`: el ID único del flujo en el administrador de WhatsApp. Presente si el usuario está respondiendo a un flujo de WhatsApp.
+    * Se añadió un nuevo campo `string` `flow_response_json`: [PII] los valores del formulario con los que respondió el usuario. Presente si el usuario está respondiendo a un flujo de WhatsApp.
+    * Se añadió un nuevo campo `string` `message_id`: el ID único generado por Meta para este mensaje.
+    * Se añadió un nuevo campo `string` `in_reply_to`: el `message_id` del mensaje al que respondía este mensaje.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Abort`.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Read`:
+    * Se añadió un nuevo campo `string` `template_name`: [PII] nombre de la plantilla en el administrador de WhatsApp. Presente si se envía un mensaje de plantilla.
+    * Se añadió un nuevo campo `string` `message_id`: el ID único generado por Meta para este mensaje.
+    * Se añadió un nuevo campo `string` `flow_id`: el ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Bounce`.
+* Cambios de campo en el tipo de evento `users.messages.whatsapp.Send`:
+    * Se añadió un nuevo campo `string` `flow_id`: el ID único del flujo en el administrador de WhatsApp. Presente si el mensaje incluye una llamada a la acción para responder a un flujo de WhatsApp.
+    * Se añadió un nuevo campo `string` `template_name`: [PII] nombre de la plantilla en el administrador de WhatsApp. Presente si se envía un mensaje de plantilla.
+    * Se añadió un nuevo campo `string` `message_id`: el ID único generado por Meta para este mensaje.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.IosForeground`.
+## Cambios en la versión 2 (fecha de lanzamiento: nula) {#changes-in-version-2-release-date-null}
 
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Open`.
+### Cambios en el almacenamiento:
 
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Send`.
+* Se añadió un nuevo tipo de evento `users.behaviors.app.FirstSession`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Abort`.
+* Se añadió un nuevo tipo de evento `users.behaviors.app.SessionEnd`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.CarrierSend`.
+* Se añadió un nuevo tipo de evento `users.behaviors.app.SessionStart`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Delivery`.
+* Se añadió un nuevo tipo de evento `users.behaviors.CustomEvent`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.DeliveryFailure`.
+* Se añadió un nuevo tipo de evento `users.behaviors.InstallAttribution`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.InboundReceive`.
+* Se añadió un nuevo tipo de evento `users.behaviors.liveactivity.PushToStartTokenChange`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Rejection`.
+* Se añadió un nuevo tipo de evento `users.behaviors.liveactivity.UpdateTokenChange`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Send`.
+* Se añadió un nuevo tipo de evento `users.behaviors.Location`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.ShortLinkClick`.
+* Se añadió un nuevo tipo de evento `users.behaviors.Purchase`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Abort`.
+* Se añadió un nuevo tipo de evento `users.behaviors.pushnotification.TokenStateChange`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Failure`.
+* Se añadió un nuevo tipo de evento `users.behaviors.subscription.GlobalStateChange`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Send`.
+* Se añadió un nuevo tipo de evento `users.behaviors.subscriptiongroup.StateChange`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Abort`.
+* Se añadió un nuevo tipo de evento `users.behaviors.Uninstall`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Click`.
+* Se añadió un nuevo tipo de evento `users.campaigns.Conversion`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Delivery`.
+* Se añadió un nuevo tipo de evento `users.campaigns.EnrollInControl`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Failure`.
+* Se añadió un nuevo tipo de evento `users.canvas.Conversion`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.InboundReceive`.
+* Se añadió un nuevo tipo de evento `users.canvas.Entry`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Read`.
+* Se añadió un nuevo tipo de evento `users.canvas.exit.MatchedAudience`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Send`.
+* Se añadió un nuevo tipo de evento `users.canvas.exit.PerformedEvent`.
 
-* Se ha añadido un nuevo tipo de evento`users.RandomBucketNumberUpdate`.
+* Se añadió un nuevo tipo de evento `users.canvas.experimentstep.Conversion`.
 
-### Cambios en el intercambio de datos
+* Se añadió un nuevo tipo de evento `users.canvas.experimentstep.SplitEntry`.
 
-* Se ha añadido un nuevo tipo de evento`changelogs.GlobalControlGroup`.
+* Se añadió un nuevo tipo de evento `users.canvasstep.Progression`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.FirstSession`.
+* Se añadió un nuevo tipo de evento `users.messages.banner.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.NewsFeedImpression`.
+* Se añadió un nuevo tipo de evento `users.messages.banner.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.SessionEnd`.
+* Se añadió un nuevo tipo de evento `users.messages.banner.Impression`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.app.SessionStart`.
+* Se añadió un nuevo tipo de evento `users.messages.contentcard.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.CustomEvent`.
+* Se añadió un nuevo tipo de evento `users.messages.contentcard.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.geofence.DataEvent`.
+* Se añadió un nuevo tipo de evento `users.messages.contentcard.Dismiss`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.geofence.RecordEvent`.
+* Se añadió un nuevo tipo de evento `users.messages.contentcard.Impression`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.InstallAttribution`.
+* Se añadió un nuevo tipo de evento `users.messages.contentcard.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.liveactivity.PushToStartTokenChange`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.liveactivity.UpdateTokenChange`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Bounce`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.Location`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.Purchase`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Deferral`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.pushnotification.TokenStateChange`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Delivery`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.subscription.GlobalStateChange`.
+* Se añadió un nuevo tipo de evento `users.messages.email.MarkAsSpam`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.subscriptiongroup.StateChange`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Open`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.Uninstall`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.behaviors.UpgradedApp`.
+* Se añadió un nuevo tipo de evento `users.messages.email.SoftBounce`.
 
-* Se ha añadido un nuevo tipo de evento`users.campaigns.Conversion`.
+* Se añadió un nuevo tipo de evento `users.messages.email.Unsubscribe`.
 
-* Se ha añadido un nuevo tipo de evento`users.campaigns.EnrollInControl`.
+* Se añadió un nuevo tipo de evento `users.messages.featureflag.Impression`.
 
-* Se ha añadido un nuevo tipo de evento`users.campaigns.FrequencyCap`.
+* Se añadió un nuevo tipo de evento `users.messages.inappmessage.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.campaigns.Revenue`.
+* Se añadió un nuevo tipo de evento `users.messages.inappmessage.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.Conversion`.
+* Se añadió un nuevo tipo de evento `users.messages.inappmessage.Impression`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.Entry`.
+* Se añadió un nuevo tipo de evento `users.messages.liveactivity.Outcome`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.exit.MatchedAudience`.
+* Se añadió un nuevo tipo de evento `users.messages.liveactivity.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.exit.PerformedEvent`.
+* Se añadió un nuevo tipo de evento `users.messages.pushnotification.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.experimentstep.Conversion`.
+* Se añadió un nuevo tipo de evento `users.messages.pushnotification.Bounce`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.experimentstep.SplitEntry`.
+* Se añadió un nuevo tipo de evento `users.messages.pushnotification.IosForeground`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.FrequencyCap`.
+* Se añadió un nuevo tipo de evento `users.messages.pushnotification.Open`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvas.Revenue`.
+* Se añadió un nuevo tipo de evento `users.messages.pushnotification.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.canvasstep.Progression`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.banner.Abort`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.CarrierSend`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.banner.Click`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.Delivery`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.banner.Impression`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.DeliveryFailure`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Abort`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.InboundReceive`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Click`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.Rejection`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Dismiss`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Impression`.
+* Se añadió un nuevo tipo de evento `users.messages.sms.ShortLinkClick`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.contentcard.Send`.
+* Se añadió un nuevo tipo de evento `users.messages.webhook.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Abort`.
+* Se añadió un nuevo tipo de evento `users.messages.webhook.Failure`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Bounce`.
+* Se añadió un nuevo tipo de evento `users.messages.webhook.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Click`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Abort`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Deferral`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Click`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Delivery`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Delivery`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.MarkAsSpam`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Failure`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Open`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.InboundReceive`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Send`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Read`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.SoftBounce`.
+* Se añadió un nuevo tipo de evento `users.messages.whatsapp.Send`.
 
-* Se ha añadido un nuevo tipo de evento`users.messages.email.Unsubscribe`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.featureflag.Impression`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.inappmessage.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.inappmessage.Click`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.inappmessage.Impression`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.liveactivity.Outcome`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.liveactivity.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.newsfeedcard.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.newsfeedcard.Click`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.newsfeedcard.Impression`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Bounce`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.InfluencedOpen`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.IosForeground`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Open`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.pushnotification.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.CarrierSend`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Delivery`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.DeliveryFailure`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.InboundReceive`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Rejection`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.sms.ShortLinkClick`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Failure`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.webhook.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Abort`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Click`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Delivery`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Failure`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.InboundReceive`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Read`.
-
-* Se ha añadido un nuevo tipo de evento`users.messages.whatsapp.Send`.
-
-* Se ha añadido un nuevo tipo de evento`users.RandomBucketNumberUpdate`.
-
-* Se ha añadido un nuevo tipo de evento`users.UserDeleteRequest`.
-
-* Se ha añadido un nuevo tipo de evento`users.UserOrphan`.
+* Se añadió un nuevo tipo de evento `users.RandomBucketNumberUpdate`.

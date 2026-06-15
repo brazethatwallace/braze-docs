@@ -1,27 +1,28 @@
 ---
 nav_title: Analyse
 article_title: Analyse
-page_order: 3
+page_order: 7.5
 layout: dev_guide
 
 guide_top_header: "Analyse"
-guide_top_text: "Braze propose un large éventail d'indicateurs pour mesurer les performances de votre campagne. Nous proposons également plusieurs fonctionnalités de reporting et de suivi pour vous garantir que vous obtenez les données chiffrées dont vous avez besoin.<br><br>Tirez parti des données de Braze pour compléter vos efforts en matière d’aide à la décision et d'analyse dans d'autres plateformes de reporting de premier ordre à l'aide de <a href='/docs/user_guide/data_and_analytics/braze_currents/'>Currents</a>, un outil d'exportation de flux de données que votre équipe peut utiliser pour agir sur de grandes quantités de données client granulaires."
-description: "Braze propose une gamme d’indicateurs que vous pouvez utiliser lorsque vous évaluez la réussite de vos campagnes. Nous proposons également plusieurs fonctionnalités de rapport et de suivi pour vous garantir que vous obtenez les données chiffrées dont vous avez besoin." 
+guide_top_text: "Braze propose un ensemble complet d'indicateurs et d'outils de reporting pour mesurer les performances de vos campagnes, suivre l'engagement des utilisateurs et prendre des décisions fondées sur les données. Vous pouvez également compléter vos analyses avec <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, un outil d'exportation de flux de données qui vous permet d'exploiter de grandes quantités de données client granulaires dans vos propres plateformes d'aide à la décision."
+description: "Utilisez les outils d'analyse de Braze pour mesurer les performances de vos campagnes, suivre l'engagement des utilisateurs et accéder à des rapports et tableaux de bord détaillés."
 
-guide_featured_title: "Sujets"
+guide_featured_title: "Articles de cette section"
 guide_featured_list:
-  - name: Suivi
-    link: /docs/user_guide/analytics/tracking/
-    image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: "Votre tableau de bord d'analyse"
-    link: /docs/user_guide/analytics/dashboard/
+  - name: Tableaux de bord
+    link: /docs/user_guide/analytics/dashboards
     image: /assets/img/braze_icons/trend-up-01.svg
-  - name: Vos rapports
-    link: /docs/user_guide/analytics/reporting/
+  - name: Rapports
+    link: /docs/user_guide/analytics/reports
     image: /assets/img/braze_icons/bar-chart-01.svg
-  - name: Générateur de requêtes
-    link: /docs/user_guide/analytics/query_builder/
-    image: /assets/img/braze_icons/code-02.svg
+  - name: Suivi
+    link: /docs/user_guide/analytics/tracking
+    image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: Glossaire des indicateurs de rapport
+    link: /docs/user_guide/analytics/metrics_glossary
+    image: /assets/img/braze_icons/book-closed.svg
 
 ---
-<br><br>
+
+Utilisez les **Tableaux de bord** pour un suivi des performances en un coup d'œil, les **Rapports** pour une analyse approfondie de vos campagnes et Canvas, et le **Suivi** pour configurer la manière dont Braze capture les actions des utilisateurs. Si vous n'êtes pas sûr de la signification d'un indicateur, consultez le **Glossaire des indicateurs de rapport**.

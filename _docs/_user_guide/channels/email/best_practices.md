@@ -19,7 +19,7 @@ guide_featured_list:
     link: /docs/user_guide/channels/email/best_practices/email_styling
     image: /assets/img/braze_icons/brush-02.svg
   - name: "Use cases"
-    link: /docs/user_guide/channels/email/best_practices/use_cases
+    link: /docs/user_guide/channels/email/use_cases
     image: /assets/img/braze_icons/edit-05.svg
   - name: "Sunset policies"
     link: /docs/user_guide/channels/email/best_practices/sunset_policies
@@ -30,5 +30,8 @@ guide_featured_list:
   - name: "Know before you send"
     link: /docs/know_before_send/
     image: /assets/img/braze_icons/send-01.svg
+  - name: "Email deliverability"
+    link: /docs/user_guide/channels/email/best_practices/improve_deliverability/
+    image: /assets/img/braze_icons/send-02.svg  
 
 ---

@@ -1,0 +1,3 @@
+## Connected-Content-Aufrufe mit Abbruch- und Wiederholungslogik {#connected-content-calls-with-abort-and-retry-logic}
+
+Wenn ein Connected-Content-Aufruf Abbruchlogik für dieselbe Bedingung wie die Wiederholungslogik verwendet, hat die Abbruchlogik Vorrang. Dadurch werden keine Wiederholungsversuche unternommen. Die Wiederholungslogik sendet den Aufruf bereits erneut, bevor sie ihn abbricht, wenn der Statuscode nicht erfolgreich ist. Da beide auf dasselbe Statuscode-Verhalten abzielen, können Sie die Abbruchlogik entfernen, und der Aufruf wird trotzdem abgebrochen, wenn alle Wiederholungsversuche fehlschlagen.

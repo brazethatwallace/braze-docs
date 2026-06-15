@@ -1,35 +1,69 @@
 ---
 nav_title: 커스텀 데이터
-article_title: 사용자 지정 데이터
+article_title: 커스텀 데이터
 page_order: 0
-layout: dev_guide
-guide_top_header: "커스텀 데이터"
-guide_top_text: "Braze의 가장 좋은 점 중 하나는 유연성입니다. 커스텀 데이터를 앱에 설정하고 관련 측정기준을 Braze로 보낼 수 있습니다. 다음 기사를 방문하여 확인하십시오."
-
 page_type: landing
-description: "이 랜딩 페이지는 커스텀 데이터에 대한 기사들의 홈입니다. 여기에서 이벤트 명명 규칙, 커스텀 이벤트 및 속성, 구매 이벤트, 커스텀 데이터 차단 등과 관련된 자료를 찾을 수 있습니다."
-
-guide_featured_title: "섹션 기사"
-guide_featured_list:
-  - name: 이벤트
-    link: /docs/user_guide/data/activation/custom_data/events/
-    image: /assets/img/braze_icons/book-closed.svg
-  - name: 구매 이벤트
-    link: /docs/user_guide/data/activation/custom_data/purchase_events/
-    image: /assets/img/braze_icons/shopping-cart-03.svg
-  - name: 사용자 지정 이벤트
-    link: /docs/user_guide/data/activation/custom_data/custom_events/
-    image: /assets/img/braze_icons/settings-01.svg
-  - name: 커스텀 속성
-    link: /docs/user_guide/data/activation/custom_data/custom_attributes/
-    image: /assets/img/braze_icons/table.svg
-  - name: 이벤트 명명 규칙
-    link: /docs/user_guide/data/activation/custom_data/event_naming_conventions/
-    image: /assets/img/braze_icons/list.svg
-  - name: 고객 데이터 관리
-    link: /docs/user_guide/data/activation/custom_data/managing_custom_data/
-    image: /assets/img/braze_icons/check-square-broken.svg
-  - name: 추천 이벤트
-    link: /docs/recommended_events/
-    image: /assets/img/braze_icons/hearts.svg
+description: "커스텀 데이터는 Braze에서 참여 전략을 강화합니다. 커스텀 속성, 이벤트, 카탈로그, 데이터 유형, 그리고 데이터 무결성을 관리하는 방법에 대해 알아보세요."
 ---
+
+# 커스텀 데이터 {#custom-data}
+
+> 커스텀 데이터는 참여 전략의 핵심입니다. 이름이나 국가 같은 표준 속성은 기본으로 제공되지만, 커스텀 데이터를 사용하면 고객과의 관계를 정의하는 고유한 세부 정보를 캡처할 수 있습니다. 좋아하는 영화 장르부터 구매를 완료한 정확한 순간까지 다양한 정보를 담을 수 있습니다.
+
+이 정보를 Braze로 가져오면 일반적인 메시징을 넘어 개인적이고, 시의적절하며, 관련성 높은 경험을 만들 수 있습니다. 이 데이터를 활용하여 정밀한 Segment를 구축하고, Liquid로 메시지 콘텐츠를 개인화하며, 실시간 동작을 기반으로 자동화된 여정을 트리거할 수 있습니다.
+
+## 속성과 이벤트 {#attributes-and-events}
+
+데이터를 설정할 때 가장 중요한 결정은 속성과 이벤트 중 무엇을 사용할지 선택하는 것입니다.
+
+### 커스텀 속성: 사용자가 누구인지 {#custom-attributes-who-your-users-are}
+
+커스텀 속성은 사용자의 지속적인 특성이나 속성이라고 생각하면 됩니다. 현재 상태를 나타내거나 자주 변경되지 않는 정보를 저장하는 데 가장 적합합니다.
+
+- **사용 사례:** `loyalty_tier` 속성을 사용하여 "Silver" 회원과 "Gold" 회원을 구분할 수 있습니다.
+- **개인화:** 속성은 개인화에 완벽합니다. 사용자의 `favorite_category`를 이메일 제목란에 넣어 관심을 끌 수 있습니다.
+- **저장:** 이 데이터는 프로필이 활성 상태인 한 고객 프로필에 무기한 유지됩니다.
+
+자세한 내용은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 참조하세요.
+
+### 커스텀 이벤트: 사용자가 무엇을 하는지 {#custom-events-what-your-users-do}
+
+커스텀 이벤트는 사용자가 특정 시점에 수행하는 특정 동작을 추적합니다. 사용자 동작의 "언제"와 "얼마나 자주"를 이해하는 데 도움이 되는 높은 가치의 상호작용입니다.
+
+- **사용 사례:** 사용자가 가입을 완료하면 `completed_registration` 이벤트를 기록할 수 있습니다.
+- **트리거:** 이벤트는 실행 기반 전달을 트리거하는 주요 방법입니다. `completed_registration` 이벤트가 기록되는 순간 "환영" 푸시 알림을 보낼 수 있습니다.
+- **메타데이터:** 이벤트 등록정보를 사용하여 이벤트에 추가 세부 정보를 첨부할 수 있습니다. 예를 들어 장바구니에 추가된 항목의 이름 등이 있습니다.
+- **분석:** 이벤트는 세분화, 보고서, 분석을 지원하여 참여를 측정하고 메시징을 최적화할 수 있습니다.
+
+자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요.
+
+## 카탈로그 {#catalogs}
+
+속성과 이벤트가 사용자에 초점을 맞추는 반면, 카탈로그를 사용하면 제품 재고, 강좌 세부 정보, 이벤트 목록과 같은 비사용자 데이터를 가져올 수 있습니다.
+
+CSV 또는 API를 통해 이 메타데이터를 가져오면 고객 프로필에 저장되지 않은 정보로 메시지를 풍부하게 만들 수 있습니다. 예를 들어, 카탈로그를 사용하여 고객이 이전에 조회한 항목이 재입고되었거나 가격이 인하되었을 때 자동으로 알림을 보낼 수 있습니다.
+
+자세한 내용은 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 참조하세요.
+
+## 데이터 유형 {#data-types}
+
+Braze는 커스텀 데이터에 대해 부울, 숫자, 문자열, 배열, 시간, 오브젝트 유형 등 여러 데이터 유형을 지원하며, 각각 고유한 동작과 세분화 옵션이 있습니다. 선택하는 데이터 유형에 따라 Campaign과 Segment에서 필터링하고 개인화하는 방법이 달라집니다.
+
+커스텀 속성, 이벤트 등록정보, 카탈로그에 대해 지원되는 데이터 유형의 전체 참조는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)을 확인하세요.
+
+## 데이터 무결성 관리 {#managing-your-data-integrity}
+
+Braze는 전략이 발전함에 따라 커스텀 데이터를 관리하는 데 도움이 되는 여러 도구를 제공합니다.
+
+### 데이터 유형 감지 및 변경 {#data-type-detection-and-changes}
+
+Braze는 속성에 대해 처음 수신한 값의 데이터 유형(숫자 또는 문자열 등)을 자동으로 인식합니다. 정확성을 유지하려면 팀에서 환경 전반에 걸쳐 일관된 데이터 유형을 전송해야 합니다. 데이터 유형을 변경해야 하는 경우, 고객 프로필의 기존 데이터는 소급 업데이트되지 않으므로 Segment에 영향을 줄 수 있다는 점에 유의하세요.
+
+### 차단 목록 및 삭제 {#blocklist-and-delete}
+
+특정 속성이나 이벤트가 더 이상 유용하지 않거나 실수로 추가된 경우 워크스페이스에서 제거할 수 있습니다.
+
+- **차단 목록:** 해당 오브젝트에 대한 새 데이터 수집을 중지합니다. 필터나 그래프에 데이터가 표시되지 않지만 프로필의 기존 데이터는 유지됩니다.
+- **삭제:** 모든 고객 프로필에서 데이터를 영구적으로 제거합니다. 삭제하려면 먼저 데이터 오브젝트를 7일 동안 차단 목록에 등록해야 합니다.
+
+자세한 내용은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) 및 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-nav_title: Banderas de características en Canvas
+nav_title: Conmutadores de características en Canvas
 page_order: 30
 noindex: true
 tool: Feature Flags
@@ -8,5 +8,5 @@ platform:
   - Android
   - Web
 layout: redirect
-redirect_to: /docs/user_guide/engagement_tools/canvas/canvas_components/feature_flags/
+redirect_to: /docs/user_guide/messaging/canvas/canvas_components/feature_flags/
 ---

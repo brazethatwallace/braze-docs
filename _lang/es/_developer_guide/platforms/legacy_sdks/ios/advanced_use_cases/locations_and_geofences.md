@@ -4,7 +4,7 @@ article_title: Ubicaciones y geovallas para iOS
 platform: iOS
 page_order: 6
 description: "Este artículo de referencia explica cómo implementar ubicaciones y geovallas en tu aplicación de iOS."
-Tool:
+tool:
   - Location
 
 noindex: true

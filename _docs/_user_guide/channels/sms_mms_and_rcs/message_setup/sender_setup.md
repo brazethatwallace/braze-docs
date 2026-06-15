@@ -57,7 +57,7 @@ Carriers impose their own file size limits, which determine the success of MMS s
 | 300&nbsp;KB | All carriers should reliably handle MMS messages of this size. |
 | 600&nbsp;KB | This is considered the standard maximum file size for MMS across most carriers. |
 | 1&nbsp;MB |  Most US and Canadian carriers can handle MMS messages of this size, although this may vary by carrier. Some carriers may allow for larger file sizes than this. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Carrier file size limits" }
 
 #### Accepted file types
 

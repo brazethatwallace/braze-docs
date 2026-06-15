@@ -259,9 +259,9 @@ function embedCodeToTarget(targetDiv, codeText, showBorder, showLineNumbers, sho
   if (showFileMeta) {
     const meta = document.createElement("div");
     const rawFileURLSplit = rawFileURL.split("/");
-    meta.innerHTML = `<a target="_blank" href="${rawFileURL}" style="float:right">view raw</a>
-<a target="_blank" href="${fileURL}">${rawFileURLSplit[rawFileURLSplit.length - 1]}</a>
-delivered <span class="hide-in-phone">with <i class="fa-solid fa-heart"></i> </span>by <a target="_blank" href="${serviceProvider}">EmGithub</a>`;
+    meta.innerHTML = `<a target="_blank" rel="noopener noreferrer" href="${rawFileURL}" style="float:right">view raw<span class="sr-only"> (opens in new tab)</span></a>
+<a target="_blank" rel="noopener noreferrer" href="${fileURL}">${rawFileURLSplit[rawFileURLSplit.length - 1]}<span class="sr-only"> (opens in new tab)</span></a>
+delivered <span class="hide-in-phone">with <i class="fa-solid fa-heart"></i> </span>by <a target="_blank" rel="noopener noreferrer" href="${serviceProvider}">EmGithub<span class="sr-only"> (opens in new tab)</span></a>`;
     meta.classList.add("file-meta");
     if (!isDarkStyle) {
       meta.classList.add("file-meta-light");

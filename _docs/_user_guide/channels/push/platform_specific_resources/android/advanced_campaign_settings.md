@@ -60,7 +60,7 @@ The **Firebase Messaging Delivery Priority** field lets you control whether a pu
 |---------|-------------|----------|
 | Normal | Battery-optimized delivery that may be delayed to conserve battery | Non-urgent content, promotional offers, news updates |
 | High | Immediate delivery with higher battery consumption | Time-sensitive notifications, critical alerts, live event updates, account alerts, breaking news, or urgent reminders |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
 
 #### Considerations
 
@@ -109,7 +109,7 @@ Refer to the following table for priority levels that you can set on Android or 
 | Default | Most notifications. Use if your message doesn't explicitly fall under any of the other priority types. | `0` |
 | Low | Information that you want users to know about but does not require immediate action. | `-1`|
 | Min | Contextual or background information. | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
 
 For more information, refer to Google's documentation on [Android notifications](http://developer.android.com/design/patterns/notifications.html).
 
@@ -137,7 +137,7 @@ Android push notifications provide the option to specify if your notification fa
 | Status | Ongoing information about device or contextual status. |
 | System | System or device status update. Reserved for system use. |
 | Transport | Media transport control for playback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push category" }
 
 ## Push visibility
 
@@ -148,7 +148,7 @@ Android push notifications provide an optional field to determine how a notifica
 | Public | Notification appears on the lock screen |
 | Private | Notification is shown with "Content hidden" as the message |
 | Secret | Notification is not shown on the lock screen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push visibility" }
 
 Additionally, Android users can override how push notifications appear on their lock screen by changing the notification privacy setting on their device. This setting will override the visibility from the push notification.
 

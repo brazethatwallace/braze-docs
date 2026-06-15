@@ -38,6 +38,9 @@ Yes, you can add up to 10 WhatsApp Business accounts per workspace, and each bus
 
 ![Diagram of the Braze and WhatsApp ecosystem, showing how workspaces and WhatsApp Business accounts connect to each other: you can connect one subscription group to one phone number, multiple WhatsApp Business accounts to one workspace, and one workspace to multiple Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %}) 
 
+#### Can I change my WhatsApp Business Account currency?
+No. Meta controls the currency for your WhatsApp Business Account, and Braze can't change or convert it. To use a different currency, [create a separate WhatsApp Business Account]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) with that currency, or contact Meta support to ask whether they can update the currency on your existing account.
+
 ### WhatsApp business account phone numbers 
 
 #### Do I need a phone number for my WhatsApp business account? 
@@ -196,3 +199,7 @@ WhatsApp is a channel focused on 2-way messaging and thus anchors on conversatio
 Factors that affect phone number quality rating include an end-user blocking a business (and the reasons they provide when they block a business) and an end-user reporting a business. 
 
 When a quality rating is low, the phone number status changes from **Connected** to **Flagged**. If the quality doesn't improve over seven days, the status returns to **Connected**. However, the messaging limit will decrease to the next level. For example, a phone number that used to have a 100,000 messaging limit now has a 10,000 messaging limit.
+
+#### What if my template was falsely flagged for violating WhatsApp's Commerce Policy?
+
+If you believe Meta falsely flagged your template, use the review link in the email from WhatsApp to request a re-review. The WhatsApp Business team reviews the decision and reverses it if appropriate.

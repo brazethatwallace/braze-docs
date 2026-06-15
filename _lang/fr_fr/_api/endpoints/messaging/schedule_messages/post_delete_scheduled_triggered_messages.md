@@ -1,34 +1,34 @@
 ---
-nav_title: "POST : Supprimer des campagnes planifiées déclenchées par API"
-article_title: "POST : Supprimer des campagnes planifiées déclenchées par API"
+nav_title: "POST : Supprimer des campagnes planifiées déclenchées par API"
+article_title: "POST : Supprimer des campagnes planifiées déclenchées par API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Planifier des campagnes déclenchées par API et planifiées."
+description: "Cet article présente en détail l'endpoint Braze Supprimer des campagnes planifiées déclenchées par API."
 
 ---
 {% api %}
-# Supprimer des campagnes planifiées déclenchées par API
+# Supprimer des campagnes planifiées déclenchées par API {#delete-scheduled-api-triggered-campaigns}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Utilisez cet endpoint pour annuler un message Canvas que vous avez déjà planifié dans des campagnes déclenchées par API avant qu’il ne soit envoyé.
+> Utilisez cet endpoint pour annuler un message Canvas que vous avez précédemment planifié via l'API avant qu'il ne soit envoyé.
 
-Les messages planifiés ou les déclencheurs qui sont supprimés à proximité ou pendant la période où ils étaient censés être envoyés sont mis à jour au mieux, de sorte que Braze peut appliquer des suppressions de dernière seconde à tous, à certains ou à aucun de vos utilisateurs ciblés.
+Les messages planifiés ou les déclencheurs supprimés peu avant ou pendant leur heure d'envoi prévue sont mis à jour au mieux. Il est donc possible que Braze applique des suppressions de dernière seconde à la totalité, à une partie ou à aucun de vos utilisateurs ciblés.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d34037f-4bf2-4fab-bc9c-c972988051a7 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `campaigns.trigger.schedule.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `campaigns.trigger.schedule.delete`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corps de la demande
+## Corps de la demande {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,16 +42,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande
+## Paramètres de demande {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id`| Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
-| `schedule_id` | Requis | Chaîne de caractères | Le `schedule_id` à supprimer (obtenu à partir de la réponse pour créer une planification). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
+| `schedule_id` | Requis | Chaîne de caractères | Le `schedule_id` à supprimer (obtenu à partir de la réponse de création de planification). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 
-## Exemple de demande
+## Exemple de demande {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/delete' \
 --header 'Content-Type: application/json' \

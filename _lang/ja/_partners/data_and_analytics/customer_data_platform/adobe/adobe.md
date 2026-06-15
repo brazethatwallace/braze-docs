@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "このページでは、Braze と Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Braze に接続し、Adobe データ (カスタム属性とセグメント) を Braze にマッピングできます。そうすれば、ブランドはこの情報に基づいて行動し、パーソナライズされたなターゲットを絞った体験をユーザーに提供することができる。"
+description: "このページでは、Brazeと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とセグメント）をBrazeに接続してマッピングできます。その後、ブランドはこのデータに基づいて行動し、パーソナライズされたターゲットを絞った体験をユーザーに提供できます。"
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -10,99 +10,98 @@ search_tag: Partner
 
 # Adobe
 
-> Adobe Experience プラットフォームに基づいて構築された Adobe のリアルタイム顧客データプラットフォームを使用すると、複数のエンタープライズソースからの既知の匿名データをまとめて顧客プロファイルを作成できます。その後、これらのプロファイルを使用して、パーソナライズされたエクスペリエンスをすべてのチャネルおよびデバイスでリアルタイムで提供できます。
+> Adobe Experience Platformに基づいて構築されたAdobe のリアルタイム顧客データプラットフォームは、複数のエンタープライズソースからの既知の匿名データをまとめて顧客プロファイルを作成します。その後、これらのプロファイルを使用して、パーソナライズされたエクスペリエンスをすべてのチャネルおよびデバイスでリアルタイムに提供できます。
 
-Braze とAdobe CDP の統合により、ブランドのAdobe データ(カスタム属性とセグメント) がリアルタイムでBraze に接続され、マッピングされます。その後、このデータに基づいて行動し、ユーザーにパーソナライズされたターゲットを絞った体験を提供できます。Adobeでは、統合は直感的です。Adobe の任意の [ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en) を Braze の external ID にマッピングし、Braze プラットフォームに送信するだけです。Braze では、新しい `AdobeExperiencePlatformSegments` 属性を使用して、送信されるすべてのデータにアクセスできます。
+BrazeとAdobe CDPの統合により、ブランドのAdobe データ（カスタム属性とセグメント）がリアルタイムでBrazeに接続され、マッピングされます。その後、このデータに基づいて行動し、ユーザーにパーソナライズされたターゲットを絞った体験を提供できます。Adobeでは、統合は直感的です。Adobeの任意の[ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)をBrazeのexternal IDにマッピングし、Brazeプラットフォームに送信するだけです。送信されたすべてのデータは、Brazeで新しい `AdobeExperiencePlatformセグメント` 属性を通じてアクセスできます。
 
 {% alert important %}
-Adobe Experience プラットフォーム統合では、現在、ダイナミックなオーディエンスメンバーシップはサポートされていません。つまり、ユーザープロファイルには値を追加できますが、削除することはできません。
+Adobe Experience Platform統合では、現在、ダイナミックなオーディエンスメンバーシップはサポートされていません。つまり、ユーザープロファイルには値を追加できますが、削除することはできません。
 {% endalert %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Adobeアカウント | このパートナーシップを活用するには、[Adobe アカウント](https://account.adobe.com/)が必要です。 |
-| Braze REST API キー | `users.track` 権限を持つ Braze REST API キー。<br><br> これは、**Settings** > **API Keys** のBraze ダッシュボードで作成できます。 |
-| Brazeインスタンス | Brazeインスタンスは、Braze オンボーディング マネージャーから取得するか、[API 概要ページ]({{site.baseurl}}/api/basics/#endpoints) にあります。 |
-| Braze REST エンドポイント | REST エンドポイントのURL。エンドポイントはインスタンスの [Braze URL]({{site.baseurl}}/api/basics/#endpoints) に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Adobe アカウント | このパートナーシップを活用するには、[Adobe アカウント](https://account.adobe.com/)が必要です。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Brazeインスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから取得するか、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)で確認できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert important %}
-追加のカスタム属性を送信すると、データポイントの使用量が増加します。この潜在的なデータポイントの増加をよりよく理解するために、カスタマーサクセスマネージャーと話すことをお勧めします。
+追加のカスタム属性を送信すると、データポイント使用量が増加します。この潜在的なデータポイントの増加をよりよく理解するために、カスタマーサクセスマネージャーにご相談ください。
 {% endalert %}
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:Braze 宛先を設定する
+### ステップ 1: Braze送信先を設定する {#step-1-configure-braze-destination}
 
-Adobe **Settings**ページで、**Destinations**を**Collections**から選択します。そこから、**Braze**タイルを見つけ、**Configure**を選択します。 
+Adobeの**Settings**ページで、**Collections**の下にある**Destinations**を選択します。そこから**Braze**タイルを見つけ、**Configure**を選択します。
 
 ![]({% image_buster /assets/img/adobe/braze-destination-configure.png %})
 
 {% alert note %}
-Braze との接続がすでに存在する場合は、宛先カードに**Activate** ボタンが表示されます。[Activate] と [Configure] の違いの詳細については、Adobe 宛先ワークスペースの[ドキュメント](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/destinations/destinations-interface/destinations-workspace.html?lang=en#catalog)の「カタログ」セクションを参照してください。
+Brazeとの接続がすでに存在する場合は、送信先カードに**Activate**ボタンが表示されます。ActivateとConfigureの違いの詳細については、Adobe送信先ワークスペースの[ドキュメント](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/destinations/destinations-interface/destinations-workspace.html?lang=en#catalog)のカタログセクションを参照してください。
 {% endalert %}
 
-### ステップ2:Braze トークンの提供
+### ステップ 2: Brazeトークンを提供する {#step-2-provide-braze-token}
 
-**アカウント**ステップで、Braze APIキーを入力し、**接続先**を選択します。
+**Account**ステップで、Braze APIキーを入力し、**Connect to destination**を選択します。
 
 ![]({% image_buster /assets/img/adobe/braze-destination-account.png %}){: style="max-width:60%"}
 
-### ステップ 3:認証
+### ステップ 3: 認証 {#step-3-authentication}
 
-次に、**Authentication**ステップで、Braze 接続の詳細を入力します。
-- **Name**:今後この宛先を認識するために使用する名前を入力します。
-- **Destination**:この宛先を特定するのに役立つ説明を入力します。
-- **エンドポイントインスタンス**:Braze エンドポイントを入力します。
-- **マーケティングユースケース**:マーケティングユースケースは、データを送信先にエクスポートする目的を示します。Adobe定義のマーケティング ユースケースから選択するか、独自のマーケティング ユースケースを作成できます。Adobe マーケティングユースケースの詳細については、[Adobe Experience Platform のデータガバナンス](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en#destinations)を参照してください。
+次に、**Authentication**ステップで、Braze接続の詳細を入力します。
+- **Name**: 今後この送信先を認識するために使用する名前を入力します。
+- **Destination**: この送信先を特定するのに役立つ説明を入力します。
+- **Endpoint instance**: Brazeエンドポイントインスタンスを入力します。
+- **Marketing use case**: マーケティングユースケースは、データを送信先にエクスポートする目的を示します。Adobe定義のマーケティングユースケースから選択するか、独自のマーケティングユースケースを作成できます。Adobeマーケティングユースケースの詳細については、[Adobe Experience Platformのデータガバナンス](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en#destinations)を参照してください。
 
 ![]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
 
-### ステップ 4: 宛先を作成する
-[**宛先を作成**] を選択します。宛先が作成されました。**Save & Exit** を選択してSegment s 以降を有効にするか、**Next** を選択してワークフローを続行し、Segment s を選択して有効にします。 
+### ステップ 4: 送信先を作成する {#step-4-create-destination}
+**Create destination**を選択します。送信先が作成されました。**Save & Exit**を選択して後でセグメントを有効にするか、**Next**を選択してワークフローを続行し、有効にするセグメントを選択できます。
 
-### ステップ 5: Segmentの有効化
-Adobe Real-Time CDP で使用しているデータをアクティブにするには、セグメントを Braze 宛先にマッピングします。
+### ステップ 5: セグメントを有効にする {#step-5-activate-segments}
+Adobe Real-Time CDPのデータを有効にするには、セグメントをBraze送信先にマッピングします。
 
-次の一覧では、Segmentを有効にするために必要な全般的なステップを示します。Adobe のセグメントとセグメントアクティベーションワークフローの詳細なガイダンスについては、[Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites) を参照してください。
+以下のリストでは、セグメントを有効にするために必要な一般的なステップを示します。Adobeのセグメントとセグメント有効化ワークフローの詳細なガイダンスについては、[Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites)を参照してください。
 
-1. Braze 宛先を選択してアクティブ化します。
+1. Braze送信先を選択してアクティブ化します。
 2. 該当するセグメントを選択します。
-4. エクスポートするSegmentごとにスケジュールとファイル名を設定します。
-5. Brazeに送信する属性sを選択します。
+4. エクスポートする各セグメントのスケジュールとファイル名を設定します。
+5. Brazeに送信する属性を選択します。
 6. アクティベーションを確認します。
 
-### ステップ 6: フィールドマッピング
+### ステップ 6: フィールドマッピング {#step-6-field-mapping}
 
-Adobe Experience Platform から Braze にオーディエンスデータを正しく送信するには、フィールドマッピングステップを完了する必要があります。マッピングにより、Adobe Experience データモデルのフィールドと対応する Braze プラットフォームのフィールドの間にリンクが作成されます。
+Adobe Experience PlatformからBrazeにオーディエンスデータを正しく送信するには、フィールドマッピングステップを完了する必要があります。マッピングにより、Adobe Experienceデータモデルのフィールドと対応するBrazeプラットフォームのフィールドの間にリンクが作成されます。
 
-1. マッピングステップで [**新しいマッピングの追加**] を選択します。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping.png %}){: style="max-width:50%;"}<br><br>
-2. ソースフィールドセクションで、空のフィールドの横にある矢印ボタンを選択します。これにより、ソースフィールド選択ウィンドウが表示されます。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-source.png %})<br><br>
-3. このウィンドウでは、Braze の属性にマッピングするAdobe の属性を選択します。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-attributes.png %}){: style="max-width:70%;"}<br><br>次に、ID ネームスペースを選択します。この項目は、プラットフォーム ID ネームスペースをBraze ネームスペースにマップするために使用されます。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-namespaces.png %}){: style="max-width:80%;"}<br> ソースフィールドを選択し、[**選択**] を選択します。<br><br>
+1. マッピングステップで**Add new mapping**を選択します。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping.png %}){: style="max-width:50%;"}<br><br>
+2. ソースフィールドセクションで、空のフィールドの横にある矢印ボタンを選択して、ソースフィールド選択ウィンドウを開きます。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-source.png %})<br><br>
+3. ウィンドウで、Braze属性にマッピングするAdobe属性を選択します。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-attributes.png %}){: style="max-width:70%;"}<br><br>次に、IDネームスペースを選択します。このオプションは、プラットフォームIDネームスペースをBrazeネームスペースにマッピングするために使用されます。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-namespaces.png %}){: style="max-width:80%;"}<br>ソースフィールドを選択し、**Select**を選択します。<br><br>
 4. ターゲットフィールドセクションで、フィールドの横にあるマッピングアイコンを選択します。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target.png %}){: style="max-width:90%;"}<br><br>
-5. ターゲットフィールド選択ウィンドウでは、ターゲットフィールドの3つのカテゴリから選択できます。<br><br>• **Select identity namespace**:Platform の ID 名前空間を Braze の ID 名前空間にマッピングするには、このオプションを使用します。<br>• **Select custom attributes**:Adobe XDM 属性を、Braze アカウントで定義したカスタム Braze 属性にマッピングするには、このオプションを使用します。<br><br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target-fields.png %}){: style="max-width:60%;"}<br><br>**このオプションを使用して、既存の XDM 属性の名前を Braze で変更することもできます。**たとえば、XDM 属性 `lastname` を Braze のカスタム属性 `Last_Name` にマッピングすると、Braze に属性 `Last_Name` がまだ存在しない場合はこの属性が作成され、XDM 属性 `lastname` がそれにマッピングされます。<br><br> 目的のフィールドを選択し、[**選択**] を選択します。<br><br>
+5. ターゲットフィールド選択ウィンドウでは、ターゲットフィールドの3つのカテゴリから選択できます。<br><br>• **Select identity namespace**: PlatformのIDネームスペースをBrazeのIDネームスペースにマッピングするには、このオプションを使用します。<br>• **Select custom attributes**: Adobe XDM属性を、Brazeアカウントで定義したカスタムBraze属性にマッピングするには、このオプションを使用します。<br><br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-target-fields.png %}){: style="max-width:60%;"}<br><br>**このオプションを使用して、既存のXDM属性の名前をBrazeで変更することもできます。** たとえば、XDM属性 `lastname` をBrazeのカスタム属性 `Last_Name` にマッピングすると、Brazeに `Last_Name` 属性がまだ存在しない場合はこの属性が作成され、XDM属性 `lastname` がそれにマッピングされます。<br><br>ターゲットフィールドを選択し、**Select**を選択します。<br><br>
 6. フィールドマッピングがリストに表示されます。<br>![]({% image_buster /assets/img/adobe/braze-destination-mapping-complete.png %})<br><br>
-7. マッピングをさらに追加するには、必要に応じて手順1～6を繰り返します。 
+7. マッピングをさらに追加するには、必要に応じてステップ1〜6を繰り返します。
 
-## ユースケース
+## ユースケース {#use-case}
 
-たとえば、XDM プロファイル スキーマとBrazeインスタンスに次の属性s とID が含まれているとします。
+たとえば、XDMプロファイルスキーマとBrazeインスタンスに次の属性とIDが含まれているとします。
 
-|     | XDM プロファイルスキーマ | Brazeインスタンス |
+|     | XDMプロファイルスキーマ | Brazeインスタンス |
 | --- | ------------------ | -------------- |
 | 属性 | - `person.name.firstname`<br>- `person.name.lastname`<br>- `mobilePhone.number`| - `FirstName`<br>- `LastName`<br>- `PhoneNumber`|
-| ID | - `Email`<br>\- Google 広告 ID (`GAID`)<br>\- Apple ID Advertisers 用(`IDFA`) | - `external_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| ID | - `Email`<br>- Google広告ID (`GAID`)<br>- Apple ID For Advertisers (`IDFA`) | - `external_id` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case" }
 
 正しいマッピングは次のようになります。
 
-![宛先マッピング: IdentityMap:IDFA を IdentityMap:external_id にマッピング、IdentityMap:GAID を IdentityMap:external_id にマッピング、IdentityMap:Email を IdentityMap:external_id にマッピング、xdm:mobilePhone.number を CustomAttribute:PhoneNumber にマッピング、xdm:person.name.lastName を CustomAttribute:LastName にマッピング、xdm:person.name.firstName を CustomAttribute:FirstName にマッピング]({% image_buster /assets/img/adobe/braze-destination-mapping-example.png %})
+![送信先マッピング: IdentityMap:IDFAをIdentityMap:external_idにマッピング、IdentityMap:GAIDをIdentityMap:external_idにマッピング、IdentityMap:EmailをIdentityMap:external_idにマッピング、xdm:mobilePhone.numberをCustomAttribute:PhoneNumberにマッピング、xdm:person.name.lastNameをCustomAttribute:LastNameにマッピング、xdm:person.name.firstNameをCustomAttribute:FirstNameにマッピング]({% image_buster /assets/img/adobe/braze-destination-mapping-example.png %})
 
-## エクスポートされたデータ
-データが正常に Braze にエクスポートされたかどうかを確認するには、Braze アカウントをチェックします。Adobe Experience Platform Segmentは、`AdobeExperiencePlatformSegments`属性でBrazeにエクスポートされます。
+## エクスポートされたデータ {#exported-data}
+データが正常にBrazeにエクスポートされたかどうかを確認するには、Brazeアカウントをチェックします。Adobe Experience Platformのセグメントは、`AdobeExperiencePlatformセグメント` 属性でBrazeにエクスポートされます。
 
-## データの使用とガバナンス
-データの処理時に、Adobe Experience Platform のすべての宛先はデータ使用ポリシーに準拠します。Adobe Experience Platform によるデータガバナンスの実施方法の詳細については、[Real-Time CDP のデータガバナンス](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en)を参照してください。 
-
+## データの使用とガバナンス {#data-usage-and-governance}
+データの処理時に、Adobe Experience Platformのすべての送信先はデータ使用ポリシーに準拠します。Adobe Experience Platformによるデータガバナンスの実施方法の詳細については、[Real-Time CDPのデータガバナンス](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en)を参照してください。

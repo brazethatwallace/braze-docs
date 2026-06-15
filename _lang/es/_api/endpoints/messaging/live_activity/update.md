@@ -1,42 +1,42 @@
 ---
-nav_title: "PUBLICAR: Actualizar actividad en vivo"
-article_title: "PUBLICAR: Actualizar la actividad en directo"
-search_tag: Punto de conexión
+nav_title: "POST: Actualizar actividad en vivo"
+article_title: "POST: Actualizar actividad en vivo"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Actualizar actividad en vivo."
+description: "En este artículo se describen los detalles del punto de conexión Actualizar actividad en vivo."
 
 ---
 {% api %}
-# Actualizar la actividad en directo
+# Actualizar actividad en vivo {#update-live-activity}
 {% apimethod post %}
 /messages/live_activity/update
 {% endapimethod %}
 
-> Utilice este punto final para actualizar y finalizar [las Actividades en Directo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) mostradas por su aplicación iOS. Este punto final requiere una configuración adicional.
+> Usa este punto de conexión para actualizar y finalizar las [actividades en vivo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) mostradas por tu aplicación iOS. Este punto de conexión requiere configuración adicional.
 
-Después de registrar una Live Activity, puede pasar una carga JSON para actualizar su servicio de Notificaciones Push de Apple (APNs). Para más información, consulte la documentación de Apple sobre la [actualización de Live Activity con cargas útiles de notificaciones push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications).
+Después de registrar una actividad en vivo, puedes pasar una carga útil JSON para actualizar tu servicio de notificaciones push de Apple (APN). Consulta la documentación de Apple sobre la [actualización de tu actividad en vivo con cargas útiles de notificaciones push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications) para más información.
 
-Si`content-available`no se configura, la prioridad predeterminada del servicio de notificaciones push de Apple (APN) es 10. Si`content-available`se establece, esta prioridad es 5. Consulta [el objeto push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) de [Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para obtener más detalles.
+Si `content-available` no está configurado, la prioridad predeterminada del servicio de notificaciones push de Apple (APN) es 10. Si `content-available` está configurado, esta prioridad es 5. Consulta el [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) para más detalles.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, tendrás que completar lo siguiente:
+Para usar este punto de conexión, tendrás que completar lo siguiente:
 
-- Generar una clave API con el permiso `messages.live_activity.update`.
-- Registra una actividad en vivo [de forma remota]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=remote&sdktab=swift) o [local]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift) utilizando el SDK Swift de Braze.
+- Generar una clave de API con el permiso `messages.live_activity.update`.
+- Registrar una actividad en vivo [de forma remota]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=remote&sdktab=swift) o [local]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift) utilizando el SDK Swift de Braze.
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```json
 {
@@ -50,20 +50,20 @@ Para utilizar este punto final, tendrás que completar lo siguiente:
  }
  ```
 
-## Parámetros de la solicitud
+## Request parameters
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `app_id` | Obligatoria | Cadena | [Identificador de la API de]({{site.baseurl}}/api/identifier_types/#the-app-identifier) la aplicación recuperado de la página [Claves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/).  |
-| `activity_id` | Obligatoria | Cadena | Cuando registras tu actividad en vivo utilizando [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), se utiliza el parámetro `pushTokenTag` para asignar una cadena personalizada al token de notificaciones push de la actividad.<br><br>Establezca `activity_id` en esta cadena personalizada para definir qué Actividad en vivo desea actualizar. |
-| `content_state` | Obligatoria | Objeto | Los parámetros de `ContentState` se definen al crear la Live Activity. Pase los valores actualizados para su `ContentState` utilizando este objeto.<br><br>El formato de esta solicitud debe coincidir con la forma que definió inicialmente. |
-| `end_activity` | Opcional | Booleano | Si `true`, esta solicitud finaliza la Actividad en vivo. |
-| `dismissal_date` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Este parámetro define el tiempo para eliminar la Actividad en Directo de la interfaz de usuario. Si este tiempo ya ha pasado y `end_activity` es `true`, la Actividad en Directo será eliminada inmediatamente.<br><br> Si `end_activity` es `false` o se omite, este parámetro solo actualiza la Actividad en vivo.|
-| `stale_date` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Este parámetro indica al sistema cuándo el contenido de la Actividad en Directo se marca como obsoleto en la interfaz de usuario. |
-| `notification` | Opcional | Objeto | Incluya un objeto [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) para definir una notificación push. El comportamiento de esta notificación push depende de si tú eres un usuario activo o si estás utilizando un dispositivo proxy. {::nomarkdown}<ul><li>Si un <code>notification</code> y el usuario está activo en su iPhone cuando se envía la actualización, la interfaz de usuario actualizada de Live Activity se deslizará hacia abajo y se mostrará como una notificación push.</li><li>Si un <code>notification</code> se incluye y el usuario no está activo en su iPhone, su pantalla se iluminará para mostrar la IU de Actividad en Directo actualizada en su pantalla de bloqueo.</li><li>La <code>notification alert</code> no se mostrará como una notificación push estándar. Además, si un usuario tiene un dispositivo proxy, como un Apple Watch, la <code>alert</code> se mostrará allí.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types/#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page.  |
+| `activity_id` | Required | String | When you register your Live Activity using [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), you use the `pushTokenTag` parameter to name the Activity's push token to a custom string.<br><br>Set `activity_id` to this custom string to define which Live Activity you want to update. |
+| `content_state` | Required | Object | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
+| `end_activity` | Optional | Boolean | If `true`, this request ends the Live Activity. |
+| `dismissal_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter defines the time to remove the Live Activity from the user's UI. If this time is in the past and `end_activity` is `true`, the Live Activity will be removed immediately.<br><br> If `end_activity` is `false` or omitted, this parameter only updates the Live Activity.|
+| `stale_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter tells the system when the Live Activity content is marked as outdated in the user's UI. |
+| `notification` | Optional | Object | Include an [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) object to define a push notification. The behavior of this push notification depends on if the user is active or if the user is using a proxy device. {::nomarkdown}<ul><li>If a <code>notification</code> is included and the user is active on their iPhone when the update is delivered, the updated Live Activity UI will slide down and display like a push notification.</li><li>If a <code>notification</code> is included and the user is not active on their iPhone, their screen will light up to display the updated Live Activity UI on their lock screen.</li><li>The <code>notification alert</code> will not display as a standard push notification. Additionally, if a user has a proxy device, like an Apple Watch, the <code>alert</code> will be displayed there.</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Example request
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/update' \
@@ -88,13 +88,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Hay dos respuestas de código de estado para este punto final: `201` y `4XX`.
+Hay dos respuestas de código de estado para este punto de conexión: `201` y `4XX`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
-Se devuelve un código de estado `201` si la solicitud se ha formateado correctamente y la hemos recibido. El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
+Se devuelve un código de estado `201` si la solicitud se formateó correctamente y la recibimos. El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
 
 ```json
 {
@@ -102,9 +102,9 @@ Se devuelve un código de estado `201` si la solicitud se ha formateado correcta
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-La clase de código de estado `4XX` indica un error del cliente. Consulte el [artículo Errores y respuestas de la API]({{site.baseurl}}/api/errors/) para obtener más información sobre los errores que puede encontrar.
+La clase de código de estado `4XX` indica un error del cliente. Consulta el [artículo sobre errores y respuestas de la API]({{site.baseurl}}/api/errors/) para obtener más información sobre los errores que puedes encontrar.
 
 El código de estado `400` podría devolver el siguiente cuerpo de respuesta.
 

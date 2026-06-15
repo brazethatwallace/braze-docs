@@ -1,7 +1,7 @@
 ---
 nav_title: Kognitiv Inspire
 article_title: Kognitiv Inspire
-description: "Kognitiv Inspire is a loyalty technology system that allows you to implement and evaluate your loyalty strategy, offering innovative capabilities and tailored member communications for enhanced program efficacy."
+description: "Kognitiv Inspire는 혁신적인 기능과 맞춤형 회원 커뮤니케이션을 제공하여 로열티 전략을 구현하고 평가할 수 있게 해주는 로열티 기술 시스템입니다."
 alias: /partners/kognitiv/
 page_type: partner
 search_tag: Partner
@@ -9,124 +9,122 @@ search_tag: Partner
 
 # Kognitiv Inspire
 
-> [Kognitiv Inspire](http://kognitiv.com) is a loyalty technology system that helps unlock unparalleled customer experiences through results-driven loyalty programs that amplify customer engagement, augment spending, and celebrate loyal behavior.
+> [Kognitiv Inspire](http://kognitiv.com)는 고객 참여를 증폭시키고, 지출을 늘리며, 충성 행동을 기념하는 성과 중심의 로열티 프로그램을 통해 비할 데 없는 고객 경험을 실현할 수 있도록 돕는 로열티 기술 시스템입니다.
 
-_This integration is maintained by Kognitiv Inspire._
+_이 통합은 Kognitiv Inspire에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and Kognitiv integration allows you to implement and evaluate your loyalty strategy, offering innovative capabilities and tailored member communications for enhanced program efficacy.
+Braze와 Kognitiv 통합을 통해 로열티 전략을 구현하고 평가할 수 있으며, 혁신적인 기능과 맞춤형 회원 커뮤니케이션을 제공하여 프로그램 효과를 높일 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| Kognitiv account | A [Kognitiv](http://kognitiv.com) account is required to take advantage of this partnership. |
-| Kognitiv API key | A Kognitiv REST API key. This can be created within the **API Security Tokens** page. |
-| Braze REST endpoint | Your REST endpoint URL. Your endpoint will depend on the Braze URL for [your instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Kognitiv 계정 | 이 파트너십을 활용하려면 [Kognitiv](http://kognitiv.com) 계정이 필요합니다. |
+| Kognitiv API 키 | Kognitiv REST API 키입니다. **API Security Tokens** 페이지에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Use cases
+## 활용 사례 {#use-cases}
 
-- **Personalized loyalty program enrollment**: Propel your members on their loyalty journey with seamless program enrollment and a customized welcome notification delivered through their preferred channel.
-- **Reward issuance and engagement notification**: Keep the spark of loyalty alive by issuing rewards and notifications that celebrate each member's milestone.
-- **Strategic member tiering and segmentation**: Enable a more personalized engagement by tiering and segmenting members based on spending, engagement, and simple or complex business rules tailored to your brand's specific needs.
-- **Real-time promotion eligibility notification**: Make each member feel special with instant notifications of their eligibility for exclusive promotions.
+- **개인화된 로열티 프로그램 등록**: 원활한 프로그램 등록과 선호 채널을 통해 전달되는 맞춤형 환영 알림으로 회원의 로열티 여정을 시작하세요.
+- **리워드 발급 및 참여 알림**: 각 회원의 마일스톤을 축하하는 리워드와 알림을 발급하여 로열티의 불꽃을 유지하세요.
+- **전략적 회원 등급 분류 및 세분화**: 지출, 참여도, 브랜드의 특정 요구에 맞춘 단순하거나 복잡한 비즈니스 규칙을 기반으로 회원을 등급 분류하고 세분화하여 더욱 개인화된 참여를 가능하게 합니다.
+- **실시간 프로모션 자격 알림**: 독점 프로모션 자격에 대한 즉각적인 알림으로 각 회원이 특별함을 느끼게 하세요.
 
-## Integration
+## 통합 {#integration}
 
-Use Kognitiv webhooks to send requests to Braze when loyalty events occur. The following examples illustrate how to use Kognitiv and Braze to issue a reward, register a Kognitiv user in Braze, and send them a welcome email.
+로열티 이벤트가 발생할 때 Kognitiv 웹훅을 사용하여 Braze에 요청을 보냅니다. 다음 예시는 Kognitiv과 Braze를 사용하여 리워드를 발급하고, Kognitiv 사용자를 Braze에 등록하고, 환영 이메일을 보내는 방법을 보여줍니다.
 
 {% raw %}
-### Braze issue reward
+### Braze 리워드 발급 {#braze-issue-reward}
 
-The following Kognitiv example issues a member reward. Kognitiv Inspire will communicate that reward issuance event to Braze as a custom event via webhooks. To send a follow-up email to communicate the reward, create a campaign or Canvas that triggers off that custom event.
+다음 Kognitiv 예시는 회원 리워드를 발급합니다. Kognitiv Inspire는 웹훅을 통해 해당 리워드 발급 이벤트를 커스텀 이벤트로 Braze에 전달합니다. 리워드를 알리는 후속 이메일을 보내려면 해당 커스텀 이벤트를 트리거로 하는 Campaign 또는 Canvas를 생성하세요.
 
-**Webhook URL**: `<braze-api-rest-endpoint>`
-**Request Body**: `Raw Text`
+**웹훅 URL**: `<braze-api-rest-endpoint>`
+**요청 본문**: `Raw Text`
 
-- **HTTP Method**: POST
-- **Request Headers**:
+- **HTTP 메서드**: POST
+- **요청 헤더**:
   - **Authorization**: Bearer `<Kognitiv-api-key>`
   - **Content-Type** application/json
 
-#### Request body
+#### 요청 본문 {#request-body}
 
 ```json
-{ 
-  "events" : [ 
-    { 
-    "external_id" : "{{memberId}}", 
-    "app_id" : "93ec5a59-3752-4a45-8559-55b61209ba38", 
-    "name" : "rewards_issued", 
-    "time" : "{{issuedDate}}", 
-    "issued_date" : "{{issuedDate}}", 
-    "issued_location_name" : "{{issuedLocationName}}", 
-    "reward_type" : "{{rewardType}}" 
-    } 
-  ] 
+{
+  "events" : [
+    {
+    "external_id" : "{{memberId}}",
+    "app_id" : "93ec5a59-3752-4a45-8559-55b61209ba38",
+    "name" : "rewards_issued",
+    "time" : "{{issuedDate}}",
+    "issued_date" : "{{issuedDate}}",
+    "issued_location_name" : "{{issuedLocationName}}",
+    "reward_type" : "{{rewardType}}"
+    }
+  ]
 }
 ```
 
-### Create a user and send a welcome email
+### 사용자 생성 및 환영 이메일 발송 {#create-a-user-and-send-a-welcome-email}
 
-The following Kognitiv example creates a new user in Braze when they enroll in KLS. To schedule a welcome email for this user, create a campaign or Canvas in Braze that triggers based on specific custom attributes.
+다음 Kognitiv 예시는 KLS에 등록할 때 Braze에 새 사용자를 생성합니다. 이 사용자에게 환영 이메일을 예약하려면 특정 커스텀 속성을 기반으로 트리거되는 Campaign 또는 Canvas를 Braze에서 생성하세요.
 
-**Webhook URL**: `<braze-api-rest-endpoint>` <br>
-**Request Body**: `Raw Text`
+**웹훅 URL**: `<braze-api-rest-endpoint>` <br>
+**요청 본문**: `Raw Text`
 
-- **HTTP Method**: POST
-- **Request Headers**:
+- **HTTP 메서드**: POST
+- **요청 헤더**:
   - **Authorization**: Bearer `<Kognitiv-api-key>`
   - **Content-Type** application/json
 
-#### Request body
+#### 요청 본문
 
 ```json
-{ 
-  "attributes": [ 
-    { 
-      "app_id": "93ec5a59-3752-4a45-855b6109ba38", 
-      "bio": "Software Architect", 
-      "country": "{{memberAddressCO}}", 
-      "email": "{{memberEmail}}", 
-      "email_subscribe": "opted_in", 
-      "external_id": "{{memberId}}", 
-      "first_name": "{{memberFirstName}}", 
-      "home_city": "{{memberAddressCity}}", 
-      "time_zone": "America/Chicago", 
-      "total_points_balance": "{{memberPointsAvailable}}", 
-      "CreatedKLS": "{{issuedTimestamp}}", 
-      "email_contact_allowed" : "{{memberEmailContactAllowed}}", 
-      "sms_contact_allowed" : "{{memberSmsContactAllowed}}", 
-      "date_joined": "{{issuedDate}}" 
-    } 
-  ] 
+{
+  "attributes": [
+    {
+      "app_id": "93ec5a59-3752-4a45-855b6109ba38",
+      "bio": "Software Architect",
+      "country": "{{memberAddressCO}}",
+      "email": "{{memberEmail}}",
+      "email_subscribe": "opted_in",
+      "external_id": "{{memberId}}",
+      "first_name": "{{memberFirstName}}",
+      "home_city": "{{memberAddressCity}}",
+      "time_zone": "America/Chicago",
+      "total_points_balance": "{{memberPointsAvailable}}",
+      "CreatedKLS": "{{issuedTimestamp}}",
+      "email_contact_allowed" : "{{memberEmailContactAllowed}}",
+      "sms_contact_allowed" : "{{memberSmsContactAllowed}}",
+      "date_joined": "{{issuedDate}}"
+    }
+  ]
 }
 ```
 {% endraw %}
 
-## Kognitiv Inspire documentation and integration features
+## Kognitiv Inspire 설명서 및 통합 기능 {#kognitiv-inspire-documentation-and-integration-features}
 
-Once you integrate Braze with Kognitiv Inspire, Kognitiv empowers you to access its extensive API portfolio, cutting-edge webhook features, and robust data import and export capabilities for seamless bulk transfer. For more information on Kognitiv Inspire features and integration capabilities, view the Kognitiv [resource guide](https://info.kognitivloyalty.com) or contact them for a guided demonstration.
+Braze와 Kognitiv Inspire를 통합하면 Kognitiv의 광범위한 API 포트폴리오, 최첨단 웹훅 기능, 원활한 대량 전송을 위한 강력한 데이터 가져오기 및 내보내기 기능에 접근할 수 있습니다. Kognitiv Inspire 기능 및 통합 역량에 대한 자세한 내용은 Kognitiv [리소스 가이드](https://info.kognitivloyalty.com)를 확인하거나 가이드 데모를 요청하세요.
 
-### Endpoints
+### 엔드포인트 {#endpoints}
 
-**REST API authorization**
-- US region: `https://app.kognitivloyalty.com/Auth/connect/token`
-- CA/EMEA region: `https://ca.kognitivloyalty.com/Auth/connect/token`
-- APAC region: `https://aus.kognitivloyalty.com/Auth/connect/token`
+**REST API 승인**
+- US 리전: `https://app.kognitivloyalty.com/Auth/connect/token`
+- CA/EMEA 리전: `https://ca.kognitivloyalty.com/Auth/connect/token`
+- APAC 리전: `https://aus.kognitivloyalty.com/Auth/connect/token`
 
-**REST API (base URL)**
-- US region: `https://app.kognitivloyalty.com/api`
-- CA/EMEA region: `https://ca.kognitivloyalty.com/api`
-- APAC region: `https://aus.kognitivloyalty.com/api`
+**REST API (기본 URL)**
+- US 리전: `https://app.kognitivloyalty.com/api`
+- CA/EMEA 리전: `https://ca.kognitivloyalty.com/api`
+- APAC 리전: `https://aus.kognitivloyalty.com/api`
 
-**Web services endpoints (base URL)**
-- US region: `https://app.kognitivloyalty.com/WS`
-- CA/EMEA region: `https://ca.kognitivloyalty.com/WS`
-- APAC region: `https://aus.kognitivloyalty.com/WS`
+**웹 서비스 엔드포인트 (기본 URL)**
+- US 리전: `https://app.kognitivloyalty.com/WS`
+- CA/EMEA 리전: `https://ca.kognitivloyalty.com/WS`
+- APAC 리전: `https://aus.kognitivloyalty.com/WS`
 
-For more information on configuring access tokens and SFTP endpoints, contact Kognitiv for a demonstration.
-
-
+액세스 토큰 및 SFTP 엔드포인트 구성에 대한 자세한 내용은 Kognitiv에 데모를 요청하세요.

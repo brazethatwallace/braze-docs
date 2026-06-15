@@ -1,6 +1,6 @@
-Sie können dieses Template verwenden, um eine beliebige Seite oder einen beliebigen Abschnitt für Braze Docs zu erstellen. Ein Beispiel finden Sie unter [Generieren einer Vorschau]({{site.baseurl}}/contributing/generating_a_preview/). Richtlinien zu den im Artikel verwendeten Arten der Dokumentation finden Sie unter [Seitentypen]({{site.baseurl}}/contributing/page_types/).
+Sie können dieses Template verwenden, um eine beliebige Seite oder einen beliebigen Abschnitt für Braze Docs zu erstellen. Informationen zur Einrichtung der Umgebung, zu Vorschauen und Inhaltstypen finden Mitwirkende mit repo-Zugang im Handbuch unter `docs/contributing/` (zum Beispiel `generating_a_preview.md` und `content_types.md`). Alle anderen können über [Dokumentations-Feedback]({{site.baseurl}}/feedback/) das Docs-Team erreichen.
 
-{% details Show template %}
+{% details Template anzeigen %}
 {% raw %}
 `````markdown
 ---
@@ -12,66 +12,66 @@ page_type: reference
 layout: OPTIONAL_LAYOUT_FILE
 ---
 
-<!-- The title of your page, used to render the in-page title. -->
+<!-- Der Titel Ihrer Seite, der als Seitentitel gerendert wird. -->
 # ARTICLE_TITLE
 
-<!-- The overview starts with a '>' character and discusses what will be covered. In an optional following paragraph, contextualize the topic at a high-level in an introduction. -->
+<!-- Die Übersicht beginnt mit einem '>'-Zeichen und beschreibt, was behandelt wird. In einem optionalen folgenden Absatz wird das Thema auf einer übergeordneten Ebene in einer Einleitung kontextualisiert. -->
 > DESCRIPTION.
 
 INTRODUCTION.
 
-<!-- The prerequisites for this task. If no prerequisites are required, you can remove this section. -->
-## Prerequisites
+<!-- Die Voraussetzungen für diese Aufgabe. Wenn keine Voraussetzungen erforderlich sind, können Sie diesen Abschnitt entfernen. -->
+## Voraussetzungen
 
-Before you start, you'll need to complete the following:
+Vor dem Start müssen Sie Folgendes abschließen:
 
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 
-<!-- An optional, brief explanation of how the feature workflow looks. -->
-## How it works
+<!-- Eine optionale, kurze Erklärung, wie der Feature-Workflow aussieht. -->
+## So funktioniert es
 
 CONTENT.
 
-<!-- Walk a user through integrating and turning on the feature. -->
+<!-- Führen Sie Nutzer:innen durch die Integration und Aktivierung des Features. -->
  ## Integration
 CONTENT.
 
-<!-- A how-to guide with nested steps. -->
+<!-- Eine Schritt-für-Schritt-Anleitung mit verschachtelten Schritten. -->
 ## TASK_TO_COMPLETE
 
-<!-- Optional overview of the task. -->
+<!-- Optionale Übersicht der Aufgabe. -->
 CONTENT.
 
-<!-- Action-oriented header that describes the step’s goal. -->
-### Step 1: ACTION_TO_COMPLETE
+<!-- Aktionsorientierte Überschrift, die das Ziel des Schritts beschreibt. -->
+### 1. Schritt: ACTION_TO_COMPLETE
 
-<!-- Use number bullets or paragraphs to describe how to complete this action -->
+<!-- Verwenden Sie nummerierte Aufzählungen oder Absätze, um zu beschreiben, wie diese Aktion abgeschlossen wird. -->
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+### 2. Schritt: ACTION_TO_COMPLETE
 
 CONTENT.
-<!-- Optional references, such as supported data types, fields, definitions, and similar. -->
+<!-- Optionale Referenzen, wie unterstützte Datentypen, Felder, Definitionen und Ähnliches. -->
 ### REFERENCE_TO_ASSIST_WITH_ACTION
 
 CONTENT.
 
-<!-- For optional steps, add “(optional)” to the end of the header. -->
-### Step 3: OPTIONAL_ACTION_TO_COMPLETE (optional)
+<!-- Fügen Sie bei optionalen Schritten „(optional)“ am Ende der Überschrift hinzu. -->
+### 3. Schritt: OPTIONAL_ACTION_TO_COMPLETE (optional)
 
 CONTENT.
-<!-- An optional section for what is supported. Add nested headers to be more specific. -->
-## Supported data types / Supported attributes / Supported events / Supported ETC.
+<!-- Ein optionaler Abschnitt für unterstützte Elemente. Fügen Sie verschachtelte Überschriften hinzu, um spezifischer zu sein. -->
+## Unterstützte Datentypen / Unterstützte Attribute / Unterstützte Ereignisse / Unterstützte ETC.
 CONTENT.
-<!-- An optional section with important considerations for users to review before using the feature. -->
-## Considerations
+<!-- Ein optionaler Abschnitt mit wichtigen Hinweisen, die Nutzer:innen vor der Verwendung des Features beachten sollten. -->
+## Hinweise
 
 CONTENT.
 
-<!-- An optional section guiding users through troubleshooting common issues. -->
-## Troubleshooting
+<!-- Ein optionaler Abschnitt, der Nutzer:innen bei der Fehlerbehebung häufiger Probleme unterstützt. -->
+## Fehlerbehebung
 
 ### ISSUE_TO_TROUBLESHOOT
 CONTENT.

@@ -1,12 +1,12 @@
 ---
 nav_title: Administrar la recopilación de datos
-article_title: Gestionar la recopilación de datos para el SDK de Braze
+article_title: Administrar la recopilación de datos para el SDK de Braze
 page_order: 8
 description: "Aprende a administrar la recopilación de datos para el SDK de Braze."
 
 ---
 
-# Administrar la recopilación de datos
+# Administrar la recopilación de datos {#manage-data-collection}
 
 > Aprende a administrar la recopilación de datos para el SDK de Braze, de modo que puedas cumplir con cualquier normativa de privacidad de datos según sea necesario.
 
@@ -25,6 +25,10 @@ description: "Aprende a administrar la recopilación de datos para el SDK de Bra
 
 {% sdktab react native %}
 {% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
+{% endsdktab %}
+
+{% sdktab roku %}
+{% multi_lang_include developer_guide/roku/analytics/managing_data_collection.md %}
 {% endsdktab %}
 
 {% endsdktabs %}

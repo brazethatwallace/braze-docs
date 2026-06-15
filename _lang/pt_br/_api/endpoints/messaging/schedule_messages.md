@@ -1,5 +1,5 @@
 ---
-nav_title: Envio de mensagens
+nav_title: Programar mensagens
 config_only: true
 noindex: true
 ---

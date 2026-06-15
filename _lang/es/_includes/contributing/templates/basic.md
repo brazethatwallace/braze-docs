@@ -1,6 +1,6 @@
-Puedes utilizar esta plantilla para crear cualquier página o sección para Braze Docs. Para ver un ejemplo, consulta [Generar una vista previa]({{site.baseurl}}/contributing/generating_a_preview/). Para obtener directrices sobre los tipos de documentación utilizados en el artículo, consulta [Tipos de página]({{site.baseurl}}/contributing/page_types/).
+Puedes utilizar esta plantilla para crear cualquier página o sección para Braze Docs. Para la configuración del entorno, vistas previas y tipos de contenido, quienes tengan acceso al repositorio deben seguir el manual en `docs/contributing/` (por ejemplo, `generating_a_preview.md` y `content_types.md`). El resto puede usar [Comentarios sobre la documentación]({{site.baseurl}}/feedback/) para contactar al equipo de documentación.
 
-{% details Show template %}
+{% details Mostrar plantilla %}
 {% raw %}
 `````markdown
 ---
@@ -12,66 +12,66 @@ page_type: reference
 layout: OPTIONAL_LAYOUT_FILE
 ---
 
-<!-- The title of your page, used to render the in-page title. -->
+<!-- El título de tu página, utilizado para renderizar el título dentro de la página. -->
 # ARTICLE_TITLE
 
-<!-- The overview starts with a '>' character and discusses what will be covered. In an optional following paragraph, contextualize the topic at a high-level in an introduction. -->
+<!-- El resumen comienza con un carácter '>' y describe lo que se cubrirá. En un párrafo siguiente opcional, contextualiza el tema a alto nivel en una introducción. -->
 > DESCRIPTION.
 
 INTRODUCTION.
 
-<!-- The prerequisites for this task. If no prerequisites are required, you can remove this section. -->
-## Prerequisites
+<!-- Los requisitos previos para esta tarea. Si no se necesitan requisitos previos, puedes eliminar esta sección. -->
+## Requisitos previos
 
-Before you start, you'll need to complete the following:
+Antes de empezar, tendrás que completar lo siguiente:
 
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 
-<!-- An optional, brief explanation of how the feature workflow looks. -->
-## How it works
+<!-- Una explicación breve y opcional de cómo funciona el flujo de trabajo de la característica. -->
+## Cómo funciona
 
 CONTENT.
 
-<!-- Walk a user through integrating and turning on the feature. -->
- ## Integration
+<!-- Guía al usuario a través de la integración y activación de la característica. -->
+ ## Integración
 CONTENT.
 
-<!-- A how-to guide with nested steps. -->
+<!-- Una guía práctica con pasos anidados. -->
 ## TASK_TO_COMPLETE
 
-<!-- Optional overview of the task. -->
+<!-- Resumen opcional de la tarea. -->
 CONTENT.
 
-<!-- Action-oriented header that describes the step’s goal. -->
-### Step 1: ACTION_TO_COMPLETE
+<!-- Encabezado orientado a la acción que describe el objetivo del paso. -->
+### Paso 1: ACTION_TO_COMPLETE
 
-<!-- Use number bullets or paragraphs to describe how to complete this action -->
+<!-- Usa viñetas numeradas o párrafos para describir cómo completar esta acción. -->
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+### Paso 2: ACTION_TO_COMPLETE
 
 CONTENT.
-<!-- Optional references, such as supported data types, fields, definitions, and similar. -->
+<!-- Referencias opcionales, como tipos de datos compatibles, campos, definiciones y similares. -->
 ### REFERENCE_TO_ASSIST_WITH_ACTION
 
 CONTENT.
 
-<!-- For optional steps, add “(optional)” to the end of the header. -->
-### Step 3: OPTIONAL_ACTION_TO_COMPLETE (optional)
+<!-- Para pasos opcionales, añade "(opcional)" al final del encabezado. -->
+### Paso 3: OPTIONAL_ACTION_TO_COMPLETE (opcional)
 
 CONTENT.
-<!-- An optional section for what is supported. Add nested headers to be more specific. -->
-## Supported data types / Supported attributes / Supported events / Supported ETC.
+<!-- Una sección opcional para lo que es compatible. Añade encabezados anidados para ser más específico. -->
+## Tipos de datos compatibles / Atributos compatibles / Eventos compatibles / ETC. compatibles
 CONTENT.
-<!-- An optional section with important considerations for users to review before using the feature. -->
-## Considerations
+<!-- Una sección opcional con consideraciones importantes que los usuarios deben revisar antes de usar la característica. -->
+## Consideraciones
 
 CONTENT.
 
-<!-- An optional section guiding users through troubleshooting common issues. -->
-## Troubleshooting
+<!-- Una sección opcional que guía a los usuarios en la solución de problemas comunes. -->
+## Solución de problemas
 
 ### ISSUE_TO_TROUBLESHOOT
 CONTENT.

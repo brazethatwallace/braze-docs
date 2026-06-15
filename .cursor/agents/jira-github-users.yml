@@ -1,0 +1,8 @@
+# Jira display name → GitHub username (doc feedback / PR automation).
+# Keys should match Jira assignee display names from the API.
+jira_display_name_to_github:
+  "Adam Evans": atom-evens
+  "Bre Fitzgerald": bre-fitzgerald
+  "Lydia Xie": lydia-xie
+  "Rachel Feinberg": rachel-feinberg
+  "Zair Kelley Ortiz": zairro

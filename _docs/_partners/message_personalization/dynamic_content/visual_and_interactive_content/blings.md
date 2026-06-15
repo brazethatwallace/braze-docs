@@ -18,6 +18,7 @@ _This integration is maintained by Blings._
 | Requirement     | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings account  | A Blings account is required to take advantage of this partnership.         |  
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration  
 

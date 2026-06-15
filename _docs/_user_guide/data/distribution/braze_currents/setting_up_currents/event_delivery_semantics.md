@@ -80,7 +80,7 @@ The `version` path segment is a simple integer Currents version value, such as `
 | `<environment>` | For internal use by Braze. |
 | `<partition>` | For internal use by Braze. Integer. |
 | `<offset>`| For internal use by Braze. Integer. Note that different files sent within the same hour will have a different `<offset>` parameter. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Apache Avro format" }
 
 {% alert tip %}
 File naming conventions may change. Braze recommends searching all keys in your bucket that have a prefix of &lt;your-bucket-prefix&gt;.

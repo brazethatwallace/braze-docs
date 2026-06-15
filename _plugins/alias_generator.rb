@@ -115,7 +115,7 @@ module Jekyll
       <html>
       <head>
       <link rel="canonical" href="#{destination_url}"/>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta charset="utf-8">
       <meta http-equiv="refresh" content="0;url=#{destination_url}" />
       </head>
       </html>

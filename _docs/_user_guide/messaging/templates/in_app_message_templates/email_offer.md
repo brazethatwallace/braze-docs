@@ -2,7 +2,7 @@
 nav_title: Email sign-up with offer
 article_title: Email Sign-up with Special Offer
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "This page covers how to use the in-app message drag-and-drop editor to build your email list by offering a special discount on sign-up."
 ---
 

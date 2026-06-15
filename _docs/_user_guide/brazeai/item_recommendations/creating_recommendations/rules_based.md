@@ -21,7 +21,8 @@ Rules-based recommendations are based on fixed logic that you must manually set.
 
 When deciding which recommendation engine suits your available resources and use cases, refer to this table of considerations:
 
-<table style="text-align: center;">
+<table aria-label="Recommendation engine options" style="text-align: center;">
+  <caption>Recommendation engine options</caption>
   <thead>
     <tr>
       <th>Recommendation Engine</th>
@@ -72,7 +73,7 @@ When deciding which recommendation engine suits your available resources and use
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Recommendation engine options" }
 
 ## Creating a recommendation engine
 
@@ -99,7 +100,7 @@ Let’s say you have a health food app and want to create a Content Card campaig
 | **title** | The title of the content card that will be sent for each ID, such as “Make ahead for lunch this week” or “Let’s taco about it”. |
 | **link** | The link to the recipe article. |
 | **image_url** | The image that corresponds to the recipe. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 After the catalog is uploaded to Braze, check the preview of a select number of catalog items to confirm the information imported accurately. The items may be randomized in the preview, but this won’t affect the output of the recommendation engine.
 
@@ -186,7 +187,7 @@ To create your recommendation engine using Connected Content, first create a new
 |**Convert a spreadsheet**|Convert a spreadsheet into a JSON API endpoint by using a service like SheetDP, and take note of the API URL this generates.|
 |**Create a custom endpoint**|Build, host, and maintain a custom-built in-house endpoint.|
 |**Use a third-party engine** |Use a third-party recommendation engine, such as one of our [Alloy partners]({{site.baseurl}}/partners/message_personalization/), including [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/), and others.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 Next, use Liquid in your message that calls your endpoint to match a custom attribute value with a user’s profile and pull the corresponding recommendation.
 
@@ -210,7 +211,7 @@ Replace the following:
 |`YOUR_API_URL` | Replace with the actual URL of your API. |
 |`RECOMMENDED_ITEM_IDS` | Replace with the actual name of your custom attribute that contains the IDs of recommended items. This attribute is expected to be a string of IDs separated by semicolons. |
 |`ITEM_ID` | Replace with the actual name of the attribute in your API response that corresponds to the item ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 {% alert note %}
 This is a basic example and you might need to modify it further based on your specific needs and data structure. For more detailed guidance, refer to the [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) or consult with a developer.

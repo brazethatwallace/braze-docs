@@ -4,11 +4,12 @@ nav_title: 高度な例
 article_title: Braze SDKの高度なプッシュ通知例
 channel:
   - push notifications
+hidden: true
 ---
 
-# 高度なプッシュ通知の例
+# 高度なプッシュ通知の例 {#advanced-push-notification-examples}
 
-> 次のガイドでは、Braze SDK の高度なプッシュ通知のいくつかの例について説明します。
+> 次のガイドでは、Braze SDKの高度なプッシュ通知のいくつかの例について説明します。
 
 {% sdktabs %}
 {% sdktab android %}

@@ -21,11 +21,11 @@ The drag-and-drop product block feature is in early access and is currently only
 
 | Requirement | Description |
 | --- | --- |
-| eCommerce recommended events | [eCommerce recommended events]({{site.baseurl}}/ecommerce_events/) provide standardized data schemas for key behavioral events that occur before and after an order is placed. These events will eventually replace the legacy Braze purchase event and will become the standard for tracking commerce-related behavior. <br><br> eCommerce recommended events are required for dynamic product blocks.<br><br> eCommerce recommended events are currently in early access. Contact your Braze customer success manager if you’re interested in participating in this early access. |
+| eCommerce recommended events | [eCommerce recommended events]({{site.baseurl}}/ecommerce_events/) provide standardized data schemas for key behavioral events that occur before and after an order is placed. These events will eventually replace the legacy Braze purchase event and will become the standard for tracking commerce-related behavior. <br><br> eCommerce recommended events are required for dynamic product blocks. |
 | eCommerce Canvas templates | The eCommerce recommended events support pre-built templates, including eCommerce Canvas templates designed for essential use cases such as abandoned browsing, abandoned carts, and order confirmations. <br><br>If you plan to implement any of these essential eCommerce use cases using the [eCommerce Canvas templates]({{site.baseurl}}/ecommerce_use_cases/), you must use or follow the provided Canvas template. |
 | Braze catalog | You must create a Braze catalog that includes the following fields, which you use in your product block configuration:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | Catalog selection | For static product blocks, you must create a [catalog selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to specify which products to include in your product block. |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Types of drag-and-drop product blocks
 
@@ -33,7 +33,7 @@ The drag-and-drop product block feature is in early access and is currently only
 | --- | --- | --- | --- |
 | Dynamic | Personalize your messaging with a showcase of products based on customer interactions by using [eCommerce recommended events]({{site.baseurl}}/ecommerce_events/) and catalogs within our [eCommerce Canvas templates]({{site.baseurl}}/ecommerce_use_cases/). | {::nomarkdown}<ul><li>Abandoned browse</li><li>Abandoned cart</li><li>Abandoned checkout</li><li>Order confirmations</li></ul>{:/} | Available in Canvas only. |
 | Static | Personalize products using data stored in a Braze catalog. You must use a [catalog selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to specify which products to include. | Perfect for showcasing new product launches or category-specific offerings.| |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types of drag-and-drop product blocks" }
 
 ## Product block content configuration
 
@@ -52,19 +52,19 @@ In the **Product Fields** section, select your product block type, then toggle o
 | Button for product URL | Catalogs |
 | Price | eCommerce Recommended event property|
 | Quantity | eCommerce Recommended event property| 
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamic product block" }
 
 ![Product fields for a dynamic product block, which are divided into catalog data and event data]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
 #### Static product block
 
 | Product field | Source |
-| --- | --- | --- |
+| --- | --- |
 | Variant image | Catalogs |
 | Product title | Catalogs |
 | Button for product URL | Catalogs |
 | Price | Catalogs |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role=“presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Static product block" }
 
 ![Product fields for a static product block, which are all categorized as catalog data.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,7 +78,7 @@ Use layout options to customize how your products display within your product bl
 | Alignment | Adjust the alignment of the text fields and button within the block. |
 | Max products per row | Display up to three products per row, up to 12 products total for static product blocks, and up to 24 products total for dynamic product blocks. |
 | Product spacing | Set the spacing between products. |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout options" }
 
 ![Layout options for product orientation, alignment, max products per row, and product spacing.]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
@@ -105,6 +105,7 @@ To use drag-and-drop product blocks, you need to set up a Braze catalog that inc
 |`product_title` | The title of the product.|
 |`product_url` | The URL where customers can view or purchase the product. |
 |`variant_image_url` | The URL for the variant image. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
 
 Get a jumpstart by working off this [sample Product Catalog]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), which includes the required fields. 
 

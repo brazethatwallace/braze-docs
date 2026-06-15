@@ -69,7 +69,7 @@ This context-awareness means you can ask shorter, more natural questions like "H
 
 ### Get started with suggested prompts
 
-When you open Operator, suggested prompts appear based on common tasks and your current page. Select one to get started quickly, or type your own custom question.
+When you open a conversation with Operator, suggested prompts appear based on common tasks and your current page. Select one to get started quickly, or type your own custom question.
 
 ### Understand how Operator thinks
 
@@ -80,6 +80,41 @@ Operator shows its reasoning steps in collapsible sections labeled **Reasoned**.
 ### Take action with Operator
 
 Operator can propose and execute changes directly in the Braze dashboard, such as filling in form fields, updating settings, or generating content. Each proposed change is presented as an action card for you to review and approve before it takes effect. For more on how this works, see [Reviewing actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/).
+
+### Copy responses to other tools
+
+Operator responses are formatted in Markdown. When you've received a response, select **Copy** in the toolbar that appears to copy the full response to your clipboard. Most tools render Markdown natively or accept it with minor adjustments. Select a tab for your destination:
+
+{% tabs %}
+{% tab Google Docs %}
+
+First, go to **Tools** > **Preferences** and select **Automatically detect Markdown**. Then to paste Markdown, go to **Edit** > **Paste from Markdown**. You can also right-click and select **Paste from Markdown**.
+
+{% endtab %}
+{% tab Microsoft Word and Outlook %}
+
+Word and Outlook don't render Markdown natively. Paste the response into a web-based Markdown previewer, then copy the rendered output and paste it into Word or Outlook with **Keep Source Formatting**. Alternatively, paste as plain text and format manually.
+
+{% endtab %}
+{% tab Confluence and Notion %}
+
+Paste directly. Both platforms render Markdown automatically.
+
+{% endtab %}
+{% tab Slack %}
+
+Paste directly. Slack renders bold, inline code, code blocks, block quotes, and bulleted lists, but it doesn't render Markdown headings or link syntax.
+
+{% endtab %}
+{% tab Other tools %}
+
+If you want to work in a file or use conversion tools, you can also:
+
+- Open a text editor like [VS Code](https://code.visualstudio.com/) and create a new text file, then paste the Markdown and preview to review the formatting before you convert or paste it elsewhere.
+- Use [Pandoc](https://pandoc.org/) to convert Markdown into a Word document, HTML, or PDF when you need predictable structure in Word or Outlook without pasting from a browser.
+
+{% endtab %}
+{% endtabs %}
 
 ## Manage your session
 
@@ -96,10 +131,6 @@ To start fresh or remove sensitive information from the conversation, select **C
 At the bottom of each response, use the thumbs up or thumbs down buttons to provide quick feedback. Your feedback helps improve Operator's answers over time.
 
 ## Data privacy and security
-
-### HIPAA compliance
-
-AI Operator utilizes multi-turn conversation technology that is currently ineligible for OpenAI's Zero Data Retention policy. AI Operator uses OpenAI's Modified Abuse Monitoring data retention policy, but AI Operator is not covered by the Business Associate Agreement (BAA) between Braze and OpenAI. Users should not prompt AI Operator to access Protected Health Information (PHI) stored in Braze or otherwise submit PHI to this feature.
 
 ### Model providers as sub-processors or third-party providers
 

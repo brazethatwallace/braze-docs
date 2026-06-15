@@ -1,53 +1,51 @@
 ---
-nav_title: "COLOCAR: Actualizar la traducción en una campaña"
-article_title: "COLOCAR: Actualizar la traducción en una campaña"
-search_tag: Punto de conexión
+nav_title: "PUT: Actualizar traducción en una campaña"
+article_title: "PUT: Actualizar traducción en una campaña"
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Actualizar la traducción en una campaña."
+description: "En este artículo se describen los detalles del punto de conexión Actualizar traducción en una campaña."
 ---
 
 {% api %}
-# Actualizar la traducción en una campaña
+# Actualizar traducción en una campaña {#update-translation-in-a-campaign}
 {% apimethod put %}
 /campaigns/translations
 {% endapimethod %}
 
-> Utilice este punto final para actualizar varias traducciones de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para obtener más información sobre las características de la localización.
+> Usa este punto de conexión para actualizar múltiples traducciones de una campaña. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de localización.
 
-Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/).
+Si deseas actualizar las traducciones después de que se haya lanzado una campaña, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## Requisitos previos {#prerequisites}
 
-## Requisitos previos
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.update`.
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `campaigns.translations.update`.
-
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-No hay parámetros de ruta para este punto final.
+No hay parámetros de ruta para este punto de conexión.
 
-## Parámetros de la solicitud
+## Parámetros de solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Obligatoria | Cadena | El ID de su campaña. |
-| `message_variation_id` | Obligatoria | Cadena | El ID de tu variación de mensaje. |
-| `locale_id`| Obligatoria | Cadena | El ID (UUID) de la configuración regional. |
-| `translation_map` | Obligatoria | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Obligatorio | Cadena | El ID de tu campaña. |
+| `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
+| `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
+| `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de solicitud" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto final GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
 {% endalert %}
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```json
 {
@@ -60,11 +58,11 @@ Todos los ID de traducción se consideran identificadores únicos universales (U
 }
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto final: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
 ```json
 {
@@ -72,9 +70,9 @@ Hay cuatro respuestas de código de estado para este punto final: `200`, `400`, 
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {

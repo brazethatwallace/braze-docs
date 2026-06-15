@@ -1,48 +1,46 @@
 ---
 nav_title: "GET: Ver la traducción de un Canvas"
 article_title: "GET: Ver la traducción de un Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Ver la traducción de un Canvas."
+description: "En este artículo se describen los detalles del punto de conexión Ver la traducción de un Canvas."
 ---
 
 {% api %}
-# Ver la traducción de un Canvas
+# Ver la traducción de un Canvas {#view-translation-for-a-canvas}
 {% apimethod get %}
 /canvas/translations
 {% endapimethod %}
 
-> Utiliza este punto final para obtener una vista previa de un mensaje traducido para Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para obtener más información sobre las características de la localización.
+> Utiliza este punto de conexión para obtener una vista previa de un mensaje traducido para un Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+## Requisitos previos {#prerequisites}
 
-## Requisitos previos
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.get`.
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.translations.get`.
-
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Parámetros de consulta
+## Parámetros de consulta {#query-parameters}
 
-| Parámetro              | Obligatoria | Tipo de datos | Descripción                        |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Obligatoria | Cadena    | El ID del Canvas.              |
-| `step_id`              | Obligatoria | Cadena    | El ID de tu paso en Canvas.        |
-|`message_variation_id`| Obligatoria | Cadena | El ID de tu variación de mensaje. |
-| `locale_id`            | Opcional | Cadena    | El ID (UUID) de la configuración regional.       |
-| `post_launch_draft_version`| Opcional | Booleano | Cuando`true`  devuelve la última versión preliminar en lugar de la última versión publicada en vivo. Predeterminado,`false`devuelve la última versión en vivo.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `workflow_id` | Obligatorio | Cadena | El ID del Canvas. |
+| `step_id` | Obligatorio | Cadena | El ID de tu paso en Canvas. |
+| `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
+| `locale_id` | Opcional | Cadena | El ID (UUID) de la configuración regional. |
+| `post_launch_draft_version` | Opcional | Booleano | Cuando es `true`, devuelve la última versión de borrador en lugar de la última versión publicada en vivo. El valor predeterminado es `false`, que devuelve la última versión en vivo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto final GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
 {% endalert %}
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations/?workflow_id={workflow_id}&step_id={step_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
@@ -50,13 +48,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto final: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
 
-### Ejemplo de respuesta positiva
+### Ejemplo de respuesta correcta {#example-success-response}
 
-El código de estado `200` podría devolver la siguiente cabecera y cuerpo de respuesta.
+El código de estado `200` podría devolver el siguiente encabezado y cuerpo de respuesta.
 
 ```json
 {
@@ -79,9 +77,9 @@ El código de estado `200` podría devolver la siguiente cabecera y cuerpo de re
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {

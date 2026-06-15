@@ -38,6 +38,18 @@ Where SMSand MMS have been set up across multiple instances, and due to misconfi
 
 Braze manages SMS/MMS subscriptions at both the user profile (`user_id`) level and the phone number (`channel_id`) level. When a phone number is opted-in or out, the update applies to all profiles which share that number. In the case where an end user opted-in with a certain phone number, but then changes phone number, the new phone number will inherit the subscription group status of the user. Accordingly, if an end user has opted-out, but then re-enters the app or website with a new phone number, they will not receive unwanted messages.
 
+## Phone number list hygiene recommendations
+
+Maintaining phone number list hygiene helps you keep valid consent and reachability data over time. Braze marks some phone numbers as invalid to help reduce compliance risk, support consent-based messaging practices, and avoid sending to numbers that may no longer belong to the original user.
+
+For reasons why phone numbers are typically marked invalid, see [Handling invalid phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+We recommend the following workflow to remove invalid phone numbers:
+
+1. Identify impacted phone numbers through the [`/sms/invalid_phone_numbers` endpoint]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Differentiate between phone numbers that are deactivated and phone numbers that received provider errors.
+3. For deactivated phone numbers, re-verify the phone number with the user. After the user confirms their phone number, remove the phone number from the invalid list through the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+
 ## Traffic pumping recommendations
 
 ### What is traffic pumping?
@@ -78,3 +90,37 @@ Plan on doing some high-volume sending? We have some best practices for you to e
 
 - Adjust the delivery speed rate limiting for your campaign or Canvases as needed, based on target audience size. This ensures that you reach the send volume that you need and that Braze sends the messages at the rate that Twilio is expecting and can handle.
 - Ensure you stick to the 160-character limit, and be aware of special characters double-counting (for example, forward-slashes `\`, carets `^`, and tildes `~`). 
+
+## Quiet Hours recommendations
+
+{% alert warning %}
+**Braze-native Quiet Hours do not guarantee device-level delivery times.** When a message is sent, it is handed off to a carrier. Once the carrier accepts the message, Braze no longer has control over the precise moment it is delivered to the user's device.<br><br> For example, if a message is handed to a carrier at 8:59 pm, it may not land on the device until 9:02 pm. To reduce risk, we recommend using the following Liquid-based Quiet Hours method. This suppresses the message at the Braze engine-level before handoff.
+{% endalert %}
+
+### Braze-native Quiet Hours
+
+We strongly recommend enabling [Quiet Hours]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) across all SMS campaigns and Canvases to help meet regional regulations and best practices. 
+
+### Additional safeguard through Content Blocks
+
+You can add a Liquid-based check inside a Content Block. This provides a reliable, scalable safeguard that works alongside native settings.
+
+#### Setup
+
+Include the following snippet at the top of your SMS message body. This example aborts the send if it falls outside a 9 am–9 pm window in the user's [local time zone]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: ${time_zone} %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour >= 21 or hour < 9 %}
+  {% abort_message("Outside allowed time window") %}
+{% endif %}
+```
+{% endraw %}
+
+#### Considerations
+
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} allows the window to be evaluated against each user’s local time, not a fixed global time, as explained in [this FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- Messages suppressed by {% raw %}`abort_message()`{% endraw %} are not rescheduled for the next day; they are cancelled.
+- {% raw %} By default, aborted messages are not visible in standard campaign reporting. However, when Liquid aborts a send with `{% abort_message %}`, Braze logs it to the Message Activity Log as a message error (by default it shows `{% abort_message %}` called). If you pass a string, that reason is what shows in the log, such as `{% abort_message('language was nil') %}`{% endraw %}. For visibility into these suppressions in the dashboard, contact your customer success manager for access to the [Messaging Diagnostics Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).

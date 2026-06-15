@@ -32,7 +32,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.changeUser("YOUR_USER_ID")
 ```
 

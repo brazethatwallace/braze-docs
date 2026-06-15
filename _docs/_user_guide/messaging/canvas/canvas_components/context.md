@@ -30,7 +30,7 @@ Within a Context step, you can define or update up to 10 context variables. Thes
 
 You can set context variables in two ways:
 
-- **At Canvas entry:** Data from the event or API trigger can automatically populate context variables.
+- **At Canvas entry:** Properties from the custom event or API trigger are automatically populated as context variables.
 - **In a Context step:** Define or update context variables manually by adding a Context step.
 
 Each context variable requires a name, a data type, and a value (set using Liquid or the Add Personalization tool). When defined, you can reference context variables throughout the Canvas using Liquid, such as {% raw %}`{{context.${flight_time}}}`{% endraw %}. In the **Context variable name** field, you can also enter the context variable name or select it from the dropdown in the step editor. For details, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
@@ -91,7 +91,13 @@ When referencing context variables, always use the format {% raw %}`{{context.${
 
 ### Context variable filters
 
-You can create filters using context variables in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps. For filter setup, comparison logic, and advanced examples, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters).
+You can create filters using context variables in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps.
+
+To route users based on an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) response, add the Agent step before your Audience Paths or Decision Split step. The Agent step stores its output in Canvas context, which you can evaluate with context variable filters in those branching steps.
+
+If the agent returns an object and you want to filter on a nested property, enter the path in the **Context variable name** field using dot notation instead of only the top-level variable name (for example, `intent_agent.persona` when `persona` is nested under `intent_agent`).
+
+For filter setup, comparison logic, and advanced examples, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters).
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
 
@@ -196,7 +202,7 @@ Here's an example of how to do this:
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | No |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | No
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | Yes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Does this change impact Canvas entry properties?" }
 
 #### What is a practical example of how the new timestamp behavior might affect my messages? {#faq-example}
 
@@ -254,7 +260,7 @@ Yes. All variables in a Context step are evaluated in a sequence, meaning you co
 |`favorite_cuisine`| {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | A user's favorite type of cuisine. |
 |`promo_code`| {% raw %}`EATFRESH`{% endraw %} | The available discount code for a user. |
 |`personalized_message`|  {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | A personalized message that combines the previous variables. In a Message step, you could use the Liquid snippet {% raw %}`{{context.${personalized_message}}}`{% endraw %} to reference the context variable to deliver a personalized message to each user. You could also use a Context step to save the [promo code]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#creating-a-promotion-code-list) value and template it in other steps throughout a Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Can variables reference each other in a singular Context step?" }
 
 This also applies across multiple Context steps. For example, imagine this sequence:
 

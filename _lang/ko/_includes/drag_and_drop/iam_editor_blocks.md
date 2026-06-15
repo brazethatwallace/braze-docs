@@ -1,154 +1,118 @@
-## 인앱 메시지 편집기 블록 사용
+## 인앱 메시지 편집기 블록 {#in-app-message-editor-blocks}
 
-편집기 블록은 인앱 메시지의 **구축** 섹션 아래에 위치합니다. 사용하려면 편집기 블록을 열 안으로 드래그하세요. 열 너비에 맞게 자동으로 조정됩니다. 각 편집기 블록에는 패딩에 대한 세분화된 제어와 같은 자체 설정이 있습니다. 오른쪽 패널은 선택한 콘텐츠 요소의 등록정보 패널로 자동 전환됩니다.
+편집기 블록은 인앱 메시지의 **Build** 섹션에 있습니다. 블록을 열 안으로 드래그하면 열 너비에 맞게 자동으로 조정됩니다. 블록을 선택하면 오른쪽 패널에서 해당 설정을 편집할 수 있습니다.
 
-## 유형
+**드래그 앤 드롭 편집기**에서 인앱 메시지를 만드는 방법에 대한 자세한 내용은 [드래그 앤 드롭으로 인앱 메시지 만들기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)를 참조하세요.
 
-다음 표에서는 각 편집기 블록 유형을 사용하는 방법을 설명합니다.
+### 제목 및 단락 {#title-and-paragraph}
 
-| 이름 | 설명 |
-| --- | --- |
-| 제목 | 메시지에 제목 텍스트를 입력합니다. |
-| 단락 | 메시지에 단락 텍스트를 입력합니다. |
-| 버튼 | 표준 버튼을 추가합니다. 이 블록의 등록정보를 사용하면 편집, 링크 설정 및 분석 로깅을 수행할 수 있습니다. |
-| 라디오 버튼 | 사용자가 하나를 선택할 수 있는 옵션 목록을 추가합니다. 제출 시, 고객 프로필에 관련 커스텀 속성이 기록되며, 저장하려면 문자열이어야 합니다. 다른 데이터 유형의 커스텀 속성은 고객 프로필에 저장되지 않습니다. |
-| 이미지 | [미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)에서 이미지를 삽입합니다. |
-| 링크 | 사용자가 클릭하여 지정된 URL로 이동할 수 있는 하이퍼링크를 삽입합니다. 텍스트 내에 포함하거나 독립적으로 사용할 수 있습니다. |
-| 공백 | 다른 블록 사이에 공간이나 패딩을 추가합니다. |
-| 커스텀 코드 | 고급 커스터마이징을 위해 커스텀 HTML, CSS 또는 JavaScript를 삽입하고 실행합니다. |
-| 전화번호 캡처 | 전화번호 입력 양식 필드를 삽입합니다. 제출 시, 사용자는 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups/)에 가입됩니다. |
-| 이메일 캡처 | 이메일 주소 입력 양식 필드를 삽입합니다. 제출 시, 이메일 주소가 Braze에서 해당 사용자의 프로필에 추가됩니다. |
-| 짧은 텍스트 | 표준 속성(예: 이름 및 성) 또는 원하는 커스텀 속성 문자열을 지원하는 양식 필드를 삽입합니다. |
-| 드롭다운 | 사용자가 하나를 선택할 수 있는 미리 정의된 항목 목록이 포함된 드롭다운을 삽입합니다. 목록에 커스텀 속성 문자열을 추가할 수 있습니다. |
-| 체크박스 | 체크박스를 삽입합니다. 사용자가 체크박스를 선택하면 블록의 속성이 `true`로 설정됩니다. 선택하지 않으면 속성이 `false`로 설정됩니다. |
-| 체크박스 그룹 | 사용자는 제시된 여러 선택지 중에서 선택할 수 있습니다. 값은 정의된 배열 커스텀 속성에 설정되거나 추가됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+메시지에 제목 또는 단락 텍스트를 추가합니다.
 
-## 등록정보
+{% multi_lang_include drag_and_drop/editor_block_properties/title_paragraph.md %}
 
-각 편집기 블록의 등록정보에 대한 세부 정보는 다음 표에 나와 있습니다.
+### 버튼 {#button}
 
-### 제목 및 단락
+스타일, 링크, 분석을 설정할 수 있는 표준 버튼을 추가합니다.
 
-| 등록정보 | 설명 |
-| --- | --- |
-| 글꼴 패밀리 | 텍스트의 글꼴 스타일입니다. |
-| 글꼴 두께 | 텍스트의 두께를 결정합니다. |
-| 글꼴 크기 | 텍스트의 크기를 결정합니다. |
-| 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
-| 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 텍스트 정렬 | 텍스트를 왼쪽, 가운데, 오른쪽 또는 양쪽 맞춤으로 정렬합니다. |
-| 텍스트 색상 | 텍스트의 색상을 수정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-### 버튼
+#### 클릭 시 동작 {#on-click-behavior}
 
-| 등록정보 | 설명 |
-| --- | --- |
-| 버튼 너비 | 버튼의 너비를 자동 또는 수동으로 수정합니다. |
-| 글꼴 패밀리 | 텍스트의 글꼴 스타일입니다. |
-| 글꼴 두께 | 텍스트의 두께를 결정합니다. |
-| 글꼴 크기 | 텍스트의 크기를 결정합니다. |
-| 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 버튼 정렬 | 버튼을 왼쪽, 가운데 또는 오른쪽으로 정렬합니다. |
-| 버튼 텍스트 색상 | 버튼의 텍스트 색상을 수정합니다. |
-| 배경색 | 버튼의 배경색을 수정합니다. |
-| 테두리 스타일 | 버튼의 테두리 스타일을 결정합니다. | 
-| 테두리 반경 | 모서리를 얼마나 둥글게 만들지 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
-### 이미지
+### 라디오 버튼 {#radio-button}
+
+사용자가 하나를 선택할 수 있는 옵션 목록을 추가합니다. 제출 시 고객 프로필에 관련 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)이 기록되며, 저장하려면 문자열이어야 합니다. 다른 데이터 유형의 커스텀 속성은 고객 프로필에 저장되지 않습니다.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
+
+### 이미지 {#image}
+
+[미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 이미지를 삽입합니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| 등록정보 | 설명 |
-| --- | --- |
-| URL | 이미지의 호스팅 주소입니다. |
-| 정렬 | 이미지를 왼쪽, 가운데 또는 오른쪽으로 정렬합니다. |
-| 배경색 | 이미지의 배경색을 수정합니다. |
-| 테두리 스타일 | 이미지의 테두리 스타일을 결정합니다. | 
-| 테두리 반경 | 이미지의 모서리를 얼마나 둥글게 만들지 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{% multi_lang_include drag_and_drop/editor_block_properties/image_properties.md %}
 
-### 링크
+이미지 사양에 대한 내용은 [인앱 메시지 이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#in-app-messages)을 참조하세요.
 
-| 등록정보 | 설명 |
-| --- | --- |
-| 글꼴 패밀리 | 텍스트의 글꼴 스타일입니다. |
-| 글꼴 두께 | 텍스트의 두께를 결정합니다. |
-| 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 텍스트 색상 | 텍스트의 색상을 수정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+#### 클릭 시 동작
 
-### 공백
+{% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
-| 등록정보 | 설명 |
-| --- | --- |
-| 배경색 | 스페이서의 배경색을 수정합니다. |
-| 높이 | 스페이서의 높이를 수정합니다. 스페이서의 크기 조정 핸들을 사용하여 수정할 수도 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### 링크 {#link}
 
-### 커스텀 코드
+사용자가 클릭하여 지정된 URL로 이동할 수 있는 하이퍼링크를 삽입합니다. 텍스트 내에 포함하거나 독립적으로 사용할 수 있습니다.
 
-| 등록정보 | 설명 |
+{% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
+
+#### 클릭 시 동작
+
+{% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
+
+### 공백 {#spacer}
+
+다른 블록 사이에 공간이나 패딩을 추가합니다.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/spacer.md %}
+
+### 커스텀 코드 {#custom-code}
+
+고급 커스터마이징을 위해 커스텀 HTML, CSS 또는 JavaScript를 삽입합니다.
+
+| 속성 | 설명 |
 | --- | --- |
 | 커스텀 코드 | 인앱 메시지의 HTML, CSS 및 JavaScript를 추가, 편집 또는 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
-### 전화번호 캡처
+### 전화번호 캡처 {#phone-capture}
 
-| 등록정보 | 설명 |
-| --- | --- |
-| 구독 그룹 | 사용자의 전화번호를 수집하여 가입시킬 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups/)이며, 모든 국가의 번호를 수집할 수 있는 옵션이 있습니다. |
-| 텍스트 정렬 | 텍스트를 왼쪽, 가운데, 오른쪽 또는 양쪽 맞춤으로 정렬합니다. |
-| 입력 안내 텍스트 | 표시할 입력 안내 전화번호입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+전화번호 입력 양식 필드를 삽입합니다. 제출 시 사용자는 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups/)에 가입됩니다.
 
-### 이메일 캡처
+{% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
-| 등록정보 | 설명 |
-| --- | --- |
-| 글꼴 패밀리 | 텍스트의 글꼴 스타일입니다. |
-| 글꼴 두께 | 텍스트의 두께를 결정합니다. |
-| 글꼴 크기 | 텍스트의 크기를 결정합니다. |
-| 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
-| 텍스트 색상 | 텍스트의 색상을 수정합니다. |
-| 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
-| 텍스트 정렬 | 텍스트를 왼쪽, 가운데, 오른쪽 또는 양쪽 맞춤으로 정렬합니다. |
-| 입력 안내 텍스트 | 표시할 입력 안내 이메일 주소입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### 이메일 캡처 {#email-capture}
 
-## 동작
+이메일 주소 입력 양식 필드를 삽입합니다. 제출 시 이메일 주소가 Braze에서 해당 사용자의 프로필에 추가됩니다.
 
-사용자가 메시지에서 버튼, 링크 또는 이미지를 탭할 때 발생하는 동작을 할당할 수 있습니다. 동작을 개인화하기 위해 [Liquid]({{site.baseurl}}/liquid/)를 사용할 수도 있습니다. 각 편집기 블록의 동작에 대한 세부 정보는 다음 표에 나와 있습니다.
+{% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 
-### 버튼
+### 짧은 텍스트 {#short-text}
 
-| 동작 | 설명 |
-| --- | --- |
-| 버튼 클릭 시 양식 제출 | 양식을 제출하고 선택한 클릭 시 동작을 수행합니다. 클릭 시 동작만 수행하려면 이 옵션을 끄세요. |
-| 각 플랫폼별 별도 동작 설정 | 각 플랫폼별로 버튼의 동작을 개별적으로 커스터마이징합니다. |
-| 클릭 시 동작 | 사용자가 버튼을 클릭할 때의 동작을 결정합니다. 예를 들어 메시지를 닫거나, 웹 URL을 열거나, 앱의 특정 페이지로 딥링크하거나, 다른 페이지로 이동하거나, [푸시 권한 요청]({{site.baseurl}}/push_primer/)을 할 수 있습니다. |
-| 커스텀 속성 또는 이벤트 기록 | 버튼 클릭 시 커스텀 데이터로 고객 프로필을 업데이트할지 결정합니다. 보고용 식별자를 선택할 수도 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+표준 속성(예: 이름 및 성) 또는 원하는 커스텀 속성 문자열을 지원하는 양식 필드를 삽입합니다.
 
-### 이미지
+{% multi_lang_include drag_and_drop/editor_block_properties/short_text_properties.md %}
 
-이미지 사양에 대한 내용은 [인앱 메시지 이미지 사양]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#in-app-messages)을 참조하세요.
+### 드롭다운 {#dropdown}
 
-| 동작 | 설명 |
-| --- | --- |
-| 대체 텍스트 | 이미지가 로드되지 않을 경우 이미지 대신 표시되는 텍스트입니다. 스크린 리더는 대체 텍스트를 읽어 이미지를 설명하므로, 이미지에 대한 핵심 정보를 쉬운 언어로 제공하세요. |
-| 이미지 클릭 시 양식 제출 | 양식을 제출하고 선택한 클릭 시 동작을 수행합니다. 클릭 시 동작만 수행하려면 이 옵션을 끄세요. |
-| 각 플랫폼별 별도 동작 설정 | 각 플랫폼별로 이미지의 동작을 개별적으로 커스터마이징합니다. |
-| 클릭 시 동작 | 사용자가 이미지를 클릭할 때의 동작을 결정합니다. 예를 들어 메시지를 닫거나, 웹 URL을 열거나, 앱의 특정 페이지로 딥링크하거나, 다른 페이지로 이동하거나, [푸시 권한 요청]({{site.baseurl}}/push_primer/)을 할 수 있습니다. |
-| 커스텀 속성 또는 이벤트 기록 | 이미지 클릭 시 커스텀 데이터로 고객 프로필을 업데이트할지 결정합니다. 보고용 식별자를 선택할 수도 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+사용자가 하나를 선택할 수 있는 미리 정의된 항목 목록이 포함된 드롭다운을 삽입합니다. 목록에 커스텀 속성 문자열을 추가할 수 있습니다.
 
-### 링크
+{% multi_lang_include drag_and_drop/editor_block_properties/dropdown_properties.md %}
 
-| 동작 | 설명 |
-| --- | --- |
-| URL | 이동할 하이퍼링크입니다. |
-| 보고용 식별자 | 보고에 사용되는 식별자를 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+### 체크박스 {#checkbox}
+
+체크박스를 삽입합니다. 사용자가 체크박스를 선택하면 블록의 [부울 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)이 `true`로 설정됩니다. 선택하지 않으면 속성이 `false`로 설정됩니다.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
+
+### 체크박스 그룹 {#checkbox-group}
+
+사용자는 여러 선택지 중에서 선택할 수 있습니다. 값은 정의된 [배열 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types)에 설정되거나 추가됩니다.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
+
+### 긴 텍스트 {#long-text}
+
+설문조사 스타일 플로우를 위한 여러 줄 텍스트 필드입니다. 이 블록이 보이지 않으면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/) 또는 Braze 고객 성공 매니저에게 문의하세요.
+
+{% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
+
+<!-- Saved row is not yet released. Uncomment when available.
+### Saved row
+
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+-->
+
+## 알아두어야 할 사항 {#things-to-know}
+
+- **동영상:** 표준 작성기에는 전용 동영상 블록이 포함되어 있지 않습니다. 필요한 경우 **커스텀 코드**를 사용하여 플레이어를 삽입하세요. 자세한 내용은 [인앱 메시지: 자주 묻는 질문]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/)을 참조하세요.

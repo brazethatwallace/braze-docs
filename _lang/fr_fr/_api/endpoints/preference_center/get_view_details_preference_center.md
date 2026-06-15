@@ -9,7 +9,7 @@ description: "Cet article présente l'endpoint Braze Afficher les détails du ce
 
 ---
 {% api %}
-# Afficher les détails du centre de préférences
+# Afficher les détails du centre de préférences {#view-details-for-preference-center}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
@@ -18,33 +18,33 @@ description: "Cet article présente l'endpoint Braze Afficher les détails du ce
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6a47fd7c-2997-4832-aedb-d101a2dd03a5 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `preference_center.get`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
-{: role="presentation" }
+| `preferenceCenterExternalID` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
+{: aria-label="Paramètres de chemin" }
 
-## Paramètres de requête
+## Paramètres de requête {#request-parameters}
 
 Cet endpoint ne comporte aucun paramètre de requête.
 
-## Exemple de requête
+## Exemple de requête {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/preference_center_external_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Réponse
+## Réponse {#response}
 ```json
 {
   "name": "My Preference Center",

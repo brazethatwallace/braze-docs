@@ -8,6 +8,8 @@ page_order: 1.2
 
 # Messaging users {#what-do-next}
 
+> This reference article covers next steps after you create a churn prediction, including how to target users with filters and strategic considerations for messaging.
+
 {% alert note %}
 Preview and demo predictions will not allow users to be targeted for messaging, and the **Create Segment**, and **Create Campaign** buttons will be disabled. To purchase this functionality, contact your account manager.
 {% endalert %}

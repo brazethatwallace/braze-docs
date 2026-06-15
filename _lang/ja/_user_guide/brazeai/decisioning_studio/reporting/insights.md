@@ -2,10 +2,10 @@
 nav_title: インサイト
 article_title: インサイトレポート
 page_order: 2
-description: "BrazeAI Decisioning Studio でアクションバンクのおすすめオプションがどのように生成されるかを理解するために、インサイトレポートを使用する方法を説明します。"
+description: "BrazeAI Decisioning Studioでアクションバンクのおすすめオプションがどのように生成されるかを理解するために、インサイトレポートを使用する方法を説明します。"
 ---
 
-# インサイトレポート
+# インサイトレポート {#insights-report}
 
 > インサイトは、アクションバンク内のさまざまなおすすめオプションがどのように生成されるか（ブロックのセレクションなど）を表示します。インサイトレポートには、**エージェントプリファレンス**と**SHAPs**の2種類があります。
 
@@ -22,16 +22,16 @@ description: "BrazeAI Decisioning Studio でアクションバンクのおすす
 | ディメンション | チャネル、キャンペーン、プラットフォームなど、結果を整理するために使用される属性です。 |
 | 比較グループ | レポートで比較するグループです。複数の比較グループを選択できます。 |
 | パラメーター | 開封、クリック数、コンバージョン率など、その属性に適用される指標です。 |
-| Segment | Braze で作成した[オーディエンスセグメント]({{site.baseurl}}/user_guide/engagement_tools/segments/)です。 |
+| セグメント | Brazeで作成した[オーディエンスセグメント]({{site.baseurl}}/user_guide/audience/segments/)です。 |
 | オプション             | アクションバンクから選択された特定のおすすめオプションです。 |
 | 説明        | そのオプションが何を表すかの簡単な説明です。            |
 | 選択回数  | そのオプションが選択された合計回数です。         |
-| 選択割合   | 全選択のうち、このオプションが選択された割合です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| 選択割合   | 全セレクションのうち、このオプションが選択された割合です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Insights report" }
 {% endtab %}
 
 {% tab SHAPs %}
-**SHAPs** レポートは、Shapley Additive exPlanations（SHAP）モデルを使用して、各特徴量や変数がおすすめエージェントにどのように寄与しているかを定量化するのに役立ちます。グラフ上の各ポイントは1つのSHAP値を表し、ポイントの分布は特徴量の方向性のある影響の全体的な傾向を示します。
+**SHAPs**レポートは、Shapley Additive exPlanations（SHAP）モデルを使用して、各特徴量や変数がおすすめエージェントにどのように寄与しているかを定量化するのに役立ちます。グラフ上の各ポイントは1つのSHAP値を表し、ポイントの分布は特徴量の方向性のある影響の全体的な傾向を示します。
 
 ![SHAPsレポートチャート。異なる特徴量や変数を表す複数の色付きバーを含む横棒グラフを表示しています。各バーはおすすめエージェントに対する特徴量の影響を示し、X軸はSHAP値、Y軸はRecency、Frequency、Channelなどの特徴量名を示しています。このチャートは、各特徴量がエージェントの予測にプラスまたはマイナスにどのように寄与しているかを可視化しています。]({% image_buster /assets/img/decisioning_studio/reporting_insights_shaps.png %})
 

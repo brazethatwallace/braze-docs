@@ -6,39 +6,39 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "이 문서에서는 기존 대시보드 사용자 계정 Braze 엔드포인트 업데이트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 기존 대시보드 사용자 계정 업데이트 Braze 엔드포인트에 대해 자세히 설명합니다."
 ---
 
 {% api %}
-# 대시보드 사용자 계정 업데이트
+# 대시보드 사용자 계정 업데이트 {#update-dashboard-user-account}
 {% apimethod put %}
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 SCIM 메서드에서 반환된 `id` 리소스를 지정하여 기존 대시보드 사용자 계정을 업데이트합니다. [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) 메서드에서 반환되는 리소스를 지정합니다.
+> 이 엔드포인트를 사용하여 SCIM [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account/) 메서드에서 반환된 리소스 `id`를 지정하여 기존 대시보드 사용자 계정을 업데이트합니다.
 
-주어진 이름과 가족 이름, 권한(회사, 워크스페이스 및 팀 수준에서 권한을 설정하는 데 사용) 및 부서를 업데이트할 수 있습니다.
+이름과 성, 권한(회사, 워크스페이스 및 팀 수준에서 권한 설정) 및 부서를 업데이트할 수 있습니다.
 
-보안상의 이유로 `userName` (이메일 주소)는 이 엔드포인트를 통해 업데이트할 수 없습니다. 사용자의 `userName` (이메일 주소)를 변경하려면 [지원팀에]({{site.baseurl}}/support_contact/) 문의하세요.
+보안상의 이유로 `userName`(이메일 주소)은 이 엔드포인트를 통해 업데이트할 수 없습니다. 사용자의 `userName`(이메일 주소)을 변경하려면 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
-## 필수 구성 요소
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝을]({{site.baseurl}}/scim/automated_user_provisioning/) 참조하세요.
+이 엔드포인트를 사용하려면 SCIM 토큰이 필요합니다. 서비스 출처를 `X-Request-Origin` 헤더로 사용합니다. 자세한 내용은 [자동화된 사용자 프로비저닝]({{site.baseurl}}/scim/automated_user_provisioning/)을 참조하세요.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='update dashboard user' %}
 
-## 경로 매개변수
+## 경로 매개변수 {#path-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `id` | Required | 문자열 | 사용자의 리소스 ID입니다. 이 매개변수는 `POST` `/scim/v2/Users/` 또는 `GET`  `/scim/v2/Users?filter=userName eq "user@test.com"` 메서드에서 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `id` | 필수 | 문자열 | 사용자의 리소스 ID입니다. 이 매개변수는 `POST` `/scim/v2/Users/` 또는 `GET` `/scim/v2/Users?filter=userName eq "user@test.com"` 메서드에서 반환됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## 요청 본문
+## 요청 본문 {#request-body}
 ```
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
@@ -86,18 +86,18 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 }
 ```
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
-| 매개변수 | 필수 | 데이터 유형 | Description |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `schemas` | 필수 | 문자열 배열 | 사용자 개체에 대한 예상 SCIM 2.0 스키마 이름입니다. |
-| `name` | 필수 | JSON 객체 | 이 개체에는 사용자의 이름과 성이 포함되어 있습니다. |
-| `department` | Required | 문자열 | [부서 문자열 문서에]({{site.baseurl}}/scim_api_appendix/#department-strings) 있는 유효한 부서 문자열입니다. |
-| `permissions` | 필수 | JSON 객체 | [권한 객체 문서에]({{site.baseurl}}/scim_api_appendix/#permissions-object) 설명된 대로 [권한]({{site.baseurl}}/scim_api_appendix/#permissions-object) 객체를 만듭니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `schemas` | 필수 | 문자열 배열 | 사용자 오브젝트에 대한 예상 SCIM 2.0 스키마 이름입니다. |
+| `name` | 필수 | JSON 오브젝트 | 이 오브젝트에는 사용자의 이름과 성이 포함되어 있습니다. |
+| `department` | 필수 | 문자열 | [부서 문자열 설명서]({{site.baseurl}}/scim_api_appendix/#department-strings)에 있는 유효한 부서 문자열입니다. |
+| `permissions` | 필수 | JSON 오브젝트 | [권한 오브젝트 설명서]({{site.baseurl}}/scim_api_appendix/#permissions-object)에 설명된 권한 오브젝트입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
-## 예시 요청
+## 예시 요청 {#example-request}
 ```bash
 curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
@@ -136,7 +136,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 }
 ```
 
-## 응답
+## 응답 {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -205,7 +205,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 }
 ```
 
-### 오류 상태
+### 오류 상태 {#error-states}
 이 ID를 가진 사용자가 Braze에 존재하지 않는 경우, 엔드포인트는 다음과 같이 응답합니다:
 
 ```http

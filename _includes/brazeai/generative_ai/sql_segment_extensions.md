@@ -40,12 +40,6 @@ To create a full refresh SQL Segment Extension:
 To create an incremental refresh SQL Segment Extension:
 
 1. Go to **Audience** > **Segment Extensions**.
-
-{% alert note %}
-If you are using the [older navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), you can find this page at **Engagement** > **Segments** > **Segment Extensions**.
-{% endalert %}
-
-{:start="2"}
 2. Select **Create New Extension** and select **Incremental refresh**.<br><br>
    ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Add a name for your Segment Extension and input your SQL. Refer to the section [Writing SQL](#writing-sql) for requirements and resources.<br><br>
@@ -74,15 +68,18 @@ To use the AI SQL generator, do the following:
 3. Review the generated SQL to make sure it looks correct, and then save your segment.
 
 #### Example prompts
+
 - Users who received an email in the last month
 - Users who made less than five purchases in the last year
 
 #### Tips
+
 - Familiarize yourself with the available [Snowflake data tables]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/). Asking for data that doesn't exist in these tables may result in ChatGPT making up a fake table.
 - Familiarize yourself with the [SQL writing rules]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments?tab=sql%20editor#writing-sql) for this feature. Not following these rules will cause an error. For example, your SQL code must select the `user_id` column. Starting your prompt with "users who" can help.
 - You can send up to 20 prompts per minute with the AI SQL Generator.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
+
 {% endtab %}
 {% endtabs %}
 

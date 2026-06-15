@@ -1,6 +1,6 @@
-{% multi_lang_include developer_guide/prerequisites/xamarin.md %} Además, tendrás que [configurar notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent).
+{% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Estas son las versiones mínimas del SDK necesarias para empezar a utilizar geovallas:
 
@@ -8,24 +8,24 @@ Estas son las versiones mínimas del SDK necesarias para empezar a utilizar geov
 
 ## Configuración de geovallas {#setting-up-geofences}
 
-### Paso 1: Habilitar en Braze
+### Paso 1: Habilitar en Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
 ---
 
-A continuación, sigue las instrucciones específicas de la plataforma que se indican a continuación para Android o iOS:
+A continuación, sigue las instrucciones específicas de la plataforma para Android o iOS:
 
 {% tabs %}
 {% tab Android %}
 
-### Paso 2: Añadir dependencias
+### Paso 2: Añadir dependencias {#step-2-add-dependencies}
 
 Añade la siguiente referencia al paquete NuGet a tu proyecto:
 
 - `BrazePlatform.BrazeAndroidLocationBinding`
 
-### Paso 3: Actualiza tu AndroidManifest.xml
+### Paso 3: Actualiza tu AndroidManifest.xml {#step-3-update-your-androidmanifestxml}
 
 Añade los siguientes permisos a tu `AndroidManifest.xml`:
 
@@ -39,7 +39,7 @@ Añade los siguientes permisos a tu `AndroidManifest.xml`:
 Se requiere el permiso de acceso a la ubicación en segundo plano para que las geovallas funcionen mientras la aplicación está en segundo plano en dispositivos con Android 10 o superior.
 {% endalert %}
 
-### Paso 4: Configurar la recopilación de ubicación de Braze
+### Paso 4: Configurar la recopilación de ubicación de Braze {#step-4-configure-braze-location-collection}
 
 Asegúrate de que la recopilación de ubicación esté habilitada en tu configuración de Braze. Si deseas habilitar las geovallas sin la recopilación automática de la ubicación, configura lo siguiente en tu `Braze.xml`:
 
@@ -48,9 +48,9 @@ Asegúrate de que la recopilación de ubicación esté habilitada en tu configur
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
-### Paso 5: Solicitar permisos de ubicación en tiempo de ejecución
+### Paso 5: Solicitar permisos de ubicación en tiempo de ejecución {#step-5-request-location-permissions-at-runtime}
 
-Debes solicitar permisos de ubicación al usuario antes del registro de geovallas. En tu código C#, utiliza el siguiente patrón:
+Debes solicitar permisos de ubicación al usuario antes de registrar geovallas. En tu código C#, utiliza el siguiente patrón:
 
 ```csharp
 using AndroidX.Core.App;
@@ -73,7 +73,7 @@ Una vez concedidos los permisos, inicializa la recopilación de ubicación de Br
 Braze.GetInstance(this).RequestLocationInitialization();
 ```
 
-### Paso 6: Solicitar manualmente actualizaciones de geovallas (opcional)
+### Paso 6: Solicitar manualmente actualizaciones de geovallas (opcional) {#step-6-manually-request-geofence-updates-optional}
 
 Para solicitar manualmente geovallas para una ubicación específica:
 
@@ -87,13 +87,13 @@ Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamen
 {% endtab %}
 {% tab iOS %}
 
-### Paso 2: Añadir dependencias
+### Paso 2: Añadir dependencias
 
 Añade la siguiente referencia al paquete NuGet a tu proyecto:
 
 - `Braze.iOS.BrazeLocation`
 
-### Paso 3: Configura el uso de la ubicación en Info.plist
+### Paso 3: Configura el uso de la ubicación en Info.plist {#step-3-configure-location-usage-in-infoplist}
 
 Añade una cadena con la descripción del uso de los servicios de ubicación en tu `Info.plist`:
 
@@ -105,12 +105,12 @@ Añade una cadena con la descripción del uso de los servicios de ubicación en 
 ```
 
 {% alert important %}
-Apple ha dejado de utilizar `NSLocationAlwaysUsageDescription`. Utiliza las teclas anteriores para iOS 14+.
+Apple ha dejado de utilizar `NSLocationAlwaysUsageDescription`. Utiliza las claves anteriores para iOS 14+.
 {% endalert %}
 
-### Paso 4: Habilita las geovallas en tu configuración de Braze.
+### Paso 4: Habilita las geovallas en tu configuración de Braze {#step-4-enable-geofences-in-your-braze-configuration}
 
-En el código de inicio de tu aplicación (e.g., `App.xaml.cs`), configura Braze con las geovallas habilitadas:
+En el código de inicio de tu aplicación (por ejemplo, `App.xaml.cs`), configura Braze con las geovallas habilitadas:
 
 ```csharp
 using BrazeKit;
@@ -125,9 +125,9 @@ configuration.Location.AutomaticGeofenceRequests = true;
 var braze = new Braze(configuration);
 ```
 
-### Paso 5: Habilita las actualizaciones de ubicación en segundo plano (opcional)
+### Paso 5: Habilita las actualizaciones de ubicación en segundo plano (opcional) {#step-5-enable-background-location-updates-optional}
 
-Para supervisar las geovallas en segundo plano, habilita el modo de fondo **de actualizaciones de ubicación** añadiendo la siguiente configuración a tu `Info.plist`:
+Para supervisar las geovallas en segundo plano, habilita el modo de fondo **Location updates** añadiendo la siguiente configuración a tu `Info.plist`:
 
 ```xml
 <key>UIBackgroundModes</key>
@@ -144,12 +144,12 @@ configuration.Location.DistanceFilter = 8000; // meters
 ```
 
 {% alert important %}
-Establece`DistanceFilter`un valor que se ajuste a las necesidades de tu aplicación para evitar que se agote la batería.
+Establece `DistanceFilter` con un valor que se ajuste a las necesidades de tu aplicación para evitar que se agote la batería.
 {% endalert %}
 
-### Paso 6: Solicitar autorización de ubicación
+### Paso 6: Solicitar autorización de ubicación {#step-6-request-location-authorization}
 
-Solicita al usuario la autorización`Always`  o`When In Use`  :
+Solicita al usuario la autorización `When In Use` o `Always`:
 
 ```csharp
 using CoreLocation;
@@ -161,7 +161,7 @@ locationManager.RequestAlwaysAuthorization();
 ```
 
 {% alert important %}
-Sin`Always`autorización, iOS restringe el funcionamiento de los servicios de ubicación mientras la aplicación no está en uso. Esto lo impone el sistema operativo y no puede ser eludido por el SDK de Braze.
+Sin la autorización `Always`, iOS restringe el funcionamiento de los servicios de ubicación mientras la aplicación no está en uso. Esto lo impone el sistema operativo y el SDK de Braze no puede eludirlo.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

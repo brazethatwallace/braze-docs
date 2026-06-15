@@ -1,23 +1,23 @@
 ---
-nav_title: Testbanner
-article_title: Testbanner
+nav_title: Banner testen
+article_title: Banner testen
 page_order: 2
-description: "Erfahren Sie, wie Sie Ihre Bannernachricht testen können, bevor Sie Ihre Kampagne einführen, damit Sie sicherstellen können, dass alle Medien, Texte, Personalisierungen und angepassten Attribute korrekt wiedergegeben werden."
+description: "Erfahren Sie, wie Sie Ihre Bannernachricht testen können, bevor Sie Ihre Campaign starten, damit Sie sicherstellen können, dass alle Medien, Texte, Personalisierung und angepassten Attribute korrekt dargestellt werden."
 channel:
   - banners
 noindex: true
 ---
 
-# Testbanner
+# Banner testen {#test-banners}
 
-> Erfahren Sie, wie Sie Ihre Bannernachricht testen können, bevor Sie Ihre Kampagne einführen, damit Sie sicherstellen können, dass alle Medien, Texte, Personalisierungen und angepassten Attribute korrekt wiedergegeben werden. Weitere allgemeine Informationen finden Sie unter [Über Banner]({{site.baseurl}}/developer_guide/banners).
+> Erfahren Sie, wie Sie Ihre Bannernachricht testen können, bevor Sie Ihre Campaign starten, damit Sie sicherstellen können, dass alle Medien, Texte, Personalisierung und angepassten Attribute korrekt dargestellt werden. Weitere allgemeine Informationen finden Sie unter [Über Banner]({{site.baseurl}}/developer_guide/banners/).
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Bevor Sie Banner-Nachrichten in Braze testen können, müssen Sie eine [Banner-Kampagne in Braze]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/) erstellen. Überprüfen Sie außerdem, ob die Platzierung, die Sie testen möchten, bereits [in Ihrer App oder Website vorhanden]({{site.baseurl}}/developer_guide/banners/placements) ist. 
+Bevor Sie Bannernachrichten in Braze testen können, müssen Sie eine [Banner-Campaign in Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/) erstellen. Überprüfen Sie außerdem, ob die Platzierung, die Sie testen möchten, bereits [in Ihrer App oder auf Ihrer Website platziert]({{site.baseurl}}/developer_guide/banners/placements/) ist.
 
-Um einen Test entweder an [Inhaltstestgruppen]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#content-test-groups) oder an einzelne Benutzer zu senden, muss Push auf Ihren Testgeräten aktiviert sein und es müssen gültige Push-Token für den Testbenutzer registriert sein, bevor Sie den Test senden.
+Um einen Test entweder an [Inhaltstestgruppen]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#content-test-groups) oder an einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und es müssen gültige Push-Token für die Testnutzer:in registriert sein, bevor Sie den Test senden.
 
-## Bitte testen Sie ein Banner.
+## Banner testen {#test-a-banner}
 
 {% multi_lang_include banners/testing.md page="testing" %}

@@ -1,7 +1,7 @@
 ---
 nav_title: SalesWings
 article_title: SalesWings
-description: "이 참고 문서에서는 Braze와 SalesWings의 파트너십에 대해 간략하게 설명합니다. SalesWings는 리드와 계정을 검증하고 Salesforce와 같은 CRM 내에서 영업 인사이트와 알림을 제공하며 B2B 기여도 보고 기능을 제공하는 Braze용 영업 및 마케팅 운영 솔루션입니다. 캔버스에서 개인화 및 세그먼트화를 위해 Braze 내에서 관심사와 참여를 활용할 수 있습니다. SalesWings는 Digioh와 유사하게 웹사이트에서 리드를 생성하는 방법도 제공합니다."
+description: "이 참고 문서에서는 Braze와 SalesWings의 파트너십에 대해 설명합니다. SalesWings는 리드와 계정을 검증하고 Salesforce와 같은 CRM 내에서 영업 인사이트와 알림을 제공하며 B2B 기여도 보고 기능을 제공하는 Braze용 영업 및 마케팅 운영 솔루션입니다. Canvas에서 개인화 및 세분화를 위해 Braze 내에서 관심사와 참여를 활용할 수 있습니다. SalesWings는 Digioh와 유사하게 웹사이트에서 리드를 생성하는 방법도 제공합니다."
 alias: /partners/saleswings/
 page_type: partner
 search_tag: Partner
@@ -10,196 +10,195 @@ search_tag: Partner
 
 # SalesWings
 
-> [SalesWings는](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) B2B SaaS 영업 및 마케팅 운영 솔루션으로, 전체적인 리드 점수 및 등급을 통해 리드 및 계정 자격을 관리하고 영업 인사이트 및 알림, B2B 기여도 보고와 함께 긴밀한 Salesforce CRM 통합을 제공합니다.  웹사이트 참여 애드온은 Digioh와 유사하게 웹사이트에서 리드를 생성할 수 있게 해줍니다. 캔버스와 세그먼트 세분화에서 개인화를 위해 Braze 내부의 관심사와 참여를 활용할 수 있습니다.
+> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)는 B2B SaaS 영업 및 마케팅 운영 솔루션으로, 전체적인 리드 스코어링 및 등급을 통해 리드 및 계정 자격을 관리하고 영업 인사이트 및 알림, B2B 기여도 보고와 함께 긴밀한 Salesforce CRM 통합을 제공합니다. Digioh와 유사한 웹사이트 참여 애드온을 통해 웹사이트에서 리드를 생성할 수 있습니다. Canvas와 세분화에서 개인화를 위해 Braze 내부의 관심사와 참여를 활용할 수 있습니다.
 
-_This integration is maintained by SalesWings._
+_이 통합은 SalesWings에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-SalesWings allows marketing teams and marketing operations managers to qualify leads and accounts for their sales teams, essential for sales and marketing alignment and operational efficiency. 또한 SalesWings는 Braze와 함께 리드 및 계정의 전체 고객 여정과 Braze 마케팅 캠페인 참여 데이터를 영업 담당자에게 보여줄 수 있어, 보다 교육적인 대화를 통해 리드 퀄리티 전환율을 높일 수 있습니다. SalesWings는 다른 신호와 함께 필요와 관심사를 식별하여 자격을 갖춘 구매자를 CRM 내부의 영업 팀에 자동화된 방식으로 전달할 수 있습니다. 식별된 니즈, 관심사, 판매 준비도를 Braze 사용자 속성으로 사용하여 개인화 및 세그먼트를 세분화할 수 있습니다.
+SalesWings를 사용하면 마케팅 팀과 마케팅 운영 매니저가 영업 팀을 위해 리드와 계정을 검증할 수 있으며, 이는 영업과 마케팅의 정렬 및 운영 효율성에 필수적입니다. 또한 SalesWings는 Braze와 함께 리드 및 계정의 전체 고객 여정과 Braze 마케팅 Campaign 참여 데이터를 영업 담당자에게 보여줄 수 있어, 보다 교육적인 대화를 통해 리드 검증 전환율을 높일 수 있습니다. SalesWings는 다른 신호와 함께 필요와 관심사를 식별하여 자격을 갖춘 구매자를 CRM 내부의 영업 팀에 자동화된 방식으로 전달할 수 있습니다. 식별된 니즈, 관심사, 판매 준비도를 Braze 사용자 속성으로 사용하여 개인화 및 세분화에 활용할 수 있습니다.
 
-## 필수 조건
- 
-| Requirement | Description |
+## 필수 조건 {#prerequisites}
+
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| SalesWings account | A [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) account is required to take advantage of this partnership. |
-| Braze REST API key | `users.export.ids` 권한이 있는 Braze REST API 키(SalesWings 인사이트 푸시 기능을 사용하는 경우 `users.track` ). <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-| Segment.com account (optional) | If you are a Segment.com user, you can send all lead engagement and profile data and identify events via Segment.com for lead profiling. |
+| SalesWings 계정 | 이 파트너십을 활용하려면 [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) 계정이 필요합니다. |
+| Braze REST API 키 | `users.export.ids` 권한이 있는 Braze REST API 키(SalesWings 인사이트 푸시 기능을 사용하는 경우 `users.track`도 필요). <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| Segment.com 계정(선택 사항) | Segment.com 사용자인 경우 리드 프로파일링을 위해 Segment.com을 통해 모든 리드 참여 및 프로필 데이터와 식별 이벤트를 전송할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## 사용 사례
+## 활용 사례 {#use-cases}
 
 {% tabs %}
-{% tab Lead and Account Scoring %}
+{% tab 리드 및 계정 스코어링 %}
 
-SalesWings provides Braze customers with [a flexible way to qualify leads, contacts, and accounts with state-of-the-art lead scoring](https://www.saleswingsapp.com/braze-lead-scoring-and-sales-insights?utm_source=braze&utm_campaign=technicaldocs) and lead grading capabilities. All your lead qualification data is natively pushed to Salesforce CRM and other systems where you want to manage and report on leads, contacts, accounts, and opportunities.
+SalesWings는 Braze 고객에게 [최첨단 리드 스코어링](https://www.saleswingsapp.com/braze-lead-scoring-and-sales-insights?utm_source=braze&utm_campaign=technicaldocs) 및 리드 등급 기능을 통해 리드, 연락처, 계정을 유연하게 검증하는 방법을 제공합니다. 모든 리드 검증 데이터는 Salesforce CRM 및 리드, 연락처, 계정, 기회를 관리하고 보고하려는 기타 시스템에 기본적으로 푸시됩니다.
 
 ![SalesWings의 간단한 코드 없는 클릭 리드 스코어링 모델 예시]({% image_buster /assets/img/saleswings/example_lead_scoring_builder_braze_lead_scoring.png %})
 
-_Example of a simple, click-not-code lead scoring model in SalesWings_
+_SalesWings의 간단한 코드 없는 클릭 리드 스코어링 모델 예시_
 {% endtab %}
-{% tab Sales and Marketing Alignment %}
-SalesWings allows marketing teams to track, qualify and hand off marketing-qualified leads to your sales teams. All SalesWings data is natively pushed to Salesforce, and can be leveraged to fine-tune any existing process, or create new processes via lists, reports, flows, and more.
+{% tab 영업 및 마케팅 정렬 %}
+SalesWings를 사용하면 마케팅 팀이 마케팅 검증 리드를 추적, 검증하고 영업 팀에 전달할 수 있습니다. 모든 SalesWings 데이터는 Salesforce에 기본적으로 푸시되며, 기존 프로세스를 미세 조정하거나 목록, 보고서, 플로우 등을 통해 새로운 프로세스를 생성하는 데 활용할 수 있습니다.
 
 ![SalesWings 리드 스코어링이 Salesforce 내에서 기본적으로 리드 또는 연락처 목록의 우선순위를 정하는 방법의 예시]({% image_buster /assets/img/saleswings/prioritized_lead_or_contact_list_braze_lead_scoring.png %})
 
-_Example of how SalesWings lead scoring prioritizes a list of leads or contacts natively inside Salesforce_
+_SalesWings 리드 스코어링이 Salesforce 내에서 기본적으로 리드 또는 연락처 목록의 우선순위를 정하는 방법의 예시_
 
-![SalesWings 리드 스코어링이 Salesforce 내에서 기본적으로 계정 목록의 우선 순위를 정하는 방법의 예시]({% image_buster /assets/img/saleswings/prioritized_account_list_braze_lead_scoring.png %})
+![SalesWings 리드 스코어링이 Salesforce 내에서 기본적으로 계정 목록의 우선순위를 정하는 방법의 예시]({% image_buster /assets/img/saleswings/prioritized_account_list_braze_lead_scoring.png %})
 
-_Example of how SalesWings lead scoring prioritizes a list of accounts natively inside Salesforce_
+_SalesWings 리드 스코어링이 Salesforce 내에서 기본적으로 계정 목록의 우선순위를 정하는 방법의 예시_
 {% endtab %}
-{% tab Lead and Account Grading %}
-SalesWings allows Braze customers to qualify leads and accounts based on profile data (typically CRM data). This is also referred to as “lead grading”, “fit scoring,” or “firmographic scoring”. Braze customers can send attribute data directly to SalesWings, and SalesWings can read any Salesforce CRM standard or custom objects data and records for holistic profile scoring.
+{% tab 리드 및 계정 등급 %}
+SalesWings를 사용하면 Braze 고객이 프로필 데이터(일반적으로 CRM 데이터)를 기반으로 리드와 계정을 검증할 수 있습니다. 이를 "리드 등급", "적합도 스코어링" 또는 "기업 통계 스코어링"이라고도 합니다. Braze 고객은 속성 데이터를 SalesWings에 직접 전송할 수 있으며, SalesWings는 전체적인 프로필 스코어링을 위해 Salesforce CRM의 표준 또는 커스텀 오브젝트 데이터와 레코드를 읽을 수 있습니다.
 {% endtab %}
-{% tab Sales Insights for Sales Reps %}
-SalesWings enables you to show your sales reps sales insights about their leads, contacts, and accounts (Marketo Sales Insights alternative). Essentially, you can surface any Braze and web engagement data to your sales team. The insights are natively embedded into Salesforce CRM and can be pushed to other CRMs or systems or via a Braze email as a “sales alert”.
+{% tab 영업 담당자를 위한 영업 인사이트 %}
+SalesWings를 사용하면 영업 담당자에게 리드, 연락처, 계정에 대한 영업 인사이트를 보여줄 수 있습니다(Marketo Sales Insights 대안). 기본적으로 모든 Braze 및 웹 참여 데이터를 영업 팀에 표시할 수 있습니다. 인사이트는 Salesforce CRM에 기본적으로 내장되어 있으며, 다른 CRM이나 시스템으로 푸시하거나 Braze 이메일을 통해 "영업 알림"으로 전송할 수 있습니다.
 
 ![Salesforce 내 영업 담당자를 위한 영업 인사이트 보기의 예(다른 고객 관계 관리 시스템에서도 사용 가능)]({% image_buster /assets/img/saleswings/marketo_sales_insights_alternative_for_braze.png %})
 
-_Example of sales insights view for sales reps inside Salesforce (also available for other CRM systems)_
+_Salesforce 내 영업 담당자를 위한 영업 인사이트 보기의 예(다른 고객 관계 관리 시스템에서도 사용 가능)_
 {% endtab %}
-{% tab Sales Alerts %}
-SalesWings offers native email and Slack alerts, and you can set up report subscriptions in Salesforce that your sales team can access to get daily, weekly, and monthly email reports. Furthermore, through a Zapier integration, you can build additional workflows based on SalesWings lead qualification data.
+{% tab 영업 알림 %}
+SalesWings는 기본 이메일 및 Slack 알림을 제공하며, Salesforce에서 영업 팀이 일간, 주간, 월간 이메일 보고서를 받을 수 있도록 보고서 구독을 설정할 수 있습니다. 또한 Zapier 통합을 통해 SalesWings 리드 검증 데이터를 기반으로 추가 워크플로를 구축할 수 있습니다.
 
-![Slack 채널을 통한 판매 알림 예시]({% image_buster /assets/img/saleswings/smart_watch_alerts.png %})
+![Slack 채널을 통한 영업 알림 예시]({% image_buster /assets/img/saleswings/smart_watch_alerts.png %})
 
-_Example of sales alert via Slack channel_
+_Slack 채널을 통한 영업 알림 예시_
 {% endtab %}
-{% tab Reporting in Salesforce CRM %}
-Through the native SalesWings integration with Salesforce, you can build automated reporting with leads, contacts, accounts, and opportunities based on web engagement data and any Braze campaign engagement with a native Braze currents integration. For example, you can surface a list of hot leads to a sales team, with everyone who clicked on a specific email campaign or performed a specific action in your app or website.
+{% tab Salesforce CRM에서의 보고 %}
+SalesWings와 Salesforce의 기본 통합을 통해 웹 참여 데이터와 기본 Braze 커런츠 통합을 사용한 모든 Braze Campaign 참여를 기반으로 리드, 연락처, 계정, 기회에 대한 자동화된 보고를 구축할 수 있습니다. 예를 들어, 특정 이메일 Campaign을 클릭하거나 앱 또는 웹사이트에서 특정 동작을 수행한 모든 사람이 포함된 핫 리드 목록을 영업 팀에 표시할 수 있습니다.
 
-![영업 결과 및 성과에 대한 Braze 캠페인의 영향을 살펴보는 Salesforce 내 이메일 & 마케팅 참여에 연결된 대시보드의 예입니다.]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
+![영업 결과 및 성과에 대한 Braze Campaign의 영향을 살펴보는 Salesforce 내 이메일 및 마케팅 참여에 연결된 대시보드의 예]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
 
-_영업 결과 및 성과에 대한 Braze 캠페인의 영향을 살펴보는 Salesforce 내 이메일 & 마케팅 참여에 연결된 대시보드의 예입니다._
+_영업 결과 및 성과에 대한 Braze Campaign의 영향을 살펴보는 Salesforce 내 이메일 및 마케팅 참여에 연결된 대시보드의 예_
 {% endtab %}
 {% endtabs %}
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: SalesWings account and configuration
+### 1단계: SalesWings 계정 및 구성 {#step-1-saleswings-account-and-configuration}
 
-[Schedule a demo](https://www.saleswingsapp.com/schedule-a-demo?utm_source=braze&utm_campaign=technicaldocs) with the friendly SalesWings team to learn more about SalesWings.
+SalesWings에 대해 자세히 알아보려면 친절한 SalesWings 팀과 [데모를 예약](https://www.saleswingsapp.com/schedule-a-demo?utm_source=braze&utm_campaign=technicaldocs)하세요.
 
-### Step 2: Installing behavioral tracking on your website or app
+### 2단계: 웹사이트 또는 앱에 행동 추적 설치 {#step-2-installing-behavioral-tracking-on-your-website-or-app}
 
-There are several ways for you to collect behavioral data in SalesWings for lead and account scoring, identifying buyer intent and sales insights:
-* [Deploy the SalesWings tracking JavaScript](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script) on the websites and apps where you want to track and identify leads
-* Ingest Braze events along with event properties into SalesWings via Braze Currents
-* Send behavioral lead activity data (and lead profile data) via [SalesWings integration with Segment](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)
-* Send data straight to the SalesWings [API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings) from a third-party solution
+리드 및 계정 스코어링, 구매자 의도 식별, 영업 인사이트를 위해 SalesWings에서 행동 데이터를 수집하는 방법은 여러 가지가 있습니다:
+* 리드를 추적하고 식별하려는 웹사이트와 앱에 [SalesWings 추적 JavaScript를 배포](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script)합니다
+* Braze 커런츠를 통해 이벤트 속성정보와 함께 Braze 이벤트를 SalesWings에 수집합니다
+* [SalesWings와 Segment 통합](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)을 통해 행동 리드 활동 데이터(및 리드 프로필 데이터)를 전송합니다
+* 서드파티 솔루션에서 SalesWings [API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings)로 직접 데이터를 전송합니다
 
-### Step 3: Connecting SalesWings to Braze
+### 3단계: SalesWings를 Braze에 연결 {#step-3-connecting-saleswings-to-braze}
 
-Go to the [**SalesWings Integrations** page](https://helium.saleswings.pro/integrations) and expand the **Braze Integration** section.
+[**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)로 이동하여 **Braze Integration** 섹션을 확장합니다.
 
-![SalesWings 설정 페이지의 Braze 통합 섹션입니다.]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_integration_settings.png %})
+![SalesWings 설정 페이지의 Braze 통합 섹션]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_integration_settings.png %})
 
-Copy the value of the **Identifier** column for the newly created key and paste it into the **Braze API key** field of the SalesWings **Braze Integration** section.
+새로 생성된 키의 **Identifier** 열 값을 복사하여 SalesWings **Braze Integration** 섹션의 **Braze API key** 필드에 붙여넣습니다.
 
-Add your Braze API endpoint as described in [API and SDK endpoints article]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints), and enter it in the **Braze API endpoint** field. Copy the value of the **REST Endpoint** column and enter it in the **Braze API endpoint** field in the SalesWings **Braze Integration** section.
+[API 및 SDK 엔드포인트 문서]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)에 설명된 대로 Braze API 엔드포인트를 추가하고 **Braze API endpoint** 필드에 입력합니다. **REST Endpoint** 열의 값을 복사하여 SalesWings **Braze Integration** 섹션의 **Braze API endpoint** 필드에 입력합니다.
 
-Then, select **Save**.
+그런 다음 **Save**를 선택합니다.
 
-### 4단계: SalesWings 인사이트 푸시를 Braze에 활성화(선택 사항)
+### 4단계: SalesWings 인사이트 푸시를 Braze에 활성화(선택 사항) {#step-4-enable-saleswings-insights-push-to-braze-optional}
 
-세분화, 개인화 또는 캔버스 여정 오케스트레이션을 위해 고객 프로필에서 SalesWings 인사이트를 사용하려면 [**SalesWings 통합** 페이지를](https://helium.saleswings.pro/integrations) 방문하여 **Braze 통합** 섹션을 확장하세요.
+세분화, 개인화 또는 Canvas 여정 오케스트레이션을 위해 Braze 고객 프로필에서 SalesWings 인사이트를 사용하려면 [**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)를 방문하여 **Braze Integration** 섹션을 확장하세요.
 
-**SalesWings-to-Braze 인사이트 데이터 푸시** 아래에서 **데이터 푸시 시작을** 클릭합니다.
+**SalesWings-to-Braze insights data push** 아래에서 **Start data push**를 클릭합니다.
 
-### 5단계: Set up a custom Currents export to SalesWings (optional)
+### 5단계: SalesWings로의 커스텀 Currents 내보내기 설정(선택 사항) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-If you want to use [user behavior]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events) and [message engagement]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events) events for behavioral intelligence, lead and account scoring, produce sales insights, or generate reports in your CRM, go to the [**SalesWings Integrations** page](https://helium.saleswings.pro/integrations) and expand the **Braze Integration** section.
+행동 인텔리전스, 리드 및 계정 스코어링, 영업 인사이트 생성 또는 CRM에서 보고서를 생성하기 위해 [사용자 행동]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 및 [메시지 참여]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 이벤트를 사용하려면 [**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)로 이동하여 **Braze Integration** 섹션을 확장합니다.
 
-Select **Generate** under **Generate an API token to setup a Custom Currents Export**.
+**Generate an API token to setup a Custom Currents Export** 아래에서 **Generate**를 선택합니다.
 
-Then, [create a new Current]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents) and select **Custom Currents Export** as the Current type.
+그런 다음 [새 Current를 생성]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)하고 Current 유형으로 **Custom Currents Export**를 선택합니다.
 
-In the **Credentials** section of the Current creation form, enter the API token you have generated on the [**SalesWings Integrations** page](https://helium.saleswings.pro/integrations) for **Bearer Token**, and `https://helium.saleswings.pro/api/braze/currents/events` for **Endpoint**.
+Current 생성 양식의 **Credentials** 섹션에서 [**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)에서 생성한 API 토큰을 **Bearer Token**에 입력하고, **Endpoint**에 `https://helium.saleswings.pro/api/braze/currents/events`를 입력합니다.
 
-### 6단계: Configuring SalesWings lead and account scoring for Braze, CRM integration, and more
+### 6단계: Braze, CRM 통합 등을 위한 SalesWings 리드 및 계정 스코어링 구성 {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
 
-Consult the SalesWings services team for full onboarding support via the [website](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs).
+전체 온보딩 지원을 받으려면 [웹사이트](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)를 통해 SalesWings 서비스 팀에 문의하세요.
 
-## Using this integration 
+## 이 통합 사용하기 {#using-this-integration}
 
-To trigger tie behavioral data and other data to leads and accounts, SalesWings must identify a user on your website or app, or through a third-party integration. This can occur in the following ways:
+행동 데이터 및 기타 데이터를 리드와 계정에 연결하려면 SalesWings가 웹사이트나 앱에서 또는 서드파티 통합을 통해 사용자를 식별해야 합니다. 이는 다음과 같은 방법으로 수행할 수 있습니다:
 
-- **Form submissions:** When a user submits a web form, SalesWings will automatically identify all of your web form types (such as login, download, contact us, etc.) and resolve the identity of a user when they submit a form. 
-- **URL clicks with a Braze ID or external ID:** A user clicks on a Braze marketing action, typically email clicks, banner clicks, or similar, leading to a page you are tracking with SalesWings.
-- **Braze Currents events (optional):** If the Custom Currents export to SalesWings is configured, SalesWings will create an identified profile for every Braze user with an email that has events sent to the Current.
-- **Sales email tracking via Gmail and Outlook plugins (optional):** If you decide to empower your sales representative with email tracking plugins, they can trigger full website tracking of users by sending trackable links.
-- **Segment.com identify event (optional):** If you are a Segment.com user, you can also resolve the identity of a user with Segment.com integration.
+- **양식 제출:** 사용자가 웹 양식을 제출하면 SalesWings가 모든 웹 양식 유형(로그인, 다운로드, 문의하기 등)을 자동으로 식별하고 양식을 제출할 때 사용자의 신원을 확인합니다.
+- **Braze ID 또는 외부 ID가 포함된 URL 클릭:** 사용자가 Braze 마케팅 동작(일반적으로 이메일 클릭, 배너 클릭 등)을 클릭하여 SalesWings로 추적 중인 페이지로 이동합니다.
+- **Braze Currents 이벤트(선택 사항):** SalesWings로의 커스텀 Currents 내보내기가 구성된 경우, SalesWings는 Current로 이벤트가 전송된 이메일이 있는 모든 Braze 사용자에 대해 식별된 프로필을 생성합니다.
+- **Gmail 및 Outlook 플러그인을 통한 영업 이메일 추적(선택 사항):** 영업 담당자에게 이메일 추적 플러그인을 제공하기로 결정한 경우, 추적 가능한 링크를 전송하여 사용자의 전체 웹사이트 추적을 트리거할 수 있습니다.
+- **Segment.com 식별 이벤트(선택 사항):** Segment.com 사용자인 경우 Segment.com 통합으로 사용자의 신원을 확인할 수도 있습니다.
 
-### Identifying users from URL clicks
+### URL 클릭으로 사용자 식별 {#identifying-users-from-url-clicks}
 
-You can identify users automatically when they click on a trackable URL (for example, email blasts, banners with URLs). To make a URL trackable, there are two ways to modify your website URLs in your emails, banners, or SMS by adding the parameter and ID at the end of your links.
+사용자가 추적 가능한 URL(예: 이메일 대량 발송, URL이 포함된 배너)을 클릭할 때 자동으로 사용자를 식별할 수 있습니다. URL을 추적 가능하게 만들려면 이메일, 배너 또는 SMS에서 링크 끝에 매개변수와 ID를 추가하여 웹사이트 URL을 수정하는 두 가지 방법이 있습니다.
 
-1. Appending `?braze_id=` followed by {% raw %}`{{${braze_id}}}`{% endraw %} 
-  - **Link example:** {% raw %}`https://www.your-website.com?braze_id={{${braze_id}}}`{% endraw %}<br><br>
+1. `?braze_id=` 뒤에 {% raw %}`{{${braze_id}}}`{% endraw %}를 추가
+  - **링크 예시:** {% raw %}`https://www.your-website.com?braze_id={{${braze_id}}}`{% endraw %}<br><br>
 
-2. Appending `?br_user_id=` followed by {% raw %}`{{${user_id}}}`{% endraw %}
-  - **Link example:** {% raw %}`https://www.client-website.com?br_user_id={{${user_id}}}`{% endraw %}
+2. `?br_user_id=` 뒤에 {% raw %}`{{${user_id}}}`{% endraw %}를 추가
+  - **링크 예시:** {% raw %}`https://www.client-website.com?br_user_id={{${user_id}}}`{% endraw %}
 
-The `braze_id` variable is set to an identifier of the user-generated by Braze and is always available. The `br_user_id` variable is set to the user's identifier in your system and may be missing in certain scenarios (for example, for anonymous users created by the Braze SDK). 링크에 `braze_id` 및 `br_user_id` 을 모두 사용하는 경우 SalesWings는 `braze_id` 매개변수만 고려합니다.
+`braze_id` 변수는 Braze에서 생성한 사용자 식별자로 설정되며 항상 사용할 수 있습니다. `br_user_id` 변수는 시스템에서의 사용자 식별자로 설정되며 특정 시나리오(예: Braze SDK에서 생성한 익명 사용자)에서는 누락될 수 있습니다. 링크에 `braze_id`와 `br_user_id`를 모두 사용하는 경우 SalesWings는 `braze_id` 매개변수만 고려합니다.
 
-### SalesWings 인사이트를 Braze에 푸시하기
+### SalesWings 인사이트를 Braze에 푸시하기 {#pushing-saleswings-insights-to-braze}
 
-SalesWings 인사이트 푸시를 Braze에 인에이블먼트하면 SalesWings는 다음과 같은 [커스텀 속성으로 고객]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) 프로필을 업데이트합니다:
+SalesWings 인사이트 푸시를 Braze에 활성화하면 SalesWings는 다음과 같은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)으로 Braze 고객 프로필을 업데이트합니다:
 
-| Custom Attribute | 유형 | Description |
+| 커스텀 속성 | 유형 | 설명 |
 | ----------- | ----------- | ----------- |
-| `sw_favorite` | 불리언 | 리드가 SalesWings 또는 Salesforce CRM에서 즐겨찾기로 표시되었는지 여부 |
-| `sw_last_active_at` | date | 웹사이트에서 리드가 마지막으로 활동한 순간 |
-| `sw_lead_link_open` | 문자열 | SalesWings의 리드 프로필에 액세스하는 링크(SalesWings 대시보드 계정이 없는 경우) |
+| `sw_favorite` | 부울 | 리드가 SalesWings 또는 Salesforce CRM에서 즐겨찾기로 표시되었는지 여부 |
+| `sw_last_active_at` | 날짜 | 웹사이트에서 리드가 마지막으로 활동한 시점 |
+| `sw_lead_link_open` | 문자열 | SalesWings의 리드 프로필에 액세스하는 링크(SalesWings 대시보드 계정 없이) |
 | `sw_lead_link_protected` | 문자열 | SalesWings의 리드 프로필에 액세스하는 링크(SalesWings 대시보드 계정 포함) |
 | `sw_lead_owner` | 문자열 | SalesWings 또는 Salesforce CRM에서 리드에 대해 설정된 소유자 |
-| `sw_lead_score` | 플로트 | 세일즈윙즈 [룰 엔진에](https://helium.saleswings.pro/falcon) 구성된 기본 세일즈윙즈 리드 점수의 값입니다. |
-| `sw_predictive_score` | 문자열 | 추적된 활동의 수와 최근성을 기반으로 리드의 참여를 평가하는 SalesWings [예측 점수의](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score) 값입니다. 가능한 값은 `HOT`, `WARM`, `NORMAL`, `COLD` 또는 `FROZEN` |
-| `sw_salesforce_record_id` | 문자열 | Salesforce CRM에 있는 리드 또는 연락처 레코드의 ID입니다. |
+| `sw_lead_score` | 플로트 | SalesWings [규칙 엔진](https://helium.saleswings.pro/falcon)에 구성된 기본 SalesWings 리드 점수의 값 |
+| `sw_predictive_score` | 문자열 | 추적된 활동의 수와 최근성을 기반으로 리드의 참여를 평가하는 SalesWings [예측 점수](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score)의 값. 가능한 값은 `HOT`, `WARM`, `NORMAL`, `COLD` 또는 `FROZEN` |
+| `sw_salesforce_record_id` | 문자열 | Salesforce CRM에 있는 리드 또는 연락처 레코드의 ID |
 | `sw_salesforce_record_url` | 문자열 | Salesforce CRM에서 리드 또는 연락처 레코드의 URL |
-| `sw_session_count` | 정수 | 이 리드에 대해 웹사이트에서 추적된 세션 수입니다. |
-| `sw_tags` | 문자열 배열 | 세일즈윙스가 식별한 고객의 니즈와 관심사는 '태그'로 표시됩니다. 이 리드에 적용되는 SalesWings [규칙 엔진에](https://helium.saleswings.pro/falcon) 구성된 SalesWings 태그의 이름입니다. |
-| 추가 리드 점수 속성 | 플로트 | SalesWings [규칙 엔진에서](https://helium.saleswings.pro/falcon) 구성된 추가 리드 점수마다 하나의 커스텀 속성이 추가됩니다. 속성 이름은 SalesWings 점수 이름에서 파생되며, 예를 들어 `Likeliness to meet` 라는 이름의 점수는 커스텀 속성 `sw_likeliness_to_meet` 으로 전송됩니다. 시스템에서 점수를 생성한 후 이름을 변경하면 SalesWings는 초기 커스텀 속성 이름과 계속 동기화됩니다. |
+| `sw_session_count` | 정수 | 이 리드에 대해 웹사이트에서 추적된 세션 수 |
+| `sw_tags` | 문자열 배열 | SalesWings가 식별한 고객의 니즈와 관심사로, "태그"로 표시됩니다. 이 리드에 적용되는 SalesWings [규칙 엔진](https://helium.saleswings.pro/falcon)에 구성된 SalesWings 태그의 이름 |
+| 추가 리드 점수 속성 | 플로트 | SalesWings [규칙 엔진](https://helium.saleswings.pro/falcon)에서 구성된 추가 리드 점수마다 하나의 커스텀 속성이 추가됩니다. 속성 이름은 SalesWings 점수 이름에서 파생되며, 예를 들어 `Likeliness to meet`라는 이름의 점수는 커스텀 속성 `sw_likeliness_to_meet`으로 전송됩니다. 시스템에서 점수를 생성한 후 이름을 변경하면 SalesWings는 초기 커스텀 속성 이름과 계속 동기화됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-푸시를 인에이블먼트하면 SalesWings 리드 프로필의 기본 데이터 포인트가 변경되는 즉시 SalesWings가 커스텀 속성을 Braze에 전송하기 시작하며, 새로운 업데이트가 없더라도 기존 리드를 모두 점진적으로 동기화합니다.
+푸시를 활성화하면 SalesWings 리드 프로필의 기본 데이터 포인트가 변경되는 즉시 SalesWings가 커스텀 속성을 Braze에 전송하기 시작하며, 새로운 업데이트가 없더라도 기존 리드를 모두 점진적으로 동기화합니다.
 
-SalesWings는 모든 Braze 사용자에게 SalesWings 리드 프로필 이메일 주소와 일치하는 이메일로 업데이트합니다. Braze에 일치하는 사용자가 없는 경우 SalesWings는 새 사용자를 생성하지 않습니다. 
+SalesWings는 SalesWings 리드 프로필 이메일 주소와 일치하는 이메일을 가진 모든 Braze 사용자를 업데이트합니다. Braze에 일치하는 사용자가 없는 경우 SalesWings는 새 사용자를 생성하지 않습니다.
 
-### Using Braze Currents events in your CRM
+### CRM에서 Braze Currents 이벤트 사용 {#using-braze-currents-events-in-your-crm}
 
-If you connect a Braze Current to SalesWings, SalesWings will create identified lead profiles for every Braze user with an email and record supported Braze events as lead activity. In your CRM, all data can automatically be aggregated on the lead’s account level. The recorded activity and data could be further combined with the behavioral data collected with the SalesWings tracking script or Segment.com, or by sending other data to the SalesWings API, and then used to identify the needs and sales-readiness of your prospects for your lead and account management processes.
+Braze Current를 SalesWings에 연결하면 SalesWings는 이메일이 있는 모든 Braze 사용자에 대해 식별된 리드 프로필을 생성하고 지원되는 Braze 이벤트를 리드 활동으로 기록합니다. CRM에서 모든 데이터는 리드의 계정 수준에서 자동으로 집계될 수 있습니다. 기록된 활동과 데이터는 SalesWings 추적 스크립트 또는 Segment.com으로 수집된 행동 데이터와 추가로 결합하거나, SalesWings API로 다른 데이터를 전송하여 리드 및 계정 관리 프로세스를 위한 잠재 고객의 니즈와 판매 준비도를 식별하는 데 사용할 수 있습니다.
 
-The following table shows the Braze event types supported by SalesWings and their representation in SalesWings lead activity history and rule engine:
+다음 표는 SalesWings에서 지원하는 Braze 이벤트 유형과 SalesWings 리드 활동 기록 및 규칙 엔진에서의 표현을 보여줍니다:
 
-| Event Category | Event Type | Event Name in SalesWings |
+| 이벤트 카테고리 | 이벤트 유형 | SalesWings에서의 이벤트 이름 |
 | ----------- | ----------- | ----------- |
-| Canvas Events | Entries | `[Nurturing] Added by marketing team onto the journey $canvas_name` |
-| Customer Behavior Events | Custom Events | `[Custom Event tracked] $name` |
-| Customer Behavior Events | First Session | `[User Action] Today marks the user's first session` |
-| Customer Behavior Events | Install Attribution | `[User Action] User installed app from $source` |
-| Customer Behavior Events | Purchase Events | `[Purchase] Customer purchased $product_id for $price $currency` |
-| Message Events | Content Card Click | `[Content Card engagement] Clicked on $campaign_name content card` |
-| Message Events | Email Bounce | `[Alerting or negative] Email hard-bounced. This person's email appears to be no longer valid` |
-| Message Events | Email Click | `[Email campaign engagement] Clicked in email $campaign_name on $url` |
-| Message Events | Email Delivery | `[Nurturing] Received email $campaign_name` |
-| Message Events | Email Open | `[Email campaign engagement] Opened email $campaign_name` |
-| Message Events | Email Unsubscribe | `[Subscription status change] Unsubscribed from $campaign_name` |
-| Message Events | In-App Message Click | `[In-app campaign engagement] Clicked on message $campaign_name` |
-| Message Events | Push Open | `[Push notification engagement] Clicked on notification $campaign_name` |
-| Message Events | SMS/MMS Inbound Received | `[SMS/mobile campaign engagement] We received a message from this person to our internal number $inbound_phone_number: $message_body` |
-| Message Events | SMS/MMS Short Link Click | `[SMS/mobile campaign engagement] Clicked on $short_url` |
-| Message Events | WhatsApp Inbound Received | `[WhatsApp engagement] We received a message from this person to our WhatsApp number $inbound_phone_number: $message_body` |
-| Message Events | WhatsApp Read | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
-| Subscriptions | Global Subscription State Change | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
-| Subscriptions | Subscription Group State Change | `[Subscription status change] $subscription_status to/from $campaign_name` |
+| Canvas 이벤트 | 진입 | `[Nurturing] Added by marketing team onto the journey $canvas_name` |
+| 고객 행동 이벤트 | 커스텀 이벤트 | `[Custom Event tracked] $name` |
+| 고객 행동 이벤트 | 첫 번째 세션 | `[User Action] Today marks the user's first session` |
+| 고객 행동 이벤트 | 설치 경로 | `[User Action] User installed app from $source` |
+| 고객 행동 이벤트 | 구매 이벤트 | `[Purchase] Customer purchased $product_id for $price $currency` |
+| 메시지 이벤트 | 콘텐츠 카드 클릭 | `[Content Card engagement] Clicked on $campaign_name content card` |
+| 메시지 이벤트 | 이메일 반송 | `[Alerting or negative] Email hard-bounced. This person's email appears to be no longer valid` |
+| 메시지 이벤트 | 이메일 클릭 | `[Email campaign engagement] Clicked in email $campaign_name on $url` |
+| 메시지 이벤트 | 이메일 전달 | `[Nurturing] Received email $campaign_name` |
+| 메시지 이벤트 | 이메일 열기 | `[Email campaign engagement] Opened email $campaign_name` |
+| 메시지 이벤트 | 이메일 구독 취소 | `[Subscription status change] Unsubscribed from $campaign_name` |
+| 메시지 이벤트 | 인앱 메시지 클릭 | `[In-app campaign engagement] Clicked on message $campaign_name` |
+| 메시지 이벤트 | 푸시 열기 | `[Push notification engagement] Clicked on notification $campaign_name` |
+| 메시지 이벤트 | SMS/MMS 인바운드 수신 | `[SMS/mobile campaign engagement] We received a message from this person to our internal number $inbound_phone_number: $message_body` |
+| 메시지 이벤트 | SMS/MMS 짧은 링크 클릭 | `[SMS/mobile campaign engagement] Clicked on $short_url` |
+| 메시지 이벤트 | WhatsApp 인바운드 수신 | `[WhatsApp engagement] We received a message from this person to our WhatsApp number $inbound_phone_number: $message_body` |
+| 메시지 이벤트 | WhatsApp 읽음 | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
+| 구독 | 글로벌 구독 상태 변경 | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
+| 구독 | 구독 그룹 상태 변경 | `[Subscription status change] $subscription_status to/from $campaign_name` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-You can then configure **Custom Event** > **Event Name** and **Custom Event** > **Event Property** conditions for SalesWings tags and scores against the SalesWings event names from the table above. The list of event properties available for conditions is prefilled with some of the commonly used entries, and you can always add new ones in the **Event Property** section of the [Rule Engine configuration page](https://helium.saleswings.pro/falcon).
+그런 다음 위 표의 SalesWings 이벤트 이름에 대해 SalesWings 태그 및 점수에 대한 **Custom Event** > **Event Name** 및 **Custom Event** > **Event Property** 조건을 구성할 수 있습니다. 조건에 사용할 수 있는 이벤트 속성정보 목록은 일반적으로 사용되는 항목으로 미리 채워져 있으며, [규칙 엔진 구성 페이지](https://helium.saleswings.pro/falcon)의 **Event Property** 섹션에서 언제든지 새 항목을 추가할 수 있습니다.
 
-![이벤트 이름 조건의 예입니다.]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_custom_event_condition.png %})
+![이벤트 이름 조건의 예]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_custom_event_condition.png %})
 
-For configuration and further troubleshooting, contact the [SalesWings services team](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) for onboarding support.
-
+구성 및 추가 문제 해결에 대해서는 온보딩 지원을 위해 [SalesWings 서비스 팀](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)에 문의하세요.

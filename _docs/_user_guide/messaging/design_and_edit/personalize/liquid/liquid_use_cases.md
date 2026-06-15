@@ -140,7 +140,7 @@ The example provided uses Christmas Eve, Christmas Day, and Boxing Day (the day 
 App usage
 {% endapitags %}
 
-- [Send messages in a user's language if they've logged a session](#app-session-language)
+- [Send messages in a user's language if they haven't logged a session](#app-session-language)
 - [Personalize messages based on when a user last opened the app](#app-last-opened)
 - [Show a different message if a user last used the app less than three days ago](#app-last-opened-less-than)
 
@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personalize a message based on matching custom attributes](#attribute-matching)
+- [Format currency for European number conventions](#european-currency-format)
 - [Subtract two custom attributes to display the difference as a monetary value](#attribute-monetary-difference)
 - [Reference a user's first name if their full name is stored in the first_name field](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Format currency for European number conventions {#european-currency-format}
+
+For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Output:** `1.234.567,89`
+
+**Explanation:** The `money` filter adds decimal places but doesn't add a currency symbol or locale-specific separators. `number_with_delimiter` adds US-style thousands separators, and the `replace` filters convert them to European formatting.
 {% endraw %}
 
 ### Subtract two custom attributes to display the difference as a monetary value {#attribute-monetary-difference}
@@ -1370,6 +1385,12 @@ Time zones
 - [Send a reoccurring in-app message campaign between a window of time in a user's local time zone](#time-reocurring-iam-window)
 - [Send different messages on weekdays versus weekends in a user's local time zone](#time-weekdays-vs-weekends)
 - [Send different messages based on time of day in a user's local time zone](#time-of-day)
+- [Abort a message outside an hour range at send time](#abort-send-time-hour-range)
+- [Abort a message outside a time window in a fixed time zone](#abort-fixed-timezone-window)
+
+{% alert note %}
+If a user receives a message at an unexpected local time, their device or profile time zone may have changed (for example, after traveling). Local-time delivery uses the time zone on the profile at send time; users may need a new session in their usual region before values such as {% raw %}`{{${time_zone}}}`{% endraw %} reflect what you expect. However, you can [template in the user's time zone](#users-time-zone).
+{% endalert %}
 
 ### Template in the user's time zone {#users-time-zone}
 
@@ -1520,6 +1541,40 @@ Check out this new bar after work today. HH specials!
 
 {% alert note %} This is the opposite of [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
 
+### Abort a message outside an hour range at send time {#abort-send-time-hour-range}
+
+This use case aborts the message when the current hour falls outside a defined range. It uses the time at which the message is rendered, which is UTC by default unless you apply the `time_zone` filter, not the user's local time zone. To send messages based on a user's local time zone, [Send different messages based on time of day in a user's local time zone](#time-of-day).
+
+{% raw %}
+```liquid
+{% assign time = 'now' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour > 20 or hour < 8 %}
+{% abort_message("Outside hour range") %}
+{% endif %}
+
+Check out this new bar after work today. HH specials!
+```
+{% endraw %}
+
+### Abort a message outside a time window in a fixed time zone {#abort-fixed-timezone-window}
+
+This use case aborts the message when the current time falls outside a defined window in a specific time zone (Singapore time in this example). You can use this pattern when you need a Quiet Hours-inspired rule that is tied to one region instead of each user's `time_zone` attribute.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: 'Asia/Singapore' %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% assign minute = time | date: '%M' | plus: 0 %}
+
+{% if hour < 20 or hour > 21 or (hour == 21 and minute > 45) %}
+{% abort_message("Not within eligible time of 8 pm–9:45 pm SGT") %}
+{% endif %}
+
+Sign up for our exclusive time-limited offer now!
+```
+{% endraw %}
+
 {% endapi %}
 
 {% api %}
@@ -1535,6 +1590,8 @@ Week/Day/Month
 - [Send a campaign on the last (weekday) of the month](#day-of-month-last)
 - [Send a different message each day of the month](#day-of-month)
 - [Send a different message each day of the week](#day-of-week)
+- [Abort a message on a specific calendar date](#abort-specific-calendar-date)
+- [Abort a message on a specific day of the week](#abort-specific-weekday)
 
 ### Pull the previous month's name into a message {#month-name}
 
@@ -1731,4 +1788,32 @@ Default copy
 You can replace the line "default copy" with {% raw %}`{% abort_message() %}`{% endraw %} to prevent the message from sending if the day of the week is unknown.
 {% endalert %}
 
+### Abort a message on a specific calendar date {#abort-specific-calendar-date}
+
+This use case aborts the message on a chosen month and day every year (May 5 in the example). It compares the current date to an unambiguous month-day string built with the `date` filter.
+
+{% raw %}
+```liquid
+{% assign date = 'now' | date: '%d/%m' %}
+{% if date == '05/05' %}
+{% abort_message('No message on the 5th of May') %}
+{% endif %}
+```
+{% endraw %}
+
+### Abort a message on a specific day of the week {#abort-specific-weekday}
+
+This use case aborts the message when Liquid runs on a given weekday (`Wednesday` in the example). The `%A` filter returns the full English weekday name.
+
+{% raw %}
+```liquid
+{% assign weekday = 'now' | date: '%A' %}
+{% if weekday == 'Wednesday' %}
+{% abort_message("No message on Wednesdays") %}
+{% endif %}
+```
+{% endraw %}
+
 {% endapi %}
+
+Many examples in this library use the `abort_message` tag to skip a send when conditions aren't met. For a full reference on aborting sends with Liquid, including date- and time-based patterns, see [Abort Liquid Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).

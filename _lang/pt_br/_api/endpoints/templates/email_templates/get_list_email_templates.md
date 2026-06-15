@@ -1,47 +1,47 @@
 ---
-nav_title: "OBTER: Lista de modelos de e-mail disponíveis"
-article_title: "OBTER: Lista de modelos de e-mail disponíveis"
+nav_title: "GET: Listar modelos de e-mail disponíveis"
+article_title: "GET: Listar modelos de e-mail disponíveis"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre a lista de modelos de e-mail disponíveis no endpoint da Braze."
+description: "Este artigo traz informações sobre o endpoint da Braze para listar modelos de e-mail disponíveis."
 
 ---
 {% api %}
-# Lista de modelos de e-mail disponíveis
+# Listar modelos de e-mail disponíveis {#list-available-email-templates}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 
-> Use esse endpoint para obter uma lista de modelos de e-mail disponíveis em sua conta Braze.
+> Use esse endpoint para obter uma lista de modelos de e-mail disponíveis na sua conta da Braze.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `templates.email.list`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `modified_after`  | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  | Recupera apenas modelos atualizados no momento ou após o momento determinado. |
-| `modified_before`  |  Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  | Recupera apenas modelos atualizados no momento ou antes do momento determinado. |
+| `modified_after` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas modelos atualizados no momento ou após o momento informado. |
+| `modified_before` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas modelos atualizados no momento ou antes do momento informado. |
 | `limit` | Opcional | Número positivo | Número máximo de modelos a serem recuperados. O padrão é 100 se não for fornecido, com um valor máximo aceitável de 1000. |
-| `offset`  |  Opcional | Número positivo | Número de modelos a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | Opcional | Número positivo | Número de modelos a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=1&offset=0' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
 {% alert important %}
 Os modelos criados usando o editor de arrastar e soltar para e-mail não são fornecidos nesta resposta.
@@ -59,6 +59,3 @@ Os modelos criados usando o editor de arrastar e soltar para e-mail não são fo
 }
 ```
 {% endapi %}
-
-
-

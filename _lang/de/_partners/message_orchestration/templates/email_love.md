@@ -1,61 +1,61 @@
 ---
-nav_title: "E-Mail Liebe"
-article_title: E-Mail Liebe
-description: "Lernen Sie die Integration von Braze mit Email Love, einem Figma-Plugin, mit dem Sie responsive und barrierefreie HTML-E-Mails direkt aus Figma entwerfen und exportieren können."
+nav_title: "Email Love"
+article_title: "Email Love"
+description: "Erfahren Sie, wie Sie Braze mit Email Love integrieren, einem Figma-Plugin, mit dem Sie responsive und barrierefreie HTML-E-Mails direkt aus Figma entwerfen und exportieren können."
 alias: /partners/email_love/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# E-Mail Liebe
+# Email Love
 
-> [Email Love](https://emaillove.com/) ist ein Figma-Plugin, mit dem Sie responsive und barrierefreie HTML-E-Mails direkt aus Figma heraus entwerfen und exportieren können. Das Feature Export to Braze von Email Love verwendet die Braze API, um Ihre E-Mail Templates nahtlos auf Braze hochzuladen.
+> [Email Love](https://emaillove.com/) ist ein Figma-Plugin, mit dem Sie responsive und barrierefreie HTML-E-Mails direkt aus Figma heraus entwerfen und exportieren können. Das Feature „Export to Braze“ von Email Love verwendet die Braze API, um Ihre E-Mail-Templates nahtlos auf Braze hochzuladen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung            | Beschreibung                                                      |
 |------------------------|------------------------------------------------------------------|
-| **E-Mail Liebeskonto** | Um diese Partnerschaft nutzen zu können, benötigen Sie ein E-Mail Love-Konto. |
-| **Braze REST API-Schlüssel** | Ein Braze REST API-Schlüssel mit vollständig aktivierter `Templates` Berechtigung. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+| **Email Love-Konto** | Ein Email Love-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| **Braze REST-API-Schlüssel** | Ein Braze REST-API-Schlüssel mit vollständig aktivierter `Templates`-Berechtigung. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Verwendung von E-Mail Love mit Braze
+## Email Love mit Braze verwenden {#using-email-love-with-braze}
 
-### Schritt 1: Starten Sie das Plugin
+### 1. Schritt: Plugin starten {#step-1-run-the-plugin}
 
-Um Ihr Template für E-Mails zu gestalten, müssen Sie zunächst das Plugin laden. Ausführlichere Anweisungen finden Sie in der Dokumentation von Email Love zum [Hochladen Ihrer E-Mails auf Braze](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm).
+Um Ihr E-Mail-Template zu gestalten, müssen Sie zunächst das Plugin laden. Ausführlichere Anweisungen finden Sie in der Dokumentation von Email Love zum [Hochladen Ihrer E-Mail auf Braze](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm).
 
-### Schritt 2: Erstellen Sie Ihren ersten Rahmen
+### 2. Schritt: Ersten Frame erstellen {#step-2-create-your-first-frame}
 
-Wählen Sie im Plugin den Button **[+ Keine Vorlage ausgewählt]**, um einen neuen Rahmen für Ihr E-Mail-Design zu erstellen.
+Wählen Sie im Plugin den Button **[+ No Template Selected]**, um einen neuen Frame für Ihr E-Mail-Design zu erstellen.
 
-### Schritt 3: Gestalten Sie das Template mit den vorgefertigten Komponenten von Email Love
+### 3. Schritt: Template mit den vorgefertigten Komponenten von Email Love gestalten {#step-3-design-the-template-with-email-loves-pre-built-components}
 
-Wählen Sie den von Ihnen erstellten Rahmen aus und fügen Sie Komponenten (Kopfzeilen, Content-Blöcke, CTAs und Fußzeilen) aus der Bibliothek **des** Plugins hinzu, um Ihre E-Mail zu strukturieren.
+Wählen Sie den erstellten Frame aus und fügen Sie Komponenten (Header, Content Blocks, CTAs und Footer) aus der **Assets**-Bibliothek des Plugins hinzu, um Ihre E-Mail zu strukturieren.
 
-![Die vorgefertigten Komponenten von Email Love.]({% image_buster /assets/img/email_love/emaillove1_content.png %})
+![Vorgefertigte Komponenten von Email Love.]({% image_buster /assets/img/email_love/emaillove1_content.png %})
 
-### Schritt 4: Anpassen der Komponenten
+### 4. Schritt: Komponenten anpassen {#step-4-customize-the-components}
 
-Ändern Sie die Komponenten mit den Figma-Werkzeugen, um Text, Bilder, Farben und Layout-Elemente anzupassen, damit das Design des Templates mit Ihrer Marke übereinstimmt. Wenn Sie eine Fußzeilenkomponente hinzufügen, wird beim Exportieren automatisch ein Link zum Abmelden von Braze eingefügt.
+Passen Sie die Komponenten mit den Figma-Werkzeugen an, um Text, Bilder, Farben und Layout-Elemente so zu ändern, dass das Design des Templates zu Ihrer Marke passt. Wenn Sie eine Footer-Komponente hinzufügen, wird beim Exportieren automatisch ein Braze-Abmeldelink eingefügt.
 
-![Passen Sie die Komponenten in Figma an.]({% image_buster /assets/img/email_love/emaillove2_components.png %})
+![Komponenten in Figma anpassen.]({% image_buster /assets/img/email_love/emaillove2_components.png %})
 
-### Schritt 5: Exportieren Sie Ihr Template für E-Mails nach Braze
+### 5. Schritt: E-Mail-Template nach Braze exportieren {#step-5-export-your-email-template-to-braze}
 
-1. Wenn Sie fertig sind, wählen Sie den Rahmen aus, den Sie exportieren möchten. Beachten Sie, dass Sie eine E-Mail Love-Fußzeile verwenden müssen, die einen Abmeldelink enthält, damit der Export funktioniert.
-2. Wählen Sie den Button **Exportieren** im Plugin und wählen Sie **Braze** aus dem Dropdown-Menü.
-3. Kopieren Sie Ihren API-Schlüssel und fügen Sie ihn in das Feld **Braze API-Schlüssel** innerhalb des Plugins Email Love Figma ein.
-4. Wählen Sie den Button **API-Schlüssel festlegen**.
-5. Wählen Sie **Instanz-ID ändern** und wählen Sie dann Ihre Braze-Instanz ID aus.
+1. Wenn Sie fertig sind, wählen Sie den Frame aus, den Sie exportieren möchten. Beachten Sie, dass Sie einen Email Love-Footer mit einem Abmeldelink verwenden müssen, damit der Export funktioniert.
+2. Wählen Sie im Plugin den Button **Export** und wählen Sie **Braze** aus dem Dropdown-Menü.
+3. Kopieren Sie Ihren API-Schlüssel und fügen Sie ihn in das Feld **Braze API Key** innerhalb des Email Love Figma-Plugins ein.
+4. Wählen Sie den Button **Set API Key**.
+5. Wählen Sie **Change Instance ID** und wählen Sie dann Ihre Braze-Instanz-ID aus.
 
-![Exportieren eines Templates nach Braze aus dem Plugin Email Love.]({% image_buster /assets/img/email_love/emaillove3_exportbraze.png %}){: style="max-width:50%;"}
+![Ein Template aus dem Email Love-Plugin nach Braze exportieren.]({% image_buster /assets/img/email_love/emaillove3_exportbraze.png %}){: style="max-width:50%;"}
 
-### Schritt 6: Bearbeiten Sie Ihre E-Mail in Braze
+### 6. Schritt: E-Mail in Braze bearbeiten {#step-6-edit-your-email-in-braze}
 
-Gehen Sie in Braze zu **Templates** > **Vorlagen bearbeiten** > **Nachricht bearbeiten**. Im Template-Editor können Sie entweder Ihre E-Mail im HTML-Format bearbeiten oder den **Rich-Text-Editor** auf dem Tab **Klassisch** verwenden.
+Gehen Sie in Braze zu **Templates** > **Edit Templates** > **Edit Message**. Im Template-Editor können Sie entweder Ihre E-Mail im HTML-Format bearbeiten oder den **Rich Text editor** im Tab **Classic** verwenden.
 
-## Unterstützung und Fehlerbehebung
+## Support und Fehlerbehebung {#support-and-troubleshooting}
 
-Ausführlichere Anweisungen finden Sie in der Dokumentation von Email Love zum [Exportieren eines E-Mail-Entwurfs](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm). Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an das Email Love Team.
+Ausführlichere Anweisungen finden Sie in der Dokumentation von Email Love zum [Exportieren eines E-Mail-Designs](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm). Für zusätzlichen Support wenden Sie sich an das Email Love Support-Team.

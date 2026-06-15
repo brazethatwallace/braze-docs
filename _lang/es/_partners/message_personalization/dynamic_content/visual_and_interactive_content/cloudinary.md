@@ -1,7 +1,7 @@
 ---
 nav_title: Cloudinary
 article_title: Cloudinary
-description: "Este artículo de referencia describe la asociación entre Braze y cloudinary."
+description: "Este artículo de referencia describe la asociación entre Braze y Cloudinary."
 alias: /partners/cloudinary/
 page_type: partner
 search_tag: Partner
@@ -9,46 +9,46 @@ search_tag: Partner
 
 # Cloudinary
 
-> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page) es una plataforma de imágenes y video que se utiliza para gestionar, editar, optimizar y entregar imágenes y video a escala a cualquier campaña a través de canales y recorridos del cliente. Cuando se integra y habilita, la gestión de medios de Cloudinary potencia la entrega de activos dinámica, contextual y personalizada para tus campañas Braze y Canvases. 
+> [Cloudinary](https://www.cloudinary.com?utm_source=braze_partner_page) es una plataforma de imágenes y video que se utiliza para gestionar, editar, optimizar y entregar imágenes y video a escala a cualquier campaña a través de canales y recorridos del cliente. Cuando se integra y habilita, la gestión de medios de Cloudinary potencia la entrega de activos dinámica, contextual y personalizada para tus Campaigns y Canvas de Braze.
 
-## Acerca de esta integración
+## Acerca de esta integración {#about-this-integration}
 
-Conectar Cloudinary a Braze da a las marcas acceso a los medios visuales almacenados en los activos de Cloudinary para utilizarlos en los canales de mensajería de Braze. Con los enlaces dinámicos de Cloudinary, puedes seleccionar y personalizar imágenes y videos en tiempo real basándote en los atributos de usuario de Braze. Juntos, Cloudinary y Braze permiten crear campañas visualmente ricas y personalizadas que cuentan la historia de cada producto y entregan experiencias únicas a escala.
+Conectar Cloudinary a Braze da a las marcas acceso a los medios visuales almacenados en los activos de Cloudinary para utilizarlos en los canales de mensajería de Braze. Con los enlaces dinámicos de Cloudinary, puedes seleccionar y personalizar imágenes y videos en tiempo real basándote en los atributos de usuario de Braze. Juntos, Cloudinary y Braze permiten crear Campaigns visualmente ricas y personalizadas que cuentan la historia de cada producto y entregan experiencias únicas a escala.
 
-En esta página se describen cuatro métodos posibles, aunque no exhaustivos, de integración entre Cloudinary y Braze. Estos métodos de integración se basan principalmente en la modificación de enlaces de activos copiados manualmente de la biblioteca multimedia de Cloudinary. 
+En esta página se describen cuatro métodos posibles, aunque no exhaustivos, de integración entre Cloudinary y Braze. Estos métodos de integración se basan principalmente en la modificación de enlaces de activos copiados manualmente de la Biblioteca de medios de Cloudinary.
 
 {% alert important %}
-Son posibles métodos de integración más avanzados, como el uso de [contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) para llamar a la [API de administración](https://cloudinary.com/documentation/admin_api#banner) de Cloudinary, pero el enfoque variará según el cliente. Ponte en contacto con tu administrador del éxito del cliente de Cloudinary y Braze para que te oriente.
+Son posibles métodos de integración más avanzados, como el uso de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para llamar a la [API de administración](https://cloudinary.com/documentation/admin_api#banner) de Cloudinary, pero el enfoque variará según el cliente. Ponte en contacto con tu administrador del éxito del cliente de Cloudinary y Braze para que te oriente.
 {% endalert %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-| Requisitos     | Descripción |                        
+| Requisitos | Descripción |
 |-----------------------|-----------------|
-| Cuenta Cloudinary  | Se requiere una [Cuenta Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aprovechar esta asociación  |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+| Cuenta de Cloudinary | Se requiere una [cuenta de Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aprovechar esta asociación |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Métodos de integración
+## Métodos de integración {#integration-methods}
 
 {% alert tip %}
-Algunos de estos métodos de integración utilizan las Transformaciones Cloudinary de `f_auto` y `q_auto`, que ofrecen una personalización más profunda del comportamiento y la apariencia de los activos de [imagen](https://cloudinary.com/documentation/image_transformations#banner) y [video](https://cloudinary.com/documentation/video_manipulation_and_delivery#banner). Para más información sobre cómo modificar el enlace de un activo de Cloudinary para incluir Transformaciones, consulta [Estructura de la URL de Transformación](https://cloudinary.com/documentation/image_transformations#transformation_url_structure).
+Algunos de estos métodos de integración utilizan las transformaciones de Cloudinary `f_auto` y `q_auto`, que ofrecen una personalización más profunda del comportamiento y la apariencia de los activos de [imagen](https://cloudinary.com/documentation/image_transformations#banner) y [video](https://cloudinary.com/documentation/video_manipulation_and_delivery#banner). Para más información sobre cómo modificar el enlace de un activo de Cloudinary para incluir transformaciones, consulta [Estructura de la URL de transformación](https://cloudinary.com/documentation/image_transformations#transformation_url_structure).
 {% endalert %}
 
 {% tabs %}
 {% tab Cloudinary DAM %}
 
-## Selecciona activos de campaña a través de Cloudinary DAM
+## Selecciona activos de Campaign a través de Cloudinary DAM {#select-campaign-assets-through-cloudinary-dam}
 
-La forma más directa de utilizar imágenes y videos directamente desde el DAM de Cloudinary en tus campañas y lienzos Braze es extraer la URL de la **página de** activos de la biblioteca multimedia de Cloudinary **.** 
+La forma más directa de utilizar imágenes y videos directamente desde el DAM de Cloudinary en tus Campaigns y Canvas de Braze es extraer la URL de la página **Assets** de la Biblioteca de medios de Cloudinary.
 
-![Una vista en cuadrícula de la Biblioteca de Activos de Imagen de Cloudinary, con la parte superior derecha de una de las imágenes resaltada, mostrando un tooltip de "Copiar URL".]({% image_buster /assets/img/cloudinary/one.png %})
+![Una vista en cuadrícula de la biblioteca de activos de imagen de Cloudinary, con la parte superior derecha de una de las imágenes resaltada, mostrando un tooltip de "Copy URL".]({% image_buster /assets/img/cloudinary/one.png %})
 
-### Configuración de imágenes y GIFs
+### Configuración de imágenes y GIFs {#images-and-gifs-setup}
 
-1. Copia la URL de la imagen o GIF del DAM en Cloudinary yendo a **Activos** > **Biblioteca multimedia** > **Activos** > **Copiar URL**.
-2. Crea la etiqueta de imagen en HTML, y luego añade `f_auto,q_auto` a la URL copiada para optimizar la imagen o GIF.
+1. Copia la URL de la imagen o GIF del DAM en Cloudinary yendo a **Assets** > **Media Library** > **Assets** > **Copy URL**.
+2. Crea la etiqueta de imagen en HTML y luego añade `f_auto,q_auto` a la URL copiada para optimizar la imagen o GIF.
 
-#### Ejemplo de URL de imagen
+#### Ejemplo de URL de imagen {#example-image-url}
 
 {% raw %}
 ```bash
@@ -57,12 +57,12 @@ La forma más directa de utilizar imágenes y videos directamente desde el DAM d
 ```
 {% endraw %}
 
-### Configuración de videos
+### Configuración de videos {#videos-setup}
 
-1. Copia la imagen o el enlace GIF del DAM en Cloudinary yendo a **Activos** > **Biblioteca multimedia** > **Activos** > **Copiar URL**.
-2. Crea la etiqueta video en HTML, y luego añade `f_auto,q_auto` a la URL copiada para optimizar automáticamente el formato y la calidad del video.
+1. Copia el enlace de la imagen o GIF del DAM en Cloudinary yendo a **Assets** > **Media Library** > **Assets** > **Copy URL**.
+2. Crea la etiqueta de video en HTML y luego añade `f_auto,q_auto` a la URL copiada para optimizar automáticamente el formato y la calidad del video.
 
-#### Ejemplo de URL de video
+#### Ejemplo de URL de video {#example-video-url}
 
 {% raw %}
 ```bash
@@ -72,23 +72,23 @@ La forma más directa de utilizar imágenes y videos directamente desde el DAM d
 ```
 {% endraw %}
 
-Consulta [el video]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/video/) para ver consideraciones específicas sobre Android e iOS. 
+Consulta [Video]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) para ver consideraciones específicas sobre Android e iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Convertir videos en GIFs %}
 
-## Convierte videos en GIFs para correos electrónicos
+## Convierte videos en GIFs para correos electrónicos {#convert-videos-to-gifs-for-emails}
 
-Utiliza la [Transformación Cloudinary](https://cloudinary.com/documentation/image_transformations/) de `f_auto:animated` para convertir automáticamente activos de video en GIFs. Esto es especialmente valioso si utilizas el canal de correo electrónico Braze, ya que los GIF están optimizados para reducir la carga útil del correo electrónico, que, si es demasiado alta, puede causar problemas de capacidad de entrega. 
+Utiliza la [transformación de Cloudinary](https://cloudinary.com/documentation/image_transformations/) `f_auto:animated` para convertir automáticamente activos de video en GIFs. Esto es especialmente valioso si utilizas el canal de correo electrónico de Braze, ya que los GIFs están optimizados para reducir la carga útil del correo electrónico, que, si es demasiado alta, puede causar problemas de capacidad de entrega.
 
-### Configuración de la conversión
+### Configuración de la conversión {#conversion-setup}
 
 1. Copia la URL del video desde el DAM de Cloudinary.
 2. Crea la etiqueta de imagen y añade `f_auto:animated,fl_lossy` para reducir el tamaño del GIF y elegir el mejor formato animado para el cliente.
 3. Añade `c_scale,w_nnn` para que se corresponda con la anchura deseada del GIF en el diseño del correo electrónico.
 4. Añade `e_loop` para hacer un bucle con la animación.
 
-#### Ejemplo de URL GIF
+#### Ejemplo de URL de GIF {#example-gif-url}
 
 {% raw %}
 ```
@@ -97,92 +97,92 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Atributos de segmentación %}
 
-## Selecciona dinámicamente los activos de la campaña en función de los atributos de segmentación
+## Selecciona dinámicamente los activos de Campaign en función de los atributos de segmentación {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
-Este método de integración habilita la personalización dinámica de los medios, seleccionando de forma inteligente el mejor activo para cada usuario en función de sus atributos en tiempo real. 
+Este método de integración habilita la personalización dinámica de los medios, seleccionando de forma inteligente el mejor activo para cada usuario en función de sus atributos en tiempo real.
 
-Si incluyes etiquetas Liquid como parámetros en un enlace Cloudinary dentro de un mensaje de campaña Braze, cuando se envíe el mensaje, los atributos Braze asociados sustituirán dinámicamente a las etiquetas Liquid. Puede tratarse de datos específicos del usuario, como el idioma o el nivel de cliente. Cloudinary utilizará entonces esos atributos para determinar qué activo de la campaña se ajusta mejor a ese usuario, y le devolverá automáticamente la imagen o el video correctos. Esto hace que los destinatarios sólo reciban activos que sean contextualmente relevantes y aprobados por la marca.
+Si incluyes etiquetas Liquid como parámetros en un enlace de Cloudinary dentro de un mensaje de Campaign de Braze, cuando se envíe el mensaje, los atributos de Braze asociados sustituirán dinámicamente a las etiquetas Liquid. Puede tratarse de datos específicos del usuario, como el idioma o el nivel de cliente. Cloudinary utilizará entonces esos atributos para determinar qué activo de Campaign se ajusta mejor a ese usuario y le devolverá automáticamente la imagen o el video correctos. Esto hace que los destinatarios solo reciban activos que sean contextualmente relevantes y aprobados por la marca.
 
-### Cómo funciona
+### Cómo funciona {#how-it-works}
 
-Cloudinary organiza los activos de la campaña mediante [etiquetas](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#tags) y [metadatos estructurados (SMD](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#structured_metadata) ) para facilitar su búsqueda. 
+Cloudinary organiza los activos de Campaign mediante [etiquetas](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#tags) y [metadatos estructurados (SMD)](https://cloudinary.com/documentation/assets_onboarding_metadata_tags_tutorial#structured_metadata) para facilitar su búsqueda.
 
-Cada activo de campaña se agrupa bajo una etiqueta de campaña (por ejemplo, `spring_launch`) y se enriquece con campos de metadatos estructurados que corresponden a atributos Braze como `language=en` o `tier=gold`. Cuando Braze llama al enlace Cloudinary, una [función personalizada](https://cloudinary.com/documentation/custom_functions#javascript_filters) procesa los atributos entrantes, busca el activo con etiquetas y metadatos coincidentes y, a continuación, devuelve la coincidencia más adecuada. 
+Cada activo de Campaign se agrupa bajo una etiqueta de Campaign (por ejemplo, `spring_launch`) y se enriquece con campos de metadatos estructurados que corresponden a atributos de Braze como `language=en` o `tier=gold`. Cuando Braze llama al enlace de Cloudinary, una [función personalizada](https://cloudinary.com/documentation/custom_functions#javascript_filters) procesa los atributos entrantes, busca el activo con etiquetas y metadatos coincidentes y, a continuación, devuelve la coincidencia más adecuada.
 
-Si no se encuentra una coincidencia exacta, la función selecciona automáticamente una alternativa o "siguiente mejor" opción para la continuidad en cada experiencia. Cuando se selecciona el activo, la capa de transformación de Cloudinary (por ejemplo, `f_auto` o `q_auto`) optimiza los medios para su entrega. Esta combinación de etiquetado, metadatos y funciones personalizadas ofrece a los desarrolladores una forma flexible, basada en API, de automatizar la entrega personalizada de activos.
+Si no se encuentra una coincidencia exacta, la función selecciona automáticamente una alternativa o la "siguiente mejor" opción para garantizar la continuidad en cada experiencia. Cuando se selecciona el activo, la capa de transformación de Cloudinary (por ejemplo, `f_auto` o `q_auto`) optimiza los medios para su entrega. Esta combinación de etiquetado, metadatos y funciones personalizadas ofrece a los desarrolladores una forma flexible, basada en API, de automatizar la entrega personalizada de activos.
 
 {% alert tip %}
-Consulta [el repositorio GitHub](https://github.com/cloudinary-devs/braze-personalization) de Cloudinary [`braze-personalization` para obtener instrucciones sobre cómo crear y aplicar funciones personalizadas, y un ejemplo de función personalizada para la selección de activos y opciones de alternativa para una campaña determinada.](https://github.com/cloudinary-devs/braze-personalization)  Para más información, ponte en contacto con el equipo de soporte de Cloudinary.
+Consulta el [repositorio de GitHub `braze-personalization`](https://github.com/cloudinary-devs/braze-personalization) de Cloudinary para obtener instrucciones sobre cómo crear y aplicar funciones personalizadas, y un ejemplo de función personalizada para la selección de activos y opciones alternativas para una Campaign determinada. Para más información, ponte en contacto con el equipo de soporte de Cloudinary.
 {% endalert %}
 
 ### Requisitos previos
 
-Para habilitar la selección dinámica de activos, Cloudinary debe ser capaz de devolver un conjunto de activos basados en etiquetas y metadatos. Si el tipo de entrega de la lista está restringido, Cloudinary no puede proporcionar la lista dinámica necesaria para la selección personalizada de activos en las campañas Braze.
-- Desbloquea el tipo de entrega de la lista: Abre la Configuración de Seguridad en tu Consola Cloudinary, y borra el elemento de la lista Recursos en Tipos de imagen restringidos.
+Para habilitar la selección dinámica de activos, Cloudinary debe ser capaz de devolver un conjunto de activos basados en etiquetas y metadatos. Si el tipo de entrega de lista está restringido, Cloudinary no puede proporcionar la lista dinámica necesaria para la selección personalizada de activos en las Campaigns de Braze.
+- Desbloquea el tipo de entrega de lista: abre la Configuración de seguridad en tu consola de Cloudinary y borra el elemento de lista de recursos en Tipos de imagen restringidos.
 
-### Configuración de selección dinámica
+### Configuración de selección dinámica {#dynamic-selection-setup}
 
 1. Configura la etiqueta y los metadatos de los activos en Cloudinary.
 2. Sube tu función personalizada al DAM de Cloudinary.
-3. Crea la URL Cloudinary para la etiqueta deseada.
-4. Utilizando la URL de la etiqueta como base, añade etiquetas Liquid de imagen dinámica para incorporar atributos Braze y la función personalizada.
+3. Crea la URL de Cloudinary para la etiqueta deseada.
+4. Utilizando la URL de la etiqueta como base, añade etiquetas Liquid de imagen dinámica para incorporar atributos de Braze y la función personalizada.
 
-#### Ejemplo de URL
+#### Ejemplo de URL {#example-url}
 
-Este ejemplo supone que los activos en Cloudinary tienen dos campos SMD definidos ("localización" y "audiencia") rellenados con los valores esperados correspondientes a los atributos Braze. Además, los activos necesarios para la campaña han recibido la etiqueta "muestras", y la función personalizada `segmentedBanner.js` se ha cargado en la cuenta de Cloudinary. 
+Este ejemplo supone que los activos en Cloudinary tienen dos campos SMD definidos ("locale" y "audience") rellenados con los valores esperados correspondientes a los atributos de Braze. Además, los activos necesarios para la Campaign han recibido la etiqueta "samples", y la función personalizada `segmentedBanner.js` se ha cargado en la cuenta de Cloudinary.
 
 {% raw %}
 ```bash
 
 // Use the appropriate Braze attributes.
-{% assign audience = {{custom_attribute.${sample_audience_identifier}}} %} 
-{% assign locale = {{${language}}}%} 
+{% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
+{% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner"> 
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
-##### URL de salida
+##### URLs de salida {#output-urls}
 
-- URL de salida para usuarios con audiencia `internal` y localización `en`: 
+- URL de salida para usuarios con audiencia `internal` y localización `en`:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
-- URL de salida para usuarios con audiencia `external` y localización `es`: 
+- URL de salida para usuarios con audiencia `external` y localización `es`:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
-- URL de la imagen alternativa: 
+- URL de la imagen alternativa:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Generación de imágenes personalizadas %}
 
-## Generación de imágenes personalizadas
+## Generación de imágenes personalizadas {#personalized-image-generation}
 
-[Las transformaciones de superposición de texto](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/) de Cloudinary utilizan datos de usuario de Braze directamente dentro de un activo de Cloudinary. 
+Las [transformaciones de superposición de texto](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/) de Cloudinary utilizan datos de usuario de Braze directamente dentro de un activo de Cloudinary.
 
-El siguiente ejemplo demuestra cómo se puede utilizar la Transformación `l_text` para insertar el nombre de un usuario en un activo. Se puede conseguir una mayor personalización aprovechando las etiquetas de Liquid al desarrollar campañas y Lienzos para determinar qué texto debe rellenar los parámetros de `l_text`.
+El siguiente ejemplo demuestra cómo se puede utilizar la transformación `l_text` para insertar el nombre de un usuario en un activo. Se puede conseguir una mayor personalización aprovechando las etiquetas Liquid al desarrollar Campaigns y Canvas para determinar qué texto debe rellenar los parámetros de `l_text`.
 
-Para obtener más orientación sobre cómo pueden utilizarse los parámetros de Transformación para diseñar un activo, ponte en contacto con tu equipo de soporte de Cloudinary.
+Para obtener más orientación sobre cómo pueden utilizarse los parámetros de transformación para diseñar un activo, ponte en contacto con tu equipo de soporte de Cloudinary.
 
-### Ejemplo `l_text` Transformación
+### Ejemplo de transformación `l_text` {#example-l_text-transformation}
 
 {% raw %}
 ```bash
-{% assign first_name = {{${first_name}}}%} 
-{% assign second_name = {{${last_name}}}%} 
+{% assign first_name = {{${first_name}}}%}
+{% assign second_name = {{${last_name}}}%}
 
 <img src="https://res.cloudinary.com/demo/image/upload/l_text:Arial_300:%20{{first_name}}%20{{second_name}}%20,co_white,b_rgb:00000080/fl_layer_apply,g_north_west,y_200/docs/white-church-europe-sea.jpg">
 ```
 {% endraw %}
 
-#### Ejemplo de URL de salida
+#### Ejemplo de URL de salida {#example-output-url}
 
 {% raw %}
 ```bash
@@ -190,7 +190,7 @@ Para obtener más orientación sobre cómo pueden utilizarse los parámetros de 
 ```
 {% endraw %}
 
-![Una iglesia blanca con tejado azul que mira al mar, en la parte superior izquierda de la imagen las palabras "John Smith" se imponen sobre un gran rectángulo oscuro opaco.]({% image_buster /assets/img/cloudinary/two.png %})
+![Una iglesia blanca con tejado azul que mira al mar; en la parte superior izquierda de la imagen, las palabras "John Smith" se superponen sobre un rectángulo oscuro opaco.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

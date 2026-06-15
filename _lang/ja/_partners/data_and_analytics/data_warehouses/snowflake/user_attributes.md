@@ -1,22 +1,28 @@
 ---
 nav_title: "ユーザープロファイル属性"
-article_title: Snowflakeのユーザー属性ビュー 
+article_title: Snowflakeのユーザー属性ビュー
 page_order: 10
 page_type: partner
 search_tag: Partner
+toc_headers: h2
 ---
 
-# ユーザープロファイル属性
+# ユーザープロファイル属性 {#user-profile-attributes}
 
-> このページは、Snowflakeのデフォルトおよびカスタム属性ビューの参照として機能します。デフォルト属性には3 つのビューがあり、カスタム属性には3 つのビューがあり、それぞれ独自のパフォーマンスを考慮して特定のユースケース用に設計されています。
+> このページは、Snowflakeのデフォルトおよびカスタム属性ビューのリファレンスです。デフォルト属性用に3つのビュー、カスタム属性用に3つのビューがあり、それぞれ固有のパフォーマンス上の考慮事項を持つ特定のユースケース向けに設計されています。
 
-{% alert important %}
-ユーザープロファイル属性は現在、Snowflake Data Sharing の顧客向けにベータ版が提供されています。Snowflake Data Sharing を使用しており、このベータ版にアクセスしたい場合は、カスタマーサクセスマネージャまたは Braze サポートにお問い合わせください。
-{% endalert %}
+## ダッシュボードとのデータ整合性 {#data-parity-with-the-dashboard}
 
-# 使用可能なビュー
+まれに、このページのSnowflakeビューにおけるデフォルトおよびカスタム属性の値が、Brazeダッシュボードのユーザープロファイルに表示される内容と一致しない場合があります。
 
-<table>
+たとえば、ダッシュボードではそのユーザーに値が表示されているにもかかわらず、Snowflakeでは属性が`NULL`と表示される場合があります。
+
+広範な不一致が見られる場合は、カスタマーサクセスマネージャーまたはBrazeサポートにお問い合わせください。
+
+## 利用可能なビュー {#available-views}
+
+<table aria-label="利用可能なビュー">
+  <caption>利用可能なビュー</caption>
   <thead>
     <tr>
       <th>タイプ</th>
@@ -53,188 +59,203 @@ search_tag: Partner
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
 
-## ユーザープロファイルスナップショット
+## ユーザープロファイルスナップショット {#user-profile-snapshots}
 
-これらのビューは、ユーザープロファイル属性の定期的なスナップショットを提供します。データは最大 12 時間遅れており、リアルタイムの更新を必要としないクエリで役立ちます。 
+これらのビューは、ユーザープロファイル属性の定期的なスナップショットを提供します。データは最大12時間遅延するため、リアルタイムの更新を必要としないクエリに適しています。
 
  - `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`
- - `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`  
+ - `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`
 
-### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`
+### 使用方法 {#usage}
 
-#### スキーマ
+* 最大**12時間の遅延**を伴うユーザー属性のスナップショットを提供します。
+* リアルタイムの正確性を必要としないクエリに適しています。
+* 特に`USER_ID`以外の属性でフィルタリングする場合、クエリの実行が高速です。
+* **制限事項:** データはリアルタイムで更新されません。
+
+{% alert note %}
+`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
+{% endalert %}
+
+### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_default_attributes_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | 数値 |
+| `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+| `ARCHIVED` | BOOLEAN |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
-### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`
-
-#### スキーマ
+### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_custom_attributes_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | 数値 |
+| `EXTERNAL_USER_ID` | VARCHAR |
+| `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}  
+| `ARCHIVED` | BOOLEAN |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
-### ユーザープロファイルスナップショット- 使用上の注意
+## リアルタイムユーザープロファイルビュー {#real-time-user-profile-views}
 
-* **12 時間の遅延** を持つユーザー属性のスナップショットを提供します。
-* リアルタイムの正確さを必要としないクエリに適しています。
-* 特に `USER_ID` 以外の属性でフィルタリングする場合は、クエリの実行が高速になります。
-* **制限:**データがリアルタイムに更新されません。
+これらのビューは、ユーザープロファイル属性のほぼリアルタイムの更新を提供します。データはBrazeで更新が行われてから最大10分遅延します。
 
-## リアルタイムユーザープロファイルビュー
+  - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
+  - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-これらのビューは、ユーザプロファイル属性に関するほぼリアルタイムの更新を提供します。データは、Braze で更新が行われてから最大 10 分遅れます。
+### 使用方法
 
-  - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 
-  - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` 
+* 最小限の遅延（約10分）で最新のユーザー属性を提供します。
+* リアルタイム分析や最新のデータが必要なシナリオに適しています。
+* **パフォーマンスに関する考慮事項:**
+    * 個々のユーザーに対するクエリは高速です（大規模なウェアハウスを使用して1分以内）。
+    * USER_IDフィルターを使用しないクエリは全ユーザーの集計が必要となるため、実行時間が大幅に長くなります。
+    * 大規模なデータセット（1億人以上のユーザーなど）に対するクエリは数分かかる場合があります。
 
-### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
-#### スキーマ
+{% alert note %}
+`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
+{% endalert %}
+
+### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_latest_state_default_attributes_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | 数値 |
+| `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+| `TIMEZONE` | VARCHAR |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
-### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
-#### スキーマ
+### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`スキーマ {#user_latest_state_custom_attribute_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
-| `TIME` | 数値 |
+| `EXTERNAL_USER_ID` | VARCHAR |
+| `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
 
+## 変更履歴ログ {#historical-change-logs}
 
-### リアルタイムユーザープロファイルビュー- 使用上の注意
+これらのビューは、ユーザー属性の変更履歴ログを保存し、12時間の粒度で変更をキャプチャします。
 
-* 最小の遅延( ～10 分) で最新のユーザー属性を提供します。
-* 最新のデータが必要なリアルタイム分析やシナリオに適しています。
-* **パフォーマンスに関する考慮事項:**
-    * 個々のユーザに対するクエリは高速です (大規模なウェアハウスを使用して1分以内)。
-    * USER_ID フィルターを使用しないクエリーは、全ユーザーの集計を必要とするため、実行時間が大幅に長くなる。
-    * 大型のデータセット (ユーザーが 1 億人以上など) のクエリには数分かかる場合があります。
+- `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-## 変更履歴ログ
+### 使用方法
 
-これらのビューには、ユーザー属性の変更履歴ログが保存され、12 時間単位で変更がキャプチャされます。
+* 6か月間のローリング期間にわたるユーザー属性の変更履歴の記録を提供します。
+* データは12時間ごとにスナップショットされます。つまり、この時間枠内の複数の更新は1つのレコードに統合されます。この期間内の個々の変更は個別に保持されません。
+* `EFF_DT`と`END_DT`は、ユーザーの属性状態の開始と終了を示します。
 
-- `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 
-- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` 
+{% alert note %}
+`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
+{% endalert %}
 
-### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
-#### スキーマ
+### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`スキーマ {#user_default_attributes_history_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
-| `TIME` | 数値 |
+| `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
-### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
-#### スキーマ
+### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`スキーマ {#user_custom_attributes_history_view_shared-schema}
 
 | 列名     | データタイプ     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
-| `TIME` | 数値 |
+| `EXTERNAL_USER_ID` | VARCHAR |
+| `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
 
-### 変更履歴ログ - 使用上の注意
+## ベストプラクティス {#best-practices}
 
-* ユーザー属性の変更履歴の記録を提供します。
-* データは12 時間ごとにスナップショットされます。つまり、このウィンドウの複数の更新が1 つのレコードに結合されます。この期間内の個々の変更は、別途保持されません。
-* `EFF_DT` および `END_DT` は、ユーザー属性状態の開始と終了を示します。
+### 推奨されるクエリの使用方法 {#recommended-query-usage}
 
-# ベストプラクティス
-
-## 推奨されるクエリの使用法
-
-| ユースケース                                               | 推奨ビュー                                   | メモ                                                                 |
+| ユースケース                                               | 推奨ビュー                                   | 備考                                                                 |
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
-| **最近の更新を必要としない一般的なクエリ** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` と `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 高速な実行 (最大 12 時間前までのデータを使用)                          |
-| **最新のユーザー属性を必要とするクエリ**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` と `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | ほぼリアルタイムの更新を提供しますが、大規模なデータセットでは低速になる場合があります。 |
-| 属性変更の**履歴の追跡**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` と `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を 12 時間単位で保存します。                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+| 最近の更新を必要としない**一般的なクエリ** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 高速な実行。データは最大12時間前のものです。                          |
+| **最新のユーザー属性**を必要とするクエリ       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | ほぼリアルタイムの更新を提供しますが、大規模なデータセットでは低速になる場合があります。 |
+| 属性変更の**履歴追跡**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
 
-## パフォーマンスに関する考慮事項
+### パフォーマンスに関する考慮事項 {#performance-considerations}
 
-* `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` または `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` に対するクエリは、大規模なウェアハウスの大規模なデータセット (最大10億ユーザー) の場合、10 秒以内に返されます。
-* 1 人のユーザーに対する `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` または `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` に対するクエリは 1 分以内に返されますが、`USER_ID` フィルター処理を行わないとスケーリングが不十分です。
-* ユーザーごとの集計のため、`USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` または `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` の 1 億人を超えるユーザーに対するクエリには数分かかる場合があります。
-
-
+* `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`または`USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`に対するクエリは、大規模なウェアハウスの大規模なデータセット（約10億ユーザー）で10秒以内に返されます。
+* 単一ユーザーに対する`USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`または`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`のクエリは1分以内に返されますが、`USER_ID`フィルタリングなしではスケーリングが不十分です。
+* `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`または`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`で1億人を超えるユーザーに対するクエリは、ユーザーごとの集計のため数分かかる場合があります。

@@ -2,7 +2,7 @@
 nav_title: ViralSweep
 article_title: ViralSweep
 alias: /partners/viralsweep/
-description: "This reference article outlines the partnership between Braze and ViralSweep, a software service that allows brands to build, run, and manage digital marketing promotions like sweepstakes, contests, instant win, waitlists, referral promotions, and more."
+description: "이 참조 문서에서는 브랜드가 경품 행사, 콘테스트, 즉석 당첨, 대기자 명단, 추천 프로모션 등 디지털 마케팅 프로모션을 구축, 실행 및 관리할 수 있는 소프트웨어 서비스인 ViralSweep과 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
 search_tag: Partner
 
@@ -10,45 +10,45 @@ search_tag: Partner
 
 # ViralSweep
 
-> [ViralSweep](https://viralsweep.com) is a software service that allows brands to build, run, and manage digital marketing promotions like sweepstakes, contests, instant win, waitlists, referral promotions, and more. 
+> [ViralSweep](https://viralsweep.com)은 브랜드가 경품 행사, 콘테스트, 즉석 당첨, 대기자 명단, 추천 프로모션 등 디지털 마케팅 프로모션을 구축, 실행 및 관리할 수 있는 소프트웨어 서비스입니다.
 
-_This integration is maintained by ViralSweep._
+_이 통합은 ViralSweep에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and ViralSweep integration allows you to hold sweepstakes and contests on the ViralSweep platform (growing your email and SMS lists) and then send sweepstakes or contest entry information into Braze to use in campaigns or Canvases. 
+Braze와 ViralSweep 통합을 사용하면 ViralSweep 플랫폼에서 경품 행사와 콘테스트를 진행하여 이메일 및 SMS 목록을 확장하고, 경품 행사 또는 콘테스트 참가 정보를 Braze로 전송하여 Campaigns 또는 Canvases에서 활용할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| ViralSweep account | A ViralSweep account utilizing the business plan is required to take advantage of this partnership. |
-| Braze REST API key | A Braze REST API key with all user data and email permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-|Braze REST endpoint | Your REST endpoint URL. Your endpoint will depend on the Braze URL for [your instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ViralSweep 계정 | 이 파트너십을 활용하려면 비즈니스 플랜을 사용하는 ViralSweep 계정이 필요합니다. |
+| Braze REST API 키 | 모든 사용자 데이터 및 이메일 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1 : Connect to Braze within ViralSweep
+### 1단계: ViralSweep에서 Braze에 연결하기 {#step-1-connect-to-braze-within-viralsweep}
 
-ViralSweep에서 **통합 > 이메일 & SMS > 서비스 추가로** 이동하여 **Braze를** 선택합니다. 
+ViralSweep에서 **Integrations > Email & SMS > Add Service**로 이동하여 **Braze**를 선택합니다.
 
 ![]({% image_buster /assets/img/viralsweep/connect.gif %})
 
-### 2단계 : Add Braze Credentials
+### 2단계: Braze 자격 증명 추가하기 {#step-2-add-braze-credentials}
 
-In the integrations configuration window, provide your Braze REST API key and REST endpoint. 제공하는 엔드포인트에 `https://`(예: `dashboard-03.braze.com`)가 포함되지 않았는지 확인합니다. 
+통합 구성 창에서 Braze REST API 키와 REST 엔드포인트를 입력합니다. 제공하는 엔드포인트에 `https://`가 포함되지 않도록 해야 합니다. 예를 들어 `dashboard-03.braze.com`과 같이 입력합니다.
 
-![사용자에게 Braze API 키와 Braze 대시보드 URL을 입력하라는 메시지가 표시되는 ViralSweep 서비스 통합 페이지입니다.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
+![사용자에게 Braze API 키와 Braze 대시보드 URL을 입력하라는 메시지가 표시되는 ViralSweep 서비스 통합 페이지.]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
 
-**연결**을 클릭합니다.
+**Connect**를 클릭합니다.
 
-### Step 3 : Add Braze Credentials
-You're connected! The promotion is now connected to Braze, and all entries collected by ViralSweep will be sent into Braze automatically.
+### 3단계: Braze 자격 증명 추가하기 {#step-3-add-braze-credentials}
+연결이 완료되었습니다! 이제 프로모션이 Braze에 연결되었으며, ViralSweep에서 수집한 모든 참가 정보가 자동으로 Braze로 전송됩니다.
 
-## Frequently asked questions
+## 자주 묻는 질문 {#frequently-asked-questions}
 
-### What fields does ViralSweep pass to Braze?
+### ViralSweep은 어떤 필드를 Braze로 전달하나요? {#what-fields-does-viralsweep-pass-to-braze}
 - First name
 - Last name
 - Email address
@@ -64,16 +64,14 @@ You're connected! The promotion is now connected to Braze, and all entries colle
 - Referral link
 - Tracking campaign name
 
-### Does ViralSweep update subscribers?
-Yes. If you run a promotion and ViralSweep passes someone to Braze, then you run another promotion in the future and the same person enters, that person's information will automatically be updated in Braze (if any new information is provided). Mainly, the referral URL will be updated with the newest URL for each promotion they enter, and the promotion ID field will contain the ID of all the promotions they have entered.
+### ViralSweep은 가입자 정보를 업데이트하나요? {#does-viralsweep-update-subscribers}
+네. 프로모션을 실행하여 ViralSweep이 누군가를 Braze로 전달한 후, 나중에 다른 프로모션을 실행했을 때 같은 사람이 참가하면 해당 사용자의 정보가 Braze에서 자동으로 업데이트됩니다(새로운 정보가 제공된 경우). 주로 추천 URL이 참가한 각 프로모션의 최신 URL로 업데이트되며, 프로모션 ID 필드에는 참가한 모든 프로모션의 ID가 포함됩니다.
 
-## Troubleshooting
+## 문제 해결 {#troubleshooting}
 
-If you have connected to Braze and data is not being added to your account, it may be because:
+Braze에 연결했는데 데이터가 계정에 추가되지 않는 경우, 다음과 같은 이유일 수 있습니다:
 
-- **Email already exists in Braze**<br>
-The email address entered into the promotion may already be in your Braze account, so it will not be added again; it will only be updated if new information is provided for that contact.<br><br>
-- **Email already entered into ViralSweep**<br>
-The email address entered into the promotion has already been entered previously, so it is not passed to Braze again. This can happen if you set up your Braze integration after you have already entered the promotion.
-
-
+- **이메일이 이미 Braze에 존재하는 경우**<br>
+프로모션에 입력한 이메일 주소가 이미 Braze 계정에 존재할 수 있으며, 이 경우 다시 추가되지 않습니다. 해당 연락처에 대해 새로운 정보가 제공된 경우에만 업데이트됩니다.<br><br>
+- **이메일이 이미 ViralSweep에 입력된 경우**<br>
+프로모션에 입력한 이메일 주소가 이전에 이미 입력된 적이 있어 Braze로 다시 전달되지 않습니다. 이는 프로모션에 이미 참가한 후에 Braze 통합을 설정한 경우에 발생할 수 있습니다.

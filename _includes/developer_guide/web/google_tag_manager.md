@@ -6,7 +6,7 @@ Google Tag Manager (GTM) lets you remotely add, remove, and edit tags on your we
 |--------|--------|
 | Initialization tag | This tag lets you [integrate the Web Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) without needing to modify your site’s code.|
 | Action tag | This tag lets you [create Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [set user attributes]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web), and [manage data collection]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
 
 ## Logging custom events with GTM
 

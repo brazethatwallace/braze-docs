@@ -1,0 +1,196 @@
+# Nightly sitemap last-modified update.
+#
+# Runs on a schedule just before the nightly deploy, checks out develop, and
+# opens a PR with any changed _data/sitemap_*.json files targeting develop.
+# This ensures up-to-date lastmod dates land in every nightly release without
+# polluting PR history with bot commits or breaking on fork PRs.
+#
+# Branch protection on develop requires a PR — the bot cannot push directly.
+# Merge is manual: someone with permission to merge to develop must approve and merge (no auto-merge).
+#
+# Optional Slack: same secrets as Nightly Release Deploy — SLACK_BOT_TOKEN and
+# SLACK_DEPLOY_NOTIFY_CHANNEL (channel ID). Notifies on success (no changes, PR
+# opened, or PR updated) and failure. If secrets are unset, notifications are skipped.
+#
+# Also supports manual dispatch (workflow_dispatch) for ad-hoc runs.
+
+name: "Nightly sitemap last-modified update"
+
+on:
+  schedule:
+    - cron: '0 7 * * 1-5' # 11pm PT / 2am ET Sun–Thu nights (Mon–Fri UTC), 1h before nightly deploy
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+# Prevent overlapping nightly runs from racing.
+concurrency:
+  group: nightly-sitemap-update
+  cancel-in-progress: false
+
+jobs:
+  update-sitemaps:
+    name: "Update sitemap last-modified dates"
+    runs-on: ubuntu-latest
+    outputs:
+      sitemap_status: ${{ steps.sitemap_pr.outputs.status }}
+      pr_number: ${{ steps.sitemap_pr.outputs.pr_number }}
+      pr_url: ${{ steps.sitemap_pr.outputs.pr_url }}
+    steps:
+      - name: "Checkout develop"
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1.299.0
+        with:
+          ruby-version: "3.3"
+
+      - name: "Update sitemaps"
+        run: ruby scripts/generate_sitemap_lastmodified.rb all
+
+      - name: "Create PR with sitemap updates"
+        id: sitemap_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain _data/sitemap_*.json)" ]; then
+            echo "No sitemap changes to commit."
+            {
+              echo "status=no_changes"
+              echo "pr_number="
+              echo "pr_url="
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          BRANCH="chore/nightly-sitemap-update-$(date -u +'%Y-%m-%d')"
+          PR_TITLE="chore: nightly sitemap last-modified update ($(date -u +'%Y-%m-%d'))"
+          PR_BODY="Automated nightly update of \`_data/sitemap_*.json\` last-modified dates.
+
+          This PR was created by the **Nightly sitemap last-modified update** workflow.
+
+          > **On-call writer:** merge this PR into develop **before** approving the nightly deploy PR so the deploy includes the latest sitemap dates."
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add _data/sitemap_*.json
+          git commit -m "chore: nightly sitemap last-modified update"
+
+          # If the remote branch already exists (same-day re-run), force-push to update it
+          # so the existing PR picks up the latest sitemap commit.
+          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null 2>&1; then
+            git push --force-with-lease origin "$BRANCH"
+          else
+            git push origin "$BRANCH"
+          fi
+
+          # Reuse an existing open PR for today if one exists (e.g. manual re-run).
+          EXISTING=$(gh pr list --repo "$REPO" --base develop --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating existing PR #$EXISTING with latest sitemap commit."
+            gh pr edit --repo "$REPO" "$EXISTING" --title "$PR_TITLE" --body "$PR_BODY"
+            PR_URL="https://github.com/${REPO}/pull/${EXISTING}"
+            {
+              echo "status=pr_updated"
+              echo "pr_number=${EXISTING}"
+              echo "pr_url=${PR_URL}"
+            } >> "$GITHUB_OUTPUT"
+          else
+            gh pr create --repo "$REPO" \
+              --base develop \
+              --head "$BRANCH" \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY" \
+              --label "nightly-sitemap"
+            NEW_NUM=$(gh pr list --repo "$REPO" --base develop --head "$BRANCH" --state open \
+              --json number --jq '.[0].number // empty')
+            if [ -z "$NEW_NUM" ]; then
+              echo "Could not resolve PR number for head $BRANCH"
+              exit 1
+            fi
+            PR_URL="https://github.com/${REPO}/pull/${NEW_NUM}"
+            {
+              echo "status=pr_created"
+              echo "pr_number=${NEW_NUM}"
+              echo "pr_url=${PR_URL}"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: "Open issue on failure"
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          EXISTING=$(gh issue list --state open --search "Nightly sitemap update failed in:title" --limit 1 --json number --jq '.[0].number // empty' || true)
+          if [ -n "$EXISTING" ]; then
+            echo "Issue #$EXISTING already open, skipping duplicate."
+          else
+            ISSUE_BODY=$(printf "The nightly sitemap last-modified update failed. Check the run log for details.\n\n**Run:** %s\n\nCommon causes: branch creation failure, PR creation failure, or Ruby script error." "$RUN_URL")
+            gh issue create \
+              --title "Nightly sitemap update failed ($(date -u +'%Y-%m-%d'))" \
+              --body "$ISSUE_BODY"
+          fi
+
+  notify:
+    name: Slack notification
+    needs: update-sitemaps
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Nightly sitemap result to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SITEMAP_STATUS: ${{ needs.update-sitemaps.outputs.sitemap_status }}
+          PR_URL: ${{ needs.update-sitemaps.outputs.pr_url }}
+          PR_NUMBER: ${{ needs.update-sitemaps.outputs.pr_number }}
+          JOB_RESULT: ${{ needs.update-sitemaps.result }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_DEPLOY_NOTIFY_CHANNEL:-}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL); skipping."
+            exit 0
+          fi
+
+          if [ "$JOB_RESULT" = "failure" ]; then
+            TEXT=":x: *Nightly sitemap last-modified update* failed\n${RUN_URL}"
+          elif [ "$JOB_RESULT" != "success" ]; then
+            TEXT=":warning: *Nightly sitemap last-modified update* ended (${JOB_RESULT})\n${RUN_URL}"
+          elif [ "$SITEMAP_STATUS" = "no_changes" ]; then
+            TEXT=":white_check_mark: *Nightly sitemap last-modified update* — no PR (no sitemap file changes)\n${RUN_URL}"
+          elif [ "$SITEMAP_STATUS" = "pr_created" ] && [ -n "$PR_URL" ]; then
+            TEXT=":white_check_mark: *Nightly sitemap last-modified update* — opened PR <${PR_URL}|#${PR_NUMBER}>"
+          elif [ "$SITEMAP_STATUS" = "pr_updated" ] && [ -n "$PR_URL" ]; then
+            TEXT=":white_check_mark: *Nightly sitemap last-modified update* — updated PR <${PR_URL}|#${PR_NUMBER}>"
+          else
+            TEXT="*Nightly sitemap last-modified update* finished (result: ${JOB_RESULT}, status: ${SITEMAP_STATUS:-unknown})\n${RUN_URL}"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$SLACK_DEPLOY_NOTIFY_CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

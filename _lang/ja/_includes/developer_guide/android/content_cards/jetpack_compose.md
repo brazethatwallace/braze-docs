@@ -14,7 +14,7 @@ setContent {
 
 カードのクリックを処理するには、`Card`を受け取り、`Boolean`を返す関数を`onCardClicked`に渡します。`true`が返された場合、Braze は分析用にログを取る以外に、クリックに対して何も処理しません。が返された`false`場合、Brazeがクリックを処理する。
 
-```kotlin
+`````````kotlin
 ContentCardsList(
     onCardClicked = { card ->
         if (card.extras.containsKey("mySpecialKey")) {
@@ -32,7 +32,7 @@ ContentCardsList(
 
 カードが却下されたときに通知を受けるには、`onCardDismissed`関数に関数を渡します。
 
-```kotlin
+`````````kotlin
 ContentCardsList(
     onCardDismissed = { card ->
         // Do what you need with the card

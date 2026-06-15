@@ -9,7 +9,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para atual
 
 ---
 {% api %}
-# Atualizar envios de mensagens programadas
+# Atualizar envios de mensagens programadas {#update-scheduled-messages}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
@@ -20,15 +20,15 @@ Esse endpoint aceita atualizações do parâmetro `schedule` ou `messages` ou de
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f61edf74-4467-4551-b9c4-a4b8d188cd7a {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `messages.schedule.update`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -46,16 +46,16 @@ Authorization: Bearer YOUR-REST-API-KEY
   }
 }
 ```
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `schedule_id` | Obrigatória | String | O endereço `schedule_id` a ser atualizado (obtido da resposta para criar cronograma). |
-|`schedule` | Opcional | Objeto | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-|`messages` | Opcional | Objeto | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `schedule_id` | Obrigatório | String | O `schedule_id` a ser atualizado (obtido da resposta para criar agendamento). |
+| `schedule` | Opcional | Objeto | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `messages` | Opcional | Objeto | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/update' \
 --header 'Content-Type: application/json' \

@@ -6,20 +6,20 @@ page_type: reference
 description: "Este artigo de referência aborda brevemente as etapas de integração exigidas de seus engenheiros ou desenvolvedores."
 ---
 
-# Dicionário de dados
+# Dicionário de dados {#data-dictionary}
 
-> Cada simulação de app no Braze Pilot é instrumentada para coletar uma variedade de eventos e atributos com base na atividade do usuário no app. 
+> Cada simulação de app no Braze Pilot é instrumentada para coletar uma variedade de eventos e atributos com base na atividade do usuário no app.
 
-## A abordagem para dados
+## A abordagem para dados {#the-approach-to-data}
 
-O app registra atributos e eventos personalizados típicos da indústria representada pela marca fictícia. Você pode usar esses atributos para impulsionar demonstrações para uma variedade de casos de uso comuns.
+O app registra atributos personalizados e eventos típicos do setor representado pela marca fictícia. Você pode usar esses atributos para impulsionar demonstrações para uma variedade de casos de uso comuns.
 Geralmente, todos os eventos e atributos são prefixados com um código curto que corresponde à simulação de app responsável pelos dados. Por exemplo:
 
 - Todos os dados registrados pela simulação do app Steppington são prefixados com `st_`
 - Todos os dados registrados pela simulação do app PantsLabyrinth são prefixados com `pl_`
 - Todos os dados registrados pela simulação do app MovieCanon são prefixados com `mc_`
 
-## Lista de eventos e atributos registrados
+## Lista de eventos e atributos registrados {#list-of-logged-events-and-attributes}
 
 A tabela a seguir lista os eventos e atributos registrados pelo Braze Pilot.
 
@@ -44,7 +44,8 @@ th:nth-child(5), td:nth-child(5) {
 }
 </style>
 
-<table>
+<table aria-label="Lista de eventos e atributos registrados">
+  <caption>Lista de eventos e atributos registrados</caption>
     <thead>
         <tr>
             <th>Nome</th>
@@ -78,38 +79,38 @@ th:nth-child(5), td:nth-child(5) {
         </tr>
         <tr>
             <td><code>pl_viewed_item</code></td>
-            <td>Pants Labyrinth</td>
+            <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td><code>item_name: string</code></td>
             <td>Quando o usuário visualiza uma página de produto</td>
         </tr>
         <tr>
             <td><code>pl_entered_app</code></td>
-            <td>Pants Labyrinth</td>
+            <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td></td>
             <td>Quando o usuário entra no app PantsLabyrinth</td>
         </tr>
         <tr>
             <td><code>pl_added_item_to_wishlist</code></td>
-            <td>Pants Labyrinth</td>
+            <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td><code>item_name: string</code></td>
             <td>Quando o usuário adiciona um item à sua lista de desejos</td>
         </tr>
         <tr>
             <td><code>pl_added_item_to_cart</code></td>
-            <td>Pants Labyrinth</td>
+            <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td><code>item_name: string</code></td>
             <td>Quando o usuário adiciona um item ao seu carrinho</td>
         </tr>
         <tr>
             <td><code>&lt;purchase_event&gt;</code></td>
-            <td>Pants Labyrinth</td>
+            <td>PantsLabyrinth</td>
             <td>Evento</td>
             <td><code>name: string</code><br><code>price: number</code></td>
-            <td>Quando o usuário completa uma compra</td>
+            <td>Quando o usuário conclui uma compra</td>
         </tr>
         <tr>
             <td><code>st_entered_app</code></td>
@@ -123,14 +124,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Evento</td>
             <td><code>class_type: string</code><br><code>calories_burned: number</code><br><code>workout_length: number</code></td>
-            <td>Quando o usuário completa um treino</td>
+            <td>Quando o usuário conclui um treino</td>
         </tr>
         <tr>
             <td><code>st_viewed_premium_benefit</code></td>
             <td>Steppington</td>
             <td>Evento</td>
             <td><code>benefit_type: string</code></td>
-            <td>Quando o usuário visita a guia Steppington+ (se estiver habilitada com o Feature Flag)</td>
+            <td>Quando o usuário visita a guia Steppington+ (se estiver ativada com Feature Flag)</td>
         </tr>
         <tr>
             <td><code>st_viewed_class</code></td>
@@ -144,14 +145,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Evento</td>
             <td><code>class_type: string</code><br><code>calories_burned: number</code><br><code>workout_length: number</code></td>
-            <td>Quando o usuário completa um treino</td>
+            <td>Quando o usuário conclui um treino</td>
         </tr>
         <tr>
             <td><code>st_most_recent_completed_class</code></td>
             <td>Steppington</td>
             <td>Atributo</td>
             <td><code>string</code></td>
-            <td>Quando o usuário completa um treino</td>
+            <td>Quando o usuário conclui um treino</td>
         </tr>
         <tr>
             <td><code>st_favorited_class</code></td>
@@ -172,14 +173,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Evento</td>
             <td></td>
-            <td>Quando o usuário seleciona o <strong>Iniciar Teste Gratuito</strong> botão</td>
+            <td>Quando o usuário seleciona o botão <strong>Start Free Trial</strong></td>
         </tr>
         <tr>
             <td><code>st_set_goal</code></td>
             <td>Steppington</td>
             <td>Evento</td>
             <td><code>goal_name: string</code><br><code>goal: number</code><br><code>units: string</code></td>
-            <td>Quando o usuário seleciona o <strong>Iniciar Teste Gratuito</strong> botão.</td>
+            <td>Quando o usuário seleciona o botão <strong>Start Free Trial</strong>.</td>
         </tr>
     </tbody>
 </table>

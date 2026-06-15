@@ -1,0 +1,77 @@
+---
+nav_title: Solicitud de 10DLC
+article_title: Información obligatoria para la solicitud de 10DLC
+alias: /10dlc_application/
+page_type: reference
+description: "Este artículo cubre la información de la empresa y de campaña de SMS que Braze necesita si estás trabajando con nosotros para registrar tu 10DLC."
+channel:
+  - SMS
+---
+
+# Información obligatoria para la solicitud de 10DLC {#required-information-for-10dlc-application}
+
+> Este artículo cubre la información de la empresa y de campaña de SMS que Braze necesita si estás trabajando con Braze para registrar tu 10DLC.
+
+Si has adquirido la ayuda de Braze para registrar tu 10DLC, deberás enviarnos toda la información obligatoria que se indica a continuación al correo electrónico que aparece más abajo, según lo acordado en tu contrato con nosotros.
+
+Incluye las capturas de pantalla y los archivos adjuntos pertinentes y envía todo a [smsapplications@braze.com](mailto:smsapplications@braze.com). Si tienes alguna pregunta sobre 10DLC, consulta la [guía de SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) o ponte en contacto con tu administrador del éxito del cliente de Braze.
+
+
+## Información de la empresa (10DLC) {#company-information-10dlc}
+
+Todos los operadores de EE. UU. requieren la siguiente información de la empresa para el envío de nuevas campañas.
+
+
+| Campo                                                         | Opciones (si corresponde)                                     | Descripción                                                  |
+|---------------------------------------------------------------|---------------------------------------------------------------|--------------------------------------------------------------|
+| Razón social                                                  |                                                               | Introduce la razón social exacta, tal como está registrada con el EIN. (por ejemplo, Braze Inc. en lugar de Braze) |
+| Tipo de empresa                                               | {::nomarkdown} <ul><li>Corporation</li><li>Co-operative</li><li>Limited Liability Corporation</li><li>Non-profit</li><li>Partnership</li><li>Sole Proprietorship</li></ul> {:/}|   |
+| EIN de la empresa / Número de identificación fiscal           |                                                               | El número utilizado para identificar tu empresa.   |
+| Tipo de ID de registro de la empresa                          | {::nomarkdown}<ul><li>USA: Employer Identification Number (EIN)</li><li>Canada: Canadian Corporation Number (CCN)</li><li>Great Britain: Company Number</li><li>Australia: Company Number from ASIC (ACN)</li><li>India: Corporate Identity Number</li><li>VAT Number</li><li>Israel: Registration Number</li><li>Other</li></ul>{:/}  |                                                              |
+| Si seleccionaste "Other" para el tipo de ID de registro de la empresa, especifica qué otro registro utilizarás para identificar tu empresa.|                                                              |
+| Sector de la empresa                                          | {::nomarkdown} <ul><li>Automotive</li><li>Agriculture</li><li>Banking</li><li>Consumer</li><li>Education</li><li>Electronics</li><li>Engineering</li><li>Energy</li><li>Fast Moving Consumer Goods</li><li>Financial</li><li>Fintech</li><li>Food & Beverage</li><li>Government</li><li>Healthcare</li><li>Hospitality</li><li>Insurance</li><li>Jewelry</li><li>Legal</li><li>Manufacturing</li><li>Media</li><li>Not-for-Profit</li><li>Oil & Gas</li><li>Online</li><li>Raw Materials</li><li>Real Estate</li><li>Religion</li><li>Retail</li><li>Technology</li><li>Telecommunications</li><li>Transportation</li><li>Travel</li></ul>{:/} | |
+| URL del sitio web                                             |                                                               | El sitio web proporcionado debe ser representativo de la marca registrada y estar accesible. |
+| Regiones de operación de la empresa (selecciona todas las que correspondan) | {::nomarkdown} <ul><li>Africa</li><li>Asia</li><li>Europe</li><li>Latin America</li><li>USA & Canada</li></ul>{:/}    |    |
+| Dirección legal completa de la empresa (calle, ciudad, estado, código postal) |                                                               | Introduce la dirección de la empresa tal como aparece en el EIN o en el registro correspondiente.  |
+| Tipo de empresa                                               | {::nomarkdown} <ul><li>Private</li><li>Non-Profit</li><li>Government</li><li>Public</li></ul> {:/}  |     |
+| Si es pública, proporciona tu símbolo bursátil                |                                                               |                                                              |
+| Representante autorizado n.º 1&nbsp;-&nbsp;Nombre            |                                                               | Braze será el primer punto de contacto para cualquier problema que pueda surgir con tu código abreviado; esta información no es pública y solo la conservan los operadores en sus archivos (aplica a este campo y a los siguientes). |
+| Representante autorizado n.º 1&nbsp;-&nbsp;Correo electrónico |                                                               |                                                              |
+| Representante autorizado n.º 1&nbsp;-&nbsp;Cargo en la empresa |                                                               |                                                              |
+| Representante autorizado n.º 1&nbsp;-&nbsp;Puesto de trabajo  |                                                               |                                                              |
+| Representante autorizado n.º 1&nbsp;-&nbsp;Número de teléfono |                                                               |                                                              |
+| OPCIONAL Representante autorizado n.º 2&nbsp;-&nbsp;Nombre    |                                                               |                                                              |
+| OPCIONAL Representante autorizado n.º 2&nbsp;-&nbsp;Correo electrónico |                                                               |                                                              |
+| OPCIONAL Representante autorizado n.º 2&nbsp;-&nbsp;Cargo en la empresa |                                                               |                                                              |
+| OPCIONAL Representante autorizado n.º 2&nbsp;-&nbsp;Puesto de trabajo |                                                               |                                                              |
+| OPCIONAL Representante autorizado n.º 2&nbsp;-&nbsp;Número de teléfono |                                                               |                                                              |
+| Dirección legal completa de la empresa (calle, ciudad, estado, código postal) |                                                               |                                                              |
+| Tipo de empresa (privada, sin ánimo de lucro, gubernamental, pública (proporciona el símbolo bursátil)) |                                       |                                                              |
+| Si es pública, proporciona tu símbolo bursátil                |                                                               |                                                              |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Company Information (10DLC)" }
+
+## Información de campaña de SMS {#sms-campaign-information}
+
+Necesitaremos registrar cada grupo de suscripción de SMS que contenga un código largo de EE. UU. con su propia campaña A2P 10DLC (a veces denominada caso de uso). Proporciona la siguiente información una vez por cada uno de tus grupos de suscripción de SMS que contengan un código largo de EE. UU.
+
+| Campo | Opciones (si corresponde) | Descripción |
+| ------ | ------------------------ | --------------- |
+| Caso de uso de la campaña (elige el que mejor se ajuste) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Nota: Si planeas utilizar un caso de uso "Mixed" para un grupo de suscripción, consulta a tu administrador del éxito del cliente o a tu administrador de incorporación del cliente para obtener detalles importantes de antemano |
+| Nombre de la campaña | | {::nomarkdown}<p>El nombre de la campaña de SMS debe mostrarse de forma coherente en tus mensajes, en los términos del servicio y en cualquier lugar donde tus usuarios se registren en tu programa.</p><p>Ejemplos:</p><ul><li>Braze Marking Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
+| Descripción de la campaña | | Esta campaña envía mensajes de marketing y promocionales a los usuarios que optan por recibir SMS, incluidas ofertas especiales/cupones y notificaciones de recordatorio de carrito. |
+| Dirección de correo electrónico de soporte al cliente | | ¿Dónde pueden los usuarios finales contactar por correo electrónico para obtener ayuda y soporte? |
+| Número de teléfono de soporte al cliente | | ¿Dónde pueden los usuarios finales contactar por teléfono para obtener ayuda y soporte? |
+| URL de términos y condiciones de SMS | | {::nomarkdown} <p>Para completar el registro A2P 10DLC de EE. UU., tu página de términos de SMS debe incluir lo siguiente:</p><ol><li>Nombre del programa (marca)</li><li>Divulgación coherente del producto en el sitio web y en el flujo de mensajes</li><li>Frecuencia de mensajes (coherente con el flujo de mensajes)</li><li>Aviso de "Pueden aplicarse tarifas de mensajes y datos"</li><li>Instrucciones de HELP/STOP O información de contacto de atención al cliente</li></ol><p>Si esta página no está activa o falta alguna de las divulgaciones obligatorias, se necesitará un borrador de los términos de SMS junto con la fecha prevista de implementación en tu página web en vivo para completar el proceso de registro.</p>{:/} |
+| ¿Cómo se suscriben los usuarios finales a tu campaña de SMS? (Comparte cómo los usuarios finales pueden suscribirse a tu programa de SMS, por ejemplo, cómo pueden dar su consentimiento para recibir tus mensajes SMS. Si se utilizan varios métodos de adhesión voluntaria, todos deben indicarse aquí.) | | {::nomarkdown}<p>Ejemplos:</p><ul><li>Los usuarios finales se suscriben enviando START al XXXXXXXXXX.</li><li>Los usuarios finales se suscriben visitando el sitio web y añadiendo su número de móvil. Luego, marcan una casilla aceptando recibir SMS.</li><li>Si el método de adhesión voluntaria elegido aún no está activo, proporciona una maqueta/captura de pantalla del método de adhesión voluntaria.</li></ul>{:/} |
+| Palabras clave de adhesión voluntaria | | {::nomarkdown} <p>Si los usuarios finales pueden enviar una palabra clave por mensaje de texto para empezar a recibir SMS de esta campaña, esas palabras clave deben proporcionarse. De forma predeterminada, Braze configura las siguientes palabras clave:</p><ul><li>START</li><li>UNSTOP</li><li>YES</li></ul><p>Indícanos si deseas añadir alguna palabra clave.</p> {:/} |
+| Mensaje de confirmación de adhesión voluntaria | | Debe proporcionarse el mensaje de respuesta automática enviado a los usuarios finales para confirmar su adhesión voluntaria. La respuesta de adhesión voluntaria debe incluir el nombre de la marca, la confirmación de la inscripción en una campaña de mensajes recurrentes, cómo obtener ayuda y una descripción clara de cómo cancelar la suscripción. (por ejemplo, ¡Gracias por unirte a Braze Marketing Alerts! La frecuencia de los mensajes varía. Pueden aplicarse tarifas de mensajes y datos. Responde HELP para obtener ayuda o STOP para cancelar la suscripción.) |
+| Palabras clave de cancelación de suscripción | | {::nomarkdown} <p>Los usuarios finales deben poder enviar una palabra clave por mensaje de texto para dejar de recibir mensajes de esta campaña. De forma predeterminada, Braze configura las siguientes palabras clave:</p><ul>  <li>STOP</li><li>STOPALL</li><li>UNSUBSCRIBE</li><li>CANCEL</li><li>END</li><li>QUIT</li></ul><p>Indícanos si deseas añadir alguna palabra clave.</p>{:/} |
+| Mensaje de cancelación de suscripción | | Al recibir las palabras clave de cancelación de suscripción de los usuarios finales, los operadores esperan una respuesta autogenerada que debe incluir el reconocimiento de la solicitud de cancelación y la confirmación de que no se enviarán más mensajes. También se recomienda que estos mensajes de cancelación incluyan el nombre de la marca (por ejemplo, Braze Marketing Alerts: Has cancelado la suscripción a todos los mensajes. Responde HELP para obtener ayuda.) <br><br>Máximo de 320 caracteres|
+| Palabras clave de ayuda | | Los usuarios finales deben poder enviar una palabra clave por mensaje de texto para recibir ayuda. De forma predeterminada, Braze configura las siguientes palabras clave: -HELP -INFO Indícanos si deseas añadir alguna palabra clave. |
+| Mensaje de ayuda | | Al recibir las palabras clave de ayuda de los usuarios finales, los operadores esperan una respuesta autogenerada que puede incluir el nombre de la marca e información de contacto de soporte adicional (por ejemplo, Braze Marketing Alerts: Para obtener ayuda llama al 555-555-555. Pueden aplicarse tarifas de mensajes y datos. La frecuencia de los mensajes puede variar. Envía STOP para cancelar)<br><br>Máximo de 320 caracteres|
+| Mensaje de ejemplo 1 de 2 | | Customer/Brand Updates: Hola y bienvenido/a a Customer Brand Updates. Visita nuestro sitio web en www.customerwebsite.com. Escribe HELP para obtener ayuda o STOP para cancelar la suscripción. |
+| Mensaje de ejemplo 2 de 2 | | Customer/Brand Updates: Echa un vistazo a nuestra última oferta navideña con un 20 % de descuento en todos los artículos hasta el lunes. Visita nuestro sitio web en www.customerwebsite.com. Escribe HELP para obtener ayuda o STOP para cancelar la suscripción. |
+| Volumen diario estimado | | Indica el número promedio estimado de mensajes enviados por día para este caso de uso/grupo de suscripción en particular, por ejemplo, 10 000. |
+| Lista de verificación de llamada a la acción | | {::nomarkdown} <p>La llamada a la acción debe incluir lo siguiente:</p><ol><li>Descripción del producto</li><li>Divulgación de la frecuencia de mensajes</li><li>Enlace a los términos y condiciones completos</li><li>Enlace a la política de privacidad completa</li><li>Instrucciones de la palabra clave STOP</li><li>Instrucciones de la palabra clave HELP</li><li>Aviso de "Pueden aplicarse tarifas de mensajes y datos"</li></ol> {:/} |
+| Ejemplo de llamada a la acción | | ![Ejemplo de llamada a la acción que contiene todos los detalles obligatorios.]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS campaign information" }

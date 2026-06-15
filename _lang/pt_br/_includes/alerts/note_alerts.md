@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-A limitação de frequência não se aplica aos Cartões de conteúdo.
+A limitação de frequência não se aplica aos Content Cards.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@ Todos os dados do perfil de usuário (eventos personalizados, atributos personal
 {% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
-A Braze não gera perfis para os usuários até que eles tenham usado o app pela primeira vez, portanto, não é possível fazer o direcionamento para usuários que ainda não abriram o app.
+A Braze não gera perfis para os usuários até que eles tenham usado o app pela primeira vez, portanto, não é possível direcionar usuários que ainda não abriram o app.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,27 @@ A Braze não gera perfis para os usuários até que eles tenham usado o app pela
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-Todos os atributos são originados da API REST da Braze.
+Todos os atributos são originados da REST API da Braze.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'subscription group limit' %}
+
+{% alert note %}
+Você pode adicionar até 350 grupos de inscrições por espaço de trabalho.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+GIFs não são compatíveis com notificações por push no Android. Essa é uma limitação da plataforma Android, não da Braze.
+<br><br>
+- Para mensagens no app e Content Cards no Android, você pode oferecer suporte a GIFs integrando uma biblioteca de imagens de terceiros, como [Glide](https://bumptech.github.io/glide/) ou [Fresco](https://frescolib.org/).
+<br>
+- No iOS, as notificações por push são compatíveis com GIFs. Mensagens no app e Content Cards exigem um provedor de imagens GIF personalizado.
 {% endalert %}
 
 {% endif %}

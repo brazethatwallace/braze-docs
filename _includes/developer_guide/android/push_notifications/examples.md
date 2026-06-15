@@ -294,7 +294,7 @@ While curl commands are helpful for testing, we recommend handling this call in 
 | `messages.android_push.alert` | The message's body. By default, this is not used for the custom notification factory's live notifications, but it may be used as a fallback.                                                                                                     |
 | `messages.extra`              | Key-value pairs that the custom notification factory uses for live notifications. You can assign any string to this value&#8212;however, in the example above, `live_updates` is used to determine if it's a default or live push notification.  |
 | `ASSIGNED_NOTIFICATION_ID`    | The notification ID you want to assign to the chosen user's live notification. The ID must be unique to this game, and must be used in order to [update their existing notification](#android_step-4-update-data-with-the-braze-rest-api) later. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request parameters" }
 
 ### Step 6: Update the activity
 

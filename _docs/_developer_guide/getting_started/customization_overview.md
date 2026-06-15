@@ -40,7 +40,8 @@ The Crawl approach puts the power of customization directly in the hands of mark
 
 Marketers determine the content, audience, and timing of messages through the dashboard. Styling options are limited, however. This approach is best suited for teams with limited developer resources or who want to quickly share simple content. 
 
-<table>
+<table aria-label="Customization overview">
+  <caption>Customization overview</caption>
 <thead>
   <tr>
     <th>Customization</th>
@@ -86,7 +87,8 @@ During the implementation process, developers write custom code to update a mess
 
 Marketers still maintain control of the audience, content, on-click behavior, and expiration directly in the Braze dashboard.
 
-<table>
+<table aria-label="Customization overview">
+  <caption>Customization overview</caption>
 <thead>
   <tr>
     <th>Customization</th>
@@ -130,7 +132,8 @@ With the Run approach, developers take the lead with full control of the user ex
 
 When you create completely new custom content, such as new types of Content Cards or in-app messages with bespoke UI, the Braze SDK won’t automatically [track analytics]({{site.baseurl}}/developer_guide/analytics/). You must be programmatically handle analytics so marketers continue to have access to metrics like impressions, clicks, and dismissals in the Braze dashboard. Call the Braze SDK’s analytics methods to have the SDK pass this data back to Braze. Each messaging channel has an analytics article to help facilitate this.
 
-<table>
+<table aria-label="Customization overview">
+  <caption>Customization overview</caption>
 <thead>
   <tr>
     <th>Customization</th>

@@ -1,0 +1,3 @@
+## Llamadas de Contenido conectado con lógica de cancelación y reintento {#connected-content-calls-with-abort-and-retry-logic}
+
+Si una llamada de Contenido conectado utiliza lógica de cancelación para la misma condición que la lógica de reintento, la lógica de cancelación tiene prioridad. Esto impide que se intente cualquier reintento. La lógica de reintento ya reenvía la llamada antes de cancelarla si el código de estado no es correcto. Dado que ambas se dirigen al mismo comportamiento de código de estado, puedes quitar la lógica de cancelación y la llamada seguirá cancelándose si todos los reintentos fallan.

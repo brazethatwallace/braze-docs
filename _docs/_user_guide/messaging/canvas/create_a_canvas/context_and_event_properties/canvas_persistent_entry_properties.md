@@ -13,7 +13,7 @@ page_order: 5
 > When a Canvas is triggered by a custom event, purchase, or an API call, you can use metadata from the API call, custom event, or purchase event for personalization in each step in your Canvas workflow. You can use these properties to send more curated messages.
 
 {% alert important %}
-Persistent entry properties are an artifact of the original Canvas editor, so there are deprecated references to terms like Canvas entry properties that remain for historical reference. For the current updated Canvas editor, refer to [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+Persistent entry properties are an artifact of the original Canvas editor, so there are deprecated references to terms like Canvas entry properties that remain for historical reference. For the current Canvas editor, refer to [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).<br><br>To use persistent entry properties in the current Canvas editor, you must either create a new Canvas or [clone]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) an existing one to the current editor.
 {% endalert %}
 
 ## Using entry properties
@@ -24,7 +24,7 @@ Entry properties can be used in action-based and API-triggered Canvases. These e
 - [Event properties object]({{site.baseurl}}/api/objects_filters/event_object/)
 - [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-product_id)
 
-Properties passed in from these objects can be referenced by using the `canvas_entry_properties` Liquid tag. For example, a request with `\"canvas_entry_properties\" : {\"product_name\" : \"shoes\", \"product_price\" : 79.99}` could add the word "shoes" to a message by adding the Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
+Properties passed in from these objects can be referenced by using the `canvas_entry_properties` Liquid tag. For example, a request with `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` could add the word "shoes" to a message by adding the Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
 When a Canvas includes a message with the `canvas_entry_properties` Liquid tag, the values associated with those properties will be saved for the duration of a user's journey in the Canvas and deleted when the user exits the Canvas. Note that Canvas entry properties are only available for reference in Liquid. To filter on the properties within the Canvas, use [event property segmentation]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/) instead.
 
@@ -55,18 +55,18 @@ With `canvas_entry_properties`, you can set global properties that apply to all 
 
 ### Example request
 
-```
-url -X POST \
--H 'Content-Type:application/json' \
+```bash
+curl -X POST \
+-H 'Content-Type: application/json' \
 -d '{
       "api_key": "a valid rest api key",
       "canvas_id": "the ID of your Canvas",
-         "canvas_entry_properties": {
-            "food_allergies": "none"
-          },
+      "canvas_entry_properties": {
+        "food_allergies": "none"
+      },
       "recipients": [
         {
-          "external_user_id": Customer_123,
+          "external_user_id": "Customer_123",
           "canvas_entry_properties": {
             "food_allergies": ["dairy", "soy"],
             "nutrition": {
@@ -76,7 +76,7 @@ url -X POST \
           }
         }
       ]
-    }' \
+    }'
 ```
  
 In this request, the global value for "food allergies" is "none". For Customer_123, the value is "dairy". Messages in this Canvas containing the Liquid snippet {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} will template with "dairy" for Customer_123 and "none" for everyone else. 

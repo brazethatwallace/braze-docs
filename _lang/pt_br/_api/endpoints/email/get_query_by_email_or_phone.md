@@ -1,37 +1,37 @@
 ---
-nav_title: "OBTER: Liste o estado da inscrição com endereço de e-mail ou número de telefone"
-article_title: "OBTER: Estado da inscrição na lista com endereço de e-mail ou número de telefone"
+nav_title: "GET: Listar estado da inscrição com endereço de e-mail ou número de telefone"
+article_title: "GET: Listar estado da inscrição com endereço de e-mail ou número de telefone"
 search_tag: Endpoint
 page_order: 2
 hidden: true
 layout: api_page
 page_type: reference
-description: "Este artigo descreve os detalhes sobre o estado da inscrição na lista com um endereço de e-mail ou número de telefone no endpoint do Braze."
+description: "Este artigo descreve os detalhes sobre o endpoint da Braze para listar o estado da inscrição com um endereço de e-mail ou número de telefone."
 
 ---
 {% api %}
-# Estado da inscrição na lista com um endereço de e-mail ou número de telefone
+# Listar estado da inscrição com um endereço de e-mail ou número de telefone {#list-subscription-state-with-an-email-address-or-phone-number}
 {% apimethod get %}
 /users/subscription
 {% endapimethod %}
 
-> Use esse ponto de extremidade para retornar o valor do estado da inscrição com base em um endereço de e-mail ou número de telefone.
+> Use esse endpoint para retornar o valor do estado da inscrição com base em um endereço de e-mail ou número de telefone.
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --- | --- | --- | --- |
 | `email` | Sim | String | O endereço de e-mail do usuário (deve incluir pelo menos um endereço e no máximo 50 endereços). |
 | `phone` | Sim | String | O número de telefone do usuário (deve incluir pelo menos um número de telefone e no máximo 50 números de telefone). Recomendamos fornecer isso no formato E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions?phone=+12123355555&email=example%40braze.com' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 
 As entradas são listadas em ordem decrescente.
 

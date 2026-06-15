@@ -38,7 +38,7 @@ To continuously track a user's location, you'll need to declare your app's inten
 |---|---|
 | `ACCESS_COARSE_LOCATION` | Uses the most battery-efficient, non-GPS provider (such as a home network). Typically, this is sufficient for most location-data needs. Under the runtime permissions model, granting location permission implicitly authorizes the collection of fine location data. |
 | `ACCESS_FINE_LOCATION`   | Includes GPS data for more precise location. Under the runtime permissions model, granting location permission also covers fine location access. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 Your `AndroidManifest.xml` should be similar to the following:
 
@@ -76,7 +76,7 @@ To selectively disable continuous location tracking at runtime, use [`BrazeConfi
 
 ```java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
-  .setIsLocationCollectionEnabled(false)
+  .setIsAutomaticLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
 ```
@@ -86,7 +86,7 @@ Braze.configure(this, brazeConfig);
 
 ```kotlin
 val brazeConfig = BrazeConfig.Builder()
-    .setIsLocationCollectionEnabled(false)
+    .setIsAutomaticLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
 ```

@@ -12,10 +12,6 @@ channel:
 
 > The WhatsApp Template Builder lets you create and submit WhatsApp message templates directly in Braze—no need to switch between Braze and the Meta Business Manager. After Meta approves your template, use it in as many campaigns and Canvases as you'd like.
 
-{% alert note %}
-The WhatsApp Template Builder is currently in early access. Contact your Braze account manager for access.
-{% endalert %}
-
 ## Prerequisites
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -24,7 +20,7 @@ The WhatsApp Template Builder is currently in early access. Contact your Braze a
 
 ### Step 1: Go to WhatsApp Templates
 
-Go to **Templates** > **WhatsApp Templates**, then select **Create new template**.
+Go to **Content** > **WhatsApp**, then select **Create new template**.
 
 ![WhatsApp templates page with button to create a new template.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -37,7 +33,7 @@ Fill in the following fields:
 | **Account** | The WhatsApp Business Account (WABA) you’d like to submit the template to. All subscription groups and phone numbers within a WABA will share template access. |
 | **Language** | The language for this template. WhatsApp requires a separate template for each language. |
 | **Template name** | A unique name for your template. Template names can only contain lowercase letters, numbers, and underscores. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ### Step 3: Choose a layout
 
@@ -81,7 +77,7 @@ Add up to 10 buttons to your template. Button types have different categories an
 | Phone number | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 1</li><li><b>Button text:</b> Up to 25 characters</li><li><b>Phone number:</b> Valid phone number with country code, without + (such as "14155552671")</li></ul> {:/}|
 | Visit website | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 2</li><li><b>Button text:</b> Up to 25 characters</li><li><b>Website URL:</b> Up to 2,000 characters</li></ul> {:/}|
 | Copy offer code | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 1</li><li><b>Button text:</b> "Copy offer code" (can't be edited)</li><li><b>Offer code:</b> Up to 15 characters</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
 
 ![WhatsApp template composer with quick reply and call to action buttons.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 

@@ -42,7 +42,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | -------- | --------- | ----------- |
 | `app_id` | Required | String | The app API identifier. |
 | `key_id` | Required | String | The ID of the SDK Authentication key to mark as primary. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```bash
@@ -84,7 +84,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
 | `keys[].rsa_public_key` | String | The RSA public key string. |
 | `keys[].description` | String | Description of the SDK Authentication key. |
 | `keys[].is_primary` | Boolean | Whether this key is the primary SDK Authentication key. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ### Validation rules
 

@@ -1,39 +1,39 @@
 ---
-nav_title: "取得:製品IDをエクスポートする"
-article_title: "取得:プロダクトIDをエクスポートする"
+nav_title: "GET: 製品IDをエクスポートする"
+article_title: "GET: 製品IDをエクスポートする"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "この記事では、「プロダクト ID のエクスポート」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「製品IDをエクスポートする」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# 製品IDをエクスポートする
+# 製品IDをエクスポートする {#export-product-ids}
 {% apimethod get %}
 /purchases/product_list
 {% endapimethod %}
 
-> 製品IDのページ分割されたリストを返すには、このエンドポイントを使用する。
+> このエンドポイントを使用して、製品IDのページ分割されたリストを返します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dff4ed40-81f5-451d-9d44-accc0e932285{% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`purchases.product_list`の権限が必要です。
+このエンドポイントを使用するには、`purchases.product_list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='purchases product list' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `page` | オプション | 文字列 | 表示したい商品リストのページ。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `page` | オプション | 文字列 | 表示したい製品リストのページ。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 {% raw %}
 ```
@@ -41,7 +41,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 ```
 {% endraw %}
 
-## 応答
+## 応答 {#response}
 
 ```json
 {
@@ -55,5 +55,5 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 {% endapi %}
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
 {% endalert %}

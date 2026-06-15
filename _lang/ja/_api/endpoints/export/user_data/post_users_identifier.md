@@ -1,34 +1,34 @@
 ---
-nav_title: "POST:識別子によるユーザープロファイルのエクスポート"
-article_title: "POST:識別子によるユーザプロファイルのエクスポート"
+nav_title: "POST: 識別子によるユーザープロファイルのエクスポート"
+article_title: "POST: 識別子によるユーザープロファイルのエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「識別子ごとにユーザーをエクスポート」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「識別子によるユーザーのエクスポート」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# 識別子によるユーザープロファイルのエクスポート
+# 識別子によるユーザープロファイルのエクスポート {#export-user-profile-by-identifier}
 {% apimethod post %}
 /users/export/ids
 {% endapimethod %}
 
 > このエンドポイントを使用して、ユーザー識別子を指定して任意のユーザープロファイルからデータをエクスポートします。
 
-1 つのリクエストには、最大 50 個の `external_ids` または `user_aliases` を含めることができます。`device_id`、`email_address`、または`phone` を指定する場合、リクエストごとに、これらの識別子s の1 つのみを含めることができます。
+1つのリクエストには、最大50個の`external_ids`または`user_aliases`を含めることができます。`device_id`、`email_address`、または`phone`を指定する場合、リクエストごとにこれらの識別子のうち1つのみを含めることができます。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#b9750447-9d94-4263-967f-f816f0c76577 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`users.export.ids`の権限が必要です。
+このエンドポイントを使用するには、`users.export.ids`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users export ids' %}
 
-## Request body
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -48,25 +48,25 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 {% alert note %}
-2024年8月22日以降に Braze にオンボーディングした顧客については、リクエストパラメータ`fields_to_export` が必要です。
+2024年8月22日以降にBrazeにオンボーディングした顧客については、リクエストパラメーター`fields_to_export`が必須です。
 {% endalert %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター          | required | データ型                                                     | 説明                                                                                  |
+| パラメーター | 必須 | データタイプ | 説明 |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `external_ids`     | オプション | 文字列の配列                                              | エクスポートするユーザーの外部識別子s。                                              |
-| `user_aliases`     | オプション | ユーザー別名オブジェクトの配列                                    | エクスポートするユーザーの[ユーザーエイリアス]({{site.baseurl}}/api/objects_filters/user_alias_object/)。 |
-| `device_id`        | オプション | 文字列                                                        | `getDeviceId` などのさまざまな SDK メソッドによって返されるデバイス識別子。                 |
-| `braze_id`         | オプション | 文字列                                                        | 特定のユーザーのBraze 識別子。                                                      |
-| `email_address`    | オプション | 文字列                                                        | ユーザーのメールアドレス。                                                                       |
-| `phone`            | オプション | [E.164](https://en.wikipedia.org/wiki/E.164)形式の文字列 | ユーザーの電話番号。                                                                        |
-| `fields_to_export` | オプション* | 文字列の配列                                              | エクスポートするユーザーデータ フィールドの名前。<br><br>\* このフィールドは、1 秒あたり40 リクエストという高速なレート制限を使用するために必要です。省略した場合、1 分あたり 250 リクエストのデフォルト レート制限が代わりに使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_ids` | オプション | 文字列の配列 | エクスポートするユーザーの外部識別子。 |
+| `user_aliases` | オプション | ユーザーエイリアスオブジェクトの配列 | エクスポートするユーザーの[ユーザーエイリアス]({{site.baseurl}}/api/objects_filters/user_alias_object/)。 |
+| `device_id` | オプション | 文字列 | `getDeviceId`などのさまざまなSDKメソッドによって返されるデバイス識別子。 |
+| `braze_id` | オプション | 文字列 | 特定のユーザーのBraze識別子。 |
+| `email_address` | オプション | 文字列 | ユーザーのメールアドレス。 |
+| `phone` | オプション | [E.164](https://en.wikipedia.org/wiki/E.164)形式の文字列 | ユーザーの電話番号。 |
+| `fields_to_export` | オプション* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。<br><br>*このフィールドは、1秒あたり40リクエストの高速レート制限を使用するために必要です。省略した場合、1分あたり250リクエストのデフォルトレート制限が代わりに使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-\* 2024年8月22日以降にBrazeに乗船した顧客に必要。
+*2024年8月22日以降にBrazeにオンボーディングした顧客には必須です。
 
-## リクエスト例
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' \
 --header 'Content-Type: application/json' \
@@ -87,49 +87,49 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 }'
 ```
 
-## エクスポートするフィールド
+## エクスポートするフィールド {#fields-to-export}
 
-以下は、有効な`fields_to_export`のリストです。`fields_to_export` を使用して返されるデータを最小限に抑えると、このAPI エンドポイントのレスポンスタイムが向上します。
+以下は、有効な`fields_to_export`のリストです。`fields_to_export`を使用して返されるデータを最小限に抑えると、このAPIエンドポイントのレスポンスタイムが向上します。
 
-| エクスポートするフィールド       | データタイプ       | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| エクスポートするフィールド | データタイプ | 説明 |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apps`                | 配列           | このユーザーがセッションを記録したアプリケーション。これには次のフィールドが含まれます。<br><br>-`name`: アプリ名<br>- `platform`: アプリ プラットフォーム(iOS、Android、またはWeb など)<br>- `version`:アプリのバージョン番号または名前 <br>-`sessions`: このアプリの総セッション数<br>-`first_used`: 初回セッションの日付<br>-`last_used`: 最終セッションの日付<br><br>すべてのフィールドsはストリングです。                                                                                                                                                                                                                                                                                       |
-| `attributed_campaign` | 文字列          | [アトリビューション積分]({{site.baseurl}}/partners/message_orchestration/)からのデーター(設定されている場合)。特定の広告キャンペーンのID。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `attributed_source`   | 文字列          | [アトリビューション積分]({{site.baseurl}}/partners/message_orchestration/)からのデーター(設定されている場合)。広告が表示されたプラットフォームのID。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `attributed_adgroup`  | 文字列          | [アトリビューション積分]({{site.baseurl}}/partners/message_orchestration/)からのデーター(設定されている場合)。キャンペーン の下のオプションのサブグループのID。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `attributed_ad`       | 文字列          | [アトリビューション積分]({{site.baseurl}}/partners/message_orchestration/)からのデーター(設定されている場合)。キャンペーンと広告グループの下にある任意のサブグループの識別子。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `push_subscribe`      | string          | ユーザーのプッシュ通知の購読ステータス。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `email_subscribe`     | string          | ユーザーのメールサブスクリプションステータス。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `braze_id`            | 文字列          | このユーザーにBrazeで設定されたデバイス固有の一意のユーザー 識別子。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `country`             | 文字列          | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 標準を使用するユーザーの国。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `created_at`          | 文字列          | ユーザープロファイルが作成された日時 (ISO 8601形式)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `custom_attributes`   | オブジェクト          | このユーザーのカスタム属性キーと値のペア。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `custom_events`       | 配列           | 過去 90 日間にこのユーザーに帰属するカスタム イベント。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `devices`             | 配列           | ユーザーのデバイスに関する情報。プラットフォームに応じて、次の情報が含まれます。<br><br>- `model`:デバイスのモデル名<br>- `os`:装置のオペレーティングシステム<br>- `carrier`:デバイスのサービスキャリア (利用可能な場合)<br>- `idfv`: (iOS) Braze デバイス識別子、ベンダーの Apple 識別子 (存在する場合)<br>- `idfa`: (iOS) Advertising の識別子(存在する場合)<br>- `device_id`:(Android)Braze機器識別子<br>- `google_ad_id`:(Android)グーグルプレイ広告識別子(存在する場合)<br>- `roku_ad_id`:(Roku） Roku 広告識別子<br>- `ad_tracking_enabled`:デバイスで広告"トラッキングが有効になっている場合、真または偽になることがあります |
-| `dob`                 | 文字列          | `YYYY-MM-DD` 形式のユーザーの生年月日。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `email`               | 文字列          | ユーザーのメールアドレス。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `external_id`         | 文字列          | 識別されたユーザー固有のユーザー識別子。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `first_name`          | 文字列          | ユーザーの名。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `gender`              | 文字列          | ユーザーの性別。可能な値は次のとおりです。<br><br>-`M`: 男性<br>-`F`: 女性<br>-`O`: その他<br>-`N`: 該当なし<br>-`P`: 言いたくない<br>- `nil`:不明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `home_city`           | 文字列          | ユーザーの所在地。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `language`            | 文字列          | ISO-639-1 規格のユーザー言語。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `last_coordinates`    | 浮動小数点の配列 | `[longitude, latitude]` としてフォーマットされたユーザーの最新のデバイスの場所。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `last_name`           | 文字列          | ユーザの姓。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `phone`               | 文字列          | E.164 形式のユーザーの電話番号。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `purchases`           | 配列           | このユーザーは過去90日間に購入しました。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `push_tokens`         | 配列           | アプリの通知の送信先を指定する一意の匿名識別子。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `random_bucket`       | 整数         | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。乱数ユーザーの一様分布Segmentsを作成するために使用されます。                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `time_zone`           | 文字列          | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `total_revenue`       | フロート           | このユーザーに帰属する総収益。総収益は、受領したキャンペーンおよびキャンバスのコンバージョン期間中に行われたユーザーの購入に基づいて計算されます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `uninstalled_at`      | タイムスタンプ       | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `user_aliases`        | オブジェクト          | [`alias_name` および`alias_label` を含むユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) (存在する場合)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `apps` | 配列 | このユーザーがセッションを記録したアプリ。以下のフィールドが含まれます。<br><br>- `name`: アプリ名<br>- `platform`: アプリプラットフォーム（iOS、Android、Webなど）<br>- `version`: アプリのバージョン番号または名前<br>- `sessions`: このアプリの総セッション数<br>- `first_used`: 初回セッションの日付<br>- `last_used`: 最終セッションの日付<br><br>すべてのフィールドは文字列です。 |
+| `attributed_campaign` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。特定の広告キャンペーンの識別子。 |
+| `attributed_source` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。広告が表示されたプラットフォームの識別子。 |
+| `attributed_adgroup` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンの下のオプションのサブグループの識別子。 |
+| `attributed_ad` | 文字列 | [アトリビューション統合]({{site.baseurl}}/partners/message_orchestration/)からのデータ（設定されている場合）。キャンペーンおよび広告グループの下のオプションのサブグループの識別子。 |
+| `push_subscribe` | 文字列 | ユーザーのプッシュ通知のサブスクリプションステータス。 |
+| `email_subscribe` | 文字列 | ユーザーのメールサブスクリプションステータス。 |
+| `braze_id` | 文字列 | このユーザーにBrazeが設定したデバイス固有の一意のユーザー識別子。 |
+| `country` | 文字列 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)標準を使用したユーザーの国。 |
+| `created_at` | 文字列 | ユーザープロファイルが作成された日時（ISO 8601形式）。 |
+| `custom_attributes` | オブジェクト | このユーザーのカスタム属性のキーと値のペア。 |
+| `custom_events` | 配列 | 過去90日間にこのユーザーに帰属するカスタムイベント。 |
+| `devices` | 配列 | ユーザーのデバイスに関する情報。プラットフォームに応じて以下が含まれます。<br><br>- `model`: デバイスのモデル名<br>- `os`: デバイスのオペレーティングシステム<br>- `carrier`: デバイスのサービスキャリア（利用可能な場合）<br>- `idfv`: (iOS) Brazeデバイス識別子、Apple Identifier for Vendor（存在する場合）<br>- `idfa`: (iOS) Identifier for Advertising（存在する場合）<br>- `device_id`: (Android) Brazeデバイス識別子<br>- `google_ad_id`: (Android) Google Play Advertising Identifier（存在する場合）<br>- `roku_ad_id`: (Roku) Roku Advertising Identifier<br>- `ad_tracking_enabled`: デバイスで広告トラッキングが有効になっている場合、trueまたはfalse |
+| `dob` | 文字列 | `YYYY-MM-DD`形式のユーザーの生年月日。 |
+| `email` | 文字列 | ユーザーのメールアドレス。 |
+| `external_id` | 文字列 | 識別済みユーザーの一意のユーザー識別子。 |
+| `first_name` | 文字列 | ユーザーの名。 |
+| `gender` | 文字列 | ユーザーの性別。可能な値は以下のとおりです。<br><br>- `M`: 男性<br>- `F`: 女性<br>- `O`: その他<br>- `N`: 該当なし<br>- `P`: 回答しない<br>- `nil`: 不明 |
+| `home_city` | 文字列 | ユーザーの居住都市。 |
+| `language` | 文字列 | ISO-639-1標準のユーザーの言語。 |
+| `last_coordinates` | 浮動小数点の配列 | `[longitude, latitude]`としてフォーマットされたユーザーの最新のデバイスの位置。 |
+| `last_name` | 文字列 | ユーザーの姓。 |
+| `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
+| `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
+| `push_tokens` | 配列 | アプリの通知の送信先を指定する一意の匿名識別子。 |
+| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
+| `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
+| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
+| `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
+| `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
-`/users/export/ids` エンドポイントは、受信したすべてのキャンペーンやキャンバス、実行されたすべてのカスタムイベント、作成されたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他の REST API エンドポイントよりも低速になります。
+`/users/export/ids`エンドポイントは、受信したすべてのキャンペーンやキャンバス、実行されたすべてのカスタムイベント、行われたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他のREST APIエンドポイントよりも低速になります。
 
-要求されたデータによっては、この API エンドポイントでは1分あたり 250 件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているセグメント別にユーザーをエクスポートすることを検討してください。
+リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているセグメント別のユーザーエクスポートを検討してください。
 
-## 応答
+## レスポンス {#response}
 
 ```json
 {
@@ -139,11 +139,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 }
 ```
 
-このエンドポイントからアクセスできるデータの例については、次の例を参照してください。
+このエンドポイントからアクセスできるデータの例については、以下の例を参照してください。
 
-### サンプルユーザーのエクスポートファイルアウトプット
+### ユーザーエクスポートファイルの出力例 {#example-user-export-file-output}
 
-ユーザーエクスポートオブジェクト (できるだけ少ないデータを含めます。オブジェクトにフィールドがない場合は、null または空であると見なされます):
+ユーザーエクスポートオブジェクト（できるだけ少ないデータを含めます。オブジェクトにフィールドがない場合は、nullまたは空であると見なされます）:
 
 {% tabs %}
 {% tab All fields %}
@@ -215,7 +215,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether the user's push notifications are turned on or turned off
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
       },
       ...
     ],
@@ -430,7 +430,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 {% endtabs %}
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
 {% endalert %}
 
 {% endapi %}

@@ -1,38 +1,38 @@
 ---
-nav_title: "POST:APIトリガーのキャンバスをスケジュールする"
-article_title: "POST:APIトリガーのキャンバスをスケジュールする"
-search_tag: エンドポイント
+nav_title: "POST: APIトリガーCanvasesのスケジュール"
+article_title: "POST: APIトリガーCanvasesのスケジュール"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「API トリガーキャンバスのスケジュール」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「APIトリガーCanvasesのスケジュール」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# APIトリガーのキャンバスをスケジュールする
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints  %}
+# APIトリガーCanvasesのスケジュール {#schedule-api-triggered-canvases}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
-> このエンドポイントを使用して、API トリガー配信を介してキャンバスメッセージをスケジュールします。これにより、メッセージの送信をトリガーするアクションを決めることができます。
+> このエンドポイントを使用して、APIトリガー配信を介してCanvasメッセージをスケジュールします。これにより、メッセージの送信をトリガーするアクションを決めることができます。
 
-キャンバスの最初のステップで送信されるメッセージにテンプレート化される `context` を渡すことができます。
+Canvasの最初のステップで送信されるメッセージにテンプレート化される `context` を渡すことができます。
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-このエンドポイントを使用してメッセージを送信するには、キャンバスを構築するときに作成される[キャンバス ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) が必要です。
+このエンドポイントを使用してメッセージを送信するには、Canvasを構築するときに作成される[Canvas ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)が必要です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`canvas.trigger.schedule.create`の権限が必要です。
+このエンドポイントを使用するには、`canvas.trigger.schedule.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
+{% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -60,19 +60,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|必須かどうか|string| [キャンバス識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-| `recipients` | オプション | 受信者s オブジェクトの配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。 |
-| `audience` | オプション | 接続されたオーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
-|`broadcast`| オプション | ブール値 | キャンペーンまたはキャンバスが対象とするSegment全体にメッセージを送信する場合は、`broadcast` をtrue に設定する必要があります。このパラメーターはデフォルトで false です (2017 年 8 月 31 日現在)。<br><br> `broadcast` が true に設定されている場合、`recipients` リストを含めることはできません。ただし、設定 `broadcast: true` の場合は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があるためです。 |
-| `context` | オプション | オブジェクト | この送信に含まれるすべてのユーザーのパーソナライゼーションキーと値のペア。[キャンバスコンテキストオブジェクトを]({{site.baseurl}}/api/objects_filters/context_object)参照せよ。 |
-| `schedule` | 必須かどうか | Scheduleオブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `recipients` | オプション | 受信者オブジェクトの配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。 |
+| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
+| `broadcast` | オプション | ブール値 | CampaignまたはCanvasが対象とするSegment全体にメッセージを送信する場合は、`broadcast` を true に設定する必要があります。このパラメーターはデフォルトで false です（2017年8月31日現在）。<br><br> `broadcast` が true に設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する場合は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `context` | オプション | オブジェクト | この送信に含まれるすべてのユーザーのパーソナライゼーションキーと値のペア。[Canvasコンテキストオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)を参照してください。 |
+| `schedule` | 必須 | スケジュールオブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object/)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
@@ -143,9 +143,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
 }'
 ```
 
-## 応答
+## 応答 {#response}
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 ```
 Content-Type: application/json

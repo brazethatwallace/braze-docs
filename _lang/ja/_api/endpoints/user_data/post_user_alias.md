@@ -5,34 +5,40 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "この記事では、「新しいユーザーエイリアスの作成」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「新しいユーザーエイリアスの作成」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# 新しいユーザーエイリアスを作成する
+# 新しいユーザーエイリアスを作成する {#create-new-user-alias}
 {% apimethod post %}
 /users/alias/new
 {% endapimethod %}
 
-> このエンドポイントを使用して、既存の識別されたユーザーに新しいユーザーエイリアスを追加するか、新しい識別されていないユーザーを作成する。
+> このエンドポイントを使用して、既存の識別済みユーザーに新しいユーザーエイリアスを追加するか、新しい未識別ユーザーを作成します。
 
-ユーザーエイリアスはリクエストごとに50個まで指定できます。
+リクエストごとに最大50個のユーザーエイリアスを指定できます。
 
-**既存のユーザーのユーザーエイリアスを追加**するには、新しいユーザーエイリアスオブジェクトに `external_id` を含める必要があります。オブジェクトに`external_id` が存在しても、その`external_id` を持つユーザーがいない場合、エイリアスはどのユーザーにも追加されない。`external_id` が存在しない場合、ユーザーは作成されますが、後で識別する必要があります。これは、「Identifying Users」と `users/identify` エンドポイントを使用して行うことができます。
+**既存のユーザーにユーザーエイリアスを追加する**には、新しいユーザーエイリアスオブジェクトに`external_id`を含める必要があります。オブジェクトに`external_id`が存在しても、その`external_id`を持つユーザーがいない場合、エイリアスはどのユーザーにも追加されません。`external_id`が存在しない場合でもユーザーは作成されますが、後で識別する必要があります。これは「Identifying Users」と`users/identify`エンドポイントを使用して行うことができます。
 
-**エイリアスのみの新規ユーザーを作成**するには、新規ユーザーエイリアスオブジェクトから `external_id` を省略する必要があります。ユーザーが作成されたら、`/users/track` エンドポイントを使用して、エイリアスのみのユーザーに属性、イベント、購入を関連付け、`/users/identify` エンドポイントを使用して、`external_id` でユーザーを識別します。
+**エイリアスのみの新規ユーザーを作成する**には、新しいユーザーエイリアスオブジェクトから`external_id`を省略する必要があります。ユーザーが作成されたら、`/users/track`エンドポイントを使用してエイリアスのみのユーザーに属性、イベント、購入を関連付け、`/users/identify`エンドポイントを使用して`external_id`でユーザーを識別します。
+
+## `alias_label`と`alias_name`が既に存在する場合 {#when-alias_label-and-alias_name-already-exist}
+
+`alias_label`と`alias_name`の組み合わせは、ユーザー群全体で一意である必要があります。詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)を参照してください。
+
+`alias_label`と`alias_name`のペアが既にいずれかのユーザーに存在する場合（同じユーザーか別のユーザーかを問わず）、エンドポイントは成功レスポンスを返します（例：`"aliases_processed": 1`、`"message": "success"`）。この場合、リクエスト内のユーザーに新しいエイリアスは追加されません。`alias_label`と`alias_name`のペアが既に使用されているため、リクエストは変更を行わず、該当ユーザーにエイリアスが追加されなかったように見えることがあります。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5cf18e64-fd02-452f-8c90-9a0f7c4d0487 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/api_key/)と`users.alias.new`の権限が必要です。
+このエンドポイントを使用するには、`users.alias.new`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users alias new' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -45,14 +51,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-### リクエストパラメーター
+### リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | 必須 | 新しいユーザーエイリアスオブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。<br><br> `alias_name` と`alias_label` の詳細については、[User Aliasesの]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)ドキュメントを参照のこと。|
+| `user_aliases` | 必須 | 新しいユーザーエイリアスオブジェクトの配列 | [ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。<br><br>`alias_name`と`alias_label`の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)のドキュメントを参照してください。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### 新しいユーザーエイリアスオブジェクトを指定したエンドポイントリクエスト本文
+### 新しいユーザーエイリアスオブジェクトを指定したエンドポイントリクエスト本文 {#endpoint-request-body-with-new-user-alias-object-specification}
 
 ```json
 {
@@ -62,7 +68,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 --header 'Content-Type: application/json' \
@@ -78,7 +84,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 }'
 ```
 
-## 応答
+## 応答 {#response}
+
+同じ`alias_label`と`alias_name`が既にユーザーに存在するためにエイリアスがスキップされた場合でも、レスポンス本文は成功を示すことがあります。詳細については、[エイリアスラベルと名前が既に存在する場合](#when-the-alias-label-and-name-already-exist)を参照してください。
 
 ```json
 {
@@ -89,4 +97,3 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 
 
 {% endapi %}
-

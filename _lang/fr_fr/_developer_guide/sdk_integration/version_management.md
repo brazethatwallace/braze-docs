@@ -5,26 +5,26 @@ article_title: À propos de la gestion des versions du SDK de Braze
 description: "Découvrez la gestion des versions du SDK de Braze."
 ---
 
-# À propos de la gestion des versions
+# À propos de la gestion des versions {#about-version-management}
 
 > Découvrez la gestion des versions du SDK de Braze, afin que votre application puisse bénéficier des dernières fonctionnalités et améliorations de qualité. Étant donné que les anciennes versions du SDK peuvent ne pas recevoir les derniers correctifs, corrections de bogues ou l'assistance la plus récente, nous vous recommandons de toujours maintenir votre SDK à jour dans le cadre de votre cycle de développement continu.
 
-## Recommandations en matière de versions
+## Recommandations en matière de versions {#versioning-recommendations}
 
 Tous les SDK de Braze respectent la [spécification de versionnement sémantique (SemVer)](https://semver.org/). Pour un numéro de version `MAJOR.MINOR.PATCH`, voici nos recommandations :
 
-|Version|À propos de cette version|Recommandation|
+| Version | À propos de cette version | Recommandation |
 |-------|------------------|--------------|
 | `PATCH` | Les mises à jour sont toujours non cassantes et comprennent d'importantes corrections de bogues. Elles sont toujours sûres à appliquer. | Vous devriez toujours essayer de mettre à jour immédiatement vers la dernière version de correctif de votre version majeure et mineure actuelle. |
-| `MINOR` | Les mises à jour sont toujours non cassantes et comprennent de nouvelles fonctionnalités. Elles ne nécessiteront jamais de modification du code de votre application. | Bien qu'il ne soit pas nécessaire de le faire immédiatement, vous devriez mettre à jour vers la dernière version mineure de votre version majeure actuelle dès que possible. 
+| `MINOR` | Les mises à jour sont toujours non cassantes et comprennent de nouvelles fonctionnalités. Elles ne nécessiteront jamais de modification du code de votre application. | Bien qu'il ne soit pas nécessaire de le faire immédiatement, vous devriez mettre à jour vers la dernière version mineure de votre version majeure actuelle dès que possible.
 | `MAJOR` | Les mises à jour sont des changements cassants qui peuvent nécessiter des modifications du code de votre application. | Comme cela peut nécessiter des modifications de code, mettez à jour vers la dernière version majeure dans un délai qui convient le mieux à votre équipe. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommandations en matière de versions" }
 
 {% alert note %}
 Il arrive que de nouvelles mises à jour des systèmes d'exploitation Android ou Apple nécessitent des modifications du SDK de Braze. Pour que votre application reste compatible avec les téléphones plus récents, il est important de maintenir votre SDK à jour.
 {% endalert %}
 
-## Recevoir des notifications pour les nouvelles versions
+## Recevoir des notifications pour les nouvelles versions {#getting-notified-of-new-releases}
 
 Pour recevoir des notifications automatiques lorsqu'une nouvelle version du SDK est publiée, vous pouvez surveiller le dépôt GitHub de n'importe quel SDK de Braze :
 
@@ -34,7 +34,7 @@ Pour recevoir des notifications automatiques lorsqu'une nouvelle version du SDK 
 
 Vous recevrez une notification GitHub (ainsi qu'un e-mail, selon vos [paramètres de notification](https://github.com/settings/notifications)) chaque fois qu'une nouvelle version est publiée. Pour la liste complète des dépôts SDK, consultez [Références, dépôts et exemples d'applications]({{site.baseurl}}/developer_guide/references/).
 
-## À propos des problèmes connus
+## À propos des problèmes connus {#about-known-issues}
 
 Afin de garantir que nos changements ne cassent pas vos pipelines de build, **nous ne modifions ni ne supprimons jamais une version après sa publication sur un système de distribution**&#8212;même si cette version présente des problèmes connus.
 

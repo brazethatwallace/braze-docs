@@ -1,7 +1,7 @@
 ---
 nav_title: DOTS.ECO
 article_title: DOTS.ECO
-description: "Dieser referenzierte Artikel beschreibt die Integration von Braze und DOTS.ECO."
+description: "Dieser Referenzartikel beschreibt die Integration von Braze und DOTS.ECO."
 alias: /partners/dots.eco/
 page_type: partner
 search_tag: Partner
@@ -9,120 +9,120 @@ search_tag: Partner
 
 # DOTS.ECO
 
-> [DOTS.ECO](https://dots.eco) können Sie Nutzer:innen mit nachvollziehbaren digitalen Zertifikaten für ihren realen Umwelteinfluss belohnen. Jedes Zertifikat kann Metadaten wie die URL des Zertifikats und die URL des Bildes enthalten, so dass Nutzer:innen ihren Wirkungsnachweis einsehen (und wieder aufrufen) können.
+> Mit [DOTS.ECO](https://dots.eco) können Sie Nutzer:innen mit nachvollziehbaren digitalen Zertifikaten für ihren realen Umwelteinfluss belohnen. Jedes Zertifikat kann Metadaten wie eine teilbare Zertifikats-URL und eine Bild-URL enthalten, sodass Nutzer:innen ihren Wirkungsnachweis einsehen (und wieder aufrufen) können.
 
 _Diese Integration wird von DOTS.ECO gepflegt._
 
-## Über diese Integration
+## Über diese Integration {#about-this-integration}
 
-Braze und DOTS.ECO verbinden Customer-Engagement-Journeys mit realen Impact Rewards. Von einem Braze-Canvas- oder Kampagnen-Schritt aus können Sie eine Anfrage zur Erstellung eines DOTS.ECO Zertifikats mit Hilfe von Connected Content auslösen. DOTS.ECO gibt Zertifikats-Metadaten (wie `certificate_url` und `certificate_image_url`) zurück, die Sie im Benutzerprofil als angepasste Attribute speichern und über Kanäle wie In-App-Nachrichten, Content Cards und Push-Benachrichtigungen wiederverwenden können.
+Braze und DOTS.ECO verbinden Customer-Engagement-Journeys mit realen Impact-Rewards. Von einem Braze-Canvas- oder Campaign-Schritt aus können Sie eine Anfrage zur Erstellung eines DOTS.ECO-Zertifikats mithilfe von Connected-Content auslösen. DOTS.ECO gibt Zertifikats-Metadaten (wie `certificate_url` und `certificate_image_url`) zurück, die Sie im Nutzerprofil als angepasste Attribute speichern und über Kanäle wie In-App-Nachrichten, Content Cards und Push-Benachrichtigungen wiederverwenden können.
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
-- Triggern Sie ein Wirkungszertifikat, wenn ein Nutzer:innen ein wichtiges Ereignis (Kauf, Levelabschluss, Abo, Empfehlung) abschließt.
-- Zeigen Sie ein personalisiertes Zertifikatsbild in einer In-App-Nachricht an, nachdem der Schritt Connected-Content erfolgreich war.
-- Fügen Sie eine Content-Card "Ihr Zertifikat anzeigen" mit der Zertifikats-URL für den späteren Zugriff hinzu.
+- Triggern Sie ein Wirkungszertifikat, wenn Nutzer:innen ein wichtiges Ereignis abschließen (Kauf, Levelabschluss, Abo, Empfehlung).
+- Zeigen Sie ein personalisiertes Zertifikatsbild in einer In-App-Nachricht an, nachdem der Connected-Content-Schritt erfolgreich war.
+- Fügen Sie eine Content-Card „Ihr Zertifikat anzeigen“ mit der Zertifikats-URL für den späteren Zugriff hinzu.
 - Speichern Sie Zertifikats-Metadaten (wie `certificate_url`, `certificate_image_url`, `certificate_header` und `greeting`) als angepasste Attribute zur Wiederverwendung in zukünftigen Nachrichten.
-- Weisen Sie Zertifikate unter Verwendung einer entfernten Nutzer:innen ID zu, so dass Nutzer:innen ihre Wirkung später beanspruchen und einsehen können.
-- Führen Sie A/B-Tests zu Impact Messaging durch (unterschiedliche Texte/Bilder), während Sie den gleichen Update-Fluss für Nutzer:innen beibehalten. DOTS.ECO 
+- Weisen Sie Zertifikate unter Verwendung einer Remote-Nutzer-ID zu, sodass Nutzer:innen ihre Wirkung später beanspruchen und einsehen können.
+- Führen Sie A/B-Tests zu Impact-Messaging durch (unterschiedliche Texte/Bilder), während Sie denselben DOTS.ECO-Nutzeraktualisierungsfluss beibehalten.
 
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
 | Voraussetzung | Beschreibung |
 |---|---|
-| DOTS.ECO Konto | DOTS.ECO Zugang zum Konto. |
-| DOTS.ECO Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO App Token, einen API-Schlüssel und eine ID für die Zuordnung. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO Customer-Success-Manager:in. |
-| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit `users.track` Berechtigungen. Erstellen Sie diesen Schlüssel auf dem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
-| Braze REST Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| DOTS.ECO-Konto | Zugang zu einem DOTS.ECO-Konto. |
+| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-Customer-Success-Manager. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Integrieren DOTS.ECO
+## DOTS.ECO integrieren {#integrating-dotseco}
 
-### Schritt 1: Erstellen Sie ein Canvas und fügen Sie einen Nutzer:innen-Update-Schritt hinzu.
+### 1. Schritt: Canvas erstellen und einen Nutzeraktualisierungsschritt hinzufügen {#step-1-create-a-canvas-and-add-a-user-update-step}
 
-Erstellen Sie im Braze-Dashboard ein neues Canvas, das triggert, wenn ein Nutzer:innen ein Schlüsselereignis (z.B. einen Kauf, ein Abo oder einen Meilenstein) abgeschlossen hat.
+Erstellen Sie im Braze-Dashboard ein neues Canvas, das triggert, wenn Nutzer:innen ein Schlüsselereignis abschließen (z. B. einen Kauf, ein Abo oder einen Meilenstein).
 
-Fügen Sie einen Schritt Nutzer:innen Update direkt nach dem Eingang hinzu. Mit diesem Schritt wird die DOTS.ECO API über Connected-Content aufgerufen und die zurückgegebenen Zertifikatsdaten im Nutzerprofil gespeichert.
+Fügen Sie direkt nach dem Eingangsschritt einen Nutzeraktualisierungsschritt hinzu. Dieser Schritt wird verwendet, um die DOTS.ECO-API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Nutzerprofil zu speichern.
 
-Verwenden Sie diesen Schritt, um die DOTS.ECO API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Nutzerprofil zu speichern.
+Verwenden Sie diesen Schritt, um die DOTS.ECO-API über Connected-Content aufzurufen und die zurückgegebenen Zertifikatsdaten im Nutzerprofil zu speichern.
 
-### Schritt 2: JSON vorbringen: Stellen Sie mit Connected-Content eine POST-Anfrage an DOTS.ECO 
+### 2. Schritt: Erweitertes JSON verfassen – POST-Anfrage an DOTS.ECO mit Connected-Content stellen {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
-Wechseln Sie im Schritt **Nutzer:innen aktualisieren** zum **erweiterten JSON-Editor** und verwenden Sie Connected-Content, um eine POST-Anfrage an die DOTS.ECO certificate API zu stellen.
+Wechseln Sie im Schritt **Nutzeraktualisierung** zum **Advanced JSON Editor** und verwenden Sie Connected-Content, um eine POST-Anfrage an die DOTS.ECO-Zertifikats-API zu stellen.
 
-Verwenden Sie den Tag `capture` und eine Anfrage für Connected-Content, um den Endpunkt des Zertifikats von DOTS.ECO aufzurufen. Dann speichern Sie die Antwort auf das Nutzerprofil als angepasste Attribute.
+Verwenden Sie den `capture`-Tag und eine Connected-Content-Anfrage, um den Zertifikats-Endpunkt von DOTS.ECO aufzurufen. Speichern Sie dann die Antwort als angepasste Attribute im Nutzerprofil.
 
-**Connected-Content und Nutzer:innen Update Beispiel**  
+**Connected-Content- und Nutzeraktualisierungsbeispiel**
 {% raw %}
-```  
-{% capture post_body %} 
-{  
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",  
-  "app_token": "YOUR_DOTS.ECO_APP_TOKEN",  
-  "impact_qty": 1,  
-  "remote_user_id": "{{${user_id} | default: ${braze_id}}}",  
-  "allocation_id": "YOUR_DOTS.ECO_ALLOCATION_ID"  
-}  
+```
+{% capture post_body %}
+{
+  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
+  "impact_qty": 1,
+  "remote_user_id": "{{${user_id} | default: ${braze_id}}}",
+  "allocation_id": "YOUR_DOTS.ECO_ALLOCATION_ID"
+}
 {% endcapture %}
 
-{% connected_content https://impact.dots.eco/api/v1/certificate/add?format=sdk  
-  :method post  
-  :headers { "auth-token": "YOUR_DOTS.ECO_AUTH_TOKEN" }  
-  :body {{post_body}}  
-  :content_type application/json  
-  :save result  
+{% connected_content https://impact.dots.eco/api/v1/certificate/add?format=sdk
+  :method post
+  :headers { "auth-token": "YOUR_DOTS.ECO_AUTH_TOKEN" }
+  :body {{post_body}}
+  :content_type application/json
+  :save result
 %}
 
-{  
-  "attributes": [  
-    {  
-      "certificate_image_url": "{{result.certificate_image_url}}",  
-      "certificate_url": "{{result.certificate_url}}",  
-      "certificate_id": "{{result.certificate_id}}"  
-    }  
-  ]  
-}  
+{
+  "attributes": [
+    {
+      "certificate_image_url": "{{result.certificate_image_url}}",
+      "certificate_url": "{{result.certificate_url}}",
+      "certificate_id": "{{result.certificate_id}}"
+    }
+  ]
+}
 ```
 {% endraw %}
 
 Senden Sie die Anfrage an `https://impact.dots.eco/api/v1/certificate/add?format=sdk`.
 
-![DOTS.ECO Nutzer:in Schritt Update.]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
+![DOTS.ECO-Nutzeraktualisierungsschritt.]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
-{% alert important %}  
-Diese Integration verwendet Connected-Content innerhalb eines Canvas-Schrittes zum **Nutzer:innen Update**, um die DOTS.ECO API aufzurufen. Testen Sie Anfragen zunächst mit einem API Client (z.B. Postman), um Ihr Token und die Nutzdaten zu validieren.  
+{% alert important %}
+Diese Integration verwendet Connected-Content innerhalb eines Canvas-Schrittes zur **Nutzeraktualisierung**, um die DOTS.ECO-API aufzurufen. Testen Sie Anfragen zunächst mit einem API-Client (z. B. Postman), um Ihr Token und die Nutzdaten zu validieren.
 {% endalert %}
 
-### Schritt 3: Das Zertifikat in Nachrichten anzeigen
+### 3. Schritt: Das Zertifikat in Nachrichten anzeigen {#step-3-display-the-certificate-in-messages}
 
-Wenn die Attribute des Zertifikats im Nutzerprofil gespeichert sind, können sie in nachgelagerten Canvas-Schritten für Nachrichten referenziert werden.
+Wenn die Zertifikatsattribute im Nutzerprofil gespeichert sind, können sie in nachgelagerten Canvas-Nachrichtenschritten referenziert werden.
 
-![DOTS.ECO Fluss.]({% image_buster /assets/img/dots_eco/dots.eco_flow.png %})
+![DOTS.ECO-Fluss.]({% image_buster /assets/img/dots_eco/dots.eco_flow.png %})
 
-![DOTS.ECO Schritt der Nachricht.]({% image_buster /assets/img/dots_eco/dotseco_messages.png %})
+![DOTS.ECO-Nachrichtenschritt.]({% image_buster /assets/img/dots_eco/dotseco_messages.png %})
 
-![DOTS.ECO Abschnitt Nachrichten verfassen.]({% image_buster /assets/img/dots_eco/dotseco_messages_compose.png %})
+![DOTS.ECO-Abschnitt „Nachrichten verfassen“.]({% image_buster /assets/img/dots_eco/dotseco_messages_compose.png %})
 
-Zum Beispiel:  
-- Zeigen Sie das Bild des Zertifikats in einer In-App-Nachricht mit {% raw %}`{{custom_attribute.${certificate_image_url}}}`{% endraw %}  
-- Link zum gehosteten Zertifikat mit {% raw %}`{{custom_attribute.${certificate_url}}}`{% endraw %}
+Zum Beispiel:
+- Zeigen Sie das Zertifikatsbild in einer In-App-Nachricht mit {% raw %}`{{custom_attribute.${certificate_image_url}}}`{% endraw %} an.
+- Verlinken Sie auf das gehostete Zertifikat mit {% raw %}`{{custom_attribute.${certificate_url}}}`{% endraw %}.
 
-![DOTS.ECO Verhalten bei Klick auf eine Nachricht.]({% image_buster /assets/img/dots_eco/dotseco_messages_compose_onclickbehavior.png %})
+![DOTS.ECO-Klickverhalten bei Nachrichten.]({% image_buster /assets/img/dots_eco/dotseco_messages_compose_onclickbehavior.png %})
 
 
-Damit können Sie In-App-Nachrichten, Content-Cards oder Push-Benachrichtigungen mit Aufprallbestätigung personalisieren.
+Damit können Sie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen mit einer Wirkungsbestätigung personalisieren.
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 Überprüfen Sie Connected-Content-Fehler im Braze-Dashboard unter **Einstellungen** > **Nachrichten-Aktivitätsprotokoll**.
 
-- **Connected-Content gibt leer zurück**: Stellen Sie sicher, dass `:save result` eingestellt ist und dass Sie auf die erwarteten Antwortfelder verweisen.
-- **Attribute werden im Schritt Nachricht nicht angezeigt**:
-  - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Schritt Benutzer-Update festgelegt haben.
-  - Verwenden Sie im Schritt Nutzer:innen aktualisieren den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute ausgefüllt wurden. Senden Sie dann einen Test an einen Nutzer:innen und bestätigen Sie, dass die Attribute in seinem Nutzerprofil gespeichert sind.
-- **`422` Fehler (nicht verarbeitbare Entität)**: Bestätigen Sie, dass Ihr App Token und die Anzahl der Auswirkungen gültig sind.
-- **`401` Fehler**: Bestätigen Sie, dass das Token vorhanden und korrekt ist.
-- **Keine Vorschau der Bilder im Schritt Nachricht**: Wählen Sie im Schritt Benutzer-Update die Option **Test an Nutzer**:in **senden** und geben Sie dann eine Vorschau der Nachricht mit demselben Nutzer:innen ein.
+- **Connected-Content gibt leere Ergebnisse zurück**: Stellen Sie sicher, dass `:save result` gesetzt ist und dass Sie auf die erwarteten Antwortfelder verweisen.
+- **Attribute werden im Nachrichtenschritt nicht angezeigt**:
+  - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Nutzeraktualisierungsschritt festgelegt haben.
+  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an Nutzer:innen und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
+- **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token und die Impact-Menge gültig sind.
+- **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token vorhanden und korrekt ist.
+- **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Test an Nutzer:in senden** und zeigen Sie dann eine Vorschau der Nachricht mit denselben Nutzer:innen an.

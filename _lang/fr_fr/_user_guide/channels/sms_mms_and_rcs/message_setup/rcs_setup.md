@@ -1,0 +1,116 @@
+---
+nav_title: "Configuration RCS"
+article_title: "Configuration RCS"
+page_order: 1
+alias: /rcs_setup/
+description: "Cet article de référence couvre les conditions requises pour mettre en place et lancer le RCS."
+page_type: reference
+channel:
+  - RCS
+---
+
+# Configurer le RCS {#set-up-rcs}
+
+> Cet article couvre les conditions requises pour mettre en place et lancer votre canal RCS.
+
+La configuration du RCS est aussi simple que celle du SMS. Poursuivez votre lecture pour découvrir comment vous pouvez commencer à envoyer des messages riches et interactifs.
+
+## Étape 1 : Remplir les critères d'éligibilité {#step-1-meet-the-eligibility-criteria}
+
+Pour être éligible à l'envoi de RCS avec Braze, votre entreprise doit remplir trois critères au préalable :
+
+1. Votre contrat Braze actuel doit inclure des crédits de messages ou d'actions.
+2. Vous devez envoyer vos messages RCS vers l'un des pays pris en charge par Braze :
+- États-Unis
+- Royaume-Uni
+- Allemagne
+- Mexique
+- Suède
+- Espagne
+- Singapour
+- Brésil
+- France
+- Italie
+- Colombie
+3. Vous devez obtenir une ou plusieurs unités de gestion des stocks RCS dans votre contrat.
+
+## Étape 2 : Enregistrer un expéditeur vérifié RCS {#step-2-register-an-rcs-verified-sender}
+
+Avant de pouvoir envoyer des messages RCS, vous devez enregistrer un expéditeur vérifié RCS. Il s'agit de la représentation de votre marque que les utilisateurs verront sur leurs appareils mobiles, comprenant le nom de votre marque, votre logo, un badge de vérification et un slogan facultatif. L'expéditeur vérifié RCS renforce la confiance des clients et confirme que vos messages proviennent d'une source authentifiée.
+
+![Un exemple d'expéditeur vérifié RCS dans un message RCS appelé « Cat Failz Cafe ».]({% image_buster /assets/img/rcs/rcs_sender.png %}){: style="max-width:60%;"}
+
+Après avoir ajouté la ou les unités de gestion des stocks RCS à votre bon de commande, Braze sera notifié et vous contactera avec les informations d'enregistrement de l'expéditeur RCS. Le format de ces informations dépendra des pays vers lesquels vous souhaitez envoyer des messages RCS.
+
+Lorsque vous aurez soumis vos formulaires complétés à Braze, nous finaliserons le processus d'enregistrement en votre nom.
+
+### Étape 2.1 : Configurer les solutions de repli SMS pour les groupes d'abonnement RCS {#step-21-set-up-sms-fallbacks-for-rcs-subscription-groups}
+
+Étant donné que la couverture actuelle des opérateurs varie selon les pays, et que le matériel et les logiciels des utilisateurs varient d'un individu à l'autre, la solution de repli SMS est un élément clé pour un programme RCS réussi aujourd'hui. Nous vous recommandons de configurer la solution de repli SMS. Si un opérateur ne prend pas en charge le RCS ou si l'appareil d'un utilisateur ne peut pas recevoir de messages RCS, la solution de repli SMS enverra votre message quoi qu'il arrive, afin que vous ne manquiez jamais un moment important avec vos utilisateurs.
+
+Nous vous recommandons vivement de revoir votre expérience actuelle d'abonnement SMS, vos groupes d'abonnement et la segmentation de votre audience avant de déployer votre première campagne RCS. Si nécessaire, votre gestionnaire de la satisfaction client est toujours disponible pour vous guider et vous aider tout au long du processus de configuration.
+
+### Délai d'approbation par les opérateurs {#timeline-for-carrier-approval}
+
+Le délai d'approbation par les opérateurs varie selon les pays et peut également varier au sein d'un même pays. Gardez à l'esprit que le marché du RCS en est encore à ses débuts, de sorte que les processus des opérateurs et des agrégateurs évoluent rapidement. Aux États-Unis, Braze estime que le délai d'approbation par les opérateurs pour un expéditeur vérifié RCS se situe généralement dans une fourchette de 4 à 6 semaines, un expéditeur de test étant généralement approuvé en une semaine.
+
+Lorsque votre expéditeur vérifié RCS sera approuvé, notre équipe opérationnelle mettra à jour vos groupes d'abonnement si nécessaire pour confirmer qu'ils incluent bien l'expéditeur RCS.
+
+## Étape 3 : Configurer les groupes d'abonnement {#step-3-set-up-subscription-groups}
+
+Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou en créer de nouveaux. Pour des instructions de configuration détaillées, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+
+## Migrer le trafic SMS vers le RCS {#migrating-sms-traffic-to-rcs}
+
+Si vous disposez de groupes d'abonnement SMS et RCS distincts, vous pouvez migrer les utilisateurs du SMS vers le RCS à l'aide d'un Canvas en une seule étape.
+
+Braze recommande de tester l'envoi de RCS à des volumes d'utilisateurs plus restreints dans un premier temps, puis de migrer progressivement davantage d'utilisateurs vers le groupe d'abonnement RCS. Par exemple, si vous avez 1 000 000 d'utilisateurs abonnés à un groupe d'abonnement SMS, cela pourrait consister à d'abord migrer tous les utilisateurs vers le nouveau groupe d'abonnement, puis à segmenter sur une audience plus restreinte de 50 000 à 100 000 (5-10 %) pour tester les messages RCS.
+
+### Étape 1 : Créer un Canvas et remplir la planification d'entrée {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
+
+Créez un Canvas et donnez-lui un nom facilement identifiable (par exemple « Transfert de groupe d'abonnement SMS-RCS »). Ensuite, planifiez le Canvas au moment qui vous convient.
+
+### Étape 2 : Définir votre audience {#step-2-define-your-audience}
+
+Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Users who are subscribed or opted-in**.
+
+| Méthode | Description |
+|---------|-------------|
+| **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
+| **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience à l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+### Étape 3 : Configurer une étape de mise à jour utilisateur {#step-3-configure-a-user-update-step}
+
+Ajoutez une étape de mise à jour utilisateur à votre Canvas. Dans cette étape, ouvrez l'**éditeur JSON avancé** et saisissez le code suivant (pour le champ d'identifiant utilisateur unique, nous recommandons d'utiliser le champ `braze_id`) :
+
+{% raw %}
+```json
+{
+  "attributes": [
+    {
+      "braze_id": "{{${braze_id}}}",
+      "subscription_groups": [
+        {
+          "subscription_group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+          "subscription_state": "subscribed",
+          "use_double_opt_in_logic": true
+        }
+      ]
+    }
+  ]
+}
+```
+{% endraw %}
+
+![Objet de mise à jour utilisateur contenant le code JSON mentionné précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
+
+### Étape 4 : Tester le Canvas {#step-4-test-the-canvas}
+
+Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) pour confirmer qu'il fonctionne comme prévu avant de l'envoyer à votre audience plus large.
+
+### Étape 5 : Lancer votre Canvas {#step-5-launch-your-canvas}
+
+Après avoir testé votre Canvas avec succès, lancez-le pour votre sous-ensemble d'utilisateurs !
+
+Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Contact Settings** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton bascule du groupe d'abonnement RCS devrait maintenant être activé.

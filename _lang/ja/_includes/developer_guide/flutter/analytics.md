@@ -14,13 +14,13 @@ braze.changeUser('user_id');
 
 Braze でカスタムイベントを記録することで、アプリの使用パターンについて詳しく知ることができ、ダッシュボードでの行動によってユーザーを分類できます。
 
-```dart
+`````````dart
 braze.logCustomEvent('my_custom_event');
 ```
 
 カスタムイベントで properties オブジェクトを渡すことによって、イベントに関するメタデータを追加できます。
 
-```dart
+`````````dart
 braze.logCustomEvent('custom_event_with_properties', properties: {
     'key1': 'value1',
     'key2': ['value2', 'value3'],
@@ -36,7 +36,7 @@ Braze では、ユーザーに属性を割り当てるメソッドが提供さ�
 
 Braze によって自動的に収集されるユーザー 属性を設定するには、SDKに付属の設定メソッドを使用します。
 
-```dart
+`````````dart
 braze.setFirstName('Name');
 ```
 
@@ -61,14 +61,14 @@ braze.setFirstName('Name');
 {% tabs %}
 {% tab Boolean %}
 
-```dart
+`````````dart
 braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
 ```
 
 {% endtab %}
 {% tab Integer %}
 
-```dart
+`````````dart
 // Set Integer Attribute
 braze.setIntCustomUserAttribute("custom int attribute key", integer);
 // Increment Integer Attribute
@@ -77,27 +77,27 @@ braze.incrementCustomUserAttribute("key", integer);
 
 {% endtab %}
 {% tab Double %}
-```dart
+`````````dart
 braze.setDoubleCustomUserAttribute("custom double attribute key", double);
 ```
 
 {% endtab %}
 {% tab String %}
 
-```dart
+`````````dart
 braze.setStringCustomUserAttribute("custom string attribute", "string custom attribute");
 ```
 
 {% endtab %}
 {% tab Date %}
 
-```dart
+`````````dart
 braze.setDateCustomUserAttribute("custom date attribute key", date);
 ```
 {% endtab %}
 {% tab Array %}
 
-```dart
+`````````dart
 // Adding to an Array
 braze.addToCustomAttributeArray("key", "attribute");
 // Removing an item from an Array
@@ -108,7 +108,7 @@ braze.removeFromCustomAttributeArray("key", "attribute");
 
 ### カスタム属性の設定解除
 
-```dart
+`````````dart
 braze.unsetCustomUserAttribute('attribute_key');
 ```
 
@@ -118,13 +118,13 @@ braze.unsetCustomUserAttribute('attribute_key');
 
 Braze は複数の通貨での購入に対応しています。米ドル以外の通貨でレポートする購入は、レポートされた日付の為替レートに基づいて米ドル単位でダッシュボードに表示されます。
 
-```dart
+`````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: properties);
 ```
 
 以下に例を示します。
 
-```dart
+`````````dart
 braze.logPurchase('product_id', 'USD', 9.99, 1, properties: {
     'key1': 'value'
 });

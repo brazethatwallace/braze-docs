@@ -29,7 +29,7 @@ After your recommendation is finished training, you can personalize your message
 
 You can generate Liquid from the **Add personalization** section in your message composer:
 
-1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> to open the personalization window.
+1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> **Add personalization** to open the personalization window.
 2. For **Personalization Type**, select **Item Recommendation**.
 3. For **Item Recommendation Name**, select the recommendation you just created.
 4. For **Number of Predicted Items**, enter how many top products you'd like to be inserted. For example, you can display the top three most purchased items.
@@ -44,7 +44,7 @@ You can write custom Liquid code by referencing a catalog's `product_recommendat
 |-------------|-------|
 |**Structure**|Each item is accessed as `items[index]`, where index starts at 0 (for the first item) and increments for subsequent items.|
 |**Catalog fields**|Each item in the array contains key-value pairs corresponding to fields (columns) in the catalog. For example, common catalog fields for product recommendations include:<br>- `name` or `title`<br>- `price`<br>- `image_url`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
 
 Use the `assign` tag to fetch the `product_recommendation` data and assign it to a variable.
 
@@ -60,7 +60,7 @@ Replace the following:
 |-----------|-----------|
 |`recommendation_name`|The name of the AI recommendation you created in Braze.|
 |`items`|The variable storing the recommended items array.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
 
 Next, reference specific items and their fields using array indexing and dot notation:
 
@@ -110,7 +110,7 @@ Replace the following:
 |-----------|-----------|
 |`recommendation_name`|The name of your recommendation.|
 |`image_url_field`|The name of the field in your catalog that contains image URLs.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
 
 To include a placeholder image in your preview and test emails, select **Choose image** then either choose an image from your media library or enter the URL of an image from your hosting site.
 {% endtab %}
@@ -131,6 +131,6 @@ Replace the following:
 |-----------|-----------|
 |`recommendation_name`|The name of your recommendation.|
 |`image_url_field`|The name of the field in your catalog that contains image URLs.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
 {% endtab %}
 {% endtabs %}

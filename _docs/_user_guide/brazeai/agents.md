@@ -10,12 +10,12 @@ description: "Braze Agents can generate content, make intelligent decisions, and
 > Braze Agents are AI-powered helpers you can create inside Braze. Agents can generate content, make intelligent decisions, and enrich your data so you can deliver more personalized customer experiences.
 
 {% alert important %}
-Message Credits are required to access and use Braze Agents. If you don't currently have message credits and want to use Braze Agents, contact your account manager for next steps.
+Message or Action Credits are required to access and use Braze Agents. If you don't currently have Action Credits and want to use Braze Agents, contact your account manager for next steps.
 {% endalert %}
 
 Watch this video for an overview of Braze Agents in Agent Console.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Why use Braze Agents?
 
@@ -37,7 +37,7 @@ In contrast, other BrazeAI tools are designed to maximize the metrics that they 
 
 Features for Braze Agents include:
 
-- **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, or Google Gemini).
+- **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, Google Gemini, or Databricks Mosaic).
 - **Seamless integration:** Deploy agents directly in Canvas steps or catalog fields.
 - **Testing and logging tools:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run.
 - **Usage controls:** Daily limits help manage performance and costs.
@@ -54,20 +54,25 @@ Agents are configured with instructions (system prompts) that define how they be
 | [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | The rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. Clear instructions make the agent more reliable and predictable. |
 | Context | Data passed into the agent at runtime, wherever it is deployed, such as user profile fields or catalog rows. This input provides the information the agent uses to generate outputs. |
 | [Canvas context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Temporary pieces of data you can create and use within a user’s journey through a specific Canvas. |
-| [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
-| [Execution](#limitations) | A single run of the agent. This counts against your daily limits. |
+| [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
+| [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
 | [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | The predefined data structure of the agent's response. |
-| [Temperature]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | The level of deviation for the agent's output. This defines how precise or creative your agent can be. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Limitations
 
 The following limitations apply:
 
-- Each agent has a default daily execution limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
-- By default, each run must complete within 15 seconds. After 15 seconds, the agent returns a `null` response where it is used.
+- Each agent has a default daily invocation limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
+- By default, each run must complete within 20 seconds. After 20 seconds, the agent returns a `null` response where it is used.
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
+
+## Error handling
+
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to five times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null`. If an agent reaches its daily invocation limit, the output is also set to `null`.
+
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to buffer against null outputs in your messages.
 
 ## How is my data used and sent to Braze-provided LLMs?
 

@@ -5,7 +5,7 @@
 | --- | --- |
 | Image and text | Tall or narrow images will scale down and be horizontally centered. Wide images will be clipped on the left and right edges. |
 | Image only | The message will resize to fit images of most aspect ratios. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -18,7 +18,7 @@ We recommend the following payload sizes:
 | iOS (pre-iOS 8) | 0.256 KB |
 | iOS (post-iOS 8) | 2 KB |
 | Android (FCM) | 4 KB |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -37,7 +37,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | --- | --- | --- | --- |
 | Portrait full screen with text | 6:5 | High resolution 1200 x 1000 px <br>Minimum resolution 600 x 500 px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport. |
 | Portrait full screen (image only, with or without buttons) | 3:5 | High resolution 1200 x 2000 px <br> Minimum resolution 600 x 1000 px | Cropping can occur on the left and right edges on taller devices. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Landscape %}
@@ -46,7 +46,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | --- | --- | --- | --- |
 | Landscape full screen with text | 10:3 | High resolution 2000 x 600 px <br>Minimum resolution 1000 x 300 px | Cropping can occur on all sides, but the image will always fill the top 50% of the viewport. |
 | Landscape full screen (image only, with or without buttons) | 5:3 | High resolution 2000 x 600 px <br> Minimum resolution 1000 x 600 px | Cropping can occur on the left and right edges on taller devices. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Slideup %}
@@ -54,7 +54,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | Type | Aspect ratio | Image quality | Notes |
 | --- | --- | --- | --- |
 | Slideup | 1:1 | High resolution 150 x 150 px <br> Minimum resolution 50 x 50 px | Images of various aspect ratios will fit into a square image container, without cropping. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% tab Modal %}
@@ -63,7 +63,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | --- | --- | --- | --- |
 | Modal (image only) | 1:1 | Maximum recommended resolution: 1200 x 2000 px <br> Minimum resolution: 600 x 600 px | The message will resize to fit images of most aspect ratios. The recommended maximum resolution has a 3:5 aspect ratio, which may not provide optimal results. While larger images are usable, they may lead to longer load times. <br> The ideal aspect ratio for images is 1:1, and not meeting this ratio may trigger a warning during upload. This warning is a suggestion for best results and does not prevent the upload of larger images. |
 | Modal with text | 29:10 | High resolution 1450 x 500 px <br> Minimum resolution 600 x 205 px | Tall images will scale down and be horizontally centered. Wide images will be clipped on the left and right edges. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Table" }
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 | iOS banner alert | 85 characters | 43 characters |
 | Android lock screen | 49 characters | 43 characters |
 | Android notification drawer | 597 characters | 43 characters |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 The recommended image size for all push images is 500 KB.
 
@@ -89,7 +89,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Table">
   <thead>
     <tr>
       <th>Image type</th>
@@ -135,7 +135,7 @@ table td {
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4  .reset-td-br-5 .reset-td-br-6 aria-label="Table" }
 
 {% endif %}
 
@@ -146,21 +146,21 @@ table td {
 | Text only | 25 KB |
 | Text with images | 60 KB |
 | Email width | 600 px |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 | Image specifications | Recommended maximum properties |
 | --- | --- | 
 | Size | 5 MB |
 | Width | Header: 600 px<br>Body: 480 px |
 | File types | PNG, JPEG, GIF<br><br> WebP image support varies across email clients. For reliable rendering, convert WebP images to PNG or JPEG before adding them to email messages. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 | Text specifications | Recommended maximum properties |
 | --- | --- | 
 | Subject line length | 35 characters<br>6 to 10 words |
 | `"From: Name"` length | 25 characters |
 | Pre-header length | 85 characters |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 {% endif %}
 
@@ -171,8 +171,43 @@ table td {
 | Classic   | 1:1 aspect ratio | 60 x 60&nbsp;px        |
 | Captioned | 4:3 aspect ratio | 600&nbsp;px minimum width |
 | Banner    | Any aspect ratio | 600&nbsp;px minimum width |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 For more information, refer to [Content Card creative details]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+
+{% endif %}
+
+{% if include.variable_name == "WhatsApp images" %}
+
+These specifications apply to template headers, response media messages, and image messages.
+
+| Property | Specifications | Notes |
+|---|---|---|
+| Supported formats | JPEG, PNG | Meta officially supports only JPEG and PNG for image messages. WebP is only supported for stickers (not standard image messages). |
+| Maximum file size | 5 MB | |
+| Color mode | 8-bit, RGB or RGBA | |
+| Caption (image messages only) | Optional; 1,024 characters maximum | |
+| Recommended dimensions | 1,125 × 600 px | We recommend using JPEG or PNG images sized at 1,125×600 px (1.91:1) for consistent rendering across devices and compliance with Meta's requirements. |
+| Recommended aspect ratio | 1.91:1 (wide) | Square (1:1) and wide (16:9) formats are accepted, but images may be cropped or enlarged depending on the user's device.<br><br> For carousel cards, header images are automatically cropped to a wide ratio by WhatsApp, unless there is no body text, in which case it renders as a square.|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
+
+{% endif %}
+
+{% if include.variable_name == "WhatsApp videos" %}
+
+The following specifications apply to template headers, response media messages, video messages, and carousel card headers.
+
+| Property | Specifications |
+|---|---|
+| Supported formats | MP4, 3GPP |
+| File size | 16 MB maximum |
+| Video codec | H.264 only |
+| Audio codec | AAC only |
+| Audio streams | Single audio stream or no audio stream |
+| Caption (video messages only) | Optional; 1,024 characters maximum |
+| Recommended aspect ratio | 1.91:1 (wide) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
+
+{% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
 {% endif %}

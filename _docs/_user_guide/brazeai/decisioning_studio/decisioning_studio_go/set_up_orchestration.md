@@ -18,7 +18,7 @@ Decisioning Studio Go supports the following Customer Engagement Platforms:
 |-----|-----------------|--------------|
 | **Braze** | API-triggered campaigns | Native integration, real-time triggering |
 | **Salesforce Marketing Cloud** | Journey Builder with API Events | SQL query automation, data extensions |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
 
 Select your CEP below to get started with the integration setup.
 
@@ -104,6 +104,8 @@ Braze offers app IDs (referred to as API keys in the Braze dashboard) that you c
 ### Step 6: Locate a test user ID
 
 To test your integration, you'll need a user ID:
+
+If your workspace uses [identifier field-level encryption]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), any new test user you create with the `/users/track` endpoint must follow the email requirements for encrypted workspaces. Send the `email` field as the Base64-encoded HMAC-SHA256 hash of the downcased email value, and send `email_encrypted` as the encrypted email value generated with your configured PII encryption keys.
 
 1. In the Braze dashboard, go to **Audience** > **Search Users**.
 2. Search for the user by their external user ID, user alias, email, phone number, or push token.

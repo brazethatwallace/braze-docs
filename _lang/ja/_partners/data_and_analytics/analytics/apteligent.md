@@ -2,7 +2,7 @@
 nav_title: Apteligent
 article_title: Apteligent
 alias: /partners/apteligent/
-description: "このリファレンス記事では、Braze と Apteligent のパートナーシップについて説明します。Apteligent は、詳細なクラッシュレポートを作成するモバイルアプリケーションであり、重要なデータを既存の Braze ソリューションに記録できるようにします。"
+description: "このリファレンス記事では、BrazeとApteligentのパートナーシップについて説明します。Apteligentは、詳細なクラッシュレポートを作成するモバイルアプリケーションであり、重要なデータを既存のBrazeソリューションに記録できるようにします。"
 page_type: partner
 search_tag: Partner
 
@@ -10,30 +10,30 @@ search_tag: Partner
 
 # Apteligent
 
-> [Apteligent](https://www.vmware.com/products/workspace-one/intelligence-consumer-apps.html) は、開発者と製品マネージャーにツールとインサイトを提供するモバイルアプリケーションパフォーマンスプラットフォームです。 
+> [Apteligent](https://www.vmware.com/products/workspace-one/intelligence-consumer-apps.html)は、開発者と製品マネージャーにツールとインサイトを提供するモバイルアプリケーションパフォーマンスプラットフォームです。
 
-_この統合は Apteligent によって管理されます。_
+_この統合はApteligentによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-BrazeとApteligentの統合は、詳細なiOSクラッシュレポートを提供し、重要なデータを既存のBrazeソリューションに記録するだけでなく、アプリケーションのクラッシュを経験したユーザーをセグメント化し、理解し、エンゲージすることを可能にする。
+BrazeとApteligentの統合は、詳細なiOSクラッシュレポートを提供し、重要なデータを既存のBrazeソリューションに記録するだけでなく、アプリケーションのクラッシュを経験したユーザーをセグメント化し、理解し、エンゲージすることを可能にします。
 
-## 前提条件 
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| TestDrive アカウント | このパートナーシップを活用するには、TestDrive アカウントが必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| TestDriveアカウント | このパートナーシップを活用するには、TestDriveアカウントが必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% alert warning %}
-この統合は現在iOSでのみサポートされている。
+この統合は現在iOSでのみサポートされています。
 {% endalert %}
 
 ## 統合 {#apteligent-ios-integration}
 
-### ステップ1:オブザーバーを登録する
+### ステップ 1:オブザーバーを登録する {#step-1-register-an-observer}
 
-最初にオブザーバーを登録する必要があります。Apteligent を初期化する前に、この登録が完了していることを確認してください。
+最初にオブザーバーを登録する必要があります。Apteligentを初期化する前に、この登録が完了していることを確認してください。
 
 ```objc
 [[NSNotificationCenter defaultCenter] addObserver:self
@@ -42,13 +42,13 @@ BrazeとApteligentの統合は、詳細なiOSクラッシュレポートを提�
                                            object:nil];
 ```
 
-### ステップ2:カスタムクラッシュ分析を記録する
+### ステップ 2:カスタムクラッシュ分析を記録する {#step-2-log-custom-crash-analytics}
 
-Apteligent SDK は、クラッシュが発生した後、ユーザーがアプリケーションをロードしたときに通知を発行します。通知には、クラッシュの名前、理由、発生日が含まれます。
+Apteligent SDKは、クラッシュが発生した後にユーザーがアプリケーションを読み込むと通知を発行します。通知には、クラッシュの名前、理由、発生日が含まれます。
 
-通知を受け取ったら、カスタムクラッシュイベントをログに記録し、Apteligent のクラッシュレポート分析を使用してユーザー属性を更新します。
+通知を受け取ったら、カスタムクラッシュイベントをログに記録し、Apteligentのクラッシュレポート分析を使用してユーザー属性を更新します。
 
-```objc
+`````````objc
 - (void)crashDidOccur:(NSNotification*)notification {
   NSDictionary *crashInfo = notification.userInfo;
   [[Appboy sharedInstance] logCustomEvent:@"ApteligentCrashEvent" withProperties:crashInfo];
@@ -58,5 +58,4 @@ Apteligent SDK は、クラッシュが発生した後、ユーザーがアプ�
 }
 ```
 
-完了すれば、Apteligentプラットフォームにあるクラッシュ情報を使って、Brazeのセグメンテーションとエンゲージメント分析のパワーを活用できるようになる。
-
+完了すれば、Apteligentプラットフォームにあるクラッシュ情報を使って、Brazeのセグメンテーションとエンゲージメント分析の力を活用できるようになります。

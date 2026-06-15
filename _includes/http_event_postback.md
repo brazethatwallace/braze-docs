@@ -49,7 +49,7 @@ In your Braze dashboard:
 | `aborted` | Braze was unable to successfully dispatch the message due to the user not having an emailable address, or Liquid abort logic was called in the message body. All aborted events include a `reason` field within the metadata object indicating why the message was aborted |
 |`delivered`| Message was accepted by the user's email inbox provider |
 |`bounced`| Message was rejected by the user's email inbox provider. All bounced events include a `reason` field within the metadata object reflecting the bounce error code provided by the inbox provider |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
 
 ### Example postback
 ```json

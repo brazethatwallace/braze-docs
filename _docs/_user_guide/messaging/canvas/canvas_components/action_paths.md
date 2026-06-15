@@ -47,9 +47,9 @@ Note that when the action group trigger is starting a session, and the next step
 
 #### Ranking status example
 
-Let's say you have an action path with an evaluation period of one day with two action groups: Group 1 and Group 2. Group 1 has a trigger event "Start Session", and Group 2 has "Make Purchase". If **Ranking** is turned on, then all users in the action path are "held" for one day. At the end of the day, if a user has started a session and made a purchase, then they advance to the highest rank path. In this case, the user would advance to Group 1. 
+Let's say you have an action path with an evaluation period of one day with two action groups: Group 1 and Group 2. Group 1 has a trigger event "Start Session", and Group 2 has "Place an Order". If **Ranking** is turned on, then all users in the action path are "held" for one day. At the end of the day, if a user has started a session and placed an order, then they advance to the highest rank path. In this case, the user would advance to Group 1. 
 
-In the preceding example, if **Ranking** is off and a user performs one of the trigger events ("Start Session" or "Make Purchase"), that user is advanced in the relevant action group based on the trigger action.
+In the preceding example, if **Ranking** is off and a user performs one of the trigger events ("Start Session" or "Place an Order"), that user is advanced in the relevant action group based on the trigger action.
 
 Note that Canvas entry properties differ from event properties. Canvas entry properties are properties from the event that triggered the Canvas. These properties can only be used in the first full step of a Canvas when using the original Canvas workflow. When using Canvas, persistent entry properties are enabled and allow the entry properties to be reused throughout the Canvas. Conversely, event properties originate from an event or action that occurs as the user goes through their workflow.
 
@@ -57,7 +57,7 @@ Note that Canvas entry properties differ from event properties. Canvas entry pro
 
 Add a trigger or multiple triggers to define your action groups. Here, you can select a range of triggers, such as if users:
 
-- Make a purchase
+- Place an order
 - Start a session
 - Perform a [custom event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
 - Perform a conversion event
@@ -71,6 +71,10 @@ Add a trigger or multiple triggers to define your action groups. Here, you can s
 - Trigger a geofence
 - Send an SMS or WhatsApp inbound message
 
+#### Add an email address trigger
+
+The **Add an Email Address** action group trigger fires when an email address is added or updated on a user profile during the action path's **Evaluation Window**. This behavior matches other profile update triggers: users advance through the action group when the profile change qualifies under your configuration, including any filters on the trigger.
+
 ![An action group named "Group 1" for users who make any purchase.]({% image_buster /assets/img/actionpath_group.png %})
 
 In each action group setting, you also have the option to select the checkbox **I want this group to exit the Canvas**, meaning that the users within this group exit the Canvas at the end of the evaluation period.
@@ -83,6 +87,6 @@ If users enter an action path multiple times and have multiple entries in the ac
 |---|--------------|
 | **Off** | A user can enter an action path more than once. These entries are held in the action path until a trigger action or event is recorded. If the trigger event does not satisfy an entry's property filters (for example, a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) does not match the trigger's property filters), the entry remains in the action path. <br><br>If the trigger event satisfies more than one entry, Braze deduplicates only these entries and immediately advances the earliest matching entry through the relevant action group. |
 | **On** | All entries advance at the end of the relevant evaluation window. No deduplication occurs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases with re-eligibility" }
 
 Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).

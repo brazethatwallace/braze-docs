@@ -22,7 +22,7 @@ After Banners are integrated into an app or website, marketers can design and la
 | Personalizing offers | Show personalized promotions and incentives based on each user’s browsing history, cart content, subscription tier, and loyalty status. |
 | Targeting new user engagement | Guide new users through onboarding flows and account setup. |
 | Sales and promotions | Highlight featured content, trending products, and ongoing brand campaigns persistently and directly on your homepage without disrupting the user experience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
 
 ## Features
 
@@ -30,7 +30,7 @@ Features for Banners include:
 
 - **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more.
 - **Flexible placements:** Define multiple locations within your application or website where Banners can appear, enabling precise targeting to specific contexts or user experiences.
-- **Dynamic personalization:** Banners can only be refreshed at the start of a new session or mid-session if a customer explicitly requests the refresh. Banners don’t update automatically on a new session. If a customer doesn't request the refresh, the Banner won't update.  
+- **Dynamic personalization:** Banners can only be refreshed at the start of a new session or mid-session if you explicitly request the refresh. Banners don't update automatically on a new session. If you don't request the refresh, the Banner won't update.
 - **Native prioritization:** Set the display priority for when multiple Banners target the same placement, ensuring the right message reaches users at the right time.
 - **Custom Code editor block:** Use the Custom Code editor block to add custom HTML for advanced customization or seamless integration with your existing web styles.
 
@@ -83,11 +83,11 @@ Additionally, Banner messages do not support the following features:
 - API-triggered and action-based campaigns
 - Connected Content
 - Promotional codes
-- User-controlled dismissals
 - `catalog_items` using the [`:rerender` tag]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
+- User-controlled dismissals (early access only)
 
-{% alert tip %}
-Want to help prioritize what's next? Contact [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+{% alert important %}
+Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
 {% endalert %}
 
 ## Next steps
@@ -95,3 +95,7 @@ Want to help prioritize what's next? Contact [banners-feedback@braze.com](mailto
 - [Create Banner placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/)
 - [Create a Banner campaign in Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
 - [Tutorial: Displaying a Banner by Placement ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+
+{% alert tip %}
+Want to help prioritize what's next? Contact [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+{% endalert %}

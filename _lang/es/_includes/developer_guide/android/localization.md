@@ -1,17 +1,17 @@
-# Localización
+# Localización {#localization}
 
-> La localización es compatible con el SDK para Android de Braze. Además del inglés, Braze admite varios idiomas para los mensajes de nuestro SDK integrado. Pertenecen a los mensajes predeterminados que se muestran en las aplicaciones integradas con Braze, como los lugares de la aplicación en los que hay problemas de conectividad (por ejemplo, "No se puede establecer conexión de red. Vuelve a intentarlo más tarde.") 
+> La localización es compatible con el SDK para Android de Braze. Además del inglés, Braze admite varios idiomas para los mensajes integrados de nuestro SDK. Estos corresponden a los mensajes predeterminados que se muestran en las aplicaciones integradas con Braze, como los lugares de la aplicación en los que hay problemas de conectividad (por ejemplo, "No se puede establecer conexión de red. Vuelve a intentarlo más tarde.")
 
 Si el idioma del teléfono está configurado en uno de los idiomas admitidos, cualquiera de las cadenas predeterminadas de Braze desencadenadas dentro de una aplicación integrada aparecerá automáticamente en ese idioma.
 
 Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus usuarios en sus perfiles, consulta nuestra [lista de idiomas de usuario]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Lenguas admitidas
+## Idiomas admitidos {#languages-supported}
 
 - Afrikáans
 - Aghem
 - Akan
-- Albanés 
+- Albanés
 - Amárico
 - Árabe
 - Armenio
@@ -34,11 +34,11 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Birmano
 - Camboyano
 - Catalán
-- atlas central tamazight
+- Tamazight del atlas central
 - Cheroqui
 - Kiga
 - Chino
-- Congo swahili
+- Suajili congoleño
 - Córnico
 - Criollo
 - Croata
@@ -76,7 +76,7 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Islandés
 - Igbo
 - Indonesio
-- Inuit
+- Inuktitut
 - Irlandés
 - Italiano
 - Japonés
@@ -114,8 +114,8 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Malabar
 - Maltés
 - Manés
-- Marati
-- Masai
+- Maratí
+- Masái
 - Meru
 - Moldavo
 - Mongol
@@ -123,7 +123,7 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Mundang
 - Nama
 - Nepalí
-- Norte ndebele
+- Ndebele del norte
 - Noruego
 - Nuer
 - Nyankole
@@ -136,7 +136,7 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Portugués
 - Punyabí
 - Quechua
-- Raeto romántico
+- Retorrománico
 - Rumano
 - Rombo
 - Kirundi
@@ -144,7 +144,7 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Rwa
 - Samburu
 - Sami
-- Sango
+- Sangu
 - Sánscrito
 - Escocés
 - Sena
@@ -157,10 +157,10 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Eslovaco
 - Esloveno
 - Soga
-- Somali
+- Somalí
 - Songhay
 - Español
-- Sondanés
+- Sundanés
 - Suajili
 - Sueco
 - Tashelhit
@@ -168,7 +168,7 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Tayiko
 - Tamil
 - Tasawaq
-- Tatar
+- Tártaro
 - Telugu
 - Teso
 - Tailandés
@@ -193,4 +193,3 @@ Si buscas una lista completa de los idiomas admitidos que puedes atribuir a tus 
 - Zulú
 
 Para más información, consulta nuestro artículo sobre [localización en Android](http://developer.android.com/guide/topics/resources/localization.html).
-

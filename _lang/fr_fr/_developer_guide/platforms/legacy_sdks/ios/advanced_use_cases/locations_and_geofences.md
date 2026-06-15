@@ -4,7 +4,7 @@ article_title: Localisations et géorepérages pour iOS
 platform: iOS
 page_order: 6
 description: "Cet article de référence explique comment mettre en œuvre des fonctions de localisation et de géorepérage dans votre application iOS."
-Tool:
+tool:
   - Location
 
 noindex: true

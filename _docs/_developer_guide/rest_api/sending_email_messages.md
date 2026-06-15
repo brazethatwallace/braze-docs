@@ -34,7 +34,7 @@ To complete this guide, you need:
 | Braze app ID | The identifier for your app within your workspace. To find it, go to **Settings** > **APIs and Identifiers** and check the **App identifiers** section. This value is required in the `app_id` field of the email messaging object. For more information, see [App identifier]({{site.baseurl}}/api/identifier_types/). |
 | HTML email content | The HTML body of your email message, prepared in advance. |
 | Backend service | A backend service or scripting environment capable of making HTTP POST requests to the Braze REST API. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Step 1: Create an API campaign
 

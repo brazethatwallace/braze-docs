@@ -4,7 +4,7 @@ article_title: iOS용 위치 추적
 platform: iOS
 page_order: 6
 description: "이 문서에서는 iOS 애플리케이션의 위치 추적을 구성하는 방법을 설명합니다."
-Tool:
+tool:
   - Location
 
 noindex: true

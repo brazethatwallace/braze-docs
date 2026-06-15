@@ -8,26 +8,26 @@ search_rank: 1
 hidden: true
 ---
 
-# Integração inicial de SDK
+# Integração inicial do SDK {#initial-sdk-integration}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-O Braze SDK fornecerá uma API para relatar informações a serem usadas em análise de dados, segmentação e engajamento, bem como a capacidade de registrar usuários para notificações por push e receber notificações.
+O SDK da Braze fornecerá uma API para relatar informações a serem usadas em análise de dados, segmentação e engajamento, bem como a capacidade de registrar usuários para notificações por push e receber notificações.
 
 >  O SDK Universal do Windows também é compatível com os apps .NET MAUI do Windows.
 
-## Etapa 1: Instale o SDK por meio do gerenciador de pacotes NuGet
+## Etapa 1: Instale o SDK por meio do gerenciador de pacotes NuGet {#step-1-install-the-sdk-via-the-nuget-package-manager}
 
 O Windows Universal SDK é instalado por meio do [NuGet Package Manager](http://www.nuget.org/). Para instalar o Braze Windows SDK via NuGet:
 
 1. Clique com o botão direito do mouse no arquivo de projeto
-2. Clique em "Manage NuGet Packages" (Gerenciar pacotes NuGet)
+2. Clique em "Manage NuGet Packages"
 3. Clique em "Online" no menu suspenso à esquerda
 4. Pesquise "Appboy" em "NuGet.org"
 5. Clique no pacote NuGet "AppboyPlatform.Universal.Release" e clique em Instalar
 
 >  A Biblioteca Universal do Windows deve ser usada para todos os apps Windows 8.1, Windows Phone 8.1 e UWP.
 
-## Etapa 2: Criação e configuração de AppboyConfiguration.xml
+## Etapa 2: Criação e configuração de AppboyConfiguration.xml {#step-2-creation-and-configuration-of-appboyconfigurationxml}
 
 Crie um arquivo chamado `AppboyConfiguration.xml` no diretório raiz do seu projeto e adicione o seguinte trecho de código a esse arquivo:
 
@@ -38,21 +38,21 @@ Crie um arquivo chamado `AppboyConfiguration.xml` no diretório raiz do seu proj
     </AppboyConfig>
 ```
 
->  Não se esqueça de atualizar `YOUR_API_KEY_HERE` com sua chave de API, que pode ser encontrada na página [Chaves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/).
+>  Não se esqueça de atualizar `YOUR_API_KEY_HERE` com sua chave de API, que pode ser encontrada na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/).
 
 Depois de adicionar esse snippet, não se esqueça de modificar as seguintes propriedades de arquivo para `AppboyConfiguration.xml`
 
-1. Defina `Build Action` como `Content`
-2. Defina `Copy to Output Directory` como `Copy Always`
+1. Defina **`Build Action`** como **`Content`**
+2. Defina **`Copy to Output Directory`** como **`Copy Always`**
 
-## Etapa 3: Configuração do package.appxmanifest
+## Etapa 3: Configuração do package.appxmanifest {#step-3-configuring-packageappxmanifest}
 
-Na guia "Capabilities" (Recursos), verifique se a opção `Internet (Client)` está marcada.
+Na guia "Capabilities", verifique se a opção `Internet (Client)` está marcada.
 ![]({% image_buster /assets/img_archive/internet_client.png %})
 
-## Etapa 4: Edição da classe do app
+## Etapa 4: Edição da classe do app {#step-4-editing-your-app-class}
 
-- Adicione o seguinte a `usings` de seu arquivo `App.xaml.cs`:
+- Adicione o seguinte a `usings` do seu arquivo `App.xaml.cs`:
 
 ```csharp
 using AppboyPlatform.PCL.Managers;
@@ -60,21 +60,20 @@ using AppboyPlatform.Universal;
 using AppboyPlatform.Universal.Managers.PushArgs;
 ```
 
-- Chame o seguinte em seu método de ciclo de vida `OnLaunched`:
+- Chame o seguinte no seu método de ciclo de vida `OnLaunched`:
 
 ```csharp
 Appboy.SharedInstance.OpenSession();
 ```
 
-- Chame o seguinte em seu método de ciclo de vida `OnSuspending`:
+- Chame o seguinte no seu método de ciclo de vida `OnSuspending`:
 
 ```csharp
 Appboy.SharedInstance.CloseSession();
 ```
 
-## Integração básica de SDK concluída
+## Integração básica do SDK concluída {#basic-sdk-integration-complete}
 
-Agora, o Braze deve estar coletando dados do seu aplicativo. Consulte os artigos a seguir sobre como registrar [atribuições]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/), [eventos]({{site.baseurl}}/developer_guide/analytics/logging_events/) e [compras]({{site.baseurl}}/developer_guide/analytics/logging_purchases/) em nosso SDK e como instrumentar o envio de mensagens push.
+Agora, a Braze deve estar coletando dados do seu aplicativo. Consulte os artigos a seguir sobre como registrar [atributos]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/), [eventos]({{site.baseurl}}/developer_guide/analytics/logging_events/) e [compras]({{site.baseurl}}/developer_guide/analytics/logging_purchases/) no nosso SDK e como instrumentar o envio de mensagens push.
 
->  Se estiver usando o projeto Braze Unity no mesmo app, talvez seja necessário qualificar totalmente as chamadas na Braze como "AppboyPlatform.Universal.Appboy"
-
+>  Se estiver usando o projeto Braze Unity no mesmo app, talvez seja necessário qualificar totalmente as chamadas à Braze como "AppboyPlatform.Universal.Appboy"

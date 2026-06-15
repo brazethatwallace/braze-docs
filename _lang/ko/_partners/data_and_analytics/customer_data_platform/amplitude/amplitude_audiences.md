@@ -3,109 +3,120 @@ nav_title: Amplitude
 article_title: Amplitude
 page_order: 0
 alias: /partners/amplitude_recommend/
-description: "This reference article outlines the partnership between Braze and Amplitude, a product analytics and business intelligence platform."
+description: "이 참조 문서에서는 제품 분석 및 비즈니스 인텔리전스 플랫폼인 Braze와 Amplitude 간의 파트너십에 대해 설명합니다."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
-> [Amplitude](https://amplitude.com/) is a product analytics and business intelligence platform.
+> [Amplitude](https://amplitude.com/)는 제품 분석 및 비즈니스 인텔리전스 플랫폼입니다.
 
-The Braze and Amplitude bi-directional integration allows you to [import your Amplitude Cohorts]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/), user traits, and events into Braze, as well as create segments that can target users in future campaigns or Canvases. You can also leverage Braze Currents to [export your Braze events to Amplitude]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration) to perform deeper analytics of your product and marketing data.
+Braze와 Amplitude의 양방향 통합을 통해 [Amplitude 코호트를 가져오고]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/), 사용자 특성 및 이벤트를 Braze로 가져올 수 있으며, 향후 Campaign 또는 Canvases에서 사용자를 타겟팅할 수 있는 세그먼트를 생성할 수 있습니다. 또한 Braze 커런츠를 활용하여 [Braze 이벤트를 Amplitude로 내보내]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration) 제품 및 마케팅 데이터에 대한 심층 분석을 수행할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| Amplitude account | An [Amplitude account](https://amplitude.com/) is required to take advantage of this partnership. |
-| Currents | In order to export data back into Amplitude, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Amplitude 계정 | 이 파트너십을 활용하려면 [Amplitude 계정](https://amplitude.com/)이 필요합니다. |
+| Currents | 데이터를 Amplitude로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Choose an integration 
+## 통합 선택 {#choose-an-integration}
 
-Amplitude and Braze offer two different integration methods. Read through the following documentation to decide which methods will fit your needs:
+Amplitude와 Braze는 두 가지 통합 방법을 제공합니다. 다음 설명서를 읽고 어떤 방법이 필요에 맞는지 결정하세요.
 
-- Braze Event Streaming: An integration that allows you to forward raw Amplitude event data straight to Braze.
-- [Cohort import]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/): An integration that allows you to forward Amplitude cohorts to Braze.
+- Braze 이벤트 스트리밍: 원시 Amplitude 이벤트 데이터를 Braze로 직접 전달할 수 있는 통합입니다.
+- [코호트 가져오기]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/): Amplitude 코호트를 Braze로 전달할 수 있는 통합입니다.
 
-## Braze Event Streaming
+## Braze 이벤트 스트리밍 {#braze-event-streaming}
 
-### Prerequisites
+### 필수 조건
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Braze REST API key | A Braze REST API key with the all permissions.<br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | [REST 엔드포인트 URL][1]. Your endpoint will depend on the Braze URL for your instance. |
-| Braze app identifier | The identifier for the app that will receive Amplitude events. This can be found within the **Braze Dashboard > Developer Console > Settings**. |
+| Braze REST API 키 | 모든 권한이 있는 Braze REST API 키.<br><br> 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL][1]. 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| Braze 앱 식별자 | Amplitude 이벤트를 수신할 앱의 식별자입니다. **Braze 대시보드 > 개발자 콘솔 > 설정**에서 확인할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-### Amplitude Setup
+### Amplitude 설정 {#amplitude-setup}
 
-1. In Amplitude, navigate to **Data Destinations** then look up "Braze - Event Stream".
-2. Enter a sync name and then click **Create Sync**.
-3. Click **Edit** and provide your Braze REST API endpoint, REST API key, and Braze app identifier.
-4. Use the send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones. 
-5. When finished, enable the destination and save. 
+1. Amplitude에서 **Data Destinations**로 이동한 다음 "Braze - Event Stream"을 검색합니다.
+2. 동기화 이름을 입력한 다음 **Create Sync**를 클릭합니다.
+3. **Edit**를 클릭하고 Braze REST API 엔드포인트, REST API 키 및 Braze 앱 식별자를 입력합니다.
+4. 이벤트 전송 필터를 사용하여 전송할 이벤트를 선택합니다. 모든 이벤트를 전송할 수 있지만, Amplitude에서는 가장 중요한 이벤트를 선택할 것을 권장합니다.
+5. 완료되면 대상을 활성화하고 저장합니다.
 
-Refer to [Braze Event Streaming](https://www.docs.developers.amplitude.com/data/destinations/braze/) for more information on this integration.
+이 통합에 대한 자세한 내용은 [Braze 이벤트 스트리밍](https://www.docs.developers.amplitude.com/data/destinations/braze/)을 참조하세요.
 
-## Sync user traits and computations
+## 사용자 특성 및 계산 동기화 {#sync-user-traits-and-computations}
 
-Use Audiences to send user properties and computations to Braze as custom attributes. You will be able to sync user properties or computed properties for users who have been active in the last 90 days.
+Audiences를 사용하여 사용자 등록정보 및 계산을 커스텀 속성으로 Braze에 전송합니다. 최근 90일 동안 활성 상태였던 사용자의 사용자 등록정보 또는 계산된 등록정보를 동기화할 수 있습니다.
 
-When a user's property or a computation updates, Amplitude will update a custom attribute in Braze with the same name as that user property or computation.
+사용자의 등록정보 또는 계산이 업데이트되면 Amplitude는 해당 사용자 등록정보 또는 계산과 동일한 이름으로 Braze의 커스텀 속성을 업데이트합니다.
 
-User trait and computation syncs will create new users for user identifiers that do not yet exist within Braze. Computations and user traits can only be synced using user identifiers. A user identifier can be any of the following:
-- External ID
+사용자 특성 및 계산 동기화는 Braze에 아직 존재하지 않는 사용자 식별자에 대해 새 사용자를 생성합니다. 계산 및 사용자 특성은 사용자 식별자를 사용해서만 동기화할 수 있습니다. 사용자 식별자는 다음 중 하나일 수 있습니다.
+- 외부 ID
 - Braze ID
-- User alias
-- Email address
+- 사용자 별칭
+- 이메일 주소
 
-Refer to Amplitude's documentation to learn more about [syncing properties, recommendations, and cohorts to third-party destinations](https://help.amplitude.com/hc/en-us/articles/360060055531).
+등록정보, 추천 및 코호트를 서드파티 대상에 동기화하는 방법에 대해 자세히 알아보려면 Amplitude의 [등록정보, 추천 및 코호트를 서드파티 대상에 동기화](https://help.amplitude.com/hc/en-us/articles/360060055531) 설명서를 참조하세요.
 
-#### How to sync user properties and computations
+#### 사용자 등록정보 및 계산을 동기화하는 방법 {#how-to-sync-user-properties-and-computations}
 
-In Amplitude Audiences, select **Syncs > Create Sync**.
+Amplitude Audiences에서 **Syncs > Create Sync**를 선택합니다.
 
 ![]({% image_buster /assets/img/amplitude11.png %})
 
-Next, choose to sync a user property, computation, cohort, or recommendation. 
+다음으로, 사용자 등록정보, 계산, 코호트 또는 추천 중 동기화할 항목을 선택합니다.
 
 {% tabs %}
-{% tab Syncing user property %}
+{% tab 사용자 등록정보 동기화 %}
 
-Select **User Property** and then the desired user property to sync.
+**User Property**를 선택한 다음 동기화할 사용자 등록정보를 선택합니다.
 
 ![]({% image_buster /assets/img/amplitude7.png %})
 
-Next, select a destination to sync your user property to.
+다음으로, 사용자 등록정보를 동기화할 대상을 선택합니다.
 
 ![]({% image_buster /assets/img/amplitude8.png %})
 
-Lastly, define the frequency of your sync.
+마지막으로, 동기화 빈도를 정의합니다.
 
 ![케이던스를 일회성 동기화 또는 예약 동기화로 정의합니다.]({% image_buster /assets/img/amplitude9.png %})
 
 {% endtab %}
-{% tab Syncing computation %}
+{% tab 계산 동기화 %}
 
-Select **Computation** and then the desired computation to sync
+**Computation**을 선택한 다음 동기화할 계산을 선택합니다.
 
 ![]({% image_buster /assets/img/amplitude10.png %})
 
-Next, select a destination to sync your computation to.
+다음으로, 계산을 동기화할 대상을 선택합니다.
 
 ![]({% image_buster /assets/img/amplitude8.png %})
 
-Lastly, define the frequency of your sync.
+마지막으로, 동기화 빈도를 정의합니다.
 
 ![케이던스를 일회성 동기화 또는 예약 동기화로 정의합니다.]({% image_buster /assets/img/amplitude9.png %})
 
 {% endtab %}
 {% endtabs %}
 
-## Amplitude user profile API endpoints
+## 문제 해결 {#troubleshooting}
 
-To check out some of the common Amplitude API endpoints that can be used with Connected Content, view our dedicated [Amplitude API documentation]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api/).
+### 코호트 동기화 시 "이 필터에 대한 데이터가 아직 충분하지 않습니다" 오류 {#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort}
+
+[Amplitude 코호트를 Braze로 가져올]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) 때 이 오류가 발생하면 다음을 시도해 보세요.
+
+1. **사용자 ID 정렬을 확인합니다.** Amplitude의 사용자 ID(Amplitude ID가 아님)가 Braze의 외부 사용자 ID(Braze 또는 BSON ID가 아님)와 정확히 일치해야 합니다. 예를 들어, Amplitude의 사용자 ID `12345`는 Braze의 외부 사용자 ID `12345`와 일치해야 합니다.
+2. **Braze API 키를 재생성합니다.** Braze 대시보드에서 **파트너 통합** > **기술 파트너** > **Amplitude**로 이동하여 **Generate New Key**를 선택합니다. 그런 다음 새 API 키를 사용하여 Amplitude 코호트 동기화를 다시 시도합니다.
+3. **Amplitude에서 코호트가 동기화되었는지 확인합니다.** Braze에서 추가 문제 해결을 진행하기 전에 [Amplitude 고객지원](https://help.amplitude.com/)에 문의하여 Amplitude 측에서 코호트가 성공적으로 동기화되었는지 확인합니다.
+
+## Amplitude 고객 프로필 API 엔드포인트 {#amplitude-user-profile-api-endpoints}
+
+연결된 콘텐츠와 함께 사용할 수 있는 일반적인 Amplitude API 엔드포인트를 확인하려면 전용 [Amplitude API 설명서]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api/)를 참조하세요.

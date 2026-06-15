@@ -6,11 +6,13 @@ description: "Esta é uma lista de documentação de referência, repositórios 
 toc_headers: h2
 ---
 
-# Referências, repositórios e apps de exemplo
+# Referências, repositórios e apps de exemplo {#references-repositories-and-sample-apps}
 
 > Esta é uma lista de documentação de referência, repositórios GitHub e apps de exemplo pertencentes a cada SDK da Braze. A documentação de referência de um SDK detalha suas classes, tipos, funções e variáveis disponíveis. O repositório GitHub fornece insight sobre as declarações de funções e atributos desse SDK, alterações de código e controle de versão. Cada repositório também inclui aplicativos de exemplo totalmente compiláveis que você pode usar para testar os recursos da Braze ou implementar junto com seus próprios aplicativos.
 
-## Lista de recursos
+Para conteúdo de README de repositórios espelhados na documentação, consulte [Guias de repositório]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
+## Lista de recursos {#list-of-resources}
 
 {% alert note %}
 Atualmente, alguns SDKs não possuem documentação de referência dedicada, mas estamos trabalhando ativamente nisso.
@@ -28,27 +30,27 @@ Atualmente, alguns SDKs não possuem documentação de referência dedicada, mas
 | Roku SDK          | N/D                                                                                                                                                         | [Repositório GitHub](https://github.com/braze-inc/braze-roku-sdk)            | [App de exemplo](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv)            |
 | Unity SDK         | [Arquivo de declaração](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)     | [Repositório GitHub](https://github.com/braze-inc/braze-unity-sdk)          | [App de exemplo](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)          |
 | SDK .NET MAUI (anteriormente Xamarin)      | N/D                                                                                                                                                         | [Repositório GitHub](https://github.com/braze-inc/braze-xamarin-sdk)      | [App de exemplo](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples)      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Lista de recursos" }
 
-## Criando um app de exemplo
+## Criando um app de exemplo {#building-a-sample-app}
 
 {% tabs %}
 {% tab android %}
-### Compilando o "Droidboy"
+### Compilando o "Droidboy" {#building-droidboy}
 
 Nosso aplicativo de teste no [repositório GitHub do Android SDK](https://github.com/braze-inc/braze-android-sdk) é chamado Droidboy. Siga estas instruções para criar uma cópia totalmente funcional dele junto com seu projeto.
 
 1. Crie um novo [espaço de trabalho]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#app-group-configuration) e anote a chave identificadora de API da Braze.<br><br>
 2. Copie seu ID de remetente FCM e a chave identificadora de API da Braze nos locais apropriados em `/droidboy/res/values/braze.xml` (entre as tags das strings denominadas `com_braze_push_fcm_sender_id` e `com_braze_api_key`, respectivamente).<br><br>
-3. Copie a chave do servidor FCM e o ID do servidor nas configurações do espaço de trabalho em **Gerenciar Configurações**.<br><br>
+3. Copie a chave do servidor FCM e o ID do servidor nas configurações do espaço de trabalho em **Gerenciar configurações**.<br><br>
 4. Para montar o APK do Droidboy, execute `./gradlew assemble` no diretório do SDK. Use `gradlew.bat` no Windows.<br><br>
 5. Para instalar automaticamente o APK do Droidboy em um dispositivo de teste, execute `./gradlew installDebug` no diretório do SDK:
 
-### Compilando o "Hello Braze"
+### Compilando o "Hello Braze" {#building-hello-braze}
 
 O aplicativo de teste Hello Braze mostra um caso de uso mínimo do SDK da Braze e também demonstra como integrar facilmente o SDK da Braze em um projeto Gradle.
 
-1. Copie sua chave identificadora de API da página **Manage Settings** no seu arquivo `braze.xml` na pasta `res/values`.
+1. Copie sua chave identificadora de API da página **Gerenciar configurações** no seu arquivo `braze.xml` na pasta `res/values`.
 ![]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
 2. Para instalar o app de exemplo em um dispositivo ou emulador, execute o seguinte comando no diretório do SDK:
 ```
@@ -60,7 +62,7 @@ Para saber mais sobre o sistema de compilação do Android SDK, consulte o [READ
 {% endtab %}
 
 {% tab swift %}
-### Compilando apps de teste Swift
+### Compilando apps de teste Swift {#building-swift-test-apps}
 
 Siga estas instruções para compilar e executar nossos aplicativos de teste.
 
@@ -71,5 +73,5 @@ Siga estas instruções para compilar e executar nossos aplicativos de teste.
 {% endtabs %}
 
 {% alert note %}
-Ao realizar o controle de qualidade da sua integração de SDK, use o [SDK Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para solucionar problemas sem ativar o registro detalhado no seu app.
+Ao realizar o controle de qualidade da sua integração de SDK, use o [Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) para solucionar problemas sem ativar o registro detalhado no seu app.
 {% endalert %}

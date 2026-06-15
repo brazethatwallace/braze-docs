@@ -2,7 +2,7 @@
 nav_title: Transifex
 article_title: Transifex
 alias: /partners/transifex/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Transifex, einer Lokalisierungsplattform, die es Ihnen erlaubt, die Übersetzung zu automatisieren, so dass sich Ihre Teams auf die Bereitstellung von hervorragenden Kundenerlebnissen konzentrieren können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Transifex, einer Lokalisierungsplattform, mit der Sie Übersetzungen automatisieren können, sodass sich Ihre Teams auf die Bereitstellung hervorragender Kundenerlebnisse konzentrieren können."
 page_type: partner
 search_tag: Partner
 
@@ -10,30 +10,30 @@ search_tag: Partner
 
 # Transifex
 
-> [Transifex](https://www.transifex.com/) ermöglicht eine robuste Lokalisierung für Ihre Nutzer:innen, unabhängig von der Sprache.
+> [Transifex](https://www.transifex.com/) ermöglicht eine robuste Lokalisierung für Ihre gesamte Nutzerbasis, unabhängig von der Sprache.
 
 _Diese Integration wird von Transifex gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Transifex nutzt Connected-Content, um Ihnen zu erlauben, eine Sammlung von Resource Strings zu ziehen und die entsprechenden Übersetzungen in Ihre Nachrichten einzufügen, anstatt Zeilen mit sprachbasierter bedingter Formatierung. Dadurch wird die Übersetzung automatisiert und Ihre Teams können sich auf die Bereitstellung hervorragender Kundenerlebnisse konzentrieren.
+Die Integration von Braze und Transifex nutzt Connected-Content, um Ihnen zu ermöglichen, eine Sammlung von Resource Strings abzurufen und die entsprechenden Übersetzungen in Ihre Nachrichten einzufügen – anstatt Zeilen mit sprachbasierter bedingter Formatierung. Dadurch wird die Übersetzung automatisiert und Ihre Teams können sich auf die Bereitstellung hervorragender Kundenerlebnisse konzentrieren.
 
 {% alert important %}
-Ab dem 7\. April 2022 hat Transifex die API-Versionen 2 und 2.5 veraltet, um Platz für Version 3 zu machen. v2 und v2.5 sind nicht mehr funktionsfähig, und entsprechende Anfragen werden fehlschlagen. <br><br>Die folgenden Anweisungen zur Integration beziehen sich auf das Update auf Version 3. Aktualisieren Sie Ihre Connected-Content-Aufrufe entsprechend.
+Seit dem 7. April 2022 hat Transifex die API-Versionen 2 und 2.5 zugunsten von Version 3 eingestellt. v2 und v2.5 sind nicht mehr funktionsfähig, und entsprechende Anfragen werden fehlschlagen. <br><br>Die folgenden Integrationsanweisungen beziehen sich auf das Update auf Version 3. Aktualisieren Sie Ihre Connected-Content-Aufrufe entsprechend.
 {% endalert %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-| Anforderung| Beschreibung|
-| ---| ---|
-|Transifex Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Transifex-Konto](https://www.transifex.com/signin/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Anforderung | Beschreibung |
+| --- | --- |
+| Transifex-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Transifex-Konto](https://www.transifex.com/signin/) erforderlich. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Die Integration von Transifex verwendet die [API für Ressourcenübersetzungen](https://developers.transifex.com/reference/get_resource-translations) von Transifex. Mit der folgenden cURL können Sie feststellen, ob Ihr Konto Inhaltswerte hat, die mit Übersetzungen verbunden sind. 
+Die Transifex-Integration verwendet die [API für Ressourcenübersetzungen](https://developers.transifex.com/reference/get_resource-translations) von Transifex. Mit dem folgenden cURL-Befehl können Sie prüfen, ob Ihr Konto Inhaltswerte hat, die mit Übersetzungen verknüpft sind.
 
-Geben Sie zunächst die in Ihrem Transifex-Konto gefundenen `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` und `<RESOURCE_NAME>` ein. Ersetzen Sie anschließend `<LANGUAGE>` durch den Code der Sprache, nach der Sie die Übersetzungen filtern möchten, und `<TRANSIFEX_BEARER_TOKEN>` durch Ihr [Transifex-Token](https://developers.transifex.com/reference/api-authentication).
+Geben Sie zunächst die in Ihrem Transifex-Konto hinterlegten Werte für `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` und `<RESOURCE_NAME>` ein. Ersetzen Sie anschließend `<LANGUAGE>` durch den Sprachcode, nach dem Sie die Übersetzungen filtern möchten, und `<TRANSIFEX_BEARER_TOKEN>` durch Ihr Transifex-[Bearer-Token](https://developers.transifex.com/reference/api-authentication).
 
 ```
 curl --request GET \
@@ -42,11 +42,11 @@ curl --request GET \
      --header 'Authorization: Bearer 1/<TRANSIFEX_BEARER_TOKEN>'
 ```
 
-Wenn sich Ihr Transifex-Projekt beispielsweise am Standort `https://www.transifex.com/appboy-3/french2/french_translationspo/` befindet, wird `project_name` zu "french2" und `resource_name` zu "french_translationspo".
+Wenn sich Ihr Transifex-Projekt beispielsweise unter `https://www.transifex.com/appboy-3/french2/french_translationspo/` befindet, lautet der `project_name` „french2“ und der `resource_name` „french_translationspo“.
 
-## Beispiel für Connected-Content-Nachrichten
+## Beispiel für eine Connected-Content-Nachricht {#connected-content-message-example}
 
-Dieser Code-Snippet verwendet die Transifex API für die Ressourcenübersetzung und das Attribut `language` des Nutzers:innen. Je nach Bedarf können Sie dann eine Schleife durch die String-Objekte ziehen und den entsprechenden Inhalt mit dem folgenden Liquid einlesen: `{{strings.data[X].attributes.strings.other}}`.
+Dieses Code-Snippet verwendet die Transifex-API für Ressourcenübersetzungen und das `language`-Attribut der Nutzer:innen. Je nach Bedarf können Sie dann die String-Objekte in einer Schleife durchlaufen und den entsprechenden Inhalt mit folgendem Liquid abrufen: `{{strings.data[X].attributes.strings.other}}`.
 
 {% raw %}
 ```

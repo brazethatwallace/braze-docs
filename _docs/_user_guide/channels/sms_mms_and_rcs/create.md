@@ -62,7 +62,7 @@ The subscription group you select determines which message types are available i
 | SMS-only | SMS |
 | SMS with MMS-enabled numbers | SMS and MMS |
 | RCS-enabled (with RCS-verified sender) | SMS, MMS (if enabled), and RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 Braze strongly recommends that every subscription group containing an RCS sender also includes at least one SMS code for fallback. This ensures that if an RCS message fails to deliver (for example, due to device incompatibility or incomplete carrier coverage), the message still reaches your user through SMS.
@@ -108,7 +108,7 @@ Enter your message body, then upload a PNG, JPEG, or GIF image from the [media l
 | --- | --- |
 | Size | Up to 600&nbsp;KB |
 | File types | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### Contact cards
 
@@ -177,7 +177,7 @@ RCS media messages allow you to use engaging media formats that aren't possible 
 | Image | Supported formats: JPG, JPEG, GIF |
 | Video | Supported formats: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Document | Supported format: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **Considerations:**
 
@@ -240,18 +240,18 @@ Conversational message workflows let you respond dynamically to users, creating 
 
 Braze always recommends previewing and testing your message before sending. Switch to the **Test** tab to send a test SMS, MMS, or RCS message to [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) or individual users, or preview the message as a user directly in Braze.
 
-![Previewing SMS copy from the Test tab of the composer. In the profile section, the First Name field is set to "James". In the preview section, the SMS now reads "Hi James, we appreciate your support!"]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 If you'd like to test how many segments your SMS may be split into, test your copy length with the [SMS segment calculator]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Previewing SMS copy from the Test tab of the composer. In the profile section, the First Name field is set to "James". In the preview section, the SMS now reads "Hi James, we appreciate your support!"]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 For MMS, the ordering of assets (image and message body) cannot be customized. The ordering is dependent on the phone receiving the message.
 {% endalert %}
 
 {% alert note %}
-Because RCS rendering is controlled by the user's operating system, device manufacturer, carrier, and messaging app (for example, Google Messages vs. Apple Messages), message appearance can vary. The preview shown in Braze may not exactly match what an end user receives. Validate the final rendering on real devices whenever possible.
+Because RCS rendering is controlled by the user's operating system, device manufacturer, carrier, and messaging app (for example, Google Messages vs. Apple Messages), message appearance can vary. The preview shown in Braze may not exactly match what an end user receives. Validate the final rendering on real devices whenever possible. For details about RCS rendering on iOS devices, see [Why doesn't my RCS message render accurately on iOS devices?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
@@ -267,7 +267,7 @@ Next, build the remainder of your campaign. Refer to the following sections for 
 
 Messages can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-For action-based delivery, you can also set the campaign's duration and [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 

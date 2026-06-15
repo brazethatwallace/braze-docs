@@ -2,16 +2,16 @@
 
 {% sdk_min_versions roku:0.1.2 %}
 
-## Tipos de mensagens
+## Tipos de mensagem {#message-types}
 
 {% tabs %}
 {% multi_lang_include developer_guide/_shared/in_app_messages/message_types/android.md %}
 {% multi_lang_include developer_guide/_shared/in_app_messages/message_types/swift.md %}
 {% endtabs %}
 
-## Ativação de mensagens no app
+## Ativar mensagens no app {#enabling-in-app-messages}
 
-### Etapa 1: Adicionar um observador
+### Etapa 1: Adicionar um observador {#step-1-add-an-observer}
 
 Para processar mensagens no app, você pode adicionar um observador em `BrazeTask.BrazeInAppMessage`:
 
@@ -19,9 +19,9 @@ Para processar mensagens no app, você pode adicionar um observador em `BrazeTas
 m.BrazeTask.observeField("BrazeInAppMessage", "onInAppMessageReceived")
 ```
 
-### Etapa 2: Acesso a mensagens disparadas
+### Etapa 2: Acessar mensagens disparadas {#step-2-access-triggered-messages}
 
-Então, dentro do seu manipulador, você tem acesso à mensagem no app mais alta que suas campanhas dispararam:
+Dentro do seu manipulador, você tem acesso à mensagem no app de maior prioridade que suas campanhas dispararam:
 
 ```brightscript
 sub onInAppMessageReceived()
@@ -30,34 +30,34 @@ sub onInAppMessageReceived()
 end sub
 ```
 
-## Campos de mensagens
+## Campos de mensagem {#message-fields}
 
-### Manuseio
+### Tratamento {#handling}
 
-A seguir estão listados os campos que você precisará para gerenciar suas mensagens no app:
+A seguir estão os campos que você precisará para gerenciar suas mensagens no app:
 
 | Campos | Descrição |
 | ------ | ----------- |
 | `buttons` | Lista de botões (pode ser uma lista vazia). |
-| `click_action` | `"URI"` ou `"NONE"`. Use este campo para indicar se a mensagem no app deve abrir um link URI ou fechar a mensagem quando clicado. Quando não houver botões, isso deve acontecer quando o usuário clicar em "OK" quando a mensagem no app for exibida. |
-| `dismiss_type` | `"AUTO_DISMISS"` ou `"SWIPE"`. Use este campo para indicar se sua mensagem no app será automaticamente descartada ou se exigirá um deslize para ser descartada. |
-| `display_delay` | Quanto tempo (segundos) esperar até exibir a mensagem no app. |
-| `duration` | Por quanto tempo (milissegundos) a mensagem deve ser exibida quando `dismiss_type` é configurado para `"AUTO_DISMISS"`. |
+| `click_action` | `"URI"` ou `"NONE"`. Use este campo para indicar se a mensagem no app deve abrir um link URI ou fechar a mensagem quando clicada. Quando não houver botões, isso deve acontecer quando o usuário clicar em "OK" enquanto a mensagem no app estiver sendo exibida. |
+| `dismiss_type` | `"AUTO_DISMISS"` ou `"SWIPE"`. Use este campo para indicar se sua mensagem no app será descartada automaticamente ou se exigirá um deslize para ser descartada. |
+| `display_delay` | Quanto tempo (em segundos) esperar até exibir a mensagem no app. |
+| `duration` | Por quanto tempo (em milissegundos) a mensagem deve ser exibida quando `dismiss_type` está configurado como `"AUTO_DISMISS"`. |
 | `extras` | Pares chave-valor. |
 | `header` | O texto do cabeçalho. |
 | `id` | O ID usado para registrar impressões ou cliques. |
 | `image_url` | URL da imagem da mensagem no app. |
 | `message` | Texto do corpo da mensagem. |
-| `uri` | Seus usuários de URI serão enviados com base no seu `click_action`. Este campo deve ser incluído quando `click_action` é `"URI"`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `uri` | A URI para a qual os usuários serão direcionados com base no seu `click_action`. Este campo deve ser incluído quando `click_action` é `"URI"`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Handling" }
 
 {% alert important %}
-Para mensagens no app contendo botões, a mensagem `click_action` também será incluída na carga útil final se a ação de clique for adicionada antes de adicionar o texto do botão.
+Para mensagens no app que contêm botões, o `click_action` da mensagem também será incluído na carga útil final se a ação de clique for adicionada antes do texto do botão.
 {% endalert %}
 
-### Estilo
+### Estilo {#styling}
 
-Existem também vários campos de estilo que você pode escolher usar no dashboard:
+Existem também vários campos de estilo que você pode usar a partir do dashboard:
 
 | Campos | Descrição |
 | ------ | ----------- |
@@ -66,17 +66,17 @@ Existem também vários campos de estilo que você pode escolher usar no dashboa
 | `frame_color` | A cor da sobreposição da tela de fundo. |
 | `header_text_color` | Cor do texto do cabeçalho. |
 | `message_text_color` | Cor do texto da mensagem. |
-| `text_align` | "INÍCIO", "CENTRO" ou "FIM". Seu alinhamento de texto selecionado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `text_align` | "START", "CENTER" ou "END". O alinhamento de texto selecionado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Styling" }
 
-Alternativamente, você poderia implementar a mensagem no app e estilizar dentro do seu aplicativo Roku usando uma paleta padrão:
+Como alternativa, você pode implementar a mensagem no app e estilizá-la dentro do seu aplicativo Roku usando uma paleta padrão:
 
-### Botões
+### Botões {#buttons}
 
 | Campos | Descrição |
 | ------ | ----------- |
-| `click_action` | `"URI"` ou `"NONE"`. Use este campo para indicar se a mensagem no app deve abrir um link URI ou fechar a mensagem quando clicado. |
+| `click_action` | `"URI"` ou `"NONE"`. Use este campo para indicar se a mensagem no app deve abrir um link URI ou fechar a mensagem quando clicada. |
 | `id` | O valor de ID do próprio botão. |
 | `text` | O texto a ser exibido no botão. |
-| `uri` | Seus usuários de URI serão enviados com base no seu `click_action`. Este campo deve ser incluído quando `click_action` é `"URI"`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `uri` | A URI para a qual os usuários serão direcionados com base no seu `click_action`. Este campo deve ser incluído quando `click_action` é `"URI"`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Buttons" }

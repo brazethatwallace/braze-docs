@@ -1,6 +1,6 @@
-このテンプレートを使って、Braze Docsのあらゆるページやセクションを作成できる。例については、[プレビューを生成する]({{site.baseurl}}/contributing/generating_a_preview/)を参照してください。記事内で使用されるドキュメントタイプのガイドラインについては、[ページタイプ]({{site.baseurl}}/contributing/page_types/)を参照してください。
+このテンプレートを使って、Braze Docsのあらゆるページやセクションを作成できます。環境のセットアップ、プレビュー、コンテンツタイプについては、リポジトリへのアクセス権を持つコントリビューターは`docs/contributing/`配下のハンドブック（例: `generating_a_preview.md`や`content_types.md`）を参照してください。その他のユーザーは[ドキュメントフィードバック]({{site.baseurl}}/feedback/)からドキュメントチームにお問い合わせいただけます。
 
-{% details Show template %}
+{% details テンプレートを表示 %}
 {% raw %}
 `````markdown
 ---
@@ -12,70 +12,70 @@ page_type: reference
 layout: OPTIONAL_LAYOUT_FILE
 ---
 
-<!-- The title of your page, used to render the in-page title. -->
+<!-- ページのタイトル。ページ内のタイトル表示に使用されます。 -->
 # ARTICLE_TITLE
 
-<!-- The overview starts with a '>' character and discusses what will be covered. In an optional following paragraph, contextualize the topic at a high-level in an introduction. -->
+<!-- 概要は '>' 文字で始まり、カバーする内容について説明します。オプションの後続段落では、トピックをハイレベルで紹介します。 -->
 > DESCRIPTION.
 
 INTRODUCTION.
 
-<!-- The prerequisites for this task. If no prerequisites are required, you can remove this section. -->
-## Prerequisites
+<!-- このタスクの前提条件です。前提条件が不要な場合は、このセクションを削除できます。 -->
+## 前提条件
 
-Before you start, you'll need to complete the following:
+始める前に、以下を完了する必要があります:
 
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 - ACTION_TO_COMPLETE
 
-<!-- An optional, brief explanation of how the feature workflow looks. -->
-## How it works
+<!-- 機能のワークフローについてのオプションの簡単な説明です。 -->
+## 仕組み
 
 CONTENT.
 
-<!-- Walk a user through integrating and turning on the feature. -->
- ## Integration
+<!-- ユーザーに機能の統合と有効化の手順を案内します。 -->
+ ## インテグレーション
 CONTENT.
 
-<!-- A how-to guide with nested steps. -->
+<!-- ネストされたステップを含むハウツーガイドです。 -->
 ## TASK_TO_COMPLETE
 
-<!-- Optional overview of the task. -->
+<!-- タスクのオプションの概要です。 -->
 CONTENT.
 
-<!-- Action-oriented header that describes the step’s goal. -->
-### Step 1: ACTION_TO_COMPLETE
+<!-- ステップの目標を説明するアクション指向のヘッダーです。 -->
+### ステップ 1: ACTION_TO_COMPLETE
 
-<!-- Use number bullets or paragraphs to describe how to complete this action -->
+<!-- 番号付きの箇条書きまたは段落を使用して、このアクションの完了方法を説明します -->
 CONTENT.
 
-### Step 2: ACTION_TO_COMPLETE
+### ステップ 2: ACTION_TO_COMPLETE
 
 CONTENT.
-<!-- Optional references, such as supported data types, fields, definitions, and similar. -->
+<!-- サポートされるデータタイプ、フィールド、定義などのオプションの参照です。 -->
 ### REFERENCE_TO_ASSIST_WITH_ACTION
 
 CONTENT.
 
-<!-- For optional steps, add “(optional)” to the end of the header. -->
-### Step 3: OPTIONAL_ACTION_TO_COMPLETE (optional)
+<!-- オプションのステップの場合は、ヘッダーの末尾に「（オプション）」を追加します。 -->
+### ステップ 3: OPTIONAL_ACTION_TO_COMPLETE（オプション）
 
 CONTENT.
-<!-- An optional section for what is supported. Add nested headers to be more specific. -->
-## Supported data types / Supported attributes / Supported events / Supported ETC.
+<!-- サポートされる内容についてのオプションのセクションです。ネストされたヘッダーを追加してより具体的にできます。 -->
+## サポートされるデータタイプ / サポートされる属性 / サポートされるイベント / サポートされるその他
 CONTENT.
-<!-- An optional section with important considerations for users to review before using the feature. -->
-## Considerations
+<!-- 機能を使用する前にユーザーが確認すべき重要な考慮事項についてのオプションのセクションです。 -->
+## 考慮事項
 
 CONTENT.
 
-<!-- An optional section guiding users through troubleshooting common issues. -->
-## Troubleshooting
+<!-- よくある問題のトラブルシューティングをユーザーに案内するオプションのセクションです。 -->
+## トラブルシューティング
 
 ### ISSUE_TO_TROUBLESHOOT
 CONTENT.
 
-`````
+```
 {% endraw %}
 {% enddetails %}

@@ -6,7 +6,7 @@ description: "Aprenda como rastrear sessões através do SDK da Braze."
 
 ---
 
-# Rastrear sessões
+# Rastrear sessões {#track-sessions}
 
 > Aprenda como rastrear sessões através do SDK da Braze.
 
@@ -16,11 +16,11 @@ Para wrapper SDKs não listados, use o método nativo relevante do Android ou Sw
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
-## Definindo inatividade
+## Definindo inatividade {#defining-inactivity}
 
 Entender como a inatividade é definida e medida é fundamental para gerenciar ciclos de vida de sessão de forma eficaz no SDK Web. Inatividade refere-se a um período durante o qual o SDK Web da Braze não detecta nenhum evento rastreado do usuário.
 
-### Como a inatividade é medida
+### Como a inatividade é medida {#how-inactivity-is-measured}
 
 O SDK Web rastreia a inatividade com base em [eventos rastreados pelo SDK]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events). O SDK mantém um temporizador interno que é redefinido cada vez que um evento rastreado é enviado. Se nenhum evento rastreado pelo SDK ocorrer dentro do período de tempo limite configurado, a sessão é considerada inativa e termina.
 
@@ -28,7 +28,7 @@ Para saber mais sobre como o ciclo de vida da sessão é implementado no SDK Web
 
 **O que conta como atividade por padrão:**
 - Abrir ou atualizar o app web
-- Interagir com elementos de UI da Braze (como [mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/) ou [Cartões de conteúdo]({{site.baseurl}}/developer_guide/content_cards/))
+- Interagir com elementos de UI da Braze (como [mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/) ou [Content Cards]({{site.baseurl}}/developer_guide/content_cards/))
 - Chamar métodos do SDK que enviam eventos rastreados (como [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/) ou [atualizações de atributos do usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/))
 
 **O que não conta como atividade por padrão:**
@@ -41,11 +41,11 @@ Para saber mais sobre como o ciclo de vida da sessão é implementado no SDK Web
 O SDK Web não rastreia automaticamente mudanças de visibilidade do navegador, troca de guia ou foco do usuário. No entanto, você pode rastrear essas interações em nível de navegador implementando ouvintes de eventos personalizados usando a [API de Visibilidade da Página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) do navegador e enviando [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web) para a Braze. Para um exemplo de implementação, consulte [Rastreamento de inatividade personalizada](#tracking-custom-inactivity).
 {% endalert %}
 
-### Configuração de tempo limite de sessão
+### Configuração de tempo limite de sessão {#session-timeout-configuration}
 
 Por padrão, o SDK Web considera uma sessão inativa após 30 minutos sem nenhum evento rastreado. Você pode personalizar esse limite ao inicializar o SDK usando o parâmetro `sessionTimeoutInSeconds`. Para detalhes sobre como configurar esse parâmetro, incluindo exemplos de código, veja [Alterando o tempo limite padrão da sessão](#changing-the-default-session-timeout).
 
-### Exemplo: Entendendo cenários de inatividade
+### Exemplo: entendendo cenários de inatividade {#example-understanding-inactivity-scenarios}
 
 Considere o seguinte cenário:
 
@@ -55,7 +55,7 @@ Considere o seguinte cenário:
 4. Após 30 minutos de inatividade, a sessão termina automaticamente.
 5. Quando o usuário volta para a guia do seu site e aciona um evento do SDK (como visualizar uma página ou interagir com o conteúdo), uma nova sessão começa.
 
-### Rastreamento de inatividade personalizada
+### Rastreamento de inatividade personalizada {#tracking-custom-inactivity}
 
 Se você precisar rastrear inatividade com base na visibilidade do navegador ou troca de guia, implemente ouvintes de eventos personalizados no seu código JavaScript. Use eventos do navegador, como `visibilitychange`, para detectar quando os usuários saem da sua página e envie manualmente [eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/) para a Braze ou chame [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) quando apropriado.
 
@@ -75,9 +75,9 @@ document.addEventListener('visibilitychange', function() {
 
 Para saber mais sobre o registro de eventos personalizados, consulte [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/). Para detalhes sobre o ciclo de vida da sessão e configuração de tempo limite, consulte [Alterando o tempo limite padrão da sessão](#change-session-timeout).
 
-## Inscrever-se para receber atualizações de sessão
+## Inscrever-se para receber atualizações de sessão {#subscribing-to-session-updates}
 
-### Etapa 1: Inscrever-se para receber atualizações
+### Etapa 1: Inscrever-se para receber atualizações {#step-1-subscribe-to-updates}
 
 Para se inscrever em atualizações de sessão, use o método `subscribeToSessionUpdates()`.
 
@@ -176,9 +176,9 @@ O SDK React Native não expõe um método para assinar atualizações de sessão
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Testar rastreamento de sessão (opcional)
+### Etapa 2: Testar rastreamento de sessão (opcional) {#step-2-test-session-tracking-optional}
 
-Para testar o rastreamento de sessão, inicie uma sessão no seu dispositivo, depois abra o dashboard da Braze e procure o usuário relevante. No perfil do usuário, selecione **Visão Geral das Sessões**. Se as métricas forem atualizadas como esperado, o rastreamento de sessão está funcionando corretamente.
+Para testar o rastreamento de sessão, inicie uma sessão no seu dispositivo, depois abra o dashboard da Braze e procure o usuário relevante. No perfil do usuário, selecione **Sessions Overview**. Se as métricas forem atualizadas como esperado, o rastreamento de sessão está funcionando corretamente.
 
 ![A seção de visão geral das sessões de um perfil de usuário mostrando o número de sessões, data da última utilização e data da primeira utilização.]({% image_buster /assets/img_archive/test_session.png %}){: style="max-width:50%;"}
 
@@ -192,7 +192,7 @@ Você pode alterar a duração do tempo que passa antes que uma sessão expire a
 
 {% tabs %}
 {% tab web %}
-Por padrão, o tempo limite da sessão é definido como `30` minutos. Para alterar isso, passe a opção `sessionTimeoutInSeconds` para sua função [`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize). Pode ser definido como qualquer inteiro maior ou igual a `1`. 
+Por padrão, o tempo limite da sessão é definido como `30` minutos. Para alterar isso, passe a opção `sessionTimeoutInSeconds` para sua função [`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize). Pode ser definido como qualquer inteiro maior ou igual a `1`.
 
 ```js
 // Sets the session timeout to 15 minutes instead of the default 30
@@ -253,11 +253,29 @@ O SDK React Native depende dos SDKs nativos para gerenciar sessões. Para altera
 Se você definir um tempo limite de sessão, todas as semânticas de sessão serão automaticamente estendidas para o tempo limite definido.
 {% endalert %}
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
-### Perfil de usuário tem 0 sessões
+### Perfil de usuário tem 0 sessões {#user-profile-has-0-sessions}
 
 Um perfil de usuário pode ter 0 sessões se o usuário foi criado fora do SDK:
 
-- **Criado pela API REST:** Se um usuário é criado através do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) com um `app_id` na requisição, o perfil aparece associado a esse app, mas não possui dados de sessão porque o SDK nunca foi inicializado para esse usuário.
-- **Criado por importação CSV:** Se um usuário é importado por [CSV]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/csv/) sem valores para os campos de primeira ou última sessão, o perfil existe com 0 sessões.
+- **Criado pela REST API:** Se um usuário é criado através do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) com um `app_id` na requisição, o perfil aparece associado a esse app, mas não possui dados de sessão porque o SDK nunca foi inicializado para esse usuário.
+- **Criado por importação CSV:** Se um usuário é importado por [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) sem valores para os campos de primeira ou última sessão, o perfil existe com 0 sessões.
+
+### Alguns usuários não estão registrando sessões {#some-users-are-not-logging-sessions}
+
+Como as sessões são rastreadas somente após a inicialização do SDK, usuários que não acionam a inicialização do SDK não registram nenhuma sessão. Isso normalmente acontece quando seu app usa lógica condicional antes de inicializar o SDK, como atrasar a inicialização por trás de um fluxo de login, prompt de consentimento ou Feature Flag. Para orientações de implementação, veja [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
+
+Se alguns usuários estão registrando sessões e outros não, verifique o seguinte:
+
+- **Verifique sua lógica de inicialização.** Confirme que o SDK é inicializado para todos os usuários e pontos de entrada do app, não apenas para alguns.
+- **Procure por mudanças recentes no app.** Nova lógica condicional em torno da inicialização do SDK pode causar uma queda repentina na contagem de sessões.
+- **Compare usuários afetados e não afetados.** Identifique diferenças na versão do app, tipo de dispositivo ou fluxo do usuário que possam explicar por que a inicialização é ignorada para determinados usuários.
+
+Se o problema persistir após verificar sua implementação, reproduza o problema e colete as seguintes informações antes de entrar em contato com o suporte:
+
+- Etapas para reproduzir o problema
+- A versão do app afetada
+- [Registros detalhados do SDK]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), capturados enquanto o problema ocorre (ou por plataforma: [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging))
+- O trecho de código da inicialização do SDK
+- Um resumo de qualquer lógica condicional aplicada antes da inicialização

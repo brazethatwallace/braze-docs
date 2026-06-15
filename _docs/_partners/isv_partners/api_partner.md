@@ -29,7 +29,7 @@ Replace the following:
 | Placeholder | Description |
 |-------------|-------------|
 | `OrganizationName` | The name of your organization formatted in Pascal case. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Syntax" }
 
 ### Examples
 

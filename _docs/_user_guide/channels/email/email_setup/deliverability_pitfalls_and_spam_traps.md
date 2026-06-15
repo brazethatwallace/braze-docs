@@ -10,6 +10,8 @@ channel: email
 
 # [![Braze Learning course]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability){: style="float:right;width:120px;border:0;" class="noimgborder"}Deliverability pitfalls and spam traps
 
+> This article covers common email deliverability pitfalls, spam traps, and how to avoid them.
+
 Your email deliverability can be affected by any of the following spam traps:
 
 | Trap Type | Description |
@@ -19,7 +21,7 @@ Your email deliverability can be affected by any of the following spam traps:
 | Typo Traps | Email addresses containing common typos. |
 | Spam Complaints | When your email is marked as spam by a customer. |
 | High Bounce Rate | When your email consistently fails to deliver because the recipient's address is invalid. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="![Braze Learning course](https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability): style="float:right;width:120px;border:0;" class="noimgborder"Deliverability pitfalls and spam traps" }
 
 ## How to avoid spam traps
 
@@ -33,8 +35,12 @@ These traps can be avoided if you set up a confirmed opt-in process. By sending 
 The Braze Customer Success and Deliverability teams can help make sure you're following best practices to maximize deliverability across the globe.
 {% endalert %}
 
-## Removing an email address from your bounce or spam list
+## Remove an email address from your bounce or spam list
 
 You can remove bounced emails and emails on your Braze spam list with the following endpoints:
 - [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
 - [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
+
+## Improve email deliverability
+
+For best practices to improve your email deliverability, see [Improve email deliverability]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).

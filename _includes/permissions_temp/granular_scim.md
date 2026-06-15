@@ -1,9 +1,5 @@
 ## Granular permissions migration
 
-{% alert important %}
-Granular permissions is in early access. When migration is planned for your company, your Braze admins will receive emails and in-dashboard banners notifying them of the [granular permission migration]({{site.baseurl}}/granular_permissions_migration/).
-{% endalert %}
-
 Existing SCIM integrations and [legacy SCIM API objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) will continue to work after the granular permissions migration in late April. 
 
 You aren't required to take any immediate action. However, we encourage you to review your integrations for any permissions that will be granularized. For example, if you are currently sending `basic_access` in the API, we suggest you update your integration after granularization to include the specific permissions (for example, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze will continue to accept legacy strings, like `basic_access`, after the granular permissions migration so that existing integrations do not break.
@@ -32,7 +28,7 @@ A valid permissions object is a JSON object with the following key-value pairs:
 | `companyPermissions` | Optional | Array | Array of [company-level permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company), in which the presence of the string corresponds to the user having the corresponding permission. |
 | `roles` | Optional | Array | Array of [role objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object). |
 | `appGroup` | Required | Array | Array of [workspace permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
 
 ### Workspace permissions object
 
@@ -45,7 +41,7 @@ A valid app group permission object is a JSON object with the following key-valu
 | `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified workspace. |
 | `team` | Optional | Array | Array of [Team permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
 ### Workspace permissions set object {#workspace-permissions-set-object}
 
@@ -55,7 +51,7 @@ A valid workspace permissions set object is a JSON object with the following key
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name of the workspace permission set that is being assigned to the user for this workspace. |
 | `appGroupPermissionSetID` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### Team permissions object
 
@@ -66,7 +62,7 @@ A valid team permission object is a JSON object with the following key-value pai
 | `teamName` | Optional | String | Name of the team, which can be used to specify which team the permissions within this object are for. |
 | `teamId` | Required if `teamName` is missing | String | ID of the team, serving as an alternative method of specifying the team. |
 | `teamPermissions` | Required | Array | Array of team-level permission strings from the [teams permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified team. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
 
 ## Role object
 
@@ -76,7 +72,7 @@ A valid role object is a JSON object with the following key value pairs:
 | --- | --- | --- | --- |
 | `roleName` | Optional | String | Name of the role that is being assigned to the user. |
 | `roleId` | Required if `roleName` is missing | String | ID of the role, serving as an alternative method of specifying the role. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
 
 ## Appendix
 
@@ -87,7 +83,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
 | Create and delete workspaces| `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### Workspace permission strings {#workspace-strings}
 
@@ -140,7 +136,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Archive Placements | `archive_placements` |
 | View Banner Templates | `view_banner_templates` |
 | View Multi Language Settings | `view_multi_language_settings` |
-| Use Operator | `use_operator` |
+| Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | View Decisioning Studio Agents | `view_decisioning_studio_agents` |
 | View Decisioning Studio Audience |`view_decisioning_studio_audience` |
 | View Decisioning Studio Conversion Event | `view_decisioning_studio_conversion_event` |
@@ -204,7 +200,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Delete Catalogs | `delete_catalogs` |
 | View Whatsapp Settings | `view_whatsapp_settings` |
 | Edit Technology Partners | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
 ### Team permission strings {#team}
 
@@ -252,13 +248,12 @@ A valid role object is a JSON object with the following key value pairs:
 | Edit Reports | `edit_reports` |
 | View Banner Templates | `view_banner_templates` |
 | View Multi Language Settings | `view_multi_language_settings` |
-| Use Operator | `use_operator` |
+| Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | View Decisioning Studio Agents | `view_decisioning_studio_agents` |
-| View Decisioning Studio Conversion Event | `view_decisioning_studio_conversion_event` |
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
 ### Department strings
 
@@ -271,4 +266,4 @@ A valid role object is a JSON object with the following key value pairs:
 | Finance | `finance` |
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }

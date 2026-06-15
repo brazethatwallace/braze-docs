@@ -48,7 +48,7 @@ The following is an example of an embedded YouTube video in an HTML snippet:
         <div class="relativeTopRight">
             <a href="appboy://close">X</a>
         </div>
-        <iframe width="60%" height="50%" src="https://www.youtube.com/embed/_x45EB3BWqI">
+        <iframe width="60%" height="50%" src="https://www.youtube.com/embed/_x45EB3BWqI" title="YouTube video player">
         </iframe>
     </div>
 </body>

@@ -1,9 +1,9 @@
 ---
 nav_title: Stockage
-article_title: Stockage pour iOS
+article_title: Stockage
 page_order: 3.60
 page_type: reference
-description: "Découvrez les différentes propriétés au niveau de l'appareil qui sont stockées par le SDK de Braze."
+description: "Découvrez les différentes propriétés au niveau de l'appareil qui sont stockées par le SDK Braze."
 platform:
   - Android
   - FireOS
@@ -11,11 +11,11 @@ platform:
   - Web
 ---
 
-# Stockage
+# Stockage {#storage}
 
-> Découvrez les différentes propriétés au niveau de l'appareil qui sont stockées par le SDK de Braze.
+> Découvrez les différentes propriétés au niveau de l'appareil qui sont stockées par le SDK Braze.
 
-## Propriétés de l'appareil
+## Propriétés de l'appareil {#device-properties}
 
 Par défaut, Braze collecte les propriétés suivantes au niveau de l'appareil pour permettre la personnalisation des messages en fonction de l'appareil, de la langue et du fuseau horaire :
 
@@ -51,14 +51,14 @@ Les propriétés `AD_TRACKING_ENABLED` et `TIMEZONE` ne sont pas collectées si 
 - Paramètres régionaux de l'appareil
 - Modèle de l'appareil
 - Version du système d'exploitation de l'appareil
-- État de l'autorisation push
+- État de l'autorisation des notifications push
 - Options d'affichage push
 - Push activé
 - Résolution de l'appareil
 - Fuseau horaire de l'appareil
 
 {% alert note %}
-Le SDK de Braze ne recueille pas automatiquement l'IDFA. Les applications peuvent éventuellement transmettre l'IDFA à Braze en implémentant directement les méthodes ci-dessous. Les applications doivent obtenir l'abonnement explicite au suivi par l'utilisateur final via le framework App Tracking Transparency avant de transmettre l'IDFA à Braze.
+Le SDK Braze ne collecte pas automatiquement l'IDFA. Les applications peuvent éventuellement transmettre l'IDFA à Braze en implémentant directement les méthodes ci-dessous. Les applications doivent obtenir le consentement explicite de l'utilisateur final au suivi via le framework App Tracking Transparency avant de transmettre l'IDFA à Braze.
 
 1. Pour définir l'état du suivi publicitaire, utilisez [`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:)/).
 2. Pour définir l'identifiant publicitaire (IDFA), utilisez [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/).
@@ -66,7 +66,7 @@ Le SDK de Braze ne recueille pas automatiquement l'IDFA. Les applications peuven
 {% endtab %}
 {% endtabs %}
 
-Par défaut, toutes les propriétés sont activées. Vous pouvez toutefois choisir de les activer ou de les désactiver manuellement. Gardez à l'esprit que certaines fonctionnalités du SDK de Braze nécessitent des propriétés spécifiques (comme la distribution selon le fuseau horaire local), alors pensez à bien tester votre configuration avant de la mettre en production.
+Par défaut, toutes les propriétés sont activées. Vous pouvez toutefois choisir de les activer ou de les désactiver manuellement. Gardez à l'esprit que certaines fonctionnalités du SDK Braze nécessitent des propriétés spécifiques (comme la distribution selon le fuseau horaire local), alors pensez à bien tester votre configuration avant de la mettre en production.
 
 {% tabs %}
 {% tab web %}
@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-Par exemple, vous pouvez spécifier la version du système d'exploitation Android et les paramètres régionaux de l'appareil à inscrire sur la liste d'autorisation. Pour plus d'informations, consultez les méthodes [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) et [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html). 
+Par exemple, vous pouvez spécifier la version du système d'exploitation Android et les paramètres régionaux de l'appareil à inscrire sur la liste d'autorisation. Pour plus d'informations, consultez les méthodes [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) et [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html).
 
 ```java
 new BrazeConfig.Builder()
@@ -92,7 +92,7 @@ new BrazeConfig.Builder()
 {% endtab %}
 
 {% tab swift %}
-Par exemple, vous pouvez spécifier le fuseau horaire et les paramètres régionaux à autoriser. Pour plus d'informations, consultez la propriété [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) de l'objet `configuration`.
+Par exemple, vous pouvez spécifier le fuseau horaire et les paramètres régionaux à inscrire sur la liste d'autorisation. Pour plus d'informations, consultez la propriété [`devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) de l'objet `configuration`.
 
 {% subtabs %}
 {% subtab swift %}
@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Pour en savoir plus sur les propriétés d'appareil collectées automatiquement, consultez la section [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Pour en savoir plus sur les propriétés d'appareil collectées automatiquement, consultez la section [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 {% endalert %}
 
 ## Stockage des cookies (web uniquement) {#cookies}
@@ -126,14 +126,14 @@ Après avoir [initialisé le SDK Web de Braze](https://js.appboycdn.com/web-sdk/
 
 Les cookies suivants sont stockés :
 
-|Cookie|Description|Taille|
-|---|----|---|---|
-|`ab.storage.userId.[your-api-key]`|Permet de déterminer si l'utilisateur actuellement connecté a changé et d'associer les événements à l'utilisateur actuel.|Dépend de la taille de la valeur transmise à `changeUser`|
-|`ab.storage.sessionId.[your-api-key]`|Chaîne de caractères générée aléatoirement, utilisée pour déterminer si l'utilisateur démarre une nouvelle session ou poursuit une session existante, afin de synchroniser les messages et de calculer l'analytique de session.|~200 octets|
-|`ab.storage.deviceId.[your-api-key]`|Chaîne de caractères générée aléatoirement, utilisée pour identifier les utilisateurs anonymes et différencier les appareils des utilisateurs, permettant ainsi l'envoi de messages par appareil.|~200 octets|
-|`ab.optOut`|Stocke la préférence de refus de l'utilisateur lorsque `disableSDK` est appelé.|~40 octets|
-|`ab._gd`|Créé temporairement (puis supprimé) pour déterminer le domaine de cookie racine, ce qui permet au SDK de fonctionner correctement sur les sous-domaines.|s/o|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Cookie | Description | Taille |
+| --- | ---- | --- |
+| `ab.storage.userId.[your-api-key]` | Permet de déterminer si l'utilisateur actuellement connecté a changé et d'associer les événements à l'utilisateur actuel. | Dépend de la taille de la valeur transmise à `changeUser` |
+| `ab.storage.sessionId.[your-api-key]` | Chaîne de caractères générée aléatoirement, utilisée pour déterminer si l'utilisateur démarre une nouvelle session ou poursuit une session existante, afin de synchroniser les messages et de calculer l'analytique de session. | ~200 octets |
+| `ab.storage.deviceId.[your-api-key]` | Chaîne de caractères générée aléatoirement, utilisée pour identifier les utilisateurs anonymes et différencier les appareils des utilisateurs, permettant ainsi l'envoi de messages par appareil. | ~200 octets |
+| `ab.optOut` | Stocke la préférence de refus de l'utilisateur lorsque `disableSDK` est appelé. | ~40 octets |
+| `ab._gd` | Créé temporairement (puis supprimé) pour déterminer le domaine de cookie racine, ce qui permet au SDK de fonctionner correctement sur les sous-domaines. | s/o |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
 
 ### Modifier l'expiration des cookies {#cookie-expiry}
 

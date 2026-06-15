@@ -5,7 +5,7 @@ layout: api_page
 page_order: 2
 
 #Required
-description: "Il s’agit de la description Google Search. Les phrases de plus de 160 caractères seront tronquées… soyez concis !"
+description: "Il s'agit de la description Google Search. Les phrases de plus de 160 caractères seront tronquées, soyez concis !"
 page_type: glossary
 #Use if applicable
 
@@ -42,21 +42,21 @@ noindex: true
 excerpt_separator: ""
 ---
 {% api %}
-## 1 Créer un modèle d’e-mail
+## 1 Créer un modèle d'e-mail {#1-create-email-template}
 {% apimethod post %}
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Publier,E-mail,Créer,Modèle,API,REST
+Post,Email,Create,Template,REST,API
 {% endapitags %}
 
-Utilisez les API REST de modèles d'e-mail pour gérer de manière programmatique les modèles d'e-mail que vous avez stockés sur les tableaux de bord de Braze, sur la page Modèles et médias &. Braze fournit deux endpoints pour la création et la mise à jour de vos modèles d’e-mail.
+Utilisez les REST API de modèles d'e-mail pour gérer de manière programmatique les modèles d'e-mail que vous avez stockés sur les tableaux de bord de Braze, sur la page Modèles et médias. Braze fournit deux endpoints pour la création et la mise à jour de vos modèles d'e-mail.
 
-La réponse de cet endpoint comprend un champ `email_template_id` qui peut être utilisé pour mettre à jour le modèle lors des prochains appels d’API.
+La réponse de cet endpoint comprend un champ `email_template_id` qui peut être utilisé pour mettre à jour le modèle lors des prochains appels d'API.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
-#### CORPS DE LA DEMANDE
+#### CORPS DE LA DEMANDE {#request-body}
 ```
 {
   "template_name": "email_template_name",
@@ -68,7 +68,7 @@ La réponse de cet endpoint comprend un champ `email_template_id` qui peut être
 
 ```
 
-#### EXEMPLE DE RÉPONSE
+#### EXEMPLE DE RÉPONSE {#example-response}
 ```
 {
   "template_name": "email_template_name",
@@ -80,28 +80,28 @@ La réponse de cet endpoint comprend un champ `email_template_id` qui peut être
 ```
 
 
-#### INFORMATIONS SUR LES PARAMÈTRES
+#### INFORMATIONS SUR LES PARAMÈTRES {#parameter-details}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `modified_after`  | Non | Chaîne de caractères au format ISO 8601 | Récupérer uniquement les modèles mis à jour à l’heure donnée ou après. |
-| `modified_before`  |  Non | Chaîne de caractères au format ISO 8601 | Récupérer uniquement les modèles mis à jour à l’heure donnée ou avant. |
-| `limit` | Non | Nombre positif | Nombre maximum de modèles à récupérer. Sauf indication contraire, la limite par défaut est de 100 modèles et la valeur maximum est de 1 000. |
+| `modified_after`  | Non | Chaîne de caractères au format ISO 8601 | Récupérer uniquement les modèles mis à jour à l'heure donnée ou après. |
+| `modified_before`  |  Non | Chaîne de caractères au format ISO 8601 | Récupérer uniquement les modèles mis à jour à l'heure donnée ou avant. |
+| `limit` | Non | Nombre positif | Nombre maximum de modèles à récupérer. Sauf indication contraire, la limite par défaut est de 100 modèles et la valeur maximum est de 1 000. |
 | `offset`  |  Non | Nombre positif | Nombre de modèles à ignorer avant de renvoyer le reste des modèles qui correspondent aux critères de recherche. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 
 {% endapi %}
 {% api %}
-## 2 Répertorier les modèles d’e-mail disponibles
+## 2 Répertorier les modèles d'e-mail disponibles {#2-list-available-email-template}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Obtenir,E-mail,Modèle,Liste,REST
+Get,Email,Template,List,REST
 {% endapitags %}
 
-Utilisez les endpoints ci-dessous pour obtenir une liste de tous les modèles disponibles.
+Utilisez les endpoints suivants pour obtenir une liste des modèles disponibles.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -139,18 +139,18 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `email_template_id`  | Oui | Chaîne de caractères | L’identifiant API de votre modèle d’e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Oui | Chaîne de caractères | L'identifiant API de votre modèle d'e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
 
 {% api %}
-## 3 Envoi de déclencheurs de campagnes
+## 3 Envoi déclenché de Campaigns {#3-campaigns-trigger-send}
 {% apimethod post %}campaigns/trigger/send{% endapimethod %}
-{% apitags %}Publier, Campagnes, Déclencheur, Envoyer{% endapitags %}
+{% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
-La livraison déclenchée par API vous permet de stocker le contenu d’un message dans le tableau de bord de Braze, tout en indiquant quand et à qui un message est envoyé via votre API. 
+La distribution déclenchée par API vous permet de stocker le contenu d'un message dans le tableau de bord de Braze, tout en indiquant quand et à qui un message est envoyé via votre API.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -186,7 +186,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {
   "canvas_id": (required, string) see Canvas Identifier,
-  "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to all users in this request,
+  "context": (optional, object) personalization key-value pairs that will apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" is omitted,
   "audience": (optional, Connected Audience Object) see Connected Audience,
   // Including 'audience' will only send to users in the audience
@@ -195,7 +195,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       // Either "external_user_id" or "user_alias" is required. Requests must specify only one.
       "user_alias": (optional, User Alias Object) User Alias of user to receive message,
       "external_user_id": (optional, string) External ID of user to receive message,
-      "canvas_entry_properties": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent canvas_entry_properties)
+      "context": (optional, object) personalization key-value pairs that will apply to this user (these key-value pairs will override any keys that conflict with the parent context)
     },
     ...
   ]
@@ -207,18 +207,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `email_template_id`  | Oui | Chaîne de caractères | L’identifiant API de votre modèle d’e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id`  | Oui | Chaîne de caractères | L'identifiant API de votre modèle d'e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
 
 {% api %}
-## 4 Envoi de déclencheurs de campagnes
+## 4 Envoi déclenché de Campaigns {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
-{% apitags %}PUT, Campagnes, Déclencheur, Envoyer{% endapitags %}
+{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 
-Cet endpoint permet d’enregistrer des événements personnalisés, des attributs utilisateur et des achats concernant les utilisateurs. Vous pouvez inclure jusqu’à 75 attributs, événements et objets d’achat par requête. Les attributs peuvent être publiés pour un maximum de 75 utilisateurs à la fois, mais vous pouvez également fournir jusqu’à 75 événements et 75 achats avec le même appel d’API.
+Cet endpoint peut être utilisé pour enregistrer des événements personnalisés, des attributs utilisateur et des achats pour les utilisateurs. Vous pouvez inclure jusqu'à 75 objets Attributs, Événements et Achats par requête. Autrement dit, vous ne pouvez publier des attributs que pour un maximum de 75 utilisateurs à la fois, mais dans le même appel d'API, vous pouvez également fournir jusqu'à 75 événements et jusqu'à 75 achats.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -263,30 +263,30 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 #### INFORMATIONS SUR LES PARAMÈTRES
 
-| Champ profil utilisateur | Spécification des types de données |
+| Champ du profil utilisateur | Spécification du type de données |
 | ---| --- |
-| pays | (chaîne de caractères) Nous exigeons que les codes de pays soient transmis à Braze selon la [norme ISO-3166-1 alpha-2][17]. |
-| current_location | (objet) De la forme {"longitude" : -73.991443, "latitude" : 40.753824} |
-| date_of_first_session | (date à laquelle l’utilisateur s’est servi de l’application pour la première fois) Chaîne de caractères au format ISO 8601 ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
-| date_of_last_session | (date à laquelle l’utilisateur s’est servi de l’application pour la dernière fois) Chaîne de caractères au format ISO 8601 ou `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
-| ddn | (date de naissance) Chaîne au format "AAAA-MM-JJ", par exemple, 1980-12-21. |
-| e-mail | (string) |
-| email_subscribe | (chaîne de caractères) Les valeurs disponibles sont "opted_in" (explicitement inscrit pour recevoir des messages e-mail), "unsubscribed" (explicitement désinscrit des messages e-mail) et "subscribed" (ni inscrit ni désinscrit).  |
-| external_id | (chaîne de caractères) De l’identifiant utilisateur unique. |
-| facebook | hachage contenant l’un des `id` (string), `likes` (array of strings), `num_friends` (integer). |
-| first_name | (string) |
-| genre | (string) « H », « F », « A » (autre), « S/O » (sans objet), « P » (préfère ne pas dire) ou nul (inconnu). |
-| home_city | (string) |
-| image_url | (chaîne de caractères) URL de l’image à associer au profil utilisateur. |
-| langue | (chaîne de caractères), nous exigeons que la langue soit transmise à Braze selon la [norme ISO-639-1][24]. <br>[Liste des langues acceptées](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/)|
-| last_name | (string) |
-|marked_email_as_spam_at| (chaîne de caractères) Date à laquelle l’e-mail de l’utilisateur a été marqué comme courrier indésirable. La liste est affichée au format ISO 8601 ou au format yyyy-MM-dd'T'HH:mm:ss:SSSZ.|
-| téléphone | (string) |
-| push_subscribe | (chaîne caractères) Les valeurs disponibles sont "opted_in" (explicitement enregistré pour recevoir des messages push), "unsubscribed" (explicitement opted out of push messages), et "subscribed" (ni opted in ni out).  |
-| push_tokens | Tableau d’objets avec `app_id` et la chaîne de caractères `token`. Vous pouvez éventuellement fournir un `device_id` pour l’appareil auquel ce jeton est associé, par exemple, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si aucun `device_id` n’est pas fourni, il sera généré de manière aléatoire. |
-| time_zone | (chaîne de caractères) Nom du fuseau horaire provenant de la [base de données des fuseaux horaires de l'IANA][26] (par exemple, "America/New_York" ou "Eastern Time (US & Canada)"). Seules les valeurs de fuseau horaire valides seront définies. |
-| twitter | Hachage contenant l'un des éléments suivants : `id` (nombre entier), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (nombre entier), `friends_count` (nombre entier), `statuses_count` (nombre entier). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| country | (chaîne de caractères) Nous exigeons que les codes de pays soient transmis à Braze selon la [norme ISO-3166-1 alpha-2][17]. |
+| current_location | (objet) De la forme {"longitude": -73.991443, "latitude": 40.753824} |
+| date_of_first_session | (date à laquelle l'utilisateur a utilisé l'application pour la première fois) Chaîne de caractères au format ISO 8601 ou au format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
+| date_of_last_session | (date à laquelle l'utilisateur a utilisé l'application pour la dernière fois) Chaîne de caractères au format ISO 8601 ou au format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
+| dob | (date de naissance) Chaîne au format « AAAA-MM-JJ », par exemple 1980-12-21. |
+| email | (chaîne de caractères) |
+| email_subscribe | (chaîne de caractères) Les valeurs disponibles sont « opted_in » (explicitement inscrit pour recevoir des e-mails), « unsubscribed » (explicitement désinscrit des e-mails) et « subscribed » (ni inscrit ni désinscrit). |
+| external_id | (chaîne de caractères) Identifiant utilisateur unique. |
+| facebook | hachage contenant l'un des éléments suivants : `id` (chaîne de caractères), `likes` (tableau de chaînes de caractères), `num_friends` (nombre entier). |
+| first_name | (chaîne de caractères) |
+| gender | (chaîne de caractères) « M », « F », « O » (autre), « N » (sans objet), « P » (préfère ne pas dire) ou nil (inconnu). |
+| home_city | (chaîne de caractères) |
+| image_url | (chaîne de caractères) URL de l'image à associer au profil utilisateur. |
+| language | (chaîne de caractères) Nous exigeons que la langue soit transmise à Braze selon la [norme ISO-639-1][24]. <br>[Liste des langues acceptées](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
+| last_name | (chaîne de caractères) |
+| marked_email_as_spam_at | (chaîne de caractères) Date à laquelle l'e-mail de l'utilisateur a été marqué comme courrier indésirable. Apparaît au format ISO 8601 ou au format yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
+| phone | (chaîne de caractères) |
+| push_subscribe | (chaîne de caractères) Les valeurs disponibles sont « opted_in » (explicitement inscrit pour recevoir des notifications push), « unsubscribed » (explicitement désinscrit des notifications push) et « subscribed » (ni inscrit ni désinscrit). |
+| push_tokens | Tableau d'objets avec `app_id` et la chaîne de caractères `token`. Vous pouvez éventuellement fournir un `device_id` pour l'appareil auquel ce jeton est associé, par exemple `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si aucun `device_id` n'est fourni, il sera généré de manière aléatoire. |
+| time_zone | (chaîne de caractères) Nom du fuseau horaire provenant de la [base de données des fuseaux horaires de l'IANA][26] (par exemple « America/New_York » ou « Eastern Time (US & Canada) »). Seules les valeurs de fuseau horaire valides seront définies. |
+| twitter | Hachage contenant l'un des éléments suivants : `id` (nombre entier), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (nombre entier), `friends_count` (nombre entier), `statuses_count` (nombre entier). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 

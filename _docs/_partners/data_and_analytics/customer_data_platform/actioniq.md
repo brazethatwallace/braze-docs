@@ -28,7 +28,7 @@ The Braze and ActionIQ integration allow brands to sync and map their ActionIQ d
 | ActionIQ account | An ActionIQ account is required to take advantage of this integration. |
 | Braze REST API key | A Braze REST API key with the required permissions for the respective integration. See the respective Requirements section for more details. <br><br>This key can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrations
 

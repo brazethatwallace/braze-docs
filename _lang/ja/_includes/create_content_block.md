@@ -1,23 +1,23 @@
 {% if include.location == "dnd" %}
 
-1. [**テンプレート**] > [**コンテンツブロック**] に移動します。<i class="fas fa-plus"></i> [**コンテンツブロックの作成**] を選択し、[**ドラッグ＆ドロップコンテンツブロック**] を選択します。
-2. [エディタブロック]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_editor_blocks/)をドラッグアンドドロップして、ドラッグアンドドロップコンテンツブロックを構築します。 
-3. フォーマットブロックを**Rows**タブからエディタにドラッグアンドドロップして、コンテンツブロックのレイアウトを作成します。<br><br> ![コンテンツブロックコンポーザーをドラッグアンドドロップします。]({% image_buster /assets/img_archive/dnd_content_block_composer.png %})<br><br>
-4. 必要に応じてコンテンツブロックをドラッグアンドドロップして、メールキャンペーンを構築します。
-5. コンテンツブロックを作成したら、[**完了**] を選択します。
-6. コンテンツブロックに名前を付けます。この名前は、**コンテンツブロック Liquid タグ**の一部として自動入力されます。
+1. **コンテンツ** > **Content Block** に移動します。<i class="fas fa-plus"></i> **Create Content Block** を選択し、**Drag-and-drop Content Block** を選択します。
+2. [エディターブロック]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_editor_blocks/)をドラッグ＆ドロップして、ドラッグ＆ドロップコンテンツブロックを構築します。
+3. **Rows** タブからフォーマットブロックをエディターにドラッグ＆ドロップして、コンテンツブロックのレイアウトを作成します。<br><br> ![ドラッグ＆ドロップコンテンツブロックコンポーザー。]({% image_buster /assets/img_archive/dnd_content_block_composer.png %})<br><br>
+4. 必要に応じてドラッグ＆ドロップContent Blocksを追加し、メールキャンペーンを構築します。
+5. コンテンツブロックの作成が完了したら、**Done** を選択します。
+6. コンテンツブロックに名前を付けます。この名前は、**Content Block Liquid Tag** の一部として自動入力されます。
 7. (オプション) 説明を追加します。
-8. コンテンツブロックの表示方法を表示するには、[**プレビュー**] タブを選択します。必要に応じて [**プレビューリンクのコピー**] を選択して、ランダムなユーザーに対してメールがどのように表示されるかを示す共有可能なプレビューリンクを生成し、コピーできます。リンクは7日間有効であり、それ以降は再生成が必要になります。<br><br> !["Preview"ドラッグアンドドロップのコンテンツブロックコンポーザーのタブ。]({% image_buster /assets/img_archive/dnd_content_block_preview_link.png %})<br><br>
-9. [**コンテンツブロックを開始**] を選択します。
+8. **Preview** タブを選択して、コンテンツブロックの表示を確認します。必要に応じて **Copy preview link** を選択すると、ランダムなユーザーに対してメールがどのように表示されるかを示す共有可能なプレビューリンクを生成してコピーできます。リンクは7日間有効で、それ以降は再生成が必要です。<br><br> ![ドラッグ＆ドロップコンテンツブロックコンポーザーのプレビュータブ。]({% image_buster /assets/img_archive/dnd_content_block_preview_link.png %})<br><br>
+9. **Launch Content Block** を選択します。
 
 {% elsif include.location == "html" %}
 
-1. [**テンプレート**] > [**コンテンツブロック**] に移動します。<i class="fas fa-plus"></i> [**コンテンツブロックの作成**] を選択し、[**HTML コンテンツブロック**] を選択します。
-2. HTML を**HTML** タブに入力するか、**Classic** タブでコンテンツブロックをビルドします。<br><br> ![HTMLコンテンツブロックコンポーザー]({% image_buster /assets/img_archive/html_content_block_composer.png %})<br><br>
-4. コンテンツブロックを作成したら、[**完了**] を選択します。
-5. コンテンツブロックの名前を入力します。この名前は、**コンテンツブロック Liquid タグ**の一部として自動入力されます。
-6. (オプション) 説明を追加します。
-7. コンテンツブロックの表示方法を表示するには、[**プレビュー**] タブを選択します。必要に応じて [**プレビューリンクのコピー**] を選択して、ランダムなユーザーに対してメールがどのように表示されるかを示す共有可能なプレビューリンクを生成し、コピーできます。リンクは7日間有効であり、それ以降は再生成が必要になります。<br><br> !["HTMLコンテンツブロックコンポーザーのプレビュー&クォートタブ。]({% image_buster /assets/img_archive/content_block_html_preview_link.png %})<br><br>
-8. [**コンテンツブロックを開始**] を選択します。
+1. **コンテンツ** > **Content Block** に移動します。<i class="fas fa-plus"></i> **Create Content Block** を選択し、**HTML code editor** を選択します。
+2. **HTML** タブでHTMLを入力するか、**Classic** タブでコンテンツブロックを構築します。<br><br> ![HTMLコードエディターコンポーザー。]({% image_buster /assets/img_archive/html_content_block_composer.png %})<br><br>
+3. コンテンツブロックの作成が完了したら、**Done** を選択します。
+4. コンテンツブロックの名前を入力します。この名前は、**Content Block Liquid Tag** の一部として自動入力されます。
+5. (オプション) 説明を追加します。
+6. **Preview** タブを選択して、コンテンツブロックの表示を確認します。必要に応じて **Copy preview link** を選択すると、ランダムなユーザーに対してメールがどのように表示されるかを示す共有可能なプレビューリンクを生成してコピーできます。リンクは7日間有効で、それ以降は再生成が必要です。<br><br> ![HTMLコードエディターコンポーザーのプレビュータブ。]({% image_buster /assets/img_archive/content_block_html_preview_link.png %})<br><br>
+7. **Launch Content Block** を選択します。
 
 {% endif %}

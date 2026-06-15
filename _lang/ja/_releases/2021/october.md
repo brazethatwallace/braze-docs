@@ -3,47 +3,47 @@ nav_title: 10月
 page_order: 2
 noindex: true
 page_type: update
-description: "この記事には、2021年10月のリリースノートが含まれている。"
+description: "この記事には2021年10月のリリースノートが含まれています。"
 ---
- 
-# 2021年10月
 
-## データポイント利用ダッシュボード
+# 2021年10月 {#october-2021}
 
-**合計データポイント使用量**ダッシュボードを使用して、契約割り当てに関連するデータポイントの使用ペースを追跡する。このダッシュボードには、契約内容、現在の請求サイクル、会社の請求データ、ワークスペースの請求データに関する情報が表示される。詳細については、「[請求]({{site.baseurl}}/user_guide/onboarding_with_braze/subscription_and_usage/#total-data-points-dashboard)」を参照してください。
+## データポイント使用量ダッシュボード {#data-points-usage-dashboard}
 
-## セグメントエクステンションの再生成の変更
+**データポイント使用量の合計**ダッシュボードを使用して、契約割り当てに対するデータポイントの使用ペースを追跡できます。このダッシュボードには、契約内容、現在の請求サイクル、会社の請求データ、ワークスペースの請求データに関する情報が表示されます。詳細については、[請求]({{site.baseurl}}/user_guide/onboarding_with_braze/subscription_and_usage/#total-data-points-dashboard)を参照してください。
 
-2022年2月1日以降、未使用の[セグメント・エクステンションについては]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/)、毎日エクステンションを再生成する設定が自動的にオフになる。Braze では、未使用のエクステンションを次の基準を満たすものと定義しています。
+## セグメントエクステンションの再生成の変更 {#change-to-segment-extension-regeneration}
 
-- アクティブなキャンペーン、キャンバス、セグメントで使用されていない
-- 非アクティブな (下書きの、停止された、アーカイブされた) キャンペーン、キャンバス、またはセグメントで使用されていない
+2022年2月1日以降、未使用の[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)については、エクステンションを毎日再生成する設定が自動的にオフになります。Brazeでは、未使用のエクステンションを次の基準を満たすものと定義しています。
+
+- アクティブなキャンペーン、キャンバス、またはセグメントで使用されていない
+- 非アクティブな（下書き、停止、アーカイブされた）キャンペーン、キャンバス、またはセグメントで使用されていない
 - 7日以上変更されていない
 
-この設定をオフにすると、Braze は会社の連絡先とエクステンションの作成者に通知します。エクステンションを毎日再生成するオプションはいつでも有効にできます。
+この設定がオフになると、Brazeは会社の連絡先とエクステンションの作成者に通知します。エクステンションを毎日再生成するオプションはいつでも再度有効にできます。
 
-## Androidアドバンスド実装ガイド
+## Android高度な実装ガイド {#android-advanced-implementation-guides}
 
-### コンテンツカードによって促進された
+### Content Cards
 
-このオプショナルで高度な[実装ガイドでは]({{site.baseurl}}/developer_guide/content_cards/)、Content Cardコードの検討事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、インプレッション、クリック、および却下のログに関するガイダンスについて説明する。
+このオプションの高度な[実装ガイド]({{site.baseurl}}/developer_guide/content_cards/)では、Content Cardsのコードに関する考慮事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペット、インプレッション・クリック・却下のログに関するガイダンスについて説明しています。
 
-### アプリ内メッセージング
+### アプリ内メッセージ {#in-app-messaging}
 
-このオプショナルで高度な[実装ガイドでは]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android)、アプリ内メッセージコードの考慮事項、我々のチームによって構築された3つのカスタムユースケース、付随するコードスニペットについて説明する。
+このオプションの高度な[実装ガイド]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android)では、アプリ内メッセージのコードに関する考慮事項、当社チームが構築した3つのカスタムユースケース、付随するコードスニペットについて説明しています。
 
-### プッシュ通知
+### プッシュ通知 {#push-notifications}
 
-このオプショナルで高度な[実装ガイドでは]({{site.baseurl}}/developer_guide/push_notifications/examples/?sdktab=android)、カスタム`FirebaseMessagingService` サブクラスを活用してプッシュ・メッセージを最大限に活用する方法について説明する。Braze チームが作成したカスタムのユースケース、付属のコードスニペット、ロギング分析に関するガイダンスも含まれています。
+このオプションの高度な[実装ガイド]({{site.baseurl}}/developer_guide/push_notifications/examples/?sdktab=android)では、カスタム`FirebaseMessagingService`サブクラスを活用してプッシュメッセージを最大限に活用する方法について説明しています。当社チームが構築したカスタムユースケース、付随するコードスニペット、分析のログに関するガイダンスが含まれています。
 
-## Braze の新しいパートナーシップ
+## Brazeの新しいパートナーシップ {#new-braze-partnerships}
 
-### アドビ - 顧客データプラットフォーム
+### Adobe - 顧客データプラットフォーム {#adobe-customer-data-platform}
 
-Adobe Experience Platform 上に構築された Adob​​e のリアルタイム顧客データプラットフォーム (リアルタイム CDP) は、企業が複数のエンタープライズソースからの既知のデータと匿名データを統合し、すべてのチャネルとデバイスでパーソナライズされた顧客体験をリアルタイムで提供するために使用できる顧客プロファイルを作成するのに役立ちます。
+Adobe Experience Platform上に構築されたAdobeのリアルタイム顧客データプラットフォーム（リアルタイムCDP）は、企業が複数のエンタープライズソースからの既知のデータと匿名データを統合し、すべてのチャネルとデバイスでパーソナライズされたカスタマーエクスペリエンスをリアルタイムで提供するために使用できる顧客プロファイルを作成するのに役立ちます。
 
-Brazeと[Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe/)CDPの統合により、ブランドはAdobeデータ（カスタム属性とセグメント）をリアルタイムでBrazeに接続し、マッピングすることができる。ブランドはこのデータに基づいて行動し、パーソナライズされ、ターゲットに応じた体験をユーザーに提供できます。 
+Brazeと[Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe/) CDPの統合により、ブランドはAdobeデータ（カスタム属性とセグメント）をリアルタイムでBrazeに接続し、マッピングできます。ブランドはこのデータに基づいて行動し、パーソナライズされたターゲット体験をユーザーに提供できます。
 
-### Shopify - eコマース
+### Shopify - eコマース {#shopify-ecommerce}
 
-[Shopify]({{site.baseurl}}/partners/shopify/) は、あらゆる規模の小売 (店) ビジネスの開始、拡大、マーケティング、および管理のための信頼できるツールを提供する、世界をリードするコマース企業です。Braze と Shopify の統合により、ブランドは Shopify ストアを Braze とシームレスに接続し、選択した Shopify Webhook を Braze に渡すことができます。Braze のクロスチャネル戦略とキャンバスを活用して、購入手続き放棄のメッセージングでユーザーをリターゲティングし、顧客に購入を完了するよう促したり、以前の購入に基づいてユーザーをリターゲティングしたりできます。
+[Shopify]({{site.baseurl}}/partners/shopify/)は、あらゆる規模の小売ビジネスの開始、拡大、マーケティング、および管理のための信頼できるツールを提供する、世界をリードするコマース企業です。BrazeとShopifyの統合により、ブランドはShopifyストアをBrazeとシームレスに接続し、選択したShopifyのwebhookをBrazeに渡すことができます。Brazeのクロスチャネル戦略とキャンバスを活用して、購入手続き放棄のメッセージングでユーザーをリターゲティングし、顧客に購入を完了するよう促したり、以前の購入に基づいてユーザーをリターゲティングしたりできます。

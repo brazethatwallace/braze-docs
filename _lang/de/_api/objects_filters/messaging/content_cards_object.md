@@ -1,22 +1,22 @@
 ---
-nav_title: "Inhalt Kartenobjekt"
-article_title: Content-Card Messaging Objekt
+nav_title: "Content-Card-Objekt"
+article_title: Content-Card-Messaging-Objekt
 page_order: 4
 page_type: reference
 channel: content cards
-description: "Dieser referenzierte Artikel erläutert die verschiedenen Komponenten des Braze Content-Card-Objekts."
+description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten des Braze Content-Card-Objekts."
 
 ---
 
-# Content-Card Objekt
+# Content-Card-Objekt {#content-card-object}
 
-> Mit dem Objekt `content_card` können Sie Content-Cards über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) erstellen.
+> Mit dem Objekt `content_card` können Sie Content Cards über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) erstellen.
 
 ```json
 {
   "type": (required, string) one of "CLASSIC", "CAPTIONED_IMAGE", or "BANNER",
-  "title": (required, string) the card's title,
-  "description": (required, string) the card's description,
+  "title": (required, string) the card's title. Not applicable for "BANNER". Accepts an empty string,
+  "description": (required, string) the card's description. Not applicable for "BANNER",
   "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under (must be a Content Card Message),
   "pinned": (optional, boolean) whether the card is pinned. Defaults to false,
   "image_url": (optional, string) the card's image URL. Required for "CAPTIONED_IMAGE" and "BANNER",

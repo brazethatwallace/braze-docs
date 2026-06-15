@@ -27,19 +27,19 @@ First, you'll need to create your HTML email template. This must be a ZIP file t
 
 ### Step 1: Go to the email template editor
 
-Go to the **Templates** > **Email Templates**.
+Go to **Content** > **Email**. Select **Create email template**.
 
-### Step 2: Open the uploader
+### Step 2: Add template details
 
-Under the **Template Type** section, select **HTML Editor** and scroll down to the section **Start from a Basic HTML Template**. Select **From File**.
+Provide a template name. Optionally, add a description, teams, and tags.
 
 ### Step 3: Upload your template
 
-Select **Upload From File** and select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
+In the **Template content** section, select **Upload file** below the **HTML code editor** tile. Select your template from your computer. Refer to the [Requirements](#upload-requirements) section to ensure your template meets the upload requirements.
 
 ### Step 4: Finish and save your template
 
-Be sure to save your template by selecting **Save Template**. You're now ready to use this template in any campaign or Canvas you choose!
+Be sure to save your template by selecting **Save template**. You're now ready to use this template in any campaign or Canvas you choose.
 
 {% alert note %}
 If you make any edits to an existing template, those changes will not be reflected in campaigns that were created using previous versions of that template.
@@ -68,7 +68,7 @@ There are several email error messages you may receive when uploading an HTML te
 |`Images over 5&nbsp;MB`| Reduce the number of images and try uploading again. |
 |`Extra Images`| There may be additional images in your file that are not referenced in your HTML file. This does not cause a fail error, but the extra images are discarded. If those images were supposed to be referenced in the HTML file, then check the content, correct any errors, and try uploading again.|
 |`Missing Images`| If there are images referenced in your HTML file, but those images are not included in the image folder of the ZIP file, you receive a file error. Inspect your file and correct any errors (like misspellings), or add the missing images to your ZIP file and try uploading again.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Note that when downloading the files for HTML campaigns, Canvas steps with email messages, or templates on a Windows machine, the `|` (pipe character) is not supported, so you may need to use a different application to extract the download contents from the ZIP file.
 

@@ -1,0 +1,275 @@
+# Support analyzer (Looker): export → digest PR → Phase 2 draft doc PRs → close digest PR
+#
+# 1) Export Support Cases CSV from Looker and push to branch `support-analyzer-data`.
+# 2) Generate a machine digest (counts + keyword themes), upload it as an artifact, and open ONE draft PR to `develop`.
+# 3) Phase 2 (after digest): evaluate `.github/support_analyzer_phase2_rules.yml` against the same CSV and open
+#    draft PRs to `develop` for allowlisted doc inserts.
+# 4) If Phase 2 succeeds and a digest PR was opened, close that digest PR (digest remains in workflow artifacts).
+#
+# The digest PR is not customer docs. Phase 2 PRs touch `_docs` but are drafts for human review.
+# Ad-hoc triage still uses the support-analyzer skill for cases outside the Phase 2 rules file.
+#
+# Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
+# limit branch access, and scope the Looker saved query appropriately. The export script
+# requires SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 in Actions and redacts common
+# credential patterns (AWS keys, SendGrid SG.* keys, Twilio AC/SK SIDs, GitHub/Slack/Stripe tokens, etc.) before commit.
+#
+# Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
+# Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID
+#
+# Slack (#docs_request): SLACK_BOT_TOKEN, SLACK_DOCS_REQUEST_CHANNEL (channel ID).
+# Falls back to SLACK_DEPLOY_NOTIFY_CHANNEL if SLACK_DOCS_REQUEST_CHANNEL is unset.
+# Optional: SUPPORT_ANALYZER_GITHUB_TO_SLACK — JSON map of GitHub login → Slack member ID (U…).
+#
+# Phase 2 does not clone Appboy/platform (or other product repos) in CI; no REFERENCE_REPO_TOKEN here.
+#
+# Labels: Create `support analyzer` and `do not merge` in the repo if missing—the digest PR applies both.
+#
+# Schedule: `cron` + `timezone` use GitHub Actions schedule event semantics (IANA timezone, DST-aware).
+# Default: Tuesday and Friday ~7:00 America/New_York (~every three days; Looker export is a rolling ~3-day window).
+# See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+# Edit `cron` / `timezone` below to change when the export runs.
+name: Support analyzer (Looker)
+
+on:
+  schedule:
+    - cron: "0 7 * * 2"
+      timezone: "America/New_York"
+    - cron: "0 7 * * 5"
+      timezone: "America/New_York"
+  workflow_dispatch:
+    inputs:
+      skip_phase2:
+        description: "If true, skip Phase 2 draft doc PRs (export and digest still run)."
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up data branch
+        run: |
+          git fetch origin support-analyzer-data "${{ github.ref_name }}" 2>/dev/null || true
+          git checkout -B support-analyzer-data origin/support-analyzer-data 2>/dev/null || git checkout -b support-analyzer-data
+          # CSV-only branch: copy export script from workflow ref without staging it for commit.
+          mkdir -p scripts
+          git show "origin/${{ github.ref_name }}:scripts/export_support_cases_from_looker.py" \
+            > scripts/export_support_cases_from_looker.py
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Export from Looker
+        env:
+          LOOKER_CLIENT_ID: ${{ secrets.LOOKER_CLIENT_ID }}
+          LOOKER_CLIENT_SECRET: ${{ secrets.LOOKER_CLIENT_SECRET }}
+          LOOKER_SUPPORT_CASES_QUERY_ID: ${{ vars.LOOKER_SUPPORT_CASES_QUERY_ID }}
+          SUPPORT_ANALYZER_OUTPUT: _data/support_cases_latest.csv
+          SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA: "1"
+        run: python scripts/export_support_cases_from_looker.py
+
+      - name: Commit and push CSV
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/support_cases_latest.csv
+          git diff --staged --quiet && echo "No CSV changes to commit" || (git commit -m "chore: Support Cases export from Looker (scheduled)" && git push origin support-analyzer-data)
+
+  digest_and_pr:
+    needs: export
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      digest_pr_number: ${{ steps.digest_pr.outputs.pull-request-number || '' }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Fetch latest CSV from data branch
+        run: |
+          git fetch origin support-analyzer-data
+          git show "origin/support-analyzer-data:_data/support_cases_latest.csv" > "$RUNNER_TEMP/support_cases_latest.csv"
+          test -s "$RUNNER_TEMP/support_cases_latest.csv" || (echo "CSV empty or missing on support-analyzer-data"; exit 1)
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Generate digest
+        run: |
+          python scripts/support_analyzer_weekly_digest.py \
+            "$RUNNER_TEMP/support_cases_latest.csv" \
+            "$GITHUB_WORKSPACE/.github/support_analyzer_weekly_digest.md"
+
+      - name: Upload digest artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: support-analyzer-weekly-digest
+          path: .github/support_analyzer_weekly_digest.md
+
+      - name: Date stamp (Eastern)
+        id: stamp
+        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Open digest pull request
+        id: digest_pr
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          branch: support-analyzer/weekly-digest-${{ github.run_id }}
+          base: develop
+          title: "[SA] Weekly support cases digest — ${{ steps.stamp.outputs.ymd }}"
+          body: |
+            ## For tagged reviewers and stakeholders
+
+            This pull request was **generated automatically** by the Braze Support analyzer workflow. That process reviews the latest **Braze Support** case export (Looker). **This PR** is an internal digest only (keyword themes and counts)—it does **not** change customer-facing Braze Docs. The same workflow run may open separate **draft** Phase 2 PRs that propose `_docs` edits (see `.github/support_analyzer_phase2_rules.yml`).
+
+            **Do not merge:** This digest PR is for **analysis and triage only**. Use `.github/support_analyzer_weekly_digest.md` in this PR and `_data/support_cases_latest.csv` on branch `support-analyzer-data` with the support-analyzer skill (`.github/skills/support-analyzer/SKILL.md`) as needed.
+
+            When Phase 2 completes successfully, this digest PR is **closed automatically** (the digest file is also attached as a **workflow artifact** on the run).
+
+            See `.github/support_analyzer_weekly_digest.md` in this PR.
+          labels: |
+            support analyzer
+            do not merge
+          commit-message: "chore: support cases digest (automated)"
+          delete-branch: true
+          add-paths: |
+            .github/support_analyzer_weekly_digest.md
+
+  phase2_doc_prs:
+    needs: [digest_and_pr]
+    if: ${{ !(github.event_name == 'workflow_dispatch' && github.event.inputs.skip_phase2 == 'true') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      # workflow_dispatch: checkout the branch you run from (has Phase 2 script before merge).
+      # schedule: github.ref is the repo default branch (develop).
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch latest CSV from data branch
+        run: |
+          git fetch origin support-analyzer-data
+          git show "origin/support-analyzer-data:_data/support_cases_latest.csv" > "$RUNNER_TEMP/support_cases_latest.csv"
+          test -s "$RUNNER_TEMP/support_cases_latest.csv" || (echo "CSV empty or missing on support-analyzer-data"; exit 1)
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Phase 2 dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ripgrep
+          pip install pyyaml
+
+      - name: Configure Git and GitHub CLI
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Phase 2 (rules → draft doc PRs)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/support_analyzer_phase2.py \
+            "$RUNNER_TEMP/support_cases_latest.csv" \
+            --rules .github/support_analyzer_phase2_rules.yml \
+            --assignees-map .github/support_analyzer_doc_assignees.csv \
+            --root "$GITHUB_WORKSPACE" \
+            --strict-anchors
+
+      - name: Upload Phase 2 verification report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: support-analyzer-phase2-verification
+          path: .github/support_analyzer_phase2_verification.md
+          if-no-files-found: ignore
+
+      - name: Upload Phase 2 run summary
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: support-analyzer-phase2-summary
+          path: .github/support_analyzer_phase2_run_summary.json
+          if-no-files-found: ignore
+
+  close_digest_pr:
+    needs: [digest_and_pr, phase2_doc_prs]
+    if: ${{ needs.digest_and_pr.result == 'success' && needs.digest_and_pr.outputs.digest_pr_number != '' && needs.phase2_doc_prs.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Close digest-only pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ needs.digest_and_pr.outputs.digest_pr_number }}
+        run: |
+          gh pr close "$PR_NUMBER" --delete-branch --repo "${{ github.repository }}" \
+            --comment "Automated: Phase 2 finished for this workflow run. The digest is still available from the **support-analyzer-weekly-digest** artifact on the workflow run. Re-open from the branch history if you need an in-repo thread."
+
+  notify:
+    name: Slack notification
+    needs: [export, digest_and_pr, phase2_doc_prs, close_digest_pr]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            scripts/support_analyzer_slack_notify.py
+          sparse-checkout-cone-mode: false
+
+      - name: Download Phase 2 run summary
+        if: ${{ needs.phase2_doc_prs.result != 'skipped' }}
+        uses: actions/download-artifact@v8
+        with:
+          name: support-analyzer-phase2-summary
+          path: .github
+
+      - name: Post result to Slack (#docs_request)
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DOCS_REQUEST_CHANNEL: ${{ secrets.SLACK_DOCS_REQUEST_CHANNEL }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          SUPPORT_ANALYZER_GITHUB_TO_SLACK: ${{ secrets.SUPPORT_ANALYZER_GITHUB_TO_SLACK }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NEEDS_EXPORT_RESULT: ${{ needs.export.result }}
+          NEEDS_DIGEST_RESULT: ${{ needs.digest_and_pr.result }}
+          NEEDS_PHASE2_RESULT: ${{ needs.phase2_doc_prs.result }}
+          NEEDS_CLOSE_DIGEST_RESULT: ${{ needs.close_digest_pr.result }}
+          DIGEST_PR_NUMBER: ${{ needs.digest_and_pr.outputs.digest_pr_number }}
+          SKIP_PHASE2: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.skip_phase2 == 'true' }}
+          PHASE2_SUMMARY_PATH: .github/support_analyzer_phase2_run_summary.json
+        run: python scripts/support_analyzer_slack_notify.py

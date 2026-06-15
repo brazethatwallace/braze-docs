@@ -123,7 +123,8 @@ You can find this data on the [Revenue Report]({{site.baseurl}}/user_guide/analy
     }
 </style>
 
-<table>
+<table aria-label="Revenue calculations">
+  <caption>Revenue calculations</caption>
     <thead>
         <tr>
             <th>Metric</th>

@@ -1,42 +1,42 @@
 ---
-nav_title: "POST : Mettre à jour l'activité en ligne/en production/instantanée"
-article_title: "POST : Mettre à jour l’activité en direct"
+nav_title: "POST : Mettre à jour l'activité en direct"
+article_title: "POST : Mettre à jour l'activité en direct"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Mettre à jour l’activité en direct."
+description: "Cet article présente en détail l'endpoint Mettre à jour l'activité en direct."
 
 ---
 {% api %}
-# Mettre à jour l’activité en direct
+# Mettre à jour l'activité en direct {#update-live-activity}
 {% apimethod post %}
 /messages/live_activity/update
 {% endapimethod %}
 
 > Utilisez cet endpoint pour mettre à jour et terminer les [activités en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) affichées par votre application iOS. Cet endpoint nécessite une configuration supplémentaire.
 
-Après avoir enregistré une activité en direct, vous pouvez passer une charge utile JSON pour mettre à jour votre service de notification push Apple (APNs). Consultez la documentation d'Apple sur [la mise à jour de votre activité en direct avec des charges utiles de notification push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications) pour plus d'informations.
+Après avoir enregistré une activité en direct, vous pouvez transmettre un payload JSON pour mettre à jour votre service de notification push Apple (APNs). Consultez la documentation d'Apple sur [la mise à jour de votre activité en direct avec des payloads de notification push](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications) pour plus d'informations.
 
-Si ce paramètre`content-available` n'est pas défini, la priorité par défaut du service Apple Notification push (APN) est 10. Si`content-available`  est défini, cette priorité est de 5. Veuillez vous référer à [l'objet push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) pour plus de détails.
+Si `content-available` n'est pas défini, la priorité par défaut du service de notification push Apple (APNs) est 10. Si `content-available` est défini, cette priorité est de 5. Consultez l'[objet push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) pour plus de détails.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
+Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
-- Générez une clé API avec l’autorisation `messages.live_activity.update`.
-- Enregistrez une activité en direct [à distance]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=remote&sdktab=swift) ou [localement]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift) à l'aide du SDK Braze Swift.
+- Générer une clé API avec l'autorisation `messages.live_activity.update`.
+- Enregistrer une activité en direct [à distance]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=remote&sdktab=swift) ou [localement]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?tab=local&sdktab=swift) à l'aide du SDK Braze Swift.
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corps de la demande
+## Corps de la requête {#request-body}
 
 ```json
 {
@@ -50,20 +50,20 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
  }
  ```
 
-## Paramètres de demande
+## Request parameters
 
-| Paramètre | Requis | Type de données | Description |
+| Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `app_id` | Requis | Chaîne de caractères | Identifiant [API]({{site.baseurl}}/api/identifier_types/#the-app-identifier) récupéré depuis la page [Clés API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/).  |
-| `activity_id` | Requis | Chaîne de caractères | Lorsque vous enregistrez votre Activité en direct en utilisant [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), vous utilisez le paramètre `pushTokenTag` pour nommer le jeton push de l'Activité avec une chaîne personnalisée.<br><br>Définissez l’`activity_id` vers cette chaîne de caractères personnalisée pour définir l’activité en direct que vous souhaitez mettre à jour. |
-| `content_state` | Requis | Objet | Vous définissez les paramètres `ContentState` lorsque vous créez votre activité en direct. Transmettez les valeurs mises à jour pour votre `ContentState` en utilisant cet objet.<br><br>Le format de cette requête doit correspondre à la forme que vous avez initialement définie. |
-| `end_activity` | Facultatif | Valeur booléenne | Si `true`, cette requête met fin à l’activité en direct. |
-| `dismissal_date` | Facultatif | DateTime <br>chaîne ([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Ce paramètre définit le moment de suppression de l’activité en direct de l’interface utilisateur. Si cette heure est dans le passé et `end_activity` est `true`, l'Activité en direct sera supprimée immédiatement.<br><br> Si `end_activity` est `false` ou omis, ce paramètre met uniquement à jour l'Activité en direct.|
-| `stale_date` | Facultatif | DateTime <br>chaîne ([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Ce paramètre indique au système quand le contenu de l’activité en direct devient obsolète dans l’interface utilisateur. |
-| `notification` | Facultatif | Objet | Inclure un [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) objet pour définir une notification push. Le comportement de cette notification push dépend du statut d'activité de l'utilisateur ou de l'utilisation éventuelle d'un appareil proxy. {::nomarkdown}<ul><li>Si un <code>notification</code> est inclus et que l’utilisateur est actif sur son iPhone lorsque la mise à jour est livrée, l’interface utilisateur de l’activité en direct mise à jour glissera vers le bas et s’affichera comme une notification push.</li><li>Si un <code>notification</code> est inclus et que l’utilisateur n’est pas actif sur son iPhone, son écran s’allume pour afficher l’interface utilisateur de l’activité en direct mise à jour sur son écran de verrouillage.</li><li>Le paramètre <code>notification alert</code> ne s’affichera pas comme une notification push standard. De plus, si un utilisateur dispose d’un appareil proxy, comme une Apple Watch, le <code>alert</code> s’affichera ici.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types/#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page.  |
+| `activity_id` | Required | String | When you register your Live Activity using [`launchActivity`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class), you use the `pushTokenTag` parameter to name the Activity's push token to a custom string.<br><br>Set `activity_id` to this custom string to define which Live Activity you want to update. |
+| `content_state` | Required | Object | You define the `ContentState` parameters when you create your Live Activity. Pass the updated values for your `ContentState` using this object.<br><br>The format of this request must match the shape you initially defined. |
+| `end_activity` | Optional | Boolean | If `true`, this request ends the Live Activity. |
+| `dismissal_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter defines the time to remove the Live Activity from the user's UI. If this time is in the past and `end_activity` is `true`, the Live Activity will be removed immediately.<br><br> If `end_activity` is `false` or omitted, this parameter only updates the Live Activity.|
+| `stale_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | This parameter tells the system when the Live Activity content is marked as outdated in the user's UI. |
+| `notification` | Optional | Object | Include an [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) object to define a push notification. The behavior of this push notification depends on if the user is active or if the user is using a proxy device. {::nomarkdown}<ul><li>If a <code>notification</code> is included and the user is active on their iPhone when the update is delivered, the updated Live Activity UI will slide down and display like a push notification.</li><li>If a <code>notification</code> is included and the user is not active on their iPhone, their screen will light up to display the updated Live Activity UI on their lock screen.</li><li>The <code>notification alert</code> will not display as a standard push notification. Additionally, if a user has a proxy device, like an Apple Watch, the <code>alert</code> will be displayed there.</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemple de demande
+## Example request
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/update' \
@@ -88,13 +88,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 }'
 ```
 
-## Réponse
+## Réponse {#response}
 
-Deux réponses de code de statut existent pour cet endpoint : `201` et `4XX`.
+Deux codes de statut de réponse existent pour cet endpoint : `201` et `4XX`.
 
-### Exemple de réponse réussie
+### Exemple de réponse réussie {#example-success-response}
 
-Un code de statut `201` est renvoyé si la requête a été formatée correctement et que nous l’avons reçue. Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
+Un code de statut `201` est renvoyé si la requête a été correctement formatée et que nous l'avons reçue. Le code de statut `201` pourrait renvoyer le corps de réponse suivant.
 
 ```json
 {
@@ -102,9 +102,9 @@ Un code de statut `201` est renvoyé si la requête a été formatée correcteme
 }
 ```
 
-### Exemple de réponse échouée
+### Exemple de réponse en erreur {#example-error-response}
 
-La classe du code de statut `4XX` indique une erreur client. Reportez-vous à l'article [erreurs et réponses de l'API]({{site.baseurl}}/api/errors/) pour plus d'informations sur les erreurs que vous pouvez rencontrer.
+La classe de code de statut `4XX` indique une erreur client. Reportez-vous à l'article [Erreurs et réponses de l'API]({{site.baseurl}}/api/errors/) pour plus d'informations sur les erreurs que vous pouvez rencontrer.
 
 Le code de statut `400` pourrait renvoyer le corps de réponse suivant.
 

@@ -1,5 +1,5 @@
 ---
-nav_title: "추가 채널 및 확장"
+nav_title: "Additional channels and extensions"
 article_title: 추가 채널 및 확장
 page_order: 11
 
@@ -43,6 +43,10 @@ valid_partner_list:
   url: /docs/partners/komo/
 - name: Odicci
   url: /docs/partners/odicci/
+- name: CataBoom
+  url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Digioh
   url: /docs/partners/digioh/
 - name: Knak

@@ -18,6 +18,8 @@ description: "This article outlines details about the Export send analytics Braz
 
 Braze stores send analytics for 14 days after the send. Campaign conversions will be attributed toward the most recent `send_id` that a given user has received from the campaign.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## Prerequisites
@@ -36,7 +38,7 @@ This endpoint is for API campaigns only. To use this endpoint, you'll need an [A
 | `send_id` | Required | String | See [Send API identifier]({{site.baseurl}}/api/identifier_types/). |
 | `length` | Required | Integer | Maximum number of days before `ending_at` to include in the returned series. Must be between 1 and 100 (inclusive). |
 | `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Date on which the data series should end. Defaults to time of the request. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 

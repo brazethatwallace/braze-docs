@@ -60,7 +60,7 @@ Because some users will have low numbers of messages received, it's not unusual 
 
 ### Unreachable channels
 
-When the user has sufficient data for a ranking to be determined but becomes unreachable on their most engaged channel, the user will "fall out" and not receive any messages. Users who are unreachable on specific channels should be targeted separately.
+A user may have sufficient data for Braze to determine a channel ranking, but then become unreachable on their highest-ranked channel. For example, a user whose historical best channel is email may have recently unsubscribed from email. If you send a message on that channel, it won't be delivered to that user. Users who are unreachable on specific channels should be targeted or routed separately.
 
 ### Audience sizing
 

@@ -2,13 +2,13 @@
 nav_title: Suivre les sessions
 article_title: Suivre les sessions avec le SDK Braze
 page_order: 3.3
-description: "Découvrez comment suivre les sessions à l'aide du SDK de Braze."
+description: "Découvrez comment suivre les sessions à l'aide du SDK Braze."
 
 ---
 
-# Suivre les sessions
+# Suivre les sessions {#track-sessions}
 
-> Découvrez comment suivre les sessions à l'aide du SDK de Braze.
+> Découvrez comment suivre les sessions à l'aide du SDK Braze.
 
 {% alert note %}
 Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Android ou Swift correspondante.
@@ -16,11 +16,11 @@ Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Andr
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
-## Définition de l'inactivité
+## Définition de l'inactivité {#defining-inactivity}
 
 Comprendre comment l'inactivité est définie et mesurée est essentiel pour gérer efficacement les cycles de vie des sessions dans le SDK Web. L'inactivité désigne une période pendant laquelle le SDK Web de Braze ne détecte aucun événement suivi de la part de l'utilisateur.
 
-### Comment l'inactivité est-elle mesurée ?
+### Comment l'inactivité est mesurée {#how-inactivity-is-measured}
 
 Le SDK Web surveille l'inactivité en fonction des [événements suivis par le SDK]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events). Le SDK gère un minuteur interne qui se réinitialise à chaque envoi d'un événement suivi. Si aucun événement suivi par le SDK ne se produit pendant la période d'expiration configurée, la session est considérée comme inactive et prend fin.
 
@@ -28,7 +28,7 @@ Pour en savoir plus sur l'implémentation du cycle de vie des sessions dans le S
 
 **Ce qui est considéré comme une activité par défaut :**
 - Ouverture ou actualisation de l'application web
-- Interaction avec les éléments d'interface générés par Braze (tels que les [messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/) ou les [cartes de contenu]({{site.baseurl}}/developer_guide/content_cards/))
+- Interaction avec les éléments d'interface générés par Braze (tels que les [messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/) ou les [Content Cards]({{site.baseurl}}/developer_guide/content_cards/))
 - Appel de méthodes du SDK qui envoient des événements suivis (tels que des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/) ou des [mises à jour d'attributs utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/))
 
 **Ce qui n'est pas considéré comme une activité par défaut :**
@@ -41,11 +41,11 @@ Pour en savoir plus sur l'implémentation du cycle de vie des sessions dans le S
 Le SDK Web ne suit pas automatiquement les changements de visibilité du navigateur, les changements d'onglet ou le focus de l'utilisateur. Cependant, vous pouvez suivre ces interactions au niveau du navigateur en implémentant des écouteurs d'événements personnalisés à l'aide de l'[API Page Visibility](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) du navigateur et en envoyant des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web) à Braze. Pour un exemple d'implémentation, consultez la section [Suivi de l'inactivité personnalisée](#tracking-custom-inactivity).
 {% endalert %}
 
-### Configuration du délai d'expiration de la session
+### Configuration du délai d'expiration de la session {#session-timeout-configuration}
 
 Par défaut, le SDK Web considère qu'une session est inactive après 30 minutes sans aucun événement suivi. Vous pouvez personnaliser ce seuil lors de l'initialisation du SDK à l'aide du paramètre `sessionTimeoutInSeconds`. Pour plus de détails sur la configuration de ce paramètre, y compris des exemples de code, consultez la section [Modifier le délai de session par défaut](#changing-the-default-session-timeout).
 
-### Exemple : comprendre les scénarios d'inactivité
+### Exemple : comprendre les scénarios d'inactivité {#example-understanding-inactivity-scenarios}
 
 Prenons le scénario suivant :
 
@@ -55,7 +55,7 @@ Prenons le scénario suivant :
 4. Après 30 minutes d'inactivité, la session prend automatiquement fin.
 5. Lorsque l'utilisateur revient sur l'onglet de votre site web et déclenche un événement SDK (comme la consultation d'une page ou l'interaction avec du contenu), une nouvelle session commence.
 
-### Suivi de l'inactivité personnalisée
+### Suivi de l'inactivité personnalisée {#tracking-custom-inactivity}
 
 Si vous avez besoin de suivre l'inactivité en fonction de la visibilité du navigateur ou du changement d'onglet, implémentez des écouteurs d'événements personnalisés dans votre code JavaScript. Utilisez les événements du navigateur tels que `visibilitychange` pour détecter le moment où les utilisateurs quittent votre page, et envoyez manuellement des [événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/) à Braze ou appelez [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) lorsque c'est approprié.
 
@@ -75,9 +75,9 @@ document.addEventListener('visibilitychange', function() {
 
 Pour en savoir plus sur la journalisation des événements personnalisés, consultez la section [Journaliser des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/). Pour plus d'informations sur le cycle de vie des sessions et la configuration des délais d'expiration, consultez la section [Modifier le délai de session par défaut](#change-session-timeout).
 
-## S'abonner aux mises à jour de session
+## S'abonner aux mises à jour de session {#subscribing-to-session-updates}
 
-### Étape 1 : S'abonner aux mises à jour
+### Étape 1 : S'abonner aux mises à jour {#step-1-subscribe-to-updates}
 
 Pour vous abonner aux mises à jour de session, utilisez la méthode `subscribeToSessionUpdates()`.
 
@@ -172,15 +172,15 @@ BRZCancellable *cancellable = [AppDelegate.braze subscribeToSessionUpdates:^(BRZ
 {% endtab %}
 
 {% tab react native %}
-Le SDK React native ne fournit pas de méthode permettant de s'abonner directement aux mises à jour de session. Le cycle de vie de la session est géré par le SDK natif sous-jacent. Pour vous abonner aux mises à jour, utilisez l'approche native de la plateforme dans l'onglet **Android** ou **Swift**.
+Le SDK React Native ne fournit pas de méthode permettant de s'abonner directement aux mises à jour de session. Le cycle de vie de la session est géré par le SDK natif sous-jacent. Pour vous abonner aux mises à jour, utilisez l'approche native de la plateforme dans l'onglet **Android** ou **Swift**.
 {% endtab %}
 {% endtabs %}
 
-### Étape 2 : Tester le suivi de session (facultatif)
+### Étape 2 : Tester le suivi de session (facultatif) {#step-2-test-session-tracking-optional}
 
-Pour tester le suivi des sessions, démarrez une session sur votre appareil, puis ouvrez le tableau de bord de Braze et recherchez l'utilisateur concerné. Dans son profil utilisateur, sélectionnez **Aperçu des sessions**. Si les indicateurs se mettent à jour comme prévu, le suivi de session fonctionne correctement.
+Pour tester le suivi des sessions, démarrez une session sur votre appareil, puis ouvrez le tableau de bord de Braze et recherchez l'utilisateur concerné. Dans son profil utilisateur, sélectionnez **Sessions Overview**. Si les indicateurs se mettent à jour comme prévu, le suivi de session fonctionne correctement.
 
-![La section « Aperçu des sessions » d'un profil utilisateur affiche le nombre de sessions, la date de la dernière utilisation et la date de la première utilisation.]({% image_buster /assets/img_archive/test_session.png %}){: style="max-width:50%;"}
+![La section d'aperçu des sessions d'un profil utilisateur affichant le nombre de sessions, la date de la dernière utilisation et la date de la première utilisation.]({% image_buster /assets/img_archive/test_session.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 Les détails spécifiques aux applications ne sont affichés que pour les utilisateurs qui ont utilisé plus d'une application.
@@ -192,7 +192,7 @@ Vous pouvez modifier le délai qui s'écoule avant qu'une session ne se termine 
 
 {% tabs %}
 {% tab web %}
-Par défaut, le délai d'expiration de la session est fixé à `30` minutes. Pour le modifier, passez l'option `sessionTimeoutInSeconds` à votre fonction [`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize). La valeur peut être n'importe quel nombre entier supérieur ou égal à `1`. 
+Par défaut, le délai d'expiration de la session est fixé à `30` minutes. Pour le modifier, passez l'option `sessionTimeoutInSeconds` à votre fonction [`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize). La valeur peut être n'importe quel nombre entier supérieur ou égal à `1`.
 
 ```js
 // Sets the session timeout to 15 minutes instead of the default 30
@@ -242,7 +242,7 @@ AppDelegate.braze = braze;
 {% endtab %}
 
 {% tab react native %}
-Le SDK React native s'appuie sur les SDK natifs pour gérer les sessions. Pour modifier le délai d'expiration de session par défaut, configurez-le dans la couche native :
+Le SDK React Native s'appuie sur les SDK natifs pour gérer les sessions. Pour modifier le délai d'expiration de session par défaut, configurez-le dans la couche native :
 
 - **Android :** Définissez `com_braze_session_timeout` dans votre fichier `braze.xml`. Pour plus de détails, sélectionnez l'onglet **Android**.
 - **iOS :** Définissez `sessionTimeout` sur votre objet `Braze.Configuration`. Pour plus de détails, sélectionnez l'onglet **Swift**.
@@ -253,11 +253,29 @@ Le SDK React native s'appuie sur les SDK natifs pour gérer les sessions. Pour m
 Si vous définissez un délai de session, toute la sémantique de session s'étendra automatiquement au délai défini.
 {% endalert %}
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-### Le profil utilisateur affiche 0 session
+### Le profil utilisateur affiche 0 session {#user-profile-has-0-sessions}
 
 Un profil utilisateur peut afficher 0 session si l'utilisateur a été créé en dehors du SDK :
 
-- **Créé via l'API REST :** Si un utilisateur est créé via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) avec un `app_id` dans la requête, le profil apparaît associé à cette application mais ne contient aucune donnée de session, car le SDK n'a jamais été initialisé pour cet utilisateur.
-- **Créé par import CSV :** Si un utilisateur est importé via [CSV]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/csv/) sans valeurs pour les champs de première ou dernière session, le profil existe avec 0 session.
+- **Créé via la REST API :** Si un utilisateur est créé via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) avec un `app_id` dans la requête, le profil apparaît associé à cette application mais ne contient aucune donnée de session, car le SDK n'a jamais été initialisé pour cet utilisateur.
+- **Créé par import CSV :** Si un utilisateur est importé via [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) sans valeurs pour les champs de première ou dernière session, le profil existe avec 0 session.
+
+### Certains utilisateurs n'enregistrent pas de sessions {#some-users-are-not-logging-sessions}
+
+Étant donné que les sessions ne sont suivies qu'après l'initialisation du SDK, les utilisateurs qui ne déclenchent pas l'initialisation du SDK n'enregistrent aucune session. Cela se produit généralement lorsque votre application utilise une logique conditionnelle avant d'initialiser le SDK, comme le report de l'initialisation derrière un flux de connexion, une invite de consentement ou un indicateur de fonctionnalité. Pour des conseils d'implémentation, consultez [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift). Dans ces cas, tout utilisateur qui ne remplit pas la condition ne démarre jamais de session.
+
+Si certains utilisateurs enregistrent des sessions et d'autres non, vérifiez les points suivants :
+
+- **Vérifiez votre logique d'initialisation.** Confirmez que le SDK est initialisé pour tous les utilisateurs et tous les points d'entrée de l'application, pas seulement certains.
+- **Recherchez les modifications récentes de l'application.** Une nouvelle logique conditionnelle autour de l'initialisation du SDK peut provoquer une baisse soudaine du nombre de sessions.
+- **Comparez les utilisateurs affectés et non affectés.** Identifiez les différences de version de l'application, de type d'appareil ou de parcours utilisateur qui pourraient expliquer pourquoi l'initialisation est ignorée pour certains utilisateurs.
+
+Si le problème persiste après vérification de votre implémentation, reproduisez le problème et rassemblez les informations suivantes avant de contacter l'assistance :
+
+- Les étapes pour reproduire le problème
+- La version de l'application concernée
+- Les [journaux SDK détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), capturés pendant que le problème se produit (ou par plateforme : [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging))
+- L'extrait de code pour l'initialisation du SDK
+- Un résumé de toute logique conditionnelle appliquée avant l'initialisation

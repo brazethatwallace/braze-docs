@@ -1,7 +1,7 @@
 ---
 nav_title: Trustpilot
 article_title: Trustpilot
-description: "This page covers how to integrate Trustpilot with Braze, send review invitations, and personalize messages with product review insights."
+description: "이 페이지에서는 Trustpilot을 Braze와 통합하고, 리뷰 초대를 보내고, 제품 리뷰 인사이트로 메시지를 개인화하는 방법을 다룹니다."
 alias: /partners/trustpilot/
 page_type: partner
 search_tag: Partner
@@ -9,50 +9,50 @@ search_tag: Partner
 
 # Trustpilot
 
-> [Trustpilot](https://www.trustpilot.com/) is an online review platform that enables customers to share feedback and allows you to manage and respond to reviews.
+> [Trustpilot](https://www.trustpilot.com/)은 고객이 피드백을 공유할 수 있고, 리뷰를 관리하고 응답할 수 있는 온라인 리뷰 플랫폼입니다.
 
-This page provides a step-by-step guide for:
+이 페이지에서는 다음에 대한 단계별 가이드를 제공합니다:
 
-* Creating review invitations using Trustpilot's Create Invitation API  
-* Personalizing messages with product reviews through Trustpilot's Product Reviews API
+* Trustpilot의 Create Invitation API를 사용하여 리뷰 초대 생성하기
+* Trustpilot의 Product Reviews API를 통해 제품 리뷰로 메시지 개인화하기
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-Before you start, you'll need the following:
+시작하기 전에 다음이 필요합니다:
 
-| Prerequisite | Description |
+| 요구 사항 | 설명 |
 | --- | --- |
-| A Trustpilot account | You need a Trustpilot account with access to Trustpilot's API. |
-| A Trustpilot authentication key | You will need to set up an API key and request an access token. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Trustpilot 계정 | Trustpilot API에 접근할 수 있는 Trustpilot 계정이 필요합니다. |
+| Trustpilot 인증 키 | API 키를 설정하고 액세스 토큰을 요청해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Get your Trustpilot API credentials
+### 1단계: Trustpilot API 자격 증명 가져오기 {#step-1-get-your-trustpilot-api-credentials}
 
-1. [Log into Trustpilot](https://app.contentful.com/login) with your credentials.  
-2. Create or retrieve the API key and secret in the Trustpilot dashboard by going to **Integrations** > **Developers** > **APIs**. If you don't already have an API key, create a new one:  
-   1. Go to **Application Name** > **Create Application**  
-   2. Copy your API key and secret, which will be used to authenticate your Connected Content requests.
+1. 자격 증명을 사용하여 [Trustpilot에 로그인](https://app.contentful.com/login)합니다.
+2. Trustpilot 대시보드에서 **Integrations** > **Developers** > **APIs**로 이동하여 API 키와 시크릿을 생성하거나 가져옵니다. 아직 API 키가 없는 경우 새로 생성합니다:
+   1. **Application Name** > **Create Application**으로 이동합니다.
+   2. API 키와 시크릿을 복사합니다. 이는 연결된 콘텐츠 요청을 인증하는 데 사용됩니다.
 
-## Sending Trustpilot review invitations
+## Trustpilot 리뷰 초대 보내기 {#sending-trustpilot-review-invitations}
 
-### Step 1: Set up a Braze webhook campaign 
+### 1단계: Braze 웹훅 Campaign 설정하기 {#step-1-set-up-a-braze-webhook-campaign}
 
-Set up an action-based Braze webhook campaign to trigger the Trustpilot APIs to send email review invitations to users. For example, you could send a review invitation after a user places an order with the following webhook details:
-   * [Webhook URL](https://developers.trustpilot.com/invitation-api?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..#create-invitation(s)): `https://invitations-api.trustpilot.com/v1/private/business-units/{businessUnitId}/email-invitations`  
-   * Method: POST  
-   * Add the relevant customer information as key-value pairs
+Trustpilot API를 트리거하여 사용자에게 이메일 리뷰 초대를 보내는 동작 기반 Braze 웹훅 Campaign을 설정합니다. 예를 들어, 사용자가 주문을 완료한 후 다음 웹훅 세부 정보로 리뷰 초대를 보낼 수 있습니다:
+   * [웹훅 URL](https://developers.trustpilot.com/invitation-api?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..#create-invitation(s)): `https://invitations-api.trustpilot.com/v1/private/business-units/{businessUnitId}/email-invitations`
+   * 메서드: POST
+   * 관련 고객 정보를 키-값 페어로 추가합니다.
 
-### Step 2: Retrieve the access token
+### 2단계: 액세스 토큰 가져오기 {#step-2-retrieve-the-access-token}
 
-1. Use [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) to make a request to [Trustpilot’s Authentication endpoint](https://documentation-apidocumentation.trustpilot.com/authentication?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..) to retrieve the Access Token.
-2. 부여 유형을 사용하고 **client_credentials** 부여 유형을 사용하고 연결된 콘텐츠 태그에 API 키와 비밀번호를 입력하여 토큰을 검색합니다. The Connected Content request can be entered into the request header. The Connected Content may look like this:
-  
+1. [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 [Trustpilot의 인증 엔드포인트](https://documentation-apidocumentation.trustpilot.com/authentication?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..)에 요청을 보내 액세스 토큰을 가져옵니다.
+2. **client_credentials** 부여 유형을 사용하고, 연결된 콘텐츠 태그에 API 키와 시크릿을 입력하여 토큰을 가져옵니다. 연결된 콘텐츠 요청은 요청 헤더에 입력할 수 있습니다. 연결된 콘텐츠는 다음과 같을 수 있습니다:
+
 {% raw %}
 
 ```liquid
-{% connected_content 
+{% connected_content
 https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications/accesstoken
 :method post
 :headers {"Content-Type": "application/x-www-form-urlencoded", "Authorization": "Basic {{'API_KEY:API_SECRET' | base64_encode}}" }
@@ -68,15 +68,15 @@ https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications/access
 {% endraw %}
 
 {: start="3"}
-3\. Add the access token to the request header of your webhook campaign.
+3. 웹훅 Campaign의 요청 헤더에 액세스 토큰을 추가합니다.
 
 {% alert tip %}
-Refer to [Trustpilot’s documentation](https://support.trustpilot.com/hc/en-us/community/posts/11947443933074-Braze-Trustpilot-Setup-Instructions-for-triggering-API-invites) for more detailed instructions.
+더 자세한 지침은 [Trustpilot 설명서](https://support.trustpilot.com/hc/en-us/community/posts/11947443933074-Braze-Trustpilot-Setup-Instructions-for-triggering-API-invites)를 참조하세요.
 {% endalert %}
 
-## Personalizing messages with product review insights
+## 제품 리뷰 인사이트로 메시지 개인화하기 {#personalizing-messages-with-product-review-insights}
 
-In your Braze campaign, make a Connected Content call to request data from Trustpilot’s [Get product reviews summary endpoint](https://developers.trustpilot.com/product-reviews-api#get-product-reviews-summary) ({% raw %}`https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}`{% endraw %}). This method retrieves product reviews for specific SKUs from the business unit. The following example specifies the specific product SKU and filters for five-star reviews.
+Braze Campaign에서 연결된 콘텐츠 호출을 통해 Trustpilot의 [제품 리뷰 요약 가져오기 엔드포인트](https://developers.trustpilot.com/product-reviews-api#get-product-reviews-summary)({% raw %}`https://api.trustpilot.com/v1/product-reviews/business-units/{businessUnitId}`{% endraw %})에서 데이터를 요청합니다. 이 메서드는 비즈니스 유닛에서 특정 SKU에 대한 제품 리뷰를 가져옵니다. 다음 예시에서는 특정 제품 SKU를 지정하고 별 5개 리뷰를 필터링합니다.
 
 {% raw %}
 ```liquid
@@ -89,7 +89,7 @@ In your Braze campaign, make a Connected Content call to request data from Trust
 
 ![Liquid를 사용하여 정보를 가져오는 이메일의 연결된 콘텐츠.]({% image_buster /assets/img/trustpilot_connected_content_example.png %}){:style="max-width:38%;"}
 
-The Connected Content request will return the product reviews.
+연결된 콘텐츠 요청은 제품 리뷰를 반환합니다.
 
 {% raw %}
 ```liquid
@@ -115,6 +115,6 @@ The Connected Content request will return the product reviews.
 {% endraw %}
 
 {: start="2"}
-2\. Use Liquid syntax to pull the relevant content into your message. For example, to pull in the product review's content, use the Liquid tag {% raw %}`{{result.productReviews[0].content}}`{% endraw %}.
+2. Liquid 구문을 사용하여 관련 콘텐츠를 메시지에 가져옵니다. 예를 들어, 제품 리뷰의 콘텐츠를 가져오려면 Liquid 태그 {% raw %}`{{result.productReviews[0].content}}`{% endraw %}를 사용합니다.
 
 ![사용자가 장바구니에 담아둔 장난감 트럭에 대한 리뷰가 포함된 개인화된 이메일.]({% image_buster /assets/img/trustpilot_personalized_email.png %}){:style="max-width:38%;"}

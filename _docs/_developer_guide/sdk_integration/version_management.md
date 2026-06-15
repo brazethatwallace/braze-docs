@@ -18,7 +18,7 @@ All Braze SDKs adhere to the [Semantic Versioning Specification (SemVer)](https:
 | `PATCH` | Updates are always non-breaking, and include important bug fixes. They'll always be safe. | You should always try to update to the latest patch version of your current major and minor version immediately. |
 | `MINOR` | Updates are always non-breaking, and include net new functionality. They'll never require changes in your application code. | While you don't need to do this immediately, you should update to the latest minor version of your current major version as soon as possible. 
 | `MAJOR` | Updates are breaking changes, and may require changes in your application code. | Because this may require code changes, update to the latest major version in a timeframe that works best for your team. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Versioning recommendations" }
 
 {% alert note %}
 Sometimes new Android or Apple OS updates require changes to the Braze SDK. To help keep your app compatible with newer phones, it's important you keep your SDK up to date.

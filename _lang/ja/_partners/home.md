@@ -6,8 +6,8 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "テクノロジーパートナー"
-partner_top_text: "Alloys（Braze のテクノロジーパートナー）の一覧へようこそ。このページを活用して、テクノロジーパートナーを Braze SDK に実装してください。Braze で<b>パートナー連携</b> > <b>テクノロジーパートナー</b>に移動すると、このページに掲載されているパートナーと接続できます。<br> <br> Braze を活用してカスタマーエクスペリエンスやマーケティングを革新している顧客コミュニティ「Firebrands」への参加をご検討の場合は、<a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> をご覧ください。"
-description: "このランディングページにはすべての Braze パートナーが含まれています。テクノロジーパートナーを Braze SDK に実装する際に役立つ技術ドキュメントを探すときにご利用ください。"
+partner_top_text: "Alloys（Brazeのテクノロジーパートナー）の一覧へようこそ。このページを活用して、テクノロジーパートナーをBraze SDKに実装してください。Brazeで<b>パートナー連携</b> > <b>テクノロジーパートナー</b>に移動すると、このページに掲載されているパートナーと接続できます。<br> <br> Brazeでパートナーに対して<b>認証情報が無効です</b>と表示されているが、そのパートナーのダッシュボードでは連携が正しく設定されているように見える場合は、テクノロジーパートナーページで連携を切断してから再接続し、パートナー側でAPIキー、OAuthトークン、権限を確認してください。<br> <br> 一部の外部ダッシュボード（到達性や受信トレイ監視ツールなど）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルをご確認ください。<br> <br> Brazeを活用してカスタマーエクスペリエンスやマーケティングを革新している顧客コミュニティ「Firebrands」への参加をご検討の場合は、<a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> をご覧ください。"
+description: "このランディングページにはすべてのBrazeパートナーが含まれています。テクノロジーパートナーをBraze SDKに実装する際に役立つ技術ドキュメントを探すときにご利用ください。"
 
 valid_partner_list:
 - name: Jampp
@@ -46,6 +46,8 @@ valid_partner_list:
   url: /docs/partners/dyspatch/
 - name: Denada
   url: /docs/partners/denada/
+- name: EmailShepherd
+  url: /docs/partners/emailshepherd/
 - name: Stensul
   url: /docs/partners/stensul/
 - name: Stripo
@@ -104,6 +106,10 @@ valid_partner_list:
   url: /docs/partners/amazon_personalize/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -130,6 +136,8 @@ valid_partner_list:
   url: /docs/partners/optilyz/
 - name: Digioh
   url: /docs/partners/digioh/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Nexla
   url: /docs/partners/nexla/
 - name: Amperity
@@ -212,6 +220,8 @@ valid_partner_list:
   url: /docs/partners/wunderkind/
 - name: B.Layer
   url: /docs/partners/blayer-inapps/
+- name: Better Email
+  url: /docs/partners/better_email/
 - name: Tellius
   url: /docs/partners/tellius/
 - name: Sheetlabs
@@ -282,8 +292,12 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY by Loyalty Juggernaut
+  url: /docs/partners/lji/
 - name: Alpaco
   url: /docs/partners/alpaco/
 - name: NiftyImages
@@ -314,6 +328,8 @@ valid_partner_list:
   url: /docs/partners/justuno/
 - name: Constructor
   url: /docs/partners/constructor/
+- name: Copy Pastd
+  url: /docs/partners/copy_pastd/
 - name: Email Love
   url: /docs/partners/email_love/
 - name: Adikteev
@@ -344,10 +360,12 @@ valid_partner_list:
   url: /docs/partners/sessionm/
 - name: Tapcart
   url: /docs/partners/tapcart/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: Mention Me
   url: /docs/partners/mention_me/
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Eagle Eye
   url: /docs/partners/eagle_eye/
 - name: Eppo
@@ -402,6 +420,8 @@ valid_partner_list:
   url: /docs/partners/gemini/
 - name: Anthropic
   url: /docs/partners/anthropic/
+- name: Databricks Mosaic
+  url: /docs/partners/databricks_mosaic/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva
@@ -410,6 +430,8 @@ valid_partner_list:
   url: /docs/partners/figma/
 - name: Poq
   url: /docs/partners/poq/
+- name: The Trade Desk
+  url: /docs/partners/trade_desk_audience_sync/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---

@@ -1,7 +1,7 @@
 ---
 nav_title: ActionIQ
 article_title: ActionIQ
-description: "This reference article covers the Braze and ActionIQ integration. ActionIQ is an enterprise customer data platform for marketers, analysts, and technologists. This integration allows brands to sync and map their ActionIQ data directly to Braze."
+description: "이 참조 문서에서는 Braze와 ActionIQ 통합에 대해 다룹니다. ActionIQ는 마케터, 분석가, 기술자를 위한 엔터프라이즈 고객 데이터 플랫폼입니다. 이 통합을 통해 브랜드는 ActionIQ 데이터를 Braze에 직접 동기화하고 매핑할 수 있습니다."
 alias: /partners/actioniq/
 page_type: partner
 search_tag: ActionIQ
@@ -9,80 +9,78 @@ search_tag: ActionIQ
 
 # ActionIQ
 
-> [ActionIQ](https://www.actioniq.com/) is a customer data platform for enterprise brands that gives marketers easy and secure ways to activate data anywhere in the customer experience. ActionIQ’s unique composable architecture means data can stay securely where it lives, and marketing teams only use the tools they need.
+> [ActionIQ](https://www.actioniq.com/)는 엔터프라이즈 브랜드를 위한 고객 데이터 플랫폼으로, 마케터가 고객 경험의 모든 접점에서 데이터를 쉽고 안전하게 활성화할 수 있는 방법을 제공합니다. ActionIQ의 고유한 컴포저블 아키텍처를 통해 데이터는 원래 위치에 안전하게 보관되며, 마케팅 팀은 필요한 도구만 사용할 수 있습니다.
 
-_This integration is maintained by ActionIQ._
+_이 통합은 ActionIQ에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and ActionIQ integration allow brands to sync and map their ActionIQ data directly to Braze, empowering the delivery of extraordinary customer experiences based on the entire breadth of their customer data. The integrations available allow users to:
+Braze와 ActionIQ 통합을 통해 브랜드는 ActionIQ 데이터를 Braze에 직접 동기화하고 매핑하여, 전체 고객 데이터를 기반으로 탁월한 고객 경험을 전달할 수 있습니다. 사용 가능한 통합을 통해 사용자는 다음을 수행할 수 있습니다:
 
-- Update user profiles in Braze with audience membership information and any attributes directly from ActionIQ
-- Forward the events tracked by ActionIQ to Braze in real time to trigger personalized and targeted campaigns
-- Deliver API-triggered campaigns in Braze directly from touchpoints in an ActionIQ journey
+- ActionIQ에서 직접 오디언스 멤버십 정보 및 모든 속성으로 Braze의 고객 프로필을 업데이트
+- ActionIQ에서 추적한 이벤트를 실시간으로 Braze에 전달하여 개인화된 타겟 Campaign을 트리거
+- ActionIQ 여정의 터치포인트에서 직접 Braze의 API 트리거 Campaign을 전달
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| ActionIQ account | An ActionIQ account is required to take advantage of this integration. |
-| Braze REST API key | A Braze REST API key with the required permissions for the respective integration. See the respective Requirements section for more details. <br><br>This key can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ActionIQ 계정 | 이 통합을 활용하려면 ActionIQ 계정이 필요합니다. |
+| Braze REST API 키 | 해당 통합에 필요한 권한이 있는 Braze REST API 키. 자세한 내용은 각 요구 사항 섹션을 참조하세요. <br><br>이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integrations
+## 통합 {#integrations}
 
-### Audience membership
+### 오디언스 멤버십 {#audience-membership}
 
-This integration is used to sync ActionIQ audience membership to Braze by creating custom attributes that denote whether a Braze profile is part of a segment. Each ActionIQ audience corresponds to a unique boolean custom attribute.
+이 통합은 Braze 프로필이 Segment에 속하는지 여부를 나타내는 커스텀 속성을 생성하여 ActionIQ 오디언스 멤버십을 Braze에 동기화하는 데 사용됩니다. 각 ActionIQ 오디언스는 고유한 부울 커스텀 속성에 해당합니다.
 
-The standard naming convention for the custom attribute created is: `AIQ_<Audience ID>_<Split ID>`.
+생성되는 커스텀 속성의 표준 명명 규칙은 다음과 같습니다: `AIQ_<Audience ID>_<Split ID>`.
 
-To create a segment of these users, do the following:
-1. In Braze, navigate to **Segments**.
-2. Create a new segment.
-3. Select **Custom Attributes** as your filter.
-4. From here, choose the ActionIQ custom attribute. 
-5. After the segment is created, you can select it as an audience filter when creating a campaign or Canvas.
+이러한 사용자의 Segment를 생성하려면 다음을 수행하세요:
+1. Braze에서 **Segments**로 이동합니다.
+2. 새 Segment를 생성합니다.
+3. 필터로 **Custom Attributes**를 선택합니다.
+4. 여기에서 ActionIQ 커스텀 속성을 선택합니다.
+5. Segment가 생성되면 Campaign 또는 Canvas를 생성할 때 오디언스 필터로 선택할 수 있습니다.
 
-Additionally, this integration will update any custom or standard attribute in a Braze user profile with their ActionIQ attribute values.
+또한 이 통합은 Braze 고객 프로필의 모든 커스텀 또는 표준 속성을 ActionIQ 속성 값으로 업데이트합니다.
 
-#### Requirements
+#### 요구 사항 {#requirements}
 
-A Braze REST API key with `users.track` and `user.export.ids` permissions is required. This can be created in the Braze dashboard from **Settings** > **API Keys**. 
+`users.track` 및 `user.export.ids` 권한이 있는 Braze REST API 키가 필요합니다. 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다.
 
-In ActionIQ, set up a Braze connection by providing your REST API key and Braze REST endpoint. 
+ActionIQ에서 REST API 키와 Braze REST 엔드포인트를 제공하여 Braze 연결을 설정합니다.
 
-To match to consumers in the Braze platform, the following identifiers must be included in your activation setting:
+Braze 플랫폼의 소비자와 매칭하려면 활성화 설정에 다음 식별자가 포함되어야 합니다:
 - `braze_id`
 - `external_id`
 
-### Events
+### 이벤트 {#events}
 
-You can configure the ActionIQ platform to receive event information through their streaming ingest service. This integration option forwards these events to Braze for marketers to use for orchestration or for triggering marketing campaigns. The event integration is able to send additional ActionIQ attributes as part of the properties in the event payload.
+ActionIQ 플랫폼을 구성하여 스트리밍 수집 서비스를 통해 이벤트 정보를 수신할 수 있습니다. 이 통합 옵션은 이러한 이벤트를 Braze에 전달하여 마케터가 오케스트레이션이나 마케팅 캠페인 트리거에 사용할 수 있도록 합니다. 이벤트 통합은 이벤트 페이로드의 등록정보 일부로 추가 ActionIQ 속성을 전송할 수 있습니다.
 
-#### Requirements
+#### 요구 사항
 
-A Braze REST API key with `users.track` and `user.export.ids` permissions is required. This can be created in the Braze dashboard from **Settings** > **API Keys**. 
+`users.track` 및 `user.export.ids` 권한이 있는 Braze REST API 키가 필요합니다. 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다.
 
-The events integration sends the following information to Braze:
-- Event name
-- Consumer identifier (either `braze_id` or `external_id`)
-- Timestamp
-- Event properties, which are populated by any additional attributes in the export setting
+이벤트 통합은 다음 정보를 Braze에 전송합니다:
+- 이벤트 이름
+- 소비자 식별자(`braze_id` 또는 `external_id`)
+- 타임스탬프
+- 이벤트 등록정보(내보내기 설정의 추가 속성으로 채워짐)
 
-### Triggered campaigns
+### 트리거된 Campaign {#triggered-campaigns}
 
-This integration will trigger a campaign in Braze for all users in an ActionIQ segment. After you have configured your campaign's copy, multivariate testing, and re-eligibility rules, you can trigger it from any ActionIQ journey touchpoint by adding the Braze campaign ID to your export setting.
+이 통합은 ActionIQ Segment의 모든 사용자를 대상으로 Braze에서 Campaign을 트리거합니다. Campaign의 문구, 다변량 테스트 및 재자격 규칙을 구성한 후, 내보내기 설정에 Braze Campaign ID를 추가하여 모든 ActionIQ 여정 터치포인트에서 트리거할 수 있습니다.
 
-Optionally, you can include any other ActionIQ attributes in your export to populate your campaign copy. Those are sent with the `trigger_properties` object.
+선택적으로, 내보내기에 다른 ActionIQ 속성을 포함하여 Campaign 문구를 채울 수 있습니다. 이러한 속성은 `trigger_properties` 오브젝트와 함께 전송됩니다.
 
-#### Requirements
+#### 요구 사항
 
-A Braze REST API key with `campaigns.trigger.send` and `campaigns.list` permissions is required. This can be created in the Braze dashboard from **Settings** > **API Keys**.
+`campaigns.trigger.send` 및 `campaigns.list` 권한이 있는 Braze REST API 키가 필요합니다. 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다.
 
-The following values must be sent in your ActionIQ export to Braze:
-- Consumer identifier (either `braze_id` or `external_id`)
+ActionIQ에서 Braze로 내보내기 시 다음 값을 전송해야 합니다:
+- 소비자 식별자(`braze_id` 또는 `external_id`)
 - Campaign ID
-
-

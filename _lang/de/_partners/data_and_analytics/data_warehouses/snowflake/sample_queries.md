@@ -1,23 +1,23 @@
 ---
 nav_title: "Musterabfragen"
-article_title: Snowflake Musterabfragen
+article_title: Snowflake-Musterabfragen
 page_order: 1
-description: "Auf dieser Partnerseite finden Sie einige Beispielabfragen für mögliche Anwendungsfälle, auf die Sie beim Einrichten Ihrer Snowflake-Abfragen referenzieren können."
+description: "Auf dieser Partnerseite finden Sie einige Beispielabfragen für mögliche Anwendungsfälle, auf die Sie beim Einrichten Ihrer Snowflake-Abfragen zurückgreifen können."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Musterabfragen
+# Musterabfragen {#sample-queries}
 
-> Auf dieser Partnerseite finden Sie einige Beispielabfragen für mögliche Anwendungsfälle, auf die Sie beim Einrichten Ihrer Abfragen referenzieren können.
+> Auf dieser Partnerseite finden Sie einige Beispielabfragen für mögliche Anwendungsfälle, auf die Sie beim Einrichten Ihrer Abfragen zurückgreifen können.
 
 {% tabs %}
 {% tab Filter By Time%}
 
-Eine gängige Abfrage könnte sein, Ereignisse nach Zeit zu filtern.
+Eine gängige Abfrage ist das Filtern von Events nach Zeit.
 
-Sie können sie nach dem Zeitpunkt des Vorkommens filtern. Die Ereignistabellen sind nach `time` geclustert, so dass die Filterung nach `time` optimal ist:
+Sie können sie nach dem Zeitpunkt des Vorkommens filtern. Die Event-Tabellen sind nach `time` geclustert, sodass die Filterung nach `time` optimal ist:
 ```sql
 -- find custom events that occurred after 04/15/2019 @ 7:02pm (UTC) i.e., timestamp=1555354920
 SELECT *
@@ -25,7 +25,7 @@ FROM users_behaviors_customevent_shared
 WHERE time > 1555354920
 LIMIT 10;
 ```
-Sie können Ereignisse auch nach dem Zeitpunkt filtern, zu dem sie im Snowflake Data Warehouse persistiert wurden, indem Sie `sf_created_at` verwenden. `sf_created_at` und `time` sind nicht dasselbe, liegen aber in der Regel nahe beieinander, so dass diese Abfrage ähnliche Performance-Eigenschaften haben sollte:
+Sie können Events auch nach dem Zeitpunkt filtern, zu dem sie im Snowflake Data Warehouse persistiert wurden, indem Sie `sf_created_at` verwenden. `sf_created_at` und `time` sind nicht identisch, liegen aber in der Regel nahe beieinander, sodass diese Abfrage ähnliche Performance-Eigenschaften haben sollte:
 ```sql
 -- find custom events that arrived in Snowflake after time 04/15/2019 @ 7:02pm (UTC)
 SELECT *
@@ -34,15 +34,15 @@ WHERE sf_created_at > to_timestamp_ntz('2019-04-15 19:02:00')
 LIMIT 10;
 ```
 {% alert note %}
-Der Wert von `sf_created_at` ist nur für Ereignisse zuverlässig, die nach `Nov 15th, 2019 9:31 pm UTC` persistent waren.
+Der Wert von `sf_created_at` ist nur für Events zuverlässig, die nach dem `15. November 2019, 21:31 Uhr UTC` persistiert wurden.
 {% endalert %}
 {% endtab %}
 
 {% tab Querying Changelogs%}
-  
-Die Namen der Kampagnen und Canvas sind nicht in den Ereignissen selbst enthalten. Stattdessen werden sie in einer Changelog-Tabelle veröffentlicht. 
 
-Sie können die Namen von Kampagnen für Ereignisse im Zusammenhang mit einer Kampagne sehen, indem Sie eine Abfrage wie diese mit der Tabelle der Kampagnen-Änderungsprotokolle verbinden:
+Campaign- und Canvas-Namen sind nicht in den Events selbst enthalten. Stattdessen werden sie in einer Changelog-Tabelle veröffentlicht.
+
+Sie können Campaign-Namen für Events im Zusammenhang mit einer Campaign anzeigen, indem Sie über eine Abfrage wie die folgende mit der Campaign-Changelog-Tabelle verknüpfen:
 
 ```sql
 SELECT event.id, event.time, ccs.time, ccs.name, ccs.conversion_behaviors[event.conversion_behavior_index]
@@ -52,18 +52,18 @@ ON ccs.id = event.campaign_id
 AND ccs.time < event.time
 qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 ```
-Einige wichtige Dinge sind zu beachten:
+Einige wichtige Punkte sind zu beachten:
 - Hier werden die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwendet.
-- Die linke Verknüpfung sorgt dafür, dass auch Ereignisse, die nicht mit einer Kampagne in Verbindung stehen, berücksichtigt werden.
-- Wenn Sie Ereignisse mit `campaign_id`sehen, aber keine Namen von Kampagnen, besteht die Möglichkeit, dass die Kampagne mit einem Namen erstellt wurde, bevor es Data Sharing als Produkt gab.
-- Sie können die Canvas-Namen mit einer ähnlichen Abfrage anzeigen, die Sie stattdessen mit der Tabelle `CHANGELOGS_CANVAS_SHARED` verknüpfen.
+- Der Left Join sorgt dafür, dass auch Events, die nicht mit einer Campaign in Verbindung stehen, berücksichtigt werden.
+- Wenn Sie Events mit `campaign_id`s sehen, aber keine Campaign-Namen, besteht die Möglichkeit, dass die Campaign mit einem Namen erstellt wurde, bevor Datenfreigabe als Produkt existierte.
+- Sie können Canvas-Namen mit einer ähnlichen Abfrage anzeigen, indem Sie stattdessen mit der Tabelle `CHANGELOGS_CANVAS_SHARED` verknüpfen.
 
-Wenn Sie sowohl die Namen von Kampagnen als auch von Canvas sehen möchten, müssen Sie möglicherweise die folgende Unterabfrage verwenden:
+Wenn Sie sowohl Campaign- als auch Canvas-Namen sehen möchten, müssen Sie möglicherweise die folgende Unterabfrage verwenden:
 ```sql
 SELECT campaign_join.*, canvas.name AS canvas_name
-FROM 
+FROM
 (SELECT e.id AS event_id, e.external_user_id, e.time, e.user_id, e.device_id, e.sf_created_at,
-    e.campaign_api_id, e.canvas_id, e.canvas_step_api_id, 
+    e.campaign_api_id, e.canvas_id, e.canvas_step_api_id,
     campaign.name AS campaign_name
   FROM USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED AS e
   LEFT JOIN CHANGELOGS_CAMPAIGN_SHARED AS campaign ON campaign.id = e.campaign_id
@@ -75,7 +75,7 @@ qualify row_number() over (partition by campaign_join.event_id ORDER BY canvas.t
 {% endtab %}
 {% tab Push Funnel %}
 
-Sie können diese Push Funnel-Abfrage verwenden, um Push-Sende-Rohdaten, Zustellungs-Rohdaten und Öffnungs-Rohdaten zu aggregieren. Diese Abfrage zeigt, wie alle Tabellen miteinander verbunden werden sollten, da jedes Raw Event in der Regel eine eigene Tabelle hat:
+Sie können diese Push-Funnel-Abfrage verwenden, um Push-Sende-Rohdaten über Zustellungs-Rohdaten bis hin zu Öffnungs-Rohdaten zu aggregieren. Diese Abfrage zeigt, wie alle Tabellen miteinander verknüpft werden sollten, da jedes Rohereignis in der Regel eine eigene Tabelle hat:
 
 ```sql
 
@@ -103,9 +103,9 @@ LIMIT 500;
 
 {% endtab %}
 {% tab Email Cadence %}
-Mit dieser Abfrage für das tägliche Messaging von E-Mails können Sie die Zeitspanne zwischen den Nachrichten analysieren, die ein Nutzer:innen erhält.
+Mit dieser Abfrage zur täglichen E-Mail-Messaging-Kadenz können Sie die Zeitspanne zwischen den E-Mails analysieren, die Nutzer:innen erhalten.
 
-Wenn ein Nutzer:innen zum Beispiel zwei E-Mails an einem Tag erhalten hat, fallen diese unter `0 "days since last received"`. Wenn sie eine E-Mail am Montag und eine am Dienstag erhalten haben, würden sie in die Kohorte `1 "days since last received"` fallen.
+Wenn Nutzer:innen zum Beispiel zwei E-Mails an einem Tag erhalten haben, fallen diese unter `0 "days since last received"`. Wenn sie eine E-Mail am Montag und eine am Dienstag erhalten haben, würden sie in die Kohorte `1 "days since last received"` fallen.
 
 ```sql
 WITH email_messaging_cadence AS (WITH deliveries AS
@@ -148,12 +148,12 @@ LIMIT 500;
 {% tab Unique Email Clicks %}
 
 Sie können diese Abfrage für eindeutige E-Mail-Klicks verwenden, um die eindeutigen E-Mail-Klicks in einem bestimmten Zeitfenster zu analysieren. Der Algorithmus zur Berechnung lautet wie folgt:
-  1. Unterteilen Sie die Ereignisse nach dem Schlüssel (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
-  2. Ordnen Sie die Ereignisse in jeder Partition nach Zeit, wobei das erste Ereignis immer ein eindeutiges Ereignis ist.
-  3. Denn jedes nachfolgende Ereignis, das mehr als sieben Tage nach seinem Vorgänger eintritt, wird als eindeutiges Ereignis betrachtet.
-  
-Dazu können wir die [Windowing-Funktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwenden. Die folgende Abfrage liefert uns alle E-Mail Klicks der letzten 365 Tage und zeigt in der Spalte `is_unique` an, welche Ereignisse eindeutig sind:
-  
+  1. Unterteilen Sie die Events nach dem Schlüssel (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
+  2. Ordnen Sie die Events in jeder Partition nach Zeit, wobei das erste Event immer ein eindeutiges Event ist.
+  3. Jedes nachfolgende Event, das mehr als sieben Tage nach seinem Vorgänger eintritt, wird als eindeutiges Event betrachtet.
+
+Dazu können wir die [Fensterfunktionen](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) von Snowflake verwenden. Die folgende Abfrage liefert uns alle E-Mail-Klicks der letzten 365 Tage und zeigt in der Spalte `is_unique` an, welche Events eindeutig sind:
+
 ```sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
@@ -162,11 +162,11 @@ SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, t
   IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
 FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
-  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
-  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600; 
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
 ```
 
-Wenn Sie nur die eindeutigen Ereignisse sehen möchten, verwenden Sie die `QUALIFY` Klausel:
+Wenn Sie nur die eindeutigen Events sehen möchten, verwenden Sie die `QUALIFY`-Klausel:
 ```sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
@@ -175,11 +175,11 @@ SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, t
   IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
 FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
-  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
 QUALIFY is_unique = true;
 ```
-Um die Anzahl eindeutiger Ereignisse gruppiert nach E-Mail-Adressen anzuzeigen:
+Um die Anzahl eindeutiger Events gruppiert nach E-Mail-Adresse anzuzeigen:
 ```sql
 WITH unique_events AS(
   SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
@@ -189,12 +189,89 @@ WITH unique_events AS(
   IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
 FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
-  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) 
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
-QUALIFY is_unique = true) 
+QUALIFY is_unique = true)
 SELECT email_address, count(*) AS count
 FROM unique_events
 GROUP BY email_address;
 ```
+{% endtab %}
+{% tab Unique Email Opens %}
+
+Verwenden Sie diese Abfrage, um **eindeutige Öffnungen** aus Snowflake-E-Mail-Öffnungs-Events zu approximieren – zum Beispiel, um sie mit der Spalte **Unique Opens** im Dashboard abzugleichen.
+
+Dieses Beispiel gibt drei Zählwerte zurück:
+
+- **Unique Opens (over 7 days):** Eindeutige Öffnungen über einen rollierenden Zeitraum von sieben Tagen.
+- **Unique Opens (during date window):** Eindeutige Öffnungen innerhalb des angegebenen Zeitraums. Dies gilt unabhängig von Öffnungen, die vor dem Zeitraum stattgefunden haben.
+- **Unique Opens (for emails delivered within same timeframe):** Eindeutige Öffnungen, bei denen das zugehörige Zustellungs-Event ebenfalls innerhalb desselben Fensters stattfand (nützlich, wenn Sie nur Öffnungen für Nachrichten sehen möchten, die in diesem Zeitraum zugestellt wurden).
+
+{% raw %}
+```sql
+/*
+    Set or comment out variables if not required. These are set per session.
+    You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
+
+    For example, endDate=1656799199&startDate=1656194400
+
+    To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
+*/
+
+SET fromDateTime = '1656194400';
+SET toDateTime = '1656799199';
+-- SET campaignID = '';
+-- SET canvasID = '';
+SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+
+SELECT
+    'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    not exists (select
+                umeo.user_id
+            from
+                users_messages_email_open_shared umeo
+            where
+                umeo.user_id = users_messages_email_open_shared.user_id and
+                umeo.canvas_step_id = users_messages_email_open_shared.canvas_step_id and
+                to_timestamp(umeo.time) between dateadd(day, -7, to_timestamp(users_messages_email_open_shared.time)) and dateadd(second, -1, to_timestamp(users_messages_email_open_shared.time)))
+UNION
+SELECT
+    'Unique Opens (during date window)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime
+UNION
+SELECT
+    'Unique Opens (for emails delivered within same timeframe)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
+FROM
+    users_messages_email_open_shared
+WHERE
+/* Comment out where not required */
+    -- campaign_id = $campaignID AND
+    -- canvas_id = $canvasID AND
+    canvas_step_id = $canvasStepID AND
+    time BETWEEN $fromDateTime and $toDateTime AND
+    EXISTS (select user_id
+            from users_messages_email_delivery_shared umed
+            where
+                umed.user_id = users_messages_email_open_shared.user_id and
+                umed.dispatch_id = users_messages_email_open_shared.dispatch_id and
+                umed.time between $fromDateTime and $toDateTime);
+```
+{% endraw %}
+
 {% endtab %}
 {% endtabs %}

@@ -2,34 +2,68 @@
 nav_title: カスタムデータ
 article_title: カスタムデータ
 page_order: 0
-layout: dev_guide
-guide_top_header: "カスタムデータ"
-guide_top_text: "Braze の優れた点の 1 つは、その柔軟性です。アプリ内にカスタムデータを設定し、そのデータとそれに関連する指標を Braze に送信できます。以下の記事でその方法をご覧ください。"
-
 page_type: landing
-description: "このランディングページにはカスタムデータに関する記事がまとめられています。ここには、イベントの命名規則、カスタムイベントとカスタム属性、購入イベント、カスタムデータのブロックリスト化などに関するリソースがあります。"
-
-guide_featured_title: "セクションの記事"
-guide_featured_list:
-  - name: イベント
-    link: /docs/user_guide/data/activation/custom_data/events/
-    image: /assets/img/braze_icons/book-closed.svg
-  - name: 購入イベント
-    link: /docs/user_guide/data/activation/custom_data/purchase_events/
-    image: /assets/img/braze_icons/shopping-cart-03.svg
-  - name: カスタムイベント
-    link: /docs/user_guide/data/activation/custom_data/custom_events/
-    image: /assets/img/braze_icons/settings-01.svg
-  - name: カスタム属性
-    link: /docs/user_guide/data/activation/custom_data/custom_attributes/
-    image: /assets/img/braze_icons/table.svg
-  - name: イベントの命名規則
-    link: /docs/user_guide/data/activation/custom_data/event_naming_conventions/
-    image: /assets/img/braze_icons/list.svg
-  - name: 顧客データの管理
-    link: /docs/user_guide/data/activation/custom_data/managing_custom_data/
-    image: /assets/img/braze_icons/check-square-broken.svg
-  - name: おすすめイベント
-    link: /docs/recommended_events/
-    image: /assets/img/braze_icons/hearts.svg
+description: "カスタムデータは、Brazeでのエンゲージメント戦略を支える基盤です。カスタム属性、イベント、カタログ、データタイプ、およびデータの整合性を管理する方法について説明します。"
 ---
+
+# カスタムデータ {#custom-data}
+
+> カスタムデータは、エンゲージメント戦略の原動力です。名や国などの標準属性項目は組み込みで提供されていますが、カスタムデータを使用すると、顧客との関係を定義するユニークな詳細情報（お気に入りの映画ジャンルから購入を完了した正確なタイミングまで）をキャプチャできます。
+
+この情報をBrazeに取り込むことで、一般的なメッセージングを超えて、パーソナルでタイムリーかつ関連性の高い体験を作成できます。このデータを使用して、精密なセグメントの構築、Liquidによるメッセージコンテンツのパーソナライゼーション、リアルタイムの動作に基づく自動化されたジャーニーのトリガーが可能です。
+
+## 属性とイベント {#attributes-and-events}
+
+データを設定する際に最も重要な判断は、属性とイベントのどちらを使用するかを選ぶことです。
+
+### カスタム属性: ユーザーがどのような人物か {#custom-attributes-who-your-users-are}
+
+カスタム属性は、ユーザーの永続的な特性やプロパティと考えてください。現在の状態を表す情報や、変更頻度が低い情報を保存するのに最適です。
+
+- **ユースケース:** `loyalty_tier` 属性を使用して、「Silver」メンバーと「Gold」メンバーを区別できます。
+- **パーソナライゼーション:** 属性はパーソナライゼーションに最適です。ユーザーの `favorite_category` をメールの件名に挿入して、注目を集めることができます。
+- **保存:** このデータは、プロファイルがアクティブである限り、ユーザープロファイルに無期限で保持されます。
+
+詳細については、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
+
+### カスタムイベント: ユーザーが何をするか {#custom-events-what-your-users-do}
+
+カスタムイベントは、ユーザーが特定の時点で行う具体的なアクションを追跡します。これらはユーザーの動作の「いつ」と「どのくらいの頻度で」を理解するのに役立つ、価値の高いインタラクションです。
+
+- **ユースケース:** ユーザーがサインアップを完了したときに、`completed_registration` イベントを記録できます。
+- **トリガー:** イベントは、アクションベースの配信をトリガーする主要な方法です。`completed_registration` イベントが記録された瞬間に「ようこそ」プッシュ通知を送信できます。
+- **メタデータ:** イベントプロパティを使用して、カートに追加されたアイテムの名前など、イベントに追加の詳細を付与できます。
+- **分析:** イベントはセグメンテーション、レポート、分析を支え、エンゲージメントの測定やメッセージングの最適化を可能にします。
+
+詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。
+
+## カタログ {#catalogs}
+
+属性とイベントがユーザーに焦点を当てるのに対し、カタログでは商品在庫、コースの詳細、イベントリストなどのユーザー以外のデータを取り込むことができます。
+
+CSVやAPIを通じてこのメタデータをインポートすることで、ユーザープロファイルに保存されていない情報でメッセージを充実させることができます。たとえば、カタログを使用して、ユーザーが以前閲覧したアイテムが再入荷したり値下げされたりしたときに、自動的に顧客に通知できます。
+
+詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を参照してください。
+
+## データタイプ {#data-types}
+
+Brazeは、カスタムデータに対してブール値、数値、文字列、配列、時間、オブジェクトタイプなど、複数のデータタイプをサポートしており、それぞれに固有の動作とセグメンテーションオプションがあります。選択するデータタイプによって、キャンペーンやセグメントでのフィルタリングやパーソナライゼーションの方法が決まります。
+
+カスタム属性、イベントプロパティ、カタログでサポートされるデータタイプの完全なリファレンスについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)を参照してください。
+
+## データの整合性を管理する {#managing-your-data-integrity}
+
+Brazeは、戦略の進化に合わせてカスタムデータを管理するためのツールを複数提供しています。
+
+### データタイプの検出と変更 {#data-type-detection-and-changes}
+
+Brazeは、属性に対して最初に受信した値のデータタイプ（数値や文字列など）を自動的に認識します。正確性を維持するために、環境全体で一貫したデータタイプを送信するようにしてください。データタイプを変更する必要がある場合、ユーザープロファイル上の既存データは遡って更新されないため、セグメントに影響を与える可能性があることに注意してください。
+
+### ブロックリストと削除 {#blocklist-and-delete}
+
+特定の属性やイベントが不要になった場合や、誤って追加された場合は、ワークスペースから削除できます。
+
+- **ブロックリスト:** そのオブジェクトに対する新しいデータの収集をBrazeが停止します。フィルターやグラフにデータが表示されなくなりますが、プロファイル上の既存データは保持されます。
+- **削除:** すべてのユーザープロファイルからデータを完全に削除します。削除の対象となるには、データオブジェクトを7日間ブロックリストに登録する必要があります。
+
+詳細については、[カスタムデータを管理する]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)および[カスタムデータのブロックリスト]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。

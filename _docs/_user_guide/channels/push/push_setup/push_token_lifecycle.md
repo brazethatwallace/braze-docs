@@ -31,7 +31,7 @@ Push tokens are used to send both foreground and background push notifications.
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
 | Foreground push | Yes       | A notification is visibly displayed to the user while the app is in the foreground.           |
 | Background push | No        | A notification is silently delivered in the background without being displayed. Often used for functionality like uninstall tracking. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Foreground vs. background push #foreground-vs-background" }
 
 When a user opts-in to push notifications for your app, they'll be considered "push registered", meaning they can now be targeted using the `Foreground Push Enabled for App` segmentation filter in Braze.
 
@@ -71,7 +71,7 @@ When your app is installed, a push token is automatically generated for your app
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Android 13**         | Push permission must be requested and granted by the user. Your app can request permission manually, or users will be prompted automatically after a [notification channel](https://developer.android.com/reference/android/app/NotificationChannel) is created. |
 | **Android 12 and earlier** | All users are considered `Subscribed` after their first session. Braze automatically requests a push token at this point, making the user push enabled with a valid token and a default subscription state of `Subscribed`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token registration" }
 {% endtab %}
 
 {% tab ios %}
@@ -81,13 +81,13 @@ iOS does not automatically generate push tokens for an app when it's installed. 
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **iOS 12**      | Yes                         | When a user opts-in to push notifications, you're given standard authorization, allowing you to send [foreground push notifications](#foreground-vs-background). However, you can also request [provisional authorization]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), which let's you send silent [background push notifications](#foreground-vs-background) directly to the notification center. |
 | **iOS 11 or earlier** | No                          | All users must explicitly opt-in to receive push notifications. A push token is generated only after permission is granted.                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push token registration" }
 {% endtab %}
 {% endtabs %}
 
 ### Checking user's push subscription state
 
-![User profile for John Doe with their push subscription state set to Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![User profile for Jane Doe showing push subscription state and push registration details on the Engagement tab.]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 There are two ways you can check a user's push subscription state with Braze:
 
@@ -115,7 +115,7 @@ Check out the following chart for actions that lead to push tokens changes or re
 | `changeUser()` method called | The Braze `changeUser()` method switches the user ID that the SDKs are assigning user behavior data to. This method is usually called when a user logs into an application. When `changeUser()` is called with a different or new user ID on a specific device, that device's push token will be moved to the appropriate Braze profile with corresponding user ID. |
 | Push error occurs | Some common push errors that lead to token removal include `MismatchSenderId`, `InvalidRegistration`, and other types of push bounces. <br><br>Check out our full list of common [push errors]({{site.baseurl}}/user_guide/channels/push/push_error_codes/). |
 | User uninstalls | When a user uninstalls the application from a device, Braze will remove the user's push token from the profile. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token management" }
 
 ### What does this look like on a broader scale?
 
@@ -128,7 +128,7 @@ If we want to launch a campaign, we create a campaign in Braze that generates a 
 | Registration steps | Messaging steps |
 | ------------------ | --------------- |
 | 1. Customer (device) registers to push provider<br>2. Provider generates and delivers push token<br>3. Flush tokens in Braze |1. Braze sends push payload to provider<br>2. Provider delivers the push payload to the device<br>3. SDK passes messaging stats to Braze |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What does this look like on a broader scale?" }
 
 ## Frequently asked questions
 

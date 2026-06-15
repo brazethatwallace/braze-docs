@@ -5,28 +5,28 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「ユーザー設定センターの作成」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「ユーザー設定センターの作成」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# ユーザー設定センターの作成
+# ユーザー設定センターの作成 {#create-preference-center}
 {% apimethod post %}
 /preference_center/v1
 {% endapimethod %}
 
-> このエンドポイントを使用してユーザー設定センターを作成し、ユーザーがメールキャンペーンの通知設定を管理できるようにします。API で生成されるユーザー設定センターの構築手順については、[API を使用したユーザー設定センターの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api)を参照してください。
+> このエンドポイントを使用してユーザー設定センターを作成し、ユーザーがメールキャンペーンの通知設定を管理できるようにします。APIで生成されるユーザー設定センターの構築手順については、[APIを使用したユーザー設定センターの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api)を参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`preference_center.update` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`preference_center.update` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
-## リクエスト本文
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -55,48 +55,48 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`name`| 必須 | 文字列 | 次の条件を満たすユーザー設定センターの名前: <br>- 文字、数字、ハイフン、およびアンダースコアのみを含む <br>- スペースを含まない |
-|`preference_center_title`| オプション | 文字列 | ユーザー設定センターおよび確認ページのタイトル。タイトルが指定されていない場合、ページのタイトルはデフォルトで「Preference Center」になります。 |
-|`preference_center_page_html`| 必須 | 文字列 | ユーザー設定センターページの HTML。 |
-|`confirmation_page_html`| 必須 | 文字列 | 確認ページの HTML。 |
-|`state` | オプション | 文字列 | `active` または `draft` を選択します。指定がない場合のデフォルトは `active` です。 |
-|`options` | オプション | オブジェクト | 属性: <br>`meta-viewport-content`: 存在する場合、`viewport` メタタグが `content= <value of attribute>` でページに追加されます。<br><br> `link-tags`: ページのファビコンを設定します。設定すると、rel 属性を持つ `<link>` タグがページに追加されます。  |
+| `name` | 必須 | 文字列 | 次の条件を満たすユーザー設定センターの名前: <br>- 文字、数字、ハイフン、およびアンダースコアのみを含む <br>- スペースを含まない |
+| `preference_center_title` | オプション | 文字列 | ユーザー設定センターおよび確認ページのタイトル。タイトルが指定されていない場合、ページのタイトルはデフォルトで「Preference Center」になります。 |
+| `preference_center_page_html` | 必須 | 文字列 | ユーザー設定センターページのHTML。 |
+| `confirmation_page_html` | 必須 | 文字列 | 確認ページのHTML。 |
+| `state` | オプション | 文字列 | `active` または `draft` を選択します。指定がない場合のデフォルトは `active` です。 |
+| `options` | オプション | オブジェクト | 属性: <br>`meta-viewport-content`: 存在する場合、`viewport` メタタグが `content= <value of attribute>` でページに追加されます。<br><br> `link-tags`: ページのファビコンを設定します。設定すると、rel 属性を持つ `<link>` タグがページに追加されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}
 ユーザー設定センター名は作成後に編集できません。
 {% endalert %}
 
-### Liquid タグ
+### Liquidタグ {#liquid-tags}
 
-ユーザー設定センターページでユーザーのサブスクリプション状態を生成するために、HTML に含めることができる以下の Liquid タグを参照してください。
+ユーザー設定センターページでユーザーのサブスクリプション状態を生成するために、HTMLに含めることができる以下のLiquidタグを参照してください。
 
 {% raw %}
 
-#### ユーザーのサブスクリプション状態
+#### ユーザーのサブスクリプション状態 {#user-subscription-state}
 
 | Liquid | 説明 |
 | --------- | ---------|
-|`{{subscribed_state.${email_global}}}`| ユーザーのグローバルメール購読状態を取得します（"opted_in"、"subscribed"、"unsubscribed" など）。 |
-|`{{subscribed_state.${<subscription_group_id>}}}`| ユーザーの指定されたサブスクリプショングループの購読状態を取得します（"subscribed" または "unsubscribed" など）。 |
+| `{{subscribed_state.${email_global}}}` | ユーザーのグローバルメール購読状態を取得します（「opted_in」、「subscribed」、「unsubscribed」など）。 |
+| `{{subscribed_state.${<subscription_group_id>}}}` | ユーザーの指定されたサブスクリプショングループの購読状態を取得します（「subscribed」または「unsubscribed」など）。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### フォーム入力とアクション
+#### フォーム入力とアクション {#form-inputs-and-action}
 
 | Liquid | 説明 |
 | --------- | ---------|
-|`{% form_field_name :email_global_state %}`| 特定のフォーム入力要素がユーザーのグローバルメール購読状態に対応することを示します。グローバルメール購読状態の選択データでフォームが送信される際、ユーザーの選択状態は "opted_in"、"subscribed"、または "unsubscribed" のいずれかである必要があります。チェックボックスの場合、ユーザーは "opted_in" または "unsubscribed" になります。非表示入力の場合、"subscribed" 状態も有効です。 |
-|`{% form_field_name :subscription_group <subscription_group_id> %}`| 特定のフォーム入力要素が指定したサブスクリプショングループに対応することを示します。特定のサブスクリプショングループの選択データでフォームが送信される際、ユーザーの選択状態は "subscribed" または "unsubscribed" のいずれかである必要があります。 |
-|`{{preference_center_submit_url}}`| フォーム送信用の URL を生成します。 |
+| `{% form_field_name :email_global_state %}` | 特定のフォーム入力要素がユーザーのグローバルメール購読状態に対応することを示します。グローバルメール購読状態の選択データでフォームが送信される際、ユーザーの選択状態は「opted_in」、「subscribed」、または「unsubscribed」のいずれかである必要があります。チェックボックスの場合、ユーザーは「opted_in」または「unsubscribed」になります。非表示入力の場合、「subscribed」状態も有効です。 |
+| `{% form_field_name :subscription_group <subscription_group_id> %}` | 特定のフォーム入力要素が指定したサブスクリプショングループに対応することを示します。特定のサブスクリプショングループの選択データでフォームが送信される際、ユーザーの選択状態は「subscribed」または「unsubscribed」のいずれかである必要があります。 |
+| `{{preference_center_submit_url}}` | フォーム送信用のURLを生成します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endraw %}
 
-## 応答例
+## 応答例 {#example-responses}
 
 ### ユーザー設定センターの作成
 
@@ -111,7 +111,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 {% endraw %}
 
-### フォーム入力を含む HTML
+### フォーム入力を含むHTML {#html-with-form-inputs}
 
 {% raw %}
 ```

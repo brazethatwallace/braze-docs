@@ -4,7 +4,7 @@ permalink: /regex_cheat_sheet/
 hidden: true
 ---
 
-# Folha de referência de regex
+# Folha de referência de regex {#regex-reference-sheet}
 
 Esta página serve como um guia de referência rápida para expressões regulares, incluindo tokens comuns, metassequências, tokens gerais, constantes de grupo e muito mais.
 
@@ -16,66 +16,66 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | Um único caractere de: a, b ou c | `[abc]` |
 | Um caractere, exceto: a, b ou c | `[^abc]` |
 | Um caractere no intervalo: a-z | `[a-z]` |
-| Um caractere que não está no intervalo: a-z | `[^a-z]` |
+| Um caractere fora do intervalo: a-z | `[^a-z]` |
 | Um caractere no intervalo: a-z ou A-Z | `[a-zA-Z]` |
 | Qualquer caractere único | `.` |
 | Qualquer caractere de espaço em branco | `\s` |
-| Qualquer caractere que não seja um espaço em branco | `\S` |
+| Qualquer caractere que não seja espaço em branco | `\S` |
 | Qualquer dígito | `\d` |
-| Qualquer número sem dígito | `\D` |
+| Qualquer não dígito | `\D` |
 | Qualquer caractere de palavra | `\w` |
-| Qualquer caractere que não seja uma palavra | `\W` |
-| Captura anexa | `(...)` |
-| Corresponder a a ou b | `(a|b)` |
-| Zero ou um de um | `a?` |
-| Zero ou mais de um | `a*` |
-| Um ou mais de um | `a+` |
-| Exatamente 3 de um | `a{3}` |
-| Entre 3 e 6 de um | `a{3,6}` |
+| Qualquer caractere que não seja de palavra | `\W` |
+| Captura o conteúdo delimitado | `(...)` |
+| Corresponde a a ou b | `(a|b)` |
+| Zero ou um de a | `a?` |
+| Zero ou mais de a | `a*` |
+| Um ou mais de a | `a+` |
+| Exatamente 3 de a | `a{3}` |
+| Entre 3 e 6 de a | `a{3,6}` |
 | Início da string | `^` |
 | Fim da string | `$` |
-| Um limite de palavras | `\n` |
-| Limite de nenhuma palavra | `\B` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Um limite de palavra | `\n` |
+| Limite de não palavra | `\B` |
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 {% tab Meta sequence %}
 
-| Meta-sequência |
+| Metassequência |
 | ------------- |
 | Quaisquer sequências Unicode, incluindo quebras de linha | `\X` |
-| Corresponder a uma unidade de dados | `\C` |
+| Corresponde a uma unidade de dados | `\C` |
 | Novas linhas Unicode | `\R` |
 | Caractere de espaço em branco vertical | `\v` |
-| Negação de \\v | `\V` |
+| Negação de \v | `\V` |
 | Caractere de espaço em branco horizontal | `\h` |
-| Negação de \\h | `\H` |
+| Negação de \h | `\H` |
 | Redefinir correspondência | `\K` |
-| Corresponder ao enésimo subpadrão | `\n` |
+| Corresponde ao enésimo subpadrão | `\n` |
 | Propriedade Unicode X | `\pX` |
-| Negação de \\pX | `\PX` |
+| Negação de \pX | `\PX` |
 | Propriedade Unicode ou categoria de script | `\p{...}` |
-| Negação de \\p | `\P{...}` |
-| Citar; tratar como liberais | `\Q...|E` |
-| Corresponder ao subpadrão 'name' | `\k<name>` | 
-| Corresponder ao subpadrão 'name' | `\k'name'` | 
-| Corresponder ao subpadrão 'name' | `\k{name}` |
-| Corresponder ao enésimo subpadrão | `\gn` | 
-| Corresponder ao enésimo subpadrão | `\g{n}` |
-| Recursar o enésimo grupo de captura | `\g<n>` |
-| Recursar o enésimo grupo de captura | `\g'n'` |
-| Corresponder ao enésimo subpadrão anterior relativo | `\g{-n}` |
-| Recursar o enésimo subpadrão futuro relativo | `\g<+n>` |
-| Corresponder ao enésimo remetente futuro relativo | `\g'+n'` |
+| Negação de \p | `\P{...}` |
+| Citar; tratar como literais | `\Q...|E` |
+| Corresponde ao subpadrão 'name' | `\k<name>` |
+| Corresponde ao subpadrão 'name' | `\k'name'` |
+| Corresponde ao subpadrão 'name' | `\k{name}` |
+| Corresponde ao enésimo subpadrão | `\gn` |
+| Corresponde ao enésimo subpadrão | `\g{n}` |
+| Recursão do enésimo grupo de captura | `\g<n>` |
+| Recursão do enésimo grupo de captura | `\g'n'` |
+| Corresponde ao enésimo subpadrão anterior relativo | `\g{-n}` |
+| Recursão do enésimo subpadrão futuro relativo | `\g<+n>` |
+| Corresponde ao enésimo submitter futuro relativo | `\g'+n'` |
 | Grupo de captura de nomes recursivos | `'letter'` |
-| Corresponder ao grupo de captura "letra" nomeado anteriormente | `\g{letter}` |
-| Recursa o grupo de captura de nomes 'letter' | `\g<letter>` |
+| Corresponde ao grupo de captura nomeado 'letter' | `\g{letter}` |
+| Recursão do grupo de captura nomeado 'letter' | `\g<letter>` |
 | Caractere hexadecimal YY | `\xYY` |
 | Caractere hexadecimal YYYY | `\x{YYYY}` |
 | Caractere octal ddd | `\ddd` |
 | Caractere de controle Y | `\cY` |
 | Caractere de backspace | `[\b]` |
 | Torna qualquer caractere literal | `\` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 {% tab General tokens %}
 
@@ -83,39 +83,39 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | -------------- |
 | Nova linha | `\n` |
 | Retorno de carro | `\r` |
-| Guia | `\t` |
+| Tabulação | `\t` |
 | Caractere nulo | `\0` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 
 {% endtab %}
 {% tab Character class modifiers %}
 
-| Modificadores de classe de personagem |
+| Modificadores de classe de caractere |
 | ------------------------- |
 | Um único caractere de: a, b ou c | `[abc]` |
-| Um caractere, exceto: a, b ou c | `[^abc]` |
+| Um caractere, exceto\: a, b ou c | `[^abc]` |
 | Um caractere no intervalo: a-z | `[a-z]` |
-| Um caractere que não está no intervalo: a-z | `[^a-z]` |
+| Um caractere fora do intervalo: a-z | `[^a-z]` |
 | Um caractere no intervalo: a-z ou A-Z | `[a-zA-Z]` |
 | Letras e dígitos | `[:alnum:]` |
-| Cartas | `[:alpha:]` |
+| Letras | `[:alpha:]` |
 | Códigos ASCII 0-127 | `[:ascii:]` |
-| Espaço ou guia apenas | `[:blank:]` |
+| Espaço ou tabulação apenas | `[:blank:]` |
 | Caracteres de controle | `[:cntrl:]` |
 | Dígitos | `[:digit:]` |
-| Caracteres visíveis (não espaço) | `[:word:]` |
+| Caracteres visíveis (sem espaço) | `[:word:]` |
 | Letras minúsculas | `[:xdigit:]` |
 | Letras maiúsculas | `[:<:]` |
-| Caracteres de palavras | `[:>:]` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Caracteres de palavra | `[:>:]` |
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 {% tab Group constants %}
 
 | Constantes de grupo |
 | --------------- |
-| Captura tudo o que estiver em seu interior | `(...)` |
-| Corresponder a a ou b | `(a|b)` |
-| Combine tudo o que está incluído | `(?:...)` |
+| Captura tudo o que estiver delimitado | `(...)` |
+| Corresponde a a ou b | `(a|b)` |
+| Corresponde a tudo o que estiver delimitado | `(?:...)` |
 | Agrupamento atômico (sem captura) | `(?>...)` |
 | Número de grupo de subpadrão duplicado | `(?|...)` |
 | Comentário | `(?#...)` |
@@ -127,19 +127,19 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | Declarações condicionais | `(?(1)yes|no)` |
 | Declarações condicionais recursivas | `(?(R#)yes|no)` |
 | Declaração condicional | `(?(R&name)yes|no)` |
-| Condicional de Lookahead | `(?(?=...)yes|no)` |
-| Condicional do Lookbehind | `(?(?<=...)yes|no)` |
-| Recursar todo o padrão | `(?R)` |
-| Recursar o primeiro subpadrão | `(?1)` |
-| Recursar o primeiro subpadrão relativo | `(?+1)` |
-| Recursar o subpadrão 'name' | `(?&name)` |
-| Corresponder ao subpadrão 'name' | `(?P=name)` |
-| Recursar o subpadrão 'name' | `(?P>name)` |
+| Condicional de lookahead | `(?(?=...)yes|no)` |
+| Condicional de lookbehind | `(?(?<=...)yes|no)` |
+| Recursão de todo o padrão | `(?R)` |
+| Recursão do primeiro subpadrão | `(?1)` |
+| Recursão do primeiro subpadrão relativo | `(?+1)` |
+| Recursão do subpadrão 'name' | `(?&name)` |
+| Corresponde ao subpadrão 'name' | `(?P=name)` |
+| Recursão do subpadrão 'name' | `(?P>name)` |
 | Pré-definição de padrões antes do uso | `(?(DEFINE)...)` |
-| Perspectiva positiva | `(?=...)` |
-| Antecipação negativa | `(?!...)` |
-| Visão positiva | `(?<=...)` |
-| Visão negativa | `(?<!...)` |
+| Lookahead positivo | `(?=...)` |
+| Lookahead negativo | `(?!...)` |
+| Lookbehind positivo | `(?<=...)` |
+| Lookbehind negativo | `(?<!...)` |
 | Verbo de controle | `(*ACCEPT)` |
 | Verbo de controle | `(*FAIL)` |
 | Verbo de controle | `(*MARK:NAME)` |
@@ -164,22 +164,22 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | Modificador de mecanismo regex | `(*LIMIT_RECURSION=d)` |
 | Modificador de mecanismo regex | `(*NO_AUTO_POSSESS)` |
 | Modificador de mecanismo regex | `(*NO_START_OPT)` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 {% tab Quantifiers %}
 
 | Quantificadores |
 | ----------- |
-| Zero ou um de um | `a?` |
-| Zero ou mais de um | `a*` |
-| Um ou mais de um | `a+` |
-| Exatamente 3 de um | `a{3}` |
-| 3 ou mais de um | `a{3,}` |
-| Entre 3 e 6 de um | `a{3,6}` |
-| Quantificador ambicioso | `a*` |
+| Zero ou um de a | `a?` |
+| Zero ou mais de a | `a*` |
+| Um ou mais de a | `a+` |
+| Exatamente 3 de a | `a{3}` |
+| 3 ou mais de a | `a{3,}` |
+| Entre 3 e 6 de a | `a{3,6}` |
+| Quantificador ganancioso | `a*` |
 | Quantificador preguiçoso | `a*?` |
-| Quantificador de possessivo | `a*+` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Quantificador possessivo | `a*+` |
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 {% tab Anchors %}
 
@@ -191,15 +191,15 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | Início da string | `\A` |
 | Fim da string | `\Z` |
 | Fim absoluto da string | `\z` |
-| Um limite de palavras | `\b` |
-| Um limite sem palavra | `\B` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Um limite de palavra | `\b` |
+| Um limite de não palavra | `\B` |
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 
 {% tab Flags and modifiers %}
 
 | Sinalizadores e modificadores |
-| ------------------- | 
+| ------------------- |
 | Global | `g` |
 | Multilinha | `m` |
 | Diferencia maiúsculas de minúsculas | `l` |
@@ -207,10 +207,10 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | Linha única | `s` |
 | Unicode | `u` |
 | Estendido | `X` |
-| Ingrato | `U` |
+| Não ganancioso | `U` |
 | Âncora | `A` |
 | Nomes de grupos duplicados | `J` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 
 {% endtab %}
 {% tab Substitution %}
@@ -220,15 +220,14 @@ Esta página serve como um guia de referência rápida para expressões regulare
 | Conteúdo completo da correspondência | `\0` |
 | Conteúdo do grupo de captura 1 | `\1 or $1` |
 | Conteúdo do grupo de captura `foo` | `${foo}` |
-| Valores de substituição hexidecimais | `\x20, \x{06fa}` |
-| Guia | `\t` |
+| Valores de substituição hexadecimais | `\x20, \x{06fa}` |
+| Tabulação | `\t` |
 | Retorno de carro | `\r` |
 | Nova linha | `\n` |
-| Alimentação de formulários | `\f` |
-| Transformação de maiúsculas | `\U` |
-| Transformação de letras minúsculas | `\L` |
+| Form-feed | `\f` |
+| Transformação para maiúsculas | `\U` |
+| Transformação para minúsculas | `\L` |
 | Encerrar qualquer transformação | `\E` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 aria-label="Regex reference sheet" }
 {% endtab %}
 {% endtabs %}
-

@@ -17,10 +17,10 @@ channel:
 | Requirement | Description |
 | --- | --- |
 | Infobip account | An Infobip account is required to use the BYO WhatsApp connector.
-| Messaging credits | You consume Braze messaging credits when you send WhatsApp messages. |
+| Message or Action Credits | You consume Braze Action Credits when you send WhatsApp messages. |
 | WhatsApp requirements | Complete all [WhatsApp requirements]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
 | Phone number | We suggest you [acquire a phone number through Infobip](https://www.infobip.com/docs/numbers/getting-started) for convenience. |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Set up 
 
@@ -117,5 +117,5 @@ While all existing functionality with Braze is supported, these use cases are cu
 | --- | --- |
 | Processing inbound messages in Braze and Infobip | This prevents logic trains that are triggered by either system, consequently generating duplicate and potentially contradictory message threads. |
 | Sending messages from Braze and Infobip | For WhatsApp Business Accounts connected to Braze, all sending originates from Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }
 
