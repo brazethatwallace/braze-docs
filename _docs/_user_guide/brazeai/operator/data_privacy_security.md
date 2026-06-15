@@ -1,6 +1,6 @@
 ---
 nav_title: Data privacy and security
-article_title: Data Privacy and Security for BrazeAI Operator
+article_title: Data privacy and security for BrazeAI Operator
 page_order: 5
 page_type: reference
 description: "This reference article covers how BrazeAI Operator handles data, including HIPAA compliance, data retention, PII minimization, and governance."
