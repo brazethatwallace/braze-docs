@@ -27,7 +27,7 @@ Snowflake's [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-s
 This integration supports the following use cases across all data warehouse environments:
 
 - **Data Minimization:** LiveRamp's solutions use secure data sharing features or cloud-native identity resolution to read tables directly from your data warehouse. No data is moved until the point of delivery to the downstream partner.
-- **Secure 1st Party Activation:** By using LiveRamp's identity resolution, LiveRamp's activation application will only utilize the RampID-based tables in your data warehouse, so PII never has to leave your environment.
+- **Secure 1st Party Activation:** By using LiveRamp's identity resolution, LiveRamp's activation application only utilizes the RampID-based tables in your data warehouse, so PII never has to leave your environment.
 - **Expedite Time to Live:** By resolving data to RampID directly in your environment, delivery to an end destination can occur within a matter of hours, as compared to several days when using LiveRamp's more traditional file-based approach. This greatly increases the ability to optimize campaign performance in a timely manner.
 - **Operational Savings:** Through secure data sharing or cloud-native identity resolution, you save time and money when compared to coordinating egress of files to LiveRamp or directly to any end destination.
 
@@ -155,7 +155,7 @@ LiveRamp Embedded Identity in BigQuery is currently in beta. Contact [LiveRampId
 | Requirements | Description |
 |-------------|-------------|
 | Braze Currents | To stream event data to cloud storage, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) set up for your account. |
-| Cloud Storage Account | You need a cloud storage account (Amazon S3, Google Cloud Storage, or Microsoft Azure Blob Storage) where Currents will stream your data. |
+| Cloud Storage Account | You need a cloud storage account (Amazon S3, Google Cloud Storage, or Microsoft Azure Blob Storage) where Currents streams your data. |
 | LiveRamp Account | Contact your LiveRamp account team or [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com) to set up LiveRamp's identity resolution in your cloud environment. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -186,7 +186,7 @@ Create an ETL (Extract, Transform, Load) process to:
 
 ### Step 4: Perform identity resolution
 
-Use LiveRamp's cloud-native identity resolution to resolve your Braze identifiers to RampIDs. The process will:
+Use LiveRamp's cloud-native identity resolution to resolve your Braze identifiers to RampIDs. The process:
 
 1. Remove PII from your data.
 2. Connect identifiers to LiveRamp's pseudonymous person-based identifier, RampID.
