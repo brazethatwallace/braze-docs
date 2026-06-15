@@ -268,7 +268,11 @@ If you're making a Braze-to-Braze webhook and using allowlisting, you should all
 If you're using webhooks to delete an entire group of users, we highly recommend you make sure that the segment you create represents the users you want to delete as these users **can't be restored after deletion**. 
 {% endalert %}
 
-User deletion is typically done by creating a webhook campaign with the segment of users to delete as its audience. The payload of the webhook would be aimed at the `/users/delete` endpoint, and Liquid dynamically populates the `braze_id` into the `braze_ids` field. This allows the webhook delivery to be rate-limited to the respective API limits and avoid overloading servers.
+User deletion is typically done by creating a webhook campaign with the segment of users to delete as its audience. The payload of the webhook would be aimed at the [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) endpoint, and Liquid dynamically populates the `braze_id` into the `braze_ids` field. This allows the webhook delivery to be rate-limited to the respective API limits and avoid overloading servers.
+
+{% alert note %}
+This webhook pattern is a supported workaround for bulk user deletion today. At large volumes, deletion can take hours and is subject to API rate limits described below.
+{% endalert %}
 
 For example, if you use a filter such as "Last Used App more than 30 days ago", you may get a different set of users depending on the time the segment is checked versus when the campaign is launched. A user who started a session 29 days ago might not be in the segment right now, but if the campaign is only launched two days after, the user would be included in the segment and may be deleted as well. 
 
@@ -291,4 +295,4 @@ The webhook campaign must respect the rate limits shared with other endpoints. M
 
 #### Confirm number of users to be deleted
 
-Estimate the time required to delete users based on the rate limit. For example, deleting 1.5 million users at a rate of 10,000 users per minute could take several hours. Consider splitting the deletion into multiple campaigns. If you're planning to delete over 5 million users, contact your customer success manager or the Support team beforehand to inform them of the mass deletion.
+Estimate the time required to delete users based on the rate limit. For example, deleting 1.5 million users at a rate of 10,000 users per minute could take several hours. Consider splitting the deletion into multiple campaigns. If you're planning to delete over 5 million users, contact your customer success manager or [Braze Support]({{site.baseurl}}/support_contact/) beforehand to inform them of the mass deletion.
