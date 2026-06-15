@@ -18,8 +18,8 @@ Before you debug, add yourself as a [test user]({{site.baseurl}}/user_guide/admi
 
 | Symptom | Go to |
 | --- | --- |
-| In-app message didn't show for one user | [One user](#in-app-message-didnt-show-for-one-user) |
-| In-app message didn't show on one platform (Android, iOS, or Web) | [One platform](#in-app-message-didnt-show-on-one-platform) |
+| In-app message didn't show for one user | [One user](#in-app-message-not-shown-for-one-user) |
+| In-app message didn't show on one platform (Android, iOS, or Web) | [One platform](#in-app-message-not-shown-on-one-platform) |
 | In-app message from a **Canvas** step didn't show | [Canvas in-app messages](#canvas-in-app-messages) |
 | In-app message showed late or after a delay | [Timing and delayed display](#timing-and-delayed-display) |
 | Impressions or clicks look wrong | [Impressions and analytics](#impressions-and-analytics) |
@@ -60,7 +60,7 @@ For availability windows, expiration, and zero _Sends_ on Canvas analytics, see 
 In-app messages in Canvas can only be triggered by events sent through the SDK, not the REST API.
 {% endalert %}
 
-## In-app message didn't show for one user {#in-app-message-didnt-show-for-one-user}
+## In-app message didn't show for one user {#in-app-message-not-shown-for-one-user}
 
 **Symptom:** One user didn't receive an expected in-app message; other users may be unaffected.
 
@@ -76,7 +76,7 @@ Check the following:
 
 Then follow the [standard investigation path](#standard-investigation-path).
 
-## In-app message didn't show on one platform {#in-app-message-didnt-show-on-one-platform}
+## In-app message didn't show on one platform {#in-app-message-not-shown-on-one-platform}
 
 **Symptom:** In-app messages don't show on Android, iOS, or Web, but may work on other platforms.
 
@@ -89,7 +89,7 @@ Then follow the [standard investigation path](#standard-investigation-path).
 | Empty `triggers` in event user logs | Segment, re-eligibility, frequency cap, or control group. See [Troubleshoot messages not being returned](#troubleshoot-messages-not-being-returned). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Platform symptom cause" }
 
-## In-app message didn't show for all users {#in-app-message-didnt-show-for-all-users}
+## In-app message didn't show for all users {#in-app-message-not-shown-for-all-users}
 
 **Symptom:** No users or fewer users than expected received the in-app message.
 
