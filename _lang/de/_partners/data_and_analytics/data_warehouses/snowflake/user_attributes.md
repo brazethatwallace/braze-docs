@@ -101,6 +101,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 
@@ -111,11 +112,13 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED-Schema" }
 
 ## Realtime-Ansichten des Nutzerprofils {#real-time-user-profile-views}
@@ -148,6 +151,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
@@ -168,9 +172,11 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
@@ -226,11 +232,13 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED-Schema" }

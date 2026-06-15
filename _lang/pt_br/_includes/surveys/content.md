@@ -4,7 +4,7 @@
   - channel (obrigatório): "in_app_message" ou "landing_page"
 {% endcomment %}
 
-{% multi_lang_include surveys/beta_alert.md %}
+{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Pré-requisitos {#prerequisites}
 
@@ -23,7 +23,7 @@ Antes de criar uma pesquisa, você deve:
 
 ## Criar uma pesquisa {#create-a-survey}
 
-Durante o beta, as pesquisas são criadas dentro do fluxo de composição de mensagens existente.
+Durante o acesso antecipado, as pesquisas são criadas dentro do fluxo de composição de mensagens existente.
 
 {% if include.channel == 'in_app_message' %}
 1. Crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) em uma Campaign ou Canvas.
@@ -88,7 +88,7 @@ Você pode configurar:
 - Altura da área de texto (linhas)
 - Texto de espaço reservado
 
-Durante o beta, as respostas de texto longo estão disponíveis em relatórios e exportações, mas não podem ser registradas como atributos personalizados do perfil de usuário.
+Durante o acesso antecipado, as respostas de texto longo estão disponíveis em relatórios e exportações, mas não podem ser registradas como atributos personalizados do perfil de usuário.
 
 ![Configurações do bloco de captura de texto longo.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
@@ -96,7 +96,7 @@ Durante o beta, as respostas de texto longo estão disponíveis em relatórios e
 
 Para cada bloco de formulário, insira um **Identifier for Reporting** no painel de configurações do lado direito. Esse identificador aparece nos relatórios de pesquisa e nas exportações CSV.
 
-Durante o beta:
+Durante o acesso antecipado:
 
 - Você pode registrar a maioria das respostas de pesquisa como atributos personalizados do perfil de usuário.
 - Respostas de texto longo não podem ser registradas como atributos personalizados.
@@ -128,7 +128,7 @@ As análises de nível superior incluem:
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-As pesquisas de landing page não rastreiam respostas parcialmente completas durante o beta.
+As pesquisas de landing page não rastreiam respostas parcialmente completas durante o acesso antecipado.
 {% endalert %}
 {% endif %}
 
@@ -151,7 +151,7 @@ Cada gráfico é atualizado em tempo real conforme as respostas chegam. Você po
 
 ## Redirecionar e acionar {#retarget-and-trigger}
 
-Durante o beta, você pode:
+Durante o acesso antecipado, você pode:
 
 - Segmentar usuários por respostas de pesquisa registradas como atributos de usuário.
 - Segmentar usuários por status de conclusão da pesquisa.
@@ -184,7 +184,7 @@ Durante o beta, você pode:
 
 ### Limitações {#limitations}
 
-Durante o beta, você está restrito pelo seguinte:
+Durante o acesso antecipado, você está restrito pelo seguinte:
 
 - Não é possível segmentar usuários por respostas de texto longo.
 - O acionamento por pergunta e resposta que não depende de atributos de usuário registrados não está disponível.

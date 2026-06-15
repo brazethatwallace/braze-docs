@@ -93,7 +93,7 @@ Canvasを停止しても、メッセージの受信を待っているユーザ�
 - ブランチまたは[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)ステップを使用して、ユーザーが異なるタイミングのパスをたどるようにします。
 - ユースケースが1つのCanvas内に収まる必要がない場合は、別々のCampaignsを使用します。
 
-Campaignsにおける多変量およびABテストの概念については、[多変量およびABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+CampaignsにおけるABテストと多変量テストの概念については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 ### ユーザーがCanvasメッセージステップでグローバルフリークエンシーキャップに達した場合、どうなりますか？ {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
 
@@ -281,3 +281,47 @@ Canvasの編集中に「リクエストタイムアウト」エラーが発生�
 - **ブラウザとバージョン：** 使用しているブラウザ（例：Chrome 120、Safari 17）と、別のブラウザでエラーを再現しようとしたかどうか。
 - **再現手順：** エラーをトリガーするアクションの明確な説明（関連する特定のキャンバスステップや設定を含む）。
 - **ネットワークログ（オプション）：** ブラウザの開発者ツール（**Network**タブ）を開き、エラーを再現し、ネットワークログをHTTPアーカイブ（HAR）ログファイルとしてエクスポートします。これにより、サポートチームがどのAPIコールがタイムアウトしているかを特定できます。
+
+## Canvasの配信とトラブルシューティング {#canvas-delivery-and-troubleshooting}
+
+### 孤立したユーザーはCanvasメッセージを受信する資格がありますか？ {#are-orphaned-users-eligible-to-receive-canvas-messages}
+
+いいえ。[孤立したユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)はメッセージを受信する資格がありません。ユーザーがCanvasジャーニー中にプロファイルが孤立した場合、フローからサイレントに退出します。分析では、その退出に対して**退出済み**イベントが常に表示されるとは限らず、ワークフローサマリーに`exited_date`や`exit_reason`のない`partial_update_token`が含まれる場合があります。
+
+マージと孤立プロファイルの詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)を参照してください。
+
+### アクティブなCanvasやCampaignを停止した場合、すでにESPに送信されたメッセージは配信されますか？ {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+
+はい。Brazeがメールサービスプロバイダー（ESP）にリクエストを送信した後、Brazeはその送信を取り消すことはできません。CanvasやCampaignを停止すると新しい送信リクエストは防止されますが、すでにESPに引き渡されたメッセージは配信される可能性があり、ESPが処理する際に送信カウントがインクリメントされる場合があります。
+
+これは[Canvasを停止した場合](#what-happens-when-you-stop-a-canvas)に説明されている動作と同じです。送信中のメールはすぐには停止されません。
+
+### Canvas Webhookステップがユーザーに表示されるコンテンツなしで実行されたことを確認するにはどうすればよいですか？ {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
+
+Brazeは、CampaignsおよびCanvasの[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)ステップに対してWebhookの**送信数**と関連する配信結果を追跡します。ステップ分析、[Webhookレポート]({{site.baseurl}}/user_guide/channels/webhooks/reporting/)、または[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) Webhookイベントを使用して、ステップが実行されたことを確認できます。エンドポイントのリクエストログは、サーバー側の受信証明が必要な場合に追加の確認を提供します。
+
+BrazeにはWebhookステップ用の組み込みの非表示トラッキングピクセルは含まれていません。Braze Webhook指標とエンドポイントのログに依存し、カスタムの1ピクセル画像リクエストではなくこれらを使用してください。
+
+### ユーザーがトリガーイベントを実行した回数よりもCanvasに入った回数が少ないのはなぜですか？ {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
+
+アクションベースおよびAPIトリガーのCanvasでは、Brazeはトリガーイベントの重複を排除するため、ユーザーは同じCanvasに対して**1秒あたり最大約1回**しか入ることができません。ユーザーが1秒以内に同じトリガーを複数回実行した場合、1回のエントリのみが処理されます。
+
+同じ秒内に複数のエントリを許可するには、トリガーイベントの間隔を少なくとも1.1秒空けてください（例：サーバーからイベントタイミングを制御する場合）。同じ秒内の複数のトリガーを許可するCampaignスタイルの動作については、適切なスケジュールと再適格性設定を持つ[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/)とユースケースを比較してください。
+
+### テストプッシュが間違ったアプリに送信されるのに、ライブ送信は正しく見えるのはなぜですか？ {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
+
+ユーザープロファイルの**テストプッシュ**は、そのプロファイルのプッシュ有効なすべてのデバイスに配信されます。1つのデバイスに複数のアプリがインストールされている場合、OSは通常、最初に利用可能なアプリにテスト通知を配信しますが、これは検証したいアプリではない場合があります。
+
+アプリ固有のターゲティングを確認するには、プロファイルの**テストプッシュ**だけに頼るのではなく、狭いオーディエンス（例：`external_id`でフィルター）を持つCampaignまたはCanvasを通じてライブまたはテストメッセージを送信してください。
+
+複数のアプリを持つ**Canvas**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にSegmentとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を参照してください。
+
+一般的なテストプッシュの動作については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)および[プッシュFAQ]({{site.baseurl}}/user_guide/channels/push/faqs/)を参照してください。
+
+### iOSとAndroidでPush Storiesをデバッグするにはどうすればよいですか？ {#how-do-i-debug-push-stories-on-ios-and-android}
+
+セットアップとクリエイティブ要件については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)から始めてください。実装とリッチプッシュ通知の処理については、開発者ガイドの[リッチプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/rich/)および[Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/)を参照してください。
+
+### 「Canvasメッセージが24時間以上遅延」メールを受信するのは誰ですか？ {#who-receives-the-canvas-messages-delayed-24-hours-email}
+
+Brazeは、Canvasメッセージがレート制限により24時間以上遅延した場合にこの通知を送信します。メールは、影響を受けたCanvasに以前変更を加えたダッシュボードユーザー（Canvas変更ログに基づく）に送信されます。Brazeがそれらの受信者を特定できない場合、メールはワークスペースの**会社管理者**に送信されます。

@@ -7,7 +7,7 @@ page_order: 3
 
 # Référence des agents {#reference-for-agents}
 
-> Lorsque vous créez des agents personnalisés, reportez-vous à cet article pour en savoir plus sur les paramètres clés, tels que les instructions et les schémas de sortie. Pour une introduction, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/) et la [Foire aux questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Lorsque vous créez des agents personnalisés, reportez-vous à cet article pour en savoir plus sur les paramètres clés, tels que les instructions et les schémas de sortie. Pour une configuration étape par étape, consultez [Créer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Pour une introduction, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/) et la [Foire aux questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Modèles {#models}
 
@@ -82,7 +82,7 @@ Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, B
 
 ### Erreurs de limite de débit {#rate-limit-errors}
 
-Si le fournisseur de LLM renvoie une erreur de limite de débit, Braze relance la requête jusqu'à cinq fois en utilisant des délais exponentiels. Ce comportement de relance s'applique aux étapes Agent dans Canvas. Les agents de catalogue ne relancent pas les invocations échouées, y compris les erreurs de limite de débit du fournisseur de LLM.
+Si le fournisseur de LLM renvoie une erreur de limite de débit, Braze relance la requête en utilisant des délais exponentiels. Ce comportement de relance s'applique aux étapes Agent dans Canvas. Les agents de catalogue ne relancent pas les invocations échouées, y compris les erreurs de limite de débit du fournisseur de LLM.
 
 Si toutes les tentatives échouent, le panneau de détails des **Logs** affiche **Error** et le message du fournisseur (tel que `Rate limit exceeded`) dans **Output**. Chaque tentative est visible dans les logs, y compris la toute première invocation, quel que soit son résultat final. Pour un utilisateur donné, s'il faut quatre tentatives pour obtenir un succès, vous pouvez rechercher l'ID utilisateur et voir les cinq tentatives (l'originale plus quatre relances) dans les **Logs**, et l'originale ainsi que les trois premières relances afficheront **Error** avec `Rate limit exceeded`.
 
@@ -91,6 +91,8 @@ Si toutes les tentatives échouent, le panneau de détails des **Logs** affiche 
 ## Rédaction des instructions {#writing-instructions}
 
 Les instructions sont les règles ou directives que vous donnez à l'agent (prompt système). Elles définissent le comportement de l'agent à chaque exécution. Les instructions système peuvent contenir jusqu'à 25 Ko.
+
+Si vous avez créé votre agent avec [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) en utilisant un [modèle de départ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), passez en revue les instructions préremplies et modifiez-les si nécessaire.
 
 Voici quelques bonnes pratiques générales pour vous aider à démarrer avec la rédaction de prompts :
 
@@ -105,7 +107,9 @@ Voici quelques bonnes pratiques générales pour vous aider à démarrer avec la
 9. Traitez les cas particuliers, ajoutez des garde-fous et des instructions de refus.
 10. Mesurez et documentez ce qui fonctionne en interne pour faciliter la réutilisation et la montée en charge.
 
-Pour vous inspirer dans la rédaction d'instructions d'agents, consultez notre [bibliothèque de cas d'utilisation dédiée aux agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+### Exemples {#examples}
+
+Pour des configurations de départ dans la Console des agents, consultez [Modèles d'agents créés avec Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Pour des exemples complets d'instructions que vous pouvez copier ou adapter, consultez la [bibliothèque de cas d'utilisation des agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
 ### Utilisation de Liquid {#using-liquid}
 
@@ -130,6 +134,8 @@ Pour plus de détails sur les bonnes pratiques en matière de prompts, consultez
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Sorties {#outputs}
+
+Si vous avez créé votre agent avec [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) en utilisant un [modèle de départ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), passez en revue le schéma de sortie prérempli et modifiez-le si nécessaire.
 
 ### Schémas de base {#basic-schemas}
 
@@ -212,7 +218,7 @@ Vous pouvez sélectionner des [directives de marque]({{site.baseurl}}/user_guide
 
 ## Historique d'interaction spécifique à l'utilisateur {#user-history}
 
-Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les campagnes et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
+Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les Campaign et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
 
 ## Dupliquer des agents {#duplicate-agents}
 

@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Brazeダッシュボードから直接、個々のユーザーまたはSegmentのユーザーを削除する方法を説明します。
 
-{% alert important %}
-ユーザーの削除は現在、早期アクセス段階です。参加をご希望の場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
-
 ## 前提条件 {#prerequisites}
 
 ユーザーを削除するには、管理者であるか、**Delete Users**権限を持っている必要があります。ユーザー削除レコードを表示するには、管理者であるか、**View User Deletion Records**権限を持っている必要があります。以下の権限がユーザーの削除と削除レコードを制御します。
@@ -31,7 +27,7 @@ alias: /delete_users/
 
 | 考慮事項 | 詳細 |
 |---------------|---------|
-| 最大サイズ | Segmentを削除する際、最大1億件のユーザープロファイルを削除できます。 |
+| 最大サイズ | Segmentを削除する際、最大1,000万件のユーザープロファイルを削除できます。 |
 | 待機期間 | すべてのSegment削除には、7日間の待機期間と削除処理にかかる時間が必要です。 |
 | ジョブの制限 | 一度に削除できるSegmentは1つのみで、7日間の待機期間が含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザー削除について" }
@@ -144,17 +140,13 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ## よくある質問 {#faq}
 
-### 1億人以上のユーザーを含むSegmentを削除できますか？ {#can-i-delete-segments-with-more-than-100-million-users}
+### 1,000万人以上のユーザーを含むSegmentを削除できますか？ {#can-i-delete-segments-with-more-than-10-million-users}
 
-いいえ。1億人以上のユーザーを含むSegmentは削除できません。このサイズのSegmentの削除についてサポートが必要な場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+いいえ。1,000万人以上のユーザーを含むSegmentは削除できません。このサイズのSegmentの削除についてサポートが必要な場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
 
-### 1億人のユーザーを削除できず、1,000万人までに制限されているようです。これはバグですか？ {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### 一度に削除できるのは最大1,000万人までです。これはバグですか？ {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-いいえ、これはバグではありません。早期アクセス（EA）プログラム中は、削除できるユーザー数が制限されているお客様がいます。
-
-EAプログラムの進行に伴い、すべてのお客様が最大1億人のユーザーを削除できるようになるまで、この容量は増加する予定です。
-
-この容量を増やしたい場合は、Brazeアカウントマネージャーにお問い合わせください。リクエストはプロダクトチームの裁量で承認されます。
+いいえ、これはバグではありません。1回のSegment削除で削除できるユーザープロファイルの最大数は1,000万件です。
 
 ### 自動ユーザーマージはユーザー削除に影響しますか？ {#does-automated-user-merging-affect-user-deletion}
 
