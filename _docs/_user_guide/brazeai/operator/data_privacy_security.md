@@ -12,7 +12,7 @@ description: "This reference article covers how BrazeAI Operator handles data, i
 
 ## How Operator accesses data
 
-Operator's access to customer data is event-driven and invocation-scoped, not persistent. Each user message or navigation event while Operator is open triggers a discrete HTTP request to OpenAI. There is no standing connection or persistent data feed.
+Operator's access to customer data is strictly event-driven and invocation-scoped — not persistent. Each user message or navigation event while Operator is open triggers a discrete HTTP request to OpenAI. There is no standing connection or persistent data feed.
 
 OpenAI does not have direct access to Braze data stores or the full User Table. The LLM only receives the specific payload associated with the active request.
 
@@ -62,7 +62,7 @@ Data sent to OpenAI's API through Braze is not used to train or improve OpenAI m
 
 ### EU data routing
 
-EU data routing is not currently implemented for Operator.
+EU data routing is not currently implemented for Operator, and there are no current plans to implement it.
 
 ## Minimize PII exposure
 
@@ -79,7 +79,7 @@ There are several steps you can take to limit PII exposure when using Operator:
 
 ### Restrict access to Operator
 
-Access to Operator is managed at the workspace level through [Granular User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Administrators can grant or revoke the **Use BrazeAI Operator** permission for individual users, ensuring that only authorized personnel can interact with the tool. Without this permission, the Operator interface is suppressed and backend endpoints remain secured.
+Access to Operator is managed at the workspace level through [Granular User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Administrators can grant or revoke the **Use BrazeAI Operator** permission for individual users, ensuring that only authorized personnel can interact with the tool. Without these specific permissions, the Operator interface is completely suppressed and backend endpoints remain secured.
 
 ### Human-in-the-loop model
 
@@ -93,4 +93,4 @@ Operator fully inherits the permission profile of the logged-in user. It is rest
 
 ### Audit team usage
 
-Download Braze's [Security Event Report]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) to monitor team usage. The "Requested BrazeAI Operator Response" event provides a comprehensive audit trail, allowing you to review the exact inputs provided to Operator.
+Download Braze's [Security Event Report]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) to monitor team usage. The "Requested BrazeAI Operator Response" event provides a comprehensive audit trail, allowing you to review the exact inputs provided to the Operator.
