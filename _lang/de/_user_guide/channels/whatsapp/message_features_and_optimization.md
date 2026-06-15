@@ -26,7 +26,7 @@ guide_featured_list:
   - name: Nutzer:innen-Retargeting
     link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/user_retargeting
     image: /assets/img/braze_icons/target-04.svg
-  - name: Custom Domains
+  - name: Angepasste Domains
     link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/custom_domains
     image: /assets/img/braze_icons/globe-05.svg
   - name: WhatsApp Template Builder
