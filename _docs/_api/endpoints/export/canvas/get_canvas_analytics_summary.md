@@ -53,6 +53,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 ## Response
 
+{% alert note %}
+In `total_stats`, `variant_stats`, and `step_stats`, `conversions` is the count for the [primary conversion event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) of the Canvas. When you configure additional conversion events, the payload can also include `conversions1`, `conversions2`, and higher-indexed fields for the second, third, and further events. This is similar to the [multivariate response]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response) for the ` /campaigns/data_series` endpoint. Where present, fields ending in `_by_entry_time` attribute those conversions by Canvas entry time.
+{% endalert %}
+
 ```json
 {
   "data": {
