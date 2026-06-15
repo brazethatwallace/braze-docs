@@ -39,7 +39,7 @@ npm install --save @braze/web-sdk
 
 インストール後は、通常の方法でライブラリーを`import`または`require`できます。
 
-```typescript
+`````````typescript
 import * as braze from "@braze/web-sdk";
 // or, using `require`
 const braze = require("@braze/web-sdk");
@@ -66,7 +66,7 @@ Braze Web SDKをWebサイトに追加した後、Brazeダッシュボードの**
 **Web SDKリクエストにおけるカスタムドメインはサポートされていません：** Web SDKの`baseUrl`はBraze SDKエンドポイントでなければなりません（例：`sdk.iad-05.braze.com`）。BrazeはCNAMEレコードを介して顧客所有のドメインを経由するWeb SDKトラフィックのルーティングをサポートしていません。Web SDKのリクエストを自身のドメインから発信する必要がある場合は、Brazeサポートにお問い合わせください。
 {% endalert %}
 
-```javascript
+`````````javascript
 // initialize the SDK
 braze.initialize('YOUR-API-KEY-HERE', {
     baseUrl: "YOUR-SDK-ENDPOINT-HERE",
@@ -156,7 +156,7 @@ SDKの初期化をユーザー操作まで遅らせると、バナーやContent 
 
 **条件付き初期化の例：**
 
-```javascript
+`````````javascript
 // Only initialize Braze if your custom bot detection determines this is not a bot
 if (!isLikelyBot()) {
   braze.initialize('YOUR-API-KEY-HERE', {
@@ -185,13 +185,13 @@ if (!isLikelyBot()) {
 {% tab before initialization %}
 SDKが初期化される前に、基本的なデバッグメッセージをJavaScriptコンソールに記録するには`enableLogging`を使用します。
 
-```javascript
+`````````javascript
 enableLogging: true
 ```
 
 メソッドは次のようになります。
 
-```javascript
+`````````javascript
 braze.initialize('API-KEY', {
     baseUrl: 'API-ENDPOINT',
     enableLogging: true
@@ -203,7 +203,7 @@ braze.openSession();
 {% tab after initialization %}
 SDKが初期化された後、基本的なデバッグメッセージをJavaScriptコンソールに記録するには`braze.toggleLogging()`を使用します。メソッドは次のようになります。
 
-```javascript
+`````````javascript
 braze.initialize('API-KEY', {
     baseUrl: 'API-ENDPOINT',
 });
@@ -222,13 +222,13 @@ braze.toggleLogging();
 
 カスタムデバッグメッセージをJavaScriptコンソールに記録するには、`setLogger`を使用します。基本ログとは異なり、これらのログはユーザーには表示されません。
 
-```javascript
+`````````javascript
 setLogger(loggerFunction: (message: STRING) => void): void
 ```
 
 `STRING`を1つの文字列パラメーターとしてメッセージに置き換えます。メソッドは次のようになります。
 
-```javascript
+`````````javascript
 braze.initialize('API-KEY');
 braze.setLogger(function(message) {
     console.log("Braze Custom Logger: " + message);
@@ -259,7 +259,7 @@ RSSリーダーまたは任意のサービスを使用して、[リリースフ�
 
 次の非同期スクリプトタグをheadに追加します。
 
-```js
+`````````js
 <script async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"></script>
 ```
 
@@ -267,7 +267,7 @@ RSSリーダーまたは任意のサービスを使用して、[リリースフ�
 
 HTMLのbodyにウィジェットを追加し、ユーザーがプッシュ通知の登録と配信停止を行えるようにします。
 
-```js
+`````````js
 <!-- A subscription widget -->
 <amp-web-push-widget visibility="unsubscribed" layout="fixed" width="250" height="80">
   <button on="tap:amp-web-push.subscribe">Subscribe to Notifications</button>
@@ -296,7 +296,7 @@ Webサイトのルートディレクトリに`service-worker.js`ファイルを�
 
 HTMLのbodyに次の`amp-web-push` HTML要素を追加します。[`apiKey`と`baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG)をクエリパラメーターとして`service-worker-URL`に追加する必要があることに注意してください。
 
-```js
+`````````js
 <amp-web-push
 layout="nodisplay"
 id="amp-web-push"
@@ -319,7 +319,7 @@ service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseU
 
 RequireJSまたは他のAMDモジュールローダーを使用する場合は、ライブラリーのコピーをセルフホスティングし、他のリソースと同様に参照することをお勧めします。
 
-```javascript
+`````````javascript
 require(['path/to/braze.min.js'], function(braze) {
   braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT' });
   // Required if you want in-app messages to display automatically
@@ -352,7 +352,7 @@ Web SDKはブラウザー環境で動作します。SSRフレームワークで�
 
 このセクションにフレームワークが記載されていない場合は、クライアント専用のライフサイクルフックからBrazeを動的にインポートできます。
 
-```javascript
+`````````javascript
 // MyComponent/braze-exports.js
 // Export the parts of the SDK that you need.
 export { initialize, openSession } from "@braze/web-sdk";
@@ -371,7 +371,7 @@ useEffect(() => {
 
 webpackを使用している場合は、特定のSDKエクスポートのみを動的にインポートできます。
 
-```javascript
+`````````javascript
 // MyComponent.js
 useEffect(() => {
     import(
@@ -391,7 +391,7 @@ useEffect(() => {
 
 再利用可能な`useBraze`フックを作成し、アプリのルート付近で呼び出します。
 
-```tsx
+`````````tsx
 // hooks/useBraze.ts
 import { useEffect, useRef } from "react";
 
@@ -433,7 +433,7 @@ export function useBraze() {
 
 アプリをラップするクライアントコンポーネントで`useBraze`を呼び出します。
 
-```tsx
+`````````tsx
 // app/components/AppRoot.tsx
 "use client";
 
@@ -446,7 +446,7 @@ export function AppRoot({ children }: { children: ReactNode }) {
 }
 ```
 
-```tsx
+`````````tsx
 // app/layout.tsx
 import type { ReactNode } from "react";
 import { AppRoot } from "./components/AppRoot";
@@ -470,7 +470,7 @@ export default function RootLayout({
 
 カスタムアプリコンポーネントの先頭で`useBraze`を呼び出します。
 
-```tsx
+`````````tsx
 // pages/_app.tsx
 import type { AppProps } from "next/app";
 import { useBraze } from "../hooks/useBraze";
@@ -490,7 +490,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ローカルのRemix検証例を実行するには、`PORT=4013 npm run dev`を使用します。
 
-```tsx
+`````````tsx
 // app/root.tsx
 import { Outlet } from "@remix-run/react";
 import { useBraze } from "./hooks/useBraze";
@@ -506,7 +506,7 @@ export default function App() {
 
 `useBraze`がアプリのルートでSDKを初期化した後、他のクライアントコンポーネントからBrazeメソッドを呼び出すことができます。一般的なパターンは、`onClick`や`onSubmit`などのユーザーアクション内でメソッドを呼び出すことです。この例では、SDKメソッドはファイルの先頭ではなく、クリックハンドラー内で読み込まれます。これにより、Web SDKをサーバーコードから分離し、そのアクションに必要なものだけを読み込みます。`webpackExports`コメントは、どのメソッドを含めるかをwebpackに指示するため、バンドルサイズを小さく保てます。
 
-```tsx
+`````````tsx
 // app/components/BuyButton.tsx
 "use client";
 

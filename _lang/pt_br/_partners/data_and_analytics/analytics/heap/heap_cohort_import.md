@@ -22,7 +22,7 @@ A integração entre a Braze e a Heap permite [importar dados da Heap para a Bra
 | Chave de importação de dados da Braze | Isso pode ser obtido no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** e selecionando **Heap**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Braze Currents | Para exportar dados da Braze para a Heap, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) ativado na sua conta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 - Reengaje usuários que abandonaram um funil: dispare mensagens de reengajamento quando os usuários abandonarem o funil de compra ou de inscrição.

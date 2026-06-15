@@ -31,10 +31,14 @@ Para saber mais sobre o uso de vetores de objetos para objetos de atributos de u
 
 ## Exemplo de API {#api-example}
 
+Use estes exemplos ao enviar requisições `/users/track` que criam ou atualizam atributos personalizados aninhados armazenados como vetores de objetos. A carga útil usa os operadores `$add`, `$remove` e `$update` para que você possa alterar objetos específicos sem reconstruir o vetor inteiro a cada requisição.
+
 {% tabs local %}
-{% tab Create %}
+{% tab Criar %}
 
 A seguir, um exemplo de `/users/track` com um vetor `pets`. Para capturar as propriedades dos animais de estimação, envie uma requisição de API que liste `pets` como um vetor de objetos. Observe que cada objeto recebeu um `id` único que pode ser referenciado posteriormente ao fazer atualizações.
+
+Use este formato quando quiser criar o atributo pela primeira vez ou substituir o vetor inteiro por um novo conjunto base de objetos.
 
 ```json
 {
@@ -60,9 +64,11 @@ A seguir, um exemplo de `/users/track` com um vetor `pets`. Para capturar as pro
 }
 ```
 {% endtab %}
-{% tab Add %}
+{% tab Adicionar %}
 
 Adicione outro item ao vetor usando o operador `$add`. O exemplo a seguir mostra a adição de mais três objetos de animais de estimação ao vetor `pets` do usuário.
+
+Use `$add` quando precisar anexar um ou mais novos objetos e manter os objetos existentes inalterados.
 
 ```json
 {
@@ -96,11 +102,13 @@ Adicione outro item ao vetor usando o operador `$add`. O exemplo a seguir mostra
 }
 ```
 {% endtab %}
-{% tab Update %}
+{% tab Atualizar %}
 
-Atualize valores de objetos específicos dentro de um vetor usando o parâmetro `_merge_objects` e o operador `$update`. Semelhante às atualizações de objetos simples de [atributos personalizados aninhados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), isso realiza um merge profundo.
+Atualize valores de objetos específicos dentro de um vetor usando o parâmetro `_merge_objects` e o operador `$update`. Semelhante às atualizações de outros objetos de [atributos personalizados aninhados]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), isso realiza um merge profundo.
 
 Observe que `$update` não pode ser usado para remover uma propriedade aninhada de um objeto dentro de um vetor. Para isso, você precisará remover o item inteiro do vetor e depois adicionar o objeto sem essa chave específica (usando uma combinação de `$remove` e `$add`).
+
+Use `$update` quando o objeto já existir e você quiser alterar um ou mais campos fazendo a correspondência por `$identifier_key` e `$identifier_value`.
 
 O exemplo a seguir mostra a atualização da propriedade `breed` para `goldfish` no objeto com `id` igual a `4`. Este exemplo de requisição também atualiza o objeto com `id` igual a `5` com um novo `name` de `Annette`. Como o parâmetro `_merge_objects` está definido como `true`, todos os outros campos desses dois objetos permanecem inalterados.
 
@@ -138,9 +146,11 @@ Você deve definir `_merge_objects` como true, caso contrário seus objetos ser�
 {% endalert %}
 
 {% endtab %}
-{% tab Remove %}
+{% tab Remover %}
 
 Remova objetos de um vetor usando o operador `$remove` em combinação com uma chave correspondente (`$identifier_key`) e valor (`$identifier_value`).
+
+Use `$remove` quando quiser excluir todos os objetos correspondentes para um par de identificador conhecido, como `id = 2` ou `type = dog`.
 
 O exemplo a seguir mostra a remoção de qualquer objeto no vetor `pets` que tenha um `id` com valor `1`, um `id` com valor `2` e um `type` com valor `dog`. Se houver múltiplos objetos com o valor de `type` igual a `dog`, todos os objetos correspondentes serão removidos.
 
@@ -182,9 +192,11 @@ Quando uma única requisição `/users/track` inclui operações `$add`, `$remov
 2. `$remove`
 3. `$update`
 
+Essa ordem se aplica dentro de um único objeto de atualização de atributo em uma requisição e determina o estado final do vetor após todas as operações serem avaliadas.
+
 Como `$add` é executado antes de `$remove`, você não pode usar um `$remove` seguido de `$add` como mecanismo de upsert em uma única requisição. O `$add` é processado primeiro e, em seguida, o `$remove` exclui o item. Para fazer upsert, envie o `$remove` em uma requisição separada antes do `$add`.
 
-### Timestamps
+### Timestamps {#timestamps}
 
 Ao incluir campos como timestamps em um vetor de objetos, use o formato `$time` em vez de strings simples ou inteiros de época Unix.
 
@@ -216,7 +228,7 @@ Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/
 {% tabs local %}
 {% tab Android SDK %}
 {% subtabs %}
-{% subtab Create %}
+{% subtab Criar %}
 ```kotlin
 val json = JSONArray()
     .put(JSONObject()
@@ -237,7 +249,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Adicionar %}
 ```kotlin
 val json = JSONObject()
     .put("\$add", JSONArray()
@@ -265,7 +277,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Atualizar %}
 ```kotlin
 val json = JSONObject()
     .put("\$update", JSONArray()
@@ -291,7 +303,7 @@ braze.getCurrentUser { user ->
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Excluir %}
 ```kotlin
 val json = JSONObject()
     .put("\$remove", JSONArray()
@@ -319,7 +331,7 @@ braze.getCurrentUser { user ->
 
 {% tab Swift SDK %}
 {% subtabs %}
-{% subtab Create %}
+{% subtab Criar %}
 ```swift
 let json: [[String: Any?]] = [
   [
@@ -340,7 +352,7 @@ braze.user.setCustomAttribute(key: "pets", array: json)
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Adicionar %}
 ```swift
 let json: [String: Any?] = [
   "$add": [
@@ -369,7 +381,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Atualizar %}
 ```swift
 let json: [String: Any?] = [
   "$update": [
@@ -394,7 +406,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Excluir %}
 ```swift
 let json: [String: Any?] = [
   "$remove": [
@@ -425,7 +437,7 @@ Atributos personalizados aninhados não são compatíveis com o AppboyKit.
 
 {% tab Web SDK %}
 {% subtabs local %}
-{% subtab Create %}
+{% subtab Criar %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = [{
@@ -443,7 +455,7 @@ braze.getUser().setCustomUserAttribute("pets", json);
 ```
 {% endsubtab %}
 
-{% subtab Add %}
+{% subtab Adicionar %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -468,7 +480,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Update %}
+{% subtab Atualizar %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -493,7 +505,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 ```
 {% endsubtab %}
 
-{% subtab Delete %}
+{% subtab Excluir %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
@@ -537,9 +549,9 @@ Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir 
 
 ## Segmentação {#segmentation}
 
-Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o Segment se qualquer objeto no vetor corresponder aos critérios.
+Ao segmentar usuários com base em vetores de objetos, um usuário se qualificará para o segmento se qualquer objeto no vetor corresponder aos critérios.
 
-Crie um novo Segment e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
+Crie um novo segmento e selecione **Nested Custom Attribute** como seu filtro. Em seguida, pesquise e selecione o nome do seu vetor de objetos.
 
 ![Filtrar por vetor de objetos.]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -550,7 +562,7 @@ Por exemplo, se você quiser filtrar um vetor de objetos `top_3_movies` com base
 
 ### Níveis de aninhamento {#levels-of-nesting}
 
-Você pode criar um Segment com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um Segment para `pets[].name` contém `Gus`, mas não pode criar um Segment para `pets[].nicknames[]` contém `Gugu`.
+Você pode criar um segmento com até um nível de aninhamento de vetor (vetor dentro de outro vetor). Por exemplo, considerando os atributos a seguir, você pode criar um segmento para `pets[].name` contém `Gus`, mas não pode criar um segmento para `pets[].nicknames[]` contém `Gugu`.
 
 {% raw %}
 ```json
@@ -591,7 +603,7 @@ Você pode criar um Segment com até um nível de aninhamento de vetor (vetor de
 Os pontos de dados são registrados de forma diferente dependendo se você cria, atualiza ou remove uma propriedade.
 
 {% tabs local %}
-{% tab Create %}
+{% tab Criar %}
 
 Criar um novo vetor registra um ponto de dados para cada atributo em um objeto. Este exemplo custa oito pontos de dados — cada objeto de animal de estimação tem quatro atributos e há dois objetos.
 
@@ -619,7 +631,7 @@ Criar um novo vetor registra um ponto de dados para cada atributo em um objeto. 
 }
 ```
 {% endtab %}
-{% tab Update %}
+{% tab Atualizar %}
 
 Atualizar um vetor existente registra um ponto de dados para cada propriedade adicionada. Este exemplo custa dois pontos de dados, pois atualiza apenas uma propriedade em cada um dos dois objetos.
 
@@ -652,7 +664,7 @@ Atualizar um vetor existente registra um ponto de dados para cada propriedade ad
 }
 ```
 {% endtab %}
-{% tab Remove %}
+{% tab Remover %}
 
 Remover um objeto de um vetor registra um ponto de dados para cada critério de remoção enviado. Este exemplo custa três pontos de dados, mesmo que você possa estar removendo múltiplos cachorros com essa instrução.
 

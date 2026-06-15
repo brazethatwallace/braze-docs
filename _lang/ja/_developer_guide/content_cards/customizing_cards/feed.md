@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+Content Cardsのリンクを同じタブではなく新しいブラウザタブで開くには、Web SDKの初期化オプションで`openCardsInNewTab: true`を設定します。初期化オプションの詳細については、[Web SDKリポジトリガイド]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)を参照してください。
+
 {% endtab %}
 {% tab android %}
 
@@ -397,7 +399,7 @@ ContentCardsList(
 )
 ```
 
-代わりに表示したいコンポーザブルがある場合は、`emptyComposable`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。`emptyComposable`を指定した場合、`emptyString`は使用されません。
+代わりに表示したいComposableがある場合は、`emptyComposable`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。`emptyComposable`を指定した場合、`emptyString`は使用されません。
 
 ```kotlin
 ContentCardsList(

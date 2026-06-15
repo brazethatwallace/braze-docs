@@ -23,7 +23,7 @@ alias: /delete_users/
 |------------|-------------|
 | Delete Users | 사용자를 개별적으로 또는 일괄적으로 영구 삭제합니다. |
 | View User Deletion Records | 사용자 삭제 기록을 조회합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 사용자 삭제에 대해 {#about-user-deletion}
 
@@ -34,7 +34,7 @@ alias: /delete_users/
 | 최대 크기 | Segment 삭제 시 최대 1억 개의 사용자 프로필을 삭제할 수 있습니다. |
 | 대기 기간 | 모든 Segment 삭제에는 7일의 대기 기간과 삭제 처리에 소요되는 시간이 필요합니다. |
 | 작업 제한 | 한 번에 하나의 Segment만 삭제할 수 있으며, 여기에는 7일의 대기 기간이 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 삭제에 대해" }
 
 ## 사용자 삭제하기 {#deleting-users}
 
@@ -90,7 +90,7 @@ Braze는 삭제 대기 중인 프로필 수가 포함된 확인 이메일을 발
 
 ![Braze 대시보드의 'Manage Audience' 섹션에 있는 'Delete Users' 탭.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-대기 중인 Segment 삭제 옆에 있는 <i class="fa-solid fa-eye"></i>를 선택하여 삭제 기록 세부 정보를 엽니다.
+대기 중인 Segment 삭제 옆에 있는 <i class="fa-solid fa-eye"></i> **View details**를 선택하여 삭제 기록 세부 정보를 엽니다.
 
 !['Delete Users' 탭에 있는 대기 중인 Segment 삭제.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -132,9 +132,9 @@ Braze는 삭제 대기 중인 프로필 수가 포함된 확인 이메일을 발
 | 요청자 | 삭제 요청을 시작한 사용자입니다. |
 | Segment 이름 | 삭제 대기 중인 사용자를 선택하는 데 사용된 Segment의 이름입니다. |
 | 상태 | 삭제 요청이 대기 중인지, 진행 중인지, 완료되었는지를 표시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="오디언스 관리" }
 
-특정 요청에 대한 자세한 내용을 보려면 <i class="fa-solid fa-eye"></i>를 선택하여 삭제 기록 세부 정보를 표시합니다. 여기에서 [대기 중인 Segment 삭제를 취소](#cancel)할 수도 있습니다.
+특정 요청에 대한 자세한 내용을 보려면 <i class="fa-solid fa-eye"></i> **View details**를 선택하여 삭제 기록 세부 정보를 표시합니다. 여기에서 [대기 중인 Segment 삭제를 취소](#cancel)할 수도 있습니다.
 
 !['Delete Users' 탭에 있는 대기 중인 Segment 삭제.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -173,3 +173,7 @@ EA 프로그램이 진행됨에 따라 모든 고객이 최대 1억 명의 사�
 개별 사용자 삭제는 영구적입니다.
 
 [Segment 삭제는 취소](#cancel)할 수 있으며, 요청 후 처음 7일 이내에 가능합니다. 그러나 취소 전에 이미 삭제된 사용자는 복원할 수 없습니다.
+
+### 대시보드 대신 API를 사용하여 사용자를 삭제할 수 있나요? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+네. 소규모 배치의 경우 [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)를 사용할 수 있으며, 요청당 최대 50개의 식별자를 허용하고 해당 엔드포인트의 [사용량 제한]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit)이 적용됩니다. Segment 기반 대시보드 삭제는 매우 큰 오디언스에 더 적합하지만 [7일 대기 기간](#about-user-deletion)이 포함됩니다.

@@ -1,7 +1,7 @@
 ---
 nav_title: Sheetlabs
 article_title: Sheetlabs
-description: "このリファレンス記事では、BrazeとSheetlabsのパートナーシップについて説明します。Sheetlabsは、スプレッドシートから取得したデータを使ってマーケティングCampaignをパーソナライズできるサービスです。"
+description: "このリファレンス記事では、BrazeとSheetlabsのパートナーシップについて説明します。Sheetlabsは、スプレッドシートから取得したデータを使ってマーケティングキャンペーンをパーソナライズできるサービスです。"
 alias: /partners/sheetlabs/
 page_type: partner
 search_tag: Partner

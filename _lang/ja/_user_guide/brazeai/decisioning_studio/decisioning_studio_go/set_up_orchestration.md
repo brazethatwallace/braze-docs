@@ -37,9 +37,9 @@ Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、API
 4. 以下のカテゴリに基づいて権限を選択します。
     - **ユーザーデータ：** `users.track`、`users.delete`、`users.export.ids`、`users.export.segment`を選択
     - **メッセージ：** `messages.send`を選択
-    - **Campaigns：** リストされているすべての権限を選択
-    - **Canvas：** リストされているすべての権限を選択
-    - **Segments：** リストされているすべての権限を選択
+    - **キャンペーン：** リストされているすべての権限を選択
+    - **キャンバス：** リストされているすべての権限を選択
+    - **セグメント：** リストされているすべての権限を選択
     - **テンプレート：** リストされているすべての権限を選択
 
 {: start="5"}
@@ -71,7 +71,7 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 
 ### ステップ4: APIトリガーキャンペーンを作成する {#step-4-create-an-api-triggered-campaign}
 
-1. Brazeダッシュボードで、**Messaging** > **Campaigns**に移動します。
+1. Brazeダッシュボードで、**Messaging** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
 3. キャンペーンタイプとして、**API campaign**を選択します。
 4. キャンペーン名を入力します。例：「Decisioning Studio Go Email」
@@ -90,11 +90,11 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 ![APIキャンペーンの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. **Save Campaign**を選択します。
+8. **Save キャンペーン**を選択します。
 
 ### ステップ5: キャンペーンIDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
 
-1. APIキャンペーンで、**Campaign ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**Campaign ID**を貼り付けます。
+1. APIキャンペーンで、**キャンペーン ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**キャンペーン ID**を貼り付けます。
 
 ![コピーして貼り付けるメッセージバリエーションIDの例。]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 

@@ -129,7 +129,7 @@ Braze 푸시 데이터 키에 대한 설명서는 [Android SDK](https://braze-in
 
 ### 2단계: 커스텀 알림 팩토리 설정 {#step-2-set-your-custom-notification-factory}
 
-커스텀 알림 팩토리를 사용하도록 Braze에 지시하려면 `setCustomBrazeNotificationFactory` 메서드를 사용하여 [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 설정합니다.
+커스텀 알림 팩토리를 사용하도록 Braze에 지시하려면 `setCustomBrazeNotificationFactory` 메서드를 사용하여 [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 설정합니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -155,7 +155,7 @@ setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFa
 알림을 처음부터 직접 만드는 것은 고급 사용 사례이며, 철저한 테스트와 Braze 푸시 기능에 대한 깊은 이해가 필요합니다. 예를 들어 알림이 푸시 열람 수를 올바르게 기록하는지 확인해야 합니다.
 {% endalert %}
 
-커스텀 [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 해제하고 푸시에 대한 기본 Braze 처리로 돌아가려면 커스텀 알림 팩토리 설정자에 `null`을 전달합니다.
+커스텀 [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)를 해제하고 푸시에 대한 기본 Braze 처리로 돌아가려면 커스텀 알림 팩토리 설정자에 `null`을 전달합니다:
 
 {% tabs %}
 {% tab JAVA %}
@@ -237,7 +237,7 @@ Braze.configure(this, brazeConfig)
 
 현재 Google은 Android에서 지원하는 HTML 태그 목록을 설명서에 직접 기재하지 않습니다&#8212;이 정보는 [Git 리포지토리의 `Html.java` 파일](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java)에서만 확인할 수 있습니다. 다음 표를 참조할 때 이 점을 유념하세요. 이 정보는 해당 파일에서 추출한 것이며, 지원되는 HTML 태그는 변경될 수 있습니다.
 
-<table aria-label="Supported HTML tags">
+<table aria-label="지원되는 HTML 태그">
   <thead>
     <tr>
       <th>카테고리</th>
@@ -326,7 +326,7 @@ Braze.configure(this, brazeConfig)
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported HTML tags" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="지원되는 HTML 태그" }
 
 ## 인라인 이미지 렌더링 {#rendering-inline-images}
 
@@ -362,7 +362,7 @@ Braze 대시보드를 통해 전송되는 Android 푸시 알림에는 다양한 
 
 ### Firebase 메시징 전달 우선순위 {#fcm-priority}
 
-[Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) 필드를 통해 푸시를 "normal" 또는 "high" 우선순위로 Firebase Cloud Messaging에 전송할지 여부를 제어할 수 있습니다.
+[Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) 필드를 통해 푸시를 "normal" 또는 "high" 우선순위로 Firebase Cloud Messaging에 전송할지 여부를 제어할 수 있습니다.
 
 ### 유지 시간(TTL) {#ttl}
 
@@ -407,7 +407,7 @@ Android 또는 Fire OS 푸시 알림에서 설정할 수 있는 우선순위 수
 | Default  | 대부분의 알림 - 메시지가 다른 우선순위 유형에 명시적으로 속하지 않는 경우에 사용합니다 | `0` |
 | Low      | 사용자가 알기를 원하지만 즉각적인 조치가 필요하지 않은 정보 | `-1` |
 | Min      | 상황별 또는 배경 정보 | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority #notification-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 표시 우선순위 #notification-priority" }
 
 자세한 내용은 Google의 [Android 알림](http://developer.android.com/design/patterns/notifications.html) 설명서를 참조하세요.
 

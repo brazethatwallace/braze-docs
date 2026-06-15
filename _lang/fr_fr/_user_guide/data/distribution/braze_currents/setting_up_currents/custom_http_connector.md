@@ -26,7 +26,7 @@ Vous aurez besoin d'une URL d'endpoint pour configurer cette intégration. Votre
 
 ### Étape 2 : Configurer Braze Currents {#step-2-configure-braze-currents}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Exportation de données**, cliquez sur **Create New Current** et sélectionnez **Custom Currents Export**.
+Dans Braze, accédez à **Partner Integrations** > **Data Export**, cliquez sur **Create New Current** et sélectionnez **Custom Currents Export**.
 
 Donnez un nom à votre export ainsi qu'un e-mail de contact, puis passez à la page **Current Details**. Sur cette page, saisissez l'URL de votre endpoint et le jeton bearer facultatif.
 

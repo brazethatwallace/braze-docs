@@ -48,7 +48,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="キーワードトリガーの追加" }
 
 {% alert tip %}
-これらのキーワードをCampaignsやCanvasesでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)をご覧ください。
+これらのキーワードをキャンペーンやキャンバスでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)をご覧ください。
 {% endalert %}
 {% endtab %}
 
@@ -74,7 +74,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 {% endtabs %}
 
 {% alert tip %}
-アクションベースのCanvasが受信SMS、MMS、またはRCSメッセージによってトリガーされた場合、Canvasの最初の[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)でSMS、MMS、またはRCSのプロパティを参照できます。
+アクションベースのキャンバスが受信SMS、MMS、またはRCSメッセージによってトリガーされた場合、キャンバスの最初の[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)でSMS、MMS、またはRCSのプロパティを参照できます。
 {% endalert %}
 
 ## 多言語サポート {#multi-language-support}
@@ -110,23 +110,23 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 2. **Add custom keyword**を選択します。![新しいキーワードを追加するフィールド。]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. キーワードカテゴリ名を入力し、ユーザーが返信メッセージを受け取るためにテキスト送信できるキーワードを定義します。
 
-このキーワードカテゴリが作成されると、CampaignsやCanvasesで[フィルターおよびトリガー]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)として利用できるようになります。
+このキーワードカテゴリが作成されると、キャンペーンやキャンバスで[フィルターおよびトリガー]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)として利用できるようになります。
 
 カスタムキーワードカテゴリで作成されたキーワードは、新しいキーワード作成のすべてのルールとバリデーションに準拠します。
 
 ### ライフサイクル固有のキーワード {#lifecycle-specific-keywords}
 
-ライフサイクル中の特定の時点（例えば、最初のオンボーディング中）で顧客が特定のキーワードを送信して応答を受け取ることを制限したいユースケースがある場合は、CampaignまたはCanvasでトリガー**サブスクリプショングループ内のキーワードカテゴリOTHERに受信SMSを送信**を使用し、ユーザーが特定の時点で送信できるキーワードを定義できます。
+ライフサイクル中の特定の時点（例えば、最初のオンボーディング中）で顧客が特定のキーワードを送信して応答を受け取ることを制限したいユースケースがある場合は、キャンペーンまたはキャンバスでトリガー**サブスクリプショングループ内のキーワードカテゴリOTHERに受信SMSを送信**を使用し、ユーザーが特定の時点で送信できるキーワードを定義できます。
 
 このトリガーは、メッセージの「一致する」または「一致しない」比較、および正規表現の「マッチする」または「マッチしない」ルールを使用して、特定の受信メッセージのフィルタリングをサポートし、ユーザーの入力を検証します。
 
-#### Canvas
+#### キャンバス
 
 ![アクションベースのキャンバスステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### キャンペーン
 
-![アクションベースのCampaign。トリガーはサブスクリプショングループ「Marketing Message Service A」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が「Keyword1」または「Keyword2」であるか、「Keyword A」ではない場合です。]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
+![アクションベースのキャンペーン。トリガーはサブスクリプショングループ「Marketing Message Service A」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が「Keyword1」または「Keyword2」であるか、「Keyword A」ではない場合です。]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
 ### 不明なキーワードへの対応 {#dealing-with-unknown-keywords}
 
@@ -134,7 +134,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 デフォルトの返信（例えば「申し訳ありません。そのキーワードは認識できませんでした。」）を送信するには、以下の手順に従ってください。
 
-1. [SMS Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)を作成します。
+1. [SMS キャンペーン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)を作成します。
 2. **ターゲットオーディエンス**で、**すべてのユーザー**を選択します（トリガーによってメッセージを受信するユーザーは制限されます）。
 3. **スケジュール**で、**アクションベースの配信**を選択します。
 4. トリガーを、適切なサブスクリプショングループの**キーワードカテゴリOTHER内への受信SMS送信**に設定します。
@@ -143,5 +143,5 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 Brazeが**不明な**電話番号（プロファイルが存在する前）からの受信メッセージをどのように処理するかについては、[不明な電話番号の処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/)をご覧ください。
 
 {% alert tip %}
-これらのキーワードとキーワードカテゴリをCampaignsやCanvasesでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)をご覧ください。
+これらのキーワードとキーワードカテゴリをキャンペーンやキャンバスでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)をご覧ください。
 {% endalert %}

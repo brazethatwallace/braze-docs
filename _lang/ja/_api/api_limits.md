@@ -46,7 +46,9 @@ APIレート制限は、システムの適切な使用状況に応じて変更�
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 1分あたり50件のリクエスト。 |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 1分あたり20件のリクエスト。 |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 1分あたり100件のリクエスト。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 1時間あたり100件のリクエスト。 |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 1時間あたり100件のリクエスト。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="レート制限の異なるリクエスト" }
 
 ### レート制限を共有するリクエスト {#requests-with-shared-rate-limits}
 
@@ -186,7 +188,7 @@ Brazeに送信されたすべてのAPIリクエストは、レスポンスヘッ
 | `X-RateLimit-Limit` | 指定された間隔内に実行できるリクエストの最大数（レート制限）。 |
 | `X-RateLimit-Remaining` | 現在のレート制限期間内に残っているリクエストの数。 |
 | `X-RateLimit-Reset` | 現在のレート制限期間がリセットされる時刻（UTCエポック秒）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="レート制限の監視" }
 
 この情報は、Brazeダッシュボードではなく、APIリクエストに対するレスポンスのヘッダーに意図的に含まれています。これにより、お客様のシステムはAPIとのやり取り中にリアルタイムでより適切に対応できます。例えば、`X-RateLimit-Remaining`の値がある閾値を下回った場合、すべてのトランザクションメールが確実に送信されるように送信速度を落とすことができます。あるいは、ゼロに達した場合は、`X-RateLimit-Reset`で指定された時間が経過するまですべての送信を一時停止することもできます。
 
@@ -209,6 +211,12 @@ APIの制限についてご質問がある場合は、カスタマーサクセ�
 Braze APIを連続して呼び出す場合は、エンドポイント間の最適な遅延を理解することが重要です。エンドポイントが他のエンドポイントの正常な処理に依存している場合、呼び出しが早すぎるとエラーが発生する可能性があります。例えば、`/user/alias/new`エンドポイントを通じてユーザーにエイリアスを割り当て、そのエイリアスを使用して`/users/track`エンドポイントを通じてカスタムイベントを送信する場合、どのくらい待つべきでしょうか？
 
 通常の状態では、データの結果整合性が達成されるまでの時間は10〜100ミリ秒（1/10秒）です。しかし、整合性の達成に時間がかかる場合もあるため、エラーの確率を最小限にするために、後続のコールの間に5分間の遅延を設けることを推奨します。
+
+## ペイロードサイズの制限 {#payload-size-limits}
+
+Braze APIリクエストには、レート制限とは別にペイロードサイズの制限が適用されます。ほとんどのエンドポイントは最大4&nbsp;MBのリクエストボディを受け付けます。リクエストが適用される制限を超えた場合、Brazeはエンドポイントに応じてHTTP `413 Request Entity Too Large`またはHTTP `400 Bad Request`で拒否する場合があります。
+
+[`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/)エンドポイントには2&nbsp;MBのペイロード制限があり、リクエストボディがその制限を超えるとHTTP `400`を返します。エンドポイント固有の制限とエラーハンドリングについては、[ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data/)を参照してください。
 
 ### レート制限のリセット {#rate-limit-reset}
 

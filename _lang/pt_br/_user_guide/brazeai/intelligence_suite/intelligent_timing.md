@@ -65,6 +65,8 @@ Quando o horário de silêncio está ativado, a Braze não enviará mensagens du
 
 Por exemplo, se o horário de silêncio for definido das 22h às 6h e o horário ideal do usuário for 5h30, a Braze reterá a mensagem e a entregará às 6h — o horário mais próximo fora do período de silêncio.
 
+Para saber mais, consulte [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+
 #### Prévia dos horários de entrega {#preview-delivery-times}
 
 Para ver uma estimativa de quantos usuários receberão a mensagem em cada hora do dia, use o gráfico de prévia (somente campanhas).

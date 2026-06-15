@@ -8,7 +8,12 @@ page_type: glossary
 description: "この用語集では、Brazeが追跡し、Currentsを使用して選択したデータウェアハウスに送信できるさまざまなメッセージエンゲージメントイベントを一覧にしています。"
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details スキーマの範囲と関連リソース %}
 
 ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
 
@@ -17,6 +22,8 @@ search_rank: 6
 {% endalert %}
 
 追加のイベント権限へのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+
+{% enddetails %}
 
 {% details メッセージエンゲージメントイベントの構造とプラットフォーム値の説明 %}
 
@@ -56,24 +63,22 @@ search_rank: 6
 
 {% enddetails %}
 
-{% alert important %}
-Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
-{% endalert %}
+{% details メッセージエンゲージメントイベントに関する考慮事項 %}
 
-{% alert note %}
-キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を通じて人間が読める名前に変換できます。
-{% endalert %}
+- Currentsは、900&nbsp;KBを超えるペイロードを持つイベントをドロップします。
+- キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を通じて人間が読める名前に変換できます。
+- CampaignやCanvasを更新した後、特定のフィールドが最新の状態をすぐに表示しない場合があります。
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- これらのフィールドの完全な一貫性が必要な場合は、最終更新から1時間待ってからユーザーにメッセージを送信してください。
 
-{% alert note %}
-CampaignやCanvasの更新後、特定のフィールドが最新の状態を表示するまでに時間がかかる場合があります。対象のフィールドは以下のとおりです。
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-完全な一貫性が必要な場合は、これらのフィールドの最終更新から1時間待ってからユーザーにメッセージを送信することをお勧めします。
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

@@ -42,7 +42,7 @@ Je nachdem, was Sie in Lob tun möchten, müssen Sie den entsprechenden Endpunkt
 
 ### 2. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-2-create-your-braze-webhook-template}
 
-Um ein Lob-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie im Braze-Dashboard zu **Templates** > **Webhook-Templates**.
+Um ein Lob-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie im Braze-Dashboard zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template**.
 
 Wenn Sie eine einmalige Lob-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
@@ -105,7 +105,7 @@ Das Datentransformations-Template von Lob sendet Events über Ihren [`/users/tra
 
 ### 1. Schritt: Erstellen Sie eine Transformation in Braze {#step-1-create-a-transformation-in-braze}
 
-1. Navigieren Sie im Braze-Dashboard zu **Dateneinstellungen** > **Datentransformationen** und wählen Sie dann **Transformation erstellen**.
+1. Navigieren Sie im Braze-Dashboard zu **Data Settings** > **Data Transformations**, und wählen Sie dann **Create Transformation**.
 2. Geben Sie einen kurzen, beschreibenden Namen für Ihre Transformation ein.
 3. Wählen Sie unter **Bearbeitungserfahrung** die Option **Template verwenden** aus, suchen Sie dann nach Lob und aktivieren Sie das Kontrollkästchen.
 4. Wenn Sie fertig sind, wählen Sie **Transformation erstellen**. Sie werden zum Transformations-Editor weitergeleitet, den Sie im nächsten Schritt verwenden.

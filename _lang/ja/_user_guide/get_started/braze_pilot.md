@@ -3,7 +3,7 @@ nav_title: Braze Pilot
 page_order: 10.5
 layout: dev_guide
 guide_top_header: "Braze Pilot"
-guide_top_text: "Braze Pilotは、Brazeダッシュボードとシームレスに接続するように設計されたモバイルアプリです。これにより、アプリにCampaignやCanvasを配信でき、自分のスマートフォン上でBrazeのメッセージを実際に体験できます。Braze Pilotには、さまざまな業界を代表する架空ブランド向けのアプリシミュレーションのライブラリーが含まれており、顧客の視点からメッセージングがどのように見えるかを体験できます。"
+guide_top_text: "Braze Pilotは、Brazeダッシュボードとシームレスに接続するように設計されたモバイルアプリです。これにより、アプリにキャンペーンやキャンバスを配信でき、自分のスマートフォン上でBrazeのメッセージを実際に体験できます。Braze Pilotには、さまざまな業界を代表する架空ブランド向けのアプリシミュレーションのライブラリーが含まれており、顧客の視点からメッセージングがどのように見えるかを体験できます。"
 description: "Brazeダッシュボードからスマートフォンにメッセージを送信するさまざまな方法をご確認ください。"
 
 guide_featured_title: "セクションの記事"

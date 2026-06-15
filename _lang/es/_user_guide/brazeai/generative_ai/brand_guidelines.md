@@ -15,10 +15,10 @@ Sigue estos pasos para crear directrices de marca en el asistente de redacción 
 
 ### Paso 1: Crear una directriz de marca {#step-1-create-a-brand-guideline}
 
-1. En el creador de mensajes, busca y selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Redactor de inteligencia artificial"></i> para [abrir el asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access).
+1. En el creador de mensajes, busca y selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Redactor de inteligencia artificial"></i> **AI Copywriter** para [abrir el asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access).
 2. Selecciona **Apply brand guideline** y luego **Create a brand guideline**.
 
-![Menú desplegable para «Apply brand guidelines» expandido con el botón «Create a brand guideline» en primer plano.]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}
+![Menú desplegable de «Apply brand guidelines» expandido con el botón «Create a brand guideline» en primer plano.]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}
 
 {: start="3"}
 
@@ -30,7 +30,7 @@ Sigue estos pasos para crear directrices de marca en el asistente de redacción 
 
 ### Paso 2: Describe la personalidad de tu marca {#step-2-describe-your-brand-personality}
 
-Para la **Brand personality**, piensa en lo que hace única a tu marca. Incluye rasgos, valores, voz y cualquier arquetipo que defina tu marca. Aquí tienes algunas características a tener en cuenta:
+Para **Brand personality**, piensa en lo que hace única a tu marca. Incluye rasgos, valores, voz y cualquier arquetipo que defina tu marca. Aquí tienes algunas características a tener en cuenta:
 
 | **Característica**       | **Definición**                                                                       | **Ejemplo**                                                        |
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -50,7 +50,7 @@ En **Exclusions**, enumera cualquier lenguaje o estilo que no se ajuste a tu mar
 
 Pon a prueba tus directrices para ver cómo funcionan. Expande **Test your guidelines** para generar un texto de ejemplo y ajústalo según sea necesario.
 
-![Probando las directrices de marca con una promoción sobre rebajas de primavera para líneas del asunto de correos electrónicos.]({% image_buster /assets/img/ai_copywriter/test_brand_guidelines.png %})
+![Prueba de directrices de marca con una promoción sobre rebajas de primavera para líneas del asunto de correos electrónicos.]({% image_buster /assets/img/ai_copywriter/test_brand_guidelines.png %})
 
 ### Paso 5: Guarda tus directrices {#step-5-save-your-guidelines}
 

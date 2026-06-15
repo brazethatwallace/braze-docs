@@ -35,10 +35,21 @@ referring to Braze as an organization. Use the imperative for direct instruction
 
 ### Present tense
 
-Use present tense. Avoid "will" or hypothetical "would" for the result of user action.
+Use present tense instead of **future** tense. Present tense conveys immediacy and
+demonstrates confidence. Avoid using "will" or hypothetical "would", especially when
+referring to the result of user action.
 
 - Do: "Archived subscription groups cannot be edited and no longer appear in segment filters."
-- Don't: "Archived groups cannot be edited and will no longer appear in segment filters."
+- Don't: "Archived subscription groups cannot be edited and will no longer appear in segment filters."
+
+Only use future tense when you are actually talking about the future.
+
+**Exceptions (do not rewrite to present tense for "consistency"):**
+- Troubleshooting, FAQs, and incident write-ups describing **events that already happened**
+  (for example "The message was aborted", "The email went to the spam folder").
+- Markdown table **Possible cause** rows that name a past delivery outcome.
+- Epistemic hedging: "may", "may have", "might" when describing uncertain provider or user behavior
+  (for example "The mailbox provider may route the message to spam").
 
 ### Contractions
 
@@ -169,6 +180,23 @@ Guidelines:
 - Use commas for numbers over three digits (1,000).
 - Never start a sentence with a numeral (except years).
 - Percentages: use numeral + % with no space (10%). Spell out if starting a sentence.
+
+### Units of measurement and `&nbsp;`
+
+In Markdown and HTML, use a non-breaking space (`&nbsp;`) between a number and its
+unit so they do not wrap onto separate lines. This applies to most units: distance,
+pixels, points, weight, storage (KB, MB, GB), and degrees of temperature (between
+the degree symbol and C/F).
+
+- Do: `512&nbsp;MB`, `2&nbsp;KB`, `240 x 240&nbsp;px`, `1&nbsp;MB`
+- Do not use a regular space: `512 MB` (may wrap badly in HTML output)
+- Do not use `&nbsp;` for currency, percent, or degrees of angle: `10%`, `$50`, `90°`
+- For ranges, repeat the unit for each number: `5&nbsp;MB to 10&nbsp;MB`
+- In UI steps, `</i>&nbsp;**Button label**` between an icon and bold UI text is acceptable
+- In schema tables, `` `type,`&nbsp;`other` `` between type tokens is acceptable
+
+Do not suggest removing `&nbsp;` when it separates a number from a measurement unit
+or appears in the icon/UI or schema-table patterns above.
 
 ### Links
 

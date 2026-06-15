@@ -2,7 +2,7 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "このリファレンス記事では、BrazeとMixpanelのパートナーシップについて説明します。Mixpanelはビジネス分析プラットフォームであり、MixpanelコホートをBrazeにインポートしてBraze Segmentを作成できます。作成したSegmentは、今後のBraze CampaignsやCanvasesでユーザーをターゲットにするために使用できます。"
+description: "このリファレンス記事では、BrazeとMixpanelのパートナーシップについて説明します。Mixpanelはビジネス分析プラットフォームであり、MixpanelコホートをBrazeにインポートしてBraze セグメントを作成できます。作成したセグメントは、今後のBraze キャンペーンやキャンバスでユーザーをターゲットにするために使用できます。"
 page_type: partner
 search_tag: Partner
 tool: Currents
@@ -13,7 +13,7 @@ tool: Currents
 
 > [Mixpanel](https://mixpanel.com/)はビジネス分析プラットフォームであり、Mixpanelから他のプラットフォームにイベントをエクスポートして、より深い分析を実行できます。収集されたデータは、カスタムレポートの作成やユーザーエンゲージメントとリテンションの測定に使用できます。
 
-BrazeとMixpanelの統合により、[MixpanelコホートをBrazeにインポートして]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/)Braze Segmentを作成できます。このSegmentは、今後のBraze CampaignsやCanvasesでユーザーをターゲットにするために使用できます。コホート同期はBrazeのコホートメンバーシップを更新しますが、Mixpanelのイベントやユーザープロパティをインポートするものではありません。詳細については、[Mixpanelコホートインポート]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration)を参照してください。
+BrazeとMixpanelの統合により、[MixpanelコホートをBrazeにインポートして]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/)Braze セグメントを作成できます。このセグメントは、今後のBraze キャンペーンやキャンバスでユーザーをターゲットにするために使用できます。コホート同期はBrazeのコホートメンバーシップを更新しますが、Mixpanelのイベントやユーザープロパティをインポートするものではありません。詳細については、[Mixpanelコホートインポート]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration)を参照してください。
 
 Braze Currentsを利用して[BrazeイベントをMixpanelにエクスポート](#data-export-integration)し、コンバージョン、リテンション、製品使用率に関する詳細な分析を促進することもできます。
 

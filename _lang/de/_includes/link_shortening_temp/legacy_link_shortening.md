@@ -79,7 +79,7 @@ Diese Vorschau wird mit der relevanten Personalisierung und der verkürzten URL 
 
 Stellen Sie sicher, dass Sie die Campaign oder das Canvas speichern, bevor Sie eine Testnachricht senden, um eine Darstellung der verkürzten URL zu erhalten, die in Ihrer Nachricht versendet wird. Wenn die Campaign oder das Canvas vor dem Testversand nicht gespeichert wird, enthält der Testversand eine Platzhalter-URL.
 
-Damit Canvases im Filter „Verkürzten SMS-Link angeklickt“ erscheinen, muss der Canvas-Schritt, der den Kurzlink enthält, ebenfalls mit erweitertem Tracking aktiviert sein, das Click-Tracking auf Nutzer:innen-Ebene ermöglicht. Wenn der Kurzlink mit Basis-Tracking konfiguriert ist, steht die Option zum Filtern von SMS-Kurzlink-Klick-Ereignissen nicht zur Verfügung.
+Damit Canvases im Filter „Verkürzten SMS-Link angeklickt“ erscheinen, muss der Canvas-Schritt, der den Kurzlink enthält, ebenfalls mit erweitertem Tracking aktiviert sein, das Click-Tracking auf Nutzer:innen-Ebene ermöglicht. Wenn der Kurzlink mit Basis-Tracking konfiguriert ist, steht die Option zum Filtern von SMS-Kurzlink-Klick-Ereignissen nicht zur Verfügung. Dieselbe Anforderung für erweitertes Tracking gilt, wenn Sie Canvas-Eingangs- oder Aktionspfade konfigurieren, die von angeklickten verkürzten SMS-Links abhängen.
 
 {% alert important %}
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkürzte URL generiert. Die tatsächliche verkürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.

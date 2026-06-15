@@ -190,6 +190,14 @@ API-triggered campaigns allow you to manage campaign copy, multivariate testing,
 
 API campaigns are used to track the messages sent using the API. Unlike most campaigns, you don't specify the message, recipients, or schedule but instead pass the identifiers into your API calls. 
 
+### How can I confirm if my users received an API-triggered campaign?
+
+You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) using the **Received Campaign** filter, then select the specific API-triggered campaign you want to verify. After you save the segment, use the [`/users/export/segment` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) to export the users in that segment.
+
+### Can I delete a campaign?
+
+No, but you can [archive a campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### What is the difference between action-based and API-triggered campaigns?
 
 <style>
@@ -259,3 +267,22 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Segment re-evaluation:** For action-based or scheduled campaigns that re-evaluate at send time, users who were in the segment when the campaign was enqueued may no longer qualify when the message is actually sent.
 - **Send caps:** A Maximum number of users (or similar cap) in **Target Audiences** stops delivery when the cap is hit.
 - **Strict device or browser filters:** Filters that only match the newest app versions or browsers shrink the reachable set at send time compared to a broad segment preview.
+
+### Where are frequently asked questions about global frequency capping?
+
+For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+
+### Why can unique recipients exceed sends for email and SMS?
+
+For email and SMS, Braze increments **Unique recipients** before the ESP send attempt and increments **Sends** after a successful ESP response. Permanent errors (such as invalid email addresses) or duplicate addresses cause unique recipients to exceed sends.
+
+### Why doesn't **Last sent** match my scheduled send time?
+
+For a campaign with a single scheduled send, **Last sent** matches the launch time. For repeating campaigns with **Send in local time zone** enabled, **Last sent** can appear earlier than the scheduled time because sends to users in earlier time zones (for example, GMT vs. PST) complete before your workspace schedule time.
+
+### Why does a stopped historical campaign no longer show metrics on the **Analytics** page?
+
+The **Analytics** tab defaults to the last 90 days. If the campaign last sent outside that window, metrics can appear as zero until you adjust the date range on the **Analytics** page to include when the campaign sent. For more information, see [Campaign analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restore interaction data** does not restore campaign analytics. It applies only to retargeting filters and user interaction history. For more information, see [Messaging interaction data]({{site.baseurl}}/messaging_interaction_data/).

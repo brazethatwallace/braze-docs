@@ -27,7 +27,7 @@ Before you start, you'll need the following:
 
 ## Use cases
 
-Surface Braze data into the customer service agent view while communicating with your users on different communication channels, such as email, messenger, or chat. Additionally, use Braze Data Transformation to send data from Dixa to Braze to pause marketing while solving a user's problem.
+Surface Braze data into the customer service agent view while communicating with your users on different communication channels, such as email, messenger, or chat. Additionally, use Braze Data Transformation to send data from Dixa to Braze to pause marketing while solving a user's problem, or use Dixa's satisfaction surveys for segmentation.
 
 ## Integration
 
@@ -83,6 +83,8 @@ The following shows an example of the integration:
 
 Dixa uses webhooks to send data to Braze. You must be a Dixa administrator to configure webhooks.
 
+### Track conversations in Dixa
+
 The first step is to create a data transformation in Braze. 
 
 1. Go to **Data Settings** > **Data Transformations** > **Create transformation**.
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### Use CSAT score in Braze
+
+1. Go to **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Select **Start from scratch**, select destination **POST: Track Users**, and select **Create transformation**.
+3. In the transformation editor, copy the code example from **Track CSAT score** below and insert it in the **Transformation code** field. Select **Save**, copy the **Webhook URL**, and open Dixa.
+4. In Dixa, go to **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
+5. On the webhook settings page, paste the URL from Braze and toggle the events you want to track. **Conversation created** is a good starting point to track customers' conversations.
+6. Select **Save** to finish the Dixa setup.
+
+#### Track CSAT score
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

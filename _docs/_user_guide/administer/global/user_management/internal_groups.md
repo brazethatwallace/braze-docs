@@ -17,7 +17,7 @@ We also recommend checking out our [Testing and Troubleshooting](https://learnin
 
 ## Prerequisites
 
-To create and manage internal groups, you need the [Access Dev Console legacy permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) or these [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions):
+To create and manage internal groups, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
 
 - View API Keys
 - Edit API Keys
@@ -32,8 +32,6 @@ To create and manage internal groups, you need the [Access Dev Console legacy pe
 - Edit API Usage Alerts
 - Edit SDK Debugger
 - View SDK Debugger
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ## Creating an internal group
 

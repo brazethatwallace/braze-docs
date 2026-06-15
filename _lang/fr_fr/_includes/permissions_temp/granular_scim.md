@@ -1,9 +1,5 @@
 ## Migration des autorisations granulaires {#granular-permissions-migration}
 
-{% alert important %}
-Les autorisations granulaires sont actuellement en accès anticipé. Lorsque la migration est planifiée pour votre entreprise, vos administrateurs Braze recevront des e-mails et des bannières sur le tableau de bord les informant de la [migration des autorisations granulaires]({{site.baseurl}}/granular_permissions_migration/).
-{% endalert %}
-
 Les intégrations SCIM existantes et [les objets API SCIM hérités]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continueront de fonctionner après la migration des autorisations granulaires prévue fin avril.
 
 Aucune action immédiate n'est requise de votre part. Cependant, nous vous recommandons de vérifier vos intégrations afin d'identifier les autorisations qui seront granularisées. Par exemple, si vous envoyez actuellement `basic_access` dans l'API, nous vous suggérons de mettre à jour votre intégration après la granularisation afin d'inclure les autorisations spécifiques (par exemple, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze continuera d'accepter les chaînes de caractères héritées, telles que `basic_access`, après la migration des autorisations granulaires, afin que les intégrations existantes ne soient pas interrompues.

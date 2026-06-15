@@ -31,7 +31,7 @@ platform:
 
 ### ステップ2:アプリの配置を更新する {#requestBannersRefresh}
 
-配置は、以下に説明する更新メソッドを呼び出すことで更新できます。これらの配置は、ユーザーのセッションが期限切れになったとき、または`changeUser`メソッドを使用して識別済みユーザーを変更したときに自動的にキャッシュされます。
+配置は、以下に説明する更新メソッドを呼び出すことで更新できます。`subscribeToBannersUpdates`がアクティブな場合、SDKは新しいセッションの開始時および`changeUser`を呼び出したときに、キャッシュされた配置IDを自動的に再パブリッシュします。この自動更新はレート制限トークンを消費しません。
 
 {% alert tip %}
 バナーのダウンロードや表示の遅延を避けるため、できるだけ早く配置を更新してください。
@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+バナー更新リスナーは、SDKのインメモリバナー状態を反映します。1回の更新には、最新の`requestRefresh`呼び出しの配置IDだけでなく、すでにキャッシュされている配置（たとえば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定の配置のみに関心がある場合は、リスナー内で各バナーの配置IDを確認し、それ以外はスキップしてください。リスナーを登録したら、Brazeから同期したい配置に対して`requestRefresh`を呼び出します。
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+バナー更新リスナーは、SDKのインメモリバナー状態を反映します。1回の更新には、最新の`requestBannersRefresh`呼び出しの配置IDだけでなく、すでにキャッシュされている配置（たとえば、以前の更新、別の画面、またはSDKの自動処理によるもの）も含まれる場合があります。特定の配置のみに関心がある場合は、リスナー内で各バナーの配置IDを確認し、それ以外はスキップしてください。リスナーを登録したら、Brazeから同期したい配置に対して`requestBannersRefresh`を呼び出します。
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -400,7 +420,7 @@ Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
 {% endsubtab %}
 
 {% subtab Kotlin %}
-Androidビューを使用している場合は、次のXMLを使用します。
+Android Viewsを使用している場合は、次のXMLを使用します。
 
 ```xml
 <com.braze.ui.banners.BannerView
@@ -410,10 +430,45 @@ Androidビューを使用している場合は、次のXMLを使用します。
     app:placementId="global_banner" />
 ```
 
-Jetpack Composeを使用している場合は、次を使用できます。
+Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDK依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
+
+{% alert note %}
+一部のCompose UIライブラリは独自の`Banner`コンポーザブルを定義しています。BrazeのAPIを呼び出すには、`com.braze.jetpackcompose.banners.Banner`を明示的にインポートしてください。
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+オプションで`heightCallback`を渡すと、バナーサイズが変更されたときにレンダリングされた高さ（dp単位）を受け取ることができます。詳細については、[`Banner`のKDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)を参照してください。
+
+Jetpack Composeモジュールを追加しない場合は、[`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html)を[`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView)でラップします。
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Kotlinでバナーを取得するには、以下を使用します。
@@ -508,7 +563,7 @@ This feature is not currently supported on Roku.
 
 ## インプレッションを記録する {#log-impressions}
 
-Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示されているバナーのインプレッションを自動的に記録します。そのため、インプレッションを手動でトラッキングする必要はありません。
+Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示されているバナーのインプレッションを自動的に記録します&#8212;そのため、インプレッションを手動でトラッキングする必要はありません。
 
 ## クリックを記録する {#logging-clicks}
 
@@ -654,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## 非表示を記録する {#log-dismissals}
 
 バナーの非表示は、ユーザーが能動的にバナーを閉じたときに、プログラムで配置からバナーを削除します。一度非表示にすると、そのユーザーに対してバナーは抑制されます。次に配置リストが更新されたとき、ユーザーが対象であれば新しいバナーが返されます。
-
-{% alert important %}
-バナーの非表示は現在、早期アクセス段階です。早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
 
 ### 前提条件
 

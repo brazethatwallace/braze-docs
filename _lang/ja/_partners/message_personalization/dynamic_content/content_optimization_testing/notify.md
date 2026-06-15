@@ -22,7 +22,7 @@ BrazeとNotifyの統合により、マーケターはさまざまなプラット
 | Braze REST APIキー | `users.export.segment`および`campaigns.trigger.send`の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | CNAME設定 | Notifyがメッセージングに対するユーザーエンゲージメントを追跡してモデルにさらなる情報を提供するために、メールで使用されるトラッキングピクセル用のサブドメインを作成する必要があります。サブドメインの作成後、そのURLをNotifyと共有してください。 |
 | データベースのオプトインエクスポート | 過去1年間（12か月）のCampaignおよび購入データをNotifyに送信します。このエクスポートは、Notifyの予測モデルのトレーニングに使用されます。<br><br>**フィールド:**<br><br>**メール:** メールのSHA256ハッシュ。小文字に変換し、先頭および末尾のスペースを除去したもの。<br><br>**Segment:** アクティビティレベル（アクティブまたは非アクティブ）を定義するSegment情報。<br><br>**サブSegment:** 購買アクティビティレベルなど、その他の関連するアクティビティ情報。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 

@@ -28,13 +28,13 @@ Snowplowの豊富な行動データを活用して、Brazeで強力な顧客中�
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件             | 説明                                                                                                                                                                                                                                                                              |
+| 必要条件 | 説明 |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Snowplowパイプライン       | Snowplowのパイプラインを稼働させる必要があります。                                                                                                                                                                                                                                          |
-| Snowplow Consoleへのアクセス | イベントフォワーダーを設定するには、Snowplow Consoleにアクセスする必要があります。                                                                                                                                                                                                                                |
-| Braze REST APIキー      | 以下の権限を持つBraze REST APIキー：`users.track`、`users.alias.new`、`users.identify`、`users.export.ids`、`users.merge`、`users.external_ids.rename`、および`users.alias.update`。<br><br> Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント     | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに応じて異なります。                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Snowplowパイプライン | Snowplowのパイプラインを稼働させる必要があります。 |
+| Snowplow Consoleへのアクセス | イベントフォワーダーを設定するには、Snowplow Consoleにアクセスする必要があります。 |
+| Braze REST APIキー | 以下の権限を持つBraze REST APIキー：`users.track`、`users.alias.new`、`users.identify`、`users.export.ids`、`users.merge`、`users.external_ids.rename`、および`users.alias.update`。<br><br> Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -42,7 +42,7 @@ Snowplowの豊富な行動データを活用して、Brazeで強力な顧客中�
 Snowplowがデフォルトで収集する多数のリッチなイベントのいずれかを使用するか、カスタムイベントを定義して、ビジネスに適したより細かなカスタマージャーニーを形成できます。Snowplowの豊富な行動データを活用して顧客ファネルを設計し、マーケティングおよび製品チームの価値を引き出し、Brazeを通じてコンバージョンと製品使用を最大化するのに役立てましょう。
 
 ### ダイナミックなセグメンテーション {#dynamic-segmentation}
-Snowplowの高品質な行動データに基づいてBrazeでダイナミックなオーディエンスを作成できます。ユーザーが製品、アプリ、またはWebサイトでアクションを実行すると、Snowplowが収集するリアルタイムの行動データを活用して、Brazeの関連Segmentsにユーザーを自動的に追加または削除できます。
+Snowplowの高品質な行動データに基づいてBrazeでダイナミックなオーディエンスを作成できます。ユーザーが製品、アプリ、またはWebサイトでアクションを実行すると、Snowplowが収集するリアルタイムの行動データを活用して、Brazeの関連Segmentにユーザーを自動的に追加または削除できます。
 
 ## 統合 {#integration}
 
@@ -70,7 +70,7 @@ Snowplowの高品質な行動データに基づいてBrazeでダイナミック�
 Brazeアカウントで以下のページを確認し、イベントがBrazeに届いていることを検証します：
 
 1. **クエリビルダー**：Brazeで、**Analytics** > **クエリビルダー**に移動します。Snowplowから転送されたデータをプレビューするために、以下のテーブルに対してクエリを記述できます：`USER_BEHAVIORS_CUSTOMEVENT_SHARED`と`USERS_BEHAVIORS_PURCHASE_SHARED`。
-2. **API利用ダッシュボード**：Brazeで、**Settings** > **APIs and Identifiers**に移動すると、API使用量の時系列チャートを確認できます。Snowplowが使用しているAPIキーでフィルタリングし、成功と失敗の両方を確認できます。
+2. **API利用ダッシュボード**：Brazeで、**設定** > **APIキー**に移動すると、API使用量の時系列チャートを確認できます。Snowplowが使用しているAPIキーでフィルタリングし、成功と失敗の両方を確認できます。
 
 ## カスタムプロパティの送信 {#sending-custom-properties}
 

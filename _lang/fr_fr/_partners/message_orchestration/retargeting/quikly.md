@@ -135,7 +135,7 @@ Utilisez des webhooks pour déclencher des incitations lors d'événements spéc
 
 ### Créer un webhook Quikly dans Braze {#create-a-quikly-webhook-in-braze}
 
-Pour créer un modèle de webhook Quikly pour de futures Campaigns ou Canvas, accédez à **Modèles** > **Modèles de webhook** dans la plateforme Braze.
+Pour créer un modèle de webhook Quikly pour de futures Campaigns ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
 
 Si vous souhaitez créer une Campaign webhook Quikly ponctuelle ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle Campaign.
 

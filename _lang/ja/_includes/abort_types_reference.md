@@ -29,6 +29,25 @@
 
 ### コンテンツとレンダリング {#content-and-rendering}
 
+{% if include.combined_content_rendering %}
+
+| `abort_type` の値 | 説明 |
+| --- | --- |
+| `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
+| `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
+| `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
+| `blocked_media_url` | メディアURLがセキュリティポリシーによりブロックされました。 |
+| `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |
+| `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
+| `invalid_http_status` | HTTPリクエストが失敗のステータスコードを返しました。 |
+| `http_timeout` | HTTPリクエストが応答を受信する前にタイムアウトしました。 |
+| `missing_hostname` | リクエストURLにホスト名がありません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+
+{% else %}
+
 | `abort_type` の値 | 説明 |
 | --- | --- |
 | `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
@@ -36,14 +55,43 @@
 | `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
 | `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
+
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type` の値 | 説明 |
+| --- | --- |
+| `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
+| `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
+| `blacklisted_media_url` | メディアURLがブロックリストに登録されており、メッセージで使用できません。 |
 | `blocked_media_url` | メディアURLがセキュリティポリシーによりブロックされました。 |
-| `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |{% endif %}
-{% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
+| `invalid_media_url` | メディアURLが無効であるか、解決できませんでした。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+
+{% endunless %}
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "webhook" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type` の値 | 説明 |
+| --- | --- |
+| `exhausted_cc_retries` | コネクテッドコンテンツが最大リトライ回数を超えて失敗したため、メッセージが中止されました。 |
+| `connected_content_not_supported` | このコンテキストでは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)がサポートされていないため、メッセージが中止されました。 |
+| `promo_codes_not_supported` | このコンテキストではプロモーションコードがサポートされていないため、メッセージが中止されました。 |
+| `catalog_items_rerender_not_supported` | このコンテキストではカタログアイテムの再レンダリングがサポートされていないため、メッセージが中止されました。 |
+| `ssl_error` | リクエスト中にSSLエラーが発生しました。 |
 | `invalid_http_status` | HTTPリクエストが失敗のステータスコードを返しました。 |
 | `http_timeout` | HTTPリクエストが応答を受信する前にタイムアウトしました。 |
-| `missing_hostname` | リクエストURLにホスト名がありません。 |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| `missing_hostname` | リクエストURLにホスト名がありません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+
+{% endunless %}
+{% endif %}
 
 {% endunless %}
 
@@ -83,7 +131,7 @@
 | `sms_no_sending_numbers` | このサブスクリプショングループで利用可能な送信用電話番号がありません。 |
 | `sms_fatal_provider_error` | SMSプロバイダーで致命的なエラーが発生し、メッセージを配信できませんでした。 |
 | `sms_gateway_domain_not_allowed` | SMSゲートウェイドメインが許可リストに含まれていません。 |
-| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/)によりブロックされている国のものです。 |
+| `blocked_recipient_country` | 受信者の電話番号が[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)によりブロックされている国のものです。 |
 | `mms_not_supported` | この受信者または送信番号ではMMSがサポートされていません。 |
 | `no_current_messaging_service` | このサブスクリプショングループにアクティブなメッセージングサービスが設定されていません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
@@ -158,7 +206,7 @@
 
 | `abort_type` の値 | 説明 |
 | --- | --- |
-| `blocked_webhook_url` | Webhook URLがセキュリティポリシーによりブロックされました。 |
+| `blocked_webhook_url` | WebhookのURLがセキュリティポリシーによりブロックされました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webhooks" }
 
 {% endif %}

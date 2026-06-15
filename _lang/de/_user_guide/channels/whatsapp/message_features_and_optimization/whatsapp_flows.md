@@ -190,7 +190,7 @@ Eine neue WhatsApp-Nachricht „löscht“ die Fähigkeit des Canvas, die Liquid
 
 Um die Flow-Antwort über Liquid mit [unterstützten Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) zu verwenden, führen Sie die folgenden Schritte aus:
 
-1. Wählen Sie beim Verfassen Ihrer WhatsApp-Nachricht das Plus-Symbol aus, um das Fenster **Add Personalization** zu öffnen.
+1. Wählen Sie beim Verfassen Ihrer WhatsApp-Nachricht <i class="fas fa-plus-circle" aria-label="Personalisierung hinzufügen"></i> **Add Personalization** aus, um das Fenster **Add Personalization** zu öffnen.
 2. Wählen Sie **WhatsApp Properties** als Personalisierungstyp und **inbound_flow_response** als angepasstes Attribut aus. Dies kann verwendet werden, um Informationen in Nutzerprofilen zu speichern, sie in Nachrichten einzubinden oder an andere Dienste wie Webhooks weiterzuleiten.
 
 ![WhatsApp-Nachrichten-Editor mit einer „Add Personalization“-Komponente zum Einfügen einer WhatsApp-Eigenschaften-Personalisierung mit dem angepassten Attribut „inbound_flow_response“.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}

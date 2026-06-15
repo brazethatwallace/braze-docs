@@ -16,7 +16,7 @@ page_type: reference
 L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-## Créer une étape Optimiseur de contenu {#creating-a-content-optimizer-step}
+## Créer une étape Optimiseur de contenu {#create-a-content-optimizer-step}
 
 Pour de meilleurs résultats, utilisez l'agent Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement au fil du temps. Si tous les utilisateurs entrent dans l'étape en même temps, l'agent n'aura pas le temps d'apprendre des premiers résultats.
 
@@ -205,6 +205,24 @@ Pour le moment, la messagerie RCS avec l'Optimiseur de contenu ne prend pas en c
 {% endtab %}
 {% endtabs %}
 
+## Modifier une étape lancée {#edit-a-launched-step}
+
+Une fois votre Canvas lancé, vous pouvez mettre à jour une étape Optimiseur de contenu en cours d'exécution en l'ouvrant dans l'éditeur Canvas. Vous pouvez :
+
+- Ajouter de nouvelles variantes à n'importe quel composant existant, manuellement ou à l'aide de suggestions générées par l'intelligence artificielle, dans la limite de cinq variantes par composant.
+- Désactiver des variantes pour arrêter de les envoyer aux utilisateurs.
+- Réactiver des variantes précédemment désactivées, à condition que cela maintienne le composant à cinq variantes ou moins.
+
+Lorsque vous publiez des modifications, l'optimiseur se réinitialise et commence à réallouer le trafic à partir de zéro entre toutes les variantes et combinaisons actives. Les données historiques antérieures à la modification sont conservées et restent consultables dans l'onglet **Content Analytics**.
+
+Les paramètres suivants ne peuvent pas être modifiés après le lancement :
+
+- Le contenu des variantes actives existantes
+- Les composants testés
+- L'événement d'optimisation
+
+Pour les étapes SMS/MMS/RCS, le groupe d'abonnement et le type de message ne peuvent pas non plus être modifiés après le lancement.
+
 ## Bonnes pratiques {#best-practices}
 
 - De manière générale, nous recommandons de tester davantage de composants plutôt que moins pour l'étape Optimiseur de contenu. Par exemple, au lieu de tester deux composants pour l'e-mail, testez-en trois.
@@ -213,15 +231,21 @@ Pour le moment, la messagerie RCS avec l'Optimiseur de contenu ne prend pas en c
 - Si vous optimisez pour les ouvertures, concentrez vos tests sur la ligne d'objet.
 - Si c'est la première fois que vous utilisez l'Optimiseur de contenu, envisagez d'utiliser une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) afin que seule une partie de votre audience entre dans la branche contenant l'étape Optimiseur de contenu. Par exemple, vous pourriez envoyer la moitié de vos utilisateurs sur un chemin avec l'étape Optimiseur de contenu et l'autre moitié sur un chemin de contrôle qui envoie l'étape Message avec votre contenu habituel. Ensuite, collectez des données pendant 2 à 3 semaines et comparez les indicateurs clés de performance (KPI) ou les contre-indicateurs avant d'augmenter le trafic vers les chemins avec les étapes Optimiseur de contenu.
   - Pour une comparaison efficace en tête-à-tête, nous recommandons que votre étape Optimiseur de contenu contienne votre contenu habituel comme l'une des variantes pour chaque composant.
+- Avant de mettre à jour une étape en cours d'exécution, attendez que les classements de performance de toutes les variantes de composants se stabilisent, c'est-à-dire que les mêmes variantes gagnent et perdent de manière constante pendant trois à quatre jours consécutifs. Cela prend généralement environ sept jours, et un nombre plus élevé d'événements d'optimisation produit un signal plus fort et plus précis.
+- Évitez de mettre à jour trop tôt. Chaque fois que vous publiez des modifications, l'optimiseur se réinitialise. Si vous mettez à jour avant que l'étape n'ait eu le temps d'identifier ce qui fonctionne, vous l'empêchez de capitaliser sur ses résultats, et l'étape n'a jamais l'occasion de diriger un trafic significatif vers les combinaisons les plus performantes.
+- Lorsque vous êtes prêt à mettre à jour, l'approche recommandée consiste à désactiver les variantes peu performantes et à en ajouter de nouvelles qui s'appuient sur les caractéristiques de vos meilleures variantes.
 
 ## Considérations {#considerations}
 
 - Les paramètres multilingues ne sont pas pris en charge dans les étapes Optimiseur de contenu. Nous recommandons plutôt d'utiliser une étape Optimiseur de contenu par langue et de créer des chemins distincts individuellement.
 - Les étiquettes Liquid pour les composants de l'Optimiseur de contenu ne sont pas prises en charge dans les étapes Message, le Liquid est donc interrompu dans les étapes Message.
+- Une fois qu'une étape Optimiseur de contenu est lancée, vous ne pouvez plus modifier les composants testés, le contenu des variantes actives existantes ni l'événement d'optimisation. Pour les étapes SMS/MMS/RCS, le groupe d'abonnement et le type de message ne peuvent pas non plus être modifiés.
 
 ## Analytique {#analytics}
 
 Pour examiner les performances, ouvrez le panneau d'analytique au niveau de l'étape afin de consulter les indicateurs par variante de contenu et les performances globales des combinaisons. L'étape Optimiseur de contenu utilise la [même analytique que l'étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
+
+Si vous avez mis à jour l'étape après le lancement, le graphique d'allocation des envois indique le moment où chaque modification de contenu a eu lieu. Les données des variantes désactivées sont conservées et restent consultables dans le panneau d'analytique, ce qui vous permet de comparer les performances sur toute la durée de vie de l'étape.
 
 ![Analytique de l'Optimiseur de contenu pour trois boutons et le pourcentage d'allocation des envois, qui tend à la hausse.]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
 

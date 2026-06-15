@@ -26,7 +26,7 @@ BrazeとAnthropicの統合により、Anthropic APIキーをBrazeに接続して
 |---|---|
 | APIキーを持つAnthropicアカウント | APIキーを持つAnthropicアカウントが必要です。ヘルプについては、管理者または[Anthropicサポート](https://support.anthropic.com/)にお問い合わせください。 |
 | Brazeインスタンス | Brazeインスタンスは、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)またはBrazeオンボーディングマネージャーから確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -34,7 +34,7 @@ Anthropic APIキーをBrazeに接続するには、以下の手順に従いま�
 
 1. Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、Anthropicを見つけます。
 2. AnthropicのAPIキーを入力します。
-3. **Save**を選択します。
+3. **保存**を選択します。
 
 保存後、エージェントコンソールで[カスタムエージェントを作成する]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)際にClaudeモデルを選択できます。
 

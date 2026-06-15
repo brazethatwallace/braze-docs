@@ -9,7 +9,7 @@ page_type: reference
 
 # About messaging interaction data availability
 
-> This article covers information about campaign and Canvas interaction data and its availability.
+> Learn about messaging interaction data for campaigns and Canvases, including how long Braze keeps it and which features use it for retargeting.
 
 ### What is messaging interaction data?
 

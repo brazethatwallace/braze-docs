@@ -11,11 +11,19 @@ tool:
 
 # Archive campaigns and Canvases
 
-> Archiving your campaigns and Canvases can be a simple and effective way of organizing your workspace. As you continue building more messages, archiving can help make sure your focus is on active and relevant messaging efforts.
+> Archiving your campaigns and Canvases is an effective way to organize your workspace. As you continue building more messages, archiving can help make sure your focus is on active and relevant messaging efforts.
+
+{% alert important %}
+You can't delete campaigns and Canvases from the dashboard, but but you can archive them.
+{% endalert %}
 
 ## Archiving
 
 When you archive a campaign or Canvas, no more messages will be delivered and your in-app messages won't be displayed. You can still view results after it's archived, but you won't be able to edit the campaign or Canvas. To do so, you'll need to [unarchive it](#unarchiving-campaigns-and-canvases) first.
+
+{% alert note %}
+**Archive** does not delete your campaign or Canvas. Braze stops delivery, hides the message from day-to-day lists, and retains it for reporting and workspace history.
+{% endalert %}
 
 {% tabs local %}
 {% tab campaign %}

@@ -266,7 +266,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 
 {% tabs %}
 {% tab JSON Attributes %}
-``` json
+````````` json
 {"external_id":"s3-qa-0","payload":"{\"name\": \"GT896\", \"age\": 74, \"subscriber\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"external_id":"s3-qa-1","payload":"{\"name\": \"HSCJC\", \"age\": 86, \"subscriber\": false, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600824\"}"}
 {"external_id":"s3-qa-2","payload":"{\"name\": \"YTMQZ\", \"age\": 43, \"subscriber\": false, \"retention\": {\"previous_purchases\": 23, \"vip\": true}, \"last_visit\": \"2023-08-08T16:03:26.600831\"}"}
@@ -280,7 +280,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 {% endalert %}
 {% endtab %}
 {% tab JSON Custom Events %}
-``` json
+````````` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 ```
@@ -289,7 +289,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 {% endalert %}
 {% endtab %}
 {% tab JSON Purchase Events %}
-``` json
+````````` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 ```
@@ -299,7 +299,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 
 {% endtab %}
 {% tab CSV Attributes %}
-```plaintext
+`````````plaintext
 external_id,payload
 s3-qa-load-0-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""SNXIM"", ""age"": 54, ""subscriber"": true, ""retention"": {""previous_purchases"": 19, ""vip"": true}, ""last_visit"": ""2023-08-08T16:03:26.598806""}"
 s3-qa-load-1-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""0J747"", ""age"": 73, ""subscriber"": false, ""retention"": {""previous_purchases"": 22, ""vip"": false}, ""last_visit"": ""2023-08-08T16:03:26.598816""}"
@@ -307,7 +307,7 @@ s3-qa-load-2-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""EP1U0"", ""age""
 ```
 {% endtab %}
 {% tab CSV Catalogs  %}
-```plaintext
+`````````plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
@@ -346,14 +346,14 @@ S3 のファイルを使って Braze でユーザープロファイルを削除�
 {% endalert %}
 
 **例 – JSON（ユーザー削除）：**
-```jsonl
+`````````jsonl
 {"external_id":"user-to-delete-001"}
 {"external_id":"user-to-delete-002"}
 {"braze_id":"braze-id-from-profile"}
 ```
 
 **例 – CSV（ユーザー削除）：**
-```plaintext
+`````````plaintext
 external_id
 user-to-delete-001
 user-to-delete-002
@@ -372,13 +372,13 @@ user-to-delete-002
 各行にはまだ `ID` と `PAYLOAD` が必要です。削除対象の行については、ペイロードは最小限で構いません。Braze は `ID` でアイテムを削除します。
 
 **例 – JSON（カタログアイテム削除）：**
-```jsonl
+`````````jsonl
 {"id":"85","payload":"{\"product_name\": \"Product 85\", \"price\": 85.85}"}
 {"id":"1","payload":"{\"product_name\": \"Product 1\", \"price\": 1.01}","deleted":true}
 ```
 
 **例 – CSV（カタログアイテム削除）：**
-```plaintext
+`````````plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true

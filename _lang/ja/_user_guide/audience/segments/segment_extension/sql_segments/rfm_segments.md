@@ -32,29 +32,29 @@ RFM SQLセグメントを使用するには、購入イベントを有効にす�
 1. **オーディエンス** > **セグメントエクステンション**に移動します。
 2. **New Extension**を選択し、**Recency, frequency, and monetary value (RFM) segment**を選択します。
 
-![カタログSegment、イベント、購入、またはRFMセグメントを作成するオプションを含むモーダル。]({% image_buster /assets/img/segment/select_rfm_segment.png %}){: style="max-width:80%" }
+![カタログセグメント、イベント、購入、またはRFMセグメントを作成するオプションを含むモーダル。]({% image_buster /assets/img/segment/select_rfm_segment.png %}){: style="max-width:80%" }
 
 {: start="3"}
-3. **Variables**パネルで、**Time Range**を選択して、分析する購入データの期間を指定します。過去最大60日間まで指定できます。選択した時間範囲は、ユーザー行動データが取得される期間であり、Campaignの目標に応じて異なります。
+3. **Variables**パネルで、**Time Range**を選択して、分析する購入データの期間を指定します。過去最大60日間まで指定できます。選択した時間範囲は、ユーザー行動データが取得される期間であり、キャンペーンの目標に応じて異なります。
 
 | 時間範囲フィールド | 説明 | ユースケース |
 | --- | --- | --- |
 | Relative | 過去X日間のアクティビティを指定します | ローリングウィンドウで最新のユーザー行動を分析します。 |
-| Start date | 分析の固定開始日を指定します | Campaign開始後など、特定の日付以降のユーザーアクティビティを分析します。 |
+| Start date | 分析の固定開始日を指定します | キャンペーン開始後など、特定の日付以降のユーザーアクティビティを分析します。 |
 | End date | 分析の固定終了日を指定します | 製品アップデート前など、特定の日付までのユーザーアクティビティを分析します。 |
 | Date range | カスタム期間の開始日と終了日の両方を指定します | プロモーションイベントなど、定義された期間中のユーザー行動を分析します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating an RFM segment" }
 
 {: start="4"}
-4. Segmentに含める生成済みの[RFMグループ](#rfm-groups)を選択します。複数のグループを選択した場合、選択したグループのいずれかに属するユーザーがSegmentに含まれます。
+4. セグメントに含める生成済みの[RFMグループ](#rfm-groups)を選択します。複数のグループを選択した場合、選択したグループのいずれかに属するユーザーがセグメントに含まれます。
 
 ![「Champions」と「Loyal Users」のRFMグループが選択されたVariablesパネル。]({% image_buster /assets/img/segment/rfm_groups.png %})
 
 {: start="5"}
-5. プレビューを実行し、Segmentを保存します。
+5. プレビューを実行し、セグメントを保存します。
 
 {% alert note %}
-RFMセグメントを作成するために、テンプレート内のSQLコードを編集する必要はありません。**Variables**パネルのみを使用してSegmentをカスタマイズできます。
+RFMセグメントを作成するために、テンプレート内のSQLコードを編集する必要はありません。**Variables**パネルのみを使用してセグメントをカスタマイズできます。
 {% endalert %}
 
 ### RFMグループ {#rfm-groups}

@@ -1,6 +1,6 @@
 # SQL セグメントエクステンション {#sql-segment-extensions}
 
-> [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) データのSnowflake SQLクエリを使用してセグメントエクステンションを生成できます。SQLでは、他のセグメンテーション機能では実現できない方法でデータ間の関係を柔軟に記述できるため、新しいSegmentのユースケースを開拓するのに役立ちます。
+> [Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) データのSnowflake SQLクエリを使用してセグメントエクステンションを生成できます。SQLでは、他のセグメンテーション機能では実現できない方法でデータ間の関係を柔軟に記述できるため、新しいセグメントのユースケースを開拓するのに役立ちます。
 >
 > 標準のセグメントエクステンションと同様に、SQLセグメントエクステンションでも過去2年間（730日）までのイベントをクエリできます。標準のセグメントエクステンションとは異なり、SQLセグメントエクステンションは[クレジットを消費します](#credits)。
 
@@ -19,7 +19,7 @@ SQLセグメントエクステンションの作成時に選択できるSQLエ�
 - **AI SQLジェネレーター：**AI SQLジェネレーターは、平易な言語でプロンプトを入力すると、それを対象Segment向けのSQLクエリに変換します。自分でSQLを書く必要なく、すぐに始められる方法です。
 
 {% alert tip %}
-いずれかのSQLエディターで作成されたすべてのSQL Segmentを手動で完全更新できます。
+いずれかのSQLエディターで作成されたすべてのSQL Segmentsを手動で完全更新できます。
 {% endalert %}
 
 {% tabs local %}
@@ -40,19 +40,13 @@ SQLセグメントエクステンションの作成時に選択できるSQLエ�
 増分更新SQLセグメントエクステンションを作成するには:
 
 1. **オーディエンス** > **セグメントエクステンション**に移動します。
-
-{% alert note %}
-[古いナビゲーション]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/)を使用している場合は、**エンゲージメント** > **Segments** > **セグメントエクステンション**でこのページを見つけることができます。
-{% endalert %}
-
-{:start="2"}
 2. **新規エクステンションを作成**を選択し、**増分更新**を選択します。<br><br>
    ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. セグメントエクステンションの名前を追加し、SQLを入力します。要件とリソースについては、[SQLの作成](#writing-sql)セクションを参照してください。<br><br>
    ![SQLエディターが増分SQLセグメントエクステンションの例を示している。]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. 必要に応じて、**エクステンションを毎日再生成する**を選択します。<br><br>
    ![エクステンションを毎日再生成するチェックボックス。]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
-   選択すると、BrazeはSegmentメンバーシップを毎日自動的に更新します。つまり、毎日会社のタイムゾーンの午前0時（最大1時間遅れる可能性があります）に、BrazeはSegmentの新規ユーザーを確認し、自動的にSegmentに追加します。セグメントエクステンションが7日間使用されなかった場合、Brazeは毎日の再生成を自動的に一時停止します。未使用のセグメントエクステンションとは、CampaignやCanvasの一部ではないエクステンションです（エクステンションが「使用済み」と見なされるために、CampaignまたはCanvasがアクティブである必要はありません）。<br><br>
+   選択すると、Brazeはセグメントメンバーシップを毎日自動的に更新します。つまり、毎日会社のタイムゾーンの午前0時（最大1時間遅れる可能性があります）に、Brazeはセグメントの新規ユーザーを確認し、自動的にセグメントに追加します。セグメントエクステンションが7日間使用されなかった場合、Brazeは毎日の再生成を自動的に一時停止します。未使用のセグメントエクステンションとは、CampaignやCanvasの一部ではないエクステンションです（エクステンションが「使用済み」と見なされるために、CampaignまたはCanvasがアクティブである必要はありません）。<br><br>
 5. セグメントエクステンションを保存します。
 
 {% endtab %}
@@ -145,10 +139,10 @@ SELECT DISTINCT user_id FROM "INSERT TABLE NAME"
 ![増分SQLセグメントエクステンションのSQLプレビュー。]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
-増分更新Segmentでは、2日以上前に発生した遅延イベント（キャプチャされた時点で送信されていなかったSDKイベントなど）が考慮されます。
+増分更新Segmentsでは、2日以上前に発生した遅延イベント（キャプチャされた時点で送信されていなかったSDKイベントなど）が考慮されます。
 {% endalert %}
 
-#### その他のルール {#additional-rules}
+#### その他のルール
 
 さらに、増分更新クエリは以下のルールに従う必要があります。
 
@@ -191,9 +185,9 @@ LIMIT 10
 
 ![「過去30日間で1〜4通のメールをクリックした」という名前のセグメントエクステンション。SQLを反転するオプションが選択されている。]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
 
-## Segmentメンバーシップの更新 {#refreshing-segment-membership}
+## セグメントメンバーシップの更新 {#refreshing-segment-membership}
 
-SQLを使用して作成されたセグメントエクステンションのSegmentメンバーシップを更新するには、セグメントエクステンションを開いて**更新**を選択します。
+SQLを使用して作成されたセグメントエクステンションのセグメントメンバーシップを更新するには、セグメントエクステンションを開いて**更新**を選択します。
 
 {% alert tip %}
 ユーザーが頻繁に出入りすることが予想されるSegmentを作成した場合は、CampaignまたはCanvasでそのSegmentをターゲットにする前に、使用するセグメントエクステンションを手動で更新してください。
@@ -203,7 +197,7 @@ SQLを使用して作成されたセグメントエクステンションのSegme
 
 **セグメントエクステンション**ページでは、SQLを使用して生成されたSegmentsは名前の横に<i class="fas fa-code" alt="SQLセグメントエクステンション"></i>で表示されます。
 
-SQLセグメントエクステンションを選択すると、そのエクステンションが使用されている場所を表示したり、エクステンションをアーカイブしたり、[Segmentメンバーシップを手動で更新](#refreshing-segment-membership)したりできます。
+SQLセグメントエクステンションを選択すると、そのエクステンションが使用されている場所を表示したり、エクステンションをアーカイブしたり、[セグメントメンバーシップを手動で更新](#refreshing-segment-membership)したりできます。
 
 ![SQLエディターの「メッセージング使用」セクションは、SQL Segmentが使用されている箇所を示している。]({% image_buster /assets/img_archive/sql_segments_usage.png %}){: style="max-width:70%;"}
 

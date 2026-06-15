@@ -32,6 +32,10 @@ O [guia de início rápido do Snowflake](https://quickstarts.snowflake.com/guide
 2. Na sua instância do Redshift, configure as tabelas ou views que deseja sincronizar com a Braze.
 3. Crie uma nova origem e sincronização no dashboard da Braze.
 4. Teste a integração e inicie a sincronização.
+
+{% alert note %}
+As linhas processadas por sincronização dependem do desempenho do seu warehouse, da latência de rede e da quantidade de dados novos que correspondem à consulta de sincronização. Use o **Histórico de sincronização** da integração no dashboard para ver a duração e a contagem de linhas das execuções recentes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crie uma conta de serviço e permita o acesso ao(s) projeto(s) e conjunto(s) de dados do BigQuery que contêm os dados que você deseja sincronizar.
@@ -471,9 +475,16 @@ No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **S
 
 Escolha um nome para sua origem e insira suas credenciais e configuração do Snowflake, depois prossiga para a próxima etapa.
 
-{% alert note %}
-Para o campo **Snowflake Account Locator**, insira seu [identificador de conta do Snowflake](https://docs.snowflake.com/en/user-guide/admin-account-identifier), que normalmente segue um formato como `xy12345.us-east-1.aws`. Isso não é o mesmo que um nome de banco de dados ou nome de warehouse.
-{% endalert %}
+Antes de continuar, confirme o valor inserido em **Snowflake Account Locator**.
+
+Para o campo **Snowflake Account Locator**, insira seu [identificador de conta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) do Snowflake. Insira apenas o valor do identificador de conta, como `myorganization-myaccount`. Não inclua `https://`, `.snowflakecomputing.com` ou qualquer caminho.
+
+Para encontrar o identificador de conta do Snowflake:
+
+1. No Snowsight, selecione o menu da sua conta.
+2. Selecione **View account details**.
+3. Copie o valor de **Account identifier**.
+4. Se você copiar de uma URL do Snowflake, use apenas o valor antes de `.snowflakecomputing.com`.
 
 #### Etapa 2.2: Adicionar uma chave pública ao usuário da Braze {#step-22-add-a-public-key-to-the-braze-user}
 

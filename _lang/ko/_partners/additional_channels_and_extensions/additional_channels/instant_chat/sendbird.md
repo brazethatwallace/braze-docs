@@ -30,7 +30,7 @@ Braze와 Sendbird Notifications의 결합된 기능을 활용하여 기업은 �
 | Sendbird UIKit | [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) 또는 [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit) 앱에 Sendbird UIKit이 설치되어 있어야 합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -88,15 +88,15 @@ Braze에서 **템플릿 및 미디어**로 이동하여 **웹훅 템플릿**을 
 ### Campaigns
 
 1. Braze 대시보드의 **Campaigns** 페이지에서 **캠페인 생성** > **Webhook**을 클릭합니다.
-2. 위에서 생성한 웹훅 템플릿을 선택합니다. Campaign에는 배치 엔드포인트를 사용하는 것을 강력히 권장합니다.
-3. **Compose** 탭에서 변수를 편집하여 템플릿을 커스터마이즈합니다.
+2. 위에서 생성한 웹훅 템플릿을 선택합니다. Campaigns에는 배치 엔드포인트를 사용하는 것을 강력히 권장합니다.
+3. **작성** 탭에서 변수를 편집하여 템플릿을 커스터마이즈합니다.
 
 ### Canvas
 
 1. 새 Canvas 또는 기존 Canvas에서 **메시지** 구성요소를 추가합니다.
 2. 구성요소를 열고 **메시징 채널**에서 **Webhook**을 선택합니다.
 3. 위에서 생성한 웹훅 템플릿을 선택합니다. Canvases에는 실시간 엔드포인트를 사용하는 것을 강력히 권장합니다.
-4. **Compose** 탭에서 변수를 편집하여 템플릿을 커스터마이즈합니다.
+4. **작성** 탭에서 변수를 편집하여 템플릿을 커스터마이즈합니다.
 
 ## 커스터마이제이션 {#customization}
 
@@ -104,8 +104,8 @@ Braze에서 **템플릿 및 미디어**로 이동하여 **웹훅 템플릿**을 
 
 알림의 전달 및 열람 상태 이벤트를 Campaign의 전환 측정기준과 통합하려면 Braze 대시보드에서 커스텀 이벤트를 추가합니다.
 
-1. Braze 대시보드에서 **설정 > 설정 관리 > 커스텀 이벤트**로 이동하고 **+ Add Custom Event**를 클릭합니다.
-2. 커스텀 이벤트를 생성한 후 **Manage Properties**를 클릭하고 "status"라는 이름의 등록정보를 추가한 다음 등록정보 유형으로 "String"을 선택합니다.
+1. Braze 대시보드에서 **설정 > 설정 관리 > 커스텀 이벤트**로 이동하고 **+ 커스텀 이벤트 추가**를 클릭합니다.
+2. 커스텀 이벤트를 생성한 후 **등록정보 관리**를 클릭하고 "status"라는 이름의 등록정보를 추가한 다음 등록정보 유형으로 "String"을 선택합니다.
 3. Campaigns 또는 Canvases에서 알림을 작성할 때 **Event Name** 필드에 커스텀 이벤트 이름을 입력합니다.
 
 이 커스텀 이벤트는 각 알림에 대해 두 번 트리거됩니다. 메시지가 전송될 때와 사용자가 메시지를 열 때입니다.

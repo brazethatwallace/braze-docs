@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Canvasデータサマリー分析のエクスポート"
-article_title: "GET: Canvasデータサマリー分析のエクスポート"
+nav_title: "GET: キャンバスデータサマリー分析のエクスポート"
+article_title: "GET: キャンバスデータサマリー分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
+description: "この記事では、キャンバスデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
 
 ---
 {% api %}
-# Canvasデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
+# キャンバスデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
 {% apimethod get %}
 /canvas/data_summary
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの時系列データのロールアップをエクスポートし、Canvas結果の簡潔なサマリーを提供します。
+> このエンドポイントを使用して、キャンバスの時系列データのロールアップをエクスポートし、キャンバス結果の簡潔なサマリーを提供します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1eb1b760-6b00-4c03-bcfb-12646f2ba6da {% endapiref %}
 

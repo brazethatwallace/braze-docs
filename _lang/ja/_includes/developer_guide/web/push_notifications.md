@@ -108,7 +108,7 @@ iFrames と [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Win
 
 `insecure.com` ドメインで、現在のユーザーのプッシュ登録に関する情報を (プッシュが_実際に_登録されている) セキュアドメインに問い合わせます。
 
-```html
+`````````html
 <!-- Create an iframe to the secure domain and run getPushStatus onload-->
 <iframe id="push-status" src="https://secure.com/push-status.html" onload="getPushStatus()" style="display:none;"></iframe>
 

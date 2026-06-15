@@ -29,7 +29,7 @@ JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide
 | 要件 | 説明 |
 |---|---|
 | JustAIアカウント | このパートナーシップを利用するには、[JustAI](https://www.getjust.ai/)アカウントが必要です。JustAIアカウントをお持ちでない場合は、[30分のオンボーディングコールを予約](https://www.getjust.ai/book-demo)してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## JustAIとBrazeの統合 {#integrating-justai-with-braze}
 
@@ -37,7 +37,7 @@ JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide
 
 1. JustAIコンソールに移動し、[新しいテンプレートを作成](https://console.getjust.ai/new)します。
 2. 文字、数字、アンダースコアのみを使用した覚えやすいIDを選択します。
-3. 基本的なキャンペーンの詳細を入力します。
+3. 基本的なCampaignの詳細を入力します。
 4. AIを使用してパーソナライズされたバリエーションを生成します。
 
 ![JustAIテンプレート作成プラットフォーム。]({% image_buster /assets/img/just_words/creation_interface.png %}){: style="max-width:80%;"}
@@ -49,7 +49,7 @@ JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide
 
 ![JustAI APIキーフォーム。]({% image_buster /assets/img/just_words/api_key_form.png %}){: style="max-width:80%;"}
 
-### ステップ 3: Brazeコンテンツ内でJustAIを使用する {#step-3-use-justai-in-your-braze-content}
+### ステップ 3: BrazeコンテンツでJustAIを使用する {#step-3-use-justai-in-your-braze-content}
 
 JustAIはコネクテッドコンテンツを使用してCanvasesやCampaignsと連携します。Canvasを作成する場合、各メールステップは固有のJustAIテンプレートに対応する必要があります。
 
@@ -145,12 +145,12 @@ Braze Currentsにより、パフォーマンスのトラッキングと時間の
 {: start="3" }
 3. オンボーディング時にJustAIから提供されたS3アクセスID、AWSシークレットアクセスキー、バケット名、フォルダーを入力します。
 
-![AWSシークレットアクセスキーの「認証情報」セクション。]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
+![AWSシークレットアクセスキーの認証情報セクション。]({% image_buster /assets/img/just_words/aws_secret_access_key.png %}){: style="max-width:80%;"}
 
 {: start="4" }
 4. 送信、開封、クリック、配信停止、コンバージョンなど、トラッキングするイベントを選択します。
 
-![選択可能なイベントを含む「メッセージエンゲージメントイベント」セクション。]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
+![選択可能なイベントを含むメッセージエンゲージメントイベントセクション。]({% image_buster /assets/img/just_words/message_engagement_events.png %}){: style="max-width:80%;"}
 
 {: start="5" }
 5. Braze Currentを起動します。

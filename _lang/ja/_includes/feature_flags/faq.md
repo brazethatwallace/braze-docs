@@ -35,7 +35,7 @@ else {
 {% endtab %}
 {% tab Java %}
 
-```java
+`````````java
 if (braze.getFeatureFlag("new_shopping_cart").getEnabled()) {
   // Show the new homepage your team has built
 } else {
@@ -46,7 +46,7 @@ if (braze.getFeatureFlag("new_shopping_cart").getEnabled()) {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
   // Show the new homepage your team has built
 } else {

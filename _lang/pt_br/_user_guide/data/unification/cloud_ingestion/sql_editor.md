@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Ingestão de dados na nuvem: Editor SQL (beta)"
+nav_title: Editor SQL
+article_title: "Ingestão de dados na nuvem: Editor SQL"
 description: "Saiba como criar e validar sincronizações de Ingestão de dados na nuvem com consultas de SQL."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Ingestão de dados na nuvem: Editor SQL (beta) {#cloud-data-ingestion-sql-editor-beta}
+# Ingestão de dados na nuvem: Editor SQL {#cloud-data-ingestion-sql-editor}
 
 > Esta página explica como usar o Editor SQL da Ingestão de dados na nuvem (CDI) da Braze para criar e validar sincronizações com consultas de SQL.
 
@@ -189,7 +190,7 @@ Se nenhum identificador válido for detectado, a validação falha.
 Esses identificadores diferenciam maiúsculas de minúsculas e devem estar em letras maiúsculas.
 {% endalert %}
 
-### Incluir `UPDATED_AT` {#include-updatedat}
+### Incluir `UPDATED_AT` {#include-updated_at}
 
 Sua consulta deve incluir uma coluna `UPDATED_AT`.
 
@@ -326,7 +327,7 @@ Quando você vê "No preview available", um dos seguintes tipos de erro pode est
 
 Verifique se sua consulta inclui um identificador válido, como `external_id`.
 
-### Coluna `UPDATED_AT` ausente {#updatedat-column-is-missing}
+### Coluna `UPDATED_AT` ausente {#updated_at-column-is-missing}
 
 Adicione uma coluna de timestamp para sincronização incremental.
 

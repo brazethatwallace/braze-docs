@@ -22,4 +22,4 @@ Webhookメッセージをテンプレートとして保存して簡単に再利�
 
 ## アクションベースの配信で時間を指定する {#specify-time-on-action-based-delivery}
 
-遅延アクションベースのトリガーを使用する場合、遅延後の特定の時間に送信するオプションが追加されました。この機能はCanvasとCampaignsで利用できます。[アクションベースの配信Campaignsの送信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)に関する詳細をご確認ください。
+遅延アクションベースのトリガーを使用する場合、遅延後の特定の時間に送信するオプションが追加されました。この機能はキャンバスとキャンペーンで利用できます。[アクションベースの配信キャンペーンの送信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)に関する詳細をご確認ください。

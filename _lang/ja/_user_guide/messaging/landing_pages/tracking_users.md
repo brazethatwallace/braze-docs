@@ -11,7 +11,7 @@ page_order: 2
 
 ## 前提条件 {#prerequisites}
 
-開始する前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)と[Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)を作成する必要があります。
+開始する前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)と[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)を作成する必要があります。
 
 ## 仕組み {#how-it-works}
 
@@ -41,7 +41,7 @@ BrazeはランディングページのURLを使用して、ユニークなLiquid
 
 ### ステップ 2: Liquidタグの生成 {#step-2-generate-the-liquid-tag}
 
-**Messaging** > **Campaigns**に移動し、Campaignを選択します。メッセージエディターで**Personalization**を選択します。
+**Messaging** > **キャンペーン**に移動し、キャンペーンを選択します。メッセージエディターで**Personalization**を選択します。
 
 ![ドラッグ＆ドロップエディターの「Add personalization」ボタン。]({% image_buster /assets/img/landing_pages/select-personalization.png %}){: style="max-width:75%;"}
 
@@ -58,7 +58,7 @@ Liquidタグをメッセージに追加するには、**Insert**を選択する�
 スニペットは以下のようになります。
 
 {% raw %}
-```ruby
+`````````ruby
 {% landing_page_url custom-url-handle %}
 ```
 {% endraw %}
@@ -68,7 +68,7 @@ Liquidタグをメッセージに追加するには、**Insert**を選択する�
 Liquidスニペットをメッセージに埋め込み、残りのメッセージを完成させます。例：
 
 {% raw %}
-```html
+`````````html
 <a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
 ```
 {% endraw %}

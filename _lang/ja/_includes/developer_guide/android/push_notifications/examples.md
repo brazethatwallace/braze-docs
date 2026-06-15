@@ -31,7 +31,7 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 
 {% tabs local %}
 {% tab  Example: Collapsed layout %}
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -50,7 +50,7 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 
 {% tab Example: Expanded layout %}
 {% details サンプルコードを表示 %}
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -140,7 +140,7 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 次の例では、Superb Owlが進行中の試合のRemoteViewレイアウトを表示するカスタム通知ファクトリーを作成しました。[次のステップ](#android_step-3-map-custom-data)では、チームのデータをアクティビティにマッピングする`getTeamInfo`という新しいメソッドを作成します。
 
 {% details サンプルコードを表示 %}
-```kotlin
+`````````kotlin
 import android.app.Notification
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
@@ -211,7 +211,7 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
 
 Superb Owlは、各チームの名前とロゴを展開されたライブ更新にマッピングするために、次のメソッドを作成しました。
 
-```kotlin
+`````````kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
     override fun createNotification(payload: BrazeNotificationPayload): Notification? {
         // Your existing code
@@ -233,7 +233,7 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 
 アプリケーションクラスで[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用して、カスタム通知ファクトリーを設定します。
 
-```kotlin
+`````````kotlin
 import com.braze.Braze
 
 class MyApplication : Application() {

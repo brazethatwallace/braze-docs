@@ -16,7 +16,7 @@ search_rank: 1
 
 # SMS、MMS、またはRCSメッセージを作成する {#create-an-sms-mms-or-rcs-message}
 
-> SMS、MMS、およびRCS Campaignsは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> SMS、MMS、およびRCSのCampaignsは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## ステップ1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
@@ -25,8 +25,8 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
-2. **SMS/MMS/RCS**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**マルチチャネル**を選択します。
+1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
+2. **SMS/MMS/RCS**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**Multichannel**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
@@ -34,7 +34,7 @@ search_rank: 1
    * Brazeでは、単一のCampaign内にSMSとRCSの両方のバリアントを含めることができるため、それぞれのパフォーマンスを比較できます。
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
+Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -224,7 +224,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 {: start="2"}
 2. そのメッセージを、各候補返信に対応するアクショングループを持つアクションパスに接続します。
 3. 各アクショングループについて:
-   - トリガーとして**SMS受信メッセージを送信**を選択します。
+   - トリガーとして**Send an SMS inbound message**を選択します。
    - メッセージ本文を、対応する候補返信と同じに設定します。
 
 ![3つのアクショングループ（各候補返信に1つずつ）で構成されたアクションパスステップ。]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -240,18 +240,18 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 Brazeでは、送信前にメッセージをプレビューしてテストすることを常に推奨しています。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個々のユーザーにテストSMS、MMS、またはRCSメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
 
-![コンポーザーのテストタブからSMSコピーをプレビュー。プロファイルセクションでは、名フィールドが「James」に設定されています。プレビューセクションでは、SMSに「Hi James, we appreciate your support!」と表示されています。]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 SMSがいくつのセグメントに分割されるかをテストしたい場合は、[SMSセグメント計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)でコピーの長さをテストしてください。
 {% endalert %}
+
+![コンポーザーのテストタブからSMSコピーをプレビュー。プロファイルセクションでは、名フィールドが「James」に設定されています。プレビューセクションでは、SMSに「Hi James, we appreciate your support!」と表示されています。]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 MMSの場合、アセット（画像とメッセージ本文）の順序はカスタマイズできません。順序は、メッセージを受信する電話に依存します。
 {% endalert %}
 
 {% alert note %}
-RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（たとえば、Google MessagesとApple Messages）によって制御されるため、メッセージの外観は異なる場合があります。Brazeに表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り、実際のデバイスで最終的なレンダリングを検証してください。
+RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（たとえば、Google MessagesとApple Messages）によって制御されるため、メッセージの外観は異なる場合があります。Brazeに表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り、実際のデバイスで最終的なレンダリングを検証してください。iOSデバイスでのRCSレンダリングの詳細については、[RCSメッセージがiOSデバイスで正確にレンダリングされないのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)を参照してください。
 {% endalert %}
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs)を参照してください。
@@ -267,7 +267,7 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 メッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信の場合、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)も設定できます。
+アクションベースの配信の場合、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)も設定できます。
 
 このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールも指定できます。
 

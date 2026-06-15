@@ -27,7 +27,7 @@ tool: Reports
 
 **Performance Over Time**グラフには、さまざまなパラメーターのデータが表示されます。パラメーターは**Statistics for**ドロップダウンで選択できます。オプションで、**Breakdown**ドロップダウンで特定のパラメーターのデータを分類できます。
 
-**Performance Over Timeグラフ**では、以下のデータを表示できます。
+**Performance Over Time**グラフでは、以下のデータを表示できます。
 - KPI計算式
 - 購入
     - （オプション）製品別購入
@@ -90,7 +90,7 @@ tool: Reports
 
 ## 収益データのエクスポート {#exporting-revenue-data}
 
-収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="チャートコンテキストメニュー"></i>を選択し、エクスポートオプションを選択します。
+収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="チャートコンテキストメニュー"></i> **チャートコンテキストメニュー**を選択し、エクスポートオプションを選択します。
 
 {% alert tip %}
 収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)としてCampaignsやCanvasesに追加してみてください。

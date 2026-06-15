@@ -95,9 +95,13 @@ Um Sends zeitlich zu staffeln oder unterschiedliche Zeiten pro Pfad zu verwenden
 
 Für multivariate und A/B-Konzepte in Campaigns siehe [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
+### Was passiert, wenn ein:e Nutzer:in bei einem Canvas-Nachrichten-Schritt durch globales Frequency-Capping begrenzt wird? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+Er/sie erhält den Send für den begrenzten Kanal nicht, aber Nachrichten-Schritte leiten Nutzer:innen trotzdem weiter, wenn eine Nachricht aufgrund von globalem Frequency-Capping nicht gesendet wird. Für die schrittweisen Fortschrittsfälle siehe [Wie Nutzer:innen fortschreiten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance). Globales Frequency-Capping allein führt nicht dazu, dass Nutzer:innen ein Canvas verlassen; dieses Verhalten ist unabhängig von den **Zustellungsvalidierungen** eines Nachrichten-Schritts. Weitere Details finden Sie unter [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
 ### Warum sind die Sends niedriger als die geschätzte Zielgruppengröße? {#why-are-sends-lower-than-the-estimated-audience-size}
 
-Sends können aus vielen der gleichen Gründe niedriger sein als die **Geschätzte Zielgruppe** wie bei [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), einschließlich Frequency Caps, strikter Geräte- oder Browser-Filter, Wiederzulassungsfenster, Rate-Limiting und kanalspezifischer Ausschlüsse (zum Beispiel Push-Erreichbarkeit oder E-Mail-Abo- und Zustellbarkeitsprüfungen).
+Sends können aus vielen der gleichen Gründe niedriger sein als die **geschätzte Zielgruppe** wie bei [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), einschließlich Frequency Caps, strikter Geräte- oder Browser-Filter, Wiederzulassungsfenster, Rate-Limiting und kanalspezifischer Ausschlüsse (zum Beispiel Push-Erreichbarkeit oder E-Mail-Abo- und Zustellbarkeitsprüfungen).
 
 Canvas-spezifische Faktoren gelten ebenfalls:
 
@@ -109,7 +113,7 @@ Canvas-spezifische Faktoren gelten ebenfalls:
 - **Maximale Eintritts- oder Zielgruppen-Caps:** Eintritts- oder Send-Caps stoppen zusätzliche Nutzer:innen, selbst wenn das zugrunde liegende Segment größer ist.
 - **Berichtszeitraum:** Der Analytics-Bereich umfasst möglicherweise nicht jeden Send, den Sie mit der Schätzung vergleichen.
 
-### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _Eindeutige Empfänger:innen_ kann höher sein als die erwartete Zielgruppe, da Braze **eindeutige tägliche Empfänger:innen** für Canvas- und Campaign-Berichte trackt. Dies unterstützt eine genaue Conversion-Attribution jedes Mal, wenn ein:e Nutzer:in eine Nachricht in der Journey erhält.
 
@@ -162,6 +166,16 @@ Es gibt ein einstufiges Canvas mit aktivierten Ruhezeiten:
 
 Es ist üblich, dass die Conversions-Gesamtzahl einer Canvas-Variante größer ist als die Summe ihrer Schritt-Gesamtzahlen. Dies liegt daran, dass ein:e Nutzer:in ein Konversions-Event für eine Variante ausführen kann, sobald er/sie die Variante betritt. Dasselbe Konversions-Event zählt jedoch nicht für einen Canvas-Schritt. Jede:r Nutzer:in, der/die das Canvas betritt und das Konversions-Event vor dem Empfang des ersten Canvas-Schritts ausführt, wird zur Varianten-Conversions-Gesamtzahl gezählt, aber nicht zur Schritt-Gesamtzahl. Dasselbe gilt für Nutzer:innen, die das Canvas betreten, aber das Canvas verlassen, bevor sie einen Schritt erhalten.
 
+Beachten Sie, dass es auch möglich ist, dass ein:e Nutzer:in eine Variante betritt, keine Nachricht von einem Schritt erhält und dann konvertiert. In diesem Fall wird keine Conversion auf Schrittebene protokolliert. Da der/die Nutzer:in jedoch technisch gesehen konvertiert hat, wird eine Conversion auf Canvas-Ebene protokolliert.
+
+### Wie kann ich bestätigen, ob meine Nutzer:innen ein API-getriggertes Canvas erhalten haben? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), indem Sie einen Canvas-Filter verwenden, um zu bestätigen, ob Nutzer:innen das Canvas betreten oder einen bestimmten Canvas-Schritt erhalten haben. Verwenden Sie beispielsweise einen Canvas-Eintrittsfilter, wenn Sie bestätigen möchten, dass Nutzer:innen das API-getriggerte Canvas betreten haben, oder einen Filter für empfangene Schritte, wenn Sie bestätigen möchten, dass sie eine Nachricht aus dem Canvas erhalten haben. Verwenden Sie dann den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), um die Nutzer:innen in diesem Segment zu exportieren.
+
+### Kann ich ein Canvas löschen? {#can-i-delete-a-canvas}
+
+Nein, aber Sie können [ein Canvas archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Wie kann ich die Analytics für jede meiner Canvas-Komponenten anzeigen? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Um die Analytics einer Canvas-Komponente anzuzeigen, gehen Sie zu Ihrem Canvas und scrollen Sie auf der Seite **Canvas-Details** nach unten. Hier können Sie die Analytics jeder Komponente einsehen. Weitere Details finden Sie unter [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
@@ -181,6 +195,12 @@ Obwohl anonyme Nutzer:innen Canvases betreten und verlassen können, werden ihre
 {% alert tip %}
 Für weitere Unterstützung bei der Canvas-Fehlerbehebung wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten Ihres Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage zur Verfügung stehen.
 {% endalert %}
+
+### Kann ich Nutzer:innen, die sich derzeit in einer Canvas-Journey befinden, von einer Campaign oder einem Segment ausschließen? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+Verwenden Sie [Segmentierungs-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) wie `Entered Canvas Variation`, `In Canvas Control Group` oder `Received Message from Canvas Step`, um Nutzer:innen basierend auf Canvas-Eintritt, Variantenzuweisung oder Schritt-Engagement anzusprechen. Diese Filter werten den Eintrittsverlauf und Interaktionen aus – sie geben nicht an, ob ein:e Nutzer:in noch aktiv eine Journey durchläuft.
+
+Um Nutzer:innen basierend auf aktiver Canvas-Teilnahme ein- oder auszuschließen, fügen Sie [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritte beim Canvas-Eintritt und -Austritt hinzu, um angepasste Attribute zu setzen und zu löschen, und filtern Sie dann in Campaigns oder Segmenten nach diesen Attributen.
 
 ## Segmentierung {#segmentation}
 

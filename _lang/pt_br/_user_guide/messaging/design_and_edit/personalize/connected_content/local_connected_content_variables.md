@@ -6,7 +6,7 @@ description: "Este artigo de referência aborda como usar e armazenar variáveis
 search_rank: 1
 ---
 
-# Variáveis locais de Conteúdo conectado
+# Variáveis locais de Conteúdo conectado {#local-connected-content-variables}
 
 > Esta página oferece uma visão geral das variáveis locais de Conteúdo conectado e como usá-las e armazená-las.
 
@@ -24,9 +24,13 @@ Você também pode especificar `:save nome_da_sua_variavel` após a URL para sal
 
 Metaweather é uma API gratuita de clima que usa um "Where-on-Earth ID" para retornar o clima de uma área. Use este código apenas para fins de teste e aprendizado.
 
->  A variável armazenada só pode ser acessada dentro do campo que contém a requisição `connected_content`. Por exemplo, se você quiser usar a variável `localweather` tanto no campo de mensagem quanto no campo de título, você deve fazer a requisição `connected_content` em ambos os campos. Se a requisição for idêntica, a Braze usará os resultados em cache, em vez de fazer uma segunda requisição ao servidor de destino. No entanto, chamadas de Conteúdo conectado feitas via HTTP POST não são armazenadas em cache por padrão e farão uma segunda requisição ao servidor de destino. Se você quiser adicionar cache a chamadas POST, consulte a opção [`cache_max_age`](#configurable-caching).
+A variável armazenada só pode ser acessada dentro do campo que contém a requisição `connected_content`. Por exemplo, se você quiser usar a variável `localweather` tanto no campo de mensagem quanto no campo de título, faça a requisição `connected_content` em ambos os campos.
 
-## Análise de JSON
+Requisições GET geralmente são armazenadas em cache por padrão, com algumas exceções (como URLs que incluem atributos de usuário de alta cardinalidade, `:no_cache` ou corpos de resposta maiores que 1 MB). Quando requisições GET idênticas aparecem em mais de um campo, a Braze reutiliza a resposta em cache em vez de chamar o endpoint novamente. Para detalhes sobre o comportamento de cache, consulte [Respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+
+Chamadas de Conteúdo conectado feitas via HTTP POST não são armazenadas em cache por padrão. Para armazenar respostas POST em cache, adicione `:cache_max_age` à tag. Consulte [Configurações padrão de cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings).
+
+## Análise de JSON {#json-parsing}
 
 O Conteúdo conectado interpretará qualquer resultado formatado em JSON como uma variável local quando você especificar `:save`. Por exemplo, um endpoint de Conteúdo conectado relacionado ao clima retorna o seguinte objeto JSON, que você armazena em uma variável local `localweather` especificando `:save localweather`.
 {% raw %}
@@ -92,18 +96,18 @@ Se a API respondesse com {%raw%}`{{localweather.consolidated_weather[0].weather_
 
 {% multi_lang_include connected_content.md section='http post' %}
 
-### Fornecendo um corpo JSON
+### Fornecendo um corpo JSON {#providing-json-body}
 
 Se você quiser fornecer seu próprio corpo JSON, pode escrevê-lo inline se não houver espaços. Se o corpo tiver espaços, você deve usar uma instrução assign ou capture. Ou seja, qualquer uma dessas três opções é aceitável:
 
 {% raw %}
-##### Inline: espaços não permitidos
+##### Inline: espaços não permitidos {#inline-spaces-not-allowed}
 
 ```js
 {% connected_content https://example.com/api/endpoint :method post :body {"foo":"bar","baz":"{{1|plus:1}}"} :content_type application/json %}
 ```
 
-##### Corpo em uma instrução capture: espaços permitidos
+##### Corpo em uma instrução capture: espaços permitidos {#body-in-a-capture-statement-spaces-allowed}
 
 ```js
 {% capture postbody %}
@@ -134,7 +138,7 @@ Se você quiser fornecer seu próprio corpo JSON, pode escrevê-lo inline se nã
 {% endraw %}
 
 {% raw %}
-##### Corpo em uma instrução assign: espaços permitidos
+##### Corpo em uma instrução assign: espaços permitidos {#body-in-an-assign-statement-spaces-allowed}
 
 ```js
 {% assign postbody = '{"foo":"bar", "baz": "2"}' %}
@@ -142,7 +146,7 @@ Se você quiser fornecer seu próprio corpo JSON, pode escrevê-lo inline se nã
 ```
 {% endraw %}
 
-## Códigos de status HTTP
+## Códigos de status HTTP {#http-status-codes}
 
 Você pode utilizar o status HTTP de uma chamada de Conteúdo conectado salvando-o primeiro como uma variável local e depois usando a chave `__http_status_code__`. Por exemplo:
 

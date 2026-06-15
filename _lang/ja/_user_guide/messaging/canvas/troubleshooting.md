@@ -9,7 +9,20 @@ tool: Canvas
 
 # Canvasのトラブルシューティング {#troubleshoot-canvases}
 
-> このページでは、**Canvases** に関する問題のトラブルシューティングを支援します。
+> このページでは、Canvasに関する問題のトラブルシューティングを行います。
+
+## 「Canvasのブランチが多すぎます」エラー {#too-many-canvas-branches-error}
+
+スケジュールされたCanvasを起動する際に「Too many Canvas branches」エラーが表示された場合、ステップの分岐とエントリオーディエンスのサイズの組み合わせにより、Brazeクラスターのパフォーマンスに問題が生じ、メッセージの送信が妨げられる可能性があります。
+
+Brazeはこのメッセージを、スケジュールされたエントリのCanvasを起動するときに表示します。下書きを保存するときには表示されません。これを解決するには、以下をお試しください。
+
+- Canvas内のステップの分岐を減らします。
+- エントリオーディエンスのサイズを縮小します。
+- 多数の並列パスの代わりに、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)を使用して分岐を統合します。
+- Canvasがオリジナルエディターを使用している場合は、[キャンバスフローに複製]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)して、Canvasコンポーネントで再構築します。
+
+変更せずにCanvasを起動する必要があり、キャンバスフローに移行できない場合は、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
 
 ## トリガーされたキャンバスステップをユーザーが受信しなかったのはなぜですか？ {#why-did-a-user-not-receive-a-triggered-canvas-step}
 
@@ -19,16 +32,16 @@ tool: Canvas
 
 - ユーザーのプロファイルダウンロードを確認し、イベントがトリガーされたかどうか、およびいつトリガーされたかを確認します。イベントがトリガーされた場合は、イベントがトリガーされたタイムスタンプとCanvasが公開された時刻を比較してください。Canvasが公開される前にイベントがトリガーされた可能性があります。
 - Canvasおよびターゲティングに使用されているSegmentsの変更ログを確認し、カスタムイベントがトリガーされた時点でユーザーがSegmentに含まれていたかどうかを判断します。Segmentに含まれていなかった場合、そのユーザーはキャンバスステップを受信しません。
-- セグメンテーションによってユーザーがコントロールグループに入り、その結果キャンバスステップの受信が妨げられていないかを確認します。
+- ユーザーがCanvasのエントリ時にコントロールグループに割り当てられ、その結果キャンバスステップの受信が妨げられていないかを確認します。
 - スケジュールされた遅延がある場合は、ユーザーのカスタムイベントが遅延の前にトリガーされたかどうかを確認します。遅延の前にイベントがトリガーされた場合、そのユーザーはキャンバスステップを受信しません。
 
 {% alert note %}
-**In-App Messages**は、SDKを通じて送信されたイベントによってのみトリガーでき、Braze REST APIではトリガーできません。
+アプリ内メッセージは、SDKを通じて送信されたイベントによってのみトリガーでき、REST APIではトリガーできません。
 {% endalert %}
 
 ## Canvasが期待どおりに送信されないのはなぜですか？ {#why-isnt-my-canvas-sending-as-expected}
 
-**Canvases** は堅牢で複雑であり、作成に時間と注意を費やしていることを理解しています。その **Canvas** が期待どおりに送信されない場合は、その **Canvas** のスケジュール、エントリオーディエンス、エントリ設定を確認し、[Canvasの作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)手順を見直すことをお勧めします。
+Canvasは堅牢で複雑であり、作成に時間と注意を費やしていることを理解しています。Canvasが期待どおりに送信されない場合は、Canvasのスケジュール、エントリオーディエンス、エントリ設定を確認し、[Canvasの作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)手順を見直すことをお勧めします。
 
 ### スケジュール {#schedule}
 
@@ -38,7 +51,7 @@ tool: Canvas
 
 ### エントリ設定 {#entry-settings}
 
-[エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls)は、**Canvases** がどのように送信されているかを理解するために重要です。**Canvas** に入る可能性のある人数を制限していないか確認してください。
+[エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls)は、Canvasがどのように送信されているかを理解するために重要です。Canvasに入る可能性のある人数を制限していないか確認してください。
 
 また、メッセージを受信する資格がなくなった場合、ユーザーはCanvasから退出することがあります。たとえば、Canvasにプッシュ通知のみが含まれていて、ユーザーが最初のステップを受信した後にプッシュをオプトアウトした場合、そのユーザーはCanvasから脱落します。[さまざまなキャンバスステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/)を使用して、代替のユーザージャーニーを追加することを検討してください。
 
@@ -60,7 +73,7 @@ tool: Canvas
 - **チャネルの適格性:** メールアドレス、プッシュトークン、またはそのステップのチャネルに必要なサブスクリプションステータスが不足している場合があります。
 - **コントロールグループ:** グローバルまたはCanvasのコントロールグループにより、ユーザーがメッセージングから除外されることがあります。
 - **サイレント時間帯、インテリジェントタイミング、レート制限:** これらの設定により、送信が延期または抑制されることがあります。
-- **In-App Messagesステップ:** **In-App Messages**では、インプレッションが存在するにもかかわらず*送信数*がゼロと表示されることがあります。これは **In-App Messages** の配信がプッシュ通知やメールとは異なる仕組みで動作するため、想定どおりの動作です。詳しくは、Canvas FAQの[インプレッションが記録されているのにCanvasの送信数がゼロと表示されるのはなぜですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)を参照してください。
+- **アプリ内メッセージステップ:** アプリ内メッセージでは、インプレッションが存在するにもかかわらず*送信数*がゼロと表示されることがあります。これはアプリ内メッセージの配信がプッシュ通知やメールとは異なる仕組みで動作するため、想定どおりの動作です。詳しくは、Canvas FAQの[インプレッションが記録されているのにCanvasの送信数がゼロと表示されるのはなぜですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)を参照してください。
 
 メールやその他のチャネルについても、Campaignsと同様の要因が多く当てはまります。詳細なリストについては、[推定オーディエンスサイズより送信数が少ないのはなぜですか？]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)を参照してください。
 
@@ -76,13 +89,11 @@ tool: Canvas
 
 Canvasを作成する際、以下の[ユースケース](#use-case)のように、コントロールグループとバリアントグループの間でオーディエンスが均等に分割されることを期待していたかもしれません。その理由と修正方法について説明します。
 
-ユーザーが参加するグループは、そのユーザーの設定によって決まります。これはコントロールグループまたはバリアントグループのいずれかです。ユーザーは、[エントリステップ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule)で定義されたすべての条件に適合した場合にCanvasに入ります。Canvasを設定する際に、各バリアントとコントロールグループに入るユーザーの割合を定義します。
+コントロールグループとバリアントの割り当ては、Segmentフィルターではなく、ビルダーで設定した割合に基づいてCanvasのエントリ時に行われます。ユーザーは、[エントリステップ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule)で定義されたすべての条件に適合した場合にCanvasに入ります。
 
-コントロールグループがバリアントグループに比べて大きい場合（意図していない場合）、以下をお勧めします。
-1. エントリオーディエンスフィルターを**フォアグラウンドプッシュが有効**に設定します。
-2. エントリオーディエンスフィルターの**プッシュサブスクリプションステータス**、**メールサブスクリプションステータス**、またはその両方を**オプトイン**または**購読中**に設定します。
+ユーザーがバリアントに入ったものの、チャネルの適格性がないためにメッセージを受信しない場合は、**ターゲットオーディエンス**にチャネルフィルターを追加するのではなく、各ステップの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)を使用してください（たとえば、**サブスクリプション設定**をオプトインユーザーのみに設定するなど）。マルチチャネルCanvasの場合、エントリオーディエンスを単一のチャネル（**フォアグラウンドプッシュが有効**など）に限定しないでください。
 
-コントロールグループを含むCanvasを作成する場合は、エントリオーディエンスのすべてのユーザーがCanvas内のメッセージを受信できることを確認してください（たとえば、Canvasにプッシュとメールのメッセージが含まれている場合など）。
+特定のチャネルを受信できないユーザーでも、バリアントに入ることがあります。各メッセージタイプの受信者を制限するには、エントリオーディエンスフィルターではなく、ステップごとの送信設定を使用してください。
 
 ### ユースケース {#use-case}
 

@@ -36,7 +36,7 @@ CanvasでTikTokオーディエンスステップを設定する前に、次の�
 | TikTok for Business Centerアカウント | [TikTok](https://business.tiktok.com/) | ブランドのTikTokアセット（広告アカウント、ページ、アプリなど）を管理するための集中型ツールです。 |
 | TikTok広告アカウント | [TikTok](https://ads.tiktok.com/) | ブランドのビジネスセンターアカウントに紐づけられたアクティブなTikTok広告アカウントです。<br><br>TikTokビジネスセンターマネージャーの管理者が、Brazeで使用する予定のTikTok広告アカウントに対する管理者権限を付与していることを確認してください。 |
 | TikTok利用規約とポリシー | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Pinterest Audience Syncの使用に関連するTikTokの必要な条件、ポリシー、ガイドライン、およびドキュメント（それらに参照として組み込まれている条件、ポリシー、ガイドライン、およびドキュメントを含む）に同意すること。これには、商業利用規約、広告利用規約、プライバシーポリシー、カスタムオーディエンス利用規約、開発者利用規約、開発者データ共有契約、広告ポリシー、ブランドガイドライン、コミュニティガイドラインが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -58,7 +58,7 @@ Brazeダッシュボードで、**パートナー連携** > **テクノロジー
 
 ![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-TikTok接続はBrazeアプリグループレベルで適用されます。TikTokの管理者がTikTokビジネスセンターまたは接続されたTikTokアカウントへのアクセスからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、TikTokオーディエンスコンポーネントを使用しているアクティブなCanvasesにはエラーが表示され、Brazeはユーザーを同期できなくなります。
+TikTok接続はBrazeアプリグループレベルで適用されます。TikTokの管理者がTikTokビジネスセンターまたは接続されたTikTokアカウントへのアクセスからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、TikTokオーディエンスコンポーネントを使用しているアクティブなCanvasにはエラーが表示され、Brazeはユーザーを同期できなくなります。
 
 ### ステップ2:CanvasにTikTokオーディエンスコンポーネントを追加する {#step-2-add-a-tiktok-audience-component-in-canvas}
 
@@ -129,7 +129,7 @@ TikTokのSegment APIのレート制限では、1秒あたり50クエリ、1リ�
 | 保留中のユーザー | BrazeがTikTokへの同期のために現在処理中のユーザーの数。 |
 | エラーが発生したユーザー数 | 約13時間のリトライ後、APIエラーのためにTikTokに同期されなかったユーザーの数。エラーの潜在的な原因には、無効なTikTokトークンや、TikTokでオーディエンスが削除された場合が含まれます。 |
 | Canvasを終了済み | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがAudience Syncコンポーネントである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
 一括フラッシャーと13時間の再試行により、同期されたユーザーとエラーが発生したユーザーの指標のレポートに遅延が発生することに注意してください。
@@ -165,4 +165,4 @@ TikTokでは、1つのIDが複数のTikTokユーザーに関連付けられて�
 
 ### 「Audience Does Not Exist For Canvas」という件名のメールが届くのはなぜですか？ {#why-am-i-receiving-an-email-with-the-subject-audience-does-not-exist-for-canvas}
 
-これは、同期先として選択したオーディエンスがストリーミングオーディエンスでない場合に発生する可能性があります（たとえば、類似オーディエンスやユーザーファイルオーディエンスの場合）。Braze Audience Sync Canvasステップで新しいオーディエンスを作成してみてください。
+これは、同期先として選択したオーディエンスがストリーミングオーディエンスでない場合に発生する可能性があります（たとえば、類似オーディエンスやユーザーファイルオーディエンスの場合）。Braze Audience SyncのCanvasステップで新しいオーディエンスを作成してみてください。

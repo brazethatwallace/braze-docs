@@ -5,7 +5,7 @@ page_order: 0
 description: "この記事では、さまざまなタイプのLINEメッセージについて説明します。"
 page_type: reference
 tool:
- - Campaigns
+ - キャンペーン
 channel:
  - LINE
 alias: /line/create/message_types/

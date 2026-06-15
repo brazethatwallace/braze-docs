@@ -12,6 +12,7 @@ Le SDK Roku de Braze conserve les données dans les sections de registre suivant
 | `braze.section.user_id` | L'ID utilisateur externe, s'il a été défini. |
 | `braze.section.session` | L'UUID de la session active, l'heure de début et l'heure de fin. |
 | `braze.section.config` | La configuration du SDK mise en cache et les données des indicateurs de fonctionnalité. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wiping previously-stored data" }
 
 ### Étape 1 : Effacer les sections du registre {#step-1-clear-the-registry-sections}
 

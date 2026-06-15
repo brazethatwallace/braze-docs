@@ -65,6 +65,8 @@ Wenn die Ruhezeiten aktiviert sind, sendet Braze während der Ruhezeit keine Nac
 
 Wenn zum Beispiel die Ruhezeiten von 22:00 Uhr bis 6:00 Uhr eingestellt sind und die optimale Zeit für eine:n Nutzer:in 5:30 Uhr ist, hält Braze die Nachricht zurück und stellt sie um 6:00 Uhr zu – die nächstgelegene Zeit außerhalb des Ruhezeitfensters.
 
+Weitere Informationen finden Sie unter [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+
 #### Vorschau der Zustellungszeiten {#preview-delivery-times}
 
 Um eine Schätzung zu erhalten, wie viele Nutzer:innen die Nachricht in jeder Stunde des Tages erhalten werden, verwenden Sie das Vorschau-Chart (nur Campaigns).

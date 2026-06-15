@@ -16,7 +16,7 @@ Braze.setOutboundNetworkRequestsOffline(true);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.setOutboundNetworkRequestsOffline(true)
 ```
 

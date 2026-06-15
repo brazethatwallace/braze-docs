@@ -40,6 +40,7 @@ Additionally, note the following platform-specific details:
 - The prompt doesn't display if the app's push setting is explicitly on or off. It only displays for users with [provisional authorization](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375).
   - **App's push setting is on:** Braze doesn't show the in-app message, as the user has already opted-in.
   - **App's push setting is off:** You need to redirect the user to your app's push notification settings within the device settings.
+- **Retesting after deny:** If a user denies the native prompt, iOS does not show it again for that app install. To retest the push primer flow, users typically need to uninstall and reinstall the app, or change notification permission for your app in **Settings**.
 
 ### Manual code removal
 

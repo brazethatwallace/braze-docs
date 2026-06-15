@@ -1,15 +1,15 @@
 ---
 nav_title: リファレンス
 article_title: エージェントのリファレンス
-description: "Braze エージェントの主要な詳細について説明します。"
+description: "Brazeエージェントの主要な詳細について説明します。"
 page_order: 3
 ---
 
-# エージェントのリファレンス {#reference-for-agents}
+# エージェントのリファレンス
 
-> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。概要については、[Braze エージェント]({{site.baseurl}}/user_guide/brazeai/agents/)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)を参照してください。
+> カスタムエージェントを作成する際、インストラクションや出力スキーマなどの主要な設定の詳細については、この記事を参照してください。概要については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)および[よくある質問]({{site.baseurl}}/user_guide/brazeai/agents/faq/)を参照してください。
 
-## モデル {#models}
+## モデル
 
 エージェントを設定するときに、レスポンスの生成に使用するモデルを選択できます。Brazeパワードモデルの使用と、独自のAPIキーの持ち込みの2つのオプションがあります。
 
@@ -17,19 +17,19 @@ page_order: 3
 Brazeパワードの**Auto**モデルは、カタログ検索やSegmentメンバーシップなどのタスクを実行するのに十分な思考能力を持つモデルに最適化されています。他のモデルを使用する場合は、ご利用のユースケースに適しているかどうかをテストで確認することをお勧めします。速度や能力が異なるモデルに対して、さまざまなレベルの詳細やステップバイステップの思考を与えるために、[インストラクション](#writing-instructions)を調整する必要がある場合があります。
 {% endalert %}
 
-### オプション 1: Brazeパワードモデルを使用する {#option-1-use-a-braze-powered-model}
+### オプション1: Brazeパワードモデルを使用する
 
 これは最もシンプルなオプションで、追加のセットアップは不要です。Brazeは大規模言語モデル（LLM）への直接アクセスを提供します。このオプションを使用するには、Geminiモデルを使用する**Auto**を選択します。
 
 {% alert important %}
-エージェント作成時に**モデル**ドロップダウンに**Braze Auto**が表示されない場合は、カスタマーサクセスマネージャーに連絡して、Braze Autoモデルの使用資格を取得する方法をご確認ください。
+エージェント作成時に**Model**ドロップダウンに**Braze Auto**が表示されない場合は、カスタマーサクセスマネージャーに連絡して、Braze Autoモデルの使用資格を取得する方法をご確認ください。
 {% endalert %}
 
-### オプション 2: 独自のAPIキーを持ち込む {#option-2-bring-your-own-api-key}
+### オプション2: 独自のAPIキーを持ち込む
 
 このオプションでは、OpenAI、Anthropic、Google GeminiなどのプロバイダーにBrazeアカウントを接続できます。LLMプロバイダーから独自のAPIキーを持ち込む場合、トークンコストはBrazeではなくプロバイダーを通じて直接請求されます。
 
-レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。また、[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)でエージェントコンソールの通知に登録すると、Brazeがモデルの利用不可を検出した際にアラートを受け取ることができます。
+レガシーモデルは数か月後に廃止または非推奨になる可能性があるため、最新のモデルを定期的にテストすることをお勧めします。エージェントをスケールで実行するために、プロバイダーに十分なクレジットがあることを確認してください。また、[通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)でエージェントコンソールの通知に登録すると、Brazeがモデルの利用不可を検出した場合やLLMプロバイダーとの課金の問題が発生した場合にアラートを受け取ることができます。
 
 設定方法:
 
@@ -41,7 +41,7 @@ Brazeパワードの**Auto**モデルは、カタログ検索やSegmentメンバ
 
 Braze提供のLLMを使用する場合、そのモデルのプロバイダーは、お客様とBraze間のデータ処理補遺（DPA）の条件に従い、Brazeのサブプロセッサーとして機能します。独自のAPIキーを持ち込むことを選択した場合、LLMサブスクリプションのプロバイダーは、お客様とBraze間の契約に基づくサードパーティプロバイダーと見なされます。
 
-#### 思考レベル {#thinking-levels}
+#### 思考レベル
 
 一部のLLMプロバイダーでは、選択したモデルの思考レベルを調整できます。思考レベルは、モデルが回答する前に使用する思考の範囲を定義します。素早く直接的なレスポンスから、より長い推論の連鎖まで対応します。これはレスポンスの品質、レイテンシー、トークン使用量に影響します。
 
@@ -51,7 +51,7 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 | **Low** | もう少し推論が必要だが、深い分析は不要なタスク。 |
 | **Medium** | 複数ステップまたはニュアンスのあるタスク（複数の入力を分析してアクションを推奨するなど）。 |
 | **High** | 複雑な推論、エッジケース、またはモデルにステップを踏んで回答させたい場合。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="思考レベル" }
 
 まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、Canvasやカタログで連携させることを検討してください。
 
@@ -61,7 +61,7 @@ Brazeは、コネクテッドコンテンツと同じIP範囲をアウトバウ�
 Braze提供のLLMを使用する場合、そのモデルのプロバイダーは、お客様とBraze間のデータ処理補遺（DPA）の条件に従い、Brazeのサブプロセッサーとして機能します。独自のAPIキーを持ち込むことを選択した場合、LLMサブスクリプションのプロバイダーは、お客様とBraze間の契約に基づくサードパーティプロバイダーと見なされます。
 {% endalert %}
 
-#### 使用するモデルの決定 {#determine-which-model-to-use}
+#### 使用するモデルの決定
 
 各LLMプロバイダーは、モデルの能力、コスト、思考レベルの組み合わせがそれぞれ異なります。以下に一般的なガイドラインとベストプラクティスを示します。
 
@@ -71,12 +71,22 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 - テスト中は、信頼性と精度をトークン使用量と呼び出し時間とバランスさせるようにしてください。
 - ユースケースごとに最適なモデルと思考レベルが異なる場合があります。タイムアウトなしで一貫した品質を確認するために、徹底的にテストすることをお勧めします。
 
-### レート制限 {#rate-limits}
+### 呼び出しフロー制御
 
-以下のレート制限がワークスペースごとに適用されます。
+以下の呼び出しフロー制御がワークスペースごとに適用されます。
 
 - **Brazeパワードモデル:** 1分あたり1,000回の呼び出し
 - **独自のAPIキーの持ち込み:** 1分あたり2,500回の呼び出し
+
+多くのユーザーが同時にエージェントステップに入ると、Brazeはこれらの制限に従って呼び出しをキューに入れるため、大量送信時には処理に時間がかかる場合があります。
+
+### レート制限エラー
+
+LLMプロバイダーがレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用して最大5回までリクエストを再試行します。この再試行動作はCanvasエージェントステップに適用されます。カタログエージェントは、LLMプロバイダーからのレート制限エラーを含め、失敗した呼び出しを再試行しません。
+
+すべての再試行が失敗した場合、**Logs**の詳細パネルに**Error**が表示され、**Output**にプロバイダーメッセージ（`Rate limit exceeded`など）が表示されます。最初の呼び出しを含め、すべての再試行がログに表示されます。特定のユーザーについて、成功するまでに4回の再試行が必要だった場合、ユーザーIDで検索すると**Logs**に5件すべて（オリジナルと4回の再試行）が表示され、オリジナルと最初の3回の再試行には`Rate limit exceeded`の**Error**が表示されます。
+
+![Outputフィールドにレート制限超過エラーが表示されているエージェントコンソールのログ詳細。]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## インストラクションの記述 {#writing-instructions}
 
@@ -95,7 +105,9 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 9. エッジケースを処理し、ガードレールを追加し、拒否のインストラクションを追加します。
 10. 再利用とスケーリングのために、うまくいったことを測定し文書化します。
 
-### Liquidの使用 {#using-liquid}
+エージェントのインストラクションの書き方のヒントについては、専用の[Brazeエージェントのユースケースライブラリ]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)を参照してください。
+
+### Liquidの使用
 
 エージェントのインストラクションに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めると、レスポンスにパーソナライゼーションのレイヤーを追加できます。エージェントが取得する正確なLiquid変数を指定し、プロンプトのコンテキストに含めることができます。たとえば、「名」を明示的に記述する代わりに、Liquidスニペット{% raw %}`{{${first_name}}}`{% endraw %}を使用できます。
 
@@ -108,6 +120,117 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 **エージェントコンソール**の**Logs**セクションで、エージェントの入出力の詳細を確認し、Liquidからどのような値がレンダリングされるかを理解できます。
 
 ![インストラクションにLiquidを含むエージェントの詳細。]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
+
+カタログエージェントの場合は、JSONスキーマではなく**Output**セクションの**Fields**を使用します。ただし、インストラクション内でモデルにフィールド名に一致するキーバリュー出力を求めることは可能です。
+
+プロンプトのベストプラクティスの詳細については、以下のモデルプロバイダーのガイドを参照してください。
+
+- [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
+- [Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
+
+## 出力
+
+### 基本スキーマ
+
+基本スキーマは、エージェントが返すシンプルな出力です。文字列、数値、ブール値、文字列の配列、または数値の配列を指定できます。
+
+たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバックアンケートからユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**Number**を選択できます。
+
+{% alert important %}
+配列はCanvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+{% endalert %}
+
+![基本スキーマとしてNumberが選択されたエージェントコンソール。]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
+
+### 高度なスキーマ
+
+高度なスキーマオプションには、フィールドの手動構造化またはJSONの使用が含まれます。
+
+- **Fields:** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
+- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。Canvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+
+エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
+
+たとえば、ユーザーが送信したフォームに基づいてサンプル旅行プランを作成するエージェント内で出力フォーマットを使用できます。出力フォーマットにより、すべてのエージェントレスポンスが`tripStartDate`、`tripEndDate`、`destination`の値を含んで返されるように定義できます。これらの各値はコンテキスト変数から抽出し、Liquidを使用してメッセージステップに配置してパーソナライゼーションに活用できます。
+
+{% tabs %}
+{% tab Fields %}
+
+レストランの最新アイスクリームフレーバーを推薦する可能性を判定するために、シンプルなフィードバックアンケートへのレスポンスをフォーマットしたい場合、出力フォーマットを構造化するために以下のフィールドを設定できます。
+
+| フィールド名 | 値 |
+| --- | --- |
+| **likelihood_score** | Number |
+| **explanation** | String |
+| **confidence_score** | Number |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="高度なスキーマ" }
+
+![likelihood score、explanation、confidence scoreの3つの出力フィールドを表示するエージェントコンソール。]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
+
+{% endtab %}
+{% tab JSONスキーマ %}
+
+レストランチェーンでの最新の食事体験に関するユーザーフィードバックを収集したい場合、出力フォーマットとして**JSON Schema**を選択し、以下のJSONを挿入して、センチメント変数と理由変数を含むデータオブジェクトを返すことができます。
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "type": "string"
+    },
+    "reasoning": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sentiment",
+    "reasoning"
+  ]
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+## カタログとフィールド
+
+エージェントが参照する特定のカタログを選択し、製品やその他の関連する非ユーザーデータを理解するために必要なコンテキストをエージェントに提供します。エージェントはツールを使用して関連するアイテムのみを検索し、トークン使用量を最小限に抑えるためにそれらのみをLLMに送信します。
+
+![エージェントが検索するために選択された「restaurants」カタログと「Loyalty_Program」列。]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
+
+## Segmentメンバーシップのコンテキスト
+
+エージェントがCanvasで使用されている場合に、各ユーザーのSegmentメンバーシップを相互参照するためのSegmentを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」Segmentのメンバーシップを選択しており、そのエージェントがCanvasで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各Segmentのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）をLLMのコンテキストとして使用できます。
+
+![エージェントメンバーシップアクセス用に選択された「Loyalty Users」Segment。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+
+## ブランドガイドライン
+
+エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
+
+## ユーザー固有のインタラクション履歴 {#user-history}
+
+ユーザーのインタラクションデータには、最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータが含まれます。たとえば、Canvasで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
+
+## エージェントの複製
+
+エージェントの改善や反復をテストするには、エージェントを複製してから変更を適用し、オリジナルと比較できます。また、エージェントの複製をバージョン管理として扱い、エージェントの詳細の変化やメッセージングへの影響を追跡することもできます。エージェントを複製するには:
+
+1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
+2. **Duplicate**を選択します。
+
+## エージェントのアーカイブ
+
+カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェントマネージャー**ページを整理できます。エージェントをアーカイブするには:
+
+1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
+2. **Archive**を選択します。
+
+![アーカイブされたエージェントを含むエージェントマネージャーページ。]({% image_buster /assets/img/ai_agent/archived_agents.png %})
+
+## 例
 
 ### Canvasエージェントの例 {#canvas-agent-examples}
 
@@ -124,18 +247,18 @@ You are an expert lifecycle marketing brand copywriter for UponVoyage. Your role
 Inputs and goal:
 The user initiated a search for a trip in the mobile app in the last week, and is now entering our flow that retargets users that searched but did not book. The goal of the journey is to drive the user to complete a checkout. Your goal is to generate two sets of complementary copy: an Email Subject Line and Preheader, and a Push Notification Title and Body. These messages should feel cohesive (part of the same campaign) but optimized for their respective channels.
 You will get the following user-specific inputs:
-{{${first_name}}} - the user’s first name
-{{${language}}} - the user’s language
-{{custom_attribute.${loyalty_status}}} - the user’s loyalty status
+{{${first_name}}} - the user's first name
+{{${language}}} - the user's language
+{{custom_attribute.${loyalty_status}}} - the user's loyalty status
 {{context.${city_searched}}} - the city the user last searched
-{{context.${last_survey_response}}} - the user’s last survey response for why they appreciate booking on UponVoyage
-User membership in the segment “Logged multiple searches in the past 30D”
+{{context.${last_survey_response}}} - the user's last survey response for why they appreciate booking on UponVoyage
+User membership in the segment "Logged multiple searches in the past 30D"
 
 Rules:
 - Use the user inputs above, plus any available Canvas context, to make the copy feel tailored.
 - Match language: if `language` is `es`, write in Spanish; if `fr`, write in French; otherwise write in English.
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
-- Use the user's first name if available, otherwise use 'friend'. Don’t quote their last survey response, just use it as context for value propositions to center around
+- Use the user's first name if available, otherwise use 'friend'. Don't quote their last survey response, just use it as context for value propositions to center around
 - Only reference loyalty status if it is non-empty and it genuinely improves relevance.
 - Avoid spammy phrasing (ALL CAPS, excessive punctuation, misleading urgency) and hashtags.
 - Do not mention "AI," "bot," or "automated message."
@@ -158,7 +281,7 @@ Input & Output Example:
 {{custom_attribute.${loyalty_status}}}: Gold Tier
 {{context.${city_searched}}}: Tokyo
 {{context.${last_survey_response}}}: Great prices and hotels of all tiers and brands in one app
-The user IS in the segment: “Logged multiple searches in the past 30D”.
+The user IS in the segment: "Logged multiple searches in the past 30D".
 </input_example>
 <output_example>
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
@@ -189,10 +312,10 @@ Classify conservatively to reduce the risk of sending messages after a user revo
 DECISION RULES
 Return true if ANY of the following are present:
 1) Explicit opt-out keywords or phrases:
-   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
-   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
+   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
+   - "stop texting me", "stop messaging me", "no more messages", "don't contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don't want these", "leave me alone"
 2) A clear request to stop a specific channel:
-   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
+   - "don't text me", "no more texts", "don't email me", "stop calling me"
 3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
    - A standalone thumbs down (:-1:) or "thumbs down"
    - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
@@ -200,24 +323,24 @@ Return true if ANY of the following are present:
 Return false if ALL of the following are true:
 - The user is clearly engaging with the content or asking a question, and
 - There is no explicit opt-out intent
-Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what's the discount?", "I hate this product (but keep me updated)".
 
 EDGE CASES
 - If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
-- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
+- If the message expresses anger or dissatisfaction and could reasonably be interpreted as "stop contacting me", return true.
 - If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
 
 EXAMPLES
-Input: “STOP” → true
-Input: “unsubscribe” → true
-Input: “Please stop texting me” → true
-Input: “Remove me from your list” → true
-Input: “:-1:” → true
-Input: “I hate this. Leave me alone.” → true
-Input: “This is the worst, you suck” → true
-Input: “Stop by tomorrow?” → false
-Input: “Can you stop the delivery?” → false
-Input: “This sucks—what’s the promo code?” → false
+Input: "STOP" → true
+Input: "unsubscribe" → true
+Input: "Please stop texting me" → true
+Input: "Remove me from your list" → true
+Input: ":-1:" → true
+Input: "I hate this. Leave me alone." → true
+Input: "This is the worst, you suck" → true
+Input: "Stop by tomorrow?" → false
+Input: "Can you stop the delivery?" → false
+Input: "This sucks—what's the promo code?" → false
 ```
 {% endraw %}
 
@@ -232,8 +355,8 @@ You are an expert Customer Experience Analyst for UponVoyage. Your role is to an
 Inputs & Goal:
 A user has just completed a "Post-Trip Satisfaction Survey" within the app. Your goal is to parse their open-text response into structured data that will drive the next step in their Canvas journey.
 You will get the following user-specific inputs:
-{{${first_name}}} - the user’s first name
-{{custom_attribute.${loyalty_status}}} - the user’s loyalty tier (e.g., Bronze, Silver, Gold, Platinum)
+{{${first_name}}} - the user's first name
+{{custom_attribute.${loyalty_status}}} - the user's loyalty tier (e.g., Bronze, Silver, Gold, Platinum)
 {{context.${survey_text}}} - the open-text feedback the user submitted
 {{context.${trip_destination}}} - the destination of their recent trip
 
@@ -427,111 +550,10 @@ Max Characters: 20
 {% endtab %}
 {% endtabs %}
 
-カタログエージェントの場合は、JSONスキーマではなく**出力**セクションの**フィールド**を使用します。ただし、インストラクション内でモデルにフィールド名に一致するキーバリュー出力を求めることは可能です。
+カタログエージェントの場合は、JSONスキーマではなく**Output**セクションの**Fields**を使用します。ただし、インストラクション内でモデルにフィールド名に一致するキーバリュー出力を求めることは可能です。
 
 プロンプトのベストプラクティスの詳細については、以下のモデルプロバイダーのガイドを参照してください。
 
 - [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
 - [Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
-
-## 出力 {#outputs}
-
-### 基本スキーマ {#basic-schemas}
-
-基本スキーマは、エージェントが返すシンプルな出力です。文字列、数値、ブール値、文字列の配列、または数値の配列を指定できます。
-
-たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバックアンケートからユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**数値**を選択できます。
-
-{% alert important %}
-配列はCanvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
-{% endalert %}
-
-![基本スキーマとして数値が選択されたエージェントコンソール。]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
-
-### 高度なスキーマ {#advanced-schemas}
-
-高度なスキーマオプションには、フィールドの手動構造化またはJSONの使用が含まれます。
-
-- **フィールド:** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
-- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。Canvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
-
-エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
-
-たとえば、ユーザーが送信したフォームに基づいてサンプル旅行プランを作成するエージェント内で出力フォーマットを使用できます。出力フォーマットにより、すべてのエージェントレスポンスが `tripStartDate`、`tripEndDate`、`destination` の値を含んで返されるように定義できます。これらの各値はコンテキスト変数から抽出し、Liquidを使用してメッセージステップに配置してパーソナライゼーションに活用できます。
-
-{% tabs %}
-{% tab フィールド %}
-
-レストランの最新アイスクリームフレーバーを推薦する可能性を判定するために、シンプルなフィードバックアンケートへのレスポンスをフォーマットしたい場合、出力フォーマットを構造化するために以下のフィールドを設定できます。
-
-| フィールド名 | 値 |
-| --- | --- |
-| **likelihood_score** | 数値 |
-| **explanation** | 文字列 |
-| **confidence_score** | 数値 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
-
-![likelihood score、explanation、confidence scoreの3つの出力フィールドを表示するエージェントコンソール。]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
-
-{% endtab %}
-{% tab JSONスキーマ %}
-
-レストランチェーンでの最新の食事体験に関するユーザーフィードバックを収集したい場合、出力フォーマットとして**JSONスキーマ**を選択し、以下のJSONを挿入して、センチメント変数と理由変数を含むデータオブジェクトを返すことができます。
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "sentiment": {
-      "type": "string"
-    },
-    "reasoning": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "sentiment",
-    "reasoning"
-  ]
-}
-```
-
-{% endtab %}
-{% endtabs %}
-
-## カタログとフィールド {#catalogs-and-fields}
-
-エージェントが参照する特定のカタログを選択し、製品やその他の関連する非ユーザーデータを理解するために必要なコンテキストをエージェントに提供します。エージェントはツールを使用して関連するアイテムのみを検索し、トークン使用量を最小限に抑えるためにそれらのみをLLMに送信します。
-
-![エージェントが検索するために選択された「restaurants」カタログと「Loyalty_Program」列。]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
-
-## Segmentメンバーシップのコンテキスト {#segment-membership-context}
-
-エージェントがCanvasで使用されている場合に、各ユーザーのSegmentメンバーシップを相互参照するためのSegmentsを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」Segmentのメンバーシップを選択しており、そのエージェントがCanvasで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各Segmentのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）をLLMのコンテキストとして使用できます。
-
-![エージェントメンバーシップアクセス用に選択された「Loyalty Users」Segment。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
-
-## ブランドガイドライン {#brand-guidelines}
-
-エージェントがレスポンスで遵守する[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を選択できます。たとえば、エージェントがジムのメンバーシップへの登録を促すSMSコピーを生成する場合、このフィールドを使用して、事前定義された大胆でモチベーショナルなガイドラインを参照できます。
-
-## ユーザー固有のインタラクション履歴 {#user-history}
-
-ユーザーのインタラクションデータには、最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータが含まれます。たとえば、Canvasで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
-
-## エージェントの複製 {#duplicate-agents}
-
-エージェントの改善や反復をテストするには、エージェントを複製してから変更を適用し、オリジナルと比較できます。また、エージェントの複製をバージョン管理として扱い、エージェントの詳細の変化やメッセージングへの影響を追跡することもできます。エージェントを複製するには:
-
-1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
-2. **Duplicate**を選択します。
-
-## エージェントのアーカイブ {#archive-agents}
-
-カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェントマネージャー**ページを整理できます。エージェントをアーカイブするには:
-
-1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
-2. **Archive**を選択します。
-
-![アーカイブされたエージェントを含むエージェントマネージャーページ。]({% image_buster /assets/img/ai_agent/archived_agents.png %})

@@ -59,9 +59,9 @@ Canvasを停止すると、以下が適用されます：
 
 - ユーザーはCanvasに入ることができなくなります。
 - フロー内のユーザーの位置に関係なく、それ以上のメッセージは送信されません。
-- **例外：** メールを含むCanvasesはすぐには停止しません。送信リクエストがSendGridに送られた後は、ユーザーへの配信を停止する手段はありません。
+- **例外：** メールを含むCanvasはすぐには停止しません。送信リクエストがSendGridに送られた後は、ユーザーへの配信を停止する手段はありません。
 
-### ユーザーライフサイクルごとに1つのCanvasを構築すべきですか、それとも別々のCanvasesを構築すべきですか？ {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
+### ユーザーライフサイクルごとに1つのCanvasを構築すべきですか、それとも別々のCanvasを構築すべきですか？ {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
 Canvasで達成したい目標に応じて、ユーザージャーニーの構築方法に異なるアプローチが必要になる場合があります。Canvasの柔軟性により、ユーザーライフサイクルのあらゆる段階のユーザージャーニーをマッピングできます。効果的なユーザージャーニーを作成するための合理化されたアプローチの例については、[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)をご覧ください。
 
@@ -95,6 +95,10 @@ Canvasを停止しても、メッセージの受信を待っているユーザ�
 
 Campaignsにおける多変量およびABテストの概念については、[多変量およびABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
+### ユーザーがCanvasメッセージステップでグローバルフリークエンシーキャップに達した場合、どうなりますか？ {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+キャップされたチャネルの送信は受信しませんが、メッセージステップはグローバルフリークエンシーキャップによりメッセージが送信されなかった場合でもユーザーを進行させます。ステップごとの進行ケースについては、[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)を参照してください。グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。この動作はメッセージステップの**配信バリデーション**とは別のものです。詳細については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
+
 ### 送信数が推定オーディエンスサイズよりも少ないのはなぜですか？ {#why-are-sends-lower-than-the-estimated-audience-size}
 
 送信数が**推定オーディエンス**よりも少なくなる理由は、[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)と同様の多くの理由があります。これには、フリークエンシーキャップ、厳格なデバイスまたはブラウザフィルター、再適格性ウィンドウ、レート制限、チャネルレベルの除外（例：プッシュ到達可能性やメールサブスクリプションおよび配信可能性チェック）が含まれます。
@@ -109,7 +113,7 @@ Canvas固有の要因も適用されます：
 - **最大エントリまたはオーディエンスキャップ：** エントリまたは送信キャップにより、基盤となるSegmentが大きくても追加のユーザーが停止されます。
 - **レポート期間：** 分析範囲に、推定と比較しているすべての送信が含まれていない場合があります。
 
-### *ユニーク受信者*がターゲットしたユーザー数よりも多いのはなぜですか？ {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### *ユニーク受信者*がターゲットしたユーザー数よりも多いのはなぜですか？ {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *ユニーク受信者*が予想よりも多くなることがあります。これは、BrazeがCanvasおよびCampaignレポートで**日次ユニーク受信者**を追跡するためです。これにより、ユーザーがジャーニー内でメッセージを受信するたびに正確なコンバージョンアトリビューションがサポートされます。
 
@@ -131,8 +135,8 @@ Canvas固有の要因も適用されます：
 
 10件のプッシュ通知があるCanvasパスがあり、コンバージョンイベントが「セッション開始」（「アプリを開く」）の場合：
 
-- ユーザー A はエントリ後、最初のメッセージを受信する前にアプリを開きます。
-- ユーザー B は各プッシュ通知の後にアプリを開きます。
+- ユーザーAはエントリ後、最初のメッセージを受信する前にアプリを開きます。
+- ユーザーBは各プッシュ通知の後にアプリを開きます。
 
 **結果：** サマリーには2件のコンバージョンが表示され、個々のステップでは最初のステップで1件のコンバージョンが表示され、後続のすべてのステップではゼロになります。
 
@@ -162,9 +166,19 @@ Canvas固有の要因も適用されます：
 
 Canvasバリアントのコンバージョン合計がステップ合計の合算よりも大きくなることはよくあります。これは、ユーザーがバリアントに入るとすぐにバリアントのコンバージョンイベントを実行できるためです。ただし、この同じコンバージョンイベントはキャンバスステップにはカウントされません。そのため、Canvasに入り、最初のキャンバスステップを受信する前にコンバージョンイベントを実行したユーザーは、バリアントのコンバージョン合計にはカウントされますが、ステップ合計にはカウントされません。Canvasに入ったが、いずれのステップも受信する前にCanvasを退出したユーザーについても同様です。
 
+また、ユーザーがバリアントに入り、ステップからメッセージを送信されず、その後コンバージョンする場合もあります。この場合、ステップレベルではコンバージョンは記録されません。ただし、ユーザーは技術的にコンバージョンしたため、Canvasレベルではコンバージョンが記録されます。
+
+### APIトリガーのCanvasをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Canvasフィルターを使用して[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのSegment内のユーザーをエクスポートします。
+
+### Canvasを削除できますか？ {#can-i-delete-a-canvas}
+
+いいえ。ただし、[Canvasをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving/)することはできます。
+
 ### 各Canvasコンポーネントの分析はどのように確認できますか？ {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
-Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvasの詳細**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)をご覧ください。
+Canvasコンポーネントの分析を確認するには、Canvasに移動し、**Canvas Details**ページを下にスクロールします。ここで、各コンポーネントの分析を確認できます。詳細については、[Canvas分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)をご覧ください。
 
 ### ユニークユーザー数を確認する場合、Canvas分析とセグメンターのどちらがより正確ですか？ {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -181,6 +195,12 @@ Canvasに入るユーザー数は、オーディエンスとトリガーの評�
 {% alert tip %}
 Canvasのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日間の診断ログのみ保持しています。
 {% endalert %}
+
+### 現在Canvasジャーニー中のユーザーをCampaignやSegmentから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)（`Entered Canvas Variation`、`In Canvas Control Group`、`Received Message from Canvas Step`など）を使用して、Canvasエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
+
+アクティブなCanvas参加に基づいてユーザーを含めたり除外したりするには、Canvasのエントリと退出に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを追加してカスタム属性を設定およびクリアし、CampaignsやSegmentsでそれらの属性をフィルターとして使用します。
 
 ## セグメンテーション {#segmentation}
 
@@ -210,7 +230,7 @@ Canvasのトラブルシューティングについてさらにサポートが�
 
 #### Canvasコンポーネントツールバー {#canvas-component-toolbar}
 
-以前のオリジナルCanvasエディターでは、ユーザージャーニーにステップを作成するたびに、デフォルトでフルステップが追加されていました。これらのフルステップは異なるCanvasコンポーネントに置き換えられ、編集体験の可視性とカスタマイズ性が向上しました。キャンバスステップツールバーからすべてのCanvasコンポーネントをすぐに確認できます。
+以前のオリジナルCanvasエディターでは、ユーザージャーニーにステップを作成するたびに、デフォルトでフルステップが追加されていました。これらのフルステップは異なるCanvasコンポーネントに置き換えられ、編集体験の可視性とカスタマイズ性が向上しました。CanvasステップツールバーからすべてのCanvasコンポーネントをすぐに確認できます。
 
 #### ステップの動作 {#step-behavior}
 
@@ -260,4 +280,4 @@ Canvasの編集中に「リクエストタイムアウト」エラーが発生�
 - **タイムスタンプとタイムゾーン：** エラーが発生した正確な時刻とタイムゾーン。
 - **ブラウザとバージョン：** 使用しているブラウザ（例：Chrome 120、Safari 17）と、別のブラウザでエラーを再現しようとしたかどうか。
 - **再現手順：** エラーをトリガーするアクションの明確な説明（関連する特定のキャンバスステップや設定を含む）。
-- **ネットワークログ（オプション）：** ブラウザの開発者ツール（**ネットワーク**タブ）を開き、エラーを再現し、ネットワークログをHTTPアーカイブ（HAR）ログファイルとしてエクスポートします。これにより、サポートチームがどのAPIコールがタイムアウトしているかを特定できます。
+- **ネットワークログ（オプション）：** ブラウザの開発者ツール（**Network**タブ）を開き、エラーを再現し、ネットワークログをHTTPアーカイブ（HAR）ログファイルとしてエクスポートします。これにより、サポートチームがどのAPIコールがタイムアウトしているかを特定できます。

@@ -14,9 +14,9 @@ tool:
 
 ## ステータスでフィルタリングする {#filtering-by-status}
 
-CampaignまたはCanvasをステータスでフィルタリングするには、**All Statuses**を選択し、ステータスを選びます。
+CampaignまたはCanvasをステータスでフィルタリングするには、**すべてのステータス**を選択し、ステータスを選びます。
 
-![Brazeダッシュボードの「All Statuses」ドロップダウン。]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
+![Brazeダッシュボードの「すべてのステータス」ドロップダウン。]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
 
 ## ステータスを変更する {#changing-the-status}
 
@@ -31,7 +31,7 @@ CampaignおよびCanvasで利用可能なステータスは以下のとおりで
 | ステータス | 説明 |
 | --- | --- |
 | アクティブ | アクティブなCampaignおよびCanvasは送信処理中です。デフォルトでは、それぞれのページにアクティブなCampaignおよびCanvasが表示されます。 |
-| 下書き | CampaignおよびCanvasの下書きは保存されていますが、起動されていません。編集を続けて送信を開始するには、Brazeダッシュボードで**Messaging**に移動し、**Canvas**または**Campaigns**を選択して下書きを選びます。 |
+| 下書き | CampaignおよびCanvasの下書きは保存されていますが、起動されていません。編集を続けて送信を開始するには、Brazeダッシュボードで**メッセージング**に移動し、**Canvas**または**Campaigns**を選択して下書きを選びます。 |
 | アーカイブ | アーカイブされたCampaignおよびCanvasは、送信が終了したメッセージです。これらのCampaignおよびCanvasは、[**ホーム**]({{site.baseurl}}/user_guide/analytics/dashboards/home/)ページおよび[**収益**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)ページの統計グラフからも削除されます。|
 | 停止済み | 停止済みのCampaignおよびCanvasは一時停止されていますが、引き続き編集できます。Canvasを再開するには、Canvasビルダーの**Summary**ステップに移動し、**Resume Canvas**を選択します。Campaignの場合は、<i class="fas fa-ellipsis-vertical"></i>メニューを選択し、**Resume**を選びます。詳細については、[停止済みCanvasの動作](#stopped-canvas-behavior)を参照してください。 |
 | アイドル | CampaignまたはCanvasがメッセージを送信しなくなると、Brazeはアイドルステータスを割り当て、CampaignおよびCanvasの一覧の整理と管理を支援します。自動的に停止されるCampaignまたはCanvasと、関連する停止日を確認できます。 |
@@ -42,7 +42,7 @@ CampaignおよびCanvasで利用可能なステータスは以下のとおりで
 Canvasが停止されると、以下のことが発生します。
 
 - **スケジュールされたメッセージ:** Canvas内のユーザーの位置に関係なく、スケジュールされたメッセージは送信されません。これには、レート制限によりキューに入れられたユーザーも含まれます。
-- **メール送信:** メール送信はすぐに停止しない場合があります。メールサービスプロバイダー (ESP) が既存のリクエストの処理を続行する可能性があるためです。
+- **メール送信:** メール送信はすぐに停止しない場合があります。メールサービスプロバイダー（ESP）が既存のリクエストの処理を続行する可能性があるためです。
 - **遅延ステップ:** [遅延ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/)にいるユーザーは通常どおりそこに留まりますが、設定された期間が終了するとCanvasを退出します。
 - **下書きの変更:** Canvasが停止されると、Canvasへの下書きの変更は破棄されます。
 

@@ -29,6 +29,8 @@ Le suivi des conversions commence lorsqu'un utilisateur reçoit la campagne ou e
 
 Le suivi des conversions commence lorsqu'un utilisateur entre dans le Canvas. Pour les étapes du Canvas, les conversions sont attribuées tant que l'utilisateur est actif dans cette étape. Lorsque l'utilisateur passe à une autre étape, le suivi des conversions s'arrête pour l'étape précédente et commence pour l'étape suivante.
 
+Tant qu'un utilisateur se trouve dans une étape de **délai** ou une autre étape sans message, les conversions survenant pendant cette attente sont toujours attribuées à l'étape de message précédente jusqu'à ce que l'utilisateur avance. Après que l'utilisateur a reçu la dernière étape de message de son parcours, les conversions peuvent encore être enregistrées jusqu'à la date limite de conversion du Canvas (calculée à partir de l'entrée dans le Canvas), même s'il n'y a plus d'étapes de message.
+
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +46,7 @@ Notez les points suivants concernant la manière dont Braze gère les conversion
 
 - **Campagnes monocanal** : les conversions sont comptabilisées par utilisateur, et non par appareil. Au sein d'un même canal, un utilisateur ne convertit qu'une seule fois par événement de conversion, même si un message est envoyé à plusieurs appareils. Par exemple, si une campagne n'a qu'un seul événement de conversion défini sur « Effectue un achat quelconque » et qu'un utilisateur effectue deux achats distincts avant la date limite de conversion, Braze ne comptabilise qu'une seule conversion.
 - **Campagnes multicanal** : pour les campagnes multicanal, chaque canal dispose de sa propre opportunité de conversion. Un utilisateur peut convertir une fois par canal après avoir reçu un message sur ce canal. Cela signifie que si un utilisateur reçoit des messages sur plusieurs canaux (par exemple, e-mail et push) et effectue l'action de conversion, Braze comptabilise une conversion pour chaque canal, ce qui peut entraîner des taux de conversion supérieurs à 100 %.
-- **Étapes de message Canvas** : Braze attribue les conversions survenues dans le délai de conversion à la dernière étape de message Canvas que l'utilisateur a reçue. Après réception de l'étape de message suivante, l'attribution passe à cette étape. Braze mesure cette fenêtre à partir du moment où l'utilisateur entre dans le Canvas, et non à partir de chaque message individuellement. Braze comptabilise tout de même les conversions pendant les périodes de délai entre les étapes.
+- **Étapes de message Canvas** : Braze attribue les conversions survenues dans le délai de conversion à la dernière étape de message Canvas que l'utilisateur a reçue. Après réception de l'étape de message suivante, l'attribution passe à cette étape. Braze mesure cette fenêtre à partir du moment où l'utilisateur entre dans le Canvas, et non à partir de chaque message individuellement. Les conversions survenant pendant les délais entre les étapes de message sont comptabilisées pour l'attribution de l'étape de message précédente jusqu'à ce que l'utilisateur avance ; les conversions après la dernière étape de message sont toujours comptabilisées jusqu'à la date limite de conversion du Canvas.
 - Si un utilisateur effectue un événement de conversion dans les délais de conversion de deux campagnes ou Canvas distincts qu'il a reçus, la conversion est enregistrée pour les deux.
 - Un utilisateur est considéré comme converti s'il a effectué l'événement de conversion spécifique dans la fenêtre définie, même s'il n'a pas ouvert ou cliqué sur le message.
 
@@ -83,7 +85,7 @@ Commencez par sélectionner le type général d'événement que vous souhaitez u
 | **Mettre à jour l'application** | Un utilisateur est considéré comme converti lorsqu'il met à jour la version de l'application sur l'une des applications que vous spécifiez (par défaut, toutes les applications de l'espace de travail). Braze effectue une comparaison numérique au mieux pour déterminer si le changement constitue une mise à jour. Les versions non numériques sont comptabilisées comme des conversions si la version change. |
 | **Ouvrir un e-mail** | Un utilisateur est considéré comme converti lorsqu'il ouvre l'e-mail (uniquement pour les campagnes par e-mail). |
 | **Cliquer dans un e-mail** | Un utilisateur est considéré comme converti lorsqu'il clique sur un lien dans l'e-mail (uniquement pour les campagnes par e-mail). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Add the conversion events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Ajouter les événements de conversion" }
 
 {% alert important %}
 **Les propriétés imbriquées ne sont pas prises en charge dans les événements de conversion**. Vous ne pouvez pas utiliser de propriétés imbriquées dans les événements de conversion. Par exemple, si `product_code` ou `product_name` sont des propriétés imbriquées dans un tableau `products` (comme `products[].product_code`), vous ne pouvez pas les utiliser pour vérifier si un achat de produit spécifique a été effectué dans un événement de conversion.

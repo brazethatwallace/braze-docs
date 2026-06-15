@@ -109,18 +109,18 @@ Podfile を更新したら、ターミナル内で Xcode アプリプロジェ�
 
 `NotificationViewController.h` で、次の行を追加して新しいプロパティを追加し、ヘッダーファイルをインポートします。
 
-```objc
+`````````objc
 #import <AppboyPushStory/AppboyPushStory.h>
 ```
 
-```objc
+`````````objc
 @property (nonatomic) IBOutlet ABKStoriesView *storiesView;
 @property (nonatomic) ABKStoriesViewDataSource *dataSource;
 ```
 
 `NotificationViewController.m` では、デフォルトの実装を削除し、次のコードを追加します。
 
-```objc
+`````````objc
 @implementation NotificationViewController
 
 - (void)didReceiveNotification:(UNNotification *)notification {
@@ -148,13 +148,13 @@ Podfile を更新したら、ターミナル内で Xcode アプリプロジェ�
 
 `NotificationViewController.swift` で、次の行を追加してヘッダーファイルをインポートします。
 
-```swift
+`````````swift
 import AppboyPushStory
 ```
 
 次に、デフォルトの実装を削除し、次のコードを追加します。
 
-```swift
+`````````swift
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
 
   @IBOutlet weak var storiesView: ABKStoriesView!
@@ -212,7 +212,7 @@ Braze インスタンスの設定に使用する `appboyOptions` 辞書で、`AB
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 NSMutableDictionary *appboyOptions = [NSMutableDictionary dictionary];
 appboyOptions[ABKPushStoryAppGroupKey] = @"YOUR-APP-GROUP-IDENTIFIER";
 [Appboy startWithApiKey:@"YOUR-API-KEY"
@@ -224,7 +224,7 @@ appboyOptions[ABKPushStoryAppGroupKey] = @"YOUR-APP-GROUP-IDENTIFIER";
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let appboyOptions: [AnyHashable: Any] = [
   ABKPushStoryAppGroupKey : "YOUR-APP-GROUP-IDENTIFIER"
 ]

@@ -1,7 +1,7 @@
 ---
 nav_title: eduMe
 article_title: eduMe
-description: "このリファレンス記事では、Brazeと eduMe のパートナーシップについて説明します。eduMe はモバイルベースのトレーニングツールであり、Braze コネクテッドコンテンツを利用して、ユーザーが Braze Campaignsで eduMe のコースやレッスンにアクセスできるようにします。"
+description: "このリファレンス記事では、Brazeと eduMe のパートナーシップについて説明します。eduMe はモバイルベースのトレーニングツールであり、Braze コネクテッドコンテンツを利用して、ユーザーが Braze キャンペーンで eduMe のコースやレッスンにアクセスできるようにします。"
 alias: /partners/edume/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ _この統合は eduMe によって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Brazeと eduMe の統合では、Braze [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/about_connected_content/#about-connected-content)を利用して、ユーザーが Braze Campaignsで eduMe のコースやレッスンにアクセスできるようにします。個人とグループの進捗状況は、eduMe のレポート機能で追跡できます。
+Brazeと eduMe の統合では、Braze [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/about_connected_content/#about-connected-content)を利用して、ユーザーが Braze キャンペーンで eduMe のコースやレッスンにアクセスできるようにします。個人とグループの進捗状況は、eduMe のレポート機能で追跡できます。
 
 ## 前提条件 {#prerequisites}
 

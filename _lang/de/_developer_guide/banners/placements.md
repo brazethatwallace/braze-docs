@@ -31,7 +31,7 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Bannerplatzierungen zu
 
 ### 2. Schritt: Platzierungen in Ihrer App aktualisieren {#requestBannersRefresh}
 
-Platzierungen können durch Aufruf der unten beschriebenen Aktualisierungsmethoden aktualisiert werden. Diese Platzierungen werden automatisch zwischengespeichert, wenn die Sitzung einer Nutzer:in abläuft oder wenn Sie identifizierte Nutzer:innen mithilfe der `changeUser`-Methode ändern.
+Platzierungen können durch Aufruf der unten beschriebenen Aktualisierungsmethoden aktualisiert werden. Wenn `subscribeToBannersUpdates` aktiv ist, veröffentlicht das SDK Ihre zwischengespeicherten Platzierungs-IDs automatisch zu Beginn jeder neuen Sitzung und wenn Sie `changeUser` aufrufen. Diese automatische Aktualisierung verbraucht kein Rate-Limiting-Token.
 
 {% alert tip %}
 Aktualisieren Sie die Platzierungen so schnell wie möglich, um Verzögerungen beim Herunterladen oder Anzeigen von Bannern zu vermeiden.
@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+Ihr Banner-Update-Listener spiegelt den In-Memory-Bannerstatus des SDK wider. Ein einzelnes Update kann Platzierungen enthalten, die bereits zwischengespeichert waren (z. B. von einer früheren Aktualisierung, einem anderen Bildschirm oder automatischer SDK-Arbeit), nicht nur die Platzierungs-IDs aus Ihrem letzten `requestRefresh`-Aufruf. Wenn Sie sich nur für bestimmte Platzierungen interessieren, prüfen Sie die Platzierungs-ID jedes Banners in Ihrem Listener und überspringen Sie den Rest. Nachdem Sie Ihren Listener registriert haben, rufen Sie `requestRefresh` für die Platzierungen auf, die Sie von Braze synchronisieren möchten.
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+Ihr Banner-Update-Listener spiegelt den In-Memory-Bannerstatus des SDK wider. Ein einzelnes Update kann Platzierungen enthalten, die bereits zwischengespeichert waren (z. B. von einer früheren Aktualisierung, einem anderen Bildschirm oder automatischer SDK-Arbeit), nicht nur die Platzierungs-IDs aus Ihrem letzten `requestBannersRefresh`-Aufruf. Wenn Sie sich nur für bestimmte Platzierungen interessieren, prüfen Sie die Platzierungs-ID jedes Banners in Ihrem Listener und überspringen Sie den Rest. Nachdem Sie Ihren Listener registriert haben, rufen Sie `requestBannersRefresh` für die Platzierungen auf, die Sie von Braze synchronisieren möchten.
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -410,10 +430,45 @@ Wenn Sie Android Views verwenden, nutzen Sie dieses XML:
     app:placementId="global_banner" />
 ```
 
-Wenn Sie Jetpack Compose verwenden, können Sie Folgendes nutzen:
+Um Jetpack Compose zu verwenden, fügen Sie das Artefakt `com.braze:android-sdk-jetpack-compose` zu Ihrem App-Modul hinzu. Verwenden Sie dieselbe Version wie Ihre anderen Braze Android SDK-Abhängigkeiten. Dieses Modul ist von `android-sdk-ui` getrennt und liefert das [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)-Composable unter `com.braze.jetpackcompose.banners`.
+
+{% alert note %}
+Einige Compose-UI-Bibliotheken definieren ihr eigenes `Banner`-Composable. Importieren Sie `com.braze.jetpackcompose.banners.Banner` explizit, damit Sie die API von Braze aufrufen.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+Optional können Sie `heightCallback` übergeben, um die gerenderte Höhe in dp zu erhalten, wenn sich die Bannergröße ändert. Weitere Informationen finden Sie in der [KDoc für `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+
+Wenn Sie das Jetpack-Compose-Modul nicht hinzufügen, umschließen Sie [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) in [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView):
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Um das Banner in Kotlin abzurufen, verwenden Sie Folgendes:
@@ -654,10 +709,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 ## Schließungen protokollieren {#log-dismissals}
 
 Banner-Schließungen entfernen ein Banner programmatisch aus einer Platzierung, wenn Nutzer:innen es aktiv schließen. Nach dem Schließen wird das Banner für diese Nutzer:in unterdrückt. Beim nächsten Aktualisieren der Platzierungsliste wird ein neues Banner zurückgegeben, sofern die Nutzer:in dafür qualifiziert ist.
-
-{% alert important %}
-Banner-Schließungen befinden sich derzeit im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager.
-{% endalert %}
 
 ### Voraussetzungen
 

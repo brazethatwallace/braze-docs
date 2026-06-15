@@ -8,7 +8,7 @@ validurls['/docs/hidden/WIP_Partnerships/WIP_Guidelines'] = '/docs/feedback/';
 {% endtab %}
 
 {% tab 変更後 %}
-```javascript
+`````````javascript
 validurls['/docs/hidden/wip_partnerships/wip_guidelines'] = '/docs/feedback/';
 ```
 {% endtab %}

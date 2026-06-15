@@ -144,7 +144,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 
 ## Antwortdetails {#response-details}
 
-Die Antworten der Endpunkte zum Senden von Nachrichten enthalten die `dispatch_id` der Nachricht, um den Versand zurückverfolgen zu können. Die `dispatch_id` ist die ID des Nachrichtenversands (eindeutige ID für jede von der Braze-Plattform gesendete „Übertragung“). Weitere Informationen finden Sie unter [Verhalten der Dispatch-ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Die Antworten der Endpunkte zum Senden von Nachrichten enthalten die `dispatch_id` der Nachricht, um den Versand zurückverfolgen zu können. Die `dispatch_id` ist die ID des Nachrichtenversands (eindeutige ID für jede von der Braze-Plattform gesendete „Übertragung“). Weitere Informationen finden Sie unter [Verhalten der Dispatch-ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 ### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
@@ -178,7 +178,7 @@ Beachten Sie Folgendes, wenn Sie API-Aufrufe zum Senden von Canvas-Nachrichten m
 
 ## Attribute-Objekt für Canvas {#attributes-object-for-canvas}
 
-Verwenden Sie das Messaging-Objekt `attributes`, um Attribute und Werte für eine:n Nutzer:in hinzuzufügen, zu erstellen oder zu aktualisieren, bevor Sie über den Endpunkt `canvas/trigger/send` ein API-getriggertes Canvas senden. Dieser API-Aufruf verarbeitet das Nutzer:innen-Attribute-Objekt, bevor er das Canvas verarbeitet und sendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) verursacht werden, minimiert. Standardmäßig können Abo-Gruppen jedoch nicht auf diese Weise aktualisiert werden.
+Verwenden Sie das Messaging-Objekt `attributes`, um Attribute und Werte für eine:n Nutzer:in hinzuzufügen, zu erstellen oder zu aktualisieren, bevor Sie über den Endpunkt `canvas/trigger/send` ein API-getriggertes Canvas senden. Dieser API-Aufruf verarbeitet das Nutzerattribute-Objekt, bevor er das Canvas verarbeitet und sendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) verursacht werden, minimiert. Standardmäßig können Abo-Gruppen jedoch nicht auf diese Weise aktualisiert werden.
 
 {% alert note %}
 Sie suchen die Campaign-Version dieses Endpunkts? Informieren Sie sich über den [Versand von Campaign-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).

@@ -40,7 +40,7 @@ Brazeは、セッション開始時にユーザーのデバイスに以下のタ
 
 ## キーと値のペア {#key-value-pairs}
 
-BrazeでCampaignを作成する際、キーと値のペアを`extras`として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。
+Brazeでキャンペーンを作成する際、キーと値のペアを`extras`として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。
 
 {% tabs %}
 {% tab web %}
@@ -71,12 +71,12 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% tab android %}
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 Map<String, String> getExtras()
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 extras: Map<String, String>
 ```
 {% endsubtab %}
@@ -93,7 +93,7 @@ extras: Map<String, String>
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 let customization = message.extras["custom-display"] as? String
 if customization == "colorful-slideup" {
   // Perform your custom logic.
@@ -102,7 +102,7 @@ if customization == "colorful-slideup" {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
   NSString *customization = message.extras[@"custom-display"];
   if ([customization isEqualToString:@"colorful-slideup"]) {
@@ -124,7 +124,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
 {% tab web %}
 読み込みスニペット内の`braze.automaticallyShowInAppMessages()`への呼び出しを削除し、アプリ内メッセージの表示/非表示を処理するカスタムロジックを作成します。
 
-```javascript
+`````````javascript
 braze.subscribeToInAppMessage(function(inAppMessage) {
   // control group messages should always be "shown"
   // this will log an impression and not show a visible message
@@ -204,14 +204,14 @@ iOSの場合、Braze設定エディターでゲームオブジェクトリスナ
 
 {% tabs %}
 {% tab web %}
-```javascript
+`````````javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
 ```
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 {% endtab %}
@@ -219,7 +219,7 @@ braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds
 {% tab swift %}
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "YOUR-APP-IDENTIFIER-API-KEY",
   endpoint: "YOUR-BRAZE-ENDPOINT"
@@ -231,7 +231,7 @@ AppDelegate.braze = braze
 ```
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
-```objc
+`````````objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:@"<BRAZE_API_KEY>"
                                     endpoint:@"<BRAZE_ENDPOINT>"];
@@ -268,7 +268,7 @@ AppDelegate.braze = braze;
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
   final Bundle kvps = event.getNotificationPayload().getBrazeExtras();
   if (kvps.containsKey("IS_SERVER_EVENT")) {
@@ -285,7 +285,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event ->
     val kvps = event.notificationPayload.brazeExtras
     if (kvps.containsKey("IS_SERVER_EVENT")) {
@@ -335,7 +335,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 func handleExtras(userInfo: [AnyHashable : Any]) {
   print("A push was received")
   if userInfo != nil && (userInfo["IS_SERVER_EVENT"] as? String) != nil && (userInfo["CAMPAIGN_NAME"] as? String) != nil {
@@ -347,7 +347,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)handleExtrasFromPush:(NSDictionary *)userInfo {
   NSLog(@"A push was received.");
   if (userInfo !=nil && userInfo[@"IS_SERVER_EVENT"] !=nil && userInfo[@"CAMPAIGN_NAME"]!=nil) {
@@ -385,7 +385,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 
 以下の例では、イベントプロパティを最初のサイレントプッシュの一部として送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
 
-![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。「campaign_name」が「IAM Campaign Name Example」と等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![カスタムイベント「In-app message trigger」を実行したユーザーに配信される、アクションベースのアプリ内メッセージキャンペーン。「campaign_name」が「IAM キャンペーン Name Example」と等しい。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 これらのアプリ内メッセージは、アプリケーションがフォアグラウンドにある間にサイレントプッシュが受信された場合にのみトリガーされます。
@@ -406,14 +406,14 @@ Web SDKでは、`braze.showInAppMessage(inAppMessage)`を使用してアプリ�
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage);
 ```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 ```
 
@@ -422,7 +422,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 {% endtab %}
 
 {% tab swift %}
-```swift
+`````````swift
 if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMessage() {
   AppDelegate.braze?.inAppMessagePresenter?.present(message: inAppMessage)
 }
@@ -436,7 +436,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 
 {% tabs %}
 {% tab web %}
-```javascript
+`````````javascript
   // Displays a slideup type in-app message.
   var message = new braze.SlideUpMessage("Welcome to Braze! This is an in-app message.");
   message.slideFrom = braze.InAppMessage.SlideFrom.TOP;
@@ -448,7 +448,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 // Initializes a new slideup type in-app message and specifies its message.
 InAppMessageSlideup inAppMessage = new InAppMessageSlideup();
 inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
@@ -457,7 +457,7 @@ inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 // Initializes a new slideup type in-app message and specifies its message.
 val inAppMessage = InAppMessageSlideup()
 inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
@@ -477,7 +477,7 @@ inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 let customInAppMessage = Braze.InAppMessage.slideup(
   .init(message: "YOUR_CUSTOM_SLIDEUP_MESSAGE", slideFrom: .bottom, themes: .defaults)
 )
@@ -487,7 +487,7 @@ AppDelegate.braze?.inAppMessagePresenter?.present(message: customInAppMessage)
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZInAppMessageRaw *customInAppMessage = [[BRZInAppMessageRaw alloc] init];
 customInAppMessage.type = BRZInAppMessageRawTypeSlideup;
 customInAppMessage.message = @"YOUR_CUSTOM_SLIDEUP_MESSAGE";
@@ -510,7 +510,7 @@ customInAppMessage.themes = @{
 {% tab unity %}
 スタックの次のメッセージを表示するには、`DisplayNextInAppMessage()`メソッドを使用します。`DISPLAY_LATER`または`BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER`がアプリ内メッセージ表示アクションとして選択されている場合、メッセージはこのスタックに保存されます。
 
-```csharp
+`````````csharp
 Appboy.AppboyBinding.DisplayNextInAppMessage();
 ```
 {% endtab %}
@@ -530,7 +530,7 @@ Exit-intentメッセージは、訪問者がWebサイトを離れる前に重要
 
 Web SDKでこれらのメッセージタイプのトリガーを設定するには、Webサイトにexit-intentライブラリ（[ouibounceのオープンソースライブラリ](https://github.com/carlsednaoui/ouibounce)など）を実装し、次のコードを使ってBrazeのカスタムイベントとして`'exit intent'`をログに記録します。これで、今後のアプリ内メッセージキャンペーンでは、このメッセージタイプをカスタムイベントトリガーとして使用できます。
 
-```javascript
+`````````javascript
   var _ouibounce = ouibounce(false, {
     callback: function() { braze.logCustomEvent('exit intent'); }
   });

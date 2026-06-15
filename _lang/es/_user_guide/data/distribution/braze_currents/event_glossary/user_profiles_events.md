@@ -9,6 +9,8 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
 {% alert important %}
 Los eventos de perfiles de usuario están en fase beta. Ponte en contacto con tu administrador del éxito del cliente o director de cuentas para obtener acceso.
 {% endalert %}
@@ -21,7 +23,7 @@ Ponte en contacto con tu representante de Braze o abre un [ticket de soporte]({{
 
 {% details Explicación de la estructura de eventos de actualización de perfiles de usuario %}
 
-### Estructura de eventos
+### Estructura de eventos {#event-structure}
 
 Este desglose de eventos de comportamiento del cliente y de usuario muestra qué tipo de información se incluye generalmente en un evento de actualización de perfil de usuario. Con una comprensión sólida de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos entrantes de Currents para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
@@ -33,6 +35,9 @@ Currents descarta los eventos con cargas útiles superiores a 900 KB.
 
 {% enddetails %}
 
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Eventos de actualización de perfiles de usuario {#user-profile-update-events}

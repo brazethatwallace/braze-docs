@@ -11,11 +11,19 @@ tool:
 
 # Campaigns 및 Canvases 아카이브 {#archive-campaigns-and-canvases}
 
-> Campaigns와 Canvases를 아카이브하면 워크스페이스를 간단하고 효과적으로 정리할 수 있습니다. 더 많은 메시지를 구축할수록, 아카이브를 활용하면 활성 상태이고 관련성 있는 메시징 작업에 집중할 수 있습니다.
+> Campaigns와 Canvases를 아카이브하면 워크스페이스를 효과적으로 정리할 수 있습니다. 더 많은 메시지를 구축할수록, 아카이브를 활용하면 활성 상태이고 관련성 있는 메시징 작업에 집중할 수 있습니다.
+
+{% alert important %}
+대시보드에서 Campaigns와 Canvases를 삭제할 수는 없지만, 아카이브할 수는 있습니다.
+{% endalert %}
 
 ## 아카이브 {#archiving}
 
 Campaign 또는 Canvas를 아카이브하면 더 이상 메시지가 전달되지 않으며 인앱 메시지도 표시되지 않습니다. 아카이브한 후에도 결과를 확인할 수 있지만, Campaign 또는 Canvas를 편집할 수는 없습니다. 편집하려면 먼저 [아카이브를 해제](#unarchiving-campaigns-and-canvases)해야 합니다.
+
+{% alert note %}
+**아카이브**는 Campaign 또는 Canvas를 삭제하지 않습니다. Braze는 전달을 중지하고, 일상적인 목록에서 메시지를 숨기며, 보고서 및 워크스페이스 기록을 위해 보존합니다.
+{% endalert %}
 
 {% tabs local %}
 {% tab campaign %}

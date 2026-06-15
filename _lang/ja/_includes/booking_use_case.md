@@ -7,7 +7,7 @@
 このサービスを作成するその他の利点は次のとおりです。
 - 送信されたメッセージは完全にトラッキングされ、レポートに含まれます。
 - 技術的な知識を持たない会社ユーザーでもメッセージのコンテンツを更新できます。
-- メッセージは、Campaignの設定に基づくユーザープロファイルのオプトインおよびオプトアウトステータスに従います。
+- メッセージは、キャンペーンの設定に基づくユーザープロファイルのオプトインおよびオプトアウトステータスに従います。
 - 予約データとメッセージのインタラクションデータの両方を使用して、ユーザーをセグメンテーションし、追加のメッセージングのターゲットにできます。例えば、最初のリマインダーメッセージを開封しなかったユーザーに対して、予約前に追加のリマインダーを送信してリターゲティングすることができます。
 
 このユースケースを実現するには、次のステップに従ってください。
@@ -139,7 +139,7 @@ Brazeはユーザープロファイルの階層化カスタム属性から指定
 [カスタムHTMLを使用したメールの作成]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/)のステップに従って、リマインダーメールメッセージを作成します。この例のように、Liquidを使用して、作成したカスタム顧客属性（「trips」）のデータでメッセージをパーソナライズします。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign dates = {{custom_attribute.${trips}}} %}
 {% assign today = "now" | date: "%s" %}
 {% assign two_days = today | plus: 172800 | date: "%F" %}
@@ -153,9 +153,9 @@ You have the following booked in 2 days! Check the information below:
 ```
 {% endraw %}
 
-### ステップ 2c: Campaignを起動する {#step-2c-launch-your-campaign}
+### ステップ 2c: キャンペーンを起動する {#step-2c-launch-your-campaign}
 
-リマインダーメールメッセージのCampaignを起動します。Brazeが「trips」カスタム属性を受信するたびに、該当する予約オブジェクトに含まれるデータに基づいてメッセージをスケジュールします。
+リマインダーメールメッセージのキャンペーンを起動します。Brazeが「trips」カスタム属性を受信するたびに、該当する予約オブジェクトに含まれるデータに基づいてメッセージをスケジュールします。
 
 ## ステップ 3: 更新された予約とキャンセルを処理する {#step-3}
 
@@ -212,12 +212,12 @@ braze.logCustomEvent("trip_updated", {
 
 ### ステップ 3b: 更新を確認するメッセージを作成する {#step-3b-create-a-message-to-confirm-the-update}
 
-[アクションベースのCampaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
+[アクションベースのキャンペーン]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を作成して、更新された予約の確認をユーザーに送信します。[Liquidを使用してイベントプロパティをテンプレート化]({{site.baseurl}}/user_guide/data/custom_data/custom_events/)し、予約の名前、以前の時刻、新しい時刻（キャンセルの場合は名前のみ）をメッセージ自体に反映できます。
 
 例えば、次のようなメッセージを作成できます。
 
 {% raw %}
-```liquid
+`````````liquid
 Hi {{${first_name}}}, you have successfully updated the date of your trip, {{event_properties.${name}}}, from {{event_properties.${old_time}}} to {{event_properties.${new_time}}}
 ```
 {% endraw %}

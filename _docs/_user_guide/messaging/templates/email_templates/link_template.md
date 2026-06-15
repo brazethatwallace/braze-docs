@@ -31,7 +31,7 @@ Let's say you're running a promotional email campaign for a new product launch. 
 
 You can create an unlimited number of link templates to support your various needs. To create a link template, do the following:
 
-1. Go to **Templates** > **Email Link Templates**. 
+1. Go to **Content** > **Email Link**.
 2. Select **Create email link template**.
 3. Give your link template a name.
 4. (Optional) Add a description, team, or tag to add details about the link template.

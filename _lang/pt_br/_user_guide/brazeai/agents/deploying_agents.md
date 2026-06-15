@@ -24,7 +24,7 @@ Você pode usar agentes como etapas em uma jornada para personalizar mensagens o
 | Roteamento inteligente | Use saídas do agente (booleanas ou numéricas) para dividir usuários em diferentes jornadas do Canvas. Por exemplo, classifique usuários como "em risco" ou "saudáveis" e ajuste a cadência das mensagens de acordo. |
 | Interpretação de pesquisas ou respostas | Permita que um agente analise respostas abertas de pesquisas ou campos de texto livre, retornando valores estruturados (por exemplo, categorizando intenção ou necessidade) que direcionam jornadas subsequentes. |
 | Raciocínio em múltiplas etapas | Configure um agente para combinar campos de contexto e tomar decisões complexas, como recomendar a próxima melhor ação (e-mail, SMS ou contato humano) com base em múltiplos atributos do usuário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Agentes em catálogos {#agents-in-catalogs}
 
@@ -40,7 +40,7 @@ Você pode aplicar um agente a campos de catálogo para que ele gere ou calcule 
 | Categorizar ou etiquetar itens | Atribua tags para lógica de recomendação, para que modelos de personalização possam segmentar produtos de forma mais eficaz. Por exemplo, etiquete produtos como "ao ar livre", "pronto para festivais" ou "premium". |
 | Localizar conteúdo | Traduza o texto do catálogo para outro idioma em campanhas globais, ou ajuste o tom e o tamanho para canais específicos de cada região. Por exemplo, traduza "Classic Clubmaster Sunglasses" para o espanhol como "Gafas de sol Classic Clubmaster", ou encurte descrições para campanhas de SMS. |
 | Resumir avaliações ou feedback | Resuma sentimentos ou feedback em um novo campo, como atribuir pontuações de sentimento (Positivo, Neutro ou Negativo) ou criar um resumo curto como "A maioria dos clientes elogia o ajuste, mas menciona o envio lento." |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ### Etapas {#steps}
 
@@ -82,7 +82,7 @@ Digamos que você tenha um agente que adiciona descrições de produtos a um cat
 | --- | --- |
 | **description** | Texto |
 | **confidence_score_out_of_ten** | Número |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Define response fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definir campos de resposta" }
 
 Você pode adicionar um campo chamado **product_description** a um catálogo e selecionar **description** como o **Response Field** para preencher a coluna com as descrições do agente.
 
@@ -92,27 +92,27 @@ Você também pode substituir manualmente a célula gerada pelo agente seleciona
 
 ### Tratamento de erros em catálogos {#error-handling-in-catalogs}
 
-- Invocações de catálogo com falha não são tentadas novamente.
-- Se a chamada de API para o provedor do modelo fundamental retornar qualquer erro, como chave de API inválida ou limite de taxa, o valor do campo não é atualizado.
+- Invocações de catálogo com falha não são tentadas novamente, incluindo [erros de limite de taxa]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) do provedor de LLM.
+- Se a chamada de API para o provedor do modelo fundamental retornar qualquer outro erro, como um erro de chave de API inválida, o valor do campo não é atualizado.
 - Você pode revisar os registros do agente para ver detalhes sobre execuções com falha.
 
 ## Monitore seu agente {#monitor-your-agent}
 
-Na seção **Usage** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
+Na seção **Uso** do seu agente, você pode consultar e navegar até onde o agente está sendo usado ativamente em catálogos e Canvas.
 
 ![Seção de uso do agente que mostra dois agentes ativos e um agente inativo para Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Na seção **Logs** do seu agente, você pode monitorar chamadas reais do agente que ocorrem nos seus Canvas e catálogos. Você pode filtrar por informações como intervalo de datas, resultado (sucesso ou falha) ou local de chamada. Também pode selecionar **Export CSV** para exportar os registros mostrados apenas na página atual.
+Na seção **Registros** do seu agente, você pode monitorar chamadas reais do agente que ocorrem nos seus Canvas e catálogos. Você pode filtrar por informações como intervalo de datas, resultado (sucesso ou falha) ou local de chamada. Também pode selecionar **Exportar CSV** para exportar os registros mostrados apenas na página atual.
 
 {% alert tip %}
 Você também pode monitorar erros de limite de invocação diária no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
 {% endalert %}
 
-![Registros para um agente de Pontuação de Sentimento de IA.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
+![Registros para um agente de pontuação de sentimento de IA.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Selecione **View** em uma chamada de agente específica para ver a entrada, a saída e o ID do usuário.
+Selecione **Visualizar** em uma chamada de agente específica para ver a entrada, a saída e o ID do usuário.
 
-![O painel de detalhes para um agente de Atribuição Aleatória de Esportes que mostra o prompt de entrada, a resposta de saída e um ID de usuário associado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
+![O painel de detalhes para um agente de atribuição aleatória de esportes que mostra o prompt de entrada, a resposta de saída e um ID de usuário associado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 
 ### Use o Currents {#use-currents}
 

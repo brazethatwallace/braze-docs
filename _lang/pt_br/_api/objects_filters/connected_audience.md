@@ -11,12 +11,12 @@ description: "Este artigo explica o objeto de público conectado, incluindo como
 
 > Um público conectado é um filtro de público dinâmico que você define inline na sua requisição de API, permitindo direcionar os usuários certos no momento do envio sem precisar criar ou gerenciar segmentos no dashboard da Braze.
 
-Em vez de pré-criar um segmento para cada combinação possível de público, você passa os critérios de filtro diretamente no parâmetro `audience` da sua chamada de API. A Braze avalia cada usuário em relação a esses critérios em tempo real e entrega a mensagem apenas aos usuários que correspondem. Isso significa que uma única Campaign, Canvas ou definição de mensagem somente via API pode atender a um número ilimitado de variações de público, totalmente orientadas pela sua lógica de negócios.
+Em vez de pré-criar um segmento para cada combinação possível de público, você passa os critérios de filtro diretamente na sua chamada de API. Dependendo do endpoint, esse objeto é passado como `audience` ou `custom_audience`. A Braze avalia cada usuário em relação a esses critérios em tempo real e entrega a mensagem apenas aos usuários que correspondem. Isso significa que uma única Campaign, Canvas ou definição de mensagem somente via API pode atender a um número ilimitado de variações de público, totalmente orientadas pela sua lógica de negócios.
 
 ## Como funciona {#how-it-works}
 
 1. Defina sua mensagem criando uma Campaign disparada por API ou um Canvas no dashboard da Braze, ou defina o conteúdo da mensagem inteiramente inline usando os [objetos de mensagem]({{site.baseurl}}/api/objects_filters/#messaging-objects) na sua requisição de API. Use [propriedades de gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) ou [contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) para personalização dinâmica.
-2. Chame um endpoint compatível e inclua o parâmetro `audience` com seus critérios de filtro. Você pode filtrar por atributos personalizados, status de inscrição push, status de inscrição de e-mail e horário do último uso do app.
+2. Chame um endpoint compatível e inclua seus filtros de público conectado no parâmetro `audience`, ou em `custom_audience` para `/messages/live_activity/start`. Você pode filtrar por atributos personalizados, status de inscrição push, status de inscrição de e-mail e horário do último uso do app.
 3. A Braze avalia os filtros no momento do envio, entregando a mensagem apenas aos usuários que correspondem aos seus critérios.
 
 {% alert tip %}
@@ -27,7 +27,7 @@ Como o público é definido por requisição, seus sistemas de backend podem dis
 
 ### Endpoints compatíveis {#compatible-endpoints}
 
-Você pode usar o objeto de público conectado com o parâmetro `audience` nos seguintes endpoints:
+Você pode usar o objeto de público conectado nestes endpoints:
 
 - [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)
@@ -35,6 +35,7 @@ Você pode usar o objeto de público conectado com o parâmetro `audience` nos s
 - [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/) (usa `custom_audience`)
 
 ## Casos de uso {#use-cases}
 
@@ -87,7 +88,7 @@ O exemplo a seguir usa o endpoint [`/campaigns/trigger/send`]({{site.baseurl}}/a
 
 ## Corpo do objeto {#object-body}
 
-O objeto de público conectado é composto por um único filtro de público conectado ou por vários filtros de público conectados combinados com os operadores `AND` e `OR`.
+O objeto de público conectado é composto por um único filtro de público conectado ou por vários filtros de público conectado combinados com os operadores `AND` e `OR`.
 
 **Exemplo com múltiplos filtros:**
 

@@ -20,10 +20,13 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
 
 <table aria-label="Acerca del editor" style="width: 100%; table-layout: fixed;">
     <caption>Componentes del editor: contenido y filas</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenido</th>
         <th style="width: 50%;">Filas</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="La pestaña «Filas» que incluye diferentes combinaciones estructurales para el diseño de tu correo electrónico." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="La pestaña «Contenido» que incluye bloques básicos, multimedia y avanzados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Acerca del editor" }
 
@@ -68,6 +72,10 @@ Aunque el editor de arrastrar y soltar simplifica tu flujo de trabajo con estos 
 
 Las **filas** son unidades estructurales que definen la composición horizontal de una sección del mensaje mediante columnas. Puedes usar filas vacías o [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Usar más de una columna te permite colocar diferentes elementos de contenido uno al lado del otro. De esta manera, puedes añadir todos los elementos estructurales que necesites a tu mensaje, independientemente de la plantilla que hayas seleccionado al comenzar.
 
+#### Anidar imágenes dentro de bloques de texto {#nesting-images-inside-text-blocks}
+
+No puedes anidar una imagen dentro de un párrafo u otro bloque de texto en el editor de arrastrar y soltar. Para colocar una imagen al lado o dentro de un diseño de texto, usa columnas en una **fila**: por ejemplo, una fila de varias columnas en escritorio con **Hide on mobile** para esa fila, y una fila separada solo para móvil (con **Hide on desktop** y **Do not stack on mobile** según sea necesario) para que la imagen y el texto se alineen correctamente en pantallas pequeñas.
+
 #### Estilo de tarjetas {#cards-style}
 
 **Estilo de tarjetas** es una propiedad de fila que te permite añadir espaciado entre columnas y redondear sus esquinas. Con el formato de estilo de tarjetas, puedes crear diseños más atractivos visualmente para destacar tu contenido más importante, como nuevas características de productos, testimonios, ofertas especiales, novedades y más.
@@ -75,6 +83,10 @@ Las **filas** son unidades estructurales que definen la composición horizontal 
 ## Uso del editor de arrastrar y soltar {#using-the-drag-and-drop-editor}
 
 ¿No tienes claro si tu mensaje de correo electrónico debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
+
+{% alert note %}
+No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas directamente en **Templates** > **Email Templates** como una plantilla de correo electrónico. Primero construye en **Templates**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de construirlo dentro de mi campaña o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
+{% endalert %}
 
 Una vez que hayas seleccionado dónde construir tu mensaje, veamos los pasos para crear un correo electrónico con arrastrar y soltar.
 
@@ -87,16 +99,16 @@ Después de seleccionar el editor de arrastrar y soltar como tu experiencia de e
 - Usar una plantilla de correo electrónico de arrastrar y soltar guardada.
 
 {% alert note %}
-Para usar una plantilla HTML personalizada existente o plantillas creadas por terceros, debes recrear la plantilla yendo a **Plantillas** > **Plantillas de correo electrónico** y seleccionando **Editor de arrastrar y soltar** como tu experiencia de edición.
+Para usar una plantilla HTML personalizada existente o plantillas creadas por terceros, debes recrear la plantilla yendo a **Content** > **Email** y seleccionando **Drag-And-Drop Editor** como tu experiencia de edición.
 {% endalert %}
 
-También puedes acceder a todas las plantillas desde la sección **Plantillas**.
+También puedes acceder a todas las plantillas desde la sección **Templates**.
 
-Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico en **Variantes de correo electrónico** que incluye la información de envío y el cuerpo del correo electrónico.
+Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico en **Email Variants** que incluye la información de envío y el cuerpo del correo electrónico.
 
-Luego, selecciona **Editar cuerpo del correo electrónico** para comenzar a diseñar la estructura del correo electrónico en el editor de arrastrar y soltar.
+Luego, selecciona **Edit Email Body** para comenzar a diseñar la estructura del correo electrónico en el editor de arrastrar y soltar.
 
-![La sección «Variantes de correo electrónico» con un ejemplo de cuerpo de correo electrónico.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![La sección «Email Variants» con un ejemplo de cuerpo de correo electrónico.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### Paso 2: Construye tu correo electrónico {#step-2-build-your-email}
 
@@ -134,7 +146,17 @@ Una vez que hayas terminado de diseñar y construir tu mensaje de correo electr�
 
 Una vista previa en el panel derecho se completará con la información de envío que hayas añadido. Esta información también se puede actualizar navegando a **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalizing-your-email-header-advanced}
+#### Añadir archivos adjuntos al correo electrónico {#add-email-attachments}
+
+En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al correo electrónico mediante los siguientes métodos:
+
+- **Cargar un archivo:** Arrastra y suelta o examina para cargar un archivo directamente desde tu computadora al correo electrónico. Braze valida el tipo y tamaño del archivo (hasta 2&nbsp;MB de forma predeterminada) antes de cargarlo, y luego estos archivos se cargan en la biblioteca de medios. Los archivos que superen el límite de 2&nbsp;MB no se pueden cargar.
+- **Usar la biblioteca de medios:** Examina y selecciona entre los activos ya almacenados en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Se admiten archivos PDF, documentos de Word, archivos de Excel y presentaciones de PowerPoint.
+- **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URL arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
+
+Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para conocer las mejores prácticas específicas a considerar.
+
+#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalize-your-email-header-advanced}
 
 En **Sending Settings**, puedes añadir personalización para los encabezados del correo electrónico y extras del correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre del destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
 
@@ -192,8 +214,8 @@ El motor subyacente que produce HTML a partir del editor de arrastrar y soltar h
 El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a una carga y renderizado más rápidos, menor recorte en dispositivos móviles y menor consumo de ancho de banda.
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
-- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Use Inbox Vision">`
-  <caption>Use Inbox Vision</caption>
+- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Usar Inbox Vision">`
+  <caption>Usar Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido
@@ -303,7 +325,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `meta` | Proporciona metadatos como la descripción de la página o palabras clave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Establece el título del documento que se muestra en las pestañas del navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etiquetas y atributos permitidos por etiqueta" }
 
 | Etiqueta | Atributo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
@@ -321,7 +343,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `style` | `type` | Tipo MIME del contenido de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica el medio o dispositivo para el que se aplican los estilos. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sin atributos | La etiqueta `title` no acepta ningún atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Etiquetas y atributos permitidos por etiqueta" }
 
 {% alert note %}
 Los nombres de los enlaces pueden tener hasta 63 bytes y se truncan automáticamente si exceden el límite.

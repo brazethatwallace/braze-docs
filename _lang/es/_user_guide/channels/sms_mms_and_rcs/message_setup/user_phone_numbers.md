@@ -33,7 +33,7 @@ Aquí tienes algunos ejemplos que muestran las diferencias entre el formato loca
 | Brasil | `1155256325` | 55 | `+551155256325` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formato recomendado" }
 
-## Importar números de teléfono {#importing-phone-numbers}
+## Importar números de teléfono {#import-phone-numbers}
 
 Al importar números de teléfono, es importante que sigas el [formato recomendado](#recommended-format). Para importar números de teléfono, utiliza uno de los siguientes métodos:
 
@@ -44,7 +44,11 @@ Al importar números de teléfono, es importante que sigas el [formato recomenda
 Los números de teléfono de los usuarios aparecen en Braze como una cadena de dígitos. Si importas un número que contiene caracteres que no son dígitos (como `,`, `-` o `(`) distintos del {% raw %}`+`{% endraw %} inicial, los caracteres no numéricos se eliminan cuando se muestran en Braze. Por ejemplo, importar `+1 (724) 123-4567` aparece como `+17241234567`.
 {% endalert %}
 
-## Gestión de números de teléfono no válidos {#handling-invalid-phone-numbers}
+## Validación de números de teléfono {#phone-number-validation}
+
+Braze utiliza la biblioteca [libphonenumber](https://github.com/google/libphonenumber) de Google para validar números de teléfono. Cuando se introducen nuevos prefijos de números móviles, el soporte se añade a medida que se actualiza la biblioteca de origen. Braze no mantiene una lista separada de prefijos válidos.
+
+### Gestión de números de teléfono no válidos {#handling-invalid-phone-numbers}
 
 Cuando un número de teléfono se considera no válido, Braze marcará el número de teléfono del usuario como no válido y no intentará enviar más comunicaciones a ese número de teléfono. Un número de teléfono no válido se marca en la **pestaña de interacción** del perfil de usuario.
 
@@ -63,7 +67,21 @@ Si varios perfiles de usuario tienen el mismo número de teléfono y ese número
 
 También puedes incluir o excluir cualquier usuario con números de teléfono no válidos al [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment).
 
-## Añadir usuarios a grupos de suscripción de SMS y RCS {#adding-users-to-sms-and-rcs-subscription-groups}
+## Excluir envíos de SMS rechazados de la segmentación {#exclude-rejected-sms-sends-from-segmentation}
+
+{% alert important %}
+Los rechazos de SMS se cobran de tu asignación de SMS.
+{% endalert %}
+
+Para excluir de tus segmentos a los usuarios con envíos de SMS rechazados, utiliza [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) y haz lo siguiente:
+
+1. Ve a **Audience** > **Segment Extensions**.
+2. Selecciona **Create New Extension** > **Full refresh** o **Incremental refresh**.
+3. Escribe una consulta SQL que identifique a los usuarios con rechazos de SMS. Por ejemplo, puedes consultar el evento `USERS_MESSAGES_SMS_REJECTION_SHARED` para encontrar usuarios que hayan recibido rechazos de SMS.
+4. Guarda tu extensión de segmento.
+5. Al crear tu segmento de SMS, añade un filtro para excluir a los usuarios en esta extensión de segmento.
+
+## Añadir usuarios a grupos de suscripción de SMS y RCS {#add-users-to-sms-and-rcs-subscription-groups}
 
 Para que un usuario reciba un mensaje SMS o RCS, debe tener un número de teléfono válido y estar suscrito a un grupo de suscripción. Los grupos de suscripción están vinculados al programa de SMS o RCS que estés ejecutando (asegúrate de cumplir con los [requisitos legales para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/) y de haber registrado el consentimiento de cada cliente). Para más información, consulta [Grupos de suscripción de SMS y RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
 

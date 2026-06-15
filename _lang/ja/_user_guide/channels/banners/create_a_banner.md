@@ -2,7 +2,7 @@
 nav_title: "バナーを作成"
 article_title: "バナーを作成"
 page_order: 1
-description: "このリファレンス記事では、BrazeのCampaignとCanvasを使用してバナーを作成、構成、設定、送信する方法について説明します。"
+description: "このリファレンス記事では、BrazeのCampaignsとCanvasesを使用してバナーを作成、構成、設定、送信する方法について説明します。"
 tool:
   - Campaigns
 channel:
@@ -11,7 +11,7 @@ channel:
 
 # バナーを作成 {#create-a-banner}
 
-> BrazeでCampaignやCanvasを構築する際にバナーを作成する方法を説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/user_guide/channels/banners/)を参照してください。
+> BrazeでCampaignsやCanvasesを構築する際にバナーを作成する方法を説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/user_guide/channels/banners/)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -23,7 +23,7 @@ channel:
 
 ### ステップ2: メッセージの作成場所を選択する {#step-2-choose-where-to-build-your-message}
 
-メッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignは単一のターゲットメッセージングCampaignに適しており、Canvasはマルチステップのユーザージャーニーに適しています。
+メッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングキャンペーンに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab Campaign %}
@@ -31,7 +31,7 @@ channel:
 1. **Messaging** > **Campaigns** に移動し、**Create Campaign** を選択します。
 2. **Banner** を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。タグを使用すると、Campaignを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
 5. 以前に作成したプレースメントを選択して、Campaignに関連付けます。
 6. 必要に応じてバリアントを追加します。各バリアントに異なるメッセージタイプとレイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 7. バナーCampaignの開始日時を選択します。デフォルトでは、バナーは無期限に継続します。**End Time** を選択して終了日時を指定することで、これを変更できます。
@@ -75,7 +75,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.2: クリック時の動作を定義する（オプション） {#step-32-define-on-click-behavior-optional}
 
-ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics/)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。
+ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics/)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。より詳細なクリックトラッキングのために、プロパティパネルの**Identifier for Reporting**フィールドを使用して、各インタラクティブ要素にカスタム識別子を割り当てます。
 
 {% alert important %}
 {::nomarkdown}
@@ -85,11 +85,18 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.3: 非表示の動作を設定する（オプション） {#dismiss-behavior}
 
-{% alert important %}
-バナーの非表示機能は現在、早期アクセス段階です。早期アクセスへの参加に興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
+**Dismiss Behavior** セクションの **Banner can be dismissed** チェックボックスを選択すると、ユーザーがバナーを非表示にできるようになります。このオプションは、すべてのアプリユーザーに期間限定セールを宣伝したいが、興味がない場合はメッセージを非表示にできるようにしたいシナリオで役立ちます。
 
-**Banner can be dismissed** チェックボックスを選択すると、ユーザーがバナーを非表示にできるようになります。このオプションは、すべてのアプリユーザーに期間限定セールを宣伝したいが、興味がない場合はメッセージを非表示にできるようにしたいシナリオで役立ちます。
+非表示が有効になっている場合、**Dismiss Behavior** セクションで非表示ボタンをカスタマイズできます。
+
+| 設定 | 説明 |
+|---------|-------------|
+| **ボタンサイズ** | バナーに表示される非表示ボタンのサイズです。 |
+| **ボタンの色** | 非表示ボタンの色です。 |
+| **ARIAラベル** | スクリーンリーダーが使用する非表示ボタンのアクセシブルラベルです。空白の場合、デフォルトで「Close」になります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="非表示ボタンの設定" }
+
+ユーザーがバナーを非表示にすると、Campaignのターゲティング条件に引き続き該当していても、そのユーザーにはバナーが再度表示されません。
 
 #### ステップ3.4: カスタムプロパティを追加する（オプション） {#custom-properties}
 
@@ -107,10 +114,10 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 | フィールド | 説明 | 例 |
 |-------|-------------|---------|
-| プロパティタイプ | プロパティのデータタイプ。サポートされるタイプには、文字列、ブール値、数値、タイムスタンプ、画像URL、JSONオブジェクトがあります。 | 文字列 |
-| プロパティキー | プロパティの一意の識別子。このキーはSDKでプロパティにアクセスするために使用されます。 | `color` |
-| 値 | プロパティに割り当てられた値。選択したプロパティタイプと一致する必要があります。 | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
+| プロパティタイプ | プロパティのデータタイプです。サポートされるタイプには、文字列、ブール値、数値、タイムスタンプ、画像URL、JSONオブジェクトがあります。 | 文字列 |
+| プロパティキー | プロパティの一意の識別子です。このキーはSDKでプロパティにアクセスするために使用されます。 | `color` |
+| 値 | プロパティに割り当てられた値です。選択したプロパティタイプと一致する必要があります。 | `#FF0000` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ3.4: カスタムプロパティを追加する（オプション）" }
 
 完了したら、**Done** を選択します。
 
@@ -125,17 +132,23 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 [バナーの優先度]({{site.baseurl}}/user_guide/channels/banners/#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。優先度を手動で設定するには：
 
-1. **Set exact priority** を選択します。
-2. Campaignをドラッグ＆ドロップして正しい優先度に並べ替えます。
+1. **正確な優先度を設定**を選択します。
+2. Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えます。
 3. **Apply Sort** を選択します。
 
 {% alert tip %}
-同じプレースメントIDを使用する複数のバナーCampaignがある場合は、ドラッグ＆ドロップの優先度ソーターを使用して正確な優先度を定義することをお勧めします。
+同じプレースメントIDを使用する複数のバナーCampaignsがある場合は、ドラッグ＆ドロップの優先度ソーターを使用して正確な優先度を定義することをお勧めします。
 {% endalert %}
+
+#### 再適格性を設定する（オプション） {#re-eligibility}
+
+デフォルトでは、バナーを非表示にしたユーザーはそのCampaignに再適格になることはありません。非表示にしたユーザーにバナーを再度表示させるには、**配信コントロール**ステップに移動し、**Allow users to become re-eligible to receive campaign** を選択します。有効にした場合、分、時間、日、または週単位でクールダウン期間を設定します。
+
+カウントダウンは、ユーザーがバナーを非表示にした時点から開始されます。期間が経過すると、ユーザーは自動的に再適格になります。Campaignの再起動は不要です。再適格性はユーザーごと、Campaignごとに追跡されます。
 
 #### オーディエンスを選択する {#choose-your-audience}
 
-1. **Target Audiences** で、Segmentまたはフィルターを選択してオーディエンスを絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に計算されます。
+1. **ターゲットオーディエンス**で、Segmentsまたはフィルターを選択してオーディエンスを絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に計算されます。
 
 {% multi_lang_include target_audiences.md %}
 
@@ -151,6 +164,8 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 {% tab Canvas %}
 
 まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)の実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+
+Canvasバナーステップの再適格性を制御するには、Canvasの再エントリ設定を使用します。詳細については、[CampaignsとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
 
 {% endtab %}
 {% endtabs %}

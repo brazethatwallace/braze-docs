@@ -16,7 +16,7 @@ page_type: reference
 Content Optimizer befindet sich derzeit in der Beta-Phase. Wenn Sie Hilfe beim Einstieg benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
 {% endalert %}
 
-## Einen Content Optimizer-Schritt erstellen {#creating-a-content-optimizer-step}
+## Einen Content Optimizer-Schritt erstellen {#create-a-content-optimizer-step}
 
 Für optimale Ergebnisse verwenden Sie den Content Optimizer-Agenten in Canvases, bei denen Nutzer:innen den Schritt nach und nach über einen Zeitraum hinweg betreten. Wenn alle Nutzer:innen den Schritt gleichzeitig betreten, hat der Agent keine Zeit, aus frühen Ergebnissen zu lernen.
 
@@ -177,9 +177,9 @@ Ihr ausgewähltes Optimierungsevent gilt für alle Inhaltskomponenten in diesem 
 {% tabs local %}
 {% tab E-Mail %}
 
-Für E-Mail können Sie für eines der folgenden Events optimieren. Der Agent verwendet Öffnungen und Klicks, die innerhalb von 7 Tagen nach dem Senden einer Nachricht registriert werden, um die Zustellung in Richtung leistungsstärkerer Inhaltskombinationen zu verschieben.
+Für E-Mail können Sie für eines der folgenden Ereignisse optimieren. Der Agent verwendet Öffnungen und Klicks, die innerhalb von 7 Tagen nach dem Senden einer Nachricht registriert werden, um die Zustellung in Richtung leistungsstärkerer Inhaltskombinationen zu verschieben.
 
-| Event | Beschreibung | Anwendungsfälle |
+| Ereignis | Beschreibung | Anwendungsfälle |
 | --- | --- | --- |
 | Öffnungen | Optimiert für Kombinationen, die Empfänger:innen dazu bringen, die E-Mail zu öffnen. | Testen von Betreffzeilen oder Steigerung der Sichtbarkeit |
 | Klicks | Optimiert für Kombinationen, die Engagement mit Links fördern. Beinhaltet keine Bot-Klicks oder von Braze erkannte Abmelde-Klicks. | Steigerung von Traffic, Engagement oder Conversion über Links |
@@ -195,7 +195,7 @@ Für Push-Benachrichtigungen können Sie für **Öffnungen** optimieren. Dies op
 
 Für SMS- und MMS-Nachrichten können Sie für **Klicks** optimieren. Für RCS-Nachrichten können Sie für **Lesungen** oder **Klicks** optimieren.
 
-Damit der Schritt ein Event hat, für das er optimiert:
+Damit der Schritt ein Ereignis hat, für das er optimiert:
 - SMS- und MMS-Nachrichten müssen einen Link enthalten.
 - RCS-Nachrichten müssen einen Link oder eine vorgeschlagene Antwort enthalten.
 
@@ -205,6 +205,24 @@ Derzeit unterstützt RCS-Messaging mit Content Optimizer keine SMS-Fallbacks.
 {% endtab %}
 {% endtabs %}
 
+## Einen gestarteten Schritt bearbeiten {#edit-a-launched-step}
+
+Nachdem Ihr Canvas gestartet wurde, können Sie einen laufenden Content Optimizer-Schritt aktualisieren, indem Sie ihn im Canvas-Editor öffnen. Sie können:
+
+- Neue Varianten zu jeder vorhandenen Komponente hinzufügen, entweder manuell oder mithilfe von KI-generierten Vorschlägen, bis zum Limit von fünf Varianten pro Komponente.
+- Varianten deaktivieren, um deren Versand an Nutzer:innen zu stoppen.
+- Zuvor deaktivierte Varianten wieder aktivieren, solange die Komponente dadurch bei oder unter dem Limit von fünf Varianten bleibt.
+
+Wenn Sie Änderungen veröffentlichen, setzt der Optimizer zurück und beginnt, den Traffic von Grund auf über alle aktiven Varianten und Kombinationen neu zu verteilen. Historische Daten von vor der Bearbeitung werden beibehalten und sind im Tab **Content Analytics** einsehbar.
+
+Die folgenden Einstellungen können nach dem Start nicht mehr geändert werden:
+
+- Der Inhalt vorhandener aktiver Varianten
+- Welche Komponenten getestet werden
+- Das Optimierungsevent
+
+Für SMS/MMS/RCS-Schritte können die Abo-Gruppe und der Nachrichtentyp nach dem Start ebenfalls nicht mehr geändert werden.
+
 ## Best Practices {#best-practices}
 
 - Generell empfehlen wir, mehr Komponenten statt weniger für den Content Optimizer-Schritt zu testen. Anstatt beispielsweise zwei Komponenten für E-Mail zu testen, testen Sie drei.
@@ -213,15 +231,21 @@ Derzeit unterstützt RCS-Messaging mit Content Optimizer keine SMS-Fallbacks.
 - Wenn Sie für Öffnungen optimieren, konzentrieren Sie Ihre Tests auf die Betreffzeile.
 - Wenn Sie Content Optimizer zum ersten Mal verwenden, ziehen Sie in Betracht, einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt zu verwenden, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der den Content Optimizer-Schritt enthält. Sie könnten beispielsweise die Hälfte Ihrer Nutzer:innen über einen Pfad mit dem Content Optimizer-Schritt senden und die andere Hälfte über einen Kontrollpfad, der den Nachrichtenschritt mit Ihrem aktuellen Standardinhalt sendet. Sammeln Sie dann 2–3 Wochen lang Daten und vergleichen Sie alle Leistungskennzahlen (KPIs) oder Gegenmetriken, bevor Sie den Traffic zu den Pfaden mit Content Optimizer-Schritten erhöhen.
   - Für einen effektiven Eins-zu-eins-Vergleich empfehlen wir, dass Ihr Content Optimizer-Schritt Ihren Standardinhalt als eine der Varianten für jede Komponente enthält.
+- Bevor Sie einen laufenden Schritt aktualisieren, warten Sie, bis sich die Performance-Rankings über alle Komponentenvarianten stabilisiert haben – das bedeutet, dass dieselben Varianten drei bis vier Tage in Folge konsistent gewinnen und verlieren. Dies dauert in der Regel etwa sieben Tage, und eine höhere Anzahl von Optimierungsevents erzeugt ein stärkeres, genaueres Signal.
+- Vermeiden Sie zu frühe Aktualisierungen. Jedes Mal, wenn Sie Änderungen veröffentlichen, setzt der Optimizer zurück. Wenn Sie aktualisieren, bevor der Schritt Zeit hatte zu erkennen, was funktioniert, verhindern Sie, dass er seine Erkenntnisse nutzen kann – und der Schritt bekommt nie die Gelegenheit, bedeutenden Traffic in Richtung der leistungsstärksten Kombinationen zu verschieben.
+- Wenn Sie bereit sind zu aktualisieren, empfehlen wir, leistungsschwache Varianten zu deaktivieren und neue hinzuzufügen, die auf den Eigenschaften Ihrer Top-Performer aufbauen.
 
 ## Hinweise {#considerations}
 
 - Mehrsprachige Einstellungen werden in Content Optimizer-Schritten nicht unterstützt. Stattdessen empfehlen wir, einen Content Optimizer-Schritt pro Sprache zu verwenden und die Pfade einzeln zu verzweigen.
 - Liquid-Tags für Content Optimizer-Komponenten werden in Nachrichtenschritten nicht unterstützt, sodass Liquid in Nachrichtenschritten abbricht.
+- Nachdem ein Content Optimizer-Schritt gestartet wurde, können Sie nicht mehr ändern, welche Komponenten getestet werden, den Inhalt vorhandener aktiver Varianten oder das Optimierungsevent. Für SMS/MMS/RCS-Schritte können die Abo-Gruppe und der Nachrichtentyp ebenfalls nicht mehr geändert werden.
 
 ## Analytics {#analytics}
 
 Um die Performance zu überprüfen, öffnen Sie das Analytics-Panel auf Schrittebene, um Metriken nach Inhaltsvariante und der Gesamt-Kombinationsperformance zu sehen. Der Content Optimizer-Schritt verwendet die [gleichen Analytics wie der Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics).
+
+Wenn Sie den Schritt nach dem Start aktualisiert haben, markiert das Sendezuweisungs-Chart, wann jede Inhaltsbearbeitung stattgefunden hat. Daten von deaktivierten Varianten werden beibehalten und bleiben im Analytics-Panel einsehbar, sodass Sie die Performance über die gesamte Lebensdauer des Schritts vergleichen können.
 
 ![Content Optimizer-Analytics für drei Buttons und den prozentualen Anteil der Sendezuweisungen, die einen Aufwärtstrend zeigen.]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
 

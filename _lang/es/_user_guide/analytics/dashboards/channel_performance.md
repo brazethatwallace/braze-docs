@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Dashboards de rendimiento del canal {#channel-performance-dashboards}
 
-> Los dashboards de rendimiento del canal muestran métricas de rendimiento agregadas para un canal completo, tanto de Campaigns como de Canvas. Estos dashboards están disponibles actualmente para correo electrónico y SMS.
+> Los dashboards de rendimiento del canal muestran métricas de rendimiento agregadas para un canal completo, tanto de Campaigns como de Canvas. Estos dashboards están disponibles actualmente para correo electrónico, push y SMS.
 
 ## Dashboards {#dashboards}
 
@@ -26,13 +26,11 @@ Consulta tu dashboard de rendimiento del correo electrónico yendo a **Analytics
 
 ![Dashboard de rendimiento del correo electrónico que muestra la interacción del canal de correo electrónico de los últimos treinta días.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
+![Un ejemplo de campaña de correo electrónico con 335.630 envíos, con un promedio de 11.187,667 por día.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
+
 #### Cómo se calculan las métricas {#how-metrics-are-calculated}
 
-![Un ejemplo de Campaign de correo electrónico con 335.630 envíos, con un promedio de 11.187,667 por día.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
-
-Los cálculos de las diferentes métricas en el dashboard de rendimiento del correo electrónico son los mismos que los de un nivel de mensaje individual (como el análisis de Campaigns). En este dashboard, las métricas se agregan a través de todas las Campaigns y Canvas para el rango de fechas que hayas seleccionado. Para obtener más información sobre estas definiciones, consulta [Métricas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics).
-
-Cada mosaico muestra primero la métrica de tasa, seguida de la métrica de recuento (con la excepción de *Envíos*, que muestra la métrica de recuento seguida del promedio por día). Por ejemplo, el mosaico de clics únicos contiene la *Tasa de clics únicos* del período de tiempo seleccionado y el recuento del número total de clics únicos de ese período. Cada mosaico también muestra la [comparación con el período anterior](#comparing-time-periods).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="email" %}
 
 | Métrica | Tipo | Cálculo |
 | --- | --- | ---- |
@@ -101,13 +99,11 @@ Para más información sobre el análisis de tus correos electrónicos, consulta
 
 Para usar tu dashboard de rendimiento de SMS, ve a **Analytics** > **SMS Performance** y selecciona el rango de fechas del período que deseas visualizar. Tu rango de fechas puede abarcar hasta un año en el pasado.
 
+![Un ejemplo de campaña de SMS con 335.630 envíos, con un promedio de 11.187,667 por día.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
+
 #### Cómo se calculan las métricas
 
-![Un ejemplo de Campaign de SMS con 335.630 envíos, con un promedio de 11.187,667 por día.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
-
-Los cálculos de las diferentes métricas en el dashboard de rendimiento de SMS son los mismos que los de un nivel de mensaje individual (como el análisis de Campaigns). En este dashboard, las métricas se agregan a través de todas las Campaigns y Canvas para el rango de fechas que hayas seleccionado. Para obtener más información sobre estas definiciones, consulta [Métricas de SMS]({{site.baseurl}}/sms_mms_rcs_reporting/).
-
-Cada mosaico muestra primero la métrica de tasa, seguida de la métrica de recuento (con la excepción de _Envíos_, que muestra la métrica de recuento seguida del promedio por día). Cada mosaico también muestra la [comparación con el período anterior](#comparison-to-last-period-change-in-totals-or-rates).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | Métrica | Tipo | Cálculo |
 | --- | --- | ---- |
@@ -121,6 +117,31 @@ Cada mosaico muestra primero la métrica de tasa, seguida de la métrica de recu
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cómo se calculan las métricas" }
 
 {% endtab %}
+{% tab Push performance %}
+
+### Dashboard de rendimiento de push {#push-performance-dashboard}
+
+El dashboard **Push Performance** te ofrece una vista única a nivel de canal de la interacción push, incluyendo envíos, rebotes, entregas y tasas de apertura directa, influenciada y total en una ventana de tiempo configurable. Úsalo para comprender el estado general de tu canal push sin necesidad de agregar datos de Campaigns o Canvas individuales.
+
+Para abrir el dashboard, ve a **Analytics** > **Dashboard Builder** y selecciona **Push Channel Dashboard**. Tu rango de fechas puede abarcar hasta un año en el pasado.
+
+![Un ejemplo de campaña push con más de 63 millones de envíos.]({% image_buster /assets/img_archive/push_performance_dashboard.png %})
+
+#### Cómo se calculan las métricas
+
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="push" %}
+
+| Métrica | Tipo | Cálculo |
+| --- | --- | ---- |
+| Envíos | Recuento | Número total de envíos en cada día del rango de fechas |
+| Tasa de rebote | Tasa | (Número total de rebotes en cada día del rango de fechas) / (Número total de envíos en cada día del rango de fechas) |
+| Tasa de entrega | Tasa | (Número total de entregas en cada día del rango de fechas) / (Número total de envíos en cada día del rango de fechas) |
+| Tasa de Direct Opens | Tasa | (Número total de Direct Opens en cada día del rango de fechas) / (Número total de entregas en cada día del rango de fechas) |
+| Tasa de Influenced Opens | Tasa | (Número total de Influenced Opens en cada día del rango de fechas) / (Número total de entregas en cada día del rango de fechas) |
+| Tasa de aperturas totales | Tasa | (Número total de aperturas totales en cada día del rango de fechas) / (Número total de entregas en cada día del rango de fechas)<br><br>Las aperturas totales incluyen tanto Direct Opens como Influenced Opens. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cómo se calculan las métricas" }
+
+{% endtab %}
 {% endtabs %}
 
 ## Filtros del dashboard {#dashboard-filters}
@@ -128,8 +149,9 @@ Cada mosaico muestra primero la métrica de tasa, seguida de la métrica de recu
 Puedes filtrar los datos de tu dashboard usando las siguientes opciones de filtro:
 
 - **Tag:** Elige una etiqueta. Cuando se aplica, tu dashboard mostrará métricas solo para la etiqueta seleccionada.
+- **Platforms:** (Solo en el dashboard de rendimiento de push) Elige una plataforma push, como **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle** o **Web**. Cuando se aplica, tu dashboard mostrará métricas solo para la plataforma seleccionada.
 - **Canvas:** Elige hasta 10 Canvas. Cuando se aplica, tu dashboard mostrará métricas solo para los Canvas seleccionados. Si seleccionas primero un filtro de etiqueta, las opciones de filtros de Canvas solo incluirán Canvas que tengan la etiqueta seleccionada.
-- **Campaign:** Elige hasta 10 Campaigns. Cuando se aplica, tu dashboard mostrará métricas solo para las Campaigns seleccionadas. Si seleccionas primero un filtro de etiqueta, las opciones de filtros de Campaigns solo incluirán Campaigns que tengan la etiqueta seleccionada.
+- **Campaign:** Elige hasta 10 campañas. Cuando se aplica, tu dashboard mostrará métricas solo para las campañas seleccionadas. Si seleccionas primero un filtro de etiqueta, las opciones de filtros de campañas solo incluirán campañas que tengan la etiqueta seleccionada.
 
 ![Opciones de filtro en el dashboard de rendimiento del canal donde puedes seleccionar una etiqueta y una lista de Canvas para filtrar.]({% image_buster /assets/img_archive/dashboard_filters.png %})
 
@@ -159,7 +181,7 @@ Para ver más métricas, intenta ampliar el rango de fechas.
 
 ### ¿Por qué mi dashboard de correo electrónico muestra más otras aperturas que aperturas únicas? {#why-does-my-email-dashboard-display-more-other-opens-than-unique-opens}
 
-Para la métrica _Aperturas únicas_, Braze deduplicará cualquier apertura repetida registrada por un usuario determinado (ya sea que incluyan _Aperturas de máquina_ u _Otras aperturas_) de modo que solo se incremente una única _Apertura única_ si un usuario abre varias veces. Para _Otras aperturas_, Braze no deduplica.
+Para la métrica *Aperturas únicas*, Braze deduplicará cualquier apertura repetida registrada por un usuario determinado (ya sea que incluyan *Aperturas de máquina* u *Otras aperturas*) de modo que solo se incremente una única *Apertura única* si un usuario abre varias veces. Para *Otras aperturas*, Braze no deduplica.
 
 <!---Temporarily hidden until functionality is added
 

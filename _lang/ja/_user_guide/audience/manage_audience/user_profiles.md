@@ -15,7 +15,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ## プロファイルへのアクセス {#access-profiles}
 
-ユーザーのプロファイルにアクセスするには、**Search Users** ページに移動し、以下のいずれかでユーザーを検索します。
+ユーザーのプロファイルにアクセスするには、**Search Users**ページに移動し、以下のいずれかでユーザーを検索します。
 
 - 外部ユーザー ID
 - Braze ID
@@ -25,6 +25,10 @@ description: "このリファレンス記事では、ダッシュボードでユ
 - "[user_alias]:[alias_name]" 形式のユーザーエイリアス（例: "amplitude_id:user_123"）
 
 一致するものが見つかった場合、Braze SDKで記録したそのユーザーの情報を表示できます。検索結果に複数のユーザープロファイルが返された場合は、各プロファイルを個別にマージするか、一括ユーザーマージを実行できます。詳しい手順については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)を参照してください。
+
+{% alert note %}
+**Search Users**はSegmentやCampaignコンポーザーの**User Lookup**とは異なります。**User Lookup**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**Search Users**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[Segmentのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)を参照してください。
+{% endalert %}
 
 {% alert important %}
 電話番号で検索する場合、番号は[`E.164`](https://en.wikipedia.org/wiki/e.164)形式に変換されます。電話番号を`E.164`形式に変換できないユーザー（例えば、国コードや市外局番が無効な場合）は、電話番号で検索できません。
@@ -36,7 +40,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ユーザープロファイルは、ユーザーのエンゲージメント履歴、Segmentメンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストに最適なリソースです。
 
-例えば、ユーザーが問題を報告し、使用しているデバイスやオペレーティングシステムが不明な場合、[概要タブ](#overview-tab)を使用してこの情報を確認できます（メールアドレスまたはユーザーIDがわかっている場合）。また、ユーザーの言語を確認することもでき、期待どおりに動作しなかった[多言語キャンペーン]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)のトラブルシューティングに役立ちます。
+例えば、ユーザーが問題を報告し、使用しているデバイスやオペレーティングシステムが不明な場合、[概要タブ](#overview-tab)を使用してこの情報を確認できます（メールアドレスまたはユーザーIDがわかっている場合）。また、ユーザーの言語を確認することもでき、期待どおりに動作しなかった[多言語Campaign]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)のトラブルシューティングに役立ちます。
 
 [エンゲージメントタブ](#engagement-tab)を使用して、特定のユーザーがCampaignを受信したかどうかを確認できます。さらに、そのユーザーがCampaignを受信した場合、いつ受信したかを確認できます。また、ユーザーが特定のSegmentに含まれているかどうか、プッシュ、メール、またはその両方にオプトインしているかどうかも確認できます。この情報はトラブルシューティングに役立ちます。例えば、ユーザーが受信するはずのCampaignを受信しなかった場合や、受信するはずでないCampaignを受信した場合に、この情報を確認する必要があります。
 
@@ -61,7 +65,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 | 最近のデバイス | ログインしたデバイスの数、各デバイスの詳細、および関連する広告ID（ある場合）。 |
 | カスタムイベント | このユーザーが実行したカスタムイベント、実行回数、および各イベントの最終実行日時。 |
 | 購入 | このユーザーに紐づけられた生涯収益、最後の購入、購入総数、および各購入のリスト。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="概要タブ" }
 
 このデータの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を参照してください。
 
@@ -74,14 +78,14 @@ description: "このリファレンス記事では、ダッシュボードでユ
 | エンゲージメントカテゴリ | 内容 |
 | --- | --- |
 | 連絡先設定 | メール、SMS、プッシュのサブスクリプションステータス、およびこれら3つのチャネルでこのユーザーが関連付けられている購読グループ。このセクションには、プッシュトークンの変更ログ情報も含まれます。サブスクリプションとオプトインの設定方法については、[メール]({{site.baseurl}}/user_guide/channels/email/subscriptions/)、[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)、[プッシュ]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)を参照してください。 |
-| 受信したCampaign | **受信したCampaign**は、チャネル固有の送信および表示タイミングを反映します。ほとんどのチャネルでは、Brazeが配信プロバイダーにメッセージを渡した時点で送信が記録されます（メッセージが最終的に配信されなかった場合でも同様です）。**Content Cards**は異なります。Campaignがここに表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。チャネルごとの詳細については、[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからCampaignを選択して表示します。 |
+| 受信したCampaign | **受信したCampaign**は、チャネル固有の送信および表示タイミングを反映します。ほとんどのチャネルでは、Brazeが配信プロバイダーにメッセージを渡した時点で送信が記録されます（メッセージが最終的に配信されなかった場合でも同様です）。**Content Cards**は異なります。Campaignがここに表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。チャネルごとの詳細については、[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>これらのリストは、リターゲティングと履歴に表示される内容を決定する際に、[メッセージングインタラクションデータ]({{site.baseurl}}/api/data_retention/messaging_interaction_data/)（有効期限ルールを含む）を使用します。<br><br>リストからCampaignを選択して表示します。 |
 | Segment | このユーザーが含まれているSegment。リストからSegmentを選択して表示します。 |
 | コミュニケーション統計 | このユーザーが各チャネルから最後にメッセージを受信した日時。 |
 | インストールアトリビューション | ユーザーがアプリをインストールした方法と時期に関する情報。詳しくは[ユーザーインストールの理解]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/)を参照してください。 |
 | その他 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)。 |
-| 受信したCanvasメッセージ | このユーザーが受信したCanvasメッセージとその受信日時。送信タイミングは**受信したCampaign**と同じチャネルルールに従います。[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからメッセージを選択して表示します。 |
+| 受信したCanvasメッセージ | このユーザーが受信したCanvasメッセージとその受信日時。送信タイミングは**受信したCampaign**と同じチャネルルールに従います。[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからメッセージを選択して表示します。 |
 | 予測 | このユーザーの[チャーン予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)および[イベント予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)スコア。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="エンゲージメントタブ" }
 
 ### 受信したCampaignにCampaignが表示されるタイミング {#when-campaigns-appear-in-campaigns-received}
 
@@ -107,11 +111,11 @@ description: "このリファレンス記事では、ダッシュボードでユ
 このタブのデータは、ユーザーがマージされた後は更新されません。また、API経由で送信されたメッセージに関連するイベント（例えば、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#creating-new-users-with-api-sends)）は、それらの送信でCampaign IDが指定されていない場合、このタブに表示されません。
 {% endalert %}
 
-![ユーザーが受信したCampaignとCanvasesを表示するメッセージ履歴タブ。]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
+![ユーザーが受信したCampaignとCanvasを表示するメッセージ履歴タブ。]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
 
 #### イベントの表示と理解 {#viewing-and-understanding-events}
 
-**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するCampaignまたはCanvasメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**Filters** をクリックしてリストからイベントを選択します。
+**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するCampaignまたはCanvasメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**Filters**をクリックしてリストからイベントを選択します。
 
 ##### メッセージエンゲージメントイベント {#message-engagement-events}
 
@@ -126,7 +130,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 | Content Cards | クリック<br>却下<br>インプレッション<br>送信 |
 | Webhook | 送信 |
 | WhatsApp | 中止<br>配信<br>失敗<br>フリークエンシーキャップ<br>受信<br>既読<br>送信 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージエンゲージメントイベント" }
 
 ##### メッセージ中止イベント {#message-abort-events}
 
@@ -143,7 +147,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ##### フリークエンシーキャップイベント {#frequency-cap-events}
 
-フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**Settings** > **Frequency Capping Rules** からカスタマイズできます。
+フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**Settings** > **Frequency Capping Rules**からカスタマイズできます。
 
 ##### 空白の送信先 {#blank-destinations}
 
@@ -161,10 +165,11 @@ Content Cardsの送信は、カードが表示可能になった時点で記録�
 
 以下のシナリオでは、ユーザーの**メッセージ履歴**タブで一部のフィールドが表示されない場合があります。
 
-- **Message Sent** のデータが欠落しているイベントは、そのCampaignにメッセージバリエーションがないことを示しています。
-- **Campaign/Canvas** と **Message Sent** のデータが欠落しているイベントは、このメッセージが`campaign_id`と`message_variation_id`を指定していないAPI Campaign（APIトリガーCampaignではない）から送信されたことを示しています。これらのフィールドはオプションであり、リクエストボディから省略される場合があります。これらのフィールドが指定されている場合、その情報はメッセージ履歴ログに反映されます。
-   - 特定のメッセージがメッセージ履歴に表示されないが、**Campaigns Received** ログに表示される場合、そのユーザーは現在のユーザーとして識別される前にCampaignを受信した可能性があります。既存のプロファイルが孤立した場合、**Campaigns Received** ログは転送されますが、メッセージ履歴は転送されません。
-- **Campaign/Canvas** のデータが欠落している場合、手動テストが送信された可能性があります。手動テストは**メッセージ履歴**タブに記録されますが、送信されたCampaignまたはCanvasは記録されません。
+- **Message Sent**のデータが欠落しているイベントは、そのCampaignにメッセージバリエーションがないことを示しています。
+- **Campaign/Canvas**と**Message Sent**のデータが欠落しているイベントは、このメッセージが`campaign_id`と`message_variation_id`を指定していないAPI Campaign（APIトリガーCampaignではない）から送信されたことを示しています。これらのフィールドはオプションであり、リクエストボディから省略される場合があります。これらのフィールドが指定されている場合、その情報はメッセージ履歴ログに反映されます。
+   - 特定のメッセージがメッセージ履歴に表示されないが、**Campaigns Received**ログに表示される場合、そのユーザーは現在のユーザーとして識別される前にCampaignを受信した可能性があります。既存のプロファイルが孤立した場合、**Campaigns Received**ログは転送されますが、メッセージ履歴は転送されません。
+- **Campaign/Canvas**のデータが欠落している場合、手動テストが送信された可能性があります。手動テストは**メッセージ履歴**タブに記録されますが、送信されたCampaignまたはCanvasは記録されません。
+- ユーザーがシードグループやその他の内部テストオーディエンスに含まれている場合、**メッセージ履歴**には本番送信と比較してCampaignやCanvasのメタデータが限定的に表示される場合があります。
 
 ## 関連記事 {#related-articles}
 

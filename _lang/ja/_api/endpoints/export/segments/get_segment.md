@@ -34,7 +34,7 @@ description: "この記事では、セグメントリストのエクスポート
 | -------- | -------- | --------- | ----------- |
 | `page` | オプション | 整数 | 返すセグメントのページ。デフォルトは0（最大100件の最初のセットを返します）。 |
 | `sort_direction` | オプション | 文字列 | - 作成日時を新しいものから古いものへソートする場合: 値 `desc` を渡します。<br> - 作成日時を古いものから新しいものへソートする場合: 値 `asc` を渡します。<br><br>`sort_direction` が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

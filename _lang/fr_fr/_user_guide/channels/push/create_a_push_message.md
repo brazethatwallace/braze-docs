@@ -40,7 +40,7 @@ Si vous avez l'intention de cibler plusieurs appareils et plateformes, comme tou
 
 Consultez le diagramme de décision suivant avant de créer une campagne multicanal ou de notification push :
 
-!["Diagramme de flux pour sélectionner le type de campagne. Commence par décider si vous ciblez plusieurs appareils et plateformes. Si non, cela mène à « Sélectionner Notification push ». Si oui, cela demande « Quel type de message push ? » et les options sont « Push standard » menant à un point de décision « Avez-vous besoin d'utiliser des paramètres spécifiques à l'appareil ? » Si non, cela mène à « Sélectionner Notification push et utiliser le push rapide ». Si oui, cela mène à « Sélectionner Multicanal ». Retour à « Quel type de message push ? », si la réponse est « Push Stories ou image intégrée », cela dirige vers « Sélectionner Multicanal »."]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
+![Diagramme de flux pour sélectionner le type de campagne. Commence par décider si vous ciblez plusieurs appareils et plateformes. Si non, cela mène à « Sélectionner Notification push ». Si oui, cela demande « Quel type de message push ? » et les options sont « Push standard » menant à un point de décision « Avez-vous besoin d'utiliser des paramètres spécifiques à l'appareil ? » Si non, cela mène à « Sélectionner Notification push et utiliser le push rapide ». Si oui, cela mène à « Sélectionner Multicanal ». Retour à « Quel type de message push ? », si la réponse est « Push Stories ou image intégrée », cela dirige vers « Sélectionner Multicanal ».]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
 
 Si vous sélectionnez **Push notification** et choisissez de cibler plusieurs appareils et plateformes, vous créez automatiquement une campagne push rapide. Avec le push rapide, certains paramètres spécifiques à l'appareil ne sont pas disponibles :
 
@@ -81,7 +81,7 @@ Il existe plusieurs façons de procéder en fonction de vos sélections précéd
 | Campagne de notification push | Sélectionnez une ou plusieurs plateformes et appareils. Si vous choisissez de cibler plusieurs appareils et plateformes, vous créez automatiquement une campagne push rapide. Cela offre une expérience d'édition optimisée pour rédiger un message pour toutes les plateformes sélectionnées dans un seul éditeur. Consultez [Campagnes push rapides]({{site.baseurl}}/quick_push/) pour comprendre ce qui diffère dans cette expérience d'édition. |
 | Campagne multicanal | Sélectionnez **Add Messaging Channel** pour ajouter des plateformes push supplémentaires. Comme les sélections de plateformes sont spécifiques à chaque variante, vous pouvez tester l'engagement des messages par plateforme. |
 | Canvas | Dans votre étape Message, sélectionnez **+ Add more** pour ajouter des plateformes push supplémentaires. Comme pour les campagnes multicanal, les sélections de plateformes sont spécifiques à chaque variante. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Sélectionner les plateformes push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## Étape 3 : Sélectionner le type de notification (iOS et Android) {#step-3-select-notification-type-ios-and-android}
 
@@ -204,7 +204,7 @@ Construisez le reste de votre campagne ; consultez les sections suivantes pour p
 
 Les messages push peuvent être envoyés selon un horaire planifié, une action ou un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Cette étape est également celle où vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 

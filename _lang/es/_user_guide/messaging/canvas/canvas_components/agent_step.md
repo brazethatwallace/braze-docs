@@ -51,9 +51,9 @@ Ten en cuenta que el tipo de datos de la variable de salida se configura desde l
 | Número | Puntuación, umbrales, enrutamiento en [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Booleano | Ramificación Sí/No en [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objeto | Aprovecha uno o más de los tipos de datos anteriores con una sola llamada LLM en una estructura de datos predecible |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configurar la salida de tu agente" }
 
-Puedes usar una variable de salida en todo el Canvas utilizando la misma sintaxis de plantilla que usarías con una variable de contexto. Usa el filtro de segmento **Context Variable**, o inserta las respuestas del agente directamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
+Puedes usar una variable de salida en todo el Canvas utilizando la misma sintaxis de plantilla que usarías con una variable de contexto. Usa el filtro de Segment **Context Variable**, o inserta las respuestas del agente directamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Para usar una propiedad específica de una variable de salida de tipo objeto, usa la notación de punto para acceder a esa propiedad usando Liquid: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -77,13 +77,14 @@ Después de configurar tu paso de agente, puedes probar y previsualizar la salid
 
 ## Manejo de errores {#error-handling}
 
-- Si el modelo conectado devuelve un error de límite de velocidad, Braze reintenta hasta cinco veces con retirada exponencial.
-- Si el agente falla por cualquier otra razón (como un error de tiempo de espera o una clave de API no válida), la variable de salida se establece en `null`.
+Para saber cómo Braze gestiona los fallos de agentes, los errores de límite de velocidad y los controles de flujo de invocaciones, consulta [Manejo de errores]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) en Agentes de Braze.
+
+- Si el agente falla por cualquier razón (como un error de tiempo de espera o una clave de API no válida), la variable de salida se establece en `null`.
     - Si un agente alcanza su límite diario de invocaciones, la variable de salida se establece en `null`.
 - Usa [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) para protegerte contra errores. Por ejemplo, en el modal **Add Personalization**, puedes introducir un valor predeterminado de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} o {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Las respuestas se almacenan en caché para entradas idénticas y pueden reutilizarse para invocaciones idénticas repetidas en pocos minutos.
     - Las respuestas que usan valores en caché sí cuentan para el total de invocaciones y las invocaciones diarias.
-- Los pasos de agente pueden tardar en procesar un lote grande de usuarios. Si ves usuarios que aún están pendientes en este paso, revisa tus registros para verificar que las invocaciones se están realizando.
+- Los pasos de agente pueden tardar en procesar un lote grande de usuarios. Braze pone en cola las invocaciones de acuerdo con los [controles de flujo de invocaciones]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), por lo que los usuarios pueden permanecer pendientes durante envíos de alto volumen. Revisa tus registros para verificar que las invocaciones se están realizando.
 
 ## Análisis {#analytics}
 
@@ -94,7 +95,7 @@ Consulta las siguientes métricas para rastrear el rendimiento de tus pasos de a
 | _Entered_ | El número de veces que los usuarios ingresaron al paso de agente. |
 | _Proceeded to Next Step_ | El número de usuarios que procedieron al siguiente paso en el flujo después de pasar por el paso de agente. |
 | _Exited Canvas_ | El número de usuarios que salieron del Canvas después de pasar por el paso de agente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análisis" }
 
 ## Mejores prácticas {#best-practices}
 
@@ -112,7 +113,7 @@ El siguiente patrón usa tres agentes para un ejemplo de viajes: alguien buscó 
 
 Para probar el rendimiento y el consumo de créditos de tu agente frente a tus recorridos existentes, añade un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para que solo una parte de tu audiencia entre en la rama que contiene tu paso de agente.
 
-Por ejemplo, usando aproximadamente 25 000 invocaciones, envía 2000 usuarios por día por una ruta con el agente y envía el resto a una ruta de control o una ruta sin el agente. Recopila datos durante 1-2 semanas y compara los indicadores clave de rendimiento (KPI), las contramétricas y el consumo de créditos del agente entre las rutas antes de aumentar el tráfico hacia la rama habilitada con el agente.
+Por ejemplo, puedes empezar enviando unos pocos miles de usuarios por día por una ruta con el agente y enviar el resto a una ruta de control o una ruta sin el agente. Recopila datos durante 1-2 semanas y compara los indicadores clave de rendimiento (KPI), las contramétricas y el consumo de créditos del agente entre las rutas. De esta forma, puedes generar confianza y demostrar el ROI antes de aumentar el tráfico hacia la rama habilitada con el agente, y limitar el consumo de invocaciones para hacerlo.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

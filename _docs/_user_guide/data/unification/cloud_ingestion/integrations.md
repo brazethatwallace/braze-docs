@@ -32,6 +32,10 @@ The [Snowflake quickstart guide](https://quickstarts.snowflake.com/guide/braze_c
 2. In your Redshift instance, set up the tables or views you want to sync to Braze.
 3. Create a new source and sync in the Braze dashboard.
 4. Test the integration and start the sync.
+
+{% alert note %}
+Rows processed per sync depend on your warehouse performance, network latency, and how much new data matches the sync query. Use the integration **Sync history** in the dashboard to see duration and row counts for recent runs.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Create a service account and allow access to the BigQuery project(s) and dataset(s) that contain the data you want to sync.  
@@ -471,9 +475,16 @@ In the Braze Dashboard, go to **Data Settings** > **Cloud Data Ingestion** > **S
 
 Choose a name for your source and input your Snowflake credentials and configuration, then proceed to the next step.
 
-{% alert note %}
-For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier), which typically follows a format like `xy12345.us-east-1.aws`. This is not the same as a database name or warehouse name.
-{% endalert %} 
+Before you continue, confirm the value you enter in **Snowflake Account Locator**.
+
+For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier). Enter only the account identifier value, such as `myorganization-myaccount`. Do not include `https://`, `.snowflakecomputing.com`, or any path.
+
+To find your Snowflake account identifier:
+
+1. In Snowsight, select your account menu.
+2. Select **View account details**.
+3. Copy the **Account identifier** value.
+4. If you copy from a Snowflake URL, use only the value before `.snowflakecomputing.com`.
 
 #### Step 2.2: Add a public key to the Braze user
 

@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "クラウドデータ取り込み: SQLエディター（ベータ版）"
+nav_title: SQLエディター
+article_title: "クラウドデータ取り込み: SQLエディター"
 description: "SQLクエリを使用してクラウドデータ取り込み同期を作成および検証する方法を説明します。"
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# クラウドデータ取り込み: SQLエディター（ベータ版） {#cloud-data-ingestion-sql-editor-beta}
+# クラウドデータ取り込み: SQLエディター {#cloud-data-ingestion-sql-editor}
 
 > このページでは、Brazeクラウドデータ取り込み（CDI）SQLエディターを使用して、SQLクエリで同期を作成および検証する方法について説明します。
 
@@ -189,7 +190,7 @@ SQLクエリは以下を返す必要があります。
 これらの識別子は大文字と小文字が区別され、大文字で記述する必要があります。
 {% endalert %}
 
-### `UPDATED_AT`を含める {#include-updatedat}
+### `UPDATED_AT`を含める {#include-updated_at}
 
 クエリには`UPDATED_AT`カラムを含める必要があります。
 
@@ -326,7 +327,7 @@ SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテー�
 
 クエリに`external_id`などの有効な識別子が含まれていることを確認してください。
 
-### 「`UPDATED_AT`カラムがありません」 {#updatedat-column-is-missing}
+### 「`UPDATED_AT`カラムがありません」 {#updated_at-column-is-missing}
 
 増分同期用のタイムスタンプカラムを追加してください。
 

@@ -12,7 +12,7 @@ description: "この用語集では、Brazeオンボーディングプロセス�
 glossaries:
   - name: Active user
     display_name: "アクティブユーザー"
-    description: "Campaignのターゲティングにおいて、Brazeは特定の期間の<a href=\"https://www.braze.com/docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns\">アクティブユーザー</a> を、その期間にセッションを持つすべてのユーザーとして定義します（API経由で更新されたユーザーもその期間にカウントされます）。<a href=\"https://www.braze.com/docs/user_archival/#active-users\">ユーザーアーカイブ</a> やリーチ可能性の統計では、Brazeはプロファイルの更新、ユーザーへのメッセージ送信、メッセージとのインタラクションも含む、より広い定義を使用します。"
+    description: "キャンペーンのターゲティングにおいて、Brazeは特定の期間の<a href=\"https://www.braze.com/docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns\">アクティブユーザー</a> を、その期間にセッションを持つすべてのユーザーとして定義します（API経由で更新されたユーザーもその期間にカウントされます）。<a href=\"https://www.braze.com/docs/user_archival/#active-users\">ユーザーアーカイブ</a> やリーチ可能性の統計では、Brazeはプロファイルの更新、ユーザーへのメッセージ送信、メッセージとのインタラクションも含む、より広い定義を使用します。"
   - name: Alloys
     display_name: "Alloys"
     description: "Alloysは、Brazeの<a href=\"https://www.braze.com/docs/partners/home/\">テクノロジーパートナー</a> です。"
@@ -30,16 +30,16 @@ glossaries:
     description: アプリインスタンスとは、ワークスペースに集められたさまざまなサイトやアプリを指します。
   - name: Braze (the product)
     display_name: "Braze（製品）"
-    description: ダッシュボードと呼ばれることもあるこの製品は、Brazeプラットフォームの中心となるすべてのデータとインタラクションを制御します。Brazeの顧客は、通知の管理、ターゲットを絞ったメッセージングCampaignの設定、分析の表示に使用します。開発者は、APIキーやプッシュ通知の認証情報など、アプリを統合するための設定を管理するために使用します。
+    description: ダッシュボードと呼ばれることもあるこの製品は、Brazeプラットフォームの中心となるすべてのデータとインタラクションを制御します。Brazeの顧客は、通知の管理、ターゲットを絞ったメッセージングキャンペーンの設定、分析の表示に使用します。開発者は、APIキーやプッシュ通知の認証情報など、アプリを統合するための設定を管理するために使用します。
   - name: Team
     display_name: "チーム"
     description: "Brazeの管理者は、ダッシュボードユーザーのサブセットを、ユーザーの役割と権限が異なる<a href=\"https://www.braze.com/docs/user_guide/administer/global/user_management/teams\">チーム</a> に分けることができます。これにより、Braze管理者はグループメンバーシップによって特定の機能へのアクセスを制限できます。"
-  - name: Campaign
-    display_name: "Campaign"
-    description: "Campaignは、顧客にパーソナライズされたレスポンスを提供するためのカスタマイズ可能なメッセージング手法です。さまざまなメッセージングチャネルを使って<a href=\"https://www.braze.com/docs/user_guide/messaging/campaigns\">Campaignを構築</a> し、独自のメッセージを送ることができます。"
-  - name: Canvas
-    display_name: "Canvas"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/canvas\">Canvas</a> は、マーケターが複数のメッセージとステップからなるCampaignを設定し、まとまりのあるジャーニーを形成できる単一の統一インターフェースです。Canvasを使用すると、包括的な分析を使用してこれらのエクスペリエンスを比較し、最適化することで、完全なユーザーエクスペリエンスを提供できます。"
+  - name: キャンペーン
+    display_name: "キャンペーン"
+    description: "キャンペーンは、顧客にパーソナライズされたレスポンスを提供するためのカスタマイズ可能なメッセージング手法です。さまざまなメッセージングチャネルを使って<a href=\"https://www.braze.com/docs/user_guide/messaging/campaigns\">キャンペーンを構築</a> し、独自のメッセージを送ることができます。"
+  - name: キャンバス
+    display_name: "キャンバス"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/canvas\">キャンバス</a> は、マーケターが複数のメッセージとステップからなるキャンペーンを設定し、まとまりのあるジャーニーを形成できる単一の統一インターフェースです。キャンバスを使用すると、包括的な分析を使用してこれらのエクスペリエンスを比較し、最適化することで、完全なユーザーエクスペリエンスを提供できます。"
   - name: Connected Content
     display_name: "コネクテッドコンテンツ"
     description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/design_and_edit/personalize/connected_content\">コネクテッドコンテンツ</a> は、カスタマーエンゲージメントとコンバージョンを強化するため、マーケティングパーソナライゼーションを拡大します。ユーザーに送信するメッセージに、APIを使ってアクセスできるあらゆる情報を直接挿入できます。コネクテッドコンテンツでは、Webサーバーやパブリックにアクセス可能なAPIから直接コンテンツを取り込むことができます。"
@@ -48,13 +48,13 @@ glossaries:
     description: "<a href=\"https://www.braze.com/docs/user_guide/channels/content_cards\">Content Cards</a> によって、顧客のエクスペリエンスを中断することなく、顧客が愛用するアプリ内で、高度にターゲットを絞ったリッチコンテンツのダイナミックなストリームを送信できます。Content Cardsは、iOS、Android、およびWebユーザーに送信できます。"
   - name: Conversion event
     display_name: "コンバージョンイベント"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/conversion_events\">コンバージョンイベント</a> は、メッセージを受信した後（またはCanvasやコントロールグループへのエントリー後、チャネルや設定に応じて）、受信者がコンバージョンウィンドウ内で価値の高いアクションを実行したかどうかを記録する成功指標です。コンバージョンイベントを使用して、送信だけでなくCampaignやCanvasのパフォーマンスを測定できます。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/conversion_events\">コンバージョンイベント</a> は、メッセージを受信した後（またはキャンバスやコントロールグループへのエントリー後、チャネルや設定に応じて）、受信者がコンバージョンウィンドウ内で価値の高いアクションを実行したかどうかを記録する成功指標です。コンバージョンイベントを使用して、送信だけでなくキャンペーンやキャンバスのパフォーマンスを測定できます。"
   - name: Currents
     display_name: "Currents"
     description: "Brazeのデータストリーミングエクスポートである<a href=\"https://www.braze.com/docs/user_guide/data/distribution/braze_currents\">Currents</a> は、特定のBrazeパッケージに含まれています。Braze Currentsを使用すると、フラットファイルを使用したデータストレージ経由での連携、またはバッチ化されたJSONペイロードを指定されたエンドポイントに送信して、行動分析や顧客データのパートナーとの連携ができます。"
   - name: Custom attributes
     display_name: "カスタム属性"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/data/activation/attributes/custom_attributes\">カスタム属性</a> とは、ユーザー独自の特徴を集めたものです。ユーザーに関する属性や、アプリケーション内での価値の低いアクションに関する情報を保存するのに適しています。ダッシュボード内でユーザーにカスタム属性を割り当てることができます。<a href=\"https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift\">Swift</a> と<a href=\"https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android\">Android</a> 両方のCampaignで、これらの属性に従ってユーザーをフィルタリングし、セグメント化できます。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/data/activation/attributes/custom_attributes\">カスタム属性</a> とは、ユーザー独自の特徴を集めたものです。ユーザーに関する属性や、アプリケーション内での価値の低いアクションに関する情報を保存するのに適しています。ダッシュボード内でユーザーにカスタム属性を割り当てることができます。<a href=\"https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift\">Swift</a> と<a href=\"https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android\">Android</a> 両方のキャンペーンで、これらの属性に従ってユーザーをフィルタリングし、セグメント化できます。"
   - name: Custom events
     display_name: "カスタムイベント"
     description: "<a href=\"https://www.braze.com/docs/user_guide/data/activation/events/custom_events\">カスタムイベント</a> はユーザーによって行われるアクションであり、アプリケーションに対する価値の高いユーザーインタラクションをトラッキングするのに適しています。"
@@ -72,10 +72,10 @@ glossaries:
     description: "通信チャネルの終端（API<a href=\"https://www.braze.com/docs/api/endpoints/\">エンドポイント</a> とも呼ばれます）で、メッセージの送信とスケジューリングのためにBrazeメッセージングAPI内で使用されます。"
   - name: Exception event
     display_name: "例外イベント"
-    description: "Canvasにおいて、<a href=\"https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events\">例外イベント</a> は、特定のアクションが発生したときにユーザーをジャーニーから除外するものです（例：注文の完了）。これにより、ユーザーがゴールを達成した後のフォローアップメッセージの関連性が保たれます。終了の評価とタイミングについては、<a href=\"https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria/\">終了条件</a> を参照してください。"
+    description: "キャンバスにおいて、<a href=\"https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events\">例外イベント</a> は、特定のアクションが発生したときにユーザーをジャーニーから除外するものです（例：注文の完了）。これにより、ユーザーがゴールを達成した後のフォローアップメッセージの関連性が保たれます。終了の評価とタイミングについては、<a href=\"https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria/\">終了条件</a> を参照してください。"
   - name: External ID
     display_name: "External ID"
-    description: "<code>external_id</code>は、Brazeユーザープロファイルの主要なユーザー識別子です。自社システムからIDを割り当てることで、チャネルやデバイスをまたいで同一人物を紐付けます。匿名プロファイルには、ユーザーを識別するまで<code>external_id</code>がない場合があります。詳細については、<a href=\"https://www.braze.com/docs/user_guide/get_started/users_and_segments/\">ユーザーとSegments</a> および<a href=\"https://www.braze.com/docs/api/basics/#user-ids\">ユーザーID</a> を参照してください。"
+    description: "<code>external_id</code>は、Brazeユーザープロファイルの主要なユーザー識別子です。自社システムからIDを割り当てることで、チャネルやデバイスをまたいで同一人物を紐付けます。匿名プロファイルには、ユーザーを識別するまで<code>external_id</code>がない場合があります。詳細については、<a href=\"https://www.braze.com/docs/user_guide/get_started/users_and_segments/\">ユーザーとセグメント</a> および<a href=\"https://www.braze.com/docs/api/basics/#user-ids\">ユーザーID</a> を参照してください。"
   - name: Frequency capping
     display_name: "フリークエンシーキャップ"
     description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/frequency_capping/\">フリークエンシーキャップ</a> を使用すると、オーディエンスに過度の負担をかけることなくコミュニケーションを管理できます。これは、ユーザーが短期間に大量の通信を受信しないようにするためのメッセージの自動制限です。"
@@ -108,7 +108,7 @@ glossaries:
     description: "メール、Webプッシュ、モバイルプッシュ通知の組み合わせなど、さまざまな媒体でユーザーにメッセージを送ることです。<a href=\"https://www.braze.com/docs/developer_guide/getting_started/platform_overview/#multichannel-messaging\">メッセージングチャネル</a> は、失われたユーザーを再びエンゲージし、アクティブユーザーを維持し、ブランドアンバサダーを活性化するために、協調して定期的に使用するのが最適です。"
   - name: Multivariate testing
     display_name: "多変量テスト"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/ab_testing\">ABテスト</a> は、少数のメッセージバージョンを比較します。<a href=\"https://www.braze.com/docs/user_guide/messaging/ab_testing/create_tests/\">多変量テスト</a> は、複数の変数を同時に比較し、どの組み合わせが最もパフォーマンスが高いかを確認します。サポートされているCampaignタイプについて、ダッシュボードから両方を設定できます。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/ab_testing\">ABテスト</a> は、少数のメッセージバージョンを比較します。<a href=\"https://www.braze.com/docs/user_guide/messaging/ab_testing/create_tests/\">多変量テスト</a> は、複数の変数を同時に比較し、どの組み合わせが最もパフォーマンスが高いかを確認します。サポートされているキャンペーンタイプについて、ダッシュボードから両方を設定できます。"
   - name: New user
     display_name: "新規ユーザー"
     description: Brazeでは、新規ユーザーとは、アプリを新規にインストールしたユーザーのことを指します。あるいは、Braze内でこれまで識別されていないユーザーIDを持つユーザーとして定義することもできます。
@@ -123,14 +123,14 @@ glossaries:
     description: "プッシュトークンは、アプリとiOS、Android、またはWebデバイス間の接続を作成するために、AppleまたはGoogleによって作成され、割り当てられた一意のキーです。<a href=\"https://www.braze.com/docs/api/objects_filters/user_attributes_object/#migrating-push-tokens\">プッシュトークンの移行</a> とは、すでに生成されたキーをBrazeにインポートすることです。"
   - name: Push time to live (TTL)
     display_name: "プッシュTTL"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/administer/global/workspace_settings/push_settings\">プッシュTTL</a> とも呼ばれ、有効時間とは、Campaignがオフラインのユーザーへの配信試行を続ける期間を示します。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/administer/global/workspace_settings/push_settings\">プッシュTTL</a> とも呼ばれ、有効時間とは、キャンペーンがオフラインのユーザーへの配信試行を続ける期間を示します。"
   - name: Race condition
     display_name: "競合"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/ab_testing/concepts/race_conditions\">競合</a> とは、ソフトウェア工学の概念であり、システムが複数の操作を同時に実行しようとしたときに発生する望ましくない状況を説明するものですが、システムの性質上、操作を正しく実行するには正しい順序で実行しなければなりません。<br><br>Brazeプラットフォームでは、イベント発生時に記録されたユーザーデータに基づいてトリガーCampaignをセグメント化すると、競合が発生する可能性があります。これは、Segmentメンバーシップが決定されCampaignが送信された時点で、Campaignがセグメント化されたユーザー属性の変更がまだユーザーに対して処理されていない場合に起こり、ユーザーがCampaignを受け取らないことにつながります。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/ab_testing/concepts/race_conditions\">競合</a> とは、ソフトウェア工学の概念であり、システムが複数の操作を同時に実行しようとしたときに発生する望ましくない状況を説明するものですが、システムの性質上、操作を正しく実行するには正しい順序で実行しなければなりません。<br><br>Brazeプラットフォームでは、イベント発生時に記録されたユーザーデータに基づいてトリガーキャンペーンをセグメント化すると、競合が発生する可能性があります。これは、セグメントメンバーシップが決定されキャンペーンが送信された時点で、キャンペーンがセグメント化されたユーザー属性の変更がまだユーザーに対して処理されていない場合に起こり、ユーザーがキャンペーンを受け取らないことにつながります。"
   - name: Rate limiting
     display_name: "レート制限"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/frequency_capping/\">レート制限</a> は、Brazeからメッセージが送信される速度を制御します（例：1分あたりの配信速度や、Segmentフィルターを使用したユーザー中心の制限）。同じページのフリークエンシーキャップと連携して機能し、フリークエンシーキャップはユーザーが一定期間に受信するメッセージ数を制限します。"
-  - name: Segmentation
+    description: "<a href=\"https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/frequency_capping/\">レート制限</a> は、Brazeからメッセージが送信される速度を制御します（例：1分あたりの配信速度や、セグメントフィルターを使用したユーザー中心の制限）。同じページのフリークエンシーキャップと連携して機能し、フリークエンシーキャップはユーザーが一定期間に受信するメッセージ数を制限します。"
+  - name: セグメントation
     display_name: "セグメンテーション"
     description: "ダッシュボードの<a href=\"https://www.braze.com/docs/user_guide/audience/segments\">セグメンテーション</a> では、アプリ内での行動や人口統計データなどの強力なフィルターに基づいて、ユーザーのグループやエクステンションを作成できます。"
   - name: Software development kit (SDK)
@@ -144,13 +144,13 @@ glossaries:
     description: "Sunsetting（配信停止）とは、反応のないユーザーを特定し、ユーザーによるアクションなしで、そのユーザーへの積極的なメッセージングを停止するプロセスのことです。<a href=\"https://www.braze.com/docs/user_guide/channels/email/best_practices/sunset_policies/\">メール</a> や<a href=\"https://www.braze.com/docs/user_guide/channels/push/best_practices/#implement-a-sunset-policy-for-unresponsive-users\">プッシュ</a> メッセージのサンセットポリシーを作成することで、開封率への影響を抑えることができます。"
   - name: Tag
     display_name: "タグ"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/administer/global/workspace_settings/tags\">タグ</a> は、1つまたは複数のCampaignにまたがるエンゲージメントの分類、整理、並べ替えに役立つツールです。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/administer/global/workspace_settings/tags\">タグ</a> は、1つまたは複数のキャンペーンにまたがるエンゲージメントの分類、整理、並べ替えに役立つツールです。"
   - name: User alias
     display_name: "ユーザーエイリアス"
     description: "<a href=\"https://www.braze.com/docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#assigning-user-aliases\">ユーザーエイリアス</a> は、<code>external_id</code>が存在する前に匿名プロファイルに割り当てることができる代替識別子です。ユーザーがログインするまで、デバイスやチャネルをまたいで同一人物を参照できます。"
   - name: User archival
     display_name: "ユーザーアーカイブ"
-    description: "<a href=\"https://www.braze.com/docs/user_archival/\">ユーザーアーカイブ</a> とは、アーカイブされたユーザーのことです。Brazeでは、これには非アクティブユーザーと休眠ユーザーの両方が含まれます。アーカイブは、Brazeサービスの非アクティブおよび休眠ルールを評価します（スケジューリング、ユーザー数のしきい値などのワークスペースの適格性、会社の設定やCanvasでウィンドウをカスタマイズする方法については、ユーザーアーカイブを参照してください）。"
+    description: "<a href=\"https://www.braze.com/docs/user_archival/\">ユーザーアーカイブ</a> とは、アーカイブされたユーザーのことです。Brazeでは、これには非アクティブユーザーと休眠ユーザーの両方が含まれます。アーカイブは、Brazeサービスの非アクティブおよび休眠ルールを評価します（スケジューリング、ユーザー数のしきい値などのワークスペースの適格性、会社の設定やキャンバスでウィンドウをカスタマイズする方法については、ユーザーアーカイブを参照してください）。"
   - name: User profile
     display_name: "ユーザープロファイル"
     description: "<a href=\"https://www.braze.com/docs/user_guide/audience/manage_audience/user_profiles/\">ユーザープロファイル</a> は、Braze内の各ユーザーの中心的なレコードであり、識別子、属性、イベント、購入、デバイス、エンゲージメント履歴、メッセージ履歴が含まれます。プロファイルは、チャネル全体のセグメンテーション、パーソナライゼーション、コンプライアンスワークフローを支えます。"
@@ -159,6 +159,6 @@ glossaries:
     description: "<a href=\"https://www.braze.com/docs/user_guide/channels/webhooks\">Webhook</a> を使用して、SMSテキストメッセージの配信など、アプリ以外のアクションをトリガーできます。Webhookを使って、他のシステムやアプリケーションにリアルタイムの情報を提供できます。この機能の柔軟性により、どんなエンドポイントにも情報を送ることができます。"
   - name: Workspace
     display_name: "ワークスペース"
-    description: "<a href=\"https://www.braze.com/docs/user_guide/get_started/workspaces/\">ワークスペース</a> は、Brazeがデータを保存し、チームがCampaign、Canvases、Segmentsを構築するコンテナです。各ワークスペースには、1つ以上の<a href=\"https://www.braze.com/docs/user_guide/get_started/workspaces/#understanding-workspaces\">アプリインスタンス</a>（そのワークスペースにデータを送信する個々のアプリやサイト）が含まれます。"
+    description: "<a href=\"https://www.braze.com/docs/user_guide/get_started/workspaces/\">ワークスペース</a> は、Brazeがデータを保存し、チームがキャンペーン、キャンバス、セグメントを構築するコンテナです。各ワークスペースには、1つ以上の<a href=\"https://www.braze.com/docs/user_guide/get_started/workspaces/#understanding-workspaces\">アプリインスタンス</a>（そのワークスペースにデータを送信する個々のアプリやサイト）が含まれます。"
 
 ---

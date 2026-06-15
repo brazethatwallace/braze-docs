@@ -42,7 +42,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 ## リクエスト例 {#example-request}
-```bash
+`````````bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \

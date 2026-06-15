@@ -61,3 +61,14 @@ Intelligent Timing campaigns work best for one-off and recurring messages where 
 ## Audience criteria evaluation with delays
 
 For campaigns that use scheduled delivery, audience criteria are always evaluated at the time of the scheduled send, not when the campaign launches. This applies to any delay between scheduling and sending—for example, rate limiting, local time zone, Intelligent Timing, or a trigger schedule.
+
+## Troubleshooting
+
+### Why didn't my scheduled email campaign reach the entire estimated audience?
+
+Sends can be lower than the estimated audience when users lack an email address, aren't subscribed to email, or are excluded by deliverability filters at send time. A recent change to a user's email address can also affect eligibility when audience criteria are re-evaluated at send. For more factors, see [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
+
+### Why did my campaign send a day before the scheduled time?
+
+If a campaign sends earlier than the schedule you set in **Company Settings**, enable **Send in local time zone** or add a delivery time window for Intelligent Timing campaigns. Without those settings, timezone evaluation can queue sends for users in earlier time zones before your intended schedule time. For more information, see [Local time zone campaigns](#local-time-zone-campaigns) and [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery).
+

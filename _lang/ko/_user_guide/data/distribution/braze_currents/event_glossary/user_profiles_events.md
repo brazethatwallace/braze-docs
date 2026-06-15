@@ -9,6 +9,8 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
 {% alert important %}
 고객 프로필 이벤트는 베타 버전입니다. 액세스하려면 고객 성공 매니저 또는 계정 매니저에게 문의하세요.
 {% endalert %}
@@ -21,7 +23,7 @@ search_rank: 7
 
 {% details 고객 프로필 업데이트 이벤트 구조 설명 %}
 
-### 이벤트 구조
+### 이벤트 구조 {#event-structure}
 
 이 고객 행동 및 사용자 이벤트 분석은 고객 프로필 업데이트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 활용하여 데이터 중심 보고서와 차트를 만들고, 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
@@ -33,6 +35,9 @@ Currents는 페이로드가 900KB보다 큰 이벤트를 삭제합니다.
 
 {% enddetails %}
 
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## 고객 프로필 업데이트 이벤트 {#user-profile-update-events}

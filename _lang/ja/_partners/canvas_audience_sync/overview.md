@@ -2,7 +2,7 @@
 nav_title: オーディエンス同期について
 article_title: オーディエンス同期について
 alias: /partners/about_audience_sync/
-description: "このリファレンス記事では、Braze Audience Sync to Facebook を使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
+description: "このリファレンス記事では、Braze Audience Sync to Facebookを使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
 page_order: 0
 tool:
   - Canvas
@@ -15,7 +15,7 @@ tool:
 
 ## 機能の利用について {#feature-availability}
 
-Brazeをご利用のすべてのお客様は、Audience Sync to GoogleとAudience Sync to Facebookをすぐに利用できますが、アクションクレジットを使用するお客様はすべてのAudience Syncパートナーにアクセスできます。アクションクレジットを使用していないお客様が追加のAudience Sync送信先をロック解除するには、Audience Sync Proを購入してください。詳細については、Brazeのアカウントマネージャーにお問い合わせください。
+Brazeをご利用のすべてのお客様は、Audience Sync to GoogleとAudience Sync to Facebookをすぐに利用できますが、アクションクレジットをご利用のお客様はすべてのAudience Syncパートナーにアクセスできます。アクションクレジットを使用していないお客様が追加のAudience Sync送信先をロック解除するには、Audience Sync Proを購入してください。詳細については、Brazeのアカウントマネージャーにお問い合わせください。
 
 ## ユースケース {#use-cases}
 
@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchatは毎秒10件のクエリを処理し、リクエスト1件あたり100,000ユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | Snapchatは最大1,000の広告オーディエンスに対応します。 |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | 最長24時間 | N/A | はい | {::nomarkdown}<ul><li>The Trade DeskのCRMオーディエンスには最小オーディエンスサイズの制限はありません。</li><li>The Trade Deskがサポートするオーディエンス数に制限はありません。</li><li>EUに設定されたリージョンのオーディエンスに同期する場合、電話番号はサポートされません。</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | 24～48時間 | TikTokは毎秒50件のクエリを処理し、リクエスト1件あたり10,000ユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | {::nomarkdown}<ul><li>TikTokは最大400の広告オーディエンスに対応します。</li><li>TikTokオーディエンスでの広告配信の開始には、1,000人以上のユーザーが必要です。</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="概要" }
 <sup>レート制限に達すると、Brazeは13時間にわたって同期を再試行します。</sup>
 
 ## 仕組み {#how-it-works}
