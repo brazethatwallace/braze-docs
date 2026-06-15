@@ -167,4 +167,4 @@ Una vez que los datos de usuario están en Braze, potencian prácticamente todas
 | Automatización y orquestación  | Desencadena mensajes y recorridos basados en: {::nomarkdown}<ul><li>Acciones del usuario</li> <li>Cambios de atributos</li> <li>Condiciones basadas en el tiempo</li></ul>{:/} |
 | Coordinación entre canales | Llega a los usuarios en el canal más apropiado respetando: {::nomarkdown}<ul><li>Estado de adhesión voluntaria</li> <li>Límites de frecuencia</li> <li>Preferencias de canal</li></ul>{:/} |
 | [Análisis e información]({{site.baseurl}}/user_guide/analytics/) | Comprende cómo se comportan las diferentes audiencias analizando: {::nomarkdown}<ul><li>Tasas de interacción</li> <li>Rutas de conversión</li> <li>Rendimiento de segmentos a lo largo del tiempo</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience data features" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Características de datos de audiencia" }

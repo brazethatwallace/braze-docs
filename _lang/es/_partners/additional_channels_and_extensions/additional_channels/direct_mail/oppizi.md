@@ -45,19 +45,20 @@ Desde esta página puedes gestionar, revocar y crear tus claves cuando lo necesi
 
 ### Paso 2: Crea una plantilla de webhook en Braze {#step-2-create-a-braze-webhook-template}
 
-A continuación, crea una plantilla de webhook para Oppizi en Braze para utilizarla en futuras Campaigns o Canvas.
+A continuación, crea una plantilla de webhook para Oppizi en Braze para utilizarla en futuras Campaigns o Canvas:
 
-1. En Braze, ve a **Templates** > **Webhook Templates**.
-
-En tu plantilla de webhook, rellena los siguientes campos:
+1. En Braze, ve a **Content** > **Webhook**.
+2. Selecciona **Create webhook template**.
+3. Proporciona un nombre para la plantilla.
+4. En tu plantilla de webhook, rellena los siguientes campos:
 
 - **Webhook URL:** `https://webhooks.oppizi.com/events`
-- **Request Body:** **Raw Text**
+- **Request body:** **Raw Text**
 
 Para el método de solicitud y los encabezados, Oppizi requiere que se incluya en la plantilla un método HTTP junto con los siguientes encabezados HTTP. Rellena los siguientes campos:
 
-- **HTTP Method:** POST
-- **Request Headers:**
+- **HTTP method:** POST
+- **Request headers:**
   - **Authorization:** `Bearer <oppiziAPIKey>`
   - **Content-Type:** `application/json`
 

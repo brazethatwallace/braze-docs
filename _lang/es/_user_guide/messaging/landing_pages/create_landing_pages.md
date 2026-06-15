@@ -158,7 +158,7 @@ Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios
 
 ## Usar plantillas {#using-templates}
 
-Usa plantillas de páginas de inicio para crear plantillas para tus próximas campañas. Se puede acceder a estas plantillas y gestionarlas tanto en el editor de páginas de inicio como en la sección **Templates** del dashboard (**Templates** > **Landing Page Templates**). Las plantillas de páginas de inicio requieren un nombre y opcionalmente una descripción.
+Usa plantillas de páginas de inicio para crear plantillas para tus próximas campañas. Se puede acceder a estas plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Landing Page Templates** (**Content** > **Landing Page**). Las plantillas de páginas de inicio requieren un nombre y opcionalmente una descripción.
 
 ## Gestionar plantillas {#managing-templates}
 

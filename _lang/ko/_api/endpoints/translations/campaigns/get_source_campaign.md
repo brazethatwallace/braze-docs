@@ -17,8 +17,6 @@ description: "이 문서에서는 Campaign 번역 소스 엔드포인트에 대�
 
 > 이 엔드포인트를 사용하여 Campaign의 번역 태그에 대한 모든 기본 번역 소스를 확인할 수 있습니다. 이 값은 {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} 내에 포함된 값입니다. 번역 기능에 대한 자세한 내용은 [메시지의 로케일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)을 참조하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `campaigns.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.

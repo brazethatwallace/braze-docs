@@ -20,10 +20,13 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
 
 <table aria-label="À propos de l'éditeur" style="width: 100%; table-layout: fixed;">
     <caption>Composants de l'éditeur : Contenu et Lignes</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenu</th>
         <th style="width: 50%;">Lignes</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet « Lignes » qui présente différentes combinaisons structurelles pour la disposition de votre e-mail." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet « Contenu » qui comprend les blocs de base, les médias et les options avancées." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="À propos de l'éditeur" }
 
@@ -68,6 +72,10 @@ Bien que l'éditeur par glisser-déposer simplifie votre flux de travail avec ce
 
 Les **Lignes** sont des unités structurelles qui définissent la composition horizontale d'une section du message à l'aide de colonnes. Vous pouvez utiliser des lignes vides ou des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). L'utilisation de plusieurs colonnes vous permet de placer différents éléments de contenu côte à côte. Vous pouvez ainsi ajouter tous les éléments structurels nécessaires à votre message, quel que soit le modèle sélectionné au départ.
 
+#### Imbriquer des images dans des blocs de texte {#nesting-images-inside-text-blocks}
+
+Vous ne pouvez pas imbriquer une image dans un paragraphe ou un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page de texte, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Hide on mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Hide on desktop** et **Do not stack on mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
+
 #### Style Cartes {#cards-style}
 
 Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un espacement entre les colonnes et d'arrondir leurs coins. Avec le formatage en style carte, vous pouvez créer des mises en page plus attrayantes visuellement pour mettre en valeur votre contenu le plus important, comme les nouvelles fonctionnalités produit, les témoignages, les offres spéciales, les actualités, et bien plus encore.
@@ -91,7 +99,7 @@ Après avoir sélectionné l'éditeur par glisser-déposer comme expérience d'�
 - Utiliser un modèle d'e-mail par glisser-déposer enregistré.
 
 {% alert note %}
-Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Templates** > **Email Templates** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
+Pour utiliser un modèle HTML personnalisé existant ou des modèles créés par un tiers, vous devez recréer le modèle en accédant à **Content** > **Email** et en sélectionnant **Drag-And-Drop Editor** comme expérience d'édition.
 {% endalert %}
 
 Vous pouvez également accéder à tous les modèles depuis la section **Templates**.
@@ -138,15 +146,7 @@ Une fois la conception et la création de votre e-mail terminées, il est temps 
 
 Un aperçu dans le panneau de droite se remplira avec les informations d'envoi que vous avez ajoutées. Ces informations peuvent également être mises à jour en accédant à **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personnaliser l'en-tête de votre e-mail (avancé) {#personalizing-your-email-header-advanced}
-
-Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
-
-{% alert note %}
-Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou de Canvas. Dans les fonctionnalités avancées, vous pouvez modifier votre paramètre CSS en ligne et saisir des paires clé-valeur d'en-tête ou supplémentaires (si configurées).
-{% endalert %}
-
-#### Ajouter des pièces jointes à l'e-mail {#adding-email-attachments}
+#### Ajouter des pièces jointes à l'e-mail {#add-email-attachments}
 
 Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
 
@@ -155,6 +155,14 @@ Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointe
 - **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
 
 Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+
+#### Personnaliser l'en-tête de votre e-mail (avancé) {#personalize-your-email-header-advanced}
+
+Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les en-têtes d'e-mail et les extras d'e-mail, ce qui vous permet de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. La personnalisation d'un en-tête d'e-mail, comme l'inclusion du nom du destinataire, peut également contribuer à augmenter la probabilité que votre e-mail soit ouvert.
+
+{% alert note %}
+Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou de Canvas. Dans les fonctionnalités avancées, vous pouvez modifier votre paramètre CSS en ligne et saisir des paires clé-valeur d'en-tête ou supplémentaires (si configurées).
+{% endalert %}
 
 ### Étape 4 : Tester votre e-mail {#step-4-test-your-email}
 
@@ -192,7 +200,7 @@ Notez que les modifications apportées à un modèle d'e-mail ne seront pas refl
 
 #### Utiliser Inbox Vision {#use-inbox-vision}
 
-Inbox Vision vous permet de visualiser vos Campaigns d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail avec Inbox Vision, sélectionnez **Inbox Vision** dans la section **Preview & Test** puis sélectionnez **Run Inbox Vision**.
+Inbox Vision vous permet de visualiser vos campagnes d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail avec Inbox Vision, sélectionnez **Inbox Vision** dans la section **Preview & Test** puis sélectionnez **Run Inbox Vision**.
 
 Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de coupures entre les images, ou des clients comme Windows Outlook peuvent ne pas afficher les images d'arrière-plan. Inbox Vision peut vous aider à identifier ces différences entre les clients. Dans ce cas, définissez une couleur d'arrière-plan de secours pour que ces images s'affichent comme prévu.
 
@@ -206,8 +214,8 @@ Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-d�
 La taille moyenne de nos données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
-- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Use Inbox Vision">` standard
-  <caption>Use Inbox Vision</caption>
+- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Utiliser Inbox Vision">` standard
+  <caption>Utiliser Inbox Vision</caption>
 - Les [blocs éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) ont été recodés pour plus de concision
 - Le code HTML final est compressé pour supprimer les espaces entre les balises
 - Les séparateurs transparents sont automatiquement convertis en remplissage de contenu
@@ -317,7 +325,7 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `meta` | Fournit des métadonnées telles que la description de la page ou les mots-clés. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Intègre des styles CSS internes. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Définit le titre du document affiché dans les onglets du navigateur. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Balises et attributs autorisés par balise" }
 
 | Balise | Attribut | Description | Exemple |
 | --- | --- | --- | --- |
@@ -335,7 +343,7 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `style` | `type` | Type MIME du contenu de style. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Aucun attribut | La balise `title` n'accepte aucun attribut. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Balises et attributs autorisés par balise" }
 
 {% alert note %}
 Les noms de liens peuvent contenir jusqu'à 63 octets et sont automatiquement tronqués s'ils dépassent cette limite.

@@ -3,8 +3,8 @@
 Build a weekly support-case digest markdown from the Looker CSV export.
 
 This is a lightweight theme summary (keyword counts). It does not triage against
-the support-analyzer rule, verify product behavior, or edit _docs. Use the
-support-analyzer Cursor rule on the CSV for that.
+the support-analyzer skill, verify product behavior, or edit _docs. Use
+`.github/skills/support-analyzer/SKILL.md` on the CSV for that.
 """
 
 import argparse
@@ -103,7 +103,7 @@ def main() -> None:
         "## What this is",
         "",
         "- **Counts and keyword themes** from the latest CSV only.",
-        "- **Not** a substitute for the **support-analyzer** Cursor rule (`.cursor/rules/support-analyzer.mdc`): no triage categories, no verification against product source, and **no automated edits to `_docs`**. ",
+        "- **Not** a substitute for the **support-analyzer** skill (`.github/skills/support-analyzer/SKILL.md`): no triage categories, no verification against product source, and **no automated edits to `_docs`**. ",
         "",
         "## Batch stats",
         "",
@@ -112,7 +112,7 @@ def main() -> None:
         "",
         "## Frequent terms in case descriptions",
         "",
-        "Use this list to spot recurring product areas; then run the support-analyzer rule on `_data/support_cases_latest.csv` (branch `support-analyzer-data`) to triage and draft real doc updates.",
+        "Use this list to spot recurring product areas; then run the **support-analyzer** skill on `_data/support_cases_latest.csv` (branch `support-analyzer-data`) to triage and draft real doc updates.",
         "",
         "| Term | Approx. mentions |",
         "| --- | ---: |",
@@ -126,7 +126,7 @@ def main() -> None:
             "## Next steps (human or Cursor)",
             "",
             "1. Check out `support-analyzer-data` and open `_data/support_cases_latest.csv`.",
-            "2. Run `@support-analyzer.mdc` on that CSV for themes outside the automated Phase 2 rules.",
+            "2. Run `@support-analyzer` (`.github/skills/support-analyzer/SKILL.md`) on that CSV for themes outside the automated Phase 2 rules.",
             "3. Review **Support analyzer (Looker)** workflow Phase 2 draft PRs (from `.github/support_analyzer_phase2_rules.yml`) when they open.",
             "4. If the digest pull request was auto-closed after the run, download this digest from the **support-analyzer-weekly-digest** workflow artifact.",
             "5. Open additional doc PRs from manual analyzer output after you review (do not merge machine-only digests as product docs).",

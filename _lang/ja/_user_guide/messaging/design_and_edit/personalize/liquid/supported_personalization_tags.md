@@ -23,31 +23,42 @@ search_rank: 1
 | <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>メールリスト属性</a> | `{{${set_user_to_unsubscribed_url}}}` <br>このタグは以前の `{{${unsubscribe_url}}}` タグに代わるものです。以前のタグは過去に作成されたメールでは引き続き機能しますが、新しいタグの使用を推奨します。<br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS 属性</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp 属性</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
-| キャンペーン属性とキャンバスステップ属性 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
-| キャンバス属性 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
+| Campaign属性とキャンバスステップ属性 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
+| Canvas属性 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
 | カード属性 | `{{card.${api_id}}}` <br> `{{card.${name}}}` |
 | ジオフェンスイベント | `{{event_properties.${geofence_name}}}` <br> `{{event_properties.${geofence_set_name}}}` |
 | イベントプロパティ <br> (ワークスペースに固有のものです。)| `{{event_properties.${your_custom_event_property}}}` |
-| キャンバスコンテキスト変数 | `{{context.${your_context_variable}}}` |
+| Canvasコンテキスト変数 | `{{context.${your_context_variable}}}` |
 | カスタム属性 <br> (ワークスペースに固有のものです。) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>API トリガープロパティ</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
-| キャンバスエントリプロパティ | `{{context.${property_name}}}` |
+| Canvasエントリプロパティ | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
 
 {% endraw %}
 
 ### サポートされている属性 {#supported-attributes}
 
-キャンペーン、カード、キャンバスの属性は、対応するメッセージングテンプレートでのみサポートされています（例えば、`dispatch_id` はアプリ内メッセージキャンペーンでは使用できません）。
+Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています（例えば、`dispatch_id` はアプリ内メッセージCampaignでは使用できません）。
 
-[Braze内のソースによってこれらの属性がどのように異なるか]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/)の詳細については、このヘルプ記事を参照してください。
+詳細については、[ソース別のCampaignおよびCanvas属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)を参照してください。
 
-### キャンバスとキャンペーンのタグの違い {#canvas-and-campaign-tag-differences}
+### CanvasとCampaignのタグの違い {#canvas-and-campaign-tag-differences}
 
-以下のタグの動作は、キャンバスとキャンペーンで異なります。
+以下のタグの動作は、CanvasとCampaignで異なります。
 {% raw %}
-- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
-- キャンバスで `{{campaign.${name}}}` タグを使用すると、キャンバスコンポーネント名が表示されます。キャンペーンでこのタグを使用すると、キャンペーン名が表示されます。
+- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
+- Canvasで `{{campaign.${name}}}` タグを使用すると、Canvasコンポーネント名が表示されます。Campaignでこのタグを使用すると、Campaign名が表示されます。
+{% endraw %}
+
+#### URL 内のCampaign名 {#campaign-names-in-urls}
+{: #campaign-names-in-urls}
+
+{% raw %}
+Campaignおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) フィルターを適用してください。例えば：
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## 最近使用したデバイスの情報 {#most-recently-used-device-information}
@@ -162,7 +173,7 @@ User is in list of apps
 
 `assign` タグを使用して、メッセージ作成画面で変数を作成できます。変数にはユニークな名前を使用することを推奨します。サポートされているパーソナライゼーションタグ（`language` など）と類似した名前の変数を作成すると、メッセージングロジックに影響を与える可能性があります。
 
-変数を作成した後、メッセージングロジックやメッセージ内でその変数を参照できます。このタグは、[コネクテッドコンテンツ]({% image_buster /assets/img_archive/personalized_firstname_.png %})機能から返されるコンテンツを再フォーマットしたい場合に便利です。詳細については、Shopify のドキュメントの[変数タグ](https://docs.shopify.com/themes/liquid/tags/variable-tags)を参照してください。
+変数を作成した後、メッセージングロジックやメッセージ内でその変数を参照できます。このタグは、[コネクテッドコンテンツ]({% image_buster /assets/img_archive/personalized_firstname_.png %})機能から返されるコンテンツを再フォーマットしたい場合に便利です。詳細については、Shopifyのドキュメントの[変数タグ](https://docs.shopify.com/themes/liquid/tags/variable-tags)を参照してください。
 
 {% alert tip %}
 毎回のメッセージで同じ変数を割り当てていませんか？`assign` タグを何度も書く代わりに、そのタグをコンテンツブロックとして保存し、メッセージの先頭に配置できます。
@@ -180,7 +191,7 @@ User is in list of apps
 顧客が報酬ポイントを 100 ポイント貯めた後にポイントを賞品に交換できるとします。そのため、追加購入を行った場合にポイント残高が 100 以上になる顧客にのみメッセージを送信したいとします。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign new_points_balance = {{custom_attribute.${current_rewards_balance} | plus: 50}} %}
 {% if new_points_balance >= 100 %}
 Make a purchase to bring your rewards points to {{new_points_balance}} and cash in today!
@@ -199,7 +210,7 @@ Make a purchase to bring your rewards points to {{new_points_balance}} and cash 
 
 Nike のスニーカーのセールを開催しており、Nike に興味を示した顧客にメッセージを送信したいとします。各顧客のプロファイルには、閲覧した製品ブランドの配列があります。この配列には最大 25 の製品ブランドが含まれる可能性がありますが、直近 5 回の製品閲覧のうち Nike の製品を閲覧した顧客にのみメッセージを送信したいとします。
 
-`````````liquid
+```liquid
 {% for items in {{custom_attribute.${Brands Viewed}}} limit:5 %}
 {% if {{items}} contains 'Converse' %}
 {% assign converse_viewer = true %}
@@ -216,11 +227,11 @@ Sale on Converse!
 
 次に、`converse_viewer` が true の場合にセールメッセージを送信します。それ以外の場合はメッセージを中止します。
 
-これは、Brazeのメッセージ作成画面で反復タグを使用する方法の簡単な例です。詳細については、Shopify のドキュメントの[反復タグ](https://docs.shopify.com/themes/liquid/tags/iteration-tags)を参照してください。
+これは、Brazeのメッセージ作成画面で反復タグを使用する方法の簡単な例です。詳細については、Shopifyのドキュメントの[反復タグ](https://docs.shopify.com/themes/liquid/tags/iteration-tags)を参照してください。
 
 ## 構文タグ {#syntax-tags}
 
-構文タグを使用して、Liquid のレンダリング方法を制御できます。`echo` タグを使用して式を返すことができます。これは式を波括弧で囲むのと同じですが、Liquid タグ内でこのタグを使用できます。また、`liquid` タグを使用して、各タグにデリミタを付けずに Liquid のブロックを記述できます。`liquid` タグを使用する場合、各タグは独自の行に記述する必要があります。詳細と例については、Shopify のドキュメントの[構文タグ](https://shopify.dev/api/liquid/tags#syntax-tags)を参照してください。
+構文タグを使用して、Liquid のレンダリング方法を制御できます。`echo` タグを使用して式を返すことができます。これは式を波括弧で囲むのと同じですが、Liquid タグ内でこのタグを使用できます。また、`liquid` タグを使用して、各タグにデリミタを付けずに Liquid のブロックを記述できます。`liquid` タグを使用する場合、各タグは独自の行に記述する必要があります。詳細と例については、Shopifyのドキュメントの[構文タグ](https://shopify.dev/api/liquid/tags#syntax-tags)を参照してください。
 
 [空白制御](https://shopify.github.io/liquid/basics/whitespace/)を使用すると、タグの周囲の空白を削除でき、Liquid の出力の見た目をさらに制御できます。
 
@@ -228,7 +239,7 @@ Sale on Converse!
 
 [コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)呼び出しの HTTP ステータスを利用するには、まずローカル変数として保存し、次に `__http_status_code__` キーを使用します。例えば：
 
-`````````html
+```html
 {% connected_content https://example.com/api/endpoint :save connected %}
 {% if connected.__http_status_code__ != 200 %}
 {% abort_message('Connected Content returned a non-200 status code') %}
@@ -250,7 +261,7 @@ Sale on Converse!
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% if ${language} == 'en' %}
 Message in English
 {% elsif  ${language} == 'fr' %}
@@ -276,11 +287,11 @@ Message in default language
 
 ### ユースケース：タイムゾーンによるユーザーのターゲティング {#use-case-target-users-by-time-zone}
 
-タイムゾーンによってユーザーをターゲティングすることもできます。例えば、EST にいるユーザーには 1 つのメッセージを送信し、PST にいるユーザーには別のメッセージを送信します。これを行うには、現在の時刻を UTC で保存し、if/else 文をユーザーの現在の時刻と比較して、適切なタイムゾーンに適切なメッセージを送信します。ユーザーのローカルタイムゾーンで送信するようキャンペーンを設定し、適切な時間にキャンペーンが届くようにする必要があります。
+タイムゾーンによってユーザーをターゲティングすることもできます。例えば、EST にいるユーザーには 1 つのメッセージを送信し、PST にいるユーザーには別のメッセージを送信します。これを行うには、現在の時刻を UTC で保存し、if/else 文をユーザーの現在の時刻と比較して、適切なタイムゾーンに適切なメッセージを送信します。ユーザーのローカルタイムゾーンで送信するようCampaignを設定し、適切な時間にCampaignが届くようにする必要があります。
 
 以下のユースケースでは、午後 2 時から午後 3 時の間に配信されるメッセージを、各タイムゾーン向けの特定のメッセージで記述する方法を示します。
 
-`````````liquid
+```liquid
 {% assign hour_in_utc = 'now' | date: '%H' | plus:0 %}
 {% if hour_in_utc >= 19 && hour_in_utc < 20 %}
 It is between 2:00:00 pm and 2:59:59 pm ET!
@@ -309,7 +320,7 @@ It is between 2:00:00 pm and 2:59:59 pm PT!
 ### ユースケース：ユーザーにランダムなバリアントを送信する {#use-case-send-users-random-variants}
 
 {% raw %}
-`````````liquid
+```liquid
 {% capture roll_str %}{% random %}{% endcapture %}
 {% assign roll = roll_str | plus: 0 %}
 {% if roll < 0.5 %}
@@ -322,10 +333,10 @@ Show variant B
 
 ## eコマースショッピングカートタグ {#shopping-cart-tag}
 
-`shopping_cart` タグは、eコマースの[カート放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20cart#abandoned-cart)および[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout)のキャンバスユースケースで、ユーザーのカート内容にアクセスします。`CART_ID` を実際のカート ID 値（{% raw %}`{{context.${cart_id}}}`{% endraw %} など）に置き換えてください。
+`shopping_cart` タグは、eコマースの[カート放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20cart#abandoned-cart)および[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout)のCanvasユースケースで、ユーザーのカート内容にアクセスします。`CART_ID` を実際のカート ID 値（{% raw %}`{{context.${cart_id}}}`{% endraw %} など）に置き換えてください。
 
 {% raw %}
-`````````liquid
+```liquid
 {% shopping_cart CART_ID :abort_if_not_abandoned false %}
 ```
 {% endraw %}

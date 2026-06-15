@@ -1,4 +1,4 @@
-Angepasste HTML-In-App-Nachrichten und Banner unterstützen eine JavaScript-„Bridge“ als Schnittstelle zum Braze SDK, sodass Sie benutzerdefinierte Braze-Aktionen triggern können, wenn Nutzer:innen auf Elemente mit Links klicken oder anderweitig mit Ihren Inhalten interagieren. Diese Methoden existieren mit der globalen Variable `brazeBridge` oder `appboyBridge`.
+Angepasste HTML-In-App-Nachrichten und Banner unterstützen eine JavaScript-„Bridge“ als Schnittstelle zum Braze SDK, sodass Sie angepasste Braze-Aktionen triggern können, wenn Nutzer:innen auf Elemente mit Links klicken oder anderweitig mit Ihren Inhalten interagieren. Diese Methoden existieren mit der globalen Variable `brazeBridge` oder `appboyBridge`.
 
 {% alert important %}
 Braze empfiehlt Ihnen, die globale Variable `brazeBridge` zu verwenden. Die globale Variable `appboyBridge` ist veraltet, wird aber für bestehende Nutzer:innen weiterhin funktionieren. Wenn Sie `appboyBridge` verwenden, empfehlen wir Ihnen eine Migration auf `brazeBridge`. <br><br> `appboyBridge` wurde in den folgenden SDK-Versionen als veraltet markiert:<br><br>
@@ -49,10 +49,6 @@ Die folgenden JavaScript-Methoden werden in angepasstem HTML für In-App-Nachric
   word-break: break-word;
 }
 </style>
-
-{% alert note %}
-Sie können Liquid nicht verwenden, um <code>customAttributes</code> in JavaScript-Bridge-Methoden einzufügen.
-{% endalert %}
 
 {% multi_lang_include archive/appboyBridge.md %}
 

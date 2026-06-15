@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Paso 1: Navega al editor de plantillas de correo electrónico {#step-1-navigate-to-the-email-template-editor}
 
-En el dashboard de Braze, ve a **Plantillas** > **Plantillas de correo electrónico**.
+En el dashboard de Braze, ve a **Contenido** > **Correo electrónico**.
 
 ## Paso 2: Selecciona tu experiencia de edición {#step-2-select-your-editing-experience}
 

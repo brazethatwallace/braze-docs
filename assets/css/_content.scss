@@ -499,6 +499,13 @@
 		&:hover {
 			opacity: 1 !important;
 		}
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		&:focus-visible {
+			opacity: 1;
+			@include focus-ring();
+		}
 	}
 
 	.heading-copy-feedback {
@@ -757,6 +764,10 @@ table td code.highlighter-rouge {
 		word-break: initial;
 	}
 }
+
+/* Pricing/credit-ratio tables use class="credits-table" for future
+   targeted styling if needed. Header highlight is handled by the
+   table > thead rule above. */
 
 /* Definitions table: prevent awkward line breaks in support columns and definition column */
 table.definitions-table {

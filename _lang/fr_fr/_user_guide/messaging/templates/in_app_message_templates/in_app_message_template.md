@@ -2,7 +2,7 @@
 nav_title: Créer un modèle de message in-app
 article_title: Créer un modèle de message in-app
 page_order: 0
-description: "Cet article de référence explique comment créer, enregistrer et gérer des modèles de messages in-app depuis la section Modèles du tableau de bord de Braze, y compris les profils de couleurs et les modèles CSS pour l'éditeur traditionnel."
+description: "Cet article de référence explique comment créer, enregistrer et gérer des modèles de messages in-app depuis la section Contenu du tableau de bord de Braze, y compris les profils de couleurs et les modèles CSS pour l'éditeur traditionnel."
 tool:
   - Templates
 channel:
@@ -12,11 +12,11 @@ search_rank: 1
 
 # Créer un modèle de message in-app {#create-an-in-app-message-template}
 
-> Utilisez **Templates** > **In-App Message Templates** pour créer une bibliothèque réutilisable de mises en page de messages in-app et dans le navigateur. Vous pouvez enregistrer des conceptions depuis l'éditeur par glisser-déposer ou créer des ressources **Color Profile** et **CSS Template** pour l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+> Utilisez **Contenu** > **In-App Message** pour créer une bibliothèque réutilisable de mises en page de messages in-app et dans le navigateur. Vous pouvez enregistrer des conceptions depuis l'éditeur par glisser-déposer ou créer des ressources **Color Profile** et **CSS Template** pour l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
 
 ## Étape 1 : Ouvrir les modèles de messages in-app {#step-1-open-in-app-message-templates}
 
-Dans le tableau de bord de Braze, accédez à **Templates** > **In-App Message Templates**.
+Dans le tableau de bord de Braze, accédez à **Contenu** > **In-App Message**.
 
 ## Étape 2 : Choisir comment créer un modèle {#step-2-choose-how-to-create-a-template}
 
@@ -35,7 +35,7 @@ Les profils de couleurs et les modèles CSS s'appliquent à l'éditeur tradition
 
 ## Étape 3 : Gérer vos modèles {#step-3-manage-your-templates}
 
-Dans **Templates** > **In-App Message Templates**, filtrez, recherchez ou ouvrez un modèle pour le modifier. Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) des modèles comme pour les autres types de modèles. Pour un aperçu des flux de travail liés aux modèles et aux médias, consultez [Modèles]({{site.baseurl}}/user_guide/messaging/templates/).
+Dans **Contenu** > **In-App Message**, filtrez, recherchez ou ouvrez un modèle pour le modifier. Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) des modèles comme pour les autres types de modèles. Pour un aperçu des flux de travail liés aux modèles et aux médias, consultez [Modèles]({{site.baseurl}}/user_guide/messaging/templates/).
 
 Pour accéder aux modèles de messages in-app, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) permettant de consulter ou de modifier les modèles de messages in-app.
 

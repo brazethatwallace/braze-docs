@@ -42,6 +42,8 @@ In sum, data points are accumulated when a user's profile data is updated or whe
 
 You can find a breakdown of how Braze accumulates data points in the following sections. If you ever have any questions about the nuances of Braze data points, your Braze account manager can answer them.
 
+For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables below and [Special circumstances](#special-circumstances)).
+
 The following actions do not log data points:
 - Deleting users from Braze
 - Using Connected Content in messaging

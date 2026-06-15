@@ -16,13 +16,16 @@ guide_featured_list:
 - name: API REST
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/rest_api
   image: /assets/img/braze_icons/server-01.svg
+- name: Attributs de Campaign et Canvas à travers les sources
+  link: /docs/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources
+  image: /assets/img/braze_icons/dataflow-03.svg
 - name: Catalogue
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/catalog
   image: /assets/img/braze_icons/list.svg
 - name: Codes de promotion
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes
   image: /assets/img/braze_icons/tag-01.svg
-- name: Propriétés d'entrée Canvas
+- name: Propriétés d'entrée du Canvas
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/canvas_entry_properties
   image: /assets/img/braze_icons/dataflow-03.svg
 - name: Variables de contexte

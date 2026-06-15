@@ -149,6 +149,10 @@ This endpoint has a rate limit of 20 requests per minute.
 {% elsif include.endpoint == "cdi job sync status" %}
 This endpoint has a rate limit of 100 requests per minute.
 
+<!---/media_library/create, /media_library/replace_file--->
+{% elsif include.endpoint == "media_library" %}
+This endpoint has a rate limit of 100 requests per hour, as documented in [API rate limits]({{site.baseurl}}/api/api_limits/).
+
 {% endif %}
 
 <!---Additional if statement for Messaging endpoints-->

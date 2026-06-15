@@ -31,7 +31,7 @@ Observe que cada chamada a esse endpoint retornará 50 eventos. Para mais de 50 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `cursor` | Opcional | String | Determina a paginação dos eventos personalizados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de consulta" }
 
 ## Exemplos de solicitações {#example-requests}
 

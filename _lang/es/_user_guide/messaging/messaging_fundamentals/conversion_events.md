@@ -29,6 +29,8 @@ El seguimiento de conversiones comienza cuando un usuario recibe la campaña o e
 
 El seguimiento de conversiones comienza cuando un usuario entra al Canvas. Para los pasos en Canvas, las conversiones se atribuyen mientras el usuario está activo en ese paso. Cuando el usuario avanza a otro paso, el seguimiento de conversiones se detiene para el paso anterior y comienza para el siguiente paso.
 
+Mientras un usuario está en un paso de **Retraso** u otro paso sin mensaje, las conversiones que ocurren durante esa espera aún se atribuyen al paso de mensaje anterior hasta que el usuario avanza. Después de que el usuario recibe el último paso de mensaje en su ruta, las conversiones aún pueden registrarse hasta el plazo de conversión del Canvas (contado desde la entrada al Canvas), incluso si no hay más pasos de mensaje.
+
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +46,7 @@ Ten en cuenta lo siguiente sobre cómo Braze maneja múltiples conversiones:
 
 - **Campañas de un solo canal**: Las conversiones ocurren por usuario, no por dispositivo. Dentro de un solo canal, un usuario convierte solo una vez por evento de conversión, incluso si un mensaje se envía a múltiples dispositivos. Por ejemplo, si una campaña tiene solo un evento de conversión configurado como "Realiza cualquier compra" y un usuario realiza dos compras separadas dentro del plazo de conversión, Braze cuenta solo una conversión.
 - **Campañas multicanal**: Para campañas multicanal, cada canal tiene su propia oportunidad de conversión. Un usuario puede convertir una vez por canal después de recibir un mensaje en ese canal. Esto significa que si un usuario recibe mensajes en múltiples canales (por ejemplo, tanto correo electrónico como push) y realiza la acción de conversión, Braze cuenta una conversión por cada canal, lo que puede resultar en tasas de conversión superiores al 100 %.
-- **Pasos de mensaje en Canvas**: Braze atribuye las conversiones que ocurren dentro del plazo de conversión al último paso de mensaje en Canvas que el usuario recibió. Después de que recibe el siguiente paso de mensaje, la atribución se mueve a ese paso. Braze mide esa ventana desde que el usuario entra al Canvas, no desde cada mensaje individual. Braze sigue contando las conversiones durante los períodos de espera entre pasos.
+- **Pasos de mensaje en Canvas**: Braze atribuye las conversiones que ocurren dentro del plazo de conversión al último paso de mensaje en Canvas que el usuario recibió. Después de que recibe el siguiente paso de mensaje, la atribución se mueve a ese paso. Braze mide esa ventana desde que el usuario entra al Canvas, no desde cada mensaje individual. Las conversiones que ocurren durante los retrasos entre pasos de mensaje cuentan para la atribución del paso de mensaje anterior hasta que el usuario avanza; las conversiones después del último paso de mensaje aún cuentan hasta el plazo de conversión del Canvas.
 - Si un usuario realiza un evento de conversión dentro de los plazos de conversión de dos campañas o Canvas separados que recibió, la conversión se registra en ambos.
 - Un usuario cuenta como convertido si realizó el evento de conversión específico dentro de la ventana, incluso si no abrió ni hizo clic en el mensaje.
 
@@ -83,7 +85,7 @@ Primero, selecciona el tipo general de evento que te gustaría usar:
 | **Actualiza la aplicación** | Un usuario se cuenta como convertido cuando actualiza la versión de la aplicación en cualquiera de las aplicaciones que especifiques (por defecto, todas las aplicaciones en el espacio de trabajo). Braze realiza una comparación numérica de mejor esfuerzo para determinar si el cambio fue una actualización. Las versiones no numéricas se cuentan como conversiones si la versión cambia. |
 | **Abre el correo electrónico** | Un usuario se cuenta como convertido cuando abre el correo electrónico (solo para campañas de correo electrónico). |
 | **Hace clic en el correo electrónico** | Un usuario se cuenta como convertido cuando hace clic en un enlace dentro del correo electrónico (solo para campañas de correo electrónico). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Agrega los eventos de conversión" }
 
 {% alert important %}
 **Las propiedades anidadas no son compatibles con los eventos de conversión**. No puedes usar propiedades anidadas en eventos de conversión. Por ejemplo, si `product_code` o `product_name` son propiedades anidadas dentro de un array `products` (como `products[].product_code`), no puedes usarlas para verificar si se ha realizado una compra de un producto específico en un evento de conversión.

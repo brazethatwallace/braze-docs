@@ -20,7 +20,7 @@ channel:
 
 ### 1단계: WhatsApp 템플릿으로 이동 {#step-1-go-to-whatsapp-templates}
 
-**Content** > **WhatsApp Templates**로 이동한 다음 **Create new template**을 선택합니다.
+**Content** > **WhatsApp**으로 이동한 다음 **Create new template**을 선택합니다.
 
 ![새 템플릿을 생성하는 버튼이 있는 WhatsApp 템플릿 페이지.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

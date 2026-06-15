@@ -2,7 +2,6 @@
 nav_title: 画像の仕様
 article_title: 画像の仕様
 page_order: 1
-
 page_type: reference
 description: "このリファレンス記事では、各チャネルタイプの推奨画像サイズと仕様について説明します。"
 tool:
@@ -27,7 +26,9 @@ tool:
 
 ## GIF {#gifs}
 
-GIFは、iOSプッシュ通知、アプリ内メッセージ、メール、コンテンツカード、MMSまたはRCSメッセージでサポートされています。非常に細長い形状のGIF（例：3000 x 2ピクセル）や300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。
+GIFは、iOSプッシュ通知、アプリ内メッセージ、メール、Content Cards、MMSまたはRCSメッセージでサポートされています。非常に細長い形状のGIF（例：3000 x 2ピクセル）や300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## チャネルガイダンス {#channel-guidance}
 
@@ -81,7 +82,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 | --- | --- |
 | Chrome | 192 x 192 px以上 |
 | Firefox | 192 x 192 px以上 |
-| Safari | 192 x 192 px以上（macOS 13+のSafari 16ではキャンペーンごとに設定可能） |
+| Safari | 192 x 192 px以上（macOS 13+のSafari 16ではCampaignごとに設定可能） |
 | Opera | 192 x 192 px以上 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 

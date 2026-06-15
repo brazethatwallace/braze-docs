@@ -43,7 +43,7 @@ Die Häufigkeit, mit der die Daten in diesem Dashboard aktualisiert werden, kann
 
 ## Dashboard konfigurieren {#configuring-the-dashboard}
 
-Sie können auf das Diagnose-Dashboard zugreifen, indem Sie zu **Analytics** > **Dashboard-Builder** navigieren und **Messaging Diagnostics** aus der Liste der von Braze erstellten Dashboards auswählen.
+Sie können auf das Diagnose-Dashboard zugreifen, indem Sie zu **Analytics** > **Dashboard Builder** navigieren und **Messaging Diagnostics** aus der Liste der von Braze erstellten Dashboards auswählen.
 
 Um das Dashboard auszuführen und Ihre Daten anzuzeigen:
 
@@ -51,7 +51,7 @@ Um das Dashboard auszuführen und Ihre Daten anzuzeigen:
 2. Wählen Sie eine oder mehrere Campaigns oder Canvases aus.
 3. Wählen Sie **Run Dashboard**, um die Daten für Ihre ausgewählten Filter zu laden.
 
-![Beispiel für Campaign- und Canvas-Diagnose vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Beispiel für Campaign- und Canvas-Diagnose vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Beispiel für Campaign- und Canvas-Diagnose mit Chart bei Hover vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Daten interpretieren {#interpreting-the-data}
 
@@ -78,11 +78,16 @@ Dieses Zeitreihen-Chart zeigt eine tägliche Aufschlüsselung der verschiedenen 
 Um das Chart übersichtlich zu halten, werden Abbruch- oder Drop-Gründe mit null Vorkommen in Ihrem ausgewählten Zeitraum nicht im Chart angezeigt.
 {% endalert %}
 
-### Aufschlüsselung der Nachrichtenergebnisse {#message-outcomes-breakdown}
+### Detailliertes Protokoll der Nachrichtenergebnisse {#message-outcomes-granular-log}
 
-Dieses Chart zeigt die Aufschlüsselung aller Nachrichtenergebnisse innerhalb Ihres ausgewählten Zeitraums. Es bietet ein vollständiges Bild von:
-- Der Gesamtanzahl der Sends als Anteil an allen Ergebnissen.
-- Der proportionalen Aufschlüsselung jedes Abbruch- und Drop-Grundes. Dies hilft Ihnen, die häufigsten Gründe schnell zu identifizieren, warum Nachrichten nicht gesendet werden.
+Unterhalb des Zeitreihen-Charts zeigt das Dashboard eine detaillierte Tabelle einzelner Nachrichtenergebnisse für Ihre ausgewählten Filter und den Zeitraum. Verwenden Sie diese Tabelle, um bestimmte Datensätze zu überprüfen, einschließlich Zeitstempel, Nutzer-ID, Canvas-Schritt, Ergebnis und Kanal.
+
+Sie können die Tabelle filtern, um sich auf bestimmte Datensätze zu konzentrieren:
+
+- **Nach Ergebnis filtern:** Wählen Sie ein Ergebnis aus dem Ergebnisfilter, um nur Zeilen mit diesem Ergebnis anzuzeigen (z. B. `Frequency capped` oder `User not eligible`).
+- **Nach Nutzer-ID suchen:** Geben Sie eine Nutzer-ID in das Suchfeld ein, um Zeilen für diese bestimmten Nutzer:innen anzuzeigen.
+
+Wenn Sie beide Filter anwenden, gibt die Tabelle Zeilen zurück, die sowohl dem ausgewählten Ergebnis als auch der eingegebenen Nutzer-ID entsprechen.
 
 ### Abbruchergebnisse {#abort-outcomes}
 
@@ -107,9 +112,9 @@ Die folgenden Definitionen erklären die im Dashboard angezeigten Abbruchergebni
 | ---- | ---- |
 | Verzögerungsschritt fehlgeschlagen | Der [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) ist fehlgeschlagen, wodurch die Nutzer:innen den Canvas verlassen haben. Dieser Fehler kann auftreten, wenn: {::nomarkdown}<ul><li> Die Variable, die dem personalisierten Verzögerungsschritt bereitgestellt wurde, leer oder ein ungültiger Typ war </li><li> Die Verzögerung die maximal zulässige Dauer innerhalb des Canvas überschreitet</li></ul>{:/} |
 | Ausnahme- oder Ausstiegs-Event | Die Nutzer:innen waren zuvor berechtigt, die Nachricht zu erhalten, haben aber entweder {::nomarkdown}<ul><li> ein <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">Ausnahme-Event</a> für eine aktionsbasierte Campaign ausgeführt, sodass die Nachricht abgebrochen wurde, oder </li><li> die Canvas-<a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">Ausstiegskriterien</a> erfüllt, sodass sie mitten in der Journey entfernt wurden.</li></ul>{:/} |
-| Inaktive Campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, sodass sie abgebrochen wurde. |
-| Inaktiver Canvas | Der Canvas wurde gestoppt, bevor die Nutzer:innen die Journey betreten haben. |
-| Inaktiver Canvas-Schritt | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
+| Inactive campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, sodass sie abgebrochen wurde. |
+| Inactive Canvas | Der Canvas wurde gestoppt, bevor die Nutzer:innen die Journey betreten haben. |
+| Inactive Canvas step | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
 | Volumenlimit erreicht | Die Campaign hat das festgelegte Volumenlimit erreicht, sodass der Versand abgebrochen wurde. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
 
@@ -140,7 +145,7 @@ Die folgenden Definitionen erklären die im Dashboard angezeigten Abbruchergebni
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
 | Partner-Zustellungs-Timeout | Braze hat 24 Stunden lang versucht, diese Nachricht an Ihren Zustellungspartner zu senden, aber der Partner hat während des gesamten Zeitfensters temporäre Fehler zurückgegeben. |
-| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
+| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App Settings**. |
 | Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert | Push kann nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben die App nicht installiert.</li> <li> Die Nutzer:innen haben kein gültiges Push-Token. </li> <li>Die Nutzer:innen haben nicht das erforderliche Gerät für diese Push-Benachrichtigung. </li> <li> Die Nutzer:innen haben Benachrichtigungen für diese App in den Geräteeinstellungen deaktiviert. </li> <li> Die Nutzer:innen haben Push-Benachrichtigungen nicht abonniert oder dem Empfang nicht zugestimmt.</li></ul>{:/} |
 | Nutzer:innen nicht für iOS-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |
 | Nutzer:innen nicht für Kindle-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |

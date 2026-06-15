@@ -15,12 +15,6 @@ page_order: 1
 ## 1단계: Shopify 스토어 연결 {#step-1-connect-your-shopify-store}
 
 1. Braze에서 **파트너 통합** > **기술 파트너**로 이동한 다음 "Shopify"를 검색합니다.
-
-{% alert note %}
-이전 탐색을 사용하는 경우 **통합** 아래에서 **기술 파트너**를 찾을 수 있습니다.
-{% endalert %}
-
-{: start="2"}
 2. Shopify 파트너 페이지에서 **Begin setup**을 선택하여 통합 프로세스를 시작합니다.<br><br>![설정 시작 버튼이 있는 Shopify 통합 페이지.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Shopify 앱 스토어에서 Braze 애플리케이션을 설치합니다.<br><br>![애플리케이션 설치 버튼이 있는 Braze 앱 스토어 페이지.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -165,6 +159,16 @@ braze.logCustomEvent(
 - **고객 생성 웹훅 수신:** [`customer/create` 이벤트](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks)를 수신하도록 웹훅을 설정합니다. 이를 통해 새 고객이 생성될 때 메타필드를 작성할 수 있습니다.
 - **기존 고객 백필:** [Admin API](https://shopify.dev/docs/api/admin-graphql) 또는 [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)를 사용하여 이전에 생성된 고객의 메타필드를 백필합니다.
 
+#### 잠재적 경합 조건 {#potential-race-condition}
+
+Shopify `customers/create` 웹훅은 `braze.external_id` 메타필드가 고객 프로필에 기록되기 전에 실행될 수 있습니다. 이 경우:
+
+1. 메타필드가 누락되면 Braze는 구성된 엔드포인트(4.2단계)를 호출하여 외부 ID를 가져옵니다.
+2. 해당 호출도 실패하거나 시간 초과되면 Braze는 Shopify 고객 ID를 외부 ID로 사용하여 임시 고객 프로필을 생성합니다.
+3. 메타필드가 존재하는 후속 이벤트(예: `customers/update` 또는 `ecommerce.order_placed` 이벤트에 대한 `orders/create`)에서 Braze는 자동으로 불일치를 감지하고 임시 프로필을 올바른 외부 ID와 병합합니다.
+
+이는 임시 중복 프로필이 발생할 수 있지만 자동으로 수정된다는 것을 의미합니다. 이러한 프로필을 수동으로 병합할 필요는 없습니다.
+
 ### 4.2단계: 외부 ID를 검색할 엔드포인트 만들기 {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 외부 ID를 검색하기 위해 Braze가 호출할 수 있는 공용 엔드포인트를 만들어야 합니다. 이를 통해 Shopify에서 `braze.external_id` 메타필드를 직접 제공할 수 없는 시나리오에서 Braze가 ID를 가져올 수 있습니다.
@@ -202,7 +206,7 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 #### 실패 동작 및 병합 {#failure-behavior-and-merging}
 `200` 이외의 상태 코드는 모두 실패로 간주됩니다.
 
-- **병합 영향:** 엔드포인트가 실패하면(`200`이 아닌 값을 반환하거나 시간 초과), Braze는 외부 ID를 검색할 수 없습니다. 따라서 Shopify 사용자와 Braze 고객 프로필 간의 병합은 해당 시점에 이루어지지 않습니다.
+- **병합 영향:** 엔드포인트가 실패하면(`200`이 아닌 값을 반환하거나 시간 초과) Braze는 외부 ID를 검색할 수 없습니다. 따라서 Shopify 사용자와 Braze 고객 프로필 간의 병합은 해당 시점에 이루어지지 않습니다.
 - **재시도 로직:** Braze는 표준 즉시 네트워크 재시도를 시도할 수 있지만, 실패가 지속되면 다음 적격 이벤트(예: 사용자가 프로필을 업데이트하거나 결제를 완료할 때)까지 병합이 연기됩니다.
 - **지원 가능성:** 적시에 사용자 병합을 지원하려면 엔드포인트의 가용성이 높고 선택 사항인 `email_address` 필드를 원활하게 처리할 수 있는지 확인하세요.
 
@@ -234,7 +238,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이
 
 Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/)를 확인하세요.
 
-!["Catalog product identifier"로 "Shopify Variant ID"가 설정된 설정 프로세스의 4단계.]({% image_buster /assets/img/shopify/sync_products_step1.png %}){: style="max-width:80%;"}
+![카탈로그 제품 식별자로 "Shopify Variant ID"가 설정된 설정 프로세스의 4단계.]({% image_buster /assets/img/shopify/sync_products_step1.png %}){: style="max-width:80%;"}
 
 ## 6단계: 채널 활성화(선택 사항) {#step-6-activate-channels-optional}
 

@@ -216,7 +216,7 @@ table th:nth-child(3) {
 | メリット | デメリット |
 | ---- | ---- |
 | • **メッセージアクティビティログ**を通じて、プラットフォームに入ってくるJSONペイロードを確認可能（テストユーザーによるイベントトリガーの場合）<br><br>• パーソナライゼーション要素がカスタムイベントプロパティに含まれる<br><br>• カスタムイベントを使用して、メッセージの受信資格のあるユーザーのSegmentを作成可能 | • データポイントを消費する |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アクションベース" }
 
 #### APIトリガー {#api-triggered}
 
@@ -225,7 +225,7 @@ APIトリガーおよびサーバートリガーCampaignは、より高度なト
 | メリット | 考慮事項 |
 | ---- | ---- |
 | • データポイントを消費しない<br><br>• パーソナライゼーション要素がJSONペイロードプロパティに含まれる | • JSONペイロードプロパティでメッセージの受信資格のあるユーザーのSegmentを作成できない<br><br>• **メッセージアクティビティログ**で入ってくるJSONペイロードを確認できない |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="APIトリガー" }
 
 ### 「リクエストタイムアウト」エラーのサポートチケットを送信する際に何を含めるべきですか？ {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
@@ -267,3 +267,21 @@ CampaignまたはCanvasの作成・編集中に「リクエストタイムアウ
 - **Segmentの再評価：** 送信時に再評価するアクションベースまたはスケジュールされたCampaignでは、Campaignがキューに入れられた時点でSegmentに含まれていたユーザーが、メッセージが実際に送信される時点では条件を満たさなくなっている場合があります。
 - **送信キャップ：** **Target Audiences**の最大ユーザー数（または同様のキャップ）により、キャップに達した時点で配信が停止されます。
 - **厳格なデバイスまたはブラウザフィルター：** 最新のアプリバージョンやブラウザのみに一致するフィルターは、広範なSegmentプレビューと比較して、送信時の到達可能なセットを縮小します。
+
+### グローバルフリークエンシーキャップに関するよくある質問はどこにありますか？ {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+カレンダー日、サイレントプッシュ、Webhook、Canvasの動作、および関連トピックに関する質問については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)の[よくある質問]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/)を参照してください。
+
+### メールとSMSで、ユニーク受信者数が送信数を超えることがあるのはなぜですか？ {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+メールとSMSの場合、BrazeはESPの送信試行前に**ユニーク受信者数**をインクリメントし、ESPの成功レスポンス後に**送信数**をインクリメントします。永続的なエラー（無効なメールアドレスなど）や重複アドレスにより、ユニーク受信者数が送信数を超えることがあります。
+
+### **最終送信日時**がスケジュールされた送信時間と一致しないのはなぜですか？ {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+1回限りのスケジュール送信のCampaignの場合、**最終送信日時**は起動時間と一致します。**ユーザーのローカルタイムゾーンで送信**が有効な定期的なCampaignの場合、早いタイムゾーン（例えばGMT対PST）のユーザーへの送信がワークスペースのスケジュール時間より前に完了するため、**最終送信日時**がスケジュールされた時間より早く表示されることがあります。
+
+### 停止した過去のCampaignの指標が**Analytics**ページに表示されなくなったのはなぜですか？ {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+**Analytics**タブはデフォルトで直近90日間を表示します。Campaignの最終送信がその期間外の場合、**Analytics**ページの日付範囲をCampaignが送信された期間を含むように調整するまで、指標がゼロとして表示されることがあります。詳しくは[Campaign分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)を参照してください。
+
+**インタラクションデータの復元**はCampaign分析を復元するものではありません。リターゲティングフィルターとユーザーインタラクション履歴にのみ適用されます。詳しくは[メッセージングインタラクションデータ]({{site.baseurl}}/messaging_interaction_data/)を参照してください。

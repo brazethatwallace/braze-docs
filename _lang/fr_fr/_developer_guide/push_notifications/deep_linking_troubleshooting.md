@@ -25,7 +25,7 @@ Si un lien profond de schéma personnalisé (par exemple, `myapp://products/123`
    xcrun simctl openurl booted "myapp://products/123"
    ```
    Si le lien ne fonctionne pas ici, le problème provient de la gestion des URL de votre application, et non de Braze.
-4. **Vérifiez le format de l'URL.** Vérifiez que l'URL de votre Campaign correspond à ce que votre gestionnaire attend. Les erreurs courantes incluent des composants de chemin manquants ou une casse incorrecte.
+4. **Vérifiez le format de l'URL.** Vérifiez que l'URL de votre campagne correspond à ce que votre gestionnaire attend. Les erreurs courantes incluent des composants de chemin manquants ou une casse incorrecte.
 
 ## Le lien universel s'ouvre dans Safari au lieu de l'application {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -212,7 +212,7 @@ Testez le lien Branch en dehors de Braze pour isoler le problème :
 | `Opening '<URL>': - channel: contentCard` | Le SDK traite un lien provenant d'une Content Card |
 | `useWebView: true` | Le SDK ouvre l'URL dans la WebView intégrée à l'application |
 | `isUniversalLink: true` | Le SDK a identifié l'URL comme un lien universel |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use verbose logging" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Utiliser la journalisation détaillée" }
 
 Pour plus de détails sur la lecture de ces journaux, consultez [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
 

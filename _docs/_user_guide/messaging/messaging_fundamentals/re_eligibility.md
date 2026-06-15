@@ -32,7 +32,7 @@ For triggered campaigns with re-eligibility turned on, users who [did not actual
 
 Additionally, if you're trying to send a message immediately with a re-eligibility of zero minutes, we'll always attempt to schedule it right away, regardless of how a user has received previous versions of the campaign or Canvas.
 
-#### Re-eligibility with API-triggered campaigns
+### Re-eligibility with API-triggered campaigns
 
 The number of times a user receives an API-triggered campaign can be limited using re-eligibility settings. This means the user will receive the campaign only once or once in a given window, regardless of how many times the API trigger is fired.
 
@@ -74,11 +74,9 @@ Consider the following scenario:
 
 This means users who received the campaign on February 15 are not eligible for the campaign to be sent on March 15. (A user can be marked as having "received" the campaign due to shared channel identifiers—for example, if they share an email or phone number with someone who received, opened, or clicked the message.) If the campaign is set to send daily at 8 am with re-eligibility of 1 day, and there's a latency in sending the message, users who received the campaign at 8:30 am are not re-eligible yet on the following day at 8 am.
 
-## Content Cards
+## Re-eligibility for Content Cards
 
-When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive another card while an earlier card from the same campaign is still in their feed, which can look like duplicate cards. 
-
-To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
+When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive another card while an earlier card from the same campaign is still in their feed, which can look like duplicate cards. To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
 
 ## Multivariate testing
 

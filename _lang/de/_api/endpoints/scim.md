@@ -10,7 +10,7 @@ description: "Auf dieser Landing-Page werden die SCIM-Endpunkte von Braze aufgel
 page_type: landing
 
 guide_top_header: "SCIM-Endpunkte"
-guide_top_text: "Die [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)-Spezifikation soll die Verwaltung von Nutzer:innen-Identitäten in cloudbasierten Anwendungen und Diensten erleichtern, indem sie ein definiertes Schema zur Darstellung von Nutzer:innen und Gruppen bereitstellt. Verwenden Sie die SCIM-Endpunkte von Braze, um die automatisierte Nutzerbereitstellung zu verwalten."
+guide_top_text: "Die <a href=\"http://www.simplecloud.info/\">System for Cross-domain Identity Management (SCIM)</a>-Spezifikation soll die Verwaltung von Nutzer:innen-Identitäten in cloudbasierten Anwendungen und Diensten erleichtern, indem sie ein definiertes Schema zur Darstellung von Nutzer:innen und Gruppen bereitstellt. Verwenden Sie die SCIM-Endpunkte von Braze, um die automatisierte Nutzerbereitstellung zu verwalten."
 
 guide_featured_title: ""
 guide_featured_list:
@@ -21,7 +21,7 @@ guide_featured_list:
     link: /docs/get_see_user_account_information/
     image: /assets/img/braze_icons/eye.svg
   - name: "GET: Bestehendes Dashboard-Nutzerkonto per E-Mail durchsuchen"
-    link: /docs/get_search_existing_dashboard_user/
+    link: /docs/api/endpoints/scim/get_search_existing_dashboard_user/
     image: /assets/img/braze_icons/eye.svg
   - name: "PUT: Dashboard-Nutzerkonto aktualisieren"
     link: /docs/post_update_existing_user_account/

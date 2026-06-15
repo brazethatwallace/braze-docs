@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: 필터가 사용되는 모든 곳(예&#58; Segments, Campaigns 등)에서 Segment 멤버십을 기준으로 필터링하고, 하나의 Campaign 내에서 여러 Segments를 타겟팅할 수 있습니다. <br><br>이 필터를 이미 사용하고 있는 Segments는 다른 Segments에 추가로 포함하거나 중첩할 수 없습니다. 이렇게 하면 Segment A가 Segment B를 포함하고, Segment B가 다시 Segment A를 포함하려는 순환이 발생할 수 있기 때문입니다. 이런 상황이 발생하면 Segment가 계속 자기 자신을 참조하게 되어 실제로 누가 해당 Segment에 속하는지 계산할 수 없게 됩니다. 또한 이러한 Segment 중첩은 복잡성을 높이고 처리 속도를 저하시킬 수 있습니다. 대신 포함하려는 Segment를 동일한 필터를 사용하여 다시 생성하세요.
+    description: 필터가 사용되는 모든 곳(예&#58; Segments, Campaigns 등)에서 Segment 멤버십을 기준으로 필터링하고, 하나의 Campaign 내에서 여러 Segments를 타겟팅할 수 있습니다. <br><br>특정 시점의 Segment 멤버십을 캡처하려면, Campaign 또는 Canvas를 발송하기 전에 대시보드에서 Segment의 사용자를 내보내거나 [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) 엔드포인트를 호출하세요. 자세한 내용은 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)를 참조하세요.<br><br>이 필터를 이미 사용하고 있는 Segments는 다른 Segments에 추가로 포함하거나 중첩할 수 없습니다. 이렇게 하면 Segment A가 Segment B를 포함하고, Segment B가 다시 Segment A를 포함하려는 순환이 발생할 수 있기 때문입니다. 이런 상황이 발생하면 Segment가 계속 자기 자신을 참조하게 되어 실제로 누가 해당 Segment에 속하는지 계산할 수 없게 됩니다. 또한 이러한 Segment 중첩은 복잡성을 높이고 처리 속도를 저하시킬 수 있습니다. 대신 포함하려는 Segment를 동일한 필터를 사용하여 다시 생성하세요.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -137,7 +137,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Received Campaign Variant
-    description: 사용자가 다변량 Campaign의 어떤 배리언트를 수신했는지를 기준으로 세분화합니다.<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
+    description: 사용자가 다변량 Campaign의 어떤 배리언트를 수신했는지를 기준으로 세분화합니다.<br><br>이 필터는 다변량 및 다변량 빠른 푸시 Campaigns에 적용됩니다. API Campaigns, 표준 멀티채널 Campaigns, 기능 플래그 실험 Campaigns는 Campaign 선택기에 표시되지 않습니다. 웹훅 전용 Campaigns는 Campaign 선택기에 표시되지 않습니다.<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 이는 마지막 메시지가 SMS 또는 RCS 제공업체에 전달된 시점입니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: 사용자의 이메일 주소가 하드바운스되었는지(예&#58; 이메일 주소가 유효하지 않음) 여부를 기준으로 세분화합니다.
+    description: 사용자의 이메일 주소가 하드바운스되었는지(예&#58; 이메일 주소가 유효하지 않음) 여부를 기준으로 세분화합니다. 유효하지 않은 이메일을 가진 사용자를 내보내려면 [`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/) 엔드포인트를 호출하거나, 이메일 주소가 비어 있지 않음, 이메일 사용 불가, 이메일 구독 상태가 탈퇴가 아님과 같은 필터로 Segment를 구성하세요.
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -445,15 +445,15 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Name
-    description: 사용자 앱의 최신 이름을 기준으로 세분화합니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 <code>true</code>를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.
+    description: 사용자 앱의 최신 이름을 기준으로 세분화합니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 `true`를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.
     tags:
       - App
   - name: Most Recent App Version Number
-    description: 사용자 앱의 최신 앱 버전 번호를 기준으로 세분화합니다. 괄호 안의 버전 번호가 필터링에 사용되며, 그 앞의 번호는 참조용입니다. 예를 들어, "3.7.0(134.0.0.0)"에서 "134.0.0.0"이 필터링되는 버전 번호입니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 <code>true</code>를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.<br><br>현재 앱 버전이 채워지는 데 시간이 걸릴 수 있습니다. 고객 프로필의 앱 버전은 SDK에 의해 정보가 캡처될 때 업데이트되며, 이는 사용자가 앱을 열 때에 의존합니다. 사용자가 앱을 열지 않으면 현재 버전이 업데이트되지 않습니다. 이러한 필터는 소급 적용되지도 않습니다. 현재 및 미래 버전에 대해 "초과" 또는 "같음"을 사용하는 것이 좋지만, 과거 버전 필터를 사용하면 예상치 못한 동작이 발생할 수 있습니다.
+    description: 사용자 앱의 최신 앱 버전 번호를 기준으로 세분화합니다. 괄호 안의 버전 번호가 필터링에 사용되며, 그 앞의 번호는 참조용입니다. 예를 들어, "3.7.0(134.0.0.0)"에서 "134.0.0.0"이 필터링되는 버전 번호입니다.<br><br>"미만" 또는 "이하"를 사용할 때, 주요 앱 버전이 존재하지 않으면 이 필터는 사용자가 해당 앱 버전보다 오래되었기 때문에 `true`를 반환합니다. 즉, 사용자의 마지막 주요 앱 버전이 존재하지 않으면 자동으로 필터와 일치합니다.<br><br>현재 앱 버전이 채워지는 데 시간이 걸릴 수 있습니다. 고객 프로필의 앱 버전은 SDK에 의해 정보가 캡처될 때 업데이트되며, 이는 사용자가 앱을 열 때에 의존합니다. 사용자가 앱을 열지 않으면 현재 버전이 업데이트되지 않습니다. 이러한 필터는 소급 적용되지도 않습니다. 현재 및 미래 버전에 대해 "초과" 또는 "같음"을 사용하는 것이 좋지만, 과거 버전 필터를 사용하면 예상치 못한 동작이 발생할 수 있습니다.
     tags:
       - App
   - name: Uninstalled
-    description: 앱을 삭제하고 재설치하지 않은 사용자를 기준으로 세분화합니다.
+    description: 사용자가 현재 백엔드에서 삭제된 것으로 표시되어 있는지 여부를 기준으로 세분화합니다. 앱을 삭제한 후 나중에 다시 설치한 사용자는 포함되지 않습니다. 이 필터는 현재 삭제 상태를 반영하며, 모든 삭제 이벤트의 이력 로그가 아닙니다.
     tags:
       - Uninstall
   - name: Device Carrier

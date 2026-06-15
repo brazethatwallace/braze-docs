@@ -60,6 +60,21 @@ Schedule and audience evaluation can differ between scheduled entries and send i
 
 For Canvas steps, consider the following details when scheduling your Canvas:
 
-- Schedule changes will only apply to users who aren't already waiting to receive the step.
+- Schedule changes only apply to users who aren't already waiting to receive the step.
 - Audience changes by default apply to all users, unless you schedule changes to apply to users who aren't waiting to receive the step.
-- Editing a Canvas that is scheduled to deliver as soon as deployed and selecting **Update** will essentially cause it to be sent.
+- Editing a Canvas that is scheduled to deliver as soon as deployed and selecting **Update** essentially sends it.
+
+### Post-launch edits
+
+If you stop an active Canvas while an unsaved draft exists, stopping can discard that draft. Save, launch, or discard the draft before stopping if you need to keep in-progress edits.
+
+#### Audience evaluation timing
+
+Braze evaluates audiences at different points in the Canvas builder and in individual steps. For setup details, see:
+
+- [Set your target entry audience]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-13-set-your-target-entry-audience) and [Determine your Canvas entry schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule) when you create a Canvas
+- [How target audience and entry criteria work together]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#how-target-audience-and-entry-criteria-work-together)
+- [Edit delivery settings]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings) for Message steps
+- [How users are evaluated]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/#how-users-are-evaluated) for Audience Paths steps
+
+If you edit a live Canvas close to a scheduled entry or send window, users already enqueued for a **Message** step may not pick up your changes. For more information, see [Edit Canvases after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/).

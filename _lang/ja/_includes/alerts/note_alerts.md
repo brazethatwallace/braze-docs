@@ -22,7 +22,7 @@
 
 {% endif %}
 
-{% if include.alert == 'セグメント profiles first app use' %}
+{% if include.alert == 'Segment profiles first app use' %}
 
 {% alert note %}
 Brazeは、ユーザーが初めてアプリを使用するまでプロファイルを生成しないため、まだアプリを開いていないユーザーをターゲットにすることはできません。
@@ -42,6 +42,18 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 
 {% alert note %}
 1つのワークスペースにつき、最大350のサブスクリプショングループを追加できます。
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+GIFはAndroidプッシュ通知ではサポートされていません。これはAndroidプラットフォームの制限であり、Brazeの制限ではありません。
+<br><br>
+- Androidのアプリ内メッセージおよびContent Cardsでは、[Glide](https://bumptech.github.io/glide/)や[Fresco](https://frescolib.org/)などのサードパーティ画像ライブラリーを統合することでGIFをサポートできます。
+<br>
+- iOSでは、プッシュ通知がGIFをサポートしています。アプリ内メッセージおよびContent Cardsにはカスタムの GIF 画像プロバイダーが必要です。
 {% endalert %}
 
 {% endif %}

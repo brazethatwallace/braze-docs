@@ -1,6 +1,6 @@
 ---
 nav_title: "User profile attributes"
-article_title: User attribute views in Snowflake 
+article_title: User attribute views in Snowflake
 page_order: 10
 page_type: partner
 search_tag: Partner
@@ -63,7 +63,7 @@ If you see widespread mismatches, contact your customer success manager or Braze
 
 ## User profile snapshots
 
-These views provide periodic snapshots of user profile attributes. The data is delayed by up to 12 hours, making it useful for queries that don't require real-time updates. 
+These views provide periodic snapshots of user profile attributes. The data is delayed by up to 12 hours, making it useful for queries that don't require real-time updates.
 
  - `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`
  - `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`
@@ -75,9 +75,7 @@ These views provide periodic snapshots of user profile attributes. The data is d
 * Faster query execution, particularly when filtering on attributes other than `USER_ID`.
 * **Limitation:** Data is not up to date in real time.
 
-{% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` schema
 
@@ -101,6 +99,7 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
@@ -111,18 +110,20 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## Real time user profile views
 
-These views provides near real-time updates on user profile attributes, with data delayed by up to 10 minutes after an update occurs in Braze.
+These views provide near real-time updates on user profile attributes, with data delayed by up to 10 minutes after an update occurs in Braze.
 
-  - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 
+  - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
 ### Usage
@@ -134,9 +135,7 @@ These views provides near real-time updates on user profile attributes, with dat
     * Queries without USER_ID filters require aggregation across all users, leading to significantly longer execution times.
     * Queries on a large dataset (such as over 100 million users) may take many minutes.
 
-{% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` schema
 
@@ -148,6 +147,7 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
@@ -168,9 +168,11 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
@@ -180,8 +182,8 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 
 These views store historical change logs of user attributes, capturing changes with a 12-hour granularity.
 
-- `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 
-- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` 
+- `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
 ### Usage
 
@@ -189,9 +191,7 @@ These views store historical change logs of user attributes, capturing changes w
 * Data is snapshotted every 12 hours, meaning multiple updates in this window are combined into a single record. Individual changes within this period are not separately retained.
 * `EFF_DT` and `END_DT` mark the start and end of a user’s attribute state.
 
-{% alert note %}
-The `TIME` field represents the time in seconds of the user profile update; the `TIME_MS` field indicates this in millisecond precision. For backfilled data, the `TIME` and `TIME_MS` values are the time of the backfill.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` schema
 
@@ -226,11 +226,13 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
@@ -251,5 +253,3 @@ The `TIME` field represents the time in seconds of the user profile update; the 
 * Queries on `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` or `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` should return in under 10 seconds for large datasets (~1 billion users) on a large warehouse.
 * Queries on `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` or `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED ` for a single user return in under a minute but scale poorly without `USER_ID` filtering.
 * Queries on over 100 million users in `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` or `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` may take several minutes due to per-user aggregation.
-
-

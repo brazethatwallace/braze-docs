@@ -21,6 +21,8 @@ braze-docs.iml
 
 # Braze scripts
 scripts/temp
+__pycache__/
+*.py[cod]
 node_modules
 
 # Generated translation/audit artifacts

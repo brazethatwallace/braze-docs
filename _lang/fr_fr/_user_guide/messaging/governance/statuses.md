@@ -14,9 +14,9 @@ tool:
 
 ## Filtrer par état {#filtering-by-status}
 
-Pour filtrer vos campagnes ou Canvas par état, sélectionnez **All Statuses**, puis choisissez un état.
+Pour filtrer vos campagnes ou Canvas par état, sélectionnez **Tous les états**, puis choisissez un état.
 
-![Le menu déroulant « All Statuses » dans le tableau de bord de Braze.]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
+![Le menu déroulant « Tous les états » dans le tableau de bord de Braze.]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
 
 ## Modifier l'état {#changing-the-status}
 
@@ -31,11 +31,11 @@ Voici les états disponibles pour les campagnes et les Canvas :
 | État | Description |
 | --- | --- |
 | Actif | Les campagnes et Canvas actifs sont en cours d'envoi. Par défaut, vous verrez les campagnes et Canvas actifs sur les pages respectives. |
-| Brouillon | Les brouillons de campagnes et de Canvas sont enregistrés mais pas lancés. Pour continuer à les modifier et commencer l'envoi, vous pouvez sélectionner le brouillon en accédant à **Messaging** dans le tableau de bord de Braze et en sélectionnant **Canvas** ou **Campaigns**. |
+| Brouillon | Les brouillons de campagnes et de Canvas sont enregistrés mais pas lancés. Pour continuer à les modifier et commencer l'envoi, vous pouvez sélectionner le brouillon en accédant à **Envoi de messages** dans le tableau de bord de Braze et en sélectionnant **Canvas** ou **Campaigns**. |
 | Archivé | Les campagnes et Canvas archivés sont des messages qui ne sont plus envoyés. Ces campagnes et Canvas sont également retirés des graphiques statistiques sur les pages [**Accueil**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) et [**Chiffre d'affaires**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/). |
-| Arrêté | Les campagnes et Canvas arrêtés sont en pause, mais vous pouvez toujours les modifier. Pour reprendre un Canvas, accédez à l'étape **Summary** du générateur de Canvas et sélectionnez **Resume Canvas**. Pour les campagnes, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>, puis **Resume**. Pour en savoir plus, consultez [Comportement des Canvas arrêtés](#stopped-canvas-behavior). |
+| Arrêté | Les campagnes et Canvas arrêtés sont en pause, mais vous pouvez toujours les modifier. Pour reprendre un Canvas, accédez à l'étape **Résumé** du générateur de Canvas et sélectionnez **Reprendre le Canvas**. Pour les campagnes, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>, puis **Reprendre**. Pour en savoir plus, consultez [Comportement des Canvas arrêtés](#stopped-canvas-behavior). |
 | Inactif | Lorsqu'une campagne ou un Canvas n'envoie plus de messages, Braze lui attribue un état inactif pour vous aider à trier et gérer votre liste de campagnes et de Canvas. Vous pouvez voir quelles campagnes ou Canvas seront automatiquement arrêtés ainsi que la date d'arrêt associée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available statuses" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="États disponibles" }
 
 ### Comportement des Canvas arrêtés {#stopped-canvas-behavior}
 
@@ -46,7 +46,7 @@ Lorsqu'un Canvas est arrêté, voici ce qui se produit :
 - **Étapes de délai :** les utilisateurs dans une [étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) y resteront normalement, mais quitteront le Canvas lorsque la période définie sera écoulée.
 - **Modifications de brouillon :** toute modification de brouillon apportée au Canvas sera supprimée lorsque le Canvas sera arrêté.
 
-Pour reprendre le Canvas, accédez à l'étape **Summary** du générateur de Canvas et sélectionnez **Resume Canvas**. Une fois réactivé, tous les messages précédemment arrêtés seront envoyés comme prévu&#8212;à condition que l'heure planifiée ne soit pas déjà passée.
+Pour reprendre le Canvas, accédez à l'étape **Résumé** du générateur de Canvas et sélectionnez **Reprendre le Canvas**. Une fois réactivé, tous les messages précédemment arrêtés seront envoyés comme prévu&#8212;à condition que l'heure planifiée ne soit pas déjà passée.
 
 ## Bonnes pratiques {#best-practices}
 

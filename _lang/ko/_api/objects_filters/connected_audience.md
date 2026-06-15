@@ -49,7 +49,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | 이커머스 | 온라인 소매업체가 `wishlisted_products` 배열에 해당 제품 ID가 포함된 사용자에게 가격 인하 또는 재입고 알림을 발송합니다. |
 | 여행 | 여행 앱이 `booked_flight` 속성이 영향을 받는 항공편 번호와 일치하는 사용자에게 항공편 지연 알림을 발송합니다. |
 | 금융 서비스 | 트레이딩 플랫폼이 `watchlist` 배열에 가격 임계값을 넘은 종목 코드가 포함된 사용자에게 알림을 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 각 경우에 단일 Campaign 또는 API 전용 메시지 정의로 모든 변형을 처리합니다. 백엔드가 필터 값을 결정하고 API 요청에 전달하므로, 각 제품, 프로그램, 팀 또는 위치별로 별도의 Segment나 Campaign을 생성할 필요가 없습니다.
 
@@ -139,7 +139,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | 숫자 | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | 부울 | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | 시간 | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Allowed comparisons by data type" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 유형별 허용 비교" }
 
 #### 속성 비교 시 주의 사항 {#attribute-comparison-caveats}
 
@@ -147,7 +147,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | --- | --- |
 | `value` | `exists` 또는 `does_not_exist` 비교를 사용하는 경우 `value`는 필요하지 않습니다. `before` 및 `after` 비교를 사용하는 경우 `value`는 ISO 8601 날짜/시간 문자열이어야 합니다. |
 | `matches_regex` | `matches_regex` 비교를 사용할 때 전달되는 값은 문자열이어야 합니다. Braze에서 정규표현식을 사용하는 방법에 대해 자세히 알아보려면 [정규표현식]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) 및 [커스텀 속성 데이터 유형]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="속성 비교 시 주의 사항" }
 
 #### 커스텀 속성 예시 {#custom-attribute-example}
 
@@ -241,4 +241,12 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 ### 고려 사항 {#considerations}
 
-연결된 오디언스는 기본 속성, 커스텀 이벤트, Segments 또는 메시지 참여 이벤트를 기준으로 사용자를 필터링할 수 없습니다. 이러한 필터를 사용하려면 해당 필터를 오디언스 Segment에 통합한 후 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)의 `segment_id` 파라미터에 해당 Segment를 지정하는 것을 권장합니다. 다른 엔드포인트를 사용할 때는 먼저 Braze 대시보드에서 API 트리거 Campaign 또는 Canvas에 Segment를 추가해야 합니다.
+연결된 오디언스는 다음 기준으로 사용자를 필터링할 수 없습니다:
+
+ - 기본 속성
+ - 커스텀 이벤트
+ - Segments
+ - 메시지 참여 이벤트
+ - 중첩 커스텀 속성
+
+이러한 필터를 사용하려면 해당 필터를 오디언스 Segment에 통합한 후 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)의 `segment_id` 파라미터에 해당 Segment를 지정하는 것을 권장합니다. 다른 엔드포인트를 사용할 때는 먼저 Braze 대시보드에서 API 트리거 Campaign 또는 Canvas에 Segment를 추가해야 합니다.

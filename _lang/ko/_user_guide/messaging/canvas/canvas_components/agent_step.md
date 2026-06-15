@@ -51,7 +51,7 @@ toc_headers: h2
 | 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)에서의 라우팅 |
 | 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)에서의 예/아니오 분기 |
 | 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 위의 데이터 유형 중 하나 이상을 활용 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정" }
 
 컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
@@ -77,13 +77,14 @@ toc_headers: h2
 
 ## 오류 처리 {#error-handling}
 
-- 연결된 모델이 사용량 제한 오류를 반환하면, Braze는 지수 백오프를 사용하여 최대 5회까지 재시도합니다.
-- 에이전트가 다른 이유(예: 타임아웃 오류 또는 잘못된 API 키)로 실패하면, 출력 변수는 `null`로 설정됩니다.
+Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어를 처리하는 방법에 대해서는 Braze 에이전트의 [오류 처리]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)를 참조하세요.
+
+- 에이전트가 어떤 이유로든(예: 타임아웃 오류 또는 잘못된 API 키) 실패하면, 출력 변수는 `null`로 설정됩니다.
     - 에이전트가 일일 호출 한도에 도달하면, 출력 변수는 `null`로 설정됩니다.
-- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **Add Personalization** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
+- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다.
     - 캐시된 값을 사용하는 응답도 총 호출 수 및 일일 호출 수에 포함됩니다.
-- 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. 이 단계에서 아직 대기 중인 사용자가 보이면, 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
+- 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. Braze는 [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)에 따라 호출을 대기줄에 넣으므로, 대량 발송 시 사용자가 대기 상태로 남아 있을 수 있습니다. 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
 
 ## 분석 {#analytics}
 
@@ -94,7 +95,7 @@ toc_headers: h2
 | _진입_ | 사용자가 에이전트 단계에 진입한 횟수입니다. |
 | _다음 단계로 진행_ | 에이전트 단계를 통과한 후 플로우의 다음 단계로 진행한 사용자 수입니다. |
 | _Canvas 종료_ | 에이전트 단계를 통과한 후 Canvas를 종료한 사용자 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석" }
 
 ## 모범 사례 {#best-practices}
 

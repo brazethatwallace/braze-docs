@@ -31,7 +31,7 @@ Un <i>rebote blando</i> es cuando un correo electrónico no se entrega al destin
 {% endif %}
 
 {% if include.metric == "Deferral" %}
-Un <i>aplazamiento</i> es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico hasta 72 horas después de este fallo de entrega temporal para maximizar las posibilidades de éxito en la entrega antes de que se detengan los intentos para esa Campaign específica.
+Un <i>aplazamiento</i> es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico hasta 72 horas después de este fallo de entrega temporal para maximizar las posibilidades de éxito en la entrega antes de que se detengan los intentos para esa campaña específica.
 {% endif %}
 
 {% if include.metric == "Body Click" %}
@@ -79,7 +79,7 @@ Los <i>descartes de la página de confirmación</i> son el total de clics en el 
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
-La <i>tasa de conversión</i> es el porcentaje de veces que se ha producido un evento definido en comparación con todos los destinatarios de un mensaje. Este evento definido se determina cuando construyes la Campaign.
+La <i>tasa de conversión</i> es el porcentaje de veces que se ha producido un evento definido en comparación con todos los destinatarios de un mensaje. Este evento definido se determina cuando construyes la campaña.
 {% endif %}
 
 {% if include.metric == "Conversion Window" %}
@@ -143,7 +143,7 @@ El <i>valor de duración del ciclo de vida por usuario</i> son los <i>ingresos d
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-Los <i>ingresos medios diarios</i> son la media de la suma de los ingresos de la Campaign y de Canvas de un día determinado.
+Los <i>ingresos medios diarios</i> son la media de la suma de los ingresos de la campaña y de Canvas de un día determinado.
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
@@ -175,7 +175,7 @@ El <i>reintento pendiente</i> es el número de solicitudes que fueron rechazadas
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la Campaign.
+<i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña.
 {% endif %}
 
 {% if include.metric == "Reads" %}
@@ -195,7 +195,7 @@ Los <i>rechazos</i> se producen cuando el SMS o RCS ha sido rechazado por el ope
 {% endif %}
 
 {% if include.metric == "Revenue" %}
-Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de la Campaign dentro de la <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>ventana de conversión primaria</a> establecida.
+Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de la campaña dentro de la <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>ventana de conversión primaria</a> establecida.
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
@@ -251,7 +251,7 @@ Los <i>ingresos totales</i> son los ingresos totales en dólares de los destinat
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-Los <i>clics únicos</i> son el número diferenciado de destinatarios que han hecho clic en un enlace dentro de un mensaje al menos una vez y se miden mediante <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+Los <i>clics únicos</i> son el número diferenciado de destinatarios que han hecho clic en un enlace dentro de un mensaje al menos una vez y se miden mediante <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

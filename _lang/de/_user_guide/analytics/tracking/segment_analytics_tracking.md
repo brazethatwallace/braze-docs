@@ -19,7 +19,7 @@ Wenn Sie das Analytics Tracking für ein Segment nicht einschalten, können Sie 
 
 Schalten Sie im Abschnitt **Segment Details** auf der Seite eines Segments **Analytics Tracking** ein.
 
-![Analytics Tracking für ein Segment umschalten]({% image_buster /assets/img_archive/A_Tracking_2.png %})
+![Analytics-Tracking-Umschalter für ein Segment]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
 In einer App kann das Tracking für bis zu 25 Segmente aktiviert werden. Braze empfiehlt das Tracking von Segmenten, die für Sie wichtig sind, um die Auswirkungen Ihrer Campaigns auf Sitzungen, Umsätze und Käufe zu analysieren.
 
@@ -30,6 +30,8 @@ Nach der Aktivierung des Analytics Trackings kann es zu einer Verzögerung komme
 ## Anzeigen von Umsätzen und Käufen im Zeitverlauf {#viewing-revenue-and-purchases-over-time}
 
 Gehen Sie zu **Analytics** > **Umsatzbericht**, um Daten zu [Umsatz und Käufen im Zeitverlauf für dieses Segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) anzuzeigen.
+
+Umsatz- und Kauf-Charts spiegeln die Aktivitäten wider, die nach der Aktivierung des Analytics Trackings für dieses Segment erfasst wurden. Das Einschalten des Trackings füllt frühere Käufe nicht rückwirkend in diese Berichte ein. Verwenden Sie beim Vergleich von Segmenten nur Zeiträume, in denen das Tracking für jedes ausgewählte Segment aktiviert war.
 
 ![Umsatzdaten nach Segment]({% image_buster /assets/img_archive/Revenue.png %})
 
@@ -52,3 +54,9 @@ Sehen Sie sich Daten über [angepasste Events im Zeitverlauf für Segmente]({{si
 ## Verwendung von Abfrage-Builder-Templates {#using-query-builder-templates}
 
 Wenn das Analytics Tracking aktiviert ist, können Sie mit den Berichts-Templates des Abfrage-Builders die Performance-Metriken für Campaigns, Canvas, Varianten und Schritte nach Segmenten aufschlüsseln. Mehr erfahren Sie unter [Segment-Daten]({{site.baseurl}}/user_guide/audience/segments/segment_data/#performance-data-by-segment).
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Was sollte ich überprüfen, wenn das Analytics Tracking falsch aussieht oder leer ist? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
+
+Vergewissern Sie sich, dass **Analytics Tracking** unter **Segment Details** noch aktiviert ist, dass Sie das Limit pro App (25 Segmente mit Tracking) nicht überschritten haben, und warten Sie bis zu 24 Stunden, bis die Daten nach der erstmaligen Aktivierung des Trackings befüllt sind. Wenn die Probleme weiterhin bestehen, überprüfen Sie die Segment-Definition und den Berichtszeitraum und [kontaktieren Sie den Support]({{site.baseurl}}/braze_support/).

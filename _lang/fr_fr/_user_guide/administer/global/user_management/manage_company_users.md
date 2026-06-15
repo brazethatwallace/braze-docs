@@ -36,9 +36,11 @@ Chaque adresse e-mail utilisée dans une [instance]({{site.baseurl}}/user_guide/
 
 Si votre équipe utilise Gmail et que vous rencontrez des difficultés pour ajouter une adresse e-mail, vous pouvez créer un alias en ajoutant un signe plus (+) suivi de « 1 » ou « test » à l'adresse e-mail. Par exemple, `contractor@braze.com` peut avoir un alias `contractor+1@braze.com`. Les e-mails envoyés à `contractor+1@braze.com` seront toujours livrés à `contractor@braze.com`, mais l'alias sera reconnu comme une adresse e-mail unique.
 
+Pour utiliser un seul compte sur plusieurs entreprises sans alias, consultez [Utiliser les développeurs multi-entreprises]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). Si vous utilisez l'authentification unique, consultez [Considérations relatives à l'authentification unique (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso) avant de vous inscrire avec plusieurs adresses e-mail.
+
 ### Puis-je modifier l'adresse e-mail de mon compte Braze ? {#can-i-change-my-braze-accounts-email-address}
 
-Pour des raisons de sécurité, les utilisateurs ne peuvent pas modifier l'adresse e-mail associée à leur compte Braze. Si un utilisateur souhaite mettre à jour son adresse e-mail, un administrateur doit [créer un nouveau compte](#adding-braze-users) avec l'adresse e-mail souhaitée.
+Pour des raisons de sécurité, les utilisateurs ne peuvent pas modifier l'adresse e-mail associée à leur compte Braze. Si un utilisateur souhaite mettre à jour son adresse e-mail, un administrateur doit [créer un nouveau compte](#adding-company-users) avec l'adresse e-mail souhaitée.
 
 ## Attribuer l'accès et les responsabilités des utilisateurs {#assigning-user-access-and-responsibilities}
 
@@ -58,7 +60,7 @@ Les administrateurs peuvent également suspendre un utilisateur en sélectionnan
 
 ## Supprimer des utilisateurs de l'entreprise {#deleting-company-users}
 
-Pour supprimer un utilisateur, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, recherchez son nom d'utilisateur et sélectionnez <i class="fa fa-trash-can"></i> **Delete user**.
+Pour supprimer un utilisateur, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, recherchez le nom de l'utilisateur et sélectionnez <i class="fa fa-trash-can"></i> **Delete user**.
 
 Seuls les administrateurs peuvent supprimer des utilisateurs de l'entreprise, et les utilisateurs ne peuvent pas supprimer leur propre compte. Un administrateur ne peut pas supprimer son propre compte du tableau de bord ; un autre administrateur doit le faire à sa place.
 
@@ -87,6 +89,14 @@ Lorsqu'un utilisateur du tableau de bord est supprimé, il n'y a pas d'impact si
 Si un nouvel utilisateur du tableau de bord est ensuite créé avec la même adresse e-mail que l'utilisateur supprimé, Braze ne réassociera pas les ressources créées par l'utilisateur supprimé au nouvel utilisateur. Le nouvel utilisateur du tableau de bord repartira de zéro et ne sera pas crédité comme créateur des ressources existantes dans le tableau de bord.
 
 ## Résolution des problèmes {#troubleshooting}
+
+### « Impossible d'effectuer l'action » lors de l'ajout d'un utilisateur {#unable-to-perform-action-when-adding-a-user}
+
+Si l'ajout d'un utilisateur du tableau de bord échoue avec une erreur « Unable to perform action » (ou similaire) :
+
+- Supprimez les espaces en début ou en fin de chaîne ainsi que les caractères masqués de l'adresse e-mail.
+- Vérifiez que l'adresse est dans un format d'e-mail valide pour votre organisation. Certains caractères spéciaux sont rejetés.
+- La même adresse e-mail ne peut pas être utilisée pour deux utilisateurs du tableau de bord dans le même [cluster]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Si l'adresse est déjà enregistrée dans un autre espace de travail de ce cluster, utilisez une adresse distincte ou un alias tel que `user+1@company.com`.
 
 ### « L'adresse e-mail est déjà utilisée » lors de l'ajout d'un utilisateur {#email-is-already-taken-when-trying-to-add-a-user}
 

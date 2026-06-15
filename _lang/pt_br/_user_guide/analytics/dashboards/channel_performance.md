@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Dashboards de performance do canal {#channel-performance-dashboards}
 
-> Os dashboards de performance do canal mostram métricas de performance agregadas para um canal inteiro, tanto de Campaigns quanto de Canvas. Atualmente, esses dashboards estão disponíveis para e-mail e SMS.
+> Os dashboards de performance do canal mostram métricas de performance agregadas para um canal inteiro, tanto de Campaigns quanto de Canvas. Atualmente, esses dashboards estão disponíveis para e-mail, push e SMS.
 
 ## Dashboards {#dashboards}
 
@@ -26,22 +26,20 @@ Visualize seu dashboard de performance de e-mail acessando **Analytics** > **Ema
 
 ![Dashboard de performance de e-mail exibindo o engajamento do canal de e-mail nos últimos trinta dias.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
-#### Como as métricas são calculadas {#how-metrics-are-calculated}
-
 ![Um exemplo de Campaign de e-mail com 335.630 envios, com uma média de 11.187,667 por dia.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-Os cálculos das diferentes métricas no dashboard de performance de e-mail são os mesmos usados no nível de mensagem individual (como a análise de dados de Campaigns). Neste dashboard, as métricas são agregadas em todas as Campaigns e Canvas para o intervalo de datas selecionado. Para saber mais sobre essas definições, consulte [Métricas de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics).
+#### Como as métricas são calculadas {#how-metrics-are-calculated}
 
-Cada bloco mostra primeiro a métrica de taxa, seguida pela métrica de contagem (com exceção de *Envios*, que exibe a métrica de contagem seguida pela média por dia). Por exemplo, o bloco de cliques únicos contém a *Taxa de cliques únicos* do período selecionado e a contagem do número total de cliques únicos desse período. Cada bloco também mostra a [comparação com o período anterior](#comparing-time-periods).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="email" %}
 
 | Métrica | Tipo | Cálculo |
 | --- | --- | ---- |
 | Envios | Contagem | Número total de envios em cada dia do intervalo de datas |
 | Taxa de entrega | Taxa | (Número total de entregas em cada dia do intervalo de datas) / (Número total de envios em cada dia do intervalo de datas) |
 | Taxa de bounce | Taxa | (Número total de bounces em cada dia do intervalo de datas) / (Número total de envios em cada dia do intervalo de datas) |
-| Taxa de cancelamento de inscrição | Taxa | (Número total de cancelamentos de inscrição únicos em cada dia do intervalo de datas) / (Número total de entregas no intervalo de datas)<br><br>Essa métrica usa cancelamentos de inscrição únicos, que também são usados na análise de dados de Campaigns, Visão geral e Criador de relatórios. Esses cancelamentos de inscrição são registrados em todas as fontes (como a REST API, importações CSV, e-mails e cancelamentos de inscrição por lista). As taxas de cancelamento de inscrição nas análises de dados de Campaigns e Canvas referem-se aos cancelamentos que ocorrem como resultado de um clique de cancelamento de inscrição em um e-mail enviado pela Braze.  |
+| Taxa de cancelamento de inscrição | Taxa | (Número total de cancelamentos de inscrição únicos em cada dia do intervalo de datas) / (Número total de entregas no intervalo de datas)<br><br>Essa métrica usa cancelamentos de inscrição únicos, que também são usados na análise de dados de Campaigns, Visão geral e Criador de relatórios. Esses cancelamentos de inscrição são registrados em todas as fontes (como a REST API, importações CSV, e-mails e cancelamentos de inscrição por lista). As taxas de cancelamento de inscrição nas análises de dados de Campaigns e Canvas referem-se aos cancelamentos que ocorrem como resultado de um clique de cancelamento de inscrição em um e-mail enviado pela Braze. |
 | Taxa de abertura única | Taxa | (Número total de aberturas únicas em cada dia do intervalo de datas) / (Número total de entregas no intervalo de datas) |
-| Taxa de outras aberturas | Taxa | (Número total de outras aberturas em cada dia do intervalo de datas) / (Número total de entregas no intervalo de datas)<br><br>Outras aberturas incluem e-mails que não foram identificados como aberturas por máquina, como quando um usuário abre um e-mail. Essa métrica não é única e é uma sub-métrica do total de aberturas.  |
+| Taxa de outras aberturas | Taxa | (Número total de outras aberturas em cada dia do intervalo de datas) / (Número total de entregas no intervalo de datas)<br><br>Outras aberturas incluem e-mails que não foram identificados como aberturas por máquina, como quando um usuário abre um e-mail. Essa métrica não é única e é uma sub-métrica do total de aberturas. |
 | Taxa de cliques únicos | Taxa | (Número total de cliques únicos em cada dia do intervalo de datas) / (Número total de entregas no intervalo de datas) |
 | Taxa de cliques por abertura única | Taxa | (Número total de cliques únicos em cada dia do intervalo de datas) / (Número total de aberturas únicas em cada dia do intervalo de datas) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Como as métricas são calculadas" }
@@ -101,13 +99,11 @@ Para saber mais sobre a análise de dados dos seus e-mails, confira [Relatórios
 
 Para usar seu dashboard de performance de SMS, acesse **Analytics** > **SMS Performance** e selecione o intervalo de datas do período que deseja visualizar. O intervalo de datas pode ser de até um ano no passado.
 
-#### Como as métricas são calculadas
-
 ![Um exemplo de Campaign de SMS com 335.630 envios, com uma média de 11.187,667 por dia.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-Os cálculos das diferentes métricas no dashboard de performance de SMS são os mesmos usados no nível de mensagem individual (como a análise de dados de Campaigns). Neste dashboard, as métricas são agregadas em todas as Campaigns e Canvas para o intervalo de datas selecionado. Para saber mais sobre essas definições, consulte [Métricas de SMS]({{site.baseurl}}/sms_mms_rcs_reporting/).
+#### Como as métricas são calculadas
 
-Cada bloco mostra primeiro a métrica de taxa, seguida pela métrica de contagem (com exceção de _Envios_, que exibe a métrica de contagem seguida pela média por dia). Cada bloco também mostra a [comparação com o período anterior](#comparison-to-last-period-change-in-totals-or-rates).
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | Métrica | Tipo | Cálculo |
 | --- | --- | ---- |
@@ -121,6 +117,31 @@ Cada bloco mostra primeiro a métrica de taxa, seguida pela métrica de contagem
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Como as métricas são calculadas" }
 
 {% endtab %}
+{% tab Push performance %}
+
+### Dashboard de performance de push {#push-performance-dashboard}
+
+O dashboard **Push Performance** oferece uma visão única no nível do canal sobre o engajamento de push, incluindo envios, bounces, entregas e taxas de aberturas diretas, por influência e totais em um período configurável. Use-o para entender a integridade geral do seu canal de push sem precisar consolidar dados de Campaigns ou Canvas individuais.
+
+Para abrir o dashboard, acesse **Analytics** > **Dashboard Builder** e selecione **Push Channel Dashboard**. O intervalo de datas pode ser de até um ano no passado.
+
+![Um exemplo de Campaign de push com mais de 63 milhões de envios.]({% image_buster /assets/img_archive/push_performance_dashboard.png %})
+
+#### Como as métricas são calculadas
+
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="push" %}
+
+| Métrica | Tipo | Cálculo |
+| --- | --- | ---- |
+| Envios | Contagem | Número total de envios em cada dia do intervalo de datas |
+| Taxa de bounce | Taxa | (Número total de bounces em cada dia do intervalo de datas) / (Número total de envios em cada dia do intervalo de datas) |
+| Taxa de entrega | Taxa | (Número total de entregas em cada dia do intervalo de datas) / (Número total de envios em cada dia do intervalo de datas) |
+| Taxa de aberturas diretas | Taxa | (Número total de aberturas diretas em cada dia do intervalo de datas) / (Número total de entregas em cada dia do intervalo de datas) |
+| Taxa de aberturas por influência | Taxa | (Número total de aberturas por influência em cada dia do intervalo de datas) / (Número total de entregas em cada dia do intervalo de datas) |
+| Taxa de aberturas totais | Taxa | (Número total de aberturas totais em cada dia do intervalo de datas) / (Número total de entregas em cada dia do intervalo de datas)<br><br>As aberturas totais incluem tanto aberturas diretas quanto aberturas por influência. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Como as métricas são calculadas" }
+
+{% endtab %}
 {% endtabs %}
 
 ## Filtros do dashboard {#dashboard-filters}
@@ -128,6 +149,7 @@ Cada bloco mostra primeiro a métrica de taxa, seguida pela métrica de contagem
 Você pode filtrar os dados do seu dashboard usando as seguintes opções de filtro:
 
 - **Tag:** Escolha uma tag. Quando aplicado, seu dashboard mostrará métricas apenas para a tag selecionada.
+- **Plataformas:** (Somente no dashboard de performance de push) Escolha uma plataforma de push, como **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle** ou **Web**. Quando aplicado, seu dashboard exibirá métricas apenas para a plataforma selecionada.
 - **Canvas:** Escolha até 10 Canvas. Quando aplicado, seu dashboard mostrará métricas apenas para os Canvas selecionados. Se você selecionar um filtro de tag primeiro, as opções de filtro de Canvas incluirão apenas os Canvas que possuem a tag selecionada.
 - **Campaign:** Escolha até 10 Campaigns. Quando aplicado, seu dashboard mostrará métricas apenas para as Campaigns selecionadas. Se você selecionar um filtro de tag primeiro, as opções de filtro de Campaign incluirão apenas as Campaigns que possuem a tag selecionada.
 

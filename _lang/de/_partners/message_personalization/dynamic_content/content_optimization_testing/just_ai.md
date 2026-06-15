@@ -29,7 +29,7 @@ Fragen? Kontaktieren Sie JustAI über ihre [Buchungsseite](https://www.getjust.a
 | Anforderung | Beschreibung |
 |---|---|
 | JustAI-Konto | Ein [JustAI](https://www.getjust.ai/)-Konto ist erforderlich, um diese Partnerschaft zu nutzen. Wenn Sie kein JustAI-Konto haben, [vereinbaren Sie ein 30-minütiges Onboarding-Gespräch](https://www.getjust.ai/book-demo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## JustAI mit Braze integrieren {#integrating-justai-with-braze}
 

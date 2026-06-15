@@ -17,12 +17,12 @@ Die Integration von Braze und Notify ermöglicht es Marketern, das Engagement ü
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-| Anforderung          | Beschreibung                                                                                                                                |
+| Anforderung | Beschreibung |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.export.segment` und `campaigns.trigger.send`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | CNAME-Konfiguration | Für das Tracking-Pixel, das in der E-Mail für Notify verwendet wird, um das Engagement der Nutzer:innen beim Messaging zu verfolgen und das Modell weiter zu informieren, muss eine Subdomain erstellt werden. Geben Sie die URL der Subdomain nach ihrer Erstellung an Notify weiter. |
 | Datenbank-Opt-in-Export | Senden Sie die Campaign- und Kaufdaten des vergangenen Jahres (12 Monate) an Notify. ​Dieser Export wird verwendet, um das Vorhersagemodell von Notify zu trainieren. <br><br> **Felder:** <br><br> **E-Mail:** Ein SHA256-Hash der E-Mail, konvertiert in Kleinbuchstaben und ohne führende oder nachfolgende Leerzeichen.<br><br>**Segment:** Die Segmentinformationen, die den Grad der Aktivität (aktiv oder inaktiv) definieren.<br><br>**Untersegment:** Alle weiteren relevanten Aktivitätsinformationen, wie z. B. die Höhe der Kaufaktivität.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

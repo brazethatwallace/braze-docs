@@ -36,6 +36,9 @@
 						text-decoration: none;
 						background-color: $white;
 					}
+					&:focus-visible {
+						@include focus-ring();
+					}
 				}
 			}
 
@@ -177,6 +180,9 @@
          &:focus {
            text-decoration: none;
            background-color: $white;
+         }
+         &:focus-visible {
+           @include focus-ring();
          }
        }
       }

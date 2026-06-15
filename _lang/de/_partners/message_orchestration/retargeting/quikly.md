@@ -126,7 +126,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% tab Custom Attributes %}
 ### Angepasste Attribute {#custom-attributes}
 
-Je nach Ihrer Braze-Implementierung möchten Sie möglicherweise, dass Events innerhalb der Quikly-Aktivierung zur weiteren Verarbeitung durch Braze kaskadiert werden. Sie können beispielsweise ein angepasstes Attribut anwenden, das darauf basiert, welche Stufe oder welcher Anreiz bei der Quikly-Aktivierung erreicht wurde, sodass Sie die entsprechende Content-Card anzeigen können, wenn Nutzer:innen Ihre App öffnen oder sich auf Ihrer Website einloggen. Quikly arbeitet direkt mit Ihnen zusammen, um diese Integrationen zu implementieren.
+Je nach Ihrer Braze-Implementierung möchten Sie möglicherweise, dass Events innerhalb der Quikly-Aktivierung zur weiteren Verarbeitung durch Braze kaskadiert werden. Sie können beispielsweise ein angepasstes Nutzerattribut anwenden, das darauf basiert, welche Stufe oder welcher Anreiz bei der Quikly-Aktivierung erreicht wurde, sodass Sie die entsprechende Content-Card anzeigen können, wenn Nutzer:innen Ihre App öffnen oder sich auf Ihrer Website einloggen. Quikly arbeitet direkt mit Ihnen zusammen, um diese Integrationen zu implementieren.
 
 {% endtab %}
 {% tab Webhooks %}
@@ -135,7 +135,7 @@ Verwenden Sie Webhooks, um Anreize für bestimmte Events in der Customer Journey
 
 ### Erstellen eines Quikly-Webhooks in Braze {#create-a-quikly-webhook-in-braze}
 
-Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook Templates**.
+Um ein Quikly-Webhook-Template für künftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige Quikly-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
@@ -168,7 +168,7 @@ Wählen Sie ***JSON key/value pairs*** aus und fügen Sie die folgenden Paare hi
 Zeigen Sie eine Vorschau Ihrer Anfrage im Panel **Preview** an oder navigieren Sie zum Tab `Test`, wo Sie eine:n zufällige:n Nutzer:in, eine:n bestehende:n Nutzer:in auswählen oder eigene Daten anpassen können, um Ihren Webhook zu testen.
 
 {% alert important %}
-Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Saved Webhook Templates**, wenn Sie eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) erstellen.
+Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Gespeicherte Webhook-Templates**, wenn Sie eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) erstellen.
 {% endalert %}
 
 {% endtab %}

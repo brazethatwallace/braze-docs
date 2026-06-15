@@ -15,12 +15,6 @@ page_order: 1
 ## Étape 1 : Connectez votre boutique Shopify {#step-1-connect-your-shopify-store}
 
 1. Dans Braze, allez dans **Intégrations partenaires** > **Partenaires technologiques**, puis recherchez « Shopify ».
-
-{% alert note %}
-Si vous utilisez l'ancienne navigation, vous trouverez les **Partenaires technologiques** sous la rubrique **Intégrations**.
-{% endalert %}
-
-{: start="2"}
 2. Sur la page partenaire de Shopify, sélectionnez **Begin setup** pour lancer le processus d'intégration.<br><br>![Page d'intégration de Shopify avec un bouton pour commencer la configuration.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Dans la boutique d'applications Shopify, installez l'application Braze.<br><br>![La page du magasin d'applications de Braze avec un bouton pour installer l'application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -164,6 +158,16 @@ Une fois le méta-champ créé, remplissez-le pour vos clients. Nous recommandon
 
 - **Écouter les webhooks de création de clients :** Mettez en place un webhook pour écouter les [événements `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Cela vous permet d'écrire le méta-champ lors de la création d'un nouveau client.
 - **Remplir pour les clients existants :** Utilisez l'[API Admin](https://shopify.dev/docs/api/admin-graphql) ou l'[API Client](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) pour remplir le méta-champ pour les clients précédemment créés.
+
+#### Condition de concurrence potentielle {#potential-race-condition}
+
+Le webhook Shopify `customers/create` peut se déclencher avant que le méta-champ `braze.external_id` ne soit écrit dans le profil utilisateur. Dans ce cas :
+
+1. Si le méta-champ est absent, Braze appelle l'endpoint configuré (étape 4.2) pour récupérer l'ID externe.
+2. Si cet appel échoue également ou expire, Braze crée un profil utilisateur temporaire avec l'ID client Shopify comme ID externe.
+3. Lors de tout événement ultérieur où le méta-champ est présent (comme `customers/update` ou `orders/create` pour un événement `ecommerce.order_placed`), Braze détecte automatiquement l'incohérence et fusionne le profil temporaire avec le bon ID externe.
+
+Cela signifie que des profils temporaires en double sont possibles, mais qu'ils se corrigent automatiquement. Vous n'avez pas besoin d'intervenir manuellement pour fusionner ces profils.
 
 ### Étape 4.2 : Créer un endpoint pour récupérer votre ID externe {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 

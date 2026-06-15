@@ -1,5 +1,5 @@
 ---
-nav_title: Brazeの SSL
+nav_title: BrazeのSSL
 article_title: SSLの概要
 page_order: 5
 page_type: reference
@@ -24,11 +24,13 @@ WebサイトやリンクをSSLで保護することは、機密性の高い顧�
 
 Brazeは、クリック数と開封をトラッキングするために、ブランド化されたリンクトラッキングサブドメインを使用してリンクを変換します。デフォルトでは、これらのリンクはHTTPで始まります。非セキュアな通信を制限するブラウザや拡張機能を使用しているユーザーは、たとえURLがセキュアであっても、送信先URLへのリダイレクトを通過できない可能性があります。これにより画像が破損したり、トラッキングが不正確になったりすることがあります。リンクトラッキングサブドメインにSSLを適用して、安全なリダイレクトを確保してください。
 
-### ブラウザの要件 {#browser-requirement}
+## 要件 {#requirements}
+
+### ブラウザ {#browser}
 
 Google Chromeなどの主要ブラウザは、ユーザーを保護するため、非セキュアなURL経由の通信を制限しています。SSLを使用することで、コンテンツが信頼できるものであることを確認でき、メール内のリンク切れや画像の表示不良といった問題を最小限に抑えられます。
 
-### HSTSドメインの要件 {#hsts-domains-requirement}
+### HSTSドメイン {#hsts-domains}
 
 HTTP Strict Transport Security（HSTS）ドメインをお持ちの場合は、SSLを設定し、必要なセキュリティ証明書を送信するようにCDNを構成してください。SSLがないと、画像やWebリンクが壊れます。
 
@@ -39,6 +41,7 @@ SSL証明書はサードパーティ、通常はコンテンツ配信ネット�
 SSLの設定を開始するには、Brazeのカスタマーサクセスマネージャーに連絡し、Brazeメールの完全な設定の開始を依頼してください。
 
 Brazeが設定を開始したら、以下のステップに従ってください：
+
 1. Brazeが、ドメインレジストリに追加するDNSレコードを提供します。
 2. Brazeが、レコードがレジストリに正しく追加されているかどうかを確認します。
 3. その後、CDNを選択し、サードパーティのプロバイダーからSSL証明書を取得します。
@@ -56,18 +59,18 @@ CDNの設定は、常にBrazeによるDNSレコードの検証が完了した後
 クリックおよび開封トラッキングでは、配信パートナーがブランド化されたサブドメインを使用してリンクを変換し、CDNがそれらの変換されたリンクにSSL証明書を適用します。パートナーは、リンクや画像を正しく表示するために、受信者のブラウザに有効な証明書を提示する必要があることが多いです。Brazeは証明書のリクエストや管理を行わないため、CDNを通じてこの設定を行う必要があります。
 
 {% alert note %}
-SSLのクリックおよび開封トラッキングに記載されているCDNを使用できない場合や使用したくない場合は、カスタムSSL設定をセットアップできます。代替のCDNやカスタムプロキシを使用すると、設定がより複雑になる場合があります。[SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/) および [SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/) のドキュメントを参照してください。
+SSLのクリックおよび開封トラッキングに記載されているCDNを使用できない場合や使用したくない場合は、カスタムSSL設定をセットアップできます。代替のCDNやカスタムプロキシを使用すると、設定がより複雑になる場合があります。[SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/)および[SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/)のドキュメントを参照してください。
 {% endalert %}
 
 ### その他のリソース {#additional-resources}
 
 {% alert important %}
-CDN設定のトラブルシューティングについては、CDNプロバイダーにお問い合わせください。
+CDN設定のトラブルシューティングについては、CDNプロバイダーにお問い合わせいただくか、一般的なガイダンスとして[トラブルシューティング]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)を参照してください。
 {% endalert %}
 
 特定のCDNの設定方法については、メールサービスプロバイダー（ESP）パートナーによる以下のリソースを参照してください。お使いのCDNが一覧にない場合でも、CDNがSSL証明書を適用できることを確認してください。
 
-CDNのクリックトラッキングドメインを設定する際は、ホストヘッダー攻撃などの潜在的なセキュリティ問題を防ぐために、`X-Forwarded-Host` ヘッダーを有効にしてください。手順については、CDNのドキュメントまたはサポートチームを参照してください。
+CDNのクリックトラッキングドメインを設定する際は、ホストヘッダー攻撃などの潜在的なセキュリティ問題を防ぐために、`X-Forwarded-Host`ヘッダーを有効にしてください。手順については、CDNのドキュメントまたはサポートチームを参照してください。
 
 | パートナー | CDN | ドキュメント |
 | --- | --- | --- |
@@ -85,33 +88,19 @@ CDNのクリックトラッキングドメインを設定する際は、ホス�
 | SparkPost | Fastly | [Step-by-step guide with Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Step-by-step guide with Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Step-by-step guide with Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="その他のリソース" }
 
 ### Amazon SES
 
-CDNとしてAmazon SESを使用している場合は、[Amazon SESのドキュメント](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html)の **Option 2: Configuring an HTTPS domain** を参照し、Brazeクラスターに基づいてリージョン別のAWSトラッキングドメインを指定してください：
+メールサービスプロバイダー（ESP）としてAmazon SESを使用している場合は、[Amazon SESのドキュメント](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html)の**Option 2: Configuring an HTTPS domain**を参照し、Brazeクラスターに基づいてリージョン別のAWSトラッキングドメインを指定してください：
 
 - **Braze USクラスター:** `r.us-east-1.awstrack.me`
 - **Braze EUクラスター:** `r.eu-central-1.awstrack.me`
 
+{% alert important %}
+CDNのクリックトラッキングドメインを設定する際は、ホストヘッダー攻撃などの潜在的なセキュリティ問題を防ぐために、`X-Forwarded-Host`ヘッダーを有効にしてください。手順については、CDNプロバイダーにお問い合わせください。
+{% endalert %}
+
 ## トラブルシューティング {#troubleshooting}
 
-CDNの設定、証明書、プロキシの問題はCDNプロバイダーに対応を依頼する必要がありますが、一般的なSSLクリックトラッキングの問題を特定するために以下のヒントを活用してください。
-
-### メール開封率が低い {#low-email-open-rates}
-
-メール開封率が突然低下した場合は、SSL証明書が最新であることを確認してください。有効期限が切れている場合は、CDNまたは証明書プロバイダーでSSL証明書を更新する必要があります。
-
-### ドメインレジストリの問題 {#domain-registry-issues}
-
-digコマンドを実行して、リンクトラッキングがCDNを指していることを確認してください。ターミナルで `dig CNAME link_tracking_subdomain` を実行します。`ANSWER SECTION` にCNAMEの指し先が表示されます。CDNではなくメールサービスプロバイダー（SendGridまたはSparkPost）を指している場合は、ドメインレジストリをCDNを指すように再設定してください。
-
-### CDNの問題 {#cdn-issues}
-
-セットアップ中にライブメールのリンクが破損する場合は、適切な設定が完了する前にDNSをCDNに向けた可能性があります。これは「間違ったリンク」エラーとして表示されることがあります。CDNプロバイダーに連絡し、そのドキュメントを確認して設定のトラブルシューティングを行ってください。
-
-接続がプライベートではないというエラーメッセージが表示される場合は、SSLまたはCDNが正しく設定されていない可能性があります。ターミナルで `dig` コマンドを実行してください（例：`dig CNAME your_link_tracking_subdomain`）。`ANSWER SECTION` で、結果がCDNではなくESPを指している場合、設定ミスが原因です。BrazeのSSLクリックトラッキングが機能するには、CNAMEがCDNを指している必要があります。SSLとCDNの設定を管理しているチームと連携して、さらなるサポートを受けてください。
-
-### SSL有効化のステータス {#ssl-enablement-status}
-
-SSLの設定を完了してもリンクがHTTPのまま表示される場合は、BrazeのカスタマーサクセスマネージャーにSSLが有効になっているか確認してください。Brazeは、すべてのセットアップステップが完了した後にのみSSLを有効にします。
+CDNの設定、証明書、プロキシの問題はCDNプロバイダーに対応を依頼する必要がありますが、一般的なSSLクリックトラッキングの問題を特定するために以下のヒントを活用してください。トラブルシューティングのガイダンスについては、[トラブルシューティング]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/)を参照してください。

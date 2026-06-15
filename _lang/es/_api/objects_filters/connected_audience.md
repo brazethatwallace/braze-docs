@@ -241,4 +241,12 @@ Este filtro te permite segmentar en función de cuándo el usuario utilizó la a
 
 ### Consideraciones {#considerations}
 
-Las audiencias conectadas no pueden filtrar a los usuarios por atributos predeterminados, eventos personalizados, segmentos o eventos de interacción con mensajes. Para utilizar estos filtros, recomendamos incorporarlos a un segmento de audiencia y, a continuación, especificar ese segmento en el parámetro `segment_id` del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters). Si utilizas otros puntos de conexión, primero deberás añadir el segmento a la campaña activada por API o al Canvas en el dashboard de Braze.
+Las audiencias conectadas no pueden filtrar a los usuarios por:
+
+ - Atributos predeterminados
+ - Eventos personalizados
+ - Segments
+ - Eventos de interacción con mensajes
+ - Atributos personalizados anidados
+
+Para utilizar estos filtros, recomendamos incorporarlos a un segmento de audiencia y, a continuación, especificar ese segmento en el parámetro `segment_id` del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters). Si utilizas otros puntos de conexión, primero deberás añadir el segmento a la campaña activada por API o al Canvas en el dashboard de Braze.

@@ -14,9 +14,9 @@ search_tag: Partner
 
 > [AppsFlyer](https://www.appsflyer.com/)は、モバイルマーケティング分析およびアトリビューションプラットフォームで、マーケティング分析、モバイルアトリビューション、ディープリンクを通じてアプリの分析と最適化を支援します。
 
-BrazeとAppsFlyerの統合により、AppsFlyerのモバイルインストールアトリビューションデータを活用して、より全体的なキャンペーンを最適化し構築する方法をより深く理解できます。
+BrazeとAppsFlyerの統合により、AppsFlyerのモバイルインストールアトリビューションデータを活用して、より全体的なCampaignsを最適化し構築する方法をより深く理解できます。
 
-また、[AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/)統合により、AppsFlyerのオーディエンス（コホート）を直接Brazeに渡すことができ、適切なタイミングで適切なユーザーをターゲットにした強力なカスタマーエンゲージメントキャンペーンを作成できます。
+また、[AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/)統合により、AppsFlyerのオーディエンス（コホート）を直接Brazeに渡すことができ、適切なタイミングで適切なユーザーをターゲットにした強力なカスタマーエンゲージメントCampaignsを作成できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -60,7 +60,7 @@ Swift SDK v5.7.0+を使用している場合、相互識別子としてIDFVを�
 {% subtabs local %}
 {% subtab Swift %}
 
-`````````swift
+```swift
 let configuration = Braze.Configuration(
     apiKey: "<BRAZE_API_KEY>",
     endpoint: "<BRAZE_ENDPOINT>")
@@ -71,7 +71,7 @@ AppsFlyerLib.shared().customData = ["brazeDeviceId": braze.deviceId]
 {% endsubtab %}
 
 {% subtab Objective-C %}
-`````````objc
+```objc
 BRZConfiguration *configurations = [[BRZConfiguration alloc] initWithApiKey:@"BRAZE_API_KEY" endpoint:@"BRAZE_END_POINT"];
 [configurations setUseUUIDAsDeviceId:NO];
 Braze *braze = [[Braze alloc] initWithConfiguration:configurations];
@@ -108,24 +108,28 @@ Brazeで、**Partner Integrations** > **Technology Partners**に移動し、**Ap
 3. Brazeダッシュボードで確認したデータインポートキーとRESTエンドポイントを入力します。
 4. **Advanced Privacy**をオフに切り替え、設定を保存します。
 
+{% alert important %}
+AppsFlyerのIntegrationタブでBraze RESTエンドポイントを入力する際は、`https://`プロトコルや`/attribution/appsflyer`パスを含めず、ドメインのみ（例：`rest.fra-02.braze.eu`）を入力してください。AppsFlyerが自動的にプロトコルを付加し、パスを追加します。いずれかを入力に含めると、ポストバックが失敗します。
+{% endalert %}
+
 これらの手順に関する追加情報は、[AppsFlyerのドキュメント](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration)に掲載されています。
 
 ### ステップ4: 統合を確認する {#step-4-confirm-the-integration}
 
-BrazeがAppsFlyerからアトリビューションデータを受信すると、BrazeのAppsFlyerテクノロジーパートナーページのステータス接続インジケータが「Not Connected」から「Connected」に変わり、最後にリクエストが成功したタイムスタンプが含まれます。
+BrazeのAppsFlyerテクノロジーパートナーページでは、ステップ2でデータインポートAPIキーを生成するまで、接続インジケーターに**Not Connected**と表示されます。キーを生成すると、インジケーターが**Connected**に変わり、タイムスタンプが表示されます。このタイムスタンプは、AppsFlyerが最後にポストバックを送信した時点ではなく、Brazeで統合が最初にセットアップされた時点（データインポートキーが作成された時点）を反映しています。
 
-このステータスは、アトリビューション付きインストールに関するデータをBrazeが受信した後にのみ変更されます。Brazeはオーガニックインストールを無視し（AppsFlyerのポストバックから除外し）、接続が成功したかどうかを判断する際にカウントしません。
+インストールアトリビューションデータがAppsFlyerから流入していることを確認するには、ステップ5を使用して、非オーガニックインストールデータがBrazeのSegmentフィルターに表示されることを検証してください。BrazeはAppsFlyerのポストバックからのオーガニックインストールを無視し、アトリビューション付きインストールデータとして保存しません。
 
 ### ステップ5: ユーザーアトリビューションデータを確認する {#step-5-viewing-user-attribution-data}
 
 #### 利用可能なデータフィールド {#available-data-fields}
 
-統合が成功した場合、Brazeはすべての非オーガニックインストールデータをセグメントフィルターにマッピングします。
+統合が成功した場合、Brazeはすべての非オーガニックインストールデータをSegmentフィルターにマッピングします。
 
-| AppsFlyerデータフィールド | Braze セグメントフィルター |
+| AppsFlyerデータフィールド | Braze Segmentフィルター |
 | -------------------- | --------------------- |
 | `media_source` | Attributed Source |
-| `campaign` | Attributed キャンペーン |
+| `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
@@ -137,14 +141,14 @@ Brazeダッシュボードでは、インストールアトリビューション
 さらに、特定のユーザーのアトリビューションデータは、Brazeダッシュボードの各ユーザーのプロファイルで利用可能です。
 
 {% alert note %}
-FacebookおよびX（旧Twitter）キャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
+FacebookおよびX（旧Twitter）Campaignsのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
 {% endalert %}
 
 ## ディープリンクのためにAppsFlyerとBrazeを統合する {#integrate-appsflyer-with-braze-for-deep-linking}
 
 ディープリンク&#8212;アプリやWebサイト内の特定のページや場所にユーザーを誘導するリンク&#8212;は、カスタマイズされたユーザー体験を作り出すために使用されます。
 
-広く使われている一方で、ユーザーデータの収集に使われるもう一つの重要な機能であるクリックトラッキング#8212でメールによるディープリンクを使用する場合、問題が発生する可能性があります。これらの問題は、メールサービスプロバイダー（ESP）がディープリンクをクリック記録ドメインでラッピングし、元のリンクを壊してしまうことに起因します。そのため、ディープリンクをサポートするには追加の設定が必要です。
+広く使われている一方で、ユーザーデータの収集に使われるもう一つの重要な機能であるクリックトラッキング&#8212;でメールによるディープリンクを使用する場合、問題が発生する可能性があります。これらの問題は、メールサービスプロバイダー（ESP）がディープリンクをクリック記録ドメインでラッピングし、元のリンクを壊してしまうことに起因します。そのため、ディープリンクをサポートするには追加の設定が必要です。
 
 AppsFlyerはこのような問題を回避する[サービス](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer)を提供しており、ESPサーバーとお客様のドメイン名の間にAppsFlyerを仲介として介在させることができます。プロキシとしての役割により、ディープリンクを容易にするアソシエーションファイル（AASA/アセットリンク）の提供が可能になります。
 
@@ -154,14 +158,14 @@ AppsFlyerはこのような問題を回避する[サービス](https://support.a
 
 ![右上の「Support」ボタンの下にある「Get Help」ボタンを示すBraze UI]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
-既存のCTDを使用している場合でも、新しいCTDの作成は必須です。これにより、現在のライブメールキャンペーンのトラフィックに影響を与えることはありません。
+既存のCTDを使用している場合でも、新しいCTDの作成は必須です。これにより、現在のライブメールCampaignsのトラフィックに影響を与えることはありません。
 
 {% alert important%}
 AppsFlyerがSSL証明書を作成します。この段階では、メールのリンクはセキュリティで保護されていない可能性が高く、URLプレフィックスがHTTPSではなくHTTPであることを意味します。これは後のステップで解決されます。
 {%endalert%}
 
 ## ステップ2 - AppsFlyerでOneLinkテンプレートを作成する {#step-2-create-a-onelink-template-in-appsflyer}
-[OneLinkテンプレート](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures)を作成し、「When app is installed」でユニバーサルリンク/アプリリンクを設定します。このテンプレートは、後でメールキャンペーン用のOneLinkリンクを作成する際に使用します。
+[OneLinkテンプレート](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures)を作成し、「When app is installed」でユニバーサルリンク/アプリリンクを設定します。このテンプレートは、後でメールCampaigns用のOneLinkリンクを作成する際に使用します。
 
 {% alert note%} ユニバーサルリンク/アプリリンクを有効にする既存のOneLinkテンプレートがすでに設定されている場合は、それを使用できます。
 {%endalert%}
@@ -178,7 +182,7 @@ AppsFlyerでBraze統合を設定するには：
 ![Brazeを含むESP統合のリストを表示するAppsFlyerのUI。]({% image_buster /assets/img/attribution/appsflyer/3.png %})
 
 
-### 3. メールキャンペーンに使用するOneLinkテンプレートを選択し、「Next」をクリックします。 {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
+### 3. メールCampaignsに使用するOneLinkテンプレートを選択し、「Next」をクリックします。 {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
 ![AppsFlyerのUIに、ユーザーがテンプレートを選択できるドロップダウンが表示されています。]({% image_buster /assets/img/attribution/appsflyer/4.png %})
 
 
@@ -197,7 +201,7 @@ AppsFlyerでBraze統合を設定するには：
 
 #### a. AppsFlyerでカスタマイズされたプレハブの説明書をコピーし、ITまたはドメイン管理者に送信します。 {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-管理者は、AppsFlyerが提供する新しいドメインでDNS CNAMEレコードを更新することにより、メールキャンペーンのトラフィックをESPサーバーからAppsFlyerサーバーにリルートする必要があります。
+管理者は、AppsFlyerが提供する新しいドメインでDNS CNAMEレコードを更新することにより、メールCampaignsのトラフィックをESPサーバーからAppsFlyerサーバーにリルートする必要があります。
 
 その結果、リンクがクリックされるたびに、クリックはAppsFlyerにリダイレクトされ、AppsFlyerからESPエンドポイントにリダイレクトされます。
 
@@ -229,9 +233,9 @@ Could you please enable SSL click tracking for CTD XXX? It is currently set to H
 
 ### BrazeでのAppsFlyerクリックトラッキングURL（オプション） {#appsflyer-click-tracking-urls-in-braze-optional}
 
-プッシュやメールなどのBraze キャンペーンで、AppsFlyerの[OneLinkアトリビューションリンク](https://support.AppsFlyer.com/hc/en-us/articles/360001294118)を使用できます。これにより、インストールやリエンゲージメントのアトリビューションデータをBraze キャンペーンからAppsFlyerに送り返すことができます。その結果、マーケティング活動をより効果的に測定し、データドリブン型の意思決定を行うことができます。
+プッシュやメールなどのBraze Campaignsで、AppsFlyerの[OneLinkアトリビューションリンク](https://support.AppsFlyer.com/hc/en-us/articles/360001294118)を使用できます。これにより、インストールやリエンゲージメントのアトリビューションデータをBraze CampaignsからAppsFlyerに送り返すことができます。その結果、マーケティング活動をより効果的に測定し、データドリブン型の意思決定を行うことができます。
 
-AppsFlyerでOneLinkトラッキングURLを作成し、Braze キャンペーンに直接挿入するだけです。その後、AppsFlyerは[確率的アトリビューション手法](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling)を使用して、リンクをクリックしたユーザーをアトリビューションします。Braze キャンペーンからのアトリビューションの精度を高めるために、AppsFlyerのトラッキングリンクにデバイス識別子を付加することを推奨します。これにより、リンクをクリックしたユーザーを決定論的にアトリビューションします。
+AppsFlyerでOneLinkトラッキングURLを作成し、Braze Campaignsに直接挿入するだけです。その後、AppsFlyerは[確率的アトリビューション手法](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling)を使用して、リンクをクリックしたユーザーをアトリビューションします。Braze Campaignsからのアトリビューションの精度を高めるために、AppsFlyerのトラッキングリンクにデバイス識別子を付加することを推奨します。これにより、リンクをクリックしたユーザーを決定論的にアトリビューションします。
 
 {% tabs local %}
 {% tab Android %}

@@ -26,6 +26,10 @@ Para acessar o perfil de um usuário, acesse a página **Pesquisar usuários** e
 
 Se uma correspondência for encontrada, você poderá visualizar as informações que registrou para esse usuário com o SDK da Braze. Caso contrário, se a pesquisa retornar vários perfis de usuário, você poderá mesclar cada perfil individualmente ou realizar uma mesclagem de usuários em massa. Para um passo a passo completo, consulte [Mesclar usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
+{% alert note %}
+**Pesquisar usuários** não é o mesmo que **Busca de usuário** no criador de Segments ou Campaigns. **Busca de usuário** testa se um usuário específico corresponde ao seu público e aceita apenas `external_id` ou `braze_id`. **Pesquisar usuários** nesta página aceita e-mail, telefone, token por push e alias de usuário. Para saber mais, consulte [Testar segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+{% endalert %}
+
 {% alert important %}
 Quando um número de telefone é usado na pesquisa, ele é convertido para o formato [`E.164`](https://en.wikipedia.org/wiki/e.164). Usuários cujos números de telefone não podem ser convertidos para o formato `E.164` (por exemplo, porque o número de telefone tem um código de país ou código de área inválido) não podem ser pesquisados por número de telefone.
 {% endalert %}
@@ -38,14 +42,14 @@ Os perfis de usuário são um ótimo recurso para solução de problemas e teste
 
 Por exemplo, se um usuário relatar um problema e você não tiver certeza de qual dispositivo e sistema operacional ele está usando, você pode usar a [guia Visão geral](#overview-tab) para encontrar essas informações (desde que você tenha o e-mail ou o ID do usuário). Você também pode visualizar o idioma de um usuário, o que pode ser útil se estiver solucionando problemas de uma [campanha multilíngue]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) que não se comportou como esperado.
 
-Você pode usar a [guia Engajamento](#engagement-tab) para verificar se um determinado usuário recebeu uma Campaign. Além disso, se esse usuário específico recebeu a Campaign, você pode ver quando ele a recebeu. Você também pode verificar se um usuário está em um determinado segmento e se um usuário fez opt-in para push, e-mail ou ambos. Essas informações são úteis para fins de solução de problemas. Por exemplo, você deve verificar essas informações se um usuário não receber uma Campaign que você esperava que ele recebesse ou receber uma Campaign que você não esperava que ele recebesse.
+Você pode usar a [guia Engajamento](#engagement-tab) para verificar se um determinado usuário recebeu uma Campaign. Além disso, se esse usuário específico recebeu a Campaign, você pode ver quando ele a recebeu. Você também pode verificar se um usuário está em um determinado Segment e se um usuário fez opt-in para push, e-mail ou ambos. Essas informações são úteis para fins de solução de problemas. Por exemplo, você deve verificar essas informações se um usuário não receber uma Campaign que você esperava que ele recebesse ou receber uma Campaign que você não esperava que ele recebesse.
 
 ## Elementos do perfil de usuário {#elements-of-user-profile}
 
 Existem quatro seções principais no perfil de um usuário.
 
 - **Visão geral:** Informações básicas sobre o usuário, dados de sessão, atributos personalizados, eventos personalizados, compras e o dispositivo mais recente em que o usuário fez login.
-- **Engajamento:** Informações sobre as configurações de contato do usuário, Campaigns recebidas, segmentos, estatísticas de comunicação, atribuição da instalação e número de bucket aleatório.
+- **Engajamento:** Informações sobre as configurações de contato do usuário, Campaigns recebidas, Segments, estatísticas de comunicação, atribuição da instalação e número de bucket aleatório.
 - **Histórico de mensagens:** Eventos recentes relacionados a mensagens para este usuário nos últimos 30 dias.
 - **Elegibilidade para Feature Flags:** Valide para quais Feature Flags um usuário é atualmente elegível em rollouts, etapas do Canvas e experimentos.
 
@@ -61,7 +65,7 @@ A guia **Visão geral** contém informações básicas sobre um usuário e suas 
 | Dispositivos recentes | Em quantos dispositivos o usuário fez login, detalhes de cada dispositivo e seus IDs de publicidade associados (se houver). |
 | Eventos personalizados | Quais eventos personalizados este usuário realizou, quantas vezes e quando realizou cada evento pela última vez. |
 | Compras | Lifetime Revenue atribuída a este usuário, sua última compra, número total de compras e uma lista de cada compra. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Guia Visão geral" }
 
 Para saber mais sobre esses dados, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
@@ -74,14 +78,14 @@ A guia **Engajamento** contém informações sobre as interações de um usuári
 | Categoria de engajamento | Contém |
 | --- | --- |
 | Configurações de contato | Status de inscrição para e-mail, SMS e push, e os grupos de inscrições aos quais este usuário está associado para esses três canais. Esta seção também inclui informações de changelog para tokens por push. Consulte [e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) e [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) para informações sobre como inscrições e opt-ins são configurados. |
-| Campaigns recebidas | **Campaigns recebidas** reflete o momento de envio e visualização específico de cada canal. A maioria dos canais registra um envio quando a Braze passa a mensagem para o provedor de entrega, mesmo que a mensagem não seja entregue no final. **Content Cards** são diferentes: as Campaigns aparecem aqui somente depois que o usuário visualiza o cartão no app. Para um detalhamento por canal, consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received). Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br>Selecione uma Campaign da lista para visualizá-la. |
+| Campaigns recebidas | **Campaigns recebidas** reflete o momento de envio e visualização específico de cada canal. A maioria dos canais registra um envio quando a Braze passa a mensagem para o provedor de entrega, mesmo que a mensagem não seja entregue no final. **Content Cards** são diferentes: as Campaigns aparecem aqui somente depois que o usuário visualiza o cartão no app. Para um detalhamento por canal, consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received). <br><br>Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br>Essas listas usam [dados de interação com mensagens]({{site.baseurl}}/api/data_retention/messaging_interaction_data/) (incluindo regras de expiração) para determinar o que aparece para redirecionamento e histórico.<br><br> Selecione uma Campaign da lista para visualizá-la. |
 | Segments | Segments nos quais este usuário está incluído. Selecione um Segment da lista para visualizá-lo. |
 | Estatísticas de comunicação | Quando este usuário recebeu mensagens suas pela última vez em cada canal. |
 | Atribuição da instalação | Informações sobre como e quando um usuário instalou seu app. Saiba mais sobre [entender as instalações de usuários]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Diversos | O [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) do usuário. |
-| Mensagens do Canvas recebidas | Mensagens do Canvas que este usuário recebeu e quando. O momento do envio segue as mesmas regras de canal de **Campaigns recebidas**; consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received). Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br>Selecione uma mensagem da lista para visualizá-la. |
+| Mensagens do Canvas recebidas | Mensagens do Canvas que este usuário recebeu e quando. O momento do envio segue as mesmas regras de canal de **Campaigns recebidas**; consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received).<br><br> Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br> Selecione uma mensagem da lista para visualizá-la. |
 | Previsões | Pontuações de [previsão de churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) e [previsão de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) para este usuário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Guia Engajamento" }
 
 ### Quando as Campaigns aparecem em Campaigns recebidas {#when-campaigns-appear-in-campaigns-received}
 
@@ -126,7 +130,7 @@ Os seguintes eventos de engajamento com mensagem estão disponíveis para e-mail
 | Content Cards | Clique<br>Dispensar<br>Impressão<br>Envio |
 | Webhooks | Envio |
 | WhatsApp | Cancelamento<br>Entrega<br>Falha<br>Limite de frequência atingido<br>Recebimento de entrada<br>Leitura<br>Envio |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos de engajamento com mensagem" }
 
 ##### Eventos de cancelamento de mensagem {#message-abort-events}
 
@@ -165,6 +169,7 @@ Alguns campos podem estar ausentes na guia **Histórico de mensagens** de um usu
 - Quando um evento não possui dados para **Campaign/Canvas** e **Mensagem enviada**, isso indica que essa mensagem foi enviada por uma campanha da API (não Campaigns disparadas por API) que não especificou o `campaign_id` e o `message_variation_id`. Esses campos são opcionais e podem ser omitidos do corpo da requisição. Quando esses campos são especificados, essas informações são preenchidas nos registros do histórico de mensagens.
    - Se uma mensagem específica estiver completamente ausente do histórico de mensagens, mas aparecer no registro de **Campaigns recebidas**, é provável que o usuário tenha recebido a Campaign antes de ser identificado como o usuário atual. Se um perfil existente for órfão, o registro de **Campaigns recebidas** é transferido, mas o histórico de mensagens não.
 - Quando dados estão ausentes para **Campaign/Canvas**, um teste manual pode ter sido enviado. Testes manuais são registrados na guia **Histórico de mensagens**, mas a Campaign ou o Canvas que foi enviado não será registrado.
+- Quando um usuário está em um grupo de teste ou outro público de teste interno, o **Histórico de mensagens** pode exibir metadados limitados de Campaign ou Canvas em comparação com envios de produção.
 
 ## Artigos relacionados {#related-articles}
 

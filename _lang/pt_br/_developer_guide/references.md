@@ -10,6 +10,8 @@ toc_headers: h2
 
 > Esta é uma lista de documentação de referência, repositórios GitHub e apps de exemplo pertencentes a cada SDK da Braze. A documentação de referência de um SDK detalha suas classes, tipos, funções e variáveis disponíveis. O repositório GitHub fornece insight sobre as declarações de funções e atributos desse SDK, alterações de código e controle de versão. Cada repositório também inclui aplicativos de exemplo totalmente compiláveis que você pode usar para testar os recursos da Braze ou implementar junto com seus próprios aplicativos.
 
+Para conteúdo de README de repositórios espelhados na documentação, consulte [Guias de repositório]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## Lista de recursos {#list-of-resources}
 
 {% alert note %}

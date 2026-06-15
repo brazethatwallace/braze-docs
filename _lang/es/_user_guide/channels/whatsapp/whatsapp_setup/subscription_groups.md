@@ -24,7 +24,7 @@ Existen dos estados de suscripción para los usuarios de WhatsApp: `subscribed` 
 | --- | --- |
 | Suscrito | El usuario ha confirmado explícitamente que desea recibir mensajes de WhatsApp de una empresa específica. Los usuarios pueden suscribirse actualizando su estado de suscripción a través de la API de suscripción de Braze o implementando una estrategia de adhesión voluntaria, según las directrices de WhatsApp. |
 | Dado de baja | El usuario no ha dado su consentimiento explícito para la adhesión voluntaria o su estado de adhesión ha sido eliminado explícitamente. <br><br> Los usuarios dados de baja de un grupo de suscripción de WhatsApp dejarán de recibir cualquier mensaje de WhatsApp de los números de teléfono de envío que pertenezcan al grupo de suscripción. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de suscripción de WhatsApp" }
 
 ### Configurar los grupos de suscripción de WhatsApp de los usuarios {#setting-users-whatsapp-subscription-groups}
 
@@ -37,6 +37,18 @@ Existen dos estados de suscripción para los usuarios de WhatsApp: `subscribed` 
 - **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde **Audiencia** > **Buscar usuarios**. Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. Dentro de un perfil de usuario, en la pestaña **Interacción**, puedes ver el grupo de suscripción de WhatsApp de un usuario y su estado.
 
 - **REST API:** El grupo de suscripción de perfiles de usuario individuales se puede consultar mediante el [punto de conexión Lista de grupos de suscripción de usuarios]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) o el [punto de conexión Listar el estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) utilizando la REST API de Braze.
+
+## Archivar grupos de suscripción {#archive-subscription-groups}
+
+Si necesitas dejar de usar un grupo de suscripción de WhatsApp, puedes archivarlo para marcarlo como inactivo.
+
+Archivar un grupo de suscripción lo marca como inactivo, pero no lo elimina de tu espacio de trabajo. Si necesitas eliminar un número de teléfono de WhatsApp o un grupo de suscripción por completo, primero debes archivar el grupo de suscripción en el administrador de grupos de suscripción antes de solicitar la eliminación al soporte de Braze.
+
+Para archivar un grupo de suscripción:
+
+1. Ve a **Audiencia** > **Administración del grupo de suscripción**.
+2. Busca el grupo de suscripción de WhatsApp que deseas archivar.
+3. Pasa el cursor sobre el estado del grupo de suscripción y selecciona <i class="fa-solid fa-box-archive"></i> **Archivar**.
 
 ## Proceso de adhesión y cancelación de suscripción de WhatsApp {#whatsapp-opt-in-and-opt-out-process}
 

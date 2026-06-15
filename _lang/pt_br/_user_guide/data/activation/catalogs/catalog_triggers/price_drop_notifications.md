@@ -41,7 +41,7 @@ Siga estas etapas para configurar notificações de queda de preço em um catál
 | **Custom event for subscribing** | O evento personalizado usado para inscrever um usuário nas notificações de catálogo. Quando esse evento ocorrer, o usuário que o realizou será inscrito. |
 | **Custom event for unsubscribing** | O evento personalizado usado para cancelar a inscrição de um usuário nas notificações. Esse evento é opcional. Se o usuário não realizar esse evento, ele será desinscrito após 90 dias ou quando o evento de queda de preço for acionado, o que ocorrer primeiro. |
 | **Item ID event property** | A propriedade no evento personalizado acima usada para determinar o item para uma inscrição ou cancelamento de inscrição. Essa propriedade no evento personalizado deve conter um ID de item que existe em um catálogo. O evento personalizado deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurando notificações de queda de preço" }
 
 Aqui está um exemplo de evento personalizado:
 

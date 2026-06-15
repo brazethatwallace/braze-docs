@@ -2,7 +2,6 @@
 nav_title: Spécifications des images
 article_title: Spécifications des images
 page_order: 1
-
 page_type: reference
 description: "Cet article de référence décrit les tailles et spécifications d'images recommandées pour chaque type de canal."
 tool:
@@ -28,6 +27,8 @@ Les vidéos téléchargées dans la bibliothèque multimédia ne peuvent être u
 ## GIF {#gifs}
 
 Les GIF sont pris en charge dans les notifications push iOS, les messages in-app, les e-mails, les Content Cards et les messages MMS ou RCS. Les GIF avec des formes très allongées (par exemple, 3000 x 2 pixels) ou comportant 300 images ou plus peuvent échouer au téléchargement, même si la taille totale du fichier est faible.
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## Recommandations par canal {#channel-guidance}
 

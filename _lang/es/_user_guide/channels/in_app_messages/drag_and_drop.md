@@ -95,7 +95,7 @@ Puedes agregar hasta 10 páginas por mensaje dentro de la aplicación.
 
 Para duplicar una página existente:
 
-1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> para abrir más opciones.
+1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Selecciona **Duplicate**.
 3. Dale a la página un nombre significativo. Esto te ayudará cuando conectes las páginas entre sí.
 
@@ -104,7 +104,7 @@ Para duplicar una página existente:
 
 Para eliminar o renombrar una página:
 
-1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> para abrir más opciones.
+1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Selecciona **Rename** o **Delete**.
 
 {% endtab %}
@@ -192,4 +192,4 @@ Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en u
 
 ![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Templates** > **In-App Message Templates**.
+También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message Templates**.

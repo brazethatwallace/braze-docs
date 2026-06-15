@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "클라우드 데이터 수집: SQL 편집기 (베타)"
+nav_title: SQL 편집기
+article_title: "클라우드 데이터 수집: SQL 편집기"
 description: "SQL 쿼리를 사용하여 클라우드 데이터 수집 동기화를 생성하고 검증하는 방법을 알아보세요."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# 클라우드 데이터 수집: SQL 편집기 (베타) {#cloud-data-ingestion-sql-editor-beta}
+# 클라우드 데이터 수집: SQL 편집기 {#cloud-data-ingestion-sql-editor}
 
 > 이 페이지에서는 Braze 클라우드 데이터 수집(CDI) SQL 편집기를 사용하여 SQL 쿼리로 동기화를 생성하고 검증하는 방법을 다룹니다.
 
@@ -189,7 +190,7 @@ SQL 쿼리는 다음을 반환해야 합니다:
 이러한 식별자는 대소문자를 구분하며 대문자여야 합니다.
 {% endalert %}
 
-### `UPDATED_AT` 포함 {#include-updatedat}
+### `UPDATED_AT` 포함 {#include-updated_at}
 
 쿼리에는 `UPDATED_AT` 열이 포함되어야 합니다.
 
@@ -326,7 +327,7 @@ SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseur
 
 쿼리에 `external_id`와 같은 유효한 식별자가 포함되어 있는지 확인하세요.
 
-### `UPDATED_AT` 열 누락 {#updatedat-column-is-missing}
+### `UPDATED_AT` 열 누락 {#updated_at-column-is-missing}
 
 증분 동기화를 위한 타임스탬프 열을 추가하세요.
 

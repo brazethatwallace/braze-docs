@@ -9,7 +9,20 @@ tool: Canvas
 
 # Solução de problemas do Canvas {#troubleshoot-canvases}
 
-> Esta página ajuda você a solucionar problemas com suas **Canvases**.
+> Esta página ajuda você a solucionar problemas com seus Canvas.
+
+## Erro "Too many Canvas branches" {#too-many-canvas-branches-error}
+
+Se você vir o erro "Too many Canvas branches" ao lançar um Canvas agendado, a combinação de ramificações de etapas e o tamanho do público de entrada pode criar problemas de desempenho no cluster da Braze que impedem o envio de mensagens.
+
+A Braze exibe essa mensagem quando você lança um Canvas com entrada agendada — não quando salva um rascunho. Para resolver, tente o seguinte:
+
+- Reduza as ramificações de etapas no Canvas.
+- Reduza o tamanho do público de entrada.
+- Use [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) para consolidar ramificações em vez de muitas jornadas paralelas.
+- Se o seu Canvas usa o editor original, [clone-o para o Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) e reconstrua com componentes do Canvas.
+
+Se você ainda precisar lançar o Canvas sem alterações e não puder migrar para o Canvas Flow, entre em contato com o [Suporte]({{site.baseurl}}/support_contact/).
 
 ## Por que um usuário não recebeu uma etapa disparada do Canvas? {#why-did-a-user-not-receive-a-triggered-canvas-step}
 
@@ -19,16 +32,16 @@ Se o evento personalizado aparecer, investigue mais fazendo o seguinte:
 
 - Verifique o download do perfil do usuário para confirmar que ele disparou o evento e quando isso aconteceu. Se o evento foi disparado, compare o timestamp de quando o evento foi disparado com o horário em que o Canvas entrou no ar. O evento pode ter sido disparado antes do Canvas entrar no ar.
 - Revise os changelogs do Canvas e de quaisquer Segments usados no direcionamento para determinar se o usuário estava no Segment quando o evento personalizado foi disparado. Se ele não estava no Segment, não teria recebido a etapa do Canvas.
-- Verifique se o usuário foi incluído em um grupo de controle por meio de segmentação e, consequentemente, impedido de receber a etapa do Canvas.
+- Verifique se o usuário foi atribuído ao grupo de controle do Canvas na entrada e, consequentemente, impedido de receber a etapa do Canvas.
 - Se houver uma postergação agendada, verifique se o evento personalizado do usuário foi disparado antes da postergação. Se o evento foi disparado antes da postergação, ele não teria recebido a etapa do Canvas.
 
 {% alert note %}
-As **In-App Messages** só podem ser disparadas por eventos enviados pelo SDK, não pela Braze REST API.
+As mensagens no app só podem ser disparadas por eventos enviados pelo SDK, não pela REST API.
 {% endalert %}
 
 ## Por que meu Canvas não está enviando como esperado? {#why-isnt-my-canvas-sending-as-expected}
 
-As **Canvases** são robustas e complexas, e sabemos que você dedica tempo e cuidado ao criá-las. Então, se você perceber que seu **Canvas** não está enviando da forma desejada, recomendamos verificar a programação desse **Canvas**, o público de entrada e as configurações de entrada, além de revisar as etapas para [criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
+Os Canvas são robustos e complexos, e sabemos que você dedica tempo e cuidado ao criá-los. Então, se você perceber que seu Canvas não está enviando da forma desejada, recomendamos verificar a programação do Canvas, o público de entrada e as configurações de entrada, além de revisar as etapas para [criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
 
 ### Programação {#schedule}
 
@@ -38,7 +51,7 @@ As **Canvases** são robustas e complexas, e sabemos que você dedica tempo e cu
 
 ### Configurações de entrada {#entry-settings}
 
-As [configurações de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) são importantes para entender como suas **Canvases** estão enviando. Verifique se você limitou o número de pessoas que potencialmente entrarão nesse **Canvas**.
+As [configurações de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) são importantes para entender como seus Canvas estão enviando. Verifique se você limitou o número de pessoas que potencialmente entrarão no Canvas.
 
 Os usuários também podem sair de um Canvas se não forem mais elegíveis para receber mensagens. Por exemplo, se o Canvas contém apenas notificações por push e um usuário cancela a inscrição de push após receber a primeira etapa, esse usuário sairia do Canvas. Considere usar [diferentes etapas do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/) para adicionar jornadas alternativas para os usuários.
 
@@ -60,7 +73,7 @@ O número de mensagens enviadas ou entregues frequentemente difere do público e
 - **Elegibilidade do canal:** os usuários podem não ter endereços de e-mail, tokens por push ou o status de inscrição necessário para aquele canal naquela etapa.
 - **Grupos de controle:** um grupo de controle global ou do Canvas pode impedir que usuários recebam mensagens.
 - **Horário de silêncio, Intelligent Timing e limites de taxa:** essas configurações podem adiar ou suprimir envios.
-- **Etapas de In-App Messages:** as **In-App Messages** podem mostrar zero *Envios* enquanto existem impressões. Isso é esperado porque a entrega de **In-App Messages** funciona de forma diferente das notificações por push ou e-mail. Consulte [Por que um Canvas pode mostrar zero Envios mesmo que impressões estejam sendo registradas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) nas perguntas frequentes do Canvas.
+- **Etapas de mensagens no app:** as mensagens no app podem mostrar zero *Envios* enquanto existem impressões. Isso é esperado porque a entrega de mensagens no app funciona de forma diferente das notificações por push ou e-mail. Consulte [Por que um Canvas pode mostrar zero Envios mesmo que impressões estejam sendo registradas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) nas perguntas frequentes do Canvas.
 
 Para e-mail e outros canais, muitos dos mesmos fatores se aplicam como para Campaigns. Para uma lista detalhada, consulte [Por que os envios são menores que o tamanho estimado do público?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 
@@ -76,13 +89,11 @@ Para evitar isso, garanta que as atualizações de atributos personalizados ou e
 
 Ao criar seu Canvas, você pode ter esperado que seu público se dividisse igualmente entre o grupo de controle e o grupo de variante, como no seguinte [caso de uso](#use-case). Vamos discutir por que isso acontece e como corrigir!
 
-O grupo ao qual um usuário é atribuído depende das suas configurações. Pode ser o grupo de controle ou o grupo de variante. Um usuário entrará em um Canvas quando atender a todos os critérios definidos na [Etapa de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule). Ao configurar seu Canvas, você define qual porcentagem de usuários entrará em cada variante e no grupo de controle.
+A atribuição ao grupo de controle e à variante acontece na entrada do Canvas com base nas porcentagens que você definiu no construtor — não por meio de filtros de Segment. Um usuário entra em um Canvas quando atende a todos os critérios definidos na [Etapa de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule).
 
-Se seu grupo de controle for grande em comparação com seu grupo de variante (e essa não for sua intenção), recomendamos o seguinte:
-1. Defina o filtro do público de entrada como **is Foreground Push Enabled**.
-2. Defina o filtro do público de entrada para **Push Subscription Status**, **Email Subscription Status** ou ambos como **Opted In** ou **Subscribed**.
+Se os usuários entrarem na variante mas não receberem mensagens porque não são elegíveis para um canal, use as [Configurações de envio]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) em cada etapa (por exemplo, **Configurações de inscrição** definidas apenas para usuários que optaram por receber) em vez de adicionar filtros de canal ao **Público-alvo**. Para Canvas multicanal, não limite o público de entrada a um único canal (como **Foreground Push Enabled**).
 
-Ao criar um Canvas com um grupo de controle, confirme que todos os usuários no público de entrada são capazes de receber mensagens dentro do Canvas (por exemplo, se o Canvas contém mensagens push e de e-mail).
+Usuários que não podem receber um canal específico ainda podem entrar em uma variante. Para limitar quem recebe cada tipo de mensagem, use as configurações de envio por etapa em vez de filtros de público de entrada.
 
 ### Caso de uso {#use-case}
 

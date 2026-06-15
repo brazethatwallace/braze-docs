@@ -29,7 +29,7 @@ Conversion tracking begins when a user receives the campaign or enters the campa
 
 Conversion tracking begins when a user enters the Canvas. For Canvas steps, conversions are attributed while the user is active in that step. When the user advances to another step, conversion tracking stops for the previous step and starts for the next step.
 
-While a user is in a Delay step or other non-message step, conversions that occur during that wait are still attributed to the previous message step until the user moves forward. After the user receives the last message step in their path, conversions can still be recorded until the conversion deadline (counted from Canvas entry), even if there are no further message steps.
+While a user is in a Delay step or other non-message step, conversions that occur during that wait are still attributed to the last message step received until the user receives another message step. After the user receives the last message step in their path, conversions can still be recorded until the conversion deadline (counted from Canvas entry), even if there are no further message steps.
 
 {% endtab %}
 {% endtabs %}

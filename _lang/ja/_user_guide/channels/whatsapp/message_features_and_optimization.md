@@ -4,7 +4,7 @@ article_title: WhatsAppの機能と最適化
 page_order: 4
 layout: dev_guide
 guide_top_header: "機能と最適化"
-guide_top_text: "WhatsAppメッセージの配信を最適化します。クリックトラッキング、WhatsApp Flowsなどの設定方法について説明します。"
+guide_top_text: "WhatsAppメッセージの配信を最適化しましょう。クリックトラッキング、WhatsApp Flowsなどの設定方法について説明します。"
 
 page_type: landing
 description: "Brazeで配信、クリックトラッキング、Flowsなどを活用してWhatsAppメッセージを最適化します。"
@@ -29,4 +29,7 @@ guide_featured_list:
   - name: カスタムドメイン
     link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/custom_domains
     image: /assets/img/braze_icons/globe-05.svg
+  - name: WhatsAppテンプレートビルダー
+    link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/template_builder
+    image: /assets/img/braze_icons/file-01.svg
 ---

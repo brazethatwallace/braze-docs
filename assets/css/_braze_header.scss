@@ -196,13 +196,20 @@ $header_transition_time: 0.25s;
 
     }
     // Focus and hover styles for border elements, like input fields or buttons
+    // Design review: .border-focus uses a color change on :hover/:focus; verify the purple
+    // outline ring below doesn't conflict visually with the teal border-color transition.
     .border-focus {
       color: black;
       border-bottom: 2px solid transparent;
       padding-bottom: 0.2rem;
-      outline: none;
       &:hover, &:focus {
         color: #3accdd;
+      }
+      &:focus:not(:focus-visible) {
+        outline: none;
+      }
+      &:focus-visible {
+        @include focus-ring();
       }
       svg {
         vertical-align: middle;

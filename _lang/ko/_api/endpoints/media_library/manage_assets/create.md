@@ -27,7 +27,7 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 
 ## 사용량 제한 {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## 요청 본문 {#request-body}
 
@@ -149,6 +149,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | 파일이 허용된 최대 크기를 초과했습니다. 이미지는 5MB 제한이 있습니다. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | 워크스페이스가 최대 자산 수에 도달했습니다(무료 체험판 회사의 경우 기본값 200개, 그 외에는 무제한). `meta` 오브젝트에는 현재 `limit`이 포함되어 있습니다. |
 | `ASSET_UPLOAD_FAILED` | 400 | 처리 문제로 인해 자산 업로드에 실패했습니다. |
+| `INVALID_ASSET_URL` | 400 | `asset_url` 값이 유효한 URI가 아닙니다. `meta` 오브젝트에는 `asset_url`이 포함되어 있습니다. |
 | `ZIP_UPLOAD_ERROR` | 400 | ZIP 파일이 손상되었거나 열 수 없습니다. `meta` 오브젝트에는 `original_error` 메시지가 포함되어 있습니다. |
 | `ZIP_FILE_TOO_LARGE` | 400 | ZIP 파일의 총 압축 해제 크기가 5MB 제한을 초과합니다. `meta` 오브젝트에는 `zip_file_name`과 `zip_file_size`가 포함되어 있습니다. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP 내부의 파일 항목에 이름이 없습니다. ZIP 파일이 손상되지 않았는지 확인하고 이름이 없는 파일 항목에 이름을 추가하세요. |

@@ -2,13 +2,13 @@
 nav_title: 条件付きメッセージングロジック
 article_title: 条件付き Liquid メッセージングロジック
 page_order: 6
-description: "このリファレンス記事では、キャンペーンでタグをどのように使用できるか、また使用すべきかについて説明します。"
+description: "このリファレンス記事では、Campaignでタグをどのように使用できるか、また使用すべきかについて説明します。"
 
 ---
 
 # 条件付きメッセージングロジック {#conditional-messaging-logic}
 
-> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングキャンペーンにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
+> [タグ](https://docs.shopify.com/themes/liquid-documentation/tags)を使用すると、メッセージングCampaignにプログラミングロジックを含めることができます。タグは、条件文の実行や、変数の割り当てやコードブロックの反復処理などの高度なユースケースに使用できます。<br><br>このページでは、null、nil、blankの属性値の処理方法やカスタム属性の参照方法など、タグの使用方法について説明します。
 
 ## タグのフォーマット {#formatting-tags}
 
@@ -31,7 +31,7 @@ description: "このリファレンス記事では、キャンペーンでタグ
 緑色でハイライトされることを確認してから、`X` をメッセージフィールドの角にある青い `+` を使って選択した Liquid またはコネクテッドコンテンツに置き換え、`0` を希望の値に置き換えます。
 <br><br>
 次に、`else` 条件の間に必要に応じてメッセージバリエーションを追加します:
-`````````liquid
+```liquid
 {% if {{custom_attribute.${total_spend}}} >0 %}
 Thanks for purchasing! Here's another 10% off!
 {% else %}
@@ -42,10 +42,10 @@ Buy now! Would 5% off convince you?
 
 ## 条件ロジック {#conditional-logic}
 
-[メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してキャンペーンを国際化しています:
+[メッセージ内にインテリジェントロジック](http://docs.shopify.com/themes/liquid-documentation/basics)を多数含めることができます（条件文など）。以下の例では、[条件](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)を使用してCampaignを国際化しています:
 {% raw %}
 
-`````````liquid
+```liquid
 {% if ${language} == 'en' %}
 This is a message in English from Braze!
 {% elsif ${language} == 'es' %}
@@ -67,11 +67,13 @@ This is a message from Braze! This is going to go to anyone who did not match th
 
 条件ロジックに `{% else %}` 文を含めることもできます。設定した条件のいずれも満たされない場合、`{% else %}` 文は送信すべきメッセージを指定します。この例では、ユーザーの言語が英語、スペイン語、中国語のいずれでもない場合、デフォルトで英語になります。
 
-#### case タグと when タグ {#case-and-when-tags}
+#### `case` と `when` {#case-and-when}
 
 `{% case %}`、`{% when %}`、`{% endcase %}` は switch 文のように機能します。`case` の後に1つの式を設定し、各 `when` ブランチはその式がリストされた値と等しい場合に実行されます（Liquidは内部的に等価比較を使用しており、`if` と `elsif` を `==` で連鎖させるのと同様です）。1つの `when` タグにカンマまたは `or` で区切って複数の値をリストできます。何も一致しない場合のフォールバックには `{% else %}` を使用し、`{% endcase %}` で閉じます。
 
-`````````liquid
+`when` の値のフォーマットをデータタイプに合わせてください。テキスト（言語コードなど）の場合は引用符を使用します: `{% when 'es' %}`。数値の場合は引用符を省略します: `{% when 2 %}`。
+
+```liquid
 {% assign handle = 'cake' %}
 {% case handle %}
 {% when 'cake' %}
@@ -87,7 +89,7 @@ This is not a cake nor a cookie
 
 #### `endif`
 
-`{% endif %}` タグは `if` ブロックが終了したことを示します。`if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
+`{% endif %}` タグは `if` ブロックが終了したことを示します。そのチェーン内で `if`、`elsif`、`unless`、または `else` を使用するすべてのメッセージに `{% endif %}` タグを含める必要があります。`{% endif %}` タグを含めないと、Brazeがメッセージを解析できないためエラーが発生します。`{% case %}` を使用する場合は、`{% endif %}` ではなく `{% endcase %}` でブロックを閉じてください。
 
 {% alert note %}
 `if`、`elsif`、`unless` タグでは演算子を使用できますが、フィルターは使用できません。`case` と `when` タグでは、`case` 式が `when` の値と等しい場合に各ブランチが一致します。これらの式でもフィルターはサポートされていません。フィルター処理された値を評価するには、まずフィルター結果を変数に割り当ててから、その変数を `case` または `when` 句で参照してください。詳細については、[演算子とフィルターの使用場所]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)を参照してください。
@@ -99,7 +101,7 @@ This is not a cake nor a cookie
 
 1. まず `if` タグで、ユーザーの市区町村がニューヨークの場合に送信するメッセージを設定します。ユーザーの市区町村がニューヨークの場合、この最初の条件が満たされ、ユーザーはニューヨーカーであることを示すメッセージを受け取ります。
 
-`````````liquid
+```liquid
 {% if ${city} == "New York" %}
   🎉 Hey there, New Yorker! We're excited to offer you a special deal!
   Get 20% off your next sandwich at your local Sandwich Emperor.
@@ -109,7 +111,7 @@ This is not a cake nor a cookie
 {: start="2"}
 2. 次に、`elseif` タグを使用して、ユーザーの市区町村がロサンゼルスの場合に送信するメッセージを設定します。
 
-`````````liquid
+```liquid
 {% elsif ${city} == "Los Angeles" %}
   🌞 Hello, Los Angeles! Enjoy a sunny day with a delicious sandwich!
   Present this message at our LA restaurant for a 20% discount on your next order!
@@ -118,7 +120,7 @@ This is not a cake nor a cookie
 {: start="3"}
 3. もう1つ `elseif` タグを使用して、ユーザーの市区町村がシカゴの場合に送信するメッセージを設定しましょう。
 
-`````````liquid
+```liquid
 {% elsif ${city} == "Chicago" %}
   🍕 Chicago, we have a treat for you!
   Swing by our restaurant and get 20% off your favorite sandwich.
@@ -128,7 +130,7 @@ This is not a cake nor a cookie
 {: start="4"}
 4. 次に、`{% else %}` タグを使用して、ユーザーの市区町村がサンフランシスコ、ニューヨーク、シカゴのいずれでもない場合に送信するメッセージを指定しましょう。
 
-`````````liquid
+```liquid
 {% else %}
  🥪 Craving a sandwich? Visit us at any of our locations for a delicious meal!
   Check our website for the nearest restaurant to you!
@@ -137,7 +139,7 @@ This is not a cake nor a cookie
 {: start="5"}
 5. 最後に、`{% endif %}` タグを使用して条件ロジックが完了したことを指定します。
 
-`````````liquid
+```liquid
 {% endif %}
 ```
 
@@ -146,7 +148,7 @@ This is not a cake nor a cookie
 {% details 完全な Liquid コード %}
 
 {% raw %}
-`````````liquid
+```liquid
 {% if ${city} == "New York City" %}
   🎉 Hey there, New Yorker! We're excited to offer you a special deal!
   Get 20% off your next sandwich at our New York location.
@@ -180,7 +182,7 @@ nullまたはnilの値は、カスタム属性の値が設定されていない�
 以下のタグを使用すると、「名」属性がnullのユーザーに対するメッセージを指定できます:
 
 {% raw %}
-`````````liquid
+```liquid
 {% if ${first_name} == null %}
   ....
 {% endif %}
@@ -190,7 +192,7 @@ nullまたはnilの値は、カスタム属性の値が設定されていない�
 ![Brazeダッシュボードでの、nullの「名」属性を使用したメッセージの例。]({% image_buster /assets/img/value_null.png %}){: style="max-width:60%;"}
 
 {% raw %}
-`````````liquid
+```liquid
 {% if ${first_name} == null %}
 We're having a sale! Hurry up and get 10% off all items today only!
 {% else %}
@@ -209,7 +211,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 以下のタグを使用すると、「名」属性がblankのユーザーに対するメッセージを指定できます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% if ${first_name} == blank %}
   ....
 {% endif %}
@@ -234,7 +236,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% if {{custom_attribute.${registration_complete}}} == true %}
 ```
 
@@ -246,7 +248,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% if {{custom_attribute.${shoe_size}}} == 10 %}
 ```
 
@@ -256,7 +258,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% if {{custom_attribute.${flyer_miles}}} >= 500 %}
 ```
 
@@ -268,7 +270,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% if {{custom_attribute.${favorite_color}}} == 'blue' %}
 ```
 
@@ -282,7 +284,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% if {{custom_attribute.${last_viewed_shows}}} contains 'homeland' %}
 ```
 
@@ -296,7 +298,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% raw %}
 
-`````````liquid
+```liquid
 {% assign expire = {{custom_attribute.${subscription_end_date}}} | plus: 0 %}
 ```
 

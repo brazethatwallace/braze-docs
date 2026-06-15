@@ -45,10 +45,6 @@ search_rank: 2
 
 커스텀 데이터 차단 및 삭제에 대한 자세한 내용은 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.
 
-### 개인 식별 정보(PII)로 표시 {#marking-as-personally-identifiable-information-pii}
-
-관리자는 이 페이지에서 커스텀 이벤트를 생성하고 PII로 표시할 수도 있습니다. 이러한 이벤트는 관리자와 "PII로 표시된 커스텀 속성 보기" 권한이 있는 대시보드 사용자에게만 표시됩니다.
-
 ### 설명 추가 {#adding-descriptions}
 
 `Manage Events, Attributes, Purchases` [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 있는 경우 커스텀 이벤트가 생성된 후 설명을 추가할 수 있습니다. 커스텀 이벤트의 **설명 편집**을 선택하고 팀을 위한 메모 등 원하는 내용을 입력하세요.
@@ -61,6 +57,10 @@ search_rank: 2
 
 커스텀 이벤트 목록을 CSV 파일로 내보내려면 페이지 상단에서 **모두 내보내기**를 선택합니다. CSV 파일이 생성되고 다운로드 링크가 이메일로 전송됩니다.
 
+{% alert note %}
+대시보드에서 정의하거나 프로필에 저장할 수 있는 고유한 **커스텀 이벤트** 또는 **커스텀 속성**의 수에 대한 고정된 상한은 없습니다. 실질적인 제한은 데이터 형태, 수집 볼륨 및 워크스페이스 성능에 따라 달라집니다. 매우 많은 수의 이벤트 또는 속성을 추적할 계획이라면 Braze 계정 팀과 모델링 및 데이터 관리(예: 사용하지 않는 데이터 [차단 목록 추가]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/))에 대해 상의하세요.
+{% endalert %}
+
 ## 사용 보고서 보기 {#viewing-usage-reports}
 
 사용 보고서에는 특정 커스텀 이벤트를 사용하는 모든 Canvases, Campaigns 및 Segments가 나열됩니다. 이 목록에는 Liquid 사용은 포함되지 않습니다.
@@ -69,7 +69,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 기록 {#logging-custom-events}
 
-커스텀 이벤트는 추가 설정이 필요합니다. 아래 목록에서 각 플랫폼별 설명서를 참조하세요. 커스텀 이벤트를 기록하는 데 사용되는 메서드와 커스텀 이벤트에 등록정보 및 수량을 추가하는 방법에 대한 정보를 확인할 수 있습니다.
+커스텀 이벤트는 추가 설정이 필요합니다. 아래 목록에서 각 플랫폼별 설명서를 참조하세요. 커스텀 이벤트를 기록하는 데 사용되는 메서드와 커스텀 이벤트에 속성정보 및 수량을 추가하는 방법에 대한 정보를 확인할 수 있습니다.
 
 {% details 플랫폼별 설명서 펼치기 %}
 

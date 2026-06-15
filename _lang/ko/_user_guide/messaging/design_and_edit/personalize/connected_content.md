@@ -16,20 +16,20 @@ guide_featured_list:
 - name: 로컬 연결된 콘텐츠 변수
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables
   image: /assets/img/braze_icons/server-01.svg
-- name: 연결된 콘텐츠 응답 캐싱
+- name: 연결된 콘텐츠 응답 캐시
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses
   image: /assets/img/braze_icons/edit-05.svg
 - name: 연결된 콘텐츠 중단
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content
   image: /assets/img/braze_icons/stop-circle.svg
-- name: 고객 프로필 데이터 가져오기
+- name: 사용자 프로필 데이터 가져오기
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/user_profile_fields_connected_content
   image: /assets/img/braze_icons/users-01.svg
 - name: 연결된 콘텐츠 재시도
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: 연결된 콘텐츠 요청 문제 해결
-  link: /docs/help/help_articles/api/webhook_connected_content_errors/
+- name: 웹훅 및 연결된 콘텐츠 문제 해결
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
 - name: 공개 API 사용하기
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis

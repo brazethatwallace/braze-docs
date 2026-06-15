@@ -9,6 +9,7 @@ tool:
   - Campaigns
   - Canvas
 
+
 ---
 
 # Questions fréquemment posées {#frequently-asked-questions}
@@ -17,7 +18,7 @@ tool:
 
 ### Puis-je prévisualiser l'apparence de mon e-mail en mode sombre ? {#can-i-preview-how-my-email-appears-in-dark-mode}
 
-Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **mode sombre**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
+Oui. Accédez à la section **Preview and Test** de l'éditeur par glisser-déposer et activez le **Dark mode**. Nous vous recommandons également de prévisualiser et de tester vos e-mails sur différentes plateformes utilisateur et d'utiliser des images transparentes pour les images d'arrière-plan des lignes lorsque cela est possible.
 
 ### Comment concevoir des e-mails pour le mode sombre et le mode clair ? {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
@@ -52,6 +53,37 @@ Si vous avez besoin d'un modèle HTML réutilisable, sélectionnez **Download fi
 
 Pour plus d'informations sur l'emplacement des modèles, consultez [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates/).
 
+### Pourquoi ne puis-je pas modifier la couleur de remplissage d'un bouton dans l'éditeur par glisser-déposer ? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Les styles au niveau de la page peuvent remplacer les styles au niveau du message. Si la modification du **Fill** d'un bouton ou d'un bloc n'a aucun effet, essayez ce qui suit :
+1. Ouvrez les [paramètres de style global des e-mails]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) et sélectionnez **Reset to default** sur le style de page en conflit afin que la couleur définie au niveau du message puisse s'appliquer.
+2. Définissez à nouveau la couleur sur le bloc.
+
 ### Puis-je ajouter des pièces jointes aux e-mails dans l'éditeur par glisser-déposer ? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 Oui. Vous pouvez ajouter des pièces jointes à votre e-mail en accédant à **Sending Settings** > **Advanced**.
+
+### Comment télécharger le HTML brut d'un e-mail par glisser-déposer ? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
+
+1. Ouvrez votre campagne ou Canvas et modifiez le message e-mail.
+2. Sélectionnez **Edit email body** pour ouvrir l'éditeur par glisser-déposer.
+3. Sélectionnez **Download file** (en bas de l'éditeur). Extrayez l'archive pour accéder au HTML généré.
+
+Vous pouvez coller ce HTML dans un [bloc HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) ou dans l'éditeur HTML lorsque vous avez besoin de modifications de bas niveau, par exemple pour [désactiver le suivi des clics sur des liens spécifiques]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### Pourquoi ma mise en page par glisser-déposer est-elle cassée ? {#why-is-my-drag-and-drop-layout-breaking}
+
+Les problèmes de mise en page sont souvent causés par du **HTML ou CSS personnalisé** qui entre en conflit avec le balisage généré par l'éditeur. Essayez les étapes suivantes :
+
+1. Supprimez ou isolez les blocs HTML personnalisés pour voir si le problème disparaît.
+2. Vérifiez les paramètres de l'**éditeur d'e-mail par glisser-déposer** pour les polices personnalisées qui pourraient ne pas se charger dans tous les clients.
+3. Dans **Row Properties**, vérifiez le padding et la largeur des colonnes.
+4. Lorsque vous ajoutez du HTML personnalisé, privilégiez les mises en page basées sur des tableaux, les images fluides et des largeurs de tableau totales adaptées à la largeur de votre e-mail. Les images en pixels fixes ou les structures non tabulaires cassent souvent dans Outlook et d'autres clients.
+
+### Pourquoi mon bloc de contenu ne s'affiche-t-il pas dans la prévisualisation de l'e-mail ? {#why-doesnt-my-content-block-render-in-email-preview}
+
+Si un bloc de contenu ne s'affiche pas dans la prévisualisation de l'e-mail, vérifiez qu'il n'y a pas de balises d'ancrage non fermées. Pour les URL de Contenu connecté, utilisez le filtre `replace` pour convertir les esperluettes doublement encodées (`&amp;amp;`) en une seule esperluette encodée (`&amp;`). Limitez l'imbrication des blocs de contenu à deux niveaux.
+
+### Pourquoi l'éditeur par glisser-déposer ignore-t-il les paramètres d'alignement ? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
+
+Si l'éditeur par glisser-déposer ignore les paramètres d'alignement, supprimez le CSS ou les blocs HTML personnalisés, supprimez les polices personnalisées, vérifiez les conflits CSS et évitez de dupliquer les blocs de lignes. Contactez l'assistance Braze si le problème persiste.

@@ -21,7 +21,7 @@ L'intégration de Braze et Amperity offre une vue unifiée de vos clients sur le
 - **Créer et envoyer des audiences** : Créer des segments qui renvoient des listes de clients actifs et leurs attributs personnalisés associés vers Braze, et les envoyer à Braze.
 - **Gérer les mises à jour des données** : Contrôler la fréquence d'envoi des mises à jour des attributs personnalisés vers Braze.
 - **Unifier les données** : Unifier les données sur diverses plateformes prises en charge par Amperity et Braze.
-- **Synchroniser les données de Braze vers Amazon S3** : Utiliser Braze Currents pour intégrer les données d'engagement des Campaigns Braze, vous permettant de synchroniser les données vers Amazon S3 au format Apache Avro.
+- **Synchroniser les données de Braze vers Amazon S3** : Utiliser Braze Currents pour intégrer les données d'engagement des campagnes Braze, vous permettant de synchroniser les données vers Amazon S3 au format Apache Avro.
 
 ## Conditions préalables {#prerequisites}
 
@@ -32,7 +32,7 @@ L'intégration de Braze et Amperity offre une vue unifiée de vos clients sur le
 | Instance Braze | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics/#endpoints). |
 | Endpoint REST Braze | Votre URL d'endpoint Braze. Votre endpoint dépendra de votre instance Braze. |
 | Connecteur Currents (facultatif) | Le connecteur S3 Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Mappage des données {#data-mapping}
 
@@ -106,7 +106,7 @@ Créez une nouvelle table nommée « Braze Customer Attributes » dans votre bas
 
 #### Étape 2b : Nommer, valider et enregistrer la table {#step-2b-name-validate-and-save-the-table}
 
-Nommez la table « Braze Customer Attributes » et enregistrez-la. Vérifiez que la table est accessible à l'**éditeur de segments** et à l'éditeur **Edit Attributes** dans les Campaigns.
+Nommez la table « Braze Customer Attributes » et enregistrez-la. Vérifiez que la table est accessible à l'**éditeur de segments** et à l'éditeur **Modifier les attributs** dans les campagnes.
 
 #### Étape 2c : Ajouter Braze comme destination {#step-2c-add-braze-as-a-destination}
 

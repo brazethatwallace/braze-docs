@@ -34,11 +34,7 @@ A continuación, dale un nombre a tu plantilla y añade las etiquetas relevantes
 
 ### Paso 1: Ve al editor de plantillas de Canvas {#step-1-go-to-the-canvas-template-editor}
 
-En el dashboard de Braze, ve a **Templates** > **Canvas Templates**.
-
-{% alert note %}
-Si estás usando la navegación anterior, puedes encontrar esta página en **Engagement** > **Templates & Media** > **Canvas Templates**.
-{% endalert %}
+En el dashboard de Braze, ve a **Content** > **Canvas**.
 
 ### Paso 2: Crea una nueva plantilla {#step-2-create-a-new-template}
 
@@ -59,11 +55,11 @@ Cuando hayas terminado de personalizar tu plantilla, selecciona el botón **Save
 Hay dos formas de usar tu plantilla al crear un Canvas:
 
 - **Desde Messaging**: Ve a **Messaging** > **Canvas**. Selecciona el botón **Create Canvas** y **Use a Canvas Template**.
-- **Desde Templates**: Ve a **Templates** > **Canvas Templates** y encuentra la plantilla deseada. Luego, selecciona el menú <i class="fas fa-ellipsis-vertical"></i> seguido de **Apply template**. Esto te llevará a un nuevo Canvas con la plantilla aplicada en el compositor de Canvas.
+- **Desde Content**: Ve a **Content** > **Canvas** y encuentra la plantilla deseada en **Canvas templates**. Luego, selecciona el menú <i class="fas fa-ellipsis-vertical"></i> seguido de **Apply template**. Esto te llevará a un nuevo Canvas con la plantilla aplicada en el compositor de Canvas.
 
 ### Plantillas de Braze disponibles {#available-braze-templates}
 
-Para ver una lista de las plantillas de Canvas disponibles, consulta [Plantillas de Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Para obtener detalles sobre el uso de plantillas de Canvas de comercio electrónico, consulta [Cómo usar eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases/).
+Para ver una lista de las plantillas de Canvas disponibles, consulta [Plantillas de Canvas de Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Para obtener detalles sobre el uso de plantillas de Canvas de comercio electrónico, consulta [Cómo usar eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases/).
 
 ## Gestión de plantillas de Canvas {#managing-canvas-templates}
 

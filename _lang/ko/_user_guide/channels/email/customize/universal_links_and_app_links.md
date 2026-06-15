@@ -33,7 +33,7 @@ Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 �
 | 목적                | iOS 및 Android 기기에서 웹과 앱 콘텐츠를 원활하게 연결 | 특정 앱 콘텐츠로 연결 |
 | 기능               | 컨텍스트에 따라 웹 페이지 또는 앱 콘텐츠로 이동           | 특정 앱 화면을 열기   |
 | 앱 설치       | 앱이 설치되어 있으면 앱을 열고, 그렇지 않으면 웹 콘텐츠를 열기 | 앱이 설치되어 있어야 함 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="유니버설 링크 및 앱 링크의 작동 방식" }
 
 ## 활용 사례 {#use-cases}
 
@@ -225,15 +225,16 @@ Android 앱에서 수신되는 딥링크를 처리해야 합니다. 액티비티
 클릭 추적 링크는 일반적으로 이메일 온보딩의 일부로 설정됩니다. 고객 온보딩 중에 완료되지 않은 경우 계정 매니저에게 도움을 요청하세요.
 {% endalert %}
 
-이메일 발송 파트너인 SendGrid와 SparkPost는 클릭 추적 도메인을 사용하여 모든 링크를 래핑하고 Braze 이메일의 클릭 추적을 위한 URL 매개변수를 포함합니다.
+이메일 발송 파트너는 클릭 추적 도메인을 사용하여 모든 링크를 래핑하고 Braze 이메일의 클릭 추적을 위한 URL 매개변수를 포함합니다.
 
 예를 들어, `https://www.example.com`과 같은 링크는 `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`과 같은 형태가 됩니다.
 
 클릭 추적이 포함된 이메일 링크가 유니버설 링크 또는 앱 링크로 작동하도록 하려면 추가 설정이 필요합니다. 클릭 추적 도메인(`links.email.example.com`)을 앱이 열 수 있는 도메인으로 추가해야 합니다. 또한 클릭 추적 도메인이 AASA(iOS) 또는 Digital Asset Links(Android) 파일을 제공해야 합니다. 이렇게 하면 클릭 추적이 포함된 이메일 링크가 원활하게 작동합니다.
 
-모든 클릭 추적 링크를 유니버설 링크 또는 앱 링크로 만들고 싶지 않은 경우, 이메일 발송 파트너에 따라 어떤 링크를 유니버설 링크로 지정할지 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
+모든 클릭 추적 링크를 유니버설 링크 또는 앱 링크로 만들고 싶지 않은 경우, 이메일 발송 파트너에 따라 어떤 링크를 유니버설 링크로 지정할지 선택할 수 있습니다. 자세한 내용은 다음 탭을 참조하세요.
 
-### SendGrid
+{% tabs %}
+{% tab SendGrid %}
 
 SendGrid 클릭 추적 링크를 유니버설 링크로 처리하려면:
 
@@ -255,7 +256,8 @@ AMP 이메일의 경우 이 속성은 data-universal="true"여야 합니다.
 
 이 구성을 사용하면 URL 경로에 `/uni/`가 포함된 링크는 유니버설 링크로 작동하고, 다른 모든 링크는 웹 링크로 작동합니다.
 
-### SparkPost
+{% endtab %}
+{% tab SparkPost %}
 
 SparkPost 클릭 추적 링크를 유니버설 링크로 처리하려면 이메일용 드래그 앤 드롭 편집기의 속성 섹션에 다음 속성을 추가하거나, 링크 HTML을 수동으로 편집하여 링크의 앵커 태그에 다음 속성을 포함합니다: `data-msys-sublink="custom_path"`.
 
@@ -268,6 +270,83 @@ SparkPost 클릭 추적 링크를 유니버설 링크로 처리하려면 이메�
 ```
 
 그런 다음 앱이 커스텀 경로를 올바르게 처리하도록 설정되어 있는지 확인합니다. SparkPost의 [딥링크에서 SparkPost 클릭 추적 사용](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links) 문서를 참조하세요. 이 문서에는 [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) 및 [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost)용 예시 코드가 포함되어 있습니다.
+
+{% endtab %}
+{% tab Amazon SES %}
+
+커스텀 경로를 사용하여 이메일 클릭 추적 URL에 경로 세그먼트를 추가합니다. 이렇게 하면 모바일 운영체제가 유니버설 링크 및 앱 링크로 인식할 수 있는 예측 가능한 URL 패턴이 생성됩니다.
+
+사용자가 모바일 기기에서 이메일 링크를 탭할 때, 커스텀 경로를 사용하면 링크가 기본 모바일 앱, 전문 앱 또는 모바일 브라우저(예: 제품 페이지, 로열티 프로그램, 구독 취소 링크 또는 법적 페이지)에서 열리는지 제어할 수 있습니다.
+
+Amazon SES 클릭 추적 링크를 유니버설 링크 또는 앱 링크로 처리하려면:
+
+1. 이메일 HTML의 앵커 태그에 `ses:custom-path` 속성을 추가하거나, 이메일용 드래그 앤 드롭 편집기의 **속성** 섹션에서 속성을 추가합니다. 커스텀 경로는 래핑된 클릭 추적 URL에 삽입됩니다.
+
+예시:
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+커스텀 경로가 다음 요구 사항을 따르는지 확인하세요:
+
+- **형식:** 영숫자 문자, 점, 밑줄, 하이픈만 사용 가능
+- **길이:** 1~32자
+- **대소문자 구분:** 모바일 OS 요구 사항에 맞게 경로는 대소문자를 구분합니다
+
+{:start="2"}
+2. 래핑된 추적 URL에 커스텀 경로 세그먼트가 포함되어 있는지 확인합니다. 링크는 다음 형식을 따릅니다: `track.yourstore.com/L1/{customPath}/...`
+
+예시:
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. 클릭 추적 도메인에서 사이트 연결 파일을 구성하여 경로가 `/L1/{customPath}/`와 일치하도록 합니다.
+
+**iOS(Apple App Site Association):**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android(Digital Asset Links):**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+앱이 이러한 래핑된 링크를 처리하도록 설정되어 있는지 확인하세요. 클릭 추적 도메인을 앱의 associated domains(iOS) 또는 인텐트 필터(Android)에 추가하고, 이 문서의 앞부분에서 설명한 대로 해당 도메인에 AASA 또는 Digital Asset Links 파일을 호스팅하세요.
+
+{% endtab %}
+{% endtabs %}
 
 ### 링크별 클릭 추적 비활성화 {#turning-off-click-tracking-on-a-link-to-link-basis}
 
@@ -343,6 +422,10 @@ HTML 편집기의 이메일 메시지에 HTML 코드를 추가하거나 드래�
 
 이메일에서 유니버설 링크가 예상대로 작동하지 않는 경우(예: 수신자가 이메일 앱에서 웹 브라우저로 이동한 후 최종적으로 앱으로 리디렉션되는 경우), 다음 팁을 참조하여 유니버설 링크 설정 문제를 해결하세요.
 
+#### Outlook에서 `[?it=` 또는 원시 URL 텍스트가 버튼 대신 표시되는 경우 {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+
+Outlook은 링크가 유효한 **`http://` 또는 `https://`** URL 스킴을 사용하지 않을 때 `[?it=`과 같은 콜투액션 텍스트를 표시하거나 `href`의 일부를 출력할 수 있습니다. 커스텀 스킴, 누락된 스킴 또는 잘못된 형식의 URL은 하이퍼링크로 처리되지 않으므로 클라이언트가 속성 텍스트를 대신 표시합니다. 모든 버튼, 이미지 링크 및 추적 URL이 전체 `https://`(또는 `http://`) 대상을 사용하는지 확인하세요. 이는 유니버설 링크와 표준 웹 링크 모두에 적용됩니다.
+
 #### 링크 파일 위치 확인 {#verify-link-file-location}
 
 AASA 파일(iOS) 또는 Digital Asset Links 파일(Android)이 올바른 위치에 있는지 확인합니다:
@@ -356,7 +439,7 @@ AASA 파일(iOS) 또는 Digital Asset Links 파일(Android)이 올바른 위치�
 
 앱이 열 수 있는 도메인에 대한 올바른 정의가 있는지 확인합니다.
 
-- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
+- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계: Xcode 프로젝트에서 Associated Domains 활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 - **Android:** 앱 정보 페이지를 엽니다(앱 아이콘을 길게 누르고 ⓘ를 클릭). 앱 정보 메뉴에서 **기본으로 열기**를 찾아 탭합니다. 앱이 열 수 있는 모든 확인된 링크가 표시되는 화면이 나타납니다. 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 
 #### 추적 도메인에서 .well-known 파일을 제공할 수 없는 경우 {#tracking-domain-cant-serve-well-known-files}

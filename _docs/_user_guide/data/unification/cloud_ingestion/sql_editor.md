@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Cloud Data Ingestion: SQL Editor (beta)"
+nav_title: SQL editor
+article_title: "Cloud Data Ingestion: SQL editor"
 description: "Learn how to create and validate Cloud Data Ingestion syncs with SQL queries."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Cloud Data Ingestion: SQL Editor (beta)
+# Cloud Data Ingestion: SQL Editor
 
 > This page covers how to use Braze Cloud Data Ingestion (CDI) SQL Editor to create and validate syncs with SQL queries.
 

@@ -41,11 +41,11 @@ Cuando el usuario inicia una nueva sesión o actualiza los Banners después de r
 
 ## ¿Pueden los usuarios cerrar manualmente un Banner? {#can-users-dismiss-a-banner}
 
-{% alert important %}
-Permitir que los usuarios cierren manualmente un Banner está en acceso anticipado. Consulta [Configurar el comportamiento de cierre]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para obtener más detalles. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
-{% endalert %}
+Sí. Puedes permitir que los usuarios cierren manualmente un Banner habilitando el comportamiento de cierre en el compositor de Banners. Consulta [Configurar el comportamiento de cierre]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para obtener más detalles sobre cómo habilitar el cierre y personalizar el botón de cierre.
 
-Los usuarios pueden cerrar manualmente los Banners solo si el comportamiento de cierre está habilitado y tu espacio de trabajo participa en el acceso anticipado. Si el cierre no está habilitado o no está disponible para tu espacio de trabajo, puedes controlar la visibilidad de los Banners administrando la elegibilidad de los segmentos de usuarios. Cuando un usuario ya no cumple los criterios de segmentación de una campaña de Banners, no lo verá de nuevo en su próxima sesión.
+Los usuarios pueden cerrar manualmente los Banners solo si el comportamiento de cierre está habilitado. Si el cierre no está habilitado, puedes controlar la visibilidad de los Banners administrando la elegibilidad de los segmentos de usuarios. Cuando un usuario ya no cumple los criterios de segmentación de una campaña de Banners, no lo verá de nuevo en su próxima sesión.
+
+Cuando un usuario cierra un Banner, deja de ser elegible para esa campaña de forma predeterminada. Para permitir que los usuarios que cerraron el Banner lo vean de nuevo, [configura la reelegibilidad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) en el paso de **Controles de entrega** de la campaña. Los pasos de Banner en Canvas utilizan la configuración de reentrada de Canvas para controlar la reelegibilidad en su lugar.
 
 {% alert important %}
 Los [cierres de Banners]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) están actualmente en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.

@@ -13,7 +13,7 @@ platform:
 
 ## Funktionsweise {#how-it-works}
 
-![Live-Aktivität mit Zustellungs-Tracker auf dem Sperrbildschirm eines iPhones. Eine Statusleiste mit einem Auto ist fast zur Hälfte gefüllt. Der Text lautet „2 Minuten bis zur Abholung“.]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
+![Live-Aktivität mit Zustellungs-Tracker auf dem Sperrbildschirm eines iPhones. Eine Statusleiste mit einem Auto ist fast zur Hälfte gefüllt. Der Text lautet „2 min until pickup“.]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
 Live-Aktivitäten stellen eine Kombination aus statischen und dynamischen Informationen dar, die Sie aktualisieren. Sie können zum Beispiel eine Live-Aktivität mit einem Status-Tracker für eine Zustellung erstellen. Diese Live-Aktivität enthält den Namen Ihres Unternehmens als statische Information sowie eine dynamische „Zeit bis zur Lieferung“, die aktualisiert wird, wenn sich der Zusteller seinem Ziel nähert.
 
@@ -133,7 +133,7 @@ Um eine Live-Aktivität remote zu registrieren, ist iOS 17.2 oder höher erforde
 
 #### Schritt 2.1: BrazeKit zu Ihrer Widget-Erweiterung hinzufügen {#step-21-add-brazekit-to-your-widget-extension}
 
-Wählen Sie in Ihrem Xcode-Projekt den Namen Ihrer App und dann **General** aus. Prüfen Sie unter **Frameworks and Libraries**, ob `BrazeKit` aufgeführt ist.
+In Ihrem Xcode-Projekt wählen Sie den Namen Ihrer App und dann **General** aus. Prüfen Sie unter **Frameworks and Libraries**, ob `BrazeKit` aufgeführt ist.
 
 ![Das BrazeKit-Framework unter „Frameworks and Libraries“ in einem Beispiel-Xcode-Projekt.]({% image_buster /assets/img/swift/live_activities/xcode_frameworks_and_libraries.png %})
 
@@ -176,7 +176,7 @@ Als Nächstes registrieren Sie den Typ der Live-Aktivität, damit Braze alle Pus
 Das iOS-Betriebssystem erzeugt Push-to-Start-Token nur bei der ersten App-Installation nach einem Geräteneustart. Um sicherzustellen, dass Ihre Token zuverlässig registriert werden, rufen Sie `registerPushToStart` in der Methode `didFinishLaunchingWithOptions` auf.
 {% endalert %}
 
-###### Beispiel {#example}
+###### Beispiel
 
 Im folgenden Beispiel verarbeitet die Klasse `LiveActivityManager` Live-Aktivitätsobjekte. Anschließend registriert die Methode `registerPushToStart` den Typ `SportsActivityAttributes`:
 
@@ -195,7 +195,7 @@ class LiveActivityManager {
     // You may keep a reference to this task if you need to cancel it wherever appropriate, or ignore the return value if you wish.
     let pushToStartObserver: Task = Self.braze?.liveActivities.registerPushToStart(
       forType: Activity<SportsActivityAttributes>.self,
-      name: "SportsActivityAttributes"
+      name: SportsActivityAttributes.name
     )
   }
 
@@ -217,7 +217,7 @@ Sie können [Apples ActivityKit-Framework](https://developer.apple.com/documenta
 
 Sobald Sie die Live-Aktivität registriert haben, extrahiert und beobachtet das Braze SDK Änderungen an den Push-Token.
 
-#### Beispiel {#example}
+#### Beispiel
 
 Für unser Beispiel erstellen wir eine Klasse namens `LiveActivityManager` als Schnittstelle für unsere Live-Activity-Objekte. Dann setzen wir den `pushTokenTag` auf `"sports-game-2024-03-15"`.
 
@@ -266,7 +266,7 @@ So stellen Sie sicher, dass Braze Ihre Live-Aktivitäten beim Start der App verf
 
 Dadurch kann Braze die Aufgaben zur Verfolgung von Push-Token-Aktualisierungen für alle aktiven Live-Aktivitäten wieder aufnehmen. Beachten Sie: Wenn Nutzer:innen die Live-Aktivität explizit auf ihrem Gerät geschlossen haben, gilt sie als entfernt und Braze verfolgt sie nicht mehr.
 
-###### Beispiel {#example}
+###### Beispiel
 
 ```swift
 import UIKit
@@ -343,6 +343,275 @@ Ereignisse zu Live-Aktivitäten sind in Currents, Snowflake-Datenfreigabe und Ab
 - [Live-Aktivität senden]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-send-events): Protokolliert jedes Mal, wenn eine Live-Aktivität von Braze gestartet, aktualisiert oder beendet wird.
 - [Ergebnis der Live-Aktivität]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-outcome-events): Gibt den endgültigen Zustellungsstatus an den Apple Push Notification Service (APNs) für jede von Braze gesendete Live-Aktivität an.
 
+## Ereignisse von Live-Aktivitäten beobachten (optional) {#observe-live-activity-events}
+
+{% sdk_min_versions swift:14.2.0 %}
+
+{% alert important %}
+Abonnieren Sie diese ActivityKit-Streams nicht direkt über Apple, da dies mit den Abos von Braze in Konflikt gerät und die korrekte Funktion von Live-Aktivitäten verhindert:
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+Verwenden Sie stattdessen die unten genannten Abos.
+{% endalert %}
+
+Das Braze SDK bietet zwei Abo-Methoden auf `braze.liveActivities`, um den gesamten Lebenszyklus von Live-Aktivitäten zu beobachten. Eine vollständige Schritt-für-Schritt-Anleitung finden Sie im [Live Activities Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
+
+- [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Liefert Lebenszyklus-Ereignisse sowohl für die Push-to-Start-Token-Registrierung als auch für laufende Aktivitätsinstanzen.
+- [`subscribeToErrors(_:)`](#subscribe-to-errors): Liefert SDK- und serverseitige Fehler, die beim Tracking von Live-Aktivitäten auftreten.
+
+{% alert note %}
+Beide Methoden geben ein [`Braze.Cancellable`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/cancellable-swift.typealias) zurück. Das Abo bleibt aktiv, solange der zurückgegebene Wert durch eine starke Referenz gehalten wird (speichern Sie ihn z. B. in einer Eigenschaft mit demselben Lebenszyklus wie Ihre `Braze`-Instanz).
+{% endalert %}
+
+### Abos einrichten {#set-up-subscriptions}
+
+Richten Sie Abos einmalig in `application(_:didFinishLaunchingWithOptions:)` ein und behalten Sie sie für die gesamte Lebensdauer Ihrer App bei:
+
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  static var braze: Braze?
+
+  var stateSubscription: Braze.Cancellable?
+  var errorSubscription: Braze.Cancellable?
+
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    let braze = Braze(configuration: config)
+    Self.braze = braze
+
+    if #available(iOS 16.1, *) {
+      stateSubscription = Self.braze?.liveActivities.subscribeToStateUpdates { event in
+        self.handleStateUpdate(event)
+      }
+      errorSubscription = Self.braze?.liveActivities.subscribeToErrors { error in
+        self.handleLiveActivityError(error)
+      }
+    }
+
+    return true
+  }
+}
+```
+
+{% alert note %}
+Callbacks werden nur für zukünftige Live-Aktivitäts-Ereignisse ausgelöst – sie geben nicht den aktuellen Zustand zum Zeitpunkt des Abos wieder. Um den aktuellen Zustandsschnappschuss abzufragen, verwenden Sie `Activity<T>.activities`.
+{% endalert %}
+
+### subscribeToStateUpdates {#subscribe-to-state-updates}
+
+`subscribeToStateUpdates(_:)` liefert `UpdateEvent`-Werte, die den gesamten Lebenszyklus von Live-Aktivitäten abdecken. Ereignisse sind in zwei Bereiche unterteilt:
+
+- `.activityType(ActivityType)`: Ereignisse auf Typebene für die Push-to-Start-Token-Registrierung (iOS 17.2+). Es existiert noch keine Aktivitätsinstanz.
+- `.activityInstance(ActivityInstance)`: Ereignisse auf Instanzebene für eine bestimmte laufende Aktivität.
+
+Mehrere Abonnent:innen werden unterstützt – jedes aktive Abo erhält jede Emission unabhängig.
+
+#### Ereignisse auf Typebene {#type-scoped-events}
+
+| Ereignis | Wann es ausgelöst wird |
+| ----- | ------------- |
+| `.pushToStartTokenRead(activityType:)` | Ein Push-to-Start-Token wurde vom Betriebssystem gelesen. Braze kann jetzt remote eine neue Aktivität dieses Typs starten. |
+| `.pushToStartTokenFlushed(activityType:)` | Das Token wurde an den Braze-Server gesendet. Braze kann Push-to-Start-Benachrichtigungen für diesen Typ senden. |
+| `.pushToStartOptedOut(activityType:)` | Die Nutzer:innen haben sich über `optOutPushToStart(type:)` von Push-to-Start für diesen Aktivitätstyp abgemeldet. |
+| `.pushToStartOptOutFlushed(activityType:)` | Die Abmeldung wurde an den Braze-Server gesendet. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse auf Typebene" }
+
+#### Ereignisse auf Instanzebene {#instance-scoped-events}
+
+| Ereignis | Wann es ausgelöst wird |
+| ----- | ------------- |
+| `.started(activityId:activityType:pushTokenTag:launchSource:)` | Das SDK hat begonnen, diese Aktivität über `launchActivity(pushTokenTag:activity:)` zu verfolgen. Der Wert `launchSource` ist `.local` für app-initiierte Aktivitäten oder `.pushToStart` für remote gestartete Aktivitäten. |
+| `.resumed(activityId:activityType:pushTokenTag:)` | Das SDK hat das Tracking dieser Aktivität über `resumeActivities(ofType:)` wieder aufgenommen. |
+| `.pushTokenFlushed(activityId:activityType:pushTokenTag:)` | Das Push-Token der Aktivität wurde vom Braze-Server akzeptiert – die Aktivität kann jetzt Remote-Updates empfangen. |
+| `.active(activityId:activityType:)` | Die Aktivität ist derzeit aktiv und für die Nutzer:innen sichtbar. |
+| `.stale(activityId:activityType:staleDate:)` | Der Inhalt der Aktivität ist veraltet. Wird nur unter iOS 16.2 und höher ausgegeben. |
+| `.dismissed(activityId:activityType:)` | Die Nutzer:innen haben die Aktivität manuell ausgeblendet. |
+| `.ended(activityId:activityType:)` | Die Aktivität wurde beendet. |
+| `.contentUpdated(activityId:activityType:)` | Der Inhaltsstatus der Aktivität wurde aktualisiert (iOS 16.2+). Verwenden Sie benutzerdefinierte Logik, um die `Activity<T>` anhand der ID aus `Activity.activities` nachzuschlagen und über `activity.content.state` auf den typisierten Zustand zuzugreifen. |
+| `.pushTokenUpdated(activityId:activityType:)` | ActivityKit hat das Push-Token der Aktivität rotiert. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse auf Instanzebene" }
+
+###### Beispiel
+
+```swift
+func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
+  switch event {
+
+  // Type-scoped: push-to-start token lifecycle (iOS 17.2+)
+  case .activityType(.pushToStartTokenRead(let activityType)):
+    print("[\(activityType)] Push-to-start token read by SDK")
+
+  // ...
+
+  // Instance-scoped: SDK tracking
+  case .activityInstance(.started(let id, let type, let tag, let source)):
+    print("[\(type)] Activity \(id) started via \(source), tag: \(tag)")
+
+  // ...
+
+  // Instance-scoped: ActivityKit lifecycle
+  case .activityInstance(.active(let id, let type)):
+    print("[\(type)] Activity \(id) is active")
+
+  // ...
+
+  case .activityInstance(.ended(let id, let type)):
+    print("[\(type)] Activity \(id) ended")
+
+  // Instance-scoped: content updates (iOS 16.2+)
+  case .activityInstance(.contentUpdated(let id, let type)):
+    // For more advanced use cases of `contentUpdated`, see the section below
+    print("[\(type)] Content updated for activity \(id)")
+
+  case .activityInstance(.pushTokenUpdated(let id, let type)):
+    print("[\(type)] Activity \(id) push token rotated")
+  }
+}
+```
+
+### subscribeToErrors {#subscribe-to-errors}
+
+`subscribeToErrors(_:)` liefert `ErrorEvent`-Werte mit denselben zwei Bereichen wie `UpdateEvent`:
+
+- `.activityType(ActivityType)`: Fehler auf Typebene bei fehlgeschlagener Push-to-Start-Registrierung.
+- `.activityInstance(ActivityInstance)`: Fehler auf Instanzebene für eine laufende Aktivität.
+
+Verwenden Sie das Flag `isTransient`, um zu bestimmen, ob ein erneuter Versuch sinnvoll ist. Das SDK wiederholt vorübergehende Fehler automatisch.
+
+#### Fehler auf Typebene {#type-scoped-errors}
+
+| Fehler | Wann er ausgelöst wird |
+| ----- | ------------- |
+| `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | Das Push-to-Start-Token konnte den Braze-Server nicht erreichen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehler auf Typebene" }
+
+#### Fehler auf Instanzebene {#instance-scoped-errors}
+
+| Fehler | Wann er ausgelöst wird |
+| ----- | ------------- |
+| `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | Das Push-Token der Aktivität konnte nicht bei Braze registriert werden. |
+| `.activityNotFound(activityId:activityType:)` | `resumeActivities(ofType:)` hat eine gespeicherte Zuordnung für eine Aktivität gefunden, die nicht mehr läuft – sie wurde wahrscheinlich beendet, während die App geschlossen war. |
+| `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` wurde mit einem ungültigen Tag aufgerufen. Tags müssen nicht leer und unter 256 Bytes sein. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehler auf Instanzebene" }
+
+###### Beispiel
+
+```swift
+func handleLiveActivityError(_ error: Braze.LiveActivities.ErrorEvent) {
+  switch error {
+
+  // Type-scoped errors
+  case .activityType(.pushToStartRegistrationFailed(let type, let isTransient, let reason)):
+    if isTransient {
+      print("[\(type)] Push-to-start registration failed (transient, will retry): \(reason)")
+    } else {
+      print("[\(type)] Push-to-start registration failed (permanent): \(reason)")
+    }
+
+  // Instance-scoped errors
+  case .activityInstance(.registrationFailed(let id, let type, _, let isTransient, let reason)):
+    if isTransient {
+      print("[\(type)] Activity \(id) registration failed (transient, retrying): \(reason)")
+    } else {
+      print("[\(type)] Activity \(id) registration failed (permanent): \(reason)")
+    }
+
+  case .activityInstance(.activityNotFound(let id, let type)):
+    print("[\(type)] Stored activity \(id) not found on resume")
+
+  case .activityInstance(.invalidPushTokenTag(let id, let type, let tag)):
+    print("[\(type)] Activity \(id) has invalid push token tag '\(tag)'")
+  }
+}
+```
+
+### Aktualisierungen des Inhaltsstatus verarbeiten (optional) {#handle-content-state}
+
+Wenn Sie den tatsächlichen Inhaltsstatus der Live-Aktivitätsinstanz verwenden möchten, folgen Sie diesem Abschnitt.
+
+Wenn ein `.contentUpdated`-Ereignis ausgelöst wird, verwenden Sie benutzerdefinierte Logik, um die laufende `Activity<T>` anhand ihrer ID aus `Activity.activities` nachzuschlagen und dann über `activity.content.state` auf den typisierten `ContentState` zuzugreifen.
+
+#### Einzelner Attributtyp {#single-attributes-type}
+
+```swift
+case .activityInstance(.contentUpdated(let id, let type)):
+  #if canImport(ActivityKit)
+    // Add custom logic look up the Activity<T> by ID and access your app's typed ContentState.
+    // In this example, `SportsActivityAttributes` is the app's custom type.
+    if #available(iOS 16.2, *),
+      let activity = findActivityInstance(id: id, as: SportsActivityAttributes.self)
+    {
+      // `activityContent` is now strongly typed as a `SportsActivityAttributes`
+      let activityContent = activity.content.state
+      print("[\(type)] Game \(id) — score: \(activityContent.teamOneScore)–\(activityContent.teamTwoScore)")
+      return
+    }
+  #endif
+  print("[\(type)] Content updated for activity \(id)")
+
+// ...
+
+// - MARK: Helper methods
+
+@available(iOS 16.2, *)
+func findActivityInstance<Attributes: ActivityAttributes>(
+  id: String,
+  as type: Attributes.Type
+) -> Activity<Attributes>? {
+  // Use Apple's API to find the matching Live Activity instance:
+  // - https://developer.apple.com/documentation/activitykit/activity/activities
+  Activity<Attributes>.activities.first(where: { $0.id == id })
+}
+```
+
+#### Mehrere Attributtypen {#multiple-attributes-types}
+
+Wenn Ihre App mehrere `ActivityAttributes`-Typen verwendet, prüfen Sie den `type`-String, um die passende `Activity<T>` nachzuschlagen:
+
+```swift
+case .activityInstance(.contentUpdated(let id, let type)):
+  #if canImport(ActivityKit)
+    if #available(iOS 16.2, *) {
+      if type == SportsActivityAttributes.name,
+        let activity = findActivityInstance(id: id, as: SportsActivityAttributes.self)
+      {
+        let activityContent = activity.content.state
+        print("[\(type)] Game \(id) — score: \(activityContent.teamOneScore)–\(activityContent.teamTwoScore)")
+        return
+
+      } else if type == OrderActivityAttributes.name,
+        let activity = findActivityInstance(id: id, as: OrderActivityAttributes.self)
+      {
+        let activityContent = activity.content.state
+        print("[\(type)] Order \(id) — status: \(activityContent.status), ETA: \(activityContent.eta)")
+        return
+      }
+    }
+  #endif
+  print("[\(type)] Content updated for activity \(id)")
+
+// ...
+
+// - MARK: Helper methods
+
+@available(iOS 16.2, *)
+func findActivityInstance<Attributes: ActivityAttributes>(
+  id: String,
+  as type: Attributes.Type
+) -> Activity<Attributes>? {
+  // Use Apple's API to find the matching Live Activity instance:
+  // - https://developer.apple.com/documentation/activitykit/activity/activities
+  Activity<Attributes>.activities.first(where: { $0.id == id })
+}
+```
+
 ## Häufig gestellte Fragen (FAQ) {#faq}
 
 ### Funktionalität und Unterstützung {#functionality-and-support}
@@ -361,7 +630,7 @@ Ja, React Native SDK 3.0.0+ unterstützt Live-Aktivitäten über das Braze Swift
 
 Es gibt keine React Native-spezifische JavaScript-Convenience-API für Live-Aktivitäten, da die von Apple bereitgestellten Features für Live-Aktivitäten Sprachen verwenden, die nicht in JavaScript übersetzbar sind (z. B. Swift Concurrency, Generics, SwiftUI).
 
-#### Unterstützt Braze Live-Aktivitäten als Campaign oder Canvas-Schritt? {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
+#### Unterstützt Braze Live-Aktivitäten als Kampagne oder Canvas-Schritt? {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
 
 Nein, dies wird derzeit nicht unterstützt.
 
@@ -403,10 +672,10 @@ Nachdem Sie eine Push-to-Start-Benachrichtigung für eine Live-Aktivität erhalt
 
 Stellen Sie abschließend sicher, dass der Attributtyp der Live-Aktivität in Ihrer Update-Payload genau mit dem String und der Klasse übereinstimmt, die in Ihrem SDK-Methodenaufruf von `registerPushToStart` verwendet werden. Verwenden Sie Konstanten, um Tippfehler zu vermeiden.
 
-#### Ich erhalte die Antwort „Zugriff verweigert“, wenn ich versuche, den Endpunkt `live_activity/update` zu verwenden. Warum? {#i-am-receiving-an-access-denied-response-when-i-try-to-use-the-liveactivityupdate-endpoint-why}
+#### Ich erhalte die Antwort „Access Denied“, wenn ich versuche, den Endpunkt `live_activity/update` zu verwenden. Warum? {#i-am-receiving-an-access-denied-response-when-i-try-to-use-the-live_activityupdate-endpoint-why}
 
 Die von Ihnen verwendeten API-Schlüssel müssen die richtigen Berechtigungen für den Zugriff auf die verschiedenen Braze-API-Endpunkte besitzen. Wenn Sie einen zuvor erstellten API-Schlüssel verwenden, haben Sie möglicherweise versäumt, dessen Berechtigungen zu aktualisieren. Weitere Informationen finden Sie in unserer [Übersicht zur Sicherheit von API-Schlüsseln]({{site.baseurl}}/api/basics/#rest-api-key-security).
 
-#### Teilt der Endpunkt `messages/send` die Rate-Limits mit dem Endpunkt `messages/live_activity/update`? {#does-the-messagessend-endpoint-share-rate-limits-with-the-messagesliveactivityupdate-endpoint}
+#### Teilt der Endpunkt `messages/send` die Rate-Limits mit dem Endpunkt `messages/live_activity/update`? {#does-the-messagessend-endpoint-share-rate-limits-with-the-messageslive_activityupdate-endpoint}
 
 Standardmäßig liegt das Rate-Limit für den Endpunkt `messages/live_activity/update` bei 250.000 Anfragen pro Stunde und Workspace, verteilt über mehrere Endpunkte. Weitere Informationen finden Sie unter [API-Rate-Limits]({{site.baseurl}}/api/api_limits/).

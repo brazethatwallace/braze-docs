@@ -27,8 +27,8 @@ Vous pouvez effectuer une actualisation complète manuelle sur tous les segments
 
 Pour créer une extension de segment SQL à actualisation complète :
 
-1. Accédez à **Audience** > **Extensions de segments**.
-2. Sélectionnez **Créer une nouvelle extension**, puis sélectionnez **Actualisation complète**.<br><br>
+1. Accédez à **Audience** > **Segment Extensions**.
+2. Sélectionnez **Create New Extension**, puis sélectionnez **Full refresh**.<br><br>
    ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Ajoutez un nom pour votre extension de segment et saisissez votre SQL. Reportez-vous à l'[étape 2](#step-2-write-your-sql) pour les exigences et les ressources.<br><br>
    ![Éditeur SQL présentant un exemple d'extension de segment SQL.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
@@ -39,18 +39,12 @@ Pour créer une extension de segment SQL à actualisation complète :
 
 Pour créer une extension de segment SQL à actualisation incrémentielle :
 
-1. Accédez à **Audience** > **Extensions de segments**.
-
-{% alert note %}
-Si vous utilisez l'[ancienne navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/), vous trouverez cette page sous **Engagement** > **Segments** > **Extensions de segments**.
-{% endalert %}
-
-{:start="2"}
-2. Sélectionnez **Créer une nouvelle extension**, puis sélectionnez **Actualisation incrémentielle**.<br><br>
+1. Accédez à **Audience** > **Segment Extensions**.
+2. Sélectionnez **Create New Extension**, puis sélectionnez **Incremental refresh**.<br><br>
    ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Ajoutez un nom pour votre extension de segment et saisissez votre SQL. Reportez-vous à la section [Écriture de code SQL](#writing-sql) pour les exigences et les ressources.<br><br>
    ![Éditeur SQL présentant un exemple d'extension de segment SQL incrémentielle.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
-4. Si vous le souhaitez, sélectionnez **Régénérer l'extension quotidiennement**.<br><br>
+4. Si vous le souhaitez, sélectionnez **Regenerate Extension Daily**.<br><br>
    ![Case à cocher pour régénérer l'extension quotidiennement.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
    Lorsque cette option est sélectionnée, Braze met automatiquement à jour l'appartenance au segment chaque jour. Concrètement, chaque jour à minuit dans le fuseau horaire de votre entreprise (avec un retard potentiel d'une heure), Braze vérifie s'il y a de nouveaux utilisateurs dans votre segment et les ajoute automatiquement. Si une extension de segment n'a pas été utilisée depuis 7 jours, Braze interrompt automatiquement la régénération quotidienne. Une extension de segment inutilisée est une extension qui ne fait pas partie d'une Campaign ou d'un Canvas (la Campaign ou le Canvas n'a pas besoin d'être actif pour que l'extension soit considérée comme « utilisée »).<br><br>
 5. Enregistrez votre extension de segment.
@@ -69,8 +63,8 @@ Le générateur SQL par intelligence artificielle s'appuie sur [GPT](https://ope
 
 Pour utiliser le générateur SQL par intelligence artificielle, procédez comme suit :
 
-1. Sélectionnez **Lancer le générateur SQL par intelligence artificielle** après avoir créé un [segment SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) en utilisant l'actualisation complète ou incrémentielle.
-2. Saisissez votre invite et sélectionnez **Générer** pour la convertir en SQL.
+1. Sélectionnez **Launch AI SQL Generator** après avoir créé un [segment SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) en utilisant l'actualisation complète ou incrémentielle.
+2. Saisissez votre invite et sélectionnez **Generate** pour la convertir en SQL.
 3. Vérifiez le code SQL généré pour vous assurer qu'il est correct, puis enregistrez votre segment.
 
 #### Exemples d'invites {#example-prompts}
@@ -148,7 +142,7 @@ Dans l'exemple suivant, le segment résultant contiendra les utilisateurs ayant 
 Les segments à actualisation incrémentielle prennent en compte les événements tardifs, c'est-à-dire les événements survenus il y a plus de 2 jours (par exemple, les événements SDK qui n'ont pas été envoyés au moment où ils ont été capturés).
 {% endalert %}
 
-#### Règles supplémentaires {#additional-rules}
+#### Règles supplémentaires
 
 De plus, votre requête d'actualisation incrémentielle doit respecter les règles suivantes :
 
@@ -177,23 +171,23 @@ Pour les extensions de segments SQL incrémentielles, l'aperçu n'inclut pas les
 
 ### Étape 4 : Déterminer si vous devez inverser le SQL {#step-4-determine-if-you-need-to-invert-sql}
 
-Ensuite, déterminez si vous devez inverser le SQL. Bien qu'il ne soit pas possible d'interroger directement les utilisateurs n'ayant aucun événement, vous pouvez utiliser **Inverser SQL** pour cibler ces utilisateurs.
+Ensuite, déterminez si vous devez inverser le SQL. Bien qu'il ne soit pas possible d'interroger directement les utilisateurs n'ayant aucun événement, vous pouvez utiliser **Invert SQL** pour cibler ces utilisateurs.
 
 {% alert note %}
-Par défaut, **Inverser SQL** n'est pas activé. Toutefois, si vous utilisez le générateur SQL par intelligence artificielle pour créer une instruction SQL qui doit être niée, ChatGPT pourrait renvoyer un résultat qui active automatiquement cette fonctionnalité.
+Par défaut, **Invert SQL** n'est pas activé. Toutefois, si vous utilisez le générateur SQL par intelligence artificielle pour créer une instruction SQL qui doit être niée, ChatGPT pourrait renvoyer un résultat qui active automatiquement cette fonctionnalité.
 {% endalert %}
 
-Par exemple, pour cibler les utilisateurs ayant effectué moins de trois achats, rédigez d'abord une requête pour sélectionner les utilisateurs ayant effectué trois achats ou plus. Ensuite, sélectionnez **Inverser SQL** pour cibler les utilisateurs ayant effectué moins de trois achats (y compris ceux n'ayant effectué aucun achat).
+Par exemple, pour cibler les utilisateurs ayant effectué moins de trois achats, rédigez d'abord une requête pour sélectionner les utilisateurs ayant effectué trois achats ou plus. Ensuite, sélectionnez **Invert SQL** pour cibler les utilisateurs ayant effectué moins de trois achats (y compris ceux n'ayant effectué aucun achat).
 
 {% alert important %}
-À moins que vous ne souhaitiez spécifiquement cibler les utilisateurs n'ayant aucun événement, vous n'aurez pas besoin d'inverser le SQL. Si **Inverser SQL** est sélectionné, vérifiez que cette fonctionnalité est nécessaire et que le segment correspond à l'audience souhaitée. Par exemple, si une requête cible les utilisateurs ayant au moins un événement, elle ne ciblera que les utilisateurs n'ayant aucun événement une fois inversée.
+À moins que vous ne souhaitiez spécifiquement cibler les utilisateurs n'ayant aucun événement, vous n'aurez pas besoin d'inverser le SQL. Si **Invert SQL** est sélectionné, vérifiez que cette fonctionnalité est nécessaire et que le segment correspond à l'audience souhaitée. Par exemple, si une requête cible les utilisateurs ayant au moins un événement, elle ne ciblera que les utilisateurs n'ayant aucun événement une fois inversée.
 {% endalert %}
 
-![Extension de segment intitulée « A cliqué sur 1 à 4 e-mails au cours des 30 derniers jours » avec l'option d'inverser SQL sélectionnée.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
+![Extension de segment intitulée « A cliqué sur 1 à 4 e-mails au cours des 30 derniers jours » avec l'option d'inverser le SQL sélectionnée.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
 
 ## Actualiser l'appartenance au segment {#refreshing-segment-membership}
 
-Pour actualiser l'appartenance au segment d'une extension de segment créée à l'aide de SQL, ouvrez l'extension de segment et sélectionnez **Actualiser**.
+Pour actualiser l'appartenance au segment d'une extension de segment créée à l'aide de SQL, ouvrez l'extension de segment et sélectionnez **Refresh**.
 
 {% alert tip %}
 Si vous avez créé un segment dans lequel vous vous attendez à ce que les utilisateurs entrent et sortent régulièrement, actualisez manuellement l'extension de segment qu'il utilise avant de cibler ce segment dans une Campaign ou un Canvas.
@@ -201,7 +195,7 @@ Si vous avez créé un segment dans lequel vous vous attendez à ce que les util
 
 ## Gestion de vos extensions de segments {#managing-your-segment-extensions}
 
-Sur la page **Extensions de segments**, les segments générés à l'aide de SQL sont signalés par <i class="fas fa-code" alt="Extension de segment SQL"></i> à côté de leur nom.
+Sur la page **Segment Extensions**, les segments générés à l'aide de SQL sont signalés par <i class="fas fa-code" alt="SQL Segment Extension"></i> à côté de leur nom.
 
 Sélectionnez une extension de segment SQL pour voir où l'extension est utilisée, archiver l'extension ou [actualiser manuellement l'appartenance au segment](#refreshing-segment-membership).
 
@@ -223,7 +217,7 @@ La consommation de crédits est corrélée à la durée d'exécution de votre re
 
 Pour économiser des crédits, prévisualisez votre requête pour vous assurer qu'elle est correcte avant d'enregistrer l'extension de segment SQL.
 
-Vos crédits sont réinitialisés à 5 le premier de chaque mois à 00h00 UTC. Vous pouvez suivre votre consommation de crédits tout au long du mois dans le panneau d'utilisation des crédits. Depuis la page **Extensions de segments**, cliquez sur <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
+Vos crédits sont réinitialisés à 5 le premier de chaque mois à 00h00 UTC. Vous pouvez suivre votre consommation de crédits tout au long du mois dans le panneau d'utilisation des crédits. Depuis la page **Segment Extensions**, cliquez sur <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
 
 ![Panneau d'utilisation des crédits SQL sur la page Extensions de segments SQL]({% image_buster /assets/img_archive/sql_segments_credits.png %}){: style="max-width:60%"}
 

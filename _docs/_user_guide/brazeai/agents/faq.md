@@ -11,9 +11,9 @@ page_order: 10
 
 ## General
 
-### What is the difference between Canvas agents and catalog agents?
+### What is the difference between Canvas Agents and Catalog Agents?
 
-When creating an agent, you specify if you want to create a Canvas or catalog agent. This determines the types of instructions and options the agent can support. Canvas agents process users in real-time within journeys, while catalog agents enrich catalog data by adding or updating columns with processed information.
+When creating an agent, you specify if you want to create a Canvas Agent or Catalog Agent. This determines the types of instructions and options the agent can support. Canvas Agents process users in real-time within journeys, while Catalog Agents enrich catalog data by adding or updating columns with processed information.
 
 ### What are the benefits of using Auto model versus bring-your-own (BYO) model?
 

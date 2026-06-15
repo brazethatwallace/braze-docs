@@ -13,9 +13,12 @@ guide_featured_list:
 - name: Perfil de usuário
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/user_profile
   image: /assets/img/braze_icons/users-01.svg
-- name: API REST
+- name: REST API
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/rest_api
   image: /assets/img/braze_icons/server-01.svg
+- name: Atributos de Campaign e Canvas entre fontes
+  link: /docs/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources
+  image: /assets/img/braze_icons/dataflow-03.svg
 - name: Catálogo
   link: /docs/user_guide/messaging/design_and_edit/personalize/sources/catalog
   image: /assets/img/braze_icons/list.svg

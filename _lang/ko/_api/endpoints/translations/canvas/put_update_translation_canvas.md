@@ -19,8 +19,6 @@ description: "이 문서에서는 Canvas에서 번역 업데이트 엔드포인�
 
 Canvas를 시작한 후 번역을 업데이트하려면 먼저 [메시지를 초안으로 저장해야]({{site.baseurl}}/post-launch_edits/) 합니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `canvas.translations.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
