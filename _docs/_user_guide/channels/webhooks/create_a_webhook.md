@@ -67,7 +67,7 @@ The **Compose** tab consists of the following fields:
 
 ![The "Compose" tab with an example webhook template.]({% image_buster /assets/img_archive/webhook_compose.png %})
 
-#### Language {#internationalization}
+### Language {#internationalization}
 
 [Internationalization]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages) is supported in the URL and the request body. To internationalize your message, select **Add languages** and fill out the required fields. 
 
@@ -75,7 +75,7 @@ We recommend selecting your languages before writing your content so you can fil
 
 If you're adding copy in a language that is written right-to-left, note that the final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
 
-#### Webhook URL
+### Webhook URL
 
 The webhook URL, or HTTP URL, specifies your endpoint. The endpoint is the place where you'll be sending the information that you're capturing in the webhook. 
 
@@ -83,11 +83,11 @@ If you'd like to send information to a vendor, the vendor should provide this UR
 
 Braze only allows URLs that communicate over standard ports `80` (HTTP) and `443` (HTTPS).
 
-##### Using Liquid
+#### Using Liquid
 
 You can personalize your webhook URLs using [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). At times, certain endpoints may require you to identify a user or provide user-specific information as part of your URL. When using Liquid, make sure to include a [default value]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) for each piece of user-specific information that you use in your URL.
 
-#### HTTP method
+### HTTP method
 
 The HTTP method you should use varies depending on the endpoint to which you are sending information. In most cases, you'll use POST.
 
@@ -99,11 +99,11 @@ The HTTP method you should use varies depending on the endpoint to which you are
 | DELETE | Deletes the resource in the HTTP URL. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
-#### Request body
+### Request body
 
 The request body is the information that will be sent to the URL that you specified. You can  create the body of your webhook request with JSON key-value pairs or raw text.
 
-##### JSON key-value pairs
+#### JSON key-value pairs
 
 JSON key-value pairs allow you to easily write a request for an endpoint that expects a JSON format. You can only use this with an endpoint that expects a JSON request. For example, if your key is `message_body`, the corresponding value might be `Your order just arrived!`. After you've entered your key-value pair, the composer will configure your request in JSON syntax, and a preview of your JSON request will automatically populate.
 
@@ -111,7 +111,7 @@ JSON key-value pairs allow you to easily write a request for an endpoint that ex
 
 You can personalize your key-value pairs using Liquid, such as including any user attribute, [custom attribute]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#additional-notes-and-best-practices), or [event property]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) in your request. For example, you can include a customer's first name and email in your request. Be sure to include a [default value]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) for each attribute.
 
-##### Raw text
+#### Raw text
 
 The raw text option gives you the flexibility to write a request for an endpoint that expects a body of any format. For example, you might use this to write a request for an endpoint that expects your request to be in XML format. 
 
@@ -131,7 +131,7 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ## Step 3: Configure additional settings
 
-#### Request headers (optional)
+### Request headers (optional)
 
 Certain endpoints may require that you include headers in your request. In the **Compose** section of the composer, you can add as many headers as needed.
 
@@ -172,7 +172,7 @@ For more information, see [Send test messages]({{site.baseurl}}/user_guide/messa
 
 Next, build the remainder of your campaign. See the following sections for further details on how to best use our tools to build webhooks.
 
-#### Choose delivery schedule or trigger
+### Choose delivery schedule or trigger
 
 Webhooks can be delivered based on a scheduled time, an action, or based on an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -180,13 +180,13 @@ For action-based delivery, you can also set the campaign's duration and [Quiet h
 
 This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
-#### Choose users to target
+### Choose users to target
 
 Next, you must [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters to narrow down your audience. In this step, you select the larger audience from your segments, and narrow that segment further with our filters, if you choose. You automatically receive a preview of what that approximate segment population looks like. Keep in mind that exact segment membership is always calculated before the message is sent.
 
 {% multi_lang_include target_audiences.md %}
 
-#### Choose conversion events
+### Choose conversion events
 
 Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You have the option of allowing up to a 30-day window during which a conversion will be counted if the user takes the specified action.
 
