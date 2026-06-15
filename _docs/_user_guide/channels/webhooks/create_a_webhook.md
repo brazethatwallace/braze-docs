@@ -262,37 +262,8 @@ If you're making a Braze-to-Braze webhook and using allowlisting, you should all
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
 
-### Use webhooks to delete users
+### Delete users
 
-{% alert warning %}
-If you're using webhooks to delete an entire group of users, we highly recommend you make sure that the segment you create represents the users you want to delete as these users **can't be restored after deletion**. 
-{% endalert %}
+To delete an individual user or a segment of users, go to **Audience** > **Manage Audience** > **Delete Users**. The dashboard supports bulk segment deletion (up to 10 million profiles), includes a 7-day cancellation window, and doesn't consume shared REST API rate limits. For steps, limits, and permissions, see [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/).
 
-User deletion is typically done by creating a webhook campaign with the segment of users to delete as its audience. The payload of the webhook would be aimed at the [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) endpoint, and Liquid dynamically populates the `braze_id` into the `braze_ids` field. This allows the webhook delivery to be rate-limited to the respective API limits and avoid overloading servers.
-
-{% alert note %}
-This webhook pattern is a supported workaround for bulk user deletion today. At large volumes, deletion can take hours and is subject to API rate limits described below.
-{% endalert %}
-
-For example, if you use a filter such as "Last Used App more than 30 days ago", you may get a different set of users depending on the time the segment is checked versus when the campaign is launched. A user who started a session 29 days ago might not be in the segment right now, but if the campaign is only launched two days after, the user would be included in the segment and may be deleted as well. 
-
-Alternatively, you can import a list of specific users [using CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). This way, you would be able to target that specific list of users in a segment using the **Updated/Imported from CSV** filter.
-
-1. Create a webhook campaign targeting the segment of users to delete.
-2. Enter the REST endpoint for your cluster in the **Webhook URL** field. For example, if your company is in the US-01 cluster, your URL would be: `https://rest.iad-01.braze.com/users/delete`
-3. Select **POST** as the HTTP method.
-4. In the **Request Body** dropdown, select **Raw Text**. Then, enter the following: {% raw %}`{"braze_ids": ["{{${braze_id}}}"]}`{% endraw %}
-5. In **Request headers**, add the following headers and make sure your API key is valid:
-  - **Key**: **Content-Type**
-  - **Value:** **application/json**
-  - **Key:** **Authorization**
-  - **Value:** **Bearer [YOUR_API_KEY]**
-6. Test the campaign with a small subset of users to make sure it is working as expected. Remember that testing, in this case, means the users you test with are deleted as well.
-
-#### Check your rate limits
-
-The webhook campaign must respect the rate limits shared with other endpoints. Make sure that no more than 20,000 requests are made to the group of endpoints per minute while the campaign is sending. Also, confirm with your developer team about the usual call volume to these endpoints and consider setting a limit close to 10,000 requests per minute.
-
-#### Confirm number of users to be deleted
-
-Estimate the time required to delete users based on the rate limit. For example, deleting 1.5 million users at a rate of 10,000 users per minute could take several hours. Consider splitting the deletion into multiple campaigns. If you're planning to delete over 5 million users, contact your customer success manager or [Braze Support]({{site.baseurl}}/support_contact/) beforehand to inform them of the mass deletion.
+For programmatic deletion in smaller batches, use the [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) instead of a webhook campaign.
