@@ -23,9 +23,13 @@ Votre Canvas actuel contenant l'étape Envoyer vers une destination est la sourc
 
 Cette étape permet aux utilisateurs de Canvas 1 d'être envoyés vers Canvas 2. Lorsque les utilisateurs de Canvas 1 atteignent l'étape Envoyer vers une destination, ils sont évalués selon les critères d'entrée et d'audience de Canvas 2 afin de déterminer s'ils sont éligibles pour y entrer. Dans ce cas, les utilisateurs ayant commandé un article peuvent entrer dans Canvas 2 tout en poursuivant leur parcours dans Canvas 1. Les utilisateurs n'ayant pas commandé d'article continuent uniquement leur parcours dans Canvas 1.
 
-### Entrée en temps réel {#real-time-entry}
+### Comportement d'entrée {#entry-behavior}
 
-L'étape Envoyer vers une destination fait entrer les utilisateurs dans le Canvas de destination dès qu'ils atteignent cette étape. Elle agit comme un point d'entrée unique dans le Canvas de destination. Les utilisateurs qui remplissent les critères d'entrée et d'audience du Canvas de destination commencent ce parcours Canvas en temps réel. Les utilisateurs qui ne remplissent pas ces critères à ce moment-là n'entrent pas dans le Canvas de destination et poursuivent leur parcours dans le Canvas source.
+L'étape Envoyer vers une destination fait entrer les utilisateurs dans le Canvas de destination dès qu'ils atteignent cette étape. Elle agit comme un point d'entrée unique dans le Canvas de destination. Les utilisateurs qui remplissent les critères d'entrée et d'audience du Canvas de destination commencent ce parcours Canvas. Les utilisateurs qui ne remplissent pas ces critères à ce moment-là n'entrent pas dans le Canvas de destination et poursuivent leur parcours dans le Canvas source.
+
+Si le Canvas de destination utilise une planification d'entrée planifiée, l'étape Envoyer vers une destination contourne cette planification d'entrée. Elle contourne également l'option [**Limiter le volume d'entrée**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) sous **Contrôles d'entrée** du Canvas de destination lorsqu'elle est définie sur **À chaque planification du Canvas**. Les utilisateurs envoyés depuis cette étape n'attendent pas la prochaine fenêtre d'évaluation planifiée : ils sont évalués et entrent dans le Canvas lorsqu'ils atteignent l'étape Envoyer vers une destination, à condition de remplir les critères d'entrée et d'audience du Canvas de destination.
+
+Si le Canvas de destination utilise une entrée basée sur une action, l'étape Envoyer vers une destination contourne l'obligation pour les utilisateurs d'effectuer l'action d'entrée configurée pour accéder à ce Canvas.
 
 ## Créer une étape Envoyer vers une destination {#create-a-send-to-destination-step}
 
@@ -41,7 +45,7 @@ Sélectionnez le menu déroulant ou saisissez le nom du Canvas dans le champ **D
 
 ### Étape 3 : Prévisualiser votre destination {#step-3-preview-your-destination}
 
-Vous pouvez sélectionner **Preview destination** pour voir le parcours des utilisateurs qui remplissent les critères d'entrée du Canvas de destination.
+Vous pouvez sélectionner **Preview destination** pour visualiser le Canvas vers lequel vous dirigez les utilisateurs.
 
 Après avoir configuré cette étape du Canvas, vous pouvez [prévisualiser le parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) pour vérifier si un utilisateur passe à l'étape suivante dans le Canvas actuel et s'il progresse également dans le Canvas de destination.
 

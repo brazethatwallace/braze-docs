@@ -10,7 +10,7 @@ description: "Este artículo de referencia explica cómo crear y usar seleccione
 
 > Las selecciones son grupos de datos que puedes usar para personalizar un mensaje para cada usuario en tu campaña. Cuando usas una selección, básicamente estás configurando filtros personalizados basados en columnas específicas de tu catálogo. Esto puede incluir filtros por marca, tamaño, ubicación, fecha de adición y más. Te da control sobre lo que muestras a los usuarios al permitirte definir criterios que los artículos deben cumplir primero.<br><br>Esta página explica cómo crear y usar selecciones con tus catálogos.
 
-Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/), puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus campañas o recomendaciones de Braze.
+Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/), puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus Campaigns o recomendaciones de Braze.
 
 ![La sección Selecciones en un catálogo de ejemplo.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -52,14 +52,14 @@ Supongamos que tu catálogo contiene un campo `store_location` de tipo geolocali
 
 Para crear una selección, haz lo siguiente.
 
-1. Ve a **Catalogs** y selecciona tu catálogo de la lista.
-2. Selecciona la pestaña **Selection** y haz clic en **Create Selection**.
+1. Ve a **Catálogos** y selecciona tu catálogo de la lista.
+2. Selecciona la pestaña **Selección** y haz clic en **Crear selección**.
 3. Dale a tu selección un nombre y una descripción opcional.
 4. En **Filter Field**, selecciona la columna del catálogo por la que deseas filtrar. Los campos de cadena con más de 1000 caracteres no se pueden seleccionar para filtros.
 5. Termina de definir los criterios de filtrado seleccionando el operador correspondiente (por ejemplo, "equals" o "does not equal") y el atributo.
 6. En la sección **Sort type**, determina cómo se ordenan los resultados. De forma predeterminada, los resultados se devuelven sin un orden particular. Para especificar la ordenación por un campo concreto, desactiva **Randomize Sort Order** y especifica el **Sort Field** y el **Sort Order** (ascendente o descendente).
-7. En la sección **Results limit**, introduce los resultados (hasta 50).
-8. Selecciona **Create Selection**.
+7. En la sección **Results limit**, introduce el límite de resultados (hasta 50).
+8. Selecciona **Crear selección**.
 
 ### Probar y previsualizar {#test-and-preview}
 
@@ -79,7 +79,7 @@ El Liquid de Contenido conectado no es compatible con esta configuración de fil
 
 Después de crear tu selección, personaliza tus mensajes con Liquid para insertar los artículos filtrados de ese catálogo. Puedes hacer que Braze genere el Liquid por ti desde la ventana de personalización que se encuentra en los creadores de mensajes:
 
-1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> para abrir la ventana de personalización.
+1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> **Añadir personalización** para abrir la ventana de personalización.
 2. En **Personalization Type**, selecciona **Catalog Items**.
 3. Selecciona el nombre de tu catálogo.
 4. En **Item selection method**, selecciona **Use a selection**.
@@ -97,7 +97,7 @@ Usando un catálogo con la información de tu servicio de reparto de comidas par
 
 ![Un ejemplo de selección para un servicio de reparto de comidas con dos filtros: uno que identifica un tipo de producto como comida, y otro que identifica la categoría como la consultada más recientemente. La selección está configurada para aleatorizar el orden en que se devuelven los tres resultados.]({% image_buster /assets/img_archive/catalog_selections2.png %}){: style="max-width:90%;"}
 
-Para usar este catálogo y esta selección en una campaña, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una campaña. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
+Para usar este catálogo y esta selección en una Campaign, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una Campaign. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
 
 ![Una tarjeta de contenido con el encabezado "¡Te ENCANTARÁN estas comidas tan valoradas!" con la selección "recommendations_be_recent_category" en la sección de composición del mensaje.]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 

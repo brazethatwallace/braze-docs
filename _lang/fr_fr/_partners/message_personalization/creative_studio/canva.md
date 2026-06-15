@@ -20,7 +20,7 @@ L'intégration de Braze et Canva prend en charge deux chemins d'exportation :
 | --- | --- |
 | **Image ou conception vers la bibliothèque multimédia** | Envoie votre conception en tant que ressource dans la bibliothèque multimédia de Braze. |
 | **Conception d'e-mail vers Braze** | Publie un document **E-mail** Canva en tant que modèle d'e-mail Braze, y compris les métadonnées de la ligne d'objet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de l'intégration" }
 
 ## Intégrer Braze avec Canva {#integrate-braze-with-canva}
 
@@ -43,15 +43,6 @@ Pour les exportations d'**e-mails**, Canva peut vous demander de vous reconnecte
 ## Exporter des images vers la bibliothèque multimédia {#export-images-to-the-media-library}
 
 Utilisez ce flux pour les conceptions Canva standard lorsque vous souhaitez obtenir un fichier dans la bibliothèque multimédia de Braze.
-
-Les vidéos suivantes montrent comment envoyer des conceptions depuis Canva vers votre bibliothèque multimédia Braze.
-
-Vidéo : Ouvrir l'application Braze dans Canva et lancer une exportation vers la bibliothèque multimédia.
-
-{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
-
-Vidéo : Choisir un espace de travail Braze et terminer l'exportation vers la bibliothèque multimédia.
-{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
 
 1. Depuis le menu **Apps** dans votre conception, ouvrez l'application Braze. Si vous n'êtes pas encore connecté, sélectionnez **Connect** et suivez les étapes décrites dans [Autoriser votre compte Braze](#step-2-authorize-your-braze-account).
 2. Choisissez votre espace de travail de destination, saisissez éventuellement un nom de fichier, puis sélectionnez **Start Export**.

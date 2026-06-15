@@ -7,7 +7,7 @@ page_order: 3
 
 # Referência para agentes {#reference-for-agents}
 
-> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para a configuração passo a passo, veja [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Modelos {#models}
 
@@ -29,7 +29,7 @@ Se você não vê **Braze Auto** como opção no menu suspenso **Model** ao cria
 
 Com esta opção, você pode conectar sua conta da Braze com provedores como OpenAI, Anthropic ou Google Gemini. Se você trouxer sua própria chave de API de um provedor de LLM, os custos de token são cobrados diretamente pelo seu provedor, não pela Braze.
 
-Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para ser alertado quando a Braze detectar que um modelo não está mais disponível.
+Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Certifique-se de que você tem créditos suficientes com seu provedor para executar seus agentes em escala. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para ser alertado quando a Braze detectar que um modelo não está mais disponível ou encontrar problemas de cobrança com seu provedor de LLM.
 
 Para configurar isso:
 
@@ -71,16 +71,28 @@ Cada provedor de LLM tem uma combinação ligeiramente diferente de capacidades 
 - Durante os testes, certifique-se de equilibrar a confiabilidade e a precisão com o uso de tokens e a duração da invocação.
 - Cada caso de uso pode ter um modelo e nível de raciocínio ideais diferentes. Recomendamos testar minuciosamente para verificar a qualidade consistente sem timeouts.
 
-### Limites de taxa {#rate-limits}
+### Controles de fluxo de invocação {#invocation-flow-controls}
 
-Os seguintes limites de taxa se aplicam por espaço de trabalho:
+Os seguintes controles de fluxo de invocação se aplicam por espaço de trabalho:
 
 - **Modelo fornecido pela Braze:** 1.000 invocações por minuto
 - **Trazendo sua própria chave de API:** 2.500 invocações por minuto
 
+Quando muitos usuários entram em uma etapa de agente ao mesmo tempo, a Braze enfileira as invocações de acordo com esses limites, então o processamento pode levar mais tempo durante envios de alto volume.
+
+### Erros de limite de taxa {#rate-limit-errors}
+
+Se o provedor de LLM retornar um erro de limite de taxa, a Braze tenta novamente a solicitação usando backoff exponencial. Esse comportamento de nova tentativa se aplica a etapas de agente em Canvas. Agentes de catálogo não tentam novamente invocações que falharam, incluindo erros de limite de taxa do provedor de LLM.
+
+Se todas as tentativas falharem, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. Cada nova tentativa é visível nos logs, incluindo a primeira invocação, independentemente do seu eventual sucesso ou falha. Para um determinado usuário, se forem necessárias quatro novas tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro novas tentativas) nos **Logs**, e a original mais as três primeiras novas tentativas mostrarão **Error** com `Rate limit exceeded`.
+
+![Detalhes do log do Console do agente mostrando um erro de limite de taxa excedido no campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
+
 ## Escrevendo instruções {#writing-instructions}
 
 Instruções são as regras ou diretrizes que você dá ao agente (prompt do sistema). Elas definem como o agente deve se comportar cada vez que é executado. As instruções do sistema podem ter até 25 KB.
+
+Se você criou seu agente com o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando um [modelo inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revise as instruções pré-preenchidas e edite conforme necessário.
 
 Aqui estão algumas melhores práticas gerais para você começar a criar prompts:
 
@@ -95,7 +107,9 @@ Aqui estão algumas melhores práticas gerais para você começar a criar prompt
 9. Lide com os casos extremos, adicione barreiras de proteção e instruções de recusa.
 10. Meça e documente o que funciona internamente para reutilização e escalabilidade.
 
-Para se inspirar em como escrever instruções de agentes, veja nossa [biblioteca de casos de uso dedicada para Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+### Exemplos {#examples}
+
+Para configurações iniciais no Console do agente, veja [Modelos de agentes criados com o Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Para exemplos completos de instruções que você pode copiar ou adaptar, veja a [biblioteca de casos de uso para Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
 ### Usando Liquid {#using-liquid}
 
@@ -111,7 +125,7 @@ Na seção **Logs** do **Console do agente**, você pode revisar os detalhes da 
 
 ![Detalhes de um agente que tem Liquid em suas instruções.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-Para agentes de catálogo, use **Campos** na seção **Saída** em vez de JSON Schema. Você ainda pode escrever instruções que peçam ao modelo uma saída em formato chave-valor correspondente aos nomes desses campos.
+Para agentes de catálogo, use **Campos** na seção **Saída** em vez de esquema JSON; você ainda pode escrever instruções que peçam ao modelo uma saída em formato chave-valor correspondente aos nomes desses campos.
 
 Para saber mais sobre as melhores práticas de prompting, consulte os guias dos seguintes provedores de modelos:
 
@@ -120,6 +134,8 @@ Para saber mais sobre as melhores práticas de prompting, consulte os guias dos 
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Saídas {#outputs}
+
+Se você criou seu agente com o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando um [modelo inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revise o esquema de saída pré-preenchido e edite conforme necessário.
 
 ### Esquemas básicos {#basic-schemas}
 
@@ -192,7 +208,7 @@ Escolha catálogos específicos para um agente referenciar e forneça ao seu age
 
 ## Contexto de associação a Segments {#segment-membership-context}
 
-Você pode selecionar até cinco Segments para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação a Segments selecionada para um Segment "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+Você pode selecionar até cinco Segments para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Digamos que seu agente tenha a associação a Segments selecionada para um Segment "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa de agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
 
 ![O Segment "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 

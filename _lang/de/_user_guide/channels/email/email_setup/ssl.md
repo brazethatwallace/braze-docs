@@ -24,11 +24,13 @@ Die Sicherung Ihrer Website und Links mit SSL ist eine gängige Praxis, selbst f
 
 Braze transformiert Ihre Links mithilfe Ihrer markenspezifischen Link-Tracking-Subdomain, um Klicks und Öffnungen zu verfolgen. Standardmäßig beginnen diese Links mit HTTP. Nutzer:innen mit Browsern oder Erweiterungen, die nicht sicheren Datenverkehr einschränken, könnten Schwierigkeiten haben, die Weiterleitung vor der Ziel-URL zu passieren, selbst wenn die URL sicher ist. Dies kann zu fehlerhaften Bildern und ungenauem Tracking führen. Wenden Sie SSL auf die Subdomain für das Link-Tracking an, um sichere Weiterleitungen zu gewährleisten.
 
-### Browser-Anforderung {#browser-requirement}
+## Anforderungen {#requirements}
+
+### Browser {#browser}
 
 Große Browser wie Google Chrome schränken den Datenverkehr über unsichere URLs ein, um Nutzer:innen zu schützen. Die Verwendung von SSL hilft sicherzustellen, dass Inhalte als vertrauenswürdig eingestuft werden, und minimiert Probleme wie fehlerhafte Links und Bilder in E-Mails.
 
-### Anforderung für HSTS-Domains {#hsts-domains-requirement}
+### HSTS-Domains {#hsts-domains}
 
 Wenn Sie eine HTTP Strict Transport Security (HSTS)-Domain haben, richten Sie SSL ein und konfigurieren Sie ein CDN, um die erforderlichen Sicherheitszertifikate zu senden. Ohne SSL funktionieren Bild- und Web-Links nicht.
 
@@ -39,6 +41,7 @@ Erwerben Sie ein SSL-Zertifikat über einen Drittanbieter, in der Regel ein Cont
 Um die SSL-Einrichtung zu starten, kontaktieren Sie Ihren Braze Customer-Success-Manager, um eine vollständige Braze-E-Mail-Einrichtung einzuleiten.
 
 Nachdem Braze die Einrichtung eingeleitet hat, folgen Sie diesen Schritten:
+
 1. Braze stellt DNS-Einträge bereit, die Sie zu Ihrer Domain-Registrierung hinzufügen müssen.
 2. Braze überprüft, ob die Einträge korrekt zu Ihrer Registrierung hinzugefügt wurden.
 3. Danach wählen Sie ein CDN aus und erhalten SSL-Zertifikate von einem Drittanbieter.
@@ -62,7 +65,7 @@ Wenn Sie die aufgeführten CDNs nicht für SSL-Klick- und Öffnungs-Tracking ver
 ### Zusätzliche Ressourcen {#additional-resources}
 
 {% alert important %}
-Kontaktieren Sie bei der Fehlerbehebung Ihrer CDN-Konfiguration Ihren CDN-Anbieter.
+Kontaktieren Sie bei der Fehlerbehebung Ihrer CDN-Konfiguration Ihren CDN-Anbieter oder lesen Sie die [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) für allgemeine Hinweise.
 {% endalert %}
 
 Sehen Sie sich die folgenden Ressourcen der ESP-Partner an, um bestimmte CDNs zu konfigurieren. Auch wenn Ihr spezifisches CDN möglicherweise nicht aufgeführt ist, müssen Sie sicherstellen, dass Ihr CDN die Möglichkeit hat, SSL-Zertifikate anzuwenden.
@@ -85,7 +88,7 @@ Wenn Sie die Klick-Tracking-Domain Ihres CDN konfigurieren, aktivieren Sie den `
 | SparkPost | Fastly | [Step-by-step guide with Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
 | SparkPost | Google Cloud Platform | [Step-by-step guide with Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
 | SparkPost | Microsoft Azure | [Step-by-step guide with Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional resources" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zusätzliche Ressourcen" }
 
 ### Amazon SES
 
@@ -94,24 +97,10 @@ Wenn Sie Amazon SES als Ihren ESP verwenden, lesen Sie **Option 2: Configuring a
 - **Braze US-Cluster:** `r.us-east-1.awstrack.me`
 - **Braze EU-Cluster:** `r.eu-central-1.awstrack.me`
 
+{% alert important %}
+Wenn Sie die Klick-Tracking-Domain Ihres CDN konfigurieren, aktivieren Sie den `X-Forwarded-Host`-Header, um potenzielle Sicherheitsprobleme wie Host-Header-Angriffe zu verhindern. Weitere Schritte finden Sie bei Ihrem CDN-Anbieter.
+{% endalert %}
+
 ## Fehlerbehebung {#troubleshooting}
 
-Obwohl Sie die CDN-Konfiguration, Zertifikate und Proxy-Probleme mit Ihrem CDN-Anbieter klären sollten, können Ihnen diese Tipps helfen, häufige SSL-Klick-Tracking-Probleme zu identifizieren.
-
-### Niedrige E-Mail-Öffnungsraten {#low-email-open-rates}
-
-Wenn Sie plötzlich niedrige E-Mail-Öffnungsraten feststellen, überprüfen Sie, ob das SSL-Zertifikat aktuell ist. Wenn es abgelaufen ist, müssen Sie das SSL-Zertifikat bei Ihrem CDN- oder Zertifikatsanbieter erneuern.
-
-### Probleme mit der Domain-Registrierung {#domain-registry-issues}
-
-Führen Sie einen dig-Befehl aus, um zu bestätigen, dass das Link-Tracking auf das CDN verweist. Führen Sie in Ihrem Terminal `dig CNAME link_tracking_subdomain` aus. Unter `ANSWER SECTION` wird aufgelistet, wohin Ihr CNAME verweist. Wenn er auf den E-Mail-Anbieter (SendGrid oder SparkPost) und nicht auf Ihr CDN verweist, konfigurieren Sie Ihre Domain-Registrierung neu, damit sie auf Ihr CDN zeigt.
-
-### CDN-Probleme {#cdn-issues}
-
-Wenn Live-E-Mail-Links während der Einrichtung nicht funktionieren, haben Sie wahrscheinlich DNS vor der ordnungsgemäßen Konfiguration auf Ihr CDN verwiesen. Dies kann als „falscher Link“-Fehler erscheinen. Kontaktieren Sie Ihren CDN-Anbieter und lesen Sie dessen Dokumentation zur Fehlerbehebung der Konfiguration.
-
-Wenn Sie eine Fehlermeldung sehen, dass Ihre Verbindung nicht privat ist, kann dies darauf hinweisen, dass Ihr SSL oder CDN nicht korrekt konfiguriert ist. Führen Sie einen `dig`-Befehl in Ihrem Terminal aus (zum Beispiel `dig CNAME your_link_tracking_subdomain`). Wenn das Ergebnis im Abschnitt `ANSWER SECTION` auf Ihren ESP statt auf Ihr CDN verweist, liegt eine Fehlkonfiguration vor. Damit das Braze SSL-Klick-Tracking funktioniert, sollte der CNAME auf Ihr CDN verweisen. Koordinieren Sie sich mit dem Team, das Ihre SSL- und CDN-Konfiguration verwaltet, für weitere Unterstützung.
-
-### SSL-Aktivierungsstatus {#ssl-enablement-status}
-
-Wenn Sie die SSL-Einrichtung abgeschlossen haben und Links weiterhin als HTTP erscheinen, kontaktieren Sie Ihren Braze Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat. Braze aktiviert SSL erst, nachdem alle Einrichtungsschritte abgeschlossen sind.
+Obwohl Sie die CDN-Konfiguration, Zertifikate und Proxy-Probleme mit Ihrem CDN-Anbieter klären sollten, können Ihnen diese Tipps helfen, häufige SSL-Klick-Tracking-Probleme zu identifizieren. Hinweise zur Fehlerbehebung finden Sie unter [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).

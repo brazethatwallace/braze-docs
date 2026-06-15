@@ -23,7 +23,7 @@ Como desenvolvedor, você pode usar a Braze para gerenciar os ciclos de vida das
 
 {% tabs %}
 {% tab Live Activities Sequence Diagram %}
-{% details Mostrar Diagrama %}
+{% details Mostrar diagrama %}
 ```mermaid
 ---
 config:
@@ -347,6 +347,18 @@ Os eventos de Atividade ao Vivo estão disponíveis em Currents, Compartilhament
 
 {% sdk_min_versions swift:14.2.0 %}
 
+{% alert important %}
+Não se inscreva diretamente nesses streams do ActivityKit com a Apple, pois isso entrará em conflito com as inscrições da Braze e impedirá que as Atividades ao Vivo funcionem corretamente:
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+Em vez disso, use as inscrições mencionadas abaixo.
+{% endalert %}
+
 O SDK da Braze fornece dois métodos de inscrição em `braze.liveActivities` para observar o ciclo de vida completo das Atividades ao Vivo. Para um passo a passo completo, consulte o [tutorial de Atividades ao Vivo](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
 
 - [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Entrega eventos de ciclo de vida tanto para o registro de tokens push-to-start quanto para instâncias de atividades em execução.
@@ -409,7 +421,7 @@ Múltiplos assinantes são suportados — cada inscrição ativa recebe cada emi
 | `.pushToStartTokenFlushed(activityType:)` | O token foi enviado ao servidor da Braze. A Braze pode enviar notificações push-to-start para esse tipo. |
 | `.pushToStartOptedOut(activityType:)` | O usuário optou por não receber push-to-start para esse tipo de atividade por meio de `optOutPushToStart(type:)`. |
 | `.pushToStartOptOutFlushed(activityType:)` | A opção de não receber foi enviada ao servidor da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos com escopo de tipo" }
 
 #### Eventos com escopo de instância {#instance-scoped-events}
 
@@ -424,7 +436,7 @@ Múltiplos assinantes são suportados — cada inscrição ativa recebe cada emi
 | `.ended(activityId:activityType:)` | A atividade foi encerrada. |
 | `.contentUpdated(activityId:activityType:)` | O estado do conteúdo da atividade foi atualizado (iOS 16.2+). Use lógica personalizada para buscar a `Activity<T>` pelo ID em `Activity.activities` e acessar o estado tipado por meio de `activity.content.state`. |
 | `.pushTokenUpdated(activityId:activityType:)` | O ActivityKit rotacionou o token de push da atividade. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos com escopo de instância" }
 
 ###### Exemplo
 
@@ -478,7 +490,7 @@ Use a flag `isTransient` para determinar se uma nova tentativa é apropriada. O 
 | Erro | Quando é disparado |
 | ----- | ------------- |
 | `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | O token push-to-start não conseguiu chegar ao servidor da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erros com escopo de tipo" }
 
 #### Erros com escopo de instância {#instance-scoped-errors}
 
@@ -487,7 +499,7 @@ Use a flag `isTransient` para determinar se uma nova tentativa é apropriada. O 
 | `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | O token de push da atividade não conseguiu se registrar na Braze. |
 | `.activityNotFound(activityId:activityType:)` | `resumeActivities(ofType:)` encontrou um mapeamento armazenado para uma atividade que não está mais em execução — provavelmente ela foi encerrada enquanto o app estava fechado. |
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` foi chamado com uma tag inválida. As tags devem ser não vazias e ter menos de 256 bytes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erros com escopo de instância" }
 
 ###### Exemplo
 

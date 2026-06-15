@@ -112,8 +112,7 @@ Por ejemplo, para mantener un fondo blanco en una celda, usa esto:
 Reemplaza `#ffffff` con el color que desees.
 
 {% alert note %}
-Este enfoque no se aplica de forma fiable solo a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, así que establece el degradado en la celda en lugar de solo en la tabla.
-  <caption>Aplicación móvil de Gmail y modo oscuro</caption>
+Este enfoque no se aplica de forma fiable solo a elementos `<table>`, así que establece el degradado en la celda en lugar de solo en la tabla.
 {% endalert %}
 
 Para más información sobre la sintaxis de degradados, consulta [Degradados CSS en W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -162,7 +161,7 @@ Evita usar las siguientes claves:
 }
 </style>
 
-<table aria-label="Email headers" id="reserved-fields">
+<table aria-label="Encabezados de correo electrónico" id="reserved-fields">
   <caption>Encabezados de correo electrónico</caption>
 <thead>
   <tr>
@@ -241,6 +240,10 @@ Los clientes de correo electrónico que admiten texto de vista previa siempre ex
 ```
 
 Para el editor de arrastrar y soltar, añade solo las no-uniones de ancho cero (‌`&zwnj;`) sin el formato `<div>` directamente en el preencabezado en la sección **Sending Settings**.
+{% endalert %}
+
+{% alert note %}
+En la aplicación Apple Mail, los enlaces de imágenes en correos electrónicos HTML deben usar URLs `https://` para que se puedan hacer clic. Usa enlaces seguros para cualquier imagen envuelta en una etiqueta de anclaje cuando esperes clics de destinatarios de Apple Mail.
 {% endalert %}
 
 ### Paso 3.3: Verifica errores de correo electrónico {#step-33-check-for-email-errors}

@@ -9,6 +9,7 @@ tool:
   - Campaigns
   - Canvas
 
+
 ---
 
 # Questions fréquemment posées {#frequently-asked-questions}
@@ -46,7 +47,7 @@ L'éditeur par glisser-déposer prend actuellement en charge deux calques. Vous 
 
 ### Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **Email Template** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+Non. Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une campagne ou un Canvas en tant que **modèle d'e-mail** par glisser-déposer dans **Templates** > **Email Templates**. Recréez la mise en page dans **Templates** > **Email Templates**, ou partez d'un modèle enregistré la prochaine fois. Pour les instructions, consultez [Créer un modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
 
 Si vous avez besoin d'un modèle HTML réutilisable, sélectionnez **Download file** lors de la modification du corps par glisser-déposer, ouvrez le fichier HTML depuis le ZIP, puis collez le balisage dans un [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) à l'aide de l'éditeur de code HTML. Vérifiez à nouveau le Liquid, les liens et les ressources hébergées par la suite.
 
@@ -61,3 +62,28 @@ Les styles au niveau de la page peuvent remplacer les styles au niveau du messag
 ### Puis-je ajouter des pièces jointes aux e-mails dans l'éditeur par glisser-déposer ? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 Oui. Vous pouvez ajouter des pièces jointes à votre e-mail en accédant à **Sending Settings** > **Advanced**.
+
+### Comment télécharger le HTML brut d'un e-mail par glisser-déposer ? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
+
+1. Ouvrez votre campagne ou Canvas et modifiez le message e-mail.
+2. Sélectionnez **Edit email body** pour ouvrir l'éditeur par glisser-déposer.
+3. Sélectionnez **Download file** (en bas de l'éditeur). Extrayez l'archive pour accéder au HTML généré.
+
+Vous pouvez coller ce HTML dans un [bloc HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) ou dans l'éditeur HTML lorsque vous avez besoin de modifications de bas niveau, par exemple pour [désactiver le suivi des clics sur des liens spécifiques]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### Pourquoi ma mise en page par glisser-déposer est-elle cassée ? {#why-is-my-drag-and-drop-layout-breaking}
+
+Les problèmes de mise en page sont souvent causés par du **HTML ou CSS personnalisé** qui entre en conflit avec le balisage généré par l'éditeur. Essayez les étapes suivantes :
+
+1. Supprimez ou isolez les blocs HTML personnalisés pour voir si le problème disparaît.
+2. Vérifiez les paramètres de l'**éditeur d'e-mail par glisser-déposer** pour les polices personnalisées qui pourraient ne pas se charger dans tous les clients.
+3. Dans **Row Properties**, vérifiez le padding et la largeur des colonnes.
+4. Lorsque vous ajoutez du HTML personnalisé, privilégiez les mises en page basées sur des tableaux, les images fluides et des largeurs de tableau totales adaptées à la largeur de votre e-mail. Les images en pixels fixes ou les structures non tabulaires cassent souvent dans Outlook et d'autres clients.
+
+### Pourquoi mon bloc de contenu ne s'affiche-t-il pas dans la prévisualisation de l'e-mail ? {#why-doesnt-my-content-block-render-in-email-preview}
+
+Si un bloc de contenu ne s'affiche pas dans la prévisualisation de l'e-mail, vérifiez qu'il n'y a pas de balises d'ancrage non fermées. Pour les URL de Contenu connecté, utilisez le filtre `replace` pour convertir les esperluettes doublement encodées (`&amp;amp;`) en une seule esperluette encodée (`&amp;`). Limitez l'imbrication des blocs de contenu à deux niveaux.
+
+### Pourquoi l'éditeur par glisser-déposer ignore-t-il les paramètres d'alignement ? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
+
+Si l'éditeur par glisser-déposer ignore les paramètres d'alignement, supprimez le CSS ou les blocs HTML personnalisés, supprimez les polices personnalisées, vérifiez les conflits CSS et évitez de dupliquer les blocs de lignes. Contactez l'assistance Braze si le problème persiste.

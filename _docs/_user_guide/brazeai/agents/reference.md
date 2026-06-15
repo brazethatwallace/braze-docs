@@ -7,7 +7,7 @@ page_order: 3
 
 # Reference for agents
 
-> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For step-by-step setup, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Models
 
@@ -29,7 +29,7 @@ If you don't see **Braze Auto** as an option in the **Model** dropdown when crea
 
 With this option, you can connect your Braze account with providers like OpenAI, Anthropic, or Google Gemini. If you bring your own API key from an LLM provider, token costs are billed directly through your provider, not through Braze.
 
-We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available.
+We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. Make sure you have sufficient credits with your provider to run your agents at scale. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available or encounters billing issues with your LLM provider.
 
 To set this up:
 
@@ -71,16 +71,28 @@ Each LLM provider has a slightly different mix of model capabilities, costs, and
 - During testing, make sure to balance the reliability and accuracy with token usage and invocation duration.
 - Each use case may have a different optimal model and thinking level. We recommend thoroughly testing to check for consistent quality without timeouts.
 
-### Rate limits
+### Invocation flow controls
 
-The following rate limits apply per workspace:
+The following invocation flow controls apply per workspace:
 
 - **Braze-powered model:** 1,000 invocations per minute 
-- **Bringing your own API key:** 2,500 invocations per minute 
+- **Bringing your own API key:** 2,500 invocations per minute
+
+When many users enter an Agent step at once, Braze queues invocations according to these limits, so processing may take longer during high-volume sends.
+
+### Rate limit errors
+
+If the LLM provider returns a rate limit error, Braze retries the request using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents do not retry failed invocations, including rate limit errors from the LLM provider.
+
+If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Every retry is visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
+
+![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
 ## Writing instructions
 
 Instructions are the rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. System instructions can be up to 25 KB.
+
+If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), review the pre-filled instructions and edit as needed.
 
 Here are some general best practices to get you started with prompting:
 
@@ -95,7 +107,9 @@ Here are some general best practices to get you started with prompting:
 9. Handle the edge cases, add guardrails, and add refusal instructions.
 10. Measure and document what works internally for reuse and scaling.
 
-For inspiration on how to write agent instructions, see our dedicated [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+### Examples {#examples}
+
+For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
 
 ### Using Liquid
 
@@ -120,6 +134,8 @@ For more details on prompting best practices, refer to guides from the following
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Outputs
+
+If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), review the pre-filled output schema and edit as needed.
 
 ### Basic schemas
 

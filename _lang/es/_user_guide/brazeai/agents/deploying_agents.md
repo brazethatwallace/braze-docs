@@ -24,7 +24,7 @@ Puedes utilizar agentes como pasos en un recorrido para personalizar mensajes u 
 | Enrutamiento inteligente | Utiliza los resultados del agente (booleanos o numéricos) para dividir a los usuarios en diferentes rutas de Canvas. Por ejemplo, clasifica a los usuarios como «en riesgo» o «sanos» y ajusta la frecuencia de la mensajería en consecuencia. |
 | Interpretación de cuestionarios o respuestas | Deja que un agente analice las respuestas abiertas de los cuestionarios o los campos de texto libre, y devuelva valores estructurados (por ejemplo, categorizando la intención o la necesidad) que impulsen las rutas posteriores. |
 | Razonamiento en varios pasos | Configura un agente para combinar campos de contexto y tomar decisiones complejas, como recomendar la siguiente mejor acción (correo electrónico, SMS o contacto humano) en función de múltiples atributos del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Agentes en catálogos {#agents-in-catalogs}
 
@@ -40,7 +40,7 @@ Puedes aplicar un agente a los campos del catálogo para que genere o calcule au
 | Clasificar o etiquetar elementos | Asigna etiquetas para la lógica de recomendación, de modo que los modelos de personalización puedan segmentar productos de forma más eficaz. Por ejemplo, etiqueta los productos como «para exterior», «para festivales» o «premium». |
 | Localizar contenido | Traduce el texto del catálogo a otro idioma para campañas globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce «Classic Clubmaster Sunglasses» al español como «Gafas de sol Classic Clubmaster» o acorta las descripciones para las campañas de SMS. |
 | Resumir reseñas o comentarios | Resume las opiniones o comentarios en un nuevo campo, por ejemplo, asignando puntuaciones de sentimiento como Positivo, Neutro o Negativo, o creando un breve resumen de texto como «La mayoría de los clientes mencionan que el producto se ajusta muy bien, pero señalan que el envío es lento». |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ### Pasos {#steps}
 
@@ -82,7 +82,7 @@ Supongamos que tienes un agente que añade descripciones de productos a un catá
 | --- | --- |
 | **description** | Texto |
 | **confidence_score_out_of_ten** | Número |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Define response fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definir campos de respuesta" }
 
 Puedes añadir un campo llamado **product_description** a un catálogo y seleccionar **description** como **Response Field** para rellenar la columna con las descripciones del agente.
 
@@ -92,8 +92,8 @@ También puedes anular manualmente la celda generada por el agente seleccionando
 
 ### Gestión de errores en catálogos {#error-handling-in-catalogs}
 
-- Las invocaciones de catálogo fallidas no se reintentan.
-- Si la llamada a la API del proveedor del modelo fundacional devuelve algún error, como un error de clave de API no válida o un error de límite de velocidad, el valor del campo no se actualiza.
+- Las invocaciones de catálogo fallidas no se reintentan, incluidos los [errores de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) del proveedor del LLM.
+- Si la llamada a la API del proveedor del modelo fundacional devuelve algún otro error, como un error de clave de API no válida, el valor del campo no se actualiza.
 - Puedes revisar los registros del agente para obtener detalles sobre las ejecuciones fallidas.
 
 ## Supervisa tu agente {#monitor-your-agent}

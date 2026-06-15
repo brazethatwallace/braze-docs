@@ -49,7 +49,7 @@ Aqui estão alguns exemplos de casos de uso comuns de mensagens push para a web.
 | Download do app | Direcione os usuários da web para o seu app móvel para que obtenham ainda mais valor dos seus produtos. Considere usar personalização para destacar os benefícios do app com base nos padrões de engajamento atuais. |
 | Descontos e promoções | Aumente a conscientização dos clientes sobre eventos e promoções com prazo limitado. Envie mensagens por múltiplos canais, incluindo push para a web, para aumentar a visibilidade das promoções da sua marca. |
 | Abandono de carrinho | Envie lembretes automatizados para usuários que não concluíram suas transações, trazendo-os de volta ao fluxo de checkout. <br><br>Uma pesquisa realizada pela Braze descobriu que o push para a web é 53% mais eficaz que o e-mail e 23% mais impactante que o push móvel para fazer com que os destinatários voltem e concluam uma compra. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Possíveis casos de uso" }
 
 ## Navegadores compatíveis {#supported-browsers}
 

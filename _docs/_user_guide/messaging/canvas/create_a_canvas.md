@@ -224,7 +224,7 @@ You can add additional variants by selecting the <i class="fas fa-plus-circle"><
 ![Two example variants in a Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-By default, the Canvas variant assignment is locked in when users enter the Canvas, meaning that if a user first enters a variant, that will be their variant every time they re-enter the Canvas. However, there are ways to circumvent this behavior. <br><br>To do so, you can create a random number generator using Liquid, run it at the beginning of each user's Canvas entry, store the value as a custom attribute, and then use that attribute to randomly divide users.
+By default, Canvas variant assignment is determined by a function of the user ID and Canvas ID, meaning that a given user is consistently assigned to the same variant on re-entry, as long as the variant distribution percentages remain unchanged. If you adjust the variant distribution after launch, users may be assigned to different variants when they re-enter the Canvas. <br><br>If you need full control over variant assignment that persists even when distribution changes, you can create a random number generator using Liquid, run it at the beginning of each user's Canvas entry, store the value as a custom attribute, and then use that attribute to divide users into branches.
 
 {% details Expand for steps %}
 

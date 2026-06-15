@@ -22,10 +22,10 @@ L'intégration d'Antavo et de Braze vous permet d'utiliser les données liées a
 | Condition          | Description                                                                                                                                                                   |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  |
 | Compte Antavo       | Un compte [Antavo](https://antavo.com/) avec l'intégration Braze activée est nécessaire pour profiter de ce partenariat.                                                |
-| Clé API REST Braze   | Une clé API REST de Braze avec les autorisations suivantes : `users.track`, `events.list`, `events.data_series` et `events.get`.<br><br>Elle peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**.  |
+| Clé API REST Braze   | Une clé API REST de Braze avec les autorisations suivantes : `users.track`, `events.list`, `events.data_series` et `events.get`.<br><br>Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**.  |
 | Endpoint REST de Braze  | [L'URL de votre endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) Votre endpoint dépendra de l'URL de Braze pour votre instance.                |
-| Identifiant de l'application Braze | La clé de l'identifiant de votre application. <br><br>Pour localiser cette clé dans le tableau de bord de Braze, allez dans **Settings** > **API Keys** et trouvez la section **Identification**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Identifiant de l'application Braze | La clé de l'identifiant de votre application. <br><br>Pour localiser cette clé dans le tableau de bord de Braze, allez dans **Paramètres** > **Clés API** et trouvez la section **Identification**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -54,7 +54,7 @@ Pour configurer le mappage des champs dans Antavo :
 3. Saisissez le **Remote field** représentant l'attribut personnalisé équivalent dans Braze vers lequel les données seront envoyées.
 
 {% alert note %}
-Vous trouverez votre liste d'attributs personnalisés dans Braze sous **Data Settings** > **Custom Attributes**. Si le champ que vous saisissez n'est pas défini dans Braze, un nouveau champ sera automatiquement généré lors de la première synchronisation.
+Vous trouverez votre liste d'attributs personnalisés dans Braze sous **Paramètres des données** > **Attributs personnalisés**. Si le champ que vous saisissez n'est pas défini dans Braze, un nouveau champ sera automatiquement généré lors de la première synchronisation.
 {% endalert %}
 
 {:start="4"}

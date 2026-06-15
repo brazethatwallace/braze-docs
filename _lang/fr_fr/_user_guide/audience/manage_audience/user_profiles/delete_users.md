@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Découvrez comment supprimer un utilisateur individuel ou un segment d'utilisateurs directement via le tableau de bord de Braze.
 
-{% alert important %}
-La suppression d'utilisateurs est actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer.
-{% endalert %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour supprimer des utilisateurs, vous devez être administrateur ou disposer de l'autorisation **Delete Users**. Pour consulter les enregistrements de suppression d'utilisateurs, vous devez être administrateur ou disposer de l'autorisation **View User Deletion Records**. Les autorisations suivantes contrôlent la suppression d'utilisateurs et les enregistrements de suppression :
@@ -31,7 +27,7 @@ La suppression d'utilisateurs vous permet de gérer votre base de données en su
 
 | Considération | Détails |
 |---------------|---------|
-| Taille maximale | Vous pouvez supprimer jusqu'à 100 millions de profils utilisateurs lors de la suppression d'un segment. |
+| Taille maximale | Vous pouvez supprimer jusqu'à 10 millions de profils utilisateurs lors de la suppression d'un segment. |
 | Période d'attente | Toutes les suppressions de segments nécessitent une période d'attente de 7 jours plus le temps nécessaire au traitement des suppressions. |
 | Limites de tâches | Un seul segment peut être supprimé à la fois, ce qui inclut la période d'attente de 7 jours. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de la suppression d'utilisateurs" }
@@ -90,7 +86,7 @@ Vous disposez de 7 jours pour annuler les suppressions de segments en attente. P
 
 ![L'onglet « Delete Users » dans la section « Manage Audience » du tableau de bord de Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-À côté d'une suppression de segment en attente, sélectionnez <i class="fa-solid fa-eye"></i> pour ouvrir les détails de l'enregistrement de suppression.
+À côté d'une suppression de segment en attente, sélectionnez <i class="fa-solid fa-eye"></i> **View details** pour ouvrir les détails de l'enregistrement de suppression.
 
 ![Une suppression de segment en attente dans l'onglet « Delete Users ».]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -134,7 +130,7 @@ Sur cette page, vous trouverez les informations générales suivantes pour toute
 | État | Indique si la demande de suppression est en attente, en cours ou terminée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Manage Audience" }
 
-Pour plus de détails sur une demande spécifique, sélectionnez <i class="fa-solid fa-eye"></i> pour afficher les détails de l'enregistrement de suppression. Vous pouvez également [annuler les suppressions de segments en attente](#cancel) depuis cet écran.
+Pour plus de détails sur une demande spécifique, sélectionnez <i class="fa-solid fa-eye"></i> **View details** pour afficher les détails de l'enregistrement de suppression. Vous pouvez également [annuler les suppressions de segments en attente](#cancel) depuis cet écran.
 
 ![Une suppression de segment en attente dans l'onglet « Delete Users ».]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -144,17 +140,13 @@ Vous pouvez également vérifier l'état des suppressions précédentes en tél�
 
 ## Questions fréquentes {#faq}
 
-### Puis-je supprimer des segments de plus de 100 millions d'utilisateurs ? {#can-i-delete-segments-with-more-than-100-million-users}
+### Puis-je supprimer des segments de plus de 10 millions d'utilisateurs ? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Non. Vous ne pouvez pas supprimer des segments de plus de 100 millions d'utilisateurs. Si vous avez besoin d'aide pour supprimer un segment de cette taille, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Non. Vous ne pouvez pas supprimer des segments de plus de 10 millions d'utilisateurs. Si vous avez besoin d'aide pour supprimer un segment de cette taille, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
-### Il semble que je ne puisse pas supprimer 100 millions d'utilisateurs et que je sois limité à 10 millions. Est-ce un bug ? {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### Je ne peux supprimer que 10 millions d'utilisateurs à la fois. Est-ce un bug ? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-Non, ce n'est pas un bug. Certains clients sont limités dans le nombre d'utilisateurs qu'ils peuvent supprimer pendant le programme d'accès anticipé (EA).
-
-Au fur et à mesure de l'avancement du programme EA, cette capacité est conçue pour augmenter jusqu'à ce que tous les clients puissent supprimer jusqu'à 100 millions d'utilisateurs.
-
-Si vous souhaitez augmenter cette capacité, contactez votre gestionnaire de compte Braze. Les demandes sont accordées à la discrétion de l'équipe produit.
+Non, ce n'est pas un bug. Le nombre maximum de profils utilisateurs pouvant être supprimés en une seule exécution de suppression de segment est de 10 millions.
 
 ### La fusion automatique d'utilisateurs affecte-t-elle la suppression d'utilisateurs ? {#does-automated-user-merging-affect-user-deletion}
 
@@ -164,7 +156,7 @@ Si une fusion planifiée inclut des profils utilisateurs en attente de suppressi
 
 Les données envoyées depuis des systèmes externes ou des SDK sont toujours acceptées, mais les utilisateurs seront supprimés comme prévu, indépendamment de l'activité.
 
-### Les Canvas et les campagnes se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### Les Canvas et les Campaigns se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 Oui. Cependant, vous pouvez ajouter un filtre d'inclusion de segment pour exclure tous les utilisateurs avec le [filtre de segment](#segment-filters) **Pending Deletion**.
 

@@ -34,7 +34,7 @@ Meta 워크 계정 베타 테스트에 참여 중인 경우, [Facebook 파트너
 | [Facebook 비즈니스 관리자](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
 | [Facebook 광고 계정](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Braze 커스텀 오디언스와 함께 사용하려는 브랜드의 비즈니스 관리자에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 관리자 관리자가 Braze에서 사용할 Facebook 광고 계정에 대한 관리자 권한을 부여했는지, 그리고 광고 계정 이용약관에 동의했는지 확인하세요. 그렇지 않으면 Braze 내에서 Facebook 광고 계정에 접근할 수 없습니다. |
 | [Facebook 커스텀 오디언스 약관](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Braze에서 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의해야 합니다.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -63,10 +63,10 @@ Meta 워크 계정 베타 테스트에 참여 중인 경우, [Facebook 파트너
 Braze에서 Facebook 오디언스 내보내기는 **Segments** 페이지를 통해 접근할 수 있습니다.
 
 1. **Segments** 페이지에서 내보내려는 Segment를 선택합니다.
-2. **User Data**를 선택한 다음 **Export as Facebook Audience**를 선택합니다. <br><br>![**User Data**가 선택된 Segment의 "Segment Details" 섹션에 **Export as Facebook Audience**를 포함한 옵션 드롭다운이 표시됩니다.]({% image_buster /assets/img/fb/afb_6.png %})
+2. **사용자 데이터**를 선택한 다음 **Facebook 오디언스로 내보내기**를 선택합니다. <br><br>![**사용자 데이터**가 선택된 Segment의 "Segment 세부 정보" 섹션에 **Facebook 오디언스로 내보내기**를 포함한 옵션 드롭다운이 표시됩니다.]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
-3. Braze 내에서 아직 Facebook을 활성화하지 않은 경우, 대시보드의 Facebook 기술 파트너 페이지로 이동하라는 메시지가 표시됩니다. **Technology Partners** > **Facebook**을 통해 이미 Facebook을 활성화한 경우, Facebook 광고 계정과 내보낼 사용자 필드를 선택할 수 있습니다. <br><br> 다음 필드를 내보낼 수 있습니다:
+3. Braze 내에서 아직 Facebook을 활성화하지 않은 경우, 대시보드의 Facebook 기술 파트너 페이지로 이동하라는 메시지가 표시됩니다. **기술 파트너** > **Facebook**을 통해 이미 Facebook을 활성화한 경우, Facebook 광고 계정과 내보낼 사용자 필드를 선택할 수 있습니다. <br><br> 다음 필드를 내보낼 수 있습니다:
 - 기기 IDFA
 - 전화번호
 - 이메일
@@ -76,7 +76,7 @@ Braze에서 Facebook 오디언스 내보내기는 **Segments** 페이지를 통�
 {% endalert %}
 
 {: start="4"}
-4. 사용자 필드를 선택한 후 **Export Segment**를 선택합니다. CSV 내보내기와 마찬가지로, Segment가 Facebook으로 내보내기를 완료하면 이메일을 받게 됩니다.
+4. 사용자 필드를 선택한 후 **Segment 내보내기**를 선택합니다. CSV 내보내기와 마찬가지로, Segment가 Facebook으로 내보내기를 완료하면 이메일을 받게 됩니다.
 5. [Facebook 광고 관리자](https://www.facebook.com/ads/manager/audiences/manage/)에서 커스텀 오디언스를 확인합니다.
 
 {% alert important %}
@@ -120,7 +120,7 @@ Facebook 내보내기를 사용할 때 다음과 같은 경우 `Error Validating
 내보내기가 작동하지 않으면 다음을 수행하세요:
 1. 자격 증명을 다시 제거하고 저장합니다.
 2. 자격 증명을 다시 추가하고 저장합니다.
-3. **Technology Partners** 페이지에서 Facebook 통합을 연결 해제한 후 다시 연결합니다.
+3. **기술 파트너** 페이지에서 Facebook 통합을 연결 해제한 후 다시 연결합니다.
 
 ### Facebook 오디언스 내보내기 시 오류 {#error-when-exporting-a-facebook-audience}
 

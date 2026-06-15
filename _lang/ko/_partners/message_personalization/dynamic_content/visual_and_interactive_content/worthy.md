@@ -34,7 +34,7 @@ _이 통합은 Worthy에서 유지 관리합니다._
 | --- | --- |
 | [Worthy](https://worthy.ai/) 계정 | 이 파트너십을 활용하려면 Worthy 계정이 필요합니다. |
 | Braze SDK | 풍부한 인앱 메시지를 전송하려면 모바일 애플리케이션에 Braze SDK를 구성해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -48,6 +48,6 @@ Braze에서 [인앱 메시지 Campaign]({{site.baseurl}}/user_guide/channels/in_
 
 ### 3단계: 개인화된 메시지를 Braze에 복사하기 {#step-3-copy-your-personalized-message-into-braze}
 
-Worthy 메시지 크리에이터에서 **Export**를 클릭하고 **Braze**를 선택하여 Braze Campaign에서 사용할 개인화된 메시지를 내보내세요. 내보낸 콘텐츠를 Braze Campaign 편집기의 **HTML + Asset Zip** 아래 HTML 텍스트 상자에 붙여넣으세요.
+Worthy 메시지 크리에이터에서 **내보내기**를 클릭하고 **Braze**를 선택하여 Braze Campaign에서 사용할 개인화된 메시지를 내보내세요. 내보낸 콘텐츠를 Braze Campaign 편집기의 **HTML + Asset Zip** 아래 HTML 텍스트 상자에 붙여넣으세요.
 
 이것으로 완료입니다! Braze Campaign 편집기의 **Test** 탭을 사용하여 개인화된 메시지를 즉시 테스트할 수 있습니다.

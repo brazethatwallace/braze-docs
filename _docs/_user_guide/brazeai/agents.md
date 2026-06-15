@@ -37,7 +37,7 @@ In contrast, other BrazeAI tools are designed to maximize the metrics that they 
 
 Features for Braze Agents include:
 
-- **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, or Google Gemini).
+- **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, Google Gemini, or Databricks Mosaic).
 - **Seamless integration:** Deploy agents directly in Canvas steps or catalog fields.
 - **Testing and logging tools:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run.
 - **Usage controls:** Daily limits help manage performance and costs.
@@ -67,6 +67,12 @@ The following limitations apply:
 - By default, each run must complete within 20 seconds. After 20 seconds, the agent returns a `null` response where it is used.
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
+
+## Error handling
+
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to five times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null`. If an agent reaches its daily invocation limit, the output is also set to `null`.
+
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to buffer against null outputs in your messages.
 
 ## How is my data used and sent to Braze-provided LLMs?
 

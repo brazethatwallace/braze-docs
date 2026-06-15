@@ -39,6 +39,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <th>Push-Benachrichtigungen</th>
             <th>Canvas</th>
             <th>Feature-Flags</th>
+            <th>Banner</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Kindle Fire</td>
@@ -59,6 +61,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Android TV</td>
@@ -68,6 +71,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>LG TV (webOS)</td>
@@ -77,6 +81,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push">N/A</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
@@ -86,6 +91,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push">N/A</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Roku</td>
@@ -95,6 +101,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push">N/A</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-times text-warning"></i></td>
         </tr>
         <tr>
             <td>Apple TV OS</td>
@@ -104,6 +111,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
             <td for="push"><i class="fa-solid fa-minus"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
        <tr>
           <td>Apple Vision Pro</td>
@@ -113,6 +121,7 @@ Im Folgenden finden Sie eine Liste der Features und Messaging-Kanäle, die heute
           <td for="push"><i class="fa-solid fa-minus"></i></td>
           <td for="canvas"><i class="fas fa-check text-success"></i></td>
           <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+          <td for="banners"><i class="fas fa-check text-success"></i></td>
       </tr>
     </tbody>
 </table>
@@ -137,6 +146,8 @@ Zu den Features zählen:
 - Feature-Flags
 - In-App-Nachrichten
   - Um HTML-Nachrichten auf Nicht-Touch-Geräten wie TV-Geräten anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre Fire TV-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -151,6 +162,8 @@ Zu den Features zählen:
 - Content Cards
 - Feature-Flags
 - In-App-Nachrichten
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihr Kindle Fire einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur Fire OS-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -167,6 +180,8 @@ Zu den Features zählen:
   - Um HTML-Nachrichten auf Nicht-Touch-Geräten wie TV-Geräten anzuzeigen, setzen Sie `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` auf `false` (verfügbar ab [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Push-Benachrichtigungen (manuelle Integration erforderlich)
   - Push-Benachrichtigungen werden auf Android TV nicht nativ unterstützt. Warum, erfahren Sie in den [Design-Richtlinien](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) von Google. Sie können jedoch **eine manuelle Integration der Push-Benachrichtigungs-UI vornehmen, um dies zu erreichen**. Lesen Sie in unserer [Dokumentation]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv) nach, wie Sie dies einrichten können.
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre Android TV-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur Android SDK-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -184,6 +199,8 @@ Zu den Features zählen:
 - Content Cards (über [Headless UI](#custom-ui))
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre webOS-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -197,6 +214,8 @@ Zu den Features zählen:
 - Content Cards (über [Headless UI](#custom-ui))
 - Feature-Flags
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre Tizen-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur Smart-TV-Integration]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -226,6 +245,8 @@ Zu den Features zählen:
   - Webviews werden von der tvOS-Plattform nicht unterstützt, daher werden In-App-Nachrichten im HTML-Format nicht unterstützt.
   - Sehen Sie sich unsere [Beispiel-App](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) an, um mehr darüber zu erfahren, wie Sie eine Headless UI für angepasstes Messaging unter tvOS verwenden können.
 - Stille Push-Benachrichtigungen und Update-Badges
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre tvOS-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
 
@@ -243,6 +264,8 @@ Verwenden Sie das Braze Swift SDK für die Integration mit visionOS. Die meisten
 - Push-Benachrichtigungen (für Nutzer:innen sichtbar mit Aktions-Buttons und stillen Benachrichtigungen)
 - Feature-Flags
 - Standort-Analytics
+- Banner
+  - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre visionOS-App einzubetten.
 
 Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
 

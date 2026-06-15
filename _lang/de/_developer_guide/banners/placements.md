@@ -31,7 +31,7 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Bannerplatzierungen zu
 
 ### 2. Schritt: Platzierungen in Ihrer App aktualisieren {#requestBannersRefresh}
 
-Platzierungen können durch Aufruf der unten beschriebenen Aktualisierungsmethoden aktualisiert werden. Diese Platzierungen werden automatisch zwischengespeichert, wenn die Sitzung einer Nutzer:in abläuft oder wenn Sie identifizierte Nutzer:innen mithilfe der `changeUser`-Methode ändern.
+Platzierungen können durch Aufruf der unten beschriebenen Aktualisierungsmethoden aktualisiert werden. Wenn `subscribeToBannersUpdates` aktiv ist, veröffentlicht das SDK Ihre zwischengespeicherten Platzierungs-IDs automatisch zu Beginn jeder neuen Sitzung und wenn Sie `changeUser` aufrufen. Diese automatische Aktualisierung verbraucht kein Rate-Limiting-Token.
 
 {% alert tip %}
 Aktualisieren Sie die Platzierungen so schnell wie möglich, um Verzögerungen beim Herunterladen oder Anzeigen von Bannern zu vermeiden.

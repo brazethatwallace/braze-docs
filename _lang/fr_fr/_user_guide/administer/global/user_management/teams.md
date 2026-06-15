@@ -34,6 +34,14 @@ Si une équipe est définie par un attribut personnalisé, une langue ou un pays
 
 Les administrateurs Braze et les utilisateurs limités disposant de l'autorisation au niveau de l'entreprise « Peut gérer les paramètres de l'entreprise » peuvent attribuer des autorisations au niveau de l'équipe à un utilisateur de l'entreprise ayant un accès limité. Lorsqu'un utilisateur est affecté à une équipe, il est limité à la lecture ou à l'écriture des données disponibles pour ses équipes spécifiques, telles que la langue de l'utilisateur, l'emplacement ou l'attribut personnalisé, tels que définis lors de la création de l'équipe.
 
+### Limiter les autorisations d'un utilisateur sans supprimer son compte {#limit-company-user-permissions-without-deleting-a-user}
+
+Pour empêcher un utilisateur de se connecter tout en conservant son compte, [suspendez l'utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users). La suspension place le compte dans un état inactif où l'utilisateur ne peut pas se connecter.
+
+Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne laissez qu'un accès minimal, par exemple « Voir les ressources de la bibliothèque multimédia ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#edit-a-users-permissions).
+
+Les autorisations d'équipe s'ajoutent aux autorisations de l'espace de travail. Si vous affectez l'utilisateur à une équipe, n'accordez que les autorisations minimales au niveau de l'équipe dont il a besoin, et n'accordez pas d'autorisations pour les Campaigns, les Canvas, les Segments ou les profils utilisateur. L'utilisateur reste dans l'espace de travail et peut se connecter, mais il ne peut pas effectuer la plupart des actions d'envoi de messages ou de ciblage d'audience.
+
 Pour affecter un utilisateur à une équipe, accédez à **Paramètres** > **Utilisateurs de l'entreprise** et sélectionnez l'utilisateur que vous souhaitez ajouter à votre équipe.
 
 Effectuez ensuite les étapes suivantes :

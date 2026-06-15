@@ -113,7 +113,6 @@ Ersetzen Sie `#ffffff` durch Ihre gewünschte Farbe.
 
 {% alert note %}
 Dieser Ansatz funktioniert nicht zuverlässig allein auf `<table>`-Elementen. Setzen Sie den Gradienten daher auf die Zelle statt nur auf die Tabelle.
-  <caption>Gmail-Mobil-App und Dark Mode</caption>
 {% endalert %}
 
 Weitere Informationen zur Gradient-Syntax finden Sie unter [CSS-Gradienten auf W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -162,7 +161,7 @@ Vermeiden Sie die Verwendung der folgenden Schlüssel:
 }
 </style>
 
-<table aria-label="Email headers" id="reserved-fields">
+<table aria-label="E-Mail-Header" id="reserved-fields">
   <caption>E-Mail-Header</caption>
 <thead>
   <tr>
@@ -241,6 +240,10 @@ E-Mail-Clients, die Vorschautext unterstützen, ziehen immer genügend Zeichen e
 ```
 
 Für den Drag-and-Drop-Editor fügen Sie nur die Zero-Width-Non-Joiner (‌`&zwnj;`) ohne die `<div>`-Formatierung direkt im Preheader im Bereich **Sending Settings** hinzu.
+{% endalert %}
+
+{% alert note %}
+In der Apple-Mail-App müssen Bild-Links in HTML-E-Mails `https://`-URLs verwenden, um klickbar zu sein. Verwenden Sie sichere Links für jedes Bild, das in einem Anker-Tag eingebettet ist, wenn Sie Klicks von Apple-Mail-Empfänger:innen erwarten.
 {% endalert %}
 
 ### Schritt 3.3: Auf E-Mail-Fehler prüfen {#step-33-check-for-email-errors}

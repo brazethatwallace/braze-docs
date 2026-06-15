@@ -24,7 +24,7 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones de socios admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
+- De forma predeterminada, el filtro de Segment **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
 
 ## Ejemplo de API {#api-example}
 
@@ -284,12 +284,12 @@ Después de que se haya generado un esquema, puedes regenerarlo **una vez por d�
 
 Para regenerar el esquema de tu atributo personalizado anidado:
 
-1. Ve a **Data Settings** > **Custom Attributes**.
+1. Ve a **Configuración de datos** > **Atributos personalizados**.
 2. Busca tu atributo personalizado anidado.
-3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> para administrar el esquema.
-4. Aparecerá un modal. Selecciona **Regenerate Schema**.
+3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> **Administrar esquema** para administrar el esquema.
+4. Aparecerá un modal. Selecciona **Regenerar esquema**.
 
-La acción **Regenerate Schema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generating**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
+La acción **Regenerar esquema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generating**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
 
 {% alert important %}
 Para restablecer el esquema de una matriz de objetos con un objeto existente, necesitas crear un nuevo atributo personalizado. La regeneración del esquema no elimina objetos existentes.
@@ -307,7 +307,7 @@ Por ejemplo, en una Campaign basada en acciones, puedes añadir una nueva acció
 
 ## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el segmento si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
+Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el Segment si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
 
 Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 
@@ -320,12 +320,12 @@ Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 }
 ```
 
-Un segmento con los siguientes filtros AND:
+Un Segment con los siguientes filtros AND:
 
 - `orders[].price` es mayor que 50
 - `orders[].price` es menor que 30
 
-Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el segmento.
+Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el Segment.
 
 Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 

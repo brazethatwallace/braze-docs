@@ -49,7 +49,7 @@ Utilisez les audiences connectées dans les scénarios où vos systèmes back-en
 | E-commerce | Un détaillant en ligne envoie des alertes de baisse de prix ou de retour en stock aux utilisateurs dont le tableau `wishlisted_products` inclut l'ID du produit concerné. |
 | Voyage | Une application de voyage envoie des notifications de retard de vol aux utilisateurs dont l'attribut `booked_flight` correspond au numéro de vol affecté. |
 | Services financiers | Une plateforme de trading alerte les utilisateurs dont le tableau `watchlist` inclut un symbole boursier ayant franchi un seuil de prix. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 Dans chaque cas, une seule campagne ou définition de message API gère toutes les variations. Votre back-end détermine les valeurs de filtrage et les transmet dans la requête API, ce qui vous évite de créer un segment ou une campagne distinct(e) pour chaque produit, émission, équipe ou emplacement.
 
@@ -139,7 +139,7 @@ Le type de données de l'attribut personnalisé détermine les comparaisons vali
 | Numérique | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Valeur booléenne | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Date | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Allowed comparisons by data type" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparaisons autorisées par type de données" }
 
 #### Points d'attention sur les comparaisons d'attributs {#attribute-comparison-caveats}
 
@@ -147,7 +147,7 @@ Le type de données de l'attribut personnalisé détermine les comparaisons vali
 | --- | --- |
 | `value` | Le champ `value` n'est pas requis avec les comparaisons `exists` ou `does_not_exist`. `value` doit être une chaîne datetime ISO 8601 avec les comparaisons `before` et `after`. |
 | `matches_regex` | Avec la comparaison `matches_regex`, la valeur transmise doit être une chaîne de caractères. Pour en savoir plus sur l'utilisation des expressions régulières avec Braze, consultez [Expressions régulières]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) et [Types de données d'attributs personnalisés]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Points d'attention sur les comparaisons d'attributs" }
 
 #### Exemple d'attribut personnalisé {#custom-attribute-example}
 
@@ -241,4 +241,12 @@ Ce filtre vous permet de segmenter en fonction de la dernière utilisation de l'
 
 ### Considérations {#considerations}
 
-Les audiences connectées ne permettent pas de filtrer les utilisateurs en fonction d'attributs par défaut, d'événements personnalisés, de segments ou d'événements d'engagement liés aux messages. Pour utiliser ces filtres, nous vous recommandons de les intégrer dans un segment d'audience, puis de spécifier ce segment dans le paramètre `segment_id` de l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters). Pour les autres endpoints, vous devrez d'abord ajouter le segment à la campagne déclenchée par l'API ou au Canvas dans le tableau de bord de Braze.
+Les audiences connectées ne permettent pas de filtrer les utilisateurs selon :
+
+ - Les attributs par défaut
+ - Les événements personnalisés
+ - Les segments
+ - Les événements d'engagement liés aux messages
+ - Les attributs personnalisés imbriqués
+
+Pour utiliser ces filtres, nous vous recommandons de les intégrer dans un segment d'audience, puis de spécifier ce segment dans le paramètre `segment_id` de l'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters). Pour les autres endpoints, vous devrez d'abord ajouter le segment à la campagne déclenchée par API ou au Canvas dans le tableau de bord de Braze.

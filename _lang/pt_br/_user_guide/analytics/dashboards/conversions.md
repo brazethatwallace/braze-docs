@@ -85,9 +85,9 @@ A tabela a seguir descreve as métricas possíveis.
 | Taxa de conversão (Destinatários) | Calculada como: (Número de conversões) / (Número de destinatários) |
 | Método de atribuição | Definido pelo [método de atribuição](#attribution-methods) selecionado ao configurar o relatório. Para atribuição de último ponto de contato ou se múltiplos canais forem selecionados, aparece como [Pontos de contato](#terms-to-know). |
 | Taxa de conversão (Método de atribuição) | Definida pelo [método de atribuição](#attribution-methods) selecionado ao configurar o relatório. Se múltiplos canais forem selecionados, o padrão é atribuição de último ponto de contato. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhes da conversão" }
 
-Se você selecionou detalhes em nível de detalhamento para campanhas ou Canvas ao [configurar seu relatório](#setting-up-your-report) (etapa 5), clique em <i class="fas fa-angle-down"></i> para expandir a tabela.
+Se você selecionou detalhes em nível de detalhamento para campanhas ou Canvas ao [configurar seu relatório](#setting-up-your-report) (etapa 5), clique em <i class="fas fa-angle-down"></i> **Expandir** para expandir a tabela.
 
 ### Funil de conversão {#conversion-funnel}
 
@@ -107,7 +107,7 @@ Este gráfico exibe dados de apenas um canal por vez. Use o menu suspenso **Cana
 
 Este gráfico de série temporal inclui uma representação das conversões por campanha ou Canvas ao longo do tempo. Por padrão, todas as campanhas e Canvas selecionados são exibidos. Para desmarcar uma campanha ou Canvas, clique no nome da campanha ou Canvas que deseja excluir.
 
-Para baixar os dados da série temporal, selecione <i class="fas fa-bars"></i> e depois selecione a opção de download. As opções disponíveis são PNG, JPEG, PDF, SVG ou CSV.
+Para baixar os dados da série temporal, selecione <i class="fas fa-bars" title="Menu de contexto do gráfico"></i> **Menu de contexto do gráfico** e depois selecione a opção de download. As opções disponíveis são PNG, JPEG, PDF, SVG ou CSV.
 
 ![Gráfico de série temporal de conversões ao longo do tempo para duas campanhas de e-mail, mostrando conversões por dia.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
@@ -121,14 +121,14 @@ Para baixar os dados da série temporal, selecione <i class="fas fa-bars"></i> e
 | Ao clicar | Número total de conversões que ocorreram após o clique na mensagem | Calculado como (Conversões únicas ao clicar) / (Destinatários únicos) | {::nomarkdown}<ul><li>Ao clicar em e-mail</li><li>Ao clicar em cartão de conteúdo</li><li>Ao clicar em mensagem no app</li></ul>{:/} |
 | Ao visualizar | Número total de conversões que ocorreram após uma impressão | Calculado como (Conversões únicas por impressão) / (Destinatários únicos) | {::nomarkdown}<ul><li>Ao visualizar mensagem no app</li><li>Ao visualizar cartão de conteúdo</li></ul>{:/} |
 | Último ponto de contato | Conversões que atribuem todo o crédito à última mensagem tocada ou clicada durante a janela de conversão. | Calculado como (Número de pontos de contato) / (Destinatários únicos) | A atribuição de último ponto de contato é selecionada automaticamente se múltiplos canais forem adicionados ao relatório.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attribution methods" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Métodos de atribuição" }
 
 ## Termos importantes {#terms-to-know}
 
 | Termo | Definição |
 | --- | --- |
 | Ponto de contato | Uma interação física ou ponto de contato com uma mensagem.<br><br>Os pontos de contato podem incluir:<br>{::nomarkdown}<ul><li>Clique em e-mail</li><li>Abertura de push</li><li>Clique em cartão de conteúdo</li><li>Clique em mensagem no app</li><li>Clique em SMS</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Terms to know" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Termos importantes" }
 
 ## Solução de problemas {#troubleshooting}
 

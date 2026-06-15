@@ -36,9 +36,11 @@ Chaque adresse e-mail utilisée dans une [instance]({{site.baseurl}}/user_guide/
 
 Si votre équipe utilise Gmail et que vous rencontrez des difficultés pour ajouter une adresse e-mail, vous pouvez créer un alias en ajoutant un signe plus (+) suivi de « 1 » ou « test » à l'adresse e-mail. Par exemple, `contractor@braze.com` peut avoir un alias `contractor+1@braze.com`. Les e-mails envoyés à `contractor+1@braze.com` seront toujours livrés à `contractor@braze.com`, mais l'alias sera reconnu comme une adresse e-mail unique.
 
+Pour utiliser un seul compte sur plusieurs entreprises sans alias, consultez [Utiliser les développeurs multi-entreprises]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). Si vous utilisez l'authentification unique, consultez [Considérations relatives à l'authentification unique (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso) avant de vous inscrire avec plusieurs adresses e-mail.
+
 ### Puis-je modifier l'adresse e-mail de mon compte Braze ? {#can-i-change-my-braze-accounts-email-address}
 
-Pour des raisons de sécurité, les utilisateurs ne peuvent pas modifier l'adresse e-mail associée à leur compte Braze. Si un utilisateur souhaite mettre à jour son adresse e-mail, un administrateur doit [créer un nouveau compte](#adding-braze-users) avec l'adresse e-mail souhaitée.
+Pour des raisons de sécurité, les utilisateurs ne peuvent pas modifier l'adresse e-mail associée à leur compte Braze. Si un utilisateur souhaite mettre à jour son adresse e-mail, un administrateur doit [créer un nouveau compte](#adding-company-users) avec l'adresse e-mail souhaitée.
 
 ## Attribuer l'accès et les responsabilités des utilisateurs {#assigning-user-access-and-responsibilities}
 

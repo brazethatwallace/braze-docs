@@ -20,7 +20,7 @@ LINE 클릭 추적은 텍스트, 리치, 카드 기반 메시지에 사용할 �
 
 ## 작동 방식 {#how-it-works}
 
-메시지를 작성하는 동안 **Settings** 탭에서 LINE 클릭 추적 설정을 관리할 수 있습니다. 활성화하면 기본 Braze 도메인(`https://brz.ai`) 또는 구독 그룹에 지정된 커스텀 도메인을 사용하여 URL이 단축되고 사용자별로 개인화됩니다.
+메시지를 작성하는 동안 **설정** 탭에서 LINE 클릭 추적 설정을 관리할 수 있습니다. 활성화하면 기본 Braze 도메인(`https://brz.ai`) 또는 구독 그룹에 지정된 커스텀 도메인을 사용하여 URL이 단축되고 사용자별로 개인화됩니다.
 
 `http://` 또는 `https://`로 시작하는 모든 URL이 단축됩니다. 메시지당 최대 25개의 URL을 포함할 수 있습니다. Liquid 개인화(예: 사용자 수준 추적 또는 UTM 매개변수)가 포함된 단축 URL은 2개월 동안 유효합니다.
 
@@ -35,13 +35,13 @@ LINE 클릭 추적은 텍스트, 리치, 카드 기반 메시지에 사용할 �
 ![긴 URL이 포함된 텍스트 메시지가 있는 LINE 메시지 작성기: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
-2. **Settings** 탭으로 이동하여 **Click Tracking**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.
+2. **설정** 탭으로 이동하여 **클릭 추적**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.
 
 {% alert note %}
-**Settings** 또는 **Preview & Test** 탭에서 단축 링크의 미리보기를 확인할 수 있습니다. 메시지를 작성하는 동안에는 작성기에 전체 링크가 표시됩니다.
+**설정** 또는 **미리보기 및 테스트** 탭에서 단축 링크의 미리보기를 확인할 수 있습니다. 메시지를 작성하는 동안에는 작성기에 전체 링크가 표시됩니다.
 {% endalert %}
 
-![LINE 메시지 작성기 "Settings" 탭에서 "Click Tracking"이 활성화되어 있고, 단축 URL이 포함된 미리보기 텍스트 메시지: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![LINE 메시지 작성기 "설정" 탭에서 "클릭 추적"이 활성화되어 있고, 단축 URL이 포함된 미리보기 텍스트 메시지: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### 리치 메시지 {#rich-messages}
 
@@ -54,7 +54,7 @@ LINE 클릭 추적은 텍스트, 리치, 카드 기반 메시지에 사용할 �
 ![각각 URL이 있는 두 개의 탭 가능 영역이 있는 리치 메시지가 포함된 LINE 메시지 작성기.]({% image_buster /assets/img/line/rich_message_click_tracking.png %})
 
 {: start="4"}
-4. **Settings** 탭으로 이동하여 **Click Tracking**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.
+4. **설정** 탭으로 이동하여 **클릭 추적**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.
 
 ### 카드 기반 메시지 {#card-based-messages}
 
@@ -66,7 +66,7 @@ LINE 클릭 추적은 텍스트, 리치, 카드 기반 메시지에 사용할 �
 ![각각 URL이 있는 두 개의 버튼이 있는 카드 기반 메시지가 포함된 LINE 메시지 작성기.]({% image_buster /assets/img/line/card_based_message_click_tracking.png %})
 
 {: start="3"}
-3. **Settings** 탭으로 이동하여 **Click Tracking**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.
+3. **설정** 탭으로 이동하여 **클릭 추적**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.
 
 {% alert note %}
 **Title** 또는 **Description** 필드의 URL은 LINE 내에서 클릭할 수 없는 필드이므로 단축되지 않습니다.
@@ -102,7 +102,7 @@ Braze는 API 트리거 속성에 포함된 URL을 포함하여 Liquid로 렌더�
 
 ## 테스트 {#testing}
 
-Campaign 또는 Canvas를 시작하기 전에 먼저 메시지를 미리보기하고 테스트하는 것이 좋습니다. 이를 위해 **Test** 탭으로 이동하여 콘텐츠 테스트 그룹 또는 개별 사용자에게 LINE 메시지를 미리보기하고 보냅니다.
+Campaign 또는 Canvas를 시작하기 전에 먼저 메시지를 미리보기하고 테스트하는 것이 좋습니다. 이를 위해 **테스트** 탭으로 이동하여 콘텐츠 테스트 그룹 또는 개별 사용자에게 LINE 메시지를 미리보기하고 보냅니다.
 
 이 미리보기는 관련 개인화 및 단축 URL로 업데이트됩니다.
 

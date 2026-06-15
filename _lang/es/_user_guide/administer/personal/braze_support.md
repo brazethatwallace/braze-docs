@@ -26,9 +26,9 @@ Para ponerte en contacto con el equipo de soporte de Braze, navega al dashboard 
 
 Los contactos de soporte designados pueden acceder a todos los casos de soporte de tu empresa, independientemente de quién los haya enviado. Puedes configurar usuarios como contactos de soporte designados directamente desde la página **Edit user**.
 
-1. Ve a **Settings** > **Company Users** y busca al usuario por su nombre o dirección de correo electrónico.
+1. Ve a **Configuración** > **Usuarios de la empresa** y busca al usuario por su nombre o dirección de correo electrónico.
 2. Selecciona el nombre del usuario o pasa el cursor sobre la fila del nombre del usuario para mostrar un menú.
-3. En el menú, selecciona **Edit** para ser redirigido a la página **Edit user**.
+3. En el menú, selecciona **Editar** para ser redirigido a la página **Editar usuario**.
 4. Marca la casilla de verificación **Set this user as a Designated Support Contact for Braze Support Portal**.
 
 ![La casilla de verificación para configurar un usuario como contacto de soporte designado.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
@@ -63,7 +63,7 @@ Al comunicarte con soporte, es posible que necesites acceder a tu consola para d
 
 ### Proporciona la mayor cantidad de información posible {#provide-as-much-information-as-possible}
 
-Cuanta más información puedas ofrecer, mejor. Incluye detalles específicos como el espacio de trabajo, la URL de la Campaign o el Segment, y cualquier ID externo relevante. Esto puede ayudarnos a solucionar tu problema de manera más eficiente.
+Cuanta más información puedas ofrecer, mejor. Incluye detalles específicos como el espacio de trabajo, la URL de la campaña o el segmento, y cualquier ID externo relevante. Esto puede ayudarnos a solucionar tu problema de manera más eficiente.
 
 ### Proporciona una muestra de usuarios {#provide-a-sample-of-users}
 
@@ -96,6 +96,17 @@ Selecciona el nivel de gravedad apropiado para ayudarnos a asignar los recursos 
 {% alert important %}
 Marcar un problema como "Crítico" significa que tu instancia de producción está caída y todo el trabajo dentro de Braze se ha detenido.
 {% endalert %}
+
+## Solución de problemas de carga del dashboard {#troubleshooting-dashboard-load-issues}
+
+Si el dashboard de Braze no se carga correctamente, prueba lo siguiente antes de ponerte en contacto con soporte:
+
+1. Abre el dashboard en un navegador diferente o en una ventana de incógnito o privada.
+2. [Borra la caché y las cookies de tu navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Desactiva los bloqueadores de anuncios y las extensiones del navegador, y luego recarga el dashboard.
+4. Si usas una VPN, desconéctala e inténtalo de nuevo.
+
+Si la consola para desarrolladores de tu navegador muestra `ERR_BLOCKED_BY_CLIENT`, una extensión o bloqueador de anuncios está bloqueando los recursos del dashboard. Desactiva el bloqueador para la URL de tu dashboard de Braze y recarga la página.
 
 ## Solución de problemas de acceso {#troubleshooting-access}
 

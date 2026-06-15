@@ -60,7 +60,7 @@ Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen
 | [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
 | [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
 | [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Nachrichtentypen angeben" }
 
 ## 3. Schritt: Content-Card verfassen {#step-3-compose-a-content-card}
 
@@ -94,7 +94,7 @@ Jeder Nachrichtentyp und jede Plattform kann eigene empfohlene Proportionen und 
 
 #### An den Anfang pinnen {#pin-to-top}
 
-Braze zeigt eine gepinnte Karte oben im Feed der Nutzer:innen an, und diese können sie nicht verwerfen. Wenn der Feed mehrere gepinnte Karten enthält, ordnet Braze sie chronologisch. Nachdem Sie eine Karte gesendet haben, können Sie die Pin-Option nicht mehr nachträglich ändern. Das Ändern dieser Option nach dem Versand einer Kampagne wirkt sich nur auf zukünftige Sendungen aus.
+Braze zeigt eine gepinnte Karte oben im Feed der Nutzer:innen an, und diese können sie nicht verwerfen. Wenn der Feed mehrere gepinnte Karten enthält, ordnet Braze sie chronologisch. Wenn Braze eine Content-Card zustellt, ist sie entweder gepinnt oder nicht gepinnt, und dieser Status ändert sich während der gesamten Lebensdauer der Karte nicht. Wenn Sie die Pin-Einstellung einer Kampagne ändern, gilt die Aktualisierung nur für zukünftig gesendete Karten. Sie ändert nicht den Pin-Status von Karten, die sich bereits im Feed der Nutzer:innen befinden.
 
 ![Nebeneinander-Vorschau der Content-Card in Braze für Mobilgerät und Web mit der ausgewählten Option „Diese Karte an den Anfang des Feeds pinnen“.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -110,7 +110,7 @@ Die folgenden Aktionen sind für Content-Card-Links verfügbar:
 | [Deeplink in die App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deeplink zu einem bestehenden Bildschirm in Ihrer App. |
 | Angepasstes Event protokollieren | Ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) auswählen, das getriggert werden soll. Kann verwendet werden, um eine weitere Content-Card anzuzeigen oder zusätzliches Messaging auszulösen. |
 | Angepasstes Attribut protokollieren | Ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) auswählen, das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
 Die Optionen **Angepasstes Event protokollieren** und **Angepasstes Attribut protokollieren** erfordern die folgende SDK-Versionskompatibilität:
 
@@ -328,3 +328,11 @@ Wenn Sie möchten, dass eine Karte scheinbar immer verfügbar ist, können Sie e
 1. Legen Sie die Dauer der Content-Card auf 30 Tage fest.
 2. Setzen Sie die Kampagnen-Re-Eligibility auf 30 Tage.
 3. Stellen Sie die Kampagne so ein, dass sie bei „Sitzungsstart“ getriggert wird.
+
+### Synchronisierung und Aktualisierung von Content Cards {#content-card-sync-and-refresh}
+
+Content Cards werden nach einem Zeitplan und beim Aktualisieren des Feeds durch Ihre App synchronisiert. Das Synchronisierungsverhalten unterscheidet sich zwischen vollständigen und teilweisen Synchronisierungen, und Ihre SDK-Integration beeinflusst, wann Karten bei Sitzungsstart aktualisiert werden. Implementierungsdetails finden Sie unter [Content-Card-Feed anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) und [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+
+### Auswirkungen des Stoppens von Content-Card-Kampagnen {#impact-of-stopping-content-cards-campaigns}
+
+Wenn Sie eine Kampagne stoppen und **Karte nach der nächsten Synchronisierung entfernen** auswählen, entfernt Braze die Karte bei der nächsten Aktualisierung aus den Nutzer-Feeds. Die Impressionszahlen können niedriger als die Sendezahlen sein, da Nutzer:innen keine Karten sehen können, die entfernt wurden, bevor sie sie angesehen haben.

@@ -71,7 +71,7 @@ module CurrentsGlossaryLazyTabs
 
       fragment_rel = File.join(FRAGMENTS_DIR, page_slug, "#{pane_id}.html")
       fragment_path = File.join(dest, fragment_rel)
-      File.write(fragment_path, pane.inner_html)
+      File.write(fragment_path, pane.inner_html, encoding: 'utf-8')
 
       fragment_url = "#{baseurl}/#{fragment_rel.tr('\\', '/')}"
       fragment_url = fragment_url.gsub(%r{//+}, '/')
@@ -94,11 +94,11 @@ module CurrentsGlossaryLazyTabs
       lang = item.data['lang'] || site.config['language'] || 'en'
       loading_label = loading_text(site, lang)
       page_slug = item.data['slug'] || File.basename(item.url.to_s.chomp('/'))
-      html = File.read(output_path)
+      html = File.read(output_path, encoding: 'utf-8')
       processed = process_html!(html, site.dest, page_slug, baseurl, loading_label)
       next if processed == html
 
-      File.write(output_path, processed)
+      File.write(output_path, processed, encoding: 'utf-8')
     end
   end
 end

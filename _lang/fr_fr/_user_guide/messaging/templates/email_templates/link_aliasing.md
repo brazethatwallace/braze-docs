@@ -252,6 +252,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 Dans l'exemple précédent, le `?` avant `#` donne à Braze un segment de requête auquel ajouter `lid`. Sans cela, le lien peut ne pas apparaître dans **Link Management**.
 
+Sans identification de l'emplacement où ajouter les paramètres de requête, l'aliasage de lien ne reconnaît pas ces URL et les modèles de lien ne s'appliquent pas. Si vous voyez des erreurs telles que **Failed to be assigned an LID** pour une URL dynamique, vérifiez que le `href` utilise le modèle `?` ou `&` présenté dans les exemples de cette section.
+
 ### Considérations pour l'éditeur glisser-déposer {#drag-and-drop-editor-considerations}
 
 Dans l'éditeur glisser-déposer, les champs contenant un lien (comme l'**URL** d'un bouton) valident le `href` sous-jacent avant l'exécution du Liquid. Les espaces, sauts de ligne et autres caractères non compatibles avec les URL peuvent provoquer un comportement inattendu lorsque Braze ajoute des modèles de lien ou des paramètres d'aliasage de lien. Lorsque vous avez besoin de Liquid conditionnel pour la destination, définissez l'URL dans un bloc HTML (voir la section suivante) et référencez une seule variable dans le champ **URL** du glisser-déposer au lieu de placer du Liquid complexe directement dans ce champ.

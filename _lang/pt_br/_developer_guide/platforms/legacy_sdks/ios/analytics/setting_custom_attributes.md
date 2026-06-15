@@ -157,7 +157,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 
 ### Atributo personalizado com um valor de array {#custom-attribute-with-an-array-value}
 
-O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Data Settings** > **Custom Attributes**. Arrays que excedem o número máximo de elementos são truncados para conter o número máximo de elementos.
+O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Configurações de dados** > **Atributos personalizados**. Arrays que excedem o número máximo de elementos são truncados para conter o número máximo de elementos.
 
 
 {% tabs %}
@@ -253,7 +253,7 @@ Para configurar uma inscrição para seus usuários (e-mail ou push), chame as f
 | `ABKOptedin` | Inscrito, com aceitação explícita |
 | `ABKSubscribed` | Inscrito, mas sem aceitação explícita |
 | `ABKUnsubscribed` | Inscrição cancelada e/ou recusa explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="Configurando inscrições de usuários" }
 
 Os usuários que concedem permissão para um app enviar notificações por push têm o status padrão de `ABKOptedin`, pois o iOS exige uma aceitação explícita.
 

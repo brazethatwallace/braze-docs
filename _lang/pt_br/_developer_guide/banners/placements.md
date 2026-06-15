@@ -31,7 +31,7 @@ Estas são as versões mínimas do SDK necessárias para criar posicionamentos d
 
 ### Etapa 2: Atualize os posicionamentos no seu app {#requestBannersRefresh}
 
-Os posicionamentos podem ser atualizados chamando os métodos de atualização descritos abaixo. Esses posicionamentos serão armazenados em cache automaticamente quando a sessão de um usuário expirar ou quando você mudar usuários identificados usando o método `changeUser`.
+Os posicionamentos podem ser atualizados chamando os métodos de atualização descritos abaixo. Se `subscribeToBannersUpdates` estiver ativo, o SDK republica automaticamente os IDs de posicionamento em cache no início de cada nova sessão e quando você chama `changeUser`. Essa atualização automática não consome um token de limite de taxa.
 
 {% alert tip %}
 Atualize os posicionamentos o mais rápido possível para evitar atrasos no download ou na exibição dos Banners.

@@ -86,7 +86,7 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 | --- | --- |
 | **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはSegmentビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentでは、誤差が生じることがあります。 |
 | **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="推定オーディエンスと現在のオーディエンス" }
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
@@ -135,7 +135,7 @@ The **Message Performance** panel outlines how well your message has performed a
 {% elsif include.channel == "email" %}
 ### メールのパフォーマンス {#email-performance}
 
-**メールパフォーマンス**パネルでは、メッセージがさまざまな側面でどの程度のパフォーマンスを示したかを確認できます。このパネルの指標は、選択したメッセージングチャネルや、多変量テストを実行しているかどうかに応じて異なります。<i class="fa fa-eye preview-icon"></i>**プレビュー**アイコンをクリックすると、バリアントやチャネルごとにメッセージを表示できます。
+**メールパフォーマンス**パネルでは、メッセージがさまざまな側面でどの程度のパフォーマンスを示したかを確認できます。このパネルの指標は、選択したメッセージングチャネルや、多変量テストを実行しているかどうかに応じて異なります。<i class="fa fa-eye preview-icon"></i>**プレビュー**アイコンを選択すると、バリアントやチャネルごとにメッセージを表示できます。
 
 ![メールメッセージのパフォーマンス分析]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -196,6 +196,10 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ヒートマップを使用すると、1つのメールキャンペーン内の異なるリンクがどの程度成功したかを確認できます。**メッセージ分析**セクションから、**メールパフォーマンス**パネルに移動します。**プレビューとヒートマップ**を選択して、メールキャンペーンとヒートマップのプレビューを表示します。または、バリアント名のハイパーリンクを選択してヒートマップを表示することもできます。
 
+{% alert note %}
+キャンペーン分析では、バリアントごとに最大100件のユニークURLのクリックデータが、合計クリック数順に表示されます。URLは正規化された形式（クエリパラメーターを含まない）でグループ化されます。バリアントに100件を超えるユニークな正規化URLがある場合、クリック数上位100件のみが表示されます。この制限を超えるURLのクリックデータは存在しますが、ダッシュボードやヒートマップには表示されません。リンクエイリアスが有効な場合、クリックは生のURLではなくリンクIDで追跡されるため、通常はユニークエントリ数が少なくなり、この制限に達する可能性が低くなります。
+{% endalert %}
+
 このビューでは、**ヒートマップ表示**トグルを使用して、キャンペーンの存続期間中のクリックの全体的な頻度と場所を示すメールのビジュアルビューを表示できます。**合計クリック数によるリンクテーブル**パネルでは、メールキャンペーン内のすべてのリンクを表示し、合計クリック数で並べ替えることができます。これにより、ユーザーがどこに移動しているかについて追加のインサイトが得られます。参照用にヒートマップのコピーを保存するには、ダウンロードボタンを選択します。
 
 {% alert note %}
@@ -224,7 +228,7 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="コンテンツカードの指標">
     <caption class="sr-only">コンテンツカードのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -299,7 +303,7 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="バナーの指標">
     <caption class="sr-only">バナーのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -373,7 +377,7 @@ _Unique Recipients_は、実際に閲覧されたバナーを指します。
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="メールの指標">
     <caption class="sr-only">メールのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -532,7 +536,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="アプリ内メッセージの指標">
     <caption class="sr-only">アプリ内メッセージのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -601,7 +605,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 | エラー数 | *エラー数*は、KakaoTalkプロバイダーから返されたエラーの数です（送信プロセス中に増加します）。 |
 | 収益 | *収益*は、設定された1次コンバージョン期間内のキャンペーン受信者からのドル建て収益です。 |
 | 1次コンバージョン数 | *1次コンバージョン数*は、Brazeキャンペーンから受信したメッセージを操作または閲覧した後に、定義されたイベントが発生した回数です。この定義されたイベントは、キャンペーン構築時に設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalkの指標" }
 
 {% elsif include.channel == "push" %}
 
@@ -615,7 +619,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="プッシュの指標">
     <caption class="sr-only">プッシュのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -679,17 +683,17 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 [プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)を追加すると、**プッシュパフォーマンス**パネルに**Direct Opens**などの指標とともに、**Body Clicks**、**Button 1 Clicks**、**Button 2 Clicks**が表示されます。これらの列は異なるインタラクションを測定するため、エンゲージメントを解釈する際に比較してください。
 
-*Direct Opens*は、メッセージの直接開封としてカウントされるインタラクションのダッシュボード指標を反映します。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)またはSnowflakeの**Push Notification Open**イベントは、プッシュインタラクションをより広範に記述し、`button_action_type`（例：`close`）や`button_string`などのオプションフィールドを含むことがあります。フィールドの定義については、[Push Notification Openイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events)を参照してください。
+_Direct Opens_は、メッセージの直接開封としてカウントされるインタラクションのダッシュボード指標を反映します。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)またはSnowflakeの**Push Notification Open**イベントは、プッシュインタラクションをより広範に記述し、`button_action_type`（例：`close`）や`button_string`などのオプションフィールドを含むことがあります。フィールドの定義については、[Push Notification Openイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events)を参照してください。
 
 **iOS**の場合、Brazeのデフォルト通知カテゴリ（**Yes** / **No**、**Accept** / **Decline**、**Confirm** / **Cancel**など）は固定のペアリングを使用します。最初のアクションは`OPEN_APP`、URI、またはディープリンクをサポートし（コンポーザーの**On-Click Behavior**に対応）、もう一方のアクションはデフォルトで`CLOSE`を使用します。これは通知を閉じ、アプリを開きません。デフォルトのマッピングについては、[Apple push action button object]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons)を参照してください。
 
-そのため、閉じるプリセットボタン（例：**No**や**Decline**）のタップは通常、*Direct Opens*にはカウントされません。これらのタップは、ログに記録された場合、`button_action_type`が`close`に設定され、`button_string`がタップされたアクションを識別する形で**Push Notification Open**エクスポートに表示されることがあります。キャンペーン分析とウェアハウスデータを比較する際は、これらのペイロードフィールドを使用して、閉じるタップを通知本文やプライマリアクションのタップと同じように扱わないようにしてください。
+そのため、閉じるプリセットボタン（例：**No**や**Decline**）のタップは通常、_Direct Opens_にはカウントされません。これらのタップは、ログに記録された場合、`button_action_type`が`close`に設定され、`button_string`がタップされたアクションを識別する形で**Push Notification Open**エクスポートに表示されることがあります。キャンペーン分析とウェアハウスデータを比較する際は、これらのペイロードフィールドを使用して、閉じるタップを通知本文やプライマリアクションのタップと同じように扱わないようにしてください。
 
 **Android**の場合、ボタンごとに**On-Click Behavior**（**Open App**、**Redirect to Web URL**、**Deep Link**）を設定するため、レポートはiOSのデフォルトの`OPEN_APP` / `CLOSE`分割ではなく、設定したアクションに従います。
 
 ##### プッシュ通知の送信数がユニーク受信者数を超える可能性がある理由 {#why-push-sends-can-exceed-unique-recipients}
 
-以下の理由により、*送信数*が*ユニーク受信者数*を上回る場合があります：
+以下の理由により、_送信数_が_ユニーク受信者数_を上回る場合があります：
 
 - **再適格性がオンになっている：** キャンペーンまたはCanvasの設定で再適格性が有効になっている場合、Segmentと配信条件を満たすユーザーは同じプッシュ通知を複数回受け取ることができます。その結果、総送信数が多くなります。
 - **ユーザーが複数のデバイスを持っている：** 再適格性が有効になっていない場合、ユーザーが複数のデバイスをプロファイルに関連付けていることで差異が説明される場合があります。例えば、ユーザーがスマートフォンとタブレットの両方を持っていて、プッシュ通知が登録されたすべてのデバイスに送信される場合です。各配信は送信としてカウントされますが、ユニーク受信者は1人のみ記録されます。
@@ -716,7 +720,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 | アンインストールされたアプリケーション | メッセージがデバイスに配信されようとして、そのデバイスで対象のアプリがアンインストールされている場合、メッセージは破棄され、デバイスの登録IDは無効になります。今後そのデバイスにメッセージを送信しようとすると、NotRegisteredエラーが返されます。 |
 | バックアップされたアプリケーション | アプリケーションがバックアップされると、アプリケーションが復元される前に登録IDが無効になる可能性があります。この場合、FCMはアプリケーションの登録IDを保存しなくなり、アプリケーションはメッセージを受信しなくなります。そのため、アプリケーションのバックアップ時に登録IDを保存すべきでは**ありません**。 |
 | 更新されたアプリケーション | アプリケーションが更新されると、以前のバージョンの登録IDが使えなくなることがあります。そのため、更新されたアプリケーションは既存の登録IDを置き換える必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="バウンスが発生する理由" }
 
 {% endtab %}
 {% endtabs %}
@@ -734,7 +738,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="SMS、MMS、RCSの指標">
     <caption class="sr-only">SMS、MMS、RCSのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -786,7 +790,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="Webhookの指標">
     <caption class="sr-only">Webhookのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -822,7 +826,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="WhatsAppの指標">
     <caption class="sr-only">WhatsAppのパフォーマンス指標</caption>
     <thead>
         <tr>

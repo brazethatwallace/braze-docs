@@ -67,6 +67,10 @@ Brazeを通じてSMSまたはRCSのCampaignを開始するには、**SMS/MMS/RCS
 
 ![サブスクリプショングループのドロップダウンが開いたSMSコンポーザーで、ユーザーが「Messaging Service A for SMS」をハイライトしている様子。]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
+## SMSサブスクリプショングループのベストプラクティス {#sms-subscription-group-best-practices}
+
+メッセージング目的ごと（たとえば、トランザクションとマーケティング）およびワークスペースごとに、別々のSMSサブスクリプショングループを設計してください。複数の国で運用する場合は、現地のコンプライアンスルールをサポートするために地域別にグループを分けることを検討してください。たとえば、ブラジルではプロモーション送信時間帯に制限があります。
+
 ## サブスクリプショングループを有効にする {#enable-subscription-groups}
 
 SMS、MMS、またはRCSのサブスクリプショングループを有効にするには、以下を参照してください。
@@ -198,6 +202,6 @@ SMSのCampaignを作成する際に正しいグループが選択されるよう
 
 SMS規制は国によって異なります。SMSサブスクリプショングループを国別に分けることを推奨します。これにより、メッセージを送信するすべての地域でコンプライアンス基準を満たすことができます。
 
-各サブスクリプショングループでは、**地理的権限**の下で国の許可リストを設定し、SMS、MMS、RCSが承認された地域にのみ送信されるようにすることもできます。詳細については、[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)を参照してください。
+各サブスクリプショングループでは、**Geographic Permissions**の下で国の許可リストを設定し、SMS、MMS、RCSが承認された地域にのみ送信されるようにすることもできます。詳細については、[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)を参照してください。
 
 たとえば、ブラジルでは現地時間の午前9時から午後9時以外のマーケティングメッセージの送信が禁止されており、国内には3つのタイムゾーンがあります。これらの規制に準拠するために、ブラジルと米国へのメッセージ送信用に別々のグループを設定することが考えられます。これにより、ブラジルのユーザーが禁止時間帯にマーケティングメッセージを受信することを防ぎます。

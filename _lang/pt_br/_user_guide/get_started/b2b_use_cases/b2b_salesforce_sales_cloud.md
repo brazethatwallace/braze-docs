@@ -41,7 +41,7 @@ Ao definir as configurações de OAuth necessárias para o app conectado, manten
 
 Como sua plataforma de engajamento com clientes, a Braze pode gerar novos leads com base nos fluxos de usuários, como o preenchimento de um formulário em uma landing page. Quando isso acontece, você pode usar um webhook da Braze para o Salesforce Sales Cloud para criar um lead correspondente no Salesforce.
 
-### Etapa 1: Colete seu `client_id` e `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Etapa 1: Colete seu `client_id` e `client_secret` {#step-1-collect-your-client_id-and-client_secret}
 
 1. No Salesforce, acesse **Platform Tools** > **Apps** > **App Manager**.
 2. Encontre seu Braze App recém-criado e selecione **View**.
@@ -156,7 +156,7 @@ Você pode adicionar rapidamente seus modelos aos seus fluxos de trabalho operac
 
 Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
 
-![Etapa 2 da criação de uma campanha baseada em ação e com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
+![Etapa 2 da criação de uma campanha baseada em ação com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Canvas de pontuação de leads para ultrapassar o limite de Marketing Qualified Lead (MQL) {#lead-scoring}
 

@@ -75,7 +75,7 @@ To customize your message's background properties, border settings, and more, se
 
 #### Step 3.2: Define on-click behavior (optional)
 
-When a user clicks a link in the Banner, you can choose to navigate them deeper into your app or redirect them to another webpage. Additionally, you can choose to [log a custom attribute or event]({{site.baseurl}}/developer_guide/analytics/), which updates your user's profile with custom data when they click the Banner.
+When a user clicks a link in the Banner, you can choose to navigate them deeper into your app or redirect them to another webpage. Additionally, you can choose to [log a custom attribute or event]({{site.baseurl}}/developer_guide/analytics/), which updates your user's profile with custom data when they click the Banner. For more granular click tracking, assign a custom identifier to each interactive element using the **Identifier for Reporting** field in its properties panel.
 
 {% alert important %}
 {::nomarkdown}

@@ -20,10 +20,13 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
 
 <table aria-label="Über den Editor" style="width: 100%; table-layout: fixed;">
     <caption>Inhalt und Zeilen als Editor-Komponenten</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Inhalt</th>
         <th style="width: 50%;">Zeilen</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="Der Tab 'Zeilen' mit verschiedenen strukturellen Kombinationen für Ihr E-Mail-Layout." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="Der Tab 'Inhalt' mit grundlegenden Blöcken, Medien und erweiterten Optionen." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Über den Editor" }
 
@@ -67,6 +71,10 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 ### Zeilen {#rows}
 
 **Zeilen** sind strukturelle Einheiten, die die horizontale Zusammensetzung eines Abschnitts der Nachricht mithilfe von Spalten definieren. Sie können entweder leere Zeilen oder [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) verwenden. Durch die Verwendung von mehr als einer Spalte können Sie verschiedene Inhaltselemente nebeneinander platzieren. So können Sie alle strukturellen Elemente, die Sie benötigen, zu Ihrer Nachricht hinzufügen – unabhängig davon, welches Template Sie zu Beginn ausgewählt haben.
+
+#### Bilder in Textblöcken verschachteln {#nesting-images-inside-text-blocks}
+
+Sie können im Drag-and-Drop-Editor kein Bild innerhalb eines Absatzes oder eines anderen Textblocks verschachteln. Um ein Bild neben oder innerhalb eines Textlayouts zu platzieren, verwenden Sie Spalten in einer **Zeile**: zum Beispiel eine mehrspaltige Zeile auf dem Desktop mit **Hide on mobile** für diese Zeile und eine separate, nur für Mobilgeräte bestimmte Zeile (mit **Hide on desktop** und **Do not stack on mobile** nach Bedarf), damit Bild und Text auf kleinen Bildschirmen sauber ausgerichtet sind.
 
 #### Cards-Stil {#cards-style}
 
@@ -206,8 +214,8 @@ Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wur
 Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was zu schnellerem Laden und Rendering, weniger mobilem Clipping und geringerem Bandbreitenverbrauch führt.
 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
-- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Use Inbox Vision">`-formatierten Codebasis
-  <caption>Use Inbox Vision</caption>
+- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Inbox Vision verwenden">`-formatierten Codebasis
+  <caption>Inbox Vision verwenden</caption>
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
 - Transparente Trennlinien werden automatisch in Inhalts-Padding umgewandelt
@@ -317,7 +325,7 @@ Alles, was außerhalb von `<head>`-Tags hinzugefügt wird, wird nach dem `<body>
 | `meta` | Stellt Metadaten wie Seitenbeschreibung oder Schlüsselwörter bereit. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Bettet interne CSS-Stile ein. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Legt den Titel des Dokuments fest, der in Browser-Tabs angezeigt wird. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zulässige Tags und Attribute nach Tag" }
 
 | Tag | Attribut | Beschreibung | Beispiel |
 | --- | --- | --- | --- |
@@ -335,7 +343,7 @@ Alles, was außerhalb von `<head>`-Tags hinzugefügt wird, wird nach dem `<body>
 | `style` | `type` | MIME-Typ des Stilinhalts. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Gibt das Medium oder Gerät an, für das Stile gelten. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Keine Attribute | Das `title`-Tag akzeptiert keine Attribute. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Zulässige Tags und Attribute nach Tag" }
 
 {% alert note %}
 Link-Namen können bis zu 63 Bytes lang sein und werden automatisch abgeschnitten, wenn sie das Limit überschreiten.

@@ -38,20 +38,15 @@ Ihre Telefonnummer muss diese WhatsApp-API-Anforderungen erfüllen:
 
 ### 2. Schritt: Ihre Telefonnummer konfigurieren {#step-2-configure-your-phone-number}
 
-Folgen Sie den Anweisungen von Twilio, um Ihre Twilio-Telefonnummer so einzurichten, dass Sie den Verifizierungscode per E-Mail erhalten – verwenden Sie dabei **ausschließlich** [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number). **Folgen Sie nicht den Anweisungen in anderen Schritten.**
+Konfigurieren Sie Ihre Twilio-Telefonnummer so, dass Verifizierungscodes per E-Mail empfangen werden. **Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole.**
 
 {% alert warning %}
-Folgen Sie nur den Anweisungen von Twilio, um einen Verifizierungscode zu erhalten.
-Wenn Sie die nächsten Schritte befolgen, verbinden Sie Ihre Telefonnummer mit Twilio, was bedeutet, dass Sie diese Nummer nicht mit Braze verbinden können, es sei denn, Sie führen eine Migration durch oder kaufen eine andere Nummer.
+Verknüpfen Sie Ihre Telefonnummer nicht mit WhatsApp in der Twilio-Konsole. Wenn Sie dies tun, wird die Nummer beim WhatsApp Business Account von Twilio registriert, was Sie daran hindert, sie über den Embedded-Sign-up-Workflow mit Braze zu verbinden.
 {% endalert %}
 
 1. Gehen Sie in der Twilio-Konsole zur Seite [Active Numbers](https://www.twilio.com/console/phone-numbers/incoming) und wählen Sie die gekaufte Telefonnummer aus.
 2. Gehen Sie zum Abschnitt **Voice Configuration** und wählen Sie im Dropdown **Configure with** die Option **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. Wählen Sie in der Zeile **A call comes in** die Option **Webhook** und setzen Sie die URL auf `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, wobei Sie `YOUR_EMAIL_ADDRESS` durch Ihre E-Mail-Adresse ersetzen.
-4. Gehen Sie in der Twilio-Konsole zu **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register** und wählen Sie **Copy** neben der Telefonnummer.
-5. Wählen Sie im Fenster **Self Sign-up** auf der Seite **Add your WhatsApp phone number** die Option **Add a new phone number** und fügen Sie die Telefonnummer ein.
-6. Wählen Sie **Phone call** als Verifizierungsmethode und dann **Next**.
-7. Sie erhalten den Verifizierungscode innerhalb von 10 Minuten per E-Mail.
 
 ### 3. Schritt: Den Embedded-Sign-up-Workflow abschließen {#step-3-complete-the-embedded-sign-up-workflow}
 

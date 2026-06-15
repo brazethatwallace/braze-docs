@@ -276,6 +276,7 @@ iOS에서 Braze 이벤트 키트(임베디드 키트 통합)를 사용할 때 �
 3. **메서드 스위즐링:** mParticle Apple 키트는 메서드 스위즐링을 사용하여 푸시 토큰을 자동으로 전달하고 푸시 알림 이벤트를 처리합니다. 스위즐링을 비활성화했거나 다른 SDK가 간섭하는 경우, 푸시 토큰이 Braze에 도달하지 않을 수 있습니다. mParticle 구성에서 스위즐링이 활성화되어 있는지 확인하세요.
 4. **수동 토큰 처리:** 푸시 토큰을 수동으로 관리하는 경우(예: `application:didRegisterForRemoteNotificationsWithDeviceToken:` 구현), 푸시 알림 토큰 속성에 토큰을 할당하여 mParticle에 전달하고 있는지 확인하세요. 예: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. 그러면 키트가 이를 Braze에 전달합니다.
 5. **환경 불일치:** APNs 자격 증명 환경(개발 vs. 프로덕션)이 앱의 빌드와 일치하는지 확인합니다. 자세한 내용은 [iOS 푸시 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)을 참조하세요.
+6. **키트 초기화 타이밍:** `didFinishLaunchingWithOptions`에서 Braze 인스턴스에 접근하는 경우, 푸시가 도착할 때 mParticle 키트가 아직 준비되지 않았을 수 있습니다. 사용자가 알림을 열 때 Braze 키트가 활성화되도록 [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)(또는 동등한 알림 응답 델리게이트)에서 푸시 처리를 초기화하세요.
 
 ### Braze에 불필요하거나 중복된 데이터 전송 {#sending-unnecessary-or-duplicate-data-to-braze}
 Braze는 값이 변경되지 않더라도 속성이 Braze에 전달될 때마다 데이터 포인트를 계산합니다. 이러한 이유로 Braze는 Braze 내에서 활용하는 데 필요한 데이터만 전달하고 속성의 변경분(델타)만 전달되도록 하는 것을 권장합니다.

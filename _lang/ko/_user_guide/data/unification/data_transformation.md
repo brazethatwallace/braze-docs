@@ -43,7 +43,7 @@ guide_featured_list:
 |----|----|----|
 | 활성 변환 | 회사당 최대 5개 | 회사당 최대 55개 |
 | 월별 | 월 300,000건의 수신 요청 | 월 10,300,000건의 수신 요청 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data Transformation tiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="데이터 변환 계층" }
 
 {% alert important %}
 데이터 변환 프로로 업그레이드를 요청하려면 Braze 계정 매니저에게 문의하거나 Braze 대시보드에서 **Request Upgrade** 버튼을 선택하세요.

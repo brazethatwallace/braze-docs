@@ -112,8 +112,7 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
-  <caption>Gmail mobile app and dark mode</caption>
+Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
 {% endalert %}
 
 Pour plus d'informations sur la syntaxe des dégradés, consultez [Les dégradés CSS sur W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -241,6 +240,10 @@ Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent
 ```
 
 Pour l'éditeur par glisser-déposer, ajoutez uniquement les caractères de non-jointure de largeur nulle (‌`&zwnj;`) sans le formatage `<div>` directement dans l'accroche dans la section **Sending Settings**.
+{% endalert %}
+
+{% alert note %}
+Dans l'application Apple Mail, les liens d'images dans les e-mails HTML doivent utiliser des URL `https://` pour être cliquables. Utilisez des liens sécurisés pour toute image encapsulée dans une balise d'ancrage lorsque vous attendez des clics de la part de destinataires utilisant Apple Mail.
 {% endalert %}
 
 ### Étape 3.3 : Vérifier les erreurs d'e-mail {#step-33-check-for-email-errors}

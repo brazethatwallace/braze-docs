@@ -29,4 +29,7 @@ guide_featured_list:
   - name: Custom domains
     link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/custom_domains
     image: /assets/img/braze_icons/globe-05.svg
+  - name: WhatsApp Template Builder
+    link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/template_builder
+    image: /assets/img/braze_icons/file-01.svg
 ---

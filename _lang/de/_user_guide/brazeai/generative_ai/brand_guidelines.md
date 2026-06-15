@@ -15,7 +15,7 @@ Folgen Sie diesen Schritten, um Markenrichtlinien im KI-Texterstellungsassistent
 
 ### 1. Schritt: Markenrichtlinie erstellen {#step-1-create-a-brand-guideline}
 
-1. Suchen und wählen Sie in Ihrem Nachrichten-Editor <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i>, um [den KI-Texterstellungsassistenten zu öffnen]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access).
+1. Suchen und wählen Sie in Ihrem Nachrichten-Editor <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i> **AI Copywriter**, um [den KI-Texterstellungsassistenten zu öffnen]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/#access).
 2. Wählen Sie **Apply brand guideline** und dann **Create a brand guideline**.
 
 ![Dropdown-Menü für „Apply brand guidelines“ erweitert mit dem Button „Create a brand guideline“ im Fokus.]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}
@@ -30,7 +30,7 @@ Folgen Sie diesen Schritten, um Markenrichtlinien im KI-Texterstellungsassistent
 
 ### 2. Schritt: Beschreiben Sie Ihre Markenpersönlichkeit {#step-2-describe-your-brand-personality}
 
-Überlegen Sie bei der **Markenpersönlichkeit**, was Ihre Marke einzigartig macht. Fügen Sie Merkmale, Werte, Sprachstil und alle Archetypen hinzu, die Ihre Marke definieren. Hier sind einige Merkmale, die Sie beachten sollten:
+Überlegen Sie bei der **Brand personality**, was Ihre Marke einzigartig macht. Fügen Sie Merkmale, Werte, Sprachstil und alle Archetypen hinzu, die Ihre Marke definieren. Hier sind einige Merkmale, die Sie beachten sollten:
 
 | **Merkmal** | **Definition** | **Beispiel** |
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|

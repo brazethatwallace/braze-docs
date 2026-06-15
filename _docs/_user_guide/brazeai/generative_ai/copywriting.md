@@ -15,7 +15,7 @@ description: "This reference article covers the AI copywriting assistant, featur
 
 From your message composer, select <i class="fa-solid fa-wand-magic-sparkles"></i> **Launch AI Copywriter**.
 
-In the drag-and-drop editor for in-app messages, select a text block and select <i class="fa-solid fa-wand-magic-sparkles" title="AI Copywriter"></i> in the block's toolbar.
+In the drag-and-drop editor for in-app messages, select a text block and select <i class="fa-solid fa-wand-magic-sparkles" title="AI Copywriter"></i> **AI Copywriter** in the block's toolbar.
 
 ### Step 2: Enter the details
 
