@@ -132,16 +132,11 @@ At the bottom of each response, use the thumbs up or thumbs down buttons to prov
 
 ## Data privacy and security
 
-### Model providers as sub-processors or third-party providers
-
-When you use an integration with an LLM provider provided by Braze through the Braze Services ("Braze-provided LLM"), the providers of such Braze-provided LLM act as Braze Sub-processors, subject to the terms of the Data Processing Addendum (DPA) between you and Braze. BrazeAI Operator<sup>TM</sup> integrates with OpenAI.
-
-### How data is used with OpenAI
-
-To generate AI output through BrazeAI features that leverage OpenAI ("Output"), Braze will send certain information ("Input") to OpenAI. Input consists of your prompts, the content displayed in the dashboard, and workspace data relevant to your queries. Per [OpenAI's API platform commitments](https://openai.com/enterprise-privacy/), data sent to OpenAI's API via Braze is not used to train or improve OpenAI models. Between you and Braze, Output is your intellectual property. Braze will not assert any claims of copyright ownership on such Output. Braze makes no warranty of any kind with respect to any AI-generated content, including Output.
+BrazeAI Operator<sup>TM</sup> integrates with OpenAI, which acts as a Braze sub-processor subject to the Data Processing Addendum (DPA) between you and Braze. Data sent to OpenAI via Braze is not used to train or improve OpenAI models. For details on HIPAA compliance, data retention, PII handling, and governance, see [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
 
 ## Next steps
 
 - [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Learn how to review and approve Operator's proposed changes
 - [File support tickets]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): File support tickets directly from Operator
 - [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Reference common issues and solutions
+- [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/): Review HIPAA compliance, data retention, and PII-minimization guidance
