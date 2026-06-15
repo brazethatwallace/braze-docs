@@ -20,11 +20,11 @@ OpenAI does not have direct access to Braze data stores or the full User Table. 
 
 Each request payload sent to OpenAI may include the following:
 
-- **System metadata** — Braze-authored system prompts and tool schemas (definitions of tools the LLM can invoke).
-- **Dashboard user message** — The typed input from the dashboard user.
-- **Tool outputs** — Search results containing names, IDs, and related data.
-- **Scraped page content** — Content from the active dashboard page, truncated to approximately 4,000 characters.
-- **Page context strings** — Contextual strings from the active dashboard page.
+- **System metadata:** Braze-authored system prompts and tool schemas (definitions of tools the LLM can invoke).
+- **Dashboard user message:** The typed input from the dashboard user.
+- **Tool outputs:** Search results containing names, IDs, and related data.
+- **Scraped page content:** Content from the active dashboard page, truncated to approximately 4,000 characters.
+- **Page context strings:** Contextual strings from the active dashboard page.
 
 ## Data sub-processors
 
@@ -44,7 +44,7 @@ If you use Braze's US-02 cluster, Operator is covered by Braze's Business Associ
 
 ### PII redaction
 
-There is no automated PII redaction layer in the Operator request pipeline. Data is sent completely raw and is not anonymized before transmission to OpenAI. Access is indirect and scoped to the active dashboard page or the dashboard user's input, but the content itself is unscrubbed.
+There is no automated PII redaction layer in the Operator request pipeline. Data is sent completely raw and is not anonymized before transmission to OpenAI. Access is scoped to the active dashboard page or the dashboard user's input, but no content filtering is applied before transmission.
 
 ### OpenAI data retention
 
