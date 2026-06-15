@@ -45,6 +45,8 @@ npm install @braze/react-native-sdk
 
 ## Quick start
 
+This section shows the minimum setup required to initialize the Braze React Native SDK.
+
 1. Install the npm package (above).
 2. Complete **native setup** for Android and iOS (configuration, permissions, push if needed).
 3. Initialize the SDK from JavaScript and start using it:
@@ -156,7 +158,7 @@ Commonly used entries:
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | FCM sender ID when automatic registration is enabled. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Let Braze open push deep links automatically. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | Minimum seconds between in-app message trigger actions. |
-| **Other** | *various* | Additional keys not show here (session timeout, geofences, location, notification defaults, device allowlists, delayed initialization, SDK Authentication, etc…). See [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) and the [Android SDK integration guide](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |
+| **Other** | *various* | Additional keys not shown here (session timeout, geofences, location, notification defaults, device allowlists, delayed initialization, SDK Authentication, and more). See [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) and the [Android SDK integration guide](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android (braze.xml)" }
 
 ### iOS (`Braze.Configuration`)
@@ -205,7 +207,7 @@ Optional **SDK Authentication**: pass a signature as the second argument to `cha
 
 ### In-app messages
 
-- With the **default Braze UI**, follow the [in-app message documentation](https://github.com/braze-inc/braze-react-native-sdk/blob/master/docs/developer_guide/in_app_messages?sdktab=react%20native); you typically do **not** need to call `subscribeToInAppMessage` only to show default UI.
+- With the **default Braze UI**, follow the [in-app message documentation](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native); you typically do **not** need to call `subscribeToInAppMessage` only to show default UI.
 - For **custom** handling, subscribe with `useBrazeUI: false`, then log impressions/clicks as needed:
 
 ``` typescript
@@ -351,8 +353,10 @@ useEffect(() => {
 ## Version support
 
 {% alert note %}
-This SDK has been tested with React Native version **0.83.0**.
+This SDK has been tested with React Native version **0.85.3**.
 {% endalert %}
+The following table lists supported React Native versions by Braze plugin release.
+
 | Braze plugin | React Native | New Architecture |
 |--------------|--------------|------------------|
 | 9.0.0+       | ≥ 0.71       | Yes              |
@@ -421,7 +425,7 @@ For deeper troubleshooting (network, session, or campaign behavior), see the [Br
 
 ## Contact
 
-If you have questions, please contact [support@braze.com](mailto:support@braze.com).
+For questions, contact [support@braze.com](mailto:support@braze.com).
 <!-- END GENERATED README CONTENT -->
 
 For repository details and sample projects, see [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk).
