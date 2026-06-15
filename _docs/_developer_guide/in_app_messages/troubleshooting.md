@@ -12,7 +12,7 @@ channel:
 
 > Use this page to diagnose why in-app messages aren't delivered or displayed on a device. For dashboard setup (priority, triggers, segments, and re-eligibility), see the [In-App Message FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
 
-Before you debug, add yourself as a [test user]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users) and review [Sending test messages]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/).
+Before you debug, add yourself as a [test user]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#adding-test-users) and review [Sending test messages]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/).
 
 ## Start here: Match your symptom
 
@@ -33,7 +33,7 @@ Before you debug, add yourself as a [test user]({{site.baseurl}}/user_guide/admi
 Use this workflow for every incident. Start at step 1.
 
 1. Confirm a **session start** is logged for the test device. In-app messages are requested on session start.
-2. Open [event user logs]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) and find the SDK request for that session start. In **Response Data**:
+2. Open [event user logs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) and find the SDK request for that session start. In **Response Data**:
    - In the raw JSON, confirm `respond_with` includes `"triggers": true`.
    - The **Requested Responses** row should include **`triggers`**.
    - **Trigger In-App Message** rows list each in-app message returned for that request.
@@ -130,10 +130,10 @@ The SDK requests in-app messages from Braze servers on session start. Confirm th
 
 #### Check if messages are requested and returned
 
-1. Add yourself as a [test user]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users).
+1. Add yourself as a [test user]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#adding-test-users).
 2. Set up an in-app message campaign targeted at your user.
 3. Start a new session in your application.
-4. In [event user logs]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab), find the SDK request for the session start event. In **Response Data**:
+4. In [event user logs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/), find the SDK request for the session start event. In **Response Data**:
    - In the raw JSON, confirm `respond_with` includes `"triggers": true`.
    - The **Requested Responses** row lists top-level keys in the response. For in-app messages, expect **`triggers`**.
    - **Trigger In-App Message** rows list each in-app message returned for that request.
