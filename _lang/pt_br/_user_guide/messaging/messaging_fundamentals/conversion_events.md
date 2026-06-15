@@ -29,6 +29,8 @@ O rastreamento de conversão começa quando um usuário recebe a Campaign ou ent
 
 O rastreamento de conversão começa quando um usuário entra no Canvas. Para etapas do Canvas, as conversões são atribuídas enquanto o usuário está ativo naquela etapa. Quando o usuário avança para outra etapa, o rastreamento de conversão para a etapa anterior é interrompido e começa para a próxima etapa.
 
+Enquanto um usuário está em uma etapa de **Postergação** ou outra etapa sem mensagem, as conversões que ocorrem durante essa espera ainda são atribuídas à etapa de mensagem anterior até que o usuário avance. Após o usuário receber a última etapa de mensagem em sua jornada, as conversões ainda podem ser registradas até o prazo de conversão do Canvas (contado a partir da entrada no Canvas), mesmo que não haja mais etapas de mensagem.
+
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +46,7 @@ Observe o seguinte sobre como a Braze lida com múltiplas conversões:
 
 - **Campaigns de canal único**: As conversões ocorrem por usuário, não por dispositivo. Dentro de um único canal, um usuário converte apenas uma vez por evento de conversão, mesmo que uma mensagem seja enviada para vários dispositivos. Por exemplo, se uma Campaign tem apenas um evento de conversão definido como "Realiza qualquer compra" e um usuário faz duas compras separadas dentro do prazo de conversão, a Braze conta apenas uma conversão.
 - **Campaigns multicanal**: Para Campaigns multicanal, cada canal tem sua própria oportunidade de conversão. Um usuário pode converter uma vez por canal após receber uma mensagem naquele canal. Isso significa que, se um usuário receber mensagens em vários canais (por exemplo, e-mail e push) e realizar a ação de conversão, a Braze conta uma conversão para cada canal, o que pode resultar em taxas de conversão superiores a 100%.
-- **Etapas de mensagem do Canvas**: A Braze atribui conversões que ocorrem dentro do prazo de conversão à última etapa de mensagem do Canvas que o usuário recebeu. Após receber a próxima etapa de mensagem, a atribuição passa para essa etapa. A Braze mede esse período a partir de quando o usuário entra no Canvas, não a partir de cada mensagem individualmente. A Braze ainda conta conversões durante períodos de postergação entre etapas.
+- **Etapas de mensagem do Canvas**: A Braze atribui conversões que ocorrem dentro do prazo de conversão à última etapa de mensagem do Canvas que o usuário recebeu. Após receber a próxima etapa de mensagem, a atribuição passa para essa etapa. A Braze mede esse período a partir de quando o usuário entra no Canvas, não a partir de cada mensagem individualmente. Conversões que acontecem durante postergações entre etapas de mensagem contam para a atribuição da etapa de mensagem anterior até que o usuário avance; conversões após a última etapa de mensagem ainda contam até o prazo de conversão do Canvas.
 - Se um usuário realizar um evento de conversão dentro dos prazos de conversão de duas Campaigns ou Canvas separados que recebeu, a conversão é registrada em ambos.
 - Um usuário é contado como convertido se realizou o evento de conversão específico dentro do período, mesmo que não tenha aberto ou clicado na mensagem.
 
@@ -83,7 +85,7 @@ Primeiro, selecione o tipo geral de evento que você deseja usar:
 | **Faz upgrade do app** | Um usuário é contado como convertido quando faz upgrade da versão do app em qualquer um dos apps que você especificar (o padrão é todos os apps no espaço de trabalho). A Braze realiza uma comparação numérica de melhor esforço para determinar se a alteração foi um upgrade. Versões não numéricas são contadas como conversões se a versão mudar. |
 | **Abre e-mail** | Um usuário é contado como convertido quando abre o e-mail (apenas para Campaigns de e-mail). |
 | **Clica no e-mail** | Um usuário é contado como convertido quando clica em um link dentro do e-mail (apenas para Campaigns de e-mail). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Add the conversion events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Adicione os eventos de conversão" }
 
 {% alert important %}
 **Propriedades aninhadas não são suportadas em eventos de conversão**. Você não pode usar propriedades aninhadas em eventos de conversão. Por exemplo, se `product_code` ou `product_name` são propriedades aninhadas dentro de um array `products` (como `products[].product_code`), você não pode usá-las para verificar se uma compra de produto específico foi realizada em um evento de conversão.

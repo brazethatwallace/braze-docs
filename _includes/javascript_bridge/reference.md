@@ -50,10 +50,6 @@ The following JavaScript methods are supported within custom HTML for in-app mes
 }
 </style>
 
-{% alert note %}
-You cannot reference Liquid to insert <code>customAttributes</code> into JavaScript Bridge methods.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### Button click tracking

@@ -155,6 +155,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
 
 <table aria-label="각 접근 방식에 대한 개요">
   <caption>각 접근 방식에 대한 개요</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">별도의 워크스페이스</th>
@@ -167,6 +168,8 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <th scope="col">장점</th>
         <th scope="col">단점</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">타겟팅</th>
         <td>커뮤니케이션을 분리하는 가장 안전한 방법입니다. Campaign은 특정 고객 프로필만 타겟팅하도록 보장됩니다.</td>
@@ -216,6 +219,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <td>N/A</td>
         <td>홈 페이지의 워크스페이스에 있는 모든 앱 인스턴스에 대한 글로벌 통계가 집계됩니다.</td>
     </tr>
+    </tbody>
 </table>
 
 ## 모범 사례 {#best-practices}

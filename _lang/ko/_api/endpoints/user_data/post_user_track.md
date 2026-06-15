@@ -233,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -358,6 +357,18 @@ Braze는 이메일 주소로 고객 프로필 업데이트 요청 예시에 나�
 ### `/users/track`에서는 잘못된 중첩 커스텀 속성을 어떻게 처리하나요? {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
 중첩 커스텀 속성에 유효하지 않은 값(예: 잘못된 시간 형식 또는 null 값)이 포함된 경우 Braze는 요청의 모든 중첩 커스텀 속성 업데이트를 처리에서 삭제합니다. 이는 해당 특정 속성 내의 모든 중첩 구조에 적용됩니다. 성공적인 처리를 위해 전송하기 전에 중첩 커스텀 속성 내의 모든 값이 유효한지 확인하세요.
+
+### `/users/track` 응답이 예상보다 느린 이유는 무엇인가요? {#why-is-my-userstrack-response-slower-than-i-expect}
+
+성공적인 `/users/track` 호출은 일반적으로 빠르게 수락되지만, Braze는 속성, 이벤트 및 구매 업데이트를 비동기적으로 처리합니다. 페이로드가 크거나 [REST 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)로의 네트워크 라우팅이 느린 경우 체감 지연 시간이 증가할 수 있습니다. 사용자별 동기 확인 또는 호출 간 더 엄격한 순서가 필요한 경우 [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)(**제한된 베타**)를 참조하세요.
+
+### 사용량 제한은 `/users/track`에 어떤 영향을 미치나요? {#how-do-rate-limits-affect-userstrack}
+
+[사용량 제한](#rate-limit)에 근접하면 `429` 응답을 받게 됩니다. `429`가 아닌 응답의 경우 지원되는 계약에서 [월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU에 대한 사용량 제한 헤더](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)에 설명된 `X-RateLimit-*` 응답 헤더를 사용하여 현재 기간의 남은 양을 확인할 수 있습니다.
+
+### `400 Bad Request`와 함께 구문 또는 구문 분석 오류가 발생하는 이유는 무엇인가요? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
+
+구문 또는 구문 분석 오류가 포함된 HTTP `400`은 일반적으로 요청 본문이 유효한 JSON이 아님을 의미합니다. 일반적인 원인으로는 후행 쉼표, JSON 내부의 주석, 작은따옴표로 묶인 문자열, 페이로드 앞의 추가 여는 `{`, 또는 `Content-Type` 헤더가 `application/json`인 상태에서 JSON이 아닌 본문을 전송하는 경우가 있습니다. 전송하기 전에 JSON 린터로 페이로드를 검증하고, HTTP 클라이언트가 오브젝트를 JSON으로 인코딩하는지(원시 문자열을 연결하는 것이 아닌지) 확인하고, 본문이 UTF-8로 인코딩되어 있는지 확인하세요. 기타 `400` 응답(예: 페이로드 크기 및 요청당 오브젝트 제한)에 대해서는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors) 및 이 페이지의 [엔드포인트별 오류](#endpoint-specific-errors) 표를 참조하세요.
 
 ## 월간 활성 사용자 CY 24-25, 유니버설 MAU, 웹 MAU 및 모바일 MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

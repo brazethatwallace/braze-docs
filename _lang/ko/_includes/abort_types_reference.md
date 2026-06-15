@@ -29,6 +29,25 @@
 
 ### 콘텐츠 및 렌더링 {#content-and-rendering}
 
+{% if include.combined_content_rendering %}
+
+| `abort_type` 값 | 설명 |
+| --- | --- |
+| `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)가 지원되지 않아 메시지가 중단되었습니다. |
+| `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
+| `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
+| `blacklisted_media_url` | 미디어 URL이 차단 목록에 있어 메시지에 사용할 수 없습니다. |
+| `blocked_media_url` | 보안 정책에 의해 미디어 URL이 차단되었습니다. |
+| `invalid_media_url` | 미디어 URL이 유효하지 않거나 확인할 수 없습니다. |
+| `ssl_error` | 요청 중 SSL 오류가 발생했습니다. |
+| `invalid_http_status` | HTTP 요청이 실패 상태 코드를 반환했습니다. |
+| `http_timeout` | 응답을 받기 전에 HTTP 요청이 시간 초과되었습니다. |
+| `missing_hostname` | 요청 URL에 호스트 이름이 없습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+
+{% else %}
+
 | `abort_type` 값 | 설명 |
 | --- | --- |
 | `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
@@ -36,14 +55,43 @@
 | `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
 | `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
-{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | 미디어 URL이 차단 목록에 있어 메시지에 사용할 수 없습니다. |
+
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type` 값 | 설명 |
+| --- | --- |
+| `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)가 지원되지 않아 메시지가 중단되었습니다. |
+| `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
+| `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
+| `blacklisted_media_url` | 미디어 URL이 차단 목록에 있어 메시지에 사용할 수 없습니다. |
 | `blocked_media_url` | 보안 정책에 의해 미디어 URL이 차단되었습니다. |
-| `invalid_media_url` | 미디어 URL이 유효하지 않거나 확인할 수 없습니다. |{% endif %}
-{% if ch == "all" or ch == "email" or ch == "webhook" %}| `ssl_error` | 요청 중 SSL 오류가 발생했습니다. |
+| `invalid_media_url` | 미디어 URL이 유효하지 않거나 확인할 수 없습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering media URLs" }
+
+{% endunless %}
+{% endif %}
+
+{% if ch == "all" or ch == "email" or ch == "webhook" %}
+{% unless include.combined_content_rendering %}
+
+| `abort_type` 값 | 설명 |
+| --- | --- |
+| `exhausted_cc_retries` | 최대 재시도 횟수를 초과한 후에도 연결된 콘텐츠가 실패하여 메시지가 중단되었습니다. |
+| `connected_content_not_supported` | 이 컨텍스트에서는 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)가 지원되지 않아 메시지가 중단되었습니다. |
+| `promo_codes_not_supported` | 이 컨텍스트에서는 프로모션 코드가 지원되지 않아 메시지가 중단되었습니다. |
+| `catalog_items_rerender_not_supported` | 이 컨텍스트에서는 카탈로그 항목 재렌더링이 지원되지 않아 메시지가 중단되었습니다. |
+| `ssl_error` | 요청 중 SSL 오류가 발생했습니다. |
 | `invalid_http_status` | HTTP 요청이 실패 상태 코드를 반환했습니다. |
 | `http_timeout` | 응답을 받기 전에 HTTP 요청이 시간 초과되었습니다. |
-| `missing_hostname` | 요청 URL에 호스트 이름이 없습니다. |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| `missing_hostname` | 요청 URL에 호스트 이름이 없습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering HTTP and SSL" }
+
+{% endunless %}
+{% endif %}
 
 {% endunless %}
 
@@ -83,7 +131,7 @@
 | `sms_no_sending_numbers` | 이 구독 그룹에 사용 가능한 발신 전화번호가 없습니다. |
 | `sms_fatal_provider_error` | SMS 공급자에서 심각한 오류가 발생하여 메시지를 전달할 수 없습니다. |
 | `sms_gateway_domain_not_allowed` | SMS 게이트웨이 도메인이 허용 목록에 없습니다. |
-| `blocked_recipient_country` | 수신자의 전화번호가 [지역 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/)에 의해 차단된 국가에 있습니다. |
+| `blocked_recipient_country` | 수신자의 전화번호가 [지역 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)에 의해 차단된 국가에 있습니다. |
 | `mms_not_supported` | 이 수신자 또는 발신 번호에 대해 MMS가 지원되지 않습니다. |
 | `no_current_messaging_service` | 이 구독 그룹에 활성 메시징 서비스가 구성되어 있지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }

@@ -12,8 +12,6 @@ description: "Cet article de référence explique comment configurer un connecte
 
 > Découvrez comment intégrer un connecteur Currents personnalisé afin de recevoir les données d'événements de Braze en temps réel, pour des analyses, des rapports et une automatisation plus personnalisés.
 
-{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour intégrer un connecteur Currents personnalisé dans Braze, vous devrez fournir une URL d'endpoint et un [jeton d'authentification facultatif](#authentication).

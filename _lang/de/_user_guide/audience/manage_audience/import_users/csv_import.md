@@ -18,7 +18,7 @@ Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angep
 | Standardattribute | Reservierte Nutzerattribute, die von Braze erkannt werden. | `first_name`, `email` | 500 MB |
 | Angepasste Attribute | Nutzerattribute, die für Ihr Unternehmen spezifisch sind. | `last_destination_searched` | 500 MB |
 | Angepasste Events | Events, die für Ihr Unternehmen spezifisch sind und Nutzeraktionen darstellen. | `trip_booked` | 50 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="About CSV import" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Über den CSV-Import" }
 
 ## CSV-Import verwenden {#using-csv-import}
 
@@ -60,7 +60,7 @@ Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur einen Alias haben, 
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 2: Choose an identifier #choose-an-identifier" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Schritt 2: Bezeichner auswählen" }
 
 Wenn Sie sowohl einen `user_alias_name` als auch ein `user_alias_label` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Wenn keine Übereinstimmung gefunden wird, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
@@ -136,7 +136,7 @@ Die folgenden Datentypen können als angepasste Attribute für den CSV-Import ve
 | Zahl | Muss eine Ganzzahl oder Gleitkommazahl ohne Leerzeichen oder Kommas sein. Gleitkommazahlen müssen einen Punkt (`.`) als Dezimaltrennzeichen verwenden. |
 | String | Kann Kommas enthalten, wenn der Wert in doppelte Anführungszeichen (`""`) eingeschlossen ist. |
 | Leer | Leere Werte überschreiben keine bestehenden Werte im Nutzerprofil, und Sie müssen nicht alle bestehenden Nutzerattribute in Ihrer CSV-Datei angeben. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
 
 {% alert important %}
 Arrays, Push-Token und angepasste Event-Datentypen werden beim Nutzerimport nicht unterstützt, da Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert werden und beim Parsen Ihrer Datei Fehler verursachen.<br><br>Um diese Art von Werten hochzuladen, verwenden Sie stattdessen den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
@@ -176,7 +176,7 @@ Die folgenden Standardattribute stehen für den Nutzerimport zur Verfügung.
 | `date_of_first_session`  `date_of_last_session` | String | Kann in einem der folgenden ISO-8601-Formate übergeben werden: „YYYY-MM-DD“ „YYYY-MM-DDTHH:MM:SS+00:00“ „YYYY-MM-DDTHH:MM:SSZ“ „YYYY-MM-DDTHH:MM:SS“ (z. B. 2019-11-20T18:38:57) | Nein |
 | `subscription_group_id` | String | Die `id` Ihrer Abo-Gruppe. Dieser Bezeichner ist auf der Abo-Gruppenseite Ihres Dashboards zu finden. | Nein |
 | `subscription_state` | String | Der Abo-Status für die durch `subscription_group_id` angegebene Abo-Gruppe. Zulässige Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe). | Nein, aber dringend empfohlen, wenn `subscription_group_id` verwendet wird |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Default attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Standardattribute" }
 
 #### Abo-Gruppenstatus aktualisieren (optional) {#updating-subscription-group-status-optional}
 
@@ -191,7 +191,7 @@ Wenn Sie Abo-Gruppenstatus aktualisieren, müssen die folgenden zwei Spalten in 
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Updating subscription group status (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abo-Gruppenstatus aktualisieren (optional)" }
 
 {% alert note %}
 Pro Zeile im Nutzerimport kann nur eine einzige `subscription_group_id` festgelegt werden. Verschiedene Zeilen können unterschiedliche `subscription_group_id`-Werte haben. Wenn Sie jedoch dieselben Nutzer:innen in mehrere Abo-Gruppen eintragen müssen, sind mehrere Importe erforderlich.
@@ -227,7 +227,7 @@ Zum Beispiel könnte das angepasste Event `trip_booked` die Eigenschaften `desti
 | `name` | String | Ein angepasstes Event Ihrer Nutzer:innen. | Ja |
 | `time` | String | Der Zeitpunkt des Events. Kann in einem der folgenden ISO-8601-Formate übergeben werden: „YYYY-MM-DD“ „YYYY-MM-DDTHH:MM:SS+00:00“ „YYYY-MM-DDTHH:MM:SSZ“ „YYYY-MM-DDTHH:MM:SS“ (z. B. 2019-11-20T18:38:57) | Ja |
 | `<event name>.properties.<property name>` | Mehrere | Eine Event-Eigenschaft, die mit einem angepassten Event verknüpft ist. Ein Beispiel ist `trip_booked.properties.destination` | Nein |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Felder für angepasste Events" }
 
 #### Formatierungsanforderungen für angepasste Events {#format-requirements-for-custom-events}
 
@@ -274,7 +274,7 @@ Die folgende Tabelle zeigt die korrekte Formatierung für den Import angepasster
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | 123 | rented_movie | 2024-06-10T12:00:00Z | Ghostbusters | Action | | |
 | 456 | bought_movie | 2024-06-12T12:00:00Z | | | Ghostbusters | Action |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Example CSV structure" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Beispiel-CSV-Struktur" }
 
 In diesem Beispiel:
 
@@ -318,7 +318,7 @@ Die Spalte „Zuordnungsstatus“ zeigt die Aktion an, die beim Import Ihrer CSV
 | **Datentyp-Konflikt** | Der erkannte Datentyp der CSV-Spalte stimmt nicht mit dem Datentyp des bestehenden Attributs oder Bezeichners überein. Braze versucht, den Datentyp beim Import zu konvertieren, um ihn an das bestehende Attribut anzupassen. Der Wert wird verworfen, wenn dies nicht möglich ist. |
 | **Blocklist-Attribut** | Das CSV-Feld stimmt mit dem Namen eines blockierten Attributs überein. Wählen Sie ein anderes Attribut für die Zuordnung aus, oder die Spalte wird nicht importiert. |
 | **Doppeltes Attribut** | Es gibt ein oder mehrere Felder mit demselben Namen in Ihrer CSV-Datei. Ordnen Sie die gleichnamigen Spalten verschiedenen Attributen zu, oder es wird nur die erste Spalte importiert. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapping statuses" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zuordnungsstatus" }
 
 
 #### Neue Attribute bearbeiten {#editing-new-attributes}
@@ -340,7 +340,7 @@ Nach der Zuordnung können Sie auf der Seite „Import-Einstellungen“ aus den 
 |---|---|
 | Targeting-Filter | Um Ihre CSV-Datei in eine Retargeting-Option beim Erstellen von Nutzersegmenten umzuwandeln, wählen Sie Ihre Datei aus dem Dropdown **Updated/Imported from CSV** und dann **Create targeting filter**. |
 | Neue Segmente | Um zusätzlich ein neues Segment aus Ihrem neuen Targeting-Filter zu erstellen, wählen Sie **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Choose targeting preferences #targeting-preferences" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 6: Targeting-Einstellungen wählen" }
 
 ![Eine Filtergruppe mit dem Filter „Updated/Imported from CSV“, der eine CSV-Datei mit dem Titel „Halloween season fun“ enthält.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -360,7 +360,7 @@ Wenn die Validierung abgeschlossen ist, wird eines der folgenden Ergebnisse ange
 | **Probleme gefunden** | Einige Zeilen haben Fehler oder Warnungen. | Laden Sie den Fehlerbericht herunter, um die Probleme zu prüfen, und wählen Sie dann **Import anyway**, um fortzufahren, oder **Cancel**, um Ihre Datei zuerst zu korrigieren. |
 | **Validierung abgelaufen** | Die Validierung hat das Zeitlimit überschritten. Die geprüften Zeilen hatten keine Probleme. | Wählen Sie **Import data**. Ein vollständiger Bericht ist in wenigen Minuten verfügbar. |
 | **Validierung abgelaufen mit Problemen** | Die Validierung hat das Zeitlimit überschritten und Fehler in einigen der geprüften Zeilen gefunden. | Laden Sie den Teilbericht herunter, um die gefundenen Probleme zu prüfen, und wählen Sie dann **Import anyway** oder **Cancel**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation results" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validierungsergebnisse" }
 
 ![Die Zusammenfassungsseite mit dem Abschnitt „Probleme gefunden“, der die Anzahl der Zeilen mit Fehlern und Warnungen anzeigt, sowie Optionen zum Zurückgehen, Herunterladen des Fehlerberichts oder Starten des Imports.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
@@ -372,7 +372,7 @@ Der Fehlerbericht ist eine CSV-Datei, die jede markierte Zeile zusammen mit ihre
 |---|---|
 | **Fehler** | Die Zeile wird beim Import vollständig übersprungen. |
 | **Warnung** | Die Zeile wird importiert, aber einige Werte werden verworfen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding the error report" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Den Fehlerbericht verstehen" }
 
 Nach der Überprüfung des Berichts können Sie die Probleme in Ihrer Originaldatei korrigieren und erneut hochladen oder mit dem Import fortfahren und die Teilergebnisse akzeptieren.
 
@@ -396,7 +396,7 @@ Nach dem Start Ihres Imports können Sie den Status auf der Seite **Import Users
 | **Abgeschlossen** | Alle Zeilen wurden erfolgreich importiert. |
 | **Teilerfolg** | Einige Zeilen sind fehlgeschlagen. Wählen Sie das Drei-Punkte-Menü neben dem Import, um einen Fehlerbericht oder die ursprünglich hochgeladene CSV-Datei herunterzuladen. |
 | **In Bearbeitung** | Der Import läuft derzeit. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Import statuses" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Importstatus" }
 
 ![Die Seite „Import Users“ mit dem Status „Teilerfolg“ und geöffnetem Kontextmenü, das die Optionen „Fehlerbericht herunterladen“ und „Hochgeladene CSV herunterladen“ anzeigt.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
@@ -415,7 +415,7 @@ Jedes importierte Kundendatum aus einer CSV-Datei überschreibt den bestehenden 
 | Externe IDs | Das Hochladen einer CSV-Datei, die nur `external_id` enthält, protokolliert keine Datenpunkte. Dies ermöglicht es Ihnen, bestehende Braze-Nutzer:innen zu segmentieren, ohne Datenlimits zu beeinflussen. Das Hinzufügen von Feldern wie `email` oder `phone` überschreibt jedoch bestehende Nutzerdaten und protokolliert **Datenpunkte**. <br><br>CSV-Importe, die nur zur Segmentierung verwendet werden, protokollieren keine Datenpunkte, z. B. solche, die nur `external_id`, `braze_id` oder `user_alias_name` enthalten. |
 | Leere Werte | Leere Werte in Ihrer CSV-Datei überschreiben keine bestehenden Nutzerprofildaten. Sie müssen nicht alle Nutzerattribute oder angepassten Events beim Import angeben. |
 | Abo-Status | Das Aktualisieren von `email_subscribe`, `push_subscribe`, `subscription_group_id` oder `subscription_state` wird **nicht** auf die Datenpunkt-Nutzung angerechnet. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Data point considerations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Überlegungen zu Datenpunkten" }
 
 {% alert important %}
 Das Setzen von `language` oder `country` für eine:n Nutzer:in über CSV-Import oder API verhindert, dass Braze diese Informationen automatisch über das SDK erfasst.
@@ -426,6 +426,14 @@ Das Setzen von `language` oder `country` für eine:n Nutzer:in über CSV-Import 
 Wenn Sie die [Dateivalidierung](#file-validation) verwendet haben, beginnen Sie mit dem Fehlerbericht, da dieser das spezifische Problem für jede markierte Zeile und eine Beschreibung zur Behebung enthält. Für Zeilen, die während des Imports und nicht während der Validierung fehlgeschlagen sind, laden Sie den Fehlerbericht herunter, indem Sie auf der Seite **Import Users** mit der Maus über die Zeile fahren und den <i class="fas fa-download" aria-label="Herunterladen"></i>-Button auswählen.
 
 Zur Fehlerbehebung beim CSV-Import lesen Sie die folgenden häufigen Probleme.
+
+### E-Mail als `external_id` verwenden {#use-email-as-external_id}
+
+Braze empfiehlt nicht, eine E-Mail-Adresse als `external_id` zu verwenden. Wenn Sie E-Mail als `external_id` verwenden, fügen Sie sowohl die Spalte `external_id` als auch die Spalte `email` in Ihre CSV-Datei ein, damit Nutzer:innen weiterhin über den E-Mail-Kanal ansprechbar bleiben. Verwenden Sie ein Komma (`,`) als Spaltentrennzeichen – keinen Doppelpunkt (`:`).
+
+### Anführungszeichen in `external_id`-Werten {#quote-characters-in-external_id-values}
+
+Wenn eine `external_id`-Zelle ein doppeltes Anführungszeichen enthält, escapen Sie es durch Verdopplung des Zeichens (`""`), wie unter [Nicht-escapte oder unausgeglichene doppelte Anführungszeichen](#missing-row) beschrieben. Der CSV-Import verwendet kein Backslash-Escaping.
 
 ### CSV-Import ist nicht als Segment-Filter verfügbar {#csv-import-isnt-available-as-a-segment-filter}
 
@@ -448,7 +456,9 @@ Wenn Ihr Ziel darin besteht, ein Segment zu erstellen, ohne Profildaten zu aktua
 
 Wenn Ihr Upload mit Fehlern abgeschlossen wurde, kann es eine fehlerhafte Zeile in Ihrer CSV-Datei geben.
 
-Für einen korrekten Datenimport muss eine Kopfzeile vorhanden sein. Jede Zeile muss die gleiche Anzahl an Zellen wie die Kopfzeile haben. Zeilen mit mehr oder weniger Werten als die Kopfzeile werden vom Import ausgeschlossen. Kommas in einem Wert werden als Trennzeichen interpretiert und können zu diesem Fehler führen. Außerdem müssen alle Daten UTF-8-kodiert sein.
+Für einen korrekten Datenimport muss eine Kopfzeile vorhanden sein. Jede Zeile muss die gleiche Anzahl an Zellen wie die Kopfzeile haben. Zeilen mit mehr oder weniger Werten als die Kopfzeile werden vom Import ausgeschlossen. Kommas in einem Wert werden als Trennzeichen interpretiert und können zu diesem Fehler führen.
+
+Außerdem müssen alle Daten UTF-8-kodiert sein. Wenn die Datei mit einer veralteten Kodierung gespeichert wurde (z. B. einige Excel-Standardeinstellungen), können Sonderzeichen und URLs in Zellen beschädigt werden und als Fragezeichen (`?`) in Braze oder in gesendeten Nachrichten erscheinen.
 
 Wenn Ihre CSV-Datei leere Zeilen enthält und weniger Zeilen importiert als die Gesamtzahl der Zeilen in der CSV-Datei, muss dies nicht unbedingt auf ein Problem mit dem Import hinweisen, da die leeren Zeilen nicht importiert werden müssen. Überprüfen Sie die Anzahl der korrekt importierten Zeilen und stellen Sie sicher, dass sie mit der Anzahl der Nutzer:innen übereinstimmt, die Sie importieren möchten.
 
@@ -465,7 +475,7 @@ Es gibt einige Gründe, warum die Anzahl der importierten Nutzer:innen nicht mit
 | Nicht-escapte oder unausgeglichene doppelte Anführungszeichen (`"`) | Doppelte Anführungszeichen umschließen String-Werte, die Kommas enthalten. Wenn ein Wert selbst ein doppeltes Anführungszeichen enthält, escapen Sie es durch Verdopplung (`""`). Nicht-escapte oder unausgeglichene doppelte Anführungszeichen verursachen eine fehlerhafte Zeile. |
 | Inkonsistente Zeilenumbrüche | Gemischte Zeilenumbrüche (z. B. `\n` und `\r\n`) können dazu führen, dass die erste Datenzeile als Teil der Kopfzeile behandelt wird. Verwenden Sie einen Hex- oder erweiterten Texteditor, um dies zu prüfen und zu beheben. |
 | Falsch kodierte Datei | Auch wenn Akzente zulässig sind, muss die Datei UTF-8-kodiert sein. Andere Kodierungen funktionieren möglicherweise teilweise, werden aber nicht vollständig unterstützt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Missing row" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlende Zeile" }
 
 #### String-Anführungszeichen {#string-quotation}
 

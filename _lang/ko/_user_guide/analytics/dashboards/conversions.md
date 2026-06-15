@@ -85,9 +85,9 @@ Campaign 또는 Canvas에서 전환 이벤트로 설정되지 않은 이벤트�
 | 전환율(수신자) | 계산 방법: (전환 수) / (수신자 수) |
 | 기여도 방법 | 보고서 설정 시 선택한 [기여도 방법](#attribution-methods)에 의해 정의됩니다. 라스트 터치 기여도이거나 여러 채널이 선택된 경우 [터치](#terms-to-know)로 표시됩니다. |
 | 전환율(기여도 방법) | 보고서 설정 시 선택한 [기여도 방법](#attribution-methods)에 의해 정의됩니다. 여러 채널이 선택된 경우 기본적으로 라스트 터치 기여도가 적용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전환 세부 정보" }
 
-[보고서 설정](#setting-up-your-report) 시(5단계) Campaigns 또는 Canvases에 대한 분류 수준 세부 정보를 선택한 경우 <i class="fas fa-angle-down"></i>을 클릭하여 테이블을 확장할 수 있습니다.
+[보고서 설정](#setting-up-your-report) 시(5단계) Campaigns 또는 Canvases에 대한 분류 수준 세부 정보를 선택한 경우 <i class="fas fa-angle-down"></i> **확장**을 선택하여 테이블을 확장할 수 있습니다.
 
 ### 전환 퍼널 {#conversion-funnel}
 
@@ -107,7 +107,7 @@ Campaign 또는 Canvas에서 전환 이벤트로 설정되지 않은 이벤트�
 
 이 시계열 그래프는 시간에 따른 Campaign 또는 Canvas별 전환을 나타냅니다. 기본적으로 선택한 모든 Campaigns와 Canvases가 표시됩니다. Campaign 또는 Canvas를 선택 해제하려면 제외하려는 Campaign 또는 Canvas의 이름을 클릭합니다.
 
-시계열 데이터를 다운로드하려면 <i class="fas fa-bars"></i>를 선택한 다음 다운로드 옵션을 선택합니다. 사용 가능한 옵션은 PNG, JPEG, PDF, SVG 또는 CSV입니다.
+시계열 데이터를 다운로드하려면 <i class="fas fa-bars" title="차트 컨텍스트 메뉴"></i> **차트 컨텍스트 메뉴**를 선택한 다음 다운로드 옵션을 선택합니다. 사용 가능한 옵션은 PNG, JPEG, PDF, SVG 또는 CSV입니다.
 
 ![일별 전환을 보여주는 두 이메일 Campaigns의 시간별 전환 시계열 그래프.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
@@ -121,14 +121,14 @@ Campaign 또는 Canvas에서 전환 이벤트로 설정되지 않은 이벤트�
 | 클릭 시 | 메시지 클릭 후 발생한 총 전환 수 | (고유 클릭 전환) / (고유 수신자)로 계산 | {::nomarkdown}<ul><li>이메일 클릭 시</li><li>콘텐츠 카드 클릭 시</li><li>인앱 메시지 클릭 시</li></ul>{:/} |
 | 노출 시 | 노출 후 발생한 총 전환 수 | (고유 노출 전환) / (고유 수신자)로 계산 | {::nomarkdown}<ul><li>인앱 메시지 노출 시</li><li>콘텐츠 카드 노출 시</li></ul>{:/} |
 | 라스트 터치 시 | 전환 기간 동안 마지막으로 터치하거나 클릭한 메시지에 모든 크레딧을 부여하는 전환 | (터치 수) / (고유 수신자)로 계산 | 보고서에 여러 채널이 추가된 경우 라스트 터치 기여도가 자동으로 선택됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attribution methods" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="기여도 방법" }
 
 ## 알아두어야 할 용어 {#terms-to-know}
 
 | 용어 | 정의 |
 | --- | --- |
 | 터치 | 메시지와의 물리적 상호작용 또는 터치포인트.<br><br>터치에는 다음이 포함될 수 있습니다.<br>{::nomarkdown}<ul><li>이메일 클릭</li><li>푸시 열람</li><li>콘텐츠 카드 클릭</li><li>인앱 메시지 클릭</li><li>SMS 클릭</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Terms to know" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="알아두어야 할 용어" }
 
 ## 문제 해결 {#troubleshooting}
 

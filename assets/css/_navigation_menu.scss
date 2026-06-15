@@ -631,9 +631,7 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 				color: inherit;
 			}
 			&:focus-visible {
-				outline: 2px solid $braze-purple;
-				outline-offset: -2px;
-				border-radius: 4px;
+				@include focus-ring($offset: -2px, $radius: 4px);
 			}
 		}
 		#status-indicator {

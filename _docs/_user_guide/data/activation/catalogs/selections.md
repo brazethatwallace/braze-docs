@@ -79,7 +79,7 @@ Connected Content Liquid isn't supported in these filter settings.
 
 After creating your selection, personalize your messages with Liquid to insert the filtered items from that catalog. You can have Braze generate the Liquid for you from the personalization window found in message composers:
 
-1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> to open the personalization window.
+1. In any message composers that support personalization, select <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> **Add personalization** to open the personalization window.
 2. For **Personalization Type**, select **Catalog Items**.
 3. Select your catalog name.
 4. For **Item selection method**, select **Use a selection**.

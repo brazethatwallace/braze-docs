@@ -248,7 +248,7 @@ Braze no proporciona un informe integrado que liste cada campaña o paso de Canv
 
 #### Solución de problemas y detalles adicionales de errores {#troubleshooting-and-additional-error-details}
 
-Para explicaciones detalladas, pasos de solución de problemas y orientación sobre cómo resolver errores específicos de webhook, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/). También encontrarás más explicaciones sobre cómo funciona nuestro sistema de detección de hosts no saludables y cómo Braze proporciona notificaciones de errores a través de correos electrónicos automatizados y registro adicional en Braze Currents.
+Para explicaciones detalladas, pasos de solución de problemas y orientación sobre cómo resolver errores específicos de webhook, consulta [Solución de problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/). También encontrarás más explicaciones sobre cómo funciona nuestro sistema de detección de hosts no saludables y cómo Braze proporciona notificaciones de errores a través de correos electrónicos automatizados y registro adicional en Braze Currents.
 
 ### Lista de IPs permitidas {#ip-allowlisting}
 

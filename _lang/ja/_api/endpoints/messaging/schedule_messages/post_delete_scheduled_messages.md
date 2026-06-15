@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | 必須 | 文字列 | 削除する `schedule_id`（スケジュール作成の応答から取得）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

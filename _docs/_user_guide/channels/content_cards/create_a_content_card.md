@@ -94,7 +94,7 @@ Each message type and platform may have its own suggested proportions and requir
 
 #### Pin to top
 
-Braze displays a pinned card at the top of a user's feed and the user can't dismiss it. If a user's feed has multiple pinned cards, Braze orders them chronologically. After you send a card, you can't retroactively update its pinned option. Changing this option after you send a campaign only affects future sends.
+Braze displays a pinned card at the top of a user's feed and the user can't dismiss it. If a user's feed has multiple pinned cards, Braze orders them chronologically. When Braze delivers a Content Card, it is either pinned or unpinned, and that status does not change for the lifetime of the card. If you change the pinned setting on a campaign, the update applies to cards sent in the future only. It does not change the pinned status of cards already in a user's feed.
 
 ![Side-by-side of the Content Card preview in Braze for Mobile and Web with the option "Pin this card to the top of the feed" selected.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -328,3 +328,11 @@ If you want a card to seem like it's always available, you can create a recurrin
 1. Set the duration of the Content Card for 30 days.
 2. Set the campaign re-eligibility to 30 days.
 3. Set the campaign to trigger on "Session Start."
+
+### Content Card sync and refresh
+
+Content Cards sync on a schedule and when your app refreshes the feed. Sync behavior differs between full and partial syncs, and your SDK integration affects when cards refresh at session start. For implementation details, see [Customize the Content Card feed]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) and [Creating Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+
+### Impact of stopping Content Cards campaigns
+
+When you stop a campaign and select **Remove card after the next sync**, Braze removes the card from user feeds on the next refresh. Impression counts may be lower than send counts because users cannot impress cards that are removed before they view them.

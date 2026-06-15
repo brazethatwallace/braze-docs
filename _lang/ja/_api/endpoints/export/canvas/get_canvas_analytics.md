@@ -1,28 +1,28 @@
 ---
-nav_title: "GET: キャンバスデータシリーズ分析のエクスポート"
-article_title: "GET: キャンバスデータシリーズ分析のエクスポート"
+nav_title: "GET: Canvasデータシリーズ分析のエクスポート"
+article_title: "GET: Canvasデータシリーズ分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、キャンバスデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
+description: "この記事では、Canvasデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# キャンバスデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
+# Canvasデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
 {% apimethod get %}
 /canvas/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、キャンバスの時系列データをエクスポートします。
+> このエンドポイントを使用して、Canvasの時系列データをエクスポートします。
 
-{% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.data_series` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`canvas.data_series` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
 ## レート制限 {#rate-limit}
 

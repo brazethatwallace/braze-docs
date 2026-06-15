@@ -26,6 +26,9 @@ guide_featured_list:
 - name: Assistance Braze
   link: /docs/user_guide/administer/personal/braze_support
   image: /assets/img/braze_icons/mail-01.svg
+- name: Certification Braze
+  link: /docs/user_guide/administer/personal/braze_certification
+  image: /assets/img/braze_icons/award-02.svg
 - name: Endpoints API et SDK
   link: /docs/user_guide/administer/personal/sdk_endpoints
   image: /assets/img/braze_icons/navigation-pointer-01.svg

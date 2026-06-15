@@ -5578,7 +5578,7 @@ Este evento se produce cuando un proveedor de servicios de Internet devuelve un 
 #### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Más información sobre [el comportamiento del ID de envío]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
@@ -5916,7 +5916,7 @@ Este evento se produce cuando un usuario hace clic en un correo electrónico. Se
 #### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Más información sobre [el comportamiento del ID de envío]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
@@ -7250,7 +7250,7 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 Email, Sends
 {% endapitags %}
 
-Este evento se produce cuando una solicitud de envío de correo electrónico se ha comunicado correctamente entre Braze y SendGrid. Sin embargo, esto no significa que el correo electrónico se haya recibido en la bandeja de entrada del usuario. Braze no registra eventos en los perfiles de usuario ni en ningún destino de Currents (como Snowflake) si el evento no se puede asociar tanto al correo electrónico como al ID de usuario asociado al evento del correo electrónico.
+Este evento se produce cuando una solicitud de envío de correo electrónico se ha comunicado correctamente entre Braze y SendGrid. Sin embargo, esto no significa que el correo electrónico se haya recibido en la bandeja de entrada del usuario. Braze no registra eventos en los perfiles de usuario ni en ningún destino de Currents (como Snowflake) si el evento no puede asociarse tanto al correo electrónico como al ID de usuario vinculado al evento del correo electrónico.
 
 {% tabs %}
 {% tab Almacenamiento en la nube %}
@@ -7501,7 +7501,7 @@ Este evento se produce cuando una solicitud de envío de correo electrónico se 
 #### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Más información sobre [el comportamiento del ID de envío]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - `message_extras` te permite anotar tus eventos de envío con datos dinámicos de contenido conectado, atributos personalizados (como idioma, país) y propiedades de entrada en Canvas. Consulta [Extras de los mensajes]({{site.baseurl}}/message_extras_tag/) para obtener más información.
 
 {% endapi %}
@@ -7513,7 +7513,7 @@ Este evento se produce cuando una solicitud de envío de correo electrónico se 
 Email, Bounce
 {% endapitags %}
 
-Este evento se produce cuando un proveedor de servicios de Internet devuelve un rebote blando. Un rebote blando significa que no se ha podido entregar un correo electrónico debido a un fallo temporal de capacidad de entrega.
+Este evento se produce cuando un proveedor de servicios de Internet devuelve un rebote blando. Un rebote blando significa que no se pudo entregar un correo electrónico debido a un fallo temporal de capacidad de entrega.
 
 {% tabs %}
 {% tab Almacenamiento en la nube %}
@@ -7755,12 +7755,12 @@ Este evento se produce cuando un proveedor de servicios de Internet devuelve un 
 #### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Más información sobre [el comportamiento del ID de envío]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 
 {% api %}
-## Eventos de cancelación de suscripción al correo electrónico {#email-unsubscribe-events}
+## Eventos de cancelación de suscripción de correo electrónico {#email-unsubscribe-events}
 
 {% apitags %}
 Email, Subscription
@@ -7769,7 +7769,7 @@ Email, Subscription
 Este evento se produce cuando el usuario final ha hecho clic en "cancelar suscripción" en el correo electrónico.
 
 {% alert important %}
-El evento `Unsubscribe` se considera un evento de clic especializado que se activa cuando el usuario hace clic en el enlace para cancelar la suscripción en el correo electrónico (ya sea un enlace normal para cancelar la suscripción dentro del cuerpo o el pie de página del correo electrónico, o utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), y no cuando el usuario cambia su estado a cancelado. Si el cambio de estado de la suscripción se envía a través de la API o con un enlace de cancelación de suscripción personalizado (que no sea de Braze), no se desencadena un evento de cancelación de suscripción por correo electrónico en Currents.
+El evento `Unsubscribe` se considera un evento de clic especializado que se activa cuando el usuario hace clic en el enlace para cancelar la suscripción en el correo electrónico (ya sea un enlace normal para cancelar la suscripción dentro del cuerpo o el pie de página del correo electrónico, o utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), no cuando el usuario cambia su estado a cancelado. Si el cambio de estado de la suscripción se envía a través de la API o con un enlace de cancelación de suscripción personalizado (que no sea de Braze), no se desencadena un evento de cancelación de suscripción de correo electrónico en Currents.
 {% endalert %}
 
 {% tabs %}
@@ -7992,7 +7992,7 @@ El evento `Unsubscribe` se considera un evento de clic especializado que se acti
 #### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Más información sobre [el comportamiento del ID de envío]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 {% endapi %}
 

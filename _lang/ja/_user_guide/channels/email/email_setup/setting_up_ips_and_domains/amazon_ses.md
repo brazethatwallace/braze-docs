@@ -13,7 +13,7 @@ channel: email
 
 ## 前提条件 {#prerequisites}
 
-Amazon SES のセットアップを開始する前に、以下を確認してください。
+Amazon SESのセットアップを開始する前に、以下を確認してください。
 
 - 送信ドメイン名
 - IPプール名（マーケティング、トランザクション、ステージングなど）
@@ -31,7 +31,7 @@ Amazon SES のセットアップを開始する前に、以下を確認してく
 | --- | --- | --- | --- | --- |
 | `eu02_braze_marketing` | 1 IP | `eu02_braze_marketing_set1` | `demo.braze.com` | `clicks.demo.braze.com` |
 | `eu02_braze_transactional` | 1 IP | `eu02_braze_transactional_set1` | `dev.braze.com` | `clicks.dev.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Setup example" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="セットアップ例" }
 
 {% alert note %}
 クラスターとサブアカウント名は、IPプールと設定セットに自動的に付加されます。
@@ -49,7 +49,7 @@ Amazon SES のセットアップを開始する前に、以下を確認してく
 | braze_marketing - 1 IP | braze_marketing_set2 | `email2.example.com` | `clicks.email2.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set3 | `email3.example.com` | `clicks.email3.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set4 | `email4.example.com` | `clicks.email4.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="One click tracking domain for each sending domain" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="各送信ドメインに1つのクリックトラッキングドメイン" }
 
 ### すべての送信ドメインに1つのクリックトラッキングドメイン {#one-click-tracking-domain-for-all-sending-domains}
 
@@ -61,7 +61,7 @@ Amazon SES のセットアップを開始する前に、以下を確認してく
 | braze_marketing - 1 IP | braze_marketing_set | `email2.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email3.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email4.example.com` | `clicks.email1.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="One click tracking domain for all sending domains" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="すべての送信ドメインに1つのクリックトラッキングドメイン" }
 
 ## 考慮事項 {#considerations}
 
@@ -71,7 +71,7 @@ Amazon SES のセットアップを開始する前に、以下を確認してく
 - 各送信ドメインには、SPF検証を支援するためのMAIL FROM識別子が付加されています。
     - 各送信ドメインの値は「e」です。
     - MAIL FROMの値は、顧客に表示されるFromアドレスを変更しません。
-- Amazon SESがメールサービスプロバイダーの場合、Microsoft Smart Network Data Services (SNDS) はサポートされません。
+- Amazon SESをメールサービスプロバイダーとして使用している場合、トラップメッセージ期間の開始とトラップメッセージ期間の終了は利用できません。
 
 ## 次のステップ {#next-steps}
 

@@ -57,6 +57,21 @@ Se sua campanha usa Intelligent Timing ou entrega por fuso horário local, as ed
 
 Ao usar um limite de taxa de envio, a Braze "programa" suas mensagens em intervalos de tempo com granularidade de minutos. Portanto, se você quiser alterar a taxa de envio de mensagens, siga o processo abaixo para fazer alterações imediatas.
 
+#### Pausar campanhas com limite de velocidade de entrega {#pausing-campaigns-with-delivery-speed-rate-limiting}
+
+Quando você pausa uma campanha que usa [limite de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), a Braze distribui os envios em intervalos baseados em minutos. **Resume** não reenvia mensagens de intervalos que foram cancelados enquanto a campanha estava pausada.
+
+Mensagens com limite de taxa são canceladas somente se a campanha ainda estiver pausada quando o horário de envio programado chegar. Se uma mensagem será enviada após a retomada depende de quando você pausou a campanha e por quanto tempo ela ficou pausada.
+
+Por exemplo:
+
+1. Você pausa a campanha às 13h.
+2. Uma mensagem com limite de taxa está programada para envio às 13h05.
+   - Se você retomar antes das 13h05, a mensagem será enviada.
+   - Se você retomar após as 13h05, a mensagem será cancelada durante a pausa e não será enviada.
+
+Se alguns usuários não receberam mensagens porque a campanha estava pausada durante o intervalo programado deles, duplique a campanha e direcione apenas esses usuários, em vez de depender de **Resume** para entregar as mensagens perdidas.
+
 ## Fazer alterações imediatas {#making-immediate-changes}
 
 Se você precisar que as alterações entrem em vigor imediatamente, faça o seguinte:

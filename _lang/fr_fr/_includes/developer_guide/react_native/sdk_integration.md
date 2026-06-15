@@ -14,11 +14,17 @@ La version minimale suivante du SDK est compatible avec toutes les applications 
 Si votre application iOS est conforme à `RCTAppDelegate` et suit notre configuration `AppDelegate` précédente, consultez les exemples dans [Configuration native complète](#reactnative_step-2-complete-native-setup) pour éviter les plantages lors de l'abonnement à des événements dans le module Turbo.
 {% endalert %}
 
+## Exigences de version React et React Native {#react-and-react-native-version-requirements}
+
+Braze ne publie pas de versions minimales de React distinctes au-delà de ce que le SDK React Native prend en charge. Pour intégrer le SDK, utilisez React Native version 0.71 ou ultérieure. Pour obtenir la liste complète des versions React Native prises en charge, consultez le [dépôt GitHub du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+
+Lorsque vous mettez à jour React, React Native ou le SDK Braze, consultez le [CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) du SDK pour vérifier les changements incompatibles avant de déployer.
+
 ## Intégration du SDK React Native {#integrating-the-react-native-sdk}
 
 ### Conditions préalables {#prerequisites}
 
-Pour intégrer le SDK, la version 0.71 ou ultérieure de React Native est requise. Pour obtenir la liste complète des versions prises en charge, consultez notre [dépôt GitHub du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+Pour les versions React Native prises en charge et les conseils de mise à jour, consultez [Exigences de version React et React Native](#react-and-react-native-version-requirements).
 
 ### Étape 1 : Intégrer la bibliothèque Braze {#step-1-integrate-the-braze-library}
 
@@ -47,7 +53,7 @@ Choisissez une méthode de configuration dans chaque onglet de version : plugin 
 
 #### Méthode 1 : Utiliser le plugin Expo {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Installer le plugin Braze Expo {#21-install-the-braze-expo-plugin}
+##### 2.1 Installer le plugin Braze Expo {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
 
 Assurez-vous que votre version du plugin Braze Expo est au minimum 4.1.0. Pour obtenir la liste complète des versions prises en charge, consultez le [dépôt du plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support).
 
@@ -57,7 +63,7 @@ L'extrait de code suivant montre la commande pour installer le plugin Braze Expo
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 Ajouter le plugin à votre app.json {#22-add-the-plugin-to-your-appjson}
+##### 2.2 Ajouter le plugin à votre app.json {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
 
 Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint ne sont plus définis ici. Fournissez-les au moment de l'exécution via `Braze.initialize()` depuis JavaScript. Ajoutez les paramètres de configuration facultatifs suivants en fonction des besoins de votre implémentation :
 
@@ -85,7 +91,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint n
 | `iosPushStoryAppGroup`                        | chaîne de caractères  | iOS uniquement. Le groupe d'applications utilisé pour iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booléen | iOS uniquement. Détermine si l'ID de l'appareil utilise un UUID généré aléatoirement.                                                                                       |
 | `iosForwardUniversalLinks`                    | booléen | iOS uniquement. Indique si le SDK doit automatiquement reconnaître et transmettre les liens universels aux méthodes système (par défaut : `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Ajouter le plugin à votre app.json" }
 
 L'extrait de code suivant montre un exemple de configuration `app.json` :
 
@@ -175,7 +181,7 @@ Le plugin Braze Expo fait référence à vos fichiers d'icônes depuis les répe
 
 Pour plus d'informations sur les icônes de notification Android, consultez les [directives relatives aux icônes de notification Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### 2.3 Compiler et exécuter votre application {#23-build-and-run-your-application}
+##### 2.3 Compiler et exécuter votre application {#23-build-and-run-your-application} {#23-build-and-run-your-application}
 
 La précompilation de votre application génère les fichiers natifs nécessaires au fonctionnement du plugin Braze Expo.
 
@@ -444,7 +450,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. Vous pouvez fournir les opt
 | `iosPushStoryAppGroup`                        | chaîne de caractères  | iOS uniquement. Le groupe d'applications utilisé pour iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booléen | iOS uniquement. Détermine si l'ID de l'appareil utilise un UUID généré aléatoirement.                                                                                       |
 | `iosForwardUniversalLinks`                    | booléen | iOS uniquement. Indique si le SDK doit automatiquement reconnaître et transmettre les liens universels aux méthodes système (par défaut : `false`). Lorsque cette option est activée, le SDK transmet automatiquement les liens universels aux méthodes système définies dans [Prise en charge des liens universels dans votre application](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/). Introduit dans le SDK React Native v11.1.0 et le plugin Expo v3.2.0. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2.2 : Ajouter le plugin à votre app.json" }
 
 L'extrait de code suivant montre un exemple de configuration `app.json` :
 

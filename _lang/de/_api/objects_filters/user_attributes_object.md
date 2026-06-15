@@ -41,10 +41,10 @@ Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
-  // Removing from an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
+  // Removing from an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
@@ -52,16 +52,16 @@ Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet
 - [Nutzer-Aliasse]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
 {% alert note %}
-Bei REST-API-Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) verwenden Sie die Schlüssel `add`, `remove` und `update` für Array-Operationen. Schlüssel mit dem Präfix `$` (wie `$add`) sind für SDK-Methoden-Payloads vorgesehen.
+Verwenden Sie für reguläre Array-Attribute die Schlüssel `add` und `remove` (ohne `$`).
 
-Wenn eine REST-API-Anfrage `$add`, `$remove` oder `$update` verwendet, kann Braze `success` zurückgeben, ohne das Array-Update tatsächlich anzuwenden.
+Für Objekt-Arrays (verschachtelte angepasste Attribute) verwenden Sie `$add`, `$remove` und `$update` in `/users/track`-Anfrage-Payloads. Diese Operatoren wenden Änderungen auf Objektebene an, indem sie Bezeichner (`$identifier_key` und `$identifier_value`) abgleichen, und unterstützen In-Place-Updates mit `$new_object`.
 
-Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Verwenden Sie dieses Format, wenn Sie Objekte innerhalb eines bestehenden Arrays anhängen, entfernen oder aktualisieren müssen, während der Rest des Array-Zustands erhalten bleibt. Vollständige Anfragebeispiele finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 {% endalert %}
 
 Um ein Profilattribut zu entfernen, setzen Sie es auf `null`. Einige Felder, wie `external_id` und `user_alias`, können nicht mehr entfernt werden, nachdem sie einem Nutzerprofil hinzugefügt wurden.
 
-#### Bezeichner-Auflösung {#identifier-resolution}
+### Bezeichner-Auflösung {#identifier-resolution}
 
 Sofern Sie keinen [anonymen Push-Token-Import](#push-token-import) durchführen, muss jedes Nutzer:innen-Attribute-Objekt mindestens einen Bezeichner enthalten: `external_id`, `user_alias`, `braze_id`, `email` oder `phone`. Fügen Sie nach Möglichkeit nur einen Bezeichner pro Objekt hinzu, um Unklarheiten darüber zu vermeiden, welches Nutzerprofil aktualisiert oder erstellt wird.
 
@@ -110,10 +110,10 @@ Die folgenden Datentypen können als angepasstes Attribut gespeichert werden:
 
 | Datentyp | Anmerkungen |
 | --- | --- |
-| Arrays | Angepasste Attribut-Arrays werden unterstützt. Wenn Sie ein Element hinzufügen, wird es an das Ende des Arrays angehängt. Wenn das Element bereits vorhanden ist, wird es von seiner aktuellen Position an das Ende verschoben.<br><br>Es werden nur eindeutige Werte gespeichert. Beispielsweise führt der Import von `['hotdog','hotdog','hotdog','pizza']` zu `['hotdog', 'pizza']`.<br><br>Sie können ein Array direkt festlegen (zum Beispiel `"my_array_custom_attribute":[ "Value1", "Value2" ]`), einem bestehenden Array mit `"my_array_custom_attribute" : { "add" : ["Value3"] }` etwas hinzufügen oder Werte mit `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}` entfernen.<br><br>Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Weitere Informationen finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Array von Objekten | Verwenden Sie ein Objekt-Array, um eine Liste von Objekten zu definieren, wobei jedes Objekt eine Reihe von Attributen enthält. Verwenden Sie diesen Typ, um mehrere Sätze verwandter Daten für eine Nutzer:in zu speichern, wie beispielsweise Hotelaufenthalte oder Präferenzen.<br><br>Definieren Sie beispielsweise ein angepasstes Attribut mit dem Namen `hotel_stays` in einem Nutzerprofil als Array, wobei jedes Objekt einen separaten Aufenthalt darstellt, mit Attributen wie `hotel_name`, `check_in_date` und `nights_stayed`.<br><br>Objekt-Arrays haben keine Begrenzung der Elementanzahl, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.<br><br>Fügen Sie Elemente mit `$add` hinzu, entfernen Sie Elemente mit `$remove` und aktualisieren Sie Elemente mit `$update`. Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) und [Beispiel für ein Objekt-Array](#array-of-objects-example). |
+| Arrays | Angepasste Attribut-Arrays werden unterstützt. Wenn Sie ein Element hinzufügen, wird es an das Ende des Arrays angehängt. Wenn das Element bereits vorhanden ist, wird es von seiner aktuellen Position an das Ende verschoben.<br><br>Es werden nur eindeutige Werte gespeichert. Beispielsweise führt der Import von `['hotdog','hotdog','hotdog','pizza']` zu `['hotdog', 'pizza']`.<br><br>Sie können ein Array direkt festlegen (zum Beispiel `"my_array_custom_attribute":[ "Value1", "Value2" ]`), einem bestehenden Array mit `"my_array_custom_attribute" : { "add" : ["Value3"] }` etwas hinzufügen oder Werte mit `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}` entfernen.<br><br>Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Elementen im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Weitere Informationen finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
+| Objekt-Array | Verwenden Sie ein Objekt-Array, um eine Liste von Objekten zu definieren, wobei jedes Objekt eine Reihe von Attributen enthält. Verwenden Sie diesen Typ, um mehrere Sätze verwandter Daten für eine Nutzer:in zu speichern, wie beispielsweise Hotelaufenthalte, Kaufhistorie oder Präferenzen.<br><br>Definieren Sie beispielsweise ein angepasstes Attribut mit dem Namen `hotel_stays` in einem Nutzerprofil als Array, wobei jedes Objekt einen separaten Aufenthalt darstellt, mit Attributen wie `hotel_name`, `check_in_date` und `nights_stayed`.<br><br>Objekt-Arrays haben keine Begrenzung der Elementanzahl, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.<br><br>Verwenden Sie für `/users/track`- und SDK-Payloads `$add`, `$remove` und `$update` für Objekt-Array-Operationen. Verwenden Sie `add` und `remove` (ohne `$`) für reguläre Array-Attribute, die skalare Werte enthalten. Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) und [Beispiel für ein Objekt-Array](#array-of-objects-example). |
 | Boolesche Werte | `true` oder `false` |
-| Daten | Müssen im [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)-Format oder in einem der folgenden Formate gespeichert werden: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Beachten Sie, dass „T“ ein Zeitbezeichner und kein Platzhalter ist und nicht geändert oder entfernt werden sollte. <br><br>Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und im Dashboard als Entsprechung von Mitternacht UTC in der Zeitzone des Unternehmens formatiert). Um eine Zeitzone anzugeben, fügen Sie dem Zeitstempel einen UTC-Offset hinzu (zum Beispiel `2024-11-10T18:00:00-05:00` für EST). Wenn der Zeitzonen-Offset fehlt oder falsch formatiert ist, wird der Wert standardmäßig auf UTC gesetzt. <br><br>Zeiten werden im Dashboard in der Zeitzone Ihres Unternehmens angezeigt. Beispielsweise würde `2024-11-10T18:00:00-05:00` (18:00 Uhr EST) als die entsprechende Zeit in der konfigurierten Zeitzone Ihres Unternehmens angezeigt. <br><br>Ereignisse mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt. <br><br>Bei regulären angepassten Attributen speichert Braze den Wert als String im Nutzerprofil, wenn das Jahr kleiner als 0 oder größer als 3000 ist. |
+| Daten | Speichern Sie Daten im [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Format (empfohlen) oder in einem der folgenden Formate: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Beachten Sie, dass „T“ ein Zeitbezeichner und kein Platzhalter ist und nicht geändert oder entfernt werden sollte. <br><br>Datumswerte, die keinem der aufgeführten Formate entsprechen, werden als Strings im Nutzerprofil gespeichert und nicht als Datentyp „Time“. Das bedeutet, dass zeitbasierte Segmentierungsfilter (wie „vor“, „nach“ oder „in den letzten X Tagen“) für diese Attribute nicht funktionieren. Beispielsweise wird `Mar 26 2026 06:12 PM +00:00` als String gespeichert, da es keinem unterstützten Format entspricht. Um dies zu vermeiden, verwenden Sie das ISO-8601-Format (z. B. `2026-03-26T18:12:00Z`). <br><br>Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und im Dashboard als Entsprechung von Mitternacht UTC in der Zeitzone des Unternehmens formatiert). Um eine Zeitzone anzugeben, fügen Sie dem Zeitstempel einen UTC-Offset hinzu (zum Beispiel `2024-11-10T18:00:00-05:00` für EST). Wenn der Zeitzonen-Offset fehlt oder falsch formatiert ist, wird der Wert standardmäßig auf UTC gesetzt. <br><br>Zeiten werden im Dashboard in der Zeitzone Ihres Unternehmens angezeigt. Beispielsweise würde `2024-11-10T18:00:00-05:00` (18:00 Uhr EST) als die entsprechende Zeit in der konfigurierten Zeitzone Ihres Unternehmens angezeigt. <br><br>Ereignisse mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt. <br><br>Bei regulären angepassten Attributen speichert Braze den Wert als String im Nutzerprofil, wenn das Jahr kleiner als 0 oder größer als 3000 ist. |
 | Gleitkommazahlen | Gleitkommazahlen für angepasste Attribute sind positive oder negative Zahlen mit einem Dezimalpunkt. Sie können beispielsweise Gleitkommazahlen verwenden, um Kontostände oder Nutzer:innen-Bewertungen für Produkte oder Dienste zu speichern. |
 | Ganzzahlen | Sie können ganzzahlige angepasste Attribute erhöhen, indem Sie ein Objekt mit dem Feld „inc“ und dem hinzuzufügenden Wert zuweisen. <br><br>Beispiel: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Verschachtelte angepasste Attribute | Verschachtelte angepasste Attribute definieren eine Gruppe von Attributen als Eigenschaft eines anderen Attributs. Wenn Sie ein angepasstes Attributobjekt definieren, fügen Sie diesem Objekt eine Reihe von Attributen hinzu. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
@@ -126,7 +126,7 @@ Informationen dazu, wann ein angepasstes Event und wann ein angepasstes Attribut
 
 ##### Beispiel für ein Objekt-Array {#array-of-objects-example}
 
-Mit diesem Array von Objekten können Sie Segmente auf der Grundlage bestimmter Kriterien innerhalb der Aufenthalte erstellen und Ihre Nachrichten anhand der Daten der einzelnen Aufenthalte mit Liquid-Templates personalisieren.
+Mit diesem Objekt-Array können Sie Segmente auf der Grundlage bestimmter Kriterien innerhalb der Aufenthalte erstellen und Ihre Nachrichten anhand der Daten der einzelnen Aufenthalte mit Liquid-Templates personalisieren.
 
 ```json
 {"hotel_stays": [
@@ -135,7 +135,7 @@ Mit diesem Array von Objekten können Sie Segmente auf der Grundlage bestimmter 
 ]}
 ```
 
-Für API-Beispiele, die `add`, `remove` und `update` verwenden, siehe [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example). Für SDK-Beispiele, die `$add`, `$remove` und `$update` verwenden, siehe [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Für Objekt-Array-Beispiele, die `$add`, `$remove` und `$update` verwenden, siehe [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 
 #### Braze-Nutzerprofilfelder {#braze-user-profile-fields}
 
@@ -175,7 +175,7 @@ Eine kund:innenorientierte Referenz der Standardattribute, die nach Kategorien g
 | subscription_groups| Array von Objekten mit `subscription_group_id` und `subscription_state` String, zum Beispiel `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Verfügbare Werte für `subscription_state` sind „subscribed“ und „unsubscribed“.|
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte festgelegt. |
 | twitter | Hash mit einem der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Nutzerprofilfelder" }
 
 Sprachwerte, die explizit über diese API festgelegt werden, haben Vorrang vor den Gebietsschemainformationen, die Braze automatisch vom Gerät erhält.
 
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Migration von Push-Tokens {#migrating-push-tokens}
+## Migration von Push-Tokens {#migrate-push-tokens}
 
 Wenn Sie vor der Integration von Braze bereits Push-Benachrichtigungen versendet haben – entweder selbst oder über einen anderen Anbieter –, ermöglicht Ihnen die Push-Token-Migration, weiterhin Push-Benachrichtigungen an Ihre Nutzer:innen mit registrierten Push-Tokens zu senden.
 
@@ -323,7 +323,23 @@ Braze überprüft einmal im Monat, ob es anonyme Profile mit dem `push_token_imp
 {% endtab %}
 {% endtabs %}
 
-### Importieren von Android-Push-Tokens {#importing-android-push-tokens}
+### Importieren von iOS-Push-Tokens {#import-ios-push-tokens}
+
+Beim Migrieren von iOS-Push-Tokens mit `/users/track` wird das Feld `gateway` nicht auf dem Push-Token gesetzt. Braze geht davon aus, dass über die API importierte Tokens gültige Vordergrund-Push-Tokens sind, kann jedoch nicht bestimmen, zu welcher APNs-Umgebung das Token gehört.
+
+Ohne das Gateway-Feld verwendet Braze die konfigurierte Fallback-Umgebungseinstellung Ihrer App beim Senden von Push-Benachrichtigungen. Dies kann zu `BadDeviceToken`-Fehlern führen, wenn die tatsächliche Umgebung des Tokens von der konfigurierten Fallback-Umgebung abweicht. Beispielsweise schlägt ein Entwicklungs-Token fehl, das über das Produktions-Gateway gesendet wird.
+
+Um Zustellungsprobleme zu vermeiden:
+
+- Stellen Sie sicher, dass die Umgebungseinstellung Ihrer App im Braze-Dashboard mit den Tokens übereinstimmt, die Sie importieren.
+- Importieren Sie für Produktions-Apps nur Produktions-Tokens.
+- Überprüfen Sie bei Testumgebungen, dass sowohl Ihre App-Konfiguration als auch die importierten Tokens die Entwicklungsumgebung verwenden.
+
+{% alert note %}
+Tokens, die über das Braze SDK registriert werden, enthalten das Gateway-Feld automatisch, da das SDK die Umgebung anhand der Berechtigungen Ihrer App erkennt.
+{% endalert %}
+
+### Importieren von Android-Push-Tokens {#import-android-push-tokens}
 
 {% alert important %}
 Die folgenden Überlegungen gelten nur für Android-Apps. iOS-Apps erfordern diese Schritte nicht, da diese Plattform nur über ein Framework für die Anzeige von Push-Benachrichtigungen verfügt und Push-Benachrichtigungen sofort gerendert werden, solange Braze über die erforderlichen Push-Tokens und Zertifikate verfügt.
@@ -331,7 +347,7 @@ Die folgenden Überlegungen gelten nur für Android-Apps. iOS-Apps erfordern die
 
 Wenn Sie Android-Push-Benachrichtigungen an Ihre Nutzer:innen senden müssen, bevor die Braze-SDK-Integration abgeschlossen ist, verwenden Sie Schlüssel-Wert-Paare, um Push-Benachrichtigungen zu validieren.
 
-Sie müssen über einen Empfänger verfügen, der Push-Nutzdaten verarbeiten und anzeigen kann. Um den Empfänger über die Push-Nutzdaten zu benachrichtigen, fügen Sie der Push-Campaign die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
+Sie müssen über einen Empfänger verfügen, der Push-Payloads verarbeiten und anzeigen kann. Um den Empfänger über den Push-Payload zu benachrichtigen, fügen Sie der Push-Campaign die erforderlichen Schlüssel-Wert-Paare hinzu. Die Werte dieser Paare hängen von dem Push-Partner ab, den Sie vor Braze verwendet haben.
 
 {% alert note %}
 Bei einigen Anbietern von Push-Benachrichtigungen muss Braze die Schlüssel-Wert-Paare vereinfachen, damit sie korrekt interpretiert werden können. Um Schlüssel-Wert-Paare für eine bestimmte Android-App zu vereinfachen, wenden Sie sich bitte an Ihren Customer-Success-Manager.

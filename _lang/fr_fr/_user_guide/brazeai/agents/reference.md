@@ -7,7 +7,7 @@ page_order: 3
 
 # Référence des agents {#reference-for-agents}
 
-> Lorsque vous créez des agents personnalisés, reportez-vous à cet article pour en savoir plus sur les paramètres clés, tels que les instructions et les schémas de sortie. Pour une introduction, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/) et la [Foire aux questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Lorsque vous créez des agents personnalisés, reportez-vous à cet article pour en savoir plus sur les paramètres clés, tels que les instructions et les schémas de sortie. Pour une configuration étape par étape, consultez [Créer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Pour une introduction, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/) et la [Foire aux questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Modèles {#models}
 
@@ -29,7 +29,7 @@ Si vous ne voyez pas **Braze Auto** dans le menu déroulant **Model** lors de la
 
 Cette option vous permet de connecter votre compte Braze à des fournisseurs tels qu'OpenAI, Anthropic ou Google Gemini. Si vous apportez votre propre clé API d'un fournisseur de LLM, les coûts liés aux jetons sont facturés directement par votre fournisseur, et non par Braze.
 
-Nous vous recommandons de tester régulièrement les modèles les plus récents, car les anciens modèles peuvent être abandonnés ou rendus obsolètes au bout de quelques mois. Vous pouvez également vous inscrire aux notifications de la Console des agents dans les [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) pour être alerté lorsque Braze détecte qu'un modèle n'est plus disponible.
+Nous vous recommandons de tester régulièrement les modèles les plus récents, car les anciens modèles peuvent être abandonnés ou rendus obsolètes au bout de quelques mois. Assurez-vous de disposer de crédits suffisants auprès de votre fournisseur pour exécuter vos agents à grande échelle. Vous pouvez également vous inscrire aux notifications de la Console des agents dans les [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) pour être alerté lorsque Braze détecte qu'un modèle n'est plus disponible ou rencontre des problèmes de facturation avec votre fournisseur de LLM.
 
 Pour configurer cette option :
 
@@ -71,16 +71,28 @@ Chaque fournisseur de LLM propose un mélange légèrement différent de capacit
 - Pendant les tests, veillez à trouver le bon équilibre entre fiabilité et précision d'une part, et consommation de jetons et durée d'invocation d'autre part.
 - Chaque cas d'utilisation peut avoir un modèle et un niveau de réflexion optimaux différents. Nous vous recommandons de tester minutieusement pour vérifier la qualité constante sans dépassements de délai.
 
-### Limites de débit {#rate-limits}
+### Contrôles du flux d'invocation {#invocation-flow-controls}
 
-Les limites de débit suivantes s'appliquent par espace de travail :
+Les contrôles du flux d'invocation suivants s'appliquent par espace de travail :
 
 - **Modèle fourni par Braze :** 1 000 invocations par minute
 - **Clé API personnelle :** 2 500 invocations par minute
 
+Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, Braze met les invocations en file d'attente selon ces limites, de sorte que le traitement peut prendre plus de temps lors d'envois à fort volume.
+
+### Erreurs de limite de débit {#rate-limit-errors}
+
+Si le fournisseur de LLM renvoie une erreur de limite de débit, Braze relance la requête en utilisant des délais exponentiels. Ce comportement de relance s'applique aux étapes Agent dans Canvas. Les agents de catalogue ne relancent pas les invocations échouées, y compris les erreurs de limite de débit du fournisseur de LLM.
+
+Si toutes les tentatives échouent, le panneau de détails des **Logs** affiche **Error** et le message du fournisseur (tel que `Rate limit exceeded`) dans **Output**. Chaque tentative est visible dans les logs, y compris la toute première invocation, quel que soit son résultat final. Pour un utilisateur donné, s'il faut quatre tentatives pour obtenir un succès, vous pouvez rechercher l'ID utilisateur et voir les cinq tentatives (l'originale plus quatre relances) dans les **Logs**, et l'originale ainsi que les trois premières relances afficheront **Error** avec `Rate limit exceeded`.
+
+![Détails du log de la Console des agents montrant une erreur de dépassement de limite de débit dans le champ Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
+
 ## Rédaction des instructions {#writing-instructions}
 
 Les instructions sont les règles ou directives que vous donnez à l'agent (prompt système). Elles définissent le comportement de l'agent à chaque exécution. Les instructions système peuvent contenir jusqu'à 25 Ko.
+
+Si vous avez créé votre agent avec [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) en utilisant un [modèle de départ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), passez en revue les instructions préremplies et modifiez-les si nécessaire.
 
 Voici quelques bonnes pratiques générales pour vous aider à démarrer avec la rédaction de prompts :
 
@@ -95,7 +107,9 @@ Voici quelques bonnes pratiques générales pour vous aider à démarrer avec la
 9. Traitez les cas particuliers, ajoutez des garde-fous et des instructions de refus.
 10. Mesurez et documentez ce qui fonctionne en interne pour faciliter la réutilisation et la montée en charge.
 
-Pour vous inspirer dans la rédaction d'instructions d'agents, consultez notre [bibliothèque de cas d'utilisation dédiée aux agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+### Exemples {#examples}
+
+Pour des configurations de départ dans la Console des agents, consultez [Modèles d'agents créés avec Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Pour des exemples complets d'instructions que vous pouvez copier ou adapter, consultez la [bibliothèque de cas d'utilisation des agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
 ### Utilisation de Liquid {#using-liquid}
 
@@ -121,6 +135,8 @@ Pour plus de détails sur les bonnes pratiques en matière de prompts, consultez
 
 ## Sorties {#outputs}
 
+Si vous avez créé votre agent avec [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) en utilisant un [modèle de départ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), passez en revue le schéma de sortie prérempli et modifiez-le si nécessaire.
+
 ### Schémas de base {#basic-schemas}
 
 Les schémas de base constituent une sortie simple renvoyée par un agent. Il peut s'agir d'une chaîne de caractères, d'un nombre, d'une valeur booléenne, d'un tableau de chaînes de caractères ou d'un tableau de nombres.
@@ -137,7 +153,7 @@ Les tableaux ne sont disponibles que pour les agents Canvas, pas pour les agents
 
 Les options de schéma avancé incluent la structuration manuelle de champs ou l'utilisation de JSON.
 
-- **Fields :** une méthode sans code pour imposer un format de sortie d'agent que vous pouvez utiliser de manière cohérente.
+- **Champs :** une méthode sans code pour imposer un format de sortie d'agent que vous pouvez utiliser de manière cohérente.
 - **JSON :** une approche par code pour créer un format de sortie précis, où vous pouvez imbriquer des variables et des objets dans le schéma JSON. Disponible uniquement pour les agents Canvas, pas pour les agents de catalogue.
 
 Nous recommandons d'utiliser les schémas avancés lorsque vous souhaitez que l'agent renvoie une structure de données comportant plusieurs valeurs définies de manière structurée, plutôt qu'une sortie à valeur unique. Cela permet de mieux formater la sortie en tant que variable de contexte cohérente.
@@ -145,7 +161,7 @@ Nous recommandons d'utiliser les schémas avancés lorsque vous souhaitez que l'
 Par exemple, vous pouvez utiliser un format de sortie au sein d'un agent destiné à créer un exemple d'itinéraire de voyage pour un utilisateur à partir d'un formulaire qu'il a soumis. Le format de sortie vous permet de définir que chaque réponse de l'agent doit contenir des valeurs pour `tripStartDate`, `tripEndDate` et `destination`. Chacune de ces valeurs peut être extraite des variables de contexte et placée dans une étape Message pour la personnalisation via Liquid.
 
 {% tabs %}
-{% tab Fields %}
+{% tab Champs %}
 
 Si vous souhaitez formater les réponses à une enquête de satisfaction simple pour déterminer la probabilité que les répondants recommandent la nouvelle saveur de glace de votre restaurant, vous pouvez configurer les champs suivants pour structurer le format de sortie :
 

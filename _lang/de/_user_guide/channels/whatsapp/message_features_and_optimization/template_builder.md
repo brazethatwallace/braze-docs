@@ -20,7 +20,7 @@ channel:
 
 ### 1. Schritt: WhatsApp-Templates aufrufen {#step-1-go-to-whatsapp-templates}
 
-Gehen Sie zu **Content** > **WhatsApp Templates** und wählen Sie **Create new template**.
+Gehen Sie zu **Content** > **WhatsApp** und wählen Sie **Create new template**.
 
 ![WhatsApp-Templates-Seite mit Button zum Erstellen eines neuen Templates.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

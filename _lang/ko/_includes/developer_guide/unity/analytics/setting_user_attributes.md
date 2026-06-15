@@ -181,14 +181,14 @@ AppboyBinding.SetUserEmailNotificationSubscriptionType()
 AppboyBinding.SetPushNotificationSubscriptionType()`
 ```
 
-두 함수 모두 `Appboy.Models.AppboyNotificationSubscriptionType`을 인수로 받으며, 세 가지 상태가 있습니다:
+두 함수 모두 `Appboy.Models.AppboyNotificationSubscriptionType`을 인수로 받으며, 세 가지 상태가 있습니다.
 
 | 구독 상태 | 정의 |
 | ------------------- | ---------- |
 | `OPTED_IN` | 가입됨, 명시적으로 옵트인한 상태 |
 | `SUBSCRIBED` | 가입됨, 명시적으로 옵트인하지 않은 상태 |
 | `UNSUBSCRIBED` | 구독 취소 및/또는 명시적으로 수신 거부한 상태 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 {% alert note %}
 Windows에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 옵트인이 필요하지 않습니다. 사용자가 푸시에 등록되면 기본적으로 `OPTED_IN`이 아닌 `SUBSCRIBED`로 설정됩니다. 자세한 내용은 [구독 및 명시적 옵트인 구현]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) 설명서를 참조하세요.
@@ -198,7 +198,7 @@ Windows에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 
 |------------------------------------------|-------------|
 | `EmailNotificationSubscriptionType` | 유효한 이메일 주소를 수신하면 사용자는 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) 문서를 참조하세요. |
 | `PushNotificationSubscriptionType` | 유효한 푸시 등록 시 사용자는 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) 문서를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 {% alert note %}
 이러한 유형은 `Appboy.Models.AppboyNotificationSubscriptionType`에 해당합니다.

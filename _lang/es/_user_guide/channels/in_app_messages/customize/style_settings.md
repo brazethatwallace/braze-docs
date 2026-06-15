@@ -124,7 +124,7 @@ A continuación, toma tu fragmento de código Liquid generado e insértalo en tu
 
 ### Usar el asistente de redacción con inteligencia artificial {#using-the-ai-copywriter}
 
-Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, haz clic en <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
+Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> **AI copywriter** en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
 
 {% alert tip %}
 Puedes ahorrarte algunos clics resaltando el texto dentro del bloque antes de hacer clic en el icono. El texto resaltado se añadirá a la herramienta y se generará el texto de inmediato.
@@ -146,16 +146,16 @@ Después de hacer cambios en el estilo de un elemento, puedes copiar y pegar eso
 
 ![Menú desplegable con la opción de copiar estilos.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. Con el elemento seleccionado, haz clic en <i class="fas fa-paintbrush" title="Copiar o pegar estilos"></i> junto al nombre del panel de propiedades (por ejemplo, si tienes un botón seleccionado, junto a "Button properties").
+1. Con el elemento seleccionado, haz clic en <i class="fas fa-paintbrush" title="Copiar o pegar estilos"></i> **Copy or paste styles** junto al nombre del panel de propiedades (por ejemplo, si tienes un botón seleccionado, junto a "Button properties").
 2. Haz clic en **Copy styles** y selecciona el elemento donde deseas aplicar el estilo copiado.
-3. Haz clic en <i class="fas fa-paintbrush" title="Copiar o pegar estilos"></i> de nuevo y elige **Paste styles**.
+3. Haz clic en <i class="fas fa-paintbrush" title="Copiar o pegar estilos"></i> **Copy or paste styles** de nuevo y elige **Paste styles**.
 
 #### Atajos de teclado {#keyboard-shortcuts}
 
 También puedes usar atajos de teclado para copiar y pegar estilos:
 
-| Acción       | Mac                                            | Windows                                           |
+| Acción | Mac | Windows |
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
-| Copiar estilos  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
+| Copiar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Pegar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atajos de teclado" }

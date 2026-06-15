@@ -8,13 +8,13 @@ description: "このリファレンス記事では、カスタムイベントと
 
 # カスタムデータを管理する {#manage-custom-data}
 
-> このページでは、キャンペーンやセグメントにカスタムデータを事前入力する方法、カスタムイベントと属性およびそのプロパティを管理する方法、データタイプを設定する方法について説明します。カスタムデータのブロックリスト登録と削除については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
+> このページでは、CampaignsやSegmentsにカスタムデータを事前入力する方法、カスタムイベントと属性およびそのプロパティを管理する方法、データタイプを設定する方法について説明します。カスタムデータのブロックリスト登録と削除については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
 
 特にカスタム属性の管理方法（説明の追加、タグの追加、属性のPIIマーキングなど）については、[カスタム属性の管理]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)を参照してください。
 
 ## カスタムデータの事前入力 {#pre-populate-custom-data}
 
-開発チームがカスタムデータを統合する前に、そのカスタムデータを使用してキャンペーンやセグメントを設定したい場合があります。Brazeでは、カスタムイベントやカスタム属性のデータのトラッキングを開始する前に、ダッシュボードにそれらのデータを事前入力できるため、これらのイベントや属性をドロップダウンやキャンペーン作成プロセスの一部として使用できます。
+開発チームがカスタムデータを統合する前に、そのカスタムデータを使用してCampaignsやSegmentsを設定したい場合があります。Brazeでは、カスタムイベントやカスタム属性のデータのトラッキングを開始する前に、ダッシュボードにそれらのデータを事前入力できるため、これらのイベントや属性をドロップダウンやCampaign作成プロセスの一部として使用できます。
 
 カスタムイベントとカスタム属性を事前入力するには、次の手順に従います。
 
@@ -32,7 +32,7 @@ description: "このリファレンス記事では、カスタムイベントと
 
 ## プロパティの管理 {#managing-properties}
 
-カスタムイベントまたは製品を作成した後、そのイベントまたは製品の**プロパティの管理**を選択して、新しいプロパティの追加、既存のプロパティのブロックリストへの登録、および[トリガーイベント]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)でこのプロパティを使用するキャンペーンまたはキャンバスの表示ができます。
+カスタムイベントまたは製品を作成した後、そのイベントまたは製品の**プロパティの管理**を選択して、新しいプロパティの追加、既存のプロパティのブロックリストへの登録、および[トリガーイベント]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)でこのプロパティを使用するCampaignsまたはCanvasesの表示ができます。
 
 ![カスタムイベントのカスタムプロパティ。]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
@@ -79,6 +79,8 @@ Brazeは、受信した属性データのデータタイプを自動的に認識
 | ブール値 | `1`、`true`、`t`（大文字小文字は区別されない）の入力は、`true`として保存されます |
 | ブール値 | `0`、`false`、`f`（大文字小文字は区別されない）の入力は、`false`として保存されます |
 | 数値 | 整数または浮動小数点数（`1`、`1.5`など）は数値として保存されます |
+| 数値 | 数値文字列（`"100"`や`"3.14"`など）は、属性が**数値**に強制されている場合、数値に変換できます |
+| 文字列 | 数値は、属性が**文字列**に強制されている場合、文字列形式に変換できます |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Data type coercion" }
 
 異なるデータタイプの比較によって表示される特定のフィルターオプションの詳細については、[レポートの設定]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)を参照してください。また、利用可能なデータタイプの詳細については、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types)を参照してください。

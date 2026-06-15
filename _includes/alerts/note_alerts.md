@@ -45,3 +45,15 @@ You can add up to 350 subscription groups per workspace.
 {% endalert %}
 
 {% endif %}
+
+{% if include.alert == 'GIF platform support' %}
+
+{% alert note %}
+GIFs are not supported in Android push notifications. This is an Android platform limitation, not a Braze limitation.
+<br><br>
+- For in-app messages and Content Cards on Android, you can support GIFs by integrating a third-party image library, such as [Glide](https://bumptech.github.io/glide/) or [Fresco](https://frescolib.org/). 
+<br>
+- On iOS, push notifications support GIFs. In-app messages and Content Cards require a custom GIF image provider.
+{% endalert %}
+
+{% endif %}

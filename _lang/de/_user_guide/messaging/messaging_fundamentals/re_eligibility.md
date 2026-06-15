@@ -22,7 +22,7 @@ Standardmäßig sendet Braze eine Nachricht nur einmal an eine:n Nutzer:in, selb
 
 {% tabs local %}
 {% tab campaign %}
-Um die erneute Berechtigung für eine Campaign zu aktivieren, wählen Sie das Kontrollkästchen **Allow users to become re-eligible to receive campaign** im Abschnitt **Delivery Controls** aus. Die maximale Zeit für die erneute Berechtigung einer Campaign beträgt 720 Tage.
+Um die erneute Berechtigung für eine Campaign zu aktivieren, wählen Sie das Kontrollkästchen **Allow users to become re-eligible to receive campaign** im Abschnitt **Zustellungs-Kontrollgruppen** aus. Die maximale Zeit für die erneute Berechtigung einer Campaign beträgt 720 Tage.
 
 Bei getriggerten Campaigns mit aktivierter erneuter Berechtigung qualifizieren sich Nutzer:innen, die [die Campaign-Nachricht nicht tatsächlich erhalten haben]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (obwohl sie das Trigger-Ereignis ausgelöst haben), automatisch für die Nachricht beim nächsten Mal, wenn sie das Trigger-Ereignis auslösen. Dies liegt daran, dass die erneute Berechtigung auf dem Nachrichtenempfang basiert und nicht auf dem Campaign-Eintritt. Indem Sie Nutzer:innen für eine getriggerte Campaign erneut berechtigen, ermöglichen Sie ihnen, die Nachricht tatsächlich zu erhalten (und nicht nur zu triggern) – und zwar mehr als einmal.
 
@@ -32,7 +32,7 @@ Bei getriggerten Campaigns mit aktivierter erneuter Berechtigung qualifizieren s
 
 Wenn Sie außerdem versuchen, eine Nachricht sofort mit einer erneuten Berechtigung von null Minuten zu senden, wird Braze immer versuchen, sie sofort zu planen – unabhängig davon, wie eine:r Nutzer:in frühere Versionen der Campaign oder des Canvas erhalten hat.
 
-#### Erneute Berechtigung bei API-getriggerten Campaigns {#re-eligibility-with-api-triggered-campaigns}
+### Erneute Berechtigung bei API-getriggerten Campaigns {#re-eligibility-with-api-triggered-campaigns}
 
 Die Anzahl der Male, die eine:r Nutzer:in eine API-getriggerte Campaign erhält, kann mithilfe der Einstellungen für die erneute Berechtigung begrenzt werden. Das bedeutet, dass die/der Nutzer:in die Campaign nur einmal oder einmal innerhalb eines bestimmten Zeitfensters erhält, unabhängig davon, wie oft der API-Trigger ausgelöst wird.
 
@@ -73,6 +73,10 @@ Betrachten Sie das folgende Szenario:
 * Zwischen dem 15. Februar und dem 15. März liegen weniger als 30 Tage.
 
 Das bedeutet, dass Nutzer:innen, die die Campaign am 15. Februar erhalten haben, für den Versand am 15. März nicht berechtigt sind. (Eine:r Nutzer:in kann aufgrund gemeinsamer Kanalkennungen als „erhalten“ markiert werden – zum Beispiel, wenn sie/er eine E-Mail-Adresse oder Telefonnummer mit jemandem teilt, der die Nachricht erhalten, geöffnet oder angeklickt hat.) Wenn die Campaign so eingestellt ist, dass sie täglich um 8:00 Uhr mit einer erneuten Berechtigung von 1 Tag gesendet wird, und es eine Latenz beim Senden der Nachricht gibt, sind Nutzer:innen, die die Campaign um 8:30 Uhr erhalten haben, am folgenden Tag um 8:00 Uhr noch nicht erneut berechtigt.
+
+## Erneute Berechtigung für Content Cards {#re-eligibility-for-content-cards}
+
+Wenn die erneute Berechtigung für Content-Card-Kampagnen oder Canvas-Schritte aktiviert ist, kann eine:r Nutzer:in eine weitere Card erhalten, während eine frühere Card derselben Campaign noch in ihrem/seinem Feed vorhanden ist, was wie doppelte Cards aussehen kann. Um Duplikate zu reduzieren, deaktivieren Sie die erneute Berechtigung oder verlängern Sie das Zeitfenster für die erneute Berechtigung, sodass die erste Card [aus dem Feed abläuft]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility), bevor die/der Nutzer:in sich für einen weiteren Versand qualifiziert.
 
 ## Multivariates Testen {#multivariate-testing}
 

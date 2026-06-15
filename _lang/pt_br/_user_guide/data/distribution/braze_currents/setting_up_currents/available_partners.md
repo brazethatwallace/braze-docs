@@ -49,4 +49,4 @@ Esses parceiros são especializados em análise de dados de produto e business i
 
 Crie sua própria integração personalizada transmitindo dados de eventos do Currents diretamente para um endpoint HTTP que você possui e opera.
 
-* [Custom HTTP Connector]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
+* [Conector HTTP personalizado]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)

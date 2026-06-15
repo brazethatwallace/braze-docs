@@ -29,7 +29,7 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
+1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
 2. **Email**を選択するか、複数チャネルを対象とするCampaignの場合は**Multichannel**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
@@ -112,7 +112,7 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 `#ffffff`を目的の色に置き換えてください。
 
 {% alert note %}
-このアプローチは`<table>`要素単体には確実に適用されないため、テーブルだけでなくセルにグラデーションを設定してください。
+このアプローチは`<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`要素単体には確実に適用されないため、テーブルだけでなくセルにグラデーションを設定してください。
   <caption>Gmailモバイルアプリとダークモード</caption>
 {% endalert %}
 
@@ -137,6 +137,16 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 
 メールヘッダーやメールエクストラのパーソナライゼーションを追加して、他のメールサービスプロバイダーに追加データを送信することもできます。
 
+##### メールの添付ファイル {#email-attachments}
+
+以下の方法でメールに添付ファイルを追加することもできます。
+
+- **ファイルをアップロード：** コンピューターからファイルをドラッグ＆ドロップするか、参照して直接アップロードします。Brazeはアップロード前にファイルの種類とサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
+- **メディアライブラリを使用：** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Word文書、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **URLから追加：** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていません。
+
+具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
 ##### メールヘッダー {#email-headers}
 
 メールヘッダーを追加するには、**Add New Header**を選択します。メールヘッダーには、送信されるメールに関する情報が含まれています。これらの[キーと値のペア]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)には、通常、送信者、受信者、認証プロトコル、ルーティング情報が含まれます。Brazeは、メールが受信トレイプロバイダーに到達するために必要なRFC準拠のヘッダー情報を自動的に追加します。
@@ -152,7 +162,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="メールヘッダー" id="reserved-fields">
   <caption>メールヘッダー</caption>
 <thead>
   <tr>
@@ -231,6 +241,10 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 ```
 
 ドラッグ＆ドロップエディターの場合は、**送信設定**セクションのプリヘッダーに`<div>`フォーマットなしでゼロ幅非結合子（`&zwnj;`）のみを直接追加してください。
+{% endalert %}
+
+{% alert note %}
+Apple Mailアプリでは、HTMLメール内の画像リンクがクリック可能であるためには`https://` URLを使用する必要があります。Apple Mailの受信者からのクリックが想定される場合は、アンカータグで囲まれた画像にセキュアリンクを使用してください。
 {% endalert %}
 
 ### ステップ 3.3: メールエラーを確認する {#step-33-check-for-email-errors}

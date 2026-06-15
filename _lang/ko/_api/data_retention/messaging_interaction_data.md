@@ -9,7 +9,7 @@ page_type: reference
 
 # 메시징 상호작용 데이터 가용성 정보 {#about-messaging-interaction-data-availability}
 
-> 이 문서에서는 Campaign 및 Canvas 상호작용 데이터와 그 가용성에 대한 정보를 다룹니다.
+> Campaign 및 Canvases의 메시징 상호작용 데이터에 대해 알아보세요. Braze가 이 데이터를 얼마나 오래 보관하는지, 그리고 리타겟팅에 어떤 기능이 이 데이터를 사용하는지 확인할 수 있습니다.
 
 ### 메시징 상호작용 데이터란 무엇인가요? {#what-is-messaging-interaction-data}
 
@@ -67,7 +67,7 @@ page_type: reference
 - 데이터 포인트
 - 다음 리타겟팅 필터:
     - Clicked Alias in Any Campaign or Canvas Step
-    - 기능 플래그
+    - Feature Flags
     - Hard Bounced
     - Has Marked You As Spam
     - Has Never Received a Message from Campaign or Canvas Step

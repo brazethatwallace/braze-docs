@@ -45,10 +45,6 @@ Além disso, se um evento personalizado bloqueado estiver sendo referenciado por
 
 Para mais detalhes sobre bloqueio e exclusão de dados personalizados, consulte [Bloquear dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marcando como informação pessoal identificável (IPI) {#marking-as-personally-identifiable-information-pii}
-
-Administradores também podem criar eventos personalizados e marcá-los como IPI nesta página. Esses eventos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
-
 ### Adicionando descrições {#adding-descriptions}
 
 Você pode adicionar uma descrição a um evento personalizado após sua criação se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecione **Editar descrição** para o evento personalizado e insira o que desejar, como uma nota para sua equipe.
@@ -60,6 +56,10 @@ Você pode adicionar tags a um evento personalizado após sua criação se tiver
 ### Exportando dados {#exporting-data}
 
 Para exportar a lista de eventos personalizados como um arquivo CSV, selecione **Exportar tudo** no topo da página. O arquivo CSV será gerado e um link para baixar será enviado por e-mail para você.
+
+{% alert note %}
+Não há um limite fixo no dashboard para a quantidade de **eventos personalizados** ou **atributos personalizados** distintos que você pode definir ou armazenar em um perfil; os limites práticos dependem do formato dos dados, do volume de ingestão e do desempenho do espaço de trabalho. Se você planeja rastrear um catálogo muito grande de eventos ou atributos, trabalhe com a equipe de conta da Braze para modelagem e higienização (por exemplo, [bloqueio]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) de dados não utilizados).
+{% endalert %}
 
 ## Visualizando relatórios de uso {#viewing-usage-reports}
 

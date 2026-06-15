@@ -201,7 +201,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Response details
 
-Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 If your request encounters a fatal error, refer to [Errors and responses]({{site.baseurl}}/api/errors/#fatal-errors) for the error code and description.
 

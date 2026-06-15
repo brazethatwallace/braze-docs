@@ -427,6 +427,14 @@ Si vous avez utilisé la [validation du fichier](#file-validation), commencez pa
 
 Pour la résolution des problèmes d'importation CSV, consultez les problèmes courants ci-dessous.
 
+### Utiliser un e-mail comme `external_id` {#use-email-as-external_id}
+
+Braze ne recommande pas d'utiliser une adresse e-mail comme `external_id`. Si vous utilisez un e-mail comme `external_id`, incluez les colonnes `external_id` et `email` dans votre CSV afin que les utilisateurs restent ciblables sur le canal e-mail. Utilisez une virgule (`,`) comme délimiteur de colonne, et non un deux-points (`:`).
+
+### Caractères de guillemets dans les valeurs `external_id` {#quote-characters-in-external_id-values}
+
+Si une cellule `external_id` contient un guillemet double, échappez-le en doublant le caractère (`""`), comme décrit dans [Guillemets doubles non échappés ou déséquilibrés](#missing-row). L'importation CSV n'utilise pas l'échappement par barre oblique inverse.
+
 ### L'importation CSV n'est pas disponible comme filtre de segment {#csv-import-isnt-available-as-a-segment-filter}
 
 Vous ne pouvez utiliser une importation CSV comme filtre de segment que si vous avez activé une préférence de ciblage lors du téléversement.
@@ -448,7 +456,9 @@ Si votre objectif est de créer un segment sans mettre à jour les données de p
 
 Si votre téléversement s'est terminé avec des erreurs, il peut y avoir une ligne mal formée dans votre fichier CSV.
 
-Pour importer correctement les données, il doit y avoir une ligne d'en-tête. Chaque ligne doit avoir le même nombre de cellules que la ligne d'en-tête. Les lignes ayant plus ou moins de valeurs que la ligne d'en-tête seront exclues de l'importation. Les virgules dans une valeur seront interprétées comme un séparateur et peuvent provoquer cette erreur. De plus, toutes les données doivent être encodées en UTF-8.
+Pour importer correctement les données, il doit y avoir une ligne d'en-tête. Chaque ligne doit avoir le même nombre de cellules que la ligne d'en-tête. Les lignes ayant plus ou moins de valeurs que la ligne d'en-tête seront exclues de l'importation. Les virgules dans une valeur seront interprétées comme un séparateur et peuvent provoquer cette erreur.
+
+De plus, toutes les données doivent être encodées en UTF-8. Si le fichier est enregistré avec un encodage hérité (par exemple, certains paramètres par défaut d'Excel), les caractères spéciaux et les URL dans les cellules peuvent être corrompus et apparaître sous forme de points d'interrogation (`?`) dans Braze ou dans les messages envoyés.
 
 Si votre fichier CSV contient des lignes vides et importe moins de lignes que le nombre total de lignes dans le fichier CSV, cela peut ne pas indiquer un problème avec l'importation puisque les lignes vides n'ont pas besoin d'être importées. Vérifiez le nombre de lignes correctement importées et assurez-vous qu'il correspond au nombre d'utilisateurs que vous essayez d'importer.
 

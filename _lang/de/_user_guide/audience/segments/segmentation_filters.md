@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: "Ermöglicht es Ihnen, überall dort, wo Filter verwendet werden (z. B. in Segments, Campaigns und anderen), nach Segment-Zugehörigkeit zu filtern und mehrere verschiedene Segments innerhalb einer Campaign anzusprechen. <br><br>Beachten Sie, dass Segments, die diesen Filter bereits verwenden, nicht weiter in andere Segments eingeschlossen oder verschachtelt werden können, da dies einen Zyklus erzeugen könnte, bei dem Segment A Segment B einschließt, das dann wiederum versucht, Segment A einzuschließen. In diesem Fall würde das Segment sich ständig selbst referenzieren, sodass es unmöglich wäre zu berechnen, wer tatsächlich dazugehört. Außerdem erhöht eine solche Verschachtelung die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu."
+    description: "Ermöglicht es Ihnen, überall dort, wo Filter verwendet werden (z. B. in Segmenten, Kampagnen und anderen), nach Segment-Zugehörigkeit zu filtern und mehrere verschiedene Segmente innerhalb einer Kampagne anzusprechen. <br><br>Um die Segment-Zugehörigkeit zu einem bestimmten Zeitpunkt festzuhalten, exportieren Sie Nutzer:innen aus dem Segment im Dashboard oder rufen Sie den Endpunkt <a href=\"{{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/\"><code>/users/export/segment</code></a> auf, bevor Sie eine Kampagne oder ein Canvas senden. Weitere Informationen finden Sie unter <a href=\"{{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/\">Segmentdaten als CSV exportieren</a>.<br><br>Beachten Sie, dass Segmente, die diesen Filter bereits verwenden, nicht weiter in andere Segmente eingeschlossen oder verschachtelt werden können, da dies einen Zyklus erzeugen könnte, bei dem Segment A Segment B einschließt, das dann wiederum versucht, Segment A einzuschließen. In diesem Fall würde das Segment sich ständig selbst referenzieren, sodass es unmöglich wäre zu berechnen, wer tatsächlich dazugehört. Außerdem erhöht eine solche Verschachtelung die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu."
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -89,15 +89,15 @@ glossaries:
     tags:
       - Custom events
   - name: Email Address
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand einzelner E-Mail-Adressen für Tests zu bestimmen. Dies kann auch verwendet werden, um Transaktions-E-Mails an alle Ihre Nutzer:innen (einschließlich abgemeldeter) zu senden, indem Sie den Spezifizierer „E-Mail-Adresse ist nicht leer“ im Filter verwenden, sodass Sie die Zustellung von E-Mails unabhängig vom Opt-in-Status maximieren können. <br><br>Dieser Filter prüft nur, ob Nutzerprofile eine E-Mail-Adresse haben, während der Filter <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-available\">E-Mail verfügbar</a> zusätzliche Kriterien prüft."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand einzelner E-Mail-Adressen für Tests zu bestimmen. Dies kann auch verwendet werden, um Transaktions-E-Mails an alle Ihre Nutzer:innen (einschließlich abgemeldeter) zu senden, indem Sie den Spezifizierer „E-Mail-Adresse ist nicht leer“ im Filter verwenden, sodass Sie die Zustellung von E-Mails unabhängig vom Opt-in-Status maximieren können. <br><br>Dieser Filter prüft nur, ob Nutzerprofile eine E-Mail-Adresse haben, während der Filter <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-available\">E-Mail verfügbar</a> zusätzliche Kriterien prüft."
     tags:
       - Other Filters
   - name: External User ID
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand einzelner Nutzer-IDs für Tests zu bestimmen."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand einzelner Nutzer-IDs für Tests zu bestimmen."
     tags:
       - Other Filters
   - name: "Random Bucket #"
-    description: "Segmentiert Ihre Nutzer:innen anhand einer zufällig zugewiesenen Nummer (0 bis 9999 einschließlich). Ermöglicht die Erstellung gleichmäßig verteilter Segments aus wirklich zufälligen Nutzer:innen für A/B- und multivariate Tests."
+    description: "Segmentiert Ihre Nutzer:innen anhand einer zufällig zugewiesenen Nummer (0 bis 9999 einschließlich). Ermöglicht die Erstellung gleichmäßig verteilter Segmente aus wirklich zufälligen Nutzer:innen für A/B- und multivariate Tests."
     tags:
       - Other Filters
   - name: Session Count
@@ -137,7 +137,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Received Campaign Variant
-    description: "Segmentiert Ihre Nutzer:innen danach, welche Variante einer multivariaten Campaign sie erhalten haben.<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
+    description: "Segmentiert Ihre Nutzer:innen danach, welche Variante einer multivariaten Kampagne sie erhalten haben.<br><br>Dieser Filter gilt für multivariate und multivariate Quick-Push-Kampagnen. API-Kampagnen, standardmäßige Multichannel-Kampagnen und Feature-Flag-Experiment-Kampagnen erscheinen nicht in der Kampagnenauswahl. Reine Webhook-Kampagnen erscheinen nicht in der Kampagnenauswahl.<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Kampagne nicht direkt erhalten hat."
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
@@ -145,23 +145,23 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Canvas-Komponente erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde. Verwenden Sie „Canvas-Variante betreten“, um Nutzerprofile von Duplikaten zu isolieren.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Canvas-Komponenten erhalten haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Canvas-Komponente erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde. Verwenden Sie „Entered Canvas Variation“, um Nutzerprofile von Duplikaten zu isolieren.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Canvas-Komponenten erhalten haben."
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Campaigns erhalten haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Kampagne erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen erhalten haben."
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben.<br><br> Für Content Cards, Banner (nur Campaigns) und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Kampagne oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben.<br><br> Für Content Cards, Banner (nur Campaigns) und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
-    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Campaign oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Campaigns oder Canvases erhalten haben. (24-Stunden-Zeitraum)"
+    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Kampagne oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Kampagnen oder Canvases erhalten haben. (24-Stunden-Zeitraum)"
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie jemals eine Campaign oder Canvas-Komponente erhalten haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie jemals eine Kampagne oder Canvas-Komponente erhalten haben."
     tags:
       - Retargeting
   - name: Last Received Email
@@ -193,19 +193,19 @@ glossaries:
     tags:
       - Devices
   - name: Clicked/Opened Campaign
-    description: "Filtert nach Interaktion mit einer bestimmten Campaign. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br> Für E-Mails gibt es auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Klicks auf Abmeldelinks und Präferenzzentren werden bei diesem Filter nicht berücksichtigt. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Campaign ausgewählt."
+    description: "Filtert nach Interaktion mit einer bestimmten Kampagne. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br> Für E-Mails gibt es auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Klicks auf Abmeldelinks und Präferenzzentren werden bei diesem Filter nicht berücksichtigt. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Kampagne aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Kampagne muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Kampagne ausgewählt."
     tags:
       - Retargeting
   - name: Clicked/Opened Campaign or Canvas With Tag
-    description: "Filtert nach Interaktion mit einer bestimmten Campaign, die einen bestimmten Tag hat. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br> Für E-Mails gibt es die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Campaign oder einem Canvas-Schritt mit Tag ausgewählt."
+    description: "Filtert nach Interaktion mit einer bestimmten Kampagne, die einen bestimmten Tag hat. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br> Für E-Mails gibt es die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Kampagne aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Kampagne muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Kampagne oder einem Canvas-Schritt mit Tag ausgewählt."
     tags:
       - Retargeting
   - name: Clicked/Opened Step
-    description: "Filtert nach Interaktion mit einer bestimmten Canvas-Komponente. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br>Für E-Mails gibt es die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein. <br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einem bestimmten Canvas-Schritt ausgewählt."
+    description: "Filtert nach Interaktion mit einer bestimmten Canvas-Komponente. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br>Für E-Mails gibt es die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Kampagne aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Kampagne muss in den letzten vier Stunden empfangen worden sein. <br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einem bestimmten Canvas-Schritt ausgewählt."
     tags:
       - Retargeting
   - name: Clicked Alias in Campaign
-    description: "Filtert Ihre Nutzer:innen danach, ob sie einen bestimmten Alias in einer bestimmten Campaign angeklickt haben. Dies gilt nur für E-Mail-Nachrichten. <br><br> Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet."
+    description: "Filtert Ihre Nutzer:innen danach, ob sie einen bestimmten Alias in einer bestimmten Kampagne angeklickt haben. Dies gilt nur für E-Mail-Nachrichten. <br><br> Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet."
     tags:
       - Retargeting
   - name: Clicked Alias in Canvas Step
@@ -213,11 +213,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Clicked Alias in Any Campaign or Canvas Step
-    description: "Filtert Ihre Nutzer:innen danach, ob sie einen bestimmten Alias in einer beliebigen Campaign oder einem Canvas angeklickt haben. Dies gilt nur für E-Mail-Nachrichten. <br><br> Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet."
+    description: "Filtert Ihre Nutzer:innen danach, ob sie einen bestimmten Alias in einer beliebigen Kampagne oder einem Canvas angeklickt haben. Dies gilt nur für E-Mail-Nachrichten. <br><br> Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet."
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: "Segmentiert Ihre Nutzer:innen danach, ob ihre E-Mail-Adresse einen Hard Bounce verursacht hat (z. B. die E-Mail-Adresse ist ungültig)."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob ihre E-Mail-Adresse einen Hard Bounce verursacht hat (z. B. die E-Mail-Adresse ist ungültig). Um Nutzer:innen mit ungültigen E-Mails zu exportieren, rufen Sie den Endpunkt <a href=\"{{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/\"><code>/email/hard_bounces</code></a> auf oder erstellen Sie ein Segment mit Filtern wie „E-Mail-Adresse ist nicht leer“, „E-Mail ist nicht verfügbar“ und „E-Mail-Abo-Status ist nicht abgemeldet“."
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -237,7 +237,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Converted From Campaign
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie bei einer bestimmten Campaign konvertiert haben. Dieser Filter schließt Nutzer:innen in der Kontrollgruppe nicht ein."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie bei einer bestimmten Kampagne konvertiert haben. Dieser Filter schließt Nutzer:innen in der Kontrollgruppe nicht ein."
     tags:
       - Retargeting
   - name: Converted From Canvas
@@ -245,7 +245,7 @@ glossaries:
     tags:
       - Retargeting
   - name: In Campaign Control Group
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie in der Kontrollgruppe einer bestimmten multivariaten Campaign waren."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie in der Kontrollgruppe einer bestimmten multivariaten Kampagne waren."
     tags:
       - Retargeting
   - name: In Canvas Control Group
@@ -253,7 +253,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Enrolled in Any Control Group
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie in die Kontrollgruppe einer Campaign aufgenommen wurden. <br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie in die Kontrollgruppe einer Kampagne aufgenommen wurden. <br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -269,7 +269,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Clicked card
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Content Card angeklickt haben. Dieser Filter ist als Unterfilter von „Campaign angeklickt/geöffnet“, „Campaign oder Canvas mit Tag angeklickt/geöffnet“ und „Schritt angeklickt/geöffnet“ verfügbar."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Content Card angeklickt haben. Dieser Filter ist als Unterfilter von „Kampagne angeklickt/geöffnet“, „Kampagne oder Canvas mit Tag angeklickt/geöffnet“ und „Schritt angeklickt/geöffnet“ verfügbar."
     tags:
       - Retargeting
   - name: Feature Flags
@@ -281,7 +281,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Available
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine gültige E-Mail-Adresse haben und ob sie E-Mails abonniert haben oder dafür angemeldet sind. Dieser Filter prüft drei Kriterien&#58; ob der/die Nutzer:in E-Mails abbestellt hat, ob Braze einen Hard Bounce erhalten hat und ob die E-Mail als Spam markiert wurde. Wenn eines dieser Kriterien erfüllt ist oder keine E-Mail für eine:n Nutzer:in existiert, wird der/die Nutzer:in nicht eingeschlossen.<br><br>Nutzer:innen, deren E-Mail-Verfügbarkeit <code>false</code> ist, werden aus der Campaign-Zielgruppe ausgeschlossen und erhalten die E-Mail nicht – selbst wenn Ihre Sendeeinstellungen so konfiguriert sind, dass an alle Nutzer:innen (einschließlich abgemeldeter) gesendet wird.<br><br>Für E-Mails, bei denen der Opt-in-Status relevant ist, verwenden Sie „E-Mail verfügbar“ anstelle von <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-address\">E-Mail-Adresse</a>. Die zusätzlichen Kriterien helfen Ihnen, Nutzer:innen anzusprechen, die berechtigt sind, E-Mails zu empfangen."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine gültige E-Mail-Adresse haben und ob sie E-Mails abonniert haben oder dafür angemeldet sind. Dieser Filter prüft drei Kriterien&#58; ob der/die Nutzer:in E-Mails abbestellt hat, ob Braze einen Hard Bounce erhalten hat und ob die E-Mail als Spam markiert wurde. Wenn eines dieser Kriterien erfüllt ist oder keine E-Mail für eine:n Nutzer:in existiert, wird der/die Nutzer:in nicht eingeschlossen.<br><br>Nutzer:innen, deren E-Mail-Verfügbarkeit <code>false</code> ist, werden aus der Kampagnenzielgruppe ausgeschlossen und erhalten die E-Mail nicht – selbst wenn Ihre Sendeeinstellungen so konfiguriert sind, dass an alle Nutzer:innen (einschließlich abgemeldeter) gesendet wird.<br><br>Für E-Mails, bei denen der Opt-in-Status relevant ist, verwenden Sie „E-Mail verfügbar“ anstelle von <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-address\">E-Mail-Adresse</a>. Die zusätzlichen Kriterien helfen Ihnen, Nutzer:innen anzusprechen, die berechtigt sind, E-Mails zu empfangen."
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie Ihre App deinstalliert und nicht erneut installiert haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie derzeit im Backend als deinstalliert markiert sind. Nutzer:innen, die die App deinstalliert und später erneut installiert haben, sind nicht enthalten. Dieser Filter spiegelt den aktuellen Deinstallationsstatus wider, nicht ein historisches Protokoll jedes Deinstallations-Events."
     tags:
       - Uninstall
   - name: Device Carrier
@@ -493,11 +493,11 @@ glossaries:
     tags:
       - Devices
   - name: Device IDFA
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand der IDFA für Tests zu bestimmen."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand der IDFA für Tests zu bestimmen."
     tags:
       - Advertising use cases
   - name: Device IDFV
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand der IDFV für Tests zu bestimmen."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand der IDFV für Tests zu bestimmen."
     tags:
       - Advertising use cases
   - name: Device Google Ad ID

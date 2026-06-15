@@ -17,8 +17,6 @@ description: "この記事では、「メールテンプレートのすべての
 
 > このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)のすべての翻訳とロケールを表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、`templates.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。

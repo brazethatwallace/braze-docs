@@ -17,8 +17,6 @@ description: "Cet article présente les détails de l'endpoint Afficher toutes l
 
 > Utilisez cet endpoint pour afficher toutes les traductions d'un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `content_blocks.translations.get`.

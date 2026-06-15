@@ -30,7 +30,7 @@ Beachten Sie außerdem die folgenden plattformspezifischen Details:
 |----------|----------------------|
 | **Android 12 und früher** | Die Implementierung von Push-Primern wird nicht empfohlen, da Push standardmäßig aktiviert ist. |
 | **Android 13+** | Wenn Nutzer:innen Ihre Push-Berechtigungsanfrage zweimal ablehnen, blockiert Android weitere Anfragen – einschließlich Braze-Push-Primer-Nachrichten. Um danach die Berechtigung zu erteilen, müssen Nutzer:innen Push für Ihre App manuell in den Geräteeinstellungen aktivieren. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ Beachten Sie außerdem die folgenden plattformspezifischen Details:
 - Die Anfrage wird nicht angezeigt, wenn die Push-Einstellung der App explizit aktiviert oder deaktiviert ist. Sie wird nur für Nutzer:innen mit [vorläufiger Autorisierung](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375) angezeigt.
   - **Push-Einstellung der App ist aktiviert:** Braze zeigt die In-App-Nachricht nicht an, da die Nutzer:innen bereits ein Opt-in durchgeführt haben.
   - **Push-Einstellung der App ist deaktiviert:** Sie müssen die Nutzer:innen zu den Push-Benachrichtigungseinstellungen Ihrer App in den Geräteeinstellungen weiterleiten.
+- **Erneutes Testen nach Ablehnung:** Wenn Nutzer:innen die native Anfrage ablehnen, zeigt iOS sie für diese App-Installation nicht erneut an. Um den Push-Primer-Ablauf erneut zu testen, müssen Nutzer:innen die App in der Regel deinstallieren und neu installieren oder die Benachrichtigungsberechtigung für Ihre App in den **Einstellungen** ändern.
 
 ### Manuelle Code-Entfernung {#manual-code-removal}
 

@@ -15,6 +15,10 @@ toc_headers: h2
 
 Avec Braze Cloud Data Ingestion (CDI), vous configurez une intégration entre votre instance d'entrepôt de données et l'espace de travail Braze pour synchroniser les données de manière récurrente. Cette synchronisation se fait selon la planification que vous déterminez et chaque intégration peut disposer d'une planification différente. Les synchronisations peuvent avoir lieu d'une fois toutes les 15 minutes à une fois par mois. Si vous avez besoin que les synchronisations se produisent à une fréquence supérieure à 15 minutes, contactez votre gestionnaire de la satisfaction client ou envisagez d'utiliser les appels REST API pour l'ingestion de données en temps réel.
 
+{% alert note %}
+La fréquence de synchronisation dans le tableau de bord contrôle la fréquence à laquelle Braze exécute une synchronisation (par exemple, des options telles que toutes les heures ou des exécutions plus fréquentes au sein d'une heure). Elle ne définit pas un intervalle personnalisé supérieur à une heure entre les exécutions. Pour lancer une synchronisation en dehors de la cadence planifiée — par exemple à la demande après le chargement de votre entrepôt — utilisez l'endpoint [Déclencher une synchronisation]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) avec votre ID d'intégration.
+{% endalert %}
+
 Lorsqu'une synchronisation s'exécute, Braze se connecte directement à votre instance d'entrepôt de données, récupère toutes les nouvelles données de la table spécifiée et met à jour les données correspondantes sur votre tableau de bord de Braze. À chaque exécution de la synchronisation, toutes les données mises à jour sont reflétées dans Braze.
 
 ### Identifier votre ID d'intégration {#finding-your-integration-id}

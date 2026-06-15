@@ -158,7 +158,7 @@ Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlic
 
 ## Templates verwenden {#using-templates}
 
-Verwenden Sie Landing-Page-Templates, um Templates für Ihre nächsten Campaigns zu erstellen. Diese Templates können sowohl im Landing-Page-Editor als auch im Bereich **Templates** des Dashboards (**Templates** > **Landing Page Templates**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und optional eine Beschreibung.
+Verwenden Sie Landing-Page-Templates, um Templates für Ihre nächsten Campaigns zu erstellen. Diese Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing Page Templates** (**Content** > **Landing Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und optional eine Beschreibung.
 
 ## Templates verwalten {#managing-templates}
 

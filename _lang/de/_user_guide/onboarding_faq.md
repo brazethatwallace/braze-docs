@@ -84,7 +84,7 @@ Standardmäßig muss der Push-Abo-Status Ihrer Nutzer:innen entweder „abonnier
 | Abonniert | Standard-Push-Abo-Status, wenn ein Nutzerprofil in Braze erstellt wird. |
 | Eingewilligt | Eine Person hat ausdrücklich den Wunsch geäußert, Push-Benachrichtigungen zu erhalten. Braze ändert den Einwilligungsstatus automatisch auf `Opted-In`, wenn eine Person eine Push-Aufforderung auf Betriebssystemebene akzeptiert.<br><br>Dies gilt nicht für Nutzer:innen mit Android 12 oder darunter. |
 | Abgemeldet | Eine Person hat sich über Ihre Anwendung oder andere von Ihrer Marke angebotene Methoden explizit von Push abgemeldet. Standardmäßig richten sich Push-Campaigns von Braze nur an Nutzer:innen, die `Subscribed` oder `Opted-in` für Push sind. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Was ist der Unterschied zwischen den Push-Abo-Status?" }
 
 {% endapi %}
 {% api %}

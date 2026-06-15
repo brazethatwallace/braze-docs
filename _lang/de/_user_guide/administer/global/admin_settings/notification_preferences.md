@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel behandelt Ihre verfügbaren Optionen zur Ü
 
 > Wenn Sie das Messaging und die Aktivitäten in Ihrem Unternehmenskonto überwachen möchten, können Sie bestimmte Benachrichtigungen einrichten und festlegen, wohin diese gesendet werden sollen.
 
-Auf der Seite **Präferenzen für Benachrichtigungen** können Sie konfigurieren, wer (wenn überhaupt) Benachrichtigungen über Ihr Unternehmen erhält. Sie können festlegen, wer Benachrichtigungen über die Zustellung von Campaigns oder technische Fehler erhalten soll. Außerdem können Sie Empfänger:innen für den wöchentlichen Analytics-Bericht angeben. Für die meisten Benachrichtigungen unterstützt Braze E-Mail- und Webhook-Kanäle.
+Auf der Seite **Präferenzen für Benachrichtigungen** können Sie konfigurieren, wer (wenn überhaupt) Benachrichtigungen über Ihr Unternehmen erhält. Sie können festlegen, wer Benachrichtigungen über die Zustellung von Kampagnen oder technische Fehler erhalten soll. Außerdem können Sie Empfänger:innen für den wöchentlichen Analytics-Bericht angeben. Für die meisten Benachrichtigungen unterstützt Braze E-Mail- und Webhook-Kanäle.
 
 ![Seite „Präferenzen für Benachrichtigungen“ im Braze-Dashboard]({% image_buster /assets/img_archive/notification_preferences.png %})
 
@@ -26,11 +26,11 @@ Sie können auch eine Integration mit Slack einrichten, um Benachrichtigungen zu
 Die folgende Tabelle beschreibt die verfügbaren Benachrichtigungen und die Kanäle, über die sie zugestellt werden.
 
 {% alert note %}
-Wenn Sie den Standardwert **Empfänger:innen** von **Alle Dashboard-Nutzer:innen** löschen und ihn wieder hinzufügen möchten, können Sie ihn manuell in das Dropdown-Feld eingeben.
+Je nach Benachrichtigungstyp werden **All Dashboard Users** und **All Admins** möglicherweise nicht im Dropdown-Menü für Empfänger:innen angezeigt. Sie können sie manuell eingeben; die Empfängerwerte sind case-sensitive und müssen exakt übereinstimmen. Verwenden Sie bei Dashboards, die nicht auf Englisch lokalisiert sind, den exakten Empfänger-Tag, den Braze anzeigt, wenn Vorschläge für diese Benachrichtigung verfügbar sind, anstatt den Begriff selbst zu übersetzen.
 {% endalert %}
 
 | Benachrichtigung | Beschreibung | Verfügbare Benachrichtigungskanäle |
-|---|---|---|
+|--------------|-------------|-----------------|
 | API-Nutzungswarnungen | Wenn Sie diese Option auswählen, gelangen Sie zum **API-Nutzungs-Dashboard**, wo Sie dann zum Tab [**API-Nutzungswarnungen**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/) navigieren und Warnungen einrichten können, um wichtige API-Anfragevolumen zu überwachen. | E-Mail, Webhook |
 | AWS-Zugangsdaten-Fehler | Benachrichtigt Empfänger:innen, wenn Braze beim Versuch, Ihre Amazon-Web-Services-Zugangsdaten für einen Datenexport zu verwenden, einen Fehler erhält. Dies umfasst auch Zugangsdaten-Fehler-Benachrichtigungen für Google Cloud Storage und Azure (Microsoft Cloud Services). | E-Mail, Webhook |
 | Campaign automatisch gestoppt | Benachrichtigt Empfänger:innen, wenn Braze eine Campaign gestoppt hat. | E-Mail |
@@ -47,7 +47,7 @@ Wenn Sie den Standardwert **Empfänger:innen** von **Alle Dashboard-Nutzer:innen
 | Webhook-Fehler | Benachrichtigt Empfänger:innen, wenn ein Webhook-Endpunkt Fehler aufweist. | E-Mail |
 | Wöchentlicher Analytics-Bericht | Sendet jeden Montag eine Zusammenfassung der Workspace-Aktivitäten der vergangenen Woche an die Empfänger:innen. Empfänger:innen erhalten eine Zusammenfassung für jeden Workspace, dem sie angehören. | E-Mail |
 | Tägliche Canvas-/Campaign-Eingangsvolumenlimits | Sendet Benachrichtigungen jedes Mal, wenn ein Sendelimit erreicht wird. | E-Mail |
-| Agentenkonsole-Fehler | Benachrichtigt Empfänger:innen, wenn ein [Agentenkonsole-Agent]({{site.baseurl}}/user_guide/brazeai/agents/) sein Ausführungslimit mit der aktuellen Funktionalität erreicht hat oder wenn ein Agent Modelle verwendet, die nicht mehr verfügbar sind. | E-Mail |
+| Agentenkonsole-Fehler | Benachrichtigt Empfänger:innen, wenn ein [Agentenkonsole-Agent]({{site.baseurl}}/user_guide/brazeai/agents/) sein Ausführungslimit erreicht hat, ein Modell verwendet, das nicht mehr verfügbar ist, oder ein Abrechnungsfehler bei seinem LLM-Anbieter auftritt (nur bei Nutzung eines eigenen API-Schlüssels). | E-Mail |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Benachrichtigungen" }
 
 {% alert note %}

@@ -68,7 +68,7 @@ Für jede in der folgenden Tabelle aufgeführte Anfragekomponente müssen Sie ei
 | `attributes` | Optional | Ein Attribut-Objekt | Siehe [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Optional | Ein Event-Objekt | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Optional | Ein Kauf-Objekt | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Antworten {#responses}
 

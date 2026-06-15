@@ -22,7 +22,7 @@ You may only **edit** files inside these two directories:
 - `_includes/`
 
 You may **read** (but never edit) files under `.cursor/agents/` and
-`.cursor/rules/` when needed to follow this workflow.
+`.github/skills/` when needed to follow this workflow.
 
 You must never edit files outside `_docs/` and `_includes/`. In particular:
 - NEVER edit anything inside `_lang/` — those are translated files
@@ -130,7 +130,7 @@ than in the page file itself.
 
 ### 3. Verify against the source code
 
-Before making any edit, use `.cursor/rules/reference-repos.mdc` to
+Before making any edit, follow [`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md) to
 locate the relevant source code for the feature or behavior described
 in the ticket.
 
@@ -207,6 +207,10 @@ Base your work on `develop`. Your branch name must be `jira-<ticket_id>`
 
 Create the PR as a draft using:
 
+**PR title format:** `[<ticket_id>] - <descriptive title>` (for example,
+`[BD-1234] - Clarify segment export limits`). Put the ticket ID in
+brackets, then a space, a dash, a space, then the descriptive title.
+
 **Assign the PR to the Jira ticket assignee:**
 Look up the Jira ticket assignee's display name in
 `.cursor/agents/jira-github-users.yml`. Match the display name
@@ -219,7 +223,7 @@ section: "Could not map Jira assignee to a GitHub user for assignee —
 requested review from docs team (`gh pr edit --add-reviewer braze-inc/docs-team`)."
 
 gh pr create --draft --base develop \
-  --title "<ticket_id>: <short description of fix>" \
+  --title "[<ticket_id>] - <descriptive title>" \
   --body "<PR description>"
 
 **Request a GitHub review (after the PR exists):**

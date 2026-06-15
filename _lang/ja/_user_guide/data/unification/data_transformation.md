@@ -35,7 +35,7 @@ Webhookは、HTTP POSTリクエストを介して特定の宛先に送信され�
 例えば、調査プラットフォームは、オンラインフォームへのアンケート回答を受信するたびに、選択した宛先にWebhookを送信できます。また、カスタマーサービスプラットフォームは、カスタマーサービスチケットが作成されるたびに、選択した宛先にWebhookを送信できます。
 {% enddetails %}
 
-## Data Transformationのバージョン {#data-transformation-tiers}
+## Data Transformationのティア {#data-transformation-tiers}
 
 次の表で、Data Transformationの無料バージョンとプロバージョンの違いを説明します。
 
@@ -43,10 +43,10 @@ Webhookは、HTTP POSTリクエストを介して特定の宛先に送信され�
 |----|----|----|
 | アクティブ変換 | 1社につき最大5個 | 1社につき最大55個 |
 | 月あたり | 月間受信リクエスト30万件 | 月間受信リクエスト1,030万件 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data Transformationのティア" }
 
 {% alert important %}
-Data Transformation Proへのアップグレードをリクエストするには、Brazeアカウントマネージャーに問い合わせるか、Brazeダッシュボードの**[Request Upgrade]**ボタンを選択してください。
+Data Transformation Proへのアップグレードをリクエストするには、Brazeアカウントマネージャーに問い合わせるか、Brazeダッシュボードの**Request Upgrade**ボタンを選択してください。
 {% endalert %}
 
 ### レート制限 {#rate-limits}

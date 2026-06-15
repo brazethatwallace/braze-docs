@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personalizar uma mensagem com base em atributos personalizados correspondentes](#attribute-matching)
+- [Formatar moeda para convenções numéricas europeias](#european-currency-format)
 - [Subtrair dois atributos personalizados para exibir a diferença como valor monetário](#attribute-monetary-difference)
 - [Referenciar o primeiro nome de um usuário se o nome completo estiver armazenado no campo first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formatar moeda para convenções numéricas europeias {#european-currency-format}
+
+Para localidades que usam vírgula como separador decimal e ponto como separador de milhares (por exemplo, Alemanha ou Itália), use os filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) e [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) com `replace` para trocar os separadores. Use `#` como um espaço reservado temporário para que pontos e vírgulas não sejam trocados na mesma passagem.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Saída:** `1.234.567,89`
+
+**Explicação:** O filtro `money` adiciona casas decimais, mas não adiciona um símbolo de moeda ou separadores específicos de localidade. `number_with_delimiter` adiciona separadores de milhares no estilo americano, e os filtros `replace` os convertem para a formatação europeia.
 {% endraw %}
 
 ### Subtrair dois atributos personalizados para exibir a diferença como valor monetário {#attribute-monetary-difference}
@@ -1372,6 +1387,10 @@ Time zones
 - [Enviar mensagens diferentes com base no horário do dia no fuso horário local do usuário](#time-of-day)
 - [Cancelar uma mensagem fora de um intervalo de horas no momento do envio](#abort-send-time-hour-range)
 - [Cancelar uma mensagem fora de um período de tempo em um fuso horário fixo](#abort-fixed-timezone-window)
+
+{% alert note %}
+Se um usuário receber uma mensagem em um horário local inesperado, o fuso horário do dispositivo ou do perfil pode ter mudado (por exemplo, após uma viagem). A entrega por horário local usa o fuso horário do perfil no momento do envio; os usuários podem precisar de uma nova sessão na região habitual antes que valores como {% raw %}`{{${time_zone}}}`{% endraw %} reflitam o esperado. No entanto, você pode [inserir o fuso horário do usuário no modelo](#users-time-zone).
+{% endalert %}
 
 ### Inserir o fuso horário do usuário no modelo {#users-time-zone}
 

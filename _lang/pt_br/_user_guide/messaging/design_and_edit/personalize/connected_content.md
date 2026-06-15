@@ -16,20 +16,20 @@ guide_featured_list:
 - name: Variáveis locais de Conteúdo conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables
   image: /assets/img/braze_icons/server-01.svg
-- name: Armazenar respostas de Conteúdo conectado em cache
+- name: Respostas de Conteúdo conectado em cache
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses
   image: /assets/img/braze_icons/edit-05.svg
 - name: Cancelar Conteúdo conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content
   image: /assets/img/braze_icons/stop-circle.svg
-- name: Buscar dados do perfil de usuário
+- name: Puxar dados do perfil do usuário
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/user_profile_fields_connected_content
   image: /assets/img/braze_icons/users-01.svg
-- name: Tentativas de Conteúdo conectado
+- name: Novas tentativas de Conteúdo conectado
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Solucionar problemas de solicitações de Conteúdo conectado
-  link: /docs/help/help_articles/api/webhook_connected_content_errors/
+- name: Solucionar problemas de webhooks e Conteúdo conectado
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
 - name: Usar APIs públicas
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis

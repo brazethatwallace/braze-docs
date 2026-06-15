@@ -20,6 +20,8 @@ Antes de poder usar mensajes dentro de la aplicación en tu Canvas, asegúrate d
 
 En el constructor de Canvas, añade un paso de [Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) y selecciona **In-App Message** como tu **Messaging Channel**. Puedes personalizar [cuándo caducará tu mensaje](#in-app-message-expiration) y qué [comportamiento de avance](#advancement-behavior) tendrá.
 
+Si tu espacio de trabajo tiene múltiples aplicaciones, dirige la aplicación correcta usando **plataformas de entrega**, las etiquetas de Liquid {% raw %}`{{targeted_device.${platform}}}`{% endraw %} o {% raw %}`{{app.${api_id}}}`{% endraw %}, no validaciones de entrega. Los mensajes dentro de la aplicación se muestran solo cuando el usuario abre la aplicación objetivo y cumple los criterios de desencadenamiento del paso. Para más información, consulta [Validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations).
+
 ## Añadir un mensaje dentro de la aplicación a tu recorrido de usuario {#adding-an-in-app-message-to-your-user-journey}
 
 Para añadir un mensaje dentro de la aplicación a tu Canvas, haz lo siguiente:
@@ -48,6 +50,12 @@ Puedes elegir cuándo caducará el mensaje dentro de la aplicación. Durante est
 | **En una fecha y hora específicas** | Selecciona una fecha y hora específicas en las que el mensaje dentro de la aplicación dejará de estar disponible. | Si tienes una oferta que termina el 30 de noviembre de 2024, selecciona esta opción para que los usuarios ya no vean el mensaje dentro de la aplicación asociado cuando la oferta termine. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
+Cuando un usuario inicia una sesión, Braze comprueba si su elegibilidad o caducidad para los mensajes dentro de la aplicación ha cambiado y envía información de caducidad actualizada a su dispositivo.
+
+Si un mensaje dentro de la aplicación está configurado para caducar en una fecha y hora específicas que ya han pasado cuando el usuario llega al paso de Mensaje, ese usuario no recibe el mensaje dentro de la aplicación. Continuará a través del Canvas según tu [comportamiento de avance](#advancement-behavior) para ese paso.
+
+Esto sucede a menudo cuando un paso anterior, como un paso de [Retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), mantiene a los usuarios en un camino más largo. Por ejemplo, si lanzas un Canvas el 22 de mayo con un retraso de 72 horas seguido de un mensaje dentro de la aplicación que caduca el 23 de mayo a medianoche, los usuarios llegan al paso de Mensaje después del tiempo de caducidad y no ven el mensaje dentro de la aplicación.
+
 ## Casos de uso {#use-cases}
 
 Braze recomienda que consideres usar esta característica en tus Canvas promocionales y de incorporación.
@@ -63,7 +71,7 @@ Las promociones, cupones y ofertas suelen tener fechas de caducidad fijas. El si
 </style>
 
 <table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+  <caption>Casos de uso</caption>
 <thead>
   <tr>
     <th>Paso en Canvas</th>
@@ -114,7 +122,7 @@ Los mensajes dentro de la aplicación caducan cuando la promoción caduca para e
 Tu primera impresión con un usuario es, quizás, la más importante. Puede determinar las futuras visitas a tu aplicación. Tus comunicaciones iniciales con tu usuario deben estar bien programadas y fomentar visitas frecuentes a tu aplicación para promover el uso.
 
 <table aria-label="Use cases" class="tg">
-  <caption>Use cases</caption>
+  <caption>Casos de uso</caption>
 <thead>
   <tr>
     <th>Paso en Canvas</th>

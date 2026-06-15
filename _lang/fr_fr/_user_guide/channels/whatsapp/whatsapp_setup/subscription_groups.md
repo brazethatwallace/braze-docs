@@ -24,7 +24,7 @@ Il existe deux états d'abonnement pour les utilisateurs WhatsApp : `subscribed`
 | --- | --- |
 | Abonné | L'utilisateur a explicitement confirmé qu'il souhaite recevoir des messages WhatsApp d'une entreprise spécifique. Les utilisateurs peuvent être abonnés en mettant à jour leur état d'abonnement via l'API d'abonnement Braze ou en déployant une stratégie d'abonnement, conformément aux directives de WhatsApp. |
 | Désabonné | L'utilisateur n'a pas explicitement donné son consentement pour l'abonnement ou son statut d'abonnement a été explicitement supprimé. <br><br> Les utilisateurs désabonnés d'un groupe d'abonnement WhatsApp ne recevront plus aucun message WhatsApp provenant des numéros de téléphone d'envoi appartenant au groupe d'abonnement. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="États d'abonnement WhatsApp" }
 
 ### Configurer les groupes d'abonnement WhatsApp des utilisateurs {#setting-users-whatsapp-subscription-groups}
 
@@ -37,6 +37,18 @@ Il existe deux états d'abonnement pour les utilisateurs WhatsApp : `subscribed`
 - **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze depuis **Audience** > **Rechercher des utilisateurs**. Vous pouvez rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou ID utilisateur externe. Lorsque vous êtes dans un profil utilisateur, sous l'onglet **Engagement**, vous pouvez consulter le groupe d'abonnement WhatsApp d'un utilisateur et son statut.
 
 - **REST API :** Le groupe d'abonnement d'un profil utilisateur individuel peut être consulté via l'[endpoint Répertorier les Groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) ou l'[endpoint Afficher le statut du groupe d'abonnement des utilisateurs]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) en utilisant la REST API de Braze.
+
+## Archiver les groupes d'abonnement {#archive-subscription-groups}
+
+Si vous devez cesser d'utiliser un groupe d'abonnement WhatsApp, vous pouvez l'archiver pour le marquer comme inactif.
+
+L'archivage d'un groupe d'abonnement le marque comme inactif mais ne le supprime pas de votre espace de travail. Si vous devez supprimer entièrement un numéro de téléphone WhatsApp ou un groupe d'abonnement, vous devez d'abord archiver le groupe d'abonnement dans le gestionnaire de groupes d'abonnement avant de demander la suppression auprès de l'assistance Braze.
+
+Pour archiver un groupe d'abonnement :
+
+1. Accédez à **Audience** > **Gestion des groupes d'abonnement**.
+2. Trouvez le groupe d'abonnement WhatsApp que vous souhaitez archiver.
+3. Survolez le statut du groupe d'abonnement et sélectionnez <i class="fa-solid fa-box-archive"></i> **Archiver**.
 
 ## Processus d'abonnement et de désabonnement WhatsApp {#whatsapp-opt-in-and-opt-out-process}
 

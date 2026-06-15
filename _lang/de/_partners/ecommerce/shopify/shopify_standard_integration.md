@@ -15,12 +15,6 @@ page_order: 1
 ## 1. Schritt: Verbinden Sie Ihren Shopify-Shop {#step-1-connect-your-shopify-store}
 
 1. Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie dann nach „Shopify“.
-
-{% alert note %}
-Wenn Sie die ältere Navigation verwenden, finden Sie **Technologie-Partner** unter **Integrationen**.
-{% endalert %}
-
-{: start="2"}
 2. Wählen Sie auf der Shopify-Partnerseite **Begin setup**, um die Integration zu starten.<br><br>![Shopify-Integrationsseite mit Button, um mit der Einrichtung zu beginnen.]({% image_buster /assets/img/shopify/begin_setup.png %})<br><br>
 3. Installieren Sie im Shopify App Store die Braze-Anwendung.<br><br>![Die Braze-App-Store-Seite mit einem Button zur Installation der Anwendung.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
@@ -165,6 +159,16 @@ Nachdem Sie das Metafeld erstellt haben, füllen Sie es für Ihre Kund:innen aus
 - **Auf Webhooks zur Kund:innen-Erstellung lauschen:** Richten Sie einen Webhook ein, um auf [`customer/create`-Events](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks) zu lauschen. Damit können Sie das Metafeld schreiben, wenn eine neue Kund:in angelegt wird.
 - **Bestehende Kund:innen nachfüllen:** Verwenden Sie die [Admin API](https://shopify.dev/docs/api/admin-graphql) oder die [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer), um das Metafeld für zuvor erstellte Kund:innen zu füllen.
 
+#### Mögliche Race-Condition {#potential-race-condition}
+
+Der Shopify-Webhook `customers/create` kann ausgelöst werden, bevor das Metafeld `braze.external_id` in das Nutzerprofil geschrieben wurde. In diesem Fall:
+
+1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt (Schritt 4.2) auf, um die externe ID abzurufen.
+2. Wenn auch dieser Aufruf fehlschlägt oder ein Timeout auftritt, erstellt Braze ein temporäres Nutzerprofil mit der Shopify-Kund:innen-ID als externe ID.
+3. Bei jedem nachfolgenden Event, bei dem das Metafeld vorhanden ist (z. B. `customers/update` oder `orders/create` für ein `ecommerce.order_placed`-Event), erkennt Braze automatisch die Abweichung und führt das temporäre Profil mit der korrekten externen ID zusammen.
+
+Das bedeutet, dass temporäre doppelte Profile möglich sind, sich aber automatisch korrigieren. Sie müssen keine manuellen Maßnahmen ergreifen, um diese Profile zusammenzuführen.
+
 ### Schritt 4.2: Erstellen Sie einen Endpunkt zum Abrufen Ihrer externen ID {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der externen ID aufrufen kann. Dadurch kann Braze die ID in Szenarien abrufen, in denen Shopify das Metafeld `braze.external_id` nicht direkt bereitstellen kann.
@@ -238,7 +242,7 @@ Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchro
 
 ## 6. Schritt: Kanäle aktivieren (optional) {#step-6-activate-channels-optional}
 
-Sie können In-App-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
+Sie können In-Browser-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
 
 ![Einrichtungsschritt zur Aktivierung von Kanälen, wobei die verfügbare Option In-Browser-Messaging ist.]({% image_buster /assets/img/shopify/activate_channels_standard.png %})
 

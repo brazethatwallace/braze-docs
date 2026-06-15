@@ -71,6 +71,10 @@ Add a trigger or multiple triggers to define your action groups. Here, you can s
 - Trigger a geofence
 - Send an SMS or WhatsApp inbound message
 
+#### Add an email address trigger
+
+The **Add an Email Address** action group trigger fires when an email address is added or updated on a user profile during the action path's **Evaluation Window**. This behavior matches other profile update triggers: users advance through the action group when the profile change qualifies under your configuration, including any filters on the trigger.
+
 ![An action group named "Group 1" for users who make any purchase.]({% image_buster /assets/img/actionpath_group.png %})
 
 In each action group setting, you also have the option to select the checkbox **I want this group to exit the Canvas**, meaning that the users within this group exit the Canvas at the end of the evaluation period.

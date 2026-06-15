@@ -6,7 +6,7 @@ description: "이 참조 문서에서는 연결된 콘텐츠 API 호출 방법�
 search_rank: 2
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}연결된 콘텐츠 API 호출하기 {#make-a-connected-content-api-call}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}연결된 콘텐츠 API 호출하기 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
 
 > 연결된 콘텐츠를 사용하면 API로 접근 가능한 모든 정보를 사용자에게 보내는 메시지에 직접 삽입할 수 있습니다. 웹 서버에서 직접 또는 공개적으로 접근 가능한 API에서 콘텐츠를 가져올 수 있습니다.<br><br>이 페이지에서는 연결된 콘텐츠 API 호출 방법, 고급 연결된 콘텐츠 사용 사례, 오류 처리 등을 다룹니다.
 
@@ -28,7 +28,7 @@ Braze는 수신자당 동일한 연결된 콘텐츠 API 호출을 두 번 이상
 
 {% raw %}
 
-연결된 콘텐츠 호출을 보내려면 `{% connected_content %}` 태그를 사용합니다. 이 태그를 사용하면 `:save`를 사용하여 변수를 할당하거나 선언할 수 있습니다. 이러한 변수의 측면은 나중에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 사용하여 메시지에서 참조할 수 있습니다.
+연결된 콘텐츠 호출을 보내려면 `{% connected_content %}` 태그를 사용합니다. 이 태그를 사용하면 `:save`를 사용하여 변수를 할당하거나 선언할 수 있습니다. 이러한 변수의 측면은 나중에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)를 사용하여 메시지에서 참조할 수 있습니다.
 
 예를 들어, 다음 메시지 본문은 URL `http://numbersapi.com/random/trivia`에 접근하여 메시지에 재미있는 상식을 포함합니다:
 
@@ -37,7 +37,7 @@ Braze는 수신자당 동일한 연결된 콘텐츠 API 호출을 두 번 이상
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### 변수 추가하기
+### 변수 추가하기 {#adding-variables}
 
 연결된 콘텐츠 요청을 할 때 URL 문자열에 고객 프로필 속성을 변수로 포함할 수도 있습니다.
 
@@ -67,7 +67,7 @@ URL을 사용할 수 없어 404 페이지에 도달하면, Braze는 해당 위�
 
 대상 호스트가 높은 비율의 심각한 지연 또는 과부하를 경험하면, Braze는 대상 호스트에 대한 요청을 1분간 일시적으로 중단하고 대신 실패를 나타내는 응답을 시뮬레이션합니다. 1분 후, Braze는 소수의 요청으로 호스트의 상태를 확인하고 호스트가 정상인 것으로 확인되면 전체 속도로 요청을 재개합니다. 호스트가 여전히 비정상이면, Braze는 다시 시도하기 전에 1분 더 기다립니다.
 
-비정상 호스트 감지기에 의해 대상 호스트에 대한 요청이 중단되면, Braze는 오류 응답 코드를 받은 것처럼 메시지를 계속 렌더링하고 Liquid 로직을 따릅니다. 비정상 호스트 감지기에 의해 중단된 연결된 콘텐츠 요청이 재시도되도록 하려면 `:retry` 옵션을 사용하세요. `:retry` 옵션에 대한 자세한 내용은 [연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)를 참조하세요.
+비정상 호스트 감지기에 의해 대상 호스트에 대한 요청이 중단되면, Braze는 오류 응답 코드를 받은 것처럼 메시지를 계속 렌더링하고 Liquid 로직을 따릅니다. 비정상 호스트 감지기에 의해 중단된 연결된 콘텐츠 요청이 재시도되도록 하려면 `:retry` 옵션을 사용하세요. `:retry` 옵션에 대한 자세한 내용은 [연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)를 참조하세요.
 
 비정상 호스트 감지가 문제를 일으키고 있다고 생각되면, [Braze 고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
 
@@ -76,15 +76,15 @@ URL을 사용할 수 없어 404 페이지에 도달하면, Braze는 해당 위�
 {% endalert %}
 
 {% alert tip %}
-일반적인 오류 코드를 해결하는 방법에 대해 자세히 알아보려면 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection)을 참조하세요.
+일반적인 오류 코드에 대한 자세한 내용은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection)을 참조하세요.
 {% endalert %}
 
 ### 사용량 제한(429)과 비정상 호스트 감지 비교 {#rate-limits-429-versus-unhealthy-host-detection}
 
 다음은 서로 다른 메커니즘입니다:
 
-- **429 Too Many Requests:** 엔드포인트(또는 업스트림 서비스)가 이 응답을 반환하고 있습니다. 이는 서버 또는 미들웨어가 트래픽을 거부하고 있음을 의미하며, 종종 자체 사용량 제한이 있기 때문입니다. Braze는 연결된 콘텐츠에 별도의 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청 볼륨은 [메시지 전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)에 따라 직접 확장됩니다. 메시지는 수신자당 여러 번 렌더링될 수 있으므로(예: 이메일 HTML, 일반 텍스트, AMP), 연결된 콘텐츠 요청 수는 해당 사용량 제한을 초과할 수 있습니다. 설정한 분당 메시지 수 이하가 될 것이라고 가정하지 마세요. 429 오류가 발생하면, 예상 요청 볼륨을 처리할 수 있도록 엔드포인트 또는 미들웨어를 확장하거나, 캠페인 또는 캔버스 단계 사용량 제한을 낮추어 분당 더 적은 메시지(따라서 더 적은 연결된 콘텐츠 호출)가 발송되도록 하세요.
-- **비정상 호스트 감지:** 1분 기간 내에 높은 비율과 볼륨의 *실패*가 발생한 후 트리거되는 Braze 측 안전장치입니다. 실패 횟수에는 `408`, `429`, `502`, `503`, `504`, `529` 상태 코드가 포함됩니다. 트리거되면, Braze는 해당 호스트에 대한 요청을 일시적으로 중단하고 실패 응답을 시뮬레이션합니다. 이는 자체 사용량 제한과 독립적입니다. 감지 임계값 및 자세한 내용은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection)을 참조하세요. 비정상 호스트 감지에 걸리지 않으려면, [연결된 콘텐츠 호출 볼륨 이해하기](#understanding-connected-content-call-volume) 및 [대용량 엔드포인트 모범 사례](#best-practices-for-high-volume-endpoints)에 설명된 호출 볼륨을 엔드포인트가 처리할 수 있는지 확인하세요.
+- **429 Too Many Requests:** 엔드포인트(또는 업스트림 서비스)가 이 응답을 반환하고 있습니다. 이는 서버 또는 미들웨어가 트래픽을 거부하고 있음을 의미하며, 종종 자체 사용량 제한이 있기 때문입니다. Braze는 연결된 콘텐츠에 별도의 사용량 제한을 적용하지 않습니다. 연결된 콘텐츠 요청 볼륨은 [메시지 전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)에 따라 직접 확장됩니다. 메시지는 수신자당 여러 번 렌더링될 수 있으므로(예: 이메일 HTML, 일반 텍스트, AMP), 연결된 콘텐츠 요청 수는 해당 사용량 제한을 초과할 수 있습니다. 설정한 분당 메시지 수 이하가 될 것이라고 가정하지 마세요. 429 오류가 발생하면, 예상 요청 볼륨을 처리할 수 있도록 엔드포인트 또는 미들웨어를 확장하거나, Campaign 또는 캔버스 단계 사용량 제한을 낮추어 분당 더 적은 메시지(따라서 더 적은 연결된 콘텐츠 호출)가 발송되도록 하세요.
+- **비정상 호스트 감지:** 1분 기간 내에 높은 비율과 볼륨의 *실패*가 발생한 후 트리거되는 Braze 측 안전장치입니다. 실패 횟수에는 `408`, `429`, `502`, `503`, `504`, `529` 상태 코드가 포함됩니다. 트리거되면, Braze는 해당 호스트에 대한 요청을 일시적으로 중단하고 실패 응답을 시뮬레이션합니다. 이는 자체 사용량 제한과 독립적입니다. 감지 임계값 및 자세한 내용은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content/#unhealthy-host-detection)을 참조하세요. 비정상 호스트 감지에 걸리지 않으려면, [연결된 콘텐츠 호출 볼륨 이해하기](#understanding-connected-content-call-volume) 및 [대용량 엔드포인트 모범 사례](#best-practices-for-high-volume-endpoints)에 설명된 호출 볼륨을 엔드포인트가 처리할 수 있는지 확인하세요.
 
 ## 효율적인 성능을 위한 고려 사항 {#allowing-for-efficient-performance}
 
@@ -105,7 +105,7 @@ Braze는 매우 빠른 속도로 메시지를 전달하므로, 콘텐츠를 가�
 
 1. **최대 부하 추정:** 엔드포인트 또는 미들웨어 크기를 조정할 때 보수적인 배수를 사용하세요. 연결된 콘텐츠 요청은 수신자 수 또는 발송된 메시지 수를 초과할 수 있습니다. 예를 들어, 이메일의 경우 단일 수신자가 여러 호출(HTML, 일반 텍스트, AMP)을 생성할 수 있으므로, 수신자 × 2 또는 × 3이 보수적인 추정치로 자주 사용됩니다.
 2. **적절한 경우 캐싱 사용:** GET 요청은 기본적으로 캐시됩니다. POST 요청의 경우, 응답을 일정 기간 동안 재사용할 수 있을 때(예: 요청별로 변경되지 않는 토큰 또는 콘텐츠) `:cache_max_age`를 추가하세요. [응답 캐싱]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) 및 아래의 [POST 캐싱 FAQ](#what-is-caching-behavior)를 참조하세요.
-3. **전달 속도 사용량 제한 설정:** 캠페인 또는 캔버스 단계의 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)은 연결된 콘텐츠 요청 볼륨을 간접적으로 제한하는 유일한 수단입니다. Braze는 연결된 콘텐츠 자체에 사용량 제한을 적용하지 않습니다. 이는 프록시일 뿐이며 완벽하지 않습니다. 연결된 콘텐츠 요청은 메시지와 1:1이 아니기 때문입니다. 메시지(따라서 연결된 콘텐츠) 볼륨을 엔드포인트가 처리할 수 있는 범위 내로 유지하는 데 사용하세요.
+3. **전달 속도 사용량 제한 설정:** Campaign 또는 캔버스 단계의 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting)은 연결된 콘텐츠 요청 볼륨을 간접적으로 제한하는 유일한 수단입니다. Braze는 연결된 콘텐츠 자체에 사용량 제한을 적용하지 않습니다. 이는 프록시일 뿐이며 완벽하지 않습니다. 연결된 콘텐츠 요청은 메시지와 1:1이 아니기 때문입니다. 메시지(따라서 연결된 콘텐츠) 볼륨을 엔드포인트가 처리할 수 있는 범위 내로 유지하는 데 사용하세요.
 4. **멱등성 및 재시도를 위한 설계:** Braze는 수신자당 엔드포인트를 두 번 이상 호출할 수 있습니다. 엔드포인트가 잘못된 부작용 없이 중복 요청을 허용할 수 있는지 확인하세요.
 
 ## 인증 유형 {#authentication-types}
@@ -122,7 +122,7 @@ URL에 기본 인증이 필요한 경우, Braze는 API 호출에 사용할 기�
 
 자격 증명에 이름을 지정하고 사용자 이름과 비밀번호를 입력합니다.
 
-![이름, 사용자 이름, 비밀번호를 입력하는 옵션이 있는 "새 자격 증명 만들기" 창.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![이름, 사용자 이름, 비밀번호를 입력하는 옵션이 있는 "새 자격 증명 생성" 창.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 그런 다음 토큰 이름을 참조하여 API 호출에서 이 기본 인증 자격 증명을 사용할 수 있습니다:
 
@@ -236,12 +236,14 @@ Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 
 ## 문제 해결 {#troubleshooting}
 
-[Webhook.site](https://webhook.site/)를 사용하여 연결된 콘텐츠 호출을 문제 해결하세요.
+[Webhook.site](https://webhook.site/)를 사용하여 연결된 콘텐츠 호출을 문제 해결하고 호출에서 전송되는 요청 헤더, 요청 본문 및 기타 정보와 관련된 문제를 진단하세요.
 
 1. 연결된 콘텐츠 호출의 URL을 사이트에서 생성된 고유 URL로 전환합니다.
-2. 캠페인 또는 캔버스 단계를 미리보기 및 테스트하여 이 웹사이트로 들어오는 요청을 확인합니다.
+2. Campaign 또는 캔버스 단계를 미리보기 및 테스트하여 이 웹사이트로 들어오는 요청을 확인합니다.
 
-이 도구를 사용하면 호출에서 전송되는 요청 헤더, 요청 본문 및 기타 정보와 관련된 문제를 진단할 수 있습니다.
+Liquid 태그에 엔드포인트가 기대하는 매개변수(예: `:method`, `:headers`, `:content_type`, `:body`, 필요한 경우 `:basic_auth`)가 포함되어 있는지도 확인할 수 있습니다. 저장된 JSON 오브젝트의 HTTP 상태 코드 키에 의존하는 경우, 엔드포인트는 JSON 오브젝트와 `2XX` 상태를 반환해야 합니다.
+
+호스트에서 높은 오류율이 발생하는 경우, [비정상 호스트 감지]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) 및 [연결된 콘텐츠 호출 볼륨](#understanding-connected-content-call-volume)을 검토하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

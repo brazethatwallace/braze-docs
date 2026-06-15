@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "この記事では、「ユーザーの削除」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「ユーザーの削除」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
@@ -18,10 +18,10 @@ description: "この記事では、「ユーザーの削除」Braze エンドポ
 
 1つのリクエストには、最大50個の`external_ids`、`user_aliases`、`braze_ids`、`email_addresses`、または`phone_numbers`を含めることができます。単一のリクエストに含めることができるのは、`external_ids`、`user_aliases`、`braze_ids`、`email_addresses`、または`phone_numbers`のいずれか1つだけです。
 
-APIを経由したユーザーの一括削除では解決できないユースケースがある場合は、[Braze サポートチーム]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+APIを経由したユーザーの一括削除では解決できないユースケースがある場合は、[Brazeサポートチーム]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
 
 {% alert warning %}
-ユーザープロファイルの削除は元に戻せません。ユーザーを完全に削除するため、データの矛盾が発生する可能性があります。[APIを使用してユーザープロファイルを削除する]({{site.baseurl}}/help/help_articles/api/delete_user/)場合の詳細については、ヘルプドキュメントを参照してください。
+ユーザープロファイルの削除は元に戻せません。削除アクションはユーザーを完全に削除するため、データの矛盾が発生する可能性があります。詳細については、[ユーザープロファイル削除の影響](#effects-of-deleting-user-profiles)を参照してください。
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -110,6 +110,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 }
 ```
 
+## ユーザープロファイル削除の影響 {#effects-of-deleting-user-profiles}
+
+このエンドポイントでユーザーを削除すると、以下のことが発生します。
+
+- ユーザープロファイルが削除（null化）されます。
+- ワークスペースのユーザー数（[分析ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home/)の合計ユーザー数など）が、削除されたユーザーを反映して更新されます。
+- 削除されたユーザーは、集計されたコンバージョン率にはカウントされ続けます。カスタムイベント数と購入数は、削除されたユーザーについては更新されません。
+
+### 共有メールアドレスを持つ複数のプロファイル {#multiple-profiles-with-a-shared-email-address}
+
+同じメールアドレスを共有するユーザープロファイルをマージするには、[`/users/merge`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)を呼び出してください。
+
 ## トラブルシューティング {#troubleshooting}
 
 ### 成功応答が返されたがユーザーがまだ表示される {#a-success-response-was-returned-but-the-user-still-appears}
@@ -119,8 +131,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 数分経ってもユーザーがまだ存在する場合は、リクエスト内の識別子がユーザーの実際のプロファイルと一致しているか確認してください。
 
 - **`external_ids`配列:** 各値がユーザーのexternal IDと正確に一致していることを確認してください。
-- **`braze_id`:** ユーザーの`braze_id`は、[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)でデータをエクスポートするか、セグメントをCSVにエクスポートすることで確認できます（`braze_id`は「Appboy ID」として表示されます）。
-- **エイリアスのみまたはメールのみのプロファイル:** プロファイルに`external_id`がない場合は、**External User IDが空白**でフィルターし、既知のメールまたは電話番号と組み合わせたセグメントを作成してから、CSVにエクスポートして`braze_id`を取得してください。
+- **`braze_id`:** ユーザーの`braze_id`は、[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)でデータをエクスポートするか、SegmentをCSVにエクスポートすることで確認できます（`braze_id`は「Appboy ID」として表示されます）。
+- **エイリアスのみまたはメールのみのプロファイル:** プロファイルに`external_id`がない場合は、**External User IDが空白**でフィルターし、既知のメールまたは電話番号と組み合わせたSegmentを作成してから、CSVにエクスポートして`braze_id`を取得してください。
 
 ユーザーが削除されたかどうかを確認するには、削除リクエストで使用したのと同じ識別子タイプを使用して[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を呼び出します（例えば、`external_ids`、`braze_id`、または`user_aliases`に値を含めます）。ユーザーが存在しなくなった場合、応答には`"users": []`が含まれ、その識別子をリストする`"invalid_user_ids"`が含まれる場合があります。
 

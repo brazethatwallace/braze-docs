@@ -34,7 +34,7 @@ description: "この記事では、セグメントリストのエクスポート
 | -------- | -------- | --------- | ----------- |
 | `page` | オプション | 整数 | 返すセグメントのページ。デフォルトは0（最大100件の最初のセットを返します）。 |
 | `sort_direction` | オプション | 文字列 | - 作成日時を新しいものから古いものへソートする場合: 値 `desc` を渡します。<br> - 作成日時を古いものから新しいものへソートする場合: 値 `asc` を渡します。<br><br>`sort_direction` が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -49,7 +49,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "segments" : [
         {
-            "id" : (string) the セグメント API identifier,
+            "id" : (string) the Segment API identifier,
             "name" : (string) segment name,
             "analytics_tracking_enabled" : (boolean) whether the segment has analytics tracking enabled,
             "tags" : (array) the tag names associated with the segment formatted as strings

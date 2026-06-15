@@ -1,5 +1,17 @@
 {
 	"trailingSlash": false,
+	"redirects": [
+		{
+			"source": "/unlisted_docs/assets/:path*",
+			"destination": "/docs/assets/unlisted_docs/:path*",
+			"permanent": true
+		},
+		{
+			"source": "/unlisted_docs/:path*",
+			"destination": "/docs/:path*",
+			"permanent": true
+		}
+	],
 	"rewrites": [
 		{
 			"source": "/docs/en/:path*",
@@ -34,7 +46,11 @@
 			"destination": "/api/llms-full.txt"
 		},
 		{
-			"source": "/api/((?!llms\\.txt|llms-full\\.txt).*)",
+			"source": "/api/:path*/index.md",
+			"destination": "/api/:path*/index.md"
+		},
+		{
+			"source": "/api/((?!llms\\.txt|llms-full\\.txt|.*/index\\.md$).*)",
 			"destination": "/api/404.html"
 		}
 	],

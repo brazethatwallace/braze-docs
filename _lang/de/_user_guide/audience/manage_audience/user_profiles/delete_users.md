@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Erfahren Sie, wie Sie einzelne Nutzer:innen oder ein Segment von Nutzer:innen direkt über das Braze-Dashboard löschen können.
 
-{% alert important %}
-Das Löschen von Nutzer:innen befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an der Teilnahme interessiert sind.
-{% endalert %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um Nutzer:innen zu löschen, müssen Sie Admin sein oder über die Berechtigung **Delete Users** verfügen. Um Löschprotokolle von Nutzer:innen einzusehen, müssen Sie Admin sein oder über die Berechtigung **View User Deletion Records** verfügen. Die folgenden Berechtigungen steuern das Löschen von Nutzer:innen und die Löschprotokolle:
@@ -23,7 +19,7 @@ Um Nutzer:innen zu löschen, müssen Sie Admin sein oder über die Berechtigung 
 |------------|-------------|
 | Nutzer:innen löschen | Nutzer:innen einzeln oder in großen Mengen dauerhaft löschen. |
 | Löschprotokolle von Nutzer:innen einsehen | Löschprotokolle von Nutzer:innen einsehen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Über das Löschen von Nutzer:innen {#about-user-deletion}
 
@@ -31,10 +27,10 @@ Das Löschen von Nutzer:innen ermöglicht es Ihnen, Ihre Datenbank zu verwalten,
 
 | Aspekt | Details |
 |---------------|---------|
-| Maximale Größe | Sie können bis zu 100 Millionen Nutzerprofile löschen, wenn Sie ein Segment löschen. |
+| Maximale Größe | Sie können bis zu 10 Millionen Nutzerprofile löschen, wenn Sie ein Segment löschen. |
 | Wartezeit | Alle Segment-Löschungen erfordern eine 7-tägige Wartezeit plus die Zeit, die für die Verarbeitung der Löschungen benötigt wird. |
 | Auftragslimits | Es kann jeweils nur ein Segment gelöscht werden, einschließlich der 7-tägigen Wartezeit. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Über das Löschen von Nutzer:innen" }
 
 ## Nutzer:innen löschen {#deleting-users}
 
@@ -90,7 +86,7 @@ Sie haben 7 Tage Zeit, um ausstehende Segment-Löschungen abzubrechen. Gehen Sie
 
 ![Der Tab „Delete Users“ im Bereich „Manage Audience“ des Braze-Dashboards.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Wählen Sie neben einer ausstehenden Segment-Löschung <i class="fa-solid fa-eye"></i>, um die Details des Löschprotokolls zu öffnen.
+Wählen Sie neben einer ausstehenden Segment-Löschung <i class="fa-solid fa-eye"></i> **View details**, um die Details des Löschprotokolls zu öffnen.
 
 ![Eine ausstehende Segment-Löschung auf dem Tab „Delete Users“.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -132,9 +128,9 @@ Auf dieser Seite finden Sie die folgenden allgemeinen Informationen für alle ak
 | Requester | Die Person, die die Löschanfrage initiiert hat. |
 | Segment Name | Der Name des Segments, das zur Auswahl der zur Löschung ausstehenden Nutzer:innen verwendet wurde. |
 | Status | Zeigt an, ob die Löschanfrage ausstehend, in Bearbeitung oder abgeschlossen ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zielgruppe verwalten" }
 
-Für weitere Details zu einer bestimmten Anfrage wählen Sie <i class="fa-solid fa-eye"></i>, um die Details des Löschprotokolls anzuzeigen. Hier können Sie auch [ausstehende Segment-Löschungen abbrechen](#cancel).
+Für weitere Details zu einer bestimmten Anfrage wählen Sie <i class="fa-solid fa-eye"></i> **View details**, um die Details des Löschprotokolls anzuzeigen. Hier können Sie auch [ausstehende Segment-Löschungen abbrechen](#cancel).
 
 ![Eine ausstehende Segment-Löschung auf dem Tab „Delete Users“.]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -144,17 +140,13 @@ Sie können den Status früherer Löschungen auch überprüfen, indem Sie einen 
 
 ## Häufig gestellte Fragen {#faq}
 
-### Kann ich Segmente mit mehr als 100 Millionen Nutzer:innen löschen? {#can-i-delete-segments-with-more-than-100-million-users}
+### Kann ich Segmente mit mehr als 10 Millionen Nutzer:innen löschen? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Nein. Sie können keine Segmente mit mehr als 100 Millionen Nutzer:innen löschen. Wenn Sie Hilfe beim Löschen eines Segments dieser Größe benötigen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Nein. Sie können keine Segmente mit mehr als 10 Millionen Nutzer:innen löschen. Wenn Sie Hilfe beim Löschen eines Segments dieser Größe benötigen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
-### Es sieht so aus, als könnte ich keine 100 Millionen Nutzer:innen löschen und bin auf 10 Millionen beschränkt. Ist das ein Fehler? {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### Ich kann nur bis zu 10 Millionen Nutzer:innen auf einmal löschen. Ist das ein Fehler? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-Nein, das ist kein Fehler. Bestimmte Kund:innen sind während des Early-Access-Programms (EA) in der Anzahl der Nutzer:innen, die sie löschen können, eingeschränkt.
-
-Im Verlauf des EA-Programms ist vorgesehen, diese Kapazität zu erhöhen, bis alle Kund:innen bis zu 100 Millionen Nutzer:innen löschen können.
-
-Wenn Sie diese Kapazität erhöhen möchten, wenden Sie sich an Ihren Braze Account Manager. Anfragen werden nach Ermessen des Produktteams genehmigt.
+Nein, das ist kein Fehler. Die maximale Anzahl von Nutzerprofilen, die in einem einzelnen Segment-Löschlauf gelöscht werden können, beträgt 10 Millionen.
 
 ### Beeinflusst die automatische Zusammenführung von Nutzer:innen das Löschen von Nutzer:innen? {#does-automated-user-merging-affect-user-deletion}
 
@@ -173,3 +165,7 @@ Ja. Sie können jedoch einen Segment-Einschlussfilter hinzufügen, um alle Nutze
 Das Löschen einzelner Nutzer:innen ist dauerhaft.
 
 Sie können [Segment-Löschungen](#cancel) innerhalb der ersten 7 Tage abbrechen. Allerdings können Nutzer:innen, die vor dem Abbruch bereits gelöscht wurden, nicht wiederhergestellt werden.
+
+### Kann ich Nutzer:innen über die API statt über das Dashboard löschen? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Ja. Für kleinere Mengen können Sie den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) verwenden, der bis zu 50 Bezeichner pro Anfrage akzeptiert und dem [Rate-Limit]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) dieses Endpunkts unterliegt. Die segmentbasierte Löschung über das Dashboard eignet sich besser für sehr große Zielgruppen, beinhaltet jedoch die [7-tägige Wartezeit](#about-user-deletion).

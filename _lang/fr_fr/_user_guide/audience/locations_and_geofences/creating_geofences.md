@@ -154,7 +154,7 @@ Utilisez un lien profond dans un [message in-app]({{site.baseurl}}/user_guide/ch
 Lors de la création de ce message in-app, tenez compte des éléments suivants :
 
 - **Quand l'afficher :** Ciblez les utilisateurs qui ont l'autorisation « Pendant l'utilisation de l'app » lorsque vous avez besoin de « Toujours autoriser », ou les utilisateurs qui ont précédemment refusé l'accès à la localisation.
-- **Exemple de message :** « Pour profiter pleinement des fonctionnalités basées sur la localisation, mettez à jour vos paramètres de localisation sur "Toujours autoriser". Appuyez ci-dessous pour accéder aux Paramètres. »
+- **Exemple de message :** « Pour profiter pleinement des fonctionnalités basées sur la localisation, mettez à jour vos paramètres de localisation sur "Toujours autoriser". Appuyez ci-dessous pour accéder aux paramètres. »
 
 {% alert tip %}
 Vous pouvez déclencher ce message in-app à tout moment du parcours utilisateur, après un achat, lors de la consultation de contenu à proximité ou dans le cadre d'un flux Canvas. Soyez sélectif lorsque vous relancez : limitez ces campagnes aux utilisateurs fidèles ou très engagés pour éviter la lassitude liée aux demandes d'abonnement.
@@ -307,15 +307,11 @@ L'intégration SDK de base active uniquement le suivi de localisation. Le géore
 
 Vous pouvez également utiliser les géorepérages avec les partenaires technologiques de Braze, tels que [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) et [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
 
+## Différences entre les géorepérages et le suivi de localisation {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Questions fréquemment posées {#frequently-asked-questions}
-
-### Quelle est la différence entre les géorepérages et le suivi de localisation ? {#whats-the-difference-between-geofences-and-location-tracking}
-
-Dans Braze, un géorepérage est un concept différent du suivi de localisation. Les géorepérages sont utilisés comme déclencheurs pour certaines actions : lorsqu'un utilisateur entre ou sort d'une limite virtuelle définie autour d'un emplacement géographique, cela peut déclencher une action spécifique, comme l'envoi d'un message.
-
-Le suivi de localisation collecte et stocke les données de localisation les plus récentes d'un utilisateur. Ces données peuvent être utilisées pour segmenter les utilisateurs en fonction du filtre `Most Recent Location`. Par exemple, vous pourriez utiliser le filtre `Most Recent Location` pour cibler les utilisateurs situés à New York.
-
-Pour plus d'informations, consultez [Suivi de localisation]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### Quelle est la précision des géorepérages Braze ? {#how-accurate-are-braze-geofences}
 

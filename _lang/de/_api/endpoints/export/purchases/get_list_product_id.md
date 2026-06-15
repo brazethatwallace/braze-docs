@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `page` | Optional | String | Die Seite Ihrer Produktliste, die Sie ansehen möchten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 

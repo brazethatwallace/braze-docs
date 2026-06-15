@@ -20,7 +20,7 @@ channel:
 
 ### Etapa 1: Acessar os modelos de WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Acesse **Conteúdo** > **Modelos de WhatsApp** e selecione **Criar novo modelo**.
+Acesse **Conteúdo** > **WhatsApp** e selecione **Criar novo modelo**.
 
 ![Página de modelos de WhatsApp com botão para criar um novo modelo.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -57,7 +57,7 @@ Adicione um cabeçalho para aparecer acima do corpo da mensagem. Você pode esco
 Insira o conteúdo principal da sua mensagem e personalize o corpo conforme necessário usando Liquid ou variáveis genéricas:
 
 {% raw %}
-- Use Liquid tags (por exemplo, `{{${first_name}}}`). A Braze salva seu Liquid e o exibe quando você usa o modelo em uma campanha ou no criador de Canvas.
+- Use Liquid tags (por exemplo, `{{${first_name}}}`). A Braze salva seu Liquid e o exibe quando você usa o modelo em uma Campaign ou no criador de Canvas.
 - Use variáveis genéricas, como placeholders numerados (por exemplo, `{{1}}`), se preferir adicionar personalização depois, ao criar sua mensagem.
 {% endraw %}
 
@@ -98,7 +98,7 @@ Atualmente, apenas modelos de marketing são suportados no Criador de modelos de
 
 ## Usar um modelo aprovado em uma campanha {#use-an-approved-template-in-a-campaign}
 
-Depois que a Meta aprovar seu modelo, você pode usá-lo em uma campanha ou Canvas de WhatsApp.
+Depois que a Meta aprovar seu modelo, você pode usá-lo em uma Campaign ou Canvas de WhatsApp.
 
 1. Acesse **Campaigns** e selecione **Create Campaign** > **WhatsApp**.
 2. No criador de mensagens, selecione seu modelo aprovado.
@@ -116,7 +116,7 @@ As revisões normalmente são concluídas em cinco minutos, mas podem levar até
 
 ### Posso editar um modelo depois que ele foi aprovado? {#can-i-edit-a-template-after-its-been-approved}
 
-Qualquer alteração em conteúdo bloqueado (texto do corpo ou outros campos controlados pela Meta) exige o reenvio do modelo para aprovação, o que deve ser feito pelo WhatsApp Business Manager. Você pode atualizar conteúdo e personalização ao criar sua campanha ou Canvas.
+Qualquer alteração em conteúdo bloqueado (texto do corpo ou outros campos controlados pela Meta) exige o reenvio do modelo para aprovação, o que deve ser feito pelo WhatsApp Business Manager. Você pode atualizar conteúdo e personalização ao criar sua Campaign ou Canvas.
 
 ### O que acontece com os modelos que enviei antes de o Criador de modelos estar disponível? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 

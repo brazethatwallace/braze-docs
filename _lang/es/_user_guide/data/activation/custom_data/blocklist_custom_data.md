@@ -16,6 +16,15 @@ Es posible que ocasionalmente identifiques atributos personalizados, eventos per
 
 Para evitar que estos datos se envíen a Braze, puedes bloquear un objeto de datos personalizados mientras tu equipo de ingeniería trabaja en eliminarlo del backend de tu aplicación o sitio web. El bloqueo impide que Braze registre un objeto de datos personalizados en particular de ahora en adelante, lo que significa que no aparecerá al buscar un usuario específico.
 
+### Elegir entre bloqueo o eliminación {#choosing-blocklisting-or-deletion}
+
+- **Bloqueo**: conserva los atributos personalizados, eventos o compras existentes en los perfiles de usuario, pero Braze ya no procesa datos nuevos para esos objetos.
+- **Eliminación**: quita esos datos de los perfiles de usuario. Los atributos personalizados y eventos eliminados pasan al estado **Trashed** durante siete días, durante los cuales puedes restaurarlos. Después de siete días, Braze los elimina permanentemente. La eliminación no impide que lleguen datos nuevos, así que confirma que tu SDK, API o importaciones CSV ya no envían esos datos antes de eliminarlos.
+
+El bloqueo envía la información de bloqueo al dispositivo de cada usuario y puede consumir muchos datos. Bloquear una cantidad muy grande de atributos, eventos o compras (por ejemplo, más de 100) puede afectar el rendimiento de la aplicación. Si ya no planeas enviar esos datos a Braze, la eliminación suele ser el mejor enfoque después de haber detenido la integración que los envía.
+
+Independientemente de si bloqueas o eliminas, esos atributos personalizados, eventos y compras ya no aparecen en la página **Manage Workspace** y se quitan como filtros de Segments. Si eliminas datos personalizados, Braze quita esos datos a nivel de usuario de los perfiles según [Cómo funciona la eliminación](#how-deletion-works).
+
 Para bloquear datos personalizados, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) del siguiente desplegable para tu espacio de trabajo.
 
 {% details Permisos de usuario para bloquear datos personalizados %}
@@ -118,8 +127,8 @@ Para eliminar un evento personalizado o un atributo personalizado, haz lo siguie
 
 Cuando eliminas datos personalizados, ocurre lo siguiente:
 
-- **Para atributos personalizados:** Elimina permanentemente los datos del atributo del perfil de cada usuario.
-- **Para eventos personalizados:** Elimina permanentemente los metadatos del evento del perfil de cada usuario.
+- **Para atributos personalizados:** elimina permanentemente los datos del atributo del perfil de cada usuario.
+- **Para eventos personalizados:** elimina permanentemente los metadatos del evento del perfil de cada usuario.
 
 Cuando se selecciona un atributo o evento para eliminación, su estado cambia a **Trashed**. Durante los siguientes siete días, es posible restaurar el atributo o evento. Si no lo restauras después de siete días, los datos se eliminan permanentemente. Si restauras el atributo o evento, vuelve al estado de bloqueado.
 

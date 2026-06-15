@@ -87,7 +87,7 @@ iOS does not automatically generate push tokens for an app when it's installed. 
 
 ### Checking user's push subscription state
 
-![User profile for John Doe with their push subscription state set to Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![User profile for Jane Doe showing push subscription state and push registration details on the Engagement tab.]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 There are two ways you can check a user's push subscription state with Braze:
 

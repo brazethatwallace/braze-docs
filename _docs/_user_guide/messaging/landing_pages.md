@@ -31,12 +31,14 @@ Before you can access, create, and publish landing pages, you either need admini
 
 ## Plan tiers
 
-The number of published landing pages and custom domains you can use depends on your plan type: free or paid (incremental).
+The number of published landing pages, custom domains, and features you can use depends on your plan type: free or pro (incremental).
 
-| Feature                                                                                                   | Free tier     | Paid tier (incremental)     |
+| Feature                                                                                                   | Free tier     | Pro tier (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Published landing pages                                                                 | Five per company | 20 additional |
 | Custom domains          | One per company | Five additional |
+| [Liquid personalization]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Not available | Available |
+| Prefilled form fields | Not available | Available |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## Adding Google Tag Manager to a landing page

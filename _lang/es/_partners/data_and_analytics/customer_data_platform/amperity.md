@@ -32,7 +32,7 @@ La integración de Braze y Amperity ofrece una visión unificada de tus clientes
 | Instancia de Braze | Tu instancia de Braze puede obtenerse a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints). |
 | Punto de conexión REST de Braze | La URL de tu punto de conexión de Braze. Tu punto de conexión dependerá de tu instancia de Braze. |
 | Conector de Currents (opcional) | El conector S3 de Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Mapeado de datos {#data-mapping}
 
@@ -94,7 +94,7 @@ Amperity realiza un seguimiento de los cambios entre las sincronizaciones con Br
 
 ### Paso 1: Capturar detalles de configuración para Braze {#step-1-capture-configuration-details-for-braze}
 
-1. Crea una clave de API REST de Braze para tu espacio de trabajo de Braze con los permisos `users.track` en **User Data**. El punto de conexión `users.track` sincroniza la audiencia de Amperity con Braze como un atributo personalizado.
+1. Crea una clave de API REST de Braze para tu espacio de trabajo de Braze con los permisos `users.track` en **Datos de usuario**. El punto de conexión `users.track` sincroniza la audiencia de Amperity con Braze como un atributo personalizado.
 2. Determina el [punto de conexión de la REST API]({{site.baseurl}}/api/basics/#endpoints) para tu instancia de Braze. Por ejemplo, si tu URL de Braze es `https://dashboard-03.braze.com`, tu punto de conexión de la REST API es `https://rest.iad-03.braze.com` y tu instancia es "US-03".
 3. Determina una lista de [campos de perfil de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) y [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) que pueden enviarse a Braze desde Amperity.
 

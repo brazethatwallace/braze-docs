@@ -17,7 +17,7 @@ search_rank: 1
 
 ## Etapa 1: Acesse o editor de modelos de e-mail {#step-1-navigate-to-the-email-template-editor}
 
-No dashboard da Braze, acesse **Templates** > **Email Templates**.
+No dashboard da Braze, acesse **Content** > **Email**.
 
 ## Etapa 2: Selecione sua experiência de edição {#step-2-select-your-editing-experience}
 

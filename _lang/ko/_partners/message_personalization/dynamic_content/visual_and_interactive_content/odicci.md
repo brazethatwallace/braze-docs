@@ -39,7 +39,7 @@ Odicci 플랫폼을 Braze와 연결하여 원활한 데이터 공유 및 Campaig
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Odicci 계정 | 이 파트너십을 활용하려면 **통합** 섹션에 접근할 수 있는 Odicci 계정이 필요합니다. |
 | Braze REST API 키 | `users.track` 및 `campaigns.list` 권한이 있는 Braze REST API 키가 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## Odicci 통합하기 {#integrating-odicci}
 

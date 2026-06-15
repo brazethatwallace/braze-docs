@@ -100,7 +100,7 @@ Diese Eigenschaft sollte nicht zum Update der Profilinformationen von Nutzer:inn
 | `email` | Erforderlich* | String oder String-Array | Die E-Mail-Adresse der Nutzer:innen, kann als String-Array übergeben werden. Sie müssen mindestens eine E-Mail-Adresse angeben (maximal 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe E-Mail-Adresse haben, aktualisiert Braze alle Nutzer:innen mit dieser E-Mail-Adresse mit den Änderungen der Abo-Gruppe. |
 | `phone` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Die Telefonnummer der Nutzer:innen, kann als String-Array übergeben werden. Muss mindestens eine Telefonnummer enthalten (bis zu 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe Telefonnummer haben, aktualisiert Braze alle Nutzer:innen mit dieser Telefonnummer mit denselben Änderungen der Abo-Gruppe. |
 | `use_double_opt_in_logic` | Optional | Boolescher Wert | Gilt nur für SMS-Abo-Gruppen; wird bei E-Mail- und anderen Abo-Gruppentypen ignoriert. Standardmäßig `false`, wenn nicht angegeben. Setzen Sie den Wert bei SMS-Abo-Gruppen auf `true`, um die:den Nutzer:in in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)-Workflow aufzunehmen, wenn der Abo-Status auf `subscribed` gesetzt wird. Nutzer:innen, die auf diese Weise in den Double-Opt-in-Workflow aufgenommen werden, erhalten höchstens eine Opt-in-Anfrage-Antwortnachricht pro Tag, unabhängig davon, wie oft sie in den Workflow aufgenommen werden. Wenn dieser Parameter nicht angegeben oder auf `false` gesetzt wird, werden Nutzer:innen ohne den Double-Opt-in-Workflow abonniert. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfragen {#example-requests}
 
@@ -144,8 +144,14 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben.
 }
 ```
 
+## Fehlerbehebung bei zeitweiligen Update-Fehlern {#troubleshooting-intermittent-update-failures}
+
+Wenn Updates von Abo-Gruppen zeitweilig fehlschlagen oder nicht synchron erscheinen, warten Sie einige Minuten zwischen den Update-Anfragen oder rufen Sie [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) auf, um den Status der Nutzer:innen zu bestätigen, bevor Sie ein weiteres Update senden.
+
 {% alert important %}
 Der Endpunkt akzeptiert nur den Wert `email` oder `phone`, nicht beide. Wenn Sie beides angeben, erhalten Sie diese Antwort: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+Damit Ihr Abo-Update auf Telefonnummern angewendet wird, stellen Sie sicher, dass Sie Telefonnummern im E.164-Format gesendet haben (z. B. `+15555550123`), die korrekte `subscription_group_id` verwendet haben und `phone` (nicht sowohl `phone` als auch `email`) im selben Anfragetext übergeben haben. Für Updates mit mehreren Nummern verwenden Sie das `phone`-Array-Format, das unter [SMS und RCS](#sms-and-rcs) gezeigt wird.
 
 {% endapi %}
