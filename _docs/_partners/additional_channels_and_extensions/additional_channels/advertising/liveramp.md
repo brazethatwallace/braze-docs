@@ -16,7 +16,7 @@ search_tag: Partner
 You can integrate LiveRamp with Braze using one of two methods:
 
 - **Snowflake Data Sharing:** Share Braze data directly through Snowflake's Secure Data Shares without moving data. This method leverages benchmarks powered by Snowflake to help refine your marketing strategies against industry standards.
-- **Braze Currents:** Stream real-time, event-level engagement data from Braze to your data warehouse (AWS S3, Google Cloud Storage, or Microsoft Azure Blob Storage), then use LiveRamp's identity resolution capabilities in your cloud environment.
+- **Braze Currents:** Stream real-time, event-level engagement data from Braze to a cloud storage destination (Amazon S3, Google Cloud Storage, or Microsoft Azure Blob Storage), then load that data into your data warehouse and use LiveRamp's identity resolution capabilities in your cloud environment.
 
 {% alert important %}
 Snowflake's [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-sharing-intro) does not transfer data between LiveRamp, Snowflake, and Braze. Data is only shared through Snowflake's services and metadata store, meaning no data is copied and no additional storage charges occur. Access to shared data is controlled and governed using the access controls of your Snowflake account.
@@ -127,7 +127,7 @@ With your data now pseudonymized to your dedicated encoding of RampID, you have 
 
 ## Integration with Braze Currents
 
-Braze Currents provides a real-time stream of engagement events that can be exported to cloud storage destinations. You can use Currents with LiveRamp to stream Braze event data to your data warehouse, then apply LiveRamp's identity resolution capabilities within your cloud environment.
+Braze Currents provides a real-time stream of engagement events that can be exported to cloud storage destinations. You can use Currents with LiveRamp to stream Braze event data to cloud storage, load it into your data warehouse, then apply LiveRamp's identity resolution capabilities within your cloud environment.
 
 ### How it works
 
@@ -141,16 +141,20 @@ LiveRamp's identity resolution capabilities are available in the following cloud
 
 | Platform | LiveRamp Solution | Description |
 |----------|------------------|-------------|
-| Google BigQuery | [LiveRamp Embedded Identity in BigQuery](https://docs.liveramp.com/identity/en/liveramp-embedded-identity-in-bigquery.html) | Perform identity resolution and RampID translation natively in BigQuery using the BigQuery Entity Resolution Framework. |
-| AWS | [LiveRamp Identity in AWS](https://docs.liveramp.com/identity/en/liveramp-identity-in-aws.html) | Resolve identifiers to RampIDs and perform identity translation using AWS Entity Resolution or through Amazon Data Exchange (ADX) standalone. |
+| Google BigQuery | [LiveRamp Embedded Identity in BigQuery](https://docs.liveramp.com/identity/en/liveramp-embedded-identity-in-bigquery.html#liveramp-embedded-identity-in-bigquery) | Perform identity resolution and RampID translation natively in BigQuery using the BigQuery Entity Resolution Framework. Load Currents data from Google Cloud Storage into BigQuery before running identity resolution. |
+| AWS | [LiveRamp Identity in AWS](https://docs.liveramp.com/identity/en/liveramp-identity-in-aws.html#liveramp-identity-in-aws) | Resolve identifiers to RampIDs and perform identity translation using AWS Entity Resolution or through Amazon Data Exchange (ADX) standalone. Load Currents data from Amazon S3 before running identity resolution. |
 | Microsoft Azure | Contact LiveRamp | Azure Blob Storage is supported as a Currents destination. Contact your LiveRamp representative for Azure-specific identity resolution solutions. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported cloud platforms" }
+
+{% alert note %}
+LiveRamp Embedded Identity in BigQuery is currently in beta. Contact [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com) to discuss participating in the program.
+{% endalert %}
 
 ### Prerequisites
 
 | Requirements | Description |
 |-------------|-------------|
-| Braze Currents | To stream event data to your data warehouse, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) set up for your account. |
+| Braze Currents | To stream event data to cloud storage, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) set up for your account. |
 | Cloud Storage Account | You need a cloud storage account (Amazon S3, Google Cloud Storage, or Microsoft Azure Blob Storage) where Currents will stream your data. |
 | LiveRamp Account | Contact your LiveRamp account team or [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com) to set up LiveRamp's identity resolution in your cloud environment. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -169,8 +173,8 @@ Configure Currents to export the events that contain the identifiers you need fo
 
 After Currents is streaming data to your cloud storage, work with your LiveRamp representative to set up identity resolution in your cloud environment:
 
-- **For BigQuery:** Follow the [LiveRamp Embedded Identity in BigQuery](https://docs.liveramp.com/identity/en/liveramp-embedded-identity-in-bigquery.html) setup guide to enable identity resolution and RampID translation.
-- **For AWS:** Follow the [LiveRamp Identity in AWS](https://docs.liveramp.com/identity/en/liveramp-identity-in-aws.html) setup guide to configure RampID identity resolution using AWS Entity Resolution or ADX standalone.
+- **For BigQuery:** Follow the [LiveRamp Embedded Identity in BigQuery](https://docs.liveramp.com/identity/en/liveramp-embedded-identity-in-bigquery.html#liveramp-embedded-identity-in-bigquery) setup guide to enable identity resolution and RampID translation. Coordinate with your LiveRamp representative to complete the agreement and provisioning steps required for the beta program.
+- **For AWS:** Follow the [LiveRamp Identity in AWS](https://docs.liveramp.com/identity/en/liveramp-identity-in-aws.html#liveramp-identity-in-aws) setup guide to configure RampID identity resolution using AWS Entity Resolution or ADX standalone.
 
 ### Step 3: Load and transform your data
 
