@@ -87,7 +87,7 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 | --- | --- |
 | **Estimated Audience** | Braze는 기본적으로 전체 데이터베이스 카운트를 실행하지 않습니다. 오디언스 크기는 샘플에서 추정되어 외삽되며, Segment 빌더의 **도달 가능 사용자** 범위와 유사합니다. 특히 대규모 워크스페이스나 워크스페이스 대비 작은 Segment의 경우 오차 범위가 예상됩니다. |
 | **Current Audience** | Braze가 워크스페이스 프로필의 전체 스캔으로 기본 통계를 계산할 수 있으므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience와 Current Audience" }
 
 샘플링 동작, **Calculate exact statistics** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)을 참조하세요.
 
@@ -117,7 +117,7 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 
 {% endif %}
 
-#### Changes Since Last Viewed
+#### 마지막 조회 이후 변경 사항 {#changes-since-last-viewed}
 
 팀의 다른 구성원이 캠페인에 적용한 업데이트 수는 캠페인 개요 페이지의 *Changes Since Last Viewed* 측정기준으로 추적됩니다. **Changes Since Last Viewed**를 선택하면 캠페인의 이름, 스케줄, 태그, 메시지, 오디언스, 승인 상태 또는 팀 접근 구성에 대한 체인지로그를 확인할 수 있습니다. 각 업데이트에 대해 누가 언제 수행했는지 확인할 수 있습니다. 이 체인지로그를 사용하여 캠페인 변경 사항을 감사할 수 있습니다.
 
@@ -136,7 +136,7 @@ The **Message Performance** panel outlines how well your message has performed a
 {% elsif include.channel == "email" %}
 ### Email Performance
 
-**Email Performance** 패널은 메시지가 다양한 차원에서 얼마나 잘 수행되었는지 보여줍니다. 이 패널의 측정기준은 선택한 메시징 채널과 다변량 테스트 실행 여부에 따라 달라집니다. <i class="fa fa-eye preview-icon"></i> **Preview** 아이콘을 클릭하여 각 배리언트 또는 채널에 대한 메시지를 확인할 수 있습니다.
+**Email Performance** 패널은 메시지가 다양한 차원에서 얼마나 잘 수행되었는지 보여줍니다. 이 패널의 측정기준은 선택한 메시징 채널과 다변량 테스트 실행 여부에 따라 달라집니다. <i class="fa fa-eye preview-icon"></i> **Preview** 아이콘을 선택하여 각 배리언트 또는 채널에 대한 메시지를 확인할 수 있습니다.
 
 ![이메일 메시지 성과 분석]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -197,6 +197,10 @@ The **Message Performance** panel outlines how well your message has performed a
 
 히트맵을 사용하면 단일 이메일 캠페인에서 각 링크가 얼마나 성공적인지 확인할 수 있습니다. **Message Analytics** 섹션에서 **Email Performance** 패널로 이동하세요. **Preview & Heatmap**을 선택하여 이메일 캠페인의 미리보기와 히트맵을 확인할 수 있습니다. 또는 배리언트 이름의 하이퍼링크를 선택하여 히트맵을 볼 수도 있습니다.
 
+{% alert note %}
+캠페인 분석은 배리언트당 최대 100개의 고유 URL에 대한 클릭 데이터를 총 클릭 수 기준으로 정렬하여 표시합니다. URL은 쿼리 파라미터를 포함하지 않는 정규화된 형태로 그룹화됩니다. 배리언트에 100개 이상의 고유 정규화 URL이 있는 경우, 클릭 수 기준 상위 100개만 표시됩니다. 이 제한을 초과하는 URL의 클릭 데이터는 여전히 존재하지만, 대시보드나 히트맵에는 표시되지 않습니다. 링크 별칭 지정이 활성화되면 클릭이 원시 URL이 아닌 링크 ID로 추적되므로, 일반적으로 고유 항목 수가 줄어들어 이 제한에 도달할 가능성이 낮아집니다.
+{% endalert %}
+
 이 보기에서 **Show Heatmap** 토글을 사용하면 캠페인 기간 동안의 전체 클릭 빈도와 위치를 시각적으로 확인할 수 있습니다. **Link Table by Total Clicks** 패널에서는 이메일 캠페인의 모든 링크를 확인하고 총 클릭 수로 정렬할 수 있습니다. 이를 통해 사용자가 어디로 이동하는지에 대한 추가 인사이트를 얻을 수 있습니다. 히트맵 사본을 저장하려면 다운로드 버튼을 선택하세요.
 
 {% alert note %}
@@ -225,7 +229,7 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="콘텐츠 카드 측정기준">
     <caption class="sr-only">콘텐츠 카드 성과 측정기준</caption>
     <thead>
         <tr>
@@ -299,7 +303,7 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="배너 측정기준">
     <caption class="sr-only">배너 성과 측정기준</caption>
     <thead>
         <tr>
@@ -373,7 +377,7 @@ _Unique Recipients_는 실제로 본 배너를 의미합니다.
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="이메일 측정기준">
     <caption class="sr-only">이메일 성과 측정기준</caption>
     <thead>
         <tr>
@@ -532,7 +536,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="인앱 메시지 측정기준">
     <caption class="sr-only">인앱 메시지 성과 측정기준</caption>
     <thead>
         <tr>
@@ -601,7 +605,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 | 오류 수 | _오류 수_는 KakaoTalk 제공자가 반환한 오류의 수입니다(발송 과정에서 증가). |
 | 매출 | _매출_은 설정된 주요 전환 기간 내 캠페인 수신자로부터의 달러 매출입니다. |
 | 주요 전환 | _주요 전환_은 Braze 캠페인에서 수신한 메시지를 보거나 상호작용한 후 정의된 이벤트가 발생한 횟수입니다. 이 정의된 이벤트는 캠페인을 구축할 때 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk 측정기준" }
 
 {% elsif include.channel == "push" %}
 
@@ -615,7 +619,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="푸시 측정기준">
     <caption class="sr-only">푸시 성과 측정기준</caption>
     <thead>
         <tr>
@@ -716,7 +720,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 | 제거된 애플리케이션 | 메시지가 기기로 전달을 시도할 때 해당 기기에 의도된 앱이 제거되어 있으면, 메시지는 폐기되고 기기의 등록 ID가 무효화됩니다. 이후 해당 기기에 메시지를 보내려는 모든 시도는 NotRegistered 오류를 반환합니다. |
 | 백업된 애플리케이션 | 애플리케이션이 백업될 때 등록 ID가 애플리케이션 복원 전에 유효하지 않게 될 수 있습니다. 이 경우 FCM은 더 이상 애플리케이션의 등록 ID를 저장하지 않으며 애플리케이션은 더 이상 메시지를 수신하지 않습니다. 따라서 등록 ID는 애플리케이션이 백업될 때 **저장하지 않아야** 합니다. |
 | 업데이트된 애플리케이션 | 애플리케이션이 업데이트되면 이전 버전의 등록 ID가 더 이상 작동하지 않을 수 있습니다. 따라서 업데이트된 애플리케이션은 기존 등록 ID를 교체해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="반송이 발생하는 이유 #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -734,7 +738,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="SMS, MMS 및 RCS 측정기준">
     <caption class="sr-only">SMS, MMS 및 RCS 성과 측정기준</caption>
     <thead>
         <tr>
@@ -786,7 +790,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="웹훅 측정기준">
     <caption class="sr-only">웹훅 성과 측정기준</caption>
     <thead>
         <tr>
@@ -822,7 +826,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="WhatsApp 측정기준">
     <caption class="sr-only">WhatsApp 성과 측정기준</caption>
     <thead>
         <tr>

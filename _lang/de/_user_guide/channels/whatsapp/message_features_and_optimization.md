@@ -1,6 +1,6 @@
 ---
 nav_title: Features und Optimierung
-article_title: WhatsApp-Features und Optimierung
+article_title: WhatsApp-Features und -Optimierung
 page_order: 4
 layout: dev_guide
 guide_top_header: "Features und Optimierung"
@@ -26,7 +26,10 @@ guide_featured_list:
   - name: Nutzer:innen-Retargeting
     link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/user_retargeting
     image: /assets/img/braze_icons/target-04.svg
-  - name: Angepasste Domains
+  - name: Custom Domains
     link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/custom_domains
     image: /assets/img/braze_icons/globe-05.svg
+  - name: WhatsApp Template Builder
+    link: /docs/user_guide/channels/whatsapp/message_features_and_optimization/template_builder
+    image: /assets/img/braze_icons/file-01.svg
 ---
