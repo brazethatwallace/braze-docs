@@ -53,9 +53,7 @@ Canvas will prevent you from using scheduled send with a time that has already p
 {% endalert %}
 
 {% alert important %}
-If you stop an active Canvas while an unsaved draft exists, stopping can discard that draft. Save, launch, or discard the draft before stopping if you need to keep in-progress edits.
-
-Schedule and audience evaluation can differ between scheduled entries and send immediately entries—for example, when steps use options that evaluate closer to send time. When you edit audience, schedule, or delivery settings within minutes of a scheduled entry or send window, confirm whether users already enqueued for the next step will pick up the change (see [Change your Canvas after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)); when in doubt, stop, duplicate, and relaunch for a clean re-evaluation.
+Schedule and audience evaluation can differ between scheduled entries and send immediately entries—for example, when steps use options that evaluate closer to send time. When you edit audience, schedule, or delivery settings within minutes of a scheduled entry or send window, confirm whether users already enqueued for the next step pick up the change (see [Change your Canvas after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)); when in doubt, stop, duplicate, and relaunch for a clean re-evaluation.
 {% endalert %}
 
 For Canvas steps, consider the following details when scheduling your Canvas:

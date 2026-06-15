@@ -59,7 +59,7 @@ When using a send rate limit, Braze "schedules" your messages in minute-granular
 
 #### Pausing campaigns with delivery speed rate limiting
 
-When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages will necessarily be sent when the campaign is resumed.
+When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages are necessarily sent when the campaign is resumed.
 
 If some users didn't receive messages because the campaign was paused, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
 
