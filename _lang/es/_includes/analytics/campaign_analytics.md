@@ -5,13 +5,13 @@ Una vez que hayas lanzado tu campaña, puedes volver a la página de detalles de
 {% alert tip %}
 ¿Buscas definiciones de los términos y métricas que aparecen en tu informe? Consulta nuestro
   {% if include.channel == "email" %}[Glosario de análisis de correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)
-  {% elsif include.channel == "banner" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por banners.
+  {% elsif include.channel == "banner" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por Banners.
   {% elsif include.channel == "Content Card" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por Content Cards.
   {% elsif include.channel == "in-app message" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por mensaje dentro de la aplicación.
-  {% elsif include.channel == "push" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por push.
+  {% elsif include.channel == "push" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por Push.
   {% elsif include.channel == "SMS" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por SMS/MMS y RCS.
   {% elsif include.channel == "whatsapp" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por WhatsApp.
-  {% elsif include.channel == "webhook" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por webhook.{% endif %}
+  {% elsif include.channel == "webhook" %}[Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics/) y filtra por Webhook.{% endif %}
 {% endalert %}
 
 Desde la pestaña **Campaign Analytics**, puedes ver tus informes en una serie de paneles. Puede que veas más o menos de los que se enumeran en las secciones siguientes, pero cada uno tiene su propia utilidad.
@@ -86,7 +86,7 @@ La siguiente tabla resume lo que significa cada etiqueta.
 | --- | --- |
 | **Estimated Audience** | Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Reachable users** en el generador de segmentos. Se esperan márgenes de error, especialmente para espacios de trabajo grandes o segmentos pequeños como proporción del espacio de trabajo. |
 | **Current Audience** | Braze puede calcular la estadística predeterminada con un escaneo completo de los perfiles del espacio de trabajo, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience y Current Audience" }
 
 Para más detalles sobre el comportamiento de muestreo, **Calculate exact statistics** y la segmentación de **Reachable users**, consulta [Medir el tamaño del segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -135,7 +135,7 @@ El panel **Content Card Performance** muestra el rendimiento de tu mensaje en va
 {% elsif include.channel == "email" %}
 ### Rendimiento del correo electrónico {#email-performance}
 
-El panel **Email Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes hacer clic en el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
+El panel **Email Performance** muestra el rendimiento de tu mensaje en varias dimensiones. Las métricas de este panel varían en función del canal de mensajería elegido y de si estás realizando o no una prueba multivariante. Puedes seleccionar el icono <i class="fa fa-eye preview-icon"></i> **Preview** para ver tu mensaje para cada variante o canal.
 
 ![Análisis del rendimiento de los mensajes de correo electrónico]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -196,6 +196,10 @@ Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/R
 
 Con los mapas de calor, puedes ver el éxito de los distintos enlaces de una misma campaña de correo electrónico. En la sección **Message Analytics**, ve al panel **Email Performance**. Selecciona **Preview & Heatmap** para ver una vista previa de tu campaña de correo electrónico y el mapa de calor. También puedes seleccionar el hipervínculo del nombre de la variante para ver el mapa de calor.
 
+{% alert note %}
+Los análisis de campaña muestran datos de clics para un máximo de 100 URL únicas por variante, ordenadas por clics totales. Las URL se agrupan por su forma normalizada, que no incluye parámetros de consulta. Si una variante tiene más de 100 URL normalizadas únicas, solo se muestran las 100 principales por número de clics. Los datos de clics de las URL que superan este límite siguen existiendo, pero no aparecerán en el dashboard ni en el mapa de calor. Cuando el aliasing de enlaces está habilitado, los clics se rastrean por ID de enlace en lugar de por URL sin procesar, lo que normalmente da como resultado menos entradas únicas y hace que sea menos probable alcanzar este límite.
+{% endalert %}
+
 En esta vista, puedes usar la opción **Show Heatmap** para obtener una vista visual de tu correo electrónico que muestre la frecuencia general y la ubicación de los clics dentro de la duración de la campaña. En el panel **Link Table by Total Clicks**, puedes ver todos los enlaces de tu campaña de correo electrónico y ordenarlos por clics totales. Esto puede proporcionar información adicional sobre por dónde navegan tus usuarios. Para guardar una copia del mapa de calor como referencia, selecciona el botón de descarga.
 
 {% alert note %}
@@ -224,7 +228,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="Métricas de las tarjetas de contenido">
     <caption class="sr-only">Métricas de rendimiento de las tarjetas de contenido</caption>
     <thead>
         <tr>
@@ -291,7 +295,7 @@ Tus _Messages Sent_ se refieren a las Content Cards disponibles para ser vistas,
 
 Estas son las métricas clave de seguimiento al revisar el rendimiento de tu campaña de banner. Los clics y las impresiones de los banners se registran automáticamente con el SDK.
 
-Para obtener las definiciones completas de todas las métricas de banners, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) y filtra por banners.
+Para obtener las definiciones completas de todas las métricas de banners, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) y filtra por Banners.
 
 <style>
     .no-split {
@@ -299,7 +303,7 @@ Para obtener las definiciones completas de todas las métricas de banners, consu
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="Métricas de los banners">
     <caption class="sr-only">Métricas de rendimiento de los banners</caption>
     <thead>
         <tr>
@@ -373,7 +377,7 @@ Aquí tienes algunas métricas clave específicas del correo electrónico que no
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="Métricas de correo electrónico">
     <caption class="sr-only">Métricas de rendimiento del correo electrónico</caption>
     <thead>
         <tr>
@@ -532,7 +536,7 @@ Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando e
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="Métricas de mensajes dentro de la aplicación">
     <caption class="sr-only">Métricas de rendimiento de los mensajes dentro de la aplicación</caption>
     <thead>
         <tr>
@@ -601,7 +605,7 @@ Aquí tienes algunas métricas clave de KakaoTalk que puedes ver en tus análisi
 | Errores | _Errores_ es el número de errores devueltos por el proveedor de KakaoTalk (se incrementa durante el proceso de envío). |
 | Ingresos | _Ingresos_ son los ingresos en dólares de los destinatarios de la campaña dentro de la ventana de conversión primaria establecida. |
 | Conversiones primarias | _Conversiones primarias_ es el número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de KakaoTalk" }
 
 {% elsif include.channel == "push" %}
 
@@ -615,7 +619,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="Métricas push">
     <caption class="sr-only">Métricas de rendimiento push</caption>
     <thead>
         <tr>
@@ -716,7 +720,7 @@ Firebase Cloud Messaging (FCM) puede rebotar en tres casos:
 | Aplicaciones desinstaladas | Cuando se intenta entregar un mensaje a un dispositivo y la aplicación prevista está desinstalada en ese dispositivo, el mensaje se descartará y se invalidará el ID de registro del dispositivo. Cualquier intento futuro de mensajería con el dispositivo devolverá un error NotRegistered. |
 | Copia de seguridad de la aplicación | Cuando se hace una copia de seguridad de una aplicación, su ID de registro podría dejar de ser válido antes de que se restaure la aplicación. En este caso, FCM dejará de almacenar el ID de registro de la aplicación y esta dejará de recibir mensajes. Por ello, los ID de registro **no** deben guardarse cuando se hace una copia de seguridad de una aplicación. |
 | Aplicación actualizada | Cuando se actualiza una aplicación, el ID de registro de la versión anterior puede dejar de funcionar. Como tal, una aplicación actualizada debe sustituir su ID de registro existente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Por qué se producen los rebotes" }
 
 {% endtab %}
 {% endtabs %}
@@ -734,7 +738,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="Métricas de SMS, MMS y RCS">
     <caption class="sr-only">Métricas de rendimiento de SMS, MMS y RCS</caption>
     <thead>
         <tr>
@@ -786,7 +790,7 @@ Aquí tienes algunas métricas clave de webhook que puedes ver en tus análisis.
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="Métricas del webhook">
     <caption class="sr-only">Métricas de rendimiento del webhook</caption>
     <thead>
         <tr>
@@ -822,7 +826,7 @@ Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="Métricas de WhatsApp">
     <caption class="sr-only">Métricas de rendimiento de WhatsApp</caption>
     <thead>
         <tr>
