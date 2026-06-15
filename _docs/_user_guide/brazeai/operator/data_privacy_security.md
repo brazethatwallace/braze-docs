@@ -1,5 +1,5 @@
 ---
-nav_title: Data Privacy and Security
+nav_title: Data privacy and security
 article_title: Data Privacy and Security for BrazeAI Operator
 page_order: 5
 page_type: reference
@@ -34,13 +34,13 @@ When you use an integration with an LLM provider provided by Braze through the B
 
 ### How data is used with OpenAI
 
-To generate AI output through BrazeAI features that leverage OpenAI ("Output"), Braze will send certain information ("Input") to OpenAI. Input consists of your prompts, the content displayed in the dashboard, and workspace data relevant to your queries. Per [OpenAI's API platform commitments](https://openai.com/enterprise-privacy/), data sent to OpenAI's API via Braze is not used to train or improve OpenAI models. Between you and Braze, Output is your intellectual property. Braze will not assert any claims of copyright ownership on such Output. Braze makes no warranty of any kind with respect to any AI-generated content, including Output.
+To generate AI output through BrazeAI features that leverage OpenAI ("Output"), Braze will send certain information ("Input") to OpenAI. Input consists of your prompts, the content displayed in the dashboard, and workspace data relevant to your queries. Per [OpenAI's API platform commitments](https://openai.com/enterprise-privacy/), data sent to OpenAI's API through Braze is not used to train or improve OpenAI models. Between you and Braze, Output is your intellectual property. Braze will not assert any claims of copyright ownership on such Output. Braze makes no warranty of any kind with respect to any AI-generated content, including Output.
 
 ## HIPAA compliance and data retention
 
 ### HIPAA compliance
 
-For customers using Braze's US-02 cluster, Operator is covered by Braze's Business Associate Agreement (BAA), and Personal Health Information (PHI) can be submitted to the feature in line with HIPAA requirements. Customers should not submit PHI subject to HIPAA when using Operator in other Braze clusters.
+If you use Braze's US-02 cluster, Operator is covered by Braze's Business Associate Agreement (BAA), and Personal Health Information (PHI) can be submitted to the feature in line with HIPAA requirements. Don't submit PHI subject to HIPAA when using Operator in other Braze clusters.
 
 ### PII redaction
 
@@ -48,7 +48,7 @@ There is no automated PII redaction layer in the Operator request pipeline. Data
 
 ### OpenAI data retention
 
-How long OpenAI retains data sent via Operator depends on your cluster:
+How long OpenAI retains data sent through Operator depends on your cluster:
 
 | Cluster | Retention |
 | --- | --- |
@@ -58,7 +58,7 @@ How long OpenAI retains data sent via Operator depends on your cluster:
 
 ### Model training
 
-Data sent to OpenAI's API via Braze is not used to train or improve OpenAI models. This is governed by contractual agreements between Braze and OpenAI and OpenAI's API platform commitments. OpenAI acts as a Braze sub-processor, and all Personal Data is subject to the DPA between Braze and its clients.
+Data sent to OpenAI's API through Braze is not used to train or improve OpenAI models. This is governed by contractual agreements between Braze and OpenAI and OpenAI's API platform commitments. OpenAI acts as a Braze sub-processor, and all Personal Data is subject to the DPA between Braze and its clients.
 
 ### EU data routing
 
@@ -83,9 +83,9 @@ Access to Operator is managed at the workspace level through [Granular User Perm
 
 ### Human-in-the-loop model
 
-By default, Operator requires explicit approval before committing any change. Proposed modifications are presented via [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) for review. If a user rejects a proposal, no changes occur. If a user accepts a proposal, the dashboard updates, but the changes remain pending and must be manually saved or launched to become persistent.
+By default, Operator requires explicit approval before committing any change. Proposed modifications are presented as [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) for review. If a user rejects a proposal, no changes occur. If a user accepts a proposal, the dashboard updates, but the changes remain pending and must be manually saved or launched to become persistent.
 
-Users can enable **Auto-approve actions** in the Operator chat panel, which causes suggested actions to execute immediately without manual review. Even with auto-approve on, some actions always require explicit approval for safety — including generating images and modifying workspace-level settings.
+Users can enable **Auto-approve actions** in the Operator chat panel, which causes suggested actions to execute immediately without manual review. Even with auto-approve enabled, some actions always require explicit approval for safety — including generating images and modifying workspace-level settings.
 
 ### User permission inheritance
 
