@@ -34,7 +34,7 @@ tool:
 
 ### 1단계: 보고서 생성 {#step-1-create-a-report}
 
-대시보드 계정에서 **Analytics** > **참여 보고서**로 이동합니다. **+ Create New Report**을 선택합니다.
+대시보드 계정에서 **Analytics** > **참여 보고서**로 이동합니다. **+ 새 보고서 생성**을 선택합니다.
 
 ### 2단계: 메시지 추가 {#step-2-add-messages}
 
@@ -77,7 +77,7 @@ tool:
 | 인앱 메시지 | 노출 횟수, 클릭 수, 첫 번째 버튼 클릭 수, 두 번째 버튼 클릭 수 |
 | 웹훅  |  발송 수, 오류 수 |
 | SMS | 발송 수, 통신사 전송 수, 전달 확인 수, 전달 실패 수, 거부 수 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 통계 추가 #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### 4단계: 보고서 설정 완료 {#step-4-complete-report-setup}
 
@@ -121,7 +121,7 @@ tool:
 
 ### 5단계: 검토 및 시작 {#step-5-review-and-launch}
 
-보고서 설정의 마지막 단계에서는 구성된 옵션의 읽기 전용 개요를 보여줍니다. 보고서를 검토하고 만족스러우면 **Launch Report**을 선택합니다.
+보고서 설정의 마지막 단계에서는 구성된 옵션의 읽기 전용 개요를 보여줍니다. 보고서를 검토하고 만족스러우면 **보고서 시작**을 선택합니다.
 
 ### 6단계: 이메일 확인 {#step-6-check-your-email}
 
@@ -135,14 +135,21 @@ tool:
 
 #### 기간 불일치 {#mismatched-time-range}
 
-참여 보고서의 날짜가 Canvas 또는 캠페인 분석의 날짜와 일치하는지 확인하세요(예: 둘 다 12월 1일~15일을 포함). Canvas가 한 번만 발송된 경우에도 마찬가지입니다. 참여 보고서 설정에서 **Data Display**를 확인하여 올바른 Canvas 또는 캠페인을 보고 있는지 확인합니다. **Data Display**가 *X*일마다 데이터를 표시하도록 설정된 경우, 각 단계에 대해 측정기준이 기록된 날짜별로 한 행씩 표시됩니다.
+참여 보고서의 날짜가 Canvas 또는 캠페인 분석의 날짜와 일치하는지 확인하세요(예: 둘 다 12월 1일~15일을 포함). Canvas가 한 번만 발송된 경우에도 마찬가지입니다. 참여 보고서 설정에서 **데이터 표시**를 확인하여 올바른 Canvas 또는 캠페인을 보고 있는지 확인합니다. **데이터 표시**가 *X*일마다 데이터를 표시하도록 설정된 경우, 각 단계에 대해 측정기준이 기록된 날짜별로 한 행씩 표시됩니다.
 
 스프레드시트에서 합계가 잘못된 것처럼 보이면 내보내기에서 추가 필터를 지우세요. 일별 행을 합산하여 동일한 기간의 Canvas 또는 캠페인 합계와 대조할 수 있습니다.
 
 {% alert note %}
-일별, 주별 또는 기타 반복 버킷 대신 전체 캠페인 또는 Canvas별로 행을 집계하려면 **Data Display**를 **Show Data by Entire Campaign or Canvas**로 설정하세요. 행 수나 날짜가 CSV에서 잘못된 것처럼 보이면 [전체 Campaign 또는 Canvas별 데이터 표시](#show-data-by-entire-campaign-or-canvas)를 참조하세요.
+일별, 주별 또는 기타 반복 버킷 대신 전체 캠페인 또는 Canvas별로 행을 집계하려면 **데이터 표시**를 **전체 Campaign 또는 Canvas별 데이터 표시**로 설정하세요. 행 수나 날짜가 CSV에서 잘못된 것처럼 보이면 [전체 Campaign 또는 Canvas별 데이터 표시](#show-data-by-entire-campaign-or-canvas)를 참조하세요.
 {% endalert %}
 
 #### HTML 인앱 메시지의 중복 버튼 클릭 {#duplicate-button-clicks-in-html-in-app-messages}
 
 HTML 인앱 메시지를 사용하고 참여 보고서에서 **본문 클릭 수**가 높게 나타나는 경우, 클릭 로깅이 두 번 실행되고 있을 수 있습니다. 예를 들어 일반 본문 클릭에 대해 `brazeBridge.logClick()`을 호출하고 동일한 인터랙션에서 `brazeBridge.logClick('body click')`(또는 다른 ID)도 호출하는 경우입니다. 마크업에서 `brazeBridge.logClick(`을 검색하고 컨트롤당 하나의 패턴으로 맞추세요. 권장 사용법은 [버튼 추적]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements)을 참조하세요.
+
+#### 이메일로 발송된 참여 보고서의 링크가 작동하지 않음 {#broken-links-in-emailed-engagement-reports}
+
+예약된 참여 보고서 이메일의 링크가 메일 클라이언트에서 올바르게 열리지 않는 경우 다음 단계를 시도해 보세요:
+
+1. 보고서를 Gmail 받은편지함으로 전달하고 Google Chrome에서 링크를 엽니다.
+2. 참여 보고서 설정에서 **보고서 스케줄**이 예상대로 발송되도록 구성되어 있는지 확인합니다(예: 지연된 스케줄이 아닌 보고서가 생성된 직후 즉시 발송).

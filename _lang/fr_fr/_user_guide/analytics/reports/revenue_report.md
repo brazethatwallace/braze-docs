@@ -90,7 +90,7 @@ Reportez-vous au tableau **Product Breakdown** pour obtenir la liste des produit
 
 ## Exporter les données de chiffre d'affaires {#exporting-revenue-data}
 
-Pour exporter vos données de chiffre d'affaires, sélectionnez <i class="fas fa-bars" title="Menu contextuel du graphique"></i> dans le graphique **Performance Over Time** et choisissez votre option d'exportation.
+Pour exporter vos données de chiffre d'affaires, sélectionnez <i class="fas fa-bars" title="Menu contextuel du graphique"></i> **Menu contextuel du graphique** dans le graphique **Performance Over Time** et choisissez votre option d'exportation.
 
 {% alert tip %}
 Vous cherchez d'autres moyens d'obtenir des données de chiffre d'affaires ? Essayez d'ajouter un comportement d'achat (ainsi que l'achat d'un produit) aux campagnes ou aux Canvas en tant qu'[événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).

@@ -95,7 +95,7 @@ Vous pouvez ajouter jusqu'à 10 pages par message in-app.
 
 Pour dupliquer une page existante :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Duplicate**.
 3. Donnez un nom significatif à la page. Cela vous aidera lorsque vous relierez les pages entre elles.
 
@@ -104,7 +104,7 @@ Pour dupliquer une page existante :
 
 Pour supprimer ou renommer une page :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Rename** ou **Delete**.
 
 {% endtab %}
@@ -180,7 +180,7 @@ Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum
 
 #### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le Contenu connecté ou les instructions conditionnelles.
+Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles.
 
 #### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 

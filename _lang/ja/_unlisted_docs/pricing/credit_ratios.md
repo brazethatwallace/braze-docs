@@ -12,16 +12,19 @@ hidden: true
 ## クレジット比率テーブル {#credit-ratio-table}
 
 {% details クリックして展開 %}
-<table aria-label="クレジット比率テーブル">
+<table class="credits-table" aria-label="クレジット比率テーブル">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>チャネル</b></th>
         <th><b>送信先</b></th>
         <th class="credits-column"><b>1送信あたりのクレジット</b></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>WhatsApp</td>
         <td>Argentina Authentication</td>
@@ -707,6 +710,7 @@ hidden: true
         <td>United Kingdom Utility</td>
         <td>5.8</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -714,30 +718,30 @@ hidden: true
 
 ## 地域別の課金 {#billing-by-region}
 
-#### 北米 {#north-america}
+### 北米 {#north-america}
 
 アメリカ合衆国、カナダ
 
-#### その他のアフリカ {#rest-of-africa}
+### その他のアフリカ {#rest-of-africa}
 
 アルジェリア、アンゴラ、ベナン、ボツワナ、ブルキナファソ、ブルンジ、カメルーン、チャド、コンゴ、エリトリア、エチオピア、ガボン、ガンビア、ガーナ、ギニアビサウ、コートジボワール、ケニア、レソト、リベリア、リビア、マダガスカル、マラウイ、マリ、モーリタニア、モロッコ、モザンビーク、ナミビア、ニジェール、ルワンダ、セネガル、シエラレオネ、ソマリア、南スーダン、スーダン、エスワティニ、タンザニア、トーゴ、チュニジア、ウガンダ、ザンビア
 
-#### その他のアジア太平洋 {#rest-of-asia-pacific}
+### その他のアジア太平洋 {#rest-of-asia-pacific}
 
 アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、香港、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、シンガポール、スリランカ、台湾、タジキスタン、タイ、トルクメニスタン、ウズベキスタン、ベトナム
 
-#### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
+### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
 
 アルバニア、アルメニア、アゼルバイジャン、ベラルーシ、ブルガリア、クロアチア、チェコ共和国、ジョージア、ギリシャ、ハンガリー、ラトビア、リトアニア、マケドニア、モルドバ、ポーランド、ルーマニア、セルビア、スロバキア、スロベニア、ウクライナ
 
-#### その他のラテンアメリカ {#rest-of-latin-america}
+### その他のラテンアメリカ {#rest-of-latin-america}
 
 ボリビア、コスタリカ、ドミニカ共和国、エクアドル、エルサルバドル、グアテマラ、ハイチ、ホンジュラス、ジャマイカ、ニカラグア、パナマ、パラグアイ、プエルトリコ、ウルグアイ、ベネズエラ
 
-#### その他の中東 {#rest-of-middle-east}
+### その他の中東 {#rest-of-middle-east}
 
 バーレーン、イラク、ヨルダン、クウェート、レバノン、オマーン、カタール、イエメン
 
-#### その他の西ヨーロッパ {#rest-of-western-europe}
+### その他の西ヨーロッパ {#rest-of-western-europe}
 
 オーストリア、ベルギー、デンマーク、フィンランド、アイルランド、ノルウェー、ポルトガル、スウェーデン、スイス

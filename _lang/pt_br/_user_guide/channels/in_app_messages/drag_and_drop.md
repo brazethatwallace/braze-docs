@@ -95,7 +95,7 @@ Você pode adicionar até 10 páginas por mensagem no app.
 
 Para duplicar uma página existente:
 
-1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> para abrir mais opções.
+1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> **Mais opções**.
 2. Selecione **Duplicate**.
 3. Dê um nome significativo à página. Isso ajudará quando você conectar as páginas entre si.
 
@@ -104,7 +104,7 @@ Para duplicar uma página existente:
 
 Para excluir ou renomear uma página:
 
-1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> para abrir mais opções.
+1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> **Mais opções**.
 2. Selecione **Rename** ou **Delete**.
 
 {% endtab %}

@@ -32,7 +32,7 @@ Braze는 초안을 저장할 때가 아니라 스케줄된 진입이 있는 Canv
 
 - 사용자의 프로필 다운로드를 확인하여 이벤트를 트리거했는지, 언제 트리거했는지 확인합니다. 이벤트가 트리거된 경우, 이벤트가 트리거된 타임스탬프와 Canvas가 활성화된 시간을 비교하세요. Canvas가 활성화되기 전에 이벤트가 트리거되었을 수 있습니다.
 - Canvas 및 타겟팅에 사용된 Segment의 체인지로그를 검토하여 커스텀 이벤트가 트리거되었을 때 사용자가 해당 Segment에 포함되어 있었는지 확인합니다. Segment에 포함되어 있지 않았다면 캔버스 단계를 받지 못했을 것입니다.
-- 세분화를 통해 사용자가 대조군에 포함되어 캔버스 단계를 받지 못하게 되었는지 확인합니다.
+- 사용자가 Canvas 진입 시 대조군에 할당되어 캔버스 단계를 받지 못하게 되었는지 확인합니다.
 - 스케줄된 지연이 있는 경우, 사용자의 커스텀 이벤트가 지연 전에 트리거되었는지 확인합니다. 지연 전에 이벤트가 트리거되었다면 캔버스 단계를 받지 못했을 것입니다.
 
 {% alert note %}
@@ -89,13 +89,11 @@ Canvases는 강력하고 복잡하며, 생성할 때 많은 시간과 노력을 
 
 Canvas를 생성할 때 다음 [사용 사례](#use-case)처럼 오디언스가 대조군과 배리언트 그룹 간에 균등하게 분할될 것으로 예상했을 수 있습니다. 그 이유와 해결 방법을 알아보겠습니다!
 
-사용자가 참여하는 그룹은 설정에 따라 달라집니다. 대조군 또는 배리언트 그룹이 될 수 있습니다. 사용자는 [진입 단계]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule)에서 정의한 모든 기준에 부합할 때 Canvas에 진입합니다. Canvas를 설정할 때 각 배리언트와 대조군에 진입할 사용자의 비율을 정의합니다.
+대조군 및 배리언트 할당은 Segment 필터가 아니라 빌더에서 설정한 비율에 따라 Canvas 진입 시 이루어집니다. 사용자는 [진입 단계]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule)에서 정의한 모든 기준에 부합할 때 Canvas에 진입합니다.
 
-대조군이 배리언트 그룹에 비해 큰 경우(의도한 것이 아니라면) 다음을 권장합니다:
-1. 진입 오디언스 필터를 **is Foreground Push Enabled**로 설정합니다.
-2. 진입 오디언스 필터의 **Push Subscription Status**, **Email Subscription Status** 또는 둘 다를 **Opted In** 또는 **Subscribed**로 설정합니다.
+사용자가 배리언트에 진입했지만 채널 자격이 없어 메시지를 받지 못하는 경우, **타겟 오디언스**에 채널 필터를 추가하는 대신 각 단계의 [발송 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)(예: **구독 설정**을 옵트인한 사용자로만 설정)을 사용하세요. 멀티채널 Canvas의 경우, 진입 오디언스를 단일 채널(예: **Foreground Push Enabled**)로 제한하지 마세요.
 
-대조군이 있는 Canvas를 생성할 때는 진입 오디언스의 모든 사용자가 Canvas 내에서 메시지를 받을 수 있는지 확인하세요(예: Canvas에 푸시 및 이메일 메시지가 포함된 경우).
+특정 채널을 수신할 수 없는 사용자도 여전히 배리언트에 진입할 수 있습니다. 각 메시지 유형을 수신하는 사용자를 제한하려면 진입 오디언스 필터 대신 단계별 발송 설정을 사용하세요.
 
 ### 사용 사례 {#use-case}
 
@@ -110,7 +108,7 @@ Canvas를 생성할 때 다음 [사용 사례](#use-case)처럼 오디언스가 
 
 활성 사용자를 다시 살펴보면, 29.8k명의 사용자가 포함되어 있지만 그 중 64%만 푸시가 활성화되어 있음을 알 수 있습니다:
 
-![푸시 활성화 필터가 true로 설정되어 있고 예상 사용자가 29.8k인 Segment.]({% image_buster /assets/img_archive/trouble16.png %})
+!["Push Enabled" 필터가 "true"로 설정되어 있고 예상 사용자가 29.8k인 Segment.]({% image_buster /assets/img_archive/trouble16.png %})
 
 이는 90%의 사용자가 배리언트에 진입하도록 지정했더라도 해당 사용자 모두가 실제로 푸시 알림을 받을 수 있는 것은 아니라는 것을 의미합니다. 푸시 알림을 받을 수 없는 사용자도 여전히 배리언트에 진입하게 됩니다.
 

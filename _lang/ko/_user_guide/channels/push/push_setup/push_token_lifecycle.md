@@ -31,7 +31,7 @@ channel:
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
 | 포그라운드 푸시 | 예 | 앱이 포그라운드에 있는 동안 사용자에게 알림이 표시됩니다. |
 | 백그라운드 푸시 | 아니요 | 알림이 표시되지 않고 백그라운드에서 조용히 전달됩니다. 제거 추적과 같은 기능에 자주 사용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Foreground vs. background push #foreground-vs-background" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="포그라운드 푸시 vs. 백그라운드 푸시" }
 
 사용자가 앱의 푸시 알림에 옵트인하면 "푸시 등록됨"으로 간주되며, Braze에서 `Foreground Push Enabled for App` 세분화 필터를 사용하여 타겟팅할 수 있습니다.
 
@@ -47,7 +47,7 @@ channel:
 
 앱이나 웹사이트는 기기당 하나의 푸시 구독만 가질 수 있습니다. 따라서 사용자가 기기나 웹사이트에서 로그아웃하고 새 사용자가 로그인하면, 푸시 토큰이 새 사용자에게 재할당됩니다. 이는 사용자 프로필의 **Engagement** 탭에 있는 **Contact Settings** 섹션에 반영됩니다.
 
-![사용자 프로필의 Engagement 탭에 있는 푸시 토큰 체인지로그로, 푸시 토큰이 다른 사용자에게 이동된 시점과 해당 토큰이 무엇인지 표시합니다.]({% image_buster /assets/img/push_token_changelog.png %})
+![사용자 프로필의 **Engagement** 탭에 있는 푸시 토큰 체인지로그로, 푸시 토큰이 다른 사용자에게 이동된 시점과 해당 토큰이 무엇인지 표시합니다.]({% image_buster /assets/img/push_token_changelog.png %})
 
 푸시 공급자(APNs/FCM)가 하나의 기기에서 여러 사용자를 구분할 방법이 없기 때문에, 마지막으로 로그인한 사용자에게 푸시 토큰을 전달하여 기기에서 푸시를 타겟팅할 사용자를 결정합니다.
 
@@ -71,7 +71,7 @@ channel:
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Android 13** | 사용자가 푸시 권한을 요청하고 승인해야 합니다. 앱에서 수동으로 권한을 요청하거나, [알림 채널](https://developer.android.com/reference/android/app/NotificationChannel)이 생성된 후 자동으로 프롬프트가 표시됩니다. |
 | **Android 12 이하** | 모든 사용자는 첫 번째 세션 후 `Subscribed`로 간주됩니다. Braze는 이 시점에서 자동으로 푸시 토큰을 요청하여, 유효한 토큰과 기본 구독 상태 `Subscribed`로 사용자의 푸시를 활성화합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token registration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 토큰 등록" }
 {% endtab %}
 
 {% tab iOS %}
@@ -81,13 +81,13 @@ iOS는 앱이 설치될 때 자동으로 푸시 토큰을 생성하지 않습니
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **iOS 12** | 예 | 사용자가 푸시 알림에 옵트인하면 표준 승인이 부여되어 [포그라운드 푸시 알림](#foreground-vs-background)을 보낼 수 있습니다. 그러나 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)을 요청하여 알림 센터로 직접 조용한 [백그라운드 푸시 알림](#foreground-vs-background)을 보낼 수도 있습니다. |
 | **iOS 11 이하** | 아니요 | 모든 사용자는 푸시 알림을 받으려면 명시적으로 옵트인해야 합니다. 권한이 부여된 후에만 푸시 토큰이 생성됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push token registration" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="푸시 토큰 등록" }
 {% endtab %}
 {% endtabs %}
 
 ### 사용자의 푸시 구독 상태 확인 {#checking-users-push-subscription-state}
 
-![푸시 구독 상태가 가입됨으로 설정된 John Doe의 사용자 프로필.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Engagement 탭에서 푸시 구독 상태와 푸시 등록 세부 정보를 보여주는 Jane Doe의 사용자 프로필.]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Braze에서 사용자의 푸시 구독 상태를 확인하는 방법은 두 가지가 있습니다:
 
@@ -115,20 +115,20 @@ Braze에서 사용자의 푸시 구독 상태를 확인하는 방법은 두 가�
 | `changeUser()` 메서드 호출 | Braze `changeUser()` 메서드는 SDK가 사용자 행동 데이터를 할당하는 사용자 ID를 전환합니다. 이 메서드는 일반적으로 사용자가 애플리케이션에 로그인할 때 호출됩니다. 특정 기기에서 다른 또는 새로운 사용자 ID로 `changeUser()`가 호출되면, 해당 기기의 푸시 토큰이 해당 사용자 ID에 대응하는 적절한 Braze 프로필로 이동됩니다. |
 | 푸시 오류 발생 | 토큰 제거로 이어지는 일반적인 푸시 오류에는 `MismatchSenderId`, `InvalidRegistration` 및 기타 유형의 푸시 반송이 포함됩니다. <br><br>일반적인 [푸시 오류]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)의 전체 목록을 확인하세요. |
 | 사용자가 앱 제거 | 사용자가 기기에서 애플리케이션을 제거하면, Braze는 프로필에서 해당 사용자의 푸시 토큰을 제거합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token management" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 토큰 관리" }
 
 ### 더 큰 규모에서는 어떻게 보이나요? {#what-does-this-look-like-on-a-broader-scale}
 
 사용자가 새 애플리케이션을 열고 푸시 프롬프트에서 푸시 접근을 허용하면, Braze SDK에서 푸시 공급자로 호출이 이루어집니다. 해당 호출이 이루어지면, 푸시 공급자는 모든 것이 올바르게 설정되었는지 확인합니다. 설정이 올바르면, 푸시 토큰이 기기로 전달됩니다. 토큰이 도착하면, SDK가 이를 Braze에 전달합니다. Braze가 푸시 공급자로부터 토큰을 받으면, 새 사용자 프로필을 업데이트하거나 생성합니다. 이 사용자들은 이제 등록된 것으로 간주됩니다.
 
-Campaign(캠페인)을 시작하려면, Braze에서 Campaign을 생성하여 푸시 공급자에게 보낼 푸시 페이로드를 생성합니다. 그런 다음 공급자가 사용자의 기기에 푸시 페이로드를 전달하고, SDK가 메시징 상태를 Braze에 전달합니다.
+Campaign을 시작하려면, Braze에서 Campaign을 생성하여 푸시 공급자에게 보낼 푸시 페이로드를 생성합니다. 그런 다음 공급자가 사용자의 기기에 푸시 페이로드를 전달하고, SDK가 메시징 상태를 Braze에 전달합니다.
 
 ![Braze, 고객, Apple 푸시 알림 서비스 또는 Firebase Cloud Messaging 간의 앞서 설명한 푸시 프로세스를 매핑한 흐름도.]({% image_buster /assets/img/push_process.png %})
 
 | 등록 단계 | 메시징 단계 |
 | ------------------ | --------------- |
 | 1. 고객(기기)이 푸시 공급자에 등록<br>2. 공급자가 푸시 토큰을 생성하고 전달<br>3. Braze에 토큰 플러시 |1. Braze가 공급자에게 푸시 페이로드 전송<br>2. 공급자가 기기에 푸시 페이로드 전달<br>3. SDK가 메시징 통계를 Braze에 전달 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What does this look like on a broader scale?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="더 큰 규모에서는 어떻게 보이나요?" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

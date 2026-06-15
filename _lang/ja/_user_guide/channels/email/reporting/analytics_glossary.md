@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> この用語集では、メールCampaignおよびCanvasesの**Analytics**タブに表示される指標を定義しています。Brazeはホスト型の「このメールをブラウザで表示」ページを提供していません。回避策については、[メールに「ブラウザでこのメールを表示」リンクを追加できますか？]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)を参照してください。複数の指標にまたがるその他のトラブルシューティングについては、[メールFAQ]({{site.baseurl}}/user_guide/channels/email/faq/)を参照してください。
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -19,7 +21,7 @@ channel:
 
 {% api %}
 
-### バリエーション {#variation}
+### バリアント {#variation}
 
 {% apitags %}
 Count
@@ -247,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールの場合7日間にわたって追跡され、<a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>（1回の送信試行）ごとに測定されます。Brazeが提供する配信停止リンクのクリックも含まれます。7日後に同じユーザーが再度クリックした場合、別のユニーククリックとしてカウントされます。*ユニーククリック数*を含むダッシュボードのメールエンゲージメント指標はBrazeで計算されており、ESPの集計レポートとは照合されません。Currentsからダッシュボードのカウントと一致させるには、`is_unique` が `true` のイベントでフィルタリングしてください。
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールの場合7日間にわたって追跡され、<a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>（1回の送信試行）ごとに測定されます。Brazeが提供する配信停止リンクのクリックも含まれます。トラッキング対象のカスタム配信停止URLも、ユーザーがリンクを選択した場合に*ユニーククリック数*にカウントされます。7日後に同じユーザーが再度クリックした場合、別のユニーククリックとしてカウントされます。*ユニーククリック数*を含むダッシュボードのメールエンゲージメント指標はBrazeで計算されており、ESPの集計レポートとは照合されません。Currentsからダッシュボードのカウントと一致させるには、`is_unique` が `true` のイベントでフィルタリングしてください。
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -258,6 +260,24 @@ Count, Percentage
     </ul>
 </span>
 {:/}
+
+#### メールヒートマップ上の予期しないリンク {#unexpected-links-on-the-email-heatmap}
+
+[メールヒートマップ]({{site.baseurl}}/user_guide/channels/email/reporting/)に予期しないリンクが表示される場合は、メッセージのHTMLで[コンテンツブロック]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)やトラッキングURLを生成する単語間のスペースを確認してください。ヒートマップビューの**リンクテーブル（合計クリック数別）**を使用して、表示されているコピーと一致しないURLを特定してください。
+
+{% endapi %}
+
+{% api %}
+
+### 合計クリック数 {#total-clicks}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>合計クリック数</i>は、配信されたメール内のリンクをユーザーがクリックした合計回数で、同じユーザーによる複数回のクリックを含みます。Brazeの配信停止リンクおよびトラッキング対象のカスタム配信停止URLのクリックも含まれます。
+
+*合計クリック数*が*ユニーククリック数*よりも大幅に多い場合、セキュリティツールやメールボックスプロバイダーがユーザーの開封なしにリンクをスキャンしている可能性があります。エンゲージメントを内部で評価する際は*ユニーククリック数*を比較してください。
 
 {% endapi %}
 
@@ -368,6 +388,18 @@ Count
 
 {% api %}
 
+### 推定実開封数 {#estimated-real-opens}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} Brazeは、新しい開封およびクリックデータが届くたびにこの推定値を再計算します。値は通常、送信後数日で安定しますが、新しい対象イベントが発生した場合は引き続き更新されます。
+
+{% endapi %}
+
+{% api %}
+
 ### クリック開封率 {#click-to-open-rate}
 
 {% apitags %}
@@ -377,6 +409,10 @@ Percentage
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">計算式: (ユニーククリック数) / (ユニーク開封数)（メールの場合）</span>
+
+#### メッセージ開封可能性スコア（セグメンテーション） {#message-open-likelihood-scores-segmentation}
+
+[`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) Segmentフィルターは、ユーザーがメールを開封する可能性を0〜100のスケールでスコアリングします。チャネルに対する十分な送信または開封履歴がないユーザーは空白として表示されます。メールの場合、マシン開封は計算から除外され、そのチャネルの最近のメッセージ履歴が使用されます（[個別チャネルのメッセージ開封可能性フィルター]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels)を参照）。
 
 {% endapi %}
 
@@ -389,6 +425,10 @@ Percentage
 ### ブラウザで表示 {#view-in-browser}
 
 Brazeには「このメールをブラウザで表示」機能は組み込まれていません。メールコンテンツを外部のランディングページ（Webサイトなど）にホストし、メールエディターの**リンク**ツールを使用してメッセージからリンクを追加してください。詳細については、[メールに「ブラウザでこのメールを表示」リンクを追加できますか？]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails)を参照してください。
+
+### カスタム購読解除ページの更新 {#custom-unsubscribe-page-updates}
+
+[カスタム購読解除ページ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/)への変更は数分以内に反映されます。ライブ送信では、変更を保存した際に更新される短期間のキャッシュが使用されます。
 
 ### 容量超過およびメールボックスフルのバウンス {#over-quota-and-full-mailbox-bounces}
 

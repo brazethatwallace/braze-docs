@@ -347,6 +347,18 @@ Les événements d'activité en direct sont disponibles dans Currents, Snowflake
 
 {% sdk_min_versions swift:14.2.0 %}
 
+{% alert important %}
+Ne vous abonnez pas directement à ces flux ActivityKit avec Apple, car cela entrerait en conflit avec les abonnements de Braze et empêcherait les activités en direct de fonctionner correctement :
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+Utilisez plutôt les abonnements mentionnés ci-dessous.
+{% endalert %}
+
 Le SDK Braze fournit deux méthodes d'abonnement sur `braze.liveActivities` pour observer l'ensemble du cycle de vie des activités en direct. Pour un guide pas à pas complet, consultez le [tutoriel sur les activités en direct](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
 
 - [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates) : Fournit les événements du cycle de vie pour l'enregistrement des jetons push-to-start et les instances d'activité en cours d'exécution.
@@ -409,7 +421,7 @@ Plusieurs abonnés sont pris en charge — chaque abonnement actif reçoit chaqu
 | `.pushToStartTokenFlushed(activityType:)` | Le jeton a été envoyé au serveur Braze. Braze peut envoyer des notifications push-to-start pour ce type. |
 | `.pushToStartOptedOut(activityType:)` | L'utilisateur a été désabonné du push-to-start pour ce type d'activité via `optOutPushToStart(type:)`. |
 | `.pushToStartOptOutFlushed(activityType:)` | La désinscription a été envoyée au serveur Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements au niveau du type" }
 
 #### Événements au niveau de l'instance {#instance-scoped-events}
 
@@ -424,7 +436,7 @@ Plusieurs abonnés sont pris en charge — chaque abonnement actif reçoit chaqu
 | `.ended(activityId:activityType:)` | L'activité s'est terminée. |
 | `.contentUpdated(activityId:activityType:)` | L'état du contenu de l'activité a été mis à jour (iOS 16.2+). Utilisez une logique personnalisée pour rechercher l'`Activity<T>` par ID depuis `Activity.activities` et accéder à l'état typé via `activity.content.state`. |
 | `.pushTokenUpdated(activityId:activityType:)` | ActivityKit a effectué une rotation du jeton de notification push de l'activité. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements au niveau de l'instance" }
 
 ###### Exemple
 
@@ -478,7 +490,7 @@ Utilisez le drapeau `isTransient` pour déterminer si une nouvelle tentative est
 | Erreur | Quand elle se déclenche |
 | ----- | ------------- |
 | `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | Le jeton push-to-start n'a pas pu atteindre le serveur Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Type-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs au niveau du type" }
 
 #### Erreurs au niveau de l'instance {#instance-scoped-errors}
 
@@ -487,7 +499,7 @@ Utilisez le drapeau `isTransient` pour déterminer si une nouvelle tentative est
 | `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | Le jeton de notification push de l'activité n'a pas pu être enregistré auprès de Braze. |
 | `.activityNotFound(activityId:activityType:)` | `resumeActivities(ofType:)` a trouvé un mappage stocké pour une activité qui n'est plus en cours d'exécution — elle s'est probablement terminée alors que l'application était fermée. |
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` a été appelé avec une étiquette invalide. Les étiquettes doivent être non vides et inférieures à 256 octets. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs au niveau de l'instance" }
 
 ###### Exemple
 

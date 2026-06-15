@@ -155,6 +155,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
 
 <table aria-label="Aperçu de chaque approche">
   <caption>Aperçu de chaque approche</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">Espaces de travail séparés</th>
@@ -167,6 +168,8 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
         <th scope="col">Avantages</th>
         <th scope="col">Inconvénients</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">Ciblage</th>
         <td>C'est le moyen le plus sûr de séparer les communications. Les Campaigns sont assurées de ne cibler que des profils utilisateur spécifiques.</td>
@@ -216,6 +219,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
         <td>S.O.</td>
         <td>Les statistiques globales seront agrégées pour toutes les instances d'application dans l'espace de travail sur la page d'accueil.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Bonnes pratiques {#best-practices}

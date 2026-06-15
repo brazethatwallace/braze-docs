@@ -15,7 +15,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 ## 프로필 액세스 {#access-profiles}
 
-사용자의 프로필에 액세스하려면 **사용자 검색** 페이지로 이동하여 다음 중 하나로 사용자를 검색합니다:
+사용자의 프로필에 액세스하려면 **Search Users** 페이지로 이동하여 다음 중 하나로 사용자를 검색합니다:
 
 - 외부 사용자 ID
 - Braze ID
@@ -27,7 +27,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 일치하는 항목이 발견되면 Braze SDK로 해당 사용자에 대해 기록한 정보를 확인할 수 있습니다. 검색 결과에 여러 고객 프로필이 반환되는 경우 각 프로필을 개별적으로 병합하거나 대량 사용자 병합을 수행할 수 있습니다. 전체 안내는 [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)을 참조하세요.
 
 {% alert note %}
-**사용자 검색**은 Segment 또는 Campaign 작성기의 **사용자 조회**와 동일하지 않습니다. **사용자 조회**는 특정 사용자가 오디언스와 일치하는지 테스트하며 `external_id` 또는 `braze_id`만 허용합니다. 이 페이지의 **사용자 검색**은 이메일, 전화번호, 푸시 토큰, 사용자 별칭을 지원합니다. 자세한 내용은 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
+**Search Users**는 Segment 또는 Campaign 작성기의 **User Lookup**과 동일하지 않습니다. **User Lookup**은 특정 사용자가 오디언스와 일치하는지 테스트하며 `external_id` 또는 `braze_id`만 허용합니다. 이 페이지의 **Search Users**는 이메일, 전화번호, 푸시 토큰, 사용자 별칭을 지원합니다. 자세한 내용은 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
 {% endalert %}
 
 {% alert important %}
@@ -65,7 +65,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 최근 기기 | 로그인한 기기 수, 각 기기의 세부 정보, 관련 광고 ID(있는 경우). |
 | 커스텀 이벤트 | 이 사용자가 수행한 커스텀 이벤트, 수행 횟수, 각 이벤트를 마지막으로 수행한 시점. |
 | 구매 | 이 사용자에게 귀속된 평생 매출, 마지막 구매, 총 구매 횟수, 각 구매 목록. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="개요 탭" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab" }
 
 이 데이터에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
 
@@ -78,14 +78,14 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 참여 카테고리 | 포함 내용 |
 | --- | --- |
 | 연락처 설정 | 이메일, SMS, 푸시의 구독 상태와 이 세 채널에 대해 사용자가 연결된 구독 그룹. 이 섹션에는 푸시 토큰에 대한 체인지로그 정보도 포함됩니다. 구독 및 옵트인 설정 방법에 대한 자세한 내용은 [이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/), [푸시]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)를 참조하세요. |
-| 수신한 Campaigns | **수신한 Campaigns**는 채널별 전송 및 조회 시점을 반영합니다. 대부분의 채널은 Braze가 메시지를 전달 공급자에게 전달할 때 전송을 기록하며, 메시지가 최종적으로 전달되지 않더라도 기록됩니다. **Content Cards**는 다릅니다. Campaign은 사용자가 앱에서 카드를 조회한 후에만 여기에 표시됩니다. 채널별 세부 내용은 [수신한 Campaigns에 Campaign이 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요. 메시지가 수신, 열림 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 전송받지 않았더라도 이 필터에 일치할 수 있습니다.<br><br>목록에서 Campaign을 선택하여 확인합니다. |
+| 수신한 Campaigns | **수신한 Campaigns**는 채널별 전송 및 조회 시점을 반영합니다. 대부분의 채널은 Braze가 메시지를 전달 공급자에게 전달할 때 전송을 기록하며, 메시지가 최종적으로 전달되지 않더라도 기록됩니다. **Content Cards**는 다릅니다. Campaign은 사용자가 앱에서 카드를 조회한 후에만 여기에 표시됩니다. 채널별 세부 내용은 [수신한 Campaigns에 Campaign이 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요. <br><br>메시지가 수신, 열림 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 전송받지 않았더라도 이 필터에 일치할 수 있습니다.<br><br>이 목록은 리타겟팅 및 이력에 표시되는 내용을 결정할 때 [메시징 상호작용 데이터]({{site.baseurl}}/api/data_retention/messaging_interaction_data/)(만료 규칙 포함)를 사용합니다.<br><br>목록에서 Campaign을 선택하여 확인합니다. |
 | Segments | 이 사용자가 포함된 Segments. 목록에서 Segment를 선택하여 확인합니다. |
 | 커뮤니케이션 통계 | 이 사용자가 각 채널에서 마지막으로 메시지를 수신한 시점. |
 | 설치 경로 | 사용자가 앱을 설치한 방법과 시기에 대한 정보. [사용자 설치 이해]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/)에서 자세히 알아보세요. |
 | 기타 | 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/). |
-| 수신한 Canvas 메시지 | 이 사용자가 수신한 Canvas 메시지와 수신 시점. 전송 시점은 **수신한 Campaigns**와 동일한 채널 규칙을 따릅니다. [수신한 Campaigns에 Campaign이 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요. 메시지가 수신, 열림 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 전송받지 않았더라도 이 필터에 일치할 수 있습니다.<br><br>목록에서 메시지를 선택하여 확인합니다. |
+| 수신한 Canvas 메시지 | 이 사용자가 수신한 Canvas 메시지와 수신 시점. 전송 시점은 **수신한 Campaigns**와 동일한 채널 규칙을 따릅니다. [수신한 Campaigns에 Campaign이 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요.<br><br>메시지가 수신, 열림 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 전송받지 않았더라도 이 필터에 일치할 수 있습니다.<br><br>목록에서 메시지를 선택하여 확인합니다. |
 | 예측 | 이 사용자에 대한 [고객이탈 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) 및 [이벤트 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) 점수. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="참여 탭" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab" }
 
 ### 수신한 Campaigns에 Campaign이 표시되는 시점 {#when-campaigns-appear-in-campaigns-received}
 
@@ -94,7 +94,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 - **이메일:** Braze는 메시지가 이메일 서비스 공급자(ESP)에 전달될 때 전송을 기록합니다. 전달 후에는 Liquid 로직, 사용량 제한 또는 사용자가 도달 불가로 표시되어 메시지가 중단되지 않습니다. 이후 이벤트는 일반적으로 전달 또는 반송입니다.
 - **푸시:** Braze는 메시지가 푸시 공급자(예: Apple Push Notification service(APNs) 또는 Firebase Cloud Messaging(FCM))에 전달될 때 전송을 기록합니다. 공급자는 일반적으로 즉시 전달을 시도하며, 기기를 사용할 수 없는 경우(예: 오프라인) 메시지가 만료될 때까지 재시도할 수 있습니다.
 - **인앱 메시지:** Braze는 Campaign이 시작될 때 전송을 기록합니다.
-- **Content Cards:** Braze가 _전송_ 이벤트를 기록하는 시점은 전달 유형과 **카드 생성** 설정에 따라 다릅니다. Content Cards Campaign은 사용자가 앱에서 카드를 조회한 후에만 고객 프로필의 **수신한 Campaigns**에 표시됩니다. 전체 세부 내용은 Content Cards 보고서 문서의 [전송이 기록되는 시점]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged) 및 [수신한 Campaigns 및 리타겟팅 필터]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters)를 참조하세요.
+- **Content Cards:** Braze가 _전송_ 이벤트를 기록하는 시점은 전달 유형과 **Card Creation** 설정에 따라 다릅니다. Content Cards Campaign은 사용자가 앱에서 카드를 조회한 후에만 고객 프로필의 **수신한 Campaigns**에 표시됩니다. 전체 세부 내용은 Content Cards 보고서 문서의 [전송이 기록되는 시점]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged) 및 [수신한 Campaigns 및 리타겟팅 필터]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters)를 참조하세요.
 - **SMS, WhatsApp, 웹훅:** Braze는 메시지가 해당 채널의 전달 경로에 진입할 때 전송을 기록합니다(예: SMS 또는 WhatsApp 공급자, 또는 웹훅 엔드포인트).
 
 {% alert note %}
@@ -130,7 +130,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | Content Cards | 클릭<br>해제<br>노출 횟수<br>전송 |
 | 웹훅 | 전송 |
 | WhatsApp | 중단<br>전달<br>실패<br>최대 게재빈도 설정<br>인바운드 수신<br>읽음<br>전송 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="메시지 참여 이벤트" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
 
 ##### 메시지 중단 이벤트 {#message-abort-events}
 
@@ -165,10 +165,11 @@ Content Cards 전송은 카드를 볼 수 있게 되었을 때 기록됩니다. 
 
 다음 시나리오에서 사용자의 **메시지 이력** 탭에 일부 필드가 없을 수 있습니다:
 
-- **전송된 메시지**에 대한 데이터가 누락된 이벤트는 해당 Campaign에 메시지 변형이 없음을 나타냅니다.
-- **Campaign/Canvas** 및 **전송된 메시지**에 대한 데이터가 누락된 이벤트는 `campaign_id` 및 `message_variation_id`를 지정하지 않은 API Campaign(API 트리거 Campaign이 아닌)에서 전송된 메시지임을 나타냅니다. 이러한 필드는 선택 사항이며 요청 본문에서 생략될 수 있습니다. 이러한 필드가 지정되면 해당 정보가 메시지 이력 로그에 채워집니다.
+- **Message Sent**에 대한 데이터가 누락된 이벤트는 해당 Campaign에 메시지 변형이 없음을 나타냅니다.
+- **Campaign/Canvas** 및 **Message Sent**에 대한 데이터가 누락된 이벤트는 `campaign_id` 및 `message_variation_id`를 지정하지 않은 API Campaign(API 트리거 Campaign이 아닌)에서 전송된 메시지임을 나타냅니다. 이러한 필드는 선택 사항이며 요청 본문에서 생략될 수 있습니다. 이러한 필드가 지정되면 해당 정보가 메시지 이력 로그에 채워집니다.
    - 특정 메시지가 메시징 이력에는 완전히 누락되어 있지만 **수신한 Campaigns** 로그에 나타나는 경우, 사용자가 현재 사용자로 식별되기 전에 Campaign을 수신했을 가능성이 높습니다. 기존 프로필이 분리된 경우 **수신한 Campaigns** 로그는 이전되지만 메시징 이력은 이전되지 않습니다.
 - **Campaign/Canvas**에 대한 데이터가 누락된 경우 수동 테스트가 전송되었을 수 있습니다. 수동 테스트는 **메시징 이력** 탭에 기록되지만 전송된 Campaign 또는 Canvas는 기록되지 않습니다.
+- 사용자가 시드 그룹 또는 기타 내부 테스트 오디언스에 포함된 경우, **메시징 이력**에는 프로덕션 전송에 비해 제한된 Campaign 또는 Canvas 메타데이터가 표시될 수 있습니다.
 
 ## 관련 문서 {#related-articles}
 

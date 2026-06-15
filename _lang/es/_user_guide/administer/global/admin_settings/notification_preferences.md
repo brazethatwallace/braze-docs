@@ -26,7 +26,7 @@ También puedes integrarte con Slack para recibir notificaciones. Para conocer l
 La siguiente tabla describe las notificaciones disponibles y qué canales se utilizan para entregarlas.
 
 {% alert note %}
-Si eliminas el valor predeterminado de **Destinatarios** de **Todos los usuarios del dashboard** y quieres volver a añadirlo, puedes introducirlo manualmente en el campo desplegable.
+Dependiendo del tipo de notificación, **All Dashboard Users** y **All Admins** podrían no aparecer en el menú desplegable de destinatarios. Puedes escribirlos manualmente; los valores de destinatario distinguen entre mayúsculas y minúsculas y deben coincidir exactamente. Para dashboards localizados fuera del inglés, utiliza la etiqueta de destinatario exacta que Braze muestra cuando hay sugerencias disponibles para esa notificación, en lugar de traducir la frase tú mismo.
 {% endalert %}
 
 | Notificación | Descripción | Canales de notificación disponibles |

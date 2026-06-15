@@ -20,7 +20,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
 ## Usar una plantilla de informe {#using-a-report-template}
 
 1. Ve a **Analytics** > **Report Builder (New)**.
-2. Selecciona la flecha de **More options** junto al botón **Create New Report** y luego selecciona **Use a report template**.<br><br>![Desplegable del botón "Create New Report" con opciones para crear un informe personalizado o usar una plantilla.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+2. Selecciona la flecha de **Más opciones** junto al botón **Crear informe nuevo** y luego selecciona **Use a report template**.<br><br>![Desplegable del botón "Crear informe nuevo" con opciones para crear un informe personalizado o usar una plantilla.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Selecciona una de las plantillas de informe de la biblioteca de plantillas de Braze.
     - Usa los desplegables **Row items** y **Tags** para encontrar informes relevantes para tus casos de uso.<br><br>![Ventana "Plantillas de informe de Braze" con una lista de plantillas de Braze para seleccionar.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
 4. Sigue desde el paso 3 en adelante en [Crear un informe](#creating-a-report) para personalizar aún más el informe según tu caso de uso.
@@ -28,7 +28,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
 ## Crear un informe {#creating-a-report}
 
 1. Ve a **Analytics** > **Report Builder (New)**.
-2. Selecciona **Create New Report**.
+2. Selecciona **Crear informe nuevo**.
 3. En el desplegable **Rows**, selecciona sobre qué quieres generar el informe:
     - Campaigns
     - Canvas
@@ -36,7 +36,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
     - Canales
     - Etiquetas
 
-    Ten en cuenta que tu selección de **Rows** afectará [las métricas que puedes ver](#metrics-availability). Por ejemplo, puedes ver métricas multivariantes solo si generas un informe sobre **Canvas** o **Campaigns** con un desglose por **Variant**. No puedes ver esas métricas cuando generas un informe sobre **Campaigns y Canvas**, incluso si esas campañas y Canvas tienen pruebas multivariantes.
+    Ten en cuenta que tu selección de **Rows** afectará [las métricas que puedes ver](#metrics-availability). Por ejemplo, puedes ver métricas multivariantes solo si generas un informe sobre **Canvas** o **Campaigns** con un desglose por **Variant**. No puedes ver esas métricas cuando generas un informe sobre **Campaigns y Canvas**, incluso si esas Campaigns y Canvas tienen pruebas multivariantes.
 
 ![La sección "Filas y columnas" con campos para seleccionar las filas y agrupaciones de tu informe.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -95,11 +95,13 @@ Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Can
 | Ingresos totales | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
 | Impresiones únicas | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
 | Destinatarios únicos | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilidad de métricas" }
 
 ### Variantes de mensaje eliminadas {#deleted-message-variants}
 
 Las estadísticas de variantes de mensaje eliminadas no se muestran cuando desglosas tu informe por campañas o Canvas. Sin embargo, los totales a nivel de canal incluyen todas las estadísticas independientemente de si la variante fue eliminada. Por ejemplo, _Envíos_ para correo electrónico incluye todos los envíos de correo electrónico, pero si desglosas esas estadísticas por campaña, los números pueden ser menores porque los envíos de variantes de mensaje eliminadas se filtran.
+
+En el mismo informe, _Destinatarios únicos_ puede ser mayor que _Impresiones únicas_ cuando una variante de mensaje fue eliminada después del envío. Los _Destinatarios únicos_ a nivel de campaña aún pueden incluir usuarios que recibieron la variante eliminada, mientras que las _Impresiones únicas_ omiten las estadísticas de variantes eliminadas en las agregaciones a nivel de mensaje.
 
 ## Ver un informe {#viewing-a-report}
 

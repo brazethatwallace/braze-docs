@@ -330,3 +330,35 @@ Par exemple, vous pourriez configurer la règle suivante :
 > Pas plus de trois campagnes e-mail ou composants Canvas par semaine de toutes les campagnes et étapes Canvas.
 
 Cette règle garantit qu'aucun utilisateur ne reçoit plus de 100 e-mails par semaine car, au maximum, les utilisateurs reçoivent trois e-mails par semaine provenant de campagnes ou composants Canvas avec la limite de fréquence activée.
+
+## Questions fréquemment posées {#frequently-asked-questions}
+
+### Si je modifie la limitation d'envoi d'un Canvas actif, cela affecte-t-il les utilisateurs déjà dans le Canvas ? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
+
+Oui, lorsque vous augmentez ou diminuez une limite de débit d'un Canvas, la limite mise à jour prend effet pour les nouveaux messages dans un délai d'environ 30 secondes après la modification en raison de la mise en cache.
+
+### La limite de fréquence fait-elle sortir les utilisateurs d'un Canvas ? {#does-frequency-capping-cause-users-to-exit-a-canvas}
+
+Non. Si un utilisateur Canvas est plafonné en fréquence en raison des paramètres de limite de fréquence globale, l'utilisateur avance immédiatement à l'étape Canvas suivante. L'utilisateur ne sort **pas** du Canvas en raison de la limite de fréquence.
+
+### Comment puis-je identifier les utilisateurs qui ont été plafonnés en fréquence dans un Canvas ? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
+
+Les utilisateurs plafonnés en fréquence ne génèrent pas d'événement d'envoi pour cette étape. Pour identifier ces utilisateurs, vous pouvez utiliser [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) pour suivre les événements de plafonnement de fréquence des messages. Vous pouvez également créer une [extension de segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour analyser les utilisateurs qui sont entrés dans le Canvas mais n'ont pas reçu le message attendu.
+
+### Pourquoi le tableau de bord affiche-t-il une erreur de limite de débit pour ma campagne ? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+
+Cela signifie généralement que la [limite de débit de vitesse d'envoi](#delivery-speed-rate-limiting) de la campagne est définie à un niveau supérieur à ce que votre espace de travail, votre fournisseur ou votre hébergeur de boîtes aux lettres peut absorber, de sorte que les envois s'accumulent et Braze affiche un avertissement. Réduisez la limite de débit de vitesse d'envoi de la campagne afin que le débit par minute reste dans les capacités de ces systèmes. Vous pouvez également définir une [limite de débit de messagerie de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) pour appliquer un plafond à l'ensemble des campagnes.
+
+**Limit the number of people who will receive this campaign** contrôle le nombre d'utilisateurs éligibles pour un envoi, pas le nombre de messages que Braze envoie par minute. Seule une limite de débit de vitesse d'envoi définit le débit par minute.
+
+### Que signifie « Envoyé » pour la limite de fréquence ? {#what-does-sent-mean-for-frequency-capping}
+
+Dans les analyses et la limite de fréquence, _Envoyé_ fait référence au moment où Braze envoie le message (l'envoi est enregistré), et non à la livraison finale garantie à l'appareil ou à la boîte de réception. La limite de fréquence et le comptage des envois utilisent ces événements d'envoi enregistrés, qui peuvent différer des indicateurs « livré » en aval.
+
+### Pourquoi est-ce que je vois des rebonds ou des reports d'e-mails ? {#why-am-i-seeing-email-bounces-or-deferrals}
+
+Les messages de rebond et de report d'e-mails utilisent de nombreux codes différents et des textes spécifiques aux fournisseurs. Ne considérez pas un code particulier comme le signe d'un problème de limite de débit, car la cause dépend de votre contexte d'envoi et des retours du fournisseur de boîtes aux lettres.
+
+Si les messages sont temporairement reportés, envoyer moins peut aider à court terme. Utilisez une [limite de débit de vitesse d'envoi](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign**, ou les deux.
+
+Pour une solution à long terme, travaillez avec un expert en livrabilité pour examiner vos données de rebonds et de reports.

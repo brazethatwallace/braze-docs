@@ -171,7 +171,7 @@ Wenn Deeplinks funktionieren, wenn die App nicht läuft oder wenn der Link direk
 
 Apple `.p8`-Authentifizierungsschlüssel sind der erforderliche Ansatz für APNs-Push in Braze. Im Gegensatz zu älteren Zertifikatsdateitypen laufen `.p8`-Schlüssel nicht ab und unterstützen alle Ihre Apps unter einem einzigen Schlüssel, wodurch jährliche Zertifikatserneuerungen entfallen und das Risiko von Push-Zustellungsfehlern reduziert wird.
 
-Wenn Sie derzeit ein `.p12`- oder `.pem`-Zertifikat verwenden, migrieren Sie so bald wie möglich zu einem `.p8`-Schlüssel. Anweisungen zum Erstellen und Hochladen eines `.p8`-Schlüssels finden Sie unter [APNs-Push-Zertifikat hochladen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Apples Anleitung zum Generieren eines `.p8`-Schlüssels aus Ihrem Entwicklerkonto finden Sie unter [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+Wenn Sie derzeit ein `.p12`- oder `.pem`-Zertifikat verwenden, migrieren Sie so bald wie möglich zu einem `.p8`-Schlüssel. Anweisungen zum Erstellen und Hochladen eines `.p8`-Schlüssels finden Sie unter [APNs-Push-Zertifikat hochladen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Apples Anleitung zum Generieren eines `.p8`-Schlüssels aus Ihrem Entwicklerkonto finden Sie unter [Mit APNs über Authentifizierungstoken kommunizieren](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
 ### .p8-Schlüssel im Vergleich zu .p12-Zertifikaten {#p8-keys-versus-p12-certificates}
 
@@ -206,7 +206,7 @@ table {
 }
 </style>
 
-| Betriebssystem | Tastenkombinationen                                                  |
+| Betriebssystem | Tastenkombinationen |
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
@@ -224,7 +224,7 @@ Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab 
 
 Wenn Sie eine Benachrichtigung von Ihrer Website in Ihrer Android-Benachrichtigungsleiste sehen:
 
-1. Tippen Sie in der Push-Benachrichtigung auf <i class="fas fa-cog" title="Einstellungen"></i> und wählen Sie **Site settings**.
+1. Tippen Sie in der Push-Benachrichtigung auf <i class="fas fa-cog" title="Einstellungen"></i> **Einstellungen** und wählen Sie **Site settings**.
 2. Tippen Sie unter **Site settings** auf **Clear & Reset**.
 
 Wenn Sie keine Benachrichtigung von Ihrer Website geöffnet haben:
@@ -244,7 +244,7 @@ Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab 
 ### Firefox auf dem Desktop zurücksetzen {#reset-firefox-on-desktop}
 
 1. Wählen Sie neben Ihrer Website-URL <i class="fa-solid fa-circle-info" alt="Info-Symbol"></i> oder <i class="fas fa-lock" alt="Schloss-Symbol"></i> aus.
-2. Wählen Sie unter **Permissions** neben **Receive Notifications** das Symbol <i class="fa-solid fa-circle-xmark" title="Diese Berechtigung löschen und erneut fragen"></i>, um die Benachrichtigungsberechtigungen zu löschen.
+2. Wählen Sie unter **Permissions** neben **Receive Notifications** das Symbol <i class="fa-solid fa-circle-xmark" title="Diese Berechtigung löschen und erneut fragen"></i> **Berechtigung löschen**, um die Benachrichtigungsberechtigungen zu löschen.
 3. Wählen Sie im selben Menü **Clear Cookies and Site Data**.
 4. Wählen Sie im Bestätigungsdialog **OK**.
 

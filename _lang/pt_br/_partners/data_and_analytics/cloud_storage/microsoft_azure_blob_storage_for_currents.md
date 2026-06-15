@@ -37,7 +37,7 @@ No Microsoft Azure, navegue até **Storage Accounts** na barra lateral e clique 
 
 Mesmo que você já tenha uma conta de armazenamento, recomendamos criar uma nova especificamente para seus dados da Braze.
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![Página de criação de conta de armazenamento do Microsoft Azure na aba Básico, com o campo Nome da conta de armazenamento destacado.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### Etapa 2: Obter a string de conexão {#step-2-get-the-connection-string}
 
@@ -49,7 +49,7 @@ A Microsoft fornece duas chaves de acesso para manter as conexões usando uma ch
 A Braze usa a string de conexão deste menu, não a chave.
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![Página de chaves de acesso de uma conta de armazenamento do Azure, com o campo de string de conexão sob key1 destacado.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### Etapa 3: Criar um contêiner de serviço de blob {#step-3-create-a-blob-service-container}
 
@@ -57,7 +57,7 @@ Navegue até o menu **Blobs** na seção **Blob Service** da sua conta de armaze
 
 Forneça um nome para o seu contêiner de Blob Service. As outras configurações padrão não precisarão ser atualizadas.
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![Página de Blobs de uma conta de armazenamento do Azure em Blob Service, com a opção de adicionar um contêiner.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### Etapa 4: Configurar o Currents {#step-4-set-up-currents}
 
@@ -94,9 +94,7 @@ Os usuários que integraram uma solução de armazenamento de dados na nuvem e e
 - Todos os relatórios do dashboard e relatórios CSV serão enviados para o e-mail do usuário para download (sem necessidade de permissões de armazenamento) e terão backup no armazenamento de dados.
 
 {% alert important %}
-**Requisito de formato JSON**: Para exportações JSON, a Braze usa o formato JSONL (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato é diferente do JSON padrão, que é um único array ou objeto JSON. Cada linha do arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON.
-
-As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica às exportações de dados do dashboard e às exportações de API que usam o formato JSON.
+**Requisito de formato JSON**: Para exportações JSON, a Braze usa o formato [JSONL](https://jsonlines.org/) (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato é diferente do JSON padrão, que é um único array ou objeto JSON. Cada linha do arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON. <br><br> As exportações do Currents usam o formato [Apache Avro](https://avro.apache.org/) (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica às exportações de dados do dashboard e às exportações de API que usam o formato JSON.
 {% endalert %}
 
 ## Perguntas frequentes {#faq}

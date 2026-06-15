@@ -224,10 +224,11 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Import Users | Nutzer:innen in das Dashboard hochladen |
 | Nutzerdaten | Edit User Data | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Export User Data | Nutzer:innen aus dem Dashboard herunterladen |
-| Nutzer:innen-Zusammenführungsprotokolle | View User Merge Records | Eine Liste der Nutzer:innen-Zusammenführungsprotokolle anzeigen |
+| Doppelte Nutzer:innen | View User Merge Records | Eine Liste der Nutzer:innen-Zusammenführungsprotokolle anzeigen |
 | Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen |
 | Doppelte Nutzer:innen | Merge Duplicate Users | Doppelte Nutzer:innen zu einem zusammenführen. Duplikate werden nach der Zusammenführung entfernt |
-| Nutzer:innen | Delete Users | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |
+| Nutzer:innen löschen | View User Deletion Records | Eine Liste der Nutzer:innen-Löschprotokolle anzeigen |
+| Nutzer:innen löschen | Delete Users | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zielgruppen-Berechtigungen" }
 
 ### Template {#template}
@@ -379,6 +380,5 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Abo-Gruppen | Edit Subscriptions | Abo-Gruppen erstellen und aktualisieren |
 | Transformationen | Edit Data Transformation | Datentransformationen erstellen und aktualisieren |
 | Transformationen | View Data Transformation | Datentransformationen anzeigen |
-| Nutzer:innen-Löschprotokolle | View User Deletion Records | Nutzer:innen-Löschprotokolle anzeigen |
 | Support-Tickets | Create Support Ticket | Support-Tickets erstellen und aktualisieren |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sonstige Berechtigungen" }

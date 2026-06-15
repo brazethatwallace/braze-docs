@@ -38,20 +38,15 @@ Your phone number must meet these WhatsApp API requirements:
 
 ### Step 2: Configure your phone number
 
-Follow Twilio’s instructions to set up your Twilio phone number to receive the verification code through email using **only** [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number). **Do not follow the instructions in other steps.**
+Configure your Twilio phone number to receive verification codes through email. **Do not link your phone number to WhatsApp in the Twilio console.**
 
 {% alert warning %}
-Only follow Twilio’s instructions to receive a verification code.
-If you follow the next steps, you connect your phone number to Twilio, which means you can’t connect that number to Braze unless you do a migration or purchase a different number.
+Do not link your phone number to WhatsApp in the Twilio console. If you do, the number will be registered to Twilio's WhatsApp Business Account, which will prevent you from connecting it to Braze through the embedded sign up workflow.
 {% endalert %}
 
 1. In the Twilio console, go to the [Active Numbers page](https://www.twilio.com/console/phone-numbers/incoming) and select the phone number you purchased.
 2. Go to the **Voice Configuration** section and in the **Configure with** dropdown, select **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. In the **A call comes in** row, select **Webhook** and set the URL to `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, replacing `YOUR_EMAIL_ADDRESS` with your email address.
-4. In the Twilio console, go to **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register**, and select **Copy** next to the phone number.
-5. In the **Self Sign-up** window, on the **Add your WhatsApp phone number** page, select **Add a new phone number** and paste the phone number.
-6. Select **Phone call** as the verification method, then select **Next**.
-7. You receive the verification code in your email within 10 minutes.
 
 ### Step 3: Complete the embedded sign up workflow
 

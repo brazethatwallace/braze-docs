@@ -347,6 +347,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 {% sdk_min_versions swift:14.2.0 %}
 
+{% alert important %}
+Apple의 다음 ActivityKit 스트림을 직접 구독하지 마세요. Braze의 구독과 충돌하여 라이브 활동이 올바르게 작동하지 않을 수 있습니다:
+
+1. [`pushTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtokenupdates-swift.property)
+2. [`activityStateUpdates`](https://developer.apple.com/documentation/activitykit/activity/activitystateupdates-swift.property)
+3. [`contentUpdates`](https://developer.apple.com/documentation/activitykit/activity/contentupdates-swift.property)
+4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
+5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
+
+대신 아래에 설명된 구독을 사용하세요.
+{% endalert %}
+
 Braze SDK는 `braze.liveActivities`에서 전체 라이브 활동 생애주기를 관찰할 수 있는 두 가지 구독 메서드를 제공합니다. 전체 단계별 안내는 [라이브 활동 튜토리얼](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities)을 참조하세요.
 
 - [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): 푸시 투 스타트 토큰 등록 및 실행 중인 활동 인스턴스에 대한 생애주기 이벤트를 전달합니다.

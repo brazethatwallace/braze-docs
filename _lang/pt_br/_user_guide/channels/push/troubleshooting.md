@@ -224,7 +224,7 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 Se você tem uma notificação do seu site visível na gaveta de notificações do Android:
 
-1. Na notificação por push, toque em <i class="fas fa-cog" title="Configurações"></i> e selecione **Site settings**.
+1. Na notificação por push, selecione <i class="fas fa-cog" title="Configurações"></i> **Configurações** e selecione **Site settings**.
 2. Em **Site settings**, toque em **Clear & Reset**.
 
 Se você não tem uma notificação do seu site aberta:
@@ -244,7 +244,7 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 ### Redefinir o Firefox no desktop {#reset-firefox-on-desktop}
 
 1. Ao lado da URL do seu site, selecione <i class="fa-solid fa-circle-info" alt="ícone de informação"></i> ou <i class="fas fa-lock" alt="ícone de cadeado"></i>.
-2. Em **Permissions**, ao lado de **Receive Notifications**, selecione <i class="fa-solid fa-circle-xmark" title="Limpar esta permissão e perguntar novamente"></i> para limpar as permissões de notificação.
+2. Em **Permissions**, ao lado de **Receive Notifications**, selecione <i class="fa-solid fa-circle-xmark" title="Limpar esta permissão e perguntar novamente"></i> **Clear permission** para limpar as permissões de notificação.
 3. No mesmo menu, selecione **Clear Cookies and Site Data**.
 4. Na caixa de diálogo para confirmar sua escolha, selecione **OK**.
 

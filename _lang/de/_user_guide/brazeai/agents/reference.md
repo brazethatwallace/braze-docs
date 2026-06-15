@@ -7,7 +7,7 @@ page_order: 3
 
 # Referenz für Agenten {#reference-for-agents}
 
-> Wenn Sie benutzerdefinierte Agenten erstellen, lesen Sie diesen Artikel für weitere Informationen zu wichtigen Einstellungen wie Anweisungen und Ausgabeschemata. Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) und [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Wenn Sie angepasste Agenten erstellen, lesen Sie diesen Artikel für weitere Informationen zu wichtigen Einstellungen wie Anweisungen und Ausgabeschemata. Eine schrittweise Einrichtungsanleitung finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) und [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Modelle {#models}
 
@@ -82,7 +82,7 @@ Wenn viele Nutzer:innen gleichzeitig einen Agenten-Schritt aufrufen, reiht Braze
 
 ### Rate-Limit-Fehler {#rate-limit-errors}
 
-Wenn der LLM-Anbieter einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage bis zu fünfmal mit exponentiellem Backoff. Dieses Wiederholungsverhalten gilt für Canvas-Agenten-Schritte. Katalog-Agenten wiederholen fehlgeschlagene Aufrufe nicht, einschließlich Rate-Limit-Fehlern des LLM-Anbieters.
+Wenn der LLM-Anbieter einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage mit exponentiellem Backoff. Dieses Wiederholungsverhalten gilt für Canvas-Agenten-Schritte. Katalog-Agenten wiederholen fehlgeschlagene Aufrufe nicht, einschließlich Rate-Limit-Fehlern des LLM-Anbieters.
 
 Wenn alle Wiederholungsversuche fehlschlagen, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Ausgabe** an. Jeder Wiederholungsversuch ist in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
 
@@ -91,6 +91,8 @@ Wenn alle Wiederholungsversuche fehlschlagen, zeigt das Detailpanel **Logs** den
 ## Anweisungen verfassen {#writing-instructions}
 
 Anweisungen sind die Regeln oder Richtlinien, die Sie dem Agenten geben (System-Prompt). Sie legen fest, wie sich der Agent bei jeder Ausführung verhalten soll. Systemanweisungen können bis zu 25 KB groß sein.
+
+Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) unter Verwendung einer [Startvorlage]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator) erstellt haben, überprüfen Sie die vorausgefüllten Anweisungen und bearbeiten Sie diese nach Bedarf.
 
 Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 
@@ -105,7 +107,9 @@ Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 9. Behandeln Sie Sonderfälle, fügen Sie Sicherheitsvorkehrungen hinzu und ergänzen Sie Ablehnungsanweisungen.
 10. Messen und dokumentieren Sie, was intern für die Wiederverwendung und Skalierung funktioniert.
 
-Für Inspiration zum Verfassen von Agentenanweisungen besuchen Sie unsere spezielle [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+### Beispiele {#examples}
+
+Für Startkonfigurationen in der Agentenkonsole siehe [Agentenvorlagen, erstellt mit Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Für vollständige Anweisungsbeispiele, die Sie kopieren oder anpassen können, besuchen Sie die [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
 ### Liquid verwenden {#using-liquid}
 
@@ -130,6 +134,8 @@ Weitere Informationen zu Best Practices für Prompting finden Sie in den Leitfä
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Ausgaben {#outputs}
+
+Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) unter Verwendung einer [Startvorlage]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator) erstellt haben, überprüfen Sie das vorausgefüllte Ausgabeschema und bearbeiten Sie es nach Bedarf.
 
 ### Einfache Schemata {#basic-schemas}
 

@@ -20,10 +20,13 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
 
 <table aria-label="Acerca del editor" style="width: 100%; table-layout: fixed;">
     <caption>Componentes del editor: contenido y filas</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenido</th>
         <th style="width: 50%;">Filas</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="La pestaña «Filas» que incluye diferentes combinaciones estructurales para el diseño de tu correo electrónico." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="La pestaña «Contenido» que incluye bloques básicos, multimedia y avanzados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Acerca del editor" }
 

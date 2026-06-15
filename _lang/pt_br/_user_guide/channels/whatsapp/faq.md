@@ -94,8 +94,8 @@ Os limites de envio de mensagens são um conceito de integridade do WhatsApp. El
 
 #### Como aumento meu limite de envio de mensagens? {#how-do-i-increase-my-messaging-limit}
 O WhatsApp aumentará seu limite de envio de mensagens se você atender às seguintes condições:
-1. O [status do número de telefone](https://www.facebook.com/business/help/896873687365001) é **Conectado**
-2. A [classificação de qualidade do número de telefone](https://www.facebook.com/business/help/896873687365001) é **Média** ou **Alta**
+1. O [status do número de telefone](https://www.facebook.com/business/help/896873687365001) é **Connected**
+2. A [classificação de qualidade do número de telefone](https://www.facebook.com/business/help/896873687365001) é **Medium** ou **High**
 3. Nos últimos sete dias, você iniciou X ou mais conversas com usuários únicos, onde X é seu limite de envio de mensagens atual dividido por 2
 
 Então, para ir de 100 mil para ilimitado, você deve enviar pelo menos 50.000 conversas iniciadas pela empresa em um período de 7 dias.
@@ -197,4 +197,8 @@ O WhatsApp é um canal focado em mensagens bidirecionais e, portanto, se baseia 
 #### Quais fatores afetam a classificação de qualidade do número de telefone, e o que acontece quando minha classificação de qualidade cai muito? {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 Os fatores que afetam a classificação de qualidade do número de telefone incluem um usuário final bloquear uma empresa (e os motivos que ele fornece ao bloquear a empresa) e um usuário final denunciar uma empresa.
 
-Quando a classificação de qualidade está baixa, o status do número de telefone muda de **Conectado** para **Sinalizado**. Se a qualidade não melhorar em sete dias, o status retorna para **Conectado**. No entanto, o limite de envio de mensagens diminuirá para o próximo nível. Por exemplo, um número de telefone que costumava ter um limite de envio de mensagens de 100.000 agora tem um limite de envio de mensagens de 10.000.
+Quando a classificação de qualidade está baixa, o status do número de telefone muda de **Connected** para **Flagged**. Se a qualidade não melhorar em sete dias, o status retorna para **Connected**. No entanto, o limite de envio de mensagens diminuirá para o próximo nível. Por exemplo, um número de telefone que costumava ter um limite de envio de mensagens de 100.000 agora tem um limite de envio de mensagens de 10.000.
+
+#### E se meu modelo foi sinalizado incorretamente por violar a Política de Comércio do WhatsApp? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+
+Se você acredita que a Meta sinalizou seu modelo incorretamente, use o link de revisão no e-mail do WhatsApp para solicitar uma reanálise. A equipe do WhatsApp Business analisa a decisão e a reverte se for apropriado.

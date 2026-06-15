@@ -7,7 +7,7 @@ page_order: 3
 
 # Referencia para agentes {#reference-for-agents}
 
-> A medida que crees agentes personalizados, consulta este artículo para obtener más información sobre configuraciones clave, como instrucciones y esquemas de salida. Para una introducción, consulta [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/) y [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> A medida que crees agentes personalizados, consulta este artículo para obtener más información sobre configuraciones clave, como instrucciones y esquemas de salida. Para una configuración paso a paso, consulta [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Para una introducción, consulta [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/) y [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Modelos {#models}
 
@@ -82,7 +82,7 @@ Cuando muchos usuarios entran en un paso de agente a la vez, Braze pone en cola 
 
 ### Errores de límite de velocidad {#rate-limit-errors}
 
-Si el proveedor de LLM devuelve un error de límite de velocidad, Braze reintenta la solicitud hasta cinco veces utilizando retirada exponencial. Este comportamiento de reintento se aplica a los pasos de agente de Canvas. Los agentes de catálogo no reintentan las invocaciones fallidas, incluidos los errores de límite de velocidad del proveedor de LLM.
+Si el proveedor de LLM devuelve un error de límite de velocidad, Braze reintenta la solicitud utilizando retirada exponencial. Este comportamiento de reintento se aplica a los pasos de agente de Canvas. Los agentes de catálogo no reintentan las invocaciones fallidas, incluidos los errores de límite de velocidad del proveedor de LLM.
 
 Si todos los reintentos fallan, el panel de detalles de **Logs** muestra **Error** y el mensaje del proveedor (como `Rate limit exceeded`) en **Output**. Cada reintento es visible en los registros, incluida la primera invocación independientemente de su éxito o fallo final. Para un usuario determinado, si se necesitan cuatro reintentos para obtener finalmente un éxito, puedes buscar el ID de usuario y ver los cinco (el original más cuatro reintentos) en **Logs**, y el original más los tres primeros reintentos mostrarán **Error** con `Rate limit exceeded`.
 
@@ -91,6 +91,8 @@ Si todos los reintentos fallan, el panel de detalles de **Logs** muestra **Error
 ## Redacción de instrucciones {#writing-instructions}
 
 Las instrucciones son las reglas o directrices que le das al agente (prompt del sistema). Definen cómo debe comportarse el agente cada vez que se ejecuta. Las instrucciones del sistema pueden tener un tamaño máximo de 25 KB.
+
+Si creaste tu agente con [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando una [plantilla inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revisa las instrucciones precargadas y edítalas según sea necesario.
 
 A continuación se incluyen algunas prácticas recomendadas generales para empezar con los prompts:
 
@@ -105,7 +107,9 @@ A continuación se incluyen algunas prácticas recomendadas generales para empez
 9. Maneja los casos extremos, añade barreras de protección e instrucciones de rechazo.
 10. Mide y documenta lo que funciona internamente para reutilizarlo y escalarlo.
 
-Para inspirarte sobre cómo redactar instrucciones de agentes, consulta nuestra [biblioteca de casos de uso dedicada para agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+### Ejemplos {#examples}
+
+Para configuraciones iniciales en la Consola de Agente, consulta [Plantillas de agentes creadas con Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Para ejemplos completos de instrucciones que puedes copiar o adaptar, consulta la [biblioteca de casos de uso para agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
 ### Utilizar Liquid {#using-liquid}
 
@@ -130,6 +134,8 @@ Para obtener más información sobre las prácticas recomendadas para los prompt
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Salidas {#outputs}
+
+Si creaste tu agente con [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando una [plantilla inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revisa el esquema de salida precargado y edítalo según sea necesario.
 
 ### Esquemas básicos {#basic-schemas}
 

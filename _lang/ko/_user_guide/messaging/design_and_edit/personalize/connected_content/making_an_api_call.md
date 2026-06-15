@@ -116,13 +116,13 @@ URL에 기본 인증이 필요한 경우, Braze는 API 호출에 사용할 기�
 
 ![Braze 대시보드의 연결된 콘텐츠 설정.]({% image_buster /assets/img/connected_content/basic_auth_mgmt.png %})
 
-새 자격 증명을 추가하려면 **Add credential** > **Basic authentication**을 선택합니다.
+새 자격 증명을 추가하려면 **자격 증명 추가** > **기본 인증**을 선택합니다.
 
-![기본 인증 또는 토큰 인증을 사용하는 옵션이 있는 "Add credential" 드롭다운.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
+![기본 인증 또는 토큰 인증을 사용하는 옵션이 있는 "자격 증명 추가" 드롭다운.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
 자격 증명에 이름을 지정하고 사용자 이름과 비밀번호를 입력합니다.
 
-![이름, 사용자 이름, 비밀번호를 입력하는 옵션이 있는 "Create New Credential" 창.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![이름, 사용자 이름, 비밀번호를 입력하는 옵션이 있는 "새 자격 증명 생성" 창.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 그런 다음 토큰 이름을 참조하여 API 호출에서 이 기본 인증 자격 증명을 사용할 수 있습니다:
 
@@ -142,7 +142,7 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 
 Braze 연결된 콘텐츠를 사용할 때, 특정 API가 사용자 이름과 비밀번호 대신 토큰을 요구하는 경우가 있습니다. Braze는 토큰 인증 헤더 값을 보유하는 자격 증명도 저장할 수 있습니다.
 
-토큰 값을 보유하는 자격 증명을 추가하려면 **Add credential** > **Token authentication**을 선택합니다. 그런 다음 API 호출 헤더에 대한 키-값 페어와 허용된 도메인을 추가합니다.
+토큰 값을 보유하는 자격 증명을 추가하려면 **자격 증명 추가** > **토큰 인증**을 선택합니다. 그런 다음 API 호출 헤더에 대한 키-값 페어와 허용된 도메인을 추가합니다.
 
 ![토큰 인증 세부 정보가 있는 예제 토큰 "token_credential_abc".]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
@@ -236,12 +236,14 @@ Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 
 ## 문제 해결 {#troubleshooting}
 
-[Webhook.site](https://webhook.site/)를 사용하여 연결된 콘텐츠 호출을 문제 해결하세요.
+[Webhook.site](https://webhook.site/)를 사용하여 연결된 콘텐츠 호출을 문제 해결하고 호출에서 전송되는 요청 헤더, 요청 본문 및 기타 정보와 관련된 문제를 진단하세요.
 
 1. 연결된 콘텐츠 호출의 URL을 사이트에서 생성된 고유 URL로 전환합니다.
 2. Campaign 또는 캔버스 단계를 미리보기 및 테스트하여 이 웹사이트로 들어오는 요청을 확인합니다.
 
-이 도구를 사용하면 호출에서 전송되는 요청 헤더, 요청 본문 및 기타 정보와 관련된 문제를 진단할 수 있습니다.
+Liquid 태그에 엔드포인트가 기대하는 매개변수(예: `:method`, `:headers`, `:content_type`, `:body`, 필요한 경우 `:basic_auth`)가 포함되어 있는지도 확인할 수 있습니다. 저장된 JSON 오브젝트의 HTTP 상태 코드 키에 의존하는 경우, 엔드포인트는 JSON 오브젝트와 `2XX` 상태를 반환해야 합니다.
+
+호스트에서 높은 오류율이 발생하는 경우, [비정상 호스트 감지]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) 및 [연결된 콘텐츠 호출 볼륨](#understanding-connected-content-call-volume)을 검토하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

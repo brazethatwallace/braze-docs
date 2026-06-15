@@ -35,7 +35,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem 
 
 Sie können neue Workspaces erstellen oder zwischen bestehenden Workspaces wechseln, indem Sie das Workspace-Dropdown im globalen Header verwenden.
 
-1. Wählen Sie das Workspace-Dropdown aus und klicken Sie dann auf <i class="fa-solid fa-square-plus" style="color: #0b8294;"></i> **Workspace erstellen**.
+1. Wählen Sie das Workspace-Dropdown aus und klicken Sie dann auf <i class="fa-solid fa-square-plus" style="color: #0b8294;" aria-hidden="true"></i> **Workspace erstellen**.
 
 ![Das Workspace-Dropdown mit dem Button „Workspace erstellen“.]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
 
@@ -49,7 +49,7 @@ Möglicherweise möchten Sie eine Namenskonvention einführen, damit andere in I
 {:start="3"}
 3. Wählen Sie **Create**. Es kann einige Sekunden dauern, bis Braze Ihren Workspace erstellt hat.
 
-![Das Modal „Create Workspace“ mit dem Namen „Upon Voyage US - Staging“.]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
+![Das Modal „Workspace erstellen“ mit dem Namen „Upon Voyage US - Staging“.]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
 
 Sie werden zur Seite **App Settings** weitergeleitet, um Ihre App-Instanzen hinzuzufügen. Sie können diese Seite jederzeit über **Settings** > **App Settings** aufrufen.
 
@@ -115,8 +115,8 @@ Es gibt keine Begrenzung für die Anzahl der Workspaces, die Sie als Favoriten m
 So benennen Sie Ihren Workspace um:
 
 1. Gehen Sie zu **Settings** > **App Settings**.
-2. Fahren Sie mit der Maus über den Namen Ihres Workspace und wählen Sie <i class="fa-solid fa-pencil" style="color: #0b8294;"></i>.
-3. Geben Sie Ihrem Workspace einen neuen Namen und wählen Sie dann <i class="fa-solid fa-square-check" style="color: #0b8294;"></i> **Save**.
+2. Fahren Sie mit der Maus über den Namen Ihres Workspace und wählen Sie <i class="fa-solid fa-pencil" style="color: #0b8294;" aria-hidden="true"></i> **Bearbeiten**.
+3. Geben Sie Ihrem Workspace einen neuen Namen und wählen Sie dann <i class="fa-solid fa-square-check" style="color: #0b8294;" aria-hidden="true"></i> **Speichern**.
 
 ![Das Stiftsymbol, das neben dem Workspace-Namen erscheint.]({% image_buster /assets/img/workspaces/workspace_rename.gif %}){: style="max-width:50%;"}
 

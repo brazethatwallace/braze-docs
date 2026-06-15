@@ -1,7 +1,6 @@
 ---
 nav_title: Prevenção de fraude de tráfego inflado em SMS, MMS e RCS
 description: "Saiba como funciona a fraude de tráfego inflado em SMS, MMS e RCS, por que a Braze marca determinados destinos como Alto Risco de Fraude e como reduzir a exposição com listas de permissão geográficas e outros controles."
-alias: /sms_traffic_pumping_fraud/
 page_type: reference
 page_order: 5
 channel:

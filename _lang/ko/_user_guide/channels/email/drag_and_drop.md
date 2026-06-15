@@ -20,10 +20,13 @@ tool:
 
 <table aria-label="편집기 소개" style="width: 100%; table-layout: fixed;">
     <caption>콘텐츠 및 행 편집기 구성요소</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">콘텐츠</th>
         <th style="width: 50%;">행</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="이메일 레이아웃을 위한 다양한 구조 조합이 포함된 '행' 탭." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ tool:
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="기본 블록, 미디어, 고급이 포함된 '콘텐츠' 탭." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="편집기 소개" }
 

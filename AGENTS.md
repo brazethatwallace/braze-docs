@@ -31,6 +31,10 @@ Do not include customer names, company names, email addresses, or other PII from
 
 Twice-weekly GitHub Actions exports Looker cases, publishes a digest, and may open Phase 2 draft PRs via [`.github/support_analyzer_phase2_rules.yml`](.github/support_analyzer_phase2_rules.yml). CSV on branch `support-analyzer-data`: `_data/support_cases_latest.csv`. Manual triage uses the **support-analyzer** skill; CI does not run skills directly.
 
+## Image pruner (CI)
+
+Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unreferenced `assets/img/` files via [`.github/workflows/image-pruner-maintenance.yml`](.github/workflows/image-pruner-maintenance.yml). Each run deletes up to 100 candidates (secondary verify, open-PR exclusions) and opens a **draft** `[IP]` pull request when at least one file is removed. Extra batches use the **image-pruner** skill or `@image-pruner`.
+
 ## Cursor rules (always on)
 
 - [`.cursor/rules/privacy-and-security.mdc`](.cursor/rules/privacy-and-security.mdc)

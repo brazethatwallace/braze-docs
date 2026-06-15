@@ -163,7 +163,7 @@ Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선
 3. **iOS 푸시 등록 확인:** iOS의 경우, [APNs에 푸시 알림 등록]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns)에 대한 푸시 통합 가이드의 1단계를 다시 확인하세요. 앱이 실행을 완료하기 전에 델리게이트 오브젝트가 동기적으로 할당되어야 합니다. 이 단계는 `application:didFinishLaunchingWithOptions:` 메서드에서 완료해야 합니다.
 4. **통합 테스트:** 조정을 완료한 후, iOS 및 Android 기기 모두에서 푸시 알림 동작을 테스트하여 문제가 해결되었는지 확인하세요.
 
-### 앱이 백그라운드에서 실행 중일 때 딥링크가 작동하지 않는 경우 (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
+### 앱이 백그라운드에서 실행 중일 때 딥링크가 작동하지 않는 경우(iOS) {#deep-links-with-app-still-running-in-the-background-ios}
 
 앱이 실행 중이 아니거나 링크를 직접 사용할 때는 딥링크가 작동하지만, 앱이 이미 백그라운드에서 실행 중일 때는 작동하지 않는 경우, 앱이 링크를 처리하는 방식에 문제가 있을 수 있습니다. 메서드 스위즐링을 사용하는 서드파티 라이브러리를 사용하고 있는지 확인하세요. 스위즐링은 딥링크 구현에 문제를 일으킬 수 있으므로 끄는 것을 권장합니다.
 
@@ -224,7 +224,7 @@ table {
 
 Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 
-1. 푸시 알림에서 <i class="fas fa-cog" title="설정"></i>을 탭하고 **Site settings**를 선택하세요.
+1. 푸시 알림에서 <i class="fas fa-cog" title="설정"></i> **설정**을 탭하고 **Site settings**를 선택하세요.
 2. **Site settings**에서 **Clear & Reset**을 탭하세요.
 
 사이트의 알림이 열려 있지 않은 경우:
@@ -244,7 +244,7 @@ Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 ### 데스크탑에서 Firefox 재설정 {#reset-firefox-on-desktop}
 
 1. 사이트 URL 옆의 <i class="fa-solid fa-circle-info" alt="정보 아이콘"></i> 또는 <i class="fas fa-lock" alt="잠금 아이콘"></i>을 선택하세요.
-2. **Permissions**에서 **Receive Notifications** 옆의 <i class="fa-solid fa-circle-xmark" title="이 권한을 지우고 다시 요청"></i>을 선택하여 알림 권한을 지우세요.
+2. **Permissions**에서 **Receive Notifications** 옆의 <i class="fa-solid fa-circle-xmark" title="이 권한을 지우고 다시 요청"></i> **Clear permission**을 선택하여 알림 권한을 지우세요.
 3. 같은 메뉴에서 **Clear Cookies and Site Data**를 선택하세요.
 4. 선택을 확인하는 대화 상자에서 **OK**를 선택하세요.
 
