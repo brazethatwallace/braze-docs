@@ -34,7 +34,7 @@ description: "이 문서에서는 세그먼트 목록 내보내기 Braze 엔드�
 | -------- | -------- | --------- | ----------- |
 | `page` | 선택 사항 | 정수 | 반환할 세그먼트 페이지이며, 기본값은 0입니다(최대 100개의 첫 번째 세트를 반환). |
 | `sort_direction` | 선택 사항 | 문자열 | - 생성 시간을 최신에서 오래된 순으로 정렬: `desc` 값을 전달합니다.<br> - 생성 시간을 가장 오래된 것부터 최신 순으로 정렬: `asc` 값을 전달합니다. <br><br>`sort_direction`이 포함되지 않은 경우 기본 순서는 가장 오래된 것부터 최신 순입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

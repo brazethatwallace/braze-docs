@@ -15,7 +15,7 @@ _この統合はDOTS.ECOによって管理されています。_
 
 ## この統合について {#about-this-integration}
 
-BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを現実世界のインパクト報酬につなげます。Brazeのキャンバスまたはキャンペーンステップから、コネクテッドコンテンツを使用してDOTS.ECO証明書作成リクエストをトリガーできます。DOTS.ECOは証明書メタデータ（`certificate_url`や`certificate_image_url`など）を返し、これをユーザープロファイルにカスタム属性として保存して、アプリ内メッセージ、Content Cards、プッシュ通知などのチャネルで再利用できます。
+BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを現実世界のインパクト報酬につなげます。BrazeのCanvasまたはCampaignステップから、コネクテッドコンテンツを使用してDOTS.ECO証明書作成リクエストをトリガーできます。DOTS.ECOは証明書メタデータ（`certificate_url`や`certificate_image_url`など）を返し、これをユーザープロファイルにカスタム属性として保存して、アプリ内メッセージ、Content Cards、プッシュ通知などのチャネルで再利用できます。
 
 ## ユースケース {#use-cases}
 
@@ -37,13 +37,13 @@ BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを�
 | DOTS.ECO認証情報 | この記事のリクエストには、DOTS.ECOアプリトークン、APIキー、アロケーションIDが必要です。これらを取得するには、DOTS.ECOのカスタマーサクセスマネージャーにお問い合わせください。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。このキーはBrazeダッシュボードの**設定** > **APIキー**で作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## DOTS.ECOの統合 {#integrating-dotseco}
 
-### ステップ1：キャンバスを作成し、ユーザー更新ステップを追加する {#step-1-create-a-canvas-and-add-a-user-update-step}
+### ステップ1：Canvasを作成し、ユーザー更新ステップを追加する {#step-1-create-a-canvas-and-add-a-user-update-step}
 
-Brazeダッシュボードで、ユーザーがキーイベント（購入、サブスクリプション、マイルストーンなど）を完了したときにトリガーする新しいキャンバスを作成します。
+Brazeダッシュボードで、ユーザーがキーイベント（購入、サブスクリプション、マイルストーンなど）を完了したときにトリガーする新しいCanvasを作成します。
 
 エントリステップの直後にユーザー更新ステップを追加します。このステップは、コネクテッドコンテンツ経由でDOTS.ECO APIを呼び出し、返された証明書データをユーザープロファイルに保存するために使用します。
 
@@ -51,7 +51,7 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
 
 ### ステップ2：高度なJSONを作成する：コネクテッドコンテンツを使ってDOTS.ECOにPOSTリクエストを行う {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
-**ユーザー更新**ステップで、**Advanced JSON Editor**に切り替え、コネクテッドコンテンツを使用してDOTS.ECO証明書APIにPOSTリクエストを行います。
+**ユーザーの更新**ステップで、**Advanced JSON Editor**に切り替え、コネクテッドコンテンツを使用してDOTS.ECO証明書APIにPOSTリクエストを行います。
 
 `capture`タグとコネクテッドコンテンツリクエストを使用して、DOTS.ECOの証明書エンドポイントを呼び出します。次に、レスポンスをカスタム属性としてユーザープロファイルに保存します。
 
@@ -93,12 +93,12 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
 ![DOTS.ECOユーザー更新ステップ。]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-この統合では、キャンバスの**ユーザー更新**ステップ内でコネクテッドコンテンツを使用してDOTS.ECO APIを呼び出します。トークンとペイロードを検証するために、まずAPIクライアント（例：Postman）でリクエストをテストしてください。
+この統合では、Canvasの**ユーザーの更新**ステップ内でコネクテッドコンテンツを使用してDOTS.ECO APIを呼び出します。トークンとペイロードを検証するために、まずAPIクライアント（例：Postman）でリクエストをテストしてください。
 {% endalert %}
 
 ### ステップ3：メッセージに証明書を表示する {#step-3-display-the-certificate-in-messages}
 
-証明書の属性がユーザープロファイルに保存されると、下流のキャンバスメッセージステップで参照できるようになります。
+証明書の属性がユーザープロファイルに保存されると、下流のCanvasメッセージステップで参照できるようになります。
 
 ![DOTS.ECOフロー。]({% image_buster /assets/img/dots_eco/dots.eco_flow.png %})
 

@@ -26,7 +26,7 @@ Pour contacter l'équipe d'assistance Braze, accédez au tableau de bord de Braz
 
 Les contacts d'assistance désignés peuvent accéder à toutes les demandes d'assistance de votre entreprise, quel que soit l'auteur de la soumission. Vous pouvez définir des utilisateurs comme contacts d'assistance désignés directement depuis la page **Edit user**.
 
-1. Accédez à **Settings** > **Company Users**, puis recherchez l'utilisateur par son nom ou son adresse e-mail.
+1. Accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis recherchez l'utilisateur par son nom ou son adresse e-mail.
 2. Sélectionnez le nom de l'utilisateur ou survolez la ligne du nom de l'utilisateur pour afficher un menu.
 3. Dans le menu, sélectionnez **Edit** pour être redirigé vers la page **Edit user**.
 4. Cochez la case **Set this user as a Designated Support Contact for Braze Support Portal**.
@@ -96,6 +96,17 @@ Sélectionnez le niveau de gravité approprié pour nous aider à affecter les b
 {% alert important %}
 Marquer un problème comme « Critique » signifie que votre instance de production est hors service et que tout travail dans Braze est arrêté.
 {% endalert %}
+
+## Résolution des problèmes de chargement du tableau de bord {#troubleshooting-dashboard-load-issues}
+
+Si le tableau de bord de Braze ne se charge pas correctement, essayez les étapes suivantes avant de contacter l'assistance :
+
+1. Ouvrez le tableau de bord dans un autre navigateur ou dans une fenêtre de navigation privée.
+2. [Videz le cache et les cookies de votre navigateur]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Désactivez les bloqueurs de publicités et les extensions de navigateur, puis rechargez le tableau de bord.
+4. Si vous utilisez un VPN, déconnectez-vous et réessayez.
+
+Si la console de développement de votre navigateur affiche `ERR_BLOCKED_BY_CLIENT`, une extension ou un bloqueur de publicités bloque les ressources du tableau de bord. Désactivez le bloqueur pour l'URL de votre tableau de bord de Braze et rechargez la page.
 
 ## Résolution des problèmes d'accès {#troubleshooting-access}
 

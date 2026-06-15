@@ -155,6 +155,13 @@ Für Connected-Content fährt Braze, wenn Anfragen an den Ziel-Host vom Detektor
 
 Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
 
+### Connected-Content gibt keinen Antworttext zurück {#connected-content-returns-no-response-body}
+
+Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden leer gerendert wird, prüfen Sie Folgendes:
+
+- **Geschützte Leerzeichen in der URL:** Braze entfernt geschützte Leerzeichen (`&nbsp;` oder Unicode `U+00A0`) aus Connected-Content-URLs, bevor die Anfrage gesendet wird. Wenn Ihre URL aus einem Dokument oder Dashboard-Feld kopiert wurde, das geschützte Leerzeichen zwischen Zeichen eingefügt hat, kann die Anfrage fehlschlagen oder keinen verwendbaren Antworttext zurückgeben. Geben Sie die URL im Klartext erneut ein oder entfernen Sie versteckte Leerzeichen und zeigen Sie dann erneut die Vorschau an.
+- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes über 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
+
 ## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll {#automated-emails-and-message-activity-log-entries}
 
 ### Einrichtung automatisierter E-Mails {#setting-up-automated-emails}

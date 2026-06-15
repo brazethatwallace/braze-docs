@@ -45,10 +45,6 @@ Además, si un evento personalizado bloqueado está actualmente referenciado por
 
 Para más detalles sobre el bloqueo y la eliminación de datos personalizados, consulta [Bloquear datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marcar como información de identificación personal (PII) {#marking-as-personally-identifiable-information-pii}
-
-Los administradores también pueden crear eventos personalizados y marcarlos como PII desde esta página. Estos eventos solo son visibles para administradores y usuarios del dashboard con el permiso "Ver atributos personalizados marcados como PII".
-
 ### Añadir descripciones {#adding-descriptions}
 
 Puedes añadir una descripción a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecciona **Editar descripción** para el evento personalizado e introduce lo que desees, como una nota para tu equipo.
@@ -107,7 +103,7 @@ La siguiente tabla muestra los filtros disponibles para segmentar usuarios por e
 | Comprobar si el evento personalizado ocurrió **más de X (máx. = 50) veces** | **MÁS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **menos de X (máx. = 50) veces** | **MENOS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **exactamente X (máx. = 50) veces** | **EXACTAMENTE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtros de segmentación" }
 
 ## Análisis {#analytics}
 

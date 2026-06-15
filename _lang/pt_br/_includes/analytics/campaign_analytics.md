@@ -86,7 +86,7 @@ A tabela a seguir resume o que cada rótulo significa.
 | --- | --- |
 | **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **Usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
 | **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience e Current Audience" }
 
 Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable Users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -135,7 +135,7 @@ O painel **Content Card Performance** descreve o desempenho da sua mensagem em v
 {% elsif include.channel == "email" %}
 ### Performance de e-mail {#email-performance}
 
-O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
+O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode selecionar o ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de performance da mensagem de e-mail]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -196,6 +196,10 @@ Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"
 
 Usando mapas de calor, você pode ver o desempenho dos diferentes links em uma única campanha de e-mail. Na seção **Message Analytics**, acesse o painel **Email Performance**. Selecione **Preview & Heatmap** para visualizar uma prévia da sua campanha de e-mail e o mapa de calor. Alternativamente, você pode selecionar o hyperlink no nome da variante para ver o mapa de calor.
 
+{% alert note %}
+A análise de dados da campanha exibe dados de cliques para até 100 URLs únicas por variante, classificadas por total de cliques. As URLs são agrupadas pela sua forma normalizada, que não inclui parâmetros de consulta. Se uma variante tiver mais de 100 URLs únicas normalizadas, apenas as 100 com mais cliques são exibidas. Os dados de cliques para URLs além desse limite ainda existem, mas não aparecerão no dashboard ou no mapa de calor. Quando o alias de link está ativado, os cliques são rastreados por ID de link em vez de URL bruta, o que normalmente resulta em menos entradas únicas e torna esse limite menos provável de ser atingido.
+{% endalert %}
+
 Nesta visualização, você pode usar o botão **Show Heatmap** para exibir uma visão visual do seu e-mail que mostra a frequência geral e a localização dos cliques durante a duração da campanha. No painel **Link Table by Total Clicks**, você pode ver todos os links na sua campanha de e-mail e classificar por total de cliques. Isso pode fornecer um insight adicional sobre onde seus usuários navegam. Para salvar uma cópia do mapa de calor para referência, selecione o botão de baixar.
 
 {% alert note %}
@@ -224,7 +228,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="Métricas de Content Card">
     <caption class="sr-only">Métricas de performance de Content Card</caption>
     <thead>
         <tr>
@@ -299,7 +303,7 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="Métricas de Banner">
     <caption class="sr-only">Métricas de performance de Banner</caption>
     <thead>
         <tr>
@@ -373,7 +377,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="Métricas de e-mail">
     <caption class="sr-only">Métricas de performance de e-mail</caption>
     <thead>
         <tr>
@@ -532,7 +536,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="Métricas de mensagem no app">
     <caption class="sr-only">Métricas de performance de mensagem no app</caption>
     <thead>
         <tr>
@@ -601,7 +605,7 @@ Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise 
 | Erros | _Erros_ é o número de erros retornados pelo provedor KakaoTalk (incrementado durante o processo de envio). |
 | Receita | _Receita_ é a receita em dólares dos destinatários da Campaign dentro da janela de conversão primária definida. |
 | Conversões primárias | _Conversões primárias_ é o número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas do KakaoTalk" }
 
 {% elsif include.channel == "push" %}
 
@@ -615,7 +619,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="Métricas de push">
     <caption class="sr-only">Métricas de performance de push</caption>
     <thead>
         <tr>
@@ -716,7 +720,7 @@ O Firebase Cloud Messaging (FCM) pode ter bounces em três casos:
 | Apps desinstalados | Quando uma mensagem tenta ser entregue a um dispositivo e o app pretendido está desinstalado nesse dispositivo, a mensagem será descartada e o ID de registro do dispositivo será invalidado. Qualquer tentativa futura de envio de mensagens para o dispositivo retornará um erro NotRegistered. |
 | App com backup | Quando um app é salvo em backup, seu ID de registro pode se tornar inválido antes que o app seja restaurado. Neste caso, o FCM não armazenará mais o ID de registro do app e o app não receberá mais mensagens. Assim, os IDs de registro **não** devem ser salvos quando um app é salvo em backup. |
 | App atualizado | Quando um app é atualizado, o ID de registro da versão anterior pode não funcionar mais. Assim, um app atualizado deve substituir seu ID de registro existente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Por que bounces ocorrem" }
 
 {% endtab %}
 {% endtabs %}
@@ -734,7 +738,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="Métricas de SMS, MMS e RCS">
     <caption class="sr-only">Métricas de performance de SMS, MMS e RCS</caption>
     <thead>
         <tr>
@@ -786,7 +790,7 @@ Aqui estão algumas métricas-chave de webhook que você pode ver na análise de
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="Métricas de webhook">
     <caption class="sr-only">Métricas de performance de webhook</caption>
     <thead>
         <tr>
@@ -822,7 +826,7 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="Métricas do WhatsApp">
     <caption class="sr-only">Métricas de performance do WhatsApp</caption>
     <thead>
         <tr>

@@ -3,7 +3,7 @@ nav_title: SSL at Braze
 article_title: SSL Overview
 page_order: 5
 page_type: reference
-description: "This reference article covers SSL, what's it is used for, and how it's used at Braze."
+description: "This reference article covers SSL, what it is used for, and how it is used at Braze."
 channel: email
 
 ---
@@ -24,11 +24,13 @@ Securing your website and links with SSL is a common practice even for companies
 
 Braze transforms your links using your branded link tracking subdomain to track clicks and opens. By default these links begin with HTTP. Users with browsers or extensions that restrict non-secure traffic may have difficulty passing through the redirect before the destination URL, even if the URL is secure. This can cause broken images and inaccurate tracking. Apply SSL to the link tracking subdomain to confirm secure redirects.
 
-### Browser requirement
+## Requirements
+
+### Browser
 
 Major browsers such as Google Chrome restrict traffic through non-secure URLs to protect users. Using SSL helps confirm that content is trusted and minimizes issues like broken links and images in emails.
 
-### HSTS domains requirement 
+### HSTS domains 
 
 If you have an HTTP Strict Transport Security (HSTS) domain, set up SSL and configure a CDN to send required security certificates. Without SSL, image and web links break.
 
@@ -39,9 +41,10 @@ Acquire an SSL certificate through a third party, usually a Content Delivery Net
 To start SSL setup, contact your Braze customer success manager to initiate a full Braze email setup.
 
 After Braze initiates setup, follow these steps:
+
 1. Braze will provide DNS records to add to your domain registry.
 2. Braze will verify if records have been added to your registry correctly.
-3. After this, you'll select a CDN and obtain SSL certificates from a third-party provider. 
+3. After this, select a CDN and obtain SSL certificates from a third-party provider.
 4. At this point, you set up your CDN. Note that Braze cannot help troubleshoot CDN configuration. Contact your CDN provider for any further assistance.
 5. Contact your customer success manager to get SSL turned on.
 
@@ -62,7 +65,7 @@ If you can't or don't want to use the listed CDNs for SSL click and open trackin
 ### Additional resources
 
 {% alert important %}
-For troubleshooting your CDN configuration, contact your CDN provider.
+For troubleshooting your CDN configuration, contact your CDN provider or see [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) for generic guidance.
 {% endalert %}
 
 Refer to the following resources by ESP partners on how to configure certain CDNs. While your specific CDN may not be listed, you must make sure your CDN has the ability to apply SSL certificates. 
@@ -94,24 +97,11 @@ If you are using Amazon SES as your ESP, refer to **Option 2: Configuring an HTT
 - **Braze US clusters:** `r.us-east-1.awstrack.me`
 - **Braze EU clusters:** `r.eu-central-1.awstrack.me`
 
+{% alert important %}
+When you configure your CDN's click-tracking domain, enable the `X-Forwarded-Host` header to prevent potential security issues such as host header attacks. Refer to your CDN provider for steps.
+{% endalert %}
+
 ## Troubleshooting
 
-While you should handle CDN configuration, certificates, and proxy issues with your CDN, use these tips to identify common SSL click tracking issues.
+While you should handle CDN configuration, certificates, and proxy issues with your CDN, use these tips to identify common SSL click tracking issues. For troubleshooting guidance, refer to [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).
 
-### Low email open rates
-
-If you're suddenly experiencing low email open rates, confirm that the SSL certificate is up-to-date. If it's expired, you must renew that SSL certificate with your CDN or certificate provider.
-
-### Domain registry issues
-
-Run a dig command to confirm you point link tracking at the CDN. In your terminal run `dig CNAME link_tracking_subdomain`. Under `ANSWER SECTION`, it lists where your CNAME points. If it points to the email service provider (SendGrid or SparkPost) and not your CDN, reconfigure your domain registry to point to your CDN.
-
-### CDN issues
-
-If live email links break during setup, you likely pointed DNS toward your CDN before proper configuration. This can appear as a "wrong link" error. Contact your CDN provider and review their documentation to troubleshoot configuration.
-
-If you see an error message that your connection isn't private, this can indicate that your SSL or CDN isn't configured correctly. Run a `dig` command in your terminal (for example, `dig CNAME your_link_tracking_subdomain`). In the `ANSWER SECTION`, if the result points to your ESP instead of your CDN, the issue is a misconfiguration. For Braze SSL click tracking to work, the CNAME should point to your CDN. Coordinate with the team that manages your SSL and CDN configuration for further assistance.
-
-### SSL enablement status
-
-If you complete SSL setup and links still appear as HTTP, contact your Braze customer success manager to confirm Braze enabled SSL. Braze enables SSL only after all setup steps are complete.

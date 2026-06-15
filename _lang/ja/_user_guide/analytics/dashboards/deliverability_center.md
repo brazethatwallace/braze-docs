@@ -13,18 +13,18 @@ channel:
 
 > 到達性センターは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/) の使用をサポートし、送信済みメールのデータを追跡して送信ドメインに関するデータを収集することで、メールパフォーマンスに関するより深いインサイトを提供します。
 
-メールの到達性は、キャンペーンの成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
+メールの到達性は、Campaignの成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
 
 到達性センターにアクセスするには、ワークスペースに対する以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
 {% details 到達性センターのユーザー権限 %}
 
-- キャンペーンの表示
-- キャンペーンの編集
-- キャンペーンのアーカイブ
-- キャンバスの表示
-- キャンバスの編集
-- キャンバスのアーカイブ
+- Campaignsの表示
+- Campaignsの編集
+- Campaignsのアーカイブ
+- Canvasesの表示
+- Canvasesの編集
+- Canvasesのアーカイブ
 - フリークエンシーキャップルールの表示
 - フリークエンシーキャップルールの編集
 - メッセージ優先度の表示
@@ -33,8 +33,8 @@ channel:
 - フィーチャーフラグの表示
 - フィーチャーフラグの編集
 - フィーチャーフラグのアーカイブ
-- セグメントの表示
-- セグメントの編集
+- Segmentsの表示
+- Segmentsの編集
 - IAMテンプレートの表示
 - IAMテンプレートの編集
 - IAMテンプレートのアーカイブ
@@ -68,9 +68,9 @@ channel:
 到達性センターに接続する前に、Google Postmaster Toolsアカウントをセットアップする必要があります。仕事用または個人用のGmailアカウントを使用してGoogle Postmasterをセットアップできます。
 
 1. [Google Postmaster Toolsダッシュボード](https://postmaster.google.com/managedomains?pli=1)にアクセスします。
-2. 右下の<i class="fas fa-plus-circle"></i>プラスアイコンを選択します。
+2. 右下の<i class="fas fa-plus-circle"></i> **Add domain**を選択します。
 3. ルート（親）ドメインを入力してメールを認証します。TXTレコードが、Brazeで使用しているサブドメインでは**なく**、このルート（親）ドメインに紐付けられていることを確認してください。ルート（親）ドメインを検証すると、追加のTXTレコードを作成せずに、後からPostmaster Toolsにサブドメインを追加できます。例えば、`braze.com`を検証すると、後から`demo.braze.com`をPostmaster Toolsに別のサブドメインとして追加し、サブドメインレベルの指標を確認できます。
-4. GoogleがTXTレコードを生成します。このレコードはドメインのDNSに直接追加できます。通常、DNSを管理している担当者がこの作業を行います。特定のDNSの更新方法に関する情報とガイダンスについては、[Verify your domain (host-specific steps)](https://support.google.com/a/topic/1409901)を参照してください。
+4. GoogleがTXTレコードを生成します。このレコードはドメインのDNSに直接追加できます。通常、DNSを管理している担当者がこの作業を行います。特定のDNSの更新方法に関する情報とガイダンスについては、[ドメインの確認（ホスト固有の手順）](https://support.google.com/a/topic/1409901)を参照してください。
 5. **Next**を選択します。<br>![メールを認証するためのドメイン「demo.braze.com」の例。]({% image_buster /assets/img_archive/domain_authentication.png %})
 6. TXTレコードをDNSに追加した後、Google Postmaster Toolsダッシュボードに戻り、**Verify**を選択します。このステップでドメインの所有権が確認され、PostmasterアカウントでGmailの到達性指標にアクセスできるようになります。<br>![ドメイン「demo.braze.com」の所有権を確認するプロンプト。]({% image_buster /assets/img_archive/domain_verification.png %})
 7. ルート（親）ドメインを検証した後、送信サブドメインをGoogle Postmasterに追加します。

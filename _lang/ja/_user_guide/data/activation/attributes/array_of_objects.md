@@ -9,7 +9,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 # オブジェクト配列 {#array-of-objects}
 
-> このページでは、オブジェクトの配列を使って関連する属性をグループ化する方法を説明します。例えば、1人のユーザーに属するペットオブジェクト、曲オブジェクト、アカウントオブジェクトをすべて含むグループがあるとします。これらのオブジェクト配列を使用して、Liquidでメッセージングをパーソナライズしたり、オブジェクト内のいずれかの要素が条件に一致する場合にオーディエンスセグメントを作成したりできます。
+> このページでは、オブジェクトの配列を使って関連する属性をグループ化する方法を説明します。例えば、1人のユーザーに属するペットオブジェクト、曲オブジェクト、アカウントオブジェクトをすべて含むグループがあるとします。これらのオブジェクト配列を使用して、Liquidでメッセージングをパーソナライズしたり、オブジェクト内のいずれかの要素が条件に一致する場合にオーディエンスSegmentを作成したりできます。
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -22,19 +22,23 @@ description: "このリファレンス記事では、オブジェクト配列を
 配列内のアイテムを更新または削除するには、キーと値でアイテムを識別する必要があるため、配列内の各アイテムに一意の識別子を含めることを検討してください。一意性は配列内のみにスコープされ、配列から特定のオブジェクトを更新および削除する場合に役立ちます。これはBrazeによって強制されるものではありません。
 
 {% alert important %}
-リクエスト内の階層化カスタム属性に無効な値（無効な時刻形式や`null`値など）が含まれている場合、Brazeはそのリクエスト内のすべての階層化カスタム属性の更新を処理から除外します。これは、その特定の属性内のすべての階層化構造に適用されます。送信前に、階層化カスタム属性内のすべての値が有効であることを確認してください。詳細については、[「ユーザーの作成と更新」]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes)を参照してください。
+リクエスト内の階層化カスタム属性に無効な値（無効な時刻形式や`null`値など）が含まれている場合、Brazeはそのリクエスト内のすべての階層化カスタム属性の更新を処理から除外します。これは、その特定の属性内のすべての階層化構造に適用されます。送信前に、階層化カスタム属性内のすべての値が有効であることを確認してください。詳細については、[ユーザーの作成と更新]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes)を参照してください。
 {% endalert %}
 
 {% alert tip %}
-ユーザー属性オブジェクトでのオブジェクトの配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください。
+ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください。
 {% endalert %}
 
 ## APIの例 {#api-example}
+
+これらの例は、オブジェクトの配列として保存される階層化カスタム属性を作成または更新する`/users/track`リクエストを送信する際に使用します。ペイロードは`$add`、`$remove`、`$update`演算子を使用するため、リクエストごとに配列全体を再構築することなく、特定のオブジェクトを変更できます。
 
 {% tabs local %}
 {% tab 作成 %}
 
 以下は、`pets`配列を使用した`/users/track`の例です。ペットのプロパティをキャプチャするには、`pets`をオブジェクトの配列としてリストするAPIリクエストを送信します。各オブジェクトには、後で更新を行う際に参照できる一意の`id`が割り当てられていることに注意してください。
+
+この形式は、属性を初めて作成する場合や、配列全体を新しいベースラインのオブジェクトセットで置き換える場合に使用します。
 
 ```json
 {
@@ -63,6 +67,8 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% tab 追加 %}
 
 `$add`演算子を使用して、配列に別のアイテムを追加します。以下の例は、ユーザーの`pets`配列にさらに3つのペットオブジェクトを追加する方法を示しています。
+
+`$add`は、1つ以上の新しいオブジェクトを追加し、既存のオブジェクトを変更しない場合に使用します。
 
 ```json
 {
@@ -98,9 +104,11 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% endtab %}
 {% tab 更新 %}
 
-`_merge_objects`パラメーターと`$update`演算子を使用して、配列内の特定のオブジェクトの値を更新します。シンプルな[階層化カスタム属性]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body)オブジェクトの更新と同様に、ディープマージが実行されます。
+`_merge_objects`パラメーターと`$update`演算子を使用して、配列内の特定のオブジェクトの値を更新します。他の[階層化カスタム属性]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body)オブジェクトの更新と同様に、ディープマージが実行されます。
 
 `$update`は、配列内のオブジェクトからネストされたプロパティを削除するためには使用できないことに注意してください。これを行うには、配列からアイテム全体を削除し、その特定のキーを含まないオブジェクトを追加する必要があります（`$remove`と`$add`の組み合わせを使用）。
+
+`$update`は、オブジェクトが既に存在し、`$identifier_key`と`$identifier_value`で一致させて1つ以上のフィールドを変更する場合に使用します。
 
 以下の例は、`id`が`4`のオブジェクトの`breed`プロパティを`goldfish`に更新する方法を示しています。このリクエスト例では、`id`が`5`のオブジェクトの`name`も`Annette`に更新しています。`_merge_objects`パラメーターが`true`に設定されているため、これら2つのオブジェクトの他のすべてのフィールドはそのまま維持されます。
 
@@ -142,6 +150,8 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 `$remove`演算子を一致するキー（`$identifier_key`）と値（`$identifier_value`）と組み合わせて使用し、配列からオブジェクトを削除します。
 
+`$remove`は、`id = 2`や`type = dog`など、既知の識別子ペアに一致するすべてのオブジェクトを削除する場合に使用します。
+
 以下の例は、`pets`配列内で`id`の値が`1`のオブジェクト、`id`の値が`2`のオブジェクト、および`type`の値が`dog`のオブジェクトを削除する方法を示しています。`type`の値が`dog`のオブジェクトが複数ある場合、一致するすべてのオブジェクトが削除されます。
 
 ```json
@@ -182,6 +192,8 @@ description: "このリファレンス記事では、オブジェクト配列を
 2. `$remove`
 3. `$update`
 
+この順序は、1つのリクエスト内の単一の属性更新オブジェクト内で適用され、すべての操作が評価された後の配列の最終状態を決定します。
+
 `$add`が`$remove`より先に実行されるため、単一のリクエスト内で`$remove`の後に`$add`を行うアップサートメカニズムは使用できません。`$add`が最初に処理され、その後`$remove`がアイテムを削除します。アップサートを行うには、`$add`の前に別のリクエストで`$remove`を送信してください。
 
 ### タイムスタンプ {#timestamps}
@@ -217,7 +229,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% tab Android SDK %}
 {% subtabs %}
 {% subtab 作成 %}
-`````````kotlin
+```kotlin
 val json = JSONArray()
     .put(JSONObject()
         .put("id", 1)
@@ -238,7 +250,7 @@ braze.getCurrentUser { user ->
 {% endsubtab %}
 
 {% subtab 追加 %}
-`````````kotlin
+```kotlin
 val json = JSONObject()
     .put("\$add", JSONArray()
         .put(JSONObject()
@@ -266,7 +278,7 @@ braze.getCurrentUser { user ->
 {% endsubtab %}
 
 {% subtab 更新 %}
-`````````kotlin
+```kotlin
 val json = JSONObject()
     .put("\$update", JSONArray()
         .put(JSONObject()
@@ -292,7 +304,7 @@ braze.getCurrentUser { user ->
 {% endsubtab %}
 
 {% subtab 削除 %}
-`````````kotlin
+```kotlin
 val json = JSONObject()
     .put("\$remove", JSONArray()
         .put(JSONObject()
@@ -320,7 +332,7 @@ braze.getCurrentUser { user ->
 {% tab Swift SDK %}
 {% subtabs %}
 {% subtab 作成 %}
-`````````swift
+```swift
 let json: [[String: Any?]] = [
   [
     "id": 1,
@@ -341,7 +353,7 @@ braze.user.setCustomAttribute(key: "pets", array: json)
 {% endsubtab %}
 
 {% subtab 追加 %}
-`````````swift
+```swift
 let json: [String: Any?] = [
   "$add": [
     [
@@ -370,7 +382,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 {% endsubtab %}
 
 {% subtab 更新 %}
-`````````swift
+```swift
 let json: [String: Any?] = [
   "$update": [
     [
@@ -395,7 +407,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 {% endsubtab %}
 
 {% subtab 削除 %}
-`````````swift
+```swift
 let json: [String: Any?] = [
   "$remove": [
     [
@@ -426,7 +438,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 {% tab Web SDK %}
 {% subtabs local %}
 {% subtab 作成 %}
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 const json = [{
   "id": 1,
@@ -444,7 +456,7 @@ braze.getUser().setCustomUserAttribute("pets", json);
 {% endsubtab %}
 
 {% subtab 追加 %}
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "$add": [{
@@ -469,7 +481,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endsubtab %}
 
 {% subtab 更新 %}
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "$update": [
@@ -494,7 +506,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endsubtab %}
 
 {% subtab 削除 %}
-`````````javascript
+```javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "$remove": [
@@ -524,7 +536,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 この`pets`配列を使用してメッセージをパーソナライズできます。以下のLiquidテンプレートの例は、前述のAPIリクエストから保存されたカスタム属性オブジェクトのプロパティを参照し、メッセージングで使用する方法を示しています。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign pets = {{custom_attribute.${pets}}} %}
 
 {% for pet in pets %}
@@ -537,9 +549,9 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 
 ## セグメンテーション {#segmentation}
 
-オブジェクトの配列に基づいてユーザーをセグメント化する場合、配列内のいずれかのオブジェクトが条件に一致すると、そのユーザーはセグメントの対象となります。
+オブジェクトの配列に基づいてユーザーをセグメント化する場合、配列内のいずれかのオブジェクトが条件に一致すると、そのユーザーはSegmentの対象となります。
 
-新しいセグメントを作成し、フィルターとして**階層化カスタム属性**を選択します。次に、オブジェクト配列の名前を検索して選択します。
+新しいSegmentを作成し、フィルターとして**階層化カスタム属性**を選択します。次に、オブジェクト配列の名前を検索して選択します。
 
 ![オブジェクト配列でフィルタリング。]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -550,7 +562,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 
 ### ネストのレベル {#levels-of-nesting}
 
-配列のネストは1レベルまで（配列内の配列）でセグメントを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Gus`が含まれるセグメントは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるセグメントは作成できません。
+配列のネストは1レベルまで（配列内の配列）でSegmentを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Gus`が含まれるSegmentは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるSegmentは作成できません。
 
 {% raw %}
 ```json

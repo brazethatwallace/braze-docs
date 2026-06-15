@@ -17,9 +17,9 @@ La vidéo suivante explique comment utiliser les catalogues dans un message.
 
 ### Étape 1 : Ajouter un type de personnalisation {#step-one-personalization}
 
-Dans l'éditeur de message de votre choix, sélectionnez l'icône <i class="fas fa-plus-circle"></i> « + » pour ouvrir la fenêtre modale **Add Personalization**, puis sélectionnez **Catalog Items** comme **Personalization type**. Sélectionnez ensuite le nom de votre catalogue. En reprenant l'exemple précédent, nous allons sélectionner le catalogue « Games ».
+Dans l'éditeur de message de votre choix, sélectionnez <i class="fas fa-plus-circle"></i> **Add Personalization** et sélectionnez **Catalog Items** pour le **Personalization type**. Sélectionnez ensuite le nom de votre catalogue. En reprenant l'exemple précédent, nous allons sélectionner le catalogue « Games ».
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Fenêtre modale Add Personalization avec Catalog Items sélectionné, le catalogue Games choisi et un aperçu Liquid affichant la balise catalog_items.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 Nous pouvons immédiatement voir l'aperçu Liquid suivant :
 
@@ -64,7 +64,7 @@ Vous n'êtes pas limité à un seul élément par message. Utilisez la fenêtre 
 
 Dans cet exemple, nous ajoutons l'`id` de trois jeux — Tales, Teslagrad et Acaratus — pour **Catalog Items** et nous sélectionnons `title` pour **Information to Display**.
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![Fenêtre modale Add Personalization affichant trois ID d'éléments de catalogue sélectionnés et title choisi pour Information to Display, avec un aperçu Liquid listant le titre de chaque élément.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 Nous pouvons personnaliser davantage notre message en ajoutant du texte autour de notre Liquid :
 
@@ -118,6 +118,14 @@ Message if the venue name's size is 10 characters or fewer.
 {% endraw %}
 
 Dans cet exemple, différents messages s'affichent selon que le champ `venue_name` contient plus ou moins de 10 caractères. Si `venue_name` est vide, le message est interrompu.
+
+Pour afficher le nombre d'éléments renvoyés par une sélection, utilisez le filtre Liquid `size` sur le tableau `items` après la balise, et non sur un champ individuel :
+
+{% raw %}
+```liquid
+{% catalog_selection_items item-list selections %}{{ items | size }}
+```
+{% endraw %}
 
 {% alert tip %}
 Pour éviter les erreurs de syntaxe Liquid, sélectionnez le bouton **+** dans l'éditeur de message pour insérer automatiquement les balises Liquid de catalogue.
@@ -204,7 +212,7 @@ Si un élément du catalogue contient des champs de profil utilisateur (dans une
 
 Par exemple, si un catalogue nommé « Messages » possède un élément avec ce Liquid :
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![Ligne de tableau du catalogue avec l'id greet_msg et une colonne Welcome_Message contenant un message de bienvenue avec une variable Liquid pour le prénom.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 Pour rendre le contenu Liquid suivant :
 
@@ -230,6 +238,20 @@ Welcome to our store, Peter!
 {% alert note %}
 Les balises Liquid des catalogues ne peuvent pas être utilisées de manière récursive à l'intérieur des catalogues.
 {% endalert %}
+
+## Résolution des problèmes de personnalisation des catalogues
+
+Si le Liquid d'un catalogue ou d'une sélection ne s'affiche pas comme prévu dans un message ou une étape Canvas, vérifiez les points suivants :
+
+| Symptôme | Ce qu'il faut vérifier |
+| --- | --- |
+| L'aperçu affiche les éléments mais les envois en production sont vides | Confirmez que les **ID d'éléments** du catalogue existent au moment de l'envoi. Si l'ID dans votre Liquid ne correspond à aucune ligne, Braze renvoie un tableau d'éléments vide — voir [Utiliser Liquid](#using-liquid). Vérifiez les fautes de frappe et les sources d'ID (telles que les propriétés d'événement) qui pourraient être absentes du déclencheur ou du profil utilisateur. |
+| L'aperçu de l'éditeur fonctionne dans une Campaign mais pas dans Canvas | Confirmez que vous utilisez le bon contexte Liquid — **propriétés de contexte Canvas** versus **propriétés d'événement** — et que ces champs existent sur le déclencheur. Voir [Propriétés de contexte et d'événement]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
+| Une sélection ne renvoie aucun élément | Vérifiez les [filtres de sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) et les limites ; confirmez que les données du catalogue sont synchronisées et que les noms de colonnes correspondent à vos filtres. |
+| `:rerender` ou la distribution modélisée semble incorrecte | Pour le Liquid imbriqué dans les champs du catalogue, vous avez besoin de `:rerender` et d'un ordonnancement correct des variables — voir [Modélisation d'éléments de catalogue incluant du Liquid](#templating-catalog-items-including-liquid). Les messages in-app modélisés sont résolus au moment du déclenchement ; voir [Que sont les messages in-app modélisés ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Certains canaux restreignent les balises de catalogue (par exemple, certaines utilisations de **:rerender** avec les bannières) — voir [Toutes les balises Liquid sont-elles prises en charge ?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) dans la FAQ des bannières. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes de personnalisation des catalogues" }
+
+Pour le comportement général de Liquid, voir [Cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) et [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
 
 ## Structurer les données de votre catalogue
 

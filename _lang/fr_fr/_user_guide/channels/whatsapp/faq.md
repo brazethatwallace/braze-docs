@@ -199,3 +199,7 @@ WhatsApp est un canal axé sur la messagerie bidirectionnelle et s'articule donc
 Les facteurs qui affectent l'évaluation de la qualité du numéro de téléphone incluent le blocage de l'entreprise par un utilisateur final (et les raisons qu'il fournit lors du blocage) et le signalement de l'entreprise par un utilisateur final.
 
 Lorsqu'une évaluation de qualité est basse, le statut du numéro de téléphone passe de **Connecté** à **Signalé**. Si la qualité ne s'améliore pas en sept jours, le statut revient à **Connecté**. Cependant, la limite d'envoi de messages diminuera au niveau inférieur. Par exemple, un numéro de téléphone qui avait une limite d'envoi de 100 000 aura désormais une limite de 10 000.
+
+#### Que faire si mon modèle a été signalé à tort pour violation de la politique commerciale de WhatsApp ? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+
+Si vous pensez que Meta a signalé votre modèle à tort, utilisez le lien de révision dans l'e-mail de WhatsApp pour demander un réexamen. L'équipe WhatsApp Business examine la décision et l'annule si nécessaire.

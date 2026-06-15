@@ -1,6 +1,6 @@
 ---
-nav_title: Liquid ユースケースライブラリ
-article_title: Liquid ユースケースライブラリ
+nav_title: Liquidユースケースライブラリ
+article_title: Liquidユースケースライブラリ
 page_order: 10
 search_rank: 2
 excerpt_separator: ""
@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [一致するカスタム属性に基づいてメッセージをパーソナライズする](#attribute-matching)
+- [ヨーロッパの数値表記規則に合わせて通貨をフォーマットする](#european-currency-format)
 - [2つのカスタム属性を減算して差額を金額として表示する](#attribute-monetary-difference)
 - [フルネームがfirst_nameフィールドに保存されている場合にユーザーの名を参照する](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### ヨーロッパの数値表記規則に合わせて通貨をフォーマットする {#european-currency-format}
+
+小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**出力:** `1.234.567,89`
+
+**説明:** `money`フィルターは小数点以下を追加しますが、通貨記号やロケール固有の区切り文字は追加しません。`number_with_delimiter`はUS形式の千の位区切りを追加し、`replace`フィルターでヨーロッパ形式に変換します。
 {% endraw %}
 
 ### 2つのカスタム属性を減算して差額を金額として表示する {#attribute-monetary-difference}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはCanvasステップの本文に配置する必要があります。
+このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid

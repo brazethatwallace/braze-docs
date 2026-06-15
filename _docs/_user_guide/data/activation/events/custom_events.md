@@ -45,10 +45,6 @@ Additionally, if a blocked custom event is currently referenced by filters or tr
 
 For more details on blocklisting and deleting custom data, see [Blocklist custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marking as personally identifiable information (PII)
-
-Administrators can also create custom events and mark them as PII from this page. These events are only visible to admins and dashboard users with the "View Custom Attributes Marked as PII" permission.
-
 ### Adding descriptions
 
 You can add a description to a custom event after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Select **Edit description** for the custom event and input whatever you like, such as a note for your team.

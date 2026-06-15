@@ -139,7 +139,7 @@ Canvas에 지연 구성요소를 추가하고 후속 단계가 없는 경우, �
 | _다음 단계로 진행_ | Canvas에서 다음 단계로 진행한 진입 수를 반영합니다. |
 | _Canvas 종료_ | Canvas를 종료하고 다음 단계로 진행하지 않은 진입 수를 반영합니다. |
 | _개인화 실패_ | 다음과 같은 이유로 사용자를 위한 개인화된 메시지 또는 콘텐츠를 전달할 수 없었던 횟수를 반영합니다:<br> {::nomarkdown}<ul><li>지연 값이 과거임</li><li>지연 값이 2년 이상 미래임</li><li><b>기간 후</b> 값이 숫자가 아님</li><li><b>특정 날짜까지</b> 값이 날짜 또는 날짜 형식 문자열이 아님</li></ul>{:/} <br>자세한 내용은 [개인화 실패 오류](#personaliztion-failed-errors)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지연 분석" }
 
 이러한 분석의 시계열은 확장된 구성요소 보기에서 확인할 수 있습니다.
 
@@ -148,3 +148,11 @@ Canvas에 지연 구성요소를 추가하고 후속 단계가 없는 경우, �
 ### 개인화 실패 오류 {#personaliztion-failed-errors}
 
 사용자가 개인화된 지연을 트리거하지 않는 경우, 지연 단계에 대한 자격을 부여하도록 설정한 Context 단계가 예상대로 작동하지 않기 때문일 수 있습니다. [컨텍스트 변수가 유효하지 않은]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting) 경우, 사용자는 Context 단계에서 컨텍스트가 설정되지 않은 채로 Canvas를 계속 진행합니다. 이로 인해 개인화된 지연과 같은 Canvas의 이후 단계에 대한 자격을 갖추지 못할 수 있습니다.
+
+## 문제 해결
+
+### Canvas가 중지되었을 때 지연 단계에 있는 사용자 {#users-in-a-delay-step-when-a-canvas-is-stopped}
+
+[Canvas를 중지]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases)하면, 이미 지연 단계에서 대기 중인 사용자는 즉시 종료되지 않습니다. Braze는 여전히 지연 완료를 스케줄하지만, Canvas가 중지된 동안에는 **추가 메시지가 발송되지 않습니다**.
+
+Canvas가 중지된 동안 사용자의 지연이 경과하기 전에 Canvas를 다시 활성화하면, 사용자는 스케줄대로 다음 단계로 진행할 수 있습니다. Canvas가 중지된 동안 지연 기간이 이미 경과한 경우, 해당 사용자는 다음 단계를 받는 대신 Canvas를 종료합니다. 예시는 [Canvas를 중지하면 어떻게 되나요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) 및 [Canvas 중지]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases)를 참조하세요.

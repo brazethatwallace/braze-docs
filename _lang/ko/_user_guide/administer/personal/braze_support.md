@@ -97,6 +97,17 @@ Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **�
 문제를 "심각(Critical)"으로 표시하면 프로덕션 인스턴스가 다운되어 Braze 내 모든 작업이 중단되었음을 의미합니다.
 {% endalert %}
 
+## 대시보드 로드 문제 해결 {#troubleshooting-dashboard-load-issues}
+
+Braze 대시보드가 올바르게 로드되지 않는 경우, 고객지원팀에 연락하기 전에 다음을 시도해 보세요:
+
+1. 다른 브라우저 또는 시크릿/프라이빗 창에서 대시보드를 엽니다.
+2. [브라우저 캐시 및 쿠키를 삭제합니다]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. 광고 차단기 및 브라우저 확장 프로그램을 비활성화한 다음 대시보드를 다시 로드합니다.
+4. VPN을 사용 중인 경우, 연결을 해제하고 다시 시도합니다.
+
+브라우저 개발자 콘솔에 `ERR_BLOCKED_BY_CLIENT`가 표시되면, 확장 프로그램 또는 광고 차단기가 대시보드 리소스를 차단하고 있는 것입니다. Braze 대시보드 URL에 대해 차단기를 비활성화하고 페이지를 다시 로드하세요.
+
 ## 접근 문제 해결 {#troubleshooting-access}
 
 Braze 고객지원 포털에 로그인할 때 `Check your entry`와 같은 오류가 발생하면, 환영 이메일의 링크를 따라 포털 비밀번호를 설정했는지 확인하세요. 이미 설정했거나 이전에 포털에 로그인할 수 있었다면, 지원 티켓을 생성하세요.

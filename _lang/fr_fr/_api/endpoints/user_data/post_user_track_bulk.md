@@ -79,7 +79,7 @@ Pour chaque objet de requête, vous devez inclure l'un des éléments suivants :
 | `attributes` | Facultatif | Tableau d'objets d'attributs | Voir [objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
 | `events` | Facultatif | Tableau d'objets d'événements | Voir [objet d'événements]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Facultatif | Tableau d'objets d'achats | Voir [objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de la requête" }
 
 ## Exemples de requêtes {#example-requests}
 

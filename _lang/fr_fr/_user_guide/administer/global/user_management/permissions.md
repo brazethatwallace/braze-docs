@@ -83,6 +83,17 @@ Les utilisateurs peuvent rencontrer des messages tels que « You need "View Land
 Il n'est pas possible de fusionner ou d'importer les autorisations utilisateur d'un utilisateur du tableau de bord vers un autre.
 {% endalert %}
 
+## Nuances des autorisations utilisateur {#nuances-of-user-permissions}
+
+Gardez les comportements suivants à l'esprit lorsque vous attribuez l'accès au tableau de bord :
+
+- **Administrateur d'espace de travail et administrateur d'entreprise :** les administrateurs d'espace de travail gèrent les autorisations au sein des espaces de travail qui leur sont attribués. Les administrateurs d'entreprise disposent d'une autorité à l'échelle de l'entreprise, y compris la suppression d'autres utilisateurs du tableau de bord.
+- **Utilisateurs limités :** les utilisateurs limités disposant de l'autorisation « Edit Dashboard Users » peuvent gérer d'autres utilisateurs limités, mais ne peuvent pas créer ni gérer des comptes d'administrateur d'entreprise.
+- **Portée de la gestion des utilisateurs du tableau de bord :** sur la page de détails de l'utilisateur, les autorisations n'apparaissent que pour les espaces de travail auxquels l'éditeur peut accéder. Un utilisateur limité qui peut modifier les utilisateurs dans un espace de travail peut ne pas voir les cases à cocher des autorisations d'un autre espace de travail.
+- **Exporter les données utilisateur :** l'exportation des données utilisateur nécessite un accès au niveau de l'espace de travail en plus de l'autorisation d'exportation.
+- **Autorisations composites :** certaines zones nécessitent plusieurs autorisations. Par exemple, la configuration des [partenaires technologiques]({{site.baseurl}}/partners/) nécessite généralement à la fois l'accès au partenaire et une autorisation de lecture de base pour les fonctionnalités de l'espace de travail concerné.
+- **Importer et mettre à jour les données utilisateur :** cette autorisation inclut la possibilité de modifier les profils utilisateur de l'application via les flux d'importation, et pas seulement les enregistrements des utilisateurs du tableau de bord.
+
 ## Modifier les autorisations d'un utilisateur {#edit-a-users-permissions}
 
 Pour modifier les autorisations actuelles d'un utilisateur (administrateur, entreprise ou espace de travail), accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez son nom.
@@ -213,10 +224,11 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Données utilisateur | Import Users | Importer des utilisateurs dans le tableau de bord |
 | Données utilisateur | Edit User Data | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Export User Data | Télécharger des utilisateurs depuis le tableau de bord |
-| Enregistrements de fusion d'utilisateurs | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
+| Utilisateurs en double | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
 | Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles |
 | Utilisateurs en double | Merge Duplicate Users | Combiner des utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion |
-| Utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |
+| Suppression d'utilisateurs | View User Deletion Records | Consulter une liste des enregistrements de suppression d'utilisateurs |
+| Suppression d'utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autorisations d'audience" }
 
 ### Modèle {#template}
@@ -368,6 +380,5 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Groupes d'abonnement | Edit Subscriptions | Créer et mettre à jour des groupes d'abonnement |
 | Transformations | Edit Data Transformation | Créer et mettre à jour des transformations de données |
 | Transformations | View Data Transformation | Consulter les transformations de données |
-| Enregistrements de suppression d'utilisateurs | View User Deletion Records | Consulter les enregistrements de suppression d'utilisateurs |
 | Tickets d'assistance | Create Support Ticket | Créer et mettre à jour des tickets d'assistance |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autres autorisations" }

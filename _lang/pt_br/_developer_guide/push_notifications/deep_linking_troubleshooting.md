@@ -24,14 +24,14 @@ Se um deep link de esquema personalizado (por exemplo, `myapp://products/123`) a
    ```bash
    xcrun simctl openurl booted "myapp://products/123"
    ```
-   Se o link não funcionar aqui, o problema está no manuseio de URL do seu app — não na Braze.
+   Se o link não funcionar aqui, o problema está no tratamento de URL do seu app — não na Braze.
 4. **Verifique o formato da URL.** Verifique se a URL na sua Campaign corresponde ao que seu manipulador espera. Erros comuns incluem componentes de caminho ausentes ou capitalização incorreta.
 
 ## O link universal abre no Safari em vez do app {#universal-link-opens-in-safari-instead-of-the-app}
 
 Se um link universal (por exemplo, `https://myapp.com/products/123`) abrir no Safari em vez do seu app:
 
-### Verifique a permissão de Domínios Associados {#verify-the-associated-domains-entitlement}
+### Verifique a permissão de Associated Domains {#verify-the-associated-domains-entitlement}
 
 No Xcode, acesse o alvo do seu app > **Signing & Capabilities** e verifique se `applinks:yourdomain.com` está listado em **Associated Domains**.
 
@@ -212,7 +212,7 @@ Teste o link do Branch fora da Braze para isolar o problema:
 | `Opening '<URL>': - channel: contentCard` | O SDK está processando um link de um Content Card |
 | `useWebView: true` | O SDK abre a URL na WebView do app |
 | `isUniversalLink: true` | O SDK identificou a URL como um link universal |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usar registro detalhado" }
 
 Para mais detalhes sobre como ler esses registros, consulte [Lendo registros detalhados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/).
 

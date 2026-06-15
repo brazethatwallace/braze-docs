@@ -45,17 +45,16 @@ def _get_anthropic_client():
 
     With the timeout in place, a stalled stream raises after
     ``TRANSLATION_HTTP_TIMEOUT`` seconds of silence; ``call_claude``'s
-    3-retry loop then reissues the request. Worst-case per-task time
-    is ``3 * TRANSLATION_HTTP_TIMEOUT`` seconds (~9 min at the default
-    of 180s), and the workflow's ``timeout-minutes`` gives a final
-    wall-clock ceiling on top of that.
+    retry loop then reissues the request (default ``TRANSLATION_API_RETRIES``
+    is 6). Worst-case per-task time scales with retries and timeout; the
+    workflow's ``timeout-minutes`` gives a final wall-clock ceiling on top.
     """
     try:
         from anthropic import Anthropic
     except ImportError:
         print("ERROR: Install the Anthropic SDK: pip install anthropic")
         sys.exit(1)
-    timeout_seconds = float(os.environ.get("TRANSLATION_HTTP_TIMEOUT", "180"))
+    timeout_seconds = float(os.environ.get("TRANSLATION_HTTP_TIMEOUT", "240"))
     return Anthropic(timeout=timeout_seconds)
 
 
@@ -93,6 +92,9 @@ MAX_TOKENS = int(os.environ.get("TRANSLATION_MAX_TOKENS", "128000"))
 MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
 CHUNK_TARGET_KB = int(os.environ.get("TRANSLATION_CHUNK_KB", "50"))
 MAX_WORKERS = int(os.environ.get("TRANSLATION_WORKERS", "12"))
+API_RETRIES = int(os.environ.get("TRANSLATION_API_RETRIES", "6"))
+FAILED_PASS_RETRIES = int(os.environ.get("TRANSLATION_FAILED_PASS_RETRIES", "6"))
+FAILED_PASS_ROUNDS = int(os.environ.get("TRANSLATION_FAILED_PASS_ROUNDS", "2"))
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 RESULTS_FILE = REPO_ROOT / "translation_results.json"
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
@@ -359,8 +361,50 @@ def _build_system_blocks(system_prompt):
     return blocks
 
 
-def call_claude(client, system_prompt, user_message, retries=3):
+_RETRYABLE_API_ERROR_TOKENS = (
+    "overloaded",
+    "timeout",
+    "timed out",
+    "rate limit",
+    "rate_limit",
+    "529",
+    "502",
+    "503",
+    "504",
+    "connection reset",
+    "connection error",
+    "connection aborted",
+    "connection closed",
+    "peer closed",
+    "incomplete chunked",
+    "chunked read",
+    "broken pipe",
+    "remote protocol",
+    "server disconnected",
+)
+
+
+def _is_retryable_api_error(exc):
+    """Return True when another Claude API attempt may succeed."""
+    msg = str(exc).lower()
+    return any(token in msg for token in _RETRYABLE_API_ERROR_TOKENS)
+
+
+def _api_retry_wait_seconds(exc, attempt):
+    """Backoff delay before the next Claude API attempt."""
+    wait = min(90, 2 ** (attempt + 1))
+    msg = str(exc).lower()
+    if "overloaded" in msg:
+        wait = min(120, wait * 2)
+    elif any(token in msg for token in ("peer closed", "incomplete chunked", "broken pipe")):
+        wait = min(120, wait + 10)
+    return wait
+
+
+def call_claude(client, system_prompt, user_message, retries=None):
     """Call the Claude API via streaming with exponential-backoff retry."""
+    if retries is None:
+        retries = API_RETRIES
     system_blocks = _build_system_blocks(system_prompt)
     for attempt in range(retries):
         try:
@@ -378,8 +422,8 @@ def call_claude(client, system_prompt, user_message, retries=3):
                 stop_reason = stream.get_final_message().stop_reason
             full_text = "".join(text_chunks)
         except Exception as exc:
-            if attempt < retries - 1:
-                wait = 2 ** (attempt + 1)
+            if attempt < retries - 1 and _is_retryable_api_error(exc):
+                wait = _api_retry_wait_seconds(exc, attempt)
                 print(f"    API error: {exc} — retrying in {wait}s...")
                 time.sleep(wait)
                 continue
@@ -393,7 +437,10 @@ def call_claude(client, system_prompt, user_message, retries=3):
         return strip_code_fences(full_text)
 
 
-def translate_file(client, prompt, english_content, existing_translation, language_name, extra_context=""):
+def translate_file(
+    client, prompt, english_content, existing_translation, language_name,
+    extra_context="", api_retries=None,
+):
     """Translate a single English file into the target language."""
     system = [(prompt, True)]
     if extra_context:
@@ -410,7 +457,7 @@ def translate_file(client, prompt, english_content, existing_translation, langua
     else:
         user_msg += "## Existing translation\nNone — this is a new file. Translate from scratch.\n"
 
-    return call_claude(client, system, user_msg)
+    return call_claude(client, system, user_msg, retries=api_retries)
 
 
 def fix_file(client, prompt, translated_content, build_error, language_name):
@@ -522,7 +569,7 @@ the top (typical for `_includes/` partials), do not add a translated \
 `nav_title`/`article_title` block—strip it so the file starts like the English \
 body (auto-translate PR #13353).
 22. **Markdown tables + permission code cells**: In table rows, keep a **space** \
-after each ``|`` before an opening ``\``...\`` inline code token (never ``||``\`slug\```). \
+after each ``|`` before an opening inline code token (never ``||`slug` `` with no space). \
 **Spanish** ``_includes/whatsapp/template_prerequisites.md``: keep quoted \
 WhatsApp permission bullets exactly as English (**View/Edit WhatsApp Message Templates**). \
 **Portuguese (Brazil)**: use **um** ``delay`` (not *uma*) before the borrowed \
@@ -647,7 +694,10 @@ no commentary. If the translation is already high quality, return it unchanged.\
 """
 
 
-def review_file(client, english_content, translated_content, language_name, extra_context=""):
+def review_file(
+    client, english_content, translated_content, language_name,
+    extra_context="", api_retries=None,
+):
     """Second-pass review of a translation for quality improvement."""
     system = [(REVIEW_PROMPT, True)]
     if extra_context:
@@ -657,7 +707,7 @@ def review_file(client, english_content, translated_content, language_name, extr
     user_msg += f"## English source\n\n{english_content}\n\n"
     user_msg += f"## Translation to review and improve\n\n{translated_content}\n"
 
-    return call_claude(client, system, user_msg)
+    return call_claude(client, system, user_msg, retries=api_retries)
 
 
 
@@ -1120,7 +1170,7 @@ def save_results(results):
 # ---------------------------------------------------------------------------
 
 def translate_one(client, prompt, fpath, relative, english_content,
-                  lang_key, lang_info, glossary, styleguide):
+                  lang_key, lang_info, glossary, styleguide, api_retries=None):
     """Translate + review a single file into one language. Returns a result dict."""
     target = translation_path(relative, lang_info["dir"])
     existing = target.read_text() if target.exists() else None
@@ -1135,11 +1185,11 @@ def translate_one(client, prompt, fpath, relative, english_content,
     try:
         translated = translate_file(
             client, prompt, english_content, existing,
-            lang_info["name"], extra_context,
+            lang_info["name"], extra_context, api_retries=api_retries,
         )
         translated = review_file(
             client, english_content, translated,
-            lang_info["name"], extra_context,
+            lang_info["name"], extra_context, api_retries=api_retries,
         )
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(translated)
@@ -1159,8 +1209,89 @@ def translate_one(client, prompt, fpath, relative, english_content,
         }
 
 
+def _retry_failed_translations(
+    client,
+    prompt,
+    failed_items,
+    active_langs,
+    glossaries,
+    styleguides,
+    round_num=1,
+):
+    """Re-run failed translations sequentially (normal and chunked paths)."""
+    retriable = [
+        item
+        for item in failed_items
+        if _is_retryable_api_error(item.get("error", ""))
+    ]
+    if not retriable:
+        return [], list(failed_items)
+
+    print(
+        f"\nRetrying {len(retriable)} failed translation(s) sequentially "
+        f"(round {round_num}/{FAILED_PASS_ROUNDS}, "
+        f"{FAILED_PASS_RETRIES} API attempts each)..."
+    )
+    recovered = []
+    still_failed = [item for item in failed_items if item not in retriable]
+
+    for item in retriable:
+        fpath = item["source"]
+        lang_key = item["lang"]
+        lang_info = active_langs.get(lang_key)
+        if not lang_info:
+            still_failed.append(item)
+            continue
+
+        relative = _relative_for_translation(fpath)
+        english_content = (REPO_ROOT / fpath).read_text()
+        mode = "chunked" if item.get("chunked") else "normal"
+        print(f"  RETRY ({mode}): {relative} → {lang_info['name']}...")
+        time.sleep(10)
+
+        if item.get("chunked"):
+            result = translate_one_chunked(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossaries[lang_key],
+                styleguides[lang_key],
+                api_retries=FAILED_PASS_RETRIES,
+            )
+        else:
+            result = translate_one(
+                client,
+                prompt,
+                fpath,
+                relative,
+                english_content,
+                lang_key,
+                lang_info,
+                glossaries[lang_key],
+                styleguides[lang_key],
+                api_retries=FAILED_PASS_RETRIES,
+            )
+
+        if result["ok"]:
+            recovered.append(result)
+            print(f"  RETRY OK: {relative} → {lang_info['name']}")
+        else:
+            still_failed.append(result)
+            print(
+                f"  RETRY FAILED: {relative} → {lang_info['name']} "
+                f"({result['error']})"
+            )
+
+    return recovered, still_failed
+
+
 def translate_one_chunked(client, prompt, fpath, relative, english_content,
-                          lang_key, lang_info, glossary, styleguide):
+                          lang_key, lang_info, glossary, styleguide,
+                          api_retries=None):
     """Translate a large file by splitting into chunks, translating each, and
     reassembling.  Skips the second-pass review (chunks are self-contained and
     the review would require the full file which exceeds context limits)."""
@@ -1186,7 +1317,7 @@ def translate_one_chunked(client, prompt, fpath, relative, english_content,
                   f"({len(en_chunk) // 1024}KB)...")
             translated = translate_file(
                 client, prompt, en_chunk, tr_chunk or None,
-                lang_info["name"], extra_context,
+                lang_info["name"], extra_context, api_retries=api_retries,
             )
             translated_chunks.append(translated)
 
@@ -1331,12 +1462,28 @@ def cmd_translate(args):
                           f"({result.get('chunks', '?')} chunks)")
                 else:
                     results["failed"].append({
-                        "source": result["source"],
-                        "target": result["target"],
-                        "lang": result["lang"],
-                        "error": result["error"],
+                        k: result[k]
+                        for k in ("source", "target", "lang", "error", "chunked", "chunks")
+                        if k in result
                     })
                     print(f"    {lang_info['name']} FAILED ({result['error']})")
+
+    for round_num in range(1, FAILED_PASS_ROUNDS + 1):
+        if not results["failed"]:
+            break
+        recovered, still_failed = _retry_failed_translations(
+            client,
+            prompt,
+            results["failed"],
+            active_langs,
+            glossaries,
+            styleguides,
+            round_num=round_num,
+        )
+        results["translated"].extend(recovered)
+        results["failed"] = still_failed
+        if not recovered:
+            break
 
     save_results(results)
     ok = len(results["translated"])
@@ -4044,7 +4191,7 @@ _TABLE_PIPE_TOUCHING_CODE_SPAN_RE = re.compile(
 
 
 def repair_markdown_table_pipe_adjacent_to_underscored_code(translated_content):
-    """Insert a space between ``|`` and ``\``...\`` when a slug-style code token follows."""
+    r"""Insert a space between ``|`` and `\`...\` when a slug-style code token follows."""
     repairs = []
     lines_out = []
     for line in translated_content.split("\n"):

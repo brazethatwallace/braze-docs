@@ -190,7 +190,7 @@ Un nouveau message WhatsApp « efface » la capacité du Canvas à utiliser (et 
 
 Pour utiliser la réponse du Flow via Liquid avec les [étiquettes de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), procédez comme suit :
 
-1. Lors de la rédaction de votre message WhatsApp, sélectionnez l'icône plus pour ouvrir la fenêtre **Add Personalization**.
+1. Lors de la rédaction de votre message WhatsApp, sélectionnez <i class="fas fa-plus-circle" aria-label="Ajouter une personnalisation"></i> **Add Personalization** pour ouvrir la fenêtre **Add Personalization**.
 2. Sélectionnez **WhatsApp Properties** pour le type de personnalisation et **inbound_flow_response** pour l'attribut personnalisé. Cela peut être utilisé pour enregistrer des informations dans les profils utilisateurs, les inclure dans des messages ou les transmettre à d'autres services, comme les webhooks.
 
 ![Compositeur de messages WhatsApp avec un composant « Add Personalization » pour insérer une personnalisation de propriétés WhatsApp avec l'attribut personnalisé inbound_flow_response.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}

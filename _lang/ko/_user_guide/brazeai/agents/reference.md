@@ -7,7 +7,7 @@ page_order: 3
 
 # 에이전트 참조
 
-> 커스텀 에이전트를 생성할 때 지침 및 출력 스키마와 같은 주요 설정에 대한 자세한 내용은 이 문서를 참조하세요. 소개는 [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) 및 [자주 묻는 질문]({{site.baseurl}}/user_guide/brazeai/agents/faq/)을 참조하세요.
+> 커스텀 에이전트를 생성할 때 지침 및 출력 스키마와 같은 주요 설정에 대한 자세한 내용은 이 문서를 참조하세요. 단계별 설정은 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)을 참조하세요. 소개는 [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) 및 [자주 묻는 질문]({{site.baseurl}}/user_guide/brazeai/agents/faq/)을 참조하세요.
 
 ## 모델
 
@@ -29,7 +29,7 @@ Braze 기반 **Auto** 모델은 카탈로그 검색 및 Segment 멤버십과 같
 
 이 옵션을 사용하면 OpenAI, Anthropic 또는 Google Gemini와 같은 제공업체와 Braze 계정을 연결할 수 있습니다. LLM 제공업체로부터 자체 API 키를 가져오면 토큰 비용이 Braze가 아닌 제공업체를 통해 직접 청구됩니다.
 
-레거시 모델은 몇 개월 후에 중단되거나 사용 중지될 수 있으므로 최신 모델을 정기적으로 테스트하는 것이 좋습니다. [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 에이전트 콘솔 알림에 가입하면 Braze가 모델이 더 이상 사용할 수 없음을 감지했을 때 알림을 받을 수 있습니다.
+레거시 모델은 몇 개월 후에 중단되거나 사용 중지될 수 있으므로 최신 모델을 정기적으로 테스트하는 것이 좋습니다. 에이전트를 대규모로 실행하기 위해 제공업체에 충분한 크레딧이 있는지 확인하세요. [알림 환경설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)에서 에이전트 콘솔 알림에 가입하면 Braze가 모델이 더 이상 사용할 수 없거나 LLM 제공업체와의 청구 문제를 감지했을 때 알림을 받을 수 있습니다.
 
 설정 방법:
 
@@ -51,7 +51,7 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 | **낮음** | 약간 더 많은 추론이 도움이 되지만 깊은 분석이 필요하지 않은 작업. |
 | **중간** | 다단계 또는 미묘한 작업(예: 여러 입력을 분석하여 동작을 추천). |
 | **높음** | 복잡한 추론, 엣지 케이스, 또는 모델이 답변하기 전에 단계를 거쳐야 할 때. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사고 수준" }
 
 **최소**로 시작하여 에이전트의 응답을 테스트하는 것을 권장합니다. 에이전트가 정확한 답변을 제공하는 데 어려움을 겪는 경우 사고 수준을 **낮음** 또는 **중간**으로 조정할 수 있습니다. 드문 경우에 **높음** 사고 수준이 필요할 수 있지만, 이 수준을 사용하면 높은 토큰 비용과 더 긴 응답 시간 또는 타임아웃 오류의 위험이 높아질 수 있습니다. 에이전트가 다단계 추론과 합리적인 응답 시간 사이에서 균형을 맞추는 데 어려움을 겪는 경우, 사용 사례를 Canvas 또는 카탈로그에서 함께 작동할 수 있는 둘 이상의 에이전트로 분리하는 것을 고려하세요.
 
@@ -71,16 +71,28 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 - 테스트 중에는 신뢰성과 정확성을 토큰 사용량 및 호출 시간과 균형 있게 맞추세요.
 - 각 사용 사례마다 최적의 모델과 사고 수준이 다를 수 있습니다. 타임아웃 없이 일관된 품질을 확인하기 위해 철저히 테스트하는 것을 권장합니다.
 
-### 사용량 제한
+### 호출 흐름 제어
 
-다음 사용량 제한은 워크스페이스당 적용됩니다:
+다음 호출 흐름 제어는 워크스페이스당 적용됩니다:
 
 - **Braze 기반 모델:** 분당 1,000회 호출
 - **자체 API 키 가져오기:** 분당 2,500회 호출
 
-## 지침 작성
+많은 사용자가 동시에 에이전트 단계에 진입하면, Braze는 이러한 제한에 따라 호출을 대기줄에 넣으므로 대량 발송 시 처리 시간이 더 오래 걸릴 수 있습니다.
+
+### 사용량 제한 오류
+
+LLM 제공업체가 사용량 제한 오류를 반환하면, Braze는 지수 백오프를 사용하여 요청을 재시도합니다. 이 재시도 동작은 Canvas 에이전트 단계에 적용됩니다. 카탈로그 에이전트는 LLM 제공업체의 사용량 제한 오류를 포함하여 실패한 호출을 재시도하지 않습니다.
+
+모든 재시도가 실패하면, **로그** 세부 정보 패널에 **Error**가 표시되고 **출력**에 제공업체 메시지(예: `Rate limit exceeded`)가 표시됩니다. 모든 재시도는 로그에 표시되며, 최종 성공 또는 실패 여부에 관계없이 첫 번째 호출도 포함됩니다. 특정 사용자의 경우, 성공하기까지 4번의 재시도가 필요했다면 사용자 ID를 검색하여 **로그**에서 5개(원본 + 4번의 재시도)를 모두 확인할 수 있으며, 원본과 처음 3번의 재시도는 `Rate limit exceeded`와 함께 **Error**로 표시됩니다.
+
+![출력 필드에 사용량 제한 초과 오류가 표시된 에이전트 콘솔 로그 세부 정보.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
+
+## 지침 작성 {#writing-instructions}
 
 지침은 에이전트(시스템 프롬프트)에게 주는 규칙 또는 가이드라인입니다. 에이전트가 실행될 때마다 어떻게 행동해야 하는지를 정의합니다. 시스템 지침은 최대 25KB까지 가능합니다.
+
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 사용하여 [시작 템플릿]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)으로 에이전트를 구축한 경우, 미리 채워진 지침을 검토하고 필요에 따라 편집하세요.
 
 프롬프트를 시작하는 데 도움이 되는 일반적인 모범 사례는 다음과 같습니다:
 
@@ -95,7 +107,9 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 9. 엣지 케이스를 처리하고, 가드레일을 추가하고, 거부 지침을 추가하세요.
 10. 내부에서 효과가 있는 것을 측정하고 문서화하여 재사용 및 확장할 수 있도록 하세요.
 
-에이전트 지침 작성에 대한 영감을 얻으려면 [Braze 에이전트 사용 사례 라이브러리]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)를 참조하세요.
+### 예시 {#examples}
+
+에이전트 콘솔의 시작 구성은 [Operator로 구축된 에이전트 템플릿]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)을 참조하세요. 복사하거나 수정할 수 있는 전체 지침 예시는 [Braze 에이전트 사용 사례 라이브러리]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/)를 참조하세요.
 
 ### Liquid 사용
 
@@ -120,6 +134,8 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## 출력
+
+[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 사용하여 [시작 템플릿]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)으로 에이전트를 구축한 경우, 미리 채워진 출력 스키마를 검토하고 필요에 따라 편집하세요.
 
 ### 기본 스키마
 
@@ -154,7 +170,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 | **likelihood_score** | 숫자 |
 | **explanation** | 문자열 |
 | **confidence_score** | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고급 스키마" }
 
 ![likelihood score, explanation, confidence score에 대한 세 가지 출력 필드를 보여주는 에이전트 콘솔.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -219,7 +235,6 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 2. **아카이브**를 선택합니다.
 
 ![아카이브된 에이전트가 있는 에이전트 관리 페이지.]({% image_buster /assets/img/ai_agent/archived_agents.png %})
-
 
 ## Canvas 에이전트 예시 {#canvas-agent-examples}
 

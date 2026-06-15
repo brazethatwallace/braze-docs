@@ -32,7 +32,7 @@ Para completar este guia, você precisa de:
 | Chave da REST API da Braze | Uma chave com a permissão `messages.send`. Para criar uma, acesse **Configurações** > **APIs e identificadores** > **Chaves de API**. |
 | Grupo de inscrições SMS | Um grupo de inscrições SMS configurado no seu espaço de trabalho da Braze. |
 | Serviço de backend | Um serviço de backend ou ambiente de script capaz de fazer solicitações HTTP POST para a REST API da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Etapa 1: Criar uma Campanha da API {#step-1-create-an-api-campaign}
 

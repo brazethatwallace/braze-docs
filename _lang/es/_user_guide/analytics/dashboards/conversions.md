@@ -52,7 +52,7 @@ Si seleccionas un evento personalizado, no verás el desplegable **Conversion Ev
 ### Consideraciones {#considerations}
 
 Para que un usuario sea contado en el informe, debe cumplir los siguientes criterios dentro del rango de fechas seleccionado:
-1. Entrar en el Canvas o campaña.
+1. Entrar en el Canvas o la campaña.
 2. Registrar un [método de atribución]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#attribution-methods).
 3. Realizar el evento de conversión.
 
@@ -85,9 +85,9 @@ La siguiente tabla describe las posibles métricas.
 | Tasa de conversión (Destinatarios) | Se calcula como: (Número de conversiones) / (Número de destinatarios) |
 | Método de atribución | Definido por el [método de atribución](#attribution-methods) que seleccionaste al configurar el informe. Para la atribución de último punto de intervención o si se seleccionan múltiples canales, esto aparece como [Puntos de intervención](#terms-to-know). |
 | Tasa de conversión (Método de atribución) | Definido por el [método de atribución](#attribution-methods) que seleccionaste al configurar el informe. Si se seleccionan múltiples canales, se establece de forma predeterminada la atribución de último punto de intervención. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles de conversión" }
 
-Si seleccionaste detalles a nivel de desglose para campañas o Canvas al [configurar tu informe](#setting-up-your-report) (paso 5), puedes hacer clic en <i class="fas fa-angle-down"></i> para expandir la tabla.
+Si seleccionaste detalles a nivel de desglose para campañas o Canvas al [configurar tu informe](#setting-up-your-report) (paso 5), puedes seleccionar <i class="fas fa-angle-down"></i> **Expandir** para expandir la tabla.
 
 ### Embudo de conversión {#conversion-funnel}
 
@@ -107,7 +107,7 @@ Este gráfico solo muestra datos para un canal a la vez. Usa el desplegable **Ch
 
 Este gráfico de serie temporal incluye una representación de las conversiones por campaña o Canvas a lo largo del tiempo. De forma predeterminada, se muestran todas las campañas y Canvas seleccionados. Para deseleccionar una campaña o Canvas, haz clic en el nombre de la campaña o Canvas que deseas excluir.
 
-Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars"></i> y luego selecciona tu opción de descarga. Las opciones disponibles son PNG, JPEG, PDF, SVG o CSV.
+Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars" title="Menú contextual del gráfico"></i> **Menú contextual del gráfico** y luego selecciona tu opción de descarga. Las opciones disponibles son PNG, JPEG, PDF, SVG o CSV.
 
 ![Gráfico de serie temporal de conversiones a lo largo del tiempo para dos campañas de correo electrónico, mostrando conversiones por día.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
@@ -121,14 +121,14 @@ Para descargar los datos de la serie temporal, selecciona <i class="fas fa-bars"
 | Al hacer clic | Número total de conversiones que ocurrieron después de hacer clic en el mensaje | Se calcula como (Conversiones únicas al hacer clic) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al hacer clic en correo electrónico</li><li>Al hacer clic en tarjeta de contenido</li><li>Al hacer clic en IAM</li></ul>{:/} |
 | Al generar impresión | Número total de conversiones que ocurrieron después de una impresión | Se calcula como (Conversiones únicas por impresión) / (Destinatarios únicos) | {::nomarkdown}<ul><li>Al generar impresión de IAM</li><li>Al generar impresión de tarjeta de contenido</li></ul>{:/} |
 | Al último punto de intervención | Conversiones que otorgan todo el crédito al último mensaje tocado o en el que se hizo clic durante la ventana de conversión. | Se calcula como (Número de puntos de intervención) / (Destinatarios únicos) | La atribución de último punto de intervención se selecciona automáticamente si se agregan múltiples canales al informe.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attribution methods" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Métodos de atribución" }
 
 ## Términos que debes conocer {#terms-to-know}
 
 | Término | Definición |
 | --- | --- |
 | Punto de intervención | Una interacción física o punto de intervención con un mensaje.<br><br>Los puntos de intervención pueden incluir:<br>{::nomarkdown}<ul><li>Clic en correo electrónico</li><li>Apertura de push</li><li>Clic en tarjeta de contenido</li><li>Clic en mensaje dentro de la aplicación</li><li>Clic en SMS</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Terms to know" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Términos que debes conocer" }
 
 ## Solución de problemas {#troubleshooting}
 

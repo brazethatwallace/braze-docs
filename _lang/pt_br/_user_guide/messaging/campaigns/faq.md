@@ -216,7 +216,7 @@ Campaigns de entrega baseada em ação ou Campaigns disparadas por evento são m
 | Prós | Contras |
 | ---- | ---- |
 | • Visibilidade das cargas úteis JSON recebidas na plataforma (se o evento for disparado por um usuário teste) através do **Registro de atividades de envio de mensagem**<br><br>• Elementos de personalização são incluídos nas propriedades do evento personalizado<br><br>• O evento personalizado pode ser usado para criar segmentos de usuários elegíveis para a mensagem | • Consome pontos de dados |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Baseadas em ação" }
 
 #### Disparadas por API {#api-triggered}
 
@@ -225,7 +225,7 @@ Campaigns disparadas por API e disparadas por servidor são ideais para lidar co
 | Benefícios | Considerações |
 | ---- | ---- |
 | • Não registra pontos de dados<br><br>• Elementos de personalização são incluídos nas propriedades da carga útil JSON | • Não permite criar um segmento de usuários elegíveis para a mensagem nas propriedades da carga útil JSON<br><br>• Não é possível ver as cargas úteis JSON recebidas com o **Registro de atividades de envio de mensagem** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disparadas por API" }
 
 ### O que devo incluir ao enviar um ticket de suporte para um erro "Request Timed Out"? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
@@ -271,3 +271,17 @@ Vários fatores podem fazer com que o número de envios seja menor do que o tama
 ### Onde estão as perguntas frequentes sobre limite de frequência global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
 Para perguntas sobre dias corridos, push silencioso, webhooks, comportamento do Canvas e tópicos relacionados, consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) de [Limite de taxa e limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Por que os destinatários únicos podem exceder os envios para e-mail e SMS? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Para e-mail e SMS, a Braze incrementa **Destinatários únicos** antes da tentativa de envio pelo ESP e incrementa **Envios** após uma resposta bem-sucedida do ESP. Erros permanentes (como endereços de e-mail inválidos) ou endereços duplicados fazem com que os destinatários únicos excedam os envios.
+
+### Por que **Último envio** não corresponde ao meu horário de envio programado? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Para uma Campaign com um único envio programado, **Último envio** corresponde ao horário de lançamento. Para Campaigns recorrentes com **Enviar no fuso horário local** ativado, **Último envio** pode aparecer antes do horário programado porque os envios para usuários em fusos horários mais adiantados (por exemplo, GMT vs. PST) são concluídos antes do horário programado do seu espaço de trabalho.
+
+### Por que uma Campaign histórica parada não mostra mais métricas na página **Analytics**? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+A guia **Analytics** exibe por padrão os últimos 90 dias. Se a Campaign enviou pela última vez fora dessa janela, as métricas podem aparecer como zero até que você ajuste o intervalo de datas na página **Analytics** para incluir o período em que a Campaign enviou. Para saber mais, consulte [Análise de dados de Campaigns]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restaurar dados de interação** não restaura a análise de dados de Campaigns. Isso se aplica apenas a filtros de redirecionamento e ao histórico de interações do usuário. Para saber mais, consulte [Dados de interação de envio de mensagens]({{site.baseurl}}/messaging_interaction_data/).

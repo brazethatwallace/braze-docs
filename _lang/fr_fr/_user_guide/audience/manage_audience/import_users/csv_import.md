@@ -427,6 +427,14 @@ Si vous avez utilisé la [validation du fichier](#file-validation), commencez pa
 
 Pour la résolution des problèmes d'importation CSV, consultez les problèmes courants ci-dessous.
 
+### Utiliser un e-mail comme `external_id` {#use-email-as-external_id}
+
+Braze ne recommande pas d'utiliser une adresse e-mail comme `external_id`. Si vous utilisez un e-mail comme `external_id`, incluez les colonnes `external_id` et `email` dans votre CSV afin que les utilisateurs restent ciblables sur le canal e-mail. Utilisez une virgule (`,`) comme délimiteur de colonne, et non un deux-points (`:`).
+
+### Caractères de guillemets dans les valeurs `external_id` {#quote-characters-in-external_id-values}
+
+Si une cellule `external_id` contient un guillemet double, échappez-le en doublant le caractère (`""`), comme décrit dans [Guillemets doubles non échappés ou déséquilibrés](#missing-row). L'importation CSV n'utilise pas l'échappement par barre oblique inverse.
+
 ### L'importation CSV n'est pas disponible comme filtre de segment {#csv-import-isnt-available-as-a-segment-filter}
 
 Vous ne pouvez utiliser une importation CSV comme filtre de segment que si vous avez activé une préférence de ciblage lors du téléversement.

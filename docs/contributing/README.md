@@ -36,3 +36,5 @@ If you're new to Git or docs-as-code, start with our tutorial: [Your first contr
 - [YAML metadata](yaml_front_matter/metadata.md)
 - [Generating a preview](generating_a_preview.md)
 - [Style guides](style_guide.md)
+- [Unlisted docs](unlisted_docs.md)
+- [Unlisted docs QA test plan](unlisted_docs_qa.md)

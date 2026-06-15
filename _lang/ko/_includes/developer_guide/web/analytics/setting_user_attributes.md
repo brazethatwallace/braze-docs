@@ -220,7 +220,7 @@ REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 �
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | 구독하고 명시적으로 옵트인한 경우 |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | 구독 중이지만 명시적으로 옵트인하지 않은 경우 |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | 구독 취소 및/또는 명시적으로 수신 거부한 경우 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 사용자가 푸시에 등록되면 브라우저에서 알림 허용 또는 차단을 선택하도록 요청하며, 푸시 허용을 선택한 경우 기본적으로 `OPTED_IN`으로 설정됩니다.
 

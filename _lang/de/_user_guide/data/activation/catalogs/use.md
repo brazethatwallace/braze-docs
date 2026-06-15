@@ -17,9 +17,9 @@ Das folgende Video zeigt Ihnen, wie Sie Kataloge in einer Nachricht verwenden.
 
 ### 1. Schritt: Personalisierungsart hinzufügen {#step-one-personalization}
 
-Wählen Sie im Nachrichten-Editor Ihrer Wahl das <i class="fas fa-plus-circle"></i> Plus-Symbol, um das Modal **Add Personalization** zu öffnen, und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
+Wählen Sie im Nachrichten-Editor Ihrer Wahl das <i class="fas fa-plus-circle"></i> **Add Personalization** und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Modal „Add Personalization“ mit ausgewählten Catalog Items, gewähltem Games-Katalog und einer Liquid-Vorschau, die den catalog_items-Tag zeigt.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 Wir können sofort die folgende Liquid-Vorschau sehen:
 
@@ -64,7 +64,7 @@ Sie sind nicht auf einen Artikel pro Nachricht beschränkt. Verwenden Sie das Mo
 
 Sehen Sie sich dieses Beispiel an, in dem wir die `id` von drei Spielen – Tales, Teslagrad und Acaratus – für **Catalog Items** hinzufügen und `title` für **Information to Display** auswählen.
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![Modal „Add Personalization“ mit drei ausgewählten Katalogartikel-IDs und „title“ als anzuzeigende Information, mit einer Liquid-Vorschau, die jeden Artikeltitel auflistet.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 Wir können unsere Nachricht weiter personalisieren, indem wir etwas Text um unser Liquid herum hinzufügen:
 
@@ -118,6 +118,14 @@ Message if the venue name's size is 10 characters or fewer.
 {% endraw %}
 
 In diesem Beispiel werden je nachdem, ob das Feld `venue_name` mehr oder weniger als 10 Zeichen hat, unterschiedliche Nachrichten angezeigt. Wenn `venue_name` leer ist, wird die Nachricht abgebrochen.
+
+Um auszugeben, wie viele Artikel eine Auswahl zurückgibt, verwenden Sie den Liquid-Filter `size` auf dem `items`-Array nach dem Tag, nicht auf einem einzelnen Feld:
+
+{% raw %}
+```liquid
+{% catalog_selection_items item-list selections %}{{ items | size }}
+```
+{% endraw %}
 
 {% alert tip %}
 Um Liquid-Syntaxfehler zu vermeiden, wählen Sie den **+** Plus-Button im Nachrichten-Editor, um Katalog-Liquid-Tags automatisch einzufügen.
@@ -204,7 +212,7 @@ Wenn ein Katalogartikel Nutzerprofil-Felder enthält (innerhalb eines Liquid-Per
 
 Wenn zum Beispiel ein Katalog mit dem Namen „Messages“ einen Artikel mit diesem Liquid enthält:
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![Katalog-Tabellenzeile mit der ID „greet_msg“ und einer Spalte „Welcome_Message“, die eine Willkommensnachricht mit einer Liquid-Variable für den Vornamen enthält.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 Um den folgenden Liquid-Inhalt zu rendern:
 
@@ -230,6 +238,20 @@ Welcome to our store, Peter!
 {% alert note %}
 Katalog-Liquid-Tags können innerhalb von Katalogen nicht rekursiv verwendet werden.
 {% endalert %}
+
+## Fehlerbehebung bei der Katalogpersonalisierung
+
+Wenn Katalog- oder Auswahl-Liquid in einer Nachricht oder einem Canvas-Schritt nicht wie erwartet angezeigt wird, überprüfen Sie Folgendes:
+
+| Symptom | Was zu prüfen ist |
+| --- | --- |
+| Die Vorschau zeigt Artikel an, aber Live-Sendungen sind leer | Bestätigen Sie, dass die **Artikel-IDs** des Katalogs zum Sendezeitpunkt existieren. Wenn die ID in Ihrem Liquid nicht mit einer Zeile übereinstimmt, gibt Braze ein leeres Artikel-Array zurück – siehe [Liquid verwenden](#using-liquid). Prüfen Sie auf Tippfehler und auf ID-Quellen (wie Event-Eigenschaften), die beim Trigger oder im Nutzerprofil fehlen. |
+| Die Editor-Vorschau funktioniert in einer Campaign, aber nicht in Canvas | Bestätigen Sie, dass Sie den richtigen Liquid-Kontext verwenden – **Canvas-Kontexteigenschaften** im Vergleich zu **Event-Eigenschaften** – und dass diese Felder beim Trigger vorhanden sind. Siehe [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
+| Eine Auswahl gibt keine Artikel zurück | Überprüfen Sie die [Auswahlfilter]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) und Limits; bestätigen Sie, dass die Katalogdaten synchronisiert sind und die Spaltennamen mit Ihren Filtern übereinstimmen. |
+| `:rerender` oder die Template-Zustellung sieht falsch aus | Für verschachteltes Liquid in Katalogfeldern benötigen Sie `:rerender` und die korrekte Reihenfolge der Variablen – siehe [Templates für Katalogartikel einschließlich Liquid](#templating-catalog-items-including-liquid). In-App-Nachrichten mit Templates werden zum Trigger-Zeitpunkt aufgelöst; siehe [Was sind In-App-Nachrichten mit Templates?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Einige Kanäle schränken Katalog-Tags ein (z. B. bestimmte **:rerender**-Verwendungen mit Banner) – siehe [Werden alle Liquid-Tags unterstützt?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) in den Banner-FAQ. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung bei der Katalogpersonalisierung" }
+
+Allgemeine Informationen zum Liquid-Verhalten finden Sie unter [Liquid-Anwendungsfälle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) und [Liquid verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
 
 ## Strukturierung Ihrer Katalogdaten
 

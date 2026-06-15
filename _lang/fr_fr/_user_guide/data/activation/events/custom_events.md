@@ -45,13 +45,9 @@ De plus, si un événement personnalisé bloqué est actuellement référencé p
 
 Pour plus de détails sur le blocage et la suppression de données personnalisées, consultez [Bloquer des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marquer comme information personnelle identifiable (PII) {#marking-as-personally-identifiable-information-pii}
-
-Les administrateurs peuvent également créer des événements personnalisés et les marquer comme PII depuis cette page. Ces événements ne sont visibles que par les administrateurs et les utilisateurs du tableau de bord disposant de l'autorisation « View Custom Attributes Marked as PII ».
-
 ### Ajouter des descriptions {#adding-descriptions}
 
-Vous pouvez ajouter une description à un événement personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Edit description** pour l'événement personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
+Vous pouvez ajouter une description à un événement personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Modifier la description** pour l'événement personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
 
 ### Ajouter des étiquettes {#adding-tags}
 
@@ -59,7 +55,7 @@ Vous pouvez ajouter des étiquettes à un événement personnalisé après sa cr
 
 ### Exporter des données {#exporting-data}
 
-Pour exporter la liste des événements personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
+Pour exporter la liste des événements personnalisés sous forme de fichier CSV, sélectionnez **Tout exporter** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
 
 {% alert note %}
 Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événements personnalisés** ou d'**attributs personnalisés** distincts que vous pouvez définir ou stocker sur un profil ; les limites pratiques dépendent de la forme des données, du volume d'ingestion et des performances de l'espace de travail. Si vous prévoyez de suivre un très grand catalogue d'événements ou d'attributs, collaborez avec votre équipe de compte Braze sur la modélisation et l'hygiène des données (par exemple, le [blocage]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) des données inutilisées).
@@ -67,9 +63,9 @@ Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événem
 
 ## Consulter les rapports d'utilisation {#viewing-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, campagnes et segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
-Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des événements personnalisés, puis en sélectionnant **View usage report**.
+Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des événements personnalisés, puis en sélectionnant **Afficher le rapport d'utilisation**.
 
 ## Enregistrer des événements personnalisés {#logging-custom-events}
 
@@ -117,7 +113,7 @@ Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous p
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules d'indicateurs clés de performance.
+Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), segments ou formules d'indicateurs clés de performance.
 
 ![Filtres du graphique d'événements personnalisés]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -127,7 +123,7 @@ Vous pouvez également utiliser les **filtres** pour ventiler vos événements p
 
 ### Pourquoi les analyses d'événements personnalisés ne s'affichent pas {#why-custom-events-analytics-arent-showing}
 
-Les Segments créés à partir de données d'événements personnalisés ne peuvent pas afficher les données historiques antérieures à leur création.
+Les segments créés à partir de données d'événements personnalisés ne peuvent pas afficher les données historiques antérieures à leur création.
 
 ## Propriétés d'événement personnalisé {#custom-event-properties}
 

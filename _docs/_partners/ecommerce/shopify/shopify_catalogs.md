@@ -93,6 +93,8 @@ Braze supports the following metafield objects some of their respective types.
 | `number_integer`                                 | Integer                                                |
 | `single_line_text_field`, `list.single_line_text_field` | String, Array of Strings                        |
 | `url`, `list.url`                                | String (URL), Array of Strings (URLs)                  |
+| `metaobject_reference`, `list.metaobject_reference` | String, Array of Strings                          |
+| `mixed_reference`, `list.mixed_reference`        | String, Array of Strings                               |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
 
 {% endsubtab %}

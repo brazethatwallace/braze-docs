@@ -86,7 +86,7 @@ Le tableau suivant résume la signification de chaque libellé.
 | --- | --- |
 | **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience estimée et audience actuelle" }
 
 Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -196,6 +196,10 @@ Si vous souhaitez simplifier votre vue, cliquez sur <i class="fas fa-plus"></i> 
 
 Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents liens d'une même campagne e-mail. Dans la section **Message Analytics**, accédez au panneau **Email Performance**. Sélectionnez **Preview & Heatmap** pour afficher un aperçu de votre campagne e-mail et de la carte thermique. Vous pouvez également sélectionner le lien hypertexte dans le nom de la variante pour afficher la carte thermique.
 
+{% alert note %}
+L'analytique de campagne affiche les données de clics pour un maximum de 100 URL uniques par variante, triées par nombre total de clics. Les URL sont regroupées par leur forme normalisée, qui n'inclut pas les paramètres de requête. Si une variante comporte plus de 100 URL normalisées uniques, seules les 100 premières par nombre de clics sont affichées. Les données de clics pour les URL au-delà de cette limite existent toujours, mais n'apparaîtront pas dans le tableau de bord ni dans la carte thermique. Lorsque l'aliasage de lien est activé, les clics sont suivis par identifiant de lien plutôt que par URL brute, ce qui entraîne généralement moins d'entrées uniques et rend cette limite moins susceptible d'être atteinte.
+{% endalert %}
+
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
 
 {% alert note %}
@@ -224,7 +228,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="Indicateurs des Content Cards">
     <caption class="sr-only">Indicateurs de performance des Content Cards</caption>
     <thead>
         <tr>
@@ -299,7 +303,7 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="Indicateurs des bannières">
     <caption class="sr-only">Indicateurs de performance des bannières</caption>
     <thead>
         <tr>
@@ -373,7 +377,7 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="Indicateurs des e-mails">
     <caption class="sr-only">Indicateurs de performance des e-mails</caption>
     <thead>
         <tr>
@@ -532,7 +536,7 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="Indicateurs des messages in-app">
     <caption class="sr-only">Indicateurs de performance des messages in-app</caption>
     <thead>
         <tr>
@@ -601,7 +605,7 @@ Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos anal
 | Erreurs | Les _erreurs_ correspondent au nombre d'erreurs renvoyées par le fournisseur KakaoTalk (incrémenté pendant le processus d'envoi). |
 | Chiffre d'affaires | Le _chiffre d'affaires_ est le revenu en dollars provenant des destinataires de la campagne dans la fenêtre de conversion principale définie. |
 | Conversions principales | Les _conversions principales_ correspondent au nombre de fois qu'un événement défini s'est produit après l'interaction avec ou la consultation d'un message reçu d'une campagne Braze. Cet événement défini est déterminé par vous lors de la création de la campagne. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs KakaoTalk" }
 
 {% elsif include.channel == "push" %}
 
@@ -615,7 +619,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="Indicateurs des notifications push">
     <caption class="sr-only">Indicateurs de performance des notifications push</caption>
     <thead>
         <tr>
@@ -716,7 +720,7 @@ Les rebonds Firebase Cloud Messaging (FCM) peuvent se produire dans trois cas :
 | Applications désinstallées | Lorsqu'un message tente une livraison à un appareil et que l'application prévue est désinstallée sur cet appareil, le message est supprimé et l'ID d'enregistrement de l'appareil est invalidé. Toute future tentative d'envoi de message à l'appareil renverra une erreur NotRegistered. |
 | Application sauvegardée | Lorsqu'une application est sauvegardée, son ID d'enregistrement peut cesser d'être valide avant la restauration de l'application. Dans ce cas, FCM ne conservera plus l'ID d'enregistrement de l'application et l'application ne recevra plus de messages. Ainsi, les ID d'enregistrement ne doivent **pas** être enregistrés lors de la sauvegarde d'une application. |
 | Application mise à jour | Lorsqu'une application est mise à jour, l'ID d'enregistrement de la version précédente peut ne plus fonctionner. Une application mise à jour doit donc remplacer son ID d'enregistrement existant. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pourquoi les rebonds se produisent" }
 
 {% endtab %}
 {% endtabs %}
@@ -734,7 +738,7 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="Indicateurs SMS, MMS et RCS">
     <caption class="sr-only">Indicateurs de performance SMS, MMS et RCS</caption>
     <thead>
         <tr>
@@ -786,7 +790,7 @@ Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos a
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="Indicateurs des webhooks">
     <caption class="sr-only">Indicateurs de performance des webhooks</caption>
     <thead>
         <tr>
@@ -822,7 +826,7 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="Indicateurs WhatsApp">
     <caption class="sr-only">Indicateurs de performance WhatsApp</caption>
     <thead>
         <tr>
@@ -860,7 +864,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page.
 
-Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars" aria-label="Ouvrir le menu de navigation"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
+Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
 ![Graphique du panneau Performances historiques avec des exemples de statistiques pour un e-mail envoyé entre février 2021 et mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

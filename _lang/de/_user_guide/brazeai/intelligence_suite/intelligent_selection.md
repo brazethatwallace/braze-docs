@@ -49,7 +49,7 @@ Sie können Ihren Campaigns und Canvases eine Intelligente Auswahl hinzufügen.
 
 {% tabs %}
 {% tab Campaign %}
-Die Intelligente Auswahl kann zu jeder Multi-Send-Campaign im Schritt **Target Audiences** des Braze-Campaign-Composers hinzugefügt werden. Campaigns, die nur einmal senden, können dieses Feature nicht nutzen.
+Die Intelligente Auswahl kann zu jeder Multi-Send-Campaign im Schritt **Zielgruppe** des Braze-Campaign-Composers hinzugefügt werden. Campaigns, die nur einmal senden, können dieses Feature nicht nutzen.
 
 {% alert note %}
 Die Intelligente Auswahl kann nicht in Campaigns mit einer Wiederzulassungsfrist von weniger als 24 Stunden verwendet werden, da sie die Integrität der Kontrollvariante beeinträchtigen würde. Weitere Informationen finden Sie in den [Intelligence-FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
@@ -65,7 +65,11 @@ Damit können Sie die Variantenverteilung bearbeiten und die Intelligente Auswah
 
 ![Die Option „Intelligente Auswahl“ ist für ein Canvas aktiviert.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-Die Intelligente Auswahl ist nicht verfügbar, wenn Sie Ihrem Canvas noch keine Konversions-Events hinzugefügt haben oder wenn Ihre Campaign aus einer einzelnen Variante besteht.
+Die Intelligente Auswahl ist nicht verfügbar, wenn Sie Ihrem Canvas noch keine Konversions-Events hinzugefügt haben oder wenn Ihr Canvas aus einer einzelnen Variante besteht.
+
+{% alert note %}
+Canvases können die Intelligente Auswahl mit aktivierter Wiederzulassung verwenden, aber Braze kann nicht garantieren, dass Nutzer:innen bei erneutem Eintritt dieselbe Variante erhalten, da sich die optimale Zuweisung im Laufe der Zeit verschiebt. Campaigns erfordern ein Wiederzulassungsfenster von 24 Stunden oder länger, wenn die Intelligente Auswahl aktiviert ist. Weitere Informationen finden Sie unter [Warum ist die Wiederzulassung in weniger als 24 Stunden in Kombination mit Intelligenter Auswahl nicht verfügbar?](#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+{% endalert %}
 {% endtab %}
 {% endtabs %}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Regal
 article_title: Regal
-description: "このリファレンス記事では、BrazeとRegalのパートナーシップについて説明しています。Regalは電話およびSMSの販売ソリューションであり、両方のソースからのデータを使用して顧客にパーソナライズされた体験を提供することができます。"
+description: "このリファレンス記事では、BrazeとRegalのパートナーシップについて説明しています。Regalは音声AIエージェントプラットフォームであり、Brazeのデータとの会話を活用して、パーソナライズされたオムニチャネルのカスタマージャーニーをオーケストレーションできます。"
 alias: /partners/regal/
 page_type: partner
 search_tag: Partner
@@ -10,32 +10,34 @@ search_tag: Partner
 
 # Regal
 
-> [Regal.io](https://regal.io) は、より多くの会話を促進するために構築された電話およびSMSセールスソリューションです。これにより、成長目標をより短期間で達成できるようになります。
+> [Regal.io](https://regal.io)は音声AIエージェントプラットフォームであり、チャネル横断でインテリジェントなリアルタイム会話を通じて、企業がより優れたカスタマーエクスペリエンスを推進できるよう支援します。
 
-RegalとBrazeを統合することで、すべての顧客タッチポイントでより一貫性がありパーソナライズされたエクスペリエンスを作成できます。
-- Regalでの電話による会話の内容に基づいて、Brazeから適切なネクストベストのメールまたはプッシュ通知を送信します。
-- 価値の高い顧客がBrazeからのマーケティングメールをクリックスルーしたがコンバージョンに至らなかった場合に、Regalでコールをトリガーします。
+_この統合はRegalによって管理されています。_
+
+RegalとBrazeを統合することで、行動データと会話型AIを統合し、パーソナライズされたオムニチャネルのカスタマージャーニーをオーケストレーションできます。Brazeはカスタマーライフサイクル全体のシグナルをキャプチャし、RegalはそれをAIエージェントの会話、ルーティング、リアルタイムの意思決定に活用します。
+
+Brazeのデータを使用して、AIエージェントが何を話すか、どのように応答するか、いつエンゲージするかを形成できます。会話の結果やインサイトをBrazeに送り返すことで、ターゲティングやライフサイクルマーケティングを改善できます。カスタマージャーニーの重要なタイミングでAI搭載の通話やSMSをトリガーし、各会話の結果に基づいてBrazeでフォローアップを行います。
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Regalアカウント | このパートナーシップを活用するには、Regalアカウントが必要です。 |
-| Regal APIキー | Regal APIキーを使用すると、BrazeからRegalにイベントを送信できます。<br><br>このキーを取得するには、[support@regal.io](mailto:support@regal.io) までメールでご連絡ください。 |
-| Brazeデータ変換 | データ変換は現在早期アクセス段階です。早期アクセスへの参加に興味がある場合は、Brazeカスタマーサクセスマネージャーにお問い合わせください。これは、Regalからデータを受信するために必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Regal APIキー | Regal APIキーを使用すると、BrazeからRegalにイベントを送信できます。<br><br>このキーを取得するには、[support@regal.io](mailto:support@regal.io)までメールでご連絡ください。 |
+| Brazeデータ変換 | Regalからデータを受信するには、[データ変換]({{site.baseurl}}/data_transformation/)が必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合：BrazeからRegalにデータを送信する {#integration-sending-data-from-braze-to-regal}
 
-次のセクションでは、BrazeのキャンバスまたはキャンペーンのWebhookを使用して、顧客プロファイルとイベントデータをRegalに送信するためのソースとしてBrazeを使用する方法について説明します。
+BrazeのCanvasまたはCampaignのWebhookを使用して、顧客プロファイルとイベントデータをBrazeからRegalに送信します。
 
 ### ステップ1：Regalで新しい連絡先を作成する {#step-1-create-new-contacts-in-regal}
 
-Brazeで作成される新しい連絡先をRegalでのコールやテキストに利用できるようにするには、新しい連絡先が作成されるたびにWebhookでRegalに通知するキャンバスまたはキャンペーンを作成します。
+Regalでの通話やテキストに利用できるようにすべき新しいBrazeプロファイルが作成されるたびに、WebhookをRegalに送信するCanvasまたはCampaignを作成します。
 
-1. 「Create New Contact for Regal」というタイトルのキャンバスまたはキャンペーンを作成し、エントリタイプとして**アクションベース**を選択します。
+1. 「Create New Contact for Regal」というタイトルのCanvasまたはCampaignを作成し、エントリタイプとして**アクションベース**を選択します。
 
-2. トリガーロジックを**カスタムイベント**に設定し、電話番号を持つ連絡先が作成されたときに発生するイベントを選択します。Regalでは、電話番号フィールドが確実に設定されるようにフィルターを追加することも推奨しています。
+2. トリガーロジックを**カスタムイベント**に設定し、電話番号を持つプロファイルが作成されたときに発生するイベントを選択します。Regalでは、電話番号フィールドが設定されていることを確認するフィルターを追加することも推奨しています。
 
 3. 新しいWebhookテンプレートに、次のフィールドを記入してください：
    - **Webhook URL**：<https://events.regalvoice.com/events>
@@ -43,7 +45,7 @@ Brazeで作成される新しい連絡先をRegalでのコールやテキスト�
 
 #### リクエストヘッダーとメソッド {#request-headers-and-method}
 
-Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です。次の内容は、**設定**タブのキーと値のペアとして既にテンプレートに含まれています：
+Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。以下は、**設定**タブのキーと値のペアとしてテンプレートに含まれています：
 {% raw %}
 - **HTTPメソッド**：POST
 - **リクエストヘッダー**：
@@ -53,47 +55,76 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 
 #### リクエスト本文 {#request-body}
 
-以下の唯一の必須フィールドは `traits.phone` プロパティです。残りはオプションです。ただし `optIn` を含める場合は、`optIn.channel` と `optIn.subscribed` を含める必要があります。
+唯一の必須識別子は、`traits.phones`内の電話番号です。`traits.phones`オブジェクトを使用して、1つ以上の電話番号を連絡先に関連付けます。各電話番号には、独自のラベル、プライマリ指定、音声およびSMSのオプトインステータスを保存できます。この構造は、連絡先が複数の電話番号を持つ場合に特に便利です。
 
 ```json
 {
-    "userId": "<uniqueIdentifier>", //this is optional
-    "traits": {
-        "phone": "<phoneNumber>",
-        "email": "<email>",
-        "firstName": "<firstName>",
-        "lastName": "<lastName>",
-        "optIn": [
-            {
-                "channel": "voice",
-                "source": "<leadSource>",
-                "subscribed": true
-            },
-            {
-                "channel": "sms",
-                "source": "<leadSource>",
-                "subscribed": true
-            }
-        ],
-        "custom1": "<custom1>",
-        "custom2": "<custom2>"
+  "userId": "<uniqueIdentifier>",
+  "traits": {
+    "phones": {
+      "<primaryPhoneNumber>": {
+        "label": "Mobile",
+        "isPrimary": true,
+        "voiceOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      },
+      "<secondaryPhoneNumber>": {
+        "label": "Home",
+        "isPrimary": false,
+        "voiceOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<leadSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      }
     },
-    "eventSource": "braze"
+    "email": "<email>",
+    "firstName": "<firstName>",
+    "lastName": "<lastName>",
+    "custom1": "<custom1>",
+    "custom2": "<custom2>"
+  },
+  "eventSource": "braze"
 }
 ```
 
-上記のペイロードの例は、すべての連絡先が音声とSMSのオプトインに同意していることを前提としています。これに該当しない場合は、上記の `optIn` プロパティを削除し、`optIn` が収集されたときにRegalで連絡先を更新する別のキャンバスまたはキャンペーンを設定できます。
+上記のペイロード例は、記載された電話番号に現在の音声およびSMSの同意ステータスが含まれていることを前提としています。該当しない場合は、連絡先作成時に`voiceOptIn`と`smsOptIn`を省略し、オプトインが収集された際に該当する電話番号の同意を更新する別のCanvasまたはCampaignを設定できます。
 
 ### ステップ2：オプトイン情報を更新する {#step-2-update-opt-in-information}
 
-お客様のアプリのユーザーエクスペリエンスのさまざまな部分でオプトインおよびオプトアウトが発生する可能性がある場合、ユーザーがオプトインまたはオプトアウトするたびにRegalを更新することが重要です。以下は、Regalに最新のオプトイン情報を送信するための推奨キャンバスです。これをBrazeプロファイルのフィールドとして保存することを前提としていますが、保存されていない場合は、Brazeアカウントでユーザーがオプトインまたは配信停止したことを表すイベントをトリガーとして同様に使用できます。（以下の例は電話のオプトイン用ですが、SMSオプトインを別々に収集する場合は、同様のキャンバスまたはキャンペーンを設定できます）。
+アプリ内のさまざまなタイミングでオプトインおよびオプトアウトが発生する可能性がある場合、ユーザーがサブスクリプションステータスを変更したときにRegalを更新します。
 
-1. 「Send Opt In or Out to Regal」というタイトルの新しいキャンバスまたはキャンペーンを作成します。
+Regalでは、連絡先レベルではなく電話番号ごとにオプトインとオプトアウトを管理できるよう、`traits.phones`スキーマの使用を推奨しています。
 
-2. 次のトリガーオプションのいずれかを選択し、ユーザーのオプトインステータスを表すフィールドを選択します。オプトインまたはオプトアウトを表すイベントをBrazeに送信する場合は、そのイベントをトリガーとして使用してください。
-    - ユーザープロファイルフィールド更新済み
-    - サブスクリプショングループステータスの更新
-    - サブスクリプションステータス
+以下のCanvasセットアップを使用して、最新のオプトイン情報をRegalに送信します。
+
+1. 「Send Opt In or Out to Regal」というタイトルの新しいCanvasまたはCampaignを作成します。
+
+2. 次のトリガーオプションのいずれかを選択し、ユーザーのオプトインステータスを表すフィールドを選択します：
+    - **ユーザープロファイルフィールドの更新**
+    - **サブスクリプショングループステータスの更新**
+    - **サブスクリプションステータス**
 
 3. 新しいWebhookテンプレートに、次のフィールドを記入してください：
    - **Webhook URL**：<https://events.regalvoice.com/events>
@@ -101,7 +132,7 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 
 #### リクエストヘッダーとメソッド
 
-Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です。次の内容は、テンプレート内にキーと値のペアとして既に含まれていますが、**設定**タブにあります：
+Regalには、認証用のHTTPヘッダーとHTTPメソッドも必要です。以下は、**設定**タブのキーと値のペアとしてテンプレートに含まれています：
 {% raw %}
 - **HTTPメソッド**：POST
 - **リクエストヘッダー**：
@@ -111,137 +142,175 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 
 #### リクエスト本文
 
-必要に応じて、追加のユーザープロファイル属性をこのペイロードに追加して、複数の属性が同時に最新の状態であることを確認することもできます。
-
 ```json
 {
-    "userId": "<uniqueIdentifier>", //this is optional
-    "traits": {
-        "phone": "<phoneNumber>",
-        "optIn": [
-            {
-                "channel": "voice",
-                "source": "<leadSource>",
-                "subscribed": "<voice_optin_subscribed>"
-            },
-            {
-                "channel": "sms",
-                "source": "<leadSource>",
-                "subscribed": "<voice_optin_subscribed>"
-            }
-        ]
-    },
-    "eventSource": "braze"
+  "userId": "<uniqueIdentifier>",
+  "traits": {
+    "phones": {
+      "<phoneNumber>": {
+        "voiceOptIn": {
+          "subscribed": "<voice_optin_subscribed>",
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": "<sms_optin_subscribed>",
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      }
+    }
+  },
+  "eventSource": "braze"
 }
 ```
 
+このペイロードに追加のユーザープロファイル属性を含めて、他の属性も同時に最新の状態に保つこともできます。
+
 ### ステップ3：カスタムイベントを送信する {#step-3-send-custom-events}
 
-最後に、Regalに送信するキーイベントごとにキャンバスまたはキャンペーンを設定します。Regalでは、RegalでSMSおよび通話をトリガーするうえで重要なすべてのイベント（登録フローまたは購入フローの各ステップでのイベントなど）を送信することを推奨しています。また、連絡先がRegal キャンペーンの対象外となる終了基準として使用されるイベントも送信してください。
+Regalに送信するキーイベントごとに、CanvasまたはCampaignを設定します。
 
-例えば、以下はユーザーがアプリケーションの最初のステップを完了したときにRegalにイベントを送信するためのワークフローです。
+これらのイベントは、アウトリーチのトリガー（例：リードがサインアップを完了した際の確認テキスト）以上の役割を果たします。Regal AIエージェントがカスタマージャーニー全体を通じてどのように話し、意思決定し、会話をルーティングするかを支えるリアルタイムのコンテキストを提供します。Brazeからイベントデータと属性を送信することで、AIエージェントが各ユーザーの行動、好み、ライフサイクルステージに基づいて会話を適応させることが可能になります。
 
-1. 「Send Application Step 1 Completed Event to Regal」というタイトルの新しいキャンバスまたはキャンペーンを作成します。
+例えば、Brazeのイベントと属性はRegalで以下のように使用できます：
 
-2. トリガーノードのロジックを**カスタムイベント**に設定し、Regalに送信したいイベント名を選択します。例えば、「Application Step 1 Completed」などです。
+- **AIエージェントの発話をパーソナライズ**：最近の行動や製品への関心を会話で直接参照します。
+  - 例：ユーザーが生命保険のオプションを閲覧した場合、エージェントは会話で`contact.firstName`と`contact.brazeProductInterest`を参照できます。
+- **動的な会話ロジックを駆動**：エージェントがリアルタイムで優先する内容を調整します。
+  - 例：`contact.brazeAge`が65歳を超える場合はMedicare補償を優先し、それ以外の場合はACAプランと現在の保険ステータスに焦点を当てます。
+- **インテリジェントなルーティングとエスカレーションを実現**：価値やインテントに基づいて会話をルーティングします。
+  - 例：`contact.brazeLeadTier`が「High Value」の場合、資格確認後にシニアエージェントに転送し、それ以外の場合はAIエージェントで続行します。
+- **メッセージングとオファーを調整**：Campaignのコンテキストに基づいてエージェントが提示する内容をカスタマイズします。
+  - 例：`contact.brazeCampaignName`が「Spring Mortgage Promo」の場合、会話中にプロモーションオファーを強調します。
 
-3. 新しいWebhookテンプレートに、次のフィールドを記入してください：
-   - **Webhook URL**：<https://events.regalvoice.com/events>
-   - **リクエスト本文**：Raw Text
-
-#### リクエストヘッダーとメソッド
-
-Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です。次の内容は、テンプレート内にキーと値のペアとして既に含まれていますが、**設定**タブにあります：
-{% raw %}
-- **HTTPメソッド**：POST
-- **リクエストヘッダー**：
-    - **Authorization**：`{{<REGAL_API_KEY>}}`
-    - **Content-Type**：application/json
-{% endraw %}
-
-#### リクエスト本文
-
-必要に応じて、このペイロードに追加のユーザープロファイル属性を追加して、複数の属性が同時に最新であることを確認できます。
+「Send Product Interest Event to Regal」というタイトルの新しいCanvasまたはCampaignを作成します。
 
 ```json
 {
-    "userId": "<uniqueIdentifier>", //this is optional
-    "traits": {
-        "phone": "<phoneNumber>",
-        "firstName": "<firstName>",
-        "lastName": "<lastName>",
-        "custom1": "<custom1>",
-        "custom2": "<custom2>",
-        "custom3": "<custom3>"
+  "userId": "<uniqueIdentifier>",
+  "traits": {
+    "phones": {
+      "<primaryPhoneNumber>": {
+        "label": "Mobile",
+        "isPrimary": true,
+        "voiceOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": true,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      },
+      "<secondaryPhoneNumber>": {
+        "label": "Home",
+        "isPrimary": false,
+        "voiceOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<voiceOptInText>",
+          "timestamp": "<timestamp>"
+        },
+        "smsOptIn": {
+          "subscribed": false,
+          "ip": "<ipAddress>",
+          "source": "<optInSource>",
+          "text": "<smsOptInText>",
+          "timestamp": "<timestamp>"
+        }
+      }
     },
-    "name": "Application Step 1 Completed",
-    "properties": {
-      "educationalLevel": "<educationalLevel>",
-      "preferredLocation": "<preferredLocation>",
-      "preferredSubject": "<preferredSubject>",
-      "readytoCommit": true
-    },
-    "eventSource": "braze"
+    "email": "<email>",
+    "firstName": "<firstName>",
+    "lastName": "<lastName>",
+    "brazeProductInterest": "Life Insurance",
+    "brazeAge": 68,
+    "brazeLeadTier": "High Value",
+    "brazeCampaignName": "Spring Insurance Promo"
+  },
+  "name": "Product Interest Captured",
+  "properties": {
+    "action": "Viewed Product Comparison",
+    "productCategory": "Life Insurance",
+    "intentScore": "High",
+    "lastPage": "Compare Life Insurance Plans",
+    "readyToCommit": true
+  },
+  "eventSource": "braze"
 }
 ```
 
 #### 最新の連絡先属性 {#up-to-date-contact-attributes}
 
-これは必須ではありませんが、Regalでは、キーイベントが利用可能になった時点でRegalが最新の連絡先属性にアクセスできるようにするために、イベントワークフローのイベントペイロードに主要なユーザープロファイルデータフィールドも送信することを推奨しています。
+Regalでは、キーイベント発生時にRegalが最新の連絡先属性を保持できるよう、イベントペイロードに主要なユーザープロファイル属性も送信することを推奨しています。
 
 {% alert note %}
-Regalに送信する重要なイベント、またはこれらのキャンバスやキャンペーンの設定方法についてご質問がある場合は、support@regal.io にお問い合わせください。
+Regalに送信するイベントやこれらのCanvasおよびCampaignの設定方法についてご質問がある場合は、[support@regal.io](mailto:support@regal.io)までメールでお問い合わせください。
 {% endalert %}
 
 ## 統合：RegalからBrazeにデータを送信する {#integration-sending-data-from-regal-to-braze}
 
-このセクションでは、`SMS.sent` や `call.completed` などのRegalレポートイベントをBrazeに取り込み、Brazeプロファイルに表示され、Brazeのセグメンテーションツール、キャンバス、およびキャンペーンで利用できるようにする方法について説明します。この統合では、Regal Reporting WebhookとBrazeデータ変換を使用してデータフローを自動化します。
+Regal Reporting WebhookとBrazeデータ変換を使用して、Regalのレポートイベント（`SMS.sent`や`call.completed`など）をBrazeに送信します。これらのイベントをマッピングすると、ユーザープロファイルに表示され、セグメンテーション、Canvas、Campaignsで利用できるようになります。
 
 ### ステップ1：Brazeでデータ変換を作成する {#step-1-create-a-data-transformation-in-braze}
 
-{% alert important %}
-データ変換は現在早期アクセス段階です。早期アクセスへの参加に興味がある場合は、Brazeカスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
-
-Brazeでは、Brazeに送信する予定のRegal Webhookごとに変換を作成することをお勧めします。
+Brazeに送信する予定のRegal Webhookごとに、1つのデータ変換を作成します。
 
 データ変換を作成するには：
 1. Brazeダッシュボードの**Transformations**ページに移動します。
 2. 変換に名前を付けて、**Create transformation**をクリックします。
-3. 変換のリストから、<i class="fa-solid fa-ellipsis-vertical" title="アクションを表示"></i>をクリックし、**Copy webhook URL**を選択します。
+3. 変換のリストから、<i class="fa-solid fa-ellipsis-vertical" title="アクションを表示"></i> **View actions**を選択し、**Copy webhook URL**を選択します。
 
 ![]({% image_buster /assets/img/regal/copy_webhook_url.png %})
 
-### ステップ2：Regalでレポート Webhookを有効にする {#step-2-enable-reporting-webhooks-in-regal}
+### ステップ2：Regalでレポートwebhookを有効にする {#step-2-enable-reporting-webhooks-in-regal}
 
-レポートWebhookを設定するには：
-1. Regalアプリに移動して、**Setting**ページを開きます。
+レポートwebhookを設定するには：
+1. Regalアプリに移動して、**Settings**ページを開きます。
 
 2. **Reporting Webhooks**セクションで、**Create Webhooks**をクリックします。
 
-3. Webhookエンドポイント入力で、関連付けられたデータ変換のBrazeデータ変換Webhook URLを追加します。
+3. Webhookエンドポイント入力で、関連するデータ変換のBrazeデータ変換Webhook URLを追加します。
 
 ![]({% image_buster /assets/img/regal/edit_webhook.png %}){: style="max-width:60%;"}
 
 #### エンドポイントの更新 {#updating-an-endpoint}
-エンドポイントを編集すると、キャッシュが更新されて新しいエンドポイントにイベントが送信されるまでに最大で5分かかることがあります。
+
+エンドポイントを編集すると、キャッシュが更新されて新しいエンドポイントにイベントが送信されるまでに最大5分かかることがあります。
+
 #### 再試行 {#retries}
-現在、これらのイベントに再試行はありません。応答が5秒以内に受信されない場合、イベントは破棄され、再試行されません。Regalは今後のリリースで再試行を追加する予定です。
+
+現在、Regalはこれらのイベントの再試行を行いません。Brazeが5秒以内に応答しない場合、Regalはイベントを破棄します。Regalは今後のリリースで再試行機能を追加する予定です。
+
 #### イベント {#events}
-Regalの[Reporting Webhooksガイド](https://developer.regal.io/docs/reporting-webhooks#events)には、公開するレポートイベントの完全なリストが含まれています。そこでは、プロパティの定義やサンプルペイロードも確認できます。
+レポートイベントの完全なリスト、プロパティの定義、サンプルペイロードについては、Regalの[Reporting Webhooksガイド](https://developer.regal.io/docs/reporting-webhooks#events)を参照してください。
 
 ### ステップ3：RegalイベントをBrazeイベントに変換する {#step-3-transform-regal-events-into-braze-events}
 
-Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用すると、受信したRegalイベントを、Brazeで属性、イベント、または購入として追加するのに必要な形式にマッピングできます。
+Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用すると、受信したRegalイベントを、Brazeで属性、イベント、または購入として追加するために必要な形式にマッピングできます。
 
-1. データ変換に名前を付けてください。イベントWebhookごとにデータ変換を設定することをお勧めします。
+1. データ変換に名前を付けます。イベントwebhookごとにデータ変換を設定することを推奨します。
 
-2. 接続をテストするには、Regal エージェント Desktopから携帯電話への発信コールを作成し、Conversation Summaryフォームを送信してcall.completedイベントを作成します。
+2. 接続をテストするには、Regal Agent Desktopからお使いの電話に発信コールを作成し、Conversation Summaryフォームを送信して`call.completed`イベントを作成します。
 
 3. Regalの連絡先をBrazeプロファイルにマッピングするために使用する識別子を決定します。Regalイベントで利用可能な識別子には以下が含まれます：
    - `userId` - この識別子を以前に連絡先に送信した場合にのみ、イベントに設定されます
    - `traits.phone`
    - `traits.email` - この識別子を以前に連絡先に送信した場合にのみ、イベントに設定されます
+
+BrazeからRegalへのイベントペイロードでは、複数の電話番号と電話番号レベルの同意をサポートするために`traits.phones`の使用を推奨しています。Brazeに送り返されるRegalレポートイベントでは、イベントペイロードの識別子として`traits.phone`が引き続き表示される場合があります。
 
 #### Braze対応の識別子 {#braze-supported-identifiers}
 - Brazeは識別子として電話番号をサポートしていません。これを識別子として使用するには、Brazeで電話番号を[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)として設定できます。
@@ -254,7 +323,7 @@ Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用�
 
 **Regalでのコール処理に基づいて、Brazeからメールをトリガーする**
 
-以下は、Regalの `call.completed` イベントのサンプルペイロードです。
+以下は、Regalの`call.completed`イベントのサンプルペイロードです。
 
 ```json
 {
@@ -350,9 +419,9 @@ return brazecall;
 {% endtab %}
 {% tab プロファイル属性を更新する %}
 
-**Regalからの `contact.attribute.edited` イベントに基づいて、Brazeのプロファイル属性を更新する**
+**Regalからの`contact.attribute.edited`イベントに基づいて、Brazeのプロファイル属性を更新する**
 
-以下は、Regalの `contact.attribute.edited` イベントのサンプルペイロードです。このイベントは、いずれかのエージェントが会話で新しい情報を得て、連絡先のプロファイルの属性を更新するたびにトリガーされます。
+以下は、Regalの`contact.attribute.edited`イベントのサンプルペイロードです。Regalは、エージェントが会話中に連絡先のプロファイルの属性を更新したときにこのイベントを送信します。
 
 ```json
 {
@@ -414,9 +483,9 @@ return brazecall;
 {% endtab %}
 {% tab 実験の同期を維持する %}
 
-**`contact.experiment.assigned` イベントを使用してBrazeとRegalで実験の同期を維持する**
+**`contact.experiment.assigned`イベントを使用してBrazeとRegalの実験を同期する**
 
-以下は、Regalの `contact.experiment.assigned` イベントのサンプルペイロードです。
+以下は、Regalの`contact.experiment.assigned`イベントのサンプルペイロードです。
 
 ```json
 {
@@ -477,9 +546,9 @@ return brazecall;
 {% endtab %}
 {% tab 連絡先の配信停止 %}
 
-**Regalの `contact.unsubscribed` に基づいて、Brazeで連絡先の配信停止を行う**
+**Regalの`contact.unsubscribed`イベントに基づいて、Brazeで連絡先の配信停止を行う**
 
-以下は、Regalの `contact.unsubscribed` イベントのサンプルペイロードです。
+以下は、Regalの`contact.unsubscribed`イベントのサンプルペイロードです。
 
 ```json
 {
@@ -526,6 +595,129 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
+```
+
+{% endtab %}
+{% tab 通話分析からフォローアップをトリガーする %}
+
+**Regalの`call.analysis.available`イベントに基づいて、Brazeでカスタマイズされたフォローアップジャーニーをトリガーする**
+
+Regalの`call.analysis.available`イベントを使用して、顧客がコンバージョンしなかった主な理由を特定し、Brazeでカスタマイズされたフォローアップジャーニーをトリガーします。
+
+例：
+
+- 主な反対理由が価格の場合、価値訴求型のフォローアップメールを送信します。
+- 主な反対理由がタイミングの場合、後日再検討するためのナーチャーシーケンスにユーザーを配置します。
+- 主な反対理由が信頼の場合、お客様の声、評価、またはコンプライアンスに関する安心材料を送信します。
+- `needs_human_agent`がtrueの場合、営業またはサポートチームに通知し、以降の自動メッセージングを抑制します。
+
+以下は、Regalの`call.analysis.available`イベントのサンプルペイロードです。
+
+```json
+{
+  "traits": {
+    "phone": "+1XXXXXXXXXX",
+    "email": "xxx@gmail.com"
+  },
+  "name": "call.analysis.available",
+  "brand": "circle-bank",
+  "contact_email": "xxx@gmail.com",
+  "contact_phone": "+1XXXXXXXXXX",
+  "created_at": "1754079836",
+  "entity_type": "event",
+  "event_id": "9f5d8dbb2973b0e2359c6fd34111111",
+  "event_type": "regal_voice_event",
+  "external_id": "41dd1aa2-1111-f011-a2d5-00505611111",
+  "original_timestamp": "1754079835",
+  "profile_id": "62653af1111111173af128291e92",
+  "properties": {
+    "agent_email": "xxx@yourbrand.com",
+    "call_analysis": {
+      "purchase_intent": "medium",
+      "primary_objection": "price",
+      "secondary_objection": "needs_to_compare",
+      "product_interest": "Life Insurance",
+      "follow_up_required": true,
+      "follow_up_email_text": "Thanks for speaking with us today. I know cost is top of mind, so I wanted to send over a simple summary of the life insurance options we discussed and what may fit your budget.",
+      "recommended_next_action": "send_value_oriented_follow_up",
+      "needs_human_agent": false,
+      "customer_sentiment_label": "interested_but_hesitant"
+    },
+    "contact_phone": "+1XXXXXXXXXX",
+    "incoming_sip_headers": {
+      "Via": "SIP/2.0/UDP srv1.example.com;branch=z9hG4bK776asdhds",
+      "From": "<sip:customer@example.com>;tag=1928301774",
+      "Call-ID": "a84b4c76e66710"
+    },
+    "is_ai_agent": true,
+    "outgoing_sip_headers": {
+      "Via": "SIP/2.0/TCP srv2.example.com;branch=z9hG4bKgsdh7723",
+      "To": "<sip:agent@yourbrand.com>",
+      "User-Agent": "RegalVoiceAI/1.0"
+    },
+    "task_id": "WT7f3ea47fa6e6055aa847f0a62111111"
+  },
+  "originalTimestamp": "1754079835",
+  "source": "Regal Voice"
+}
+```
+
+データ変換を使用して、`call_analysis`フィールド（`primary_objection`や`needs_human_agent`など）をBrazeのカスタムイベントまたはプロファイル属性にマッピングします。その後、Brazeでそれらの値に基づいて分岐するCanvasまたはCampaignのロジックを構築します。
+
+{% endtab %}
+{% tab 通話トランスクリプトリンクを保存する %}
+
+**`call.transcript.available`イベントのトランスクリプトリンクでプロファイル属性を更新する**
+
+`call.transcript.available`イベントを使用して、完全な通話トランスクリプトへのリンクをBrazeに送信します。データ変換を使用してトランスクリプトURLをBrazeユーザープロファイル属性にマッピングすることで、チームがユーザープロファイルから会話にアクセスしてレビューできるようになります。
+
+以下は、Regalの`call.transcript.available`イベントのサンプルペイロードです。
+
+```json
+{
+  "userId": "123",
+  "traits": {
+    "phone": "+17625551796",
+    "email": "xxx@gmail.com"
+  },
+  "name": "call.transcript.available",
+  "properties": {
+    "agent_email": "xxx@yourbrand.com",
+    "task_id": "WT953358e8822dd9333fc38dfbac25e1e1",
+    "call_summary": "The agent Zoe explained insurance options to Joe and he said he'll need to think about it before moving forward Agent politely ended the call.",
+    "contact_name": "Joe Smith",
+    "contact_phone": "+13523182825",
+    "is_voicemail": false,
+    "moments_count": 18,
+    "recording_id": "RE0118052841b7299d0630d1dff610c1fb",
+    "recording_link": "https://api.twilio.com/2010-04-01/Accounts/ACxxx/Recordings/xxx.mp3",
+    "recording_duration": 78.75987,
+    "request_timestamp": 1657799128,
+    "response_timestamp": 1657799136,
+    "sentiments": {
+      "contact_sentiment": 70,
+      "agent_sentiment": 75,
+      "agent_sentiment_reason": "Zoe was polite and attentive, effectively gathering information and providing a resource, which contributed to a positive interaction.",
+      "contact_sentiment_reason": "Joe was satisfied with the information provided but may have wanted more assistance regarding insurance options."
+    },
+    "trackers": [
+      {
+        "tracker_id": "4be87957-9140-4451-894a-bdbaed1f2460",
+        "tracker_name": "Refinance"
+      },
+      {
+        "tracker_id": "eb2577c6-5e23-4c65-9e04-5cc5d49eee7e",
+        "tracker_name": "High Intent"
+      }
+    ],
+    "transcript": "[handling agent]: Hi Joe, this is Zoe with BrightCover Insurance. I'll be going over some insurance options with you today. [contact]: Sounds good. [handling agent]: Before we start, I'm going to transfer you to a specialist for a moment. One sec. [transfer agent]: Hi Joe, this is Mark. Just verifying a few details before sending you back to Zoe. [contact]: Okay. [handling agent]: Thanks, Joe. Based on what you shared, here are some plan options... [contact]: I'll need to think about it. [handling agent]: Totally understandable. Feel free to reach out anytime. Have a great day! END OF TRANSCRIPT",
+    "transcript_is_truncated": false,
+    "transcript_url": "https://app.regalvoice.com/transcripts/WT953358e8822dd9333fc38dfbac25e1e1"
+  },
+  "originalTimestamp": "1657843308",
+  "eventSource": "Regal Voice",
+  "eventId": "f49a3cf9cb1336683bd5f19dwe4c61147"
+}
 ```
 
 {% endtab %}

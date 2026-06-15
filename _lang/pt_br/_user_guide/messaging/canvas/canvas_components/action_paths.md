@@ -83,6 +83,6 @@ Se os usuários entrarem em uma jornada de ação várias vezes e tiverem múlti
 |---|--------------|
 | **Desativada** | Um usuário pode entrar em uma jornada de ação mais de uma vez. Essas entradas ficam retidas na jornada de ação até que uma ação-gatilho ou evento seja registrado. Se o evento de gatilho não satisfizer os filtros de propriedade de uma entrada (por exemplo, uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) não corresponder aos filtros de propriedade do gatilho), a entrada permanece na jornada de ação. <br><br>Se o evento de gatilho satisfizer mais de uma entrada, a Braze faz a deduplicação apenas dessas entradas e avança imediatamente a entrada correspondente mais antiga pelo grupo de ação relevante. |
 | **Ativada** | Todas as entradas avançam ao final do período de avaliação correspondente. Nenhuma deduplicação ocorre. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas com reelegibilidade" }
 
 Observe que as classificações não são [editáveis após o lançamento]({{site.baseurl}}/post-launch_edits/).

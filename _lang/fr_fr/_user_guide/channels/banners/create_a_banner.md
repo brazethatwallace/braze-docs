@@ -75,7 +75,7 @@ Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure 
 
 #### Étape 3.2 : Définir le comportement au clic (facultatif) {#step-32-define-on-click-behavior-optional}
 
-Lorsqu'un utilisateur clique sur un lien dans la bannière, vous pouvez choisir de le diriger plus en profondeur dans votre application ou de le rediriger vers une autre page web. De plus, vous pouvez choisir de [journaliser un attribut personnalisé ou un événement]({{site.baseurl}}/developer_guide/analytics/), ce qui met à jour le profil de l'utilisateur avec des données personnalisées lorsqu'il clique sur la bannière.
+Lorsqu'un utilisateur clique sur un lien dans la bannière, vous pouvez choisir de le diriger plus en profondeur dans votre application ou de le rediriger vers une autre page web. De plus, vous pouvez choisir de [journaliser un attribut personnalisé ou un événement]({{site.baseurl}}/developer_guide/analytics/), ce qui met à jour le profil de l'utilisateur avec des données personnalisées lorsqu'il clique sur la bannière. Pour un suivi des clics plus granulaire, attribuez un identifiant personnalisé à chaque élément interactif à l'aide du champ **Identifier for Reporting** dans son panneau de propriétés.
 
 {% alert important %}
 {::nomarkdown}
@@ -94,7 +94,7 @@ Lorsque la fermeture est activée, vous pouvez personnaliser le bouton de fermet
 | **Button size** | La taille du bouton de fermeture affiché sur la bannière. |
 | **Button color** | La couleur du bouton de fermeture. |
 | **ARIA label** | Le libellé accessible du bouton de fermeture, utilisé par les lecteurs d'écran. La valeur par défaut est « Close » si le champ est laissé vide. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paramètres du bouton de fermeture" }
 
 Lorsqu'un utilisateur ferme une bannière, celle-ci ne s'affiche plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
 
@@ -117,7 +117,7 @@ Pour chaque propriété que vous souhaitez ajouter, remplissez les champs suivan
 | Type de propriété | Le type de données de la propriété. Les types pris en charge incluent chaîne de caractères, valeur booléenne, nombre, horodatage, URL d'image et objet JSON. | Chaîne de caractères |
 | Clé de propriété | L'identifiant unique de la propriété. Cette clé est utilisée dans le SDK pour accéder à la propriété. | `color` |
 | Valeur | La valeur attribuée à la propriété. Elle doit correspondre au type de propriété sélectionné. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ajouter des propriétés personnalisées" }
 
 Lorsque vous avez terminé, sélectionnez **Done**.
 
@@ -142,13 +142,13 @@ Si vous avez plusieurs campagnes de bannière utilisant le même ID d'emplacemen
 
 #### Configurer la rééligibilité (facultatif) {#re-eligibility}
 
-Par défaut, les utilisateurs qui ferment une bannière ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé la bannière de la revoir, accédez à l'étape **Delivery Controls** et sélectionnez **Allow users to become re-eligible to receive campaign**. Lorsque cette option est activée, définissez une période de temporisation en minutes, heures, jours ou semaines.
+Par défaut, les utilisateurs qui ferment une bannière ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé la bannière de la revoir, accédez à l'étape **Contrôles de l'envoi** et sélectionnez **Allow users to become re-eligible to receive campaign**. Lorsque cette option est activée, définissez une période de temporisation en minutes, heures, jours ou semaines.
 
 Le décompte commence à partir du moment où l'utilisateur ferme la bannière. Une fois la période écoulée, l'utilisateur redevient automatiquement éligible, sans qu'il soit nécessaire de relancer la campagne. La rééligibilité est suivie par utilisateur et par campagne.
 
 #### Choisir votre audience {#choose-your-audience}
 
-1. Dans **Target Audiences**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
+1. Dans **Audience cible**, choisissez des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
 
 {% multi_lang_include target_audiences.md %}
 

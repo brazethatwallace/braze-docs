@@ -71,4 +71,13 @@ For more information on the push protocol standards and browser support, you can
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
 
+## 410 (Gone) and invalid web push endpoints
+
+Browsers and push services can return **410 Gone** (or similar "endpoint not valid" errors) when a web push subscription is no longer accepted. Common causes include:
+
+- The user disabled notifications for your site in the browser or OS settings.
+- A different user profile subscribed on the same browser profile, so the endpoint was rotated to the new subscriber.
+- The subscription expired after a long period without engagement—after the user opts in again, a fresh subscription is created on the next session.
+
+After the user turns notifications back on, trigger your site's normal web push registration flow again so Braze stores the new subscription endpoint.
 

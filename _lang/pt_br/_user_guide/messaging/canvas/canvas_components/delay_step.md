@@ -139,7 +139,7 @@ Os componentes de postergação têm as seguintes métricas disponíveis na visu
 | _Avançaram para a próxima etapa_ | Reflete o número de entradas que avançaram para a próxima etapa no Canvas. |
 | _Saíram do Canvas_ | Reflete o número de entradas que saíram do Canvas e não avançaram para a próxima etapa. |
 | _Falha na personalização_ | Reflete o número de vezes que uma mensagem ou conteúdo personalizado destinado a um usuário não pôde ser entregue devido ao seguinte:<br> {::nomarkdown}<ul><li>O valor da postergação está no passado</li><li>O valor da postergação está mais de 2 anos no futuro</li><li>O valor de <b>Após uma duração</b> não é um número</li><li>O valor de <b>Até um dia específico</b> não é uma data ou string formatada como data</li></ul>{:/} <br>Consulte [Erros de falha na personalização](#personaliztion-failed-errors) para mais informações. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados de postergação" }
 
 As séries temporais dessas análises estão disponíveis na visualização expandida do componente.
 
@@ -148,3 +148,9 @@ As séries temporais dessas análises estão disponíveis na visualização expa
 ### Erros de falha na personalização {#personaliztion-failed-errors}
 
 Se os usuários não estiverem acionando uma postergação personalizada, pode ser porque a etapa de Context que você configurou para qualificá-los para a etapa de postergação não está funcionando como esperado. Quando uma [variável de contexto é inválida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting), o usuário continuará pelo Canvas sem ter seu contexto definido pela etapa de Context. Isso pode fazer com que eles não se qualifiquem para etapas posteriores no Canvas, como postergações personalizadas.
+
+### Usuários em uma etapa de postergação quando um Canvas é interrompido
+
+Quando você [interrompe um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases), os usuários que já estão aguardando em uma etapa de postergação não são removidos imediatamente. A Braze ainda agenda a conclusão da postergação, mas **nenhuma mensagem adicional é enviada** enquanto o Canvas estiver interrompido.
+
+Se você reativar o Canvas antes que a postergação de um usuário termine, ele poderá avançar para a próxima etapa conforme programado. Se o período de postergação já tiver passado enquanto o Canvas estava interrompido, esses usuários sairão do Canvas em vez de receber a próxima etapa. Para ver exemplos, consulte [O que acontece quando você interrompe um Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) e [Interrompendo Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases).

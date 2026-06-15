@@ -422,6 +422,10 @@ Select the following for the custom attribute:
 
 If your universal links aren't working as expected in your emails, such as navigating the recipient from their email app to the web browser before finally redirecting to the app, refer to these tips to troubleshoot your universal link setup.
 
+#### Outlook shows `[?it=` or raw URL text instead of a button
+
+Outlook may display call-to-action text like `[?it=` or print part of the `href` when a link does not use a valid **`http://` or `https://`** URL scheme. Custom schemes, missing schemes, or malformed URLs are not treated as hyperlinks, so the client shows the attribute text instead. Confirm every button, image link, and tracked URL uses a full `https://` (or `http://`) destination. This applies to both universal links and standard web links.
+
 #### Verify link file location
 
 Make sure the AASA file (iOS) or Digital Asset Links file (Android) is located in the correct place:
@@ -435,7 +439,7 @@ It's important to ensure that these files are always publicly accessible. If you
 
 Make sure you have the correct definitions for domains your app is allowed to open.
 
-- **iOS:** Review the Associated Domains set up in Xcode for your app ([step 1c]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
+- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
 
 #### Tracking domain can't serve .well-known files

@@ -24,7 +24,7 @@ Antes de empezar, necesitas lo siguiente:
 | Requisito previo | Descripción |
 | --- | --- |
 | Cuenta de Catapult | Se requiere una cuenta de Catapult para usar esta integración. |
-| Clave de API REST de Braze (opcional) | Si usas webhooks de Catapult, necesitas una clave de API REST de Braze con los permisos de datos de usuario que requiera tu caso de uso. Crea la clave en Braze en **Settings** > **APIs and Identifiers** > **API Keys**. |
+| Clave de API REST de Braze (opcional) | Si usas webhooks de Catapult, necesitas una clave de API REST de Braze con los permisos de datos de usuario que requiera tu caso de uso. Crea la clave en Braze en **Configuración** > **API e identificadores** > **Claves de API**. |
 | Punto de conexión REST de Braze (opcional) | Si usas webhooks de Catapult, usa la URL del punto de conexión REST que coincida con la URL de Braze para [tu instancia de Braze]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
