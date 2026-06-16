@@ -179,5 +179,12 @@ The MAU value is calculated nightly and won't update until the next day.
 
 ### Daily sessions per MAU
 
-*Daily Sessions per MAU* is the ratio of *Daily Sessions* to MAU on a given day. This statistic tells you how many sessions per day you can expect to have logged per MAU. When aggregated and averaged, this can give you an idea of the relative frequency of when your users use your app or site. That is, if your *Daily Sessions per MAU* were on average 0.5, then you could expect each MAU to record a session about every 2 days.  
+*Daily Sessions per MAU* is the ratio of *Daily Sessions* to MAU on a given day. This statistic tells you how many sessions per day you can expect to have logged per MAU. When aggregated and averaged, this can give you an idea of the relative frequency of when your users use your app or site. That is, if your *Daily Sessions per MAU* were on average 0.5, then you could expect each MAU to record a session about every 2 days.
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Onboarding Campaigns -  1st Session Based on "Session Start"
+
+avoid strict session count filters with Session Start trigger; use expanded criteria (e.g. session count up to 1) to reduce race conditions for new users.
