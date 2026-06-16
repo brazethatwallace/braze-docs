@@ -23,6 +23,12 @@ Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn
 
 Emails do not need to be sent in separate light and dark layouts because email clients and devices can apply their own dark theme. However, this may invert colors or hide backgrounds if explicit colors are not set on the outer container and major sections. To prevent this, we recommend setting solid background colors so your message reads clearly in both dark and light mode.
 
+Some email clients replace background images or invert low-contrast text in dark mode, so text can look missing or render differently between platforms (for example, Gmail on iOS versus Android). Use `background-color` on outer containers and major sections instead of relying on background images alone for light backgrounds.
+
+### Why doesn't my custom font appear in drag-and-drop email preview?
+
+Custom fonts load in preview when a **Text** block in the message references the font. If preview still shows a fallback font after you configure a custom font in **Drag-and-Drop Email Editor** settings, add a **Text** block that uses the font so the editor loads it for preview. Confirm CORS is enabled on your font file, then recheck **Preview and Test** and your target email clients before you send. For setup steps, see [Custom font]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/#custom-font).
+
 ### How can I change the email padding on mobile without updating the padding in the web view?
 
 You cannot edit the padding for mobile and web views exclusively, so any edits are reflected in both views. However, you can add CSS logic in the HTML editor that sets the padding based on different screen sizes. This isn't supported in the drag-and-drop editor, so you can export the HTML file and use the HTML editor instead.
@@ -82,6 +88,12 @@ Layout issues are often caused by **custom HTML or CSS** that conflicts with the
 ### Why doesn't my Content Block render in email preview?
 
 If a Content Block doesn't render in email preview, check for unclosed anchor tags. For Connected Content URLs, use the `replace` filter to convert double-encoded ampersands (`&amp;amp;`) to a single encoded ampersand (`&amp;`). Limit Content Block nesting to two levels.
+
+### Why does a drag-and-drop Content Block lose mobile styling inside a Custom Code block?
+
+If you insert a drag-and-drop **Content Block** inside a **Custom Code** (HTML) block, mobile-specific styling and alignment from the Content Block may not apply in the sent message. When the Content Block and template both use the drag-and-drop editor, add the Content Block as its own row instead of nesting it inside Custom Code.
+
+For alignment issues when stacking multiple Content Blocks, use separate row blocks rather than placing multiple Content Blocks in one row.
 
 ### Why is the drag-and-drop editor ignoring alignment settings?
 
