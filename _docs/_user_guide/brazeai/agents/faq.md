@@ -60,7 +60,7 @@ If you find that the agent is struggling with the tasks you're asking it to do, 
 
 A custom agent may time out if:
 
-- The agent instructions has incomplete or contradictory instructions
+- The agent instructions have incomplete or contradictory instructions
 - The agent instructions do not cover off on all scenarios or include a fallback condition (such as "If all inputs are blank, output 'Could not personalize'")
 - The agent instructions ask the agent to output a different output format than the one specified in the **Output** tab (for example, if the agent instructions ask for a string, but in **Output** tab the output is defined as a number)
 - The agent's task is too complex and would benefit from a [sub-agent approach](#subagent-approach) instead
