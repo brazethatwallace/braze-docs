@@ -1,11 +1,12 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-06-16 19:42 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-06-16 21:22 UTC**.
 
 These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue for Phase 2 — not CSV `actioned` status.
 
-**Totals:** **49** actionable rows (of 50).
-**Reference-repo verification:** **43** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
+**Totals:** **61** actionable rows (of 117).
+**Reference-repo verification:** **48** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
+**Epic BD-6308:** **54** additional rows would have appeared here but are listed in `_data/kb_epic_bd6308.txt` (Jira child issues under the epic); see `_data/kb_articles_skipped.md` for those rows.
 
 ## 1. Phase 2 PR batches (one primary `_docs` file per PR)
 
@@ -13,10 +14,11 @@ Open **one PR per row** in the table below. Each PR edits **only** that file; mu
 
 Do **not** batch PRs by product vertical — mixed verticals under one path are expected (for example, mis-routed paths). Use **Suggested reviewer vertical** and `.github/support_analyzer_doc_assignees.csv` from the file path for `--assignee` only.
 
-**Open PRs:** **25** (one per primary doc).
+**Open PRs:** **26** (one per primary doc).
 
 | Primary `_docs` target | Articles | Suggested reviewer vertical | Suggested branch slug | Product owner |
 | --- | ---: | --- | --- | --- |
+| `_docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md` | 12 | Messaging (Liquid personalization) | `sf-cursor-liquid-faq-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/canvas/faqs.md` | 11 | Canvas | `sf-cursor-canvas-faqs-<YYYYMMDD>` |  |
 | `_docs/_user_guide/data/distribution/braze_currents/faq.md` | 7 | Currents | `sf-cursor-braze-currents-faq-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/push/troubleshooting.md` | 4 | Push | `sf-cursor-push-troubleshooting-<YYYYMMDD>` |  |
@@ -42,6 +44,24 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 | `_docs/_user_guide/messaging/messaging_fundamentals/conversion_events.md` | 1 | Messaging & automation (Campaigns / Canvas-adjacent) | `sf-cursor-messaging-fundamentals-conversion-events-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/messaging_fundamentals/frequency_capping.md` | 1 | Messaging & automation (Campaigns / Canvas-adjacent) | `sf-cursor-messaging-fundamentals-frequency-capping-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/messaging_fundamentals/sending_test_messages.md` | 1 | Messaging & automation (Campaigns / Canvas-adjacent) | `sf-cursor-messaging-fundamentals-sending-test-messages-<YYYYMMDD>` |  |
+
+### PR batch: `_docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md` — **12** article(s)
+
+- **Branch example:** `sf-cursor-liquid-faq-<YYYYMMDD>`
+- **Reviewer hint:** Messaging (Liquid personalization)
+
+- **`ka0VP000000L5ntYAC`** — Aborted Message Error "Invalid from email address for recipient:" (tier , score ; team ``)
+- **`ka0VP000000Tt4LYAS`** — Are There Size Limits of Canvas Entry Properties Object? (tier , score ; team ``)
+- **`ka0VP000000FvpBYAS`** — Can I supply liquid inside the abort_message tag? (tier , score ; team ``)
+- **`ka0VP000000TfNxYAK`** — DnD content block preview different from compose view (tier , score ; team ``)
+- **`ka0VP000000Pal3YAC`** — Do we support an array of arrays in Liquid? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
+- **`ka0VP000000S3hJYAS`** — How Do I Create A Dynamic 'Reply-To' Email Address? (tier , score ; team ``)
+- **`ka0VP000000LhrZYAS`** — IAM Campaign Error: Warning: Use of the {% connected_content %} tag with retry is not available for this message type. (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
+- **`ka0VP000000JENRYA4`** — Liquid Error Occurs On The Dashboard When Previewing Some Data Types (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
+- **`ka0VP000000P5nhYAC`** — Liquid: Event Property Values in Message Composer Preview Mode (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
+- **`ka0VP000000HoEvYAK`** — Why am I facing an error Unexpected end token when working with Liquid? (tier , score ; team ``)
+- **`ka0VP000000Mh4jYAC`** — Why is my content block not appearing under 'Row' in the DnD search tool? (tier , score ; team ``)
+- **`ka0VP000000Eiu1YAC`** — Why is my Liquid snippet containing Catalog items returning an abort message? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
 
 ### PR batch: `_docs/_user_guide/messaging/canvas/faqs.md` — **11** article(s)
 
