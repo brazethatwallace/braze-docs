@@ -92,6 +92,7 @@ The available fallback fields adapt to your agent's output format:
 | String, number, or boolean | Enter a single fallback value (Liquid supported). |
 | Fields (advanced schema) | Enter a fallback value for each field defined in the agent's output. |
 | JSON schema (advanced schema) | Braze reads your JSON schema and generates an input field for each property so you can define a fallback value per key. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configure fallback values" }
 
 If you do not configure fallback values, failed invocations set the output variable to `null`. You can still use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps to handle null outputs.
 
@@ -138,16 +139,15 @@ To add an agent to your catalog field:
 
 Plan which columns the agent needs before you apply it to a catalog field. Select only the columns that contain the data your agent requires—the agent incorporates all selected fields as input but skips any row where one or more of those fields is blank.
 
-Common setup patterns:
+Do not select input columns you expect to stay empty for some rows unless you want the agent to skip those rows. Skipping incomplete rows avoids incorrect token use and keeps output quality high.
 
 | Scenario | What happens |
 | --- | --- |
-| Prepopulated rows with placeholders | Teams often add catalog rows with only an ID and a fund name, then fill in other columns later. The agent skips those rows until the required input columns have values. |
+| Prepopulated rows with placeholders | If you add catalog rows with only an ID and a fund name, then fill in other columns later, the agent skips those rows until the required input columns have values. |
 | Agent applied after rows exist | When you apply an agent to a field on a catalog that already has rows, the agent evaluates every row but runs only where required input columns are populated. |
 | Partially complete catalog | For example, a catalog with 100 rows where `leader` is filled for 2026 entries but other rows contain only an ID and fund name with blank fields elsewhere. The agent runs on rows with a `leader` value and skips rows without it. |
-| Dependent columns | If column D depends on columns B and C, the agent does not write to column D until B and C have values for that row. |
-
-Do not select input columns you expect to stay empty for some rows unless you want the agent to skip those rows. Skipping incomplete rows avoids incorrect token use and keeps output quality high.
+| Dependent columns | If column 3 depends on columns 1 and 2, the agent does not write to column 3 until columns 1 and 2 have values for that row. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog agent best practices" }
 
 ### Use cases
 
