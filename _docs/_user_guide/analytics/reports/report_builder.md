@@ -153,3 +153,10 @@ A campaign or Canvas appears in the report when its **Last sent** date falls in 
 
 For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a campaign is included, but **Show data for** is December 1, 2024–January 14, 2025. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### My Engagement Report/Report Builder Download link has expired.
+
+Engagement Report and Report Builder download links expire after 1 hour. Workaround: generate new report and access within the hour. S3 bucket may allow access to older data. No way to increase expiry time.
