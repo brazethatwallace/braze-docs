@@ -55,7 +55,7 @@ Content Cards can be removed when users complete a purchase or perform a custom 
 
 ## Reporting and analytics
 
-After launching a Content Cards step in Canvas you can begin to analyze several different metrics for this step. These metrics include the number of messages sent, unique recipients, conversion rates, total revenue, and more.
+After launching a Content Cards step in Canvas you can begin to analyze several different metrics for this step. These metrics include the number of messages sent, unique daily impressions, conversion rates, total revenue, and more.
 
 ![Analytics for a Message step with the Content Card message performance.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
@@ -63,18 +63,17 @@ For more information on the available metrics and their definitions, see our [Re
 
 ## Use cases
 
-#### Promotional offers
+### Promotional offers
 
 Add cards to a user's feed as they qualify for specific promotions and advertisements. For example, if a user becomes eligible for a new offer after performing an action or making a purchase, using Canvas you can send them a Content Card, in addition to other messaging channels, so that the next time they open the app the offer is available to them.
 
-#### Push notification inbox
+### Push notification inbox
 
 There are times when a user may dismiss a push notification or delete an email, but you want to remind them or promote the offer in case they change their mind.
 
 Using Canvas, you can add a component that sends both a Content Card and push notification to give users a persistent "inbox" of cards that align with promotional messages sent via push. 
 
-#### Multiple feeds based on categories
+### Multiple feeds based on categories
 
 You can separate your Content Cards into multiple feeds based on categories such as different topics users can browse, or transactional and marketing feeds. For more information on creating multiple feeds using key-value pairs, check out our guide for [Customizing Content Card feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
-
 
