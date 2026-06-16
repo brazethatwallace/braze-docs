@@ -66,7 +66,9 @@ If this is a single channel campaign or a Canvas with a control group, it's poss
   2. If so, create a segment filtering for [in campaign control group]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) then [export the segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) and check if your user ID is on this list.
 
 #### Valid push token
-A push token is an identifier that senders use to target specific devices with a push notification. So, if the device does not have a valid push token, then there is no way to send a push notification to it. 
+A push token is an identifier that senders use to target specific devices with a push notification. So, if the device does not have a valid push token, then there is no way to send a push notification to it.
+
+Braze stores up to 20 devices per user profile. When a 21st device registers, the oldest device is removed (first in, first out). Calling [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/) in the SDK re-registers the current device on the profile.
 
 #### Push notification type
 
@@ -278,8 +280,16 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 {% endtab %}
 {% endtabs %}
 
+## Push Open metrics
+
+A *Direct Open* is logged when a user taps the notification and your app starts a session. Expanding a rich push notification without opening the app does not log a *Direct Open*.
+
+If a user opens your app after receiving a push without tapping the notification, Braze may log an *Influenced Open* instead. For definitions and reporting, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
+
 ## Push error messages
 
-For detailed information about common push error messages (such as `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered`, and others), refer to [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+For detailed information about common push error messages (such as `DEVICE_UNREGISTERED`, `NotRegistered`, `Unregistered`, and others), refer to [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+
+When FCM returns errors such as `DEVICE_UNREGISTERED` or `NotRegistered`, Braze typically removes the affected push token from the user profile. That removal often indicates the app was uninstalled or the token is no longer valid. Uninstall tracking campaigns use the same token-removal logic at scale.
 
 Still need help? Open a [support ticket]({{site.baseurl}}/braze_support/).
