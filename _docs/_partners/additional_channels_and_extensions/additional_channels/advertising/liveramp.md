@@ -188,9 +188,8 @@ Create an ETL (Extract, Transform, Load) process to:
 
 Use LiveRamp's cloud-native identity resolution to resolve your Braze identifiers to RampIDs. The process:
 
-1. Remove PII from your data.
-2. Connect identifiers to LiveRamp's pseudonymous person-based identifier, RampID.
-3. Write the output tables with RampIDs back to your data warehouse.
+1. Resolve provided identifiers (PII or Device) to LiveRamp’s pseudonymous person-based identifier, RampID.
+2. Write the output tables with RampIDs back to your data warehouse, with PII data removed.
 
 ### Step 5: Activate your audiences
 
