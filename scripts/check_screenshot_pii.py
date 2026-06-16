@@ -43,6 +43,8 @@ import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from pii_name_lexicon import GIVEN_NAMES, SURNAMES
+
 IMAGE_SUFFIXES = {'.png', '.jpg', '.jpeg'}
 DISMISS_SUFFIX = '.pii-audit-dismiss.json'
 
@@ -77,29 +79,57 @@ PRODUCTION_CSV_FILENAME_RE = re.compile(
 # Capitalized single token that may be a first or last name in a table column.
 SINGLE_NAME_RE = re.compile(r'\b([A-Z][a-z]{2,20})\b')
 
+# Name_Last column header in CSV import previews.
+NAME_LAST_COLUMN_RE = re.compile(r'\bName_Last\b', re.IGNORECASE)
+
 # Name / Name_Last column headers in CSV import previews.
 NAME_COLUMN_CONTEXT_RE = re.compile(r'\bName(?:_Last)?\b', re.IGNORECASE)
 
 # UI, product, and docs vocabulary — not person names.
 NON_NAME_WORDS = frozenset({
-    'about', 'action', 'active', 'add', 'all', 'and', 'app', 'apply', 'are',
-    'attribute', 'attributes', 'audience', 'available', 'back', 'before', 'braze',
-    'browse', 'button', 'campaign', 'campaigns', 'cancel', 'canvas', 'card',
-    'cards', 'catalogue', 'catalogues', 'category', 'channel', 'channels',
-    'check', 'checkbox', 'click', 'column', 'columns', 'completed', 'content',
-    'correct', 'count', 'create', 'custom', 'dashboard', 'data', 'default', 'detected',
-    'details', 'do', 'download', 'edit', 'email', 'error', 'errors', 'event',
-    'events', 'external', 'field', 'fields', 'file', 'files', 'filter', 'first',
-    'flag', 'for', 'found', 'from', 'full', 'group', 'here', 'identifier',
-    'identifiers', 'import', 'importing', 'in', 'issues', 'looks', 'make',
-    'map', 'mapping', 'marketing', 'menu', 'message', 'messages', 'modal',
-    'name', 'new', 'not', 'opt', 'opted', 'overview', 'page', 'partial',
-    'preferences', 'preview', 'previewing', 'profile', 'profiles', 'push',
-    'report', 'results', 'row', 'rows', 'segment', 'segments',
-    'settings', 'sms', 'start', 'string', 'subscribe', 'subscribed', 'summary',
-    'targeting', 'that', 'the', 'this', 'total', 'transactor', 'unsubscribed',
-    'update', 'updates', 'upload', 'user', 'users', 'validate', 'validation',
-    'warning', 'warnings', 'when', 'with', 'workspace', 'your', 'you',
+    'about', 'access', 'account', 'action', 'actions', 'active', 'add', 'additional', 'adobe',
+    'alert', 'alias', 'all', 'analytics', 'and', 'any', 'app', 'apps', 'apply', 'are',
+    'assign', 'attribution', 'attribute', 'attributes', 'audience', 'audit', 'automatic',
+    'automate', 'available', 'awarded', 'azure', 'back', 'basic', 'before', 'blocks',
+    'body', 'brand', 'braze', 'browse', 'bucket', 'build', 'business', 'button',
+    'calculate', 'calculated', 'callback', 'campaign', 'campaigns', 'cancel', 'canvas',
+    'cap', 'capping', 'card', 'cards', 'catalogue', 'catalogues', 'category', 'center',
+    'change', 'changelog', 'changes', 'channel', 'channels', 'check', 'checkbox', 'choose',
+    'city', 'click', 'clone', 'cloud', 'column', 'columns', 'company', 'complete',
+    'completed', 'compose', 'configuration', 'connected', 'content', 'context', 'control',
+    'conversion', 'copy', 'correct', 'count', 'country', 'created', 'create', 'criterion',
+    'criteria', 'credits', 'customer', 'custom', 'dark', 'dashboard', 'data', 'date',
+    'decision', 'default', 'delivery', 'description', 'detected', 'developer', 'development',
+    'details', 'device', 'disable', 'do', 'download', 'drag', 'edit', 'edited', 'else',
+    'email', 'enable', 'enabled', 'end', 'enter', 'entry', 'error', 'errors', 'estimated',
+    'everyone', 'event', 'events', 'exact', 'experience', 'exit', 'experiment', 'export',
+    'extension', 'external', 'feature', 'features', 'field', 'fields', 'file', 'files',
+    'filter', 'filters', 'firebase', 'first', 'flag', 'flags', 'flow', 'folder', 'for',
+    'format', 'found', 'frequency', 'from', 'full', 'game', 'getting', 'global', 'google',
+    'group', 'groups', 'guide', 'help', 'here', 'history', 'hours', 'identity', 'identifier',
+    'identifiers', 'import', 'importing', 'in', 'info', 'input', 'insights', 'install',
+    'integrate', 'integration', 'integrations', 'issues', 'item', 'items', 'key', 'label',
+    'last', 'learn', 'limit', 'link', 'liquid', 'listener', 'list', 'log', 'looks', 'make',
+    'map', 'mapping', 'marketing', 'match', 'members', 'menu', 'message', 'messages',
+    'messaging', 'method', 'methods', 'microsoft', 'modal', 'mode', 'model', 'more', 'name',
+    'new', 'next', 'none', 'not', 'notification', 'number', 'object', 'open', 'opt',
+    'opted', 'optional', 'options', 'order', 'outbound', 'overview', 'page', 'pages',
+    'pairs', 'pacific', 'panel', 'partial', 'partners', 'paths', 'performance', 'phases',
+    'phone', 'policies', 'policy', 'preferences', 'predictive', 'preview', 'previewing',
+    'primary', 'prize', 'privacy', 'profile', 'profiles', 'public', 'publish', 'push',
+    'quiet', 'rate', 'raw', 'react', 'received', 'recipients', 'report', 'request',
+    'requests', 'resource', 'results', 'rich', 'role', 'row', 'rows', 'rules', 'saved',
+    'schedule', 'scheduled', 'search', 'secret', 'section', 'segment', 'segments', 'select',
+    'selected', 'send', 'session', 'set', 'settings', 'shopify', 'shortcuts', 'shortening',
+    'show', 'since', 'sms', 'snippet', 'split', 'start', 'started', 'state', 'states',
+    'statistics', 'status', 'step', 'steps', 'string', 'subscribe', 'subscribed',
+    'subscription', 'successfully', 'summary', 'switch', 'tag', 'targeting', 'technology',
+    'template', 'test', 'text', 'that', 'the', 'this', 'time', 'together', 'total',
+    'tracking', 'transactor', 'trigger', 'triggered', 'type', 'unity', 'unique', 'united',
+    'unsubscribed', 'update', 'updates', 'upload', 'upsert', 'usage', 'used', 'user',
+    'users', 'validate', 'validation', 'value', 'variable', 'variables', 'view', 'viewed',
+    'warning', 'warnings', 'web', 'webhook', 'when', 'with', 'work', 'workspace', 'zone',
+    'your', 'you',
     'fakebrandz', 'fake', 'brandz',
 })
 
@@ -125,16 +155,22 @@ EXAMPLE_NAME_PAIRS = frozenset({
 })
 
 # Braze dashboard placeholder domains / brands (style guide).
-ALLOWLIST_TERMS = frozenset({
-    'fakebrandz',
-    'dashboard-06',
-    'example.com',
-    'example.org',
-    'example.net',
+ALLOWLIST_EMAILS = frozenset({
     'test@example.com',
     'alex@example.com',
     'lee@example.com',
     'yuri@example.com',
+})
+
+ALLOWLIST_DOMAINS = frozenset({
+    'example.com',
+    'example.org',
+    'example.net',
+})
+
+ALLOWLIST_LITERAL_TERMS = frozenset({
+    'fakebrandz',
+    'dashboard-06',
 })
 
 @dataclass
@@ -217,8 +253,23 @@ def normalize_text(text: str) -> str:
 
 
 def is_allowlisted(match: str) -> bool:
-    lowered = match.lower()
-    return any(term in lowered for term in ALLOWLIST_TERMS)
+    lowered = match.lower().strip()
+    if lowered in ALLOWLIST_EMAILS or lowered in ALLOWLIST_LITERAL_TERMS:
+        return True
+    if '@' in lowered:
+        domain = lowered.rsplit('@', 1)[-1]
+        return domain in ALLOWLIST_DOMAINS
+    return 'fakebrandz' in lowered or 'dashboard-06' in lowered
+
+
+def words_from_documented_example_pairs(text: str) -> set[str]:
+    """Words from style-guide example full names present in OCR text."""
+    words: set[str] = set()
+    normalized_lower = normalize_text(text).lower()
+    for pair in EXAMPLE_NAME_PAIRS:
+        if pair in normalized_lower:
+            words.update(pair.split())
+    return words
 
 
 def is_likely_person_name_word(word: str) -> bool:
@@ -232,13 +283,49 @@ def is_likely_person_name_word(word: str) -> bool:
     return True
 
 
+def is_plausible_given_name(word: str) -> bool:
+    return word.lower() in GIVEN_NAMES
+
+
+def is_plausible_surname(word: str) -> bool:
+    return word.lower() in SURNAMES
+
+
+def is_plausible_person_name_pair(first: str, last: str) -> bool:
+    """True when OCR text looks like a real First Last person name."""
+    if not is_likely_person_name_word(first) or not is_likely_person_name_word(last):
+        return False
+    first_key = first.lower()
+    last_key = last.lower()
+    # English given-name + surname order (Jordan Miller, Casey Higgins).
+    if first_key in GIVEN_NAMES:
+        return True
+    # Surname-first order is rare in Braze UI tables but can appear in OCR.
+    if first_key in SURNAMES and last_key in GIVEN_NAMES:
+        return True
+    return False
+
+
+def is_plausible_person_name_single(word: str, text: str) -> bool:
+    """True when a lone capitalized token looks like a given or family name."""
+    key = word.lower()
+    if key in GIVEN_NAMES:
+        return True
+    if NAME_LAST_COLUMN_RE.search(text) and key in SURNAMES:
+        return True
+    return False
+
+
 def find_person_name_pairs(text: str) -> list[str]:
     """Return unique 'First Last' strings that may be person names."""
+    if not has_person_name_context(text):
+        return []
+
     seen: set[str] = set()
     matches: list[str] = []
 
     for first, last in PERSON_NAME_PAIR_RE.findall(text):
-        if not is_likely_person_name_word(first) or not is_likely_person_name_word(last):
+        if not is_plausible_person_name_pair(first, last):
             continue
         pair = f'{first} {last}'
         key = pair.lower()
@@ -264,6 +351,15 @@ def has_name_column_context(text: str) -> bool:
     return bool(NAME_COLUMN_CONTEXT_RE.search(text))
 
 
+def has_person_name_context(text: str) -> bool:
+    """OCR text suggests a user table or profile listing real names."""
+    if has_name_column_context(text):
+        return True
+    if EXTERNAL_ID_HEADER_RE.search(text):
+        return True
+    return False
+
+
 def find_single_names_in_columns(text: str, paired_words: set[str]) -> list[str]:
     """Flag lone first/last names when Name or Name_Last columns are present."""
     if not has_name_column_context(text):
@@ -277,6 +373,8 @@ def find_single_names_in_columns(text: str, paired_words: set[str]) -> list[str]
             continue
         key = word.lower()
         if key in EXAMPLE_SINGLE_NAMES:
+            continue
+        if not is_plausible_person_name_single(word, text):
             continue
         if key in paired_words:
             continue
@@ -377,7 +475,9 @@ def scan_text(image_path: Path, text: str) -> list[Violation]:
             )
 
     name_pairs = find_person_name_pairs(normalized)
-    paired_words = words_in_name_pairs(name_pairs)
+    paired_words = words_in_name_pairs(name_pairs) | words_from_documented_example_pairs(
+        normalized
+    )
     fix_hint = person_name_fix_hint()
 
     for match in name_pairs:

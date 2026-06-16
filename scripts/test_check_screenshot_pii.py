@@ -53,10 +53,78 @@ class ScanTextTests(unittest.TestCase):
         violations = scan_text('assets/img/example.png', text)
         self.assertFalse(any(v.violation_type == 'person_name' for v in violations))
 
+    def test_ignores_nav_labels_without_name_context(self) -> None:
+        text = 'Help Center Dark Mode Feature Requests Shortcuts Changelog Connected Apps'
+        violations = scan_text('assets/img/example.png', text)
+        self.assertFalse(any(v.violation_type == 'person_name' for v in violations))
+
+    def test_ignores_ui_labels_near_external_id_without_name_column(self) -> None:
+        text = 'Help Center Select Trigger Ext_Id Subscribe opted_in'
+        violations = scan_text('assets/img/example.png', text)
+        self.assertFalse(any(v.violation_type == 'person_name' for v in violations))
+
+    def test_still_flags_names_with_name_column_context(self) -> None:
+        text = 'Help Center Name Name_Last Jordan Miller Casey Higgins'
+        violations = scan_text('assets/img/csv_import/preview.png', text)
+        names = {v.match for v in violations if v.violation_type == 'person_name'}
+        self.assertIn('Jordan Miller', names)
+        self.assertNotIn('Help Center', names)
+
+    def test_ignores_komo_and_partner_ui_labels(self) -> None:
+        ui_labels = [
+            'Pages Publish',
+            'Help Center',
+            'Shortcuts Changelog',
+            'Feature Requests',
+            'Dark Mode',
+            'Connected Apps',
+            'Company Members',
+            'Audit Log',
+            'Vii Integrate',
+            'Prize Awarded',
+            'React Flow',
+            'Steps Variables',
+            'Saved Trigger',
+            'Unified Contacts',
+            'Pos Eshop',
+            'Datawarehouse Identity',
+            'Cleansing Computed',
+        ]
+        for label in ui_labels:
+            with self.subTest(label=label):
+                text = f'Name Name_Last Navigation {label} Settings'
+                violations = scan_text('assets/img/example.png', text)
+                flagged = {v.match for v in violations if v.violation_type == 'person_name'}
+                self.assertNotIn(label, flagged)
+
+    def test_ignores_ui_capitalized_words_in_name_columns(self) -> None:
+        text = 'Name Name_Last Subscribe Status Segment Canvas Trigger Filter'
+        violations = scan_text('assets/img/example.png', text)
+        self.assertFalse(any(v.violation_type == 'person_name_single' for v in violations))
+
     def test_allows_documented_example_name_pairs(self) -> None:
         text = 'Preview rows Alex Smith and Yuri Kim subscribed'
         violations = scan_text('assets/img/example.png', text)
         self.assertFalse(any(v.violation_type == 'person_name' for v in violations))
+
+    def test_ignores_example_pair_last_names_in_name_columns(self) -> None:
+        text = 'Name Name_Last Alex Smith Yuri Kim subscribed'
+        violations = scan_text('assets/img/example.png', text)
+        singles = {v.match for v in violations if v.violation_type == 'person_name_single'}
+        self.assertNotIn('Smith', singles)
+        self.assertNotIn('Kim', singles)
+
+    def test_flags_substring_example_domain_emails(self) -> None:
+        text = 'Contact user@badexample.com or user@myexample.community for help'
+        violations = scan_text('assets/img/example.png', text)
+        flagged = {v.match for v in violations if v.violation_type == 'email_address'}
+        self.assertIn('user@badexample.com', flagged)
+        self.assertIn('user@myexample.community', flagged)
+
+    def test_allows_exact_example_domain_emails(self) -> None:
+        text = 'Contact alex@example.com and lee@example.org for help'
+        violations = scan_text('assets/img/example.png', text)
+        self.assertFalse(any(v.violation_type == 'email_address' for v in violations))
 
     def test_flags_external_id_header_and_numeric_ids(self) -> None:
         text = (

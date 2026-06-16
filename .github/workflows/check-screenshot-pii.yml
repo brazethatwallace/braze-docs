@@ -29,6 +29,7 @@ on:
       - 'assets/img/**/*.jpeg'
       - 'assets/img/**/*.pii-audit-dismiss.json'
       - 'scripts/check_screenshot_pii.py'
+      - 'scripts/pii_name_lexicon.py'
       - '.github/workflows/check-screenshot-pii.yml'
 
 permissions:
