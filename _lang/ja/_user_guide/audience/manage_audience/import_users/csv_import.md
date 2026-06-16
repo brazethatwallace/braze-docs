@@ -289,11 +289,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 
 ファイルをアップロードするには、**Attributes**または**Events**を選択し、**Browse Files**をクリックしてCSVをアップロードします。Brazeは最初の数行のプレビューと検出されたフィールドの概要を表示します。
 
-![アップロード後のファイルプレビューを表示するファイルプレビューページ。]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 大きなファイル（デフォルト属性とカスタム属性は最大500 MB、カスタムイベントは最大50 MB）の場合、ファイルのアップロードとBrazeによるインポートの計算中にダッシュボードが一時的に応答しなくなることがあります。これらのアップロードと計算は、小さなファイルよりも完了に時間がかかる場合があります。このステップが完了するまでお待ちください。ファイルの制限とタイミングの詳細については、[CSVの構築]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv)を参照してください。
-
-![ファイルプレビュー、インポート名フィールド、ターゲティング設定、ファイル検証チェックボックスを表示するアップロード完了モーダル。]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 **Import name**フィールドで、インポートの名前を変更できます。デフォルトではファイル名が使用されます。
 

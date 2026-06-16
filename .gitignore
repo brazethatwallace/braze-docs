@@ -25,6 +25,11 @@ __pycache__/
 *.py[cod]
 node_modules
 
+# TAM solutions Drive export (sensitive; local triage only)
+_data/tam_solutions/*.json
+scripts/tam-solutions/.oauth_token.json
+scripts/tam-solutions/oauth_client_secret.json
+
 # Generated translation/audit artifacts
 translation_results.json
 translation_pr_body.md

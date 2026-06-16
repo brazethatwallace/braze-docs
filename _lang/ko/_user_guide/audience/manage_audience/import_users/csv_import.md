@@ -289,11 +289,7 @@ CSV의 각 행은 단일 사용자에 대한 단일 커스텀 이벤트를 나�
 
 파일을 업로드하려면 **속성** 또는 **이벤트**를 선택하고 **파일 찾기**를 클릭한 다음 CSV를 업로드합니다. Braze는 처음 몇 행의 미리보기와 감지된 필드의 요약을 표시합니다.
 
-![업로드 후 파일 미리보기를 보여주는 파일 미리보기 페이지.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 대용량 파일(기본 속성 및 커스텀 속성의 경우 최대 500 MB, 커스텀 이벤트의 경우 최대 50 MB)의 경우 파일이 업로드되고 Braze가 가져오기를 계산하는 동안 대시보드가 일시적으로 응답하지 않는 것처럼 보일 수 있습니다. 이러한 업로드 및 계산은 작은 파일보다 완료하는 데 더 오래 걸릴 수 있습니다. 이 단계가 완료될 때까지 기다립니다. 파일 제한 및 타이밍에 대한 자세한 내용은 [CSV 구성하기]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv)를 참조합니다.
-
-![파일 미리보기, 가져오기 이름 필드, 타겟팅 기본 설정 및 파일 유효성 검사 체크박스가 표시된 업로드 완료 모달.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 **가져오기 이름** 필드에서 가져오기 이름을 변경할 수 있습니다. 기본적으로 파일 이름이 사용됩니다.
 

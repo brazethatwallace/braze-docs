@@ -289,11 +289,7 @@ In diesem Beispiel:
 
 Um Ihre Datei hochzuladen, wählen Sie **Attributes** oder **Events**, klicken Sie auf **Browse Files** und laden Sie Ihre CSV-Datei hoch. Braze zeigt eine Vorschau der ersten Zeilen und eine Zusammenfassung der erkannten Felder an.
 
-![Die Dateivorschau-Seite mit einer Vorschau der Datei nach dem Upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Bei großen Dateien (bis zu 500 MB für Standardattribute und angepasste Attribute oder 50 MB für angepasste Events) kann das Dashboard vorübergehend nicht reagieren, während die Datei hochgeladen wird und Braze den Import berechnet. Diese Uploads und Berechnungen können länger dauern als bei kleineren Dateien. Lassen Sie diesen Schritt abschließen. Weitere Informationen zu Dateigrößenlimits und Zeitangaben finden Sie unter [CSV-Datei erstellen]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![Das Modal „Upload abgeschlossen“ mit einer Dateivorschau, einem Feld für den Importnamen, Targeting-Einstellungen und einem Kontrollkästchen für die Dateivalidierung.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 Im Feld **Import name** können Sie Ihren Import umbenennen. Standardmäßig wird der Dateiname verwendet.
 
