@@ -363,3 +363,10 @@ If messages are temporarily deferred, sending less may help in the short term. U
 
 For a long-term solution, work with a deliverability expert to review your bounce and deferral data.
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Would User Exit Canvas If Message is Aborted?
+
+when a Canvas message is aborted, the user continues through the Canvas flow as if the message had been sent.
