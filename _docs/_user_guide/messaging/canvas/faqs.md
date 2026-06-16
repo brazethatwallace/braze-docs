@@ -325,3 +325,51 @@ Start with [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_pus
 ### Who receives the "Canvas Messages Delayed 24+ Hours" email?
 
 Braze sends this notification when Canvas messages are delayed by rate limiting for 24 hours or more. The email goes to dashboard users who previously made changes to the affected Canvas (based on Canvas change logs). If Braze cannot determine those recipients, the email goes to **company admins** for the workspace.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Delayed Delivery Behavior in Branching IAM Canvas Step's
+
+Consider adding Canvas branching + IAM delayed delivery behavior to Canvas docs. Valuable for understanding path eligibility.
+
+### I received the error: "Canvas Entry Properties may not be used in In-App Messages."
+
+Add IAM limitation and enable_persistent_event_entry_properties request process to Canvas entry properties docs. Note: values deleted when user exits Canvas before IAM payload download.
+
+### When are Users "Kicked" Out of a Canvas via Exception Event?
+
+Consider adding scheduled vs triggered distinction for exception event behavior to Canvas exit criteria docs.
+
+### When is a Canvas Step Logged to a User's Profile?
+
+Consider adding Canvas step logging behavior to docs; or keep KA as FAQ with cross-link.
+
+### Re-Launching an Archived Campaign or Canvas
+
+to re-launch an archived campaign or Canvas, update the scheduled start date to a time in the near future, or duplicate it and set a new start date.
+
+### Canvas won't save after making changes (No error message displayed)
+
+if Canvas won't save with no error, check for empty custom attribute filters in audience or step filters; remove or populate them.
+
+### Users in the Canvas are bigger than the Estimated Audience
+
+Estimated Audience reflects current segment membership; Canvas Entries may be lower if users no longer match filters after receiving Canvas.
+
+### Why is a Tag No Longer Appended to a Campaign or Canvas?
+
+when a tag is deleted, it is removed from campaigns/Canvases but deletion is not logged in changelogs.
+
+### Button Click Analytics Not Showing For Drag-and-Drop IAMs
+
+Button click analytics for DnD IAMs viewable via canvas step analytics, not campaign-level. Flag as known limitation.
+
+### Action Path error when selecting link alias.
+
+Interact with Step' requires a message step; workaround for targeting steps from other canvases before sending.
+
+### Triggering Action-Based Campaign/Canvas Custom Event Dated in the Past
+
+Consider adding documentation for backdated custom event behavior and abort_delayed_delivery_time (4-hour threshold) if not in docs. Remove Jira/Kibana references from internal_notes before externalization.
