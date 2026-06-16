@@ -78,3 +78,11 @@ If you choose to use Font Awesome, the following CSP directives are required:
 - `font-src https://use.fontawesome.com`
 - `style-src https://use.fontawesome.com`
 - `style-src 'nonce-...'` or `style-src 'unsafe-inline'`
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### 3rd Party Web cookie tracking
+
+Consider adding a braze-docs user guide page on dashboard 2FA setup and troubleshooting (e.g., under administrative/access_braze/). Include user-facing steps (turn off adblockers, enable cookies, restart) and when to contact support. Keep internal escalation details (product-clip-team, TOOLS Authy 2FA Reset) in internal support docs only.
