@@ -37,7 +37,9 @@ Drag and drop the **Agent** component from the sidebar, or select the <i class="
 
 ### Step 2: Choose your agent  
 
-Select the agent that will process data in this step. Choose an existing agent. For setup guidance, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+Select the agent that will process data in this step. For setup guidance, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+
+In the agent list, each agent is labeled with its [daily invocation limit]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details). Hover over the limit to see today's progress toward that limit, including the percentage used and the number of invocations used today compared to the limit.
 
 ### Step 3: Set your agent's output {#define-the-output-variable}
 

@@ -82,7 +82,7 @@ When many users enter an Agent step at once, Braze queues invocations according 
 
 ### Rate limit errors
 
-If the LLM provider returns a rate limit error, Braze retries the request up to 10 times using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents reschedule rate-limited invocations up to 10 times before the run fails.
+If the LLM provider returns a rate limit error, Braze retries the request using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents reschedule rate-limited invocations up to 10 times before the run fails.
 
 If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Every retry is visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
 
