@@ -222,3 +222,14 @@ Use this to target users who have neither opted in nor out and encourage an expl
 
 ![Email Subscription Status used as a segment filter.]({% image_buster /assets/img_archive/not_optin.png %})
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### What are the possible sources for subscription state updates?
+
+Add subscription state update source values to docs (e.g. managing_user_subscriptions or a new reference). Source: User::Updater::Sources in platform. Update article: remove GitHub link or use correct Braze/platform path; add Confluence as alternative for non-engineers.
+
+### Timestamp of Email Subscription
+
+Consider adding timestamp of email subscription change to _docs/_user_guide/message_building_by_channel/email/managing_user_subscriptions.md or user data export docs. Clarify Currents Unsubscribe event scope (link clicks only).
