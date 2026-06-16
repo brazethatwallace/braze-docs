@@ -37,7 +37,7 @@ Agent steps use [Canvas context variables]({{site.baseurl}}/user_guide/messaging
 To add an agent to your Canvas:
 
 1. Drag and drop the **Agent** component from the sidebar, or select the <i class="fas fa-plus-circle"></i> plus button at the bottom of a step and select **Agent**.
-2. Select the agent that will process data in this step.
+2. Select the agent that processes data in this step.
 3. Define the output variable name. The output data type is set in the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/).
 4. (Optional) Add additional context values for the agent to reference when it runs.
 5. Test and preview the agent output in the step preview.
