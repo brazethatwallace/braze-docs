@@ -108,3 +108,11 @@ If you don't select any conversion events during campaign creation, the time def
 Additionally, for multivariate messages, you can see the number of conversions and conversion percentages for your control group and each variant.
 
 ![Four conversion events that track conversions based on when a purchase was made within three hours, made a purchase within two hours, started a session within 30 minutes, and started a session within 25 minutes.]({% image_buster /assets/img_archive/conversion_event_details.png %})
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Why the Canvas Steps Conversion Rate does not equal the Canvas Variant Total Conversion Rate?
+
+Add FAQ or troubleshooting section to conversion_events.md or Canvas docs explaining: (1) users can convert before receiving any step (count at variant, not step); (2) users in delay step who convert before message step; (3) users sent message but not delivered (e.g. no push) who convert. Consider cross-linking from Canvas analytics docs.
