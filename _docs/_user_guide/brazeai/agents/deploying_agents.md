@@ -85,7 +85,7 @@ On an Agent step, you can define fallback values so users still receive output w
 
 Fallback values support [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) templating, so you can reference user attributes or context variables in the fallback text.
 
-The fallback UI adapts to your agent's output format:
+The available fallback fields adapt to your agent's output format:
 
 | Output format | Fallback configuration |
 | --- | --- |
