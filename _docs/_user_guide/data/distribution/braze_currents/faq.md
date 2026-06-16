@@ -124,3 +124,35 @@ The `version=<currents_version>` segment in the storage path advances with each 
 ### Why are `campaign_id` or `canvas_id` missing from a message engagement event?
 
 Depending on the event type and context, a message engagement event may not be tied to a specific campaign or Canvas step. In those cases, `campaign_id`, `canvas_id`, and related name fields can be omitted from the event payload. If you don’t see those fields on a given event, check whether that event type and context normally include campaign or Canvas identifiers.
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Currents Timestamps / Epoch Time
+
+Braze uses 10-digit Unix timestamps (seconds); millisecond timestamps may be truncated and cause incorrect times.
+
+### Why Conversionbehaviours event from Currents has a different time than the canvas?
+
+Conversionbehaviours event time in Currents reflects the total conversion window (canvas duration + conversion deadline) measured from canvas entry. Consider adding to braze_currents.md or conversion_events.md.
+
+### What to expect when using Engagement Reports in S3
+
+Add a note to Data Export / Engagement Reports docs: 'If S3 credentials are configured for Data Export but not for Currents, Braze uploads Engagement Reports to the specified S3 bucket. The user in the Send Report To field receives an email with a link to the report in S3.
+
+### Does the Amplitude Destination Support the Send of Anonymous User Data via Braze Currents?
+
+anonymous user data (device_id) can be sent to Amplitude via Currents; requires feature enablement by Braze account team. Do not document internal FF name.
+
+### Can I pull tag information of campaigns and canvases from Currents?
+
+Currents does not include campaign/Canvas tags; use Export REST API for tag data.
+
+### How Are Content Card/In-App message Control Group Impressions Being Logged in Currents?
+
+control group content card and IAM impressions emit EnrollInControl event rather than Impression events. Verify in platform event schema.
+
+### Targeting a Non-Existent User via API
+
+when targeting non-existent user, API returns 200; send is cancelled with outcome 'Unknown external Id'; no Currents events. send_to_existing_only defaults TRUE.
