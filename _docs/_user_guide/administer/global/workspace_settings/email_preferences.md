@@ -371,3 +371,11 @@ No, we currently do not have plans to add this for email templates, as these tem
 {% details Does this feature check that the one-click unsubscribe URL added to the custom option is valid? %}
 No, we don't check or validate any links in the Braze dashboard. Be sure to properly test your URL before launch.
 {% enddetails %}
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### 550 5.7.1 relaying denied email Error
+
+Consider adding a troubleshooting section to email docs covering 550 5.7.1 relaying denied and the recommendation to use a separate subdomain for reply-to when receiving event confirmations (e.g., calendar invites).
