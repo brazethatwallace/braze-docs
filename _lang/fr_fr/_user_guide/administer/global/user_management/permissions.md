@@ -224,10 +224,11 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Données utilisateur | Import Users | Importer des utilisateurs dans le tableau de bord |
 | Données utilisateur | Edit User Data | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Export User Data | Télécharger des utilisateurs depuis le tableau de bord |
-| Enregistrements de fusion d'utilisateurs | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
+| Utilisateurs en double | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
 | Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles |
 | Utilisateurs en double | Merge Duplicate Users | Combiner des utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion |
-| Utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |
+| Suppression d'utilisateurs | View User Deletion Records | Consulter une liste des enregistrements de suppression d'utilisateurs |
+| Suppression d'utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autorisations d'audience" }
 
 ### Modèle {#template}
@@ -379,6 +380,5 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Groupes d'abonnement | Edit Subscriptions | Créer et mettre à jour des groupes d'abonnement |
 | Transformations | Edit Data Transformation | Créer et mettre à jour des transformations de données |
 | Transformations | View Data Transformation | Consulter les transformations de données |
-| Enregistrements de suppression d'utilisateurs | View User Deletion Records | Consulter les enregistrements de suppression d'utilisateurs |
 | Tickets d'assistance | Create Support Ticket | Créer et mettre à jour des tickets d'assistance |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autres autorisations" }

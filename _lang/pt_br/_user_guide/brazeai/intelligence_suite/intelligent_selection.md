@@ -65,7 +65,11 @@ Isso permite que você edite a distribuição de variantes e ative a Seleção i
 
 ![Opção de Seleção inteligente ativada para um Canvas]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-A Seleção inteligente não estará disponível se você ainda não tiver adicionado eventos de conversão ao seu Canvas ou se sua Campaign for composta de uma única variante.
+A Seleção inteligente não estará disponível se você ainda não tiver adicionado eventos de conversão ao seu Canvas ou se seu Canvas for composto de uma única variante.
+
+{% alert note %}
+Canvas pode usar a Seleção inteligente com reelegibilidade ativada, mas a Braze não pode garantir que um usuário receba a mesma variante ao reentrar, pois a alocação ideal muda ao longo do tempo. Campaigns exigem uma janela de reelegibilidade de 24 horas ou mais quando a Seleção inteligente está ativada. Para saber mais, consulte [Por que a reelegibilidade em menos de 24 horas não está disponível quando combinada com a Seleção inteligente?](#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+{% endalert %}
 {% endtab %}
 {% endtabs %}
 
@@ -115,12 +119,12 @@ A Seleção inteligente aloca variantes para envio com base no status atual da c
 
 A Seleção inteligente interromperá a otimização quando tiver 95% de confiança de que a continuação do experimento não melhorará a taxa de conversão em mais de 1% da taxa atual.
 
-### Por que não consigo ativar a Seleção inteligente na minha Campaign ou no meu Canvas (opção acinzentada)? {#why-cant-i-enable-intelligent-selection-in-my-canvas-or-campaign-grayed-out}
+### Por que não consigo ativar a Seleção inteligente no meu Canvas ou na minha Campaign (opção acinzentada)? {#why-cant-i-enable-intelligent-selection-in-my-canvas-or-campaign-grayed-out}
 
 A Seleção inteligente não estará disponível se:
 
 - Você não adicionou eventos de conversão à sua Campaign ou ao Canvas
 - Você está criando uma Campaign de envio único
-- A reelegibilidade está ativada com uma janela de menos de 24 horas
+- Sua Campaign tem reelegibilidade ativada com uma janela de menos de 24 horas
 - Seu Canvas é composto por uma única variante, sem variantes adicionais ou grupos de controle adicionados
 - Seu Canvas é composto por um único grupo de controle, sem variantes adicionadas

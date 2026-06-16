@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Braze 대시보드를 통해 개별 사용자 또는 Segment의 사용자를 직접 삭제하는 방법을 알아보세요.
 
-{% alert important %}
-사용자 삭제는 현재 얼리 액세스 중입니다. 참여에 관심이 있으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
-
 ## 필수 조건 {#prerequisites}
 
 사용자를 삭제하려면 관리자이거나 **Delete Users** 권한이 있어야 합니다. 사용자 삭제 기록을 보려면 관리자이거나 **View User Deletion Records** 권한이 있어야 합니다. 다음 권한이 사용자 삭제 및 삭제 기록을 제어합니다:
@@ -31,7 +27,7 @@ alias: /delete_users/
 
 | 고려 사항 | 세부 정보 |
 |---------------|---------|
-| 최대 크기 | Segment 삭제 시 최대 1억 개의 사용자 프로필을 삭제할 수 있습니다. |
+| 최대 크기 | Segment 삭제 시 최대 1,000만 개의 사용자 프로필을 삭제할 수 있습니다. |
 | 대기 기간 | 모든 Segment 삭제에는 7일의 대기 기간과 삭제 처리에 소요되는 시간이 필요합니다. |
 | 작업 제한 | 한 번에 하나의 Segment만 삭제할 수 있으며, 여기에는 7일의 대기 기간이 포함됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 삭제에 대해" }
@@ -144,17 +140,13 @@ Braze는 삭제 대기 중인 프로필 수가 포함된 확인 이메일을 발
 
 ## 자주 묻는 질문 {#faq}
 
-### 1억 명 이상의 사용자가 포함된 Segment를 삭제할 수 있나요? {#can-i-delete-segments-with-more-than-100-million-users}
+### 1,000만 명 이상의 사용자가 포함된 Segment를 삭제할 수 있나요? {#can-i-delete-segments-with-more-than-10-million-users}
 
-아니요. 1억 명 이상의 사용자가 포함된 Segment는 삭제할 수 없습니다. 이 규모의 Segment를 삭제하는 데 도움이 필요하면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+아니요. 1,000만 명 이상의 사용자가 포함된 Segment는 삭제할 수 없습니다. 이 규모의 Segment를 삭제하는 데 도움이 필요하면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
 
-### 1억 명의 사용자를 삭제할 수 없고 1천만 명으로 제한되는 것 같습니다. 이것은 버그인가요? {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### 한 번에 최대 1,000만 명의 사용자만 삭제할 수 있습니다. 이것은 버그인가요? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-아니요, 이것은 버그가 아닙니다. 얼리 액세스(EA) 프로그램 기간 동안 특정 고객은 삭제할 수 있는 사용자 수가 제한됩니다.
-
-EA 프로그램이 진행됨에 따라 모든 고객이 최대 1억 명의 사용자를 삭제할 수 있도록 이 용량이 증가할 예정입니다.
-
-이 용량을 늘리고 싶으시면 Braze 계정 매니저에게 문의하세요. 요청은 제품 팀의 재량에 따라 승인됩니다.
+아니요, 이것은 버그가 아닙니다. 한 번의 Segment 삭제 실행에서 삭제할 수 있는 최대 사용자 프로필 수는 1,000만 개입니다.
 
 ### 자동 사용자 병합이 사용자 삭제에 영향을 미치나요? {#does-automated-user-merging-affect-user-deletion}
 

@@ -196,6 +196,10 @@ Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-pl
 
 Mit Heatmaps können Sie sehen, wie erfolgreich verschiedene Links in einer einzelnen E-Mail-Kampagne sind. Gehen Sie im Abschnitt **Message Analytics** zum Panel **Email Performance**. Wählen Sie **Preview & Heatmap**, um eine Vorschau Ihrer E-Mail-Kampagne und der Heatmap anzuzeigen. Alternativ können Sie den Hyperlink im Variantennamen auswählen, um die Heatmap aufzurufen.
 
+{% alert note %}
+Kampagnen-Analytics zeigen Klickdaten für bis zu 100 eindeutige URLs pro Variante an, sortiert nach Gesamtklicks. URLs werden nach ihrer normalisierten Form gruppiert, die keine Abfrageparameter enthält. Wenn eine Variante mehr als 100 eindeutige normalisierte URLs hat, werden nur die Top 100 nach Klickanzahl angezeigt. Klickdaten für URLs jenseits dieses Limits existieren weiterhin, werden aber nicht im Dashboard oder in der Heatmap angezeigt. Wenn Link Aliasing aktiviert ist, werden Klicks anhand der Link-ID statt der Roh-URL getrackt, was in der Regel zu weniger eindeutigen Einträgen führt und dieses Limit seltener erreicht wird.
+{% endalert %}
+
 In dieser Ansicht können Sie mit dem Schalter **Show Heatmap** eine visuelle Darstellung Ihrer E-Mail aufrufen, die die Gesamthäufigkeit und den Ort der Klicks innerhalb der Laufzeit der Kampagne anzeigt. Im Panel **Link Table by Total Clicks** können Sie alle Links in Ihrer E-Mail-Kampagne anzeigen und nach Gesamtklicks sortieren. Dies kann zusätzliche Insights darüber liefern, wohin Ihre Nutzer:innen navigieren. Um eine Kopie der Heatmap als Referenz zu speichern, klicken Sie auf den Download-Button.
 
 {% alert note %}

@@ -7,14 +7,14 @@ page_order: 3
 
 # Referência para agentes {#reference-for-agents}
 
-> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para a configuração passo a passo, veja [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Modelos {#models}
 
 Quando você configura um agente, pode escolher o modelo que ele usa para gerar respostas. Você tem duas opções: usar um modelo fornecido pela Braze ou trazer sua própria chave de API.
 
 {% alert important %}
-O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a segmentos. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
+O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a Segments. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
 {% endalert %}
 
 ### Opção 1: Use um modelo fornecido pela Braze {#option-1-use-a-braze-powered-model}
@@ -82,7 +82,7 @@ Quando muitos usuários entram em uma etapa de agente ao mesmo tempo, a Braze en
 
 ### Erros de limite de taxa {#rate-limit-errors}
 
-Se o provedor de LLM retornar um erro de limite de taxa, a Braze tenta novamente a solicitação até cinco vezes usando backoff exponencial. Esse comportamento de nova tentativa se aplica a etapas de agente em Canvas. Agentes de catálogo não tentam novamente invocações que falharam, incluindo erros de limite de taxa do provedor de LLM.
+Se o provedor de LLM retornar um erro de limite de taxa, a Braze tenta novamente a solicitação usando backoff exponencial. Esse comportamento de nova tentativa se aplica a etapas de agente em Canvas. Agentes de catálogo não tentam novamente invocações que falharam, incluindo erros de limite de taxa do provedor de LLM.
 
 Se todas as tentativas falharem, o painel de detalhes de **Logs** mostra **Error** e a mensagem do provedor (como `Rate limit exceeded`) em **Output**. Cada nova tentativa é visível nos logs, incluindo a primeira invocação, independentemente do seu eventual sucesso ou falha. Para um determinado usuário, se forem necessárias quatro novas tentativas para finalmente obter sucesso, você pode pesquisar o ID do usuário e ver todas as cinco (original mais quatro novas tentativas) nos **Logs**, e a original mais as três primeiras novas tentativas mostrarão **Error** com `Rate limit exceeded`.
 
@@ -91,6 +91,8 @@ Se todas as tentativas falharem, o painel de detalhes de **Logs** mostra **Error
 ## Escrevendo instruções {#writing-instructions}
 
 Instruções são as regras ou diretrizes que você dá ao agente (prompt do sistema). Elas definem como o agente deve se comportar cada vez que é executado. As instruções do sistema podem ter até 25 KB.
+
+Se você criou seu agente com o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando um [modelo inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revise as instruções pré-preenchidas e edite conforme necessário.
 
 Aqui estão algumas melhores práticas gerais para você começar a criar prompts:
 
@@ -105,7 +107,9 @@ Aqui estão algumas melhores práticas gerais para você começar a criar prompt
 9. Lide com os casos extremos, adicione barreiras de proteção e instruções de recusa.
 10. Meça e documente o que funciona internamente para reutilização e escalabilidade.
 
-Para se inspirar em como escrever instruções de agentes, veja nossa [biblioteca de casos de uso dedicada para Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+### Exemplos {#examples}
+
+Para configurações iniciais no Console do agente, veja [Modelos de agentes criados com o Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Para exemplos completos de instruções que você pode copiar ou adaptar, veja a [biblioteca de casos de uso para Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
 ### Usando Liquid {#using-liquid}
 
@@ -130,6 +134,8 @@ Para saber mais sobre as melhores práticas de prompting, consulte os guias dos 
 - [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
 ## Saídas {#outputs}
+
+Se você criou seu agente com o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando um [modelo inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revise o esquema de saída pré-preenchido e edite conforme necessário.
 
 ### Esquemas básicos {#basic-schemas}
 
@@ -200,11 +206,11 @@ Escolha catálogos específicos para um agente referenciar e forneça ao seu age
 
 ![O catálogo "restaurants" e a coluna "Loyalty_Program" selecionados para o agente pesquisar.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-## Contexto de associação a segmentos {#segment-membership-context}
+## Contexto de associação a Segments {#segment-membership-context}
 
-Você pode selecionar até cinco segmentos para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Digamos que seu agente tenha a associação a segmentos selecionada para um segmento "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa de agente, o agente pode verificar se cada usuário é membro de cada segmento que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+Você pode selecionar até cinco Segments para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Digamos que seu agente tenha a associação a Segments selecionada para um Segment "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa de agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
 
-![O segmento "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+![O Segment "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## Diretrizes da marca {#brand-guidelines}
 

@@ -36,6 +36,10 @@ As a convenience, a summary of supported personalization tags are provided. For 
 
 {% endraw %}
 
+{% alert note %}
+API trigger properties must use two curly braces per tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`){% endraw %} are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
+
 ### Supported attributes
 
 Campaign, Card, and Canvas attributes are only supported in their corresponding messaging templates (for example, `dispatch_id` isn't available in in-app message campaigns).
@@ -50,8 +54,7 @@ The behavior for the following tags differs between Canvas and campaigns:
 - Using the `{{campaign.${name}}}` tag with Canvas displays the Canvas component name. When using this tag with campaigns, it displays the campaign name.
 {% endraw %}
 
-#### Campaign names in URLs
-{: #campaign-names-in-urls}
+#### Campaign names in URLs {#campaign-names-in-urls}
 
 {% raw %}
 Campaign and message variant names can include characters that are not URL-safe, such as `%`, spaces, or `&`. When you insert `{{campaign.${name}}}` or `{{campaign.${message_name}}}` in a link or query string, such as a `utm_campaign` parameter, apply the [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) filter so the URL parses correctly. For example:
