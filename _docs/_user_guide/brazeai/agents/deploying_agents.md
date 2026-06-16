@@ -101,7 +101,7 @@ To add an agent to your catalog field:
 2. Select **Apply AI agent**.
 3. Assign an agent to this field.
 4. Select which columns should be passed as input. If none are selected, the agent will have access to all columns in the catalog.
-5. Decide if the agent should recalculate fields when catalog rows are updated. If you do not select this option, the agent will only run once per row.
+5. Decide if the agent should recalculate fields when catalog rows are updated. If you do not select this option, the agent runs only once per row.
 6. Select **Add fields** to deploy the agent and review cost estimations. The **Cost estimation** modal shows how many times the agent will run on this catalog, roughly equal to the total number of rows. To continue, select **Confirm**.
 
 ![The option to select "Apply AI agent" for a catalog field.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
