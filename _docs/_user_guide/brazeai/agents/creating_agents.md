@@ -47,8 +47,8 @@ To create an agent, first choose your agent type:
 
 Select **Create agent**, then choose one of the following options:
 
-a. **Custom agent** to build an agent from a blank slate
-b. An option in **Create an agent with Operator** to use [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) to apply a [starting template](#agent-templates-built-with-operator)
+- **Custom agent** to build an agent from a blank slate
+- An option in **Create an agent with Operator** to use [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) to apply a [starting template](#agent-templates-built-with-operator)
 
 If you use Operator, review and approve its changes in chat before continuing to the next step.
 
