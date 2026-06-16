@@ -12,6 +12,22 @@ description: "This reference article gives an overview of the result of editing 
 
 > This article gives an overview of the result of editing certain aspects of a campaign post-launch.
 
+## Why you should stop a campaign before editing {#risks-of-editing-live}
+
+{% alert important %}
+Braze recommends stopping a campaign before making changes, rather than editing it while it's live. Editing a live campaign without stopping it first can lead to unexpected behavior, including users receiving the message twice.
+{% endalert %}
+
+When a campaign is launched, all eligible users are enqueued to receive the message. However, a user isn't marked as having received the campaign until the message is actually delivered, not when they're enqueued. If you edit a live campaign without stopping it first, Braze re-enqueues eligible users for the updated version while the original queue is still being processed. Users who haven't yet received the original message will be in both queues, which can result in:
+
+- Users receiving the campaign twice (the original and the updated version), even if re-eligibility is turned off.
+- The original version of the campaign still being delivered to users in the first queue.
+- Unexpected audience counts in campaign analytics.
+
+This is most likely to occur with campaigns that target a large audience and are scheduled to send immediately, since there's a large queue of users being processed at once. For action-based campaigns with gradual triggers (such as sign-up events), the risk is lower because only a small number of users are typically queued at any given time.
+
+To safely make changes, stop the campaign first, then either edit the stopped campaign or [duplicate it](#making-immediate-changes) with your changes.
+
 ## Stopping your campaign
 
 To stop a campaign, open your **Campaign Details** page and select **Stop Campaign**. When a campaign is stopped:
@@ -59,18 +75,9 @@ When using a send rate limit, Braze "schedules" your messages in minute-granular
 
 #### Pausing campaigns with delivery speed rate limiting
 
-When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused.
+When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages are necessarily sent when the campaign is resumed.
 
-Rate-limited messages are canceled only if the campaign is still paused when their scheduled send time arrives. Whether a message sends after you resume depends on when you paused the campaign and how long it stayed paused.
-
-For example:
-
-1. You pause the campaign at 1 PM.
-2. A rate-limited message is scheduled to send at 1:05 PM.
-   - If you resume before 1:05 PM, the message sends.
-   - If you resume after 1:05 PM, the message is canceled during the pause and doesn't send.
-
-If some users didn't receive messages because the campaign was paused through their scheduled slot, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
+If some users didn't receive messages because the campaign was paused, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
 
 ## Making immediate changes
 

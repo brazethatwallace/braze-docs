@@ -104,7 +104,7 @@ Pour afficher les détails des tables dans le Générateur de requêtes :
 
 1. Depuis la page **Query Builder**, ouvrez le panneau **Reference** et sélectionnez **Available Data Tables** pour afficher les tables de données disponibles et leurs noms.
 3. Sélectionnez <i class="fas fa-chevron-down" alt=""></i> **See Details** pour afficher la description de la table et les informations sur les colonnes, telles que les types de données.
-4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copier le nom de la table dans l'éditeur SQL"></i>.
+4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copier le nom de la table dans l'éditeur SQL"></i> **Copy table name to SQL editor**.
 
 Pour utiliser des requêtes pré-écrites fournies par Braze, sélectionnez **Query Template** lors de la création initiale d'un rapport dans le Générateur de requêtes.
 
@@ -228,37 +228,37 @@ Toutes les variables d'envoi de messages doivent partager le même identifiant l
 
 ##### Canvas
 
-Pour sélectionner un Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (multiples) {#canvases}
 
-Pour sélectionner plusieurs Canvas. Partager le même nom avec une campagne entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
 - **Valeur de remplacement :** ID BSON des Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign
 
-Pour sélectionner une campagne. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
-- **Valeur de remplacement :** ID BSON de la campagne
+- **Valeur de remplacement :** ID BSON de la Campaign
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns
 
-Pour sélectionner plusieurs campagnes. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
 
-- **Valeur de remplacement :** ID BSON des campagnes
+- **Valeur de remplacement :** ID BSON des Campaigns
 - **Exemple d'utilisation :** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Variantes de campagne {#campaign-variants}
+##### Variantes de Campaign {#campaign-variants}
 
-Pour sélectionner les variantes de campagne appartenant à la campagne sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
+Pour sélectionner les variantes de Campaign appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
 
-- **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
+- **Valeur de remplacement :** ID API des variantes de Campaign, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}

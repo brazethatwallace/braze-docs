@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: "Vous permet de filtrer en fonction de l'appartenance à un segment partout où les filtres sont utilisés (comme les segments, les campagnes, etc.) et de cibler plusieurs segments différents au sein d'une même campagne. <br><br>Notez que les segments utilisant déjà ce filtre ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments, car cela pourrait créer un cycle où le segment A inclut le segment B, qui tente ensuite d'inclure le segment A. Si cela se produisait, le segment se référencerait en permanence, rendant impossible le calcul des utilisateurs qui en font réellement partie. De plus, l'imbrication de segments ajoute de la complexité et peut ralentir les performances. Recréez plutôt le segment que vous essayez d'inclure en utilisant les mêmes filtres."
+    description: "Vous permet de filtrer en fonction de l'appartenance à un segment partout où les filtres sont utilisés (comme les segments, les campagnes, etc.) et de cibler plusieurs segments différents au sein d'une même campagne. <br><br>Pour capturer l'appartenance à un segment à un moment précis, exportez les utilisateurs du segment dans le tableau de bord ou appelez l'endpoint <a href=\"{{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/\"><code>/users/export/segment</code></a> avant d'envoyer une campagne ou un Canvas. Pour plus d'informations, consultez <a href=\"{{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/\">Exporter les données de segment au format CSV</a>.<br><br>Notez que les segments utilisant déjà ce filtre ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments, car cela pourrait créer un cycle où le segment A inclut le segment B, qui tente ensuite d'inclure le segment A. Si cela se produisait, le segment se référencerait en permanence, rendant impossible le calcul des utilisateurs qui en font réellement partie. De plus, l'imbrication de segments ajoute de la complexité et peut ralentir les performances. Recréez plutôt le segment que vous essayez d'inclure en utilisant les mêmes filtres."
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: "Segmente vos utilisateurs selon que leur adresse e-mail a subi un échec d'envoi définitif (par exemple, l'adresse e-mail est invalide)."
+    description: "Segmente vos utilisateurs selon que leur adresse e-mail a subi un échec d'envoi définitif (par exemple, l'adresse e-mail est invalide). Pour exporter les utilisateurs ayant des e-mails invalides, appelez l'endpoint <a href=\"{{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/\"><code>/email/hard_bounces</code></a> ou créez un segment avec des filtres tels que l'adresse e-mail n'est pas vide, l'e-mail n'est pas disponible et le statut d'abonnement e-mail n'est pas désabonné."
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: "Segmente vos utilisateurs selon qu'ils ont désinstallé votre application et ne l'ont pas réinstallée."
+    description: "Segmente vos utilisateurs selon qu'ils sont actuellement marqués comme ayant désinstallé l'application en back-end. Les utilisateurs qui ont désinstallé puis réinstallé l'application ne sont pas inclus. Ce filtre reflète l'état de désinstallation actuel, et non un historique de chaque événement de désinstallation."
     tags:
       - Uninstall
   - name: Device Carrier
@@ -541,7 +541,7 @@ glossaries:
     tags:
       - Cohort membership
   - name: Kubit Cohorts
-    description: "Les clients qui utilisent Kubit peuvent compléter leurs segments en choisissant et en importing leurs cohortes dans Kubit."
+    description: "Les clients qui utilisent Kubit peuvent compléter leurs segments en choisissant et en important leurs cohortes dans Kubit."
     tags:
       - Cohort membership
   - name: Mixpanel Cohorts

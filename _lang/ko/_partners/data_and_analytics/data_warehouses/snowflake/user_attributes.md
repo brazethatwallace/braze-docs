@@ -21,7 +21,7 @@ toc_headers: h2
 
 ## 사용 가능한 뷰 {#available-views}
 
-<table aria-label="Available views">
+<table aria-label="사용 가능한 뷰">
   <caption>사용 가능한 뷰</caption>
   <thead>
     <tr>
@@ -59,7 +59,7 @@ toc_headers: h2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용 가능한 뷰" }
 
 ## 고객 프로필 스냅샷 {#user-profile-snapshots}
 
@@ -101,6 +101,7 @@ toc_headers: h2
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
@@ -111,11 +112,13 @@ toc_headers: h2
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## 실시간 고객 프로필 뷰 {#real-time-user-profile-views}
@@ -148,6 +151,7 @@ toc_headers: h2
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
@@ -168,9 +172,11 @@ toc_headers: h2
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
@@ -226,11 +232,13 @@ toc_headers: h2
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
@@ -244,7 +252,7 @@ toc_headers: h2
 | 최근 업데이트가 필요하지 않은 **일반 쿼리** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` 및 `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 빠른 실행, 최대 12시간 전 데이터.                          |
 | **최신 사용자 속성**이 필요한 쿼리       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 및 `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | 거의 실시간 업데이트를 제공하지만 대규모 데이터셋에서는 느릴 수 있습니다. |
 | 속성 변경의 **이력 추적**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 및 `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 12시간 단위로 속성 변경 사항을 저장합니다.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="권장 쿼리 사용법" }
 
 ### 성능 고려 사항 {#performance-considerations}
 

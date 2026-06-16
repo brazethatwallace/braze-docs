@@ -347,7 +347,7 @@ Users who are frequency capped don't generate a send event for that step. To ide
 
 ### Why does the dashboard show a rate limit error for my campaign?
 
-This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set higher than your workspace, provider, or mailbox host can absorb, so sends back up and Braze surfaces a warning. Lower the campaign's delivery speed rate limit so per-minute throughput stays within what those systems can handle. You can also set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) to enforce a cap across campaigns.
+This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set too low for the audience size, so completing the send would take longer than the allowed window and Braze surfaces a warning. Increase the delivery speed rate limit, reduce the audience, or use **Limit the number of people who will receive this campaign** so each scheduled occurrence finishes within the allowed send window. You can also set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) to enforce a cap across campaigns.
 
 **Limit the number of people who will receive this campaign** controls how many users are eligible for a send, not how many messages Braze sends per minute. Only a delivery speed rate limit sets per-minute throughput.
 

@@ -21,13 +21,17 @@ Sie können Campaigns und Canvases nicht aus dem Dashboard löschen, aber Sie k�
 
 Wenn Sie eine Campaign oder ein Canvas archivieren, werden keine weiteren Nachrichten mehr zugestellt und Ihre In-App-Nachrichten werden nicht mehr angezeigt. Sie können die Ergebnisse auch nach der Archivierung weiterhin einsehen, aber Sie können die Campaign oder das Canvas nicht bearbeiten. Dazu müssen Sie es zunächst [aus dem Archiv wiederherstellen](#unarchiving-campaigns-and-canvases).
 
+{% alert note %}
+**Archivieren** löscht Ihre Campaign oder Ihr Canvas nicht. Braze stoppt die Zustellung, blendet die Nachricht in den täglichen Listen aus und bewahrt sie für Berichte und den Workspace-Verlauf auf.
+{% endalert %}
+
 {% tabs local %}
 {% tab campaign %}
 So archivieren Sie eine Campaign:
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
 2. Bewegen Sie den Mauszeiger über die Zeile der Campaign und wählen Sie das Menü <i class="fas fa-ellipsis-vertical"></i> aus.
-3. Wählen Sie **Archive** aus.
+3. Wählen Sie **Archivieren** aus.
 {% endtab %}
 
 {% tab canvas %}
@@ -35,12 +39,12 @@ So archivieren Sie ein Canvas:
 
 1. Gehen Sie zu **Messaging** > **Canvas**.
 2. Bewegen Sie den Mauszeiger über die Zeile des Canvas und wählen Sie das Menü <i class="fas fa-ellipsis-vertical"></i> aus.
-3. Wählen Sie **Archive** aus.
+3. Wählen Sie **Archivieren** aus.
 {% endtab %}
 {% endtabs %}
 
-## Aus dem Archiv wiederherstellen {#unarchiving-campaigns-and-canvases}
+## Aus dem Archiv wiederherstellen {#unarchiving}
 
 Wenn Sie eine Campaign oder ein Canvas aus dem Archiv wiederherstellen, wird es nicht sofort aktiviert – der Status wird lediglich auf **Aktiv** geändert. Nach der Wiederherstellung können Sie die Nachricht bearbeiten und überprüfen, wie sie eingerichtet ist, ohne dass Nachrichten gesendet werden.
 
-Um die Campaign oder das Canvas fortzusetzen und mit dem Senden von Nachrichten zu beginnen, wählen Sie das Menü <i class="fas fa-ellipsis-vertical"></i> für die entsprechende Zeile aus und wählen Sie **Resume**.
+Um die Campaign oder das Canvas fortzusetzen und mit dem Senden von Nachrichten zu beginnen, wählen Sie das Menü <i class="fas fa-ellipsis-vertical"></i> für die entsprechende Zeile aus und wählen Sie **Fortsetzen**.

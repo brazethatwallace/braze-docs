@@ -36,24 +36,26 @@ hide_toc: true
 ## メッセージクレジット - Sigmaのクレジット比率表 {#credit-ratio-table-for-message-credits-sigma}
 
 {% details クリックして展開 %}
-<table>
+<table class="credits-table" aria-label="メッセージクレジット - Sigmaのクレジット比率表">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>チャネル</b></th>
         <th><b>送信先</b></th>
         <th class="credits-column"><b>1送信あたりのクレジット</b></th>
     </tr>
-<table>
-<tr>
-        <td>エージェントコンソール</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>エージェントコンソール</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -2138,8 +2140,8 @@ hide_toc: true
         <td>0.20</td>
     </tr>
     <tr>
-        <td>Webhook</td>
-        <td>標準</td>
+        <td>Webhooks</td>
+        <td>Standard</td>
         <td>0.08</td>
     </tr>
     <tr>
@@ -2272,6 +2274,7 @@ hide_toc: true
         <td>United States - Single - Deprecated</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2279,6 +2282,7 @@ hide_toc: true
 ------
 
 ## エージェントコンソールの詳細 {#agent-console-details}
+
 Brazeは、Brazeプラットフォームから送信されたエージェントコンソールの呼び出しに対してメッセージクレジットを課金します。呼び出しは、エージェントがLLMへのコールを開始した時点で記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに1万回の呼び出しが含まれています。
 
 ## SMS/MMSチャネルの詳細 {#smsmms-channel-details}
@@ -2321,30 +2325,30 @@ Brazeは、Brazeプラットフォームから送信されたすべてのLINEメ
 
 ## 課金リージョンの内訳 {#billing-region-breakdown}
 
-#### 北米 {#north-america}
+### 北米 {#north-america}
 
 United States、Canada
 
-#### その他のアフリカ {#rest-of-africa}
+### その他のアフリカ {#rest-of-africa}
 
 Algeria、Angola、Benin、Botswana、Burkina Faso、Burundi、Cameroon、Chad、Congo、Eritrea、Ethiopia、Gabon、Gambia、Ghana、Guinea-Bissau、Ivory Coast、Kenya、Lesotho、Liberia、Libya、Madagascar、Malawi、Mali、Mauritania、Morocco、Mozambique、Namibia、Niger、Rwanda、Senegal、Sierra Leone、Somalia、South Sudan、Sudan、Swaziland、Tanzania、Togo、Tunisia、Uganda、Zambia
 
-#### その他のアジア太平洋 {#rest-of-asia-pacific}
+### その他のアジア太平洋 {#rest-of-asia-pacific}
 
 Afghanistan、Australia、Bangladesh、Cambodia、China、Hong Kong、Japan、Laos、Mongolia、Nepal、New Zealand、Papua New Guinea、Philippines、Singapore、Sri Lanka、Taiwan、Tajikistan、Thailand、Turkmenistan、Uzbekistan、Vietnam
 
-#### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
+### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
 
 Albania、Armenia、Azerbaijan、Belarus、Bulgaria、Croatia、Czech Republic、Georgia、Greece、Hungary、Latvia、Lithuania、Macedonia、Moldova、Poland、Romania、Serbia、Slovakia、Slovenia、Ukraine
 
-#### その他のラテンアメリカ {#rest-of-latin-america}
+### その他のラテンアメリカ {#rest-of-latin-america}
 
 Bolivia、Costa Rica、Dominican Republic、Ecuador、El Salvador、Guatemala、Haiti、Honduras、Jamaica、Nicaragua、Panama、Paraguay、Puerto Rico、Uruguay、Venezuela
 
-#### その他の中東 {#rest-of-middle-east}
+### その他の中東 {#rest-of-middle-east}
 
 Bahrain、Iraq、Jordan、Kuwait、Lebanon、Oman、Qatar、Yemen
 
-#### その他の西ヨーロッパ {#rest-of-western-europe}
+### その他の西ヨーロッパ {#rest-of-western-europe}
 
 Austria、Belgium、Denmark、Finland、Ireland、Norway、Portugal、Sweden、Switzerland

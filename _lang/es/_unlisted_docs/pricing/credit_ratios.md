@@ -12,16 +12,19 @@ hidden: true
 ## Tabla de ratios de créditos {#credit-ratio-table}
 
 {% details Haz clic para expandir %}
-<table aria-label="Tabla de ratios de créditos">
+<table class="credits-table" aria-label="Tabla de ratios de créditos">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Canal</b></th>
         <th><b>Destino</b></th>
         <th class="credits-column"><b>Créditos por 1 envío</b></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>WhatsApp</td>
         <td>Argentina Autenticación</td>
@@ -707,6 +710,7 @@ hidden: true
         <td>Reino Unido Utilidad</td>
         <td>5.8</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -714,30 +718,30 @@ hidden: true
 
 ## Facturación por región {#billing-by-region}
 
-#### Norteamérica {#north-america}
+### Norteamérica {#north-america}
 
 Estados Unidos, Canadá
 
-#### Resto de África {#rest-of-africa}
+### Resto de África {#rest-of-africa}
 
 Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
-#### Resto de Asia Pacífico {#rest-of-asia-pacific}
+### Resto de Asia Pacífico {#rest-of-asia-pacific}
 
 Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia, Turkmenistán, Uzbekistán, Vietnam
 
-#### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
+### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
 
-#### Resto de Latinoamérica {#rest-of-latin-america}
+### Resto de Latinoamérica {#rest-of-latin-america}
 
 Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador, Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Resto de Oriente Medio {#rest-of-middle-east}
+### Resto de Oriente Medio {#rest-of-middle-east}
 
 Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
 
-#### Resto de Europa Occidental {#rest-of-western-europe}
+### Resto de Europa Occidental {#rest-of-western-europe}
 
 Austria, Bélgica, Dinamarca, Finlandia, Irlanda, Noruega, Portugal, Suecia, Suiza

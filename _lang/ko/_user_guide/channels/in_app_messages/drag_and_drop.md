@@ -95,7 +95,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 기존 페이지를 복제하려면:
 
-1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>를 선택하여 추가 옵션을 엽니다.
+1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i> **추가 옵션**을 선택합니다.
 2. **복제**를 선택합니다.
 3. 의미 있는 이름을 지정합니다. 이렇게 하면 페이지를 서로 연결할 때 도움이 됩니다.
 
@@ -104,7 +104,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 페이지를 삭제하거나 이름을 변경하려면:
 
-1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i>를 선택하여 추가 옵션을 엽니다.
+1. 목록에서 페이지 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i> **추가 옵션**을 선택합니다.
 2. **이름 변경** 또는 **삭제**를 선택합니다.
 
 {% endtab %}

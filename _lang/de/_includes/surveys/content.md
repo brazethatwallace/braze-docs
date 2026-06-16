@@ -4,7 +4,7 @@
   - channel (erforderlich): "in_app_message" oder "landing_page"
 {% endcomment %}
 
-{% multi_lang_include surveys/beta_alert.md %}
+{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Voraussetzungen {#prerequisites}
 
@@ -23,7 +23,7 @@ Bevor Sie eine Umfrage erstellen, müssen Sie:
 
 ## Umfrage erstellen {#create-a-survey}
 
-Während der Beta-Phase werden Umfragen innerhalb Ihres bestehenden Nachrichtenkompositions-Flows erstellt.
+Während des Early Access werden Umfragen innerhalb Ihres bestehenden Nachrichtenkompositions-Flows erstellt.
 
 {% if include.channel == 'in_app_message' %}
 1. Erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) in einer Campaign oder einem Canvas.
@@ -88,7 +88,7 @@ Sie können Folgendes konfigurieren:
 - Höhe des Textbereichs (Zeilen)
 - Platzhaltertext
 
-Während der Beta-Phase sind Langtextantworten in Berichten und Exporten verfügbar, können jedoch nicht als angepasste Attribute im Nutzerprofil protokolliert werden.
+Während des Early Access sind Langtextantworten in Berichten und Exporten verfügbar, können jedoch nicht als angepasste Attribute im Nutzerprofil protokolliert werden.
 
 ![Einstellungen des Langtexterfassungs-Blocks.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
@@ -96,7 +96,7 @@ Während der Beta-Phase sind Langtextantworten in Berichten und Exporten verfüg
 
 Geben Sie für jeden Formularblock im Einstellungs-Panel auf der rechten Seite einen **Identifier for Reporting** ein. Dieser Bezeichner erscheint in Umfrageberichten und CSV-Exporten.
 
-Während der Beta-Phase:
+Während des Early Access:
 
 - Sie können die meisten Umfrageantworten als angepasste Attribute im Nutzerprofil protokollieren.
 - Langtextantworten können nicht als angepasste Attribute protokolliert werden.
@@ -128,7 +128,7 @@ Während der Beta-Phase:
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Landing-Page-Umfragen erfassen während der Beta-Phase keine teilweise abgeschlossenen Antworten.
+Landing-Page-Umfragen erfassen während des Early Access keine teilweise abgeschlossenen Antworten.
 {% endalert %}
 {% endif %}
 
@@ -151,7 +151,7 @@ Jedes Chart wird in Echtzeit aktualisiert, sobald Antworten eingehen. Sie könne
 
 ## Retargeting und Triggern {#retarget-and-trigger}
 
-Während der Beta-Phase können Sie:
+Während des Early Access können Sie:
 
 - Nutzer:innen nach Umfrageantworten segmentieren, die als Nutzerattribute protokolliert wurden.
 - Nutzer:innen nach dem Abschlussstatus der Umfrage segmentieren.
@@ -184,7 +184,7 @@ Während der Beta-Phase können Sie:
 
 ### Einschränkungen {#limitations}
 
-Während der Beta-Phase gelten die folgenden Einschränkungen:
+Während des Early Access gelten die folgenden Einschränkungen:
 
 - Sie können Nutzer:innen nicht nach Langtext-Antworten segmentieren.
 - Frage-und-Antwort-basiertes Triggern, das nicht auf protokollierten Nutzerattributen basiert, ist nicht verfügbar.

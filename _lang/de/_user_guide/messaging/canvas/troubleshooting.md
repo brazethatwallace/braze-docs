@@ -32,7 +32,7 @@ Wenn das angepasste Event angezeigt wird, führen Sie die folgenden Schritte zur
 
 - Überprüfen Sie den Profil-Download der Nutzer:innen, um zu bestätigen, dass sie das Event getriggert haben und wann dies geschah. Wenn das Event getriggert wurde, vergleichen Sie den Zeitstempel des Events mit dem Zeitpunkt, zu dem der Canvas live ging. Das Event wurde möglicherweise getriggert, bevor der Canvas live ging.
 - Überprüfen Sie die Changelogs für den Canvas und alle Segmente, die beim Targeting verwendet werden, um festzustellen, ob die Nutzer:innen im Segment waren, als ihr angepasstes Event getriggert wurde. Wenn sie nicht im Segment waren, hätten sie den Canvas-Schritt nicht erhalten.
-- Überprüfen Sie, ob die Nutzer:innen durch Segmentierung in eine Kontrollgruppe eingeteilt wurden und dadurch am Empfang des Canvas-Schritts gehindert wurden.
+- Überprüfen Sie, ob die Nutzer:innen beim Eintritt der Canvas-Kontrollgruppe zugewiesen wurden und dadurch am Empfang des Canvas-Schritts gehindert wurden.
 - Wenn es eine geplante Verzögerung gibt, prüfen Sie, ob das angepasste Event der Nutzer:innen vor der Verzögerung getriggert wurde. Wenn das Event vor der Verzögerung getriggert wurde, hätten sie den Canvas-Schritt nicht erhalten.
 
 {% alert note %}
@@ -73,7 +73,7 @@ Die Anzahl der gesendeten oder zugestellten Nachrichten weicht häufig von der g
 - **Kanalberechtigung:** Nutzer:innen haben möglicherweise keine E-Mail-Adressen, Push-Token oder den für diesen Kanal in diesem Schritt erforderlichen Abo-Status.
 - **Kontrollgruppen:** Eine globale oder Canvas-Kontrollgruppe kann Nutzer:innen vom Messaging ausschließen.
 - **Ruhezeiten, intelligentes Timing und Rate-Limits:** Diese Einstellungen können Sendungen verzögern oder unterdrücken.
-- **In-App-Messages-Schritte:** In-App Messages können null _Sendungen_ anzeigen, während Impressionen vorhanden sind. Dies ist erwartetes Verhalten, da die In-App-Zustellung anders funktioniert als Push-Benachrichtigungen oder E-Mail. Siehe [Warum kann ein Canvas null Sendungen anzeigen, obwohl Impressionen protokolliert werden?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) in den Canvas-FAQ.
+- **In-App-Message-Schritte:** In-App Messages können null _Sendungen_ anzeigen, während Impressionen vorhanden sind. Dies ist erwartetes Verhalten, da die In-App-Zustellung anders funktioniert als Push-Benachrichtigungen oder E-Mail. Siehe [Warum kann ein Canvas null Sendungen anzeigen, obwohl Impressionen protokolliert werden?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) in den Canvas-FAQ.
 
 Für E-Mail und andere Kanäle gelten viele der gleichen Faktoren wie für Campaigns. Eine detaillierte Liste finden Sie unter [Warum sind die Sendungen niedriger als die geschätzte Zielgruppengröße?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 
@@ -89,13 +89,11 @@ Um dies zu vermeiden, stellen Sie sicher, dass Ihre Updates für angepasste Attr
 
 Beim Erstellen Ihres Canvas haben Sie möglicherweise erwartet, dass sich Ihre Zielgruppe gleichmäßig zwischen Ihrer Kontrollgruppe und Ihrer Variantengruppe aufteilt, wie im folgenden [Anwendungsfall](#use-case). Lassen Sie uns besprechen, warum das so ist und wie Sie es beheben können!
 
-Die Gruppe, der ein:e Nutzer:in beitritt, hängt von den Einstellungen ab. Dies kann entweder die Kontrollgruppe oder die Variantengruppe sein. Ein:e Nutzer:in tritt in einen Canvas ein, wenn alle Ihre im [Eingangs-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule) definierten Kriterien erfüllt sind. Beim Einrichten Ihres Canvas legen Sie fest, welcher Prozentsatz der Nutzer:innen in jede Variante und die Kontrollgruppe eintreten soll.
+Die Zuweisung zu Kontrollgruppe und Variante erfolgt beim Canvas-Eintritt basierend auf den Prozentsätzen, die Sie im Builder festgelegt haben – nicht durch Segmentfilter. Ein:e Nutzer:in tritt in einen Canvas ein, wenn alle Ihre im [Eingangs-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule) definierten Kriterien erfüllt sind.
 
-Wenn Ihre Kontrollgruppe im Vergleich zu Ihrer Variantengruppe groß ist (und dies nicht Ihre Absicht ist), empfehlen wir Folgendes:
-1. Setzen Sie Ihren Entry-Zielgruppen-Filter auf **is Foreground Push Enabled**.
-2. Setzen Sie Ihren Entry-Zielgruppen-Filter für **Push Subscription Status**, **Email Subscription Status** oder beides auf **Opted In** oder **Subscribed**.
+Wenn Nutzer:innen in die Variante eintreten, aber keine Nachrichten erhalten, weil sie für einen Kanal nicht berechtigt sind, verwenden Sie die [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) in jedem Schritt (z. B. **Abo-Einstellungen** auf nur angemeldete Nutzer:innen gesetzt), anstatt Kanalfilter zur **Zielgruppe** hinzuzufügen. Für Multi-Channel-Canvases sollten Sie die Entry-Zielgruppe nicht auf einen einzelnen Kanal beschränken (z. B. **Foreground Push Enabled**).
 
-Wenn Sie einen Canvas mit einer Kontrollgruppe erstellen, bestätigen Sie, dass alle Nutzer:innen in der Entry-Zielgruppe in der Lage sind, Nachrichten innerhalb des Canvas zu empfangen (z. B. wenn der Canvas Push- und E-Mail-Nachrichten enthält).
+Nutzer:innen, die einen bestimmten Kanal nicht empfangen können, können trotzdem in eine Variante eintreten. Um zu steuern, wer welchen Nachrichtentyp erhält, verwenden Sie die Sendeeinstellungen pro Schritt anstelle von Entry-Zielgruppen-Filtern.
 
 ### Anwendungsfall {#use-case}
 

@@ -12,16 +12,19 @@ hidden: true
 ## Tabelle der Credit-Verhältnisse {#credit-ratio-table}
 
 {% details Zum Aufklappen klicken %}
-<table aria-label="Tabelle der Credit-Verhältnisse">
+<table class="credits-table" aria-label="Tabelle der Credit-Verhältnisse">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Kanal</b></th>
         <th><b>Ziel</b></th>
         <th class="credits-column"><b>Credits pro Versand</b></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>WhatsApp</td>
         <td>Argentina Authentication</td>
@@ -707,6 +710,7 @@ hidden: true
         <td>United Kingdom Utility</td>
         <td>5.8</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -714,30 +718,30 @@ hidden: true
 
 ## Abrechnung nach Region {#billing-by-region}
 
-#### Nordamerika {#north-america}
+### Nordamerika {#north-america}
 
 Vereinigte Staaten, Kanada
 
-#### Übriges Afrika {#rest-of-africa}
+### Übriges Afrika {#rest-of-africa}
 
 Algerien, Angola, Benin, Botswana, Burkina Faso, Burundi, Kamerun, Tschad, Kongo, Eritrea, Äthiopien, Gabun, Gambia, Ghana, Guinea-Bissau, Elfenbeinküste, Kenia, Lesotho, Liberia, Libyen, Madagaskar, Malawi, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger, Ruanda, Senegal, Sierra Leone, Somalia, Südsudan, Sudan, Swasiland, Tansania, Togo, Tunesien, Uganda, Sambia
 
-#### Übriger asiatisch-pazifischer Raum {#rest-of-asia-pacific}
+### Übriger asiatisch-pazifischer Raum {#rest-of-asia-pacific}
 
 Afghanistan, Australien, Bangladesch, Kambodscha, China, Hongkong, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Singapur, Sri Lanka, Taiwan, Tadschikistan, Thailand, Turkmenistan, Usbekistan, Vietnam
 
-#### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
+### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
 
 Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Ungarn, Lettland, Litauen, Mazedonien, Moldawien, Polen, Rumänien, Serbien, Slowakei, Slowenien, Ukraine
 
-#### Übriges Lateinamerika {#rest-of-latin-america}
+### Übriges Lateinamerika {#rest-of-latin-america}
 
 Bolivien, Costa Rica, Dominikanische Republik, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaika, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Übriger Naher Osten {#rest-of-middle-east}
+### Übriger Naher Osten {#rest-of-middle-east}
 
 Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Katar, Jemen
 
-#### Übriges Westeuropa {#rest-of-western-europe}
+### Übriges Westeuropa {#rest-of-western-europe}
 
 Österreich, Belgien, Dänemark, Finnland, Irland, Norwegen, Portugal, Schweden, Schweiz

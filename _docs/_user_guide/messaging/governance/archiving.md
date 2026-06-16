@@ -48,3 +48,9 @@ To archive a Canvas:
 When you unarchive a campaign or Canvas, it won't go live&mdash;its status will only be changed to **Active**. After unarchiving, you can edit and review how the message is set up without any messages being sent.
 
 To resume the campaign or Canvas and begin sending messages, select the <i class="fas fa-ellipsis-vertical"></i> menu for the respective row and select **Resume**.
+
+## Frequently asked questions
+
+### Are campaigns and Canvases deleted when I archive them?
+
+No. Selecting **Archive** stops delivery and hides the message from day-to-day lists, but Braze retains the campaign or Canvas for reporting and workspace history. Archive your messages for lifecycle cleanup when a message should no longer be sent.

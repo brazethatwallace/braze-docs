@@ -23,9 +23,13 @@ tool: Canvas
 
 このステップにより、Canvas 1のユーザーをCanvas 2に送信できます。Canvas 1のユーザーが送信先へ送信ステップに入ると、Canvas 2のエントリ条件とオーディエンス条件に基づいて評価され、Canvasに入る資格があるかどうかが判断されます。この場合、アイテムを注文したユーザーはCanvas 2に入ることができ、Canvas 1のジャーニーも引き続き進みます。アイテムを注文していないユーザーは、Canvas 1のジャーニーのみを続けます。
 
-### リアルタイムエントリ {#real-time-entry}
+### エントリの動作 {#entry-behavior}
 
-送信先へ送信は、ユーザーがこのステップに到達するとすぐに送信先Canvasにエントリさせます。このステップは、送信先Canvasへの1回限りのエントリポイントとして機能します。送信先Canvasのエントリ条件とオーディエンス条件を満たすユーザーは、リアルタイムでそのCanvasジャーニーを開始します。その時点で条件を満たさないユーザーは送信先Canvasにエントリせず、ソースCanvasを続行します。
+送信先へ送信ステップは、ユーザーがこのステップに到達するとすぐに送信先Canvasにエントリさせます。このステップは、送信先Canvasへの1回限りのエントリポイントとして機能します。送信先Canvasのエントリ条件とオーディエンス条件を満たすユーザーは、そのCanvasジャーニーを開始します。その時点で条件を満たさないユーザーは送信先Canvasにエントリせず、ソースCanvasを続行します。
+
+送信先Canvasがスケジュールされたエントリスケジュールを使用している場合、送信先へ送信ステップはそのエントリスケジュールをバイパスします。また、送信先Canvasの**エントリコントロール**で**Canvasがスケジュールされるたびに**に設定されている場合、[**エントリ数の制限**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)もバイパスします。このステップから送信されたユーザーは、次のスケジュールされた評価時間枠を待ちません。送信先Canvasのエントリ条件とオーディエンス条件を満たしている場合、送信先へ送信ステップに到達した時点で評価され、エントリします。
+
+送信先Canvasがアクションベースのエントリを使用している場合、送信先へ送信ステップは、ユーザーがそのCanvasに入るために設定されたエントリアクションを実行する要件をバイパスします。
 
 ## 送信先へ送信ステップを作成する {#create-a-send-to-destination-step}
 
@@ -41,7 +45,7 @@ tool: Canvas
 
 ### ステップ 3: 送信先をプレビューする {#step-3-preview-your-destination}
 
-**Preview destination**を選択すると、送信先Canvasのエントリ条件を満たすユーザーのジャーニーを確認できます。
+**Preview destination**を選択すると、ユーザーの送信先Canvasをプレビューできます。
 
 このCanvasステップを設定した後、[ユーザーパスをプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/)して、ユーザーが現在のCanvasの次のステップに進むかどうか、また送信先Canvasにも進むかどうかを確認できます。
 
@@ -63,7 +67,7 @@ tool: Canvas
 
 ### ユーザーは送信先Canvasの最初から入りますか？ {#do-users-enter-at-the-start-of-the-destination-canvas}
 
-資格のあるユーザーは、送信先Canvasの最初のステップにすぐにエントリします。送信先Canvasの次のスケジュールされたエントリ時間を待つことはありません。送信先Canvas内の特定のCanvasステップにリンクすることはできません。
+資格のあるユーザーは、送信先Canvasの最初のステップにすぐにエントリします。送信先Canvasの次のスケジュールされたエントリ時間を待つことはありません。送信先Canvas内の特定のキャンバスステップにリンクすることはできません。
 
 ### 送信先へ送信ステップは、スケジュールされた送信先Canvasのエントリスケジュールを尊重しますか？ {#does-the-send-to-destination-step-respect-a-scheduled-destination-canvas-entry-schedule}
 

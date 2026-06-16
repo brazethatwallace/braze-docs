@@ -155,6 +155,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
 
 <table aria-label="Visão geral de cada abordagem">
   <caption>Visão geral de cada abordagem</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">Espaços de trabalho separados</th>
@@ -167,6 +168,8 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
         <th scope="col">Benefícios</th>
         <th scope="col">Desvantagens</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">Direcionamento</th>
         <td>A maneira mais segura de manter as comunicações separadas. As Campaigns têm a garantia de direcionar apenas perfis de usuários específicos.</td>
@@ -216,6 +219,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
         <td>N/D</td>
         <td>As estatísticas globais serão agregadas para todas as instâncias do app no espaço de trabalho na página inicial.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Práticas recomendadas {#best-practices}

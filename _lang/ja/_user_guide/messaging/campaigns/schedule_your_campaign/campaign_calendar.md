@@ -11,7 +11,7 @@ description: "このリファレンスページでは、コンテンツカレン
 
 > コンテンツカレンダーは、今後スケジュールされたCampaignsの概要を一目で確認できます。
 
-メッセージングデータを分析し、スケジュールされたCampaignsを表示・管理できます。カレンダーを開くには、**Content** > **Content Calendar**を選択します。
+メッセージングデータを分析し、スケジュールされたCampaignsを表示・管理できます。カレンダーを開くには、**コンテンツ** > **コンテンツカレンダー**を選択します。
 
 ## メッセージング分析 {#messaging-analytics}
 
@@ -24,7 +24,7 @@ description: "このリファレンスページでは、コンテンツカレン
 
 ![メッセージング分析内の「Upcoming Message Types」と「Messages Sent」のグラフ。]({% image_buster /assets/img/campaign_calendar/content_calendar_messaging_analytics.png %})
 
-データのコピーをダウンロードするには、<i class="fa-solid fa-bars" style="color: #2e7487;"></i> **Chart context menu**を選択し、希望のファイル形式を選択します。
+データのコピーをダウンロードするには、<i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **Chart context menu**を選択し、希望のファイル形式を選択します。
 
 ## 送信カレンダー {#send-calendar}
 
@@ -34,7 +34,7 @@ description: "このリファレンスページでは、コンテンツカレン
 アプリ内メッセージは常にアクションベースであるため、送信カレンダーには表示されません。
 {% endalert %}
 
-月を変更するには、<i class="fa-solid fa-chevron-left" style="color: #2e7487;"></i> **See previous month**または<i class="fa-solid fa-chevron-right" style="color: #2e7487;"></i> **See next month**を選択します。当月に戻るには、**Today**を選択します。
+月を変更するには、<i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **See previous month**または<i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **See next month**を選択します。当月に戻るには、**Today**を選択します。
 
 ![当月のスケジュールされたすべてのCampaignsを表示する送信カレンダー。]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 

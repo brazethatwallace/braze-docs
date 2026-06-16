@@ -117,6 +117,8 @@ Le calcul des MAU suit des règles spécifiques pour garantir une facturation pr
 
 {% alert note %}
 Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur.
+
+Les comptages de MAU dans Braze peuvent différer de ceux d'outils tels qu'Amplitude lorsque chaque produit utilise une définition différente d'un utilisateur actif. Comparez la configuration dans Amplitude (et vos règles de MAU Braze ci-dessus) avant d'investiguer un écart comme un problème de pipeline de données.
 {% endalert %}
 
 #### Exemple de calcul des MAU {#mau-calculation-example}
@@ -135,7 +137,7 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 
@@ -170,6 +172,10 @@ La valeur des MAU est calculée chaque nuit et ne sera mise à jour que le lende
 ### Sessions quotidiennes {#daily-sessions}
 
 *Sessions quotidiennes* correspond au nombre de sessions enregistrées un jour donné. En comparant cette valeur à votre nombre de DAU, vous pouvez déterminer combien de fois vos utilisateurs ouvrent l'application ou visitent votre site web les jours où ils enregistrent au moins une session.
+
+{% alert note %}
+Le *nombre de sessions quotidiennes* pour une date donnée peut varier lorsque vous consultez le tableau de bord Accueil à des jours différents. Si un utilisateur démarre une session hors ligne, celle-ci peut ne pas parvenir à Braze tant qu'il n'ouvre pas à nouveau l'application. Lorsque cette session est transmise, Braze l'attribue à la date de début de la session, ce qui peut augmenter rétroactivement le comptage pour cette date.
+{% endalert %}
 
 ### Sessions quotidiennes par MAU {#daily-sessions-per-mau}
 

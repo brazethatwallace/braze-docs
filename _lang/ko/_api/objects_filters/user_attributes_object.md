@@ -41,10 +41,10 @@ description: "이 참조 문서에서는 사용자 속성 오브젝트의 다양
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
-  // Removing from an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
+  // Removing from an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
@@ -52,11 +52,11 @@ description: "이 참조 문서에서는 사용자 속성 오브젝트의 다양
 - [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
 {% alert note %}
-[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 대한 REST API 요청의 경우, 배열 작업에 `add`, `remove`, `update` 키를 사용합니다. `$`가 접두사로 붙은 키(예: `$add`)는 SDK 메서드 페이로드용입니다.
+일반 배열 커스텀 속성의 경우 `add`와 `remove`(`$` 없이)를 사용합니다.
 
-REST API 요청에서 `$add`, `$remove` 또는 `$update`를 사용하면 Braze는 배열 업데이트를 적용하지 않고 `success`를 반환할 수 있습니다.
+오브젝트 배열(중첩 커스텀 속성)의 경우 `/users/track` 요청 페이로드에서 `$add`, `$remove`, `$update`를 사용합니다. 이 연산자는 식별자(`$identifier_key` 및 `$identifier_value`)를 매칭하여 오브젝트 수준의 변경을 적용하며, `$new_object`를 사용한 인플레이스 업데이트를 지원합니다.
 
-자세한 내용은 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) 및 [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)를 참조하세요.
+기존 배열의 나머지 상태를 유지하면서 배열 내부의 오브젝트를 추가, 제거 또는 업데이트해야 할 때 이 형식을 사용하세요. 전체 요청 예제는 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) 및 [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)를 참조하세요.
 {% endalert %}
 
 프로필 속성을 제거하려면 `null`로 설정합니다. `external_id` 및 `user_alias` 같은 일부 필드는 고객 프로필에 추가한 후에는 제거할 수 없습니다.
@@ -111,9 +111,9 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | 데이터 유형 | 참고 |
 | --- | --- |
 | 배열 | 커스텀 속성 배열이 지원됩니다. 요소를 추가하면 배열의 끝에 추가됩니다. 요소가 이미 존재하는 경우 현재 위치에서 끝으로 이동합니다.<br><br>고유한 값만 저장됩니다. 예를 들어, `['hotdog','hotdog','hotdog','pizza']`를 가져오면 `['hotdog', 'pizza']`가 됩니다.<br><br>배열을 직접 설정하거나(예: `"my_array_custom_attribute":[ "Value1", "Value2" ]`), 기존 배열에 `"my_array_custom_attribute" : { "add" : ["Value3"] }`로 추가하거나, `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`로 값을 제거할 수 있습니다.<br><br>배열의 기본값 및 최대 요소 개수는 500개입니다. Braze 대시보드의 **데이터 설정** > **커스텀 속성**에서 배열의 최대 개수를 업데이트할 수 있습니다. 자세한 내용은 [배열]({{site.baseurl}}/developer_guide/analytics/#arrays)을 참조하세요. |
-| 오브젝트 배열 | 오브젝트 배열을 사용하여 각 오브젝트가 속성 집합을 포함하는 오브젝트 목록을 정의합니다. 이 유형을 사용하면 호텔 숙박, 구매 내역 또는 선호도와 같은 사용자 관련 데이터를 여러 세트로 저장할 수 있습니다. <br><br>예를 들어, 고객 프로필에 `hotel_stays`라는 커스텀 속성을 배열로 정의하고, 각 오브젝트가 별도의 숙박을 나타내며 `hotel_name`, `check_in_date`, `nights_stayed`와 같은 속성을 포함하도록 할 수 있습니다.<br><br>오브젝트 배열은 항목 수에 제한이 없지만 최대 크기는 100&nbsp;KB입니다. 업데이트로 인해 배열이 이 제한을 초과하면 Braze는 업데이트를 삭제하고 속성은 변경되지 않습니다.<br><br>REST API 요청의 경우, `add`로 항목을 추가하고, `remove`로 항목을 제거하고, `update`로 항목을 업데이트합니다. SDK 메서드의 경우, SDK에 전달되는 페이로드에서 `$add`, `$remove`, `$update`를 사용합니다. 자세한 내용은 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) 및 [오브젝트 배열 예제](#array-of-objects-example)를 참조하세요. |
+| 오브젝트 배열 | 오브젝트 배열을 사용하여 각 오브젝트가 속성 집합을 포함하는 오브젝트 목록을 정의합니다. 이 유형을 사용하면 호텔 숙박, 구매 내역 또는 선호도와 같은 사용자 관련 데이터를 여러 세트로 저장할 수 있습니다. <br><br>예를 들어, 고객 프로필에 `hotel_stays`라는 커스텀 속성을 배열로 정의하고, 각 오브젝트가 별도의 숙박을 나타내며 `hotel_name`, `check_in_date`, `nights_stayed`와 같은 속성을 포함하도록 할 수 있습니다.<br><br>오브젝트 배열은 항목 수에 제한이 없지만 최대 크기는 100&nbsp;KB입니다. 업데이트로 인해 배열이 이 제한을 초과하면 Braze는 업데이트를 삭제하고 속성은 변경되지 않습니다.<br><br>`/users/track` 및 SDK 페이로드의 경우, 오브젝트 배열 작업에는 `$add`, `$remove`, `$update`를 사용합니다. 스칼라 값을 포함하는 일반 배열 커스텀 속성에는 `add`와 `remove`(`$` 없이)를 사용합니다. 자세한 내용은 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) 및 [오브젝트 배열 예제](#array-of-objects-example)를 참조하세요. |
 | 부울 | `true` 또는 `false` |
-| 날짜 | [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 형식 또는 다음 형식 중 하나로 저장해야 합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>"T"는 입력 안내가 아닌 시간 지정자이므로 변경하거나 제거해서는 안 됩니다. <br><br>시간대가 없는 시간 속성은 기본적으로 자정 UTC로 설정되며(대시보드에서는 회사의 시간대에서 자정 UTC에 해당하는 형식으로 표시됩니다). 시간대를 지정하려면 타임스탬프에 UTC 오프셋을 추가합니다(예: EST의 경우 `2024-11-10T18:00:00-05:00`). 시간대 오프셋이 누락되었거나 형식이 잘못된 경우 값은 기본적으로 UTC로 설정됩니다. <br><br>시간은 대시보드에서 회사의 시간대로 표시됩니다. 예를 들어, `2024-11-10T18:00:00-05:00`(오후 6:00 EST)은 회사에 설정된 시간대의 해당 시간으로 표시됩니다. <br><br>미래의 타임스탬프가 있는 이벤트는 현재 시간으로 기본 설정됩니다. <br><br>일반 커스텀 속성의 경우, 연도가 0보다 작거나 3000보다 크면 Braze는 고객 프로필에 값을 문자열로 저장합니다. |
+| 날짜 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식(권장) 또는 다음 형식 중 하나로 날짜를 저장합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>"T"는 플레이스홀더가 아닌 시간 지정자이므로 변경하거나 제거해서는 안 됩니다. <br><br>나열된 형식과 일치하지 않는 날짜 값은 시간 데이터 유형이 아닌 문자열로 고객 프로필에 저장됩니다. 즉, 시간 기반 세분화 필터("이전", "이후" 또는 "지난 X일 이내" 등)가 해당 속성에 대해 작동하지 않습니다. 예를 들어, `Mar 26 2026 06:12 PM +00:00`은 지원되는 형식과 일치하지 않으므로 문자열로 저장됩니다. 이를 방지하려면 ISO 8601 형식(예: `2026-03-26T18:12:00Z`)을 사용하세요. <br><br>시간대가 없는 시간 속성은 기본적으로 자정 UTC로 설정되며(대시보드에서는 회사의 시간대에서 자정 UTC에 해당하는 형식으로 표시됩니다). 시간대를 지정하려면 타임스탬프에 UTC 오프셋을 추가합니다(예: EST의 경우 `2024-11-10T18:00:00-05:00`). 시간대 오프셋이 누락되었거나 형식이 잘못된 경우 값은 기본적으로 UTC로 설정됩니다. <br><br>시간은 대시보드에서 회사의 시간대로 표시됩니다. 예를 들어, `2024-11-10T18:00:00-05:00`(오후 6:00 EST)은 회사에 설정된 시간대의 해당 시간으로 표시됩니다. <br><br>미래의 타임스탬프가 있는 이벤트는 현재 시간으로 기본 설정됩니다. <br><br>일반 커스텀 속성의 경우, 연도가 0보다 작거나 3000보다 크면 Braze는 고객 프로필에 값을 문자열로 저장합니다. |
 | 플로트 | 플로트 커스텀 속성은 소수점이 있는 양수 또는 음수입니다. 예를 들어 플로트를 사용하여 계정 잔액이나 제품 또는 서비스에 대한 사용자 평점을 저장할 수 있습니다. |
 | 정수 | 정수 커스텀 속성은 "inc" 필드와 추가할 양을 가진 오브젝트를 할당하여 증가시킬 수 있습니다. <br><br>예시: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 중첩 커스텀 속성 | 중첩 커스텀 속성은 속성 집합을 다른 속성의 등록정보로 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)을 참조하세요. |
@@ -135,7 +135,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 ]}
 ```
 
-`add`, `remove`, `update`를 사용하는 API 예제는 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)를 참조하세요. `$add`, `$remove`, `$update`를 사용하는 SDK 예제는 [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)를 참조하세요.
+`$add`, `$remove`, `$update`를 사용하는 오브젝트 배열 예제는 [오브젝트 배열 API 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) 및 [오브젝트 배열 SDK 예제]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)를 참조하세요.
 
 #### Braze 고객 프로필 필드 {#braze-user-profile-fields}
 

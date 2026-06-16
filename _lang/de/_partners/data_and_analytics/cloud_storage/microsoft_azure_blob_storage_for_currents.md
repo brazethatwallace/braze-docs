@@ -37,7 +37,7 @@ Navigieren Sie in Microsoft Azure in der Seitenleiste zu **Storage Accounts** un
 
 Auch wenn Sie bereits ein Speicherkonto haben, empfehlen wir Ihnen, ein neues Konto speziell für Ihre Braze-Daten anzulegen.
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![Die Seite „Speicherkonto erstellen“ in Microsoft Azure auf dem Tab „Grundlagen“ mit hervorgehobenem Feld für den Speicherkontonamen.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### 2. Schritt: Verbindungs-String abrufen {#step-2-get-the-connection-string}
 
@@ -49,7 +49,7 @@ Microsoft stellt zwei Zugriffsschlüssel zur Verfügung, um Verbindungen mit ein
 Braze verwendet den Verbindungs-String aus diesem Menü, nicht den Schlüssel.
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![Die Seite „Access Keys“ für ein Azure-Speicherkonto mit hervorgehobenem Verbindungs-String-Feld unter „key1“.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### 3. Schritt: Blob-Service-Container erstellen {#step-3-create-a-blob-service-container}
 
@@ -57,7 +57,7 @@ Navigieren Sie zum Menü **Blobs** unter dem Abschnitt **Blob Service** Ihres Sp
 
 Geben Sie einen Namen für Ihren Blob-Service-Container an. Andere Standardeinstellungen müssen nicht aktualisiert werden.
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![Die Seite „Blobs“ für ein Azure-Speicherkonto unter „Blob Service“ mit der Option, einen Container hinzuzufügen.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### 4. Schritt: Currents einrichten {#step-4-set-up-currents}
 
@@ -94,9 +94,7 @@ Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und versuchen
 - Alle Dashboard-Berichte und CSV-Berichte werden zum Download an die E-Mail der Nutzer:innen gesendet (keine Speicherberechtigungen erforderlich) und auf dem Datenspeicher gesichert.
 
 {% alert important %}
-**JSON-Format erforderlich**: Für JSON-Exporte verwendet Braze das JSONL-Format (Newline-delimited JSON), bei dem jede Zeile ein eigenes JSON-Objekt enthält. Dieses Format unterscheidet sich vom Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Wenn Sie diese Dateien verarbeiten, parsen Sie jede Zeile einzeln als separates JSON-Objekt, anstatt zu versuchen, die gesamte Datei als ein einziges JSON-Dokument zu parsen.
-
-Currents-Exporte verwenden das Apache-Avro-Format (`.avro`-Dateien), nicht JSON. Diese Anforderung an das JSON-Format gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
+**JSON-Format erforderlich**: Für JSON-Exporte verwendet Braze das [JSONL](https://jsonlines.org/)-Format (Newline-delimited JSON), bei dem jede Zeile ein eigenes JSON-Objekt enthält. Dieses Format unterscheidet sich vom Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Wenn Sie diese Dateien verarbeiten, parsen Sie jede Zeile einzeln als separates JSON-Objekt, anstatt zu versuchen, die gesamte Datei als ein einziges JSON-Dokument zu parsen. <br><br> Currents-Exporte verwenden das [Apache Avro](https://avro.apache.org/)-Format (`.avro`-Dateien), nicht JSON. Diese Anforderung an das JSON-Format gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
 {% endalert %}
 
 ## FAQ

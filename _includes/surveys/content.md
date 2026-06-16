@@ -4,7 +4,7 @@
   - channel (required): "in_app_message" or "landing_page"
 {% endcomment %}
 
-{% multi_lang_include surveys/beta_alert.md %}
+{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Before creating a survey, you must:
 
 ## Create a survey
 
-During beta, surveys are built inside your existing message composition flow.
+During early access, surveys are built inside your existing message composition flow.
 
 {% if include.channel == 'in_app_message' %}
 1. Create an [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) in a campaign or Canvas.
@@ -88,7 +88,7 @@ You can configure:
 - Text area height (rows)
 - Placeholder text
 
-During beta, long text responses are available in reporting and exports, but they can't be logged as user profile custom attributes.
+During early access, long text responses are available in reporting and exports, but they can't be logged as user profile custom attributes.
 
 ![Long text capture block settings.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
@@ -96,7 +96,7 @@ During beta, long text responses are available in reporting and exports, but the
 
 For each form block, enter an **Identifier for Reporting** in the right-side settings panel. This identifier appears in survey reporting and CSV exports.
 
-During beta:
+During early access:
 
 - You can log most survey responses to user profile custom attributes.
 - Long text responses can't be logged as custom attributes.
@@ -128,7 +128,7 @@ Top-level analytics include:
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Landing page surveys do not track partially complete responses during beta.
+Landing page surveys do not track partially complete responses during early access.
 {% endalert %}
 {% endif %}
 
@@ -151,7 +151,7 @@ Each chart updates in real time as responses come in. You can switch chart types
 
 ## Retarget and trigger
 
-During beta, you can:
+During early access, you can:
 
 - Segment users by survey responses that are logged as user attributes.
 - Segment users by survey completion status.
@@ -184,7 +184,7 @@ During beta, you can:
 
 ### Limitations
 
-During beta, you are restricted by the following:
+During early access, you are restricted by the following:
 
 - You can't segment users by long-form text responses.
 - Question-and-answer triggering that does not rely on logged user attributes is not available.

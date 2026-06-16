@@ -24,7 +24,7 @@ B2B Campaign(캠페인)을 실행하는 데 필요한 네 가지 주요 B2B 오�
 | 연락처 | 일반적으로 리드에서 연락처로 전환되어 영업 기회를 추구할 수 있는 자격을 갖춘 개인입니다. |
 | 기회 | 진행 중인 잠재적 판매 또는 거래의 세부 정보를 추적하는 기록입니다. |
 | 계정 | 자격을 갖춘 잠재고객, 기존 고객, 파트너 또는 이와 유사한 중요한 관계를 맺고 있는 경쟁사 조직의 기록입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="B2B 데이터 모델 만들기" }
 
 Braze 내에서 이 네 가지 오브젝트는 고객 프로필과 비즈니스 오브젝트라는 두 가지 오브젝트로 결합 및 축소됩니다.
 
@@ -32,7 +32,7 @@ Braze 내에서 이 네 가지 오브젝트는 고객 프로필과 비즈니스 
 | --- | --- | --- |
 | 고객 프로필 | 영업 고객 관계 관리 시스템의 리드와 연락처에 직접 매핑됩니다. 리드는 Braze에서 캡처되므로 영업 고객 관계 관리 시스템에서 자동으로 리드로 생성됩니다. 연락처로 전환되면 연락처 ID와 세부 정보가 다시 Braze에 동기화됩니다. | 리드<br> 연락처 |
 | 비즈니스 오브젝트 | 영업 고객 관계 관리 시스템의 모든 비사용자 오브젝트에 매핑됩니다. 여기에는 계정 오브젝트 및 기회 오브젝트와 같은 영업 관련 오브젝트가 포함됩니다. | 계정<br> 기회 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="B2B 데이터 모델 만들기" }
 
 ## 1단계: Braze에서 비즈니스 오브젝트 만들기 {#step-1-create-your-business-objects-in-braze}
 
@@ -44,7 +44,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 | --- | --- |
 | [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Braze의 기본 고객 프로필에 있는 독립 데이터 오브젝트(보조 데이터 오브젝트)입니다. B2B 환경에서는 계정과 기회에 대한 카탈로그가 있을 것입니다. |
 | [연결된 소스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Braze가 데이터 웨어하우스에 직접 쿼리할 수 있게 해줍니다. 이미 리드, 연락처, 기회, 계정 오브젝트를 데이터 웨어하우스에 정기적으로 동기화하고 있을 가능성이 높으므로, Braze 세분화를 해당 웨어하우스에 직접 지정하고 제로 카피 환경에서 활성화할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: Braze에서 비즈니스 오브젝트 만들기" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -64,14 +64,17 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 이 사용 사례에서는 Salesforce가 예시 CRM 시스템입니다. CRM의 오브젝트에 포함된 모든 필드를 매핑할 수 있습니다.
 
-<table aria-label="Map over your CRM fields" border="1">
+<table aria-label="CRM 필드 매핑" border="1">
   <caption>CRM 필드 매핑</caption>
+  <thead>
   <tr>
     <th><b>Braze 오브젝트</b></th>
     <th><b>Braze 필드</b></th>
     <th><b>CRM 오브젝트(Salesforce)</b></th>
     <th><b>CRM 필드(Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">카탈로그 &gt; 계정 카탈로그</td>
     <td><code>id</code></td>
@@ -93,6 +96,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
     <td><code>account</code></td>
     <td><code>OTHER_FIELDS</code></td>
   </tr>
+  </tbody>
 </table>
 
 ##### 매핑된 계정 필드의 예시 테이블 {#example-table-of-mapped-account-fields}
@@ -104,14 +108,17 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 
 이 사용 사례에서는 Salesforce가 예시 CRM 시스템입니다. CRM의 오브젝트에 포함된 모든 필드를 매핑할 수 있습니다.
 
-<table aria-label="Example table of mapped account fields" border="1">
+<table aria-label="매핑된 계정 필드의 예시 테이블" border="1">
   <caption>매핑된 계정 필드의 예시 테이블</caption>
+  <thead>
   <tr>
     <th><b>Braze 오브젝트</b></th>
     <th><b>Braze 필드</b></th>
     <th><b>CRM 오브젝트(Salesforce)</b></th>
     <th><b>CRM 필드(Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">카탈로그 &gt; 기회 카탈로그</td>
     <td><code>id</code></td>
@@ -133,6 +140,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
     <td><code>OTHER_FIELDS</code></td>
   </tr>
   </tr>
+  </tbody>
 </table>
 
 ##### 매핑된 기회 필드의 예시 테이블 {#example-table-of-mapped-opportunity-fields}
@@ -169,7 +177,7 @@ Braze에서 비즈니스 오브젝트를 만들고 관리하는 방법에는 카
 | `Aliases.salesforce_contact_id` | Contact | `id` | - 사용자 별칭 라벨: `salesforce_contact_id` <br>- 사용자 별칭 이름: `contact_id` |
 | `AccountId` | Contact | `AccountId` |
 | `OpportunityId` (선택 사항, 스칼라) <br>또는<br> `Opportunities` (선택 사항, 배열) | Opportunity | `id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze 오브젝트: User" }
 
 {% alert note %}
 Salesforce 리드 및 연락처 식별자를 Braze에 매핑할 때 `external_id` 대신 [별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases)을 사용하는 것을 권장합니다. 이렇게 하면 제품 주도 성장 스타일 이니셔티브를 식별하고 실행할 때 필요한 조회 횟수를 줄일 수 있기 때문입니다.

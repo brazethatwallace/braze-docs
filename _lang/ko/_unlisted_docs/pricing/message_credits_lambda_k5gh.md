@@ -36,11 +36,12 @@ hide_toc: true
 ## 메시지 크레딧 - Lambda 크레딧 비율 표 {#credit-ratio-table-for-message-credits-lambda}
 
 {% details 펼치려면 클릭하세요 %}
-<table>
+<table class="credits-table" aria-label="메시지 크레딧 - Lambda 크레딧 비율 표">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>채널</b></th>
         <th><b>대상</b></th>
@@ -51,9 +52,11 @@ hide_toc: true
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>에이전트 콘솔</td>
-        <td>BYO LLM API Key</td>
+        <td>BYO LLM API 키</td>
         <td>0.16</td>
     </tr>
     <tr>
@@ -2041,6 +2044,7 @@ hide_toc: true
         <td>미국 - Rich Media</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2090,30 +2094,30 @@ Braze는 Braze 플랫폼에서 발송된 모든 LINE 메시지에 대해 메시�
 
 ## 과금 지역 분류 {#billing-region-breakdown}
 
-#### 북미 {#north-america}
+### 북미 {#north-america}
 
 미국, 캐나다
 
-#### 기타 아프리카 {#rest-of-africa}
+### 기타 아프리카 {#rest-of-africa}
 
 알제리, 앙골라, 베냉, 보츠와나, 부르키나파소, 부룬디, 카메룬, 차드, 콩고, 에리트레아, 에티오피아, 가봉, 감비아, 가나, 기니비사우, 코트디부아르, 케냐, 레소토, 라이베리아, 리비아, 마다가스카르, 말라위, 말리, 모리타니, 모로코, 모잠비크, 나미비아, 니제르, 르완다, 세네갈, 시에라리온, 소말리아, 남수단, 수단, 에스와티니, 탄자니아, 토고, 튀니지, 우간다, 잠비아
 
-#### 기타 아시아 태평양 {#rest-of-asia-pacific}
+### 기타 아시아 태평양 {#rest-of-asia-pacific}
 
 아프가니스탄, 호주, 방글라데시, 캄보디아, 중국, 홍콩, 일본, 라오스, 몽골, 네팔, 뉴질랜드, 파푸아뉴기니, 필리핀, 싱가포르, 스리랑카, 대만, 타지키스탄, 태국, 투르크메니스탄, 우즈베키스탄, 베트남
 
-#### 기타 중앙 및 동유럽 {#rest-of-central-eastern-europe}
+### 기타 중앙 및 동유럽 {#rest-of-central-eastern-europe}
 
 알바니아, 아르메니아, 아제르바이잔, 벨라루스, 불가리아, 크로아티아, 체코, 조지아, 그리스, 헝가리, 라트비아, 리투아니아, 북마케도니아, 몰도바, 폴란드, 루마니아, 세르비아, 슬로바키아, 슬로베니아, 우크라이나
 
-#### 기타 라틴 아메리카 {#rest-of-latin-america}
+### 기타 라틴 아메리카 {#rest-of-latin-america}
 
 볼리비아, 코스타리카, 도미니카공화국, 에콰도르, 엘살바도르, 과테말라, 아이티, 온두라스, 자메이카, 니카라과, 파나마, 파라과이, 푸에르토리코, 우루과이, 베네수엘라
 
-#### 기타 중동 {#rest-of-middle-east}
+### 기타 중동 {#rest-of-middle-east}
 
 바레인, 이라크, 요르단, 쿠웨이트, 레바논, 오만, 카타르, 예멘
 
-#### 기타 서유럽 {#rest-of-western-europe}
+### 기타 서유럽 {#rest-of-western-europe}
 
 오스트리아, 벨기에, 덴마크, 핀란드, 아일랜드, 노르웨이, 포르투갈, 스웨덴, 스위스

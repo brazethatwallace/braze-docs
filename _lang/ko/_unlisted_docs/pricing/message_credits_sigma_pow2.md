@@ -36,18 +36,20 @@ hide_toc: true
 ## 메시지 크레딧 - Sigma 크레딧 비율 표 {#credit-ratio-table-for-message-credits-sigma}
 
 {% details 클릭하여 펼치기 %}
-<table>
+<table class="credits-table" aria-label="메시지 크레딧 - Sigma 크레딧 비율 표">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>채널</b></th>
         <th><b>대상</b></th>
         <th class="credits-column"><b>1회 발송당 크레딧</b></th>
     </tr>
-<table>
-<tr>
+    </thead>
+    <tbody>
+    <tr>
         <td>에이전트 콘솔</td>
         <td>Braze Auto</td>
         <td>1.60</td>
@@ -2272,6 +2274,7 @@ hide_toc: true
         <td>United States - Single - Deprecated</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2279,6 +2282,7 @@ hide_toc: true
 ------
 
 ## 에이전트 콘솔 세부 정보 {#agent-console-details}
+
 Braze는 Braze 플랫폼에서 발송된 에이전트 콘솔 호출(Invocations)에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로 계약에는 구독 기간의 각 기간당 1만 건의 호출이 포함됩니다.
 
 ## SMS/MMS 채널 세부 정보 {#smsmms-channel-details}
@@ -2321,33 +2325,33 @@ Braze는 Braze 플랫폼에서 발송된 모든 LINE 메시지에 대해 메시�
 
 ## 과금 지역 분류 {#billing-region-breakdown}
 
-#### 북미 {#north-america}
+### 북미 {#north-america}
 
 United States, Canada
 
-#### 기타 아프리카 {#rest-of-africa}
+### 기타 아프리카 {#rest-of-africa}
 
 Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana, Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya,
 Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
 
-#### 기타 아시아 태평양 {#rest-of-asia-pacific}
+### 기타 아시아 태평양 {#rest-of-asia-pacific}
 
 Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand,
 Turkmenistan, Uzbekistan, Vietnam
 
-#### 기타 중앙 및 동유럽 {#rest-of-central-eastern-europe}
+### 기타 중앙 및 동유럽 {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
 
-#### 기타 라틴 아메리카 {#rest-of-latin-america}
+### 기타 라틴 아메리카 {#rest-of-latin-america}
 
 Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador,
 Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### 기타 중동 {#rest-of-middle-east}
+### 기타 중동 {#rest-of-middle-east}
 
 Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
 
-#### 기타 서유럽 {#rest-of-western-europe}
+### 기타 서유럽 {#rest-of-western-europe}
 
 Austria, Belgium, Denmark, Finland, Ireland, Norway, Portugal, Sweden, Switzerland

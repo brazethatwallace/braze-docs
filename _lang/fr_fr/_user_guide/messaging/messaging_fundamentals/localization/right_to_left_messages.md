@@ -43,6 +43,10 @@ La méthode de copier-coller pour les messages push peut être difficile à util
 
 Les fonctions de prévisualisation et de test sont conçues pour les messages de gauche à droite, donc les messages de droite à gauche ne s'afficheront pas correctement dans la section **Preview & Test**, mais s'afficheront correctement sur les appareils des utilisateurs si leurs paramètres sont configurés en conséquence. Nous vous suggérons de vous envoyer des messages dans un environnement en production pour confirmer qu'ils s'affichent correctement en fonction des paramètres de l'appareil.
 
+### Alignement du titre et du corps {#title-and-body-alignment}
+
+Pour les notifications push, l'alignement du titre suit généralement les paramètres de langue de l'appareil, tandis que l'alignement du corps peut suivre le premier caractère directionnel fort de chaque ligne (traitez chaque ligne après un saut de ligne séparément). Cela signifie qu'une seule notification push peut mélanger les alignements d'une ligne à l'autre — par exemple, une ligne de corps de droite à gauche suivie d'une ligne de gauche à droite. Lorsque vous avez besoin d'une mise en page prévisible, maintenez une cohérence directionnelle et utilisez des sauts de ligne entre les segments multilingues.
+
 ### Texte bidirectionnel {#bi-directional-text}
 
 De nombreux utilisateurs qui écrivent dans des langues de droite à gauche utilisent en réalité du texte bidirectionnel : une combinaison de langues de gauche à droite et de droite à gauche. Par exemple, un marketeur peut envoyer un message en hébreu contenant un nom d'entreprise en anglais. Braze ne peut pas gérer le formatage du texte bidirectionnel. Deux façons d'éviter les problèmes de formatage sont soit d'éviter complètement le texte bidirectionnel, soit de séparer le texte de gauche à droite du texte de droite à gauche à l'aide de sauts de ligne.

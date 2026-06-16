@@ -36,16 +36,19 @@ Die Spaltendefinitionen lauten wie folgt:
 ## Credit-Verhältnistabelle für Message Credits - Delta {#credit-ratio-table-for-message-credits-delta}
 
 {% details Zum Aufklappen klicken %}
-<table>
+<table class="credits-table" aria-label="Credit-Verhältnistabelle für Message Credits - Delta">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Kanal</b></th>
         <th><b>Ziel</b></th>
         <th class="credits-column"><b>Credits pro 1 Sendung</b></th>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Agentenkonsole</td>
         <td>Braze Auto</td>
@@ -2271,12 +2274,15 @@ Die Spaltendefinitionen lauten wie folgt:
         <td>Vereinigte Staaten - Single - Veraltet</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
 
 ------
+
 ## Details zur Agentenkonsole {#agent-console-details}
+
 Braze berechnet Message Credits für Aufrufe der Agentenkonsole, die über die Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig enthält Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abo-Laufzeit.
 
 ## Details zum SMS/MMS-Kanal {#smsmms-channel-details}
@@ -2319,33 +2325,33 @@ Braze berechnet Message Credits für alle LINE-Nachrichten, die über die Braze-
 
 ## Aufschlüsselung der Abrechnungsregionen {#billing-region-breakdown}
 
-#### Nordamerika {#north-america}
+### Nordamerika {#north-america}
 
 Vereinigte Staaten, Kanada
 
-#### Übriges Afrika {#rest-of-africa}
+### Übriges Afrika {#rest-of-africa}
 
 Algerien, Angola, Benin, Botswana, Burkina Faso, Burundi, Kamerun, Tschad, Kongo, Eritrea, Äthiopien, Gabun, Gambia, Ghana, Guinea-Bissau, Elfenbeinküste, Kenia, Lesotho, Liberia, Libyen,
 Madagaskar, Malawi, Mali, Mauretanien, Marokko, Mosambik, Namibia, Niger, Ruanda, Senegal, Sierra Leone, Somalia, Südsudan, Sudan, Swasiland, Tansania, Togo, Tunesien, Uganda, Sambia
 
-#### Übriger Asien-Pazifik-Raum {#rest-of-asia-pacific}
+### Übriger Asien-Pazifik-Raum {#rest-of-asia-pacific}
 
 Afghanistan, Australien, Bangladesch, Kambodscha, China, Hongkong, Japan, Laos, Mongolei, Nepal, Neuseeland, Papua-Neuguinea, Philippinen, Singapur, Sri Lanka, Taiwan, Tadschikistan, Thailand,
 Turkmenistan, Usbekistan, Vietnam
 
-#### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
+### Übriges Mittel- und Osteuropa {#rest-of-central-eastern-europe}
 
 Albanien, Armenien, Aserbaidschan, Belarus, Bulgarien, Kroatien, Tschechische Republik, Georgien, Griechenland, Ungarn, Lettland, Litauen, Mazedonien, Moldawien, Polen, Rumänien, Serbien, Slowakei, Slowenien, Ukraine
 
-#### Übriges Lateinamerika {#rest-of-latin-america}
+### Übriges Lateinamerika {#rest-of-latin-america}
 
 Bolivien, Costa Rica, Dominikanische Republik, Ecuador, El Salvador,
 Guatemala, Haiti, Honduras, Jamaika, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Übriger Naher Osten {#rest-of-middle-east}
+### Übriger Naher Osten {#rest-of-middle-east}
 
 Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Katar, Jemen
 
-#### Übriges Westeuropa {#rest-of-western-europe}
+### Übriges Westeuropa {#rest-of-western-europe}
 
 Österreich, Belgien, Dänemark, Finnland, Irland, Norwegen, Portugal, Schweden, Schweiz

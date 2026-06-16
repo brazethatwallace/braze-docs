@@ -43,7 +43,7 @@ Añade las campañas y los mensajes de Canvas que deseas compilar en tu informe.
 - Seleccionar manualmente campañas y Canvas
 - Seleccionar automáticamente campañas y Canvas en función de reglas específicas
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Selección de mensajes del informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Seleccionar manualmente campañas o Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ Las etiquetas deben coincidir con al menos una campaña o Canvas para que se gen
 
 El paso **Add Stats** te muestra las estadísticas para los tipos de campañas o Canvas que hayas seleccionado. Por ejemplo, si seleccionaste mensajes de correo electrónico, solo podrás ver las estadísticas relevantes de correo electrónico. Si elegiste una combinación de correo electrónico y push, podrás ver las estadísticas de esos dos canales.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Añadir estadísticas al informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 Los informes de interacción agregan datos por campaña o Canvas, no a nivel de espacio de trabajo. Para monitorear el volumen total de envíos o impresiones en todas las campañas y Canvas activos, como los envíos e impresiones por canal en todo un espacio de trabajo, usa el [Generador de informes]({{site.baseurl}}/report_builder/).
 
@@ -100,7 +100,7 @@ De forma predeterminada, el rango de datos mostrado se basa en la zona horaria d
 
 De forma predeterminada, los datos mostrados en los informes de interacción son diarios (un día). Para ver estos datos en diferentes intervalos, elige un número explícito de días o semanas para agregar los datos del informe. Así, en lugar de ver métricas diarias, puedes ver tu interacción por semana, mes, trimestre o similar. Si una agregación centrada en el tiempo no es suficiente, también puedes optar por exportar datos a nivel de campaña o Canvas.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![Cobertura de datos del informe de interacción]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### Mostrar datos por campaña o Canvas completo {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ Hay dos opciones al planificar tu informe:
 - **Enviar inmediatamente:** Después de lanzar el informe, Braze lo enviará de inmediato.
 - **Enviar en un horario designado:** Esta opción te da la flexibilidad de elegir con qué frecuencia recibes este informe. Puedes elegir enviar este informe cada cierto número de días, semanas o meses. También puedes definir cuándo dejar de enviar el informe.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![Planificación del informe de interacción]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Paso 5: Revisar y lanzar {#step-5-review-and-launch}
 
@@ -146,3 +146,10 @@ Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedore
 #### Clics de botón duplicados en mensajes dentro de la aplicación HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
 Si utilizas mensajes dentro de la aplicación HTML y los **clics en el cuerpo** parecen altos en el informe de interacción, es posible que estés registrando clics dos veces, por ejemplo, al llamar a `brazeBridge.logClick()` para un clic genérico en el cuerpo y también `brazeBridge.logClick('body click')` (u otro ID) en la misma interacción. Busca en tu código `brazeBridge.logClick(` y alinea con un patrón por control. Para el uso recomendado, consulta [Seguimiento de botones]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+
+#### Enlaces rotos en los correos electrónicos de informes de interacción {#broken-links-in-emailed-engagement-reports}
+
+Si los enlaces en un correo electrónico de informe de interacción planificado no se abren correctamente en tu cliente de correo, prueba estos pasos:
+
+1. Reenvía el informe a una bandeja de entrada de Gmail y abre los enlaces en Google Chrome.
+2. En la configuración del informe de interacción, confirma que **Report Schedule** está configurado para enviar cuando esperas (por ejemplo, inmediatamente después de que se genere el informe en lugar de en una planificación diferida).

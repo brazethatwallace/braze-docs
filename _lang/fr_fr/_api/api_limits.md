@@ -48,7 +48,7 @@ Consultez les informations ci-dessous pour connaître les limites de débit par 
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/)                                                                                                                                                                                             | 100 requêtes par minute.                                                                                                                                                                                                                                                                                                                                                                  |
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 requêtes par heure. |
 | [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 requêtes par heure. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requêtes avec différentes limites de débit" }
 
 ### Requêtes avec limites de débit partagées {#requests-with-shared-rate-limits}
 
@@ -117,8 +117,8 @@ Cela s'applique aux endpoints suivants : [`/messages/send`]({{site.baseurl}}/api
 
 Pour ces endpoints, les requêtes de diffusion sont considérées comme ciblant la même audience unique lorsque tous les éléments suivants correspondent :
 
-- La Campaign ou le Canvas déclenché (le `campaign_id` ou `canvas_id` dans votre requête API, si spécifié)
-- L'audience ciblée (les segments ou filtres, ou pour les Campaigns API, le `segment_id` dans votre requête API)
+- La campagne ou le Canvas déclenché (le `campaign_id` ou `canvas_id` dans votre requête API, si spécifié)
+- L'audience ciblée (les segments ou filtres, ou pour les campagnes API, le `segment_id` dans votre requête API)
 - Les filtres d'audience connectés (l'objet `audience` dans votre requête API, s'il est spécifié)
 
 Chaque combinaison unique de ces attributs est considérée comme une audience distincte. La limite de débit supplémentaire pour chaque audience unique s'applique donc indépendamment à chaque combinaison.
@@ -188,7 +188,7 @@ Chaque requête API envoyée à Braze renvoie les informations suivantes dans le
 | `X-RateLimit-Limit`     | Le nombre maximum de requêtes que vous pouvez effectuer dans un intervalle donné (votre limite de débit). |
 | `X-RateLimit-Remaining` | Le nombre de requêtes restantes dans la fenêtre de limite de débit en cours. |
 | `X-RateLimit-Reset`     | L'heure de réinitialisation de la fenêtre de limite de débit en cours, exprimée en secondes epoch UTC. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Surveiller vos limites de débit" }
 
 Ces informations sont volontairement incluses dans l'en-tête de la réponse API plutôt que dans le tableau de bord de Braze. Votre système peut ainsi réagir en temps réel lors de ses interactions avec notre API. Par exemple, si la valeur de `X-RateLimit-Remaining` passe en dessous d'un certain seuil, vous pouvez ralentir les envois pour vous assurer que tous les e-mails transactionnels sont bien transmis. Si elle atteint zéro, vous pouvez suspendre tous les envois jusqu'à ce que le délai indiqué dans `X-RateLimit-Reset` soit écoulé.
 
@@ -211,6 +211,12 @@ Nous vous recommandons de prévoir un délai de 5 minutes entre des appels d'end
 Comprendre le délai optimal entre les endpoints est essentiel lorsque vous effectuez des appels consécutifs vers l'API de Braze. Des problèmes surviennent lorsqu'un endpoint dépend du traitement réussi d'un autre endpoint : s'il est appelé trop tôt, cela peut provoquer des erreurs. Par exemple, si vous attribuez un alias à un utilisateur via l'endpoint `/user/alias/new`, puis que vous utilisez cet alias pour envoyer un événement personnalisé via l'endpoint `/users/track`, combien de temps devez-vous attendre ?
 
 Dans des conditions normales, la cohérence à terme de nos données s'établit en 10 à 100 ms (1/10 de seconde). Toutefois, dans certains cas, ce délai peut être plus long. Nous vous recommandons donc de prévoir un délai de 5 minutes entre les appels successifs afin de minimiser la probabilité d'erreur.
+
+## Limites de taille du payload {#payload-size-limits}
+
+Les requêtes de l'API de Braze sont soumises à des limites de taille du payload, distinctes des limites de débit. La plupart des endpoints acceptent des corps de requête allant jusqu'à 4&nbsp;Mo. Lorsqu'une requête dépasse la limite applicable, Braze peut la rejeter avec une erreur HTTP `413 Request Entity Too Large` ou HTTP `400 Bad Request`, selon l'endpoint.
+
+L'endpoint [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) a une limite de payload de 2&nbsp;Mo et renvoie une erreur HTTP `400` lorsque le corps de la requête dépasse cette limite. Pour les limites spécifiques à chaque endpoint et la gestion des erreurs, consultez [Endpoints de données utilisateur]({{site.baseurl}}/api/endpoints/user_data/).
 
 ### Réinitialisation des limites de débit {#rate-limit-reset}
 

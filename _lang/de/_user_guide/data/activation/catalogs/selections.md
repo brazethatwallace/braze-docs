@@ -79,7 +79,7 @@ Connected-Content-Liquid wird in diesen Filtereinstellungen nicht unterstützt.
 
 Nachdem Sie Ihre Auswahl erstellt haben, personalisieren Sie Ihre Nachrichten mit Liquid, um die gefilterten Artikel aus diesem Katalog einzufügen. Sie können Braze das Liquid über das Personalisierungsfenster in den Nachrichten-Editoren für Sie generieren lassen:
 
-1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Personalisierung hinzufügen"></i>, um das Personalisierungsfenster zu öffnen.
+1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Personalisierung hinzufügen"></i> **Add personalization**, um das Personalisierungsfenster zu öffnen.
 2. Wählen Sie für **Personalization Type** die Option **Catalog Items**.
 3. Wählen Sie Ihren Katalognamen aus.
 4. Wählen Sie für **Item selection method** die Option **Use a selection**.

@@ -1,7 +1,6 @@
 ---
 nav_title: SMS, MMS, RCS 트래픽 펌핑 사기 방지
-description: "SMS, MMS, RCS 트래픽 펌핑 사기의 작동 방식, Braze가 특정 대상을 높은 사기 위험으로 표시하는 이유, 지역 허용 목록 및 기타 제어를 통해 노출을 줄이는 방법을 알아봅니다."
-alias: /sms_traffic_pumping_fraud/
+description: "SMS, MMS, RCS 트래픽 펌핑 사기의 작동 방식, Braze가 특정 대상을 높은 사기 위험으로 표시하는 이유, 지리적 허용 목록 및 기타 제어를 통해 노출을 줄이는 방법을 알아봅니다."
 page_type: reference
 page_order: 5
 channel:

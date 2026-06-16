@@ -117,6 +117,8 @@ Los cálculos de MAU siguen reglas específicas para garantizar una facturación
 
 {% alert note %}
 Los usuarios anónimos también cuentan para tu MAU. Para dispositivos móviles, los usuarios anónimos dependen del dispositivo. Para usuarios web, los usuarios anónimos dependen de la caché del navegador.
+
+Los recuentos de MAU en Braze pueden diferir de herramientas como Amplitude cuando cada producto utiliza una definición diferente de usuario activo. Compara la configuración en Amplitude (y tus reglas de MAU de Braze anteriores) antes de investigar una discrepancia como un problema del pipeline de datos.
 {% endalert %}
 
 #### Ejemplo de cálculo de MAU {#mau-calculation-example}
@@ -170,6 +172,10 @@ El valor de MAU se calcula cada noche y no se actualizará hasta el día siguien
 ### Sesiones diarias {#daily-sessions}
 
 *Sesiones diarias* es el número de sesiones registradas en un día determinado. Comparar este valor con tu recuento de DAU puede informarte de cuántas veces tus usuarios abren la aplicación o visitan tu sitio web en los días en que registran al menos una sesión.
+
+{% alert note %}
+El *Recuento de sesiones diarias* para una fecha determinada puede cambiar cuando consultas el dashboard de inicio en días diferentes. Si un usuario inicia una sesión sin conexión, es posible que la sesión no llegue a Braze hasta que vuelva a abrir la aplicación. Cuando esa sesión se envía, Braze la atribuye a la fecha en que comenzó la sesión, lo que puede aumentar el recuento de esa fecha retroactivamente.
+{% endalert %}
 
 ### Sesiones diarias por MAU {#daily-sessions-per-mau}
 

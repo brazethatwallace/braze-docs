@@ -20,10 +20,13 @@ O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como o
 
 <table aria-label="Sobre o editor" style="width: 100%; table-layout: fixed;">
     <caption>Componentes do editor: Conteúdo e Linhas</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Conteúdo</th>
         <th style="width: 50%;">Linhas</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="A guia 'Linhas' que inclui diferentes combinações estruturais para o layout do seu e-mail." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como o
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="A guia 'Conteúdo' que inclui blocos básicos, mídia e avançados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Sobre o editor" }
 

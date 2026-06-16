@@ -20,10 +20,13 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
 
 <table aria-label="À propos de l'éditeur" style="width: 100%; table-layout: fixed;">
     <caption>Composants de l'éditeur : Contenu et Lignes</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenu</th>
         <th style="width: 50%;">Lignes</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet « Lignes » qui présente différentes combinaisons structurelles pour la disposition de votre e-mail." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet « Contenu » qui comprend les blocs de base, les médias et les options avancées." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="À propos de l'éditeur" }
 
@@ -196,7 +200,7 @@ Notez que les modifications apportées à un modèle d'e-mail ne seront pas refl
 
 #### Utiliser Inbox Vision {#use-inbox-vision}
 
-Inbox Vision vous permet de visualiser vos Campaigns d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail avec Inbox Vision, sélectionnez **Inbox Vision** dans la section **Preview & Test** puis sélectionnez **Run Inbox Vision**.
+Inbox Vision vous permet de visualiser vos campagnes d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail avec Inbox Vision, sélectionnez **Inbox Vision** dans la section **Preview & Test** puis sélectionnez **Run Inbox Vision**.
 
 Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de coupures entre les images, ou des clients comme Windows Outlook peuvent ne pas afficher les images d'arrière-plan. Inbox Vision peut vous aider à identifier ces différences entre les clients. Dans ce cas, définissez une couleur d'arrière-plan de secours pour que ces images s'affichent comme prévu.
 

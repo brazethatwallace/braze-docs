@@ -31,8 +31,22 @@ Utilisez les options suivantes pour personnaliser les données affichées dans l
 
 ## Exporter les données {#exporting-data}
 
-Pour exporter vos données d'événements personnalisés, sélectionnez <i class="fas fa-bars" title="Menu contextuel du graphique"></i> dans le graphique **Performance Over Time** et sélectionnez votre option d'exportation.
+Pour exporter vos données d'événements personnalisés, sélectionnez <i class="fas fa-bars" title="Menu contextuel du graphique"></i> **Menu contextuel du graphique** dans le graphique **Performance Over Time** et sélectionnez votre option d'exportation.
 
 {% alert tip %}
 Pour obtenir de l'aide concernant les exportations CSV et API, consultez [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
+
+## Résolution des problèmes {#troubleshooting}
+
+### La ventilation par segment ne correspond pas aux totaux de l'espace de travail {#segment-breakdown-doesnt-match-workspace-totals}
+
+Lorsque vous utilisez **Filter by Segments** ou que vous restreignez le rapport avec le menu déroulant **Apps**, le graphique compte les utilisateurs du segment (ou de l'application) sélectionné ayant effectué l'événement personnalisé, et non chaque occurrence de l'événement dans l'ensemble de l'espace de travail.
+
+Si vous comparez une ligne de segment à une vue non filtrée (ou à **All Apps**), les totaux diffèrent souvent car :
+
+- **All Apps** peut inclure des utilisateurs et des événements provenant de toutes les applications de l'espace de travail.
+- Un filtre sur une seule application n'inclut que les profils associés à cette application.
+- Les filtres de segment comptent les utilisateurs correspondant à la définition du segment au moment de la requête, ce qui peut exclure les utilisateurs ayant effectué l'événement en dehors des critères du segment.
+
+Pour comparer des données équivalentes, utilisez le même filtre d'application et la même sélection de segment pour chaque série que vous comparez, ou exportez les données et rapprochez les totaux dans votre outil d'analyse.

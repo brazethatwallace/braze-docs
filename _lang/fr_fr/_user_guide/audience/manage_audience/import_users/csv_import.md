@@ -289,11 +289,7 @@ Dans cet exemple :
 
 Pour téléverser votre fichier, sélectionnez **Attributes** ou **Events**, cliquez sur **Browse Files**, puis téléversez votre CSV. Braze affiche un aperçu des premières lignes et un résumé des champs détectés.
 
-![La page d'aperçu du fichier montrant un aperçu du fichier après le téléversement.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Pour les fichiers volumineux (jusqu'à 500 Mo pour les attributs par défaut et personnalisés, ou 50 Mo pour les événements personnalisés), le tableau de bord peut sembler temporairement non réactif pendant le téléversement du fichier et le calcul de l'importation par Braze. Ces téléversements et calculs peuvent prendre plus de temps que pour des fichiers plus petits. Laissez cette étape se terminer. Pour plus de contexte sur les limites de fichiers et les délais, consultez [Construire votre CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![La fenêtre modale de téléversement terminé montrant un aperçu du fichier, un champ de nom d'importation, les préférences de ciblage et une case de validation du fichier.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 Dans le champ **Import name**, vous pouvez renommer votre importation. Par défaut, le nom du fichier est utilisé.
 
@@ -426,6 +422,14 @@ Définir `language` ou `country` sur un utilisateur via l'importation CSV ou l'A
 Si vous avez utilisé la [validation du fichier](#file-validation), commencez par le rapport d'erreurs, car il inclut le problème spécifique pour chaque ligne signalée et une description de la façon de le corriger. Pour les lignes qui ont échoué lors de l'importation plutôt que lors de la validation, téléchargez le rapport d'erreurs en survolant la ligne et en sélectionnant le bouton <i class="fas fa-download" title="Télécharger"></i> sur la page **Import Users**.
 
 Pour la résolution des problèmes d'importation CSV, consultez les problèmes courants ci-dessous.
+
+### Utiliser un e-mail comme `external_id` {#use-email-as-external_id}
+
+Braze ne recommande pas d'utiliser une adresse e-mail comme `external_id`. Si vous utilisez un e-mail comme `external_id`, incluez les colonnes `external_id` et `email` dans votre CSV afin que les utilisateurs restent ciblables sur le canal e-mail. Utilisez une virgule (`,`) comme délimiteur de colonne, et non un deux-points (`:`).
+
+### Caractères de guillemets dans les valeurs `external_id` {#quote-characters-in-external_id-values}
+
+Si une cellule `external_id` contient un guillemet double, échappez-le en doublant le caractère (`""`), comme décrit dans [Guillemets doubles non échappés ou déséquilibrés](#missing-row). L'importation CSV n'utilise pas l'échappement par barre oblique inverse.
 
 ### L'importation CSV n'est pas disponible comme filtre de segment {#csv-import-isnt-available-as-a-segment-filter}
 

@@ -401,6 +401,21 @@ uvx --python 3.12 braze-mcp-server@latest
 
 ### Client configuration
 
+#### "This extension is not compatible with your device"
+
+If you see this error when installing the Braze MCP server extension, it may indicate one of the following:
+
+- **Your device doesn't meet the requirements**: Some MCP server extensions require specific operating system versions or hardware.
+- **Missing development tools (macOS only)**: On macOS, the extension installation requires command line developer tools to run Python commands. If these tools aren't installed, the installation will fail with this error.
+
+To install command line developer tools on macOS, run the following in your terminal:
+
+```bash
+xcode-select --install
+```
+
+After installation completes, restart your MCP client and try installing the extension again.
+
 #### MCP client can't find the Braze server
 
 1. Verify your MCP client configuration syntax is correct.

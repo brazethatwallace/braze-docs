@@ -51,7 +51,7 @@ Canvases are robust and complex, and we know you dedicate time and care when cre
 
 ### Entry settings
 
-The [entry settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) are important for understanding how your Canvases are sending. Check if you have limited the number of people who will potentially enter the Canvas.
+The [entry settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) are important for understanding how your Canvases are sending. Check if you have limited the number of people who can potentially enter the Canvas.
 
 Users can also exit a Canvas if they're no longer eligible to receive messages. For example, if the Canvas only contains push notifications, and a user opts out of push after receiving the first step, then that user would drop out of the Canvas. Consider using [different Canvas steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/) to add alternative user journeys.
 
@@ -63,7 +63,7 @@ Consider the following questions for your target audience:
 - How is the segment set up?
 - Have you confirmed that the segment contains any users?
 - Have you added any additional filters that would limit the number of users entering the Canvas?
-- Do the users qualify to receive the first step of your variants? For example, if the first step of your Canvas is a push notification, but the entry audience is all push-disabled, then no users will receive messages.
+- Do the users qualify to receive the first step of your variants? For example, if the first step of your Canvas is a push notification, but the entry audience is all push-disabled, then no users receive messages.
 
 ## Why are sends or deliveries lower than my target audience size?
 
@@ -104,13 +104,23 @@ Let's imagine the following scenario:
 
 ![Canvas example with 90% variant and 10% control group.]({% image_buster /assets/img_archive/trouble15.png %})
 
-In this scenario, 90% of the users who enter the Canvas will enter the variant. 
+In this scenario, 90% of the users who enter the Canvas enter the variant. 
 
 If we look back to the active users, we can see that even though it contains 29.8k users, only 64% of them push enabled:
 
 ![Segment with the "Push Enabled" filter set to "true", and estimated users of 29.8k.]({% image_buster /assets/img_archive/trouble16.png %})
 
-This means that even though we specified 90% of users to enter the variant, not all of those users are actually able to receive a push notification. These users who are unable to receive a push notification will still enter the variant regardless.
+This means that even though we specified 90% of users to enter the variant, not all of those users are actually able to receive a push notification. These users who are unable to receive a push notification still enter the variant regardless.
+
+## Action-based steps and custom event properties
+
+If an action-based Canvas or Action Path does not send when you expect, confirm that the custom event in the user profile matches the trigger configuration, including property filters. Braze evaluates the exact properties sent with the event; if a property is missing or the value does not match the filter, the user does not advance.
+
+Events that occur too early or before the user qualifies for the audience do not trigger the step, so check the timestamp of the event relative to Canvas launch, [entry schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types), and any scheduled delay before the step.
+
+{% alert note %}
+In-app messages in Canvas can only be triggered by events from the SDK, not the REST API. See [Why did a user not receive a triggered Canvas step?](#why-did-a-user-not-receive-a-triggered-canvas-step)
+{% endalert %}
 
 ## Why is the Canvas editor freezing or not loading?
 

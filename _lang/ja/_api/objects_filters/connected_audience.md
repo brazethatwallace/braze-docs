@@ -49,7 +49,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 | Eコマース | オンライン小売業者が、`wishlisted_products`配列に該当する商品IDを含むユーザーに値下げや再入荷のアラートを送信します。 |
 | 旅行 | 旅行アプリが、`booked_flight`属性が影響を受けるフライト番号に一致するユーザーにフライト遅延通知を送信します。 |
 | 金融サービス | 取引プラットフォームが、`watchlist`配列に価格閾値を超えた銘柄コードを含むユーザーにアラートを送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユースケース" }
 
 いずれの場合も、1つのCampaignまたはAPIのみのメッセージ定義ですべてのバリエーションに対応します。バックエンドがフィルター値を決定してAPIリクエストに渡すため、商品、番組、チーム、ロケーションごとに個別のSegmentやCampaignを作成する必要はありません。
 
@@ -139,7 +139,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 | 数値 | `equals`、`not_equal`、`greater_than`、`greater_than_or_equal_to`、`less_than`、`less_than_or_equal_to`、`exists`、`does_not_exist` |
 | ブール値 | `equals`、`not_equal`、`exists`、`does_not_exist` |
 | 時刻 | `less_than_x_days_ago`、`greater_than_x_days_ago`、`less_than_x_days_in_the_future`、`greater_than_x_days_in_the_future`、`after`、`before`、`exists`、`does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Allowed comparisons by data type" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="データタイプ別の許容される比較" }
 
 #### 属性比較の注意点 {#attribute-comparison-caveats}
 
@@ -147,7 +147,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 | --- | --- |
 | `value` | `exists`または`does_not_exist`の比較を使用する場合、`value`は必要ありません。`before`および`after`の比較を使用する場合、`value`はISO 8601日時文字列である必要があります。 |
 | `matches_regex` | `matches_regex`比較を使用する場合、渡される値は文字列である必要があります。Brazeでの正規表現の使用については、[正規表現]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze)と[カスタム属性のデータタイプ]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="属性比較の注意点" }
 
 #### カスタム属性の例 {#custom-attribute-example}
 
@@ -242,4 +242,12 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 ### 考慮事項 {#considerations}
 
-接続オーディエンスでは、デフォルト属性、カスタムイベント、Segments、またはメッセージエンゲージメントイベントによるユーザーのフィルタリングはできません。これらのフィルターを使用するには、オーディエンスSegmentに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)の`segment_id`パラメーターでそのSegmentを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのCampaignまたはCanvasにSegmentを追加する必要があります。
+接続オーディエンスでは、以下の条件によるユーザーのフィルタリングはできません。
+
+ - デフォルト属性
+ - カスタムイベント
+ - Segments
+ - メッセージエンゲージメントイベント
+ - 階層化カスタム属性
+
+これらのフィルターを使用するには、オーディエンスSegmentに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)の`segment_id`パラメーターでそのSegmentを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのCampaignまたはCanvasにSegmentを追加する必要があります。

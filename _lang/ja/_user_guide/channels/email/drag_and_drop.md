@@ -20,10 +20,13 @@ tool:
 
 <table aria-label="エディターについて" style="width: 100%; table-layout: fixed;">
     <caption>コンテンツと行のエディターコンポーネント</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">コンテンツ</th>
         <th style="width: 50%;">行</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="メールレイアウト用のさまざまな構造の組み合わせを含む「行」タブ。" style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ tool:
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="基本ブロック、メディア、詳細設定を含む「コンテンツ」タブ。" style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="エディターについて" }
 
