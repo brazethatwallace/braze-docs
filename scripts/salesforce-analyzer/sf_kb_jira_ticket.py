@@ -127,6 +127,155 @@ def github_pr_number_from_url(pr_url: str) -> int:
     return int(m.group("number"))
 
 
+SUGGESTED_CHANGE_PREFIX_RE = re.compile(
+    r"^(?:Add (?:to|documentation for)\s+[^:]{0,120}:|Consider adding[^:]*:)\s*",
+    re.I,
+)
+
+
+def brief_from_suggested_change(suggested: str, *, max_len: int = 220) -> str:
+    """First sentence/paragraph of CSV ``suggested_change``, trimmed for PR summaries."""
+    text = (suggested or "").strip().split("\n\n", 1)[0].strip()
+    text = SUGGESTED_CHANGE_PREFIX_RE.sub("", text).strip("'\"")
+    if not text:
+        return ""
+    if len(text) <= max_len:
+        return text
+    trimmed = text[: max_len - 1].rsplit(" ", 1)[0]
+    return (trimmed or text[: max_len - 1]).rstrip() + "…"
+
+
+def summary_bullet_from_row(row: dict[str, str]) -> str:
+    title = (row.get("title") or row.get("article_id") or "Untitled").strip()
+    brief = brief_from_suggested_change(row.get("suggested_change") or "")
+    if brief:
+        return f"**{title}** — {brief}"
+    return f"**{title}** — Adds public docs guidance from Salesforce Knowledge."
+
+
+def build_pr_summary_section_lines(
+    *,
+    doc_path: str,
+    backlog_rows: list[dict[str, str]],
+    summary_bullets: list[str] | None = None,
+) -> list[str]:
+    """
+    Markdown body lines for ``## Summary`` (heading excluded).
+
+    Uses explicit ``summary_bullets`` when provided; otherwise derives one bullet
+    per backlog row from ``title`` + ``suggested_change``.
+    """
+    if summary_bullets:
+        bullets = [b.strip() for b in summary_bullets if b.strip()]
+    else:
+        bullets = [summary_bullet_from_row(row) for row in backlog_rows if row]
+
+    lines = [
+        f"Updates `{doc_path}` from Salesforce Knowledge:",
+        "",
+    ]
+    if not bullets:
+        lines.append(
+            f"* Adds or refines public documentation in `{doc_path}` for the linked Salesforce Knowledge articles."
+        )
+        return lines
+
+    if len(bullets) == 1:
+        single = bullets[0]
+        if single.startswith("**"):
+            lines.append(single)
+        else:
+            lines.append(f"* {single}")
+        return lines
+
+    lines.extend(f"* {bullet}" for bullet in bullets)
+    return lines
+
+
+def build_change_detail_lines(doc_path: str, backlog_rows: list[dict[str, str]]) -> list[str]:
+    """Markdown bullets for the ``## Changes`` section."""
+    count = len(backlog_rows)
+    lines = [f"* `{doc_path}` — Salesforce Knowledge batch ({count} article(s))"]
+    evidence_paths: list[str] = []
+    seen: set[str] = set()
+    for row in backlog_rows:
+        evidence = (row.get("codebase_evidence") or "").strip()
+        for match in re.finditer(r"platform/[^\s,;\"']+", evidence):
+            path = match.group(0).rstrip(".)")
+            if path not in seen:
+                seen.add(path)
+                evidence_paths.append(path)
+    for path in evidence_paths[:5]:
+        lines.append(f"  * Verified against `{path}`")
+    if len(evidence_paths) > 5:
+        lines.append(f"  * …and {len(evidence_paths) - 5} more platform path(s) in CSV evidence")
+    return lines
+
+
+def build_sf_kb_github_pr_body(
+    *,
+    doc_path: str,
+    product_vertical: str,
+    articles: list[tuple[str, str]],
+    backlog_rows: list[dict[str, str]] | None = None,
+    summary_bullets: list[str] | None = None,
+    skipped: list[tuple[str, str, str]] | None = None,
+) -> str:
+    """
+    Standard Salesforce KB Phase 2 GitHub PR body.
+
+    Section order: Product vertical → Summary → Changes → Salesforce Knowledge sources
+    → optional Skipped → Test plan.
+    """
+    rows = backlog_rows if backlog_rows is not None else []
+    if not rows and articles:
+        rows = [{"article_id": aid, "title": title} for aid, title in articles]
+
+    body_lines = [
+        "## Product vertical",
+        "",
+        product_vertical,
+        "",
+        "## Summary",
+        "",
+        *build_pr_summary_section_lines(
+            doc_path=doc_path,
+            backlog_rows=rows,
+            summary_bullets=summary_bullets,
+        ),
+        "",
+        "## Changes",
+        "",
+        *build_change_detail_lines(doc_path, rows),
+        "",
+        "## Salesforce Knowledge sources",
+        "",
+    ]
+    titles = load_kb_article_titles()
+    for aid, fallback in articles:
+        ttl = titles.get(aid, fallback)
+        body_lines.append(f"* `{aid}` — {ttl}")
+
+    if skipped:
+        body_lines.extend(["", "## Skipped in this PR", ""])
+        for article_id, title, reason in skipped:
+            suffix = f" ({reason})" if reason else ""
+            body_lines.append(f"* `{article_id}` — {title}{suffix}")
+
+    body_lines.extend(
+        [
+            "",
+            "## Test plan",
+            "",
+            "- [ ] Preview changed page on a local docs build",
+            "- [ ] Confirm prose against Braze Docs style guide",
+            "",
+            "Made with [Cursor](https://cursor.com)",
+        ]
+    )
+    return "\n".join(body_lines)
+
+
 def build_description_markdown(
     *,
     pr_title: str | None,

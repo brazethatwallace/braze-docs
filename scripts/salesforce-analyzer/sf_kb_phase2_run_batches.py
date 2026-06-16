@@ -40,9 +40,10 @@ REPO = "braze-inc/braze-docs"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_kb_phase1_outputs import doc_path_branch_slug, product_vertical_hint  # noqa: E402
 from sf_kb_jira_ticket import (  # noqa: E402
+    brief_from_suggested_change,
+    build_sf_kb_github_pr_body,
     create_bd6308_task_prep,
     format_sf_kb_pr_title,
-    load_kb_article_titles,
     update_bd6308_task_pr_link,
 )
 
@@ -171,11 +172,7 @@ def draft_section(rows: list[dict[str, str]]) -> str:
         suggested = (row.get("suggested_change") or "").strip()
         if not title or not suggested:
             continue
-        body = suggested.split("\n\n", 1)[0].strip()
-        body = re.sub(r"^Add (to|documentation for)\s+[^:]{0,120}:\s*", "", body, flags=re.I)
-        body = body.strip("'\"")
-        if len(body) > 600:
-            body = body[:597].rstrip() + "…"
+        body = brief_from_suggested_change(suggested, max_len=600)
         lines.extend([f"### {title}", "", body, ""])
     return "\n".join(lines).rstrip() + "\n"
 
@@ -272,40 +269,21 @@ def process_batch(
     except Exception as exc:  # noqa: BLE001
         print(f"WARN Jira prep failed for {doc_path}: {exc}", file=sys.stderr)
 
-    body_lines = [
-        "## Product vertical",
-        "",
-        product_vertical_hint(doc_path),
-        "",
-        "## Changes",
-        "",
-        f"* `{doc_path}` — Salesforce Knowledge batch ({len(actionable)} article(s))",
-        "",
-        "## Salesforce Knowledge sources",
-        "",
+    skipped = [
+        (
+            r["article_id"].strip(),
+            r.get("title", "").strip(),
+            "INTERNAL or non-actionable",
+        )
+        for r in skipped_internal
     ]
-    titles = load_kb_article_titles()
-    for aid, fallback in articles:
-        ttl = titles.get(aid, fallback)
-        body_lines.append(f"* `{aid}` — {ttl}")
-    if skipped_internal:
-        body_lines.extend(["", "## Skipped in this PR", ""])
-        for r in skipped_internal:
-            body_lines.append(
-                f"* `{r['article_id'].strip()}` — {r.get('title', '').strip()} (INTERNAL or non-actionable)"
-            )
-    body_lines.extend(
-        [
-            "",
-            "## Test plan",
-            "",
-            "- [ ] Preview changed page on a local docs build",
-            "- [ ] Confirm prose against Braze Docs style guide",
-            "",
-            "Made with [Cursor](https://cursor.com)",
-        ]
+    body = build_sf_kb_github_pr_body(
+        doc_path=doc_path,
+        product_vertical=product_vertical_hint(doc_path),
+        articles=articles,
+        backlog_rows=actionable,
+        skipped=skipped or None,
     )
-    body = "\n".join(body_lines)
 
     pr_cmd = [
         "gh",

@@ -91,8 +91,11 @@ python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
 ### PR body (minimum)
 
 - **Product vertical** (routing only)
+- **Summary** — reviewer-facing overview (bullets or a short paragraph) of what changed in the PR
 - **Changes** — files touched; repo-relative verification paths (e.g. `platform/shared_code/...`)
 - **Salesforce Knowledge sources** — bullet per `article_id` + title
+
+Use `build_sf_kb_github_pr_body()` in `sf_kb_jira_ticket.py` for the standard section order. Pass explicit `summary_bullets` when hand-editing docs (bulk append PRs derive summary bullets from CSV `suggested_change`).
 
 ### Jira (BD-6308)
 
