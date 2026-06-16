@@ -358,3 +358,10 @@ Any key that is sent consumes a data point. For example, this object initialized
 Updating a custom attribute object to `null` also consumes a data point.
 {% endalert %}
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Testing Nested Custom Attributes and Nested Objects for Custom Event Properties
+
+Add known limitation to _docs/_user_guide/data/activation/custom_data/custom_attributes/nested_custom_attribute_support.md or message preview docs: Preview as Custom User supports only string or array of strings for mock data; nested objects not supported. For custom event properties, use live campaign to test users.
