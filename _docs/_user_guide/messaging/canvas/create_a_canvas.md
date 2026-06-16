@@ -364,3 +364,11 @@ You can also save your Canvas as a draft if you need to come back to it.
 {% alert tip %}
 Need to make edits to your Canvas after launch? Well, you can! Check out [Editing Canvases after launch]({{site.baseurl}}/post-launch_edits/) for more information.
 {% endalert %}
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Is Random Variant Assignment Based on a User's Random Bucket number?
+
+Verify Canvas variant assignment uses user_id + canvas_id (not random bucket). If confirmed, add explicit note to Canvas docs distinguishing from campaign random bucket behavior.
