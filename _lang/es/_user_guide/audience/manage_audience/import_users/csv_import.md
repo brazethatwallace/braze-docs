@@ -289,11 +289,7 @@ En este ejemplo:
 
 Para cargar tu archivo, selecciona **Attributes** o **Events**, haz clic en **Browse Files** y carga tu CSV. Braze muestra una vista previa de las primeras filas y un resumen de los campos detectados.
 
-![La página de vista previa del archivo mostrando una vista previa del archivo después de la carga.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![El modal de carga completada mostrando una vista previa del archivo, el campo de nombre de importación, las preferencias de segmentación y la casilla de validación del archivo.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 En el campo **Import name**, puedes renombrar tu importación. De forma predeterminada, se utiliza el nombre del archivo.
 
