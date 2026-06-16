@@ -2,6 +2,11 @@
 """
 Sync `_data/kb_articles.csv` and `_data/kb_epic_bd6308.txt` with Salesforce migration PRs.
 
+Optional manual sync for branch `run_sf` when you explicitly refresh tracker state
+from GitHub PRs. Not part of Phase 2 — run only when requested.
+
+Do not include `_data/` changes in SF migration PRs to `develop`.
+
 1. Collect `article_id` values from open and merged PRs labeled `salesforce migration`.
 2. Merge into `_data/kb_epic_bd6308.txt` (sorted, deduped header preserved).
 3. Remove those IDs from `_data/kb_articles.csv`.

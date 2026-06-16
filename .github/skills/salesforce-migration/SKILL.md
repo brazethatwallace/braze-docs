@@ -24,16 +24,19 @@ Migrate Salesforce Knowledge gaps into public docs. Invoke with **`@salesforce-m
 | [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt) | In-flight / completed `article_id` values (excluded from queue) |
 | [`_data/sf_kb_articles.csv`](_data/sf_kb_articles.csv) | Optional full `Resolution` text (`encoding='latin-1'`) when `suggested_change` is not enough |
 
-After Phase 2 PRs open: remove those rows from `kb_articles.csv` and append `article_id` to `kb_epic_bd6308.txt`.
+**Phase 1 only:** `generate_kb_phase1_outputs.py` writes `kb_articles_actioned.md`, `kb_articles_skipped.md`, and may update `kb_articles.csv`. Phase 2 and PR automation **read** these files but do not modify them.
 
 ---
 
 ## Scripts
 
 ```bash
-# Phase 1 — from repo root
+# Phase 1 — from repo root (only step that updates _data/kb_articles*)
 python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --infer-doc-paths --no-prune
 python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --no-prune
+
+# Phase 2 bulk runner — docs-only PRs; does not write _data/
+python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py [--limit N] [--doc-path '_docs/...']
 
 # Phase 2 — Jira task under BD-6308 (needs JIRA_USER_EMAIL + JIRA_API_TOKEN)
 python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py --pr-url '...' --pr-title '[BD-####](SF) ...' --doc-path '_docs/...'
@@ -44,7 +47,8 @@ python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
 
 | Script | Purpose |
 |--------|---------|
-| `generate_kb_phase1_outputs.py` | Gates, path inference, writes actioned/skipped markdown |
+| `generate_kb_phase1_outputs.py` | Gates, path inference, writes actioned/skipped markdown (and CSV when infer/prune flags apply) |
+| `sf_kb_phase2_run_batches.py` | Bulk Phase 2 PR opener (reads `_data/`; docs-only commits) |
 | `sf_kb_jira_ticket.py` | Create BD Task linked to epic BD-6308 |
 | `sf_kb_sync_epic_pr_titles.py` | Rename PRs to `[BD-####](SF) …` format |
 
@@ -82,7 +86,7 @@ python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
 4. Branch off `develop`: `sf-cursor-<doc-slug>-<YYYYMMDD>` (see suggested slug in actioned file).
 5. Open PR to `develop`, label **`salesforce migration`**, title **`[BD-####](SF) short theme`** (create Jira task first or via `sf_kb_jira_ticket.py`).
 6. Assignee: longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv), else `@braze-inc/docs-team`.
-7. **Tracker:** append each `article_id` to `kb_epic_bd6308.txt` (sorted, no duplicates); remove rows from `kb_articles.csv`; re-run Phase 1 `--no-prune`.
+7. **PR scope:** edit `_docs/` (and `_includes/` only when required). **Do not** modify or commit `_data/kb_articles*` or `kb_epic_bd6308.txt` during Phase 2.
 
 ### PR body (minimum)
 
