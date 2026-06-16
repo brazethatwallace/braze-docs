@@ -1,11 +1,11 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-05-29 22:48 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-06-16 19:22 UTC**.
 
 These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue for Phase 2 — not CSV `actioned` status.
 
-**Totals:** **115** actionable rows (of 117).
-**Reference-repo verification:** **81** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
+**Totals:** **106** actionable rows (of 108).
+**Reference-repo verification:** **75** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
 
 ## 1. Phase 2 PR batches (one primary `_docs` file per PR)
 
@@ -19,7 +19,6 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 | --- | ---: | --- | --- | --- |
 | `_docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md` | 12 | Messaging (Liquid personalization) | `sf-cursor-liquid-faq-<YYYYMMDD>` |  |
 | `_docs/_user_guide/messaging/canvas/faqs.md` | 11 | Canvas | `sf-cursor-canvas-faqs-<YYYYMMDD>` |  |
-| `_docs/_user_guide/audience/segments/segmentation_filters.md` | 10 | Audience & segments | `sf-cursor-segments-segmentation-filters-<YYYYMMDD>` |  |
 | `_docs/_user_guide/data/distribution/braze_currents/faq.md` | 7 | Currents | `sf-cursor-braze-currents-faq-<YYYYMMDD>` |  |
 | `_docs/_api/endpoints/subscription_groups.md` | 4 | API / platform engineering | `sf-cursor-endpoints-subscription-groups-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/content_cards/create_a_content_card.md` | 4 | Content Cards | `sf-cursor-content-cards-create-a-content-card-<YYYYMMDD>` |  |
@@ -50,6 +49,7 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 | `_docs/_user_guide/audience/manage_audience/import_users/csv_import.md` | 1 | Audience & segments | `sf-cursor-import-users-csv-import-<YYYYMMDD>` |  |
 | `_docs/_user_guide/audience/manage_audience/merge_duplicate_users.md` | 1 | Audience & segments | `sf-cursor-manage-audience-merge-duplicate-users-<YYYYMMDD>` |  |
 | `_docs/_user_guide/audience/segments/regex.md` | 1 | Audience & segments | `sf-cursor-segments-regex-<YYYYMMDD>` |  |
+| `_docs/_user_guide/audience/segments/segmentation_filters.md` | 1 | Audience & segments | `sf-cursor-segments-segmentation-filters-<YYYYMMDD>` |  |
 | `_docs/_user_guide/audience/subscription_preferences/preference_center/dnd_preference_center.md` | 1 | Audience & segments | `sf-cursor-preference-center-dnd-preference-center-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/email/email_setup/authentication.md` | 1 | Email | `sf-cursor-email-setup-authentication-<YYYYMMDD>` |  |
 | `_docs/_user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps.md` | 1 | Email | `sf-cursor-email-setup-deliverability-pitfalls-and-spam-traps-<YYYYMMDD>` |  |
@@ -106,22 +106,6 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 - **`ka0VP0000008BhRYAU`** — When are Users "Kicked" Out of a Canvas via Exception Event? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
 - **`ka0VP000000GmwjYAC`** — When is a Canvas Step Logged to a User's Profile? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
 - **`ka0VP000000N7yTYAS`** — Why is a Tag No Longer Appended to a Campaign or Canvas? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-
-### PR batch: `_docs/_user_guide/audience/segments/segmentation_filters.md` — **10** article(s)
-
-- **Branch example:** `sf-cursor-segments-segmentation-filters-<YYYYMMDD>`
-- **Reviewer hint:** Audience & segments
-
-- **`ka0VP000000Pc8XYAS`** — Find Segments That Reference Another Segment (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP0000009nPhYAI`** — Has Received Message filter from Content Card Campaign (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka03o000001dRgrAAE`** — How Many Campaigns/Canvases are Checked When Segmenting by Campaign/Canvas Tags? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000942nYAA`** — I can't find a purchase value in a segmentation filter (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000Pe8jYAC`** — Is there a way to check if a user was part of a segment at a particular time/date? (tier , score ; team ``)
-- **`ka0VP000000R2AbYAK`** — Total reachable users' count goes up after adding a filter (tier , score ; team ``)
-- **`ka0VP000000PKBdYAO`** — User Profile Not Appearing in the Segment (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000RsNhYAK`** — What clicks does 'Clicked in-app message' refer to in Clicked/Opened Campaign Segmentation Filter? (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
-- **`ka0VP000000TIZRYA4`** — What does the "Calculate Exact Statistics" Feature do? (tier , score ; team ``)
-- **`ka0VP000000REjdYAG`** — Why Users Don't Match Segment Criteria Despite Meeting Filter Conditions (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
 
 ### PR batch: `_docs/_user_guide/data/distribution/braze_currents/faq.md` — **7** article(s)
 
@@ -363,6 +347,13 @@ Do **not** batch PRs by product vertical — mixed verticals under one path are 
 - **Reviewer hint:** Audience & segments
 
 - **`ka0VP000000OmgDYAS`** — Custom Event Properties Regex (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
+
+### PR batch: `_docs/_user_guide/audience/segments/segmentation_filters.md` — **1** article(s)
+
+- **Branch example:** `sf-cursor-segments-segmentation-filters-<YYYYMMDD>`
+- **Reviewer hint:** Audience & segments
+
+- **`ka0VP000000942nYAA`** — I can't find a purchase value in a segmentation filter (tier , score ; team ``; **verify in reference repos** (`conflict_resolution`: inconclusive))
 
 ### PR batch: `_docs/_user_guide/audience/subscription_preferences/preference_center/dnd_preference_center.md` — **1** article(s)
 
