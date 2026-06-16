@@ -87,3 +87,11 @@ Yes. You can resolve this by deprecating the entire list or using a placeholder 
 ### Can I save a promotion code to a user's profile for future messages?
 
 Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Help! I accidentally uploaded the wrong CSV to import some promo codes, and I clicked "Save List"
+
+deprecate list or exhaust incorrect codes. Verify against platform behavior.
