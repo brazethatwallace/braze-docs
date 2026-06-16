@@ -187,6 +187,40 @@ jobs:
 
             const active = violations.filter(v => !v.dismissed);
             const sidecarDismissed = violations.filter(v => v.dismissed);
+
+            // Scanner error — do not treat as a clean pass.
+            if (ran && exitCode === '2') {
+              const lines = [FAILURE_MARKER, ''];
+              lines.push('### Blocked: screenshot PII audit could not complete');
+              lines.push('');
+              lines.push(
+                'The scanner exited with an error (for example, malformed `.pii-audit-dismiss.json` ' +
+                'or a missing dependency). This check is **blocking** until the error is fixed.'
+              );
+              lines.push('');
+              if (fs.existsSync('lint-output.txt')) {
+                const output = fs.readFileSync('lint-output.txt', 'utf8').trim().slice(0, 4000);
+                if (output) {
+                  lines.push('<details><summary>Scanner output</summary>');
+                  lines.push('');
+                  lines.push('```');
+                  lines.push(output);
+                  lines.push('```');
+                  lines.push('</details>');
+                }
+              }
+              const body = lines.join('\n');
+              const existingFailure = findComment(FAILURE_MARKER);
+              if (existingFailure) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: existingFailure.id, body,
+                });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+              }
+              return;
+            }
+
             const isCleanPass = !ran || exitCode === '0';
 
             // Full pass — delete all bot comments (including when images were removed from the PR).
@@ -327,11 +361,15 @@ jobs:
               core.info('Created screenshot PII comment');
             }
 
-      - name: Fail job if violations remain and not dismissed
+      - name: Fail job if violations remain, scanner errors, and not dismissed
         if: >-
           steps.changed.outputs.ran == 'true'
-          && steps.lint.outputs.exit_code == '1'
+          && (steps.lint.outputs.exit_code == '1' || steps.lint.outputs.exit_code == '2')
           && steps.labels.outputs.dismissed != 'true'
         run: |
-          echo "Screenshot PII audit failed. Fix images or add a documented dismissal."
+          if [ "${{ steps.lint.outputs.exit_code }}" = "2" ]; then
+            echo "Screenshot PII audit could not complete due to a scanner error."
+          else
+            echo "Screenshot PII audit failed. Fix images or add a documented dismissal."
+          fi
           exit 1

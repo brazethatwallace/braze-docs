@@ -95,12 +95,12 @@ NON_NAME_WORDS = frozenset({
     'map', 'mapping', 'marketing', 'menu', 'message', 'messages', 'modal',
     'name', 'new', 'not', 'opt', 'opted', 'overview', 'page', 'partial',
     'preferences', 'preview', 'previewing', 'profile', 'profiles', 'push',
-    'preferences', 'report', 'results', 'row', 'rows', 'segment', 'segments',
+    'report', 'results', 'row', 'rows', 'segment', 'segments',
     'settings', 'sms', 'start', 'string', 'subscribe', 'subscribed', 'summary',
     'targeting', 'that', 'the', 'this', 'total', 'transactor', 'unsubscribed',
     'update', 'updates', 'upload', 'user', 'users', 'validate', 'validation',
     'warning', 'warnings', 'when', 'with', 'workspace', 'your', 'you',
-    'fakebrandz', 'fake', 'brandz', 'subscribe',
+    'fakebrandz', 'fake', 'brandz',
 })
 
 # Capitalized first + last name patterns (e.g. Jordan Miller).
