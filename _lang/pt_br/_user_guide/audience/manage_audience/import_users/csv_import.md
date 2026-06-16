@@ -289,11 +289,7 @@ Neste exemplo:
 
 Para fazer upload do seu arquivo, selecione **Attributes** ou **Events**, clique em **Browse Files** e faça upload do seu CSV. A Braze exibe uma pré-visualização das primeiras linhas e um resumo dos campos detectados.
 
-![A página de pré-visualização do arquivo mostrando uma prévia do arquivo após o upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Para arquivos grandes (até 500 MB para atributos padrão e atributos personalizados, ou 50 MB para eventos personalizados), o dashboard pode parecer temporariamente sem resposta enquanto o arquivo é carregado e a Braze calcula a importação. Esses uploads e cálculos podem levar mais tempo para serem concluídos do que para arquivos menores. Aguarde a conclusão desta etapa. Para mais contexto sobre limites de arquivo e tempo, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![O modal de upload concluído mostrando uma pré-visualização do arquivo, campo de nome da importação, preferências de direcionamento e caixa de seleção de validação de arquivo.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 No campo **Import name**, você pode renomear sua importação. Por padrão, o nome do arquivo é usado.
 
