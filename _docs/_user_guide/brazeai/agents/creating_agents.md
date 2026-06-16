@@ -72,8 +72,6 @@ Include instructions for what the agent should do in unexpected or ambiguous sce
 
 Refer to the [Writing instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) for best practices and [Examples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) for inspiration on how to prompt your agent.
 
-Before you launch, target high-value use cases where agents can drive the biggest return on investment (ROI). Choose responsive audiences—a smaller group with strong signals often outperforms a large audience with low opportunity. For deployment guidance, see [Best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#best-practices).
-
 {% alert tip %}
 For Canvas agents, you can use Liquid in your instructions to reference user attributes, such as their first and last name, or custom attributes. Any Liquid variable in the agent instructions is automatically passed to the Agent step when a user enters the step.
 {% endalert %}
@@ -119,7 +117,7 @@ When a Canvas agent with fallback values runs in an [Agent step]({{site.baseurl}
 
 For runtime behavior, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
 
-### Step 6: Test and create the agent
+### Step 6: Test the agent
 
 The **Preview** pane is an instance of the agent that shows up as a side-by-side panel within the configuration experience. You can use this section to test the agent while you're creating or making updates to it to experience it in a similar way to end users. This step helps you confirm that it’s behaving the way you expect, and gives you a chance to fine-tune before it goes live.
 
@@ -140,6 +138,8 @@ Review the output with a critical eye. Consider the following questions:
 - Are the calculated values accurate?
 
 If something feels off, update the agent’s configuration and test again. Run a few different inputs to see how the agent adapts across scenarios, especially edge cases like no data or invalid responses.
+
+Before you launch, target high-value use cases where agents can drive the biggest return on investment (ROI). Choose responsive audiences—a smaller group with strong signals often outperforms a large audience with low opportunity. For deployment guidance, see [Best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#best-practices).
 
 {% alert tip %}
 Avoid telling the agent exactly what you do not want it to do. LLMs may still generate that content if you mention it in the instructions.
