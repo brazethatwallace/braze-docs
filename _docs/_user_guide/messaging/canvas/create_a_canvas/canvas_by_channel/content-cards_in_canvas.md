@@ -41,6 +41,16 @@ Although you can specify an expiration duration greater than 30 days, the Conten
 
 Use caution when setting an expiration date further in advance than 30 days from launching the Canvas. If a user reaches the Message step more than 30 days before the specified expiration date, the card will not be sent.
 
+#### Personalized expiry with Liquid
+
+When you use Liquid personalization to set the expiration duration (for example, using custom attributes or Canvas entry properties), the behavior differs from absolute or relative dates:
+
+- If the personalized expiration resolves to a duration greater than 30 days, Braze automatically caps it at the 30-day maximum.
+- The Content Card is still sent to the user with the capped expiration.
+- The user progresses to the next step in the Canvas.
+
+This capping ensures that cards with personalized expiry are delivered even when the resolved duration exceeds the platform limit. The processing ledger outcome will show "Personalized expiration capped by max TTL" with details indicating `reason=capped_by_max_ttl` and `capped=true`.
+
 ### Expiration behavior
 
 The Content Card remains available in the user's feed until it reaches its expiration date, even if the user progresses to subsequent steps in the Canvas journey. If you don't want the Content Card to be live when the next steps in the Canvas are delivered, make sure that the expiration is shorter than the delay on subsequent steps.
