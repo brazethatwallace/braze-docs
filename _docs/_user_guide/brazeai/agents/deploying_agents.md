@@ -76,30 +76,15 @@ For examples, see [How it works]({{site.baseurl}}/user_guide/messaging/canvas/ca
 
 ### Error handling and fallback behavior {#fallback-behavior}
 
-- If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze retries the request up to 250 times using exponential backoff.
-- For other failures (such as a timeout or invalid API key), the output variable is set to `null` unless you configured fallback values on the Agent step. If an agent reaches its daily invocation limit, the output variable is also set to `null`.
+- If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze retries the request up to 10 times using exponential backoff. After retries are exhausted, users proceed to the next Canvas step.
+- For other failures (such as a timeout or invalid API key), the output variable is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console. If an agent reaches its daily invocation limit, the output variable is also set to `null`.
 
-#### Configure fallback values {#configure-fallback-values}
-
-On an Agent step, you can define fallback values so users still receive output when an invocation fails. Fallback values work like personalization defaults—for example, you might set the agent's fallback job to return a short poem or a static subject line when the LLM call does not succeed.
-
-Fallback values support [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) templating, so you can reference user attributes or context variables in the fallback text.
-
-The available fallback fields adapt to your agent's output format:
-
-| Output format | Fallback configuration |
-| --- | --- |
-| String, number, or boolean | Enter a single fallback value (Liquid supported). |
-| Fields (advanced schema) | Enter a fallback value for each field defined in the agent's output. |
-| JSON schema (advanced schema) | Braze reads your JSON schema and generates an input field for each property so you can define a fallback value per key. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Configure fallback values" }
-
-If you do not configure fallback values, failed invocations set the output variable to `null`. You can still use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps to handle null outputs.
+When an agent has fallback values configured, Braze applies them at runtime when a non-retryable error occurs. For Canvas agents, Braze renders the fallback with Liquid per user and stores the result in the Agent step output variable so users still receive output. Without fallback values, failed invocations set the output variable to `null`. You can still use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps to handle null outputs.
 
 - Responses are cached for identical inputs and may be reused for repeated identical invocations within a few minutes. Cached responses still count toward total and daily invocations.
 - Agent steps may take time to process a large batch of users. Braze queues invocations according to [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), so users may remain pending during high-volume sends.
 
-For more details, see [Error handling]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
+For Agent step setup and runtime details, see [Error handling]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#error-handling) in Agent step. For more details, see [Error handling]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
 
 ## Use catalog agents
 
@@ -181,8 +166,9 @@ You can also manually override the agent-generated cell by selecting **Edit Item
 
 ### Error handling
 
-- Failed catalog invocations do not retry, including on [rate limit errors]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider.
-- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update.
+- Failed catalog invocations that are not rate-limited do not retry.
+- On [rate limit errors]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze reschedules the invocation up to 10 times before the run fails.
+- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console. When fallback values are configured, Braze writes the fallback to the catalog field instead.
 - You can review the agent's logs for details on failed runs.
 - Catalog agents are limited to processing input values up to 25 KB per row.
 

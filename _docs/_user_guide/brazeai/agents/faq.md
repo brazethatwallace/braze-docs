@@ -65,7 +65,7 @@ A custom agent may time out if:
 - The agent instructions ask the agent to output a different output format than the one specified in the **Output** tab (for example, if the agent instructions ask for a string, but in **Output** tab the output is defined as a number)
 - The agent's task is too complex and would benefit from a [sub-agent approach](#subagent-approach) instead
 
-For Canvas agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) on the Agent step so users still receive output when an invocation fails.
+For Canvas agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console so users still receive output when an invocation fails.
 
 ## Compliance
 

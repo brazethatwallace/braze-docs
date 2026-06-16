@@ -76,9 +76,9 @@ To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_
 
 ## Error handling
 
-If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to 250 times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null` unless you configured [fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) on the Agent step. If an agent reaches its daily invocation limit, the output is also set to `null`.
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to 10 times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console. If an agent reaches its daily invocation limit, the output is also set to `null`.
 
-When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configure fallback values on the Agent step so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps.
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configure fallback values in Agent Console so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps.
 
 ## How is my data used and sent to Braze-provided LLMs?
 

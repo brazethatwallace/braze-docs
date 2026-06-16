@@ -75,13 +75,14 @@ After setting up your Agent step, you can test and preview the output of this st
 
 ![Preview the agent output as a random user.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
-## Error handling  
+## Error handling {#error-handling}
 
-For how Braze handles agent failures, rate limit errors, and invocation flow controls, see [Error handling]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
+For how Braze handles agent failures, rate limit errors, and invocation flow controls, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) in Deploy agents and [Error handling]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in Braze Agents.
 
-- If the agent fails for any reason (such as a timeout error or invalid API key), the output variable is set to `null`.
-    - If an agent reaches its daily invocation limit, the output variable is set to `null`. 
-- Use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to buffer against errors. For example, in the **Add Personalization** modal, you can enter a default Liquid value such as {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} or {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
+- If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze retries the request up to 10 times using exponential backoff. After retries are exhausted, users proceed to the next Canvas step.
+- For other failures (such as a timeout error or invalid API key), the output variable is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console. When fallback values are configured, Braze renders the fallback with Liquid per user and stores the result in the output variable.
+    - If an agent reaches its daily invocation limit, the output variable is set to `null`.
+- If you do not configure fallback values, use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps to handle null outputs. For example, in the **Add Personalization** modal, you can enter a default Liquid value such as {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} or {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Responses are cached for identical inputs and may be reused for repeated identical invocations within a few minutes.
     - Responses that use cached values do still count toward total and daily invocations.
 - Agent steps may take time to process a large batch of users. Braze queues invocations according to [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), so users may remain pending during high-volume sends. Check your logs to verify that invocations are happening.

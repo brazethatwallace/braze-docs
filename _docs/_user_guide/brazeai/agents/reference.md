@@ -82,7 +82,7 @@ When many users enter an Agent step at once, Braze queues invocations according 
 
 ### Rate limit errors
 
-If the LLM provider returns a rate limit error, Braze retries the request up to 250 times using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents do not retry failed invocations, including rate limit errors from the LLM provider.
+If the LLM provider returns a rate limit error, Braze retries the request up to 10 times using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents reschedule rate-limited invocations up to 10 times before the run fails.
 
 If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Every retry is visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
 
@@ -156,9 +156,15 @@ Advanced schema options include manually structuring fields or using JSON.
 - **Fields:** A no-code way to enforce an agent output that you can use consistently.
 - **JSON:** A code approach to creating a precise output format, where you can nest variables and objects within the JSON schema. Only available for Canvas agents, not catalog agents.
 
-When you deploy a Canvas agent with an advanced schema, you can define fallback values on the Agent step. For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. See [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#configure-fallback-values).
-
 We recommend using advanced schemas when you want the agent to return a data structure with multiple values defined in a structured manner, rather than a single-value output. This allows the output to be better formatted as a consistent context variable.
+
+### Fallback output
+
+In the **Output** section of Agent Console, you can define fallback values that Braze uses when an invocation fails.
+
+For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value.
+
+Canvas agents support Liquid in fallback values; catalog agents do not. For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values). For runtime behavior in Canvas and catalogs, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
 
 For example, you may use an output format within an agent that is intended to create a sample travel itinerary for a user based on a form they submitted. The output format allows you to define that every agent response should come back with values for `tripStartDate`, `tripEndDate`, and `destination` values. Each of these values can be extracted from context variables and placed in a Message step for personalization using Liquid.
 
