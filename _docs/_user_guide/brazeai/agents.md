@@ -68,11 +68,17 @@ The following limitations apply:
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
 
+## Best practices
+
+Target high-value use cases where agents can drive the biggest return on investment (ROI), and choose audiences who are likely to respond. A smaller, high-opportunity audience often outperforms a large audience with low opportunity—for example, retargeting users who searched recently but did not convert, rather than sending agent-generated copy to your entire user base.
+
+To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step to send only part of your audience through an Agent step. For more deployment guidance, see [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
 ## Error handling
 
-If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to five times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null`. If an agent reaches its daily invocation limit, the output is also set to `null`.
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider during a Canvas Agent step, Braze retries the request up to 250 times using exponential backoff. For other failures (such as a timeout or invalid API key), the agent output is set to `null` unless you configured [fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) on the Agent step. If an agent reaches its daily invocation limit, the output is also set to `null`.
 
-When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to buffer against null outputs in your messages.
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configure fallback values on the Agent step so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps.
 
 ## How is my data used and sent to Braze-provided LLMs?
 

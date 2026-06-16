@@ -266,7 +266,7 @@ Rules:
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
 - Avoid spammy phrasing (ALL CAPS, excessive punctuation) and emojis.
 - Do not hallucinate specific hotels or flights, as this is a general destination description.
-- If any input fields are missing, write the best description possible with the available data
+- If any required input column is blank or missing, do not generate output for that row. The catalog agent skips rows without complete input data.
 - Include "explanation": a short string that states how you applied the rules (for review or QA).
 
 Final Output Specification:

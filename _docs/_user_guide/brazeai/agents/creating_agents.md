@@ -72,6 +72,8 @@ Include instructions for what the agent should do in unexpected or ambiguous sce
 
 Refer to the [Writing instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) for best practices and [Examples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) for inspiration on how to prompt your agent.
 
+Before you launch, target high-value use cases where agents can drive the biggest return on investment (ROI). Choose responsive audiences—a smaller group with strong signals often outperforms a large audience with low opportunity. For deployment guidance, see [Best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#best-practices).
+
 {% alert tip %}
 For Canvas agents, you can use Liquid in your instructions to reference user attributes, such as their first and last name, or custom attributes. Any Liquid variable in the agent instructions is automatically passed to the Agent step when a user enters the step.
 {% endalert %}
