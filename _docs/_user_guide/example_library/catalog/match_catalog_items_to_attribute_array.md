@@ -40,6 +40,7 @@ This example assumes:
 | Custom attribute | `saved_product_names` — string array (for example `["linen_shirt", "trail_jacket", "canvas_tote"]`) |
 | Catalog | `apparel_products` with columns `id`, `category`, `name`, `price`, `inventory`, `image_url` |
 | Selection | `in_stock_apparel` on `apparel_products`, results limit **50**, with filters that exclude irrelevant rows (for example `inventory` greater than `0`) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setup" }
 
 ### Step 1: Create the catalog and selection
 
