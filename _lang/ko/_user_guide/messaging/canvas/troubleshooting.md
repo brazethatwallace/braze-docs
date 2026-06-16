@@ -9,7 +9,20 @@ tool: Canvas
 
 # Canvas 문제 해결 {#troubleshoot-canvases}
 
-> 이 페이지에서는 **Canvases** 관련 문제를 해결하는 방법을 안내합니다.
+> 이 페이지에서는 Canvases 관련 문제를 해결하는 방법을 안내합니다.
+
+## "Canvas 분기가 너무 많음" 오류 {#too-many-canvas-branches-error}
+
+스케줄된 Canvas를 시작할 때 "Canvas 분기가 너무 많음" 오류가 표시되면, 단계 분기와 진입 오디언스 크기의 조합이 Braze 클러스터 성능 문제를 일으켜 메시지 발송이 차단될 수 있습니다.
+
+Braze는 초안을 저장할 때가 아니라 스케줄된 진입이 있는 Canvas를 시작할 때 이 메시지를 표시합니다. 이를 해결하려면 다음을 시도하세요:
+
+- Canvas의 단계 분기를 줄이세요.
+- 진입 오디언스 크기를 줄이세요.
+- 많은 병렬 경로 대신 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)를 사용하여 분기를 통합하세요.
+- Canvas가 기존 편집기를 사용하는 경우, [Canvas Flow로 복제]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)하고 Canvas 구성요소로 다시 구축하세요.
+
+변경 없이 Canvas를 시작해야 하고 Canvas Flow로 전환할 수 없는 경우, [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
 
 ## 사용자가 트리거된 캔버스 단계를 받지 못한 이유는 무엇인가요? {#why-did-a-user-not-receive-a-triggered-canvas-step}
 
@@ -19,16 +32,16 @@ tool: Canvas
 
 - 사용자의 프로필 다운로드를 확인하여 이벤트를 트리거했는지, 언제 트리거했는지 확인합니다. 이벤트가 트리거된 경우, 이벤트가 트리거된 타임스탬프와 Canvas가 활성화된 시간을 비교하세요. Canvas가 활성화되기 전에 이벤트가 트리거되었을 수 있습니다.
 - Canvas 및 타겟팅에 사용된 Segment의 체인지로그를 검토하여 커스텀 이벤트가 트리거되었을 때 사용자가 해당 Segment에 포함되어 있었는지 확인합니다. Segment에 포함되어 있지 않았다면 캔버스 단계를 받지 못했을 것입니다.
-- 세분화를 통해 사용자가 대조군에 포함되어 캔버스 단계를 받지 못하게 되었는지 확인합니다.
+- 사용자가 Canvas 진입 시 대조군에 할당되어 캔버스 단계를 받지 못하게 되었는지 확인합니다.
 - 스케줄된 지연이 있는 경우, 사용자의 커스텀 이벤트가 지연 전에 트리거되었는지 확인합니다. 지연 전에 이벤트가 트리거되었다면 캔버스 단계를 받지 못했을 것입니다.
 
 {% alert note %}
-In-App Messages는 SDK를 통해 전송된 이벤트로만 트리거할 수 있으며, Braze REST API로는 트리거할 수 없습니다.
+인앱 메시지는 SDK를 통해 전송된 이벤트로만 트리거할 수 있으며, REST API로는 트리거할 수 없습니다.
 {% endalert %}
 
 ## Canvas가 예상대로 발송되지 않는 이유는 무엇인가요? {#why-isnt-my-canvas-sending-as-expected}
 
-**Canvases**는 강력하고 복잡하며, 생성할 때 많은 시간과 노력을 기울이신다는 것을 알고 있습니다. 해당 **Canvas**가 원하는 대로 발송되지 않는 경우, 그 **Canvas**의 스케줄, 진입 오디언스, 진입 설정을 확인하고 [Canvas 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) 단계를 검토하는 것을 권장합니다.
+Canvases는 강력하고 복잡하며, 생성할 때 많은 시간과 노력을 기울이신다는 것을 알고 있습니다. Canvas가 원하는 대로 발송되지 않는 경우, Canvas의 스케줄, 진입 오디언스, 진입 설정을 확인하고 [Canvas 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) 단계를 검토하는 것을 권장합니다.
 
 ### 스케줄 {#schedule}
 
@@ -38,7 +51,7 @@ In-App Messages는 SDK를 통해 전송된 이벤트로만 트리거할 수 있�
 
 ### 진입 설정 {#entry-settings}
 
-[진입 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls)은 **Canvases**가 어떻게 발송되는지 이해하는 데 중요합니다. **Canvas**에 진입할 수 있는 사용자 수를 제한했는지 확인하세요.
+[진입 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls)은 Canvases가 어떻게 발송되는지 이해하는 데 중요합니다. Canvas에 진입할 수 있는 사용자 수를 제한했는지 확인하세요.
 
 사용자는 더 이상 메시지를 받을 자격이 없는 경우 Canvas에서 이탈할 수도 있습니다. 예를 들어, Canvas에 푸시 알림만 포함되어 있고 사용자가 첫 번째 단계를 받은 후 푸시를 수신 거부하면 해당 사용자는 Canvas에서 이탈합니다. 대체 사용자 여정을 추가하려면 [다양한 캔버스 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/)를 사용하는 것을 고려하세요.
 
@@ -60,7 +73,7 @@ In-App Messages는 SDK를 통해 전송된 이벤트로만 트리거할 수 있�
 - **채널 자격:** 사용자에게 해당 단계의 채널에 필요한 이메일 주소, 푸시 토큰 또는 구독 상태가 없을 수 있습니다.
 - **대조군:** 글로벌 또는 Canvas 대조군이 사용자의 메시지 수신을 보류할 수 있습니다.
 - **방해금지 시간, Intelligent Timing 및 사용량 제한:** 이러한 설정으로 인해 발송이 지연되거나 억제될 수 있습니다.
-- **In-App Messages 단계:** In-App Messages는 노출 횟수가 존재하는데도 _발송_ 수가 0으로 표시될 수 있습니다. 이는 인앱 전달이 푸시 알림이나 이메일과 다르게 작동하기 때문에 예상되는 동작입니다. Canvas FAQ의 [Canvas에서 노출 횟수가 기록되었는데 발송 수가 0으로 표시되는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)를 참조하세요.
+- **인앱 메시지 단계:** 인앱 메시지는 노출 횟수가 존재하는데도 _발송_ 수가 0으로 표시될 수 있습니다. 이는 인앱 전달이 푸시 알림이나 이메일과 다르게 작동하기 때문에 예상되는 동작입니다. Canvas FAQ의 [Canvas에서 노출 횟수가 기록되었는데 발송 수가 0으로 표시되는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged)를 참조하세요.
 
 이메일 및 기타 채널의 경우, Campaigns와 동일한 요인이 많이 적용됩니다. 자세한 목록은 [발송 수가 예상 오디언스 크기보다 적은 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size)를 참조하세요.
 
@@ -76,13 +89,11 @@ In-App Messages는 SDK를 통해 전송된 이벤트로만 트리거할 수 있�
 
 Canvas를 생성할 때 다음 [사용 사례](#use-case)처럼 오디언스가 대조군과 배리언트 그룹 간에 균등하게 분할될 것으로 예상했을 수 있습니다. 그 이유와 해결 방법을 알아보겠습니다!
 
-사용자가 참여하는 그룹은 설정에 따라 달라집니다. 대조군 또는 배리언트 그룹이 될 수 있습니다. 사용자는 [진입 단계]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule)에서 정의한 모든 기준에 부합할 때 Canvas에 진입합니다. Canvas를 설정할 때 각 배리언트와 대조군에 진입할 사용자의 비율을 정의합니다.
+대조군 및 배리언트 할당은 Segment 필터가 아니라 빌더에서 설정한 비율에 따라 Canvas 진입 시 이루어집니다. 사용자는 [진입 단계]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule)에서 정의한 모든 기준에 부합할 때 Canvas에 진입합니다.
 
-대조군이 배리언트 그룹에 비해 큰 경우(의도한 것이 아니라면) 다음을 권장합니다:
-1. 진입 오디언스 필터를 **is Foreground Push Enabled**로 설정합니다.
-2. 진입 오디언스 필터의 **Push Subscription Status**, **Email Subscription Status** 또는 둘 다를 **Opted In** 또는 **Subscribed**로 설정합니다.
+사용자가 배리언트에 진입했지만 채널 자격이 없어 메시지를 받지 못하는 경우, **타겟 오디언스**에 채널 필터를 추가하는 대신 각 단계의 [발송 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)(예: **구독 설정**을 옵트인한 사용자로만 설정)을 사용하세요. 멀티채널 Canvas의 경우, 진입 오디언스를 단일 채널(예: **Foreground Push Enabled**)로 제한하지 마세요.
 
-대조군이 있는 Canvas를 생성할 때는 진입 오디언스의 모든 사용자가 Canvas 내에서 메시지를 받을 수 있는지 확인하세요(예: Canvas에 푸시 및 이메일 메시지가 포함된 경우).
+특정 채널을 수신할 수 없는 사용자도 여전히 배리언트에 진입할 수 있습니다. 각 메시지 유형을 수신하는 사용자를 제한하려면 진입 오디언스 필터 대신 단계별 발송 설정을 사용하세요.
 
 ### 사용 사례 {#use-case}
 
@@ -97,7 +108,7 @@ Canvas를 생성할 때 다음 [사용 사례](#use-case)처럼 오디언스가 
 
 활성 사용자를 다시 살펴보면, 29.8k명의 사용자가 포함되어 있지만 그 중 64%만 푸시가 활성화되어 있음을 알 수 있습니다:
 
-![푸시 활성화 필터가 true로 설정되어 있고 예상 사용자가 29.8k인 Segment.]({% image_buster /assets/img_archive/trouble16.png %})
+!["Push Enabled" 필터가 "true"로 설정되어 있고 예상 사용자가 29.8k인 Segment.]({% image_buster /assets/img_archive/trouble16.png %})
 
 이는 90%의 사용자가 배리언트에 진입하도록 지정했더라도 해당 사용자 모두가 실제로 푸시 알림을 받을 수 있는 것은 아니라는 것을 의미합니다. 푸시 알림을 받을 수 없는 사용자도 여전히 배리언트에 진입하게 됩니다.
 

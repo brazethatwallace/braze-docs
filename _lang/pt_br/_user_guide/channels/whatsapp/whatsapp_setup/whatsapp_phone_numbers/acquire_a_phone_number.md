@@ -38,20 +38,15 @@ Seu número de telefone deve atender a estes requisitos da API do WhatsApp:
 
 ### Etapa 2: Configurar seu número de telefone {#step-2-configure-your-phone-number}
 
-Siga as instruções da Twilio para configurar seu número de telefone da Twilio para receber o código de verificação por e-mail usando **apenas** o [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number). **Não siga as instruções das outras etapas.**
+Configure seu número de telefone da Twilio para receber códigos de verificação por e-mail. **Não vincule seu número de telefone ao WhatsApp no console da Twilio.**
 
 {% alert warning %}
-Siga apenas as instruções da Twilio para receber um código de verificação.
-Se você seguir as próximas etapas, conectará seu número de telefone à Twilio, o que significa que não poderá conectar esse número à Braze, a menos que faça uma migração ou compre um número diferente.
+Não vincule seu número de telefone ao WhatsApp no console da Twilio. Se fizer isso, o número será registrado na conta WhatsApp Business da Twilio, o que impedirá que você o conecte à Braze pelo fluxo de inscrição integrado.
 {% endalert %}
 
 1. No console da Twilio, acesse a [página Active Numbers](https://www.twilio.com/console/phone-numbers/incoming) e selecione o número de telefone que você comprou.
 2. Acesse a seção **Voice Configuration** e, no menu suspenso **Configure with**, selecione **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. Na linha **A call comes in**, selecione **Webhook** e defina a URL como `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, substituindo `YOUR_EMAIL_ADDRESS` pelo seu endereço de e-mail.
-4. No console da Twilio, acesse **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register** e selecione **Copy** ao lado do número de telefone.
-5. Na janela **Self Sign-up**, na página **Add your WhatsApp phone number**, selecione **Add a new phone number** e cole o número de telefone.
-6. Selecione **Phone call** como método de verificação e, em seguida, selecione **Next**.
-7. Você receberá o código de verificação no seu e-mail em até 10 minutos.
 
 ### Etapa 3: Concluir o fluxo de inscrição integrado {#step-3-complete-the-embedded-sign-up-workflow}
 

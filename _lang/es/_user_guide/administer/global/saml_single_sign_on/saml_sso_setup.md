@@ -183,6 +183,20 @@ Si usas otro IdP, verifica si tu empresa cargó el certificado SAML o x.509 corr
 
 Si tu empresa no descargó la aplicación de Braze desde la tienda de aplicaciones de tu IdP, necesitas descargar la integración prediseñada. Por ejemplo, si Okta es tu IdP, descargarías la aplicación de Braze desde su [página de integración](https://www.okta.com/integrations/braze/).
 
+## Google SSO
+
+Si tu empresa usa Google SSO en lugar de SAML SSO personalizado, ponte en contacto con tu director de cuentas de Braze para habilitar Google SSO en tu espacio de trabajo. Una vez habilitado, ve a **Configuración de seguridad** y selecciona **Enforce Google SSO only login** para requerir la autenticación de Google para todos los usuarios de la empresa.
+
+Cuando se activa la aplicación de Google SSO, los usuarios deben iniciar sesión con la autenticación de Google y ya no podrán usar una contraseña de Braze. Cada usuario debe iniciar sesión con la cuenta de Google que coincida con su dirección de correo electrónico del dashboard de Braze. Si un usuario selecciona una cuenta de Google diferente durante el inicio de sesión, Braze rechaza el intento de autenticación.
+
+### Solución de problemas del inicio de sesión con Google SSO {#troubleshooting-google-sso-sign-in}
+
+Si algunos usuarios no pueden iniciar sesión con Google SSO, verifica lo siguiente:
+
+- La dirección de correo electrónico de la cuenta de Google del usuario coincide exactamente con su dirección de correo electrónico del dashboard de Braze.
+- El usuario tiene acceso a una cuenta de Google para su dirección de correo electrónico de la empresa.
+- El usuario no está suspendido en Braze (**Configuración** > **Usuarios de la empresa**).
+
 ## Próximos pasos {#next-steps}
 
 Después de configurar SAML SSO, puedes:

@@ -58,7 +58,7 @@ Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 �
 | `RANDOM_UUID` | 요청 시점에 Braze에서 생성한 임의의 UUID입니다. | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | 내보내기가 요청된 Unix 시간(UTC 기준 2017-01-01:00:00:00Z 이후 초)입니다. | `1556044807` |
 | `filename` | 파일당 무작위입니다. | `114f0226319130e1a4770f2602b5639a` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Credentials-based response details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="자격 증명 기반 응답 세부 정보" }
 
 {% enddetails %}
 
@@ -93,9 +93,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `segment_id` | 필수 | 문자열 | 내보낼 Segment의 식별자입니다. [Segment 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요.<br><br>지정된 Segment의 `segment_id`는 Braze 계정 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 찾거나 [Segment 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)를 사용할 수 있습니다. |
 | `callback_endpoint` | 선택 사항 | 문자열 | 내보내기가 완료되었을 때 다운로드 URL을 게시할 엔드포인트입니다. |
 | `fields_to_export` | 필수* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름입니다. 이 매개변수에 `custom_attributes`를 포함하여 모든 커스텀 속성을 내보낼 수도 있습니다. 내보낼 수 있는 전체 필드 목록은 [내보낼 필드](#fields-to-export)를 참조하세요. |
-| `custom_attributes_to_export` | 선택 사항 | 문자열 배열 | 내보낼 특정 커스텀 속성의 이름입니다. 최대 500개의 커스텀 속성을 내보낼 수 있습니다. 대시보드에서 커스텀 속성을 만들고 관리하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요. |
+| `custom_attributes_to_export` | 선택 사항 | 문자열 배열 | 내보낼 특정 커스텀 속성의 이름입니다(최대 500개). 이 매개변수를 사용할 때는 `fields_to_export`에서 `custom_attributes`를 생략하세요. 그렇지 않으면 Braze는 이 목록에 관계없이 모든 커스텀 속성을 내보냅니다. 대시보드에서 커스텀 속성을 만들고 관리하려면 **데이터 설정** > **커스텀 속성**으로 이동하세요. |
 | `output_format` | 선택 사항 | 문자열 | 파일의 출력 형식입니다. 기본값은 `zip` 파일 형식입니다. 자체 S3 버킷을 사용하는 경우 `zip` 또는 `gzip`을 지정할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
 `fields_to_export` 매개변수에 `custom_attributes`가 포함되어 있으면 `custom_attributes_to_export`에 있는 내용에 관계없이 모든 커스텀 속성이 내보내집니다. 특정 속성을 내보내는 것이 목표인 경우 `fields_to_export` 매개변수에 `custom_attributes`를 포함하지 않아야 합니다. 대신 `custom_attributes_to_export` 매개변수를 사용하세요.
@@ -165,7 +165,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
 | `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 ## 중요한 알림 {#important-reminders}
 

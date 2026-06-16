@@ -225,7 +225,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 
 If you have a notification from your site visible in your Android notification drawer:
 
-1. From the push notification, tap <i class="fas fa-cog" title="Settings"></i> and select **Site settings**.
+1. From the push notification, select <i class="fas fa-cog" title="Settings"></i> **Settings** and select **Site settings**.
 2. From **Site settings**, tap **Clear & Reset**.
 
 If you don't have a notification from your site open:
@@ -245,7 +245,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 ### Reset Firefox on desktop
 
 1. Next to your site URL, select <i class="fa-solid fa-circle-info" alt="info icon"></i> or <i class="fas fa-lock" alt="lock icon"></i>.
-2. Under **Permissions**, next to **Receive Notifications**, select <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> to clear notification permissions.
+2. Under **Permissions**, next to **Receive Notifications**, select <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **Clear permission** to clear notification permissions.
 3. On the same menu, select **Clear Cookies and Site Data**.
 4. In the dialog to confirm your choice, select **OK**.
 

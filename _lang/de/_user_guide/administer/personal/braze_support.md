@@ -24,11 +24,11 @@ Um das Braze-Support-Team zu kontaktieren, navigieren Sie zum Braze-Dashboard un
 
 ## Designierte Support-Kontakte hinzufügen {#adding-designated-support-contacts}
 
-Designierte Support-Kontakte können auf alle Support-Fälle Ihres Unternehmens zugreifen, unabhängig davon, wer sie eingereicht hat. Sie können Nutzer:innen direkt über die Seite **Edit user** als designierte Support-Kontakte festlegen.
+Designierte Support-Kontakte können auf alle Support-Fälle Ihres Unternehmens zugreifen, unabhängig davon, wer sie eingereicht hat. Sie können Nutzer:innen direkt über die Seite **Nutzer:in bearbeiten** als designierte Support-Kontakte festlegen.
 
-1. Gehen Sie zu **Settings** > **Company Users** und suchen Sie nach dem/der Nutzer:in anhand des Namens oder der E-Mail-Adresse.
+1. Gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und suchen Sie nach dem/der Nutzer:in anhand des Namens oder der E-Mail-Adresse.
 2. Wählen Sie entweder den Nutzernamen aus oder fahren Sie mit der Maus über die Zeile des Nutzernamens, um ein Menü anzuzeigen.
-3. Wählen Sie im Menü **Edit** aus, um zur Seite **Edit user** weitergeleitet zu werden.
+3. Wählen Sie im Menü **Bearbeiten** aus, um zur Seite **Nutzer:in bearbeiten** weitergeleitet zu werden.
 4. Aktivieren Sie das Kontrollkästchen **Set this user as a Designated Support Contact for Braze Support Portal**.
 
 ![Das Kontrollkästchen zum Festlegen eines/einer Nutzer:in als designierten Support-Kontakt.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
@@ -96,6 +96,17 @@ Wählen Sie den entsprechenden Schweregrad aus, damit wir die richtigen Ressourc
 {% alert important %}
 Wenn Sie ein Problem als „Critical“ markieren, bedeutet dies, dass Ihre Produktionsinstanz ausgefallen ist und alle Arbeiten in Braze gestoppt wurden.
 {% endalert %}
+
+## Fehlerbehebung bei Ladeproblemen des Dashboards {#troubleshooting-dashboard-load-issues}
+
+Wenn das Braze-Dashboard nicht korrekt geladen wird, versuchen Sie Folgendes, bevor Sie den Support kontaktieren:
+
+1. Öffnen Sie das Dashboard in einem anderen Browser oder in einem Inkognito- bzw. privaten Fenster.
+2. [Leeren Sie Ihren Browser-Cache und Ihre Cookies]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+3. Deaktivieren Sie Werbeblocker und Browser-Erweiterungen und laden Sie das Dashboard anschließend neu.
+4. Wenn Sie ein VPN verwenden, trennen Sie die Verbindung und versuchen Sie es erneut.
+
+Wenn Ihre Browser-Entwicklungskonsole `ERR_BLOCKED_BY_CLIENT` anzeigt, blockiert eine Erweiterung oder ein Werbeblocker Dashboard-Ressourcen. Deaktivieren Sie den Blocker für Ihre Braze-Dashboard-URL und laden Sie die Seite neu.
 
 ## Fehlerbehebung beim Zugriff {#troubleshooting-access}
 

@@ -168,6 +168,10 @@ The number of users entering a campaign may differ from your expected number bec
 For further assistance with campaign troubleshooting, be sure to contact Braze Support within 30 days of your issue's occurrence, as we only have the last 30 days of diagnostic logs.
 {% endalert %}
 
+### Why did users receive my campaign twice after I edited it?
+
+If you edit a live campaign without stopping it first, users may receive the message twice. This happens because editing a live campaign re-enqueues users for the updated version while the original queue is still being processed. Users who haven't received the original message yet can end up in both queues. To prevent this, always [stop the campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) before making changes.
+
 ### What is the difference between the CSV Export User Data and CSV Export Email Address options on my campaign analytics page?
 
 Selecting the **CSV Export Email Addresses** option downloads data for only users with email addresses. For example, if you have a segment of 100,000 users, but only 50,000 of those users have email addresses, and you click **CSV Export Email Addresses**, the export contains only 50,000 rows of data. In comparison, selecting **CSV Export User Data** exports all user data.
@@ -272,3 +276,17 @@ Several factors can cause the number of sends to be lower than the estimated aud
 
 For questions about calendar days, silent push, webhooks, Canvas behavior, and related topics, see the [Frequently asked questions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) for [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
 
+
+### Why can unique recipients exceed sends for email and SMS?
+
+For email and SMS, Braze increments **Unique recipients** before the ESP send attempt and increments **Sends** after a successful ESP response. Permanent errors (such as invalid email addresses) or duplicate addresses cause unique recipients to exceed sends.
+
+### Why doesn't **Last sent** match my scheduled send time?
+
+For a campaign with a single scheduled send, **Last sent** matches the launch time. For repeating campaigns with **Send in local time zone** enabled, **Last sent** can appear earlier than the scheduled time because sends to users in earlier time zones (for example, GMT vs. PST) complete before your workspace schedule time.
+
+### Why does a stopped historical campaign no longer show metrics on the **Analytics** page?
+
+The **Analytics** tab defaults to the last 90 days. If the campaign last sent outside that window, metrics can appear as zero until you adjust the date range on the **Analytics** page to include when the campaign sent. For more information, see [Campaign analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restore interaction data** does not restore campaign analytics. It applies only to retargeting filters and user interaction history. For more information, see [Messaging interaction data]({{site.baseurl}}/messaging_interaction_data/).

@@ -18,12 +18,15 @@ tool:
 
 드래그 앤 드롭 편집기는 [콘텐츠](#content)와 [행](#rows)을 두 가지 핵심 구성요소로 사용하여 HTML을 추가로 사용하지 않고도 워크플로를 간소화합니다.
 
-<table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
+<table aria-label="편집기 소개" style="width: 100%; table-layout: fixed;">
     <caption>콘텐츠 및 행 편집기 구성요소</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">콘텐츠</th>
         <th style="width: 50%;">행</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="이메일 레이아웃을 위한 다양한 구조 조합이 포함된 '행' 탭." style="max-width: 100%; height: auto;">
@@ -32,8 +35,9 @@ tool:
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="기본 블록, 미디어, 고급이 포함된 '콘텐츠' 탭." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
-{: .reset-td-br-1 aria-label="About the editor" }
+{: .reset-td-br-1 aria-label="편집기 소개" }
 
 ### 콘텐츠 {#content}
 
@@ -68,9 +72,13 @@ tool:
 
 **행**은 열을 사용하여 메시지 섹션의 수평 구성을 정의하는 구조적 단위입니다. 빈 행 또는 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)를 사용할 수 있습니다. 두 개 이상의 열을 사용하면 서로 다른 콘텐츠 요소를 나란히 배치할 수 있습니다. 이렇게 하면 시작할 때 선택한 템플릿에 관계없이 메시지에 필요한 모든 구조적 요소를 추가할 수 있습니다.
 
+#### 텍스트 블록 내 이미지 중첩 {#nesting-images-inside-text-blocks}
+
+드래그 앤 드롭 편집기에서는 단락이나 다른 텍스트 블록 안에 이미지를 중첩할 수 없습니다. 텍스트 레이아웃 옆이나 안에 이미지를 배치하려면 **행**에서 열을 사용하세요. 예를 들어, 데스크탑에서는 다중 열 행에 해당 행의 **모바일에서 숨기기**를 설정하고, 별도의 모바일 전용 행(**데스크탑에서 숨기기** 및 필요에 따라 **모바일에서 쌓지 않기** 설정)을 사용하여 작은 화면에서 이미지와 텍스트가 깔끔하게 정렬되도록 합니다.
+
 #### 카드 스타일 {#cards-style}
 
-**카드 스타일**은 열 사이에 간격을 추가하고 모서리를 둥글게 만들 수 있는 행 등록정보입니다. 카드 스타일 서식을 사용하면 새로운 제품 기능, 후기, 특별 혜택, 뉴스 업데이트 등 가장 중요한 콘텐츠를 강조하는 데 도움이 되는 시각적으로 매력적인 레이아웃을 만들 수 있습니다.
+**카드 스타일**은 열 사이에 간격을 추가하고 모서리를 둥글게 만들 수 있는 행 속성입니다. 카드 스타일 서식을 사용하면 새로운 제품 기능, 후기, 특별 혜택, 뉴스 업데이트 등 가장 중요한 콘텐츠를 강조하는 데 도움이 되는 시각적으로 매력적인 레이아웃을 만들 수 있습니다.
 
 ## 드래그 앤 드롭 편집기 사용하기 {#using-the-drag-and-drop-editor}
 
@@ -206,8 +214,8 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 평균 내보내기 HTML 데이터 크기가 줄어들어 로딩 및 렌더링이 빨라지고, 모바일 클리핑이 줄어들며, 대역폭 소비가 감소했습니다.
 
 조건부 주석과 CSS 미디어 쿼리의 수를 최소화하는 다음 업데이트를 기반으로 HTML 렌더링이 개선되었습니다. 결과적으로 HTML 파일이 더 작고 효율적으로 코딩됩니다.
-- `<div>` 요소 기반 디자인에서 표준 `<table aria-label="Use Inbox Vision">` 형식 코드베이스로 마이그레이션
-  <caption>Use Inbox Vision</caption>
+- `<div>` 요소 기반 디자인에서 표준 `<table aria-label="Inbox Vision 사용">` 형식 코드베이스로 마이그레이션
+  <caption>Inbox Vision 사용</caption>
 - [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)이 간결하게 재코딩됨
 - 최종 HTML 코드가 태그 사이의 공백을 제거하도록 압축됨
 - 투명 구분선이 자동으로 콘텐츠 패딩으로 변환됨
@@ -317,7 +325,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 | `meta` | 페이지 설명이나 키워드와 같은 메타데이터를 제공합니다. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | 내부 CSS 스타일을 삽입합니다. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | 브라우저 탭에 표시되는 문서의 제목을 설정합니다. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="허용되는 태그 및 태그별 속성" }
 
 | 태그 | 속성 | 설명 | 예시 |
 | --- | --- | --- | --- |
@@ -335,7 +343,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 | `style` | `type` | 스타일 콘텐츠의 MIME 유형입니다. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | 스타일이 적용되는 미디어 또는 기기를 지정합니다. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | 속성 없음 | `title` 태그는 속성을 허용하지 않습니다. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="허용되는 태그 및 태그별 속성" }
 
 {% alert note %}
 링크 이름은 최대 63바이트까지 가능하며, 제한을 초과하면 자동으로 잘립니다.

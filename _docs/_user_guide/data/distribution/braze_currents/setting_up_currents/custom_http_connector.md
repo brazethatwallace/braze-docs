@@ -1,16 +1,20 @@
 ---
-nav_title: Custom HTTP Connector
-article_title: Custom HTTP Connector
+nav_title: Custom Currents Export
+article_title: Custom Currents Export
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "This reference article outlines how to set up a Custom HTTP Connector to stream Braze Currents event data directly to your own HTTP endpoint in real time."
+description: "This reference article outlines how to set up a Custom Currents Export to stream Braze Currents event data directly to your own HTTP endpoint in real time."
 ---
 
-# Custom HTTP connector
+# Custom Currents Export
 
 > Learn how to integrate a custom Currents connector, so you can get event data from Braze in real time, enabling more customized analytics, reporting, and automation.
+
+{% alert note %}
+This feature is also referred to as the Custom HTTP Connector in technical documentation and API references.
+{% endalert %}
 
 ## Prerequisites
 

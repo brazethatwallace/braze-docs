@@ -289,11 +289,7 @@ In this example:
 
 To upload your file, select **Attributes** or **Events**, click **Browse Files**, and upload your CSV. Braze displays a preview of the first few rows and a summary of the detected fields.
 
-![The file preview page showing a preview of the file after upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![The upload completed modal showing a file preview, import name field, targeting preferences, and file validation checkbox.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 In the **Import name** field, you can rename your import. By default, the file name is used.
 
@@ -426,6 +422,14 @@ Setting `language` or `country` on a user through CSV import or API prevents Bra
 If you used [file validation](#file-validation), start with the error report, as it includes the specific issue for each flagged row and a description of how to fix it. For rows that failed during import rather than validation, download the error report by hovering over the row and selecting the <i class="fas fa-download" title="Download"></i> button on the **Import Users** page.
 
 For troubleshooting CSV import, review these common issues below.
+
+### Use email as `external_id`
+
+Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
+
+### Quote characters in `external_id` values
+
+If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
 
 ### CSV import isn't available as a segment filter
 

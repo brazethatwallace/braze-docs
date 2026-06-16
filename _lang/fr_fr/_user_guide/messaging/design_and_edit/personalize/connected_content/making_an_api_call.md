@@ -236,12 +236,14 @@ Gardez à l'esprit que la valeur de hachage change régulièrement. Si vous filt
 
 ## Résolution des problèmes {#troubleshooting}
 
-Utilisez [Webhook.site](https://webhook.site/) pour résoudre les problèmes de vos appels de contenu connecté.
+Utilisez [Webhook.site](https://webhook.site/) pour résoudre les problèmes de vos appels de contenu connecté et diagnostiquer les problèmes liés aux en-têtes de requête, au corps de requête et aux autres informations envoyées dans l'appel.
 
 1. Remplacez l'URL dans votre appel de contenu connecté par l'URL unique générée sur le site.
 2. Prévisualisez et testez votre Campaign ou étape du Canvas pour voir les requêtes arriver sur ce site web.
 
-Grâce à cet outil, vous pouvez diagnostiquer les problèmes liés aux en-têtes de requête, au corps de requête et aux autres informations envoyées dans l'appel.
+Vous pouvez également vérifier que la balise Liquid inclut les paramètres attendus par votre endpoint (par exemple, `:method`, `:headers`, `:content_type`, `:body` et `:basic_auth` lorsque requis). Si vous vous appuyez sur la clé de code de statut HTTP dans un objet JSON enregistré, l'endpoint doit renvoyer un objet JSON et un statut `2XX`.
+
+En cas de taux d'erreur élevé de votre hôte, consultez [Détection d'hôte défaillant]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) et [Volume d'appels de contenu connecté](#understanding-connected-content-call-volume).
 
 ## Questions fréquentes {#frequently-asked-questions}
 

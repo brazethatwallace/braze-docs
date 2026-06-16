@@ -100,7 +100,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email` | 必須* | 文字列または文字列の配列 | ユーザーのメールアドレス。文字列の配列として渡すことができます。少なくとも1件のメールアドレス（最大50件）を含める必要があります。<br><br>同じワークスペース内の複数のユーザー（`external_id`）が同じメールアドレスを共有している場合、Brazeはそのメールアドレスを共有しているすべてのユーザーのサブスクリプショングループを更新します。 |
 | `phone` | 必須* | [E.164](https://en.wikipedia.org/wiki/E.164)形式の文字列 | ユーザーの電話番号。文字列の配列として渡すことができます。少なくとも1件の電話番号（最大50件）を含める必要があります。<br><br>同じワークスペース内の複数のユーザー（`external_id`）が同じ電話番号を共有している場合、Brazeはその電話番号を共有しているすべてのユーザーを同じサブスクリプショングループの変更で更新します。 |
 | `use_double_opt_in_logic` | オプション | ブール値 | SMSサブスクリプショングループにのみ適用されます。メールやその他のサブスクリプショングループタイプでは無視されます。省略した場合のデフォルトは`false`です。SMSサブスクリプショングループの場合、サブスクリプションステータスが`subscribed`に設定されたときにユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)ワークフローに入れるには`true`に設定します。この方法でダブルオプトインワークフローに入ったユーザーは、ワークフローに入った回数に関係なく、1日あたり最大1回のオプトインプロンプト返信メッセージを受信します。このパラメーターが省略されるか`false`に設定された場合、ユーザーはダブルオプトインワークフローを経ずに購読されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-requests}
 
@@ -143,6 +143,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
     "message": "success"
 }
 ```
+
+## 断続的な更新失敗のトラブルシューティング {#troubleshooting-intermittent-update-failures}
+
+サブスクリプショングループの更新が断続的に失敗したり、同期がずれているように見える場合は、更新リクエストの間に数分間待つか、別の更新を送信する前に[`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)を呼び出してユーザーの状態を確認してください。
 
 {% alert important %}
 このエンドポイントは`email`または`phone`の値のみを受け付け、両方を同時に受け付けることはできません。両方を指定した場合、次の応答が返されます: `{"message":"Either an email address or a phone number should be provided, but not both."}`

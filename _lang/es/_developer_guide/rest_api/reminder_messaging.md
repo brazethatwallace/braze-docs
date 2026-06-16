@@ -26,7 +26,7 @@ Para completar esta guía, necesitas:
 | Acceso a páginas de inicio | Acceso y permisos para crear [páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) en Braze. |
 | Conocimientos de HTML y JavaScript | Familiaridad básica con HTML y JavaScript para personalizar tu página de inicio. Solo es necesario para la [Opción B](#option-b-personal-dates-custom-code-block). |
 | Conocimientos de Liquid | Familiaridad básica con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) para crear plantillas de variables personalizadas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Paso 1: Crea una página de inicio y enlázala desde un mensaje {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,7 +46,7 @@ Cuando un usuario hace clic en este enlace, Braze lo identifica automáticamente
 
 La forma en que capturas las preferencias de los usuarios depende de si estás recopilando fechas compartidas o fechas personales. Elige la opción que se ajuste a tu caso de uso.
 
-### Opción A: Fechas compartidas (bloques de formulario de arrastrar y soltar) {#option-a-shared-dates-dnd-form-blocks}
+### Opción A: Fechas compartidas (bloques de formulario de arrastrar y soltar) {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 Para eventos en los que muchos usuarios comparten la misma fecha (como días festivos o eventos deportivos), usa los [bloques de formulario de **casilla de verificación**]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks) integrados en el editor de arrastrar y soltar para capturar preferencias. Cada casilla de verificación establece de forma nativa un atributo personalizado booleano (`true` o `false`) en el perfil del usuario cuando se envía el formulario, sin necesidad de código personalizado.
 

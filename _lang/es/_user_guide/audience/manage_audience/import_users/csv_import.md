@@ -289,11 +289,7 @@ En este ejemplo:
 
 Para cargar tu archivo, selecciona **Attributes** o **Events**, haz clic en **Browse Files** y carga tu CSV. Braze muestra una vista previa de las primeras filas y un resumen de los campos detectados.
 
-![La página de vista previa del archivo mostrando una vista previa del archivo después de la carga.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![El modal de carga completada mostrando una vista previa del archivo, el campo de nombre de importación, las preferencias de segmentación y la casilla de validación del archivo.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 En el campo **Import name**, puedes renombrar tu importación. De forma predeterminada, se utiliza el nombre del archivo.
 
@@ -358,8 +354,8 @@ Cuando la validación se completa, aparece uno de los siguientes resultados.
 |---|---|---|
 | **Validación completa** | No se encontraron problemas. | Selecciona **Import data**. |
 | **Problemas encontrados** | Algunas filas tienen errores o advertencias. | Descarga el informe de errores para revisarlos, luego selecciona **Import anyway** para continuar o **Cancel** para corregir tu archivo primero. |
-| **Validación agotada** | La validación se quedó sin tiempo. Las filas que se verificaron no tenían problemas. | Selecciona **Import data**. Un informe completo estará disponible en unos minutos. |
-| **Validación agotada con problemas** | La validación se quedó sin tiempo y encontró errores en algunas de las filas que verificó. | Descarga el informe parcial para revisar lo que se encontró, luego selecciona **Import anyway** o **Cancel**. |
+| **Tiempo de validación agotado** | La validación se quedó sin tiempo. Las filas que se verificaron no tenían problemas. | Selecciona **Import data**. Un informe completo estará disponible en unos minutos. |
+| **Tiempo de validación agotado con problemas** | La validación se quedó sin tiempo y encontró errores en algunas de las filas que verificó. | Descarga el informe parcial para revisar lo que se encontró, luego selecciona **Import anyway** o **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resultados de la validación" }
 
 ![La página de resumen mostrando la sección de problemas encontrados, con un recuento de filas con errores y advertencias, y opciones para volver, descargar el informe de errores o iniciar la importación.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
@@ -426,6 +422,14 @@ Establecer `language` o `country` en un usuario a través de la importación CSV
 Si utilizaste la [validación de archivo](#file-validation), comienza con el informe de errores, ya que incluye el problema específico de cada fila marcada y una descripción de cómo solucionarlo. Para las filas que fallaron durante la importación en lugar de la validación, descarga el informe de errores pasando el cursor sobre la fila y seleccionando el botón <i class="fas fa-download" title="Descargar"></i> en la página **Import Users**.
 
 Para la solución de problemas de importación CSV, revisa estos problemas comunes a continuación.
+
+### Usar correo electrónico como `external_id` {#use-email-as-external_id}
+
+Braze no recomienda usar una dirección de correo electrónico como `external_id`. Si usas el correo electrónico como `external_id`, incluye tanto la columna `external_id` como la columna `email` en tu CSV para que los usuarios sigan siendo segmentables en el canal de correo electrónico. Usa una coma (`,`) como delimitador de columna, no dos puntos (`:`).
+
+### Caracteres de comillas en valores de `external_id` {#quote-characters-in-external_id-values}
+
+Si una celda de `external_id` contiene una comilla doble, escápala duplicando el carácter (`""`), como se describe en [Comillas dobles sin escapar o desbalanceadas](#missing-row). La importación CSV no utiliza el escape con barra invertida.
 
 ### La importación CSV no está disponible como filtro de segmento {#csv-import-isnt-available-as-a-segment-filter}
 

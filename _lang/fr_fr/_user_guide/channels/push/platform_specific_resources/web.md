@@ -50,7 +50,7 @@ Voici quelques exemples de cas d'utilisation courants des notifications push Web
 | Téléchargement d'application | Attirez les utilisateurs Web vers votre application mobile pour les aider à tirer encore plus de valeur de vos produits. Envisagez d'exploiter la personnalisation pour mettre en avant les avantages de l'application en fonction de leurs habitudes d'engagement actuelles. |
 | Réductions et promotions | Augmentez la sensibilisation des clients aux événements et promotions à durée limitée. Envoyez des messages sur plusieurs canaux, y compris les notifications push Web, pour accroître la visibilité des promotions de votre marque. |
 | Abandon de panier | Envoyez des rappels automatisés aux utilisateurs qui n'ont pas terminé leurs transactions pour les ramener vers le processus de paiement. <br><br>Une étude menée par Braze a révélé que les notifications push Web sont 53 % plus efficaces que l'e-mail et 23 % plus impactantes que les notifications push mobiles pour inciter les destinataires à revenir et finaliser un achat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation potentiels" }
 
 ## Navigateurs pris en charge {#supported-browsers}
 

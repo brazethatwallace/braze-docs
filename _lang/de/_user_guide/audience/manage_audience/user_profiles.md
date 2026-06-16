@@ -26,6 +26,10 @@ Um auf das Profil einer Nutzerin oder eines Nutzers zuzugreifen, gehen Sie zur S
 
 Wenn eine Übereinstimmung gefunden wird, können Sie die Informationen einsehen, die Sie für diese Nutzerin oder diesen Nutzer mit dem Braze SDK erfasst haben. Wenn Ihre Suche hingegen mehrere Nutzerprofile zurückgibt, können Sie jedes Profil einzeln zusammenführen oder eine Massenzusammenführung durchführen. Eine vollständige Anleitung finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
+{% alert note %}
+**Nutzer:innen suchen** ist nicht dasselbe wie **Nutzer:innen-Lookup** im Segment- oder Campaign-Composer. **Nutzer:innen-Lookup** prüft, ob eine bestimmte Nutzerin oder ein bestimmter Nutzer Ihrer Zielgruppe entspricht, und akzeptiert nur `external_id` oder `braze_id`. **Nutzer:innen suchen** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token und Nutzer-Alias. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+{% endalert %}
+
 {% alert important %}
 Wenn eine Telefonnummer für die Suche verwendet wird, wird sie in das [`E.164`](https://en.wikipedia.org/wiki/e.164)-Format umgewandelt. Nutzer:innen, deren Telefonnummern nicht in das `E.164`-Format umgewandelt werden können (z. B. weil die Telefonnummer eine ungültige Landesvorwahl oder Ortsvorwahl hat), können nicht über die Telefonnummer gesucht werden.
 {% endalert %}
@@ -61,7 +65,7 @@ Der Tab **Übersicht** enthält grundlegende Informationen über eine Nutzerin o
 | Letzte Geräte | Auf wie vielen Geräten sich angemeldet wurde, Details zu jedem Gerät und die zugehörigen Werbe-IDs (falls vorhanden). |
 | Angepasste Events | Welche angepassten Events diese Nutzerin oder dieser Nutzer durchgeführt hat, wie oft und wann das jeweilige Event zuletzt durchgeführt wurde. |
 | Käufe | Lifetime-Umsatz, der dieser Nutzerin oder diesem Nutzer zugeordnet ist, der letzte Kauf, die Gesamtanzahl der Käufe und eine Liste jedes Kaufs. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tab „Übersicht“" }
 
 Weitere Informationen zu diesen Daten finden Sie unter [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
@@ -74,14 +78,14 @@ Der Tab **Engagement** enthält Informationen über die Interaktionen einer Nutz
 | Engagement-Kategorie | Enthält |
 | --- | --- |
 | Kontakteinstellungen | Abo-Status für E-Mail, SMS und Push sowie die Abo-Gruppen, denen diese Nutzerin oder dieser Nutzer für diese drei Kanäle zugeordnet ist. Dieser Abschnitt enthält auch Changelog-Informationen für Push-Token. Informationen zur Einrichtung von Abos und Opt-ins finden Sie unter [E-Mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) und [Push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/). |
-| Empfangene Campaigns | **Empfangene Campaigns** zeigt den kanalspezifischen Sende- und Anzeigezeitpunkt an. Die meisten Kanäle protokollieren einen Versand, wenn Braze die Nachricht an den Zustellungsanbieter übergibt, auch wenn die Nachricht letztendlich nicht zugestellt wird. **Content Cards** sind anders: Campaigns erscheinen hier erst, nachdem die Nutzerin oder der Nutzer die Karte in der App angesehen hat. Eine Aufschlüsselung nach Kanal finden Sie unter [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received). Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br>Wählen Sie eine Campaign aus der Liste aus, um sie anzuzeigen. |
+| Empfangene Campaigns | **Empfangene Campaigns** zeigt den kanalspezifischen Sende- und Anzeigezeitpunkt an. Die meisten Kanäle protokollieren einen Versand, wenn Braze die Nachricht an den Zustellungsanbieter übergibt, auch wenn die Nachricht letztendlich nicht zugestellt wird. **Content Cards** sind anders: Campaigns erscheinen hier erst, nachdem die Nutzerin oder der Nutzer die Karte in der App angesehen hat. Eine Aufschlüsselung nach Kanal finden Sie unter [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received). <br><br>Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br>Diese Listen verwenden [Messaging-Interaktionsdaten]({{site.baseurl}}/api/data_retention/messaging_interaction_data/) (einschließlich Ablaufregeln), um zu bestimmen, was für Retargeting und Verlauf angezeigt wird.<br><br> Wählen Sie eine Campaign aus der Liste aus, um sie anzuzeigen. |
 | Segmente | Segmente, in denen diese Nutzerin oder dieser Nutzer enthalten ist. Wählen Sie ein Segment aus der Liste aus, um es anzuzeigen. |
 | Kommunikationsstatistiken | Wann diese Nutzerin oder dieser Nutzer zuletzt Nachrichten von Ihnen über jeden Kanal erhalten hat. |
 | Install-Attribution | Informationen darüber, wie und wann eine Nutzerin oder ein Nutzer Ihre App installiert hat. Mehr erfahren unter [Install-Attribution verstehen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Sonstiges | Die [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) der Nutzerin oder des Nutzers. |
-| Empfangene Canvas-Nachrichten | Canvas-Nachrichten, die diese Nutzerin oder dieser Nutzer erhalten hat, und wann. Der Sendezeitpunkt folgt denselben kanalspezifischen Regeln wie **Empfangene Campaigns**; siehe [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received). Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br>Wählen Sie eine Nachricht aus der Liste aus, um sie anzuzeigen. |
+| Empfangene Canvas-Nachrichten | Canvas-Nachrichten, die diese Nutzerin oder dieser Nutzer erhalten hat, und wann. Der Sendezeitpunkt folgt denselben kanalspezifischen Regeln wie **Empfangene Campaigns**; siehe [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received).<br><br> Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br> Wählen Sie eine Nachricht aus der Liste aus, um sie anzuzeigen. |
 | Prognosen | [Churn-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)- und [Event-Prognose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)-Scores für diese Nutzerin oder diesen Nutzer. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tab „Engagement“" }
 
 ### Wann Campaigns unter „Empfangene Campaigns“ erscheinen {#when-campaigns-appear-in-campaigns-received}
 
@@ -126,7 +130,7 @@ Die folgenden Nachrichten-Engagement-Ereignisse sind für E-Mail, SMS, Push, In-
 | Content Cards | Klick<br>Verwerfen<br>Impression<br>Senden |
 | Webhooks | Senden |
 | WhatsApp | Abbruch<br>Zustellung<br>Fehler<br>Frequency-Capping<br>Eingehender Empfang<br>Gelesen<br>Senden |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichten-Engagement-Ereignisse" }
 
 ##### Nachrichtenabbruch-Ereignisse {#message-abort-events}
 
@@ -165,6 +169,7 @@ Einige Felder können im Tab **Nachrichtenverlauf** einer Nutzerin oder eines Nu
 - Wenn bei einem Ereignis Daten für **Campaign/Canvas** und **Gesendete Nachricht** fehlen, bedeutet dies, dass diese Nachricht über eine API-Kampagne (nicht API-getriggerte Campaigns) gesendet wurde, die `campaign_id` und `message_variation_id` nicht angegeben hat. Diese Felder sind optional und können im Anfragekörper weggelassen werden. Wenn diese Felder angegeben werden, werden die Informationen in die Nachrichtenverlaufsprotokolle übernommen.
    - Wenn eine bestimmte Nachricht im Nachrichtenverlauf vollständig fehlt, aber im Protokoll **Empfangene Campaigns** erscheint, hat die Nutzerin oder der Nutzer die Campaign wahrscheinlich erhalten, bevor sie oder er als aktuelle Nutzerin oder aktueller Nutzer identifiziert wurde. Wenn ein bestehendes Profil verwaist ist, wird das Protokoll **Empfangene Campaigns** übertragen, der Nachrichtenverlauf jedoch nicht.
 - Wenn Daten für **Campaign/Canvas** fehlen, wurde möglicherweise ein manueller Test gesendet. Manuelle Tests werden im Tab **Nachrichtenverlauf** protokolliert, aber die Campaign oder der Canvas, die bzw. der gesendet wurde, wird nicht protokolliert.
+- Wenn eine Nutzerin oder ein Nutzer in einer Seed-Gruppe oder einer anderen internen Testzielgruppe ist, zeigt der **Nachrichtenverlauf** möglicherweise weniger Campaign- oder Canvas-Metadaten im Vergleich zu Produktionssendungen an.
 
 ## Verwandte Artikel {#related-articles}
 

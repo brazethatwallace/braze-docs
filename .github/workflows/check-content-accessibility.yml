@@ -34,6 +34,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
   pull-requests: write
 
 jobs:
@@ -88,42 +89,16 @@ jobs:
           LINT_EXIT=${PIPESTATUS[0]}
 
           echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
-
-          # Emit GitHub annotations for each violation so they show in the diff view
-          if [[ $LINT_EXIT -eq 1 ]]; then
-            python3 - <<'PYEOF'
-import json, os, re, sys
-
-try:
-    with open("violations.json") as f:
-        violations = json.load(f)
-except Exception as e:
-    print(f"Could not read violations.json: {e}", file=sys.stderr)
-    sys.exit(0)
-
-WCAG_TITLES = {
-    "1.1.1": "Missing alt text",
-    "2.4.4": "Non-descriptive link text",
-    "2.4.6": "Heading level skip",
-    "4.1.2": "Missing iframe title",
-}
-
-for v in violations:
-    criterion = v.get("wcag_criterion", "?")
-    title = WCAG_TITLES.get(criterion, f"WCAG {criterion}")
-    # Collapse multiline message to single line for annotation
-    msg = re.sub(r'\s+', ' ', v["message"].split('\n')[0].strip())
-    file = v["file"]
-    line = v["table_start_line"]
-    print(f"::error file={file},line={line},title=WCAG {criterion} — {title}::{msg}")
-PYEOF
-          fi
-
           exit "${LINT_EXIT}"
+
+      - name: Emit GitHub annotations for violations
+        if: steps.changed.outputs.ran == 'true' && steps.lint.outputs.exit_code == '1'
+        shell: bash
+        run: python3 scripts/check_content_accessibility.py --github-annotations violations.json
 
       - name: Upload violations artifact
         if: always() && steps.changed.outputs.ran == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: a11y-content-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
           path: violations.json

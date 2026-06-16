@@ -20,7 +20,7 @@ tool: Media
 | 「Edit Media Library Assets」権限 | メディアライブラリアセットの作成と更新 |
 | 「Delete Media Library Assets」権限 | メディアライブラリアセットの完全な削除 |
 | 「Replace Media Library Assets」権限 | 既存のメディアライブラリアセットのURLとアセットIDを維持したままファイルを置換 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media library permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メディアライブラリの権限" }
 
 詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
 
@@ -92,3 +92,5 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 {% alert important %}
 この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)を確認してください。
 {% endalert %}
+
+**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)を確認してください。

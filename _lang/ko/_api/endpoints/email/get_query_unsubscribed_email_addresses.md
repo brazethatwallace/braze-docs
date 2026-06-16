@@ -38,7 +38,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 | `offset` | 선택 사항 | 정수 | 검색을 시작할 목록의 시작점입니다(선택 사항). |
 | `sort_direction` | 선택 사항 | 문자열 | `asc` 값을 전달하면 수신 거부를 가장 오래된 것부터 최신 순으로 정렬합니다. `desc`를 전달하면 최신에서 오래된 순으로 정렬합니다. `sort_direction`이 포함되지 않은 경우 기본 순서는 최신에서 오래된 순서입니다. |
 | `email` | 선택 사항 <br>(참고 참조) | 문자열 | 제공된 경우 해당 사용자가 수신 거부했는지 여부를 반환합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert note %}
 `end_date`와 함께 `email` 또는 `start_date` 중 하나를 반드시 제공해야 합니다.

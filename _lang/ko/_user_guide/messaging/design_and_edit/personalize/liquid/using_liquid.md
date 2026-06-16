@@ -82,7 +82,7 @@ Liquid는 동적 개인화를 작성할 때 염두에 두어야 할 특정 구�
 | `case`, `when` | 동등 비교만 가능[^case_when_ops] | 지원되지 않음 |
 | `for` | 지원되지 않음 | 지원되지 않음 |
 | 배열 접근 (`[ ]`) | 지원되지 않음 | 지원되지 않음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="연산자와 필터를 사용할 수 있는 위치" }
 
 [^case_when_ops]: `case`와 `when` 태그에서 Liquid는 `case` 표현식을 각 `when` 값과 동등 비교(equality)를 사용하여 비교합니다(`if`와 `elsif`를 `==`로 연결하는 것과 유사). `when` 절 내에서는 `if`와 `elsif`에서처럼 임의의 비교 또는 논리 연산자를 사용할 수 없습니다. 예시는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)을 참조하세요.
 
@@ -208,12 +208,16 @@ Welcome to the VIP lounge!
 
 {% endalert %}
 
+### HTML 편집기와 클래식 편집기 간 전환 {#switching-between-html-and-classic-editors}
+
+HTML 편집기와 클래식 편집기 간에 전환하면 Liquid 스니펫과 Content Blocks의 위치가 메시지 내에서 변경될 수 있습니다. 편집기를 전환한 후 템플릿을 검토하세요. 보다 예측 가능한 레이아웃 제어가 필요한 경우 드래그 앤 드롭 편집기를 사용하세요.
+
 ### 사전 서식이 지정된 변수 삽입하기 {#inserting-pre-formatted-variables}
 
-템플릿 텍스트 필드 근처에 있는 **Add Personalization** 모달을 통해 기본값이 포함된 사전 서식 변수를 삽입할 수 있습니다.
+템플릿 텍스트 필드 근처에 있는 **개인화 추가** 모달을 통해 기본값이 포함된 사전 서식 변수를 삽입할 수 있습니다.
 
-![개인화 삽입을 선택한 후 나타나는 Add Personalization 모달. 이 모달에는 개인화 유형, 속성, 선택적 기본값 필드가 있으며 Liquid 구문의 미리보기가 표시됩니다.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![개인화 삽입을 선택한 후 나타나는 개인화 추가 모달. 이 모달에는 개인화 유형, 속성, 선택적 기본값 필드가 있으며 Liquid 구문의 미리보기가 표시됩니다.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
 모달은 커서가 있던 위치에 지정된 기본값과 함께 Liquid를 삽입합니다. 삽입 지점은 미리보기 상자에서도 지정되며, 이전 텍스트와 이후 텍스트가 표시됩니다. 텍스트 블록이 강조 표시된 경우 강조 표시된 텍스트가 대체됩니다.
 
-![사용자가 기본값으로 "fellow traveler"를 입력하고, 모달이 작성기에서 강조 표시된 텍스트 "name"을 Liquid 스니펫으로 대체하는 Add Personalization 모달의 GIF.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![사용자가 기본값으로 "fellow traveler"를 입력하고, 모달이 작성기에서 강조 표시된 텍스트 "name"을 Liquid 스니펫으로 대체하는 개인화 추가 모달의 GIF.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

@@ -26,7 +26,7 @@ You can also integrate with Slack to receive notifications. For steps, refer to 
 The following table describes available notifications and which channels are used to deliver them.
 
 {% alert note %}
-If you delete the default **Recipients** value of **All Dashboard Users** and want to add it back, you can manually enter it into the dropdown field.
+Depending on the notification type, **All Dashboard Users** and **All Admins** might not appear in the recipients dropdown. You can manually type them; recipient values are case-sensitive and must match exactly. For dashboards localized outside English, use the exact recipient tag Braze shows when suggestions are available for that notification, rather than translating the phrase yourself.
 {% endalert %}
 
 | Notification | Description | Available notification channels |

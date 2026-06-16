@@ -15,7 +15,7 @@ Follow these steps to create brand guidelines in the AI copywriting assistant. Y
 
 ### Step 1: Create a brand guideline
 
-1. From your message composer, find and select <i class="fa-solid fa-wand-magic-sparkles" title="AI Copywriter"></i> to [open the AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting#access).
+1. From your message composer, find and select <i class="fa-solid fa-wand-magic-sparkles" title="AI Copywriter"></i> **AI Copywriter** to [open the AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting#access).
 2. Select **Apply brand guideline** and then **Create a brand guideline**.
 
 ![Dropdown for "Apply brand guidelines" expanded with the button "Create a brand guideline" in focus.]({% image_buster /assets/img/ai_copywriter/create_brand_guideline_button.png %}){:style="max-width:75%"}

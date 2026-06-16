@@ -68,7 +68,7 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 Antes de conectarte al Centro de entrega, necesitarás configurar una cuenta de Google Postmaster Tools. Puedes usar una cuenta de Gmail personal o de trabajo para configurar tu Google Postmaster.
 
 1. Ve al [panel de Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. En la esquina inferior derecha, selecciona el icono de <i class="fas fa-plus-circle"></i> más.
+2. En la esquina inferior derecha, selecciona <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Introduce tu dominio raíz (principal) para autenticar tu correo electrónico. Asegúrate de que el registro TXT esté vinculado a este dominio raíz (principal), **no** al subdominio que estás usando a través de Braze. Verificar el dominio raíz (principal) te permite agregar subdominios posteriormente en Postmaster Tools sin crear registros TXT adicionales. Por ejemplo, al verificar `braze.com`, puedes agregar después `demo.braze.com` como un subdominio separado en Postmaster Tools para ver métricas a nivel de subdominio.
 4. Google genera un registro TXT que se puede agregar directamente al DNS de tu dominio. Esto generalmente lo gestiona quien administra tu DNS. Para obtener información y orientación sobre cómo actualizar tu DNS específico, consulta [Verificar tu dominio (pasos específicos del host)](https://support.google.com/a/topic/1409901).
 5. Selecciona **Next**. <br>![Un ejemplo de dominio "demo.braze.com" para autenticar un correo electrónico.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -116,7 +116,7 @@ Para ayudarte a comprender las calificaciones de reputación de IP, consulta est
 | Media/Aceptable | Conocido por generar interacción positiva, pero ocasionalmente recibe quejas de correo no deseado. La mayoría de los correos electrónicos de este dominio se envían al buzón de entrada, excepto cuando aumentan las quejas de correo no deseado. |
 | Baja | Conocido por recibir tasas elevadas de quejas de correo no deseado regularmente. Es probable que los correos electrónicos de este remitente se filtren a la carpeta de correo no deseado. |
 | Mala | Tiene un historial de recibir tasas elevadas de quejas de correo no deseado. Los correos electrónicos de este dominio casi siempre se rechazan en el momento de la conexión o se filtran a la carpeta de correo no deseado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="IP reputation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reputación de IP" }
 
 #### Reputación de dominio {#domain-reputation}
 
@@ -128,7 +128,7 @@ Usa la siguiente tabla para ayudarte a monitorear y comprender las calificacione
 | Media/Aceptable | Conocido por generar interacción positiva, pero ocasionalmente ha recibido un bajo volumen de quejas de correo no deseado. La mayoría de los correos electrónicos de este dominio llegan al buzón de entrada (excepto cuando hay un aumento notable en los niveles de correo no deseado). |
 | Baja | Conocido por recibir quejas de correo no deseado regularmente. Es probable que los correos electrónicos de este remitente se filtren a la carpeta de correo no deseado. |
 | Mala | Tiene un historial de recibir tasas elevadas de quejas de correo no deseado. Los correos electrónicos de este dominio casi siempre se rechazan en el momento de la conexión o se filtran a la carpeta de correo no deseado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Domain reputation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reputación de dominio" }
 
 #### Autenticación {#authentication}
 
@@ -139,7 +139,7 @@ Usa el panel de autenticación para revisar el porcentaje de correos electrónic
 | SPF | Muestra el porcentaje de correos electrónicos que pasaron SPF en comparación con todos los correos electrónicos del dominio que intentaron SPF. Esto excluye cualquier correo falsificado. |
 | DKIM | Muestra el porcentaje de correos electrónicos que pasaron DKIM en comparación con todos los correos electrónicos del dominio que intentaron DKIM. |
 | DMARC | Muestra el porcentaje de correos electrónicos que pasaron la alineación DMARC en comparación con todos los correos electrónicos recibidos del dominio que pasaron SPF o DKIM. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Authentication" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Autenticación" }
 
 #### Cifrado {#encryption}
 
@@ -149,7 +149,7 @@ Consulta esta tabla para comprender qué porcentaje de tu tráfico de entrada y 
 | ----- | ---------- |
 | TLS de entrada | Muestra el porcentaje de correo entrante (a Gmail) que pasó TLS en comparación con todo el correo recibido de ese dominio. |
 | TLS de salida | Muestra el porcentaje de correo saliente (de Gmail) aceptado a través de TLS en comparación con todo el correo enviado a ese dominio. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Encryption" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cifrado" }
 
 Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de capacidad de entrega y trampas de correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). Asegúrate de consultar nuestras [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/) para conocer lo que debes verificar antes de enviar una campaña de correo electrónico.
 
@@ -184,7 +184,7 @@ Consulta esta tabla para comprender los resultados del filtro.
 | Verde | Considerado correo no deseado por el filtro de correo no deseado de Microsoft hasta el 10% del período de tiempo dado. |
 | Amarillo | Considerado correo no deseado por el filtro de correo no deseado de Microsoft entre el 10% y el 90% del período de tiempo dado. |
 | Rojo | Considerado correo no deseado por el filtro de correo no deseado de Microsoft más del 90% del período de tiempo dado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter results" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resultados del filtro" }
 
 #### Tasa de quejas {#complaint-rate}
 
@@ -197,7 +197,7 @@ Para calcular la tasa de quejas, divide el número de quejas entre el número de
 | Menos del 0.3% | La tasa de quejas ideal. |
 | Más del 0.3% | Revisa tu proceso de registro y asegúrate de que tu enlace para cancelar suscripción funcione. También considera si el correo podría personalizarse mejor para tu audiencia. |
 | Más del 100% | Ten en cuenta que SNDS muestra las quejas del día en que se reportaron, no retroactivamente contra el día en que se entregó el correo que generó la queja. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Complaint rate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tasa de quejas" }
 
 #### Impactos de trampas de correo no deseado {#spam-trap-hits}
 

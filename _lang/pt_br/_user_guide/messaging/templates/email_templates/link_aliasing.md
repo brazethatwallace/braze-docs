@@ -127,7 +127,7 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 
 | Link no corpo do e-mail | Link com alias |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
+| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Link com âncora e tag de captura" }
 
 ## Rastreando aliases de link {#tracking-link-aliases}
@@ -251,6 +251,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 {% endraw %}
 
 No exemplo acima, o `?` antes do `#` fornece à Braze um segmento de consulta para adicionar o `lid`. Sem ele, o link pode não aparecer em **Link Management**.
+
+Sem identificar onde adicionar parâmetros de consulta, o alias de link não reconhece essas URLs e os modelos de link não são aplicados. Se você encontrar erros como **Failed to be assigned an LID** para uma URL dinâmica, confirme que o `href` usa o padrão `?` ou `&` mostrado nos exemplos desta seção.
 
 ### Considerações do editor de arrastar e soltar {#drag-and-drop-editor-considerations}
 

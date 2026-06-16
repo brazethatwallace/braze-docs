@@ -284,9 +284,9 @@ Após um esquema ser gerado, ele pode ser regenerado **uma vez por dia corrido**
 
 Para regenerar o esquema do seu atributo personalizado aninhado:
 
-1. Acesse **Data Settings** > **Custom Attributes**.
+1. Acesse **Configurações de dados** > **Atributos personalizados**.
 2. Pesquise seu atributo personalizado aninhado.
-3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> para gerenciar o esquema.
+3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> **Manage schema** para gerenciar o esquema.
 4. Um modal será exibido. Selecione **Regenerate Schema**.
 
 A ação **Regenerate Schema** é limitada a **uma vez por dia corrido** no fuso horário da sua empresa. Não é possível iniciar outra regeneração enquanto um trabalho de esquema já estiver **em andamento** (a opção fica indisponível enquanto o status for **Generating**). Regenerar o esquema detecta apenas novos objetos e não exclui objetos que já existem no esquema.

@@ -24,7 +24,7 @@ Para visualizar a análise de dados de mensagens de um dia específico em um rel
 
 ![Os gráficos "Upcoming Message Types" e "Messages Sent" na seção Messaging Analytics.]({% image_buster /assets/img/campaign_calendar/content_calendar_messaging_analytics.png %})
 
-Para baixar uma cópia dos seus dados, selecione <i class="fa-solid fa-bars" style="color: #2e7487;"></i> **Chart context menu** e escolha o formato de arquivo desejado.
+Para baixar uma cópia dos seus dados, selecione <i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **Chart context menu** e escolha o formato de arquivo desejado.
 
 ## Calendário de envios {#send-calendar}
 
@@ -34,7 +34,7 @@ O calendário de envios exibe todas as suas campanhas agendadas para o mês atua
 As mensagens no app são sempre baseadas em ações, por isso não aparecem no calendário de envios.
 {% endalert %}
 
-Mude o mês selecionando <i class="fa-solid fa-chevron-left" style="color: #2e7487;"></i> **See previous month** ou <i class="fa-solid fa-chevron-right" style="color: #2e7487;"></i> **See next month**. Para voltar ao mês atual, selecione **Today**.
+Mude o mês selecionando <i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **See previous month** ou <i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **See next month**. Para voltar ao mês atual, selecione **Today**.
 
 ![O calendário de envios exibindo todas as campanhas agendadas no mês atual.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 

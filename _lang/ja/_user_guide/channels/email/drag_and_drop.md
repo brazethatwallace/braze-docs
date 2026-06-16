@@ -20,10 +20,13 @@ tool:
 
 <table aria-label="エディターについて" style="width: 100%; table-layout: fixed;">
     <caption>コンテンツと行のエディターコンポーネント</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">コンテンツ</th>
         <th style="width: 50%;">行</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="メールレイアウト用のさまざまな構造の組み合わせを含む「行」タブ。" style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ tool:
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="基本ブロック、メディア、詳細設定を含む「コンテンツ」タブ。" style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="エディターについて" }
 
@@ -67,6 +71,10 @@ tool:
 ### 行 {#rows}
 
 **行**は、列を使用してメッセージのセクションの水平方向の構成を定義する構造単位です。空の行または[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)を使用できます。複数の列を使用すると、異なるコンテンツ要素を横に並べて配置できます。これにより、開始時に選択したテンプレートに関係なく、メッセージに必要なすべての構造要素を追加できます。
+
+#### テキストブロック内への画像のネスト {#nesting-images-inside-text-blocks}
+
+ドラッグ＆ドロップエディターでは、段落やその他のテキストブロック内に画像をネストすることはできません。テキストレイアウトの横や中に画像を配置するには、**行**の列を使用します。たとえば、デスクトップ用にはその行に**モバイルで非表示**を設定した複数列の行を使用し、モバイル用には別途モバイル専用の行（**デスクトップで非表示**と**モバイルでスタックしない**を必要に応じて設定）を使用することで、小さな画面でも画像とテキストがきれいに配置されます。
 
 #### カードスタイル {#cards-style}
 
@@ -192,7 +200,7 @@ tool:
 
 #### Inbox Visionを使用する {#use-inbox-vision}
 
-Inbox Visionを使用すると、メールクライアントやモバイルデバイスの視点からメールキャンペーンを表示できます。Inbox Visionを使用してメールメッセージをテストするには、**プレビューとテスト**セクションで**Inbox Vision**を選択し、**Inbox Visionを実行**を選択します。
+Inbox Visionを使用すると、メールクライアントやモバイルデバイスの視点からメールCampaignを表示できます。Inbox Visionを使用してメールメッセージをテストするには、**プレビューとテスト**セクションで**Inbox Vision**を選択し、**Inbox Visionを実行**を選択します。
 
 メールメッセージの細部をテストして確認することが重要です。たとえば、メールメッセージングのバックグラウンド画像は、画像間に白い線や途切れが表示されることがあります。また、Windows Outlookなどのクライアントではバックグラウンド画像が表示されない場合があります。Inbox Visionを使用すると、クライアント間のこれらの不一致を特定できます。このシナリオでは、フォールバックのバックグラウンドカラーを設定して、これらの画像が期待どおりにレンダリングされるようにします。
 
@@ -206,8 +214,8 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 エクスポートされるHTMLデータの平均フットプリントサイズが削減され、読み込みとレンダリングの高速化、モバイルでのクリッピングの削減、帯域幅消費の削減につながりました。
 
 HTMLレンダリングは、条件付きコメントとCSSメディアクエリの数を最小限に抑える以下の更新に基づいて改善されました。その結果、HTMLファイルはより小さく、より効率的にコーディングされています。
-- `<div>` 要素ベースのデザインから標準的な `<table aria-label="Use Inbox Vision">` フォーマットのコードベースへの移行
-  <caption>Use Inbox Vision</caption>
+- `<div>` 要素ベースのデザインから標準的な `<table aria-label="Inbox Visionを使用する">` フォーマットのコードベースへの移行
+  <caption>Inbox Visionを使用する</caption>
 - [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)が簡潔さのために再コーディングされました
 - 最終的なHTMLコードはタグ間の空白を削除するために圧縮されます
 - 透明な区切り線はコンテンツパディングに自動的に変換されます

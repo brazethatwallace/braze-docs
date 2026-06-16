@@ -35,9 +35,9 @@ Antes de começar, certifique-se de que você trabalhou com sua equipe e com o g
 
 Você pode criar novos espaços de trabalho ou alternar entre espaços de trabalho existentes a partir do menu suspenso de espaço de trabalho no cabeçalho global.
 
-1. Selecione o menu suspenso de espaço de trabalho e, em seguida, selecione <i class="fa-solid fa-square-plus" style="color: #0b8294;"></i> **Create workspace**.
+1. Selecione o menu suspenso de espaço de trabalho e, em seguida, selecione <i class="fa-solid fa-square-plus" style="color: #0b8294;" aria-hidden="true"></i> **Criar espaço de trabalho**.
 
-![O menu suspenso de espaço de trabalho com o botão "Create workspace".]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
+![O menu suspenso de espaço de trabalho com o botão "Criar espaço de trabalho".]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
 
 {:start="2"}
 2. Dê um nome ao seu espaço de trabalho.
@@ -47,19 +47,19 @@ Você pode adotar uma convenção de nomenclatura para que outras pessoas na sua
 {% endalert %}
 
 {:start="3"}
-3. Selecione **Create**. Pode levar alguns segundos para a Braze criar seu espaço de trabalho.
+3. Selecione **Criar**. Pode levar alguns segundos para a Braze criar seu espaço de trabalho.
 
-![Modal "Create Workspace" com o nome "Upon Voyage US - Staging".]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
+![Modal "Criar espaço de trabalho" com o nome "Upon Voyage US - Staging".]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
 
-Você será direcionado para a página **App Settings** para começar a adicionar suas instâncias do app. Você pode acessar essa página a qualquer momento em **Settings** > **App Settings**.
+Você será direcionado para a página **Configurações do app** para começar a adicionar suas instâncias do app. Você pode acessar essa página a qualquer momento em **Configurações** > **Configurações do app**.
 
-![Página "App Settings" para o espaço de trabalho Upon Voyage US - Staging com um botão para adicionar um app.]({% image_buster /assets/img/workspaces/workspace_empty_state.png %})
+![Página "Configurações do app" para o espaço de trabalho Upon Voyage US - Staging com um botão para adicionar um app.]({% image_buster /assets/img/workspaces/workspace_empty_state.png %})
 
 ### Etapa 3: Adicione suas instâncias do app {#step-3-add-your-app-instances}
 
 Nos referimos aos diferentes sites e apps coletados dentro de um espaço de trabalho como "instâncias do app".
 
-1. Na página **App Settings**, selecione **+ Add app**.
+1. Na página **Configurações do app**, selecione **+ Add app**.
 2. Dê um nome à sua instância do app e selecione em qual plataforma ou plataformas essa instância do app está. Se você selecionar múltiplas plataformas, a Braze criará uma instância do app para cada plataforma.
 
 ![Modal "Add New App to Upon Voyage US - Staging" com opções para selecionar detalhes do app.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
@@ -79,15 +79,15 @@ Você deve criar instâncias do app separadas para cada versão do seu app em ca
 
 #### Versão ativa do SDK {#live-sdk-version}
 
-A versão ativa do SDK exibida na página App Settings para um app específico é a versão mais alta do app com pelo menos 5% do total de sessões diárias e que teve pelo menos 500 sessões no último dia.
+A versão ativa do SDK exibida na página Configurações do app para um app específico é a versão mais alta do app com pelo menos 5% do total de sessões diárias e que teve pelo menos 500 sessões no último dia.
 
 Esse campo aparece depois que você integra o SDK da Braze com seu app ou site. Se uma versão mais recente do SDK da Braze estiver disponível para sua plataforma, isso será indicado aqui com a tag "Newer Version Available".
 
-![Seção "Live SDK Version" com o valor do campo "5.4.0" e um ícone indicando que uma nova versão está disponível.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
+![Seção "Versão ativa do SDK" com o valor do campo "5.4.0" e um ícone indicando que uma nova versão está disponível.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
 
 ### Etapa 4: Repita conforme necessário {#step-4-repeat-as-needed}
 
-Repita as etapas 2 e 3 para configurar quantos espaços de trabalho seu plano exigir. Como prática recomendada, sugerimos que você crie um espaço de trabalho de teste para testes de integração e de campanhas.
+Repita as etapas 2 e 3 para configurar quantos espaços de trabalho seu plano exigir. Como prática recomendada, sugerimos que você crie um espaço de trabalho de teste para testes de integração e de Campaigns.
 
 {% alert tip %}
 **Adicione um espaço de trabalho de teste**<br>Você pode realizar testes do app isolando completamente certos usuários da sua instância de produção. Crie um novo espaço de trabalho e, ao publicar seu aplicativo, certifique-se de alterar a chave de API que a Braze está usando para que corresponda à do seu espaço de trabalho de produção, e não à do espaço de trabalho de teste.
@@ -99,14 +99,14 @@ Repita as etapas 2 e 3 para configurar quantos espaços de trabalho seu plano ex
 
 Você pode adicionar espaços de trabalho favoritos para acessar os espaços de trabalho que você mais usa de forma ainda mais rápida.
 
-![Menu suspenso de espaço de trabalho com a guia "Favorite workspaces".]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
+![Menu suspenso de espaço de trabalho com a guia "Espaços de trabalho favoritos".]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
 
 Para adicionar espaços de trabalho favoritos:
 
-1. Selecione o menu suspenso do seu perfil e, em seguida, selecione **Manage your account**.
-2. Na seção **Account Profile**, localize o campo **Favorite workspaces**.
+1. Selecione o menu suspenso do seu perfil e, em seguida, selecione **Gerenciar sua conta**.
+2. Na seção **Perfil da conta**, localize o campo **Espaços de trabalho favoritos**.
 3. Selecione seus espaços de trabalho na lista.
-4. Selecione **Save Changes**.
+4. Selecione **Salvar alterações**.
 
 Não há limite para o número de espaços de trabalho que você pode favoritar, mas recomendamos manter essa lista curta por conveniência.
 
@@ -114,9 +114,9 @@ Não há limite para o número de espaços de trabalho que você pode favoritar,
 
 Para renomear seu espaço de trabalho:
 
-1. Acesse **Settings** > **App Settings**.
-2. Passe o cursor sobre o nome do seu espaço de trabalho e selecione <i class="fa-solid fa-pencil" style="color: #0b8294;"></i>.
-3. Dê um novo nome ao seu espaço de trabalho e selecione <i class="fa-solid fa-square-check" style="color: #0b8294;"></i> **Save**.
+1. Acesse **Configurações** > **Configurações do app**.
+2. Passe o cursor sobre o nome do seu espaço de trabalho e selecione <i class="fa-solid fa-pencil" style="color: #0b8294;" aria-hidden="true"></i> **Editar**.
+3. Dê um novo nome ao seu espaço de trabalho e selecione <i class="fa-solid fa-square-check" style="color: #0b8294;" aria-hidden="true"></i> **Salvar**.
 
 ![O ícone de lápis aparecendo ao lado do nome do espaço de trabalho.]({% image_buster /assets/img/workspaces/workspace_rename.gif %}){: style="max-width:50%;"}
 
@@ -124,8 +124,8 @@ Para renomear seu espaço de trabalho:
 
 Para excluir seu espaço de trabalho ou instância do app:
 
-1. Acesse **Settings** > **App Settings**.
-2. Selecione **Delete workspace** para excluir o respectivo espaço de trabalho, ou selecione o ícone de lixeira ao lado da respectiva instância do app.
+1. Acesse **Configurações** > **Configurações do app**.
+2. Selecione **Excluir espaço de trabalho** para excluir o respectivo espaço de trabalho, ou selecione o ícone de lixeira ao lado da respectiva instância do app.
 
 Você não pode excluir instâncias do app ou espaços de trabalho que estejam sendo usados para direcionamento de usuários ou que tenham mais de 1.000 usuários. Se você tentar fazer isso, receberá uma mensagem de erro. Para prosseguir e excluí-los, [crie um caso de Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/) que inclua um link do dashboard e o nome da instância do app ou espaço de trabalho a ser excluído.
 
@@ -133,7 +133,7 @@ Você não pode excluir instâncias do app ou espaços de trabalho que estejam s
 Tenha cuidado ao excluir espaços de trabalho! Depois que um espaço de trabalho é excluído, ele não pode ser restaurado.
 {% endalert %}
 
-![A página App Settings com um botão para excluir um espaço de trabalho e um ícone de lixeira para excluir um app.]({% image_buster /assets/img/workspaces/workspace_delete.png %})
+![A página Configurações do app com um botão para excluir um espaço de trabalho e um ícone de lixeira para excluir um app.]({% image_buster /assets/img/workspaces/workspace_delete.png %})
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
@@ -167,7 +167,7 @@ Você pode então adicionar esse segmento à sua mensagem e começar a refinar a
 
 #### Campaigns
 
-Para Campaigns, adicione seu segmento à etapa **Target Audiences** do criador.
+Para Campaigns, adicione seu segmento à etapa **Público-alvo** do criador.
 
 #### Canvas
 

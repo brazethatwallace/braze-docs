@@ -27,14 +27,14 @@ Nachdem Ihre Empfehlung trainiert wurde, können Sie Ihre Nachrichten mit Liquid
 {% tab Vorformatierter Code %}
 ![Modal „Personalisierung hinzufügen“ mit Artikelempfehlung als Personalisierungstyp.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
-Sie können Liquid über den Abschnitt **Add personalization** in Ihrem Nachrichten-Editor generieren:
+Sie können Liquid über den Abschnitt **Personalisierung hinzufügen** in Ihrem Nachrichten-Editor generieren:
 
-1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Personalisierung hinzufügen"></i> aus, um das Personalisierungsfenster zu öffnen.
-2. Wählen Sie für **Personalization Type** die Option **Item Recommendation** aus.
-3. Wählen Sie unter **Item Recommendation Name** die Empfehlung aus, die Sie gerade erstellt haben.
-4. Geben Sie bei **Number of Predicted Items** ein, wie viele Top-Produkte eingefügt werden sollen. Sie können zum Beispiel die drei meistgekauften Artikel anzeigen.
-5. Wählen Sie unter **Information to Display** aus, welche Felder aus dem Katalog für jeden Artikel enthalten sein sollen. Die Werte für diese Felder werden für jeden Artikel aus dem mit dieser Empfehlung verknüpften Katalog entnommen.
-6. Wählen Sie das Symbol **Copy** aus und fügen Sie den Liquid-Code an der gewünschten Stelle in Ihrer Nachricht ein.
+1. Wählen Sie in jedem Nachrichten-Editor, der Personalisierung unterstützt, <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Personalisierung hinzufügen"></i> **Personalisierung hinzufügen** aus, um das Personalisierungsfenster zu öffnen.
+2. Wählen Sie für **Personalisierungstyp** die Option **Artikelempfehlung** aus.
+3. Wählen Sie unter **Name der Artikelempfehlung** die Empfehlung aus, die Sie gerade erstellt haben.
+4. Geben Sie bei **Anzahl der vorhergesagten Artikel** ein, wie viele Top-Produkte eingefügt werden sollen. Sie können zum Beispiel die drei meistgekauften Artikel anzeigen.
+5. Wählen Sie unter **Anzuzeigende Informationen** aus, welche Felder aus dem Katalog für jeden Artikel enthalten sein sollen. Die Werte für diese Felder werden für jeden Artikel aus dem mit dieser Empfehlung verknüpften Katalog entnommen.
+6. Wählen Sie das Symbol **Kopieren** aus und fügen Sie den Liquid-Code an der gewünschten Stelle in Ihrer Nachricht ein.
 {% endtab %}
 
 {% tab Angepasster Code %}
@@ -44,7 +44,7 @@ Sie können angepassten Liquid-Code schreiben, indem Sie auf das `product_recomm
 |-------------|-------|
 | **Struktur** | Auf jeden Artikel wird als `items[index]` zugegriffen, wobei der Index bei 0 (für den ersten Artikel) beginnt und für nachfolgende Artikel erhöht wird. |
 | **Katalogfelder** | Jeder Artikel im Array enthält Schlüssel-Wert-Paare, die den Feldern (Spalten) im Katalog entsprechen. Gängige Katalogfelder für Produktempfehlungen sind zum Beispiel:<br>- `name` oder `title`<br>- `price`<br>- `image_url` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Liquid-Code hinzufügen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-Code hinzufügen" }
 
 Verwenden Sie den Tag `assign`, um die `product_recommendation`-Daten abzurufen und einer Variablen zuzuweisen.
 
@@ -60,7 +60,7 @@ Ersetzen Sie Folgendes:
 |-----------|-----------|
 | `recommendation_name` | Der Name der KI-Empfehlung, die Sie in Braze erstellt haben. |
 | `items` | Die Variable, die das Array der empfohlenen Artikel speichert. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Liquid-Code hinzufügen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-Code hinzufügen" }
 
 Referenzieren Sie als Nächstes bestimmte Artikel und ihre Felder mithilfe der Array-Indizierung und der Punktnotation:
 
@@ -96,7 +96,7 @@ Fügen Sie im E-Mail-Drag-and-Drop-Editor einen Bildblock zu Ihrer E-Mail hinzu 
 
 ![Panel „Bildeigenschaften“ im Drag-and-Drop-Editor]({% image_buster /assets/img/image_with_liquid.png %}){: style="max-width:45%"}
 
-Aktivieren Sie **Image with Liquid** und fügen Sie dann Folgendes in das Feld **Dynamic URL** ein (das URL-Feld unterstützt keine Zeilenumbrüche, stellen Sie also sicher, dass der Code in einer Zeile steht):
+Aktivieren Sie **Bild mit Liquid** und fügen Sie dann Folgendes in das Feld **Dynamische URL** ein (das URL-Feld unterstützt keine Zeilenumbrüche, stellen Sie also sicher, dass der Code in einer Zeile steht):
 
 {% raw %}
 ```liquid
@@ -110,9 +110,9 @@ Ersetzen Sie Folgendes:
 |-----------|-----------|
 | `recommendation_name` | Der Name Ihrer Empfehlung. |
 | `image_url_field` | Der Name des Feldes in Ihrem Katalog, das Bild-URLs enthält. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Ein Bild referenzieren (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ein Bild referenzieren (optional)" }
 
-Um ein Platzhalterbild in Ihre Vorschau- und Test-E-Mails einzufügen, wählen Sie **Choose image** und wählen Sie dann entweder ein Bild aus Ihrer Medienbibliothek aus oder geben Sie die URL eines Bildes von Ihrer Hosting-Website ein.
+Um ein Platzhalterbild in Ihre Vorschau- und Test-E-Mails einzufügen, wählen Sie **Bild auswählen** und wählen Sie dann entweder ein Bild aus Ihrer Medienbibliothek aus oder geben Sie die URL eines Bildes von Ihrer Hosting-Website ein.
 {% endtab %}
 
 {% tab HTML %}
@@ -131,6 +131,6 @@ Ersetzen Sie Folgendes:
 |-----------|-----------|
 | `recommendation_name` | Der Name Ihrer Empfehlung. |
 | `image_url_field` | Der Name des Feldes in Ihrem Katalog, das Bild-URLs enthält. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Ein Bild referenzieren (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ein Bild referenzieren (optional)" }
 {% endtab %}
 {% endtabs %}

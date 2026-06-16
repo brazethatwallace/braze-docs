@@ -14,7 +14,7 @@ description: "Dieser Referenzartikel gibt einen Überblick darüber, welche Ausw
 
 ## Kampagne anhalten {#stopping-your-campaign}
 
-Um eine Kampagne anzuhalten, öffnen Sie die Seite **Campaign Details** und wählen Sie **Stop Campaign**. Wenn eine Kampagne angehalten wird:
+Um eine Kampagne anzuhalten, öffnen Sie die Seite **Campaign Details** und wählen Sie **Kampagne anhalten**. Wenn eine Kampagne angehalten wird:
 
 - Geplante Nachrichten werden abgebrochen.
 - A/B-Tests, bei denen der erste Test bereits gesendet wurde, werden dauerhaft abgebrochen.
@@ -56,6 +56,21 @@ Wenn Ihre Kampagne intelligentes Timing oder Zustellung nach Ortszeit verwendet,
 ### Senderate {#send-rate}
 
 Wenn Sie Rate-Limits verwenden, „plant“ Braze Ihre Nachrichten in minutengenauen Zeitfenstern. Wenn Sie die Senderate ändern möchten, befolgen Sie den folgenden Prozess, um sofortige Änderungen vorzunehmen.
+
+#### Kampagnen mit Zustellgeschwindigkeits-Rate-Limiting pausieren {#pausing-campaigns-with-delivery-speed-rate-limiting}
+
+Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war.
+
+Nachrichten mit Rate-Limiting werden nur abgebrochen, wenn die Kampagne zum geplanten Sendezeitpunkt noch pausiert ist. Ob eine Nachricht nach der Wiederaufnahme gesendet wird, hängt davon ab, wann Sie die Kampagne pausiert haben und wie lange sie pausiert war.
+
+Beispiel:
+
+1. Sie pausieren die Kampagne um 13:00 Uhr.
+2. Eine Nachricht mit Rate-Limiting ist für 13:05 Uhr geplant.
+   - Wenn Sie vor 13:05 Uhr fortsetzen, wird die Nachricht gesendet.
+   - Wenn Sie nach 13:05 Uhr fortsetzen, wird die Nachricht während der Pause abgebrochen und nicht gesendet.
+
+Wenn einige Nutzer:innen keine Nachrichten erhalten haben, weil die Kampagne während ihres geplanten Zeitfensters pausiert war, duplizieren Sie die Kampagne und richten Sie sie nur an diese Nutzer:innen, anstatt sich darauf zu verlassen, dass **Resume** die versäumten Nachrichten zustellt.
 
 ## Sofortige Änderungen vornehmen {#making-immediate-changes}
 

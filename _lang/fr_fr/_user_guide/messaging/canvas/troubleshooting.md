@@ -9,7 +9,20 @@ tool: Canvas
 
 # Résolution des problèmes liés aux Canvas {#troubleshoot-canvases}
 
-> Cette page vous aide à résoudre les problèmes liés à vos **Canvases**.
+> Cette page vous aide à résoudre les problèmes liés à vos Canvas.
+
+## Erreur « Too many Canvas branches » {#too-many-canvas-branches-error}
+
+Si vous voyez une erreur « Too many Canvas branches » lors du lancement d'un Canvas planifié, la combinaison de la ramification des étapes et de la taille de l'audience d'entrée peut créer des problèmes de performance du cluster Braze qui empêchent l'envoi des messages.
+
+Braze affiche ce message lorsque vous lancez un Canvas avec une entrée planifiée, et non lorsque vous enregistrez un brouillon. Pour résoudre ce problème, essayez les solutions suivantes :
+
+- Réduisez la ramification des étapes dans le Canvas.
+- Réduisez la taille de l'audience d'entrée.
+- Utilisez les [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) pour consolider la ramification au lieu de nombreux parcours parallèles.
+- Si votre Canvas utilise l'éditeur d'origine, [clonez-le vers Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) et reconstruisez-le avec les composants Canvas.
+
+Si vous devez tout de même lancer le Canvas sans modifications et que vous ne pouvez pas passer à Canvas Flow, contactez l'[Assistance]({{site.baseurl}}/support_contact/).
 
 ## Pourquoi un utilisateur n'a-t-il pas reçu une étape de Canvas déclenchée ? {#why-did-a-user-not-receive-a-triggered-canvas-step}
 
@@ -19,16 +32,16 @@ Si l'événement personnalisé s'affiche, poursuivez la résolution des problèm
 
 - Consultez le téléchargement du profil de l'utilisateur pour confirmer qu'il a déclenché l'événement et à quel moment. Si l'événement a été déclenché, comparez l'horodatage du déclenchement avec le moment où le Canvas est passé en production. L'événement a peut-être été déclenché avant la mise en ligne du Canvas.
 - Consultez les journaux des modifications du Canvas et des segments utilisés pour le ciblage afin de déterminer si l'utilisateur faisait partie du segment au moment où son événement personnalisé a été déclenché. S'il n'était pas dans le segment, il n'aurait pas reçu l'étape du Canvas.
-- Vérifiez si l'utilisateur a été placé dans un groupe de contrôle via la segmentation, ce qui l'aurait empêché de recevoir l'étape du Canvas.
+- Vérifiez si l'utilisateur a été affecté au groupe de contrôle du Canvas à l'entrée, ce qui l'aurait empêché de recevoir l'étape du Canvas.
 - S'il y a un délai planifié, vérifiez si l'événement personnalisé de l'utilisateur a été déclenché avant ce délai. Si l'événement a été déclenché avant le délai, l'utilisateur n'aurait pas reçu l'étape du Canvas.
 
 {% alert note %}
-Les In-App Messages ne peuvent être déclenchés que par des événements envoyés via le SDK, et non via **la Braze REST API**.
+Les messages in-app ne peuvent être déclenchés que par des événements envoyés via le SDK, et non via la REST API.
 {% endalert %}
 
 ## Pourquoi mon Canvas ne s'envoie-t-il pas comme prévu ? {#why-isnt-my-canvas-sending-as-expected}
 
-Les **Canvases** sont des outils robustes et complexes, et nous savons que vous consacrez du temps et du soin à leur création. Si vous constatez que votre **Canvas** ne s'envoie pas comme vous le souhaitez, nous vous recommandons de vérifier la planification de ce **Canvas**, l'audience d'entrée et les paramètres d'entrée, puis de revoir les étapes de [création d'un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
+Les Canvas sont des outils robustes et complexes, et nous savons que vous consacrez du temps et du soin à leur création. Si vous constatez que votre Canvas ne s'envoie pas comme vous le souhaitez, nous vous recommandons de vérifier la planification de votre Canvas, l'audience d'entrée et les paramètres d'entrée, puis de revoir les étapes de [création d'un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
 
 ### Planification {#schedule}
 
@@ -38,7 +51,7 @@ Les **Canvases** sont des outils robustes et complexes, et nous savons que vous 
 
 ### Paramètres d'entrée {#entry-settings}
 
-Les [paramètres d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) sont essentiels pour comprendre comment vos **Canvases** envoient des messages. Vérifiez si vous avez limité le nombre de personnes susceptibles d'entrer dans ce **Canvas**.
+Les [paramètres d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) sont essentiels pour comprendre comment vos Canvas envoient des messages. Vérifiez si vous avez limité le nombre de personnes susceptibles d'entrer dans le Canvas.
 
 Les utilisateurs peuvent également quitter un Canvas s'ils ne sont plus éligibles à la réception de messages. Par exemple, si le Canvas ne contient que des notifications push et qu'un utilisateur se désabonne des notifications push après avoir reçu la première étape, cet utilisateur sortira du Canvas. Envisagez d'utiliser [différentes étapes de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/) pour ajouter des parcours utilisateur alternatifs.
 
@@ -60,9 +73,9 @@ Le nombre de messages envoyés ou distribués diffère souvent de l'estimation d
 - **Éligibilité au canal :** il peut manquer aux utilisateurs une adresse e-mail, un jeton de notification push ou le statut d'abonnement requis pour ce canal à cette étape.
 - **Groupes de contrôle :** un groupe de contrôle global ou de Canvas peut exclure des utilisateurs de l'envoi de messages.
 - **Heures calmes, timing intelligent et limites de débit :** ces paramètres peuvent reporter ou supprimer des envois.
-- **Étapes de In-App Messages :** les In-App Messages peuvent afficher zéro *Envoi* alors que des impressions existent. C'est un comportement attendu, car la distribution in-app fonctionne différemment des notifications push ou des e-mails. Consultez [Pourquoi un Canvas peut-il afficher zéro envoi alors que des impressions sont enregistrées ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) dans la FAQ Canvas.
+- **Étapes de messages in-app :** les messages in-app peuvent afficher zéro _envoi_ alors que des impressions existent. C'est un comportement attendu, car la distribution in-app fonctionne différemment des notifications push ou des e-mails. Consultez [Pourquoi un Canvas peut-il afficher zéro envoi alors que des impressions sont enregistrées ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) dans la FAQ Canvas.
 
-Pour les e-mails et les autres canaux, bon nombre des mêmes facteurs s'appliquent comme pour les Campaigns. Pour une liste détaillée, consultez [Pourquoi les envois sont-ils inférieurs à la taille estimée de l'audience ?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
+Pour les e-mails et les autres canaux, bon nombre des mêmes facteurs s'appliquent comme pour les campagnes. Pour une liste détaillée, consultez [Pourquoi les envois sont-ils inférieurs à la taille estimée de l'audience ?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 
 ## Pourquoi aucun utilisateur n'est-il entré dans mon Canvas planifié quotidiennement le jour du changement d'heure ? {#why-did-no-users-enter-my-daily-scheduled-canvas-on-daylight-saving-time-day}
 
@@ -76,13 +89,11 @@ Pour éviter cela, assurez-vous que les mises à jour de vos attributs personnal
 
 Lors de la création de votre Canvas, vous vous attendiez peut-être à ce que votre audience se répartisse de manière égale entre votre groupe de contrôle et votre groupe de variantes, comme dans le [cas d'utilisation](#use-case) suivant. Voyons pourquoi cela se produit et comment y remédier !
 
-Le groupe dans lequel un utilisateur est placé dépend de ses paramètres. Il peut s'agir du groupe de contrôle ou du groupe de variantes. Un utilisateur entre dans un Canvas lorsqu'il remplit tous les critères définis dans l'[étape d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule). Lors de la configuration de votre Canvas, vous définissez le pourcentage d'utilisateurs qui entreront dans chaque variante et dans le groupe de contrôle.
+L'affectation au groupe de contrôle et à la variante se fait à l'entrée du Canvas en fonction des pourcentages que vous avez définis dans le générateur, et non via des filtres de segment. Un utilisateur entre dans un Canvas lorsqu'il remplit tous les critères définis dans l'[étape d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule).
 
-Si votre groupe de contrôle est important par rapport à votre groupe de variantes (et que ce n'est pas votre intention), nous recommandons ce qui suit :
-1. Définissez le filtre de votre audience d'entrée sur **is Foreground Push Enabled**.
-2. Définissez le filtre de votre audience d'entrée pour le **statut d'abonnement push**, le **statut d'abonnement e-mail**, ou les deux, sur **Opted In** ou **Subscribed**.
+Si des utilisateurs entrent dans la variante mais ne reçoivent pas de messages parce qu'ils ne sont pas éligibles pour un canal, utilisez les [Paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) de chaque étape (par exemple, **Paramètres d'abonnement** définis sur les utilisateurs ayant donné leur consentement uniquement) au lieu d'ajouter des filtres de canal à l'**Audience cible**. Pour les Canvas multicanaux, ne limitez pas l'audience d'entrée à un seul canal (comme **Foreground Push Enabled**).
 
-Lors de la création d'un Canvas avec un groupe de contrôle, vérifiez que tous les utilisateurs de l'audience d'entrée sont en mesure de recevoir des messages au sein du Canvas (par exemple, si le Canvas contient des notifications push et des e-mails).
+Les utilisateurs qui ne peuvent pas recevoir un canal spécifique peuvent tout de même entrer dans une variante. Pour limiter qui reçoit chaque type de message, utilisez les paramètres d'envoi par étape au lieu des filtres d'audience d'entrée.
 
 ### Cas d'utilisation {#use-case}
 

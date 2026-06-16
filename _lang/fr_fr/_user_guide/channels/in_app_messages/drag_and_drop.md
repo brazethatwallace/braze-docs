@@ -26,10 +26,10 @@ Vous ne savez pas si votre message in-app doit être envoyé via une campagne ou
 
 ### Exigences du SDK {#sdk-requirements}
 
-| Version minimale du SDK | Version recommandée du SDK |
+| Version minimale du SDK                                                       | Version recommandée du SDK                                                    |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences du SDK" }
 
 {% details Plus d'informations sur les SDK minimaux %}
 
@@ -42,10 +42,10 @@ Pour profiter de toutes les fonctionnalités disponibles dans l'éditeur par gli
 
 Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
 
-| Liens texte* | Demande d'amorce push |
+| Liens texte*                                                         | Demande d'amorce push                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences du SDK" }
 
 *Si vous incluez un lien dans votre message in-app qui redirige vers une URL et que l'utilisateur final ne dispose pas des versions minimales du SDK spécifiées, la sélection du lien fermera le message et l'utilisateur ne pourra pas revenir au message pour soumettre le formulaire.
 
@@ -95,7 +95,7 @@ Vous pouvez ajouter jusqu'à 10 pages par message in-app.
 
 Pour dupliquer une page existante :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Duplicate**.
 3. Donnez un nom significatif à la page. Cela vous aidera lorsque vous relierez les pages entre elles.
 
@@ -104,7 +104,7 @@ Pour dupliquer une page existante :
 
 Pour supprimer ou renommer une page :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Rename** ou **Delete**.
 
 {% endtab %}
@@ -180,7 +180,7 @@ Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum
 
 #### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le Contenu connecté ou les instructions conditionnelles.
+Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles.
 
 #### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 

@@ -252,6 +252,8 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 Im vorherigen Beispiel gibt das `?` vor `#` Braze ein Query-Segment, an das `lid` angehängt werden kann. Ohne dieses erscheint der Link möglicherweise nicht in **Link Management**.
 
+Ohne die Möglichkeit zu erkennen, wo Query-Parameter angehängt werden sollen, erkennt Link Aliasing diese URLs nicht und Link-Templates werden nicht angewendet. Wenn Sie Fehler wie **Failed to be assigned an LID** für eine dynamische URL sehen, überprüfen Sie, ob das `href` das in den Beispielen in diesem Abschnitt gezeigte `?`- oder `&`-Muster verwendet.
+
 ### Überlegungen zum Drag-and-Drop-Editor {#drag-and-drop-editor-considerations}
 
 Im Drag-and-Drop-Editor validieren Felder, die einen Link enthalten (z. B. eine Button-**URL**), das zugrunde liegende `href`, bevor Liquid ausgeführt wird. Leerzeichen, Zeilenumbrüche und andere nicht URL-sichere Zeichen können unerwartetes Verhalten verursachen, wenn Braze Link-Templates oder Link-Aliasing-Parameter anhängt. Wenn Sie verzweigendes Liquid für das Ziel benötigen, setzen Sie die URL in einem HTML-Block mit `assign` (siehe folgenden Abschnitt) und referenzieren Sie eine einzelne Variable im Drag-and-Drop-URL-Feld, anstatt komplexes Liquid direkt in dieses Feld einzufügen.

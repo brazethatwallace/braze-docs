@@ -23,9 +23,13 @@ Tu Canvas actual con el paso Enviar a destino es la fuente. Dentro del paso, pue
 
 Este paso permite que los usuarios del Canvas 1 sean enviados al Canvas 2. Cuando los usuarios del Canvas 1 entran en el paso Enviar a destino, son evaluados según los criterios de entrada y audiencia del Canvas 2 para determinar si son elegibles para entrar en el Canvas. En este caso, los usuarios que hayan realizado un pedido pueden entrar en el Canvas 2 y también continuar su recorrido en el Canvas 1. Para los usuarios que no hayan realizado un pedido, continúan su recorrido solo en el Canvas 1.
 
-### Entrada en tiempo real {#real-time-entry}
+### Comportamiento de entrada {#entry-behavior}
 
-Enviar a destino hace que los usuarios entren en el Canvas de destino en cuanto alcanzan este paso. Este paso actúa como un punto de entrada único al Canvas de destino. Los usuarios que cumplen los criterios de entrada y audiencia del Canvas de destino comienzan ese recorrido en Canvas en tiempo real. Los usuarios que no cumplen esos criterios en ese momento no entran en el Canvas de destino y continúan en el Canvas de origen.
+El paso Enviar a destino hace que los usuarios entren en el Canvas de destino en cuanto alcanzan este paso. Este paso actúa como un punto de entrada único al Canvas de destino. Los usuarios que cumplen los criterios de entrada y audiencia del Canvas de destino comienzan ese recorrido en Canvas. Los usuarios que no cumplen esos criterios en ese momento no entran en el Canvas de destino y continúan en el Canvas de origen.
+
+Si el Canvas de destino usa un horario de entrada planificado, el paso Enviar a destino omite ese horario de entrada. También omite [**Limitar volumen de entrada**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) en **Controles de entrada** del Canvas de destino cuando está configurado como **Cada vez que se planifica el Canvas**. Los usuarios enviados desde este paso no esperan a la siguiente ventana de evaluación planificada: son evaluados y admitidos cuando alcanzan el paso Enviar a destino, siempre que cumplan los criterios de entrada y audiencia del Canvas de destino.
+
+Si el Canvas de destino usa una entrada basada en acciones, el paso Enviar a destino omite el requisito de que los usuarios realicen la acción de entrada configurada para entrar en ese Canvas.
 
 ## Crear un paso Enviar a destino {#create-a-send-to-destination-step}
 
@@ -41,7 +45,7 @@ Selecciona el menú desplegable o introduce el nombre del Canvas en el campo **D
 
 ### Paso 3: Vista previa de tu destino {#step-3-preview-your-destination}
 
-Puedes seleccionar **Preview destination** para ver el recorrido de los usuarios que cumplen los criterios de entrada del Canvas de destino.
+Puedes seleccionar **Preview destination** para ver el Canvas al que estás enviando usuarios.
 
 Después de configurar este paso en Canvas, puedes [previsualizar la ruta del usuario]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) para ver si un usuario avanza al siguiente paso en el Canvas actual y si también avanza al Canvas de destino.
 

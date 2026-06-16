@@ -24,7 +24,7 @@ Los beneficios de usar el modelo Auto de Braze incluyen:
 
 ### ¿Dónde puedo ver mi uso actual de agentes? {#where-can-i-find-my-current-agent-usage}
 
-Ve a **Settings** > **Billing** > **Credits Usage** para ver los detalles de tu uso de agentes y los costes de créditos.
+Ve a **Configuración** > **Facturación** > **Uso de créditos** para ver los detalles de tu uso de agentes y los costes de créditos.
 
 ### ¿Puedo usar sentencias condicionales de Liquid en las instrucciones del agente? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -54,7 +54,7 @@ Un agente personalizado puede agotar el tiempo de espera si:
 
 - Las instrucciones del agente están incompletas o son contradictorias
 - Las instrucciones del agente no cubren todos los escenarios ni incluyen una condición alternativa (como "Si todas las entradas están en blanco, devolver 'No se pudo personalizar'")
-- Las instrucciones del agente le piden que genere un formato de salida diferente al especificado en la pestaña **Output** (por ejemplo, si las instrucciones del agente piden una cadena, pero en la pestaña **Output** la salida está definida como un número)
+- Las instrucciones del agente le piden que genere un formato de salida diferente al especificado en la pestaña **Salida** (por ejemplo, si las instrucciones del agente piden una cadena, pero en la pestaña **Salida** la salida está definida como un número)
 - La tarea del agente es demasiado compleja y se beneficiaría de un [enfoque de subagentes](#subagent-approach) en su lugar
 
 ## Cumplimiento normativo {#compliance}

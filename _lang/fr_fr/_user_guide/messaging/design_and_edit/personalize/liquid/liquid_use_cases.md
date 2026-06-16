@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personnaliser un message en fonction d'attributs personnalisés correspondants](#attribute-matching)
+- [Formater une devise selon les conventions numériques européennes](#european-currency-format)
 - [Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire](#attribute-monetary-difference)
 - [Référencer le prénom d'un utilisateur si son nom complet est stocké dans le champ first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formater une devise selon les conventions numériques européennes {#european-currency-format}
+
+Pour les locales qui utilisent une virgule comme séparateur décimal et un point comme séparateur de milliers (par exemple, l'Allemagne ou l'Italie), utilisez les filtres [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) et [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) avec `replace` pour intervertir les séparateurs. Utilisez `#` comme marque substitutive temporaire afin que les points et les virgules ne soient pas intervertis lors de la même passe.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Résultat :** `1.234.567,89`
+
+**Explication :** Le filtre `money` ajoute les décimales mais n'ajoute pas de symbole monétaire ni de séparateurs spécifiques à la locale. `number_with_delimiter` ajoute les séparateurs de milliers au format américain, et les filtres `replace` les convertissent au format européen.
 {% endraw %}
 
 ### Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire {#attribute-monetary-difference}

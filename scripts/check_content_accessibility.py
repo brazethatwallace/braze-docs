@@ -349,9 +349,50 @@ def check_file(path: str) -> list:
 # Entry point
 # ---------------------------------------------------------------------------
 
+_WCAG_TITLES: dict = {
+    '1.1.1': 'Missing alt text',
+    '2.4.4': 'Non-descriptive link text',
+    '2.4.6': 'Heading level skip',
+    '4.1.2': 'Missing iframe title',
+}
+
+
+def emit_github_annotations(violations_path: str) -> int:
+    """Read a violations JSON file and print GitHub Actions annotation lines."""
+    import re as _re
+    try:
+        with open(violations_path, encoding='utf-8') as fh:
+            violations = json.load(fh)
+    except FileNotFoundError:
+        print(f'error: {violations_path} not found', file=sys.stderr)
+        return 2
+    except json.JSONDecodeError as exc:
+        print(f'error: malformed JSON in {violations_path}: {exc}', file=sys.stderr)
+        return 2
+
+    for v in violations:
+        criterion = v.get('wcag_criterion', '?')
+        title = _WCAG_TITLES.get(criterion, f'WCAG {criterion}')
+        msg = _re.sub(r'\s+', ' ', v['message'].split('\n')[0].strip())
+        file = v['file']
+        line = v['table_start_line']
+        print(f'::error file={file},line={line},title=WCAG {criterion} - {title}::{msg}')
+    return 0
+
+
 def main() -> int:
     args = sys.argv[1:]
     json_output_path = None
+
+    # --github-annotations <violations.json>
+    # Reads a pre-generated violations JSON and emits GitHub Actions ::error annotations.
+    # Used by CI to avoid inline Python heredocs in YAML.
+    if '--github-annotations' in args:
+        idx = args.index('--github-annotations')
+        if idx + 1 >= len(args):
+            print('error: --github-annotations requires a file path argument', file=sys.stderr)
+            return 2
+        return emit_github_annotations(args[idx + 1])
 
     if '--json' in args:
         idx = args.index('--json')

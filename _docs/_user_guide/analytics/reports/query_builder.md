@@ -104,7 +104,7 @@ To view table details within the Query Builder:
 
 1. From the **Query Builder** page, open the **Reference** panel and select **Available Data Tables** to view available data tables and their names.
 3. Select <i class="fas fa-chevron-down" alt=""></i> **See Details** to view the table description and information about the table columns, such as data types.
-4. To insert the table name in your SQL, select <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. To insert the table name in your SQL, select <i class="fas fa-copy" title="Copy table name to SQL editor"></i> **Copy table name to SQL editor**.
 
 To use pre-written queries provided by Braze, select **Query Template** when first creating a report in the Query Builder.
 

@@ -12,16 +12,19 @@ hidden: true
 ## Credit Ratio Table
 
 {% details Click to expand %}
-<table aria-label="Credit Ratio Table">
+<table class="credits-table" aria-label="Credit Ratio Table">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Channel</b></th>
         <th><b>Destination</b></th>
         <th class="credits-column"><b>Credits per 1 Send</b></th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>WhatsApp</td>
         <td>Argentina Authentication</td>
@@ -707,6 +710,7 @@ hidden: true
         <td>United Kingdom Utility</td>
         <td>5.8</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -714,30 +718,30 @@ hidden: true
 
 ## Billing by region
 
-#### North America
+### North America
 
 United States, Canada
 
-#### Rest of Africa
+### Rest of Africa
 
 Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana, Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
 
-#### Rest of Asia Pacific
+### Rest of Asia Pacific
 
 Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand, Turkmenistan, Uzbekistan, Vietnam
 
-#### Rest of Central & Eastern Europe
+### Rest of Central & Eastern Europe
 
 Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
 
-#### Rest of Latin America
+### Rest of Latin America
 
 Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Rest of Middle East
+### Rest of Middle East
 
 Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
 
-#### Rest of Western Europe
+### Rest of Western Europe
 
 Austria, Belgium, Denmark, Finland, Ireland, Norway, Portugal, Sweden, Switzerland

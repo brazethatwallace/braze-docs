@@ -36,9 +36,11 @@ Brazeアカウントにユーザーを追加するには、管理者権限が必
 
 チームがGmailを使用していてメールアドレスの追加に問題がある場合は、メールアドレスにプラス記号（+）を追加してエイリアスを作成できます（「+1」や「+test」など）。たとえば、`contractor@braze.com`のエイリアスとして`contractor+1@braze.com`を使用できます。`contractor+1@braze.com`宛てのメールは引き続き`contractor@braze.com`に配信されますが、エイリアスは一意のメールアドレスとして認識されます。
 
+エイリアスを使用せずに複数の会社で1つのアカウントを使用するには、[マルチカンパニー開発者を使用する]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers)を参照してください。SSOを使用している場合は、複数のメールアドレスで登録する前に[シングルサインオン（SSO）に関する考慮事項]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso)を確認してください。
+
 ### Brazeアカウントのメールアドレスを変更できますか？ {#can-i-change-my-braze-accounts-email-address}
 
-セキュリティ上の理由から、ユーザーはBrazeアカウントに関連付けられたメールアドレスを変更できません。ユーザーがメールアドレスを更新したい場合は、管理者が希望のメールアドレスで[新しいアカウントを作成](#adding-braze-users)する必要があります。
+セキュリティ上の理由から、ユーザーはBrazeアカウントに関連付けられたメールアドレスを変更できません。ユーザーがメールアドレスを更新したい場合は、管理者が希望のメールアドレスで[新しいアカウントを作成](#adding-company-users)する必要があります。
 
 ## ユーザーアクセスと責任の割り当て {#assigning-user-access-and-responsibilities}
 

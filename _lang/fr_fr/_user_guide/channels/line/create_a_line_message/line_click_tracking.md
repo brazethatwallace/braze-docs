@@ -102,7 +102,7 @@ Braze raccourcit les URL rendues par Liquid, y compris celles incluses dans les 
 
 ## Test {#testing}
 
-Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message LINE à des groupes de test de contenu ou à un utilisateur individuel.
+Avant de lancer votre campagne ou votre Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message LINE à des groupes de test de contenu ou à un utilisateur individuel.
 
 Cette prévisualisation sera mise à jour avec la personnalisation pertinente et l'URL raccourcie.
 
@@ -125,17 +125,17 @@ Les données de clics seront automatiquement reportées dans le tableau de bord 
 Vous pouvez recibler les utilisateurs ayant cliqué sur une URL dans un message LINE en utilisant les filtres de segmentation et déclencheurs suivants :
 
 - Déclencheurs par événement
-    - Interagir avec une Campaign
+    - Interagir avec une campagne
     - Interagir avec une étape
 
 ![Déclencheur de livraison par événement LINE.]({% image_buster /assets/img/line/line_action_based.png %})
 
 - Filtres de segmentation
-    - A cliqué/ouvert une Campaign
-    - A cliqué/ouvert une Campaign ou un Canvas avec une étiquette
+    - A cliqué/ouvert une campagne
+    - A cliqué/ouvert une campagne ou un Canvas avec une étiquette
     - A cliqué/ouvert une étape
 
-![Groupe de filtres affichant les trois filtres de segmentation : « A cliqué/ouvert une Campaign », « A cliqué/ouvert une Campaign ou un Canvas avec une étiquette » et « A cliqué/ouvert une étape ».]({% image_buster /assets/img/line/line_segmentation_filters.png %})
+![Groupe de filtres affichant les trois filtres de segmentation : « A cliqué/ouvert une campagne », « A cliqué/ouvert une campagne ou un Canvas avec une étiquette » et « A cliqué/ouvert une étape ».]({% image_buster /assets/img/line/line_segmentation_filters.png %})
 
 ## Foire aux questions {#frequently-asked-questions}
 

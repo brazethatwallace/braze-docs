@@ -45,7 +45,7 @@ Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usu
 
 ### Mostrar desglose {#show-breakdown}
 
-Selecciona **Show Breakdown** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
+Selecciona **Mostrar desglose** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
 
 ![Expandir]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
@@ -63,7 +63,7 @@ Puedes graficar estadísticas para:
 - Correo electrónico
 - Mensajes dentro de la aplicación
 - Fórmulas de KPI
-  - Selecciona **Manage KPI Formulas** para crear una fórmula o editar una fórmula existente.
+  - Selecciona **Administrar fórmulas de KPI** para crear una fórmula o editar una fórmula existente.
 - LINE
 - Usuarios activos al mes (MAU)
 - Nuevos usuarios
@@ -117,6 +117,8 @@ Los cálculos de MAU siguen reglas específicas para garantizar una facturación
 
 {% alert note %}
 Los usuarios anónimos también cuentan para tu MAU. Para dispositivos móviles, los usuarios anónimos dependen del dispositivo. Para usuarios web, los usuarios anónimos dependen de la caché del navegador.
+
+Los recuentos de MAU en Braze pueden diferir de herramientas como Amplitude cuando cada producto utiliza una definición diferente de usuario activo. Compara la configuración en Amplitude (y tus reglas de MAU de Braze anteriores) antes de investigar una discrepancia como un problema del pipeline de datos.
 {% endalert %}
 
 #### Ejemplo de cálculo de MAU {#mau-calculation-example}
@@ -143,6 +145,8 @@ Las instantáneas de MAU se calculan una vez al día y nunca cambian retroactiva
 
 {% alert note %}
 Cuando integras Braze inicialmente, todos los usuarios aparecerán como nuevos usuarios porque Braze nunca había registrado una sesión para ellos antes.
+
+A diferencia de MAU, el recuento de *Nuevos usuarios* puede disminuir retroactivamente cuando Braze fusiona un perfil anónimo con un perfil identificado y convierte en huérfano el perfil anónimo. Braze elimina el perfil huérfano de los totales de uso de la aplicación, lo que puede reducir *Nuevos usuarios* para fechas que ya habías consultado. Para conocer el comportamiento de vinculación de perfiles, consulta [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}
@@ -168,6 +172,10 @@ El valor de MAU se calcula cada noche y no se actualizará hasta el día siguien
 ### Sesiones diarias {#daily-sessions}
 
 *Sesiones diarias* es el número de sesiones registradas en un día determinado. Comparar este valor con tu recuento de DAU puede informarte de cuántas veces tus usuarios abren la aplicación o visitan tu sitio web en los días en que registran al menos una sesión.
+
+{% alert note %}
+El *Recuento de sesiones diarias* para una fecha determinada puede cambiar cuando consultas el dashboard de inicio en días diferentes. Si un usuario inicia una sesión sin conexión, es posible que la sesión no llegue a Braze hasta que vuelva a abrir la aplicación. Cuando esa sesión se envía, Braze la atribuye a la fecha en que comenzó la sesión, lo que puede aumentar el recuento de esa fecha retroactivamente.
+{% endalert %}
 
 ### Sesiones diarias por MAU {#daily-sessions-per-mau}
 

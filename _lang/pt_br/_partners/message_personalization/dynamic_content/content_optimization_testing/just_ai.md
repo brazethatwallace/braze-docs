@@ -29,7 +29,7 @@ Dúvidas? Entre em contato com a JustAI pela [página de agendamento](https://ww
 | Requisito | Descrição |
 |---|---|
 | Conta JustAI | Uma conta na [JustAI](https://www.getjust.ai/) é necessária para aproveitar essa parceria. Se você não tem uma conta JustAI, [agende uma chamada de integração de 30 minutos](https://www.getjust.ai/book-demo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integrando a JustAI com a Braze {#integrating-justai-with-braze}
 
@@ -137,7 +137,7 @@ Certifique-se de pré-visualizar o e-mail na Braze para confirmar que o conteúd
 
 O Braze Currents permite o rastreamento de desempenho e a otimização ao longo do tempo.
 
-1. Na Braze, acesse **Integrações de parceiros** > **Exportação de dados**.
+1. Na Braze, acesse **Partner Integrations** > **Data Export**.
 2. Selecione **Create New Test Current** e depois selecione **Test Amazon S3 Data Export**.
 
 ![Menu suspenso "Create New Test Current" com a opção "Test Amazon S3 Data Export".]({% image_buster /assets/img/just_words/test_amazon_s3.png %}){: style="max-width:80%;"}

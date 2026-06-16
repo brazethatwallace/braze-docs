@@ -155,6 +155,13 @@ Pour le contenu connecté, si les requêtes vers l'hôte cible sont interrompues
 
 Si vous pensez que la détection d'hôte non sain cause des problèmes, contactez l'[assistance Braze]({{site.baseurl}}/support_contact/).
 
+### Le contenu connecté ne renvoie aucun corps de réponse {#connected-content-returns-no-response-body}
+
+Si un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'envoi de votre message, vérifiez les points suivants :
+
+- **Espaces insécables dans l'URL :** Braze supprime les espaces insécables (`&nbsp;` ou Unicode `U+00A0`) des URL de contenu connecté avant d'effectuer la requête. Si votre URL a été copiée depuis un document ou un champ du tableau de bord qui a inséré des espaces insécables entre les caractères, la requête peut échouer ou ne renvoyer aucun corps exploitable. Retapez l'URL en texte brut ou supprimez les espaces masqués, puis prévisualisez à nouveau.
+- **Erreurs HTTP et corps vides :** pour les codes de statut supérieurs à 300 ou les hôtes bloqués, le contenu connecté peut renvoyer une chaîne vide. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) et examinez les échecs dans le **Journal d'activité des messages**.
+
 ## E-mails automatisés et entrées du journal d'activité des messages {#automated-emails-and-message-activity-log-entries}
 
 ### Configuration des e-mails automatisés {#setting-up-automated-emails}

@@ -117,6 +117,8 @@ MAU-Berechnungen folgen bestimmten Regeln, um eine genaue und konsistente Abrech
 
 {% alert note %}
 Anonyme Nutzer:innen zählen ebenfalls zu Ihren MAU. Bei Mobilgeräten sind anonyme Nutzer:innen geräteabhängig. Bei Web-Nutzer:innen sind anonyme Nutzer:innen vom Browser-Cache abhängig.
+
+MAU-Zahlen in Braze können von Tools wie Amplitude abweichen, wenn jedes Produkt eine andere Definition für aktive Nutzer:innen verwendet. Vergleichen Sie die Konfiguration in Amplitude (und Ihre oben genannten Braze-MAU-Regeln), bevor Sie eine Abweichung als Datenpipeline-Problem untersuchen.
 {% endalert %}
 
 #### Beispiel zur MAU-Berechnung {#mau-calculation-example}
@@ -143,6 +145,8 @@ MAU-Snapshots werden einmal täglich berechnet und ändern sich nie rückwirkend
 
 {% alert note %}
 Wenn Sie Braze erstmals integrieren, werden alle Nutzer:innen als neue Nutzer:innen angezeigt, da Braze zuvor noch nie eine Sitzung für sie aufgezeichnet hat.
+
+Anders als bei MAU kann die Zahl der *neuen Nutzer:innen* rückwirkend sinken, wenn Braze ein anonymes Profil mit einem identifizierten Profil zusammenführt und das anonyme Profil verwaist. Braze entfernt das verwaiste Profil aus den App-Nutzungssummen, was die Zahl der *neuen Nutzer:innen* für bereits angezeigte Daten senken kann. Informationen zum Verhalten bei der Profilverknüpfung finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}
@@ -168,6 +172,10 @@ Der MAU-Wert wird nächtlich berechnet und erst am nächsten Tag aktualisiert.
 ### Tägliche Sitzungen {#daily-sessions}
 
 *Tägliche Sitzungen* ist die Anzahl der an einem bestimmten Tag aufgezeichneten Sitzungen. Ein Vergleich dieses Werts mit Ihrer DAU-Zahl kann Ihnen zeigen, wie oft Ihre Nutzer:innen die App öffnen oder die Website besuchen an Tagen, an denen sie mindestens eine Sitzung aufzeichnen.
+
+{% alert note %}
+Die *Anzahl der täglichen Sitzungen* für ein bestimmtes Datum kann sich ändern, wenn Sie das Home-Dashboard an verschiedenen Tagen aufrufen. Wenn ein:e Nutzer:in eine Sitzung offline startet, erreicht die Sitzung Braze möglicherweise erst, wenn die App erneut geöffnet wird. Wenn diese Sitzung übermittelt wird, ordnet Braze sie dem Datum zu, an dem die Sitzung gestartet wurde, was die Zahl für dieses Datum rückwirkend erhöhen kann.
+{% endalert %}
 
 ### Tägliche Sitzungen pro MAU {#daily-sessions-per-mau}
 

@@ -40,10 +40,11 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
-**Time zone alignment:** Braze Dashboard analytics are aggregated daily in your company's configured time zone in the dashboard. Make sure your timestamps align with your company's time zone so that your stats match the dashboard. For example, if your company time is UTC+2, then the timestamp should be 12AM UTC+2.
+Canvas analytics are aggregated by day in your company's configured time zone in Braze (the same time zone the dashboard uses). The API normalizes `starting_at` and `ending_at` to midnight in that time zone.
 {% endalert %}
 
 ## Example request
+
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
@@ -52,6 +53,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 {% endraw %}
 
 ## Response
+
+{% alert note %}
+In `total_stats`, `variant_stats`, and `step_stats`, `conversions` is the count for the [primary conversion event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) of the Canvas. When you configure additional conversion events, the payload can also include `conversions1`, `conversions2`, and higher-indexed fields for the second, third, and further events. This is similar to the [multivariate response]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response) for the ` /campaigns/data_series` endpoint. Where present, fields ending in `_by_entry_time` attribute those conversions by Canvas entry time.
+{% endalert %}
 
 ```json
 {
@@ -99,11 +104,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ```
 
 {% alert important %}
-**`influenced_opens` field:** In the API response, the `influenced_opens` field represents the total number of opens (both direct and influenced opens combined). In the Braze dashboard, 'influenced opens' refers only to influenced opens, excluding direct opens. This is due to a legacy naming convention in the API.
+In the API response, the `influenced_opens` field represents the total number of opens (both direct and influenced opens combined). In the Braze dashboard, "influenced opens" refers only to influenced opens, excluding direct opens. This is due to a legacy naming convention in the API.
 {% endalert %}
 
-{% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
-{% endalert %}
+## Related articles
+
+- [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+
 
 {% endapi %}

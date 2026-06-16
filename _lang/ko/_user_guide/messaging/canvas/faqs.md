@@ -196,6 +196,12 @@ Canvas에 진입하는 사용자 수는 오디언스와 트리거가 평가되�
 Canvas 문제 해결에 대한 추가 지원이 필요한 경우, 문제 발생 후 30일 이내에 Braze 고객지원에 문의하세요. 최근 30일간의 진단 로그만 보유하고 있습니다.
 {% endalert %}
 
+### 현재 Canvas 여정에 있는 사용자를 Campaign 또는 Segment에서 제외할 수 있나요? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+`Entered Canvas Variation`, `In Canvas Control Group`, `Received Message from Canvas Step` 등의 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 사용하여 Canvas 진입, 배리언트 할당 또는 단계 참여를 기준으로 사용자를 타겟팅할 수 있습니다. 이러한 필터는 진입 이력과 상호작용을 평가하며, 사용자가 현재 활성 여정을 진행 중인지 여부를 나타내지는 않습니다.
+
+활성 Canvas 참여를 기준으로 사용자를 포함하거나 제외하려면 Canvas 진입 및 종료 시점에 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 추가하여 커스텀 속성을 설정하고 해제한 다음, Campaign 또는 Segment에서 해당 속성을 기준으로 필터링하세요.
+
 ## 세분화 {#segmentation}
 
 ### "Canvas 배리언트에 진입하지 않음"과 "Canvas 대조군에 포함되지 않음"의 차이점은 무엇인가요? {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}
@@ -275,3 +281,47 @@ Canvas를 편집하는 동안 "요청 시간 초과" 오류가 발생하여 [Bra
 - **브라우저 및 버전:** 사용 중인 브라우저(예: Chrome 120, Safari 17)와 다른 브라우저에서 오류를 재현해 보았는지 여부.
 - **재현 단계:** 오류를 트리거하는 동작에 대한 명확한 설명(관련된 특정 캔버스 단계 또는 구성 포함).
 - **네트워크 로그(선택 사항):** 브라우저 개발자 도구(**네트워크** 탭)를 열고 오류를 재현한 후 네트워크 로그를 HTTP Archive(HAR) 로그 파일로 내보내세요. 이를 통해 고객지원 팀이 어떤 API 호출이 시간 초과되는지 식별하는 데 도움이 됩니다.
+
+## Canvas 전달 및 문제 해결 {#canvas-delivery-and-troubleshooting}
+
+### 고아 사용자는 Canvas 메시지를 수신할 수 있나요? {#are-orphaned-users-eligible-to-receive-canvas-messages}
+
+아니요. [고아 사용자]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)는 메시지를 수신할 수 없습니다. 사용자가 Canvas 여정 중에 프로필이 고아 상태가 되면 플로우에서 자동으로 나가게 됩니다. 분석에서 해당 종료에 대한 **종료됨** 이벤트가 항상 표시되지는 않을 수 있으며, 워크플로 요약에 `exited_date` 또는 `exit_reason` 없이 `partial_update_token`이 포함될 수 있습니다.
+
+병합 및 고아 프로필에 대한 자세한 내용은 [중복 사용자 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)을 참조하세요.
+
+### 활성 Canvas 또는 Campaign을 중지하면 이미 이메일 서비스 공급자에게 전송된 메시지가 여전히 전달되나요? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+
+네. Braze가 이메일 서비스 공급자(ESP)에 요청을 전송한 후에는 해당 전송을 회수할 수 없습니다. Canvas 또는 Campaign을 중지하면 새로운 전송 요청은 방지되지만, 이미 ESP에 전달된 메시지는 여전히 전달될 수 있으며 ESP가 처리하는 동안 전송 수가 증가할 수 있습니다.
+
+이는 [Canvas를 중지할 때](#what-happens-when-you-stop-a-canvas) 설명된 것과 동일한 동작입니다. 전송 중인 이메일은 즉시 중단되지 않습니다.
+
+### Canvas 웹훅 단계가 사용자에게 보이는 콘텐츠 없이 실행되었는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
+
+Braze는 Campaigns 및 Canvases의 [웹훅]({{site.baseurl}}/user_guide/channels/webhooks/) 단계에 대한 웹훅 **전송** 및 관련 전달 결과를 추적합니다. 단계 분석, [웹훅 리포팅]({{site.baseurl}}/user_guide/channels/webhooks/reporting/) 또는 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 웹훅 이벤트를 사용하여 단계가 실행되었는지 확인하세요. 엔드포인트의 요청 로그는 서버 측 수신 증거가 필요할 때 추가 확인을 제공합니다.
+
+Braze는 웹훅 단계에 대한 내장 비가시 추적 픽셀을 포함하지 않습니다. 커스텀 1픽셀 이미지 요청 대신 Braze 웹훅 측정기준과 엔드포인트 로깅에 의존하세요.
+
+### 사용자가 트리거 이벤트를 수행한 횟수보다 Canvas에 적게 진입한 이유는 무엇인가요? {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
+
+액션 기반 및 API 트리거 Canvases의 경우, Braze는 트리거 이벤트를 중복 제거하여 사용자가 동일한 Canvas에 대해 **초당 최대 약 1회**만 진입할 수 있도록 합니다. 사용자가 1초 이내에 동일한 트리거를 여러 번 수행하면 하나의 진입만 처리됩니다.
+
+동일한 초에 여러 진입을 허용하려면 트리거 이벤트 간격을 최소 1.1초로 설정하세요(예: 서버에서 이벤트 타이밍을 제어하는 경우). 동일한 초에 여러 트리거를 허용하는 Campaign 스타일 동작의 경우, 적절한 스케줄 및 재적격 설정이 있는 [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/)와 사용 사례를 비교하세요.
+
+### 테스트 푸시가 잘못된 앱으로 전송되지만 라이브 전송은 정상인 이유는 무엇인가요? {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
+
+고객 프로필의 **테스트 푸시**는 해당 프로필에 대한 모든 푸시 활성화 기기로 전달됩니다. 기기에 여러 앱이 설치된 경우, OS는 일반적으로 첫 번째 사용 가능한 앱으로 테스트 알림을 전달하며, 이는 검증하려는 앱이 아닐 수 있습니다.
+
+앱별 타겟팅을 확인하려면 프로필 **테스트 푸시**에만 의존하지 말고 좁은 오디언스(예: `external_id`로 필터링)를 사용하여 Campaign 또는 Canvas를 통해 라이브 또는 테스트 메시지를 전송하세요.
+
+여러 앱이 있는 **Canvas** 메시지 단계의 경우, 메시지 단계에서 **메시지 전송 시 오디언스 검증**을 켜서 전송 시점에 Segment 및 필터 확인이 실행되도록 하세요. 자세한 내용은 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 참조하세요.
+
+일반적인 테스트 푸시 동작에 대해서는 [테스트 메시지 전송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) 및 [푸시 FAQ]({{site.baseurl}}/user_guide/channels/push/faqs/)를 참조하세요.
+
+### iOS 및 Android에서 Push Stories를 디버그하려면 어떻게 하나요? {#how-do-i-debug-push-stories-on-ios-and-android}
+
+설정 및 크리에이티브 요구 사항은 [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)를 참조하세요. 구현 및 리치 알림 처리에 대해서는 개발자 가이드의 [리치 알림]({{site.baseurl}}/developer_guide/push_notifications/rich/) 및 [Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/)를 참조하세요.
+
+### "Canvas 메시지 24시간 이상 지연" 이메일은 누가 수신하나요? {#who-receives-the-canvas-messages-delayed-24-hours-email}
+
+Braze는 Canvas 메시지가 사용량 제한으로 인해 24시간 이상 지연될 때 이 알림을 전송합니다. 이메일은 영향을 받는 Canvas에 이전에 변경을 가한 대시보드 사용자(Canvas 변경 로그 기준)에게 전송됩니다. Braze가 해당 수신자를 확인할 수 없는 경우, 이메일은 워크스페이스의 **회사 관리자**에게 전송됩니다.

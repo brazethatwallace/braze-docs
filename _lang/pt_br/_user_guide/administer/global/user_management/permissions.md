@@ -83,6 +83,17 @@ Os usuários podem encontrar mensagens como "Você precisa da permissão 'View L
 Não é possível mesclar ou importar permissões de usuário de um usuário do dashboard para outro.
 {% endalert %}
 
+## Nuances das permissões de usuário {#nuances-of-user-permissions}
+
+Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
+
+- **Administrador do espaço de trabalho versus administrador da empresa:** Administradores do espaço de trabalho gerenciam permissões dentro dos espaços de trabalho atribuídos. Administradores da empresa têm autoridade em toda a empresa, incluindo a exclusão de outros usuários do dashboard.
+- **Usuários limitados:** Usuários limitados com a permissão "Edit Dashboard Users" podem gerenciar outros usuários limitados, mas não podem criar ou gerenciar contas de administrador da empresa.
+- **Escopo de gerenciamento de usuários do dashboard:** Na página de detalhes do usuário, as permissões aparecem apenas para os espaços de trabalho que o editor pode acessar. Um usuário limitado que pode editar usuários em um espaço de trabalho pode não ver as caixas de seleção de permissões de outro espaço de trabalho.
+- **Exportar dados de usuários:** A exportação de dados de usuários requer acesso no nível do espaço de trabalho, além da permissão de exportação.
+- **Permissões compostas:** Algumas áreas exigem múltiplas permissões. Por exemplo, configurar [Parceiros de tecnologia]({{site.baseurl}}/partners/) normalmente requer tanto o acesso ao parceiro quanto uma permissão básica de leitura para os recursos relacionados do espaço de trabalho.
+- **Importar e atualizar dados de usuários:** Essa permissão inclui a capacidade de editar perfis de usuários do app por meio de fluxos de importação, não apenas registros de usuários do dashboard.
+
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
 
 Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Usuários da empresa** e selecione o nome dele.
@@ -213,10 +224,11 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Dados de usuários | Import Users | Fazer upload de usuários para o dashboard |
 | Dados de usuários | Edit User Data | Criar e atualizar dados de usuários |
 | Dados de usuários | Export User Data | Baixar usuários do dashboard |
-| Registros de exclusão de usuários | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
+| Usuários duplicados | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
 | Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI |
 | Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. Os duplicados são removidos após a mesclagem |
-| Usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
+| Exclusão de usuários | View User Deletion Records | Visualizar uma lista de registros de exclusão de usuários |
+| Exclusão de usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissões de público" }
 
 ### Modelo {#template}
@@ -368,6 +380,5 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Grupos de inscrições | Edit Subscriptions | Criar e atualizar grupos de inscrições |
 | Transformações | Edit Data Transformation | Criar e atualizar transformações de dados |
 | Transformações | View Data Transformation | Visualizar transformações de dados |
-| Registros de exclusão de usuários | View User Deletion Records | Visualizar registros de exclusão de usuários |
 | Tíquetes de suporte | Create Support Ticket | Criar e atualizar tíquetes de suporte |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Outras permissões" }

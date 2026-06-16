@@ -93,7 +93,8 @@ MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
 CHUNK_TARGET_KB = int(os.environ.get("TRANSLATION_CHUNK_KB", "50"))
 MAX_WORKERS = int(os.environ.get("TRANSLATION_WORKERS", "12"))
 API_RETRIES = int(os.environ.get("TRANSLATION_API_RETRIES", "6"))
-FAILED_PASS_RETRIES = int(os.environ.get("TRANSLATION_FAILED_PASS_RETRIES", "4"))
+FAILED_PASS_RETRIES = int(os.environ.get("TRANSLATION_FAILED_PASS_RETRIES", "6"))
+FAILED_PASS_ROUNDS = int(os.environ.get("TRANSLATION_FAILED_PASS_ROUNDS", "2"))
 REPO_ROOT = Path(os.environ.get("GITHUB_WORKSPACE", Path.cwd()))
 RESULTS_FILE = REPO_ROOT / "translation_results.json"
 GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
@@ -360,30 +361,43 @@ def _build_system_blocks(system_prompt):
     return blocks
 
 
+_RETRYABLE_API_ERROR_TOKENS = (
+    "overloaded",
+    "timeout",
+    "timed out",
+    "rate limit",
+    "rate_limit",
+    "529",
+    "502",
+    "503",
+    "504",
+    "connection reset",
+    "connection error",
+    "connection aborted",
+    "connection closed",
+    "peer closed",
+    "incomplete chunked",
+    "chunked read",
+    "broken pipe",
+    "remote protocol",
+    "server disconnected",
+)
+
+
 def _is_retryable_api_error(exc):
     """Return True when another Claude API attempt may succeed."""
     msg = str(exc).lower()
-    return any(
-        token in msg
-        for token in (
-            "overloaded",
-            "timeout",
-            "timed out",
-            "rate limit",
-            "rate_limit",
-            "529",
-            "503",
-            "connection reset",
-            "connection error",
-        )
-    )
+    return any(token in msg for token in _RETRYABLE_API_ERROR_TOKENS)
 
 
 def _api_retry_wait_seconds(exc, attempt):
     """Backoff delay before the next Claude API attempt."""
     wait = min(90, 2 ** (attempt + 1))
-    if "overloaded" in str(exc).lower():
+    msg = str(exc).lower()
+    if "overloaded" in msg:
         wait = min(120, wait * 2)
+    elif any(token in msg for token in ("peer closed", "incomplete chunked", "broken pipe")):
+        wait = min(120, wait + 10)
     return wait
 
 
@@ -1202,6 +1216,7 @@ def _retry_failed_translations(
     active_langs,
     glossaries,
     styleguides,
+    round_num=1,
 ):
     """Re-run failed translations sequentially (normal and chunked paths)."""
     retriable = [
@@ -1214,7 +1229,8 @@ def _retry_failed_translations(
 
     print(
         f"\nRetrying {len(retriable)} failed translation(s) sequentially "
-        f"({FAILED_PASS_RETRIES} API attempts each)..."
+        f"(round {round_num}/{FAILED_PASS_ROUNDS}, "
+        f"{FAILED_PASS_RETRIES} API attempts each)..."
     )
     recovered = []
     still_failed = [item for item in failed_items if item not in retriable]
@@ -1231,7 +1247,7 @@ def _retry_failed_translations(
         english_content = (REPO_ROOT / fpath).read_text()
         mode = "chunked" if item.get("chunked") else "normal"
         print(f"  RETRY ({mode}): {relative} → {lang_info['name']}...")
-        time.sleep(5)
+        time.sleep(10)
 
         if item.get("chunked"):
             result = translate_one_chunked(
@@ -1452,7 +1468,9 @@ def cmd_translate(args):
                     })
                     print(f"    {lang_info['name']} FAILED ({result['error']})")
 
-    if results["failed"]:
+    for round_num in range(1, FAILED_PASS_ROUNDS + 1):
+        if not results["failed"]:
+            break
         recovered, still_failed = _retry_failed_translations(
             client,
             prompt,
@@ -1460,9 +1478,12 @@ def cmd_translate(args):
             active_langs,
             glossaries,
             styleguides,
+            round_num=round_num,
         )
         results["translated"].extend(recovered)
         results["failed"] = still_failed
+        if not recovered:
+            break
 
     save_results(results)
     ok = len(results["translated"])

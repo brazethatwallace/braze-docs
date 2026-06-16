@@ -48,7 +48,7 @@ Im Folgenden finden Sie die Standard-API-Rate-Limits für verschiedene Anfragety
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 100 Anfragen pro Minute. |
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 Anfragen pro Stunde. |
 | [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 Anfragen pro Stunde. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anfragen mit unterschiedlichen Rate-Limits" }
 
 ### Anfragen mit gemeinsamen Rate-Limits {#requests-with-shared-rate-limits}
 
@@ -188,7 +188,7 @@ Jede API-Anfrage an Braze gibt die folgenden Informationen in den Antwort-Header
 | `X-RateLimit-Limit` | Die maximale Anzahl der Anfragen, die Sie in einem bestimmten Intervall stellen können (Ihr Rate-Limit). |
 | `X-RateLimit-Remaining` | Die Anzahl der verbleibenden Anfragen im aktuellen Rate-Limit-Fenster. |
 | `X-RateLimit-Reset` | Der Zeitpunkt, zu dem das aktuelle Rate-Limit-Fenster zurückgesetzt wird, in UTC-Epochensekunden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Überwachung Ihrer Rate-Limits" }
 
 Diese Informationen sind bewusst im Header der API-Antwort enthalten und nicht im Braze-Dashboard. So kann Ihr System in Echtzeit reagieren, während Sie mit unserer API interagieren. Wenn zum Beispiel der Wert von `X-RateLimit-Remaining` unter einen bestimmten Schwellenwert fällt, sollten Sie den Versand verlangsamen, um sicherzustellen, dass alle Transaktions-E-Mails zugestellt werden. Oder wenn der Wert Null erreicht, können Sie alle Sendungen pausieren, bis die in `X-RateLimit-Reset` angegebene Zeit abgelaufen ist.
 
@@ -211,6 +211,12 @@ Wir empfehlen, zwischen aufeinanderfolgenden Endpunkt-Aufrufen eine Verzögerung
 Die optimale Verzögerung zwischen Endpunkten zu kennen ist entscheidend, wenn Sie aufeinanderfolgende Aufrufe an die Braze API senden. Probleme entstehen, wenn Endpunkte von der erfolgreichen Verarbeitung anderer Endpunkte abhängen und bei einem zu frühen Aufruf Fehler auftreten können. Wenn Sie zum Beispiel Nutzer:innen über den Endpunkt `/user/alias/new` einen Alias zuweisen und diesen Alias anschließend verwenden, um über den Endpunkt `/users/track` ein angepasstes Event zu senden – wie lange sollten Sie dann warten?
 
 Unter normalen Bedingungen beträgt die Zeit bis zur eventualen Datenkonsistenz 10–100 ms (1/10 Sekunde). Es kann jedoch vorkommen, dass es länger dauert, bis diese Konsistenz eintritt. Daher empfehlen wir, zwischen aufeinanderfolgenden Aufrufen eine Verzögerung von 5 Minuten einzuplanen, um die Fehlerwahrscheinlichkeit zu minimieren.
+
+## Limits für die Payload-Größe {#payload-size-limits}
+
+Braze API-Anfragen unterliegen Limits für die Payload-Größe, die unabhängig von den Rate-Limits gelten. Die meisten Endpunkte akzeptieren Anfragekörper von bis zu 4&nbsp;MB. Wenn eine Anfrage das geltende Limit überschreitet, kann Braze sie je nach Endpunkt mit HTTP `413 Request Entity Too Large` oder HTTP `400 Bad Request` ablehnen.
+
+Der Endpunkt [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) hat ein Payload-Limit von 2&nbsp;MB und gibt HTTP `400` zurück, wenn der Anfragekörper dieses Limit überschreitet. Informationen zu endpunktspezifischen Limits und zur Fehlerbehandlung finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data/).
 
 ### Zurücksetzen der Rate-Limits {#rate-limit-reset}
 
