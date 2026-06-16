@@ -174,3 +174,10 @@ table td {
 {% endtab %}
 {% endtabs %}
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Subscriptions & Usage - How Often is the Data Refreshed for Data Points?
+
+Data Points information is refreshed every 24 hours (nightly ~2am ET). Same calculation for all users within the 24h window.
