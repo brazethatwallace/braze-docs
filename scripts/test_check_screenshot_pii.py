@@ -32,6 +32,11 @@ class ScanTextTests(unittest.TestCase):
         self.assertNotIn('Jordan', singles)
         self.assertNotIn('Miller', singles)
 
+    def test_ignores_create_ui_label_as_person_name(self) -> None:
+        text = 'Name Name_Last Create targeting filter Create segment'
+        violations = scan_text('assets/img/example.png', text)
+        self.assertFalse(any(v.violation_type == 'person_name_single' for v in violations))
+
     def test_flags_person_name_pairs(self) -> None:
         text = (
             'File preview Name Name_Last Subscribe a82415 Jordan Miller opted_in '

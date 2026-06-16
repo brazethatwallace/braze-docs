@@ -87,7 +87,7 @@ NON_NAME_WORDS = frozenset({
     'browse', 'button', 'campaign', 'campaigns', 'cancel', 'canvas', 'card',
     'cards', 'catalogue', 'catalogues', 'category', 'channel', 'channels',
     'check', 'checkbox', 'click', 'column', 'columns', 'completed', 'content',
-    'correct', 'count', 'custom', 'dashboard', 'data', 'default', 'detected',
+    'correct', 'count', 'create', 'custom', 'dashboard', 'data', 'default', 'detected',
     'details', 'do', 'download', 'edit', 'email', 'error', 'errors', 'event',
     'events', 'external', 'field', 'fields', 'file', 'files', 'filter', 'first',
     'flag', 'for', 'found', 'from', 'full', 'group', 'here', 'identifier',
@@ -136,12 +136,6 @@ ALLOWLIST_TERMS = frozenset({
     'lee@example.com',
     'yuri@example.com',
 })
-
-# Standalone numbers that are usually UI copy, not user IDs.
-NUMERIC_ALLOWLIST = frozenset({
-    '500', '50', '100', '200', '1000', '2024', '2025', '2026', '2027',
-})
-
 
 @dataclass
 class Violation:
@@ -225,16 +219,6 @@ def normalize_text(text: str) -> str:
 def is_allowlisted(match: str) -> bool:
     lowered = match.lower()
     return any(term in lowered for term in ALLOWLIST_TERMS)
-
-
-def looks_like_year(value: str) -> bool:
-    if len(value) != 4:
-        return False
-    try:
-        year = int(value)
-    except ValueError:
-        return False
-    return 2020 <= year <= 2035
 
 
 def is_likely_person_name_word(word: str) -> bool:
@@ -380,8 +364,6 @@ def scan_text(image_path: Path, text: str) -> list[Violation]:
         )
 
     for match in NUMERIC_USER_ID_RE.findall(normalized):
-        if match in NUMERIC_ALLOWLIST or looks_like_year(match):
-            continue
         # Require at least one nearby external-id signal or multiple numeric IDs (table data).
         nearby_external = bool(EXTERNAL_ID_HEADER_RE.search(normalized))
         numeric_count = len(NUMERIC_USER_ID_RE.findall(normalized))

@@ -173,7 +173,7 @@ jobs:
             lines.push('     "dismiss_ids": ["abc12345"]');
             lines.push('   }');
             lines.push('   ```');
-            lines.push('4. After review, a maintainer may add the `pii-audit-dismissed` label to override remaining findings.');
+            lines.push('5. After review, a maintainer may add the `pii-audit-dismissed` label to override remaining findings.');
             lines.push('');
             lines.push('Run locally: `python3 scripts/check_screenshot_pii.py <image-path>`');
             lines.push('Cursor: `@screenshot-pii-audit`');
