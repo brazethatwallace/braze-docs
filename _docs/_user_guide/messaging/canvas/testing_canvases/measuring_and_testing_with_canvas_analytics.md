@@ -107,3 +107,10 @@ Funnel reporting offers a visual report that allows you to analyze the journeys 
 
 User retention is one of the most important metrics for any marketer. Keeping engaged users coming back for more indicates that business is healthy. Braze now allows you to measure user retention right on the **Canvas Analytics** page. For more information on how to read and interpret your retention report, check out [Retention reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
 
+<!-- sf-kb-phase2-batch -->
+
+## Salesforce Knowledge updates
+
+### Why Is Segment Size Smaller Than Canvas Analytics
+
+Consider adding a troubleshooting note to _docs/_user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics.md or canvas troubleshooting explaining that segment size can be smaller than Canvas analytics when unsubscribes occur.
