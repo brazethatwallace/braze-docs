@@ -1,6 +1,6 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-06-16 23:19 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-06-16 23:46 UTC**.
 
 These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue for Phase 2 — not CSV `actioned` status.
 
