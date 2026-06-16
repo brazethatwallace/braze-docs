@@ -1,0 +1,296 @@
+# Checks added or modified screenshots under assets/img/ for likely PII (external IDs,
+# customer attribute names, production CSV previews, real email addresses).
+#
+# BLOCKING: this check must pass before merging. On failure, posts a PR comment with
+# file paths, matched text, and fix guidance.
+#
+# False positives
+#   1. Add a sidecar file next to the image:
+#        assets/img/path/to/image.png.pii-audit-dismiss.json
+#      with a documented "reason" and optional dismiss_ids / dismiss_all.
+#   2. A maintainer may add the pii-audit-dismissed label after reviewing the sidecar
+#      or confirming the finding is safe. The workflow still posts an audit comment.
+#
+# Run locally:
+#   brew install tesseract   # macOS
+#   python3 scripts/check_screenshot_pii.py assets/img/path/to/image.png
+#
+# Cursor skill:
+#   @screenshot-pii-audit
+
+name: Check screenshot PII
+
+on:
+  pull_request:
+    paths:
+      - 'assets/img/**/*.png'
+      - 'assets/img/**/*.jpg'
+      - 'assets/img/**/*.jpeg'
+      - 'assets/img/**/*.pii-audit-dismiss.json'
+      - 'scripts/check_screenshot_pii.py'
+      - '.github/workflows/check-screenshot-pii.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check-screenshot-pii:
+    name: Screenshot PII audit (changed images)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Install Tesseract OCR
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+
+      - name: Get changed image files
+        id: changed
+        shell: bash
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          mapfile -t FILES < <(
+            git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD \
+              -- 'assets/img/**' \
+            | grep -E '\.(png|jpg|jpeg)$' \
+            || true
+          )
+          if ((${#FILES[@]} == 0)); then
+            echo "ran=false" >> "$GITHUB_OUTPUT"
+            echo "No changed image files to check."
+            exit 0
+          fi
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${FILES[@]}" > /tmp/changed_images.txt
+          echo "Checking ${#FILES[@]} image(s):"
+          printf '  %s\n' "${FILES[@]}"
+
+      - name: Check labels for maintainer dismissal
+        id: labels
+        if: steps.changed.outputs.ran == 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+            const dismissed = labels.includes('pii-audit-dismissed');
+            core.setOutput('dismissed', dismissed ? 'true' : 'false');
+
+      - name: Check screenshot PII
+        id: lint
+        if: steps.changed.outputs.ran == 'true'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          mapfile -t FILES < /tmp/changed_images.txt
+          python3 scripts/check_screenshot_pii.py \
+            --json violations.json \
+            "${FILES[@]}" 2>&1 | tee lint-output.txt
+          LINT_EXIT=${PIPESTATUS[0]}
+          echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Emit GitHub annotations for violations
+        if: >-
+          steps.changed.outputs.ran == 'true'
+          && steps.lint.outputs.exit_code == '1'
+          && steps.labels.outputs.dismissed != 'true'
+        shell: bash
+        run: python3 scripts/check_screenshot_pii.py --github-annotations violations.json
+
+      - name: Upload violations artifact
+        if: always() && steps.changed.outputs.ran == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: screenshot-pii-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
+          path: violations.json
+          retention-days: 90
+          if-no-files-found: ignore
+
+      - name: Post violations as PR comment
+        if: >-
+          always()
+          && steps.changed.outputs.ran == 'true'
+          && steps.lint.outputs.exit_code == '1'
+          && steps.labels.outputs.dismissed != 'true'
+        uses: actions/github-script@v9
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-screenshot-pii-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            const fs = require('fs');
+            let violations = [];
+            try {
+              violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
+            } catch (e) {
+              core.warning('Could not read violations.json: ' + e.message);
+              return;
+            }
+
+            const active = violations.filter(v => !v.dismissed);
+            if (active.length === 0) return;
+
+            const typeNames = {
+              external_id_header: 'External ID column or field',
+              numeric_user_id: 'Numeric user identifier',
+              alphanumeric_external_id: 'Alphanumeric external_id value',
+              customer_attribute_name: 'Customer-specific attribute name',
+              production_csv_filename: 'Production-style CSV filename',
+              email_address: 'Email address',
+              person_name: 'Person name (review required)',
+              person_name_single: 'Person name in Name/Name_Last column (review required)',
+            };
+
+            const lines = [marker, ''];
+            lines.push('### Blocked: screenshot PII audit failed');
+            lines.push('');
+            lines.push(
+              `**${active.length} potential PII finding(s)** in changed screenshots. ` +
+              'This check is **blocking** — fix the images or document a false positive before merging.'
+            );
+            lines.push('');
+            lines.push('**Fix options:**');
+            lines.push('1. Retake screenshots from [dashboard-06](https://dashboard-06.braze.com/) using FakeBrandz fixture data.');
+            lines.push('2. Blur identifier columns, preview rows, person names, and customer-specific attribute names.');
+            lines.push('3. For **example/fictional names** already allowed by the style guide, add a sidecar (see below) — do not skip review.');
+            lines.push('4. For false positives, add a sidecar file next to the image:');
+            lines.push('   `assets/img/your-image.png.pii-audit-dismiss.json`');
+            lines.push('   ```json');
+            lines.push('   {');
+            lines.push('     "reason": "Explain why this is safe to publish (audit trail)",');
+            lines.push('     "dismiss_ids": ["abc12345"]');
+            lines.push('   }');
+            lines.push('   ```');
+            lines.push('4. After review, a maintainer may add the `pii-audit-dismissed` label to override remaining findings.');
+            lines.push('');
+            lines.push('Run locally: `python3 scripts/check_screenshot_pii.py <image-path>`');
+            lines.push('Cursor: `@screenshot-pii-audit`');
+            lines.push('');
+
+            const byFile = {};
+            for (const v of active) {
+              if (!byFile[v.file]) byFile[v.file] = [];
+              byFile[v.file].push(v);
+            }
+
+            for (const [file, fileViolations] of Object.entries(byFile).sort()) {
+              lines.push(`#### \`${file}\``);
+              lines.push('');
+              for (const v of fileViolations) {
+                const label = typeNames[v.violation_type] || v.violation_type;
+                lines.push(`- **[${v.id}] ${label}** — matched \`${v.match}\``);
+                lines.push(`  - ${v.fix_hint}`);
+              }
+              lines.push('');
+            }
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            const body = lines.join('\n');
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            }
+
+      - name: Post maintainer dismissal audit comment
+        if: >-
+          always()
+          && steps.changed.outputs.ran == 'true'
+          && steps.lint.outputs.exit_code == '1'
+          && steps.labels.outputs.dismissed == 'true'
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-screenshot-pii-dismissed-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            const fs = require('fs');
+            let violations = [];
+            try {
+              violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
+            } catch (e) {
+              core.warning('Could not read violations.json: ' + e.message);
+              return;
+            }
+
+            const active = violations.filter(v => !v.dismissed);
+            if (active.length === 0) return;
+
+            const lines = [marker, ''];
+            lines.push('### Audit: screenshot PII check dismissed by label');
+            lines.push('');
+            lines.push(
+              'The `pii-audit-dismissed` label is present. **Merge is allowed**, but the following ' +
+              'findings were not auto-cleared — confirm they are safe to publish:'
+            );
+            lines.push('');
+            for (const v of active) {
+              lines.push(`- \`${v.file}\` [${v.id}] ${v.violation_type}: \`${v.match}\``);
+            }
+            lines.push('');
+            lines.push('_Remove the label and fix the images if this dismissal was applied in error._');
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            const body = lines.join('\n');
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            }
+
+      - name: Remove resolved comments on clean pass
+        if: >-
+          always()
+          && steps.changed.outputs.ran == 'true'
+          && steps.lint.outputs.exit_code == '0'
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const markers = [
+              '<!-- braze-docs-screenshot-pii-bot -->',
+              '<!-- braze-docs-screenshot-pii-dismissed-bot -->',
+            ];
+            const { owner, repo } = context.repo;
+            const prNumber = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            for (const comment of comments) {
+              if (!comment.body) continue;
+              if (markers.some(m => comment.body.includes(m))) {
+                await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id });
+              }
+            }
+
+      - name: Fail job if violations remain and not dismissed
+        if: >-
+          steps.changed.outputs.ran == 'true'
+          && steps.lint.outputs.exit_code == '1'
+          && steps.labels.outputs.dismissed != 'true'
+        run: |
+          echo "Screenshot PII audit failed. Fix images or add a documented dismissal."
+          exit 1
