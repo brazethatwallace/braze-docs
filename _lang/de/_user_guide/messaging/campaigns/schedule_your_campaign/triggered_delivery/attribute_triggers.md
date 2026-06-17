@@ -17,10 +17,11 @@ tool:
 Attribut-Trigger sind für die folgenden Szenarien verfügbar:
 
 - Aktualisierungen des Abo-Status.
-- Änderungen von booleschen, ganzzahligen oder String-Werten angepasster Attribute auf einen beliebigen oder einen bestimmten Wert.
+- Änderungen von booleschen, ganzzahligen, String- oder Zeittyp-Werten angepasster Attribute auf einen beliebigen Wert.
+- Änderungen von booleschen, ganzzahligen oder String-Werten angepasster Attribute auf einen bestimmten Wert.
 
-{% alert important %}
-Angepasste Attribute vom Typ „Datum“ sind im Dashboard nicht als Attribut-Trigger-Optionen verfügbar. Verwenden Sie einen anderen Zustellungs-Trigger oder Kanal-Workflow, um auf Datumsänderungen zu reagieren.
+{% alert note %}
+Im Dashboard werden angepasste Attributtypen als `Number` (für Ganzzahlen) und `Time` (für Datumsangaben) angezeigt, nicht als `String` oder `Date`.
 {% endalert %}
 
 Um Attribut-Trigger zu verwenden, erstellen Sie eine Campaign oder Canvas-Komponente und wählen Sie **Aktionsbasierte Zustellung** als Zustellungsmethode. Wählen Sie dann den Attribut-Trigger aus, den Sie verwenden möchten.
@@ -61,7 +62,7 @@ Bei der Änderung eines Attributs wird zuerst der Trigger ausgewertet und dann d
 
 ### Option „Beliebiger neuer Wert“ {#any-new-value-option}
 
-Verwenden Sie den Trigger `Change Custom Attribute Value` mit der Option `any new value`, um Nutzer:innen anzusprechen, wenn sich ein boolescher, ganzzahliger oder String-Wert auf einen beliebigen neuen Wert ändert.
+Verwenden Sie den Trigger `Change Custom Attribute Value` mit der Option `any new value`, um Nutzer:innen anzusprechen, wenn sich ein boolescher, ganzzahliger, String- oder Zeittyp-Wert auf einen beliebigen neuen Wert ändert.
 
 Sprechen Sie beispielsweise Nutzer:innen an, wenn sich ihre Anzahl an Rewards-Punkten ändert, um ihnen mitzuteilen, wie viele Punkte sie jetzt haben. Nehmen wir in diesem Beispiel an, dass eine Nutzerin oder ein Nutzer 85 Rewards-Punkte hat und Sie eine Campaign eingerichtet haben, die ausgelöst wird, wenn sich das Rewards-Punkte-Attribut auf einen beliebigen neuen Wert ändert. Wenn sich der Wert des Rewards-Punkte-Attributs auf einen beliebigen neuen Wert ändert (z. B. 83, 84, 86 usw.), wird die Campaign ausgelöst.
 
@@ -90,7 +91,7 @@ Sprechen Sie beispielsweise Nutzer:innen an, wenn sich ihre Rewards-Stufe auf di
 ![Ein „Change Custom Attribute Value“-Trigger für „AA_current_rewards_tier“, der bei einer Änderung auf den bestimmten Wert „super vip“ ausgelöst wird.]({% image_buster /assets/img_archive/super_vip.png %})
 
 {% alert important %}
-- Attribut-Trigger für bestimmte Werte angepasster Attribute sind nicht für Array- und Datums-Attribute verfügbar.
+- Attribut-Trigger für bestimmte Werte angepasster Attribute sind nicht für Array- und Zeittyp-Attribute verfügbar.
 - Der Trigger für die Änderung angepasster Attributwerte wird nicht ausgelöst, wenn der Wert des angepassten Attributs auf null aktualisiert wird.
 - Der Trigger für die Änderung angepasster Attributwerte wird nur ausgelöst, wenn sich der Wert eines angepassten Attributs tatsächlich ändert. Wenn der aktuelle Wert eines angepassten Attributs erneut an Braze gesendet wird (z. B. der Wert für das Lieblingsfarbe-Attribut ist „Rot“ und Sie senden den Wert „Rot“ erneut an Braze), wird der Trigger für die Änderung angepasster Attributwerte nicht ausgelöst.
 - Der Trigger für die Änderung angepasster Attributwerte gilt auch für neu erstellte Nutzer:innen.

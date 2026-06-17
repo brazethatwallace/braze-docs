@@ -62,7 +62,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
 | `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
 | `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### 識別子の解決 {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | --------------- | ----------- | -------- |
 | プライマリ | `external_id`、`user_alias`、`braze_id` | ユーザープロファイルの検索に使用されます。リクエストオブジェクトごとに許可されるプライマリ識別子は1つのみです。複数を含めると、そのオブジェクトは拒否されます。 |
 | セカンダリ | `email`、`phone` | プライマリ識別子が存在しない場合に**のみ**、ユーザープロファイルの検索に使用されます。プライマリ識別子なしで`email`と`phone`の両方が含まれている場合、`email`が優先されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="識別子の解決" }
 
 プライマリ識別子が存在する場合、同じリクエストオブジェクト内の`email`または`phone`の値は、ユーザー検索の識別子としてではなく、プロファイル属性として扱われます。たとえば、リクエストに`external_id`と`email`の両方が含まれている場合：
 
@@ -357,6 +357,20 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 ### `/users/track`は無効な階層化カスタム属性をどのように処理しますか？ {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
 階層化カスタム属性に無効な値（無効な時間形式やnull値など）が含まれる場合、Brazeはリクエスト内のすべての階層化カスタム属性の更新を処理から除外します。これは、その特定の属性内のすべての階層化構造に適用されます。処理を確実に成功させるために、送信前に階層化カスタム属性内のすべての値が有効であることを確認してください。
+
+### `/users/track`へのリクエストは順序通りに処理されることが保証されていますか？ {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+`/users/track`に対して複数の個別のAPIコールを短時間に連続して行う場合、Brazeはリクエストが送信または受信された正確な順序で処理されることを保証できません。これは、Brazeが速度と柔軟性を最大化するために非同期処理を使用しているためです。
+
+たとえば、同じユーザーに対して数秒以内に複数の更新リクエストを送信した場合（一部はnull属性値、他は有効な値を含む）、null値を含むリクエストが、先に送信されたにもかかわらず、有効な値を含むリクエストの後に処理される可能性があります。これにより、属性値が元に戻ったり、最後に送信された更新が反映されないように見えることがあります。
+
+ユーザーデータの更新時に競合を避けるには：
+
+- **単一のリクエストに更新をバッチする：** 個別の連続したコールを行うのではなく、ユーザーのすべての属性更新を1つのAPIコールに含めてください。
+- **リクエスト間に遅延を追加する：** 同じユーザーに対して個別のコールを行う必要がある場合は、最初のリクエストの処理が完了するまでリクエスト間に遅延（数秒）を追加してください。
+- **同じフィールドの重複更新を避ける：** 2つのリクエストが同じ属性を異なる値で更新する場合、それらの更新を1つのリクエストにまとめるか、順序が前後する可能性を減らすために遅延を挟んで分離してください。
+
+競合とベストプラクティスの詳細については、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)を参照してください。
 
 ### `/users/track`の応答が予想より遅いのはなぜですか？ {#why-is-my-userstrack-response-slower-than-i-expect}
 

@@ -59,18 +59,9 @@ Wenn Sie Rate-Limits verwenden, „plant“ Braze Ihre Nachrichten in minutengen
 
 #### Kampagnen mit Zustellgeschwindigkeits-Rate-Limiting pausieren {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war.
+Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war, und es werden nicht unbedingt alle Nachrichten gesendet, wenn die Kampagne fortgesetzt wird.
 
-Nachrichten mit Rate-Limiting werden nur abgebrochen, wenn die Kampagne zum geplanten Sendezeitpunkt noch pausiert ist. Ob eine Nachricht nach der Wiederaufnahme gesendet wird, hängt davon ab, wann Sie die Kampagne pausiert haben und wie lange sie pausiert war.
-
-Beispiel:
-
-1. Sie pausieren die Kampagne um 13:00 Uhr.
-2. Eine Nachricht mit Rate-Limiting ist für 13:05 Uhr geplant.
-   - Wenn Sie vor 13:05 Uhr fortsetzen, wird die Nachricht gesendet.
-   - Wenn Sie nach 13:05 Uhr fortsetzen, wird die Nachricht während der Pause abgebrochen und nicht gesendet.
-
-Wenn einige Nutzer:innen keine Nachrichten erhalten haben, weil die Kampagne während ihres geplanten Zeitfensters pausiert war, duplizieren Sie die Kampagne und richten Sie sie nur an diese Nutzer:innen, anstatt sich darauf zu verlassen, dass **Resume** die versäumten Nachrichten zustellt.
+Wenn einige Nutzer:innen keine Nachrichten erhalten haben, weil die Kampagne pausiert war, duplizieren Sie die Kampagne und richten Sie sie nur an diese Nutzer:innen, anstatt sich darauf zu verlassen, dass **Resume** die versäumten Nachrichten zustellt.
 
 ## Sofortige Änderungen vornehmen {#making-immediate-changes}
 

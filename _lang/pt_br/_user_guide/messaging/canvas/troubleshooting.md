@@ -73,7 +73,7 @@ O número de mensagens enviadas ou entregues frequentemente difere do público e
 - **Elegibilidade do canal:** os usuários podem não ter endereços de e-mail, tokens por push ou o status de inscrição necessário para aquele canal naquela etapa.
 - **Grupos de controle:** um grupo de controle global ou do Canvas pode impedir que usuários recebam mensagens.
 - **Horário de silêncio, Intelligent Timing e limites de taxa:** essas configurações podem adiar ou suprimir envios.
-- **Etapas de mensagens no app:** as mensagens no app podem mostrar zero *Envios* enquanto existem impressões. Isso é esperado porque a entrega de mensagens no app funciona de forma diferente das notificações por push ou e-mail. Consulte [Por que um Canvas pode mostrar zero Envios mesmo que impressões estejam sendo registradas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) nas perguntas frequentes do Canvas.
+- **Etapas de mensagens no app:** as mensagens no app podem mostrar zero _Envios_ enquanto existem impressões. Isso é esperado porque a entrega de mensagens no app funciona de forma diferente das notificações por push ou e-mail. Consulte [Por que um Canvas pode mostrar zero Envios mesmo que impressões estejam sendo registradas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) nas perguntas frequentes do Canvas.
 
 Para e-mail e outros canais, muitos dos mesmos fatores se aplicam como para Campaigns. Para uma lista detalhada, consulte [Por que os envios são menores que o tamanho estimado do público?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 
@@ -111,6 +111,16 @@ Analisando os usuários ativos, podemos ver que, embora o Segment contenha 29,8 
 ![Segment com o filtro "Push Enabled" definido como "true" e estimativa de 29,8 mil usuários.]({% image_buster /assets/img_archive/trouble16.png %})
 
 Isso significa que, embora tenhamos especificado que 90% dos usuários entrariam na variante, nem todos esses usuários são realmente capazes de receber uma notificação por push. Esses usuários que não podem receber uma notificação por push ainda entrarão na variante independentemente.
+
+## Etapas baseadas em ação e propriedades de eventos personalizados {#action-based-steps-and-custom-event-properties}
+
+Se um Canvas baseado em ação ou uma Jornada de ação não enviar quando esperado, confirme que o evento personalizado no perfil do usuário corresponde à configuração do gatilho, incluindo filtros de propriedades. A Braze avalia as propriedades exatas enviadas com o evento; se uma propriedade estiver ausente ou o valor não corresponder ao filtro, o usuário não avança.
+
+Eventos que ocorrem cedo demais ou antes de o usuário se qualificar para o público não disparam a etapa. Portanto, verifique o timestamp do evento em relação ao lançamento do Canvas, ao [cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) e a qualquer postergação agendada antes da etapa.
+
+{% alert note %}
+As mensagens no app no Canvas só podem ser disparadas por eventos do SDK, não pela REST API. Consulte [Por que um usuário não recebeu uma etapa disparada do Canvas?](#why-did-a-user-not-receive-a-triggered-canvas-step)
+{% endalert %}
 
 ## Por que o editor do Canvas está travando ou não carregando? {#why-is-the-canvas-editor-freezing-or-not-loading}
 

@@ -59,18 +59,9 @@ Al usar un límite de velocidad de envío, Braze "planifica" tus mensajes en int
 
 #### Pausar campañas con limitación de velocidad de entrega {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Cuando pausas una campaña que utiliza [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distribuye los envíos en intervalos basados en minutos. **Resume** no reenvía los mensajes de los intervalos que se cancelaron mientras la campaña estaba pausada.
+Cuando pausas una campaña que utiliza [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distribuye los envíos en intervalos basados en minutos. **Resume** no reenvía los mensajes de los intervalos que se cancelaron mientras la campaña estaba pausada, y no necesariamente todos los mensajes se envían cuando se reanuda la campaña.
 
-Los mensajes con límite de velocidad solo se cancelan si la campaña sigue pausada cuando llega su hora de envío programada. Que un mensaje se envíe después de reanudar depende de cuándo pausaste la campaña y cuánto tiempo permaneció pausada.
-
-Por ejemplo:
-
-1. Pausas la campaña a la 1 PM.
-2. Un mensaje con límite de velocidad está programado para enviarse a la 1:05 PM.
-   - Si reanudas antes de la 1:05 PM, el mensaje se envía.
-   - Si reanudas después de la 1:05 PM, el mensaje se cancela durante la pausa y no se envía.
-
-Si algunos usuarios no recibieron mensajes porque la campaña estuvo pausada durante su intervalo programado, duplica la campaña y dirige el envío solo a esos usuarios en lugar de depender de **Resume** para entregar los mensajes perdidos.
+Si algunos usuarios no recibieron mensajes porque la campaña estuvo pausada, duplica la campaña y dirige el envío solo a esos usuarios en lugar de depender de **Resume** para entregar los mensajes perdidos.
 
 ## Realizar cambios inmediatos {#making-immediate-changes}
 

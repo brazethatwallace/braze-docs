@@ -70,3 +70,13 @@ Pour plus d'informations sur les standards du protocole push et la prise en char
 - [Safari (mobile)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## Endpoints push Web 410 (Gone) et invalides {#410-gone-and-invalid-web-push-endpoints}
+
+Les navigateurs et les services push peuvent renvoyer une erreur **410 Gone** (ou des erreurs similaires de type « endpoint non valide ») lorsqu'un abonnement push Web n'est plus accepté. Les causes courantes incluent :
+
+- L'utilisateur a désactivé les notifications pour votre site dans les paramètres du navigateur ou du système d'exploitation.
+- Un profil utilisateur différent s'est abonné sur le même profil de navigateur, de sorte que l'endpoint a été réattribué au nouvel abonné.
+- L'abonnement a expiré après une longue période sans engagement. Lorsque l'utilisateur s'abonne à nouveau, un nouvel abonnement est créé lors de la session suivante.
+
+Une fois que l'utilisateur a réactivé les notifications, déclenchez à nouveau le flux d'inscription push Web habituel de votre site afin que Braze enregistre le nouvel endpoint d'abonnement.

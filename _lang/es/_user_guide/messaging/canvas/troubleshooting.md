@@ -51,7 +51,7 @@ Los Canvas son robustos y complejos, y sabemos que dedicas tiempo y cuidado al c
 
 ### Configuración de entrada {#entry-settings}
 
-La [configuración de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) es importante para entender cómo se envían tus Canvas. Comprueba si has limitado el número de personas que potencialmente entrarán en el Canvas.
+La [configuración de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=basics#selecting-entry-controls) es importante para entender cómo se envían tus Canvas. Comprueba si has limitado el número de personas que potencialmente pueden entrar en el Canvas.
 
 Los usuarios también pueden salir de un Canvas si ya no son elegibles para recibir mensajes. Por ejemplo, si el Canvas solo contiene notificaciones push y un usuario cancela la suscripción a push después de recibir el primer paso, ese usuario abandonaría el Canvas. Considera usar [diferentes pasos en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/) para añadir recorridos de usuario alternativos.
 
@@ -75,7 +75,7 @@ El número de mensajes enviados o entregados a menudo difiere de la audiencia es
 - **Horas tranquilas, Intelligent Timing y límites de velocidad:** Estas configuraciones pueden diferir o suprimir envíos.
 - **Pasos de mensajes dentro de la aplicación:** Los mensajes dentro de la aplicación pueden mostrar cero _Envíos_ mientras existen impresiones. Esto es esperado porque la entrega de mensajes dentro de la aplicación funciona de manera diferente a las notificaciones push o el correo electrónico. Consulta [¿Por qué un Canvas puede mostrar cero envíos aunque se registren impresiones?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged) en las preguntas frecuentes de Canvas.
 
-Para correo electrónico y otros canales, aplican muchos de los mismos factores que para las campañas. Para una lista detallada, consulta [¿Por qué los envíos son menores que el tamaño estimado de la audiencia?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
+Para correo electrónico y otros canales, aplican muchos de los mismos factores que para las Campaigns. Para una lista detallada, consulta [¿Por qué los envíos son menores que el tamaño estimado de la audiencia?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size).
 
 ## ¿Por qué ningún usuario entró en mi Canvas planificado diariamente el día del cambio de horario? {#why-did-no-users-enter-my-daily-scheduled-canvas-on-daylight-saving-time-day}
 
@@ -104,13 +104,23 @@ Imaginemos el siguiente escenario:
 
 ![Ejemplo de Canvas con 90 % de variante y 10 % de grupo de control.]({% image_buster /assets/img_archive/trouble15.png %})
 
-En este escenario, el 90 % de los usuarios que entran en el Canvas entrarán en la variante.
+En este escenario, el 90 % de los usuarios que entran en el Canvas entran en la variante.
 
 Si revisamos los usuarios activos, podemos ver que aunque contiene 29,8k usuarios, solo el 64 % de ellos tienen push habilitado:
 
 ![Segment con el filtro «Push Enabled» configurado como «true» y usuarios estimados de 29,8k.]({% image_buster /assets/img_archive/trouble16.png %})
 
 Esto significa que, aunque especificamos que el 90 % de los usuarios entraran en la variante, no todos esos usuarios pueden realmente recibir una notificación push. Estos usuarios que no pueden recibir una notificación push seguirán entrando en la variante de todos modos.
+
+## Pasos basados en acciones y propiedades de eventos personalizados {#action-based-steps-and-custom-event-properties}
+
+Si un Canvas basado en acciones o una ruta de acción no se envía cuando esperas, confirma que el evento personalizado en el perfil del usuario coincide con la configuración del desencadenador, incluidos los filtros de propiedades. Braze evalúa las propiedades exactas enviadas con el evento; si falta una propiedad o el valor no coincide con el filtro, el usuario no avanza.
+
+Los eventos que ocurren demasiado pronto o antes de que el usuario califique para la audiencia no desencadenan el paso, así que comprueba la marca de tiempo del evento en relación con el lanzamiento del Canvas, el [horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) y cualquier retraso planificado antes del paso.
+
+{% alert note %}
+Los mensajes dentro de la aplicación en Canvas solo pueden desencadenarse con eventos del SDK, no de la REST API. Consulta [¿Por qué un usuario no recibió un paso en Canvas desencadenado?](#why-did-a-user-not-receive-a-triggered-canvas-step)
+{% endalert %}
 
 ## ¿Por qué el editor de Canvas se congela o no carga? {#why-is-the-canvas-editor-freezing-or-not-loading}
 

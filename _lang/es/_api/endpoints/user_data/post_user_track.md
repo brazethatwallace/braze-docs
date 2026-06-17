@@ -358,6 +358,20 @@ Cada objeto de evento en la matriz de eventos representa una única ocurrencia d
 
 Cuando un atributo personalizado anidado contiene algún valor no válido (como formatos de hora no válidos o valores nulos), Braze elimina del procesamiento todas las actualizaciones de atributos personalizados anidados de la solicitud. Esto se aplica a todas las estructuras anidadas dentro de ese atributo específico. Para garantizar el éxito del procesamiento, comprueba que todos los valores de los atributos personalizados anidados son válidos antes de enviarlos.
 
+### ¿Se garantiza que las solicitudes a `/users/track` se procesen en orden? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+Cuando realizas múltiples llamadas a la API `/users/track` en rápida sucesión, Braze no puede garantizar que las solicitudes se procesen en el orden exacto en que se envían o reciben. Esto se debe a que Braze utiliza procesamiento asíncrono para maximizar la velocidad y la flexibilidad.
+
+Por ejemplo, si envías múltiples solicitudes de actualización para el mismo usuario en cuestión de segundos, algunas con valores de atributo nulos y otras con valores válidos, las solicitudes que contienen valores nulos pueden procesarse después de las solicitudes con valores válidos, incluso si se enviaron antes. Esto puede provocar que los valores de los atributos parezcan revertirse o no reflejar la actualización enviada más recientemente.
+
+Para evitar condiciones de carrera al actualizar datos de usuario:
+
+- **Agrupa las actualizaciones en una sola solicitud:** incluye todas las actualizaciones de atributos de un usuario en una sola llamada a la API en lugar de realizar llamadas consecutivas separadas.
+- **Añade retrasos entre solicitudes:** si debes realizar llamadas separadas para el mismo usuario, añade un retraso (de unos segundos) entre solicitudes para permitir que la primera solicitud complete su procesamiento antes de enviar la siguiente.
+- **Evita actualizaciones superpuestas para el mismo campo:** si dos solicitudes actualizan el mismo atributo con valores diferentes, envía esas actualizaciones en una sola solicitud o sepáralas con un retraso para reducir la posibilidad de resultados desordenados.
+
+Para más información sobre condiciones de carrera y buenas prácticas, consulta [Condiciones de carrera]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+
 ### ¿Por qué la respuesta de `/users/track` es más lenta de lo esperado? {#why-is-my-userstrack-response-slower-than-i-expect}
 
 Las llamadas exitosas a `/users/track` generalmente se aceptan rápidamente, pero Braze sigue procesando las actualizaciones de atributos, eventos y compras de forma asíncrona. La latencia percibida puede aumentar cuando las cargas útiles son grandes o cuando el enrutamiento de red hacia tu [punto final REST]({{site.baseurl}}/api/basics/#endpoints) es lento. Si necesitas un acuse de recibo síncrono por usuario o un orden más estricto entre llamadas, consulta [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**beta limitada**).

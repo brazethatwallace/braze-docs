@@ -358,6 +358,20 @@ Cada objeto de evento no vetor de eventos representa uma única ocorrência de u
 
 Quando um atributo personalizado aninhado contém valores inválidos (como formatos de hora inválidos ou valores nulos), a Braze descarta do processamento todas as atualizações de atributos personalizados aninhados na solicitação. Isso se aplica a todas as estruturas aninhadas dentro desse atributo específico. Para garantir o processamento bem-sucedido, verifique se todos os valores dentro dos atributos personalizados aninhados são válidos antes do envio.
 
+### As solicitações ao `/users/track` são garantidamente processadas em ordem? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+Quando você faz várias chamadas de API separadas ao `/users/track` em rápida sucessão, a Braze não pode garantir que as solicitações sejam processadas na ordem exata em que foram enviadas ou recebidas. Isso ocorre porque a Braze usa processamento assíncrono para maximizar velocidade e flexibilidade.
+
+Por exemplo, se você enviar várias solicitações de atualização para o mesmo usuário em poucos segundos — algumas com valores de atributo nulos e outras com valores válidos — as solicitações contendo valores nulos podem ser processadas após as solicitações com valores válidos, mesmo que tenham sido enviadas antes. Isso pode fazer com que os valores dos atributos pareçam reverter ou não refletir a atualização enviada mais recentemente.
+
+Para evitar condições de corrida ao atualizar dados de usuários:
+
+- **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API, em vez de fazer chamadas consecutivas separadas.
+- **Adicione atrasos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um atraso (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
+- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um atraso para reduzir a chance de resultados fora de ordem.
+
+Para saber mais sobre condições de corrida e práticas recomendadas, consulte [Condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+
 ### Por que a resposta do `/users/track` está mais lenta do que eu esperava? {#why-is-my-userstrack-response-slower-than-i-expect}
 
 Chamadas bem-sucedidas ao `/users/track` geralmente são aceitas rapidamente, mas a Braze ainda processa atualizações de atributos, eventos e compras de forma assíncrona. A latência percebida pode aumentar quando as cargas úteis são grandes ou quando o roteamento de rede até o seu [endpoint REST]({{site.baseurl}}/api/basics/#endpoints) é lento. Se você precisar de uma confirmação síncrona por usuário ou de uma ordenação mais rigorosa entre chamadas, consulte [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**beta limitado**).

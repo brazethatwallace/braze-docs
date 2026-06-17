@@ -17,6 +17,8 @@ Para começar, consulte os seguintes recursos:
 
 ## Início rápido {#quickstart}
 
+Os trechos a seguir mostram a configuração mínima necessária para adicionar o Braze Swift SDK ao seu app.
+
 ``` swift
 // AppDelegate.swift
 import BrazeKit
@@ -47,9 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Consulte o [Guia do Desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift) para opções avançadas de integração.
+Para saber mais sobre opções avançadas de integração, consulte o [Guia do Desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Suporte de versão {#version-support}
+
+A tabela a seguir lista as versões mínimas suportadas para as ferramentas usadas pelo Braze Swift SDK.
 
 Ferramenta | Versão mínima suportada
 :----|:----
@@ -64,6 +68,8 @@ Xcode|26.0+ (17A324)
 - CocoaPods
 
 ## Bibliotecas {#libraries}
+
+A tabela a seguir descreve cada biblioteca do Braze Swift SDK.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
