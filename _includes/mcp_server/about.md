@@ -5,7 +5,7 @@
 {% multi_lang_include mcp_server/beta_alert.md %}
 
 {% alert important %}
-### Sunsetting the locally hosted Braze MCP server
+## Sunsetting the locally hosted Braze MCP server
 
 This summer, Braze is launching a remote, Braze-hosted MCP server in Early Access. It replaces the locally hosted beta server (`braze-mcp-server` on [PyPI](https://pypi.org/project/braze-mcp-server/) and the Claude Desktop extension directory).
 
