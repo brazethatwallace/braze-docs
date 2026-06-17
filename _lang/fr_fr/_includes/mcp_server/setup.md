@@ -357,7 +357,8 @@ Après avoir configuré le serveur Braze MCP, essayez d'envoyer un prompt de tes
 {% endtab %}
 
 {% tab Gemini CLI %}
-![« Quelles sont les fonctions Braze disponibles ? » : question posée et réponse fournie dans Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Queried `list_functions` in Gemini CLI and returned available Braze MCP function categories and sample functions.
 {% endtab %}
 {% endtabs %}
 

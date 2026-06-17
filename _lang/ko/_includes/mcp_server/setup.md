@@ -357,7 +357,8 @@ Braze MCP 서버를 설정한 후 MCP 클라이언트에 테스트 프롬프트�
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Gemini CLI에서 사용 가능한 Braze 기능이 무엇인지 질문하고 답변을 받는 모습입니다.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Queried `list_functions` in Gemini CLI and returned available Braze MCP function categories and sample functions.
 {% endtab %}
 {% endtabs %}
 
