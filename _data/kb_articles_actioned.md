@@ -1,10 +1,10 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-06-16 23:46 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-06-17 16:25 UTC**.
 
 These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue for Phase 2 — not CSV `actioned` status.
 
-**Totals:** **2** actionable rows (of 3).
+**Totals:** **2** actionable rows (of 2).
 **Reference-repo verification:** **2** row(s) have `conflict_resolution` = `inconclusive` — confirm behavior in reference repos (see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; do not copy Salesforce Knowledge text without source verification.
 
 ## 1. Phase 2 PR batches (one primary `_docs` file per PR)
