@@ -35,8 +35,6 @@ Les journaux de synchronisation fournissent également les détails suivants pou
 * **Heure de début de l'exécution :** le moment où la tâche de synchronisation a démarré.
 * **Durée de l'exécution :** la durée totale nécessaire à l'achèvement de la tâche de synchronisation.
 
-![Détails d'un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Conservation des données {#data-retention}
 
 Les données du journal de synchronisation, y compris tous les payloads au niveau des lignes et les détails des erreurs, sont conservées pendant une durée maximale de **30 jours**. Les journaux datant de plus de 30 jours sont automatiquement supprimés.

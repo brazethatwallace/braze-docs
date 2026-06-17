@@ -35,8 +35,6 @@ Los registros de sincronización también proporcionan los siguientes detalles p
 * **Hora de inicio de la ejecución:** Cuándo comenzó el trabajo de sincronización.
 * **Duración de la ejecución:** El tiempo total que tardó en completarse el trabajo de sincronización.
 
-![Detalles de un registro de sincronización.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Retención de datos {#data-retention}
 
 Los datos del registro de sincronización, incluidas todas las cargas útiles a nivel de fila y los detalles de los errores, se conservan durante un máximo de **30 días**. Los registros con más de 30 días de antigüedad se eliminarán automáticamente.
