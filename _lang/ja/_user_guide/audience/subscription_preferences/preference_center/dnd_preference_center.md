@@ -23,7 +23,6 @@ page_order: 2
 
 ここにカスタムユーザー設定センターの一覧が表示されます。**新規作成**を選択して新しいユーザー設定センターを作成するか、既存のユーザー設定センターの名前を選択して変更を加えます。
 
-![名前、説明、タイプ、ステータス、最終編集日時、作成者を含むカスタムユーザー設定センターの一覧。]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## ステップ 2: メールユーザー設定センターに名前を付ける {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ page_order: 2
 
 このLiquidタグは、送信メールキャンペーンやキャンバスステップに含めることができ、ユーザーをユーザー設定センターに誘導します。
 
-![ユーザー設定センターのLiquidの例。]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## ステップ 3: ユーザー設定センターに購読グループを追加する {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,7 +46,6 @@ page_order: 2
 - **すべてを購読**チェックボックスを追加または削除する。これにより、ユーザーはこのブロックに表示されているすべての購読グループに登録されます
 - **すべての購読を解除**チェックボックスを追加または削除する。これにより、ユーザーはこのブロックに表示されているすべての購読グループから登録解除されます
 
-![すべてのメッセージ、マーケティング、ニュースレター、週刊メールを購読するオプション、またはすべての購読を解除するオプションを含むユーザー設定センターの例。]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
 テンプレート下部の**すべての購読を解除**ボタンは削除できず、ユーザーをすべてのメールメッセージの受信から[グローバル配信停止]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states)にします。
 

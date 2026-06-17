@@ -107,7 +107,6 @@ Después de añadir un bloque de contenido en una campaña o Canvas activo, pued
 
 Esta vista previa incluye información sobre el bloque de contenido, como quién lo creó, etiquetas, fecha de creación, fecha de última edición, descripción, tipo de editor, recuento de inclusiones con detalles (una lista clicable de mensajes o Content Blocks que usan el bloque de contenido) y una vista previa real del bloque de contenido.
 
-![Una vista previa de un bloque de contenido "Workout_Promo" para ciclismo y baile que tiene una inclusión.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
 
 ## Anidar Content Blocks {#nest-content-blocks}
 

@@ -83,7 +83,6 @@ Braze met automatiquement à jour la version en texte brut à partir de la versi
 Pour ajouter du mouvement dans un e-mail avec un aperçu fidèle, utilisez des GIF plutôt que des éléments nécessitant JavaScript, car la plupart des boîtes de réception ne prennent pas en charge JavaScript.
 {% endalert %}
 
-![Panneau des variantes d'e-mail pour la rédaction de votre e-mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze supprime automatiquement les gestionnaires d'événements HTML référencés en tant qu'attributs. Cela modifie le HTML, vérifiez donc l'e-mail une fois que vous avez terminé. En savoir plus sur les [gestionnaires HTML](https://www.w3schools.com/tags/ref_eventattributes.asp).

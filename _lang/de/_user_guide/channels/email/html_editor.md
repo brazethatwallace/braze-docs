@@ -83,7 +83,6 @@ Braze aktualisiert die Klartext-Version automatisch aus der HTML-Version, bis ei
 Um Bewegung in einer E-Mail mit genauer Vorschau hinzuzufügen, verwenden Sie GIFs anstelle von Elementen, die JavaScript erfordern, da die meisten Postfächer JavaScript nicht unterstützen.
 {% endalert %}
 
-![E-Mail-Varianten-Panel zum Verfassen Ihrer E-Mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze entfernt automatisch HTML-Event-Handler, die als Attribute referenziert werden. Dadurch wird das HTML modifiziert – überprüfen Sie die E-Mail daher erneut, nachdem Sie fertig sind. Erfahren Sie mehr über [HTML-Handler](https://www.w3schools.com/tags/ref_eventattributes.asp).

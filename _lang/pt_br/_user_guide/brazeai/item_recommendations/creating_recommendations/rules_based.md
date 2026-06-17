@@ -104,7 +104,6 @@ Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campai
 
 Depois que o catálogo for enviado para a Braze, verifique a pré-visualização de um número selecionado de itens do catálogo para confirmar se as informações foram importadas com precisão. Os itens podem ser randomizados na pré-visualização, mas isso não afetará o resultado do mecanismo de recomendação.
 
-![Exemplo de catálogo na Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
 Crie uma Campaign de cartão de conteúdo. No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
 

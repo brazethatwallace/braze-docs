@@ -23,7 +23,6 @@ Erstellen Sie ein Präferenzzentrum, indem Sie zu **Zielgruppe** > **E-Mail-Prä
 
 Hier wird eine Liste benutzerdefinierter Präferenzzentren angezeigt. Wählen Sie **Neu erstellen**, um ein neues Präferenzzentrum zu erstellen, oder wählen Sie den Namen eines bestehenden, um Änderungen vorzunehmen.
 
-![Eine Liste benutzerdefinierter Präferenzzentren mit Name, Beschreibung, Typ, Status, Datum der letzten Bearbeitung und erstellender Person.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## 2. Schritt: Das E-Mail-Präferenzzentrum benennen {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ Namen von Präferenzzentren dürfen nur alphanumerische Zeichen, Bindestriche od
 
 Dieser Liquid-Tag kann in alle ausgehenden E-Mail-Campaigns oder Canvas-Schritte eingefügt werden und leitet Nutzer:innen zum Präferenzzentrum weiter.
 
-![Ein Beispiel für Liquid für ein Präferenzzentrum.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## 3. Schritt: Abo-Gruppen zum Präferenzzentrum hinzufügen {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,7 +46,6 @@ Sie können die ausgewählten Abo-Gruppen weiter konfigurieren, indem Sie den Sm
 - Eine Checkbox **Alle abonnieren** hinzufügen oder entfernen, die die Nutzer:innen für alle in diesem Block angezeigten Abo-Gruppen anmeldet
 - Eine Checkbox **Von allen abmelden** hinzufügen oder entfernen, die die Nutzer:innen von allen in diesem Block angezeigten Abo-Gruppen abmeldet
 
-![Ein Beispiel für ein Präferenzzentrum mit den Optionen, alle Nachrichten, Marketing, Newsletter und wöchentliche E-Mails zu abonnieren oder sich von allen abzumelden.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
 Die Schaltfläche **Von allen abmelden** am Ende des Templates kann nicht entfernt werden und meldet Nutzer:innen [global ab]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states), sodass sie keine E-Mail-Nachrichten mehr erhalten.
 

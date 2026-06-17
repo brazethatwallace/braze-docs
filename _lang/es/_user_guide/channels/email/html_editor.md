@@ -83,7 +83,6 @@ Braze actualiza automáticamente la versión de texto plano a partir de la versi
 Para añadir movimiento en un correo electrónico con una vista previa precisa, usa GIF en lugar de elementos que requieran JavaScript, ya que la mayoría de las bandejas de entrada no admiten JavaScript.
 {% endalert %}
 
-![Panel de variantes de correo electrónico para redactar tu correo.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze elimina automáticamente los controladores de eventos HTML referenciados como atributos. Esto modifica el HTML, así que vuelve a revisar el correo electrónico después de terminar. Obtén más información sobre [controladores HTML](https://www.w3schools.com/tags/ref_eventattributes.asp).

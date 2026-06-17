@@ -107,7 +107,6 @@ Após adicionar um bloco de conteúdo em uma Campaign ou Canvas ativo, você pod
 
 Essa pré-visualização inclui informações sobre o bloco de conteúdo, como quem o criou, tags, data de criação, data da última edição, descrição, tipo de editor, contagem de inclusões com detalhes (uma lista clicável de mensagens ou blocos de conteúdo que usam o bloco de conteúdo) e uma pré-visualização real do bloco de conteúdo.
 
-![Pré-visualização de um bloco de conteúdo "Workout_Promo" para ciclismo e dança que tem uma inclusão.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
 
 ## Aninhar blocos de conteúdo {#nest-content-blocks}
 

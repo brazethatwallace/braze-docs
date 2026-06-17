@@ -104,7 +104,6 @@ Supongamos que tienes una aplicación de comida saludable y quieres crear una ca
 
 Una vez cargado el catálogo en Braze, comprueba la vista previa de un número selecto de elementos del catálogo para confirmar que la información se importó correctamente. Los elementos pueden aparecer en orden aleatorio en la vista previa, pero esto no afectará al resultado de la herramienta de recomendaciones.
 
-![Ejemplo de catálogo en Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
 Crea una campaña de tarjeta de contenido. En el creador de mensajes, introduce la lógica Liquid para determinar qué usuarios deben recibir la campaña, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtendrá el `start_date` (o fecha de registro) del usuario y lo comparará con la fecha actual. La diferencia en días determinará qué tarjeta de contenido se envía.
 

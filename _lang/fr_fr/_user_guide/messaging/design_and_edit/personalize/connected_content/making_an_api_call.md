@@ -210,7 +210,6 @@ Vous pouvez modifier le nom de l'identifiant pour les types d'authentification.
 - Pour l'authentification basique, vous pouvez mettre à jour le nom d'utilisateur et le mot de passe. Notez que le mot de passe précédemment saisi ne sera pas visible.
 - Pour l'authentification par jeton, vous pouvez mettre à jour les paires clé-valeur d'en-tête et le domaine autorisé. Notez que les valeurs d'en-tête précédemment définies ne seront pas visibles.
 
-![L'option de modification des identifiants.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Liste d'autorisation des IP de contenu connecté {#connected-content-ip-allowlisting}
 
