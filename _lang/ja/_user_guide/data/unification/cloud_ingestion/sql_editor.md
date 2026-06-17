@@ -132,7 +132,6 @@ Brazeに戻り、**接続をテスト**を選択してソースへのアクセ�
 4. ステップ2のSnowflakeソースを参照します。
 5. **SQL**を選択し、データウェアハウスからユーザーデータを返すSQLクエリを記述します。SQLクエリは、Brazeに同期するデータを定義します。クエリ結果が同期のスキーマになります。
 
-![SQLが選択され、SQLエディターにサンプルクエリが表示されたデータ同期作成フロー。]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
 SQLクエリは以下を返す必要があります。
 

@@ -132,7 +132,6 @@ Wählen Sie in Braze **Test connection**, um den Quellzugriff zu überprüfen, u
 4. Referenzieren Sie die Snowflake-Quelle aus Schritt 2.
 5. Wählen Sie **SQL** und schreiben Sie eine SQL-Anfrage, die Nutzerdaten aus Ihrem Warehouse zurückgibt. Ihre SQL-Anfrage definiert die Daten, die mit Braze synchronisiert werden. Das Anfrageergebnis wird zum Schema für Ihre Synchronisierung.
 
-![Der Ablauf „Datensynchronisierung erstellen“ mit ausgewähltem SQL und einer Beispielanfrage im SQL-Editor.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
 Ihre SQL-Anfrage muss Folgendes zurückgeben:
 
