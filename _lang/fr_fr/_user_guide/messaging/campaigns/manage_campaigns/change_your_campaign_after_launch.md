@@ -12,6 +12,22 @@ description: "Cet article de référence donne un aperçu des conséquences de l
 
 > Cet article donne un aperçu des conséquences de la modification de certains aspects d'une campagne après son lancement.
 
+## Pourquoi arrêter une campagne avant de la modifier {#risks-of-editing-live}
+
+{% alert important %}
+Braze recommande d'arrêter une campagne avant d'y apporter des modifications, plutôt que de la modifier pendant qu'elle est en cours. Modifier une campagne en cours sans l'arrêter au préalable peut entraîner un comportement inattendu, y compris le fait que des utilisateurs reçoivent le message deux fois.
+{% endalert %}
+
+Lorsqu'une campagne est lancée, tous les utilisateurs éligibles sont mis en file d'attente pour recevoir le message. Cependant, un utilisateur n'est marqué comme ayant reçu la campagne que lorsque le message est effectivement distribué, et non lorsqu'il est mis en file d'attente. Si vous modifiez une campagne en cours sans l'arrêter au préalable, Braze remet en file d'attente les utilisateurs éligibles pour la version mise à jour alors que la file d'attente d'origine est encore en cours de traitement. Les utilisateurs qui n'ont pas encore reçu le message d'origine se retrouveront dans les deux files d'attente, ce qui peut entraîner :
+
+- Des utilisateurs recevant la campagne deux fois (la version d'origine et la version mise à jour), même si la rééligibilité est désactivée.
+- La version d'origine de la campagne étant toujours distribuée aux utilisateurs de la première file d'attente.
+- Des comptages d'audience inattendus dans les analyses de la campagne.
+
+Cela est plus susceptible de se produire avec des campagnes ciblant une large audience et planifiées pour un envoi immédiat, car une grande file d'attente d'utilisateurs est traitée en même temps. Pour les campagnes à livraison par événement avec des déclencheurs progressifs (comme les événements d'inscription), le risque est plus faible car seul un petit nombre d'utilisateurs est généralement en file d'attente à un moment donné.
+
+Pour effectuer des modifications en toute sécurité, arrêtez d'abord la campagne, puis modifiez la campagne arrêtée ou [dupliquez-la](#making-immediate-changes) avec vos modifications.
+
 ## Arrêter votre campagne {#stopping-your-campaign}
 
 Pour arrêter une campagne, ouvrez la page **Détails de la campagne** et sélectionnez **Arrêter la campagne**. Lorsqu'une campagne est arrêtée :

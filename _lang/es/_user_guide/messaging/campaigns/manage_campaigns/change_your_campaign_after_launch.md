@@ -12,15 +12,31 @@ description: "Este artículo de referencia ofrece un resumen de los resultados d
 
 > Este artículo ofrece un resumen de los resultados de editar ciertos aspectos de una campaña después de su lanzamiento.
 
+## Por qué deberías detener una campaña antes de editarla {#risks-of-editing-live}
+
+{% alert important %}
+Braze recomienda detener una campaña antes de realizar cambios, en lugar de editarla mientras está en vivo. Editar una campaña en vivo sin detenerla primero puede provocar un comportamiento inesperado, incluyendo que los usuarios reciban el mensaje dos veces.
+{% endalert %}
+
+Cuando se lanza una campaña, todos los usuarios elegibles se ponen en cola para recibir el mensaje. Sin embargo, un usuario no se marca como receptor de la campaña hasta que el mensaje se entrega realmente, no cuando se pone en cola. Si editas una campaña en vivo sin detenerla primero, Braze vuelve a poner en cola a los usuarios elegibles para la versión actualizada mientras la cola original aún se está procesando. Los usuarios que aún no han recibido el mensaje original estarán en ambas colas, lo que puede resultar en:
+
+- Usuarios que reciben la campaña dos veces (la versión original y la actualizada), incluso si la reelegibilidad está desactivada.
+- La versión original de la campaña aún se entrega a los usuarios en la primera cola.
+- Recuentos de audiencia inesperados en los análisis de la campaña.
+
+Esto es más probable que ocurra con campañas que se dirigen a una audiencia grande y están programadas para enviarse de inmediato, ya que hay una gran cola de usuarios procesándose a la vez. Para campañas basadas en acciones con desencadenantes graduales (como eventos de registro), el riesgo es menor porque solo un pequeño número de usuarios suele estar en cola en un momento dado.
+
+Para realizar cambios de forma segura, detén la campaña primero y luego edita la campaña detenida o [duplícala](#making-immediate-changes) con tus cambios.
+
 ## Detener tu campaña {#stopping-your-campaign}
 
-Para detener una campaña, abre la página **Campaign Details** y selecciona **Detener campaña**. Cuando se detiene una campaña:
+Para detener una campaña, abre la página **Detalles de la campaña** y selecciona **Detener campaña**. Cuando se detiene una campaña:
 
 - Los mensajes programados para enviarse se cancelarán.
 - Las pruebas A/B en las que ya se haya enviado la prueba inicial se cancelarán permanentemente.
 - Los eventos de los mensajes que ya se hayan enviado (por ejemplo, clics de apertura) seguirán siendo rastreados.
 
-Para reiniciar tu campaña, selecciona **Resume**. Tu campaña continuará enviando mensajes y pruebas A/B, pero los mensajes perdidos no se volverán a enviar ni a programar.
+Para reiniciar tu campaña, selecciona **Reanudar**. Tu campaña continuará enviando mensajes y pruebas A/B, pero los mensajes perdidos no se volverán a enviar ni a programar.
 
 ### Detener tu campaña durante el envío {#stopping-your-campaign-during-sending}
 
@@ -59,9 +75,9 @@ Al usar un límite de velocidad de envío, Braze "planifica" tus mensajes en int
 
 #### Pausar campañas con limitación de velocidad de entrega {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Cuando pausas una campaña que utiliza [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distribuye los envíos en intervalos basados en minutos. **Resume** no reenvía los mensajes de los intervalos que se cancelaron mientras la campaña estaba pausada, y no necesariamente todos los mensajes se envían cuando se reanuda la campaña.
+Cuando pausas una campaña que utiliza [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distribuye los envíos en intervalos basados en minutos. **Reanudar** no reenvía los mensajes de los intervalos que se cancelaron mientras la campaña estaba pausada, y no todos los mensajes se envían necesariamente cuando se reanuda la campaña.
 
-Si algunos usuarios no recibieron mensajes porque la campaña estuvo pausada, duplica la campaña y dirige el envío solo a esos usuarios en lugar de depender de **Resume** para entregar los mensajes perdidos.
+Si algunos usuarios no recibieron mensajes porque la campaña estuvo pausada, duplica la campaña y dirige el envío solo a esos usuarios en lugar de depender de **Reanudar** para entregar los mensajes perdidos.
 
 ## Realizar cambios inmediatos {#making-immediate-changes}
 
