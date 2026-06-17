@@ -31,20 +31,17 @@ Vamos ajustar os detalhes do Canvas para refletir nosso objetivo.
 
 1. Selecione **Edit** ao lado do nome do modelo.
 
-![O título e a descrição atuais do Canvas.]({% image_buster /assets/img/canvas_templates/lapsed_user_old_name_description.png %}){: style="max-width:45%;"}
 
 {:start="2"}
 2. Atualize o nome do Canvas para especificar que ele enviará mensagens aos usuários com promoções e fará uma sincronização de público para aqueles que iniciarem uma sessão.
 3. Atualize a descrição para explicar que este Canvas contém vantagens e promoções.
 4. Adicione a tag **Lapsing/Retention** para que possamos filtrar este Canvas na página inicial do Canvas.
 
-![Etapa "Configurar detalhes do Canvas" com o nome "Lapsed User - Visit App" e uma breve descrição do Canvas.]({% image_buster /assets/img/canvas_templates/lapsing_user_1.png %})
 
 ### Etapa 2: Atribua seus eventos de conversão {#step-2-assign-your-conversion-events}
 
 Atualize o **Evento de conversão primária - A** para direcionar os usuários do nosso app (MovieCanon) e deixe o **Evento de conversão primária - B** com o padrão de realizar qualquer compra.
 
-![Seção "Atribuir eventos de conversão" com um evento de conversão primária de um usuário iniciando uma sessão em um app específico.]({% image_buster /assets/img/canvas_templates/lapsing_user_2.png %})
 
 ### Etapa 3: Adapte o cronograma de entrada {#step-3-tailor-the-entry-schedule}
 
@@ -55,13 +52,11 @@ Faremos dois ajustes nesta etapa:
 1. Selecione uma data e hora de início.
 2. Selecione os parâmetros de encerramento como **On a specific date** e uma data dois meses à frente. Digamos que temos outro Canvas de usuário inativo que queremos iniciar após este.
 
-![Etapa "Cronograma de entrada" para um Canvas agendado que insere os usuários em um horário designado.]({% image_buster /assets/img/canvas_templates/lapsing_user_3.png %})
 
 ### Etapa 4: Selecione nosso público-alvo {#step-4-select-our-target-audience}
 
 Vamos manter as configurações padrão para o público de entrada, que está definido para usuários que não usaram nosso app há mais de 30 dias. Também manteremos os controles de entrada padrão para que os usuários possam reentrar no Canvas após quatro semanas. Isso significa que toda vez que um usuário não visitar nosso app por mais de 30 dias seguidos, ele será inserido no Canvas.
 
-![Etapa "Público-alvo" direcionando usuários que usaram os apps pela última vez há 30 dias.]({% image_buster /assets/img/canvas_templates/lapsing_user_4.png %})
 
 ### Etapa 5: Selecione suas configurações de envio {#step-5-select-your-send-settings}
 
@@ -73,7 +68,6 @@ Vamos manter a maioria das configurações padrão de inscrição:
 
 A única configuração que vamos alterar é o que fazer quando uma mensagem é disparada durante o horário de silêncio. Em vez de cancelar a mensagem, selecione **Send at next available time** para que nossos usuários não percam nenhuma promoção.
 
-![Seção "Horário de silêncio" com horário de início às 0h e horário de término às 8h.]({% image_buster /assets/img/canvas_templates/lapsing_user_5.png %})
 
 ### Etapa 6: Personalize seu Canvas {#step-6-customize-your-canvas}
 
@@ -81,12 +75,10 @@ Agora, vamos construir nosso Canvas personalizando as etapas do modelo:
 
 1. Personalize o primeiro e-mail que será enviado a todos os usuários que não visitaram nosso app há mais de 30 dias. Para nosso caso de uso, vamos personalizar um e-mail que informa aos usuários que eles desbloquearão novas vantagens ao visitar nosso app hoje.
 
-![Etapa de mensagem do Canvas para um e-mail que informa aos usuários para desbloquearem novas vantagens ao visitar hoje.]({% image_buster /assets/img/canvas_templates/lapsing_user_6.png %})
 
 {: start="2"}
 2. Personalize o componente de jornada de ação chamado "Start Session?" selecionando nosso app para a jornada **Started Session**.
 
-![Jornada de ação para sessões iniciadas em um app específico.]({% image_buster /assets/img/canvas_templates/lapsing_user_7.png %})
 
 {: start="3"}
 3. Mantenha o padrão para a etapa de divisão de decisão chamada "Sessions?", que define o grupo ">1 Session" como usuários que usaram nosso app mais de uma vez no último dia do calendário.
