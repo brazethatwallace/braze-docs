@@ -62,9 +62,11 @@ NUMERIC_USER_ID_RE = re.compile(r'\b(\d{6,10})\b')
 # Alphanumeric external IDs (e.g. a82415) common in Braze CSV imports.
 ALPHANUMERIC_EXTERNAL_ID_RE = re.compile(r'\b([a-zA-Z]\d{5,7})\b')
 
-# Real email addresses (allow example.com and similar placeholders).
+# Real email addresses. Do not use a domain-prefix negative lookahead here: it would
+# skip matches like user@example.community (domain starts with example.com but is not
+# an allowlisted placeholder). Rely on is_allowlisted() for exact example.* domains.
 EMAIL_RE = re.compile(
-    r'\b([A-Za-z0-9._%+-]+@(?!example\.com|example\.org|example\.net)[A-Za-z0-9.-]+\.[A-Za-z]{2,})\b'
+    r'\b([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})\b'
 )
 
 # Customer-specific custom attribute naming seen in production CSV exports.

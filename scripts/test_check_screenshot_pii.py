@@ -121,6 +121,18 @@ class ScanTextTests(unittest.TestCase):
         self.assertIn('user@badexample.com', flagged)
         self.assertIn('user@myexample.community', flagged)
 
+    def test_flags_emails_on_domains_that_prefix_example_placeholders(self) -> None:
+        """Domains like example.community must not be skipped by naive example.* lookahead."""
+        text = (
+            'Reach user@example.community or user@example.com.br or '
+            'user@example.org.uk for details'
+        )
+        violations = scan_text('assets/img/example.png', text)
+        flagged = {v.match for v in violations if v.violation_type == 'email_address'}
+        self.assertIn('user@example.community', flagged)
+        self.assertIn('user@example.com.br', flagged)
+        self.assertIn('user@example.org.uk', flagged)
+
     def test_allows_exact_example_domain_emails(self) -> None:
         text = 'Contact alex@example.com and lee@example.org for help'
         violations = scan_text('assets/img/example.png', text)
