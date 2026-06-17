@@ -126,15 +126,24 @@ class ScanTextTests(unittest.TestCase):
         violations = scan_text('assets/img/example.png', text)
         self.assertFalse(any(v.violation_type == 'email_address' for v in violations))
 
-    def test_flags_external_id_header_and_numeric_ids(self) -> None:
+    def test_flags_numeric_ids_when_external_id_column_present(self) -> None:
         text = (
             'File preview Ext_Id Name Subscribe 42004428 Jordan opted_in '
             '42004430 Casey unsubscribed 42004437 Morgan subscribed'
         )
         violations = scan_text('assets/img/csv_import/preview.png', text)
         types = {v.violation_type for v in violations}
-        self.assertIn('external_id_header', types)
         self.assertIn('numeric_user_id', types)
+
+    def test_does_not_flag_external_id_labels_without_values(self) -> None:
+        text = (
+            'Destination mapping Source field external_id Target external id '
+            'Ext Id column schema'
+        )
+        violations = scan_text('assets/img/mapping/example.png', text)
+        types = {v.violation_type for v in violations}
+        self.assertNotIn('numeric_user_id', types)
+        self.assertNotIn('alphanumeric_external_id', types)
 
     def test_flags_alphanumeric_external_ids(self) -> None:
         text = 'Preview a82415 Jordan Miller opted_in a71902 Casey Higgins'

@@ -3,8 +3,9 @@
 Scan documentation screenshots for likely PII before they are published.
 
 Uses Tesseract OCR on PNG/JPG files under assets/img/ and flags patterns such as
-real external_id values, person names, customer-specific attribute names, and
-production-style CSV preview data.
+real external_id-like values (alphanumeric or numeric IDs in import-style context),
+person names, customer-specific attribute names, and production-style CSV preview data.
+The literal labels ``external_id`` / ``external id`` alone are not flagged.
 
 Dismissals (false positives)
 ----------------------------
@@ -48,7 +49,8 @@ from pii_name_lexicon import GIVEN_NAMES, SURNAMES
 IMAGE_SUFFIXES = {'.png', '.jpg', '.jpeg'}
 DISMISS_SUFFIX = '.pii-audit-dismiss.json'
 
-# Column headers and labels that indicate user identifier fields.
+# Import / mapping UI labels (not violations themselves). Used as context so we only
+# flag numeric IDs when an external-id style column is present or many IDs appear.
 EXTERNAL_ID_HEADER_RE = re.compile(
     r'\b(?:external[_\s-]?id|ext[_\s-]?id)\b',
     re.IGNORECASE,
@@ -415,16 +417,6 @@ def scan_text(image_path: Path, text: str) -> list[Violation]:
                 message=message,
                 fix_hint=fix_hint,
             )
-        )
-
-    if EXTERNAL_ID_HEADER_RE.search(normalized):
-        match = EXTERNAL_ID_HEADER_RE.search(normalized).group(0)  # type: ignore[union-attr]
-        add(
-            'external_id_header',
-            match,
-            f'Screenshot appears to show an external ID column or field ({match!r}).',
-            'Use dashboard-06 (FakeBrandz) fixture data, blur identifier columns, or '
-            'replace with fictional IDs before committing.',
         )
 
     for match in PRODUCTION_CSV_FILENAME_RE.findall(normalized):
