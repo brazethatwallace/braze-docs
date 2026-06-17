@@ -73,8 +73,6 @@ Ce tableau offre une visibilité au niveau des lignes sur les données traitées
 
 Pour afficher les données exactes envoyées à Braze pour une ligne spécifique, sélectionnez **View payload** dans la colonne **Source** payload. Cela affiche le payload JSON brut qui a été traité pour cet utilisateur.
 
-![Exemple de payload pour une ligne spécifique dans un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Exportation des journaux de synchronisation {#exporting-sync-logs}
 
 Sélectionnez **Export rows** pour exporter les journaux au niveau des lignes pour une exécution de synchronisation. Choisissez ensuite d'exporter par :

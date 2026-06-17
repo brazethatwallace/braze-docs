@@ -73,8 +73,6 @@ Esta tabla proporciona visibilidad a nivel de fila de los datos procesados duran
 
 Para ver los datos exactos enviados a Braze para una fila específica, selecciona **View payload** en la columna de carga útil de **Source**. Esto muestra la carga útil JSON sin procesar que se procesó para ese usuario.
 
-![Ejemplo de carga útil para una fila específica en un registro de sincronización.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Exportación de registros de sincronización {#exporting-sync-logs}
 
 Selecciona **Export rows** para exportar los registros a nivel de fila de una ejecución de sincronización. A continuación, elige exportar por:
