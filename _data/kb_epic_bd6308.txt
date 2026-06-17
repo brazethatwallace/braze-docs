@@ -1,13 +1,13 @@
 # Salesforce Knowledge `article_id` values for Epic **BD-6308** (Migrate Salesforce Knowledge Base — Round 2).
 #
-# Sources (union):
-# - Jira: `"Epic Link" = BD-6308` → extract `ka…` tokens from issue descriptions
-# - Phase 2: append each `article_id` when a docs PR is opened (see `.github/skills/salesforce-migration/SKILL.md`)
+# **Manual receipt** — copy `ka…` IDs from Jira child issues under this epic (issue descriptions).
+# Do **not** let `sf_kb_sync_tracker.py` or other scripts edit this file; it is not auto-generated.
+# Remove a line when the Jira work is discarded or the article should return to the CSV backlog.
 #
-# Phase 1 excludes these IDs from `_data/kb_articles_actioned.md` when they would otherwise be
-# actionable, so the queue does not duplicate in-flight or completed migration work.
+# Phase 1 (`generate_kb_phase1_outputs.py`) excludes these IDs from `_data/kb_articles_actioned.md`
+# when they would otherwise be actionable, so the queue does not duplicate epic-tracked work.
 #
-# Format: one `article_id` per line (no commas). Keep IDs sorted alphabetically after each append.
+# Format: one `article_id` per line (no commas). Keep IDs sorted alphabetically when you edit.
 #
 
 

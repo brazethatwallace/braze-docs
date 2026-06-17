@@ -1,6 +1,6 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-06-17 16:25 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-06-17 16:46 UTC**.
 
 These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue for Phase 2 — not CSV `actioned` status.
 
@@ -11,7 +11,7 @@ These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. Work queue
 
 Open **one PR per row** in the table below. Each PR edits **only** that file; multiple Salesforce Knowledge articles may land in the same PR when they share the same `doc_path`.
 
-Do **not** batch PRs by product vertical — mixed verticals under one path are expected (for example, mis-routed paths). Use **Suggested reviewer vertical** and `.github/support_analyzer_doc_assignees.csv` from the file path for `--assignee` only.
+Do **not** batch PRs by product vertical — mixed verticals under one path are expected (for example, mis-routed paths). Use **Suggested reviewer vertical** and `.github/support_analyzer_doc_assignees.csv` from the file path for GitHub assignee when opening PRs manually. `sf_kb_phase2_run_batches.py` adds `--assignee` only when the CSV resolves to a username; otherwise the PR stays unassigned.
 
 **Open PRs:** **2** (one per primary doc).
 

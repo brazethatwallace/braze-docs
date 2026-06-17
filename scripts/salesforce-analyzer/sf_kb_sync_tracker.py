@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """
-Sync `_data/kb_articles.csv` and `_data/kb_epic_bd6308.txt` with Salesforce migration PRs.
+Sync `_data/kb_articles.csv` with Salesforce migration PRs.
 
 Optional manual sync for branch `run_sf` when you explicitly refresh tracker state
 from GitHub PRs. Not part of Phase 2 — run only when requested.
 
 Do not include `_data/` changes in SF migration PRs to `develop`.
 
+`sf_kb_sync_tracker.py` updates only `_data/kb_articles.csv` (drops `article_id` values that appear
+in merged/open `salesforce migration` PR bodies). It does **not** read or write
+`_data/kb_epic_bd6308.txt` — that file is a manual Jira epic receipt (see salesforce-migration skill).
+
 1. Collect `article_id` values from open and merged PRs labeled `salesforce migration`.
-2. Merge into `_data/kb_epic_bd6308.txt` (sorted, deduped header preserved).
-3. Remove those IDs from `_data/kb_articles.csv`.
-4. Regenerate `_data/kb_articles_actioned.md` and `_data/kb_articles_skipped.md`.
+2. Remove those IDs from `_data/kb_articles.csv`.
+3. Regenerate `_data/kb_articles_actioned.md` and `_data/kb_articles_skipped.md`.
 
 Usage (repo root):
   python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py
@@ -30,7 +33,6 @@ from pathlib import Path
 REPO = "braze-inc/braze-docs"
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
-EPIC_PATH = REPO_ROOT / "_data" / "kb_epic_bd6308.txt"
 ARTICLE_ID_RE = re.compile(r"`(ka[^`]+)`")
 
 
@@ -44,24 +46,6 @@ def gh_json(args: list[str]) -> object:
     if proc.returncode != 0:
         raise RuntimeError(f"gh failed: {' '.join(args)}\n{proc.stderr or proc.stdout}")
     return json.loads(proc.stdout or "null")
-
-
-def load_epic_ids() -> tuple[list[str], set[str]]:
-    header: list[str] = []
-    body: set[str] = set()
-    in_header = True
-    for line in EPIC_PATH.read_text(encoding="utf-8").splitlines():
-        if in_header and (line.startswith("#") or not line.strip()):
-            header.append(line)
-            continue
-        in_header = False
-        if line.strip():
-            body.add(line.strip())
-    return header, body
-
-
-def write_epic_ids(header: list[str], ids: set[str]) -> None:
-    EPIC_PATH.write_text("\n".join(header + [""] + sorted(ids)) + "\n", encoding="utf-8")
 
 
 def pr_article_ids() -> tuple[set[str], int, int]:
@@ -130,7 +114,6 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    header, epic_ids = load_epic_ids()
     with CSV_PATH.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         fieldnames = list(reader.fieldnames or [])
@@ -139,14 +122,11 @@ def main() -> None:
     csv_ids_before = {r["article_id"].strip() for r in csv_rows if r.get("article_id", "").strip()}
     pr_ids, open_prs, merged_prs = pr_article_ids()
 
-    merged_epic = epic_ids | pr_ids
-    to_remove = csv_ids_before & merged_epic
-    new_csv_rows = [r for r in csv_rows if r.get("article_id", "").strip() not in merged_epic]
+    to_remove = csv_ids_before & pr_ids
+    new_csv_rows = [r for r in csv_rows if r.get("article_id", "").strip() not in pr_ids]
 
     print("=== SF KB tracker sync ===")
-    print(f"Epic IDs before:     {len(epic_ids)}")
     print(f"PR body IDs (O+M):   {len(pr_ids)}  ({open_prs} open, {merged_prs} merged PRs scanned)")
-    print(f"Epic IDs after:      {len(merged_epic)}")
     print(f"CSV rows before:     {len(csv_rows)}")
     print(f"Removed from CSV:    {len(to_remove)}")
     print(f"CSV rows after:      {len(new_csv_rows)}")
@@ -155,7 +135,6 @@ def main() -> None:
         print("\n(dry-run — no files written)")
         return
 
-    write_epic_ids(header, merged_epic)
     with CSV_PATH.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_MINIMAL)
         w.writeheader()

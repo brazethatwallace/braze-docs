@@ -9,9 +9,10 @@ Writes:
     primary `_docs` file per PR** (multiple articles may share that file). Includes a
     reviewer-routing hint column (Email/Push/Canvas/etc.) — not used to batch PRs.
 
-If `_data/kb_epic_bd6308.txt` exists, `article_id` values listed there
-(typically copied from Jira issues under Epic **BD-6308**) are excluded from the actionable
-markdown and counted as skipped so the file does not duplicate in-flight epic work.
+Optional `_data/kb_epic_bd6308.txt`: when present, `article_id` values listed there
+(a **manual** receipt of IDs filed under Jira epic **BD-6308**) are excluded from the actionable
+markdown and counted as skipped so the queue does not duplicate epic-tracked work.
+Nothing in this repo writes that file automatically.
 
 When CSV `_docs/...` hints use **retired IA paths**, the script tries **scripted path inference**
 (exact maps, prefix rewrites, unique-basename matches, URL-fragment stripping) and **best-fit doc
@@ -1208,11 +1209,11 @@ def classify_row(
 
     if article_id in epic_bd6308_tracked_ids:
         return skip(
-            "Article is listed on a Jira issue under Epic **BD-6308** (Round 2); excluded from "
-            "`kb_articles_actioned.md` so the CSV backlog file does not duplicate epic-tracked Phase 2 work.",
+            f"`{article_id}` is listed in `_data/kb_epic_bd6308.txt` (manual receipt of Jira epic **BD-6308**); "
+            "excluded from `kb_articles_actioned.md` so the CSV queue does not duplicate epic-tracked work.",
             ctx=(
-                "Remove this `article_id` from `_data/kb_epic_bd6308.txt` only after "
-                "the migration task is cancelled or the article is intentionally re-queued outside the epic."
+                "Maintain that file by hand from Jira child issues. Remove the line when the Jira work is discarded "
+                "or the article should return to the CSV backlog. `sf_kb_sync_tracker.py` does not write this file."
             ),
         )
 
@@ -1231,7 +1232,7 @@ def classify_row(
 def load_epic_bd6308_tracked_ids(path: Path) -> frozenset[str]:
     """
     One Salesforce `article_id` per non-comment, non-blank line.
-    Used to omit rows already filed under Jira Epic BD-6308 from the actionable markdown queue.
+    Optional manual receipt (Jira epic BD-6308); see `_data/kb_epic_bd6308.txt` header.
     """
     if not path.is_file():
         return frozenset()
@@ -1403,12 +1404,12 @@ def main() -> None:
         f"Generated from `{CSV_PATH.relative_to(REPO_ROOT)}` on **{now}**.",
         "",
         "**Do not hand-edit this file** — it is overwritten by `python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py` "
-        "(repo root). Update the CSV (or epic ID list), then re-run that script; the companion "
+        "(repo root). Update the CSV (or the optional epic receipt file), then re-run that script; the companion "
         f"`{ACTIONED_OUT.relative_to(REPO_ROOT)}` file is refreshed in the same run.",
         "",
         "Rows listed here **did not** pass Phase 1 gates (see `.github/skills/salesforce-migration/SKILL.md`). "
         f"Actionable queue: `{ACTIONED_OUT.relative_to(REPO_ROOT)}`. "
-        "IDs in `_data/kb_epic_bd6308.txt` are excluded as in-flight BD-6308 work.",
+        "If present, `_data/kb_epic_bd6308.txt` is a **manual** Jira epic receipt — IDs there are excluded from the actionable queue (nothing auto-writes that file).",
         "",
         f"**Totals:** {len(rows)} CSV rows — **{len(actionable)} actionable**, **{len(skipped)} skipped**.",
         "",
@@ -1441,7 +1442,7 @@ def main() -> None:
     # One Phase 2 PR per primary doc (may include one or many articles).
     pr_batches_sorted = sorted(by_file.items(), key=lambda kv: (-len(kv[1]), kv[0]))
 
-    epic_skip_n = sum(1 for c in skipped if "BD-6308" in (c.skip_reason or ""))
+    epic_skip_n = sum(1 for c in skipped if "kb_epic_bd6308.txt" in (c.skip_reason or ""))
     act_lines = [
         "# KB articles — Phase 1 actionable backlog",
         "",
@@ -1462,9 +1463,9 @@ def main() -> None:
         )
     if epic_tracked and epic_skip_n:
         act_lines.append(
-            f"**Epic BD-6308:** **{epic_skip_n}** additional rows would have appeared here but are listed in "
-            f"`{EPIC_BD6308_TRACKED_IDS_PATH.relative_to(REPO_ROOT)}` (Jira child issues under the epic); "
-            "see `_data/kb_articles_skipped.md` for those rows."
+            f"**Epic BD-6308 receipt:** **{epic_skip_n}** row(s) appear only in the skipped list because their "
+            f"`article_id` is listed in `{EPIC_BD6308_TRACKED_IDS_PATH.relative_to(REPO_ROOT)}` "
+            "(manual Jira epic receipt; not script-generated)."
         )
     act_lines.extend(
         [
@@ -1477,7 +1478,8 @@ def main() -> None:
             "Do **not** batch PRs by product vertical — mixed verticals under one path are expected "
             "(for example, mis-routed paths). Use **Suggested reviewer vertical** and "
             "`.github/support_analyzer_doc_assignees.csv` "
-            "from the file path for `--assignee` only.",
+            "from the file path for GitHub assignee when opening PRs manually. "
+            "`sf_kb_phase2_run_batches.py` adds `--assignee` only when the CSV resolves to a username; otherwise the PR stays unassigned.",
             "",
             f"**Open PRs:** **{len(pr_batches_sorted)}** (one per primary doc).",
             "",

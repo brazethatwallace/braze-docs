@@ -2,11 +2,14 @@
 """
 Run Salesforce KB Phase 2 for all pending PR batches (grouped by doc_path).
 
-Reads `_data/kb_articles.csv` and `_data/kb_epic_bd6308.txt` (Phase 1 outputs) but
-does **not** write them. Regenerate those files only via Phase 1:
+Reads `_data/kb_articles.csv` (Phase 1 input) but does **not** write it.
+Regenerate Phase 1 markdown (and optional CSV updates) only via
 `generate_kb_phase1_outputs.py`.
 
-For each primary `_docs/...` file with backlog rows not yet in the epic ID list:
+Optional `_data/kb_epic_bd6308.txt` is a **manual** Jira epic receipt (read by Phase 1/2);
+this script does **not** read or write that file.
+
+For each primary `_docs/...` file with backlog rows in the CSV:
   1. Skip if an open `salesforce migration` PR already modifies that file.
   2. Append FAQ-style sections from CSV `suggested_change` (skips INTERNAL titles, empty briefs).
   3. Branch, commit, push, open PR (title `[BD-####](SF) …` when Jira succeeds).
@@ -81,6 +84,7 @@ def assert_commit_docs_only() -> None:
 
 
 def load_epic_ids() -> set[str]:
+    """IDs listed in the manual Jira epic receipt file (optional)."""
     if not EPIC_PATH.is_file():
         return set()
     return {
@@ -102,8 +106,8 @@ def lookup_assignee(doc_path: str) -> str | None:
     best_user: str | None = None
     with ASSIGNEES_PATH.open(encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f):
-            page = (row.get("page path") or "").strip()
-            user = (row.get("GitHub Username") or "").strip()
+            page = (row.get("Page Path") or row.get("page path") or "").strip()
+            user = (row.get("GitHub Username") or row.get("github username") or "").strip()
             if not page or not user or user.startswith("@"):
                 continue
             if doc_path.startswith(page) and len(page) > best_len:
@@ -225,7 +229,7 @@ def process_batch(
     theme = batch_theme(doc_path, actionable)
     ymd = datetime.now(timezone.utc).strftime("%Y%m%d")
     branch = f"sf-cursor-{doc_path_branch_slug(doc_path)}-{ymd}"
-    assignee = lookup_assignee(doc_path) or "lydia-xie"
+    assignee = lookup_assignee(doc_path)
 
     articles = [
         (r["article_id"].strip(), (r.get("title") or "").strip())
@@ -301,9 +305,9 @@ def process_batch(
         body,
         "--label",
         "salesforce migration",
-        "--assignee",
-        assignee,
     ]
+    if assignee:
+        pr_cmd.extend(["--assignee", assignee])
     pr_proc = run(pr_cmd)
     pr_url = (pr_proc.stdout or "").strip().splitlines()[-1]
 

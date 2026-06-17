@@ -21,10 +21,10 @@ Migrate Salesforce Knowledge gaps into public docs. Invoke with **`@salesforce-m
 | [`_data/kb_articles.csv`](_data/kb_articles.csv) | Backlog — `article_id`, `suggested_change`, `doc_path`, `conflict_resolution`, etc. |
 | [`_data/kb_articles_actioned.md`](_data/kb_articles_actioned.md) | **Generated** Phase 2 queue (PR batches by `doc_path`) |
 | [`_data/kb_articles_skipped.md`](_data/kb_articles_skipped.md) | **Generated** skipped rows + reasons |
-| [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt) | In-flight / completed `article_id` values (excluded from queue) |
+| [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt) | **Manual** receipt — `article_id` values filed under Jira epic [**BD-6308**](https://jira.atl.braze.com/browse/BD-6308) (copy from Jira); Phase 1/2 **read** this to exclude those IDs from the queue. **Not** written by `sf_kb_sync_tracker.py` or Phase 2 automation. |
 | [`_data/sf_kb_articles.csv`](_data/sf_kb_articles.csv) | Optional full `Resolution` text (`encoding='latin-1'`) when `suggested_change` is not enough |
 
-**Phase 1 only:** `generate_kb_phase1_outputs.py` writes `kb_articles_actioned.md`, `kb_articles_skipped.md`, and may update `kb_articles.csv`. Phase 2 and PR automation **read** these files but do not modify them.
+**Phase 1 only:** `generate_kb_phase1_outputs.py` writes `kb_articles_actioned.md` and `kb_articles_skipped.md`, and may update `kb_articles.csv`. Phase 2 and PR automation **read** these files but do not modify them (except `sf_kb_sync_tracker.py` may trim `kb_articles.csv` when you run it explicitly — it never edits `kb_epic_bd6308.txt`).
 
 ---
 
@@ -43,6 +43,10 @@ python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py --pr-url '...' --pr-tit
 
 # Retrofit PR titles for existing epic children
 python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
+
+# Optional: drop `article_id` values from kb_articles.csv when they appear in merged/open
+# `salesforce migration` PR bodies, then regenerate actioned/skipped markdown (does not edit kb_epic_bd6308.txt)
+python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py [--dry-run]
 ```
 
 | Script | Purpose |
@@ -50,6 +54,7 @@ python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
 | `generate_kb_phase1_outputs.py` | Gates, path inference, writes actioned/skipped markdown (and CSV when infer/prune flags apply) |
 | `sf_kb_phase2_run_batches.py` | Bulk Phase 2 PR opener (reads `_data/`; docs-only commits) |
 | `sf_kb_jira_ticket.py` | Create BD Task linked to epic BD-6308 |
+| `sf_kb_sync_tracker.py` | Trim `kb_articles.csv` using PR bodies; regenerates actioned/skipped; does **not** edit `kb_epic_bd6308.txt` |
 | `sf_kb_sync_epic_pr_titles.py` | Rename PRs to `[BD-####](SF) …` format |
 
 ---
@@ -85,8 +90,8 @@ python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
 3. Draft concise updates per style guide; refine existing prose over new alerts/FAQs.
 4. Branch off `develop`: `sf-cursor-<doc-slug>-<YYYYMMDD>` (see suggested slug in actioned file).
 5. Open PR to `develop`, label **`salesforce migration`**, title **`[BD-####](SF) short theme`** (create Jira task first or via `sf_kb_jira_ticket.py`).
-6. Assignee: longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv), else `@braze-inc/docs-team`.
-7. **PR scope:** edit `_docs/` (and `_includes/` only when required). **Do not** modify or commit `_data/kb_articles*` or `kb_epic_bd6308.txt` during Phase 2.
+6. Assignee: longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv) when opening PRs manually. `sf_kb_phase2_run_batches.py` passes `--assignee` only when that CSV resolves to a GitHub username; otherwise the PR is **unassigned** (add reviewers in GitHub as needed).
+7. **PR scope:** edit `_docs/` (and `_includes/` only when required). **Do not** modify or commit `_data/kb_articles*` during Phase 2. The optional `kb_epic_bd6308.txt` receipt is **manual** (Jira epic); do not add it to docs PRs — update it separately when reconciling with Jira.
 
 ### PR body (minimum)
 
