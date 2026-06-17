@@ -53,6 +53,8 @@ HTML_TABLE_OPEN_RE = re.compile(r'<table(\s[^>]*)?>', re.IGNORECASE)
 HTML_CAPTION_RE = re.compile(r'<caption[\s>]', re.IGNORECASE)
 HTML_ROW_START_RE = re.compile(r'<(tr|thead|tbody)[\s>]', re.IGNORECASE)
 HTML_ARIA_RE = re.compile(r'aria-label(ledby)?\s*=', re.IGNORECASE)
+# Matches inline code spans (1–3 backticks) so HTML checks can ignore them.
+INLINE_CODE_RE = re.compile(r'`{1,3}[^`\n]+`{1,3}')
 
 HEADING_RE = re.compile(r'^#{1,6}\s+(.+)$')
 STRIP_MD_RE = re.compile(
@@ -103,6 +105,19 @@ def is_table_separator(line: str) -> bool:
         return False
     cells = [c.strip() for c in stripped.strip('|').split('|')]
     return bool(cells) and all(re.match(r'^:?-+:?$', c) for c in cells if c)
+
+
+def find_html_table_tag(line: str):
+    """Return the first <table> regex match that is NOT inside an inline code span.
+
+    Prose like ``use `<table>` here`` must not trigger a
+    violation — the tag lives inside backticks and is just a name, not real HTML.
+    """
+    inline_spans = [(m.start(), m.end()) for m in INLINE_CODE_RE.finditer(line)]
+    for m in HTML_TABLE_OPEN_RE.finditer(line):
+        if not any(s <= m.start() < e for s, e in inline_spans):
+            return m
+    return None
 
 
 def build_skip_mask(lines: list) -> list:
@@ -245,7 +260,7 @@ def check_html_tables(lines: list, skip: list, path: str) -> list:
     for i, line in enumerate(lines):
         if skip[i]:
             continue
-        m = HTML_TABLE_OPEN_RE.search(line)
+        m = find_html_table_tag(line)
         if not m:
             continue
 
