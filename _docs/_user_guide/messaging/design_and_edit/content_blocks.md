@@ -109,7 +109,7 @@ This preview includes information about the Content Block such as who created it
 
 ## Nest Content Blocks
 
-Content Blocks can be nested, but only once. You can nest Content Block A into Content Block B, but you will not be able to then nest Content Block B into Content Block C.
+Content Blocks can be nested, but only once. You can nest Content Block A into Content Block B, but you can't then nest Content Block B into Content Block C.
 
 {% alert warning %}
 Nothing will prevent you from nesting a third level of Content Block, but you will not see the content expand in nests beyond the second. The content and the Liquid snippet are removed from the message.

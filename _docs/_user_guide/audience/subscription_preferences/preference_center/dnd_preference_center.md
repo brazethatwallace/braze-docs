@@ -46,7 +46,7 @@ After adding groups, you can further configure the block from the side panel:
 - Add or remove a **Subscribe to all** checkbox, which subscribes the consumer to all subscription groups shown in this block
 - Add or remove an **Unsubscribe from all** checkbox, which unsubscribes the consumer from all subscription groups shown in this block
 
-The **Unsubscribe from all** button at the bottom of the template is non-removable and will [globally unsubscribe]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) the consumer from receiving any email messages.
+The **Unsubscribe from all** button at the bottom of the template is non-removable and [globally unsubscribes]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) the consumer from receiving any email messages.
 
 ![The drag-and-drop preference center editor showing the subscription group block, Save my preferences button, and Unsubscribe from all emails link.]({% image_buster /assets/img/preference_center/preference_center4.gif %})
 
@@ -123,7 +123,7 @@ If an error occurs when a consumer selects **Save** on your preference center, t
 
 ![An error noting "There was a problem saving your preferences. Please try again."]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}
 
-## Managing preference centers
+## Manage preference centers
 
 You can manage existing drag-and-drop preference centers from **Audience** > **Email Preference Centers**:
 
