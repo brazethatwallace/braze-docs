@@ -66,7 +66,7 @@ The WhatsApp channel includes read rate. This metric is only delivered for users
 
 In Canvas, you'll see in-app message performance mapped onto the Canvas you've created. You can use the control panel at the top of the page to clear other messaging types (channels) and only view the in-app messages in your Canvas.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![An option to select the channel, with the In-App Message checkbox selected.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![The Campaign Details section.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -257,8 +257,8 @@ Here is a breakdown of some key metrics you may see while reviewing your message
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">This count</span> doesn't increment the second time that a user views a Content Card.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Because a user can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Because a user can have a unique daily impression every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -275,11 +275,11 @@ Here is a breakdown of some key metrics you may see while reviewing your message
 Regarding how impressions are logged, there are some nuances between web, Android, and iOS. Generally speaking, Braze logs an impression when a card is seen, which is after a user scrolls to the specific Content Card in their feed.
 {% endalert %}
 
-#### Unique Recipients versus Unique Impressions
+#### Unique Daily Impressions versus Unique Impressions
 
-There are a few metrics available that cover the visibility of your message. This includes _Unique Recipients_ and _Unique Impressions_. Let's use a few example scenarios to understand these metrics better.
+There are a few metrics available that cover the visibility of your message. This includes _Unique Daily Impressions_ and _Unique Impressions_. Let's use a few example scenarios to understand these metrics better.
 
-Let’s say you view a Content Card today, then receive a new card from the same campaign tomorrow, and again the day after tomorrow—you will be counted as a _Unique Recipient_ three times. However, you will only be counted for one _Unique Impression_. You’ll also be included in the number of _Messages Sent_, as the card was available on your device.
+Let’s say you view a Content Card today, then receive a new card from the same campaign tomorrow, and again the day after tomorrow—you will be counted as a _Unique Daily Impression_ three times. However, you will only be counted for one _Unique Impression_. You’ll also be included in the number of _Messages Sent_, as the card was available on your device.
 
 As another example, suppose you see five _Unique Impressions_ on a Content Card campaign showing 150,000 _Messages Sent_. This means the card was made available (on the backend) to an audience of 150,000 users, but only five users' devices performed all of the following steps after that send occurred:
 
@@ -287,7 +287,7 @@ As another example, suppose you see five _Unique Impressions_ on a Content Card 
 2. Navigated to the Content Cards view
 3. SDK recorded an impression and logged it to the server
 
-Your _Messages Sent_ refers to Content Cards available to be seen, while _Unique Recipients_ refers to Content Cards that were actually seen.
+Your _Messages Sent_ refers to Content Cards available to be seen, while _Unique Daily Impressions_ refers to Content Cards that were actually seen.
 
 {% elsif include.channel == "banner" %}
 
@@ -337,8 +337,8 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Because a viewer can have a unique daily impression every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -353,9 +353,9 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
 
 #### Banner metrics calculation examples
 
-There are a few metrics available that cover the visibility of your message. This includes _Unique Recipients_ and _Unique Impressions_. Let’s use a few example scenarios to understand these metrics better.
+There are a few metrics available that cover the visibility of your message. This includes _Unique Daily Impressions_ and _Unique Impressions_. Let’s use a few example scenarios to understand these metrics better.
 
-Let's say you view a Banner today, then view the same Banner tomorrow, and again the day after tomorrow—you will be counted as a _Unique Recipient_ three times. However, you will only be counted for one _Unique Impression_.
+Let's say you view a Banner today, then view the same Banner tomorrow, and again the day after tomorrow—you will be counted as a _Unique Daily Impression_ three times. However, you will only be counted for one _Unique Impression_.
 
 As another example, suppose you see five _Unique Impressions_ on a Banner campaign. This means only five users' devices performed all of the following steps:
 
@@ -363,7 +363,7 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 2. Navigated to the Banners view
 3. SDK recorded an impression and logged it to the server
 
-_Unique Recipients_ refers to the Banners that were actually seen.
+_Unique Daily Impressions_ refers to the Banners that were actually seen.
 
 {% elsif include.channel == "email" %}
 

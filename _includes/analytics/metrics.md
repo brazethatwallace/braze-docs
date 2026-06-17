@@ -264,6 +264,10 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 <i>Unique Impressions</i> is the total number of users who have viewed a message from a given campaign. An impression is logged only when the message becomes visible on a user's screen.
 {% endif %}
 
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Unique Daily Impressions</i> is the number of unique users who viewed the message on a given day. This count resets each calendar day, so a user who views the same message on two different days is counted twice. This metric aligns with the billing metric of the same name.
+{% endif %}
+
 {% if include.metric == "Unique Recipients" %}
 <i>Unique Recipients</i> is the number of unique daily recipients, or users who received a new message in a day. For this count to increment for a user more than once, the user must receive a new message on a different day.
 {% endif %}
