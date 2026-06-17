@@ -53,8 +53,12 @@ HTML_TABLE_OPEN_RE = re.compile(r'<table(\s[^>]*)?>', re.IGNORECASE)
 HTML_CAPTION_RE = re.compile(r'<caption[\s>]', re.IGNORECASE)
 HTML_ROW_START_RE = re.compile(r'<(tr|thead|tbody)[\s>]', re.IGNORECASE)
 HTML_ARIA_RE = re.compile(r'aria-label(ledby)?\s*=', re.IGNORECASE)
-# Matches inline code spans (1–3 backticks) so HTML checks can ignore them.
-INLINE_CODE_RE = re.compile(r'`{1,3}[^`\n]+`{1,3}')
+# Matches inline code spans with matched delimiters (CommonMark-compliant).
+# (?<!`) ensures the opening run doesn't start mid-sequence (e.g. position 1
+#   of ``foo` would otherwise anchor a false 1-backtick span).
+# \1 backreference ensures closing run is the same length as the opening run.
+# (?!`) prevents a shorter closing run from matching inside a longer run.
+INLINE_CODE_RE = re.compile(r'(?<!`)(`{1,3})[^`\n]+?\1(?!`)')
 
 HEADING_RE = re.compile(r'^#{1,6}\s+(.+)$')
 STRIP_MD_RE = re.compile(

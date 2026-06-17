@@ -66,6 +66,23 @@ class TestFindHtmlTableTag:
         assert find_html_table_tag('<TABLE>') is not None
         assert find_html_table_tag('`<TABLE>`') is None
 
+    def test_mismatched_open_double_close_single_is_real_html(self):
+        """``<table>` is not a valid CommonMark code span — must not be skipped."""
+        assert find_html_table_tag('``<table>`') is not None
+
+    def test_mismatched_open_single_close_double_is_real_html(self):
+        """`<table>`` is not a valid CommonMark code span — must not be skipped."""
+        assert find_html_table_tag('`<table>``') is not None
+
+    def test_mismatched_open_triple_close_single_is_real_html(self):
+        assert find_html_table_tag('```<table>`') is not None
+
+    def test_matched_double_backtick_span_ignored(self):
+        assert find_html_table_tag('See ``<table>`` for the pattern.') is None
+
+    def test_matched_triple_backtick_span_ignored(self):
+        assert find_html_table_tag('See ```<table>``` for the pattern.') is None
+
 
 # ---------------------------------------------------------------------------
 # HTML table violations
