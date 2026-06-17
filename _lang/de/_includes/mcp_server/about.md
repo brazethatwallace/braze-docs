@@ -31,11 +31,13 @@ Sie können mit Braze über natürliche Sprache interagieren, indem Sie Tools wi
 
 {% tabs %}
 {% tab Claude %}
-![„Welche Braze-Funktionen stehen mir zur Verfügung?“ – diese Frage wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Used `list_functions` and returned available Braze MCP function groups.
 {% endtab %}
 
 {% tab Cursor %}
-![Die Frage „Welche Braze-Funktionen stehen mir zur Verfügung?“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Queried `list_functions` and listed sample functions such as `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 

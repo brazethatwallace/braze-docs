@@ -26,11 +26,15 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Claude %}
-![「利用可能なBraze関数は何ですか？」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Example prompt:** `What are my available Braze functions?`
+
+**Example response:** Called `list_functions` and returned categories like Campaign, Canvas, Templates, and Content Blocks with sample functions such as `get_canvas_list` and `create_email_template`.
 {% endtab %}
 
 {% tab Cursor %}
-![「利用可能なBraze関数は何ですか」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`
+
+**Example response:** Queried `list_functions`, confirmed available function groups, and listed examples including `get_canvas_details` and `update_content_block`.
 {% endtab %}
 {% endtabs %}
 
@@ -40,11 +44,15 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Claude %}
-![「Canvas IDの詳細を取得する」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/get_details_about_a_canvas_id.png %}){: style="max-width:85%;"}
+**Example prompt:** `Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+
+**Example response:** Used `get_canvas_details` and returned sample metadata (status, channel, created/updated time) for `YOUR-TEST-CANVAS-ID-123`.
 {% endtab %}
 
 {% tab Cursor %}
-![「Canvas IDの詳細を取得する」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/get_details_about_a_canvas_id.png %})
+**Example prompt:** `Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+
+**Example response:** Returned Canvas and message details with dummy values like `YOUR-TEST-MESSAGE-ID-123` and `YOUR-TEST-SUBJECT-LINE`.
 {% endtab %}
 {% endtabs %}
 
@@ -54,11 +62,15 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Claude %}
-![「最近のキャンバスを表示して」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
+**Example prompt:** `Show me my recent Canvases`
+
+**Example response:** Called `get_canvas_list` and returned recent items such as `YOUR-TEST-CANVAS-ALPHA` with IDs like `YOUR-TEST-ID-123`.
 {% endtab %}
 
 {% tab Cursor %}
-![「最近のキャンバスを表示して」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
+**Example prompt:** `Show me my recent Canvases`
+
+**Example response:** Listed recently edited Canvases with sample values for name, last edited time, ID, and tags.
 {% endtab %}
 {% endtabs %}
 
@@ -68,7 +80,9 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Cursor %}
-![「メールテンプレートを作成する」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
+**Example prompt:** `Create an email template named "YOUR-TEST-TEMPLATE-NAME".`
+
+**Example response:** Created a template via `create_email_template` and returned `YOUR-TEST-TEMPLATE-ID-123`.
 {% endtab %}
 {% endtabs %}
 
@@ -78,7 +92,9 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 {% tabs %}
 {% tab Cursor %}
-![「コンテンツブロックを更新する」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
+**Example prompt:** `Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123".`
+
+**Example response:** Updated the block with `update_content_block` and confirmed `YOUR-TEST-CONTENT-BLOCK-ID-123` moved to a new version.
 {% endtab %}
 {% endtabs %}
 

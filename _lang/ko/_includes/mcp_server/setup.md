@@ -347,11 +347,13 @@ Braze MCP 서버를 설정한 후 MCP 클라이언트에 테스트 프롬프트�
 
 {% tabs %}
 {% tab Claude %}
-![Claude에서 사용 가능한 Braze 기능이 무엇인지 질문하고 답변을 받는 모습입니다.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Used `list_functions` and returned available Braze MCP function groups.
 {% endtab %}
 
 {% tab Cursor %}
-![Cursor에서 사용 가능한 Braze 기능이 무엇인지 질문하고 답변을 받는 모습입니다.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Queried `list_functions` and listed sample functions such as `get_canvas_list`.
 {% endtab %}
 
 {% tab Gemini CLI %}
