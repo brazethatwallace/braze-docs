@@ -32,7 +32,7 @@ Adjust the Canvas details to reflect your goal.
 1. Select **Edit** next to the template name.
 
 {:start="2"}
-2. Update the Canvas name to specify that this Canvas will message users with promotions and do an audience sync for those who start a session.
+2. Update the Canvas name to specify that this Canvas messages users with promotions and does an audience sync for those who start a session.
 3. Update the description to explain that this Canvas contains perks and promotions.
 4. Add the tag **Lapsing/Retention** so that you can filter for this Canvas on the Canvas home page.
 
