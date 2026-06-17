@@ -203,8 +203,6 @@ Dê um nome e uma descrição à função e selecione **Create Role**.
 {: start="4"}
 4. Em seguida, crie uma nova sincronização. Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs** e selecione **Create data sync**.
 
-![A página "Create New Sync" mostrando o nome da sincronização e a configuração da fonte de dados.]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
-
 {: start="5"}
 5. Escolha um nome para sua sincronização. Em seguida, selecione qualquer origem S3 ativa e insira sua tabela de origem para a sincronização. Selecione um tipo de dado e selecione **Test Connection**.
 
