@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-Create a BD project Task under Epic BD-6308 after a Salesforce KB Phase 2 PR.
+Create a BD Task under Epic BD-6308 for a Salesforce KB Phase 2 PR.
 
-Description format matches existing epic children (for example BD-6402):
-  ## GitHub PR
-  ## Salesforce Knowledge articles
-  ## Product vertical
+Issue description follows existing epic children (GitHub PR, Salesforce articles, product vertical).
 
-Requires JIRA_USER_EMAIL and JIRA_API_TOKEN (same secrets as `.github/workflows/jira-pr-comment.yml`).
-Optional: JIRA_BASE_URL (default https://jira.atl.braze.com), JIRA_ASSIGNEE_ACCOUNT_ID.
+Env: `JIRA_USER_EMAIL`, `JIRA_API_TOKEN` (same as `.github/workflows/jira-pr-comment.yml`).
+Optional: `JIRA_BASE_URL` (default https://jira.atl.braze.com), `JIRA_ASSIGNEE_ACCOUNT_ID`.
 
-Usage:
+See `.github/skills/salesforce-migration/SKILL.md` Phase 2 / Jira.
+
+Usage (repo root):
   python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py \\
     --pr-url 'https://github.com/braze-inc/braze-docs/pull/123' \\
     --pr-title '[BD-6402](SF) Example title' \\

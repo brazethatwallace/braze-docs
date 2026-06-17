@@ -1,21 +1,15 @@
 #!/usr/bin/env python3
 """
-Run Salesforce KB Phase 2 for all pending PR batches (grouped by doc_path).
+Run Salesforce KB Phase 2 for pending PR batches (grouped by `doc_path`).
 
-Reads `_data/kb_articles.csv` (Phase 1 input) but does **not** write it.
-Regenerate Phase 1 markdown (and optional CSV updates) only via
-`generate_kb_phase1_outputs.py`.
+Reads `_data/kb_articles.csv` but does not write it. For each primary `_docs/...` file with backlog:
+skip if an open `salesforce migration` PR already touches that file; append FAQ-style sections from
+`suggested_change`; branch, commit (`_docs/` / `_includes/` only), push, open PR; optionally create
+or update Jira under epic BD-6308.
 
-Optional `_data/kb_epic_bd6308.txt` is a **manual** Jira epic receipt (read by Phase 1/2);
-this script does **not** read or write that file.
+Requires `gh`. Optional: `JIRA_USER_EMAIL` and `JIRA_API_TOKEN` for Jira.
 
-For each primary `_docs/...` file with backlog rows in the CSV:
-  1. Skip if an open `salesforce migration` PR already modifies that file.
-  2. Append FAQ-style sections from CSV `suggested_change` (skips INTERNAL titles, empty briefs).
-  3. Branch, commit, push, open PR (title `[BD-####](SF) …` when Jira succeeds).
-     Commits touch `_docs/` (or `_includes/`) only — never `_data/`.
-
-Requires: `gh` authenticated, optional JIRA_USER_EMAIL + JIRA_API_TOKEN for Jira tasks.
+Workflow: `.github/skills/salesforce-migration/SKILL.md` Phase 2.
 
 Usage (repo root):
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --dry-run
@@ -36,7 +30,6 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
-EPIC_PATH = REPO_ROOT / "_data" / "kb_epic_bd6308.txt"
 ASSIGNEES_PATH = REPO_ROOT / ".github" / "support_analyzer_doc_assignees.csv"
 REPO = "braze-inc/braze-docs"
 
@@ -81,17 +74,6 @@ def assert_commit_docs_only() -> None:
             "Phase 2 commit must not include `_data/` files: "
             + ", ".join(bad)
         )
-
-
-def load_epic_ids() -> set[str]:
-    """IDs listed in the manual Jira epic receipt file (optional)."""
-    if not EPIC_PATH.is_file():
-        return set()
-    return {
-        line.strip()
-        for line in EPIC_PATH.read_text(encoding="utf-8").splitlines()
-        if line.strip() and not line.startswith("#")
-    }
 
 
 def load_csv_rows() -> list[dict[str, str]]:
@@ -340,13 +322,9 @@ def main() -> None:
     args = parser.parse_args()
 
     csv_rows = load_csv_rows()
-    epic_ids = load_epic_ids()
 
     pending: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in csv_rows:
-        aid = (row.get("article_id") or "").strip()
-        if aid in epic_ids:
-            continue
         dp = (row.get("doc_path") or "").strip()
         if not dp:
             continue

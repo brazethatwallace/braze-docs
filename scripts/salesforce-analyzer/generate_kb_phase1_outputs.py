@@ -2,46 +2,27 @@
 """
 Generate Phase 1 triage markdown from `_data/kb_articles.csv`.
 
-Writes:
-  - `_data/kb_articles_skipped.md` — skipped rows with a one-line explanation each; intro links to the
-    actionable file, warns not to hand-edit, and summarizes largest skip buckets.
-  - `_data/kb_articles_actioned.md` — actionable backlog grouped for **Phase 2 PRs: one
-    primary `_docs` file per PR** (multiple articles may share that file). Includes a
-    reviewer-routing hint column (Email/Push/Canvas/etc.) — not used to batch PRs.
+Writes `_data/kb_articles_skipped.md` and `_data/kb_articles_actioned.md`. Gates and workflow:
+`.github/skills/salesforce-migration/SKILL.md` Phase 1 (this script implements an automated subset).
 
-Optional `_data/kb_epic_bd6308.txt`: when present, `article_id` values listed there
-(a **manual** receipt of IDs filed under Jira epic **BD-6308**) are excluded from the actionable
-markdown and counted as skipped so the queue does not duplicate epic-tracked work.
-Nothing in this repo writes that file automatically.
+Rows with `conflict_resolution` = `inconclusive` are **not** auto-skipped when a locatable `_docs/...`
+target exists; Phase 2 must still verify in reference repos before drafting.
 
-When CSV `_docs/...` hints use **retired IA paths**, the script tries **scripted path inference**
-(exact maps, prefix rewrites, unique-basename matches, URL-fragment stripping) and **best-fit doc
-placement** (topic routes + keyword scoring over FAQ/troubleshooting/reporting pages under
-`_docs/`) before marking a row as “no locatable target”. Extend `PATH_INFERENCE_EXACT` /
-`PATH_INFERENCE_PREFIXES` / `_CONTEXT_TOPIC_ROUTES` when you confirm new stale→current mappings.
+Path resolution uses IA remaps, basename/fragment matches, and topic routing. Extend
+`PATH_INFERENCE_EXACT`, `PATH_INFERENCE_PREFIXES`, and `_CONTEXT_TOPIC_ROUTES` in this file when you
+add confirmed stale→current mappings.
 
-Usage (from repo root):
-  python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py
+- By default, **prunes** the CSV: drops rows whose `implementation_status` first line is `archived` or `actioned`.
+- `--no-prune` regenerates only the two markdown files (no CSV row removal).
+- `--infer-doc-paths` fills empty `doc_path` from CSV hints (often used with `--no-prune` first).
+
+Does not auto-detect “redundant with docs” or bug-only workarounds — those stay manual Phase 1 checks.
+
+Usage (repo root):
   python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --infer-doc-paths --no-prune
+  python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --no-prune
 
-`--infer-doc-paths` fills empty `doc_path` using IA remaps
-plus keyword/topic routing (automated subset of agent path inference in
-`scripts/salesforce-analyzer/generate_kb_phase1_outputs.py`). Re-run without that flag to refresh markdown only.
-
-Before generating markdown, the script **removes** CSV rows whose normalized
-`implementation_status` first line is `archived` or `actioned` (see
-`.github/skills/salesforce-migration/SKILL.md`). Pass `--no-prune` to only refresh
-the markdown files without editing the CSV.
-
-Gates align with `.github/skills/salesforce-migration/SKILL.md` Phase 1 (automated subset).
-Rows with `conflict_resolution` = `inconclusive` are **not** auto-skipped; they enter the
-actionable queue when they resolve to a `doc_path` and pass other gates. Phase 2 must
-verify behavior in reference repos (see salesforce-migration skill Phase 2) before drafting.
-Does not re-read doc bodies for “redundant with docs” or bug-workaround detection;
-those remain manual Phase 1 checks.
-
-After each Phase 2 PR is opened, create a Jira Task under Epic BD-6308 with
-`scripts/salesforce-analyzer/sf_kb_jira_ticket.py` (see `.github/skills/salesforce-migration/SKILL.md` Step 9b).
+Jira tasks for Phase 2 PRs: `scripts/salesforce-analyzer/sf_kb_jira_ticket.py` (see skill Phase 2).
 """
 
 from __future__ import annotations
@@ -54,13 +35,11 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import AbstractSet
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
 SKIPPED_OUT = REPO_ROOT / "_data" / "kb_articles_skipped.md"
 ACTIONED_OUT = REPO_ROOT / "_data" / "kb_articles_actioned.md"
-EPIC_BD6308_TRACKED_IDS_PATH = REPO_ROOT / "_data" / "kb_epic_bd6308.txt"
 
 _DOCS_PATH_RE = re.compile(
     r"(?:braze-docs/)?(_docs/[^\s\"'<>()]+)",
@@ -1095,7 +1074,6 @@ class RowOut:
 def classify_row(
     row: dict[str, str],
     root: Path,
-    epic_bd6308_tracked_ids: AbstractSet[str],
 ) -> RowOut:
     article_id = (row.get("article_id") or "").strip()
     title = (row.get("title") or "").strip()
@@ -1207,16 +1185,6 @@ def classify_row(
             ctx=ctx,
         )
 
-    if article_id in epic_bd6308_tracked_ids:
-        return skip(
-            f"`{article_id}` is listed in `_data/kb_epic_bd6308.txt` (manual receipt of Jira epic **BD-6308**); "
-            "excluded from `kb_articles_actioned.md` so the CSV queue does not duplicate epic-tracked work.",
-            ctx=(
-                "Maintain that file by hand from Jira child issues. Remove the line when the Jira work is discarded "
-                "or the article should return to the CSV backlog. `sf_kb_sync_tracker.py` does not write this file."
-            ),
-        )
-
     vert = infer_vertical(primary_rel, team)
     return RowOut(
         row=row,
@@ -1227,22 +1195,6 @@ def classify_row(
         path_inference=path_inference,
         reference_verify=reference_verify,
     )
-
-
-def load_epic_bd6308_tracked_ids(path: Path) -> frozenset[str]:
-    """
-    One Salesforce `article_id` per non-comment, non-blank line.
-    Optional manual receipt (Jira epic BD-6308); see `_data/kb_epic_bd6308.txt` header.
-    """
-    if not path.is_file():
-        return frozenset()
-    out: set[str] = set()
-    for line in path.read_text(encoding="utf-8").splitlines():
-        s = line.strip()
-        if not s or s.startswith("#"):
-            continue
-        out.add(s)
-    return frozenset(out)
 
 
 def load_csv_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -1367,8 +1319,7 @@ def main() -> None:
             f"Updated doc_path on {n_infer} row(s) in {CSV_PATH.relative_to(REPO_ROOT)} "
             f"(conflict extraction, IA remaps, best-fit placement)."
         )
-    epic_tracked = load_epic_bd6308_tracked_ids(EPIC_BD6308_TRACKED_IDS_PATH)
-    classified: list[RowOut] = [classify_row(r, REPO_ROOT, epic_tracked) for r in rows]
+    classified: list[RowOut] = [classify_row(r, REPO_ROOT) for r in rows]
 
     skipped = [c for c in classified if c.skip_reason]
     actionable = [c for c in classified if not c.skip_reason]
@@ -1404,12 +1355,11 @@ def main() -> None:
         f"Generated from `{CSV_PATH.relative_to(REPO_ROOT)}` on **{now}**.",
         "",
         "**Do not hand-edit this file** — it is overwritten by `python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py` "
-        "(repo root). Update the CSV (or the optional epic receipt file), then re-run that script; the companion "
-        f"`{ACTIONED_OUT.relative_to(REPO_ROOT)}` file is refreshed in the same run.",
+        f"(repo root). Update the CSV, then re-run that script; the companion `{ACTIONED_OUT.relative_to(REPO_ROOT)}` "
+        "file is refreshed in the same run.",
         "",
         "Rows listed here **did not** pass Phase 1 gates (see `.github/skills/salesforce-migration/SKILL.md`). "
-        f"Actionable queue: `{ACTIONED_OUT.relative_to(REPO_ROOT)}`. "
-        "If present, `_data/kb_epic_bd6308.txt` is a **manual** Jira epic receipt — IDs there are excluded from the actionable queue (nothing auto-writes that file).",
+        f"Actionable queue: `{ACTIONED_OUT.relative_to(REPO_ROOT)}`.",
         "",
         f"**Totals:** {len(rows)} CSV rows — **{len(actionable)} actionable**, **{len(skipped)} skipped**.",
         "",
@@ -1442,7 +1392,6 @@ def main() -> None:
     # One Phase 2 PR per primary doc (may include one or many articles).
     pr_batches_sorted = sorted(by_file.items(), key=lambda kv: (-len(kv[1]), kv[0]))
 
-    epic_skip_n = sum(1 for c in skipped if "kb_epic_bd6308.txt" in (c.skip_reason or ""))
     act_lines = [
         "# KB articles — Phase 1 actionable backlog",
         "",
@@ -1460,12 +1409,6 @@ def main() -> None:
             "`conflict_resolution` = `inconclusive` — confirm behavior in reference repos "
             "(see `.github/skills/salesforce-migration/SKILL.md` Phase 2) before drafting; "
             "do not copy Salesforce Knowledge text without source verification."
-        )
-    if epic_tracked and epic_skip_n:
-        act_lines.append(
-            f"**Epic BD-6308 receipt:** **{epic_skip_n}** row(s) appear only in the skipped list because their "
-            f"`article_id` is listed in `{EPIC_BD6308_TRACKED_IDS_PATH.relative_to(REPO_ROOT)}` "
-            "(manual Jira epic receipt; not script-generated)."
         )
     act_lines.extend(
         [

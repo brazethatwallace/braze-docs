@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 """
-Rename braze-docs PRs for Epic BD-6308 children to ``[BD-####](SF) TICKET_NAME``.
+Rename braze-docs PRs for Epic BD-6308 children to `[BD-####](SF) TICKET_NAME`.
 
-Reads each task under parent epic BD-6308, finds the linked GitHub PR (Jira description
-or ``gh pr list`` search), and runs ``gh pr edit --title`` when the title is not already
-in the required format. Works for open and merged PRs.
+Reads Jira tasks under epic BD-6308, finds the linked GitHub PR (issue fields or `gh pr list`), and
+runs `gh pr edit --title` when the title is not already in the required format (open or merged PRs).
 
-Requires JIRA_USER_EMAIL, JIRA_API_TOKEN, and ``gh`` authenticated for braze-inc/braze-docs.
+Requires `JIRA_USER_EMAIL`, `JIRA_API_TOKEN`, and `gh` for braze-inc/braze-docs.
 
 Usage (repo root):
-  python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py
-  python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py --dry-run
+  python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
   python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py --issue BD-6402
 """
 

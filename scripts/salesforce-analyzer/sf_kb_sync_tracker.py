@@ -1,23 +1,15 @@
 #!/usr/bin/env python3
 """
-Sync `_data/kb_articles.csv` with Salesforce migration PRs.
+Sync `_data/kb_articles.csv` with Salesforce migration PRs (optional maintenance).
 
-Optional manual sync for branch `run_sf` when you explicitly refresh tracker state
-from GitHub PRs. Not part of Phase 2 — run only when requested.
+Collects `article_id` values from open and merged braze-docs PRs labeled `salesforce migration`,
+removes those rows from `kb_articles.csv`, then regenerates Phase 1 markdown via
+`generate_kb_phase1_outputs.py`.
 
-Do not include `_data/` changes in SF migration PRs to `develop`.
-
-`sf_kb_sync_tracker.py` updates only `_data/kb_articles.csv` (drops `article_id` values that appear
-in merged/open `salesforce migration` PR bodies). It does **not** read or write
-`_data/kb_epic_bd6308.txt` — that file is a manual Jira epic receipt (see salesforce-migration skill).
-
-1. Collect `article_id` values from open and merged PRs labeled `salesforce migration`.
-2. Remove those IDs from `_data/kb_articles.csv`.
-3. Regenerate `_data/kb_articles_actioned.md` and `_data/kb_articles_skipped.md`.
+Do not ship `_data/` changes inside migration PRs to `develop` — commit tracker updates separately.
 
 Usage (repo root):
-  python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py
-  python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py --dry-run
+  python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py [--dry-run]
 """
 
 from __future__ import annotations
