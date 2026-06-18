@@ -35,11 +35,9 @@ Sync logs also provide the following details for each sync:
 * **Run start time:** When the sync job began.  
 * **Run duration:** The total time the sync job took to complete.
 
-![Details for a sync log.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Data retention
 
-Sync log data, including all row-level payloads and error details, is retained for up to **30 days**. Logs older than 30 days will be automatically purged.
+Sync log data, including all row-level payloads and error details, is retained for up to **30 days**. Logs older than 30 days are automatically purged.
 
 Sync run metadata such as the number of rows processed is retained for at least 12 months.
 
