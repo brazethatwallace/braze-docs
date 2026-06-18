@@ -80,7 +80,7 @@ Next, while signed into Braze, go to **Integrations > Technology Partners > Snow
 Next, choose a name for your sync, provide contact emails, and select a data type and a sync frequency on the Braze Snowflake import configuration screen.
 
 #### Step 3: Add a public key to the Braze user
-At this point, you will need to go back to Snowflake to complete the setup. Add the public key displayed on the Braze dashboard to the user you created for Braze to connect to Snowflake.
+At this point, go back to Snowflake to complete the setup. Add the public key displayed on the Braze dashboard to the user you created for Braze to connect to Snowflake.
 
 For additional information on how to do this, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). If you want to rotate the keys at any point, Mozart Data can generate a new key pair and provide you with the new public key.
 
