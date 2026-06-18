@@ -1,28 +1,18 @@
 #!/usr/bin/env python3
 """
-Generate Phase 1 triage markdown from `_data/kb_articles.csv`.
+Generate Phase 1 markdown from `_data/kb_articles.csv` (skipped + actioned).
 
-Writes `_data/kb_articles_skipped.md` and `_data/kb_articles_actioned.md`. Gates and workflow:
-`.github/skills/salesforce-migration/SKILL.md` Phase 1 (this script implements an automated subset).
+Gates: `.github/skills/salesforce-migration/SKILL.md` Phase 1 (automated). `inconclusive` + locatable
+`_docs/` → not auto-skipped. Path inference: remaps, basename/fragment, topic routing — extend
+`PATH_INFERENCE_EXACT`, `PATH_INFERENCE_PREFIXES`, `_CONTEXT_TOPIC_ROUTES` after confirmed mappings.
 
-Rows with `conflict_resolution` = `inconclusive` are **not** auto-skipped when a locatable `_docs/...`
-target exists; Phase 2 must still verify in reference repos before drafting.
+Default run **prunes** `archived` / `actioned` from the CSV; `--no-prune` only refreshes markdown;
+`--infer-doc-paths` fills `doc_path`. No auto-skip for redundant-docs / workaround-only rows.
+`suggested_change` should be strong draft prose (skill Phase 1).
 
-Path resolution uses IA remaps, basename/fragment matches, and topic routing. Extend
-`PATH_INFERENCE_EXACT`, `PATH_INFERENCE_PREFIXES`, and `_CONTEXT_TOPIC_ROUTES` in this file when you
-add confirmed stale→current mappings.
-
-- By default, **prunes** the CSV: drops rows whose `implementation_status` first line is `archived` or `actioned`.
-- `--no-prune` regenerates only the two markdown files (no CSV row removal).
-- `--infer-doc-paths` fills empty `doc_path` from CSV hints (often used with `--no-prune` first).
-
-Does not auto-detect “redundant with docs” or bug-only workarounds — those stay manual Phase 1 checks.
-
-Usage (repo root):
+Usage:
   python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --infer-doc-paths --no-prune
   python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --no-prune
-
-Jira tasks for Phase 2 PRs: `scripts/salesforce-analyzer/sf_kb_jira_ticket.py` (see skill Phase 2).
 """
 
 from __future__ import annotations
@@ -1283,18 +1273,16 @@ def update_inferred_doc_paths(rows: list[dict[str, str]], root: Path) -> int:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Prune dispositioned KB CSV rows and generate Phase 1 markdown outputs.",
-    )
+    parser = argparse.ArgumentParser(description="Phase 1 KB markdown; optional CSV prune / doc_path infer.")
     parser.add_argument(
         "--no-prune",
         action="store_true",
-        help="Do not remove archived/actioned rows from kb_articles.csv (only regenerate markdown).",
+        help="Skip CSV prune; only regenerate markdown.",
     )
     parser.add_argument(
         "--infer-doc-paths",
         action="store_true",
-        help="Update kb_articles.csv doc_path (conflict + IA remaps + best-fit placement).",
+        help="Infer and write doc_path (remaps + best-fit).",
     )
     return parser.parse_args()
 
@@ -1308,17 +1296,13 @@ def main() -> None:
         if removed:
             write_csv_rows(CSV_PATH, fieldnames, rows)
             print(
-                f"Pruned {removed} row(s) from {CSV_PATH.relative_to(REPO_ROOT)} "
-                f"(archived={n_archived}, actioned={n_actioned}); "
-                f"{len(rows)} row(s) remain."
+                f"Pruned {removed} ({CSV_PATH.relative_to(REPO_ROOT)}): archived={n_archived}, "
+                f"actioned={n_actioned}; {len(rows)} left."
             )
     if args.infer_doc_paths:
         n_infer = update_inferred_doc_paths(rows, REPO_ROOT)
         write_csv_rows(CSV_PATH, fieldnames, rows)
-        print(
-            f"Updated doc_path on {n_infer} row(s) in {CSV_PATH.relative_to(REPO_ROOT)} "
-            f"(conflict extraction, IA remaps, best-fit placement)."
-        )
+        print(f"Inferred doc_path on {n_infer} row(s) ({CSV_PATH.relative_to(REPO_ROOT)}).")
     classified: list[RowOut] = [classify_row(r, REPO_ROOT) for r in rows]
 
     skipped = [c for c in classified if c.skip_reason]
@@ -1497,11 +1481,9 @@ def main() -> None:
     ACTIONED_OUT.write_text("\n".join(act_lines).rstrip() + "\n", encoding="utf-8")
 
     inferred_n = sum(1 for c in actionable if c.path_inference)
-    print(f"Wrote {SKIPPED_OUT.relative_to(REPO_ROOT)} ({len(skipped)} skipped)")
-    print(
-        f"Wrote {ACTIONED_OUT.relative_to(REPO_ROOT)} ({len(actionable)} actionable"
-        + (f"; {inferred_n} used scripted path inference)" if inferred_n else ")")
-    )
+    inf = f", {inferred_n} inferred path(s)" if inferred_n else ""
+    print(f"Wrote {SKIPPED_OUT.relative_to(REPO_ROOT)} ({len(skipped)} skipped), "
+          f"{ACTIONED_OUT.relative_to(REPO_ROOT)} ({len(actionable)} actionable{inf})")
 
 
 if __name__ == "__main__":

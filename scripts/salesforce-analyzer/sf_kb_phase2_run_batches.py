@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 """
-Run Salesforce KB Phase 2 for pending PR batches (grouped by `doc_path`).
+Phase 2: open PRs by `doc_path` (`gh`, optional Jira).
 
-Reads `_data/kb_articles.csv` but does not write it. For each primary `_docs/...` file with backlog:
-skip if an open `salesforce migration` PR already touches that file; append FAQ-style sections from
-`suggested_change`; branch, commit (`_docs/` / `_includes/` only), push, open PR; optionally create
-or update Jira under epic BD-6308.
+Reads `kb_articles.csv` (read-only). Skips files with open `salesforce migration` PRs. Appends full
+``suggested_change`` (strong draft, not shorthand) between HTML markers; commits `_docs/` /
+`_includes/` only.
 
-Requires `gh`. Optional: `JIRA_USER_EMAIL` and `JIRA_API_TOKEN` for Jira.
+Needs `gh`. Optional: `JIRA_USER_EMAIL`, `JIRA_API_TOKEN`.
 
-Workflow: `.github/skills/salesforce-migration/SKILL.md` Phase 2.
-
-Usage (repo root):
+Usage:
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --dry-run
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --limit 5
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --doc-path '_docs/.../faq.md'
@@ -36,7 +33,7 @@ REPO = "braze-inc/braze-docs"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_kb_phase1_outputs import doc_path_branch_slug, product_vertical_hint  # noqa: E402
 from sf_kb_jira_ticket import (  # noqa: E402
-    brief_from_suggested_change,
+    SUGGESTED_CHANGE_PREFIX_RE,
     build_sf_kb_github_pr_body,
     create_bd6308_task_prep,
     format_sf_kb_pr_title,
@@ -45,6 +42,9 @@ from sf_kb_jira_ticket import (  # noqa: E402
 
 INTERNAL_TITLE_RE = re.compile(r"\*INTERNAL\*", re.I)
 MARKER = "<!-- sf-kb-phase2-batch -->"
+END_MARKER = "<!-- /sf-kb-phase2-batch -->"
+# Safety cap per backlog row (very large CSV cells are truncated at a paragraph boundary).
+MAX_SUGGESTED_CHARS_PER_ROW = 25_000
 VAGUE_STARTERS = (
     "might ",
     "may ",
@@ -66,7 +66,7 @@ def run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[st
 
 
 def assert_commit_docs_only() -> None:
-    """Fail if HEAD includes `_data/` paths (_data/ is Phase 1 only)."""
+    """Abort if the last commit touches `_data/`."""
     proc = run(["git", "show", "--name-only", "--format=", "HEAD"], check=True)
     bad = [p for p in proc.stdout.splitlines() if p.strip().startswith("_data/")]
     if bad:
@@ -151,16 +151,32 @@ def is_actionable_row(row: dict[str, str]) -> bool:
     return True
 
 
+def normalized_suggested_change(suggested: str) -> str:
+    """Strip common ``suggested_change`` prefixes; cap length."""
+    text = (suggested or "").strip()
+    text = SUGGESTED_CHANGE_PREFIX_RE.sub("", text).strip().strip("'\"")
+    if not text:
+        return ""
+    if len(text) <= MAX_SUGGESTED_CHARS_PER_ROW:
+        return text
+    head = text[: MAX_SUGGESTED_CHARS_PER_ROW - 1]
+    cut = head.rsplit("\n", 1)[0].rstrip()
+    return cut + "\n\n…"
+
+
 def draft_section(rows: list[dict[str, str]]) -> str:
-    lines = [MARKER, "", "## Salesforce Knowledge updates", ""]
+    """Insert full ``suggested_change`` per row between MARKER / END_MARKER (idempotent re-runs)."""
+    blocks: list[str] = []
     for row in rows:
         title = (row.get("title") or "").strip()
         suggested = (row.get("suggested_change") or "").strip()
         if not title or not suggested:
             continue
-        body = brief_from_suggested_change(suggested, max_len=600)
-        lines.extend([f"### {title}", "", body, ""])
-    return "\n".join(lines).rstrip() + "\n"
+        body = normalized_suggested_change(suggested)
+        if body:
+            blocks.append(body)
+    inner = "\n\n---\n\n".join(blocks)
+    return f"{MARKER}\n\n{inner}\n\n{END_MARKER}\n"
 
 
 def apply_doc_edit(doc_path: str, rows: list[dict[str, str]]) -> bool:
@@ -171,12 +187,19 @@ def apply_doc_edit(doc_path: str, rows: list[dict[str, str]]) -> bool:
     text = full.read_text(encoding="utf-8")
     section = draft_section(rows)
     if MARKER in text:
-        pattern = re.compile(
-            re.escape(MARKER) + r"[\s\S]*?(?=\n## |\n{% api %}|\Z)",
-            re.MULTILINE,
-        )
+        if END_MARKER in text:
+            pattern = re.compile(
+                re.escape(MARKER) + r"[\s\S]*?" + re.escape(END_MARKER),
+                re.MULTILINE,
+            )
+        else:
+            # Legacy: open marker only (no END_MARKER)
+            pattern = re.compile(
+                re.escape(MARKER) + r"[\s\S]*?(?=\n## |\n{% api %}|\Z)",
+                re.MULTILINE,
+            )
         if pattern.search(text):
-            text = pattern.sub(section.rstrip() + "\n\n", text, count=1)
+            text = pattern.sub(section.rstrip() + "\n", text, count=1)
         else:
             return False
     else:
@@ -317,8 +340,8 @@ def process_batch(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--limit", type=int, default=0, help="Max batches to open (0 = all)")
-    parser.add_argument("--doc-path", action="append", default=[], help="Process only this doc_path")
+    parser.add_argument("--limit", type=int, default=0, help="Max batches (0 = all)")
+    parser.add_argument("--doc-path", action="append", default=[], help="Only this doc_path")
     args = parser.parse_args()
 
     csv_rows = load_csv_rows()
@@ -346,7 +369,7 @@ def main() -> None:
             opened += 1
             print(f"OK {doc_path} → {result.get('pr_url')} ({result.get('jira')})")
 
-    print(f"\nDone. Opened {opened} new PR(s).")
+    print(f"Done. {opened} PR(s) opened.")
 
 
 if __name__ == "__main__":

@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """
-Create a BD Task under Epic BD-6308 for a Salesforce KB Phase 2 PR.
-
-Issue description follows existing epic children (GitHub PR, Salesforce articles, product vertical).
+BD Task under Epic BD-6308 for a Salesforce KB PR.
 
 Env: `JIRA_USER_EMAIL`, `JIRA_API_TOKEN` (same as `.github/workflows/jira-pr-comment.yml`).
-Optional: `JIRA_BASE_URL` (default https://jira.atl.braze.com), `JIRA_ASSIGNEE_ACCOUNT_ID`.
+Optional: `JIRA_BASE_URL` (default `https://jira.atl.braze.com`), `JIRA_ASSIGNEE_ACCOUNT_ID`.
 
-See `.github/skills/salesforce-migration/SKILL.md` Phase 2 / Jira.
-
-Usage (repo root):
+Usage:
   python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py \\
     --pr-url 'https://github.com/braze-inc/braze-docs/pull/123' \\
     --pr-title '[BD-6402](SF) Example title' \\
@@ -683,18 +679,18 @@ def main() -> None:
         action="append",
         default=[],
         metavar="ID",
-        help="Salesforce Knowledge article_id (repeatable)",
+        help="SF article_id (repeatable)",
     )
     parser.add_argument(
         "--article",
         action="append",
         default=[],
         metavar="ID:TITLE",
-        help="article_id and title, colon-separated (repeatable)",
+        help="id:title (repeatable)",
     )
-    parser.add_argument("--articles-from-summary", help="Markdown table with `article_id` backticks")
-    parser.add_argument("--doc-path", help="Primary _docs path for product vertical inference")
-    parser.add_argument("--product-vertical", help="Override inferred product vertical")
+    parser.add_argument("--articles-from-summary", help="Markdown table with backtick ids")
+    parser.add_argument("--doc-path", help="Primary `_docs/` path (vertical hint)")
+    parser.add_argument("--product-vertical", help="Override vertical")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 

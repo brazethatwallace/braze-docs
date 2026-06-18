@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """
-Sync `_data/kb_articles.csv` with Salesforce migration PRs (optional maintenance).
+Sync `kb_articles.csv` with migration PRs (optional).
 
-Collects `article_id` values from open and merged braze-docs PRs labeled `salesforce migration`,
-removes those rows from `kb_articles.csv`, then regenerates Phase 1 markdown via
-`generate_kb_phase1_outputs.py`.
+Collects ``article_id``s from open + merged `salesforce migration` PR bodies, drops matching CSV
+rows, runs `generate_kb_phase1_outputs.py --no-prune`. Commit `_data/` outside migration PRs.
 
-Do not ship `_data/` changes inside migration PRs to `develop` — commit tracker updates separately.
-
-Usage (repo root):
-  python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py [--dry-run]
+Usage: `python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py [--dry-run]`
 """
 
 from __future__ import annotations
@@ -41,7 +37,7 @@ def gh_json(args: list[str]) -> object:
 
 
 def pr_article_ids() -> tuple[set[str], int, int]:
-    """Return (ids, open_pr_count, merged_pr_count) from PR bodies."""
+    """PR body ``article_id``s and open/merged PR counts."""
     nums: set[int] = set()
     open_count = 0
     merged_count = 0
@@ -91,14 +87,13 @@ def main() -> None:
     to_remove = csv_ids_before & pr_ids
     new_csv_rows = [r for r in csv_rows if r.get("article_id", "").strip() not in pr_ids]
 
-    print("=== SF KB tracker sync ===")
-    print(f"PR body IDs (O+M):   {len(pr_ids)}  ({open_prs} open, {merged_prs} merged PRs scanned)")
-    print(f"CSV rows before:     {len(csv_rows)}")
-    print(f"Removed from CSV:    {len(to_remove)}")
-    print(f"CSV rows after:      {len(new_csv_rows)}")
+    print(
+        f"tracker: {len(pr_ids)} id(s) from PRs ({open_prs} open + {merged_prs} merged) | "
+        f"CSV {len(csv_rows)} -> {len(new_csv_rows)} (-{len(to_remove)})"
+    )
 
     if args.dry_run:
-        print("\n(dry-run — no files written)")
+        print("(dry-run, no writes)")
         return
 
     with CSV_PATH.open("w", encoding="utf-8", newline="") as f:
@@ -117,7 +112,7 @@ def main() -> None:
     if proc.returncode != 0:
         raise SystemExit(proc.returncode)
 
-    print("\nRegenerated kb_articles_actioned.md and kb_articles_skipped.md")
+    print("Regenerated actioned/skipped markdown.")
 
 
 if __name__ == "__main__":
