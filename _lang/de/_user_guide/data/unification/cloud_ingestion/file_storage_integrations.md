@@ -203,8 +203,6 @@ Geben Sie der Rolle einen Namen und eine Beschreibung und wählen Sie **Create R
 {: start="4"}
 4. Erstellen Sie als Nächstes eine neue Synchronisierung. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Syncs** und wählen Sie **Create data sync**.
 
-![Die Seite „Create New Sync“ mit der Konfiguration für Synchronisierungsname und Datenquelle.]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
-
 {: start="5"}
 5. Wählen Sie einen Namen für Ihre Synchronisierung. Wählen Sie dann eine aktive S3-Quelle aus und geben Sie Ihre Quelltabelle für die Synchronisierung ein. Wählen Sie einen Datentyp und wählen Sie **Test Connection**.
 
