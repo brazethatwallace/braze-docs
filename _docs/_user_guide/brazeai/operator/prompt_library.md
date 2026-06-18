@@ -24,7 +24,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 
 {% include copy_block.html content="Which Active Canvases drove the most attributed conversions and revenue in FY26 Q1 (7-day attribution)?" available="Canvas" %}
 
-{% include copy_block.html content="Summarize this Campaign Digest in 5 bullets: biggest wins, biggest issues, and what changed vs the prior period." available="Campaigns" %}
+{% include copy_block.html content="Summarize this Campaign Digest in 5 bullets: biggest wins, biggest issues, and what changed versus the prior period." available="Campaigns" %}
 
 {% endsdktab %}
 {% sdktab Strategy and optimization %}
@@ -43,7 +43,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 
 {% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
-{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign & Canvas health and catch issues early?" available="Report Builder" %}
+{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
 
 {% endsdktab %}
 {% sdktab Messaging performance %}
@@ -52,15 +52,15 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 
 {% include copy_block.html content="How much Attributed Revenue and Conversions did this campaign drive in the last 90 days (7-day window)?" available="Individual campaign" %}
 
-{% include copy_block.html content="Compare this campaign's conversion rate vs our other in-app campaigns in this quarter to date." available="Individual campaign" %}
+{% include copy_block.html content="Compare this campaign's conversion rate versus our other in-app campaigns in this quarter to date." available="Individual campaign" %}
 
 {% include copy_block.html content="Show the top 10 active campaigns by engagement rate in the last 30 days (by channel)." available="Campaigns, Individual campaign" %}
 
-{% include copy_block.html content="What channels performed best for campaigns targeting 'C&L Newsletter Clickers' vs 'Openers but not Clickers' in the last 30 days?" available="Segments" %}
+{% include copy_block.html content="What channels performed best for campaigns targeting 'C&L Newsletter Clickers' versus 'Openers but not Clickers' in the last 30 days?" available="Segments" %}
 
 {% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="Segment Extensions" %}
 
-{% include copy_block.html content="Compare our email Open Rate and Click-Through Rate vs industry benchmarks for the last 30 days." available="Email Performance" %}
+{% include copy_block.html content="Compare our email Open Rate and Click-Through Rate versus industry benchmarks for the last 30 days." available="Email Performance" %}
 
 {% include copy_block.html content="Which email campaigns had the lowest CTR (with high opens) in the last 30 days?" available="Email Performance" %}
 
