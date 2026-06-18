@@ -152,7 +152,11 @@ if [[ "${SKIP_PII:-0}" != "1" && -f scripts/check_screenshot_pii.py ]]; then
       PII_EXIT=0
       python3 scripts/check_screenshot_pii.py "${STAGED_IMAGES[@]}" > "$PII_OUTPUT" 2>&1 || PII_EXIT=$?
       if [[ $PII_EXIT -eq 2 ]]; then
-        echo "⚠️  Screenshot PII check skipped (missing dependency or invalid sidecar)."
+        echo ""
+        echo "❌ Screenshot PII check failed (scanner error — invalid sidecar, bad paths, or OCR error)."
+        cat "$PII_OUTPUT"
+        rm -f "$PII_OUTPUT"
+        exit 1
       elif [[ $PII_EXIT -eq 1 ]]; then
         echo ""
         echo "⚠️  Screenshot PII violations found:"

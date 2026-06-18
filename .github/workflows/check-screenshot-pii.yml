@@ -113,7 +113,7 @@ jobs:
         with:
           name: screenshot-pii-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
           path: violations.json
-          retention-days: 90
+          retention-days: 30
           if-no-files-found: ignore
 
       - name: Sync screenshot PII PR comments
@@ -133,7 +133,6 @@ jobs:
             const DISMISSED_MARKER = '<!-- braze-docs-screenshot-pii-dismissed-bot -->';
 
             const typeNames = {
-              external_id_header: 'External ID column or field',
               numeric_user_id: 'Numeric user identifier',
               alphanumeric_external_id: 'Alphanumeric external_id value',
               customer_attribute_name: 'Customer-specific attribute name',

@@ -27,6 +27,8 @@ Usage
   python3 scripts/check_screenshot_pii.py path/to/image.png
   python3 scripts/check_screenshot_pii.py --json violations.json img1.png img2.png
 
+Paths must be under ``assets/img/`` (run from the repo root, or any directory inside a Git checkout).
+
 Exit codes
   0  No violations (after sidecar dismissals)
   1  One or more violations remain
@@ -37,6 +39,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -48,6 +51,41 @@ from pii_name_lexicon import GIVEN_NAMES, SURNAMES
 
 IMAGE_SUFFIXES = {'.png', '.jpg', '.jpeg'}
 DISMISS_SUFFIX = '.pii-audit-dismiss.json'
+
+# Workflow annotations: only emit paths that look like normal repo image paths.
+_ANNOTATION_FILE_RE = re.compile(r'^assets/img/[A-Za-z0-9_./\-]+$')
+
+
+def git_repo_root() -> Path:
+    """Repository root (for path checks). Prefers GITHUB_WORKSPACE, else nearest .git parent."""
+    workspace = os.environ.get('GITHUB_WORKSPACE')
+    if workspace:
+        return Path(workspace).resolve()
+    here = Path.cwd().resolve()
+    for parent in [here, *here.parents]:
+        if (parent / '.git').is_dir() or (parent / '.git').is_file():
+            return parent
+    return here
+
+
+def resolve_cli_image_path(raw: str, repo_root: Path) -> Path:
+    """Resolve a CLI image path; must lie under assets/img/ in repo_root."""
+    raw = raw.strip()
+    if not raw or raw.startswith('-'):
+        raise ValueError(f'Invalid image path: {raw!r}')
+    candidate = (repo_root / raw).resolve()
+    assets_img = (repo_root / 'assets' / 'img').resolve()
+    try:
+        candidate.relative_to(assets_img)
+    except ValueError as exc:
+        raise ValueError(
+            f'Image path must be under assets/img/ (got path resolving to {candidate})'
+        ) from exc
+    if candidate.suffix.lower() not in IMAGE_SUFFIXES:
+        raise ValueError(
+            f'Unsupported image extension (expected .png, .jpg, or .jpeg): {raw!r}'
+        )
+    return candidate
 
 # Import / mapping UI labels (not violations themselves). Used as context so we only
 # flag numeric IDs when an external-id style column is present or many IDs appear.
@@ -207,6 +245,22 @@ def load_dismiss_sidecar(image_path: Path) -> dict | None:
             f'{sidecar} must be a JSON object (got {type(data).__name__}, expected an object '
             'with "reason", optional "dismiss_all", and optional "dismiss_ids").'
         )
+    dismiss_all_raw = data.get('dismiss_all', False)
+    if not isinstance(dismiss_all_raw, bool):
+        raise ValueError(
+            f'{sidecar}: "dismiss_all" must be a JSON boolean true or false, '
+            f'not {type(dismiss_all_raw).__name__}.'
+        )
+    dismiss_ids_raw = data.get('dismiss_ids')
+    if dismiss_ids_raw is None:
+        data['dismiss_ids'] = []
+    elif not isinstance(dismiss_ids_raw, list):
+        raise ValueError(
+            f'{sidecar}: "dismiss_ids" must be a JSON array of finding IDs, '
+            f'not {type(dismiss_ids_raw).__name__}.'
+        )
+    else:
+        data['dismiss_ids'] = [str(x) for x in dismiss_ids_raw]
     reason = str(data.get('reason', '')).strip()
     if len(reason) < 10:
         raise ValueError(
@@ -405,20 +459,27 @@ def person_name_fix_hint() -> str:
     )
 
 
-def scan_text(image_path: Path, text: str) -> list[Violation]:
+def scan_text(image_file_key: str, text: str) -> list[Violation]:
     violations: list[Violation] = []
     normalized = normalize_text(text)
     if not normalized:
         return violations
 
+    fk = str(image_file_key).replace('\\', '/')
+
+    seen_violation_ids: set[str] = set()
+
     def add(violation_type: str, match: str, message: str, fix_hint: str) -> None:
         if is_allowlisted(match):
             return
-        vid = violation_id(str(image_path), violation_type, match)
+        vid = violation_id(fk, violation_type, match)
+        if vid in seen_violation_ids:
+            return
+        seen_violation_ids.add(vid)
         violations.append(
             Violation(
                 id=vid,
-                file=str(image_path),
+                file=fk,
                 violation_type=violation_type,
                 match=match,
                 message=message,
@@ -500,16 +561,23 @@ def scan_text(image_path: Path, text: str) -> list[Violation]:
 
 
 def check_image(image_path: Path) -> list[Violation]:
-    if image_path.suffix.lower() not in IMAGE_SUFFIXES:
+    resolved = image_path.resolve()
+    if resolved.suffix.lower() not in IMAGE_SUFFIXES:
         return []
 
-    if not image_path.is_file():
+    if not resolved.is_file():
         print(f'warning: file not found: {image_path}', file=sys.stderr)
         return []
 
-    text = run_ocr(image_path)
-    violations = scan_text(image_path, text)
-    return apply_dismissals(violations, image_path)
+    repo = git_repo_root()
+    try:
+        file_key = resolved.relative_to(repo.resolve()).as_posix()
+    except ValueError:
+        file_key = resolved.as_posix()
+
+    text = run_ocr(resolved)
+    violations = scan_text(file_key, text)
+    return apply_dismissals(violations, resolved)
 
 
 def active_violations(violations: list[Violation]) -> list[Violation]:
@@ -526,12 +594,29 @@ def emit_github_annotations(violations_path: str) -> int:
         print(f'error: malformed JSON in {violations_path}: {exc}', file=sys.stderr)
         return 2
 
+    if not isinstance(raw, list):
+        print(f'error: {violations_path} must contain a JSON array', file=sys.stderr)
+        return 2
+
     for item in raw:
+        if not isinstance(item, dict):
+            continue
         if item.get('dismissed'):
             continue
-        file = item['file']
-        msg = re.sub(r'\s+', ' ', item['message'].split('\n')[0].strip())
-        print(f'::error file={file},title=Screenshot PII audit::{msg}')
+        file = item.get('file', '')
+        if not isinstance(file, str):
+            continue
+        file_norm = file.replace('\\', '/').strip()
+        if '..' in file_norm or not _ANNOTATION_FILE_RE.match(file_norm):
+            print(
+                f'warning: skipping workflow annotation for unexpected file path: {file!r}',
+                file=sys.stderr,
+            )
+            continue
+        msg = re.sub(r'\s+', ' ', str(item.get('message', '')).split('\n')[0].strip())
+        msg = re.sub(r'[\r\n]', ' ', msg)
+        msg = msg.replace('::', ': ')
+        print(f'::error file={file_norm},title=Screenshot PII audit::{msg}')
     return 0
 
 
@@ -558,9 +643,14 @@ def main() -> int:
         print('error: provide one or more image paths under assets/img/', file=sys.stderr)
         return 2
 
+    repo = git_repo_root()
     all_violations: list[Violation] = []
     for arg in args:
-        path = Path(arg)
+        try:
+            path = resolve_cli_image_path(arg, repo)
+        except ValueError as exc:
+            print(f'error: {exc}', file=sys.stderr)
+            return 2
         try:
             all_violations.extend(check_image(path))
         except (RuntimeError, ValueError) as exc:

@@ -6,7 +6,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from check_screenshot_pii import active_violations, load_dismiss_sidecar, scan_text
+from check_screenshot_pii import (
+    active_violations,
+    emit_github_annotations,
+    git_repo_root,
+    load_dismiss_sidecar,
+    resolve_cli_image_path,
+    scan_text,
+)
 
 
 class ScanTextTests(unittest.TestCase):
@@ -215,6 +222,70 @@ class LoadDismissSidecarTests(unittest.TestCase):
             )
             data = load_dismiss_sidecar(img)
             self.assertTrue(data['dismiss_all'])
+
+    def test_rejects_dismiss_ids_when_not_array(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            img = Path(tmp) / 'shot.png'
+            sidecar = Path(str(img) + '.pii-audit-dismiss.json')
+            sidecar.write_text(
+                json.dumps(
+                    {
+                        'reason': 'documented false positive',
+                        'dismiss_ids': 'abc12345',
+                    }
+                ),
+                encoding='utf-8',
+            )
+            with self.assertRaises(ValueError) as ctx:
+                load_dismiss_sidecar(img)
+            self.assertIn('dismiss_ids', str(ctx.exception))
+
+
+class PathResolutionTests(unittest.TestCase):
+    def test_rejects_escape_outside_assets_img(self) -> None:
+        root = git_repo_root()
+        with self.assertRaises(ValueError):
+            resolve_cli_image_path('../README.md', root)
+        with self.assertRaises(ValueError):
+            resolve_cli_image_path('assets/../README.md', root)
+
+    def test_accepts_repo_relative_image_under_assets_img(self) -> None:
+        root = git_repo_root()
+        p = resolve_cli_image_path('assets/img/nonexistent_scanner_path.png', root)
+        self.assertTrue(p.as_posix().endswith('assets/img/nonexistent_scanner_path.png'))
+
+    def test_rejects_wrong_extension(self) -> None:
+        root = git_repo_root()
+        with self.assertRaises(ValueError):
+            resolve_cli_image_path('assets/img/readme.txt', root)
+
+
+class ScanDedupeTests(unittest.TestCase):
+    def test_deduplicates_repeated_numeric_matches(self) -> None:
+        text = 'Ext_Id 42004428 42004428 42004428'
+        violations = scan_text('assets/img/csv_import/preview.png', text)
+        numeric = [v for v in violations if v.violation_type == 'numeric_user_id']
+        self.assertEqual(len(numeric), 1)
+
+
+class EmitAnnotationsTests(unittest.TestCase):
+    def test_skips_unsafe_file_paths_in_json(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / 'violations.json'
+            bad.write_text(
+                json.dumps(
+                    [
+                        {
+                            'dismissed': False,
+                            'file': 'assets/img/../secrets.env',
+                            'message': 'x',
+                        }
+                    ]
+                ),
+                encoding='utf-8',
+            )
+            rc = emit_github_annotations(str(bad))
+            self.assertEqual(rc, 0)
 
 
 if __name__ == '__main__':
