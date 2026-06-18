@@ -1314,7 +1314,7 @@ svg[id^="mermaid"] {
     transition: opacity 0.3s ease-in-out;
 
     img {
-      border: none;
+      border: none !important;
     }
   }
 
