@@ -125,6 +125,31 @@ class ScanTextTests(unittest.TestCase):
         violations = scan_text('assets/img/example.png', text)
         self.assertFalse(any(v.violation_type == 'person_name_single' for v in violations))
 
+    def test_ignores_max_width_min_length_ui_labels_as_single_names(self) -> None:
+        """Max/Min are given names in the lexicon but often prefix UI limits (BD-style forms)."""
+        text = (
+            'Name Name_Last Max Width Min Length Max Characters '
+            'Min Recipients Max Value'
+        )
+        violations = scan_text('assets/img/example.png', text)
+        singles = {v.match for v in violations if v.violation_type == 'person_name_single'}
+        self.assertNotIn('Max', singles)
+        self.assertNotIn('Min', singles)
+
+    def test_still_flags_max_as_name_when_not_a_limit_label(self) -> None:
+        # Avoid a lexicon surname as the second token so "Max X" is not treated as a pair.
+        text = 'Name Name_Last Max Quantum opted_in'
+        violations = scan_text('assets/img/example.png', text)
+        singles = {v.match for v in violations if v.violation_type == 'person_name_single'}
+        self.assertIn('Max', singles)
+
+    def test_max_width_does_not_suppress_max_in_other_phrase(self) -> None:
+        """UI-tail skip must apply per occurrence, not to every Max if Max Width appears elsewhere."""
+        text = 'Name Name_Last Max Width form field Max Quantum opted_in'
+        violations = scan_text('assets/img/example.png', text)
+        singles = {v.match for v in violations if v.violation_type == 'person_name_single'}
+        self.assertIn('Max', singles)
+
     def test_allows_documented_example_name_pairs(self) -> None:
         text = 'Preview rows Alex Smith and Yuri Kim subscribed'
         violations = scan_text('assets/img/example.png', text)

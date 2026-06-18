@@ -29,7 +29,7 @@ Load and follow [workflows/audit-changed-images.md](workflows/audit-changed-imag
 
 | Layer | Behavior |
 |---|---|
-| **CI** (`check-screenshot-pii.yml`) | **Blocking** on PRs that change images. Upserts a PR comment on failure; deletes bot comments on a clean pass. Partial fixes show struck-through cleared items. |
+| **CI** (`check-screenshot-pii.yml`) | **Blocking** on PRs that change images. Upserts a PR comment on failure; deletes bot comments on a clean pass. Partial fixes show struck-through cleared items. On `synchronize`, if the push does not touch images, dismiss sidecars, or scanner/workflow files, and the previous head already passed this check, CI skips Tesseract/OCR and leaves PR comments unchanged. |
 | **Maintainer label** | `pii-audit-dismissed` allows merge but leaves an audit comment. |
 | **Sidecar file** | `<image>.pii-audit-dismiss.json` documents false positives in-repo. |
 
