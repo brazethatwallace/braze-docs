@@ -3968,7 +3968,8 @@ validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_mes
 validurls['/docs/user_guide/message_building_by_channel/push/best_practices/message_format'] = '/docs/user_guide/channels/push/create_a_push_message/message_and_image_formats';
 validurls['/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_action_buttons'] = '/docs/user_guide/channels/push/create_a_push_message/push_action_buttons';
 validurls['/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories'] = '/docs/user_guide/channels/push/create_a_push_message/push_stories';
-validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_message/quick_push'] = '/docs/user_guide/channels/push/create_a_push_message/quick_push_messages';
+validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_message/quick_push'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
+validurls['/docs/user_guide/channels/push/create_a_push_message/quick_push_messages'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/notification_options'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/notification_options';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/rich_notifications'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/rich_notifications';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/customizable_app_icons'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/custom_app_icon_feature_ios_103';
@@ -4861,6 +4862,7 @@ validurls['/docs/credits_whatsapp/'] = '/docs/credits_whatsapp/';
 validurls['/docs/csv_events/'] = '/docs/csv_events/';
 validurls['/docs/device_and_carriers/'] = '/docs/device_and_carriers/';
 validurls['/docs/preview_dnd_content_blocks/'] = '/docs/preview_dnd_content_blocks/';
+validurls['/docs/quick_push/'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
 validurls['/docs/email_html_editor/'] = '/docs/email_html_editor/';
 validurls['/docs/ephemeral_custom_events/'] = '/docs/ephemeral_custom_events/';
 validurls['/docs/iam_generations/'] = '/docs/iam_generations/';
