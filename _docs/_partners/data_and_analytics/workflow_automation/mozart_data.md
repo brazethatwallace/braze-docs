@@ -90,7 +90,7 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 
 #### Step 4: Test connection
 
-Once the user is updated with the public key, return to the Braze dashboard and click **Test connection**. If successful, you'll see a preview of the data. If, for some reason, the connection is unsuccessful, an error message will display to help troubleshoot the issue.
+Once the user is updated with the public key, return to the Braze dashboard and select **Test connection**. If successful, you'll see a preview of the data. If, for some reason, the connection is unsuccessful, an error message will display to help troubleshoot the issue.
 
 ![Braze Snowflake integration test connection result showing a successful preview after the public key is applied.]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
