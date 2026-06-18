@@ -1,5 +1,5 @@
 <div class="copy-block">
-  <p class="copy-block-text">{{ include.content }}</p>
+  <p class="copy-block-text">{{ include.content | escape }}</p>
   {% if include.available %}<p class="copy-block-available">{{ site.data.i18n[site.language].works_best_in | default: "Works best in:" }} {{ include.available }}</p>{% endif %}
   <span class="copy-feedback"></span>
   <button class="btn copy-block-btn" data-clipboard-text="{{ include.content | escape }}" title="Copy to clipboard">

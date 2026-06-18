@@ -1281,6 +1281,10 @@ svg[id^="mermaid"] {
 	display: none;
 }
 
+.sdk-tab-content > .sdk-ab-tab-pane > .copy-block:first-child {
+  margin-top: 16px !important;
+}
+
 .copy-block {
   position: relative;
   padding: 16px 52px 6px 16px;
