@@ -31,20 +31,17 @@ Passen wir die Canvas-Details an unser Ziel an.
 
 1. Wählen Sie **Edit** neben dem Template-Namen.
 
-![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/lapsed_user_old_name_description.png %}){: style="max-width:45%;"}
 
 {:start="2"}
 2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass dieses Canvas Nutzer:innen mit Aktionen anspricht und einen Audience Sync für diejenigen durchführt, die eine Sitzung starten.
 3. Aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas Vorteile und Aktionen enthält.
 4. Fügen Sie den Tag **Lapsing/Retention** hinzu, damit wir auf der Canvas-Startseite nach diesem Canvas filtern können.
 
-![Der Schritt „Canvas-Details einrichten“ mit dem Canvas-Namen „Lapsed User - Visit App“ und einer kurzen Canvas-Beschreibung.]({% image_buster /assets/img/canvas_templates/lapsing_user_1.png %})
 
 ### 2. Schritt: Konversions-Events zuweisen {#step-2-assign-your-conversion-events}
 
 Aktualisieren Sie **Primary Conversion Event - A**, um Nutzer:innen aus unserer App (MovieCanon) anzusprechen, und belassen Sie **Primary Conversion Event - B** bei der Standardeinstellung „Beliebigen Kauf tätigen“.
 
-![Der Abschnitt „Konversions-Events zuweisen“ mit einem primären Konversions-Event, bei dem Nutzer:innen eine Sitzung in einer bestimmten App starten.]({% image_buster /assets/img/canvas_templates/lapsing_user_2.png %})
 
 ### 3. Schritt: Entry-Zeitplan anpassen {#step-3-tailor-the-entry-schedule}
 
@@ -55,13 +52,11 @@ Wir nehmen zwei Anpassungen an diesem Schritt vor:
 1. Wählen Sie ein Startdatum und eine Startzeit.
 2. Wählen Sie als Endparameter **An einem bestimmten Datum** und ein Datum in zwei Monaten. Nehmen wir an, wir haben ein weiteres Canvas für inaktive Nutzer:innen, das nach diesem starten soll.
 
-![Der Schritt „Entry-Zeitplan“ für ein geplantes Canvas, das Nutzer:innen zu einem festgelegten Zeitpunkt eintreten lässt.]({% image_buster /assets/img/canvas_templates/lapsing_user_3.png %})
 
 ### 4. Schritt: Zielgruppe auswählen {#step-4-select-our-target-audience}
 
 Wir behalten die Standardeinstellungen für die Entry-Zielgruppe bei, die auf Nutzer:innen eingestellt ist, die unsere App seit über 30 Tagen nicht genutzt haben. Wir behalten auch die Standard-Entry-Kontrollen bei, damit Nutzer:innen nach vier Wochen erneut in das Canvas eintreten können. Das bedeutet, dass Nutzer:innen jedes Mal, wenn sie unsere App über 30 Tage am Stück nicht besuchen, in das Canvas aufgenommen werden.
 
-![Der Schritt „Zielgruppe“ mit Targeting auf Nutzer:innen, die die Apps zuletzt vor 30 Tagen genutzt haben.]({% image_buster /assets/img/canvas_templates/lapsing_user_4.png %})
 
 ### 5. Schritt: Sendeeinstellungen auswählen {#step-5-select-your-send-settings}
 
@@ -73,7 +68,6 @@ Wir behalten die meisten Standard-Abo-Einstellungen bei:
 
 Die einzige Einstellung, die wir ändern, betrifft das Verhalten, wenn eine Nachricht während der Ruhezeiten ausgelöst wird. Anstatt die Nachricht abzubrechen, wählen Sie **Zum nächsten verfügbaren Zeitpunkt senden**, damit unsere Nutzer:innen keine Aktionen verpassen.
 
-![Der Abschnitt „Ruhezeiten“ mit einer Startzeit von 0:00 Uhr und einer Endzeit von 8:00 Uhr.]({% image_buster /assets/img/canvas_templates/lapsing_user_5.png %})
 
 ### 6. Schritt: Canvas anpassen {#step-6-customize-your-canvas}
 
@@ -81,12 +75,10 @@ Jetzt erstellen wir unser Canvas, indem wir die vordefinierten Schritte anpassen
 
 1. Passen Sie die erste E-Mail an, die an alle Nutzer:innen gesendet wird, die unsere App seit über 30 Tagen nicht besucht haben. Für unseren Anwendungsfall gestalten wir eine E-Mail, die Nutzer:innen mitteilt, dass sie neue Vorteile freischalten, wenn sie heute unsere App besuchen.
 
-![Canvas-Nachrichtenschritt für eine E-Mail, die Nutzer:innen auffordert, neue Vorteile freizuschalten, wenn sie heute vorbeischauen.]({% image_buster /assets/img/canvas_templates/lapsing_user_6.png %})
 
 {: start="2"}
 2. Passen Sie die Aktions-Pfad-Komponente namens „Start Session?“ an, indem Sie unsere App für den Pfad **Started Session** auswählen.
 
-![Aktions-Pfad für Sitzungen, die in einer bestimmten App gestartet werden.]({% image_buster /assets/img/canvas_templates/lapsing_user_7.png %})
 
 {: start="3"}
 3. Behalten Sie die Standardeinstellung für den Decision-Split-Schritt namens „Sessions?“ bei, der die Gruppe „>1 Session“ als Nutzer:innen definiert, die unsere App am letzten Kalendertag mehr als einmal genutzt haben.

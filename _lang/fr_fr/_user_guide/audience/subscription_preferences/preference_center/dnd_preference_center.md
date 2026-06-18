@@ -23,7 +23,6 @@ Créez un centre de préférences en accédant à **Audience** > **Centre de pr�
 
 Une liste de centres de préférences personnalisés s'affichera. Sélectionnez **Créer** pour créer un nouveau centre de préférences, ou sélectionnez le nom d'un centre existant pour le modifier.
 
-![Une liste de centres de préférences personnalisés avec le nom, la description, le type, l'état, la date de dernière modification et l'utilisateur ayant créé le centre.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## Étape 2 : Nommer le centre de préférences e-mail {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ Les noms des centres de préférences ne peuvent contenir que des caractères al
 
 Cette étiquette Liquid peut être incluse dans n'importe quelle Campaign ou étape du Canvas sortante et dirigera les utilisateurs vers le centre de préférences.
 
-![Un exemple de Liquid pour un centre de préférences.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## Étape 3 : Ajouter des groupes d'abonnement au centre de préférences {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,7 +46,6 @@ Vous pouvez configurer davantage les groupes d'abonnement sélectionnés en cliq
 - Ajouter ou supprimer une case à cocher **Subscribe to all** qui abonnera l'utilisateur à tous les groupes d'abonnement affichés dans ce bloc
 - Ajouter ou supprimer une case à cocher **Unsubscribe from all** qui désabonnera l'utilisateur de tous les groupes d'abonnement affichés dans ce bloc
 
-![Un exemple de centre de préférences avec les options pour s'abonner à tous les messages, au marketing, à la newsletter et aux e-mails hebdomadaires, ou pour se désabonner de tout.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
 Le bouton **Unsubscribe from all** en bas du modèle ne peut pas être supprimé et [désabonnera globalement]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) l'utilisateur de la réception de tout message e-mail.
 

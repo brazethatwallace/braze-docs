@@ -104,7 +104,6 @@ Imaginons que vous ayez une application de produits diététiques et que vous so
 
 Une fois le catalogue chargé dans Braze, vérifiez l'aperçu d'une série de produits du catalogue pour confirmer que les informations importées sont exactes. Les éléments peuvent apparaître dans un ordre aléatoire dans l'aperçu, mais cela n'affectera pas le résultat du moteur de recommandation.
 
-![Exemple de catalogue dans Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
 Créez une campagne de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
 

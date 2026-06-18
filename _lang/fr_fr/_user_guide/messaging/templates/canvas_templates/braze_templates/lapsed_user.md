@@ -31,20 +31,17 @@ Ajustons les détails du Canvas pour refléter notre objectif.
 
 1. Sélectionnez **Edit** à côté du nom du modèle.
 
-![Le titre et la description actuels du Canvas.]({% image_buster /assets/img/canvas_templates/lapsed_user_old_name_description.png %}){: style="max-width:45%;"}
 
 {:start="2"}
 2. Mettez à jour le nom du Canvas pour préciser que ce Canvas enverra des promotions aux utilisateurs et effectuera une synchronisation d'audience pour ceux qui démarrent une session.
 3. Mettez à jour la description pour expliquer que ce Canvas contient des avantages et des promotions.
 4. Ajoutez l'étiquette **Lapsing/Retention** afin de pouvoir filtrer ce Canvas sur la page d'accueil Canvas.
 
-![Étape « Set Up Canvas Details » avec le nom du Canvas « Lapsed User - Visit App » et une brève description du Canvas.]({% image_buster /assets/img/canvas_templates/lapsing_user_1.png %})
 
 ### Étape 2 : Assigner vos événements de conversion {#step-2-assign-your-conversion-events}
 
 Mettez à jour **Primary Conversion Event - A** pour cibler les utilisateurs de notre application (MovieCanon), et laissez **Primary Conversion Event - B** sur la valeur par défaut, à savoir effectuer un achat quelconque.
 
-![Section « Assign Conversion Events » avec un événement de conversion principal correspondant à un utilisateur démarrant une session dans une application spécifique.]({% image_buster /assets/img/canvas_templates/lapsing_user_2.png %})
 
 ### Étape 3 : Adapter la planification d'entrée {#step-3-tailor-the-entry-schedule}
 
@@ -55,13 +52,11 @@ Nous apporterons deux ajustements à cette étape :
 1. Sélectionnez une date et une heure de début.
 2. Sélectionnez les paramètres de fin sur **On a specific date** et choisissez une date dans deux mois. Supposons que nous ayons un autre Canvas d'utilisateur inactif que nous souhaitons démarrer après celui-ci.
 
-![Étape « Entry Schedule » pour un Canvas planifié qui fait entrer les utilisateurs à un moment désigné.]({% image_buster /assets/img/canvas_templates/lapsing_user_3.png %})
 
 ### Étape 4 : Sélectionner notre audience cible {#step-4-select-our-target-audience}
 
 Nous conserverons les paramètres par défaut pour l'audience d'entrée, qui est définie sur les utilisateurs n'ayant pas utilisé notre application depuis plus de 30 jours. Nous conserverons également les contrôles d'entrée par défaut afin que les utilisateurs puissent réintégrer le Canvas après quatre semaines. Cela signifie que chaque fois qu'un utilisateur ne visite pas notre application pendant plus de 30 jours consécutifs, il sera inscrit dans le Canvas.
 
-![Étape « Target Audience » ciblant les utilisateurs ayant utilisé les applications pour la dernière fois il y a 30 jours.]({% image_buster /assets/img/canvas_templates/lapsing_user_4.png %})
 
 ### Étape 5 : Sélectionner vos paramètres d'envoi {#step-5-select-your-send-settings}
 
@@ -73,7 +68,6 @@ Nous conserverons la plupart des paramètres d'abonnement par défaut :
 
 Le seul paramètre que nous modifierons concerne le comportement lorsqu'un message se déclenche pendant les heures calmes. Au lieu d'annuler le message, sélectionnez **Send at next available time** afin que nos utilisateurs ne manquent aucune promotion.
 
-![Section « Quiet Hours » avec une heure de début à minuit et une heure de fin à 8 h.]({% image_buster /assets/img/canvas_templates/lapsing_user_5.png %})
 
 ### Étape 6 : Personnaliser votre Canvas {#step-6-customize-your-canvas}
 
@@ -81,12 +75,10 @@ Maintenant, nous allons construire notre Canvas en personnalisant les étapes du
 
 1. Personnalisez le premier e-mail qui sera envoyé à tous les utilisateurs n'ayant pas visité notre application depuis plus de 30 jours. Pour notre cas d'utilisation, nous personnaliserons un e-mail indiquant aux utilisateurs qu'ils débloqueront de nouveaux avantages en visitant notre application aujourd'hui.
 
-![Étape de message Canvas pour un e-mail indiquant aux utilisateurs de débloquer de nouveaux avantages en visitant aujourd'hui.]({% image_buster /assets/img/canvas_templates/lapsing_user_6.png %})
 
 {: start="2"}
 2. Personnalisez le composant de parcours d'action appelé « Start Session? » en sélectionnant notre application pour le chemin **Started Session**.
 
-![Parcours d'action pour les sessions démarrées dans une application spécifique.]({% image_buster /assets/img/canvas_templates/lapsing_user_7.png %})
 
 {: start="3"}
 3. Conservez la valeur par défaut pour l'étape de l'arbre décisionnel appelée « Sessions? », qui définit le groupe « >1 Session » comme les utilisateurs ayant utilisé notre application plus d'une fois au cours du dernier jour calendaire.
