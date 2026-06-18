@@ -76,7 +76,7 @@ Now, build your Canvas by customizing the templated steps:
 3. Keep the default for the Decision Split step called "Sessions?", which defines the ">1 Session" group as users who've used your app more than once in the last calendar day.
 4. Customize the Message step for users who fall into the ">1 Session" group. In this use case, thank users for visiting your app and highlight perks they've unlocked.
 5. Make sure your Google Audience sync is set up in the Ad Audience Update step, so that you update and sync the user data of users who had multiple sessions after receiving the first email.
-6. Keep the default for the [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) component called "A/B Test". This randomly sends one of two promotions (that you'll customize in the next step) to users who've had fewer than two sessions.
+6. Keep the default for the [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) component called "A/B Test". This randomly sends one of two promotions (that you customize in the next step) to users who've had fewer than two sessions.
 7. Customize the two promotions that send to users as part of the Experiment Path. In this use case, make one a 20% promotion for a three-month subscription and the other a 10% promotion for a one-month subscription.
 
 ![Canvas steps with branching paths based on how many sessions a user had.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}
