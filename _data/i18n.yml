@@ -211,6 +211,8 @@ en:
     "time zones": Time zones
     "week/day/month": Week/Day/Month
   works_best_in: "Works best in:"
+  clipboard_copied: "Copied"
+  clipboard_error: "Error"
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -285,6 +287,8 @@ fr:
     "canvas agent": Agent Canvas
     "catalog agent": Agent de catalogue
   works_best_in: "Idéal pour :"
+  clipboard_copied: "Copié"
+  clipboard_error: "Erreur"
 ja:
   next: 次へ
   previous: 前へ
@@ -485,6 +489,8 @@ ja:
     "time zones": タイムゾーン
     "week/day/month": 週/日/月
   works_best_in: "最適なページ："
+  clipboard_copied: "コピーしました"
+  clipboard_error: "エラー"
 ko:
   next: 다음
   previous: 이전
@@ -680,6 +686,8 @@ ko:
     "time zones": 시간대
     "week/day/month": 주/일/월
   works_best_in: "최적 페이지:"
+  clipboard_copied: "복사됨"
+  clipboard_error: "오류"
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -754,6 +762,8 @@ pt-br:
     "canvas agent": Agente de Canvas
     "catalog agent": Agente de catálogo
   works_best_in: "Funciona melhor em:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Erro"
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -828,6 +838,8 @@ es:
     "canvas agent": Agente de Canvas
     "catalog agent": Agente de catálogo
   works_best_in: "Funciona mejor en:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Error"
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -902,3 +914,5 @@ de:
     "canvas agent": Canvas-Agent
     "catalog agent": Katalog-Agent
   works_best_in: "Am besten geeignet für:"
+  clipboard_copied: "Kopiert"
+  clipboard_error: "Fehler"
