@@ -210,7 +210,6 @@ Você pode editar o nome da credencial para os tipos de autenticação.
 - Para autenticação básica, você pode atualizar o nome de usuário e a senha. Observe que a senha inserida anteriormente não ficará visível.
 - Para autenticação por token, você pode atualizar os pares chave-valor do cabeçalho e o domínio permitido. Observe que os valores de cabeçalho definidos anteriormente não ficarão visíveis.
 
-![A opção de editar credenciais.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Lista de permissões de IP do Conteúdo conectado {#connected-content-ip-allowlisting}
 

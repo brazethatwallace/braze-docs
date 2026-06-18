@@ -104,7 +104,6 @@ Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Cont
 
 Nachdem der Katalog in Braze hochgeladen wurde, überprüfen Sie die Vorschau einer ausgewählten Anzahl von Katalogartikeln, um die Richtigkeit der importierten Informationen zu bestätigen. Die Artikel können in der Vorschau zufällig angeordnet sein, aber das hat keinen Einfluss auf die Ausgabe des Empfehlungssystems.
 
-![Beispielkatalog in Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
 Erstellen Sie eine Content-Card-Kampagne. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
 

@@ -132,7 +132,6 @@ De vuelta en Braze, selecciona **Test connection** para verificar el acceso al o
 4. Haz referencia al origen de Snowflake del paso 2.
 5. Selecciona **SQL** y escribe una consulta SQL que devuelva datos de usuario de tu almacén. Tu consulta SQL define los datos que se sincronizan con Braze. El resultado de la consulta se convierte en el esquema de tu sincronización.
 
-![El flujo de creación de sincronización de datos mostrando SQL seleccionado con una consulta de ejemplo en el editor SQL.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
 Tu consulta SQL debe devolver:
 

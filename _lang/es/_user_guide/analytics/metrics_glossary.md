@@ -68,7 +68,7 @@ Email, Web Push, iOS Push
 |-------|-----------------------|
 | Correo electrónico | Un rebote de correo electrónico para clientes que usan SendGrid consiste en rebotes duros, correo no deseado (`spam_report_drops`) y correos electrónicos enviados a direcciones no válidas (`invalid_emails`).<br><br>Para correo electrónico, *% de rebote* o *Tasa de rebote* es el porcentaje de mensajes que no se enviaron correctamente o que fueron designados como "devueltos" o "no recibidos" por los servicios de envío utilizados, o que no fueron recibidos por los usuarios con correo electrónico válido.|
 | Push | Estos usuarios han sido dados de baja automáticamente de todas las notificaciones push futuras.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Bounces" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rebotes" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -249,7 +249,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | Correo electrónico, push, webhooks | Las conversiones se rastrean después del envío inicial.|
 | Content Cards | Las conversiones se cuentan cuando el usuario ve una Content Card por primera vez.|
 | Mensajes dentro de la aplicación | Una conversión se cuenta si el usuario ha recibido y visto la campaña de mensaje dentro de la aplicación, y posteriormente realiza el evento de conversión específico dentro de la ventana de conversión definida, independientemente de si hizo clic en el mensaje o no.<br><br>Las conversiones se atribuyen al mensaje recibido más recientemente. Si la reelegibilidad está habilitada, la conversión se asignará al último mensaje dentro de la aplicación recibido, siempre que ocurra dentro de la ventana de conversión definida. Sin embargo, si el mensaje dentro de la aplicación ya tiene una conversión asignada, la nueva conversión no se puede registrar para ese mensaje específico. Esto significa que cada entrega de mensaje dentro de la aplicación está asociada con una sola conversión.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversions (B, C, D)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversiones (B, C, D)" }
 
 {% endapi %}
 
@@ -294,7 +294,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | Canal | Información adicional |
 |-------|-----------------------|
 | Mensajes dentro de la aplicación | La métrica de <i>Unique Impressions</i> diarias totales se utiliza para calcular la <i>Conversion Rate</i> para mensajes dentro de la aplicación.<br><br>Las <i>Unique Impressions</i> para mensajes dentro de la aplicación solo se pueden contar una vez por día calendario en la zona horaria de tu espacio de trabajo. El número de veces que un usuario completa una acción deseada (una "conversión") puede aumentar dentro de ese mismo día calendario. Aunque las conversiones pueden ocurrir más de una vez al día, las <i>Unique Impressions</i> no. Por lo tanto, si un usuario completa una conversión varias veces en un día, la <i>Conversion Rate</i> puede aumentar en consecuencia, pero las <i>Unique Impressions</i> solo se cuentan una vez para ese día calendario. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting/">Informes de mensajes dentro de la aplicación</a>.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion Rate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tasa de conversión" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -333,7 +333,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 | Canal | Información adicional |
 |-------|-----------------------|
 | Correo electrónico | Se refiere al número total de mensajes (envíos) enviados correctamente y recibidos por las partes con correo electrónico válido.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deliveries" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entregas" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -647,7 +647,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 |-------|-----------------------|
 | Correo electrónico, push, webhooks | Después del envío inicial.|
 | Content Cards, mensajes dentro de la aplicación | Cuando el usuario ve la Content Card o el mensaje por primera vez.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) o Primary Conversion Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -705,7 +705,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | SMS/MMS | "Entregado" después de que el proveedor de SMS recibe la confirmación del operador ascendente y el dispositivo de destino.|
 | Mensaje dentro de la aplicación | Recibido en el momento de la visualización según la acción desencadenante definida.|
 | WhatsApp | Recibido en el momento de la visualización según la acción desencadenante definida.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Received" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Recibido" }
 
 {% endapi %}
 
@@ -901,7 +901,7 @@ Email, Content Cards, SMS/MMS, LINE
 |-------|-------|
 | LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día. Los correos electrónicos AMP incluyen clics registrados tanto en las versiones HTML como de texto plano. Este número puede estar inflado artificialmente por herramientas antispam.|
 | Banners | El número total (y porcentaje) de usuarios que hicieron clic dentro del mensaje entregado, independientemente de si el mismo usuario hace clic varias veces.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Clicks" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clics totales" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -952,7 +952,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | Content Cards | El recuento total de impresiones registradas para una Content Card determinada. Esto puede incrementarse varias veces para el mismo usuario.|
 | Mensajes dentro de la aplicación | Si hay varios dispositivos y la reelegibilidad está desactivada, el usuario solo debería ver el mensaje dentro de la aplicación una vez. Incluso si el usuario usa varios dispositivos, solo lo verá en el primer dispositivo objetivo. Esto supone que el perfil tiene dispositivos consolidados y un usuario tiene un ID de usuario con el que ha iniciado sesión en todos los dispositivos. Si la reelegibilidad está activada, se registra una impresión cada vez que el usuario ve el mensaje dentro de la aplicación. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting/">Informes de mensajes dentro de la aplicación</a>.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Impressions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Impresiones totales" }
 
 <span class="calculation-line">Cálculo: Recuento</span>
 
@@ -972,7 +972,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 |-------|-----------------------|
 | LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día.|
 | Correos electrónicos AMP | Las aperturas totales para las versiones HTML y de texto plano.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Opens" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aperturas totales" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1018,7 +1018,7 @@ Esto incluye clics en los enlaces de cancelación de suscripción proporcionados
 |-------|-----------------------|
 | Correo electrónico | Se rastrea durante un período de siete días.|
 | LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Clicks" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clics únicos" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1049,6 +1049,22 @@ Content Cards
 
 {% api %}
 
+## Impresiones diarias únicas {#unique-daily-impressions}
+
+{% apitags %}
+Content Cards, Banners
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %}
+
+Este número es recibido de Braze y se basa en el `user_id`. Las impresiones diarias únicas se cuentan a nivel de campaña o paso en Canvas.
+
+<span class="calculation-line">Cálculo: Recuento</span>
+
+{% endapi %}
+
+{% api %}
+
 ## Impresiones únicas {#unique-impressions}
 
 {% apitags %}
@@ -1061,7 +1077,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | Mensajes dentro de la aplicación | Las impresiones únicas pueden incrementarse de nuevo en un nuevo día calendario en la zona horaria de tu espacio de trabajo si la reelegibilidad está activada y un usuario realiza la acción desencadenante. Si la reelegibilidad está activada, <i>Unique Impressions</i> = <i>Unique Recipients</i>. Para más detalles, consulta <a href="/docs/user_guide/channels/in_app_messages/reporting/">Informes de mensajes dentro de la aplicación</a>.|
 | Content Cards | El recuento no debería incrementarse la segunda vez que un usuario ve una tarjeta.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Impressions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Impresiones únicas" }
 
 <span class="calculation-line">Cálculo: Recuento</span>
 
@@ -1081,7 +1097,7 @@ Email, LINE
 |-------|-----------------------|
 | Correo electrónico | Se rastrea durante un período de 7 días.|
 | LINE | Se rastrea después de alcanzar un umbral mínimo de 20 mensajes por día.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Opens" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aperturas únicas" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1100,12 +1116,12 @@ Email, LINE
 ## Destinatarios únicos {#unique-recipients}
 
 {% apitags %}
-All
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Para Content Cards, cada Content Card solo se puede recibir una vez, por lo que ver la misma Content Card una segunda vez, independientemente del día, no incrementará este recuento.<br><br>Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de campaña o paso en Canvas, no a nivel de <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envío</a>.
+Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de campaña o paso en Canvas, no a nivel de <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envío</a>.
 
 <span class="calculation-line">Cálculo: Recuento</span>
 

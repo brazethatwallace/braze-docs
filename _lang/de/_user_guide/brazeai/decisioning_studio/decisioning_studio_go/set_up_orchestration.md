@@ -36,7 +36,7 @@ Um Decisioning Studio Go in Braze zu integrieren, erstellen Sie einen API-Schlü
 3. Geben Sie einen Namen für Ihren API-Schlüssel ein. Ein Beispiel ist „DecisioningStudioGoEmail“.
 4. Wählen Sie die Berechtigungen anhand der folgenden Kategorien aus:
     - **Nutzerdaten:** Wählen Sie `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Nachrichten:** Wählen Sie `messages.send`
+    - **Nachrichten:** Wählen Sie `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
     - **Campaigns:** Wählen Sie alle aufgeführten Berechtigungen
     - **Canvas:** Wählen Sie alle aufgeführten Berechtigungen
     - **Segments:** Wählen Sie alle aufgeführten Berechtigungen
@@ -65,7 +65,7 @@ Um Decisioning Studio Go in Braze zu integrieren, erstellen Sie einen API-Schlü
 Braze stellt App-IDs (im Braze-Dashboard als API-Schlüssel bezeichnet) zur Verfügung, die Sie für Tracking-Zwecke verwenden können, beispielsweise um Aktivitäten mit einer bestimmten App in Ihrem Workspace zu verknüpfen. Bei Verwendung von App-IDs unterstützt BrazeAI Decisioning Studio™ Go die Zuordnung einer App-ID zu jedem Experimenter.<br><br>Wenn Sie keine App-IDs verwenden, können Sie einen beliebigen String als Platzhalter eingeben.
 {% endalert %}
 
-1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **App-Einstellungen**.
+1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **App Settings**.
 2. Navigieren Sie zu der App, die Sie tracken möchten.
 3. Kopieren Sie den **API-Schlüssel** und fügen Sie ihn in Ihr BrazeAI Decisioning Studio™ Go-Portal ein.
 

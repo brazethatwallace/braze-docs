@@ -83,7 +83,6 @@ Brazeは、プレーンテキストバージョンへの編集が検出される
 正確なプレビューでメールにモーションを追加するには、JavaScriptの代わりにGIFを使用してください。ほとんどの受信トレイはJavaScriptをサポートしていません。
 {% endalert %}
 
-![メールを作成するためのメールバリアントパネル。]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Brazeは、属性として参照されるHTMLイベントハンドラーを自動的に削除します。これによりHTMLが変更されるため、完了後にメールを再確認してください。[HTMLハンドラー](https://www.w3schools.com/tags/ref_eventattributes.asp)の詳細をご覧ください。

@@ -71,6 +71,10 @@ Ajoutez un ou plusieurs déclencheurs pour définir vos groupes d'actions. Vous 
 - Déclenchent un géorepérage
 - Envoient un message entrant SMS ou WhatsApp
 
+#### Déclencheur d'ajout d'adresse e-mail {#add-an-email-address-trigger}
+
+Le déclencheur du groupe d'actions **Ajouter une adresse e-mail** se déclenche lorsqu'une adresse e-mail est ajoutée ou mise à jour sur un profil utilisateur pendant la **Fenêtre d'évaluation** du parcours d'action. Ce comportement est identique à celui des autres déclencheurs de mise à jour de profil : les utilisateurs avancent dans le groupe d'actions lorsque la modification du profil correspond à votre configuration, y compris les filtres appliqués au déclencheur.
+
 ![Un groupe d'actions nommé « Groupe 1 » pour les utilisateurs qui effectuent un achat quelconque.]({% image_buster /assets/img/actionpath_group.png %})
 
 Dans les paramètres de chaque groupe d'actions, vous avez également la possibilité de cocher la case **Je souhaite que ce groupe quitte le Canvas**, ce qui signifie que les utilisateurs de ce groupe quitteront le Canvas à la fin de la période d'évaluation.

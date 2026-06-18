@@ -132,7 +132,6 @@ De retour dans Braze, sélectionnez **Test connection** pour vérifier l'accès 
 4. Référencez la source Snowflake de l'étape 2.
 5. Sélectionnez **SQL** et écrivez une requête SQL qui renvoie les données utilisateur de votre entrepôt. Votre requête SQL définit les données qui se synchronisent vers Braze. Le résultat de la requête devient le schéma de votre synchronisation.
 
-![Le flux de création de synchronisation de données montrant SQL sélectionné avec un exemple de requête dans l'éditeur SQL.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
 Votre requête SQL doit renvoyer :
 

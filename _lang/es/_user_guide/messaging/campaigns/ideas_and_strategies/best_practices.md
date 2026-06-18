@@ -77,6 +77,8 @@ Al editar la planificación o las audiencias de una campaña, ten en cuenta las 
 - **Campañas con hora de envío local:** no hagas ediciones en las 24 horas previas al momento de envío programado.
 - **Campañas con hora de envío óptima:** no hagas ediciones en las 24 horas previas a la medianoche del día en que la campaña está programada para enviarse.
 
+Para conocer los matices de la planificación de Canvas (borradores, detenciones y evaluación cerca del momento de envío), consulta [Buenas prácticas de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases).
+
 {% alert note %}
 Editar una campaña en vivo y cambiar la entrega a **Hora de envío local** provocará que se ponga en cola un nuevo lote de mensajes, lo que significa que tus usuarios recibirán el mensaje dos veces debido a que el mensaje se pone en cola dos veces. Para evitar esto, primero detén la campaña original y luego lanza un duplicado después de actualizar la planificación.
 {% endalert %}

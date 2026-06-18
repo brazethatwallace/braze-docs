@@ -13,7 +13,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Braze-API-Schlüssel | Ein Braze-API-Schlüssel mit den erforderlichen Berechtigungen. Sie erstellen einen neuen Schlüssel, wenn Sie [Ihren Braze MCP-Server einrichten](#create-api-key). |
 | MCP-Client | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) und [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) werden offiziell unterstützt. Sie benötigen ein Konto für einen dieser Clients, um den Braze MCP-Server nutzen zu können. |
 | Terminal | Eine Terminal-App, mit der Sie Befehle ausführen und Tools installieren können. Verwenden Sie Ihre bevorzugte Terminal-App oder die auf Ihrem Computer vorinstallierte. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Einrichtung des Braze MCP-Servers
 
@@ -400,6 +400,21 @@ uvx --python 3.12 braze-mcp-server@latest
 ```
 
 ### Client-Konfiguration {#client-configuration}
+
+#### „Diese Erweiterung ist nicht mit Ihrem Gerät kompatibel“ {#this-extension-is-not-compatible-with-your-device}
+
+Wenn dieser Fehler bei der Installation der Braze MCP-Server-Erweiterung angezeigt wird, kann dies auf Folgendes hinweisen:
+
+- **Ihr Gerät erfüllt die Anforderungen nicht**: Einige MCP-Server-Erweiterungen erfordern bestimmte Betriebssystemversionen oder Hardware.
+- **Fehlende Entwicklertools (nur macOS)**: Unter macOS benötigt die Installation der Erweiterung Befehlszeilen-Entwicklertools, um Python-Befehle auszuführen. Wenn diese Tools nicht installiert sind, schlägt die Installation mit diesem Fehler fehl.
+
+Um die Befehlszeilen-Entwicklertools unter macOS zu installieren, führen Sie Folgendes in Ihrem Terminal aus:
+
+```bash
+xcode-select --install
+```
+
+Starten Sie nach Abschluss der Installation Ihren MCP-Client neu und versuchen Sie erneut, die Erweiterung zu installieren.
 
 #### MCP-Client kann den Braze-Server nicht finden {#mcp-client-cant-find-the-braze-server}
 

@@ -203,8 +203,6 @@ Asigna un nombre y una descripción al rol y selecciona **Create Role**.
 {: start="4"}
 4. A continuación, crea una nueva sincronización. Ve a **Data Settings** > **Cloud Data Ingestion** > **Syncs** y selecciona **Create data sync**.
 
-![La página «Create New Sync» que muestra el nombre de la sincronización y la configuración del origen de datos.]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
-
 {: start="5"}
 5. Elige un nombre para tu sincronización. Luego, selecciona cualquier fuente S3 activa e introduce tu tabla de origen para la sincronización. Selecciona un tipo de datos y selecciona **Test Connection**.
 

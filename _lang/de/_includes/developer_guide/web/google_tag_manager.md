@@ -6,7 +6,17 @@ Mit dem Google Tag Manager (GTM) können Sie per Fernzugriff Tags auf Ihrer Webs
 |--------|--------|
 | Initialisierungs-Tag | Mit diesem Tag können Sie [das Braze Internet-SDK integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web), ohne den Code Ihrer Website ändern zu müssen. |
 | Aktions-Tag | Mit diesem Tag können Sie [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [Nutzer:innen-Attribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) und [die Datenerfassung verwalten]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Über Google Tag Manager für das Internet" }
+
+## Tag-Sequenzierung für Braze-Aktions-Tags {#tag-sequencing-for-braze-action-tags}
+
+Angepasste Events und andere Braze-Aktions-Tags können fehlschlagen, wenn sie ausgelöst werden, bevor das **Braze Initialization**-Tag das Internet-SDK vollständig geladen hat. Öffnen Sie in Google Tag Manager das Aktions-Tag, gehen Sie zu **Advanced Settings** > **Tag Sequencing**, wählen Sie **A tag that fires before [this tag] is fired** und wählen Sie Ihr Braze Initialization-Tag aus.
+
+Weitere Details finden Sie unter [Tag-Sequenzierung für angepasste Events überprüfen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
+
+## Käufe mit GTM protokollieren {#log-purchases-with-gtm}
+
+Rufen Sie in Braze-Aktions-Tags und Custom HTML-Tags `braze.logPurchase()` auf, um Umsätze zu erfassen. Der veraltete Namespace `appboy.logPurchase()` wird in aktuellen Internet-SDK-Integrationen nicht unterstützt.
 
 ## Angepasste Events mit GTM protokollieren {#logging-custom-events-with-gtm}
 
@@ -39,7 +49,7 @@ Pushen Sie in Ihrem Website-Code ein Event in den Data Layer, wo immer Sie das a
     </script>
     ```
 
-4. Wählen Sie unter **Triggering** den Trigger aus, den Sie in [Schritt 2](#2-schritt-trigger-in-gtm-erstellen) erstellt haben.
+4. Wählen Sie unter **Triggering** den Trigger aus, den Sie in [Schritt 2](#step-2-create-a-trigger-in-gtm) erstellt haben.
 5. Speichern und veröffentlichen Sie Ihren Container.
 
 Um Event-Eigenschaften einzubeziehen, übergeben Sie diese als zweites Argument:

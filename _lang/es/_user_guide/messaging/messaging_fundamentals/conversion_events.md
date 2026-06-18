@@ -29,7 +29,7 @@ El seguimiento de conversiones comienza cuando un usuario recibe la campaña o e
 
 El seguimiento de conversiones comienza cuando un usuario entra al Canvas. Para los pasos en Canvas, las conversiones se atribuyen mientras el usuario está activo en ese paso. Cuando el usuario avanza a otro paso, el seguimiento de conversiones se detiene para el paso anterior y comienza para el siguiente paso.
 
-Mientras un usuario está en un paso de **Retraso** u otro paso sin mensaje, las conversiones que ocurren durante esa espera aún se atribuyen al paso de mensaje anterior hasta que el usuario avanza. Después de que el usuario recibe el último paso de mensaje en su ruta, las conversiones aún pueden registrarse hasta el plazo de conversión del Canvas (contado desde la entrada al Canvas), incluso si no hay más pasos de mensaje.
+Mientras un usuario está en un paso de retraso u otro paso sin mensaje, las conversiones que ocurren durante esa espera aún se atribuyen al último paso de mensaje recibido hasta que el usuario recibe otro paso de mensaje. Después de que el usuario recibe el último paso de mensaje en su ruta, las conversiones aún pueden registrarse hasta el plazo de conversión (contado desde la entrada al Canvas), incluso si no hay más pasos de mensaje.
 
 {% endtab %}
 {% endtabs %}

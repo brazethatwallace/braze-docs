@@ -83,7 +83,6 @@ A Braze atualiza automaticamente a versão em texto simples a partir da versão 
 Para adicionar movimento em um e-mail com uma pré-visualização precisa, use GIFs em vez de elementos que requerem JavaScript, pois a maioria das caixas de entrada não suporta JavaScript.
 {% endalert %}
 
-![Painel de variantes de e-mail para redigir seu e-mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 A Braze remove automaticamente os manipuladores de eventos HTML referenciados como atributos. Isso modifica o HTML, então verifique novamente o e-mail depois de terminar. Saiba mais sobre [manipuladores HTML](https://www.w3schools.com/tags/ref_eventattributes.asp).

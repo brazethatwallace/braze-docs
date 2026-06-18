@@ -132,7 +132,6 @@ Braze로 돌아가서 **Test connection**을 선택하여 소스 액세스를 �
 4. 2단계에서 생성한 Snowflake 소스를 참조합니다.
 5. **SQL**을 선택하고 데이터 웨어하우스에서 사용자 데이터를 반환하는 SQL 쿼리를 작성합니다. SQL 쿼리는 Braze에 동기화할 데이터를 정의합니다. 쿼리 결과가 동기화의 스키마가 됩니다.
 
-![SQL이 선택되고 SQL 편집기에 샘플 쿼리가 표시된 데이터 동기화 생성 흐름.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
 SQL 쿼리는 다음을 반환해야 합니다:
 

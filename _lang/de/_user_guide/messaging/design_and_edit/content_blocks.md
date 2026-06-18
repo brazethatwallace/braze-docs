@@ -107,7 +107,6 @@ Nachdem Sie einen Content-Block in einer aktiven Campaign oder einem Canvas hinz
 
 Diese Vorschau enthält Informationen über den Content-Block, z. B. wer ihn erstellt hat, Tags, Erstellungsdatum, Datum der letzten Bearbeitung, Beschreibung, Editor-Typ, Anzahl der Verwendungen mit Details (eine anklickbare Liste von Nachrichten oder Content-Blöcken, die den Content-Block verwenden) sowie eine tatsächliche Vorschau des Content-Blocks.
 
-![Eine Vorschau eines Content-Blocks „Workout_Promo“ für Radfahren und Tanzen mit einer Verwendung.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
 
 ## Content-Blöcke verschachteln {#nest-content-blocks}
 

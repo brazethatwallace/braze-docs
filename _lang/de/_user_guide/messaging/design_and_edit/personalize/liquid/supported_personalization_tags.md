@@ -36,6 +36,10 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 
 {% endraw %}
 
+{% alert note %}
+API-Trigger-Eigenschaften müssen zwei geschweifte Klammern pro Tag verwenden: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Dreifache Klammern (zum Beispiel `{{{...}}}`){% endraw %} sind keine gültige Braze-Personalisierungssyntax. Siehe [Warum schlägt mein API-getriggertes Liquid in Braze fehl?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
+
 ### Unterstützte Attribute {#supported-attributes}
 
 Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt (zum Beispiel ist `dispatch_id` nicht in In-App-Nachrichten-Campaigns verfügbar).
@@ -51,7 +55,6 @@ Das Verhalten der folgenden Tags unterscheidet sich zwischen Canvas und Campaign
 {% endraw %}
 
 #### Campaign-Namen in URLs {#campaign-names-in-urls}
-{: #campaign-names-in-urls}
 
 {% raw %}
 Campaign- und Nachrichtenvarianten-Namen können Zeichen enthalten, die nicht URL-sicher sind, wie z. B. `%`, Leerzeichen oder `&`. Wenn Sie `{{campaign.${name}}}` oder `{{campaign.${message_name}}}` in einen Link oder Query-String einfügen, z. B. als `utm_campaign`-Parameter, wenden Sie den [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters)-Filter an, damit die URL korrekt geparst wird. Zum Beispiel:

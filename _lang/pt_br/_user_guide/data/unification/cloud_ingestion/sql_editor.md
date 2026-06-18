@@ -132,7 +132,6 @@ De volta à Braze, selecione **Test connection** para verificar o acesso à font
 4. Referencie a fonte Snowflake da Etapa 2.
 5. Selecione **SQL** e escreva uma consulta SQL que retorne dados de usuários do seu warehouse. Sua consulta SQL define os dados que serão sincronizados com a Braze. O resultado da consulta se torna o schema da sua sincronização.
 
-![O fluxo de criação de sincronização de dados mostrando SQL selecionado com uma consulta de exemplo no editor SQL.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
 
 Sua consulta SQL deve retornar:
 

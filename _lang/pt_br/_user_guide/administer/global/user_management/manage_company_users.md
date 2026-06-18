@@ -16,16 +16,9 @@ Você precisa ter permissões de administrador para adicionar usuários à sua c
 
 Para adicionar um novo usuário:
 
-1. Acesse **Configurações** > **Usuários da empresa**.
+1. Acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa**.
 2. Selecione **+ Add New User**.
 3. Insira as informações solicitadas, incluindo e-mail, departamento e [função do usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role).
-
-{% alert tip %}
-O departamento listado no perfil de um usuário determina quais tipos de comunicações ele recebe da Braze. Isso garante que cada pessoa receba apenas as comunicações e os alertas relevantes para a forma como utiliza a Braze.
-{% endalert %}
-
-{:start="4"}
-
 4. Para usuários que não são administradores, selecione as [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions) no nível da empresa e no nível do espaço de trabalho que você deseja que esse usuário tenha.
 
 ![Permissões no nível do espaço de trabalho com uma seção para campos de permissões personalizadas.]({% image_buster /assets/img/add_new_user_3.png %})
@@ -50,7 +43,7 @@ Por motivos de segurança, os usuários não podem alterar o endereço de e-mail
 
 Suspender um usuário coloca a conta dele em um estado inativo, no qual o usuário não pode mais fazer login, mas os dados associados à conta são preservados. Somente administradores podem suspender ou reativar usuários da empresa. Observe que usuários suspensos ainda podem receber notificações da Braze.
 
-Para suspender um usuário, acesse **Configurações** > **Usuários da empresa**, encontre o nome de usuário e selecione <i class="fa-solid fa-user-lock" aria-label="Suspender"></i> **Suspend**.
+Para suspender um usuário, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa**, encontre o nome de usuário e selecione <i class="fa-solid fa-user-lock" aria-label="Suspender"></i> **Suspend**.
 
 ![Opção para suspender um usuário.]({% image_buster /assets/img_archive/suspend_user.png %})
 
@@ -60,7 +53,7 @@ Os administradores também podem suspender um usuário selecionando o nome dele 
 
 ## Excluindo usuários da empresa {#deleting-company-users}
 
-Para excluir um usuário, acesse **Configurações** > **Usuários da empresa**, encontre o nome do usuário e selecione <i class="fa fa-trash-can" aria-label="Excluir usuário"></i> **Delete user**.
+Para excluir um usuário, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa**, encontre o nome do usuário e selecione <i class="fa fa-trash-can" aria-label="Excluir usuário"></i> **Delete user**.
 
 Somente administradores podem excluir usuários da empresa, e os usuários não podem excluir suas próprias contas. Um administrador não pode excluir sua própria conta do dashboard; outro administrador deve fazer isso por ele.
 

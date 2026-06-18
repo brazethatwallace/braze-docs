@@ -107,7 +107,6 @@ Après avoir ajouté un bloc de contenu dans une campagne ou un Canvas actif, vo
 
 Cette prévisualisation inclut des informations sur le bloc de contenu telles que son créateur, les étiquettes, la date de création, la date de dernière modification, la description, le type d'éditeur, le nombre d'inclusions avec les détails (une liste cliquable des messages ou blocs de contenu qui utilisent ce bloc de contenu), ainsi qu'un aperçu réel du bloc de contenu.
 
-![Prévisualisation d'un bloc de contenu « Workout_Promo » pour le cyclisme et la danse qui a une inclusion.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
 
 ## Imbriquer des blocs de contenu {#nest-content-blocks}
 

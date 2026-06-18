@@ -83,7 +83,6 @@ Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML �
 정확한 미리보기와 함께 이메일에 모션을 추가하려면 JavaScript 대신 GIF를 사용하세요. 대부분의 받은편지함에서 JavaScript를 지원하지 않습니다.
 {% endalert %}
 
-![이메일 작성을 위한 이메일 배리언트 패널.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze는 속성으로 참조된 HTML 이벤트 핸들러를 자동으로 제거합니다. 이로 인해 HTML이 수정되므로, 작성을 완료한 후 이메일을 다시 확인하세요. [HTML 핸들러](https://www.w3schools.com/tags/ref_eventattributes.asp)에 대해 자세히 알아보세요.

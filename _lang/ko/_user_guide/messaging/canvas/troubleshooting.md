@@ -112,6 +112,16 @@ Canvas를 생성할 때 다음 [사용 사례](#use-case)처럼 오디언스가 
 
 이는 90%의 사용자가 배리언트에 진입하도록 지정했더라도 해당 사용자 모두가 실제로 푸시 알림을 받을 수 있는 것은 아니라는 것을 의미합니다. 푸시 알림을 받을 수 없는 사용자도 여전히 배리언트에 진입하게 됩니다.
 
+## 실행 기반 단계와 커스텀 이벤트 등록정보 {#action-based-steps-and-custom-event-properties}
+
+실행 기반 Canvas 또는 행동 경로가 예상대로 발송되지 않는 경우, 고객 프로필의 커스텀 이벤트가 등록정보 필터를 포함한 트리거 구성과 일치하는지 확인하세요. Braze는 이벤트와 함께 전송된 정확한 등록정보를 평가하며, 등록정보가 누락되었거나 값이 필터와 일치하지 않으면 사용자가 진행되지 않습니다.
+
+사용자가 오디언스 자격을 충족하기 전이나 너무 일찍 발생한 이벤트는 해당 단계를 트리거하지 않으므로, Canvas 시작 시점, [진입 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types), 그리고 단계 전 스케줄된 지연을 기준으로 이벤트의 타임스탬프를 확인하세요.
+
+{% alert note %}
+Canvas의 인앱 메시지는 SDK의 이벤트로만 트리거할 수 있으며, REST API로는 트리거할 수 없습니다. [사용자가 트리거된 캔버스 단계를 받지 못한 이유는 무엇인가요?](#why-did-a-user-not-receive-a-triggered-canvas-step)를 참조하세요.
+{% endalert %}
+
 ## Canvas 편집기가 멈추거나 로드되지 않는 이유는 무엇인가요? {#why-is-the-canvas-editor-freezing-or-not-loading}
 
 많은 분기나 배리언트, 많은 단계 또는 매우 넓은 플로우가 있는 크고 복잡한 Canvas를 편집하는 경우 편집기가 로드되지 않거나 멈출 수 있습니다. 이 경우 다음을 권장합니다:
