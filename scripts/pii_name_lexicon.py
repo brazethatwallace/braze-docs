@@ -67,6 +67,6 @@ SURNAMES = _words(
     richardson riley rivera roberts robinson rodriguez rogers ross russell
     sanchez sanders scott simmons smith stewart taylor thomas thompson torres
     turner walker wallace ward watson white williams wilson wood wright young
-    higgins kim chen wang li zhang singh patel khan ahmed harris cooper
+    higgins kim chen wang li zhang singh khan ahmed
     """
 )

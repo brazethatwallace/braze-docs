@@ -358,23 +358,20 @@ def is_plausible_person_name_pair(first: str, last: str) -> bool:
     """True when OCR text looks like a real First Last person name."""
     if not is_likely_person_name_word(first) or not is_likely_person_name_word(last):
         return False
-    first_key = first.lower()
-    last_key = last.lower()
     # English given-name + surname order (Jordan Miller, Casey Higgins).
-    if first_key in GIVEN_NAMES:
+    if is_plausible_given_name(first):
         return True
     # Surname-first order is rare in Braze UI tables but can appear in OCR.
-    if first_key in SURNAMES and last_key in GIVEN_NAMES:
+    if is_plausible_surname(first) and is_plausible_given_name(last):
         return True
     return False
 
 
 def is_plausible_person_name_single(word: str, text: str) -> bool:
     """True when a lone capitalized token looks like a given or family name."""
-    key = word.lower()
-    if key in GIVEN_NAMES:
+    if is_plausible_given_name(word):
         return True
-    if NAME_LAST_COLUMN_RE.search(text) and key in SURNAMES:
+    if NAME_LAST_COLUMN_RE.search(text) and is_plausible_surname(word):
         return True
     return False
 
