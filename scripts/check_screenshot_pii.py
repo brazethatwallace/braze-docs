@@ -359,7 +359,7 @@ def is_plausible_person_name_pair(first: str, last: str) -> bool:
     if not is_likely_person_name_word(first) or not is_likely_person_name_word(last):
         return False
     # English given-name + surname order (Jordan Miller, Casey Higgins).
-    if is_plausible_given_name(first):
+    if is_plausible_given_name(first) and is_plausible_surname(last):
         return True
     # Surname-first order is rare in Braze UI tables but can appear in OCR.
     if is_plausible_surname(first) and is_plausible_given_name(last):

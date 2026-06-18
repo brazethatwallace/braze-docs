@@ -58,6 +58,19 @@ class ScanTextTests(unittest.TestCase):
         self.assertIn('Casey Higgins', names)
         self.assertIn('Morgan Peterson', names)
 
+    def test_given_first_pair_requires_lexicon_surname(self) -> None:
+        """Second token must be in SURNAMES when first is a given name (Bugbot)."""
+        text = 'Name Name_Last Jordan Quantum opted_in'
+        violations = scan_text('assets/img/example.png', text)
+        pairs = {v.match for v in violations if v.violation_type == 'person_name'}
+        self.assertNotIn('Jordan Quantum', pairs)
+
+    def test_flags_given_first_when_last_is_lexicon_surname(self) -> None:
+        text = 'Name Name_Last Jordan Miller opted_in'
+        violations = scan_text('assets/img/example.png', text)
+        pairs = {v.match for v in violations if v.violation_type == 'person_name'}
+        self.assertIn('Jordan Miller', pairs)
+
     def test_ignores_ui_phrases_for_name_detection(self) -> None:
         text = 'File Preview Column Mapping Import Settings Browse Files Start Import'
         violations = scan_text('assets/img/example.png', text)
