@@ -51,7 +51,7 @@ Make two adjustments to this step:
 
 ### Step 4: Select your target audience
 
-Keep the default settings for the entry audience, which targets users who haven't used your app in over 30 days. Also keep the default entry controls so that users can re-enter the Canvas after four weeks. This means every time a user doesn't visit your app for over 30 days straight, they'll be entered into the Canvas.
+Keep the default settings for the entry audience, which targets users who haven't used your app in over 30 days. Also keep the default entry controls so that users can re-enter the Canvas after four weeks. This means every time a user doesn't visit your app for over 30 days straight, they are entered into the Canvas.
 
 ### Step 5: Select your send settings
 
