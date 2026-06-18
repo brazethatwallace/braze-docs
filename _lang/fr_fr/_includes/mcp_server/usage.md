@@ -26,15 +26,11 @@ Après avoir [configuré le serveur Braze MCP]{% if include.section == "user" %}
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `What are my available Braze functions?`
-
-**Example response:** Called `list_functions` and returned categories like Campaign, Canvas, Templates, and Content Blocks with sample functions such as `get_canvas_list` and `create_email_template`.
+![« Quelles sont les fonctions Braze à ma disposition ? » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `What are my available Braze functions?`
-
-**Example response:** Queried `list_functions`, confirmed available function groups, and listed examples including `get_canvas_details` and `update_content_block`.
+![« Quelles sont les fonctions Braze à ma disposition ? » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -44,15 +40,11 @@ Pour en savoir plus sur la fonction `list_functions`, consultez [Fonctions API d
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
-
-**Example response:** Used `get_canvas_details` and returned sample metadata (status, channel, created/updated time) for `YOUR-TEST-CANVAS-ID-123`.
+![« Obtenir des détails sur un ID Canvas » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/get_details_about_a_canvas_id.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
-
-**Example response:** Returned Canvas and message details with dummy values like `YOUR-TEST-MESSAGE-ID-123` and `YOUR-TEST-SUBJECT-LINE`.
+![« Obtenir des détails sur un ID Canvas » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/get_details_about_a_canvas_id.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -62,15 +54,11 @@ Pour en savoir plus sur la fonction `get_canvas_details`, consultez [Fonctions A
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `Show me my recent Canvases`
-
-**Example response:** Called `get_canvas_list` and returned recent items such as `YOUR-TEST-CANVAS-ALPHA` with IDs like `YOUR-TEST-ID-123`.
+![« Afficher mes Canvas récents » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `Show me my recent Canvases`
-
-**Example response:** Listed recently edited Canvases with sample values for name, last edited time, ID, and tags.
+![« Afficher mes Canvas récents » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -80,9 +68,7 @@ Pour en savoir plus sur la fonction `get_canvas_list`, consultez [Fonctions API 
 
 {% tabs %}
 {% tab Cursor %}
-**Example prompt:** `Create an email template named "YOUR-TEST-TEMPLATE-NAME".`
-
-**Example response:** Created a template via `create_email_template` and returned `YOUR-TEST-TEMPLATE-ID-123`.
+![« Créer un modèle d'e-mail » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -92,9 +78,7 @@ Pour en savoir plus sur la fonction `create_email_template`, consultez [Fonction
 
 {% tabs %}
 {% tab Cursor %}
-**Example prompt:** `Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123".`
-
-**Example response:** Updated the block with `update_content_block` and confirmed `YOUR-TEST-CONTENT-BLOCK-ID-123` moved to a new version.
+![« Mettre à jour un bloc de contenu » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}
 {% endtabs %}
 

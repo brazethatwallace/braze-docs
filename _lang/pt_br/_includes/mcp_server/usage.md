@@ -26,15 +26,11 @@ Após [configurar o servidor MCP do Braze]{% if include.section == "user" %}({{s
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `What are my available Braze functions?`
-
-**Example response:** Called `list_functions` and returned categories like Campaign, Canvas, Templates, and Content Blocks with sample functions such as `get_canvas_list` and `create_email_template`.
+!["Quais são as minhas funções disponíveis da Braze?" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `What are my available Braze functions?`
-
-**Example response:** Queried `list_functions`, confirmed available function groups, and listed examples including `get_canvas_details` and `update_content_block`.
+!["Quais são as minhas funções disponíveis da Braze?" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -44,15 +40,11 @@ Para saber mais sobre a função `list_functions`, consulte [Funções de API di
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
-
-**Example response:** Used `get_canvas_details` and returned sample metadata (status, channel, created/updated time) for `YOUR-TEST-CANVAS-ID-123`.
+!["Obter detalhes sobre um ID de Canvas" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/get_details_about_a_canvas_id.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
-
-**Example response:** Returned Canvas and message details with dummy values like `YOUR-TEST-MESSAGE-ID-123` and `YOUR-TEST-SUBJECT-LINE`.
+!["Obter detalhes sobre um ID de Canvas" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/get_details_about_a_canvas_id.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -62,15 +54,11 @@ Para saber mais sobre a função `get_canvas_details`, consulte [Funções de AP
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `Show me my recent Canvases`
-
-**Example response:** Called `get_canvas_list` and returned recent items such as `YOUR-TEST-CANVAS-ALPHA` with IDs like `YOUR-TEST-ID-123`.
+!["Mostre meus Canvas recentes" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `Show me my recent Canvases`
-
-**Example response:** Listed recently edited Canvases with sample values for name, last edited time, ID, and tags.
+!["Mostre meus Canvas recentes" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -80,9 +68,7 @@ Para saber mais sobre a função `get_canvas_list`, consulte [Funções de API d
 
 {% tabs %}
 {% tab Cursor %}
-**Example prompt:** `Create an email template named "YOUR-TEST-TEMPLATE-NAME".`
-
-**Example response:** Created a template via `create_email_template` and returned `YOUR-TEST-TEMPLATE-ID-123`.
+!["Criar um modelo de e-mail" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -92,9 +78,7 @@ Para saber mais sobre a função `create_email_template`, consulte [Funções de
 
 {% tabs %}
 {% tab Cursor %}
-**Example prompt:** `Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123".`
-
-**Example response:** Updated the block with `update_content_block` and confirmed `YOUR-TEST-CONTENT-BLOCK-ID-123` moved to a new version.
+!["Atualizar um bloco de conteúdo" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}
 {% endtabs %}
 

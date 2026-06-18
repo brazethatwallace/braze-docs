@@ -4,12 +4,24 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
+{% alert important %}
+## Temporisation du serveur MCP Braze hébergé localement {#sunsetting-the-locally-hosted-braze-mcp-server}
+
+Cet été, Braze lance un serveur MCP distant, hébergé par Braze, en accès anticipé. Il remplace le serveur bêta hébergé localement (`braze-mcp-server` sur [PyPI](https://pypi.org/project/braze-mcp-server/) et le répertoire d'extensions de Claude Desktop).
+
+**Ce que cela signifie pour vous :**
+
+- Le serveur hébergé localement continuera de fonctionner, mais il n'est plus pris en charge. Nous n'ajouterons pas de nouveaux endpoints et ne corrigerons pas les problèmes de la version bêta.
+- Lorsque le serveur distant sera disponible en accès anticipé, vous devrez migrer vers celui-ci. Le serveur distant ne nécessite aucune installation locale, utilise OAuth au lieu de clés API statiques et fonctionne avec les clients MCP tels que Claude, Copilot, Gemini CLI, Codex et Cursor.
+- Consultez cette page pour connaître la disponibilité en accès anticipé, ou contactez votre équipe de compte Braze pour manifester votre intérêt.
+{% endalert %}
+
 ## Qu'est-ce que le protocole de contexte de modèle (MCP) ? {#what-is-model-context-protocol-mcp}
 
 ​​Le protocole MCP (Model Context Protocol) est une norme qui permet aux agents d'intelligence artificielle de se connecter à une autre plateforme et d'utiliser ses données. Il se compose de deux parties principales :
 
-- **Client MCP :** L'application sur laquelle l'agent d'intelligence artificielle est exécuté, telle que Cursor ou Claude.
-- **Serveur MCP :** Un service fourni par une autre plateforme, telle que Braze, qui détermine les outils que l'intelligence artificielle peut utiliser et les données auxquelles elle peut accéder.
+- **Client MCP :** l'application sur laquelle l'agent d'intelligence artificielle est exécuté, telle que Cursor ou Claude.
+- **Serveur MCP :** un service fourni par une autre plateforme, telle que Braze, qui détermine les outils que l'intelligence artificielle peut utiliser et les données auxquelles elle peut accéder.
 
 ## À propos du serveur MCP Braze {#about-the-braze-mcp-server}
 
@@ -31,13 +43,11 @@ Vous pouvez interagir avec Braze en utilisant le langage naturel grâce à des o
 
 {% tabs %}
 {% tab Claude %}
-**Example prompt:** `What are my available Braze functions?`  
-**Example response:** Used `list_functions` and returned available Braze MCP function groups.
+![« Quelles sont les fonctions Braze à ma disposition ? » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-**Example prompt:** `What are my available Braze functions?`  
-**Example response:** Queried `list_functions` and listed sample functions such as `get_canvas_list`.
+![« Quelles sont les fonctions Braze disponibles ? » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -69,7 +79,7 @@ Non. Vous devrez créer une nouvelle clé API pour votre client MCP. Veillez à 
 
 ### Le serveur MCP Braze est-il hébergé localement ou à distance ? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-Le serveur MCP Braze est hébergé localement.
+Le serveur MCP Braze actuellement disponible est hébergé localement. Un serveur MCP distant, hébergé par Braze, sera disponible en accès anticipé cet été et remplacera le serveur bêta hébergé localement.
 
 ### Pourquoi Cursor ne répertorie-t-il que des fonctions ? {#why-is-cursor-only-listing-functions}
 
