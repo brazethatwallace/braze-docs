@@ -67,5 +67,5 @@ if [[ $skipped -gt 0 ]]; then
   echo "Skipped $skipped hook(s) that already exist as non-symlinks."
 fi
 echo ""
-echo "To skip a check in an emergency:  SKIP_A11Y=1 git commit"
+echo "To skip a check in an emergency:  SKIP_A11Y=1 git commit  |  SKIP_PII=1 git commit"
 echo "To uninstall:                      rm .git/hooks/pre-commit"
