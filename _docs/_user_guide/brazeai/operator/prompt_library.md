@@ -11,6 +11,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 > Browse a curated collection of example Operator prompts, compiled by Braze experts. Select a goal to find relevant prompts. For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context).
 
 
+<div class="prompt-library-tabs">
 {% sdktabs local %}
 {% sdktab Data analysis %}
 
@@ -95,3 +96,4 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 
 {% endsdktab %}
 {% endsdktabs %}
+</div>
