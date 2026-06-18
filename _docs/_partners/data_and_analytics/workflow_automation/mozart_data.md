@@ -71,11 +71,11 @@ Follow the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics
 
 After setting up your Snowflake warehouse, in Mozart Data, go to the **Integration** page and select **Braze**. Here, you will find the credentials you will need to provide Braze.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
+![Mozart Data Integration page with Braze selected and Snowflake connection credentials for use in Braze.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
 Next, while signed into Braze, go to **Integrations > Technology Partners > Snowflake** to begin the integration process. Copy the credentials from Mozart Data and add them to the Snowflake Data import page. Click **Set up sync details** and input your Snowflake account and source table information. 
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
+![Braze Snowflake partner integration form with account, warehouse, database, and schema fields populated from Mozart Data credentials.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
 Next, choose a name for your sync, provide contact emails, and select a data type and a sync frequency on the Braze Snowflake import configuration screen.
 
@@ -92,7 +92,7 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 
 Once the user is updated with the public key, return to the Braze dashboard and click **Test connection**. If successful, you'll see a preview of the data. If, for some reason, the connection is unsuccessful, an error message will display to help troubleshoot the issue.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
+![Braze Snowflake integration test connection result showing a successful preview after the public key is applied.]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 You must successfully test an integration before it can move from Draft to Active state. If you need to close out of the creation page, your integration will be saved, and you can revisit the details page to make changes and test.  
