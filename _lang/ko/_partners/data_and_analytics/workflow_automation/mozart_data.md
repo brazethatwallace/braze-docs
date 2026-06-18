@@ -77,9 +77,7 @@ Snowflake 웨어하우스를 설정한 후 Mozart Data에서 **Integration** 페
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-다음으로, 동기화 이름을 선택하고 연락처 이메일을 입력한 후 데이터 유형과 동기화 빈도를 선택합니다.
-
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
+다음으로, Braze의 Snowflake 데이터 가져오기 화면에서 동기화 이름을 선택하고 연락처 이메일을 입력한 후 데이터 유형과 동기화 빈도를 선택합니다.
 
 #### 3단계: Braze 사용자에 공개 키 추가 {#step-3-add-a-public-key-to-the-braze-user}
 이 시점에서 설정을 완료하려면 Snowflake로 돌아가야 합니다. Braze 대시보드에 표시된 공개 키를 Braze가 Snowflake에 연결하기 위해 생성한 사용자에 추가합니다.

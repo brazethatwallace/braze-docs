@@ -48,9 +48,7 @@ Solicite o snippet HTML ao seu representante da Blings.
 
 ### Etapa 2: Criar uma Campaign na Braze {#step-2-create-a-braze-campaign}
 
-Na Braze, crie uma nova Campaign de e-mail ou mensagem no app e insira o snippet HTML da Blings.
-
-![Campaign Blings na Braze.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+Na Braze, crie uma nova Campaign de e-mail ou mensagem no app e insira o snippet HTML da Blings. Use a pré-visualização do editor para confirmar que os campos personalizados e o conteúdo dinâmico da Creative Suite são exibidos corretamente.
 
 ### Etapa 3: Teste e lançamento {#step-3-test-and-launch}
 

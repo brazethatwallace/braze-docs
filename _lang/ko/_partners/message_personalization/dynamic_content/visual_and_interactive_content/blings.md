@@ -48,9 +48,7 @@ Blings 담당자에게 HTML 스니펫을 요청하세요.
 
 ### 2단계: Braze Campaign 생성 {#step-2-create-a-braze-campaign}
 
-Braze에서 새 이메일 또는 인앱 메시지 Campaign을 생성하고 Blings HTML 스니펫을 삽입합니다.
-
-![Blings Braze Campaign.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+Braze에서 새 이메일 또는 인앱 메시지 Campaign을 생성하고 Blings HTML 스니펫을 삽입합니다. 편집기 미리보기에서 개인화된 필드와 Creative Suite 동적 콘텐츠가 올바르게 표시되는지 확인합니다.
 
 ### 3단계: 테스트 및 시작 {#step-3-test-and-launch}
 

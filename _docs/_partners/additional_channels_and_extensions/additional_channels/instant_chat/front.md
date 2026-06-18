@@ -73,9 +73,7 @@ First, you'll create a new data transformation in Braze. The following steps are
     ```
     {% endraw %}
 
-    Your transformation should be similar to the following:
-
-    ![An example data transformation.]({% image_buster /assets/img/front/data_transformation.png %})
+    Your transformation should mirror the JavaScript example above, adjusting property names and paths to match your Front webhook payload.
 
 {% alert tip %}
 You can modify this template to meet your specific needs. For example, you can customize the pre-set custom event name. For more information, see [Data transformation overview]({{site.baseurl}}/user_guide/data/unification/data_transformation/). 

@@ -61,9 +61,7 @@ Wählen Sie dann eine Autorisierung aus den Optionen unter **Select Authorizatio
 
 ### 3. Schritt: Den Auftrag konfigurieren {#step-3-configure-the-job}
 
-Geben Sie in der Aufforderung **Configure Job** eine Bezeichnung und optional eine Beschreibung ein. Wählen Sie als Nächstes im Eingabefeld **Braze External User ID Field** das Feld in Lytics aus, das die externe Braze-Nutzer-ID enthält (`braze_id`). Der nächste Schritt ist der wichtigste – wählen Sie die Zielgruppen aus, die Sie nach Braze exportieren möchten.
-
-![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
+Geben Sie in der Aufforderung **Configure Job** eine Bezeichnung und optional eine Beschreibung ein. Wählen Sie als Nächstes im Eingabefeld **Braze External User ID Field** das Feld in Lytics aus, das die externe Braze-Nutzer-ID enthält (`braze_id`). Der nächste Schritt ist der wichtigste – wählen Sie im selben Dialog die Zielgruppen aus, die Sie nach Braze exportieren möchten.
 
 Wählen Sie schließlich die gewünschte Option für das Kontrollkästchen **Existing Users**. Wenn Sie dieses Kästchen aktiviert lassen, werden Nutzer:innen hinzugefügt, die bereits in der ausgewählten Lytics-Zielgruppe vorhanden sind. Wenn diese Option nicht markiert ist, werden Nutzer:innen nur dann nach Braze exportiert, wenn sie die Zielgruppe nach Beginn des Workflows betreten oder verlassen.
 

@@ -241,9 +241,7 @@ Las plantillas de esta guía se han creado para entregar al destino "Track Users
 
 ### Pruebas {#testing}
 
-Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. Haz clic en **Validate** para obtener una vista previa de la salida de tu código y comprobar si es una solicitud aceptable para el destino elegido.
-
-![Captura de pantalla de la interfaz de Transformación de datos de Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
+Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validate** para generar una vista previa en la sección **Output** y confirmar que Braze aceptará la solicitud asignada para el destino elegido.
 
 Cuando estés satisfecho con el objeto que ves en el campo "output", haz clic en **Activate** para que el punto de conexión de Transformación de datos esté listo para aceptar datos.
 
