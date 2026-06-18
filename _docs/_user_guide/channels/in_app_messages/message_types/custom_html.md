@@ -170,9 +170,7 @@ If a button in your custom HTML in-app message does not load when clicked, verif
 
 #### Body clicks when closing the message
 
-Calling `brazeBridge.closeMessage()` closes the message but does not log analytics on its own. To log a body click when the user closes the message, call `brazeBridge.logClick()` before `brazeBridge.closeMessage()`.
-
-On Android, following a close action through the JavaScript bridge can log a body click for HTML full in-app messages when no button ID is present. On iOS, `brazeBridge.closeMessage()` does not log a body click unless you call `brazeBridge.logClick()` explicitly. Use the combined pattern in the [Backward incompatible changes](#backward-incompatible-changes) table for consistent tracking across platforms.
+Calling `brazeBridge.closeMessage()` closes the message but does not log analytics on its own. To log a body click when the user closes the message, call `brazeBridge.logClick()` before `brazeBridge.closeMessage()` so click logging stays consistent across platforms.
 
 ### Backward incompatible changes {#backward-incompatible-changes}
 
