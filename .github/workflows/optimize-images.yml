@@ -12,6 +12,10 @@ on:
 jobs:
   optimize:
     runs-on: ubuntu-latest
+    # Avoid two runs optimizing the same PR branch at once (duplicate commits / push races).
+    concurrency:
+      group: optimize-images-pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
 
     steps:
       # Checks out the PR branch with history so diffs can be detected.
@@ -54,5 +58,27 @@ jobs:
             echo "No image changes to commit."
           else
             git commit -m "optimize png, jpg, and jpeg files"
-            git push
+            set -e
+            head_ref="${{ github.head_ref }}"
+            # Remote may advance between checkout and push (other commits, another workflow).
+            # Rebase our commit on top of origin and retry with backoff to avoid non-fast-forward rejects.
+            attempt=0
+            max_attempts=6
+            while [ "$attempt" -lt "$max_attempts" ]; do
+              attempt=$((attempt + 1))
+              git fetch origin "$head_ref" --no-tags
+              if ! git rebase "origin/$head_ref"; then
+                echo "Rebase failed; aborting rebase."
+                git rebase --abort || true
+                exit 1
+              fi
+              if git push "origin" "HEAD:$head_ref"; then
+                echo "Push succeeded on attempt $attempt."
+                exit 0
+              fi
+              echo "Push failed (attempt $attempt/$max_attempts); sleeping before retry..."
+              sleep "$((2 ** attempt))"
+            done
+            echo "Push failed after $max_attempts attempts."
+            exit 1
           fi
