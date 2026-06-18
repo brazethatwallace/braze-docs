@@ -4,18 +4,6 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
-{% alert important %}
-## Fin del soporte del servidor MCP de Braze alojado localmente {#sunsetting-the-locally-hosted-braze-mcp-server}
-
-Este verano, Braze lanzará un servidor MCP remoto, alojado por Braze, en acceso anticipado. Sustituye al servidor beta alojado localmente (`braze-mcp-server` en [PyPI](https://pypi.org/project/braze-mcp-server/) y el directorio de extensiones de Claude Desktop).
-
-**Qué significa esto para ti:**
-
-- El servidor alojado localmente seguirá funcionando, pero ya no cuenta con soporte. No añadiremos nuevos puntos finales ni corregiremos problemas en la versión beta.
-- Cuando el servidor remoto esté disponible en acceso anticipado, tendrás que migrar a él. El servidor remoto no requiere instalación local, utiliza OAuth en lugar de claves de API estáticas y funciona con clientes MCP como Claude, Copilot, Gemini CLI, Codex y Cursor.
-- Consulta esta página para conocer la disponibilidad del acceso anticipado, o ponte en contacto con tu equipo de cuentas de Braze para expresar tu interés.
-{% endalert %}
-
 ## ¿Qué es el protocolo de contexto de modelo (MCP)? {#what-is-model-context-protocol-mcp}
 
 ​​El protocolo de contexto de modelo, o MCP, es un estándar que permite a los agentes de IA conectarse y trabajar con datos de otra plataforma. Tiene dos partes principales:
@@ -79,7 +67,7 @@ No. Tendrás que crear una nueva clave de API para tu cliente MCP. Recuerda dar 
 
 ### ¿El servidor MCP de Braze está alojado localmente o de forma remota? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-El servidor MCP de Braze actualmente disponible está alojado localmente. Este verano llegará en acceso anticipado un servidor MCP remoto, alojado por Braze, que sustituirá al servidor beta alojado localmente.
+El servidor MCP de Braze está alojado localmente.
 
 ### ¿Por qué Cursor solo muestra funciones? {#why-is-cursor-only-listing-functions}
 
