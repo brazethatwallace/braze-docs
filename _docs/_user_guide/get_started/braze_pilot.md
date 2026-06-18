@@ -80,18 +80,11 @@ This connection status represents the experience of a guest of your app or websi
 
 ### Identified
 
-This connection status means Braze recognizes your user profile through a unique identifier assigned to you, known as an external identifier. You can search for this external identifier in the **User Search** page of your dashboard to locate your user profile, which will store all user attributes and events logged from Pilot based on your activity in the app.
-
-![An example of a Braze user profile for user "torchie-208117".]({% image_buster /assets/img/braze_pilot/user_profile.png %})
+This connection status means Braze recognizes your user profile through a unique identifier assigned to you, known as an external identifier. You can search for this external identifier in the **User Search** page of your dashboard to locate your user profile, which will store all user attributes and events logged from Pilot based on your activity in the app. In the Braze dashboard, go to **Audience** > **User Search**, enter your Pilot **external ID**, and open the profile to inspect attributes and events.
 
 ### Connection type
 
-To check what type of connection you have, you can check the connection status at the top right of your screen.
-
-{% tabs local %}
-{% tab Anonymous user  %}
-
-**Anonymous** indicates you're logging data as an anonymous user.
+To check what type of connection you have, check the connection status indicator at the top right of the Pilot app.
 
 <style>
   .imgDiv {
@@ -99,10 +92,10 @@ To check what type of connection you have, you can check the connection status a
     }
 </style>
 
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_anonymous.png %}" style="max-width:40%">
-</div>
-<br>
+{% tabs local %}
+{% tab Anonymous user  %}
+
+**Anonymous** indicates you're logging data as an anonymous user. The status area shows an **Anonymous** label (for example, a mask or incognito-style badge).
 
 {% endtab %}
 {% tab Identified user %}
@@ -117,12 +110,7 @@ If you're logging data as an identified user, a user icon will display next to y
 {% endtab %}
 {% tab Not connected %}
 
-**Not connected** indicates you haven't yet initialized the Braze SDK connection with Pilot.
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_not_connected.png %}" style="max-width:40%">
-</div>
-<br>
+**Not connected** indicates you haven't yet initialized the Braze SDK connection with Pilot. The status area calls out that Pilot is not connected to your Braze workspace yet.
 
 {% endtab %}
 {% endtabs %}

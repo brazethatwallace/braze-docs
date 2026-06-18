@@ -73,9 +73,7 @@ Tout d'abord, vous allez créer une nouvelle transformation de données dans Bra
     ```
     {% endraw %}
 
-    Votre transformation devrait ressembler à ce qui suit :
-
-    ![Un exemple de transformation de données.]({% image_buster /assets/img/front/data_transformation.png %})
+    Votre transformation doit refléter l'exemple JavaScript ci-dessus, en adaptant les noms de propriétés et les chemins à la charge utile du webhook Front.
 
 {% alert tip %}
 Vous pouvez modifier ce modèle pour répondre à vos besoins spécifiques. Par exemple, vous pouvez personnaliser le nom de l'événement personnalisé prédéfini. Pour plus d'informations, consultez l'[aperçu de la Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation/).

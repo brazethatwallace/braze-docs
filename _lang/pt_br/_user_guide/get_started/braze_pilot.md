@@ -80,18 +80,11 @@ Esse status de conexão representa a experiência de um visitante do seu app ou 
 
 ### Identificado
 
-Esse status de conexão significa que a Braze reconhece seu perfil de usuário por meio de um identificador único atribuído a você, conhecido como identificador externo. Você pode pesquisar esse identificador externo na página **Pesquisa de usuários** do seu dashboard para localizar seu perfil de usuário, que armazenará todos os atributos e eventos do usuário registrados a partir do Pilot com base na sua atividade no app.
-
-![Um exemplo de perfil de usuário da Braze para o usuário "torchie-208117".]({% image_buster /assets/img/braze_pilot/user_profile.png %})
+Esse status de conexão significa que a Braze reconhece seu perfil de usuário por meio de um identificador único atribuído a você, conhecido como identificador externo. Você pode pesquisar esse identificador externo na página **Pesquisa de usuários** do seu dashboard para localizar seu perfil de usuário, que armazenará todos os atributos e eventos do usuário registrados a partir do Pilot com base na sua atividade no app. No dashboard da Braze, acesse **Audience** > **Pesquisa de usuários**, insira seu **ID externo** do Pilot e abra o perfil para revisar atributos e eventos.
 
 ### Tipo de conexão
 
-Para verificar que tipo de conexão você tem, confira o status da conexão no canto superior direito da sua tela.
-
-{% tabs local %}
-{% tab Anonymous user  %}
-
-**Anônimo** indica que você está registrando dados como um usuário anônimo.
+Para verificar que tipo de conexão você tem, confira o indicador de status de conexão no canto superior direito do app Pilot.
 
 <style>
   .imgDiv {
@@ -99,10 +92,10 @@ Para verificar que tipo de conexão você tem, confira o status da conexão no c
     }
 </style>
 
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_anonymous.png %}" style="max-width:40%">
-</div>
-<br>
+{% tabs local %}
+{% tab Anonymous user  %}
+
+**Anônimo** indica que você está registrando dados como um usuário anônimo. A área de status mostra o rótulo **Anônimo** (por exemplo, um ícone de máscara ou de navegação anônima).
 
 {% endtab %}
 {% tab Identified user %}
@@ -117,12 +110,7 @@ Se você estiver registrando dados como um usuário identificado, um ícone de u
 {% endtab %}
 {% tab Not connected %}
 
-**Não conectado** indica que você ainda não inicializou a conexão do SDK da Braze com o Pilot.
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_not_connected.png %}" style="max-width:40%">
-</div>
-<br>
+**Não conectado** indica que você ainda não inicializou a conexão do SDK da Braze com o Pilot. A área de status indica que o Pilot ainda não está conectado ao seu workspace da Braze.
 
 {% endtab %}
 {% endtabs %}

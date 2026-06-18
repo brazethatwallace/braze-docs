@@ -73,9 +73,7 @@ In your Braze dashboard, go to **Settings** > **Setup and Testing** > **APIs and
    - `users.track`
    - `users.export.ids`
 3. Save the API key.
-4. Copy the API key and REST endpoint.
-
-![This image shows the API Keys page in Braze where you can create and manage API keys, including the data import key and REST endpoint needed for the Linkrunner integration.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copy the API key and REST endpoint. You will paste these into Linkrunner in the next step—treat the key as a secret and do not share it publicly.
 
 ### Step 3: Configure Braze in Linkrunner's dashboard
 

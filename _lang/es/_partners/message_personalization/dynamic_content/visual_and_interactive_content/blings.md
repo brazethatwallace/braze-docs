@@ -48,9 +48,7 @@ Solicita el fragmento de código HTML a tu representante de Blings.
 
 ### Paso 2: Crea una Campaign en Braze {#step-2-create-a-braze-campaign}
 
-En Braze, crea una nueva Campaign de correo electrónico o de mensaje dentro de la aplicación e inserta el fragmento de código HTML de Blings.
-
-![Campaign de Blings en Braze.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+En Braze, crea una nueva Campaign de correo electrónico o de mensaje dentro de la aplicación e inserta el fragmento de código HTML de Blings. Usa la vista previa del editor para confirmar que los campos personalizados y el contenido dinámico de Creative Suite se muestran correctamente.
 
 ### Paso 3: Prueba y lanzamiento {#step-3-test-and-launch}
 

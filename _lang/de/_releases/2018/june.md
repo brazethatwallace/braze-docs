@@ -13,6 +13,4 @@ Administratoren können jetzt die Mindestanzahl neuer, eindeutiger Passwörter f
 
 ## Uninstall-Tracking für Canvas-Schritte {#uninstall-tracking-for-canvas-steps}
 
-Deinstallationen pro Canvas-Schritt werden jetzt getrackt und können als Statistik angezeigt werden.
-
-![Uninstall-Tracking für Canvas]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+Deinstallationen pro Canvas-Schritt werden jetzt getrackt und können in den Canvas-Analysen als Kennzahl eingesehen werden.
