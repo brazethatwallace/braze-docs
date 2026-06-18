@@ -102,7 +102,7 @@ Let’s say you have a health food app and want to create a Content Card campaig
 | **image_url** | The image that corresponds to the recipe. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
-After the catalog is uploaded to Braze, confirm the information imported accurately by selecting your catalog from the Catalogs page and opening the **Preview** tab. A select number of items will appear in the preview, and may be randomized, but this won't affect the output of the recommendation engine.
+After the catalog is uploaded to Braze, confirm the information imported accurately by selecting your catalog from the Catalogs page and opening the **Preview** tab. A select number of items appears in the preview, and may be randomized, but this doesn't affect the output of the recommendation engine.
 
 With the catalog in place, [create a Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). In the composer, enter Liquid logic to determine which users should receive the campaign, and which recipe and image should display. In this use case, Braze pulls the user's `start_date` (or sign-up date) and compares it to the current date. The difference in days determines which Content Card is sent.
 
