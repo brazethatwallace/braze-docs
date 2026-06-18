@@ -202,6 +202,11 @@ def load_dismiss_sidecar(image_path: Path) -> dict | None:
         data = json.loads(sidecar.read_text(encoding='utf-8'))
     except json.JSONDecodeError as exc:
         raise ValueError(f'Invalid JSON in {sidecar}: {exc}') from exc
+    if not isinstance(data, dict):
+        raise ValueError(
+            f'{sidecar} must be a JSON object (got {type(data).__name__}, expected an object '
+            'with "reason", optional "dismiss_all", and optional "dismiss_ids").'
+        )
     reason = str(data.get('reason', '')).strip()
     if len(reason) < 10:
         raise ValueError(
@@ -455,11 +460,12 @@ def scan_text(image_path: Path, text: str) -> list[Violation]:
             'Replace with fictional IDs from dashboard-06 or blur identifier values.',
         )
 
-    for match in NUMERIC_USER_ID_RE.findall(normalized):
-        # Require at least one nearby external-id signal or multiple numeric IDs (table data).
-        nearby_external = bool(EXTERNAL_ID_HEADER_RE.search(normalized))
-        numeric_count = len(NUMERIC_USER_ID_RE.findall(normalized))
-        if nearby_external or numeric_count >= 3:
+    # Require at least one nearby external-id signal or multiple numeric IDs (table data).
+    numeric_id_matches = NUMERIC_USER_ID_RE.findall(normalized)
+    nearby_external = bool(EXTERNAL_ID_HEADER_RE.search(normalized))
+    numeric_count = len(numeric_id_matches)
+    if nearby_external or numeric_count >= 3:
+        for match in numeric_id_matches:
             add(
                 'numeric_user_id',
                 match,

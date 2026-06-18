@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Unit tests for screenshot PII pattern matching (no OCR required)."""
 
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
-from check_screenshot_pii import active_violations, scan_text
+from check_screenshot_pii import active_violations, load_dismiss_sidecar, scan_text
 
 
 class ScanTextTests(unittest.TestCase):
@@ -189,6 +192,29 @@ class ScanTextTests(unittest.TestCase):
         for v in violations:
             v.dismissed = True
         self.assertEqual(active_violations(violations), [])
+
+
+class LoadDismissSidecarTests(unittest.TestCase):
+    def test_rejects_non_object_json_root(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            img = Path(tmp) / 'shot.png'
+            sidecar = Path(str(img) + '.pii-audit-dismiss.json')
+            for payload in ('[]', '"sidecar"', '42', 'null', 'true'):
+                sidecar.write_text(payload, encoding='utf-8')
+                with self.assertRaises(ValueError) as ctx:
+                    load_dismiss_sidecar(img)
+                self.assertIn('JSON object', str(ctx.exception))
+
+    def test_loads_valid_sidecar(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            img = Path(tmp) / 'shot.png'
+            sidecar = Path(str(img) + '.pii-audit-dismiss.json')
+            sidecar.write_text(
+                json.dumps({'reason': 'documented false positive', 'dismiss_all': True}),
+                encoding='utf-8',
+            )
+            data = load_dismiss_sidecar(img)
+            self.assertTrue(data['dismiss_all'])
 
 
 if __name__ == '__main__':
