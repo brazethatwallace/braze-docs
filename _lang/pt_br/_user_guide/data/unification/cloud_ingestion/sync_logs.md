@@ -37,7 +37,7 @@ Os registros de sincronização também fornecem os seguintes detalhes para cada
 
 ### Retenção de dados {#data-retention}
 
-Os dados do registro de sincronização, incluindo todas as cargas úteis em nível de linha e detalhes de erro, são retidos por até **30 dias**. Registros com mais de 30 dias serão automaticamente excluídos.
+Os dados do registro de sincronização, incluindo todas as cargas úteis em nível de linha e detalhes de erro, são retidos por até **30 dias**. Registros com mais de 30 dias são automaticamente excluídos.
 
 Metadados da execução de sincronização, como o número de linhas processadas, são retidos por pelo menos 12 meses.
 

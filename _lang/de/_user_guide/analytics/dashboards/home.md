@@ -41,7 +41,7 @@ Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherig
 
 Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *täglich aktiven Nutzer:innen* einen prozentualen Anstieg von 1,8 % anzeigen, bedeutet das, dass Sie diese Woche 1,8 % mehr täglich aktive Nutzer:innen hatten als in der Vorwoche.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Eine Metrik-Kachel der Performance-Übersicht mit Metrikwert und prozentualer Veränderung.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Aufschlüsselung anzeigen {#show-breakdown}
 
@@ -110,9 +110,9 @@ MAU-Berechnungen folgen bestimmten Regeln, um eine genaue und konsistente Abrech
 
 - **Berechnungszeitpunkt**: Wird einmal täglich um 12:05 UTC als 30-Tage-Snapshot berechnet; Zahlen ändern sich nie rückwirkend.
 - **Anonyme Profile**: Werden **nur** gezählt, wenn mindestens eine Sitzung protokolliert wurde.
-- **Identifizierte Profile**: Werden automatisch gezählt, sobald sie existieren.
+- **Identifizierte Profile**: Werden nur gezählt, wenn `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters liegt.
 - **Verwaiste Profile**: Duplikate, die mit einem anderen Profil zusammengeführt wurden, werden **nicht** gezählt.
-- **CSV-Uploads**: Per CSV hochgeladene Nutzer:innen werden nur gezählt, wenn `date_of_first_session` oder `date_of_last_session` angegeben ist oder wenn sie später eine Sitzung protokollieren.
+- **CSV-Uploads und REST-API-Importe**: Per CSV oder über die REST API hochgeladene Nutzer:innen zählen zu den MAU, wenn Sie `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters angeben oder wenn sie später eine Sitzung protokollieren. Die alleinige Angabe von `date_of_first_session` hat keinen Einfluss auf die MAU.
 - **API-Löschungen**: Das Löschen von Nutzer:innen über die API aktualisiert die MAU nicht sofort; die Zahl korrigiert sich im nächsten monatlichen Zyklus von selbst.
 
 {% alert note %}

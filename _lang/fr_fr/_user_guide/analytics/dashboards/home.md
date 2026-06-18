@@ -41,7 +41,7 @@ Les pourcentages sont calculés en comparant la plage de dates actuelle à la pl
 
 Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** et que vos *utilisateurs actifs quotidiens* affichent une augmentation de 1,8 %, cela signifie que vous avez eu 1,8 % d'utilisateurs actifs quotidiens de plus cette semaine par rapport à la semaine précédente.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Tuile d'indicateur de l'aperçu des performances affichant une valeur et un pourcentage de variation.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Afficher le détail {#show-breakdown}
 
@@ -110,9 +110,9 @@ Le calcul des MAU suit des règles spécifiques pour garantir une facturation pr
 
 - **Moment du calcul** : calculé une fois par jour à 12h05 UTC sous forme d'instantané sur 30 jours ; les comptages ne changent jamais rétroactivement.
 - **Profils anonymes** : comptabilisés **uniquement** lorsqu'au moins une session est enregistrée.
-- **Profils identifiés** : comptabilisés automatiquement dès leur création.
+- **Profils identifiés** : comptabilisés uniquement lorsque `date_of_last_session` se situe dans la fenêtre glissante de 30 jours.
 - **Profils orphelins** : les doublons fusionnés avec un autre utilisateur ne sont **pas** comptabilisés.
-- **Imports CSV** : les utilisateurs importés par CSV ne sont comptabilisés que lorsque `date_of_first_session` ou `date_of_last_session` est fourni, ou lorsqu'ils enregistrent ultérieurement une session.
+- **Imports CSV et imports via la REST API** : les utilisateurs importés par CSV ou via la REST API sont comptabilisés dans les MAU lorsque vous fournissez `date_of_last_session` dans la fenêtre glissante de 30 jours, ou lorsqu'ils enregistrent ultérieurement une session. Fournir uniquement `date_of_first_session` n'affecte pas les MAU.
 - **Suppressions via API** : la suppression d'un utilisateur via l'API ne met pas à jour les MAU immédiatement ; le comptage se corrige automatiquement lors du cycle mensuel suivant.
 
 {% alert note %}

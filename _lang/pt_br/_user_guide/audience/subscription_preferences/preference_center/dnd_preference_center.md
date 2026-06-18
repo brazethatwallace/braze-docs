@@ -94,13 +94,13 @@ Se você estiver usando o bloco de código personalizado na sua Central de Prefe
 
 ## Etapa 5: Personalizar sua página de confirmação {#step-5-customize-your-confirmation-page}
 
-Não se esqueça de personalizar a página de confirmação! Você pode editar essa página selecionando **Confirmation Page** na parte superior da janela do editor de arrastar e soltar. Essa página será exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo acima também se aplicam a essa página.
+Não se esqueça de personalizar a página de confirmação! Você pode editar essa página selecionando **Página de confirmação** na parte superior da janela do editor de arrastar e soltar. Essa página será exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo acima também se aplicam a essa página.
 
 ![Um exemplo de página de confirmação para comunicar que as preferências do usuário foram atualizadas.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## Etapa 6: Pré-visualizar e lançar sua Central de Preferências {#step-6-preview-and-launch-your-preference-center}
 
-Você pode pré-visualizar sua Central de Preferências selecionando a guia **Preview** dentro do editor. No entanto, a funcionalidade de teste está desativada. Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
+Você pode pré-visualizar sua Central de Preferências selecionando a guia **Pré-visualização** dentro do editor. No entanto, a funcionalidade de teste está desativada. Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
 
 Você verá uma pré-visualização tanto da Central de Preferências quanto da página de confirmação. Selecione **Salvar como rascunho** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
 

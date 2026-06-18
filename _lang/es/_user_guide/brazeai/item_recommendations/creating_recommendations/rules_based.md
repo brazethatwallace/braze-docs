@@ -102,10 +102,9 @@ Supongamos que tienes una aplicación de comida saludable y quieres crear una ca
 | **image_url** | La imagen que corresponde a la receta. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplo" }
 
-Una vez cargado el catálogo en Braze, comprueba la vista previa de un número selecto de elementos del catálogo para confirmar que la información se importó correctamente. Los elementos pueden aparecer en orden aleatorio en la vista previa, pero esto no afectará al resultado de la herramienta de recomendaciones.
+Una vez cargado el catálogo en Braze, confirma que la información se importó correctamente seleccionando tu catálogo en la página de catálogos y abriendo la pestaña **Vista previa**. Aparecerá un número selecto de elementos en la vista previa, y pueden estar en orden aleatorio, pero esto no afecta al resultado de la herramienta de recomendaciones.
 
-
-Crea una campaña de tarjeta de contenido. En el creador de mensajes, introduce la lógica Liquid para determinar qué usuarios deben recibir la campaña, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtendrá el `start_date` (o fecha de registro) del usuario y lo comparará con la fecha actual. La diferencia en días determinará qué tarjeta de contenido se envía.
+Con el catálogo listo, [crea una campaña de tarjeta de contenido]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). En el creador de mensajes, introduce la lógica Liquid para determinar qué usuarios deben recibir la campaña, y qué receta e imagen deben mostrarse. En este caso de uso, Braze obtiene el `start_date` (o fecha de registro) del usuario y lo compara con la fecha actual. La diferencia en días determina qué tarjeta de contenido se envía.
 
 {% subtabs local %}
 {% subtab title %}
@@ -156,7 +155,7 @@ Por ejemplo:
 
 ![Ejemplo de creador de mensajes de una campaña de tarjeta de contenido.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-En la sección **On click behavior**, introduce la lógica Liquid para saber a dónde deben ser redirigidos los usuarios cuando hacen clic en la tarjeta de contenido en dispositivos iOS, Android y Web.
+En la sección **Comportamiento de clic**, introduce la lógica Liquid para saber a dónde deben ser redirigidos los usuarios cuando hacen clic en la tarjeta de contenido en dispositivos iOS, Android y Web.
 
 {% raw %}
 ```liquid
@@ -173,7 +172,7 @@ Por ejemplo:
 
 ![Ejemplo de bloque de comportamiento al hacer clic en el creador de mensajes.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-Ve a la pestaña **Test** y selecciona **Custom user** en **Preview message as user**. Introduce una fecha en el campo **Custom attribute** para obtener una vista previa de la tarjeta de contenido que se enviaría a un usuario que se hubiera registrado en esa fecha. <br><br>
+Ve a la pestaña **Prueba** y selecciona **Usuario personalizado** en **Vista previa del mensaje como usuario**. Introduce una fecha en el campo **Atributo personalizado** para obtener una vista previa de la tarjeta de contenido que se enviaría a un usuario que se hubiera registrado en esa fecha. <br><br>
 
 ![Ejemplo de atributo personalizado denominado "start_date".]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
