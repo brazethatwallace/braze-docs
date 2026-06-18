@@ -66,7 +66,7 @@ Within the **Configure Job** prompt, provide a label and an optional description
 Finally, choose the preferable option for the **Existing Users** checkbox. Leaving this box checked adds users who already exist in the selected Lytics audience. If unchecked, users are only exported to Braze when entering or exiting the audience after the workflow begins.
 
 {% alert note %}
-By checking this box, all existing users in the selected audience will be pushed into Braze. If your Braze pricing includes data points, monitor data point usage accordingly.
+By checking this box, all existing users in the selected audience are sent to Braze. If your Braze pricing includes data points, monitor data point usage accordingly.
 {% endalert %}
 
 Select **Complete** when finished to initiate the export and save.

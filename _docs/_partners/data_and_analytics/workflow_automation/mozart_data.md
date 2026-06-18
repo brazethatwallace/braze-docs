@@ -57,7 +57,7 @@ The integration is supported for both syncing data from [Braze to Mozart Data](#
 
 #### Step 2: Fill out the Fivetran connector form
 
-You will be redirected to the Fivetran connector page. On this page, fill out the given fields. Next, select **Continue** > **Save & Test** to complete the Fivetran connector.
+The Fivetran connector page opens after you finish step 1. Fill out the given fields, then select **Continue** > **Save & Test** to complete the Fivetran connector.
 
 Fivetran will begin syncing data from your Braze account to your Snowflake data warehouse. You can access query data from Mozart Data after the connector has finished syncing. 
 
@@ -69,7 +69,7 @@ Follow the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics
 
 #### Step 2: Set up your Snowflake integration in Braze
 
-After setting up your Snowflake warehouse, in Mozart Data, go to the **Integration** page and select **Braze**. Here, you will find the credentials you will need to provide Braze.
+After setting up your Snowflake warehouse, in Mozart Data, go to the **Integration** page and select **Braze**. The **Braze** integration view lists the credentials to copy into Braze.
 
 ![Mozart Data Integration page with Braze selected and Snowflake connection credentials for use in Braze.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
