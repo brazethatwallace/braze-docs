@@ -73,9 +73,7 @@ Dans votre tableau de bord de Braze, accédez à **Paramètres** > **Configurati
    - `users.track`
    - `users.export.ids`
 3. Enregistrez la clé API.
-4. Copiez la clé API et l'endpoint REST.
-
-![Cette image montre la page Clés API dans Braze où vous pouvez créer et gérer les clés API, y compris la clé d'importation des données et l'endpoint REST nécessaires pour l'intégration Linkrunner.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copiez la clé API et l'endpoint REST. Vous les collerez dans Linkrunner à l'étape suivante—traitez la clé comme un secret et ne la partagez pas publiquement.
 
 ### Étape 3 : Configurer Braze dans le tableau de bord de Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 

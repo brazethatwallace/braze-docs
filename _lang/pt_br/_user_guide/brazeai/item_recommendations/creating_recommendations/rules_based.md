@@ -21,7 +21,7 @@ As recomendações baseadas em regras são baseadas em uma lógica fixa que voc�
 
 Ao decidir qual mecanismo de recomendação se adequa aos seus recursos disponíveis e casos de uso, consulte esta tabela de considerações:
 
-<table aria-label="Recommendation engine options" style="text-align: center;">
+<table aria-label="Opções de mecanismo de recomendação" style="text-align: center;">
   <caption>Opções de mecanismo de recomendação</caption>
   <thead>
     <tr>
@@ -73,7 +73,7 @@ Ao decidir qual mecanismo de recomendação se adequa aos seus recursos disponí
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Recommendation engine options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Opções de mecanismo de recomendação" }
 
 ## Criando um mecanismo de recomendação {#creating-a-recommendation-engine}
 
@@ -100,12 +100,11 @@ Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campai
 | **title** | O título do cartão de conteúdo que será enviado para cada ID, como "Make ahead for lunch this week" ou "Let's taco about it". |
 | **link** | O link para o artigo da receita. |
 | **image_url** | A imagem que corresponde à receita. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
-Depois que o catálogo for enviado para a Braze, verifique a pré-visualização de um número selecionado de itens do catálogo para confirmar se as informações foram importadas com precisão. Os itens podem ser randomizados na pré-visualização, mas isso não afetará o resultado do mecanismo de recomendação.
+Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **Preview**. Um número selecionado de itens aparece na pré-visualização e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
 
-
-Crie uma Campaign de cartão de conteúdo. No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
+Com o catálogo pronto, [crie uma Campaign de cartão de conteúdo]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
 
 {% subtabs local %}
 {% subtab title %}
@@ -186,7 +185,7 @@ Para criar seu mecanismo de recomendação usando Conteúdo conectado, primeiro 
 | **Converter uma planilha** | Converta uma planilha em um endpoint de API JSON usando um serviço como o SheetDP e anote a URL da API que isso gera. |
 | **Criar um endpoint personalizado** | Construa, hospede e mantenha um endpoint personalizado feito internamente. |
 | **Usar um mecanismo de terceiros** | Use um mecanismo de recomendação de terceiros, como um dos nossos [parceiros Alloy]({{site.baseurl}}/partners/message_personalization/), incluindo [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) e outros. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
 Em seguida, use Liquid na sua mensagem para chamar seu endpoint, combinar um valor de atributo personalizado com o perfil de um usuário e obter a recomendação correspondente.
 
@@ -210,7 +209,7 @@ Substitua o seguinte:
 | `YOUR_API_URL` | Substitua pela URL real da sua API. |
 | `RECOMMENDED_ITEM_IDS` | Substitua pelo nome real do seu atributo personalizado que contém os IDs dos itens recomendados. Espera-se que esse atributo seja uma string de IDs separados por ponto e vírgula. |
 | `ITEM_ID` | Substitua pelo nome real do atributo na resposta da sua API que corresponde ao ID do item. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
 {% alert note %}
 Este é um exemplo básico e talvez você precise modificá-lo ainda mais com base nas suas necessidades específicas e na estrutura de dados. Para obter orientações mais detalhadas, consulte a [documentação do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou fale com um desenvolvedor.

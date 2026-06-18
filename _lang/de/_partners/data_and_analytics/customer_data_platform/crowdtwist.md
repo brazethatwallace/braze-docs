@@ -241,9 +241,7 @@ Die Templates in diesem Leitfaden sind für das Ziel „Nutzer:innen tracken“ 
 
 ### Testen {#testing}
 
-Nachdem Sie das Template nach Ihren Wünschen angepasst haben, müssen Sie überprüfen, ob es korrekt funktioniert. Klicken Sie auf „Validieren“, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob die Anfrage für das gewählte Ziel akzeptabel ist.
-
-![Screenshot der Braze-Datentransformations-UI]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
+Nachdem Sie das Template nach Ihren Wünschen angepasst haben, müssen Sie überprüfen, ob es korrekt funktioniert. Wählen Sie im Transformations-Editor **Validieren**, um im Bereich **Ausgabe** eine Vorschau zu erzeugen und zu prüfen, ob Braze die zugeordnete Anfrage für Ihr gewähltes Ziel akzeptiert.
 
 Wenn Sie mit dem Objekt, das Sie im Feld „Ausgabe“ sehen, zufrieden sind, klicken Sie auf **Aktivieren**, damit der Datentransformations-Endpunkt bereit ist, Daten zu empfangen.
 

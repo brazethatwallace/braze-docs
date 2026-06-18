@@ -61,9 +61,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
 
 ### ステップ3:ジョブを設定する {#step-3-configure-the-job}
 
-**Configure Job**プロンプト内で、ラベルとオプションの説明を入力します。次に、**Braze External User ID Field**の入力欄から、Braze外部ユーザーID（`braze_id`）を含むLyticsのフィールドを選択します。次は最も重要なステップです。Brazeにエクスポートするオーディエンスを選択します。
-
-![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
+**Configure Job**プロンプト内で、ラベルとオプションの説明を入力します。次に、**Braze External User ID Field**の入力欄から、Braze外部ユーザーID（`braze_id`）を含むLyticsのフィールドを選択します。次は最も重要なステップです。同じダイアログで、Brazeにエクスポートするオーディエンスを選択します。
 
 最後に、**Existing Users**チェックボックスで適切なオプションを選択します。このボックスをオンのままにすると、選択したLyticsオーディエンスにすでに存在しているユーザーが追加されます。オフにすると、ワークフロー開始後にオーディエンスに追加される時点またはオーディエンスから外される時点でのみ、ユーザーがBrazeにエクスポートされます。
 

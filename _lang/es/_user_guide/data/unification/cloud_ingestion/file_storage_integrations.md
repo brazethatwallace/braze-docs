@@ -39,7 +39,7 @@ En primer lugar, definamos los términos utilizados en esta tarea.
 | Nombre de recurso de Amazon (ARN) | El ARN es un identificador único para los recursos de AWS. |
 | Gestión de identidades y accesos (IAM) | IAM es un servicio web que te permite controlar de forma segura el acceso a los recursos de AWS. En este tutorial, crearás una política IAM y la asignarás a un rol IAM para integrar tu contenedor de S3 con la Ingesta de datos de Cloud de Braze. |
 | Amazon Simple Queue Service (SQS) | SQS es una cola alojada que permite integrar sistemas y componentes de software distribuidos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definiciones de AWS" }
 
 ## Configuración de la Ingesta de datos de Cloud en AWS {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -163,7 +163,7 @@ Para completar la configuración en AWS, crea un rol IAM y adjúntale la políti
 
 {: start="2"}
 2. En AWS, selecciona **Another AWS Account** como tipo de selector de entidad de confianza. Proporciona tu ID de cuenta de Braze. Selecciona la casilla de verificación **Require external ID**.
-3. En Braze, ve a **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecciona **Add data source** y selecciona **Amazon S3** en la sección de fuentes de archivos.
+3. En Braze, ve a **Configuración de datos** > **Cloud Data Ingestion** > **Sources**, selecciona **Add data source** y selecciona **Amazon S3** en la sección de fuentes de archivos.
 4. Copia el **Braze Account ID** generado automáticamente.
 
 ![La página «Add New Source» que muestra las secciones de nombre de fuente y detalles de conexión de S3.]({% image_buster /assets/img/braze_account_id.png %})
@@ -187,7 +187,7 @@ Asigna un nombre y una descripción al rol y selecciona **Create Role**.
 
 ## Configuración de la Ingesta de datos de Cloud en Braze {#setting-up-cloud-data-ingestion-in-braze}
 
-1. Primero, crea una nueva fuente en el panel de Braze. Ve a **Data Settings** > **Cloud Data Ingestion** > **Sources**, selecciona **Add data source** y luego selecciona **Amazon S3**.
+1. Primero, crea una nueva fuente en el panel de Braze. Ve a **Configuración de datos** > **Cloud Data Ingestion** > **Sources**, selecciona **Add data source** y luego selecciona **Amazon S3**.
 2. Elige un nombre para tu fuente e introduce la información del proceso de configuración de AWS para crear una nueva fuente. Especifica lo siguiente:
 
   - ARN del rol
@@ -201,7 +201,7 @@ Asigna un nombre y una descripción al rol y selecciona **Create Role**.
 3. Selecciona **Test connection** para confirmar que Braze puede acceder a tu contenedor. Después de una prueba exitosa, selecciona **Connect to Source**. Si la conexión falla, aparecerá un mensaje de error para ayudarte a solucionar el problema.
 
 {: start="4"}
-4. A continuación, crea una nueva sincronización. Ve a **Data Settings** > **Cloud Data Ingestion** > **Syncs** y selecciona **Create data sync**.
+4. A continuación, crea una nueva sincronización. Ve a **Configuración de datos** > **Cloud Data Ingestion** > **Syncs** y selecciona **Create data sync**.
 
 {: start="5"}
 5. Elige un nombre para tu sincronización. Luego, selecciona cualquier fuente S3 activa e introduce tu tabla de origen para la sincronización. Selecciona un tipo de datos y selecciona **Test Connection**.
@@ -241,7 +241,7 @@ Para las sincronizaciones de datos de usuario (atributos, eventos personalizados
 | `BRAZE_ID` | El identificador de usuario de Braze. Lo genera el SDK de Braze, y no se pueden crear nuevos usuarios utilizando un ID de Braze a través de Cloud Data Ingestion. Para crear nuevos usuarios, especifica un ID de usuario externo o un alias de usuario. |
 | `EMAIL` | La dirección de correo electrónico del usuario. Si existen varios perfiles con la misma dirección de correo electrónico, se dará prioridad al perfil actualizado más recientemente. Si incluyes tanto el correo electrónico como el teléfono, Braze utilizará el correo electrónico como identificador principal. |
 | `PHONE` | El número de teléfono del usuario. Si existen varios perfiles con el mismo número de teléfono, se dará prioridad al perfil actualizado más recientemente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuario" }
 
 Además de un identificador, cada fila debe incluir una columna `PAYLOAD` que contenga una cadena JSON de los campos que deseas sincronizar con el usuario en Braze.
 
@@ -258,7 +258,7 @@ Para las sincronizaciones de catálogo, tu archivo fuente debe contener las sigu
 | `ID` | Sí | El identificador único del elemento del catálogo. Se utiliza para crear, actualizar o eliminar el elemento en Braze. |
 | `PAYLOAD` | Sí | Una cadena JSON de los campos y valores del catálogo a sincronizar. Debe coincidir con el esquema de tu catálogo en Braze. |
 | `DELETED` | No | Cuando es `true`, el elemento del catálogo con el `ID` correspondiente se elimina del catálogo en Braze. Omite esta columna o establécela en `false` para operaciones de creación o actualización. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificadores de catálogo" }
 
 ### Ejemplos {#examples}
 
@@ -337,7 +337,7 @@ Cada fila del archivo debe identificar exactamente a un usuario utilizando uno d
 | `EXTERNAL_ID` | Coincide con el `external_id` utilizado en Braze. |
 | `ALIAS_NAME` y `ALIAS_LABEL` | Ambas columnas juntas identifican al usuario por su alias. |
 | `BRAZE_ID` | ID de usuario generado por Braze (solo usuarios existentes). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eliminación de usuarios" }
 
 {% alert important %}
 La eliminación de usuarios es permanente y no se puede deshacer. Incluye solo los usuarios que deseas eliminar. Para obtener más información, consulta [Eliminar usuarios con Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

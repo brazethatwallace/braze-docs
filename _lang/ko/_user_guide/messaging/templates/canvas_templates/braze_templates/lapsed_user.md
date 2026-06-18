@@ -27,21 +27,18 @@ Canvas를 만들기 전에 [Braze 오디언스 싱크 to Google]({{site.baseurl}
 
 ### 1단계: 세부 정보 설정 {#step-1-set-up-the-details}
 
-Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
+Canvas 세부 정보를 목표에 맞게 조정합니다.
 
 1. 템플릿 이름 옆의 **Edit**을 선택합니다.
-
 
 {:start="2"}
 2. Canvas 이름을 업데이트하여 이 Canvas가 프로모션 메시지를 보내고 세션을 시작한 사용자에 대해 오디언스 싱크를 수행한다는 것을 명시합니다.
 3. 설명을 업데이트하여 이 Canvas에 혜택과 프로모션이 포함되어 있음을 설명합니다.
 4. **Lapsing/Retention** 태그를 추가하여 Canvas 홈 페이지에서 이 Canvas를 필터링할 수 있도록 합니다.
 
-
 ### 2단계: 전환 이벤트 할당 {#step-2-assign-your-conversion-events}
 
-**Primary Conversion Event - A**를 우리 앱(MovieCanon)의 사용자를 타겟팅하도록 업데이트하고, **Primary Conversion Event - B**는 구매 완료 기본값으로 유지합니다.
-
+**Primary Conversion Event - A**를 앱(MovieCanon)의 사용자를 타겟팅하도록 업데이트하고, **Primary Conversion Event - B**는 구매 완료 기본값으로 유지합니다.
 
 ### 3단계: 진입 스케줄 조정 {#step-3-tailor-the-entry-schedule}
 
@@ -50,13 +47,11 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 이 단계에서 두 가지를 조정합니다:
 
 1. 시작 날짜와 시간을 선택합니다.
-2. **On a specific date** 종료 파라미터를 선택하고 2개월 후 날짜를 설정합니다. 이 Canvas가 끝난 후 시작하려는 다른 이탈 사용자 Canvas가 있다고 가정해 보겠습니다.
+2. **On a specific date** 종료 파라미터를 선택하고 2개월 후 날짜를 설정합니다. 이 예시에서는 이 Canvas가 끝난 후 시작되는 다른 이탈 사용자 Canvas가 있습니다.
 
-
-### 4단계: 타겟 오디언스 선택 {#step-4-select-our-target-audience}
+### 4단계: 타겟 오디언스 선택 {#step-4-select-your-target-audience}
 
 진입 오디언스의 기본 설정을 유지합니다. 이 설정은 30일 이상 앱을 사용하지 않은 사용자를 대상으로 합니다. 또한 사용자가 4주 후에 Canvas에 다시 진입할 수 있도록 기본 진입 제어도 유지합니다. 즉, 사용자가 30일 연속으로 앱을 방문하지 않을 때마다 Canvas에 진입하게 됩니다.
-
 
 ### 5단계: 발송 설정 선택 {#step-5-select-your-send-settings}
 
@@ -68,17 +63,14 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 
 변경할 유일한 설정은 방해금지 시간 동안 메시지가 트리거될 때의 처리 방식입니다. 메시지를 취소하는 대신 **Send at next available time**을 선택하여 사용자가 프로모션을 놓치지 않도록 합니다.
 
-
 ### 6단계: Canvas 커스터마이즈 {#step-6-customize-your-canvas}
 
 이제 템플릿 단계를 커스터마이즈하여 Canvas를 구축합니다:
 
 1. 30일 이상 앱을 방문하지 않은 모든 사용자에게 발송할 첫 번째 이메일을 커스터마이즈합니다. 이 사용 사례에서는 오늘 앱을 방문하면 새로운 혜택을 잠금 해제할 수 있다고 알려주는 이메일을 커스터마이즈합니다.
 
-
 {: start="2"}
-2. "Start Session?"이라는 행동 경로 구성요소를 커스터마이즈하여 **Started Session** 경로에 우리 앱을 선택합니다.
-
+2. "Start Session?"이라는 행동 경로 구성요소를 커스터마이즈하여 **Started Session** 경로에 앱을 선택합니다.
 
 {: start="3"}
 3. "Sessions?"라는 결정 분할 단계의 기본값을 유지합니다. 이 단계는 ">1 Session" 그룹을 지난 캘린더 일에 앱을 한 번 이상 사용한 사용자로 정의합니다.

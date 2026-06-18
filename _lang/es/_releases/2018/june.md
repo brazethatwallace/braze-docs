@@ -13,6 +13,4 @@ Ahora los administradores pueden determinar el número mínimo de contraseñas n
 
 ## Uninstall Tracking para pasos en Canvas {#uninstall-tracking-for-canvas-steps}
 
-Ahora se hace un seguimiento de las desinstalaciones por pasos en Canvas y se pueden ver como estadísticas.
-
-![Seguimiento de desinstalaciones para Canvas]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+Ahora se hace un seguimiento de las desinstalaciones por paso en Canvas y se pueden ver como estadísticas en el análisis de Canvas.

@@ -77,9 +77,7 @@ Gehen Sie dann, während Sie bei Braze angemeldet sind, zu **Integrations > Tech
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-Wählen Sie als Nächstes einen Namen für Ihre Synchronisierung, geben Sie Kontakt-E-Mails an und wählen Sie einen Datentyp und eine Synchronisierungshäufigkeit aus.
-
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
+Wählen Sie als Nächstes einen Namen für Ihre Synchronisierung, geben Sie Kontakt-E-Mails an und wählen Sie einen Datentyp und eine Synchronisierungshäufigkeit auf dem Bildschirm für den Braze-Snowflake-Datenimport aus.
 
 #### 3. Schritt: Public Key zum Braze-Nutzer hinzufügen {#step-3-add-a-public-key-to-the-braze-user}
 

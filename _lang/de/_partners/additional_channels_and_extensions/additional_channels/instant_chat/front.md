@@ -73,9 +73,7 @@ Zunächst erstellen Sie eine neue Datentransformation in Braze. Die folgenden Sc
     ```
     {% endraw %}
 
-    Ihre Transformation sollte in etwa so aussehen:
-
-    ![Ein Beispiel für eine Datentransformation.]({% image_buster /assets/img/front/data_transformation.png %})
+    Ihre Transformation sollte dem JavaScript-Beispiel oben entsprechen; passen Sie Eigenschaftsnamen und Pfade an die Payload Ihres Front-Webhooks an.
 
 {% alert tip %}
 Sie können dieses Template an Ihre speziellen Bedürfnisse anpassen. Sie können zum Beispiel den voreingestellten Namen des angepassten Events ändern. Weitere Informationen finden Sie unter [Übersicht über Datentransformationen]({{site.baseurl}}/user_guide/data/unification/data_transformation/).

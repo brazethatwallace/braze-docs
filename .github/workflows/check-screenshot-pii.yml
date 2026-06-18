@@ -9,12 +9,23 @@
 #   1. Add a sidecar file next to the image:
 #        assets/img/path/to/image.png.pii-audit-dismiss.json
 #      with a documented "reason" and optional dismiss_ids / dismiss_all.
+#      Sidecar-only PRs do not list this path below so the workflow is not scheduled
+#      when no raster images changed (the job only scans png/jpg/jpeg in the diff).
 #   2. A maintainer may add the pii-audit-dismissed label after reviewing the sidecar
 #      or confirming the finding is safe. The workflow still posts an audit comment.
 #
 # Run locally:
 #   brew install tesseract   # macOS
 #   python3 scripts/check_screenshot_pii.py assets/img/path/to/image.png
+#
+# CI installs Tesseract via apt with bounded timeouts and retries so a stuck mirror
+# does not leave the job running indefinitely.
+#
+# Incremental skip (synchronize only): when this push does not change any image,
+# dismiss sidecar, scanner, or this workflow file, and the *previous* PR head commit
+# already has a successful run of this job, Tesseract + OCR are skipped. If the
+# prior run failed or is missing, the scanner runs so a doc-only push cannot clear
+# a blocking failure. PR comments are left unchanged on skip.
 #
 # Cursor skill:
 #   @screenshot-pii-audit
@@ -23,23 +34,33 @@ name: Check screenshot PII
 
 on:
   pull_request:
+    # Only schedule when raster screenshots or scanner inputs change — not when a PR
+    # only adds/updates `.pii-audit-dismiss.json` sidecars (those are consumed on the
+    # next run that includes changed images).
     paths:
       - 'assets/img/**/*.png'
       - 'assets/img/**/*.jpg'
       - 'assets/img/**/*.jpeg'
-      - 'assets/img/**/*.pii-audit-dismiss.json'
       - 'scripts/check_screenshot_pii.py'
       - 'scripts/pii_name_lexicon.py'
       - '.github/workflows/check-screenshot-pii.yml'
 
+# Superseded re-runs (e.g. apt install or scanner step retries) should not pile up.
+concurrency:
+  group: screenshot-pii-${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   pull-requests: write
+  checks: read
 
 jobs:
   check-screenshot-pii:
     name: Screenshot PII audit (changed images)
-    runs-on: ubuntu-latest
+    # Pinned runner + job timeout: avoid indefinite hangs when apt mirrors stall.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - name: Checkout PR head
         uses: actions/checkout@v6
@@ -50,11 +71,136 @@ jobs:
       - name: Fetch base branch for three-dot diff
         run: git fetch --no-tags origin "${{ github.base_ref }}"
 
+      - name: Decide whether to run scanner (incremental skip)
+        id: gate
+        uses: actions/github-script@v9
+        env:
+          EVENT_ACTION: ${{ github.event.action }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { execSync } = require('child_process');
+
+            const checkJobName = 'Screenshot PII audit (changed images)';
+            let heavy = 'true';
+            let reason = 'default';
+
+            try {
+              const action = process.env.EVENT_ACTION || '';
+              const before = (process.env.BEFORE_SHA || '').trim();
+              const after = (process.env.AFTER_SHA || '').trim();
+
+              if (action !== 'synchronize') {
+                reason = `action=${action}`;
+              } else if (!before || /^0+$/.test(before)) {
+                reason = 'no-valid-before-sha';
+              } else if (!after || before === after) {
+                reason = 'no-after-or-same-as-before';
+              } else {
+                let diffRaw = '';
+                try {
+                  diffRaw = execSync(
+                    `git diff --name-only ${before}..${after} -- assets/img scripts/check_screenshot_pii.py scripts/pii_name_lexicon.py .github/workflows/check-screenshot-pii.yml`,
+                    { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+                  ).trim();
+                } catch (e) {
+                  reason = `git-diff-failed:${e.message}`;
+                  diffRaw = '';
+                }
+
+                if (reason === 'default') {
+                  const lines = diffRaw ? diffRaw.split(/\r?\n/) : [];
+                  const relevant = lines.filter((f) => {
+                    if (!f) return false;
+                    if (f === 'scripts/check_screenshot_pii.py') return true;
+                    if (f === 'scripts/pii_name_lexicon.py') return true;
+                    if (f === '.github/workflows/check-screenshot-pii.yml') return true;
+                    if (!f.startsWith('assets/img/')) return false;
+                    if (/\.pii-audit-dismiss\.json$/i.test(f)) return true;
+                    return /\.(png|jpg|jpeg)$/i.test(f);
+                  });
+
+                  if (relevant.length > 0) {
+                    reason = `delta:${relevant.length}-relevant-files`;
+                  } else {
+                    const { owner, repo } = context.repo;
+                    let runs = [];
+                    try {
+                      const resp = await github.rest.checks.listForRef({
+                        owner,
+                        repo,
+                        ref: before,
+                        check_name: checkJobName,
+                        per_page: 20,
+                      });
+                      runs = resp.data.check_runs || [];
+                    } catch (e) {
+                      reason = `checks-api-failed:${e.message}`;
+                      runs = [];
+                    }
+
+                    if (reason === 'default') {
+                      const sorted = [...runs].sort(
+                        (a, b) =>
+                          new Date(b.started_at || 0) - new Date(a.started_at || 0),
+                      );
+                      const latest = sorted[0];
+                      if (!latest || latest.conclusion !== 'success') {
+                        reason = `prior-check-not-success:${latest?.conclusion || 'none'}`;
+                      } else {
+                        heavy = 'false';
+                        reason = 'incremental-skip-doc-only-prior-success';
+                      }
+                    }
+                  }
+                }
+              }
+            } catch (e) {
+              heavy = 'true';
+              reason = `gate-error:${e.message}`;
+            }
+
+            core.setOutput('heavy', heavy);
+            core.setOutput('reason', reason);
+            core.info(`PII gate: heavy=${heavy} (${reason})`);
+
       - name: Install Tesseract OCR
-        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+        if: steps.gate.outputs.heavy != 'false'
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        shell: bash
+        run: |
+          set -euxo pipefail
+          # apt occasionally hangs on hosted runners; bounded timeouts + retries fail fast
+          # instead of blocking the job for hours on `apt-get update`.
+          for attempt in 1 2 3; do
+            echo "Tesseract install attempt ${attempt}/3"
+            if sudo apt-get update -y \
+                -o Acquire::http::Timeout=120 \
+                -o Acquire::https::Timeout=120 \
+                -o Acquire::Retries=5 \
+              && sudo apt-get install -y \
+                -o Acquire::http::Timeout=120 \
+                -o Acquire::https::Timeout=120 \
+                -o Acquire::Retries=5 \
+                --no-install-recommends \
+                tesseract-ocr; then
+              tesseract --version
+              exit 0
+            fi
+            if [[ "${attempt}" -lt 3 ]]; then
+              echo "apt failed on attempt ${attempt}; sleeping 30s before retry..."
+              sleep 30
+            fi
+          done
+          echo "apt-get could not install tesseract-ocr after 3 attempts"
+          exit 1
 
       - name: Get changed image files
         id: changed
+        if: steps.gate.outputs.heavy != 'false'
         shell: bash
         run: |
           BASE="origin/${{ github.base_ref }}"
@@ -86,7 +232,7 @@ jobs:
 
       - name: Check screenshot PII
         id: lint
-        if: steps.changed.outputs.ran == 'true'
+        if: steps.gate.outputs.heavy != 'false' && steps.changed.outputs.ran == 'true'
         continue-on-error: true
         shell: bash
         run: |
@@ -101,14 +247,15 @@ jobs:
 
       - name: Emit GitHub annotations for violations
         if: >-
-          steps.changed.outputs.ran == 'true'
+          steps.gate.outputs.heavy != 'false'
+          && steps.changed.outputs.ran == 'true'
           && steps.lint.outputs.exit_code == '1'
           && steps.labels.outputs.dismissed != 'true'
         shell: bash
         run: python3 scripts/check_screenshot_pii.py --github-annotations violations.json
 
       - name: Upload violations artifact
-        if: always() && steps.changed.outputs.ran == 'true'
+        if: always() && steps.gate.outputs.heavy != 'false' && steps.changed.outputs.ran == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: screenshot-pii-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
@@ -117,7 +264,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Sync screenshot PII PR comments
-        if: always()
+        if: always() && steps.gate.outputs.heavy != 'false'
         uses: actions/github-script@v9
         env:
           RAN: ${{ steps.changed.outputs.ran }}
@@ -361,9 +508,16 @@ jobs:
               core.info('Created screenshot PII comment');
             }
 
+      - name: PII scan skipped on this sync (incremental)
+        if: success() && steps.gate.outputs.heavy == 'false'
+        run: |
+          echo "Skipping Tesseract + OCR for this sync (no image/scanner delta)."
+          echo "Gate: ${{ steps.gate.outputs.reason }}"
+
       - name: Fail job if violations remain, scanner errors, and not dismissed
         if: >-
-          steps.changed.outputs.ran == 'true'
+          steps.gate.outputs.heavy != 'false'
+          && steps.changed.outputs.ran == 'true'
           && (steps.lint.outputs.exit_code == '1' || steps.lint.outputs.exit_code == '2')
           && steps.labels.outputs.dismissed != 'true'
         run: |

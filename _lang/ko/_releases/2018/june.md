@@ -13,6 +13,4 @@ description: "이 문서에는 2018년 6월의 릴리스 노트가 포함되어 
 
 ## 캔버스 단계에 대한 제거 추적 {#uninstall-tracking-for-canvas-steps}
 
-이제 캔버스 단계별 제거를 추적하고 통계로 확인할 수 있습니다.
-
-![캔버스 단계의 제거 추적]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+이제 캔버스 단계별 제거를 추적하고 Canvas 분석에서 통계로 확인할 수 있습니다.

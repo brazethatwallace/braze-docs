@@ -45,7 +45,7 @@ Cada bloque de contenido de arrastrar y soltar está limitado a una fila. Sin em
 | Tamaño del contenido | Máximo de 50 KB. |
 | Ubicación | Los Content Blocks no se pueden usar dentro de un pie de página de correo electrónico, pero puedes [crear un bloque de contenido que incluya un pie de página](#email-footers) para usarlo en tus correos electrónicos. |
 | Creación | Editor HTML o editor de arrastrar y soltar. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones de los Content Blocks" }
 
 {% alert tip %}
 Al crear Content Blocks, puede ser útil visualizar HTML y Liquid añadiendo saltos de línea. Si estos saltos de línea se dejan durante el envío, corres el riesgo de tener espacios innecesarios que pueden afectar cómo se renderizará el bloque. Para evitar esto, usa la etiqueta **Capture** en tu bloque junto con el filtro **&#124; strip**.
@@ -107,7 +107,6 @@ Después de añadir un bloque de contenido en una campaña o Canvas activo, pued
 
 Esta vista previa incluye información sobre el bloque de contenido, como quién lo creó, etiquetas, fecha de creación, fecha de última edición, descripción, tipo de editor, recuento de inclusiones con detalles (una lista clicable de mensajes o Content Blocks que usan el bloque de contenido) y una vista previa real del bloque de contenido.
 
-
 ## Anidar Content Blocks {#nest-content-blocks}
 
 Los Content Blocks se pueden anidar, pero solo una vez. Puedes anidar el Content Block A dentro del Content Block B, pero no podrás anidar el Content Block B dentro del Content Block C.
@@ -130,15 +129,15 @@ Después de realizar ediciones en un bloque de contenido, puedes guardar y lanza
 
 Los Content Blocks no se pueden usar dentro de un pie de página de correo electrónico, pero puedes crear un bloque de contenido que incluya contenido de pie de página para usarlo en tus correos electrónicos. Para hacerlo:
 
-1. Ve a **Settings** > **Email Preferences** > **Custom Footer** y crea el pie de página.
-2. Añade el pie de página a un bloque de contenido en la **Content Blocks Library**.
+1. Ve a **Configuración** > **Preferencias de correo electrónico** > **Personalizar pie de página** y crea el pie de página.
+2. Añade el pie de página a un bloque de contenido en la **Biblioteca de bloques de contenido**.
 3. Añade ese bloque de contenido a tus plantillas de correo electrónico o mensajes.
 
 ## Archivar Content Blocks {#archive-content-blocks}
 
 ![Menú desplegable de configuración expandido que muestra tres opciones: Archivar, Duplicar y Copiar al espacio de trabajo.]({% image_buster /assets/img/template_archive_cog.png %}){: style="max-width:20%;float:right;margin-left:15px;" }
 
-Una vez que hayas terminado de usar un bloque de contenido, puedes archivarlo desde la página de **Templates**. Los Content Blocks archivados son de solo lectura, así que desarchiva el bloque de contenido antes de editarlo. Los Content Blocks no se pueden archivar si se están usando en algún mensaje.
+Una vez que hayas terminado de usar un bloque de contenido, puedes archivarlo desde la página de **Plantillas**. Los Content Blocks archivados son de solo lectura, así que desarchiva el bloque de contenido antes de editarlo. Los Content Blocks no se pueden archivar si se están usando en algún mensaje.
 
 ### Mejores prácticas {#best-practices}
 
