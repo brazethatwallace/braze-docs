@@ -69,7 +69,7 @@ Finally, choose the preferable option for the **Existing Users** checkbox. Leavi
 By checking this box, all existing users in the selected audience will be pushed into Braze. If your Braze pricing includes data points, monitor data point usage accordingly.
 {% endalert %}
 
-Click **Complete** when finished to initiate the export and save.
+Select **Complete** when finished to initiate the export and save.
 
 ![Lytics export job summary showing Complete control and options to save or run the Braze audience export.]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
@@ -118,7 +118,7 @@ Navigate to the Lytics Account Menu in the bottom left corner by selecting your 
 
 ![Lytics Access Tokens screen with Create API Token selected from the account menu.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Input a name, an optional description, and a token expiration period. Next, toggle the **Data Manager** scope for API Permissions and click on **Generate Token**. Copy the token and store it in a secure place.
+Input a name, an optional description, and a token expiration period. Next, toggle the **Data Manager** scope for API Permissions and select **Generate Token**. Copy the token and store it in a secure place.
 
 ![Lytics API token permissions with the Data Manager scope enabled before generating the token.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
@@ -178,7 +178,7 @@ Public key SFTP authorizations are for SFTP export only.
 
 ![Lytics SFTP authorization method options for Custom Integrations import, including client and Lytics-managed server choices.]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
 
-In the **Configure Authorization** prompt that appears, provide a label and a description and complete the rest of the configuration requirements. Click **Complete** when finished.
+In the **Configure Authorization** prompt that appears, provide a label and a description and complete the rest of the configuration requirements. Select **Complete** when finished.
 
 #### Step 2: Export your segment data to CSV
 
@@ -192,7 +192,7 @@ Next, select the job type. To import Braze CSV files into Lytics, select **Impor
 
 ![Lytics Custom Integrations job setup with Import CSV selected as the job type.]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
 
-Finally, input a label and optional description for the job and configure any other required details. Click **Complete** to initiate and save the job.
+Finally, input a label and optional description for the job and configure any other required details. Select **Complete** to initiate and save the job.
 
 
 

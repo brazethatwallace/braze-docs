@@ -86,12 +86,6 @@ This connection status means Braze recognizes your user profile through a unique
 
 To check what type of connection you have, check the connection status indicator at the top right of the Pilot app.
 
-<style>
-  .imgDiv {
-      text-align: center;
-    }
-</style>
-
 {% tabs local %}
 {% tab Anonymous user  %}
 
@@ -100,12 +94,7 @@ To check what type of connection you have, check the connection status indicator
 {% endtab %}
 {% tab Identified user %}
 
-If you're logging data as an identified user, a user icon will display next to your external ID.
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_identified_user.png %}" style="max-width:40%">
-</div>
-<br>
+If you're logging data as an identified user, the status area shows **Identified user** and your external ID.
 
 {% endtab %}
 {% tab Not connected %}

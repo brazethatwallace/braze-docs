@@ -243,7 +243,7 @@ The templates in this guide are created to deliver to the "Track Users" destinat
 
 After you modify the template to your liking, you must validate that it operates correctly. In the transformation editor, select **Validate** to generate a preview in the **Output** section and confirm Braze accepts the mapped request for your chosen destination.
 
-When you're happy with the object you see in the **Output** field, select **Activate** so that the Data Transformation endpoint is ready to accept data. 
+When you're happy with the object you see in the **Output** field, select **Activate** so that the Data Transformation endpoint is ready to accept data.
 
 You'll find your Data Transformation's webhook URL on the left-hand side panel. Copy this and use it for configuration within Oracle Crowdtwist's Integration Hub.
 

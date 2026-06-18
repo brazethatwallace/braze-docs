@@ -50,14 +50,14 @@ The integration is supported for both syncing data from [Braze to Mozart Data](#
 
 #### Step 1: Set up Braze connector
 
-1. In Mozart Data, go to **Connectors** and click **Add Connector**.
+1. In Mozart Data, go to **Connectors** and select **Add Connector**.
 2. Search for "Braze" and select the connector card.
 3. Enter a destination schema name where all of the synced data from Braze will be stored. We recommend using the default schema name `braze`.
-4. Click **Add Connector**.
+4. Select **Add Connector**.
 
 #### Step 2: Fill out the Fivetran connector form
 
-You will be redirected to the Fivetran connector page. On this page, fill out the given fields. Next, click **Continue** > **Save & Test** to complete the Fivetran connector.
+You will be redirected to the Fivetran connector page. On this page, fill out the given fields. Next, select **Continue** > **Save & Test** to complete the Fivetran connector.
 
 Fivetran will begin syncing data from your Braze account to your Snowflake data warehouse. You can access query data from Mozart Data after the connector has finished syncing. 
 
@@ -73,7 +73,7 @@ After setting up your Snowflake warehouse, in Mozart Data, go to the **Integrati
 
 ![Mozart Data Integration page with Braze selected and Snowflake connection credentials for use in Braze.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
-Next, while signed into Braze, go to **Integrations > Technology Partners > Snowflake** to begin the integration process. Copy the credentials from Mozart Data and add them to the Snowflake Data import page. Click **Set up sync details** and input your Snowflake account and source table information. 
+Next, while signed into Braze, go to **Integrations > Technology Partners > Snowflake** to begin the integration process. Copy the credentials from Mozart Data and add them to the Snowflake Data import page. Select **Set up sync details** and input your Snowflake account and source table information. 
 
 ![Braze Snowflake partner integration form with account, warehouse, database, and schema fields populated from Mozart Data credentials.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
