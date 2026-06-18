@@ -43,8 +43,10 @@ def gh_json(args: list[str]) -> object:
 def pr_article_ids() -> tuple[set[str], int, int]:
     """Return (ids, open_pr_count, merged_pr_count) from PR bodies."""
     nums: set[int] = set()
+    open_count = 0
+    merged_count = 0
     for state in ("open", "merged"):
-        for pr in gh_json(
+        prs = gh_json(
             [
                 "pr",
                 "list",
@@ -57,41 +59,13 @@ def pr_article_ids() -> tuple[set[str], int, int]:
                 "--json",
                 "number",
             ]
-        ):
+        )
+        if state == "open":
+            open_count = len(prs)
+        else:
+            merged_count = len(prs)
+        for pr in prs:
             nums.add(pr["number"])
-
-    open_count = len(
-        gh_json(
-            [
-                "pr",
-                "list",
-                "--label",
-                "salesforce migration",
-                "--state",
-                "open",
-                "--limit",
-                "1000",
-                "--json",
-                "number",
-            ]
-        )
-    )
-    merged_count = len(
-        gh_json(
-            [
-                "pr",
-                "list",
-                "--label",
-                "salesforce migration",
-                "--state",
-                "merged",
-                "--limit",
-                "1000",
-                "--json",
-                "number",
-            ]
-        )
-    )
 
     ids: set[str] = set()
     for num in sorted(nums):
