@@ -73,8 +73,6 @@ description: "このページでは、CDIで利用可能な可観測性機能の
 
 特定の行についてBrazeに送信された正確なデータを確認するには、**ソース**ペイロード列で**View payload**を選択します。これにより、そのユーザーに対して処理された生のJSONペイロードが表示されます。
 
-![同期ログ内の特定の行に対するペイロードの例。]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### 同期ログのエクスポート {#exporting-sync-logs}
 
 **Export rows**を選択すると、同期実行の行レベルログをエクスポートできます。次に、エクスポート方法を選択します。

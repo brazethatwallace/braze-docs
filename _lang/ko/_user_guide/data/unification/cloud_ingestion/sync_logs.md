@@ -73,8 +73,6 @@ description: "이 페이지는 CDI에서 사용할 수 있는 관측성 기능�
 
 특정 행에 대해 Braze로 전송된 정확한 데이터를 보려면 **소스** 페이로드 열에서 **View payload**를 선택하세요. 해당 사용자에 대해 처리된 원시 JSON 페이로드가 표시됩니다.
 
-![동기화 로그의 특정 행에 대한 페이로드 예시.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### 동기화 로그 내보내기 {#exporting-sync-logs}
 
 동기화 실행에 대한 행 수준 로그를 내보내려면 **Export rows**를 선택하세요. 그런 다음 내보내기 방법을 선택합니다:

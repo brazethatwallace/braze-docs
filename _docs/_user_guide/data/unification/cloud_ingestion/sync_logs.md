@@ -73,8 +73,6 @@ This table provides row-level visibility into the data processed during the sync
 
 To see the exact data sent to Braze for a specific row, select **View payload** in the **Source** payload column. This displays the raw JSON payload that was processed for that user.
 
-![Payload example for a specific row in a sync log.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Exporting sync logs
 
 Select **Export rows** to export the row-level logs for a sync run. Then, choose to export by:

@@ -73,8 +73,6 @@ Diese Tabelle bietet Transparenz auf Zeilenebene hinsichtlich der während der S
 
 Um die genauen Daten anzuzeigen, die für eine bestimmte Zeile an Braze gesendet wurden, wählen Sie **View payload** in der Spalte **Source** payload aus. Hiermit wird der rohe JSON-Payload angezeigt, der für diese:n Nutzer:in verarbeitet wurde.
 
-![Payload-Beispiel für eine bestimmte Zeile in einem Sync-Protokoll.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Sync-Protokolle exportieren {#exporting-sync-logs}
 
 Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Synchronisierungslauf zu exportieren. Wählen Sie anschließend die Exportmethode:
