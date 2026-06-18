@@ -73,7 +73,7 @@ Select **Complete** when finished to initiate the export and save.
 
 ![Lytics export job summary showing Complete control and options to save or run the Braze audience export.]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
-After the export job is configured, Lytics will send the selected audiences to Braze through the native integration. The following is a sample audience showing the JSON structure of the audience sent to Braze.
+After the export job is configured, Lytics sends the selected audiences to Braze through the native integration. The following is a sample audience showing the JSON structure of the audience sent to Braze.
 
 ```json
 {
