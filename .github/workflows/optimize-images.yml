@@ -76,8 +76,11 @@ jobs:
                 echo "Push succeeded on attempt $attempt."
                 exit 0
               fi
-              echo "Push failed (attempt $attempt/$max_attempts); sleeping before retry..."
-              sleep "$((2 ** attempt))"
+              echo "Push failed (attempt $attempt/$max_attempts)."
+              if [ "$attempt" -lt "$max_attempts" ]; then
+                echo "Sleeping before retry..."
+                sleep "$((2 ** attempt))"
+              fi
             done
             echo "Push failed after $max_attempts attempts."
             exit 1
