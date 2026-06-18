@@ -173,7 +173,7 @@ Any new HTML inside `#main_content` inherits these rules — plan for explicit o
 
 ### Margin collapsing in SDK tab panes
 
-`.sdk-tab-content` and `.sdk-ab-tab-pane` both have `padding: 0` and no border, so `margin-top` on their first child collapses through both parents and produces no visible gap. Use `padding-top` on a scoped wrapper div instead — padding does not collapse.
+`.sdk-tab-content` and `.sdk-ab-sub_tab-content` both have `padding: 0` and no border, so `margin-top` on their first child collapses through both parents and produces no visible gap. Use `padding-top` on a scoped wrapper div instead — padding does not collapse.
 
 ### Page-scoping CSS without `page_class`
 
