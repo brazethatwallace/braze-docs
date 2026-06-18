@@ -63,7 +63,7 @@ Next, choose an authorization within the **Select Authorization** options.
 
 Within the **Configure Job** prompt, provide a label and an optional description. Next, from the **Braze External User ID Field** input, select the field in Lytics that contains the Braze external user ID (`braze_id`). The next step is the most important—select the audiences to export to Braze using the audience picker in the same prompt.
 
-Finally, choose the preferable option for the **Existing Users** checkbox. Leaving this box checked will add users who already exist in the selected Lytics audience. If unchecked, users will only be exported to Braze when entering or exiting the audience after the workflow begins.
+Finally, choose the preferable option for the **Existing Users** checkbox. Leaving this box checked adds users who already exist in the selected Lytics audience. If unchecked, users are only exported to Braze when entering or exiting the audience after the workflow begins.
 
 {% alert note %}
 By checking this box, all existing users in the selected audience will be pushed into Braze. If your Braze pricing includes data points, monitor data point usage accordingly.
