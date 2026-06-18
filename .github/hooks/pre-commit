@@ -131,4 +131,49 @@ if [[ $OVERALL_EXIT -ne 0 ]]; then
 fi
 
 echo "✅ Accessibility checks passed."
+
+# ---------------------------------------------------------------------------
+# 3. Screenshot PII check (optional — requires tesseract)
+# ---------------------------------------------------------------------------
+if [[ "${SKIP_PII:-0}" != "1" && -f scripts/check_screenshot_pii.py ]]; then
+  STAGED_IMAGES=()
+  while IFS= read -r f; do
+    STAGED_IMAGES+=("$f")
+  done < <(
+    git diff --cached --name-only --diff-filter=ACMRT \
+      | grep -E '^assets/img/.*\.(png|jpg|jpeg)$' \
+      || true
+  )
+
+  if [[ ${#STAGED_IMAGES[@]} -gt 0 ]]; then
+    if command -v tesseract >/dev/null 2>&1; then
+      echo "🔍 Checking ${#STAGED_IMAGES[@]} staged image(s) for likely PII..."
+      PII_OUTPUT="$(mktemp)"
+      PII_EXIT=0
+      python3 scripts/check_screenshot_pii.py "${STAGED_IMAGES[@]}" > "$PII_OUTPUT" 2>&1 || PII_EXIT=$?
+      if [[ $PII_EXIT -eq 2 ]]; then
+        echo ""
+        echo "❌ Screenshot PII check failed (scanner error — invalid sidecar, bad paths, or OCR error)."
+        cat "$PII_OUTPUT"
+        rm -f "$PII_OUTPUT"
+        exit 1
+      elif [[ $PII_EXIT -eq 1 ]]; then
+        echo ""
+        echo "⚠️  Screenshot PII violations found:"
+        head -40 "$PII_OUTPUT"
+        echo ""
+        echo "    Fix images or add a .pii-audit-dismiss.json sidecar."
+        echo "    To bypass (emergencies only): SKIP_PII=1 git commit"
+        rm -f "$PII_OUTPUT"
+        exit 1
+      else
+        echo "✅ Screenshot PII checks passed."
+      fi
+      rm -f "$PII_OUTPUT"
+    else
+      echo "⚠️  tesseract not installed — skipping local screenshot PII check (CI will still run)."
+    fi
+  fi
+fi
+
 exit 0
