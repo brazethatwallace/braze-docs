@@ -80,7 +80,7 @@ This connection status represents the experience of a guest of your app or websi
 
 ### Identified
 
-This connection status means Braze recognizes your user profile through a unique identifier assigned to you, known as an external identifier. You can search for this external identifier in the **User Search** page of your dashboard to locate your user profile, which will store all user attributes and events logged from Pilot based on your activity in the app. In the Braze dashboard, go to **Audience** > **User Search**, enter your Pilot **external ID**, and open the profile to inspect attributes and events.
+This connection status means Braze recognizes your user profile through a unique identifier assigned to you, known as an external identifier. You can search for this external identifier in the **User Search** page of your dashboard to locate your user profile, which stores all user attributes and events logged from Pilot based on your activity in the app. In the Braze dashboard, go to **Audience** > **User Search**, enter your Pilot **external ID**, and open the profile to inspect attributes and events.
 
 ### Connection type
 
