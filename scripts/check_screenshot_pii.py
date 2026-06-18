@@ -127,6 +127,40 @@ NAME_LAST_COLUMN_RE = re.compile(r'\bName_Last\b', re.IGNORECASE)
 # Name / Name_Last column headers in CSV import previews.
 NAME_COLUMN_CONTEXT_RE = re.compile(r'\bName(?:_Last)?\b', re.IGNORECASE)
 
+# Braze UI labels like "Max Width" / "Min Length" — "Max"/"Min" are also common given names
+# in the lexicon, so treat these as non-PII when the sizing/validation tail is present.
+_UI_LIMIT_LABEL_TAIL = (
+    'age',
+    'bids',
+    'characters',
+    'columns',
+    'depth',
+    'duration',
+    'height',
+    'length',
+    'limit',
+    'recipients',
+    'rows',
+    'score',
+    'size',
+    'users',
+    'value',
+    'width',
+)
+
+_UI_LIMIT_AFTER_RE = re.compile(
+    r'^\s+(?:' + '|'.join(re.escape(t) for t in _UI_LIMIT_LABEL_TAIL) + r')\b',
+    re.IGNORECASE,
+)
+
+
+def is_ui_limit_label_at(word: str, text: str, end_idx: int) -> bool:
+    """True when this specific Max/Min token is immediately followed by a UI limit/sizing tail."""
+    if word.lower() not in {'max', 'min'}:
+        return False
+    return bool(_UI_LIMIT_AFTER_RE.match(text[end_idx:]))
+
+
 # UI, product, and docs vocabulary — not person names.
 NON_NAME_WORDS = frozenset({
     'about', 'access', 'account', 'action', 'actions', 'active', 'add', 'additional', 'adobe',
@@ -428,9 +462,17 @@ def find_single_names_in_columns(text: str, paired_words: set[str]) -> list[str]
     seen: set[str] = set()
     matches: list[str] = []
 
-    for word in SINGLE_NAME_RE.findall(text):
+    # Any occurrence that is not a Max/Min+UI-tail token can still be a name (Bugbot).
+    words_with_non_ui_occurrence: set[str] = set()
+    for m in SINGLE_NAME_RE.finditer(text):
+        word = m.group(1)
         if not is_likely_person_name_word(word):
             continue
+        if word.lower() in {'max', 'min'} and is_ui_limit_label_at(word, text, m.end()):
+            continue
+        words_with_non_ui_occurrence.add(word)
+
+    for word in sorted(words_with_non_ui_occurrence):
         key = word.lower()
         if key in EXAMPLE_SINGLE_NAMES:
             continue

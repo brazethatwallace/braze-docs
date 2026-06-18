@@ -3085,7 +3085,8 @@ validurls['/docs/contributing/content_management/language_translations'] = '/doc
 
 validurls['/docs/developer_guide/sdk_integration/?sdktab=xamarin'] = '/docs/developer_guide/sdk_integration/?sdktab=.net%20maui';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages'] = '/docs/user_guide/channels/in_app_messages/#templated-in-app-messages';
-validurls['/docs/help/help_articles/campaigns_and_canvas/not_triggering'] = '/docs/user_guide/messaging/canvas/troubleshooting/#why-did-a-user-not-receive-a-triggered-canvas-step';
+validurls['/docs/help/help_articles/campaigns_and_canvas/not_triggering'] = '/docs/user_guide/messaging/canvas/troubleshooting/#user-didnt-receive-a-canvas-message-or-step';
+validurls['/docs/user_guide/messaging/canvas/troubleshooting/#why-did-a-user-not-receive-a-triggered-canvas-step'] = '/docs/user_guide/messaging/canvas/troubleshooting/#user-didnt-receive-a-canvas-message-or-step';
 
 // Access Braze
 validurls['/docs/user_guide/administrative/access_braze/accessing_your_account/#accessing-your-account'] = '/docs/user_guide/administer/personal/accessing_your_account';
@@ -4878,5 +4879,7 @@ validurls['/docs/message_credits_theta_d9kw/'] = '/docs/message_credits_theta_d9
 validurls['/docs/track_users_bulk/'] = '/docs/track_users_bulk/';
 validurls['/docs/rate_limiting/'] = '/docs/rate_limiting/';
 validurls['/docs/whatsapp_pricing_updates/'] = '/docs/whatsapp_pricing_updates/';
+
+validurls['/docs/user_guide/brazeai/operator/prompt_examples/'] = '/docs/user_guide/brazeai/operator/prompt_library/';
 
 // validurls['OLD'] = 'NEW';

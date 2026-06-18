@@ -77,9 +77,7 @@ Snowflakeウェアハウスの設定後に、Mozart Dataの **Integration** ペ�
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-次に、同期の名前を選択し、連絡先のメールアドレスを入力し、データタイプと同期頻度を選択します。
-
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
+次に、BrazeのSnowflakeデータ取り込み画面で、同期の名前を選択し、連絡先のメールアドレスを入力し、データタイプと同期頻度を選択します。
 
 #### ステップ3: Brazeユーザーに公開キーを追加する {#step-3-add-a-public-key-to-the-braze-user}
 この時点で、Snowflakeに戻って設定を完了する必要があります。BrazeダッシュボードにBrazeに表示される公開キーを、BrazeがSnowflakeに接続するために作成したユーザーに追加します。

@@ -1,0 +1,5 @@
+{
+  "reason": "Event id from official Braze Currents sample file (adobe_examples.json), not a customer external_id.",
+  "dismiss_all": false,
+  "dismiss_ids": ["b0b94a3f"]
+}

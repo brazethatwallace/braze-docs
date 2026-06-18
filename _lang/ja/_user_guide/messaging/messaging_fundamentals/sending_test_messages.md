@@ -274,8 +274,6 @@ SMS、MMS、またはRCSメッセージを作成した後、テストメッセ�
 
 Webhookを作成した後、テスト送信を行ってWebhookのレスポンスを確認できます。**テスト**タブを選択し、**テスト送信**を選択して、指定されたWebhook URLにテスト送信を行います。特定のユーザーとしてレスポンスをプレビューするために、個別ユーザーを選択することもできます。
 
-![テストWebhook]({% image_buster /assets/img/webhook_test.png %})
-
 {% endtab %}
 {% tab WhatsApp %}
 
