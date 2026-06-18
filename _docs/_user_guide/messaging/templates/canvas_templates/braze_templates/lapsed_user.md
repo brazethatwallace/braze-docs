@@ -67,7 +67,7 @@ The only setting to change is what happens when a message triggers during quiet 
 
 Now, build your Canvas by customizing the templated steps:
 
-1. Customize the first email that sends to all users who haven't visited your app in over 30 days. In this use case, customize an email that tells users they'll unlock new perks when they visit your app today.
+1. Customize the first email that sends to all users who haven't visited your app in over 30 days. In this use case, customize an email that tells users they unlock new perks when they visit your app today.
 
 {: start="2"}
 2. Customize the action path component called "Start Session?" by selecting your app for the **Started Session** path.
