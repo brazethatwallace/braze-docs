@@ -1295,6 +1295,13 @@ svg[id^="mermaid"] {
     font-size: 0.875rem;
   }
 
+  .copy-block-available {
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-size: 0.75rem;
+    color: $grey-dust;
+  }
+
   .copy-block-btn {
     opacity: 0.45;
     padding: 2px 6px;
