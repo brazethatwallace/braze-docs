@@ -287,7 +287,7 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 
 Braze logs a Direct Open when a user taps the notification and your app starts a session. Expanding a rich push notification without opening the app does not log a Direct Open.
 
-If a user opens your app after receiving a push without tapping the notification, Braze may log an *Influenced Open* instead. For definitions and reporting, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
+If a user opens your app after receiving a push without tapping the notification, Braze may log an Influenced Open instead. For definitions and reporting, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
 
 ## Push error messages
 
