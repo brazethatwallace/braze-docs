@@ -347,7 +347,7 @@ Canvasesはコンポーネントごとではなく、Canvasレベルでタグ付
 
 ### ダッシュボードにCampaignのレート制限エラーが表示されるのはなぜですか？ {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-これは通常、Campaignの[配信速度レート制限](#delivery-speed-rate-limiting)がワークスペース、プロバイダー、またはメールボックスホストが処理できる量よりも高く設定されているため、送信がバックアップされ、Brazeが警告を表示していることを意味します。Campaignの配信速度レート制限を下げて、1分あたりのスループットがこれらのシステムが処理できる範囲内に収まるようにしてください。また、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を設定して、Campaigns全体にキャップを適用することもできます。
+これは通常、Campaignの[配信速度レート制限](#delivery-speed-rate-limiting)がオーディエンスサイズに対して低すぎるため、送信の完了に許可された時間枠よりも長くかかり、Brazeが警告を表示していることを意味します。配信速度レート制限を上げるか、オーディエンスを減らすか、**Limit the number of people who will receive this campaign**を使用して、スケジュールされた各送信が許可された送信時間枠内に完了するようにしてください。また、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を設定して、Campaigns全体にキャップを適用することもできます。
 
 **Limit the number of people who will receive this campaign**は、送信対象となるユーザー数を制御するもので、Brazeが1分あたりに送信するメッセージ数を制御するものではありません。1分あたりのスループットを設定するのは配信速度レート制限のみです。
 

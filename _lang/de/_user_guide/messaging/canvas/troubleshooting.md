@@ -112,6 +112,16 @@ Wenn wir uns die aktiven Nutzer:innen ansehen, können wir sehen, dass das Segme
 
 Das bedeutet, dass obwohl wir festgelegt haben, dass 90 % der Nutzer:innen in die Variante eintreten sollen, nicht alle dieser Nutzer:innen tatsächlich in der Lage sind, eine Push-Benachrichtigung zu empfangen. Diese Nutzer:innen, die keine Push-Benachrichtigung empfangen können, treten trotzdem in die Variante ein.
 
+## Aktionsbasierte Schritte und angepasste Event-Eigenschaften {#action-based-steps-and-custom-event-properties}
+
+Wenn ein aktionsbasierter Canvas oder Aktions-Pfad nicht wie erwartet sendet, bestätigen Sie, dass das angepasste Event im Nutzerprofil mit der Trigger-Konfiguration übereinstimmt, einschließlich der Eigenschaftsfilter. Braze wertet die exakten Eigenschaften aus, die mit dem Event gesendet werden. Wenn eine Eigenschaft fehlt oder der Wert nicht mit dem Filter übereinstimmt, werden die Nutzer:innen nicht weitergeleitet.
+
+Events, die zu früh auftreten oder bevor sich die Nutzer:innen für die Zielgruppe qualifizieren, triggern den Schritt nicht. Überprüfen Sie daher den Zeitstempel des Events im Verhältnis zum Canvas-Start, dem [Entry-Zeitplan]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) und einer eventuellen geplanten Verzögerung vor dem Schritt.
+
+{% alert note %}
+In-App Messages in Canvas können nur durch Events aus dem SDK getriggert werden, nicht über die REST API. Siehe [Warum hat ein:e Nutzer:in einen getriggerten Canvas-Schritt nicht erhalten?](#why-did-a-user-not-receive-a-triggered-canvas-step)
+{% endalert %}
+
 ## Warum friert der Canvas-Editor ein oder lädt nicht? {#why-is-the-canvas-editor-freezing-or-not-loading}
 
 Wenn Sie Änderungen an großen oder komplexen Canvases mit vielen Branches oder Varianten, vielen Schritten oder sehr breiten Flows vornehmen, kann es vorkommen, dass der Editor nicht lädt oder einfriert. In diesem Fall empfehlen wir Folgendes:

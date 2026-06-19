@@ -1,9 +1,9 @@
 {% if include.metric == "AMP Clicks" %}
-<i>AMP クリック数</i>は、AMP HTML メールのクリック数の合計で、HTML、プレーンテキスト、および AMP HTML バージョンのメールの総計です。
+<i>AMPクリック数</i>は、AMP HTMLメールのクリック数の合計で、HTML、プレーンテキスト、およびAMP HTMLバージョンのメールの総計です。
 {% endif %}
 
 {% if include.metric == "AMP Opens" %}
-<i>AMP 開封数</i>は、AMP HTML メールおよび AMP HTML バージョンのメールの開封総数です。
+<i>AMP開封数</i>は、AMP HTMLメールおよびAMP HTMLバージョンのメールの開封総数です。
 {% endif %}
 
 {% if include.metric == "Audience" %}
@@ -115,7 +115,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>直接開封数</i>は、通知を直接押してアプリやWeb サイトを開いたユーザーの総数（または割合）です。
+<i>直接開封数</i>は、通知を直接押してアプリやWebサイトを開いたユーザーの総数（または割合）です。
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -262,6 +262,10 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 
 {% if include.metric == "Unique Impressions" %}
 <i>ユニークインプレッション数</i>は、特定のCampaignから送信されたメッセージを閲覧したユーザーの総数です。インプレッションは、メッセージがユーザーの画面に表示されたときのみ記録されます。
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+<i>日次ユニークインプレッション数</i>は、指定された日にメッセージを閲覧したユニークユーザーの数です。このカウントはカレンダー日ごとにリセットされるため、同じメッセージを2日間にわたって閲覧したユーザーは2回カウントされます。この指標は、同名の課金指標と一致します。
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

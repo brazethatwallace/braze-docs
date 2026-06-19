@@ -45,6 +45,8 @@ npm install @braze/react-native-sdk
 
 ## Inicio rápido
 
+Esta sección muestra la configuración mínima necesaria para inicializar el SDK de React Native de Braze.
+
 1. Instala el paquete npm (arriba).
 2. Completa la **configuración nativa** para Android e iOS (configuración, permisos, push si es necesario).
 3. Inicializa el SDK desde JavaScript y comienza a usarlo:
@@ -92,7 +94,7 @@ Llamar a `Braze.initialize` de nuevo con credenciales diferentes destruye la ins
 ```
 
 {% alert note %}
-** La clave de API y el punto de conexión ya no se configuran en `braze.xml` — se pasan desde JavaScript a través de `Braze.initialize(apiKey, endpoint)`.
+La clave de API y el punto de conexión ya no se configuran en `braze.xml` — se pasan desde JavaScript a través de `Braze.initialize(apiKey, endpoint)`.
 {% endalert %}
 ### iOS
 
@@ -132,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 - **Closure `postInitialization`** *(opcional)*: recibe la instancia activa de `Braze` después de su creación, para configuraciones que requieren la instancia (por ejemplo, almacenar una referencia, establecer delegados).
 
 {% alert note %}
-** `BrazeReactInitializer.configure` es una API orientada a Swift que reemplaza el obsoleto `BrazeReactBridge.initBraze(_:)`. También resuelve un problema de resolución de tipos de Swift con `Braze.Configuration` en el puente de Objective-C.
+`BrazeReactInitializer.configure` es una API orientada a Swift que reemplaza el obsoleto `BrazeReactBridge.initBraze(_:)`. También resuelve un problema de resolución de tipos de Swift con `Braze.Configuration` en el puente de Objective-C.
 {% endalert %}
 ---
 
@@ -205,7 +207,7 @@ Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 
 ### Mensajes dentro de la aplicación
 
-- Con la **interfaz predeterminada de Braze**, sigue la [documentación de mensajes dentro de la aplicación](https://github.com/braze-inc/braze-react-native-sdk/blob/master/docs/developer_guide/in_app_messages?sdktab=react%20native); normalmente **no** necesitas llamar a `subscribeToInAppMessage` solo para mostrar la interfaz predeterminada.
+- Con la **interfaz predeterminada de Braze**, sigue la [documentación de mensajes dentro de la aplicación](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native); normalmente **no** necesitas llamar a `subscribeToInAppMessage` solo para mostrar la interfaz predeterminada.
 - Para gestión **personalizada**, suscríbete con `useBrazeUI: false`, y luego registra impresiones/clics según sea necesario:
 
 ``` typescript
@@ -351,8 +353,9 @@ useEffect(() => {
 ## Compatibilidad de versiones
 
 {% alert note %}
-Este SDK ha sido probado con la versión **0.83.0** de React Native.
+Este SDK ha sido probado con la versión **0.85.3** de React Native.
 {% endalert %}
+La siguiente tabla muestra las versiones de React Native compatibles por lanzamiento del complemento de Braze.
 
 | Complemento de Braze | React Native | Nueva arquitectura |
 |-----------------------|--------------|--------------------|

@@ -272,9 +272,7 @@ After creating your SMS, MMS, or RCS message, you can send a test message to you
 {% endtab %}
 {% tab Webhook %}
 
-After creating your webhook, you can do a test send to check the webhook response. Select the **Test** tab and select **Send Test** to send a test send to the supplied webhook URL. You can also select an individual user to preview the response as a specific user. 
-
-![Test Content Card]({% image_buster /assets/img/webhook_test.png %})
+After creating your webhook, you can do a test send to check the webhook response. Select the **Test** tab and select **Send Test** to send a test send to the supplied webhook URL. You can also select an individual user to preview the response as a specific user.
 
 {% endtab %}
 {% tab WhatsApp %}

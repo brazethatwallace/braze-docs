@@ -36,7 +36,7 @@ To integrate Decisioning Studio Go with Braze, you'll create an API key, configu
 3. Enter a name for your API key. An example is "DecisioningStudioGoEmail".
 4. Select the permissions based on the following categories:
     - **User Data:** select `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Messages:** select `messages.send`
+    - **Messages:** select `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
     - **Campaigns:** select all listed permissions
     - **Canvas:** select all listed permissions
     - **Segments:** select all listed permissions

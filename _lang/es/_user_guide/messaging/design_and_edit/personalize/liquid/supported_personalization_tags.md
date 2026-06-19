@@ -32,9 +32,13 @@ A modo de referencia, se proporciona un resumen de las etiquetas de personalizac
 | Atributos personalizados <br> (Son personalizados para tu espacio de trabajo.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>Propiedades de desencadenamiento de API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Propiedades de entrada de Canvas | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resumen de las etiquetas compatibles" }
 
 {% endraw %}
+
+{% alert note %}
+Las propiedades de desencadenamiento de API deben usar dos llaves por etiqueta: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Las llaves triples (por ejemplo `{{{...}}}`){% endraw %} no son una sintaxis de personalización válida en Braze. Consulta [¿Por qué mi Liquid activado por API falla en Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
 
 ### Atributos compatibles {#supported-attributes}
 
@@ -51,7 +55,6 @@ El comportamiento de las siguientes etiquetas difiere entre Canvas y Campaigns:
 {% endraw %}
 
 #### Nombres de Campaign en URLs {#campaign-names-in-urls}
-{: #campaign-names-in-urls}
 
 {% raw %}
 Los nombres de Campaign y de variantes de mensaje pueden incluir caracteres que no son seguros para URLs, como `%`, espacios o `&`. Cuando insertas `{{campaign.${name}}}` o `{{campaign.${message_name}}}` en un enlace o cadena de consulta, como un parámetro `utm_campaign`, aplica el filtro [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) para que la URL se analice correctamente. Por ejemplo:
@@ -79,7 +82,7 @@ Puedes usar como plantilla los siguientes atributos del dispositivo más recient
 | `{{most_recently_used_device.${model}}}` | El nombre del modelo del dispositivo, si está disponible. Algunos ejemplos son "iPhone 6S", "Nexus 6P" y "Firefox". |
 | `{{most_recently_used_device.${os}}}` | El sistema operativo del dispositivo, si está disponible. Algunos ejemplos son "iOS 9.2.1", "Android (Lollipop)" y "Windows". |
 | `{{most_recently_used_device.${platform}}}` | La plataforma del dispositivo, si está disponible. Si está configurada, el valor es uno de `ios`, `android`, `kindle`, `android_china`, `web` o `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información del dispositivo usado más recientemente" }
 
 Dado que existe una amplia variedad de operadores de dispositivos, nombres de modelos y sistemas operativos, te recomendamos que pruebes exhaustivamente cualquier Liquid que dependa condicionalmente de alguno de esos valores. Estos valores son `null` si no están disponibles en un dispositivo en particular.
 
@@ -91,7 +94,7 @@ Para mensajes dentro de la aplicación, puedes usar los siguientes atributos de 
 |------------------|---|
 | `{{app.${api_id}}}` | La clave de API de la aplicación que solicita el mensaje. Por ejemplo, puedes usar esta clave junto con `abort_message()` de Liquid para evitar enviar mensajes dentro de la aplicación a ciertas aplicaciones, como plataformas de TV o compilaciones de desarrollo que usan una clave de API de SDK diferente. |
 | `{{app.${name}}}` | El nombre de la aplicación (tal como se define en el panel de Braze) que solicita el mensaje. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información de la aplicación objetivo" }
 
 Por ejemplo, este código Liquid cancela un mensaje si las aplicaciones que lo solicitan no son una de las dos claves de API de la lista:
 
@@ -119,7 +122,7 @@ Para notificaciones push, mensajes dentro de la aplicación y Banners, puedes us
 | `{{targeted_device.${os}}}` | El sistema operativo del dispositivo, si está disponible. Algunos ejemplos son "iOS 9.2.1", "Android (Lollipop)" y "Windows". |
 | `{{targeted_device.${platform}}}` | La plataforma del dispositivo, si está disponible. Si está configurada, el valor es uno de `ios`, `android`, `kindle`, `android_china`, `web` o `tvos`. También puedes usar la etiqueta de personalización `most_recently_used_device`. |
 | `{{targeted_device.${foreground_push_enabled}}}` | Este valor es `true` cuando el dispositivo objetivo tiene habilitadas las notificaciones push en primer plano, `false` en caso contrario. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Información del dispositivo objetivo" }
 
 {% endraw %}
 
@@ -180,7 +183,7 @@ Después de crear una variable, puedes hacer referencia a ella en tu lógica de 
 
 1. [Crea un bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#create-a-content-block).
 2. Dale un nombre a tu bloque de contenido (sin espacios ni caracteres especiales).
-3. Selecciona **Edit** en la parte inferior de la página.
+3. Selecciona **Editar** en la parte inferior de la página.
 4. Escribe tus etiquetas `assign`.
 
 Siempre que el bloque de contenido esté al inicio de tu mensaje, cada vez que la variable se inserte en tu mensaje como un objeto, hará referencia a tu atributo personalizado elegido.
@@ -313,7 +316,7 @@ La etiqueta `{% random %}` devuelve un número aleatorio. Puedes usarla para ló
 |-------|--------------|
 | `{% random %}` | Un número decimal entre 0 y 1 (incluye 0, excluye 1). |
 | `{% random 10 %}` (argumento entero) | Un entero que va desde 0 hasta, pero sin incluir, el entero especificado. Por ejemplo, `{% random 10 %}` devuelve un entero de 0 a 9. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enviar mensajes con un número aleatorio" }
 
 {% endraw %}
 

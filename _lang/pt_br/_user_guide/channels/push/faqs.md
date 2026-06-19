@@ -12,6 +12,10 @@ channel:
 
 > Este artigo fornece respostas para algumas perguntas frequentes sobre o canal de push.
 
+### Por que as notificações por push às vezes atrasam? {#why-are-push-notifications-sometimes-delayed}
+
+A entrega geralmente segue três estágios: **processamento** pela Braze (segmentação, agendamento e envio ao provedor), transporte da Braze para o **APNs ou FCM** e entrega do provedor para o **dispositivo**. Atrasos podem ocorrer em qualquer estágio. A Braze não tem visibilidade sobre as filas do provedor ou do dispositivo; use o [registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) no cliente quando precisar identificar problemas de tempo no lado do dispositivo.
+
 ### O que acontece quando vários usuários fazem login em um único dispositivo? {#what-happens-when-multiple-users-log-into-a-single-device}
 
 Quando um usuário faz logout de um dispositivo ou site, ele continua acessível por push até que outro usuário faça login. Nesse momento, o token por push é reatribuído ao novo usuário. Isso acontece porque cada dispositivo pode ter apenas uma inscrição de push ativa por app ou site.
@@ -69,7 +73,7 @@ Esses filtros de segmentação verificam condições diferentes:
 |--------|---------------|----------|
 | **Push em Primeiro Plano Ativado** | O usuário tem um token por push de primeiro plano válido **e** seu estado de inscrição de push é `Opted-In` ou `Subscribed`. | Direcionar usuários que podem receber notificações por push visíveis. |
 | **Push em Segundo Plano ou Primeiro Plano Ativado** | O usuário tem qualquer token por push (primeiro plano ou segundo plano) **e** seu estado de inscrição de push é `Opted-In` ou `Subscribed`. Isso inclui usuários que desativaram notificações por push visíveis, mas ainda possuem um token por push de segundo plano. | Usado para [rastreamento de desinstalação]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [notificações por push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/) e geofencing. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Qual é a diferença entre os filtros Push em Primeiro Plano Ativado e Push em Segundo Plano ou Primeiro Plano Ativado?" }
 
 Um usuário pode ter `Push em Segundo Plano ou Primeiro Plano Ativado` sem ter `Push em Primeiro Plano Ativado`. Isso acontece quando o usuário desativou as notificações por push visíveis nas configurações do dispositivo, mas o app ainda mantém um token por push de segundo plano. Para mais informações, consulte [Usuários de push e inscrições]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
 

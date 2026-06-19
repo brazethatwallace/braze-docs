@@ -68,11 +68,15 @@ Wenn sowohl die anonyme Nutzer:in als auch die bekannte Nutzer:in einen Vornamen
 Nicht alle Daten werden aus dem anonymen Profil zusammengeführt. Push-Token und der Nachrichtenverlauf werden übertragen, und angepasste Attribute, angepasste Events sowie der Kaufverlauf aus dem anonymen Profil werden nur dann in die identifizierte Nutzer:in übernommen, wenn diese Felder im identifizierten Nutzerprofil noch nicht vorhanden sind. Bei widersprüchlichen Daten werden die Werte der identifizierten Nutzer:in beibehalten. Unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) finden Sie die vollständige Liste der Felder, die übertragen bzw. nicht übertragen werden.
 {% endalert %}
 
-Informationen zum Festlegen einer `external_id` für ein Nutzerprofil finden Sie in unserer Dokumentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web).
+Informationen zum Festlegen einer `external_id` für ein Nutzerprofil finden Sie in unserer Dokumentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)).
 
 {% alert note %}
 Verwaiste Nutzer:innen sind nicht berechtigt, Nachrichten zu empfangen.
 {% endalert %}
+
+### Doppelte Nutzer:innen zusammenführen {#merging-duplicate-users}
+
+Wenn Sie doppelte Nutzerprofile in Ihrem Workspace feststellen, können Sie diese über die REST API zusammenführen. Weitere Informationen zum Zusammenführen von Nutzer:innen und den verfügbaren Methoden finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
 ## Nutzer-Aliasse {#user-aliases}
 
@@ -104,7 +108,7 @@ Wenn Sie diese Informationen nicht kennen, können Sie den Endpunkt [`Export use
 
 Ein Nutzer-Alias kann auch für ein bekanntes Nutzerprofil festgelegt werden, um eine bekannte Nutzer:in über eine andere extern bekannte ID zu referenzieren. Eine Nutzer:in kann beispielsweise eine Business-Intelligence-Tool-ID (wie eine Amplitude-ID) haben, auf die Sie in Braze verweisen möchten.
 
-Informationen zum Festlegen eines Nutzer-Alias finden Sie in unserer Dokumentation für jede Plattform ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users).
+Informationen zum Festlegen eines Nutzer-Alias finden Sie in unserer Dokumentation für jede Plattform ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users)).
 
 ![Ein Flussdiagramm des Nutzerprofil-Lebenszyklus in Braze. Wenn changeUser() für eine anonyme Nutzer:in aufgerufen wird, wird diese zu einer identifizierten Nutzer:in und die Daten werden in das identifizierte Nutzerprofil migriert. Die identifizierte Nutzer:in hat eine Braze-ID und eine externe ID. Wenn zu diesem Zeitpunkt für eine zweite anonyme Nutzer:in changeUser() aufgerufen wird, werden Nutzerdatenfelder, die bei der identifizierten Nutzer:in noch nicht vorhanden sind, zusammengeführt. Wenn die identifizierte Nutzer:in einen Alias zu ihrem bestehenden Nutzerprofil hinzugefügt hat, sind keine Daten betroffen, aber sie wird zu einer identifizierten Nutzer:in mit Alias. Wenn eine dritte anonyme Nutzer:in mit demselben Alias-Label wie die identifizierte Nutzer:in, aber einem anderen Alias-Namen, dann changeUser() aufruft, werden alle Felder, die bei der identifizierten Nutzer:in nicht vorhanden sind, zusammengeführt und das Alias-Label im Profil der identifizierten Nutzer:in bleibt erhalten.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 

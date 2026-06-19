@@ -48,9 +48,7 @@ Blingsの担当者にHTMLスニペットをリクエストしてください。
 
 ### ステップ 2: Brazeでキャンペーンを作成する {#step-2-create-a-braze-campaign}
 
-Brazeで新しいメールまたはアプリ内メッセージのキャンペーンを作成し、BlingsのHTMLスニペットを挿入します。
-
-![Blings Braze キャンペーン。]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+Brazeで新しいメールまたはアプリ内メッセージのキャンペーンを作成し、BlingsのHTMLスニペットを挿入します。エディターのプレビューで、パーソナライズされたフィールドとCreative Suiteの動的コンテンツが正しく表示されることを確認します。
 
 ### ステップ 3: テストして起動する {#step-3-test-and-launch}
 

@@ -73,9 +73,7 @@ Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}
     ```
     {% endraw %}
 
-    변환은 다음과 유사해야 합니다:
-
-    ![데이터 변환 예시.]({% image_buster /assets/img/front/data_transformation.png %})
+    변환은 위의 JavaScript 예시를 따르되, 속성 이름과 경로를 Front 웹훅 페이로드에 맞게 조정하세요.
 
 {% alert tip %}
 이 템플릿을 특정 요구 사항에 맞게 수정할 수 있습니다. 예를 들어, 사전 설정된 커스텀 이벤트 이름을 커스터마이즈할 수 있습니다. 자세한 내용은 [데이터 변환 개요]({{site.baseurl}}/user_guide/data/unification/data_transformation/)를 참조하세요.

@@ -225,6 +225,10 @@ Les étiquettes de produit sont stockées sous forme de champ tableau sur chaque
 
 ### Personnalisation {#personalization}
 
+{% alert note %}
+Lorsque vous référencez des étiquettes de produit ou des collections dans les sélections de catalogue, utilisez uniquement la valeur elle-même sans les crochets `[]` ni les guillemets `""` qui apparaissent dans les données du catalogue. Par exemple, si une étiquette de produit s'affiche sous la forme `["Women's"]` dans votre catalogue, écrivez `Women's` dans votre filtre de sélection.
+{% endalert %}
+
 1. Créez une sélection de catalogue qui filtre les produits possédant l'étiquette de produit correspondante, comme « Women's ». Vous ne pouvez utiliser qu'un seul champ tableau unique au sein d'une même sélection de catalogue, et jusqu'à 50 produits dans votre sélection de catalogue.
 
 ![Une sélection de catalogue qui filtre les étiquettes de produit ayant l'attribut « Women's ».]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
@@ -599,6 +603,10 @@ Pour les collections Shopify, vous devez utiliser l'**ID de collection**, qui se
 {% endalert %}
 
 ### Personnalisation
+
+{% alert note %}
+Lorsque vous référencez des ID de collection dans les sélections de catalogue, utilisez uniquement la valeur numérique de l'ID sans les crochets `[]` qui apparaissent dans les données du catalogue. Par exemple, si les ID de collection s'affichent sous la forme `[123456789012, 987654321098]` dans votre catalogue, écrivez simplement l'ID numérique (comme `470645342446`) dans votre filtre de sélection.
+{% endalert %}
 
 1. Créez une sélection de catalogue nommée « New Women's Products - In Stock » qui filtre les produits possédant l'ID de cette collection. Vous ne pouvez utiliser qu'un seul champ tableau unique au sein d'une même sélection de catalogue, et jusqu'à 50 produits dans votre collection.
  - Vous pouvez également créer vos propres sélections personnalisées en filtrant avec le champ **Collections**.

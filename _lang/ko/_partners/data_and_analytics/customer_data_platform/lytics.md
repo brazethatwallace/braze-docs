@@ -61,9 +61,7 @@ Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Jobs** 대시보드로
 
 ### 3단계: 작업 구성 {#step-3-configure-the-job}
 
-**Configure Job** 프롬프트에서 레이블과 선택적 설명을 입력합니다. 다음으로, **Braze External User ID Field** 입력란에서 Braze 외부 사용자 ID(`braze_id`)가 포함된 Lytics 필드를 선택합니다. 다음 단계가 가장 중요합니다—Braze로 내보낼 오디언스를 선택합니다.
-
-![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
+**Configure Job** 프롬프트에서 레이블과 선택적 설명을 입력합니다. 다음으로, **Braze External User ID Field** 입력란에서 Braze 외부 사용자 ID(`braze_id`)가 포함된 Lytics 필드를 선택합니다. 다음 단계가 가장 중요합니다—같은 대화 상자에서 Braze로보낼 오디언스를 선택합니다.
 
 마지막으로, **Existing Users** 체크박스에서 원하는 옵션을 선택합니다. 이 체크박스를 선택한 상태로 두면 선택한 Lytics 오디언스에 이미 존재하는 사용자가 추가됩니다. 선택을 해제하면 워크플로가 시작된 후 오디언스에 진입하거나 이탈하는 사용자만 Braze로 내보내집니다.
 

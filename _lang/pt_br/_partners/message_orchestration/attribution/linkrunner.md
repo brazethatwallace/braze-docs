@@ -73,9 +73,7 @@ No dashboard da Braze, acesse **Configurações** > **Configurações e teste** 
    - `users.track`
    - `users.export.ids`
 3. Salve a chave de API.
-4. Copie a chave de API e o endpoint REST.
-
-![Esta imagem mostra a página de chaves de API na Braze, onde você pode criar e gerenciar chaves de API, incluindo a chave de importação de dados e o endpoint REST necessários para a integração com o Linkrunner.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copie a chave de API e o endpoint REST. Você colará esses valores no Linkrunner na próxima etapa—trate a chave como um segredo e não a compartilhe publicamente.
 
 ### Etapa 3: Configurar a Braze no dashboard do Linkrunner {#step-3-configure-braze-in-linkrunners-dashboard}
 

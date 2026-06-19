@@ -41,7 +41,7 @@ Percentages are calculated based on the current date range as compared to the pr
 
 For example, if you set your date range to **Last 7 Days** and your *Daily Active Users* shows a percent increase of 1.8%, that means you had 1.8% more daily active users this week compared to last week.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![A performance overview metric tile showing a metric value and percentage change.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Show breakdown
 
@@ -110,9 +110,9 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 
 - **Calculation timing**: Calculated once per day at 12:05 UTC as a 30-day snapshot; counts never change retroactively.
 - **Anonymous profiles**: Count **only** when at least one session is logged.
-- **Identified profiles**: Count automatically once they exist.
+- **Identified profiles**: Count only when `date_of_last_session` is within the rolling 30-day window.
 - **Orphaned profiles**: Duplicates merged into another user are **not** counted.
-- **CSV uploads**: Users uploaded by CSV count only when `date_of_first_session` or `date_of_last_session` is supplied, or when they later log a session.
+- **CSV uploads and REST API imports**: Users uploaded through CSV or the REST API count toward MAU when you supply `date_of_last_session` within the rolling 30-day window, or when they later log a session. Supplying only `date_of_first_session` does not affect MAU.
 - **API deletions**: Deleting a user via API does not update MAU immediately; the count self-corrects in the next monthly cycle.
 
 {% alert note %}

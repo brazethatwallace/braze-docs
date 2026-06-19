@@ -17,6 +17,8 @@ Braze Swift SDKは、Brazeのメッセージング、分析、ユーザーエン
 
 ## クイックスタート {#quickstart}
 
+以下のスニペットは、Braze Swift SDKをアプリに追加するために必要な最小限の設定を示しています。
+
 ``` swift
 // AppDelegate.swift
 import BrazeKit
@@ -51,6 +53,8 @@ AppDelegate.braze?.changeUser(userId: "Jane Doe")
 
 ## バージョンサポート {#version-support}
 
+以下の表は、Braze Swift SDKで使用されるツールのサポートされる最小バージョンを示しています。
+
 ツール | サポートされる最小バージョン
 :----|:----
 iOS|12.0+
@@ -65,6 +69,8 @@ Xcode|26.0+ (17A324)
 
 ## ライブラリー {#libraries}
 
+以下の表は、Braze Swift SDKの各ライブラリーについて説明しています。
+
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
 |                                                                                                                             | iOS |     tvOS      | macCatalyst |   visionOS    |
@@ -74,7 +80,7 @@ Xcode|26.0+ (17A324)
 | **BrazeLocation**<br/> _[ロケーション分析とジオフェンスモニタリング]をサポートするロケーションライブラリー。_               |  ✅  | ✅<sup>2</sup> |      ✅      | ✅<sup>2</sup> |
 | **BrazeNotificationService**<br/> _[リッチプッシュ通知]をサポートする通知サービス拡張ライブラリー。_ |  ✅  |      n/a      |      ✅      |       ✅       |
 | **BrazePushStory**<br/> _[Push Stories]をサポートする通知コンテンツ拡張ライブラリー。_                      |  ✅  |      n/a      |      ✅      |       ✅       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Libraries" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ライブラリー" }
 
 <sup>1</sup> _tvOSではプッシュ通知はサポートされていません_<br/>
 <sup>2</sup> _tvOSおよびvisionOSではジオフェンスモニタリングはサポートされていません_
@@ -99,7 +105,7 @@ Xcode|26.0+ (17A324)
 | スタティックXCFrameworks                   |    [braze-inc/braze-swift-sdk-prebuilt-static] |                   ✗ |
 | ダイナミックXCFrameworks                  |   [braze-inc/braze-swift-sdk-prebuilt-dynamic] |                   ✗ |
 | マージ可能なXCFrameworks（早期アクセス） | [braze-inc/braze-swift-sdk-prebuilt-mergeable] |                   ✗ |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alternative Repositories" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="代替リポジトリ" }
 
 ## お問い合わせ {#contact}
 

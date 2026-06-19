@@ -80,18 +80,11 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
 
 ### 識別済み
 
-この接続ステータスは、Brazeがあなたに割り当てられた一意の識別子（external IDと呼ばれる）を通じて、あなたのユーザープロファイルを認識していることを意味します。ダッシュボードの**ユーザー検索**ページでこのexternal IDを検索すれば、ユーザープロファイルを見つけることができます。そこには、アプリ内でのアクティビティに基づいてPilotから記録されたすべてのユーザー属性とイベントが保存されています。
-
-![ユーザー「torchie-208117」のBrazeユーザープロファイルの例です。]({% image_buster /assets/img/braze_pilot/user_profile.png %})
+この接続ステータスは、Brazeがあなたに割り当てられた一意の識別子（external IDと呼ばれる）を通じて、あなたのユーザープロファイルを認識していることを意味します。ダッシュボードの**ユーザー検索**ページでこのexternal IDを検索すれば、ユーザープロファイルを見つけることができます。そこには、アプリ内でのアクティビティに基づいてPilotから記録されたすべてのユーザー属性とイベントが保存されています。Brazeダッシュボードで**Audience** > **ユーザー検索**に移動し、Pilotの**external ID**を入力してプロファイルを開き、属性とイベントを確認します。
 
 ### 接続タイプ
 
-接続の種類を確認するには、画面右上に表示されている接続ステータスを確認してください。
-
-{% tabs local %}
-{% tab Anonymous user  %}
-
-**匿名**は、匿名ユーザーとしてデータを記録していることを示します。
+接続の種類を確認するには、Pilotアプリの右上にある接続ステータス表示を確認してください。
 
 <style>
   .imgDiv {
@@ -99,10 +92,10 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
     }
 </style>
 
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_anonymous.png %}" style="max-width:40%">
-</div>
-<br>
+{% tabs local %}
+{% tab Anonymous user  %}
+
+**匿名**は、匿名ユーザーとしてデータを記録していることを示します。ステータス領域には**匿名**ラベル（マスクやシークレットモード風のアイコンなど）が表示されます。
 
 {% endtab %}
 {% tab Identified user %}
@@ -117,12 +110,7 @@ Brazeに送信されるすべてのデータは、アプリやWebサイトの特
 {% endtab %}
 {% tab Not connected %}
 
-**未接続**は、まだBraze SDKとPilotの接続を初期化していないことを示します。
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_not_connected.png %}" style="max-width:40%">
-</div>
-<br>
+**未接続**は、まだBraze SDKとPilotの接続を初期化していないことを示します。ステータス領域では、PilotがまだBrazeワークスペースに接続されていないことが示されます。
 
 {% endtab %}
 {% endtabs %}

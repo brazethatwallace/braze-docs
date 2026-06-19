@@ -158,7 +158,7 @@ If you anticipate large campaigns driving a spike in user activity and overloadi
 
 ### A/B testing
 
-You can create a [multivariate or A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/) for any campaign that targets a single channel and single device. For example, if you want to use multivariate or A/B testing for a push campaign, you can target only iOS devices or only Android devices—not both device types in the same campaign.
+You can create a [multivariate or A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/) for any campaign that targets a single channel, even if the single channel includes multiple devices. For example, if you want to use multivariate or A/B testing for a push campaign, you can target only iOS devices or only Android devices—not both device types in the same campaign.
 
 For push, email, and webhook campaigns scheduled to send once, you can also use an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). An optimization reserves a portion of your target audience from the A/B test and holds them for a second optimized send based on the results from the first test.
 
