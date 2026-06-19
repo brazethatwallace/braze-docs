@@ -45,7 +45,7 @@ Jeder Drag-and-Drop-Content-Block ist auf eine Zeile beschränkt. Sie können je
 | Inhaltsgröße | Maximal 50 KB. |
 | Platzierung | Content-Blöcke können nicht in einer E-Mail-Fußzeile verwendet werden, aber Sie können [einen Content-Block erstellen, der eine Fußzeile enthält](#email-footers), um ihn in Ihren E-Mails zu verwenden. |
 | Erstellung | HTML-Editor oder Drag-and-Drop-Editor. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spezifikationen für Content-Blöcke" }
 
 {% alert tip %}
 Beim Erstellen von Content-Blöcken kann es hilfreich sein, HTML und Liquid durch Zeilenumbrüche zu visualisieren. Wenn diese Zeilenumbrüche beim Senden beibehalten werden, riskieren Sie überflüssige Leerzeichen, die das Rendering des Blocks beeinträchtigen können. Um dies zu vermeiden, verwenden Sie den **Capture**-Tag in Ihrem Block zusammen mit dem **&#124; strip**-Filter.
@@ -107,7 +107,6 @@ Nachdem Sie einen Content-Block in einer aktiven Campaign oder einem Canvas hinz
 
 Diese Vorschau enthält Informationen über den Content-Block, z. B. wer ihn erstellt hat, Tags, Erstellungsdatum, Datum der letzten Bearbeitung, Beschreibung, Editor-Typ, Anzahl der Verwendungen mit Details (eine anklickbare Liste von Nachrichten oder Content-Blöcken, die den Content-Block verwenden) sowie eine tatsächliche Vorschau des Content-Blocks.
 
-
 ## Content-Blöcke verschachteln {#nest-content-blocks}
 
 Content-Blöcke können verschachtelt werden, aber nur einmal. Sie können Content-Block A in Content-Block B verschachteln, aber Sie können Content-Block B dann nicht in Content-Block C verschachteln.
@@ -130,7 +129,7 @@ Nachdem Sie Änderungen an einem Content-Block vorgenommen haben, können Sie de
 
 Content-Blöcke können nicht innerhalb einer E-Mail-Fußzeile verwendet werden, aber Sie können einen Content-Block erstellen, der Fußzeileninhalte enthält, um ihn in Ihren E-Mails zu verwenden. Gehen Sie dazu wie folgt vor:
 
-1. Gehen Sie zu **Settings** > **Email Preferences** > **Custom Footer** und erstellen Sie die Fußzeile.
+1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Angepasste Fußzeile** und erstellen Sie die Fußzeile.
 2. Fügen Sie die Fußzeile einem Content-Block in der **Content-Block-Bibliothek** hinzu.
 3. Fügen Sie diesen Content-Block Ihren E-Mail-Templates oder Nachrichten hinzu.
 

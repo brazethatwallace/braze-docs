@@ -61,9 +61,7 @@ Em seguida, escolha uma autorização nas opções **Select Authorization**.
 
 ### Etapa 3: Configurar o trabalho {#step-3-configure-the-job}
 
-No prompt **Configure Job**, forneça um rótulo e uma descrição opcional. Em seguida, no campo **Braze External User ID Field**, selecione o campo na Lytics que contém o ID de usuário externo da Braze (`braze_id`). A próxima etapa é a mais importante — selecione os públicos a serem exportados para a Braze.
-
-![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
+No prompt **Configure Job**, forneça um rótulo e uma descrição opcional. Em seguida, no campo **Braze External User ID Field**, selecione o campo na Lytics que contém o ID de usuário externo da Braze (`braze_id`). A próxima etapa é a mais importante — na mesma caixa de diálogo, selecione os públicos a serem exportados para a Braze.
 
 Por fim, escolha a opção preferível para a caixa de seleção **Existing Users**. Deixar essa caixa marcada adicionará usuários que já existem no público selecionado da Lytics. Se desmarcada, os usuários só serão exportados para a Braze quando entrarem ou saírem do público após o início do fluxo de trabalho.
 

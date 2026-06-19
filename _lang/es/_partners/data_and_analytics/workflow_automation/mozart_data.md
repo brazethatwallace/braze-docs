@@ -77,9 +77,7 @@ A continuación, mientras estás conectado a Braze, ve a **Integrations > Techno
 
 ![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-A continuación, elige un nombre para la sincronización, proporciona las direcciones de correo electrónico de contacto y selecciona un tipo de datos y una frecuencia de sincronización.
-
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
+A continuación, en la pantalla de importación de Snowflake en Braze, elige un nombre para la sincronización, proporciona las direcciones de correo electrónico de contacto y selecciona un tipo de datos y una frecuencia de sincronización.
 
 #### Paso 3: Añadir una clave pública al usuario de Braze {#step-3-add-a-public-key-to-the-braze-user}
 En este punto, tendrás que volver a Snowflake para completar la configuración. Añade la clave pública que aparece en el panel de Braze al usuario que creaste para que Braze se conecte a Snowflake.

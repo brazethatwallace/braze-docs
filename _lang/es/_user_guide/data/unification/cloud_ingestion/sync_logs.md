@@ -37,7 +37,7 @@ Los registros de sincronización también proporcionan los siguientes detalles p
 
 ### Retención de datos {#data-retention}
 
-Los datos del registro de sincronización, incluidas todas las cargas útiles a nivel de fila y los detalles de los errores, se conservan durante un máximo de **30 días**. Los registros con más de 30 días de antigüedad se eliminarán automáticamente.
+Los datos del registro de sincronización, incluidas todas las cargas útiles a nivel de fila y los detalles de los errores, se conservan durante un máximo de **30 días**. Los registros con más de 30 días de antigüedad se eliminan automáticamente.
 
 Los metadatos de la ejecución de sincronización, como el número de filas procesadas, se conservan durante al menos 12 meses.
 

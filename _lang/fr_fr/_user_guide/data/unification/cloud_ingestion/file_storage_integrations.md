@@ -39,7 +39,7 @@ Commençons par définir les termes utilisés dans le cadre de cette tâche.
 | Nom de ressource Amazon (ARN) | L'ARN est un identifiant unique pour les ressources AWS. |
 | Gestion des identités et des accès (IAM) | IAM est un service Web qui vous permet de contrôler, en toute sécurité, l'accès aux ressources AWS. Dans ce tutoriel, vous allez créer une politique IAM et l'attribuer à un rôle IAM pour intégrer votre compartiment S3 à l'Ingestion de données cloud de Braze. |
 | Amazon Simple Queue Service (SQS) | SQS est une file d'attente hébergée qui vous permet d'intégrer des systèmes et des composants logiciels distribués. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions AWS" }
 
 ## Configuration de l'Ingestion de données cloud dans AWS {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -221,7 +221,7 @@ Donnez un nom et une description au rôle, puis sélectionnez **Create Role**.
 
 L'Ingestion de données cloud prend en charge les fichiers JSON, CSV et Parquet. Les colonnes requises dépendent du type de données :
 
-- Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un payload
+- Les données utilisateur (attributs, événements personnalisés, événements d'achat) utilisent des identifiants utilisateur et un `payload`
 - Les données de catalogue utilisent des identifiants de catalogue
 
 Si vous utilisez S3 pour les données de catalogue, consultez cette page ainsi que [Synchroniser et supprimer les données du catalogue]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) pour les exigences et le comportement spécifiques aux catalogues.
@@ -241,7 +241,7 @@ Pour les synchronisations de données utilisateur (attributs, événements perso
 | `BRAZE_ID` | L'identifiant utilisateur Braze. Celui-ci est généré par le SDK de Braze, et il n'est pas possible de créer de nouveaux utilisateurs à l'aide d'un ID Braze via l'Ingestion de données cloud. Pour créer de nouveaux utilisateurs, spécifiez un ID externe ou un alias d'utilisateur. |
 | `EMAIL` | L'adresse e-mail de l'utilisateur. S'il existe plusieurs profils avec la même adresse e-mail, le profil mis à jour le plus récemment sera prioritaire. Si vous indiquez à la fois l'e-mail et le téléphone, Braze utilisera l'e-mail comme identifiant principal. |
 | `PHONE` | Le numéro de téléphone de l'utilisateur. S'il existe plusieurs profils avec le même numéro de téléphone, le profil mis à jour le plus récemment sera prioritaire. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identifiants des utilisateurs" }
 
 En plus d'un identifiant, chaque ligne doit contenir une colonne `payload` avec une chaîne JSON des champs que vous souhaitez synchroniser avec l'utilisateur dans Braze.
 
@@ -258,7 +258,7 @@ Pour les synchronisations de catalogue, votre fichier source doit contenir les c
 | `ID` | Oui | L'identifiant unique de l'élément de catalogue. Utilisé pour créer, mettre à jour ou supprimer l'élément dans Braze. |
 | `payload` | Oui | Une chaîne JSON des champs et valeurs du catalogue à synchroniser. Doit correspondre au schéma de votre catalogue dans Braze. |
 | `DELETED` | Non | Lorsque la valeur est `true`, l'élément de catalogue correspondant à l'`ID` est supprimé du catalogue dans Braze. Omettez cette colonne ou définissez-la sur `false` pour les opérations de création ou de mise à jour. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifiants de catalogue" }
 
 ### Exemples {#examples}
 
@@ -337,7 +337,7 @@ Chaque ligne du fichier doit identifier exactement un utilisateur à l'aide de l
 | `EXTERNAL_ID` | Correspond à l'`external_id` utilisé dans Braze. |
 | `ALIAS_NAME` et `ALIAS_LABEL` | Les deux colonnes ensemble identifient l'utilisateur par son alias. |
 | `BRAZE_ID` | ID utilisateur généré par Braze (utilisateurs existants uniquement). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suppression d'utilisateurs" }
 
 {% alert important %}
 La suppression d'utilisateurs est définitive et irréversible. N'incluez que les utilisateurs que vous avez l'intention de supprimer. Pour plus d'informations, consultez [Supprimer des utilisateurs avec l'Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

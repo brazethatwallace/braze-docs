@@ -266,7 +266,7 @@ Avant l'envoi, l'éditeur signale les problèmes courants :
 {% tab Campaign %}
 Ensuite, construisez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur l'utilisation des outils Braze pour créer votre campagne e-mail.
 
-#### Choisir la planification de distribution ou le déclencheur {#choose-delivery-schedule-or-trigger}
+### Choisir la planification de distribution ou le déclencheur {#choose-delivery-schedule-or-trigger}
 
 Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -276,7 +276,7 @@ Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est
 
 Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Choisir les utilisateurs à cibler {#choose-users-to-target}
+### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
 Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres. Braze affiche un aperçu en temps réel de la population du segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au segment est calculée juste avant l'envoi.
 
@@ -290,7 +290,7 @@ Vous pouvez également limiter la distribution à un nombre spécifié d'utilisa
 Lors de la création d'une nouvelle campagne e-mail, le groupe de contrôle est défini par défaut à 20 % et peut être ajusté ou supprimé selon les besoins de votre campagne.
 {% endalert %}
 
-##### Campagnes multicanales avec e-mail et push {#multichannel-campaigns-with-email-and-push}
+#### Campagnes multicanales avec e-mail et push {#multichannel-campaigns-with-email-and-push}
 
 Pour les campagnes multicanales ciblant à la fois les canaux e-mail et push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement accepté reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
@@ -304,7 +304,7 @@ Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagn
 Avec cette configuration, n'incluez aucun filtre dans l'étape **Target Audiences** qui limiterait l'audience à un seul canal (par exemple, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Choisir les événements de conversion {#choose-conversion-events}
+### Choisir les événements de conversion {#choose-conversion-events}
 
 Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une campagne. Vous pouvez spécifier l'une des actions suivantes comme événement de conversion :
 

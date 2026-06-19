@@ -241,9 +241,7 @@ return brazecall;
 
 ### 테스트 {#testing}
 
-템플릿을 원하는 대로 수정한 후에는 올바르게 작동하는지 확인해야 합니다. **Validate**를 클릭하여 코드 출력의 미리보기를 반환하고 선택한 대상에 대해 허용되는 요청인지 확인합니다.
-
-![Braze 데이터 변환 UI 스크린샷]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
+템플릿을 원하는 대로 수정한 후에는 올바르게 작동하는지 확인해야 합니다. 변환 편집기에서 **Validate**를 선택해 **Output** 섹션에 미리보기를 생성하고, 선택한 대상에 대해 Braze가 매핑된 요청을 수락하는지 확인합니다.
 
 "출력" 필드에 표시되는 오브젝트가 만족스러우면 **Activate**를 클릭하여 데이터 변환 엔드포인트가 데이터를 수신할 준비가 되도록 합니다.
 

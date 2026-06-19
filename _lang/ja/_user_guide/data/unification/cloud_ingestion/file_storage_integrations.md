@@ -39,7 +39,7 @@ S3 用のクラウドデータ取り込み (CDI) を使用して、AWS アカウ
 | Amazon リソースネーム (ARN) | ARN は、AWS リソースの一意の識別子です。 |
 | アイデンティティとアクセス管理 (IAM) | IAM は、AWS リソースへのアクセスを安全にコントロールできる Web サービスです。このチュートリアルでは、IAM ポリシーを作成し、それを IAM ロールに割り当てて、S3 バケットを Braze クラウドデータ取り込みと統合します。 |
 | Amazon Simple Queue Service (SQS) | SQS は、分散ソフトウェアシステムとコンポーネントを統合できるホストキューです。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS の定義" }
 
 ## AWS でのクラウドデータ取り込みの設定 {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -241,7 +241,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 | `BRAZE_ID` | Braze のユーザー識別子です。これは Braze SDKによって生成されます。クラウドデータ取り込み経由で Braze ID を使用して新規ユーザーを作成することはできません。新規ユーザーを作成するには、external ID またはユーザーエイリアスを指定します。 |
 | `EMAIL` | ユーザーのメールアドレスです。同じメールアドレスを持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。メールと電話の両方を含める場合は、Braze はメールをプライマリ識別子として使用します。 |
 | `PHONE` | ユーザーの電話番号です。同じ電話番号を持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザー識別子" }
 
 識別子に加えて、各行には Braze のユーザーに同期させたいフィールドの JSON 文字列を含む `PAYLOAD` 列が必要です。
 
@@ -258,13 +258,13 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 | `ID` | はい | カタログアイテムの一意の識別子です。Braze でアイテムの作成、更新、または削除に使用されます。 |
 | `PAYLOAD` | はい | 同期するカタログフィールドと値の JSON 文字列です。Braze のカタログのスキーマと一致する必要があります。 |
 | `DELETED` | いいえ | `true` の場合、一致する `ID` のカタログアイテムが Braze のカタログから削除されます。作成または更新操作の場合は、この列を省略するか `false` に設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カタログ識別子" }
 
 ### 例 {#examples}
 
 {% tabs %}
 {% tab JSON Attributes %}
-````````` json
+``` json
 {"external_id":"s3-qa-0","payload":"{\"name\": \"GT896\", \"age\": 74, \"subscriber\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"external_id":"s3-qa-1","payload":"{\"name\": \"HSCJC\", \"age\": 86, \"subscriber\": false, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600824\"}"}
 {"external_id":"s3-qa-2","payload":"{\"name\": \"YTMQZ\", \"age\": 43, \"subscriber\": false, \"retention\": {\"previous_purchases\": 23, \"vip\": true}, \"last_visit\": \"2023-08-08T16:03:26.600831\"}"}
@@ -278,7 +278,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 {% endalert %}
 {% endtab %}
 {% tab JSON Custom Events %}
-````````` json
+``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 ```
@@ -287,7 +287,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 {% endalert %}
 {% endtab %}
 {% tab JSON Purchase Events %}
-````````` json
+``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 ```
@@ -297,7 +297,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 
 {% endtab %}
 {% tab CSV Attributes %}
-`````````plaintext
+```plaintext
 external_id,payload
 s3-qa-load-0-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""SNXIM"", ""age"": 54, ""subscriber"": true, ""retention"": {""previous_purchases"": 19, ""vip"": true}, ""last_visit"": ""2023-08-08T16:03:26.598806""}"
 s3-qa-load-1-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""0J747"", ""age"": 73, ""subscriber"": false, ""retention"": {""previous_purchases"": 22, ""vip"": false}, ""last_visit"": ""2023-08-08T16:03:26.598816""}"
@@ -305,7 +305,7 @@ s3-qa-load-2-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""EP1U0"", ""age""
 ```
 {% endtab %}
 {% tab CSV Catalogs  %}
-`````````plaintext
+```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
@@ -337,21 +337,21 @@ S3 のファイルを使って Braze でユーザープロファイルを削除�
 | `EXTERNAL_ID` | Braze で使用される `external_id` と一致します。 |
 | `ALIAS_NAME` と `ALIAS_LABEL` | 両方の列を合わせて、ユーザーをエイリアスで識別します。 |
 | `BRAZE_ID` | Braze が生成したユーザー ID（既存ユーザーのみ）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの削除" }
 
 {% alert important %}
 ユーザーの削除は永続的で元に戻すことはできません。削除する予定のユーザーのみを含めてください。詳細については、[クラウドデータ取り込みを使用したユーザーの削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)を参照してください。
 {% endalert %}
 
 **例 – JSON（ユーザー削除）：**
-`````````jsonl
+```jsonl
 {"external_id":"user-to-delete-001"}
 {"external_id":"user-to-delete-002"}
 {"braze_id":"braze-id-from-profile"}
 ```
 
 **例 – CSV（ユーザー削除）：**
-`````````plaintext
+```plaintext
 external_id
 user-to-delete-001
 user-to-delete-002
@@ -370,13 +370,13 @@ user-to-delete-002
 各行にはまだ `ID` と `PAYLOAD` が必要です。削除対象の行については、ペイロードは最小限で構いません。Braze は `ID` でアイテムを削除します。
 
 **例 – JSON（カタログアイテム削除）：**
-`````````jsonl
+```jsonl
 {"id":"85","payload":"{\"product_name\": \"Product 85\", \"price\": 85.85}"}
 {"id":"1","payload":"{\"product_name\": \"Product 1\", \"price\": 1.01}","deleted":true}
 ```
 
 **例 – CSV（カタログアイテム削除）：**
-`````````plaintext
+```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true

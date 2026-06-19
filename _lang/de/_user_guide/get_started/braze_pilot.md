@@ -80,18 +80,11 @@ Dieser Verbindungsstatus spiegelt die Erfahrung eines Gastes Ihrer App oder Webs
 
 ### Identifiziert
 
-Dieser Verbindungsstatus bedeutet, dass Braze Ihr Nutzerprofil anhand eines Ihnen zugewiesenen eindeutigen Bezeichners erkennt, der als externe ID bezeichnet wird. Sie können auf der Seite **Nutzersuche** Ihres Dashboards nach dieser externen ID suchen, um Ihr Nutzerprofil zu finden, in dem alle Nutzerattribute und Events gespeichert sind, die von Pilot basierend auf Ihren Aktivitäten in der App protokolliert wurden.
-
-![Ein Beispiel für ein Braze-Nutzerprofil für die Nutzer:in „torchie-208117“.]({% image_buster /assets/img/braze_pilot/user_profile.png %})
+Dieser Verbindungsstatus bedeutet, dass Braze Ihr Nutzerprofil anhand eines Ihnen zugewiesenen eindeutigen Bezeichners erkennt, der als externe ID bezeichnet wird. Sie können auf der Seite **Nutzersuche** Ihres Dashboards nach dieser externen ID suchen, um Ihr Nutzerprofil zu finden, in dem alle Nutzerattribute und Events gespeichert sind, die von Pilot basierend auf Ihren Aktivitäten in der App protokolliert wurden. Gehen Sie im Braze-Dashboard zu **Audience** > **Nutzersuche**, geben Sie Ihre **externe ID** für Pilot ein und öffnen Sie das Profil, um Attribute und Events zu prüfen.
 
 ### Verbindungstyp
 
-Um zu überprüfen, welche Art von Verbindung Sie haben, können Sie den Verbindungsstatus oben rechts auf Ihrem Bildschirm einsehen.
-
-{% tabs local %}
-{% tab Anonymous user  %}
-
-**Anonym** bedeutet, dass Sie Daten als anonyme:r Nutzer:in protokollieren.
+Um zu überprüfen, welche Art von Verbindung Sie haben, sehen Sie oben rechts in der Pilot-App den Verbindungsstatus.
 
 <style>
   .imgDiv {
@@ -99,10 +92,10 @@ Um zu überprüfen, welche Art von Verbindung Sie haben, können Sie den Verbind
     }
 </style>
 
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_anonymous.png %}" style="max-width:40%">
-</div>
-<br>
+{% tabs local %}
+{% tab Anonymous user  %}
+
+**Anonym** bedeutet, dass Sie Daten als anonyme:r Nutzer:in protokollieren. Der Statusbereich zeigt eine **Anonym**-Kennzeichnung (z. B. ein Masken- oder Inkognito-Symbol).
 
 {% endtab %}
 {% tab Identified user %}
@@ -117,12 +110,7 @@ Wenn Sie Daten als identifizierte:r Nutzer:in protokollieren, wird neben Ihrer e
 {% endtab %}
 {% tab Not connected %}
 
-**Nicht verbunden** bedeutet, dass Sie die Braze-SDK-Verbindung mit Pilot noch nicht initialisiert haben.
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_not_connected.png %}" style="max-width:40%">
-</div>
-<br>
+**Nicht verbunden** bedeutet, dass Sie die Braze-SDK-Verbindung mit Pilot noch nicht initialisiert haben. Der Statusbereich weist darauf hin, dass Pilot noch nicht mit Ihrem Braze-Workspace verbunden ist.
 
 {% endtab %}
 {% endtabs %}

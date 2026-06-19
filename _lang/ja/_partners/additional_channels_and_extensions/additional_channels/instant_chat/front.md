@@ -73,9 +73,7 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
     ```
     {% endraw %}
 
-    変換は次のようになります。
-
-    ![データ変換の例。]({% image_buster /assets/img/front/data_transformation.png %})
+    変換は上記のJavaScript例に沿うようにし、プロパティ名とパスをFrontのWebhookペイロードに合わせて調整してください。
 
 {% alert tip %}
 このテンプレートを変更して、特定のニーズに合わせることができます。例えば、プリセットのカスタムイベント名をカスタマイズできます。詳細については、[データ変換の概要]({{site.baseurl}}/user_guide/data/unification/data_transformation/)を参照してください。

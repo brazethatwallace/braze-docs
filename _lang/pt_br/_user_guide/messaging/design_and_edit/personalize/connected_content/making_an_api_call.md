@@ -112,17 +112,17 @@ Se suas mensagens usam Conteúdo conectado e você envia em alto volume, planeje
 
 ### Usando autenticação básica {#using-basic-authentication}
 
-Se a URL requer autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar na sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Settings** > **Connected Content**.
+Se a URL requer autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar na sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Configurações** > **Conteúdo conectado**.
 
 ![As configurações de Conteúdo conectado no dashboard da Braze.]({% image_buster /assets/img/connected_content/basic_auth_mgmt.png %})
 
-Para adicionar uma nova credencial, selecione **Add credential** > **Basic authentication**.
+Para adicionar uma nova credencial, selecione **Adicionar credencial** > **Autenticação básica**.
 
-![Menu suspenso "Add credential" com a opção de usar autenticação básica ou autenticação por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
+![Menu suspenso "Adicionar credencial" com a opção de usar autenticação básica ou autenticação por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
 Dê um nome à sua credencial e insira o nome de usuário e a senha.
 
-![A janela "Create New Credential" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![A janela "Criar nova credencial" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 Você pode então usar essa credencial de autenticação básica nas suas chamadas de API referenciando o nome do token:
 
@@ -142,7 +142,7 @@ As credenciais armazenadas se aplicam a solicitações {% raw %}`{% connected_co
 
 Ao usar o Conteúdo conectado da Braze, você pode descobrir que certas APIs exigem um token em vez de um nome de usuário e senha. A Braze também pode armazenar credenciais que contêm valores de cabeçalho de autenticação por token.
 
-Para adicionar uma credencial que contém valores de token, selecione **Add credential** > **Token authentication**. Em seguida, adicione os pares chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
+Para adicionar uma credencial que contém valores de token, selecione **Adicionar credencial** > **Autenticação por token**. Em seguida, adicione os pares chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
 
 ![Um exemplo de token "token_credential_abc" com detalhes de autenticação por token.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 

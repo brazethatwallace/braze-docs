@@ -24,6 +24,13 @@ If you selected **No optimization** when setting up your campaign, your analytic
 
 For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) article for your messaging channel.
 
+### BrazeAI™ Variant Selection (Push only)
+If you are using BrazeAI™ Variant Selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
+
+For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+
+![BrazeAI Variant Selection Uplift Results]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+
 ### Winning Variant
 
 If you selected **Winning Variant** for your optimization when setting up your campaign, you have access to an additional tab of your campaign analytics called **A/B Test Result**. After the Winning Variant is sent to the remaining users in your test, this tab shows the results of that send.
