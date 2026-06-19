@@ -43,11 +43,13 @@ Puedes interactuar con Braze mediante lenguaje natural utilizando herramientas c
 
 {% tabs %}
 {% tab Claude %}
-![«¿Cuáles son las funciones de Braze que tengo disponibles?», pregunta y respuesta en Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Ejemplo de prompt:** `What are my available Braze functions?`
+**Ejemplo de respuesta:** Utilizó `list_functions` y devolvió las categorías de funciones MCP de Braze disponibles.
 {% endtab %}
 
 {% tab Cursor %}
-![«¿Cuáles son las funciones disponibles de Braze?», pregunta y respuesta en Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Ejemplo de prompt:** `What are my available Braze functions?`
+**Ejemplo de respuesta:** Consultó `list_functions` y listó funciones como `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 
@@ -87,7 +89,7 @@ Comprueba si estás en modo de consulta o en modo de agente. Para utilizar el se
 
 ### ¿Qué hago cuando el agente devuelve una respuesta que parece incorrecta? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
 
-Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál es el modelo con mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el mensaje.
+Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál es el modelo con mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el prompt.
 
 Si los problemas persisten, puedes enviarnos un correo electrónico a [mcp-product@braze.com](mailto:mcp-product@braze.com) para informarnos. Si es posible, incluye un video y amplía las funciones de llamada para que podamos ver qué llamadas intentó realizar el agente.
 

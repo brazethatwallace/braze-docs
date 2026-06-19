@@ -77,8 +77,8 @@ Braze 대시보드에서 **설정** > **설정 및 테스트** > **API 키**로 
 
 ### 3단계: Linkrunner 대시보드에서 Braze 구성 {#step-3-configure-braze-in-linkrunners-dashboard}
 
-1. Linkrunner에서 왼쪽 패널의 **Integrations**로 이동합니다.
-2. **Analytics**에서 Braze의 **Configure**를 선택합니다.
+1. Linkrunner에서 왼쪽 패널의 **통합**으로 이동합니다.
+2. **분석**에서 Braze의 **구성**을 선택합니다.
 3. 2단계에서 복사한 API 키와 REST 엔드포인트를 입력합니다.
 
 자세한 내용은 [Linkrunner 설명서](https://docs.linkrunner.io/analytics-integrations/braze)를 참조하세요.

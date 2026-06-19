@@ -121,7 +121,7 @@ No dashboard do Front, acesse **Settings** > **Channels** > **Add Channels**, se
 
 No campo de endpoint da API de saída, insira a URL do webhook de Transformação de dados [que você criou anteriormente](#step-1-set-up-a-data-transformation-in-braze). Todas as mensagens de saída de agentes ao vivo no seu novo canal da Braze serão enviadas para cá. Esse canal também fornece uma URL de endpoint para a Braze encaminhar mensagens SMS no campo **Incoming URL**.
 
-Não se esqueça de anotar essa URL — você precisará dela mais tarde.
+Não se esqueça de anotar essa URL&#8212;você precisará dela mais tarde.
 
 ![As configurações de canal para o canal da Braze recém-criado no Front.]({% image_buster /assets/img/front/front_custom_channel2.png %}){: style="max-width:65%;"}
 

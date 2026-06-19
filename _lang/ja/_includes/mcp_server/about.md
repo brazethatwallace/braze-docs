@@ -43,11 +43,13 @@ ClaudeやCursorのようなツールを使って、自然言語でBrazeとやり
 
 {% tabs %}
 {% tab Claude %}
-![「利用可能なBrazeの機能は何ですか？」という質問がClaudeで尋ねられ、回答されている様子。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**プロンプトの例：** `What are my available Braze functions?`
+**応答の例：** `list_functions`を使用し、利用可能なBraze MCP機能カテゴリを返しました。
 {% endtab %}
 
 {% tab Cursor %}
-![「利用可能なBrazeの機能は何ですか」という質問がCursorで尋ねられ、回答されている様子。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**プロンプトの例：** `What are my available Braze functions?`
+**応答の例：** `list_functions`をクエリし、`get_canvas_list`などの機能を一覧表示しました。
 {% endtab %}
 {% endtabs %}
 

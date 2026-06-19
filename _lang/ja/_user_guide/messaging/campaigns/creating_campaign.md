@@ -158,7 +158,7 @@ Segmentまたはフィルターを追加した後、ユーザーを検索してS
 
 ### ABテスト {#ab-testing}
 
-単一チャネルかつ単一デバイスをターゲットとするCampaignに対して、[多変量テストまたはABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を作成できます。たとえば、プッシュCampaignで多変量テストまたはABテストを使用したい場合、iOSデバイスのみまたはAndroidデバイスのみをターゲットにできます。同じCampaign内で両方のデバイスタイプをターゲットにすることはできません。
+単一チャネルをターゲットとするCampaignに対して、複数のデバイスを含む場合でも、[多変量テストまたはABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を作成できます。たとえば、プッシュCampaignで多変量テストまたはABテストを使用したい場合、iOSデバイスのみまたはAndroidデバイスのみをターゲットにできます。同じCampaign内で両方のデバイスタイプをターゲットにすることはできません。
 
 1回送信がスケジュールされたプッシュ、メール、WebhookのCampaignでは、[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)も使用できます。最適化は、ABテストからターゲットオーディエンスの一部を予約し、最初のテストの結果に基づいて2回目の最適化された送信のために保持します。
 

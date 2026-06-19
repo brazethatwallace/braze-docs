@@ -268,8 +268,8 @@ Removed Push Credential
 
 | 표준 속성 | 커스텀 속성 |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>이메일 주소 </li> <li> 전화번호 </li> <li> 이름 </li> <li> 성 </li> <li> 성별 </li> <li> 생년월일 </li> <li> 기기 ID </li> <li> 최근 위치 </li> </ul> {:/} | {::nomarkdown} <ul> <li> 모든 커스텀 속성<ul><li>모든 속성을 숨길 필요가 없는 경우 개별 커스텀 속성을 PII로 표시할 수 있습니다.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {::nomarkdown}<ul> <li>이메일 주소 </li> <li> 전화번호 </li> <li> 이름 </li> <li> 성 </li> <li> 성별 </li> <li> 생년월일 </li> <li> 기기 ID </li> <li> LINE ID </li> <li> 최근 위치 </li> </ul> {:/} | {::nomarkdown} <ul> <li> 모든 커스텀 속성<ul><li>모든 속성을 숨길 필요가 없는 경우 개별 커스텀 속성을 PII로 표시할 수 있습니다.</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="잠재적 PII 속성" }
 
 ### 제한된 영역 {#limited-areas}
 
@@ -282,7 +282,7 @@ Removed Push Credential
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | **사용자 데이터** 드롭다운에서: {::nomarkdown} <ul> <li> 사용자에게 <b>CSV 내보내기 이메일 주소</b> 옵션이 표시되지 않습니다. </li> <li> <b>CSV 내보내기 사용자 데이터</b>를 선택할 때 CSV 파일에 앞서 언급한 표준 및 커스텀 속성이 제공되지 않습니다. </li> </ul> {:/} | |
 | 내부 테스트 그룹 | 사용자는 내부 테스트 그룹에 추가된 모든 사용자의 앞서 언급한 표준 속성에 액세스할 수 없습니다. | |
 | 메시지 활동 로그 | 사용자는 메시지 활동 로그에서 식별된 모든 사용자의 앞서 언급한 표준 속성에 액세스할 수 없습니다. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="제한된 영역" }
 
 {% alert note %}
 메시지를 미리 볼 때 **PII 보기** 권한이 적용되지 않으므로, Liquid를 통해 메시지에서 참조된 경우 사용자는 [앞서 언급한 표준 속성](#potential-pii-attributes)을 볼 수 있습니다.
@@ -303,7 +303,7 @@ Removed Push Credential
 | 커스텀 이벤트 | properties |  |
 | 구매 이벤트 | properties |  |
 | 메시지 전송 | message_extras | 여러 이벤트 유형에 `message_extras` 필드가 포함되어 있습니다. 이 기본 설정은 향후 추가되는 이벤트 유형을 포함하여 `message_extras`를 지원하는 모든 메시지 전송 이벤트 유형에 적용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="관련 필드" }
 
 {% alert warning %}
 **삭제는 영구적입니다!** 삭제된 사용자에 대해 Snowflake에서 필드를 제거하도록 선택하면 해당 설정은 워크스페이스의 모든 과거 데이터와 향후 삭제되는 사용자의 모든 이벤트에 적용됩니다. Braze가 삭제된 사용자의 과거 이벤트 데이터에 설정을 적용하는 프로세스를 실행한 후에는 데이터를 **복원할 수 없습니다**.

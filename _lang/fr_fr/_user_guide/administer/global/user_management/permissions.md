@@ -113,8 +113,6 @@ Les administrateurs ont accès à toutes les fonctionnalités et la possibilité
 
 Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **This user is an admin**, puis sélectionnez **Update user**.
 
-![Les détails de l'utilisateur sélectionné avec la case à cocher administrateur en surbrillance.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
-
 {% alert warning %}
 Si vous retirez les privilèges d'administrateur d'un utilisateur, il ne pourra plus accéder à Braze tant que vous ne lui aurez pas attribué au moins une [autorisation au niveau de l'entreprise ou de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
 {% endalert %}
@@ -175,7 +173,7 @@ Lorsque vous avez terminé, sélectionnez **Update user**.
 
 Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise**, puis sélectionnez **Export Users**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
 
-![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » en surbrillance.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » mise en évidence.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## Liste des autorisations {#list-of-permissions}
 

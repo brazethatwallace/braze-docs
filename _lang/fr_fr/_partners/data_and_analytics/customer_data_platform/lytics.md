@@ -35,7 +35,7 @@ Connectez Braze à Lytics pour [importer](#importing-data-from-braze-to-lytics) 
 | Jeton API Lytics | Un jeton REST API Lytics avec des autorisations de gestionnaire de données. <br><br> Celui-ci peut être créé dans le tableau de bord Lytics à partir de la **console Paramètres du compte** > **Access Tokens** > **Create New Token**. |
 | Clé REST API de Braze | Une clé REST API Braze avec l'autorisation `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
 | Instance de Braze | Votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). En cas de doute, contactez votre gestionnaire d'onboarding Braze pour obtenir ces informations. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -47,31 +47,31 @@ Dans Lytics, accédez au tableau de bord **Authorization** au sein de la console
 
 Dans l'invite **Configure Authorization** qui s'affiche, fournissez un libellé et une description, puis saisissez votre clé REST API et votre instance Braze. Sélectionnez **Complete** lorsque vous avez terminé.
 
-![]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
+![Invite de configuration de l'autorisation Lytics pour Braze avec des champs pour le libellé, la description, la clé REST API et l'instance Braze.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
 ### Étape 2 : Créer une nouvelle tâche {#step-2-create-a-new-job}
 
 Dans Lytics, accédez au tableau de bord **Jobs** dans la console **Data** de la barre de navigation. Sélectionnez **Create New Job**, recherchez et sélectionnez **Braze**. Dans l'invite **Select Job Type** qui s'affiche, sélectionnez **Export Audience**.
 
-![]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
+![Invite de sélection du type de tâche Lytics pour une nouvelle tâche Braze avec Export Audience sélectionné.]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
 
 Ensuite, choisissez une autorisation dans les options **Select Authorization**.
 
-![]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
+![Étape de sélection de l'autorisation Lytics montrant l'autorisation Braze à utiliser pour la tâche d'exportation.]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
 
 ### Étape 3 : Configurer la tâche {#step-3-configure-the-job}
 
-Dans l'invite **Configure Job**, indiquez un libellé et une description facultative. Ensuite, dans le champ **Braze External User ID Field**, sélectionnez le champ de Lytics qui contient l'ID utilisateur externe de Braze (`braze_id`). L'étape suivante est la plus importante : dans la même boîte de dialogue, sélectionnez les audiences à exporter vers Braze.
+Dans l'invite **Configure Job**, indiquez un libellé et une description facultative. Ensuite, dans le champ **Braze External User ID Field**, sélectionnez le champ de Lytics qui contient l'ID utilisateur externe de Braze (`braze_id`). L'étape suivante est la plus importante : dans la même boîte de dialogue, sélectionnez les audiences à exporter vers Braze à l'aide du sélecteur d'audiences.
 
-Enfin, choisissez l'option préférée pour la case à cocher **Existing Users**. En laissant cette case cochée, vous ajouterez les utilisateurs qui existent déjà dans l'audience Lytics sélectionnée. Si la case n'est pas cochée, les utilisateurs ne seront exportés vers Braze que lorsqu'ils entreront ou sortiront de l'audience après le début du flux de travail.
+Enfin, choisissez l'option souhaitée pour la case à cocher **Existing Users**. En laissant cette case cochée, les utilisateurs qui existent déjà dans l'audience Lytics sélectionnée seront ajoutés. Si la case n'est pas cochée, les utilisateurs ne seront exportés vers Braze que lorsqu'ils entreront ou sortiront de l'audience après le début du flux de travail.
 
 {% alert note %}
 En cochant cette case, tous les utilisateurs existants dans l'audience sélectionnée seront envoyés vers Braze. Si votre tarification Braze inclut des points de données, surveillez l'utilisation des points de données en conséquence.
 {% endalert %}
 
-Cliquez sur **Complete** lorsque vous avez terminé pour lancer l'exportation et enregistrer.
+Sélectionnez **Complete** lorsque vous avez terminé pour lancer l'exportation et enregistrer.
 
-![]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
+![Résumé de la tâche d'exportation Lytics montrant le contrôle Complete et les options pour enregistrer ou exécuter l'exportation d'audience Braze.]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
 Une fois la tâche d'exportation configurée, Lytics enverra les audiences sélectionnées à Braze via l'intégration native. Vous trouverez ci-dessous un exemple d'audience montrant la structure JSON de l'audience envoyée à Braze.
 
@@ -116,11 +116,11 @@ Vous pouvez importer des données d'audience de Braze vers Lytics à l'aide des 
 
 Accédez au menu du compte Lytics dans le coin inférieur gauche en sélectionnant votre nom de compte, puis sélectionnez **Access Tokens** dans le menu déroulant. Ensuite, sélectionnez **Create API Token**.
 
-![]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
+![Écran Access Tokens de Lytics avec Create API Token sélectionné depuis le menu du compte.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Saisissez un nom, une description facultative et une période d'expiration du jeton. Ensuite, activez le périmètre **Data Manager** pour les autorisations API et cliquez sur **Generate Token**. Copiez le jeton et conservez-le en lieu sûr.
+Saisissez un nom, une description facultative et une période d'expiration du jeton. Ensuite, activez le périmètre **Data Manager** pour les autorisations API et sélectionnez **Generate Token**. Copiez le jeton et conservez-le en lieu sûr.
 
-![]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
+![Autorisations du jeton API Lytics avec le périmètre Data Manager activé avant la génération du jeton.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
 #### Étape 2 : Configurer l'URL du webhook Lytics {#step-2-configure-the-lytics-webhook-url}
 
@@ -176,9 +176,9 @@ Sélectionnez le type d'autorisation SFTP qui vous convient le mieux en fonction
 
 Les autorisations SFTP à clé publique sont destinées uniquement à l'exportation SFTP.
 
-![]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
+![Options de méthode d'autorisation SFTP Lytics pour l'importation Custom Integrations, incluant les choix de serveur client et géré par Lytics.]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
 
-Dans l'invite **Configure Authorization** qui s'affiche, fournissez un libellé et une description et complétez le reste des exigences de configuration. Cliquez sur **Complete** lorsque vous avez terminé.
+Dans l'invite **Configure Authorization** qui s'affiche, fournissez un libellé et une description, puis complétez le reste des exigences de configuration. Sélectionnez **Complete** lorsque vous avez terminé.
 
 #### Étape 2 : Exporter vos données de segment au format CSV {#step-2-export-your-segment-data-to-csv}
 
@@ -190,6 +190,6 @@ Dans Lytics, accédez au tableau de bord **Jobs** dans la console **Data** de la
 
 Sélectionnez ensuite le type de tâche. Pour importer des fichiers CSV de Braze dans Lytics, sélectionnez **Import CSV** comme type de tâche.
 
-![]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
+![Configuration de tâche Custom Integrations Lytics avec Import CSV sélectionné comme type de tâche.]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
 
-Enfin, saisissez un libellé et une description facultative pour la tâche et configurez tout autre détail nécessaire. Cliquez sur **Complete** pour lancer et enregistrer la tâche.
+Enfin, saisissez un libellé et une description facultative pour la tâche, puis configurez tout autre détail nécessaire. Sélectionnez **Complete** pour lancer et enregistrer la tâche.

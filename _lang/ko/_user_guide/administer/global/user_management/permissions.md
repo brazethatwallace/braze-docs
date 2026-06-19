@@ -98,7 +98,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 사용자의 현재 관리자, 회사 또는 워크스페이스 권한을 편집하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 해당 사용자의 이름을 선택합니다.
 
-![대시보드 사용자 테이블이 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![대시보드 사용자 테이블이 표시된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab 관리자 %}
@@ -112,8 +112,6 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 - Braze 사용자를 CSV로 내보내기
 
 관리자 권한을 부여하거나 제거하려면 **This user is an admin**을 선택한 다음 **Update user**를 선택합니다.
-
-![관리자 체크박스가 강조 표시된 선택된 사용자의 세부 정보.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당하기 전까지 해당 사용자는 Braze에 접근할 수 없습니다.
@@ -175,7 +173,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 사용자 및 권한 목록을 다운로드하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
-![Export Users 옵션이 강조 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+!["Export Users" 옵션이 강조 표시된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## 권한 목록 {#list-of-permissions}
 

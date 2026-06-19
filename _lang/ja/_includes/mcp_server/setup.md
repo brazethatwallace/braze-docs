@@ -347,15 +347,18 @@ Braze MCPサーバーを設定したら、MCPクライアントにテストプ�
 
 {% tabs %}
 {% tab Claude %}
-![Claudeで「利用可能なBraze機能は何ですか？」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**プロンプト例:** `What are my available Braze functions?`
+**応答例:** `list_functions`を使用し、利用可能なBraze MCP機能カテゴリを返しました。
 {% endtab %}
 
 {% tab Cursor %}
-![Cursorで「利用可能なBraze機能は何ですか」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**プロンプト例:** `What are my available Braze functions?`
+**応答例:** `list_functions`をクエリし、`get_canvas_list`などの機能を一覧表示しました。
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Gemini CLIで「利用可能なBraze機能は何ですか？」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**プロンプト例:** `What are my available Braze functions?`
+**応答例:** Gemini CLIで`list_functions`をクエリし、利用可能なBraze MCP機能カテゴリとサンプル機能を返しました。
 {% endtab %}
 {% endtabs %}
 

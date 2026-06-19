@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Front
 
-> Frontの統合により、各プラットフォームからBrazeデータ変換およびwebhookを活用して双方向の会話型SMSパイプラインを設定できます。
+> Frontの統合により、各プラットフォームからBrazeデータ変換とwebhookを活用して、双方向の会話型SMSパイプラインを設定できます。
 
 Frontからの受信webhookには、ライブエージェントが送信したメッセージを含むペイロードが含まれています。リクエストは、Brazeのエンドポイントで受け入れられるようにするため、事前に再フォーマットしておく必要があります。Frontデータ変換テンプレートによりペイロードが再フォーマットされ、イベントプロパティとして渡されるメッセージ本文とともに**Outbound SMS Sent**というタイトルのカスタムイベントがユーザープロファイルに書き込まれます。
 
@@ -25,7 +25,7 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
 | Frontアカウント | このパートナーシップを利用するには、Frontアカウントが必要です。|
 | Brazeデータ変換Webhook URL | [Brazeデータ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation/)は、Frontからの受信webhookを再フォーマットして、Brazeの/users/trackエンドポイントで受け入れられるようにするために使用されます。|
 | Front REST APIキー | Front REST APIキーを使用して、BrazeからFrontへのアウトバウンドWebhookリクエストを行います。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -38,7 +38,7 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
 
 まず、Brazeで新しいデータ変換を作成します。次の手順は簡略化されています。完全な手順については、[変換の作成]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/)を参照してください。
 
-1. Brazeで、**Data Settings** > **Data Transformations**に移動し、**Create Transformation**を選択します。
+1. Brazeで、**データ設定** > **Data Transformations**に移動し、**Create Transformation**を選択します。
 2. **Editing Experience**で、**Start from scratch**を選択します。
 3. **Select Destination**で、**POST: Track Users**を選択します。
 4. 次の変換テンプレートをコピーして貼り付け、エンドポイントを保存してアクティブ化します。
@@ -73,15 +73,15 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
     ```
     {% endraw %}
 
-    変換は上記のJavaScript例に沿うようにし、プロパティ名とパスをFrontのWebhookペイロードに合わせて調整してください。
+    変換は上記のJavaScript例に沿うようにし、プロパティ名とパスをFrontのwebhookペイロードに合わせて調整してください。
 
 {% alert tip %}
 このテンプレートを変更して、特定のニーズに合わせることができます。例えば、プリセットのカスタムイベント名をカスタマイズできます。詳細については、[データ変換の概要]({{site.baseurl}}/user_guide/data/unification/data_transformation/)を参照してください。
 {% endalert %}
 
-### ステップ2:アウトバウンドSMS キャンペーンを作成する {#step-2-create-an-outbound-sms-campaign}
+### ステップ2:アウトバウンドSMS Campaignを作成する {#step-2-create-an-outbound-sms-campaign}
 
-次に、Frontからのwebhookをリッスンし、顧客にカスタムSMS応答を送信するSMS キャンペーンを作成します。
+次に、Frontからのwebhookをリッスンし、顧客にカスタムSMS応答を送信するSMS Campaignを作成します。
 
 #### ステップ2.1:メッセージを作成する {#step-21-compose-your-message}
 
@@ -127,13 +127,13 @@ Frontのダッシュボードで、**Settings** > **Channels** > **Add Channels*
 
 ### ステップ5:インバウンドSMS転送の設定 {#step-5-set-up-inbound-sms-forwarding}
 
-次に、Brazeで2つの新しいWebhook キャンペーンを作成します。これにより、顧客からのインバウンドSMSをFrontの受信トレイに転送できます。
+次に、Brazeで2つの新しいWebhook Campaignを作成します。これにより、顧客からのインバウンドSMSをFrontの受信トレイに転送できます。
 
 | 番号 | 目的 |
 |---|---|
-| Webhook キャンペーン 1 | ライブチャットの会話が要求されていることをFrontに通知します。|
-| Webhook キャンペーン 2 | 顧客からインバウンドで送信されたすべての会話型SMS応答をFrontの受信トレイに転送します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Set up inbound-SMS forwarding" }
+| Webhook Campaign 1 | ライブチャットの会話が要求されていることをFrontに通知します。|
+| Webhook Campaign 2 | 顧客からインバウンドで送信されたすべての会話型SMS応答をFrontの受信トレイに転送します。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ5:インバウンドSMS転送の設定" }
 
 #### ステップ5.1:SMSキーワードカテゴリを作成する {#step-51-create-an-sms-keyword-category}
 
@@ -144,20 +144,20 @@ Brazeのダッシュボードで、**Audience**に移動し、**SMSサブスク�
 | キーワードカテゴリ | キーワードカテゴリの名前（例：`FrontSMS1`）。|
 | キーワード | カスタムキーワード（例：`TIMETOMOW`）。一般的な言葉を避けて、誤ってトリガーされないようにしてください。キーワードは大文字と小文字を区別しないため、`lawn`は`LAWN`と一致します。|
 | 返信メッセージ | キーワードが検出されたときに送信されるメッセージ（例：「造園業者からまもなく連絡があります」）。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5.1: Create an SMS keyword category" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ5.1:SMSキーワードカテゴリを作成する" }
 
 ![BrazeのSMSキーワードカテゴリの例。]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
-#### ステップ5.2:最初のWebhook キャンペーンを作成する {#step-52-create-your-first-webhook-campaign}
+#### ステップ5.2:最初のWebhook Campaignを作成する {#step-52-create-your-first-webhook-campaign}
 
-Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the-settings-for-your-new-custom-braze-channel)URLを使用して最初のWebhook キャンペーンを作成します。
+Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the-settings-for-your-new-custom-braze-channel)URLを使用して最初のWebhook Campaignを作成します。
 
-![Brazeで最初に作成すべきWebhook キャンペーンの例。]({% image_buster /assets/img/front/sms_to_front.png %}){: style="max-width:65%;"}
+![Brazeで最初に作成すべきWebhook Campaignの例。]({% image_buster /assets/img/front/sms_to_front.png %}){: style="max-width:65%;"}
 
 次の内容をリクエストボディに追加してください：
 
 {% raw %}
-`````````liquid
+```liquid
 {
  "sender": {
   "handle": "{{${phone_number}}}",
@@ -183,31 +183,31 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 **Schedule Delivery**で、**Action-Based Delivery**を選択し、トリガータイプとして**Send an SMS Inbound Message**を選択します。また、[以前に設定した](#step-51-create-an-sms-keyword-category)SMSサブスクリプショングループとキーワードカテゴリを追加します。
 
-![最初のWebhook キャンペーンの「配信スケジュール」ページ。]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
+![最初のWebhook Campaignの「配信スケジュール」ページ。]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
 **配信コントロール**で再適格性を有効にします。
 
-![最初のWebhook キャンペーンの「配信コントロール」で再適格性が選択されている。]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![最初のWebhook Campaignの「配信コントロール」で再適格性が選択されている。]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
-#### ステップ5.4:2番目のWebhook キャンペーンを作成する {#step-54-create-your-second-webhook-campaign}
+#### ステップ5.4:2番目のWebhook Campaignを作成する {#step-54-create-your-second-webhook-campaign}
 
-2つ目のWebhook キャンペーンは1つ目と一致するので、[1つ目を複製して名前を変更する]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns/#duplicating-segments-or-campaigns)ことができます。
+2つ目のWebhook Campaignは1つ目と同じ内容なので、[1つ目を複製して名前を変更する]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns/#duplicating-segments-or-campaigns)ことができます。
 
 #### ステップ5.5:2回目の配信をスケジュールする {#step-55-schedule-the-second-delivery}
 
 **Schedule Delivery**で、**アクションベースのトリガー**と**SMSサブスクリプショングループ**を[最初の配信](#step-53-schedule-the-first-delivery)と同じに設定します。ただし、**キーワードカテゴリ**には**Other**を選択してください。
 
-![2つ目のWebhook キャンペーンの「配信スケジュール」ページ。キーワードカテゴリとして「Other」が選択されている。]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
+![2つ目のWebhook Campaignの「配信スケジュール」ページ。キーワードカテゴリとして「Other」が選択されている。]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
 
 #### ステップ5.6:オーディエンスフィルターを追加する {#step-56-add-an-audience-filter}
 
-これで、Webhook キャンペーンが顧客からのインバウンドSMS応答を転送できるようになりました。ライブチャット用のメッセージのみが転送されるようにSMS応答をフィルタリングするには、**Last Received Message From Specific キャンペーン**セグメンテーションフィルターを**ターゲットオーディエンス**ステップに追加します。
+これで、Webhook Campaignが顧客からのインバウンドSMS応答を転送できるようになりました。ライブチャット用のメッセージのみが転送されるようにSMS応答をフィルタリングするには、**Last Received Message From Specific Campaign**セグメンテーションフィルターを**ターゲットオーディエンス**ステップに追加します。
 
-![「Last Received Message From Specific キャンペーン」を選択したオーディエンスフィルター。]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
+![「Last Received Message From Specific Campaign」を選択したオーディエンスフィルター。]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 
 次に、フィルターを設定します：
 
-1. **キャンペーン**には、[以前に作成した](#step-2-create-an-outbound-sms-campaign)SMS キャンペーンを選択します。
+1. **Campaign**には、[以前に作成した](#step-2-create-an-outbound-sms-campaign)SMS Campaignを選択します。
 2. **Operator**には、**Less Than**を選択します。
 3. **Time Window**には、顧客からの応答がない状態でチャットを開いたままにしておく期間を選択します。
 
@@ -215,7 +215,7 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 ## 考慮事項 {#considerations}
 
-### 課金セグメント {#billable-segments}
+### 課金対象セグメント {#billable-segments}
 
 - BrazeでのSMSメッセージはメッセージセグメントごとに課金されます。何がセグメントを定義し、どのようにメッセージが分割されるかを理解することは、メッセージの請求方法を理解するうえで重要です。詳細については、当社の[ドキュメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/)をご覧ください。
 - エージェントの応答が長いと、課金対象セグメントの消費が増加します。

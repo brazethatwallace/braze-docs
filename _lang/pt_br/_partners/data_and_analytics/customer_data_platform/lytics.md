@@ -35,7 +35,7 @@ Conecte a Braze à Lytics para [importar](#importing-data-from-braze-to-lytics) 
 | Token da API da Lytics | Um token da REST API da Lytics com permissões de gerenciamento de dados. <br><br> Isso pode ser criado no dashboard da Lytics em **Account Settings Console** > **Access Tokens** > **Create New Token**. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissão `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Instância da Braze | Sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Entre em contato com o gerente de integração da Braze para obter essas informações se não tiver certeza. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -47,21 +47,21 @@ Na Lytics, navegue até o dashboard **Authorization** no console **Data** na bar
 
 No prompt **Configure Authorization** exibido, forneça um rótulo e uma descrição e insira sua chave da API REST e a instância da Braze. Selecione **Complete** quando terminar.
 
-![]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
+![Prompt de configuração de autorização da Lytics para a Braze com campos para rótulo, descrição, chave da API REST e instância da Braze.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
 ### Etapa 2: Criar um novo trabalho {#step-2-create-a-new-job}
 
 Na Lytics, navegue até o dashboard **Jobs** no console **Data** na barra de navegação. Selecione **Create New Job**, procure e selecione **Braze**. No prompt **Select Job Type** exibido, selecione **Export Audience**.
 
-![]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
+![Prompt de seleção de tipo de trabalho da Lytics para um novo trabalho da Braze com Export Audience selecionado.]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
 
 Em seguida, escolha uma autorização nas opções **Select Authorization**.
 
-![]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
+![Etapa de seleção de autorização da Lytics mostrando a autorização da Braze a ser usada para o trabalho de exportação.]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
 
 ### Etapa 3: Configurar o trabalho {#step-3-configure-the-job}
 
-No prompt **Configure Job**, forneça um rótulo e uma descrição opcional. Em seguida, no campo **Braze External User ID Field**, selecione o campo na Lytics que contém o ID de usuário externo da Braze (`braze_id`). A próxima etapa é a mais importante — na mesma caixa de diálogo, selecione os públicos a serem exportados para a Braze.
+No prompt **Configure Job**, forneça um rótulo e uma descrição opcional. Em seguida, no campo **Braze External User ID Field**, selecione o campo na Lytics que contém o ID de usuário externo da Braze (`braze_id`). A próxima etapa é a mais importante — na mesma caixa de diálogo, selecione os públicos a serem exportados para a Braze usando o seletor de públicos.
 
 Por fim, escolha a opção preferível para a caixa de seleção **Existing Users**. Deixar essa caixa marcada adicionará usuários que já existem no público selecionado da Lytics. Se desmarcada, os usuários só serão exportados para a Braze quando entrarem ou saírem do público após o início do fluxo de trabalho.
 
@@ -69,9 +69,9 @@ Por fim, escolha a opção preferível para a caixa de seleção **Existing User
 Ao marcar essa caixa, todos os usuários existentes no público selecionado serão enviados para a Braze. Se o preço da Braze incluir pontos de dados, monitore o uso de pontos de dados adequadamente.
 {% endalert %}
 
-Clique em **Complete** quando terminar para iniciar a exportação e salvar.
+Selecione **Complete** quando terminar para iniciar a exportação e salvar.
 
-![]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
+![Resumo do trabalho de exportação da Lytics mostrando o controle Complete e opções para salvar ou executar a exportação de público para a Braze.]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
 Depois que o trabalho de exportação for configurado, a Lytics enviará os públicos selecionados para a Braze por meio da integração nativa. A seguir, mostramos um exemplo de público com a estrutura JSON do público enviado à Braze.
 
@@ -116,11 +116,11 @@ Você pode importar dados de público da Braze para a Lytics usando os seguintes
 
 Navegue até o menu da conta da Lytics no canto inferior esquerdo selecionando o nome da sua conta e selecione **Access Tokens** no menu suspenso. Em seguida, selecione **Create API Token**.
 
-![]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
+![Tela de tokens de acesso da Lytics com Create API Token selecionado no menu da conta.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Insira um nome, uma descrição opcional e um período de expiração do token. Em seguida, ative o escopo **Data Manager** para permissões de API e clique em **Generate Token**. Copie o token e armazene-o em um local seguro.
+Insira um nome, uma descrição opcional e um período de expiração do token. Em seguida, ative o escopo **Data Manager** para permissões de API e selecione **Generate Token**. Copie o token e armazene-o em um local seguro.
 
-![]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
+![Permissões do token da API da Lytics com o escopo Data Manager ativado antes de gerar o token.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
 #### Etapa 2: Configurar a URL do webhook da Lytics {#step-2-configure-the-lytics-webhook-url}
 
@@ -176,9 +176,9 @@ Selecione o tipo preferido de autorização SFTP com base nos seus requisitos co
 
 As autorizações SFTP de chave pública são apenas para exportação SFTP.
 
-![]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
+![Opções de método de autorização SFTP da Lytics para importação de Custom Integrations, incluindo opções de servidor do cliente e gerenciado pela Lytics.]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
 
-No prompt **Configure Authorization** exibido, forneça um rótulo e uma descrição e preencha o restante dos requisitos de configuração. Clique em **Complete** quando terminar.
+No prompt **Configure Authorization** exibido, forneça um rótulo e uma descrição e preencha o restante dos requisitos de configuração. Selecione **Complete** quando terminar.
 
 #### Etapa 2: Exportar seus dados de segmento para CSV {#step-2-export-your-segment-data-to-csv}
 
@@ -190,6 +190,6 @@ Na Lytics, navegue até o dashboard **Jobs** no console **Data** na barra de nav
 
 Em seguida, selecione o tipo de trabalho. Para importar arquivos CSV da Braze para a Lytics, selecione **Import CSV** como o tipo de trabalho.
 
-![]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
+![Configuração de trabalho de Custom Integrations da Lytics com Import CSV selecionado como tipo de trabalho.]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
 
-Por fim, insira um rótulo e uma descrição opcional para o trabalho e configure outros detalhes necessários. Clique em **Complete** para iniciar e salvar o trabalho.
+Por fim, insira um rótulo e uma descrição opcional para o trabalho e configure outros detalhes necessários. Selecione **Complete** para iniciar e salvar o trabalho.

@@ -18,7 +18,7 @@ _Diese Integration wird von Blings gepflegt._
 | Anforderung     | Beschreibung                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings-Konto  | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Blings-Konto.         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

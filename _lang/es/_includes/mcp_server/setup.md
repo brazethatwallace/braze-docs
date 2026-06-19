@@ -100,7 +100,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
-#### Catálogos {#catalogs}
+#### Catalogs
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -109,7 +109,7 @@ Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar q
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### Ingesta de datos de Cloud {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -129,14 +129,14 @@ Los permisos `content_blocks.create` y `content_blocks.update` son permisos de e
 | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### Atributos personalizados {#custom-attributes}
+#### Custom Attributes
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### Eventos {#events}
+#### Events
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -145,7 +145,7 @@ Los permisos `content_blocks.create` y `content_blocks.update` son permisos de e
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
-#### KPI {#kpis}
+#### KPIs
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -155,7 +155,7 @@ Los permisos `content_blocks.create` y `content_blocks.update` son permisos de e
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### Biblioteca de medios {#media-library}
+#### Media Library
 
 El permiso `media_library.create` es un permiso de escritura. Añádelo solo si quieres que tu agente cargue activos a tu biblioteca de medios.
 
@@ -164,14 +164,14 @@ El permiso `media_library.create` es un permiso de escritura. Añádelo solo si 
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
-#### Mensajes {#messages}
+#### Messages
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
-#### Centro de preferencias {#preference-center}
+#### Preference Center
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -179,7 +179,7 @@ El permiso `media_library.create` es un permiso de escritura. Añádelo solo si 
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
-#### Compras {#purchases}
+#### Purchases
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -197,28 +197,28 @@ El permiso `media_library.create` es un permiso de escritura. Añádelo solo si 
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
-#### Envíos {#sends}
+#### Sends
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
 
-#### Sesiones {#sessions}
+#### Sessions
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
-#### Claves de Autenticación SDK {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
-#### Suscripción {#subscription}
+#### Subscription
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
@@ -226,7 +226,7 @@ El permiso `media_library.create` es un permiso de escritura. Añádelo solo si 
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
-#### Plantillas {#templates}
+#### Templates
 
 Los permisos `templates.email.create` y `templates.email.update` son permisos de escritura. Añádelos solo si quieres que tu agente cree o actualice plantillas de correo electrónico en tu espacio de trabajo.
 
@@ -347,15 +347,18 @@ Después de configurar el servidor Braze MCP, intenta enviar una solicitud de pr
 
 {% tabs %}
 {% tab Claude %}
-![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Solicitud de ejemplo:** `What are my available Braze functions?`
+**Respuesta de ejemplo:** Se utilizó `list_functions` y se devolvieron las categorías de funciones disponibles del servidor Braze MCP.
 {% endtab %}
 
 {% tab Cursor %}
-![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Solicitud de ejemplo:** `What are my available Braze functions?`
+**Respuesta de ejemplo:** Se consultó `list_functions` y se listaron funciones como `get_canvas_list`.
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Solicitud de ejemplo:** `What are my available Braze functions?`
+**Respuesta de ejemplo:** Se consultó `list_functions` en Gemini CLI y se devolvieron las categorías de funciones disponibles del servidor Braze MCP junto con funciones de ejemplo.
 {% endtab %}
 {% endtabs %}
 

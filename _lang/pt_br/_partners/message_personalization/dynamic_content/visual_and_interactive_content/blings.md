@@ -18,7 +18,7 @@ _Essa integração é mantida pela Blings._
 | Requisito       | Descrição                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | Conta Blings    | É necessário ter uma conta Blings para aproveitar essa parceria.         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -46,13 +46,13 @@ Solicite o snippet HTML ao seu representante da Blings.
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Criar uma Campaign na Braze {#step-2-create-a-braze-campaign}
+### Etapa 2: Criar uma campaign na Braze {#step-2-create-a-braze-campaign}
 
-Na Braze, crie uma nova Campaign de e-mail ou mensagem no app e insira o snippet HTML da Blings. Use a pré-visualização do editor para confirmar que os campos personalizados e o conteúdo dinâmico da Creative Suite são exibidos corretamente.
+Na Braze, crie uma nova campaign de e-mail ou mensagem no app e insira o snippet HTML da Blings. Use a pré-visualização do editor para confirmar que os campos personalizados e o conteúdo dinâmico da Creative Suite são exibidos corretamente.
 
 ### Etapa 3: Teste e lançamento {#step-3-test-and-launch}
 
-Pré-visualize a Campaign na Braze para confirmar que os campos personalizados estão sendo preenchidos corretamente. Em seguida, implemente sua Campaign MP5 em escala.
+Pré-visualize a campaign na Braze para confirmar que os campos personalizados estão sendo preenchidos corretamente. Em seguida, implemente sua campaign MP5 em escala.
 
 ![Pré-visualização da Blings na Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 
