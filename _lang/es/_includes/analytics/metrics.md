@@ -31,7 +31,7 @@ Un <i>rebote blando</i> es cuando un correo electrónico no se entrega al destin
 {% endif %}
 
 {% if include.metric == "Deferral" %}
-Un <i>aplazamiento</i> es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico hasta 72 horas después de este fallo de entrega temporal para maximizar las posibilidades de éxito en la entrega antes de que se detengan los intentos para esa campaña específica.
+Un <i>aplazamiento</i> es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico hasta 72 horas después de este fallo de entrega temporal para maximizar las posibilidades de éxito en la entrega antes de que se detengan los intentos para esa Campaign específica.
 {% endif %}
 
 {% if include.metric == "Body Click" %}
@@ -79,7 +79,7 @@ Los <i>descartes de la página de confirmación</i> son el total de clics en el 
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
-La <i>tasa de conversión</i> es el porcentaje de veces que se ha producido un evento definido en comparación con todos los destinatarios de un mensaje. Este evento definido se determina cuando construyes la campaña.
+La <i>tasa de conversión</i> es el porcentaje de veces que se ha producido un evento definido en comparación con todos los destinatarios de un mensaje. Este evento definido se determina cuando construyes la Campaign.
 {% endif %}
 
 {% if include.metric == "Conversion Window" %}
@@ -91,7 +91,7 @@ Las <i>conversiones (B, C, D)</i> son eventos de conversión adicionales añadid
 {% endif %}
 
 {% if include.metric == "Total Conversions" %}
-<i>Conversiones totales</i> es el número total de veces que un usuario completa un evento de conversión específico después de ver una campaña de mensajería dentro de la aplicación.
+<i>Conversiones totales</i> es el número total de veces que un usuario completa un evento de conversión específico después de ver una Campaign de mensajes dentro de la aplicación.
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
@@ -143,7 +143,7 @@ El <i>valor de duración del ciclo de vida por usuario</i> son los <i>ingresos d
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-Los <i>ingresos medios diarios</i> son la media de la suma de los ingresos de la campaña y de Canvas de un día determinado.
+Los <i>ingresos medios diarios</i> son la media de la suma de los ingresos de la Campaign y de Canvas de un día determinado.
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
@@ -175,7 +175,7 @@ El <i>reintento pendiente</i> es el número de solicitudes que fueron rechazadas
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña.
+<i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la Campaign.
 {% endif %}
 
 {% if include.metric == "Reads" %}
@@ -195,7 +195,7 @@ Los <i>rechazos</i> se producen cuando el SMS o RCS ha sido rechazado por el ope
 {% endif %}
 
 {% if include.metric == "Revenue" %}
-Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de la campaña dentro de la <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>ventana de conversión primaria</a> establecida.
+Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de la Campaign dentro de la <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>ventana de conversión primaria</a> establecida.
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
@@ -262,6 +262,10 @@ Los <i>clics únicos</i> son el número diferenciado de destinatarios que han he
 
 {% if include.metric == "Unique Impressions" %}
 Las <i>impresiones únicas</i> son el número total de usuarios que han visto un mensaje de una Campaign determinada. Una impresión solo se registra cuando el mensaje se hace visible en la pantalla de un usuario.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+Las <i>impresiones diarias únicas</i> son el número de usuarios únicos que vieron el mensaje en un día determinado. Este recuento se restablece cada día natural, por lo que un usuario que ve el mismo mensaje en dos días diferentes se cuenta dos veces. Esta métrica se alinea con la métrica de facturación del mismo nombre.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

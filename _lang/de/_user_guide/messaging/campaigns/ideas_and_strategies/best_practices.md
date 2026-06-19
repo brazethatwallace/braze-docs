@@ -77,6 +77,8 @@ Beachten Sie beim Bearbeiten von Campaign-Zeitplänen oder Zielgruppen die folge
 - **Campaigns mit lokaler Sendezeit:** Nehmen Sie keine Änderungen 24 Stunden vor dem geplanten Sendezeitpunkt vor.
 - **Campaigns mit optimaler Sendezeit:** Nehmen Sie keine Änderungen 24 Stunden vor Mitternacht des Tages vor, an dem die Campaign gesendet werden soll.
 
+Informationen zu Canvas-spezifischen Zeitplanungsdetails (Entwürfe, Stopps und Auswertung nahe dem Sendezeitpunkt) finden Sie unter [Canvas-Best-Practices]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases).
+
 {% alert note %}
 Wenn Sie eine laufende Campaign bearbeiten und die Zustellung auf **Lokale Sendezeit** ändern, wird ein neuer Batch von Nachrichten in die Warteschlange gestellt. Das bedeutet, dass Ihre Nutzer:innen die Nachricht zweimal erhalten, da die Nachricht doppelt in die Warteschlange eingereiht wird. Um dies zu verhindern, stoppen Sie zuerst die ursprüngliche Campaign und starten Sie dann ein Duplikat, nachdem Sie den Zeitplan aktualisiert haben.
 {% endalert %}

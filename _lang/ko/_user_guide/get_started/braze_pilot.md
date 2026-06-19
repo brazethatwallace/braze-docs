@@ -80,18 +80,11 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 
 ### 식별된 사용자
 
-이 연결 상태는 Braze가 외부 식별자라고 하는 고유 식별자를 통해 고객 프로필을 인식하고 있음을 의미합니다. 대시보드의 **사용자 검색** 페이지에서 이 외부 식별자를 검색하여 고객 프로필을 찾을 수 있으며, 해당 프로필에는 앱에서의 활동을 기반으로 파일럿에서 기록된 모든 사용자 속성과 이벤트가 저장됩니다.
-
-![사용자 "torchie-208117"의 Braze 고객 프로필 예시.]({% image_buster /assets/img/braze_pilot/user_profile.png %})
+이 연결 상태는 Braze가 외부 식별자라고 하는 고유 식별자를 통해 고객 프로필을 인식하고 있음을 의미합니다. 대시보드의 **사용자 검색** 페이지에서 이 외부 식별자를 검색하여 고객 프로필을 찾을 수 있으며, 해당 프로필에는 앱에서의 활동을 기반으로 파일럿에서 기록된 모든 사용자 속성과 이벤트가 저장됩니다. Braze 대시보드에서 **Audience** > **사용자 검색**으로 이동한 뒤 Pilot **외부 ID**를 입력하고 프로필을 열어 속성과 이벤트를 확인하세요.
 
 ### 연결 유형
 
-연결 유형을 확인하려면 화면 오른쪽 상단의 연결 상태를 확인하세요.
-
-{% tabs local %}
-{% tab Anonymous user  %}
-
-**익명**은 익명 사용자로 데이터를 기록하고 있음을 나타냅니다.
+연결 유형을 확인하려면 Pilot 앱 오른쪽 상단의 연결 상태 표시를 확인하세요.
 
 <style>
   .imgDiv {
@@ -99,10 +92,10 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
     }
 </style>
 
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_anonymous.png %}" style="max-width:40%">
-</div>
-<br>
+{% tabs local %}
+{% tab Anonymous user  %}
+
+**익명**은 익명 사용자로 데이터를 기록하고 있음을 나타냅니다. 상태 영역에 **익명** 레이블(예: 마스크 또는 시크릿 스타일 아이콘)이 표시됩니다.
 
 {% endtab %}
 {% tab Identified user %}
@@ -117,12 +110,7 @@ Braze에 전송된 모든 데이터는 앱이나 웹사이트의 특정 사용�
 {% endtab %}
 {% tab Not connected %}
 
-**연결되지 않음**은 아직 파일럿과 Braze SDK 연결을 초기화하지 않았음을 나타냅니다.
-
-<div class="imgDiv">
-<img src="{% image_buster /assets/img/braze_pilot/status_not_connected.png %}" style="max-width:40%">
-</div>
-<br>
+**연결되지 않음**은 아직 파일럿과 Braze SDK 연결을 초기화하지 않았음을 나타냅니다. 상태 영역에는 Pilot이 아직 Braze 워크스페이스에 연결되지 않았음이 표시됩니다.
 
 {% endtab %}
 {% endtabs %}

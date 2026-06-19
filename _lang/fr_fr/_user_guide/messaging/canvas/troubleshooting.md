@@ -112,6 +112,16 @@ Si nous examinons les utilisateurs actifs, nous pouvons constater que même si l
 
 Cela signifie que même si nous avons spécifié que 90 % des utilisateurs devaient entrer dans la variante, tous ces utilisateurs ne sont pas réellement en mesure de recevoir une notification push. Les utilisateurs qui ne peuvent pas recevoir de notification push entreront tout de même dans la variante.
 
+## Étapes basées sur des actions et propriétés d'événements personnalisés {#action-based-steps-and-custom-event-properties}
+
+Si un Canvas basé sur des actions ou un parcours d'action n'envoie pas de messages au moment prévu, vérifiez que l'événement personnalisé dans le profil de l'utilisateur correspond à la configuration du déclencheur, y compris les filtres de propriétés. Braze évalue les propriétés exactes envoyées avec l'événement ; si une propriété est manquante ou si la valeur ne correspond pas au filtre, l'utilisateur n'avance pas.
+
+Les événements qui se produisent trop tôt ou avant que l'utilisateur ne soit éligible pour l'audience ne déclenchent pas l'étape. Vérifiez donc l'horodatage de l'événement par rapport au lancement du Canvas, à la [planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) et à tout délai planifié avant l'étape.
+
+{% alert note %}
+Les messages in-app dans Canvas ne peuvent être déclenchés que par des événements provenant du SDK, et non de la REST API. Consultez [Pourquoi un utilisateur n'a-t-il pas reçu une étape de Canvas déclenchée ?](#why-did-a-user-not-receive-a-triggered-canvas-step)
+{% endalert %}
+
 ## Pourquoi l'éditeur de Canvas se fige-t-il ou ne se charge-t-il pas ? {#why-is-the-canvas-editor-freezing-or-not-loading}
 
 Si vous apportez des modifications à des Canvas volumineux ou complexes comportant de nombreuses branches ou variantes, de nombreuses étapes ou des flux très larges, l'éditeur peut ne pas se charger ou se figer. Dans ce cas, nous recommandons ce qui suit :

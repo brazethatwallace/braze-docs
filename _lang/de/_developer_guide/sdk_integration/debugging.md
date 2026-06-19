@@ -19,6 +19,8 @@ Um den Braze SDK-Debugger nutzen zu können, benötigen Sie die Berechtigungen �
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
+Um Debugger-Protokolle zu erfassen, wenn `Braze.configuration.logger.level` auf `.disabled` gesetzt ist, verwenden Sie Swift SDK 11.9.0 oder höher. Weitere Informationen finden Sie in den [Swift-Changelogs]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12).
+
 ## Fehlersuche im Braze SDK
 
 {% alert tip %}

@@ -73,9 +73,7 @@ Braze 대시보드에서 **설정** > **설정 및 테스트** > **API 키**로 
    - `users.track`
    - `users.export.ids`
 3. API 키를 저장합니다.
-4. API 키와 REST 엔드포인트를 복사합니다.
-
-![Braze의 API 키 페이지로, Linkrunner 통합에 필요한 데이터 가져오기 키와 REST 엔드포인트를 포함하여 API 키를 생성하고 관리할 수 있습니다.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. API 키와 REST 엔드포인트를 복사합니다. 다음 단계에서 Linkrunner에 붙여 넣습니다. API 키는 비밀로 취급하고 공개적으로 공유하지 마세요.
 
 ### 3단계: Linkrunner 대시보드에서 Braze 구성 {#step-3-configure-braze-in-linkrunners-dashboard}
 

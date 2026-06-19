@@ -73,9 +73,7 @@ Primero, crearás una nueva transformación de datos en Braze. Los pasos siguien
     ```
     {% endraw %}
 
-    Tu transformación debe ser similar a la siguiente:
-
-    ![Un ejemplo de transformación de datos.]({% image_buster /assets/img/front/data_transformation.png %})
+    Tu transformación debe reflejar el ejemplo de JavaScript anterior, ajustando nombres de propiedades y rutas para que coincidan con la carga útil del webhook de Front.
 
 {% alert tip %}
 Puedes modificar esta plantilla para adaptarla a tus necesidades específicas. Por ejemplo, puedes personalizar el nombre preestablecido del evento personalizado. Para más información, consulta [Resumen de la transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation/).

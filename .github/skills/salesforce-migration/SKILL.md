@@ -1,16 +1,13 @@
 ---
 name: salesforce-migration
 description: >
-  Migrates Salesforce Knowledge gaps into Braze public docs (Epic BD-6308). Use for Phase 1 triage,
-  Phase 2 drafting and PRs, kb_articles.csv backlog work, sf_kb_articles.csv Resolution lookups,
-  or when the user mentions @salesforce-migration or Salesforce KB migration.
+  Salesforce KB → Braze docs (Epic BD-6308): Phase 1 triage, Phase 2 PRs, `kb_articles.csv` /
+  optional `sf_kb_articles.csv`. Invoke with @salesforce-migration.
 ---
 
 # Salesforce Knowledge → Braze Docs (Epic BD-6308)
 
-Migrate Salesforce Knowledge gaps into public docs. Invoke with **`@salesforce-migration`**.
-
-**Dependencies:** `_data/` files below + `scripts/salesforce-analyzer/`. For behavior verification use [`reference-repos`](../reference-repos/SKILL.md). For prose style use `docs/contributing/style_guide/`.
+**Invoke:** `@salesforce-migration` · **Verify:** [`reference-repos`](../reference-repos/SKILL.md) · **Prose:** [`docs/contributing/style_guide/`](../../../docs/contributing/style_guide.md)
 
 ---
 
@@ -18,81 +15,72 @@ Migrate Salesforce Knowledge gaps into public docs. Invoke with **`@salesforce-m
 
 | File | Role |
 |------|------|
-| [`_data/kb_articles.csv`](_data/kb_articles.csv) | Backlog — `article_id`, `suggested_change`, `doc_path`, `conflict_resolution`, etc. |
-| [`_data/kb_articles_actioned.md`](_data/kb_articles_actioned.md) | **Generated** Phase 2 queue (PR batches by `doc_path`) |
-| [`_data/kb_articles_skipped.md`](_data/kb_articles_skipped.md) | **Generated** skipped rows + reasons |
-| [`_data/kb_epic_bd6308.txt`](_data/kb_epic_bd6308.txt) | In-flight / completed `article_id` values (excluded from queue) |
-| [`_data/sf_kb_articles.csv`](_data/sf_kb_articles.csv) | Optional full `Resolution` text (`encoding='latin-1'`) when `suggested_change` is not enough |
-
-After Phase 2 PRs open: remove those rows from `kb_articles.csv` and append `article_id` to `kb_epic_bd6308.txt`.
+| [`_data/kb_articles.csv`](_data/kb_articles.csv) | Backlog; **`suggested_change`** = strong draft user docs, not shorthand-only triage (Phase 1) |
+| [`_data/kb_articles_actioned.md`](_data/kb_articles_actioned.md) | **Generated** — Phase 2 queue by `doc_path` |
+| [`_data/kb_articles_skipped.md`](_data/kb_articles_skipped.md) | **Generated** — skipped rows + reasons |
+| [`_data/sf_kb_articles.csv`](_data/sf_kb_articles.csv) | Optional — full SF `Resolution` (`encoding='latin-1'`) |
 
 ---
 
 ## Scripts
 
+Phase 1 **writes** the two markdown files and may edit the CSV. Phase 2 **reads** them. `sf_kb_sync_tracker.py` trims the CSV when run explicitly.
+
 ```bash
-# Phase 1 — from repo root
 python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --infer-doc-paths --no-prune
 python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --no-prune
 
-# Phase 2 — Jira task under BD-6308 (needs JIRA_USER_EMAIL + JIRA_API_TOKEN)
-python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py --pr-url '...' --pr-title '[BD-####](SF) ...' --doc-path '_docs/...'
+python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py [--dry-run]
 
-# Retrofit PR titles for existing epic children
+python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py [--limit N] [--doc-path '_docs/...']
+
+python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py --pr-url '...' --pr-title '[BD-####](SF) ...' --doc-path '_docs/...'   # needs JIRA_USER_EMAIL + JIRA_API_TOKEN
+
 python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
 ```
 
 | Script | Purpose |
 |--------|---------|
-| `generate_kb_phase1_outputs.py` | Gates, path inference, writes actioned/skipped markdown |
-| `sf_kb_jira_ticket.py` | Create BD Task linked to epic BD-6308 |
-| `sf_kb_sync_epic_pr_titles.py` | Rename PRs to `[BD-####](SF) …` format |
+| `generate_kb_phase1_outputs.py` | Phase 1 gates, path inference, actioned/skipped markdown; `--infer-doc-paths` / prune flags |
+| `sf_kb_sync_tracker.py` | PR-labeled `article_id`s → drop from CSV → rerun Phase 1 markdown |
+| `sf_kb_phase2_run_batches.py` | `gh` (+ optional Jira): pastes full `suggested_change` into `_docs/` (expects strong draft); polish to ship-ready before merge |
+| `sf_kb_jira_ticket.py` | BD Task under epic BD-6308 |
+| `sf_kb_sync_epic_pr_titles.py` | PR titles → `[BD-####](SF) …` |
 
 ---
 
 ## Phase 1: Triage
 
-1. Update [`_data/kb_articles.csv`](_data/kb_articles.csv) if needed.
-2. Run both commands above (`--infer-doc-paths` then refresh).
-3. Work from **`kb_articles_actioned.md` section 1** (one PR per primary `_docs` file).
-4. For skipped rows with `overlap` or `codebase confirms knowledge` but no path: infer `doc_path`, update CSV, re-run.
+**`suggested_change`:** Write as **strong draft material** for public docs—full sentences, concrete facts, limits, and steps a customer could follow; say which section to extend when useful. Avoid shorthand-only reminders (use `notes` for author-only context). `sf_kb_phase2_run_batches.py` inserts this field into the target page.
 
-**Skip (no public docs):** workarounds/bugs, INTERNAL titles, support-only/account-specific content, sensitive internal notes.
+1. Edit [`_data/kb_articles.csv`](_data/kb_articles.csv) as needed.
+2. Run `--infer-doc-paths --no-prune` when `doc_path` is missing or wrong, then `--no-prune` to refresh markdown. Prune runs when you omit `--no-prune`. Extend path maps in `generate_kb_phase1_outputs.py` only after you confirm targets; otherwise search `_docs/` (FAQ/troubleshooting first).
+3. Work from **`kb_articles_actioned.md` section 1** — one PR per primary `_docs` file.
+4. Skipped rows with overlap / “codebase confirms” but no path: fix `doc_path` (or infer), re-run.
 
-**`inconclusive` rows:** actionable when they resolve to a `doc_path`; **must verify in reference repos before drafting** in Phase 2.
+**Skip:** workarounds/bugs, `*INTERNAL*` titles, support-only or sensitive content.
 
-**Do not target** `_docs/_help/help_articles/` — find the equivalent `_user_guide/`, `_developer_guide/`, or `_api/` page.
+**`inconclusive`:** still actionable with a `doc_path` — **verify in reference repos** before Phase 2.
 
-### Resolve `doc_path` (when empty or stale)
-
-1. CSV `doc_path` if file exists on disk.
-2. `_docs/...` strings in `suggested_change` / `codebase_evidence` (apply IA remaps in the generator).
-3. Search `_docs/` by title, error strings, feature names — prefer FAQ/troubleshooting over new pages.
-4. Map SF `Environment` to doc neighborhood (Email, Canvas, Currents, SDK, etc.).
+**Paths:** not `_docs/_help/help_articles/` — use `_user_guide/`, `_developer_guide/`, or `_api/`.
 
 ---
 
 ## Phase 2: Draft + PR
 
-**Scope:** one **PR batch** from section 1 of `kb_articles_actioned.md` — all articles sharing one primary `doc_path`, **one file edited per PR** (plus `_includes/` only if required).
+**Scope:** section 1 of `kb_articles_actioned.md` — same `doc_path` → one PR, one primary `_docs` file (`_includes/` only if needed).
 
-1. Read backlog rows; optional `sf_kb_articles.csv` `Resolution` by title; redact PII.
-2. **Verify behavior** in reference repos before drafting (`inconclusive` rows especially). Prefer source over SF text when they conflict.
-3. Draft concise updates per style guide; refine existing prose over new alerts/FAQs.
-4. Branch off `develop`: `sf-cursor-<doc-slug>-<YYYYMMDD>` (see suggested slug in actioned file).
-5. Open PR to `develop`, label **`salesforce migration`**, title **`[BD-####](SF) short theme`** (create Jira task first or via `sf_kb_jira_ticket.py`).
-6. Assignee: longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv), else `@braze-inc/docs-team`.
-7. **Tracker:** append each `article_id` to `kb_epic_bd6308.txt` (sorted, no duplicates); remove rows from `kb_articles.csv`; re-run Phase 1 `--no-prune`.
+1. Read backlog; optional `sf_kb_articles.csv`; redact PII.
+2. **Verify** in reference repos (`inconclusive` especially). Prefer platform/source over SF copy.
+3. **Polish** bulk inserts and any remaining CSV prose to **ship-ready** user docs (tone, Liquid, heading levels, redundancy). Phase 1 should already have supplied strong draft material in `suggested_change`; this step finishes integration.
+4. Branch: `sf-cursor-<slug>-<YYYYMMDD>` (slug in actioned file).
+5. PR → `develop`, label **`salesforce migration`**, title **`[BD-####](SF) …`**. Jira: `sf_kb_jira_ticket.py`.
+6. Assignee: [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv) (longest path). Bulk runner sets `--assignee` only when it resolves to a GitHub user.
+7. Commits: `_docs/` / `_includes/` only — **no** `_data/kb_articles*` in migration PRs.
 
-### PR body (minimum)
+**PR body:** product vertical · summary · changes (files + verification paths) · `article_id` sources — use `build_sf_kb_github_pr_body()` in `sf_kb_jira_ticket.py`.
 
-- **Product vertical** (routing only)
-- **Changes** — files touched; repo-relative verification paths (e.g. `platform/shared_code/...`)
-- **Salesforce Knowledge sources** — bullet per `article_id` + title
-
-### Jira (BD-6308)
-
-One **Task** per PR under epic [**BD-6308**](https://jira.atl.braze.com/browse/BD-6308): GitHub PR link, article list, product vertical. Summary: `Salesforce KB batch - <theme>`.
+**Jira:** one Task per PR under [**BD-6308**](https://jira.atl.braze.com/browse/BD-6308) — PR link, articles, vertical. Summary: `Salesforce KB batch - <theme>`.
 
 ---
 
@@ -103,9 +91,9 @@ One **Task** per PR under epic [**BD-6308**](https://jira.atl.braze.com/browse/B
 ```
 
 ```
-@salesforce-migration Run Phase 2 for the PR batch `_docs/_user_guide/channels/push/troubleshooting.md`.
+@salesforce-migration Run Phase 2 for `_docs/_user_guide/channels/push/troubleshooting.md`.
 ```
 
 ```
-@salesforce-migration Run Phase 2 for the next doc-file batch in kb_articles_actioned.md section 1.
+@salesforce-migration Run Phase 2 for the next batch in kb_articles_actioned.md section 1.
 ```

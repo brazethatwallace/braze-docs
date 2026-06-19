@@ -27,8 +27,8 @@ Para obtener más información sobre qué son los webhooks y cómo puedes usarlo
 
 **Pasos:**
 
-1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
-2. Selecciona **Webhook** o, para campañas dirigidas a múltiples canales, selecciona **Multichannel**.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
+2. Selecciona **Webhook** o, para campañas dirigidas a múltiples canales, selecciona **Multicanal**.
 3. Ponle a tu campaña un nombre claro y significativo.
 4. (Opcional) Añade una descripción para explicar cómo se utilizará esta campaña.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
@@ -36,7 +36,7 @@ Para obtener más información sobre qué son los webhooks y cómo puedes usarlo
 5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plantillas de webhook para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
+Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
 {% endalert %}
 
 {% endtab %}
@@ -56,26 +56,26 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 
 ## Paso 2: Crea tu webhook {#step-2-build-your-webhook}
 
-Puedes elegir crear un webhook desde cero, usar una plantilla existente o usar una de nuestras plantillas existentes. Luego, crea tu webhook en la pestaña **Compose** del editor.
+Puedes elegir crear un webhook desde cero, usar una plantilla existente o usar una de nuestras plantillas existentes. Luego, crea tu webhook en la pestaña **Redactar** del editor.
 
-La pestaña **Compose** consta de los siguientes campos:
+La pestaña **Redactar** consta de los siguientes campos:
 
 - Idioma
 - URL del webhook
 - Método HTTP
 - Cuerpo de la solicitud
 
-![La pestaña "Compose" con un ejemplo de plantilla de webhook.]({% image_buster /assets/img_archive/webhook_compose.png %})
+![La pestaña "Redactar" con un ejemplo de plantilla de webhook.]({% image_buster /assets/img_archive/webhook_compose.png %})
 
-#### Idioma {#internationalization}
+### Idioma {#internationalization}
 
-La [internacionalización]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages) es compatible en la URL y en el cuerpo de la solicitud. Para internacionalizar tu mensaje, selecciona **Add languages** y completa los campos requeridos.
+La [internacionalización]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages) es compatible en la URL y en el cuerpo de la solicitud. Para internacionalizar tu mensaje, selecciona **Añadir idiomas** y completa los campos requeridos.
 
 Te recomendamos seleccionar tus idiomas antes de escribir tu contenido para que puedas rellenar tu texto donde corresponda en Liquid. Para consultar nuestra lista completa de idiomas disponibles, consulta [Idiomas compatibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
 
 Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
 
-#### URL del webhook {#webhook-url}
+### URL del webhook {#webhook-url}
 
 La URL del webhook, o URL HTTP, especifica tu punto de conexión. El punto de conexión es el lugar donde enviarás la información que estás capturando en el webhook.
 
@@ -83,11 +83,11 @@ Si deseas enviar información a un proveedor, este debe proporcionar esta URL en
 
 Braze solo permite URLs que se comunican a través de los puertos estándar `80` (HTTP) y `443` (HTTPS).
 
-##### Uso de Liquid {#using-liquid}
+#### Uso de Liquid {#using-liquid}
 
 Puedes personalizar las URLs de tu webhook usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). A veces, ciertos puntos de conexión pueden requerir que identifiques a un usuario o proporciones información específica del usuario como parte de tu URL. Al usar Liquid, asegúrate de incluir un [valor predeterminado]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) para cada dato específico del usuario que utilices en tu URL.
 
-#### Método HTTP {#http-method}
+### Método HTTP {#http-method}
 
 El método HTTP que debes usar varía según el punto de conexión al que estés enviando información. En la mayoría de los casos, usarás POST.
 
@@ -97,13 +97,13 @@ El método HTTP que debes usar varía según el punto de conexión al que estés
 | GET | Recupera información existente, a diferencia de escribir nueva información. Por definición, una solicitud GET no admite un cuerpo de solicitud. |
 | PUT | Actualiza información en el punto de conexión, reemplazando cualquier información existente con lo que está en el cuerpo de la solicitud. |
 | DELETE | Elimina el recurso en la URL HTTP. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método HTTP" }
 
-#### Cuerpo de la solicitud {#request-body}
+### Cuerpo de la solicitud {#request-body}
 
 El cuerpo de la solicitud es la información que se enviará a la URL que especificaste. Puedes crear el cuerpo de tu solicitud de webhook con pares clave-valor JSON o texto sin formato.
 
-##### Pares clave-valor JSON {#json-key-value-pairs}
+#### Pares clave-valor JSON {#json-key-value-pairs}
 
 Los pares clave-valor JSON te permiten escribir fácilmente una solicitud para un punto de conexión que espera un formato JSON. Solo puedes usar esto con un punto de conexión que espere una solicitud JSON. Por ejemplo, si tu clave es `message_body`, el valor correspondiente podría ser `Your order just arrived!`. Después de introducir tu par clave-valor, el compositor configurará tu solicitud en sintaxis JSON, y se generará automáticamente una vista previa de tu solicitud JSON.
 
@@ -111,7 +111,7 @@ Los pares clave-valor JSON te permiten escribir fácilmente una solicitud para u
 
 Puedes personalizar tus pares clave-valor usando Liquid, incluyendo cualquier atributo de usuario, [atributo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#additional-notes-and-best-practices) o [propiedad de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) en tu solicitud. Por ejemplo, puedes incluir el nombre y el correo electrónico de un cliente en tu solicitud. Asegúrate de incluir un [valor predeterminado]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) para cada atributo.
 
-##### Texto sin formato {#raw-text}
+#### Texto sin formato {#raw-text}
 
 La opción de texto sin formato te da la flexibilidad de escribir una solicitud para un punto de conexión que espera un cuerpo de cualquier formato. Por ejemplo, podrías usar esto para escribir una solicitud para un punto de conexión que espere que tu solicitud esté en formato XML.
 
@@ -131,9 +131,9 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ## Paso 3: Configura ajustes adicionales {#step-3-configure-additional-settings}
 
-#### Encabezados de solicitud (opcional) {#request-headers-optional}
+### Encabezados de solicitud (opcional) {#request-headers-optional}
 
-Ciertos puntos de conexión pueden requerir que incluyas encabezados en tu solicitud. En la sección **Compose** del compositor, puedes añadir tantos encabezados como necesites.
+Ciertos puntos de conexión pueden requerir que incluyas encabezados en tu solicitud. En la sección **Redactar** del compositor, puedes añadir tantos encabezados como necesites.
 
 ![Ejemplos de encabezados de solicitud para la clave "Authorization" y la clave "Content-type".]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
@@ -147,7 +147,7 @@ Los encabezados de autorización deben usar la clave `Authorization`. Los valore
 
 Antes de poner tu campaña en marcha, Braze recomienda que pruebes el webhook para asegurarte de que la solicitud está formateada correctamente.
 
-Para hacerlo, cambia a la pestaña **Test** y envía un webhook de prueba. Puedes probar el webhook como un usuario aleatorio, un usuario específico (introduciendo su dirección de correo electrónico o ID de usuario externo), o un usuario personalizado con los atributos que elijas.
+Para hacerlo, cambia a la pestaña **Prueba** y envía un webhook de prueba. Puedes probar el webhook como un usuario aleatorio, un usuario específico (introduciendo su dirección de correo electrónico o ID de usuario externo), o un usuario personalizado con los atributos que elijas.
 
 Después de enviar el webhook de prueba, aparecerá un cuadro de diálogo con el mensaje de respuesta. Si la solicitud del webhook no tiene éxito, consulta el mensaje de error para obtener ayuda en la solución de problemas de tu webhook. El siguiente ejemplo detalla la respuesta de un webhook con una URL de webhook no válida.
 
@@ -172,7 +172,7 @@ Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/us
 
 A continuación, construye el resto de tu campaña. Consulta las siguientes secciones para obtener más detalles sobre cómo usar mejor nuestras herramientas para crear webhooks.
 
-#### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
+### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
 
 Los webhooks pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -180,13 +180,13 @@ Para la entrega basada en acciones, también puedes establecer la duración de l
 
 En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Elige los usuarios objetivo {#choose-users-to-target}
+### Elige los usuarios objetivo {#choose-users-to-target}
 
 A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para acotar tu audiencia. En este paso, seleccionas la audiencia más amplia de tus segmentos y acotas aún más ese segmento con nuestros filtros, si lo deseas. Recibirás automáticamente una vista previa de la población aproximada de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de enviar el mensaje.
 
 {% multi_lang_include target_audiences.md %}
 
-#### Elige eventos de conversión {#choose-conversion-events}
+### Elige eventos de conversión {#choose-conversion-events}
 
 Braze te permite hacer seguimiento de la frecuencia con la que los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
 
@@ -230,7 +230,7 @@ Cuando se envía la solicitud del webhook, el servidor receptor devolverá un c�
 | `429` (límite de velocidad)  | No | Sí |
 | `Otros 4XX` (error del cliente)  | No | No |
 | `5XX` (error del servidor)   | No | Sí |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de respuesta y lógica de reintentos" }
 
 {% alert note %}
 Braze reintenta los códigos de estado anteriores hasta cinco veces en 30 minutos usando retirada exponencial. Si no podemos alcanzar tu punto de conexión, los reintentos pueden distribuirse a lo largo de un período de 24 horas.<br><br>Cada webhook tiene un tiempo de espera de 90 segundos antes de que se agote.
@@ -240,7 +240,7 @@ Los encabezados de respuesta `Retry-After` y de límite de velocidad pueden afec
 
 #### Autenticación y credenciales de contenido conectado {#authentication-and-connected-content-credentials}
 
-La solicitud HTTP saliente del webhook no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu punto de conexión. Configura la autenticación usando **Request headers** en el webhook en su lugar. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid lo resuelva antes de que se envíe el webhook.
+La solicitud HTTP saliente del webhook no admite adjuntar [credenciales de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#authentication-types) (`:basic_auth` o `:auth_credentials`) para autenticarse contra tu punto de conexión. Configura la autenticación usando **Encabezados de solicitud** en el webhook en su lugar. Para obtener un token o secreto en el momento del envío, puedes colocar una etiqueta {% raw %}`{% connected_content %}`{% endraw %} en un campo de encabezado o cuerpo para que Liquid lo resuelva antes de que se envíe el webhook.
 
 #### Plantillas de webhook guardadas y uso en campañas {#saved-webhook-templates-and-campaign-usage}
 
@@ -261,3 +261,9 @@ Si estás haciendo un webhook de Braze a Braze y usas la lista de permitidos, de
 {% endalert %}
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
+
+### Eliminar usuarios {#delete-users}
+
+Para eliminar un usuario individual o un segmento de usuarios, ve a **Audiencia** > **Gestionar audiencia** > **Eliminar usuarios**. El dashboard admite la eliminación masiva de segmentos (hasta 10 millones de perfiles), incluye una ventana de cancelación de 7 días y no consume los límites de velocidad compartidos de la REST API. Para conocer los pasos, límites y permisos, consulta [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/).
+
+Para la eliminación programática en lotes más pequeños, usa el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) en lugar de una campaña de webhook.

@@ -35,8 +35,6 @@ Sync-Protokolle enthalten außerdem die folgenden Details zu jeder Synchronisier
 * **Startzeit des Laufs:** Wann der Synchronisierungsauftrag begonnen hat.
 * **Laufdauer:** Die Gesamtzeit, die der Synchronisierungsauftrag bis zum Abschluss benötigt hat.
 
-![Details zu einem Sync-Protokoll.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Datenaufbewahrung {#data-retention}
 
 Sync-Protokolldaten, einschließlich aller Payloads auf Zeilenebene und Fehlerdetails, werden bis zu **30 Tage** lang aufbewahrt. Protokolle, die älter als 30 Tage sind, werden automatisch gelöscht.
@@ -72,8 +70,6 @@ Diese Tabelle bietet Transparenz auf Zeilenebene hinsichtlich der während der S
 #### Payloads anzeigen {#viewing-payloads}
 
 Um die genauen Daten anzuzeigen, die für eine bestimmte Zeile an Braze gesendet wurden, wählen Sie **View payload** in der Spalte **Source** payload aus. Hiermit wird der rohe JSON-Payload angezeigt, der für diese:n Nutzer:in verarbeitet wurde.
-
-![Payload-Beispiel für eine bestimmte Zeile in einem Sync-Protokoll.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
 
 #### Sync-Protokolle exportieren {#exporting-sync-logs}
 

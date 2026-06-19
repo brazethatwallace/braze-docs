@@ -4,6 +4,18 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
+{% alert important %}
+## Sunsetting the locally hosted Braze MCP server
+
+This summer, Braze is launching a remote, Braze-hosted MCP server in Early Access. It replaces the locally hosted beta server (`braze-mcp-server` on [PyPI](https://pypi.org/project/braze-mcp-server/) and the Claude Desktop extension directory).
+
+**What this means for you:**
+
+- The locally hosted server will continue to work, but it is no longer supported. We won't be adding new endpoints or fixing issues in the beta.
+- When the remote server is available in Early Access, you'll need to switch to it. The remote server requires no local installation, uses OAuth instead of static API keys, and works with MCP clients like Claude, Copilot, Gemini CLI, Codex, and Cursor.
+- Watch this page for Early Access availability, or contact your Braze account team to express interest.
+{% endalert %}
+
 ## What is Model Context Protocol (MCP)?
 
 ​​Model Context Protocol, or MCP, is a standard that lets AI agents connect to and work with data from another platform. It has two main parts:
@@ -31,11 +43,13 @@ You can interact with Braze through natural language using tools like Claude or 
 
 {% tabs %}
 {% tab Claude %}
-!['What are my available Braze functions?' being asked and answered in Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Used `list_functions` and returned the available Braze MCP function categories.
 {% endtab %}
 
 {% tab Cursor %}
-!['What are my available Braze functions' being asked and answered in Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Example prompt:** `What are my available Braze functions?`  
+**Example response:** Queried `list_functions` and listed functions such as `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +81,7 @@ No. You'll need to create a new API key for your MCP client. Remember to only gi
 
 ### Is the Braze MCP server hosted locally or remotely?
 
-The Braze MCP server is hosted locally.
+The currently available Braze MCP server is hosted locally. A remote, Braze-hosted MCP server is coming to Early Access this summer and will replace the locally hosted beta server.
 
 ### Why is Cursor only listing functions?
 

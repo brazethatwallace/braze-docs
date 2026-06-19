@@ -32,9 +32,13 @@ Pour plus de commodité, voici un résumé des étiquettes de personnalisation p
 | Attributs personnalisés <br> (Ceux-ci sont propres à votre espace de travail.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>Propriétés de déclencheur API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Propriétés d'entrée Canvas | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résumé des étiquettes prises en charge" }
 
 {% endraw %}
+
+{% alert note %}
+Les propriétés de déclencheur API doivent utiliser deux accolades par étiquette : {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Les triples accolades (par exemple `{{{...}}}`){% endraw %} ne constituent pas une syntaxe de personnalisation Braze valide. Consultez [Pourquoi mon Liquid déclenché par API échoue-t-il dans Braze ?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
 
 ### Attributs pris en charge {#supported-attributes}
 
@@ -51,7 +55,6 @@ Le comportement des étiquettes suivantes diffère entre Canvas et les Campaigns
 {% endraw %}
 
 #### Noms de Campaign dans les URL {#campaign-names-in-urls}
-{: #campaign-names-in-urls}
 
 {% raw %}
 Les noms de Campaign et de variante de message peuvent contenir des caractères non compatibles avec les URL, tels que `%`, des espaces ou `&`. Lorsque vous insérez `{{campaign.${name}}}` ou `{{campaign.${message_name}}}` dans un lien ou une chaîne de requête, comme un paramètre `utm_campaign`, appliquez le filtre [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) pour que l'URL soit correctement analysée. Par exemple :
@@ -79,7 +82,7 @@ Vous pouvez utiliser les attributs suivants comme modèles pour l'appareil le pl
 | `{{most_recently_used_device.${model}}}` | Le nom du modèle de l'appareil, si disponible. Exemples : « iPhone 6S », « Nexus 6P » et « Firefox ». |
 | `{{most_recently_used_device.${os}}}` | Le système d'exploitation de l'appareil, si disponible. Exemples : « iOS 9.2.1 », « Android (Lollipop) » et « Windows ». |
 | `{{most_recently_used_device.${platform}}}` | La plateforme de l'appareil, si disponible. Si définie, la valeur est l'une des suivantes : `ios`, `android`, `kindle`, `android_china`, `web` ou `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur l'appareil le plus récemment utilisé" }
 
 Étant donné la grande variété d'opérateurs, de noms de modèles et de systèmes d'exploitation, nous vous conseillons de tester minutieusement tout code Liquid qui dépend conditionnellement de l'une de ces valeurs. Ces valeurs sont `null` si elles ne sont pas disponibles sur un appareil donné.
 
@@ -91,7 +94,7 @@ Pour les messages in-app, vous pouvez utiliser les attributs d'application suiva
 |------------------|---|
 | `{{app.${api_id}}}` | La clé API de l'application qui demande le message. Par exemple, vous pouvez utiliser cette clé en conjonction avec `abort_message()` en Liquid pour éviter d'envoyer des messages in-app à certaines applications, comme les plateformes TV ou les builds de développement qui utilisent une clé API SDK distincte. |
 | `{{app.${name}}}` | Le nom de l'application (tel que défini dans le tableau de bord de Braze) qui demande le message. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur l'application ciblée" }
 
 Par exemple, ce code Liquid interrompt un message si les applications qui le demandent ne correspondent pas à l'une des deux clés API de la liste :
 
@@ -119,7 +122,7 @@ Pour les notifications push, les messages in-app et les bannières, vous pouvez 
 | `{{targeted_device.${os}}}` | Le système d'exploitation de l'appareil, si disponible. Exemples : « iOS 9.2.1 », « Android (Lollipop) » et « Windows ». |
 | `{{targeted_device.${platform}}}` | La plateforme de l'appareil, si disponible. Si définie, la valeur est l'une des suivantes : `ios`, `android`, `kindle`, `android_china`, `web` ou `tvos`. Vous pouvez également utiliser l'étiquette de personnalisation `most_recently_used_device`. |
 | `{{targeted_device.${foreground_push_enabled}}}` | Cette valeur est `true` lorsque l'appareil ciblé est activé pour les notifications push au premier plan, `false` dans le cas contraire. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur l'appareil ciblé" }
 
 {% endraw %}
 
@@ -313,7 +316,7 @@ L'étiquette `{% random %}` renvoie un nombre aléatoire. Vous pouvez l'utiliser
 |-------|--------------|
 | `{% random %}` | Un nombre à virgule flottante entre 0 et 1 (0 inclus, 1 exclus). |
 | `{% random 10 %}` (argument entier) | Un entier allant de 0 jusqu'à l'entier spécifié, sans l'inclure. Par exemple, `{% random 10 %}` renvoie un entier de 0 à 9. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Envoyer des messages avec un nombre aléatoire" }
 
 {% endraw %}
 

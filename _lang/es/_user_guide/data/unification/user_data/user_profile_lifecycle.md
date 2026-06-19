@@ -68,11 +68,15 @@ Si tanto el usuario anónimo como el usuario conocido tienen nombre, se mantiene
 No todos los datos se fusionan desde el perfil anónimo. Los tokens de notificaciones push y el historial de mensajes se transfieren, y los atributos personalizados, eventos personalizados e historial de compras del perfil anónimo se fusionan en el usuario identificado solo cuando esos campos no existen ya en el perfil del usuario identificado. Cuando hay datos en conflicto, se mantienen los valores del usuario identificado. Consulta el [comportamiento de fusión]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) para ver la lista completa de campos que se transfieren y los que no.
 {% endalert %}
 
-Para obtener información sobre cómo configurar un `external_id` en un perfil de usuario, consulta nuestra documentación ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web).
+Para obtener información sobre cómo configurar un `external_id` en un perfil de usuario, consulta nuestra documentación ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)).
 
 {% alert note %}
 Los usuarios huérfanos no son elegibles para recibir mensajes.
 {% endalert %}
+
+### Fusionar usuarios duplicados {#merging-duplicate-users}
+
+Cuando identifiques perfiles de usuario duplicados en tu espacio de trabajo, puedes fusionarlos utilizando la REST API. Para obtener más información sobre la fusión de usuarios y los métodos disponibles, consulta [Fusionar usuarios duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
 ## Alias de usuario {#user-aliases}
 
@@ -104,7 +108,7 @@ Si no conoces esta información, puedes llamar al [punto de conexión `Export us
 
 También se puede establecer un alias de usuario en un perfil de usuario conocido para hacer referencia a un usuario conocido mediante otro ID conocido externamente. Por ejemplo, un usuario puede tener un ID de herramienta de inteligencia empresarial (como un ID de Amplitude) al que deseas hacer referencia en Braze.
 
-Para obtener información sobre cómo configurar un alias de usuario, consulta nuestra documentación para cada plataforma ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users).
+Para obtener información sobre cómo configurar un alias de usuario, consulta nuestra documentación para cada plataforma ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users)).
 
 ![Diagrama del ciclo de vida de un perfil de usuario en Braze. Cuando se llama a changeUser() para un usuario anónimo, ese usuario se convierte en un usuario identificado y los datos se migran a su perfil de usuario identificado. El usuario identificado tiene un Braze ID y un ID externo. En este punto, si se llama a changeUser() para un segundo usuario anónimo, se fusionarán los campos de datos de usuario que no existan ya en el usuario identificado. Si el usuario identificado tiene un alias añadido a su perfil de usuario existente, no se verá afectado ningún dato, pero se convertirá en un usuario identificado con alias. Si se llama a changeUser() para un tercer usuario anónimo con la misma etiqueta de alias que el usuario identificado pero un nombre de alias diferente, se fusionarán todos los campos que no existan en el usuario identificado y se mantendrá la etiqueta de alias en el perfil del usuario identificado.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 

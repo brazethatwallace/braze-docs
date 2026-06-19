@@ -13,7 +13,7 @@ Antes de começar, você precisará do seguinte:
 | Chave de API da Braze | Uma chave de API da Braze com as permissões necessárias. Você criará uma nova chave quando [configurar seu servidor Braze MCP](#create-api-key). |
 | Cliente MCP | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) e [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) são oficialmente suportados. Você deve ter uma conta em um desses clientes para usar o servidor Braze MCP. |
 | Terminal | Um app de terminal para que você possa executar comandos e instalar ferramentas. Use seu app de terminal preferido ou o que já está instalado no seu computador. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Configurando o servidor Braze MCP
 
@@ -400,6 +400,21 @@ uvx --python 3.12 braze-mcp-server@latest
 ```
 
 ### Configuração do cliente {#client-configuration}
+
+#### "Esta extensão não é compatível com seu dispositivo" {#this-extension-is-not-compatible-with-your-device}
+
+Se você vir esse erro ao instalar a extensão do servidor Braze MCP, isso pode indicar uma das seguintes situações:
+
+- **Seu dispositivo não atende aos requisitos**: Algumas extensões de servidor MCP exigem versões específicas do sistema operacional ou hardware.
+- **Ferramentas de desenvolvimento ausentes (somente macOS)**: No macOS, a instalação da extensão requer ferramentas de desenvolvedor de linha de comando para executar comandos Python. Se essas ferramentas não estiverem instaladas, a instalação falhará com esse erro.
+
+Para instalar as ferramentas de desenvolvedor de linha de comando no macOS, execute o seguinte no seu terminal:
+
+```bash
+xcode-select --install
+```
+
+Após a conclusão da instalação, reinicie seu cliente MCP e tente instalar a extensão novamente.
 
 #### O cliente MCP não consegue encontrar o servidor Braze {#mcp-client-cant-find-the-braze-server}
 

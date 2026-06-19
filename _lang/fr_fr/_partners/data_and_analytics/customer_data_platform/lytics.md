@@ -61,9 +61,7 @@ Ensuite, choisissez une autorisation dans les options **Select Authorization**.
 
 ### Étape 3 : Configurer la tâche {#step-3-configure-the-job}
 
-Dans l'invite **Configure Job**, indiquez un libellé et une description facultative. Ensuite, dans le champ **Braze External User ID Field**, sélectionnez le champ de Lytics qui contient l'ID utilisateur externe de Braze (`braze_id`). L'étape suivante est la plus importante : sélectionnez les audiences à exporter vers Braze.
-
-![]({% image_buster /assets/img/lytics/braze_job.png %}){: style="max-width:80%;"}
+Dans l'invite **Configure Job**, indiquez un libellé et une description facultative. Ensuite, dans le champ **Braze External User ID Field**, sélectionnez le champ de Lytics qui contient l'ID utilisateur externe de Braze (`braze_id`). L'étape suivante est la plus importante : dans la même boîte de dialogue, sélectionnez les audiences à exporter vers Braze.
 
 Enfin, choisissez l'option préférée pour la case à cocher **Existing Users**. En laissant cette case cochée, vous ajouterez les utilisateurs qui existent déjà dans l'audience Lytics sélectionnée. Si la case n'est pas cochée, les utilisateurs ne seront exportés vers Braze que lorsqu'ils entreront ou sortiront de l'audience après le début du flux de travail.
 

@@ -41,7 +41,7 @@ Los porcentajes se calculan comparando el rango de fechas actual con el rango de
 
 Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usuarios activos diarios* muestran un aumento porcentual del 1,8 %, eso significa que tuviste un 1,8 % más de usuarios activos diarios esta semana en comparación con la semana pasada.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Un mosaico de métrica del resumen de rendimiento que muestra un valor de métrica y el cambio porcentual.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar desglose {#show-breakdown}
 
@@ -110,9 +110,9 @@ Los cálculos de MAU siguen reglas específicas para garantizar una facturación
 
 - **Momento del cálculo**: se calcula una vez al día a las 12:05 UTC como una instantánea de 30 días; los recuentos nunca cambian retroactivamente.
 - **Perfiles anónimos**: se cuentan **solo** cuando se registra al menos una sesión.
-- **Perfiles identificados**: se cuentan automáticamente una vez que existen.
+- **Perfiles identificados**: se cuentan solo cuando `date_of_last_session` está dentro de la ventana móvil de 30 días.
 - **Perfiles huérfanos**: los duplicados fusionados con otro usuario **no** se cuentan.
-- **Cargas por CSV**: los usuarios cargados por CSV se cuentan solo cuando se proporciona `date_of_first_session` o `date_of_last_session`, o cuando posteriormente registran una sesión.
+- **Cargas por CSV e importaciones por REST API**: los usuarios cargados por CSV o la REST API cuentan para el MAU cuando proporcionas `date_of_last_session` dentro de la ventana móvil de 30 días, o cuando posteriormente registran una sesión. Proporcionar solo `date_of_first_session` no afecta al MAU.
 - **Eliminaciones por API**: eliminar un usuario a través de la API no actualiza el MAU de inmediato; el recuento se corrige automáticamente en el siguiente ciclo mensual.
 
 {% alert note %}

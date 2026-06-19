@@ -115,6 +115,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 - `prioritization` が正確に1つのユーザープロファイルを返さない場合、Brazeは最大40回まで解決をリトライします。このリトライ動作は想定されたものです。
 - `send_to_existing_only` の設定は `prioritization` の同点動作を変更しません。この設定が `true` でも `false` でも、同じ同点およびリトライ動作が適用されます。
 
+`external_user_id` または `user_alias` で識別された受信者に対してメール専用Campaignをトリガーし、そのユーザープロファイルに呼び出し時点でメールアドレスがない場合、Brazeは約2時間まで送信をリトライします。これは、ユーザーの作成とメールアドレスの設定が短い間隔で行われる一般的なパターンに対応しています。遅延なく送信するには、`recipients[].attributes` 内に `email` 属性を含めて、トリガーと同じ呼び出しでアドレスを設定してください。
+
 {% alert note %}
 このエンドポイントでは `segment_id` パラメーターはサポートされていません。Segmentをターゲットにするには、BrazeダッシュボードのCampaignのターゲットオーディエンス設定でSegmentを設定し、`"broadcast": true` を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで `audience` パラメーターを使用してください。
 {% endalert %}

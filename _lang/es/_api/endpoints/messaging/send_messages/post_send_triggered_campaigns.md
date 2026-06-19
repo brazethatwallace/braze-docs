@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). Cuando incluyes `audience`, el mensaje solo se envía a los usuarios que coinciden con los filtros definidos, como los atributos personalizados y los estados de suscripción. |
 | `recipients` | Opcional | Matriz | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Si `send_to_existing_only` es `false`, debe incluirse un objeto `attributes`.<br><br>Puedes actualizar el estado del grupo de suscripción de un usuario incluyendo `subscription_groups` en el objeto `attributes` anidado. Para más detalles, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Si no se proporciona `recipients` y `broadcast` se establece en verdadero, el mensaje se envía a todo el Segment configurado como audiencia objetivo de la Campaign en el panel de Braze.<br><br>Si `email` es el identificador, debes incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) en el objeto de destinatarios. |
 | `attachments` | Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Comportamiento de resolución de destinatarios {#recipient-resolution-behavior}
 
@@ -114,6 +114,8 @@ Descubre qué sucede cuando `prioritization` no devuelve exactamente un perfil.
 
 - Cuando `prioritization` no devuelve exactamente un perfil de usuario, Braze reintenta la resolución hasta 40 veces. Este comportamiento de reintento es esperado.
 - La configuración de `send_to_existing_only` no cambia el comportamiento de empate de `prioritization`. El mismo comportamiento de empate y reintento se aplica tanto si esta configuración es `true` como `false`.
+
+Si desencadenas una Campaign solo de correo electrónico para un destinatario identificado por `external_user_id` o `user_alias`, y ese perfil de usuario no tiene una dirección de correo electrónico en el momento de la llamada, Braze reintenta el envío durante aproximadamente 2 horas. Esto cubre el patrón habitual de crear un usuario y establecer su dirección de correo electrónico en rápida sucesión. Para enviar sin demora, incluye el atributo `email` dentro de `recipients[].attributes` para que la dirección se establezca en la misma llamada que el desencadenante.
 
 {% alert note %}
 El parámetro `segment_id` no es compatible con este punto de conexión. Para dirigirte a un Segment, configúralo en los ajustes de audiencia objetivo de la Campaign en el panel de Braze y utiliza `"broadcast": true`, o bien utiliza el parámetro `audience` con los filtros de [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/).

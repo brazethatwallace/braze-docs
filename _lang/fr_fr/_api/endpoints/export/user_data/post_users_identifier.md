@@ -62,7 +62,7 @@ Pour les clients ayant intégré Braze le 22 août 2024 ou après, le paramètre
 | `email_address` | Facultatif | Chaîne de caractères | Adresse e-mail de l'utilisateur. |
 | `phone` | Facultatif | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Numéro de téléphone de l'utilisateur. |
 | `fields_to_export` | Facultatif* | Tableau de chaînes de caractères | Nom des champs de données utilisateur à exporter.<br><br>*Ce champ est requis pour bénéficier de la limite de débit plus rapide de 40 requêtes par seconde. S'il est omis, la limite de débit par défaut de 250 requêtes par minute sera utilisée à la place. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 *Requis pour les clients ayant intégré Braze le 22 août 2024 ou après.
 
@@ -120,12 +120,12 @@ Voici une liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to
 | `push_tokens` | Tableau | Identifiant anonyme unique qui spécifie où envoyer les notifications d'une application. |
 | `random_bucket` | Entier | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires. |
 | `time_zone` | Chaîne de caractères | Fuseau horaire de l'utilisateur, au même format que la base de données de fuseaux horaires IANA. |
-| `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats effectués par l'utilisateur pendant les fenêtres de conversion des Campaigns et Canvas qu'il a reçus. |
+| `total_revenue` | Float | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats effectués par l'utilisateur pendant les fenêtres de conversion des campagnes et Canvas qu'il a reçus. |
 | `uninstalled_at` | Horodatage | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée. |
 | `user_aliases` | Objet | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs à exporter" }
 
-Sachez que l'endpoint `/users/export/ids` récupère l'intégralité du profil utilisateur, y compris les données telles que toutes les Campaigns et Canvas reçus, tous les événements personnalisés effectués, tous les achats réalisés et tous les attributs personnalisés. Par conséquent, cet endpoint est plus lent que les autres endpoints de la REST API.
+Sachez que l'endpoint `/users/export/ids` récupère l'intégralité du profil utilisateur, y compris les données telles que toutes les campagnes et Canvas reçus, tous les événements personnalisés effectués, tous les achats réalisés et tous les attributs personnalisés. Par conséquent, cet endpoint est plus lent que les autres endpoints de la REST API.
 
 En fonction des données demandées, cet endpoint d'API peut ne pas suffire à répondre à vos besoins en raison de la limite de débit de 250 requêtes par minute. Si vous prévoyez d'utiliser cet endpoint régulièrement pour exporter des utilisateurs, envisagez plutôt d'exporter les utilisateurs par segment, ce qui est asynchrone et mieux optimisé pour les extractions de données volumineuses.
 
@@ -215,7 +215,8 @@ Objet d'exportation utilisateur (nous inclurons le minimum de données possible 
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -361,7 +362,8 @@ Objet d'exportation utilisateur (nous inclurons le minimum de données possible 
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],

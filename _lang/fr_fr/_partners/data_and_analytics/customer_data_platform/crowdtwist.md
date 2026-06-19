@@ -240,9 +240,7 @@ Les modèles de ce guide sont conçus pour envoyer les données à la destinatio
 
 ### Test {#testing}
 
-Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Cliquez sur **Validate** pour obtenir un aperçu de la sortie de votre code et vérifier s'il s'agit d'une requête acceptable pour la destination choisie.
-
-![Capture d'écran de l'interface de Transformation des données de Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
+Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Dans l'éditeur de transformation, sélectionnez **Validate** pour générer un aperçu dans la section **Output** et confirmer que Braze acceptera la requête mappée pour la destination choisie.
 
 Lorsque vous êtes satisfait de l'objet affiché dans le champ « output », cliquez sur **Activate** pour que l'endpoint de Transformation des données soit prêt à accepter des données.
 

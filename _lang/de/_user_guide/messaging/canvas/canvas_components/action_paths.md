@@ -71,6 +71,10 @@ Fügen Sie einen oder mehrere Trigger hinzu, um Ihre Aktionsgruppen zu definiere
 - Einen Geofence triggern
 - Eine eingehende SMS- oder WhatsApp-Nachricht senden
 
+#### Trigger „E-Mail-Adresse hinzufügen“ {#add-an-email-address-trigger}
+
+Der Aktionsgruppen-Trigger **Add an Email Address** wird ausgelöst, wenn eine E-Mail-Adresse während des **Evaluation Window** des Aktions-Pfads zu einem Nutzerprofil hinzugefügt oder aktualisiert wird. Dieses Verhalten entspricht anderen Profilaktualisierungs-Triggern: Nutzer:innen werden durch die Aktionsgruppe weitergeleitet, wenn die Profiländerung unter Ihrer Konfiguration qualifiziert ist, einschließlich aller Filter auf dem Trigger.
+
 ![Eine Aktionsgruppe namens „Gruppe 1“ für Nutzer:innen, die einen beliebigen Kauf tätigen.]({% image_buster /assets/img/actionpath_group.png %})
 
 In jeder Aktionsgruppeneinstellung haben Sie auch die Möglichkeit, das Kontrollkästchen **I want this group to exit the Canvas** zu aktivieren. Das bedeutet, dass die Nutzer:innen in dieser Gruppe den Canvas am Ende des Auswertungszeitraums verlassen.

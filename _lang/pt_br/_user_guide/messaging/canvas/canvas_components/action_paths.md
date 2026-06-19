@@ -71,6 +71,10 @@ Adicione um ou vários gatilhos para definir seus grupos de ação. Aqui, você 
 - Disparam uma geofence
 - Enviam uma mensagem de entrada por SMS ou WhatsApp
 
+#### Gatilho de adição de endereço de e-mail {#add-an-email-address-trigger}
+
+O gatilho do grupo de ação **Adicionar um endereço de e-mail** é disparado quando um endereço de e-mail é adicionado ou atualizado em um perfil de usuário durante o **Período de avaliação** da jornada de ação. Esse comportamento é igual ao de outros gatilhos de atualização de perfil: os usuários avançam pelo grupo de ação quando a alteração no perfil se qualifica de acordo com sua configuração, incluindo quaisquer filtros no gatilho.
+
 ![Um grupo de ação chamado "Grupo 1" para usuários que realizam qualquer compra.]({% image_buster /assets/img/actionpath_group.png %})
 
 Em cada configuração de grupo de ação, você também tem a opção de marcar a caixa de seleção **Quero que este grupo saia do Canvas**, o que significa que os usuários desse grupo sairão do Canvas ao final do período de avaliação.
