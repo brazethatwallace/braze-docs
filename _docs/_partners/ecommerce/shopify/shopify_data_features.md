@@ -689,8 +689,8 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Event**: `shopify_cancelled_order`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_cancelled`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is cancelled<br> 
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Order cancellation confirmation
@@ -725,8 +725,8 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Event**: `shopify_order_refunded`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_refunded`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is refunded<br>
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Refund confirmation
