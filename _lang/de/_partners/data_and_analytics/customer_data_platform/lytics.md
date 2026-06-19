@@ -35,7 +35,7 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 | Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in, wenn Sie sich nicht sicher sind. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration {#integration}
 
@@ -47,31 +47,31 @@ Navigieren Sie in Lytics zum Dashboard **Authorization** innerhalb der **Data**-
 
 Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und geben Sie Ihren REST-API-Schlüssel und Ihre Braze-Instanz ein. Wählen Sie **Complete**, wenn Sie fertig sind.
 
-![]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
+![Lytics-Aufforderung „Configure Authorization“ für Braze mit Feldern für Bezeichnung, Beschreibung, REST-API-Schlüssel und Braze-Instanz.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
 ### 2. Schritt: Einen neuen Auftrag erstellen {#step-2-create-a-new-job}
 
 Navigieren Sie in Lytics zum Dashboard **Jobs** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Job**, suchen Sie nach **Braze** und wählen Sie es aus. Wählen Sie in der daraufhin angezeigten Aufforderung **Select Job Type** die Option **Export Audience**.
 
-![]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
+![Lytics-Aufforderung „Select Job Type“ für einen neuen Braze-Auftrag mit ausgewählter Option „Export Audience“.]({% image_buster /assets/img/lytics/braze_jobtype.png %}){: style="max-width:80%;"}
 
 Wählen Sie dann eine Autorisierung aus den Optionen unter **Select Authorization** aus.
 
-![]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
+![Lytics-Schritt „Select Authorization“ mit der Braze-Autorisierung, die für den Exportauftrag verwendet werden soll.]({% image_buster /assets/img/lytics/braze_jobauth.png %}){: style="max-width:80%;"}
 
 ### 3. Schritt: Den Auftrag konfigurieren {#step-3-configure-the-job}
 
-Geben Sie in der Aufforderung **Configure Job** eine Bezeichnung und optional eine Beschreibung ein. Wählen Sie als Nächstes im Eingabefeld **Braze External User ID Field** das Feld in Lytics aus, das die externe Braze-Nutzer-ID enthält (`braze_id`). Der nächste Schritt ist der wichtigste – wählen Sie im selben Dialog die Zielgruppen aus, die Sie nach Braze exportieren möchten.
+Geben Sie in der Aufforderung **Configure Job** eine Bezeichnung und optional eine Beschreibung ein. Wählen Sie als Nächstes im Eingabefeld **Braze External User ID Field** das Feld in Lytics aus, das die externe Braze-Nutzer-ID enthält (`braze_id`). Der nächste Schritt ist der wichtigste – wählen Sie im selben Dialog über die Zielgruppenauswahl die Zielgruppen aus, die Sie nach Braze exportieren möchten.
 
 Wählen Sie schließlich die gewünschte Option für das Kontrollkästchen **Existing Users**. Wenn Sie dieses Kästchen aktiviert lassen, werden Nutzer:innen hinzugefügt, die bereits in der ausgewählten Lytics-Zielgruppe vorhanden sind. Wenn diese Option nicht markiert ist, werden Nutzer:innen nur dann nach Braze exportiert, wenn sie die Zielgruppe nach Beginn des Workflows betreten oder verlassen.
 
 {% alert note %}
-Wenn Sie dieses Kästchen markieren, werden alle vorhandenen Nutzer:innen der ausgewählten Zielgruppe in Braze gepusht. Wenn Ihre Braze-Preise Datenpunkte enthalten, überwachen Sie die Datenpunkt-Nutzung entsprechend.
+Wenn Sie dieses Kästchen markieren, werden alle vorhandenen Nutzer:innen der ausgewählten Zielgruppe an Braze gesendet. Wenn Ihre Braze-Preise Datenpunkte enthalten, überwachen Sie die Datenpunkt-Nutzung entsprechend.
 {% endalert %}
 
-Klicken Sie abschließend auf **Complete**, um den Export zu starten und zu speichern.
+Wählen Sie **Complete**, wenn Sie fertig sind, um den Export zu starten und zu speichern.
 
-![]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
+![Lytics-Exportauftrag-Zusammenfassung mit der Schaltfläche „Complete“ und Optionen zum Speichern oder Ausführen des Braze-Zielgruppen-Exports.]({% image_buster /assets/img/lytics/braze_backfill.png %}){: style="max-width:80%;"}
 
 Nachdem der Exportauftrag konfiguriert wurde, sendet Lytics die ausgewählten Zielgruppen über die native Integration an Braze. Nachfolgend sehen Sie eine Beispielzielgruppe, die die JSON-Struktur der an Braze gesendeten Zielgruppe zeigt.
 
@@ -116,11 +116,11 @@ Sie können Zielgruppendaten aus Braze mit den folgenden Methoden in Lytics impo
 
 Navigieren Sie zum Lytics-Kontomenü in der linken unteren Ecke, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token**.
 
-![]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
+![Lytics-Bildschirm „Access Tokens“ mit ausgewählter Option „Create API Token“ im Kontomenü.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token ein. Aktivieren Sie als Nächstes den Bereich **Data Manager** für API-Berechtigungen und klicken Sie auf **Generate Token**. Kopieren Sie den Token und bewahren Sie ihn an einem sicheren Ort auf.
+Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token ein. Aktivieren Sie als Nächstes den Bereich **Data Manager** für API-Berechtigungen und wählen Sie **Generate Token**. Kopieren Sie den Token und bewahren Sie ihn an einem sicheren Ort auf.
 
-![]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
+![Lytics-API-Token-Berechtigungen mit aktiviertem Bereich „Data Manager“ vor der Token-Generierung.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
 #### 2. Schritt: Die Lytics-Webhook-URL konfigurieren {#step-2-configure-the-lytics-webhook-url}
 
@@ -176,9 +176,9 @@ Wählen Sie die bevorzugte Art der SFTP-Autorisierung auf der Grundlage Ihrer Ge
 
 Public-Key-SFTP-Autorisierungen gelten nur für den SFTP-Export.
 
-![]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
+![Lytics-SFTP-Autorisierungsmethoden für den Import über Custom Integrations, einschließlich Client- und Lytics-verwalteter Serveroptionen.]({% image_buster /assets/img/lytics/authorization_method.png %}){: style="max-width:80%;"}
 
-Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und vervollständigen Sie die restlichen Konfigurationsanforderungen. Klicken Sie auf **Complete**, wenn Sie fertig sind.
+Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und vervollständigen Sie die restlichen Konfigurationsanforderungen. Wählen Sie **Complete**, wenn Sie fertig sind.
 
 #### 2. Schritt: Ihre Segmentdaten als CSV exportieren {#step-2-export-your-segment-data-to-csv}
 
@@ -190,6 +190,6 @@ Navigieren Sie in Lytics zum Dashboard **Jobs** innerhalb der **Data**-Konsole i
 
 Wählen Sie dann den Auftragstyp aus. Um Braze-CSV-Dateien in Lytics zu importieren, wählen Sie als Auftragstyp **Import CSV** aus.
 
-![]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
+![Lytics-Auftragseinrichtung für Custom Integrations mit ausgewähltem Auftragstyp „Import CSV“.]({% image_buster /assets/img/lytics/configure_job.png %}){: style="max-width:80%;"}
 
-Geben Sie schließlich eine Bezeichnung und eine optionale Beschreibung für den Auftrag ein und konfigurieren Sie alle anderen erforderlichen Details. Klicken Sie auf **Complete**, um den Auftrag zu starten und zu speichern.
+Geben Sie schließlich eine Bezeichnung und eine optionale Beschreibung für den Auftrag ein und konfigurieren Sie alle anderen erforderlichen Details. Wählen Sie **Complete**, um den Auftrag zu starten und zu speichern.

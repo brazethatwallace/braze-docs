@@ -19,8 +19,8 @@ channel:
 
 各インタラクティブボタンは、Webページやディープリンクにリンクしたり、アプリを開いたりすることができます。
 
-- 標準のプッシュキャンペーンの場合、ダッシュボードのプッシュメッセージ作成画面の**On-Click Behavior**セクションでプッシュアクションボタンを指定できます。
-- [クイックプッシュキャンペーン]({{site.baseurl}}/quick_push/)の場合、**Settings**タブで各プラットフォームごとにアクションボタンを個別に設定できます。
+- 標準のプッシュCampaignの場合、ダッシュボードのプッシュメッセージ作成画面の**On-Click Behavior**セクションでプッシュアクションボタンを指定できます。
+- [マルチプラットフォームプッシュCampaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)の場合、**設定**タブで各プラットフォームごとにアクションボタンを個別に設定できます。
 
 {% tabs %}
 {% tab iOS %}
@@ -28,7 +28,7 @@ channel:
 
 iOSプッシュメッセージでアクションボタンを使用するには、以下の手順に従ってください。
 
-1. 標準キャンペーンの場合は**Compose**タブで、クイックプッシュの場合は**Settings**タブでアクションボタンを有効にします。
+1. **作成**タブでアクションボタンを有効にします。
 2. 以下の利用可能なボタンの組み合わせから**iOS Notification Category**を選択します。
  - Accept / Decline
  - Yes / No
@@ -49,7 +49,7 @@ iOSのボタン処理の仕様により、プッシュアクションボタン�
 
 Androidプッシュメッセージでアクションボタンを使用するには、以下の手順に従ってください。
 
-1. 標準キャンペーンの場合は**Compose**タブで、クイックプッシュの場合は**Settings**タブでアクションボタンを有効にします。
+1. **作成**タブでアクションボタンを有効にします。
 2. <i class="fas fa-plus-circle"></i> **Add Button**を選択し、ボタンテキストと**On-Click Behavior**を指定します。以下の利用可能なアクションから選択できます。
   - Open App
   - Redirect to Web URL
@@ -72,6 +72,6 @@ Androidプッシュメッセージでアクションボタンを使用するに�
 | 1 | 46文字 |
 | 2 | 20文字 |
 | 3 | 11文字 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Androidの文字数制限" }
 {% endtab %}
 {% endtabs %}

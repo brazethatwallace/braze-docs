@@ -2,7 +2,7 @@
 nav_title: Linkrunner
 article_title: Linkrunner
 alias: /partners/linkrunner/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Linkrunner, einer mobilen Attributions- und Analytics-Plattform, mit der Sie Attributionsdaten importieren können, um Ihre Nutzerakquise-Campaigns besser zu verstehen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Linkrunner, einer mobilen Attributions- und Analytics-Plattform, mit der Sie Attributionsdaten importieren können, um Ihre Nutzerakquise-Kampagnen besser zu verstehen."
 page_type: partner
 search_tag: Partner
 
@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Linkrunner
 
-> [Linkrunner](https://linkrunner.io/) ist eine mobile Attributions- und Analytics-Plattform, die Ihnen hilft, Ihre Nutzerakquise-Campaigns zu verfolgen und zu analysieren.
+> [Linkrunner](https://linkrunner.io/) ist eine mobile Attributions- und Analytics-Plattform, die Ihnen hilft, Ihre Nutzerakquise-Kampagnen zu verfolgen und zu analysieren.
 
 _Diese Integration wird von Linkrunner gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Linkrunner ermöglicht es Ihnen, Attributionsdaten zu importieren, um besser zu verstehen, welche Campaigns die Nutzerakquise und das Engagement fördern.
+Die Integration von Braze und Linkrunner ermöglicht es Ihnen, Attributionsdaten zu importieren, um besser zu verstehen, welche Kampagnen die Nutzerakquise und das Engagement fördern.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -73,7 +73,7 @@ Gehen Sie in Ihrem Braze-Dashboard zu **Einstellungen** > **Einrichtung und Test
    - `users.track`
    - `users.export.ids`
 3. Speichern Sie den API-Schlüssel.
-4. Kopieren Sie den API-Schlüssel und den REST-Endpunkt. Sie fügen diese Werte im nächsten Schritt in Linkrunner ein—behandeln Sie den Schlüssel wie ein Geheimnis und teilen Sie ihn nicht öffentlich.
+4. Kopieren Sie den API-Schlüssel und den REST-Endpunkt. Fügen Sie diese Werte im nächsten Schritt in Linkrunner ein. Behandeln Sie den API-Schlüssel als Geheimnis und teilen Sie ihn nicht öffentlich.
 
 ### 3. Schritt: Braze im Linkrunner-Dashboard konfigurieren {#step-3-configure-braze-in-linkrunners-dashboard}
 
@@ -89,4 +89,4 @@ Linkrunner sendet `lr_campaign` und `lr_ad_network` als angepasste Attribute. Si
 
 ## Attributionsdaten von Facebook und X (ehemals Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
-Attributionsdaten für Campaigns auf Facebook und X (ehemals Twitter) sind über unsere Partner nicht verfügbar. Diese Medienquellen gestatten es ihren Partnern nicht, Attributionsdaten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
+Attributionsdaten für Kampagnen auf Facebook und X (ehemals Twitter) sind über unsere Partner nicht verfügbar. Diese Medienquellen gestatten es ihren Partnern nicht, Attributionsdaten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.

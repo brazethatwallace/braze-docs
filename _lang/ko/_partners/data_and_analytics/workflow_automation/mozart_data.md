@@ -50,14 +50,14 @@ table td {
 
 #### 1단계: Braze 커넥터 설정 {#step-1-set-up-braze-connector}
 
-1. Mozart Data에서 **Connectors**로 이동하여 **Add Connector**를 클릭합니다.
+1. Mozart Data에서 **Connectors**로 이동하여 **Add Connector**를 선택합니다.
 2. "Braze"를 검색하고 커넥터 카드를 선택합니다.
 3. Braze에서 동기화된 모든 데이터가 저장될 대상 스키마 이름을 입력합니다. 기본 스키마 이름 `braze`를 사용하는 것을 권장합니다.
-4. **Add Connector**를 클릭합니다.
+4. **Add Connector**를 선택합니다.
 
 #### 2단계: Fivetran 커넥터 양식 작성 {#step-2-fill-out-the-fivetran-connector-form}
 
-Fivetran 커넥터 페이지로 리디렉션됩니다. 이 페이지에서 주어진 필드를 작성합니다. 그런 다음 **Continue** > **Save & Test**를 클릭하여 Fivetran 커넥터를 완료합니다.
+1단계를 완료하면 Fivetran 커넥터 페이지가 열립니다. 주어진 필드를 작성한 다음 **Continue** > **Save & Test**를 선택하여 Fivetran 커넥터를 완료합니다.
 
 Fivetran이 Braze 계정에서 Snowflake 데이터 웨어하우스로 데이터 동기화를 시작합니다. 커넥터가 동기화를 완료한 후 Mozart Data에서 쿼리 데이터에 접근할 수 있습니다.
 
@@ -69,15 +69,15 @@ Fivetran이 Braze 계정에서 Snowflake 데이터 웨어하우스로 데이터 
 
 #### 2단계: Braze에서 Snowflake 통합 설정 {#step-2-set-up-your-snowflake-integration-in-braze}
 
-Snowflake 웨어하우스를 설정한 후 Mozart Data에서 **Integration** 페이지로 이동하여 **Braze**를 선택합니다. 여기에서 Braze에 제공해야 하는 자격 증명을 확인할 수 있습니다.
+Snowflake 웨어하우스를 설정한 후 Mozart Data에서 **Integration** 페이지로 이동하여 **Braze**를 선택합니다. **Braze** 통합 화면에 Braze에 복사할 자격 증명이 표시됩니다.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
+![Braze가 선택된 Mozart Data 통합 페이지와 Braze에서 사용할 Snowflake 연결 자격 증명.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
-다음으로, Braze에 로그인한 상태에서 **Integrations > Technology Partners > Snowflake**로 이동하여 통합 프로세스를 시작합니다. Mozart Data에서 자격 증명을 복사하여 Snowflake 데이터 가져오기 페이지에 추가합니다. **Set up sync details**를 클릭하고 Snowflake 계정 및 소스 테이블 정보를 입력합니다.
+다음으로, Braze에 로그인한 상태에서 **통합 > 기술 파트너 > Snowflake**로 이동하여 통합 프로세스를 시작합니다. Mozart Data에서 자격 증명을 복사하여 Snowflake 데이터 가져오기 페이지에 추가합니다. **Set up sync details**를 선택하고 Snowflake 계정 및 소스 테이블 정보를 입력합니다.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
+![Mozart Data 자격 증명으로 계정, 웨어하우스, 데이터베이스 및 스키마 필드가 채워진 Braze Snowflake 파트너 통합 양식.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-다음으로, Braze의 Snowflake 데이터 가져오기 화면에서 동기화 이름을 선택하고 연락처 이메일을 입력한 후 데이터 유형과 동기화 빈도를 선택합니다.
+다음으로, Braze Snowflake 가져오기 구성 화면에서 동기화 이름을 선택하고 연락처 이메일을 입력한 후 데이터 유형과 동기화 빈도를 선택합니다.
 
 #### 3단계: Braze 사용자에 공개 키 추가 {#step-3-add-a-public-key-to-the-braze-user}
 이 시점에서 설정을 완료하려면 Snowflake로 돌아가야 합니다. Braze 대시보드에 표시된 공개 키를 Braze가 Snowflake에 연결하기 위해 생성한 사용자에 추가합니다.
@@ -90,9 +90,9 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 
 #### 4단계: 연결 테스트 {#step-4-test-connection}
 
-사용자가 공개 키로 업데이트되면 Braze 대시보드로 돌아가서 **Test connection**을 클릭합니다. 성공하면 데이터 미리보기가 표시됩니다. 어떤 이유로든 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
+사용자가 공개 키로 업데이트되면 Braze 대시보드로 돌아가서 **Test connection**을 선택합니다. 성공하면 데이터 미리보기가 표시됩니다. 어떤 이유로든 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
+![공개 키 적용 후 성공적인 미리보기를 보여주는 Braze Snowflake 통합 연결 테스트 결과.]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 통합이 초안에서 활성 상태로 전환되려면 먼저 테스트를 성공적으로 완료해야 합니다. 생성 페이지를 닫아야 하는 경우 통합이 저장되며, 세부 정보 페이지를 다시 방문하여 변경하고 테스트할 수 있습니다.
@@ -112,4 +112,4 @@ Braze에서 동기화된 변환 모델 또는 원시 데이터를 사용하여 B
 이를 통해 사용자 유지율을 개선하기 위한 참여 전략에 대해 보다 정보에 기반한 의사결정을 내릴 수 있습니다. 이 모든 작업은 Mozart Data의 인터페이스에서 쿼리 도구를 사용하여 수행할 수 있으며, 결과를 Google Sheet 또는 CSV로 내보내 프레젠테이션을 준비할 수 있습니다.
 
 #### 비즈니스 인텔리전스(BI) {#business-intelligence-bi}
-인사이트를 시각화하고 다른 팀원과 공유할 준비가 되셨나요? Mozart Data는 거의 모든 BI 도구와 통합됩니다. 아직 BI 도구가 없는 경우, Mozart Data에 문의하여 무료 Metabase 계정을 설정하세요.
+인사이트를 시각화하고 다른 팀원과 공유할 준비가 되셨나요? Mozart Data는 거의 모든 BI 도구와 통합됩니다. 아직 BI 도구가 없는 경우 Mozart Data에 문의하여 무료 Metabase 계정을 설정하세요.

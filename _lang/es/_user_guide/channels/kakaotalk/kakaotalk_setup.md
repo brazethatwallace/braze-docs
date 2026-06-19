@@ -135,8 +135,6 @@ Ve a tu dashboard de Infobip y reúne la siguiente información.
 
 Los perfiles de usuario deben tener números de teléfono en formato E.164 para enviarles mensajes a través de KakaoTalk. Los números de teléfono se muestran en el perfil de usuario. KakaoTalk requiere que los números de teléfono estén en formato E.164 (por ejemplo, `+821025749774`). Esto difiere de otros canales de mensajería que pueden aceptar números de teléfono en múltiples formatos.
 
-![Perfil de usuario para un usuario de prueba con un número de teléfono en formato E.164.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
-
 ### Importar números de teléfono {#import-phone-numbers}
 
 Importa números de teléfono [cargando un CSV o usando la API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) para crear un usuario. Asegúrate de que los números de teléfono estén en formato E.164 antes de importarlos.

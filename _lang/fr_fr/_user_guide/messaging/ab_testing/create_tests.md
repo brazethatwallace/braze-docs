@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # Créer des tests multivariés et des tests A/B {#creating-tests}
 
-> Vous pouvez créer un test multivarié ou un test A/B pour toute campagne ciblant un seul canal et un seul type d'appareil. Par exemple, si vous souhaitez utiliser un test multivarié ou un test A/B pour une campagne push, vous pouvez cibler uniquement les appareils iOS ou uniquement les appareils Android, mais pas les deux types d'appareils dans la même campagne.
+> Vous pouvez créer un test multivarié ou un test A/B pour toute campagne ciblant un seul canal. Par exemple, si vous souhaitez utiliser un test multivarié ou un test A/B pour une campagne push, vous pouvez cibler les appareils iOS et Android dans la même campagne.
 
 ![Le menu déroulant qui s'affiche lorsque vous sélectionnez le bouton « Créer une campagne » pour choisir entre multicanal et canal unique.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 

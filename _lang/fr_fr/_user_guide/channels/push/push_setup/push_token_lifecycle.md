@@ -91,8 +91,8 @@ iOS ne génère pas automatiquement de jetons de notification push pour une appl
 
 Il existe deux façons de vérifier l'état d'abonnement push d'un utilisateur avec Braze :
 
-- **Profil utilisateur** : Vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour consulter et ajuster manuellement l'état d'abonnement d'un utilisateur.
-- **Export via REST API** : Vous pouvez exporter les profils utilisateurs individuels au format JSON en utilisant les endpoints d'export [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Braze renverra un objet de jetons de notification push contenant les informations d'activation push par appareil.
+- **Profil utilisateur** : vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour consulter et ajuster manuellement l'état d'abonnement d'un utilisateur.
+- **Export via REST API** : vous pouvez exporter les profils utilisateurs individuels au format JSON en utilisant les endpoints d'export [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Braze renverra un objet de jetons de notification push contenant les informations d'activation push par appareil.
 
 ### Vérifier l'état d'enregistrement push {#checking-push-registration-status}
 

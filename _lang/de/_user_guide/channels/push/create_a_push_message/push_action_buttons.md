@@ -20,7 +20,7 @@ channel:
 Jeder interaktive Button kann auf eine Webseite oder einen Deeplink verweisen oder die App öffnen.
 
 - Bei Standard-Push-Campaigns können Sie Ihre Push-Action-Buttons im Abschnitt **On-Click Behavior** des Push-Nachrichten-Editors im Dashboard festlegen.
-- Bei [Quick-Push-Campaigns]({{site.baseurl}}/quick_push/) können Aktions-Buttons unter dem Tab **Einstellungen** für jede Plattform separat konfiguriert werden.
+- Bei [plattformübergreifenden Push-Campaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/) können Aktions-Buttons unter dem Tab **Einstellungen** für jede Plattform separat konfiguriert werden.
 
 {% tabs %}
 {% tab iOS %}
@@ -28,7 +28,7 @@ Jeder interaktive Button kann auf eine Webseite oder einen Deeplink verweisen od
 
 Um Aktions-Buttons in Ihren iOS-Push-Nachrichten zu verwenden, gehen Sie wie folgt vor:
 
-1. Aktivieren Sie Aktions-Buttons im Tab **Verfassen** für eine Standard-Campaign oder im Tab **Einstellungen** für Quick-Push.
+1. Aktivieren Sie Aktions-Buttons im Tab **Verfassen**.
 2. Wählen Sie Ihre **iOS Notification Category** aus den folgenden verfügbaren Button-Kombinationen:
  - Akzeptieren / Ablehnen
  - Ja / Nein
@@ -49,7 +49,7 @@ Voreingestellte Paare wie **Yes** / **No** ordnen dem zweiten Button standardmä
 
 Um Aktions-Buttons in Ihren Android-Push-Nachrichten zu verwenden, gehen Sie wie folgt vor:
 
-1. Aktivieren Sie Aktions-Buttons im Tab **Verfassen** für eine Standard-Campaign oder im Tab **Einstellungen** für Quick-Push.
+1. Aktivieren Sie Aktions-Buttons im Tab **Verfassen**.
 2. Wählen Sie <i class="fas fa-plus-circle"></i> **Add Button** und geben Sie Ihren Button-Text sowie das **On-Click Behavior** an. Sie können aus den folgenden verfügbaren Aktionen auswählen:
   - App öffnen
   - Zu Web-URL weiterleiten
@@ -72,6 +72,6 @@ Die folgende Tabelle zeigt, wie viele Zeichen Sie hinzufügen können, bevor Ihr
 | 1 | 46 Zeichen |
 | 2 | 20 Zeichen |
 | 3 | 11 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zeichenbegrenzungen bei Android" }
 {% endtab %}
 {% endtabs %}

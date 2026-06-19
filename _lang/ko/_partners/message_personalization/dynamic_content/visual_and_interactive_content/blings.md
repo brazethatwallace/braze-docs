@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Blings
 
-> [Blings](https://www.blings.io/)는 차세대 개인화 비디오 플랫폼으로, 채널 전반에 걸쳐 실시간 인터랙티브 데이터 중심 비디오 경험을 대규모로 제공할 수 있도록 지원합니다.
+> [Blings](https://www.blings.io/)는 차세대 개인화된 비디오 플랫폼으로, 채널 전반에 걸쳐 실시간 인터랙티브 데이터 중심 비디오 경험을 대규모로 제공할 수 있도록 지원합니다.
 
 _이 통합은 Blings에서 유지 관리합니다._
 
@@ -18,7 +18,7 @@ _이 통합은 Blings에서 유지 관리합니다._
 | 요구 사항 | 설명 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings 계정 | 이 파트너십을 이용하려면 Blings 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

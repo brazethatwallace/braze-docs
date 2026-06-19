@@ -26,7 +26,7 @@ Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.ht
 - Braze-Daten mit anderen Daten in Ihrem Databricks-Konto verknüpfen
 - Ihre Engagement-Daten über Kanäle, Branchen und Geräteplattformen hinweg vergleichen
 
-Einrichtungsanweisungen finden Sie unter [Databricks Delta Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/databricks/delta_sharing/).
+Einrichtungsanweisungen finden Sie unter [Databricks Delta Sharing]({{site.baseurl}}/delta_sharing/).
 
 Mehr über Delta Sharing auf Databricks erfahren Sie unter [Was ist Delta Sharing?](https://www.databricks.com/product/delta-sharing).
 
@@ -38,6 +38,6 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 | ----------- | ----------- |
 | Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, kontaktieren Sie Ihren Braze-Konto- oder Customer-Success-Manager. |
 | Databricks-Konto | Ein Databricks-Konto mit `admin`-Berechtigungen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-Wenn Sie bereit sind, das Teilen zu konfigurieren und geteilte Daten abzufragen, fahren Sie mit [Databricks Delta Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/databricks/delta_sharing/) fort.
+Wenn Sie bereit sind, das Teilen zu konfigurieren und geteilte Daten abzufragen, fahren Sie mit [Databricks Delta Sharing]({{site.baseurl}}/delta_sharing/) fort.
