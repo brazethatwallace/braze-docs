@@ -76,7 +76,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 | `{{most_recently_used_device.${id}}}` | Braze 기기 식별자입니다. iOS에서는 Apple Identifier for Vendor(IDFV) 또는 UUID일 수 있습니다. Android 및 기타 플랫폼에서는 무작위로 생성된 UUID입니다. |
 | `{{most_recently_used_device.${carrier}}}` | 가장 최근에 사용한 기기의 통신사입니다(사용 가능한 경우). 예를 들어 "Verizon"과 "Orange"가 있습니다. |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | 기기에서 광고 추적이 활성화되어 있는지 여부입니다. 부울 값(`true` 또는 `false`)입니다. |
-| `{{most_recently_used_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
+| `{{most_recently_used_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 선택적 Google Play Advertising ID 수집으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
@@ -115,7 +115,7 @@ User is in list of apps
 |------------------|---|
 | `{{targeted_device.${id}}}` | Braze 기기 식별자입니다. iOS에서는 Apple Identifier for Vendor(IDFV) 또는 UUID일 수 있습니다. Android 및 기타 플랫폼에서는 무작위로 생성된 UUID입니다. 예를 들어, 사용자가 5개의 기기를 가지고 있으면 5개 기기 모두에 대해 발송 시도가 이루어지며, 각각 해당 기기 식별자를 사용합니다. 메시지가 사용자의 가장 최근에 사용한 기기로 발송하도록 구성된 경우, Braze를 통해 식별된 가장 최근에 사용한 기기에 대해 한 번만 발송 시도가 이루어집니다. |
 | `{{targeted_device.${carrier}}}` | 가장 최근에 사용한 기기의 통신사입니다(사용 가능한 경우). 예를 들어 "Verizon"과 "Orange"가 있습니다. |
-| `{{targeted_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
+| `{{targeted_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 [선택적 Google Play Advertising ID 수집]으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |

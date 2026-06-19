@@ -25,8 +25,8 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
-2. **SMS/MMS/RCS**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**Multichannel**を選択します。
+1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
+2. **SMS/MMS/RCS**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**マルチチャネル**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
@@ -34,7 +34,7 @@ search_rank: 1
    * Brazeでは、単一のCampaign内にSMSとRCSの両方のバリアントを含めることができるため、それぞれのパフォーマンスを比較できます。
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
+Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 | SMSのみ | SMS |
 | MMS対応番号を含むSMS | SMSおよびMMS |
 | RCS対応（RCS認証済み送信者あり） | SMS、MMS（有効な場合）、およびRCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:サブスクリプショングループを選択する" }
 
 {% alert tip %}
 Brazeは、RCS送信者を含むすべてのサブスクリプショングループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これにより、RCSメッセージの配信に失敗した場合（たとえば、デバイスの非互換性やキャリアカバレッジの不完全さなど）でも、SMSを通じてメッセージがユーザーに届くようになります。
@@ -108,7 +108,7 @@ MMSメッセージを送信するには、サブスクリプショングルー�
 | --- | --- |
 | サイズ | 最大600&nbsp;KB |
 | ファイルタイプ | PNG、JPEG、GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="画像の仕様" }
 
 ### 連絡先カード {#contact-cards}
 
@@ -177,7 +177,7 @@ RCSメディアメッセージでは、SMSでは不可能な魅力的なメデ�
 | 画像 | サポートされるフォーマット: JPG、JPEG、GIF |
 | 動画 | サポートされるフォーマット: H263、M4V、MP4、MPEG-4、MPEG、WEBM |
 | ドキュメント | サポートされるフォーマット: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ファイルの仕様" }
 
 **考慮事項:**
 
@@ -224,7 +224,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 {: start="2"}
 2. そのメッセージを、各候補返信に対応するアクショングループを持つアクションパスに接続します。
 3. 各アクショングループについて:
-   - トリガーとして**Send an SMS inbound message**を選択します。
+   - トリガーとして**SMS受信メッセージを送信**を選択します。
    - メッセージ本文を、対応する候補返信と同じに設定します。
 
 ![3つのアクショングループ（各候補返信に1つずつ）で構成されたアクションパスステップ。]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -263,7 +263,7 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 次に、Campaignの残りを構築します。メッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
 
-#### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
+### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
 メッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
@@ -271,7 +271,7 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールも指定できます。
 
-#### ターゲットユーザーを選択する {#choose-users-to-target}
+### ターゲットユーザーを選択する {#choose-users-to-target}
 
 次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。
 
@@ -283,7 +283,7 @@ Segmentsからより大きなオーディエンスを選択し、オプション
 リターゲティングに興味がありますか？詳細については、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)を参照してください。
 {% endalert %}
 
-#### コンバージョンイベントを選択する {#choose-conversion-events}
+### コンバージョンイベントを選択する {#choose-conversion-events}
 
 Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
 

@@ -25,7 +25,7 @@ Cet été, Braze lance un serveur MCP distant, hébergé par Braze, en accès an
 
 ## À propos du serveur MCP Braze {#about-the-braze-mcp-server}
 
-Après avoir [configuré le serveur MCP Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez connecter des outils d'intelligence artificielle tels que des agents, des assistants et des chatbots directement à Braze, leur permettant ainsi de lire des données agrégées telles que les analyses Canvas et Campaign, les attributs personnalisés, les segments, et bien plus encore. Le serveur MCP Braze est particulièrement adapté pour :
+Après avoir [configuré le serveur MCP Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez connecter des outils d'intelligence artificielle tels que des agents, des assistants et des chatbots directement à Braze, leur permettant ainsi de lire des données agrégées telles que les analyses Canvas et Campaign, les attributs personnalisés, les Segments, et bien plus encore. Le serveur MCP Braze est particulièrement adapté pour :
 
 - Créer des outils basés sur l'intelligence artificielle nécessitant le contexte Braze.
 - Les ingénieurs CRM élaborant des workflows en plusieurs étapes pour les agents.
@@ -43,11 +43,13 @@ Vous pouvez interagir avec Braze en utilisant le langage naturel grâce à des o
 
 {% tabs %}
 {% tab Claude %}
-![« Quelles sont les fonctions Braze à ma disposition ? » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Exemple de requête :** `What are my available Braze functions?`
+**Exemple de réponse :** A utilisé `list_functions` et renvoyé les catégories de fonctions MCP Braze disponibles.
 {% endtab %}
 
 {% tab Cursor %}
-![« Quelles sont les fonctions Braze disponibles ? » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Exemple de requête :** `What are my available Braze functions?`
+**Exemple de réponse :** A interrogé `list_functions` et listé les fonctions telles que `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 

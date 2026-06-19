@@ -22,7 +22,15 @@ Se você selecionou **No optimization** ao configurar sua campanha, a visualiza�
 
 ![Seção de desempenho da página Campaign Analytics para uma campanha de e-mail com múltiplas variantes. A tabela lista diversas métricas de desempenho para cada variante, como destinatários, bounces, cliques e conversões.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-Para mais detalhes, consulte o artigo [Análise de dados de campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) do seu canal de envio de mensagens.
+Para mais detalhes, consulte o artigo [Análise de dados de Campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) do seu canal de envio de mensagens.
+
+### BrazeAI<sup>TM</sup> Variant Selection (somente push) {#brazeai-variant-selection-push-only}
+
+Se você estiver usando BrazeAI<sup>TM</sup> Variant Selection, dependendo de ser um envio único ou uma campanha recorrente, após o término da janela do experimento (ou do primeiro período para campanhas recorrentes), você verá o aumento, se houver, na página inicial da campanha. Você também verá mais detalhes semelhantes à variante vencedora abaixo, caso execute uma campanha de envio único.
+
+Para mais detalhes sobre como reportamos o aumento no BrazeAI<sup>TM</sup> Variant Selection, consulte [Seleção de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+
+![Resultados de aumento do BrazeAI Variant Selection]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Variante vencedora {#winning-variant}
 
@@ -76,7 +84,7 @@ Por padrão, o teste busca associações entre os eventos personalizados dos usu
 
 As relações entre eventos personalizados e preferências de mensagem são exibidas na tabela da guia **Initial Send**.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tabela mostrando as relações entre eventos personalizados e preferências de variante de mensagem]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 Se o teste não encontrar uma relação significativa entre eventos personalizados e preferências de jornada, ele recorre a um método de análise baseado em sessões, e nenhuma tabela de dados de eventos personalizados é exibida.
 
@@ -93,12 +101,12 @@ Essas características são:
 
 Por exemplo, o teste pode descobrir que a maioria dos usuários prefere a Variante A, mas usuários que tiveram uma sessão entre 3 e 12 dias atrás, têm entre 1 e 12 dias entre sessões e foram criados nos últimos 67 a 577 dias tendem a preferir a Variante B. Portanto, os usuários dessa subpopulação receberam a Variante B no segundo envio, enquanto os demais receberam a Variante A.
 
-![A tabela de características do usuário, que mostra quais usuários têm previsão de preferir a Variante A e a Variante B com base nos três grupos em que se enquadram para recência, frequência e tempo de uso.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
+![A tabela de características do usuário, que mostra quais usuários têm previsão de preferir a Variante A e a Variante B com base nos três buckets em que se enquadram para recência, frequência e tempo de uso.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
 
 **Como as variantes personalizadas são selecionadas**<br>
-Com esse método, a mensagem recomendada para um usuário individual é a soma dos efeitos de sua recência, frequência e tempo de uso específicos. Recência, frequência e tempo de uso são divididos em grupos, conforme ilustrado na tabela **User Characteristics**. O intervalo de tempo de cada grupo é determinado pelos dados dos usuários em cada campanha individual e varia de campanha para campanha.
+Com esse método, a mensagem recomendada para um usuário individual é a soma dos efeitos de sua recência, frequência e tempo de uso específicos. Recência, frequência e tempo de uso são divididos em buckets, conforme ilustrado na tabela **User Characteristics**. O intervalo de tempo de cada bucket é determinado pelos dados dos usuários em cada campanha individual e varia de campanha para campanha.
 
-Cada grupo pode ter uma contribuição ou "impulso" diferente em direção a cada variante de mensagem. A intensidade do impulso para cada grupo é determinada pelas respostas dos usuários no envio inicial usando [regressão logística](https://en.wikipedia.org/wiki/Logistic_regression). Esta tabela apenas resume os resultados mostrando com qual variante os usuários de cada grupo tenderam a interagir. A variante personalizada real de qualquer usuário individual depende da soma dos efeitos dos três grupos em que ele se encontra — um para cada característica.
+Cada bucket pode ter uma contribuição ou "impulso" diferente em direção a cada variante de mensagem. A intensidade do impulso para cada bucket é determinada pelas respostas dos usuários no envio inicial usando [regressão logística](https://en.wikipedia.org/wiki/Logistic_regression). Esta tabela apenas resume os resultados mostrando com qual variante os usuários de cada bucket tenderam a interagir. A variante personalizada real de qualquer usuário individual depende da soma dos efeitos dos três buckets em que ele se encontra — um para cada característica.
 
 {% enddetails %}
 
@@ -117,7 +125,7 @@ Os três cartões nesta página mostram o aumento projetado, os resultados gerai
 
 A tabela nesta página mostra as métricas de cada variante do envio da variante personalizada. Seu **Audience %** soma a porcentagem do segmento-alvo que você reservou para o grupo da variante personalizada.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Tabela de métricas para cada variante do envio da variante personalizada]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}

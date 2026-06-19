@@ -7,7 +7,7 @@ toc_headers: h2
 description: "Braze 대시보드에 내장된 AI 기반 어시스턴트인 BrazeAI Operator<sup>TM</sup>의 기능과 모범 사례를 포함한 접근 및 사용 방법을 알아보세요."
 ---
 
-# BrazeAI Operator
+# BrazeAI Operator {#brazeai-operator}
 
 > BrazeAI Operator<sup>TM</sup>는 대시보드에 내장된 AI 기반 어시스턴트입니다. Operator는 질문에 답변하고, 설정을 안내하며, 문제를 해결하고, 아이디어를 함께 고민하는 등 다양한 업무를 도와줍니다.
 
@@ -39,7 +39,7 @@ Braze 대시보드의 모든 페이지에서 Operator를 열 수 있습니다.
 - **간단한 질문:** 왜 내 Liquid가 렌더링되지 않나요?
 - **복잡한 요청:** 내 메시지의 `abort_message` 태그에 중단을 유발한 사용자 속성을 포함시키려면 어떻게 해야 하나요?
 
-Operator는 단계별 지침, Braze 설명서 링크 및 쉬운 설명을 제공할 수 있습니다. 명확하고 구체적인 질문은 더 유용한 답변을 이끌어냅니다. Operator는 강력한 추론 능력을 제공하며 복잡한 다단계 작업에 적합한 [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)를 사용합니다.
+Operator는 단계별 지침, Braze 설명서 링크 및 쉬운 설명을 제공할 수 있습니다. 명확하고 구체적인 질문은 더 유용한 답변을 이끌어냅니다. Operator는 강력한 추론 능력을 제공하며 복잡한 다단계 작업에 적합한 [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)를 사용합니다. 바로 사용할 수 있는 예시는 [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/)를 참조하세요.
 
 ## 모범 사례 {#best-practices}
 
@@ -63,7 +63,7 @@ Operator 쿼리에 브랜드 가이드라인을 컨텍스트로 추가하여 응
 
 Operator는 Braze 내에서 사용자의 위치를 자동으로 파악하고 해당 컨텍스트에 맞춰 응답을 조정합니다. 예를 들어, Canvas를 구축하는 동안 Operator를 열면, 사용자가 워크플로에서 현재 위치를 설명하지 않아도 관련 단계를 제안하거나 Canvas 기능에 대한 안내를 제공할 수 있습니다.
 
-이러한 컨텍스트 인식 기능 덕분에 "Canvas 워크플로에서 지연 단계를 추가하는 방법은 무엇인가요?" 대신 "지연을 추가하려면 어떻게 해야 하나요?"와 같이 더 짧고 자연스러운 질문을 할 수 있습니다.
+이러한 컨텍스트 인식 기능 덕분에 "Canvas 워크플로에서 지연 단계를 추가하는 방법은 무엇인가요?" 대신 "지연을 추가하려면 어떻게 해야 하나요?"와 같이 더 짧고 자연스러운 질문을 할 수 있습니다. 대시보드 페이지별로 정리된 바로 사용할 수 있는 프롬프트는 [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/)를 참조하세요.
 
 ## Operator 응답 활용하기 {#work-with-operator-responses}
 
@@ -142,6 +142,7 @@ OpenAI를 활용하는 BrazeAI 기능을 통해 AI 출력("출력")을 생성하
 
 ## 다음 단계 {#next-steps}
 
+- [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/): 대시보드 페이지별로 정리된 예시 프롬프트를 찾아보세요
 - [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Operator가 제안한 변경 사항을 검토하고 승인하는 방법을 알아보세요
 - [고객지원 티켓 제출]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Operator에서 직접 고객지원 티켓을 제출하세요
 - [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): 일반적인 문제 및 해결 방법을 참조하세요

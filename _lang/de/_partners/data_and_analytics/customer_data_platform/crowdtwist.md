@@ -243,7 +243,7 @@ Die Templates in diesem Leitfaden sind für das Ziel „Nutzer:innen tracken“ 
 
 Nachdem Sie das Template nach Ihren Wünschen angepasst haben, müssen Sie überprüfen, ob es korrekt funktioniert. Wählen Sie im Transformations-Editor **Validieren**, um im Bereich **Ausgabe** eine Vorschau zu erzeugen und zu prüfen, ob Braze die zugeordnete Anfrage für Ihr gewähltes Ziel akzeptiert.
 
-Wenn Sie mit dem Objekt, das Sie im Feld „Ausgabe“ sehen, zufrieden sind, klicken Sie auf **Aktivieren**, damit der Datentransformations-Endpunkt bereit ist, Daten zu empfangen.
+Wenn Sie mit dem Objekt im Feld **Ausgabe** zufrieden sind, wählen Sie **Aktivieren**, damit der Datentransformations-Endpunkt bereit ist, Daten zu empfangen.
 
 Die Webhook-URL Ihrer Datentransformation finden Sie im Panel auf der linken Seite. Kopieren Sie diese und verwenden Sie sie für die Konfiguration innerhalb des Integration Hub von Oracle Crowdtwist.
 

@@ -25,7 +25,7 @@ Braze에서 새 변환을 설정하기 전에 [데이터 변환]({{site.baseurl}
 | Front 계정 | 이 파트너십을 활용하려면 Front 계정이 필요합니다.|
 | Braze 데이터 변환 웹훅 URL | [Braze 데이터 변환]({{site.baseurl}}/user_guide/data/unification/data_transformation/)은 Front에서 수신되는 웹훅을 Braze /users/track 엔드포인트에서 수락할 수 있도록 재형식화하는 데 사용됩니다.|
 | Front REST API 키 | Front REST API 키는 Braze에서 Front로 아웃바운드 웹훅 요청을 보내는 데 사용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -133,7 +133,7 @@ Front 대시보드에서 **Settings** > **Channels** > **Add Channels**로 이�
 |---|---|
 | 웹훅 Campaign 1 | Front에 라이브 채팅 대화가 요청되고 있음을 알립니다. |
 | 웹훅 Campaign 2 | 고객이 인바운드로 보낸 모든 대화형 SMS 응답을 Front 받은편지함으로 전달합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Set up inbound-SMS forwarding" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5단계: 인바운드 SMS 전달 설정" }
 
 #### 5.1단계: SMS 키워드 카테고리 생성 {#step-51-create-an-sms-keyword-category}
 
@@ -144,7 +144,7 @@ Braze 대시보드에서 **오디언스**로 이동하여 **SMS 구독 그룹**�
 | 키워드 카테고리 | 키워드 카테고리의 이름(예: `FrontSMS1`). |
 | 키워드 | 커스텀 키워드(예: `TIMETOMOW`). 실수로 트리거되는 것을 방지하기 위해 일반적인 단어는 피하세요. 키워드는 대소문자를 구분하지 않으므로 `lawn`은 `LAWN`과 일치합니다. |
 | 응답 메시지 | 키워드가 감지될 때 전송될 메시지(예: "조경사가 곧 연락드릴 것입니다."). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5.1: Create an SMS keyword category" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5.1단계: SMS 키워드 카테고리 생성" }
 
 ![Braze의 SMS 키워드 카테고리 예시.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 

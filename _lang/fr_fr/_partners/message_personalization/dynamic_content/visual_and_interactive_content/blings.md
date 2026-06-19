@@ -18,7 +18,7 @@ _Cette intégration est maintenue par Blings._
 | Condition | Description |
 |-----------------|-----------------------------------------------------------------------------|
 | Compte Blings | Un compte Blings est nécessaire pour bénéficier de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -48,13 +48,13 @@ Demandez l'extrait de code HTML à votre conseiller Blings.
 
 ### Étape 2 : Créer une campagne Braze {#step-2-create-a-braze-campaign}
 
-Dans Braze, créez une nouvelle campagne d'e-mails ou de messages in-app et insérez l'extrait de code HTML Blings. Utilisez l'aperçu de l'éditeur pour confirmer que les champs personnalisés et le contenu dynamique Creative Suite s'affichent correctement.
+Dans Braze, créez une nouvelle campagne d'e-mails ou de messages in-app et insérez l'extrait de code HTML Blings. Utilisez la prévisualisation de l'éditeur pour confirmer que les champs personnalisés et le contenu dynamique Creative Suite s'affichent correctement.
 
 ### Étape 3 : Tester et lancer {#step-3-test-and-launch}
 
 Prévisualisez la campagne dans Braze pour confirmer que les champs personnalisés se remplissent correctement. Ensuite, déployez votre campagne MP5 à grande échelle.
 
-![Prévisualisation Blings Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
+![Prévisualisation Blings dans Braze.]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 
 ## Obtenir de l'aide {#getting-support}
 

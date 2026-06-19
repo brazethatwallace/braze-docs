@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # Multivariate und A/B-Tests erstellen {#creating-tests}
 
-> Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal und ein einzelnes Gerät ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie nur iOS-Geräte oder nur Android-Geräte ansprechen – nicht beide Gerätetypen in derselben Campaign.
+> Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie iOS- und Android-Geräte in derselben Campaign ansprechen.
 
 ![Das Dropdown-Menü nach Auswahl des Buttons „Kampagne erstellen“, um entweder Multichannel oder Einzelkanal auszuwählen.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 

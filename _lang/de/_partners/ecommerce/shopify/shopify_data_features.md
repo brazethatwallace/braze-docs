@@ -432,7 +432,7 @@ Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,7 +469,7 @@ Anschließend können Sie die folgenden Warenkorb-Liquid-Tags in Ihre Nachricht 
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% alert tip %}
@@ -515,7 +515,7 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,7 +544,7 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% alert tip %}
@@ -599,7 +599,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -650,7 +650,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -684,13 +684,13 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Event**: `shopify_cancelled_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_cancelled`<br>
+**Typ**: Empfohlenes Event<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in storniert wird<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Bestätigung der Auftragsstornierung
@@ -721,12 +721,12 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Event**: `shopify_order_refunded`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_refunded`<br>
+**Typ**: Empfohlenes Event<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in erstattet wird<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Erstattungsbestätigung
@@ -746,7 +746,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Variable | Liquid-Templating |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% alert note %}
@@ -809,7 +809,7 @@ Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf
 | `shopify_last_order_name` | Der Name der letzten Bestellung der Kund:in. Dieser steht in direktem Zusammenhang mit dem Feld `name` in der Auftragsressource. |
 | `shopify_zipcode` | Die Postleitzahl der Kund:in aus der Standardadresse. |
 | `shopify_province` | Die Provinz der Kund:in aus der Standardadresse. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte angepasste Shopify-Attribute" }
 
 {% alert important %}
 Ein bekanntes Problem mit der aktuellen Shopify-API-Version verhindert, dass das Nutzerattribut `shopify_last_order_name` korrekt befüllt wird. Die Auswirkungen auf Nutzer:innen sind wie folgt:<br><br>

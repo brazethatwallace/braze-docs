@@ -43,11 +43,13 @@ Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호�
 
 {% tabs %}
 {% tab Claude %}
-![Claude에서 '사용 가능한 Braze 기능은 무엇인가요?'라는 질문과 답변.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 사용하여 사용 가능한 Braze MCP 기능 카테고리를 반환했습니다.
 {% endtab %}
 
 {% tab Cursor %}
-![Cursor에서 '사용 가능한 Braze 기능은 무엇인가요?'라는 질문과 답변.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 쿼리하고 `get_canvas_list`와 같은 기능을 나열했습니다.
 {% endtab %}
 {% endtabs %}
 
