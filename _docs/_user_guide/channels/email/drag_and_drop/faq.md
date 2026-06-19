@@ -4,7 +4,7 @@ article_title: Drag-and-Drop Editor FAQ
 alias: "/dnd/faq/"
 channel: email
 page_order: 5
-description: "This article covers various FAQ related to the drag-and-drop editor."
+description: "Frequently asked questions about the drag-and-drop email editor."
 tool: 
   - Campaigns
   - Canvas
@@ -17,17 +17,17 @@ tool:
 
 ### Can I preview how my email appears in dark mode?
 
-Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn on **Dark mode**. We recommend also previewing and testing your emails across different user platforms and using transparent images for row background images when possible. 
+Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn on **Dark mode**. We recommend also previewing and testing your emails across different user platforms and using transparent images for row background images when possible.
 
 ### How should I design emails for dark mode and light mode?
 
 Emails do not need to be sent in separate light and dark layouts because email clients and devices can apply their own dark theme. However, this may invert colors or hide backgrounds if explicit colors are not set on the outer container and major sections. To prevent this, we recommend setting solid background colors so your message reads clearly in both dark and light mode.
 
-Some email clients replace background images or invert low-contrast text in dark mode, so text can look missing or render differently between platforms (for example, Gmail on iOS versus Android). Use `background-color` on outer containers and major sections instead of relying on background images alone for light backgrounds.
+Some email clients replace background images or invert low-contrast text in dark mode, so body copy can look missing or render differently between clients (for example, Gmail on iOS versus Android). Set `background-color` on the outer container and major sections instead of relying on background images alone for light backgrounds.
 
 ### Why doesn't my custom font appear in drag-and-drop email preview?
 
-Custom fonts load in preview when a **Text** block in the message references the font. If preview still shows a fallback font after you configure a custom font in **Drag-and-Drop Email Editor** settings, add a **Text** block that uses the font so the editor loads it for preview. Confirm CORS is enabled on your font file, then recheck **Preview and Test** and your target email clients before you send. For setup steps, see [Custom font]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/#custom-font).
+Custom fonts load in the editor preview when a **Text** block in the message references the font. If the preview still shows a fallback font after you configure a custom font in **Drag-and-Drop Email Editor** settings, add a **Text** block that uses that font so the editor loads it for preview. Confirm that cross-origin resource sharing (CORS) is enabled on your font file. Recheck **Preview and Test** and your target email clients before you send. For setup steps, see [Custom font]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/#custom-font).
 
 ### How can I change the email padding on mobile without updating the padding in the web view?
 
@@ -91,9 +91,9 @@ If a Content Block doesn't render in email preview, check for unclosed anchor ta
 
 ### Why does a drag-and-drop Content Block lose mobile styling inside a Custom Code block?
 
-If you insert a drag-and-drop **Content Block** inside a **Custom Code** (HTML) block, mobile-specific styling and alignment from the Content Block may not apply in the sent message. When the Content Block and template both use the drag-and-drop editor, add the Content Block as its own row instead of nesting it inside Custom Code.
+When you place a drag-and-drop **Content Block** inside a **Custom Code** (HTML) block, mobile-specific styling and alignment from the Content Block may not apply in the sent message. When both the Content Block and the template use the drag-and-drop editor, add the Content Block as its own row instead of nesting it inside Custom Code.
 
-For alignment issues when stacking multiple Content Blocks, use separate row blocks rather than placing multiple Content Blocks in one row.
+When you stack multiple Content Blocks, use a separate row for each block instead of placing several blocks in a single row.
 
 ### Why is the drag-and-drop editor ignoring alignment settings?
 
