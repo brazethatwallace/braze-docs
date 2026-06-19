@@ -26,7 +26,7 @@ If push notifications are not arriving as expected, work through the following c
 
 ### Push subscription status
 
-Pushes can only be sent to subscribed or opted-in users. In the **User Profile**, open the [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) tab and confirm that you are actively registered for push in the workspace you are testing. If you are registered for multiple apps, they are listed in **Push Registered For**:
+Pushes can be sent only to subscribed or opted-in users. In the **User Profile**, open the [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) tab and confirm that you are actively registered for push in the workspace you are testing. If you are registered for multiple apps, they are listed in **Push Registered For**:
 
 ![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
