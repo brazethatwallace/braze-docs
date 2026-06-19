@@ -35,7 +35,7 @@ Die folgenden SDK-Versionen sind erforderlich, um Push-Storys zu empfangen:
 
 Um Push-Storys zu verwenden, gehen Sie wie folgt vor:
 
-1. Erstellen Sie eine [Push-Kampagne]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Erstellen Sie eine [Push-Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
 2. Wählen Sie als **Notification Type** die Option **Push Stories** aus.
 3. Wählen Sie **iOS** oder **Android**. Beachten Sie, dass die Option zum Erstellen einer Push-Story nicht angezeigt wird, wenn Sie beide für eine Push-Nachricht auswählen.
 
@@ -82,7 +82,7 @@ Obwohl die Zeichenlänge von Gerät zu Gerät variieren kann, sind der Titel und
 
 ### Push-Story-Segmentierung {#push-story-segmentation}
 
-Wenn Sie eine Kampagne oder ein Canvas erstellen, können Sie filtern, welche Nutzer:innen Sie ansprechen möchten, basierend darauf, ob sie auf eine Push-Story-Seite geklickt haben. Wählen Sie dann die Kampagne und die Seite aus, die Sie verwenden möchten, um Ihre Nutzer:innen anzusprechen.
+Wenn Sie eine Campaign oder ein Canvas erstellen, können Sie filtern, welche Nutzer:innen Sie ansprechen möchten, basierend darauf, ob sie auf eine Push-Story-Seite geklickt haben. Wählen Sie dann die Campaign und die Seite aus, die Sie verwenden möchten, um Ihre Nutzer:innen anzusprechen.
 
 ### Push-Story-Analytics {#push-stories-analytics}
 
