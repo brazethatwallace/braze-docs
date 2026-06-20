@@ -70,3 +70,13 @@ Webプッシュは、スマートフォンのアプリプッシュ通知と同�
 - [Safari（モバイル）]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## 410（Gone）と無効なWebプッシュエンドポイント {#410-gone-and-invalid-web-push-endpoints}
+
+ブラウザやプッシュサービスは、Webプッシュのサブスクリプションが受け付けられなくなった場合に**410 Gone**（または類似の「エンドポイントが無効」エラー）を返すことがあります。一般的な原因は以下のとおりです。
+
+- ユーザーがブラウザまたはOSの設定でサイトの通知を無効にした。
+- 同じブラウザプロファイルで別のユーザープロファイルがサブスクリプションを登録したため、エンドポイントが新しいサブスクライバーにローテーションされた。
+- エンゲージメントがない長期間の後にサブスクリプションが期限切れになった。ユーザーが再度オプトインすると、次のセッションで新しいサブスクリプションが作成されます。
+
+ユーザーが通知を再度有効にした後、サイトの通常のWebプッシュ登録フローを再度トリガーして、Brazeが新しいサブスクリプションエンドポイントを保存できるようにしてください。

@@ -27,7 +27,7 @@ Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.ht
 - Join Braze data with other data in your Databricks account
 - Benchmark your engagement data across channels, industries, and device platforms
 
-For setup instructions, see [Databricks Delta Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/databricks/delta_sharing/).
+For setup instructions, see [Databricks Delta Sharing]({{site.baseurl}}/delta_sharing/).
 
 To learn more about Delta Sharing on Databricks, see [What is Delta Sharing?](https://www.databricks.com/product/delta-sharing).
 
@@ -41,4 +41,4 @@ Before you can use this feature, complete the following:
 | Databricks account | A Databricks account with `admin` permissions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-When you're ready to configure sharing and query shared data, continue to [Databricks Delta Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/databricks/delta_sharing/).
+When you're ready to configure sharing and query shared data, continue to [Databricks Delta Sharing]({{site.baseurl}}/delta_sharing/).

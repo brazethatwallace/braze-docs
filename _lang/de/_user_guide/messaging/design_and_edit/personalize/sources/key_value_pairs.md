@@ -43,6 +43,8 @@ Schlüssel-Wert-Paare können zu Android-, iOS- und Web-Push-Benachrichtigungen 
 
 Wählen Sie im Nachrichten-Editor den Tab **Settings**, wählen Sie **Add New Pair** und geben Sie Ihre Schlüssel-Wert-Paare an.
 
+Wenn Sie Schlüssel-Wert-Paare im Nachrichten-Editor hinzufügen, werden die Werte als Strings gesendet. Bei iOS-Push werden reservierte Apple Push Notification Service (APNs)-Alarmschlüssel, die Sie über **Alert Options** hinzufügen (wie z. B. `loc-args` für Lokalisierungsargumente), mit den korrekten JSON-Typen im Payload formatiert. Bei benutzerdefinierten Schlüsseln empfängt Ihre App String-Werte, es sei denn, Sie parsen diese in Ihrer Integration.
+
 ### iOS
 
 Der Apple Push Notification Service (APNs) unterstützt das Festlegen von Alarmeinstellungen und das Senden benutzerdefinierter Daten mithilfe von Schlüssel-Wert-Paaren. APNs nutzt die von Apple reservierte `aps`-Bibliothek, die vordefinierte Schlüssel und Werte enthält, die Alarmeigenschaften steuern.

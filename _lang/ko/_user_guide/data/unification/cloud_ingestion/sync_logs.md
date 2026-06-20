@@ -35,8 +35,6 @@ description: "이 페이지는 CDI에서 사용할 수 있는 관측성 기능�
 * **실행 시작 시간:** 동기화 작업이 시작된 시점입니다.
 * **실행 시간:** 동기화 작업이 완료되는 데 걸린 총 시간입니다.
 
-![동기화 로그에 대한 세부 정보.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### 데이터 보존 {#data-retention}
 
 모든 행 수준 페이로드 및 오류 세부 정보를 포함한 동기화 로그 데이터는 최대 **30일간** 보관됩니다. 30일이 지난 로그는 자동으로 삭제됩니다.
@@ -72,8 +70,6 @@ description: "이 페이지는 CDI에서 사용할 수 있는 관측성 기능�
 #### 페이로드 보기 {#viewing-payloads}
 
 특정 행에 대해 Braze로 전송된 정확한 데이터를 보려면 **소스** 페이로드 열에서 **View payload**를 선택하세요. 해당 사용자에 대해 처리된 원시 JSON 페이로드가 표시됩니다.
-
-![동기화 로그의 특정 행에 대한 페이로드 예시.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
 
 #### 동기화 로그 내보내기 {#exporting-sync-logs}
 

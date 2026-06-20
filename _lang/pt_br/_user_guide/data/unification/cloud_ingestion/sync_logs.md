@@ -35,11 +35,9 @@ Os registros de sincronização também fornecem os seguintes detalhes para cada
 * **Hora de início da execução:** Quando o trabalho de sincronização começou.
 * **Duração da execução:** O tempo total que o trabalho de sincronização levou para ser concluído.
 
-![Detalhes de um registro de sincronização.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Retenção de dados {#data-retention}
 
-Os dados do registro de sincronização, incluindo todas as cargas úteis em nível de linha e detalhes de erro, são retidos por até **30 dias**. Registros com mais de 30 dias serão automaticamente excluídos.
+Os dados do registro de sincronização, incluindo todas as cargas úteis em nível de linha e detalhes de erro, são retidos por até **30 dias**. Registros com mais de 30 dias são automaticamente excluídos.
 
 Metadados da execução de sincronização, como o número de linhas processadas, são retidos por pelo menos 12 meses.
 
@@ -72,8 +70,6 @@ Esta tabela fornece visibilidade em nível de linha sobre os dados processados d
 #### Visualizando cargas úteis {#viewing-payloads}
 
 Para ver os dados exatos enviados à Braze para uma linha específica, selecione **View payload** na coluna de carga útil **Source**. Isso exibe a carga útil JSON bruta que foi processada para esse usuário.
-
-![Exemplo de carga útil para uma linha específica em um registro de sincronização.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
 
 #### Exportando registros de sincronização {#exporting-sync-logs}
 

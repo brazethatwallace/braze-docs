@@ -75,9 +75,7 @@ toc_headers: h2
 * 特に`USER_ID`以外の属性でフィルタリングする場合、クエリの実行が高速です。
 * **制限事項:** データはリアルタイムで更新されません。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_default_attributes_view_shared-schema}
 
@@ -137,9 +135,7 @@ toc_headers: h2
     * USER_IDフィルターを使用しないクエリは全ユーザーの集計が必要となるため、実行時間が大幅に長くなります。
     * 大規模なデータセット（1億人以上のユーザーなど）に対するクエリは数分かかる場合があります。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_latest_state_default_attributes_view_shared-schema}
 
@@ -195,9 +191,7 @@ toc_headers: h2
 * データは12時間ごとにスナップショットされます。つまり、この時間枠内の複数の更新は1つのレコードに統合されます。この期間内の個々の変更は個別に保持されません。
 * `EFF_DT`と`END_DT`は、ユーザーの属性状態の開始と終了を示します。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`スキーマ {#user_default_attributes_history_view_shared-schema}
 

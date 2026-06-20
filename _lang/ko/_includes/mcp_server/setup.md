@@ -13,7 +13,7 @@
 | Braze API 키 | 필요한 권한이 있는 Braze API 키입니다. [Braze MCP 서버를 설정](#create-api-key)할 때 새 키를 생성합니다. |
 | MCP 클라이언트 | [Claude](https://claude.ai/), [Cursor](https://cursor.com/), [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli)가 공식적으로 지원됩니다. Braze MCP 서버를 사용하려면 이러한 클라이언트 중 하나에 대한 계정이 있어야 합니다. |
 | 터미널 | 명령을 실행하고 도구를 설치할 수 있는 터미널 앱입니다. 선호하는 터미널 앱이나 컴퓨터에 미리 설치된 앱을 사용하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## Braze MCP 서버 설정하기
 
@@ -107,7 +107,7 @@ API 키를 생성하려면:
 | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
 | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="카탈로그" }
 
 #### 클라우드 데이터 수집 {#cloud-data-ingestion}
 
@@ -115,7 +115,7 @@ API 키를 생성하려면:
 |----------|---------------------|
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클라우드 데이터 수집" }
 
 #### Content Blocks
 
@@ -134,7 +134,7 @@ API 키를 생성하려면:
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 속성" }
 
 #### 이벤트 {#events}
 
@@ -143,7 +143,7 @@ API 키를 생성하려면:
 | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
 | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이벤트" }
 
 #### KPI {#kpis}
 
@@ -153,7 +153,7 @@ API 키를 생성하려면:
 | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | `kpi.dau.data_series` |
 | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | `kpi.mau.data_series` |
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KPI" }
 
 #### 미디어 라이브러리 {#media-library}
 
@@ -162,14 +162,14 @@ API 키를 생성하려면:
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="미디어 라이브러리" }
 
 #### 메시지 {#messages}
 
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="메시지" }
 
 #### 환경설정 센터 {#preference-center}
 
@@ -177,7 +177,7 @@ API 키를 생성하려면:
 |----------|---------------------|
 | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="환경설정 센터" }
 
 #### 구매 {#purchases}
 
@@ -186,7 +186,7 @@ API 키를 생성하려면:
 | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
 | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구매" }
 
 #### Segments
 
@@ -202,21 +202,21 @@ API 키를 생성하려면:
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="발송" }
 
 #### 세션 {#sessions}
 
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="세션" }
 
 #### SDK 인증 키 {#sdk-authentication-keys}
 
 | 엔드포인트 | 필수 권한 |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK 인증 키" }
 
 #### 구독 {#subscription}
 
@@ -224,7 +224,7 @@ API 키를 생성하려면:
 |----------|---------------------|
 | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구독" }
 
 #### 템플릿 {#templates}
 
@@ -236,7 +236,7 @@ API 키를 생성하려면:
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
 | [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
 | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="템플릿" }
 {% enddetails %}
 
 {% alert warning %}
@@ -347,15 +347,18 @@ Braze MCP 서버를 설정한 후 MCP 클라이언트에 테스트 프롬프트�
 
 {% tabs %}
 {% tab Claude %}
-![Claude에서 사용 가능한 Braze 기능이 무엇인지 질문하고 답변을 받는 모습입니다.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 사용하여 사용 가능한 Braze MCP 기능 카테고리를 반환했습니다.
 {% endtab %}
 
 {% tab Cursor %}
-![Cursor에서 사용 가능한 Braze 기능이 무엇인지 질문하고 답변을 받는 모습입니다.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 쿼리하여 `get_canvas_list`와 같은 기능을 나열했습니다.
 {% endtab %}
 
 {% tab Gemini CLI %}
-![Gemini CLI에서 사용 가능한 Braze 기능이 무엇인지 질문하고 답변을 받는 모습입니다.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** Gemini CLI에서 `list_functions`를 쿼리하여 사용 가능한 Braze MCP 기능 카테고리와 샘플 기능을 반환했습니다.
 {% endtab %}
 {% endtabs %}
 
@@ -400,6 +403,21 @@ uvx --python 3.12 braze-mcp-server@latest
 ```
 
 ### 클라이언트 구성 {#client-configuration}
+
+#### "이 확장 프로그램은 기기와 호환되지 않습니다" {#this-extension-is-not-compatible-with-your-device}
+
+Braze MCP 서버 확장 프로그램을 설치할 때 이 오류가 표시되면 다음 중 하나를 나타낼 수 있습니다:
+
+- **기기가 요구 사항을 충족하지 않음**: 일부 MCP 서버 확장 프로그램은 특정 운영체제 버전이나 하드웨어를 필요로 합니다.
+- **개발 도구 누락(macOS만 해당)**: macOS에서는 확장 프로그램 설치 시 Python 명령을 실행하기 위해 명령줄 개발자 도구가 필요합니다. 이 도구가 설치되어 있지 않으면 이 오류와 함께 설치가 실패합니다.
+
+macOS에서 명령줄 개발자 도구를 설치하려면 터미널에서 다음을 실행하세요:
+
+```bash
+xcode-select --install
+```
+
+설치가 완료되면 MCP 클라이언트를 재시작하고 확장 프로그램 설치를 다시 시도하세요.
 
 #### MCP 클라이언트가 Braze 서버를 찾을 수 없음 {#mcp-client-cant-find-the-braze-server}
 

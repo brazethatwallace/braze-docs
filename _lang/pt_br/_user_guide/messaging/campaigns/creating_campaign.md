@@ -43,7 +43,7 @@ O [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundam
 Para criar uma campanha:
 
 1. Acesse **Messaging** > **Campaigns**.
-2. Selecione **Create campaign**.
+2. Selecione **Create Campaign**.
 3. Selecione o [canal]({{site.baseurl}}/user_guide/channels/) adequado ao seu caso de uso.
 4. Na [etapa Redigir](#step-1-compose-messages), escreva e pré-visualize o conteúdo para esse canal.
 
@@ -73,9 +73,9 @@ Os limites de taxa para envios que abrangem canais estão descritos em [Campanha
 ### Criar uma campanha multicanal {#create-a-multichannel-campaign}
 
 1. Acesse **Messaging** > **Campaigns**.
-2. Selecione **Create campaign**.
+2. Selecione **Create Campaign**.
 3. Selecione **Multichannel**.
-4. Na [etapa Redigir](#step-1-compose-messages), selecione **Add channel** e escolha cada canal necessário. Selecione os ícones de canal para alternar entre os criadores enquanto escreve o conteúdo de cada canal.
+4. Na [etapa Redigir](#step-1-compose-messages), selecione **Add Channel** e escolha cada canal necessário. Selecione os ícones de canal para alternar entre os criadores enquanto escreve o conteúdo de cada canal.
 
 {% endtab %}
 {% endtabs %}
@@ -93,7 +93,7 @@ Use os campos a seguir para registrar metadados que ajudam sua equipe a encontra
 | Equipe | Opcional. Atribua [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) para que os grupos certos possam editar ou gerar relatórios sobre esse envio. |
 | Tags | Opcional. Adicione [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) para filtrar em listas e ferramentas como o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | ID da campanha | Quando exibido no criador ou no resumo, copie esse identificador para chamadas de API, relatórios e integrações que referenciam uma campanha específica. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhes da campanha" }
 
 ### Canais e editores {#channels-and-editors}
 
@@ -116,7 +116,7 @@ Escolha quando os usuários se tornam elegíveis para receber a campanha:
 | [Entrega agendada]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | Envie em um horário ou cadência especificados. |
 | [Entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | Envie quando os usuários realizarem comportamentos ou atenderem a condições que você definir. |
 | [Entrega disparada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | Envie quando seus sistemas chamarem a Braze para disparar a campanha para usuários elegíveis. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Programar entrega" }
 
 Para conceitos de agendamento na Braze, consulte [Programar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -158,7 +158,7 @@ Se você prevê que campanhas grandes causarão um pico na atividade dos usuári
 
 ### Testes A/B {#ab-testing}
 
-Você pode criar um [teste multivariante ou A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) para qualquer campanha que direcione um único canal e um único dispositivo. Por exemplo, se quiser usar testes multivariantes ou A/B para uma campanha de push, você pode direcionar apenas dispositivos iOS ou apenas dispositivos Android — não ambos os tipos de dispositivo na mesma campanha.
+Você pode criar um [teste multivariante ou A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) para qualquer campanha que direcione um único canal, mesmo que esse canal inclua vários dispositivos. Por exemplo, se quiser usar testes multivariantes ou A/B para uma campanha de push, você pode direcionar apenas dispositivos iOS ou apenas dispositivos Android — não ambos os tipos de dispositivo na mesma campanha.
 
 Para campanhas de push, e-mail e webhook agendadas para envio único, você também pode usar uma [otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Uma otimização reserva uma parte do seu público-alvo do teste A/B e a mantém para um segundo envio otimizado com base nos resultados do primeiro teste.
 

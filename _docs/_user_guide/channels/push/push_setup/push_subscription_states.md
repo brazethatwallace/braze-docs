@@ -61,7 +61,7 @@ The following table shows how different user actions affect iOS push enablement,
 
 ## Push permission
 
-All push-enabled platforms - iOS, Web, and Android - require explicit opt-in via an OS-level system prompt, with some slight differences described below.
+All push-enabled platforms - iOS, Web, and Android - require explicit opt-in through an OS-level system prompt, with some slight differences described below.
 
 Because a user's decision is final and you can't ask again after they decline, using [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) in-app messages is an important strategy for increasing your opt-in rates.
 
@@ -96,7 +96,7 @@ In iOS 12, Apple introduced [provisional authorization](https://www.braze.com/re
 
 ### Web
 
-For Web, you must request explicit user opt-in via the native browser permission dialog.
+For Web, you must request explicit user opt-in through the native browser permission dialog.
 
 Unlike iOS and Android, which let your app show the permission prompt at any time, some modern browsers will only show the prompt if triggered by a "user gesture" (mouse click or keystroke). If your site tries to request push notification permission on page load, it will likely be ignored or silenced by the browser.
 

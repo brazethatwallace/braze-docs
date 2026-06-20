@@ -35,8 +35,6 @@ Les journaux de synchronisation fournissent également les détails suivants pou
 * **Heure de début de l'exécution :** le moment où la tâche de synchronisation a démarré.
 * **Durée de l'exécution :** la durée totale nécessaire à l'achèvement de la tâche de synchronisation.
 
-![Détails d'un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Conservation des données {#data-retention}
 
 Les données du journal de synchronisation, y compris tous les payloads au niveau des lignes et les détails des erreurs, sont conservées pendant une durée maximale de **30 jours**. Les journaux datant de plus de 30 jours sont automatiquement supprimés.
@@ -72,8 +70,6 @@ Ce tableau offre une visibilité au niveau des lignes sur les données traitées
 #### Affichage des payloads {#viewing-payloads}
 
 Pour afficher les données exactes envoyées à Braze pour une ligne spécifique, sélectionnez **View payload** dans la colonne **Source** payload. Cela affiche le payload JSON brut qui a été traité pour cet utilisateur.
-
-![Exemple de payload pour une ligne spécifique dans un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
 
 #### Exportation des journaux de synchronisation {#exporting-sync-logs}
 

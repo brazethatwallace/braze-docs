@@ -225,6 +225,10 @@ Produkt-Tags werden als Array-Feld für jeden Katalogartikel gespeichert. Inform
 
 ### Personalisierung {#personalization}
 
+{% alert note %}
+Wenn Sie Produkt-Tags oder Kollektionen in Katalogauswahlen referenzieren, verwenden Sie nur den Wert selbst ohne die Array-Klammern `[]` oder Anführungszeichen `""`, die in den Katalogdaten erscheinen. Wenn ein Produkt-Tag beispielsweise als `["Women's"]` in Ihrem Katalog angezeigt wird, schreiben Sie `Women's` in Ihren Auswahlfilter.
+{% endalert %}
+
 1. Erstellen Sie eine Katalogauswahl, die nach Produkten mit dem jeweiligen Produkt-Tag filtert, z. B. „Women's“. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden, und bis zu 50 Produkte in Ihrer Katalogauswahl.
 
 ![Eine Katalogauswahl, die nach Produkt-Tags mit dem Attribut „Women's“ filtert.]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
@@ -599,6 +603,10 @@ Für Shopify-Kollektionen müssen Sie die **Kollektions-ID** verwenden, die in d
 {% endalert %}
 
 ### Personalisierung
+
+{% alert note %}
+Wenn Sie Kollektions-IDs in Katalogauswahlen referenzieren, verwenden Sie nur den numerischen ID-Wert ohne die Array-Klammern `[]`, die in den Katalogdaten erscheinen. Wenn Kollektions-IDs beispielsweise als `[123456789012, 987654321098]` in Ihrem Katalog angezeigt werden, schreiben Sie nur die numerische ID (z. B. `470645342446`) in Ihren Auswahlfilter.
+{% endalert %}
 
 1. Erstellen Sie eine Katalogauswahl mit dem Namen „New Women's Products - In Stock“, die nach Produkten mit der Kollektions-ID filtert. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden, und bis zu 50 Produkte in Ihrer Kollektion.
  - Sie können auch eigene angepasste Auswahlen erstellen, indem Sie mit dem Feld **Collections** filtern.

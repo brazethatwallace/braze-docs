@@ -21,7 +21,7 @@ channel:
 | KakaoTalk 발신프로필 키 | 유효한 KakaoTalk 발신프로필 키가 필요합니다. |
 | 연락처 전화번호 | KakaoTalk 채널 관리자의 연락처 전화번호가 필요합니다. |
 | Braze 클러스터 IP 허용 목록 등록 | 모든 고객에게 IP 허용 목록 등록이 필요합니다. Braze에서 KakaoTalk을 통합하기 전에 클러스터에 해당하는 Braze IP 주소를 등록하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ### Braze IP 주소 등록 {#register-braze-ip-addresses}
 
@@ -39,7 +39,7 @@ Comm.One 대시보드에서 클러스터에 해당하는 Braze IP 주소를 등�
 | --- | --- |
 | 일반 채널 | 모든 조직이 설정할 수 있는 표준 KakaoTalk 채널입니다. KakaoTalk을 통한 대량 메시지 발송 및 1:1 채팅이 가능합니다. |
 | [비즈니스 채널](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | 신청 및 인증 절차가 필요한 사업자 인증 KakaoTalk 채널입니다. 다음과 같은 향상된 기능을 제공합니다. {::nomarkdown}<ul><li>인증 배지</li><li>추천 채널로 노출</li><li>비즈니스 메시징 지원</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk 계정 유형" }
 
 #### 비즈니스 채널 신청 {#apply-for-a-business-channel}
 
@@ -134,8 +134,6 @@ Infobip 대시보드로 이동하여 다음 정보를 수집합니다.
 ## 고객 프로필 설정 {#set-user-profiles}
 
 KakaoTalk을 통해 메시지를 보내려면 고객 프로필에 E.164 형식의 전화번호가 있어야 합니다. 전화번호는 고객 프로필에 표시됩니다. KakaoTalk은 전화번호가 E.164 형식이어야 합니다(예: `+821025749774`). 이는 여러 형식의 전화번호를 허용하는 다른 메시징 채널과 다릅니다.
-
-![E.164 형식의 전화번호가 있는 테스트 사용자의 고객 프로필.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
 ### 전화번호 가져오기 {#import-phone-numbers}
 

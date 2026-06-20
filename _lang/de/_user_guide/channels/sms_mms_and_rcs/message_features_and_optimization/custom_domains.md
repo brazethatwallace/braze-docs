@@ -20,7 +20,7 @@ Self-Service-Custom-Domains ermöglichen es Ihnen, Ihre eigenen Custom Domains f
 ## Vorteile von Self-Service-Custom-Domains {#benefits-of-self-serve-custom-domains}
 
 - **Vereinfachte Einrichtung:** Konfigurieren Sie Ihre Domains auf der Seite **Unternehmenseinstellungen**, um die Einrichtungszeit zu verkürzen.
-- **Verbesserte Transparenz:** Erhalten Sie Echtzeit-Updates zum Einrichtungsstatus Ihrer Domain über Banner im Dashboard.
+- **Verbesserte Transparenz:** Erhalten Sie Realtime-Updates zum Einrichtungsstatus Ihrer Domain über Banner im Dashboard.
 - **Proaktive Benachrichtigungen:** Erhalten Sie sofortige Warnungen, wenn Ihre Custom Domain verbunden ist oder wenn Konfigurationsfehler auftreten.
 
 ## Domain-Anforderungen {#domain-requirements}
@@ -64,7 +64,7 @@ Nachdem Ihre Domain verifiziert wurde, erscheinen Ihre Custom Domains in der Tab
 
 ![Liste von Custom Domains und Status.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-Live-Monitoring warnt Sie im Braze-Dashboard, wenn eine Ihrer aktiven Domains ein Problem hat, damit Ihre benutzerdefinierten Links nutzbar bleiben. Wenn Sie auf Probleme stoßen, lesen Sie die In-App-Fehlerdetails oder kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support/) für Unterstützung.
+Live-Monitoring warnt Sie im Braze-Dashboard, wenn eine Ihrer aktiven Domains ein Problem hat, damit Ihre angepassten Links nutzbar bleiben. Wenn Sie auf Probleme stoßen, lesen Sie die In-App-Fehlerdetails oder kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support/) für Unterstützung.
 
 ## Zuweisen von Custom Domains zu Abo-Gruppen {#assigning-custom-domains-to-subscription-groups}
 
@@ -72,9 +72,7 @@ Nach der Konfiguration können Custom Domains einer oder mehreren SMS-, RCS- und
 
 1. Gehen Sie zu **Zielgruppe** > **Abo-Gruppen-Verwaltung**.
 2. Suchen und wählen Sie Ihre Abo-Gruppe in der Liste aus.
-3. Wählen Sie unter **Details zur Abo-Gruppe** Ihre Custom Domain als **Link Shortening Domain** aus.
-
-![Abo-Gruppen-Einstellungen, mit denen Sie eine Link-Shortening-Domain auswählen können.]({% image_buster /assets/img/custom_domain.png %})
+3. Wählen Sie unter **Details zur Abo-Gruppe** Ihre Custom Domain im Dropdown **Link Shortening Domain** aus.
 
 Campaigns, die mit aktiviertem Link-Shortening gesendet werden, verwenden die zugewiesene Domain, die mit Ihrer SMS-, RCS- oder WhatsApp-Abo-Gruppe verknüpft ist.
 

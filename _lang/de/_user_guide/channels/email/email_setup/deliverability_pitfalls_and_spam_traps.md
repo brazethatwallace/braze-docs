@@ -19,13 +19,13 @@ Die Zustellbarkeit Ihrer E-Mails kann durch folgende Spam-Traps beeinträchtigt 
 | Unverfälschte Traps | E-Mail-Adressen und Domains, die noch nie benutzt wurden. |
 | Recycelte Traps | E-Mail-Adressen, die ursprünglich echten Nutzer:innen gehörten, jetzt aber inaktiv sind. |
 | Tippfehler-Traps | E-Mail-Adressen mit häufigen Tippfehlern. |
-| Spam-Beschwerden | Wenn Ihre E-Mail von einer Kund:in als Spam markiert wird. |
+| Spam-Beschwerden | Wenn Ihre E-Mail von Verbraucher:innen als Spam markiert wird. |
 | Hohe Bounce-Rate | Wenn Ihre E-Mail regelmäßig nicht zugestellt werden kann, weil die Adresse der Empfänger:in ungültig ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zustellbarkeitsfallen und Spam-Traps" }
 
 ## Wie Sie Spam-Traps vermeiden {#how-to-avoid-spam-traps}
 
-Diese Traps lassen sich vermeiden, wenn Sie ein bestätigtes Opt-in-Verfahren einrichten. Indem Sie eine erste Opt-in-E-Mail versenden und Ihre Kund:innen bitten, zu bestätigen, dass sie Ihre Nachrichten erhalten möchten, stellen Sie sicher, dass Ihre Empfänger:innen von Ihnen hören möchten und dass Sie an echte, gültige Adressen senden. Hier finden Sie weitere Möglichkeiten, um Spam-Traps zu vermeiden:
+Diese Traps lassen sich vermeiden, wenn Sie ein bestätigtes Opt-in-Verfahren einrichten. Indem Sie eine erste Opt-in-E-Mail versenden und Ihre Abonnent:innen bitten, zu bestätigen, dass sie Ihre Nachrichten erhalten möchten, stellen Sie sicher, dass Ihre Empfänger:innen von Ihnen hören möchten und dass Sie an echte, gültige Adressen senden. Hier finden Sie weitere Möglichkeiten, um Spam-Traps zu vermeiden:
 
 1. Senden Sie eine Double-Opt-in-E-Mail. Das ist eine E-Mail, bei der Nutzer:innen ihre Abo-Auswahl durch Klicken auf einen Link bestätigen müssen.
 2. Implementieren Sie als Best Practice eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/).
@@ -35,12 +35,23 @@ Diese Traps lassen sich vermeiden, wenn Sie ein bestätigtes Opt-in-Verfahren ei
 Die Braze-Teams für Kundenerfolg und Zustellbarkeit können Ihnen helfen, Best Practices einzuhalten und die Zustellbarkeit weltweit zu maximieren.
 {% endalert %}
 
+## So beheben Sie eine Blockierung kostenloser E-Mail-Domains bei Microsoft {#how-to-resolve-a-free-email-domain-block-for-microsoft}
+
+Microsoft hebt Blockierungen für Absender, die Probleme bei der Zustellung an kostenlose E-Mail-Domains (Hotmail, Live, MSN und Outlook) haben, nur selten auf. Reduzieren Sie stattdessen Ihr Sendevolumen an diese Domains deutlich und senden Sie nur an kürzlich aktive Kontakte. Wenn Sie keine Kerngruppe aktiver Empfänger:innen identifizieren können, stellen Sie das Senden an diese Domains vollständig ein.
+
+Ein Beispiel für eine Blockierungsnachricht bei kostenlosen E-Mail-Domains:
+
+`550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
+
+Sie können das Volumen langsam steigern, ähnlich wie beim [IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/), und dabei die Metriken genau im Auge behalten. Häufig gibt es eine Grundursache für die Zustellbarkeitsprobleme, die identifiziert und behoben werden muss. In der Regel handelt es sich um fehlende ordnungsgemäße Einwilligungen, mangelnde laufende Listenhygiene oder eine Kombination dieser Faktoren.
+
 ## Eine E-Mail-Adresse von Ihrer Bounce- oder Spam-Liste entfernen {#remove-an-email-address-from-your-bounce-or-spam-list}
 
 Sie können Bounce-E-Mails und E-Mails auf Ihrer Braze-Spam-Liste mit den folgenden Endpunkten entfernen:
+
 - [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/)
 - [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/)
 
 ## E-Mail-Zustellbarkeit verbessern {#improve-email-deliverability}
 
-Best Practices zur Verbesserung Ihrer E-Mail-Zustellbarkeit finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).
+Weitere Informationen finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/).

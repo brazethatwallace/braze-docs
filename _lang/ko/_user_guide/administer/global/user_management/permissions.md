@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## 권한 세트 생성 {#create-a-permission-set}
 
-권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **권한 설정**으로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
+권한 세트를 사용하여 특정 주제 영역이나 동작과 관련된 권한을 묶을 수 있습니다. 서로 다른 워크스페이스에서 동일한 접근 권한이 필요한 대시보드 사용자에게 권한 세트를 적용할 수 있습니다. 권한 세트를 생성하려면 **설정** > **사용자 관리** > **권한 세트**로 이동한 다음 **권한 세트 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 권한 세트 예시 %}
@@ -32,7 +32,7 @@ tool: Dashboard
 
 ## 역할 생성 {#creating-a-role}
 
-역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
+역할은 개별 커스텀 권한과 워크스페이스 접근 제어를 묶어 더 체계적인 구조를 제공합니다. 이는 하나의 대시보드에 여러 브랜드나 지역별 워크스페이스가 있는 경우 특히 유용합니다. 역할을 사용하면 대시보드 사용자를 올바른 워크스페이스에 추가하고 관련 권한을 직접 부여할 수 있습니다. 역할을 생성하려면 **설정** > **사용자 관리** > **역할**로 이동한 다음 **역할 생성**을 선택합니다. 각 권한에 대한 설명은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)을 참조하세요.
 
 {% tabs local %}
 {% tab 역할 예시 %}
@@ -96,9 +96,9 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 ## 사용자 권한 편집 {#edit-a-users-permissions}
 
-사용자의 현재 관리자, 회사 또는 워크스페이스 권한을 편집하려면 **설정** > **회사 사용자**로 이동한 다음 해당 사용자의 이름을 선택합니다.
+사용자의 현재 관리자, 회사 또는 워크스페이스 권한을 편집하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 해당 사용자의 이름을 선택합니다.
 
-![대시보드 사용자 테이블이 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![대시보드 사용자 테이블이 표시된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab 관리자 %}
@@ -112,8 +112,6 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 - Braze 사용자를 CSV로 내보내기
 
 관리자 권한을 부여하거나 제거하려면 **This user is an admin**을 선택한 다음 **Update user**를 선택합니다.
-
-![관리자 체크박스가 강조 표시된 선택된 사용자의 세부 정보.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당하기 전까지 해당 사용자는 Braze에 접근할 수 없습니다.
@@ -173,9 +171,9 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 ## 사용자 권한 내보내기 {#exporting-user-permissions}
 
-사용자 및 권한 목록을 다운로드하려면 **설정** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
+사용자 및 권한 목록을 다운로드하려면 **설정** > **사용자 관리** > **회사 사용자**로 이동한 다음 **Export Users**를 선택합니다. 잠시 후 CSV 파일이 이메일 주소로 전송됩니다.
 
-![Export Users 옵션이 강조 표시된 Braze의 회사 사용자 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+!["Export Users" 옵션이 강조 표시된 Braze의 "회사 사용자" 페이지.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
 ## 권한 목록 {#list-of-permissions}
 
