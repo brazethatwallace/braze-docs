@@ -81,7 +81,7 @@ Stopping a Canvas won't cause users who are waiting to receive messages to exit 
 
 If _Messages sent_ are always zero for a Canvas containing an in-app message step, this is because in-app message delivery works differently from other messaging channels.
 
-In-app messages are "pulled" by the SDK, rather than "pushed" from Braze. In-app messages for eligible users are delivered automatically on session start and "wait" for the trigger event before displaying. Because eligible users receive the message when they start a session, Braze doesn't report this as a send event. When users perform the trigger event, the message displays and Braze logs an impression and marks the Canvas step (or campaign) as received on the user profile. Consequently, the _Sends_ total will be zero for in-app messages.
+In-app messages are "pulled" by the SDK, rather than "pushed" from Braze. In-app messages for eligible users are delivered automatically on session start and "wait" for the trigger event before displaying. Because eligible users receive the message when they start a session, Braze doesn't report this as a send event. When users perform the trigger event, the message displays and Braze logs an impression and marks the Canvas step (or campaign) as received on the user profile. Consequently, the _Sends_ total is zero for in-app messages.
 
 ### Why didn't users receive my in-app message after a long delay or branch?
 
