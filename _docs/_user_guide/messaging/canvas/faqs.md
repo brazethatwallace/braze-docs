@@ -196,7 +196,7 @@ No, but you can [archive a Canvas]({{site.baseurl}}/user_guide/messaging/governa
 
 Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving/#unarchiving-campaigns-and-canvases) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
-### Why won't my Canvas save when no error appears?
+### Why doesn't my Canvas save when no error appears?
 
 Empty **Custom attribute** filters in audience or step-level filters can block saves without a detailed validation message. Open each filter card, remove incomplete custom attribute rules, or enter both the attribute name and value, then click **Save** again.
 
