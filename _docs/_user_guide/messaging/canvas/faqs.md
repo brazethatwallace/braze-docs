@@ -198,7 +198,7 @@ Archived messages do not send until you return them to an editable state. [Unarc
 
 ### Why doesn't my Canvas save when no error appears?
 
-Empty **Custom attribute** filters in audience or step-level filters can block saves without a detailed validation message. Open each filter card, remove incomplete custom attribute rules, or enter both the attribute name and value, then click **Save** again.
+Empty **Custom attribute** filters in audience or step-level filters can block saves without a detailed validation message. Open each filter card, remove incomplete custom attribute rules, or enter both the attribute name and value, then select **Save** again.
 
 ### Why did a tag disappear from my Canvas or campaign?
 
