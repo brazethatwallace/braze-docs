@@ -83,6 +83,18 @@ If _Messages sent_ are always zero for a Canvas containing an in-app message ste
 
 In-app messages are "pulled" by the SDK, rather than "pushed" from Braze. In-app messages for eligible users are delivered automatically on session start and "wait" for the trigger event before displaying. Because eligible users receive the message when they start a session, Braze doesn't report this as a send event. When users perform the trigger event, the message displays and Braze logs an impression and marks the Canvas step (or campaign) as received on the user profile. Consequently, the _Sends_ total will be zero for in-app messages.
 
+### Why didn't users receive my in-app message after a long delay or branch?
+
+After upstream [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) steps and audience checks complete, users only become eligible for an in-app message when they reach the Message step. If the message expires on a calendar date or on a short **duration after the step is available** window, users on slower branches can arrive after expiration and never see the message. Align expiration with your longest realistic path delays. For examples, see [In-app message expiration]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/#in-app-message-expiration).
+
+### Why do I see "Canvas Entry Properties may not be used in In-App Messages."?
+
+That dashboard message appears when personalization references entry payload fields that in-app messages cannot resolve in Canvas. Use the `context` object as described in [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) and [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/). Legacy `canvas_entry_properties` Liquid has different constraints; if you need values to persist across multiple steps, review [Canvas persistent entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/) with your Braze team—stored values are cleared when a user exits the Canvas before the device downloads the in-app payload.
+
+### Where can I find button clicks for drag-and-drop in-app messages in Canvas?
+
+Button-level metrics for drag-and-drop in-app messages appear on the **Message** step analytics card in **Canvas Details**, not only the high-level Canvas summary. Open the Canvas, select the step, and review in-app engagement there. For reporting concepts, see [Measuring and testing with Canvas analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
+
 ### Can I schedule different send times for each variant in the same Canvas Message step or multivariate send?
 
 No. Variants in the same multivariate configuration or Message step share one delivery schedule. You can't assign one variant to send at 6 pm and another at 7 pm for that same scheduled send.
@@ -112,6 +124,10 @@ Canvas-specific factors also apply:
 - **Quiet Hours and delays:** Messages can be held or rescheduled, shifting sends out of the reporting window you're viewing.
 - **Maximum entry or audience caps:** Entry or send caps stop additional users even when the underlying segment is larger.
 - **Reporting window:** The analytics range may not include every send you're comparing to the estimate.
+
+### Why don't Estimated Audience and Canvas user counts match?
+
+**Estimated Audience** reflects who matches your segment and entry filters when the estimate runs. After that moment, delayed or action-based entries, re-eligibility, API triggers, or branch routing can increase how many profiles touch the journey compared with the snapshot. Users can also fall out when send-time filters fail, which lowers realized entries or sends. Compare timing, caps, and evaluation settings alongside [Why are sends lower than the estimated audience size?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Why is _Unique Recipients_ higher than the number of users I targeted?
 
@@ -176,9 +192,25 @@ You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creatin
 
 No, but you can [archive a Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
+### How do I resume an archived Canvas or campaign?
+
+Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving/#unarchiving-campaigns-and-canvases) the campaign or Canvas, move the entry schedule or send time into the future (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
+### Why won't my Canvas save when no error appears?
+
+Empty **Custom attribute** filters in audience or step-level filters can block saves without a detailed validation message. Open each filter card, remove incomplete custom attribute rules, or enter both the attribute name and value, then save again.
+
+### Why did a tag disappear from my Canvas or campaign?
+
+When a [tag]({{site.baseurl}}/user_guide/messaging/governance/tags/) is deleted from your workspace, Braze removes it from every campaign and Canvas that referenced it. That cleanup does not always generate its own line in a Canvas change log.
+
 ### How can I view analytics for each of my Canvas components?
 
 To view the analytics of a Canvas component, go to your Canvas and scroll down the **Canvas Details** page. Here, you can view each component's analytics. Check out [Canvas analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) for more details.
+
+### When is engagement from a Canvas step visible on a user profile?
+
+Filters such as `Received Message from Canvas Step` update after Braze logs the corresponding send, receive, or engagement event for that step. In-app messages can log impressions separately from send-style metrics—see [Why may a Canvas show zero Sends even though impressions are logged?](#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged). The same events power step cards on **Canvas Details**.
 
 ### When looking at the number of unique users, is Canvas analytics or the segmenter more accurate?
 
@@ -326,50 +358,14 @@ Start with [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_pus
 
 Braze sends this notification when Canvas messages are delayed by rate limiting for 24 hours or more. The email goes to dashboard users who previously made changes to the affected Canvas (based on Canvas change logs). If Braze cannot determine those recipients, the email goes to **company admins** for the workspace.
 
-<!-- sf-kb-phase2-batch -->
+### When does a user stop receiving messages after an exception event?
 
-## Salesforce Knowledge updates
+Braze records the exit as soon as the exception event occurs, but users can remain inside a step until timers finish—most visibly in Delay steps. Behavior also differs between scheduled steps and event-triggered steps. For timelines, examples, and analytics nuances, see [Exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/).
 
-### Delayed Delivery Behavior in Branching IAM Canvas Step's
+### Why does my Action Path show an error when I select a link alias interaction?
 
-Consider adding Canvas branching + IAM delayed delivery behavior to Canvas docs. Valuable for understanding path eligibility.
+Action groups that rely on **Interact with Canvas step** (for example, clicking an email link alias) require a Message step that already sent the asset users interact with. Add or reorder steps so the message sends before the Action Path evaluates the click, or choose an interaction that matches a message the user received in this Canvas. For the full catalog of interaction triggers, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
-### I received the error: "Canvas Entry Properties may not be used in In-App Messages."
+### How do historical custom event timestamps affect action-based Canvases and campaigns?
 
-Add IAM limitation and enable_persistent_event_entry_properties request process to Canvas entry properties docs. Note: values deleted when user exits Canvas before IAM payload download.
-
-### When are Users "Kicked" Out of a Canvas via Exception Event?
-
-Consider adding scheduled vs triggered distinction for exception event behavior to Canvas exit criteria docs.
-
-### When is a Canvas Step Logged to a User's Profile?
-
-Consider adding Canvas step logging behavior to docs; or keep KA as FAQ with cross-link.
-
-### Re-Launching an Archived Campaign or Canvas
-
-to re-launch an archived campaign or Canvas, update the scheduled start date to a time in the near future, or duplicate it and set a new start date.
-
-### Canvas won't save after making changes (No error message displayed)
-
-if Canvas won't save with no error, check for empty custom attribute filters in audience or step filters; remove or populate them.
-
-### Users in the Canvas are bigger than the Estimated Audience
-
-Estimated Audience reflects current segment membership; Canvas Entries may be lower if users no longer match filters after receiving Canvas.
-
-### Why is a Tag No Longer Appended to a Campaign or Canvas?
-
-when a tag is deleted, it is removed from campaigns/Canvases but deletion is not logged in changelogs.
-
-### Button Click Analytics Not Showing For Drag-and-Drop IAMs
-
-Button click analytics for DnD IAMs viewable via canvas step analytics, not campaign-level. Flag as known limitation.
-
-### Action Path error when selecting link alias.
-
-Interact with Step' requires a message step; workaround for targeting steps from other canvases before sending.
-
-### Triggering Action-Based Campaign/Canvas Custom Event Dated in the Past
-
-Consider adding documentation for backdated custom event behavior and abort_delayed_delivery_time (4-hour threshold) if not in docs. Remove Jira/Kibana references from internal_notes before externalization.
+Braze evaluates action-based journeys when qualifying events are ingested and the user meets your audience rules. If an event lands on the profile outside the window when your Canvas or campaign was active, or before the user matched your audience, entry or downstream sends may not occur as expected. Compare event timestamps to go-live times and segment membership using the user profile activity log and the troubleshooting steps in [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#troubleshooting-custom-events). If routing still looks wrong, contact [Braze Support]({{site.baseurl}}/braze_support/).
