@@ -85,7 +85,7 @@ In-app messages are "pulled" by the SDK, rather than "pushed" from Braze. In-app
 
 ### Why didn't users receive my in-app message after a long delay or branch?
 
-After upstream [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) steps and audience checks complete, users only become eligible for an in-app message when they reach the Message step. If the message expires on a calendar date or on a short **duration after the step is available** window, users on slower branches can arrive after expiration and never see the message. Align expiration with your longest realistic path delays. For more information and examples, see [In-app message expiration]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/#in-app-message-expiration).
+After upstream [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) steps and audience checks complete, users become eligible for an in-app message only when they reach the Message step. If the message expires on a calendar date or on a short **duration after the step is available** window, users on slower branches can arrive after expiration and never see the message. Align expiration with your longest realistic path delays. For more information and examples, see [In-app message expiration]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/#in-app-message-expiration).
 
 ### Why do I see "Canvas Entry Properties may not be used in In-App Messages."?
 
