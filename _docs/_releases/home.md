@@ -14,14 +14,6 @@ page_type: reference
 For more information on any of the updates listed on this page, contact your account manager or [open a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/). Check out our [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) for more information about our monthly SDK releases, improvements, and breaking changes.
 {% endalert %}
 
-{% details June 26, 2026 %}
-
-## June 26, 2026 release
-
-
-
-{% enddetails %}
-
 {% details May 28, 2026 %}
 
 ## May 28, 2026 release
