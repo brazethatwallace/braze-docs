@@ -47,7 +47,7 @@ Antes de poder utilizar esta característica, tendrás que completar lo siguient
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta o administrador del éxito del cliente de Braze. |
-| Cuenta de Snowflake | Una cuenta de Snowflake con permisos `admin`. |
+| Cuenta de Snowflake | Una cuenta de Snowflake con permisos `admin`. Para clientes que no son HIPAA, se admite Snowflake Standard o Enterprise Edition. Para el uso compartido de datos conforme a HIPAA, se requiere Business Critical Edition. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Configuración de la compartición segura de datos {#setting-up-secure-data-sharing}

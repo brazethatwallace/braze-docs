@@ -18,11 +18,18 @@ Tu vista de análisis variará dependiendo de si seleccionaste una [optimizació
 
 ### Sin optimización {#no-optimization}
 
-Si seleccionaste **Sin optimización** al configurar tu campaña, tu vista de análisis permanecerá igual. La página **Análisis de campaña** de tu campaña mostrará el rendimiento de tus variantes en comparación con tu grupo de control, si incluiste uno.
+Si seleccionaste **Sin optimización** al configurar tu campaña, tu vista de análisis permanecerá igual. La página **Análisis de campañas** de tu campaña mostrará el rendimiento de tus variantes en comparación con tu grupo de control, si incluiste uno.
 
 ![Sección de rendimiento del análisis de campaña para una campaña de correo electrónico con múltiples variantes. La tabla enumera varias métricas de rendimiento para cada variante, como destinatarios, rebotes, clics y conversiones.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-Para más detalles, consulta el artículo [Análisis de campaña]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) para tu canal de mensajería.
+Para más detalles, consulta el artículo [Análisis de campañas]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) para tu canal de mensajería.
+
+### Selección de variante con BrazeAI<sup>TM</sup> (solo push) {#brazeai-variant-selection-push-only}
+Si estás usando la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que la ventana del experimento (o el primer período para recurrentes) haya pasado, verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a los de la variante ganadora a continuación si ejecutas una campaña de envío único.
+
+Para más detalles sobre cómo reportamos el incremento en la selección de variante con BrazeAI<sup>TM</sup>, consulta [Selección de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+
+![Resultados de incremento de la selección de variante con BrazeAI]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Variante ganadora {#winning-variant}
 
@@ -59,7 +66,7 @@ La pestaña **Variante ganadora** muestra los resultados del segundo envío, don
 {% endtab %}
 {% endtabs %}
 
-Si quieres ver el rendimiento de la variante ganadora a lo largo de toda la campaña, incluyendo los envíos de la prueba A/B, consulta la página **Análisis de campaña**.
+Si quieres ver el rendimiento de la variante ganadora a lo largo de toda la campaña, incluyendo los envíos de la prueba A/B, consulta la página **Análisis de campañas**.
 
 ### Variante personalizada {#personalized-variant}
 

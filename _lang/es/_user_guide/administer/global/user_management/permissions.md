@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Crear un conjunto de permisos {#create-a-permission-set}
 
-Usa los conjuntos de permisos para agrupar permisos relacionados con áreas temáticas o acciones específicas. Puedes aplicar conjuntos de permisos a los usuarios del dashboard que necesiten el mismo acceso en diferentes espacios de trabajo. Para crear un conjunto de permisos, ve a **Configuración** > **Configuración de permisos** y selecciona **Crear conjunto de permisos**. Para una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Usa los conjuntos de permisos para agrupar permisos relacionados con áreas temáticas o acciones específicas. Puedes aplicar conjuntos de permisos a los usuarios del dashboard que necesiten el mismo acceso en diferentes espacios de trabajo. Para crear un conjunto de permisos, ve a **Configuración** > **Gestión de usuarios** > **Conjuntos de permisos** y selecciona **Crear conjunto de permisos**. Para una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab conjuntos de permisos de ejemplo %}
@@ -32,7 +32,7 @@ Usa los conjuntos de permisos para agrupar permisos relacionados con áreas tem�
 
 ## Crear un rol {#creating-a-role}
 
-Los roles permiten una mayor estructura al agrupar tus permisos personalizados individuales con controles de acceso al espacio de trabajo. Esto es especialmente útil si tienes muchas marcas o espacios de trabajo regionales en un solo dashboard. Con los roles, puedes añadir usuarios del dashboard a los espacios de trabajo correctos y otorgarles directamente los permisos asociados. Para una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Los roles permiten una mayor estructura al agrupar tus permisos personalizados individuales con controles de acceso al espacio de trabajo. Esto es especialmente útil si tienes muchas marcas o espacios de trabajo regionales en un solo dashboard. Con los roles, puedes añadir usuarios del dashboard a los espacios de trabajo correctos y otorgarles directamente los permisos asociados. Para crear un rol, ve a **Configuración** > **Gestión de usuarios** > **Roles** y selecciona **Crear rol**. Para una descripción de cada permiso, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab roles de ejemplo %}
@@ -96,7 +96,7 @@ Ten en cuenta los siguientes comportamientos al asignar acceso al dashboard:
 
 ## Editar los permisos de un usuario {#edit-a-users-permissions}
 
-Para editar los permisos actuales de administrador, empresa o espacio de trabajo de un usuario, ve a **Configuración** > **Usuarios de la empresa** y selecciona su nombre.
+Para editar los permisos actuales de administrador, empresa o espacio de trabajo de un usuario, ve a **Configuración** > **Gestión de usuarios** > **Usuarios de la empresa** y selecciona su nombre.
 
 ![La página "Usuarios de la empresa" en Braze mostrando una tabla de usuarios del dashboard.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
@@ -112,8 +112,6 @@ Los administradores tienen acceso a todas las características y la capacidad de
 - Exportar usuarios de Braze como CSV
 
 Para otorgar o eliminar privilegios de administrador, selecciona **Este usuario es administrador** y luego selecciona **Actualizar usuario**.
-
-![Los detalles del usuario seleccionado con la casilla de administrador en foco.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Si eliminas los privilegios de administrador de un usuario, no podrá acceder a Braze hasta que le asignes al menos un [permiso a nivel de empresa o de espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -173,7 +171,7 @@ Cuando hayas terminado, selecciona **Actualizar usuario**.
 
 ## Exportar permisos de usuario {#exporting-user-permissions}
 
-Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración** > **Usuarios de la empresa** y selecciona **Exportar usuarios**. En breve se enviará un archivo CSV a tu dirección de correo electrónico.
+Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración** > **Gestión de usuarios** > **Usuarios de la empresa** y selecciona **Exportar usuarios**. En breve se enviará un archivo CSV a tu dirección de correo electrónico.
 
 ![La página "Usuarios de la empresa" en Braze con la opción "Exportar usuarios" en foco.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
@@ -370,7 +368,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Activos de la biblioteca de medios | Replace Media Library Assets | Reemplazar el archivo de un activo existente de la biblioteca de medios manteniendo estables su URL e ID de activo |
 | Límites de velocidad de mensajería | View Messaging Rate Limits | Ver límites de velocidad de mensajería a nivel de espacio de trabajo |
 | Límites de velocidad de mensajería | Edit Messaging Rate Limits | Configurar y editar límites de velocidad de mensajería a nivel de espacio de trabajo |
-| Operator | Use BrazeAI Operator<sup>TM</sup> | Acceder y usar Braze Operator para responder preguntas, navegar por la configuración, solucionar problemas y generar ideas |
+| Operator | Use BrazeAI Operator<sup>TM</sup> | Acceder y usar BrazeAI Operator para responder preguntas, navegar por la configuración, solucionar problemas y generar ideas |
 | Ubicaciones de banner | View Placements | Ver ubicaciones de banner |
 | Ubicaciones de banner | Archive Placements | Mover ubicaciones de banner al archivo |
 | Ubicaciones de banner | Edit Placements | Ver ubicaciones de banner sin realizar cambios |

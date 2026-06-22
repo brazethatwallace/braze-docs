@@ -17,10 +17,11 @@ tool:
 Les déclencheurs d'attributs sont disponibles pour les scénarios suivants :
 
 - Mises à jour du statut d'abonnement.
-- Changement de la valeur d'un attribut personnalisé de type booléen, entier ou chaîne de caractères vers n'importe quelle valeur ou une valeur spécifique.
+- Changement de la valeur d'un attribut personnalisé de type booléen, entier, chaîne de caractères ou date vers n'importe quelle valeur.
+- Changement de la valeur d'un attribut personnalisé de type booléen, entier ou chaîne de caractères vers une valeur spécifique.
 
-{% alert important %}
-Les attributs personnalisés de type date ne sont pas disponibles comme options de déclencheur d'attribut dans le tableau de bord. Utilisez un autre déclencheur de distribution ou un autre workflow de canal pour réagir aux changements de date.
+{% alert note %}
+Dans le tableau de bord, les types d'attributs personnalisés apparaissent sous la forme `Number` (pour les entiers) et `Time` (pour les dates), et non `String` ou `Date`.
 {% endalert %}
 
 Pour commencer à utiliser les déclencheurs d'attributs, créez une campagne ou un composant Canvas et sélectionnez **Livraison par événement** comme méthode de distribution. Ensuite, sélectionnez le déclencheur d'attribut que vous souhaitez utiliser.
@@ -61,7 +62,7 @@ Pour le changement d'attribut, le déclencheur est évalué en premier, puis les
 
 ### Option « N'importe quelle nouvelle valeur » {#any-new-value-option}
 
-Utilisez le déclencheur `Change Custom Attribute Value` avec l'option `any new value` pour cibler les utilisateurs lorsqu'une valeur de type booléen, entier ou chaîne de caractères change vers n'importe quelle nouvelle valeur.
+Utilisez le déclencheur `Change Custom Attribute Value` avec l'option `any new value` pour cibler les utilisateurs lorsqu'une valeur de type booléen, entier, chaîne de caractères ou date change vers n'importe quelle nouvelle valeur.
 
 Par exemple, ciblez les utilisateurs lorsque leur nombre de points de fidélité change pour leur indiquer combien de points ils possèdent désormais. Dans cet exemple, supposons qu'un utilisateur dispose de 85 points de fidélité et que vous avez configuré une campagne qui se déclenche lorsque l'attribut de points de fidélité change vers n'importe quelle nouvelle valeur. Si la valeur de l'attribut de points de fidélité de cet utilisateur change vers une nouvelle valeur (comme 83, 84, 86, etc.), la campagne se déclenche.
 

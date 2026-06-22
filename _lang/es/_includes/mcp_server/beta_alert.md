@@ -1,3 +1,3 @@
 {% alert important %}
-El servidor MCP de Braze está en fase beta. No necesitas solicitar acceso para usarlo. Sigue las instrucciones de configuración para empezar. Al usar el servidor MCP de Braze, aceptas los [Términos beta de Braze](https://www.braze.com/company/legal/beta-terms). Para ayudarnos a mejorarlo, envía tus comentarios a [mcp-product@braze.com](mailto:mcp-product@braze.com).
+El servidor MCP de Braze alojado localmente (beta) dejará de estar disponible este verano. Seguirá funcionando, pero ya no añadiremos puntos de conexión ni daremos soporte a la beta. Un servidor MCP remoto, alojado por Braze, estará disponible en acceso anticipado este verano.
 {% endalert %}

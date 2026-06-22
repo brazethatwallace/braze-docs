@@ -41,11 +41,11 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 예를 들어, 날짜 범위를 **최근 7일**로 설정하고 *일일 활성 사용자*가 1.8% 증가를 보인다면, 이번 주에 지난 주보다 일일 활성 사용자가 1.8% 더 많았다는 의미입니다.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![측정기준 값과 백분율 변화를 보여주는 성과 개요 측정기준 타일.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 세부 내역 보기 {#show-breakdown}
 
-성과 개요 통계의 각 행에서 **Show Breakdown**을 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
+성과 개요 통계의 각 행에서 **세부 내역 보기**를 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
 
 ![세부 내역 확장]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
@@ -63,7 +63,7 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 - 이메일
 - 인앱 메시지
 - KPI 수식
-  - **Manage KPI Formulas**를 선택하여 수식을 생성하거나 기존 수식을 편집할 수 있습니다.
+  - **KPI 수식 관리**를 선택하여 수식을 생성하거나 기존 수식을 편집할 수 있습니다.
 - LINE
 - 월간 활성 사용자(MAU)
 - 신규 사용자
@@ -110,9 +110,9 @@ MAU 계산은 정확하고 일관된 청구를 보장하기 위해 특정 규칙
 
 - **계산 시점**: 매일 UTC 12:05에 30일 스냅샷으로 한 번 계산되며, 수치는 소급하여 변경되지 않습니다.
 - **익명 프로필**: 최소 하나의 세션이 기록된 경우에**만** 집계됩니다.
-- **식별된 프로필**: 존재하는 즉시 자동으로 집계됩니다.
+- **식별된 프로필**: `date_of_last_session`이 30일 롤링 기간 내에 있는 경우에만 집계됩니다.
 - **고아 프로필**: 다른 사용자에게 병합된 중복 프로필은 집계되지 **않습니다**.
-- **CSV 업로드**: CSV로 업로드된 사용자는 `date_of_first_session` 또는 `date_of_last_session`이 제공되거나, 이후에 세션을 기록한 경우에만 집계됩니다.
+- **CSV 업로드 및 REST API 가져오기**: CSV 또는 REST API를 통해 업로드된 사용자는 `date_of_last_session`을 30일 롤링 기간 내로 제공하거나, 이후에 세션을 기록한 경우 MAU에 집계됩니다. `date_of_first_session`만 제공하는 것은 MAU에 영향을 미치지 않습니다.
 - **API 삭제**: API를 통해 사용자를 삭제해도 MAU가 즉시 업데이트되지 않으며, 다음 월간 주기에서 자동으로 보정됩니다.
 
 {% alert note %}

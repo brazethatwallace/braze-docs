@@ -29,7 +29,7 @@ O rastreamento de conversão começa quando um usuário recebe a Campaign ou ent
 
 O rastreamento de conversão começa quando um usuário entra no Canvas. Para etapas do Canvas, as conversões são atribuídas enquanto o usuário está ativo naquela etapa. Quando o usuário avança para outra etapa, o rastreamento de conversão para a etapa anterior é interrompido e começa para a próxima etapa.
 
-Enquanto um usuário está em uma etapa de **Postergação** ou outra etapa sem mensagem, as conversões que ocorrem durante essa espera ainda são atribuídas à etapa de mensagem anterior até que o usuário avance. Após o usuário receber a última etapa de mensagem em sua jornada, as conversões ainda podem ser registradas até o prazo de conversão do Canvas (contado a partir da entrada no Canvas), mesmo que não haja mais etapas de mensagem.
+Enquanto um usuário está em uma etapa de postergação ou outra etapa sem mensagem, as conversões que ocorrem durante essa espera ainda são atribuídas à última etapa de mensagem recebida até que o usuário receba outra etapa de mensagem. Após o usuário receber a última etapa de mensagem em sua jornada, as conversões ainda podem ser registradas até o prazo de conversão (contado a partir da entrada no Canvas), mesmo que não haja mais etapas de mensagem.
 
 {% endtab %}
 {% endtabs %}

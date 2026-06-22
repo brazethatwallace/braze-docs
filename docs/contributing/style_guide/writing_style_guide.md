@@ -1445,7 +1445,7 @@ Use the format “name@example.com” for generic email addresses. Replace “na
 
 #### Figures and other images
 
-When creating figures and images, refer to the [Image copy style guide](image_style_guide.md). Never include personally identifiable information (PII) in figures or images.
+When creating figures and images, refer to the [Image copy style guide](image_style_guide.md). Never include personally identifiable information (PII) or customer data in figures or images.
 
 ##### Alt text
 

@@ -432,7 +432,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,7 +469,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% alert tip %}
@@ -515,7 +515,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,7 +544,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% alert tip %}
@@ -599,7 +599,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -650,7 +650,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -684,13 +684,13 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**イベント**: `shopify_cancelled_order`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**イベント**: `ecommerce.order_cancelled`<br>
+**タイプ**: 推奨イベント<br>
 **トリガー**: ユーザーの注文がキャンセルされたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）注文キャンセル確認
@@ -721,12 +721,12 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**イベント**: `shopify_order_refunded`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**イベント**: `ecommerce.order_refunded`<br>
+**タイプ**: 推奨イベント<br>
 **トリガー**: ユーザーの注文が返金されたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）返金確認
@@ -746,7 +746,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | 変数 | Liquidテンプレート |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% alert note %}
@@ -809,7 +809,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | `shopify_last_order_name` | 顧客の最後の注文の名前です。これは、注文リソースの`name`フィールドに直接関係しています。 |
 | `shopify_zipcode` | 顧客のデフォルト住所の郵便番号です。 |
 | `shopify_province` | 顧客のデフォルト住所の都道府県です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされているShopifyカスタム属性" }
 
 {% alert important %}
 現行のShopify APIバージョンに既知の問題があり、`shopify_last_order_name`ユーザー属性が正しく入力されません。ユーザーへの影響は以下のとおりです。<br><br>
@@ -886,4 +886,4 @@ BrazeがShopifyの顧客をインポートする際、設定で選択した`exte
 | Braze推奨イベント | Shopifyカスタムイベント | Braze標準属性 | Brazeサブスクリプションステータス |
 | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li>注文確定</li><li>注文キャンセル</li><li>注文返金</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>メール</li><li>名</li><li>姓</li><li>電話</li><li>市区町村</li><li>国</li><li>合計収益</li><li>合計返金</li><li>合計注文数</li></ul>{:/} | {::nomarkdown}<ul><li>このShopifyストアに関連するメールマーケティングサブスクリプション</li><li>このShopifyストアに関連するSMSマーケティングサブスクリプション</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Synced data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="同期データ" }

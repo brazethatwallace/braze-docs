@@ -6,7 +6,17 @@ Google Tag Manager (GTM) vous permet d'ajouter, de supprimer et de modifier à d
 |--------|--------|
 | Balise d'initialisation | Cette balise vous permet d'[intégrer le SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sans avoir à modifier le code de votre site. |
 | Balise d'action | Cette balise vous permet de [créer des Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), de [définir les attributs utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) et de [gérer la collecte des données]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de Google Tag Manager pour le Web" }
+
+## Séquençage des balises pour les balises d'action Braze {#tag-sequencing-for-braze-action-tags}
+
+Les événements personnalisés et les autres balises d'action Braze peuvent échouer s'ils se déclenchent avant que la balise **Braze Initialization** ait fini de charger le SDK Web. Dans Google Tag Manager, ouvrez la balise d'action, accédez à **Advanced Settings** > **Tag Sequencing**, sélectionnez **A tag that fires before [this tag] is fired**, puis choisissez votre balise Braze Initialization.
+
+Pour plus de détails, consultez [Vérifier le séquençage des balises pour les événements personnalisés]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
+
+## Enregistrer des achats avec GTM {#log-purchases-with-gtm}
+
+Dans les balises d'action Braze et les balises Custom HTML, appelez `braze.logPurchase()` pour enregistrer le chiffre d'affaires. L'ancien espace de noms `appboy.logPurchase()` n'est pas pris en charge dans les intégrations actuelles du SDK Web.
 
 ## Enregistrer des événements personnalisés avec GTM {#logging-custom-events-with-gtm}
 

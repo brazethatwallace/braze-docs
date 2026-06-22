@@ -358,6 +358,20 @@ Jedes Event-Objekt im Events-Array repräsentiert ein einzelnes Vorkommen eines 
 
 Wenn ein verschachteltes angepasstes Attribut ungültige Werte enthält (z. B. ungültige Zeitformate oder Null-Werte), verwirft Braze alle Updates verschachtelter angepasster Attribute in der Anfrage. Dies gilt für alle verschachtelten Strukturen innerhalb dieses spezifischen Attributs. Um eine erfolgreiche Verarbeitung sicherzustellen, überprüfen Sie vor dem Senden, ob alle Werte innerhalb der verschachtelten angepassten Attribute gültig sind.
 
+### Ist die Verarbeitung von Anfragen an `/users/track` in der Reihenfolge garantiert? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+Wenn Sie mehrere separate API-Aufrufe an `/users/track` in schneller Folge senden, kann Braze nicht garantieren, dass die Anfragen in der exakten Reihenfolge verarbeitet werden, in der sie gesendet oder empfangen wurden. Das liegt daran, dass Braze asynchrone Verarbeitung nutzt, um Geschwindigkeit und Flexibilität zu maximieren.
+
+Wenn Sie beispielsweise mehrere Update-Anfragen für dieselbe:n Nutzer:in innerhalb von Sekunden senden – einige mit Null-Attributwerten und andere mit gültigen Werten –, können die Anfragen mit Null-Werten nach den Anfragen mit gültigen Werten verarbeitet werden, selbst wenn sie früher gesendet wurden. Dies kann dazu führen, dass Attributwerte scheinbar zurückgesetzt werden oder nicht das zuletzt gesendete Update widerspiegeln.
+
+So vermeiden Sie Race-Conditions beim Aktualisieren von Nutzerdaten:
+
+- **Updates in einer einzigen Anfrage bündeln:** Fassen Sie alle Attribut-Updates für eine:n Nutzer:in in einem API-Aufruf zusammen, anstatt separate aufeinanderfolgende Aufrufe zu senden.
+- **Verzögerungen zwischen Anfragen einfügen:** Wenn Sie separate Aufrufe für dieselbe:n Nutzer:in senden müssen, fügen Sie eine Verzögerung (einige Sekunden) zwischen den Anfragen ein, damit die erste Anfrage die Verarbeitung abschließen kann, bevor die nächste gesendet wird.
+- **Überlappende Updates für dasselbe Feld vermeiden:** Wenn zwei Anfragen dasselbe Attribut mit unterschiedlichen Werten aktualisieren, senden Sie diese Updates in einer Anfrage oder trennen Sie sie durch eine Verzögerung, um die Wahrscheinlichkeit von Ergebnissen in falscher Reihenfolge zu verringern.
+
+Weitere Informationen zu Race-Conditions und Best Practices finden Sie unter [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+
 ### Warum ist die Antwort von `/users/track` langsamer als erwartet? {#why-is-my-userstrack-response-slower-than-i-expect}
 
 Erfolgreiche `/users/track`-Aufrufe werden in der Regel schnell akzeptiert, aber Braze verarbeitet Attribut-, Event- und Kauf-Updates weiterhin asynchron. Die wahrgenommene Latenz kann steigen, wenn Payloads groß sind oder wenn das Netzwerk-Routing zu Ihrem [REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) langsam ist. Wenn Sie eine synchrone Bestätigung pro Nutzer:in oder eine strengere Reihenfolge zwischen Aufrufen benötigen, lesen Sie [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**eingeschränkte Beta**).

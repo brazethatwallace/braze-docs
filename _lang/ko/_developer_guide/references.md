@@ -26,7 +26,8 @@ toc_headers: h2
 | Javascript SDK | [참조 문서](https://braze-inc.github.io/braze-javascript-sdk/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-javascript-sdk/tree/main) | N/A |
 | Cordova SDK | [선언 파일](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js) | [GitHub 리포지토리](https://github.com/braze-inc/braze-cordova-sdk) | [샘플 앱](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project) |
 | Flutter SDK | [참조 문서](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-flutter-sdk) | [샘플 앱](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example) |
-| React Native SDK | [선언 파일](https://github.com/braze-inc/braze-react-native-sdk/blob/master/src/index.d.ts) | [GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk) | [샘플 앱](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| React Native SDK | [참조 문서](https://braze-inc.github.io/braze-react-native-sdk/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk) | [샘플 앱](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| Vega SDK | [참조 문서](https://braze-inc.github.io/braze-vega-sdk/) | [GitHub 리포지토리](https://github.com/braze-inc/braze-vega-sdk) | N/A |
 | Roku SDK | N/A | [GitHub 리포지토리](https://github.com/braze-inc/braze-roku-sdk) | [샘플 앱](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv) |
 | Unity SDK | [선언 파일](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs) | [GitHub 리포지토리](https://github.com/braze-inc/braze-unity-sdk) | [샘플 앱](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) |
 | .NET MAUI SDK (이전 Xamarin) | N/A | [GitHub 리포지토리](https://github.com/braze-inc/braze-xamarin-sdk) | [샘플 앱](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples) |

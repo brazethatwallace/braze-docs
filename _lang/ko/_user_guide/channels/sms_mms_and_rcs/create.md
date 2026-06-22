@@ -16,7 +16,7 @@ search_rank: 1
 
 # SMS, MMS 또는 RCS 메시지 만들기 {#create-an-sms-mms-or-rcs-message}
 
-> SMS, MMS, RCS Campaign(캠페인)은 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자에게 개인화된 경험을 제공하고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 만들 수 있습니다.
+> SMS, MMS, RCS Campaign은 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자에게 개인화된 경험을 제공하고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 만들 수 있습니다.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
@@ -62,7 +62,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 | SMS 전용 | SMS |
 | MMS 지원 번호가 포함된 SMS | SMS 및 MMS |
 | RCS 지원(RCS 인증 발신자 포함) | SMS, MMS(활성화된 경우) 및 RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 구독 그룹 선택" }
 
 {% alert tip %}
 Braze는 RCS 발신자를 포함하는 모든 구독 그룹에 대체용 SMS 코드를 하나 이상 포함할 것을 강력히 권장합니다. 이렇게 하면 RCS 메시지가 전달되지 않는 경우(예: 기기 호환성 문제 또는 불완전한 통신사 커버리지) SMS를 통해 사용자에게 메시지가 전달됩니다.
@@ -108,7 +108,7 @@ MMS 메시지를 보내려면 구독 그룹에 MMS 지원 전화번호가 하나
 | --- | --- |
 | 크기 | 최대 600&nbsp;KB |
 | 파일 유형 | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이미지 사양" }
 
 ### 연락처 카드 {#contact-cards}
 
@@ -177,7 +177,7 @@ RCS 미디어 메시지를 사용하면 이미지, 동영상, 문서 파일 등 
 | 이미지 | 지원 형식: JPG, JPEG, GIF |
 | 동영상 | 지원 형식: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | 문서 | 지원 형식: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="파일 사양" }
 
 **고려 사항:**
 
@@ -263,7 +263,7 @@ RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메�
 
 다음으로 나머지 Campaign을 구축합니다. 메시지를 작성하기 위한 도구를 가장 잘 활용하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
-#### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
+### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
 
 메시지는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
@@ -271,7 +271,7 @@ RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메�
 
 이 단계에서는 사용자가 Campaign을 [다시 수신할 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
-#### 타겟 사용자 선택 {#choose-users-to-target}
+### 타겟 사용자 선택 {#choose-users-to-target}
 
 다음으로 Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. 이미 구독 그룹을 선택했으므로 사용자가 원하는 커뮤니케이션 수준이나 카테고리에 따라 사용자가 좁혀집니다.
 
@@ -283,7 +283,7 @@ Segments에서 더 큰 오디언스를 선택하고 선택적 필터로 해당 S
 리타겟팅에 관심이 있으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)을 참조하세요.
 {% endalert %}
 
-#### 전환 이벤트 선택 {#choose-conversion-events}
+### 전환 이벤트 선택 {#choose-conversion-events}
 
 Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 수행하는 빈도를 추적할 수 있습니다. 사용자가 지정된 동작을 수행하면 전환이 집계되는 최대 30일의 기간을 허용할 수 있습니다.
 

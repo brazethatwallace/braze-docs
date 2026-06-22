@@ -39,7 +39,7 @@ Describe what you're trying to accomplish using natural language. Prompts can ra
 - **Simple:** Why isn't my Liquid rendering?
 - **Complex:** How can I make the `abort_message` tag of my message include the user attribute that caused the abort?
 
-Operator can provide step-by-step instructions, links to Braze documentation, and plain-language explanations. Clear and specific questions lead to more helpful responses. Operator uses [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), which offers strong reasoning and is suited for complex, multi-step tasks. 
+Operator can provide step-by-step instructions, links to Braze documentation, and plain-language explanations. Clear and specific questions lead to more helpful responses. Operator uses [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), which offers strong reasoning and is suited for complex, multi-step tasks. For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
 
 ## Best practices
 
@@ -63,7 +63,7 @@ To set up brand guidelines, go to **Settings** > **Brand Guidelines**. For more,
 
 Operator automatically understands your location in Braze and tailors responses based on that context. For example, when you open Operator while building a Canvas, it can suggest relevant steps or provide guidance about Canvas features without you having to explain where you are in your workflow.
 
-This context-awareness means you can ask shorter, more natural questions like "How do I add a delay?" instead of "How do I add a delay step in a Canvas workflow?"
+This context-awareness means you can ask shorter, more natural questions like "How do I add a delay?" instead of "How do I add a delay step in a Canvas workflow?" For ready-to-use prompts organized by dashboard page, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
 
 ## Work with Operator responses
 
@@ -142,6 +142,7 @@ To generate AI output through BrazeAI features that leverage OpenAI ("Output"), 
 
 ## Next steps
 
+- [Prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/): Browse example prompts organized by dashboard page
 - [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Learn how to review and approve Operator's proposed changes
 - [File support tickets]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): File support tickets directly from Operator
 - [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Reference common issues and solutions

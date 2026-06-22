@@ -83,7 +83,6 @@ Braze automatically updates the plaintext version from the HTML version until it
 To add motion in an email with an accurate preview, use GIFs instead of elements that require JavaScript, as most inboxes don't support JavaScript.
 {% endalert %}
 
-![Email Variants panel for composing your email.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze automatically removes HTML event handlers referenced as attributes. This modifies the HTML, so re-check the email after you finish. Learn more about [HTML handlers](https://www.w3schools.com/tags/ref_eventattributes.asp).
@@ -268,7 +267,7 @@ Before send, the editor flags common issues:
 {% tab Campaign %}
 Next, build the remainder of your campaign. See the following sections for details on how to use Braze tools to build your email campaign.
 
-#### Choose delivery schedule or trigger
+### Choose delivery schedule or trigger
 
 Deliver emails based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -278,7 +277,7 @@ For API-triggered campaigns, when the trigger action is set to **Interact With C
 
 You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
-#### Choose users to target
+### Choose users to target
 
 Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters. Braze shows a live preview of the segment population, including how many users are reachable through email. Exact segment membership is calculated just before send.
 
@@ -292,7 +291,7 @@ Optionally, you can also limit delivery to a specified number of users within th
 When creating a new email campaign, the Control Group defaults to 20% and can be adjusted or removed as needed for your campaign.
 {% endalert %}
 
-##### Multichannel campaigns with email and push
+#### Multichannel campaigns with email and push
 
 For multichannel campaigns targeting both email and push channels, you may want to limit your campaign so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in statuses:
 
@@ -306,7 +305,7 @@ To do so, under **Audience Summary**, select to send this campaign to "opted-in 
 With this configuration, don't include any filters in the **Target Audiences** step that limit the audience to a single channel (for example, `Foreground Push Enabled = True` or `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Choose conversion events
+### Choose conversion events
 
 Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You can specify any of the following actions as a conversion event:
 

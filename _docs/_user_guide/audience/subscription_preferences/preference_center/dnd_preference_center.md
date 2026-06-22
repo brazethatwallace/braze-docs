@@ -23,7 +23,6 @@ Create a preference center by navigating to **Audience** > **Email Preference Ce
 
 Here, a list of custom preference centers will be displayed. Select **Create New** to create a new preference center, or select the name of an existing one to make changes.
 
-![A list of custom preference centers with the name, description, type, status, last edited date, and created by user.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## Step 2: Name the email preference center
 
@@ -31,7 +30,6 @@ Preference center names can only contain alphanumeric characters, dashes, or und
 
 This Liquid tag can be included in any outbound email campaigns or Canvas steps and will direct users to the preference center.
 
-![An example of Liquid for a preference center.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## Step 3: Add subscription groups to the preference center
 
@@ -48,7 +46,6 @@ You can further configure the selected subscription groups by selecting the smar
 - Add or remove a **Subscribe to all** checkbox which will subscribe the user to all subscription groups shown in this block
 - Add or remove an **Unsubscribe from all** checkbox which will unsubscribe the user from all subscription groups shown in this block
 
-![An example of a preference center with the options to subscribe to all messages, marketing, newsletter, and weekly emails, or to unsubscribe from all.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
 The **Unsubscribe from all** button at the bottom of the template is non-removable and will [globally unsubscribe]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) the user from receiving any email messages.
 

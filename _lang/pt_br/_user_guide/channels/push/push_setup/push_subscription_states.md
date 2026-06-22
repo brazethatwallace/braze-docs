@@ -52,7 +52,7 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 | O usuário ativa push nas configurações do dispositivo e registra uma sessão | `true` | `true` | Primeiro plano | `Opted-In`** |
 | O usuário desativa push nas configurações do dispositivo e registra uma sessão | `false` | `false` | Segundo plano | Não atualizado |
 | O usuário exclui o app | Não atualizado | Atualizado quando o token de push é retirado | Atualizado quando o token de push é retirado | Não atualizado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Ações do usuário no iOS e status de push" }
 
 <sup>* Se o app não usar push provisório, `Foreground Push Enabled` será `false` até que o usuário permita notificações por push. Se o app usar push provisório, `Foreground Push Enabled` será `true` no início da primeira sessão. Para saber mais, consulte [Autorização provisória e push silencioso](#provisional-push).</sup>
 
@@ -71,7 +71,7 @@ Como a decisão do usuário é final e você não pode perguntar novamente após
 | iOS | ![Um prompt nativo de push do iOS perguntando "My App would like to send you notifications" com dois botões, "Don't Allow" e "Allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Isso não se aplica ao solicitar permissão de [push provisório](#provisional-push). |
 | Android | ![Uma mensagem de push do Android perguntando "Allow Kitchenerie to send you notifications?" com dois botões, "Allow" e "Don't allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Essa permissão de push foi introduzida no Android 13. Antes do Android 13, a permissão não era necessária para enviar push. |
 | Web | ![Um prompt nativo de push do navegador web perguntando "Braze.com wants to show notification" com dois botões, "Block" e "Allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissão de push" }
 
 ### Android
 
@@ -93,7 +93,7 @@ Antes do iOS 12 (lançado em 2018), todos os usuários precisavam fazer opt-in e
 
 No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para saber mais.
 
-### Navegador web {#web}
+### Web {#web}
 
 Para Web, você deve solicitar opt-in explícito do usuário por meio do diálogo nativo de permissão do navegador.
 
@@ -179,7 +179,7 @@ Para gerenciar inscrições, você pode usar o método de usuário [`setPushNoti
 
 Se um usuário desativar notificações no navegador, a próxima notificação por push enviada a esse usuário sofrerá bounce, e a Braze atualizará o token de push do usuário de acordo. Isso é usado para gerenciar a elegibilidade para os filtros de push ativado (`Background or Foreground Push Enabled`, `Foreground Push Enabled` e `Foreground Push Enabled for App`). O status de inscrição definido no perfil do usuário é uma configuração no nível do usuário e não muda quando um push sofre bounce.
 
-### Erros 410 de token de push para Web {#410-web-push-token-errors} {#410-web-push-token-errors}
+### Erros 410 de token de push para Web {#410-web-push-token-errors}
 
 Se você receber um erro `410: Gone`, isso pode ocorrer quando um usuário desativa notificações por push para a web nas configurações do SO do navegador, ou se está fazendo login como um usuário diferente no mesmo dispositivo, ou se o usuário não visitou o site há algum tempo.
 

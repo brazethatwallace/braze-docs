@@ -225,6 +225,10 @@ As tags de produtos são armazenadas como um campo de array em cada item do cat�
 
 ### Personalização {#personalization}
 
+{% alert note %}
+Ao referenciar tags de produtos ou coleções em seleções de catálogo, use apenas o valor em si, sem os colchetes `[]` ou aspas `""` que aparecem nos dados do catálogo. Por exemplo, se uma tag de produto aparece como `["Women's"]` no seu catálogo, escreva `Women's` no filtro da sua seleção.
+{% endalert %}
+
 1. Crie uma seleção de catálogo que filtre produtos que possuam a respectiva tag de produto, como "Women's". Você só pode usar um campo de array único em uma única seleção de catálogo, e até 50 produtos na sua seleção de catálogo.
 
 ![Uma seleção de catálogo que filtra tags de produtos que possuem o atributo "Women's".]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
@@ -599,6 +603,10 @@ Para coleções da Shopify, você deve usar o **Collection ID**, que é encontra
 {% endalert %}
 
 ### Personalização
+
+{% alert note %}
+Ao referenciar IDs de coleção em seleções de catálogo, use apenas o valor numérico do ID, sem os colchetes `[]` que aparecem nos dados do catálogo. Por exemplo, se os IDs de coleção aparecem como `[123456789012, 987654321098]` no seu catálogo, escreva apenas o ID numérico (como `470645342446`) no filtro da sua seleção.
+{% endalert %}
 
 1. Crie uma seleção de catálogo chamada "New Women's Products - In Stock" que filtre produtos que possuam o ID dessa coleção. Você só pode usar um campo de array único em uma única seleção de catálogo, e até 50 produtos na sua coleção.
  - Você também pode criar suas próprias seleções personalizadas filtrando pelo campo **Collections**.

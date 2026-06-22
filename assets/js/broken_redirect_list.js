@@ -3085,7 +3085,8 @@ validurls['/docs/contributing/content_management/language_translations'] = '/doc
 
 validurls['/docs/developer_guide/sdk_integration/?sdktab=xamarin'] = '/docs/developer_guide/sdk_integration/?sdktab=.net%20maui';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages'] = '/docs/user_guide/channels/in_app_messages/#templated-in-app-messages';
-validurls['/docs/help/help_articles/campaigns_and_canvas/not_triggering'] = '/docs/user_guide/messaging/canvas/troubleshooting/#why-did-a-user-not-receive-a-triggered-canvas-step';
+validurls['/docs/help/help_articles/campaigns_and_canvas/not_triggering'] = '/docs/user_guide/messaging/canvas/troubleshooting/#user-didnt-receive-a-canvas-message-or-step';
+validurls['/docs/user_guide/messaging/canvas/troubleshooting/#why-did-a-user-not-receive-a-triggered-canvas-step'] = '/docs/user_guide/messaging/canvas/troubleshooting/#user-didnt-receive-a-canvas-message-or-step';
 
 // Access Braze
 validurls['/docs/user_guide/administrative/access_braze/accessing_your_account/#accessing-your-account'] = '/docs/user_guide/administer/personal/accessing_your_account';
@@ -3968,7 +3969,8 @@ validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_mes
 validurls['/docs/user_guide/message_building_by_channel/push/best_practices/message_format'] = '/docs/user_guide/channels/push/create_a_push_message/message_and_image_formats';
 validurls['/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_action_buttons'] = '/docs/user_guide/channels/push/create_a_push_message/push_action_buttons';
 validurls['/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories'] = '/docs/user_guide/channels/push/create_a_push_message/push_stories';
-validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_message/quick_push'] = '/docs/user_guide/channels/push/create_a_push_message/quick_push_messages';
+validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_message/quick_push'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
+validurls['/docs/user_guide/channels/push/create_a_push_message/quick_push_messages'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/notification_options'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/notification_options';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/rich_notifications'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/rich_notifications';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/customizable_app_icons'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/custom_app_icon_feature_ios_103';
@@ -4861,6 +4863,7 @@ validurls['/docs/credits_whatsapp/'] = '/docs/credits_whatsapp/';
 validurls['/docs/csv_events/'] = '/docs/csv_events/';
 validurls['/docs/device_and_carriers/'] = '/docs/device_and_carriers/';
 validurls['/docs/preview_dnd_content_blocks/'] = '/docs/preview_dnd_content_blocks/';
+validurls['/docs/quick_push/'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
 validurls['/docs/email_html_editor/'] = '/docs/email_html_editor/';
 validurls['/docs/ephemeral_custom_events/'] = '/docs/ephemeral_custom_events/';
 validurls['/docs/iam_generations/'] = '/docs/iam_generations/';
@@ -4876,5 +4879,7 @@ validurls['/docs/message_credits_theta_d9kw/'] = '/docs/message_credits_theta_d9
 validurls['/docs/track_users_bulk/'] = '/docs/track_users_bulk/';
 validurls['/docs/rate_limiting/'] = '/docs/rate_limiting/';
 validurls['/docs/whatsapp_pricing_updates/'] = '/docs/whatsapp_pricing_updates/';
+
+validurls['/docs/user_guide/brazeai/operator/prompt_examples/'] = '/docs/user_guide/brazeai/operator/prompt_library/';
 
 // validurls['OLD'] = 'NEW';

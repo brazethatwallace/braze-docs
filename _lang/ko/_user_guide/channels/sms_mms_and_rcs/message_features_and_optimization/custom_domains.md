@@ -13,7 +13,7 @@ channel:
 
 # 셀프서비스 커스텀 도메인 {#self-serve-custom-domains}
 
-> 이 페이지에서는 Braze 대시보드에서 자체 커스텀 도메인을 설정하는 방법을 다룹니다. 커스텀 도메인을 사용하면 일반적인 단축 링크나 Braze 도메인(`brz.ai`) 대신 브랜드 아이덴티티를 반영하는 브랜드 단축 링크를 사용할 수 있어, SMS 링크에 대한 사용자 신뢰도와 Campaign 참여도를 높일 수 있습니다.
+> 이 페이지에서는 Braze 대시보드에서 자체 커스텀 도메인을 설정하는 방법을 다룹니다. 커스텀 도메인을 사용하면 일반적인 단축 링크나 Braze 도메인(`brz.ai`) 대신 브랜드 아이덴티티를 반영하는 브랜드 단축 링크를 사용할 수 있어, SMS 링크에 대한 사용자 신뢰도와 Campaign(캠페인) 참여도를 높일 수 있습니다.
 
 셀프서비스 커스텀 도메인을 사용하면 SMS, RCS, WhatsApp용 커스텀 도메인을 Braze 대시보드에서 직접 구성하고 관리할 수 있습니다. 한 곳에서 최대 10개의 커스텀 도메인을 쉽게 추가, 모니터링 및 관리할 수 있습니다.
 
@@ -37,7 +37,7 @@ Braze의 링크 단축 및 클릭 추적 서비스와의 적절한 라우팅 및
 
 ## 커스텀 도메인 추가 {#adding-a-custom-domain}
 
-1. Braze에서 **Company Settings** > **SMS/RCS and Messaging Apps Domains**로 이동합니다.
+1. Braze에서 **회사 설정** > **SMS/RCS and Messaging Apps Domains**로 이동합니다.
 ![여러 도메인이 나열된 "SMS/RCS and Messaging Apps Domains" 페이지.]({% image_buster /assets/img/main_page.png %})
 
 {: start="2"}
@@ -70,15 +70,13 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 
 구성이 완료되면 커스텀 도메인을 하나 또는 여러 SMS, RCS, WhatsApp 구독 그룹에 할당할 수 있습니다.
 
-1. **Audience** > **Subscription Group Management**로 이동합니다.
+1. **오디언스** > **구독 그룹 관리**로 이동합니다.
 2. 목록에서 구독 그룹을 찾아 선택합니다.
-3. **Subscription Group Details**에서 커스텀 도메인을 **Link Shortening Domain**으로 선택합니다.
-
-![링크 단축 도메인을 선택할 수 있는 구독 그룹 설정.]({% image_buster /assets/img/custom_domain.png %})
+3. **구독 그룹 세부 정보**에서 **Link Shortening Domain** 드롭다운에서 커스텀 도메인을 선택합니다.
 
 링크 단축이 활성화된 상태로 전송된 Campaigns는 SMS, RCS 또는 WhatsApp 구독 그룹에 연결된 할당 도메인을 사용합니다.
 
-!["Message" 상자의 도메인과 다른 단축 링크 도메인이 표시된 SMS 메시지 작성기 미리보기.]({% image_buster /assets/img/custom_domain2.png %})
+![메시지 상자의 도메인과 다른 단축 링크 도메인이 표시된 SMS 메시지 작성기 미리보기.]({% image_buster /assets/img/custom_domain2.png %})
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

@@ -43,7 +43,7 @@ Das [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamen
 So erstellen Sie eine Kampagne:
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Create campaign**.
+2. Wählen Sie **Kampagne erstellen**.
 3. Wählen Sie den [Kanal]({{site.baseurl}}/user_guide/channels/), der zu Ihrem Anwendungsfall passt.
 4. Verfassen und prüfen Sie im [Schritt „Verfassen“](#step-1-compose-messages) den Text für diesen Kanal.
 
@@ -73,9 +73,9 @@ Rate-Limits für Sends, die mehrere Kanäle umfassen, werden unter [Multichannel
 ### Multichannel-Kampagne erstellen {#create-a-multichannel-campaign}
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Create campaign**.
+2. Wählen Sie **Kampagne erstellen**.
 3. Wählen Sie **Multichannel**.
-4. Wählen Sie im [Schritt „Verfassen“](#step-1-compose-messages) **Add channel** und wählen Sie jeden benötigten Kanal aus. Wählen Sie die Kanalsymbole, um zwischen den Composern zu wechseln, während Sie den Text für jeden Kanal verfassen.
+4. Wählen Sie im [Schritt „Verfassen“](#step-1-compose-messages) **Kanal hinzufügen** und wählen Sie jeden benötigten Kanal aus. Wählen Sie die Kanalsymbole, um zwischen den Composern zu wechseln, während Sie den Text für jeden Kanal verfassen.
 
 {% endtab %}
 {% endtabs %}
@@ -104,7 +104,7 @@ Verfassen Sie in diesem Schritt kanalspezifische Inhalte. Eine ausführliche Anl
 Fügen Sie Varianten hinzu, wenn Sie kreative oder Zustellungsaufteilungen vergleichen möchten. Hintergrundinformationen zu Experimenten und Kontrollgruppen finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Wenn jede Variante ähnlichen Textinhalt verwendet, verfassen Sie die Nachricht, **bevor** Sie zusätzliche Varianten hinzufügen. Verwenden Sie dann **Copy from Variant** aus dem Menü **Add Variant**, um Arbeit über Varianten oder Kanäle hinweg wiederzuverwenden.
+Wenn jede Variante ähnlichen Textinhalt verwendet, verfassen Sie die Nachricht, **bevor** Sie zusätzliche Varianten hinzufügen. Verwenden Sie dann **Copy from Variant** aus dem Menü **Variante hinzufügen**, um Arbeit über Varianten oder Kanäle hinweg wiederzuverwenden.
 {% endalert %}
 
 ## 2. Schritt: Zustellung planen {#step-2-schedule-delivery}
@@ -130,7 +130,7 @@ Definieren Sie unter **Target Audiences**, wer berechtigt ist, die Kampagne zu e
 
 ### Targeting-Optionen {#targeting-options}
 
-In diesem Abschnitt können Sie Nutzer:innen ansprechen, indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Berechtigte Nutzer:innen müssen weiterhin den Trigger oder die Kriterien erfüllen, die Sie im Schritt **Schedule Delivery** definiert haben. Die Zielgruppe ist wie ein Warteraum – nur Personen, die sich bereits darin befinden, können weitergehen, wenn die nächste Aktion eintritt.
+In diesem Abschnitt können Sie Nutzer:innen ansprechen, indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Berechtigte Nutzer:innen müssen weiterhin den Trigger oder die Kriterien erfüllen, die Sie im Schritt **Zustellung planen** definiert haben. Die Zielgruppe ist wie ein Warteraum – nur Personen, die sich bereits darin befinden, können weitergehen, wenn die nächste Aktion eintritt.
 
 [Unterdrückungslisten]({{site.baseurl}}/user_guide/audience/suppression_lists/) des Workspace schließen gelistete Nutzer:innen automatisch aus, es sei denn, Sie erlauben eine Ausnahme für diese Kampagne.
 
@@ -146,7 +146,7 @@ Wenn Nutzer:innen den Segment-, Filter- und App-Kriterien entsprechen, wird dies
 
 ### An diese Nutzer:innen senden {#send-to-these-users}
 
-Verwenden Sie bei abo-basierten Kanälen (E-Mail, SMS und ähnliche) **Send to these users**, um Ihre Kampagne nur an Nutzer:innen mit einem bestimmten Abo-Status zu senden, z. B. an diejenigen, die abonniert und für E-Mail angemeldet sind.
+Verwenden Sie bei abo-basierten Kanälen (E-Mail, SMS und ähnliche) **An diese Nutzer:innen senden**, um Ihre Kampagne nur an Nutzer:innen mit einem bestimmten Abo-Status zu senden, z. B. an diejenigen, die abonniert und für E-Mail angemeldet sind.
 
 ### Sendevolumen begrenzen {#limit-send-volume}
 
@@ -158,7 +158,7 @@ Wenn Sie erwarten, dass große Kampagnen einen Anstieg der Nutzer:innen-Aktivit�
 
 ### A/B-Tests {#ab-testing}
 
-Sie können einen [multivariaten oder A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing/) für jede Kampagne erstellen, die einen einzelnen Kanal und ein einzelnes Gerät anspricht. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Kampagne verwenden möchten, können Sie nur iOS-Geräte oder nur Android-Geräte ansprechen – nicht beide Gerätetypen in derselben Kampagne.
+Sie können einen [multivariaten oder A/B-Test]({{site.baseurl}}/user_guide/messaging/ab_testing/) für jede Kampagne erstellen, die einen einzelnen Kanal anspricht, auch wenn der einzelne Kanal mehrere Geräte umfasst. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Kampagne verwenden möchten, können Sie nur iOS-Geräte oder nur Android-Geräte ansprechen – nicht beide Gerätetypen in derselben Kampagne.
 
 Für Push-, E-Mail- und Webhook-Kampagnen, die für einen einmaligen Versand geplant sind, können Sie auch eine [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) verwenden. Eine Optimierung reserviert einen Teil Ihrer Zielgruppe vom A/B-Test und hält ihn für einen zweiten optimierten Versand zurück, der auf den Ergebnissen des ersten Tests basiert.
 
@@ -174,12 +174,12 @@ Sie können nach dem Start der Kampagne keine Konversions-Events mehr hinzufüge
 
 ## 5. Schritt: Zusammenfassung prüfen und starten {#step-5-review-summary-and-launch}
 
-Der Schritt **Review Summary** zeigt Planung, Zielgruppe, Varianten und Messaging-Einstellungen. Bevor Sie Ihre Kampagne starten:
+Der Schritt **Zusammenfassung prüfen** zeigt Planung, Zielgruppe, Varianten und Messaging-Einstellungen. Bevor Sie Ihre Kampagne starten:
 
 1. Bestätigen Sie, dass Segmente, Varianten und Zustellungseinstellungen Ihrer Absicht entsprechen.
 2. [Senden Sie Testnachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/), um Darstellung und Verhalten auf Ihren Testgeräten oder bei internen Empfänger:innen zu überprüfen.
 
-Wenn Sie bereit sind, wählen Sie **Launch Campaign**.
+Wenn Sie bereit sind, wählen Sie **Kampagne starten**.
 
 ### Genehmigungen {#approvals}
 

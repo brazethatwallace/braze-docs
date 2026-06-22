@@ -225,6 +225,10 @@ Las etiquetas de productos se almacenan como un campo de matriz en cada artícul
 
 ### Personalización {#personalization}
 
+{% alert note %}
+Al hacer referencia a etiquetas de productos o colecciones en selecciones de catálogo, usa solo el valor en sí sin los corchetes de matriz `[]` ni las comillas `""` que aparecen en los datos del catálogo. Por ejemplo, si una etiqueta de producto se muestra como `["Women's"]` en tu catálogo, escribe `Women's` en tu filtro de selección.
+{% endalert %}
+
 1. Crea una selección de catálogo que filtre los productos que tengan la etiqueta de producto correspondiente, como "Women's". Solo puedes usar un campo de matriz único dentro de una sola selección de catálogo, y hasta 50 productos en tu selección de catálogo.
 
 ![Una selección de catálogo que filtra por etiquetas de productos que tienen el atributo "Women's".]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
@@ -599,6 +603,10 @@ Para las colecciones de Shopify, debes usar el **Collection ID**, que se encuent
 {% endalert %}
 
 ### Personalización
+
+{% alert note %}
+Al hacer referencia a IDs de colección en selecciones de catálogo, usa solo el valor numérico del ID sin los corchetes de matriz `[]` que aparecen en los datos del catálogo. Por ejemplo, si los IDs de colección se muestran como `[123456789012, 987654321098]` en tu catálogo, escribe solo el ID numérico (como `470645342446`) en tu filtro de selección.
+{% endalert %}
 
 1. Crea una selección de catálogo llamada "New Women's Products - In Stock" que esté filtrada con productos que tengan el ID de esa colección. Solo puedes usar un campo de matriz único dentro de una sola selección de catálogo, y hasta 50 productos en tu colección.
  - También puedes crear tus propias selecciones personalizadas filtrando con el campo **Collections**.
