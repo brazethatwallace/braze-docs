@@ -168,6 +168,10 @@ Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwa
 Für weitere Unterstützung bei der Fehlerbehebung von Campaigns wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten Ihres Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage zur Verfügung stehen.
 {% endalert %}
 
+### Warum haben Nutzer:innen meine Campaign zweimal erhalten, nachdem ich sie bearbeitet habe? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Wenn Sie eine laufende Campaign bearbeiten, ohne sie vorher zu stoppen, können Nutzer:innen die Nachricht zweimal erhalten. Das passiert, weil das Bearbeiten einer laufenden Campaign Nutzer:innen für die aktualisierte Version erneut einreiht, während die ursprüngliche Warteschlange noch verarbeitet wird. Nutzer:innen, die die ursprüngliche Nachricht noch nicht erhalten haben, können in beiden Warteschlangen landen. Um dies zu verhindern, [stoppen Sie die Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) immer, bevor Sie Änderungen vornehmen.
+
 ### Was ist der Unterschied zwischen den Optionen „Nutzerdaten als CSV exportieren“ und „E-Mail-Adressen als CSV exportieren“ auf meiner Campaign-Analytics-Seite? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 Die Auswahl der Option **E-Mail-Adressen als CSV exportieren** lädt nur Daten für Nutzer:innen mit E-Mail-Adressen herunter. Wenn Sie beispielsweise ein Segment von 100.000 Nutzer:innen haben, aber nur 50.000 davon E-Mail-Adressen haben, und Sie auf **E-Mail-Adressen als CSV exportieren** klicken, enthält der Export nur 50.000 Datenzeilen. Im Vergleich dazu exportiert die Auswahl von **Nutzerdaten als CSV exportieren** alle Nutzerdaten.

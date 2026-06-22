@@ -224,15 +224,31 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 ![Braze Canvasの2つのバリアント例。]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの関数によって決定されます。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>バリアント配分の変更後も持続する完全な制御が必要な場合は、Liquidを使用して乱数ジェネレーターを作成し、各ユーザーのキャンバスエントリの最初に実行し、その値をカスタム属性として保存してから、その属性を使用してユーザーを分岐に分割できます。
+デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの関数によって決定されます。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>配分の割合を変更しても固定された割り当てが必要な場合は、単一のCanvasバリアントを使用し、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップでユーザーをルーティングしてください。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用して乱数をカスタム属性に保存し、オーディエンスパスでその属性をフィルタリングします。
 
 {% details 手順を展開 %}
 
-1. 乱数を保存するカスタム属性を作成します。「lottery_number」や「random_assignment」など、見つけやすい名前を付けてください。属性は[ダッシュボード]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)で作成するか、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)へのAPI呼び出しで作成できます。<br><br>
-2. キャンバスの最初にWebhookキャンペーンを作成します。このキャンペーンが乱数を作成し、カスタム属性として保存する手段となります。詳細は[Webhookの作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook)を参照してください。URLを `/users/track` エンドポイントに設定します。<br><br>
-3. 乱数ジェネレーターを作成します。[こちらに記載されているコード](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486)を使用して作成できます。これは各ユーザーのユニークなエントリ時間を利用して乱数を生成します。生成された数値をWebhookキャンペーン内のLiquid変数として設定します。<br><br>
-4. Webhookキャンペーンの `/users/track` 呼び出しをフォーマットして、ステップ1で作成したカスタム属性を、現在のユーザーのプロファイルに生成した乱数に設定するようにします。このステップが実行されると、ユーザーがキャンペーンに入るたびに変わる乱数が正常に作成されます。<br><br>
-5. キャンバスの分岐を、ランダムに選択されたバリアントで分割するのではなく、オーディエンスルールに基づいて分割するように調整します。各分岐のオーディエンスルールで、カスタム属性に基づいてオーディエンスフィルターを設定します。<br><br>たとえば、ある分岐のオーディエンスフィルターを「lottery_number が3未満」に設定し、別の分岐のオーディエンスフィルターを「lottery_number が3より大きく6未満」に設定できます。
+1. 乱数を保存する**数値**カスタム属性を作成します。`lottery_number` や `random_assignment` など、見つけやすい名前を付けてください。ダッシュボードで**データ設定** > **カスタム属性**に移動します。<br><br>
+2. 単一のCanvasバリアントを使用します（または各バリアントに同じユーザーの更新ステップを追加します）。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを追加します。このステップは、ユーザーがオーディエンスパスステップに到達する前に乱数を生成して保存します。<br><br>
+3. ユーザーの更新ステップで、[高度なJSONエディター]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#advanced-json-editor)を選択します。{% raw %}{% random %}{% endraw %} タグを使用して数値を生成します。詳細については、[乱数を含むメッセージを送信する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number)を参照してください。たとえば、{% raw %}`{% random 10 %}`{% endraw %} は0から9の整数を返します。ステップ1のカスタム属性を以下のようなJSONで設定します:<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+{% raw %}`{% if %}`{% endraw %} ブロックは、属性が空白の場合にのみ数値を設定するため、ユーザーがキャンバスに再エントリしても同じ割り当てが維持されます。<br><br>
+
+{: start="4"}
+4. ユーザーの更新ステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップを追加します。各オーディエンスグループで、バリアント配分の割合を使用する代わりに、カスタム属性に基づくフィルターを追加します。<br><br>たとえば、{% raw %}`{% random 10 %}`{% endraw %} を使用した場合、あるグループは `lottery_number` が **4未満**、別のグループは **3より大きく7未満**、3番目のグループは **6より大きく10未満** とすることができます。
 
 {% enddetails %}
 {% endalert %}

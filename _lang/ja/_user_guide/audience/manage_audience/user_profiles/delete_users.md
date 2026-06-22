@@ -48,7 +48,6 @@ Brazeから個々のユーザーを削除するには、**Audience** > **Search 
 
 プロファイルページで、<i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**を選択します。ユーザーがBrazeで完全に削除されるまで数分かかる場合があります。
 
-![Brazeのユーザーで、縦三点メニューが開かれ、ユーザーを削除するオプションが表示されている状態。]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Segmentの削除 {#delete-segment}
 

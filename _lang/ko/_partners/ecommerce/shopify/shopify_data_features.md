@@ -689,8 +689,8 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**이벤트**: `shopify_cancelled_order`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**이벤트**: `ecommerce.order_cancelled`<br>
+**유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자의 주문이 취소될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 주문 취소 확인
@@ -725,8 +725,8 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**이벤트**: `shopify_order_refunded`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**이벤트**: `ecommerce.order_refunded`<br>
+**유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자의 주문이 환불될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 환불 확인
@@ -824,11 +824,11 @@ Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/da
 
 Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **Custom Attributes**를 선택합니다.
 
-!['속성' 드롭다운이 확장된 '개인화 추가' 섹션.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+!['속성' 드롭다운이 확장된 '개인화 추가' 섹션]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 커스텀 속성을 선택한 후 기본값을 입력하고 Liquid 스니펫을 메시지에 복사합니다.
 
-![Liquid 스니펫을 메시지에 붙여넣기.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
+![Liquid 스니펫을 메시지에 붙여넣기]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -869,13 +869,13 @@ Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external
 
 1. **Track Shopify data** 단계에서 과거 데이터 백필을 켭니다.
 
-![과거 데이터 백필이 선택된 Shopify 통합의 'Shopify 데이터 추적' 단계.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
+![과거 데이터 백필이 선택된 Shopify 통합의 'Shopify 데이터 추적' 단계]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. 통합 설정을 완료하면 Braze가 초기 데이터 동기화를 시작합니다. 통합 설정의 **Shopify Data** 탭에서 진행 상황을 모니터링할 수 있습니다.
 
-![이벤트가 활발하게 동기화 중임을 나타내는 스피너가 있는 Shopify 통합 설정 페이지.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
+![이벤트가 활발하게 동기화 중임을 나타내는 스피너가 있는 Shopify 통합 설정 페이지]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### 동기화된 데이터 {#synced-data}
 

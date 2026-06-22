@@ -70,3 +70,13 @@ Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 �
 - [Safari(모바일)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## 410 (Gone) 및 유효하지 않은 웹 푸시 엔드포인트 {#410-gone-and-invalid-web-push-endpoints}
+
+브라우저와 푸시 서비스는 웹 푸시 구독이 더 이상 수락되지 않을 때 **410 Gone**(또는 유사한 "엔드포인트가 유효하지 않음" 오류)을 반환할 수 있습니다. 일반적인 원인은 다음과 같습니다:
+
+- 사용자가 브라우저 또는 OS 설정에서 사이트에 대한 알림을 비활성화한 경우.
+- 동일한 브라우저 프로필에서 다른 사용자 프로필이 구독하여 엔드포인트가 새 가입자로 교체된 경우.
+- 오랜 기간 참여 없이 구독이 만료된 경우—사용자가 다시 옵트인하면 다음 세션에서 새로운 구독이 생성됩니다.
+
+사용자가 알림을 다시 활성화한 후, 사이트의 일반적인 웹 푸시 등록 흐름을 다시 트리거하여 Braze가 새 구독 엔드포인트를 저장하도록 합니다.

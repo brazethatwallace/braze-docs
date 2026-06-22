@@ -19,7 +19,7 @@ channel:
 
 We recommend importing phone numbers in [`E.164`](https://en.wikipedia.org/wiki/e.164) format to ensure accuracy in the event that you are sending to multiple regions with different country or area codes&#8212;even for U.S.-based phone numbers.
 
-- **U.S. numbers:** All U.S. numbers must be valid, 10-digit phone numbers with a valid area code. If any 10-digit phone number is missing a `+` and country code, Braze will map it as U.S. numbers.
+- **U.S. numbers:** All U.S. numbers must be valid, 10-digit phone numbers with a valid area code. If any 10-digit phone number is missing a `+` and country code, Braze maps it as U.S. numbers. Puerto Rican phone numbers still require a `+` and country code even though they use 10-digit formatting with U.S.-style area codes.
 - **International numbers:** All international numbers should start with a `+`, followed by their country code and then the phone number. For example, `+442071838750`.
 
 ![Example of a valid e164 international phone number.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}

@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Seen](https://seen.io) ermöglicht es Marken, personalisierte Video-Erlebnisse in großem Umfang zu erstellen und zuzustellen. Mit Seen können Sie ein Video rund um Ihre Daten entwerfen, es in großem Umfang in der Cloud personalisieren und dann dort verteilen, wo es am besten funktioniert.
 >
-> Die Integration von Braze und Seen ermöglicht es Ihnen, Nutzerdaten von Braze an Seen zu senden, dynamisch personalisierte Videos zu generieren und Video-Assets – wie eine eindeutige Player-URL und ein Vorschaubild – zur Verwendung in Campaigns und Canvases an Braze zurückzugeben.
+> Diese Integration sendet Nutzerdaten von Braze an Seen, generiert personalisierte Videos und gibt Assets – wie eine eindeutige Player-URL und ein Vorschaubild – zur Verwendung in Campaigns und Canvases an Braze zurück.
 
 
 ## Anwendungsfälle {#use-cases}
@@ -26,48 +26,49 @@ Seen unterstützt die automatisierte, personalisierte Zustellung von Videos übe
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, benötigen Sie Folgendes:
+Bevor Sie beginnen, stellen Sie sicher, dass Sie über die Zugänge und Daten in der folgenden Tabelle verfügen.
 
 | Voraussetzung | Beschreibung |
 |--------------|-------------|
-| Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform oder eine aktive Seen-Kampagne. Sie benötigen Zugriff auf Ihre Workspace-Einstellungen, um Ihre Workspace-ID abzurufen und ein API-Token zu generieren. |
-| Braze-Datentransformation-Webhook-URL | Die Braze-Datentransformation formatiert die von Seen eingehenden Daten so um, dass sie vom `/users/track`-Endpunkt von Braze akzeptiert werden können. |
-| Braze-Nutzerdaten | Für die Video-Personalisierung sind Daten auf Nutzer:innen-Ebene erforderlich. Stellen Sie sicher, dass die relevanten Attribute in Braze verfügbar sind und dass Sie **braze_id** als eindeutigen Bezeichner übergeben. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform mit einem veröffentlichten Projekt oder eine aktive Seen-Kampagne. Außerdem benötigen Sie Zugriff auf Ihr Projekt, um den Projekt-Endpunkt abzurufen und ein API-Token zu generieren. |
+| Braze-Datentransformation-Webhook-URL | Verwenden Sie die Braze-Datentransformation, um die von Seen eingehenden Daten so umzuformatieren, dass sie vom Braze-[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) akzeptiert werden können. |
+| Braze-Nutzerdaten | Für die Video-Personalisierung sind Daten auf Nutzer:innen-Ebene erforderlich. Stellen Sie sicher, dass die relevanten Attribute in Braze verfügbar sind, und übergeben Sie **`braze_id`** als eindeutigen Bezeichner. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 
 
 
-## Wie Seen Journeys funktionieren {#how-seen-journeys-work}
+## Wie Seen-Projekte funktionieren {#how-seen-projects-work}
 
-Seen verwendet [Journeys](https://docs.seen.io/journey), um zu steuern, wie eingehende Daten verarbeitet werden und wie Video-Ausgaben erzeugt werden.
+Seen verwendet den [Run](https://docs.seen.io/run)-Tab in einem Projekt, um zu steuern, wie eingehende Daten verarbeitet und wie Video-Ausgaben erzeugt werden.
 
-Eine Journey ist ein konfigurierbarer Workflow, der:
-- Daten von externen Systemen empfängt (z. B. Braze)
-- Logik und Personalisierungsregeln anwendet
-- Ein Video und zugehörige Assets erzeugt
-- Eine konfigurierbare Antwort-Payload zurückgibt
+Ein Projekt-Workflow:
 
-Journeys bestehen aus **Knoten**, die jeweils eine bestimmte Funktion haben:
+- Empfängt Daten von externen Systemen (z. B. Braze)
+- Wendet Logik und Personalisierungsregeln an
+- Erzeugt ein Video und zugehörige Assets
+- Gibt eine konfigurierbare Antwort-Payload zurück
 
-- **Trigger-Knoten**: Legt fest, wie und wann eine Journey startet (für Braze-Integrationen verwenden Sie einen `On Create`-Trigger)
-- **Bedingter Knoten**: Leitet Nutzer:innen auf der Grundlage von Datenwerten durch verschiedene logische Pfade
-- **Projekt-Knoten**: Wendet dynamische Video-Personalisierung anhand der eingehenden Daten an
-- **Player-Knoten**: Erzeugt eine eindeutige Video-Player-URL
-- **Webhook-Knoten**: Definiert die an Braze zurückgesendete Antwort-Payload
+Der Run-Tab umfasst Folgendes:
 
-Da Journey-Antworten konfigurierbar sind, stellen Sie sicher, dass die von Seen zurückgegebenen Ausgabefelder den von Ihrer Braze-Datentransformation erwarteten Attributen entsprechen.
+- **Create via API**: Öffnet die Projekt-API-Details.
+- **Import CSV**: Importiert Personalisierungsdaten manuell (wird in dieser Anleitung nicht verwendet).
+- **Add webhook**: Definiert die an Braze zurückgesendete Antwort-Payload.
+- **View videos**: Zeigt generierte Videos und den Status eingehender Daten an.
+
+Webhook-Antworten sind konfigurierbar. Stellen Sie daher sicher, dass die von Seen zurückgegebenen Ausgabefelder den Attributen entsprechen, die Ihre Braze-Datentransformation erwartet.
 
 
 ## Rate-Limit
-Die Seen-API akzeptiert bis zu 100 Aufrufe alle 10 Sekunden.
+
+Die Seen-API akzeptiert 100 Aufrufe pro 10 Sekunden.
 
 
 ## Integration
 
-In diesem Beispiel sendet Braze Nutzerdaten an Seen, um ein personalisiertes Video zu generieren. Seen liefert dann eine eindeutige Video-Player-URL und eine Vorschaubild-URL zurück, die als angepasste Attribute in Braze zur Verwendung im Messaging gespeichert werden.
+In diesem Beispiel sendet Braze Nutzerdaten an Seen, um ein personalisiertes Video zu generieren. Seen gibt dann eine eindeutige Video-Player-URL und eine Vorschaubild-URL zurück, die Sie als [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in Braze zur Verwendung im [Messaging]({{site.baseurl}}/user_guide/messaging/) speichern.
 
-Wenn Sie mehrere Video-Kampagnen mit Seen haben, wiederholen Sie den Vorgang, um Braze mit allen Video-Kampagnen zu verbinden.
+Wenn Sie mehrere Video-Kampagnen mit Seen durchführen, wiederholen Sie diesen Vorgang für jede Kampagne.
 
 ### 1. Schritt: Erstellen Sie eine Webhook-Campaign, um Daten an Seen zu senden {#step-1-create-a-webhook-campaign-to-send-data-to-seen}
 
@@ -76,12 +77,13 @@ Erstellen Sie eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/
 Konfigurieren Sie den Webhook wie folgt:
 
 - **Webhook-URL**:
-  `https://next.seen.io/v1/workspaces/{WORKSPACE_ID}/data`
-  Ihre Workspace-ID finden Sie in den Einstellungen der Seen-Plattform.
+  `https://next.seen.io/v1/projects/{PROJECT_ID}/data`
+  Ihren Projekt-Endpunkt finden Sie auf dem Run-Tab Ihres Seen-Plattform-Projekts.
 
 - **HTTP-Methode**: POST
+
 - **Anfrage-Body**: Rohtext
-  Verwenden Sie das folgende Beispiel als Ausgangspunkt. Weitere Informationen finden Sie in der [Seen-Dokumentation zur Datenerstellung](https://docs.seen.io/create-data).
+  Verwenden Sie das folgende Beispiel als Ausgangspunkt. Informationen zu Feldoptionen und Limits finden Sie in der [Seen-Dokumentation zur Datenerstellung](https://docs.seen.io/create-data).
 
 {% raw %}
 ```json
@@ -93,58 +95,54 @@ Konfigurieren Sie den Webhook wie folgt:
 }
 ```
 {% endraw %}
+
 - **Anfrage-Header**:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  > Generieren Sie ein [API-Token](https://docs.seen.io/authorization) in der Seen-Plattform unter Workspace-Einstellungen. Sie können sich an Ihren Seen Customer-Success-Manager wenden, um Unterstützung zu erhalten.
+  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen Customer-Success-Manager, wenn Sie Unterstützung benötigen.
 
-- Um den Webhook mit einer/einem Nutzer:in zu testen, wechseln Sie auf den Tab **Test**.
-- Nachdem Sie bestätigt haben, dass der Test wie vorgesehen funktioniert, schließen Sie die Einrichtung des Webhooks ab.
+- Testen Sie den Webhook mit einer/einem Nutzer:in auf dem **Test**-Tab.
+- Schließen Sie nach einem erfolgreichen Test die Webhook-Einrichtung ab.
 
 
-### 2. Schritt: Konfigurieren Sie eine Journey in der Seen-Plattform {#step-2-configure-a-journey-in-the-seen-platform}
+### 2. Schritt: Konfigurieren Sie ein Projekt in der Seen-Plattform {#step-2-configure-a-project-in-the-seen-platform}
 
-Seen verwendet [Journeys](https://docs.seen.io/journey), um festzulegen, wie eingehende Daten verarbeitet, personalisiert und an Braze zurückgegeben werden.
-Jede Journey ist ein konfigurierbarer Workflow, der aus Knoten besteht, mit denen Sie sowohl die Logik der Videogenerierung als auch die Antwort-Payload steuern können.
+Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu registrieren. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
 
-So konfigurieren Sie Ihre Journey:
+1. Erstellen Sie in der Seen-Plattform ein Projekt, erstellen Sie Ihr Video und wählen Sie dann **Publish**. Videos werden aus eingehenden Daten generiert, sobald das Projekt veröffentlicht ist.
+2. Wählen Sie auf dem Run-Tab **Add a webhook**.
 
-1. Erstellen Sie eine neue Journey in der Seen-Plattform
-2. Fügen Sie einen **Trigger-Knoten** hinzu und wählen Sie den Trigger `On Create`
-   Dadurch wird sichergestellt, dass die Journey startet, wenn Braze Daten an Seen sendet. Erstellen Sie bei Bedarf eine [Segmentierungslogik](https://docs.seen.io/segments) in Ihrem Workspace und fügen Sie diese hinzu.
-3. Bauen Sie Ihre Logik nach Bedarf mit den folgenden Knoten auf:
-   - **Bedingter Knoten**: Leiten Sie Nutzer:innen auf der Grundlage von Attributwerten weiter (z. B. Tarifart oder Region)
-   - **Projekt-Knoten**: Wenden Sie die dynamische Video-Personalisierung anhand der eingehenden Daten an
-   - **Player-Knoten**: Generieren Sie eine eindeutige Video-Player-URL
-4. Fügen Sie einen **Webhook-Knoten** hinzu, um die Antwort zu definieren, die an Braze zurückgesendet wird
+#### Anforderungen an die Webhook-Antwort {#webhook-response-requirements}
 
-#### Antwortanforderungen des Webhook-Knotens {#webhook-node-response-requirements}
-
-Da die Antwort-Payload konfigurierbar ist, stellen Sie sicher, dass die folgenden Felder zurückgegeben werden, um die im nächsten Schritt beschriebene Braze-Datentransformation zu unterstützen:
+Die Antwort-Payload ist konfigurierbar. Geben Sie die Felder in der folgenden Tabelle zurück, damit die Braze-Datentransformation im nächsten Schritt sie zuordnen kann.
 
 | Feld | Beschreibung |
 |------|-------------|
 | `id` | Muss mit der von Braze gesendeten `braze_id` übereinstimmen |
 | `player_url` | Eindeutige URL für den personalisierten Video-Player |
-| `email_thumbnail_url` | URL des generierten Video-Vorschaubilds |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
+| `email_thumbnail_url` | URL des personalisierten Video-Vorschaubilds |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen an die Webhook-Antwort" }
 
-Wenn Ihr Anwendungsfall zusätzliche Attribute erfordert, fügen Sie diese in die Antwort ein und ordnen Sie sie in Braze zu.
+Wenn Sie zusätzliche Attribute benötigen, fügen Sie diese zur Antwort hinzu und ordnen Sie sie in Braze zu.
 
 
 ### 3. Schritt: Erstellen Sie eine Datentransformation, um Daten von Seen zu empfangen {#step-3-create-a-data-transformation-to-receive-data-from-seen}
 
-Verwenden Sie Braze-Datentransformationen, um die Seen-Journey-Antwort aufzunehmen und Video-Assets im Nutzerprofil zu speichern.
+Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Nutzerprofil zu speichern.
 
-1. Erstellen Sie die folgenden [angepassten Attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#managing-custom-attributes) in Braze:
+1. Erstellen Sie die folgenden [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in Braze:
    - `player_url`
    - `email_thumbnail_url`
-2. Navigieren Sie zu **Dateneinstellungen** → **Datentransformation** und klicken Sie auf **Transformation erstellen**
+
+2. Navigieren Sie zu **Dateneinstellungen** > **Datentransformationen** und wählen Sie **Transformation erstellen**.
+
 3. Konfigurieren Sie die Transformation:
    - **Von Grund auf neu erstellen**
-   - **Ziel** → POST: Nutzer:innen tracken
-4. Geben Sie die generierte Webhook-URL an Seen weiter oder fügen Sie sie direkt zum Journey-**Webhook-Knoten** hinzu
+   - **Ziel** > POST: Nutzer:innen tracken
+
+4. Geben Sie die generierte Webhook-URL an Seen weiter oder fügen Sie sie zum **Webhook** auf dem Run-Tab Ihres Projekts hinzu.
+
 5. Verwenden Sie den folgenden Transformations-Code:
 
 ```javascript
@@ -162,6 +160,6 @@ return brazecall;
 ```
 
 {: start="6"}
-6. Senden Sie eine Test-Payload an den angegebenen Endpunkt. Senden Sie Daten an die Seen-Plattform, um Ihre Journey auszuführen, oder senden Sie die Payload mit [Postman](https://www.postman.com/) oder einem anderen ähnlichen Dienst direkt an Braze.
-7. Wählen Sie **Validate**, um sicherzustellen, dass alles wie vorgesehen funktioniert.
+6. Senden Sie eine Test-Payload an den angegebenen Endpunkt. Sie können Daten an Ihr Seen-Plattform-Projekt senden (veröffentlichen Sie das Projekt zuerst) oder eine Payload mit [Postman](https://www.postman.com/) oder einem ähnlichen Tool direkt an Braze senden.
+7. Wählen Sie **Validate**, um zu überprüfen, ob die Transformation wie erwartet funktioniert.
 8. Wählen Sie **Save** und **Activate**.

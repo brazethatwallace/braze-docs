@@ -21,7 +21,7 @@ page_order: 2
 
 利用可能なリソースやユースケースに適したレコメンデーションエンジンを判断する際には、以下の検討事項表を参考にしてください。
 
-<table aria-label="Recommendation engine options" style="text-align: center;">
+<table aria-label="レコメンデーションエンジンのオプション" style="text-align: center;">
   <caption>レコメンデーションエンジンのオプション</caption>
   <thead>
     <tr>
@@ -73,7 +73,7 @@ page_order: 2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Recommendation engine options" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="レコメンデーションエンジンのオプション" }
 
 ## レコメンデーションエンジンの作成 {#creating-a-recommendation-engine}
 
@@ -91,7 +91,7 @@ page_order: 2
 
 ### 例 {#example}
 
-健康食品アプリを運営していて、ユーザーがアプリに登録してからの期間に応じて異なるレシピを送信するコンテンツカードキャンペーンを作成したいとします。まず、以下の情報を含むCSVファイルを使用してカタログを作成し、アップロードします。
+健康食品アプリを運営していて、ユーザーがアプリに登録してからの期間に応じて異なるレシピを送信するコンテンツカードCampaignを作成したいとします。まず、以下の情報を含むCSVファイルを使用してカタログを作成し、アップロードします。
 
 | フィールド | 説明 |
 |-----|-----------|
@@ -100,13 +100,11 @@ page_order: 2
 | **title** | 各IDに対して送信されるコンテンツカードのタイトル。「今週のランチ用の作り置き」や「タコスについて話そう」などです。 |
 | **link** | レシピ記事へのリンク。 |
 | **image_url** | レシピに対応する画像。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
-カタログがBrazeにアップロードされたら、一部のカタログアイテムのプレビューを確認して、情報が正確にインポートされたことを確認してください。プレビューではアイテムがランダムに表示される場合がありますが、レコメンデーションエンジンの出力には影響しません。
+カタログがBrazeにアップロードされたら、カタログページからカタログを選択し、**プレビュー**タブを開いて、情報が正確にインポートされたことを確認します。プレビューには一部のアイテムが表示され、ランダムに表示される場合がありますが、レコメンデーションエンジンの出力には影響しません。
 
-![Brazeのカタログの例。]({% image_buster /assets/img/recs/catalog_items.png %})
-
-コンテンツカードキャンペーンを作成します。作成画面で、キャンペーンを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
+カタログの準備ができたら、[コンテンツカードCampaignを作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)します。作成画面で、Campaignを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
 
 {% subtabs local %}
 {% subtab title %}
@@ -124,7 +122,7 @@ page_order: 2
 
 {% subtab message %}
 {% raw %}
-`````````liquid
+```liquid
 {% assign start_date = {{custom_attribute.${start_date}}} | date: "%s" %}
 {% assign current_date = "now" | date: "%s" %}
 {% assign diff = {{current_date}} | minus: {{start_date}} | divided_by: 86400 %}
@@ -141,7 +139,7 @@ page_order: 2
 
 {% subtab image %}
 {% raw %}
-`````````liquid
+```liquid
 {% assign start_date = {{custom_attribute.${start_date}}} | date: "%s" %}
 {% assign current_date = "now" | date: "%s" %}
 {% assign diff = {{current_date}} | minus: {{start_date}} | divided_by: 86400 %}
@@ -155,12 +153,12 @@ page_order: 2
 
 以下に例を示します。
 
-![コンテンツカードキャンペーンのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
+![コンテンツカードCampaignのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-**On click behavior**セクションで、iOS、Android、Webデバイスでユーザーがコンテンツカードをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
+**クリック時の動作**セクションで、iOS、Android、Webデバイスでユーザーがコンテンツカードをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign start_date = {{custom_attribute.${start_date}}} | date: "%s" %}
 {% assign current_date = "now" | date: "%s" %}
 {% assign diff = {{current_date}} | minus: {{start_date}} | divided_by: 86400 %}
@@ -174,7 +172,7 @@ page_order: 2
 
 ![作成画面でのクリック時の動作ブロックの例。]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-**Test**タブに移動し、**Preview message as user**で**Custom user**を選択します。**Custom attribute**フィールドに日付を入力して、その日にサインアップしたユーザーに送信されるコンテンツカードをプレビューします。<br><br>
+**テスト**タブに移動し、**ユーザーとしてメッセージをプレビュー**で**カスタムユーザー**を選択します。**カスタム属性**フィールドに日付を入力して、その日にサインアップしたユーザーに送信されるコンテンツカードをプレビューします。<br><br>
 
 ![「start_date」というカスタム属性の例。]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
@@ -187,12 +185,12 @@ page_order: 2
 | **スプレッドシートの変換** | SheetDPなどのサービスを使用してスプレッドシートをJSON APIエンドポイントに変換し、生成されるAPI URLを控えておきます。 |
 | **カスタムエンドポイントの作成** | カスタムビルドの社内エンドポイントを構築し、ホスティングおよびメンテナンスを行います。 |
 | **サードパーティエンジンの使用** | [Alloyパートナー]({{site.baseurl}}/partners/message_personalization/)などのサードパーティレコメンデーションエンジンを使用します。[Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/)、[Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/)、[Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/)などが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 次に、メッセージ内でLiquidを使用してエンドポイントを呼び出し、カスタム属性値をユーザーのプロファイルと照合して、対応するレコメンデーションを取得します。
 
 {% raw %}
-`````````liquid
+```liquid
 {% connected_content YOUR_API_URL :save items %}
 
 {% assign recommended_item_ids_from_user_profile = custom_attribute.${RECOMMENDED_ITEM_IDS} | split: ';' %}
@@ -211,7 +209,7 @@ page_order: 2
 | `YOUR_API_URL` | 実際のAPIのURLに置き換えます。 |
 | `RECOMMENDED_ITEM_IDS` | 推奨アイテムのIDを含むカスタム属性の実際の名前に置き換えます。この属性は、セミコロンで区切られたIDの文字列であることが想定されています。 |
 | `ITEM_ID` | アイテムIDに対応するAPIレスポンス内の実際の属性名に置き換えます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
 {% alert note %}
 これは基本的な例であり、特定のニーズやデータ構造に基づいてさらに修正が必要になる場合があります。詳細なガイダンスについては、[Liquidのドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を参照するか、開発者に相談してください。
@@ -222,7 +220,7 @@ page_order: 2
 Zomato Restaurantsデータベースからおすすめのレストランを取得し、その結果を`restaurants`というローカル変数として保存したいとします。次のコネクテッドコンテンツの呼び出しを行うことができます。
 
 {% raw %}
-`````````liquid
+```liquid
 
 {% connected_content https://developers.zomato.com/api/v2.1/search?entity_id={{city_id}}&entity_type=city&count=20&cuisines={{food_type}}&sort=rating:headers{“user-key”:“USER_KEY”} :save restaurants %}
 
@@ -235,7 +233,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 コネクテッドコンテンツの呼び出しは次のようになります。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign city_id = {{custom_attribute.${city_id} | default: ‘306’}} %}
 {% assign food_type = {{custom_attribute.${food_type} | default: ‘471’}} %}
 
@@ -250,7 +248,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 レストラン名と評価だけを取得するようにレスポンスを調整したい場合は、次のように呼び出しの最後にフィルターを追加できます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign city_id = {{custom_attribute.${city_id} | default: ‘306’}} %}
 {% assign food_type = {{custom_attribute.${food_type} | default: ‘471’}} %}
 
@@ -274,7 +272,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 最終的な呼び出しは次のようになります。
 
 {% raw %}
-`````````liquid
+```liquid
 {% assign city_id = {{custom_attribute.${city_id} | default: ‘306’}} %}
 {% assign food_type = {{custom_attribute.${food_type} | default: ‘471’}} %}
 {%- connected_content https://developers.zomato.com/api/v2.1/search?entity_id={{city_id}}&entity_type=city&count=20&cuisines={{food_type}}&sort=rating:headers{“user-key”:”USER_KEY”} :save restaurants %}

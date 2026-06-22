@@ -1,16 +1,20 @@
 ---
-nav_title: Conector HTTP personalizado
-article_title: Conector HTTP personalizado
+nav_title: Exportación de Currents personalizada
+article_title: Exportación de Currents personalizada
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "Este artículo de referencia describe cómo configurar un conector HTTP personalizado para transmitir datos de eventos de Braze Currents directamente a tu propio punto de conexión HTTP en tiempo real."
+description: "Este artículo de referencia describe cómo configurar una exportación de Currents personalizada para transmitir datos de eventos de Braze Currents directamente a tu propio punto de conexión HTTP en tiempo real."
 ---
 
-# Conector HTTP personalizado {#custom-http-connector}
+# Exportación de Currents personalizada {#custom-currents-export}
 
 > Aprende a integrar un conector de Currents personalizado para obtener datos de eventos de Braze en tiempo real, lo que permite análisis, informes y automatización más personalizados.
+
+{% alert note %}
+Esta característica también se conoce como conector HTTP personalizado en la documentación técnica y las referencias de API.
+{% endalert %}
 
 ## Requisitos previos {#prerequisites}
 

@@ -82,8 +82,6 @@ BCC-Adressen sind für Amazon SES, SendGrid und SparkPost verfügbar. Als Altern
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-![BCC-Adressabschnitt des Tabs „E-Mail-Einstellungen“.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
-
 Nachdem Sie eine Adresse hinzugefügt haben, steht diese zur Auswahl, wenn Sie eine E-Mail in Campaigns oder Canvas-Schritten erstellen. Wählen Sie **Make Default** neben einer Adresse, um diese Adresse standardmäßig beim Starten einer neuen E-Mail-Campaign oder Canvas-Komponente auszuwählen. Um dies auf Nachrichtenebene zu überschreiben, können Sie beim Einrichten Ihrer Nachricht **No BCC** auswählen.
 
 Wenn Sie verlangen, dass alle von Braze gesendeten E-Mail-Nachrichten eine BCC-Adresse enthalten, können Sie den Schalter **Require a BCC address for all your email campaigns** aktivieren. Dadurch müssen Sie eine Standardadresse auswählen, die automatisch bei neuen E-Mail-Campaigns oder Canvas-Schritten ausgewählt wird. Die Standardadresse wird auch automatisch zu allen über unsere REST API getriggerten Nachrichten hinzugefügt. Es ist nicht erforderlich, die bestehende API-Anfrage zu ändern, um die Adresse einzuschließen.
@@ -122,8 +120,8 @@ Braze unterstützt derzeit das Überschreiben der Standard-Open-Tracking-Pixel-P
 So ändern Sie die Position:
 
 1. Gehen Sie in Braze zu **Einstellungen** > **E-Mail-Präferenzen**.
-2. Wählen Sie eine der folgenden Optionen: **Move for SendGrid**, **Move for SparkPost** oder **Move for Amazon SES**
-3. Wählen Sie **Save**.
+2. Wählen Sie eine der folgenden Optionen: **Move for SendGrid**, **Move for SparkPost** oder **Move for Amazon SES**.
+3. Wählen Sie **Speichern**.
 
 Nach dem Speichern sendet Braze spezielle Anweisungen an den ESP, um das Open-Tracking-Pixel am Anfang aller HTML-E-Mails zu platzieren.
 

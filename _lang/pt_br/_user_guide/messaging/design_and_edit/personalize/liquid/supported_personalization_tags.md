@@ -32,9 +32,13 @@ Para facilitar, um resumo das tags de personalização compatíveis é fornecido
 | Atributos personalizados <br> (São personalizados para o seu espaço de trabalho.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>Propriedades de gatilho da API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Propriedades de entrada do Canvas | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resumo das tags compatíveis" }
 
 {% endraw %}
+
+{% alert note %}
+As propriedades de gatilho da API devem usar duas chaves por tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Chaves triplas (por exemplo, `{{{...}}}`){% endraw %} não são uma sintaxe de personalização válida da Braze. Consulte [Por que meu Liquid disparado por API está falhando na Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
 
 ### Atributos compatíveis {#supported-attributes}
 
@@ -51,7 +55,6 @@ O comportamento das tags a seguir difere entre Canvas e Campaigns:
 {% endraw %}
 
 #### Nomes de Campaign em URLs {#campaign-names-in-urls}
-{: #campaign-names-in-urls}
 
 {% raw %}
 Nomes de Campaign e variantes de mensagem podem conter caracteres que não são seguros para URLs, como `%`, espaços ou `&`. Ao inserir `{{campaign.${name}}}` ou `{{campaign.${message_name}}}` em um link ou string de consulta, como um parâmetro `utm_campaign`, aplique o filtro [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) para que a URL seja analisada corretamente. Por exemplo:
@@ -73,13 +76,13 @@ Você pode usar os seguintes atributos como template para o dispositivo mais rec
 |`{{most_recently_used_device.${id}}}` | O identificador de dispositivo da Braze. No iOS, pode ser o Apple Identifier for Vendor (IDFV) ou um UUID. Para Android e outras plataformas, é um UUID gerado aleatoriamente. |
 | `{{most_recently_used_device.${carrier}}}` | A operadora de telefonia do dispositivo usado mais recentemente, se disponível. Exemplos incluem "Verizon" e "Orange". |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | Se o dispositivo tem o rastreamento de anúncios ativado ou não. Este é um valor booleano (`true` ou `false`). |
-| `{{most_recently_used_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Para dispositivos não iOS, este valor é null. |
+| `{{most_recently_used_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection). Para dispositivos não iOS, este valor é null. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Para dispositivos Android, este valor é o Google Play Advertising Identifier se seu aplicativo estiver configurado com nossa coleta opcional de Google Play Advertising ID. Para dispositivos não Android, este valor é null. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Para dispositivos Roku, este valor é o Roku Advertising Identifier coletado quando seu aplicativo é configurado com a Braze. Para dispositivos não Roku, este valor é null. |
 | `{{most_recently_used_device.${model}}}` | O nome do modelo do dispositivo, se disponível. Exemplos incluem "iPhone 6S", "Nexus 6P" e "Firefox". |
 | `{{most_recently_used_device.${os}}}` | O sistema operacional do dispositivo, se disponível. Exemplos incluem "iOS 9.2.1", "Android (Lollipop)" e "Windows". |
 | `{{most_recently_used_device.${platform}}}` | A plataforma do dispositivo, se disponível. Se definido, o valor é um dos seguintes: `ios`, `android`, `kindle`, `android_china`, `web` ou `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informações do dispositivo usado mais recentemente" }
 
 Como existe uma grande variedade de operadoras, nomes de modelos e sistemas operacionais, recomendamos que você teste minuciosamente qualquer Liquid que dependa condicionalmente de qualquer um desses valores. Esses valores são `null` se não estiverem disponíveis em um dispositivo específico.
 
@@ -91,7 +94,7 @@ Para mensagens no app, você pode usar os seguintes atributos de app dentro do L
 |------------------|---|
 | `{{app.${api_id}}}` | A chave de API do app que está solicitando a mensagem. Por exemplo, você pode usar essa chave em conjunto com `abort_message()` do Liquid para evitar o envio de mensagens no app para determinados apps, como plataformas de TV ou builds de desenvolvimento que usam uma chave de API SDK separada.|
 | `{{app.${name}}}` | O nome do app (conforme definido no dashboard da Braze) que está solicitando a mensagem. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informações do app direcionado" }
 
 Por exemplo, este código Liquid cancela uma mensagem se os apps solicitantes não forem uma das duas chaves de API na lista:
 
@@ -112,14 +115,14 @@ Para notificações por push, mensagens no app e Banners, você pode usar os seg
 |------------------|---|
 | `{{targeted_device.${id}}}` | Este é o identificador de dispositivo da Braze. No iOS, pode ser o Apple Identifier for Vendor (IDFV) ou um UUID. Para Android e outras plataformas, é um UUID gerado aleatoriamente. Por exemplo, se um usuário tem cinco dispositivos, uma tentativa de envio ocorre para todos os cinco dispositivos, cada um usando o identificador de dispositivo correspondente. Se uma mensagem estiver configurada para enviar ao dispositivo usado mais recentemente pelo usuário, apenas uma tentativa de envio ocorre para o dispositivo mais recente identificado pela Braze. |
 | `{{targeted_device.${carrier}}}` | A operadora de telefonia do dispositivo usado mais recentemente, se disponível. Exemplos incluem "Verizon" e "Orange". |
-| `{{targeted_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Para dispositivos não iOS, este valor é null. |
+| `{{targeted_device.${idfa}}}` | Para dispositivos iOS, este valor é o Identifier for Advertising (IDFA) se seu aplicativo estiver configurado com nossa [coleta opcional de IDFA]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection). Para dispositivos não iOS, este valor é null. |
 | `{{targeted_device.${google_ad_id}}}` | Para dispositivos Android, este valor é o Google Play Advertising Identifier se seu aplicativo estiver configurado com nossa [coleta opcional de Google Play Advertising ID]. Para dispositivos não Android, este valor é null. |
 | `{{targeted_device.${roku_ad_id}}}` | Para dispositivos Roku, este valor é o Roku Advertising Identifier coletado quando seu aplicativo é configurado com a Braze. Para dispositivos não Roku, este valor é null. |
 | `{{targeted_device.${model}}}` | O nome do modelo do dispositivo, se disponível. Exemplos incluem "iPhone 6S", "Nexus 6P" e "Firefox". |
 | `{{targeted_device.${os}}}` | O sistema operacional do dispositivo, se disponível. Exemplos incluem "iOS 9.2.1", "Android (Lollipop)" e "Windows". |
 | `{{targeted_device.${platform}}}` | A plataforma do dispositivo, se disponível. Se definido, o valor é um dos seguintes: `ios`, `android`, `kindle`, `android_china`, `web` ou `tvos`. Você também pode usar a tag de personalização `most_recently_used_device`. |
 | `{{targeted_device.${foreground_push_enabled}}}` | Este valor é `true` quando o dispositivo direcionado está habilitado para push em primeiro plano, `false` caso contrário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informações do dispositivo direcionado" }
 
 {% endraw %}
 
@@ -313,7 +316,7 @@ A tag `{% random %}` retorna um número aleatório. Você pode usá-la para lóg
 |-------|--------------|
 | `{% random %}` | Um float entre 0 e 1 (inclusivo de 0, exclusivo de 1). |
 | `{% random 10 %}` (argumento inteiro) | Um inteiro variando de 0 até, mas não incluindo, o inteiro especificado. Por exemplo, `{% random 10 %}` retorna um inteiro de 0 a 9. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enviar mensagens com um número aleatório" }
 
 {% endraw %}
 

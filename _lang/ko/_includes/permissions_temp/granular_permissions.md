@@ -89,7 +89,6 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 관리자 권한을 부여하거나 제거하려면 **This user is an admin**을 선택한 다음 **Update user**를 선택하세요.
 
-![선택한 사용자의 세부 정보에서 관리자 체크박스가 강조 표시되어 있습니다.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 사용자에게서 관리자 권한을 제거하면, 최소 하나의 [회사 수준 또는 워크스페이스 수준 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)을 할당할 때까지 해당 사용자는 Braze에 접근할 수 없습니다.

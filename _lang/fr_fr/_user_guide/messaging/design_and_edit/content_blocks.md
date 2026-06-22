@@ -45,7 +45,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 | Taille du contenu | Maximum de 50 Ko. |
 | Emplacement | Les blocs de contenu ne peuvent pas être utilisés dans un pied de page d'e-mail, mais vous pouvez [créer un bloc de contenu qui inclut un pied de page](#email-footers) pour l'utiliser dans vos e-mails. |
 | Création | Éditeur HTML ou éditeur glisser-déposer. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spécifications des blocs de contenu" }
 
 {% alert tip %}
 Lors de la création de blocs de contenu, il peut être utile de visualiser le HTML et le Liquid en ajoutant des sauts de ligne. Si ces sauts de ligne sont conservés lors de l'envoi, vous risquez d'avoir des espaces superflus qui peuvent affecter le rendu du bloc. Pour éviter cela, utilisez la balise **Capture** sur votre bloc avec le filtre **&#124; strip**.
@@ -107,8 +107,6 @@ Après avoir ajouté un bloc de contenu dans une campagne ou un Canvas actif, vo
 
 Cette prévisualisation inclut des informations sur le bloc de contenu telles que son créateur, les étiquettes, la date de création, la date de dernière modification, la description, le type d'éditeur, le nombre d'inclusions avec les détails (une liste cliquable des messages ou blocs de contenu qui utilisent ce bloc de contenu), ainsi qu'un aperçu réel du bloc de contenu.
 
-![Prévisualisation d'un bloc de contenu « Workout_Promo » pour le cyclisme et la danse qui a une inclusion.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
-
 ## Imbriquer des blocs de contenu {#nest-content-blocks}
 
 Les blocs de contenu peuvent être imbriqués, mais une seule fois. Vous pouvez imbriquer le bloc de contenu A dans le bloc de contenu B, mais vous ne pourrez pas ensuite imbriquer le bloc de contenu B dans le bloc de contenu C.
@@ -131,15 +129,15 @@ Après avoir apporté des modifications à un bloc de contenu, vous pouvez enreg
 
 Les blocs de contenu ne peuvent pas être utilisés dans un pied de page d'e-mail, mais vous pouvez créer un bloc de contenu qui inclut du contenu de pied de page pour l'utiliser dans vos e-mails. Pour ce faire :
 
-1. Accédez à **Settings** > **Email Preferences** > **Custom Footer** et créez le pied de page.
-2. Ajoutez le pied de page à un bloc de contenu dans la **Content Blocks Library**.
+1. Accédez à **Paramètres** > **Préférences des e-mails** > **Pied de page personnalisé** et créez le pied de page.
+2. Ajoutez le pied de page à un bloc de contenu dans la **Bibliothèque de blocs de contenu**.
 3. Ajoutez ce bloc de contenu à vos modèles d'e-mail ou messages.
 
 ## Archiver des blocs de contenu {#archive-content-blocks}
 
-![Menu déroulant des paramètres développé affichant trois options : Archive, Duplicate et Copy to workspace.]({% image_buster /assets/img/template_archive_cog.png %}){: style="max-width:20%;float:right;margin-left:15px;" }
+![Menu déroulant des paramètres développé affichant trois options : Archiver, Dupliquer et Copier vers l'espace de travail.]({% image_buster /assets/img/template_archive_cog.png %}){: style="max-width:20%;float:right;margin-left:15px;" }
 
-Une fois que vous avez terminé d'utiliser un bloc de contenu, vous pouvez l'archiver depuis la page **Templates**. Les blocs de contenu archivés sont en lecture seule : vous devez donc désarchiver le bloc de contenu avant de le modifier. Les blocs de contenu ne peuvent pas être archivés s'ils sont utilisés dans des messages.
+Une fois que vous avez terminé d'utiliser un bloc de contenu, vous pouvez l'archiver depuis la page **Modèles**. Les blocs de contenu archivés sont en lecture seule : vous devez donc désarchiver le bloc de contenu avant de le modifier. Les blocs de contenu ne peuvent pas être archivés s'ils sont utilisés dans des messages.
 
 ### Bonnes pratiques {#best-practices}
 
@@ -148,4 +146,4 @@ Une fois que vous avez terminé d'utiliser un bloc de contenu, vous pouvez l'arc
 - Lorsque votre bloc est utilisé dans plus de messages que vous ne pouvez raisonnablement gérer avec la première suggestion de cette liste, nous vous recommandons de supprimer tout le contenu du bloc. Cela empêche l'inclusion d'informations obsolètes dans les messages.
 - Si vous archivez accidentellement un bloc de contenu, vous pouvez le désarchiver.
 
-![Panneau des blocs de contenu enregistrés où le menu déroulant des paramètres de « Test_32 » est développé pour afficher trois options : Unarchive, Duplicate et Copy to workspace.]({% image_buster /assets/img/unarchive-content-block.png %})
+![Panneau des blocs de contenu enregistrés où le menu déroulant des paramètres de « Test_32 » est développé pour afficher trois options : Désarchiver, Dupliquer et Copier vers l'espace de travail.]({% image_buster /assets/img/unarchive-content-block.png %})

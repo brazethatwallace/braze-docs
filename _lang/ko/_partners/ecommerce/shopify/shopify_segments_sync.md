@@ -19,7 +19,8 @@ Shopify Segments 동기화는 현재 베타 버전입니다. 액세스를 요청
 | 요구 사항 | 설명 |
 | --- | --- |
 | Braze Shopify 통합 | Braze Shopify 앱이 Shopify 스토어에 설치되어 있고 Braze 워크스페이스에 연결되어 있어야 합니다. 설정 안내는 [Shopify 표준 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) 또는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Shopify 사용자 권한 | Segment 동기화를 시작하는 Shopify 사용자는 고객 데이터를 내보내기 위한 **내보내기** 권한이 있어야 합니다. Shopify 권한에 대한 자세한 내용은 [Shopify 스토어 권한 설명서](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions#customers-permissions)를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 작동 방식 {#how-it-works}
 
@@ -32,7 +33,7 @@ Shopify Segments 동기화는 두 단계로 작동합니다.
 | --- | --- |
 | `customer.joined_segment` | 사용자가 해당 Braze 코호트에 추가됩니다. |
 | `customer.left_segment` | 사용자가 해당 Braze 코호트에서 제거됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook topic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 토픽" }
 
 동기화가 실패하면 액션 확장 모달에 권장 조치와 함께 오류 배너가 표시됩니다. **Sync with Braze**를 선택하여 재시도하세요.
 

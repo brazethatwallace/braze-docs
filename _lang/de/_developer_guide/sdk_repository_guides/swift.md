@@ -17,6 +17,8 @@ Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
 ## Schnellstart {#quickstart}
 
+Die folgenden Snippets zeigen die Mindestkonfiguration, die erforderlich ist, um das Braze Swift SDK zu Ihrer App hinzuzufügen.
+
 ``` swift
 // AppDelegate.swift
 import BrazeKit
@@ -51,6 +53,8 @@ Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-E
 
 ## Versionsunterstützung {#version-support}
 
+Die folgende Tabelle listet die mindestens unterstützten Versionen für Tools auf, die vom Braze Swift SDK verwendet werden.
+
 Tool | Mindestens unterstützte Version
 :----|:----
 iOS|12.0+
@@ -64,6 +68,8 @@ Xcode|26.0+ (17A324)
 - CocoaPods
 
 ## Bibliotheken {#libraries}
+
+Die folgende Tabelle beschreibt jede Bibliothek im Braze Swift SDK.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 

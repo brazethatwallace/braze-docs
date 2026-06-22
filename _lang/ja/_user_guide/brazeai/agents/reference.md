@@ -234,7 +234,6 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
 2. **Archive**を選択します。
 
-![アーカイブされたエージェントを含むエージェントマネージャーページ。]({% image_buster /assets/img/ai_agent/archived_agents.png %})
 
 ## 例
 

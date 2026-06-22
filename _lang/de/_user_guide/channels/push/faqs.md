@@ -12,6 +12,10 @@ channel:
 
 > Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zum Push-Kanal.
 
+### Warum werden Push-Benachrichtigungen manchmal verzögert zugestellt? {#why-are-push-notifications-sometimes-delayed}
+
+Die Zustellung durchläuft in der Regel drei Phasen: die **Verarbeitung** durch Braze (Segmentierung, Zeitplanung und Übergabe an den Anbieter), den Transport von Braze zu **APNs oder FCM** und die Zustellung vom Anbieter an das **Gerät**. Verzögerungen können in jeder Phase auftreten. Braze hat keinen Einblick in die Warteschlangen des Anbieters oder des Geräts. Verwenden Sie [Verbose Logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) auf dem Client, wenn Sie geräteseitige Timing-Probleme eingrenzen müssen.
+
 ### Was passiert, wenn sich mehrere Nutzer:innen auf einem einzigen Gerät anmelden? {#what-happens-when-multiple-users-log-into-a-single-device}
 
 Wenn sich ein:e Nutzer:in von einem Gerät oder einer Website abmeldet, bleibt er/sie per Push erreichbar, bis sich ein:e andere:r Nutzer:in anmeldet. Zu diesem Zeitpunkt wird das Push-Token dem/der neuen Nutzer:in zugewiesen. Das liegt daran, dass jedes Gerät nur ein aktives Push-Abo pro App oder Website haben kann.
@@ -69,7 +73,7 @@ Diese Segmentierungsfilter prüfen unterschiedliche Bedingungen:
 |--------|------------------|----------------|
 | **Foreground Push Enabled** | Der/die Nutzer:in hat ein gültiges Vordergrund-Push-Token **und** der Push-Abo-Status ist `Opted-In` oder `Subscribed`. | Nutzer:innen ansprechen, die sichtbare Push-Benachrichtigungen empfangen können. |
 | **Background or Foreground Push Enabled** | Der/die Nutzer:in hat ein beliebiges Push-Token (Vordergrund oder Hintergrund) **und** der Push-Abo-Status ist `Opted-In` oder `Subscribed`. Dies schließt Nutzer:innen ein, die sichtbare Push-Benachrichtigungen deaktiviert haben, aber noch ein Hintergrund-Push-Token besitzen. | Wird für [Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/) und Geofencing verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Was ist der Unterschied zwischen den Filtern „Foreground Push Enabled“ und „Background or Foreground Push Enabled“?" }
 
 Ein:e Nutzer:in kann `Background or Foreground Push Enabled` sein, ohne `Foreground Push Enabled` zu sein. Das passiert, wenn der/die Nutzer:in sichtbare Push-Benachrichtigungen in den Geräteeinstellungen deaktiviert hat, die App aber noch ein Hintergrund-Push-Token besitzt. Weitere Details finden Sie unter [Push-Nutzer:innen und Abos]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
 

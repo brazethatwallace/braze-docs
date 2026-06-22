@@ -79,7 +79,7 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 | **Comm.One Login ID (로그인 아이디)** | Selecione seu perfil. |
 | **Sender Key (발신프로필 키)** | Acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Channel name (카카오톡 채널 프로필명)** | No seu dashboard Comm.One, acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
-| **Sender number (연락처)** | {::nomarkdown}<ol><li>Acesse <b>Account Management (계정 관리)</b>, selecione o ícone de menu e depois selecione <b>View Details (자세히보기)</b>.</li><li>Acesse <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
+| **Sender number (연락처)** | {::nomarkdown}<ol><li>Acesse <b>Account Management (계정 관리)</b>, selecione o ícone de menu e depois selecione <b>View Details (자세히보기)</b>.</li><li>Acesse <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ol>{:/} |
 | **Credential (ID) e Password (비밀번호)** | Acesse o mesmo local do **Sender number (사업자 등록번호)** e depois acesse **API** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
@@ -134,8 +134,6 @@ Acesse seu dashboard Infobip e reúna as seguintes informações.
 ## Configurar perfis de usuário {#set-user-profiles}
 
 Os perfis de usuário devem ter números de telefone no formato E.164 para receber mensagens pelo KakaoTalk. Os números de telefone são exibidos no perfil de usuário. O KakaoTalk exige que os números de telefone estejam no formato E.164 (por exemplo, `+821025749774`). Isso difere de alguns outros canais de envio de mensagens que podem aceitar números de telefone em múltiplos formatos.
-
-![Perfil de usuário para um usuário teste com um número de telefone no formato E.164.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
 ### Importar números de telefone {#import-phone-numbers}
 

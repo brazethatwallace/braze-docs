@@ -82,8 +82,6 @@ Les adresses CCI sont disponibles pour Amazon SES, SendGrid et SparkPost. Comme 
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-![Section BCC Address de l'onglet Paramètres des e-mails.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
-
 Après avoir ajouté une adresse, celle-ci sera disponible pour sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Make Default** à côté d'une adresse pour que cette adresse soit sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **No BCC** lors de la configuration de votre message.
 
 Si vous exigez que tous les e-mails envoyés depuis Braze incluent une adresse CCI, vous pouvez activer le bouton **Require a BCC address for all your email campaigns**. Cela vous obligera à sélectionner une adresse par défaut, qui sera automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou étapes Canvas. L'adresse par défaut sera également automatiquement ajoutée à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
@@ -121,7 +119,7 @@ Braze prend actuellement en charge le remplacement de l'emplacement par défaut 
 
 Pour modifier l'emplacement :
 
-1. Dans Braze, accédez à **Settings** > **Email Preferences**.
+1. Dans Braze, accédez à **Paramètres** > **Préférences des e-mails**.
 2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**.
 3. Sélectionnez **Save**.
 
@@ -227,7 +225,7 @@ Le paramètre de désabonnement en un clic au niveau du message est uniquement d
 
 Dans votre éditeur d'e-mail, accédez à **Sending Settings** > **Sending Info**. Sélectionnez parmi les options suivantes :
 
-- **Use workspace default** : utilise les paramètres **Email Unsubscribe Header** définis dans les **Email Preferences**. Toute modification apportée à ce paramètre s'applique à tous les messages.
+- **Use workspace default** : utilise les paramètres **Email Unsubscribe Header** définis dans les **Préférences des e-mails**. Toute modification apportée à ce paramètre s'applique à tous les messages.
 - **Unsubscribe globally from all emails** : utilise l'en-tête de désabonnement en un clic par défaut de Braze. Les utilisateurs qui cliquent sur le bouton de désabonnement voient leur état d'abonnement global aux e-mails défini sur « Unsubscribed ».
 - **Unsubscribe from specific subscription group** : utilise le groupe d'abonnement spécifié. Braze désabonne les utilisateurs qui cliquent sur le bouton de désabonnement du groupe d'abonnement sélectionné.
     - Lors de la sélection d'un groupe d'abonnement, ajoutez le filtre **Subscription Group** dans **Target Audiences** pour cibler uniquement les utilisateurs abonnés à ce groupe spécifique. Le groupe d'abonnement sélectionné pour le désabonnement en un clic doit correspondre au groupe d'abonnement que vous ciblez. En cas de non-correspondance du groupe d'abonnement, vous risquez d'envoyer un message à un utilisateur qui tente de se désabonner d'un groupe d'abonnement dont il est déjà désabonné.
@@ -283,7 +281,7 @@ Vous pouvez automatiquement réabonner les utilisateurs lorsqu'ils changent leur
 {% tabs local %}
 {% tab Pied de page personnalisé %}
 
-Pour les e-mails commerciaux, la [loi CAN-SPAM](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que tous les e-mails commerciaux incluent une option de désabonnement. Avec les paramètres de pied de page personnalisé, vous pouvez rester conforme à la loi CAN-SPAM tout en personnalisant votre pied de page de désabonnement. Pour rester conforme, vous devez ajouter votre pied de page personnalisé à tous les e-mails envoyés dans le cadre des campagnes de cet espace de travail.
+Pour les e-mails commerciaux, la [loi CAN-SPAM](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que tous les e-mails commerciaux incluent une option de désabonnement. Avec les paramètres de pied de page personnalisé, vous pouvez rester conforme à la loi CAN-SPAM tout en personnalisant votre pied de page de désabonnement. Pour rester conforme, vous devez ajouter votre pied de page personnalisé à tous les e-mails envoyés dans le cadre des Campaigns de cet espace de travail.
 
 Notez les exigences suivantes lors de la création d'un pied de page personnalisé pour vos e-mails :
 - Doit inclure une URL de désabonnement et une adresse postale physique.
@@ -315,7 +313,7 @@ En savoir plus sur les bonnes pratiques de gestion des listes d'e-mails dans [G�
 {% endtabs %}
 
 {% alert tip %}
-Dans la section **Preview** d'une page d'abonnement ou d'un pied de page, sélectionnez **Copy preview link** pour générer et copier un lien de prévisualisation partageable qui montre à quoi ressemble le pied de page de l'e-mail, la page de désabonnement ou la page d'abonnement pour un utilisateur aléatoire. Le lien est valide pendant sept jours avant de devoir être régénéré.
+Dans la section **Prévisualisation** d'une page d'abonnement ou d'un pied de page, sélectionnez **Copy preview link** pour générer et copier un lien de prévisualisation partageable qui montre à quoi ressemble le pied de page de l'e-mail, la page de désabonnement ou la page d'abonnement pour un utilisateur aléatoire. Le lien est valide pendant sept jours avant de devoir être régénéré.
 {% endalert %}
 
 ## Questions fréquemment posées {#frequently-asked-questions}
@@ -331,7 +329,7 @@ Un centre de préférences n'est pas considéré comme un lien de désabonnement
 {% enddetails %}
 
 {% details Dois-je modifier les campagnes d'e-mail et Canvas existants pour appliquer le paramètre de désabonnement en un clic après l'avoir activé ? %}
-Si vous n'avez aucun des cas d'utilisation pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Email Preferences**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les campagnes d'e-mail et les étapes Canvas existantes en conséquence.
+Si vous n'avez aucun des cas d'utilisation pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les campagnes d'e-mail et les étapes Canvas existantes en conséquence.
 {% enddetails %}
 
 {% details Je peux voir l'en-tête list-unsubscribe et de désabonnement en un clic dans le message original ou les données brutes, mais pourquoi ne vois-je pas le bouton Se désabonner dans Gmail ou Yahoo ? %}
@@ -349,19 +347,19 @@ Si vous ajoutez une logique conditionnelle, évitez les valeurs de sortie qui aj
 ### Désabonnement en un clic au niveau du message
 
 {% details Si j'ajoute manuellement les en-têtes d'e-mail pour le désabonnement en un clic et que l'en-tête de désabonnement des e-mails est activé, quel est le comportement attendu ? %}
-Les en-têtes d'e-mail ajoutés pour le désabonnement en un clic s'appliquent à tous les envois futurs de cette campagne.
+Les en-têtes d'e-mail ajoutés pour le désabonnement en un clic s'appliquent à tous les envois futurs de cette Campaign.
 {% enddetails %}
 
 {% details Pourquoi les groupes d'abonnement doivent-ils correspondre entre les variantes de message pour le lancement ? %}
-Pour une campagne avec test A/B, Braze envoie aléatoirement à un utilisateur l'une des variantes. Si vous avez deux groupes d'abonnement différents définis sur la même campagne (la variante A est définie sur le groupe d'abonnement A, et la variante B est définie sur le groupe d'abonnement B), nous ne pouvons pas garantir que les utilisateurs abonnés uniquement au groupe d'abonnement B recevront la variante B. Il peut y avoir un scénario où des utilisateurs se désabonnent d'un groupe d'abonnement dont ils se sont déjà retirés.
+Pour une Campaign avec test A/B, Braze envoie aléatoirement à un utilisateur l'une des variantes. Si vous avez deux groupes d'abonnement différents définis sur la même Campaign (la variante A est définie sur le groupe d'abonnement A, et la variante B est définie sur le groupe d'abonnement B), nous ne pouvons pas garantir que les utilisateurs abonnés uniquement au groupe d'abonnement B recevront la variante B. Il peut y avoir un scénario où des utilisateurs se désabonnent d'un groupe d'abonnement dont ils se sont déjà retirés.
 {% enddetails %}
 
-{% details Le paramètre d'en-tête de désabonnement des e-mails est désactivé dans les Email Preferences, mais dans les informations d'envoi de ma campagne, le paramètre de désabonnement en un clic est défini sur « Use workspace default ». Est-ce un bug ? %}
-Non. Si le paramètre de l'espace de travail est désactivé et que le paramètre du message est défini sur **Use workspace default**, alors Braze suit ce qui est configuré dans les **Email Preferences**. Cela signifie que nous n'ajoutons pas l'en-tête de désabonnement en un clic pour la campagne.
+{% details Le paramètre d'en-tête de désabonnement des e-mails est désactivé dans les Préférences des e-mails, mais dans les informations d'envoi de ma Campaign, le paramètre de désabonnement en un clic est défini sur « Use workspace default ». Est-ce un bug ? %}
+Non. Si le paramètre de l'espace de travail est désactivé et que le paramètre du message est défini sur **Use workspace default**, alors Braze suit ce qui est configuré dans les **Préférences des e-mails**. Cela signifie que nous n'ajoutons pas l'en-tête de désabonnement en un clic pour la Campaign.
 {% enddetails %}
 
 {% details Que se passe-t-il si un groupe d'abonnement est archivé ? Cela casse-t-il le désabonnement en un clic sur les e-mails envoyés ? %}
-Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de segment, profil utilisateur et zones similaires).
+Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
 {% enddetails %}
 
 {% details Le paramètre de désabonnement en un clic est-il disponible pour les modèles d'e-mail ? %}

@@ -24,9 +24,17 @@ Wenn Sie bei der Einrichtung Ihrer Campaign **No optimization** ausgewählt habe
 
 Weitere Details finden Sie im Artikel [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) für Ihren Messaging-Kanal.
 
-### Winning Variant {#winning-variant}
+### BrazeAI<sup>TM</sup> Variantenauswahl (nur Push) {#brazeai-variant-selection-push-only}
 
-Wenn Sie bei der Einrichtung Ihrer Campaign **Winning Variant** als Optimierung ausgewählt haben, haben Sie Zugriff auf einen zusätzlichen Tab in Ihren Campaign-Analytics namens **A/B Test Result**. Nachdem die Winning Variant an die verbleibenden Nutzer:innen in Ihrem Test gesendet wurde, zeigt dieser Tab die Ergebnisse dieses Versands.
+Wenn Sie BrazeAI<sup>TM</sup> Variantenauswahl verwenden, sehen Sie – je nachdem, ob es sich um einen Einzelversand oder eine wiederkehrende Campaign handelt – nach Ablauf des Experimentfensters (oder der ersten Periode bei wiederkehrenden Campaigns) den Uplift, sofern vorhanden, auf der Startseite der Campaign. Außerdem sehen Sie weitere Details ähnlich wie bei der Gewinnervariante unten, wenn Sie eine Einzelversand-Campaign durchführen.
+
+Weitere Details dazu, wie wir den Uplift bei BrazeAI<sup>TM</sup> Variantenauswahl berichten, finden Sie unter [Variantenauswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+
+![BrazeAI Variantenauswahl – Uplift-Ergebnisse]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+
+### Gewinnervariante {#winning-variant}
+
+Wenn Sie bei der Einrichtung Ihrer Campaign **Winning Variant** als Optimierung ausgewählt haben, haben Sie Zugriff auf einen zusätzlichen Tab in Ihren Campaign-Analytics namens **A/B Test Result**. Nachdem die Gewinnervariante an die verbleibenden Nutzer:innen in Ihrem Test gesendet wurde, zeigt dieser Tab die Ergebnisse dieses Versands.
 
 Das **A/B Test Result** ist in zwei Tabs unterteilt: **Initial Test** und **Winning Variant**.
 
@@ -39,11 +47,11 @@ Wenn eine Variante alle anderen mit einer [Konfidenz]({{site.baseurl}}/user_guid
 
 Wenn keine Variante alle anderen mit 95 % Konfidenz übertrifft und Sie sich entschieden haben, die am besten performende Variante trotzdem zu senden, wird die am besten performende Variante dennoch versendet und mit dem Label „Winner“ gekennzeichnet.
 
-![Ergebnisse eines anfänglichen Tests zur Bestimmung der Winning Variant, bei dem keine Variante besser als die anderen mit ausreichender Konfidenz abgeschnitten hat, um die 95-Prozent-Konfidenzschwelle für statistische Signifikanz zu erreichen.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
+![Ergebnisse eines anfänglichen Tests zur Bestimmung der Gewinnervariante, bei dem keine Variante besser als die anderen mit ausreichender Konfidenz abgeschnitten hat, um die 95-Prozent-Konfidenzschwelle für statistische Signifikanz zu erreichen.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
-#### Wie die Winning Variant ausgewählt wird {#how-the-winning-variant-is-selected}
+#### Wie die Gewinnervariante ausgewählt wird {#how-the-winning-variant-is-selected}
 
-Braze testet alle Varianten gegeneinander mit [Pearsons Chi-Quadrat-Tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Dabei wird gemessen, ob eine Variante alle anderen statistisch auf einem Signifikanzniveau von p < 0,05 übertrifft, was wir als 95 % Signifikanz bezeichnen. Wenn ja, wird die Winning Variant mit dem Label „Winner“ gekennzeichnet.
+Braze testet alle Varianten gegeneinander mit [Pearsons Chi-Quadrat-Tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Dabei wird gemessen, ob eine Variante alle anderen statistisch auf einem Signifikanzniveau von p < 0,05 übertrifft, was wir als 95 % Signifikanz bezeichnen. Wenn ja, wird die Gewinnervariante mit dem Label „Winner“ gekennzeichnet.
 
 Dies ist ein separater Test vom Konfidenzwert, der nur die Performance einer Variante im Vergleich zur Kontrollgruppe mit einem numerischen Wert zwischen 0 und 100 % beschreibt.
 
@@ -52,16 +60,16 @@ Eine Variante kann besser als die Kontrollgruppe abschneiden, aber der Chi-Quadr
 {% endtab %}
 {% tab Winning Variant %}
 
-Der Tab **Winning Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die am besten performende Variante aus dem anfänglichen Test erhalten hat. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Winning-Variant-Gruppe reserviert haben.
+Der Tab **Winning Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die am besten performende Variante aus dem anfänglichen Test erhalten hat. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Gewinnervariante-Gruppe reserviert haben.
 
-![Ergebnisse der Winning Variant, die an die Winning-Variant-Gruppe gesendet wurde.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
+![Ergebnisse der Gewinnervariante, die an die Gewinnervariante-Gruppe gesendet wurde.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
 
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie die Performance der Winning Variant über die gesamte Campaign hinweg sehen möchten, einschließlich der A/B-Test-Versendungen, schauen Sie auf die Seite **Campaign Analytics**.
+Wenn Sie die Performance der Gewinnervariante über die gesamte Campaign hinweg sehen möchten, einschließlich der A/B-Test-Versendungen, schauen Sie auf die Seite **Campaign Analytics**.
 
-### Personalized Variant {#personalized-variant}
+### Personalisierte Variante {#personalized-variant}
 
 Wenn Sie bei der Einrichtung Ihrer Campaign **Personalized Variant** als Optimierung ausgewählt haben, ist das **A/B Test Result** in zwei Tabs unterteilt: **Initial Test** und **Personalized Variant**.
 
@@ -83,7 +91,7 @@ Wenn der Test keinen aussagekräftigen Zusammenhang zwischen angepassten Events 
 {% details Fallback-Analysemethode %}
 
 **Sitzungsbasierte Analysemethode**<br>
-Wenn die Fallback-Methode zur Bestimmung der Personalized Variants verwendet wird, zeigt der Tab **Initial Test** eine Aufschlüsselung der bevorzugten Varianten der Nutzer:innen basierend auf einer Kombination bestimmter Merkmale.
+Wenn die Fallback-Methode zur Bestimmung der personalisierten Varianten verwendet wird, zeigt der Tab **Initial Test** eine Aufschlüsselung der bevorzugten Varianten der Nutzer:innen basierend auf einer Kombination bestimmter Merkmale.
 
 Diese Merkmale sind:
 
@@ -93,12 +101,12 @@ Diese Merkmale sind:
 
 Zum Beispiel könnte der Test feststellen, dass die meisten Nutzer:innen Variante A bevorzugen, aber Nutzer:innen, die vor etwa 3–12 Tagen eine Sitzung hatten, zwischen 1–12 Tage zwischen Sitzungen haben und in den letzten 67–577 Tagen erstellt wurden, tendenziell Variante B bevorzugen. Daher erhielten Nutzer:innen in dieser Untergruppe Variante B im zweiten Versand, während der Rest Variante A erhielt.
 
-![Die Tabelle „User Characteristics“, die zeigt, welche Nutzer:innen voraussichtlich Variante A und Variante B bevorzugen, basierend auf den drei Buckets, in die sie für Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
+![Die Tabelle „User Characteristics„, die zeigt, welche Nutzer:innen voraussichtlich Variante A und Variante B bevorzugen, basierend auf den drei Buckets, in die sie für Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
 
-**Wie Personalized Variants ausgewählt werden**<br>
+**Wie personalisierte Varianten ausgewählt werden**<br>
 Bei dieser Methode ist die empfohlene Nachricht für eine:n einzelne:n Nutzer:in die Summe der Effekte ihrer spezifischen Aktualität, Häufigkeit und Zugehörigkeitsdauer. Aktualität, Häufigkeit und Zugehörigkeitsdauer werden in Buckets aufgeteilt, wie in der Tabelle **User Characteristics** dargestellt. Der Zeitbereich jedes Buckets wird durch die Daten der Nutzer:innen in jeder einzelnen Campaign bestimmt und variiert von Campaign zu Campaign.
 
-Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung jeder Nachrichtenvariante haben. Die Stärke des Pushs für jeden Bucket wird aus den Reaktionen der Nutzer:innen im anfänglichen Versand mittels [logistischer Regression](https://en.wikipedia.org/wiki/Logistic_regression) bestimmt. Diese Tabelle fasst die Ergebnisse nur zusammen, indem sie zeigt, mit welcher Variante Nutzer:innen in jedem Bucket tendenziell interagiert haben. Die tatsächliche Personalized Variant einer/eines einzelnen Nutzer:in hängt von der Summe der Effekte der drei Buckets ab, in denen sie sich befinden – einer für jedes Merkmal.
+Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung jeder Nachrichtenvariante haben. Die Stärke des Pushs für jeden Bucket wird aus den Reaktionen der Nutzer:innen im anfänglichen Versand mittels [logistischer Regression](https://en.wikipedia.org/wiki/Logistic_regression) bestimmt. Diese Tabelle fasst die Ergebnisse nur zusammen, indem sie zeigt, mit welcher Variante Nutzer:innen in jedem Bucket tendenziell interagiert haben. Die tatsächliche personalisierte Variante einer/eines einzelnen Nutzer:in hängt von der Summe der Effekte der drei Buckets ab, in denen sie sich befinden – einer für jedes Merkmal.
 
 {% enddetails %}
 
@@ -107,13 +115,13 @@ Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung je
 
 Der Tab **Personalized Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die Variante erhalten hat, mit der sie am wahrscheinlichsten interagieren würden.
 
-Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamtergebnisse und die prognostizierten Ergebnisse, wenn Sie stattdessen nur die Winning Variant gesendet hätten. Selbst wenn es keinen Lift gibt, was manchmal vorkommen kann, ist das Ergebnis dasselbe wie beim Senden nur der Winning Variant (ein traditioneller A/B-Test).
+Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamtergebnisse und die prognostizierten Ergebnisse, wenn Sie stattdessen nur die Gewinnervariante gesendet hätten. Selbst wenn es keinen Lift gibt, was manchmal vorkommen kann, ist das Ergebnis dasselbe wie beim Senden nur der Gewinnervariante (ein traditioneller A/B-Test).
 
-- **Prognostizierter Lift:** Die Verbesserung Ihrer ausgewählten Optimierungsmetrik für diesen Versand durch die Verwendung von Personalized Variants anstelle eines Standard-A/B-Tests (wenn die verbleibenden Nutzer:innen nur die Winning Variant erhalten hätten).
+- **Prognostizierter Lift:** Die Verbesserung Ihrer ausgewählten Optimierungsmetrik für diesen Versand durch die Verwendung von personalisierten Varianten anstelle eines Standard-A/B-Tests (wenn die verbleibenden Nutzer:innen nur die Gewinnervariante erhalten hätten).
 - **Gesamtergebnisse:** Die Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik (*Unique Opens*, *Unique Clicks* oder *Primary Conversion Event*).
-- **Prognostizierte Ergebnisse:** Die prognostizierten Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik, wenn Sie stattdessen nur die Winning Variant gesendet hätten.
+- **Prognostizierte Ergebnisse:** Die prognostizierten Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik, wenn Sie stattdessen nur die Gewinnervariante gesendet hätten.
 
-![Tab „Personalized Variant“ für eine Campaign, die für eindeutige Öffnungen optimiert wurde. Die Karten zeigen den prognostizierten Lift, die gesamten eindeutigen Öffnungen (mit Personalized Variant) und die prognostizierten eindeutigen Öffnungen (mit Winning Variant).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
+![Tab „Personalized Variant“ für eine Campaign, die für eindeutige Öffnungen optimiert wurde. Die Karten zeigen den prognostizierten Lift, die gesamten eindeutigen Öffnungen (mit personalisierter Variante) und die prognostizierten eindeutigen Öffnungen (mit Gewinnervariante).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
 
 Die Tabelle auf dieser Seite zeigt die Metriken für jede Variante aus dem Personalized-Variant-Versand. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Personalized-Variant-Gruppe reserviert haben.
 

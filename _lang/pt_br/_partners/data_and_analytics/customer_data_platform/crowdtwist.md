@@ -241,11 +241,9 @@ Os modelos deste guia foram criados para serem entregues ao destino "Track Users
 
 ### Testes {#testing}
 
-Depois de modificar o modelo a seu gosto, você deve validar se ele está funcionando corretamente. Clique em **Validate** para retornar uma prévia da saída do seu código e verificar se é uma solicitação aceitável para o destino escolhido.
+Depois de modificar o modelo a seu gosto, você deve validar se ele está funcionando corretamente. No editor de transformação, selecione **Validar** para gerar uma prévia na seção **Saída** e confirmar se a Braze aceitará a solicitação mapeada para o destino escolhido.
 
-![Captura de tela da interface de Transformação de dados da Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-Quando estiver satisfeito com o objeto que você vê no campo "output", clique em **Activate** para que o endpoint da Transformação de dados esteja pronto para aceitar dados.
+Quando estiver satisfeito com o objeto que você vê no campo **Saída**, selecione **Ativar** para que o endpoint da Transformação de dados esteja pronto para aceitar dados.
 
 Você encontrará a URL do webhook da sua Transformação de dados no painel do lado esquerdo. Copie-a e use-a para configuração no Hub de integração do Oracle Crowdtwist.
 

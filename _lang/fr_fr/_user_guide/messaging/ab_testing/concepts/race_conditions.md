@@ -23,6 +23,7 @@ Les types de conditions de concurrence les plus courants peuvent se produire lor
 - Cibler de nouveaux utilisateurs
 - Utiliser plusieurs endpoints API
 - Correspondance entre les déclencheurs basés sur l'action et les filtres d'audience
+- Utiliser le déclencheur « Interagir avec l'étape »
 
 Examinez les scénarios suivants et mettez en œuvre les meilleures pratiques pour éviter ces conditions de concurrence.
 
@@ -68,7 +69,7 @@ Lorsque les informations utilisateur sont envoyées à Braze via l'[endpoint `/u
 Si les attributs et les événements utilisateur sont envoyés dans la même requête (que ce soit via `/users/track` ou via le SDK), Braze traite les attributs avant les événements ou avant de tenter d'envoyer un message.
 {% endalert %}
 
-### Meilleures pratiques {#best-practices}
+### Meilleures pratiques
 
 #### Lorsque vous utilisez plusieurs endpoints, envoyez vos requêtes une par une {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
 
@@ -92,7 +93,7 @@ Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_d
 
 Une autre condition de concurrence courante peut survenir lorsque vous configurez une campagne ou un Canvas basé sur les actions avec le même déclencheur que le filtre d'audience (comme un attribut modifié ou un événement personnalisé effectué). L'utilisateur peut ne pas faire partie de l'audience au moment où il effectue l'événement déclencheur, ce qui signifie qu'il ne recevra pas la campagne ou n'entrera pas dans le Canvas.
 
-### Meilleures pratiques {#best-practices}
+### Meilleures pratiques
 
 #### Vérifier votre audience après un délai {#check-your-audience-after-a-delay}
 
@@ -132,3 +133,21 @@ S'il y a une condition de concurrence lors de l'évaluation de l'entrée dans le
 Si un utilisateur déclenche l'événement d'entrée du Canvas plusieurs fois dans la même seconde, Braze n'autorise qu'une seule entrée pour cette seconde (même si la réentrée est activée). Cela empêche les entrées en double, de sorte que le nombre total d'entrées dans le Canvas peut être inférieur au nombre total d'événements déclencheurs.
 
 Nous recommandons de vérifier comment les données utilisateur sont gérées et mises à jour, en particulier quand et comment des attributs spécifiques sont mis à jour, que ce soit par le SDK, l'API, l'API par lots ou d'autres méthodes. Cela peut aider à identifier et clarifier pourquoi un utilisateur est entré dans une campagne ou un Canvas par rapport au moment où son profil a été mis à jour.
+
+## Scénario 4 : Utilisation du déclencheur « Interagir avec l'étape » {#scenario-4-using-the-interact-with-step-trigger}
+
+Dans un Canvas, lorsqu'une étape de message est immédiatement suivie d'une étape de parcours d'action qui utilise le déclencheur « Interagir avec l'étape », une condition de concurrence peut se produire. Étant donné que les utilisateurs peuvent interagir avec un message dès qu'il est distribué, il est possible qu'un utilisateur effectue l'action suivie avant d'entrer officiellement dans l'étape de parcours d'action.
+
+Dans ce cas, l'étape de parcours d'action n'enregistre pas l'interaction, car elle n'évalue que les événements qui se produisent après l'entrée dans l'étape, ce qui signifie que l'utilisateur peut être dirigé vers un chemin non prévu.
+
+Un Canvas envoie une notification push dans une étape de message, suivie d'une étape de parcours d'action qui vérifie si l'utilisateur ouvre cette notification push. Si un utilisateur ouvre la notification push immédiatement après l'avoir reçue (avant d'entrer dans l'étape de parcours d'action), l'événement d'ouverture peut ne pas être capturé. L'utilisateur pourrait alors être incorrectement dirigé vers le chemin « n'a pas ouvert », même s'il a interagi avec le message.
+
+### Meilleures pratiques
+
+#### Suivre l'engagement à l'aide d'un événement personnalisé {#track-engagement-using-a-custom-event}
+
+Évitez de vous appuyer sur « Interagir avec l'étape » immédiatement après une étape de message lorsque les interactions utilisateur sont susceptibles de se produire rapidement. Suivez plutôt l'engagement à l'aide d'un événement personnalisé (par exemple, déclenché depuis l'application ou le site web après l'interaction) et évaluez cet événement dans une étape ultérieure. Cela garantit que l'événement est enregistré après que l'utilisateur est entré dans l'étape.
+
+#### Éviter les branches dépendantes de l'interaction {#avoid-branches-that-are-dependent-on-interaction}
+
+Concevez votre Canvas de sorte que l'absence d'une interaction immédiate ne compromette pas l'expérience utilisateur. Par exemple, évitez les décisions de branchement critiques qui dépendent uniquement de la capture de l'interaction dans l'étape suivante, ou ajoutez une logique de suivi capable de corriger le parcours des utilisateurs.

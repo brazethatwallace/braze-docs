@@ -1,0 +1,8 @@
+{
+  "reason": "Triaged as a false positive in the screenshot PII audit (Current screenshots tab).",
+  "dismiss_all": false,
+  "dismiss_ids": [
+    "41dd0996",
+    "c1f819b3"
+  ]
+}

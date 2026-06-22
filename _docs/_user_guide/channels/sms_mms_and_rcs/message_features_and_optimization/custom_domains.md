@@ -72,9 +72,7 @@ After they're configured, custom domains can be assigned to one or multiple SMS,
 
 1. Go to **Audience** > **Subscription Group Management**.
 2. Find and select your subscription group in the list.
-3. Under **Subscription Group Details**, select your custom domain as the **Link Shortening Domain**.
-
-![Subscription groups settings that allow you to select a link-shortening domain.]({% image_buster /assets/img/custom_domain.png %})
+3. Under **Subscription Group Details**, select your custom domain in the **Link Shortening Domain** dropdown.
 
 Campaigns sent with link shortening turned on will use the assigned domain associated with your SMS, RCS, or WhatsApp subscription group.
 

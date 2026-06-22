@@ -67,7 +67,7 @@ A guia **Compose** consiste nos seguintes campos:
 
 ![A guia "Compose" com um exemplo de modelo de webhook.]({% image_buster /assets/img_archive/webhook_compose.png %})
 
-#### Idioma {#internationalization}
+### Idioma {#internationalization}
 
 A [internacionalização]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/#campaigns-in-multiple-languages) é suportada na URL e no corpo da solicitação. Para internacionalizar sua mensagem, selecione **Add languages** e preencha os campos obrigatórios.
 
@@ -75,7 +75,7 @@ Recomendamos selecionar seus idiomas antes de escrever seu conteúdo para que vo
 
 Se você estiver adicionando texto em um idioma escrito da direita para a esquerda, observe que a aparência final das mensagens da direita para a esquerda depende em grande parte de como os prestadores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
 
-#### URL do webhook {#webhook-url}
+### URL do webhook {#webhook-url}
 
 A URL do webhook, ou URL HTTP, especifica seu endpoint. O endpoint é o local para onde você enviará as informações que está capturando no webhook.
 
@@ -83,11 +83,11 @@ Se você deseja enviar informações a um fornecedor, o fornecedor deve fornecer
 
 A Braze permite apenas URLs que se comunicam por portas padrão `80` (HTTP) e `443` (HTTPS).
 
-##### Usando Liquid {#using-liquid}
+#### Usando Liquid {#using-liquid}
 
 Você pode personalizar suas URLs de webhook usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Às vezes, certos endpoints podem exigir que você identifique um usuário ou forneça informações específicas do usuário como parte da sua URL. Ao usar Liquid, certifique-se de incluir um [valor padrão]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) para cada informação específica do usuário que você usar na sua URL.
 
-#### Método HTTP {#http-method}
+### Método HTTP {#http-method}
 
 O método HTTP que você deve usar varia dependendo do endpoint para o qual está enviando informações. Na maioria dos casos, você usará POST.
 
@@ -97,13 +97,13 @@ O método HTTP que você deve usar varia dependendo do endpoint para o qual est�
 | GET | Recupera informações existentes, em vez de gravar novas informações. Por definição, uma solicitação GET não suporta um corpo de solicitação. |
 | PUT | Atualiza informações no endpoint, substituindo quaisquer informações existentes pelo que está no corpo da solicitação. |
 | DELETE | Exclui o recurso na URL HTTP. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método HTTP" }
 
-#### Corpo da solicitação {#request-body}
+### Corpo da solicitação {#request-body}
 
 O corpo da solicitação é a informação que será enviada para a URL que você especificou. Você pode criar o corpo da sua solicitação de webhook com pares de chave-valor JSON ou texto bruto.
 
-##### Pares de chave-valor JSON {#json-key-value-pairs}
+#### Pares de chave-valor JSON {#json-key-value-pairs}
 
 Pares de chave-valor JSON permitem que você escreva facilmente uma solicitação para um endpoint que espera um formato JSON. Você só pode usar isso com um endpoint que espera uma solicitação JSON. Por exemplo, se sua chave for `message_body`, o valor correspondente pode ser `Your order just arrived!`. Depois de inserir seu par de chave-valor, o criador configurará sua solicitação na sintaxe JSON, e uma pré-visualização da sua solicitação JSON será preenchida automaticamente.
 
@@ -111,7 +111,7 @@ Pares de chave-valor JSON permitem que você escreva facilmente uma solicitaçã
 
 Você pode personalizar seus pares de chave-valor usando Liquid, incluindo qualquer atributo de usuário, [atributo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#additional-notes-and-best-practices) ou [propriedade de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) na sua solicitação. Por exemplo, você pode incluir o nome e o e-mail de um cliente na sua solicitação. Certifique-se de incluir um [valor padrão]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web) para cada atributo.
 
-##### Texto bruto {#raw-text}
+#### Texto bruto {#raw-text}
 
 A opção de texto bruto oferece a flexibilidade de escrever uma solicitação para um endpoint que espera um corpo de qualquer formato. Por exemplo, você pode usar isso para escrever uma solicitação para um endpoint que espera que sua solicitação esteja em formato XML.
 
@@ -131,7 +131,7 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ## Etapa 3: Configure definições adicionais {#step-3-configure-additional-settings}
 
-#### Cabeçalhos de solicitação (opcional) {#request-headers-optional}
+### Cabeçalhos de solicitação (opcional) {#request-headers-optional}
 
 Certos endpoints podem exigir que você inclua cabeçalhos na sua solicitação. Na seção **Compose** do criador, você pode adicionar quantos cabeçalhos forem necessários.
 
@@ -172,7 +172,7 @@ Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/u
 
 Em seguida, construa o restante da sua campanha. Consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar webhooks.
 
-#### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
+### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
 
 Webhooks podem ser entregues com base em um horário agendado, uma ação ou com base em um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -180,13 +180,13 @@ Para entrega baseada em ação, você também pode definir a duração da campan
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a campanha, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Escolha os usuários a serem direcionados {#choose-users-to-target}
+### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
 Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para restringir seu público. Nesta etapa, você seleciona o público maior dos seus segmentos e restringe ainda mais esse segmento com nossos filtros, se desejar. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Tenha em mente que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include target_audiences.md %}
 
-#### Escolha eventos de conversão {#choose-conversion-events}
+### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite que você acompanhe com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 
@@ -230,7 +230,7 @@ Quando a solicitação do webhook é enviada, o servidor receptor retornará um 
 | `429` (limite de taxa)  | Não | Sim |
 | `Outros 4XX` (erro do cliente)  | Não | Não |
 | `5XX` (erro do servidor)   | Não | Sim |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de resposta e lógica de nova tentativa" }
 
 {% alert note %}
 A Braze tenta novamente os códigos de status acima até cinco vezes em 30 minutos usando backoff exponencial. Se não conseguirmos alcançar seu endpoint, as novas tentativas podem se estender por um período de 24 horas.<br><br>Cada webhook tem um limite de 90 segundos antes de expirar.
@@ -261,3 +261,9 @@ Se você está fazendo um webhook Braze-para-Braze e usando lista de permissões
 {% endalert %}
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
+
+### Excluir usuários {#delete-users}
+
+Para excluir um usuário individual ou um segmento de usuários, acesse **Audience** > **Manage Audience** > **Delete Users**. O dashboard suporta exclusão em massa de segmentos (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de taxa compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/).
+
+Para exclusão programática em lotes menores, use o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) em vez de uma campanha de webhook.

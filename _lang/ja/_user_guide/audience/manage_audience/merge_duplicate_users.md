@@ -44,7 +44,6 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 保持するユーザープロファイルと統合するユーザープロファイルを選択し、**Merge profiles**を選択します。すべての重複プロファイルが統合されるまで、このプロセスを繰り返します。
 
-![重複プロファイルの個別統合ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 重複ユーザープロファイルは、統合後に復元できません。
@@ -68,7 +67,6 @@ Brazeダッシュボードで、**Audience** > **Manage Audience**を選択し�
 
 Brazeがプレビューを生成し、CSVファイルとしてメールアドレスに送信します。
 
-![生成されたCSVファイルへのリンクが含まれたBrazeからのメール。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 次の例では、Brazeはユーザーのexternal IDを使用して重複プロファイルにフラグを付け、保持するプロファイルを特定します。これらのプロファイルが一括マージされた場合、Brazeはexternal IDを持つプロファイルをユーザーの新しいプライマリプロファイルとして使用します。
 
@@ -95,7 +93,6 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
-![「Merge all duplicates」がハイライトされた「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## ルールベースのマージ {#rules-based-merging}
 

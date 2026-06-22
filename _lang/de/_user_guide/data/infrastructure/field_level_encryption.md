@@ -34,11 +34,12 @@ Führen Sie diese Schritte aus, um Ihre AWS-Secret-Key-Authentifizierungsmethode
     - **Braze EU-Cluster:** `eu-central-1`
     - **Braze AU-Cluster:** `ap-southeast-2`
     - **Braze ID-Cluster:** `ap-southeast-3`
+    - **Braze JP-Cluster:** `ap-northeast-1`
 4. Erstellen Sie im AWS Key Management Service zwei Schlüssel und vergewissern Sie sich, dass die/der IAM-Nutzer:in in den Schlüsselverwendungsberechtigungen hinzugefügt ist:
     - **[Verschlüsseln/Entschlüsseln](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** Wählen Sie den Schlüsseltyp **Symmetric** und die Schlüsselverwendung **Encrypt and Decrypt**.
     - **[Hash](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** Wählen Sie den Schlüsseltyp **Symmetric** und die Schlüsselverwendung **Generate and Verify MAC**. Die Schlüsselspezifikation sollte **HMAC_256** lauten. Notieren Sie sich nach der Erstellung des Schlüssels die HMAC-Schlüssel-ID, da Sie diese in Braze eingeben müssen.
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Schlüsseleinstellungen konfigurieren mit den ausgewählten Optionen „Symmetric“, „Generate and Verify MAC“ und „HMAC_256“.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
 ## 1. Schritt: Verbinden Sie Ihre AWS-KMS-Schlüssel {#step-1-connect-your-aws-kms-keys}
 
@@ -54,7 +55,7 @@ Wählen Sie anschließend **Email address**, um das Feld zu verschlüsseln.
 
 Wenn die Verschlüsselung für ein Feld aktiviert ist, kann es nicht wieder in ein entschlüsseltes Feld umgewandelt werden. Das bedeutet, dass die Verschlüsselung eine dauerhafte Einstellung ist. Vergewissern Sie sich beim Einrichten der Verschlüsselung für E-Mail-Adressen, dass keine Nutzer:innen über E-Mail-Adressen im Workspace verfügen. Dadurch wird sichergestellt, dass keine E-Mail-Adressen im Klartext in Braze gespeichert werden, wenn Sie das Feature für den Workspace aktivieren.
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![Einstellungen für die Verschlüsselung auf Feldebene.]({% image_buster /assets/img/field_level_encryption.png %})
 
 ## 3. Schritt: Nutzer:innen importieren und aktualisieren {#step-3-import-and-update-users}
 
@@ -105,7 +106,7 @@ E-Mail-Adressen im Klartext werden beim Testversand unterstützt. Um zu sehen, w
 2. Wählen Sie in **Test Send** die Option **Override recipients attributes with current preview user's attributes**.
 
 {%raw%}
-### Was passiert, wenn ich diesen E-Mail-Adressen-Liquid `{{${email_address}}}` in Braze hinzufüge? {#what-happens-if-i-add-this-email-address-liquid-emailaddress-in-braze}
+### Was passiert, wenn ich diesen E-Mail-Adressen-Liquid `{{${email_address}}}` in Braze hinzufüge? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 Braze rendert die Klartext-E-Mail-Adresse beim Senden der E-Mail. In der Vorschau wird die verschlüsselte Version der E-Mail angezeigt. Wir empfehlen die Verwendung der externen ID der/des Nutzers:in, wenn Sie in einer angepassten One-Click-URL auf eine:n Nutzer:in verweisen.
 

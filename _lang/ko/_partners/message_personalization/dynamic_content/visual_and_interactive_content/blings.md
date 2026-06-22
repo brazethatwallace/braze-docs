@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Blings
 
-> [Blings](https://www.blings.io/)는 차세대 개인화 비디오 플랫폼으로, 채널 전반에 걸쳐 실시간 인터랙티브 데이터 중심 비디오 경험을 대규모로 제공할 수 있도록 지원합니다.
+> [Blings](https://www.blings.io/)는 차세대 개인화된 비디오 플랫폼으로, 채널 전반에 걸쳐 실시간 인터랙티브 데이터 중심 비디오 경험을 대규모로 제공할 수 있도록 지원합니다.
 
 _이 통합은 Blings에서 유지 관리합니다._
 
@@ -18,7 +18,7 @@ _이 통합은 Blings에서 유지 관리합니다._
 | 요구 사항 | 설명 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings 계정 | 이 파트너십을 이용하려면 Blings 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -48,9 +48,7 @@ Blings 담당자에게 HTML 스니펫을 요청하세요.
 
 ### 2단계: Braze Campaign 생성 {#step-2-create-a-braze-campaign}
 
-Braze에서 새 이메일 또는 인앱 메시지 Campaign을 생성하고 Blings HTML 스니펫을 삽입합니다.
-
-![Blings Braze Campaign.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+Braze에서 새 이메일 또는 인앱 메시지 Campaign을 생성하고 Blings HTML 스니펫을 삽입합니다. 편집기 미리보기에서 개인화된 필드와 Creative Suite 동적 콘텐츠가 올바르게 표시되는지 확인합니다.
 
 ### 3단계: 테스트 및 시작 {#step-3-test-and-launch}
 
