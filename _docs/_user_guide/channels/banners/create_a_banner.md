@@ -85,7 +85,6 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 
 #### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
 
-When you enable user-initiated dismissal, users can tap a built-in close button to dismiss the Banner, which immediately collapses on screen. This gives users control over their experience while helping you avoid showing messages they aren't interested in.
 
 Select the **Banner can be dismissed** checkbox in the **Dismiss behavior** section to allow users to dismiss the Banner. This is useful when you want to promote a limited-time offer to a broad audience but still let uninterested users hide the message.
 
