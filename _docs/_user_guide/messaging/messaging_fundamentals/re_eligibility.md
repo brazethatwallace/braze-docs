@@ -78,6 +78,10 @@ This means users who received the campaign on February 15 are not eligible for t
 
 When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive another card while an earlier card from the same campaign is still in their feed, which can look like duplicate cards. To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
 
+## Re-eligibility for Banners
+
+When re-eligibility is enabled for Banner campaigns, users who dismiss a Banner can become eligible again after a configurable cooldown window that starts at dismissal. If re-eligibility isn't turned on, dismissed users remain ineligible. To configure re-eligibility, see [Configure re-eligibility]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility). Note that Canvas Banner steps use Canvas re-entry settings instead.
+
 ## Multivariate testing
 
 For multivariate testing, Braze determines variant re-eligibility for all campaigns, triggered in-app messages, and Canvases using the following rules:
