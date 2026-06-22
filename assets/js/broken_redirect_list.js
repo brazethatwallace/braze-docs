@@ -343,6 +343,7 @@ validurls['/docs/developer_guide/rest_api/api_campaigns'] = '/docs/api/api_campa
 validurls['/docs/developer_guide/rest_api/api_network_connectivity_issues'] = '/docs/api/network_connectivity_issues';
 validurls['/docs/developer_guide/rest_api/tls_deprecation'] = '/docs/releases/deprecations/tls_deprecation';
 validurls['/docs/developer_guide/rest_api/postman_collection'] = '/docs/api/postman_collection';
+validurls['/docs/developer_guide/rest_api/reminder_messaging'] = '/docs/developer_guide/home';
 validurls['/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/initial_sdk_setup'] = '/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview';
 validurls['/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/optional_idfa_collection'] = '/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations';
 validurls['/docs/developer_guide/platform_integration_guides/ios/content_cards/best_practices'] = '/docs/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide';
