@@ -106,13 +106,13 @@ All subscription groups are automatically added to your preference center.
 
 ### Segmenting with a subscription group
 
-When creating your segments, set the subscription group name as a filter. This will confirm that users who have opted into your group will receive your emails. This is great for monthly newsletters, coupons, membership tiers, and more.
+When creating your segments, set the subscription group name as a filter to target users who have opted into your group. This is useful for monthly newsletters, coupons, membership tiers, and more.
 
 ![Example of targeting users in the "Lapsed Users" segment with the filter for users in the "Weekly Emails" subscription group.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### Archiving subscription groups
 
-Archived subscription groups cannot be edited and will no longer appear in segment filters or in your preference center. If you attempt to archive a group that is being used as a segment filter in any email, campaign, or Canvas, you will receive an error message that will prevent you from archiving the group until you remove all usages of it.
+Archived subscription groups cannot be edited and no longer appear in segment filters or in your preference center. If you attempt to archive a group that is being used as a segment filter in any email, campaign, or Canvas, you receive an error message that prevents you from archiving the group until you remove all usages of it.
 
 To archive your group from the **Subscription Groups** page, do the following:
 
@@ -222,14 +222,3 @@ Use this to target users who have neither opted in nor out and encourage an expl
 
 ![Email Subscription Status used as a segment filter.]({% image_buster /assets/img_archive/not_optin.png %})
 
-<!-- sf-kb-phase2-batch -->
-
-## Salesforce Knowledge updates
-
-### What are the possible sources for subscription state updates?
-
-Add subscription state update source values to docs (e.g. managing_user_subscriptions or a new reference). Source: User::Updater::Sources in platform. Update article: remove GitHub link or use correct Braze/platform path; add Confluence as alternative for non-engineers.
-
-### Timestamp of Email Subscription
-
-Consider adding timestamp of email subscription change to _docs/_user_guide/message_building_by_channel/email/managing_user_subscriptions.md or user data export docs. Clarify Currents Unsubscribe event scope (link clicks only).
