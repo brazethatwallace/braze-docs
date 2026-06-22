@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Better Email
 
-> [Better Email](https://www.betteremail.dev) is a collaborative email creation platform built around an Email Design System. Teams can design, manage, and export production-ready emails from a shared system of blocks and styles, ensuring brand consistency at scale without relying on developers or agencies.
+> [Better Email](https://better.email) is a collaborative email creation platform built around an Email Design System. Teams can design, manage, and export production-ready emails from a shared system of blocks and styles, ensuring brand consistency at scale without relying on developers or agencies.
 
 _This integration is maintained by Better Email._
 
