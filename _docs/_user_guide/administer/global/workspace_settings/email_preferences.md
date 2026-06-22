@@ -58,6 +58,10 @@ Adding an email address in this section allows you to select it as a reply-to ad
 
 !["Reply-To Address" section with fields to enter multiple reply-to addresses.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Braze sending domains don't accept inbound email. If a recipient replies to an email sent from a Braze-configured sending domain, their reply bounces with a `550 5.7.1 relaying denied` error. The reply-to address doesn't need to share the same domain as the from address. If you need to receive replies—for example, to collect calendar invite confirmations—use a subdomain that is not configured for sending and that has an inbox set up to accept mail.
+{% endalert %}
+
 #### Personalize with Liquid
 
 You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in the **Reply-To Address** field to dynamically template the reply-to address based on custom attributes. For example, you can use conditional logic to send replies to different regions or departments:
