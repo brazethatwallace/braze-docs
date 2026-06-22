@@ -14,7 +14,7 @@ description: "This reference article covers how BrazeAI Operator handles data, i
 
 Operator's access to customer data is strictly event-driven and invocation-scoped, not persistent. Each user message or navigation event while Operator is open triggers a discrete HTTP request to OpenAI. There is no standing connection or persistent data feed.
 
-OpenAI does not have direct access to Braze data stores or the full User Table. The LLM only receives the specific payload associated with the active request.
+OpenAI does not have direct access to Braze data stores or the full User Table. The LLM receives only the specific payload associated with the active request.
 
 ### What data is included in each request
 
