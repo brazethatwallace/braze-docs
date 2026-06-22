@@ -450,9 +450,14 @@ $(document).ready(function() {
 
   // Scroll the active nav item into view on page load. Active sections are
   // pre-expanded server-side (no collapse animation), so no delay is needed.
-  var $navActive = $('#left_navmenu .nav-item.active').last();
+  // Uses scrollTop directly on #left_navmenu rather than scrollIntoView() to
+  // avoid scrollIntoView walking up to the main viewport and fighting URL fragments.
+  var $nav = $('#left_navmenu');
+  var $navActive = $nav.find('.nav-item.active').last();
   if ($navActive.length) {
-    $navActive[0].scrollIntoView({ block: 'center' });
+    $nav.scrollTop(
+      $nav.scrollTop() + $navActive.offset().top - $nav.offset().top - ($nav.height() / 2) + ($navActive.outerHeight() / 2)
+    );
   }
 
   function logDocNavRailCustomEvent(eventName, extraProps) {
