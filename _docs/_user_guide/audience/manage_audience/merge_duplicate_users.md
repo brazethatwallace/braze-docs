@@ -65,10 +65,10 @@ To preview your results before merging your duplicates, select **Generate list o
 
 ![The "Manage Audience" page with "Generate list of duplicates" highlighted.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
 
-Braze will generate your preview and send it to your email address as a CSV file.
+Braze generates your preview and sends it to your email address as a CSV file.
 
 
-In the following example, Braze uses the user's external ID to flag duplicate profiles and identify which one to keep. If these profiles are bulk merged, Braze will use the profile with an external ID as the user's new primary profile.
+In the following example, Braze uses the user's external ID to flag duplicate profiles and identify which one to keep. If these profiles are bulk merged, Braze uses the profile with an external ID as the user's new primary profile.
 
 {% tabs local %}
 {% tab example csv file %}
