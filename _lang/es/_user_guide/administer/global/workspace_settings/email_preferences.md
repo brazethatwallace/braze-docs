@@ -82,9 +82,7 @@ Las direcciones de CCO están disponibles para Amazon SES, SendGrid y SparkPost.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-![Sección de dirección de CCO de la pestaña de configuración de correo electrónico.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
-
-Después de agregar una dirección, estará disponible para seleccionar al redactar un correo electrónico en campañas o pasos en Canvas. Selecciona **Make Default** junto a una dirección para que esta dirección se seleccione de forma predeterminada al lanzar una nueva campaña de correo electrónico o componente de Canvas. Para anular esto a nivel de mensaje, puedes seleccionar **No BCC** al configurar tu mensaje.
+Después de agregar una dirección, estará disponible para seleccionar al redactar un correo electrónico en Campaigns o pasos en Canvas. Selecciona **Make Default** junto a una dirección para que esta dirección se seleccione de forma predeterminada al lanzar una nueva campaña de correo electrónico o componente de Canvas. Para anular esto a nivel de mensaje, puedes seleccionar **No BCC** al configurar tu mensaje.
 
 Si necesitas que todos los mensajes de correo electrónico enviados desde Braze incluyan una dirección de CCO, puedes seleccionar la opción **Require a BCC address for all your email campaigns**. Esto requerirá que selecciones una dirección predeterminada, que se seleccionará automáticamente en nuevas campañas de correo electrónico o pasos en Canvas. La dirección predeterminada también se agregará automáticamente a todos los mensajes activados a través de nuestra REST API. No es necesario cambiar la solicitud de API existente para incluir la dirección.
 
@@ -121,8 +119,8 @@ Braze actualmente admite anular la ubicación predeterminada del píxel de segui
 
 Para cambiar la ubicación:
 
-1. En Braze, ve a **Settings** > **Email Preferences**.
-2. Selecciona entre las siguientes opciones: **Move for SendGrid**, **Move for SparkPost** o **Move for Amazon SES**
+1. En Braze, ve a **Configuración** > **Preferencias de correo electrónico**.
+2. Selecciona entre las siguientes opciones: **Move for SendGrid**, **Move for SparkPost** o **Move for Amazon SES**.
 3. Selecciona **Save**.
 
 Después de guardar, Braze envía instrucciones especiales al ESP para colocar el píxel de seguimiento de apertura en la parte superior de todos los correos electrónicos HTML.
@@ -153,6 +151,10 @@ Habilitar list-unsubscribe es una buena práctica de capacidad de entrega y un r
 
 Al [administrar tus suscripciones en Gmail](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC), Gmail también puede extraer el enlace de cancelación de suscripción del cuerpo del mensaje, pero prioriza el list-unsubscribe si está presente en el encabezado.
 
+### ¿Desactivar el encabezado list-unsubscribe elimina el botón Cancelar suscripción de Gmail? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
+
+No. Desactivar la configuración del encabezado list-unsubscribe de Braze elimina el encabezado `List-Unsubscribe` de los mensajes que Braze envía, pero no controla si Gmail muestra una opción de **Unsubscribe** en la interfaz del buzón de correo. Como se mencionó anteriormente, Gmail aún puede mostrar una opción de cancelación de suscripción a partir de enlaces en el cuerpo del mensaje o usar otra lógica del proveedor. Si el encabezado aparece en el mensaje sin formato es independiente de si Gmail muestra una opción de cancelación de suscripción a los destinatarios. Para más información, consulta las [preguntas frecuentes sobre las directrices para remitentes de correo electrónico de Gmail](https://support.google.com/a/answer/14229414).
+
 ### Soporte de proveedores de buzón de correo {#mailbox-provider-support}
 
 La siguiente tabla resume el soporte de los proveedores de buzón de correo para el encabezado "mailto:", la URL de list-unsubscribe y la cancelación de suscripción con un clic ([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)).
@@ -171,7 +173,7 @@ _*Yahoo y Gmail eventualmente dejarán de usar el encabezado "mailto:" y solo ad
 Mostrar el encabezado es determinado en última instancia por el proveedor de buzón de correo. Para verificar si el encabezado list-unsubscribe está incluido en el correo electrónico sin formato (texto) para el destinatario en Gmail, haz lo siguiente:
 
 1. Selecciona **Show Original** en el correo electrónico. Esto abre una nueva pestaña con la versión sin formato del correo electrónico y sus encabezados.
-2. Busca "List-Unsubscribe".
+2. Busca "List-Unsubscribe". Para la cancelación de suscripción con un clic, muchos proveedores también incluyen un encabezado "List-Unsubscribe-Post". Confirma que ambos aparezcan en el mensaje sin formato cuando esperas que la cancelación con un clic esté disponible.
 
 Si el encabezado está en la versión sin formato del correo electrónico pero no se muestra, el proveedor de buzón de correo ha decidido no mostrar la opción de cancelación de suscripción, lo que significa que no tenemos más información sobre por qué el proveedor de buzón de correo no muestra el encabezado. Ver el encabezado list-unsubscribe depende en última instancia de la reputación. En la mayoría de los casos, cuanto mejor sea tu reputación del remitente con el proveedor de buzón de correo, más probable es que aparezca el encabezado list-unsubscribe.
 
@@ -179,9 +181,9 @@ Si el encabezado está en la versión sin formato del correo electrónico pero n
 
 ![Seleccionando "usuarios que están suscritos o con adhesión voluntaria" para los usuarios a los que enviar.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Cuando la característica de encabezado de cancelación de suscripción de correo electrónico está activada, esta configuración se aplica a todo el espacio de trabajo, no a nivel de empresa. Se agrega a campañas y Canvas que están configurados para enviar a usuarios que están suscritos o con adhesión voluntaria, o usuarios con adhesión voluntaria en el paso **Target Audience** de los constructores de campañas y Canvas.
+Cuando la característica de encabezado de cancelación de suscripción de correo electrónico está activada, esta configuración se aplica a todo el espacio de trabajo, no a nivel de empresa. Se agrega a Campaigns y Canvas que están configurados para enviar a usuarios que están suscritos o con adhesión voluntaria, o usuarios con adhesión voluntaria en el paso **Target Audience** de los constructores de Campaigns y Canvas.
 
-Al usar el "valor predeterminado del espacio de trabajo", Braze no agrega el encabezado de cancelación de suscripción con un clic para campañas que se consideran transaccionales, que están configuradas para "enviar a todos los usuarios, incluidos los usuarios cancelados". Para anular esto y agregar el encabezado de cancelación de suscripción con un clic al enviar a usuarios cancelados, puedes seleccionar **Unsubscribe globally from all emails** en la configuración de list-unsubscribe con un clic a nivel de mensaje.
+Al usar el "valor predeterminado del espacio de trabajo", Braze no agrega el encabezado de cancelación de suscripción con un clic para Campaigns que se consideran transaccionales, que están configuradas para "enviar a todos los usuarios, incluidos los usuarios cancelados". Para anular esto y agregar el encabezado de cancelación de suscripción con un clic al enviar a usuarios cancelados, puedes seleccionar **Unsubscribe globally from all emails** en la configuración de list-unsubscribe con un clic a nivel de mensaje.
 
 ### Encabezado list-unsubscribe predeterminado {#default-list-unsubscribe-header}
 
@@ -210,7 +212,7 @@ Usar la cancelación de suscripción con un clic para el encabezado list-unsubsc
 
 ### Cancelación de suscripción con un clic a nivel de mensaje {#message-level-one-click-list-unsubscribe}
 
-La configuración de cancelación de suscripción con un clic a nivel de mensaje anula la característica de encabezado de cancelación de suscripción de correo electrónico configurada para los espacios de trabajo. Aplica el comportamiento de cancelación de suscripción con un clic por campaña o paso en Canvas para los siguientes usos:
+La configuración de cancelación de suscripción con un clic a nivel de mensaje anula la característica de encabezado de cancelación de suscripción de correo electrónico configurada para los espacios de trabajo. Aplica el comportamiento de cancelación de suscripción con un clic por Campaign o paso en Canvas para los siguientes usos:
 
 - Agregar una cancelación de suscripción con un clic de Braze para un grupo de suscripción específico para admitir múltiples marcas/listas dentro de un espacio de trabajo
 - Alternar entre la cancelación de suscripción predeterminada de Braze o una URL personalizada
@@ -277,7 +279,7 @@ Puedes resuscribir automáticamente a los usuarios cuando cambian su dirección 
 ## Páginas de suscripción y pies de página {#subscription-pages-and-footers}
 
 {% tabs local %}
-{% tab Custom Footer %}
+{% tab Pie de página personalizado %}
 
 Para correos electrónicos comerciales, la [Ley CAN-SPAM](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) requiere que todos los correos electrónicos comerciales incluyan una opción de cancelación de suscripción. Con la configuración de pie de página personalizado, puedes cumplir con la Ley CAN-SPAM y al mismo tiempo personalizar tu pie de página de cancelación de suscripción de correo electrónico. Para cumplir con la normativa, debes agregar tu pie de página personalizado a todos los correos electrónicos enviados como parte de campañas para este espacio de trabajo.
 
@@ -290,7 +292,7 @@ Ten en cuenta los siguientes requisitos al crear un pie de página personalizado
 Para obtener más información sobre las plantillas Liquid de pie de página personalizado, consulta nuestra documentación sobre [Pies de página personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
 
 {% endtab %}
-{% tab Custom Unsubscribe Page %}
+{% tab Página personalizada para cancelar la suscripción %}
 
 Braze te permite configurar una **Página personalizada para cancelar la suscripción** con tu propio HTML. Esta página aparece después de que un usuario ha seleccionado cancelar la suscripción desde la parte inferior de un correo electrónico. Ten en cuenta que esta página debe ser menor de 750 KB.
 
@@ -299,7 +301,7 @@ Braze te permite configurar una **Página personalizada para cancelar la suscrip
 Obtén más información sobre las mejores prácticas para la administración de listas de correo electrónico en [Administrar suscripciones de correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
 
 {% endtab %}
-{% tab Custom Opt-In Page %}
+{% tab Página personalizada de adhesión voluntaria %}
 
 Puedes crear una página personalizada de adhesión voluntaria usando tu propio HTML. Incluir esto en tu correo electrónico puede ser especialmente beneficioso si deseas que tu marca y mensaje se mantengan consistentes a lo largo del ciclo de vida de tu usuario. Ten en cuenta que esta página debe ser menor de 750 KB.
 
@@ -357,7 +359,7 @@ No. Si la configuración del espacio de trabajo está desactivada y la configura
 {% enddetails %}
 
 {% details ¿Qué sucede si un grupo de suscripción se archiva? ¿Esto rompe la cancelación de suscripción con un clic en los correos electrónicos enviados? %}
-Si un grupo de suscripción referenciado en **Sending Info** para cancelación con un clic se archiva, Braze aún procesa las cancelaciones de suscripción con un clic. El grupo de suscripción ya no aparece en el dashboard (filtro de segmentos, perfil de usuario y áreas similares).
+Si un grupo de suscripción referenciado en **Sending Info** para cancelación con un clic se archiva, Braze aún procesa las cancelaciones de suscripción con un clic. El grupo de suscripción ya no aparece en el dashboard (filtro de segmento, perfil de usuario y áreas similares).
 {% enddetails %}
 
 {% details ¿La configuración de cancelación de suscripción con un clic está disponible para plantillas de correo electrónico? %}

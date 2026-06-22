@@ -5,9 +5,9 @@ Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kam
 {% alert tip %}
 Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
   {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/) an.
-  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Bannern.
+  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Banner.
   {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachricht.
+  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachrichten.
   {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Push.
   {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach SMS/MMS und RCS.
   {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach WhatsApp.
@@ -36,6 +36,10 @@ Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performa
 
 In diesem Panel sehen Sie Gesamtmetriken wie die Anzahl der gesendeten Nachrichten, die Anzahl der Empfänger:innen, die primäre Konversionsrate und den Gesamtumsatz, der mit dieser Nachricht erzielt wurde. Auf dieser Seite können Sie auch die Einstellungen für Zustellung, Zielgruppe und Conversion überprüfen.
 
+{% alert note %}
+Die Analytics-Zahlen im Dashboard und in Snowflake können leicht voneinander abweichen. Braze misst die Zahlen im Dashboard und schreibt Zeilen separat nach Snowflake. Snowflake ist die präzisere Datenquelle. Wenn Sie Abweichungen zwischen diesen Quellen feststellen, empfehlen wir, sich auf die Snowflake-Daten zu beziehen.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 Der WhatsApp-Kanal enthält die Leserate. Diese Metrik wird nur für Nutzer:innen mit aktivierten Lesebestätigungen geliefert, was variieren kann.
@@ -62,7 +66,7 @@ Der WhatsApp-Kanal enthält die Leserate. Diese Metrik wird nur für Nutzer:inne
 
 In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen erstellten Canvas zugeordnet sind. Sie können das Bedienfeld oben auf der Seite verwenden, um andere Nachrichtentypen (Kanäle) auszublenden und nur die In-App-Nachrichten in Ihrem Canvas anzuzeigen.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![Eine Option zur Auswahl des Kanals, wobei das Kontrollkästchen „In-App Message“ ausgewählt ist.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![Der Abschnitt „Kampagnendetails“.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -161,7 +165,7 @@ Das Panel **SMS/MMS/RCS Performance** zeigt Ihnen, wie gut Ihre Nachricht in ver
 
 Das Panel **Banner Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Diese Metriken variieren je nach Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen.
 
-![Banner-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![SMS/MMS-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### KakaoTalk-Performance
@@ -191,6 +195,10 @@ Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-pl
 #### Heatmaps
 
 Mit Heatmaps können Sie sehen, wie erfolgreich verschiedene Links in einer einzelnen E-Mail-Kampagne sind. Gehen Sie im Abschnitt **Message Analytics** zum Panel **Email Performance**. Wählen Sie **Preview & Heatmap**, um eine Vorschau Ihrer E-Mail-Kampagne und der Heatmap anzuzeigen. Alternativ können Sie den Hyperlink im Variantennamen auswählen, um die Heatmap aufzurufen.
+
+{% alert note %}
+Kampagnen-Analytics zeigen Klickdaten für bis zu 100 eindeutige URLs pro Variante an, sortiert nach Gesamtklicks. URLs werden nach ihrer normalisierten Form gruppiert, die keine Abfrageparameter enthält. Wenn eine Variante mehr als 100 eindeutige normalisierte URLs hat, werden nur die Top 100 nach Klickanzahl angezeigt. Klickdaten für URLs jenseits dieses Limits existieren weiterhin, werden aber nicht im Dashboard oder in der Heatmap angezeigt. Wenn Link Aliasing aktiviert ist, werden Klicks anhand der Link-ID statt der Roh-URL getrackt, was in der Regel zu weniger eindeutigen Einträgen führt und dieses Limit seltener erreicht wird.
+{% endalert %}
 
 In dieser Ansicht können Sie mit dem Schalter **Show Heatmap** eine visuelle Darstellung Ihrer E-Mail aufrufen, die die Gesamthäufigkeit und den Ort der Klicks innerhalb der Laufzeit der Kampagne anzeigt. Im Panel **Link Table by Total Clicks** können Sie alle Links in Ihrer E-Mail-Kampagne anzeigen und nach Gesamtklicks sortieren. Dies kann zusätzliche Insights darüber liefern, wohin Ihre Nutzer:innen navigieren. Um eine Kopie der Heatmap als Referenz zu speichern, klicken Sie auf den Download-Button.
 
@@ -249,8 +257,8 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">Dieser Zähler</span> wird nicht erhöht, wenn eine Nutzer:in eine Content-Card zum zweiten Mal aufruft.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Da eine Nutzer:in jeden Tag als eindeutige Empfänger:in gezählt werden kann, sollten Sie davon ausgehen, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Da eine Nutzer:in jeden Tag eine eindeutige tägliche Impression haben kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -267,11 +275,11 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 Bei der Protokollierung von Impressionen gibt es einige Unterschiede zwischen Web, Android und iOS. Generell protokolliert Braze eine Impression, wenn eine Karte gesehen wird – also nachdem eine Nutzer:in zur entsprechenden Content-Card in ihrem Feed gescrollt hat.
 {% endalert %}
 
-#### Unique Recipients versus Unique Impressions
+#### Unique Daily Impressions versus Unique Impressions
 
-Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Recipients_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
+Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Daily Impressions_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
 
-Angenommen, Sie sehen sich heute eine Content-Card an, erhalten morgen eine neue Karte aus derselben Kampagne und übermorgen wieder eine – dann werden Sie dreimal als _Unique Recipient_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt. Außerdem werden Sie in der Anzahl der _Messages Sent_ berücksichtigt, da die Karte auf Ihrem Gerät verfügbar war.
+Angenommen, Sie sehen sich heute eine Content-Card an, erhalten morgen eine neue Karte aus derselben Kampagne und übermorgen wieder eine – dann werden Sie dreimal als _Unique Daily Impression_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt. Außerdem werden Sie in der Anzahl der _Messages Sent_ berücksichtigt, da die Karte auf Ihrem Gerät verfügbar war.
 
 Ein weiteres Beispiel: Angenommen, Sie sehen fünf _Unique Impressions_ für eine Content-Card-Kampagne mit 150.000 _Messages Sent_. Das bedeutet, dass die Karte (im Backend) einer Zielgruppe von 150.000 Nutzer:innen zur Verfügung gestellt wurde, aber nur die Geräte von fünf Nutzer:innen alle folgenden Schritte nach dem Senden ausgeführt haben:
 
@@ -279,7 +287,7 @@ Ein weiteres Beispiel: Angenommen, Sie sehen fünf _Unique Impressions_ für ein
 2. Zur Content-Cards-Ansicht navigiert
 3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
-_Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind, während _Unique Recipients_ die Content Cards bezeichnet, die tatsächlich angesehen wurden.
+_Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind, während _Unique Daily Impressions_ die Content Cards bezeichnet, die tatsächlich angesehen wurden.
 
 {% elsif include.channel == "banner" %}
 
@@ -287,7 +295,7 @@ _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind,
 
 Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
-Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Bannern.
+Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Banner.
 
 <style>
     .no-split {
@@ -317,6 +325,10 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
             <td class="no-split"><i>Total Clicks</i> ist die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die innerhalb der zugestellten Nachricht geklickt haben, unabhängig davon, ob dieselbe Nutzer:in mehrmals geklickt hat.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> ist die Gesamtzahl der Male, die Nutzer:innen das Banner geschlossen haben. Nur für Banner mit aktiviertem Schließverhalten verfügbar.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Jede Nutzer:in wird nur einmal gezählt.</td>
         </tr>
@@ -325,8 +337,8 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Da eine Betrachterin oder ein Betrachter jeden Tag als eindeutige Empfänger:in gezählt werden kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Da eine Betrachterin oder ein Betrachter jeden Tag eine eindeutige tägliche Impression haben kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -341,9 +353,9 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
 
 #### Berechnungsbeispiele für Banner-Metriken {#banner-metrics-calculation-examples}
 
-Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Recipients_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
+Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Daily Impressions_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
 
-Angenommen, Sie sehen sich heute ein Banner an, morgen dasselbe Banner und übermorgen erneut – dann werden Sie dreimal als _Unique Recipient_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt.
+Angenommen, Sie sehen sich heute ein Banner an, morgen dasselbe Banner und übermorgen erneut – dann werden Sie dreimal als _Unique Daily Impression_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt.
 
 Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in einer Banner-Kampagne. Das bedeutet, dass nur die Geräte von fünf Nutzer:innen alle folgenden Schritte ausgeführt haben:
 
@@ -351,7 +363,7 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 2. Zur Banner-Ansicht navigiert
 3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
-_Unique Recipients_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
+_Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
 
 {% elsif include.channel == "email" %}
 
@@ -377,7 +389,7 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dieser Wert wird über einen Zeitraum von sieben Tagen für E-Mails getrackt und anhand der <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> gemessen. Dazu gehören auch Klicks auf die von Braze bereitgestellten Abmeldelinks. Dieser Wert sollte zwischen 5–10 % liegen. Alles über 10 % ist außergewöhnlich!
             </td>
         </tr>
         <tr>
@@ -481,7 +493,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
-Die _Estimated Real Open Rate_ wird 36 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 24 Stunden neu berechnet. Bei wiederkehrenden Kampagnen wird die Schätzung 36 Stunden nach einem weiteren Versand neu berechnet.
+Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
 
 Da diese Metrik kontinuierlich neu berechnet wird, kann sich der Wert der _Estimated Real Open Rate_ im Laufe der Zeit ändern, wenn neue Engagement-Signale (wie Öffnungen und Klicks) empfangen und in das Modell integriert werden. In der Praxis kann die _Estimated Real Open Rate_ täglich aktualisiert werden, solange eine Kampagne aktiv ist.
 
@@ -852,7 +864,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 Im Panel **Historical Performance** können Sie die Metriken aus dem Panel **Message Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
-Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars" aria-label="Navigationsmenü öffnen"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
+Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
 
 ![Ein Diagramm des Panels „Historical Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

@@ -21,7 +21,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 |-----------------------|------------------------------------|
 | Ein Contentful-Konto | Sie benötigen ein Contentful-Konto mit Zugriff auf die Content Delivery API. |
 | Ein Braze-Konto | Sie benötigen ein Braze-Konto mit Zugriff auf das Connected-Content-Feature. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -34,7 +34,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 ### 2. Schritt: Braze Connected-Content konfigurieren {#step-2-configure-braze-connected-content}
 
 1. [Melden Sie sich bei Braze an](https://dashboard.braze.com/sign_in), indem Sie Ihre Zugangsdaten eingeben.
-2. Gehen Sie im Braze-Dashboard zu **Templates** > **Content Blocks** > **Create Content Block** > **HTML code editor**.
+2. Gehen Sie im Braze-Dashboard zu **Content** > **Content Block** > **Create Content Block** > **HTML code editor**.
 3. Erstellen Sie eine Connected-Content-Anfrage an die [Contentful Content Delivery API URL](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links). Ein Beispiel für die Contentful Content Delivery API URL ist `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries`.<br><br> Das Abrufen verschiedener Assets erfordert die Einbeziehung bestimmter Variablen. Die beispielhafte Connected-Content-URL-Anfrage zielt auf den [Entry](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console)-Endpunkt von Contentful ab. Dieser Endpunkt benötigt Variablen wie `{space_id}` und `{environment_id}` oder `{entry_id}` und `{access_token}`. Diese können von Ihrer Contentful-Instanz übernommen werden. In diesem Beispiel-Content-Block müssen die Variablen durch Ihre Contentful Space ID und Environment ID ersetzt werden.<br><br>Die Beispiel-URL der Content Delivery API verwendet nur einen der verfügbaren Endpunkte von Contentful. Verschiedene Anwendungsfälle können durch die Nutzung verschiedener URLs abgedeckt werden. Die [Image API](https://www.contentful.com/developers/docs/references/images-api/) kann zum Beispiel dazu verwendet werden, in Contentful gespeicherte Bilder abzurufen. Weitere Informationen finden Sie unter [Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
 
 {% alert note %}

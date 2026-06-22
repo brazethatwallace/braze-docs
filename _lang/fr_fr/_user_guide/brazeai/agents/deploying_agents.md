@@ -92,8 +92,8 @@ Vous pouvez également remplacer manuellement la cellule générée par l'agent 
 
 ### Gestion des erreurs dans les catalogues {#error-handling-in-catalogs}
 
-- Les invocations de catalogue ayant échoué ne font pas l'objet d'une nouvelle tentative.
-- Si l'appel API vers le fournisseur de modèle fondamental renvoie une erreur, comme une erreur de clé API invalide ou une erreur de limite de débit, la valeur du champ n'est pas mise à jour.
+- Les invocations de catalogue ayant échoué ne font pas l'objet d'une nouvelle tentative, y compris en cas d'[erreurs de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) du fournisseur LLM.
+- Si l'appel API vers le fournisseur de modèle fondamental renvoie une autre erreur, comme une erreur de clé API invalide, la valeur du champ n'est pas mise à jour.
 - Vous pouvez consulter les journaux de l'agent pour obtenir des détails sur les exécutions ayant échoué.
 
 ## Surveiller votre agent {#monitor-your-agent}

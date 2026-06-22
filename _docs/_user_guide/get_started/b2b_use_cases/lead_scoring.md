@@ -68,7 +68,7 @@ Under **Subscription Settings**, for **Send to these users:** select **all users
 
 #### Step 4a: Add an Action Path
 
-Under your variant, select the plus icon and then select **Action Paths**.
+Under your variant, select <i class="fas fa-plus"></i> **Add** and then select **Action Paths**.
 
 ![Canvas with “Action Paths” displaying in the menu opened by the plus icon.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 

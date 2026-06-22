@@ -13,7 +13,7 @@ description: "이 랜딩 페이지에서는 캠페인 아이디어와 전략을 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
   - name: 모범 사례
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: 활성 사용자 캠페인
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns

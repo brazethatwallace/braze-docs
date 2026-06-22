@@ -95,7 +95,7 @@ Push Story Notifications record a <i>Body Click</i> when the notification is cli
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Deliveries</i> is the total number of message requests that are accepted by the receiving server. This doesn’t mean the message was delivered to a device, only that the message was accepted by the server. 
+<i>Deliveries</i> is the total number (or percentage) of message requests that are accepted by the receiving server. This doesn’t mean the message was delivered to a device, only that the message was accepted by the server. 
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>Direct Opens</i> is the total number of users who opened your app or website by directly pressing the notification.
+<i>Direct Opens</i> is the total number (or percentage) of users who opened your app or website by directly pressing the notification.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>Influenced Opens</i> is the total number (and percentage) of users who opened the app after the push notification was sent, without directly opening the push.
+<i>Influenced Opens</i> is the total number (or percentage) of users who opened the app after the push notification was sent, without directly opening the push.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -231,7 +231,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-<i>Total Clicks</i> is the number of unique recipients who clicked on a link in the delivered message.
+<i>Total Clicks</i> is the number (or percentage) of unique recipients who clicked on a link in the delivered message.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
@@ -251,7 +251,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -264,12 +264,16 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 <i>Unique Impressions</i> is the total number of users who have viewed a message from a given campaign. An impression is logged only when the message becomes visible on a user's screen.
 {% endif %}
 
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Unique Daily Impressions</i> is the number of unique users who viewed the message on a given day. This count resets each calendar day, so a user who views the same message on two different days is counted twice. This metric aligns with the billing metric of the same name.
+{% endif %}
+
 {% if include.metric == "Unique Recipients" %}
 <i>Unique Recipients</i> is the number of unique daily recipients, or users who received a new message in a day. For this count to increment for a user more than once, the user must receive a new message on a different day.
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>Unique Opens</i> is the total number of delivered messages that have been opened by a single user at least once and are tracked over a seven-day period.
+<i>Unique Opens</i> is the total number (or percentage) of delivered messages that have been opened by a single user at least once and are tracked over a seven-day period.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}

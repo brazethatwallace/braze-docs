@@ -65,6 +65,8 @@ When quiet hours are turned on, Braze won't send messages during the quiet perio
 
 For example, if quiet hours are set from 10:00 PM to 6:00 AM, and a user's optimal time is 5:30 AM, Braze will hold the message and deliver it at 6:00 AM—the closest time outside the quiet window.
 
+For more information, see [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+
 #### Preview delivery times
 
 To see an estimate of how many users will receive the message in each hour of the day, use the preview chart (campaigns only).

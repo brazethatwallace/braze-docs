@@ -62,7 +62,7 @@ Le groupe d'abonnement que vous sélectionnez détermine les types de messages d
 | SMS uniquement | SMS |
 | SMS avec numéros compatibles MMS | SMS et MMS |
 | Compatible RCS (avec expéditeur vérifié RCS) | SMS, MMS (si activé) et RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Sélectionner un groupe d'abonnement" }
 
 {% alert tip %}
 Braze recommande vivement que chaque groupe d'abonnement contenant un expéditeur RCS inclue également au moins un code SMS de secours. Cela garantit que si un message RCS ne parvient pas à être livré (par exemple, en raison d'une incompatibilité d'appareil ou d'une couverture opérateur incomplète), le message atteindra tout de même votre utilisateur via SMS.
@@ -108,7 +108,7 @@ Saisissez le corps de votre message, puis téléchargez une image PNG, JPEG ou G
 | --- | --- |
 | Taille | Jusqu'à 600&nbsp;Ko |
 | Types de fichiers | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spécifications des images" }
 
 ### Cartes de contact {#contact-cards}
 
@@ -177,7 +177,7 @@ Les messages média RCS vous permettent d'utiliser des formats média attrayants
 | Image | Formats pris en charge : JPG, JPEG, GIF |
 | Vidéo | Formats pris en charge : H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Document | Format pris en charge : PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spécifications des fichiers" }
 
 **Considérations :**
 
@@ -263,15 +263,15 @@ Pour plus d'informations, consultez [Envoyer des messages de test]({{site.baseur
 
 Ensuite, construisez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur la meilleure façon d'utiliser nos outils pour créer votre message.
 
-#### Choisir la planification ou le déclencheur de livraison {#choose-delivery-schedule-or-trigger}
+### Choisir la planification ou le déclencheur de livraison {#choose-delivery-schedule-or-trigger}
 
 Les messages peuvent être livrés en fonction d'une heure planifiée, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 C'est également à cette étape que vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Choisir les utilisateurs à cibler {#choose-users-to-target}
+### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
 Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres pour affiner votre audience. Vous devriez avoir déjà choisi le groupe d'abonnement, qui restreint les utilisateurs selon le niveau ou la catégorie de communication qu'ils souhaitent avoir avec vous.
 
@@ -283,7 +283,7 @@ Sélectionnez l'audience la plus large parmi vos segments, puis affinez ce segme
 Intéressé par le reciblage ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) pour en savoir plus.
 {% endalert %}
 
-#### Choisir les événements de conversion {#choose-conversion-events}
+### Choisir les événements de conversion {#choose-conversion-events}
 
 Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une campagne. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
 

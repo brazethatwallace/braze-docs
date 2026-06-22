@@ -41,7 +41,7 @@ page_order: 0
 | 메타 설명 | 검색 결과에 표시되는 텍스트 스니펫입니다. | 140~160자 사이로 사용하세요. |
 | 파비콘 | 브라우저 탭에서 사이트 제목 옆에 나타나는 아이콘입니다. | 종횡비 1:1을 사용하고, 지원되는 파일 형식은 PNG, JPEG 또는 ICO입니다. |
 | 페이지 URL | 랜딩 페이지의 URL 경로입니다. 이 값은 메시지에 삽입하여 사용자가 양식을 제출할 때 자동으로 식별할 수 있는 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)를 사용할 때도 참조됩니다. | 이 값은 워크스페이스 전체에서 고유해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사이트 세부 정보" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### 3단계: 페이지 커스터마이즈 {#step-3-customize-the-page}
 
@@ -68,7 +68,7 @@ page_order: 0
 | 링크 | 사용자가 클릭하여 지정된 URL로 이동할 수 있는 하이퍼링크입니다. 텍스트 내에 삽입하거나 독립적으로 사용할 수 있습니다. |
 | 스페이서 | 레이아웃과 가독성을 개선하기 위해 요소 사이에 수직 간격을 추가하는 보이지 않는 블록입니다. |
 | 커스텀 코드 | 고급 커스터마이즈를 위해 커스텀 HTML, CSS 또는 JavaScript를 삽입하고 실행할 수 있는 블록입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 페이지 커스터마이즈" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
 ##### 스팬 텍스트 {#span-text}
 
@@ -89,7 +89,7 @@ page_order: 0
 | 드롭다운 | 사용자가 미리 정의된 목록에서 항목을 선택할 수 있습니다. 목록에 커스텀 속성 문자열을 추가할 수 있습니다. |
 | 체크박스 | 사용자가 체크박스를 선택하면 블록의 속성이 `true`로 설정됩니다. 선택하지 않으면 속성이 `false`로 설정됩니다. |
 | 체크박스 그룹 | 사용자가 여러 선택지 중에서 선택할 수 있습니다. 값은 정의된 배열 커스텀 속성에 설정되거나 추가됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="스팬 텍스트" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 양식이 포함된 랜딩 페이지를 만든 후에는 메시지에 [랜딩 페이지 Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)를 삽입해야 합니다. 이 태그를 사용하면 Braze가 사용자가 양식을 제출할 때 기존 사용자 프로필을 자동으로 식별하고 업데이트할 수 있습니다.
@@ -158,7 +158,7 @@ iOS 및 Safari의 공격적인 팝업 차단기와 광고 차단기(Safari의 �
 
 ## 템플릿 사용 {#using-templates}
 
-랜딩 페이지 템플릿을 사용하여 다음 Campaign을 위한 템플릿을 만드세요. 이 템플릿은 랜딩 페이지 에디터와 대시보드의 **Templates** 섹션(**Templates** > **Landing Page Templates**)에서 모두 접근하고 관리할 수 있습니다. 랜딩 페이지 템플릿에는 이름이 필수이며, 설명은 선택 사항입니다.
+랜딩 페이지 템플릿을 사용하여 다음 Campaign을 위한 템플릿을 만드세요. 이 템플릿은 랜딩 페이지 에디터와 **랜딩 페이지 템플릿** 페이지(**콘텐츠** > **Landing Page**)에서 모두 접근하고 관리할 수 있습니다. 랜딩 페이지 템플릿에는 이름이 필수이며, 설명은 선택 사항입니다.
 
 ## 템플릿 관리 {#managing-templates}
 

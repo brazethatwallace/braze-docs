@@ -24,7 +24,7 @@ HTMLアプリ内メッセージで動画を再生するには、以下の `<vide
 </video>
 ```
 
-ローカルの動画アセットを使用する場合は、Campaignにアセットをアップロードする際にこのファイルを含めてください。
+ローカルの動画アセットを使用する場合は、キャンペーンにアセットをアップロードする際にこのファイルを含めてください。
 
 {% alert note %}
 動画コンテンツは、デバイスのネットワーク速度が十分な場合にのみ利用可能です。ただし、動画がデバイスのローカルから提供される場合は除きます。
@@ -51,7 +51,7 @@ iOSデバイスをサポートするには:
 
 Webアプリ内メッセージでYouTube動画を自動再生するには、URLパラメーター `&autoplay=1` を追加します。たとえば、以下の動画は自動再生され、ミュートされ（`&mute=1`）、コントロールが非表示になります（`&controls=0`）:
 
-```html
+`````````html
 <iframe class="video" src="https://www.youtube.com/embed/VPIPAc4oQqw?autoplay=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 

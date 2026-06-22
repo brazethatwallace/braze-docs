@@ -3,7 +3,7 @@ nav_title: "通知オプション"
 article_title: Android 通知オプション
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Androidの通知オプションと、Braze Campaignsでの最適な使用方法について説明します。"
+description: "このリファレンス記事では、Androidの通知オプションと、Braze キャンペーンでの最適な使用方法について説明します。"
 
 platform: Android
 channel:
@@ -23,7 +23,7 @@ channel:
 
 メッセージをカテゴリ分けし、ユーザーの通知トレイでグループ化したい場合は、Brazeを通じてAndroidの通知チャネル機能を活用できます。
 
-まず、Androidプッシュ Campaignを作成し、**作成**タブの上部にある**Notification Channel**ドロップダウンを確認します。
+まず、Androidプッシュ キャンペーンを作成し、**作成**タブの上部にある**Notification Channel**ドロップダウンを確認します。
 
 ![]({% image_buster /assets/img_archive/notification_channel_dropdown.png %}){: style="max-width:60%;"}
 

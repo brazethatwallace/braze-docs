@@ -95,7 +95,7 @@ Le <i>nombre total de conversions</i> correspond au nombre total de fois où un 
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Réception/distribution</i> est le nombre total de demandes de messages acceptées par le serveur de réception. Cela ne signifie pas que le message a été distribué sur un appareil, mais seulement qu'il a été accepté par le serveur.
+<i>Réception/distribution</i> est le nombre total (ou le pourcentage) de demandes de messages acceptées par le serveur de réception. Cela ne signifie pas que le message a été distribué sur un appareil, mais seulement qu'il a été accepté par le serveur.
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ Le <i>taux de réception/distribution échouée</i> est le pourcentage d'envois 
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-Le nombre d'<i>ouvertures directes</i> est le nombre total d'utilisateurs qui ont ouvert votre application ou votre site web en appuyant directement sur la notification.
+Le nombre d'<i>ouvertures directes</i> est le nombre total (ou le pourcentage) d'utilisateurs qui ont ouvert votre application ou votre site web en appuyant directement sur la notification.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ On parle d'<i>échec</i> lorsque le message WhatsApp n'a pas pu être envoyé pa
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-Les <i>ouvertures influencées</i> correspondent au nombre total (et au pourcentage) d'utilisateurs qui ont ouvert l'application après l'envoi de la notification push, sans l'ouvrir directement.
+Les <i>ouvertures influencées</i> correspondent au nombre total (ou au pourcentage) d'utilisateurs qui ont ouvert l'application après l'envoi de la notification push, sans l'ouvrir directement.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -143,7 +143,7 @@ La <i>valeur vie par utilisateur</i> est le <i>chiffre d'affaires à vie</i> div
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-Le <i>chiffre d'affaires quotidien moyen</i> est la moyenne de la somme des chiffres d'affaires de la campagne et de Canvas pour un jour donné.
+Le <i>chiffre d'affaires quotidien moyen</i> est la moyenne de la somme des chiffres d'affaires des campagnes et de Canvas pour un jour donné.
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
@@ -219,7 +219,7 @@ Le <i>taux d'envoi à l'opérateur</i> est le pourcentage du total des messages 
 {% endif %}
 
 {% if include.metric == "Spam" %}
-Le <i>spam</i> est le nombre total d'e-mails livrés qui ont été marqués comme « spam » par le destinataire. Bien que Braze ne modifie pas l'état de l'abonnement de ces utilisateurs, ceux-ci seront automatiquement exclus des futurs e-mails, à moins que vous n'envoyiez un e-mail transactionnel, qui est configuré pour « envoyer à tous les utilisateurs, y compris ceux qui se désabonnent ».
+Le <i>spam</i> est le nombre total d'e-mails livrés qui ont été marqués comme « spam » par le destinataire. Bien que Braze ne modifie pas l'état de l'abonnement de ces utilisateurs, ceux-ci seront automatiquement exclus des futurs e-mails, à moins que vous n'envoyiez un e-mail transactionnel, qui est configuré pour « envoyer à tous les utilisateurs, y compris ceux qui se sont désabonnés ».
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
@@ -231,7 +231,7 @@ Le nombre de <i>soumissions d'enquête</i> est le nombre total de clics sur le b
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-Le <i>nombre total de clics</i> est le nombre de destinataires uniques qui ont cliqué sur un lien dans le message envoyé.
+Le <i>nombre total de clics</i> est le nombre (ou le pourcentage) de destinataires uniques qui ont cliqué sur un lien dans le message envoyé.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
@@ -251,7 +251,7 @@ Le <i>chiffre d'affaires total</i> est le chiffre d'affaires total, en dollars, 
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-Les <i>clics uniques</i> correspondent au nombre distinct de destinataires ayant cliqué au moins une fois sur un lien dans un message et sont mesurés par <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+Les <i>clics uniques</i> correspondent au nombre distinct de destinataires ayant cliqué au moins une fois sur un lien dans un message et sont mesurés par <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -264,12 +264,16 @@ Les <i>fermetures uniques</i> correspondent au nombre de destinataires uniques q
 Les <i>impressions uniques</i> correspondent au nombre total d'utilisateurs ayant consulté un message issu d'une campagne donnée. Une impression n'est enregistrée que lorsque le message devient visible sur l'écran d'un utilisateur.
 {% endif %}
 
+{% if include.metric == "Unique Daily Impressions" %}
+Les <i>impressions quotidiennes uniques</i> correspondent au nombre d'utilisateurs uniques ayant consulté le message un jour donné. Ce compteur est réinitialisé chaque jour calendaire, de sorte qu'un utilisateur qui consulte le même message sur deux jours différents est comptabilisé deux fois. Cet indicateur correspond à l'indicateur de facturation du même nom.
+{% endif %}
+
 {% if include.metric == "Unique Recipients" %}
 <i>Destinataires uniques</i> est le nombre de destinataires uniques quotidiens, c'est-à-dire les utilisateurs qui ont reçu un nouveau message au cours d'une journée. Pour que ce compte s'incrémente plus d'une fois pour un utilisateur, celui-ci doit recevoir un nouveau message un autre jour.
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-Les <i>ouvertures uniques</i> correspondent au nombre total de messages envoyés qui ont été ouverts au moins une fois par un utilisateur unique et qui sont suivis sur une période de sept jours.
+Les <i>ouvertures uniques</i> correspondent au nombre total (ou au pourcentage) de messages envoyés qui ont été ouverts au moins une fois par un utilisateur unique et qui sont suivis sur une période de sept jours.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}

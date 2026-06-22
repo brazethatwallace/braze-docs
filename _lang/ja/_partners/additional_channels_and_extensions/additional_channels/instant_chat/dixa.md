@@ -27,7 +27,7 @@ BrazeとDixaの統合により、カスタマーサービス担当者にリア�
 
 ## ユースケース {#use-cases}
 
-メール、Messenger、チャットなどのさまざまな通信チャネルでユーザーとコミュニケーションしている間に、Brazeデータをカスタマーサービスエージェントビューに表示します。さらに、Brazeのデータ変換を使用してDixaからBrazeにデータを送信し、ユーザーの問題を解決している間はマーケティングを一時停止することもできます。
+メール、Messenger、チャットなどのさまざまな通信チャネルでユーザーとコミュニケーションしている間に、Brazeデータをカスタマーサービスエージェントビューに表示します。さらに、Brazeのデータ変換を使用してDixaからBrazeにデータを送信し、ユーザーの問題を解決している間はマーケティングを一時停止したり、Dixaの満足度アンケートをセグメンテーションに活用したりできます。
 
 ## 統合 {#integration}
 
@@ -83,10 +83,12 @@ Dixa内で統合を設定するには、Dixa管理者である必要がありま
 
 Dixaはwebhookを使用してBrazeにデータを送信します。webhookを設定するには、Dixa管理者である必要があります。
 
+### Dixaでの会話を追跡する {#track-conversations-in-dixa}
+
 最初のステップは、Brazeでデータ変換を作成することです。
 
 1. **データ設定** > **データ変換** > **変換を作成**に移動します。
-2. **ゼロから開始**を選択し、送信先として **POST: Track Users** を選択して、**変換を作成**を選択します。
+2. **ゼロから開始**を選択し、送信先として**POST: Track Users**を選択して、**変換を作成**を選択します。
 3. 変換エディターで、以下の**データ変換ツールの例**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
 4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
 5. Webhook設定ページで、BrazeからコピーしたURLを貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created**は、顧客の会話を追跡するための良い出発点です。
@@ -128,5 +130,56 @@ const brazecall = {
 };
 
 // Returning the transformed data
+return brazecall;
+```
+
+### BrazeでCSATスコアを使用する {#use-csat-score-in-braze}
+
+1. **データ設定** > **データ変換** > **変換を作成**に移動します。
+2. **ゼロから開始**を選択し、送信先として**POST: Track Users**を選択して、**変換を作成**を選択します。
+3. 変換エディターで、以下の**CSATスコアの追跡**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
+4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
+5. Webhook設定ページで、BrazeからコピーしたURLを貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created**は、顧客の会話を追跡するための良い出発点です。
+6. **Save**を選択してDixaのセットアップを完了します。
+
+#### CSATスコアの追跡 {#track-csat-score}
+
+```js
+const body = payload?.data;
+
+// values from your webhook
+const score = body.score;         // number
+const comment = body.comment;     // string
+const type = body.type;           // string
+const ratedAt = body.event_timestamp;   // ISO 8601 string
+const contactemail = body.conversation.requester.email;
+
+// ALWAYS identify by email
+const email = contactemail;
+
+if (!email) {
+  // Can't identify a user without email
+  return { attributes: [] };
+}
+
+
+let brazecall = {
+  "attributes": [
+    {
+      // Using the Dixa user email as the external_id to identify the user in Braze
+      "email": contactemail,
+      "_update_existing_only": true,
+
+      // Your new custom object attribute
+      "last_csat": {
+        "score": score,
+        "comment": comment,
+        "type": type,
+        "rated_at": ratedAt
+      }
+    }
+  ]
+};
+
 return brazecall;
 ```

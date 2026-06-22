@@ -99,31 +99,15 @@ If 2FA is enforced at the company level, users who don't set it up on their own 
 2FA is required for all company users only if Single Sign-On (SSO) isn't enabled. If SSO is in use, 2FA doesn't need to be enforced at the company level.
 {% endalert %}
 
-## Setting up two-factor authentication (2FA)
+## Manually set up 2FA
 
-### Setting up 2FA with Authy
+To manually activate two-factor authentication (2FA) on your Braze account, follow these steps:
 
-1. Download the Authy App from your device's app store.
-2. In Braze, input your phone number.
-3. Tap the notification sent to your device prompting you to open the Authy app.
-4. Launch the Authy app on your device to retrieve the code.
-5. In Braze, input the verification code you received from Authy.
-
-If you encounter issues during the setup process and are redirected to the Braze homepage or login screen, try the following:
-
-- Use incognito or private browsing mode: Attempt setup again with an incognito or private browsing window. This can bypass issues caused by browser extensions or plugins.
-- Try a different browser profile: If the problem persists, consider using a different browser profile to eliminate conflicts with installed plugins.
-
-### Setting up 2FA when it isn't enforced
-
-To manually activate two-factor authentication (2FA) on your Braze account when it isn't enforced, follow these steps:
-
-1. Download a 2FA app like Authy, Google Authenticator, Okta Verify, or similar from the App Store (iOS), Google Play Store (Android), or the web. Or, if you prefer to set up 2FA with email or SMS, skip to step 2.
-2. In Braze, go to Manage Account, scroll to the **Two-Factor Authentication** section, then select **Start Setup**.
-3. Enter your password into the login modal, then select **Check Password**.
-4. In the **Two-Factor Authentication Setup** modal, enter your phone number, then select **Enable**.
-5. Copy the generated seven-digit code from your 2FA app, email, or SMS message, then go back to Braze and paste it into the **Two-Factor Authentication Setup** modal. Select **Verify**.
-6. (Optional) To avoid entering 2FA for the next 30 days, enable the **Remember this account for 30 days** option.
+1. In Braze, select your profile icon in the global header, then select **Manage your account**. Scroll to the **Two-Factor Authentication** section, then select **Start Setup**.
+2. Enter your password into the login modal, then select **Check Password**.
+3. In the **Two-Factor Authentication Setup** modal, enter your phone number, then select **Enable**.
+4. Copy the generated seven-digit code from your email or SMS message, then go back to Braze and paste it into the **Two-Factor Authentication Setup** modal. Select **Verify**.
+5. (Optional) To avoid entering 2FA for the next 30 days, enable the **Remember this account for 30 days** option.
 
 ## Elevated Access
 
@@ -284,7 +268,7 @@ The following attributes can be designated as PII and hidden from company users 
 
 | Standard attributes | Custom attributes |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
+| {::nomarkdown}<ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> LINE ID </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
 
 ### Limited areas

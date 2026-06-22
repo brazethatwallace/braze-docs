@@ -1,7 +1,7 @@
 ---
 nav_title: SmarterSends
 article_title: SmarterSends
-description: "Este artigo de referência descreve a parceria entre a Braze e a SmarterSends, uma interface fácil de usar projetada para que até profissionais que não sejam da área de marketing possam programar e implementar campanhas de e-mails alinhadas com a marca."
+description: "Este artigo de referência descreve a parceria entre a Braze e a SmarterSends, uma interface fácil de usar projetada para que até profissionais que não sejam da área de marketing possam criar, programar e implementar campanhas de e-mails alinhadas com a marca."
 alias: /partners/smartersends/
 page_type: partner
 search_tag: Partner
@@ -22,10 +22,10 @@ A parceria entre a Braze e a SmarterSends permite combinar o poder da Braze com 
 | Requisito | Descrição |
 | --- | --- |
 | Conta SmarterSends | É necessário ter uma [conta SmarterSends](https://smartersends.com) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com estas permissões: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. Para aumentar a segurança, coloque na lista de permissões o endereço IP da SmarterSends (disponível em sua instância). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com estas permissões: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. Para aumentar a segurança, coloque na lista de permissões o endereço IP da SmarterSends (disponível em sua instância). |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | ID da campanha da API da Braze | O [ID da campanha da API da Braze]({{site.baseurl}}/api/api_campaigns/) é o identificador exclusivo de todas as campanhas enviadas por meio da SmarterSends. Isso pode ser criado no dashboard da Braze em **Messaging** > **Campaigns**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -41,7 +41,7 @@ Com a integração da Braze e da SmarterSends, você pode tirar proveito do mark
 
 ### Etapa 1: Criar uma chave da API REST {#step-1-create-a-rest-api-key}
 
-1. Na Braze, acesse **Settings** > **API Keys** e clique em **Create New API Key**.
+1. Na Braze, acesse **Configurações** > **Chaves de API** e clique em **Criar nova chave de API**.
 2. Digite um nome para a chave de API.
 3. Selecione as seguintes permissões para essa chave para permitir que a SmarterSends interaja com seu espaço de trabalho na Braze.
 - `users.track`
@@ -60,7 +60,7 @@ Com a integração da Braze e da SmarterSends, você pode tirar proveito do mark
 
 ### Etapa 2: Criar ou copiar um ID de aplicativo {#step-2-create-or-copy-an-application-id}
 
-1. Em seu espaço de trabalho da Braze, acesse **Settings** > **App Settings**.
+1. Em seu espaço de trabalho da Braze, acesse **Configurações** > **Configurações do app**.
 2. Configure um novo app ou use o ID do aplicativo de um aplicativo existente em seu espaço de trabalho. Note que o ID do aplicativo é rotulado como **API Key**.
 3. Copie e cole esse ID no campo **App ID** na SmarterSends.
 

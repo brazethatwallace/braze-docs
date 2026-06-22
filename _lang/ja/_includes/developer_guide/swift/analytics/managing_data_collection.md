@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% tab 動的な例 %}
 以下の例では、エンドユーザーがATTプロンプトを受け入れた後、トラッキングリストが自動的に更新されます。
 
-```swift
+`````````swift
 func applicationDidBecomeActive(_ application: UIApplication) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
@@ -118,7 +118,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 SDKが無限リトライループに入るのを防ぐため、`set(adTrackingEnabled: enableAdTracking)`メソッドを使用してATT権限を処理します。メソッド内の`adTrackingEnabled`プロパティは、以下のように処理する必要があります。
 
-```swift
+`````````swift
 func applicationDidBecomeActive(_ application: UIApplication) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in

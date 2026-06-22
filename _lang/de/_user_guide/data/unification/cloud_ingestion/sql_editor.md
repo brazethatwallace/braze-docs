@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "Cloud-Datenaufnahme: SQL-Editor (Beta)"
+nav_title: SQL-Editor
+article_title: "Cloud-Datenaufnahme: SQL-Editor"
 description: "Erfahren Sie, wie Sie Cloud-Datenaufnahme-Synchronisierungen mit SQL-Anfragen erstellen und validieren."
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# Cloud-Datenaufnahme: SQL-Editor (Beta) {#cloud-data-ingestion-sql-editor-beta}
+# Cloud-Datenaufnahme: SQL-Editor {#cloud-data-ingestion-sql-editor}
 
 > Auf dieser Seite erfahren Sie, wie Sie den SQL-Editor der Braze Cloud-Datenaufnahme (CDI) verwenden, um Synchronisierungen mit SQL-Anfragen zu erstellen und zu validieren.
 
@@ -25,18 +26,22 @@ Der SQL-Editor der Cloud-Datenaufnahme befindet sich in der Beta-Phase. Kontakti
 
 ## Voraussetzungen und Einschränkungen {#prerequisites-and-limitations}
 
-Während der Beta-Phase gelten für den SQL-Editor die folgenden Einschränkungen:
+Der SQL-Editor hat die folgenden Einschränkungen:
 
-- Verfügbar nur für **User Attributes**-Synchronisierungen
-- Unterstützt eine Warehouse-Quelle: **Snowflake**
+- Verfügbar nur für Data-Warehouse-Quellen: Snowflake, Redshift, BigQuery, Databricks und Fabric.
+- Es werden nur einzelne, lesende Anfragen unterstützt.
 
 {% alert note %}
-Braze führt nur lesende Anfragen gegen Ihre Daten aus und ändert Ihre zugrunde liegenden Tabellen nicht. Braze kann während der Anfrageausführung temporäre Objekte erstellen, speichert diese jedoch nicht dauerhaft.
+Braze führt nur lesende Anfragen gegen Ihre Daten aus und ändert Ihre zugrunde liegenden Tabellen nicht. Temporäre Objekte können während der Anfrageausführung erstellt werden, werden jedoch nicht dauerhaft gespeichert.
 {% endalert %}
 
 ## Eine neue SQL-Editor-Synchronisierung erstellen {#create-a-new-sql-editor-sync}
 
-Befolgen Sie diese Schritte, um eine Synchronisierung mit dem SQL-Editor zu erstellen. Wenn Sie bereits eine Snowflake-Quelle für CDI eingerichtet haben, fahren Sie mit Schritt 3 fort.
+Befolgen Sie diese Schritte, um zuerst eine Quelle und dann eine Synchronisierung mit dem SQL-Editor zu erstellen. Wenn Sie bereits eine Quelle für CDI eingerichtet haben, können Sie direkt zu Schritt 3 springen.
+
+{% alert note %}
+Beachten Sie, dass diese Schritte eine Snowflake-Quelle als Beispiel verwenden. Der Einrichtungsprozess für andere Data-Warehouse-Quellen ist ähnlich und kann unter [2. Schritt: Eine neue Quelle im Braze-Dashboard erstellen](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) in der Dokumentation [Data-Warehouse-Integrationen einrichten](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) nachgelesen werden.
+{% endalert %}
 
 ### 1. Schritt: Snowflake-Rolle, Berechtigungen, Warehouse und Nutzer:in einrichten {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
@@ -113,7 +118,7 @@ Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Account-Bezeich
 
 #### Schritt 2.3: RSA-Schlüssel-Einrichtung abschließen {#step-23-complete-rsa-key-setup}
 
-Nachdem Sie Ihre Zugangsdaten und Konfiguration eingegeben haben, wählen Sie **Zugangsdaten speichern** und generieren Sie einen RSA-Schlüssel. Gehen Sie dann zurück zu Snowflake, um die Einrichtung abzuschließen. Fügen Sie den im Dashboard angezeigten öffentlichen Schlüssel der Nutzer:in hinzu, die Sie für die Verbindung von Braze mit Snowflake erstellt haben.
+Nachdem Sie Ihre Zugangsdaten und Konfiguration eingegeben haben, wählen Sie **Save credentials** und generieren Sie einen RSA-Schlüssel. Gehen Sie dann zurück zu Snowflake, um die Einrichtung abzuschließen. Fügen Sie den im Dashboard angezeigten öffentlichen Schlüssel der Nutzer:in hinzu, die Sie für die Verbindung von Braze mit Snowflake erstellt haben.
 
 Weitere Informationen finden Sie unter [Snowflake-Schlüsselpaar-Authentifizierung](https://docs.snowflake.com/en/user-guide/key-pair-auth). Wenn Sie Schlüssel zu einem beliebigen Zeitpunkt rotieren möchten, kann Braze ein neues Schlüsselpaar generieren und den neuen öffentlichen Schlüssel bereitstellen.
 
@@ -121,23 +126,17 @@ Weitere Informationen finden Sie unter [Snowflake-Schlüsselpaar-Authentifizieru
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 ```
 
-Wählen Sie in Braze **Verbindung testen**, um den Quellzugriff zu überprüfen, und erstellen Sie dann die Quelle.
+Wählen Sie in Braze **Test connection**, um den Quellzugriff zu überprüfen, und erstellen Sie dann die Quelle.
 
 ### 3. Schritt: Eine neue Synchronisierung erstellen und Ihre SQL-Anfrage schreiben {#step-3-create-a-new-sync-and-write-your-sql-query}
 
 1. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Synchronisierungen**.
-2. Wählen Sie **Datensynchronisierung erstellen**.
-3. Wählen Sie **User Attributes** unter **Datentyp**.
-4. Referenzieren Sie die Snowflake-Quelle aus Schritt 2.
+2. Wählen Sie **Create data sync**.
+3. Wählen Sie eine beliebige Synchronisierung unter **Data Type**.
+4. Referenzieren Sie die Quelle aus Schritt 2.
 5. Wählen Sie **SQL** und schreiben Sie eine SQL-Anfrage, die Nutzerdaten aus Ihrem Warehouse zurückgibt. Ihre SQL-Anfrage definiert die Daten, die mit Braze synchronisiert werden. Das Anfrageergebnis wird zum Schema für Ihre Synchronisierung.
 
-![Der Ablauf „Datensynchronisierung erstellen“ mit ausgewähltem SQL und einer Beispielanfrage im SQL-Editor.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
-
-Ihre SQL-Anfrage muss Folgendes zurückgeben:
-
-- Einen Nutzerbezeichner (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` und `ALIAS_LABEL`, `EMAIL` oder `PHONE`)
-- Eine `UPDATED_AT`-Spalte
-- Mindestens eine zusätzliche Spalte (Attribut)
+Sie können den Source Explorer verwenden, um verfügbare Tabellen und Views zum Synchronisieren zu durchsuchen, oder den KI-SQL-Generator nutzen, um Unterstützung von Braze Operator für Ihre SQL-Anfrage zu erhalten.
 
 {% alert note %}
 Es werden nur lesende Anfragen unterstützt, einschließlich `JOIN`-Klauseln. Weitere Details finden Sie unter [SQL-Einschränkungen](#sql-constraints).
@@ -145,7 +144,7 @@ Es werden nur lesende Anfragen unterstützt, einschließlich `JOIN`-Klauseln. We
 
 ### 4. Schritt: Anfrage in der Vorschau anzeigen und validieren {#step-4-preview-and-validate-your-query}
 
-Wählen Sie **Vorschau und Validierung**, um Ihre Anfrage auszuführen.
+Wählen Sie **Preview and validate**, um Ihre Anfrage auszuführen.
 
 Die Vorschau:
 
@@ -153,58 +152,30 @@ Die Vorschau:
 - Zeigt bis zu 100 Zeilen an
 - Zeigt bis zu 250 Spalten an
 
-Sie müssen Ihre Anfrage erfolgreich in der Vorschau anzeigen und validieren, bevor Sie fortfahren können. Details zu Fehlern und Korrekturen finden Sie unter [Validierungsverhalten](#validation-behavior) und [Fehlerbehebung](#troubleshooting).
+Für eine erfolgreiche Validierung muss Ihre SQL-Anfrage verschiedene erforderliche Spalten zurückgeben:
+
+| Synchronisierungsdatentyp | Erforderliche Spalten |
+|---|---|
+| Attribute | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`.<br>- Mindestens eine zusätzliche Spalte (Attribut) zum Synchronisieren. |
+| Nutzer:innen löschen | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`. |
+| Canvas-Trigger | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`. |
+| Angepasste Events | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`.<br>- `NAME` für den Event-Namen.<br>- `TIME` für den Event-Zeitpunkt. Falls nicht verfügbar, verwendet CDI `UPDATED_AT` als Ersatz. |
+| Kauf-Events | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` für den Zeitpunkt des Kauf-Events. Falls nicht verfügbar, verwendet CDI `UPDATED_AT` als Ersatz. |
+| Katalog | - `ID` für den Bezeichner des Katalogartikels.<br>- `UPDATED_AT`.<br>- Mindestens eine zusätzliche Spalte (Katalogfeld) zum Synchronisieren. |
+| Konten | - `ID` für den Kontobezeichner.<br>- `NAME` für den Kontonamen.<br>- `UPDATED_AT`.<br>- Mindestens eine zusätzliche Spalte (Kontofeld) zum Synchronisieren. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage in der Vorschau anzeigen und validieren" }
+
+Zusätzliche Spalten außerhalb der erforderlichen Spalten werden als Attribute, Canvas-Kontexteigenschaften, Event-Eigenschaften, Katalogfelder bzw. Kontofelder synchronisiert. Hilfreiche Tipps zu Vorschau- und Validierungsfehlern und deren Behebung finden Sie unter [Validierungsverhalten](#validation-behavior) und [Fehlerbehebung](#troubleshooting).
 
 ### 5. Schritt: Attribut-Zuordnung überprüfen und Synchronisierung erstellen {#step-5-review-attribute-mapping-and-create-sync}
 
-Nach der Validierung:
-
-- Die Bezeichner-Spalte ordnet Nutzer:innen zu
-- Die `UPDATED_AT`-Spalte steuert die inkrementelle Synchronisierung
-- Braze synchronisiert alle anderen Spalten als Attribute
-
-Wenn die Validierung erfolgreich ist, fahren Sie mit **Weiter: Benachrichtigungen** fort und erstellen Sie Ihre Synchronisierung.
+Wenn die Validierung erfolgreich ist, fahren Sie mit **Next: Notifications** fort und erstellen Sie Ihre Synchronisierung.
 
 {% alert important %}
 Eine ungenaue SQL-Konfiguration kann zu unbeabsichtigten Ergebnissen führen, einschließlich eines übermäßigen Verbrauchs von Datenpunkten und weiterer betrieblicher Risiken. Sie sind dafür verantwortlich, dass Ihre Anfragelogik korrekt ist, und sollten alle Ergebnisse sorgfältig in der Vorschau prüfen, bevor Sie eine Synchronisierung aktivieren.
 {% endalert %}
 
 ## SQL-Einschränkungen {#sql-constraints}
-
-Ihre Anfrage muss die folgenden Anforderungen erfüllen.
-
-### Einen Nutzerbezeichner einschließen {#include-a-user-identifier}
-
-Ihre Anfrage muss mindestens einen der folgenden Bezeichner enthalten:
-
-- `EXTERNAL_ID`
-- `BRAZE_ID`
-- `EMAIL`
-- `PHONE`
-- `ALIAS_NAME` und `ALIAS_LABEL`
-
-Wenn kein gültiger Bezeichner erkannt wird, schlägt die Validierung fehl.
-
-{% alert note %}
-Beachten Sie, dass diese Bezeichner die Groß-/Kleinschreibung beachten und in Großbuchstaben geschrieben werden müssen.
-{% endalert %}
-
-### `UPDATED_AT` einschließen {#include-updatedat}
-
-Ihre Anfrage muss eine `UPDATED_AT`-Spalte enthalten.
-
-`UPDATED_AT` beachtet die Groß-/Kleinschreibung und muss in Großbuchstaben geschrieben werden.
-
-Wenn sie fehlt, schlägt die Validierung fehl.
-
-### Mindestens eine Attribut-Spalte einschließen {#include-at-least-one-attribute-column}
-
-Ihre Anfrage muss mindestens eine Spalte zusätzlich zu folgenden enthalten:
-
-- Nutzerbezeichner-Spalte(n)
-- `UPDATED_AT`
-
-Andernfalls schlägt die Validierung fehl.
 
 ### Nur `SELECT`-Anfragen verwenden {#use-select-queries-only}
 
@@ -262,15 +233,15 @@ Wenn Ihre Anfrage zu lange läuft:
 - Die Validierung schlägt fehl
 - Ein Timeout-Fehler wird angezeigt
 
-### Fehlende erforderliche Spalten {#missing-required-columns}
+### Tabellenschema-Fehler {#table-schema-errors}
 
 Wenn Ihre Anfrage kompiliert wird, kann die Validierung dennoch fehlschlagen, wenn:
 
 - Keine Bezeichner-Spalte gefunden wird
 - `UPDATED_AT` fehlt
-- Keine Attribut-Spalten vorhanden sind
+- Andere erforderliche Spalten fehlen
 
-In diesem Fall wird die Vorschau dennoch angezeigt, um Ihnen bei einer erfolgreichen Validierung zu helfen.
+In diesem Fall wird die Vorschau dennoch angezeigt, um Ihnen bei einer erfolgreichen Validierung zu helfen. Details zu den erforderlichen Spalten für jeden Synchronisierungsdatentyp finden Sie unter [4. Schritt im vorherigen Abschnitt](#step-4-preview-and-validate-your-query).
 
 ### Ergebnisse mit null Zeilen {#zero-row-results}
 
@@ -326,11 +297,11 @@ Wenn „Keine Vorschau verfügbar“ angezeigt wird, kann einer der folgenden zu
 
 Stellen Sie sicher, dass Ihre Anfrage einen gültigen Bezeichner enthält, wie z. B. `external_id`.
 
-### „`UPDATED_AT`-Spalte fehlt“ {#updatedat-column-is-missing}
+### „`UPDATED_AT`-Spalte fehlt“ {#updated_at-column-is-missing}
 
 Fügen Sie eine Zeitstempel-Spalte für die inkrementelle Synchronisierung hinzu.
 
-### „Keine Attribute zum Synchronisieren“ {#no-attributes-to-sync}
+### „Weitere Spalten hinzufügen … Es sind keine Attribute/Katalogfelder/Kontofelder zum Synchronisieren vorhanden“ {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 Fügen Sie mindestens eine zusätzliche Spalte neben dem Bezeichner und `UPDATED_AT` hinzu.
 

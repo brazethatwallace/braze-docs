@@ -22,6 +22,10 @@ Para anidar una nueva etiqueta, crea una etiqueta, selecciona **Nest Tag Under**
 
 Para anidar una etiqueta existente, ve a la página de **Gestión de etiquetas**, pasa el cursor sobre la fila con tu etiqueta y selecciona **<i class="fas fa-pencil-alt"></i>Edit**. Luego, selecciona **Nest Tag Under** y elige la etiqueta principal.
 
+### La etiqueta principal está en uso pero no aparece en **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
+
+Cuando una etiqueta principal está aplicada en el dashboard pero no aparece en el desplegable **Nest Tag Under** mientras creas una nueva etiqueta, vuelve a crear la etiqueta principal como una etiqueta independiente para que sea buscable en la lista. Este comportamiento es esperado cuando la etiqueta principal existe solo como una dependencia anidada en otra parte de tu espacio de trabajo.
+
 ![El cuadro de diálogo de nueva etiqueta con la opción Nest Tag Under seleccionada.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## Mejores prácticas {#tags-best-practices}
@@ -37,7 +41,7 @@ table td {
 </style>
 
 
-<table aria-label="Mejores prácticas #tags-best-practices">
+<table aria-label="Mejores prácticas">
   <caption>Mejores prácticas</caption>
 <thead>
   <tr>

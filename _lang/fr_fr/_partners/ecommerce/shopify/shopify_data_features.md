@@ -19,7 +19,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
 {% tabs %}
-{% tab Example Payload %}
+{% tab Exemple de payload %}
 {% subtabs global %}
 {% subtab Product viewed %}
 ```json
@@ -409,7 +409,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify events %}
+{% tab Événements Shopify %}
 {% subtabs global %}
 {% subtab Product viewed %}
 **Événement** : `ecommerce.product_viewed`<br>
@@ -419,7 +419,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 **Cas d'utilisation** : Abandon de navigation
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 |------------------|-----------------------------------------------------|
 | `product_id`       | `{{event_properties.${product_id}}}`                |
@@ -432,7 +432,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
@@ -454,7 +454,7 @@ Pour les Canvas d'abandon de panier, vous devez d'abord ajouter l'étiquette Liq
 Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes dans votre message.
 
 {% raw %}
-| Variable         | Liquid templating                                   |
+| Variable         | Modèle Liquid                                   |
 |------------------|-----------------------------------------------------|
 | `cart_id`          | `{{ shopping_cart.cart_id }}`                       |
 | `currency`         | `{{ shopping_cart.currency }}`                      |
@@ -469,7 +469,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes d
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% alert tip %}
@@ -500,7 +500,7 @@ Pour les Canvas d'abandon de paiement, vous devez d'abord utiliser l'étiquette 
 Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message pour référencer les produits de votre panier au moment du paiement.
 
 {% raw %}
-| Variable         | Liquid templating                                   |
+| Variable         | Modèle Liquid                                   |
 |------------------|-----------------------------------------------------|
 | `cart_id`          | `{{ shopping_cart.cart_id }}`                       |
 | `currency`         | `{{ shopping_cart.currency }}`                      |
@@ -515,7 +515,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
@@ -527,7 +527,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 **Cas d'utilisation** : Confirmation de commande, reciblage post-achat, ventes incitatives ou croisées
 
 {% raw %}
-| Variable                | Liquid templating                                   |
+| Variable                | Modèle Liquid                                   |
 |-------------------------|-----------------------------------------------------|
 | cart_id                 | `{{event_properties.${cart_id}}}`                   |
 | currency                | `{{event_properties.${currency}}}`                  |
@@ -544,7 +544,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% alert tip %}
@@ -560,7 +560,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Total Price | `{{event_properties.${total_price}}}` |
@@ -599,7 +599,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
@@ -611,7 +611,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Cas d'utilisation** : (Transactionnel) Mise à jour de l'exécution
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Total Price | `{{event_properties.${total_price}}}` |
@@ -650,7 +650,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
@@ -662,7 +662,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Cas d'utilisation** : (Transactionnel) Confirmation de paiement
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Confirmed Status | `{{event_properties.${confirmed}}}` |
@@ -684,19 +684,19 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Événement** : `shopify_cancelled_order`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Événement** : `ecommerce.order_cancelled`<br>
+**Type** : Événement recommandé<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est annulée<br>
 **Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Confirmation d'annulation de commande
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Total Price | `{{event_properties.${total_price}}}` |
@@ -721,18 +721,18 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Événement** : `shopify_order_refunded`<br>
-**Type** : [Événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Événement** : `ecommerce.order_refunded`<br>
+**Type** : Événement recommandé<br>
 **Déclenché** : Lorsque la commande d'un utilisateur est remboursée<br>
 **Source de données** : REST API Braze<br>
 **Cas d'utilisation** : (Transactionnel) Confirmation de remboursement
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 | Order ID | `{{event_properties.${order_id}}}` |
 | Order Note | `{event_properties.${note}}}` |
@@ -746,7 +746,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% endsubtab %}
@@ -759,10 +759,10 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 **Cas d'utilisation** : Série de bienvenue
 
 {% raw %}
-| Variable | Liquid templating |
+| Variable | Modèle Liquid |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Événements Shopify suivis" }
 {% endraw %}
 
 {% alert note %}
@@ -779,7 +779,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 {% multi_lang_include alerts/note_alerts.md alert='Shopify attributes REST API' %}
 
 {% tabs local %}
-{% tab Example Payload %}
+{% tab Exemple de payload %}
 {% subtabs %}
 {% subtab Shopify Tags %}
 ```json
@@ -800,7 +800,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify Custom Attributes %}
+{% tab Attributs personnalisés Shopify %}
 | Nom de l'attribut | Description |
 | --- | --- |
 | `shopify_total_spent` | Le montant total dépensé par le client sur l'ensemble de son historique de commandes. |
@@ -809,7 +809,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 | `shopify_last_order_name` | Le nom de la dernière commande du client. Correspond directement au champ `name` de la ressource de commande. |
 | `shopify_zipcode` | Le code postal du client issu de son adresse par défaut. |
 | `shopify_province` | La province du client issue de son adresse par défaut. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Shopify pris en charge" }
 
 {% alert important %}
 Un problème connu avec la version actuelle de l'API Shopify empêche l'attribut utilisateur `shopify_last_order_name` de se remplir correctement. Voici l'impact sur les utilisateurs :<br><br>
@@ -824,11 +824,11 @@ Cette page sera mise à jour dès que Shopify aura résolu ce problème.
 
 Pour ajouter une personnalisation Liquid à vos attributs personnalisés Shopify, sélectionnez **+ Personalization**. Sélectionnez ensuite **Custom Attributes** comme type de personnalisation.
 
-![La section « Add Personalization » avec la liste déroulante « Attribute » étendue.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![La section « Add Personalization » avec la liste déroulante « Attribute » étendue.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 Après avoir sélectionné votre attribut personnalisé, saisissez une valeur par défaut et copiez l'extrait de code Liquid dans votre message.
 
-![Collage d'un extrait de code Liquid dans un message.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Collage d'un extrait de code Liquid dans un message.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -857,7 +857,7 @@ Pour plus d'informations sur les données collectées par les SDK Braze, consult
 
 Via la [configuration de l'intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) ou la [configuration de l'intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), vous pouvez activer le backfill historique pour cibler vos anciens clients. Cette fonctionnalité importe vos commandes Shopify (événements liés aux commandes) des 90 derniers jours et les profils utilisateurs de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
 
-Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
 {% alert note %}
 Si vous êtes déjà client Braze avec des Campaigns ou des Canvas actifs, vérifiez l'impact des clients et événements de commande importés sur vos Segments et parcours avant d'activer le backfill historique.
@@ -869,17 +869,17 @@ Si vous êtes déjà client Braze avec des Campaigns ou des Canvas actifs, véri
 
 1. Activez le backfill historique dans l'étape **Track Shopify data**.
 
-![L'étape « Track Shopify data » de l'intégration Shopify montrant le backfill historique sélectionné.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![L'étape « Track Shopify data » de l'intégration Shopify montrant le backfill historique sélectionné.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. Une fois la configuration de votre intégration terminée, Braze lance la synchronisation initiale des données. Vous pouvez suivre la progression dans l'onglet **Shopify Data** de vos paramètres d'intégration.
 
-![La page des paramètres d'intégration Shopify avec un indicateur de chargement montrant que les événements sont en cours de synchronisation.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![La page des paramètres d'intégration Shopify avec un indicateur de chargement montrant que les événements sont en cours de synchronisation.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### Données synchronisées {#synced-data}
 
-Lors de la synchronisation initiale, Braze importe les événements de commande des 90 derniers jours et les profils utilisateurs de l'année écoulée, chaque période étant calculée à partir de la date à laquelle vous finalisez votre intégration. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+Lors de la synchronisation initiale, Braze importe les événements de commande des 90 derniers jours et les profils utilisateurs de l'année écoulée, chaque période étant calculée à partir de la date à laquelle vous finalisez votre intégration. Lorsque Braze importe vos clients Shopify, le type d'`external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
 Le tableau suivant résume les données incluses dans ce chargement initial.
 

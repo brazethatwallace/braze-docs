@@ -79,7 +79,7 @@ Esta pré-visualização é atualizada com a personalização relevante e a URL 
 
 Certifique-se de salvar a Campaign ou Canvas antes de enviar uma mensagem de teste para receber uma representação da URL encurtada que é enviada na sua mensagem. Se a Campaign ou Canvas não for salva antes de um envio de teste, o envio de teste incluirá uma URL de espaço reservado.
 
-Para que os Canvas apareçam no filtro "Clicou no link encurtado de SMS", a etapa do Canvas que contém o link encurtado também deve estar ativada com rastreamento avançado, que permite o rastreamento de cliques no nível do usuário. Se o link encurtado estiver configurado com rastreamento básico, a opção de filtrar eventos de clique em links encurtados de SMS não estará disponível.
+Para que os Canvas apareçam no filtro "Clicou no link encurtado de SMS", a etapa do Canvas que contém o link encurtado também deve estar ativada com rastreamento avançado, que permite o rastreamento de cliques no nível do usuário. Se o link encurtado estiver configurado com rastreamento básico, a opção de filtrar eventos de clique em links encurtados de SMS não estará disponível. O mesmo requisito de rastreamento avançado se aplica quando você configura a entrada do Canvas ou jornadas de ação que dependem de links encurtados de SMS clicados.
 
 {% alert important %}
 Se um rascunho for criado dentro de um Canvas ativo, uma URL encurtada não será gerada. A URL encurtada real é gerada quando o rascunho do Canvas é ativado.
@@ -93,11 +93,11 @@ A personalização com Liquid e as URLs encurtadas são processadas na guia **Te
 
 ## Rastreamento de cliques {#click-tracking}
 
-Quando o encurtamento de links está ativado, a tabela **Desempenho de SMS/MMS/RCS** inclui uma coluna intitulada **Total de Cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para saber mais sobre métricas, consulte [Desempenho da mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
+Quando o encurtamento de links está ativado, a tabela **Desempenho de SMS/MMS/RCS** inclui uma coluna intitulada **Total de cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para saber mais sobre métricas, consulte [Desempenho da mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
 ![Tabela de métricas de desempenho de SMS e MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
-As tabelas **Desempenho Histórico** e **Desempenho de SMS/MMS/RCS** também incluem uma opção para **Total de Cliques** e mostram uma série temporal diária de eventos de clique. Os cliques são incrementados no redirecionamento (como quando um usuário visita um link) e podem ser incrementados mais de uma vez por usuário.
+As tabelas **Desempenho histórico** e **Desempenho de SMS/MMS/RCS** também incluem uma opção para **Total de cliques** e mostram uma série temporal diária de eventos de clique. Os cliques são incrementados no redirecionamento (como quando um usuário visita um link) e podem ser incrementados mais de uma vez por usuário.
 
 ## Redirecionamento de usuários {#retargeting-users}
 

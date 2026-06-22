@@ -34,9 +34,13 @@ You may still use this feature even if your app does not offer its own dark them
 
 ### Using Dark Mode consistently
 
-To use Dark Mode for all in-app messages, go to **Templates** > **In-App Message Templates**.
+To use Dark Mode for all in-app messages, first create a color profile that aligns with your Dark Mode theme.
 
-From there, select [Create Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) from the dropdown. Create a Color Profile that aligns with your Dark Mode theme. Then, anytime you create a Dark Mode version of an in-app message, you can select that Color Profile and keep the look of your in-app messages consistent.
+1. Go to **Content** > **In-App Message**.
+2. Select **Create Templates** and choose [Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) from the dropdown.
+3. Create and save your color profile. 
+ 
+When creating a Dark Mode version of an in-app message, you can select that color profile to keep the look of your in-app messages consistent.
 
 ## Compatibility
 

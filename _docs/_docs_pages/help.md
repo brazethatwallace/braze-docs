@@ -2,6 +2,6 @@
 config_only: true
 noindex: true
 layout: redirect
-redirect_to: /docs/help/home/
+redirect_to: /docs/user_guide/home/
 permalink: help/
 ---

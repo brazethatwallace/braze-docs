@@ -14,7 +14,7 @@ description: "이 문서에는 2019년 7월의 릴리스 노트가 포함되어 
 
 ## SAML/SSO
 
-[싱글 사인온]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) (SSO)을 통해 기업들은 Braze 대시보드에 대한 액세스를 안전하고 중앙 집중화된 방식으로 제어할 수 있습니다. 즉, 하나의 자격 증명 세트를 사용하여 Braze를 포함한 다양한 애플리케이션에 액세스할 수 있습니다.
+[싱글 사인온]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/)(SSO)을 통해 기업들은 Braze 대시보드에 대한 액세스를 안전하고 중앙 집중화된 방식으로 제어할 수 있습니다. 즉, 하나의 자격 증명 세트를 사용하여 Braze를 포함한 다양한 애플리케이션에 액세스할 수 있습니다.
 
 [OAuth 2.0 지원을 사용하는 Google 로그인](https://developers.google.com/identity/protocols/OAuth2) 외에도 기업들은 SAML(Security Assertion Markup Language)이 지원되는 SSO를 원합니다. 이를 통해 최신 업계 표준(SAML 2.0)을 지원하는 [Azure 액티브 디렉토리]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso/) 및 [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta/)를 비롯한 대규모 ID 공급자(IdP)와 원활하게 통합할 수 있습니다.
 
@@ -75,7 +75,7 @@ Braze에서 이메일 메시지의 "회신 주소"로 `null` 값을 설정하려
 ## Liquid를 사용하여 발송 ID를 메시지로 템플릿화 {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄됨"인 경우에도 트리거된 이벤트로 취급하기 때문입니다. Canvases와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄됨"인 경우에도 트리거된 이벤트로 취급하기 때문입니다. Canvases와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
 {% endalert %}
 
 메시지 내에서 메시지 발송을 추적하려면(예: URL) `dispatch_id`를 템플릿으로 사용할 수 있습니다. [Canvas Attributes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) 아래의 지원되는 개인화 태그 목록에서 이에 대한 서식을 찾을 수 있습니다.

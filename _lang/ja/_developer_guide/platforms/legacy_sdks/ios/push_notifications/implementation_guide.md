@@ -114,7 +114,7 @@ func didReceive(_ notification: UNNotification) {
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 - (void)didReceiveNotification:(nonnull UNNotification *)notification {
   NSDictionary *userInfo = notification.request.content.userInfo;
 
@@ -152,7 +152,7 @@ func didReceive(_ notification: UNNotification) {
 
 #### ダッシュボードの設定 {#dashboard-configuration}
 
-ダッシュボードで情報キャプチャ対応プッシュを設定するには、カスタムカテゴリを登録および設定し、必要なキーと値のペアを指定する必要があります。例にあるように、プッシュに画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/)を統合し、Campaignの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
+ダッシュボードで情報キャプチャ対応プッシュを設定するには、カスタムカテゴリを登録および設定し、必要なキーと値のペアを指定する必要があります。例にあるように、プッシュに画像を含めることもできます。これを行うには、[リッチプッシュ通知]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/)を統合し、キャンペーンの通知スタイルをリッチプッシュ通知に設定し、リッチプッシュ画像を含める必要があります。
 
 ![キーと値のペアが3セットあるプッシュメッセージ。1.「Braze_id」は Braze ID を取得するための Liquid 呼び出しとして設定。2.「cert_title」は「Braze Marketer Certification」として設定。3.「Cert_description」は「Certified Braze marketers drive...」として設定。]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -164,7 +164,7 @@ func didReceive(_ notification: UNNotification) {
 
 {% tabs %}
 {% tab Swift %}
-``` swift
+````````` swift
 func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
   if response.actionIdentifier == "YOUR-REGISTER-IDENTIFIER" {
     // do something
@@ -175,7 +175,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 - (void)didReceiveNotificationResponse:(UNNotificationResponse *)response completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion {
   if ([response.actionIdentifier isEqualToString:@"YOUR-REGISTER-IDENTIFIER"]) {
     completion(UNNotificationContentExtensionResponseOptionDismiss);
@@ -240,7 +240,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift
+````````` swift
 func saveCustomEvent(with properties: [String: Any]? = nil) {
   // 1
   let customEventDictionary = Dictionary(eventName: "YOUR-EVENT-NAME", properties: properties)
@@ -260,7 +260,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveCustomEvent:(NSDictionary<NSString *, id> *)properties {
   // 1
   NSDictionary<NSString *, id> *customEventDictionary = [[NSDictionary alloc] initWithEventName:@"YOUR-EVENT-NAME" properties:properties];
@@ -295,7 +295,7 @@ SDKの初期化後は、通知コンテンツアプリの拡張機能から保�
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift
+````````` swift
 func logPendingCustomEventsIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingEvents = remoteStorage.retrieve(forKey: .pendingCustomEvents) as? [[String: Any]] else { return }
@@ -331,7 +331,7 @@ func logPendingCustomEventsIfNecessary() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingEventsIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingEvents = [remoteStorage retrieveForKey:RemoteStorageKeyPendingCustomEvents];
@@ -381,7 +381,7 @@ func logPendingCustomEventsIfNecessary() {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift
+````````` swift
 func saveCustomAttribute() {
   // 1
   let customAttributeDictionary: [String: Any] = ["YOUR-CUSTOM-ATTRIBUTE-KEY": "YOUR-CUSTOM-ATTRIBUTE-VALUE"]
@@ -401,7 +401,7 @@ func saveCustomAttribute() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-``` objc
+````````` objc
 - (void)saveCustomAttribute {
   // 1
   NSDictionary<NSString *, id> *customAttributeDictionary = @{ @"YOUR-CUSTOM-ATTRIBUTE-KEY": @"YOUR-CUSTOM-ATTRIBUTE-VALUE" };
@@ -434,7 +434,7 @@ SDKの初期化後は、通知コンテンツアプリの拡張機能から保�
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift
+````````` swift
 func logPendingCustomAttributesIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingAttributes = remoteStorage.retrieve(forKey: .pendingCustomAttributes) as? [[String: Any]] else { return }
@@ -460,7 +460,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingCustomAttributesIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingAttributes = [remoteStorage retrieveForKey:RemoteStorageKeyPendingCustomAttributes];
@@ -498,7 +498,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift
+````````` swift
 func saveUserAttribute() {
   // 1
   guard let data = try? PropertyListEncoder().encode(UserAttribute.userAttributeType("USER-ATTRIBUTE-VALUE")) else { return }
@@ -518,7 +518,7 @@ func saveUserAttribute() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveUserAttribute {
   // 1
   UserAttribute *userAttribute = [[UserAttribute alloc] initWithUserField:@"USER-ATTRIBUTE-VALUE" attributeType:UserAttributeTypeEmail];
@@ -557,7 +557,7 @@ SDKの初期化後は、通知コンテンツアプリの拡張機能から保�
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift
+````````` swift
 func logPendingUserAttributesIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingAttributes = remoteStorage.retrieve(forKey: .pendingUserAttributes) as? [Data] else { return }
@@ -579,7 +579,7 @@ func logPendingUserAttributesIfNecessary() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingUserAttributesIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingAttributes = [remoteStorage retrieveForKey:RemoteStorageKeyPendingUserAttributes];
@@ -618,7 +618,7 @@ func logPendingUserAttributesIfNecessary() {
 {% details RemoteStorage ヘルパーファイル %}
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 enum RemoteStorageKey: String, CaseIterable {
 
   // MARK: - Notification Content Extension Analytics
@@ -668,7 +668,7 @@ class RemoteStorage: NSObject {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @interface RemoteStorage ()
 
 @property (nonatomic) StorageType storageType;
@@ -736,7 +736,7 @@ class RemoteStorage: NSObject {
 {% details UserAttribute ヘルパーファイル %}
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 enum UserAttribute: Hashable {
   case email(String?)
 }
@@ -766,7 +766,7 @@ extension UserAttribute: Codable {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation UserAttribute
 
 - (id)initWithUserField:(NSString *)userField attributeType:(UserAttributeType)attributeType {
@@ -800,7 +800,7 @@ extension UserAttribute: Codable {
 {% details EventName Dictionary ヘルパーファイル %}
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 extension Dictionary where Key == String, Value == Any {
   init(eventName: String, properties: [String: Any]? = nil) {
     self.init()
@@ -816,7 +816,7 @@ extension Dictionary where Key == String, Value == Any {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation NSDictionary (Helper)
 
 - (id)initWithEventName:(NSString *)eventName properties:(NSDictionary *)properties {

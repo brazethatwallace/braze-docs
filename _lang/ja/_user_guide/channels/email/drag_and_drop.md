@@ -12,7 +12,7 @@ tool:
 
 # ドラッグ＆ドロップでメールを作成する {#create-an-email-with-drag-and-drop}
 
-> ドラッグ＆ドロップエディターを使用すると、CampaignsまたはCanvasesのいずれかで、完全にカスタムでパーソナライズされたメールメッセージを作成できます。メール本文の構築にHTMLを使用する必要はありません。
+> ドラッグ＆ドロップエディターを使用すると、CampaignまたはCanvasのいずれかで、完全にカスタムでパーソナライズされたメールメッセージを作成できます。メール本文の構築にHTMLを使用する必要はありません。
 
 ## エディターについて {#about-the-editor}
 
@@ -20,10 +20,13 @@ tool:
 
 <table aria-label="エディターについて" style="width: 100%; table-layout: fixed;">
     <caption>コンテンツと行のエディターコンポーネント</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">コンテンツ</th>
         <th style="width: 50%;">行</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="メールレイアウト用のさまざまな構造の組み合わせを含む「行」タブ。" style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ tool:
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="基本ブロック、メディア、詳細設定を含む「コンテンツ」タブ。" style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="エディターについて" }
 
@@ -68,13 +72,21 @@ tool:
 
 **行**は、列を使用してメッセージのセクションの水平方向の構成を定義する構造単位です。空の行または[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)を使用できます。複数の列を使用すると、異なるコンテンツ要素を横に並べて配置できます。これにより、開始時に選択したテンプレートに関係なく、メッセージに必要なすべての構造要素を追加できます。
 
+#### テキストブロック内への画像のネスト {#nesting-images-inside-text-blocks}
+
+ドラッグ＆ドロップエディターでは、段落やその他のテキストブロック内に画像をネストすることはできません。テキストレイアウトの横や中に画像を配置するには、**行**の列を使用します。たとえば、デスクトップ用にはその行に**モバイルで非表示**を設定した複数列の行を使用し、モバイル用には別途モバイル専用の行（**デスクトップで非表示**と**モバイルでスタックしない**を必要に応じて設定）を使用することで、小さな画面でも画像とテキストがきれいに配置されます。
+
 #### カードスタイル {#cards-style}
 
 **カードスタイル**は、列間にスペースを追加し、角を丸くできる行プロパティです。カードスタイルのフォーマットを使用すると、新製品の機能、お客様の声、特別オファー、ニュース更新など、最も重要なコンテンツを強調するための、より視覚的に魅力的なレイアウトを作成できます。
 
 ## ドラッグ＆ドロップエディターの使用 {#using-the-drag-and-drop-editor}
 
-メールメッセージをCampaignで送信するかCanvasで送信するか迷っていますか？Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
+メールメッセージをCampaignで送信するかCanvasで送信するか迷っていますか？Campaignは単一のターゲットメッセージングに適しており、Canvasはマルチステップのユーザージャーニーに適しています。
+
+{% alert note %}
+ドラッグ＆ドロップメールをCampaignまたはCanvasから直接**テンプレート** > **メールテンプレート**にメールテンプレートとして保存することはできません。まず**テンプレート**で構築するか、[CampaignまたはCanvas内で構築した後にドラッグ＆ドロップメールをテンプレートとして保存できますか？]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas)を参照して、ドラッグ＆ドロップテンプレートの再作成や**ファイルをダウンロード**でHTMLをエクスポートする方法をご確認ください。
+{% endalert %}
 
 メッセージの作成場所を選択したら、ドラッグ＆ドロップメールを作成する手順を見ていきましょう。
 
@@ -87,7 +99,7 @@ tool:
 - 保存済みのドラッグ＆ドロップメールテンプレートを使用する。
 
 {% alert note %}
-既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用するには、**テンプレート** > **メールテンプレート**に移動し、編集エクスペリエンスとして**ドラッグ＆ドロップエディター**を選択してテンプレートを再作成する必要があります。
+既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用するには、**コンテンツ** > **メール**に移動し、編集エクスペリエンスとして**ドラッグ＆ドロップエディター**を選択してテンプレートを再作成する必要があります。
 {% endalert %}
 
 すべてのテンプレートには**テンプレート**セクションからもアクセスできます。
@@ -134,15 +146,7 @@ tool:
 
 右側のパネルのプレビューに、追加した送信情報が表示されます。この情報は、**設定** > **メール設定** > **送信設定**に移動して更新することもできます。
 
-#### メールヘッダーのパーソナライズ（詳細設定） {#personalizing-your-email-header-advanced}
-
-**送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダー（ESP）に追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
-
-{% alert note %}
-詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
-{% endalert %}
-
-#### メール添付ファイルの追加 {#adding-email-attachments}
+#### メール添付ファイルの追加 {#add-email-attachments}
 
 **送信設定** > **詳細設定**で、以下の方法でメール添付ファイルを追加できます。
 
@@ -151,6 +155,14 @@ tool:
 - **URLから追加:** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていないことに注意してください。
 
 考慮すべき具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
+#### メールヘッダーのパーソナライズ（詳細設定） {#personalize-your-email-header-advanced}
+
+**送信設定**の下で、メールヘッダーとメールエクストラのパーソナライゼーションを追加できます。これにより、他のメールサービスプロバイダーに追加データを送信できます。受信者の名前を含めるなど、メールヘッダーをパーソナライズすることで、メールが開封される可能性を高めることもできます。
+
+{% alert note %}
+詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
+{% endalert %}
 
 ### ステップ 4: メールをテストする {#step-4-test-your-email}
 
@@ -202,8 +214,8 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 エクスポートされるHTMLデータの平均フットプリントサイズが削減され、読み込みとレンダリングの高速化、モバイルでのクリッピングの削減、帯域幅消費の削減につながりました。
 
 HTMLレンダリングは、条件付きコメントとCSSメディアクエリの数を最小限に抑える以下の更新に基づいて改善されました。その結果、HTMLファイルはより小さく、より効率的にコーディングされています。
-- `<div>` 要素ベースのデザインから標準的な `<table aria-label="Use Inbox Vision">` フォーマットのコードベースへの移行
-  <caption>Use Inbox Vision</caption>
+- `<div>` 要素ベースのデザインから標準的な `<table aria-label="Inbox Visionを使用する">` フォーマットのコードベースへの移行
+  <caption>Inbox Visionを使用する</caption>
 - [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)が簡潔さのために再コーディングされました
 - 最終的なHTMLコードはタグ間の空白を削除するために圧縮されます
 - 透明な区切り線はコンテンツパディングに自動的に変換されます
@@ -237,11 +249,11 @@ HTMLレンダリングは、条件付きコメントとCSSメディアクエリ�
 
 ### コンテンツバックグラウンド {#content-background}
 
-行の設定にバックグラウンド画像を追加して、メールCampaignにより多くのデザインとビジュアルコンテンツを組み込むことができます。
+行の設定にバックグラウンド画像を追加して、メールキャンペーンにより多くのデザインとビジュアルコンテンツを組み込むことができます。
 
 ### 言語属性 {#language-attribute}
 
-**設定**タブに移動し、目的の言語を選択することで、言語属性を設定できます。メッセージがダイナミックな言語値を持つユーザーを対象としている場合は、ユーザー属性 {%raw%} `{{${language}}}` {%endraw%} をターゲットにすることもできます。
+**設定**タブに移動し、目的の言語を選択することで、言語属性を設定できます。メッセージがダイナミックな言語値を持つユーザーを対象としている場合は、ユーザー属性{%raw%}`{{${language}}}`{%endraw%}をターゲットにすることもできます。
 
 ![メールの「言語」値を設定する画面。]({% image_buster /assets/img/dnd/language_setting_dnd.png %}){: style="max-width:70%;"}
 
@@ -260,10 +272,10 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 
 #### ダイナミック画像 {#dynamic-images}
 
-画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
+画像ソース属性に[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content)または[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることで、メールメッセージングにダイナミック画像を含めることができます。たとえば、静的な画像の代わりに、画像URLとして{% raw %}`https://example.com/images/?imageBanner={{first_name}}`{% endraw %}を挿入して、画像にユーザーの名を含めることができます。これにより、各ユーザーに合わせてメールをパーソナライズできます。
 
 {% alert important %}
-画像URLは `https://` で始まる必要があります。`http://` を使用するとアプリがクラッシュします。
+画像URLは`https://`で始まる必要があります。`http://`を使用するとアプリがクラッシュします。
 {% endalert %}
 
 ### テキスト方向 {#text-direction}

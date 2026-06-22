@@ -32,7 +32,7 @@ BrazeとAmperityの統合により、2つのプラットフォームにわたる
 | Brazeインスタンス | Brazeインスタンスは、Brazeオンボーディングマネージャーから入手するか、[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)で確認できます。 |
 | Braze RESTエンドポイント | BrazeエンドポイントURL。エンドポイントはBrazeインスタンスに依存します。 |
 | Currentsコネクター（オプション） | S3 Currentsコネクター。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## データマッピング {#data-mapping}
 
@@ -153,7 +153,7 @@ Amperityのクエリ機能に移動し、目的の顧客データセットを得
 1. **Orchestration**セクションに移動し、新しいオーケストレーションを追加するオプションをクリックします。
 2. オーケストレーションが何を行うべきかを指定します。これには通常、実行するSQLクエリと結果の送信先を指定することが含まれます。この場合、アクティブな顧客のリストを生成するために作成したSQLクエリを選択し、結果の送信先としてBrazeを指定します。
 3. オーケストレーションをいつ、どのくらいの頻度で実行するかを定義します。たとえば、毎日特定の時間にオーケストレーションを実行できます。
-4. オーケストレーションを好みに設定したら保存します。Amperityのオーケストレーションリストに追加されます。
+4. オーケストレーションを好みに合わせて設定したら保存します。Amperityのオーケストレーションリストに追加されます。
 5. オーケストレーションをテストして、期待通りに動作することを確認します。手動でオーケストレーションをトリガーし、Brazeで結果を確認することで検証できます。
 
 ##### ステップ3：オーケストレーションを実行する {#step-3-run-the-orchestration}
@@ -169,7 +169,7 @@ AmpIQユーザーは、SQL以外のインターフェイスを使ってAmperity�
 Amperityで顧客のリストを返すSegmentを作成します。このSegmentは、Brazeで更新するカスタム属性に関連付けられている必要があります。
 
 {% alert note %}
-Amperityのドキュメントで、Brazeに送信できるさまざまなセグメントタイプの例を確認してください。
+Amperityのドキュメントで、Brazeに送信できるさまざまなSegmentタイプの例を確認してください。
 {% endalert %}
 
 ##### ステップ2：AmperityでCampaignを構築する {#step-2-build-a-campaign-in-amperity}

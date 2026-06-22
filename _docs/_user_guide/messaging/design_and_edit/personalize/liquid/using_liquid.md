@@ -208,6 +208,10 @@ If you use Liquid in your email messages, be sure to:
 
 {% endalert %}
 
+### Switching between HTML and Classic editors
+
+When you switch between the HTML and Classic editors, Liquid snippets and Content Blocks can shift position in your message. Review your template after you switch editors. If you need more predictable layout control, use the Drag-and-Drop Editor.
+
 ### Inserting pre-formatted variables
 
 You can insert pre-formatted variables with defaults through the **Add Personalization** modal located near any templated text field.

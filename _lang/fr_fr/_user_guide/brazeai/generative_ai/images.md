@@ -5,15 +5,15 @@ page_order: 10
 description: "Découvrez comment générer des images pour votre bibliothèque multimédia à l'aide de DALL·E 3, un système d'intelligence artificielle d'OpenAI et un fournisseur tiers de Braze."
 ---
 
-# Générer des images avec BrazeAI
+# Générer des images avec BrazeAI {#generate-images-with-brazeai}
 
 > {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
-## À propos de la bibliothèque multimédia
+## À propos de la bibliothèque multimédia {#about-the-media-library}
 
-La bibliothèque multimédia vous permet de gérer vos ressources de façon centralisée. Pour accéder à votre bibliothèque multimédia Braze, allez dans **Modèles** > **Bibliothèque multimédia**. Pour plus d'informations, consultez la rubrique [Bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+La bibliothèque multimédia vous permet de gérer vos ressources de façon centralisée. Pour accéder à votre bibliothèque multimédia Braze, allez dans **Contenu** > **Bibliothèque multimédia**. Pour plus d'informations, consultez la rubrique [Bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 
-## Générer une image
+## Générer une image {#generating-an-image}
 
 1. Allez dans votre bibliothèque multimédia, puis sélectionnez <i class="fas fa-wand-magic-sparkles"></i> **Générateur d'images IA**.
 2. Saisissez une description de l'image que vous souhaitez générer, jusqu'à 300 caractères. Plus la description est détaillée, meilleur sera le résultat. Cette fonctionnalité ne prend en charge que la saisie de texte — il n'est pas possible d'importer une image comme référence.

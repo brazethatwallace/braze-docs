@@ -1,16 +1,20 @@
 ---
-nav_title: Journal des modifications de Currents
-article_title: Journal des modifications de Currents
-page_order: 3
+nav_title: Journal des modifications des événements Currents
+page_order: 6
 description: "Cette page présente les modifications apportées aux événements pour chaque version de Currents."
 tool: Currents
 ---
 
-# Journal des modifications de Currents
+# Journal des modifications de Currents {#currents-changelog}
 
-> Cette page répertorie les modifications d'événements et de schémas pour chaque version de Braze Currents.
+## Modifications de la version 9 (date de publication : 03/06/2026) {#changes-in-version-9-release-date-2026-06-03}
 
-## Modifications de la version 8 (date de publication : 06/05/2026)
+### Modifications relatives au stockage : {#changes-for-storage}
+
+* Modifications de champs pour le type d'événement `users.messages.email.Send` :
+    * Ajout d'un nouveau champ `string` `from_domain` : Domaine d'envoi de l'e-mail
+
+## Modifications de la version 8 (date de publication : 06/05/2026) {#changes-in-version-8-release-date-2026-05-06}
 
 ### Modifications relatives au stockage :
 
@@ -38,9 +42,11 @@ tool: Currents
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Send` :
     * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
 
-## Modifications de la version 7 (date de publication : 01/04/2026)
+## Modifications de la version 7 (date de publication : 01/04/2026) {#changes-in-version-7-release-date-2026-04-01}
 
 ### Modifications relatives au stockage :
+
+* Ajout d'un nouveau type d'événement `users.profile.Update`.
 
 * Modifications de champs pour le type d'événement `users.messages.banner.Abort` :
     * Ajout d'un nouveau champ `string` `canvas_name` : Nom du Canvas
@@ -69,7 +75,7 @@ tool: Currents
     * Ajout d'un nouveau champ `string` `canvas_variation_id` : ID de l'API de la variante du Canvas à laquelle cet événement appartient
     * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
 
-## Modifications de la version 6 (date de publication : 04/03/2026)
+## Modifications de la version 6 (date de publication : 04/03/2026) {#changes-in-version-6-release-date-2026-03-04}
 
 ### Modifications relatives au stockage :
 
@@ -82,7 +88,7 @@ tool: Currents
 * Modifications de champs pour le type d'événement `users.messages.rcs.InboundReceive` :
     * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
 
-## Modifications de la version 5 (date de publication : 04/02/2026)
+## Modifications de la version 5 (date de publication : 04/02/2026) {#changes-in-version-5-release-date-2026-02-04}
 
 ### Modifications relatives au stockage :
 
@@ -105,7 +111,7 @@ tool: Currents
 * Modifications de champs pour le type d'événement `users.behaviors.pushnotification.TokenStateChange` :
     * Ajout d'un nouveau champ `long` `time_ms` : Horodatage en millisecondes de l'événement
 
-## Modifications de la version 4 (date de publication : 07/01/2026)
+## Modifications de la version 4 (date de publication : 07/01/2026) {#changes-in-version-4-release-date-2026-01-07}
 
 ### Modifications relatives au stockage :
 
@@ -128,7 +134,7 @@ tool: Currents
 * Modifications de champs pour le type d'événement `users.messages.rcs.Rejection` :
     * Ajout d'un nouveau champ `string` `canvas_step_message_variation_id` : ID de l'API de la variante de message de l'étape du Canvas reçue par cet utilisateur
 
-## Modifications de la version 3 (date de publication : 08/10/2025)
+## Modifications de la version 3 (date de publication : 08/10/2025) {#changes-in-version-3-release-date-2025-10-08}
 
 ### Modifications relatives au stockage :
 
@@ -191,7 +197,7 @@ tool: Currents
     * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présent lors de l'envoi d'un message modèle.
     * Ajout d'un nouveau champ `string` `message_id` : ID unique généré par Meta pour ce message
 
-## Modifications de la version 2 (date de publication non disponible)
+## Modifications de la version 2 (date de publication non disponible) {#changes-in-version-2-release-date-null}
 
 ### Modifications relatives au stockage :
 

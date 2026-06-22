@@ -31,7 +31,7 @@ These are the minimum SDK versions needed to create Banner placements:
 
 ### Step 2: Refresh placements in your app {#requestBannersRefresh}
 
-Placements can be refreshed by calling the refresh methods described below. These placements will be cached automatically when a user's session expires or when you change identified users using the `changeUser` method.
+Placements can be refreshed by calling the refresh methods described below. If `subscribeToBannersUpdates` is active, the SDK automatically re-publishes your cached placement IDs at the start of each new session and when you call `changeUser`. This automatic refresh does not consume a rate limiting token.
 
 {% alert tip %}
 Refresh placements as soon as possible to avoid delays in downloading or displaying Banners.
@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+Your banner update listener reflects the SDK's in-memory banner state. A single update can include placements that were already cached (for example, from an earlier refresh, another screen, or automatic SDK work), not only the placement IDs from your most recent `requestRefresh` call. If you care only about certain placements, check each banner's placement ID in your listener and skip the rest. When you've registered your listener, call `requestRefresh` for the placements you want to sync from Braze.
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+Your banner update listener reflects the SDK's in-memory banner state. A single update can include placements that were already cached (for example, from an earlier refresh, another screen, or automatic SDK work), not only the placement IDs from your most recent `requestBannersRefresh` call. If you care only about certain placements, check each banner's placement ID in your listener and skip the rest. When you've registered your listener, call `requestBannersRefresh` for the placements you want to sync from Braze.
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -410,10 +430,45 @@ If you're using Android Views, use this XML:
     app:placementId="global_banner" />
 ```
 
-If you're using Jetpack Compose, you can use this:
+To use Jetpack Compose, add the `com.braze:android-sdk-jetpack-compose` artifact to your app module. Use the same version as your other Braze Android SDK dependencies. This module is separate from `android-sdk-ui` and ships the [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) composable under `com.braze.jetpackcompose.banners`.
+
+{% alert note %}
+Some Compose UI libraries define their own `Banner` composable. Import `com.braze.jetpackcompose.banners.Banner` explicitly so you call Braze's API.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+Optionally pass `heightCallback` to receive the rendered height in dp when the banner size changes. For reference, see the [KDoc for `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+
+If you don't add the Jetpack Compose module, wrap [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) in [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView):
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 To get the Banner in Kotlin, use:
@@ -500,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### Step 5: Send a test Banner (optional) {#handling-test-cards}
 
-Before you launch a Banner campaign, you can [send a test Banner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) to verify your integration. Test Banners will be stored in a separate in-memory cache and won't persist across app restarts. While no extra setup is needed, your test device must be capable of receiving foreground push notifications so it can display the test.
+Before you launch a Banner campaign, you can [send a test Banner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) to verify your integration. Test Banners are stored in a separate in-memory cache and don't persist across app restarts. While no extra setup is needed, your test device must be capable of receiving foreground push notifications so it can display the test.
 
 {% alert note %}
 Test Banners are like any other banners, except they're removed at the next app session.
@@ -653,11 +708,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 ## Log dismissals
 
-Banner dismissals programmatically remove a Banner from a placement when a user actively dismisses it. Once dismissed, the Banner is suppressed for that user. The next time the list of placements is refreshed, a new banner will be returned if the user is eligible for one.
-
-{% alert important %}
-Banner dismissals are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
-{% endalert %}
+Banner dismissals programmatically remove a Banner from a placement when a user actively dismisses it. When dismissed, the Banner is suppressed for that user. The next time the list of placements is refreshed, a new banner is returned if the user is eligible for one.
 
 ### Prerequisites
 
@@ -668,7 +719,7 @@ These are the minimum SDK versions required to log Banner dismissals:
 ### Integrations
 #### Standard Banner integrations (drag-and-drop editor)
 
-If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message will be hidden, trigger a dismissal and then record a dismissal event for analytics.
+If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message is hidden, triggers a dismissal, and then records a dismissal event for analytics.
 
 #### Custom Code Blocks
 
@@ -815,7 +866,7 @@ You can use custom properties from your Banner campaign to retrieve key–value 
 
 ### Prerequisites
 
-You'll need to [add custom properties]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) to your Banner campaign. Additionally, these are the minimum SDK versions required to access custom properties:
+You must [add custom properties]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) to your Banner campaign. Additionally, these are the minimum SDK versions required to access custom properties:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

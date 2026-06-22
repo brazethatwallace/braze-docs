@@ -23,7 +23,7 @@ _この統合はAccuWeatherによって管理されています。_
 
 ## 利用可能なAccuWeather API {#available-accuweather-apis}
 
-以下は、BrazeのCampaignsやCanvasesで参照できるAccuWeather APIです。
+以下は、Brazeのキャンペーンやキャンバスで参照できるAccuWeather APIです。
 
 | API | 説明 |
 |---|---|

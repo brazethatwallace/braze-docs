@@ -83,7 +83,6 @@ Braze automatically updates the plaintext version from the HTML version until it
 To add motion in an email with an accurate preview, use GIFs instead of elements that require JavaScript, as most inboxes don't support JavaScript.
 {% endalert %}
 
-![Email Variants panel for composing your email.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze automatically removes HTML event handlers referenced as attributes. This modifies the HTML, so re-check the email after you finish. Learn more about [HTML handlers](https://www.w3schools.com/tags/ref_eventattributes.asp).
@@ -136,6 +135,16 @@ A preview in the right-hand panel will populate with the sending information you
 Under **Sending Settings** > **Advanced**, turn on **inline CSS** for the widest client support. If messages clip or images stretch to row height, try turning inline CSS **off** temporarily. Some templates behave better without inlining.
 
 You can also add personalization for email headers and email extras to send additional data back to other email service providers.
+
+##### Email attachments
+
+You can also add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
 ##### Email headers
 
@@ -233,6 +242,10 @@ Email clients that support preview text always pull in enough characters to fill
 For the drag-and-drop editor, add only the zero-width non-joiners (‌`&zwnj;`) without the `<div>` formatting directly in the preheader in the **Sending Settings** section.
 {% endalert %}
 
+{% alert note %}
+In the Apple Mail app, image links in HTML email must use `https://` URLs to be clickable. Use secure links for any image wrapped in an anchor tag when you expect clicks from Apple Mail recipients.
+{% endalert %}
+
 ### Step 3.3: Check for email errors
 
 Before send, the editor flags common issues:
@@ -254,7 +267,7 @@ Before send, the editor flags common issues:
 {% tab Campaign %}
 Next, build the remainder of your campaign. See the following sections for details on how to use Braze tools to build your email campaign.
 
-#### Choose delivery schedule or trigger
+### Choose delivery schedule or trigger
 
 Deliver emails based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -262,9 +275,9 @@ Deliver emails based on a scheduled time, an action, or an API trigger. For more
 For API-triggered campaigns, when the trigger action is set to **Interact With Campaign**, selecting a **Receive** option as the interaction will cause your new campaign to trigger as soon as Braze marks the selected campaign as sent, even if that message bounces or fails to be delivered.
 {% endalert %}
 
-You can also set the campaign's duration, specify [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
+You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
-#### Choose users to target
+### Choose users to target
 
 Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters. Braze shows a live preview of the segment population, including how many users are reachable through email. Exact segment membership is calculated just before send.
 
@@ -278,7 +291,7 @@ Optionally, you can also limit delivery to a specified number of users within th
 When creating a new email campaign, the Control Group defaults to 20% and can be adjusted or removed as needed for your campaign.
 {% endalert %}
 
-##### Multichannel campaigns with email and push
+#### Multichannel campaigns with email and push
 
 For multichannel campaigns targeting both email and push channels, you may want to limit your campaign so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in statuses:
 
@@ -292,7 +305,7 @@ To do so, under **Audience Summary**, select to send this campaign to "opted-in 
 With this configuration, don't include any filters in the **Target Audiences** step that limit the audience to a single channel (for example, `Foreground Push Enabled = True` or `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Choose conversion events
+### Choose conversion events
 
 Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You can specify any of the following actions as a conversion event:
 

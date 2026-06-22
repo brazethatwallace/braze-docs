@@ -17,7 +17,7 @@ Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchge
 
 Einige häufige Anwendungsfälle für angepasste Events sind:
 
-- Auslösen einer Kampagne oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
+- Auslösen einer Campaign oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
 - Segmentierung der Nutzer:innen danach, wie oft sie ein angepasstes Event durchgeführt haben, wann das Event zuletzt aufgetreten ist und Ähnliches
 - Nutzung der Dashboard-[Analytics für angepasste Events](#analytics), um eine aggregierte Ansicht darüber zu erhalten, wie oft jedes Event aufgetreten ist
 - Zusätzliche Analytics mithilfe von [Funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps)- und [Bindungs]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)-Berichten gewinnen
@@ -45,10 +45,6 @@ Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in ande
 
 Weitere Details zum Blockieren und Löschen angepasster Daten finden Sie unter [Angepasste Daten auf die Blocklist setzen]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Als personenbezogene Daten (PII) markieren {#marking-as-personally-identifiable-information-pii}
-
-Administrator:innen können auf dieser Seite auch angepasste Events erstellen und als PII markieren. Diese Events sind nur für Administrator:innen und Dashboard-Nutzer:innen mit der Berechtigung „Angepasste Attribute anzeigen, die als PII markiert sind“ sichtbar.
-
 ### Beschreibungen hinzufügen {#adding-descriptions}
 
 Sie können einem angepassten Event nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases` haben. Wählen Sie **Beschreibung bearbeiten** für das angepasste Event und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
@@ -60,6 +56,10 @@ Sie können einem angepassten Event nach der Erstellung Tags hinzufügen, wenn S
 ### Daten exportieren {#exporting-data}
 
 Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie oben auf der Seite **Alle exportieren**. Die CSV-Datei wird generiert und ein Download-Link wird Ihnen per E-Mail zugesendet.
+
+{% alert note %}
+Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Aufnahmevolumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Kontoteam an der Modellierung und Datenhygiene (z. B. [Blocklisting]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) ungenutzter Daten).
+{% endalert %}
 
 ## Nutzungsberichte anzeigen {#viewing-usage-reports}
 

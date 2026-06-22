@@ -115,6 +115,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 - `prioritization` が正確に1つのユーザープロファイルを返さない場合、Brazeは最大40回まで解決をリトライします。このリトライ動作は想定されたものです。
 - `send_to_existing_only` の設定は `prioritization` の同点動作を変更しません。この設定が `true` でも `false` でも、同じ同点およびリトライ動作が適用されます。
 
+`external_user_id` または `user_alias` で識別された受信者に対してメール専用Campaignをトリガーし、そのユーザープロファイルに呼び出し時点でメールアドレスがない場合、Brazeは約2時間まで送信をリトライします。これは、ユーザーの作成とメールアドレスの設定が短い間隔で行われる一般的なパターンに対応しています。遅延なく送信するには、`recipients[].attributes` 内に `email` 属性を含めて、トリガーと同じ呼び出しでアドレスを設定してください。
+
 {% alert note %}
 このエンドポイントでは `segment_id` パラメーターはサポートされていません。Segmentをターゲットにするには、BrazeダッシュボードのCampaignのターゲットオーディエンス設定でSegmentを設定し、`"broadcast": true` を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで `audience` パラメーターを使用してください。
 {% endalert %}
@@ -201,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## 応答の詳細 {#response-details}
 
-メッセージ送信エンドポイントの応答には、メッセージのディスパッチを参照するための `dispatch_id` が含まれます。`dispatch_id` はメッセージディスパッチのIDで、Brazeから送信される各送信に固有のIDです。このエンドポイントを使用すると、バッチ処理されたユーザーセット全体に対して単一の `dispatch_id` を受け取ります。`dispatch_id` の詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)に関するドキュメントを参照してください。
+メッセージ送信エンドポイントの応答には、メッセージのディスパッチを参照するための `dispatch_id` が含まれます。`dispatch_id` はメッセージディスパッチのIDで、Brazeから送信される各送信に固有のIDです。このエンドポイントを使用すると、バッチ処理されたユーザーセット全体に対して単一の `dispatch_id` を受け取ります。`dispatch_id` の詳細については、[ディスパッチIDの動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)に関するドキュメントを参照してください。
 
 リクエストで致命的なエラーが発生した場合のエラーコードと説明については、[エラーとレスポンス]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 

@@ -43,7 +43,7 @@ Android 10以降のデバイスでは、アプリがバックグラウンドで�
 
 Brazeの設定で位置情報の収集が有効になっていることを確認してください。自動位置情報収集なしでジオフェンスを有効にしたい場合は、`Braze.xml`に以下を設定します：
 
-```xml
+`````````xml
 <bool name="com_braze_enable_location_collection">true</bool>
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
@@ -52,7 +52,7 @@ Brazeの設定で位置情報の収集が有効になっていることを確認
 
 ジオフェンスを登録する前に、ユーザーから位置情報の権限をリクエストする必要があります。C#コードでは、次のパターンを使用します：
 
-```csharp
+`````````csharp
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
 
@@ -69,7 +69,7 @@ public override void OnRequestPermissionsResult(int requestCode, string[] permis
 
 権限が付与された後、Brazeの位置情報収集を初期化します：
 
-```csharp
+`````````csharp
 Braze.GetInstance(this).RequestLocationInitialization();
 ```
 
@@ -77,7 +77,7 @@ Braze.GetInstance(this).RequestLocationInitialization();
 
 特定のロケーションに対してジオフェンスを手動でリクエストするには：
 
-```csharp
+`````````csharp
 Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 ```
 
@@ -97,7 +97,7 @@ Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 
 `Info.plist`に位置情報サービスの使用説明文字列を追加します：
 
-```xml
+`````````xml
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 <string>This app uses your location to enable geofences and location-based messaging.</string>
 <key>NSLocationWhenInUseUsageDescription</key>
@@ -112,7 +112,7 @@ Appleは`NSLocationAlwaysUsageDescription`を廃止しました。iOS 14以降�
 
 アプリの起動コード（例：`App.xaml.cs`）で、ジオフェンスを有効にしてBrazeを設定します：
 
-```csharp
+`````````csharp
 using BrazeKit;
 using BrazeLocation;
 
@@ -129,7 +129,7 @@ var braze = new Braze(configuration);
 
 バックグラウンドでジオフェンスを監視するには、`Info.plist`に以下の設定を追加して**Location updates**バックグラウンドモードを有効にします：
 
-```xml
+`````````xml
 <key>UIBackgroundModes</key>
 <array>
   <string>location</string>
@@ -138,7 +138,7 @@ var braze = new Braze(configuration);
 
 次に、Brazeの設定で以下を設定します：
 
-```csharp
+`````````csharp
 configuration.Location.AllowBackgroundGeofenceUpdates = true;
 configuration.Location.DistanceFilter = 8000; // meters
 ```
@@ -151,7 +151,7 @@ configuration.Location.DistanceFilter = 8000; // meters
 
 ユーザーから`When In Use`または`Always`の許可をリクエストします：
 
-```csharp
+`````````csharp
 using CoreLocation;
 
 var locationManager = new CLLocationManager();

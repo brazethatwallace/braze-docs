@@ -36,18 +36,32 @@ As a convenience, a summary of supported personalization tags are provided. For 
 
 {% endraw %}
 
+{% alert note %}
+API trigger properties must use two curly braces per tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`){% endraw %} are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
+
 ### Supported attributes
 
 Campaign, Card, and Canvas attributes are only supported in their corresponding messaging templates (for example, `dispatch_id` isn't available in in-app message campaigns).
 
-Refer to this help article to learn more about [how some of these attributes differ across sources in Braze]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+For more detail, see [Campaign and Canvas attributes across sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
 ### Canvas and campaign tag differences 
 
 The behavior for the following tags differs between Canvas and campaigns:
 {% raw %}
-- `dispatch_id` behavior differs because Braze treats Canvas steps as triggered events, even when they are "scheduled" (except for entry steps, which can be scheduled). To learn more, refer to [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+- `dispatch_id` behavior differs because Braze treats Canvas steps as triggered events, even when they are "scheduled" (except for entry steps, which can be scheduled). For more information, see [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - Using the `{{campaign.${name}}}` tag with Canvas displays the Canvas component name. When using this tag with campaigns, it displays the campaign name.
+{% endraw %}
+
+#### Campaign names in URLs {#campaign-names-in-urls}
+
+{% raw %}
+Campaign and message variant names can include characters that are not URL-safe, such as `%`, spaces, or `&`. When you insert `{{campaign.${name}}}` or `{{campaign.${message_name}}}` in a link or query string, such as a `utm_campaign` parameter, apply the [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) filter so the URL parses correctly. For example:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## Most recently used device information
@@ -62,7 +76,7 @@ You can template the following attributes for the user's most recent device acro
 |`{{most_recently_used_device.${id}}}` | The Braze device identifier. On iOS, this can be the Apple Identifier for Vendor (IDFV) or a UUID. For Android and other platforms, it's a randomly generated UUID. |
 | `{{most_recently_used_device.${carrier}}}` | The most recently used device's telephone service carrier, if available. Examples include "Verizon" and "Orange". |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | If the device has ad tracking enabled or not. This is a boolean value (`true` or `false`). |
-| `{{most_recently_used_device.${idfa}}}` | For iOS devices, this value is the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). For non-iOS devices, this value is null. |
+| `{{most_recently_used_device.${idfa}}}` | For iOS devices, this value is the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection). For non-iOS devices, this value is null. |
 | `{{most_recently_used_device.${google_ad_id}}}` | For Android devices, this value is the Google Play Advertising Identifier if your application is configured with our optional Google Play Advertising ID collection. For non-Android devices, this value is null. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | For Roku devices, this value is the Roku Advertising Identifier that is collected when your application is configured with Braze. For non-Roku devices, this value is null. |
 | `{{most_recently_used_device.${model}}}` | The device's model name, if available. Examples include "iPhone 6S" and "Nexus 6P" and "Firefox". |
@@ -101,7 +115,7 @@ For push notifications, in-app messages, and Banners, you can template in the fo
 |------------------|---|
 | `{{targeted_device.${id}}}` | This is the Braze device identifier. On iOS, this can be the Apple Identifier for Vendor (IDFV) or a UUID. For Android and other platforms, it is a randomly generated UUID. For example, if a user has five devices, a send attempt occurs for all five devices, each using the corresponding device identifier. If a message is configured to send to a user's most recently used device, only one send attempt  occurs to the most recently used device identified through Braze. |
 | `{{targeted_device.${carrier}}}` | The most recently used device's telephone service carrier, if available. Examples include "Verizon" and "Orange". |
-| `{{targeted_device.${idfa}}}` | For iOS devices, this value is the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). For non-iOS devices, this value is null. |
+| `{{targeted_device.${idfa}}}` | For iOS devices, this value is the Identifier for Advertising (IDFA) if your application is configured with our [optional IDFA collection]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection). For non-iOS devices, this value is null. |
 | `{{targeted_device.${google_ad_id}}}` | For Android devices, this value is the Google Play Advertising Identifier if your application is configured with our [optional Google Play Advertising ID collection]. For non-Android devices, this value is null. |
 | `{{targeted_device.${roku_ad_id}}}` | For Roku devices, this value is the Roku Advertising Identifier that is collected when your application is configured with Braze. For non-Roku devices, this value is null. |
 | `{{targeted_device.${model}}}` | The device's model name, if available. Examples include "iPhone 6S" and "Nexus 6P" and "Firefox". |

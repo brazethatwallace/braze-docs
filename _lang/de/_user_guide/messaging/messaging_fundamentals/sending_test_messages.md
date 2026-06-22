@@ -243,7 +243,9 @@ Der Scanner wird automatisch bei benutzerdefinierten HTML-Nachrichten ausgeführ
 
 ![Test-Push]({% image_buster /assets/img_archive/testpush.png %})
 
-#### Web-Push
+Wenn Sie einen Fehler sehen, dass keine der ausgewählten Nutzer:innen übereinstimmende Push-Token haben, hat die Testnutzer:in kein gültiges Push-Token für die ausgewählte Plattform. Die Nutzer:innen müssen eine Sitzung in der App gestartet und Push für dieses Gerät aktiviert haben. Weitere Informationen finden Sie unter [Push-Aktivierung und Push-Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+
+#### Web-Push {#web-push}
 
 1. Erstellen Sie Ihren Web-Push.
 2. Wählen Sie den Tab **Test**.
@@ -271,8 +273,6 @@ Nachdem Sie Ihre SMS-, MMS- oder RCS-Nachricht erstellt haben, können Sie eine 
 {% tab Webhook %}
 
 Nachdem Sie Ihren Webhook erstellt haben, können Sie einen Testversand durchführen, um die Webhook-Antwort zu überprüfen. Wählen Sie den Tab **Test** und wählen Sie **Test senden**, um einen Testversand an die angegebene Webhook-URL zu senden. Sie können auch eine:n einzelne:n Nutzer:in auswählen, um die Antwort als bestimmte:r Nutzer:in in der Vorschau anzuzeigen.
-
-![Test-Webhook]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}

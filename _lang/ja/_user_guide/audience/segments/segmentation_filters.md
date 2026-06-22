@@ -4,7 +4,7 @@ nav_title: セグメンテーションフィルター
 article_title: セグメンテーションフィルター
 layout: glossary_page
 glossary_top_header: "セグメンテーションフィルター"
-glossary_top_text: Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href="/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types">カスタム属性データタイプ</a> をご覧ください。
+glossary_top_text: "Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">カスタム属性データタイプ</a> をご覧ください。"
 
 page_type: glossary
 tool: Segments
@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: フィルターが使用される場所（Segments、Campaignsなど）でSegmentメンバーシップに基づいてフィルタリングし、1つのCampaign内で複数の異なるSegmentsをターゲットにできます。<br><br>このフィルターを既に使用しているSegmentsは、他のSegmentsにさらに含めたりネストしたりすることはできません。これは、Segment AがSegment Bを含み、Segment Bが再びSegment Aを含もうとするサイクルが発生する可能性があるためです。そのような場合、Segmentは自身を参照し続け、実際に誰がそのSegmentに属しているかを計算することが不可能になります。また、このようなSegmentsのネストは複雑さを増し、処理速度を低下させる可能性があります。代わりに、同じフィルターを使用して含めたいSegmentを再作成してください。
+    description: フィルターが使用される場所（Segments、Campaignsなど）でSegmentメンバーシップに基づいてフィルタリングし、1つのCampaign内で複数の異なるSegmentsをターゲットにできます。<br><br>特定の時点でのSegmentメンバーシップをキャプチャするには、CampaignまたはCanvasを送信する前に、ダッシュボードからSegmentのユーザーをエクスポートするか、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)エンドポイントを呼び出してください。詳細については、[SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)を参照してください。<br><br>このフィルターを既に使用しているSegmentsは、他のSegmentsにさらに含めたりネストしたりすることはできません。これは、Segment AがSegment Bを含み、Segment Bが再びSegment Aを含もうとするサイクルが発生する可能性があるためです。そのような場合、Segmentは自身を参照し続け、実際に誰がそのSegmentに属しているかを計算することが不可能になります。また、このようなSegmentsのネストは複雑さを増し、処理速度を低下させる可能性があります。代わりに、同じフィルターを使用して含めたいSegmentを再作成してください。
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -69,19 +69,19 @@ glossaries:
     tags:
       - Custom attribute
   - name: Custom Event
-    description: ユーザーが特別に記録されたイベントを実行したかどうかを判定します。<br><br>例:<br>プロパティ activity_name でアクティビティが完了。<br><br>タイムゾーン:<br>UTC - 暦日 = 1暦日は24〜48時間のユーザー履歴を確認します
+    description: ユーザーが特別に記録されたイベントを実行したかどうかを判定します。<br><br>例:<br>プロパティactivity_nameでアクティビティが完了。<br><br>タイムゾーン:<br>UTC - 暦日 = 1暦日は24〜48時間のユーザー履歴を確認します
     tags:
       - Custom events
   - name: First Did Custom Event
-    description: ユーザーが特別に記録されたイベントを実行した最も早い時間を判定します。（24時間期間）<br><br>例:<br>初回の放棄カートが1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーが特別に記録されたイベントを実行した最も早い時間を判定します。（24時間期間）<br><br>例:<br>初回のカート放棄が1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Custom events
   - name: Last Did Custom Event
-    description: ユーザーが特別に記録されたイベントを実行した最新の時間を判定します。このフィルターは0.25時間などの小数をサポートしています。（24時間期間）<br><br>例:<br>最後の放棄カートが1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
+    description: ユーザーが特別に記録されたイベントを実行した最新の時間を判定します。このフィルターは0.25時間などの小数をサポートしています。（24時間期間）<br><br>例:<br>最後のカート放棄が1日未満前<br><br>タイムゾーン:<br>会社のタイムゾーン
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: 指定された暦日数（1〜30日）の間に、ユーザーが特別に記録されたイベントを0〜50回実行したかどうかを判定します。（暦日 = 1暦日は24〜48時間のユーザー履歴を確認します）<br> <a href="/docs/x-in-y-behavior/">X-in-Y動作の詳細はこちらをご覧ください。</a> <br><br>例:<br>過去1暦日に放棄カートがちょうど0回<br><br>タイムゾーン:<br>UTC - すべてのタイムゾーンに対応するため、1暦日はSegmentが評価される時間に応じて24〜48時間のユーザー履歴を確認します。2暦日の場合は48〜72時間のユーザー履歴を確認し、以降同様です。
+    description: 指定された暦日数（1〜30日）の間に、ユーザーが特別に記録されたイベントを0〜50回実行したかどうかを判定します。（暦日 = 1暦日は24〜48時間のユーザー履歴を確認します）<br> <a href="/docs/x-in-y-behavior/">X-in-Y動作の詳細はこちらをご覧ください。</a> <br><br>例:<br>過去1暦日にカート放棄がちょうど0回<br><br>タイムゾーン:<br>UTC - すべてのタイムゾーンに対応するため、1暦日はSegmentが評価される時間に応じて24〜48時間のユーザー履歴を確認します。2暦日の場合は48〜72時間のユーザー履歴を確認し、以降同様です。
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
@@ -137,7 +137,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Received Campaign Variant
-    description: 多変量Campaignのどのバリアントを受信したかでユーザーをセグメント化します。<br><br>Content Cards、バナー、アプリ内メッセージの場合、これはユーザーがインプレッションを記録した時点であり、カードやアプリ内メッセージが送信された時点ではありません。<br><br>プッシュとWebhookの場合、これはメッセージがユーザーに送信された時点です。<br><br>WhatsAppの場合、これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。<br><br>メールの場合、ターゲットのユーザープロファイルは、メールリクエストがメールサービスプロバイダーに送信された時点でこのフィルターに一致します（実際に配信されたかどうかに関係なく）。<br><br>SMSおよびRCSの場合、これは最後のメッセージがSMSまたはRCSプロバイダーに配信された時点です。メッセージがユーザーのデバイスに配信されたことを保証するものではありません。<br><br>メッセージが配信、開封、またはクリックされると、Brazeは同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータを更新するため、メッセージを受信した人と識別子を共有するユーザーは、そのプロファイルにCampaignが直接送信されていなくても、このフィルターに一致する場合があります。
+    description: 多変量Campaignのどのバリアントを受信したかでユーザーをセグメント化します。<br><br>このフィルターは多変量および多変量クイックプッシュCampaignsに適用されます。API Campaigns、標準マルチチャネルCampaigns、およびフィーチャーフラグ実験Campaignsは、Campaignセレクターに表示されません。WebhookのみのCampaignsもCampaignセレクターに表示されません。<br><br>Content Cards、バナー、アプリ内メッセージの場合、これはユーザーがインプレッションを記録した時点であり、カードやアプリ内メッセージが送信された時点ではありません。<br><br>プッシュとWebhookの場合、これはメッセージがユーザーに送信された時点です。<br><br>WhatsAppの場合、これは最後のメッセージAPIリクエストがWhatsAppに送信された時点であり、メッセージがユーザーのデバイスに配信された時点ではありません。<br><br>メールの場合、ターゲットのユーザープロファイルは、メールリクエストがメールサービスプロバイダーに送信された時点でこのフィルターに一致します（実際に配信されたかどうかに関係なく）。<br><br>SMSおよびRCSの場合、これは最後のメッセージがSMSまたはRCSプロバイダーに配信された時点です。メッセージがユーザーのデバイスに配信されたことを保証するものではありません。<br><br>メッセージが配信、開封、またはクリックされると、Brazeは同じチャネル識別子（メールアドレスや電話番号など）を共有するすべてのプロファイルのデータを更新するため、メッセージを受信した人と識別子を共有するユーザーは、そのプロファイルにCampaignが直接送信されていなくても、このフィルターに一致する場合があります。
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
@@ -217,7 +217,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Hard Bounced
-    description: メールアドレスがハードバウンスしたかどうか（メールアドレスが無効など）でユーザーをセグメント化します。
+    description: メールアドレスがハードバウンスしたかどうか（メールアドレスが無効など）でユーザーをセグメント化します。無効なメールを持つユーザーをエクスポートするには、[`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/)エンドポイントを呼び出すか、メールアドレスが空白でない、メールが利用不可、メールサブスクリプションステータスが配信停止でないなどのフィルターでSegmentを作成してください。
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -429,7 +429,7 @@ glossaries:
     tags:
       - Demographic attributes
   - name: Unformatted Phone Number
-    description: 未フォーマットの電話番号でユーザーをセグメント化します。括弧、ダッシュ、その他の記号は含まれません。
+    description: 未フォーマットの電話番号でユーザーをセグメント化します。かっこ、ダッシュ、その他の記号は含まれません。
     tags:
       - Demographic attributes
   - name: First Name
@@ -449,11 +449,11 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Number
-    description: ユーザーのアプリの最新バージョン番号でセグメント化します。<br><br>「未満」または「以下」を使用する場合、メインアプリバージョンが存在しない場合、このフィルターは<code>true</code>を返します。これは、ユーザーがそのアプリバージョンよりも古いためです。つまり、ユーザーの最後のメインアプリバージョンが存在しない場合、自動的にフィルターに一致します。<br><br>現在のアプリバージョンが反映されるまでに時間がかかる場合があります。ユーザープロファイルのアプリバージョンは、SDKによって情報がキャプチャされた時点で更新されますが、これはユーザーがアプリを開いた時に依存します。ユーザーがアプリを開かない場合、現在のバージョンは更新されません。これらのフィルターは遡及的にも適用されません。現在および将来のバージョンに対して「より大きい」または「等しい」を使用することをお勧めしますが、過去のバージョンフィルターを使用すると予期しない動作が発生する可能性があります。
+    description: ユーザーのアプリの最新バージョン番号でセグメント化します。かっこ内のバージョン番号がフィルタリングに使用され、その前の番号は参照用です。例えば、「3.7.0(134.0.0.0)」の場合、「134.0.0.0」がフィルタリングされるバージョン番号です。<br><br>「未満」または「以下」を使用する場合、メインアプリバージョンが存在しない場合、このフィルターは<code>true</code>を返します。これは、ユーザーがそのアプリバージョンよりも古いためです。つまり、ユーザーの最後のメインアプリバージョンが存在しない場合、自動的にフィルターに一致します。<br><br>現在のアプリバージョンが反映されるまでに時間がかかる場合があります。ユーザープロファイルのアプリバージョンは、SDKによって情報がキャプチャされた時点で更新されますが、これはユーザーがアプリを開いた時に依存します。ユーザーがアプリを開かない場合、現在のバージョンは更新されません。これらのフィルターは遡及的にも適用されません。現在および将来のバージョンに対して「より大きい」または「等しい」を使用することをお勧めしますが、過去のバージョンフィルターを使用すると予期しない動作が発生する可能性があります。
     tags:
       - App
   - name: Uninstalled
-    description: アプリをアンインストールし、再インストールしていないかどうかでユーザーをセグメント化します。
+    description: バックエンドで現在アンインストール済みとしてマークされているかどうかでユーザーをセグメント化します。アンインストール後にアプリを再インストールしたユーザーは含まれません。このフィルターは現在のアンインストール状態を反映しており、すべてのアンインストールイベントの履歴ログではありません。
     tags:
       - Uninstall
   - name: Device Carrier
@@ -565,7 +565,7 @@ glossaries:
     tags:
       - Install attribution
   - name: Install Attribution Campaign
-    description: インストールが帰属する広告キャンペーンでユーザーをセグメント化します。
+    description: インストールが帰属する広告Campaignでユーザーをセグメント化します。
     tags:
       - Install attribution
   - name: Install Attribution Source
@@ -581,11 +581,11 @@ glossaries:
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Category
-    description: 特定の予測に基づくイベント実行の可能性でユーザーをセグメント化します。
+    description: 特定の予測に基づくイベント実行の可能性カテゴリーでユーザーをセグメント化します。
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Score
-    description: 特定の予測に基づくイベント実行の可能性でユーザーをセグメント化します。
+    description: 特定の予測に基づくイベント実行の可能性スコアでユーザーをセグメント化します。
     tags:
       - Intelligence and predictive
   - name: Intelligent Channel

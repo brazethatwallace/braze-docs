@@ -77,6 +77,8 @@ Campaignのスケジュールやオーディエンスを編集する際は、以
 - **ローカル送信時刻Campaign：**スケジュールされた送信時刻の24時間前以降は編集しないでください。
 - **最適送信時刻Campaign：**Campaignの送信が予定されている日の深夜0時の24時間前以降は編集しないでください。
 
+Canvasのスケジューリングに関する注意点（下書き、停止、送信時刻前後の評価）については、[Canvasのベストプラクティス]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases)を参照してください。
+
 {% alert note %}
 配信中のCampaignを編集して配信方法を**ローカル送信時刻**に変更すると、新しいメッセージのバッチがキューに追加されます。これにより、メッセージが2回キューに入るため、ユーザーがメッセージを2回受信することになります。これを防ぐには、まず元のCampaignを停止してから、スケジュールを更新した複製Campaignを起動してください。
 {% endalert %}

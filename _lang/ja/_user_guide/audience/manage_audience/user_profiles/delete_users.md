@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Brazeダッシュボードから直接、個々のユーザーまたはSegmentのユーザーを削除する方法を説明します。
 
-{% alert important %}
-ユーザーの削除は現在、早期アクセス段階です。参加をご希望の場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
-
 ## 前提条件 {#prerequisites}
 
 ユーザーを削除するには、管理者であるか、**Delete Users**権限を持っている必要があります。ユーザー削除レコードを表示するには、管理者であるか、**View User Deletion Records**権限を持っている必要があります。以下の権限がユーザーの削除と削除レコードを制御します。
@@ -23,7 +19,7 @@ alias: /delete_users/
 |------------|-------------|
 | Delete Users | ユーザーを個別または一括で完全に削除します。 |
 | View User Deletion Records | ユーザー削除レコードを表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユーザー削除について {#about-user-deletion}
 
@@ -31,10 +27,10 @@ alias: /delete_users/
 
 | 考慮事項 | 詳細 |
 |---------------|---------|
-| 最大サイズ | Segmentを削除する際、最大1億件のユーザープロファイルを削除できます。 |
+| 最大サイズ | Segmentを削除する際、最大1,000万件のユーザープロファイルを削除できます。 |
 | 待機期間 | すべてのSegment削除には、7日間の待機期間と削除処理にかかる時間が必要です。 |
 | ジョブの制限 | 一度に削除できるSegmentは1つのみで、7日間の待機期間が含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザー削除について" }
 
 ## ユーザーの削除 {#deleting-users}
 
@@ -90,7 +86,7 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ![Brazeダッシュボードの「Manage Audience」セクションにある「Delete Users」タブ。]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-保留中のSegment削除の横にある<i class="fa-solid fa-eye"></i>を選択して、削除レコードの詳細を開きます。
+保留中のSegment削除の横にある<i class="fa-solid fa-eye"></i> **View details**を選択して、削除レコードの詳細を開きます。
 
 ![「Delete Users」タブの保留中のSegment削除。]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -108,7 +104,7 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ### Segmentフィルター {#segment-filters}
 
-ユーザーのSegmentの削除をリクエストすると、**Pending Deletion**という[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
+ユーザーのSegment削除をリクエストすると、**Pending Deletion**という[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
 
 - 特定の削除実行日に関連付けられた正確なユーザーセットを確認する。
 - それらのユーザーをCampaignsから除外して、削除前にメッセージを受信しないようにする。
@@ -132,9 +128,9 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 | リクエスター | 削除リクエストを開始したユーザーです。 |
 | Segment名 | 削除保留中のユーザーを選択するために使用されたSegmentの名前です。 |
 | ステータス | 削除リクエストが保留中、進行中、または完了のいずれであるかを示します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="オーディエンスの管理" }
 
-特定のリクエストの詳細を確認するには、<i class="fa-solid fa-eye"></i>を選択して削除レコードの詳細を表示します。ここから[保留中のSegment削除をキャンセル](#cancel)することもできます。
+特定のリクエストの詳細を確認するには、<i class="fa-solid fa-eye"></i> **View details**を選択して削除レコードの詳細を表示します。ここから[保留中のSegment削除をキャンセル](#cancel)することもできます。
 
 ![「Delete Users」タブの保留中のSegment削除。]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -144,17 +140,13 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ## よくある質問 {#faq}
 
-### 1億人以上のユーザーを含むSegmentを削除できますか？ {#can-i-delete-segments-with-more-than-100-million-users}
+### 1,000万人以上のユーザーを含むSegmentを削除できますか？ {#can-i-delete-segments-with-more-than-10-million-users}
 
-いいえ。1億人以上のユーザーを含むSegmentは削除できません。このサイズのSegmentの削除についてサポートが必要な場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
+いいえ。1,000万人以上のユーザーを含むSegmentは削除できません。このサイズのSegmentの削除についてサポートが必要な場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
 
-### 1億人のユーザーを削除できず、1,000万人までに制限されているようです。これはバグですか？ {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### 一度に削除できるのは最大1,000万人までです。これはバグですか？ {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-いいえ、これはバグではありません。早期アクセス（EA）プログラム中は、削除できるユーザー数が制限されているお客様がいます。
-
-EAプログラムの進行に伴い、すべてのお客様が最大1億人のユーザーを削除できるようになるまで、この容量は増加する予定です。
-
-この容量を増やしたい場合は、Brazeアカウントマネージャーにお問い合わせください。リクエストはプロダクトチームの裁量で承認されます。
+いいえ、これはバグではありません。1回のSegment削除で削除できるユーザープロファイルの最大数は1,000万件です。
 
 ### 自動ユーザーマージはユーザー削除に影響しますか？ {#does-automated-user-merging-affect-user-deletion}
 
@@ -173,3 +165,7 @@ EAプログラムの進行に伴い、すべてのお客様が最大1億人の�
 個々のユーザーの削除は永続的です。
 
 最初の7日以内であれば[Segment削除をキャンセル](#cancel)できます。ただし、キャンセル前にすでに削除されたユーザーは復元できません。
+
+### ダッシュボードの代わりにAPIを使用してユーザーを削除できますか？ {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+はい。少量のバッチの場合は、[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)を使用できます。このエンドポイントはリクエストごとに最大50件の識別子を受け付け、そのエンドポイントの[レート制限]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit)が適用されます。Segmentベースのダッシュボード削除は非常に大規模なオーディエンスに適していますが、[7日間の待機期間](#about-user-deletion)が含まれます。

@@ -101,9 +101,13 @@ After the integration process completes, Braze will automatically pull that chan
 | Channel access token | Select your provider and then go to **Channels** > your channel > **Messaging API**. If there isn't a channel access token, select **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
+{% alert note %}
+If you need to update or rotate the channel secret for an already integrated LINE channel, contact [Braze Support]({{site.baseurl}}/braze_support/) to request an update.
+{% endalert %}
+
 {: start="3"}
 3. Go to your **Settings** page > **Response settings** and do the following:
-   - Turn off **Greeting message**. This can be handled in Braze via trigger on follow.
+   - Turn off **Greeting message**. This can be handled in Braze by triggering on follow.
    - Turn off **Auto-response messages**. All triggered messaging should be through Braze. This won't prevent you from sending directly from the LINE console.
    - Turn on **Webhooks**.
 

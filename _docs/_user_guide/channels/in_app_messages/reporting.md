@@ -33,6 +33,10 @@ For in-app messages, this page defines unique impressions using a calendar-day b
 | Conversion rate | The metric of total daily unique impressions (*Unique Impressions*) is used to calculate the conversion rate. <br><br> Conversion Rate = (Primary Conversions) / (Unique Impressions) <br><br> For in-app messages, *Unique Impressions* can be counted only once per calendar day in your workspace's time zone. The number of times a user completes a desired action (a "conversion") can increase within that same calendar day. Therefore, if a user completes a conversion multiple times within a day, the *Conversion Rate* can increase accordingly, but *Unique Impressions* are counted only once for that calendar day. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="In-app message metrics" }
 
+{% alert note %}
+In A/B tests, control group *Unique Impressions* can exceed variant *Unique Impressions*, and control *Total Impressions* can exceed variant *Total Impressions*, when variant messages require render time (for example, large images or templated Connected Content). Users who trigger the message but leave before the variant finishes rendering may not log variant impressions, while the control group logs impressions without rendering a message.
+{% endalert %}
+
 ## How do conversions increment with re-eligibility?
 
 Braze assigns only one conversion to each in-app message delivery and attributes it to the most recently received message.

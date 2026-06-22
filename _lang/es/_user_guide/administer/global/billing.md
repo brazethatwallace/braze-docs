@@ -61,7 +61,7 @@ La pestaña **Total de uso de puntos de datos** proporciona una visión detallad
 La información de puntos de datos se almacena en caché cada 24 horas.
 {% endalert %}
 
-Si eres administrador y no puedes ver la pestaña **Total de uso de puntos de datos**, asegúrate de que tu navegador permita cookies de terceros para el dominio de tu panel de Braze y de que no esté en modo incógnito.
+Si eres administrador y no puedes ver la pestaña **Total de uso de puntos de datos**, asegúrate de que tu navegador permita cookies de terceros para el dominio de tu dashboard de Braze y de que no esté en modo incógnito.
 
 ![Filtrado del uso de puntos de datos por semanas]({% image_buster /assets/img/subscription_and_billing2.png %})
 
@@ -111,4 +111,4 @@ Este gráfico te permite ver rápidamente tu uso total de puntos de datos en com
 ## Próximos pasos {#next-steps}
 
 - [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
-- [Dashboard de uso de mensajes]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) para supervisar el consumo de créditos de SMS, WhatsApp y RCS.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard/) para supervisar el consumo de créditos de mensajes.

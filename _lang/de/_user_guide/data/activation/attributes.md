@@ -10,6 +10,9 @@ description: "Attribute speichern Informationen über Ihre Nutzer:innen. Erfahre
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
+  - name: Standardattribute
+    link: /docs/user_guide/data/activation/attributes/standard_attributes
+    image: /assets/img/braze_icons/list.svg
   - name: Angepasste Attribute
     link: /docs/user_guide/data/activation/attributes/custom_attributes
     image: /assets/img/braze_icons/table.svg

@@ -238,7 +238,8 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the workspace
 `app_id` | `string` | BSON ID of the app
 `user_id` | `string` | [PII] Braze user ID
-`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`time` | `int` | UNIX timestamp in seconds of the profile update (for backfilled rows, the time of the backfill)
+`time_ms` | `int` | UNIX timestamp in milliseconds of the profile update (for backfilled rows, the time of the backfill)
 `update_source` | `string` | Source of the update to the profile
 `sf_updated_at` | `timestamp` | When this row was updated in Snowflake
 `custom_attributes` | `variant` | [PII] Custom attributes as a JSON object
@@ -251,17 +252,18 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the workspace
 `app_id` | `string` | BSON ID of the app
 `user_id` | `string` | [PII] Braze user ID
-`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`time` | `int` | UNIX timestamp in seconds of the profile update (for backfilled rows, the time of the backfill)
+`time_ms` | `int` | UNIX timestamp in milliseconds of the profile update (for backfilled rows, the time of the backfill)
 `update_source` | `string` | Source of the update to the profile
 `sf_updated_at` | `timestamp` | When this row was updated in Snowflake
-`external_id` | `string` | [PII] External ID for the user
+`external_user_id` | `string` | [PII] External ID for the user
 `first_name` | `string` | [PII] First name
 `last_name` | `string` | [PII] Last name
-`email` | `string` | [PII] Email address
+`email_address` | `string` | [PII] Email address
 `gender` | `string` | [PII] Gender
-`phone` | `string` | [PII] Phone number
+`phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`time_zone` | `string` | [PII] Time zone
+`timezone` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -274,17 +276,18 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the workspace
 `user_id` | `string` | [PII] Braze user ID
 `app_id` | `string` | BSON ID of the app
-`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`time` | `int` | UNIX timestamp in seconds of the profile update (for backfilled rows, the time of the backfill)
+`time_ms` | `int` | UNIX timestamp in milliseconds of the profile update (for backfilled rows, the time of the backfill)
 `update_source` | `string` | Source of the update to the profile
 `sf_updated_at` | `timestamp` | When this row was updated in Snowflake
-`external_id` | `string` | [PII] External ID for the user
+`external_user_id` | `string` | [PII] External ID for the user
 `first_name` | `string` | [PII] First name
 `last_name` | `string` | [PII] Last name
-`email` | `string` | [PII] Email address
+`email_address` | `string` | [PII] Email address
 `gender` | `string` | [PII] Gender
-`phone` | `string` | [PII] Phone number
+`phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`time_zone` | `string` | [PII] Time zone
+`timezone` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -299,20 +302,21 @@ Field | Type | Description
 `app_group_id` | `string` | BSON ID of the workspace
 `app_id` | `string` | BSON ID of the app
 `user_id` | `string` | [PII] Braze user ID
-`time` | `int` | UNIX timestamp of the profile update (for backfilled rows, the time of the backfill)
+`time` | `int` | UNIX timestamp in seconds of the profile update (for backfilled rows, the time of the backfill)
+`time_ms` | `int` | UNIX timestamp in milliseconds of the profile update (for backfilled rows, the time of the backfill)
 `update_source` | `string` | Source of the update to the profile
 `sf_updated_at` | `timestamp` | When this row was updated in Snowflake
-`external_id` | `string` | [PII] External ID for the user
+`external_user_id` | `string` | [PII] External ID for the user
 `first_name` | `string` | [PII] First name
 `last_name` | `string` | [PII] Last name
-`email` | `string` | [PII] Email address
+`email_address` | `string` | [PII] Email address
 `gender` | `string` | [PII] Gender
-`phone` | `string` | [PII] Phone number
+`phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
-`time_zone` | `string` | [PII] Time zone
+`timezone` | `string` | [PII] Time zone
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ## Catalogs
@@ -3432,4 +3436,4 @@ Field | Type | Description
 
 ## Abort types
 
-{% include abort_types_reference.md %}
+{% include abort_types_reference.md combined_content_rendering=true %}

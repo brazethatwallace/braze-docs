@@ -17,7 +17,7 @@ Los eventos personalizados son acciones realizadas por tus usuarios o actualizac
 
 Algunos casos habituales de uso de eventos personalizados son:
 
-- Desencadenar una campaña o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
+- Desencadenar una Campaign o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
 - Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
 - Usar los [análisis de eventos personalizados](#analytics) del dashboard para ver un agregado de la frecuencia con la que ocurrió cada evento
 - Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)
@@ -45,10 +45,6 @@ Además, si un evento personalizado bloqueado está actualmente referenciado por
 
 Para más detalles sobre el bloqueo y la eliminación de datos personalizados, consulta [Bloquear datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marcar como información de identificación personal (PII) {#marking-as-personally-identifiable-information-pii}
-
-Los administradores también pueden crear eventos personalizados y marcarlos como PII desde esta página. Estos eventos solo son visibles para administradores y usuarios del dashboard con el permiso "Ver atributos personalizados marcados como PII".
-
 ### Añadir descripciones {#adding-descriptions}
 
 Puedes añadir una descripción a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecciona **Editar descripción** para el evento personalizado e introduce lo que desees, como una nota para tu equipo.
@@ -60,6 +56,10 @@ Puedes añadir etiquetas a un evento personalizado después de crearlo si tienes
 ### Exportar datos {#exporting-data}
 
 Para exportar la lista de eventos personalizados como un archivo CSV, selecciona **Exportar todo** en la parte superior de la página. Se generará el archivo CSV y se te enviará un enlace de descarga por correo electrónico.
+
+{% alert note %}
+No existe un límite fijo en el dashboard sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuenta de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) datos no utilizados).
+{% endalert %}
 
 ## Ver informes de uso {#viewing-usage-reports}
 
@@ -103,7 +103,7 @@ La siguiente tabla muestra los filtros disponibles para segmentar usuarios por e
 | Comprobar si el evento personalizado ocurrió **más de X (máx. = 50) veces** | **MÁS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **menos de X (máx. = 50) veces** | **MENOS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **exactamente X (máx. = 50) veces** | **EXACTAMENTE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtros de segmentación" }
 
 ## Análisis {#analytics}
 

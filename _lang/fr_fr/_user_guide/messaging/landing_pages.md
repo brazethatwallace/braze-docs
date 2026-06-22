@@ -31,12 +31,14 @@ Avant de pouvoir accéder aux pages d'accueil, les créer et les publier, vous d
 
 ## Niveaux d'offre {#plan-tiers}
 
-Le nombre de pages d'accueil publiées et de domaines personnalisés que vous pouvez utiliser dépend de votre type d'offre : gratuite ou payante (incrémentale).
+Le nombre de pages d'accueil publiées, de domaines personnalisés et de fonctionnalités que vous pouvez utiliser dépend de votre type d'offre : gratuite ou payante (incrémentale).
 
 | Fonctionnalité | Offre gratuite | Offre payante (incrémentale) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Pages d'accueil publiées | Cinq par société | 20 supplémentaires |
 | Domaines personnalisés | Un par société | Cinq supplémentaires |
+| [Personnalisation Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Non disponible | Disponible |
+| Champs de formulaire préremplis | Non disponible | Disponible |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## Ajouter Google Tag Manager à une page d'accueil {#adding-google-tag-manager-to-a-landing-page}

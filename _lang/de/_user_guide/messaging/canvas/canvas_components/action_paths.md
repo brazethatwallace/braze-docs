@@ -31,9 +31,9 @@ In den **Action Settings** können Sie auch die Rangfolge für Ihre Komponenten 
 
 ![Die Aktionseinstellungen mit einem Auswertungsfenster von 1 Tag.]({% image_buster /assets/img/actionpath_settings.png %})
 
-Standardmäßig ist **Ranking** deaktiviert. Wenn Nutzer:innen den Aktions-Pfad betreten und das Trigger-Event einer beliebigen Aktionsgruppe ausführen, werden sie sofort durch die entsprechende Aktionsgruppe weitergeleitet – basierend auf der **ersten qualifizierenden Aktion**, die sie nach dem Betreten des Schritts ausführen. Wenn Nutzer:innen eine zweite Aktion ausführen, die einer anderen Aktionsgruppe entspricht, wechseln sie nicht den Pfad – die erste Aktion bestimmt ihre Route. Wenn Nutzer:innen kein Trigger-Event ausführen, werden sie am Ende des Auswertungszeitraums durch die Standardgruppe **Everyone Else** weitergeleitet.
+Standardmäßig ist **Ranking** deaktiviert. Wenn Nutzer:innen den Aktions-Pfad betreten und das Trigger-Event einer beliebigen Aktionsgruppe ausführen, werden sie sofort durch die entsprechende Aktionsgruppe weitergeleitet – basierend auf der **ersten qualifizierenden Aktion**, die sie nach dem Betreten des Schritts ausführen. Wenn Nutzer:innen eine zweite Aktion ausführen, die einer anderen Aktionsgruppe entspricht, wechseln sie nicht den Pfad – die erste Aktion bestimmt ihre Route. Wenn Nutzer:innen kein Trigger-Event ausführen, werden sie am Ende des Auswertungszeitraums durch die Standardgruppe **Alle anderen** weitergeleitet.
 
-Wenn **Advance users based on ranked order** aktiviert ist, bedeutet dies, dass **Ranking** aktiv ist. Alle Nutzer:innen werden dann bis zum Ende des Auswertungsfensters gehalten. Am Ende des Auswertungszeitraums werden Nutzer:innen durch die Aktionsgruppe mit der höchsten Priorität weitergeleitet, für die sie am Ende des Auswertungsfensters qualifiziert sind. Nutzer:innen, die während des Auswertungsfensters keine der Aktionen ausführen, werden durch die Standardgruppe **Everyone Else** weitergeleitet.
+Wenn **Advance users based on ranked order** aktiviert ist, bedeutet dies, dass **Ranking** aktiv ist. Alle Nutzer:innen werden dann bis zum Ende des Auswertungsfensters gehalten. Am Ende des Auswertungszeitraums werden Nutzer:innen durch die Aktionsgruppe mit der höchsten Priorität weitergeleitet, für die sie am Ende des Auswertungsfensters qualifiziert sind. Nutzer:innen, die während des Auswertungsfensters keine der Aktionen ausführen, werden durch die Standardgruppe **Alle anderen** weitergeleitet.
 
 {% alert tip %}
 Um Nutzer:innen basierend auf ihren aktuellen Attributen oder Segment-Zugehörigkeit statt auf ausgeführten Aktionen weiterzuleiten, verwenden Sie stattdessen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/).
@@ -71,6 +71,10 @@ Fügen Sie einen oder mehrere Trigger hinzu, um Ihre Aktionsgruppen zu definiere
 - Einen Geofence triggern
 - Eine eingehende SMS- oder WhatsApp-Nachricht senden
 
+#### Trigger „E-Mail-Adresse hinzufügen“ {#add-an-email-address-trigger}
+
+Der Aktionsgruppen-Trigger **Add an Email Address** wird ausgelöst, wenn eine E-Mail-Adresse während des **Evaluation Window** des Aktions-Pfads zu einem Nutzerprofil hinzugefügt oder aktualisiert wird. Dieses Verhalten entspricht anderen Profilaktualisierungs-Triggern: Nutzer:innen werden durch die Aktionsgruppe weitergeleitet, wenn die Profiländerung unter Ihrer Konfiguration qualifiziert ist, einschließlich aller Filter auf dem Trigger.
+
 ![Eine Aktionsgruppe namens „Gruppe 1“ für Nutzer:innen, die einen beliebigen Kauf tätigen.]({% image_buster /assets/img/actionpath_group.png %})
 
 In jeder Aktionsgruppeneinstellung haben Sie auch die Möglichkeit, das Kontrollkästchen **I want this group to exit the Canvas** zu aktivieren. Das bedeutet, dass die Nutzer:innen in dieser Gruppe den Canvas am Ende des Auswertungszeitraums verlassen.
@@ -83,6 +87,6 @@ Wenn Nutzer:innen einen Aktions-Pfad mehrfach betreten und gleichzeitig mehrere 
 |---|--------------|
 | **Deaktiviert** | Nutzer:innen können einen Aktions-Pfad mehr als einmal betreten. Diese Einträge werden im Aktions-Pfad gehalten, bis eine Trigger-Aktion oder ein Event erfasst wird. Wenn das Trigger-Event die Eigenschaftsfilter eines Eintrags nicht erfüllt (z. B. wenn eine [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) nicht mit den Eigenschaftsfiltern des Triggers übereinstimmt), verbleibt der Eintrag im Aktions-Pfad. <br><br>Wenn das Trigger-Event mehr als einen Eintrag erfüllt, dedupliziert Braze nur diese Einträge und leitet den frühesten übereinstimmenden Eintrag sofort durch die entsprechende Aktionsgruppe weiter. |
 | **Aktiviert** | Alle Einträge werden am Ende des jeweiligen Auswertungsfensters weitergeleitet. Es findet keine Deduplizierung statt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases mit erneuter Berechtigung" }
 
 Beachten Sie, dass die Rangfolgen nach dem Start [nicht mehr bearbeitet werden können]({{site.baseurl}}/post-launch_edits/).

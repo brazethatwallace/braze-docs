@@ -45,10 +45,6 @@ Additionally, if a blocked custom event is currently referenced by filters or tr
 
 For more details on blocklisting and deleting custom data, see [Blocklist custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marking as personally identifiable information (PII)
-
-Administrators can also create custom events and mark them as PII from this page. These events are only visible to admins and dashboard users with the "View Custom Attributes Marked as PII" permission.
-
 ### Adding descriptions
 
 You can add a description to a custom event after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/). Select **Edit description** for the custom event and input whatever you like, such as a note for your team.
@@ -60,6 +56,10 @@ You can add tags to a custom event after it's created if you have the "Manage Ev
 ### Exporting data
 
 To export the list of custom events as a CSV file, select **Export all** at the top of the page. The CSV file is generated, and a download link is emailed to you.
+
+{% alert note %}
+There is no fixed dashboard cap on how many distinct **custom events** or **custom attributes** you can define or store on a profile; practical limits depend on data shape, ingestion volume, and workspace performance. If you plan to track a very large catalog of events or attributes, work with your Braze account team on modeling and hygiene (for example, [blocklisting]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) unused data).
+{% endalert %}
 
 ## Viewing usage reports
 

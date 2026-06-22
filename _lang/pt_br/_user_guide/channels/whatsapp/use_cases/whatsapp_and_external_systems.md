@@ -19,7 +19,7 @@ channel:
 | - | - |
 | Sistema externo | Um sistema de IA ou comunicação de terceiros capaz de criar e gerenciar chatbots, sistemas automatizados de atendimento ao cliente usando APIs, ou ambos. |
 | Integração da Braze com WhatsApp | Um número de WhatsApp gerenciado pela Braze |
-| Chave da API REST da Braze | Uma chave da API REST com permissões de `campaigns.trigger.send`. Ela pode ser criada no dashboard da Braze acessando **Settings** > **API Keys**. |
+| Chave da API REST da Braze | Uma chave da API REST com permissões de `campaigns.trigger.send`. Ela pode ser criada no dashboard da Braze acessando **Configurações** > **Chaves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Como funciona {#how-it-works}

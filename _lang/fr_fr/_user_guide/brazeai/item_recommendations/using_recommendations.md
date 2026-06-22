@@ -29,7 +29,7 @@ Une fois l'entraînement de votre recommandation terminé, vous pouvez personnal
 
 Vous pouvez générer du Liquid à partir de la section **Add personalization** dans votre compositeur de messages :
 
-1. Dans tous les compositeurs de messages qui prennent en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i> pour ouvrir la fenêtre de personnalisation.
+1. Dans tous les compositeurs de messages qui prennent en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Ajouter une personnalisation"></i> **Add personalization** pour ouvrir la fenêtre de personnalisation.
 2. Pour **Personalization Type**, sélectionnez **Item Recommendation**.
 3. Pour **Item Recommendation Name**, sélectionnez la recommandation que vous venez de créer.
 4. Pour **Number of Predicted Items**, indiquez le nombre de meilleurs produits que vous souhaitez insérer. Par exemple, vous pouvez afficher les trois produits les plus achetés.
@@ -44,7 +44,7 @@ Vous pouvez écrire du code Liquid personnalisé en faisant référence à l'obj
 |-------------|-------|
 | **Structure** | Chaque élément est accessible sous la forme `items[index]`, où l'index commence à 0 (pour le premier élément) et s'incrémente pour les éléments suivants. |
 | **Champs du catalogue** | Chaque élément du tableau contient des paires clé-valeur correspondant à des champs (colonnes) du catalogue. Par exemple, les champs de catalogue courants pour les recommandations produit sont les suivants :<br>- `name` ou `title`<br>- `price`<br>- `image_url` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter le code Liquid" }
 
 Utilisez la balise `assign` pour récupérer les données de `product_recommendation` et les affecter à une variable.
 
@@ -60,7 +60,7 @@ Remplacez les éléments suivants :
 |-----------|-----------|
 | `recommendation_name` | Le nom de la recommandation d'intelligence artificielle que vous avez créée dans Braze. |
 | `items` | La variable contenant le tableau des éléments recommandés. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter le code Liquid" }
 
 Ensuite, faites référence à des éléments spécifiques et à leurs champs en utilisant l'indexation de tableau et la notation par points :
 
@@ -110,7 +110,7 @@ Remplacez les éléments suivants :
 |-----------|-----------|
 | `recommendation_name` | Le nom de votre recommandation. |
 | `image_url_field` | Le nom du champ de votre catalogue qui contient les URL des images. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Référencer une image (facultatif)" }
 
 Pour inclure une image substitutive dans vos e-mails de prévisualisation et de test, sélectionnez **Choose image**, puis choisissez une image dans votre bibliothèque multimédia ou saisissez l'URL d'une image depuis votre site d'hébergement.
 {% endtab %}
@@ -131,6 +131,6 @@ Remplacez les éléments suivants :
 |-----------|-----------|
 | `recommendation_name` | Le nom de votre recommandation. |
 | `image_url_field` | Le nom du champ de votre catalogue qui contient les URL des images. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Référencer une image (facultatif)" }
 {% endtab %}
 {% endtabs %}

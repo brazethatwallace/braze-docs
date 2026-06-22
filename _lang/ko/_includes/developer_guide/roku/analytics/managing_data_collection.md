@@ -12,6 +12,7 @@ Braze Roku SDK는 다음 레지스트리 섹션에 데이터를 유지합니다:
 | `braze.section.user_id` | 설정된 경우 외부 사용자 ID입니다. |
 | `braze.section.session` | 활성 세션 UUID, 시작 시간 및 종료 시간입니다. |
 | `braze.section.config` | 캐시된 SDK 구성 및 피처 플래그 데이터입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wiping previously-stored data" }
 
 ### 1단계: 레지스트리 섹션 지우기 {#step-1-clear-the-registry-sections}
 

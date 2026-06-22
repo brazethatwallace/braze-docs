@@ -18,7 +18,7 @@ toc_headers: h2
 
 ## Configuração de envio {#sending-configuration}
 
-As configurações de e-mail na seção **Configuração de envio** determinam quais detalhes são incluídos nas suas Campaigns de e-mail. Em particular, essas configurações estão principalmente relacionadas ao que seu usuário vê quando recebe um e-mail da Braze.
+As configurações de e-mail na seção **Configuração de envio** determinam quais detalhes são incluídos nas suas campanhas de e-mail. Em particular, essas configurações estão principalmente relacionadas ao que seu usuário vê quando recebe um e-mail da Braze.
 
 ### Configurações de e-mail de saída {#outbound-email-settings}
 
@@ -81,8 +81,6 @@ Esta seção permite que você gerencie endereços BCC que podem ser adicionados
 Endereços BCC estão disponíveis para Amazon SES, SendGrid e SparkPost. Como alternativa aos endereços BCC, recomendamos usar o [arquivamento de mensagens]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving/) para salvar uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
-
-![Seção de endereço BCC na guia de configurações de e-mail.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
 
 Depois de adicionar um endereço, ele estará disponível para seleção ao redigir um e-mail em Campaigns ou etapas do Canvas. Selecione **Make Default** ao lado de um endereço para defini-lo como selecionado por padrão ao lançar uma nova Campaign de e-mail ou componente do Canvas. Para substituir isso no nível da mensagem, você pode selecionar **No BCC** ao configurar sua mensagem.
 
@@ -153,6 +151,10 @@ Ativar o list-unsubscribe é uma prática recomendada de entregabilidade e um re
 
 Ao [gerenciar suas inscrições no Gmail](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC), o Gmail também pode usar o link de cancelamento de inscrição do corpo da mensagem, mas prioriza o list-unsubscribe se estiver presente no cabeçalho.
 
+### Desativar o cabeçalho list-unsubscribe remove o botão Unsubscribe do Gmail? {#does-turning-off-the-list-unsubscribe-header-remove-the-gmail-unsubscribe-button}
+
+Não. Desativar a configuração de cabeçalho list-unsubscribe da Braze remove o cabeçalho `List-Unsubscribe` das mensagens que a Braze envia, mas não controla se o Gmail exibe uma opção **Unsubscribe** na interface da caixa de e-mail. Conforme mencionado acima, o Gmail ainda pode exibir uma opção de cancelamento de inscrição a partir de links no corpo da mensagem ou usar outra lógica do provedor. A presença do cabeçalho na mensagem bruta é separada da exibição de uma opção de cancelamento de inscrição pelo Gmail para os destinatários. Para saber mais, consulte o [FAQ das diretrizes de remetente de e-mail do Gmail](https://support.google.com/a/answer/14229414).
+
 ### Suporte de provedores de caixa de e-mail {#mailbox-provider-support}
 
 A tabela a seguir resume o suporte dos provedores de caixa de e-mail para cabeçalho "mailto:", URL de list-unsubscribe e cancelamento de inscrição com um clique ([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)).
@@ -171,7 +173,7 @@ _*Yahoo e Gmail estão descontinuando gradualmente o cabeçalho "mailto:" e supo
 A exibição do cabeçalho é determinada em última instância pelo provedor de caixa de e-mail. Para verificar se o cabeçalho list-unsubscribe está incluído no e-mail bruto (texto) para o destinatário no Gmail, faça o seguinte:
 
 1. Selecione **Show Original** no e-mail. Isso abre uma nova aba com a versão bruta do e-mail e seus cabeçalhos.
-2. Pesquise por "List-Unsubscribe".
+2. Pesquise por "List-Unsubscribe". Para o cancelamento de inscrição com um clique, muitos provedores também incluem um cabeçalho "List-Unsubscribe-Post". Confirme que ambos aparecem na mensagem bruta quando você espera que o cancelamento com um clique esteja disponível.
 
 Se o cabeçalho estiver na versão bruta do e-mail mas não for exibido, o provedor de caixa de e-mail decidiu não mostrar a opção de cancelamento de inscrição, o que significa que não temos mais informações sobre por que o provedor não está exibindo o cabeçalho. A exibição do cabeçalho list-unsubscribe é baseada na reputação. Na maioria dos casos, quanto melhor sua reputação do remetente com o provedor de caixa de e-mail, mais provável é que o cabeçalho list-unsubscribe apareça.
 
@@ -258,7 +260,7 @@ Selecione **Custom list-unsubscribe header** para adicionar seu próprio endpoin
 
 ## Adicionar prefixo às linhas de assunto de e-mail {#append-email-subject-lines}
 
-Use a opção para incluir "[TEST]" e "[SEED]" nas linhas de assunto dos seus e-mails de teste e seed. Isso pode ajudar a identificar quaisquer Campaigns de e-mail enviadas como testes.
+Use a opção para incluir "[TEST]" e "[SEED]" nas linhas de assunto dos seus e-mails de teste e seed. Isso pode ajudar a identificar quaisquer campanhas de e-mail enviadas como testes.
 
 ![]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
@@ -357,7 +359,7 @@ Não. Se a configuração do espaço de trabalho estiver desativada e a configur
 {% enddetails %}
 
 {% details O que acontece se um grupo de inscrições for arquivado? Isso quebra o cancelamento de inscrição com um clique em e-mails enviados? %}
-Se um grupo de inscrições referenciado em **Sending Info** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição do cancelamento com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de Segment, perfil de usuário e áreas similares).
+Se um grupo de inscrições referenciado em **Sending Info** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição do cancelamento com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de segmento, perfil de usuário e áreas similares).
 {% enddetails %}
 
 {% details A configuração de cancelamento de inscrição com um clique está disponível para modelos de e-mail? %}

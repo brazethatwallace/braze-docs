@@ -22,7 +22,11 @@ La parte superior de la página **Canvas Details** contiene las estadísticas pr
 
 Este es un excelente lugar para obtener un resumen de alto nivel y verificar cómo está funcionando tu Canvas en relación con tu objetivo.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Usuarios alcanzables y estadísticas exactas {#reachable-users-and-exact-statistics}
+
+Cuando **[Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** se está ejecutando para las audiencias vinculadas a tu Canvas, Braze puede mostrar brevemente una estimación redondeada en el área de **Usuarios alcanzables**. El total exacto reemplaza la estimación cuando el cálculo finaliza. Selecciona **Show Additional Stats** para ver un desglose completo por canal. El constructor de Canvas documenta el mismo flujo en **Población objetivo**; consulta [Cálculo de la población objetivo]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+
+![La página Canvas Details mostrando estadísticas principales que incluyen mensajes enviados, tasa de conversión, entradas totales, ingresos totales, salidas totales y audiencia estimada, con filtros de canal y estadísticas.]({% image_buster /assets/img_archive/Journey_5.png %})
 
 ### Cambios desde la última visualización {#changes-since-last-viewed}
 
@@ -54,7 +58,7 @@ En la pestaña **Analyze Variants**, puedes ver un desglose del rendimiento por 
 
 Puedes inferir rápidamente las variantes efectivas e identificar las cadencias, contenidos, desencadenantes, tiempos y más adecuados.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![El modal Analyze Canvas con la pestaña Analyze Variants seleccionada, mostrando una tabla comparativa para Path 1 y Path 2 con entradas, envíos, ingresos, tasas de conversión, porcentaje de cambio y métricas de confianza.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Las métricas básicas incluyen las siguientes:
 

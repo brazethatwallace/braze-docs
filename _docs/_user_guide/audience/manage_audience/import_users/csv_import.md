@@ -148,6 +148,10 @@ Arrays, push tokens, and custom event data types aren’t supported in user impo
 When importing default attributes, the column headers you use must exactly match the spelling and capitalization of default user attributes. Otherwise, Braze detects these as [custom attributes](#custom-attributes) instead.
 {% endalert %}
 
+{% alert tip %}
+For the complete list of standard attributes Braze recognizes (across SDK, API, CSV, and Cloud Data Ingestion), see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). The following table covers only the subset that can be set through CSV import.
+{% endalert %}
+
 The following default attributes are available for user import.
 
 | User Profile Field | Data Type | Description | Required? |
@@ -285,11 +289,7 @@ In this example:
 
 To upload your file, select **Attributes** or **Events**, click **Browse Files**, and upload your CSV. Braze displays a preview of the first few rows and a summary of the detected fields.
 
-![The file preview page showing a preview of the file after upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![The upload completed modal showing a file preview, import name field, targeting preferences, and file validation checkbox.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 In the **Import name** field, you can rename your import. By default, the file name is used.
 
@@ -423,6 +423,14 @@ If you used [file validation](#file-validation), start with the error report, as
 
 For troubleshooting CSV import, review these common issues below.
 
+### Use email as `external_id`
+
+Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
+
+### Quote characters in `external_id` values
+
+If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
+
 ### CSV import isn't available as a segment filter
 
 You can use a CSV import as a segment filter only if you enabled a targeting preference during upload.
@@ -444,7 +452,9 @@ If your goal is to create a segment without updating profile data, upload a CSV 
 
 If your upload completed with errors, there may be a malformed row in your CSV file. 
 
-To properly import data, there must be a header row. Each row must have the same number of cells as the header row. Rows with a length of more or fewer values than the header row will be excluded from the import. Commas in a value will be interpreted as a separator and can lead to this error. Additionally, all data must be UTF-8 encoded.
+To properly import data, there must be a header row. Each row must have the same number of cells as the header row. Rows with a length of more or fewer values than the header row will be excluded from the import. Commas in a value will be interpreted as a separator and can lead to this error. 
+
+Additionally, all data must be UTF-8 encoded. If the file is saved with a legacy encoding (for example, some Excel defaults), special characters and URLs in cells can be corrupted and may appear as question marks (`?`) in Braze or in sent messages.
 
 If your CSV file has blank rows and imports fewer rows than the total lines in the CSV file, this may not indicate a problem with the import since the blank rows wouldn't need to be imported. Check the number of lines that were correctly imported and make sure it matches the number of users you're attempting to import.
 

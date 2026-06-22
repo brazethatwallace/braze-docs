@@ -1,13 +1,13 @@
 ---
-nav_title: Predictive Suite
-article_title: Predictive Suite
-description: "Braze Predictive Suiteは機械学習ツールを直接利用可能にし、データを活用してユーザーの識別、エンゲージメント、維持を容易にします。"
+nav_title: 予測スイート
+article_title: 予測スイート
+description: "Braze 予測スイートは機械学習ツールを直接利用可能にし、データを活用してユーザーの識別、エンゲージメント、維持を容易にします。"
 page_order: 9
 layout: dev_guide
 search_rank: 2
 
-guide_top_header: "Predictive Suite"
-guide_top_text: "Braze Predictive Suiteは機械学習ツールを直接手元に届けます。解約リスクの予測からイベントの予測まで、これらのツールを使えばデータを効果的に活用しやすくなり、ユーザーを識別し、エンゲージメントを高め、維持することができます。"
+guide_top_header: "予測スイート"
+guide_top_text: "Braze 予測スイートは機械学習ツールを直接手元に届けます。解約リスクの予測からイベントの予測まで、これらのツールを使えばデータを効果的に活用しやすくなり、ユーザーを識別し、エンゲージメントを高め、維持することができます。"
 
 guide_featured_title: "トピック"
 guide_featured_list:

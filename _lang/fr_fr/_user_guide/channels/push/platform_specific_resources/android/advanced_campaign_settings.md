@@ -60,7 +60,7 @@ Le champ **Firebase Messaging Delivery Priority** vous permet de contrôler si u
 |---------|-------------|----------|
 | Normale | Distribution optimisée pour la batterie, pouvant être retardée pour économiser l'énergie | Contenu non urgent, offres promotionnelles, mises à jour d'actualités |
 | Élevée | Distribution immédiate avec une consommation de batterie plus importante | Notifications urgentes, alertes critiques, mises à jour d'événements en direct, alertes de compte, actualités de dernière minute ou rappels urgents |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Priorité de distribution Firebase Messaging" }
 
 #### Considérations {#considerations}
 
@@ -96,7 +96,7 @@ Le niveau de priorité d'une notification push affecte la façon dont votre noti
 
 Cette fonctionnalité est utile pour différencier vos messages en fonction de leur caractère critique ou urgent. Par exemple, une notification concernant des conditions routières dangereuses serait un bon candidat pour recevoir une priorité élevée, tandis qu'une notification concernant une vente en cours devrait recevoir une priorité plus basse. Vous devriez vous demander si l'utilisation d'une priorité intrusive est réellement nécessaire pour la notification que vous envoyez, car occuper constamment la première place dans la boîte de réception de vos utilisateurs ou interrompre leurs autres activités peut avoir un impact négatif.
 
-Sous Android O, la priorité des notifications est devenue une propriété des canaux de notification. Vous devrez travailler avec votre développeur pour définir la priorité d'un canal lors de sa configuration, puis utiliser le tableau de bord pour sélectionner le canal approprié lors de l'envoi de vos sons de notification. Pour les appareils exécutant des versions d'Android antérieures à O, il est possible de spécifier un niveau de priorité pour les notifications Android et Fire OS via le tableau de bord de Braze et l'API de messagerie.
+Sous Android O, la priorité des notifications est devenue une propriété des canaux de notification. Vous devrez travailler avec votre développeur pour définir la priorité d'un canal lors de sa configuration, puis utiliser le tableau de bord pour sélectionner le canal approprié lors de l'envoi de vos notifications. Pour les appareils exécutant des versions d'Android antérieures à O, il est possible de spécifier un niveau de priorité pour les notifications Android et Fire OS via le tableau de bord de Braze et l'API de messagerie.
 
 Pour envoyer un message à l'ensemble de votre base d'utilisateurs avec une priorité spécifique, nous recommandons de spécifier indirectement la priorité via la [configuration des canaux de notification](https://developer.android.com/training/notify-user/channels#importance) (pour cibler les appareils O+) et d'envoyer la priorité individuelle depuis le tableau de bord (pour cibler les appareils &#60;O).
 
@@ -109,7 +109,7 @@ Consultez le tableau suivant pour les niveaux de priorité que vous pouvez défi
 | Par défaut | La plupart des notifications. À utiliser si votre message ne relève explicitement d'aucun des autres types de priorité. | `0` |
 | Basse | Information que vous souhaitez porter à la connaissance des utilisateurs mais qui ne nécessite pas d'action immédiate. | `-1`|
 | Min | Information contextuelle ou de fond. | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Priorité d'affichage des notifications" }
 
 Pour plus d'informations, consultez la documentation de Google sur les [notifications Android](http://developer.android.com/design/patterns/notifications.html).
 
@@ -137,7 +137,7 @@ Les notifications push Android offrent la possibilité de spécifier si votre no
 | Status | Information continue sur l'appareil ou l'état contextuel. |
 | System | Mise à jour du système ou de l'état de l'appareil. Réservé à l'utilisation système. |
 | Transport | Contrôle de transport multimédia pour la lecture. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push category" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catégorie push" }
 
 ## Visibilité push {#push-visibility}
 
@@ -148,7 +148,7 @@ Les notifications push Android fournissent un champ facultatif pour déterminer 
 | Public | La notification apparaît sur l'écran de verrouillage |
 | Private | La notification s'affiche avec « Contenu masqué » comme message |
 | Secret | La notification n'apparaît pas sur l'écran de verrouillage |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push visibility" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Visibilité push" }
 
 De plus, les utilisateurs Android peuvent remplacer la façon dont les notifications push apparaissent sur leur écran de verrouillage en modifiant le paramètre de confidentialité des notifications sur leur appareil. Ce paramètre remplacera la visibilité définie dans la notification push.
 

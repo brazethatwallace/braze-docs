@@ -19,7 +19,7 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 @interface AppDelegate () <BrazeInAppMessageUIDelegate>
 
 @end
@@ -37,14 +37,14 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 let inAppMessageUI = BrazeInAppMessageUI()
 inAppMessageUI.delegate = self
 AppDelegate.braze?.inAppMessagePresenter = inAppMessageUI
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 BrazeInAppMessageUI *inAppMessageUI = [[BrazeInAppMessageUI alloc] init];
 inAppMessageUI.delegate = self;
 AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
@@ -85,7 +85,7 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -111,7 +111,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   shouldProcess clickAction: Braze.InAppMessage.ClickAction,
@@ -124,7 +124,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)inAppMessage:(BrazeInAppMessageUI *)ui
        shouldProcess:(enum BRZInAppMessageRawClickAction)clickAction
                  url:(NSURL *)uri
@@ -141,7 +141,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI, shouldProcess clickAction: Braze.InAppMessage.ClickAction,
   buttonId: String?, message: Braze.InAppMessage, view: InAppMessageView
@@ -178,7 +178,7 @@ func inAppMessage(
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 - (BOOL)inAppMessage:(BrazeInAppMessageUI *)ui
        shouldProcess:(enum BRZInAppMessageRawClickAction)clickAction
                  url:(NSURL *)uri
@@ -223,7 +223,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = true
 ```
 
@@ -257,7 +257,7 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -269,7 +269,7 @@ func inAppMessage(
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)inAppMessage:(BrazeInAppMessageUI *)ui
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   context.preferredOrientation = BRZInAppMessageRawOrientationPortrait;
@@ -286,7 +286,7 @@ func inAppMessage(
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 // Set inAppMessage orientation to support any configuration
 inAppMessage.orientation = .any
 
@@ -300,7 +300,7 @@ inAppMessage.orientation = .landscape
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // Set inAppMessage orientation to support any configuration
 inAppMessage.orientation = BRZInAppMessageRawOrientationAny;
 
@@ -333,7 +333,7 @@ inAppMessage.orientation = BRZInAppMessageRawOrientationLandscape;
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   displayChoiceForMessage message: Braze.InAppMessage
@@ -343,7 +343,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui displayChoiceForMessage:(BRZInAppMessageRaw *)message
 ```
 
@@ -384,7 +384,7 @@ func inAppMessage(
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   prepareWith context: inout BrazeInAppMessageUI.PresentationContext
@@ -444,7 +444,7 @@ func inAppMessage(
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)inAppMessage:(BrazeInAppMessageUI *)ui
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   switch (context.message.type) {
@@ -484,7 +484,7 @@ func inAppMessage(
 
 ## App Storeレビュープロンプトをカスタマイズする {#customizing-the-app-store-review-prompt}
 
-Campaignでアプリ内メッセージを使用して、ユーザーにApp Storeのレビューを依頼できます。
+キャンペーンでアプリ内メッセージを使用して、ユーザーにApp Storeのレビューを依頼できます。
 
 {% alert note %}
 このプロンプトの例はBrazeのデフォルト動作をオーバーライドするため、実装するとインプレッションを自動的に追跡できません。[自身で分析データを記録する]({{site.baseurl}}/developer_guide/analytics/)必要があります。
@@ -501,7 +501,7 @@ Campaignでアプリ内メッセージを使用して、ユーザーにApp Store
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Braze.InAppMessage) -> BrazeInAppMessageUI.DisplayChoice {
   if message.extras["AppStore Review"] != nil,
     let messageUrl = message.clickAction.url {
@@ -516,7 +516,7 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui
                             displayChoiceForMessage:(BRZInAppMessageRaw *)message {
   if (message.extras != nil && message.extras[@"AppStore Review"] != nil) {
@@ -538,7 +538,7 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
@@ -552,7 +552,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
@@ -570,7 +570,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 ### ステップ 4:クリック時のカスタム動作を設定する {#step-4-set-custom-on-click-behavior}
 
-次に、以下の内容でアプリ内メッセージングCampaignを作成します。
+次に、以下の内容でアプリ内メッセージングキャンペーンを作成します。
 
 - キーと値のペア `"AppStore Review" : "true"`
 - ディープリンク`{YOUR-APP-SCHEME}:app-store-review`を使用して、クリック時の動作を「アプリにディープリンクする」に設定します。
@@ -578,5 +578,5 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endraw %}
 
 {% alert tip %}
-AppleはApp Storeのレビュープロンプトをユーザーごとに年間最大3回に制限しているため、Campaignの[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)はユーザーごとに年間3回に設定する必要があります。<br><br>ユーザーはApp Storeのレビュープロンプトをオフにできます。そのため、カスタムレビュープロンプトでは、App Storeのネイティブレビュープロンプトが表示されることを約束したり、直接レビューを求めたりしないでください。
+AppleはApp Storeのレビュープロンプトをユーザーごとに年間最大3回に制限しているため、キャンペーンの[レート制限]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/)はユーザーごとに年間3回に設定する必要があります。<br><br>ユーザーはApp Storeのレビュープロンプトをオフにできます。そのため、カスタムレビュープロンプトでは、App Storeのネイティブレビュープロンプトが表示されることを約束したり、直接レビューを求めたりしないでください。
 {% endalert %}

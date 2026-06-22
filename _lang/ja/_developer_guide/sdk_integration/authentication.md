@@ -53,19 +53,19 @@ JWTを生成する際には、以下のフィールドが必要です：
 | ----- | -------- | ----------------------------------- |
 | `alg` | はい  | サポートされているアルゴリズムは`RS256`です。 |
 | `typ` | はい  | タイプは`JWT`と同じでなければなりません。        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する #create-jwt" }
 
 **JWTペイロード**
 
 | フィールド | 必須 | 説明                                                                            |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | はい  | 「subject」は、`changeUser`の呼び出し時にBraze SDKに指定したユーザーIDと同じである必要があります。  |
-| `exp` | はい | このトークンをいつ期限切れにするかの「有効期限」。                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+| `exp` | はい | このトークンをいつ期限切れにするかの「有効期限」（Unixタイムスタンプ（秒単位）で指定します。例：2030年1月1日の場合は`1893456000`）。                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.2:現在のユーザーのJSON Web Tokenを作成する #create-jwt" }
 
 {% alert tip %}
 JSON Web Tokenについての詳細や、この署名プロセスを簡素化する多くのオープンソースライブラリを参照するには、[https://jwt.io](https://jwt.io)をチェックしてください。
@@ -722,7 +722,7 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 | **無効** | Brazeは、ユーザーに提供されたJWTを検証しません。（デフォルト設定）|
 | **オプション** | Brazeは、ログインしているユーザーのリクエストを検証しますが、無効なリクエストは拒否しません。 |
 | **必須** | Brazeは、ログインしているユーザーのリクエストを検証し、無効なJWTは拒否します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="適用オプション" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -779,7 +779,7 @@ BrazeダッシュボードでアプリのSDK認証設定が**必須**に設定�
 | 26 | `MISSING_TOKEN` | リクエストにトークンが指定されていません。| `changeUser(id, token)`を呼び出す際にトークンを渡していることを確認し、そのトークンが空白でないことを確認してください。|
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | 提供されたトークンに一致する公開鍵がありませんでした。| JWTで使用されている秘密キーは、アプリに設定されている公開キーのいずれとも一致しません。このAPIキーに対応するワークスペース内の正しいアプリに公開キーを追加したことを確認してください。|
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | リクエストのペイロード内のユーザーIDがすべて、要求通りに一致しているわけではありません。| これは予期しないエラーであり、不正なペイロードを引き起こす可能性があります。サポートチケットを開いてお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="エラーコード" }
 
 ## よくある質問（FAQ） {#faq}
 

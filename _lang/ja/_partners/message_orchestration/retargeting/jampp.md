@@ -38,9 +38,9 @@ BrazeとJamppの統合により、会社ユーザーはBraze Webhookイベント
 
 ## 統合 {#integration}
 
-### ステップ1:BrazeでWebhookテンプレートを作成する {#step-1-create-a-webhook-template-in-braze}
+### ステップ 1: BrazeでWebhookテンプレートを作成する {#step-1-create-a-webhook-template-in-braze}
 
-将来のCampaignsまたはCanvasesで使用するJampp Webhookテンプレートを作成するには、Brazeプラットフォームで**Templates** > **Webhook Templates**に移動します。
+将来のCampaignsまたはCanvasesで使用するJampp Webhookテンプレートを作成するには、Brazeダッシュボードで**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
 一度だけのJampp Webhook Campaignを作成したい場合や、既存のテンプレートを使用したい場合は、新規Campaign作成時にBrazeで**Webhook**を選択してください。
 
@@ -88,10 +88,10 @@ Jampp WebhookにはHTTPメソッドとリクエストヘッダーが必要です
 
 このWebhookのリクエスト本文を定義する必要はありません。
 
-### ステップ2:リクエストをプレビューする {#step-2-preview-your-request}
+### ステップ 2: リクエストをプレビューする {#step-2-preview-your-request}
 
 メッセージをプレビューして、リクエストがさまざまなユーザーに対して正しくレンダリングされていることを確認します。AndroidとiOSの両方のユーザーに対して、プレビューとテストリクエストの送信を推奨します。リクエストが成功すると、APIは `HTTP 204` で応答します。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

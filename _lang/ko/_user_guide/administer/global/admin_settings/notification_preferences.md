@@ -26,7 +26,7 @@ Slack과 통합하여 알림을 받을 수도 있습니다. 단계는 [수신 �
 다음 표에서는 사용 가능한 알림과 알림을 전달하는 데 사용되는 채널에 대해 설명합니다.
 
 {% alert note %}
-기본 **수신자** 값인 **모든 대시보드 사용자**를 삭제한 후 다시 추가하려면 드롭다운 필드에 수동으로 입력하면 됩니다.
+알림 유형에 따라 **All Dashboard Users** 및 **All Admins**가 수신자 드롭다운에 표시되지 않을 수 있습니다. 수동으로 입력할 수 있으며, 수신자 값은 대소문자를 구분하므로 정확히 일치해야 합니다. 영어 이외의 언어로 현지화된 대시보드의 경우, 해당 알림에 대해 제안이 표시될 때 Braze가 보여주는 정확한 수신자 태그를 사용하세요. 직접 번역하지 마세요.
 {% endalert %}
 
 | 알림 | 설명 | 사용 가능한 알림 채널 |
@@ -47,8 +47,8 @@ Slack과 통합하여 알림을 받을 수도 있습니다. 단계는 [수신 �
 | 웹훅 오류 | 웹훅 엔드포인트에 오류가 발생할 때 수신자에게 알립니다. | 이메일 |
 | 주간 분석 보고서 | 매주 월요일에 수신자에게 지난 한 주간의 워크스페이스 활동 요약을 보냅니다. 수신자는 자신이 속한 각 워크스페이스에 대한 요약을 받습니다. | 이메일 |
 | 일일 Canvas/Campaign 진입 볼륨 한도 | 발송 한도에 도달할 때마다 알림을 보냅니다. | 이메일 |
-| 에이전트 콘솔 오류 | [에이전트 콘솔 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)가 현재 기능으로 실행 한도에 도달했거나 에이전트가 사용할 수 없게 된 모델을 사용할 때 수신자에게 알립니다. | 이메일 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available notifications" }
+| 에이전트 콘솔 오류 | [에이전트 콘솔 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)가 실행 한도에 도달했거나, 사용할 수 없게 된 모델을 사용하거나, LLM 제공업체와의 결제 오류가 발생했을 때(자체 API 키 사용 시에만) 수신자에게 알립니다. | 이메일 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용 가능한 알림" }
 
 {% alert note %}
 [일시 중지된 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)도 Braze로부터 알림을 계속 받을 수 있습니다.

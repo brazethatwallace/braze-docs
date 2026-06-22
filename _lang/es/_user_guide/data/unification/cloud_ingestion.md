@@ -15,6 +15,10 @@ toc_headers: h2
 
 Con la Ingesta de datos de Cloud (CDI) de Braze, configuras una integración entre tu instancia de almacén de datos y tu espacio de trabajo de Braze para sincronizar datos de forma periódica. Esta sincronización se ejecuta según la planificación que establezcas, y cada integración puede tener una planificación diferente. Las sincronizaciones pueden ejecutarse con una frecuencia de hasta cada 15 minutos o tan infrecuentemente como una vez al mes. Si necesitas que las sincronizaciones se produzcan con una frecuencia superior a 15 minutos, ponte en contacto con tu administrador del éxito del cliente o considera la posibilidad de utilizar llamadas a la REST API para la ingesta de datos en tiempo real.
 
+{% alert note %}
+La frecuencia de sincronización en el dashboard controla la frecuencia con la que Braze ejecuta una sincronización (por ejemplo, opciones como ejecuciones cada hora o más frecuentes dentro de una hora). No establece un intervalo personalizado superior a una hora entre ejecuciones. Para ejecutar una sincronización fuera de la cadencia planificada —como bajo demanda después de que se complete la carga de tu almacén de datos— utiliza el punto de conexión [Trigger a sync]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) con tu ID de integración.
+{% endalert %}
+
 Cuando se ejecuta una sincronización, Braze se conecta directamente a tu instancia de almacén de datos, recupera todos los datos nuevos de la tabla especificada y actualiza los datos correspondientes en tu panel de Braze. Cada vez que se ejecuta la sincronización, los datos actualizados se reflejan en Braze.
 
 ### Encontrar tu ID de integración {#finding-your-integration-id}

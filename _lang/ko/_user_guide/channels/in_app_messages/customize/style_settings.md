@@ -106,7 +106,7 @@ page_order: 1
 
 **메시지 스타일** 탭에서 메시지 배경에 이미지를 추가할 수 있습니다.
 
-1. 캔버스 영역에서 배경 컨테이너를 선택합니다. 이것은 메시지의 스크롤 가능한 섹션입니다.
+1. Canvas 영역에서 배경 컨테이너를 선택합니다. 이것은 메시지의 스크롤 가능한 섹션입니다.
 2. **메시지 스타일** 탭에서 **배경 이미지**를 켭니다.
 3. 미디어 라이브러리에서 이미지를 추가하거나, 이미지가 호스팅된 URL을 입력합니다.
 
@@ -124,7 +124,7 @@ page_order: 1
 
 ### AI 카피라이터 사용 {#using-the-ai-copywriter}
 
-인앱 메시지에서 텍스트 블록이 선택된 상태에서, 블록 도구 모음의 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i>를 클릭하여 [AI 기반 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 실행합니다. AI 카피라이팅 어시스턴트는 간략한 제품 이름이나 설명을 OpenAI의 GPT3 카피 생성 도구에 전달하여 메시징에 사용할 사람과 유사한 마케팅 카피를 생성합니다.
+인앱 메시지에서 텍스트 블록이 선택된 상태에서, 블록 도구 모음의 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i> **AI 카피라이터**를 선택하여 [AI 기반 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 실행합니다. AI 카피라이팅 어시스턴트는 간략한 제품 이름이나 설명을 OpenAI의 GPT3 카피 생성 도구에 전달하여 메시징에 사용할 사람과 유사한 마케팅 카피를 생성합니다.
 
 {% alert tip %}
 블록 내의 텍스트를 강조 표시한 후 아이콘을 클릭하면 몇 번의 클릭을 절약할 수 있습니다. 강조 표시된 텍스트가 도구에 추가되고, 카피가 즉시 생성됩니다.
@@ -146,9 +146,9 @@ page_order: 1
 
 ![스타일 복사 옵션이 있는 드롭다운 메뉴.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. 요소가 선택된 상태에서, 속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i>를 선택합니다(예: 버튼이 선택된 경우, "버튼 속성" 옆).
+1. 요소가 선택된 상태에서, 속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i> **스타일 복사 또는 붙여넣기**를 선택합니다(예: 버튼이 선택된 경우, "버튼 속성" 옆).
 2. **스타일 복사**를 클릭하고 복사한 스타일을 적용할 요소를 선택합니다.
-3. <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i>를 다시 선택하고 **스타일 붙여넣기**를 선택합니다.
+3. <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i> **스타일 복사 또는 붙여넣기**를 다시 선택하고 **스타일 붙여넣기**를 선택합니다.
 
 #### 키보드 단축키 {#keyboard-shortcuts}
 
@@ -158,4 +158,4 @@ page_order: 1
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
 | 스타일 복사 | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | 스타일 붙여넣기 | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="키보드 단축키" }

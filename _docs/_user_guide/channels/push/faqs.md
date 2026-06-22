@@ -12,6 +12,10 @@ channel:
 
 > This article provides answers to some frequently asked questions about the push channel.
 
+### Why are push notifications sometimes delayed?
+
+Delivery usually follows three stages: Braze **processing** (segmentation, scheduling, and handoff to the provider), transport from Braze to **APNs or FCM**, and delivery from the provider to the **device**. Delays can occur at any stage. Braze does not have visibility into provider or device queues; use [verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) on the client when you need to narrow down device-side timing.
+
 ### What happens when multiple users log into a single device?
 
 When a user logs out of a device or website, they will remain reachable by push until another user logs in. At that point, the push token is reassigned to the new user. This is because each device can only have one active push subscription per app or website.
@@ -57,7 +61,7 @@ If you selected **Open web URL** without the **Inside App** option, the link ope
 When adding an Apple Push Certificate in Braze, the **Send to Production** and **Send to Development** options determine which APNs (Apple Push Notification service) gateway Braze uses to deliver push notifications:
 
 - **Send to Development:** Select this if the app was built in development mode in Xcode and signed with a development provisioning profile. Push notifications are routed through Apple's development (sandbox) gateway.
-- **Send to Production:** Select this if the app is distributed via Apple's TestFlight, App Store, or enterprise distribution. Push notifications are routed through Apple's production gateway.
+- **Send to Production:** Select this if the app is distributed through Apple's TestFlight, App Store, or enterprise distribution. Push notifications are routed through Apple's production gateway.
 
 If the wrong option is selected, push notifications silently fail because the push token type does not match the gateway. Typically, apps distributed through TestFlight or the App Store should use **Send to Production**.
 

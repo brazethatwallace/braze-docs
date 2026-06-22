@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personnaliser un message en fonction d'attributs personnalisés correspondants](#attribute-matching)
+- [Formater une devise selon les conventions numériques européennes](#european-currency-format)
 - [Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire](#attribute-monetary-difference)
 - [Référencer le prénom d'un utilisateur si son nom complet est stocké dans le champ first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formater une devise selon les conventions numériques européennes {#european-currency-format}
+
+Pour les locales qui utilisent une virgule comme séparateur décimal et un point comme séparateur de milliers (par exemple, l'Allemagne ou l'Italie), utilisez les filtres [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) et [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) avec `replace` pour intervertir les séparateurs. Utilisez `#` comme marque substitutive temporaire afin que les points et les virgules ne soient pas intervertis lors de la même passe.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Résultat :** `1.234.567,89`
+
+**Explication :** Le filtre `money` ajoute les décimales mais n'ajoute pas de symbole monétaire ni de séparateurs spécifiques à la locale. `number_with_delimiter` ajoute les séparateurs de milliers au format américain, et les filtres `replace` les convertissent au format européen.
 {% endraw %}
 
 ### Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire {#attribute-monetary-difference}
@@ -1372,6 +1387,10 @@ Time zones
 - [Envoyer des messages différents en fonction de l'heure de la journée dans le fuseau horaire local de l'utilisateur](#time-of-day)
 - [Annuler un message en dehors d'une plage horaire au moment de l'envoi](#abort-send-time-hour-range)
 - [Annuler un message en dehors d'une fenêtre horaire dans un fuseau horaire fixe](#abort-fixed-timezone-window)
+
+{% alert note %}
+Si un utilisateur reçoit un message à une heure locale inattendue, le fuseau horaire de son appareil ou de son profil a peut-être changé (par exemple, après un voyage). La distribution en heure locale utilise le fuseau horaire du profil au moment de l'envoi ; les utilisateurs peuvent avoir besoin d'une nouvelle session dans leur région habituelle avant que des valeurs telles que {% raw %}`{{${time_zone}}}`{% endraw %} reflètent ce que vous attendez. Cependant, vous pouvez [insérer dans un modèle le fuseau horaire de l'utilisateur](#users-time-zone).
+{% endalert %}
 
 ### Insérer dans un modèle le fuseau horaire de l'utilisateur {#users-time-zone}
 

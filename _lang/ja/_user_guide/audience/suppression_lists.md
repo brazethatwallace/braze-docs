@@ -39,8 +39,8 @@ description: "このページでは、抑制リストを使用して、メッセ
 すべてのユーザーが抑制リストを表示できますが、抑制リストの作成と管理ができるのは[管理者権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin)を持つユーザーのみです。
 {% endalert %}
 
-1. **オーディエンス** > **抑制リスト**に移動します。<br><br>![3つの抑制リストが表示された「抑制リスト」ページ。]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. **抑制リストを作成**を選択し、名前を追加します。<br><br>![名前を入力するフィールドがある「抑制リストを作成」ウィンドウ。]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. **オーディエンス** > **抑制リスト**に移動します。
+2. **抑制リストを作成**を選択し、名前を追加します。
 3. Segmentフィルターを使用して、抑制リストのユーザーを特定します。少なくとも1つ選択する必要があります。
 
 {% alert important %}

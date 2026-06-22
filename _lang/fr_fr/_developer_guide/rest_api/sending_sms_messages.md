@@ -29,7 +29,7 @@ Pour suivre ce guide, vous aurez besoin des éléments suivants :
 
 | Condition | Description |
 | --- | --- |
-| Clé de REST API Braze | Une clé avec l'autorisation `messages.send`. Pour en créer une, rendez-vous dans **Paramètres** > **API et identifiants** > **Clés API**. |
+| Clé de REST API Braze | Une clé avec l'autorisation `messages.send`. Pour en créer une, rendez-vous dans **Paramètres** > **Clés API**. |
 | Groupe d'abonnement SMS | Un groupe d'abonnement SMS configuré dans votre espace de travail Braze. |
 | Service backend | Un service backend ou un environnement de script capable d'effectuer des requêtes HTTP POST vers la REST API Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }

@@ -64,7 +64,7 @@ Braze iOS SDK v4.0.2より前では、辞書キー `Appboy` を `Braze` の代�
 {% subtabs %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 NSMutableDictionary *appboyOptions = [NSMutableDictionary dictionary];
 appboyOptions[ABKLogLevelKey] = @(0);
 [Appboy startWithApiKey:@"YOUR-API-KEY"
@@ -76,7 +76,7 @@ appboyOptions[ABKLogLevelKey] = @(0);
 {% endsubtab %}
 {% subtab swift %}
 
-```swift
+`````````swift
 let appboyOptions: [AnyHashable: Any] = [
   ABKLogLevelKey : 0
 ]
@@ -132,7 +132,7 @@ IDFA収集を実装するには、次のステップに従います。
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 #import "IDFADelegate.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
@@ -156,7 +156,7 @@ IDFA収集を実装するには、次のステップに従います。
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 import Appboy_iOS_SDK
 import AdSupport
 import AppTrackingTransparency

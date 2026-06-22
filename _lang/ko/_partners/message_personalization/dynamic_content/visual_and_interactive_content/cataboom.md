@@ -26,7 +26,7 @@ Braze와 CataBoom 통합을 사용하여 메시지에 개인화된 게임 링크
 | Catapult 계정 | 이 통합을 사용하려면 Catapult 계정이 필요합니다. |
 | Braze REST API 키 (선택 사항) | Catapult 웹훅을 사용하는 경우, 사용 사례에 필요한 사용자 데이터 권한이 있는 Braze REST API 키가 필요합니다. Braze에서 **설정** > **API 키** > **API 키**로 이동하여 키를 생성하세요. |
 | Braze REST 엔드포인트 (선택 사항) | Catapult 웹훅을 사용하는 경우, [Braze 인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 해당하는 Braze URL과 일치하는 REST 엔드포인트 URL을 사용하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: 게임 경험 만들기 {#step-1-create-your-game-experience}
 

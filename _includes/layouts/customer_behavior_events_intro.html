@@ -1,2 +1,8 @@
-<h1> Customer behavior and user events </h1>
-<p class="api_text">Use the search bar or the checkboxes below to find the events you need to use Currents effectively. <br> <br>  These schema include other App or Website activity such as Sessions, Custom Events, and Purchases tracked through the platform. </p>
+{%- assign loc = site.data.i18n[site.language] -%}
+{%- assign i18n_en = site.data.i18n.en -%}
+{%- assign glossary_page_title = glossary_page_title | default: page.article_title | default: page.nav_title -%}
+{%- if glossary_page_title == blank -%}
+  {%- assign glossary_page_title = loc.customer_behavior_events_glossary_title | default: i18n_en.customer_behavior_events_glossary_title -%}
+{%- endif -%}
+<h1>{{ glossary_page_title }}</h1>
+<p class="api_text">{{ loc.customer_behavior_events_glossary_intro | default: i18n_en.customer_behavior_events_glossary_intro }}</p>

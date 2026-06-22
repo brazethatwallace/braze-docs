@@ -68,7 +68,7 @@ Sous **Paramètres d'abonnement**, pour **Envoyer à ces utilisateurs :** sélec
 
 #### Étape 4a : Ajouter un parcours d'action {#step-4a-add-an-action-path}
 
-Sous votre variante, cliquez sur l'icône plus, puis sélectionnez **Parcours d'actions**.
+Sous votre variante, sélectionnez <i class="fas fa-plus" aria-label="Ajouter"></i> **Ajouter**, puis sélectionnez **Parcours d'actions**.
 
 ![Canvas avec « Parcours d'actions » affiché dans le menu ouvert par l'icône plus.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -105,7 +105,7 @@ Dans l'onglet **Rédiger** de chaque étape Mise à jour utilisateur, procédez 
 | **Nom de l'attribut** | Sélectionnez l'attribut d'évaluation des prospects choisi à l'étape 2 (`lead score`). |
 | **Action** | Changez l'action en **Incrémenter par** si le parcours augmente le score ou **Décrémenter par** si le parcours diminue le score. |
 | **Incrémenter par** ou **Décrémenter par** | Saisissez le nombre de points à ajouter ou à retrancher du score du prospect. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 4d : Ajouter des étapes Mise à jour utilisateur" }
 
 ### Étape 5 : Lancer votre Canvas {#step-5-launch-your-canvas}
 
@@ -184,7 +184,7 @@ Pour mettre à jour l'enregistrement du prospect dans Salesforce avec le statut 
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Pour récupérer un jeton, [configurez une application connectée](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) pour le flux d'identifiants client OAuth 2.0, puis utilisez le contenu connecté pour récupérer le bearer depuis Salesforce : <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2a : Composer le webhook" }
 
 ![Webhook composé avec une URL de webhook Salesforce, une méthode HTTP PATCH, un corps de requête en texte brut et des en-têtes de requête.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

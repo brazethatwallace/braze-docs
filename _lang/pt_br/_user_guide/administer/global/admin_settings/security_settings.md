@@ -99,35 +99,19 @@ Se a 2FA for aplicada no nível da empresa, os usuários que não a configurarem
 A 2FA é obrigatória para todos os usuários da empresa somente se o login único (SSO) não estiver ativado. Se o SSO estiver em uso, a 2FA não precisa ser aplicada no nível da empresa.
 {% endalert %}
 
-## Configuração da autenticação de dois fatores (2FA) {#setting-up-two-factor-authentication-2fa}
+## Configurar a 2FA manualmente {#manually-set-up-2fa}
 
-### Configuração da 2FA com Authy {#setting-up-2fa-with-authy}
+Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braze, siga estas etapas:
 
-1. Baixe o app Authy na loja de apps do seu dispositivo.
-2. Na Braze, insira seu número de telefone.
-3. Toque na notificação enviada ao seu dispositivo solicitando que você abra o app Authy.
-4. Abra o app Authy no seu dispositivo para obter o código.
-5. Na Braze, insira o código de verificação que você recebeu do Authy.
-
-Se você encontrar problemas durante o processo de configuração e for redirecionado para a página inicial ou tela de login da Braze, tente o seguinte:
-
-- Use o modo de navegação anônima ou privada: tente a configuração novamente em uma janela de navegação anônima ou privada. Isso pode contornar problemas causados por extensões ou plugins do navegador.
-- Tente um perfil de navegador diferente: se o problema persistir, considere usar um perfil de navegador diferente para eliminar conflitos com plugins instalados.
-
-### Configuração da 2FA quando não é obrigatória {#setting-up-2fa-when-it-isnt-enforced}
-
-Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braze quando ela não é obrigatória, siga estas etapas:
-
-1. Baixe um app de 2FA como Authy, Google Authenticator, Okta Verify ou similar na App Store (iOS), Google Play Store (Android) ou na web. Ou, se preferir configurar a 2FA com e-mail ou SMS, pule para a etapa 2.
-2. Na Braze, acesse Gerenciar conta, role até a seção **Autenticação de dois fatores** e selecione **Iniciar configuração**.
-3. Insira sua senha no modal de login e selecione **Verificar senha**.
-4. No modal **Configuração da autenticação de dois fatores**, insira seu número de telefone e selecione **Ativar**.
-5. Copie o código de sete dígitos gerado pelo seu app de 2FA, e-mail ou mensagem SMS, volte à Braze e cole-o no modal **Configuração da autenticação de dois fatores**. Selecione **Verificar**.
-6. (Opcional) Para evitar inserir a 2FA nos próximos 30 dias, ative a opção **Lembrar esta conta por 30 dias**.
+1. Na Braze, selecione o ícone do seu perfil no cabeçalho global e selecione **Gerenciar sua conta**. Role até a seção **Autenticação de dois fatores** e selecione **Iniciar configuração**.
+2. Insira sua senha no modal de login e selecione **Verificar senha**.
+3. No modal **Configuração da autenticação de dois fatores**, insira seu número de telefone e selecione **Ativar**.
+4. Copie o código de sete dígitos gerado pelo seu e-mail ou mensagem SMS, volte à Braze e cole-o no modal **Configuração da autenticação de dois fatores**. Selecione **Verificar**.
+5. (Opcional) Para evitar inserir a 2FA nos próximos 30 dias, ative a opção **Lembrar esta conta por 30 dias**.
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um segmento ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
 
 Se um usuário não conseguir verificar novamente, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a verificação bem-sucedida, ele não precisará verificar novamente na próxima hora — a menos que faça logout primeiro.
 
@@ -284,7 +268,7 @@ Os seguintes atributos podem ser designados como IPI e ocultados dos usuários d
 
 | Atributos padrão | Atributos personalizados |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
+| {::nomarkdown}<ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> LINE ID </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos potenciais de IPI" }
 
 ### Áreas limitadas {#limited-areas}

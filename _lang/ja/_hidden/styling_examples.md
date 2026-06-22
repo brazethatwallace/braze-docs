@@ -131,7 +131,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 
 Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at lectus tempus tempor.
 
-``` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor. ```
+````````` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor. ```
 ```
 {% endtab %}
 {% endtabs %}
@@ -178,13 +178,13 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 
 テーブルの列ごとのワードブレークをリセットするには、次の構文を使用します。
 
-```markdown
+`````````markdown
 {: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM aria-label="Resetting Table word-break by column" }
 ```
 
 `NUM`を対応する列番号に置き換えます（最大4列まで）。4列未満の場合は、余分な`.reset-td-br-NUM`プレースホルダーを削除してください。テーブルは次のようになります。
 
-```markdown
+`````````markdown
 | Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
@@ -304,20 +304,20 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {% tabs %}
 {% tab Styling %}
 #### コードテスト Objective C
-```objc
+`````````objc
 - (void)submitFeedback:(ABKFeedback * )feedback
  withCompletionHandler:(nullable void (^)(ABKFeedbackSentResult feedbackSentResult))completionHandler;
 ```
 
 #### コードテスト Swift
-```swift
+`````````swift
 Appboy.sharedInstance()?.submitFeedback(feedback) { (feedbackSentResult) in
       print("Feedback sent: (feedbackSentResult)")
     }
 ```
 
 #### コードテスト Java
-```java
+`````````java
 @Override
 public void onResume() {
   super.onResume();
@@ -337,7 +337,7 @@ public void onResume() {
 ```
 
 #### コードテスト JavaScript
-```javascript
+`````````javascript
 braze.subscribeToFeedUpdates(function(feed) {
   var cards = feed.cards;
   braze.showFeed(undefined, cards);
@@ -346,7 +346,7 @@ braze.requestFeedRefresh();
 ```
 
 #### Pygmentsテスト
-```python
+`````````python
 #!/usr/bin/python3
 
 from engine import RunForrestRun
@@ -443,14 +443,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 YouTube動画を埋め込むには、YouTube IDが必要です。URLの`v=`の後に表示されます。たとえば、`https://www.youtube.com/watch?v=VR1qn1OBP7k`のIDは`VR1qn1OBP7k`です。
 
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[youtube_id]" source="youtube" %}
 ```
 {% endraw %}
 
 右寄せまたは左寄せにし、最大幅を50%に制限するには、`align`パラメーターに`left`または`right`を使用します。
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[youtube_id]" align="left" source="youtube" %}
 
 {% multi_lang_include video.html id="[youtube_id]" align="right" source="youtube" %}
@@ -459,7 +459,7 @@ YouTube動画を埋め込むには、YouTube IDが必要です。URLの`v=`の�
 
 Loomの例:
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[lid]" source="loom" %}
 ```
 {% endraw %}
@@ -472,7 +472,7 @@ Loomの例:
 高解像度表示用に左側に静的動画を配置するフィーチャー動画レイアウトを使用するには、ページのYAMLヘッダーに`video_id`と`video_type`（`youtube`など）を追加します。デフォルトでは`video_source`は`youtube`に設定されています。
 
 {% raw %}
-```yaml
+`````````yaml
 layout: featured_video
 video_id: [video_id]
 video_source: youtube
@@ -542,14 +542,14 @@ video_source: youtube
 {% details クリックして展開 %}
 #### 隠しコードブロックがあります！
 
-```python
+`````````python
 print("hello world!")
 ```
 {% enddetails %}
 {% endtab %}
 {% tab Markdown %}
 {% raw %}
-```liquid
+`````````liquid
 {% details Click me to Expand %}
 ...
 {% enddetails %}
@@ -567,13 +567,13 @@ print("hello world!")
 
 `AppDelegate.m`ファイルに次のコード行を追加します。
 
-```objc
+`````````objc
 {% if include.platform == 'iOS' %}#import "Appboy-iOS-SDK/AppboyKit.h"{% else %}#import <AppboyTVOSKit/AppboyKit.h>{% endif %}
 ```
 
 `AppDelegate.m`ファイル内の`application:didFinishLaunchingWithOptions`メソッドに次のスニペットを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
          inApplication:application
      withLaunchOptions:launchOptions];
@@ -584,7 +584,7 @@ print("hello world!")
 
 Braze SDKをCocoaPodsまたはCarthageで統合する場合は、`AppDelegate.swift`ファイルに次のコード行を追加します。
 
-```swift
+`````````swift
 {% if include.platform == 'iOS' %}#import Appboy_iOS_SDK{% else %}#import AppboyTVOSKit{% endif %}
 ```
 
@@ -592,7 +592,7 @@ SwiftプロジェクトでObjective-Cコードを使用する方法の詳細に�
 
 `AppDelegate.swift`の`application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`に次のスニペットを追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 {% endtab %}
@@ -611,7 +611,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endalert %}
 
 {% raw %}
-```liquid
+`````````liquid
 {% tabs %}
 {% tab objective-c %}
 Content of objective-c
@@ -627,7 +627,7 @@ Content of swift
 特定のセクションのタブコンテンツのみを変更する自己完結型タブの場合は、親タブブロックでlocalパラメーターを使用します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% tabs local %}
 ...
 {% endtabs %}

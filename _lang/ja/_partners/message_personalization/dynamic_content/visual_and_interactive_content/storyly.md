@@ -16,8 +16,8 @@ _この統合は Storyly によって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Braze と Storyly の統合により、BrazeのSegmentsを Storyly プラットフォームでオーディエンスとして使用できます。この統合により、次のことが可能になります。
-- 特定のストーリーでSegmentsをターゲットにする
+Braze と Storyly の統合により、Brazeのセグメントを Storyly プラットフォームでオーディエンスとして使用できます。この統合により、次のことが可能になります。
+- 特定のストーリーでセグメントをターゲットにする
 - ユーザー属性を使ってストーリーコンテンツをパーソナライズする
 
 ## 前提条件 {#prerequisites}
@@ -32,11 +32,11 @@ Braze と Storyly の統合により、BrazeのSegmentsを Storyly プラット�
 
 ## ユースケース {#use-cases}
 
-Braze と Storyly の統合により、アプリオーナーはBrazeのすべてのSegmentsにストーリーを表示し、ユーザー属性でストーリーをパーソナライズできます。
+Braze と Storyly の統合により、アプリオーナーはBrazeのすべてのセグメントにストーリーを表示し、ユーザー属性でストーリーをパーソナライズできます。
 
 一般的なユースケースには以下のようなものがあります。
 
-__Storyly でBraze Segmentsをターゲットにする__<br>統合が完了したら、Braze Segmentsに基づいて Storyly オーディエンスを作成できます。これは、デモグラフィックセグメントまたは行動セグメントです。例えば、特定の場所に住んでいるユーザー、アプリで特定のアクションを起こしたユーザー、特定の商品に興味があるユーザーを特定のストーリーでターゲットにすることで、コンバージョンを高めることができます。<br>
+__Storyly でBraze セグメントをターゲットにする__<br>統合が完了したら、Braze セグメントに基づいて Storyly オーディエンスを作成できます。これは、デモグラフィックセグメントまたは行動セグメントです。例えば、特定の場所に住んでいるユーザー、アプリで特定のアクションを起こしたユーザー、特定の商品に興味があるユーザーを特定のストーリーでターゲットにすることで、コンバージョンを高めることができます。<br>
 __ユーザー属性でパーソナライズされたストーリー__<br>Brazeのユーザー属性はStorylyでも使用でき、ダイナミックなストーリーを生成できます。これには、ユーザーの名前、買い物かごに入っている製品、お気に入りの製品などを含めることができ、ユーザーに独自のパーソナライズされたストーリーを提供できます。パーソナライゼーションは、ストーリーのコンバージョン率とストーリー全体のエンゲージメント率を高めるのに役立ちます。
 
 ## データエクスポートの統合 {#data-export-integration}
@@ -53,8 +53,8 @@ Storyly の統合がカスタムパラメーターを保持していることを
 
 統合は **Storyly Dashboard > Settings > Integrations > Connect with Braze** で作成します。ここでは、Braze REST API キーと Braze REST エンドポイントが必要です。
 
-### ステップ 2: Segmentsを取得する {#step-2-get-your-segments}
+### ステップ 2: セグメントを取得する {#step-2-get-your-segments}
 
-次に、Braze Segmentsを使用して Storyly オーディエンスを作成できます。これは、**Storyly Dashboard > Settings > Audiences > New Audience > Create Audience with Braze** で作成できます。
+次に、Braze セグメントを使用して Storyly オーディエンスを作成できます。これは、**Storyly Dashboard > Settings > Audiences > New Audience > Create Audience with Braze** で作成できます。
 
-ここには2つの同期オプションがあります。特定のCampaignストーリーには **One-time sync** を、長期的なストーリーには **Daily Sync** を選択してください。
+ここには2つの同期オプションがあります。特定のキャンペーンストーリーには **One-time sync** を、長期的なストーリーには **Daily Sync** を選択してください。

@@ -99,35 +99,19 @@ Si la 2FA est appliquée au niveau de l'entreprise, les utilisateurs qui ne la c
 La 2FA est requise pour tous les utilisateurs de l'entreprise uniquement si l'authentification unique (SSO) n'est pas activée. Si le SSO est utilisé, la 2FA n'a pas besoin d'être appliquée au niveau de l'entreprise.
 {% endalert %}
 
-## Configuration de l'authentification à deux facteurs (2FA) {#setting-up-two-factor-authentication-2fa}
+## Configurer manuellement la 2FA {#manually-set-up-2fa}
 
-### Configuration de la 2FA avec Authy {#setting-up-2fa-with-authy}
+Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre compte Braze, suivez ces étapes :
 
-1. Téléchargez l'application Authy depuis la boutique d'applications de votre appareil.
-2. Dans Braze, saisissez votre numéro de téléphone.
-3. Appuyez sur la notification envoyée à votre appareil vous invitant à ouvrir l'application Authy.
-4. Lancez l'application Authy sur votre appareil pour récupérer le code.
-5. Dans Braze, saisissez le code de vérification que vous avez reçu d'Authy.
-
-Si vous rencontrez des problèmes pendant le processus de configuration et êtes redirigé vers la page d'accueil ou l'écran de connexion de Braze, essayez ce qui suit :
-
-- Utilisez le mode navigation privée : tentez à nouveau la configuration dans une fenêtre de navigation privée. Cela peut contourner les problèmes causés par les extensions ou plugins du navigateur.
-- Essayez un autre profil de navigateur : si le problème persiste, envisagez d'utiliser un autre profil de navigateur pour éliminer les conflits avec les plugins installés.
-
-### Configuration de la 2FA lorsqu'elle n'est pas appliquée {#setting-up-2fa-when-it-isnt-enforced}
-
-Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre compte Braze lorsqu'elle n'est pas appliquée, suivez ces étapes :
-
-1. Téléchargez une application 2FA comme Authy, Google Authenticator, Okta Verify ou similaire depuis l'App Store (iOS), le Google Play Store (Android) ou le web. Ou, si vous préférez configurer la 2FA par e-mail ou SMS, passez à l'étape 2.
-2. Dans Braze, allez dans Gérer le compte, faites défiler jusqu'à la section **Authentification à deux facteurs**, puis sélectionnez **Démarrer la configuration**.
-3. Saisissez votre mot de passe dans la fenêtre modale de connexion, puis sélectionnez **Vérifier le mot de passe**.
-4. Dans la fenêtre modale **Configuration de l'authentification à deux facteurs**, saisissez votre numéro de téléphone, puis sélectionnez **Activer**.
-5. Copiez le code à sept chiffres généré depuis votre application 2FA, votre e-mail ou votre SMS, puis retournez dans Braze et collez-le dans la fenêtre modale **Configuration de l'authentification à deux facteurs**. Sélectionnez **Vérifier**.
-6. (Facultatif) Pour éviter de saisir la 2FA pendant les 30 prochains jours, activez l'option **Se souvenir de ce compte pendant 30 jours**.
+1. Dans Braze, sélectionnez votre icône de profil dans l'en-tête global, puis sélectionnez **Gérer votre compte**. Faites défiler jusqu'à la section **Authentification à deux facteurs**, puis sélectionnez **Démarrer la configuration**.
+2. Saisissez votre mot de passe dans la fenêtre modale de connexion, puis sélectionnez **Vérifier le mot de passe**.
+3. Dans la fenêtre modale **Configuration de l'authentification à deux facteurs**, saisissez votre numéro de téléphone, puis sélectionnez **Activer**.
+4. Copiez le code à sept chiffres généré depuis votre e-mail ou votre SMS, puis retournez dans Braze et collez-le dans la fenêtre modale **Configuration de l'authentification à deux facteurs**. Sélectionnez **Vérifier**.
+5. (Facultatif) Pour éviter de saisir la 2FA pendant les 30 prochains jours, activez l'option **Se souvenir de ce compte pendant 30 jours**.
 
 ## Accès élevé {#elevated-access}
 
-L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un Segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
+L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
 
 Si un utilisateur ne peut pas re-vérifier son identité, il sera redirigé vers l'endroit où il se trouvait et ne pourra pas poursuivre l'action sensible. Après une re-vérification réussie, il n'aura pas besoin de le refaire pendant l'heure suivante, sauf s'il se déconnecte entre-temps.
 
@@ -284,7 +268,7 @@ Les attributs suivants peuvent être désignés comme PII et masqués aux utilis
 
 | Attributs standard | Attributs personnalisés |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Adresse e-mail </li> <li> Numéro de téléphone </li> <li> Prénom </li> <li> Nom </li> <li> Genre </li> <li> Date de naissance </li> <li> ID d'appareil </li> <li> Emplacement le plus récent </li> </ul> {:/} | {::nomarkdown} <ul> <li> Tous les attributs personnalisés<ul><li>Les attributs personnalisés individuels peuvent être marqués comme PII si vous n'avez pas besoin de masquer tous les attributs.</li></ul></li> </ul> {:/} |
+| {::nomarkdown}<ul> <li>Adresse e-mail </li> <li> Numéro de téléphone </li> <li> Prénom </li> <li> Nom </li> <li> Genre </li> <li> Date de naissance </li> <li> ID d'appareil </li> <li> LINE ID </li> <li> Emplacement le plus récent </li> </ul> {:/} | {::nomarkdown} <ul> <li> Tous les attributs personnalisés<ul><li>Les attributs personnalisés individuels peuvent être marqués comme PII si vous n'avez pas besoin de masquer tous les attributs.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs PII potentiels" }
 
 ### Zones restreintes {#limited-areas}

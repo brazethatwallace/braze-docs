@@ -43,7 +43,7 @@ A tabela a seguir descreve as diferenças entre a versão gratuita e a versão p
 |----|----|----|
 | Transformações ativas | Até 5 por empresa | Até 55 por empresa |
 | Por mês | 300.000 solicitações recebidas por mês | 10.300.000 solicitações recebidas por mês |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Camadas da Transformação de Dados" }
 
 {% alert important %}
 Para solicitar um upgrade para o Data Transformation Pro, entre em contato com o seu gerente de conta da Braze ou selecione o botão **Request Upgrade** no dashboard da Braze.

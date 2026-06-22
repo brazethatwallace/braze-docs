@@ -21,7 +21,7 @@ guide_featured_list:
     link: /docs/get_see_user_account_information/
     image: /assets/img/braze_icons/eye.svg
   - name: "GET: 既存のダッシュボードユーザーアカウントをメールで検索"
-    link: /docs/get_search_existing_dashboard_user/
+    link: /docs/api/endpoints/scim/get_search_existing_dashboard_user/
     image: /assets/img/braze_icons/eye.svg
   - name: "PUT: ダッシュボードユーザーアカウントの更新"
     link: /docs/post_update_existing_user_account/

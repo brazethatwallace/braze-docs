@@ -19,7 +19,7 @@ guide_featured_list:
   - name: Servidor Braze MCP
     link: /docs/user_guide/brazeai/mcp_server
     image: /assets/img/braze_icons/dataflow-01.svg
-  - name: Otimizador de conteúdo
+  - name: Otimizador de Conteúdo
     link: /docs/user_guide/brazeai/content_optimizer
     image: /assets/img/braze_icons/image-user-check.svg
   - name: Estúdio de Decisões
@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## Visão geral dos recursos {#feature-overview}
+
+| Seu objetivo | Recurso recomendado |
+| --- | --- |
+| Personalizar o texto da mensagem por usuário usando o contexto dele | Braze Agents (Canvas ou catálogo); para rascunhos pontuais, IA generativa |
+| Otimizar qual conteúdo da mensagem (como assunto, CTA) tem melhor desempenho ao longo do tempo | Otimizador de Conteúdo (e-mail, notificações por push ou SMS/MMS/RCS) ou variante vencedora |
+| Maximizar uma métrica de negócios (receita, conversões) com decisões 1:1 entre ofertas, canais e timing | Estúdio de Decisões |
+| Encontrar usuários com probabilidade de churn ou de realizar um evento | Predictive Churn ou Predictive Events |
+| Recomendar produtos específicos de um catálogo nas mensagens | Recomendações de itens |
+| Enviar no melhor horário ou pelo melhor canal por usuário | Intelligent Timing, Canal Inteligente |
+| Criar ou refinar textos e criativos diretamente no dashboard | IA generativa (redação, imagens, QA), Operator para ajuda |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }

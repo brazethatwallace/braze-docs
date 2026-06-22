@@ -10,7 +10,7 @@ description: "この記事には2021年7月のリリースノートが含まれ�
 
 ## 簡単な調査アプリ内メッセージ {#simple-survey-in-app-message}
 
-[簡単な調査アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/)を使用して、Campaign戦略を強化するユーザー属性、インサイト、および好みを収集します。例えば、ユーザーにアプリをどのように使いたいかを尋ねたり、個人的な好みについて詳しく知ったり、特定の機能に対する満足度を質問したりすることができます。このアンケートテンプレートは、モバイルアプリとWebブラウザの両方に対応しています。
+[簡単な調査アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/)を使用して、キャンペーン戦略を強化するユーザー属性、インサイト、および好みを収集します。例えば、ユーザーにアプリをどのように使いたいかを尋ねたり、個人的な好みについて詳しく知ったり、特定の機能に対する満足度を質問したりすることができます。このアンケートテンプレートは、モバイルアプリとWebブラウザの両方に対応しています。
 
 ## Liquidユースケースライブラリー {#liquid-use-case-library}
 
@@ -32,6 +32,6 @@ BrazeにおけるSSLの詳細、SSLが重要な理由、SSL証明書の取得方
 
 AmplitudeのユーザープロファイルAPIは、Amplitudeユーザープロファイルを提供します。これには、ユーザープロパティ、計算されたユーザープロパティ、ユーザーを含むコホートのコホートIDのリスト、およびおすすめが含まれます。詳細については、[AmplitudeユーザープロファイルAPIエンドポイント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api/)を参照してください。
 
-## Campaign詳細エンドポイント {#campaign-details-endpoint}
+## キャンペーン詳細エンドポイント {#campaign-details-endpoint}
 
 [`/campaigns/details` エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)に、アプリ内メッセージチャネル専用の `message` 応答が追加されました。これに関するドキュメントは[こちら]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/#messages)をご覧ください。

@@ -65,7 +65,11 @@ This allows you to edit the variant distribution and turn on Intelligent Selecti
 
 ![Intelligent Selection option turned on for a Canvas]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-Intelligent Selection will not be available if you haven't yet added conversion events to your Canvas or if your campaign is composed of a solo variant.
+Intelligent Selection will not be available if you haven't yet added conversion events to your Canvas or if your Canvas is composed of a solo variant.
+
+{% alert note %}
+Canvases can use Intelligent Selection with re-eligibility enabled, but Braze can't guarantee that a user receives the same variant on re-entry because optimum allocation shifts over time. Campaigns require a re-eligibility window of 24 hours or longer when Intelligent Selection is on. For more information, see [Why is re-eligibility in less than 24 hours not available when combined with Intelligent Selection?](#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+{% endalert %}
 {% endtab %}
 {% endtabs %}
 
@@ -121,6 +125,6 @@ Intelligent Selection will be unavailable if:
 
 - You haven't added conversion events to your campaign or Canvas
 - You are creating a single-send campaign
-- You have reeligibility enabled with a window less than 24 hours
+- Your campaign has re-eligibility enabled with a window less than 24 hours
 - Your Canvas is composed of a single variant with no additional variants or control groups added
 - Your Canvas is composed of a single control group, with no variants added

@@ -71,6 +71,9 @@ function string_to_slug(str) {
   }
   return str;
 }
+// TODO: The __algolia_user cookie and algolia_user variable below are remnants of Algolia
+// Insights tracking. The Algolia frontend has been removed; confirm with the team that this
+// cookie is no longer needed and remove in a follow-up PR.
 let algolia_user = Cookies.get('__algolia_user');
 if (!algolia_user){
   algolia_user = generateUUID();
@@ -143,7 +146,7 @@ var tab_track = {
   'bigquery': 'tb_data',
   'databricks': 'tb_data',
 }
-// Set cookie to auto expire after 30 days of inactivity
+// TODO: Remove this cookie set along with the algolia_user variable above in a follow-up PR.
 Cookies.set('__algolia_user', algolia_user, { expires: 30 });
 
 String.prototype.upCaseWord = function() {
@@ -797,6 +800,45 @@ $(document).ready(function() {
     $('#' + partab + ' div.' + curtab + postfix).addClass(prefix + 'active');
   }
 
+  // Sync aria-selected and roving tabindex on all [role="tablist"] from active <li> state.
+  // Called after every tab-switch (click handler or initialization).
+  function syncTabAriaFromActiveClass() {
+    $('ul[role="tablist"]').each(function() {
+      $(this).find('li').each(function() {
+        var isActive = $(this).hasClass('active') || $(this).hasClass('sub_active');
+        $(this).find('[role="tab"]').each(function() {
+          $(this).attr('aria-selected', isActive ? 'true' : 'false');
+          $(this).attr('tabindex', isActive ? '0' : '-1');
+        });
+      });
+    });
+  }
+
+  // Arrow-key navigation between tabs within a tablist (WAI-ARIA tabs pattern).
+  $(document).on('keydown', 'ul[role="tablist"] [role="tab"]', function(e) {
+    var $tabs = $(this).closest('ul[role="tablist"]').find('[role="tab"]');
+    var currentIndex = $tabs.index(this);
+    var nextIndex;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      nextIndex = (currentIndex + 1) % $tabs.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      nextIndex = $tabs.length - 1;
+    } else {
+      return;
+    }
+
+    $tabs.eq(nextIndex).focus().trigger('click');
+  });
+
   // Updated Tab switcher
   $('.tab_toggle, .sdk-tab_toggle').click(function(e){
     e.preventDefault();
@@ -804,8 +846,9 @@ $(document).ready(function() {
     var tabtype = $this.attr("class").includes('sdk-') ? 'sdk-' : '';
     var curtab = $this.attr('data-' + tabtype  + 'tab');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdktab' : 'tab';
-    setTabClass(tabtype,'', '_tab', curtab)
+    setTabClass(tabtype,'', '_tab', curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.tab_toggle_only, .sdk-tab_toggle_only').click(function(e){
@@ -816,8 +859,9 @@ $(document).ready(function() {
     var curtab = $this.attr('data-' + tabtype + 'tab');
     var partab = $this.attr('data-' + tabtype + 'tab-target');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdktab' : 'tab';
-    setTabOnlyClass(tabtype,'','_tab', partab, curtab)
+    setTabOnlyClass(tabtype,'','_tab', partab, curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.sub_tab_toggle, .sub_sdk-tab_toggle').click(function(e){
@@ -827,8 +871,9 @@ $(document).ready(function() {
     var curtab = $this.attr('data-' + tabtype + 'sub_tab');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdksubtab' : 'subtab';
 
-    setTabClass('','sub_', '', curtab)
+    setTabClass('','sub_', '', curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.sub_tab_toggle_only, .sub_sdk-tab_toggle_only').click(function(e){
@@ -840,8 +885,9 @@ $(document).ready(function() {
     var partab = $this.attr('data-' + tabtype + 'sub_tab-target');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdksubtab' : 'subtab';
 
-    setTabOnlyClass(tabtype,'sub_','', partab, curtab)
+    setTabOnlyClass(tabtype,'sub_','', partab, curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   let tab_query = (new URLSearchParams(window.location.search).get('tab') || '').replace('_sub_tab','');
@@ -968,6 +1014,9 @@ $(document).ready(function() {
     }
   });
 
+
+  // Ensure aria-selected and tabindex reflect whichever tabs were activated by URL params or cookies.
+  syncTabAriaFromActiveClass();
 
   String.prototype.upCaseWord = function() {
     return this.toString().replace(/\b\w/g, function(l){ return l.toUpperCase() });

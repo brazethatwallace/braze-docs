@@ -3,18 +3,14 @@ nav_title: セレクション
 article_title: セレクション
 page_order: 5
 alias: /catalog_selections/
-description: "このリファレンス記事では、Braze Campaignでデータを参照するために、カタログでセレクションを作成し使用する方法について説明します。"
+description: "このリファレンス記事では、BrazeのCampaignでデータを参照するために、カタログでセレクションを作成し使用する方法について説明します。"
 ---
 
 # セレクション {#selections}
 
-> このページでは、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)でセレクションを作成し使用する方法について説明します。
+> セレクションは、Campaignの各ユーザーに対してメッセージをパーソナライズするために使用できるデータのグループです。セレクションを使用すると、カタログの特定の列に基づいてカスタムフィルターを設定することになります。これには、ブランド、サイズ、ロケーション、追加日などのフィルターが含まれます。アイテムが最初に満たすべき基準を定義できるため、ユーザーに何を表示するかをコントロールできます。<br><br>このページでは、カタログでセレクションを作成し使用する方法について説明します。
 
-## 仕組み {#how-it-works}
-
-セレクションは、Campaignの各ユーザーに対してメッセージをパーソナライズするために使用できるデータのグループです。セレクションを使用すると、カタログの特定の列に基づいてカスタムフィルターを設定することになります。これには、ブランド、サイズ、ロケーション、追加日などのフィルターが含まれます。アイテムが最初に満たすべき基準を定義できるため、ユーザーに何を表示するかをコントロールできます。
-
-カタログを作成した後、Braze Campaignやおすすめにセレクションを組み込むことで、カタログデータをさらに参照できます。
+[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を作成した後、BrazeのCampaignやおすすめにセレクションを組み込むことで、カタログデータをさらに参照できます。
 
 ![カタログ例のセレクションセクション。]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -22,33 +18,45 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 
 - カタログごとに最大30個のセレクションを作成できます。
 - セレクションごとに最大10個のフィルターを追加できます。
-- セレクションは、Brazeのカタログデータからおすすめを絞り込むのに最適です。インスピレーションをお探しの場合は、[アイテムのおすすめについて]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)にあるユースケースの例を参照してください。
+- セレクションは、Brazeのカタログデータからおすすめを絞り込むのに最適です。インスピレーションをお探しの場合は、[アイテムのおすすめについて]({{site.baseurl}}/user_guide/brazeai/recommendations/)にあるユースケースの例を参照してください。
 
-## サポートされている演算子 {#supported-operators}
+## ジオロケーションフィルター {#geolocation-filters}
 
-セレクションフィルターを作成する際、使用可能な演算子は選択したフィールドタイプによって異なります。
+カタログに[ジオロケーションフィールドタイプ]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types)が含まれている場合、セレクションでジオロケーションベースのフィルターを使用して、地理的なポイントからの近さに基づいてカタログアイテムを表示できます。
 
-| フィールドタイプ | 使用可能な演算子 |
-| --- | --- |
-| 文字列 | `equals`、`does not equal`、`is any of`、`is none of` |
-| 数値 | `equals`、`does not equal`、`greater than`、`less than` |
-| ブール値 | `is` |
-| 時間 | `before`、`after` |
-| 配列 | `includes value`、`does not include value` |
-| 地理 | `geo within`、`geo outside` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported operators" }
+2つのジオロケーション演算子が利用可能です。
 
-`is any of`と`is none of`演算子は文字列フィールドで使用でき、それぞれ最大10個の値をサポートしています。
+| 演算子 | 説明 |
+| -------- | ----------- |
+| `geo within` | ジオロケーションフィールドが中心点から指定された半径内にあるアイテムを返します。 |
+| `geo outside` | ジオロケーションフィールドが中心点から指定された半径外にあるアイテムを返します。 |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+ジオロケーションフィルターが適用されると、結果は距離順にソートされ、最も近いアイテムが最初に表示されます。
+
+### Liquidで中心点を設定する {#setting-the-center-point-with-liquid}
+
+Liquidを使用して中心点を動的に設定できます。例えば、各ユーザーの最新のロケーションに対してアイテムをフィルタリングするには、フィルター値として{% raw %}`{{${most_recent_location}}}`{% endraw %}属性を使用します。
+
+{% raw %}
+```
+{{${most_recent_location}}}
+```
+{% endraw %}
+
+### ユースケース：最寄りの店舗ロケーションを表示する {#use-case-show-the-nearest-store-locations}
+
+カタログにジオロケーションタイプの`store_location`フィールドが含まれているとします。`geo within`演算子を使用して、各ユーザーの最新のロケーションから設定された半径内の店舗ロケーションを返すセレクションを作成できます。フィルター値を{% raw %}`{{${most_recent_location}}}`{% endraw %}に設定すると、中心点がユーザーごとに更新されます。結果は距離順にソートされるため、最初に返されるアイテムは常に最寄りの店舗です。
 
 ## セレクションの作成 {#creating-a-selection}
 
 セレクションを作成するには、以下の手順に従います。
 
-1. **カタログ**に移動し、リストからカタログを選択します。
-2. **セレクション**タブを選択し、**セレクションを作成**をクリックします。
+1. **Catalogs**に移動し、リストからカタログを選択します。
+2. **Selection**タブを選択し、**Create Selection**をクリックします。
 3. セレクションに名前とオプションの説明を入力します。
 4. **Filter Field**で、フィルターしたいカタログの列を選択します。1,000文字を超える文字列フィールドはフィルターとして選択できません。
-5. 関連する演算子と属性を選択して、フィルター基準の定義を完了します。演算子のフィールドタイプ別の一覧については、[サポートされている演算子](#supported-operators)を参照してください。
+5. 関連する演算子（「equals」や「does not equal」など）と属性を選択して、フィルター基準の定義を完了します。
 6. **Sort type**セクションで、結果のソート方法を決定します。デフォルトでは、結果は順不同で返されます。特定のフィールドでソートするには、**Randomize Sort Order**をオフにし、**Sort Field**と**Sort Order**（昇順または降順）を指定します。
 7. **Results limit**セクションで、結果数を入力します（最大50件）。
 8. **Create Selection**を選択します。
@@ -71,7 +79,7 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 
 セレクションを作成したら、Liquidでメッセージをパーソナライズし、そのカタログからフィルタリングされたアイテムを挿入します。メッセージ作成画面にあるパーソナライゼーションウィンドウから、BrazeにLiquidを生成させることができます。
 
-1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="パーソナライゼーションを追加"></i>を選択してパーソナライゼーションウィンドウを開きます。
+1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="パーソナライゼーションを追加"></i> **Add personalization**を選択してパーソナライゼーションウィンドウを開きます。
 2. **Personalization Type**で**Catalog Items**を選択します。
 3. カタログ名を選択します。
 4. **Item selection method**で**Use a selection**を選択します。
@@ -93,7 +101,7 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 
 ![ヘッダーが「You will LOVE these highly rated meals!」のコンテンツカード。メッセージ作成セクションでセレクション「recommendations_be_recent_category」を使用しています。]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 
-例えば、最近閲覧したカテゴリーが「チキン」のユーザーがいるとします。設定したパーソナライゼーションとコンテンツカードCampaignを使って、このユーザーにチキンを含む3つのおすすめ料理を送ることができます。
+例えば、最近閲覧したカテゴリーが「チキン」のユーザーがいるとします。設定したパーソナライゼーションとコンテンツカードのCampaignを使って、このユーザーにチキンを含む3つのおすすめ料理を送ることができます。
 
 ![チャーグリルレモンチキンの画像が表示されたコンテンツカードと、ユーザーが最近閲覧したカテゴリーに基づいたチキンを含む3つのおすすめ料理のリスト。]({% image_buster /assets/img_archive/catalog_selections4.png %}){: style="max-width:90%;"}
 

@@ -27,15 +27,15 @@ Watch the following video for an optional overview of setting up and using multi
 
 | Feature | Required user permissions |
 | --- | --- |
-| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> {::nomarkdown}Granular permissions: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> Legacy permissions: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites"}
 
 {% endtab %}
 {% tab Templates %}
 
 | Feature | Required user permissions |
 | --- | --- |
-| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown}Granular permissions: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> Legacy permissions: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
+| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}

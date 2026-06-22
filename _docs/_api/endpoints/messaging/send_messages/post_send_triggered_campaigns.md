@@ -115,6 +115,8 @@ Learn what happens when `prioritization` does not return exactly one profile.
 - When `prioritization` does not return exactly one user profile, Braze retries resolution up to 40 times. This retry behavior is expected.
 - The `send_to_existing_only` setting does not change `prioritization` tie behavior. The same tie and retry behavior applies whether this setting is `true` or `false`.
 
+If you trigger an email-only campaign for a recipient identified by `external_user_id` or `user_alias`, and that user profile has no email address at the time of the call, Braze retries the send for up to approximately 2 hours. This covers the common pattern of creating a user and setting their email address in close succession. To send without delay, include the `email` attribute inside `recipients[].attributes` so the address is set in the same call as the trigger.
+
 {% alert note %}
 The `segment_id` parameter is not supported for this endpoint. To target a segment, configure the segment in the campaign's target audience settings in the Braze dashboard and use `"broadcast": true`, or use the `audience` parameter with [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/) filters.
 {% endalert %}
@@ -201,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Response details
 
-Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Message-sending endpoint responses include the message's `dispatch_id` for reference back to the dispatch of the message. The `dispatch_id` is the ID of the message dispatch, a unique ID for each transmission sent from Braze. When using this endpoint, you receive a single `dispatch_id` for an entire batched set of users. For more information on `dispatch_id` check out our documentation on [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 If your request encounters a fatal error, refer to [Errors and responses]({{site.baseurl}}/api/errors/#fatal-errors) for the error code and description.
 

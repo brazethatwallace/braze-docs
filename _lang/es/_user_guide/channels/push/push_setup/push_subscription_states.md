@@ -53,7 +53,7 @@ La siguiente tabla muestra cómo las diferentes acciones del usuario afectan la 
 | El usuario habilita push desde la configuración del dispositivo y registra una sesión | `true` | `true` | Primer plano | `Opted-In`** |
 | El usuario deshabilita push desde la configuración del dispositivo y registra una sesión | `false` | `false` | Segundo plano | No actualizado |
 | El usuario elimina la aplicación | No actualizado | Actualizado cuando se retira el token push | Actualizado cuando se retira el token push | No actualizado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Acciones del usuario en iOS y estado push" }
 
 <sup>* Si la aplicación no utiliza push provisional, `Foreground Push Enabled` es `false` hasta que el usuario permita las notificaciones push. Si la aplicación utiliza push provisional, `Foreground Push Enabled` es `true` al inicio de la primera sesión. Para más información, consulta [Autorización provisional y push silencioso](#provisional-push).</sup>
 
@@ -72,7 +72,7 @@ Dado que la decisión del usuario es definitiva y no puedes volver a preguntar d
 | iOS | ![Un aviso push nativo de iOS que pregunta "My App would like to send you notifications" con dos botones, "Don't Allow" y "Allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Esto no aplica cuando se solicita permiso de [push provisional](#provisional-push). |
 | Android | ![Un mensaje push de Android que pregunta "Allow Kitchenerie to send you notifications?" con dos botones, "Allow" y "Don't allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Este permiso push se introdujo en Android 13. Antes de Android 13, no se requería permiso para enviar push. |
 | Web | ![Un aviso push nativo del navegador web que pregunta "Braze.com wants to show notification" con dos botones, "Block" y "Allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permiso push" }
 
 ### Android
 
@@ -180,7 +180,7 @@ Para gestionar las suscripciones, puedes usar el método de usuario [`setPushNot
 
 Si un usuario deshabilita las notificaciones en su navegador, la siguiente notificación push enviada a ese usuario rebotará, y Braze actualizará el token push del usuario en consecuencia. Esto se usa para gestionar la elegibilidad de los filtros habilitados para push (`Background or Foreground Push Enabled`, `Foreground Push Enabled` y `Foreground Push Enabled for App`). El estado de suscripción establecido en el perfil del usuario es una configuración a nivel de usuario y no cambia cuando un push rebota.
 
-### Errores de token push web 410 {#410-web-push-token-errors}
+### Errores de token push web 410 {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 Si recibes un error `410: Gone`, esto puede ocurrir cuando un usuario deshabilita las notificaciones push web desde el navegador en la configuración de su sistema operativo, o si está iniciando sesión como un usuario diferente en el mismo dispositivo, o si el usuario no ha visitado el sitio web en algún tiempo.
 

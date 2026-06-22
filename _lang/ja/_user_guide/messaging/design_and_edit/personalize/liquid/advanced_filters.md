@@ -2,7 +2,7 @@
 nav_title: 高度なフィルター
 article_title: 高度な Liquid フィルター
 page_order: 4
-description: "このリファレンス記事では、高度なフィルター、例、およびCampaignでの使用方法について説明します。"
+description: "このリファレンス記事では、高度なフィルター、例、およびキャンペーンでの使用方法について説明します。"
 
 ---
 
@@ -98,14 +98,14 @@ Braze内のLiquidでは、ハッシュを変数（式など）としてインス
 ### 入力 {#input}
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign my_data_string = '[{"id":"1","store_name":"demo-store"}]'  %}
 {% assign my_data = my_data_string | json_parse %}
 ```
 
 ### 出力 {#output}
 
-```liquid
+`````````liquid
 {% for item in my_data %}
 Item ID: {{ item.id }}
 Item Name: {{ item.store_name }}
@@ -120,7 +120,7 @@ Item Name: {{ item.store_name }}
 ### 入力
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign my_data_string = '[{"id":"1","store_name":"demo-store"}]'  %}
 {% assign my_data = my_data_string | json_parse %}
 {% assign json_string = my_data | as_json_string %}
@@ -128,7 +128,7 @@ Item Name: {{ item.store_name }}
 
 ### 出力
 
-```liquid
+`````````liquid
 {{json_string}}
 ```
 {% endraw %}

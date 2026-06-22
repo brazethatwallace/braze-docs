@@ -12,6 +12,22 @@ description: "This reference article gives an overview of the result of editing 
 
 > This article gives an overview of the result of editing certain aspects of a campaign post-launch.
 
+## Why you should stop a campaign before editing {#risks-of-editing-live}
+
+{% alert important %}
+Braze recommends stopping a campaign before making changes, rather than editing it while it's live. Editing a live campaign without stopping it first can lead to unexpected behavior, including users receiving the message twice.
+{% endalert %}
+
+When a campaign is launched, all eligible users are enqueued to receive the message. However, a user isn't marked as having received the campaign until the message is actually delivered, not when they're enqueued. If you edit a live campaign without stopping it first, Braze re-enqueues eligible users for the updated version while the original queue is still being processed. Users who haven't yet received the original message will be in both queues, which can result in:
+
+- Users receiving the campaign twice (the original and the updated version), even if re-eligibility is turned off.
+- The original version of the campaign still being delivered to users in the first queue.
+- Unexpected audience counts in campaign analytics.
+
+This is most likely to occur with campaigns that target a large audience and are scheduled to send immediately, since there's a large queue of users being processed at once. For action-based campaigns with gradual triggers (such as sign-up events), the risk is lower because only a small number of users are typically queued at any given time.
+
+To safely make changes, stop the campaign first, then either edit the stopped campaign or [duplicate it](#making-immediate-changes) with your changes.
+
 ## Stopping your campaign
 
 To stop a campaign, open your **Campaign Details** page and select **Stop Campaign**. When a campaign is stopped:
@@ -21,6 +37,12 @@ To stop a campaign, open your **Campaign Details** page and select **Stop Campai
 - Events for messages that have already been sent (for example, open clicks) will still be tracked.
 
 To restart your campaign, select **Resume**. Your campaign will continue sending messages and A/B tests, but any missed messages will not be re-sent or re-scheduled.
+
+### Stopping your campaign during sending
+
+For campaigns with a larger audience and rate limits, Braze partitions and schedules batches of messages to send at different times. When a campaign is stopped, sends aren't canceled immediately. Instead, they are canceled when they begin to run and detect that the campaign has been stopped.
+
+For example, if you start a rate-limited email campaign, pause it for a few hours, and then resume it, all messages that were scheduled to send during the paused hours are canceled and never send. Any remaining messages scheduled after the campaign resumes continue to send. If re-eligibility is enabled for the campaign, users can become eligible to receive the campaign again in addition to any messages that were already queued before the campaign was stopped. 
 
 ## Triggered campaigns
 
@@ -50,6 +72,12 @@ If your campaign uses Intelligent Timing or local time zone delivery, edits to t
 ### Send rate
 
 When using a send rate limit, Braze "schedules" your messages in minute-granularity time slots, so if you want to change the message sending rate, adhere to the following process for making immediate changes.
+
+#### Pausing campaigns with delivery speed rate limiting
+
+When you pause a campaign that uses [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), Braze distributes sends across minute-based slots. **Resume** does not re-send messages from slots that were canceled while the campaign was paused, and not all messages are necessarily sent when the campaign is resumed.
+
+If some users didn't receive messages because the campaign was paused, duplicate the campaign and target only those users rather than relying on **Resume** to deliver the missed messages.
 
 ## Making immediate changes
 

@@ -72,7 +72,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
 インラインで表示されるContent Cardsについては、以下の例のようにビューポートの制約を考慮してください。
 
 {% raw %}
-```css
+`````````css
 /* Limit feed height on mobile to prevent covering too much screen */
 @media (max-width: 768px) {
   body > .ab-feed {
@@ -95,7 +95,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
 SDKにはレスポンシブブレークポイントが含まれています。カスタマイズがさまざまな画面サイズで正しく機能することを確認してください。以下はその例です。
 
 {% raw %}
-```css
+`````````css
 /* Mobile-specific accessibility considerations */
 @media (max-width: 768px) {
   /* Ensure readable font sizes */

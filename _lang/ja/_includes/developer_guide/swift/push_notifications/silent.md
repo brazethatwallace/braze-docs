@@ -69,7 +69,7 @@ func application(_ application: UIApplication,
 {% tab OBJECTIVE-C %}
 
 
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
   if (![BRZNotifications isInternalNotification:userInfo]) {
     // Gated logic here (for example pinging server for content)

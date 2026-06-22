@@ -44,10 +44,45 @@ Die Zeilenhöhe passt sich automatisch an den Inhalt an. Alternativ empfehlen wi
 
 Der Drag-and-Drop-Editor unterstützt derzeit zwei Ebenen. Sie können ein Zeilen-Hintergrundbild festlegen und Hintergrundfarben anpassen.
 
-### Kann ich meine Drag-and-Drop-E-Mail als Template speichern, nachdem ich sie in meiner Kampagne oder meinem Canvas erstellt habe? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Kann ich meine Drag-and-Drop-E-Mail als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Nein, Sie müssen die E-Mail unter **E-Mail-Templates** neu erstellen, um sie zu speichern.
+Nein. Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas nicht als Drag-and-Drop-**E-Mail-Template** unter **Templates** > **E-Mail-Templates** speichern. Erstellen Sie das Layout unter **Templates** > **E-Mail-Templates** neu, oder beginnen Sie beim nächsten Mal mit einem gespeicherten Template. Eine Anleitung finden Sie unter [E-Mail-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+Wenn Sie stattdessen ein wiederverwendbares HTML-Template benötigen, wählen Sie beim Bearbeiten des Drag-and-Drop-Inhalts **Download file** aus, öffnen Sie die HTML-Datei aus der ZIP-Datei und fügen Sie das Markup über den HTML-Code-Editor in ein [HTML-E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) ein. Überprüfen Sie anschließend Liquid, Links und gehostete Assets.
+
+Weitere Informationen darüber, wo Templates gespeichert werden, finden Sie unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates/).
+
+### Warum kann ich die Füllfarbe eines Buttons im Drag-and-Drop-Editor nicht ändern? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
+
+Seitenstile können Nachrichtenstile überschreiben. Wenn das Aktualisieren von **Fill** bei einem Button oder Block keine Wirkung zeigt, versuchen Sie Folgendes:
+1. Öffnen Sie die [globalen E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) und wählen Sie **Reset to default** für den betreffenden Seitenstil aus, damit die Farbe auf Nachrichtenebene angewendet werden kann.
+2. Legen Sie die Farbe erneut am Block fest.
 
 ### Kann ich E-Mail-Anhänge zum Drag-and-Drop-Editor hinzufügen? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
 Ja. Sie können Anhänge zu Ihrer E-Mail-Nachricht hinzufügen, indem Sie zu **Sending Settings** > **Advanced** navigieren.
+
+### Wie lade ich das Roh-HTML einer Drag-and-Drop-E-Mail herunter? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
+
+1. Öffnen Sie Ihre Campaign oder Ihr Canvas und bearbeiten Sie die E-Mail-Nachricht.
+2. Wählen Sie **Edit email body** aus, um den Drag-and-Drop-Editor zu öffnen.
+3. Wählen Sie **Download file** (am unteren Rand des Editors) aus. Entpacken Sie das Archiv, um auf das generierte HTML zuzugreifen.
+
+Sie können dieses HTML in einen [HTML-Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) oder den HTML-Editor einfügen, wenn Sie Änderungen auf Code-Ebene vornehmen möchten – zum Beispiel, um das [Klick-Tracking für bestimmte Links zu deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+
+### Warum wird mein Drag-and-Drop-Layout fehlerhaft dargestellt? {#why-is-my-drag-and-drop-layout-breaking}
+
+Layoutprobleme werden häufig durch **benutzerdefiniertes HTML oder CSS** verursacht, das mit dem vom Editor generierten Markup in Konflikt steht. Versuchen Sie folgende Schritte:
+
+1. Entfernen oder isolieren Sie benutzerdefinierte HTML-Blöcke, um zu prüfen, ob das Problem verschwindet.
+2. Überprüfen Sie die Einstellungen des **Drag-and-Drop-E-Mail-Editors** auf benutzerdefinierte Schriftarten, die möglicherweise nicht in allen Clients geladen werden.
+3. Überprüfen Sie unter **Row Properties** das Spalten-Padding und die Breiten.
+4. Wenn Sie benutzerdefiniertes HTML hinzufügen, bevorzugen Sie tabellenbasierte Layouts, flexible Bilder und Gesamttabellenbreiten, die zu Ihrer E-Mail-Breite passen – feste Pixelbilder oder nicht-tabellenbasierte Strukturen werden in Outlook und anderen Clients häufig fehlerhaft dargestellt.
+
+### Warum wird mein Content-Block in der E-Mail-Vorschau nicht gerendert? {#why-doesnt-my-content-block-render-in-email-preview}
+
+Wenn ein Content-Block in der E-Mail-Vorschau nicht gerendert wird, prüfen Sie, ob nicht geschlossene Anchor-Tags vorhanden sind. Verwenden Sie bei Connected-Content-URLs den `replace`-Filter, um doppelt kodierte Ampersands (`&amp;amp;`) in ein einfach kodiertes Ampersand (`&amp;`) umzuwandeln. Begrenzen Sie die Verschachtelung von Content-Blöcken auf zwei Ebenen.
+
+### Warum ignoriert der Drag-and-Drop-Editor die Ausrichtungseinstellungen? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
+
+Wenn der Drag-and-Drop-Editor Ausrichtungseinstellungen ignoriert, entfernen Sie benutzerdefiniertes CSS oder HTML-Blöcke, entfernen Sie benutzerdefinierte Schriftarten, prüfen Sie auf CSS-Konflikte und vermeiden Sie das Duplizieren von Zeilenblöcken. Kontaktieren Sie den Braze-Support, wenn das Problem weiterhin besteht.

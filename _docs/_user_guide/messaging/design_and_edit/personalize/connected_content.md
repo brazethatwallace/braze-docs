@@ -28,8 +28,8 @@ guide_featured_list:
 - name: Connected Content retries
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Troubleshoot Connected Content requests
-  link: /docs/help/help_articles/api/webhook_connected_content_errors/
+- name: Troubleshoot webhooks and Connected Content
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
 - name: Use public APIs
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis

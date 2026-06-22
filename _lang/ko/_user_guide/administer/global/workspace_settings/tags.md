@@ -22,6 +22,10 @@ Campaigns, Canvases, Segments 및 커스텀 데이터에 태그를 추가하는 
 
 기존 태그를 중첩하려면 **태그 관리** 페이지로 이동하여 해당 태그가 있는 행에 마우스를 올린 후 **<i class="fas fa-pencil-alt"></i>Edit**를 선택합니다. 그런 다음 **Nest Tag Under**를 선택하고 상위 태그를 선택합니다.
 
+### 상위 태그가 사용 중이지만 **Nest Tag Under**에 표시되지 않는 경우 {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
+
+상위 태그가 대시보드에 적용되어 있지만 새 태그를 생성할 때 **Nest Tag Under** 드롭다운에 표시되지 않는 경우, 해당 상위 태그를 독립 태그로 다시 생성하면 목록에서 검색할 수 있게 됩니다. 이 동작은 상위 태그가 워크스페이스의 다른 곳에서 중첩 종속성으로만 존재하는 경우에 예상되는 동작입니다.
+
 ![Nest Tag Under 옵션이 선택된 새 태그 대화 상자.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
 ## 모범 사례 {#tags-best-practices}
@@ -37,7 +41,7 @@ table td {
 </style>
 
 
-<table aria-label="Best practices #tags-best-practices">
+<table aria-label="모범 사례">
   <caption>모범 사례</caption>
 <thead>
   <tr>

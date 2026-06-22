@@ -7,35 +7,35 @@ page_type: reference
 description: "このリファレンスページでは、コンテンツカレンダーのコンポーネントについて説明します。"
 ---
 
-# コンテンツカレンダー
+# コンテンツカレンダー {#content-calendar}
 
-> コンテンツカレンダーは、今後スケジュールされたキャンペーンの概要を一目で確認できます。
+> コンテンツカレンダーは、今後スケジュールされたCampaignsの概要を一目で確認できます。
 
-メッセージングデータを分析し、スケジュールされたキャンペーンを表示・管理できます。カレンダーを開くには、**メッセージング** > **コンテンツカレンダー**を選択します。
+メッセージングデータを分析し、スケジュールされたCampaignsを表示・管理できます。カレンダーを開くには、**コンテンツ** > **コンテンツカレンダー**を選択します。
 
-## メッセージング分析
+## メッセージング分析 {#messaging-analytics}
 
-メッセージング分析セクションには、最近およびスケジュールされたキャンペーンに関する2つのレポートがあります。
+メッセージング分析セクションには、最近およびスケジュールされたCampaignsに関する2つのレポートがあります。
 
-- **今後のメッセージタイプ:** 今後14日間にスケジュールされたプッシュ、メール、アプリ内メッセージングキャンペーンの数。
-- **送信済みメッセージ:** 過去14日間に送信および開封されたメッセージの数。
+- **Upcoming Message Types:** 今後14日間にスケジュールされたプッシュ、メール、アプリ内メッセージングCampaignsの数。
+- **Messages Sent:** 過去14日間に送信および開封されたメッセージの数。
 
 レポート内の特定の日にカーソルを合わせると、その日のメッセージング分析を表示できます。
 
-![メッセージング分析内の「今後のメッセージタイプ」と「送信済みメッセージ」のグラフ。]({% image_buster /assets/img/campaign_calendar/content_calendar_messaging_analytics.png %})
+![メッセージング分析内の「Upcoming Message Types」と「Messages Sent」のグラフ。]({% image_buster /assets/img/campaign_calendar/content_calendar_messaging_analytics.png %})
 
-データのコピーをダウンロードするには、<i class="fa-solid fa-bars" style="color: #2e7487;"></i> **チャートコンテキストメニュー**を選択し、希望のファイル形式を選択します。
+データのコピーをダウンロードするには、<i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **Chart context menu**を選択し、希望のファイル形式を選択します。
 
-## 送信カレンダー
+## 送信カレンダー {#send-calendar}
 
-送信カレンダーには、当月のスケジュールされたすべてのキャンペーンが表示されます。
+送信カレンダーには、当月のスケジュールされたすべてのCampaignsが表示されます。
 
 {% alert note %}
 アプリ内メッセージは常にアクションベースであるため、送信カレンダーには表示されません。
 {% endalert %}
 
-月を変更するには、<i class="fa-solid fa-chevron-left" style="color: #2e7487;"></i> **前の月を表示**または<i class="fa-solid fa-chevron-right" style="color: #2e7487;"></i> **次の月を表示**を選択します。当月に戻るには、**今日**を選択します。
+月を変更するには、<i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **See previous month**または<i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **See next month**を選択します。当月に戻るには、**Today**を選択します。
 
-![当月のスケジュールされたすべてのキャンペーンを表示する送信カレンダー。]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
+![当月のスケジュールされたすべてのCampaignsを表示する送信カレンダー。]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-カレンダー内のキャンペーンを選択すると、キャンペーンの表示や変更ができます。詳細については、[キャンペーンの管理]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/)を参照してください。
+カレンダー内のCampaignを選択すると、Campaignの表示や変更ができます。詳細については、[Campaignsの管理]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/)を参照してください。

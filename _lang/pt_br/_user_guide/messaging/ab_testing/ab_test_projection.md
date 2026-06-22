@@ -1,15 +1,15 @@
 ---
 nav_title: Projeção de testes A/B
-article_title: Projeção de Testes A/B
+article_title: Projeção de testes A/B
 page_order: 20
 hidden: true
 page_type: reference
-description: "Este artigo explica como funciona a projeção de Testes A/B, como executar uma projeção e como a Braze usa seus dados."
+description: "Este artigo explica como funciona a projeção de testes A/B, como executar uma projeção e como a Braze usa seus dados."
 ---
 
 # Projeção de testes A/B {#ab-test-projection}
 
-> A projeção de testes A/B usa redes neurais para prever quais linhas de assunto têm melhor desempenho. Nosso modelo extrai recursos linguísticos dos Testes A/B vencedores realizados na Braze e usa esses padrões linguísticos estatísticos para ensinar à nossa IA o que torna as linhas de assunto melhores.
+> A projeção de testes A/B usa redes neurais para prever quais linhas de assunto têm melhor desempenho. Nosso modelo extrai recursos linguísticos dos testes A/B vencedores realizados na Braze e usa esses padrões linguísticos estatísticos para ensinar à nossa IA o que torna as linhas de assunto melhores.
 
 {% alert important %}
 Esse recurso está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente ou gerente de conta da Braze se tiver interesse em participar do acesso antecipado.
@@ -17,7 +17,7 @@ Esse recurso está atualmente em acesso antecipado. Entre em contato com seu ger
 
 ## Execução de uma projeção {#running-a-projection}
 
-Na composição da campanha, insira suas variantes de mensagens e suas linhas de assunto no editor. Quando estiver pronto, acesse a etapa **Público-alvo** do fluxo de criação da campanha. No painel **Testes A/B**, selecione **Run Projection**.
+Na composição da campanha, insira suas variantes de mensagens e suas linhas de assunto no editor. Quando estiver pronto, acesse a etapa **Target Audience** do fluxo de criação da campanha. No painel **A/B Testing**, selecione **Run Projection**.
 
 <img width="518" alt="imagem" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 
@@ -28,7 +28,7 @@ Um modal será aberto com as linhas de assunto de quaisquer variantes de mensage
 A linha de assunto que nossa IA prevê como a melhor será destacada com o rótulo **Projected Winner**.
 
 {% alert note %}
-Para [campanhas de push rápido]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/quick_push_messages/), os testes A/B são compatíveis quando você seleciona múltiplas plataformas.
+Para [Campaigns de push para múltiplas plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), os testes A/B são compatíveis quando você seleciona múltiplas plataformas.
 {% endalert %}
 
 ### Qual é a precisão das projeções? {#how-accurate-are-the-projections}

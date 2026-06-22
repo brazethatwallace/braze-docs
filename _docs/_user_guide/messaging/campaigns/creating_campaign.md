@@ -122,7 +122,7 @@ For scheduling concepts across Braze, see [Schedule your campaign]({{site.baseur
 
 ### Delivery controls
 
-Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) so messages don't send during restricted windows.
+Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) so messages don't send during restricted windows.
 
 ## Step 3: Target audiences {#step-3-target-audiences}
 
@@ -158,7 +158,7 @@ If you anticipate large campaigns driving a spike in user activity and overloadi
 
 ### A/B testing
 
-You can create a [multivariate or A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/) for any campaign that targets a single channel and single device. For example, if you want to use multivariate or A/B testing for a push campaign, you can target only iOS devices or only Android devices—not both device types in the same campaign.
+You can create a [multivariate or A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/) for any campaign that targets a single channel, even if the single channel includes multiple devices. For example, if you want to use multivariate or A/B testing for a push campaign, you can target only iOS devices or only Android devices—not both device types in the same campaign.
 
 For push, email, and webhook campaigns scheduled to send once, you can also use an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). An optimization reserves a portion of your target audience from the A/B test and holds them for a second optimized send based on the results from the first test.
 

@@ -9,7 +9,7 @@ description: "この記事には2020年6月のリリースノートが含まれ�
 
 ## リテンションレポート {#retention-reports}
 
-リテンションレポートで、[Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/test_campaigns/retention_reports/)および[Canvases]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)の範囲リテンションが利用できるようになりました。範囲リテンションは、特定の期間中に戻ってきて、選択したリテンションイベントを実行するユーザーの数を測定します。
+リテンションレポートで、[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/test_campaigns/retention_reports/)および[キャンバス]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)の範囲リテンションが利用できるようになりました。範囲リテンションは、特定の期間中に戻ってきて、選択したリテンションイベントを実行するユーザーの数を測定します。
 
 ## ユーザートラックAPIの更新 {#user-track-api-updates}
 

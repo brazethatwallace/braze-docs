@@ -9,11 +9,11 @@ tool: Campaigns
 
 # キャンペーンを作成 {#create-a-campaign}
 
-> 1つまたは複数のサポートされているチャネルで、単一のメッセージングステップで消費者にリーチしたい場合はCampaignsを使用します。マルチステップのジャーニーには、[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)を使用してください。
+> 1つまたは複数のサポートされているチャネルで、単一のメッセージングステップで消費者にリーチしたい場合はCampaignを使用します。マルチステップのジャーニーには、[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)を使用してください。
 
 ## 前提条件 {#prerequisites}
 
-Campaignを作成して起動するには、「Campaignsを編集」と「Campaignsを起動」の権限が必要です。ワークスペース権限の完全なリストとダッシュボードでの表示方法については、[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+Campaignを作成して起動するには、「Edit Campaigns」と「Launch Campaigns」の権限が必要です。ワークスペース権限の完全なリストとダッシュボードでの表示方法については、[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
 
 ### 始める前に {#before-you-begin}
 
@@ -68,7 +68,7 @@ Campaignのコントロールグループは、1つのチャネル内でバリ�
 
 マルチチャネルCampaignの場合、Brazeはチャネルごとに[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を追跡します。ユーザーが複数のチャネルでメッセージを受信した後にコンバージョンした場合、Brazeはそのコンバージョンをそれらのチャネルにアトリビューションできます。コンバージョン数は*ユニークユーザー*を超える場合があり、レートは100%を超える場合があります。完全なルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)を参照してください。
 
-チャネルをまたぐ送信のレート制限については、[マルチチャネルCampaignsとCanvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases)で説明されています。ワークスペース全体のルール（マルチチャネル送信がキャップにどのようにカウントされるかを含む）については、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
+チャネルをまたぐ送信のレート制限については、[マルチチャネルCampaignとCanvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases)で説明されています。ワークスペース全体のルール（マルチチャネル送信がキャップにどのようにカウントされるかを含む）については、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)を参照してください。
 
 ### マルチチャネルCampaignを作成する {#create-a-multichannel-campaign}
 
@@ -93,7 +93,7 @@ Campaignのコントロールグループは、1つのチャネル内でバリ�
 | チーム | オプション。適切なグループがこの送信を編集またはレポートできるように[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)を割り当てます。 |
 | タグ | オプション。リストや[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)などのツールでフィルタリングするために[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。 |
 | Campaign ID | コンポーザーまたはサマリーに表示される場合、特定のCampaignを参照するAPI呼び出し、レポート、統合のためにこの識別子をコピーします。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaignの詳細" }
 
 ### チャネルとエディター {#channels-and-editors}
 
@@ -104,7 +104,7 @@ Campaignのコントロールグループは、1つのチャネル内でバリ�
 クリエイティブや配信の分割を比較したい場合は、バリアントを追加します。実験とコントロールの背景については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 {% alert tip %}
-各バリアントが類似した本文コンテンツを使用する場合は、追加のバリアントを追加する**前に**メッセージを作成してください。次に、**バリアントを追加**メニューから**バリアントからコピー**を使用して、バリアントやチャネル間で作業を再利用します。
+各バリアントが類似した本文コンテンツを使用する場合は、追加のバリアントを追加する**前に**メッセージを作成してください。次に、**Add Variant** メニューから **Copy from Variant** を使用して、バリアントやチャネル間で作業を再利用します。
 {% endalert %}
 
 ## ステップ 2: 配信をスケジュールする {#step-2-schedule-delivery}
@@ -116,37 +116,37 @@ Campaignのコントロールグループは、1つのチャネル内でバリ�
 | [スケジュール配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | 指定した時間またはケイデンスで送信します。 |
 | [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | ユーザーが行動を実行するか、定義した条件を満たしたときに送信します。 |
 | [APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | システムがBrazeを呼び出して、対象ユーザーに対してCampaignをトリガーしたときに送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2: 配信をスケジュールする" }
 
 Braze全体のスケジューリングの概念については、[Campaignをスケジュールする]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
 ### 配信コントロール {#delivery-controls}
 
-配信タイプに応じて、[再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)（ユーザーが再びCampaignに入れるかどうか）を調整し、ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)ルールを適用できます。また、制限された時間枠中にメッセージが送信されないように[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を設定することもできます。
+配信タイプに応じて、[再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)（ユーザーが再びCampaignに入れるかどうか）を調整し、ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)ルールを適用できます。また、制限された時間枠中にメッセージが送信されないように[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定することもできます。
 
 ## ステップ 3: ターゲットオーディエンスを設定する {#step-3-target-audiences}
 
-**Target Audiences**で、Campaignを受信する資格のあるユーザーを定義します。完全なターゲティングオプション、UIウォークスルー、スクリーンショットについては、[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)を参照してください。
+**Target Audiences** で、Campaignを受信する資格のあるユーザーを定義します。完全なターゲティングオプション、UIウォークスルー、スクリーンショットについては、[ユーザーをターゲットにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)を参照してください。
 
 ### ターゲティングオプション {#targeting-options}
 
-このセクションでは、Segmentsまたはフィルターを選択してオーディエンスを絞り込むことで、ユーザーをターゲットにできます。対象ユーザーは、**Schedule Delivery**ステップで定義したトリガーまたは条件を満たす必要があります。ターゲットオーディエンスは待合室のようなもので、次のアクションが発生したときに前に進めるのは、すでに中にいる人だけです。
+このセクションでは、Segmentまたはフィルターを選択してオーディエンスを絞り込むことで、ユーザーをターゲットにできます。対象ユーザーは、**Schedule Delivery** ステップで定義したトリガーまたは条件を満たす必要があります。ターゲットオーディエンスは待合室のようなもので、次のアクションが発生したときに前に進めるのは、すでに中にいる人だけです。
 
 ワークスペースの[抑制リスト]({{site.baseurl}}/user_guide/audience/suppression_lists/)は、このCampaignに例外を許可しない限り、リストに登録されたユーザーを自動的に除外します。
 
 ### オーディエンスの概要 {#audience-summary}
 
-Segmentsまたはフィルターを追加した後、**Audience Summary**はそのSegment母集団の概要をプレビューとして表示します。これには、選択したチャネルを通じてリーチ可能なSegment内のユーザー数が含まれます。リーチ可能な数は、ワークスペースデータ、チャネル設定、フィルターを反映しています。正確なSegmentメンバーシップは常にメッセージ送信前に計算されることに注意してください。非常に大きなオーディエンスの場合、Brazeは正確な統計を計算するまで推定値を表示する場合があります。
+Segmentまたはフィルターを追加した後、**Audience Summary** はそのSegment母集団の概要をプレビューとして表示します。これには、選択したチャネルを通じてリーチ可能なSegment内のユーザー数が含まれます。リーチ可能な数は、ワークスペースデータ、チャネル設定、フィルターを反映しています。正確なSegmentメンバーシップは常にメッセージ送信前に計算されることに注意してください。非常に大きなオーディエンスの場合、Brazeは正確な統計を計算するまで推定値を表示する場合があります。
 
 ### ユーザー検索 {#user-lookup}
 
-Segmentsまたはフィルターを追加した後、ユーザーを検索してSegment条件に一致するかどうかを確認することで、オーディエンスが期待どおりに設定されているかテストできます。これを行うには、**User Lookup**セクションでユーザーの`external_id`または`braze_id`を検索します。ここではメールアドレスで検索することはできません。詳細については、[Segmentsのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)を参照してください。
+Segmentまたはフィルターを追加した後、ユーザーを検索してSegment条件に一致するかどうかを確認することで、オーディエンスが期待どおりに設定されているかテストできます。これを行うには、**User Lookup** セクションでユーザーの`external_id`または`braze_id`を検索します。ここではメールアドレスで検索することはできません。詳細については、[Segmentのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)を参照してください。
 
 ユーザーがSegment、フィルター、アプリの条件に一致する場合、アラートがその旨を表示します。ユーザーがSegment、フィルター、またはアプリの条件の一部またはすべてに一致しない場合、トラブルシューティングのために不足している条件がリストされます。
 
 ### これらのユーザーに送信する {#send-to-these-users}
 
-サブスクリプションベースのチャネル（メール、SMSなど）の場合、**Send to these users**を使用して、購読中でメールにオプトインしているユーザーなど、特定のサブスクリプションステータスを持つユーザーにのみCampaignを送信します。
+サブスクリプションベースのチャネル（メール、SMSなど）の場合、**Send to these users** を使用して、購読中でメールにオプトインしているユーザーなど、特定のサブスクリプションステータスを持つユーザーにのみCampaignを送信します。
 
 ### 送信量を制限する {#limit-send-volume}
 
@@ -158,7 +158,7 @@ Segmentsまたはフィルターを追加した後、ユーザーを検索して
 
 ### ABテスト {#ab-testing}
 
-単一チャネルかつ単一デバイスをターゲットとするCampaignに対して、[多変量テストまたはABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を作成できます。たとえば、プッシュCampaignで多変量テストまたはABテストを使用したい場合、iOSデバイスのみまたはAndroidデバイスのみをターゲットにできます。同じCampaign内で両方のデバイスタイプをターゲットにすることはできません。
+単一チャネルをターゲットとするCampaignに対して、複数のデバイスを含む場合でも、[多変量テストまたはABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を作成できます。たとえば、プッシュCampaignで多変量テストまたはABテストを使用したい場合、iOSデバイスのみまたはAndroidデバイスのみをターゲットにできます。同じCampaign内で両方のデバイスタイプをターゲットにすることはできません。
 
 1回送信がスケジュールされたプッシュ、メール、WebhookのCampaignでは、[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)も使用できます。最適化は、ABテストからターゲットオーディエンスの一部を予約し、最初のテストの結果に基づいて2回目の最適化された送信のために保持します。
 
@@ -166,7 +166,7 @@ Segmentsまたはフィルターを追加した後、ユーザーを検索して
 
 [コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)は、ユーザーがCampaignを受信した後（またはコントロールグループに入った後）の成果を測定します。Brazeのデフォルトは、短い時間枠（3日間）内の**セッション開始**です。KPIに合ったコンバージョンイベントを定義でき、Campaignごとに最大4つのイベントを設定できます。
 
-起動後は、[コンバージョンダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/)を使用して、複数のCampaignsまたはCanvases全体のコンバージョントレンドを分析し、チャネルを比較し、日付範囲、アトリビューション方法、内訳を1か所で調整できます。
+起動後は、[コンバージョンダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/)を使用して、複数のCampaignまたはCanvases全体のコンバージョントレンドを分析し、チャネルを比較し、日付範囲、アトリビューション方法、内訳を1か所で調整できます。
 
 {% alert important %}
 Campaign起動後にコンバージョンイベントを追加または削除することはできません。起動前にイベントを確認してください。
@@ -174,16 +174,16 @@ Campaign起動後にコンバージョンイベントを追加または削除す
 
 ## ステップ 5: サマリーを確認して起動する {#step-5-review-summary-and-launch}
 
-**Review Summary**ステップでは、スケジュール、オーディエンス、バリアント、メッセージングの選択内容が表示されます。Campaignを起動する前に：
+**Review Summary** ステップでは、スケジュール、オーディエンス、バリアント、メッセージングの選択内容が表示されます。Campaignを起動する前に：
 
-1. Segments、バリアント、配信設定が意図と一致していることを確認します。
+1. Segment、バリアント、配信設定が意図と一致していることを確認します。
 2. テストデバイスまたは内部受信者で、レンダリングと動作を検証するために[テストメッセージを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)します。
 
-準備ができたら、**Launch Campaign**を選択します。
+準備ができたら、**Launch Campaign** を選択します。
 
 ### 承認 {#approvals}
 
-ワークスペースで承認を使用している場合、Campaignを承認する権限を持つチームメイトが起動前に承認する必要があります。詳細については、[CampaignsとCanvasesの承認]({{site.baseurl}}/user_guide/messaging/governance/approvals/)を参照してください。
+ワークスペースで承認を使用している場合、Campaignを承認する権限を持つチームメイトが起動前に承認する必要があります。詳細については、[CampaignとCanvasesの承認]({{site.baseurl}}/user_guide/messaging/governance/approvals/)を参照してください。
 
 ## 関連記事 {#related-articles}
 

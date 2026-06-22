@@ -17,12 +17,12 @@ _この統合はCelebrusによって管理されます。_
 | Celebrusアカウント | このパートナーシップを活用するには、Celebrusアカウントが必要です。 |
 | データウェアハウス（オプション） | Brazeカスタム属性用のCelebrusコネクターを使用する場合は、Brazeクラウドデータ取り込み（CDI）統合でサポートされるデータウェアハウスが必要です。また、BrazeダッシュボードでCDIを設定する必要があります。 |
 | Braze SDKの設定（オプション） | Braze SDK用のCelebrusコネクターを使用する場合は、SDKエンドポイントとSDK APIキーを渡す必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 実装 {#implementation}
 Celebrusの実装をインストールした後、Braze用のCelebrusコネクターを使用してCelebrusデータをBrazeに統合します。BrazeのCelebrus統合には、Braze SDKとBrazeカスタム属性という2つの要素があります。Brazeの使い方と必要なユースケースに応じて、いずれかまたは両方をデプロイできます。
 
-WebチャネルにBraze SDKがまだ実装されていない場合は、Celebrusを使用してBraze SDKをデプロイできます。CelebrusはWebページにBraze SDKを追加し、CelebrusのIDグラフを使用してWeb訪問者のBraze IDを設定します。顧客属性は、クラウドデータ取り込み（CDI）を使用してBrazeと同期できます。このためには、Braze CDIによってサポートされるデータウェアハウスと、BrazeでのCDIの設定が必要です。
+WebチャネルにBraze SDKがまだ実装されていない場合は、Celebrusを使用してBraze SDKをデプロイできます。CelebrusはWebページにBraze SDKを追加し、CelebrusのIDグラフを使用してWeb訪問者のBraze IDを設定します。顧客属性は、クラウドデータ取り込み（CDI）を介してBrazeと同期できます。このためには、Braze CDIによってサポートされるデータウェアハウスと、BrazeでのCDIの設定が必要です。
 
 ### Braze SDK用Celebrusコネクター {#celebrus-connector-for-braze-sdk}
 
@@ -52,7 +52,7 @@ Brazeカスタム属性用のCelebrusコネクターは、カスタム属性を�
 
 #### ステップ 3: CelebrusからBrazeにデータを同期する {#step-3-sync-data-from-celebrus-to-braze}
 
-Celebrusは、メール、電話番号、`external_id`またはユーザーエイリアスなどの一意の識別子をキャプチャして個人に割り当て、CDIを使用してBrazeに送信します。これにより、同一の個人に関するデータをBrazeと同期できます。
+Celebrusは、メール、電話番号、`external_id`またはユーザーエイリアスなどの一意の識別子をキャプチャして個人に割り当て、CDIを介してBrazeに送信します。これにより、同一の個人に関するデータをBrazeと同期できます。
 
 Celebrusは、属性値が変更された場合にのみ、定義されている識別子を使用して、Celebrusプロファイルビルダーで定義された顧客属性を送信します。なお、Celebrusプロファイルビルダーで定義された属性名は、デフォルトでBrazeで使用されます。そのため、[Brazeの命名規則]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)に準拠するように、これらの名前を更新してください。
 

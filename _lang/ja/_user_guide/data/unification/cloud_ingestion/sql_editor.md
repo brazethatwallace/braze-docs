@@ -1,12 +1,13 @@
 ---
-hidden: true
-article_title: "クラウドデータ取り込み: SQLエディター（ベータ版）"
+nav_title: SQLエディター
+article_title: "クラウドデータ取り込み: SQLエディター"
 description: "SQLクエリを使用してクラウドデータ取り込み同期を作成および検証する方法を説明します。"
+page_order: 11
 page_type: reference
 toc_headers: h2
 ---
 
-# クラウドデータ取り込み: SQLエディター（ベータ版） {#cloud-data-ingestion-sql-editor-beta}
+# クラウドデータ取り込み: SQLエディター {#cloud-data-ingestion-sql-editor}
 
 > このページでは、Brazeクラウドデータ取り込み（CDI）SQLエディターを使用して、SQLクエリで同期を作成および検証する方法について説明します。
 
@@ -25,18 +26,22 @@ SQLエディターは、以下のような場合に使用します。
 
 ## 前提条件と制限事項 {#prerequisites-and-limitations}
 
-ベータ期間中、SQLエディターには以下の制限事項があります。
+SQLエディターには以下の制限事項があります。
 
-- **ユーザー属性**の同期のみ利用可能
-- サポートされるデータウェアハウスソースは1つ: **Snowflake**
+- データウェアハウスソースのみで利用可能: Snowflake、Redshift、BigQuery、Databricks、Fabric。
+- 単一ステートメントの読み取り専用クエリのみがサポートされています。
 
 {% alert note %}
-Brazeはデータに対して読み取り専用クエリを実行し、基盤となるテーブルを変更しません。Brazeはクエリ実行中に一時オブジェクトを作成する場合がありますが、それらを永続化することはありません。
+Brazeはデータに対して読み取り専用クエリのみを実行し、基盤となるテーブルを変更しません。クエリ実行中に一時オブジェクトが作成される場合がありますが、永続化されることはありません。
 {% endalert %}
 
 ## 新しいSQLエディター同期の作成 {#create-a-new-sql-editor-sync}
 
-以下の手順に従って、SQLエディターで同期を作成します。CDI用のSnowflakeソースをすでに設定している場合は、ステップ3に進んでください。
+以下の手順に従って、まずソースを作成し、次にSQLエディターで同期を作成します。CDI用のソースをすでに設定している場合は、ステップ3に進んでください。
+
+{% alert note %}
+これらの手順では、例としてSnowflakeソースを使用しています。他のデータウェアハウスソースの設定プロセスも同様であり、[データウェアハウス統合の設定](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations)ドキュメントの[ステップ2: Brazeダッシュボードで新しいソースを作成する](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)を参照してください。
+{% endalert %}
 
 ### ステップ1: Snowflakeのロール、権限、ウェアハウス、ユーザーの設定 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
@@ -79,7 +84,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-ウェアハウスでは自動再開が有効になっている必要があります。有効になっていない場合は、クエリ実行時にBrazeがウェアハウスをオンにできるよう、ウェアハウスに対する追加の`OPERATE`権限をBrazeに付与してください。
+ウェアハウスでは自動再開フラグが有効になっている必要があります。有効になっていない場合は、クエリ実行時にBrazeがウェアハウスをオンにできるよう、ウェアハウスに対する追加の`OPERATE`権限をBrazeに付与してください。
 {% endalert %}
 
 #### ステップ1.4: Snowflakeユーザーの作成 {#step-14-create-a-snowflake-user}
@@ -127,17 +132,11 @@ Brazeに戻り、**接続をテスト**を選択してソースへのアクセ�
 
 1. **データ設定** > **クラウドデータ取り込み** > **同期**に移動します。
 2. **データ同期を作成**を選択します。
-3. **データタイプ**で**ユーザー属性**を選択します。
-4. ステップ2のSnowflakeソースを参照します。
+3. **データタイプ**で任意の同期を選択します。
+4. ステップ2のソースを参照します。
 5. **SQL**を選択し、データウェアハウスからユーザーデータを返すSQLクエリを記述します。SQLクエリは、Brazeに同期するデータを定義します。クエリ結果が同期のスキーマになります。
 
-![SQLが選択され、SQLエディターにサンプルクエリが表示されたデータ同期作成フロー。]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
-
-SQLクエリは以下を返す必要があります。
-
-- ユーザー識別子（`EXTERNAL_ID`、`BRAZE_ID`、`ALIAS_NAME`と`ALIAS_LABEL`、`EMAIL`、または`PHONE`）
-- `UPDATED_AT`カラム
-- 少なくとも1つの追加カラム（属性）
+ソースエクスプローラーを使用して、同期元として利用可能なテーブルやビューを参照したり、AI SQLジェネレーターを使用してBraze OperatorにSQLクエリの支援を依頼したりできます。
 
 {% alert note %}
 `JOIN`句を含む読み取り専用クエリのみがサポートされています。詳細については、[SQLの制約](#sql-constraints)を参照してください。
@@ -153,15 +152,22 @@ SQLクエリは以下を返す必要があります。
 - 最大100行
 - 最大250カラム
 
-続行する前に、クエリのプレビューと検証を正常に完了する必要があります。エラーと修正方法の詳細については、[検証の動作](#validation-behavior)と[トラブルシューティング](#troubleshooting)を参照してください。
+検証を正常に完了するには、SQLクエリが以下の必須カラムを返す必要があります。
+
+| 同期データタイプ | 必須カラム |
+|---|---|
+| 属性 | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（属性）。 |
+| ユーザー削除 | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
+| Canvasトリガー | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。 |
+| カスタムイベント | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- イベント名を表す`NAME`。<br>- イベント時刻を表す`TIME`。利用できない場合、CDIは代わりに`UPDATED_AT`を使用します。 |
+| 購入イベント | - ユーザー識別子（`external_id`、`braze_id`、`alias_name`と`alias_label`、メールまたは電話番号のいずれか）。<br>- `UPDATED_AT`。<br>- `PRODUCT_ID`。<br>- `CURRENCY`。<br>- `PRICE`。<br>- 購入イベント時刻を表す`TIME`。利用できない場合、CDIは代わりに`UPDATED_AT`を使用します。 |
+| カタログ | - カタログアイテム識別子を表す`ID`。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（カタログフィールド）。 |
+| アカウント | - アカウント識別子を表す`ID`。<br>- アカウント名を表す`NAME`。<br>- `UPDATED_AT`。<br>- 同期する少なくとも1つの追加カラム（アカウントフィールド）。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ4: クエリのプレビューと検証" }
+
+必須カラム以外の追加カラムは、それぞれ属性、Canvasコンテキストプロパティ、イベントプロパティ、カタログフィールド、アカウントフィールドとして同期されます。プレビューと検証のエラーおよびその修正方法に関する役立つヒントについては、[検証の動作](#validation-behavior)と[トラブルシューティング](#troubleshooting)を参照してください。
 
 ### ステップ5: 属性マッピングの確認と同期の作成 {#step-5-review-attribute-mapping-and-create-sync}
-
-検証後:
-
-- 識別子カラムがユーザーと照合されます
-- `UPDATED_AT`カラムが増分同期を制御します
-- Brazeはその他すべてのカラムを属性として同期します
 
 検証が成功したら、**次へ: 通知**に進み、同期を作成します。
 
@@ -170,41 +176,6 @@ SQLクエリは以下を返す必要があります。
 {% endalert %}
 
 ## SQLの制約 {#sql-constraints}
-
-クエリは以下の要件を満たす必要があります。
-
-### ユーザー識別子を含める {#include-a-user-identifier}
-
-クエリには以下のうち少なくとも1つを含める必要があります。
-
-- `EXTERNAL_ID`
-- `BRAZE_ID`
-- `EMAIL`
-- `PHONE`
-- `ALIAS_NAME`と`ALIAS_LABEL`
-
-有効な識別子が検出されない場合、検証は失敗します。
-
-{% alert note %}
-これらの識別子は大文字と小文字が区別され、大文字で記述する必要があります。
-{% endalert %}
-
-### `UPDATED_AT`を含める {#include-updatedat}
-
-クエリには`UPDATED_AT`カラムを含める必要があります。
-
-`UPDATED_AT`は大文字と小文字が区別され、大文字で記述する必要があります。
-
-欠落している場合、検証は失敗します。
-
-### 少なくとも1つの属性カラムを含める {#include-at-least-one-attribute-column}
-
-クエリには、以下に加えて少なくとも1つのカラムを含める必要があります。
-
-- ユーザー識別子カラム
-- `UPDATED_AT`
-
-含まれていない場合、検証は失敗します。
 
 ### `SELECT`クエリのみを使用する {#use-select-queries-only}
 
@@ -262,15 +233,15 @@ Brazeがデータウェアハウスに接続できない場合:
 - 検証が失敗します
 - タイムアウトエラーが表示されます
 
-### 必須カラムの欠落 {#missing-required-columns}
+### テーブルスキーマエラー {#table-schema-errors}
 
 クエリがコンパイルされても、以下の場合は検証が失敗する可能性があります。
 
 - 識別子カラムが見つからない
 - `UPDATED_AT`が欠落している
-- 属性カラムが存在しない
+- その他の必須カラムが欠落している
 
-この場合、検証の成功に向けて役立つよう、プレビューは引き続き表示されます。
+この場合、検証の成功に向けて役立つよう、プレビューは引き続き表示されます。各同期データタイプの必須カラムの詳細については、[前のセクションのステップ4](#step-4-preview-and-validate-your-query)を参照してください。
 
 ### ゼロ行の結果 {#zero-row-results}
 
@@ -326,11 +297,11 @@ SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテー�
 
 クエリに`external_id`などの有効な識別子が含まれていることを確認してください。
 
-### 「`UPDATED_AT`カラムがありません」 {#updatedat-column-is-missing}
+### 「`UPDATED_AT`カラムがありません」 {#updated_at-column-is-missing}
 
 増分同期用のタイムスタンプカラムを追加してください。
 
-### 「同期する属性がありません」 {#no-attributes-to-sync}
+### 「同期する属性/カタログフィールド/アカウントフィールドがありません」 {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 識別子と`UPDATED_AT`以外に、少なくとも1つの追加カラムを追加してください。
 

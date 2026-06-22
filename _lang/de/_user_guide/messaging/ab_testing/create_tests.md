@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # Multivariate und A/B-Tests erstellen {#creating-tests}
 
-> Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal und ein einzelnes Gerät ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie nur iOS-Geräte oder nur Android-Geräte ansprechen – nicht beide Gerätetypen in derselben Campaign.
+> Sie können einen multivariaten oder A/B-Test für jede Campaign erstellen, die auf einen einzelnen Kanal ausgerichtet ist. Wenn Sie beispielsweise multivariate oder A/B-Tests für eine Push-Campaign verwenden möchten, können Sie iOS- und Android-Geräte in derselben Campaign ansprechen.
 
 ![Das Dropdown-Menü nach Auswahl des Buttons „Kampagne erstellen“, um entweder Multichannel oder Einzelkanal auszuwählen.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
@@ -22,7 +22,7 @@ local_redirect: #optimizations
 
 ## 2. Schritt: Verfassen Sie Ihre Varianten {#step-2-compose-your-variants}
 
-Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variablen, während ein multivariater Test zwei oder mehr untersucht.
+Sie können bis zu acht Varianten Ihrer Nachricht erstellen, die sich in Titeln, Inhalten, Bildern und mehr unterscheiden. Die Anzahl der Unterschiede zwischen den Nachrichten bestimmt, ob es sich um einen multivariaten oder einen A/B-Test handelt. Ein A/B-Test untersucht die Wirkung der Änderung einer einzelnen Variable, während ein multivariater Test zwei oder mehr untersucht.
 
 Ideen für den Einstieg in die Differenzierung Ihrer Varianten finden Sie unter [Tipps für verschiedene Kanäle](#tips-different-channels).
 
@@ -90,7 +90,7 @@ Je nachdem, welchen Kanal Sie auswählen, können Sie verschiedene Komponenten I
 | Push | Text <br> Bild- und Emoji-Verwendung <br> Deeplinks <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | E-Mail | Betreff <br> Anzeigename <br> Anrede <br> Fließtext <br> Bild- und Emoji-Verwendung <br> Darstellung von Zahlen (z. B. „verdreifachen“ versus „um 200 % steigern“) <br> Darstellung von Zeit (z. B. „endet um Mitternacht“ versus „endet in 6 Stunden“) | Öffnungen <br> Konversionsrate |
 | In-App-Nachricht | Aspekte wie bei „Push“ aufgeführt <br> [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Klick <br> Konversionsrate |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipps für verschiedene Kanäle" }
 
 {% alert tip %}
 Vergessen Sie bei der Durchführung von A/B-Tests nicht, [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) zu generieren, mit denen Sie verstehen können, wie jede Variante Ihren Konversionstrichter beeinflusst hat – insbesondere wenn „Conversion“ für Ihr Unternehmen mehrere Schritte oder Aktionen umfasst.

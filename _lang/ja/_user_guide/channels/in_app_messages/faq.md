@@ -11,19 +11,19 @@ tool: in-app messages
 
 > この記事では、アプリ内メッセージに関するよくある質問への回答を提供します。
 
-### ブラウザ内メッセージとは何ですか？アプリ内メッセージとの違いは何ですか？ {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
+## ブラウザ内メッセージとは何ですか？アプリ内メッセージとの違いは何ですか？ {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
 
 ブラウザ内メッセージは、Webブラウザに送信されるアプリ内メッセージです。ブラウザ内メッセージを作成するには、アプリ内メッセージのCampaignまたはCanvasを作成する際に、**送信先**フィールドで**Webブラウザ**を選択してください。
 
-### デバイスがオフラインの場合、アプリ内メッセージは表示されますか？ {#will-an-in-app-message-display-if-a-device-is-offline}
+## デバイスがオフラインの場合、アプリ内メッセージは表示されますか？ {#does-an-in-app-message-display-if-a-device-is-offline}
 
 場合によります。アプリ内メッセージはセッション開始時に配信されるため、オフラインになる前にデバイスがペイロードをダウンロードできていれば、オフライン中でもアプリ内メッセージを表示できます。ペイロードがダウンロードされていない場合、アプリ内メッセージは表示されません。
 
-### ユーザーのデバイスにすでにアプリ内メッセージのペイロードがあり、メッセージの有効期限が変更された場合、デバイス上の有効期限は更新されますか？ {#if-a-user-already-has-an-in-app-message-payload-on-their-device-and-the-message-expiration-is-changed-will-the-expiration-be-updated-on-their-device}
+## ユーザーのデバイスにすでにアプリ内メッセージのペイロードがあり、メッセージの有効期限が変更された場合、デバイス上の有効期限は更新されますか？ {#if-a-user-already-has-an-in-app-message-payload-on-their-device-and-the-message-expiration-is-changed-does-the-expiration-update-on-their-device}
 
 ユーザーがセッションを開始すると、Brazeは対象となるアプリ内メッセージに変更があったかどうかを確認し、それに応じて更新します。そのため、有効期限が変更され、ユーザーがセッションを記録した場合、アプリ内メッセージは更新された情報とともにデバイスに送信されます。
 
-### アプリ内メッセージCampaignにサイレントアワーを設定するにはどうすればよいですか？ {#how-do-i-set-up-quiet-hours-for-an-in-app-message-campaign}
+## アプリ内メッセージCampaignにサイレントアワーを設定するにはどうすればよいですか？ {#how-do-i-set-up-quiet-hours-for-an-in-app-message-campaign}
 
 サイレントアワー機能は、アプリ内メッセージCampaignでは使用できません。この機能は、特定の時間帯にユーザーへのメッセージ送信を防止するために使用されます。アプリ内メッセージCampaignの場合、ユーザーはアプリ内でアクティブな場合にのみアプリ内メッセージを受信します。
 
@@ -39,31 +39,31 @@ MESSAGE HERE
 ```
 {% endraw %}
 
-### ユーザーがアプリ内メッセージを閉じた後、再度受信できますか？ {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
+## ユーザーがアプリ内メッセージを閉じた後、再度受信できますか？ {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaigns
+### Campaigns
 
 アプリ内メッセージCampaignの場合、**配信コントロール**で再適格性を有効にすることで（**ユーザーがCampaignを再度受信できるようにする**）、ユーザーが再びCampaignを受信できるようにすることができます。再度受信できるまでの期間は、設定した再適格性の時間枠と、Brazeが以前の送信をどのように記録したかによって異なります。Campaignの動作（再適格性とメッセージ受信の関係を含む）については、[CampaignとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
 
 再適格性がオフの場合、ユーザーは一般的に、受信後に適格条件のみに基づいて同じCampaignを再度受信することはありません。
 
-#### Canvases {#canvases}
+### Canvases {#canvases}
 
 Canvasから送信されるアプリ内メッセージの場合、ユーザーがメッセージを再度表示できるかどうかは、Canvasのエントリコントロール（ユーザーがCanvasに再エントリできるようにするかどうかなど）とステップの設定に依存し、Campaignの配信コントロールだけではありません。
 
-### アプリ内メッセージの適格性はいつ計算されますか？ {#when-is-eligibility-for-an-in-app-message-calculated}
+## アプリ内メッセージの適格性はいつ計算されますか？ {#when-is-eligibility-for-an-in-app-message-calculated}
 
 アプリ内メッセージの適格性は、配信時に計算されます。アプリ内メッセージが午前7時に送信されるようにスケジュールされている場合、このアプリ内メッセージの適格性は午前7時にチェックされます。
 
-アプリ内メッセージが表示された後の適格性は、アプリ内メッセージがダウンロードされトリガーされたタイミングに依存します。
+アプリ内メッセージが表示されるときの適格性は、アプリ内メッセージがダウンロードされトリガーされたタイミングに依存します。
 
-### アーカイブしたアプリ内メッセージCampaignがまだアプリ内メッセージのインプレッションを配信しているのはなぜですか？ {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
+## アーカイブしたアプリ内メッセージCampaignがまだアプリ内メッセージのインプレッションを配信しているのはなぜですか？ {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
 これは、アプリ内メッセージCampaignがアクティブだったときにSegment条件を満たしたユーザーに対して発生する可能性があります。
 
 これを防ぐには、Campaign設定時に**表示前にCampaignの適格性を再評価する**を選択してください。
 
-### 同じセッション内で複数のアプリ内メッセージを表示できますか？ {#can-multiple-in-app-messages-display-in-the-same-session}
+## 同じセッション内で複数のアプリ内メッセージを表示できますか？ {#can-multiple-in-app-messages-display-in-the-same-session}
 
 はい。ただし、[トリガーイベント]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger)の発生ごとに表示できるアプリ内メッセージは1つだけです。複数のアプリ内メッセージCampaignが同じトリガー（例：セッション開始）を共有している場合、そのトリガーが発生するたびに最も優先度の高いメッセージのみが表示されます。セッション開始トリガーの場合、セッションごとに1つのメッセージのみ表示でき、次に適格なメッセージを表示する機会は次のセッションになります。
 
@@ -71,11 +71,11 @@ Canvasから送信されるアプリ内メッセージの場合、ユーザー�
 
 優先度バケット内の表示順序を制御するには、いずれかのCampaignの配信設定に移動し、**正確な優先度を設定**を選択してから、Campaignをドラッグ＆ドロップして希望の順序に並べ替えてください。詳細については、[優先度の選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)を参照してください。
 
-### Brazeは「1日後」に設定されたアプリ内メッセージの有効期限をどのように計算しますか？ {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
+## Brazeは「1日後」に設定されたアプリ内メッセージの有効期限をどのように計算しますか？ {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
 Brazeは、ユーザーがメッセージを受信する資格を得てから24時間後を1日の有効期限として計算します。
 
-### テンプレート化されたアプリ内メッセージとは何ですか？ {#what-are-templated-in-app-messages}
+## テンプレート化されたアプリ内メッセージとは何ですか？ {#what-are-templated-in-app-messages}
 
 アプリ内メッセージは、**表示前にCampaignの適格性を再評価する**が選択されている場合、またはメッセージ内に以下のいずれかのLiquidタグが存在する場合に、テンプレート化されたアプリ内メッセージとして配信されます。
 
@@ -92,7 +92,7 @@ Brazeは、ユーザーがメッセージを受信する資格を得てから24�
 デバイスがインターネットにアクセスできない場合、メッセージは配信されません。Liquidロジックの解決に時間がかかりすぎる場合も、メッセージが配信されない可能性があります。
 {% endalert %}
 
-### アプリ内メッセージの中止動作はどのように機能しますか？ {#how-does-abort-behavior-work-for-in-app-messages}
+## アプリ内メッセージの中止動作はどのように機能しますか？ {#how-does-abort-behavior-work-for-in-app-messages}
 
 Brazeにおいて、中止とは、ユーザーがメッセージを受信する資格を得るアクションを実行したにもかかわらず、Liquidロジックによって不適格と判定されたためにメッセージを受信しなかった場合に発生します。例えば：
 
@@ -104,7 +104,7 @@ Brazeにおいて、中止とは、ユーザーがメッセージを受信する
 
 ただし、アプリ内メッセージはプルチャネルであるため、中止の動作が少し異なります。
 
-#### 標準アプリ内メッセージの中止動作 {#standard-in-app-message-abort-behavior}
+### 標準アプリ内メッセージの中止動作 {#standard-in-app-message-abort-behavior}
 
 アプリ内メッセージは、セッション開始時にデバイスによってプルされ、デバイスにキャッシュされるため、インターネット接続の品質に関係なく、メッセージをユーザーに即座に配信できます。例えば、ユーザーがセッション内で5つのアプリ内メッセージを受信する場合、セッション開始時に5つすべてを受信します。メッセージはローカルにキャッシュされ、定義されたトリガーイベント（セッション開始、ユーザーがカスタムイベントを記録するボタンをクリックするなど）が発生したときに表示されます。
 
@@ -119,7 +119,7 @@ Brazeにおいて、中止とは、ユーザーがメッセージを受信する
 
 BrazeがSamのケースで中止イベントを記録しないのは、中止の定義を満たさないためです。Samはメッセージをトリガーするアクションを**実行していません**。アプリ内メッセージの場合、Brazeがメッセージを表示すべきでないと判断する前に、ユーザーが実際にトリガーを実行することはありません。
 
-#### テンプレート化されたアプリ内メッセージの中止動作 {#templated-in-app-message-abort-behavior}
+### テンプレート化されたアプリ内メッセージの中止動作 {#templated-in-app-message-abort-behavior}
 
 [テンプレート化されたアプリ内メッセージ](#what-are-templated-in-app-messages)は、トリガーイベントが発生したときにメッセージを表示すべきかどうかをSDKに再評価させます。これにより、中止動作が異なります。以下の例を考えてみましょう。
 
@@ -129,7 +129,7 @@ BrazeがSamのケースで中止イベントを記録しないのは、中止の
 4. Samのデバイスがアプリ内メッセージを取得するためにネットワークリクエストを行います。
 5. メッセージのLiquidロジックにより中止が発生し、Brazeはこれを中止として記録します。Samはこの評価の前にトリガーアクションを実行しています。
 
-#### アプリ内メッセージの中止動作の比較 {#comparing-in-app-message-abort-behavior}
+### アプリ内メッセージの中止動作の比較 {#comparing-in-app-message-abort-behavior}
 
 この表は、Samが経験したアプリ内メッセージのフローを比較しています。
 
@@ -137,4 +137,34 @@ BrazeがSamのケースで中止イベントを記録しないのは、中止の
 | --- | --- |
 | 標準 | Samがメッセージをトリガーするアクションを実行していないため、中止イベントは記録されませんでした。<br><br>標準アプリ内メッセージは中止を記録しません。中止の定義は「トリガーアクションを実行したにもかかわらずメッセージを表示しなかった」ことだからです。アプリ内メッセージはトリガーアクションが発生する前にデバイスに配信されるため、Liquidロジックにより除外されたアプリ内メッセージを中止と見なすことは適切ではありません。 |
 | テンプレート化 | Samがテンプレート化されたアプリ内メッセージをトリガーするトリガーアクションを実行したが、Liquidテンプレート処理で中止を受けたため、中止イベントが記録されました。<br><br>テンプレート化されたアプリ内メッセージは、トリガーアクションが実行された後にLiquid評価が行われるため、中止を記録します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージの中止動作の比較" }
+
+## AndroidのフルスクリーンHTMLアプリ内メッセージで閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+エッジツーエッジディスプレイを搭載したデバイス（Android 15以降を含む）では、フルスクリーンHTMLアプリ内メッセージがシステムステータスバーの背後に描画され、レイアウト上部の閉じるコントロールが隠れることがあります。
+
+Braze Android SDKバージョン37.0.0以降では、デフォルトでHTMLアプリ内メッセージにウィンドウインセットが適用されるため、コントロールはセーフエリア内に留まります。それでもユーザーに重なりが見られる場合は、最新のBraze Android SDKにアップグレードしてください。
+
+古いSDKバージョンでは、この動作がデフォルトになる前に、開発者が `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` を有効にすることで対応できました。
+
+## ドラッグ＆ドロップのアプリ内メッセージをカスタマイズする際に知っておくべきことは何ですか？ {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
+
+[ドラッグ＆ドロップエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)は、モーダルおよびフルスクリーンの表示タイプをサポートしています。エディターブロックを使用して、これらのコンテナ内にコンテンツを構築します。
+
+以下の点にご注意ください。
+
+- **リンクとディープリンク：** 各クリック時アクションには、デフォルトで1つのURLフィールドがあります。デバイス、アプリタイプ、またはユーザー属性に応じてリンクを変えるには、URL内でLiquidを使用してください。**メッセージコンテナ**では、プラットフォーム固有のクリック時動作を有効にして、プラットフォームごとに異なるリンクを設定することもできます。
+- **不透明度と背景：** メッセージコンテナの不透明度は、メッセージ背景全体に影響します。個々のブロックは独自の背景色を設定できます。より細かい制御が必要な場合は、カスタムコードブロックにカスタムCSSを追加してください。
+- **メッセージの幅：** **メッセージコンテナ**の最大幅は、エディターで325 px未満に設定できません。これにより、小さな画面でもコンテンツが読みやすく保たれます。より狭いレイアウトが必要な場合は、カスタムCSSを使用してください。
+- **プラットフォーム固有の背景：** 1つのメッセージは、Webとモバイルで同じ背景画像と色を使用します。エディターでプラットフォームごとに異なる背景を設定することはできません。
+- **マルチページメッセージ：** 背景画像とメッセージレベルのクリック時アクションは、マルチページメッセージのすべてのページに適用されます。各ページで異なるフル画像を使用するには、次のページにリンクするボタンを追加してください。
+- **メッセージレベルのスタイル：** メッセージレベルのスタイルはメッセージ全体に適用されます。
+- **背景画像：** 背景画像はモーダルに合わせて引き伸ばされます。
+
+エディターに関するその他の考慮事項については、[アプリ内メッセージ準備ガイド]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations)を参照してください。
+
+## Android SDKログの「Event was published, but no subscribers were found」とはどういう意味ですか？ {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+このログ行は通常エラーではありません。Brazeが内部イベント（`NoMatchingTriggerEvent`など）を発行し、その時点でアプリ内メッセージまたはContent Cardsのリスナーが登録されていない場合に表示されることが多いです。
+
+カスタムイベントがアプリ内メッセージをトリガーすることを期待しているときにこのログが表示される場合は、イベントが記録されていること、ユーザーがCampaignまたはCanvasのオーディエンスに含まれていること、およびメッセージがContent Cardsに依存している場合はContent Cardsが同期されていることを確認してください。

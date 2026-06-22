@@ -91,40 +91,38 @@ You can choose one of three ways in which users can enter your Canvas.
 #### Entry schedule types
 
 {% tabs local %}
-  {% tab Scheduled Delivery %}
-    With scheduled delivery, users will enter on a time schedule, similarly to how you would schedule a campaign. You can enroll users in a Canvas as soon as it is launched, enter them into your journey at some point in the future, or on a recurring basis (daily, weekly, or monthly). 
+{% tab Scheduled Delivery %}
+With scheduled delivery, users will enter on a time schedule, similarly to how you would schedule a campaign. You can enroll users in a Canvas as soon as it is launched, enter them into your journey at some point in the future, or on a recurring basis (daily, weekly, or monthly). 
     
-   If you select a monthly recurring schedule, note that some months may not have the selected day. For example, let's say you set a Canvas to send monthly on the 31st day. In this scenario, Braze sends on the last day of that month, such as April 30, because April 31 doesn't exist.
+If you select a monthly recurring schedule, note that some months may not have the selected day. For example, let's say you set a Canvas to send monthly on the 31st day. In this scenario, Braze sends on the last day of that month, such as April 30, because April 31 doesn't exist.
 
-    In this example, based on the time-based options, users enter this Canvas every Tuesday at 12 pm in their local time zone every week, beginning November 14, 2025 until December 31, 2025.
+In this example, based on the time-based options, users enter this Canvas every Tuesday at 12 pm in their local time zone every week, beginning November 14, 2025 until December 31, 2025.
 
-    ![The "Entry Schedule" page with the type set to "Scheduled". Due to the selection, time-based options are shown, including frequency, start time, recurrence, days, and more.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
+![The "Entry Schedule" page with the type set to "Scheduled". Due to the selection, time-based options are shown, including frequency, start time, recurrence, days, and more.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-    When using local time zone delivery, Braze evaluates entry eligibility twice: first at Samoa time (UTC+13) on the scheduled day, and again at the user's local time. A user must be eligible for both checks to enter the Canvas. If your entry filters use relative time windows (for example, "more than 2 days ago"), the 24-hour period may not have elapsed at the time of the first check, causing users to enter one day late. To avoid this, use a broader time window, such as at least two days. For more details, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
-  {% endtab %}
-  {% tab Action-Based Delivery %}
-    With action-based delivery, users will enter the Canvas and begin receiving messages when they take particular actions, such as opening your app, making a purchase, or triggering a custom event.
+When using local time zone delivery, Braze evaluates entry eligibility twice: first at Samoa time (UTC+13) on the scheduled day, and again at the user's local time. A user must be eligible for both checks to enter the Canvas. If your entry filters use relative time windows (for example, "more than 2 days ago"), the 24-hour period may not have elapsed at the time of the first check, causing users to enter one day late. To avoid this, use a broader time window, such as at least two days. For more details, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
+{% endtab %}
+{% tab Action-Based Delivery %}
+With action-based delivery, users will enter the Canvas and begin receiving messages when they take particular actions, such as opening your app, making a purchase, or triggering a custom event.
 
-    You can control other aspects of the Canvas behavior from the **Entry Audience** window, including rules for re-eligibility and frequency capping settings. Note that action-based delivery is unavailable for Canvas components with in-app messages.
+You can control other aspects of the Canvas behavior from the **Entry Audience** window, including rules for re-eligibility and frequency capping settings. Note that action-based delivery is unavailable for Canvas components with in-app messages.
 
-    ![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
+![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
-  {% alert important %}
-  If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze uses the timestamp sent with the custom event to evaluate that delay. If the timestamp is backdated by more than three hours, Braze treats the delay as already elapsed and sends the message immediately.
-  {% endalert %}
+{% alert important %}
+If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze uses the timestamp sent with the custom event to evaluate that delay. If the timestamp is backdated by more than three hours, Braze treats the delay as already elapsed and sends the message immediately.
+{% endalert %}
+{% endtab %}
+{% tab API-Triggered Delivery %}
+With API-triggered delivery, users will enter your Canvas and begin receiving messages after they have been added using the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) via the API. In the dashboard, you can find an example cURL request that does this as well as assign optional [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) using the [context object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). 
 
-  {% endtab %}
-  {% tab API-Triggered Delivery %}
-    With API-triggered delivery, users will enter your Canvas and begin receiving messages after they have been added using the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) via the API. In the dashboard, you can find an example cURL request that does this as well as assign optional [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) using the [context object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). 
+![An example of API-triggered delivery with a Canvas ID and an example of a cURL request.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
-    ![An example of API-triggered delivery with a Canvas ID and an example of a cURL request.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
-
-    You can use the following endpoints for API-triggered delivery:
-    - [POST: Send Canvas Messages via API-Triggered Delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-    - [POST: Schedule API-Triggered Canvases]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-    - [POST: Update Scheduled API-Triggered Canvases]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
-
-  {% endtab %}
+You can use the following endpoints for API-triggered delivery:
+- [POST: Send Canvas Messages via API-Triggered Delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
+- [POST: Schedule API-Triggered Canvases]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [POST: Update Scheduled API-Triggered Canvases]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
+{% endtab %}
 {% endtabs %}
 
 After selecting your delivery method, adjust the settings to match your use case, then continue to setting your target audience.
@@ -189,7 +187,7 @@ To view additional statistics, such as the average lifetime revenue for targeted
 
 ### Step 1.4: Select your send settings
 
-Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on Quiet Hours. By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over messaging them.
+Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
 
 For Canvases targeting email and push channels, you may want to limit your Canvas so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in status:
 
@@ -205,7 +203,7 @@ These subscription settings are applied on a per-step basis, meaning that there 
 With this configuration, don't include any filters in the **Target Audience** step that limits the audience to a single channel (for example, `Foreground Push Enabled = True` or `Email Subscription = Opted-In`).
 {% endalert %}
 
-If desired, specify Quiet Hours (the time during which your messages will not be sent) for your Canvas. Check **Enable Quiet Hours** in your **Send Settings**. Then, select your Quiet Hours in your user's local time and what action will follow if the message triggers inside of those Quiet Hours.
+If desired, specify [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) (the time during which your messages will not be sent) for your Canvas. Check **Enable Quiet Hours** in your **Send Settings**. Then, select your quiet hours in your user's local time and what action will follow if the message triggers inside of those quiet hours.
 
 ![The "Quiet Hours" page displaying a checkbox for enabling quiet hours. If enabled, the start time, end time, and fallback behavior can be set.]({% image_buster /assets/img/quiet_hours.png %})
 
@@ -226,15 +224,31 @@ You can add additional variants by selecting the <i class="fas fa-plus-circle"><
 ![Two example variants in a Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-By default, the Canvas variant assignment is locked in when users enter the Canvas, meaning that if a user first enters a variant, that will be their variant every time they re-enter the Canvas. However, there are ways to circumvent this behavior. <br><br>To do so, you can create a random number generator using Liquid, run it at the beginning of each user's Canvas entry, store the value as a custom attribute, and then use that attribute to randomly divide users.
+By default, Canvas variant assignment is determined by a function of the user ID and Canvas ID, meaning that a given user is consistently assigned to the same variant on re-entry, as long as the variant distribution percentages remain unchanged. If you adjust the variant distribution after launch, users may be assigned to different variants when they re-enter the Canvas. <br><br>If you need assignment that stays fixed when distribution percentages change, use a single Canvas variant and route users with an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) step. At the start of the journey, use a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step to store a random number in a custom attribute, then filter on that attribute in Audience Paths.
 
 {% details Expand for steps %}
 
-1. Create a custom attribute to store your random number. Name it something easy to locate, like "lottery_number" or "random_assignment". You can create the attribute either [in your dashboard]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/), or through API calls to our [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).<br><br>
-2. Create a webhook campaign at the beginning of your Canvas. This campaign will be the medium in which you create your random number and store it as a custom attribute. Refer to [Create a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) for more. Set the URL to our `/users/track` endpoint.<br><br>
-3. Create the random number generator. You can do so with the code [ outlined here](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), which takes advantage of each user's unique time of entry to create a random number. Set the resulting number as a Liquid variable within your webhook campaign.<br><br>
-4. Format the `/users/track` call on your webhook campaign so that it sets the custom attribute you created in step 1 to the random number you've generated on your current user's profile. When this step runs, you will have successfully made a random number that changes each time a user enters your campaign.<br><br>
-5. Adjust the branches of your Canvas so that, instead of being divided by randomly chosen variants, they are divided based on audience rules. In the audience rules of each branch, set the audience filter according to your custom attribute. <br><br>For example, one branch may have "lottery_number is less than 3" as an audience filter, while another branch may have "lottery_number is more than 3 and less than 6" as an audience filter.
+1. Create a **Number** custom attribute to store your random number. Name it something easy to locate, like `lottery_number` or `random_assignment`. In your dashboard, go to **Data Settings** > **Custom Attributes**.<br><br>
+2. Use a single Canvas variant (or add the same User Update step to each variant). Add a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step at the beginning of the journey. This step generates and stores the random number before users reach your Audience Paths step.<br><br>
+3. In the User Update step, select the [Advanced JSON Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Use the {% raw %}{% random %}{% endraw %} tag to generate the number. For details, see [Send messages with a random number]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number). For example, {% raw %}`{% random 10 %}`{% endraw %} returns an integer from 0 through 9. Set the custom attribute from step 1 using JSON like this:<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+The {% raw %}`{% if %}`{% endraw %} block sets the number only when the attribute is blank, so users keep the same assignment when they re-enter the Canvas.<br><br>
+
+{: start="4"}
+4. Add an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) step after the User Update step. In each audience group, add filters based on your custom attribute instead of using variant distribution percentages.<br><br>For example, if you used {% raw %}`{% random 10 %}`{% endraw %}, one group might use `lottery_number` **is less than 4**, another **is more than 3 and less than 7**, and a third **is more than 6 and less than 10**.
 
 {% enddetails %}
 {% endalert %}
@@ -312,6 +326,8 @@ In the first Message step following an Action Path, you can use `event_propertie
 ### Step 2.3: Edit connections
 
 To move a connection between steps, select the arrow connecting the two components and select a different component. To remove the connection, select the arrow followed by **Cancel Connection** in the footer of the Canvas composer.
+
+If a single variant has multiple branches with the same audience and send time, Braze does not guarantee an even split across those branches. Distribution may favor the branch that was created first. For an even split, use [Random Bucket Number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) filters on each branch. For more information, see [What happens if the audience and send time are identical for a Canvas that has one variant, but multiple branches?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Step 3: Add a control group
 

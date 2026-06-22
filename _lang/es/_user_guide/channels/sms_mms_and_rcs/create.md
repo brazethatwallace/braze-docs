@@ -25,8 +25,8 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
-2. Selecciona **SMS/MMS/RCS** o, para campañas dirigidas a múltiples canales, selecciona **Multichannel**.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
+2. Selecciona **SMS/MMS/RCS** o, para campañas dirigidas a múltiples canales, selecciona **Multicanal**.
 3. Ponle a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas concretas.
@@ -34,7 +34,7 @@ search_rank: 1
    * Braze te permite incluir variantes tanto de SMS como de RCS dentro de una misma campaña, para que puedas comparar el rendimiento de cada una.
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
+Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ El grupo de suscripción que selecciones determina qué tipos de mensaje están 
 | Solo SMS | SMS |
 | SMS con números habilitados para MMS | SMS y MMS |
 | Habilitado para RCS (con remitente verificado para RCS) | SMS, MMS (si está habilitado) y RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Selecciona un grupo de suscripción" }
 
 {% alert tip %}
 Braze recomienda encarecidamente que cada grupo de suscripción que contenga un remitente RCS incluya también al menos un código SMS como alternativa. Esto garantiza que, si un mensaje RCS no se entrega (por ejemplo, debido a incompatibilidad del dispositivo o cobertura incompleta del operador), el mensaje llegue igualmente al usuario a través de SMS.
@@ -108,7 +108,7 @@ Introduce el cuerpo de tu mensaje y luego sube una imagen PNG, JPEG o GIF desde 
 | --- | --- |
 | Tamaño | Hasta 600&nbsp;KB |
 | Tipos de archivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones de imagen" }
 
 ### Tarjetas de contacto {#contact-cards}
 
@@ -177,7 +177,7 @@ Los mensajes multimedia RCS te permiten usar formatos de medios atractivos que n
 | Imagen | Formatos admitidos: JPG, JPEG, GIF |
 | Video | Formatos admitidos: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Documento | Formato admitido: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones de archivo" }
 
 **Consideraciones:**
 
@@ -224,7 +224,7 @@ Los flujos de trabajo de mensajes conversacionales te permiten responder dinámi
 {: start="2"}
 2. Conecta ese mensaje a una ruta de acción con un grupo de acciones para cada respuesta sugerida.
 3. Para cada grupo de acciones:
-   - Selecciona el desencadenante **Send an SMS inbound message**.
+   - Selecciona el desencadenante **Enviar un mensaje SMS entrante**.
    - Establece el cuerpo del mensaje para que sea igual a la respuesta sugerida correspondiente.
 
 ![Paso de ruta de acción configurado con tres grupos de acciones, uno para cada respuesta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -263,15 +263,15 @@ Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/us
 
 A continuación, construye el resto de tu campaña. Consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear tu mensaje.
 
-#### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
+### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
 
 Los mensajes se pueden entregar en función de una hora planificada, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Elige los usuarios objetivo {#choose-users-to-target}
+### Elige los usuarios objetivo {#choose-users-to-target}
 
 A continuación, [dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para acotar tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
 
@@ -283,7 +283,7 @@ Selecciona la audiencia más amplia de tus segmentos y acota ese segmento aún m
 ¿Te interesa la reorientación? Consulta [Reorientación de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para saber más.
 {% endalert %}
 
-#### Elige eventos de conversión {#choose-conversion-events}
+### Elige eventos de conversión {#choose-conversion-events}
 
 Braze te permite hacer seguimiento de la frecuencia con la que los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
 

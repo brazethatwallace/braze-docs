@@ -148,6 +148,10 @@ Los arrays, tokens de notificaciones push y tipos de datos de eventos personaliz
 Al importar atributos predeterminados, los encabezados de columna que utilices deben coincidir exactamente con la ortografía y las mayúsculas de los atributos de usuario predeterminados. De lo contrario, Braze los detectará como [atributos personalizados](#custom-attributes).
 {% endalert %}
 
+{% alert tip %}
+Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e Ingesta de datos de Cloud), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
+{% endalert %}
+
 Los siguientes atributos predeterminados están disponibles para la importación de usuarios.
 
 | Campo del perfil de usuario | Tipo de datos | Descripción | ¿Obligatorio? |
@@ -285,11 +289,7 @@ En este ejemplo:
 
 Para cargar tu archivo, selecciona **Attributes** o **Events**, haz clic en **Browse Files** y carga tu CSV. Braze muestra una vista previa de las primeras filas y un resumen de los campos detectados.
 
-![La página de vista previa del archivo mostrando una vista previa del archivo después de la carga.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Para archivos grandes (hasta 500 MB para atributos predeterminados y atributos personalizados, o 50 MB para eventos personalizados), el dashboard puede parecer temporalmente sin respuesta mientras el archivo se carga y Braze calcula la importación. Estas cargas y cálculos pueden tardar más en completarse que para archivos más pequeños. Deja que este paso se complete. Para más contexto sobre los límites de archivo y los tiempos, consulta [Construir tu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![El modal de carga completada mostrando una vista previa del archivo, el campo de nombre de importación, las preferencias de segmentación y la casilla de validación del archivo.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 En el campo **Import name**, puedes renombrar tu importación. De forma predeterminada, se utiliza el nombre del archivo.
 
@@ -354,8 +354,8 @@ Cuando la validación se completa, aparece uno de los siguientes resultados.
 |---|---|---|
 | **Validación completa** | No se encontraron problemas. | Selecciona **Import data**. |
 | **Problemas encontrados** | Algunas filas tienen errores o advertencias. | Descarga el informe de errores para revisarlos, luego selecciona **Import anyway** para continuar o **Cancel** para corregir tu archivo primero. |
-| **Validación agotada** | La validación se quedó sin tiempo. Las filas que se verificaron no tenían problemas. | Selecciona **Import data**. Un informe completo estará disponible en unos minutos. |
-| **Validación agotada con problemas** | La validación se quedó sin tiempo y encontró errores en algunas de las filas que verificó. | Descarga el informe parcial para revisar lo que se encontró, luego selecciona **Import anyway** o **Cancel**. |
+| **Tiempo de validación agotado** | La validación se quedó sin tiempo. Las filas que se verificaron no tenían problemas. | Selecciona **Import data**. Un informe completo estará disponible en unos minutos. |
+| **Tiempo de validación agotado con problemas** | La validación se quedó sin tiempo y encontró errores en algunas de las filas que verificó. | Descarga el informe parcial para revisar lo que se encontró, luego selecciona **Import anyway** o **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resultados de la validación" }
 
 ![La página de resumen mostrando la sección de problemas encontrados, con un recuento de filas con errores y advertencias, y opciones para volver, descargar el informe de errores o iniciar la importación.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
@@ -423,6 +423,14 @@ Si utilizaste la [validación de archivo](#file-validation), comienza con el inf
 
 Para la solución de problemas de importación CSV, revisa estos problemas comunes a continuación.
 
+### Usar correo electrónico como `external_id` {#use-email-as-external_id}
+
+Braze no recomienda usar una dirección de correo electrónico como `external_id`. Si usas el correo electrónico como `external_id`, incluye tanto la columna `external_id` como la columna `email` en tu CSV para que los usuarios sigan siendo segmentables en el canal de correo electrónico. Usa una coma (`,`) como delimitador de columna, no dos puntos (`:`).
+
+### Caracteres de comillas en valores de `external_id` {#quote-characters-in-external_id-values}
+
+Si una celda de `external_id` contiene una comilla doble, escápala duplicando el carácter (`""`), como se describe en [Comillas dobles sin escapar o desbalanceadas](#missing-row). La importación CSV no utiliza el escape con barra invertida.
+
 ### La importación CSV no está disponible como filtro de segmento {#csv-import-isnt-available-as-a-segment-filter}
 
 Puedes usar una importación CSV como filtro de segmento solo si habilitaste una preferencia de segmentación durante la carga.
@@ -444,7 +452,9 @@ Si tu objetivo es crear un segmento sin actualizar datos de perfil, carga un CSV
 
 Si tu carga se completó con errores, puede haber una fila malformada en tu archivo CSV.
 
-Para importar datos correctamente, debe haber una fila de encabezado. Cada fila debe tener el mismo número de celdas que la fila de encabezado. Las filas con más o menos valores que la fila de encabezado se excluirán de la importación. Las comas dentro de un valor se interpretarán como separador y pueden provocar este error. Además, todos los datos deben estar codificados en UTF-8.
+Para importar datos correctamente, debe haber una fila de encabezado. Cada fila debe tener el mismo número de celdas que la fila de encabezado. Las filas con más o menos valores que la fila de encabezado se excluirán de la importación. Las comas dentro de un valor se interpretarán como separador y pueden provocar este error.
+
+Además, todos los datos deben estar codificados en UTF-8. Si el archivo se guarda con una codificación heredada (por ejemplo, algunos valores predeterminados de Excel), los caracteres especiales y las URL en las celdas pueden corromperse y aparecer como signos de interrogación (`?`) en Braze o en los mensajes enviados.
 
 Si tu archivo CSV tiene filas en blanco e importa menos filas que el total de líneas en el archivo CSV, esto puede no indicar un problema con la importación, ya que las filas en blanco no necesitarían importarse. Verifica el número de líneas que se importaron correctamente y asegúrate de que coincida con el número de usuarios que intentas importar.
 

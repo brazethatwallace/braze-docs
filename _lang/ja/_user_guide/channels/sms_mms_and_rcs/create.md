@@ -16,7 +16,7 @@ search_rank: 1
 
 # SMS、MMS、またはRCSメッセージを作成する {#create-an-sms-mms-or-rcs-message}
 
-> SMS、MMS、およびRCS Campaignsは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> SMS、MMS、およびRCSのCampaignsは、顧客に直接リーチし、プログラムで会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## ステップ1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
@@ -62,7 +62,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 | SMSのみ | SMS |
 | MMS対応番号を含むSMS | SMSおよびMMS |
 | RCS対応（RCS認証済み送信者あり） | SMS、MMS（有効な場合）、およびRCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:サブスクリプショングループを選択する" }
 
 {% alert tip %}
 Brazeは、RCS送信者を含むすべてのサブスクリプショングループに、フォールバック用のSMSコードを少なくとも1つ含めることを強く推奨します。これにより、RCSメッセージの配信に失敗した場合（たとえば、デバイスの非互換性やキャリアカバレッジの不完全さなど）でも、SMSを通じてメッセージがユーザーに届くようになります。
@@ -108,7 +108,7 @@ MMSメッセージを送信するには、サブスクリプショングルー�
 | --- | --- |
 | サイズ | 最大600&nbsp;KB |
 | ファイルタイプ | PNG、JPEG、GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="画像の仕様" }
 
 ### 連絡先カード {#contact-cards}
 
@@ -177,7 +177,7 @@ RCSメディアメッセージでは、SMSでは不可能な魅力的なメデ�
 | 画像 | サポートされるフォーマット: JPG、JPEG、GIF |
 | 動画 | サポートされるフォーマット: H263、M4V、MP4、MPEG-4、MPEG、WEBM |
 | ドキュメント | サポートされるフォーマット: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ファイルの仕様" }
 
 **考慮事項:**
 
@@ -263,15 +263,15 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 次に、Campaignの残りを構築します。メッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
 
-#### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
+### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
 メッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信の場合、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)も設定できます。
+アクションベースの配信の場合、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)も設定できます。
 
 このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールも指定できます。
 
-#### ターゲットユーザーを選択する {#choose-users-to-target}
+### ターゲットユーザーを選択する {#choose-users-to-target}
 
 次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。
 
@@ -283,7 +283,7 @@ Segmentsからより大きなオーディエンスを選択し、オプション
 リターゲティングに興味がありますか？詳細については、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)を参照してください。
 {% endalert %}
 
-#### コンバージョンイベントを選択する {#choose-conversion-events}
+### コンバージョンイベントを選択する {#choose-conversion-events}
 
 Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定するオプションがあります。
 

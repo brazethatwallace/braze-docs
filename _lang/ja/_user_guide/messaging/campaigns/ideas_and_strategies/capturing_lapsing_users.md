@@ -5,8 +5,8 @@ page_order: 1
 page_type: tutorial
 description: "このハウツー記事では、離脱ユーザーの問題と、Brazeキャンペーンを効果的に使用してそれらのユーザーを再エンゲージする方法について説明します。"
 tool:
-  - Segments
-  - Campaigns
+  - セグメント
+  - キャンペーン
 
 ---
 

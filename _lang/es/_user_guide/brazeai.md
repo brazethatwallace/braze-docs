@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## Resumen de características {#feature-overview}
+
+| Tu objetivo | Característica recomendada |
+| --- | --- |
+| Personalizar el texto del mensaje por usuario utilizando su contexto | Agentes de Braze (Canvas o catálogo); para borradores puntuales, IA generativa |
+| Optimizar qué contenido del mensaje (como asunto o CTA) tiene mejor rendimiento a lo largo del tiempo | Optimizador de contenidos (correo electrónico, notificaciones push o SMS/MMS/RCS) o variante ganadora |
+| Maximizar una métrica empresarial (ingresos, conversiones) con decisiones 1:1 en ofertas, canales y tiempos | Estudio de toma de decisiones |
+| Encontrar usuarios con probabilidad de abandono o de realizar un evento | Predictive Churn o Predictive Events |
+| Recomendar productos específicos de un catálogo en los mensajes | Recomendaciones de artículos |
+| Enviar en el mejor momento o por el mejor canal para cada usuario | Intelligent Timing, canal inteligente |
+| Crear o perfeccionar textos y creatividades directamente en el dashboard | IA generativa (redacción, imágenes, control de calidad), Operator para asistencia |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }

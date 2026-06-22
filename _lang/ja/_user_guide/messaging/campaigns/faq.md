@@ -22,7 +22,7 @@ tool: Campaigns
 
 ### キャンペーンのテストと最適化を始めるにはどのような方法がありますか？ {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-多変量キャンペーンや複数のバリアントを持つCanvasの実行は、始めるのに最適な方法です。例えば、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/)を実行して、異なるコピーや件名を持つ1つのメッセージをテストできます。複数のバリアントを持つCanvasは、ワークフロー全体のテストに役立ちます。
+多変量キャンペーンや複数のバリアントを持つCanvasesの実行は、始めるのに最適な方法です。例えば、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/)を実行して、異なるコピーや件名を持つ1つのメッセージをテストできます。複数のバリアントを持つCanvasesは、ワークフロー全体のテストに役立ちます。
 
 ### キャンペーンの開封率が低下したのはなぜですか？ {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -168,27 +168,39 @@ Campaignにエントリするユーザー数が予想と異なるのは、オー
 Campaignのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日分の診断ログのみ保持しています。
 {% endalert %}
 
+### 編集後にユーザーがCampaignを2回受信したのはなぜですか？ {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+ライブCampaignを停止せずに編集すると、ユーザーがメッセージを2回受信する可能性があります。これは、ライブCampaignを編集すると、元のキューがまだ処理されている間に、更新されたバージョンのためにユーザーが再キューイングされるためです。元のメッセージをまだ受信していないユーザーが、両方のキューに入ってしまう可能性があります。これを防ぐには、変更を加える前に必ず[Campaignを停止]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign)してください。
+
 ### Campaign分析ページの「ユーザーデータを CSV 形式でエクスポート」と「メールアドレスを CSV 形式でエクスポート」オプションの違いは何ですか？ {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 **メールアドレスを CSV 形式でエクスポート**オプションを選択すると、メールアドレスを持つユーザーのデータのみがダウンロードされます。例えば、100,000人のユーザーのSegmentがあり、そのうち50,000人のみがメールアドレスを持っている場合、**メールアドレスを CSV 形式でエクスポート**をクリックすると、エクスポートには50,000行のデータのみが含まれます。一方、**ユーザーデータを CSV 形式でエクスポート**を選択すると、すべてのユーザーデータがエクスポートされます。
 
 ### API識別子でCampaignを検索できますか？ {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-はい、**Campaigns**ページでフィルター `api_id:YOUR_API_ID` を使用して、API識別子でCampaignを検索できます。詳しくは[Campaignの検索]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/)を参照してください。
+はい、**Campaigns**ページでフィルター`api_id:YOUR_API_ID`を使用して、API識別子でCampaignを検索できます。詳しくは[Campaignの検索]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/)を参照してください。
 
 ### 入力フィールドと表示テキストで空白の表示が異なるのはなぜですか？ {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
-入力フィールドと表示テキストコンポーネントでは、CSSスタイリングにより空白の処理が異なります。デフォルトの `white-space: normal` CSSを持つテキストコンポーネントでは、連続する複数のスペースは表示時に1つのスペースに折りたたまれます。これはレンダリングされたテキストの標準的なHTMLの動作です。
+入力フィールドと表示テキストコンポーネントでは、CSSスタイリングにより空白の処理が異なります。デフォルトの`white-space: normal` CSSを持つテキストコンポーネントでは、連続する複数のスペースは表示時に1つのスペースに折りたたまれます。これはレンダリングされたテキストの標準的なHTMLの動作です。
 
 入力フィールドでは、正確なデータ入力のために正確なスペースを確認・編集する必要があるため、入力したとおりに複数のスペースが保持されます。つまり、複数のスペースを含むテキストは、入力フィールド（すべてのスペースが保持される）で表示した場合と、ダッシュボードの他の部分（CSSにより複数のスペースが折りたたまれる場合がある）で表示した場合とで、異なって見える可能性があります。
 
 例えば、Campaign名やUTMパラメーターに複数のスペースを入力した場合、入力フィールドではすべてのスペースが保持されて表示されます。しかし、同じテキストが検索結果、Campaignリスト、その他のテキストコンポーネントに表示される場合、CSSの空白処理により複数のスペースが1つのスペースとして表示されることがあります。
 
-### API CampaignとAPIトリガーCampaignの違いは何ですか？ {#what-is-the-difference-between-api-campaigns-and-api-triggered-campaigns}
+### APIキャンペーンとAPIトリガーキャンペーンの違いは何ですか？ {#what-is-the-difference-between-api-campaigns-and-api-triggered-campaigns}
 
-APIトリガーCampaignでは、Campaignのコピー、多変量テスト、再エントリルールをBrazeダッシュボード内で管理しながら、自社のサーバーやシステムからそのコンテンツの配信をトリガーできます。これらのメッセージには、リアルタイムでメッセージにテンプレート化される追加データを含めることもできます。
+APIトリガーキャンペーンでは、Campaignのコピー、多変量テスト、再エントリルールをBrazeダッシュボード内で管理しながら、自社のサーバーやシステムからそのコンテンツの配信をトリガーできます。これらのメッセージには、リアルタイムでメッセージにテンプレート化される追加データを含めることもできます。
 
-API Campaignは、APIを使用して送信されたメッセージを追跡するために使用されます。ほとんどのCampaignとは異なり、メッセージ、受信者、スケジュールを指定するのではなく、識別子をAPIコールに渡します。
+APIキャンペーンは、APIを使用して送信されたメッセージを追跡するために使用されます。ほとんどのCampaignとは異なり、メッセージ、受信者、スケジュールを指定するのではなく、識別子をAPIコールに渡します。
+
+### APIトリガーCampaignをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+**Campaignを受信した**フィルターを使用して[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、確認したい特定のAPIトリガーCampaignを選択します。Segmentを保存した後、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのSegmentのユーザーをエクスポートできます。
+
+### Campaignを削除できますか？ {#can-i-delete-a-campaign}
+
+いいえ。ただし、[Campaignをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving/)することは可能です。
 
 ### アクションベースのCampaignとAPIトリガーCampaignの違いは何ですか？ {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -203,12 +215,12 @@ table th:nth-child(3) {
 
 #### アクションベース {#action-based}
 
-アクションベースの配信Campaignまたはイベントトリガーキャンペーンは、トランザクションメッセージや達成ベースのメッセージに非常に効果的で、ユーザーが特定のイベントを完了した後に送信をトリガーできます。
+アクションベースの配信CampaignまたはイベントトリガーCampaignは、トランザクションメッセージや達成ベースのメッセージに非常に効果的で、ユーザーが特定のイベントを完了した後に送信をトリガーできます。
 
 | メリット | デメリット |
 | ---- | ---- |
 | • **メッセージアクティビティログ**を通じて、プラットフォームに入ってくるJSONペイロードを確認可能（テストユーザーによるイベントトリガーの場合）<br><br>• パーソナライゼーション要素がカスタムイベントプロパティに含まれる<br><br>• カスタムイベントを使用して、メッセージの受信資格のあるユーザーのSegmentを作成可能 | • データポイントを消費する |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アクションベース" }
 
 #### APIトリガー {#api-triggered}
 
@@ -217,7 +229,7 @@ APIトリガーおよびサーバートリガーCampaignは、より高度なト
 | メリット | 考慮事項 |
 | ---- | ---- |
 | • データポイントを消費しない<br><br>• パーソナライゼーション要素がJSONペイロードプロパティに含まれる | • JSONペイロードプロパティでメッセージの受信資格のあるユーザーのSegmentを作成できない<br><br>• **メッセージアクティビティログ**で入ってくるJSONペイロードを確認できない |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="APIトリガー" }
 
 ### 「リクエストタイムアウト」エラーのサポートチケットを送信する際に何を含めるべきですか？ {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
@@ -259,3 +271,21 @@ CampaignまたはCanvasの作成・編集中に「リクエストタイムアウ
 - **Segmentの再評価：** 送信時に再評価するアクションベースまたはスケジュールされたCampaignでは、Campaignがキューに入れられた時点でSegmentに含まれていたユーザーが、メッセージが実際に送信される時点では条件を満たさなくなっている場合があります。
 - **送信キャップ：** **Target Audiences**の最大ユーザー数（または同様のキャップ）により、キャップに達した時点で配信が停止されます。
 - **厳格なデバイスまたはブラウザフィルター：** 最新のアプリバージョンやブラウザのみに一致するフィルターは、広範なSegmentプレビューと比較して、送信時の到達可能なセットを縮小します。
+
+### グローバルフリークエンシーキャップに関するよくある質問はどこにありますか？ {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+カレンダー日、サイレントプッシュ、Webhook、Canvasの動作、および関連トピックに関する質問については、[レート制限とフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)の[よくある質問]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/)を参照してください。
+
+### メールとSMSで、ユニーク受信者数が送信数を超えることがあるのはなぜですか？ {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+メールとSMSの場合、BrazeはESPの送信試行前に**ユニーク受信者数**をインクリメントし、ESPの成功レスポンス後に**送信数**をインクリメントします。永続的なエラー（無効なメールアドレスなど）や重複アドレスにより、ユニーク受信者数が送信数を超えることがあります。
+
+### **最終送信日時**がスケジュールされた送信時間と一致しないのはなぜですか？ {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+1回限りのスケジュール送信のCampaignの場合、**最終送信日時**は起動時間と一致します。**ユーザーのローカルタイムゾーンで送信**が有効な定期的なCampaignの場合、早いタイムゾーン（例えばGMT対PST）のユーザーへの送信がワークスペースのスケジュール時間より前に完了するため、**最終送信日時**がスケジュールされた時間より早く表示されることがあります。
+
+### 停止した過去のCampaignの指標が**Analytics**ページに表示されなくなったのはなぜですか？ {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+**Analytics**タブはデフォルトで直近90日間を表示します。Campaignの最終送信がその期間外の場合、**Analytics**ページの日付範囲をCampaignが送信された期間を含むように調整するまで、指標がゼロとして表示されることがあります。詳しくは[Campaign分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)を参照してください。
+
+**インタラクションデータの復元**はCampaign分析を復元するものではありません。リターゲティングフィルターとユーザーインタラクション履歴にのみ適用されます。詳しくは[メッセージングインタラクションデータ]({{site.baseurl}}/messaging_interaction_data/)を参照してください。

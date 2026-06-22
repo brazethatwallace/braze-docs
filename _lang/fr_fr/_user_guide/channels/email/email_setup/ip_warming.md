@@ -3,13 +3,13 @@ nav_title: Réchauffement d'adresses IP
 article_title: Réchauffement d'adresses IP
 page_order: 1
 page_type: reference
-description: "Le présent article de référence couvre le sujet du réchauffement d'adresses IP et des bonnes pratiques."
+description: "Cet article de référence couvre le sujet du réchauffement d'adresses IP et des bonnes pratiques."
 channel: email
 local_redirect:
   automated-ip-warming: '/docs/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming'
 ---
 
-# Réchauffement d'adresses IP
+# Réchauffement d'adresses IP {#ip-warming}
 
 > Le réchauffement d'adresses IP consiste à habituer les fournisseurs de boîtes de réception e-mail à recevoir des messages provenant de vos adresses IP dédiées. Il s'agit d'une étape essentielle de l'envoi d'e-mails avec n'importe quel fournisseur de services d'e-mailing (ESP) et d'une pratique courante chez Braze pour garantir que vos messages atteignent leur boîte de réception à un taux élevé et constant.
 
@@ -25,9 +25,9 @@ Un taux de distribution sain se situe généralement autour de 99 % avec un taux
 
 Avant de commencer le réchauffement d'adresses IP :
 
-1. Dans **Paramètres** > **Préférences des e-mails**, définissez votre domaine d'envoi par défaut, ajoutez un lien de désabonnement valide dans votre [pied de page personnalisé]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), activez l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) et envisagez des pages de désabonnement/abonnement personnalisées si nécessaire.
+1. Dans **Settings** > **Email Preferences**, définissez votre domaine d'envoi par défaut, ajoutez un lien de désabonnement valide dans votre [pied de page personnalisé]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), activez l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) et envisagez des pages de désabonnement/abonnement personnalisées si nécessaire.
 2. Configurez la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) pour les e-mails.
-3. Importez les modèles requis dans **Modèles** > **Modèles d'e-mail**.
+3. Créez vos modèles requis en accédant à **Content** > **Email**.
 
 ## Que faire si je n'ai pas le temps de réchauffer les adresses IP ? {#what-if-i-dont-have-time-to-warm-ips}
 
@@ -155,7 +155,7 @@ Après trois mois de non-utilisation, Braze peut recycler et réattribuer des ad
 
 ## Comment limiter les envois pendant le réchauffement {#how-to-limit-sends-during-warming}
 
-La fonctionnalité intégrée de limitation du nombre d'utilisateurs est un outil utile pour vous aider à réchauffer votre adresse IP. Après avoir choisi les segments de messagerie souhaités lors de la création de la campagne, à l'étape [Cibler les utilisateurs]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), sélectionnez le menu déroulant **Options avancées** pour limiter le nombre d'utilisateurs. Au fur et à mesure de votre calendrier de réchauffement, vous pouvez augmenter progressivement cette limite pour accroître le volume d'e-mails envoyés.
+La fonctionnalité intégrée de limitation du nombre d'utilisateurs est un outil utile pour vous aider à réchauffer votre adresse IP. Après avoir choisi les segments de messagerie souhaités lors de la création de la campagne, à l'étape [Target Users]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas), sélectionnez le menu déroulant **Advanced Options** pour limiter le nombre d'utilisateurs. Au fur et à mesure de votre calendrier de réchauffement, vous pouvez augmenter progressivement cette limite pour accroître le volume d'e-mails envoyés.
 
 ![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 

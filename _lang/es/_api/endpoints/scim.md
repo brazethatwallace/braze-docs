@@ -21,12 +21,12 @@ guide_featured_list:
     link: /docs/get_see_user_account_information/
     image: /assets/img/braze_icons/eye.svg
   - name: "GET: Buscar cuenta de usuario existente en el dashboard por correo electrónico"
-    link: /docs/get_search_existing_dashboard_user/
+    link: /docs/api/endpoints/scim/get_search_existing_dashboard_user/
     image: /assets/img/braze_icons/eye.svg
   - name: "PUT: Actualizar cuenta de usuario del dashboard"
     link: /docs/post_update_existing_user_account/
     image: /assets/img/braze_icons/pencil-01.svg
-  - name: "DELETE: Eliminar cuenta de usuario del dashboard"
+  - name: "DELETE: Eliminar cuenta de usuario del panel"
     link: /docs/delete_existing_dashboard_user/
     image: /assets/img/braze_icons/trash-01.svg
 ---

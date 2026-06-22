@@ -41,7 +41,7 @@ Os percentuais são calculados com base no intervalo de datas atual em comparaç
 
 Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e seus *Usuários ativos diários* mostrarem um aumento percentual de 1,8%, isso significa que você teve 1,8% mais usuários ativos diários nesta semana em comparação com a semana passada.
 
-![Bloco de métrica no dashboard Início.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Um bloco de métrica da visão geral de desempenho mostrando o valor da métrica e a variação percentual.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar detalhamento {#show-breakdown}
 
@@ -110,13 +110,15 @@ Os cálculos de MAU seguem regras específicas para garantir uma cobrança preci
 
 - **Momento do cálculo**: Calculado uma vez por dia às 12:05 UTC como um snapshot de 30 dias; as contagens nunca mudam retroativamente.
 - **Perfis anônimos**: Contam **apenas** quando pelo menos uma sessão é registrada.
-- **Perfis identificados**: Contam automaticamente assim que existem.
+- **Perfis identificados**: Contam apenas quando `date_of_last_session` está dentro da janela móvel de 30 dias.
 - **Perfis órfãos**: Duplicatas mescladas em outro usuário **não** são contadas.
-- **Uploads por CSV**: Usuários enviados por CSV contam apenas quando `date_of_first_session` ou `date_of_last_session` é fornecido, ou quando eles registram uma sessão posteriormente.
+- **Uploads por CSV e importações via REST API**: Usuários enviados por CSV ou pela REST API contam para o MAU quando você fornece `date_of_last_session` dentro da janela móvel de 30 dias, ou quando eles registram uma sessão posteriormente. Fornecer apenas `date_of_first_session` não afeta o MAU.
 - **Exclusões via API**: Excluir um usuário via API não atualiza o MAU imediatamente; a contagem se corrige automaticamente no próximo ciclo mensal.
 
 {% alert note %}
 Usuários anônimos também contam para o seu MAU. Em dispositivos móveis, os usuários anônimos dependem do dispositivo. Para usuários web, os usuários anônimos dependem do cache do navegador.
+
+As contagens de MAU na Braze podem diferir de ferramentas como a Amplitude quando cada produto usa uma definição diferente de usuário ativo. Compare a configuração na Amplitude (e suas regras de MAU da Braze acima) antes de investigar uma discrepância como um problema no pipeline de dados.
 {% endalert %}
 
 #### Exemplo de cálculo do MAU {#mau-calculation-example}
@@ -143,6 +145,8 @@ Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativament
 
 {% alert note %}
 Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes.
+
+Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}
@@ -168,6 +172,10 @@ O valor de MAU é calculado todas as noites e não será atualizado até o dia s
 ### Sessões diárias {#daily-sessions}
 
 *Sessões diárias* é o número de sessões registradas em um determinado dia. Comparar esse valor com a contagem de DAU pode informar quantas vezes seus usuários abrem o app ou visitam seu site nos dias em que registram pelo menos uma sessão.
+
+{% alert note %}
+A contagem de *Sessões diárias* para uma determinada data pode mudar quando você visualiza o dashboard Início em dias diferentes. Se um usuário iniciar uma sessão enquanto estiver offline, a sessão pode não chegar à Braze até que ele abra o app novamente. Quando essa sessão é enviada, a Braze a atribui à data em que a sessão começou, o que pode aumentar a contagem daquela data retroativamente.
+{% endalert %}
 
 ### Sessões diárias por MAU {#daily-sessions-per-mau}
 

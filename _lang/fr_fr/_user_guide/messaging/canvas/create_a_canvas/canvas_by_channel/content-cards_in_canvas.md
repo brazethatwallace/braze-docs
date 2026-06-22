@@ -41,6 +41,16 @@ Bien que vous puissiez spécifier une durée d'expiration supérieure à 30 jour
 
 Soyez prudent lorsque vous définissez une date d'expiration plus de 30 jours après le lancement du Canvas. Si un utilisateur atteint l'étape Message plus de 30 jours avant la date d'expiration spécifiée, la carte ne sera pas envoyée.
 
+#### Expiration personnalisée avec Liquid {#personalized-expiry-with-liquid}
+
+Lorsque vous utilisez la personnalisation Liquid pour définir la durée d'expiration (par exemple, en utilisant des attributs personnalisés ou des propriétés d'entrée Canvas), le comportement diffère de celui des dates absolues ou relatives :
+
+- Si l'expiration personnalisée aboutit à une durée supérieure à 30 jours, Braze la plafonne automatiquement à la limite maximale de 30 jours.
+- La carte de contenu est tout de même envoyée à l'utilisateur avec l'expiration plafonnée.
+- L'utilisateur progresse vers l'étape suivante du Canvas.
+
+Ce plafonnement garantit que les cartes avec une expiration personnalisée sont délivrées même lorsque la durée calculée dépasse la limite de la plateforme. Le résultat du registre de traitement affichera « Personalized expiration capped by max TTL » avec des détails indiquant `reason=capped_by_max_ttl` et `capped=true`.
+
 ### Comportement à l'expiration {#expiration-behavior}
 
 La carte de contenu reste disponible dans le flux de l'utilisateur jusqu'à sa date d'expiration, même si l'utilisateur progresse vers les étapes suivantes du parcours Canvas. Si vous ne souhaitez pas que la carte de contenu soit active lorsque les étapes suivantes du Canvas sont délivrées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
@@ -55,7 +65,7 @@ Les cartes de contenu peuvent être supprimées lorsque les utilisateurs effectu
 
 ## Rapports et analyses {#reporting-and-analytics}
 
-Après le lancement d'une étape Content Cards dans Canvas, vous pouvez commencer à analyser plusieurs indicateurs pour cette étape. Ces indicateurs incluent le nombre de messages envoyés, les destinataires uniques, les taux de conversion, le chiffre d'affaires total, et bien plus encore.
+Après le lancement d'une étape Content Cards dans Canvas, vous pouvez commencer à analyser plusieurs indicateurs pour cette étape. Ces indicateurs incluent le nombre de messages envoyés, les impressions quotidiennes uniques, les taux de conversion, le chiffre d'affaires total, et bien plus encore.
 
 ![Analyses d'une étape Message avec les performances des messages de type carte de contenu.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
@@ -63,16 +73,16 @@ Pour plus d'informations sur les indicateurs disponibles et leurs définitions, 
 
 ## Cas d'utilisation {#use-cases}
 
-#### Offres promotionnelles {#promotional-offers}
+### Offres promotionnelles {#promotional-offers}
 
 Ajoutez des cartes au flux d'un utilisateur lorsqu'il devient éligible à des promotions et publicités spécifiques. Par exemple, si un utilisateur devient éligible à une nouvelle offre après avoir effectué une action ou un achat, Canvas vous permet de lui envoyer une carte de contenu, en complément d'autres canaux de communication, afin que l'offre soit disponible lors de sa prochaine ouverture de l'application.
 
-#### Boîte de réception des notifications push {#push-notification-inbox}
+### Boîte de réception des notifications push {#push-notification-inbox}
 
 Il arrive qu'un utilisateur ignore une notification push ou supprime un e-mail, mais vous souhaitez lui rappeler l'offre ou la promouvoir au cas où il changerait d'avis.
 
 Avec Canvas, vous pouvez ajouter un composant qui envoie à la fois une carte de contenu et une notification push, offrant ainsi aux utilisateurs une « boîte de réception » persistante de cartes correspondant aux messages promotionnels envoyés par notification push.
 
-#### Flux multiples basés sur des catégories {#multiple-feeds-based-on-categories}
+### Flux multiples basés sur des catégories {#multiple-feeds-based-on-categories}
 
 Vous pouvez séparer vos cartes de contenu en plusieurs flux basés sur des catégories, comme différents sujets que les utilisateurs peuvent parcourir, ou des flux transactionnels et marketing. Pour plus d'informations sur la création de flux multiples à l'aide de paires clé-valeur, consultez notre guide sur la [personnalisation des flux de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).

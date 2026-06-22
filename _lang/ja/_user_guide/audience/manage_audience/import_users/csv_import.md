@@ -18,7 +18,7 @@ CSVインポートを使用して、以下のユーザー属性やカスタム�
 | デフォルト属性 | Brazeが認識する予約済みのユーザー属性。 | `first_name`、`email` | 500 MB |
 | カスタム属性 | ビジネス固有のユーザー属性。 | `last_destination_searched` | 500 MB |
 | カスタムイベント | ユーザーのアクションを表すビジネス固有のイベント。 | `trip_booked` | 50 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="About CSV import" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="CSVインポートについて" }
 
 ## CSVインポートの使用 {#using-csv-import}
 
@@ -60,7 +60,7 @@ CSVインポートを開くには、**Audiences** > **Import Users** に移動�
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 2: Choose an identifier #choose-an-identifier" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ステップ2:識別子を選択する" }
 
 インポートで`user_alias_name`と`user_alias_label`の両方を指定すると、Brazeは同じ`user_alias_name`と`user_alias_label`を持つ既存のユーザーを更新します。ユーザーが見つからない場合、Brazeはその`user_alias_name`が設定された新しい識別済みユーザーを作成します。
 
@@ -136,7 +136,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 | 数値 | スペースやカンマのない整数または浮動小数点数である必要があります。浮動小数点数はピリオド（`.`）を小数点区切りとして使用する必要があります。 |
 | 文字列 | 値が二重引用符（`""`）で囲まれている場合、カンマを含めることができます。 |
 | 空白 | 空白の値はユーザープロファイルの既存の値を上書きしません。CSVファイルに既存のすべてのユーザー属性を含める必要はありません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性" }
 
 {% alert important %}
 配列、プッシュトークン、カスタムイベントのデータタイプはユーザーインポートではサポートされていません。CSVファイル内のカンマが列区切りとして解釈され、ファイルの解析時にエラーが発生するためです。<br><br>これらの種類の値をアップロードするには、代わりに[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を使用してください。
@@ -146,6 +146,10 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 
 {% alert important %}
 デフォルト属性をインポートする場合、使用する列ヘッダーはデフォルトのユーザー属性のスペルと大文字小文字に完全に一致する必要があります。一致しない場合、Brazeはそれらを[カスタム属性](#custom-attributes)として検出します。
+{% endalert %}
+
+{% alert tip %}
+Brazeが認識する標準属性の完全なリスト（SDK、API、CSV、クラウドデータ取り込み全体）については、[標準属性]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/)を参照してください。以下の表は、CSVインポートで設定できるサブセットのみを示しています。
 {% endalert %}
 
 以下のデフォルト属性がユーザーインポートで利用可能です。
@@ -172,7 +176,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 | `date_of_first_session`  `date_of_last_session` | 文字列 | 以下のISO 8601形式のいずれかで渡すことができます：「YYYY-MM-DD」「YYYY-MM-DDTHH:MM:SS+00:00」「YYYY-MM-DDTHH:MM:SSZ」「YYYY-MM-DDTHH:MM:SS」（例：2019-11-20T18:38:57） | いいえ |
 | `subscription_group_id` | 文字列 | サブスクリプショングループの`id`。この識別子はダッシュボードのサブスクリプショングループページで確認できます。 | いいえ |
 | `subscription_state` | 文字列 | `subscription_group_id`で指定されたサブスクリプショングループのサブスクリプション状態。許可される値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。 | いいえ。ただし、`subscription_group_id`を使用する場合は強く推奨されます |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Default attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="デフォルト属性" }
 
 #### サブスクリプショングループのステータスを更新する（オプション） {#updating-subscription-group-status-optional}
 
@@ -187,7 +191,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Updating subscription group status (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="サブスクリプショングループのステータスを更新する（オプション）" }
 
 {% alert note %}
 ユーザーインポートでは、1行につき1つの`subscription_group_id`のみ設定できます。異なる行には異なる`subscription_group_id`の値を設定できます。ただし、同じユーザーを複数のサブスクリプショングループに登録する必要がある場合は、複数回のインポートが必要です。
@@ -223,7 +227,7 @@ CSVファイルの作成を始める準備ができたら、以下の情報を�
 | `name` | 文字列 | ユーザーのカスタムイベント。 | はい |
 | `time` | 文字列 | イベントの時刻。以下のISO-8601形式のいずれかで渡すことができます：「YYYY-MM-DD」「YYYY-MM-DDTHH:MM:SS+00:00」「YYYY-MM-DDTHH:MM:SSZ」「YYYY-MM-DDTHH:MM:SS」（例：2019-11-20T18:38:57） | はい |
 | `<event name>.properties.<property name>` | 複数 | カスタムイベントに関連するイベントプロパティ。例：`trip_booked.properties.destination` | いいえ |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="カスタムイベントフィールド" }
 
 #### カスタムイベントのフォーマット要件 {#format-requirements-for-custom-events}
 
@@ -270,7 +274,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | 123 | rented_movie | 2024-06-10T12:00:00Z | Ghostbusters | Action | | |
 | 456 | bought_movie | 2024-06-12T12:00:00Z | | | Ghostbusters | Action |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Example CSV structure" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="CSVの構造例" }
 
 この例では：
 
@@ -285,11 +289,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 
 ファイルをアップロードするには、**Attributes**または**Events**を選択し、**Browse Files**をクリックしてCSVをアップロードします。Brazeは最初の数行のプレビューと検出されたフィールドの概要を表示します。
 
-![アップロード後のファイルプレビューを表示するファイルプレビューページ。]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 大きなファイル（デフォルト属性とカスタム属性は最大500 MB、カスタムイベントは最大50 MB）の場合、ファイルのアップロードとBrazeによるインポートの計算中にダッシュボードが一時的に応答しなくなることがあります。これらのアップロードと計算は、小さなファイルよりも完了に時間がかかる場合があります。このステップが完了するまでお待ちください。ファイルの制限とタイミングの詳細については、[CSVの構築]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv)を参照してください。
-
-![ファイルプレビュー、インポート名フィールド、ターゲティング設定、ファイル検証チェックボックスを表示するアップロード完了モーダル。]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 **Import name**フィールドで、インポートの名前を変更できます。デフォルトではファイル名が使用されます。
 
@@ -314,7 +314,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 | **データタイプの不一致** | CSV列の検出されたデータタイプが、既存の属性または識別子のデータタイプと一致しません。Brazeはインポート時に既存の属性に合わせてデータタイプの変換を試みます。変換できない場合、値は破棄されます。 |
 | **ブロックリスト属性** | CSVフィールドがブロックリストに登録された属性の名前と一致しています。マッピングする別の属性を選択するか、その列はインポートされません。 |
 | **重複属性** | CSVファイルに同じ名前のフィールドが1つ以上あります。同名の列を異なる属性にマッピングするか、最初の列のみがインポートされます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapping statuses" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="マッピングステータス" }
 
 
 #### 新しい属性の編集 {#editing-new-attributes}
@@ -336,7 +336,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 |---|---|
 | ターゲティングフィルター | CSVファイルをユーザーSegment作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
 | 新しいSegment | 新しいターゲティングフィルターから新しいSegmentも作成するには、**Create targeting filter and add to new segment**を選択します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Choose targeting preferences #targeting-preferences" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ6:ターゲティング設定を選択する" }
 
 ![「Halloween season fun」というCSVファイルを含む「Updated/Imported from CSV」フィルターを使用したフィルターグループ。]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -356,7 +356,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 | **問題が見つかりました** | 一部の行にエラーまたは警告があります。 | エラーレポートをダウンロードして確認し、**Import anyway**を選択して続行するか、**Cancel**を選択してファイルを先に修正します。 |
 | **検証がタイムアウトしました** | 検証の時間が切れました。確認された行には問題がありませんでした。 | **Import data**を選択します。完全なレポートは数分後に利用可能になります。 |
 | **問題ありで検証がタイムアウトしました** | 検証の時間が切れ、確認された行の一部にエラーが見つかりました。 | 部分的なレポートをダウンロードして確認し、**Import anyway**または**Cancel**を選択します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation results" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="検証結果" }
 
 ![エラーと警告のある行数を表示し、戻る、エラーレポートのダウンロード、またはインポート開始のオプションがあるサマリーページ。]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
@@ -368,7 +368,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 |---|---|
 | **エラー** | インポート中にその行は完全にスキップされます。 |
 | **警告** | その行はインポートされますが、一部の値は破棄されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding the error report" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="エラーレポートについて" }
 
 レポートを確認した後、元のファイルの問題を修正して再アップロードするか、インポートを続行して部分的な結果を受け入れることができます。
 
@@ -392,7 +392,7 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 | **完了** | すべての行が正常にインポートされました。 |
 | **一部成功** | 一部の行が失敗しました。インポートの横にある三点メニューを選択して、エラーレポートまたはアップロードされた元のCSVをダウンロードします。 |
 | **処理中** | インポートは現在実行中です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Import statuses" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="インポートステータス" }
 
 ![「一部成功」ステータスが表示されたImport Usersページ。コンテキストメニューが開き、エラーレポートのダウンロードとアップロードされたCSVのダウンロードオプションが表示されています。]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
@@ -411,7 +411,7 @@ CSVファイルからインポートされた各顧客データは、ユーザ�
 | External ID | `external_id`のみを含むCSVをアップロードしても、データポイントは記録されません。これにより、データ制限に影響を与えることなく、既存のBrazeユーザーをセグメント化できます。ただし、`email`や`phone`などのフィールドを含めると、既存のユーザーデータが上書きされ、データポイントが記録**されます**。<br><br>`external_id`、`braze_id`、または`user_alias_name`のみを含むセグメンテーション目的のCSVインポートでは、データポイントは記録されません。 |
 | 空白の値 | CSVの空白の値は、既存のユーザープロファイルデータを上書きしません。インポート時にすべてのユーザー属性やカスタムイベントを含める必要はありません。 |
 | サブスクリプション状態 | `email_subscribe`、`push_subscribe`、`subscription_group_id`、または`subscription_state`の更新は、データポイント使用量にカウント**されません**。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Data point considerations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="データポイントに関する考慮事項" }
 
 {% alert important %}
 CSVインポートまたはAPIを通じてユーザーに`language`または`country`を設定すると、BrazeはSDKを通じてこの情報を自動的にキャプチャしなくなります。
@@ -422,6 +422,14 @@ CSVインポートまたはAPIを通じてユーザーに`language`または`cou
 [ファイル検証](#file-validation)を使用した場合は、エラーレポートから始めてください。フラグが付けられた各行の具体的な問題と修正方法の説明が含まれています。検証ではなくインポート中に失敗した行については、**Import Users**ページで行にカーソルを合わせ、<i class="fas fa-download" title="ダウンロード"></i>ボタンを選択してエラーレポートをダウンロードしてください。
 
 CSVインポートのトラブルシューティングについては、以下の一般的な問題を確認してください。
+
+### メールを`external_id`として使用する {#use-email-as-external_id}
+
+Brazeでは、メールアドレスを`external_id`として使用することは推奨されていません。メールを`external_id`として使用する場合、ユーザーがメールチャネルでターゲット可能な状態を維持するために、CSVに`external_id`と`email`の両方の列を含めてください。列の区切り文字にはカンマ（`,`）を使用し、コロン（`:`）は使用しないでください。
+
+### `external_id`値の引用符文字 {#quote-characters-in-external_id-values}
+
+`external_id`のセルに二重引用符が含まれている場合、[エスケープされていないまたは不均衡な二重引用符](#missing-row)で説明されているように、文字を二重にしてエスケープしてください（`""`）。CSVインポートではバックスラッシュによるエスケープは使用されません。
 
 ### CSVインポートがSegmentフィルターとして利用できない {#csv-import-isnt-available-as-a-segment-filter}
 
@@ -444,7 +452,9 @@ CSVアップロードの完了後にターゲティングの利用可否を有�
 
 アップロードがエラーで完了した場合、CSVファイルに不正な行がある可能性があります。
 
-データを正しくインポートするには、ヘッダー行が必要です。各行はヘッダー行と同じ数のセルを持つ必要があります。ヘッダー行よりも値が多いまたは少ない行はインポートから除外されます。値内のカンマは区切り文字として解釈され、このエラーの原因となる可能性があります。また、すべてのデータはUTF-8エンコードである必要があります。
+データを正しくインポートするには、ヘッダー行が必要です。各行はヘッダー行と同じ数のセルを持つ必要があります。ヘッダー行よりも値が多いまたは少ない行はインポートから除外されます。値内のカンマは区切り文字として解釈され、このエラーの原因となる可能性があります。
+
+また、すべてのデータはUTF-8エンコードである必要があります。ファイルがレガシーエンコーディング（例：一部のExcelのデフォルト）で保存されている場合、セル内の特殊文字やURLが破損し、Brazeや送信されたメッセージで疑問符（`?`）として表示される場合があります。
 
 CSVファイルに空白行があり、CSVファイルの合計行数よりも少ない行数がインポートされた場合、空白行はインポートする必要がないため、インポートに問題があるとは限りません。正しくインポートされた行数を確認し、インポートしようとしているユーザー数と一致していることを確認してください。
 
@@ -461,7 +471,7 @@ CSVファイルに空白行があり、CSVファイルの合計行数よりも�
 | エスケープされていないまたは不均衡な二重引用符（`"`） | 二重引用符はカンマを含む文字列値を囲みます。値自体に二重引用符が含まれている場合は、二重にしてエスケープしてください（`""`）。エスケープされていないまたは不均衡な二重引用符は不正な行の原因となります。 |
 | 一貫性のない改行 | 混在する改行（例：`\n`と`\r\n`）により、データの最初の行がヘッダーの一部として扱われる場合があります。16進数エディターまたは高度なテキストエディターを使用して検査・修正してください。 |
 | 不正にエンコードされたファイル | アクセントは許可されていますが、ファイルはUTF-8エンコードである必要があります。他のエンコーディングは部分的に機能する場合がありますが、完全にはサポートされていません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Missing row" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="行の欠落" }
 
 #### 文字列の引用符 {#string-quotation}
 

@@ -26,13 +26,7 @@ Para obter os melhores resultados, consulte as diretrizes de tamanho de imagem e
 (Android) Notificação expandida | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
-{% alert note %}
-GIFs não são compatíveis com notificações por push no Android. Essa é uma limitação da plataforma Android, não da Braze.
-
-Para mensagens no app e Content Cards no Android, você pode oferecer suporte a GIFs integrando uma biblioteca de imagens de terceiros, como [Glide](https://bumptech.github.io/glide/) ou [Fresco](https://frescolib.org/).
-
-No iOS, as notificações por push são compatíveis com GIFs. Mensagens no app e Content Cards exigem um provedor de imagens GIF personalizado.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab Texto %}
@@ -99,24 +93,26 @@ Notificações com imagens grandes ficam melhores ao usar uma imagem de pelo men
 
 | **Navegador** | **Tamanho de ícone recomendado**
 | --- | ---
-| Chrome | 192 x 192 ≥
-| Firefox | 192 x 192 ≥
-| Safari | 192 x 192 ≥ (Os ícones são configuráveis por campanha no Safari 16+ no macOS 13+)
-| Opera | 192x192 ≥
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
+Chrome | 192 x 192 ≥
+Firefox | 192 x 192 ≥
+Safari | 192 x 192 ≥ (Os ícones são configuráveis por Campaign no Safari 16+ no macOS 13+)
+Opera | 192x192 ≥
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 
 | **Navegador** | **Plataforma** | **Tamanho de imagem grande**
 | --- | --- | ---
-| Chrome | Android | Proporção 2:1
-| Firefox | Android | N/A
-| Chrome | Windows | Proporção 2:1
-| Edge | Windows | Proporção 2:1
-| Firefox | Windows | N/A
-| Firefox | Windows | Proporção 2:1
-| Safari | macOS | N/A
-| Chrome | macOS | N/A
-| Firefox | macOS | N/A
-| Opera | macOS | N/A
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
+Chrome | Android | Proporção 2:1
+Firefox | Android | N/A
+Chrome | Windows | Proporção 2:1
+Edge | Windows | Proporção 2:1
+Firefox | Windows | N/A
+Firefox | Windows | Proporção 2:1
+Safari | macOS | N/A
+Chrome | macOS | N/A
+Firefox | macOS | N/A
+Opera | macOS | N/A
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 
 {% endtab %}
@@ -124,16 +120,17 @@ Notificações com imagens grandes ficam melhores ao usar uma imagem de pelo men
 
 | **Navegador** | **Plataforma** | **Comprimento máximo do título**  | **Comprimento máximo do corpo da mensagem**
 | --- | --- | --- | ---
-| Chrome | Android | 35 | 50
-| Firefox | Android | 35 | 50
-| Chrome | Windows | 50 | 120
-| Edge | Windows | 50 | 120
-| Firefox | Windows | 54 | 200
-| Opera | Windows | 50 | 120
-| Chrome | macOS | 35 | 50
-| Safari | macOS | 38 | 84
-| Firefox | macOS | 38 | 42
-| Opera | macOS | 38 | 42
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
+Chrome | Android | 35 | 50
+Firefox | Android | 35 | 50
+Chrome | Windows | 50 | 120
+Edge | Windows | 50 | 120
+Firefox | Windows | 54 | 200
+Opera | Windows | 50 | 120
+Chrome | macOS | 35 | 50
+Safari | macOS | 38 | 84
+Firefox | macOS | 38 | 42
+Opera | macOS | 38 | 42
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
 
 {% endtab %}

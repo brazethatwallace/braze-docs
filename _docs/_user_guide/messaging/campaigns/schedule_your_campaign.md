@@ -13,13 +13,13 @@ tool: Campaigns
 guide_featured_title: "Delivery types"
 guide_featured_list:
   - name: Scheduled delivery
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/scheduled_delivery
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery
     image: /assets/img/braze_icons/line-chart-up-01.svg
   - name: Action-based delivery
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/triggered_delivery
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery
     image: /assets/img/braze_icons/table.svg
   - name: API-triggered delivery
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/api_triggered_delivery
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery
     image: /assets/img/braze_icons/annotation-alert.svg
 
 guide_menu_title: "More articles"

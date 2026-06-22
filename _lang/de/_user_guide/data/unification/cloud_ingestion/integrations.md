@@ -32,6 +32,10 @@ Die [Snowflake-Schnellstartanleitung](https://quickstarts.snowflake.com/guide/br
 2. Richten Sie in Ihrer Redshift-Instanz die Tabellen oder Ansichten ein, die Sie mit Braze synchronisieren möchten.
 3. Erstellen Sie eine neue Quelle und Synchronisierung im Braze-Dashboard.
 4. Testen Sie die Integration und starten Sie die Synchronisierung.
+
+{% alert note %}
+Die pro Synchronisierung verarbeiteten Zeilen hängen von der Performance Ihres Warehouse, der Netzwerklatenz und der Menge neuer Daten ab, die der Synchronisierungsabfrage entsprechen. Verwenden Sie den **Sync-Verlauf** der Integration im Dashboard, um die Dauer und Zeilenanzahl der letzten Durchläufe einzusehen.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Erstellen Sie ein Dienstkonto und erlauben Sie den Zugriff auf das/die BigQuery-Projekt(e) und den/die Datensatz/Datensätze, die die zu synchronisierenden Daten enthalten.
@@ -471,9 +475,16 @@ Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud Data Ingestion*
 
 Wählen Sie einen Namen für Ihre Quelle und geben Sie Ihre Snowflake-Zugangsdaten und -Konfiguration ein. Fahren Sie dann mit dem nächsten Schritt fort.
 
-{% alert note %}
-Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein, der in der Regel einem Format wie `xy12345.us-east-1.aws` entspricht. Dies ist nicht dasselbe wie ein Datenbankname oder Warehouse-Name.
-{% endalert %}
+Bevor Sie fortfahren, überprüfen Sie den Wert, den Sie im Feld **Snowflake Account Locator** eingeben.
+
+Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein. Geben Sie nur den Wert des Kontobezeichners ein, z. B. `myorganization-myaccount`. Fügen Sie weder `https://`, `.snowflakecomputing.com` noch einen Pfad hinzu.
+
+So finden Sie Ihren Snowflake-Kontobezeichner:
+
+1. Wählen Sie in Snowsight Ihr Kontomenü aus.
+2. Wählen Sie **View account details**.
+3. Kopieren Sie den Wert des **Account identifier**.
+4. Wenn Sie aus einer Snowflake-URL kopieren, verwenden Sie nur den Wert vor `.snowflakecomputing.com`.
 
 #### Schritt 2.2: Public Key zur Braze-Nutzerin oder zum Braze-Nutzer hinzufügen {#step-22-add-a-public-key-to-the-braze-user}
 

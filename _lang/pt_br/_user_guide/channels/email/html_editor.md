@@ -83,7 +83,6 @@ A Braze atualiza automaticamente a versão em texto simples a partir da versão 
 Para adicionar movimento em um e-mail com uma pré-visualização precisa, use GIFs em vez de elementos que requerem JavaScript, pois a maioria das caixas de entrada não suporta JavaScript.
 {% endalert %}
 
-![Painel de variantes de e-mail para redigir seu e-mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 A Braze remove automaticamente os manipuladores de eventos HTML referenciados como atributos. Isso modifica o HTML, então verifique novamente o e-mail depois de terminar. Saiba mais sobre [manipuladores HTML](https://www.w3schools.com/tags/ref_eventattributes.asp).
@@ -112,8 +111,8 @@ Por exemplo, para manter um fundo branco em uma célula, use isto:
 Substitua `#ffffff` pela cor desejada.
 
 {% alert note %}
-Essa abordagem não se aplica de forma confiável apenas a elementos `<table>`, então defina o gradiente na célula em vez de apenas na tabela.
-  <caption>App móvel do Gmail e modo escuro</caption>
+Essa abordagem não se aplica de forma confiável apenas a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, então defina o gradiente na célula em vez de apenas na tabela.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 Para mais informações sobre a sintaxe de gradientes, consulte [Gradientes CSS no W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -137,6 +136,16 @@ Em **Sending Settings** > **Advanced**, ative **inline CSS** para o suporte mais
 
 Você também pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail para enviar dados adicionais de volta para outros prestadores de serviço de e-mail.
 
+##### Anexos de e-mail {#email-attachments}
+
+Você também pode adicionar anexos de e-mail pelos seguintes métodos:
+
+- **Fazer upload de um arquivo:** Arraste e solte ou navegue para fazer upload de um arquivo diretamente do seu computador para o e-mail. A Braze valida o tipo e o tamanho do arquivo (até 2&nbsp;MB por padrão) antes do upload, e então esses arquivos são enviados para a biblioteca de mídia. Arquivos maiores que o limite de 2&nbsp;MB não podem ser enviados.
+- **Usar a biblioteca de mídia:** Navegue e selecione entre os ativos já armazenados na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). PDFs, documentos Word, arquivos Excel e apresentações PowerPoint são todos suportados.
+- **Adicionar a partir de URL:** Insira uma URL apontando para o arquivo e forneça um nome de exibição para o arquivo. Como a Braze não pode verificar URLs arbitrárias quanto ao tamanho durante a composição do e-mail, o tamanho do arquivo é aplicado no momento do envio. Observe que Liquid não é suportado neste campo.
+
+Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para práticas recomendadas específicas a considerar.
+
 ##### Cabeçalhos de e-mail {#email-headers}
 
 Para adicionar cabeçalhos de e-mail, selecione **Add New Header**. Os cabeçalhos de e-mail contêm informações sobre o e-mail sendo enviado. Esses [pares de chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) geralmente incluem informações sobre remetente, destinatário, protocolo de autenticação e roteamento. A Braze adiciona automaticamente as informações de cabeçalho exigidas pela RFC para que os e-mails cheguem aos provedores de caixa de entrada.
@@ -152,7 +161,7 @@ Evite usar as seguintes chaves:
 }
 </style>
 
-<table aria-label="Email headers" id="reserved-fields">
+<table aria-label="Cabeçalhos de e-mail" id="reserved-fields">
   <caption>Cabeçalhos de e-mail</caption>
 <thead>
   <tr>
@@ -233,6 +242,10 @@ Clientes de e-mail que suportam texto de pré-visualização sempre puxam caract
 Para o editor de arrastar e soltar, adicione apenas os zero-width non-joiners (‌`&zwnj;`) sem a formatação `<div>` diretamente no pré-cabeçalho na seção **Sending Settings**.
 {% endalert %}
 
+{% alert note %}
+No app Apple Mail, links de imagem em e-mails HTML devem usar URLs `https://` para serem clicáveis. Use links seguros para qualquer imagem envolvida em uma tag de âncora quando você esperar cliques de destinatários do Apple Mail.
+{% endalert %}
+
 ### Etapa 3.3: Verifique erros de e-mail {#step-33-check-for-email-errors}
 
 Antes do envio, o editor sinaliza problemas comuns:
@@ -254,7 +267,7 @@ Antes do envio, o editor sinaliza problemas comuns:
 {% tab Campaign %}
 Em seguida, construa o restante da sua campanha. Consulte as seções a seguir para detalhes sobre como usar as ferramentas da Braze para construir sua campanha de e-mail.
 
-#### Escolha o cronograma de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
+### Escolha o cronograma de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
 
 Entregue e-mails com base em um horário programado, uma ação ou um gatilho de API. Para saber mais, consulte [Programando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -262,9 +275,9 @@ Entregue e-mails com base em um horário programado, uma ação ou um gatilho de
 Para Campaigns disparadas por API, quando a ação-gatilho é definida como **Interact With Campaign**, selecionar uma opção **Receive** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a campanha selecionada como enviada, mesmo que essa mensagem sofra bounce ou falhe na entrega.
 {% endalert %}
 
-Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) e definir regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Escolha os usuários-alvo {#choose-users-to-target}
+### Escolha os usuários-alvo {#choose-users-to-target}
 
 Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros. A Braze mostra uma pré-visualização ao vivo da população do segmento, incluindo quantos usuários são alcançáveis por e-mail. A associação exata ao segmento é calculada logo antes do envio.
 
@@ -278,7 +291,7 @@ Opcionalmente, você também pode limitar a entrega a um número específico de 
 Ao criar uma nova campanha de e-mail, o grupo de controle é definido como 20% por padrão e pode ser ajustado ou removido conforme necessário para sua campanha.
 {% endalert %}
 
-##### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
+#### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
 
 Para Campaigns multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua campanha para que apenas os usuários que explicitamente optaram por receber a mensagem (excluindo usuários inscritos ou com inscrição cancelada). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
@@ -292,7 +305,7 @@ Para fazer isso, em **Audience Summary**, selecione enviar esta campanha para "o
 Com esta configuração, não inclua nenhum filtro na etapa **Target Audiences** que limite o público a um único canal (por exemplo, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Escolha eventos de conversão {#choose-conversion-events}
+### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite rastrear com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma campanha. Você pode especificar qualquer uma das seguintes ações como evento de conversão:
 

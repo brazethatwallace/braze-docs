@@ -79,7 +79,7 @@ This preview updates with relevant personalization and the shortened URL. The nu
 
 Make sure to save the campaign or Canvas before sending a test message to receive a representation of the shortened URL that is dispatched in your message. If the campaign or Canvas isn't saved before a test send, the test send includes a placeholder URL.
 
-For Canvases to appear in the "Clicked shortened SMS link" filter, the Canvas step containing the short link must also be enabled with advanced tracking, which allows user-level click tracking. If the short link is configured with basic tracking, the option to filter SMS short link click events isn't available.
+For Canvases to appear in the "Clicked shortened SMS link" filter, the Canvas step containing the short link must also be enabled with advanced tracking, which allows user-level click tracking. If the short link is configured with basic tracking, the option to filter SMS short link click events isn't available. The same advanced tracking requirement applies when you configure Canvas entry or action paths that depend on clicked shortened SMS links.
 
 {% alert important %}
 If a draft is created within an active Canvas, a shortened URL won't be generated. The actual shortened URL is generated when the Canvas draft is made active.

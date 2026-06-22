@@ -901,7 +901,7 @@ Email, Content Cards, SMS/MMS, LINE
 |-------|-------|
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. AMP-E-Mails umfassen Klicks, die sowohl in HTML- als auch in Nur-Text-Versionen erfasst werden. Diese Zahl kann durch Anti-Spam-Tools künstlich erhöht sein. |
 | Banner | Die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die innerhalb der zugestellten Nachricht geklickt haben, unabhängig davon, ob dieselben Nutzer:innen mehrfach klicken. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Clicks" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klicks insgesamt" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -952,7 +952,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | Content Cards | Die Gesamtzahl der für eine bestimmte Content Card protokollierten Impressionen. Diese kann für dieselben Nutzer:innen mehrfach erhöht werden. |
 | In-App-Nachrichten | Wenn es mehrere Geräte gibt und die erneute Berechtigung deaktiviert ist, sollten die Nutzer:innen die In-App-Nachricht nur einmal sehen. Selbst wenn die Nutzer:innen mehrere Geräte verwenden, sehen sie die Nachricht nur auf dem ersten Gerät, das angesprochen wird. Dies setzt voraus, dass das Profil konsolidierte Geräte hat und die Nutzer:innen eine Nutzer-ID haben, mit der sie geräteübergreifend angemeldet sind. Wenn die erneute Berechtigung aktiviert ist, wird eine Impression jedes Mal protokolliert, wenn die Nutzer:innen die In-App-Nachricht sehen. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Impressions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Impressionen insgesamt" }
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 
@@ -972,7 +972,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 |-------|-----------------------|
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
 | AMP-E-Mails | Die Gesamtöffnungen für die HTML- und Nur-Text-Versionen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Opens" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Öffnungen insgesamt" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1018,7 +1018,7 @@ Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks.
 |-------|-----------------------|
 | E-Mail | Wird über einen Zeitraum von sieben Tagen getrackt. |
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Clicks" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eindeutige Klicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1049,6 +1049,22 @@ Content Cards
 
 {% api %}
 
+## Eindeutige tägliche Impressionen {#unique-daily-impressions}
+
+{% apitags %}
+Content Cards, Banners
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %}
+
+Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige tägliche Impressionen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt.
+
+<span class="calculation-line">Berechnung: Anzahl</span>
+
+{% endapi %}
+
+{% api %}
+
 ## Eindeutige Impressionen {#unique-impressions}
 
 {% apitags %}
@@ -1061,7 +1077,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | In-App-Nachrichten | Eindeutige Impressionen können an einem neuen Kalendertag in der Zeitzone Ihres Workspace erneut erhöht werden, wenn die erneute Berechtigung aktiviert ist und die Nutzer:innen die Aktion ausführen. Wenn die erneute Berechtigung aktiviert ist, gilt <i>Eindeutige Impressionen</i> = <i>Eindeutige Empfänger:innen</i>. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
 | Content Cards | Die Zählung sollte sich nicht erhöhen, wenn Nutzer:innen eine Card ein zweites Mal ansehen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Impressions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eindeutige Impressionen" }
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 
@@ -1081,7 +1097,7 @@ Email, LINE
 |-------|-----------------------|
 | E-Mail | Wird über einen Zeitraum von 7 Tagen getrackt. |
 | LINE | Wird getrackt, nachdem ein Mindestschwellenwert von 20 Nachrichten pro Tag erreicht wurde. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Opens" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eindeutige Öffnungen" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1100,12 +1116,12 @@ Email, LINE
 ## Eindeutige Empfänger:innen {#unique-recipients}
 
 {% apitags %}
-All
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Da ein:e Betrachter:in jeden Tag ein:e eindeutige:r Empfänger:in sein kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>eindeutigen Impressionen</i>. Für Content Cards kann jede Content Card nur einmal empfangen werden, sodass das erneute Ansehen derselben Content Card, unabhängig vom Tag, diese Zählung nicht erhöht.<br><br>Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige Empfänger:innen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt, nicht auf der Ebene des <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>Send-Identifiers</a>.
+Da ein:e Betrachter:in jeden Tag ein:e eindeutige:r Empfänger:in sein kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>eindeutigen Impressionen</i>. Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige Empfänger:innen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt, nicht auf der Ebene des <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>Send-Identifiers</a>.
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 

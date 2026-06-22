@@ -7,11 +7,15 @@ description: "이 페이지에서는 커스텀 속성에 대해 설명하고 다
 search_rank: 1
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}커스텀 속성 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}커스텀 속성 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
 
 > 이 페이지에서는 사용자 고유 특성의 모음인 커스텀 속성에 대해 설명합니다. 커스텀 속성은 사용자에 대한 속성이나 애플리케이션 내에서 가치가 낮은 동작에 대한 정보를 저장하는 데 가장 적합합니다.
 
-Braze에 저장된 커스텀 속성을 사용하여 오디언스 세그먼트를 구축하고 Liquid를 사용하여 메시지를 개인화할 수 있습니다. 커스텀 속성에 대해서는 시계열 정보를 저장하지 않으므로 커스텀 이벤트에서와 같이 해당 속성을 기반으로 한 그래프를 얻을 수 없다는 점에 유의하세요.
+Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구축하고 Liquid를 사용하여 메시지를 개인화할 수 있습니다. Braze는 커스텀 속성에 대해 시계열 정보를 저장하지 않으므로 커스텀 이벤트에서와 같이 해당 속성을 기반으로 한 그래프를 얻을 수 없다는 점에 유의하세요.
+
+{% alert important %}
+**이름은 정확히 일치해야 합니다.** 커스텀 속성 키는 **대소문자를 구분합니다**. 예를 들어 `Home_City`와 `home_city`는 서로 다른 속성입니다. [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 또는 SDK를 통해 데이터를 전송하면 Braze는 속성 이름에서 **앞뒤 공백을 제거**하므로 `greeting`과 ` greeting `은 동일한 키로 처리됩니다. 속성을 참조하는 모든 곳(**데이터 설정** > **커스텀 속성**, API 및 SDK 페이로드, CSV 가져오기)에서 동일한 철자와 대소문자를 사용하세요. [데이터 유형을 강제 지정]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion)할 때 Braze가 수신 값을 변환하는 방법에 대해서는 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)를 참조하세요.
+{% endalert %}
 
 ## 활용 사례 {#use-cases}
 
@@ -56,7 +60,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 세그먼트를
 
 ### 개인 식별 정보(PII)로 표시 {#mark-as-personally-identifiable-information-pii}
 
-관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "PII로 표시된 커스텀 속성 보기" 권한이 있는 대시보드 사용자에게만 표시됩니다.
+관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View Custom Attributes Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
 
 ### 설명 추가 {#add-descriptions}
 
@@ -86,7 +90,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 세그먼트를
 ### 데이터 유형 변경 {#changing-the-data-type}
 
 1. Segments 또는 필터에서 해당 속성을 사용하는 활성 Campaigns이나 Canvases를 중지합니다.
-2. 모든 Segments, Campaigns, Canvases 필터에서 해당 속성을 제거합니다.
+2. 모든 Segment, Campaign, Canvas 필터에서 해당 속성을 제거합니다.
 3. **데이터 설정** > **커스텀 속성**(또는 **커스텀 이벤트**)으로 이동하여 해당 속성을 찾고 원하는 데이터 유형으로 업데이트합니다.
 4. 기존 고객 프로필의 속성 값을 새 데이터 유형에 맞게 업데이트합니다(예: [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 사용).
 5. 관련 Segments, Campaigns, Canvases에 속성을 다시 적용한 후 중지했던 Campaigns이나 Canvases를 다시 활성화합니다.
@@ -95,7 +99,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 세그먼트를
 
 - **사용자 데이터는 소급 업데이트되지 않습니다.** 고객 프로필에 이전 데이터 유형의 속성 값이 있는 경우 해당 값은 변경되지 않습니다. 세분화 필터는 새 데이터 유형을 기준으로 조회하므로, 이전 값을 가진 사용자는 프로필이 업데이트될 때까지 일치하는 Segments에서 제외됩니다.
 - **새 데이터는 새 데이터 유형과 일치해야 합니다.** 변경 후 이 속성에 대해 이전 데이터 유형을 전송하는 API 호출이나 SDK 이벤트는 수락되지 않습니다. 새 데이터 유형과 일치하는 값만 수집됩니다.
-- **필터는 자동으로 업데이트되지 않습니다.** 변경된 속성을 참조하는 Segments 및 Campaigns 필터는 소급 업데이트되지 않습니다. 변경 후 해당 필터를 제거하고 다시 추가해야 합니다.
+- **필터는 자동으로 업데이트되지 않습니다.** 변경된 속성을 참조하는 Segments 및 Campaign 필터는 소급 업데이트되지 않습니다. 변경 후 해당 필터를 제거하고 다시 추가해야 합니다.
 
 ## 사용 보고서 보기 {#view-usage-reports}
 
@@ -107,7 +111,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 세그먼트를
 
 사용 보고서를 볼 때 **값** 탭을 선택하면 약 250,000명의 사용자 샘플을 기반으로 선택한 커스텀 속성의 상위 값을 확인할 수 있습니다. 결과는 사용자의 하위 집합에서 샘플링되므로 모든 기존 값이 포함되지 않을 수 있습니다. 따라서 **값** 탭은 문제 해결이나 모든 사용자의 데이터를 포함해야 하는 사용 사례에는 사용하지 않는 것이 좋습니다.
 
-!["US" 및 "PR" 등의 국가 속성 값을 보여주는 원형 차트가 있는 "값" 탭이 열린 선택된 커스텀 속성의 사용 보고서.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+!["US" 및 "PR" 등의 국가 속성 값을 보여주는 원형 차트가 있는 값 탭이 열린 선택된 커스텀 속성의 사용 보고서.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## 커스텀 속성 설정 {#set-custom-attributes}
 

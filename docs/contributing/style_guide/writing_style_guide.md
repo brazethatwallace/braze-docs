@@ -1148,7 +1148,7 @@ At the same time, support the intentionality of the product's development by fra
 
 #### Data sizes
 
-Before documenting a size limit, verify the exact byte value using [`reference-repos.mdc`](.cursor/rules/reference-repos.mdc) (or confirm with engineering). Do not infer the byte count from an abbreviated unit alone. For example, "KB" has been used in Braze code to mean both 1,000 bytes and 1,024 bytes depending on the implementation.
+Before documenting a size limit, verify the exact byte value using the [`reference-repos` skill](.github/skills/reference-repos/SKILL.md) (or confirm with engineering). Do not infer the byte count from an abbreviated unit alone. For example, "KB" has been used in Braze code to mean both 1,000 bytes and 1,024 bytes depending on the implementation.
 
 When expressing a data size limit, lead with the exact byte count. Follow it with the abbreviated unit in parentheses:
 
@@ -1445,7 +1445,7 @@ Use the format “name@example.com” for generic email addresses. Replace “na
 
 #### Figures and other images
 
-When creating figures and images, refer to the [Image copy style guide](image_style_guide.md). Never include personally identifiable information (PII) in figures or images.
+When creating figures and images, refer to the [Image copy style guide](image_style_guide.md). Never include personally identifiable information (PII) or customer data in figures or images.
 
 ##### Alt text
 

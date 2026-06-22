@@ -47,7 +47,7 @@ Sous **Événements et attributs les plus utilisés par application**, vous pouv
 
 ![Événements et attributs les plus utilisés par application]({% image_buster /assets/img/most_used_events_attributes_time.png %})
 
-Pour chaque application, vous pouvez sélectionner **Voir la répartition** pour afficher un décompte estimé de chaque attribut personnalisé, attribut de profil et événement personnalisé pour la période sélectionnée, ainsi que le pourcentage des mises à jour d'attributs et d'événements de cette application générées par cet attribut ou événement.
+Pour chaque application, vous pouvez sélectionner **See breakdown** pour afficher un décompte estimé de chaque attribut personnalisé, attribut de profil et événement personnalisé pour la période sélectionnée, ainsi que le pourcentage des mises à jour d'attributs et d'événements de cette application générées par cet attribut ou événement.
 
 ![Onglet de répartition des événements et attributs les plus utilisés par application]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
@@ -111,4 +111,4 @@ Ce graphique vous permet de visualiser rapidement votre consommation totale de p
 ## Étapes suivantes {#next-steps}
 
 - [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) pour configurer des alertes relatives aux événements de facturation et aux seuils d'utilisation.
-- [Tableau de bord de l'utilisation des messages]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) pour surveiller la consommation de crédits SMS, WhatsApp et RCS.
+- [Tableau de bord de l'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard/) pour surveiller la consommation de crédits de messages.

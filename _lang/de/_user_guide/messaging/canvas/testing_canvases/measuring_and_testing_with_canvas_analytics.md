@@ -22,7 +22,11 @@ Der obere Bereich der Seite **Canvas Details** enthält die wichtigsten Canvas-S
 
 Dies ist ein idealer Ort, um sich einen Überblick darüber zu verschaffen, wie Ihr Canvas im Vergleich zu Ihrem Ziel abschneidet.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Erreichbare Nutzer:innen und exakte Statistiken {#reachable-users-and-exact-statistics}
+
+Wenn **[Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** für Zielgruppen ausgeführt wird, die mit Ihrem Canvas verknüpft sind, zeigt Braze möglicherweise kurzzeitig eine gerundete Schätzung im Bereich **Erreichbare Nutzer:innen** an. Der exakte Wert ersetzt die Schätzung, sobald die Berechnung abgeschlossen ist. Wählen Sie **Show Additional Stats** für eine vollständige Aufschlüsselung nach Kanal. Der Canvas-Builder dokumentiert denselben Ablauf unter **Zielpopulation**; siehe [Zielpopulation berechnen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+
+![Die Seite „Canvas Details“ mit den wichtigsten Statistiken, darunter gesendete Nachrichten, Konversionsrate, Gesamteintritte, Gesamtumsatz, Gesamtaustritte und geschätzte Zielgruppe, mit Kanal- und Statistikfiltern.]({% image_buster /assets/img_archive/Journey_5.png %})
 
 ### Änderungen seit der letzten Ansicht {#changes-since-last-viewed}
 
@@ -54,7 +58,7 @@ Im Tab **Analyze Variants** können Sie eine Aufschlüsselung der Performance na
 
 Sie können schnell effektive Varianten erkennen und die richtige Kadenz, den richtigen Inhalt, die richtigen Trigger, das richtige Timing und mehr identifizieren.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![Das Modal „Analyze Canvas“ mit dem ausgewählten Tab „Analyze Variants“, das eine Vergleichstabelle für Pfad 1 und Pfad 2 mit Eintritten, Sendungen, Umsatz, Konversionsraten, prozentualer Veränderung und Konfidenzmetriken zeigt.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Zu den grundlegenden Metriken gehören:
 

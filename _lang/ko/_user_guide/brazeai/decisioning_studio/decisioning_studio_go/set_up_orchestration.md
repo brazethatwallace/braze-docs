@@ -36,7 +36,7 @@ Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API �
 3. API 키의 이름을 입력하세요. 예를 들어 "DecisioningStudioGoEmail"과 같이 입력할 수 있습니다.
 4. 다음 카테고리에 따라 권한을 선택하세요:
     - **사용자 데이터:** `users.track`, `users.delete`, `users.export.ids`, `users.export.segment` 선택
-    - **메시지:** `messages.send` 선택
+    - **메시지:** `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete` 선택
     - **Campaigns:** 나열된 모든 권한 선택
     - **Canvas:** 나열된 모든 권한 선택
     - **Segments:** 나열된 모든 권한 선택
@@ -62,7 +62,7 @@ Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API �
 **앱 ID(API 키)를 찾으려면:**
 
 {% alert note %}
-Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 플레이스홀더로 입력할 수 있습니다.
+Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 입력 안내로 입력할 수 있습니다.
 {% endalert %}
 
 1. Braze 대시보드에서 **설정** > **앱 설정**으로 이동하세요.

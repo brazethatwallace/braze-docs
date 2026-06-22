@@ -18,11 +18,15 @@ Canvasを構築してライブに設定したら、**Canvas**ページに移動�
 
 ## Canvasの概要 {#canvas-overview}
 
-**キャンバスの詳細**ページの上部には、Canvasの主要な統計情報が表示されます。これには、Canvas内で送信されたメッセージ数、顧客がCanvasにエントリした合計回数、コンバージョン数と合計率、Canvasによって生成された収益、推定合計オーディエンスが含まれます。
+**Canvasの詳細**ページの上部には、Canvasの主要な統計情報が表示されます。これには、Canvas内で送信されたメッセージ数、顧客がCanvasにエントリした合計回数、コンバージョン数と合計率、Canvasによって生成された収益、推定合計オーディエンスが含まれます。
 
 ここは、Canvasが目標に対してどのようなパフォーマンスを発揮しているかを概要レベルで確認するのに最適な場所です。
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### 到達可能なユーザーと正確な統計 {#reachable-users-and-exact-statistics}
+
+Canvasに関連付けられたオーディエンスに対して**[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)**が実行されている場合、Brazeは**到達可能なユーザー**エリアに丸められた推定値を一時的に表示することがあります。計算が完了すると、正確な合計値が推定値に置き換わります。**追加統計を表示**を選択すると、チャネルごとの完全な内訳が表示されます。Canvasビルダーでは、**ターゲット層**の下に同じフローが記載されています。[ターゲット層の計算]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population)を参照してください。
+
+![Canvasの詳細ページ。送信メッセージ数、コンバージョン率、合計エントリ数、合計収益、合計離脱数、推定オーディエンスなどの主要な統計情報と、チャネルおよび統計フィルターが表示されています。]({% image_buster /assets/img_archive/Journey_5.png %})
 
 ### 最終閲覧以降の変更 {#changes-since-last-viewed}
 
@@ -30,7 +34,7 @@ Canvasを構築してライブに設定したら、**Canvas**ページに移動�
 
 ## パフォーマンスの可視化 {#performance-visualization}
 
-**キャンバスの詳細**ページを下にスクロールすると、各コンポーネントのパフォーマンス（エントリしたユーザー数、次のステップに進んだユーザー数、Canvasを離脱したユーザー数など）を確認できます。特定のキャンバスステップまたはコンポーネントを選択すると、パネルがジャーニーのその部分にフォーカスされ、指標をより詳細に確認できます。
+**Canvasの詳細**ページを下にスクロールすると、各コンポーネントのパフォーマンス（エントリしたユーザー数、次のステップに進んだユーザー数、Canvasを離脱したユーザー数など）を確認できます。特定のCanvasステップまたはコンポーネントを選択すると、パネルがジャーニーのその部分にフォーカスされ、指標をより詳細に確認できます。
 
 {% alert note %}
 キャンバスフローでは、ユーザーはユーザージャーニーの最後のステップでエントリしてメッセージペイロードを受信した後にCanvasを離脱します。
@@ -42,7 +46,7 @@ Canvasを構築してライブに設定したら、**Canvas**ページに移動�
 
 ## バリアント別パフォーマンスの内訳 {#performance-breakdown-by-variant}
 
-**キャンバスの詳細**ページの下部で、**Analyze Variants**をクリックすると、**Analyze Canvas**モーダルが開きます。このモーダルには3つのタブがあります：
+**Canvasの詳細**ページの下部で、**Analyze Variants**をクリックすると、**Analyze Canvas**モーダルが開きます。このモーダルには3つのタブがあります：
 
 - Analyze Variants
 - Canvas Funnel Report
@@ -54,7 +58,7 @@ Canvasを構築してライブに設定したら、**Canvas**ページに移動�
 
 効果的なバリアントをすばやく推測し、適切なケイデンス、コンテンツ、トリガー、タイミングなどを特定できます。
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![Analyze Canvasモーダル。Analyze Variantsタブが選択されており、パス1とパス2のエントリ数、送信数、収益、コンバージョン率、変化率、信頼度指標の比較テーブルが表示されています。]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 基本的な指標には以下が含まれます：
 

@@ -40,9 +40,9 @@ Braze와 Jampp 통합을 통해 회사 사용자는 Braze 웹훅 이벤트를 �
 
 ### 1단계: Braze에서 웹훅 템플릿 생성 {#step-1-create-a-webhook-template-in-braze}
 
-향후 Campaign 또는 Canvas에서 사용할 Jampp 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **Templates** > **Webhook Templates**으로 이동합니다.
+향후 Campaigns 또는 Canvases에서 사용할 Jampp 웹훅 템플릿을 생성하려면 Braze 대시보드에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
-일회성 Jampp 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **Webhook**을 선택합니다.
+일회성 Jampp 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 
 새 웹훅 템플릿에서 다음 필드를 입력합니다:
 - **Request Body**: Raw Text

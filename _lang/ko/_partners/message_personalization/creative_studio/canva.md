@@ -20,7 +20,7 @@ Braze와 Canva 통합은 두 가지 내보내기 경로를 지원합니다.
 | --- | --- |
 | **이미지 또는 디자인을 미디어 라이브러리로** | 디자인을 자산으로 Braze 미디어 라이브러리에 전송합니다. |
 | **이메일 디자인을 Braze로** | Canva **이메일** 문서를 제목란 메타데이터를 포함하여 Braze 이메일 템플릿으로 게시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About the integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="통합 소개" }
 
 ## Braze와 Canva 통합하기 {#integrate-braze-with-canva}
 
@@ -43,15 +43,6 @@ Braze 앱을 처음 사용할 때—**Apps** 메뉴(미디어 라이브러리 �
 ## 미디어 라이브러리로 이미지 내보내기 {#export-images-to-the-media-library}
 
 Braze 미디어 라이브러리에 파일을 저장하려는 표준 Canva 디자인에 이 흐름을 사용합니다.
-
-다음 동영상은 Canva에서 Braze 미디어 라이브러리로 디자인을 전송하는 방법을 보여줍니다.
-
-동영상: Canva에서 Braze 앱을 열고 미디어 라이브러리 내보내기를 시작합니다.
-
-{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
-
-동영상: Braze 워크스페이스를 선택하고 미디어 라이브러리로 내보내기를 완료합니다.
-{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
 
 1. 디자인의 **Apps** 메뉴에서 Braze 앱을 엽니다. 아직 연결되지 않은 경우 **Connect**를 선택하고 [Braze 계정 인증하기](#step-2-authorize-your-braze-account)의 단계를 완료합니다.
 2. 대상 워크스페이스를 선택하고, 필요에 따라 파일 이름을 입력한 후 **Start Export**를 선택합니다.

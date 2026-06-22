@@ -46,6 +46,8 @@ Consulte a seguir os limites de taxa padrão da API para diferentes tipos de sol
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 50 solicitações por minuto. |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 20 solicitações por minuto. |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 100 solicitações por minuto. |
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 100 solicitações por hora. |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 100 solicitações por hora. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitações com diferentes limites de taxa" }
 
 ### Solicitações com limites de taxa compartilhados {#requests-with-shared-rate-limits}
@@ -209,6 +211,12 @@ Recomendamos que você permita uma postergação de 5 minutos entre chamadas con
 Compreender a postergação ideal entre endpoints é crucial ao fazer chamadas consecutivas para a API da Braze. Os problemas surgem quando os endpoints dependem do processamento bem-sucedido de outros endpoints e, se as chamadas forem feitas muito cedo, podem gerar erros. Por exemplo, se você estiver atribuindo aos usuários um alias por meio do nosso endpoint `/user/alias/new` e, em seguida, usando esse alias para enviar um evento personalizado por meio do nosso endpoint `/users/track`, quanto tempo deve esperar?
 
 Em condições normais, o tempo para a eventual consistência dos nossos dados ocorrer é de 10-100ms (1/10 de segundo). No entanto, em alguns casos, pode levar mais tempo para que essa consistência ocorra, portanto, recomendamos que você permita uma postergação de 5 minutos entre as chamadas subsequentes para minimizar a probabilidade de erro.
+
+## Limites de tamanho da carga útil {#payload-size-limits}
+
+As solicitações da API da Braze estão sujeitas a limites de tamanho de carga útil, separados dos limites de taxa. A maioria dos endpoints aceita corpos de solicitação de até 4&nbsp;MB. Quando uma solicitação excede o limite aplicável, a Braze pode rejeitá-la com HTTP `413 Request Entity Too Large` ou HTTP `400 Bad Request`, dependendo do endpoint.
+
+O endpoint [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) tem um limite de carga útil de 2&nbsp;MB e retorna HTTP `400` quando o corpo da solicitação excede esse limite. Para limites específicos de cada endpoint e tratamento de erros, consulte [Endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data/).
 
 ### Redefinição do limite de taxa {#rate-limit-reset}
 

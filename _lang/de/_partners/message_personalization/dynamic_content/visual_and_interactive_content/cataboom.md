@@ -26,7 +26,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Catapult-Konto | Ein Catapult-Konto ist erforderlich, um diese Integration zu nutzen. |
 | Braze-REST-API-Schlüssel (optional) | Wenn Sie Catapult-Webhooks verwenden, benötigen Sie einen Braze-REST-API-Schlüssel mit den Nutzerdaten-Berechtigungen, die Ihr Anwendungsfall erfordert. Erstellen Sie den Schlüssel in Braze unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. |
 | Braze-REST-Endpunkt (optional) | Wenn Sie Catapult-Webhooks verwenden, nutzen Sie die REST-Endpunkt-URL, die der Braze-URL für [Ihre Braze-Instanz]({{site.baseurl}}/api/basics/#endpoints) entspricht. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## 1. Schritt: Erstellen Sie Ihr Spielerlebnis {#step-1-create-your-game-experience}
 

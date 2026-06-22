@@ -1,16 +1,20 @@
 ---
-nav_title: Benutzerdefinierter HTTP-Konnektor
-article_title: Benutzerdefinierter HTTP-Konnektor
+nav_title: Benutzerdefinierter Currents-Export
+article_title: Benutzerdefinierter Currents-Export
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "Dieser Referenzartikel beschreibt, wie Sie einen benutzerdefinierten HTTP-Konnektor einrichten, um Braze-Currents-Event-Daten in Echtzeit direkt an Ihren eigenen HTTP-Endpunkt zu streamen."
+description: "Dieser Referenzartikel beschreibt, wie Sie einen benutzerdefinierten Currents-Export einrichten, um Braze-Currents-Event-Daten in Echtzeit direkt an Ihren eigenen HTTP-Endpunkt zu streamen."
 ---
 
-# Benutzerdefinierter HTTP-Konnektor {#custom-http-connector}
+# Benutzerdefinierter Currents-Export {#custom-currents-export}
 
 > Erfahren Sie, wie Sie einen benutzerdefinierten Currents-Konnektor integrieren, um Event-Daten von Braze in Echtzeit zu erhalten und so individuellere Analytics, Berichte und Automatisierung zu ermöglichen.
+
+{% alert note %}
+Dieses Feature wird in der technischen Dokumentation und in API-Referenzen auch als „Custom HTTP Connector“ bezeichnet.
+{% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
@@ -26,7 +30,7 @@ Sie benötigen eine Endpunkt-URL, um diese Integration zu konfigurieren. Ihr End
 
 ### 2. Schritt: Braze-Currents konfigurieren {#step-2-configure-braze-currents}
 
-Navigieren Sie in Braze zu **Partner Integrations** > **Data Export**, klicken Sie auf **Create New Current** und wählen Sie **Custom Currents Export**.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**, klicken Sie auf **Neuen Current erstellen** und wählen Sie **Custom Currents Export**.
 
 Geben Sie Ihrem Export einen Namen und eine Kontakt-E-Mail-Adresse und fahren Sie dann mit der Seite **Current Details** fort. Geben Sie auf dieser Seite Ihre Endpunkt-URL und das optionale Bearer-Token ein.
 

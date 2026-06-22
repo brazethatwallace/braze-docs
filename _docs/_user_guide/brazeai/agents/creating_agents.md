@@ -23,7 +23,7 @@ Before you start, you'll need the following:
 
 ## How it works
 
-When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. You can pause or update an agent anytime from the dashboard.
+When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. As you build your agent, you can save it as a draft, and you can pause or update an agent anytime from the dashboard.
 
 The following use cases showcase a few ways to leverage custom agents.
 
@@ -38,13 +38,21 @@ The following use cases showcase a few ways to leverage custom agents.
 
 ### Step 1: Choose an agent type
 
-To create your custom agent:
+To create an agent, first choose your agent type:
 
-1. Go to **Agent Console** > **Agent Management** in the Braze dashboard.  
-2. Select **Create agent**.
-3. Choose to create a Canvas agent or catalog agent.
+1. Go to **Agent Console**.
+2. Choose **Canvas Step Agents** or **Catalog Agents**.
 
-### Step 2: Set up details
+### Step 2: Choose how to build an agent
+
+Select **Create agent**, then choose one of the following options:
+
+a. **Custom agent** to build an agent from a blank slate
+b. An option in **Create an agent with Operator** to use [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) to apply a [starting template](#agent-templates-built-with-operator)
+
+If you use Operator, review and approve its changes in chat before continuing to the next step.
+
+### Step 3: Set up details
 
 Next, set up the details for your agent:
 
@@ -56,9 +64,11 @@ Next, set up the details for your agent:
 
 ![Agent Console interface for creating a custom agent in Braze. The screen displays fields for entering the agent name and description, and selecting a model, and setting a daily invocation limit.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
-### Step 3: Write the instructions {#agent-instructions}
+### Step 4: Write the instructions {#agent-instructions}
 
-Give the agent instructions. We recommend including instructions for what the agent should do in unexpected or ambiguous scenarios. This minimizes the risk that agent confusion leads to errors. For example, rather than asking the agent for only "positive" or "negative" sentiment values, ask it to return "unsure" if it can't decide.
+Give the agent instructions. If you used an Operator template, review the pre-filled instructions and edit as needed.
+
+Include instructions for what the agent should do in unexpected or ambiguous scenarios. This minimizes the risk that agent confusion leads to errors. For example, rather than asking the agent for only "positive" or "negative" sentiment values, ask it to return "unsure" if it can't decide.
 
 Refer to the [Writing instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) for best practices and [Examples]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) for inspiration on how to prompt your agent.
 
@@ -76,19 +86,19 @@ Select **+ Agent context** to choose what your agent can reference. This include
 - [All Canvas Context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analyze all Canvas context data for a user when this agent is invoked, including any variables that are not referenced in the **Instructions** section.
 - [User interaction data]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Provide the agent with each user's recent campaign and Canvas opens, clicks, and conversion data.
 
-### Step 4: Select the output {#select-output}
+### Step 5: Select the output {#select-output}
 
-In the **Output** section, you can organize and define the agent's [output]({{site.baseurl}}/user_guide/brazeai/agents/reference/#outputs) by basic schemas or advanced schemas.
+In the **Output** section, you can organize and define the agent's [output]({{site.baseurl}}/user_guide/brazeai/agents/reference/#outputs) by basic schemas or advanced schemas. If you used an Operator template, review the pre-filled output schema and edit as needed.
 
-For best results, make sure that what you specify in the **Output** section matches any agent instructions you entered in [Step 3](#agent-instructions). For example, if you mentioned in the agent instructions that you want an object with two strings, make sure you specify an object with two strings in the **Output** section. If your agent instructions don't align with your specified output, the agent may get confused, time out, or generate undesired outputs.
+For best results, make sure that what you specify in the **Output** section matches any agent instructions you entered in [Step 4](#agent-instructions). For example, if you mentioned in the agent instructions that you want an object with two strings, make sure you specify an object with two strings in the **Output** section. If your agent instructions don't align with your specified output, the agent may get confused, time out, or generate undesired outputs.
 
 {% alert tip %}
 When you use an [advanced output schema]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas), add a string field named `explanation` if you want the agent to return its rationale in addition to its other outputs. Tell the agent in your [instructions](#agent-instructions) to populate `explanation` when that helps you review or debug responses.
 {% endalert %}
 
-### Step 5: Test and create the agent
+### Step 6: Test and create the agent
 
-The **Preview** pane is an instance of the agent that shows up as a side-by-side panel within the configuration experience. You can use it to test the agent while you're creating or making updates to it to experience it in a similar way to end users. This step helps you confirm that it’s behaving the way you expect, and gives you a chance to fine-tune before it goes live.
+The **Preview** pane is an instance of the agent that shows up as a side-by-side panel within the configuration experience. You can use this section to test the agent while you're creating or making updates to it to experience it in a similar way to end users. This step helps you confirm that it’s behaving the way you expect, and gives you a chance to fine-tune before it goes live.
 
 1. In the **Test your agent** field, enter example customer data or customer responses—anything that reflects real scenarios your agent will handle.
 2. Preview the agent's response for a random user, existing user, or custom user.
@@ -112,11 +122,34 @@ If something feels off, update the agent’s configuration and test again. Run a
 Avoid telling the agent exactly what you do not want it to do. LLMs may still generate that content if you mention it in the instructions.
 {% endalert %}
 
-### Step 6: Use your agent
+### Step 7: Use your agent
 
 Your agent is now ready to use! For details, refer to [Deploy agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
 
-## Related articles  
+## Agent templates built with Operator {#agent-templates-built-with-operator}
+
+Operator can pre-configure instructions, output fields, and context for the following Agent Console starting templates. Choose a template in Operator or ask Operator to apply one by name.
+
+### Canvas Step Agent templates
+
+| Template | Description | Example output |
+| --- | --- | --- |
+| Personalized copywriter | Generate channel-specific message copy from user attributes, Canvas context, and brand guidelines | Email subject and preheader; push title and body |
+| Feedback analyst | Parse open-text survey or support feedback into structured fields for Canvas branching | Sentiment, topic, recommended next action |
+| Journey router | Route each user to the most relevant Canvas path based on profile and journey context | Path name or boolean for Decision Split steps |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canvas Step Agent templates" }
+
+### Catalog Agent templates
+
+| Template | Description | Example output |
+| --- | --- | --- |
+| Description writer | Write short marketing descriptions from existing catalog columns | Product or destination description |
+| Item categorizer | Assign categories or tags from row data | Category labels for filtering and recommendations |
+| Localization translator | Translate catalog strings into target locales within character limits | Localized text per locale |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog Agent templates" }
+
+## Related resources  
 
 - [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
 - [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/)
+- [Braze webinar about AI in Action: 3 new use cases for 1:1 personalization](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

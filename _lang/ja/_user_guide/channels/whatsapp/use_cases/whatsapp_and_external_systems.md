@@ -20,7 +20,7 @@ channel:
 | 外部システム | APIを使用してチャットボットや自動クライアントサービスシステムを構築・管理できるサードパーティのAIまたはコミュニケーションシステム、あるいはその両方。 |
 | BrazeとWhatsAppの統合 | Brazeが管理するWhatsApp番号 |
 | Braze REST APIキー | `campaigns.trigger.send` 権限を持つREST APIキー。これはBrazeダッシュボードで**設定** > **APIキー**に移動して作成できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 仕組み {#how-it-works}
 

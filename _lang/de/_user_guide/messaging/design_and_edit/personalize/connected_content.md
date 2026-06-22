@@ -28,8 +28,8 @@ guide_featured_list:
 - name: Connected-Content-Wiederholungsversuche
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Fehlerbehebung bei Connected-Content-Anfragen
-  link: /docs/help/help_articles/api/webhook_connected_content_errors/
+- name: Fehlerbehebung bei Webhooks und Connected-Content
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg
 - name: Öffentliche APIs verwenden
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis

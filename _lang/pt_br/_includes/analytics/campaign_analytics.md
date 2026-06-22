@@ -36,6 +36,10 @@ O painel **Campaign Details** mostra uma visão geral de alto nível de toda a p
 
 Revise este painel para ver métricas gerais, como o número de mensagens enviadas para o número de destinatários, a taxa de conversão primária e a receita total gerada por esta mensagem. Você também pode revisar as configurações de entrega, público e conversão a partir desta página.
 
+{% alert note %}
+Os números de análise de dados no dashboard e no Snowflake podem diferir ligeiramente. A Braze mede os números no dashboard e registra as linhas no Snowflake separadamente. O Snowflake é a fonte de dados mais precisa, então se você perceber discrepâncias entre essas fontes, recomendamos consultar os dados do Snowflake.
+{% endalert %}
+
 {% if include.channel == "whatsapp" %}
 {% alert note %}
 O canal do WhatsApp inclui a taxa de leitura. Esta métrica é entregue apenas para usuários com confirmações de leitura ativadas, o que pode variar.
@@ -62,7 +66,7 @@ O canal do WhatsApp inclui a taxa de leitura. Esta métrica é entregue apenas p
 
 No Canvas, você verá a performance da mensagem no app mapeada no Canvas que você criou. Você pode usar o painel de controle na parte superior da página para limpar outros tipos de envio de mensagens (canais) e visualizar apenas as mensagens no app em seu Canvas.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![Uma opção para selecionar o canal, com a caixa de seleção In-App Message marcada.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![A seção de informações da campanha.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -82,7 +86,7 @@ A tabela a seguir resume o que cada rótulo significa.
 | --- | --- |
 | **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **Usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
 | **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience e Current Audience" }
 
 Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable Users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -131,7 +135,7 @@ O painel **Content Card Performance** descreve o desempenho da sua mensagem em v
 {% elsif include.channel == "email" %}
 ### Performance de e-mail {#email-performance}
 
-O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
+O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode selecionar o ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de performance da mensagem de e-mail]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -192,6 +196,10 @@ Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"
 
 Usando mapas de calor, você pode ver o desempenho dos diferentes links em uma única campanha de e-mail. Na seção **Message Analytics**, acesse o painel **Email Performance**. Selecione **Preview & Heatmap** para visualizar uma prévia da sua campanha de e-mail e o mapa de calor. Alternativamente, você pode selecionar o hyperlink no nome da variante para ver o mapa de calor.
 
+{% alert note %}
+A análise de dados da campanha exibe dados de cliques para até 100 URLs únicas por variante, classificadas por total de cliques. As URLs são agrupadas pela sua forma normalizada, que não inclui parâmetros de consulta. Se uma variante tiver mais de 100 URLs únicas normalizadas, apenas as 100 com mais cliques são exibidas. Os dados de cliques para URLs além desse limite ainda existem, mas não aparecerão no dashboard ou no mapa de calor. Quando o alias de link está ativado, os cliques são rastreados por ID de link em vez de URL bruta, o que normalmente resulta em menos entradas únicas e torna esse limite menos provável de ser atingido.
+{% endalert %}
+
 Nesta visualização, você pode usar o botão **Show Heatmap** para exibir uma visão visual do seu e-mail que mostra a frequência geral e a localização dos cliques durante a duração da campanha. No painel **Link Table by Total Clicks**, você pode ver todos os links na sua campanha de e-mail e classificar por total de cliques. Isso pode fornecer um insight adicional sobre onde seus usuários navegam. Para salvar uma cópia do mapa de calor para referência, selecione o botão de baixar.
 
 {% alert note %}
@@ -220,7 +228,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="Métricas de Content Card">
     <caption class="sr-only">Métricas de performance de Content Card</caption>
     <thead>
         <tr>
@@ -249,8 +257,8 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">Essa contagem</span> não é incrementada na segunda vez que um usuário visualiza um Content Card.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Como um usuário pode ser um destinatário único a cada dia, você deve esperar que isso seja maior que <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Como um usuário pode ter uma impressão diária única todos os dias, você deve esperar que esse valor seja maior do que o de <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -267,11 +275,11 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 Em relação a como as impressões são registradas, existem algumas nuances entre web, Android e iOS. De maneira geral, a Braze registra uma impressão quando um cartão é visto, o que ocorre após um usuário rolar até o Content Card específico em seu feed.
 {% endalert %}
 
-#### Unique Recipients versus Unique Impressions
+#### Unique Daily Impressions versus Unique Impressions
 
-Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Recipients_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
+Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Daily Impressions_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
 
-Vamos supor que você visualize um Content Card hoje, depois receba um novo cartão da mesma campanha amanhã e novamente depois de amanhã — você será contado como _Unique Recipient_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_. Você também será incluído no número de _Messages Sent_, já que o cartão estava disponível no seu dispositivo.
+Vamos supor que você visualize um Content Card hoje, depois receba um novo cartão da mesma campanha amanhã e novamente depois de amanhã — você será contado como _Unique Daily Impression_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_. Você também será incluído no número de _Messages Sent_, já que o cartão estava disponível no seu dispositivo.
 
 Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma campanha de Content Card mostrando 150.000 _Messages Sent_. Isso significa que o cartão foi disponibilizado (no backend) para um público de 150.000 usuários, mas apenas cinco dispositivos de usuários realizaram todas as seguintes etapas após o envio ocorrer:
 
@@ -279,7 +287,7 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 2. Navegaram para a visualização de Content Cards
 3. O SDK registrou uma impressão e a enviou ao servidor
 
-Suas _Messages Sent_ referem-se a Content Cards disponíveis para serem vistos, enquanto _Unique Recipients_ referem-se a Content Cards que foram realmente vistos.
+Suas _Messages Sent_ referem-se a Content Cards disponíveis para serem vistos, enquanto _Unique Daily Impressions_ referem-se a Content Cards que foram realmente vistos.
 
 {% elsif include.channel == "banner" %}
 
@@ -295,7 +303,7 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="Métricas de Banner">
     <caption class="sr-only">Métricas de performance de Banner</caption>
     <thead>
         <tr>
@@ -317,6 +325,10 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
             <td class="no-split"><i>Total Clicks</i> é o número total (e a porcentagem) de usuários que clicaram na mensagem entregue, independentemente de o mesmo usuário clicar várias vezes.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> é o número total de vezes que os usuários descartaram o Banner. Disponível apenas para Banners com comportamento de descarte ativado.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Cada usuário é contado apenas uma vez.</td>
         </tr>
@@ -325,8 +337,8 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Como um espectador pode ser um destinatário único todos os dias, você deve esperar que esse valor seja maior do que o de <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Como um espectador pode ter uma impressão diária única todos os dias, você deve esperar que esse valor seja maior do que o de <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -341,9 +353,9 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
 
 #### Exemplos de cálculo de métricas de Banner {#banner-metrics-calculation-examples}
 
-Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Recipients_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
+Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Daily Impressions_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
 
-Vamos supor que você veja um Banner hoje, depois veja o mesmo Banner amanhã e novamente depois de amanhã — você será contado como _Unique Recipient_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_.
+Vamos supor que você veja um Banner hoje, depois veja o mesmo Banner amanhã e novamente depois de amanhã — você será contado como _Unique Daily Impression_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_.
 
 Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma campanha de Banner. Isso significa que apenas os dispositivos de cinco usuários realizaram todos os seguintes passos:
 
@@ -351,7 +363,7 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 2. Navegaram para a visualização de Banners
 3. O SDK registrou uma impressão e a enviou ao servidor
 
-_Unique Recipients_ refere-se aos Banners que foram realmente vistos.
+_Unique Daily Impressions_ refere-se aos Banners que foram realmente vistos.
 
 {% elsif include.channel == "email" %}
 
@@ -365,7 +377,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="Métricas de e-mail">
     <caption class="sr-only">Métricas de performance de e-mail</caption>
     <thead>
         <tr>
@@ -377,7 +389,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
             </td>
         </tr>
         <tr>
@@ -481,7 +493,7 @@ Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recu
 
 Esta estatística utiliza um modelo analítico proprietário criado pela Braze para reconstruir uma estimativa da taxa de abertura única da campanha como se as aberturas por máquina não existissem. Enquanto recebemos rótulos de *Machine Opens* em alguns eventos de abertura de remetentes de e-mail (veja acima), esses rótulos podem frequentemente classificar aberturas reais como aberturas por máquina. Em outras palavras, as *Other Opens* provavelmente são uma subestimação das aberturas reais (por usuários reais). Em vez disso, a Braze usa dados de cliques de cada campanha para inferir a taxa na qual humanos reais abriram a mensagem. Isso compensa vários mecanismos de abertura por máquina, incluindo o MPP da Apple.
 
-A _Estimated Real Open Rate_ é calculada 36 horas após o início do envio do e-mail e é recalculada a cada 24 horas a partir de então. Se uma campanha se repetir, a estimativa é recalculada 36 horas após outro envio ocorrer.
+A _Estimated Real Open Rate_ é calculada 24 horas após o início do envio do e-mail e é recalculada a cada 72 horas a partir de então.
 
 Como essa métrica é recalculada de forma contínua, o valor da _Estimated Real Open Rate_ pode mudar ao longo do tempo à medida que novos sinais de engajamento (como aberturas e cliques) são recebidos e incorporados ao modelo. Na prática, a _Estimated Real Open Rate_ pode continuar a ser atualizada diariamente enquanto uma campanha permanece ativa.
 
@@ -524,7 +536,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="Métricas de mensagem no app">
     <caption class="sr-only">Métricas de performance de mensagem no app</caption>
     <thead>
         <tr>
@@ -593,7 +605,7 @@ Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise 
 | Erros | _Erros_ é o número de erros retornados pelo provedor KakaoTalk (incrementado durante o processo de envio). |
 | Receita | _Receita_ é a receita em dólares dos destinatários da Campaign dentro da janela de conversão primária definida. |
 | Conversões primárias | _Conversões primárias_ é o número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas do KakaoTalk" }
 
 {% elsif include.channel == "push" %}
 
@@ -607,7 +619,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="Métricas de push">
     <caption class="sr-only">Métricas de performance de push</caption>
     <thead>
         <tr>
@@ -708,7 +720,7 @@ O Firebase Cloud Messaging (FCM) pode ter bounces em três casos:
 | Apps desinstalados | Quando uma mensagem tenta ser entregue a um dispositivo e o app pretendido está desinstalado nesse dispositivo, a mensagem será descartada e o ID de registro do dispositivo será invalidado. Qualquer tentativa futura de envio de mensagens para o dispositivo retornará um erro NotRegistered. |
 | App com backup | Quando um app é salvo em backup, seu ID de registro pode se tornar inválido antes que o app seja restaurado. Neste caso, o FCM não armazenará mais o ID de registro do app e o app não receberá mais mensagens. Assim, os IDs de registro **não** devem ser salvos quando um app é salvo em backup. |
 | App atualizado | Quando um app é atualizado, o ID de registro da versão anterior pode não funcionar mais. Assim, um app atualizado deve substituir seu ID de registro existente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Por que bounces ocorrem" }
 
 {% endtab %}
 {% endtabs %}
@@ -726,7 +738,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="Métricas de SMS, MMS e RCS">
     <caption class="sr-only">Métricas de performance de SMS, MMS e RCS</caption>
     <thead>
         <tr>
@@ -778,7 +790,7 @@ Aqui estão algumas métricas-chave de webhook que você pode ver na análise de
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="Métricas de webhook">
     <caption class="sr-only">Métricas de performance de webhook</caption>
     <thead>
         <tr>
@@ -814,7 +826,7 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="Métricas do WhatsApp">
     <caption class="sr-only">Métricas de performance do WhatsApp</caption>
     <thead>
         <tr>

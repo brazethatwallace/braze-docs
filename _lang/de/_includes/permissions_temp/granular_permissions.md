@@ -153,6 +153,12 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 
 ![Die Seite „Unternehmensnutzer:innen“ in Braze mit der Option „Export Users“ im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
+Sie können keine vollständige Berechtigungsmatrix für alle Dashboard-Nutzer:innen in einem Schritt aus dem Braze-Dashboard exportieren. Wenn Sie mehr Details benötigen, als **Export Users** bietet, ziehen Sie die folgenden Optionen in Betracht:
+
+- Verwenden Sie die [automatisierte Nutzerbereitstellung]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/) (SCIM), um Dashboard-Nutzerkonten zu verwalten. Sie können beispielsweise [eine Dashboard-Nutzer:in per E-Mail suchen]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) oder Nutzerdetails anhand der Ressourcen-ID abrufen, wie unter [Nutzerkontoinformationen anzeigen]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/) beschrieben.
+- [Kontaktieren Sie den Braze-Support]({{site.baseurl}}/braze_support/). In einigen Fällen kann der Support eine Liste der Konten bereitstellen, jedoch keine vollständige Berechtigungsmatrix.
+- Filtern Sie den [Sicherheitsereignisbericht]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) Ihres Unternehmens, der Ereignisse wie **Konto hinzugefügt** und **Berechtigungen aktualisiert** aufzeichnet, um Berechtigungsänderungen außerhalb des Dashboards zu überprüfen.
+
 ## Liste der Berechtigungen {#list-of-permissions}
 
 ### Messaging

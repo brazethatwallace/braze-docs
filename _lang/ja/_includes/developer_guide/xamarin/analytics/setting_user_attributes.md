@@ -17,7 +17,7 @@ Braze.GetInstance(this).CurrentUser.SetFirstName("first_name");
 {% endtab %}
 {% tab iOS %}
 
-```csharp
+`````````csharp
 App.braze?.User.SetFirstName("first_name");
 ```
 
@@ -41,7 +41,7 @@ Braze は、定義済みのユーザー属性メソッドに加えて、`SetCust
 
 {% tabs %}
 {% tab Android %}
-```csharp
+`````````csharp
 Braze.GetInstance(this).CurrentUser.SetCustomUserAttribute("custom_attribute_key", true);
 ```
 
@@ -50,7 +50,7 @@ Braze.GetInstance(this).CurrentUser.SetCustomUserAttribute("custom_attribute_key
 {% endtab %}
 {% tab iOS %}
 
-```csharp
+`````````csharp
 App.braze?.User.SetCustomAttributeWithKey("custom_attribute_key", true);
 ```
 

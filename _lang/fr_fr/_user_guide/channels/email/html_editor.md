@@ -83,7 +83,6 @@ Braze met automatiquement à jour la version en texte brut à partir de la versi
 Pour ajouter du mouvement dans un e-mail avec un aperçu fidèle, utilisez des GIF plutôt que des éléments nécessitant JavaScript, car la plupart des boîtes de réception ne prennent pas en charge JavaScript.
 {% endalert %}
 
-![Panneau des variantes d'e-mail pour la rédaction de votre e-mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze supprime automatiquement les gestionnaires d'événements HTML référencés en tant qu'attributs. Cela modifie le HTML, vérifiez donc l'e-mail une fois que vous avez terminé. En savoir plus sur les [gestionnaires HTML](https://www.w3schools.com/tags/ref_eventattributes.asp).
@@ -112,8 +111,7 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
-  <caption>Gmail mobile app and dark mode</caption>
+Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
 {% endalert %}
 
 Pour plus d'informations sur la syntaxe des dégradés, consultez [Les dégradés CSS sur W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -136,6 +134,16 @@ Un aperçu dans le panneau de droite se remplira avec les informations d'envoi q
 Sous **Sending Settings** > **Advanced**, activez l'**insertion CSS** pour la compatibilité la plus large avec les clients de messagerie. Si les messages sont tronqués ou si les images s'étirent à la hauteur de la ligne, essayez de désactiver temporairement l'insertion CSS. Certains modèles fonctionnent mieux sans insertion.
 
 Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mail et des extras d'e-mail pour renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing.
+
+##### Pièces jointes d'e-mail {#email-attachments}
+
+Vous pouvez également ajouter des pièces jointes à vos e-mails par les méthodes suivantes :
+
+- **Importer un fichier :** Glissez-déposez ou parcourez pour importer un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant l'importation, puis ces fichiers sont importés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être importés.
+- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
+- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des fichiers à partir d'URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+
+Consultez les [bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
 
 ##### En-têtes d'e-mail {#email-headers}
 
@@ -233,6 +241,10 @@ Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent
 Pour l'éditeur par glisser-déposer, ajoutez uniquement les caractères de non-jointure de largeur nulle (‌`&zwnj;`) sans le formatage `<div>` directement dans l'accroche dans la section **Sending Settings**.
 {% endalert %}
 
+{% alert note %}
+Dans l'application Apple Mail, les liens d'images dans les e-mails HTML doivent utiliser des URL `https://` pour être cliquables. Utilisez des liens sécurisés pour toute image encapsulée dans une balise d'ancrage lorsque vous attendez des clics de la part de destinataires utilisant Apple Mail.
+{% endalert %}
+
 ### Étape 3.3 : Vérifier les erreurs d'e-mail {#step-33-check-for-email-errors}
 
 Avant l'envoi, l'éditeur signale les problèmes courants :
@@ -254,7 +266,7 @@ Avant l'envoi, l'éditeur signale les problèmes courants :
 {% tab Campaign %}
 Ensuite, construisez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur l'utilisation des outils Braze pour créer votre campagne e-mail.
 
-#### Choisir la planification de distribution ou le déclencheur {#choose-delivery-schedule-or-trigger}
+### Choisir la planification de distribution ou le déclencheur {#choose-delivery-schedule-or-trigger}
 
 Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -262,9 +274,9 @@ Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un 
 Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
-Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Choisir les utilisateurs à cibler {#choose-users-to-target}
+### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
 Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres. Braze affiche un aperçu en temps réel de la population du segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au segment est calculée juste avant l'envoi.
 
@@ -278,7 +290,7 @@ Vous pouvez également limiter la distribution à un nombre spécifié d'utilisa
 Lors de la création d'une nouvelle campagne e-mail, le groupe de contrôle est défini par défaut à 20 % et peut être ajusté ou supprimé selon les besoins de votre campagne.
 {% endalert %}
 
-##### Campagnes multicanales avec e-mail et push {#multichannel-campaigns-with-email-and-push}
+#### Campagnes multicanales avec e-mail et push {#multichannel-campaigns-with-email-and-push}
 
 Pour les campagnes multicanales ciblant à la fois les canaux e-mail et push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement accepté reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
@@ -292,7 +304,7 @@ Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagn
 Avec cette configuration, n'incluez aucun filtre dans l'étape **Target Audiences** qui limiterait l'audience à un seul canal (par exemple, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Choisir les événements de conversion {#choose-conversion-events}
+### Choisir les événements de conversion {#choose-conversion-events}
 
 Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une campagne. Vous pouvez spécifier l'une des actions suivantes comme événement de conversion :
 

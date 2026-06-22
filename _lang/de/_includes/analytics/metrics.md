@@ -19,15 +19,15 @@ Die <i>geschätzten realen Öffnungen</i> sind eine Schätzung der Anzahl der ei
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HILFE</a> geantwortet hat und eine automatische HILFE-Antwort erhalten hat.
+<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
-Ein <i>Hard Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines dauerhaften Zustellungsfehlers nicht an den Empfänger zugestellt werden kann. Ein Hard Bounce kann auftreten, weil der Domänenname nicht existiert oder weil der Empfänger unbekannt ist.
+Ein <i>Hard Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines dauerhaften Zustellungsfehlers nicht an die Empfänger:in zugestellt werden kann. Ein Hard Bounce kann auftreten, weil der Domänenname nicht existiert oder weil die Empfänger:in unbekannt ist.
 {% endif %}
 
 {% if include.metric == "Soft Bounce" %}
-Ein <i>Soft Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines vorübergehenden Zustellungsfehlers nicht an den Empfänger zugestellt werden kann, obwohl die E-Mail-Adresse des Empfängers gültig ist. Ein Soft Bounce kann auftreten, weil der Posteingang des Empfängers voll ist, der Server ausgefallen ist oder die Nachricht zu groß für den Posteingang des Empfängers war.
+Ein <i>Soft Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines vorübergehenden Zustellungsfehlers nicht an die Empfänger:in zugestellt werden kann, obwohl die E-Mail-Adresse der Empfänger:in gültig ist. Ein Soft Bounce kann auftreten, weil der Posteingang der Empfänger:in voll ist, der Server ausgefallen ist oder die Nachricht zu groß für den Posteingang der Empfänger:in war.
 {% endif %}
 
 {% if include.metric == "Deferral" %}
@@ -95,7 +95,7 @@ Die <i>Gesamtzahl der Conversions</i> ist die Gesamtzahl der Fälle, in denen ei
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Zustellungen</i> ist die Gesamtzahl der Nachrichtenanfragen, die vom empfangenden Server angenommen wurden. Das bedeutet nicht, dass die Nachricht an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht vom Server akzeptiert wurde.
+<i>Zustellungen</i> ist die Gesamtzahl (oder der Prozentsatz) der Nachrichtenanfragen, die vom empfangenden Server angenommen wurden. Das bedeutet nicht, dass die Nachricht an ein Gerät zugestellt wurde, sondern nur, dass die Nachricht vom Server akzeptiert wurde.
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>Direkte Öffnungen</i> ist die Gesamtzahl der Nutzer:innen, die Ihre App oder Website durch direktes Drücken der Benachrichtigung geöffnet haben.
+<i>Direkte Öffnungen</i> ist die Gesamtzahl (oder der Prozentsatz) der Nutzer:innen, die Ihre App oder Website durch direktes Drücken der Benachrichtigung geöffnet haben.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>Beeinflusste Öffnungen</i> ist die Gesamtzahl (und der Prozentsatz) der Nutzer:innen, die die App geöffnet haben, nachdem die Push-Benachrichtigung gesendet wurde, ohne die Push-Nachricht direkt zu öffnen.
+<i>Beeinflusste Öffnungen</i> ist die Gesamtzahl (oder der Prozentsatz) der Nutzer:innen, die die App geöffnet haben, nachdem die Push-Benachrichtigung gesendet wurde, ohne die Push-Nachricht direkt zu öffnen.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -179,7 +179,7 @@ Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro t
 {% endif %}
 
 {% if include.metric == "Reads" %}
-<i>Gelesen</i> bedeutet, dass ein:e Nutzer:in die Nachricht gelesen hat. Die Lesebestätigungen der Nutzer:in müssen aktiviert sein, damit Braze die Lesevorgänge verfolgen kann.
+<i>Gelesen</i> bedeutet, dass ein:e Nutzer:in die Nachricht gelesen hat. Die Lesebestätigungen der Nutzer:innen müssen aktiviert sein, damit Braze die Lesevorgänge verfolgen kann.
 {% endif %}
 
 {% if include.metric == "Read Rate" %}
@@ -231,7 +231,7 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-<i>Klicks insgesamt</i> ist die Anzahl der eindeutigen Empfänger:innen, die auf einen Link in der zugestellten Nachricht geklickt haben.
+<i>Klicks insgesamt</i> ist die Anzahl (oder der Prozentsatz) der eindeutigen Empfänger:innen, die auf einen Link in der zugestellten Nachricht geklickt haben.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
@@ -251,7 +251,7 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Eindeutige Klicks</i> ist die eindeutige Anzahl von Empfänger:innen, die mindestens einmal auf einen Link innerhalb einer Nachricht geklickt haben, und wird gemessen durch <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>.
+<i>Eindeutige Klicks</i> ist die eindeutige Anzahl von Empfänger:innen, die mindestens einmal auf einen Link innerhalb einer Nachricht geklickt haben, und wird gemessen durch <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -264,12 +264,16 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 <i>Eindeutige Impressionen</i> ist die Gesamtzahl der Nutzer:innen, die eine Nachricht aus einer bestimmten Campaign angesehen haben. Eine Impression wird nur dann protokolliert, wenn die Nachricht auf dem Bildschirm einer Nutzer:in sichtbar wird.
 {% endif %}
 
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Eindeutige tägliche Impressionen</i> ist die Anzahl der eindeutigen Nutzer:innen, die die Nachricht an einem bestimmten Tag angesehen haben. Dieser Zähler wird jeden Kalendertag zurückgesetzt, sodass ein:e Nutzer:in, die dieselbe Nachricht an zwei verschiedenen Tagen ansieht, zweimal gezählt wird. Diese Metrik entspricht der gleichnamigen Abrechnungsmetrik.
+{% endif %}
+
 {% if include.metric == "Unique Recipients" %}
 <i>Eindeutige Empfänger:innen</i> ist die Anzahl der eindeutigen täglichen Empfänger:innen, also der Nutzer:innen, die an einem Tag eine neue Nachricht erhalten haben. Damit diese Zahl für ein:e Nutzer:in mehr als einmal erhöht wird, muss die Person eine neue Nachricht an einem anderen Tag erhalten.
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>Eindeutige Öffnungen</i> ist die Gesamtzahl der zugestellten Nachrichten, die von einer einzelnen Nutzer:in mindestens einmal geöffnet wurden und über einen Zeitraum von sieben Tagen verfolgt werden.
+<i>Eindeutige Öffnungen</i> ist die Gesamtzahl (oder der Prozentsatz) der zugestellten Nachrichten, die von einer einzelnen Nutzer:in mindestens einmal geöffnet wurden und über einen Zeitraum von sieben Tagen verfolgt werden.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}

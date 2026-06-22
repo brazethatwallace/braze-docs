@@ -41,7 +41,7 @@ Percentages are calculated based on the current date range as compared to the pr
 
 For example, if you set your date range to **Last 7 Days** and your *Daily Active Users* shows a percent increase of 1.8%, that means you had 1.8% more daily active users this week compared to last week.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![A performance overview metric tile showing a metric value and percentage change.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Show breakdown
 
@@ -110,13 +110,15 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 
 - **Calculation timing**: Calculated once per day at 12:05 UTC as a 30-day snapshot; counts never change retroactively.
 - **Anonymous profiles**: Count **only** when at least one session is logged.
-- **Identified profiles**: Count automatically once they exist.
+- **Identified profiles**: Count only when `date_of_last_session` is within the rolling 30-day window.
 - **Orphaned profiles**: Duplicates merged into another user are **not** counted.
-- **CSV uploads**: Users uploaded by CSV count only when `date_of_first_session` or `date_of_last_session` is supplied, or when they later log a session.
+- **CSV uploads and REST API imports**: Users uploaded through CSV or the REST API count toward MAU when you supply `date_of_last_session` within the rolling 30-day window, or when they later log a session. Supplying only `date_of_first_session` does not affect MAU.
 - **API deletions**: Deleting a user via API does not update MAU immediately; the count self-corrects in the next monthly cycle.
 
 {% alert note %}
 Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent.
+
+MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
 {% endalert %}
 
 #### MAU calculation example
@@ -143,6 +145,8 @@ MAU snapshots are calculated once per day and never change retroactively. In thi
 
 {% alert note %}
 When you initially integrate Braze, all users will look like new users because Braze has never recorded a session for them before.
+
+Unlike MAU, the *New Users* count can decrease retroactively when Braze merges an anonymous profile into an identified profile and orphans the anonymous profile. Braze removes the orphaned profile from app usage totals, which can lower *New Users* for dates you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
 {% endalert %}
 
 {% alert important %}
@@ -168,6 +172,10 @@ The MAU value is calculated nightly and won't update until the next day.
 ### Daily sessions
 
 *Daily Sessions* is the number of sessions recorded on a given day. Comparing this value to your DAU count can inform you of how many times your users open the app or visit your website on days where they record at least one session.
+
+{% alert note %}
+*Daily Session Count* for a given date can change when you view the home dashboard on different days. If a user starts a session while offline, the session may not reach Braze until they open the app again. When that session is flushed, Braze attributes it to the date the session started, which can increase the count for that date retroactively.
+{% endalert %}
 
 ### Daily sessions per MAU
 

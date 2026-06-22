@@ -115,6 +115,8 @@ Descubre qué sucede cuando `prioritization` no devuelve exactamente un perfil.
 - Cuando `prioritization` no devuelve exactamente un perfil de usuario, Braze reintenta la resolución hasta 40 veces. Este comportamiento de reintento es esperado.
 - La configuración de `send_to_existing_only` no cambia el comportamiento de empate de `prioritization`. El mismo comportamiento de empate y reintento se aplica tanto si esta configuración es `true` como `false`.
 
+Si desencadenas una Campaign solo de correo electrónico para un destinatario identificado por `external_user_id` o `user_alias`, y ese perfil de usuario no tiene una dirección de correo electrónico en el momento de la llamada, Braze reintenta el envío durante aproximadamente 2 horas. Esto cubre el patrón habitual de crear un usuario y establecer su dirección de correo electrónico en rápida sucesión. Para enviar sin demora, incluye el atributo `email` dentro de `recipients[].attributes` para que la dirección se establezca en la misma llamada que el desencadenante.
+
 {% alert note %}
 El parámetro `segment_id` no es compatible con este punto de conexión. Para dirigirte a un Segment, configúralo en los ajustes de audiencia objetivo de la Campaign en el panel de Braze y utiliza `"broadcast": true`, o bien utiliza el parámetro `audience` con los filtros de [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/).
 {% endalert %}
@@ -201,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Detalles de la respuesta {#response-details}
 
-Las respuestas de los puntos de conexión de envío de mensajes incluyen el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, un ID único para cada transmisión enviada desde Braze. Al utilizar este punto de conexión, recibes un único `dispatch_id` para todo un conjunto de usuarios por lotes. Para más información sobre `dispatch_id`, consulta nuestra documentación sobre [el comportamiento de Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Las respuestas de los puntos de conexión de envío de mensajes incluyen el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, un ID único para cada transmisión enviada desde Braze. Al utilizar este punto de conexión, recibes un único `dispatch_id` para todo un conjunto de usuarios por lotes. Para más información sobre `dispatch_id`, consulta nuestra documentación sobre [el comportamiento de Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 Si tu solicitud encuentra un error fatal, consulta [Errores y respuestas]({{site.baseurl}}/api/errors/#fatal-errors) para ver el código de error y la descripción.
 

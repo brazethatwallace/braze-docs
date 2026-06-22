@@ -153,7 +153,7 @@ Unity エディターで **Braze** > **Braze Configuration** の順に移動し�
 
 次に、`mainTemplate.gradle` ファイルに以下を追加します。
 
-```gradle
+`````````gradle
 task copyAmazon(type: Copy) {
     def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
     from unityProjectPath + '/Assets/api_key.txt'
@@ -197,7 +197,7 @@ preBuild.dependsOn(copyAmazon)
 
 ![この実装例の図は、前のセクションで述べたBrazeの構成オプションと、C#のコードスニペットを示しています。]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
 
-```csharp
+`````````csharp
 public class MainMenu : MonoBehaviour {
   void PushNotificationReceivedCallback(string message) {
 #if UNITY_ANDROID
@@ -253,7 +253,7 @@ public class MainMenu : MonoBehaviour {
 
 ![この実装例の図は、前のセクションで述べたBrazeの構成オプションと、C#のコードスニペットを示しています。]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
 
-```csharp
+`````````csharp
 public class MainMenu : MonoBehaviour {
   void PushNotificationReceivedCallback(string message) {
 #if UNITY_ANDROID
@@ -283,7 +283,7 @@ public class MainMenu : MonoBehaviour {
 {% tab Amazon Device Messaging %}
 [前のステップ](#unity_step-21-update-androidmanifestxml)で `AndroidManifest.xml` を更新した際に、以下の行を追加したことでプッシュリスナーが自動的に設定されています。そのため、追加の設定は必要ありません。
 
-```xml
+`````````xml
 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
 <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 ```

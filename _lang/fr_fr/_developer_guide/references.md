@@ -1,6 +1,6 @@
 ---
-nav_title: "Références et exemples d'applications"
-article_title: "Références, dépôts et exemples d'applications du SDK Braze"
+nav_title: Références et exemples d'applications
+article_title: Références, dépôts et exemples d'applications du SDK Braze
 page_order: 5.5
 description: "Il s'agit d'une liste de documentation de référence, de dépôts GitHub et d'exemples d'applications appartenant à chaque SDK Braze."
 toc_headers: h2
@@ -10,24 +10,27 @@ toc_headers: h2
 
 > Il s'agit d'une liste de documentation de référence, de dépôts GitHub et d'exemples d'applications appartenant à chaque SDK Braze. La documentation de référence d'un SDK détaille les classes, types, fonctions et variables disponibles. Le dépôt GitHub fournit quant à lui des informations sur les déclarations de fonctions et d'attributs, les modifications de code et le versionnage du SDK. Chaque dépôt comprend également des exemples d'applications prêtes à compiler, que vous pouvez utiliser pour tester les fonctionnalités de Braze ou implémenter en parallèle de vos propres applications.
 
+Pour le contenu des fichiers README des dépôts dans la documentation, consultez les [guides des dépôts]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## Liste des ressources {#list-of-resources}
 
 {% alert note %}
-Actuellement, certains SDK n'ont pas de documentation de référence dédiée, mais nous y travaillons activement.
+Actuellement, certains SDK ne disposent pas de documentation de référence dédiée, mais nous y travaillons activement.
 {% endalert %}
 
-| Plateforme          | Référence                                                                                                                                    | Dépôt                                                                 | Exemple d'application                                                                |
+| Plateforme | Référence | Dépôt | Exemple d'application |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| SDK Android       | [Documentation de référence](https://braze-inc.github.io/braze-android-sdk/kdoc/index.html)                                                                           | [Dépôt GitHub](https://github.com/braze-inc/braze-android-sdk)      | [Exemple d'application](https://github.com/braze-inc/braze-android-sdk/tree/master/samples)      |
-| SDK Swift         | [Documentation de référence](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze)                                                                | [Dépôt GitHub](https://github.com/braze-inc/braze-swift-sdk)            | [Exemple d'application](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples)            |
-| Web SDK           | [Documentation de référence](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)                                                               | [Dépôt GitHub](https://github.com/braze-inc/braze-web-sdk)              | [Exemple d'application](https://github.com/braze-inc/braze-web-sdk/tree/master/sample-builds)              |
-| SDK Javascript           | [Documentation de référence](https://braze-inc.github.io/braze-javascript-sdk/)                                                               | [Dépôt GitHub](https://github.com/braze-inc/braze-javascript-sdk/tree/main)              | S.O.              |
-| SDK Cordova       | [Fichier de déclaration](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js)                                      | [Dépôt GitHub](https://github.com/braze-inc/braze-cordova-sdk)      | [Exemple d'application](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project)      |
-| SDK Flutter       | [Documentation de référence](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/)                                                   | [Dépôt GitHub](https://github.com/braze-inc/braze-flutter-sdk)      | [Exemple d'application](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example)      |
-| SDK React Native  | [Fichier de déclaration](https://github.com/braze-inc/braze-react-native-sdk/blob/master/src/index.d.ts)                   | [Dépôt GitHub](https://github.com/braze-inc/braze-react-native-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
-| SDK Roku          | S.O.                                                                                                                                                         | [Dépôt GitHub](https://github.com/braze-inc/braze-roku-sdk)            | [Exemple d'application](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv)            |
-| SDK Unity         | [Fichier de déclaration](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)     | [Dépôt GitHub](https://github.com/braze-inc/braze-unity-sdk)          | [Exemple d'application](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)          |
-| SDK .NET MAUI (anciennement Xamarin)      | S.O.                                                                                                                                                         | [Dépôt GitHub](https://github.com/braze-inc/braze-xamarin-sdk)      | [Exemple d'application](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples)      |
+| SDK Android | [Documentation de référence](https://braze-inc.github.io/braze-android-sdk/kdoc/index.html) | [Dépôt GitHub](https://github.com/braze-inc/braze-android-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-android-sdk/tree/master/samples) |
+| SDK Swift | [Documentation de référence](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze) | [Dépôt GitHub](https://github.com/braze-inc/braze-swift-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples) |
+| SDK Web | [Documentation de référence](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize) | [Dépôt GitHub](https://github.com/braze-inc/braze-web-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-web-sdk/tree/master/sample-builds) |
+| SDK Javascript | [Documentation de référence](https://braze-inc.github.io/braze-javascript-sdk/) | [Dépôt GitHub](https://github.com/braze-inc/braze-javascript-sdk/tree/main) | S.O. |
+| SDK Cordova | [Fichier de déclaration](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js) | [Dépôt GitHub](https://github.com/braze-inc/braze-cordova-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project) |
+| SDK Flutter | [Documentation de référence](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/) | [Dépôt GitHub](https://github.com/braze-inc/braze-flutter-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example) |
+| SDK React Native | [Documentation de référence](https://braze-inc.github.io/braze-react-native-sdk/) | [Dépôt GitHub](https://github.com/braze-inc/braze-react-native-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| SDK Vega | [Documentation de référence](https://braze-inc.github.io/braze-vega-sdk/) | [Dépôt GitHub](https://github.com/braze-inc/braze-vega-sdk) | S.O. |
+| SDK Roku | S.O. | [Dépôt GitHub](https://github.com/braze-inc/braze-roku-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv) |
+| SDK Unity | [Fichier de déclaration](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs) | [Dépôt GitHub](https://github.com/braze-inc/braze-unity-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) |
+| SDK .NET MAUI (anciennement Xamarin) | S.O. | [Dépôt GitHub](https://github.com/braze-inc/braze-xamarin-sdk) | [Exemple d'application](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Liste des ressources" }
 
 ## Créer un exemple d'application {#building-a-sample-app}

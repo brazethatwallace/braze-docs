@@ -91,7 +91,7 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 import com.braze.support.BrazeLogger
 import com.bumptech.glide.load.resource.gif.GifDrawable
 
@@ -178,7 +178,7 @@ Android SDK 36.0.0 以降では、`displayInAppMessage()` は `suspend` 関数�
 
 以下のKotlinサンプルでは、プレースホルダー値を使用してこのパターンを示しています。
 
-```kotlin
+`````````kotlin
 private const val TAG = "SampleGlideLoader"
 private const val glideBrazeImageLoaderTag = "sample-loader"
 
@@ -213,7 +213,7 @@ Braze SDKは、[`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-s
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 public class GlideIntegrationApplication extends Application {
   @Override
   public void onCreate() {
@@ -226,7 +226,7 @@ public class GlideIntegrationApplication extends Application {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class GlideIntegrationApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -244,7 +244,7 @@ Jetpack Composeで画像の読み込みをオーバーライドするには、[`
 
 次の例では、`imageComposable` 関数にリストされているカードにGlideのComposeライブラリーが使用されています。
 
-```kotlin
+`````````kotlin
 ContentCardsList(
     cardStyle = ContentCardStyling(
         imageComposable = { card ->

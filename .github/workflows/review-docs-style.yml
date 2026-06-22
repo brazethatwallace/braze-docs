@@ -1,0 +1,69 @@
+# AI editorial style review for docs PRs (Copilot-style).
+# Runs on open (non-draft) pull requests when Markdown under _docs/, _includes/, or _lang/ changes.
+# Skips draft PRs; runs when a draft is marked ready for review (ready_for_review).
+#
+# Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
+# Requires: ANTHROPIC_API_KEY repository secret.
+#
+# Includes bot PRs (support analyzer, etc.). Skips `_lang/` on auto-translate/* branches.
+# Skips nightly deploy PRs (label: Deploy). Per file, skips review when the diff is code/markup only.
+
+name: Braze Docs Style Guide Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "_docs/**"
+      - "_includes/**"
+      - "_lang/**"
+      - "scripts/review_docs_style.py"
+      - ".github/workflows/review-docs-style.yml"
+      - ".github/skills/braze-docs/references/writing-style.md"
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: docs-style-review-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review-docs-style:
+    name: claude-edit-suggestions
+    if: >-
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'Deploy')
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      REVIEW_MODEL: claude-sonnet-4-6
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      GITHUB_HEAD_REF: ${{ github.head_ref }}
+      GITHUB_BASE_REF: ${{ github.base_ref }}
+
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Run docs style review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/review_docs_style.py

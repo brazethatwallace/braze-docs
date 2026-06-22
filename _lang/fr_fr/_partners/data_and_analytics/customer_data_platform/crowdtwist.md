@@ -24,7 +24,7 @@ Ce guide explique comment intégrer les flux Live Push du profil utilisateur, de
 
 En utilisant un modèle de Transformation des données Braze, vous pouvez filtrer les éléments du Data Push qui ne sont pas pertinents pour Braze, et attribuer les valeurs nécessaires dans Braze afin qu'elles puissent être exploitées par les « destinations » disponibles.
 
-Par exemple, utilisez un Data Push pour transmettre à Braze des événements personnalisés et des attributs personnalisés pertinents, comme lorsqu'un utilisateur change de niveau de fidélité ou échange une récompense. Vous pouvez également l'utiliser pour enregistrer des attributs personnalisés dans Braze dès que ces données sont mises à jour dans le profil utilisateur d'un membre, comme le solde de points d'un utilisateur.
+Par exemple, utilisez un Data Push pour transmettre à Braze des événements personnalisés et des attributs pertinents, comme lorsqu'un utilisateur change de niveau de fidélité ou échange une récompense. Vous pouvez également l'utiliser pour enregistrer des attributs personnalisés dans Braze dès que ces données sont mises à jour dans le profil utilisateur d'un membre, comme le solde de points d'un utilisateur.
 
 ## Conditions préalables {#prerequisites}
 
@@ -33,7 +33,7 @@ Par exemple, utilisez un Data Push pour transmettre à Braze des événements pe
 | --- | --- |
 | Compte Oracle Crowdtwist | Un [compte Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) est nécessaire pour profiter de ce partenariat. |
 | Endpoint de Transformation des données Braze | Cette intégration repose sur l'[outil de Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation/) de Braze. Lorsque vous créez une Transformation des données, Braze génère un endpoint unique que vous pouvez ajouter comme destination pour le Data Push de Crowdtwist.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -241,11 +241,9 @@ Les modèles de ce guide sont conçus pour envoyer les données à la destinatio
 
 ### Test {#testing}
 
-Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Cliquez sur « Validate » pour obtenir un aperçu de la sortie de votre code et vérifier s'il s'agit d'une requête acceptable pour la destination choisie.
+Après avoir modifié le modèle à votre convenance, vous devez vérifier qu'il fonctionne correctement. Dans l'éditeur de transformation, sélectionnez **Valider** pour générer un aperçu dans la section **Sortie** et confirmer que Braze accepte la requête mappée pour la destination choisie.
 
-![Capture d'écran de l'interface de Transformation des données de Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-Lorsque vous êtes satisfait de l'objet affiché dans le champ « output », cliquez sur **Activate** pour que l'endpoint de Transformation des données soit prêt à accepter des données.
+Lorsque vous êtes satisfait de l'objet affiché dans le champ **Sortie**, sélectionnez **Activer** pour que l'endpoint de Transformation des données soit prêt à accepter des données.
 
 Vous trouverez l'URL du webhook de votre Transformation des données dans le panneau latéral gauche. Copiez-la et utilisez-la pour la configuration dans le hub d'intégration d'Oracle Crowdtwist.
 

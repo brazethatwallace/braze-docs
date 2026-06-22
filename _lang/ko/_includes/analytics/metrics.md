@@ -1,5 +1,5 @@
 {% if include.metric == "AMP Clicks" %}
-<i>AMP 클릭</i> 수는 이메일의 HTML, 일반 텍스트 및 AMP HTML 버전을 합산한 총 클릭 수입니다.
+<i>AMP 클릭</i> 수는 AMP HTML 이메일에서 발생한 총 클릭 수로, 이메일의 HTML, 일반 텍스트 및 AMP HTML 버전을 모두 합산한 값입니다.
 {% endif %}
 
 {% if include.metric == "AMP Opens" %}
@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if include.metric == "Audience" %}
-<i>오디언스</i>는 특정 메시지를 수신한 사용자의 비율입니다. 이 숫자는 Braze에서 받았습니다.
+<i>오디언스</i>는 특정 메시지를 수신한 사용자의 비율입니다. 이 숫자는 Braze에서 제공됩니다.
 {% endif %}
 
 {% if include.metric == "Bounces" %}
@@ -15,7 +15,7 @@
 {% endif %}
 
 {% if include.metric == "Estimated Real Opens" %}
-<i>예상 실제 열람</i>은 기계 열람이 존재하지 않을 경우 얼마나 많은 고유 열람이 있을지에 대한 추정치이며, 독점적인 Braze 통계 모델의 결과입니다.
+<i>예상 실제 열람</i>은 기계 열람이 존재하지 않을 경우 얼마나 많은 고유 열람이 있을지에 대한 추정치이며, Braze의 독점 통계 모델의 결과입니다.
 {% endif %}
 
 {% if include.metric == "Help" %}
@@ -95,7 +95,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>전달</i>은 수신 서버가 수락한 총 메시지 요청 수입니다. 이것은 메시지가 기기에 전달되었다는 것을 의미하지 않으며, 메시지가 서버에 의해 수락되었다는 것만을 의미합니다.
+<i>전달</i>은 수신 서버가 수락한 총 메시지 요청 수(또는 백분율)입니다. 이것은 메시지가 기기에 전달되었다는 것을 의미하지 않으며, 메시지가 서버에 의해 수락되었다는 것만을 의미합니다.
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>직접 열람</i>은 알림을 직접 눌러 앱이나 웹사이트를 연 총 사용자 수입니다.
+<i>직접 열람</i>은 알림을 직접 눌러 앱이나 웹사이트를 연 총 사용자 수(또는 백분율)입니다.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>영향받은 열람</i>은 푸시 알림이 전송된 후 푸시를 직접 열지 않고 앱을 연 사용자의 총 수(및 백분율)입니다.
+<i>영향받은 열람</i>은 푸시 알림이 전송된 후 푸시를 직접 열지 않고 앱을 연 사용자의 총 수(또는 백분율)입니다.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -219,7 +219,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Spam" %}
-<i>스팸</i>은 수신자가 "스팸"으로 표시한 총 전달된 이메일 수입니다. Braze는 이러한 사용자의 구독 상태를 변경하지 않지만, "수신 거부 포함 모든 사용자에게 보내기"로 구성된 트랜잭션 이메일을 보내지 않는 한 향후 이메일에서 해당 사용자는 자동으로 제외됩니다.
+<i>스팸</i>은 수신자가 "스팸"으로 표시한 총 전달된 이메일 수입니다. Braze는 이러한 사용자의 구독 상태를 변경하지 않지만, "수신 거부한 사용자를 포함한 모든 사용자에게 보내기"로 구성된 트랜잭션 이메일을 보내지 않는 한 향후 이메일에서 해당 사용자는 자동으로 제외됩니다.
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
@@ -231,11 +231,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-<i>총 클릭</i> 수는 전달된 메시지의 링크를 클릭한 고유 수신자 수입니다.
+<i>총 클릭</i> 수는 전달된 메시지의 링크를 클릭한 고유 수신자 수(또는 백분율)입니다.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫기된 횟수입니다.
+<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫힌 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +251,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
+<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -264,12 +264,16 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 <i>고유 노출 횟수</i>는 특정 Campaign에서 메시지를 본 총 사용자 수입니다. 노출 횟수는 메시지가 사용자 화면에 보일 때만 기록됩니다.
 {% endif %}
 
+{% if include.metric == "Unique Daily Impressions" %}
+<i>일일 고유 노출 횟수</i>는 특정 날짜에 메시지를 본 고유 사용자 수입니다. 이 수치는 매일 자정에 초기화되므로, 같은 메시지를 이틀에 걸쳐 본 사용자는 두 번으로 계산됩니다. 이 측정기준은 동일한 이름의 과금 측정기준과 일치합니다.
+{% endif %}
+
 {% if include.metric == "Unique Recipients" %}
 <i>고유 수신자</i>는 일일 고유 수신자 수, 즉 하루에 새 메시지를 받은 사용자의 수입니다. 사용자에 대해 이 횟수가 두 번 이상 증가하려면 사용자가 다른 날에 새 메시지를 수신해야 합니다.
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>고유 열람</i> 건수는 한 명의 사용자가 한 번 이상 열어본 총 전달 메시지 수이며 7일 동안 추적됩니다.
+<i>고유 열람</i> 건수는 한 명의 사용자가 한 번 이상 열어본 총 전달 메시지 수(또는 백분율)이며 7일 동안 추적됩니다.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}

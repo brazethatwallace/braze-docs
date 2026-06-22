@@ -576,7 +576,7 @@ function CartLineUpdateButton({children, lines}) {
 
 Ve a la página del socio de Shopify para iniciar tu configuración. Primero, selecciona **Begin Setup** para instalar la aplicación de Braze desde la tienda de aplicaciones de Shopify. Sigue los pasos guiados para completar el proceso de instalación.
 
-![Página de configuración de la integración de Shopify en el panel de Braze.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Página de configuración de la integración de Shopify en el panel de Braze.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### Paso 2: Habilitar los SDK de Braze {#step-2-enable-braze-sdks}
 
@@ -584,13 +584,13 @@ Para tiendas Shopify Hydrogen o headless, selecciona la opción **Custom setup**
 
 Antes de continuar con el proceso de incorporación, confirma que has habilitado el SDK de Braze en tu sitio web de Shopify.
 
-![Paso de configuración para habilitar los SDK de Braze.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Paso de configuración para habilitar los SDK de Braze.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
 ### Paso 3: Rastrear datos de Shopify {#step-3-track-shopify-data}
 
-Mejora tu integración añadiendo más eventos y atributos de Shopify, que se activarán mediante webhooks de Shopify. Para obtener información detallada sobre los datos de seguimiento a través de esta integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
+Mejora tu integración añadiendo más eventos y atributos de Shopify, que se activarán mediante webhooks de Shopify. Para obtener información detallada sobre los datos rastreados a través de esta integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
 
-![Paso de configuración para el seguimiento de los datos de Shopify.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Paso de configuración para el seguimiento de los datos de Shopify.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### Paso 4: Relleno histórico (opcional) {#step-4-historical-backfill-optional}
 
@@ -598,7 +598,7 @@ A través de la configuración personalizada, puedes incluir opcionalmente la mi
 
 Si prefieres realizar el relleno más tarde, puedes completar la configuración inicial ahora y volver a este paso más adelante.
 
-![Sección para configurar el relleno de datos históricos.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![Sección para configurar el relleno de datos históricos.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
 Para consultar la lista completa de datos en la carga inicial, el comportamiento de los informes de ingresos y la monitorización de la sincronización, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
@@ -646,7 +646,7 @@ El SDK debe estar inicializado (a la escucha de la actividad) en el dispositivo 
 
 Selecciona tu tipo de `external_id` en el desplegable.
 
-![Sección "Recopilar suscriptores".]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![Sección "Recopilar suscriptores".]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 Utilizar una dirección de correo electrónico o una dirección de correo electrónico con hash como tu ID externo de Braze puede ayudarte a simplificar la gestión de identidades en todos tus orígenes de datos. Sin embargo, es importante tener en cuenta los riesgos potenciales para la privacidad de los usuarios y la seguridad de los datos.<br><br>
@@ -734,7 +734,7 @@ Tienes la opción de recopilar tus adhesiones voluntarias de marketing por corre
 
 Si utilizas los canales de correo electrónico o SMS, puedes sincronizar tus estados de adhesión voluntaria de marketing por correo electrónico y SMS en Braze. Si sincronizas las adhesiones voluntarias de marketing por correo electrónico desde Shopify, Braze creará automáticamente un grupo de suscripción por correo electrónico para todos los usuarios asociados a esa tienda específica. Tienes que crear un nombre único para este grupo de suscripción.
 
-![Sección "Recopilar suscriptores" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![Sección "Recopilar suscriptores" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview/), si quieres utilizar un formulario de captura de terceros, tus desarrolladores necesitan integrar el código del SDK de Braze. Esto te permitirá capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Concretamente, necesitas implementar y probar estos métodos en tu archivo `theme.liquid`:<br><br>
@@ -746,7 +746,7 @@ Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview/),
 
 Puedes sincronizar todos los productos de tu tienda Shopify con un catálogo de Braze para una mayor personalización de la mensajería. Las actualizaciones automáticas se producen casi en tiempo real para que tu catálogo refleje siempre los detalles más recientes de los productos. Para saber más, consulta [Sincronización de productos de Shopify]({{site.baseurl}}/shopify_catalogs/).
 
-![Paso de configuración para sincronizar los datos del producto con Braze.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Paso de configuración para sincronizar los datos del producto con Braze.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
 ### Paso 8: Activar canales {#step-8-activate-channels}
 
@@ -760,7 +760,7 @@ Para activar los mensajes dentro de la aplicación, Content Cards y conmutadores
 
 Cuando hayas realizado todos los pasos, selecciona **Finish Setup** para volver a la página del socio. A continuación, habilita la incrustación de la aplicación Braze en tu página de administración de Shopify, tal y como indica el banner que aparece.
 
-![Banner que indica que actives la incrustación de la aplicación Braze en Shopify para que puedas terminar de configurar tu integración.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![Banner que indica que actives la incrustación de la aplicación Braze en Shopify para que puedas terminar de configurar tu integración.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### Código de ejemplo {#example-code}
 

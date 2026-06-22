@@ -32,6 +32,10 @@ La [guía de inicio rápido de Snowflake](https://quickstarts.snowflake.com/guid
 2. En tu instancia de Redshift, configura las tablas o vistas que quieras sincronizar con Braze.
 3. Crea una nueva fuente y sincronización en el dashboard de Braze.
 4. Prueba la integración e inicia la sincronización.
+
+{% alert note %}
+Las filas procesadas por sincronización dependen del rendimiento de tu almacén, la latencia de red y la cantidad de datos nuevos que coincidan con la consulta de sincronización. Utiliza el **Historial de sincronización** de la integración en el dashboard para ver la duración y el recuento de filas de las ejecuciones recientes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crea una cuenta de servicio y permite el acceso a los proyectos de BigQuery y a los conjuntos de datos que contienen los datos que deseas sincronizar.
@@ -471,9 +475,16 @@ En el dashboard de Braze, ve a **Data Settings** > **Cloud Data Ingestion** > **
 
 Elige un nombre para tu fuente e introduce tus credenciales y configuración de Snowflake, y luego pasa al siguiente paso.
 
-{% alert note %}
-En el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake, que suele seguir un formato como `xy12345.us-east-1.aws`. No es lo mismo que el nombre de una base de datos o el nombre de un almacén.
-{% endalert %}
+Antes de continuar, confirma el valor que introduces en **Snowflake Account Locator**.
+
+En el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake. Introduce solo el valor del identificador de cuenta, como `myorganization-myaccount`. No incluyas `https://`, `.snowflakecomputing.com` ni ninguna ruta.
+
+Para encontrar tu identificador de cuenta de Snowflake:
+
+1. En Snowsight, selecciona el menú de tu cuenta.
+2. Selecciona **View account details**.
+3. Copia el valor de **Account identifier**.
+4. Si copias desde una URL de Snowflake, utiliza solo el valor antes de `.snowflakecomputing.com`.
 
 #### Paso 2.2: Añadir una clave pública al usuario de Braze {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -578,7 +589,7 @@ Estos problemas pueden incluir lo siguiente:
 - Problemas de conectividad
 - Falta de recursos
 - Problemas de permisos
-- (Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+- (Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación {#step-33-scheduling}
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -611,7 +622,7 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -642,7 +653,7 @@ Los correos electrónicos de contacto solo reciben notificaciones de errores glo
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -674,7 +685,7 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -707,7 +718,7 @@ Estos problemas pueden incluir lo siguiente:
 - Falta de recursos
 - Problemas de permisos
 
-(Solo para sincronización de catálogos) No hay espacio en el nivel de catálogo
+(Solo para sincronizaciones de catálogos) No hay espacio en el nivel de catálogo
 
 #### Paso 3.3: Planificación
 Por último, configura tu sincronización como no recurrente o recurrente.
@@ -763,26 +774,26 @@ Si reutilizas el mismo usuario en varias integraciones, no podrás eliminar el u
 
 {% tabs %}
 {% tab Snowflake %}
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Redshift %}
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab BigQuery %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Databricks %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 

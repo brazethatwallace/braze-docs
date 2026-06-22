@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # Criar testes multivariantes e testes A/B {#creating-tests}
 
-> Você pode criar um teste multivariante ou teste A/B para qualquer Campaign que tenha como alvo um único canal e um único dispositivo. Por exemplo, se quiser usar testes multivariantes ou testes A/B para uma Campaign de push, você pode segmentar apenas dispositivos iOS ou apenas dispositivos Android — não ambos os tipos de dispositivo na mesma Campaign.
+> Você pode criar um teste multivariante ou teste A/B para qualquer Campaign que tenha como alvo um único canal. Por exemplo, se quiser usar testes multivariantes ou testes A/B para uma Campaign de push, você pode segmentar dispositivos iOS e Android na mesma Campaign.
 
 ![O menu suspenso ao selecionar o botão "Create Campaign" para escolher entre multicanal ou canal único.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
@@ -38,9 +38,9 @@ Depois que um teste multivariante começa, você não pode fazer alterações na
 Para usar uma [otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) (disponível para canais selecionados), programe sua Campaign para envio único. Otimizações não estão disponíveis para Campaigns recorrentes ou com reelegibilidade ativada.
 {% endalert %}
 
-## Etapa 4: Escolha um Segment e distribua seus usuários entre as variantes {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
+## Etapa 4: Escolha um segmento e distribua seus usuários entre as variantes {#step-4-choose-a-segment-and-distribute-your-users-across-variants}
 
-Selecione os Segments desejados e distribua os membros entre as variantes selecionadas e o [grupo de controle](#including-a-control-group) opcional. Para práticas recomendadas sobre como escolher um Segment para testar, consulte [Escolhendo um Segment](#choosing-a-segment).
+Selecione os segmentos desejados e distribua os membros entre as variantes selecionadas e o [grupo de controle](#including-a-control-group) opcional. Para práticas recomendadas sobre como escolher um segmento para testar, consulte [Escolhendo um segmento](#choosing-a-segment).
 
 Para Campaigns de push, e-mail e webhook programadas para envio único, você também pode usar uma [otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Uma otimização reserva uma parte do seu público-alvo do teste A/B e a mantém para um segundo envio otimizado com base nos resultados do primeiro teste.
 
@@ -50,7 +50,7 @@ Você pode reservar uma porcentagem do seu público-alvo para um grupo de contro
 
 Ao visualizar seus resultados, você pode comparar as taxas de conversão das suas variantes com uma taxa de conversão de referência fornecida pelo seu grupo de controle. Isso permite comparar tanto os efeitos das suas variantes quanto os efeitos das suas variantes em relação à taxa de conversão que resultaria se você não enviasse nenhuma mensagem.
 
-![Painel de testes A/B que mostra a distribuição percentual do Grupo de Controle, Variante 1, Variante 2 e Variante 3 com 25% para cada grupo.]({% image_buster /assets/img/ab_create_4.png %})
+![Painel de testes A/B que mostra a distribuição percentual do grupo de controle, variante 1, variante 2 e variante 3 com 25% para cada grupo.]({% image_buster /assets/img/ab_create_4.png %})
 
 {% alert important %}
 Não é recomendado usar um grupo de controle ao determinar um vencedor por _Aberturas_ ou _Cliques_. Como o grupo de controle não recebe a mensagem, esses usuários não podem realizar nenhuma abertura ou clique. Portanto, a taxa de conversão desse grupo é 0% por definição e não constitui uma comparação significativa com as variantes.
@@ -90,7 +90,7 @@ Dependendo do canal selecionado, você pode testar diferentes componentes da sua
 | Push | Texto <br> Uso de imagens e emojis <br> Deep links  <br> Apresentação de números (por exemplo, "triplicar" versus "aumentar em 200%")  <br> Apresentação de tempo (por exemplo, "termina à meia-noite" versus "termina em 6 horas") | Aberturas  <br> Taxa de conversão |
 | E-mail | Assunto <br> Nome de exibição <br> Saudação <br> Corpo do texto <br> Uso de imagens e emojis <br> Apresentação de números (por exemplo, "triplicar" versus "aumentar em 200%") <br> Apresentação de tempo (por exemplo, "termina à meia-noite" versus "termina em 6 horas") | Aberturas  <br> Taxa de conversão |
 | Mensagem no app | Aspectos listados para "push" <br> [Especificações de imagem para mensagens no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#in-app-messages) | Clique <br> Taxa de conversão |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tips for different channels #tips-different-channels" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dicas para diferentes canais" }
 
 {% alert tip %}
 Ao executar testes A/B, não se esqueça de gerar [relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) que permitem entender como cada variante impactou seu funil de conversão, especialmente se "conversão" para o seu negócio envolve múltiplas etapas ou ações.
@@ -102,13 +102,13 @@ Por exemplo, se você está testando um push, pode obter resultados significativ
 
 Se você não tem certeza de quanto tempo seu teste deve durar, o recurso [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) pode ser útil para encontrar uma variante vencedora de forma eficiente.
 
-### Escolhendo um Segment {#choosing-a-segment}
+### Escolhendo um segmento {#choosing-a-segment}
 
-Como diferentes Segments dos seus usuários podem responder de forma diferente às mensagens, o sucesso de uma mensagem específica diz algo tanto sobre a mensagem em si quanto sobre o Segment-alvo. Portanto, tente projetar um teste com o Segment-alvo em mente.
+Como diferentes segmentos dos seus usuários podem responder de forma diferente às mensagens, o sucesso de uma mensagem específica diz algo tanto sobre a mensagem em si quanto sobre o segmento-alvo. Portanto, tente projetar um teste com o segmento-alvo em mente.
 
 Por exemplo, enquanto usuários ativos podem ter taxas de resposta iguais para "Esta oferta expira amanhã!" e "Esta oferta expira em 24 horas!", usuários que não abriram o app há uma semana podem ser mais responsivos à segunda formulação, pois ela cria um maior senso de urgência.
 
-Além disso, ao escolher em qual Segment executar seu teste, certifique-se de que o tamanho desse Segment seja grande o suficiente para o seu teste. Em geral, testes multivariantes e testes A/B com mais variantes exigem um grupo de teste maior para alcançar resultados estatisticamente significativos. Isso ocorre porque mais variantes resultam em menos usuários vendo cada variante individual.
+Além disso, ao escolher em qual segmento executar seu teste, certifique-se de que o tamanho desse segmento seja grande o suficiente para o seu teste. Em geral, testes multivariantes e testes A/B com mais variantes exigem um grupo de teste maior para alcançar resultados estatisticamente significativos. Isso ocorre porque mais variantes resultam em menos usuários vendo cada variante individual.
 
 {% alert tip %}
 Como referência, você provavelmente precisa de cerca de 15.000 usuários por variante (incluindo o controle) para alcançar 95% de confiança nos resultados do seu teste. No entanto, o número exato de usuários necessários pode ser maior ou menor, dependendo do seu caso específico. Para orientações mais precisas sobre tamanhos de amostra de variantes, considere consultar uma [calculadora de tamanho de amostra](https://www.calculator.net/sample-size-calculator.html).

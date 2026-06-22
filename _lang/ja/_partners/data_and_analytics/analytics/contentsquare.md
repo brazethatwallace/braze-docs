@@ -1,7 +1,7 @@
 ---
 nav_title: Contentsquare
 article_title: Contentsquare
-description: "このリファレンス記事では、BrazeとContentsquareのパートナーシップについて説明します。Contentsquareは、デジタルエクスペリエンス分析プラットフォームであり、顧客のデジタルエクスペリエンスに基づいてメッセージをターゲティングすることで、Campaignsの関連性とコンバージョン率を向上させることができます。"
+description: "このリファレンス記事では、BrazeとContentsquareのパートナーシップについて説明します。Contentsquareは、デジタルエクスペリエンス分析プラットフォームであり、顧客のデジタルエクスペリエンスに基づいてメッセージをターゲティングすることで、キャンペーンの関連性とコンバージョン率を向上させることができます。"
 alias: /partners/contentsquare/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ search_tag: Partner
 
 ## 統合について {#about-the-integration}
 
-BrazeとContentsquareの統合により、ライブシグナル（不正行為、フラストレーションシグナルなど）をBrazeのカスタムイベントとして送信できます。Contentsquareのエクスペリエンスインサイトを活用し、顧客のデジタルエクスペリエンスとボディランゲージに基づいてメッセージをターゲティングすることで、Campaignsの関連性とコンバージョン率を向上させます。
+BrazeとContentsquareの統合により、ライブシグナル（不正行為、フラストレーションシグナルなど）をBrazeのカスタムイベントとして送信できます。Contentsquareのエクスペリエンスインサイトを活用し、顧客のデジタルエクスペリエンスとボディランゲージに基づいてメッセージをターゲティングすることで、キャンペーンの関連性とコンバージョン率を向上させます。
 
 ## 前提条件 {#prerequisites}
 
@@ -48,6 +48,6 @@ ContentsquareをBrazeに統合するには、Contentsquare統合カタログか�
 
 ## この統合を使う {#using-this-integration}
 
-統合が完了すると、ContentsquareのカスタムイベントをCampaignsやCanvasesで使用できるようになります。**データ設定** > **カスタムイベント**から、どのイベントがBrazeに送信されているかを確認できます。
+統合が完了すると、Contentsquareのカスタムイベントをキャンペーンやキャンバスで使用できるようになります。**データ設定** > **カスタムイベント**から、どのイベントがBrazeに送信されているかを確認できます。
 
 ![BrazeのカスタムイベントタブにおけるContentsquareライブシグナルデータ]({% image_buster /assets/img/contentsquare_custom_events.png %})

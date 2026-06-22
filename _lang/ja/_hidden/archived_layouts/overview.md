@@ -48,7 +48,7 @@ noindex: true
 
 ## 例 {#example}
 
-```yaml
+`````````yaml
 ---
 nav_title: Creative Details
 page_order: 4

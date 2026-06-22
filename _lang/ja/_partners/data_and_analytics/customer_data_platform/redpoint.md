@@ -15,7 +15,7 @@ _この統合は Redpoint によって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Braze と Redpoint の統合により、Redpoint CDP データに基づいて Braze Segmentを作成できます。Redpoint には、データを Braze に渡すための2つのモードがあります。
+Braze と Redpoint の統合により、Redpoint CDP データに基づいて Braze セグメントを作成できます。Redpoint には、データを Braze に渡すための2つのモードがあります。
 
 1. **Braze Onboarding and Upsert** モード: Redpoint から Braze へユーザープロファイルを「Upsert」します。これは、データが変更されたときにユーザーレコードをオンボーディングまたは更新するために使用されます。
 2. **Braze Append** モード: そのユーザーが Braze にすでに存在する場合に、ユーザープロファイルを更新します。
@@ -154,7 +154,7 @@ RPI Audience 出力を Braze に同期するには、アウトバウンド配信
 
 ![]({% image_buster /assets/img/redpoint/rpi_to_braze_rpi_canvas.png %}){: style="max-width:80%;"}
 
-ワークフローが RPI で正常に実行されると、RPI から取得したオーケストレーションおよび CDP データを使用して、Braze でSegmentを作成できるようになります。
+ワークフローが RPI で正常に実行されると、RPI から取得したオーケストレーションおよび CDP データを使用して、Braze でセグメントを作成できるようになります。
 
 ![]({% image_buster /assets/img/redpoint/rpi_to_braze_build_braze_segment.png %}){: style="max-width:80%;"}
 

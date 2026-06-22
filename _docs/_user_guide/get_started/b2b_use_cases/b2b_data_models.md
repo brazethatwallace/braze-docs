@@ -66,12 +66,15 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
 
 <table aria-label="Map over your CRM fields" border="1">
   <caption>Map over your CRM fields</caption>
+  <thead>
   <tr>
     <th><b>Braze object</b></th>
     <th><b>Braze field</b></th>
     <th><b>CRM object (Salesforce)</b></th>
     <th><b>CRM field (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Catalog &gt; Account catalog</td>
     <td><code>id</code></td>
@@ -93,11 +96,8 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
     <td><code>account</code></td>
     <td><code>OTHER_FIELDS</code></td>
   </tr>
+  </tbody>
 </table>
-
-##### Example table of mapped account fields
-
-![Table of Salesforce accounts with respective information, such as billing address and account owner.]({% image_buster /assets/img/b2b/sf_accounts.png %})
 
 {% endsubtab %}
 {% subtab Opportunity catalog %}
@@ -106,12 +106,15 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
 
 <table aria-label="Example table of mapped account fields" border="1">
   <caption>Example table of mapped account fields</caption>
+  <thead>
   <tr>
     <th><b>Braze object</b></th>
     <th><b>Braze field</b></th>
     <th><b>CRM object (Salesforce)</b></th>
     <th><b>CRM field (Salesforce)</b></th>
   </tr>
+  </thead>
+  <tbody>
   <tr>
     <td rowspan="4">Catalog &gt; Opportunity catalog</td>
     <td><code>id</code></td>
@@ -133,11 +136,8 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
     <td><code>OTHER_FIELDS</code></td>
   </tr>
   </tr>
+  </tbody>
 </table>
-
-##### Example table of mapped opportunity fields
-
-![Table of Salesforce opportunities with respective information, such as billing address and account owner.]({% image_buster /assets/img/b2b/sf_opportunities.png %})
 
 {% endsubtab %}
 {% endsubtabs %}

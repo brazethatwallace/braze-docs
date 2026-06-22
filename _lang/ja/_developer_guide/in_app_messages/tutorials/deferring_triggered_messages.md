@@ -106,7 +106,7 @@ lines-index.js=13-15
 
 {% scrolly %}
 
-```kotlin file=MainApplication.kt
+`````````kotlin file=MainApplication.kt
 import android.app.Application
 import com.braze.Braze
 import com.braze.support.BrazeLogger
@@ -165,7 +165,7 @@ class MyApplication : Application() {
 }
 ```
 
-```kotlin file=MainActivity.kt
+`````````kotlin file=MainActivity.kt
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -262,7 +262,7 @@ lines-MainActivity.kt=29
 
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import SwiftUI
 import BrazeKit
 import BrazeUI
@@ -312,7 +312,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BrazeInAppMessageUIDelega
 }
 ```
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main
@@ -327,7 +327,7 @@ struct IAMDeferApp: App {
 }
 ```
 
-```swift file=ContentView.swift
+`````````swift file=ContentView.swift
 import SwiftUI
 
 struct ContentView: View {

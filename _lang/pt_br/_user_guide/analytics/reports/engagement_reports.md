@@ -43,7 +43,7 @@ Adicione as Campaigns e mensagens de Canvas que você deseja compilar no seu rel
 - Selecionar manualmente Campaigns e Canvas
 - Selecionar automaticamente Campaigns e Canvas com base em regras específicas
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Seleção de mensagens no relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Selecionar manualmente Campaigns ou Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ As tags devem corresponder a pelo menos uma Campaign ou Canvas para que o relat�
 
 A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canvas que você selecionou. Por exemplo, se você selecionou mensagens de e-mail, poderá visualizar apenas as estatísticas relevantes de e-mail. Se você escolheu uma combinação de e-mail e push, poderá visualizar as estatísticas desses dois canais.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Adicionar estatísticas ao relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nível do espaço de trabalho. Para monitorar o volume total de envios ou impressões em todas as Campaigns e Canvas ativos, como envios e impressões por canal em todo o espaço de trabalho, use o [Criador de relatórios]({{site.baseurl}}/report_builder/).
 
@@ -77,7 +77,7 @@ Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nív
 | Mensagem no app | Impressões, Cliques, Cliques no primeiro botão, Cliques no segundo botão |
 | Webhook  |  Envios, Erros |
 | SMS | Envios, Envios para operadora, Entregas confirmadas, Falhas de entrega, Rejeições |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Adicionar estatísticas" }
 
 ### Etapa 4: Concluir a configuração do relatório {#step-4-complete-report-setup}
 
@@ -100,7 +100,7 @@ Por padrão, o intervalo de dados exibido é baseado no fuso horário da sua emp
 
 Por padrão, os dados exibidos nos relatórios de engajamento são diários (um dia). Para visualizar esses dados em intervalos diferentes, escolha um número explícito de dias ou semanas para agregar os dados do relatório. Assim, em vez de ver métricas diárias, você pode visualizar seu engajamento por semana, mês, trimestre ou similar. Caso uma agregação baseada em tempo não seja suficiente, você também pode optar por exportar dados no nível de Campaign ou Canvas.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![Cobertura de dados do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### Exibir dados por Campaign ou Canvas completo {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ Existem duas opções ao programar seu relatório:
 - **Send immediately:** Após o lançamento do relatório, a Braze enviará este relatório imediatamente.
 - **Send at a designated time:** Essa opção oferece flexibilidade para escolher com que frequência você recebe este relatório. Você pode optar por enviar este relatório a cada número definido de dias, semanas ou meses. Também é possível definir quando parar de enviar o relatório.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![Programação do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Etapa 5: Revisar e lançar {#step-5-review-and-launch}
 
@@ -146,3 +146,10 @@ Se você deseja linhas agregadas por Campaign ou Canvas completo em vez de bucke
 #### Cliques duplicados em botões em mensagens no app HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
 Se você usa mensagens no app HTML e os **Cliques no corpo** parecem altos no relatório de engajamento, pode ser que o registro de cliques esteja sendo disparado duas vezes — por exemplo, chamando `brazeBridge.logClick()` para um clique genérico no corpo e também `brazeBridge.logClick('body click')` (ou outro ID) na mesma interação. Pesquise no seu markup por `brazeBridge.logClick(` e alinhe com um padrão por controle. Para o uso recomendado, consulte [Rastreamento de botões]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+
+#### Links quebrados em e-mails de relatórios de engajamento {#broken-links-in-emailed-engagement-reports}
+
+Se os links em um e-mail de relatório de engajamento programado não abrirem corretamente no seu cliente de e-mail, tente os seguintes passos:
+
+1. Encaminhe o relatório para uma caixa de entrada do Gmail e abra os links no Google Chrome.
+2. Nas configurações do relatório de engajamento, confirme que **Report Schedule** está configurado para enviar quando você espera (por exemplo, imediatamente após a geração do relatório, em vez de em uma programação atrasada).
