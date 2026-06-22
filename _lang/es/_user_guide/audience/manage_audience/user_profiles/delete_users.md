@@ -48,7 +48,6 @@ Las eliminaciones de un solo usuario son permanentes: los perfiles no se pueden 
 
 En la página de su perfil, selecciona <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. Ten en cuenta que puede tardar unos minutos en que el usuario se elimine completamente en Braze.
 
-![Un usuario en Braze con el menú de puntos suspensivos verticales abierto, mostrando la opción de eliminar al usuario.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Eliminar un segmento {#delete-segment}
 
