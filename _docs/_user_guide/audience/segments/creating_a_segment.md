@@ -108,7 +108,7 @@ Excluded users will not be counted as part of your segment’s _Total reachable 
 
 ![An exclusion group with two filters.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-### View funnel statistics
+### View funnel statistics {#viewing-funnel-statistics}
 
 Select **View funnel statistics** to display the statistics for that filter group and see how each added filter impacts your segment statistics. You'll see an estimated count and percentage for users who are targeted by all filters up to that point. Once the statistics are displayed for a filter group, they will update automatically whenever you change the filters. These statistics are estimated and may take a moment to generate.
 
@@ -118,7 +118,7 @@ Keep in mind that if you use AND in between your filters, the funnel statistics 
 
 By adding filters that document your user flow, you can see the points where users fall off. For example, if you're a social networking app and you want to see where you might be losing users during your onboarding process, you may want to add custom data filters for signing up, adding friends, and sending the first message. If you find that 85% of users are signing up and adding friends, but only 45% sent the first message, then you'll know to focus on encouraging more message sends during your onboarding and marketing campaigns.
 
-### Test segments
+### Test segments {#testing-segments}
 
 After adding apps and filters to your segment, you can test if your segment is set up as expected by looking up a user to confirm if they match the segment criteria. To do so, search for a user’s `external_id` or `braze_id` in the **User Lookup** section. 
 
