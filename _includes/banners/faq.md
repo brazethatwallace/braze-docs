@@ -43,15 +43,13 @@ When the user starts a new session or refreshes Banners after performing the act
 
 Yes. You can allow users to manually dismiss a Banner by turning on dismissal behavior in the Banner composer. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for details on turning on dismissal and customizing the dismiss button.
 
-When a user taps the dismiss button, the Banner collapses immediately. Braze syncs the dismissal so the Banner stays hidden for that user across devices and sessions.
-
 Users can manually dismiss Banners only if dismissal behavior is enabled. If dismissal isn't enabled, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
 
 When a user dismisses a Banner, they're ineligible for that campaign by default. To let dismissed users see the Banner again, [configure re-eligibility]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) in the campaign's **Delivery Controls** step. Canvas Banner steps use Canvas re-entry settings to control re-eligibility instead.
 
-For SDK integration details, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
-
 For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
+
+For SDK integration details, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
 
 ## Can I export Banners campaign analytics using the Braze API?
 

@@ -98,7 +98,7 @@ When dismissal is turned on, you can customize the dismiss button in the **Dismi
 | **ARIA label** | The accessible label for the dismiss button, used by screen readers. Defaults to "Close" if left blank. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
 
-When a user dismisses a Banner, it doesn't appear again for that user, even if they still qualify for the campaign's targeting criteria. Braze syncs dismissal events to the backend so dismissed Banners stay suppressed across devices and sessions. For SDK behavior, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
+When a user dismisses a Banner, it doesn't appear again for that user, even if they still qualify for the campaign's targeting criteria. For SDK behavior, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
 
 #### Step 3.4: Add custom properties (optional) {#custom-properties}
 
