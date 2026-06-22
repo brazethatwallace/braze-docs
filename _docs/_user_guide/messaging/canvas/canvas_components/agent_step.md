@@ -41,6 +41,8 @@ Select the agent that will process data in this step. For setup guidance, see [C
 
 In the agent list, each agent is labeled with its [daily invocation limit]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details). Hover over the limit to see today's progress toward that limit, including the percentage used and the number of invocations used today compared to the limit.
 
+![The Configure Agent Step panel showing the agent dropdown with two agents listed. Each agent is labeled with its daily invocation limit. A tooltip on the first agent shows the percentage used and invocations used today.]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
+
 ### Step 3: Set your agent's output {#define-the-output-variable}
 
 Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) for easy access. To define the output variable, give the variable a name.

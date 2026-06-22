@@ -68,7 +68,7 @@ For output data types, Liquid templating, and screenshots, see [Agent step]({{si
 
 After the agent runs, use the output variable in your Canvas:
 
-- **Decisioning:** Route users down different Canvas paths based on the agent's response. Use [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) with numeric, boolean, or structured outputs.
+- **Journey Routing:** Route users down different Canvas paths based on the agent's response. Use [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) with numeric, boolean, or structured outputs.
 - **Personalization:** Insert the agent's response directly into a Message step using Liquid.
 - **Processing user data:** Analyze and standardize user data, then store it on the user profile (for example, with a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step) or send it using a webhook.
 
@@ -118,8 +118,9 @@ To add an agent to your catalog field:
 2. Select **Apply AI agent**.
 3. Assign an agent to this field.
 4. Select which columns should be passed as input. If none are selected, the agent will have access to all columns in the catalog.
-5. Decide if the agent should recalculate fields when catalog rows are updated. If you do not select this option, the agent runs only once per row.
-6. Select **Add fields** to deploy the agent and review cost estimations. The **Cost estimation** modal shows how many times the agent will run on this catalog, roughly equal to the total number of rows. To continue, select **Confirm**.
+5. (Optional) Enable **Only run when required columns have values** to skip rows where one or more selected input columns are blank. When this option is on, select which of the input columns must be populated for the agent to run—all selected columns start as required by default, but you can remove any that are allowed to be empty without blocking a run.
+6. Decide if the agent should recalculate fields when catalog rows are updated. If you do not select this option, the agent runs only once per row.
+7. Select **Add fields** to deploy the agent and review cost estimations. The **Cost estimation** modal shows how many times the agent will run on this catalog, roughly equal to the total number of rows. To continue, select **Confirm**.
 
 ![The option to select "Apply AI agent" for a catalog field.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
