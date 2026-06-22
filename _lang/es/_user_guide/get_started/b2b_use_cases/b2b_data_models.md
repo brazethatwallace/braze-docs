@@ -145,7 +145,6 @@ En este caso de uso, Salesforce es el sistema CRM de ejemplo. Puedes mapear cual
 
 ##### Ejemplo de tabla de campos de oportunidad mapeados
 
-![Tabla de oportunidades de Salesforce con la información correspondiente, como la dirección de facturación y el titular de la cuenta.]({% image_buster /assets/img/b2b/sf_opportunities.png %})
 
 {% endsubtab %}
 {% endsubtabs %}

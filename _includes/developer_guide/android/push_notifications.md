@@ -224,7 +224,6 @@ Next, create a new service account, so Braze can make authorized API calls when 
 
 Enter a service account name, ID, and description, then select **Create and continue**.
 
-![The form for "Service account details."]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 In the **Role** field, find and select **Firebase Cloud Messaging API Admin** from the list of roles. For more restrictive access, create a [custom role](https://cloud.google.com/iam/docs/creating-custom-roles) with the `cloudmessaging.messages.create` permission, then choose it from the list instead. When you're finished, select **Done**.
 

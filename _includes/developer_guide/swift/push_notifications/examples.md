@@ -123,7 +123,6 @@ In the following flow, the custom view is able to respond to state changes. Thos
 3. Information is provided, and if in the expected format, the registration button is shown.
 3. Confirmation view is displayed, and push gets dismissed. 
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### Dashboard configuration
 

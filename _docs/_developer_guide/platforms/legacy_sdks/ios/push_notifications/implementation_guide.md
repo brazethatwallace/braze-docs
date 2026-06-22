@@ -146,7 +146,6 @@ Push notifications can capture user information inside a content extension, allo
 3. Information is provided and if valid, the register button is shown.
 3. Confirmation view is displayed, and push gets dismissed. 
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 Note that the information requested here can be a wide range of things such as SMS number capture, it doesn't have to be email-specific.
 

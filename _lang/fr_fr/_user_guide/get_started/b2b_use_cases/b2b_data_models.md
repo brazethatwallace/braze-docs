@@ -145,7 +145,6 @@ Dans ce cas d'utilisation, Salesforce est l'exemple de système CRM. Vous pouvez
 
 ##### Exemple de tableau des champs d'opportunité mappés
 
-![Tableau des opportunités Salesforce avec les informations correspondantes, telles que l'adresse de facturation et le titulaire du compte.]({% image_buster /assets/img/b2b/sf_opportunities.png %})
 
 {% endsubtab %}
 {% endsubtabs %}

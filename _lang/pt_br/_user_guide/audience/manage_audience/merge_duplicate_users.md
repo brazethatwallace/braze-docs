@@ -44,7 +44,6 @@ Para iniciar o processo de mesclagem, selecione **Merge duplicates**.
 
 Escolha qual perfil de usuário manter e qual mesclar e selecione **Merge profiles**. Repita esse processo até que todos os perfis duplicados tenham sido mesclados.
 
-![A página de mesclagem individual para um perfil duplicado.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
@@ -68,7 +67,6 @@ Para pré-visualizar os resultados antes de mesclar os duplicados, selecione **G
 
 A Braze gerará a pré-visualização e a enviará para o seu endereço de e-mail como um arquivo CSV.
 
-![Um e-mail da Braze com um link para o arquivo CSV gerado.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis duplicados e identificar qual deve ser mantido. Se esses perfis forem mesclados em massa, a Braze usará o perfil com um ID externo como o novo perfil principal do usuário.
 
@@ -95,7 +93,6 @@ Se estiver satisfeito com os resultados da pré-visualização, selecione **Merg
 Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
 {% endalert %}
 
-![A página "Manage Audience" com "Merge all duplicates" destacado.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## Mesclagem baseada em regras {#rules-based-merging}
 

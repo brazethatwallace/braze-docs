@@ -248,4 +248,3 @@ As you create more custom agents, you can organize the **Agent Management** page
 1. Hover over the agent's row and select the <i class="fas fa-ellipsis-vertical"></i> menu.
 2. Select **Archive**.
 
-![Agent Management page with archived agents.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

@@ -234,7 +234,6 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 1. 에이전트의 행 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택합니다.
 2. **아카이브**를 선택합니다.
 
-![아카이브된 에이전트가 있는 에이전트 관리 페이지.]({% image_buster /assets/img/ai_agent/archived_agents.png %})
 
 ## Canvas 에이전트 예시 {#canvas-agent-examples}
 
