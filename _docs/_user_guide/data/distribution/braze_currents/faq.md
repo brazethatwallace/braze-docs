@@ -133,9 +133,9 @@ Depending on the event type and context, a message engagement event may not be t
 
 Braze uses 10-digit Unix timestamps (seconds); millisecond timestamps may be truncated and cause incorrect times.
 
-### Why Conversionbehaviours event from Currents has a different time than the canvas?
+### Why does the `users.canvas.Conversion` event from Currents have a different time than the canvas?
 
-Conversionbehaviours event time in Currents reflects the total conversion window (canvas duration + conversion deadline) measured from canvas entry. Consider adding to braze_currents.md or conversion_events.md.
+The `users.canvas.Conversion` event time in Currents reflects the total conversion window (canvas duration + conversion deadline) measured from canvas entry.
 
 ### What to expect when using Engagement Reports in S3
 
