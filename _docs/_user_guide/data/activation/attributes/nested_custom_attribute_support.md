@@ -273,7 +273,7 @@ Using the **Add Personalization** modal, you can also insert nested custom attri
 
 For example, in the personalization modal below, this inserts the nested custom attribute of a local neighborhood office based on a user's preferences.
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![The Add Personalization modal with Personalization Type set to "Nested Custom Attrib...", Top Level Attribute set to "preferences", and Attribute Key set to "neighborhood_office", showing a Liquid preview of the resulting tag.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 Check that a schema has been generated if you don't see the option to insert nested custom attributes.
