@@ -720,7 +720,7 @@ These are the minimum SDK versions required to log Banner dismissals:
 
 #### Standard Banner integrations (drag-and-drop editor)
 
-If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user taps the dismiss button, the SDK immediately collapses the Banner, records a dismissal event for analytics, and queues the dismissal for backend sync.
+If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message is hidden, triggers a dismissal, and then records a dismissal event for analytics.
 
 #### Custom Code Blocks
 
