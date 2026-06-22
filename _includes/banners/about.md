@@ -33,7 +33,6 @@ Features for Banners include:
 - **Dynamic personalization:** Banners can only be refreshed at the start of a new session or mid-session if you explicitly request the refresh. Banners don't update automatically on a new session. If you don't request the refresh, the Banner won't update.
 - **Native prioritization:** Set the display priority for when multiple Banners target the same placement, ensuring the right message reaches users at the right time.
 - **Custom Code editor block:** Use the Custom Code editor block to add custom HTML for advanced customization or seamless integration with your existing web styles.
-- **User-initiated dismissals:** Let users tap a built-in close button to dismiss a Banner and hide it across devices and sessions.
 
 ## About Banners {#about-banners}
 
