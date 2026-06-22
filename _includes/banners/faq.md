@@ -49,8 +49,6 @@ When a user dismisses a Banner, they're ineligible for that campaign by default.
 
 For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
 
-For SDK integration details, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
-
 ## Can I export Banners campaign analytics using the Braze API?
 
 Yes. You can use the [`/campaigns/data_series` endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) to get data on how many Banner campaigns were viewed, clicked, or converted.
