@@ -125,34 +125,30 @@ The `version=<currents_version>` segment in the storage path advances with each 
 
 Depending on the event type and context, a message engagement event may not be tied to a specific campaign or Canvas step. In those cases, `campaign_id`, `canvas_id`, and related name fields can be omitted from the event payload. If you don’t see those fields on a given event, check whether that event type and context normally include campaign or Canvas identifiers.
 
-<!-- sf-kb-phase2-batch -->
+## Why does Braze use 10-digit Unix timestamps in Currents?
 
-## Salesforce Knowledge updates
+Braze records Currents event times as 10-digit Unix timestamps (seconds since epoch). If you are working with millisecond-precision timestamps, they may be truncated, which can cause events to appear at incorrect times.
 
-### Currents Timestamps / Epoch Time
+## Why does the `users.canvas.Conversion` event from Currents have a different time than the Canvas?
 
-Braze uses 10-digit Unix timestamps (seconds); millisecond timestamps may be truncated and cause incorrect times.
+The `users.canvas.Conversion` event time in Currents reflects the total conversion window — the Canvas duration plus the conversion deadline — measured from Canvas entry.
 
-### Why does the `users.canvas.Conversion` event from Currents have a different time than the canvas?
+## What happens when Engagement Reports are sent to S3?
 
-The `users.canvas.Conversion` event time in Currents reflects the total conversion window (canvas duration + conversion deadline) measured from canvas entry.
+If S3 credentials are configured for Data Export but not for Currents, Braze uploads Engagement Reports to the specified S3 bucket. The user listed in the **Send Report To** field receives an email with a link to the report in S3.
 
-### What to expect when using Engagement Reports in S3
+## Can anonymous user data be sent to Amplitude through Braze Currents?
 
-Add a note to Data Export / Engagement Reports docs: 'If S3 credentials are configured for Data Export but not for Currents, Braze uploads Engagement Reports to the specified S3 bucket. The user in the Send Report To field receives an email with a link to the report in S3.
+Anonymous user data, identified by `device_id`, can be sent to Amplitude through Currents. This requires feature enablement by your Braze account team.
 
-### Does the Amplitude Destination Support the Send of Anonymous User Data via Braze Currents?
+## Can I pull tag information of campaigns and Canvases from Currents?
 
-anonymous user data (device_id) can be sent to Amplitude via Currents; requires feature enablement by Braze account team. Do not document internal FF name.
+Currents does not include campaign or Canvas tags. To retrieve tag data, use the [Export REST API]({{site.baseurl}}/api/endpoints/export/).
 
-### Can I pull tag information of campaigns and canvases from Currents?
+## How are control group impressions for Content Cards and in-app messages logged in Currents?
 
-Currents does not include campaign/Canvas tags; use Export REST API for tag data.
+When a user is assigned to a control group for a Content Card or in-app message campaign, Currents emits a `users.campaigns.EnrollInControl` event rather than an impression event.
 
-### How Are Content Card/In-App message Control Group Impressions Being Logged in Currents?
+## What happens when you target a non-existent user through the API?
 
-control group content card and IAM impressions emit EnrollInControl event rather than Impression events. Verify in platform event schema.
-
-### Targeting a Non-Existent User via API
-
-when targeting non-existent user, API returns 200; send is cancelled with outcome 'Unknown external Id'; no Currents events. send_to_existing_only defaults TRUE.
+When you target a user who does not exist, the API returns a `200` response, but the send is cancelled with the outcome "Unknown external ID". No Currents events are generated for that send. Note that the `send_to_existing_only` parameter defaults to `true`, so sends to unknown users are silently skipped unless you explicitly set it to `false`.
