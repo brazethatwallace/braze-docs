@@ -151,4 +151,4 @@ When a user is assigned to a control group for a Content Card or in-app message 
 
 ## What happens when you target a non-existent user through the API?
 
-When you target a user who does not exist, the API returns a `200` response, but the send is cancelled with the outcome "Unknown external ID". No Currents events are generated for that send. Note that the `send_to_existing_only` parameter defaults to `true`, so sends to unknown users are silently skipped unless you explicitly set it to `false`.
+When you target a user who does not exist, the API returns a `200` response, but the send is canceled with the outcome "Unknown external ID". No Currents events are generated for that send. Note that the `send_to_existing_only` parameter defaults to `true`, so sends to unknown users are silently skipped unless you explicitly set it to `false`.
