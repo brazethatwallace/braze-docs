@@ -27,7 +27,7 @@ To view your data point usage, go to **Settings** > **Billing** and select the *
 
 ### Data point refresh schedule
 
-Data point usage is cached (not real-time) every 24 hours around 2 am EST. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+Data point usage is cached (not real-time) every 24 hours around 2 am ET. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
 
 For more information on the data point dashboard components, see [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
 
