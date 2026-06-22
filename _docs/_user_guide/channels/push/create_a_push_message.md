@@ -12,7 +12,7 @@ tool:
 
 # Create a push message
 
-> Push notifications are wonderful for time-sensitive calls to action, as well as re-engaging users who haven't come into the app in a while. Successful push campaigns drive the user directly to content and demonstrate the value of your app. To see examples of push notifications, check out our [case studies](https://www.braze.com/customers).
+> Push notifications are wonderful for time-sensitive calls to action, as well as re-engaging users who haven't come into the app in a while. Successful push campaigns drive the user directly to content and demonstrate the value of your app. For examples of push notifications, see [Braze customer case studies](https://www.braze.com/customers).
 
 ## Step 1: Choose where to build your message {#create-new-campaign-push}
 
@@ -180,7 +180,7 @@ For more information, see [Send test messages]({{site.baseurl}}/user_guide/messa
 
 Build the remainder of your campaign; see the following sections for further details on how to best use our tools to build push notifications.
 
-#### Choose delivery schedule or trigger
+### Choose delivery schedule or trigger
 
 Push messages can be delivered based on a scheduled time, an action, or based on an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -188,7 +188,7 @@ For action-based delivery, you can also set the campaign's duration and [Quiet h
 
 This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
-#### Choose users to target
+### Choose users to target
 
 Next, you must [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters to narrow your audience. You automatically receive a preview of what that approximate segment population looks like. Detailed audience statistics for the channels targeted by your campaign are available in the footer. To see what percentage of your user base is being targeted and the Lifetime Value for this segment, select **Show Additional Stats**.
 
@@ -208,7 +208,7 @@ You can also choose to only send your campaign to users who have a specific [sub
 
 Optionally, you can also limit delivery to a specified number of users within the segment, or allow users to receive the same message twice upon a recurrence of the campaign.
 
-##### Multichannel campaigns with email and push
+#### Multichannel campaigns with email and push
 
 For multichannel campaigns targeting both email and push channels, you may want to limit your campaign so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in statuses:
 
@@ -222,7 +222,7 @@ To do so, under **Audience Summary**, select to send this campaign to "opted-in 
 With this configuration, don't include any filters in the **Target Audiences** step that limit the audience to a single channel (for example, `Foreground Push Enabled = True` or `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Choose conversion events
+### Choose conversion events
 
 Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You have the option of allowing up to a 30-day window during which a conversion will be counted if the user takes the specified action.
 
@@ -230,7 +230,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For details on how to build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) step of our Canvas documentation.
 
 {% endtab %}
 {% endtabs %}
@@ -239,7 +239,7 @@ If you haven't done so already, complete the remaining sections of your Canvas c
 
 After you've finished building the last of your campaign or Canvas, review its details. For campaigns, the final page gives you a summary of the campaign you designed. Confirm all the relevant details, make sure you've tested your message, then send it and watch the data roll in!
 
-Next, check out [Push reporting]({{site.baseurl}}/user_guide/channels/push/reporting/) to learn how you can access the results of your push campaign. For push notifications, you'll be able to view statistics for the number of messages sent, delivered, bounced, opened, and directly opened.
+Next, see [Push reporting]({{site.baseurl}}/user_guide/channels/push/reporting/) to learn how you can access the results of your push campaign. For push notifications, you'll be able to view statistics for the number of messages sent, delivered, bounced, opened, and directly opened.
 
 ### Troubleshooting
 
