@@ -159,7 +159,7 @@ Out-of-scope questions get a direct answer, a suggested alternative where possib
 
 ## Data privacy and security
 
-Operator Analyze follows the same privacy and security model as BrazeAI Operator<sup>TM</sup>. For more information, see [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security).
+Operator Analyze follows the same privacy and security model as BrazeAI Operator<sup>TM</sup>. For more information, see [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
 
 ## Next steps
 
