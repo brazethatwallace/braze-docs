@@ -25,7 +25,7 @@ description: "This reference article covers using nested custom attributes as a 
 - Not all Braze Partners support nested custom attributes. Refer to the [Partner documentation]({{site.baseurl}}/partners/home) to confirm if specific partner integrations support this feature.
 - Nested custom attributes cannot be used as a filter when making a Connected Audience API call.
 - By default, the **Nested Custom Attributes** segment filter includes object-type custom attributes, array-of-object attributes, and array-type custom attributes. When you select an attribute, the property schema selector includes array paths (using `[]` notation) for nested array fields. To hide top-level array custom attributes from that filter, contact [Braze Support]({{site.baseurl}}/braze_support).
-- When previewing messages in the dashboard using **Preview as a Custom User**, mock data can only be entered as a string or array of strings — nested objects are not supported. To preview a message that references nested custom attributes, select an existing user who already has the nested attribute on their profile. For nested custom event properties, you need to launch a live campaign targeted to a test user to verify rendering.
+- When previewing messages in the dashboard using **Preview as a Custom User**, you can enter mock data only as a string or array of strings — nested objects are not supported. To preview a message that references nested custom attributes, select an existing user who already has the nested attribute on their profile. For nested custom event properties, you must launch a live campaign targeted to a test user to verify rendering.
 
 ## API example
 
