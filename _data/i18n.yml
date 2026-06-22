@@ -39,6 +39,7 @@ en:
     "android push": Android Push
     "in-app message": In-App Message
     "content cards": Content Cards
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -256,6 +257,7 @@ fr:
     "android push": Push Android
     "in-app message": Message in-app
     "content cards": Content Cards
+    banners: Bannières
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -333,6 +335,7 @@ ja:
     "android push": Androidプッシュ
     "in-app message": アプリ内メッセージ
     "content cards": コンテンツカード
+    banners: バナー
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -536,6 +539,7 @@ ko:
     "android push": Android 푸시
     "in-app message": 인앱 메시지
     "content cards": 콘텐츠 카드
+    banners: 배너
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -734,6 +738,7 @@ pt-br:
     "android push": Push Android
     "in-app message": Mensagem no app
     "content cards": Content Cards
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -811,6 +816,7 @@ es:
     "android push": Push Android
     "in-app message": Mensaje in-app
     "content cards": Tarjetas de contenido
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -888,6 +894,7 @@ de:
     "android push": Android-Push
     "in-app message": In-App-Nachricht
     "content cards": Content Cards
+    banners: Banner
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
