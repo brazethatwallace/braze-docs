@@ -147,7 +147,7 @@ If your HTML references REST data returned by Connected Content, that data is av
 
 ### Why is there a delay before my in-app message displays?
 
-Standard in-app messages display as soon as the cached payload is ready after the trigger event.
+Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
 
 [Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
 
@@ -167,7 +167,7 @@ When **Background Image** is enabled on one page of a multi-page in-app message,
 
 ### How do I test web in-app messages?
 
-Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. The same push-based test path applies on any platform where push is not configured with Braze, though missing push is most often encountered on web because many mobile integrations already have push enabled. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
 
 ## Why is the close button hidden on full-screen HTML in-app messages on Android?
 

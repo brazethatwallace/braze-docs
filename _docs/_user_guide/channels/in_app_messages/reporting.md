@@ -34,7 +34,7 @@ For in-app messages, this page defines unique impressions using a calendar-day b
 {: .reset-td-br-1 .reset-td-br-2 aria-label="In-app message metrics" }
 
 {% alert note %}
-In A/B tests, control group *Unique Impressions* can exceed variant impressions when variant messages require render time (for example, large images or templated Connected Content). Users who trigger the message but leave before the variant finishes rendering may not log a variant impression, while the control group logs an impression without rendering a message.
+In A/B tests, control group *Unique Impressions* can exceed variant *Unique Impressions*, and control *Total Impressions* can exceed variant *Total Impressions*, when variant messages require render time (for example, large images or templated Connected Content). Users who trigger the message but leave before the variant finishes rendering may not log variant impressions, while the control group logs impressions without rendering a message.
 {% endalert %}
 
 ## How do conversions increment with re-eligibility?
