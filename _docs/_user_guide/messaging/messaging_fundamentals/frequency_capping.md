@@ -193,9 +193,9 @@ Each line of frequency caps is connected using the `AND` operator, and you can a
 
 ![Frequency capping section with lists of campaigns and Canvases that rules will and will not apply to.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"} 
 
-#### Behavior when users are frequency capped on a Canvas step
+#### Behavior when users are frequency capped or a message is aborted on a Canvas step
 
-Global frequency capping alone doesn't exit users from a Canvas. On [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), users still advance when a message isn't sent because of global frequency capping, in line with [how users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) through the step.
+Global frequency capping alone doesn't exit users from a Canvas. On [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), users still advance when a message isn't sent because of global frequency capping, in line with [how users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) through the step. The same applies when a message is aborted (for example, by a Liquid abort condition): the user continues through the Canvas as if the message had been sent.
 
 This is separate from **Delivery validations** on a Message step. If a user doesn't meet your delivery validation criteria at send time, they can exit the Canvas at that step.
 
@@ -362,11 +362,3 @@ Email bounce and deferral messages use many different codes and provider-specifi
 If messages are temporarily deferred, sending less may help in the short term. Use a [delivery speed rate limit](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign**, or both.
 
 For a long-term solution, work with a deliverability expert to review your bounce and deferral data.
-
-<!-- sf-kb-phase2-batch -->
-
-## Salesforce Knowledge updates
-
-### Would User Exit Canvas If Message is Aborted?
-
-when a Canvas message is aborted, the user continues through the Canvas flow as if the message had been sent.
