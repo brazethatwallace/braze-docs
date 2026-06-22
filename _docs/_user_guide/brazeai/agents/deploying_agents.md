@@ -47,7 +47,7 @@ To add an agent to your Canvas:
 1. Drag and drop the **Agent** component from the sidebar, or select the <i class="fas fa-plus-circle"></i> plus button at the bottom of a step and select **Agent**.
 2. Select the agent that processes data in this step.
 3. Define the output variable name. The output data type is set in the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/).
-4. (Optional) Add additional context values for the agent to reference when it runs.
+4. (Optional) Add additional context values for the agent to reference when it runs. This can include extra Liquid variables or Canvas context that you did not already bind in the agent setup—for example, values you only want to pass at send time from this step.
 5. Test and preview the agent output in the step preview.
 
 For output data types, Liquid templating, and screenshots, see [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
@@ -70,16 +70,19 @@ After the agent runs, use the output variable in your Canvas:
 
 - **Decisioning:** Route users down different Canvas paths based on the agent's response. Use [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) with numeric, boolean, or structured outputs.
 - **Personalization:** Insert the agent's response directly into a Message step using Liquid.
-- **Processing user data:** Analyze and standardize user data, then store it on the user profile or send it using a webhook.
+- **Processing user data:** Analyze and standardize user data, then store it on the user profile (for example, with a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step) or send it using a webhook.
 
 For examples, see [How it works]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#how-it-works) in Agent step.
 
 ### Error handling and fallback behavior {#fallback-behavior}
 
-- If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze retries the request up to 10 times using exponential backoff. After retries are exhausted, users proceed to the next Canvas step.
-- For other failures (such as a timeout or invalid API key), the output variable is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console. If an agent reaches its daily invocation limit, the output variable is also set to `null`.
+The following applies to **Canvas step agents** in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-When an agent has fallback values configured, Braze applies them at runtime when a non-retryable error occurs. For Canvas agents, Braze renders the fallback with Liquid per user and stores the result in the Agent step output variable so users still receive output. Without fallback values, failed invocations set the output variable to `null`. You can still use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in downstream Message steps to handle null outputs.
+- If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed; users then proceed to the next Canvas step.
+- For other failures (such as a timeout or invalid API key), the output variable is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console.
+- If an agent reaches its daily invocation limit, Braze also applies configured fallback values when present; otherwise the output variable is set to `null`.
+
+When fallback values are configured, Braze applies them for non-retryable errors and for daily-limit failures. Braze renders the fallback with Liquid per user and stores the result in the Agent step output variable. Without fallback values, those failures set the output variable to `null`. If you prefer to configure step-specific defaults in Message steps instead of Agent Console fallbacks, you can still use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) downstream. To do that, leave the fallbacks blank in the **Output** section of Agent setup so Liquid defaults can apply when the agent returns null.
 
 - Responses are cached for identical inputs and may be reused for repeated identical invocations within a few minutes. Cached responses still count toward total and daily invocations.
 - Agent steps may take time to process a large batch of users. Braze queues invocations according to [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), so users may remain pending during high-volume sends.
@@ -94,7 +97,7 @@ After you create a Catalog Agent, apply it to a catalog field to automatically g
 
 After launching, the agent runs and evaluates each row, taking the selected columns into its context to produce an output. Agents run on all new rows added after you deploy the agent. If you selected **Recalculate when catalog rows update**, all values for this field update if existing source fields change.
 
-When you select input columns for a catalog agent, the agent only runs on rows where every selected column has a value. If a required input column is blank or missing—for example, a `gender` field that has not been filled in—the agent skips that row. Running on rows without the required context wastes tokens and can produce low-quality output.
+When you configure input columns for a catalog agent, enable the in-product control that marks which selected columns are **required to run** before the agent invokes (labels may vary slightly by workspace). With that control enabled, choose the subset of columns that must contain values—selected columns start as required by default, but you can remove columns that are allowed to be empty without blocking the agent. The agent skips a row only when a column you left as required is blank or missing—for example, a `gender` field that has not been filled in. Running without the required context wastes tokens and can produce low-quality output.
 
 Catalog agents also respect dependencies between columns. If column D is generated from columns B and C, the agent does not run on column D for a row until B and C contain values for that row.
 
@@ -122,15 +125,15 @@ To add an agent to your catalog field:
 
 ### Catalog agent best practices {#catalog-agent-best-practices}
 
-Plan which columns the agent needs before you apply it to a catalog field. Select only the columns that contain the data your agent requires—the agent incorporates all selected fields as input but skips any row where one or more of those fields is blank.
+Plan which columns the agent needs before you apply it to a catalog field. After you enable required-input controls for the field, select the columns that contain the data your agent should read, then clear any column that may stay empty without blocking a run. The agent skips a row only when a column you left marked as required is blank.
 
-Do not select input columns you expect to stay empty for some rows unless you want the agent to skip those rows. Skipping incomplete rows avoids incorrect token use and keeps output quality high.
+Do not leave a column marked required if you expect it to stay empty for some rows and still want the agent to run—remove it from the required set instead. Skipping incomplete rows avoids incorrect token use and keeps output quality high.
 
 | Scenario | What happens |
 | --- | --- |
-| Prepopulated rows with placeholders | If you add catalog rows with only an ID and a fund name, then fill in other columns later, the agent skips those rows until the required input columns have values. |
+| Prepopulated rows with placeholders | If you add catalog rows with only an ID and a fund name, then fill in other columns later, the agent skips those rows until required input columns have values. |
 | Agent applied after rows exist | When you apply an agent to a field on a catalog that already has rows, the agent evaluates every row but runs only where required input columns are populated. |
-| Partially complete catalog | For example, a catalog with 100 rows where `leader` is filled for 2026 entries but other rows contain only an ID and fund name with blank fields elsewhere. The agent runs on rows with a `leader` value and skips rows without it. |
+| Partially complete catalog | For example, a catalog with 100 rows where `leader` is filled for 2026 entries but other rows contain only an ID and fund name with blank fields elsewhere. The agent runs on rows with a `leader` value and skips rows without it when `leader` remains required. |
 | Dependent columns | If column 3 depends on columns 1 and 2, the agent does not write to column 3 until columns 1 and 2 have values for that row. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog agent best practices" }
 
@@ -166,9 +169,8 @@ You can also manually override the agent-generated cell by selecting **Edit Item
 
 ### Error handling
 
-- Failed catalog invocations that are not rate-limited do not retry.
-- On [rate limit errors]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) from the LLM provider, Braze reschedules the invocation up to 10 times before the run fails.
-- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in Agent Console. When fallback values are configured, Braze writes the fallback to the catalog field instead.
+- Failed catalog invocations do not retry, including when the LLM provider returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors).
+- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update. Catalog agents do not support configuring fallback values in Agent Console.
 - You can review the agent's logs for details on failed runs.
 - Catalog agents are limited to processing input values up to 25 KB per row.
 

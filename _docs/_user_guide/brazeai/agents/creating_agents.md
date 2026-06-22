@@ -98,22 +98,24 @@ When you use an [advanced output schema]({{site.baseurl}}/user_guide/brazeai/age
 
 #### Configure fallback values {#configure-fallback-values}
 
-In the **Output** section, you can define fallback values that Braze uses when an agent invocation fails—for example, when the LLM times out or returns an invalid API key error. Fallback values work like personalization defaults. You might set a static subject line or short message that still gives users useful output when the agent cannot run.
+Fallback values are available for **Canvas step agents** only. In the **Output** section for a Canvas agent, you can define values that Braze uses when an agent invocation fails—for example, when the LLM times out or returns an invalid API key error. Fallback values work like personalization defaults. You might set a static subject line or short message that still gives users useful output when the agent cannot run.
+
+**Catalog agents** do not support configuring fallback values in Agent Console.
 
 ![Agent Console Output configuration showing the Fallback output field for a Number schema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
-Fallback values support [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) templating for Canvas agents, so you can reference user attributes or context variables in the fallback text. Liquid is not available for catalog agent fallbacks.
+For Canvas agents, fallback values support [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) templating so you can reference user attributes or context variables in the fallback text.
 
-The fallback fields adapt to your agent's output format:
+The fallback fields adapt to your Canvas agent's output format:
 
 | Output format | Fallback configuration |
 | --- | --- |
-| String, number, or boolean | Enter a single fallback value (Liquid supported for Canvas agents). |
+| String, number, or boolean | Enter a single fallback value (Liquid supported). |
 | Fields (advanced schema) | Enter a fallback value for each field defined in the agent's output. |
 | JSON schema (advanced schema) | Braze reads your JSON schema and generates an input field for each property so you can define a fallback value per key. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure fallback values" }
 
-When a Canvas agent with fallback values runs in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/), Braze renders the fallback per user and stores it in the output variable instead of `null`. For catalog agents, Braze writes the fallback value to the catalog field. If you do not configure fallback values, failed invocations leave the output unset (`null` in Canvas or unchanged in catalogs).
+When a Canvas agent with fallback values runs in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/), Braze renders the fallback per user and stores it in the output variable instead of `null`. If you do not configure fallback values, failed invocations leave the Canvas output unset (`null`).
 
 For runtime behavior, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
 
@@ -138,8 +140,6 @@ Review the output with a critical eye. Consider the following questions:
 - Are the calculated values accurate?
 
 If something feels off, update the agent’s configuration and test again. Run a few different inputs to see how the agent adapts across scenarios, especially edge cases like no data or invalid responses.
-
-Before you launch, target high-value use cases where agents can drive the biggest return on investment (ROI). Choose responsive audiences—a smaller group with strong signals often outperforms a large audience with low opportunity. For deployment guidance, see [Best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#best-practices).
 
 {% alert tip %}
 Avoid telling the agent exactly what you do not want it to do. LLMs may still generate that content if you mention it in the instructions.

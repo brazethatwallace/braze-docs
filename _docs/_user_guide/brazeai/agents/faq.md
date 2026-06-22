@@ -42,7 +42,7 @@ Consider using [Operator]({{site.baseurl}}/user_guide/brazeai/operator) to troub
 
 ### Why did my catalog agent skip some rows?
 
-Catalog agents only run on rows where every input column you selected has a value. If a required column is blank or missing—for example, a `gender` field that has not been filled in—the agent skips that row instead of invoking the LLM. This avoids wasted tokens on incomplete data.
+Catalog agents skip a row when a column you marked **required to run** is blank or missing—for example, a `gender` field that has not been filled in. After you select input columns, enable the required-input control for the catalog field and choose which columns must contain values before the agent runs; selected columns start as required by default, but you can remove columns that are allowed to be empty without blocking the invocation. This avoids wasted tokens on incomplete data.
 
 The agent also respects column dependencies. If an output column depends on other columns (for example, column D requires values in columns B and C), the agent does not run until those upstream columns are populated for that row.
 

@@ -82,9 +82,9 @@ When many users enter an Agent step at once, Braze queues invocations according 
 
 ### Rate limit errors
 
-If the LLM provider returns a rate limit error, Braze retries the request using exponential backoff. This retry behavior applies to Canvas Agent steps. Catalog agents reschedule rate-limited invocations up to 10 times before the run fails.
+If the LLM provider returns a rate limit error during a **Canvas Agent step**, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed. **Catalog agents** do not retry rate-limited invocations.
 
-If all retries fail, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Every retry is visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
+When Canvas retries are exhausted, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Retries are visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
 
 ![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -160,11 +160,11 @@ We recommend using advanced schemas when you want the agent to return a data str
 
 ### Fallback output
 
-In the **Output** section of Agent Console, you can define fallback values that Braze uses when an invocation fails.
+Fallback values are available for **Canvas step agents** only. In the **Output** section of Agent Console for a Canvas agent, you can define values that Braze uses when an invocation fails.
 
-For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value.
+For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas agents support Liquid in fallback values.
 
-Canvas agents support Liquid in fallback values; catalog agents do not. For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values). For runtime behavior in Canvas and catalogs, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values). For runtime behavior in Canvas, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
 
 For example, you may use an output format within an agent that is intended to create a sample travel itinerary for a user based on a form they submitted. The output format allows you to define that every agent response should come back with values for `tripStartDate`, `tripEndDate`, and `destination` values. Each of these values can be extracted from context variables and placed in a Message step for personalization using Liquid.
 
@@ -214,7 +214,7 @@ Choose specific catalogs for an agent to reference and to give your agent the co
 
 ![The "restaurants" catalog and "Loyalty_Program" column selected for the agent to search.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-When you deploy a catalog agent to a catalog field, the agent only runs on rows where the required input columns you selected have values. If a required column is blank or missing—for example, a `gender` field that has not been filled in yet—the agent skips that row instead of invoking the LLM. This prevents wasted tokens on incomplete data.
+When you deploy a catalog agent to a catalog field, enable the required-input control and choose which selected columns are **required to run** before the agent invokes. The agent skips a row only when one of those required columns is blank or missing—for example, a `gender` field that has not been filled in yet. Selected columns start as required by default, but you can remove columns that may be empty without blocking the run. This prevents wasted tokens on incomplete data.
 
 Catalog agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
 
