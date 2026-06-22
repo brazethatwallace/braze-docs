@@ -62,7 +62,7 @@ Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_
 1. Find the user through **Search Users**. 
 2. Under **Engagement**, select **Unsubscribed**, **Subscribed**, or **Opted In** to change the user's subscription status. 
 
-The user profile also displays a timestamp for when the user's subscription was last changed. A timestamp is recorded when the state is **Opted-in** or **Unsubscribed**, but not when the state is **Subscribed** — for example, a newly created profile that has never explicitly opted in or out has no subscription timestamp.
+If available, the user profile also displays a timestamp for when the user's subscription was last changed.
 
 #### Preference center
 
@@ -79,19 +79,7 @@ Use any of the following methods to check a user's email subscription state:
 
 When a user updates their email address, their subscription state is set to subscribed. If the updated email address already exists elsewhere in a Braze workspace, the user inherits the subscription state from that existing user unless **Resubscribe users when they update their email setting** is turned on in **Sending Configuration**.
 
-To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source. The following sources can trigger an email subscription state change:
-
-| Source | Description |
-| ------ | ----------- |
-| SDK | User attribute update sent through a Braze SDK |
-| REST API | User attribute update sent through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint |
-| Dashboard | Subscription state changed manually on the user profile page |
-| CSV import | Subscription state set during a user CSV import |
-| Preference center | User updated their preference from a Braze-hosted preference center |
-| Email unsubscribe link | User clicked an unsubscribe link in an email |
-| List-unsubscribe | User unsubscribed through the email client's native list-unsubscribe header |
-| Canvas user update step | Subscription state updated by a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) in a Canvas |
-{: .reset-td-br-1 .reset-td-br-2 }
+To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source (API or SDK).
 
 When a user's global email subscription state changes, Braze propagates that state to other profiles that share the same email address, up to 100 profiles per change. Braze does not guarantee propagation when more than 100 profiles share the same email address. If users who share an email show different subscription states, contact Braze Support.
 
