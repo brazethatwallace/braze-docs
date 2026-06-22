@@ -61,7 +61,7 @@
 				border: 1px solid transparent;
 
 				> a {
-					color: $black-shark;
+					color: $text-tertiary;
 					margin-right: 2px;
 					line-height: 25px;
 					border: 1px solid transparent;
@@ -70,7 +70,7 @@
 					border-bottom-color: transparent;
 					text-transform: uppercase;
 					&:hover {
-						color: $braze-purple;
+						color: $text-default;
 						background-color: $white;
 					}
 				}
@@ -79,7 +79,7 @@
 		ul.ab-nav-tabs {
 			> li {
 				&.active {
-					color: $braze-purple;
+					color: $text-default;
 					background-color: $white;
 					border: 1px solid $grey-ghost;
 					border-radius: 4px 4px 0 0;
@@ -88,11 +88,11 @@
 					border-bottom-color: transparent;
 					cursor: default;
 					a {
-						color: $braze-purple;
+						color: $text-default;
 						border-bottom-width: 2px;
 						border-bottom-color: transparent;
 						&:hover {
-							color: $braze-purple;
+							color: $text-default;
 							background-color: $white;
 						}
 					}
@@ -102,7 +102,7 @@
 		ul.ab-sub_nav-sub_tabs {
 			> li {
 				&.sub_active {
-					color: $braze-purple;
+					color: $text-default;
 					background-color: $white;
 					border: 1px solid $grey-ghost;
 					border-radius: 4px 4px 0 0;
@@ -111,11 +111,11 @@
 					border-bottom-color: transparent;
 					cursor: default;
 					a {
-						color: $braze-purple;
+						color: $text-default;
 						border-bottom-width: 2px;
 						border-bottom-color: transparent;
 						&:hover {
-							color: $braze-purple;
+							color: $text-default;
 							background-color: $white;
 						}
 					}
@@ -206,14 +206,14 @@
         margin-bottom: 4px;
         margin-right: 10px;
         > a {
-          color: $expressive-neutral-800;
+          color: $text-tertiary;
           font-weight: bold;
           margin-right: 2px;
           line-height: 25px;
           text-transform: uppercase;
           border-color: $expressive-neutral-500 !important;
           &:hover {
-            color: $expressive-neutral-800;
+            color: $text-default;
             background-color: rgba($braze-purple, 0.08);
           }
         }
