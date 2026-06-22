@@ -43,6 +43,8 @@ Pares de chave-valor podem ser adicionados a notificações por push para Androi
 
 No criador de mensagens, selecione a guia **Settings**, selecione **Add New Pair** e especifique seus pares de chave-valor.
 
+Quando você adiciona pares de chave-valor no criador de mensagens, os valores são enviados como strings. Para push no iOS, as chaves reservadas de alerta do serviço de Notificações por Push da Apple (APNs) que você adiciona por meio de **Alert Options** (como `loc-args` para argumentos de localização) são formatadas com os tipos JSON corretos na carga útil. Para chaves personalizadas, seu app recebe valores de string, a menos que você os analise na sua integração.
+
 ### iOS
 
 O serviço de Notificações por Push da Apple (APNs) suporta a definição de preferências de alerta e o envio de dados personalizados usando pares de chave-valor. O APNs utiliza a biblioteca reservada da Apple `aps`, que inclui chaves e valores predeterminados que governam as propriedades de alerta.

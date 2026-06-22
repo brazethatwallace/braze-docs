@@ -182,6 +182,7 @@
            background-color: $white;
          }
          &:focus-visible {
+           z-index: 1;
            @include focus-ring();
          }
        }
@@ -205,30 +206,34 @@
         margin-bottom: 4px;
         margin-right: 10px;
         > a {
-          color: $black-shark;
+          color: $expressive-neutral-800;
+          font-weight: bold;
           margin-right: 2px;
           line-height: 25px;
           text-transform: uppercase;
+          border-color: $expressive-neutral-500 !important;
           &:hover {
-            color: $braze-purple;
-            background-color: $white;
+            color: $expressive-neutral-800;
+            background-color: rgba($braze-purple, 0.08);
           }
         }
       }
 
       > li {
         &.active {
-          color: $braze-purple;
-          background-color: $white ;
+          background-color: $braze-purple-dark;
           border-radius: 5px;
-          border-color: $braze-purple;
+          border-color: $braze-purple-dark !important;
           cursor: default;
           a {
-            color: $braze-purple;
+            color: $white;
+            font-weight: bold;
+            background-color: $braze-purple-dark;
+            border-color: $braze-purple-dark !important;
 
             &:hover {
-              color: $braze-purple;
-              background-color: $white;
+              color: $white;
+              background-color: $braze-purple-dark;
             }
           }
         }
@@ -237,17 +242,19 @@
 		ul.sdk-ab-sub_nav-sub_tabs {
 			> li {
 				&.sub_active {
-					color: $braze-purple;
-          background-color: $white ;
+          background-color: $braze-purple-dark;
           border-radius: 5px;
-          border-color: $braze-purple;
+          border-color: $braze-purple-dark !important;
           cursor: default;
           a {
-            color: $braze-purple;
+            color: $white;
+            font-weight: bold;
+            background-color: $braze-purple-dark;
+            border-color: $braze-purple-dark !important;
 
             &:hover {
-              color: $braze-purple;
-              background-color: $white;
+              color: $white;
+              background-color: $braze-purple-dark;
             }
           }
 				}

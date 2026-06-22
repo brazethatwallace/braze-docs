@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # 多変量テストとABテストの作成 {#creating-tests}
 
-> 単一チャネルかつ単一デバイスをターゲットとする任意のCampaignに対して、多変量テストまたはABテストを作成できます。たとえば、プッシュCampaignで多変量テストまたはABテストを使用する場合、iOSデバイスのみ、またはAndroidデバイスのみをターゲットにできます。同じCampaign内で両方のデバイスタイプをターゲットにすることはできません。
+> 単一チャネルをターゲットとする任意のCampaignに対して、多変量テストまたはABテストを作成できます。たとえば、プッシュCampaignで多変量テストまたはABテストを使用する場合、同じCampaign内でiOSデバイスとAndroidデバイスの両方をターゲットにできます。
 
 ![「キャンペーンを作成」ボタンを選択した際のドロップダウンで、マルチチャネルまたは単一チャネルを選択します。]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 

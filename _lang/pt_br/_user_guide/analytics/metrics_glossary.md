@@ -1049,6 +1049,22 @@ Content Cards
 
 {% api %}
 
+## Unique Daily Impressions {#unique-daily-impressions}
+
+{% apitags %}
+Content Cards, Banners
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %}
+
+Esse número é recebido da Braze e é baseado no `user_id`. As impressões diárias únicas são contadas no nível da campanha ou etapa do Canvas.
+
+<span class="calculation-line">Cálculo: Contagem</span>
+
+{% endapi %}
+
+{% api %}
+
 ## Unique Impressions {#unique-impressions}
 
 {% apitags %}
@@ -1100,12 +1116,12 @@ Email, LINE
 ## Unique Recipients {#unique-recipients}
 
 {% apitags %}
-All
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Como um visualizador pode ser um destinatário único a cada dia, você deve esperar que esse número seja maior do que <i>Unique Impressions</i>. Para Content Cards, cada Content Card só pode ser recebido uma vez, então visualizar o mesmo Content Card uma segunda vez, independentemente do dia, não incrementará essa contagem.<br><br>Esse número é recebido da Braze e é baseado no `user_id`. Os destinatários únicos são contados no nível da campanha ou etapa do Canvas, não no nível do <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envio</a>.
+Como um visualizador pode ser um destinatário único a cada dia, você deve esperar que esse número seja maior do que <i>Unique Impressions</i>. Esse número é recebido da Braze e é baseado no `user_id`. Os destinatários únicos são contados no nível da campanha ou etapa do Canvas, não no nível do <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envio</a>.
 
 <span class="calculation-line">Cálculo: Contagem</span>
 

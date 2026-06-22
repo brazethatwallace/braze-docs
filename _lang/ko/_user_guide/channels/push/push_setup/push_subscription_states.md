@@ -53,7 +53,7 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 | 사용자가 기기 설정에서 푸시를 활성화하고 세션을 기록함 | `true` | `true` | 포그라운드 | `Opted-In`** |
 | 사용자가 기기 설정에서 푸시를 비활성화하고 세션을 기록함 | `false` | `false` | 백그라운드 | 업데이트되지 않음 |
 | 사용자가 앱을 삭제함 | 업데이트되지 않음 | 푸시 토큰 만료 시 업데이트됨 | 푸시 토큰 만료 시 업데이트됨 | 업데이트되지 않음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS 사용자 동작 및 푸시 상태" }
 
 <sup>* 앱이 임시 푸시를 사용하지 않는 경우, 사용자가 푸시 알림을 허용할 때까지 `Foreground Push Enabled`는 `false`입니다. 앱이 임시 푸시를 사용하는 경우, 첫 번째 세션 시작 시 `Foreground Push Enabled`는 `true`입니다. 자세한 내용은 [임시 승인 및 조용한 푸시](#provisional-push)를 참조하세요.</sup>
 
@@ -72,7 +72,7 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 | iOS | ![iOS 기본 푸시 프롬프트로 "My App would like to send you notifications"라는 메시지와 하단에 "Don't Allow"와 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | [임시 푸시](#provisional-push) 권한을 요청할 때는 적용되지 않습니다. |
 | Android | ![Android 푸시 메시지로 "Allow Kitchenerie to send you notifications?"라는 메시지와 하단에 "Allow"와 "Don't allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | 이 푸시 권한은 Android 13에서 도입되었습니다. Android 13 이전에는 푸시를 보내는 데 권한이 필요하지 않았습니다. |
 | 웹 | ![웹 브라우저의 기본 푸시 프롬프트로 "Braze.com wants to show notification"이라는 메시지와 하단에 "Block"과 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="푸시 권한" }
 
 ### Android
 
@@ -180,7 +180,7 @@ Campaign 분석은 위의 세부 사항에 맞춰 푸시 통계를 인라인으�
 
 사용자가 브라우저에서 알림을 비활성화하면, 해당 사용자에게 보내는 다음 푸시 알림이 반송되며, Braze는 사용자의 푸시 토큰을 그에 맞게 업데이트합니다. 이는 푸시 활성화 필터(`Background or Foreground Push Enabled`, `Foreground Push Enabled` 및 `Foreground Push Enabled for App`)의 적격성을 관리하는 데 사용됩니다. 사용자 프로필에 설정된 구독 상태는 사용자 수준 설정이며 푸시가 반송될 때 변경되지 않습니다.
 
-### 410 웹 푸시 토큰 오류 {#410-web-push-token-errors}
+### 410 웹 푸시 토큰 오류 {#410-web-push-token-errors} {#410-web-push-token-errors}
 
 `410: Gone` 오류가 발생하면, 사용자가 OS 설정의 브라우저에서 웹 푸시 알림을 비활성화했거나, 동일한 기기에서 다른 사용자로 로그인하고 있거나, 사용자가 한동안 웹사이트를 방문하지 않은 경우에 발생할 수 있습니다.
 

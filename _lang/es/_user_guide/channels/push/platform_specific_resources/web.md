@@ -70,3 +70,13 @@ Para más información sobre los estándares del protocolo push y la compatibili
 - [Safari (móvil)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## 410 (Gone) y puntos de conexión de push web no válidos {#410-gone-and-invalid-web-push-endpoints}
+
+Los navegadores y servicios push pueden devolver **410 Gone** (u otros errores similares de "punto de conexión no válido") cuando una suscripción de push web ya no es aceptada. Las causas comunes incluyen:
+
+- El usuario desactivó las notificaciones para tu sitio en la configuración del navegador o del sistema operativo.
+- Un perfil de usuario diferente se suscribió en el mismo perfil de navegador, por lo que el punto de conexión se rotó al nuevo suscriptor.
+- La suscripción expiró después de un largo período sin interacción; después de que el usuario opte por recibirlas de nuevo, se crea una nueva suscripción en la siguiente sesión.
+
+Después de que el usuario vuelva a activar las notificaciones, activa de nuevo el flujo normal de registro de push web de tu sitio para que Braze almacene el nuevo punto de conexión de suscripción.

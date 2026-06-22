@@ -36,7 +36,7 @@ Pour intégrer Decisioning Studio Go avec Braze, vous allez créer une clé API,
 3. Saisissez un nom pour votre clé API. Par exemple : « DecisioningStudioGoEmail ».
 4. Sélectionnez les autorisations en fonction des catégories suivantes :
     - **Données utilisateur :** sélectionnez `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Messages :** sélectionnez `messages.send`
+    - **Messages :** sélectionnez `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
     - **Campaigns :** sélectionnez toutes les autorisations répertoriées
     - **Canvas :** sélectionnez toutes les autorisations répertoriées
     - **Segments :** sélectionnez toutes les autorisations répertoriées
@@ -72,8 +72,8 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 ### Étape 4 : Créer une campagne déclenchée par API {#step-4-create-an-api-triggered-campaign}
 
 1. Dans le tableau de bord de Braze, accédez à **Messaging** > **Campaigns**.
-2. Sélectionnez **Create campaign**.
-3. Pour le type de campagne, sélectionnez **API campaign**.
+2. Sélectionnez **Create Campaign**.
+3. Pour le type de campagne, sélectionnez **API Campaign**.
 4. Saisissez un nom pour votre campagne. Par exemple : « Decisioning Studio Go Email ».
 
 ![Une campagne API intitulée « Decisioning Studio Go Email ».]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})

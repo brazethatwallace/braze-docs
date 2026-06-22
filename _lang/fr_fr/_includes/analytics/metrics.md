@@ -143,7 +143,7 @@ La <i>valeur vie par utilisateur</i> est le <i>chiffre d'affaires à vie</i> div
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-Le <i>chiffre d'affaires quotidien moyen</i> est la moyenne de la somme des chiffres d'affaires de la campagne et de Canvas pour un jour donné.
+Le <i>chiffre d'affaires quotidien moyen</i> est la moyenne de la somme des chiffres d'affaires des campagnes et de Canvas pour un jour donné.
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
@@ -219,7 +219,7 @@ Le <i>taux d'envoi à l'opérateur</i> est le pourcentage du total des messages 
 {% endif %}
 
 {% if include.metric == "Spam" %}
-Le <i>spam</i> est le nombre total d'e-mails livrés qui ont été marqués comme « spam » par le destinataire. Bien que Braze ne modifie pas l'état de l'abonnement de ces utilisateurs, ceux-ci seront automatiquement exclus des futurs e-mails, à moins que vous n'envoyiez un e-mail transactionnel, qui est configuré pour « envoyer à tous les utilisateurs, y compris ceux qui se désabonnent ».
+Le <i>spam</i> est le nombre total d'e-mails livrés qui ont été marqués comme « spam » par le destinataire. Bien que Braze ne modifie pas l'état de l'abonnement de ces utilisateurs, ceux-ci seront automatiquement exclus des futurs e-mails, à moins que vous n'envoyiez un e-mail transactionnel, qui est configuré pour « envoyer à tous les utilisateurs, y compris ceux qui se sont désabonnés ».
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
@@ -262,6 +262,10 @@ Les <i>fermetures uniques</i> correspondent au nombre de destinataires uniques q
 
 {% if include.metric == "Unique Impressions" %}
 Les <i>impressions uniques</i> correspondent au nombre total d'utilisateurs ayant consulté un message issu d'une campagne donnée. Une impression n'est enregistrée que lorsque le message devient visible sur l'écran d'un utilisateur.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+Les <i>impressions quotidiennes uniques</i> correspondent au nombre d'utilisateurs uniques ayant consulté le message un jour donné. Ce compteur est réinitialisé chaque jour calendaire, de sorte qu'un utilisateur qui consulte le même message sur deux jours différents est comptabilisé deux fois. Cet indicateur correspond à l'indicateur de facturation du même nom.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

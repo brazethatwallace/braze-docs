@@ -16,16 +16,9 @@ You must have administrator permissions to add users to your Braze account.
 
 To add a new user:
 
-1. Go to **Settings** > **Company Users**.
+1. Go to **Settings** > **User Management** > **Company Users**.
 2. Select **+ Add New User**.
 3. Enter their information as prompted, including their email, department, and [user role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role).
-
-{% alert tip %}
-The department listed in a user's profile determines what types of communications they receive from Braze. This is so everyone only receives the communications and alerts that are relevant to how they use Braze.
-{% endalert %}
-
-{:start="4"}
-
 4. For users that aren't administrators, select the company-level and workspace-level [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions) you want this user to have.
 
 ![Workspace-level permissions with a section for custom permissions fields.]({% image_buster /assets/img/add_new_user_3.png %})
@@ -50,7 +43,7 @@ For security reasons, users cannot change the email address associated with thei
 
 Suspending a user puts their account into an inactive state, where the user can no longer log in, but the data associated with their account is preserved. Only administrators can suspend or unsuspend company users. Note that suspended users may still receive notifications from Braze.
 
-To suspend a user, go to **Settings** > **Company Users**, find their username, and select <i class="fa-solid fa-user-lock"></i> **Suspend**.
+To suspend a user, go to **Settings** > **User Management** > **Company Users**, find their username, and select <i class="fa-solid fa-user-lock"></i> **Suspend**.
 
 ![Option to suspend a user.]({% image_buster /assets/img_archive/suspend_user.png %})
 
@@ -60,7 +53,7 @@ Administrators can also suspend a user by selecting their name from the list and
 
 ## Deleting company users
 
-To delete a user, go to **Settings** > **Company Users**, find the user's name, and select <i class="fa fa-trash-can"></i> **Delete user**. 
+To delete a user, go to **Settings** > **User Management** > **Company Users**, find the user's name, and select <i class="fa fa-trash-can"></i> **Delete user**. 
 
 Only administrators can delete company users, and company users cannot delete their own accounts. An administrator cannot delete their own dashboard account; another administrator must delete it for them.
 

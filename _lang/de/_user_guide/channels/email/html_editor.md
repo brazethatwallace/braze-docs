@@ -29,7 +29,7 @@ Verwenden Sie Campaigns für einfache, einzelne Nachrichten. Verwenden Sie Canva
 {% tabs %}
 {% tab Campaign %}
 
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Create Campaign**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
 2. Wählen Sie **Email** oder, für Campaigns, die mehrere Kanäle ansprechen, **Multichannel**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu.
@@ -83,7 +83,6 @@ Braze aktualisiert die Klartext-Version automatisch aus der HTML-Version, bis ei
 Um Bewegung in einer E-Mail mit genauer Vorschau hinzuzufügen, verwenden Sie GIFs anstelle von Elementen, die JavaScript erfordern, da die meisten Postfächer JavaScript nicht unterstützen.
 {% endalert %}
 
-![E-Mail-Varianten-Panel zum Verfassen Ihrer E-Mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze entfernt automatisch HTML-Event-Handler, die als Attribute referenziert werden. Dadurch wird das HTML modifiziert – überprüfen Sie die E-Mail daher erneut, nachdem Sie fertig sind. Erfahren Sie mehr über [HTML-Handler](https://www.w3schools.com/tags/ref_eventattributes.asp).
@@ -128,7 +127,7 @@ Nachdem Sie Ihre E-Mail-Nachricht fertig gestaltet und erstellt haben, fügen Si
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-Eine Vorschau im rechten Panel wird mit den von Ihnen hinzugefügten Sendeinformationen befüllt. Diese Informationen können auch aktualisiert werden, indem Sie zu **Settings** > **Email Preferences** > **Sending Configuration** gehen.
+Eine Vorschau im rechten Panel wird mit den von Ihnen hinzugefügten Sendeinformationen befüllt. Diese Informationen können auch aktualisiert werden, indem Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Sendekonfiguration** gehen.
 
 #### Erweitert {#advanced}
 
@@ -267,7 +266,7 @@ Vor dem Senden markiert der Editor häufige Probleme:
 {% tab Campaign %}
 Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie Details zur Verwendung der Braze-Tools zum Erstellen Ihrer E-Mail-Kampagne.
 
-#### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
 Liefern Sie E-Mails basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -277,7 +276,7 @@ Bei API-getriggerten Campaigns, bei denen die Trigger-Aktion auf **Mit Campaign 
 
 Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) angeben und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln einrichten.
 
-#### Zielnutzer:innen auswählen {#choose-users-to-target}
+### Zielnutzer:innen auswählen {#choose-users-to-target}
 
 Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen. Braze zeigt eine Live-Vorschau der Segment-Population an, einschließlich der Anzahl der per E-Mail erreichbaren Nutzer:innen. Die genaue Segment-Zugehörigkeit wird kurz vor dem Versand berechnet.
 
@@ -291,7 +290,7 @@ Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:in
 Beim Erstellen einer neuen E-Mail-Kampagne ist die Kontrollgruppe standardmäßig auf 20 % eingestellt und kann je nach Bedarf für Ihre Campaign angepasst oder entfernt werden.
 {% endalert %}
 
-##### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
+#### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
 
 Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen die Nachricht erhalten, die ausdrücklich angemeldet sind (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
@@ -299,13 +298,13 @@ Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen,
 - **Nutzer:in B** ist für E-Mail angemeldet, aber nicht Push-aktiviert. Diese Person wird die E-Mail erhalten, erhält aber nicht den Push.
 - **Nutzer:in C** ist für E-Mail angemeldet und Push-aktiviert. Diese Person wird sowohl die E-Mail als auch den Push erhalten.
 
-Wählen Sie dazu unter **Audience Summary** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, die Push-aktiviert sind.
+Wählen Sie dazu unter **Zielgruppen-Zusammenfassung** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, die Push-aktiviert sind.
 
 {% alert important %}
 Fügen Sie bei dieser Konfiguration keine Filter im Schritt **Target Audiences** hinzu, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Konversions-Events wählen {#choose-conversion-events}
+### Konversions-Events wählen {#choose-conversion-events}
 
 Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), nach Erhalt einer Campaign ausführen. Sie können jede der folgenden Aktionen als Konversions-Event festlegen:
 

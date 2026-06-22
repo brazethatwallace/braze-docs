@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 """
-Rename braze-docs PRs for Epic BD-6308 children to ``[BD-####](SF) TICKET_NAME``.
+Rename BD-6308 child PRs to `[BD-####](SF) …`.
 
-Reads each task under parent epic BD-6308, finds the linked GitHub PR (Jira description
-or ``gh pr list`` search), and runs ``gh pr edit --title`` when the title is not already
-in the required format. Works for open and merged PRs.
+Needs `JIRA_USER_EMAIL`, `JIRA_API_TOKEN`, `gh` (braze-inc/braze-docs).
 
-Requires JIRA_USER_EMAIL, JIRA_API_TOKEN, and ``gh`` authenticated for braze-inc/braze-docs.
-
-Usage (repo root):
-  python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py
-  python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py --dry-run
+Usage:
+  python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py [--dry-run]
   python3 scripts/salesforce-analyzer/sf_kb_sync_epic_pr_titles.py --issue BD-6402
 """
 
@@ -209,7 +204,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--repo", default=DEFAULT_REPO)
-    parser.add_argument("--issue", help="Sync one issue key (for example BD-6402)")
+    parser.add_argument("--issue", help="Single Jira key (e.g. BD-6402)")
     args = parser.parse_args()
 
     try:

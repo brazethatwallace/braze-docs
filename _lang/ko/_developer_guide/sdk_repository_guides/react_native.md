@@ -6,13 +6,13 @@ description: "GitHub에서 미러링된 Braze React Native SDK README 참조입�
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-## Braze React Native SDK 소개
+## Braze React Native SDK 소개 {#about-the-braze-react-native-sdk}
 
 Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고객 프로필, 메시징 표면, 분석, 피처 플래그를 지원합니다. 네이티브 [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) 및 [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk)를 JavaScript API로 래핑합니다.
 
 **초기화는 JavaScript 기반입니다:** Android 리소스와 iOS `AppDelegate`에서 네이티브 구성(푸시, 로깅, 델리게이트)을 설정한 다음, JavaScript에서 `Braze.initialize(apiKey, endpoint)`를 호출하여 SDK를 시작합니다. 이를 통해 SDK가 초기화되는 시점과 사용할 자격 증명을 완전히 제어할 수 있습니다. 초기화 후 필요에 따라 다른 SDK 메서드(예: `changeUser`, `logCustomEvent`)를 호출합니다.
 
-### 주요 기능
+### 주요 기능 {#what-you-can-do}
 
 - **사용자 관리**: 사용자 식별, 프로필 필드 설정, 커스텀 속성, 별칭, 구독 그룹
 - **인앱 메시지**: 기본 Braze UI 또는 구독 및 로깅 API를 통한 커스텀 처리
@@ -23,7 +23,7 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 - **분석**: 커스텀 이벤트, 구매, 즉시 플러시
 - **SDK 제어**: SDK 활성화/비활성화, 로컬 데이터 삭제, SDK 인증 서명
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
 - **Braze 계정** (앱 API 키 및 SDK 엔드포인트 포함)
 - **React Native** 개발 환경 ([React Native 환경 설정](https://reactnative.dev/docs/set-up-your-environment))
@@ -33,7 +33,7 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 
 대시보드에서 자격 증명 위치를 확인하려면 [통합 개요](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)를 참조하세요.
 
-## 설치
+## 설치 {#installation}
 
 ``` bash
 npm install @braze/react-native-sdk
@@ -43,7 +43,9 @@ npm install @braze/react-native-sdk
 
 ---
 
-## 빠른 시작
+## 빠른 시작 {#quick-start}
+
+이 섹션에서는 Braze React Native SDK를 초기화하는 데 필요한 최소 설정을 보여줍니다.
 
 1. npm 패키지를 설치합니다(위 참조).
 2. Android 및 iOS에 대한 **네이티브 설정**을 완료합니다(구성, 권한, 필요 시 푸시).
@@ -67,7 +69,7 @@ TypeScript 타이핑은 패키지와 함께 제공됩니다(GitHub의 `src/index
 
 ---
 
-## 네이티브 설정
+## 네이티브 설정 {#native-setup}
 
 > **정보 출처:** 단계별 화면, Gradle/CocoaPods 변경 사항, Android XML 키의 전체 목록은 [Braze React Native 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)에 있습니다. 아래 스니펫은 최소한의 예시입니다.
 
@@ -136,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endalert %}
 ---
 
-## 구성 참조
+## 구성 참조 {#configuration-reference}
 
 React Native에서 **구성은 네이티브**입니다: Android는 `res/values/braze.xml`을 읽고, iOS는 **`BrazeReactInitializer.configure`**를 통해 등록된 클로저를 사용합니다. 둘 다 JavaScript에서 `Braze.initialize(apiKey, endpoint)`가 호출될 때 적용됩니다.
 
@@ -187,9 +189,9 @@ React Native 브리지는 초기화 시 React 전용 **`api.sdkFlavor`** / SDK �
 
 ---
 
-## 핵심 기능
+## 핵심 기능 {#core-features}
 
-### 사용자 관리
+### 사용자 관리 {#user-management}
 
 ``` typescript
 import Braze from "@braze/react-native-sdk";
@@ -203,9 +205,9 @@ Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 
 선택적 **SDK 인증**: `changeUser`의 두 번째 인수로 서명을 전달하거나, 대시보드에서 활성화된 경우 `Braze.setSdkAuthenticationSignature(signature)`를 호출합니다.
 
-### 인앱 메시지
+### 인앱 메시지 {#in-app-messages}
 
-- **기본 Braze UI**를 사용하는 경우 [인앱 메시지 설명서](https://github.com/braze-inc/braze-react-native-sdk/blob/master/docs/developer_guide/in_app_messages?sdktab=react%20native)를 따르세요. 기본 UI만 표시하려면 일반적으로 `subscribeToInAppMessage`를 호출할 **필요가 없습니다**.
+- **기본 Braze UI**를 사용하는 경우 [인앱 메시지 설명서](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native)를 따르세요. 기본 UI만 표시하려면 일반적으로 `subscribeToInAppMessage`를 호출할 **필요가 없습니다**.
 - **커스텀** 처리의 경우 `useBrazeUI: false`로 구독한 다음 필요에 따라 노출/클릭을 기록합니다:
 
 ``` typescript
@@ -229,7 +231,7 @@ Braze.logContentCardClicked(cardId);
 
 `Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, ...)`로 업데이트를 수신합니다.
 
-### 배너
+### 배너 {#banners}
 
 ``` typescript
 import Braze from "@braze/react-native-sdk";
@@ -241,7 +243,7 @@ const banner = await Braze.getBanner("homepage_banner");
 // <Braze.BrazeBannerView placementID="homepage_banner" />
 ```
 
-### 푸시 알림
+### 푸시 알림 {#push-notifications}
 
 ``` typescript
 Braze.requestPushPermission({
@@ -256,7 +258,7 @@ Braze.registerPushToken(token);
 - **`getInitialPushPayload`**: 알림에서 앱이 열릴 때 RN `Linking` 경합 조건을 방지하기 위해 사용합니다. TypeScript 문서 주석 및 샘플 앱에 설명된 대로 네이티브 후크(iOS의 `BrazeReactUtils`, Android의 `BrazeReactUtils.populateInitialPushPayloadFromIntent`)가 필요합니다.
 - **`Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, ...)`**는 공개 타이핑에 따라 **Android 전용**입니다.
 
-### 피처 플래그
+### 피처 플래그 {#feature-flags}
 
 ``` typescript
 const flag = await Braze.getFeatureFlag("new_checkout");
@@ -267,7 +269,7 @@ Braze.refreshFeatureFlags();
 Braze.logFeatureFlagImpression("new_checkout");
 ```
 
-### 분석 및 구매
+### 분석 및 구매 {#analytics-and-purchases}
 
 ``` typescript
 Braze.logCustomEvent("purchase_completed", { sku: "sku-1" });
@@ -277,7 +279,7 @@ Braze.requestImmediateDataFlush();
 
 참고: `logPurchase`는 **가격을 문자열로** 받습니다(타이핑 참조).
 
-### 데이터 관리 및 SDK 상태
+### 데이터 관리 및 SDK 상태 {#data-management-and-sdk-state}
 
 **`changeUser`**는 Braze에 **새로운** 활동을 어떤 사용자 ID에 귀속시킬지만 알려줍니다. 기기에 캐시된 SDK 데이터를 지우지 **않습니다**. 별도의 "로그아웃" API는 없습니다: 기존 로그아웃(이전 사용자의 캐시된 프로필, 메시지, 토큰이 이 설치에서 사라지도록 로컬 Braze 상태를 지우는 것)이 필요한 경우 일반적으로 **`wipeData()`**를 사용합니다. 이는 전체 로컬 초기화입니다.
 
@@ -295,7 +297,7 @@ Braze.enableSDK();
 
 ---
 
-## 이벤트
+## 이벤트 {#events}
 
 `Braze.addListener(event, callback)`로 구독합니다. 호출은 구독 오브젝트를 반환하며, 수신을 중지하려면 **`.remove()`**를 호출합니다.
 
@@ -341,18 +343,19 @@ useEffect(() => {
 
 ---
 
-## 통합 참고 사항
+## 통합 참고 사항 {#integration-notes}
 
 - **Expo**: 가능한 경우 수동 네이티브 연결을 피하기 위해 [Braze Expo 플러그인](https://github.com/braze-inc/braze-expo-plugin)을 사용합니다.
 - **새 아키텍처 / Turbo Modules**: 최신 플러그인 버전에서 지원됩니다. 마이그레이션하는 경우 개발자 가이드 및 샘플 `AppDelegate` / Gradle 설정을 따르세요.
 - **개인정보 (iOS)**: `updateTrackingPropertyAllowList`와 같은 메서드는 개인정보 매니페스트 관련 구성을 지원합니다. [Swift 개인정보 매니페스트](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)를 참조하세요.
-- **Jest**: `react-native` 네이티브 모듈 또는 Braze Turbo 모듈을 모킹합니다(패턴은 이 리포지토리의 `__tests__/jest.setup.js`를 참조하세요).
+## - **Jest**: `react-native` 네이티브 모듈 또는 Braze Turbo 모듈을 모킹합니다(패턴은 이 리포지토리의 `__tests__/jest.setup.js`를 참조하세요). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
 
-## 버전 지원
+## 버전 지원 {#version-support}
 
 {% alert note %}
-이 SDK는 React Native 버전 **0.83.0**으로 테스트되었습니다.
+이 SDK는 React Native 버전 **0.85.3**으로 테스트되었습니다.
 {% endalert %}
+다음 표는 Braze 플러그인 릴리스별 지원되는 React Native 버전을 나열합니다.
 
 | Braze 플러그인 | React Native | 새 아키텍처 |
 |--------------|--------------|------------------|
@@ -369,13 +372,13 @@ useEffect(() => {
 
 ---
 
-## Braze Expo 플러그인
+## Braze Expo 플러그인 {#braze-expo-plugin}
 
 Expo 관리 워크플로의 경우 [Braze Expo 플러그인 리포지토리](https://github.com/braze-inc/braze-expo-plugin)를 참조하세요.
 
 ---
 
-## 샘플 앱
+## 샘플 앱 {#sample-app}
 
 이 리포지토리의 `BrazeProject`는 전체 샘플입니다(사용자 관리, Content Cards, 피처 플래그, 배너 등).
 
@@ -402,7 +405,7 @@ npx react-native run-android
 
 ---
 
-## 디버깅 및 문제 해결
+## 디버깅 및 문제 해결 {#debugging-and-troubleshooting}
 
 개발 중 **네이티브** 구성에서 Braze 로깅을 활성화하여 SDK가 시스템 콘솔(Xcode / Android Logcat)에 기록하도록 합니다. 이를 통해 초기화, 사용자 변경, 이벤트 전달을 확인할 수 있습니다.
 
@@ -413,14 +416,14 @@ npx react-native run-android
 
 ---
 
-## 추가 리소스
+## 추가 리소스 {#additional-resources}
 
 - [Braze 개발자 가이드 — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
 - [푸시 알림 — React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
 - [GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk)
 - [npm 패키지](https://www.npmjs.com/package/@braze/react-native-sdk)
 
-## 문의
+## 문의 {#contact}
 
 질문이 있으시면 [support@braze.com](mailto:support@braze.com)으로 연락해 주세요.
 <!-- END GENERATED README CONTENT -->

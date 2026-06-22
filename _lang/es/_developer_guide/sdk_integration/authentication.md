@@ -53,19 +53,19 @@ Al generar el JWT, se esperan los siguientes campos:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Sí  | El algoritmo admitido es `RS256`. |
 | `typ` | Sí  | El tipo debe ser igual a `JWT`.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual #create-jwt" }
 
 **Carga útil JWT**
 
 | Campo | Obligatorio | Descripción                                                                            |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Sí  | El "asunto" debe ser igual al ID de usuario que proporcionas al SDK de Braze cuando llamas a `changeUser`  |
-| `exp` | Sí | La "caducidad" de cuándo quieres que caduque este token.                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+| `exp` | Sí | La "caducidad" de cuándo quieres que caduque este token, como una marca de tiempo Unix en segundos (por ejemplo, `1893456000` para el 1 de enero de 2030).                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Crear un token web JSON para el usuario actual #create-jwt" }
 
 {% alert tip %}
 Para saber más sobre los tokens web JSON, o para echar un vistazo a las muchas bibliotecas de código abierto que simplifican este proceso de firma, consulta [https://jwt.io](https://jwt.io).
@@ -722,7 +722,7 @@ En la página **Administrar configuración** del dashboard, cada aplicación tie
 | **Deshabilitada** | Braze no verificará el JWT suministrado para un usuario. (Configuración predeterminada) |
 | **Opcional** | Braze verificará las solicitudes de los usuarios registrados, pero no rechazará las solicitudes no válidas. |
 | **Obligatoria** | Braze verificará las solicitudes de los usuarios registrados y rechazará los JWT no válidos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opciones de aplicación" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -736,7 +736,7 @@ Se notificará un JWT no válido tanto en estado **Opcional** como **Obligatoria
 
 Puedes añadir hasta tres claves públicas para cada aplicación: una principal, una secundaria y una terciaria. También puedes añadir la misma clave a más de una aplicación si es necesario. Para añadir una clave pública:
 
-1. Ve al panel de Braze y selecciona **Settings** > **App Settings**.
+1. Ve al panel de Braze y selecciona **Configuración** > **Configuración de la aplicación**.
 2. Elige una aplicación de tu lista de aplicaciones disponibles.
 3. En **SDK Authentication**, selecciona **Add Public Key**.
 4. Introduce una descripción opcional, pega tu clave pública y selecciona **Add Public Key**.
@@ -745,7 +745,7 @@ Puedes añadir hasta tres claves públicas para cada aplicación: una principal,
 
 Para asignar una clave secundaria o terciaria como nueva clave primaria:
 
-1. Ve al panel de Braze y selecciona **Settings** > **App Settings**.
+1. Ve al panel de Braze y selecciona **Configuración** > **Configuración de la aplicación**.
 2. Elige una aplicación de tu lista de aplicaciones disponibles.
 3. En **SDK Authentication**, elige una clave y selecciona **Manage** > **Make Primary Key**.
 
@@ -753,13 +753,13 @@ Para asignar una clave secundaria o terciaria como nueva clave primaria:
 
 Para eliminar una clave primaria, [asigna primero una nueva primaria](#assign-a-new-primary-key) y luego elimina tu clave. Para eliminar una clave no primaria:
 
-1. Ve al panel de Braze y selecciona **Settings** > **App Settings**.
+1. Ve al panel de Braze y selecciona **Configuración** > **Configuración de la aplicación**.
 2. Elige una aplicación de tu lista de aplicaciones disponibles.
 3. En **SDK Authentication**, elige una clave no primaria y selecciona **Manage** > **Delete Public Key**.
 
 ## Análisis {#analytics}
 
-Cada aplicación mostrará un desglose de los errores de autenticación del SDK recopilados mientras esta característica está en estado **Opcional** y **Obligatoria**.
+Cada aplicación mostrará un desglose de los errores de autenticación del SDK recopilados mientras esta característica está en estado **Opcional** u **Obligatoria**.
 
 Los datos están disponibles en tiempo real, y puedes pasar el ratón por encima de los puntos del gráfico para ver un desglose de los errores de una fecha determinada.
 
@@ -779,7 +779,7 @@ Los datos están disponibles en tiempo real, y puedes pasar el ratón por encima
 | 26 | `MISSING_TOKEN` | No se ha proporcionado ningún token en la solicitud. | Asegúrate de que estás pasando un token al llamar a `changeUser(id, token)` y de que tu token no está en blanco. |
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | Ninguna clave pública coincide con el token proporcionado. | La clave privada utilizada en el JWT no coincide con ninguna de las claves públicas configuradas para tu aplicación. Confirma que has añadido las claves públicas a la aplicación correcta de tu espacio de trabajo que coincide con esta clave de API. |
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | No todos los ID de usuario de la carga útil de la solicitud coinciden como se requiere. | Esto es inesperado y puede dar lugar a una carga útil malformada. Abre un ticket de soporte para obtener ayuda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Códigos de error" }
 
 ## Preguntas frecuentes (FAQ) {#faq}
 

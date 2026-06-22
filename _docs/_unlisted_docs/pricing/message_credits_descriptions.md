@@ -44,7 +44,7 @@ Refer to our [email documentation](https://www.braze.com/docs/user_guide/message
 
 ## SMS, MMS, and RCS channel details
 
-SMS and MMS credit ratios are denominated in increments of inbound or outbound segments sent from the Braze platform. RCS credit ratios are denominated in increments of Basic or Single types sent from the Braze platform.
+SMS and MMS credit ratios are denominated in increments of segments sent from the Braze platform. RCS credit ratios are denominated in increments of Basic and Rich Media types, or Single and Rich Media types delivered from the Braze platform. Both inbound and outbound types are billed.
 
 {% alert note %}
 Where applicable for these channels, carrier fees are billed separately (in arrears) and are not considered as part of Action Credits.

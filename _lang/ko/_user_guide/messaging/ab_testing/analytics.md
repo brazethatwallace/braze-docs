@@ -3,7 +3,7 @@ nav_title: 분석
 article_title: A/B 테스트 분석
 page_order: 10
 page_type: reference
-description: "이 문서에서는 다변량 또는 A/B 캠페인의 결과를 확인하고 해석하는 방법을 설명합니다."
+description: "이 문서에서는 다변량 또는 A/B Campaign의 결과를 확인하고 해석하는 방법을 설명합니다."
 ---
 
 # 다변량 및 A/B 테스트 분석 {#multivariate-and-ab-test-analytics}
@@ -23,6 +23,14 @@ Campaign 설정 시 **최적화 없음**을 선택한 경우 분석 보기는 �
 ![여러 배리언트가 있는 이메일 Campaign의 캠페인 분석 성과 섹션. 표에는 수신자, 반송, 클릭 수, 전환 등 각 배리언트의 다양한 성과 측정기준이 나열되어 있습니다.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 자세한 내용은 메시징 채널에 대한 [캠페인 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) 문서를 참조하세요.
+
+### BrazeAI<sup>TM</sup> 배리언트 선택 (푸시 전용) {#brazeai-variant-selection-push-only}
+
+BrazeAI<sup>TM</sup> 배리언트 선택을 사용하는 경우, 단일 발송 또는 반복 Campaign인지에 따라 실험 기간(또는 반복의 경우 첫 번째 기간)이 지나면 Campaign 홈 페이지에서 상승률(있는 경우)을 확인할 수 있습니다. 단일 발송 Campaign을 실행하는 경우 아래의 우승 배리언트와 유사한 추가 세부 정보도 확인할 수 있습니다.
+
+BrazeAI<sup>TM</sup> 배리언트 선택에서 상승률을 보고하는 방법에 대한 자세한 내용은 [배리언트 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/)을 참조하세요.
+
+![BrazeAI 배리언트 선택 상승률 결과]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### 우승 배리언트 {#winning-variant}
 

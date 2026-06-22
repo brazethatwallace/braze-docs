@@ -139,6 +139,36 @@ This table compares the in-app message flows that Sam experienced:
 | Templated | An abort event was logged because Sam performed the trigger action to trigger the templated in-app message, but received an abort in the Liquid templating. <br><br>Templated in-app messages log aborts because the Liquid evaluation occurs after the trigger action has been performed. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing in-app message abort behavior" }
 
+### When does Connected Content run for in-app messages?
+
+For [templated in-app messages](#what-are-templated-in-app-messages), Connected Content and other Liquid tags resolve when the trigger event occurs and the device requests the message payload—not when the user clicks a button inside the message. Each templated fetch can include Connected Content calls for that display.
+
+If your HTML references REST data returned by Connected Content, that data is available for the session in which the message was templated. Multiple buttons can reference the same Connected Content response without triggering additional calls on click.
+
+### Why is there a delay before my in-app message displays?
+
+Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
+
+[Templated in-app messages](#what-are-templated-in-app-messages) and campaigns with **Re-evaluate campaign eligibility before displaying** selected require an additional network request after the trigger before the message appears. This can add a short delay (typically under 100 ms on a stable connection). For more information, see [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+
+### Why does my in-app message look different from the dashboard preview?
+
+Delivered in-app messages can differ from the dashboard preview when:
+
+- Your integration applies custom styling or overrides default in-app message UI on certain platforms
+- Preview uses a test user profile with different attributes than the recipient
+- Templated content resolves differently at send time than in preview mode
+
+Use [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) with a test user whose profile matches your target audience when validating appearance.
+
+### Why does a multi-page in-app message use the same background on every page?
+
+When **Background Image** is enabled on one page of a multi-page in-app message, that background applies to all pages in the message. To use different backgrounds per page, use a custom HTML block with JavaScript to swap images between pages.
+
+### How do I test web in-app messages?
+
+Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. The same push-based test path applies on any platform where push is not configured with Braze, though missing push is most often encountered on web because many mobile integrations already have push enabled. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+
 ## Why is the close button hidden on full-screen HTML in-app messages on Android?
 
 On devices with edge-to-edge displays (including Android 15+), full-screen HTML in-app messages can draw behind the system status bar and hide a close control at the top of the layout.

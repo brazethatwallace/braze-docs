@@ -45,6 +45,8 @@ npm install @braze/react-native-sdk
 
 ## Schnellstart {#quick-start}
 
+Dieser Abschnitt zeigt die minimale Einrichtung, die erforderlich ist, um das Braze React Native SDK zu initialisieren.
+
 1. Installieren Sie das npm-Paket (siehe oben).
 2. Schließen Sie die **native Einrichtung** für Android und iOS ab (Konfiguration, Berechtigungen, Push falls erforderlich).
 3. Initialisieren Sie das SDK aus JavaScript und beginnen Sie mit der Nutzung:
@@ -205,7 +207,7 @@ Optionale **SDK-Authentifizierung**: Übergeben Sie eine Signatur als zweites Ar
 
 ### In-App-Nachrichten {#in-app-messages}
 
-- Mit der **Standard-Braze-UI** folgen Sie der [In-App-Nachricht-Dokumentation](https://github.com/braze-inc/braze-react-native-sdk/blob/master/docs/developer_guide/in_app_messages?sdktab=react%20native); Sie müssen in der Regel **nicht** `subscribeToInAppMessage` aufrufen, nur um die Standard-UI anzuzeigen.
+- Mit der **Standard-Braze-UI** folgen Sie der [In-App-Nachricht-Dokumentation](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native); Sie müssen in der Regel **nicht** `subscribeToInAppMessage` aufrufen, nur um die Standard-UI anzuzeigen.
 - Für **benutzerdefinierte** Verarbeitung abonnieren Sie mit `useBrazeUI: false` und protokollieren Sie dann Impressionen/Klicks nach Bedarf:
 
 ``` typescript
@@ -351,8 +353,10 @@ useEffect(() => {
 ## Versionsunterstützung {#version-support}
 
 {% alert note %}
-Dieses SDK wurde mit React Native Version **0.83.0** getestet.
+Dieses SDK wurde mit React Native Version **0.85.3** getestet.
 {% endalert %}
+Die folgende Tabelle listet unterstützte React Native-Versionen nach Braze-Plugin-Release auf.
+
 | Braze Plugin | React Native | New Architecture |
 |--------------|--------------|------------------|
 | 9.0.0+       | ≥ 0.71       | Ja               |

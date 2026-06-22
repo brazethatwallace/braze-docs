@@ -13,6 +13,4 @@ Les administrateurs peuvent désormais déterminer le nombre minimum de nouveaux
 
 ## Suivi des désinstallations pour les étapes Canvas {#uninstall-tracking-for-canvas-steps}
 
-Les désinstallations par étape Canvas sont désormais suivies et consultables en tant que statistique.
-
-![Suivi des désinstallations pour Canvas]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+Les désinstallations par étape Canvas sont désormais suivies et consultables en tant que statistique dans les analyses Canvas.

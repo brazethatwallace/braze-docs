@@ -111,7 +111,7 @@ Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braz
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um segmento ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
 
 Se um usuário não conseguir verificar novamente, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a verificação bem-sucedida, ele não precisará verificar novamente na próxima hora — a menos que faça logout primeiro.
 
@@ -268,8 +268,8 @@ Os seguintes atributos podem ser designados como IPI e ocultados dos usuários d
 
 | Atributos padrão | Atributos personalizados |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
+| {::nomarkdown}<ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> LINE ID </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos potenciais de IPI" }
 
 ### Áreas limitadas {#limited-areas}
 
@@ -282,7 +282,7 @@ O seguinte pressupõe que todos os campos estão definidos como IPI, e os usuár
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | No menu suspenso **Dados de usuários**: {::nomarkdown} <ul> <li> O usuário não terá a opção <b>Exportar endereços de e-mail em CSV</b>. </li> <li> O usuário não receberá os atributos padrão e personalizados anteriores no arquivo CSV ao selecionar <b>Exportar dados de usuários em CSV</b>. </li> </ul> {:/} | |
 | Grupo de teste interno | O usuário não terá acesso aos atributos padrão anteriores de qualquer usuário adicionado ao grupo de teste interno. | |
 | Registro de atividades de envio de mensagem | O usuário não terá acesso aos atributos padrão anteriores de quaisquer usuários identificados no registro de atividades de envio de mensagem. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limited areas" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Áreas limitadas" }
 
 {% alert note %}
 Ao pré-visualizar uma mensagem, a permissão **Visualizar IPI** não é aplicada, então os usuários podem ver os [atributos padrão anteriores](#potential-pii-attributes) se eles foram referenciados na mensagem por meio de Liquid.
@@ -303,7 +303,7 @@ Você é responsável por determinar as preferências corretas para o seu espaç
 | Evento personalizado | properties |  |
 | Evento de compra | properties |  |
 | Evento de envio de mensagem | message_extras | Vários tipos de evento contêm um campo `message_extras`. A preferência se aplica a todos os tipos de evento de envio de mensagem que suportam `message_extras`, incluindo tipos de evento adicionados no futuro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevant fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos relevantes" }
 
 {% alert warning %}
 **A exclusão é permanente!** Se você optar por remover quaisquer campos do Snowflake para usuários excluídos, a configuração se aplica a todos os dados históricos nos seus espaços de trabalho e a quaisquer eventos de usuários excluídos no futuro. Após a Braze executar o processo para aplicar as configurações aos dados históricos de eventos de usuários excluídos, você **não poderá restaurar** os dados.

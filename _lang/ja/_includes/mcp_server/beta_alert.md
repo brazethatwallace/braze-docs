@@ -1,3 +1,3 @@
 {% alert important %}
-Braze MCPサーバーはベータ版です。使用するためにアクセスをリクエストする必要はありません。セットアップ手順に従って開始してください。Braze MCPサーバーを使用することにより、[Brazeベータ利用規約](https://www.braze.com/company/legal/beta-terms)に同意したものとみなされます。改善にご協力いただける場合は、[mcp-product@braze.com](mailto:mcp-product@braze.com)までフィードバックをお送りください。
+ローカルホスト型のBraze MCPサーバー（ベータ版）は、今夏にSunsetting（配信停止）となります。引き続き動作しますが、エンドポイントの追加やベータ版のサポートは終了しています。リモートのBrazeホスト型MCPサーバーは、今夏に早期アクセスとして提供される予定です。
 {% endalert %}

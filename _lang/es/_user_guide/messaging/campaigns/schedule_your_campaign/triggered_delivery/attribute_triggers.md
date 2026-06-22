@@ -17,10 +17,11 @@ tool:
 Los desencadenantes de atributos están disponibles para los siguientes escenarios:
 
 - Actualizaciones del estado de suscripción.
-- Los valores de atributos personalizados de tipo booleano, entero o cadena cambian a cualquier valor o a un valor específico.
+- Los valores de atributos personalizados de tipo booleano, entero, cadena o fecha cambian a cualquier valor.
+- Los valores de atributos personalizados de tipo booleano, entero o cadena cambian a un valor específico.
 
-{% alert important %}
-Los atributos personalizados de tipo fecha no están disponibles como opciones de desencadenante de atributos en el dashboard. Usa un desencadenante de entrega diferente o un flujo de trabajo de canal alternativo para reaccionar a cambios de fecha.
+{% alert note %}
+En el dashboard, los tipos de atributos personalizados aparecen como `Number` (para enteros) y `Time` (para fechas), no como `String` o `Date`.
 {% endalert %}
 
 Para empezar a usar los desencadenantes de atributos, crea una campaña o un componente de Canvas y selecciona **Entrega basada en acciones** como tu método de entrega. Luego, selecciona el desencadenante de atributo que deseas usar.
@@ -61,7 +62,7 @@ Para el cambio de atributo, el desencadenante se evalúa primero y luego los cri
 
 ### Opción de cualquier valor nuevo {#any-new-value-option}
 
-Usa el desencadenante `Change Custom Attribute Value` con la opción `any new value` para dirigirte a los usuarios cuando un valor de tipo booleano, entero o cadena cambie a cualquier valor nuevo.
+Usa el desencadenante `Change Custom Attribute Value` con la opción `any new value` para dirigirte a los usuarios cuando un valor de tipo booleano, entero, cadena o fecha cambie a cualquier valor nuevo.
 
 Por ejemplo, dirígete a los usuarios cuando cambie su número de puntos de recompensa para informarles cuántos puntos tienen ahora. En este ejemplo, supongamos que un usuario tiene 85 puntos de recompensa y has configurado una campaña para que se desencadene cuando el atributo de puntos de recompensa cambie a cualquier valor nuevo. Si el valor del atributo de puntos de recompensa de este usuario cambia a cualquier valor nuevo (como 83, 84, 86, etc.), la campaña se desencadena.
 

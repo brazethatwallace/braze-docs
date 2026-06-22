@@ -19,6 +19,8 @@ Pour utiliser l'outil de débogage du SDK de Braze, vous devez disposer des auto
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
+Pour collecter les journaux du débogueur lorsque `Braze.configuration.logger.level` est défini sur `.disabled`, utilisez le SDK Swift 11.9.0 ou une version ultérieure. Pour plus d'informations, consultez les [journaux des modifications Swift]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12).
+
 ## Débogage du SDK de Braze
 
 {% alert tip %}
@@ -31,13 +33,13 @@ Avant de commencer votre session de débogage, fermez l'application qui pose pro
 
 ### Étape 2 : Créez une session de débogage {#step-2-create-a-debugging-session}
 
-Dans Braze, accédez à **Settings**, puis sous **Setup and Testing**, sélectionnez **SDK Debugger**.
+Dans Braze, accédez à **Paramètres**, puis sous **Configuration et test**, sélectionnez **Outil de débogage du SDK**.
 
-![La section « Setup and Testing » avec « SDK Debugger » mis en évidence.]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
+![La section « Configuration et test » avec « Outil de débogage du SDK » mis en évidence.]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
 
 Sélectionnez **Create debugging session**.
 
-![La page « SDK Debugger ».]({% image_buster /assets/img/sdk_debugger/select_create_debugging_session.png %})
+![La page « Outil de débogage du SDK ».]({% image_buster /assets/img/sdk_debugger/select_create_debugging_session.png %})
 
 ### Étape 3 : Sélectionnez un utilisateur {#step-3-select-a-user}
 

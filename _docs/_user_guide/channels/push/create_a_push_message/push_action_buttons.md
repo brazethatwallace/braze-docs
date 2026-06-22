@@ -20,7 +20,7 @@ channel:
 Each interactive button can link to a web page or a deep link or open the app. 
 
 - For standard push campaigns, you can specify your push action buttons in the **On-Click Behavior** section of the push message composer in the dashboard.
-- For [quick push campaigns]({{site.baseurl}}/quick_push), action buttons can be configured separately for each platform under the **Settings** tab.
+- For [multiple platform push campaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push), action buttons can be configured separately for each platform under the **Settings** tab.
 
 {% tabs %}
 {% tab iOS %}
@@ -28,7 +28,7 @@ Each interactive button can link to a web page or a deep link or open the app.
 
 To use action buttons in your iOS push messages, do the following:
 
-1. Turn on action buttons in the **Compose** tab for a standard campaign or in the **Settings** tab for quick push.
+1. Turn on action buttons in the **Compose** tab
 2. Select your **iOS Notification Category** from the following available button combinations:
  - Accept / Decline
  - Yes / No
@@ -49,7 +49,7 @@ Preset pairs such as **Yes** / **No** map the second button to a dismissive (**C
 
 To use action buttons in your Android push messages, do the following:
 
-1. Turn on action buttons in the **Compose** tab for a standard campaign or in the **Settings** tab for quick push.
+1. Turn on action buttons in the **Compose** tab
 2. Select <i class="fas fa-plus-circle"></i> **Add Button** and specify your button text and **On-Click Behavior**. You can select from the following available actions:
   - Open App
   - Redirect to Web URL
@@ -75,4 +75,3 @@ The following table outlines how many characters you can add before your button 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}
-

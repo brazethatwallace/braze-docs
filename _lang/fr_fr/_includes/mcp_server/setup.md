@@ -13,7 +13,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Clé API Braze | Une clé API Braze avec les autorisations requises. Vous créerez une nouvelle clé lors de la [configuration de votre serveur Braze MCP](#create-api-key). |
 | Client MCP | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) et [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) sont officiellement pris en charge. Vous devez disposer d'un compte auprès de l'un de ces clients pour utiliser le serveur Braze MCP. |
 | Terminal | Une application de terminal vous permettant d'exécuter des commandes et d'installer des outils. Utilisez votre application de terminal préférée ou celle préinstallée sur votre ordinateur. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Configuration du serveur Braze MCP
 
@@ -71,7 +71,7 @@ Le serveur Braze MCP comprend des endpoints en lecture seule et des endpoints en
 
 Pour créer votre clé API :
 
-1. Rendez-vous dans **Settings** > **APIs and Identifiers** > **API Keys**.
+1. Rendez-vous dans **Paramètres** > **API et identifiants** > **Clés API**.
 2. Créez une nouvelle clé.
 3. Attribuez certaines ou toutes les autorisations suivantes à votre clé.
 
@@ -100,7 +100,7 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
-#### Catalogs
+#### Catalogues {#catalogs}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -109,7 +109,7 @@ N'attribuez que les autorisations que vous souhaitez que votre agent utilise. Po
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### Cloud Data Ingestion
+#### Ingestion de données cloud {#cloud-data-ingestion}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -129,14 +129,14 @@ Les autorisations `content_blocks.create` et `content_blocks.update` sont des au
 | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### Custom Attributes
+#### Attributs personnalisés {#custom-attributes}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### Events
+#### Événements {#events}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -145,7 +145,7 @@ Les autorisations `content_blocks.create` et `content_blocks.update` sont des au
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
-#### KPIs
+#### Indicateurs clés de performance {#kpis}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -155,7 +155,7 @@ Les autorisations `content_blocks.create` et `content_blocks.update` sont des au
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### Media Library
+#### Bibliothèque multimédia {#media-library}
 
 L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajoutez que si vous souhaitez que votre agent puisse importer des ressources dans votre bibliothèque multimédia.
 
@@ -171,7 +171,7 @@ L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajo
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
-#### Preference Center
+#### Centre de préférences {#preference-center}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -179,7 +179,7 @@ L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajo
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
-#### Purchases
+#### Achats {#purchases}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -197,7 +197,7 @@ L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajo
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
-#### Sends
+#### Envois {#sends}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -211,14 +211,14 @@ L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajo
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
-#### SDK Authentication Keys
+#### Clés d'authentification SDK {#sdk-authentication-keys}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
-#### Subscription
+#### Abonnement {#subscription}
 
 | Endpoint | Autorisation requise |
 |----------|---------------------|
@@ -226,7 +226,7 @@ L'autorisation `media_library.create` est une autorisation d'écriture. Ne l'ajo
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
-#### Templates
+#### Modèles {#templates}
 
 Les autorisations `templates.email.create` et `templates.email.update` sont des autorisations d'écriture. Ne les ajoutez que si vous souhaitez que votre agent puisse créer ou mettre à jour des modèles d'e-mail dans votre espace de travail.
 
@@ -245,9 +245,9 @@ Ne réutilisez pas une clé API existante. Créez-en une spécifiquement pour vo
 
 ### Étape 3 : Obtenir votre identifiant et votre endpoint {#step-3-get-your-identifier-and-endpoint}
 
-Lorsque vous configurez votre client MCP, vous aurez besoin de l'identifiant de votre clé API et de l'endpoint REST de votre espace de travail. Pour obtenir ces informations, retournez à la page **API Keys** dans le tableau de bord&#8212;gardez cette page ouverte afin de pouvoir vous y référer lors de [l'étape suivante](#configure-client).
+Lorsque vous configurez votre client MCP, vous aurez besoin de l'identifiant de votre clé API et de l'endpoint REST de votre espace de travail. Pour obtenir ces informations, retournez à la page **Clés API** dans le tableau de bord&#8212;gardez cette page ouverte afin de pouvoir vous y référer lors de [l'étape suivante](#configure-client).
 
-![La page « API Keys » dans Braze affichant une clé API nouvellement créée et l'endpoint REST de l'utilisateur.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
+![La page « Clés API » dans Braze affichant une clé API nouvellement créée et l'endpoint REST de l'utilisateur.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
 
 ### Étape 4 : Configurer votre client MCP {#configure-client}
 
@@ -281,7 +281,7 @@ Dans [Cursor](https://cursor.com/), rendez-vous dans **Settings** > **Tools and 
 }
 ```
 
-Remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **API Keys** dans Braze. Votre configuration devrait être similaire à ce qui suit :
+Remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **Clés API** dans Braze. Votre configuration devrait être similaire à ce qui suit :
 
 ```json
 {
@@ -308,7 +308,7 @@ mkdir -p ~/.gemini
 nano ~/.gemini/settings.json
 ```
 
-Ensuite, remplacez `yourname` par la chaîne de caractères exacte précédant `@BZXXXXXXXX` dans votre invite de commande. Puis remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **API Keys** dans Braze.
+Ensuite, remplacez `yourname` par la chaîne de caractères exacte précédant `@BZXXXXXXXX` dans votre invite de commande. Puis remplacez `key-identifier` et `rest-endpoint` par les valeurs correspondantes figurant sur la page **Clés API** dans Braze.
 
 Votre configuration devrait être similaire à ce qui suit :
 
@@ -347,15 +347,18 @@ Après avoir configuré le serveur Braze MCP, essayez d'envoyer un prompt de tes
 
 {% tabs %}
 {% tab Claude %}
-![« Quelles sont les fonctions Braze à ma disposition ? » : question posée et réponse fournie dans Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Exemple de prompt :** `What are my available Braze functions?`
+**Exemple de réponse :** A utilisé `list_functions` et renvoyé les catégories de fonctions Braze MCP disponibles.
 {% endtab %}
 
 {% tab Cursor %}
-![« Quelles sont les fonctions Braze disponibles ? » : question posée et réponse fournie dans Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Exemple de prompt :** `What are my available Braze functions?`
+**Exemple de réponse :** A interrogé `list_functions` et listé les fonctions telles que `get_canvas_list`.
 {% endtab %}
 
 {% tab Gemini CLI %}
-![« Quelles sont les fonctions Braze disponibles ? » : question posée et réponse fournie dans Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Exemple de prompt :** `What are my available Braze functions?`
+**Exemple de réponse :** A interrogé `list_functions` dans Gemini CLI et renvoyé les catégories de fonctions Braze MCP disponibles ainsi que des exemples de fonctions.
 {% endtab %}
 {% endtabs %}
 
@@ -400,6 +403,21 @@ uvx --python 3.12 braze-mcp-server@latest
 ```
 
 ### Configuration du client {#client-configuration}
+
+#### « Cette extension n'est pas compatible avec votre appareil » {#this-extension-is-not-compatible-with-your-device}
+
+Si vous voyez cette erreur lors de l'installation de l'extension du serveur Braze MCP, cela peut indiquer l'une des situations suivantes :
+
+- **Votre appareil ne répond pas aux exigences** : certaines extensions de serveur MCP nécessitent des versions spécifiques du système d'exploitation ou du matériel.
+- **Outils de développement manquants (macOS uniquement)** : sur macOS, l'installation de l'extension nécessite les outils de développement en ligne de commande pour exécuter les commandes Python. Si ces outils ne sont pas installés, l'installation échouera avec cette erreur.
+
+Pour installer les outils de développement en ligne de commande sur macOS, exécutez la commande suivante dans votre terminal :
+
+```bash
+xcode-select --install
+```
+
+Une fois l'installation terminée, redémarrez votre client MCP et essayez à nouveau d'installer l'extension.
 
 #### Le client MCP ne parvient pas à trouver le serveur Braze {#mcp-client-cant-find-the-braze-server}
 

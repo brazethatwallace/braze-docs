@@ -1,6 +1,6 @@
 ---
 nav_title: FAQ
-article_title: Campaign FAQ
+article_title: Campaigns FAQ
 page_order: 10
 page_type: FAQ
 description: "이 페이지에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
@@ -167,6 +167,10 @@ Canvas 구성요소의 경우, 현지 시간대 전달을 위해 사용자 여�
 {% alert tip %}
 캠페인 문제 해결에 대한 추가 지원이 필요하면 문제 발생 후 30일 이내에 Braze 고객지원에 문의하세요. 최근 30일간의 진단 로그만 보유하고 있습니다.
 {% endalert %}
+
+### 캠페인을 편집한 후 사용자가 메시지를 두 번 받은 이유는 무엇인가요? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+라이브 캠페인을 먼저 중지하지 않고 편집하면 사용자가 메시지를 두 번 받을 수 있습니다. 이는 라이브 캠페인을 편집하면 원래 대기줄이 아직 처리되는 동안 업데이트된 버전에 대해 사용자가 다시 대기줄에 들어가기 때문입니다. 아직 원래 메시지를 받지 못한 사용자가 두 대기줄 모두에 포함될 수 있습니다. 이를 방지하려면 변경하기 전에 항상 [캠페인을 중지]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign)하세요.
 
 ### 캠페인 분석 페이지에서 CSV 내보내기 사용자 데이터와 CSV 내보내기 이메일 주소 옵션의 차이점은 무엇인가요? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 

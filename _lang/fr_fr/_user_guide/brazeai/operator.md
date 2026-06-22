@@ -7,7 +7,7 @@ toc_headers: h2
 description: "Découvrez comment accéder à BrazeAI Operator<sup>TM</sup> et l'utiliser. Cet assistant alimenté par l'intelligence artificielle est intégré au tableau de bord de Braze. Retrouvez ses fonctionnalités et les bonnes pratiques associées."
 ---
 
-# BrazeAI Operator
+# BrazeAI Operator {#brazeai-operator}
 
 > BrazeAI Operator<sup>TM</sup> est un assistant alimenté par l'intelligence artificielle, intégré au tableau de bord. Operator vous aide à avancer dans vos tâches : répondre à vos questions, vous guider dans la configuration, résoudre des problèmes et générer des idées.
 
@@ -39,7 +39,7 @@ Décrivez ce que vous souhaitez accomplir en langage naturel. Vos requêtes peuv
 - **Simple :** Pourquoi mon Liquid ne s'affiche-t-il pas correctement ?
 - **Complexe :** Comment puis-je faire en sorte que la balise `abort_message` de mon message inclue l'attribut utilisateur qui a provoqué l'interruption ?
 
-Operator peut fournir des instructions étape par étape, des liens vers la documentation Braze et des explications en langage clair. Des questions claires et précises permettent d'obtenir des réponses plus utiles. Operator utilise [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), qui offre un raisonnement solide et convient aux tâches complexes en plusieurs étapes.
+Operator peut fournir des instructions étape par étape, des liens vers la documentation Braze et des explications en langage clair. Des questions claires et précises permettent d'obtenir des réponses plus utiles. Operator utilise [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), qui offre un raisonnement solide et convient aux tâches complexes en plusieurs étapes. Pour des exemples prêts à l'emploi, consultez la [bibliothèque de requêtes]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
 
 ## Bonnes pratiques {#best-practices}
 
@@ -63,7 +63,7 @@ Pour configurer les directives de marque, rendez-vous dans **Paramètres** > **D
 
 Operator identifie automatiquement votre emplacement dans Braze et adapte ses réponses en fonction de ce contexte. Par exemple, lorsque vous ouvrez Operator pendant la création d'un Canvas, il peut vous suggérer des étapes pertinentes ou vous fournir des conseils sur les fonctionnalités de Canvas sans que vous ayez à expliquer où vous en êtes dans votre flux de travail.
 
-Cette prise en compte du contexte vous permet de poser des questions plus courtes et plus naturelles, comme « Comment ajouter un délai ? » au lieu de « Comment ajouter une étape de délai dans un flux de travail Canvas ? ».
+Cette prise en compte du contexte vous permet de poser des questions plus courtes et plus naturelles, comme « Comment ajouter un délai ? » au lieu de « Comment ajouter une étape de délai dans un flux de travail Canvas ? ». Pour des requêtes prêtes à l'emploi organisées par page du tableau de bord, consultez la [bibliothèque de requêtes]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/).
 
 ## Exploiter les réponses d'Operator {#work-with-operator-responses}
 
@@ -142,6 +142,7 @@ Afin de générer des résultats d'intelligence artificielle grâce aux fonction
 
 ## Étapes suivantes {#next-steps}
 
-- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) : Découvrez comment examiner et approuver les modifications proposées par Operator.
-- [Créer des tickets d'assistance]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/) : Créez des tickets d'assistance directement depuis Operator.
-- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/) : Consultez les problèmes courants et leurs solutions.
+- [Bibliothèque de requêtes]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/) : Parcourez des exemples de requêtes organisés par page du tableau de bord
+- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) : Découvrez comment examiner et approuver les modifications proposées par Operator
+- [Créer des tickets d'assistance]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/) : Créez des tickets d'assistance directement depuis Operator
+- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/) : Consultez les problèmes courants et leurs solutions

@@ -53,7 +53,7 @@ Le tableau suivant montre comment différentes actions utilisateur affectent l'a
 | L'utilisateur active les notifications push depuis les paramètres de l'appareil et enregistre une session | `true` | `true` | Premier plan | `Opted-In`** |
 | L'utilisateur désactive les notifications push depuis les paramètres de l'appareil et enregistre une session | `false` | `false` | Arrière-plan | Non mis à jour |
 | L'utilisateur supprime l'application | Non mis à jour | Mis à jour lorsque le jeton push est retiré | Mis à jour lorsque le jeton push est retiré | Non mis à jour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Actions utilisateur iOS et statut push" }
 
 <sup>* Si l'application n'utilise pas le push provisoire, `Foreground Push Enabled` est `false` jusqu'à ce que l'utilisateur autorise les notifications push. Si l'application utilise le push provisoire, `Foreground Push Enabled` est `true` au début de la première session. Pour plus d'informations, consultez [Autorisation provisoire et push silencieux](#provisional-push).</sup>
 
@@ -72,7 +72,7 @@ Toutes les plateformes compatibles push — iOS, Web et Android — nécessitent
 | iOS | ![Une invite push native iOS demandant « My App would like to send you notifications » avec deux boutons, « Don't Allow » et « Allow » en bas du message.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Cela ne s'applique pas lors de la demande d'autorisation de [push provisoire](#provisional-push). |
 | Android | ![Un message push Android demandant « Allow Kitchenerie to send you notifications? » avec deux boutons, « Allow » et « Don't allow » en bas du message.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Cette autorisation push a été introduite avec Android 13. Avant Android 13, aucune autorisation n'était requise pour envoyer des notifications push. |
 | Web | ![Une invite push native du navigateur web demandant « Braze.com wants to show notification » avec deux boutons, « Block » et « Allow » en bas du message.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autorisation push" }
 
 ### Android
 
