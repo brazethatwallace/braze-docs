@@ -35,7 +35,7 @@ You can also export user profiles with Braze export endpoints:
 - [Users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [Users by segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
-Either endpoint will return a push token object that includes push enablement information per device.
+Either endpoint returns a push token object that includes push enablement information per device.
 
 ### Segment
 
