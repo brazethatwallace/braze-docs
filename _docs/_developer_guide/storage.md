@@ -17,7 +17,7 @@ platform:
 
 ## Device properties
 
-By default, Braze will collect the following device-level properties to allow device, language, and time zone-based message personalization:
+By default, Braze collects the following device-level properties to allow device, language, and time zone-based message personalization:
 
 {% tabs %}
 {% tab web %}
@@ -66,14 +66,14 @@ The Braze SDK does not collect IDFA automatically. Apps may optionally pass IDFA
 {% endtab %}
 {% endtabs %}
 
-By default, all properties are enabled. However, you can choose to enable or disable them manually. Keep in mind, some Braze SDK features require specific properties (such as local time zone delivery and time zone), so be sure to test your configuration before releasing to production.
+By default, all properties are enabled. However, you can enable or disable them manually. Keep in mind, some Braze SDK features require specific properties (such as local time zone delivery and time zone), so be sure to test your configuration before releasing to production.
 
 {% tabs %}
 {% tab web %}
-For example, you can specify the device language to be allowlisted. For more information, see refer to the `devicePropertyAllowlist` option for [`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions).
+For example, you can specify the device language to be allowlisted. For more information, see the `devicePropertyAllowlist` option for [`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions).
 
 ```javascript
-import * as braze from"@braze/web-sdk";
+import * as braze from "@braze/web-sdk";
 braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
@@ -132,7 +132,7 @@ The following cookies are stored:
 |---|----|---|---|
 |`ab.storage.userId.[your-api-key]`|Used to determine whether the currently logged-in user has changed and to associate events with the current user.|Based on the size of the value passed to `changeUser`|
 |`ab.storage.sessionId.[your-api-key]`|Randomly-generated string used to determine whether the user is starting a new or existing session to sync messages and calculate session analytics.|~200 bytes|
-|`ab.storage.deviceId.[your-api-key]`|Randomly-generated string used to identify anonymous users, and to differentiate users' devices and enables device-based messaging.|~200 bytes|
+|`ab.storage.deviceId.[your-api-key]`|Randomly-generated string used to identify anonymous users, and to differentiate users' devices and to enable device-based messaging.|~200 bytes|
 |`ab.optOut`|Used to store a user's opt-out preference when `disableSDK` is called|~40 bytes|
 |`ab._gd`|Temporarily created (and then deleted) to determine the root-level cookie domain, which allows the SDK to work properly across sub-domains.|n/a|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
@@ -151,7 +151,7 @@ braze.initialize("API-KEY", {
 
 ### Disable cookies {#disable-cookies}
 
-To disable all cookies, use the [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) option when initializing the Web SDK. When cookies are disabled, the SDK falls back to `localStorage` for all browser-side storage. This will prevent you from associating anonymous users who navigate across sub-domains and will result in a new user on each subdomain.
+To disable all cookies, use the [`noCookies`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) option when initializing the Web SDK. When cookies are disabled, the SDK falls back to `localStorage` for all browser-side storage. This prevents you from associating anonymous users who navigate across sub-domains and results in a new user on each subdomain.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -161,4 +161,4 @@ braze.initialize("API-KEY", {
 });
 ```
 
-To stop Braze tracking in general, or to clear all stored browser data, see the [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) and [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDK methods, respectively. These two methods can be useful if a user revokes consent or if you want to stop all Braze functionality after the SDK has already been initialized.
+To stop Braze tracking in general, or to clear all stored browser data, see the [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) and [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDK methods, respectively. These two methods can be useful if a user revokes consent or if you want to stop all Braze functionality after the SDK is initialized.
