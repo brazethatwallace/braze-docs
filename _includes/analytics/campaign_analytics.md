@@ -293,7 +293,7 @@ Your _Messages Sent_ refers to Content Cards available to be seen, while _Unique
 
 ### Banner metrics
 
-These are the key metrics to track while reviewing your Banner campaign performance. Clicks and impressions for Banners are tracked automatically with the SDK. 
+These are the key metrics to track while reviewing your Banner campaign performance. Clicks and impressions for Banners are tracked automatically with the SDK. If you enable dismissal behavior, **Total Dismissals** shows how many recipients dismissed the Banner.
 
 For the full definitions of all Banners metrics, refer to the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) and filter by Banners.
 

@@ -85,9 +85,11 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 
 #### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
 
-Select the **Banner can be dismissed** checkbox in the **Dismiss Behavior** section to allow users to dismiss the Banner. This option is beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
+When you enable user-initiated dismissal, users can tap a built-in close button to dismiss the Banner, which immediately collapses on screen. This gives users control over their experience while helping you avoid showing messages they aren't interested in.
 
-When dismissal is enabled, you can customize the dismiss button in the **Dismiss Behavior** section:
+Select the **Banner can be dismissed** checkbox in the **Dismiss behavior** section to allow users to dismiss the Banner. This is useful when you want to promote a limited-time offer to a broad audience but still let uninterested users hide the message.
+
+When dismissal is turned on, you can customize the dismiss button in the **Dismiss behavior** section:
 
 | Setting | Description |
 |---------|-------------|
@@ -96,7 +98,7 @@ When dismissal is enabled, you can customize the dismiss button in the **Dismiss
 | **ARIA label** | The accessible label for the dismiss button, used by screen readers. Defaults to "Close" if left blank. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
 
-When a user dismisses a Banner, it doesn't appear again for that user, even if they still qualify for the campaign's targeting criteria.
+When a user dismisses a Banner, it doesn't appear again for that user, even if they still qualify for the campaign's targeting criteria. Braze syncs dismissal events to the backend so dismissed Banners stay suppressed across devices and sessions. For SDK behavior, see [Log dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals).
 
 #### Step 3.4: Add custom properties (optional) {#custom-properties}
 
