@@ -1,13 +1,13 @@
 # Braze Docs — Bugbot review rules
 
-## Review Heuristics & Output Contract (CRITICAL)
+## Review heuristics and output contract (CRITICAL)
 
 - **Comprehensive Review:** Evaluate the entire pull request diff thoroughly. Do not restrict the number of comments or "drip-feed" findings over multiple commits.
 - **Single-Pass Reporting:** Report all stylistic violations, translation errors, broken links, and consistency issues discovered in the modified files in a single review cycle.
 - **Confidence Threshold:** For localized UI paths and `aria-label` values, prioritize the specific exceptions listed below over general linguistic rules.
 - **Persona:** Act as a Meticulous Senior Technical Documentation Editor with expertise in internationalization (i18n) and accessibility (a11y).
 
-## 1. Localized Translation Scoping
+## 1. Localized translation scoping
 
 For pull requests that change localized documentation under `_lang/`, follow the translation rules in [scripts/translation_prompt.md](../scripts/translation_prompt.md).
 
