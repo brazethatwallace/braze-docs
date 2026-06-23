@@ -127,7 +127,7 @@ This tries to include two different approved templates in one. The conditional w
 
 ### Correct usage
 
-Conditionals are valid and supported inside a variable slot, where they control what value fills that variable. Meta only sees that {% raw %}`{{1}}`{% endraw %} was populated with content; it doesn't inspect how the Liquid inside arrived at that value.
+Conditionals are valid and supported inside a variable slot, where they control what value fills that variable. Meta sees only that {% raw %}`{{1}}`{% endraw %} was populated with content; it doesn't inspect how the Liquid inside arrived at that value.
 
 #### Example
 
