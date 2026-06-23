@@ -85,9 +85,10 @@ On-click behavior can be overridden if a specific element (such as a button, lin
 
 #### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
 
-Select the **Banner can be dismissed** checkbox in the **Dismiss Behavior** section to allow users to dismiss the Banner. This option is beneficial in scenarios where you want to promote a limited-time sale for all app users, but allow them to dismiss the message if they aren't interested.
 
-When dismissal is enabled, you can customize the dismiss button in the **Dismiss Behavior** section:
+Select the **Banner can be dismissed** checkbox in the **Dismiss behavior** section to allow users to dismiss the Banner. This is useful when you want to promote a limited-time offer to a broad audience but still let uninterested users hide the message.
+
+When dismissal is turned on, you can customize the dismiss button in the **Dismiss behavior** section:
 
 | Setting | Description |
 |---------|-------------|
