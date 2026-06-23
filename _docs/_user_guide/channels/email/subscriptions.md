@@ -86,12 +86,12 @@ To troubleshoot subscription state changes, review **Email Subscription-State Ch
 | SDK | User attribute update sent through a Braze SDK |
 | REST API | User attribute update sent through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint |
 | Dashboard | Subscription state changed manually on the user profile page |
-| CSV import | Subscription state set during a user CSV import |
-| Preference center | User updated their preference from a Braze-hosted preference center |
-| Email unsubscribe link | User clicked an unsubscribe link in an email |
-| List-unsubscribe | User unsubscribed through the email client's native list-unsubscribe header |
-| Canvas user update step | Subscription state updated by a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) in a Canvas |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Checking email subscription state" }
+| CSV Import | Subscription state set during a user CSV import |
+| Preference Center | User updated their preference from a Braze-hosted preference center |
+| Subscription Page | User clicked an unsubscribe link in an email and landed on the Braze subscription page |
+| List-Unsubscribe | User unsubscribed through the email client's native list-unsubscribe header |
+| Canvas User Update Step | Subscription state updated by a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) in a Canvas |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email subscription state update sources" }
 
 When a user's global email subscription state changes, Braze propagates that state to other profiles that share the same email address, up to 100 profiles per change. Braze does not guarantee propagation when more than 100 profiles share the same email address. If users who share an email show different subscription states, contact Braze Support.
 
