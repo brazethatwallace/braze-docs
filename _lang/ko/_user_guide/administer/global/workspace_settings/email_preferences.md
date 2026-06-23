@@ -82,8 +82,6 @@ BCC 주소는 Amazon SES, SendGrid, SparkPost에서 사용할 수 있습니다. 
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-![이메일 설정 탭의 BCC 주소 섹션.]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
-
 주소를 추가한 후에는 Campaign 또는 캔버스 단계에서 이메일을 작성할 때 해당 주소를 선택할 수 있습니다. 주소 옆의 **Make Default**를 선택하면 새 이메일 Campaign 또는 Canvas 구성요소를 시작할 때 이 주소가 기본으로 선택됩니다. 메시지 수준에서 이를 재정의하려면 메시지를 설정할 때 **No BCC**를 선택하면 됩니다.
 
 Braze에서 보내는 모든 이메일 메시지에 BCC 주소를 포함해야 하는 경우, **Require a BCC address for all your email campaigns** 토글을 선택할 수 있습니다. 이렇게 하면 기본 주소를 선택해야 하며, 새 이메일 Campaign 또는 캔버스 단계에서 자동으로 선택됩니다. 기본 주소는 REST API를 통해 트리거되는 모든 메시지에도 자동으로 추가됩니다. 주소를 포함하기 위해 기존 API 요청을 변경할 필요가 없습니다.

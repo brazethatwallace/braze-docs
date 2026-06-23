@@ -3,19 +3,19 @@ nav_title: リッチ通知の作成
 article_title: "iOS向けリッチプッシュ通知の作成"
 page_order: 3
 page_type: tutorial
-description: "このチュートリアルでは、BrazeのキャンペーンにおけるiOSリッチ通知の作成要件と手順について説明します。"
+description: "このチュートリアルでは、BrazeのCampaignsにおけるiOSリッチ通知の作成要件と手順について説明します。"
 
 platform: iOS
 channel:
   - push
 tool:
-  - キャンペーン
+  - Campaigns
 
 ---
 
-# iOS向けリッチプッシュ通知を作成する {#create-rich-push-notifications-for-ios}
+# iOS向けリッチプッシュ通知の作成 {#create-rich-push-notifications-for-ios}
 
-> リッチ通知を使用すると、コピー以外のコンテンツを追加してプッシュ通知をさらにカスタマイズできます。Androidの通知には以前から「拡張通知画像」としてプッシュ通知に画像が含まれていました。iOS 10以降、顧客はGIF、画像、動画、またはオーディオを含むiOSプッシュ通知を受信できるようになりました。
+> リッチ通知を使用すると、テキスト以外のコンテンツを追加してプッシュ通知をさらにカスタマイズできます。Androidの通知には以前から「拡張通知画像」としてプッシュ通知に画像が含まれていました。iOS 10以降、顧客はGIF、画像、動画、またはオーディオを含むiOSプッシュ通知を受信できるようになりました。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,7 +24,6 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
 - アプリがリッチ通知を送信できるようにするには、[iOSプッシュ統合]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications)の手順に従ってください。開発者がアプリにサービス拡張を追加する必要があります。
 - 現在ダッシュボードで直接アップロードをサポートしているファイルタイプは、JPEG、PNG、GIFです。これらのファイルは、テンプレート可能なURLフィールドに入力することもでき、追加のファイルタイプ（AIF、M4A、MP3、MP4、WAV）もサポートされています。
 - メディアの制限と仕様については、[Appleのドキュメント](https://developer.apple.com/reference/usernotifications/unnotificationattachment)を参照してください。
-- iOSリッチ通知は、クイックプッシュキャンペーンの作成時には利用できません。
 - iOSは画面に合わせて画像をスケーリングし、アクティブまたはロック画面の表示に合わせてリッチ画像をスケーリングします。
 
 {% alert note %}
@@ -45,7 +44,7 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
 
 ユーザーはさまざまな状況でプッシュ通知を表示する可能性があり、以下のように異なる長さのテキストが表示されることがあります。
 
-<table aria-label="Notification states">
+<table aria-label="通知の状態">
   <caption>通知の状態</caption>
 <thead>
   <tr>
@@ -62,7 +61,7 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification states" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="通知の状態" }
 
 ![ロック画面、展開時、デバイスアクティブ時に表示されるプッシュ通知の例。]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 
@@ -126,11 +125,11 @@ iOS 15では、「即時」および「重大」の表示がタイトルをタ�
 
 ### ステップ 1: プッシュキャンペーンを作成する {#step-1-create-a-push-campaign}
 
-[キャンペーンの手順]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message)に従って、iOS向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定に使用するのと同じコンポーザーを使用します。
+[キャンペーンの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message)の手順に従って、iOS向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定に使用するのと同じコンポーザーを使用します。
 
 ### ステップ 2: メディアを追加する {#step-2-add-media}
 
-メッセージのコンポーザーの**リッチ通知メディア**フィールドに、画像、GIF、オーディオ、または動画ファイルを追加します。コンテンツファイルの追加方法については、[要件](#requirements)を参照してください。
+メッセージのコンポーザーの**iOS通知画像**フィールドに、画像、GIF、オーディオ、または動画ファイルを追加します。コンテンツファイルの追加方法については、[要件](#requirements)を参照してください。
 
 ![プッシュ通知のサマリーテキストの例。]({% image_buster /assets/img_archive/rich_notification_add_image.png %}){: style="max-width:70%;" }
 

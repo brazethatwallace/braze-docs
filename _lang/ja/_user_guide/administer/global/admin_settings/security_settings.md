@@ -172,7 +172,7 @@ Canvas
 - Segment Users Deleted
 - Cleared Cohort
 
-### REST API キー {#rest-api-key}
+### REST APIキー {#rest-api-key}
 - Added REST API key
 - Removed REST API key
 
@@ -218,7 +218,7 @@ Canvas
 Updated Push Credential
 Removed Push Credential
 
-### SDK デバッガー {#sdk-debugger}
+### SDKデバッガー {#sdk-debugger}
 - Started SDK Debugger Session
 - Exported SDK Debugger Log
 
@@ -268,8 +268,8 @@ Removed Push Credential
 
 | 標準属性項目 | カスタム属性 |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>メールアドレス</li> <li>電話番号</li> <li>名</li> <li>姓</li> <li>性別</li> <li>生年月日</li> <li>デバイス ID</li> <li>最新のロケーション</li> </ul> {:/} | {::nomarkdown} <ul> <li>すべてのカスタム属性<ul><li>すべての属性を非表示にする必要がない場合は、個々のカスタム属性を PII としてマークできます。</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {::nomarkdown}<ul> <li>メールアドレス</li> <li>電話番号</li> <li>名</li> <li>姓</li> <li>性別</li> <li>生年月日</li> <li>デバイス ID</li> <li>LINE ID</li> <li>最新のロケーション</li> </ul> {:/} | {::nomarkdown} <ul> <li>すべてのカスタム属性<ul><li>すべての属性を非表示にする必要がない場合は、個々のカスタム属性を PII としてマークできます。</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PII の可能性がある属性" }
 
 ### 制限されるエリア {#limited-areas}
 
@@ -282,7 +282,7 @@ Removed Push Credential
 | {::nomarkdown} <ul> <li>Segments</li> <li>Campaigns</li> <li>Canvas</li> </ul> {:/} | **ユーザーデータ**ドロップダウンで：{::nomarkdown} <ul> <li>ユーザーには<b>メールアドレスを CSV 形式でエクスポート</b>オプションが表示されません。</li> <li><b>ユーザーデータを CSV 形式でエクスポート</b>を選択した場合、CSV ファイルに前述の標準属性項目とカスタム属性が含まれません。</li> </ul> {:/} | |
 | 内部テストグループ | ユーザーは、内部テストグループに追加されたユーザーの前述の標準属性項目にアクセスできません。 | |
 | メッセージアクティビティログ | ユーザーは、メッセージアクティビティログで特定されたユーザーの前述の標準属性項目にアクセスできません。 | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="制限されるエリア" }
 
 {% alert note %}
 メッセージをプレビューする際、**PII の表示**権限は適用されないため、メッセージ内で Liquid を通じて参照されている場合、ユーザーは[前述の標準属性項目](#potential-pii-attributes)を確認できます。
@@ -303,7 +303,7 @@ Removed Push Credential
 | カスタムイベント | properties |  |
 | 購入イベント | properties |  |
 | メッセージ送信 | message_extras | いくつかのイベントタイプに `message_extras` フィールドが含まれています。この設定は、将来追加されるイベントタイプを含め、`message_extras` をサポートするすべてのメッセージ送信イベントタイプに適用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="関連フィールド" }
 
 {% alert warning %}
 **削除は永久的です！**削除されたユーザーの Snowflake からフィールドを削除することを選択した場合、この設定はワークスペース内のすべての履歴データと、将来削除されるユーザーのイベントに適用されます。Braze が削除されたユーザーの履歴イベントデータに設定を適用するプロセスを実行した後は、データを**復元することはできません**。

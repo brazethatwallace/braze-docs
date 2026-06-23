@@ -596,6 +596,10 @@ The distribution between control and variant groups is intended to be roughly ev
 
 Here are some key KakaoTalk metrics you may see in your analytics. For more details, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/).
 
+{% alert note %}
+Currently, estimated or exact audience statistics are not available for KakaoTalk campaigns.
+{% endalert %}
+
 | Term | Definition |
 | --- | --- |
 | Audience | _Audience_ is the percentage of users who received a particular message. <br><br>_(Number of recipients in variant) / (Unique Recipients)_ |

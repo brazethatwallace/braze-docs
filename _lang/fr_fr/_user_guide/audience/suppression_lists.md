@@ -39,8 +39,8 @@ Les listes de suppression s'appliquent aux Campaigns API créées dans le tablea
 Tous les utilisateurs peuvent consulter les listes de suppression, mais seuls les utilisateurs disposant des [autorisations d'administrateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin) peuvent créer et gérer les listes de suppression.
 {% endalert %}
 
-1. Accédez à **Audience** > **Suppression Lists**.<br><br>![La page « Listes de suppression » avec une liste de trois listes de suppression.]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. Sélectionnez **Create Suppression List** et ajoutez un nom.<br><br>![Une fenêtre intitulée « Create a Suppression List » avec un champ pour saisir un nom.]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. Accédez à **Audience** > **Suppression Lists**.
+2. Sélectionnez **Create Suppression List** et ajoutez un nom.
 3. Utilisez les filtres de segment pour identifier les utilisateurs de vos listes de suppression. Vous devez en sélectionner au moins un.
 
 {% alert important %}
@@ -81,13 +81,13 @@ Lors de la création d'une Campaign ou d'un Canvas, utilisez **User Lookup** dan
 
 ![Fenêtre « User Lookup » montrant qu'un utilisateur fait partie d'une liste de suppression.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
 
-### Campaign {#campaign}
+### Campaign
 
 Si un utilisateur figure dans une liste de suppression, il ne recevra pas la Campaign pour laquelle cette liste de suppression s'applique. Consultez [Types de messages et canaux concernés par les listes de suppression](#message-types-and-channels-affected-by-suppression-lists) pour les cas où une liste de suppression ne s'applique pas.
 
 ![La section « Listes de suppression » avec une liste de suppression active, appelée « Low marketing health scores ».]({% image_buster /assets/img/active_suppression_list.png %})
 
-### Canvas {#canvas}
+### Canvas
 
 À partir du moment où un utilisateur est ajouté à une liste de suppression, il n'entrera pas dans les Canvas. S'il est déjà entré dans un Canvas, il ne recevra pas les étapes de message. Cela signifie que si un utilisateur se trouve déjà dans un Canvas lorsqu'il est ajouté à une liste de suppression, il progressera dans le Canvas jusqu'à la prochaine étape de message, à laquelle il sortira sans recevoir l'étape de message.
 

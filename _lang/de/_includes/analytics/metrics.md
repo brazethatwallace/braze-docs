@@ -19,7 +19,7 @@ Die <i>geschätzten realen Öffnungen</i> sind eine Schätzung der Anzahl der ei
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HILFE</a> geantwortet hat und eine automatische HILFE-Antwort erhalten hat.
+<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -262,6 +262,10 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 
 {% if include.metric == "Unique Impressions" %}
 <i>Eindeutige Impressionen</i> ist die Gesamtzahl der Nutzer:innen, die eine Nachricht aus einer bestimmten Campaign angesehen haben. Eine Impression wird nur dann protokolliert, wenn die Nachricht auf dem Bildschirm einer Nutzer:in sichtbar wird.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Eindeutige tägliche Impressionen</i> ist die Anzahl der eindeutigen Nutzer:innen, die die Nachricht an einem bestimmten Tag angesehen haben. Dieser Zähler wird jeden Kalendertag zurückgesetzt, sodass ein:e Nutzer:in, die dieselbe Nachricht an zwei verschiedenen Tagen ansieht, zweimal gezählt wird. Diese Metrik entspricht der gleichnamigen Abrechnungsmetrik.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

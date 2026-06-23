@@ -123,7 +123,6 @@ Dans le flux suivant, la vue personnalisée peut répondre aux changements d'ét
 3. Les informations sont fournies et, si elles sont dans le format attendu, le bouton d'enregistrement s'affiche.
 3. La vue de confirmation s'affiche et la notification push est fermée.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### Configuration du tableau de bord {#dashboard-configuration}
 

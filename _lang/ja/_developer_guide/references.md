@@ -18,7 +18,7 @@ toc_headers: h2
 現在、一部のSDKには専用のリファレンスドキュメントがありませんが、積極的に作成に取り組んでいます。
 {% endalert %}
 
-| プラットフォーム | 参照 | リポジトリ | サンプルアプリ |
+| プラットフォーム | リファレンス | リポジトリ | サンプルアプリ |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | Android SDK | [リファレンスドキュメント](https://braze-inc.github.io/braze-android-sdk/kdoc/index.html) | [GitHubリポジトリ](https://github.com/braze-inc/braze-android-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-android-sdk/tree/master/samples) |
 | Swift SDK | [リファレンスドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze) | [GitHubリポジトリ](https://github.com/braze-inc/braze-swift-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples) |
@@ -26,7 +26,8 @@ toc_headers: h2
 | Javascript SDK | [リファレンスドキュメント](https://braze-inc.github.io/braze-javascript-sdk/) | [GitHubリポジトリ](https://github.com/braze-inc/braze-javascript-sdk/tree/main) | N/A |
 | Cordova SDK | [宣言ファイル](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js) | [GitHubリポジトリ](https://github.com/braze-inc/braze-cordova-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project) |
 | Flutter SDK | [リファレンスドキュメント](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/) | [GitHubリポジトリ](https://github.com/braze-inc/braze-flutter-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example) |
-| React Native SDK | [宣言ファイル](https://github.com/braze-inc/braze-react-native-sdk/blob/master/src/index.d.ts) | [GitHubリポジトリ](https://github.com/braze-inc/braze-react-native-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| React Native SDK | [リファレンスドキュメント](https://braze-inc.github.io/braze-react-native-sdk/) | [GitHubリポジトリ](https://github.com/braze-inc/braze-react-native-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| Vega SDK | [リファレンスドキュメント](https://braze-inc.github.io/braze-vega-sdk/) | [GitHubリポジトリ](https://github.com/braze-inc/braze-vega-sdk) | N/A |
 | Roku SDK | N/A | [GitHubリポジトリ](https://github.com/braze-inc/braze-roku-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv) |
 | Unity SDK | [宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs) | [GitHubリポジトリ](https://github.com/braze-inc/braze-unity-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) |
 | .NET MAUI SDK（旧称 Xamarin） | N/A | [GitHubリポジトリ](https://github.com/braze-inc/braze-xamarin-sdk) | [サンプルアプリ](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples) |

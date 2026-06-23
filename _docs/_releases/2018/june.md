@@ -13,7 +13,5 @@ Administrators can now determine the minimum number of new, unique passwords oth
 
 ## Uninstall tracking for Canvas steps
 
-Uninstalls per Canvas Steps are now tracked and viewable as a stat.
-
-![Uninstall tracking for Canvas]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+Uninstalls per Canvas step are now tracked and viewable as a stat in Canvas analytics.
 

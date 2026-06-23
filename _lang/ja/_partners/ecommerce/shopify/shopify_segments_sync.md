@@ -19,7 +19,8 @@ Shopify Segmentsの同期は現在ベータ版です。アクセスをリクエ�
 | 要件 | 説明 |
 | --- | --- |
 | Braze Shopify連携 | Braze ShopifyアプリがShopifyストアにインストールされ、Brazeワークスペースに接続されている必要があります。セットアップ手順については、[Shopify標準連携セットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/)または[Shopifyカスタム連携セットアップ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Shopifyユーザー権限 | Segmentの同期を開始するShopifyユーザーには、顧客データをエクスポートするための**エクスポート**権限が必要です。Shopifyの権限の詳細については、[Shopifyのストア権限ドキュメント](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions#customers-permissions)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 仕組み {#how-it-works}
 
@@ -32,7 +33,7 @@ Shopify Segmentsの同期は2つのフェーズで動作します。
 | --- | --- |
 | `customer.joined_segment` | ユーザーが対応するBrazeコホートに追加されます。 |
 | `customer.left_segment` | ユーザーが対応するBrazeコホートから削除されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook topic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhookトピック" }
 
 同期が失敗した場合、アクション拡張モーダルに推奨アクション付きのエラーバナーが表示されます。**Sync with Braze**を選択してリトライしてください。
 
@@ -62,7 +63,7 @@ Shopifyで、**Customers** > **Segments**に移動し、Brazeに同期したいS
 
 ### ステップ 3: コホートメンバーシップフィルターでBraze Segmentを作成する {#step-3-create-a-braze-segment-with-the-cohort-membership-filter}
 
-Brazeで、**Audience** > **Segments**に移動し、新しいSegmentを作成します。**Add Filter**で、**Cohort Membership**フィルターを選択し、ドロップダウンから同期済みのShopify Segmentを選択します。保存後、CampaignまたはCanvasでユーザーをターゲティングする際にこのBraze Segmentを参照できます。
+Brazeで、**Audience** > **Segments**に移動し、新しいSegmentを作成します。**Add Filter**で**Cohort Membership**フィルターを選択し、ドロップダウンから同期済みのShopify Segmentを選択します。保存後、CampaignまたはCanvasでユーザーをターゲティングする際にこのBraze Segmentを参照できます。
 
 ![「Shopify Cohorts」フィルターが表示されたSegmentビルダー。]({% image_buster /assets/img/shopify/segment_builder_cohort_import.png %})
 

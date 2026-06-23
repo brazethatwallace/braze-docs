@@ -1,9 +1,9 @@
 ---
 nav_title: "Advanced push campaign settings"
-article_title: Advanced Push Campaign Settings
+article_title: Advanced push campaign settings
 page_order: 5
 page_layout: reference
-description: "This reference article covers some Advanced Push Campaign settings like priority, custom URLs, delivery options, and more."
+description: "This reference article covers advanced Android push campaign settings like priority, custom URLs, delivery options, and more."
 platform: Android
 channel:
   - push
@@ -14,13 +14,13 @@ tool:
 
 # Advanced push campaign settings
 
-> There are many advanced settings available for Android and Fire OS push notifications sent through the Braze dashboard. This article will describe these features and how to use them successfully.
+> There are many advanced settings available for Android and Fire OS push notifications sent through the Braze dashboard. This article describes these features and how to use them successfully.
 
 ## Notification ID {#notification-id}
 
 A notification ID is a unique identifier for a message category of your choosing that informs the messaging service to only respect the most recent message from that ID. Setting a notification ID allows you to send just the most recent and relevant message, rather than a stack of outdated, irrelevant ones.
 
-To assign a notification ID, navigate to the composition page of the push you'd like to add the ID to select the **Settings** tab. Enter an integer in the **Notification ID** section. To update this notification after you've issued it, send another notification with the same ID that you used previously.
+To assign a notification ID, go to the composition page for the push you want to update, select the **Settings** tab, then enter an integer in the **Notification ID** section. To update this notification after you've issued it, send another notification with the same ID that you used previously.
 
 ![Notification ID field.]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
@@ -36,7 +36,7 @@ For example, let's say your app hosts a weekly trivia contest. You send a push n
 
 {% details Best practices %}
 
-#### When to use shorter TTL
+### When to use shorter TTL
 
 Shorter TTLs make sure users receive timely notifications for events or promotions that quickly lose relevance. For example:
 
@@ -45,7 +45,7 @@ Shorter TTLs make sure users receive timely notifications for events or promotio
 - **Transportation apps:** Sharing ride arrival updates (TTL: a few minutes)
 - **Event reminders:** Notifying users when a webinar is starting soon (TTL: under 1 hour)
 
-#### When to avoid shorter TTL
+### When to avoid shorter TTL
 
 - If your campaign’s message remains relevant for several days or weeks, such as subscription renewal reminders or ongoing promotions.
 - When maximizing reach is more important than urgency, like with app update announcements or feature promotions.
@@ -62,9 +62,9 @@ The **Firebase Messaging Delivery Priority** field lets you control whether a pu
 | High | Immediate delivery with higher battery consumption | Time-sensitive notifications, critical alerts, live event updates, account alerts, breaking news, or urgent reminders |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
 
-#### Considerations
+### Considerations
 
-- **Default setting**: You can set a default FCM priority for all Android campaigns in your [Push Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). This campaign-level setting will override the default if needed.
+- **Default setting**: You can set a default FCM priority for all Android campaigns in your [Push Settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). This campaign-level setting overrides the default if needed.
 - **Deprioritization**: If FCM detects that your app frequently sends high-priority messages that don't result in user-visible notifications or user engagement, those messages may be automatically deprioritized to normal priority.
 - **Battery impact**: High-priority messages wake sleeping devices more aggressively and consume more battery. Use this priority judiciously.
 
@@ -84,7 +84,7 @@ For push notifications that include images, the message text will be shown in th
 
 ## Custom URIs
 
-The **Custom URI** feature allows you to specify a Web URL or an Android resource to navigate to when the notification is clicked. If no custom URI is specified, clicking on the notification brings users into your app. You can use the custom URI to deep-link inside your app as well as direct users to resources that exist outside of your app as well. This can be specified via our [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) or in the **Compose** tab of the push composer.
+The **Custom URI** feature allows you to specify a Web URL or an Android resource to navigate to when the notification is clicked. If no custom URI is specified, clicking on the notification brings users into your app. You can use the custom URI to deep-link inside your app as well as direct users to resources that exist outside of your app as well. This can be specified in our [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) or in the **Compose** tab of the push composer.
 
 ![Custom URI field.]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -96,7 +96,7 @@ The priority level of a push notification affects how your notification is displ
 
 This feature is useful for differentiating your messages based on how critical or time-sensitive they are. For example, a notification about dangerous road conditions would be a good candidate to receive a high priority, while a notification about an ongoing sale should receive a lower priority. You should consider whether or not using a disruptive priority is actually necessary for the notification that you are sending, as constantly taking the top spot in your users' inbox or interrupting their other activities may have a negative impact.
 
-In Android O, notification priority became a property of notification channels. You will need to work with your developer to define the priority for a channel during its configuration and then use the dashboard to select the proper channel when sending your notification sounds. For devices running versions of Android before O, specifying a priority level for Android and Fire OS notifications is possible via the Braze dashboard and Messaging API.
+In Android O, notification priority became a property of notification channels. You will need to work with your developer to define the priority for a channel during its configuration and then use the dashboard to select the proper channel when sending your notification sounds. For devices running versions of Android before O, specifying a priority level for Android and Fire OS notifications is possible in the Braze dashboard and Messaging API.
 
 To message your full user base with a specific priority, we recommend that you indirectly specify the priority through [notification channel configuration](https://developer.android.com/training/notify-user/channels#importance) (to target O+ devices) and send the individual priority from the dashboard (to target &#60;O devices).
 
@@ -166,7 +166,7 @@ In Android O, notification sounds became a property of notification channels. Yo
 
 For devices running versions of Android before Android O, Braze allows you to set the sound of an individual push message through the dashboard composer. You can do so by specifying a local sound resource on the device (for example, `android.resource://com.mycompany.myapp/raw/mysound`). 
 
-Selecting **Default** in this field will play the default notification sound on the device. This can be specified via our [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) or in the **Settings** in the push composer.
+Selecting **Default** in this field will play the default notification sound on the device. This can be specified in our [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) or in the **Settings** in the push composer.
 
 ![The "Sound" field.]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

@@ -11,7 +11,7 @@ tool:
 
 # Konversions-Events {#conversion-events}
 
-> Ein Konversions-Event ist eine Art Erfolgsmetrik, die erfasst, ob ein:e Empfänger:in Ihrer Nachrichten innerhalb eines festgelegten Zeitraums nach Erhalt Ihres Engagements eine wertvolle Aktion ausführt. Nutzen Sie diese Events, um sicherzustellen, dass Sie relevante, nützliche Informationen sammeln, die Sie später verwenden können, um Insights für Ihre Campaign oder Ihren Canvas zu gewinnen.
+> Ein Konversions-Event ist eine Art Erfolgsmetrik, die erfasst, ob ein:e Empfänger:in Ihrer Nachrichten innerhalb eines festgelegten Zeitraums nach Erhalt Ihres Engagements eine wertvolle Aktion ausführt. Nutzen Sie diese Events, um sicherzustellen, dass Sie relevante, nützliche Informationen sammeln, die Sie später verwenden können, um Insights für Ihre Kampagne oder Ihren Canvas zu gewinnen.
 
 ## So funktioniert es {#how-it-works}
 
@@ -29,7 +29,7 @@ Das Conversion-Tracking beginnt, wenn ein:e Nutzer:in die Campaign erhält oder 
 
 Das Conversion-Tracking beginnt, wenn ein:e Nutzer:in den Canvas betritt. Bei Canvas-Schritten werden Conversions zugeordnet, solange der/die Nutzer:in in diesem Schritt aktiv ist. Wenn der/die Nutzer:in zu einem anderen Schritt übergeht, stoppt das Conversion-Tracking für den vorherigen Schritt und beginnt für den nächsten Schritt.
 
-Während sich ein:e Nutzer:in in einem **Verzögerungs-** oder einem anderen Nicht-Nachrichten-Schritt befindet, werden Conversions, die während dieser Wartezeit auftreten, weiterhin dem vorherigen Nachrichtenschritt zugeordnet, bis der/die Nutzer:in weitergeht. Nachdem der/die Nutzer:in den letzten Nachrichtenschritt in seinem/ihrem Pfad erhalten hat, können Conversions weiterhin bis zur Canvas-Konversionsfrist (ab Canvas-Eintritt gezählt) erfasst werden, auch wenn keine weiteren Nachrichtenschritte folgen.
+Während sich ein:e Nutzer:in in einem Verzögerungs-Schritt oder einem anderen Nicht-Nachrichten-Schritt befindet, werden Conversions, die während dieser Wartezeit auftreten, weiterhin dem letzten Nachrichtenschritt zugeordnet, bis der/die Nutzer:in einen weiteren Nachrichtenschritt erhält. Nachdem der/die Nutzer:in den letzten Nachrichtenschritt in seinem/ihrem Pfad erhalten hat, können Conversions weiterhin bis zur Canvas-Konversionsfrist (ab Canvas-Eintritt gezählt) erfasst werden, auch wenn keine weiteren Nachrichtenschritte folgen.
 
 {% endtab %}
 {% endtabs %}

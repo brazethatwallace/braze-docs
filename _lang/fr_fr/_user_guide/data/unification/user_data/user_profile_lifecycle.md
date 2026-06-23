@@ -68,11 +68,15 @@ Si l'utilisateur anonyme et l'utilisateur connu ont tous deux un prénom, le pr�
 Toutes les données ne sont pas fusionnées à partir du profil anonyme. Les jetons de notification push et l'historique d'envoi de messages sont transférés, et les attributs personnalisés, événements personnalisés et l'historique d'achats du profil anonyme sont fusionnés dans l'utilisateur identifié uniquement lorsque ces champs n'existent pas déjà sur le profil utilisateur identifié. En cas de données conflictuelles, les valeurs de l'utilisateur identifié sont conservées. Consultez le [comportement de fusion]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) pour la liste complète des champs qui sont et ne sont pas transférés.
 {% endalert %}
 
-Pour savoir comment définir un `external_id` sur un profil utilisateur, consultez notre documentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web).
+Pour savoir comment définir un `external_id` sur un profil utilisateur, consultez notre documentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)).
 
 {% alert note %}
 Les utilisateurs orphelins ne sont pas éligibles à la réception de messages.
 {% endalert %}
+
+### Fusionner les utilisateurs en double {#merging-duplicate-users}
+
+Lorsque vous identifiez des profils utilisateurs en double dans votre espace de travail, vous pouvez les fusionner à l'aide de la REST API. Pour plus d'informations sur la fusion des utilisateurs et les méthodes disponibles, consultez [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
 ## Alias d'utilisateur {#user-aliases}
 
@@ -104,7 +108,7 @@ Si vous ne disposez pas de ces informations, vous pouvez appeler l'[endpoint `Ex
 
 Un alias d'utilisateur peut également être défini sur un profil utilisateur connu pour référencer un utilisateur connu par un autre ID externe connu. Par exemple, un utilisateur peut avoir un ID d'outil d'aide à la décision (comme un ID Amplitude) que vous souhaitez pouvoir référencer dans Braze.
 
-Pour savoir comment définir un alias d'utilisateur, consultez notre documentation pour chaque plateforme ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users).
+Pour savoir comment définir un alias d'utilisateur, consultez notre documentation pour chaque plateforme ([iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users)).
 
 ![Organigramme du cycle de vie d'un profil utilisateur dans Braze. Lorsque changeUser() est appelé pour un utilisateur anonyme, cet utilisateur devient un utilisateur identifié et les données sont migrées vers son profil d'utilisateur identifié. L'utilisateur identifié possède un ID Braze et un ID externe. À ce stade, si un deuxième utilisateur anonyme fait appel à changeUser(), les champs de données utilisateur qui n'existent pas encore sur l'utilisateur identifié seront fusionnés. Si l'utilisateur identifié a un alias ajouté à son profil utilisateur existant, aucune donnée n'est affectée, mais il deviendra un utilisateur identifié avec alias. Si un troisième utilisateur anonyme ayant le même libellé d'alias que l'utilisateur identifié mais un nom d'alias différent fait appel à changeUser(), tous les champs qui n'existent pas sur l'utilisateur identifié seront fusionnés et le libellé d'alias du profil de l'utilisateur identifié sera conservé.]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 

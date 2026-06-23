@@ -71,6 +71,10 @@ Añade un desencadenante o varios desencadenantes para definir tus grupos de acc
 - Desencadenan una geovalla
 - Envían un mensaje de entrada por SMS o WhatsApp
 
+#### Desencadenante de añadir una dirección de correo electrónico {#add-an-email-address-trigger}
+
+El desencadenante del grupo de acción **Añadir una dirección de correo electrónico** se activa cuando se añade o actualiza una dirección de correo electrónico en un perfil de usuario durante la **Ventana de evaluación** de la ruta de acción. Este comportamiento coincide con otros desencadenantes de actualización de perfil: los usuarios avanzan a través del grupo de acción cuando el cambio de perfil cumple los requisitos de tu configuración, incluyendo cualquier filtro en el desencadenante.
+
 ![Un grupo de acción llamado "Grupo 1" para usuarios que realizan cualquier compra.]({% image_buster /assets/img/actionpath_group.png %})
 
 En la configuración de cada grupo de acción, también tienes la opción de seleccionar la casilla **Quiero que este grupo salga del Canvas**, lo que significa que los usuarios de este grupo salen del Canvas al final del periodo de evaluación.

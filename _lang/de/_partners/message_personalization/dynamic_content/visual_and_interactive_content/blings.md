@@ -18,7 +18,7 @@ _Diese Integration wird von Blings gepflegt._
 | Anforderung     | Beschreibung                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings-Konto  | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Blings-Konto.         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -48,9 +48,7 @@ Fordern Sie das HTML-Snippet bei Ihrer Blings-Vertretung an.
 
 ### 2. Schritt: Braze-Campaign erstellen {#step-2-create-a-braze-campaign}
 
-Erstellen Sie in Braze eine neue E-Mail- oder In-App-Nachrichten-Campaign und fügen Sie das Blings-HTML-Snippet ein.
-
-![Blings Braze-Campaign.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+Erstellen Sie in Braze eine neue E-Mail- oder In-App-Nachrichten-Campaign und fügen Sie das Blings-HTML-Snippet ein. Verwenden Sie die Editor-Vorschau, um sicherzustellen, dass personalisierte Felder und dynamische Creative-Suite-Inhalte korrekt dargestellt werden.
 
 ### 3. Schritt: Testen und starten {#step-3-test-and-launch}
 

@@ -234,4 +234,3 @@ Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenma
 1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
 2. Wählen Sie **Archivieren**.
 
-![Seite „Agentenmanagement“ mit archivierten Agenten.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

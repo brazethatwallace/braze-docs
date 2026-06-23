@@ -19,6 +19,8 @@ Braze SDK 디버거를 사용하려면 "PII 보기" 및 "고객 프로필 보기
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
+`Braze.configuration.logger.level`이 `.disabled`일 때 디버거 로그를 수집하려면 Swift SDK 11.9.0 이상을 사용하세요. 자세한 내용은 [Swift 체인지로그]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12)를 참조하세요.
+
 ## Braze SDK 디버깅하기
 
 {% alert tip %}

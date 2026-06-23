@@ -24,7 +24,6 @@ Before you create a rich push notification for iOS, note the following details:
 - To ensure your app can send rich notifications, follow the [iOS push integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications) instructions, as your developer will need to add a service extension to your app.
 - File types that we currently support for direct uploading within our dashboard include JPEG, PNG, or GIF. These files can also be entered into the templatable URL field along with these additional file types: AIF, M4A, MP3, MP4, or WAV.
 - Reference [Apple's documentation](https://developer.apple.com/reference/usernotifications/unnotificationattachment) for media limitations and specs.
-- iOS rich notifications aren't available when creating a quick push campaign.
 - iOS will scale images to fit in the screen and will scale rich images for the active or locked view.
 
 {% alert note %}
@@ -130,7 +129,7 @@ Follow the [campaign steps]({{site.baseurl}}/user_guide/channels/push/create_a_p
 
 ### Step 2: Add media
 
-Add your image, GIF, audio, or video file in the **Rich Notification Media** field in the composer of the message. Refer to the [requirements](#requirements) on how to add your content files.
+Add your image, GIF, audio, or video file in the **iOS Notification Image** field in the composer of the message. Refer to the [requirements](#requirements) on how to add your content files.
 
 ![An example of summary text for a push notification.]({% image_buster /assets/img_archive/rich_notification_add_image.png %}){: style="max-width:70%;" }
 
@@ -145,4 +144,3 @@ Once your rich notification content is uploaded to the dashboard, you can contin
 When a user receives the push notification, they can hard press on the push message to expand the image.
 
 ![A user receives a push notification and hard presses the message to show an expanded image that says "Hello!".]({% image_buster /assets/img_archive/rich_notification_ios.gif %}){: style="max-width:50%;" }
-

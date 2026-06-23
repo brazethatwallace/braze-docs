@@ -12,6 +12,10 @@ channel:
 
 > Cet article fournit des réponses à certaines questions fréquemment posées sur le canal push.
 
+### Pourquoi les notifications push sont-elles parfois retardées ? {#why-are-push-notifications-sometimes-delayed}
+
+La distribution suit généralement trois étapes : le **traitement** par Braze (segmentation, planification et transmission au fournisseur), le transport de Braze vers **APNs ou FCM**, et la distribution du fournisseur vers l'**appareil**. Des retards peuvent survenir à chaque étape. Braze n'a pas de visibilité sur les files d'attente du fournisseur ou de l'appareil ; utilisez la [journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) côté client lorsque vous devez identifier précisément les délais côté appareil.
+
 ### Que se passe-t-il lorsque plusieurs utilisateurs se connectent sur un même appareil ? {#what-happens-when-multiple-users-log-into-a-single-device}
 
 Lorsqu'un utilisateur se déconnecte d'un appareil ou d'un site web, il reste joignable par push jusqu'à ce qu'un autre utilisateur se connecte. À ce moment-là, le jeton de notification push est réattribué au nouvel utilisateur. En effet, chaque appareil ne peut avoir qu'un seul abonnement push actif par application ou site web.
@@ -69,7 +73,7 @@ Ces filtres de segmentation vérifient des conditions différentes :
 |--------|-----------------|-------------------|
 | **Foreground Push Enabled** | L'utilisateur dispose d'un jeton de notification push de premier plan valide **et** son état d'abonnement push est `Opted-In` ou `Subscribed`. | Cibler les utilisateurs qui peuvent recevoir des notifications push visibles. |
 | **Background or Foreground Push Enabled** | L'utilisateur dispose d'un jeton de notification push (premier plan ou arrière-plan) **et** son état d'abonnement push est `Opted-In` ou `Subscribed`. Cela inclut les utilisateurs qui ont désactivé les notifications push visibles mais qui disposent toujours d'un jeton de notification push en arrière-plan. | Utilisé pour le [suivi des désinstallations]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), les [notifications push silencieuses]({{site.baseurl}}/developer_guide/push_notifications/silent/) et le géorepérage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Quelle est la différence entre les filtres « Foreground Push Enabled » et « Background or Foreground Push Enabled » ?" }
 
 Un utilisateur peut être `Background or Foreground Push Enabled` sans être `Foreground Push Enabled`. Cela se produit lorsque l'utilisateur a désactivé les notifications push visibles dans les paramètres de son appareil, mais que l'application détient toujours un jeton de notification push en arrière-plan. Pour plus de détails, consultez [Utilisateurs push et abonnements]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
 

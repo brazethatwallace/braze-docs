@@ -1,16 +1,20 @@
 ---
-nav_title: 커스텀 HTTP 커넥터
-article_title: 커스텀 HTTP 커넥터
+nav_title: 커스텀 커런츠 내보내기
+article_title: 커스텀 커런츠 내보내기
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "이 참조 문서에서는 Braze 커런츠 이벤트 데이터를 자체 HTTP 엔드포인트로 실시간 스트리밍하기 위해 커스텀 HTTP 커넥터를 설정하는 방법을 설명합니다."
+description: "이 참조 문서에서는 Braze 커런츠 이벤트 데이터를 자체 HTTP 엔드포인트로 실시간 스트리밍하기 위해 커스텀 커런츠 내보내기를 설정하는 방법을 설명합니다."
 ---
 
-# 커스텀 HTTP 커넥터 {#custom-http-connector}
+# 커스텀 커런츠 내보내기 {#custom-currents-export}
 
 > 커스텀 Currents 커넥터를 통합하여 Braze에서 실시간으로 이벤트 데이터를 수신하고, 보다 맞춤화된 분석, 보고서 및 자동화를 구현하는 방법을 알아보세요.
+
+{% alert note %}
+이 기능은 기술 설명서 및 API 참조에서 커스텀 HTTP 커넥터라고도 합니다.
+{% endalert %}
 
 ## 필수 조건 {#prerequisites}
 
@@ -81,7 +85,7 @@ Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{
 
 ## 인증 {#authentication}
 
-페이로드의 인증 토큰은 선택 사항입니다. [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1)에 명시된 대로 `Bearer` 인증 스킴을 사용하여 HTTP `Authorization` 헤더를 통해 전달할 수 있습니다. 선택 사항이지만, 인증 토큰이 전달되면 Braze는 페이로드에 이벤트가 없더라도 항상 먼저 유효성을 검사합니다.
+페이로드의 인증 토큰은 선택 사항입니다. [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1)에 명시된 대로 `Bearer` 승인 스킴을 사용하여 HTTP `Authorization` 헤더를 통해 전달할 수 있습니다. 선택 사항이지만, 인증 토큰이 전달되면 Braze는 페이로드에 이벤트가 없더라도 항상 먼저 유효성을 검사합니다.
 
 RFC 6750에 따르면 토큰은 최소 한 문자 이상의 Base64 인코딩 값이어야 합니다. RFC 6750은 일반 Base64 문자 외에 `-`, `.`, `_`, `~` 문자도 허용합니다. 이러한 문자를 토큰에 포함할지 여부는 선택할 수 있지만, 반드시 Base64 형식이어야 합니다.
 
@@ -98,7 +102,7 @@ Authorization: Bearer 0p3n5354m3==
 ```
 
 {% alert note %}
-향후 Braze 고유의 커스텀 키-값 쌍 인증 스킴을 구현하기 위해 `Authorization` 헤더를 사용할 수 있습니다. 이는 Amazon Web Services(AWS) 등 일부 기업이 인증 스킴을 구현하는 방식인 [RFC 7235](https://tools.ietf.org/html/rfc7235) 사양을 준수합니다.
+향후 Braze 고유의 커스텀 키-값 쌍 승인 스킴을 구현하기 위해 `Authorization` 헤더를 사용할 수 있습니다. 이는 Amazon Web Services(AWS) 등 일부 기업이 인증 스킴을 구현하는 방식인 [RFC 7235](https://tools.ietf.org/html/rfc7235) 사양을 준수합니다.
 {% endalert %}
 
 ## 버전 관리 {#versioning}

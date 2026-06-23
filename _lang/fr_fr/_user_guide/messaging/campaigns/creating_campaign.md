@@ -93,7 +93,7 @@ Utilisez les champs suivants pour enregistrer les métadonnées qui aident votre
 | Équipe | Facultatif. Affectez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) pour que les bons groupes puissent modifier ou consulter les rapports de cet envoi. |
 | Étiquettes | Facultatif. Ajoutez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) pour filtrer dans les listes et les outils tels que le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | ID de campagne | Lorsqu'il est affiché dans l'éditeur ou le résumé, copiez cet identifiant pour les appels API, les rapports et les intégrations qui font référence à une campagne spécifique. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détails de la campagne" }
 
 ### Canaux et éditeurs {#channels-and-editors}
 
@@ -158,7 +158,7 @@ Si vous anticipez que de grandes campagnes provoquent un pic d'activité utilisa
 
 ### Tests A/B {#ab-testing}
 
-Vous pouvez créer un [test multivarié ou A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) pour toute campagne ciblant un seul canal et un seul type d'appareil. Par exemple, si vous souhaitez utiliser un test multivarié ou A/B pour une campagne push, vous pouvez cibler uniquement les appareils iOS ou uniquement les appareils Android, mais pas les deux types d'appareils dans la même campagne.
+Vous pouvez créer un [test multivarié ou A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) pour toute campagne ciblant un seul canal, même si ce canal inclut plusieurs appareils. Par exemple, si vous souhaitez utiliser un test multivarié ou A/B pour une campagne push, vous pouvez cibler uniquement les appareils iOS ou uniquement les appareils Android, mais pas les deux types d'appareils dans la même campagne.
 
 Pour les campagnes push, e-mail et webhook planifiées pour un envoi unique, vous pouvez également utiliser une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Une optimisation réserve une partie de votre audience cible du test A/B et la conserve pour un second envoi optimisé basé sur les résultats du premier test.
 

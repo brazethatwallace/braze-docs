@@ -22,8 +22,8 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 {% tabs %}
 {% tab Campaign %}
-1. **Messaging** > **Campaigns** に移動し、**Create campaign**を選択します。
-2. 複数チャネルをターゲットとするCampaignsの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。まだ迷っている場合は、以下の**通常のプッシュキャンペーンとマルチチャネルプッシュキャンペーンの選択**を参照してください。
+1. **Messaging** > **Campaigns**に移動し、**Create campaign**を選択します。
+2. 複数チャネルをターゲットとするCampaignsの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
 
@@ -33,26 +33,6 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 {: start="5"}
 5. キャンペーンに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
-
-{% details 通常のプッシュキャンペーンとマルチチャネルプッシュキャンペーンの選択 %}
-
-モバイル、Web、Kindle、iOS、Androidなど、複数のデバイスやプラットフォームをターゲットにする場合、このステップでの選択が、後の一部の機能や設定の利用可能性に影響する場合があります。
-
-マルチチャネルまたはプッシュ通知キャンペーンを作成する前に、以下の判断フローチャートを参照してください。
-
-![「キャンペーンタイプを選択するためのフローチャート。まず、複数のデバイスとプラットフォームをターゲットにするかどうかを判断します。いいえの場合は「プッシュ通知を選択」に進みます。はいの場合は「プッシュメッセージのタイプは？」と尋ね、「標準プッシュ」を選ぶと「デバイス固有の設定を使用する必要がありますか？」という判断ポイントに進みます。いいえの場合は「プッシュ通知を選択してクイックプッシュを使用」に進みます。はいの場合は「マルチチャネルを選択」に進みます。「プッシュメッセージのタイプは？」に戻り、「Push Storiesまたはインライン画像」の場合は「マルチチャネルを選択」に進みます。」]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
-
-**Push notification**を選択し、複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュキャンペーンが作成されます。クイックプッシュでは、一部のデバイス固有の設定が利用できません。
-
-- プッシュアクションボタン
-- 通知チャネルとグループ
-- プッシュTTL（有効期間）
-- 表示優先度
-- サウンド
-
-続行する前に、[クイックプッシュキャンペーン]({{site.baseurl}}/quick_push/)を参照して、この編集体験の違いを理解してください。
-
-{% enddetails %}
 
 {% alert tip %}
 キャンペーン内のすべてのメッセージが類似している場合や同じコンテンツの場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
@@ -78,21 +58,21 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 | 以前の選択 | オプション |
 | --- | --- |
-| プッシュ通知キャンペーン | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュキャンペーンが作成されます。これにより、選択したすべてのプラットフォーム向けに1つのメッセージを単一のエディターで作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[クイックプッシュキャンペーン]({{site.baseurl}}/quick_push/)を参照してください。 |
+| プッシュ通知キャンペーン | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、選択したすべてのプラットフォーム向けに1つのメッセージを作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[複数プラットフォームプッシュ]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)を参照してください。 |
 | マルチチャネルキャンペーン | **Add Messaging Channel**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。 |
 | Canvas | メッセージステップで、**+ Add more**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルキャンペーンと同様に、プラットフォームの選択は各バリアントに固有です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## ステップ 3: 通知タイプを選択する（iOSおよびAndroid） {#step-3-select-notification-type-ios-and-android}
 
-クイックプッシュキャンペーンを作成している場合、通知タイプは自動的に**Standard Push**に設定され、変更できません。
+複数プラットフォームプッシュキャンペーンを作成しており、WebやKindleを選択した場合、通知タイプは自動的に**Standard Push**に設定され、変更できません。
 
 ![通知タイプの例としてStandard Pushが選択されている画面。]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 それ以外の場合、iOSおよびAndroidでは、通知タイプを選択します。
 
 - 標準プッシュ
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)（AndroidとiOSでサポート）
 - インライン画像（Androidのみ）
 
 プッシュキャンペーンに画像を含めたい場合は、[iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/)または[Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/)のリッチプッシュ通知の作成に関するガイドを参照してください。
@@ -101,21 +81,21 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 いよいよプッシュメッセージを作成します！**Compose**タブでは、メッセージのコンテンツと動作のすべての側面を編集できます。
 
-![プッシュ通知作成のComposeタブ。]({% image_buster /assets/img_archive/push_compose.png %})
+![プッシュ通知作成のComposeタブ。]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
 **Compose**タブの内容は、前のステップで選択した通知タイプによって異なりますが、以下のオプションが含まれる場合があります。
 
-#### 通知チャネルまたはグループ（iOSおよびAndroid） {#notification-channel-or-group-ios-and-android}
+### 通知チャネルまたはグループ（iOSおよびAndroid） {#notification-channel-or-group-ios-and-android}
 
 プラットフォーム固有の通知オプションの詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/)または[Android通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_options/)を参照してください。
 
-#### 言語 {#language}
+### 言語 {#language}
 
 **Add Languages**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquidの適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
 
 右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示は、サービスプロバイダーのレンダリング方法に大きく依存します。できるだけ正確に表示される右から左のメッセージを作成するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
 
-#### タイトルと本文 {#title-and-body}
+### タイトルと本文 {#title-and-body}
 
 {% tabs local %}
 {% tab ios %}
@@ -141,7 +121,7 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 ![プッシュコンポーザーの本文フィールドにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}
 
-#### 画像 {#image}
+### 画像 {#image}
 
 サポートされている場合、アプリアイコンがプッシュ通知の画像として自動的に追加されます。また、リッチプッシュ通知を送信するオプションもあり、コピー以外の追加コンテンツを追加してプッシュ通知をさらにカスタマイズできます。
 
@@ -152,7 +132,7 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-#### クリック時の動作 {#on-click-behavior}
+### クリック時の動作 {#on-click-behavior}
 
 **On-Click Behavior**で、ユーザーがプッシュ通知の本文を選択したときに何が起こるかを指定します。例えば、顧客にアプリケーションを開くよう促したり、指定したWeb URLにリダイレクトしたり、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)を使用してアプリケーションの特定のページを開いたりすることができます。
 
@@ -163,7 +143,7 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 - Confirm/Cancel
 - More
 
-#### 送信オプション {#sending-options}
+### 送信オプション {#sending-options}
 
 ユーザーが複数のデバイスにアプリをインストールしている場合、デフォルトでは、有効なプッシュトークンが割り当てられたすべてのデバイスにプッシュメッセージが送信されます。必要に応じて、**Most recently used device**を選択できます。
 
@@ -175,7 +155,7 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 必要に応じて、プッシュの送信先を**Most recently used device**に設定できます。
 
-##### 最後に使用したデバイス {#most-recently-used-device}
+#### 最後に使用したデバイス {#most-recently-used-device}
 
 「最後に使用した」は技術的なステータスであり、行動的なものではありません。Brazeはデフォルトですべてのデバイスに送信するため、この設定に切り替えるとリーチが大幅に狭まり、最新のトークンを持つ単一のデバイスのステータスに完全に依存します。
 

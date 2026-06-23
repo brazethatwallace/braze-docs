@@ -62,7 +62,7 @@ O grupo de inscrições selecionado determina quais tipos de mensagem estão dis
 | Somente SMS | SMS |
 | SMS com números habilitados para MMS | SMS e MMS |
 | Habilitado para RCS (com remetente verificado para RCS) | SMS, MMS (se habilitado) e RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Selecione um grupo de inscrições" }
 
 {% alert tip %}
 A Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS para fallback. Isso garante que, se uma mensagem RCS não for entregue (por exemplo, devido a incompatibilidade de dispositivo ou cobertura incompleta da operadora), a mensagem ainda chegue ao seu usuário via SMS.
@@ -108,7 +108,7 @@ Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JP
 | --- | --- |
 | Tamanho | Até 600&nbsp;KB |
 | Tipos de arquivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações de imagem" }
 
 ### Cartões de contato {#contact-cards}
 
@@ -134,7 +134,7 @@ Escolha entre um tipo de mensagem **Texto** ou **Mídia**.
 ![Opções para selecionar entre um tipo de mensagem Texto ou Mídia.]({% image_buster /assets/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
 
 {% subtabs %}
-{% subtab Text %}
+{% subtab Texto %}
 
 Mensagens RCS de texto focam no texto como meio. Se sua mensagem tiver até 160 caracteres sem elementos ricos, ela é cobrada como uma mensagem RCS básica. Se você exceder 160 caracteres ou usar um elemento rico, ela é cobrada como uma mensagem RCS rica (única) com um limite de 3.072 caracteres.
 
@@ -154,7 +154,7 @@ Mensagens RCS de texto focam no texto como meio. Se sua mensagem tiver até 160 
 - Em alguns casos, pode ser mais econômico enviar mensagens de texto mais longas via RCS do que via SMS, porque mensagens SMS mais longas são divididas em múltiplos segmentos cobráveis, enquanto mensagens RCS são cobradas por mensagem.
 
 {% endsubtab %}
-{% subtab Media %}
+{% subtab Mídia %}
 
 Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não são possíveis com SMS, incluindo arquivos de imagem, vídeo e documento.
 
@@ -177,7 +177,7 @@ Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não s�
 | Imagem | Formatos suportados: JPG, JPEG, GIF |
 | Vídeo | Formatos suportados: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Documento | Formato suportado: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações de arquivo" }
 
 **Considerações:**
 
@@ -263,7 +263,7 @@ Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/u
 
 Em seguida, construa o restante da sua campanha. Consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar sua mensagem.
 
-#### Escolha o agendamento ou gatilho de entrega {#choose-delivery-schedule-or-trigger}
+### Escolha o agendamento ou gatilho de entrega {#choose-delivery-schedule-or-trigger}
 
 As mensagens podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -271,7 +271,7 @@ Para entrega baseada em ação, você também pode definir a duração da campan
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a campanha, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Escolha os usuários a direcionar {#choose-users-to-target}
+### Escolha os usuários a direcionar {#choose-users-to-target}
 
 Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para restringir seu público. Você já deve ter escolhido o grupo de inscrições, que restringe os usuários pelo nível ou categoria de comunicação que desejam ter com você.
 
@@ -283,7 +283,7 @@ Selecione o público maior dos seus segmentos e restrinja ainda mais esse segmen
 Interessado em redirecionamento? Consulte [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para saber mais.
 {% endalert %}
 
-#### Escolha eventos de conversão {#choose-conversion-events}
+### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite rastrear com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contada se o usuário realizar a ação especificada.
 

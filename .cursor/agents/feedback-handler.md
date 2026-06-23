@@ -200,8 +200,25 @@ Do not:
 - Add new sections unless the ticket explicitly requests it
 - Edit any file outside `_docs/` or `_includes/`
 
-Base your work on `develop`. Your branch name must be `jira-<ticket_id>`
-(e.g. `jira-BD-1234`).
+Base your work on `develop`.
+
+**Branch naming — critical, no exceptions**
+
+Your branch name MUST follow this exact format:
+
+```
+jira-<TICKET_ID>
+```
+
+For example: `jira-BD-6547`
+
+Do not use any other format, prefix, casing, or separator. The
+`jira-` prefix is required by the **Jira — PR ready comment** GitHub
+Actions workflow (`.github/workflows/jira-pr-comment.yml`). That
+workflow filters on the `jira-` prefix to decide whether to run. If
+the branch is named anything else — even a minor variation such as
+`BD-6547`, `jira_BD-6547`, or `feature/BD-6547` — the workflow will
+not trigger and the Jira comment will silently never be posted.
 
 ### 5. Open a draft PR
 
@@ -290,10 +307,12 @@ or reasons this might need a closer look.>
 > or made edits beyond the intended scope.
 ---
 
-When the draft PR is opened on a `jira-<ticket_id>` branch, the
-**Jira — PR ready comment** GitHub Actions workflow
+When the draft PR is opened on a correctly named `jira-<TICKET_ID>`
+branch, the **Jira — PR ready comment** GitHub Actions workflow
 (`.github/workflows/jira-pr-comment.yml`) posts the "PR ready" comment on
 the Jira ticket automatically. Do not post that comment via the Atlassian MCP.
+If the branch was not named with the `jira-` prefix, that automation will
+not fire — see the branch naming requirement in Step 4.
 
 ---
 

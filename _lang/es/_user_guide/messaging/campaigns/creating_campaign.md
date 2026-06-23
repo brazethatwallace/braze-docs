@@ -93,7 +93,7 @@ Utiliza los siguientes campos para registrar metadatos que ayuden a tu equipo a 
 | Equipo | Opcional. Asigna [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) para que los grupos adecuados puedan editar o generar informes sobre este envío. |
 | Etiquetas | Opcional. Añade [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) para filtrar en listas y herramientas como el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | ID de campaña | Donde se muestre en el compositor o resumen, copia este identificador para llamadas a la API, informes e integraciones que hagan referencia a una campaña específica. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles de la campaña" }
 
 ### Canales y editores {#channels-and-editors}
 
@@ -158,7 +158,7 @@ Si anticipas que campañas grandes generarán un pico en la actividad de los usu
 
 ### Pruebas A/B {#ab-testing}
 
-Puedes crear una [prueba multivariante o A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) para cualquier campaña que se dirija a un solo canal y un solo dispositivo. Por ejemplo, si quieres usar pruebas multivariantes o A/B para una campaña push, puedes dirigirte solo a dispositivos iOS o solo a dispositivos Android, pero no a ambos tipos de dispositivo en la misma campaña.
+Puedes crear una [prueba multivariante o A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) para cualquier campaña que se dirija a un solo canal, incluso si ese canal incluye múltiples dispositivos. Por ejemplo, si quieres usar pruebas multivariantes o A/B para una campaña push, puedes dirigirte solo a dispositivos iOS o solo a dispositivos Android, pero no a ambos tipos de dispositivo en la misma campaña.
 
 Para campañas push, de correo electrónico y de webhook planificadas para enviarse una sola vez, también puedes usar una [optimización]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Una optimización reserva una parte de tu audiencia objetivo de la prueba A/B y la retiene para un segundo envío optimizado basado en los resultados de la primera prueba.
 

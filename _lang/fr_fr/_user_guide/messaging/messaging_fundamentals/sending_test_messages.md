@@ -274,8 +274,6 @@ Après avoir créé votre message SMS, MMS ou RCS, vous pouvez envoyer un messag
 
 Après avoir créé votre webhook, vous pouvez effectuer un envoi de test pour vérifier la réponse du webhook. Sélectionnez l'onglet **Test** et sélectionnez **Send Test** pour envoyer un test à l'URL du webhook fournie. Vous pouvez également sélectionner un utilisateur individuel pour prévisualiser la réponse en tant qu'utilisateur spécifique.
 
-![Webhook de test]({% image_buster /assets/img/webhook_test.png %})
-
 {% endtab %}
 {% tab WhatsApp %}
 
