@@ -265,15 +265,31 @@ Use the `custom_attribute` personalization tag and dot notation to access proper
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Using Liquid to template a song name and the number of times a listener has played that song into a message]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+To use nested custom attribute Liquid in your message:
+
+1. Go to a campaign or Canvas, then open the message step where you want to add personalization.
+2. In the message composer, insert the Liquid snippet where you want the value to appear.
+3. Use **Preview & Test** with an existing user who already has the nested custom attribute on their profile to confirm that the value renders as expected.
 
 ### Personalization
 
-Using the **Add Personalization** modal, you can also insert nested custom attributes into your messaging. Select **Nested Custom Attributes** as the personalization type. Next, select the top-level attribute and attribute key. 
+You can use **Add Personalization** to insert a nested custom attribute into your message.
 
-For example, in the personalization modal below, this inserts the nested custom attribute of a local neighborhood office based on a user's preferences.
+To open **Add Personalization**:
 
-![The Add Personalization modal with Personalization Type set to "Nested Custom Attrib...", Top Level Attribute set to "preferences", and Attribute Key set to "neighborhood_office", showing a Liquid preview of the resulting tag.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Go to a campaign or Canvas, then open the message step where you want to add personalization.
+2. In the message composer, select **Personalization** to open the **Add Personalization** sidebar, where you can choose personalization options.
+
+To configure nested custom attribute personalization:
+
+1. In **Personalization Type**, select **Nested Custom Attributes**.
+2. In **Top Level Attribute**, select the nested custom attribute path you want to insert.  
+   For example, select `preferences.neighborhood_office`.
+3. Optional: In **Default value**, enter a fallback value for users who do not have their own value for that attribute.
+4. Review the generated **Liquid Snippet** to confirm it matches your expected path.
+5. Select **Insert**.
+
+For this example, Braze inserts the nested value for `preferences.neighborhood_office` into your message. Default values are fallbacks that your message includes for users who do not have their own value for an attribute.
 
 {% alert tip %}
 Check that a schema has been generated if you don't see the option to insert nested custom attributes.
@@ -304,7 +320,14 @@ You can trigger when a nested custom attribute object changes. This option isn't
 
 For example, in an action-based campaign, you can add a new trigger action for **Change Custom Attribute Value** to target users who have changed their neighborhood office preferences.
 
-![Action-based campaign delivery settings with a Change Custom Attribute Value trigger for nested preferences.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+To configure this trigger in an action-based campaign:
+
+1. Create or edit a campaign, then set the delivery type to **Action-Based Delivery**.
+2. In the trigger settings, select **Change Custom Attribute Value**.
+3. Select the nested custom attribute path you want to monitor.  
+   For example, select `preferences.neighborhood_office`.
+4. Select the trigger condition you want, such as **any new value**.
+5. Finish configuring your campaign message and audience, then launch the campaign.
 
 ## Segmentation behavior with arrays of objects
 
