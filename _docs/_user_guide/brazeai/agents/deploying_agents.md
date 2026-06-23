@@ -110,7 +110,7 @@ Circular references in catalogs aren't supported, meaning the following scenario
 
 ### Add an agent to a catalog field
 
-![An Agent step in a catalog field.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![An Agent step in a catalog field.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 To add an agent to your catalog field:
 
@@ -121,8 +121,6 @@ To add an agent to your catalog field:
 5. (Optional) Enable **Only run when required columns have values** to skip rows where one or more selected input columns are blank. When this option is on, select which of the input columns must be populated for the agent to run—all selected columns start as required by default, but you can remove any that are allowed to be empty without blocking a run.
 6. Decide if the agent should recalculate fields when catalog rows are updated. If you do not select this option, the agent runs only once per row.
 7. Select **Add fields** to deploy the agent and review cost estimations. The **Cost estimation** modal shows how many times the agent will run on this catalog, roughly equal to the total number of rows. To continue, select **Confirm**.
-
-![The option to select "Apply AI agent" for a catalog field.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 ### Catalog agent best practices {#catalog-agent-best-practices}
 
