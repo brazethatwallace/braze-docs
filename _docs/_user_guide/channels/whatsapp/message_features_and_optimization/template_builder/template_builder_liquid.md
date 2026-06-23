@@ -43,7 +43,7 @@ The [`message_extras` Liquid tag]({{site.baseurl}}/user_guide/messaging/design_a
 
 ### Why standalone Message Extras variables fail
 
-In the WhatsApp Template Builder, template variables (such as {% raw %}`{{1}}`, `{{2}}`{% endraw %}) map directly to Liquid expressions. Meta's validation requires that every variable slot in the approved template contains non-empty content at send time, it must be something that would render as visible text to the recipient.
+In the WhatsApp Template Builder, template variables (such as {% raw %}`{{1}}`, `{{2}}`{% endraw %}) map directly to Liquid expressions. Meta's validation requires that every variable slot in the approved template contains non-empty content at send time; it must be something that renders as visible text to the recipient.
 
 Because `message_extras` don't render output, placing it alone inside a template variable submits an empty string for that variable slot. Meta rejects this, so the message sending fails.
 
