@@ -14,7 +14,7 @@ After your campaign has launched, you can check how each variant is performing b
 
 ## Analytics by optimization option
 
-Your analytics view will vary depending on if you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) during your initial setup.
+Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) during your initial setup.
 
 ### No optimization
 
@@ -24,12 +24,12 @@ If you selected **No optimization** when setting up your campaign, your analytic
 
 For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) article for your messaging channel.
 
-### BrazeAI™ Variant Selection (Push only)
-If you are using BrazeAI™ Variant Selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
+### BrazeAI™ variant selection (push only)
+If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
 
 For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
 
-![BrazeAI Variant Selection Uplift Results]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Campaign analytics showing uplift from BrazeAI™ variant selection, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Winning Variant
 
@@ -48,7 +48,7 @@ If no variant beats all the others with 95% confidence and you chose to send the
 
 ![Results of an initial test sent to determine the Winning Variant where no variant performed better than the others with enough confidence to meet the 95 percent confidence threshold for statistical significance.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
-#### How the Winning Variant is selected
+#### How the winning variant is selected
 
 Braze tests all the variants against each other with [Pearson's chi-squared tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). This measures whether or not one variant statistically outperforms all others at a significance level of p < 0.05, or what we refer to as 95% significance. If so, the Winning Variant is indicated with the "Winner" label.
 
@@ -79,11 +79,11 @@ The **Initial Test** tab shows the metrics for each variant from the initial A/B
 
 ![Results of an initial test sent to determine the best performing variant for each user. A table shows the performance of each variant based on various metrics for the target channel.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
-By default, the test looks for associations between user’s custom events and their message variant preferences. This analysis detects whether custom events increase or decrease likelihood of responding to a particular message variant. These relationships are then used to determine which users gets which message variant in the final send.
+By default, the test looks for associations between each user's custom events and their message variant preferences. This analysis detects whether custom events increase or decrease likelihood of responding to a particular message variant. These relationships are then used to determine which users get which message variant in the final send.
 
 The relationships between custom events and message preferences are displayed in the table on the **Initial Send** tab.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Initial Test tab table summarizing relationships between users' custom events and their preferred message variants.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 If the test can't find a meaningful relationship between custom events and path preferences, the test falls back to a session-based analysis method, and no custom event data tables are shown.
 
@@ -124,7 +124,7 @@ The three cards on this page show your projected lift, overall results, and the 
 
 The table on this page shows the metrics for each variant from the Personalized Variant send. Your **Audience %** adds up to the percentage of the target segment you reserved for the Personalized Variant group.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Personalized Variant tab table listing audience percentage and performance metrics for each variant after the final send.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -174,34 +174,34 @@ For triggered in-app message campaigns that include delayed displays, control gr
 
 One multivariate and A/B test can (and should!) inspire ideas for future tests, as well as guide you toward changes in your messaging strategy. Possible follow-up actions include the following:
 
-#### Change your messaging strategy based on test results
+### Change your messaging strategy based on test results
 
 Your multivariate results may lead you to change the way you word or format your messaging.
 
-#### Change the way you understand your users
+### Change the way you understand your users
 
 Each test will shed light on your users' behaviors, how users respond to different messaging channels, and the differences (and similarities) among your segments.
 
-#### Improve the way you structure future tests
+### Improve the way you structure future tests
 
 Was your sample size too small? Were the differences between your variants too subtle? Each test provides an opportunity to learn how to improve future tests. If your confidence is low, your sample size is too small and should be enlarged for future tests. If you find no clear difference between how your variants performed, it's possible that the differences were too subtle to have a discernible effect on users' responses.
 
-#### Run a follow-up test with a larger sample size
+### Run a follow-up test with a larger sample size
 
 Larger samples will increase the chances of detecting small differences between variants.
 
-#### Run a follow-up test using a different messaging channel
+### Run a follow-up test using a different messaging channel
 
 If you find that a particular strategy is very effective in one channel, you may want to test that strategy in other channels. If one type of message is effective in one channel but not effective in another, you may be able to conclude that certain channels are more conducive to certain types of messages. Or, perhaps there is a difference between users who are more likely to enable push notifications and those who are more likely to pay attention to in-app messages. Ultimately, running this sort of test will help you learn about how your audience interacts with your different communication channels.
 
-#### Run a follow-up test on a different segment of users
+### Run a follow-up test on a different segment of users
 
 To do this, create another test with the same messaging channel and variants, but choose a different segment of users. For instance, if one type of messaging was extremely effective for engaged users, it may be useful to investigate its effect on lapsed users. It's possible that the lapsed users will respond similarly, or they may prefer another one of the other variants. This test will help you learn more about your different segments and how they respond to different types of messages. Why make assumptions about your segments when you can base your strategy on data?
 
-#### Run a follow-up test based on insights from a previous test
+### Run a follow-up test based on insights from a previous test
 
 Use the insights you gather from past tests to guide your future ones. Does a previous test hint at one messaging technique being more effective? Are you unsure about what specific aspect of a variant made it better? Running follow-up tests based on these questions will help you generate insightful findings about your users.
 
-#### Compare the long-term impact of different variants
+### Compare the long-term impact of different variants
 
 If you're A/B testing re-engagement messages, don't forget to compare the long-term impact of different variants using [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). You can use Retention Reports to analyze how each variant impacted any user behavior of your choice days, weeks, a month after message receipt, and see if there is uplift.

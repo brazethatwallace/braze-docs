@@ -448,6 +448,18 @@ $(document).ready(function() {
   // link image fix for underline
   $('#article-main a:has(> img)').css('display','inline-block');
 
+  // Scroll the active nav item into view on page load. Active sections are
+  // pre-expanded server-side (no collapse animation), so no delay is needed.
+  // Uses scrollTop directly on #left_navmenu rather than scrollIntoView() to
+  // avoid scrollIntoView walking up to the main viewport and fighting URL fragments.
+  var $nav = $('#left_navmenu');
+  var $navActive = $nav.find('.nav-item.active').last();
+  if ($navActive.length) {
+    $nav.scrollTop(
+      $nav.scrollTop() + $navActive.offset().top - $nav.offset().top - ($nav.height() / 2) + ($navActive.outerHeight() / 2)
+    );
+  }
+
   function logDocNavRailCustomEvent(eventName, extraProps) {
     if (!window.braze || typeof window.braze.logCustomEvent !== 'function') {
       return;

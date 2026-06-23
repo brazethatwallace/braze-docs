@@ -44,7 +44,6 @@ To begin the merge process, select **Merge duplicates**.
 
 Choose which user profile to keep and which to merge, then select **Merge profiles**. Repeat this process until you've merged all duplicate profiles.
 
-![The individual merge page for a duplicate profile.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 Duplicate user profiles cannot be recovered after merging.
@@ -66,11 +65,10 @@ To preview your results before merging your duplicates, select **Generate list o
 
 ![The "Manage Audience" page with "Generate list of duplicates" highlighted.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
 
-Braze will generate your preview and send it to your email address as a CSV file.
+Braze generates your preview and sends it to your email address as a CSV file.
 
-![An email from Braze with a link to the generated CSV file.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
-In the following example, Braze uses the user's external ID to flag duplicate profiles and identify which one to keep. If these profiles are bulk merged, Braze will use the profile with an external ID as the user's new primary profile.
+In the following example, Braze uses the user's external ID to flag duplicate profiles and identify which one to keep. If these profiles are bulk merged, Braze uses the profile with an external ID as the user's new primary profile.
 
 {% tabs local %}
 {% tab example csv file %}
@@ -95,7 +93,6 @@ If you're satisfied with the results of your preview, select **Merge all duplica
 Duplicate user profiles cannot be recovered after merging.
 {% endalert %}
 
-![The "Manage Audience" page with "Merge all duplicates" highlighted.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## Rules-based merging
 

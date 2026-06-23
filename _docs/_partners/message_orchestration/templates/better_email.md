@@ -9,15 +9,15 @@ search_tag: Partner
 
 # Better Email
 
-> [Better Email](https://www.betteremail.dev) is a collaborative email creation platform built around an Email Design System. Teams can design, manage, and export production-ready emails from a shared system of blocks and styles, ensuring brand consistency at scale without relying on developers or agencies.
+> [Better Email](https://better.email) is a collaborative email creation platform built around an Email Design System. Teams can design, manage, and export production-ready emails from a shared system of blocks and styles, ensuring brand consistency at scale without relying on developers or agencies.
 
 _This integration is maintained by Better Email._
 
 ## About the integration
 
-The Braze and Better Email integration allows you to create and manage email templates in Better Email's collaborative editor and export them directly to Braze as ready-to-use email templates.
+With the Braze and Better Email integration, you create and manage email templates in Better Email's collaborative editor and export them directly to Braze as ready-to-use email templates.
 
-Re-exporting an email updates the existing Braze template instead of creating a duplicate, so your template library stays clean.
+When you re-export an email, Better Email updates the existing Braze template instead of creating a duplicate, so your template library stays clean.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Re-exporting an email updates the existing Braze template instead of creating a 
 
 ## Use cases
 
-Better Email is built for marketing teams who want to manage emails through a design system and export them to Braze without manual HTML work. It's great for those who:
+Better Email is built for marketing teams who want to manage emails through a design system and export them to Braze without manual HTML work. Consider Better Email if you:
 
 - Maintain a large library of email templates and need consistency across all of them
 - Want to enforce brand guidelines through a shared Email Design System
@@ -60,11 +60,11 @@ In your Braze dashboard, collect the following:
 
 ### Step 3: Export to Braze
 
-When the integration is active, open any email in Better Email and select **Export** > **Braze**.
+When the integration is active, open any email in Better Email. Then select **Export** > **Braze**.
 
 Better Email creates or updates the corresponding Braze email template. After the first export, Better Email stores the Braze template ID—re-exporting the same email updates that template rather than creating a duplicate.
 
-### Optional: Sync recipient fields from Braze
+### Sync recipient fields from Braze (optional)
 
 Better Email can sync Braze custom attributes for use as merge tags and segmentation fields.
 
@@ -72,7 +72,7 @@ Better Email can sync Braze custom attributes for use as merge tags and segmenta
 2. Enable **Sync recipient fields**.
 3. Select **Save**.
 4. Go to **Recipient Fields**.
-5. Run **Sync from** your integration name.
+5. Select **Sync from** next to your integration.
 
 Better Email reads the available Braze custom attributes and maps them into recipient fields.
 
@@ -80,13 +80,13 @@ Better Email reads the available Braze custom attributes and maps them into reci
 
 If an export or sync fails, verify the following:
 
-- The **Instance URL** is the REST URL, not the dashboard URL
-- The API key is still active and has the necessary **Templates** permissions
-- The integration is enabled in Better Email
-- The correct users or groups have access to the integration
+- The **Instance URL** is the REST URL, not the dashboard URL.
+- The API key is still active and has the necessary **Templates** permissions.
+- The integration is enabled in Better Email.
+- Users or groups that need the integration have access under **Access**.
 
-For further support, contact [support@better.email](mailto:support@better.email).
+For more help, [contact Better Email support](mailto:support@better.email).
 
 ## Use the integration
 
-You can find your exported Better Email templates in Braze under **Templates & Media** > **Email Templates**. Use them in any Braze campaign or Canvas.
+Find your exported Better Email templates in Braze under **Templates & Media** > **Email Templates**. Use them in any Braze campaign or Canvas.

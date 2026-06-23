@@ -4,17 +4,17 @@ article_title: Copy across workspaces
 page_order: 3
 alias: "/copying_to_workspaces/"
 page_type: reference
-description: "This reference article provides an overview of how to copy campaigns and Canvases to different workspaces."
+description: "This reference article provides an overview of how to copy campaigns, Canvases, and landing pages to different workspaces."
 tool:
     - Campaigns
     - Canvas
 ---
 
-# Copy campaigns and Canvases across workspaces
+# Copy campaigns, Canvases, and landing pages across workspaces
 
-> Copying campaigns across workspaces lets you jumpstart your message composition by starting with a copy of a campaign in a different workspace. This page covers how to copy campaigns to different workspaces and lists what is and isn't copied over.
+> Copying campaigns, Canvases, and landing pages across workspaces lets you jumpstart content creation by using existing content from a different workspace as a starting point. This page covers how to copy campaigns, Canvases, and landing pages to different workspaces and lists what is and isn't copied over.
 
-When you copy a campaign or Canvas to a different workspace, the copy will remain as a draft until you edit and launch, helping you keep and build off your successful messaging strategies.
+When you copy a campaign, Canvas, or landing page to a different workspace, the copy remains as a draft until you edit it and launch the campaign or Canvas, or publish the landing page. This helps you keep and build off your successful messaging strategies.
 
 {% tabs local %}
 {% tab campaigns %}
@@ -46,14 +46,28 @@ To copy a Canvas to a different workspace:
 2. Select **Copy to workspace**. 
 3. After copying, review and test your Canvas to confirm that all fields work properly.
 
-When copying a Canvas with Audience Sync steps, the settings will not be copied over to the destination workspace, but the steps in the journey will be.
+When copying a Canvas with Audience Sync steps, the settings aren't copied over to the destination workspace, but the steps in the journey are.
+
+{% endtab %}
+{% tab landing pages %}
+
+You can copy landing pages across workspaces.
+
+To copy a landing page to a different workspace:
+
+1. Go to **Messaging** > **Landing Pages**.
+2. Select the <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;menu next to the selected landing page.
+3. Select **Copy to workspace**.
+4. Review and test your landing page to confirm that all fields work properly.
 
 {% endtab %}
 {% endtabs %}
 
 ## What's copied across workspaces
 
-Note that the following is not a comprehensive list of what is copied across workspaces and what is omitted. As a best practice, check the campaign and Canvas details and test to confirm your message works as expected.
+Note that the following tables cover campaign and Canvas fields, and are not a comprehensive list of what is copied across workspaces and what is omitted. As a best practice, check the campaign, Canvas, and landing page details and test to confirm your message works as expected. 
+
+Landing pages are copied as drafts. Before publishing a copied landing page, review its page URL, custom domain settings, form submission handling, and any Liquid or workspace-specific references.
 
 ### Details
 
@@ -323,7 +337,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 
 Liquid references within message bodies are copied over to the destination workspace, but the references may not function as expected. This means if a Canvas from Workspace A is copied to Workspace B, then Workspace B can't reference Workspace A's details, including Liquid references. For example, fields like trigger actions, audience filters, and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) filter criteria aren't copied over.
 
-Keep track of the following Liquid references with dependencies when copying campaigns and Canvases across workspaces:
+Keep track of the following Liquid references with dependencies when copying campaigns, Canvases, and landing pages across workspaces:
 
 - Catalog item tags
 - Connected Content tags

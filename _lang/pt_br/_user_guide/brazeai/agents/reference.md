@@ -234,4 +234,3 @@ Para testar melhorias ou iterações de um agente, você pode duplicar um agente
 1. Passe o mouse sobre a linha do agente e selecione o menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecione **Arquivar**.
 
-![Página de Gerenciamento de agentes com agentes arquivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})
