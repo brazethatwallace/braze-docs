@@ -75,8 +75,8 @@ Each LLM provider has a slightly different mix of model capabilities, costs, and
 
 The following invocation flow controls apply per workspace:
 
-- **Braze-powered model:** 1,000 invocations per minute 
-- **Bringing your own API key:** 2,500 invocations per minute
+- **Braze-powered model:** 5,000 invocations per minute 
+- **Bringing your own API key:** 5,000 invocations per minute
 
 When many users enter an Agent step at once, Braze queues invocations according to these limits, so processing may take longer during high-volume sends.
 
