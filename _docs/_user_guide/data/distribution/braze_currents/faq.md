@@ -125,9 +125,9 @@ The `version=<currents_version>` segment in the storage path advances with each 
 
 Depending on the event type and context, a message engagement event may not be tied to a specific campaign or Canvas step. In those cases, `campaign_id`, `canvas_id`, and related name fields can be omitted from the event payload. If you don’t see those fields on a given event, check whether that event type and context normally include campaign or Canvas identifiers.
 
-## Why does Braze use 10-digit Unix timestamps in Currents?
+## Why are Currents timestamps limited to second precision?
 
-Braze records Currents event times as 10-digit Unix timestamps (seconds since epoch). If you are working with millisecond-precision timestamps, they may be truncated, which can cause events to appear at incorrect times.
+The `time` field in Currents events is stored as a 32-bit integer and is thus limited to second precision. Some events also include a separate 64-bit millisecond-precision timestamp field; check the [event glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/) for the fields available on each event type.
 
 ## Why does the `users.canvas.Conversion` event from Currents have a different time than the Canvas?
 
