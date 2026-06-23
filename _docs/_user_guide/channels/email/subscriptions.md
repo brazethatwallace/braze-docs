@@ -88,7 +88,7 @@ To troubleshoot subscription state changes, review **Email Subscription-State Ch
 | Dashboard | Subscription state changed manually on the user profile page |
 | CSV Import | Subscription state set during a user CSV import |
 | Preference Center | User updated their preference from a Braze-hosted preference center |
-| Subscription Page | User clicked an unsubscribe link in an email and landed on the Braze subscription page |
+| Subscription Page | User selected an unsubscribe link in an email and landed on the Braze subscription page |
 | List-Unsubscribe | User unsubscribed through the email client's native list-unsubscribe header |
 | Canvas User Update Step | Subscription state updated by a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) in a Canvas |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Email subscription state update sources" }
