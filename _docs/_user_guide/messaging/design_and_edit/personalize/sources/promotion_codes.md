@@ -82,16 +82,13 @@ If the message contains Liquid logic that conditionally inserts a promotion code
 
 ### If I uploaded the wrong promotion codes, can I update them?
 
-Yes. You can resolve this by deprecating the entire list or using a placeholder to delete the list. For more information, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+There is no way to delete codes that have already been saved to a list. You have two options to resolve this:
+
+- **Deprecate the entire list:** Stop using the current list in any campaigns, Canvases, or templates. Then upload the correct codes to a new list and switch all your messages to use the new list.
+- **Exhaust the incorrect codes:** Create a campaign that sends codes from the incorrect list to a placeholder user until all the wrong codes are used. After that, re-upload the correct codes to the same list, excluding the incorrect ones.
+
+For general guidance on updating a list, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
 
 ### Can I save a promotion code to a user's profile for future messages?
 
 Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
-
-<!-- sf-kb-phase2-batch -->
-
-## Salesforce Knowledge updates
-
-### Help! I accidentally uploaded the wrong CSV to import some promo codes, and I clicked "Save List"
-
-deprecate list or exhaust incorrect codes. Verify against platform behavior.
