@@ -85,9 +85,9 @@ Braze does not backfill events to Currents. However, custom events can be logged
 
 No. Currents does not include custom attributes in send events. Currents logs custom events and message engagement events. For a complete list of available fields, refer to the [event glossaries]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/).
 
-## Does Currents include campaign tags or key-value pairs?
+## Does Currents include campaign or Canvas tags or key-value pairs?
 
-No. Currents does not include campaign tags or message-level key-value pairs. As a workaround, you can use a webhook channel in the campaign to send this information to your own endpoint, using [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) to template the tag and key-value pair data.
+No. Currents does not include campaign or Canvas tags or message-level key-value pairs. To retrieve tag data, use the [Export REST API]({{site.baseurl}}/api/endpoints/export/). As another workaround, you can use a webhook channel in a campaign to send tag or key-value pair data to your own endpoint, using [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) to template the values.
 
 ## How does Braze notify customers of changes to Currents?
 
@@ -140,10 +140,6 @@ If S3 credentials are configured for Data Export but not for Currents, Braze upl
 ## Can anonymous user data be sent to Amplitude through Braze Currents?
 
 Anonymous user data, identified by `device_id`, can be sent to Amplitude through Currents. This requires feature enablement by your Braze account team.
-
-## Can I pull tag information of campaigns and Canvases from Currents?
-
-Currents does not include campaign or Canvas tags. To retrieve tag data, use the [Export REST API]({{site.baseurl}}/api/endpoints/export/).
 
 ## How are control group impressions for Content Cards and in-app messages logged in Currents?
 
