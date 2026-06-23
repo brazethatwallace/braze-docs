@@ -115,7 +115,7 @@ Your filter options are related to the format (data type) that you're passing to
 
 If your filter options have changed, this is an indication that your data is being passed to Braze in a different format (data type) than before. For detailed descriptions of different data types and their filtering options, refer to [custom attribute data types]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
 
-Keep in mind that changing the data type of a custom attribute in the dashboard will reject data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments; the dashboard displays an error and blocks the change.
+Keep in mind that changing the data type of a custom attribute in the dashboard rejects data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments; the dashboard displays an error and blocks the change.
 
 The **Values** tab on a custom attribute shows results from a sample of approximately 250,000 users. Don't use the **Values** tab to confirm whether a specific attribute value exists for troubleshooting. For more information, see [Values tab]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#values-tab).
 
