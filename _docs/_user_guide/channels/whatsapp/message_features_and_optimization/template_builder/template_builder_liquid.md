@@ -13,7 +13,7 @@ page_order: 1
 
 > You can use Liquid to personalize templates in the WhatsApp Template Builder, but Meta's template structure creates constraints that don't exist in other Braze channels. Two Liquid patterns in particular require special handling: Message Extras and conditional messaging logic.
 
-For Message Extras and conditional messaging logic, Meta requires that each variable in a template contains actual rendered content at send time. Variables that pull in empty strings, or that behave as invisible metadata rather than visible text, cause send failures. Conditionals that change the static message structure rather than only the variable's content also causes unexpected behavior.
+For Message Extras and conditional messaging logic, Meta requires that each variable in a template contains actual rendered content at send time. Variables that pull in empty strings, or that behave as invisible metadata rather than visible text, cause send failures. Conditionals that change the static message structure rather than only the variable's content also cause unexpected behavior.
 
 {% alert note %}
 The constraints described in this article apply only to template messages (outbound messages that use a Meta-approved template). The constraints don't apply to Response messages (sent within a 24-hour messaging window opened by a user), or Message Extras, conditional logic, and other Liquid patterns in other Braze channels.
