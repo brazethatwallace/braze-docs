@@ -66,7 +66,7 @@ By default, test sends and seed group email sends will use promotion codes per u
 
 ### What happens when multiple messaging channels use the same promotion code snippet?
 
-If a particular user is eligible to receive a code through multiple channels, they will receive the same code through each channel. Only one promo code will be used regardless of the channels received.
+If a particular user is eligible to receive a code through multiple channels, they receive the same code through each channel. Only one promotion code is used regardless of the channels received.
 
 ### Can I use multiple Liquid snippets to reference the same promotion code list in one message?
 
@@ -82,7 +82,12 @@ If the message contains Liquid logic that conditionally inserts a promotion code
 
 ### If I uploaded the wrong promotion codes, can I update them?
 
-Yes. You can resolve this by deprecating the entire list or using a placeholder to delete the list. For more information, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+If you've uploaded incorrect codes, you have two options to resolve this:
+
+- **Deprecate the entire list:** Stop using the current list in any campaigns, Canvases, or templates. Then upload the correct codes to a new list and switch all your messages to use the new list.
+- **Exhaust the incorrect codes:** Create a campaign that sends codes from the incorrect list to a placeholder user until all the wrong codes are used. After that, re-upload the correct codes to the same list, excluding the incorrect ones.
+
+For general guidance on updating a list, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
 
 ### Can I save a promotion code to a user's profile for future messages?
 
