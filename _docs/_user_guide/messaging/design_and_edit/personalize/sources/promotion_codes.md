@@ -82,7 +82,7 @@ If the message contains Liquid logic that conditionally inserts a promotion code
 
 ### If I uploaded the wrong promotion codes, can I update them?
 
-There is no way to delete codes that have already been saved to a list. You have two options to resolve this:
+If you've uploaded incorrect codes, you have two options to resolve this:
 
 - **Deprecate the entire list:** Stop using the current list in any campaigns, Canvases, or templates. Then upload the correct codes to a new list and switch all your messages to use the new list.
 - **Exhaust the incorrect codes:** Create a campaign that sends codes from the incorrect list to a placeholder user until all the wrong codes are used. After that, re-upload the correct codes to the same list, excluding the incorrect ones.
