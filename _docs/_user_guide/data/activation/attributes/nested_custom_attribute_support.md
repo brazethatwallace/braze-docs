@@ -289,7 +289,7 @@ To configure nested custom attribute personalization:
 4. Review the generated **Liquid Snippet** to confirm it matches your expected path.
 5. Select **Insert**.
 
-For this example, Braze inserts the nested value for `preferences.neighborhood_office` into your message. Default values are fallbacks that your message will include for users who do not have their own value for an attribute.
+For this example, Braze inserts the nested value for `preferences.neighborhood_office` into your message. Default values are fallbacks that your message includes for users who do not have their own value for an attribute.
 
 {% alert tip %}
 Check that a schema has been generated if you don't see the option to insert nested custom attributes.
