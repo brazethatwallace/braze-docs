@@ -24,7 +24,7 @@ Android admite la localización de nombres de canales, por lo que en el código 
 
 Una vez creados estos canales, tus ingenieros deberán pasar los ID de canal asociados a tu equipo de marketing. Tu equipo debe introducir los nombres de canal y los ID de canal en el dashboard de Braze para usarlos en tus Campaigns y Canvas.
 
-Para añadir un canal al dashboard de Braze, navega al creador de push de Android, selecciona el campo de canales de notificación y luego selecciona "administrar canales".
+Para añadir un canal al dashboard de Braze, navega al creador de push de Android, selecciona el campo de canales de notificación y luego selecciona **Administrar canales**.
 {% alert important %}
 Solo los usuarios con permisos que incluyan "administrar aplicaciones" podrán administrar canales.
 {% endalert %}
@@ -73,13 +73,13 @@ Para comprender mejor el comportamiento esperado de los canales, consulta la sig
 
 Cuando aplicas un canal de notificación a una Campaign o paso en Canvas específico, tu recuento de **Usuarios alcanzables** (ubicado en el paso de Público objetivo) para push de Android no parecerá cambiar. Sin embargo, solo los usuarios suscritos al canal de notificación seleccionado verán el mensaje, y los análisis de tu Campaign (como clics) se medirán en función de esta audiencia.
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Creador de push de Android con Administrar canales de notificación y una lista de canales configurados.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Haz clic en **Añadir canal de notificación**.
-5. Introduce el nombre y el ID del canal de notificación que deseas añadir.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. Selecciona **Añadir canal de notificación**.
+5. Introduce el nombre y el ID del canal de notificación que deseas añadir.<br><br>![Diálogo de Añadir canal de notificación con campos para el nombre del canal y el ID del canal.]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Repite los pasos 4 y 5 para cada canal de notificación que desees añadir.
-7. Pulsa **Guardar** para guardar tus cambios.
+7. Selecciona **Guardar** para guardar tus cambios.
 
 ## Especificar tu canal alternativo {#specifying-your-fallback-channel}
 
@@ -95,7 +95,7 @@ Tu canal alternativo es el canal que Braze intentará usar para enviar tu mensaj
 ## Añadir canales a tus mensajes push de Android {#adding-channels-to-your-android-push-messages}
 
 1. Navega al creador de push de Android en cualquier Campaign o Canvas.
-2. Selecciona el canal que deseas usar en el menú desplegable. Si no tienes un menú desplegable sino la siguiente vista, deberás añadir canales antes de seleccionarlos para las Campaigns.
+2. Selecciona el canal que deseas usar en el menú desplegable. Si no tienes un menú desplegable sino la siguiente vista, deberás añadir canales antes de seleccionarlos para las campañas.
 
 ![Creador de canales de notificación push.]({% image_buster /assets/img_archive/push_notifications_channels_composer.png %})
 

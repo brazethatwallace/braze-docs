@@ -44,7 +44,7 @@ hide_toc: true
 
 ## SMS, MMS 및 RCS 채널 세부 정보 {#sms-mms-and-rcs-channel-details}
 
-SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 인바운드 또는 아웃바운드 메시지 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 발송된 Basic 또는 Single 유형 단위로 산정됩니다.
+SMS 및 MMS 크레딧 비율은 Braze 플랫폼에서 발송된 세그먼트 단위로 산정됩니다. RCS 크레딧 비율은 Braze 플랫폼에서 전달된 Basic 및 Rich Media 유형 또는 Single 및 Rich Media 유형 단위로 산정됩니다. 인바운드 및 아웃바운드 유형 모두 청구 대상입니다.
 
 {% alert note %}
 해당 채널에 적용되는 경우, 통신사 수수료는 별도로 후불 청구되며 액션 크레딧의 일부로 간주되지 않습니다.

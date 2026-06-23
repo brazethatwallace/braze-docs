@@ -12,7 +12,7 @@ tool:
 
 # 푸시 메시지 만들기 {#create-a-push-message}
 
-> 푸시 알림은 시간에 민감한 행동 유도와 한동안 앱을 사용하지 않은 사용자를 다시 참여시키는 데 매우 유용합니다. 성공적인 푸시 캠페인은 사용자를 콘텐츠로 직접 안내하고 앱의 가치를 보여줍니다. 푸시 알림 예시를 확인하려면 [사례 연구](https://www.braze.com/customers)를 참조하세요.
+> 푸시 알림은 시간에 민감한 행동 유도와 한동안 앱을 사용하지 않은 사용자를 다시 참여시키는 데 매우 유용합니다. 성공적인 푸시 캠페인은 사용자를 콘텐츠로 직접 안내하고 앱의 가치를 보여줍니다. 푸시 알림 예시를 확인하려면 [Braze 고객 사례 연구](https://www.braze.com/customers)를 참조하세요.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#create-new-campaign-push}
 
@@ -58,14 +58,14 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 | 이전 선택 | 옵션 |
 | --- | --- |
-| 푸시 알림 캠페인 | 하나 이상의 플랫폼과 기기를 선택합니다. 여러 기기와 플랫폼을 타겟팅하도록 선택하면 선택한 모든 플랫폼에 대해 하나의 메시지를 작성하는 데 최적화된 편집 환경이 제공됩니다. 이 편집 환경에서 달라지는 점을 이해하려면 [멀티 플랫폼 푸시]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)를 참조하세요. |
+| 푸시 알림 캠페인 | 하나 이상의 플랫폼과 기기를 선택합니다. 여러 기기와 플랫폼을 타겟팅하도록 선택하면 선택한 모든 플랫폼에 대해 하나의 메시지를 작성하는 데 최적화된 편집 환경이 제공됩니다. 이 편집 환경에서 달라지는 점을 이해하려면 [다중 플랫폼 푸시]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)를 참조하세요. |
 | 멀티채널 캠페인 | **메시징 채널 추가**를 선택하여 추가 푸시 플랫폼을 추가합니다. 플랫폼 선택은 각 배리언트에 고유하므로 플랫폼별 메시지 참여를 테스트할 수 있습니다. |
 | Canvas | 메시지 단계에서 **+ 더 추가**를 선택하여 추가 푸시 플랫폼을 추가합니다. 멀티채널 캠페인과 마찬가지로 플랫폼 선택은 각 배리언트에 고유합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 푸시 플랫폼 선택" }
 
 ## 3단계: 알림 유형 선택 (iOS 및 Android) {#step-3-select-notification-type-ios-and-android}
 
-멀티 플랫폼 푸시 캠페인을 만들고 웹 및/또는 Kindle을 선택한 경우 알림 유형은 자동으로 **표준 푸시**로 설정되며 변경할 수 없습니다.
+다중 플랫폼 푸시 캠페인을 만들고 웹 및/또는 Kindle을 선택한 경우 알림 유형은 자동으로 **표준 푸시**로 설정되며 변경할 수 없습니다.
 
 ![표준 푸시가 선택된 알림 유형 예시.]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
@@ -180,7 +180,7 @@ iOS의 경우 iPad 기기에만 푸시 알림을 보내거나 iPhone 및 iPod �
 
 나머지 Campaign을 구축합니다. 푸시 알림을 구축하기 위한 도구 활용 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
-#### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
+### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
 
 푸시 메시지는 예약된 시간, 실행 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
@@ -188,7 +188,7 @@ iOS의 경우 iPad 기기에만 푸시 알림을 보내거나 iPhone 및 iPod �
 
 이 단계에서는 사용자가 Campaign을 다시 받을 수 있도록 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
-#### 타겟 사용자 선택 {#choose-users-to-target}
+### 타겟 사용자 선택 {#choose-users-to-target}
 
 다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 해당 대략적인 Segment 인구가 어떻게 보이는지 자동으로 미리보기가 제공됩니다. Campaign이 타겟팅하는 채널에 대한 상세한 오디언스 통계는 하단에서 확인할 수 있습니다. 사용자 기반의 몇 퍼센트가 타겟팅되고 있는지와 이 Segment의 생애주기 가치를 확인하려면 **추가 통계 표시**를 선택하세요.
 
@@ -208,7 +208,7 @@ iOS의 경우 iPad 기기에만 푸시 알림을 보내거나 iPhone 및 iPod �
 
 선택적으로 Segment 내 지정된 수의 사용자에게만 전달을 제한하거나, Campaign이 반복될 때 사용자가 동일한 메시지를 두 번 받을 수 있도록 허용할 수도 있습니다.
 
-##### 이메일과 푸시를 포함한 멀티채널 캠페인 {#multichannel-campaigns-with-email-and-push}
+#### 이메일과 푸시를 포함한 멀티채널 캠페인 {#multichannel-campaigns-with-email-and-push}
 
 이메일과 푸시 채널 모두를 타겟팅하는 멀티채널 캠페인의 경우, 명시적으로 옵트인한 사용자만 메시지를 받도록 Campaign을 제한할 수 있습니다(가입됨 또는 가입 취소된 사용자 제외). 예를 들어, 서로 다른 옵트인 상태를 가진 세 명의 사용자가 있다고 가정합니다:
 
@@ -222,7 +222,7 @@ iOS의 경우 iPad 기기에만 푸시 알림을 보내거나 iPhone 및 iPod �
 이 구성에서는 **타겟 오디언스** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
-#### 전환 이벤트 선택 {#choose-conversion-events}
+### 전환 이벤트 선택 {#choose-conversion-events}
 
 Braze를 사용하면 사용자가 Campaign을 받은 후 특정 행동인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 얼마나 자주 수행하는지 추적할 수 있습니다. 사용자가 지정된 행동을 취하면 전환이 집계되는 최대 30일의 기간을 허용하는 옵션이 있습니다.
 

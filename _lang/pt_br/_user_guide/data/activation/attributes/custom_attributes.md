@@ -134,3 +134,21 @@ A seguir estão listados os métodos em várias plataformas usados para definir 
 Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_archival/#active-users).
 
 Para uma referência completa de todos os tipos de dados que podem ser armazenados como atributos personalizados — incluindo booleanos, números, strings, arrays, tempo, objetos e vetores de objetos — consulte [Tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+
+### Strings vazias versus valores nulos {#blank-strings-versus-null-values}
+
+Ao limpar ou remover um atributo personalizado, o comportamento difere dependendo de você passar uma string vazia (`""`) ou `null`:
+
+| Valor | Comportamento |
+| --- | --- |
+| `""` (string vazia) | O atributo é definido como um valor vazio e permanece visível no perfil de usuário. |
+| `null` | O atributo é removido completamente do perfil de usuário. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+
+{% alert important %}
+Para tipos de dados que não são string, em que o tipo de dados é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover o valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover um booleano, passe `null`.
+
+Observe que a importação de CSV não suporta `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
+{% endalert %}

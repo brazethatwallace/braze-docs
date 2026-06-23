@@ -143,7 +143,7 @@ Die Verwendung eines List-Unsubscribe-Headers ermöglicht es Ihren Empfänger:in
 
 Testsendungen enthalten in der Regel **keine** List-Unsubscribe-Header. Ob der Live-Header angezeigt wird, liegt beim Postfach-Anbieter und ist reputationsbasiert – eine stärkere Absender-Reputation verbessert in der Regel die Sichtbarkeit.
 
-![]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
+![E-Mail-Client-Postfach-Oberfläche mit einer Abmeldeoption neben der Nachricht, wobei List-Unsubscribe außerhalb des Nachrichtentexts erscheint.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
 Wenn eine Empfängerin oder ein Empfänger **Unsubscribe** auswählt, sendet der Postfach-Anbieter die Abmeldeanfrage an das im E-Mail-Header definierte Ziel.
 
@@ -243,7 +243,7 @@ Das Ausschließen der One-Click-Abmeldung oder jeglicher Abmeldemechanismen soll
 
 Das Anpassen dieser Einstellung überschreibt das Standardverhalten für die One-Click-List-Unsubscribe in dieser E-Mail.
 
-![]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
+![Sendeeinstellungen im E-Mail-Editor mit One-Click-List-Unsubscribe-Optionen auf Nachrichtenebene, einschließlich Workspace-Standard und angepasster URL.]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
 
 #### Anforderungen {#requirements}
 
@@ -256,13 +256,13 @@ Wenn Sie E-Mails mit Ihrer eigenen angepassten Abmeldefunktion senden, müssen S
 
 Wählen Sie **Custom list-unsubscribe header**, um Ihren eigenen konfigurierten One-Click-Abmelde-Endpunkt und ein optionales „mailto:“ hinzuzufügen. Braze erfordert eine URL-Eingabe zur Unterstützung eines angepassten List-Unsubscribe-Headers, da die One-Click-Abmeldung per HTTP eine Anforderung von Yahoo und Gmail für Massenversender ist.
 
-![]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
+![E-Mail-Präferenzen mit Feldern für einen angepassten List-Unsubscribe-Header für eine One-Click-Abmelde-URL und ein optionales Mailto.]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
 
 ## E-Mail-Betreffzeilen ergänzen {#append-email-subject-lines}
 
 Verwenden Sie den Schalter, um „[TEST]“ und „[SEED]“ in Ihren Test- und Seed-E-Mail-Betreffzeilen einzufügen. Dies kann helfen, E-Mail-Campaigns zu identifizieren, die als Tests gesendet wurden.
 
-![]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![Workspace-E-Mail-Präferenz-Schalter, der TEST- und SEED-Präfixe zu Test- und Seed-E-Mail-Betreffzeilen hinzufügt.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
 ## Inline-CSS bei neuen E-Mails standardmäßig {#inline-css-on-new-emails-by-default}
 
@@ -274,7 +274,7 @@ Das Ändern dieser Einstellung hat keine Auswirkungen auf Ihre bestehenden E-Mai
 
 Sie können Nutzer:innen automatisch erneut abonnieren, wenn sie ihre E-Mail-Adresse ändern. Wenn beispielsweise eine zuvor abgemeldete Workspace-Nutzerin oder ein zuvor abgemeldeter Workspace-Nutzer ihre bzw. seine E-Mail-Adresse in eine ändert, die nicht auf der Abmeldeliste von Braze steht, wird sie bzw. er automatisch erneut abonniert.
 
-![]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![Workspace-Einstellung, die Nutzer:innen automatisch erneut abonniert, wenn sich ihre E-Mail-Adresse ändert.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## Abo-Seiten und -Fußzeilen {#subscription-pages-and-footers}
 
@@ -287,16 +287,16 @@ Beachten Sie die folgenden Anforderungen beim Erstellen einer angepassten Fußze
 - Muss eine Abmelde-URL und eine physische Postanschrift enthalten.
 - Sollte weniger als 100 KB groß sein.
 
-![]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![Editor für angepasste E-Mail-Fußzeilen mit Feldern für Abmeldelink und Postanschrift zur CAN-SPAM-Konformität.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Weitere Informationen zum Liquid-Templating für angepasste Fußzeilen finden Sie in unserer Dokumentation zu [Angepassten Fußzeilen]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Weitere Informationen zum Liquid-Templating für angepasste Fußzeilen finden Sie unter [Angepasste Fußzeilen]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Angepasste Abmeldeseite %}
 
 Braze ermöglicht es Ihnen, eine **Angepasste Abmeldeseite** mit Ihrem eigenen HTML einzurichten. Diese Seite wird angezeigt, nachdem eine Nutzerin oder ein Nutzer sich über den unteren Bereich einer E-Mail abgemeldet hat. Beachten Sie, dass diese Seite weniger als 750 KB groß sein sollte.
 
-![]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![HTML-Editor und Vorschau für die angepasste Abmeldeseite, die nach der Abmeldung von E-Mails angezeigt wird.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
 Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
 
@@ -305,7 +305,7 @@ Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E
 
 Sie können eine angepasste Opt-in-Seite mit Ihrem eigenen HTML erstellen. Die Einbindung in Ihre E-Mails kann besonders vorteilhaft sein, wenn Sie möchten, dass Ihr Branding und Ihre Botschaft während des gesamten Nutzerlebenszyklus konsistent bleiben. Beachten Sie, dass diese Seite weniger als 750 KB groß sein sollte.
 
-![]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![HTML-Editor und Vorschau für die angepasste Opt-in-Seite zur gebrandeten E-Mail-Abo-Bestätigung.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
 Erfahren Sie mehr über Best Practices für die E-Mail-Listenverwaltung unter [E-Mail-Abos verwalten]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
 

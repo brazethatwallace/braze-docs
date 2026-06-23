@@ -24,7 +24,8 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones de socios admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de Segment **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
+- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
+- Al previsualizar mensajes en el dashboard usando **Preview as a Custom User**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
 
@@ -272,7 +273,7 @@ Usando el modal **Add Personalization**, también puedes insertar atributos pers
 
 Por ejemplo, en el modal de personalización a continuación, esto inserta el atributo personalizado anidado de una oficina de barrio local basándose en las preferencias de un usuario.
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![El modal Add Personalization con el tipo de personalización configurado como "Nested Custom Attrib...", el atributo de nivel superior configurado como "preferences" y la clave de atributo configurada como "neighborhood_office", mostrando una vista previa Liquid de la etiqueta resultante.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 Verifica que se haya generado un esquema si no ves la opción de insertar atributos personalizados anidados.
@@ -301,13 +302,13 @@ Si los datos no aparecen como se esperaba después de regenerar el esquema, es p
 
 Puedes desencadenar acciones cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, verifica que hayas generado un esquema.
 
-Por ejemplo, en una Campaign basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
+Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
 
-![Configuración de entrega de Campaign basada en acciones con un desencadenador de cambio de valor de atributo personalizado para preferencias anidadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Configuración de entrega de campaña basada en acciones con un desencadenador de cambio de valor de atributo personalizado para preferencias anidadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el Segment si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
+Cuando usas múltiples filtros de `Nested Custom Attribute` con lógica AND para segmentar en una matriz de objetos, cada filtro se evalúa de forma independiente en todos los elementos de la matriz. Un usuario califica para el segmento si _cualquier_ elemento de la matriz satisface cada filtro individual; los filtros no tienen que coincidir con el _mismo_ elemento.
 
 Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 
@@ -320,12 +321,12 @@ Por ejemplo, supongamos que un usuario tiene la siguiente matriz:
 }
 ```
 
-Un Segment con los siguientes filtros AND:
+Un segmento con los siguientes filtros AND:
 
 - `orders[].price` es mayor que 50
 - `orders[].price` es menor que 30
 
-Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el Segment.
+Este usuario calificaría porque el primer filtro coincide con el elemento "Shoes" (80 > 50) y el segundo filtro coincide con el elemento "Hat" (25 < 30). Aunque ningún elemento individual satisface ambas condiciones, el usuario aún entra en el segmento.
 
 Si necesitas que todas las condiciones coincidan con el mismo elemento dentro de una matriz, usa [segmentación multicriterio]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) en la misma ruta, o reestructura tus datos para evitar la coincidencia entre elementos.
 

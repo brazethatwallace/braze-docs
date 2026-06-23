@@ -24,7 +24,7 @@ Android unterstützt die Lokalisierung von Kanalnamen, sodass Sie im Code Ihrer 
 
 Sobald diese Kanäle erstellt sind, müssen Ihre Entwickler:innen die zugehörigen Kanal-IDs an Ihr Marketing-Team weitergeben. Ihr Team sollte Ihre Kanalnamen und Kanal-IDs im Braze-Dashboard eingeben, um sie in Ihren Kampagnen und Canvases zu verwenden.
 
-Um einen Kanal zum Braze-Dashboard hinzuzufügen, navigieren Sie zum Android-Push-Editor, wählen Sie das Feld für Benachrichtigungskanäle aus und wählen Sie dann „Kanäle verwalten“.
+Um einen Kanal zum Braze-Dashboard hinzuzufügen, navigieren Sie zum Android-Push-Editor, wählen Sie das Feld für Benachrichtigungskanäle aus und wählen Sie dann **Kanäle verwalten**.
 {% alert important %}
 Nur Nutzer:innen mit Berechtigungen, die „Apps verwalten“ umfassen, können Kanäle verwalten.
 {% endalert %}
@@ -73,13 +73,13 @@ Um das erwartete Verhalten für Kanäle besser zu verstehen, beziehen Sie sich a
 
 Wenn Sie einen Benachrichtigungskanal auf eine bestimmte Campaign oder einen Canvas-Schritt anwenden, scheint sich Ihre Zählung der **erreichbaren Nutzer:innen** (im Schritt „Zielgruppe“) für Android-Push nicht zu ändern. Allerdings sehen nur Nutzer:innen, die den ausgewählten Benachrichtigungskanal abonniert haben, die Nachricht, und Ihre Campaign-Analytics (wie Klicks) werden basierend auf dieser Zielgruppe gemessen.
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Android-Push-Editor mit „Benachrichtigungskanäle verwalten“ und einer Liste konfigurierter Kanäle.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Klicken Sie auf **Benachrichtigungskanal hinzufügen**.
-5. Geben Sie den Namen und die ID des Benachrichtigungskanals ein, den Sie hinzufügen möchten.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. Wählen Sie **Benachrichtigungskanal hinzufügen** aus.
+5. Geben Sie den Namen und die ID des Benachrichtigungskanals ein, den Sie hinzufügen möchten.<br><br>![Dialog „Benachrichtigungskanal hinzufügen“ mit Feldern für Kanalname und Kanal-ID.]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Wiederholen Sie die Schritte 4 und 5 für jeden Benachrichtigungskanal, den Sie hinzufügen möchten.
-7. Klicken Sie auf **Speichern**, um Ihre Änderungen zu speichern.
+7. Wählen Sie **Speichern** aus, um Ihre Änderungen zu speichern.
 
 ## Ihren Fallback-Kanal festlegen {#specifying-your-fallback-channel}
 

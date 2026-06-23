@@ -44,7 +44,7 @@ Consulte nossa [documentação de e-mail](https://www.braze.com/docs/user_guide/
 
 ## Detalhes dos canais SMS, MMS e RCS {#sms-mms-and-rcs-channel-details}
 
-As proporções de créditos de SMS e MMS são denominadas em incrementos de segmentos de entrada ou saída enviados a partir da plataforma Braze. As proporções de créditos de RCS são denominadas em incrementos de tipos Basic ou Single enviados a partir da plataforma Braze.
+As proporções de créditos de SMS e MMS são denominadas em incrementos de segmentos enviados a partir da plataforma Braze. As proporções de créditos de RCS são denominadas em incrementos de tipos Basic e Rich Media, ou tipos Single e Rich Media entregues a partir da plataforma Braze. Tanto os tipos de entrada quanto os de saída são cobrados.
 
 {% alert note %}
 Quando aplicável para esses canais, as taxas de operadora são cobradas separadamente (em atraso) e não são consideradas como parte dos Créditos de Ação.

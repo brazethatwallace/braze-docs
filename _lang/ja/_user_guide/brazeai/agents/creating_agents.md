@@ -47,8 +47,8 @@ alias: /creating-agents/
 
 **Create agent**を選択し、以下のオプションのいずれかを選びます。
 
-a. **カスタムエージェント**：白紙の状態からエージェントを構築します
-b. **Operatorでエージェントを作成**のオプション：[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート](#agent-templates-built-with-operator)を適用します
+- **カスタムエージェント**：白紙の状態からエージェントを構築します
+- **Operatorでエージェントを作成**のオプション：[BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して[開始テンプレート](#agent-templates-built-with-operator)を適用します
 
 Operatorを使用する場合は、次のステップに進む前に、チャットで変更内容を確認して承認してください。
 
@@ -96,7 +96,30 @@ Canvasエージェントの場合、指示文内でLiquidを使用してユー�
 [高度な出力スキーマ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas)を使用する場合、エージェントに他の出力に加えてその根拠も返させたいときは、`explanation`という名前の文字列フィールドを追加してください。応答の確認やデバッグに役立つ場合に`explanation`を入力するよう、[指示](#agent-instructions)でエージェントに伝えてください。
 {% endalert %}
 
-### ステップ 6: エージェントをテストして作成する {#step-6-test-and-create-the-agent}
+#### フォールバック値を設定する {#configure-fallback-values}
+
+フォールバック値は**Canvasステップエージェント**でのみ使用できます。Canvasエージェントの**Output**セクションでは、エージェントの呼び出しが失敗した場合（例えば、LLMがタイムアウトしたり、無効なAPIキーエラーを返した場合など）にBrazeが使用する値を定義できます。フォールバック値はパーソナライゼーションのデフォルトのように機能します。エージェントが実行できない場合でも、ユーザーに有用な出力を提供する静的な件名や短いメッセージを設定できます。
+
+**カタログエージェント**は、エージェントコンソールでのフォールバック値の設定をサポートしていません。
+
+![数値スキーマのフォールバック出力フィールドを表示するエージェントコンソールの出力設定。]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+
+Canvasエージェントのフォールバック値は[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)テンプレートをサポートしているため、フォールバックテキスト内でユーザー属性やコンテキスト変数を参照できます。
+
+フォールバックフィールドは、Canvasエージェントの出力形式に応じて変化します。
+
+| 出力形式 | フォールバック設定 |
+| --- | --- |
+| 文字列、数値、またはブール値 | 単一のフォールバック値を入力します（Liquidをサポート）。 |
+| フィールド（高度なスキーマ） | エージェントの出力で定義された各フィールドに対してフォールバック値を入力します。 |
+| JSONスキーマ（高度なスキーマ） | BrazeがJSONスキーマを読み取り、各プロパティの入力フィールドを生成するため、キーごとにフォールバック値を定義できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="フォールバック値を設定する" }
+
+フォールバック値が設定されたCanvasエージェントが[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)で実行されると、Brazeはユーザーごとにフォールバックをレンダリングし、`null`の代わりに出力変数に格納します。フォールバック値を設定しない場合、失敗した呼び出しではCanvasの出力は未設定（`null`）のままになります。
+
+ランタイムの動作については、[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior)を参照してください。
+
+### ステップ 6: エージェントをテストする {#step-6-test-the-agent}
 
 **Preview**ペインは、設定画面内で並列パネルとして表示されるエージェントのインスタンスです。エージェントを作成中や更新中に、エンドユーザーと同様の方法で体験しながらテストできます。このステップは、エージェントが期待通りに動作しているかを確認するのに役立ち、本番稼働前に微調整する機会を提供します。
 

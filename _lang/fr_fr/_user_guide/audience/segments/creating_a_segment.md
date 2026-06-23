@@ -8,7 +8,7 @@ tool: Segments
 search_rank: 3
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Créer un segment {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Créer un segment {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
 > La segmentation vous permet de cibler les utilisateurs en fonction de leurs caractéristiques et actions démographiques, comportementales ou techniques. Une utilisation créative et intelligente de la segmentation et de l'automatisation des messages vous permet de faire passer vos utilisateurs du premier contact à une relation client durable, de façon fluide. Les segments se mettent à jour en temps réel à mesure que les données changent, et vous pouvez créer autant de segments que nécessaire pour vos besoins de ciblage et d'envoi de messages.
 
@@ -41,7 +41,7 @@ Ajoutez au moins un filtre à votre segment. Vous pouvez combiner autant de filt
 
 {% multi_lang_include alerts/note_alerts.md alert='Segment profiles first app use' %}
 
-#### Groupes de filtres {#filter-groups}
+### Groupes de filtres {#filter-groups}
 
 Les filtres sont organisés en groupes de filtres. Chaque filtre doit faire partie d'un groupe de filtres contenant au minimum un filtre. Un segment peut avoir plusieurs groupes de filtres. Pour en ajouter un, sélectionnez **Add filter group**. Modifiez le nom du groupe de filtres en sélectionnant l'icône qui apparaît lorsque vous passez la souris à côté.
 
@@ -49,7 +49,7 @@ Les filtres sont organisés en groupes de filtres. Chaque filtre doit faire part
 
 Sélectionnez les icônes à côté de chaque filtre pour réduire l'éditeur de filtre ou dupliquer des filtres individuels. Après avoir dupliqué un filtre, vous pouvez ajuster ses valeurs dans chaque menu déroulant.
 
-#### Logique de segmentation avec AND et OR {#segmentation-logic-using-and-and-or}
+### Logique de segmentation avec AND et OR {#segmentation-logic-using-and-and-or}
 
 Au sein d'un groupe de filtres, les filtres peuvent être reliés par « AND » ou « OR ». Entre les groupes de filtres, les groupes peuvent être reliés par « AND » ou « OR ». En utilisant les groupes de filtres, vous pouvez créer une logique de segmentation telle que :
 - (A AND B AND C) OR (C AND E AND F)
@@ -80,7 +80,7 @@ Si `not included`, `is not`, `does not equal` ou `does not match regex` sont uti
 
 {% enddetails %}
 
-#### Opérateurs de filtre {#filter-operators}
+### Opérateurs de filtre {#filter-operators}
 
 Selon le filtre spécifique que vous sélectionnez, vous disposerez de différents opérateurs pour identifier les valeurs de filtre. Pour approfondir les opérateurs disponibles pour les différents types d'attributs personnalisés, consultez [Stockage des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes). Notez que lorsque vous utilisez l'opérateur « is any of », le nombre maximum d'éléments que vous pouvez inclure dans ce champ est de 256.
 
@@ -96,7 +96,7 @@ Les segments utilisant déjà le filtre **Segment Membership** ne peuvent pas ê
 De plus, l'imbrication de segments de cette manière ajoute de la complexité et peut ralentir les choses. À la place, recréez le segment que vous essayez d'inclure en utilisant les mêmes filtres.
 {% endalert %}
 
-#### Groupes d'exclusion (facultatif) {#exclusion}
+### Groupes d'exclusion (facultatif) {#exclusion}
 
 Lors de la construction d'un segment, vous pouvez appliquer un ou plusieurs groupes d'exclusion. Les groupes d'exclusion contiennent des critères qui identifient les utilisateurs à exclure de votre segment, et seront toujours connectés à vos groupes de filtres avec un opérateur « AND NOT ».
 
@@ -108,7 +108,7 @@ Les utilisateurs exclus ne seront pas comptabilisés dans la statistique *Total 
 
 ![Un groupe d'exclusion avec deux filtres.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-#### Afficher les statistiques de l'entonnoir {#viewing-funnel-statistics}
+### Afficher les statistiques de l'entonnoir {#viewing-funnel-statistics}
 
 Sélectionnez **View funnel statistics** pour afficher les statistiques de ce groupe de filtres et voir comment chaque filtre ajouté impacte les statistiques de votre segment. Vous verrez un nombre estimé et un pourcentage d'utilisateurs ciblés par tous les filtres jusqu'à ce point. Une fois les statistiques affichées pour un groupe de filtres, elles se mettront à jour automatiquement chaque fois que vous modifierez les filtres. Ces statistiques sont estimées et peuvent prendre un moment à se générer.
 
@@ -118,9 +118,13 @@ Gardez à l'esprit que si vous utilisez AND entre vos filtres, les statistiques 
 
 En ajoutant des filtres qui documentent votre flux d'utilisateurs, vous pouvez voir les points où les utilisateurs décrochent. Par exemple, si vous êtes une application de réseau social et que vous souhaitez voir où vous pourriez perdre des utilisateurs pendant votre processus d'onboarding, vous pouvez ajouter des filtres de données personnalisées pour l'inscription, l'ajout d'amis et l'envoi du premier message. Si vous constatez que 85 % des utilisateurs s'inscrivent et ajoutent des amis, mais que seulement 45 % ont envoyé le premier message, alors vous saurez qu'il faut vous concentrer sur l'encouragement à envoyer plus de messages pendant vos campagnes d'onboarding et de marketing.
 
-#### Tester les segments {#testing-segments}
+### Tester les segments {#testing-segments}
 
-Après avoir ajouté des applications et des filtres à votre segment, vous pouvez vérifier si votre segment est configuré comme prévu en recherchant un utilisateur pour confirmer s'il correspond aux critères du segment. Pour ce faire, recherchez l'`external_id` ou le `braze_id` d'un utilisateur dans la section **User Lookup**. Notez que vous ne pouvez pas effectuer de recherche par adresse e-mail dans **User Lookup**.
+Après avoir ajouté des applications et des filtres à votre segment, vous pouvez vérifier si votre segment est configuré comme prévu en recherchant un utilisateur pour confirmer s'il correspond aux critères du segment. Pour ce faire, recherchez l'`external_id` ou le `braze_id` d'un utilisateur dans la section **User Lookup**.
+
+{% alert note %}
+**User Lookup** n'accepte que les valeurs `external_id` et `braze_id`. Il n'accepte pas les adresses e-mail, les numéros de téléphone ou d'autres identifiants. Pour trouver un profil par e-mail, téléphone ou d'autres champs, utilisez plutôt [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles).
+{% endalert %}
 
 ![Section User Lookup avec un champ de recherche.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
@@ -137,7 +141,7 @@ Lorsqu'un utilisateur ne correspond pas à une partie ou à la totalité des cri
 
 ![Une recherche d'utilisateur avec une alerte indiquant « test1 does not match the following targeting criteria: » et affichant les critères manquants.]({% image_buster /assets/img_archive/user_lookup_nomatch.png %})
 
-#### Segments à utilisateur unique {#single-user-segments}
+### Segments à utilisateur unique {#single-user-segments}
 
 Vous pouvez créer des segments à utilisateur unique (ou des segments d'une poignée d'utilisateurs) en utilisant des attributs uniques qui identifient les utilisateurs, comme un nom d'utilisateur ou un ID utilisateur.
 

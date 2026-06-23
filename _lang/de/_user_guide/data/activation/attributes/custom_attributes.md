@@ -7,14 +7,14 @@ description: "Diese Seite beschreibt angepasste Attribute und erläutert die ver
 search_rank: 1
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Attribute {#custom-attributes}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Attribute {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
 
 > Auf dieser Seite finden Sie Informationen zu angepassten Attributen, die eine Sammlung eindeutiger Eigenschaften Ihrer Nutzer:innen darstellen. Angepasste Attribute eignen sich am besten zum Speichern von Attributen über Ihre Nutzer:innen oder von Informationen über geringwertige Aktionen innerhalb Ihrer Anwendung.
 
 In Braze gespeicherte angepasste Attribute können zum Aufbau von Zielgruppen-Segmenten und zur Personalisierung von Nachrichten mit Liquid verwendet werden. Denken Sie daran, dass Braze keine Zeitreiheninformationen für angepasste Attribute speichert, sodass Sie keine darauf basierenden Diagramme erhalten können, wie dies bei angepassten Events der Fall ist.
 
 {% alert important %}
-**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder ein SDK senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Data Settings** > **Custom Attributes**, API- und SDK-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+**Namen sind exakte Übereinstimmungen.** Schlüssel für angepasste Attribute sind **case-sensitiv** – zum Beispiel sind `Home_City` und `home_city` zwei verschiedene Attribute. Wenn Sie Daten über die [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder ein SDK senden, **entfernt Braze führende und nachgestellte Leerzeichen** aus Attributnamen, sodass `greeting` und ` greeting ` zum selben Schlüssel aufgelöst werden. Verwenden Sie überall, wo Sie ein Attribut referenzieren, dieselbe Schreibweise und Groß-/Kleinschreibung – in **Dateneinstellungen** > **Angepasste Attribute**, API- und SDK-Payloads sowie CSV-Importen. Informationen dazu, wie Braze eingehende Werte konvertiert, wenn Sie [einen Datentyp erzwingen]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion), finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
 {% endalert %}
 
 ## Anwendungsfälle {#use-cases}
@@ -134,3 +134,19 @@ Im Folgenden finden Sie Methoden für verschiedene Plattformen, die zum Setzen a
 Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden auf unbestimmte Zeit aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_archival/#active-users) ist.
 
 Eine vollständige Referenz aller Datentypen, die Sie als angepasste Attribute speichern können – einschließlich Boolescher Werte, Zahlen, Strings, Arrays, Zeitangaben, Objekte und Arrays von Objekten – finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+
+### Leere Strings im Vergleich zu Null-Werten {#blank-strings-versus-null-values}
+
+Beim Löschen oder Aufheben eines angepassten Attributs unterscheidet sich das Verhalten je nachdem, ob Sie einen leeren String (`""`) oder `null` übergeben:
+
+| Wert | Verhalten |
+| --- | --- |
+| `""` (leerer String) | Das Attribut wird auf einen leeren Wert gesetzt und bleibt im Nutzerprofil sichtbar. |
+| `null` | Das Attribut wird vollständig aus dem Nutzerprofil entfernt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Leere Strings im Vergleich zu Null-Werten" }
+
+{% alert important %}
+Bei Nicht-String-Datentypen, bei denen der Datentyp im Braze-Dashboard manuell festgelegt wird (nicht automatisch erkannt), müssen Sie `null` verwenden, um den Wert aufzuheben. Die Übergabe von `""` ist nur für String-Attribute gültig – beispielsweise wird das Setzen eines Booleschen Attributs auf `""` als leerer String behandelt, was ein ungültiger Wert für diesen Typ ist. Um einen Booleschen Wert aufzuheben, übergeben Sie `null`.
+
+Beachten Sie, dass der CSV-Import `null` nicht unterstützt – Boolesche Werte in CSV-Importen müssen `TRUE` oder `FALSE` sein.
+{% endalert %}

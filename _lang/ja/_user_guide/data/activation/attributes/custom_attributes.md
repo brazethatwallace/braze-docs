@@ -36,7 +36,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 ![ブール値である4つのカスタム属性。]({% image_buster /assets/img/export_custom_attributes.png %})
 
-「**最終更新日**」の列には、カスタム属性が最後に編集された時間（ブロックリストやアクティブに設定された時間など）が表示されます。
+**最終更新日**の列には、カスタム属性が最後に編集された時間（ブロックリストやアクティブに設定された時間など）が表示されます。
 
 {% alert important %}
 メッセージのターゲットを正しく設定するには、カスタム属性のデータタイプが実際のカスタム属性と一致していることを確認してください。<br><br>例えば、`newsletter_subscribed`が文字列として定義されている場合、Liquid構文は次のようになります：{% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}。`newsletter_subscribed`がブール値として定義されている場合、Liquid構文には単一引用符を使用しません：{% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}。
@@ -134,3 +134,21 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 **ユーザープロファイル**に保存されるすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival/#active-users)である限り、無期限に保持されます。
 
 カスタム属性として保存できるすべてのデータタイプ（ブール値、数値、文字列、配列、時間、オブジェクト、オブジェクトの配列）の完全なリファレンスについては、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)を参照してください。
+
+### 空文字列とnull値 {#blank-strings-versus-null-values}
+
+カスタム属性をクリアまたは設定解除する場合、空文字列（`""`）を渡すか`null`を渡すかによって動作が異なります。
+
+| 値 | 動作 |
+| --- | --- |
+| `""`（空文字列） | 属性は空の値に設定され、ユーザープロファイルに引き続き表示されます。 |
+| `null` | 属性はユーザープロファイルから完全に削除されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
+
+{% alert important %}
+文字列以外のデータタイプで、Brazeダッシュボードでデータタイプが手動で設定されている場合（自動検出ではない場合）、値の設定を解除するには`null`を使用する必要があります。`""`の送信は文字列属性にのみ有効です。例えば、ブール値属性に`""`を設定すると空文字列として扱われ、そのタイプでは無効な値となります。ブール値の設定を解除するには、`null`を渡してください。
+
+CSVインポートは`null`をサポートしていない点に注意してください。CSVインポートのブール値は`TRUE`または`FALSE`である必要があります。
+{% endalert %}

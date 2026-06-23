@@ -24,7 +24,7 @@ Androidはチャネル名のローカライゼーションをサポートして�
 
 これらのチャネルが作成されたら、エンジニアは関連するチャネルIDをマーケティングチームに共有する必要があります。チームはCampaignsやCanvasesで使用するために、チャネル名とチャネルIDをBrazeダッシュボードに入力する必要があります。
 
-Brazeダッシュボードにチャネルを追加するには、Androidプッシュ作成画面に移動し、通知チャネルフィールドを選択してから「チャネルを管理」を選択します。
+Brazeダッシュボードにチャネルを追加するには、Androidプッシュ作成画面に移動し、通知チャネルフィールドを選択してから**チャネルを管理**を選択します。
 {% alert important %}
 「アプリを管理」権限を持つユーザーのみがチャネルを管理できます。
 {% endalert %}
@@ -73,13 +73,13 @@ Brazeでは、ダッシュボードフォールバックチャネルを指定で
 
 通知チャネルを特定のCampaignまたはキャンバスステップに適用すると、**到達可能なユーザー**数（ターゲットオーディエンスステップにあります）はAndroidプッシュで変化しないように見えます。ただし、選択した通知チャネルを購読しているユーザーのみがメッセージを受け取り、Campaignの分析（クリック数など）はこのオーディエンスに基づいて測定されます。
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Androidプッシュ作成画面の通知チャネル管理と設定済みチャネルの一覧]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. **Add Notification Channel**をクリックします。
-5. 追加する通知チャネルの名前とIDを入力します。<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. **Add Notification Channel**を選択します。
+5. 追加する通知チャネルの名前とIDを入力します。<br><br>![チャネル名とチャネルIDのフィールドがある通知チャネル追加ダイアログ]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. 追加する通知チャネルごとにステップ4と5を繰り返します。
-7. **Save**を押して変更を保存します。
+7. **Save**を選択して変更を保存します。
 
 ## フォールバックチャネルの指定 {#specifying-your-fallback-channel}
 

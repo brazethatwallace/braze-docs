@@ -11,7 +11,7 @@ description: "Aprenda a acessar e usar o BrazeAI Operator<sup>TM</sup>, um assis
 
 > O BrazeAI Operator<sup>TM</sup> é um assistente alimentado por IA integrado ao dashboard. O Operator ajuda a realizar tarefas — respondendo perguntas, orientando na configuração, solucionando problemas e gerando ideias.
 
-## Acesse o Operator {#access-operator}
+## Acessar o Operator {#access-operator}
 
 Abra o Operator de qualquer página no dashboard da Braze.
 
@@ -32,7 +32,7 @@ Assista a este vídeo para ver um exemplo do que o Operator pode fazer.
 
 {% multi_lang_include video.html id="lnv9t8hn11" source="wistia" %}
 
-## Use o Operator {#use-operator}
+## Usar o Operator {#use-operator}
 
 Descreva o que você está tentando realizar usando linguagem natural. As solicitações podem variar de perguntas simples a pedidos complexos:
 
@@ -45,7 +45,7 @@ O Operator pode fornecer instruções passo a passo, links para a documentação
 
 Trate o Operator como uma conversa, não como um mecanismo de busca. Prompts curtos e naturais funcionam melhor.
 
-- **Seja específico:** Em vez de "Me fale sobre o Canvas", tente "Como eu uso jornadas de ação no Canvas?".
+- **Seja específico:** Em vez de "Me fale sobre o Canvas", tente "Como eu uso Jornadas de ação no Canvas?".
 - **Faça perguntas de acompanhamento:** Se a primeira resposta não atender à sua necessidade, peça esclarecimentos ou informações adicionais.
 - **Use o contexto da página:** O Operator entende sua localização na Braze. Abra o Operator enquanto visualiza a página relevante para obter os resultados mais precisos.
 
@@ -132,13 +132,7 @@ Na parte inferior de cada resposta, use os botões de polegar para cima ou para 
 
 ## Privacidade e segurança de dados {#data-privacy-and-security}
 
-### Provedores de modelos como subprocessadores ou provedores terceiros {#model-providers-as-sub-processors-or-third-party-providers}
-
-Quando você usa uma integração com um provedor de LLM fornecida pela Braze por meio dos Serviços Braze ("LLM fornecido pela Braze"), os provedores de tal LLM fornecido pela Braze atuam como subprocessadores da Braze, sujeitos aos termos do Adendo de Processamento de Dados (DPA) entre você e a Braze. O BrazeAI Operator<sup>TM</sup> integra-se com a OpenAI.
-
-### Como os dados são usados com a OpenAI {#how-data-is-used-with-openai}
-
-Para gerar saída de IA por meio dos recursos da BrazeAI que utilizam a OpenAI ("Saída"), a Braze enviará certas informações ("Entrada") para a OpenAI. A Entrada consiste nos seus prompts, no conteúdo exibido no dashboard e nos dados do espaço de trabalho relevantes para suas consultas. De acordo com os [compromissos da plataforma de API da OpenAI](https://openai.com/enterprise-privacy/), os dados enviados para a API da OpenAI via Braze não são usados para treinar ou melhorar os modelos da OpenAI. Entre você e a Braze, a Saída é sua propriedade intelectual. A Braze não reivindicará nenhum direito autoral sobre tal Saída. A Braze não oferece garantia de qualquer tipo em relação a qualquer conteúdo gerado por IA, incluindo a Saída.
+O BrazeAI Operator<sup>TM</sup> integra-se com a OpenAI, que atua como subprocessadora da Braze, sujeita ao Adendo de Processamento de Dados (DPA) entre você e a Braze. Os dados enviados para a OpenAI via Braze não são usados para treinar ou melhorar os modelos da OpenAI. Para detalhes sobre conformidade com HIPAA, retenção de dados, tratamento de IPI e governança, consulte [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
 
 ## Próximos passos {#next-steps}
 
@@ -146,3 +140,4 @@ Para gerar saída de IA por meio dos recursos da BrazeAI que utilizam a OpenAI (
 - [Revisar ações]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Saiba como revisar e aprovar as alterações propostas pelo Operator
 - [Abrir tickets de suporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Abra tickets de suporte diretamente pelo Operator
 - [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Consulte problemas comuns e soluções
+- [Privacidade e segurança de dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/): Revise conformidade com HIPAA, retenção de dados e orientações de minimização de IPI

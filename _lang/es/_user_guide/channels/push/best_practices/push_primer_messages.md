@@ -108,7 +108,7 @@ Después de haber añadido el texto de los botones, especifica el comportamiento
 - **Botón 1:** Configúralo como "Close Message". Este es tu botón secundario, o la opción "Ahora no".
 - **Botón 2:** Configúralo como "Request Push Permission". Este es tu botón primario, o la opción "Permitir notificaciones".
 
-![Creador de mensajes dentro de la aplicación con dos botones: "Allow notifications" y "Not now".]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
+![Creador de mensajes dentro de la aplicación con dos botones: "Permitir notificaciones" y "Ahora no".]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
 
 ## Paso 4: Planifica la entrega {#step-4-schedule-delivery}
 

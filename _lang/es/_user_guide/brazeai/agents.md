@@ -68,11 +68,17 @@ Se aplican las siguientes limitaciones:
     - Si tus agentes agotan constantemente el tiempo de espera, ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 - Los datos de entrada están limitados a 25 KB por solicitud. Las entradas más largas se truncan.
 
+## Buenas prácticas {#best-practices}
+
+Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor retorno de la inversión (ROI), y elige audiencias que tengan probabilidades de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad; por ejemplo, reorientar a usuarios que buscaron recientemente pero no convirtieron, en lugar de enviar textos generados por agentes a toda tu base de usuarios.
+
+Para validar el ROI antes de escalar, utiliza un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) para enviar solo una parte de tu audiencia a través de un paso de agente. Para obtener más orientación sobre la implementación, consulta [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
 ## Gestión de errores {#error-handling}
 
-Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) del proveedor del LLM durante un paso de agente en Canvas, Braze reintenta la solicitud hasta cinco veces utilizando retirada exponencial. Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la salida del agente se establece en `null`. Si un agente alcanza su límite de invocación diario, la salida también se establece en `null`.
+Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) del proveedor del LLM durante un **paso de agente en Canvas**, Braze reintenta continuamente la solicitud utilizando retirada exponencial. Los agentes de catálogo no reintentan las invocaciones con límite de velocidad. Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la salida del agente en Canvas se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) en la Consola de Agente (solo agentes de pasos en Canvas). Si un agente alcanza su límite de invocación diario, Braze aplica los valores alternativos configurados cuando están presentes; de lo contrario, la salida se establece en `null`.
 
-Cuando muchos usuarios entran en un paso de agente a la vez, el procesamiento puede tardar más debido a los [controles de flujo de invocación]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Utiliza [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) para protegerte contra salidas nulas en tus mensajes.
+Cuando muchos usuarios entran en un paso de agente a la vez, el procesamiento puede tardar más debido a los [controles de flujo de invocación]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configura valores alternativos en la Consola de Agente para los agentes de Canvas de modo que los usuarios sigan recibiendo resultados cuando una invocación falle, o utiliza [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) en los pasos de mensaje posteriores.
 
 ## ¿Cómo se utilizan mis datos y cómo se envían a los LLM proporcionados por Braze? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

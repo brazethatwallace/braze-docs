@@ -14,7 +14,7 @@ Une fois votre campagne lancée, vous pouvez vérifier les performances de chaqu
 
 ## Analyse par option d'optimisation {#analytics-by-optimization-option}
 
-Votre vue analytique variera selon que vous avez sélectionné ou non une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) lors de votre configuration initiale.
+Votre vue analytique varie selon que vous avez sélectionné ou non une [optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) lors de votre configuration initiale.
 
 ### Aucune optimisation {#no-optimization}
 
@@ -29,7 +29,7 @@ Si vous utilisez la sélection de variante BrazeAI<sup>TM</sup>, selon qu'il s'a
 
 Pour plus de détails sur la façon dont nous rapportons le gain de la sélection de variante BrazeAI<sup>TM</sup>, consultez [Sélection de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
 
-![Résultats du gain de la sélection de variante BrazeAI]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Analyse de campagne montrant le gain de la sélection de variante BrazeAI<sup>TM</sup>, y compris les indicateurs de comparaison après la fenêtre d'expérimentation.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Variante gagnante {#winning-variant}
 
@@ -79,11 +79,11 @@ L'onglet **Test initial** affiche les indicateurs de chaque variante du test A/B
 
 ![Résultats d'un test initial envoyé pour déterminer la variante la plus performante pour chaque utilisateur. Un tableau affiche les performances de chaque variante selon divers indicateurs pour le canal cible.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
-Par défaut, le test recherche des associations entre les événements personnalisés des utilisateurs et leurs préférences de variante de message. Cette analyse détecte si les événements personnalisés augmentent ou diminuent la probabilité de répondre à une variante de message particulière. Ces relations sont ensuite utilisées pour déterminer quel utilisateur reçoit quelle variante de message lors de l'envoi final.
+Par défaut, le test recherche des associations entre les événements personnalisés de chaque utilisateur et ses préférences de variante de message. Cette analyse détecte si les événements personnalisés augmentent ou diminuent la probabilité de répondre à une variante de message particulière. Ces relations sont ensuite utilisées pour déterminer quel utilisateur reçoit quelle variante de message lors de l'envoi final.
 
 Les relations entre les événements personnalisés et les préférences de message sont affichées dans le tableau de l'onglet **Envoi initial**.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tableau de l'onglet Test initial résumant les relations entre les événements personnalisés des utilisateurs et leurs variantes de message préférées.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 Si le test ne parvient pas à trouver de relation significative entre les événements personnalisés et les préférences de parcours, il se rabat sur une méthode d'analyse basée sur les sessions, et aucun tableau de données d'événements personnalisés n'est affiché.
 
@@ -124,7 +124,7 @@ Les trois cartes de cette page affichent votre gain projeté, les résultats glo
 
 Le tableau de cette page affiche les indicateurs de chaque variante de l'envoi de la variante personnalisée. Votre **% d'audience** correspond au pourcentage du segment cible que vous avez réservé pour le groupe de la variante personnalisée.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Tableau de l'onglet Variante personnalisée indiquant le pourcentage d'audience et les indicateurs de performance de chaque variante après l'envoi final.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -174,34 +174,34 @@ Pour les campagnes de messages in-app déclenchés qui incluent des affichages d
 
 Un test multivarié ou A/B peut (et devrait !) inspirer des idées pour de futurs tests, ainsi que vous guider vers des changements dans votre stratégie de communication. Voici quelques actions de suivi possibles :
 
-#### Modifier votre stratégie de communication en fonction des résultats du test {#change-your-messaging-strategy-based-on-test-results}
+### Modifier votre stratégie de communication en fonction des résultats du test {#change-your-messaging-strategy-based-on-test-results}
 
 Les résultats de votre test multivarié peuvent vous amener à modifier la façon dont vous formulez ou formatez vos messages.
 
-#### Mieux comprendre vos utilisateurs {#change-the-way-you-understand-your-users}
+### Mieux comprendre vos utilisateurs {#change-the-way-you-understand-your-users}
 
 Chaque test éclaire les comportements de vos utilisateurs, la façon dont ils réagissent aux différents canaux de communication, ainsi que les différences (et similitudes) entre vos segments.
 
-#### Améliorer la structure de vos futurs tests {#improve-the-way-you-structure-future-tests}
+### Améliorer la structure de vos futurs tests {#improve-the-way-you-structure-future-tests}
 
 Votre échantillon était-il trop petit ? Les différences entre vos variantes étaient-elles trop subtiles ? Chaque test est une occasion d'apprendre à améliorer les tests futurs. Si votre confiance est faible, votre échantillon est trop petit et devrait être augmenté pour les prochains tests. Si vous ne constatez aucune différence nette entre les performances de vos variantes, il est possible que les différences étaient trop subtiles pour avoir un effet perceptible sur les réponses des utilisateurs.
 
-#### Effectuer un test de suivi avec un échantillon plus grand {#run-a-follow-up-test-with-a-larger-sample-size}
+### Effectuer un test de suivi avec un échantillon plus grand {#run-a-follow-up-test-with-a-larger-sample-size}
 
 Des échantillons plus grands augmentent les chances de détecter de petites différences entre les variantes.
 
-#### Effectuer un test de suivi sur un canal de communication différent {#run-a-follow-up-test-using-a-different-messaging-channel}
+### Effectuer un test de suivi sur un canal de communication différent {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 Si vous constatez qu'une stratégie particulière est très efficace sur un canal, vous pouvez tester cette stratégie sur d'autres canaux. Si un type de message est efficace sur un canal mais pas sur un autre, vous pouvez en conclure que certains canaux sont plus propices à certains types de messages. Ou peut-être y a-t-il une différence entre les utilisateurs qui sont plus susceptibles d'activer les notifications push et ceux qui sont plus susceptibles de prêter attention aux messages in-app. En fin de compte, ce type de test vous aide à comprendre comment votre audience interagit avec vos différents canaux de communication.
 
-#### Effectuer un test de suivi sur un segment d'utilisateurs différent {#run-a-follow-up-test-on-a-different-segment-of-users}
+### Effectuer un test de suivi sur un segment d'utilisateurs différent {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 Pour ce faire, créez un autre test avec le même canal de communication et les mêmes variantes, mais choisissez un segment d'utilisateurs différent. Par exemple, si un type de message s'est avéré extrêmement efficace pour les utilisateurs engagés, il peut être utile d'étudier son effet sur les utilisateurs inactifs. Il est possible que les utilisateurs inactifs réagissent de manière similaire, ou qu'ils préfèrent une autre variante. Ce test vous aidera à en apprendre davantage sur vos différents segments et sur la façon dont ils réagissent aux différents types de messages. Pourquoi faire des suppositions sur vos segments quand vous pouvez baser votre stratégie sur des données ?
 
-#### Effectuer un test de suivi basé sur les enseignements d'un test précédent {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
+### Effectuer un test de suivi basé sur les enseignements d'un test précédent {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 Utilisez les informations recueillies lors de tests passés pour guider vos futurs tests. Un test précédent suggère-t-il qu'une technique de communication est plus efficace ? N'êtes-vous pas certain de l'aspect spécifique d'une variante qui l'a rendue meilleure ? Effectuer des tests de suivi basés sur ces questions vous aidera à générer des conclusions pertinentes sur vos utilisateurs.
 
-#### Comparer l'impact à long terme de différentes variantes {#compare-the-long-term-impact-of-different-variants}
+### Comparer l'impact à long terme de différentes variantes {#compare-the-long-term-impact-of-different-variants}
 
 Si vous effectuez des tests A/B sur des messages de réengagement, n'oubliez pas de comparer l'impact à long terme des différentes variantes à l'aide des [rapports de rétention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). Vous pouvez utiliser les rapports de rétention pour analyser comment chaque variante a influencé un comportement utilisateur de votre choix au bout de quelques jours, semaines ou un mois après la réception du message, et vérifier s'il y a un gain.

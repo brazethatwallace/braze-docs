@@ -41,7 +41,7 @@ Los porcentajes se calculan comparando el rango de fechas actual con el rango de
 
 Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usuarios activos diarios* muestran un aumento porcentual del 1,8 %, eso significa que tuviste un 1,8 % más de usuarios activos diarios esta semana en comparación con la semana pasada.
 
-![Un mosaico de métrica del resumen de rendimiento que muestra un valor de métrica y el cambio porcentual.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Un mosaico de métrica para usuarios activos diarios que muestra un promedio de 22,2 mil con una señal de aumento del 7,1 % y una línea de tendencia.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar desglose {#show-breakdown}
 

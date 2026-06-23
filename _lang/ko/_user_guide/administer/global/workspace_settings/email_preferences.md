@@ -143,7 +143,7 @@ SSL 활성화는 추적 픽셀의 URL을 HTTP 대신 HTTPS로 래핑합니다. S
 
 테스트 발송에는 일반적으로 목록 탈퇴 헤더가 포함되지 **않습니다**. 실제 헤더가 표시되는지 여부는 메일함 공급자에 따라 다르며 평판 기반입니다. 발신자 평판이 높을수록 일반적으로 가시성이 향상됩니다.
 
-![]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
+![메시지 본문 외부에 목록 탈퇴가 표시되는 이메일 클라이언트 메일함 UI에서 메시지 옆에 Unsubscribe 옵션이 있는 화면.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
 수신자가 **Unsubscribe**를 선택하면 메일함 공급자가 이메일 헤더에 정의된 대상으로 탈퇴 요청을 보냅니다.
 
@@ -243,7 +243,7 @@ Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요
 
 이 설정을 조정하면 이 이메일의 원클릭 목록 탈퇴에 대한 기본 동작이 재정의됩니다.
 
-![]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
+![워크스페이스 기본값 및 커스텀 URL을 포함한 메시지 수준 원클릭 목록 탈퇴 옵션이 있는 이메일 편집기의 발송 설정.]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
 
 #### 요구 사항 {#requirements}
 
@@ -256,13 +256,13 @@ Braze가 위의 방법 중 하나를 통해 사용자로부터 목록 탈퇴 요
 
 **Custom list-unsubscribe header**를 선택하여 자체 구성된 원클릭 탈퇴 엔드포인트와 선택적 "mailto:"를 추가합니다. Braze는 원클릭 탈퇴 HTTP가 대량 발신자에 대한 Yahoo 및 Gmail의 요구 사항이므로 커스텀 목록 탈퇴 헤더를 지원하기 위해 URL 입력이 필요합니다.
 
-![]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
+![원클릭 탈퇴 URL 및 선택적 mailto를 위한 커스텀 목록 탈퇴 헤더 필드가 있는 이메일 환경설정.]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
 
 ## 이메일 제목란에 추가 {#append-email-subject-lines}
 
 토글을 사용하여 테스트 및 시드 이메일 제목란에 "[TEST]" 및 "[SEED]"를 포함합니다. 이를 통해 테스트로 발송된 이메일 Campaign을 식별하는 데 도움이 됩니다.
 
-![]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![테스트 및 시드 이메일 제목란에 TEST 및 SEED 접두사를 추가하는 워크스페이스 이메일 환경설정 토글.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
 ## 새 이메일에 기본적으로 CSS 인라인 적용 {#inline-css-on-new-emails-by-default}
 
@@ -274,7 +274,7 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 
 이메일 주소를 변경할 때 사용자를 자동으로 재가입시킬 수 있습니다. 예를 들어, 이전에 탈퇴한 워크스페이스 사용자가 이메일 주소를 Braze의 탈퇴 목록에 없는 주소로 변경하면 자동으로 재가입됩니다.
 
-![]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![이메일 주소가 변경될 때 사용자를 자동으로 재가입시키는 워크스페이스 설정.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## 가입 페이지 및 바닥글 {#subscription-pages-and-footers}
 
@@ -287,16 +287,16 @@ CSS 인라인은 이메일 및 새 이메일의 CSS 스타일을 자동으로 �
 - 탈퇴 URL과 실제 우편 주소를 포함해야 합니다.
 - 100 KB 미만이어야 합니다.
 
-![]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![CAN-SPAM 준수를 위한 탈퇴 링크 및 우편 주소 필드가 있는 사용자 지정 이메일 바닥글 편집기.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions) 설명서를 확인하세요.
+사용자 지정 바닥글 Liquid 템플릿에 대해 자세히 알아보려면 [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)을 참조하세요.
 
 {% endtab %}
 {% tab 사용자 지정 구독취소 페이지 %}
 
 Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설정할 수 있습니다. 이 페이지는 사용자가 이메일 하단에서 탈퇴를 선택한 후 표시됩니다. 이 페이지는 750 KB 미만이어야 합니다.
 
-![]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![사용자가 이메일에서 탈퇴한 후 표시되는 페이지의 사용자 지정 구독취소 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
 이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)를 참조하세요.
 
@@ -305,7 +305,7 @@ Braze에서는 자체 HTML로 **사용자 지정 구독취소 페이지**를 설
 
 자체 HTML을 사용하여 사용자 지정 옵트인 페이지를 만들 수 있습니다. 이를 이메일에 포함하면 사용자 라이프사이클 전반에 걸쳐 브랜딩과 메시지를 일관되게 유지하려는 경우 특히 유용합니다. 이 페이지는 750 KB 미만이어야 합니다.
 
-![]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![브랜드 이메일 구독 확인을 위한 사용자 지정 옵트인 페이지 HTML 편집기 및 미리보기.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
 이메일 목록 관리 모범 사례에 대해 자세히 알아보려면 [이메일 구독 관리]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)를 참조하세요.
 

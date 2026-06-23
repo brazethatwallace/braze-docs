@@ -12,11 +12,11 @@ channel:
 
 > Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zum Push-Kanal.
 
-### Warum werden Push-Benachrichtigungen manchmal verzögert zugestellt? {#why-are-push-notifications-sometimes-delayed}
+## Warum werden Push-Benachrichtigungen manchmal verzögert zugestellt? {#why-are-push-notifications-sometimes-delayed}
 
 Die Zustellung durchläuft in der Regel drei Phasen: die **Verarbeitung** durch Braze (Segmentierung, Zeitplanung und Übergabe an den Anbieter), den Transport von Braze zu **APNs oder FCM** und die Zustellung vom Anbieter an das **Gerät**. Verzögerungen können in jeder Phase auftreten. Braze hat keinen Einblick in die Warteschlangen des Anbieters oder des Geräts. Verwenden Sie [Verbose Logging]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) auf dem Client, wenn Sie geräteseitige Timing-Probleme eingrenzen müssen.
 
-### Was passiert, wenn sich mehrere Nutzer:innen auf einem einzigen Gerät anmelden? {#what-happens-when-multiple-users-log-into-a-single-device}
+## Was passiert, wenn sich mehrere Nutzer:innen auf einem einzigen Gerät anmelden? {#what-happens-when-multiple-users-log-into-a-single-device}
 
 Wenn sich ein:e Nutzer:in von einem Gerät oder einer Website abmeldet, bleibt er/sie per Push erreichbar, bis sich ein:e andere:r Nutzer:in anmeldet. Zu diesem Zeitpunkt wird das Push-Token dem/der neuen Nutzer:in zugewiesen. Das liegt daran, dass jedes Gerät nur ein aktives Push-Abo pro App oder Website haben kann.
 
@@ -24,19 +24,19 @@ Wenn ein Push-Token neu zugewiesen wird, wird die Änderung im **Push Changelog*
 
 ![Das „Push Changelog“ im Abschnitt „Contact Settings“.]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
 
-### Wird ein Test-Push an alle meine Geräte gesendet? {#when-i-send-a-test-push-does-it-go-to-all-of-my-devices}
+## Wird ein Test-Push an alle meine Geräte gesendet? {#when-i-send-a-test-push-does-it-go-to-all-of-my-devices}
 
 Ja. Der Test-Push wird an jedes Push-fähige Gerät gesendet, das mit dem ausgewählten Nutzerprofil verknüpft ist. Wenn Sie mehrere Telefone oder Tablets mit demselben/derselben Nutzer:in angemeldet haben, erhält jedes Gerät mit einem gültigen Push-Token die Benachrichtigung.
 
 Um den Test-Push nur an ein Gerät zu senden, können Sie vor dem Testen die Push-Token für die anderen Geräte aus dem Nutzerprofil entfernen. Alternativ können Sie beim Senden über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) `send_to_most_recent_device_only` im `apple_push`- oder `android_push`-Objekt auf `true` setzen, sodass nur das zuletzt aktive Gerät den Push erhält.
 
-### Was bedeutet „Error sending push because the payload was invalid“? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
+## Was bedeutet „Error sending push because the payload was invalid“? {#what-does-error-sending-push-because-the-payload-was-invalid-mean}
 
 Diese Meldung zeigt an, dass APNs die Push-Anfrage aufgrund eines ungültigen Payloads abgelehnt haben (zum Beispiel ein leerer Payload oder ein Payload, der zu groß ist).
 
 Weitere Details und nächste Schritte finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
 
-### Warum hat ein:e Nutzer:in mit Opt-in kein Push-Token? {#why-doesnt-an-opted-in-user-have-a-push-token}
+## Warum hat ein:e Nutzer:in mit Opt-in kein Push-Token? {#why-doesnt-an-opted-in-user-have-a-push-token}
 
 Das kann passieren, wenn das Push-Token des/der Nutzer:in einer anderen Person zugewiesen wurde, die dasselbe Gerät verwendet hat.
 
@@ -50,13 +50,13 @@ Wenn Sie möchten, dass das Push-Token dem/der ursprünglichen Nutzer:in wieder 
 1. Lassen Sie den/die ursprüngliche:n Nutzer:in sich in das Profil mit dem fehlenden Push-Token einloggen.
 2. Lösen Sie einen neuen Push-Versand aus. Dadurch wird das Token zurück auf das Konto verschoben, sofern Push auf Geräteebene noch aktiviert ist.
 
-### Warum öffnet „Open web URL inside mobile app“ beim Testen einer Entwurfs-Campaign immer die App? {#why-does-open-web-url-inside-mobile-app-always-open-the-app-when-im-testing-a-draft-campaign}
+## Warum öffnet „Open web URL inside mobile app“ beim Testen einer Entwurfs-Campaign immer die App? {#why-does-open-web-url-inside-mobile-app-always-open-the-app-when-im-testing-a-draft-campaign}
 
 Wenn eine Campaign noch den Status **Entwurf** hat und Sie einen Test-Push senden, öffnet das Tippen auf die Benachrichtigung immer zuerst die App – unabhängig davon, ob die Option **Open web URL inside mobile app** ausgewählt oder deaktiviert ist. Wenn die Campaign **Live** ist, funktioniert das Klickverhalten wie konfiguriert.
 
 Wenn Sie **Open web URL** ohne die Option **Inside App** ausgewählt haben, wird der Link direkt im Standardbrowser des Geräts geöffnet. Wenn Sie **Open web URL inside mobile app** ausgewählt haben, wird der Link in einer In-App-Webansicht geöffnet.
 
-### Was ist der Unterschied zwischen „Send to Production“ und „Send to Development“ bei iOS-Push-Zertifikaten? {#what-is-the-difference-between-send-to-production-and-send-to-development-for-ios-push-certificates}
+## Was ist der Unterschied zwischen „Send to Production“ und „Send to Development“ bei iOS-Push-Zertifikaten? {#what-is-the-difference-between-send-to-production-and-send-to-development-for-ios-push-certificates}
 
 Beim Hinzufügen eines Apple-Push-Zertifikats in Braze bestimmen die Optionen **Send to Production** und **Send to Development**, welches APNs-Gateway (Apple Push Notification Service) Braze für die Zustellung von Push-Benachrichtigungen verwendet:
 
@@ -65,7 +65,7 @@ Beim Hinzufügen eines Apple-Push-Zertifikats in Braze bestimmen die Optionen **
 
 Wenn die falsche Option ausgewählt wird, schlagen Push-Benachrichtigungen stillschweigend fehl, da der Push-Token-Typ nicht zum Gateway passt. In der Regel sollten Apps, die über TestFlight oder den App Store verteilt werden, **Send to Production** verwenden.
 
-### Was ist der Unterschied zwischen den Filtern „Foreground Push Enabled“ und „Background or Foreground Push Enabled“? {#what-is-the-difference-between-the-foreground-push-enabled-and-background-or-foreground-push-enabled-filters}
+## Was ist der Unterschied zwischen den Filtern „Foreground Push Enabled“ und „Background or Foreground Push Enabled“? {#what-is-the-difference-between-the-foreground-push-enabled-and-background-or-foreground-push-enabled-filters}
 
 Diese Segmentierungsfilter prüfen unterschiedliche Bedingungen:
 
@@ -77,7 +77,7 @@ Diese Segmentierungsfilter prüfen unterschiedliche Bedingungen:
 
 Ein:e Nutzer:in kann `Background or Foreground Push Enabled` sein, ohne `Foreground Push Enabled` zu sein. Das passiert, wenn der/die Nutzer:in sichtbare Push-Benachrichtigungen in den Geräteeinstellungen deaktiviert hat, die App aber noch ein Hintergrund-Push-Token besitzt. Weitere Details finden Sie unter [Push-Nutzer:innen und Abos]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
 
-### Wie bestimmt Braze, wann eine Push-Nachricht erfolgreich gesendet wurde? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
+## Wie bestimmt Braze, wann eine Push-Nachricht erfolgreich gesendet wurde? {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
 
 Eine Nachricht wird als gesendet protokolliert, sobald sie vom Push-Dienstanbieter empfangen wurde. Das bedeutet nicht zwangsläufig, dass der/die Nutzer:in die Nachricht erhalten oder gesehen hat.
 

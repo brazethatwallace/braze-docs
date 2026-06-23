@@ -14,11 +14,11 @@ Pour utiliser les indicateurs de fonctionnalité, assurez-vous que vos SDK sont 
 
 Pour gérer les indicateurs de fonctionnalité dans le tableau de bord, vous devez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) suivantes :
 
-| Autorisation                                                                    | Ce que vous pouvez faire                           |
+| Autorisation                                                                  | Ce que vous pouvez faire                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Manage Feature Flags**                                                      | Afficher, créer et modifier des indicateurs de fonctionnalité.     |
 | **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Consulter la liste des indicateurs de fonctionnalité disponibles. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Autorisations Braze" }
 
 ## Création d'un indicateur de fonctionnalité {#creating-a-feature-flag}
 
@@ -41,7 +41,7 @@ Sous **Feature flag details**, saisissez un nom, un ID et une description pour v
 | ID           | L'ID unique que vous utiliserez dans votre code pour vérifier si cette fonctionnalité est [activée pour un utilisateur](#enabled). Cet ID ne pourra pas être modifié ultérieurement. Consultez donc les [bonnes pratiques en matière de nommage des ID](#naming-conventions) avant de continuer. |
 | Description  | Une description facultative qui donne un peu de contexte à votre indicateur de fonctionnalité.   |
 | Propriétés   | Propriétés facultatives permettant de configurer à distance votre indicateur de fonctionnalité. Elles peuvent être remplacées dans les étapes du Canvas ou les expériences d'indicateur de fonctionnalité. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Fill out the details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Renseigner les détails" }
 
 ### Étape 2a : Créer des propriétés personnalisées {#step-2a-create-custom-properties}
 
@@ -60,10 +60,10 @@ Dans l'exemple suivant, l'indicateur de fonctionnalité affiche une bannière de
 | `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
 | `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
 | `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2a: Create custom properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2a : Créer des propriétés personnalisées" }
 
 {% alert tip %}
-Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 Ko. Les valeurs des propriétés et les clés sont limitées à 255 caractères.
+Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 000 caractères.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -891,7 +891,7 @@ Pour vérifier les indicateurs de fonctionnalité auxquels un utilisateur est é
 
 Dans l'onglet **Feature Flags Eligibility**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye"></i> à côté d'un indicateur de fonctionnalité.
 
-![Une image présentant le tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![Tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## Consulter le journal des modifications {#viewing-the-changelog}
 
@@ -934,7 +934,7 @@ Remplacez les éléments suivants :
 | `BEHAVIOR`  | Le comportement de la fonctionnalité. Dans votre code, assurez-vous que le comportement est désactivé par défaut et évitez d'utiliser des expressions telles que `disabled` dans le nom de l'indicateur de fonctionnalité. |
 | `PRODUCT`   | Le produit auquel appartient la fonctionnalité.                                                                                       |
 | `FEATURE`    | Le nom de la fonctionnalité.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Naming conventions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conventions de nommage" }
 
 Voici un exemple d'indicateur de fonctionnalité où `show` est le comportement, `animation_profile` est le produit et `driver` est la fonctionnalité :
 

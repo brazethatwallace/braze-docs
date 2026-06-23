@@ -12,7 +12,7 @@ tool:
 
 # Push-Nachricht erstellen {#create-a-push-message}
 
-> Push-Benachrichtigungen eignen sich hervorragend für zeitkritische Handlungsaufforderungen sowie zur Reaktivierung von Nutzer:innen, die die App längere Zeit nicht geöffnet haben. Erfolgreiche Push-Kampagnen führen Nutzer:innen direkt zu Inhalten und demonstrieren den Wert Ihrer App. Beispiele für Push-Benachrichtigungen finden Sie in unseren [Fallstudien](https://www.braze.com/customers).
+> Push-Benachrichtigungen eignen sich hervorragend für zeitkritische Handlungsaufforderungen sowie zur Reaktivierung von Nutzer:innen, die die App längere Zeit nicht geöffnet haben. Erfolgreiche Push-Kampagnen führen Nutzer:innen direkt zu Inhalten und demonstrieren den Wert Ihrer App. Beispiele für Push-Benachrichtigungen finden Sie in unseren [Braze-Fallstudien](https://www.braze.com/customers).
 
 ## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#create-new-campaign-push}
 
@@ -23,7 +23,7 @@ Sie sind sich nicht sicher, ob Sie eine Campaign oder ein Canvas verwenden solle
 {% tabs %}
 {% tab Campaign %}
 1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
-2. Für Campaigns, die mehrere Kanäle ansprechen, wählen Sie **Multichannel**. Andernfalls wählen Sie **Push notification**.
+2. Für Campaigns, die mehrere Kanäle ansprechen, wählen Sie **Multichannel**. Andernfalls wählen Sie **Push-Benachrichtigung**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu.
 
@@ -58,7 +58,7 @@ Je nach Ihren vorherigen Auswahlen gibt es verschiedene Möglichkeiten:
 
 | Vorherige Auswahl | Optionen |
 | --- | --- |
-| Push-Benachrichtigungs-Campaign | Wählen Sie eine oder mehrere Plattformen und Geräte aus. Wenn Sie mehrere Geräte und Plattformen ansprechen, wird Ihre Bearbeitungserfahrung für das Verfassen einer Nachricht für alle ausgewählten Plattformen optimiert. Siehe [Mehrere Plattformen Push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), um zu verstehen, was bei dieser Bearbeitungserfahrung anders ist. |
+| Push-Benachrichtigungs-Campaign | Wählen Sie eine oder mehrere Plattformen und Geräte aus. Wenn Sie mehrere Geräte und Plattformen ansprechen, wird Ihre Bearbeitungserfahrung für das Verfassen einer Nachricht für alle ausgewählten Plattformen optimiert. Siehe [Push-Nachrichten für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), um zu verstehen, was bei dieser Bearbeitungserfahrung anders ist. |
 | Multichannel-Campaign | Wählen Sie **Add Messaging Channel**, um zusätzliche Push-Plattformen hinzuzufügen. Da die Plattformauswahl variantenspezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen. |
 | Canvas | Wählen Sie in Ihrem Nachrichten-Schritt **+ Add more**, um zusätzliche Push-Plattformen hinzuzufügen. Ähnlich wie bei Multichannel-Campaigns ist die Plattformauswahl variantenspezifisch. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Plattformen auswählen" }
@@ -110,7 +110,7 @@ Beginnen Sie mit der Eingabe im Nachrichtenfeld und beobachten Sie, wie eine Vor
 Um Ihren Push personalisiert und zielgerichtet zu gestalten, können Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) einbinden.
 
 {% alert important %}
-Sie **können** keine Android-Push-Nachricht ohne Titel senden – Sie können jedoch stattdessen ein einzelnes Leerzeichen eingeben. Beachten Sie, dass Ihre Nachricht als stille Push-Benachrichtigung gesendet wird, wenn sie nur ein einzelnes Leerzeichen enthält. Weitere Informationen finden Sie unter [Stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android).
+Sie **können** keine Android-Push-Nachricht ohne Titel senden&#8212;Sie können jedoch stattdessen ein einzelnes Leerzeichen eingeben. Beachten Sie, dass Ihre Nachricht als stille Push-Benachrichtigung gesendet wird, wenn sie nur ein einzelnes Leerzeichen enthält. Weitere Informationen finden Sie unter [Stille Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android).
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -180,7 +180,7 @@ Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}
 
 Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools zum Erstellen von Push-Benachrichtigungen.
 
-#### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
 Push-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -188,7 +188,7 @@ Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruh
 
 In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. Nutzer:innen erlauben, [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) zu werden, die Campaign zu erhalten, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktivieren.
 
-#### Zielgruppe zusammenstellen {#choose-users-to-target}
+### Zielgruppe zusammenstellen {#choose-users-to-target}
 
 Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segment-Population. Detaillierte Zielgruppenstatistiken für die von Ihrer Campaign angesprochenen Kanäle sind in der Fußzeile verfügbar. Um zu sehen, welcher Prozentsatz Ihrer Nutzerbasis angesprochen wird und den Lifetime-Value für dieses Segment, wählen Sie **Show Additional Stats**.
 
@@ -208,7 +208,7 @@ Sie können auch festlegen, dass Ihre Campaign nur an Nutzer:innen mit einem bes
 
 Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:innen innerhalb des Segments beschränken oder Nutzer:innen erlauben, dieselbe Nachricht bei einer Wiederholung der Campaign zweimal zu erhalten.
 
-##### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
+#### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
 
 Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich angemeldet sind, die Nachricht erhalten (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
@@ -222,7 +222,7 @@ Wählen Sie dazu unter **Zielgruppen-Zusammenfassung** aus, diese Campaign nur a
 Fügen Sie bei dieser Konfiguration im Schritt **Zielgruppe** keine Filter hinzu, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Konversions-Events wählen {#choose-conversion-events}
+### Konversions-Events wählen {#choose-conversion-events}
 
 Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 

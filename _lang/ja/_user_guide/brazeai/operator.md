@@ -61,7 +61,7 @@ Brazeダッシュボードの任意のページからオペレーターを開き
 
 ### ページ認識コンテキストを活用する {#leverage-page-aware-context}
 
-オペレーターは、Braze内での現在の位置を自動的に理解し、そのコンテキストに基づいて回答を調整します。たとえば、Canvasの作成中にオペレーターを開くと、ワークフローのどこにいるかを説明しなくても、関連するステップを提案したり、Canvas機能についてのガイダンスを提供したりできます。
+オペレーターは、Braze内での現在の位置を自動的に理解し、そのコンテキストに基づいて回答を調整します。たとえば、Canvasの作成中にオペレーターを開くと、ワークフローのどこにいるかを説明しなくても、関連するステップを提案したり、Canvasの機能についてのガイダンスを提供したりできます。
 
 このコンテキスト認識により、「Canvasワークフローに遅延ステップを追加するにはどうすればよいですか？」ではなく、「遅延を追加するにはどうすればよいですか？」のように、より短く自然な質問ができます。ダッシュボードのページ別に整理されたすぐに使えるプロンプトについては、[プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/)を参照してください。
 
@@ -132,17 +132,12 @@ WordとOutlookはMarkdownをネイティブにレンダリングしません。�
 
 ## データプライバシーとセキュリティ {#data-privacy-and-security}
 
-### サブプロセッサまたはサードパーティプロバイダーとしてのモデルプロバイダー {#model-providers-as-sub-processors-or-third-party-providers}
-
-Brazeサービス（「Braze提供のLLM」）を通じてBrazeが提供するLLMプロバイダーとの統合を使用する場合、当該Braze提供のLLMのプロバイダーは、お客様とBraze間のData Processing Addendum（DPA）の条件に従い、Brazeのサブプロセッサとして機能します。BrazeAI オペレーター<sup>TM</sup>はOpenAIと統合されています。
-
-### OpenAIでのデータの使用方法 {#how-data-is-used-with-openai}
-
-OpenAIを活用するBrazeAI機能を通じてAI出力（「Output」）を生成するために、Brazeは特定の情報（「Input」）をOpenAIに送信します。Inputは、プロンプト、ダッシュボードに表示されるコンテンツ、およびクエリに関連するワークスペースデータで構成されます。[OpenAIのAPIプラットフォームコミットメント](https://openai.com/enterprise-privacy/)に基づき、Brazeを介してOpenAIのAPIに送信されるデータは、OpenAIモデルのトレーニングや改善には使用されません。お客様とBrazeの間では、Outputはお客様の知的財産です。Brazeは、当該Outputに関する著作権の所有権を主張しません。Brazeは、Outputを含むAI生成コンテンツに関して、いかなる種類の保証も行いません。
+BrazeAI オペレーター<sup>TM</sup>はOpenAIと統合されており、OpenAIはお客様とBraze間のData Processing Addendum（DPA）に基づくBrazeのサブプロセッサとして機能します。Brazeを介してOpenAIに送信されるデータは、OpenAIモデルのトレーニングや改善には使用されません。HIPAAコンプライアンス、データ保持、PII処理、ガバナンスの詳細については、[データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)を参照してください。
 
 ## 次のステップ {#next-steps}
 
-- [プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/)：ダッシュボードのページ別に整理されたプロンプト例を参照します
-- [アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)：オペレーターが提案した変更を確認・承認する方法を学びます
-- [サポートチケットの提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/)：オペレーターから直接サポートチケットを提出します
-- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/)：よくある問題とソリューションを参照します
+- [プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library/)：ダッシュボードのページ別に整理されたプロンプト例を参照できます
+- [アクションの確認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)：オペレーターが提案した変更を確認・承認する方法を学べます
+- [サポートチケットの提出]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/)：オペレーターから直接サポートチケットを提出できます
+- [トラブルシューティング]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/)：よくある問題とソリューションを参照できます
+- [データプライバシーとセキュリティ]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)：HIPAAコンプライアンス、データ保持、PII最小化のガイダンスを確認できます

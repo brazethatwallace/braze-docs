@@ -59,7 +59,7 @@ Operator 쿼리에 브랜드 가이드라인을 컨텍스트로 추가하여 응
 
 ![Operator 채팅 패널에서 브랜드 가이드라인 선택하기.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
-### 페이지 인식 컨텍스트 활용 {#leverage-page-aware-context}
+### 페이지 인식 컨텍스트 활용하기 {#leverage-page-aware-context}
 
 Operator는 Braze 내에서 사용자의 위치를 자동으로 파악하고 해당 컨텍스트에 맞춰 응답을 조정합니다. 예를 들어, Canvas를 구축하는 동안 Operator를 열면, 사용자가 워크플로에서 현재 위치를 설명하지 않아도 관련 단계를 제안하거나 Canvas 기능에 대한 안내를 제공할 수 있습니다.
 
@@ -132,13 +132,7 @@ Operator가 응답을 생성하는 동안, **Send** 버튼이 **Stop** 버튼으
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-### 모델 제공자를 하위 처리자 또는 제3자 제공자로 지정 {#model-providers-as-sub-processors-or-third-party-providers}
-
-Braze 서비스를 통해 Braze가 제공하는 LLM 제공자와의 통합("Braze 제공 LLM")을 사용할 경우, 해당 Braze 제공 LLM의 제공자는 귀하와 Braze 간의 데이터 처리 부속서(DPA) 조건에 따라 Braze의 하위 처리자로서 역할을 수행합니다. BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합됩니다.
-
-### OpenAI에서 데이터가 사용되는 방식 {#how-data-is-used-with-openai}
-
-OpenAI를 활용하는 BrazeAI 기능을 통해 AI 출력("출력")을 생성하기 위해, Braze는 특정 정보("입력")를 OpenAI로 전송합니다. 입력은 사용자의 프롬프트, 대시보드에 표시되는 콘텐츠, 그리고 사용자의 쿼리와 관련된 워크스페이스 데이터로 구성됩니다. [OpenAI의 API 플랫폼 약관](https://openai.com/enterprise-privacy/)에 따라, Braze를 통해 OpenAI API로 전송된 데이터는 OpenAI 모델의 훈련 또는 개선에 사용되지 않습니다. 귀하와 Braze 사이에서, 출력은 귀하의 지적 재산입니다. Braze는 해당 출력에 대해 저작권 소유권을 주장하지 않습니다. Braze는 출력을 포함한 모든 AI 생성 콘텐츠에 대해 어떠한 종류의 보증도 하지 않습니다.
+BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합되며, OpenAI는 귀하와 Braze 간의 데이터 처리 부속서(DPA)에 따라 Braze의 하위 처리자로서 역할을 수행합니다. Braze를 통해 OpenAI로 전송된 데이터는 OpenAI 모델의 훈련 또는 개선에 사용되지 않습니다. HIPAA(미국의료정보보호법) 준수, 데이터 보존, PII 처리 및 거버넌스에 대한 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 
@@ -146,3 +140,4 @@ OpenAI를 활용하는 BrazeAI 기능을 통해 AI 출력("출력")을 생성하
 - [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Operator가 제안한 변경 사항을 검토하고 승인하는 방법을 알아보세요
 - [고객지원 티켓 제출]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Operator에서 직접 고객지원 티켓을 제출하세요
 - [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): 일반적인 문제 및 해결 방법을 참조하세요
+- [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/): HIPAA(미국의료정보보호법) 준수, 데이터 보존 및 PII 최소화 지침을 확인하세요

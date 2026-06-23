@@ -19,7 +19,7 @@ channel:
 
 Wir empfehlen, Telefonnummern im [`E.164`](https://en.wikipedia.org/wiki/e.164)-Format zu importieren, um die Genauigkeit sicherzustellen – insbesondere wenn Sie in mehrere Regionen mit unterschiedlichen Länder- oder Vorwahlen senden&#8212;auch für US-amerikanische Telefonnummern.
 
-- **US-Nummern:** Alle US-Nummern müssen gültige, 10-stellige Telefonnummern mit einer gültigen Vorwahl sein. Wenn bei einer 10-stelligen Telefonnummer ein `+` und die Landesvorwahl fehlen, ordnet Braze sie als US-Nummer zu.
+- **US-Nummern:** Alle US-Nummern müssen gültige, 10-stellige Telefonnummern mit einer gültigen Vorwahl sein. Wenn bei einer 10-stelligen Telefonnummer ein `+` und die Landesvorwahl fehlen, ordnet Braze sie als US-Nummer zu. Puerto-ricanische Telefonnummern erfordern weiterhin ein `+` und eine Landesvorwahl, obwohl sie das 10-stellige Format mit US-amerikanischen Vorwahlen verwenden.
 - **Internationale Nummern:** Alle internationalen Nummern sollten mit einem `+` beginnen, gefolgt von der Landesvorwahl und dann der Telefonnummer. Zum Beispiel: `+442071838750`.
 
 ![Beispiel einer gültigen internationalen Telefonnummer im E.164-Format.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -75,8 +75,8 @@ Abgelehnte SMS-Sendungen werden auf Ihr SMS-Kontingent angerechnet.
 
 Um Nutzer:innen mit abgelehnten SMS-Sendungen aus Ihren Segmenten auszuschließen, verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Audience** > **Segment Extensions**.
-2. Wählen Sie **Create New Extension** > **Full refresh** oder **Incremental refresh**.
+1. Gehen Sie zu **Zielgruppe** > **Segmenterweiterungen**.
+2. Wählen Sie **Neue Erweiterung erstellen** > **Vollständige Aktualisierung** oder **Inkrementelle Aktualisierung**.
 3. Schreiben Sie eine SQL-Abfrage, die Nutzer:innen mit SMS-Ablehnungen identifiziert. Sie können beispielsweise das Ereignis `USERS_MESSAGES_SMS_REJECTION_SHARED` abfragen, um Nutzer:innen zu finden, die SMS-Ablehnungen erhalten haben.
 4. Speichern Sie Ihre Segmenterweiterung.
 5. Fügen Sie beim Erstellen Ihres SMS-Segments einen Filter hinzu, um Nutzer:innen in dieser Segmenterweiterung auszuschließen.

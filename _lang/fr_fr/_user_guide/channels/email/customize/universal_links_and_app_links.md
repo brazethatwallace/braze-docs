@@ -93,7 +93,7 @@ Ces étapes sont adaptées de la documentation développeur Apple. Pour plus d'i
 2. Sélectionnez **Associated Domains**.
 3. Cliquez sur **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Section App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Étape 1c : Activer les Associated Domains dans votre projet Xcode {#step-1c}
 
@@ -113,7 +113,7 @@ Si vous voyez l'erreur « An App ID with Identifier 'your-app-id' is not availab
 
 Dans la section des domaines, ajoutez l'étiquette de domaine appropriée. Vous devez la préfixer avec `applinks:`. Dans ce cas, vous pouvez voir que nous avons ajouté `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Section Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Étape 1e : Confirmer que le fichier de droits est inclus dans le build {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -446,6 +446,5 @@ Assurez-vous que les définitions des domaines que votre application est autoris
 
 Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison de limitations de l'ESP ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
 
-- **Contactez votre ESP pour héberger les fichiers sur leur domaine de suivi :** votre sous-domaine de suivi des clics est généralement un CNAME pointant vers votre ESP (SendGrid, SparkPost ou Amazon SES). Comme l'ESP termine le trafic pour ce domaine, il peut héberger les fichiers `.well-known` pour vous. SendGrid et SparkPost prennent tous deux en charge cette fonctionnalité. Contactez directement votre ESP pour en faire la demande.
-- **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** si votre ESP ne peut pas héberger les fichiers, vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
+- **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
 - **Placez un réseau de diffusion de contenu devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un réseau de diffusion de contenu (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le réseau de diffusion de contenu pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre ESP. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.

@@ -596,6 +596,10 @@ Die Verteilung zwischen Kontroll- und Variantengruppen ist grundsätzlich annäh
 
 Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Analytics sehen können. Weitere Details finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/).
 
+{% alert note %}
+Derzeit sind für KakaoTalk-Kampagnen keine geschätzten oder exakten Zielgruppenstatistiken verfügbar.
+{% endalert %}
+
 | Begriff | Definition |
 | --- | --- |
 | Zielgruppe | _Zielgruppe_ ist der Prozentsatz der Nutzer:innen, die eine bestimmte Nachricht erhalten haben. <br><br>_(Anzahl der Empfänger:innen in der Variante) / (Eindeutige Empfänger:innen)_ |

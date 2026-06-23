@@ -41,7 +41,7 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 
 例えば、日付範囲を**過去7日間**に設定し、*デイリーアクティブユーザー*が1.8%の増加を示している場合、先週と比較して今週のデイリーアクティブユーザーが1.8%多かったことを意味します。
 
-![指標値とパーセンテージの変化を表示するパフォーマンス概要の指標タイル。]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![デイリーアクティブユーザーの指標タイル。平均22.2千人で、7.1%の増加バッジとトレンドラインが表示されています。]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 内訳を表示 {#show-breakdown}
 

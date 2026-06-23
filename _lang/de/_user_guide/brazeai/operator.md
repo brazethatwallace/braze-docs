@@ -132,13 +132,7 @@ Verwenden Sie am Ende jeder Antwort die Daumen-hoch- oder Daumen-runter-Buttons,
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-### Modellanbieter als Unterauftragsverarbeiter oder Drittanbieter {#model-providers-as-sub-processors-or-third-party-providers}
-
-Wenn Sie eine Integration mit einem LLM-Anbieter nutzen, der von Braze über die Braze-Dienste bereitgestellt wird („von Braze bereitgestelltes LLM“), fungieren die Anbieter dieses von Braze bereitgestellten LLM als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bestimmungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. BrazeAI Operator<sup>TM</sup> verfügt über eine Integration mit OpenAI.
-
-### Wie Daten mit OpenAI verwendet werden {#how-data-is-used-with-openai}
-
-Um KI-Ausgaben über BrazeAI-Features zu generieren, die OpenAI nutzen („Ausgabe“), übermittelt Braze bestimmte Informationen („Eingabe“) an OpenAI. Die Eingabe umfasst Ihre Prompts, die im Dashboard angezeigten Inhalte und die für Ihre Anfragen relevanten Workspace-Daten. Gemäß [den Verpflichtungen der API-Plattform von OpenAI](https://openai.com/enterprise-privacy/) werden Daten, die über Braze an die API von OpenAI gesendet werden, nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Zwischen Ihnen und Braze ist die Ausgabe Ihr geistiges Eigentum. Braze erhebt keine Ansprüche auf das Urheberrecht an solchen Ausgaben. Braze übernimmt keinerlei Gewährleistung in Bezug auf KI-generierte Inhalte, einschließlich der Ausgabe.
+BrazeAI Operator<sup>TM</sup> verfügt über eine Integration mit OpenAI, das als Unterauftragsverarbeiter von Braze fungiert und dem Datenverarbeitungszusatz (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Handhabung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
 
 ## Nächste Schritte {#next-steps}
 
@@ -146,3 +140,4 @@ Um KI-Ausgaben über BrazeAI-Features zu generieren, die OpenAI nutzen („Ausga
 - [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können
 - [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Reichen Sie Support-Tickets direkt über Operator ein
 - [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Häufige Probleme und Lösungen
+- [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/): Informationen zu HIPAA-Konformität, Datenaufbewahrung und PII-Minimierung

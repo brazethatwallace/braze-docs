@@ -8,9 +8,9 @@ description: "ワークスペースデータの分離の仕組み、Brazeがワ�
 
 # ワークスペースおよびインスタンス間のデータ移行 {#migrate-data-between-workspaces-and-instances}
 
-> ワークスペースはBrazeデータを分離して管理します。このページでは、その分離が移行にどのように影響するか、製品機能やAPIで移動できるもの、Braze外で再構築または対応が必要なものについて説明します。移行は通常、会社管理者だけのタスクではなく、部門横断的な取り組みです。管理者はワークスペースのセットアップとチャネル設定を担当し、開発者はSDKとAPIの変更を処理し、マーケターはセグメントの再構築やメッセージングコンテンツのコピーを行います。各ステップには、ソースおよび送信先ワークスペースでの適切な[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
+> ワークスペースはBrazeデータを分離して管理します。このページでは、その分離が移行にどのように影響するか、製品機能やAPIで移動できるもの、Braze外で再構築または対応が必要なものについて説明します。移行は通常、会社管理者だけのタスクではなく、部門横断的な取り組みです。管理者はワークスペースのセットアップとチャネル設定を担当し、開発者はSDKとAPIの変更を処理し、マーケターはSegmentsの再構築やメッセージングコンテンツのコピーを行います。各ステップには、ソースおよび送信先ワークスペースでの適切な[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
-Brazeに保存するすべてのもの（ユーザープロファイル、セグメント、メッセージングコンテンツ、エンゲージメント履歴）はワークスペース内に存在します。Segment、Campaign、またはCanvasは、別のワークスペースのデータを読み取ったりターゲットにしたりすることはできません。ダッシュボードユーザーは、ステージングと本番環境、異なるブランド、または地域別の分割のために、同じ会社のダッシュボード上で複数のワークスペースを使用することがよくあります。このセットアップにより分離が実現しますが、ダッシュボード上のすべてのワークスペースデータを別のワークスペースや別のBrazeインスタンスに移動する単一のアクションは存在しません。
+Brazeに保存するすべてのもの（ユーザープロファイル、Segments、メッセージングコンテンツ、エンゲージメント履歴）はワークスペース内に存在します。Segment、Campaign、またはCanvasは、別のワークスペースのデータを読み取ったりターゲットにしたりすることはできません。ダッシュボードユーザーは、ステージングと本番環境、異なるブランド、または地域別の分割のために、同じ会社のダッシュボード上で複数のワークスペースを使用することがよくあります。このセットアップにより分離が実現しますが、ダッシュボード上のすべてのワークスペースデータを別のワークスペースや別のBrazeインスタンスに移動する単一のアクションは存在しません。
 
 計画の参考として、[はじめに：ワークスペース]({{site.baseurl}}/user_guide/get_started/workspaces/)および[ワークスペースの作成と管理]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)をご覧ください。
 
@@ -32,9 +32,9 @@ SDKやAPIを新しいワークスペース（または独自のワークスペ�
 
 ## 移動または再作成できるもの {#what-you-can-move-or-recreate}
 
-### CampaignおよびCanvasコンテンツ {#campaign-and-canvas-content}
+### Campaign、Canvas、およびランディングページのコンテンツ {#campaign-canvas-and-landing-page-content}
 
-多くのCampaignおよびCanvasの定義を下書きとして別のワークスペースにコピーできます。サポートされるチャネル、省略されるフィールド、およびLiquidに関する注意事項は、[ワークスペース間でのCampaignおよびCanvasのコピー]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/)に記載されています。コピー後、起動する前にSegments、トリガー、およびワークスペース固有の参照を更新してください。
+多くのCampaign、Canvas、およびランディングページの定義を下書きとして別のワークスペースにコピーできます。サポートされるチャネル、省略されるフィールド、およびLiquidに関する注意事項は、[ワークスペース間でのCampaign、Canvas、およびランディングページのコピー]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/)に記載されています。コピー後、起動または公開する前にSegments、トリガー、およびワークスペース固有の参照を更新してください。
 
 ### ユーザープロファイルデータ {#user-profile-data}
 
@@ -81,7 +81,7 @@ SDKやAPIを新しいワークスペース（または独自のワークスペ�
 
 ### プッシュトークン {#push-tokens}
 
-ユーザーが以前のプロバイダーやアプリバージョンからのプッシュトークンを既に持っている場合、APIを通じてモバイルアプリ用のトークンをインポートするか、統合後にSDKに依存することができます。Webプッシュトークンには APIの制限があります。詳細と例については、[プッシュトークンの移行]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)をご覧ください。
+ユーザーが以前のプロバイダーやアプリバージョンからのプッシュトークンを既に持っている場合、APIを通じてモバイルアプリ用のトークンをインポートするか、統合後にSDKに依存することができます。WebプッシュトークンにはAPIの制限があります。詳細と例については、[プッシュトークンの移行]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)をご覧ください。
 
 ### WhatsApp
 

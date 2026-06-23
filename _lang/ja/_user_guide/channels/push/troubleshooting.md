@@ -70,7 +70,7 @@ CampaignまたはCanvasにレート制限が設定されている場合、この
 
 #### プッシュ通知の種類 {#push-notification-type}
 
-正しい種類のプッシュ通知を使用しているか確認してください。たとえば、FireTVをターゲットにする場合は、Androidプッシュ通知ではなくKindleプッシュ通知を使用します。同様に、Androidをターゲットにする場合は、iOSプッシュCampaignではなくAndroidプッシュ通知を使用します。Brazeのワークフローの詳細については、以下の記事を参照してください。
+正しい種類のプッシュ通知を使用しているか確認してください。たとえば、FireTVをターゲットにする場合は、AndroidプッシュCampaignではなくKindleプッシュ通知を使用します。同様に、Androidをターゲットにする場合は、iOSプッシュCampaignではなくAndroidプッシュ通知を使用します。Brazeのワークフローの詳細については、以下の記事を参照してください。
 - [Appleプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
 - [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
 
@@ -206,9 +206,9 @@ table {
 }
 </style>
 
-| OS      | キーボードショートカット                                                  |
+| OS | キーボードショートカット |
 | ------- | ------------------------------------------------------------------- |
-| Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
+| Mac | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="デスクトップでChromeをリセットする" }
 
