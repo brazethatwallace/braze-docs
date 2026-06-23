@@ -109,10 +109,18 @@ Additionally, for multivariate messages, you can see the number of conversions a
 
 ![Four conversion events that track conversions based on when a purchase was made within three hours, made a purchase within two hours, started a session within 30 minutes, and started a session within 25 minutes.]({% image_buster /assets/img_archive/conversion_event_details.png %})
 
-<!-- sf-kb-phase2-batch -->
+## Canvas step versus variant conversion rates
 
-## Salesforce Knowledge updates
+It's common for a Canvas variant's total conversion count to be higher than the sum of its individual steps' conversion counts. This happens because conversions are tracked differently at the variant level and the step level:
 
-### Why the Canvas Steps Conversion Rate does not equal the Canvas Variant Total Conversion Rate?
+- **Variant conversions** are counted as soon as the user enters the variant.
+- **Step conversions** are only counted after the step's message is sent to the user.
 
-Add FAQ or troubleshooting section to conversion_events.md or Canvas docs explaining: (1) users can convert before receiving any step (count at variant, not step); (2) users in delay step who convert before message step; (3) users sent message but not delivered (e.g. no push) who convert. Consider cross-linking from Canvas analytics docs.
+This means any user who enters the Canvas and performs the conversion event before receiving a step will count toward the variant total but not toward any step.
+
+The following scenarios can also cause this discrepancy:
+
+- **User exits Canvas before receiving any step.** If a user enters the Canvas but exits (for example, due to a filter or audience mismatch) before any message is sent, a conversion they perform still counts at the variant level but doesn't count at any step level.
+- **Step targets a subset of users.** If a step is configured to send only to a specific platform (such as mobile), users on other platforms (such as web) can still enter the Canvas and convert. Because those users never receive the step message, the conversion doesn't count at the step level — only at the variant level.
+
+For more information on Canvas analytics, see [Measuring and testing with Canvas analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
