@@ -111,7 +111,7 @@ However, Meta-approved WhatsApp templates have a fixed structure. Meta thinks of
 
 The ratio of static text to variable slots in an approved template is fixed and can't change per send and has hard limits. Meta requires a minimum amount of static text for every variable slot in the template; you can't have a template that is mostly or entirely variables. This means you can't include conditional Liquid that would add or remove text that Meta sees as confirmed static content.
 
-If you try using an `if/else` block to conditionally include or exclude a chunk of static text, Meta won't evaluate the logic. Liquid tags outside of a variable slot are treated as literal output text. The recipient will see the raw Liquid syntax tags ({% raw %}`{% if %}`, `{% else %}`, `{% endif %}`{% endraw %}) and all branch content verbatim in their message.
+If you try using an `if/else` block to conditionally include or exclude a chunk of static text, Meta doesn't evaluate the logic. Liquid tags outside of a variable slot are treated as literal output text. The recipient sees the raw Liquid syntax tags ({% raw %}`{% if %}`, `{% else %}`, `{% endif %}`{% endraw %}) and all branch content verbatim in their message.
 
 {% details Incorrect usage for the WhatsApp Template Builder %}
 
