@@ -99,7 +99,7 @@ This error occurs very rarely, but when it does occur, it’s typically with reg
 
 ### User is no longer in a segment
 
-If a user isn’t available while creating a segment, their user data that determines their segment eligibility might have changed as a result of their own activity or other campaigns and Canvases they’ve interacted with previously. If re-eligibility is turned on, their user profile will show the latest data of the received campaign.
+If a user isn’t available while creating a segment, their user data that determines their segment eligibility might have changed as a result of their own activity or other campaigns and Canvases they’ve interacted with previously. If re-eligibility is turned on, their user profile shows the latest data of the received campaign.
 
 To test whether a specific user matches your segment today, use [User Preview or user lookup]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
 
