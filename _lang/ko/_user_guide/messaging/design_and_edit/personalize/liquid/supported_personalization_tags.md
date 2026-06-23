@@ -32,9 +32,13 @@ search_rank: 1
 | 커스텀 속성 <br> (워크스페이스에 맞게 커스텀됩니다.) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>API 트리거 등록정보</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Canvas 진입 등록정보 | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 태그 요약" }
 
 {% endraw %}
+
+{% alert note %}
+API 트리거 등록정보는 태그당 두 개의 중괄호를 사용해야 합니다: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. 세 개의 중괄호(예: `{{{...}}}`){% endraw %}는 유효한 Braze 개인화 구문이 아닙니다. [Braze에서 API 트리거 Liquid가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze)를 참조하세요.
+{% endalert %}
 
 ### 지원되는 속성 {#supported-attributes}
 
@@ -51,7 +55,6 @@ Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지
 {% endraw %}
 
 #### URL에서의 Campaign 이름 {#campaign-names-in-urls}
-{: #campaign-names-in-urls}
 
 {% raw %}
 Campaign 및 메시지 배리언트 이름에는 `%`, 공백, `&`와 같이 URL에 안전하지 않은 문자가 포함될 수 있습니다. `{{campaign.${name}}}` 또는 `{{campaign.${message_name}}}`을 `utm_campaign` 매개변수와 같은 링크나 쿼리 문자열에 삽입할 때는 URL이 올바르게 구문 분석되도록 [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) 필터를 적용하세요. 예를 들어:
@@ -73,13 +76,13 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 | `{{most_recently_used_device.${id}}}` | Braze 기기 식별자입니다. iOS에서는 Apple Identifier for Vendor(IDFV) 또는 UUID일 수 있습니다. Android 및 기타 플랫폼에서는 무작위로 생성된 UUID입니다. |
 | `{{most_recently_used_device.${carrier}}}` | 가장 최근에 사용한 기기의 통신사입니다(사용 가능한 경우). 예를 들어 "Verizon"과 "Orange"가 있습니다. |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | 기기에서 광고 추적이 활성화되어 있는지 여부입니다. 부울 값(`true` 또는 `false`)입니다. |
-| `{{most_recently_used_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
+| `{{most_recently_used_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 선택적 Google Play Advertising ID 수집으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
 | `{{most_recently_used_device.${os}}}` | 기기의 운영체제입니다(사용 가능한 경우). 예를 들어 "iOS 9.2.1", "Android (Lollipop)", "Windows"가 있습니다. |
 | `{{most_recently_used_device.${platform}}}` | 기기의 플랫폼입니다(사용 가능한 경우). 설정된 경우 값은 `ios`, `android`, `kindle`, `android_china`, `web`, `tvos` 중 하나입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="가장 최근에 사용한 기기 정보" }
 
 기기 통신사, 모델명, 운영체제의 범위가 매우 넓기 때문에, 이러한 값에 조건부로 의존하는 Liquid를 철저히 테스트하는 것을 권장합니다. 특정 기기에서 사용할 수 없는 경우 이 값은 `null`입니다.
 
@@ -91,7 +94,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 |------------------|---|
 | `{{app.${api_id}}}` | 메시지를 요청하는 앱의 API 키입니다. 예를 들어, 이 키를 `abort_message()` Liquid와 함께 사용하여 TV 플랫폼이나 별도의 SDK API 키를 사용하는 개발 빌드와 같은 특정 앱에 인앱 메시지를 보내지 않도록 할 수 있습니다. |
 | `{{app.${name}}}` | 메시지를 요청하는 앱의 이름입니다(Braze 대시보드에서 정의된 대로). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="타겟 앱 정보" }
 
 예를 들어, 이 Liquid 코드는 요청하는 앱이 목록에 있는 두 개의 API 키 중 하나가 아닌 경우 메시지를 중단합니다:
 
@@ -112,14 +115,14 @@ User is in list of apps
 |------------------|---|
 | `{{targeted_device.${id}}}` | Braze 기기 식별자입니다. iOS에서는 Apple Identifier for Vendor(IDFV) 또는 UUID일 수 있습니다. Android 및 기타 플랫폼에서는 무작위로 생성된 UUID입니다. 예를 들어, 사용자가 5개의 기기를 가지고 있으면 5개 기기 모두에 대해 발송 시도가 이루어지며, 각각 해당 기기 식별자를 사용합니다. 메시지가 사용자의 가장 최근에 사용한 기기로 발송하도록 구성된 경우, Braze를 통해 식별된 가장 최근에 사용한 기기에 대해 한 번만 발송 시도가 이루어집니다. |
 | `{{targeted_device.${carrier}}}` | 가장 최근에 사용한 기기의 통신사입니다(사용 가능한 경우). 예를 들어 "Verizon"과 "Orange"가 있습니다. |
-| `{{targeted_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
+| `{{targeted_device.${idfa}}}` | iOS 기기의 경우, 애플리케이션이 [선택적 IDFA 수집]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)으로 구성되어 있으면 이 값은 Identifier for Advertising(IDFA)입니다. iOS가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 [선택적 Google Play Advertising ID 수집]으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
 | `{{targeted_device.${os}}}` | 기기의 운영체제입니다(사용 가능한 경우). 예를 들어 "iOS 9.2.1", "Android (Lollipop)", "Windows"가 있습니다. |
 | `{{targeted_device.${platform}}}` | 기기의 플랫폼입니다(사용 가능한 경우). 설정된 경우 값은 `ios`, `android`, `kindle`, `android_china`, `web`, `tvos` 중 하나입니다. `most_recently_used_device` 개인화 태그도 사용할 수 있습니다. |
 | `{{targeted_device.${foreground_push_enabled}}}` | 타겟 기기에서 포그라운드 푸시가 활성화된 경우 이 값은 `true`이고, 그렇지 않으면 `false`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="타겟 기기 정보" }
 
 {% endraw %}
 
@@ -313,7 +316,7 @@ It is between 2:00:00 pm and 2:59:59 pm PT!
 |-------|--------------|
 | `{% random %}` | 0과 1 사이의 플로트입니다(0 포함, 1 미포함). |
 | `{% random 10 %}` (정수 인수) | 0부터 지정된 정수 미만까지의 정수입니다. 예를 들어, `{% random 10 %}`은 0에서 9까지의 정수를 반환합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="랜덤 숫자로 메시지 보내기" }
 
 {% endraw %}
 

@@ -18,7 +18,7 @@ tool:
 After you duplicate a campaign or Canvas, the new message will be automatically titled `"Copy of [Original Name]"` and you'll be brought to its editing page. These duplicates will remain as drafts until you edit and launch them.
 
 {% alert tip %}
-You can also [copy your campaign]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) across workspaces. The copy will remain as a draft until you edit and launch.
+You can also [copy campaigns, Canvases, and landing pages]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) across workspaces. The copy remains as a draft until you edit it and launch the campaign or Canvas, or publish the landing page.
 {% endalert %}
 
 {% tabs %}

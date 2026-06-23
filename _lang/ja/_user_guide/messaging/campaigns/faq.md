@@ -168,6 +168,10 @@ Campaignにエントリするユーザー数が予想と異なるのは、オー
 Campaignのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日分の診断ログのみ保持しています。
 {% endalert %}
 
+### 編集後にユーザーがCampaignを2回受信したのはなぜですか？ {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+ライブCampaignを停止せずに編集すると、ユーザーがメッセージを2回受信する可能性があります。これは、ライブCampaignを編集すると、元のキューがまだ処理されている間に、更新されたバージョンのためにユーザーが再キューイングされるためです。元のメッセージをまだ受信していないユーザーが、両方のキューに入ってしまう可能性があります。これを防ぐには、変更を加える前に必ず[Campaignを停止]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign)してください。
+
 ### Campaign分析ページの「ユーザーデータを CSV 形式でエクスポート」と「メールアドレスを CSV 形式でエクスポート」オプションの違いは何ですか？ {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 **メールアドレスを CSV 形式でエクスポート**オプションを選択すると、メールアドレスを持つユーザーのデータのみがダウンロードされます。例えば、100,000人のユーザーのSegmentがあり、そのうち50,000人のみがメールアドレスを持っている場合、**メールアドレスを CSV 形式でエクスポート**をクリックすると、エクスポートには50,000行のデータのみが含まれます。一方、**ユーザーデータを CSV 形式でエクスポート**を選択すると、すべてのユーザーデータがエクスポートされます。

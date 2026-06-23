@@ -44,7 +44,6 @@ Braze에서 **오디언스** > **사용자 검색**을 선택합니다.
 
 유지할 고객 프로필과 병합할 프로필을 선택한 다음 **Merge profiles**를 선택합니다. 모든 중복 프로필이 병합될 때까지 이 과정을 반복합니다.
 
-![중복 프로필의 개별 병합 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
@@ -68,7 +67,6 @@ Braze 대시보드에서 **오디언스** > **오디언스 관리**를 선택합
 
 Braze가 미리보기를 생성하여 이메일 주소로 CSV 파일로 전송합니다.
 
-![생성된 CSV 파일 링크가 포함된 Braze 이메일.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 다음 예시에서 Braze는 사용자의 외부 ID를 사용하여 중복 프로필을 표시하고 유지할 프로필을 식별합니다. 이러한 프로필이 일괄 병합되면 Braze는 외부 ID가 있는 프로필을 사용자의 새 기본 프로필로 사용합니다.
 
@@ -95,7 +93,6 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
 {% endalert %}
 
-![**Merge all duplicates**가 강조 표시된 "오디언스 관리" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## 규칙 기반 병합 {#rules-based-merging}
 

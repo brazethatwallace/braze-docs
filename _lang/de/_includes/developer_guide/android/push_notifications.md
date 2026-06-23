@@ -224,7 +224,6 @@ Als Nächstes erstellen Sie ein neues Dienstkonto, damit Braze bei der Registrie
 
 Geben Sie einen Namen, eine ID und eine Beschreibung für das Dienstkonto ein und wählen Sie **Create and continue**.
 
-![Das Formular für „Service account details“.]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 Suchen Sie im Feld **Role** nach **Firebase Cloud Messaging API Admin** und wählen Sie den Eintrag in der Liste der Rollen aus. Für einen restriktiveren Zugriff erstellen Sie eine [angepasste Rolle](https://cloud.google.com/iam/docs/creating-custom-roles) mit der Berechtigung `cloudmessaging.messages.create` und wählen diese stattdessen aus der Liste aus. Wenn Sie fertig sind, wählen Sie **Done**.
 

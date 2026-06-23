@@ -32,9 +32,9 @@ If using separate workspaces for staging and production, remember that [Currents
 
 ## What you can move or recreate
 
-### Campaign and Canvas content
+### Campaign, Canvas, and landing page content
 
-You can copy many campaign and Canvas definitions to another workspace as drafts. Supported channels, omitted fields, and Liquid caveats are documented in [Copy campaigns and Canvases across workspaces]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). After copying, update segments, triggers, and any workspace-specific references before you launch.
+You can copy many campaign, Canvas, and landing page definitions to another workspace as drafts. Supported channels, omitted fields, and Liquid caveats are documented in [Copy campaigns, Canvases, and landing pages across workspaces]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). After copying, update segments, triggers, and any workspace-specific references before you launch or publish.
 
 ### User profile data
 

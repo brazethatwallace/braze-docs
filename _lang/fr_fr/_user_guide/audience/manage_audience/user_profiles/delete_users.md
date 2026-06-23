@@ -48,7 +48,6 @@ Les suppressions d'utilisateurs individuels sont permanentes : les profils ne pe
 
 Sur la page de profil de l'utilisateur, sélectionnez <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. La suppression complète de l'utilisateur dans Braze peut prendre quelques minutes.
 
-![Un utilisateur dans Braze avec le menu à points de suspension verticaux ouvert, affichant l'option de suppression de l'utilisateur.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Supprimer un segment {#delete-segment}
 

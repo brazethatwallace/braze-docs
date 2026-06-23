@@ -43,9 +43,11 @@ channel:
 
 メッセージ作成画面で、**Settings**タブを選択し、**Add New Pair**を選択して、キーと値のペアを指定します。
 
+メッセージ作成画面でキーと値のペアを追加すると、値は文字列として送信されます。iOSプッシュの場合、**Alert Options**を通じて追加する予約済みのApple Push Notification service（APNs）アラートキー（ローカライゼーション引数の`loc-args`など）は、ペイロード内で正しいJSON型にフォーマットされます。カスタムキーの場合、インテグレーションで解析しない限り、アプリは文字列値を受け取ります。
+
 ### iOS
 
-Apple Push Notification service (APNs) は、キーと値のペアを使用したアラート設定やカスタムデータの送信をサポートしています。APNsは、アラートプロパティを制御する事前定義されたキーと値を含む、Apple予約済みの`aps`ライブラリーを使用します。
+Apple Push Notification service（APNs）は、キーと値のペアを使用したアラート設定やカスタムデータの送信をサポートしています。APNsは、アラートプロパティを制御する事前定義されたキーと値を含む、Apple予約済みの`aps`ライブラリーを使用します。
 
 ##### APSライブラリー {#aps-library}
 
@@ -55,7 +57,7 @@ Apple Push Notification service (APNs) は、キーと値のペアを使用し�
 | badge             | 数値                      | アプリアイコンのバッジとして表示される数値を制御します                                                                                                                              |
 | sound             | 文字列                      | アラートとして再生するサウンドファイルの名前。アプリのバンドルまたは```Library/Sounds```フォルダーに存在する必要があります                                                                                    |
 | content-available | 数値                      | 値1を入力すると、起動時またはセッション再開時に新しい情報が利用可能であることをアプリに通知します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS library" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APSライブラリー" }
 
 
 ##### アラートプロパティライブラリー {#alert-properties-library}
@@ -70,7 +72,7 @@ Apple Push Notification service (APNs) は、キーと値のペアを使用し�
 | loc-key        | 文字列またはnull           | ```Localizable.strings```ファイルから現在のローカライゼーションの通知メッセージを設定するキー                                  |
 | loc-args       | 文字列の配列         | loc-keyのローカライゼーションフォーマット指定子の代わりに表示できる文字列値                                                       |
 | launch-image   | 文字列                  | ユーザーがアクションボタンをタップするかアクションスライドを移動したときに起動画像として使用するアプリバンドル内の画像ファイルの名前 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alert properties library" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アラートプロパティライブラリー" }
 
 Brazeのメッセージ作成画面は、**alert**と**そのプロパティ**、**content-available**、**sound**、**category**の各キーの作成を自動的に処理します。
 
@@ -125,9 +127,9 @@ Appleは、カスタムペイロードデータとして顧客情報や機密デ
 HTTP/2プロバイダーAPIを使用している場合、APNsに送信する個々のペイロードのサイズは4096バイトを超えることはできません。まもなく廃止予定のレガシーバイナリインターフェイスは、2048バイトのペイロードサイズのみをサポートしています。
 {% endalert %}
 
-###### APIトリガーキャンペーン {#api-triggered-campaigns}
+###### APIトリガーCampaign {#api-triggered-campaigns}
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーCampaignでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
 
 ### Android
 
@@ -143,9 +145,9 @@ iOSプッシュと同様に、カスタムキーと値のペアをユーザー�
 データペイロードが正しく機能するためには、アプリのバックエンドがカスタムキーと値のペアを処理できる必要があります。
 {% endalert %}
 
-###### APIトリガーキャンペーン
+###### APIトリガーCampaign
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーCampaignでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
 
 ##### FCMメッセージングオプション {#fcm-messaging-options}
 
@@ -159,7 +161,7 @@ Androidプッシュ通知は、FCMメッセージオプションでさらにカ�
 
 マーケターは、アプリのユーザーに送信する前に、サイレントプッシュ通知が期待どおりの動作をトリガーすることをテストする必要があります。[iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)または[Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)のサイレントプッシュ通知を作成した後、[外部ユーザーID]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id)または[メールアドレス]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)でフィルタリングして、テストユーザーのみをターゲットにしてください。
 
-キャンペーンの起動時に、テストデバイスで目に見えるプッシュ通知を受信していないことを確認してください。
+Campaignの起動時に、テストデバイスで目に見えるプッシュ通知を受信していないことを確認してください。
 
 {% alert note %}
 iOSのサイレント通知ゲートにより、以下の症状が発生する場合があります:
@@ -181,9 +183,9 @@ iOSのサイレント通知ゲートにより、以下の症状が発生する�
 {% endalert %}
 ![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### APIトリガーキャンペーン
+#### APIトリガーCampaign
 
-Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーキャンペーンでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
+Brazeでは、`extras`と呼ばれるカスタム定義の文字列キーと値のペアを送信できます。APIトリガーおよびスケジュールされたAPIトリガーCampaignでextrasにアクセスするには、ダッシュボードでキーを「example_key」、値を{% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}と設定します。これにより、開発者コンソールの出力は`"extras": { "test": { "foo": 1, "bar": 1 }`となります。
 
 ## メール {#emails}
 

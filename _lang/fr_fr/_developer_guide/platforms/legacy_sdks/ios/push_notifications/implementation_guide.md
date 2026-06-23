@@ -146,7 +146,6 @@ Les notifications push peuvent capturer des informations utilisateur à l'intér
 3. Des informations sont fournies et, si elles sont valides, le bouton d'enregistrement s'affiche.
 3. La vue de confirmation s'affiche et la notification push est rejetée.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 Notez que les informations demandées ici peuvent être très variables, comme le recueil de numéros de SMS par exemple, et ne doivent pas forcément être en relation avec l'e-mail.
 

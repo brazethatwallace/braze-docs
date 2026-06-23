@@ -224,15 +224,31 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 ![Braze Canvas의 두 가지 배리언트 예시.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-기본적으로 캔버스 배리언트 할당은 사용자 ID와 Canvas ID의 함수에 의해 결정됩니다. 즉, 배리언트 분배 비율이 변경되지 않는 한 주어진 사용자는 재진입 시 일관되게 동일한 배리언트에 할당됩니다. 시작 후 배리언트 분배를 조정하면 사용자가 Canvas에 재진입할 때 다른 배리언트에 할당될 수 있습니다. <br><br>분배가 변경되더라도 유지되는 배리언트 할당을 완전히 제어해야 하는 경우, Liquid를 사용하여 난수 생성기를 만들고, 각 사용자의 Canvas 진입 시작 시 실행하고, 값을 커스텀 속성으로 저장한 다음 해당 속성을 사용하여 사용자를 분기로 나눌 수 있습니다.
+기본적으로 캔버스 배리언트 할당은 사용자 ID와 Canvas ID의 함수에 의해 결정됩니다. 즉, 배리언트 분배 비율이 변경되지 않는 한 주어진 사용자는 재진입 시 일관되게 동일한 배리언트에 할당됩니다. 시작 후 배리언트 분배를 조정하면 사용자가 Canvas에 재진입할 때 다른 배리언트에 할당될 수 있습니다. <br><br>분배 비율이 변경되더라도 고정된 할당이 필요한 경우, 단일 캔버스 배리언트를 사용하고 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 단계로 사용자를 라우팅하세요. 여정 시작 부분에서 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 사용하여 커스텀 속성에 난수를 저장한 다음 오디언스 경로에서 해당 속성으로 필터링합니다.
 
 {% details 단계 펼치기 %}
 
-1. 난수를 저장할 커스텀 속성을 만듭니다. "lottery_number" 또는 "random_assignment"와 같이 찾기 쉬운 이름을 지정합니다. [대시보드에서]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) 또는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 대한 API 호출을 통해 속성을 만들 수 있습니다.<br><br>
-2. Canvas 시작 부분에 웹훅 Campaign을 만듭니다. 이 Campaign은 난수를 만들고 커스텀 속성으로 저장하는 매체가 됩니다. 자세한 내용은 [웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook)를 참조하세요. URL을 `/users/track` 엔드포인트로 설정합니다.<br><br>
-3. 난수 생성기를 만듭니다. [여기에 설명된](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486) 코드를 사용하여 각 사용자의 고유한 진입 시간을 활용하여 난수를 만들 수 있습니다. 결과 숫자를 웹훅 Campaign 내의 Liquid 변수로 설정합니다.<br><br>
-4. 웹훅 Campaign의 `/users/track` 호출을 포맷하여 1단계에서 만든 커스텀 속성을 현재 사용자의 프로필에 생성한 난수로 설정합니다. 이 단계가 실행되면 사용자가 Campaign에 진입할 때마다 변경되는 난수를 성공적으로 만든 것입니다.<br><br>
-5. Canvas의 분기를 무작위로 선택된 배리언트로 나누는 대신 오디언스 규칙에 따라 나누도록 조정합니다. 각 분기의 오디언스 규칙에서 커스텀 속성에 따라 오디언스 필터를 설정합니다. <br><br>예를 들어 한 분기에는 "lottery_number is less than 3"을 오디언스 필터로 설정하고, 다른 분기에는 "lottery_number is more than 3 and less than 6"을 오디언스 필터로 설정할 수 있습니다.
+1. 난수를 저장할 **숫자** 커스텀 속성을 만듭니다. `lottery_number` 또는 `random_assignment`와 같이 찾기 쉬운 이름을 지정합니다. 대시보드에서 **데이터 설정** > **커스텀 속성**으로 이동합니다.<br><br>
+2. 단일 캔버스 배리언트를 사용합니다(또는 각 배리언트에 동일한 사용자 업데이트 단계를 추가합니다). 여정 시작 부분에 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 추가합니다. 이 단계는 사용자가 오디언스 경로 단계에 도달하기 전에 난수를 생성하고 저장합니다.<br><br>
+3. 사용자 업데이트 단계에서 [고급 JSON 편집기]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#advanced-json-editor)를 선택합니다. {% raw %}{% random %}{% endraw %} 태그를 사용하여 숫자를 생성합니다. 자세한 내용은 [난수가 포함된 메시지 보내기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number)를 참조하세요. 예를 들어 {% raw %}`{% random 10 %}`{% endraw %}은 0부터 9까지의 정수를 반환합니다. 1단계의 커스텀 속성을 다음과 같은 JSON으로 설정합니다:<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+{% raw %}`{% if %}`{% endraw %} 블록은 속성이 비어 있을 때만 숫자를 설정하므로 사용자가 Canvas에 재진입할 때 동일한 할당을 유지합니다.<br><br>
+
+{: start="4"}
+4. 사용자 업데이트 단계 뒤에 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 단계를 추가합니다. 각 오디언스 그룹에서 배리언트 분배 비율 대신 커스텀 속성을 기반으로 필터를 추가합니다.<br><br>예를 들어 {% raw %}`{% random 10 %}`{% endraw %}을 사용한 경우, 한 그룹은 `lottery_number`가 **4 미만**, 다른 그룹은 **3 초과 7 미만**, 세 번째 그룹은 **6 초과 10 미만**으로 설정할 수 있습니다.
 
 {% enddetails %}
 {% endalert %}

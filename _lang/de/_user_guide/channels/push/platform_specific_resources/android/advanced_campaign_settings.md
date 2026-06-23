@@ -60,7 +60,7 @@ Das Feld **Firebase Messaging Delivery Priority** ermöglicht es Ihnen zu steuer
 |---------|-------------|----------|
 | Normal | Akkuoptimierte Zustellung, die zur Schonung des Akkus verzögert werden kann | Nicht dringende Inhalte, Werbeangebote, Neuigkeiten |
 | Hoch | Sofortige Zustellung mit höherem Akkuverbrauch | Zeitkritische Benachrichtigungen, wichtige Warnungen, Live-Event-Updates, Kontowarnungen, Eilmeldungen oder dringende Erinnerungen |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase-Messaging-Zustellungspriorität" }
 
 #### Hinweise {#considerations}
 
@@ -109,7 +109,7 @@ In der folgenden Tabelle finden Sie die Prioritätsstufen, die Sie für Android-
 | Standard | Die meisten Benachrichtigungen. Verwenden Sie diese, wenn Ihre Nachricht nicht explizit unter einen der anderen Prioritätstypen fällt. | `0` |
 | Niedrig | Informationen, über die Nutzer:innen Bescheid wissen sollen, die aber kein sofortiges Handeln erfordern. | `-1`|
 | Min | Kontextuelle oder Hintergrundinformationen. | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Benachrichtigungs-Anzeigepriorität" }
 
 Weitere Informationen finden Sie in der Google-Dokumentation zu [Android-Benachrichtigungen](http://developer.android.com/design/patterns/notifications.html).
 
@@ -137,7 +137,7 @@ Android-Push-Benachrichtigungen bieten die Möglichkeit anzugeben, ob Ihre Benac
 | Status | Laufende Informationen über den Geräte- oder Kontextstatus. |
 | System | System- oder Gerätestatusupdate. Reserviert für Systemnutzung. |
 | Transport | Medientransportsteuerung für die Wiedergabe. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push category" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Kategorie" }
 
 ## Push-Sichtbarkeit {#push-visibility}
 
@@ -148,7 +148,7 @@ Android-Push-Benachrichtigungen bieten ein optionales Feld, um festzulegen, wie 
 | Public | Benachrichtigung wird auf dem Sperrbildschirm angezeigt |
 | Private | Benachrichtigung wird mit „Inhalt ausgeblendet“ als Nachricht angezeigt |
 | Secret | Benachrichtigung wird nicht auf dem Sperrbildschirm angezeigt |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push visibility" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Sichtbarkeit" }
 
 Darüber hinaus können Android-Nutzer:innen die Anzeige von Push-Benachrichtigungen auf ihrem Sperrbildschirm überschreiben, indem sie die Datenschutzeinstellung für Benachrichtigungen auf ihrem Gerät ändern. Diese Einstellung überschreibt die Sichtbarkeit der Push-Benachrichtigung.
 

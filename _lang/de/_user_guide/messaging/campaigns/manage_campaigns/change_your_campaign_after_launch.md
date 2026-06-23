@@ -12,6 +12,22 @@ description: "Dieser Referenzartikel gibt einen Überblick darüber, welche Ausw
 
 > Dieser Artikel gibt einen Überblick darüber, welche Auswirkungen das Bearbeiten bestimmter Aspekte einer Kampagne nach dem Start hat.
 
+## Warum Sie eine Kampagne vor dem Bearbeiten anhalten sollten {#risks-of-editing-live}
+
+{% alert important %}
+Braze empfiehlt, eine Kampagne vor dem Vornehmen von Änderungen anzuhalten, anstatt sie im laufenden Betrieb zu bearbeiten. Das Bearbeiten einer laufenden Kampagne ohne vorheriges Anhalten kann zu unerwartetem Verhalten führen, einschließlich des doppelten Empfangs der Nachricht durch Nutzer:innen.
+{% endalert %}
+
+Wenn eine Kampagne gestartet wird, werden alle berechtigten Nutzer:innen in die Warteschlange eingereiht, um die Nachricht zu erhalten. Allerdings werden Nutzer:innen erst als Empfänger:innen der Kampagne markiert, wenn die Nachricht tatsächlich zugestellt wurde – nicht wenn sie in die Warteschlange eingereiht werden. Wenn Sie eine laufende Kampagne bearbeiten, ohne sie vorher anzuhalten, reiht Braze berechtigte Nutzer:innen für die aktualisierte Version erneut in die Warteschlange ein, während die ursprüngliche Warteschlange noch verarbeitet wird. Nutzer:innen, die die ursprüngliche Nachricht noch nicht erhalten haben, befinden sich dann in beiden Warteschlangen, was zu Folgendem führen kann:
+
+- Nutzer:innen erhalten die Kampagne zweimal (die ursprüngliche und die aktualisierte Version), selbst wenn die erneute Berechtigung deaktiviert ist.
+- Die ursprüngliche Version der Kampagne wird weiterhin an Nutzer:innen in der ersten Warteschlange zugestellt.
+- Unerwartete Zielgruppenzahlen in den Kampagnen-Analytics.
+
+Dies tritt am ehesten bei Kampagnen auf, die eine große Zielgruppe ansprechen und für den sofortigen Versand geplant sind, da eine große Warteschlange von Nutzer:innen gleichzeitig verarbeitet wird. Bei aktionsbasierten Kampagnen mit schrittweisen Triggern (z. B. Registrierungsereignissen) ist das Risiko geringer, da in der Regel nur eine kleine Anzahl von Nutzer:innen zu einem bestimmten Zeitpunkt in der Warteschlange steht.
+
+Um Änderungen sicher vorzunehmen, halten Sie die Kampagne zuerst an und bearbeiten Sie dann entweder die angehaltene Kampagne oder [duplizieren Sie sie](#making-immediate-changes) mit Ihren Änderungen.
+
 ## Kampagne anhalten {#stopping-your-campaign}
 
 Um eine Kampagne anzuhalten, öffnen Sie die Seite **Campaign Details** und wählen Sie **Kampagne anhalten**. Wenn eine Kampagne angehalten wird:
@@ -59,18 +75,9 @@ Wenn Sie Rate-Limits verwenden, „plant“ Braze Ihre Nachrichten in minutengen
 
 #### Kampagnen mit Zustellgeschwindigkeits-Rate-Limiting pausieren {#pausing-campaigns-with-delivery-speed-rate-limiting}
 
-Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war.
+Wenn Sie eine Kampagne pausieren, die [Zustellgeschwindigkeits-Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) verwendet, verteilt Braze die Sendungen auf minutenbasierte Zeitfenster. **Resume** sendet keine Nachrichten aus Zeitfenstern erneut, die abgebrochen wurden, während die Kampagne pausiert war, und es werden nicht unbedingt alle Nachrichten gesendet, wenn die Kampagne fortgesetzt wird.
 
-Nachrichten mit Rate-Limiting werden nur abgebrochen, wenn die Kampagne zum geplanten Sendezeitpunkt noch pausiert ist. Ob eine Nachricht nach der Wiederaufnahme gesendet wird, hängt davon ab, wann Sie die Kampagne pausiert haben und wie lange sie pausiert war.
-
-Beispiel:
-
-1. Sie pausieren die Kampagne um 13:00 Uhr.
-2. Eine Nachricht mit Rate-Limiting ist für 13:05 Uhr geplant.
-   - Wenn Sie vor 13:05 Uhr fortsetzen, wird die Nachricht gesendet.
-   - Wenn Sie nach 13:05 Uhr fortsetzen, wird die Nachricht während der Pause abgebrochen und nicht gesendet.
-
-Wenn einige Nutzer:innen keine Nachrichten erhalten haben, weil die Kampagne während ihres geplanten Zeitfensters pausiert war, duplizieren Sie die Kampagne und richten Sie sie nur an diese Nutzer:innen, anstatt sich darauf zu verlassen, dass **Resume** die versäumten Nachrichten zustellt.
+Wenn einige Nutzer:innen keine Nachrichten erhalten haben, weil die Kampagne pausiert war, duplizieren Sie die Kampagne und richten Sie sie nur an diese Nutzer:innen, anstatt sich darauf zu verlassen, dass **Resume** die versäumten Nachrichten zustellt.
 
 ## Sofortige Änderungen vornehmen {#making-immediate-changes}
 

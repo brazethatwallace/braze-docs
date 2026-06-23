@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # Criar testes multivariantes e testes A/B {#creating-tests}
 
-> Você pode criar um teste multivariante ou teste A/B para qualquer Campaign que tenha como alvo um único canal e um único dispositivo. Por exemplo, se quiser usar testes multivariantes ou testes A/B para uma Campaign de push, você pode segmentar apenas dispositivos iOS ou apenas dispositivos Android — não ambos os tipos de dispositivo na mesma Campaign.
+> Você pode criar um teste multivariante ou teste A/B para qualquer Campaign que tenha como alvo um único canal. Por exemplo, se quiser usar testes multivariantes ou testes A/B para uma Campaign de push, você pode segmentar dispositivos iOS e Android na mesma Campaign.
 
 ![O menu suspenso ao selecionar o botão "Create Campaign" para escolher entre multicanal ou canal único.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 

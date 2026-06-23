@@ -210,6 +210,10 @@ en:
     sms: SMS
     "time zones": Time zones
     "week/day/month": Week/Day/Month
+  works_best_in: "Works best in:"
+  clipboard_copied: "Copied"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copy to clipboard"
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -283,6 +287,10 @@ fr:
   agents_use_case_tag_labels:
     "canvas agent": Agent Canvas
     "catalog agent": Agent de catalogue
+  works_best_in: "Idéal pour :"
+  clipboard_copied: "Copié"
+  clipboard_error: "Erreur"
+  copy_to_clipboard: "Copier dans le presse-papiers"
 ja:
   next: 次へ
   previous: 前へ
@@ -482,6 +490,10 @@ ja:
     sms: SMS
     "time zones": タイムゾーン
     "week/day/month": 週/日/月
+  works_best_in: "最適なページ："
+  clipboard_copied: "コピーしました"
+  clipboard_error: "エラー"
+  copy_to_clipboard: "クリップボードにコピー"
 ko:
   next: 다음
   previous: 이전
@@ -676,6 +688,10 @@ ko:
     sms: SMS
     "time zones": 시간대
     "week/day/month": 주/일/월
+  works_best_in: "최적 페이지:"
+  clipboard_copied: "복사됨"
+  clipboard_error: "오류"
+  copy_to_clipboard: "클립보드에 복사"
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -749,6 +765,10 @@ pt-br:
   agents_use_case_tag_labels:
     "canvas agent": Agente de Canvas
     "catalog agent": Agente de catálogo
+  works_best_in: "Funciona melhor em:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Erro"
+  copy_to_clipboard: "Copiar para a área de transferência"
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -822,6 +842,10 @@ es:
   agents_use_case_tag_labels:
     "canvas agent": Agente de Canvas
     "catalog agent": Agente de catálogo
+  works_best_in: "Funciona mejor en:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copiar al portapapeles"
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -895,3 +919,7 @@ de:
   agents_use_case_tag_labels:
     "canvas agent": Canvas-Agent
     "catalog agent": Katalog-Agent
+  works_best_in: "Am besten geeignet für:"
+  clipboard_copied: "Kopiert"
+  clipboard_error: "Fehler"
+  copy_to_clipboard: "In die Zwischenablage kopieren"

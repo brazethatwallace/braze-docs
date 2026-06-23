@@ -66,7 +66,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 
 Canvasでは、作成したCanvasにアプリ内メッセージのパフォーマンスがマッピングされます。ページ上部のコントロールパネルを使用して、他のメッセージングタイプ（チャネル）をクリアし、Canvas内のアプリ内メッセージのみを表示できます。
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![In-App Messageのチェックボックスが選択されたチャネル選択オプション。]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![キャンペーンの詳細セクション。]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -257,8 +257,8 @@ The **Message Performance** panel outlines how well your message has performed a
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">このカウントは、</span>ユーザーがコンテンツカードを2回目に閲覧しても増加しません。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> ユーザーは毎日ユニーク受信者になり得るため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> ユーザーは毎日ユニークデイリーインプレッションを持つことができるため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -275,11 +275,11 @@ The **Message Performance** panel outlines how well your message has performed a
 インプレッションの記録方法については、Web、Android、iOSで若干のニュアンスの違いがあります。一般的にBrazeは、ユーザーがフィード内の特定のコンテンツカードまでスクロールした後、カードが表示されたときにインプレッションを記録します。
 {% endalert %}
 
-#### ユニーク受信者数とユニークインプレッション数 {#unique-recipients-versus-unique-impressions}
+#### ユニークデイリーインプレッションとユニークインプレッション {#unique-daily-impressions-versus-unique-impressions}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Recipients_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Daily Impressions_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日コンテンツカードを閲覧し、翌日に同じキャンペーンから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Recipient_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
+例えば、今日コンテンツカードを閲覧し、翌日に同じキャンペーンから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Daily Impression_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
 
 別の例として、15万件の_Messages Sent_を示すContent Cardsキャンペーンで5件の_Unique Impressions_があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
 
@@ -287,7 +287,7 @@ The **Message Performance** panel outlines how well your message has performed a
 2. Content Cardsビューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-_Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は実際に閲覧されたContent Cardsを指します。
+_Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Daily Impressions_は実際に閲覧されたContent Cardsを指します。
 
 {% elsif include.channel == "banner" %}
 
@@ -337,8 +337,8 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> 閲覧者は毎日ユニーク受信者になり得るため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> 閲覧者は毎日ユニークデイリーインプレッションを持つことができるため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -353,9 +353,9 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
 
 #### バナー指標の計算例 {#banner-metrics-calculation-examples}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Recipients_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Daily Impressions_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、_Unique Recipient_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。
+例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、_Unique Daily Impression_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。
 
 別の例として、バナーキャンペーンで5件の_Unique Impressions_があるとします。これは、以下のすべてのステップを実行したユーザーのデバイスがわずか5台だったことを意味します：
 
@@ -363,7 +363,7 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
 2. バナービューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-_Unique Recipients_は、実際に閲覧されたバナーを指します。
+_Unique Daily Impressions_は、実際に閲覧されたバナーを指します。
 
 {% elsif include.channel == "email" %}
 

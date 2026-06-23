@@ -210,7 +210,6 @@ Brazeのコネクテッドコンテンツを使用する際、一部のAPIでは
 - ベーシック認証の場合、ユーザー名とパスワードを更新できます。以前に入力したパスワードは表示されないことに注意してください。
 - トークン認証の場合、ヘッダーのキーと値のペアと許可されたドメインを更新できます。以前に設定したヘッダー値は表示されないことに注意してください。
 
-![認証情報を編集するオプション。]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## コネクテッドコンテンツのIP許可リスト {#connected-content-ip-allowlisting}
 

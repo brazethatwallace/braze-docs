@@ -75,9 +75,7 @@ toc_headers: h2
 * 특히 `USER_ID` 이외의 속성으로 필터링할 때 쿼리 실행 속도가 빠릅니다.
 * **제한 사항:** 데이터가 실시간으로 최신 상태가 아닙니다.
 
-{% alert note %}
-`TIME` 필드는 고객 프로필 업데이트 시간을 초 단위로 나타내며, `TIME_MS` 필드는 밀리초 단위의 정밀도로 나타냅니다. 백필된 데이터의 경우 `TIME` 및 `TIME_MS` 값은 백필 시간입니다.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_default_attributes_view_shared-schema}
 
@@ -137,9 +135,7 @@ toc_headers: h2
     * USER_ID 필터가 없는 쿼리는 모든 사용자에 대한 집계가 필요하므로 실행 시간이 크게 길어집니다.
     * 대규모 데이터셋(예: 1억 명 이상의 사용자)에 대한 쿼리는 수 분이 소요될 수 있습니다.
 
-{% alert note %}
-`TIME` 필드는 고객 프로필 업데이트 시간을 초 단위로 나타내며, `TIME_MS` 필드는 밀리초 단위의 정밀도로 나타냅니다. 백필된 데이터의 경우 `TIME` 및 `TIME_MS` 값은 백필 시간입니다.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_latest_state_default_attributes_view_shared-schema}
 
@@ -195,9 +191,7 @@ toc_headers: h2
 * 데이터는 12시간마다 스냅샷이 생성되므로, 이 기간 내의 여러 업데이트는 단일 레코드로 결합됩니다. 이 기간 내의 개별 변경 사항은 별도로 보존되지 않습니다.
 * `EFF_DT`와 `END_DT`는 사용자 속성 상태의 시작과 끝을 나타냅니다.
 
-{% alert note %}
-`TIME` 필드는 고객 프로필 업데이트 시간을 초 단위로 나타내며, `TIME_MS` 필드는 밀리초 단위의 정밀도로 나타냅니다. 백필된 데이터의 경우 `TIME` 및 `TIME_MS` 값은 백필 시간입니다.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 스키마 {#user_default_attributes_history_view_shared-schema}
 

@@ -12,6 +12,10 @@ channel:
 
 > Este artículo ofrece respuestas a algunas preguntas frecuentes sobre el canal push.
 
+### ¿Por qué las notificaciones push a veces se retrasan? {#why-are-push-notifications-sometimes-delayed}
+
+La entrega generalmente sigue tres etapas: **procesamiento** de Braze (segmentación, planificación y transferencia al proveedor), transporte de Braze a **APNs o FCM**, y entrega del proveedor al **dispositivo**. Los retrasos pueden ocurrir en cualquier etapa. Braze no tiene visibilidad sobre las colas del proveedor o del dispositivo; usa el [registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) en el cliente cuando necesites identificar los tiempos del lado del dispositivo.
+
 ### ¿Qué ocurre cuando varios usuarios inician sesión en un mismo dispositivo? {#what-happens-when-multiple-users-log-into-a-single-device}
 
 Cuando un usuario cierra sesión en un dispositivo o sitio web, seguirá siendo alcanzable por push hasta que otro usuario inicie sesión. En ese momento, el token de notificaciones push se reasigna al nuevo usuario. Esto se debe a que cada dispositivo solo puede tener una suscripción push activa por aplicación o sitio web.
@@ -48,7 +52,7 @@ Si deseas que el token de notificaciones push se reasigne al usuario original:
 
 ### ¿Por qué "Abrir URL web dentro de la aplicación móvil" siempre abre la aplicación cuando estoy probando un borrador de Campaign? {#why-does-open-web-url-inside-mobile-app-always-open-the-app-when-im-testing-a-draft-campaign}
 
-Cuando una Campaign aún está en estado **Draft** y envías un push de prueba, al tocar la notificación siempre se abre la aplicación primero, independientemente de si la opción **Open web URL inside mobile app** está seleccionada o no. Cuando la Campaign está **Live**, el comportamiento al hacer clic funciona según la configuración.
+Cuando una Campaign aún está en estado **Draft** y envías un push de prueba, al tocar la notificación siempre se abre la aplicación primero, independientemente de si la opción **Open web URL inside mobile app** está seleccionada o no. Cuando la Campaign está en estado **Live**, el comportamiento al hacer clic funciona según la configuración.
 
 Si seleccionaste **Open web URL** sin la opción **Inside App**, el enlace se abre directamente en el navegador predeterminado del dispositivo. Si seleccionaste **Open web URL inside mobile app**, el enlace se abre en una vista web dentro de la aplicación.
 
@@ -69,7 +73,7 @@ Estos filtros de segmentación verifican condiciones diferentes:
 |--------|-------------|-------------|
 | **Foreground Push Enabled** | El usuario tiene un token de notificaciones push de primer plano válido **y** su estado de suscripción push es `Opted-In` o `Subscribed`. | Dirigirse a usuarios que pueden recibir notificaciones push visibles. |
 | **Background or Foreground Push Enabled** | El usuario tiene cualquier token de notificaciones push (de primer plano o segundo plano) **y** su estado de suscripción push es `Opted-In` o `Subscribed`. Esto incluye a usuarios que han deshabilitado las notificaciones push visibles pero aún tienen un token de notificaciones push en segundo plano. | Se usa para [Uninstall Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [notificaciones push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/) y geovallado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Diferencia entre los filtros Foreground Push Enabled y Background or Foreground Push Enabled" }
 
 Un usuario puede tener `Background or Foreground Push Enabled` sin tener `Foreground Push Enabled`. Esto ocurre cuando el usuario ha deshabilitado las notificaciones push visibles en la configuración de su dispositivo, pero la aplicación aún conserva un token de notificaciones push en segundo plano. Para más detalles, consulta [Usuarios push y suscripciones]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
 

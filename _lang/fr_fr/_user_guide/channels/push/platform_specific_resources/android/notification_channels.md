@@ -14,11 +14,9 @@ channel:
 
 > Les [canaux de notification](https://www.braze.com/blog/android-o-push-notifications-channels/) sont un moyen d'organiser les notifications push, introduits avec Android O. À partir d'Android O, toutes les notifications push doivent disposer d'un canal de notification indiquant le type de message (par exemple, « notifications de chat » ou « notifications d'abonnement »). Vos utilisateurs peuvent ensuite contrôler certains aspects de leurs notifications (par exemple, la mise en veille, les paramètres de son/vibration, ou la désinscription, etc.) en fonction de chaque canal.
 
-## Transition vers Android O {#transitioning-to-android-o}
-
 Les canaux de notification ne peuvent être créés que dans le code de votre application et ne peuvent pas être créés de manière programmatique dans le tableau de bord de Braze. Nous recommandons que votre équipe d'ingénierie travaille avec vos marketeurs pour s'assurer que les canaux de notification souhaités sont correctement ajoutés au tableau de bord.
 
-À partir d'Android O, les notifications push nécessitent un canal valide pour s'afficher. Si votre application cible Android O ou une version ultérieure, vous devez utiliser la version 2.1.0 ou ultérieure du SDK Braze. Votre équipe de développement doit définir les canaux que vous souhaitez utiliser ainsi que les paramètres de notification suggérés (par exemple, importance, son, voyants lumineux) pour chaque canal dans le code de votre application. Vous pouvez consulter la documentation développeur d'Android [ici](https://developer.android.com/preview/features/notification-channels.html) et la documentation développeur de Braze [ici.]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels)
+À partir du niveau d'API 26 (Android O), les notifications push nécessitent un canal valide pour s'afficher. Si votre application cible Android O ou une version ultérieure, vous devez utiliser la version 2.1.0 ou ultérieure du SDK Braze. Votre équipe de développement doit définir les canaux que vous souhaitez utiliser ainsi que les paramètres de notification suggérés (par exemple, importance, son, voyants lumineux) pour chaque canal dans le code de votre application. Pour plus d'informations, vous pouvez consulter la [documentation développeur d'Android](https://developer.android.com/preview/features/notification-channels.html) et la [documentation développeur de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels).
 
 {% alert note %}
 Android prend en charge la localisation des noms de canaux, de sorte que dans le code de votre application, vous pouvez associer un identifiant de canal à plusieurs traductions d'un nom de canal.
@@ -65,23 +63,23 @@ Pour mieux comprendre le comportement attendu des canaux, consultez le tableau s
 | **Société XYZ** met à jour vers un SDK prenant en charge Android O <br>**Société XYZ** n'ajoute aucun canal au tableau de bord de Braze<br>**Société XYZ** renomme son canal par défaut du SDK en « Marketing » | Les notifications push envoyées aux appareils Android O créeront un canal appelé « Marketing » et les notifications seront envoyées via le canal « Marketing »
 | **Société LMN** met à jour vers un SDK prenant en charge Android O <br>**Société LMN** définit deux canaux dans le code de son application, « Promotions » et « Order Updates » <br>**Société LMN** ajoute les identifiants de canal pour « Promotions » et « Order Updates » au tableau de bord de Braze <br>**Société LMN** désigne « Promotions » comme canal de secours du tableau de bord<br>**Société LMN** renomme son canal par défaut du SDK en « Marketing » | Les notifications push envoyées aux appareils Android O ne créeront pas de canal<br><br>À moins que le marketeur ne spécifie explicitement que les notifications doivent être envoyées via le canal « Order Updates » ou « Marketing », toutes les notifications créées avant l'ajout des canaux au tableau de bord seront envoyées via le canal « Promotions »<br><br>Le canal par défaut du SDK, « Marketing », n'est créé et utilisé que si la société tente d'envoyer une notification via un identifiant de canal invalide ou s'il est explicitement sélectionné
 | **Société HIJ** met à jour vers Android O mais ne met pas à jour le SDK Android de Braze vers la version 2.1.0 ou ultérieure | Les notifications envoyées aux utilisateurs exécutant Android O ou une version ultérieure n'apparaissent pas |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard fallback channel" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canal de secours du tableau de bord" }
 
 ## Ajouter des canaux au tableau de bord de Braze {#adding-channels-to-the-braze-dashboard}
 
-1. Ouvrez n'importe quelle campagne ou Canvas incluant une notification push Android et cliquez sur **Edit Campaign**.
+1. Ouvrez ou créez n'importe quelle campagne ou Canvas incluant une notification push Android.
 2. Accédez au composeur de messages push Android.
-3. Cliquez sur **Manage Notification Channels**. Tous les canaux ajoutés ici seront disponibles globalement pour toutes les campagnes et tous les Canvas. Vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) « Manage Apps » pour votre espace de travail afin de gérer les canaux.
+3. Sélectionnez **Gérer les canaux de notification**. Tous les canaux ajoutés ici seront disponibles globalement pour toutes les campagnes et tous les Canvas. Vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) « Gérer les applications » pour votre espace de travail afin de gérer les canaux.
 
 Lorsque vous appliquez un canal de notification à une campagne ou une étape du Canvas spécifique, le nombre d'**utilisateurs pouvant être atteints** (situé dans l'étape Audience cible) pour la notification push Android ne semblera pas changer. Cependant, seuls les utilisateurs abonnés au canal de notification sélectionné verront le message, et les analyses de votre campagne (comme les clics) seront mesurées en fonction de cette audience.
 
-![]({% image_buster /assets/img_archive/Click_Here.png %})
+![]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Cliquez sur **Add Notification Channel**.
-5. Saisissez le nom et l'identifiant du canal de notification que vous souhaitez ajouter.<br><br>![]({% image_buster /assets/img_archive/Enter_Channel.png %})<br><br>
+4. Cliquez sur **Ajouter un canal de notification**.
+5. Saisissez le nom et l'identifiant du canal de notification que vous souhaitez ajouter.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Répétez les étapes 4 et 5 pour chaque canal de notification que vous souhaitez ajouter.
-7. Appuyez sur **Save** pour enregistrer vos modifications.
+7. Appuyez sur **Enregistrer** pour enregistrer vos modifications.
 
 ## Spécifier votre canal de secours {#specifying-your-fallback-channel}
 
@@ -89,7 +87,7 @@ Votre canal de secours est le canal via lequel Braze tentera d'envoyer votre mes
 
 1. Ouvrez n'importe quelle campagne ou Canvas existant.
 2. Accédez au composeur de notification push Android.
-3. Sélectionnez **Manage Notification Channels** après avoir développé les options de canal de notification. <br><br>![]({% image_buster /assets/img_archive/Change_Fallback.png %}){: style="max-width:80%;"}<br><br>
+3. Sélectionnez **Gérer les canaux de notification** après avoir développé les options de canal de notification.
 4. Ajoutez le canal au tableau de bord (s'il n'a pas déjà été ajouté).
 5. Sélectionnez le bouton radio à côté du canal que vous souhaitez désigner comme canal de secours.
 6. Enregistrez vos modifications. Vos modifications seront appliquées globalement.
@@ -99,6 +97,6 @@ Votre canal de secours est le canal via lequel Braze tentera d'envoyer votre mes
 1. Accédez au composeur de notification push Android sur n'importe quelle campagne ou Canvas.
 2. Sélectionnez le canal que vous souhaitez utiliser dans le menu déroulant. Si vous ne disposez pas d'un menu déroulant mais plutôt de la vue suivante, vous devrez ajouter des canaux avant de les sélectionner pour vos campagnes.
 
-![]({% image_buster /assets/img_archive/No_Select.png %})
+![Composeur de canaux de notification push.]({% image_buster /assets/img_archive/push_notifications_channels_composer.png %})
 
 [3]: https://developer.android.com/preview/features/notification-channels.html#DeletingChannels
