@@ -66,7 +66,7 @@ By default, test sends and seed group email sends will use promotion codes per u
 
 ### What happens when multiple messaging channels use the same promotion code snippet?
 
-If a particular user is eligible to receive a code through multiple channels, they will receive the same code through each channel. Only one promotion code will be used regardless of the channels received.
+If a particular user is eligible to receive a code through multiple channels, they receive the same code through each channel. Only one promotion code is used regardless of the channels received.
 
 ### Can I use multiple Liquid snippets to reference the same promotion code list in one message?
 
