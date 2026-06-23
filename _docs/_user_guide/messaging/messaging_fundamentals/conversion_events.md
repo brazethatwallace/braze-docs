@@ -114,7 +114,7 @@ Additionally, for multivariate messages, you can see the number of conversions a
 It's common for a Canvas variant's total conversion count to be higher than the sum of its individual steps' conversion counts. This happens because conversions are tracked differently at the variant level and the step level:
 
 - Variant conversions are counted as soon as the user enters the variant.
-- **Step conversions** are only counted after the step's message is sent to the user.
+- Step conversions are counted only after the step's message is sent to the user.
 
 This means any user who enters the Canvas and performs the conversion event before receiving a step will count toward the variant total but not toward any step.
 
