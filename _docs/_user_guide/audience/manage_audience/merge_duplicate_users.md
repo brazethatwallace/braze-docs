@@ -67,16 +67,22 @@ To preview your results before merging your duplicates, select **Generate list o
 
 Braze generates your preview and sends it to your email address as a CSV file.
 
+The CSV includes a **Created from** column that shows how each profile was first created (for example, through the [SDK]({{site.baseurl}}/developer_guide/sdk_integration/), [REST API]({{site.baseurl}}/api/basics/), or [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)). This helps you understand the profile's source before you merge duplicates.
+
+When reviewing duplicate rows, compare **Created from** with identifiers such as `external_id`, email address, and phone number. Use this context to decide which profile should be kept as the primary profile before you select **Merge all duplicates**.
+
+The **Created from** field is especially useful when duplicate profiles contain similar values but come from different ingestion paths. It gives your team more context for merge decisions and helps reduce accidental merges of profiles you would prefer to keep separate until further review.
+
 
 In the following example, Braze uses the user's external ID to flag duplicate profiles and identify which one to keep. If these profiles are bulk merged, Braze uses the profile with an external ID as the user's new primary profile.
 
 {% tabs local %}
 {% tab example csv file %}
-| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
-| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
-| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
-| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
-| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Created from | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | ------------ | --------------- | ---------------- |
+| jane.do@example.com   | 123-external-id | 555 123-4567 | example-id-12345 | email               | sdk          | TRUE            | FALSE            |
+| john.do@example.com   |                 | 555 123-4567 | example-id-12346 | email               | rest         | FALSE           | TRUE             |
+| jordan.do@example.com |                 | 555 123-4567 | example-id-12347 | email               | csv          | FALSE           | TRUE             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Preview the results (optional)" }
 {% endtab %}
 {% endtabs %}
