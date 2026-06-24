@@ -10,7 +10,6 @@ For work under `_docs/` or root `_includes/`:
 - **Writing, links, merge conflicts, review:** Follow [`.github/skills/braze-docs/SKILL.md`](.github/skills/braze-docs/SKILL.md).
 - **Verifying product, API, or SDK behavior:** Follow [`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md). Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so sibling SDK and `platform` repos are available.
 - **Screenshot PII audit:** Follow [`.github/skills/screenshot-pii-audit/SKILL.md`](.github/skills/screenshot-pii-audit/SKILL.md) when adding or updating `assets/img/` screenshots.
-- **Redundant image cleanup:** Follow [`.github/skills/image-curator/SKILL.md`](.github/skills/image-curator/SKILL.md) when removing low-value screenshots from English docs.
 
 **Canonical human style guide:** [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — defer to those files over summaries in skills.
 
