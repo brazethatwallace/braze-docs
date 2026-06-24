@@ -451,6 +451,13 @@ _Sends − (Deliveries + Hard Bounces) ≈ Soft Bounces_
 
 _Deliveries_ can rise during the first 72 hours as retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes.
 
+###### Common delivery troubleshooting scenarios
+
+When reviewing your email analytics, keep these patterns in mind:
+
+- **Deliveries increasing after send:** _Deliveries_ may continue to increase within the first 72 hours due to retry attempts. For one-time campaigns, _Sends_ and _Hard Bounces_ remain final once the send completes, but _Deliveries_ can grow as retries succeed.
+- **Low delivery rates after 72 hours:** If _Deliveries_ remain low after 72 hours, check whether your send volume spiked compared to historical patterns. Mail providers may bounce messages rather than delay them when they see unexpected volume increases from a sender.
+
 ##### Clicks without an open event
 
 A click can be logged without an open when the open pixel never loads. For example, the message is clipped in Gmail, or the user has disabled images (the open pixel is usually at the footer). Some clients proxy images (such as Apple Mail), so the open may log when the server first fetches the pixel, not when the user reads the mail. Corporate domains often block images by default.
