@@ -98,7 +98,7 @@ The **Engagement** tab contains information about a user's interactions with the
 ### Event History tab {#event-history-tab}
 
 {% alert note %}
-To view the **Event History** tab, you need the **Search Users** and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), since event properties can contain personal data.
+To view the **Event History** tab, you need the **Search Users** and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), because event properties can contain personal data.
 {% endalert %}
 
 The **Event History** tab shows the custom events and purchases a user has logged. Use it to verify event data is arriving correctly and troubleshoot user-level issues directly in the dashboard—no data exports or external tooling required.
