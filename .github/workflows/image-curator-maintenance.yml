@@ -1,0 +1,148 @@
+# Image curator (maintenance): twice-yearly scan on develop — opens a draft [IC] PR.
+#
+# Scans English docs for redundant image references, removes up to 25 high-confidence
+# candidates (prose merge + dereferenced binary delete), and opens a draft PR.
+# Human review happens at merge time — do not auto-merge.
+#
+# Schedule: June 1 and December 1 at 14:00 America/New_York (4h after image-pruner).
+#
+# Skill: .github/skills/image-curator/SKILL.md
+name: Image curator (maintenance)
+
+on:
+  schedule:
+    - cron: "0 14 1 6 *"
+      timezone: "America/New_York"
+    - cron: "0 14 1 12 *"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scan-and-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      ymd: ${{ steps.stamp.outputs.ymd }}
+      candidate_count: ${{ steps.scan.outputs.candidate_count }}
+      high_count: ${{ steps.scan.outputs.high_count }}
+      edited_count: ${{ steps.batch.outputs.edited_count }}
+      skip_reason: ${{ steps.batch.outputs.skip_reason }}
+      pr_url: ${{ steps.maintenance_pr.outputs.pull-request-url }}
+      pr_number: ${{ steps.maintenance_pr.outputs.pull-request-number }}
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: develop
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install Tesseract OCR
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+
+      - name: Date stamp (Eastern)
+        id: stamp
+        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Run redundant image candidate scan
+        id: scan
+        env:
+          SCAN_LOG: ${{ runner.temp }}/scan.log
+          SCAN_CSV: ${{ runner.temp }}/redundant_image_candidates.csv
+        run: |
+          python3 scripts/image-curator/find_redundant_image_candidates.py \
+            --csv "$SCAN_CSV" \
+            --min-confidence medium | tee "$SCAN_LOG"
+
+          candidate_count=$(python3 -c "
+          import os, re
+          text = open(os.environ['SCAN_LOG']).read()
+          m = re.search(r'Redundant image candidates:\s+(\d+)', text)
+          print(m.group(1) if m else '0')
+          ")
+
+          high_count=$(python3 -c "
+          import os, re
+          text = open(os.environ['SCAN_LOG']).read()
+          m = re.search(r'high:\s+(\d+)', text)
+          print(m.group(1) if m else '0')
+          ")
+
+          echo "candidate_count=$candidate_count" >> "$GITHUB_OUTPUT"
+          echo "high_count=$high_count" >> "$GITHUB_OUTPUT"
+
+      - name: Upload scan CSV
+        uses: actions/upload-artifact@v7
+        with:
+          name: image-curator-candidates-${{ github.run_id }}
+          path: ${{ runner.temp }}/redundant_image_candidates.csv
+          if-no-files-found: error
+
+      - name: Run curation batch
+        id: batch
+        env:
+          IMAGE_CURATION_DELETE_FORCE: "1"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 scripts/image-curator/run_curation_batch.py \
+            --limit 25 \
+            --skip-if-open-ic-pr \
+            --scan-date "${{ steps.stamp.outputs.ymd }}" \
+            --run-url "$RUN_URL" \
+            --github-output "$GITHUB_OUTPUT" \
+            --pr-body "${{ runner.temp }}/pr-body.md"
+
+      - name: Open draft pull request
+        id: maintenance_pr
+        if: ${{ steps.batch.outputs.edited_count != '' && fromJSON(steps.batch.outputs.edited_count) > 0 }}
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          branch: image-curator/maintenance-${{ steps.stamp.outputs.ymd }}-${{ github.run_id }}
+          base: develop
+          title: ${{ steps.batch.outputs.pr_title }} (maintenance ${{ steps.stamp.outputs.ymd }})
+          body-path: ${{ runner.temp }}/pr-body.md
+          commit-message: "chore: remove redundant image references from English docs"
+          delete-branch: true
+          add-paths: |
+            _docs/
+            _includes/
+            assets/img/
+          labels: image pruning
+
+      - name: Write workflow summary
+        run: |
+          {
+            echo "## Image curator maintenance"
+            echo ""
+            echo "| Metric | Value |"
+            echo "|--------|-------|"
+            echo "| Date | ${{ steps.stamp.outputs.ymd }} |"
+            echo "| Candidates (medium+) | ${{ steps.scan.outputs.candidate_count }} |"
+            echo "| High confidence | ${{ steps.scan.outputs.high_count }} |"
+            if [ -n "${{ steps.batch.outputs.edited_count }}" ]; then
+              echo "| References edited | ${{ steps.batch.outputs.edited_count }} |"
+              echo "| Images deleted | ${{ steps.batch.outputs.deleted_image_count }} |"
+              echo "| Skipped | ${{ steps.batch.outputs.skipped_count }} |"
+            fi
+            echo ""
+            echo "CSV attached as workflow artifact \`image-curator-candidates-${{ github.run_id }}\`."
+            echo ""
+            if [ "${{ steps.batch.outputs.skip_reason }}" = "open_ic_pr" ]; then
+              echo "**Status:** Skipped — an open \`[IC]\` curation PR already exists. Merge or close it, then re-run."
+            elif [ -n "${{ steps.maintenance_pr.outputs.pull-request-url }}" ]; then
+              echo "**Action:** Draft PR opened for review: ${{ steps.maintenance_pr.outputs.pull-request-url }}"
+            else
+              echo "**Status:** No draft PR opened (zero high-confidence edits, open IC PR, or nothing to change)."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
