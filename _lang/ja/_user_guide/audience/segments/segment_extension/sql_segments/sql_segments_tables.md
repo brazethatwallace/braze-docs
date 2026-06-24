@@ -25,7 +25,7 @@ table td {
 ほとんどのテーブルは3つのツールすべてで利用できます。**Snowflakeデータ共有のみ**と記載されたテーブルはSnowflakeデータ共有専用であり、クエリビルダーやSQLセグメントエクステンションではアクセスできません。
 
 {% alert tip %}
-これらのSQLテーブルは、[Currentsイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に記載されているイベントに対応しています。たとえば、SQLテーブル`USERS_MESSAGES_EMAIL_SEND_SHARED`はCurrentsイベント`users.messages.email.Send`に対応しています。JSONイベントスキーマやパートナー固有のフォーマット（Amplitude、Mixpanel、Segment）が必要な場合は、Currents用語集を参照してください。
+これらのSQLテーブルは、[Currentsイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に記載されているイベントに対応しています。たとえば、SQLテーブル`USERS_MESSAGES_EMAIL_SEND_SHARED`はCurrentsイベント`users.messages.email.Send`に対応しています。JSONイベントスキーマやパートナー固有のフォーマット（Amplitude、Mixpanel、セグメント）が必要な場合は、Currents用語集を参照してください。
 {% endalert %}
 
 ## 目次 {#table-of-contents}

@@ -30,7 +30,7 @@ description: "この記事では、セグメント分析のエクスポートBra
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `segment_id` | 必須 | 文字列 | [セグメントAPI識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>特定のSegmentの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページで確認できます。また、[Segment一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用することもできます。 |
+| `segment_id` | 必須 | 文字列 | [セグメントAPI識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>特定のセグメントの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページで確認できます。また、[セグメント一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用することもできます。 |
 | `length` | 必須 | 整数 | 返されるシリーズに含める`ending_at`までの最大日数。1以上100以下（両端を含む）でなければなりません。 |
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエスト時刻です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }

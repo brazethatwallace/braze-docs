@@ -62,7 +62,7 @@ URLやクエリ文字列での使用（名前に`%`やスペースが含まれ�
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
-Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するSegmentを作成できます。
+Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
 
 詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation)をご覧ください。
 

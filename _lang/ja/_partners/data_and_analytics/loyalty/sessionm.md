@@ -205,7 +205,7 @@ SessionMのすべてのテンプレートにある標準フィールドには、
 - `email address`
 
 {% alert note %}
-`broadcast flag`を`true`に設定すると、BrazeのCampaignまたはCanvasがターゲットとするSegment全体にメッセージが送信されます。
+`broadcast flag`を`true`に設定すると、BrazeのCampaignまたはCanvasがターゲットとするセグメント全体にメッセージが送信されます。
 {% endalert %}
 
 特定のニーズに応じてフィールドを追加設定することもできます：

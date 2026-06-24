@@ -131,8 +131,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 数分経ってもユーザーがまだ存在する場合は、リクエスト内の識別子がユーザーの実際のプロファイルと一致しているか確認してください。
 
 - **`external_ids`配列:** 各値がユーザーのexternal IDと正確に一致していることを確認してください。
-- **`braze_id`:** ユーザーの`braze_id`は、[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)でデータをエクスポートするか、SegmentをCSVにエクスポートすることで確認できます（`braze_id`は「Appboy ID」として表示されます）。
-- **エイリアスのみまたはメールのみのプロファイル:** プロファイルに`external_id`がない場合は、**External User IDが空白**でフィルターし、既知のメールまたは電話番号と組み合わせたSegmentを作成してから、CSVにエクスポートして`braze_id`を取得してください。
+- **`braze_id`:** ユーザーの`braze_id`は、[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)でデータをエクスポートするか、セグメントをCSVにエクスポートすることで確認できます（`braze_id`は「Appboy ID」として表示されます）。
+- **エイリアスのみまたはメールのみのプロファイル:** プロファイルに`external_id`がない場合は、**External User IDが空白**でフィルターし、既知のメールまたは電話番号と組み合わせたセグメントを作成してから、CSVにエクスポートして`braze_id`を取得してください。
 
 ユーザーが削除されたかどうかを確認するには、削除リクエストで使用したのと同じ識別子タイプを使用して[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を呼び出します（例えば、`external_ids`、`braze_id`、または`user_aliases`に値を含めます）。ユーザーが存在しなくなった場合、応答には`"users": []`が含まれ、その識別子をリストする`"invalid_user_ids"`が含まれる場合があります。
 

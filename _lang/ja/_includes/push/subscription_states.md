@@ -23,11 +23,11 @@ Brazeがユーザーのプッシュサブスクリプションの状態を自動
 
 ### プッシュ登録と到達可能なユーザー {#push-registration-and-reachable-users}
 
-プッシュサブスクリプションの状態はユーザーの設定を反映しますが、ダッシュボードでプッシュの**到達可能**としてカウントされるかどうかは、[プッシュ登録]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)にも依存します。つまり、プロファイルに有効なフォアグラウンドプッシュトークンが存在する必要があります。Brazeがチャネルレベルのカウントを計算する方法については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
+プッシュサブスクリプションの状態はユーザーの設定を反映しますが、ダッシュボードでプッシュの**到達可能**としてカウントされるかどうかは、[プッシュ登録]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)にも依存します。つまり、プロファイルに有効なフォアグラウンドプッシュトークンが存在する必要があります。Brazeがチャネルレベルのカウントを計算する方法については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
 - **プッシュCampaignsとCanvases：** プッシュ登録されていないユーザーは、プッシュサブスクリプション状態が `Subscribed` または `Opted-In` であっても、オーディエンス統計のAndroidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**には含まれません。
 - **その他のチャネル：** 同じユーザーでも、対象となる他のチャネル（メールやアプリ内メッセージなど）では到達可能としてカウントされる場合があります。
-- **Segments：** Segmentのメンバーシップはフィルターに従います。プッシュ登録のないユーザーも、フィルターで除外されない限り（例：**Foreground Push Enabled**）、Segmentに残ります。Segmentの合計メンバーシップは、プッシュ固有の**到達可能なユーザー**行に表示されるユーザー数の合計よりも多くなる場合があります。
+- **Segments：** セグメントのメンバーシップはフィルターに従います。プッシュ登録のないユーザーも、フィルターで除外されない限り（例：**Foreground Push Enabled**）、セグメントに残ります。セグメントの合計メンバーシップは、プッシュ固有の**到達可能なユーザー**行に表示されるユーザー数の合計よりも多くなる場合があります。
 
 ユーザープロファイルのプッシュサブスクリプション状態が`Subscribed`であっても、プッシュトークンが割り当てられていない場合があります。そのようなユーザーは、Brazeが有効なトークンを記録するまで、Androidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**にはカウントされません。
 
@@ -93,4 +93,4 @@ Brazeは、ユーザーがOS、ブラウザ、またはアプリレベルで通�
 Brazeでは、以下のいずれかの方法でユーザーのプッシュサブスクリプション状態を確認できます。
 
 * **ユーザープロファイル：** Brazeダッシュボードの[**ユーザー検索**]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)ページから、個々のユーザープロファイルにアクセスできます。（メールアドレス、電話番号、または外部ユーザーIDを使用して）ユーザーのプロファイルを見つけた後、**Engagement**タブを選択してユーザーのサブスクリプション状態を表示し、手動で調整することができます。
-* **REST APIでのエクスポート：** [Segmentごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
+* **REST APIでのエクスポート：** [セグメントごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。

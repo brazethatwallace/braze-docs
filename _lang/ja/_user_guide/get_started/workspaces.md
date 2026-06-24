@@ -93,7 +93,7 @@ Currents コネクターはワークスペース間で共有されないため�
 
 #### ユーザープロファイル {#user-profiles}
 
-ユーザーに関連するすべての永続データは、その[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)に格納されます。しかし、ユーザープロファイルは、ユーザーのエンゲージメント履歴、Segment メンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストにも最適なリソースです。
+ユーザーに関連するすべての永続データは、その[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)に格納されます。しかし、ユーザープロファイルは、ユーザーのエンゲージメント履歴、セグメント メンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストにも最適なリソースです。
 
 #### Segments、Campaigns、Canvases {#segments-campaigns-and-canvases}
 
@@ -208,8 +208,8 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
     <tr>
         <th scope="row">コンテンツの複製</th>
         <td>該当なし</td>
-        <td>Segmentやコンテンツカードの Campaign など、一部のコンテンツはワークスペース間でコピーできません。</td>
-        <td><a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>ワークスペース間で Campaign、Canvas、ランディングページをコピー</a> できます。サポート対象のコンテンツには、対象チャネルの Campaignと Canvas、ランディングページ、メールテンプレート、フィーチャーフラグ、Content Blocksが含まれます。<br><br>Segment、Campaign、Canvas、ランディングページを複製して、アプリインスタンス間でコンテンツを再利用できます。</td>
+        <td>セグメントやコンテンツカードの Campaign など、一部のコンテンツはワークスペース間でコピーできません。</td>
+        <td><a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>ワークスペース間で Campaign、Canvas、ランディングページをコピー</a> できます。サポート対象のコンテンツには、対象チャネルの Campaignと Canvas、ランディングページ、メールテンプレート、フィーチャーフラグ、Content Blocksが含まれます。<br><br>セグメント、Campaign、Canvas、ランディングページを複製して、アプリインスタンス間でコンテンツを再利用できます。</td>
         <td>該当なし</td>
     </tr>
     <tr>

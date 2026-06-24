@@ -147,7 +147,7 @@ Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messagin
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)にします。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)にします。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 {% multi_lang_include target_audiences.md %}
 

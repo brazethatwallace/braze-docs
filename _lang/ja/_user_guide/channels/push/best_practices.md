@@ -75,7 +75,7 @@ Brazeは連携と分析の目的でプッシュペイロードの一部を予約
 
 アプリ内に設定ページを作成して、ユーザーが受信したい通知を選択できるようにすることができます。一般的なアプローチは、アプリの設定ステータスに対応するブール値のカスタム属性をBrazeで作成することです。たとえば、ニュースアプリでは、速報、スポーツニュース、政治に関するサブスクリプション設定を用意できます。
 
-ニュースアプリが政治に関心のあるユーザーのみをターゲットにしたCampaignを作成する場合、Segmentに`Subscribes to Politics`属性フィルターを追加します。trueに設定すると、通知を購読しているユーザーのみが通知を受信します。
+ニュースアプリが政治に関心のあるユーザーのみをターゲットにしたCampaignを作成する場合、セグメントに`Subscribes to Politics`属性フィルターを追加します。trueに設定すると、通知を購読しているユーザーのみが通知を受信します。
 
 カスタム属性の設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes)、または[REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification)の記事を参照してください。
 

@@ -81,7 +81,7 @@ Canvasエージェントの場合、指示文内でLiquidを使用してユー�
 **+ Agent context**を選択し、エージェントが参照できる内容を選びます。これには以下が含まれます。
 
 - [カタログフィールド]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields)：エージェントにカタログデータへのアクセス権限を与えることで、より正確な応答が得られます。
-- [Segmentメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context)：エージェントが、ユーザーがどのSegmentに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのSegmentを選択できます。
+- [セグメントメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context)：エージェントが、ユーザーがどのセグメントに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのセグメントを選択できます。
 - [ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)：エージェントが従うべきブランドボイスとスタイルガイドラインを参照します。例えば、エージェントにジムの会員登録を促すSMSコピーを生成させたい場合、このフィールドを使って事前に定義した太字でモチベーションを高めるガイドラインを参照できます。
 - [すべてのCanvasコンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)：このエージェントが呼び出された際に、ユーザーのすべてのCanvasコンテキストデータを分析します。これには**Instructions**セクションで参照されていない変数も含まれます。
 - [ユーザーインタラクションデータ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history)：各ユーザーの最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータをエージェントに提供します。

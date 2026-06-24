@@ -3,14 +3,14 @@ nav_title: データプライバシーとセキュリティ
 article_title: BrazeAI Operatorのデータプライバシーとセキュリティ
 page_order: 5
 page_type: reference
-description: "このリファレンス記事では、HIPAA準拠、データ保持、PII最小化、ガバナンスなど、BrazeAI Operatorがデータをどのように扱うかについて説明します。"
+description: "このリファレンス記事では、HIPAA準拠、データ保持、PII最小化、ガバナンスなど、BrazeAI オペレーターがデータをどのように扱うかについて説明します。"
 ---
 
 # BrazeAI Operatorのデータプライバシーとセキュリティ {#data-privacy-and-security-for-brazeai-operator}
 
-> BrazeAI Operator<sup>TM</sup>はOpenAIと統合し、AIを活用したアシスタンスを提供します。この記事では、Operatorがデータをどのように扱うか、OpenAIとどのような情報が共有されるか、PII露出を最小限に抑えアクセスを制御する方法について説明します。
+> BrazeAI Operator<sup>TM</sup>はOpenAIと統合し、AIを活用したアシスタンスを提供します。この記事では、オペレーターがデータをどのように扱うか、OpenAIとどのような情報が共有されるか、PII露出を最小限に抑えアクセスを制御する方法について説明します。
 
-## Operatorがデータにアクセスする仕組み {#how-operator-accesses-data}
+## オペレーターがデータにアクセスする仕組み {#how-operator-accesses-data}
 
 Operatorの顧客データへのアクセスは、厳密にイベント駆動型かつ呼び出しスコープに限定されており、永続的ではありません。Operatorが開いている間にユーザーメッセージやナビゲーションイベントが発生するたびに、OpenAIへの個別のHTTPリクエストがトリガーされます。常時接続や永続的なデータフィードはありません。
 
@@ -73,13 +73,13 @@ Operatorを使用する際にPII露出を制限するために、いくつかの
 - **テスト時は、既存のユーザーを選択するのではなく、カスタムユーザープロファイルを使用してください。**これはOperatorのデフォルトの動作です。
 - Operatorのプロンプトに**PIIを直接入力または貼り付けないでください**。
 - Operatorがアクセスおよび実行できる内容を制御するために、**アクションの自動承認を無効にしてください**。
-- Segmentの構築やLiquidの記述時に、**Operatorに属性のプレビュー値を表示するよう依頼しないでください**。
+- セグメントの構築やLiquidの記述時に、**Operatorに属性のプレビュー値を表示するよう依頼しないでください**。
 
 ## ガバナンスとアクセス制御 {#governance-and-access-control}
 
-### Operatorへのアクセスを制限する {#restrict-access-to-operator}
+### オペレーターへのアクセスを制限する {#restrict-access-to-operator}
 
-Operatorへのアクセスは、[きめ細かなユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を通じてワークスペースレベルで管理されます。管理者は個々のユーザーに対して**Use BrazeAI Operator**権限を付与または取り消すことができ、承認された担当者のみがツールを操作できるようにします。これらの特定の権限がない場合、Operatorインターフェイスは完全に非表示となり、バックエンドのエンドポイントもセキュリティで保護されたままになります。
+オペレーターへのアクセスは、[きめ細かなユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を通じてワークスペースレベルで管理されます。管理者は個々のユーザーに対して**Use BrazeAI Operator**権限を付与または取り消すことができ、承認された担当者のみがツールを操作できるようにします。これらの特定の権限がない場合、オペレーターインターフェイスは完全に非表示となり、バックエンドのエンドポイントもセキュリティで保護されたままになります。
 
 ### ヒューマンインザループモデル {#human-in-the-loop-model}
 
@@ -93,4 +93,4 @@ Operatorは、ログインしているユーザーの権限プロファイルを
 
 ### チーム利用の監査 {#audit-team-usage}
 
-Brazeの[セキュリティイベントレポート]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report)をダウンロードして、チームの利用状況を監視します。「Requested BrazeAI Operator Response」イベントは包括的な監査証跡を提供し、Operatorに提供された正確な入力を確認できます。
+Brazeの[セキュリティイベントレポート]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report)をダウンロードして、チームの利用状況を監視します。「Requested BrazeAI Operator Response」イベントは包括的な監査証跡を提供し、オペレーターに提供された正確な入力を確認できます。

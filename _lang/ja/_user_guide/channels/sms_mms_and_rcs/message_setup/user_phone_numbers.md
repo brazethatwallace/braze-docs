@@ -65,7 +65,7 @@ Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https:/
 複数のユーザープロファイルが同じ電話番号を持ち、その電話番号が無効としてマークされた場合、その番号を持つ既存のすべてのユーザープロファイルが無効として表示されます。新しく作成されたユーザープロファイルは、最初から無効としてマークされることはありません。
 {% endalert %}
 
-[Segmentを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
+[セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
 
 ## 拒否されたSMS送信をセグメンテーションから除外する {#exclude-rejected-sms-sends-from-segmentation}
 
@@ -73,13 +73,13 @@ Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https:/
 SMSの拒否はSMS割り当てに対して課金されます。
 {% endalert %}
 
-拒否されたSMS送信を持つユーザーをSegmentから除外するには、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を使用して以下の手順を実行してください。
+拒否されたSMS送信を持つユーザーをセグメントから除外するには、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を使用して以下の手順を実行してください。
 
 1. **オーディエンス** > **セグメントエクステンション**に移動します。
 2. **新規エクステンションを作成** > **フルリフレッシュ**または**インクリメンタルリフレッシュ**を選択します。
 3. SMSの拒否を持つユーザーを特定するSQLクエリを記述します。例えば、`USERS_MESSAGES_SMS_REJECTION_SHARED`イベントをクエリして、SMSの拒否を受けたユーザーを見つけることができます。
 4. セグメントエクステンションを保存します。
-5. SMSのSegmentを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
+5. SMSのセグメントを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
 
 ## SMSおよびRCSサブスクリプショングループへのユーザー追加 {#add-users-to-sms-and-rcs-subscription-groups}
 

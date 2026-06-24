@@ -118,7 +118,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | アプリの通知の送信先を指定する一意の匿名識別子。 |
-| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布Segmentを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignおよびCanvasesのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
@@ -127,7 +127,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 `/users/export/ids`エンドポイントは、受信したすべてのCampaignやCanvases、実行されたすべてのカスタムイベント、行われたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他のREST APIエンドポイントよりも低速になります。
 
-リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているSegment別のユーザーエクスポートを検討してください。
+リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているセグメント別のユーザーエクスポートを検討してください。
 
 ## レスポンス {#response}
 

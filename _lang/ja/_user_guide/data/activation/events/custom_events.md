@@ -145,7 +145,7 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 
 ![ダッシュボードのカスタムイベントページにあるカスタムイベント数グラフ。カスタムイベントのトレンドを表示しています]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-**フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー数（MAU）別、Segment別、またはKPI計算式別に分類することもできます。
+**フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー数（MAU）別、セグメント別、またはKPI計算式別に分類することもできます。
 
 ![カスタムイベントグラフのフィルター]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 

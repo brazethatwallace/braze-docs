@@ -59,7 +59,7 @@ Canvasから送信されるアプリ内メッセージの場合、ユーザー�
 
 ## アーカイブしたアプリ内メッセージCampaignがまだアプリ内メッセージのインプレッションを配信しているのはなぜですか？ {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
-これは、アプリ内メッセージCampaignがアクティブだったときにSegment条件を満たしたユーザーに対して発生する可能性があります。
+これは、アプリ内メッセージCampaignがアクティブだったときにセグメント条件を満たしたユーザーに対して発生する可能性があります。
 
 これを防ぐには、Campaign設定時に**表示前にCampaignの適格性を再評価する**を選択してください。
 
@@ -167,7 +167,7 @@ HTMLがコネクテッドコンテンツから返されたRESTデータを参照
 
 ### Webアプリ内メッセージをテストするにはどうすればよいですか？ {#how-do-i-test-web-in-app-messages}
 
-Webアプリ内メッセージのテスト送信では、テストデバイスでプッシュが有効になっている必要があります。テストフローでは、アプリ内メッセージが表示されるアプリまたはサイトを開くプッシュ通知が配信されるためです。Brazeでプッシュが設定されていないプラットフォームでも同じプッシュベースのテストパスが適用されますが、多くのモバイルインテグレーションではすでにプッシュが有効になっているため、プッシュの未設定はWebで最もよく遭遇します。代わりに、内部テストSegmentへのライブCampaignを使用してください。手順については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を参照してください。
+Webアプリ内メッセージのテスト送信では、テストデバイスでプッシュが有効になっている必要があります。テストフローでは、アプリ内メッセージが表示されるアプリまたはサイトを開くプッシュ通知が配信されるためです。Brazeでプッシュが設定されていないプラットフォームでも同じプッシュベースのテストパスが適用されますが、多くのモバイルインテグレーションではすでにプッシュが有効になっているため、プッシュの未設定はWebで最もよく遭遇します。代わりに、内部テストセグメントへのライブCampaignを使用してください。手順については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を参照してください。
 
 ## AndroidのフルスクリーンHTMLアプリ内メッセージで閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
