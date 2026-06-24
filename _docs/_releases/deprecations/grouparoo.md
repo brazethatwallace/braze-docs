@@ -32,7 +32,7 @@ The Braze and Grouparoo integration syncs warehouse data to Braze. Automatic syn
 
 In Grouparoo, navigate to **Apps** and select **Braze** to create a new Braze app. In the modal that appears, provide your Braze API key and REST endpoint.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![The Create Braze App modal in Grouparoo, with fields for the Braze API key and REST endpoint.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### Step 2: Set up a model and data source
 
