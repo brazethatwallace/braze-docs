@@ -539,4 +539,4 @@ When you use the SDK and REST API at the same time, race conditions can cause da
 
 ### Data not reaching Braze
 
-If data isn't reaching Braze, confirm your firewall allows outbound traffic to Braze API endpoints and CDN providers. Run an MTR test and use [Fastly Debug](http://www.fastly-debug.com/) while the issue occurs. For allowlisting and connectivity troubleshooting, see [API network connectivity issues]({{site.baseurl}}/api/network_connectivity_issues/).
+If data isn't reaching Braze, confirm your firewall allows outbound traffic to Braze API endpoints and CDN providers. Run an MTR test and use [Fastly Debug](https://www.fastly-debug.com/) while the issue occurs. For allowlisting and connectivity troubleshooting, see [API network connectivity issues]({{site.baseurl}}/api/network_connectivity_issues/).
