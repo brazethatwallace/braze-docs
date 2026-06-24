@@ -51,11 +51,24 @@ Skip when:
 
 For each approved candidate:
 
-1. Remove the markdown/HTML/Liquid image line (and optional `{: style=...}` suffix on the same line).
-2. If alt or image content adds facts not in prose, add one sentence to the previous paragraph or step.
-3. Follow [`braze-docs`](../braze-docs/SKILL.md) for lists, alerts, and UI labels (`**bold**` for controls).
+1. Run the [alt merge gate](../removal-criteria.md#alt-merge-gate-required-before-any-merge) on the image’s alt text and surrounding steps.
+2. Remove the markdown/HTML/Liquid image line (and optional `{: style=...}` suffix on the same line). Remove a trailing `<br>` on the same line when the step text is complete without the image.
+3. **If the gate passes** — add one sentence to the **same** step or paragraph only (never a prior numbered step).
+4. **If the gate fails** — leave all prose unchanged; delete the image reference only.
+5. Follow [`braze-docs`](../braze-docs/SKILL.md) for lists, alerts, and UI labels (`**bold**` for controls).
+6. Re-read the edited block and confirm numbered steps are sequential and no step lost its instruction.
 
 **Batch size:** ≤ **25** image removals per PR (prose edits need human review).
+
+### CI / automated batch review
+
+The maintenance script may append alt text heuristically. When reviewing draft `[IC]` PRs, reject any edit that:
+
+- Merges alt into a **different** numbered step than the image was on
+- Appends alt that only echoes prose (“X selected” when prose already says “select **X**”)
+- Collapses or skips step numbers
+
+Revert those hunks to **delete-image-only** per [removal-criteria.md](../removal-criteria.md#anti-pattern).
 
 ## Step 4: Delete binaries
 

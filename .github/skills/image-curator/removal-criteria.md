@@ -50,14 +50,63 @@ When Tesseract is available (`scripts/check_screenshot_pii.py` uses the same bin
 
 ## Prose absorption rules
 
-When removing an image:
+**Default: delete the image reference only.** Merging alt text into prose is the exception, not the rule. When the image is redundant, its alt text is usually redundant too.
+
+### Alt merge gate (required before any merge)
+
+Evaluate alt text **before** editing. Merge only when **all** of the following are true:
+
+1. **New information** — Alt or OCR states a navigation path, control label, or setting name that does **not** already appear in the same step, the previous step, or the surrounding paragraph.
+2. **Same step** — The image sits on the step or paragraph you are editing. **Never** append alt text to a *different* numbered step (for example, do not merge step 3’s alt into step 2).
+3. **Not a visual echo** — Alt does not merely restate what the prose already tells the reader to do (for example, prose says “select **Account Overview**” and alt says “navigation with Account Overview selected”).
+4. **List integrity** — Numbered and bulleted lists keep correct sequence and one instruction per step after the edit.
+
+If any check fails → **remove the image line only**; leave prose unchanged.
+
+### Redundant alt patterns (delete image, do not merge)
+
+| Alt pattern | Prose already says | Action |
+|-------------|-------------------|--------|
+| “The navigation with **Account Overview** selected.” | “select your **Account Overview**” on the same step | Delete image; keep step text |
+| “**Save** button highlighted” | “Select **Save**.” | Delete image only |
+| “Screenshot of the dashboard home page” | “Open the dashboard.” | Delete image only |
+| “A screenshot of…” + rest duplicates nearby text | Same facts in steps above | Delete image only |
+
+### Anti-pattern
+
+**Before (step 3 has redundant nav screenshot):**
+
+```markdown
+2. Select the ad account you are having issues with.
+3. In the navigation, select your **Account Overview**. <br> ![The navigation with Account Overview selected.]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
+```
+
+**Wrong** — alt merged into step 2:
+
+```markdown
+2. Select the ad account you are having issues with. The navigation with Account Overview selected.
+```
+
+**Correct** — image removed; step 3 prose unchanged:
+
+```markdown
+2. Select the ad account you are having issues with.
+3. In the navigation, select your **Account Overview**.
+```
+
+### When merge is appropriate
+
+Merge only when alt/OCR adds facts **missing** from prose — for example, a field label visible in the screenshot that is not named in the step text, and removing the image would leave readers without that label.
+
+### Edit checklist
 
 1. Read the image (vision), alt text, and 3–5 lines before/after the reference.
-2. If prose already covers the image, delete the reference only.
-3. If alt or OCR adds navigation or labels missing from prose, add one short sentence to the nearest paragraph or step list item.
-4. Follow [`braze-docs`](../braze-docs/SKILL.md) voice: imperative steps, sentence case, no “screenshot of”.
-5. Do not leave empty paragraphs or broken list numbering.
-6. Run `./bdocs fblinks` on touched files.
+2. Run the [alt merge gate](#alt-merge-gate-required-before-any-merge).
+3. Remove the image line (and inline `<br>` before it when the step text is complete without the image).
+4. If the gate passes, add **one** short sentence to the **same** step or paragraph — never to a prior step.
+5. Follow [`braze-docs`](../braze-docs/SKILL.md) voice: imperative steps, sentence case, no “screenshot of”.
+6. Confirm list numbering is intact; renumber if a step becomes empty.
+7. Run `./bdocs fblinks` on touched files.
 
 ## Relationship to image-pruner
 
