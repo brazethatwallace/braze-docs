@@ -12,8 +12,8 @@ The Braze Android SDK helps you integrate Braze messaging, analytics, and user e
 
 To get started, refer to the following resources:
 
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
+- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
 
 ## Quickstart
 
@@ -47,7 +47,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-For more information about advanced integration options, see the [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
+For more information about advanced integration options, see the [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
 ## Version support
 

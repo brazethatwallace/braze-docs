@@ -6,7 +6,7 @@ hidden: true
 
 # [![Braze Learning course]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Custom events
 
-> This article describes custom events and properties, related segmentation filters, Canvas entry properties, relevant analytics, and more. To learn about Braze events in general, refer to [Events](https://www.braze.com/docs/user_guide/data/custom_data/events/).
+> This article describes custom events and properties, related segmentation filters, Canvas entry properties, relevant analytics, and more. To learn about Braze events in general, refer to [Events]({{site.baseurl}}/user_guide/data/custom_data/events/).
 
 Custom events are actions taken by, or updates about, your users. When custom events are logged, they can trigger any number and type of follow-up campaigns. You can then use [segmentation filters](#segmentation-filters) to segment users based on how recently and frequently those custom events occurred. This makes custom events best suited for tracking high-value user interactions within your application.
 
@@ -14,13 +14,13 @@ Custom events are actions taken by, or updates about, your users. When custom ev
 
 Some common custom event use cases include:
 
-- Triggering a campaign or Canvas based on a custom event using [action-based delivery](https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)
+- Triggering a campaign or Canvas based on a custom event using [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)
 - Segmenting users by how many times they performed a custom event, when the last time the event occurred, and similar
-- Using dashboard [custom event analytics](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics) to view an aggregate of how often each event occurred
-- Finding additional analytics using [funnel](https://www.braze.com/docs/user_guide/data_and_analytics/reporting/funnel_reports/#step-2-select-events-for-funnel-steps) and [retention](https://www.braze.com/docs/user_guide/analytics/reporting/retention_reports/) reports
-- Leveraging [persistent entry properties](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties/) to use metadata from your customer event for personalization in your Canvas steps
-- Generating more sophisticated analytics with [Currents](https://www.braze.com/docs/user_guide/data/braze_currents/)
-- Setting up [exit criteria](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) to define when users should exit your Canvas
+- Using dashboard [custom event analytics]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics) to view an aggregate of how often each event occurred
+- Finding additional analytics using [funnel]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports/#step-2-select-events-for-funnel-steps) and [retention]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/) reports
+- Leveraging [persistent entry properties]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties/) to use metadata from your customer event for personalization in your Canvas steps
+- Generating more sophisticated analytics with [Currents]({{site.baseurl}}/user_guide/data/braze_currents/)
+- Setting up [exit criteria]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) to define when users should exit your Canvas
 
 ## Entitlements
 
@@ -50,11 +50,11 @@ Additionally, if a blocked custom event is currently referenced by filters or tr
 
 ### Adding descriptions
 
-You can add a description to a custom event after it's created if you have the `Manage Events, Attributes, Purchases` [user permission](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Select **Edit description** for the custom event and input whatever you like, such as a note for your team.
+You can add a description to a custom event after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Select **Edit description** for the custom event and input whatever you like, such as a note for your team.
 
 ## Adding tags
 
-You can add tags to a custom event after it's created if you have the "Manage Events, Attributes, Purchases" [user permission](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). The tags can then be used to filter the list of events.
+You can add tags to a custom event after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). The tags can then be used to filter the list of events.
 
 ### Viewing usage reports
 
@@ -72,19 +72,19 @@ Custom events require additional setup. Refer to the list below for documentatio
 
 {% details Expand for documentation by platform %}
 
-- [Android and FireOS](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/logging_custom_events/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=roku)
+- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
+- [Unity]({{site.baseurl}}/developer_guide/platform_integration_guides/unity/Analytics/logging_custom_events/)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=roku)
 
 {% enddetails %}
 
 ## Custom event storage
 
-All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is [active](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
 ## Segmentation filters
 
@@ -115,7 +115,7 @@ On the **Custom Events Report** page in the dashboard, you can view in aggregate
 You can also use **Filters** to break down your custom events by hour, monthly average users (MAU), segments, or KPI formulas.
 
 {% alert tip %}
-[Increment custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#integers) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
+[Increment custom attributes]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#integers) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
 {% endalert %}
 
 ### Why custom events analytics aren't showing
@@ -151,7 +151,7 @@ Property values can be any of the following data types:
 
 Event property objects that contain array or object values can have an event property payload up to 100&nbsp;KB.
 
-You can change the data type of your custom event property, but be aware of the impacts of [changing data types](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/) after data has been collected.
+You can change the data type of your custom event property, but be aware of the impacts of [changing data types]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/) after data has been collected.
 
 ### Using custom event properties
 
@@ -189,7 +189,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 If the user doesn't have an internet connection, triggered in-app messages with templated custom event properties (for example, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) will fail and not display.
 {% endalert %}
 
-For a full list of Liquid tags that will cause in-app messages to deliver as templated in-app messages, refer to [Frequently asked questions](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/).
+For a full list of Liquid tags that will cause in-app messages to deliver as templated in-app messages, refer to [Frequently asked questions]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/).
 
 ##### Considerations with filters
 
@@ -204,7 +204,7 @@ Event properties for custom events are updated in real-time for any segment that
 
 ##### Adding event properties for segmentation
 
-You'll need "Manage Custom Event Property Segmentation" [user permissions](https://www.braze.com/docs/user_guide/data/data_points/#viewing-data-point-usage) to create segments based on event property recency and frequency.
+You'll need "Manage Custom Event Property Segmentation" [user permissions]({{site.baseurl}}/user_guide/data/data_points/#viewing-data-point-usage) to create segments based on event property recency and frequency.
 
 By default, you can have 20 segmentable event properties per workspace. Contact your Braze account manager to increase this limit.
 
@@ -232,12 +232,12 @@ In regards to subscription usage, custom event properties enabled for segmentati
 
 ### Canvas entry properties and event properties
 
-You can use `canvas_entry_properties` and `event_properties` in your Canvas user journeys. Refer to [Canvas entry properties and event properties](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/) for more information and examples.
+You can use `canvas_entry_properties` and `event_properties` in your Canvas user journeys. Refer to [Canvas entry properties and event properties]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/) for more information and examples.
 
 {% tabs local %}
 {% tab Canvas Entry Properties %}
 
-[Canvas entry properties](https://www.braze.com/docs/api/objects_filters/canvas_entry_properties_object/) are the properties you map for Canvases that are action-based or API-triggered. Note that the `canvas_entry_properties` object has a maximum size limit of 50 KB.
+[Canvas entry properties]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/) are the properties you map for Canvases that are action-based or API-triggered. Note that the `canvas_entry_properties` object has a maximum size limit of 50 KB.
 
 {% alert note %}
 For in-app message channels specifically, `canvas_entry_properties` can only be referenced in Canvas Flow and the original Canvas editor if you have persistent entry properties enabled in the original editor as part of the previous early access.
@@ -300,7 +300,7 @@ For the original Canvas editor, `event_properties` can't be used in scheduled fu
 
 You can use nested objects (objects inside of another object) to send nested JSON data as properties of custom events and purchases. This nested data can be used for templating personalized information in messages, triggering message sends, and segmenting users.
 
-To learn more, refer to our dedicated page on [Nested objects](https://www.braze.com/docs/user_guide/data/custom_data/custom_events/nested_objects/).
+To learn more, refer to our dedicated page on [Nested objects]({{site.baseurl}}/user_guide/data/custom_data/custom_events/nested_objects/).
 
 ## Custom event property storage
 
@@ -309,7 +309,7 @@ Custom event properties are designed to help you increase targeting precision an
 You can segment based on the values of event properties in two ways:
 
 1. **Within 30 days:** Braze support personnel can enable event property segmentation based on the frequency and recency of specific event property values within Braze segments. If you'd like to leverage event properties within segments, contact your Braze account executive or customer success manager. This option will impact data usage.<br><br>
-2. **Within and beyond 30 days:** To cover both short-term and long-term event property segmentation, you can use [Segment Extensions](https://www.braze.com/docs/user_guide/engagement_tools/segments/segment_extension/). This feature segments users based on custom events and event properties tracked within the past two years. This option won't impact data usage.
+2. **Within and beyond 30 days:** To cover both short-term and long-term event property segmentation, you can use [Segment Extensions]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/). This feature segments users based on custom events and event properties tracked within the past two years. This option won't impact data usage.
 
 Contact your Braze customer success manager for recommendations on the best approach depending on your specific needs.
 
@@ -321,6 +321,6 @@ Contact your Braze customer success manager for recommendations on the best appr
 [6]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/schema_generation_example.png %}
 [8]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/custom_event_analytics_example.png %} "custom_event_analytics_example.png"
 [16]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/customEventProperties.png %} "customEventProperties.png"
-[18]: https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/
-[19]: https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/
+[18]: {{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/
+[19]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/
 [20]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/customEventPropertiesNested.png %} "customEventPropertiesNested.png"

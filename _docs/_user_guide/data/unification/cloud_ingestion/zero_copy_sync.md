@@ -286,7 +286,7 @@ To sync Canvas triggers from file storage, create a source file with the followi
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
 
 {% alert tip %}
-Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 {% endtab %}

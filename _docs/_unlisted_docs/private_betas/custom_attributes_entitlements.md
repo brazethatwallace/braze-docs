@@ -42,18 +42,18 @@ Administrators can also create custom attributes and mark them as PII from this 
 
 ### Adding descriptions
 
-You can add a description to a custom attribute after it's created if you have the `Manage Events, Attributes, Purchases` [user permission](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Edit the custom attribute and input whatever you like, such as a note for your team.
+You can add a description to a custom attribute after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Edit the custom attribute and input whatever you like, such as a note for your team.
 
 ### Adding tags
 
-You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). The tags can then be used to filter the list of attributes. 
+You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). The tags can then be used to filter the list of attributes. 
 
 ### Removing custom attributes
 
 There are two ways you can remove custom attributes from user profiles:
 
-* Select the custom attribute name to be removed in a [User Update step](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Set the `null` value in your API request to the [`/users/track` endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track#user-track).
+* Select the custom attribute name to be removed in a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
+* Set the `null` value in your API request to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 ### Viewing usage reports
 
@@ -71,19 +71,19 @@ The following lists methods across various platforms that are used to set custom
 
 {% details Expand for documentation by platform %}
 
-- [Android and FireOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/setting_custom_attributes/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/)
+- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/platform_integration_guides/unity/Analytics/setting_custom_attributes/)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
 
 {% enddetails %}
 
 ## Custom attribute storage
 
-All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is [active](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
 ## Custom attribute data types
 
@@ -96,8 +96,8 @@ The following data types may be stored as custom attributes:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Time](#time)
-- [Objects](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays of objects](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
+- [Arrays of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
 
 ### Booleans (true/false) {#booleans}
 
@@ -158,7 +158,7 @@ Note that if you input any values with spaces in between, before, or after words
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-A date string such as "12-1-2021" or "12/1/2021" will be converted to a datetime object and treated as a [time attribute](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+A date string such as "12-1-2021" or "12/1/2021" will be converted to a datetime object and treated as a [time attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
 {% endalert %}
 
 {% alert important %}
@@ -197,7 +197,7 @@ The option to increase the maximum length will not be available if the attribute
 {% alert tip %}
 For more on how to use regular expressions (regex), check out these resources:
 - [Perl compatible regular expressions (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex with Braze](https://www.braze.com/docs/user_guide/engagement_tools/segments/regex/)
+- [Regex with Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
 - [Regex debugger and tester](https://www.regex101.com/)
 - [Regex tutorial](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -236,11 +236,11 @@ The last date a custom event or purchase event occurred is automatically recorde
 
 ### Objects
 
-You can use nested custom attributes to send objects as a data type for custom attributes. For more information, refer to [Nested custom attributes](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+You can use nested custom attributes to send objects as a data type for custom attributes. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ### Arrays of objects
 
-Use an array of objects to group related attributes. For more details, refer to our article on [Array of objects](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Use an array of objects to group related attributes. For more details, refer to our article on [Array of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
 
 ### Consolidated operators
 
@@ -273,7 +273,7 @@ Using our purchase methods to record in-app purchases establishes the Lifetime V
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-If you would like to segment on the number of times a specific purchase has occurred, you should also record that purchase individually as an [incrementing custom attribute](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
+If you would like to segment on the number of times a specific purchase has occurred, you should also record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-You can change the data type of your custom attribute, but you should be aware of the impacts of [changing data types](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/).
+You can change the data type of your custom attribute, but you should be aware of the impacts of [changing data types]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).

@@ -15,12 +15,12 @@
   {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "url": "https://www.braze.com/docs",
+      "url": "{{ site.homeurl }}{{ site.baseurl }}",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://www.braze.com/docs/search/?query={search_term_string}"
+          "urlTemplate": "{{ site.homeurl }}{{ site.baseurl }}/search/?query={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }

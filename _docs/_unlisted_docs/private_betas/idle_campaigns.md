@@ -57,7 +57,7 @@ On an ongoing basis, idle Canvases that meet the following criteria will be stop
 
 For Canvases without end dates, if a user is entered or the Canvas is updated, the one-year countdown for stopping the Canvas will be reset. When Canvases are stopped, Braze will notify customers in their dashboard and via email.
 
-The [maximum duration](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) of a Canvas is the longest possible time a user can take to complete a given Canvas. This duration includes expirations for Content Cards and in-app messages.
+The [maximum duration]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) of a Canvas is the longest possible time a user can take to complete a given Canvas. This duration includes expirations for Content Cards and in-app messages.
 
 Reference this table for how to keep an idle Canvas active:
 
@@ -98,7 +98,7 @@ We will stop these campaigns and Canvases seven days after the end date at 4 am 
 
 ##### Can I stop campaigns from automatically stopping?
 
-No. This helps keep only the necessary campaigns active to keep dashboards less cluttered and improve performance. If you'd like a list of all auto-stopped campaigns, [submit a Support ticket](https://www.braze.com/docs/help/support) to be provided one. 
+No. This helps keep only the necessary campaigns active to keep dashboards less cluttered and improve performance. If you'd like a list of all auto-stopped campaigns, [submit a Support ticket]({{site.baseurl}}/help/support) to be provided one. 
 
 #### Who will receive email notifications about stopped campaigns and Canvases?
 

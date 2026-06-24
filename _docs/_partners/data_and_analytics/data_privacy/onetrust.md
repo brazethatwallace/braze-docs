@@ -85,7 +85,7 @@ Follow the prompts in the **Enter Credential Details** screen and provide the fo
 {% tabs %}
 {% tab User Consent Update %}
 
-1. Update the body to include any necessary dynamic values. Make sure the body of the action matches the [`/users/track` endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) and the [`/subscription/status/set` endpoint](https://www.braze.com/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+1. Update the body to include any necessary dynamic values. Make sure the body of the action matches the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) and the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 2. Customize the workflow with additional parameters or conditional logic to meet your organization's needs.
 3. When finished editing, click **Finish** and then **Activate** to enable the workflow.
 

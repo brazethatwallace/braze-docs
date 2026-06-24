@@ -10,7 +10,7 @@ description: "This article outlines details about the Duplicate Canvases endpoin
 
 {% api %}
 # Duplicate Canvases using the API
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`| Required | String | See [Canvas identifier](https://www.braze.com/docs/api/identifier_types/). |
+|`canvas_id`| Required | String | See [Canvas identifier]({{site.baseurl}}/api/identifier_types/). |
 |`name`| Required | String | The name of the resulting Canvas. |
 |`description`| Optional | String | The description field for the resulting Canvas. |
 |`tag_names` | Optional | String | The tags for the resulting Canvas. These must be existing tags. If you add new tags in the request, they will overwrite any tags that were on the original Canvas. |
