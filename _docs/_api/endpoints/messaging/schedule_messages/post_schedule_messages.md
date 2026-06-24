@@ -10,7 +10,7 @@ description: "This article outlines details about the Create scheduled messages 
 ---
 {% api %}
 # Create scheduled messages
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 

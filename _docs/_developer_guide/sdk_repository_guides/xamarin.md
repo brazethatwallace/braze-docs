@@ -12,8 +12,8 @@ The Braze .NET MAUI (Xamarin) SDK helps you integrate Braze messaging, analytics
 
 To get started, refer to the following resources:
 
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=xamarin)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
+- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=xamarin)
 
 ## Components
 

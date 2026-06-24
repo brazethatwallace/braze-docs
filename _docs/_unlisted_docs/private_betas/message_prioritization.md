@@ -27,7 +27,7 @@ Let's say you're managing email promotions for paid partnerships and loyalty pro
 
 ## Categories
 
-Prioritization rules are based on a ranking of categories, which is a label you can assign to a given campaign (similar to a [tag](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)). You can create up to 20 categories at a given time.
+Prioritization rules are based on a ranking of categories, which is a label you can assign to a given campaign (similar to a [tag]({{site.baseurl}}/user_guide/administrative/app_settings/tags)). You can create up to 20 categories at a given time.
 
 To add a new category:
 
@@ -140,7 +140,7 @@ We will assume your message was sent at the originally scheduled time if it is s
 
 ### My message was prioritized but aborted last-minute. What does that mean for prioritization?
 
-When a message is prioritized, Braze will assume it was sent at its originally scheduled time. In general for Message Prioritization, we don't recommend using Liquid aborts. If a message is aborted due to [`abort_message` Liquid logic](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), we'll assume it was sent to that user and will prioritize future campaigns accordingly.
+When a message is prioritized, Braze will assume it was sent at its originally scheduled time. In general for Message Prioritization, we don't recommend using Liquid aborts. If a message is aborted due to [`abort_message` Liquid logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), we'll assume it was sent to that user and will prioritize future campaigns accordingly.
 
 Let's say you have two messages: Message 1 and Message 2. If Message 1 is aborted in favor of a future higher-priority Message 2, this doesn't guarantee that Message 2 will actually send. Message 2 can still abort for any reason, including:
 
@@ -167,4 +167,4 @@ At this time, Message Prioritization is not supported for action-based or API-tr
 
 ### Is there any reporting or analytics functionality specific to Message Prioritization?
 
-At this time, there is no reporting or analytics functionality specific to this feature. We encourage you to use existing [Braze reporting functionality](https://www.braze.com/docs/user_guide/analytics/reporting) to monitor the health and performance of your prioritized campaigns. 
+At this time, there is no reporting or analytics functionality specific to this feature. We encourage you to use existing [Braze reporting functionality]({{site.baseurl}}/user_guide/analytics/reporting) to monitor the health and performance of your prioritized campaigns. 
