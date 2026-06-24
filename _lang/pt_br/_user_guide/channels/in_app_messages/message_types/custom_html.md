@@ -117,7 +117,7 @@ Os seguintes tipos de arquivo são compatíveis para upload:
 | Imagens SVG           | `.svg`                            |
 | Arquivos JavaScript   | `.js`                             |
 | Arquivos CSS          | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Arquivos de ativos" }
 
 A Braze recomenda fazer upload de ativos para a Biblioteca de mídia por dois motivos:
 
@@ -128,20 +128,20 @@ A Braze recomenda fazer upload de ativos para a Biblioteca de mídia por dois mo
 
 Você pode adicionar ativos novos ou existentes à sua campanha.
 
-Para adicionar novos ativos à sua campanha, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à Biblioteca de mídia. Para adicionar ativos que você já enviou para a Biblioteca de mídia, selecione **Add from Media Library**.
+Para adicionar novos ativos à sua campanha, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à Biblioteca de mídia. Para adicionar ativos que você já enviou para a Biblioteca de mídia, selecione **Adicionar da Biblioteca de mídia**.
 
-Depois que seus ativos forem adicionados, eles aparecerão na seção **Assets for this campaign**.
+Depois que seus ativos forem adicionados, eles aparecerão na seção **Ativos desta campanha**.
 
 Se o nome de um arquivo de ativo corresponder ao de um ativo HTML local, ele será substituído automaticamente (por exemplo, `cat.png` é enviado e `<img src="cat.png" />` existe).
 
-Caso contrário, passe o mouse sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copy** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
+Caso contrário, passe o mouse sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
 
 ### Editor de HTML {#html-editor}
 
 As alterações que você fizer no HTML são renderizadas automaticamente no painel de pré-visualização conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão perfis de usuário durante a pré-visualização no dashboard.
 
 {% alert tip %}
-Você pode selecionar <i class="fa-solid fa-magnifying-glass"></i> **Search** dentro do editor de HTML para pesquisar no seu código!
+Você pode selecionar <i class="fa-solid fa-magnifying-glass" aria-label="Pesquisar"></i> **Pesquisar** dentro do editor de HTML para pesquisar no seu código!
 {% endalert %}
 
 ### Rastreamento de botões {#button-tracking-improvements}
@@ -154,11 +154,23 @@ Você pode rastrear o desempenho dentro da sua mensagem no app com código perso
 | Botão 2    | `brazeBridge.logClick('1')` |
 | Clique no corpo | `brazeBridge.logClick()`    |
 | Rastreamento de botão personalizado | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de botões" }
 
 {% alert note %}
 Esse método de rastreamento de botões substitui os métodos anteriores de rastreamento automático de cliques (como `?abButtonId=0`), que foram removidos.
 {% endalert %}
+
+Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensagens HTML com pré-visualização quando você precisar de mais de dois botões rastreados. O Botão 1 e o Botão 2 correspondem a `'0'` e `'1'`; botões adicionais usam IDs personalizados (até 100 IDs únicos por campanha). Para restrições de caracteres em IDs de botão, consulte [Rastreamento de botões](#button-tracking-improvements).
+
+### Solução de problemas com links HTML personalizados e comportamento de fechamento {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### Cliques em botões não abrem o link {#button-clicks-do-not-open-the-link}
+
+Se um botão na sua mensagem no app com HTML personalizado não carregar ao ser clicado, verifique se o link usa uma URL válida ou um esquema de deep link compatível. URLs malformadas ou esquemas personalizados não compatíveis podem impedir que a ação de clique seja concluída.
+
+#### Cliques no corpo ao fechar a mensagem {#body-clicks-when-closing-the-message}
+
+Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra análise de dados por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre plataformas.
 
 ### Alterações incompatíveis com versões anteriores {#backward-incompatible-changes}
 
@@ -172,4 +184,4 @@ Esse método de rastreamento de botões substitui os métodos anteriores de rast
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alterações incompatíveis com versões anteriores" }

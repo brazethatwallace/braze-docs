@@ -182,6 +182,6 @@ LinkedInは、ダッシュボードでマッチ率に関する情報を提供し
 
 現在、LinkedIn広告アカウントのオーディエンス数に制限はありません。
 
-### Segmentが「BUILDING」ステータスに留まり、更新されないのはなぜですか？ {#why-is-a-segment-stuck-in-building-status-and-not-updated}
+### セグメントが「BUILDING」ステータスに留まり、更新されないのはなぜですか？ {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Segmentは、下書きまたはアクティブなCampaignで30日間継続的に使用されない場合、未使用と見なされARCHIVEDに設定されます。このため、更新がARCHIVEDのSegmentにストリーミングされると、SegmentがBUILDING状態に「スタック」したように見えることがあります。BUILDING状態に移行し、再度アーカイブされる直前に、新しい更新が未使用のSegmentにストリーミングされます。
+セグメントは、下書きまたはアクティブなCampaignで30日間継続的に使用されない場合、未使用と見なされARCHIVEDに設定されます。このため、更新がARCHIVEDのセグメントにストリーミングされると、セグメントがBUILDING状態に「スタック」したように見えることがあります。BUILDING状態に移行し、再度アーカイブされる直前に、新しい更新が未使用のセグメントにストリーミングされます。

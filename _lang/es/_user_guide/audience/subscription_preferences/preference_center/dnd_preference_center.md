@@ -13,7 +13,7 @@ page_order: 2
 Puedes administrar los centros de preferencias de arrastrar y soltar existentes desde **Audiencia** > **Centro de preferencias de correo electrónico**:
 
 - Para cambiar el nombre o el contenido de un centro de preferencias, ábrelo desde el dashboard.
-- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier campaña de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
+- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier Campaign de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
 - Si un centro de preferencias eliminado se utilizó en mensajes enviados anteriormente, dejará de funcionar en esos correos electrónicos entregados.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -23,15 +23,13 @@ Crea un centro de preferencias navegando a **Audiencia** > **Centro de preferenc
 
 Aquí se mostrará una lista de centros de preferencias personalizados. Selecciona **Crear nuevo** para crear un nuevo centro de preferencias, o selecciona el nombre de uno existente para realizar cambios.
 
-![Una lista de centros de preferencias personalizados con el nombre, la descripción, el tipo, el estado, la fecha de última modificación y el usuario que lo creó.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## Paso 2: Nombrar el centro de preferencias de correo electrónico {#step-2-name-the-email-preference-center}
 
 Los nombres de los centros de preferencias solo pueden contener caracteres alfanuméricos, guiones o guiones bajos. El nombre que proporciones determinará la sintaxis de la etiqueta de Liquid generada.
 
-Esta etiqueta de Liquid se puede incluir en cualquier campaña de correo electrónico saliente o paso en Canvas y dirigirá a los usuarios al centro de preferencias.
+Esta etiqueta de Liquid se puede incluir en cualquier Campaign de correo electrónico saliente o paso en Canvas y dirigirá a los usuarios al centro de preferencias.
 
-![Un ejemplo de Liquid para un centro de preferencias.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## Paso 3: Añadir grupos de suscripción al centro de preferencias {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,7 +46,6 @@ Puedes configurar aún más los grupos de suscripción seleccionados seleccionan
 - Añadir o quitar una casilla de verificación **Suscribirse a todos** que suscribirá al usuario a todos los grupos de suscripción mostrados en este bloque
 - Añadir o quitar una casilla de verificación **Cancelar suscripción de todos** que cancelará la suscripción del usuario de todos los grupos de suscripción mostrados en este bloque
 
-![Un ejemplo de un centro de preferencias con las opciones de suscribirse a todos los mensajes, marketing, boletín informativo y correos electrónicos semanales, o cancelar la suscripción de todos.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
 El botón **Cancelar suscripción de todos** en la parte inferior de la plantilla no se puede eliminar y [cancelará globalmente la suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states) del usuario para que no reciba ningún mensaje de correo electrónico.
 

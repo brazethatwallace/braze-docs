@@ -19,7 +19,7 @@ channel:
 
 국가 코드나 지역 코드가 다른 여러 지역으로 발송하는 경우 정확성을 보장하기 위해 [`E.164`](https://en.wikipedia.org/wiki/e.164) 형식으로 전화번호를 가져오는 것을 권장합니다&#8212;미국 기반 전화번호도 마찬가지입니다.
 
-- **미국 번호:** 모든 미국 번호는 유효한 지역 코드를 포함한 10자리 전화번호여야 합니다. 10자리 전화번호에 `+`와 국가 코드가 누락된 경우, Braze는 이를 미국 번호로 매핑합니다.
+- **미국 번호:** 모든 미국 번호는 유효한 지역 코드를 포함한 10자리 전화번호여야 합니다. 10자리 전화번호에 `+`와 국가 코드가 누락된 경우, Braze는 이를 미국 번호로 매핑합니다. 푸에르토리코 전화번호는 미국식 지역 코드를 사용하는 10자리 형식이지만, 여전히 `+`와 국가 코드가 필요합니다.
 - **국제 번호:** 모든 국제 번호는 `+`로 시작하고, 그 뒤에 국가 코드와 전화번호가 이어져야 합니다. 예를 들어, `+442071838750`입니다.
 
 ![유효한 E.164 국제 전화번호 예시.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -31,7 +31,7 @@ channel:
 | 미국 | `4155552671` | 1 | `+14155552671` |
 | 영국 | `2071838750` | 44 | `+442071838750` |
 | 브라질 | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recommended format" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="권장 형식" }
 
 ## 전화번호 가져오기 {#import-phone-numbers}
 
@@ -50,7 +50,7 @@ Braze는 전화번호 유효성 검사를 위해 Google의 [libphonenumber](http
 
 ### 유효하지 않은 전화번호 처리 {#handling-invalid-phone-numbers}
 
-전화번호가 유효하지 않은 것으로 판단되면, Braze는 해당 사용자의 전화번호를 유효하지 않음으로 표시하고 해당 전화번호로 추가 커뮤니케이션을 발송하지 않습니다. 유효하지 않은 전화번호는 고객 프로필의 **Engagement Tab**에 표시됩니다.
+전화번호가 유효하지 않은 것으로 판단되면, Braze는 해당 사용자의 전화번호를 유효하지 않음으로 표시하고 해당 전화번호로 추가 커뮤니케이션을 발송하지 않습니다. 유효하지 않은 전화번호는 고객 프로필의 **참여 탭**에 표시됩니다.
 
 ![Braze에서 유효하지 않은 전화번호에 대한 오류 메시지 예시.]({% image_buster /assets/img/sms/invalid_banner.png %}){: style="max-width:50%;border: 0;"}
 
@@ -76,7 +76,7 @@ SMS 거부는 SMS 할당량에 포함되어 청구됩니다.
 거부된 SMS 발송이 있는 사용자를 Segment에서 제외하려면 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)을 사용하여 다음을 수행하세요:
 
 1. **오디언스** > **세그먼트 확장**으로 이동합니다.
-2. **Create New Extension** > **Full refresh** 또는 **Incremental refresh**를 선택합니다.
+2. **새 확장 생성** > **전체 새로고침** 또는 **증분 새로고침**을 선택합니다.
 3. SMS 거부가 있는 사용자를 식별하는 SQL 쿼리를 작성합니다. 예를 들어, `USERS_MESSAGES_SMS_REJECTION_SHARED` 이벤트를 쿼리하여 SMS 거부를 수신한 사용자를 찾을 수 있습니다.
 4. 세그먼트 확장을 저장합니다.
 5. SMS Segment를 생성할 때, 이 세그먼트 확장에 포함된 사용자를 제외하는 필터를 추가합니다.

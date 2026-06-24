@@ -246,9 +246,9 @@ document.addEventListener('DOMContentLoaded', function() {
   gap: 0.5rem;
   font-size: 0.875rem;
   padding: 0.375rem 0.75rem;
-  border: 1px solid #801ED7;
+  border: 1px solid var(--ai-button-color);
   background-color: transparent;
-  color: #801ED7;
+  color: var(--ai-button-color);
   border-radius: 0.375rem;
   transition: all 0.15s ease-in-out;
   cursor: pointer;
@@ -259,9 +259,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .copy-for-llm-button:hover {
-  background-color: #801ED7;
+  background-color: var(--ai-button-color);
   color: white;
-  border-color: #801ED7;
+  border-color: var(--ai-button-color);
   box-shadow: none;
   text-decoration: none;
 }
@@ -272,14 +272,14 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .copy-for-llm-button:focus-visible {
-  outline: 2px solid #801ED7;
+  outline: 2px solid var(--ai-button-color);
   outline-offset: 2px;
   box-shadow: none;
 }
 
 .copy-for-llm-button:active {
-  background-color: #300266;
-  border-color: #300266;
+  background-color: var(--ai-button-color-active);
+  border-color: var(--ai-button-color-active);
 }
 
 .copy-for-llm-feedback {

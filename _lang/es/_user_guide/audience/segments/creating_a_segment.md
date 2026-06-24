@@ -8,7 +8,7 @@ tool: Segments
 search_rank: 3
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Crear un segmento {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Crear un segmento {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
 > La segmentación te permite dirigirte a los usuarios en función de sus características y acciones demográficas, de comportamiento o técnicas. El uso creativo e inteligente de la segmentación y la automatización de mensajería te permite mover fácilmente a tus usuarios desde el primer contacto hasta convertirlos en clientes a largo plazo. Los segmentos se actualizan en tiempo real a medida que cambian los datos, y puedes crear tantos segmentos como necesites para tus propósitos de segmentación y mensajería.
 
@@ -41,7 +41,7 @@ Añade al menos un filtro a tu segmento. Puedes combinar tantos filtros como qui
 
 {% multi_lang_include alerts/note_alerts.md alert='Segment profiles first app use' %}
 
-#### Grupos de filtros {#filter-groups}
+### Grupos de filtros {#filter-groups}
 
 Los filtros se organizan en grupos de filtros. Cada filtro debe formar parte de un grupo de filtros que tenga un mínimo de un filtro. Un segmento puede tener múltiples grupos de filtros. Para añadir uno, selecciona **Añadir grupo de filtros**. Edita el nombre del grupo de filtros seleccionando el icono que aparece cuando pasas el cursor junto a él.
 
@@ -49,7 +49,7 @@ Los filtros se organizan en grupos de filtros. Cada filtro debe formar parte de 
 
 Selecciona los iconos junto a cada filtro para contraer el editor de filtros o duplicar filtros individuales. Después de duplicar un filtro, puedes ajustar sus valores dentro de cada desplegable.
 
-#### Lógica de segmentación usando AND y OR {#segmentation-logic-using-and-and-or}
+### Lógica de segmentación usando AND y OR {#segmentation-logic-using-and-and-or}
 
 Dentro de un grupo de filtros, los filtros pueden unirse mediante "AND" u "OR". Entre grupos de filtros, los grupos pueden unirse mediante "AND" u "OR". Al usar grupos de filtros, puedes crear lógica de segmentación como:
 - (A AND B AND C) OR (C AND E AND F)
@@ -80,7 +80,7 @@ Si `not included`, `is not`, `does not equal` o `does not match regex` se usan c
 
 {% enddetails %}
 
-#### Operadores de filtro {#filter-operators}
+### Operadores de filtro {#filter-operators}
 
 Dependiendo del filtro específico que selecciones, tendrás diferentes operadores para identificar los valores del filtro. Para profundizar en los operadores disponibles para diferentes tipos de atributos personalizados, consulta [Almacenamiento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes). Ten en cuenta que al usar el operador "is any of", el número máximo de elementos que puedes incluir en ese campo es 256.
 
@@ -91,12 +91,12 @@ Braze no genera perfiles para los usuarios hasta que hayan usado la aplicación 
 ![Grupos de filtros del segmentador con el operador AND.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
 {% alert important %}
-Los segmentos que ya usan el filtro **Pertenencia a segmento** no pueden incluirse ni anidarse adicionalmente en otros segmentos. Esto evita un ciclo en el que el segmento A incluye al segmento B, que luego intenta incluir al segmento A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién realmente pertenece a él.
+Los segmentos que ya usan el filtro **Pertenencia a segmento** no pueden incluirse ni anidarse adicionalmente en otros segmentos. Esto evita un ciclo en el que el Segment A incluye al Segment B, que luego intenta incluir al Segment A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién realmente pertenece a él.
 
 Además, anidar segmentos de esta manera añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir usando los mismos filtros.
 {% endalert %}
 
-#### Grupos de exclusión (opcional) {#exclusion}
+### Grupos de exclusión (opcional) {#exclusion}
 
 Al construir un segmento, puedes aplicar uno o varios grupos de exclusión. Los grupos de exclusión contienen criterios que identifican a los usuarios que se excluirán de tu segmento, y siempre estarán conectados a tus grupos de filtros con un operador "AND NOT".
 
@@ -108,7 +108,7 @@ Los usuarios excluidos no se contarán como parte de la estadística de *Total d
 
 ![Un grupo de exclusión con dos filtros.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-#### Ver estadísticas de embudo {#viewing-funnel-statistics}
+### Ver estadísticas de embudo {#viewing-funnel-statistics}
 
 Selecciona **Ver estadísticas de embudo** para mostrar las estadísticas de ese grupo de filtros y ver cómo cada filtro añadido impacta en las estadísticas de tu segmento. Verás un recuento estimado y un porcentaje de usuarios que son segmentados por todos los filtros hasta ese punto. Una vez que se muestren las estadísticas para un grupo de filtros, se actualizarán automáticamente cada vez que cambies los filtros. Estas estadísticas son estimadas y pueden tardar un momento en generarse.
 
@@ -118,9 +118,13 @@ Ten en cuenta que si usas AND entre tus filtros, las estadísticas de embudo dis
 
 Al añadir filtros que documenten el flujo de tus usuarios, puedes ver los puntos donde los usuarios abandonan. Por ejemplo, si eres una aplicación de redes sociales y quieres ver dónde podrías estar perdiendo usuarios durante tu proceso de incorporación, puedes añadir filtros de datos personalizados para registrarse, añadir amigos y enviar el primer mensaje. Si descubres que el 85% de los usuarios se registran y añaden amigos, pero solo el 45% envió el primer mensaje, entonces sabrás que debes enfocarte en fomentar más envíos de mensajes durante tus campañas de incorporación y marketing.
 
-#### Probar segmentos {#testing-segments}
+### Probar segmentos {#testing-segments}
 
-Después de añadir aplicaciones y filtros a tu segmento, puedes probar si tu segmento está configurado como se esperaba buscando un usuario para confirmar si coincide con los criterios del segmento. Para hacerlo, busca el `external_id` o `braze_id` de un usuario en la sección **Búsqueda de usuario**. Ten en cuenta que no puedes buscar por dirección de correo electrónico en **Búsqueda de usuario**.
+Después de añadir aplicaciones y filtros a tu segmento, puedes probar si tu segmento está configurado como se esperaba buscando un usuario para confirmar si coincide con los criterios del segmento. Para hacerlo, busca el `external_id` o `braze_id` de un usuario en la sección **Búsqueda de usuario**.
+
+{% alert note %}
+**Búsqueda de usuario** solo acepta `external_id` y `braze_id`. No acepta direcciones de correo electrónico, números de teléfono ni otros identificadores. Para encontrar un perfil por correo electrónico, teléfono u otros campos, usa [**Buscar usuarios**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles) en su lugar.
+{% endalert %}
 
 ![Sección de búsqueda de usuario con un campo de búsqueda.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
@@ -137,7 +141,7 @@ Cuando un usuario no coincide con parte o la totalidad de los criterios del segm
 
 ![Una búsqueda de usuario con una alerta que dice: "test1 no coincide con los siguientes criterios de segmentación:" y muestra los criterios faltantes.]({% image_buster /assets/img_archive/user_lookup_nomatch.png %})
 
-#### Segmentos de un solo usuario {#single-user-segments}
+### Segmentos de un solo usuario {#single-user-segments}
 
 Puedes crear segmentos de un solo usuario (o segmentos de un puñado de usuarios) usando atributos únicos que identifican a los usuarios, como un nombre de usuario o un ID de usuario.
 

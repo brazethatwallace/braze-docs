@@ -343,6 +343,7 @@ validurls['/docs/developer_guide/rest_api/api_campaigns'] = '/docs/api/api_campa
 validurls['/docs/developer_guide/rest_api/api_network_connectivity_issues'] = '/docs/api/network_connectivity_issues';
 validurls['/docs/developer_guide/rest_api/tls_deprecation'] = '/docs/releases/deprecations/tls_deprecation';
 validurls['/docs/developer_guide/rest_api/postman_collection'] = '/docs/api/postman_collection';
+validurls['/docs/developer_guide/rest_api/reminder_messaging'] = '/docs/developer_guide/home';
 validurls['/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/initial_sdk_setup'] = '/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview';
 validurls['/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/optional_idfa_collection'] = '/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations';
 validurls['/docs/developer_guide/platform_integration_guides/ios/content_cards/best_practices'] = '/docs/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide';
@@ -949,11 +950,11 @@ validurls['/docs/user_guide/sage_ai/recommendations/about_item_recommendations']
 validurls['/docs/user_guide/sage_ai/recommendations/ai_item_recommendations'] = '/docs/user_guide/brazeai/item_recommendations';
 validurls['/docs/user_guide/sage_ai/recommendations/rules_based_recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based';
 validurls['/docs/user_guide/sage_ai/generative_ai'] = '/docs/user_guide/brazeai/generative_ai';
-validurls['/docs/user_guide/sage_ai/generative_ai/ai_copywriting'] = '/docs/user_guide/brazeai/generative_ai/copywriting';
-validurls['/docs/user_guide/sage_ai/generative_ai/ai_copywriting/brand_guidelines'] = '/docs/user_guide/brazeai/generative_ai/brand_guidelines';
-validurls['/docs/user_guide/sage_ai/generative_ai/ai_liquid'] = '/docs/user_guide/brazeai/generative_ai/liquid';
-validurls['/docs/ai_liquid_prompts'] = '/docs/user_guide/brazeai/generative_ai/liquid';
-validurls['/docs/user_guide/sage_ai/generative_ai/ai_content_qa'] = '/docs/user_guide/brazeai/generative_ai/content_qa';
+validurls['/docs/user_guide/sage_ai/generative_ai/ai_copywriting'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-copy';
+validurls['/docs/user_guide/sage_ai/generative_ai/ai_copywriting/brand_guidelines'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines';
+validurls['/docs/user_guide/sage_ai/generative_ai/ai_liquid'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-liquid';
+validurls['/docs/ai_liquid_prompts'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-liquid';
+validurls['/docs/user_guide/sage_ai/generative_ai/ai_content_qa'] = '/docs/user_guide/brazeai/operator/capabilities/#review-content-quality';
 validurls['/docs/user_guide/predictive_suite/predictive_churn/prediction_analytics/#churn_score'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/analytics/#churn_score';
 validurls['/docs/user_guide/intelligence/faqs/#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing/#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters';
 validurls['/docs/user_guide/intelligence/faqs/#why-is-re-eligibility-not-available-when-combined-with-intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite';
@@ -974,9 +975,9 @@ validurls['/docs/user_guide/intelligence'] = '/docs/user_guide/brazeai/intellige
 validurls['/docs/user_guide/intelligence/intelligent_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
 validurls['/docs/user_guide/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
 validurls['/docs/user_guide/intelligence/intelligent_timing'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing';
-validurls['/docs/user_guide/intelligence/ai_copywriting'] = '/docs/user_guide/brazeai/generative_ai/copywriting';
+validurls['/docs/user_guide/intelligence/ai_copywriting'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-copy';
 validurls['/docs/user_guide/intelligence/faqs'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing/#faq';
-validurls['/docs/user_guide/intelligence/ai_content_qa'] = '/docs/user_guide/brazeai/generative_ai/content_qa';
+validurls['/docs/user_guide/intelligence/ai_content_qa'] = '/docs/user_guide/brazeai/operator/capabilities/#review-content-quality';
 validurls['/docs/user_guide/administrative/access_braze/getting_your_account'] = '/docs/user_guide/administer/personal/accessing_your_account';
 
 validurls['/docs/user_guide/message_building_by_channel/sms/phone_numbers/best_practices/multi_country_sms_sending'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices';
@@ -2694,7 +2695,7 @@ validurls['/docs/user_guide/message_building_by_channel/sms/sms_setup'] = '/docs
 
 validurls['/docs/partners/message_personalization/dynamic_content/content_optimization_testing/offerfit'] = '/docs/user_guide/brazeai/decisioning_studio';
 
-validurls['/docs/user_guide/brazeai/generative_ai/ai_copywriting/brand_guidelines'] = '/docs/user_guide/brazeai/generative_ai/brand_guidelines';
+validurls['/docs/user_guide/brazeai/generative_ai/ai_copywriting/brand_guidelines'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines';
 validurls['/docs/user_guide/brazeai/predictive_suite/predictive_churn/prediction_analytics'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/analytics';
 // IA migration: removed self-redirect from predictive_suite predictive_churn creating_a_churn_prediction to short path (use predictive_suite URL only).
 // IA migration: removed self-redirect from predictive_suite predictive_churn messaging_users to short path (use predictive_suite URL only).
@@ -2702,10 +2703,10 @@ validurls['/docs/user_guide/brazeai/predictive_suite/predictive_churn/prediction
 validurls['/docs/user_guide/brazeai/predictive_suite/predictive_events/prediction_analytics'] = '/docs/user_guide/brazeai/predictive_suite/predictive_events/analytics';
 validurls['/docs/user_guide/brazeai/recommendations/ai_item_recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/ai';
 validurls['/docs/user_guide/brazeai/recommendations/rules_based_recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based';
-validurls['/docs/user_guide/brazeai/generative_ai/ai_content_qa'] = '/docs/user_guide/brazeai/generative_ai/content_qa';
-validurls['/docs/user_guide/brazeai/generative_ai/ai_copywriting'] = '/docs/user_guide/brazeai/generative_ai/copywriting';
-validurls['/docs/user_guide/brazeai/generative_ai/ai_liquid'] = '/docs/user_guide/brazeai/generative_ai/liquid';
-validurls['/docs/user_guide/brazeai/generative_ai/ai_liquid/ai_liquid_prompts'] = '/docs/user_guide/brazeai/generative_ai/liquid';
+validurls['/docs/user_guide/brazeai/generative_ai/ai_content_qa'] = '/docs/user_guide/brazeai/operator/capabilities/#review-content-quality';
+validurls['/docs/user_guide/brazeai/generative_ai/ai_copywriting'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-copy';
+validurls['/docs/user_guide/brazeai/generative_ai/ai_liquid'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-liquid';
+validurls['/docs/user_guide/brazeai/generative_ai/ai_liquid/ai_liquid_prompts'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-liquid';
 validurls['/docs/user_guide/brazeai/intelligence/faqs/#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection/#faq';
 validurls['/docs/user_guide/brazeai/intelligence/faqs/#intelligent-timing'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing/#faq';
 validurls['/docs/user_guide/brazeai/recommendations/about_item_recommendations'] = '/docs/user_guide/brazeai/item_recommendations';
@@ -2718,7 +2719,7 @@ validurls['/docs/help/accessibility'] = '/docs/user_guide/messaging/messaging_fu
 validurls['/docs/home/templates/reference'] = '/docs';
 validurls['/docs/home/templates/reference_video'] = '/docs';
 validurls['/docs/user_guide/brazeai/recommendations/types_and_use_cases'] = '/docs/user_guide/brazeai/item_recommendations';
-validurls['/docs/user_guide/brazeai/generative_ai/ai_images'] = '/docs/user_guide/brazeai/generative_ai/images';
+validurls['/docs/user_guide/brazeai/generative_ai/ai_images'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-images';
 
 validurls['/docs/api/endpoints/translations/get_bulk_translations_campaigns'] = '/docs/api/endpoints/translations/campaigns/get_translation_campaign';
 validurls['/docs/api/endpoints/translations/get_translation_campaign'] = '/docs/api/endpoints/translations/campaigns/get_translation_campaign';
@@ -3085,7 +3086,8 @@ validurls['/docs/contributing/content_management/language_translations'] = '/doc
 
 validurls['/docs/developer_guide/sdk_integration/?sdktab=xamarin'] = '/docs/developer_guide/sdk_integration/?sdktab=.net%20maui';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages'] = '/docs/user_guide/channels/in_app_messages/#templated-in-app-messages';
-validurls['/docs/help/help_articles/campaigns_and_canvas/not_triggering'] = '/docs/user_guide/messaging/canvas/troubleshooting/#why-did-a-user-not-receive-a-triggered-canvas-step';
+validurls['/docs/help/help_articles/campaigns_and_canvas/not_triggering'] = '/docs/user_guide/messaging/canvas/troubleshooting/#user-didnt-receive-a-canvas-message-or-step';
+validurls['/docs/user_guide/messaging/canvas/troubleshooting/#why-did-a-user-not-receive-a-triggered-canvas-step'] = '/docs/user_guide/messaging/canvas/troubleshooting/#user-didnt-receive-a-canvas-message-or-step';
 
 // Access Braze
 validurls['/docs/user_guide/administrative/access_braze/accessing_your_account/#accessing-your-account'] = '/docs/user_guide/administer/personal/accessing_your_account';
@@ -3189,10 +3191,10 @@ validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo/#c
 validurls['/docs/user_guide/brazeai/recommendations/using_recommendations/#using-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/using_recommendations/#use-item-recommendations';
 validurls['/docs/user_guide/brazeai/recommendations/creating_recommendations/rules_based/#creating-rules-based-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based/#create-rules-based-item-recommendations';
 validurls['/docs/user_guide/brazeai/recommendations/creating_recommendations/ai/#creating-ai-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/ai/#create-ai-item-recommendations';
-validurls['/docs/user_guide/brazeai/generative_ai/copywriting/#generating-copy-with-brazeai'] = '/docs/user_guide/brazeai/generative_ai/copywriting/#generate-copy-with-brazeai';
-validurls['/docs/user_guide/brazeai/generative_ai/images/#generating-images-with-brazeai'] = '/docs/user_guide/brazeai/generative_ai/images/#generate-images-with-brazeai';
-validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines/#generating-brand-guidelines-with-brazeai'] = '/docs/user_guide/brazeai/generative_ai/brand_guidelines/#generate-brand-guidelines-with-brazeai';
-validurls['/docs/user_guide/brazeai/generative_ai/liquid/#generating-liquid-code-with-brazeai'] = '/docs/user_guide/brazeai/generative_ai/liquid/#generate-liquid-code-with-brazeai';
+validurls['/docs/user_guide/brazeai/generative_ai/copywriting/#generating-copy-with-brazeai'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-copy';
+validurls['/docs/user_guide/brazeai/generative_ai/images/#generating-images-with-brazeai'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-images';
+validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines/#generating-brand-guidelines-with-brazeai'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines/#creating-brand-guidelines';
+validurls['/docs/user_guide/brazeai/generative_ai/liquid/#generating-liquid-code-with-brazeai'] = '/docs/user_guide/brazeai/operator/capabilities/#generate-liquid';
 validurls['/docs/user_guide/brazeai/agents/deploying_agents/#deploying-custom-agents'] = '/docs/user_guide/brazeai/agents/deploying_agents/#deploy-custom-agents';
 validurls['/docs/user_guide/brazeai/agents/creating_agents/#creating-custom-agents'] = '/docs/user_guide/brazeai/agents/creating_agents/#create-custom-agents';
 validurls['/docs/user_guide/brazeai/predictive_churn/creating_a_churn_prediction/#creating-a-churn-prediction'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction/#create-a-churn-prediction';
@@ -3968,7 +3970,8 @@ validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_mes
 validurls['/docs/user_guide/message_building_by_channel/push/best_practices/message_format'] = '/docs/user_guide/channels/push/create_a_push_message/message_and_image_formats';
 validurls['/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_action_buttons'] = '/docs/user_guide/channels/push/create_a_push_message/push_action_buttons';
 validurls['/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories'] = '/docs/user_guide/channels/push/create_a_push_message/push_stories';
-validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_message/quick_push'] = '/docs/user_guide/channels/push/create_a_push_message/quick_push_messages';
+validurls['/docs/user_guide/message_building_by_channel/push/creating_a_push_message/quick_push'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
+validurls['/docs/user_guide/channels/push/create_a_push_message/quick_push_messages'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/notification_options'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/notification_options';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/rich_notifications'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/rich_notifications';
 validurls['/docs/user_guide/message_building_by_channel/push/ios/customizable_app_icons'] = '/docs/user_guide/channels/push/platform_specific_resources/ios/custom_app_icon_feature_ios_103';
@@ -4793,7 +4796,7 @@ validurls['/docs/user_guide/predictive_suite/'] = '/docs/user_guide/brazeai/pred
 validurls['/docs/user_guide/data/custom_data/'] = '/docs/user_guide/data/activation/custom_data';
 validurls['/docs/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing'] = '/docs/user_guide/messaging/ab_testing';
 validurls['/docs/user_guide/engagement_tools/testing/multivariant_testing/multivariate_analytics/#personalized-variant'] = '/docs/user_guide/messaging/ab_testing/analytics#personalized-variant';
-validurls['/docs/user_guide/intelligence/ai_content_qa/'] = '/docs/user_guide/brazeai/generative_ai/content_qa';
+validurls['/docs/user_guide/intelligence/ai_content_qa/'] = '/docs/user_guide/brazeai/operator/capabilities/#review-content-quality';
 validurls['/docs/user_guide/engagement_tools/templates_and_media/media_library#generate-ai'] = '/docs/user_guide/messaging/design_and_edit/media_library/#generate-ai';
 validurls['/docs/user_guide/intelligence/intelligent_selection/#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
 validurls['/docs/user_guide/predictive_suite/predictive_churn/prediction_analytics/#prediction_quality'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/analytics#prediction_quality';
@@ -4861,6 +4864,7 @@ validurls['/docs/credits_whatsapp/'] = '/docs/credits_whatsapp/';
 validurls['/docs/csv_events/'] = '/docs/csv_events/';
 validurls['/docs/device_and_carriers/'] = '/docs/device_and_carriers/';
 validurls['/docs/preview_dnd_content_blocks/'] = '/docs/preview_dnd_content_blocks/';
+validurls['/docs/quick_push/'] = '/docs/user_guide/channels/push/create_a_push_message/multiple_platform_push';
 validurls['/docs/email_html_editor/'] = '/docs/email_html_editor/';
 validurls['/docs/ephemeral_custom_events/'] = '/docs/ephemeral_custom_events/';
 validurls['/docs/iam_generations/'] = '/docs/iam_generations/';
@@ -4877,4 +4881,10 @@ validurls['/docs/track_users_bulk/'] = '/docs/track_users_bulk/';
 validurls['/docs/rate_limiting/'] = '/docs/rate_limiting/';
 validurls['/docs/whatsapp_pricing_updates/'] = '/docs/whatsapp_pricing_updates/';
 
+validurls['/docs/user_guide/brazeai/operator/prompt_examples/'] = '/docs/user_guide/brazeai/operator/prompt_library/';
+
 // validurls['OLD'] = 'NEW';
+
+validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines';
+validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines/'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines';
+validurls['/docs/user_guide/brazeai/generative_ai/brand_guidelines/#generate-brand-guidelines-with-brazeai'] = '/docs/user_guide/administer/global/workspace_settings/brand_guidelines/#creating-brand-guidelines';

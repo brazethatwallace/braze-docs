@@ -40,7 +40,7 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 位置情報の追跡データとSegmentsを使用して、位置情報ベースのCampaignと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションCampaignを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
 
-位置情報Segmentの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)を参照してください。
+位置情報セグメントの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)を参照してください。
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 

@@ -168,6 +168,10 @@ El número de usuarios que entran a una campaña puede diferir de tu número esp
 Para obtener más ayuda con la solución de problemas de campañas, asegúrate de contactar a soporte de Braze dentro de los 30 días posteriores a la ocurrencia de tu problema, ya que solo tenemos los últimos 30 días de registros de diagnóstico.
 {% endalert %}
 
+### ¿Por qué los usuarios recibieron mi campaña dos veces después de editarla? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Si editas una campaña en vivo sin detenerla primero, los usuarios pueden recibir el mensaje dos veces. Esto sucede porque editar una campaña en vivo vuelve a poner en cola a los usuarios para la versión actualizada mientras la cola original aún se está procesando. Los usuarios que aún no han recibido el mensaje original pueden terminar en ambas colas. Para evitar esto, siempre [detén la campaña]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) antes de hacer cambios.
+
 ### ¿Cuál es la diferencia entre las opciones Exportación de datos de usuario a CSV y Exportación de direcciones de correo electrónico a CSV en mi página de análisis de campaña? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 Seleccionar la opción **CSV Export Email Addresses** descarga datos solo para los usuarios con direcciones de correo electrónico. Por ejemplo, si tienes un segmento de 100,000 usuarios, pero solo 50,000 de esos usuarios tienen direcciones de correo electrónico, y haces clic en **CSV Export Email Addresses**, la exportación contiene solo 50,000 filas de datos. En comparación, seleccionar **CSV Export User Data** exporta todos los datos de usuario.

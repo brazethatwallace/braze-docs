@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Este artigo descreve eventos e propriedades personalizados, filtros de segmentação relacionados, propriedades de entrada do Canvas, análises de dados relevantes e muito mais. Para saber mais sobre os eventos da Braze em geral, consulte [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
+> Este artigo descreve eventos e propriedades personalizados, histórico de eventos do perfil de usuário, filtros de segmentação relacionados, propriedades de entrada do Canvas, análises de dados relevantes e muito mais. Para saber mais sobre os eventos da Braze em geral, consulte [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
 
 Os eventos personalizados são ações realizadas por seus usuários ou atualizações sobre eles. Quando os eventos personalizados são registrados, eles podem disparar qualquer número e tipo de campanhas de acompanhamento. Em seguida, é possível usar os [filtros de segmentação](#segmentation-filters) para segmentar os usuários com base na frequência e em quão recentemente esses eventos personalizados ocorreram. Isso faz com que os eventos personalizados sejam mais adequados para o rastreamento de interações de alto valor com o usuário dentro do seu app.
 
@@ -86,6 +86,38 @@ Eventos personalizados requerem configuração adicional. Consulte a lista abaix
 ## Armazenamento de eventos personalizados {#custom-event-storage}
 
 Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y ao longo de 30 dias), são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_archival/#active-users).
+
+## Visualizar o histórico de eventos de um usuário {#view-a-users-event-history}
+
+{% alert important %}
+O Histórico de eventos está atualmente em acesso antecipado. Entre em contato com o gerente de conta da Braze se tiver interesse em participar.
+{% endalert %}
+
+Use a guia **Histórico de eventos** no perfil de um usuário para visualizar os eventos personalizados e compras recentes desse usuário. Isso ajuda a confirmar se a integração está registrando eventos corretamente e a solucionar problemas no nível do usuário diretamente no dashboard.
+
+Para visualizar o histórico de eventos de um usuário:
+
+1. Acesse **Público** > **Pesquisar usuários** e selecione um usuário para abrir o perfil.
+2. Selecione a guia **Histórico de eventos**.
+
+A guia lista os eventos personalizados e compras do usuário nos últimos 30 dias, até os 100 eventos mais recentes, ordenados do mais novo para o mais antigo.
+
+Cada evento inclui:
+
+- **Tipo de evento:** Se o evento é um evento personalizado ou uma compra.
+- **Nome do evento:** O nome do evento conforme foi registrado.
+- **Horário:** Quando o evento ocorreu.
+- **Propriedades:** As propriedades completas do evento para aquela ocorrência, exibidas como JSON.
+
+Casos de uso comuns incluem:
+
+- Verificar se a integração do SDK ou da API está enviando eventos conforme esperado durante o desenvolvimento ou após um lançamento.
+- Solucionar problemas sobre por que um usuário entrou ou não em uma Campaign ou Canvas disparados por evento.
+- Investigar um problema de suporte para um usuário específico sem precisar configurar uma exportação de dados.
+
+{% alert note %}
+Visualizar a guia **Histórico de eventos** requer as permissões de usuário **Pesquisar usuários** e **Visualizar IPI**, pois as propriedades de eventos podem conter dados pessoais. Para saber mais, consulte [Permissões de usuário da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+{% endalert %}
 
 ## Filtros de segmentação {#segmentation-filters}
 

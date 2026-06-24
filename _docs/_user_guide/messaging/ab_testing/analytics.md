@@ -14,7 +14,7 @@ After your campaign has launched, you can check how each variant is performing b
 
 ## Analytics by optimization option
 
-Your analytics view will vary depending on if you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) during your initial setup.
+Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) during your initial setup.
 
 ### No optimization
 
@@ -23,6 +23,13 @@ If you selected **No optimization** when setting up your campaign, your analytic
 ![Performance section of the Campaign Analytics for an email campaign with multiple variants. The table lists various performance metrics for each variant, such as recipients, bounces, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) article for your messaging channel.
+
+### BrazeAI™ variant selection (push only)
+If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
+
+For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+
+![Campaign analytics showing uplift from BrazeAI™ variant selection, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Winning Variant
 
@@ -41,7 +48,7 @@ If no variant beats all the others with 95% confidence and you chose to send the
 
 ![Results of an initial test sent to determine the Winning Variant where no variant performed better than the others with enough confidence to meet the 95 percent confidence threshold for statistical significance.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
 
-#### How the Winning Variant is selected
+#### How the winning variant is selected
 
 Braze tests all the variants against each other with [Pearson's chi-squared tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). This measures whether or not one variant statistically outperforms all others at a significance level of p < 0.05, or what we refer to as 95% significance. If so, the Winning Variant is indicated with the "Winner" label.
 
@@ -72,7 +79,7 @@ The **Initial Test** tab shows the metrics for each variant from the initial A/B
 
 ![Results of an initial test sent to determine the best performing variant for each user. A table shows the performance of each variant based on various metrics for the target channel.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
-By default, the test looks for associations between user’s custom events and their message variant preferences. This analysis detects whether custom events increase or decrease likelihood of responding to a particular message variant. These relationships are then used to determine which users gets which message variant in the final send.
+By default, the test looks for associations between each user's custom events and their message variant preferences. This analysis detects whether custom events increase or decrease likelihood of responding to a particular message variant. These relationships are then used to determine which users get which message variant in the final send.
 
 The relationships between custom events and message preferences are displayed in the table on the **Initial Send** tab.
 

@@ -44,7 +44,7 @@ Consultez notre [documentation sur les e-mails](https://www.braze.com/docs/user_
 
 ## Détails des canaux SMS, MMS et RCS {#sms-mms-and-rcs-channel-details}
 
-Les ratios de crédits SMS et MMS sont exprimés par tranches de segments entrants ou sortants envoyés depuis la plateforme Braze. Les ratios de crédits RCS sont exprimés par tranches de types Basic ou Single envoyés depuis la plateforme Braze.
+Les ratios de crédits SMS et MMS sont exprimés par tranches de segments envoyés depuis la plateforme Braze. Les ratios de crédits RCS sont exprimés par tranches de types Basic et Rich Media, ou de types Single et Rich Media délivrés depuis la plateforme Braze. Les types entrants et sortants sont tous deux facturés.
 
 {% alert note %}
 Le cas échéant pour ces canaux, les frais d'opérateur sont facturés séparément (à terme échu) et ne sont pas pris en compte dans les Action Credits.

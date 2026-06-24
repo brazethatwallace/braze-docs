@@ -134,3 +134,21 @@ The following lists methods across various platforms that are used to set custom
 All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_archival#active-users).
 
 For a full reference of all data types you can store as custom attributes—including booleans, numbers, strings, arrays, time, objects, and arrays of objects—see [Custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+
+### Blank strings versus null values
+
+When clearing or unsetting a custom attribute, the behavior differs depending on whether you pass a blank string (`""`) or `null`:
+
+| Value | Behavior |
+| --- | --- |
+| `""` (blank string) | The attribute is set to an empty value and remains visible on the user profile. |
+| `null` | The attribute is removed from the user profile entirely. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
+
+{% alert important %}
+For non-string data types where the data type is manually set in the Braze dashboard (not auto-detected), you must use `null` to unset the value. Passing `""` is valid for only string attributes — for example, setting a Boolean attribute to `""` is treated as an empty string, which is an invalid value for that type. To unset a Boolean, pass `null`.
+
+Note that CSV import does not support `null` — Boolean values in CSV imports must be `TRUE` or `FALSE`.
+{% endalert %}

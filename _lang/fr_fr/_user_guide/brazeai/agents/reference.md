@@ -234,4 +234,3 @@ Au fur et à mesure que vous créez des agents personnalisés, vous pouvez organ
 1. Survolez la ligne de l'agent et sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Sélectionnez **Archiver**.
 
-![Page Gestion des agents avec des agents archivés.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

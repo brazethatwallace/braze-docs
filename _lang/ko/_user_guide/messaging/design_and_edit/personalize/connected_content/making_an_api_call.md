@@ -210,7 +210,6 @@ Braze 연결된 콘텐츠를 사용할 때, 특정 API가 사용자 이름과 �
 - 기본 인증의 경우, 사용자 이름과 비밀번호를 업데이트할 수 있습니다. 이전에 입력한 비밀번호는 표시되지 않습니다.
 - 토큰 인증의 경우, 헤더 키-값 페어와 허용된 도메인을 업데이트할 수 있습니다. 이전에 설정한 헤더 값은 표시되지 않습니다.
 
-![자격 증명 편집 옵션.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## 연결된 콘텐츠 IP 허용 목록 {#connected-content-ip-allowlisting}
 

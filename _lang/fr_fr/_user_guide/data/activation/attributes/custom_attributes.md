@@ -30,7 +30,7 @@ Voici quelques cas d'utilisation courants des attributs personnalisés :
 - Stocker des données de profil plus riches sous forme d'[objets]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/) ou de [tableaux d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/), comme des préférences structurées ou plusieurs adresses enregistrées
 - Déclencher des messages basés sur des actions lorsqu'une valeur d'attribut change à l'aide de [déclencheurs d'attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/), par exemple en envoyant une notification de montée en niveau lorsque l'attribut `rewards_tier` d'un utilisateur change
 
-## Gestion des attributs personnalisés {#managing-custom-attributes}
+## Gérer les attributs personnalisés {#managing-custom-attributes}
 
 Pour créer et gérer des attributs personnalisés dans le tableau de bord, accédez à **Paramètres des données** > **Attributs personnalisés**.
 
@@ -64,7 +64,7 @@ Les administrateurs peuvent également créer des attributs personnalisés et le
 
 ### Ajouter des descriptions {#add-descriptions}
 
-Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Edit description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
+Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Modifier la description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
 
 ### Ajouter des étiquettes {#add-tags}
 
@@ -79,7 +79,7 @@ Il existe deux façons de supprimer des attributs personnalisés des profils uti
 
 ### Exporter les données {#export-data}
 
-Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
+Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Tout exporter** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
 
 ## Modifier le type d'un attribut personnalisé {#change-custom-attribute-type}
 
@@ -90,16 +90,16 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 ### Modifier le type de données {#changing-the-data-type}
 
 1. Arrêtez toutes les Campaigns ou tous les Canvas actifs qui utilisent l'attribut dans des segments ou des filtres.
-2. Supprimez l'attribut de tous les filtres de segments, Campaigns et Canvas.
+2. Supprimez l'attribut de tous les filtres de Segments, Campaigns et Canvas.
 3. Accédez à **Paramètres des données** > **Attributs personnalisés** (ou **Événements personnalisés**), trouvez l'attribut et mettez-le à jour avec le type de données souhaité.
 4. Mettez à jour les valeurs de l'attribut sur les profils utilisateur existants pour qu'elles correspondent au nouveau type de données (par exemple, en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
-5. Réappliquez l'attribut aux segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
+5. Réappliquez l'attribut aux Segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
 
 ### Points importants {#things-to-know}
 
-- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des segments correspondants tant que leur profil n'est pas mis à jour.
+- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des Segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
-- **Les filtres ne sont pas mis à jour automatiquement.** Les segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
+- **Les filtres ne sont pas mis à jour automatiquement.** Les Segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
 
 ## Consulter les rapports d'utilisation {#view-usage-reports}
 
@@ -134,3 +134,19 @@ Voici les méthodes utilisées sur les différentes plateformes pour définir de
 Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_archival/#active-users).
 
 Pour une référence complète de tous les types de données pouvant être stockés en tant qu'attributs personnalisés — y compris les valeurs booléennes, les nombres, les chaînes de caractères, les tableaux, les dates, les objets et les tableaux d'objets — consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+
+### Chaînes vides et valeurs null {#blank-strings-versus-null-values}
+
+Lors de la suppression ou de la réinitialisation d'un attribut personnalisé, le comportement diffère selon que vous transmettez une chaîne vide (`""`) ou `null` :
+
+| Valeur | Comportement |
+| --- | --- |
+| `""` (chaîne vide) | L'attribut est défini sur une valeur vide et reste visible sur le profil utilisateur. |
+| `null` | L'attribut est entièrement supprimé du profil utilisateur. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes vides et valeurs null" }
+
+{% alert important %}
+Pour les types de données non-chaîne dont le type est défini manuellement dans le tableau de bord de Braze (et non détecté automatiquement), vous devez utiliser `null` pour réinitialiser la valeur. Transmettre `""` n'est valide que pour les attributs de type chaîne de caractères — par exemple, définir un attribut booléen sur `""` est traité comme une chaîne vide, ce qui est une valeur invalide pour ce type. Pour réinitialiser un booléen, transmettez `null`.
+
+Notez que l'import CSV ne prend pas en charge `null` — les valeurs booléennes dans les imports CSV doivent être `TRUE` ou `FALSE`.
+{% endalert %}

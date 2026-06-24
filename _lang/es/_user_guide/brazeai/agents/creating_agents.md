@@ -30,7 +30,7 @@ Los siguientes casos de uso muestran algunas formas de aprovechar los agentes pe
 | Caso de uso | Descripción |
 | --- | --- |
 | Gestión de los comentarios de los clientes | Transmite los comentarios de los usuarios a un agente para que analice el sentimiento y genere mensajes de seguimiento empáticos. Para los usuarios de alto valor, el agente podría escalar la respuesta o incluir ventajas adicionales. |
-| Localización de contenido | Traduce el texto del catálogo a otro idioma para Campaigns globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster" o acorta las descripciones para las Campaigns de SMS. |
+| Localización de contenido | Traduce el texto del catálogo a otro idioma para campañas globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster" o acorta las descripciones para las campañas de SMS. |
 | Resumen de reseñas o comentarios | Resume las opiniones o comentarios en un nuevo campo, por ejemplo, asignando puntuaciones de sentimiento como Positivo, Neutro o Negativo, o creando un breve resumen de texto como "La mayoría de los clientes mencionan que el producto se ajusta muy bien, pero señalan que el envío es lento". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cómo funciona" }
 
@@ -47,8 +47,8 @@ Para crear un agente, primero elige el tipo de agente:
 
 Selecciona **Crear agente** y luego elige una de las siguientes opciones:
 
-a. **Agente personalizado** para construir un agente desde cero
-b. Una opción en **Crear un agente con Operator** para usar [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) y aplicar una [plantilla inicial](#agent-templates-built-with-operator)
+- **Agente personalizado** para construir un agente desde cero
+- Una opción en **Crear un agente con Operator** para usar [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) y aplicar una [plantilla inicial](#agent-templates-built-with-operator)
 
 Si usas Operator, revisa y aprueba sus cambios en el chat antes de continuar con el siguiente paso.
 
@@ -81,7 +81,7 @@ Para los agentes de Canvas, puedes utilizar Liquid en tus instrucciones para hac
 Selecciona **+ Contexto del agente** para elegir lo que tu agente puede consultar. Esto incluye:
 
 - [Campos del catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Permite que el agente acceda a los datos de tu catálogo para obtener respuestas más precisas.
-- [Pertenencia a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permite que el agente personalice las respuestas en función de los Segments a los que pertenezca el usuario. Puedes seleccionar hasta cinco Segments.
+- [Pertenencia a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permite que el agente personalice las respuestas en función de los segmentos a los que pertenezca el usuario. Puedes seleccionar hasta cinco segmentos.
 - [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 - [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analiza todos los datos de contexto de Canvas de un usuario cuando se invoque este agente, incluidas las variables que no se mencionan en la sección **Instrucciones**.
 - [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaigns y Canvas de cada usuario.
@@ -96,7 +96,30 @@ Para obtener los mejores resultados, asegúrate de que lo que especifiques en la
 Cuando utilices un [esquema de salida avanzado]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas), añade un campo de cadena llamado `explanation` si quieres que el agente devuelva su razonamiento además de sus otras salidas. Indica al agente en tus [instrucciones](#agent-instructions) que rellene `explanation` cuando eso te ayude a revisar o depurar las respuestas.
 {% endalert %}
 
-### Paso 6: Prueba y crea el agente {#step-6-test-and-create-the-agent}
+#### Configurar valores alternativos {#configure-fallback-values}
+
+Los valores alternativos solo están disponibles para los **agentes de paso en Canvas**. En la sección **Salida** de un agente de Canvas, puedes definir valores que Braze utiliza cuando falla una invocación del agente, por ejemplo, cuando el LLM agota el tiempo de espera o devuelve un error de clave de API no válida. Los valores alternativos funcionan como valores predeterminados de personalización. Puedes establecer una línea del asunto estática o un mensaje breve que siga proporcionando una salida útil a los usuarios cuando el agente no pueda ejecutarse.
+
+Los **agentes de catálogo** no admiten la configuración de valores alternativos en la Consola de Agente.
+
+![Configuración de salida de la Consola de Agente que muestra el campo de salida alternativa para un esquema de tipo Número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+
+Para los agentes de Canvas, los valores alternativos admiten plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) para que puedas hacer referencia a atributos de usuario o variables de contexto en el texto alternativo.
+
+Los campos alternativos se adaptan al formato de salida de tu agente de Canvas:
+
+| Formato de salida | Configuración alternativa |
+| --- | --- |
+| Cadena, número o booleano | Introduce un único valor alternativo (compatible con Liquid). |
+| Campos (esquema avanzado) | Introduce un valor alternativo para cada campo definido en la salida del agente. |
+| Esquema JSON (esquema avanzado) | Braze lee tu esquema JSON y genera un campo de entrada para cada propiedad, de modo que puedas definir un valor alternativo por clave. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar valores alternativos" }
+
+Cuando un agente de Canvas con valores alternativos se ejecuta en un [paso del agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/), Braze renderiza el valor alternativo por usuario y lo almacena en la variable de salida en lugar de `null`. Si no configuras valores alternativos, las invocaciones fallidas dejan la salida de Canvas sin establecer (`null`).
+
+Para conocer el comportamiento en tiempo de ejecución, consulta [Gestión de errores y comportamiento alternativo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+
+### Paso 6: Prueba el agente {#step-6-test-the-agent}
 
 El panel de **vista previa** es una instancia del agente que aparece como un panel lateral dentro de la experiencia de configuración. Puedes utilizarlo para probar el agente mientras lo creas o actualizas, con el fin de experimentarlo de forma similar a como lo harían los usuarios finales. Este paso te ayuda a confirmar que funciona como esperabas y te da la oportunidad de realizar ajustes antes de que entre en funcionamiento.
 

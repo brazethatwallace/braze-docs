@@ -119,7 +119,7 @@ A <i>taxa de falha na entrega</i> é a porcentagem de envios que falharam porque
 {% endif %}
 
 {% if include.metric == "Emailable" %}
-<i>Envio de e-mail</i> é o número total de usuários que têm um endereço de e-mail registrado e que explicitamente aceitaram ou se inscreveram.
+<i>Disponível para e-mail</i> é o número total de usuários que têm um endereço de e-mail registrado e que explicitamente aceitaram ou se inscreveram.
 {% endif %}
 
 {% if include.metric == "Errors" %}
@@ -262,6 +262,10 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 
 {% if include.metric == "Unique Impressions" %}
 <i>Impressões únicas</i> é o número total de usuários que visualizaram uma mensagem de uma Campaign específica. Uma impressão é registrada apenas quando a mensagem se torna visível na tela de um usuário.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Impressões diárias únicas</i> é o número de usuários únicos que visualizaram a mensagem em um determinado dia. Essa contagem é redefinida a cada dia do calendário, então um usuário que visualiza a mesma mensagem em dois dias diferentes é contado duas vezes. Essa métrica está alinhada com a métrica de faturamento de mesmo nome.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

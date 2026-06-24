@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Events {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Dieser Artikel beschreibt angepasste Events und Eigenschaften, verwandte Segmentierungsfilter, Canvas-Eingangs-Eigenschaften, relevante Analytics und mehr. Mehr über Braze-Events im Allgemeinen erfahren Sie unter [Events]({{site.baseurl}}/user_guide/data/activation/events/).
+> Dieser Artikel beschreibt angepasste Events und Eigenschaften, den Event-Verlauf im Nutzerprofil, verwandte Segmentierungsfilter, Canvas-Eingangs-Eigenschaften, relevante Analytics und mehr. Mehr über Braze-Events im Allgemeinen erfahren Sie unter [Events]({{site.baseurl}}/user_guide/data/activation/events/).
 
 Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchgeführt werden. Wenn angepasste Events protokolliert werden, können sie beliebig viele und verschiedene Folgekampagnen auslösen. Mit Hilfe von [Segmentierungsfiltern](#segmentation-filters) können Sie Nutzer:innen dann danach segmentieren, wie kürzlich und wie häufig diese angepassten Events aufgetreten sind. Dadurch eignen sich angepasste Events am besten für das Tracking hochwertiger Nutzer:innen-Interaktionen innerhalb Ihrer Anwendung.
 
@@ -58,7 +58,7 @@ Sie können einem angepassten Event nach der Erstellung Tags hinzufügen, wenn S
 Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie oben auf der Seite **Alle exportieren**. Die CSV-Datei wird generiert und ein Download-Link wird Ihnen per E-Mail zugesendet.
 
 {% alert note %}
-Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Aufnahmevolumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Kontoteam an der Modellierung und Datenhygiene (z. B. [Blocklisting]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) ungenutzter Daten).
+Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Aufnahmevolumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Account-Team an der Modellierung und Datenhygiene (z. B. [Blocklisting]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) ungenutzter Daten).
 {% endalert %}
 
 ## Nutzungsberichte anzeigen {#viewing-usage-reports}
@@ -86,6 +86,38 @@ Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden List
 ## Speicherung angepasster Events {#custom-event-storage}
 
 Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_archival/#active-users) ist.
+
+## Event-Verlauf einer Nutzer:in anzeigen {#view-a-users-event-history}
+
+{% alert important %}
+Der Event-Verlauf befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie an einer Teilnahme interessiert sind.
+{% endalert %}
+
+Verwenden Sie den Tab **Event-Verlauf** im Profil einer Nutzer:in, um die letzten angepassten Events und Käufe dieser Nutzer:in einzusehen. So können Sie bestätigen, dass Ihre Integration Events korrekt protokolliert, und Probleme auf Nutzer:innen-Ebene direkt im Dashboard beheben.
+
+So zeigen Sie den Event-Verlauf einer Nutzer:in an:
+
+1. Gehen Sie zu **Zielgruppe** > **Nutzer:innen suchen** und wählen Sie eine Nutzer:in aus, um deren Profil zu öffnen.
+2. Wählen Sie den Tab **Event-Verlauf**.
+
+Der Tab listet die angepassten Events und Käufe der Nutzer:in aus den letzten 30 Tagen auf, bis zu den 100 neuesten Events, sortiert von neuesten zu ältesten.
+
+Jedes Event enthält:
+
+- **Event-Typ:** Ob es sich um ein angepasstes Event oder einen Kauf handelt.
+- **Event-Name:** Der Event-Name, wie er protokolliert wurde.
+- **Zeitpunkt:** Wann das Event aufgetreten ist.
+- **Eigenschaften:** Die vollständigen Event-Eigenschaften für dieses Vorkommen, dargestellt als JSON.
+
+Häufige Anwendungsfälle sind:
+
+- Überprüfung, ob Ihre SDK- oder API-Integration Events wie erwartet sendet – während der Entwicklung oder nach einem Release.
+- Fehlerbehebung, warum eine Nutzer:in eine Event-getriggerte Campaign oder einen Canvas betreten hat oder nicht.
+- Untersuchung eines Support-Falls für eine bestimmte Nutzer:in, ohne einen Datenexport einrichten zu müssen.
+
+{% alert note %}
+Zum Anzeigen des Tabs **Event-Verlauf** sind sowohl die Nutzerberechtigungen **Nutzer:innen suchen** als auch **PII anzeigen** erforderlich, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+{% endalert %}
 
 ## Segmentierungsfilter {#segmentation-filters}
 
@@ -125,8 +157,8 @@ Sie können auch **Filter** verwenden, um Ihre angepassten Events nach Stunde, m
 
 Segmente, die mit Daten angepasster Events erstellt wurden, können keine früheren historischen Daten aus der Zeit vor ihrer Erstellung anzeigen.
 
-## Eigenschaften angepasster Events {#custom-event-properties}
+## Angepasste Event-Eigenschaften {#custom-event-properties}
 
-Eigenschaften angepasster Events sind Metadaten oder Attribute angepasster Events, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu erhöhen, Conversions zu tracken und anspruchsvollere Analytics durch den Rohdatenexport zu generieren.
+Angepasste Event-Eigenschaften sind Metadaten oder Attribute eines angepassten Events, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu erhöhen, Conversions zu tracken und anspruchsvollere Analytics durch den Rohdatenexport zu generieren.
 
 Um mehr zu erfahren, lesen Sie [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).

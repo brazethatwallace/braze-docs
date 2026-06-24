@@ -82,6 +82,6 @@ channel:
 
 メールキャプチャフォームを起動し、ユーザーからメールアドレスを収集した後、フォームに入力したユーザーをターゲットにすることができます。
 
-1. Brazeの任意のSegmentフィルターで、フィルター`Clicked/Opened Campaign`を選択します。
+1. Brazeの任意のセグメントフィルターで、フィルター`Clicked/Opened Campaign`を選択します。
 2. ドロップダウンから`clicked in-app message button 1`を選択します。
 3. メールキャプチャフォームのCampaignを選択します。

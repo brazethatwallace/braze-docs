@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Este artículo describe los eventos personalizados y sus propiedades, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
+> Este artículo describe los eventos personalizados y sus propiedades, el historial de eventos del perfil de usuario, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
 
 Los eventos personalizados son acciones realizadas por tus usuarios o actualizaciones sobre ellos. Cuando se registran eventos personalizados, pueden desencadenar cualquier número y tipo de campañas de seguimiento. A continuación, puedes utilizar [filtros de segmentación](#segmentation-filters) para segmentar a los usuarios en función de lo recientes y frecuentes que hayan sido esos eventos personalizados. Esto hace que los eventos personalizados sean los más adecuados para el seguimiento de interacciones de usuario de alto valor dentro de tu aplicación.
 
@@ -17,7 +17,7 @@ Los eventos personalizados son acciones realizadas por tus usuarios o actualizac
 
 Algunos casos habituales de uso de eventos personalizados son:
 
-- Desencadenar una Campaign o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
+- Desencadenar una campaña o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
 - Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
 - Usar los [análisis de eventos personalizados](#analytics) del dashboard para ver un agregado de la frecuencia con la que ocurrió cada evento
 - Encontrar análisis adicionales usando informes de [embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps) y [retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)
@@ -86,6 +86,38 @@ Los eventos personalizados requieren configuración adicional. Consulta la lista
 ## Almacenamiento de eventos personalizados {#custom-event-storage}
 
 Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos de eventos personalizados (primera o última ocurrencia, recuento total y X en Y durante 30 días), se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_archival/#active-users).
+
+## Ver el historial de eventos de un usuario {#view-a-users-event-history}
+
+{% alert important %}
+El historial de eventos se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si te interesa participar.
+{% endalert %}
+
+Usa la pestaña **Historial de eventos** en el perfil de un usuario para ver sus eventos personalizados y compras recientes. Esto te ayuda a confirmar que tu integración está registrando eventos correctamente y a solucionar problemas a nivel de usuario directamente en el dashboard.
+
+Para ver el historial de eventos de un usuario:
+
+1. Ve a **Audiencia** > **Buscar usuarios** y selecciona un usuario para abrir su perfil.
+2. Selecciona la pestaña **Historial de eventos**.
+
+La pestaña muestra los eventos personalizados y las compras del usuario de los últimos 30 días, hasta los 100 eventos más recientes, ordenados del más nuevo al más antiguo.
+
+Cada evento incluye:
+
+- **Tipo de evento:** si el evento es un evento personalizado o una compra.
+- **Nombre del evento:** el nombre del evento tal como fue registrado.
+- **Hora:** cuándo ocurrió el evento.
+- **Propiedades:** las propiedades completas del evento para esa ocurrencia, mostradas como JSON.
+
+Los casos de uso habituales incluyen:
+
+- Verificar que tu integración de SDK o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
+- Solucionar problemas sobre por qué un usuario entró o no entró en una campaña o Canvas desencadenados por eventos.
+- Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
+
+{% alert note %}
+Ver la pestaña **Historial de eventos** requiere los permisos de usuario **Buscar usuarios** y **Ver PII**, ya que las propiedades de eventos pueden contener datos personales. Para más información, consulta [Permisos de usuario de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+{% endalert %}
 
 ## Filtros de segmentación {#segmentation-filters}
 

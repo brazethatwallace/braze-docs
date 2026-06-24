@@ -231,3 +231,11 @@ For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl
 {% endalert %}
 
 {% endapi %}
+
+## Troubleshooting
+
+### Viewing delivery failures for API-triggered campaigns
+
+The [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) endpoint returns aggregated daily stats (for example, `delivery_failed` for SMS or `errors` for webhooks). It does not return per-recipient failure reasons.
+
+For per-message send failures, bounces, and aborts from API-triggered or API campaigns, use the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) in the dashboard. For custom reports on send and delivery events, use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) with [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) or custom SQL. You can also stream failure events through Currents or Snowflake Data Sharing if your workspace has those products enabled.

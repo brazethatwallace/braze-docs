@@ -30,6 +30,10 @@ For a user to be listed as reachable through a certain channel, the user must ha
 
 A single user may belong to different reachable user groups. For example, a user might have both a valid email address and valid Android push token and be opted in to both, but have no associated iOS push token. The gap between the total reachable users and the sum of the different channels are the number of users who qualified for the segment but they are not reachable through those communication channels.
 
+{% alert note %}
+**Total reachable users** includes everyone who matches your segment filters, even if they are no longer subscribed to a channel. Channel rows such as **iOS** count users who are reachable only on that channel under the rules in [Reachable users by channel](#reachable-users-by-channel). To align segment totals with subscribed users, add filters like **Push enabled for iOS** is true (or the equivalent for your channel).
+{% endalert %}
+
 ## Statistics for segment size
 
 Estimated statistics are approximated by sampling only a portion of your segment, so you should expect to see estimated sizes that are larger or smaller than the actual value, with larger workspaces seeing potentially larger margins of error. To get an accurate count of users in your segment, select **Calculate Exact Statistics**. The exact segment membership will always be calculated before a segment is affected by a message sent in a campaign or Canvas. 

@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PR head
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
@@ -98,7 +98,7 @@ jobs:
 
       - name: Upload violations artifact
         if: always() && steps.changed.outputs.ran == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: a11y-content-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
           path: violations.json

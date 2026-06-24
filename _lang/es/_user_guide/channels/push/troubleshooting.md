@@ -40,7 +40,7 @@ Cualquiera de los dos puntos de conexión devolverá un objeto de token de push 
 
 Asegúrate de que perteneces al segmento al que te diriges (si se trata de una campaña en vivo y no de una prueba). En el **User Profile**, verás una lista de segmentos a los que pertenece actualmente el usuario. Recuerda que esta es una variable en constante cambio, ya que la segmentación se actualiza en tiempo real.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 También puedes confirmar que el usuario forma parte del segmento utilizando **User Lookup** al crear un segmento. **User Lookup** solo acepta `external_id` o `braze_id`, no direcciones de correo electrónico ni números de teléfono. Para buscar por correo electrónico, teléfono, token de push o alias de usuario, usa [**Buscar usuarios**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
@@ -52,7 +52,7 @@ Comprueba los límites de frecuencia globales. Es posible que no hayas recibido 
 
 Puedes hacerlo comprobando la [limitación de frecuencia global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) en el dashboard. Si la campaña está configurada para respetar las reglas de limitación de frecuencia, habrá un número de usuarios afectados por esta configuración.
 
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+![Detalles de Campaign]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Límites de velocidad {#rate-limits}
 

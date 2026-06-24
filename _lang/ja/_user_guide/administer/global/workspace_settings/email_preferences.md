@@ -82,8 +82,6 @@ BCCアドレスはAmazon SES、SendGrid、SparkPostで利用できます。BCC�
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-![メール設定タブのBCCアドレスセクション。]({% image_buster /assets/img/email_settings/bcc_address.png %}){: style="max-width:75%;" }
-
 アドレスを追加すると、Campaignsまたはキャンバスステップでメールを作成する際に選択できるようになります。アドレスの横にある**Make Default**を選択すると、新しいメールキャンペーンまたはCanvasコンポーネントを起動する際にデフォルトで選択されるアドレスを設定できます。メッセージレベルでこれを上書きするには、メッセージの設定時に**No BCC**を選択します。
 
 Brazeから送信されるすべてのメールメッセージにBCCアドレスを含めることを必須にする場合は、**Require a BCC address for all your email campaigns**トグルを選択できます。これにより、デフォルトアドレスの選択が必要になり、新しいメールキャンペーンまたはキャンバスステップに自動的に選択されます。デフォルトアドレスは、REST API経由でトリガーされるすべてのメッセージにも自動的に追加されます。アドレスを含めるために既存のAPIリクエストを変更する必要はありません。
@@ -145,7 +143,7 @@ list-unsubscribeヘッダーを使用すると、受信者はメッセージ本�
 
 テスト送信には通常、list-unsubscribeヘッダーは**含まれません**。ライブヘッダーが表示されるかどうかはメールボックスプロバイダーによって決定され、レピュテーションに基づきます。送信者のレピュテーションが高いほど、通常は表示される可能性が高くなります。
 
-![]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
+![メッセージ本文の外側にlist-unsubscribeが表示される、メッセージの横にUnsubscribeオプションがあるメールクライアントのメールボックスUI。]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
 受信者が**Unsubscribe**を選択すると、メールボックスプロバイダーはメールヘッダーで定義された送信先に配信停止リクエストを送信します。
 
@@ -245,7 +243,7 @@ list-unsubscribeヘッダーのワンクリック配信停止（[RFC 8058](https
 
 この設定を調整すると、このメールのワンクリックlist-unsubscribeのデフォルト動作が上書きされます。
 
-![]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
+![ワークスペースのデフォルトやカスタムURLなど、メッセージレベルのワンクリックlist-unsubscribeオプションがあるメールエディターの送信設定。]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
 
 #### 要件 {#requirements}
 
@@ -258,13 +256,13 @@ list-unsubscribeヘッダーのワンクリック配信停止（[RFC 8058](https
 
 **Custom list-unsubscribe header**を選択して、独自に設定したワンクリック配信停止エンドポイントとオプションの「mailto:」を追加します。Brazeはカスタムlist-unsubscribeヘッダーをサポートするためにURLの入力を必要とします。これは、ワンクリック配信停止HTTPがYahooとGmailの大量送信者に対する要件であるためです。
 
-![]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
+![ワンクリック配信停止URLとオプションのmailtoのカスタムlist-unsubscribeヘッダーフィールドがあるメール設定。]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
 
 ## メール件名行への追加 {#append-email-subject-lines}
 
 トグルを使用して、テストおよびシードメールの件名行に「[TEST]」および「[SEED]」を含めます。これにより、テストとして送信されたメールキャンペーンを識別するのに役立ちます。
 
-![]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![テストおよびシードメールの件名行にTESTおよびSEEDプレフィックスを追加するワークスペースのメール設定トグル。]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
 ## 新規メールでのデフォルトCSSインライン化 {#inline-css-on-new-emails-by-default}
 
@@ -276,7 +274,7 @@ CSSインライン化は、メールおよび新規メールのCSSスタイル�
 
 ユーザーがメールアドレスを変更した際に、自動的に再購読させることができます。たとえば、以前に配信停止したワークスペースユーザーがメールアドレスをBrazeの配信停止リストにないアドレスに変更した場合、自動的に再購読されます。
 
-![]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![メールアドレスが変更された際にユーザーを自動的に再購読するワークスペース設定。]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## 購読ページおよびフッター {#subscription-pages-and-footers}
 
@@ -289,27 +287,27 @@ CSSインライン化は、メールおよび新規メールのCSSスタイル�
 - 配信停止URLと物理的な郵送先住所を含める必要があります。
 - 100 KB未満である必要があります。
 
-![]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![CAN-SPAM準拠のための配信停止リンクと郵送先住所フィールドがあるカスタムメールフッターエディター。]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-カスタムフッターのLiquidテンプレートについて詳しくは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)のドキュメントをご覧ください。
+カスタムフッターのLiquidテンプレートについて詳しくは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)を参照してください。
 
 {% endtab %}
 {% tab カスタム購読解除ページ %}
 
 Brazeでは、独自のHTMLを使用して**カスタム購読解除ページ**を設定できます。このページは、ユーザーがメールの下部から配信停止を選択した後に表示されます。このページは750 KB未満である必要があることに注意してください。
 
-![]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![ユーザーがメールから配信停止した後に表示されるページのカスタム購読解除ページHTMLエディターとプレビュー。]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)をご覧ください。
+メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)を参照してください。
 
 {% endtab %}
 {% tab カスタムオプトインページ %}
 
 独自のHTMLを使用してカスタムオプトインページを作成できます。これをメールに含めることは、ユーザーライフサイクル全体を通じてブランディングとメッセージの一貫性を維持したい場合に特に有益です。このページは750 KB未満である必要があることに注意してください。
 
-![]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![ブランド化されたメール購読確認のためのカスタムオプトインページHTMLエディターとプレビュー。]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)をご覧ください。
+メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)を参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -361,7 +359,7 @@ ABテストを含むCampaignの場合、Brazeはユーザーにバリアント�
 {% enddetails %}
 
 {% details サブスクリプショングループがアーカイブされた場合はどうなりますか？送信済みメールのワンクリック配信停止が壊れますか？ %}
-ワンクリック用の**Sending Info**で参照されているサブスクリプショングループがアーカイブされた場合でも、Brazeはワンクリックからの配信停止を引き続き処理します。サブスクリプショングループはダッシュボード上（Segmentフィルター、ユーザープロファイルなどの領域）には表示されなくなります。
+ワンクリック用の**Sending Info**で参照されているサブスクリプショングループがアーカイブされた場合でも、Brazeはワンクリックからの配信停止を引き続き処理します。サブスクリプショングループはダッシュボード上（セグメントフィルター、ユーザープロファイルなどの領域）には表示されなくなります。
 {% enddetails %}
 
 {% details ワンクリック配信停止設定はメールテンプレートで利用できますか？ %}

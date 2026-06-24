@@ -24,7 +24,7 @@ Os itens a seguir não são migrados em massa quando você aponta SDKs ou APIs p
 | **Segmentos e filtros** | As definições de segmentos permanecem no espaço de trabalho de origem. Recrie os segmentos no espaço de trabalho de destino usando a mesma lógica sempre que possível. |
 | **Histórico de mensagens** | O histórico de recebimento de Campaigns e Canvas em um perfil está vinculado ao espaço de trabalho de origem. Ele não aparece em um novo perfil em outro espaço de trabalho, a menos que você modele isso por conta própria (por exemplo, via atributos personalizados), conforme observado nas [Perguntas frequentes sobre integração da Braze]({{site.baseurl}}/user_guide/onboarding_faq/). |
 | **Configuração específica do canal** | Domínios de envio, inscrições de SMS, números de WhatsApp e configurações semelhantes são limitados ao espaço de trabalho. Reconfigure-os no espaço de trabalho de destino quando aplicável. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What Braze does not automatically migrate between workspaces" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="O que a Braze não migra automaticamente entre espaços de trabalho" }
 
 {% alert important %}
 Se você usa espaços de trabalho separados para staging e produção, lembre-se de que os conectores do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) não são compartilhados entre espaços de trabalho. Planeje qual espaço de trabalho será responsável pelas exportações de produção. Para mais detalhes, consulte [Primeiros passos: Espaços de trabalho]({{site.baseurl}}/user_guide/get_started/workspaces/#currents-connectors).
@@ -32,9 +32,9 @@ Se você usa espaços de trabalho separados para staging e produção, lembre-se
 
 ## O que você pode mover ou recriar {#what-you-can-move-or-recreate}
 
-### Conteúdo de Campaigns e Canvas {#campaign-and-canvas-content}
+### Conteúdo de Campaigns, Canvas e landing pages {#campaign-canvas-and-landing-page-content}
 
-Você pode copiar muitas definições de Campaigns e Canvas para outro espaço de trabalho como rascunhos. Os canais compatíveis, campos omitidos e ressalvas sobre Liquid estão documentados em [Copiar Campaigns e Canvas entre espaços de trabalho]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Após a cópia, atualize os segmentos, gatilhos e quaisquer referências específicas do espaço de trabalho antes de lançar.
+Você pode copiar muitas definições de Campaigns, Canvas e landing pages para outro espaço de trabalho como rascunhos. Os canais compatíveis, campos omitidos e ressalvas sobre Liquid estão documentados em [Copiar Campaigns, Canvas e landing pages entre espaços de trabalho]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Após a cópia, atualize os segmentos, gatilhos e quaisquer referências específicas do espaço de trabalho antes de lançar ou publicar.
 
 ### Dados do perfil de usuário {#user-profile-data}
 

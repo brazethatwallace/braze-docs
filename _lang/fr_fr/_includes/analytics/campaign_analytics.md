@@ -66,7 +66,7 @@ Le canal WhatsApp comprend le taux de lecture. Cet indicateur n'est fourni que p
 
 Dans Canvas, les performances des messages in-app sont cartographiées sur le Canvas que vous avez créé. Vous pouvez utiliser le panneau de commande en haut de la page pour masquer les autres types de messages (canaux) et afficher uniquement les messages in-app de votre Canvas.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![Option de sélection du canal, avec la case In-App Message cochée.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![La section Détails de la campagne.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -135,7 +135,7 @@ Le panneau **Content Card Performance** indique le niveau de performance de votr
 {% elsif include.channel == "email" %}
 ### Performances des e-mails {#email-performance}
 
-Le panneau **Email Performance** indique le niveau de performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
+Le panneau **Email Performance** indique le niveau de performance de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez sélectionner l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
 ![Analytique des performances des messages e-mail]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -257,8 +257,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">Ce compteur</span> n'augmente pas la deuxième fois qu'un utilisateur consulte une Content Card.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Étant donné qu'un utilisateur peut être un destinataire unique chaque jour, il est normal que ce chiffre soit supérieur au nombre d'<i>impressions uniques</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Étant donné qu'un utilisateur peut avoir une impression quotidienne unique chaque jour, il est normal que ce chiffre soit supérieur au nombre d'<i>impressions uniques</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -275,19 +275,19 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
 En matière d'enregistrement des impressions, il existe quelques nuances entre le web, Android et iOS. En règle générale, Braze enregistre une impression lorsqu'une carte est vue, c'est-à-dire après qu'un utilisateur a fait défiler son fil jusqu'à la Content Card spécifique.
 {% endalert %}
 
-#### Destinataires uniques et impressions uniques {#unique-recipients-versus-unique-impressions}
+#### Impressions quotidiennes uniques et impressions uniques {#unique-daily-impressions-versus-unique-impressions}
 
-Plusieurs indicateurs sont disponibles pour couvrir la visibilité de votre message, notamment les _destinataires uniques_ et les _impressions uniques_. Prenons quelques exemples pour mieux comprendre ces indicateurs.
+Plusieurs indicateurs sont disponibles pour couvrir la visibilité de votre message, notamment les _impressions quotidiennes uniques_ et les _impressions uniques_. Prenons quelques exemples pour mieux comprendre ces indicateurs.
 
-Supposons que vous visualisiez une Content Card aujourd'hui, puis que vous receviez une nouvelle carte de la même campagne demain, et encore après-demain — vous serez compté comme _destinataire unique_ trois fois. En revanche, vous ne serez comptabilisé que pour une seule _impression unique_. Vous serez également inclus dans le nombre de _messages envoyés_, car la carte était disponible sur votre appareil.
+Supposons que vous visualisiez une Content Card aujourd'hui, puis que vous receviez une nouvelle carte de la même campagne demain, et encore après-demain — vous serez comptabilisé trois fois comme _impression quotidienne unique_. En revanche, vous ne serez comptabilisé que pour une seule _impression unique_. Vous serez également inclus dans le nombre de _messages envoyés_, car la carte était disponible sur votre appareil.
 
-Autre exemple : supposons que vous obteniez cinq _impressions uniques_ sur une campagne de Content Cards affichant 150 000 _messages envoyés_. Cela signifie que la carte a été mise à disposition (côté serveur) pour une audience de 150 000 utilisateurs, mais que seuls cinq appareils d'utilisateurs ont effectué toutes les étapes suivantes après l'envoi :
+Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une campagne de Content Cards affichant 150 000 _messages envoyés_. Cela signifie que la carte a été mise à disposition (côté serveur) pour une audience de 150 000 utilisateurs, mais que seuls cinq appareils d'utilisateurs ont effectué toutes les étapes suivantes après l'envoi :
 
 1. Ont démarré une session ou l'application a explicitement demandé une synchronisation des Content Cards (ou les deux)
 2. Ont navigué vers la vue des Content Cards
 3. Le SDK a enregistré une impression et l'a consignée sur le serveur
 
-Les _messages envoyés_ correspondent aux Content Cards disponibles pour être vues, tandis que les _destinataires uniques_ correspondent aux Content Cards qui ont été effectivement vues.
+Les _messages envoyés_ correspondent aux Content Cards disponibles pour être vues, tandis que les _impressions quotidiennes uniques_ correspondent aux Content Cards qui ont été effectivement vues.
 
 {% elsif include.channel == "banner" %}
 
@@ -337,8 +337,8 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Étant donné qu'un spectateur peut être un destinataire unique chaque jour, il est normal que ce chiffre soit plus élevé que celui des <i>impressions uniques</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Étant donné qu'un spectateur peut avoir une impression quotidienne unique chaque jour, il est normal que ce chiffre soit plus élevé que celui des <i>impressions uniques</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -353,9 +353,9 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
 
 #### Exemples de calcul des indicateurs de bannières {#banner-metrics-calculation-examples}
 
-Plusieurs indicateurs sont disponibles pour couvrir la visibilité de votre message, notamment les _destinataires uniques_ et les _impressions uniques_. Prenons quelques exemples pour mieux comprendre ces indicateurs.
+Plusieurs indicateurs sont disponibles pour couvrir la visibilité de votre message, notamment les _impressions quotidiennes uniques_ et les _impressions uniques_. Prenons quelques exemples pour mieux comprendre ces indicateurs.
 
-Supposons que vous consultiez une bannière aujourd'hui, puis la même bannière demain, et encore après-demain — vous serez comptabilisé trois fois comme _destinataire unique_. En revanche, vous ne serez comptabilisé que pour une seule _impression unique_.
+Supposons que vous consultiez une bannière aujourd'hui, puis la même bannière demain, et encore après-demain — vous serez comptabilisé trois fois comme _impression quotidienne unique_. En revanche, vous ne serez comptabilisé que pour une seule _impression unique_.
 
 Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une campagne de bannières. Cela signifie que seuls les appareils de cinq utilisateurs ont effectué toutes les étapes suivantes :
 
@@ -363,7 +363,7 @@ Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une 
 2. Ont navigué vers la vue des bannières
 3. Le SDK a enregistré une impression et l'a consignée sur le serveur
 
-Les _destinataires uniques_ désignent les bannières qui ont été effectivement vues.
+Les _impressions quotidiennes uniques_ désignent les bannières qui ont été effectivement vues.
 
 {% elsif include.channel == "email" %}
 
@@ -595,6 +595,10 @@ La répartition entre les groupes de contrôle et les variantes est censée êtr
 ### Indicateurs KakaoTalk {#kakaotalk-metrics}
 
 Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos analyses. Pour plus de détails, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics/).
+
+{% alert note %}
+Actuellement, les statistiques d'audience estimées ou exactes ne sont pas disponibles pour les campagnes KakaoTalk.
+{% endalert %}
 
 | Terme | Définition |
 | --- | --- |

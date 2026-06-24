@@ -48,16 +48,16 @@ BrazeとOracle Crowdtwistは、顧客がユーザープロファイル、ユー�
 
 ## ステップ2: テンプレートの更新とテスト {#step-2-update-and-test-template}
 
-以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track`送信先に適用されるように設計されています。注釈は `//` 行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
+以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track`送信先に適用されるように設計されています。注釈は`//`行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
 
 この変換はJavaScriptを使い、「brazecall」と呼ばれるオブジェクトを構築します。このオブジェクトで、Braze REST APIエンドポイントに送信するリクエストボディを作成します。これらの送信先へのリクエストに必要な構造については、「送信先」セクションのリンクを参照してください。
 
 {% alert note %}
-各「キー」の「値」が `payload.` で始まっていることに注目してください。ペイロードはOracle Crowdtwistから受け取ったデータオブジェクトを表します。JavaScriptのドット記法を使用して、Brazeオブジェクトの要素に入力するデータを選択します。例えば、`external_id: payload.thirdPartyId` と表示された場合、これはOracle Crowdtwistに保存されている `third_party_id` の値によってBrazeのexternal IDが設定されていることを意味します。Oracle Crowdtwistから送られてくるオブジェクトのスキーマや構成の詳細については、[Oracleのドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)を参照してください。
+各「キー」の「値」が`payload.`で始まっていることに注目してください。ペイロードはOracle Crowdtwistから受け取ったデータオブジェクトを表します。JavaScriptのドット記法を使用して、Brazeオブジェクトの要素に入力するデータを選択します。例えば、`external_id: payload.thirdPartyId`と表示された場合、これはOracle Crowdtwistに保存されている`third_party_id`の値によってBrazeのexternal IDが設定されていることを意味します。Oracle Crowdtwistから送られてくるオブジェクトのスキーマや構成の詳細については、[Oracleのドキュメント](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html)を参照してください。
 {% endalert %}
 
 {% alert important %}
-Oracle Crowdtwistから送られてきたオブジェクトを使って、Brazeにユーザーを作成します。値 `false` を持つ `update_existing_only` キーを含めることで、属性またはイベントオブジェクトがBrazeに存在しない識別子を含む場合、Brazeはイベントまたは属性オブジェクトに含まれる属性を持つユーザープロファイルを作成します。Oracle CrowdtwistがBrazeに既に存在するプロファイルのみを更新するようにしたい場合は、各属性またはイベントオブジェクトでこの属性を `true` に設定してください。
+Oracle Crowdtwistから送られてきたオブジェクトを使って、Brazeにユーザーを作成します。値`false`を持つ`update_existing_only`キーを含めることで、属性またはイベントオブジェクトがBrazeに存在しない識別子を含む場合、Brazeはイベントまたは属性オブジェクトに含まれる属性を持つユーザープロファイルを作成します。Oracle CrowdtwistがBrazeに既に存在するプロファイルのみを更新するようにしたい場合は、各属性またはイベントオブジェクトでこの属性を`true`に設定してください。
 {% endalert %}
 
 ### データ変換テンプレート {#data-transformation-templates}
@@ -240,11 +240,9 @@ return brazecall;
 
 ### テスト {#testing}
 
-テンプレートをお好みに修正したら、正しく動作するかどうかを検証する必要があります。**Validate**をクリックすると、コードの出力プレビューが表示され、選択した送信先で受け入れられるリクエストかどうかを確認できます。
+テンプレートをお好みに修正したら、正しく動作するかどうかを検証する必要があります。データ変換エディターで**Validate**を選択し、**Output**セクションにプレビューを生成して、選択した送信先に対してBrazeがマッピング済みリクエストを受け入れるかどうかを確認します。
 
-![Brazeデータ変換UIのスクリーンショット]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-「output」フィールドに表示されるオブジェクトに問題がなければ、**Activate**をクリックして、データ変換エンドポイントがデータを受け入れる準備を整えます。
+**Output**フィールドに表示されるオブジェクトに問題がなければ、**Activate**を選択して、データ変換エンドポイントがデータを受け入れる準備を整えます。
 
 データ変換のWebhook URLは左側のサイドパネルにあります。これをコピーし、Oracle CrowdtwistのIntegration Hub内の設定に使用してください。
 
@@ -252,4 +250,4 @@ return brazecall;
 Brazeデータ変換エンドポイントには、毎分1000リクエストのレート制限があります。このデータをBrazeで利用できるようにする速度を検討し、より高いデータ変換レート制限が必要な場合は、Brazeアカウントマネージャーにご相談ください。
 {% endalert %}
 
-データ変換は非常にダイナミックなツールであり、JavaScriptを理解し、REST APIドキュメントを参考にすれば、このドキュメントで説明されている以外の目的にも設計することができます。データ変換テンプレートの複雑な変更に関するサポートやトラブルシューティングについては、カスタマーサクセスマネージャーにご相談ください。
+データ変換は非常にダイナミックなツールであり、JavaScriptを理解し、REST APIドキュメントを参考にすれば、このドキュメントで説明されている以外の目的にも設計することができます。データ変換テンプレートの複雑な変更に関するサポートやトラブルシューティングについては、カスタマーサクセスマネージャーにご相談いただき、利用可能なガイダンスについてお問い合わせください。

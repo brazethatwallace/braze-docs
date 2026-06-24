@@ -41,7 +41,7 @@ Os percentuais são calculados com base no intervalo de datas atual em comparaç
 
 Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e seus *Usuários ativos diários* mostrarem um aumento percentual de 1,8%, isso significa que você teve 1,8% mais usuários ativos diários nesta semana em comparação com a semana passada.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Um bloco de métrica de Usuários ativos diários mostrando uma média de 22,2 mil com um indicador de aumento de 7,1% e uma linha de tendência.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar detalhamento {#show-breakdown}
 
@@ -110,9 +110,9 @@ Os cálculos de MAU seguem regras específicas para garantir uma cobrança preci
 
 - **Momento do cálculo**: Calculado uma vez por dia às 12:05 UTC como um snapshot de 30 dias; as contagens nunca mudam retroativamente.
 - **Perfis anônimos**: Contam **apenas** quando pelo menos uma sessão é registrada.
-- **Perfis identificados**: Contam automaticamente assim que existem.
+- **Perfis identificados**: Contam apenas quando `date_of_last_session` está dentro da janela móvel de 30 dias.
 - **Perfis órfãos**: Duplicatas mescladas em outro usuário **não** são contadas.
-- **Uploads por CSV**: Usuários enviados por CSV contam apenas quando `date_of_first_session` ou `date_of_last_session` é fornecido, ou quando eles registram uma sessão posteriormente.
+- **Uploads por CSV e importações via REST API**: Usuários enviados por CSV ou pela REST API contam para o MAU quando você fornece `date_of_last_session` dentro da janela móvel de 30 dias, ou quando eles registram uma sessão posteriormente. Fornecer apenas `date_of_first_session` não afeta o MAU.
 - **Exclusões via API**: Excluir um usuário via API não atualiza o MAU imediatamente; a contagem se corrige automaticamente no próximo ciclo mensal.
 
 {% alert note %}

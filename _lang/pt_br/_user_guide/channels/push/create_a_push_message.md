@@ -12,7 +12,7 @@ tool:
 
 # Criar uma mensagem push {#create-a-push-message}
 
-> As notificações por push são excelentes para chamadas à ação urgentes, bem como para reengajar usuários que não acessam o app há algum tempo. Campaigns de push bem-sucedidas direcionam o usuário diretamente ao conteúdo e demonstram o valor do seu app. Para ver exemplos de notificações por push, confira nossos [estudos de caso](https://www.braze.com/customers).
+> As notificações por push são excelentes para chamadas à ação urgentes, bem como para reengajar usuários que não acessam o app há algum tempo. Campaigns de push bem-sucedidas direcionam o usuário diretamente ao conteúdo e demonstram o valor do seu app. Para ver exemplos de notificações por push, confira os [estudos de caso da Braze](https://www.braze.com/customers).
 
 ## Etapa 1: Escolha onde criar sua mensagem {#create-new-campaign-push}
 
@@ -22,8 +22,8 @@ Não tem certeza se deve usar uma Campaign ou um Canvas? Campaigns são melhores
 
 {% tabs %}
 {% tab Campaign %}
-1. Acesse **Messaging** > **Campaigns** e selecione **Create campaign**.
-2. Para Campaigns direcionadas a múltiplos canais, selecione **Multichannel**. Caso contrário, selecione **Push notification**. Se ainda não tiver certeza, consulte **Decidindo entre uma Campaign de push regular ou multicanal** abaixo.
+1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
+2. Para Campaigns direcionadas a múltiplos canais, selecione **Multichannel**. Caso contrário, selecione **Push Notification**.
 3. Dê à sua Campaign um nome claro e significativo.
 4. Adicione [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) e [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) conforme necessário.
 
@@ -33,26 +33,6 @@ Tags facilitam encontrar suas Campaigns e criar relatórios a partir delas. Por 
 
 {: start="5"}
 5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada variante adicionada. Para saber mais sobre esse assunto, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
-
-{% details Decidindo entre uma Campaign de push regular ou multicanal %}
-
-Se você pretende direcionar múltiplos dispositivos e plataformas, como qualquer combinação de celular, web, Kindle, iOS e Android, sua seleção nesta etapa pode impactar a disponibilidade de alguns recursos e configurações posteriormente.
-
-Consulte o fluxograma de decisão a seguir antes de criar uma Campaign multicanal ou de notificação por push:
-
-!["Fluxograma para selecionar o tipo de Campaign. Começa decidindo se você está direcionando múltiplos dispositivos e plataformas. Se não, leva a 'Selecione Push Notification.' Se sim, pergunta 'Que tipo de mensagem push?' e as opções são 'Push padrão' levando a um ponto de decisão 'Você precisa usar configurações específicas de dispositivo?' Se não, leva a 'Selecione Push Notification e use quick push.' Se sim, vai para 'Selecione Multichannel.' Voltando a 'Que tipo de mensagem push?', se a resposta for 'Push Stories ou imagem inline,' direciona para 'Selecione Multichannel.'"]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
-
-Se você selecionar **Push Notification** e escolher direcionar múltiplos dispositivos e plataformas, estará criando automaticamente uma Campaign de quick push. Com quick push, certas configurações específicas de dispositivo não estão disponíveis:
-
-- Botões de ação por push
-- Canais e grupos de notificação
-- Push time-to-live (TTL)
-- Prioridade de exibição
-- Sons
-
-Antes de continuar, consulte [Campaigns de quick push]({{site.baseurl}}/quick_push/) para entender o que é diferente nessa experiência de edição.
-
-{% enddetails %}
 
 {% alert tip %}
 Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Depois, você pode escolher **Copy from Variant** no menu suspenso **Add Variant**.
@@ -78,44 +58,44 @@ Existem algumas maneiras diferentes de fazer isso, dependendo das suas seleçõe
 
 | Seleção anterior | Opções |
 | --- | --- |
-| Campaign de notificação por push | Selecione uma ou mais plataformas e dispositivos. Se você escolher direcionar múltiplos dispositivos e plataformas, estará criando automaticamente uma Campaign de quick push. Isso oferece uma experiência de edição otimizada para criar uma mensagem para todas as plataformas selecionadas em um único editor. Consulte [Campaigns de quick push]({{site.baseurl}}/quick_push/) para entender o que é diferente nessa experiência de edição. |
-| Campaign multicanal | Selecione **Add Messaging Channel** para adicionar plataformas de push adicionais. Como as seleções de plataforma são específicas para cada variante, você pode testar o engajamento com mensagem por plataforma.
+| Campaign de notificação por push | Selecione uma ou mais plataformas e dispositivos. Se você escolher direcionar múltiplos dispositivos e plataformas, sua experiência de edição será otimizada para criar uma mensagem para todas as plataformas selecionadas. Consulte [Push para múltiplas plataformas]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/) para entender o que é diferente nessa experiência de edição. |
+| Campaign multicanal | Selecione **Add Messaging Channel** para adicionar plataformas de push adicionais. Como as seleções de plataforma são específicas para cada variante, você pode testar o engajamento com mensagem por plataforma. |
 | Canvas | Na sua etapa de mensagem, selecione **+ Add more** para adicionar plataformas de push adicionais. Semelhante às Campaigns multicanal, as seleções de plataforma são específicas para cada variante. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Selecione as plataformas de push" }
 
 ## Etapa 3: Selecione o tipo de notificação (iOS e Android) {#step-3-select-notification-type-ios-and-android}
 
-Se você estiver criando uma Campaign de quick push, o tipo de notificação é automaticamente definido como **Standard push** e não pode ser alterado.
+Se você estiver criando uma Campaign de push para múltiplas plataformas e selecionar Web e/ou Kindle, o tipo de notificação é automaticamente definido como **Standard Push** e não pode ser alterado.
 
 ![Tipo de notificação com Standard Push selecionado como exemplo.]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 Caso contrário, para iOS e Android, selecione seu tipo de notificação:
 
 - Standard push
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) (compatível com Android e iOS)
 - Imagem inline (somente Android)
 
 Se você quiser incluir imagens na sua Campaign de push, consulte os seguintes guias sobre como criar uma notificação Rich para [iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/) ou [Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/).
 
 ## Etapa 4: Redija sua mensagem push {#step-4-compose-your-push-message}
 
-Agora é hora de escrever sua mensagem push! A guia **Compose** permite editar todos os aspectos do conteúdo e comportamento da sua mensagem.
+Agora é hora de escrever sua mensagem push! A guia **Redigir** permite editar todos os aspectos do conteúdo e comportamento da sua mensagem.
 
-![Guia Compose da criação de uma notificação por push.]({% image_buster /assets/img_archive/push_compose.png %})
+![Guia Redigir da criação de uma notificação por push.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
-O conteúdo da guia **Compose** varia com base no tipo de notificação escolhido na etapa anterior, mas pode incluir qualquer uma das seguintes opções:
+O conteúdo da guia **Redigir** varia com base no tipo de notificação escolhido na etapa anterior, mas pode incluir qualquer uma das seguintes opções:
 
-#### Canal ou grupo de notificação (iOS e Android) {#notification-channel-or-group-ios-and-android}
+### Canal ou grupo de notificação (iOS e Android) {#notification-channel-or-group-ios-and-android}
 
 Para mais informações sobre opções de notificação específicas de plataforma, consulte [Opções de notificação do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/) ou [Opções de notificação do Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_options/).
 
-#### Idioma {#language}
+### Idioma {#language}
 
 Adicione texto em vários idiomas usando o botão **Add Languages**. Recomendamos selecionar seus idiomas antes de escrever o conteúdo para que você possa preencher o texto onde ele pertence no Liquid. Para nossa lista completa de idiomas disponíveis, consulte [Idiomas suportados]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
 
 Se você estiver adicionando texto em um idioma escrito da direita para a esquerda, observe que a aparência final das mensagens da direita para a esquerda depende em grande parte de como os prestadores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas com a maior precisão possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
 
-#### Título e corpo {#title-and-body}
+### Título e corpo {#title-and-body}
 
 {% tabs local %}
 {% tab ios %}
@@ -141,7 +121,7 @@ Precisa de ajuda para criar um texto incrível? Experimente usar o [Assistente d
 ![Botão Iniciar Assistente de Copywriting com IA, localizado no campo Corpo do criador de push.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}
 
-#### Imagem {#image}
+### Imagem {#image}
 
 Quando suportado, o ícone do seu app é adicionado automaticamente como a imagem da sua notificação por push. Você também tem a opção de enviar notificações Rich, que permitem mais personalização nas suas notificações por push adicionando conteúdo além de texto.
 
@@ -152,7 +132,7 @@ Para orientações adicionais sobre o uso de imagens nas suas notificações por
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-#### Comportamento ao clicar {#on-click-behavior}
+### Comportamento ao clicar {#on-click-behavior}
 
 Especifique o que acontece quando um usuário seleciona o corpo de uma notificação por push com **On-Click Behavior**. Por exemplo, você pode solicitar que os clientes abram seu aplicativo, redirecionar os clientes para uma URL da web específica ou até mesmo abrir uma página específica do seu aplicativo com um [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/).
 
@@ -163,7 +143,7 @@ Aqui, você também pode configurar prompts de botão dentro da sua notificaçã
 - Confirmar/Cancelar
 - Mais
 
-#### Opções de envio {#sending-options}
+### Opções de envio {#sending-options}
 
 Se um usuário tiver seu app instalado em vários dispositivos, por padrão, sua mensagem push é enviada para todos os dispositivos com um token por push válido atribuído. Se desejar, você pode selecionar **Most recently used device**.
 
@@ -175,7 +155,7 @@ Por padrão, a Braze envia mensagens para todos os dispositivos que um usuário 
 
 Se desejar, você pode definir o destino do push como **Most recently used device**.
 
-##### Dispositivo usado mais recentemente {#most-recently-used-device}
+#### Dispositivo usado mais recentemente {#most-recently-used-device}
 
 "Usado mais recentemente" é um status técnico, não comportamental. Como a Braze envia por padrão para todos os dispositivos, mudar para essa configuração reduz significativamente seu alcance e depende inteiramente do status do único dispositivo com o token mais recente.
 
@@ -200,7 +180,7 @@ Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/u
 
 Construa o restante da sua Campaign; consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar notificações por push.
 
-#### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
+### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
 
 As mensagens push podem ser entregues com base em um horário agendado, uma ação ou com base em um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -208,7 +188,7 @@ Para entrega baseada em ação, você também pode definir a duração da Campai
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a Campaign, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Escolha os usuários a direcionar {#choose-users-to-target}
+### Escolha os usuários a direcionar {#choose-users-to-target}
 
 Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse Segment. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o Lifetime Value para esse Segment, selecione **Show Additional Stats**.
 
@@ -228,7 +208,7 @@ Você também pode optar por enviar sua Campaign apenas para usuários que tenha
 
 Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment, ou permitir que os usuários recebam a mesma mensagem duas vezes em caso de recorrência da Campaign.
 
-##### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
+#### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
 
 Para Campaigns multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua Campaign para que apenas os usuários que fizeram opt-in explicitamente recebam a mensagem (excluindo usuários inscritos ou que cancelaram a inscrição). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
@@ -242,7 +222,7 @@ Para fazer isso, em **Audience Summary**, selecione enviar esta Campaign para "o
 Com essa configuração, não inclua nenhum filtro na etapa **Target Audiences** que limite o público a um único canal (por exemplo, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Escolha eventos de conversão {#choose-conversion-events}
+### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite que você acompanhe com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma Campaign. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 

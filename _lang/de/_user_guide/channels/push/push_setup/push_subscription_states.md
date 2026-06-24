@@ -31,7 +31,7 @@ Unter iOS und Android kann das Push-Änderungsprotokoll einen Eintrag wie „Pus
 
 Nachdem Sie neue SDK-Daten erwarten (z. B. direkt nach einer Testsitzung), wählen Sie **Refresh** im Nutzerprofil, wenn die Werte veraltet erscheinen. Es kann eine kurze Verzögerung zwischen dem Senden der SDK-Daten und der Aktualisierung des Profils mit der neuesten Push-Registrierung geben.
 
-Für Nutzer:innen, die Sie einer [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/) hinzufügen, wählen Sie **Record User Events for group members** in den **Internal Group Settings** für diese Gruppe, damit SDK-Anfragen im Protokoll erscheinen. Öffnen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) unter **Settings** > **Event User Log**, suchen Sie die SDK-Anfragen der Nutzer:innen und erweitern Sie den Roh-Payload. Sie können Felder wie `remote_notification_enabled` überprüfen, um zu validieren, ob das Gerät Remote-Benachrichtigungen als aktiviert oder deaktiviert meldet.
+Für Nutzer:innen, die Sie einer [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/) hinzufügen, wählen Sie **Record User Events for group members** in den **Internal Group Settings** für diese Gruppe, damit SDK-Anfragen im Protokoll erscheinen. Öffnen Sie dann das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) unter **Einstellungen** > **Event User Log**, suchen Sie die SDK-Anfragen der Nutzer:innen und erweitern Sie den Roh-Payload. Sie können Felder wie `remote_notification_enabled` überprüfen, um zu validieren, ob das Gerät Remote-Benachrichtigungen als aktiviert oder deaktiviert meldet.
 
 ### Segmentierung und Push-Filter {#segmentation-and-push-filters}
 
@@ -53,7 +53,7 @@ Die folgende Tabelle zeigt, wie verschiedene Nutzer:innenaktionen die iOS-Push-A
 | Nutzer:in aktiviert Push in den Geräteeinstellungen und protokolliert eine Sitzung | `true` | `true` | Vordergrund | `Opted-In`** |
 | Nutzer:in deaktiviert Push in den Geräteeinstellungen und protokolliert eine Sitzung | `false` | `false` | Hintergrund | Nicht aktualisiert |
 | Nutzer:in löscht die App | Nicht aktualisiert | Aktualisiert, wenn Push-Token zurückgezogen wird | Aktualisiert, wenn Push-Token zurückgezogen wird | Nicht aktualisiert |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS-Nutzer:innenaktionen und Push-Status" }
 
 <sup>* Wenn die App kein provisorisches Push verwendet, ist `Foreground Push Enabled` `false`, bis Nutzer:innen Push-Benachrichtigungen erlauben. Wenn die App provisorisches Push verwendet, ist `Foreground Push Enabled` zu Beginn der ersten Sitzung `true`. Weitere Informationen finden Sie unter [Provisorische Autorisierung und stilles Push](#provisional-push).</sup>
 
@@ -72,7 +72,7 @@ Da die Entscheidung der Nutzer:innen endgültig ist und Sie nach einer Ablehnung
 | iOS | ![Eine native iOS-Push-Aufforderung mit der Frage „My App would like to send you notifications“ und zwei Buttons „Don't Allow“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Dies gilt nicht bei der Anforderung einer [provisorischen Push](#provisional-push)-Berechtigung. |
 | Android | ![Eine Android-Push-Nachricht mit der Frage „Allow Kitchenerie to send you notifications?“ und zwei Buttons „Allow“ und „Don't allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Diese Push-Berechtigung wurde in Android 13 eingeführt. Vor Android 13 war keine Berechtigung zum Senden von Push erforderlich. |
 | Web | ![Eine native Push-Aufforderung des Webbrowsers mit der Frage „Braze.com wants to show notification“ und zwei Buttons „Block“ und „Allow“ am unteren Rand der Nachricht.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Berechtigung" }
 
 ### Android
 
@@ -159,7 +159,7 @@ Im Dashboard finden Sie Informationen zur Push-Registrierung und zu Push-Änderu
 
 Bei der Überprüfung des Push-Aktivierungsstatus zeigt **Push Registered for** an, für welche Plattformen Braze Vordergrund-Push an diese Nutzer:innen senden kann. Unter iOS und Android wird, wenn Nutzer:innen von Vordergrund-Push-aktiviert zu Hintergrund-Push-aktiviert (`remote_notification_enabled`) wechseln, dies im Push-Änderungsprotokoll als „Push token was updated from foreground push enabled to foreground push disabled“ dokumentiert.
 
-Wenn Nutzer:innen als Testnutzer:innen hinzugefügt werden, zeigt das Nutzerprofil unter **Developer Console** > **Event User Log** eine SDK-Anfrage mit `remote_notification_enabled` als `true` oder `false` an. Möglicherweise müssen Sie das Nutzerprofil aktualisieren, um die Updates zu sehen, da es eine kurze Verzögerung gibt, bis SDK-Updates das Nutzerprofil erreichen.
+Wenn Nutzer:innen als Testnutzer:innen hinzugefügt werden, zeigt das Nutzerprofil unter **Entwicklungskonsole** > **Event User Log** eine SDK-Anfrage mit `remote_notification_enabled` als `true` oder `false` an. Möglicherweise müssen Sie das Nutzerprofil aktualisieren, um die Updates zu sehen, da es eine kurze Verzögerung gibt, bis SDK-Updates das Nutzerprofil erreichen.
 
 **Segmentierungsfilter für den iOS-Push-Status:**
 

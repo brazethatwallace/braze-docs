@@ -25,7 +25,7 @@ Este enfoque es especialmente útil para empresas como las de juegos para móvil
 
 Debes crear instancias de aplicación distintas para cada versión de tu aplicación en cada plataforma. A la hora de decidir qué instancias de aplicación incluir en un espacio de trabajo, piensa en los usuarios a los que deseas dirigirte y agrúpalos en consecuencia.
 
-El atractivo de tener varias instancias de la aplicación en un mismo espacio de trabajo puede ser tentador, ya que te permite limitar la tasa de mensajería en toda tu cartera de aplicaciones. Sin embargo, como práctica recomendada, sugerimos que solo se agrupen en un espacio de trabajo diferentes versiones de la misma aplicación (o de aplicaciones muy similares).
+El atractivo de tener varias instancias de la aplicación en un mismo espacio de trabajo puede ser tentador, ya que te permite aplicar límites de velocidad a la mensajería en toda tu cartera de aplicaciones. Sin embargo, como práctica recomendada, sugerimos que solo se agrupen en un espacio de trabajo diferentes versiones de la misma aplicación (o de aplicaciones muy similares).
 
 ### Espacios de trabajo compartidos {#shared-workspaces}
 
@@ -189,7 +189,7 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
         <td>La limitación de frecuencia puede definirse por separado para cada instancia de aplicación (en función del espacio de trabajo).</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>La limitación de frecuencia se aplica a todas las Campaigns, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
+        <td>La limitación de frecuencia se aplica a todas las campañas, no a cada aplicación, lo que hace más difícil evitar el exceso de mensajes a los clientes.</td>
     </tr>
     <tr>
         <th scope="row">Estado de suscripción de los perfiles de usuario</th>
@@ -208,8 +208,8 @@ En la tabla siguiente se describen las ventajas e inconvenientes de estos dos en
     <tr>
         <th scope="row">Duplicación de contenidos</th>
         <td>N/A</td>
-        <td>No se pueden duplicar Segments, Campaigns de push o de tarjeta de contenido, ni Canvas entre espacios de trabajo.</td>
-        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espacios de trabajo</a> para los siguientes canales compatibles: SMS, mensajes dentro de la aplicación, correo electrónico, plantillas de correo electrónico y Content Blocks. <br><br>Puedes duplicar Segments, Campaigns y Canvas para reutilizar el contenido de una instancia de aplicación a otra.</td>
+        <td>Algunos contenidos, como Segments y campañas de tarjeta de contenido, no se pueden copiar entre espacios de trabajo.</td>
+        <td>Puedes <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copiar Campaigns, Canvas y páginas de inicio entre espacios de trabajo</a>. Los contenidos compatibles incluyen Campaigns y Canvas para canales elegibles, así como páginas de inicio, plantillas de correo electrónico, conmutadores de características y Content Blocks.<br><br>Puedes duplicar Segments, Campaigns, Canvas y páginas de inicio para reutilizar el contenido de una instancia de aplicación a otra.</td>
         <td>N/A</td>
     </tr>
     <tr>

@@ -3,7 +3,7 @@ nav_title: 분석
 article_title: A/B 테스트 분석
 page_order: 10
 page_type: reference
-description: "이 문서에서는 다변량 또는 A/B 캠페인의 결과를 확인하고 해석하는 방법을 설명합니다."
+description: "이 문서에서는 다변량 또는 A/B Campaign의 결과를 확인하고 해석하는 방법을 설명합니다."
 ---
 
 # 다변량 및 A/B 테스트 분석 {#multivariate-and-ab-test-analytics}
@@ -23,6 +23,14 @@ Campaign 설정 시 **최적화 없음**을 선택한 경우 분석 보기는 �
 ![여러 배리언트가 있는 이메일 Campaign의 캠페인 분석 성과 섹션. 표에는 수신자, 반송, 클릭 수, 전환 등 각 배리언트의 다양한 성과 측정기준이 나열되어 있습니다.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 자세한 내용은 메시징 채널에 대한 [캠페인 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) 문서를 참조하세요.
+
+### BrazeAI<sup>TM</sup> 배리언트 선택 (푸시 전용) {#brazeai-variant-selection-push-only}
+
+BrazeAI<sup>TM</sup> 배리언트 선택을 사용하는 경우, 단일 발송 또는 반복 Campaign인지에 따라 실험 기간(또는 반복의 경우 첫 번째 기간)이 지나면 Campaign 홈 페이지에서 상승률(있는 경우)을 확인할 수 있습니다. 단일 발송 Campaign을 실행하는 경우 아래의 우승 배리언트와 유사한 추가 세부 정보도 확인할 수 있습니다.
+
+BrazeAI<sup>TM</sup> 배리언트 선택에서 상승률을 보고하는 방법에 대한 자세한 내용은 [배리언트 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/)을 참조하세요.
+
+![실험 기간 이후 비교 측정기준을 포함한 BrazeAI 배리언트 선택의 상승률을 보여주는 Campaign 분석.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### 우승 배리언트 {#winning-variant}
 
@@ -76,7 +84,7 @@ Campaign 설정 시 최적화로 **개인화된 배리언트**를 선택한 경�
 
 커스텀 이벤트와 메시지 선호도 간의 관계는 **초기 발송** 탭의 표에 표시됩니다.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![사용자의 커스텀 이벤트와 선호하는 메시지 배리언트 간의 관계를 요약하는 초기 테스트 탭 표.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 테스트에서 커스텀 이벤트와 경로 선호도 간의 의미 있는 관계를 찾지 못하면 세션 기반 분석 방법으로 대체되며, 커스텀 이벤트 데이터 표는 표시되지 않습니다.
 
@@ -117,7 +125,7 @@ Campaign 설정 시 최적화로 **개인화된 배리언트**를 선택한 경�
 
 이 페이지의 표에는 개인화된 배리언트 발송의 각 배리언트에 대한 측정기준이 표시됩니다. **오디언스 %**는 개인화된 배리언트 그룹을 위해 예약한 타겟 Segment의 비율을 합산합니다.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![최종 발송 후 각 배리언트의 오디언스 비율과 성과 측정기준을 나열하는 개인화된 배리언트 탭 표.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -167,34 +175,34 @@ Braze는 [Z 검정](https://en.wikipedia.org/wiki/Z-test)이라는 통계적 절
 
 하나의 다변량 및 A/B 테스트는 향후 테스트에 대한 아이디어를 영감을 줄 수 있으며(그래야 합니다!), 메시징 전략의 변경을 안내할 수 있습니다. 가능한 후속 조치는 다음과 같습니다:
 
-#### 테스트 결과를 기반으로 메시징 전략 변경 {#change-your-messaging-strategy-based-on-test-results}
+### 테스트 결과를 기반으로 메시징 전략 변경 {#change-your-messaging-strategy-based-on-test-results}
 
 다변량 결과를 통해 메시징의 문구나 형식을 변경하게 될 수 있습니다.
 
-#### 사용자에 대한 이해 방식 변경 {#change-the-way-you-understand-your-users}
+### 사용자에 대한 이해 방식 변경 {#change-the-way-you-understand-your-users}
 
 각 테스트는 사용자의 행동, 사용자가 다양한 메시징 채널에 어떻게 반응하는지, Segment 간의 차이점(및 유사점)에 대한 인사이트를 제공합니다.
 
-#### 향후 테스트 구성 방식 개선 {#improve-the-way-you-structure-future-tests}
+### 향후 테스트 구성 방식 개선 {#improve-the-way-you-structure-future-tests}
 
 표본 크기가 너무 작았나요? 배리언트 간의 차이가 너무 미묘했나요? 각 테스트는 향후 테스트를 개선하는 방법을 배울 수 있는 기회를 제공합니다. 신뢰도가 낮다면 표본 크기가 너무 작으므로 향후 테스트에서 확대해야 합니다. 배리언트의 성과 간에 명확한 차이가 없다면, 차이가 너무 미묘하여 사용자의 응답에 식별 가능한 효과를 미치지 못했을 수 있습니다.
 
-#### 더 큰 표본 크기로 후속 테스트 실행 {#run-a-follow-up-test-with-a-larger-sample-size}
+### 더 큰 표본 크기로 후속 테스트 실행 {#run-a-follow-up-test-with-a-larger-sample-size}
 
 더 큰 표본은 배리언트 간의 작은 차이를 감지할 가능성을 높입니다.
 
-#### 다른 메시징 채널을 사용하여 후속 테스트 실행 {#run-a-follow-up-test-using-a-different-messaging-channel}
+### 다른 메시징 채널을 사용하여 후속 테스트 실행 {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 특정 전략이 하나의 채널에서 매우 효과적이라면, 다른 채널에서도 해당 전략을 테스트해 볼 수 있습니다. 한 유형의 메시지가 하나의 채널에서는 효과적이지만 다른 채널에서는 효과적이지 않다면, 특정 채널이 특정 유형의 메시지에 더 적합하다는 결론을 내릴 수 있습니다. 또는 푸시 알림을 활성화할 가능성이 더 높은 사용자와 인앱 메시지에 더 주의를 기울일 가능성이 더 높은 사용자 간에 차이가 있을 수 있습니다. 궁극적으로 이러한 종류의 테스트를 실행하면 오디언스가 다양한 커뮤니케이션 채널과 어떻게 상호작용하는지 배우는 데 도움이 됩니다.
 
-#### 다른 사용자 Segment에서 후속 테스트 실행 {#run-a-follow-up-test-on-a-different-segment-of-users}
+### 다른 사용자 Segment에서 후속 테스트 실행 {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 이를 위해 동일한 메시징 채널과 배리언트로 다른 테스트를 생성하되, 다른 사용자 Segment를 선택하세요. 예를 들어, 한 유형의 메시징이 참여도가 높은 사용자에게 매우 효과적이었다면, 이탈한 사용자에 대한 효과를 조사하는 것이 유용할 수 있습니다. 이탈한 사용자가 유사하게 반응할 수도 있고, 다른 배리언트 중 하나를 선호할 수도 있습니다. 이 테스트는 다양한 Segment와 그들이 다양한 유형의 메시지에 어떻게 반응하는지에 대해 더 많이 배우는 데 도움이 됩니다. 데이터를 기반으로 전략을 세울 수 있는데 왜 Segment에 대해 가정을 하나요?
 
-#### 이전 테스트의 인사이트를 기반으로 후속 테스트 실행 {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
+### 이전 테스트의 인사이트를 기반으로 후속 테스트 실행 {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 과거 테스트에서 수집한 인사이트를 활용하여 향후 테스트를 안내하세요. 이전 테스트에서 하나의 메시징 기법이 더 효과적이라는 힌트가 있었나요? 배리언트를 더 좋게 만든 특정 측면이 무엇인지 확실하지 않나요? 이러한 질문을 기반으로 후속 테스트를 실행하면 사용자에 대한 통찰력 있는 발견을 생성하는 데 도움이 됩니다.
 
-#### 다양한 배리언트의 장기적 영향 비교 {#compare-the-long-term-impact-of-different-variants}
+### 다양한 배리언트의 장기적 영향 비교 {#compare-the-long-term-impact-of-different-variants}
 
 재참여 메시지에 대해 A/B 테스트를 하는 경우, [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)를 사용하여 다양한 배리언트의 장기적 영향을 비교하는 것을 잊지 마세요. 리텐션 보고서를 사용하여 각 배리언트가 메시지 수신 후 며칠, 몇 주, 한 달 후에 선택한 사용자 행동에 어떤 영향을 미쳤는지 분석하고, 상승이 있는지 확인할 수 있습니다.

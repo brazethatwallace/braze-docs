@@ -102,11 +102,9 @@ Imaginons que vous ayez une application de produits diététiques et que vous so
 | **image_url** | L'image qui correspond à la recette. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
-Une fois le catalogue chargé dans Braze, vérifiez l'aperçu d'une série de produits du catalogue pour confirmer que les informations importées sont exactes. Les éléments peuvent apparaître dans un ordre aléatoire dans l'aperçu, mais cela n'affectera pas le résultat du moteur de recommandation.
+Une fois le catalogue chargé dans Braze, confirmez que les informations importées sont exactes en sélectionnant votre catalogue depuis la page Catalogues et en ouvrant l'onglet **Prévisualisation**. Un nombre limité d'éléments apparaît dans l'aperçu et peut être affiché dans un ordre aléatoire, mais cela n'affecte pas le résultat du moteur de recommandation.
 
-![Exemple de catalogue dans Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
-
-Créez une campagne de cartes de contenu. Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
+Une fois le catalogue en place, [créez une campagne de cartes de contenu]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
 
 {% subtabs local %}
 {% subtab title %}

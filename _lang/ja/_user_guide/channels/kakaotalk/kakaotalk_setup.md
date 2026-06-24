@@ -135,8 +135,6 @@ Infobipダッシュボードにアクセスし、以下の情報を収集しま�
 
 KakaoTalkでメッセージを送信するには、ユーザープロファイルにE.164形式の電話番号が必要です。電話番号はユーザープロファイルに表示されます。KakaoTalkでは電話番号がE.164形式（例：`+821025749774`）である必要があります。これは、複数の形式の電話番号を受け付ける他のメッセージングチャネルとは異なります。
 
-![E.164形式の電話番号を持つテストユーザーのユーザープロファイル。]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
-
 ### 電話番号のインポート {#import-phone-numbers}
 
 [CSVのアップロードまたはAPIの使用]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/)により電話番号をインポートしてユーザーを作成します。インポートする前に、電話番号がE.164形式であることを確認してください。

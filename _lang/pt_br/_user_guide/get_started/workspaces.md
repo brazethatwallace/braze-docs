@@ -25,7 +25,7 @@ Essa abordagem é particularmente útil para empresas como as de jogos móveis, 
 
 Você deve criar instâncias do app separadas para cada versão do seu app em cada plataforma. Ao decidir quais instâncias do app incluir em um espaço de trabalho, pense nos usuários que deseja direcionar e agrupe-os de acordo.
 
-A vantagem de ter várias instâncias do app em um único espaço de trabalho pode ser atraente, pois permite limitar o envio de mensagens em todo o seu portfólio de apps. No entanto, como prática recomendada, sugerimos apenas colocar versões diferentes do mesmo app (ou de apps muito semelhantes) em um único espaço de trabalho.
+A vantagem de ter várias instâncias do app em um único espaço de trabalho pode ser atraente, pois permite limitar a taxa de envio de mensagens em todo o seu portfólio de apps. No entanto, como prática recomendada, sugerimos apenas colocar versões diferentes do mesmo app (ou de apps muito semelhantes) em um único espaço de trabalho.
 
 ### Espaços de trabalho compartilhados {#shared-workspaces}
 
@@ -208,8 +208,8 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     <tr>
         <th scope="row">Duplicação de conteúdo</th>
         <td>N/D</td>
-        <td>Não é possível duplicar Segments, Campaigns de push ou de cartão de conteúdo, nem Canvas entre espaços de trabalho.</td>
-        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicar Campaigns entre espaços de trabalho</a> para os seguintes canais suportados: SMS, mensagens no app, e-mail, modelos de e-mail e Content Blocks. <br><br>Pode duplicar Segments, Campaigns e Canvas para reutilizar conteúdo de uma instância do app para outra.</td>
+        <td>Alguns conteúdos, como Segments e Campaigns de cartão de conteúdo, não podem ser copiados entre espaços de trabalho.</td>
+        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copiar Campaigns, Canvas e landing pages entre espaços de trabalho</a>. Os conteúdos suportados incluem Campaigns e Canvas para canais elegíveis, além de landing pages, modelos de e-mail, Feature Flags e Content Blocks.<br><br>Pode duplicar Segments, Campaigns, Canvas e landing pages para reutilizar conteúdo de uma instância do app para outra.</td>
         <td>N/D</td>
     </tr>
     <tr>

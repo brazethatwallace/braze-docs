@@ -11,7 +11,7 @@ local_redirect: #optimizations
 
 # 다변량 및 A/B 테스트 생성 {#creating-tests}
 
-> 단일 채널과 단일 기기를 타겟으로 하는 모든 Campaign에 대해 다변량 또는 A/B 테스트를 생성할 수 있습니다. 예를 들어, 푸시 Campaign에 다변량 또는 A/B 테스트를 사용하려면 iOS 기기만 또는 Android 기기만 타겟으로 지정해야 하며, 같은 Campaign에서 두 기기 유형을 동시에 타겟으로 지정할 수 없습니다.
+> 단일 채널을 타겟으로 하는 모든 Campaign에 대해 다변량 또는 A/B 테스트를 생성할 수 있습니다. 예를 들어, 푸시 Campaign에 다변량 또는 A/B 테스트를 사용하려면 동일한 Campaign에서 iOS와 Android 기기를 모두 타겟으로 지정할 수 있습니다.
 
 !["캠페인 생성" 버튼을 선택하면 멀티채널 또는 단일 채널을 선택할 수 있는 드롭다운.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 

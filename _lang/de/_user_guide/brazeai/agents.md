@@ -68,11 +68,17 @@ Es gelten die folgenden Einschränkungen:
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung haben, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 - Die Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden gekürzt.
 
+## Best Practices {#best-practices}
+
+Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agenten die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren werden. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity – beispielsweise das Retargeting von Nutzer:innen, die kürzlich gesucht, aber nicht konvertiert haben, anstatt agentengenerierten Text an Ihre gesamte Nutzerbasis zu senden.
+
+Um den ROI vor der Skalierung zu validieren, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt, um nur einen Teil Ihrer Zielgruppe durch einen Agent-Schritt zu leiten. Weitere Hinweise zur Bereitstellung finden Sie unter [Angepasste Agenten bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
 ## Fehlerbehandlung {#error-handling}
 
-Wenn das verbundene Modell während eines Canvas-Agent-Schritts einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage bis zu fünfmal mit exponentiellem Backoff. Bei anderen Fehlern (wie einer Zeitüberschreitung oder einem ungültigen API-Schlüssel) wird die Agentenausgabe auf `null` gesetzt. Wenn ein Agent sein tägliches Ausführungslimit erreicht, wird die Ausgabe ebenfalls auf `null` gesetzt.
+Wenn das verbundene Modell während eines **Canvas-Agent-Schritts** einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff. Katalog-Agenten wiederholen Rate-Limit-begrenzte Ausführungen nicht. Bei anderen Fehlern (wie einer Zeitüberschreitung oder einem ungültigen API-Schlüssel) wird die Canvas-Agentenausgabe auf `null` gesetzt, es sei denn, der Agent verfügt über [konfigurierte Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in der Agentenkonsole (nur Canvas-Schritt-Agenten). Wenn ein Agent sein tägliches Ausführungslimit erreicht, wendet Braze die konfigurierten Fallback-Werte an, sofern vorhanden; andernfalls wird die Ausgabe auf `null` gesetzt.
 
-Wenn viele Nutzer:innen gleichzeitig einen Agent-Schritt betreten, kann die Verarbeitung aufgrund von [Ausführungsflusskontrollen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) länger dauern. Verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/), um in Ihren Nachrichten gegen `null`-Ausgaben abzusichern.
+Wenn viele Nutzer:innen gleichzeitig einen Agent-Schritt betreten, kann die Verarbeitung aufgrund von [Ausführungsflusskontrollen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) länger dauern. Konfigurieren Sie Fallback-Werte in der Agentenkonsole für Canvas-Agenten, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn eine Ausführung fehlschlägt, oder verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in nachgelagerten Nachrichten-Schritten.
 
 ## Wie werden meine Daten verwendet und an die von Braze bereitgestellten LLMs übermittelt? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

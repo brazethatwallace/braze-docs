@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Better Email
 
-> [Better Email](https://www.betteremail.dev)は、メールデザインシステムを中心に構築されたコラボレーティブなメール作成プラットフォームです。チームはブロックとスタイルの共有システムからメールをデザイン、管理、エクスポートでき、開発者やエージェンシーに頼ることなく、大規模なブランドの一貫性を確保できます。
+> [Better Email](https://better.email)は、メールデザインシステムを中心に構築されたコラボレーティブなメール作成プラットフォームです。チームはブロックとスタイルの共有システムからメールをデザイン、管理、エクスポートでき、開発者やエージェンシーに頼ることなく、大規模なブランドの一貫性を確保できます。
 
 _この統合はBetter Emailによって管理されています。_
 
@@ -26,16 +26,16 @@ BrazeとBetter Emailの統合により、Better Emailのコラボレーティブ
 | Better Emailアカウント | 統合を作成するための管理者アクセス権を持つBetter Emailアカウント |
 | Braze REST APIキー | 完全な**テンプレート**権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。ダッシュボードURLではなくRESTホストを使用してください（例：`rest.fra-01.braze.eu`）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
-Better Emailは、デザインシステムを通じてメールを管理し、手動のHTML作業なしでBrazeにエクスポートしたいマーケティングチーム向けに構築されています。以下のようなチームに最適です：
+Better Emailは、デザインシステムを通じてメールを管理し、手動のHTML作業なしでBrazeにエクスポートしたいマーケティングチーム向けに構築されています。以下のような場合にBetter Emailの利用をご検討ください：
 
 - 大規模なメールテンプレートライブラリーを維持し、すべてのテンプレートで一貫性を確保する必要がある
 - 共有メールデザインシステムを通じてブランドガイドラインを適用したい
 - デザイナー、マーケター、開発者がチーム横断でメール制作にコラボレーションする
-- メールキャンペーンの実行にBrazeを使用し、デザインとデプロイメント間の引き継ぎのボトルネックを解消したい
+- Brazeでメールキャンペーンを実行し、デザインとデプロイメント間の引き継ぎのボトルネックを解消したい
 
 ## Better EmailとBrazeの統合 {#integrate-better-email-with-braze}
 
@@ -64,7 +64,7 @@ Brazeダッシュボードで、以下の情報を収集します：
 
 Better Emailは対応するBrazeメールテンプレートを作成または更新します。最初のエクスポート後、Better EmailはBrazeテンプレートIDを保存します。同じメールを再エクスポートすると、重複を作成するのではなくそのテンプレートが更新されます。
 
-### オプション：Brazeから受信者フィールドを同期する {#optional-sync-recipient-fields-from-braze}
+### Brazeから受信者フィールドを同期する（オプション） {#sync-recipient-fields-from-braze-optional}
 
 Better Emailは、マージタグやセグメンテーションフィールドとして使用するためにBrazeのカスタム属性を同期できます。
 
@@ -72,7 +72,7 @@ Better Emailは、マージタグやセグメンテーションフィールド�
 2. **Sync recipient fields**を有効にします。
 3. **Save**を選択します。
 4. **Recipient Fields**に移動します。
-5. 統合名から**Sync from**を実行します。
+5. 統合の横にある**Sync from**を選択します。
 
 Better Emailは利用可能なBrazeカスタム属性を読み取り、受信者フィールドにマッピングします。
 
@@ -80,12 +80,12 @@ Better Emailは利用可能なBrazeカスタム属性を読み取り、受信者
 
 エクスポートまたは同期が失敗した場合は、以下を確認してください：
 
-- **Instance URL**がダッシュボードURLではなくREST URLであること
-- APIキーがまだアクティブで、必要な**テンプレート**権限を持っていること
-- Better Emailで統合が有効になっていること
-- 正しいユーザーまたはグループが統合にアクセスできること
+- **Instance URL**がダッシュボードURLではなくREST URLであること。
+- APIキーがまだアクティブで、必要な**テンプレート**権限を持っていること。
+- Better Emailで統合が有効になっていること。
+- 統合へのアクセスが必要なユーザーまたはグループが**Access**でアクセス権を持っていること。
 
-さらにサポートが必要な場合は、[support@better.email](mailto:support@better.email)にお問い合わせください。
+さらにサポートが必要な場合は、[Better Emailサポートにお問い合わせください](mailto:support@better.email)。
 
 ## 統合の使用 {#use-the-integration}
 

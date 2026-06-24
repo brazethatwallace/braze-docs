@@ -19,7 +19,7 @@ channel:
 
 Recomendamos importar los números de teléfono en formato [`E.164`](https://en.wikipedia.org/wiki/e.164) para garantizar la precisión en caso de que envíes a múltiples regiones con diferentes códigos de país o área&#8212;incluso para números de teléfono con sede en EE. UU.
 
-- **Números de EE. UU.:** Todos los números de EE. UU. deben ser números de teléfono válidos de 10 dígitos con un código de área válido. Si a algún número de teléfono de 10 dígitos le falta un `+` y el código de país, Braze lo asignará como número de EE. UU.
+- **Números de EE. UU.:** Todos los números de EE. UU. deben ser números de teléfono válidos de 10 dígitos con un código de área válido. Si a algún número de teléfono de 10 dígitos le falta un `+` y el código de país, Braze lo asignará como número de EE. UU. Los números de teléfono de Puerto Rico aún requieren un `+` y el código de país, aunque utilicen un formato de 10 dígitos con códigos de área de estilo estadounidense.
 - **Números internacionales:** Todos los números internacionales deben comenzar con un `+`, seguido de su código de país y luego el número de teléfono. Por ejemplo, `+442071838750`.
 
 ![Ejemplo de un número de teléfono internacional válido en formato e164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -75,8 +75,8 @@ Los rechazos de SMS se cobran de tu asignación de SMS.
 
 Para excluir de tus segmentos a los usuarios con envíos de SMS rechazados, utiliza [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) y haz lo siguiente:
 
-1. Ve a **Audience** > **Segment Extensions**.
-2. Selecciona **Create New Extension** > **Full refresh** o **Incremental refresh**.
+1. Ve a **Audiencia** > **Extensiones de segmento**.
+2. Selecciona **Crear nueva extensión** > **Actualización completa** o **Actualización incremental**.
 3. Escribe una consulta SQL que identifique a los usuarios con rechazos de SMS. Por ejemplo, puedes consultar el evento `USERS_MESSAGES_SMS_REJECTION_SHARED` para encontrar usuarios que hayan recibido rechazos de SMS.
 4. Guarda tu extensión de segmento.
 5. Al crear tu segmento de SMS, añade un filtro para excluir a los usuarios en esta extensión de segmento.

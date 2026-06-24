@@ -37,7 +37,11 @@ Arraste e solte o componente **Agent** da barra lateral, ou selecione o botão d
 
 ### Etapa 2: Escolher o agente {#step-2-choose-your-agent}
 
-Selecione o agente que processará os dados nesta etapa. Escolha um agente existente. Para orientações de configuração, consulte [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+Selecione o agente que processará os dados nesta etapa. Para orientações de configuração, consulte [Criar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+
+Na lista de agentes, cada agente é identificado com seu [limite diário de invocações]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details). Passe o cursor sobre o limite para ver o progresso atual em relação a esse limite, incluindo a porcentagem utilizada e o número de invocações usadas hoje em comparação com o limite.
+
+![O painel Configurar etapa de agente mostrando o menu suspenso de agentes com dois agentes listados. Cada agente é identificado com seu limite diário de invocações. Uma dica de ferramenta no primeiro agente mostra a porcentagem utilizada e as invocações usadas hoje.]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
 ### Etapa 3: Definir a saída do agente {#define-the-output-variable}
 
@@ -77,16 +81,16 @@ Após configurar sua etapa de agente, você pode testar e pré-visualizar a saí
 
 ## Tratamento de erros {#error-handling}
 
-Para saber como a Braze lida com falhas de agentes, erros de limite de taxa e controles de fluxo de invocação, consulte [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) em Agentes da Braze.
+Para saber como a Braze lida com falhas de agentes, erros de limite de taxa e controles de fluxo de invocação, consulte [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) em Implantar agentes e [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) em Agentes da Braze.
 
-- Se o agente falhar por qualquer motivo (como erro de timeout ou chave de API inválida), a variável de saída é definida como `null`.
-    - Se um agente atingir seu limite diário de invocações, a variável de saída é definida como `null`.
-- Use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) para se proteger contra erros. Por exemplo, no modal **Add Personalization**, você pode inserir um valor padrão de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
+- Se o modelo conectado retornar um [erro de limite de taxa]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação de forma contínua usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída; os usuários então avançam para a próxima etapa do Canvas.
+- Para outras falhas (como erro de timeout ou chave de API inválida), ou quando um agente atinge seu limite diário de invocações, a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) no Console do agente. Quando valores de fallback estão configurados, a Braze renderiza o fallback com Liquid por usuário e armazena o resultado na variável de saída, inclusive quando o limite diário bloqueia uma invocação.
+- Se você não configurar valores de fallback, use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) nas etapas de mensagem subsequentes para lidar com saídas nulas. Por exemplo, no modal **Add Personalization**, você pode inserir um valor padrão de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - As respostas são armazenadas em cache para entradas idênticas e podem ser reutilizadas para invocações idênticas repetidas dentro de alguns minutos.
     - Respostas que usam valores em cache ainda contam para o total e as invocações diárias.
 - As etapas de agente podem levar tempo para processar um grande lote de usuários. A Braze enfileira as invocações de acordo com os [controles de fluxo de invocação]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls), então os usuários podem permanecer pendentes durante envios de alto volume. Verifique seus registros para confirmar que as invocações estão acontecendo.
 
-## Analytics {#analytics}
+## Análise de dados {#analytics}
 
 Consulte as métricas a seguir para acompanhar o desempenho das suas etapas de agente:
 
@@ -95,7 +99,7 @@ Consulte as métricas a seguir para acompanhar o desempenho das suas etapas de a
 | _Entered_ | O número de vezes que os usuários entraram na etapa de agente. |
 | _Proceeded to Next Step_ | O número de usuários que avançaram para a próxima etapa do fluxo após passar pela etapa de agente. |
 | _Exited Canvas_ | O número de usuários que saíram do Canvas após passar pela etapa de agente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Análise de dados" }
 
 ## Práticas recomendadas {#best-practices}
 

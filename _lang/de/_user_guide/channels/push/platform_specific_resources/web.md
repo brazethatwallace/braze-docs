@@ -70,3 +70,13 @@ Weitere Informationen zu den Push-Protokollstandards und der Browserunterstützu
 - [Safari (Mobilgerät)]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=safari)
 - [Mozilla Firefox](https://developer.mozilla.org/en-us/docs/web/api/push_api#browser_compatibility)
 - [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/push)
+
+## 410 (Gone) und ungültige Web-Push-Endpunkte {#410-gone-and-invalid-web-push-endpoints}
+
+Browser und Push-Dienste können **410 Gone** (oder ähnliche Fehler wie „Endpunkt nicht gültig“) zurückgeben, wenn ein Web-Push-Abonnement nicht mehr akzeptiert wird. Häufige Ursachen sind:
+
+- Die Nutzer:innen haben Benachrichtigungen für Ihre Website in den Browser- oder Betriebssystemeinstellungen deaktiviert.
+- Ein anderes Nutzerprofil hat sich im selben Browserprofil angemeldet, sodass der Endpunkt auf den/die neue Abonnent:in rotiert wurde.
+- Das Abonnement ist nach einer langen Zeit ohne Engagement abgelaufen – nachdem die Nutzer:innen erneut zugestimmt haben, wird in der nächsten Sitzung ein neues Abonnement erstellt.
+
+Nachdem die Nutzer:innen Benachrichtigungen wieder aktiviert haben, lösen Sie den normalen Web-Push-Registrierungsablauf Ihrer Website erneut aus, damit Braze den neuen Abonnement-Endpunkt speichert.

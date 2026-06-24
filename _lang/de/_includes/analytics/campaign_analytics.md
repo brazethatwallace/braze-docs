@@ -66,7 +66,7 @@ Der WhatsApp-Kanal enthält die Leserate. Diese Metrik wird nur für Nutzer:inne
 
 In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen erstellten Canvas zugeordnet sind. Sie können das Bedienfeld oben auf der Seite verwenden, um andere Nachrichtentypen (Kanäle) auszublenden und nur die In-App-Nachrichten in Ihrem Canvas anzuzeigen.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![Eine Option zur Auswahl des Kanals, wobei das Kontrollkästchen „In-App Message“ ausgewählt ist.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![Der Abschnitt „Kampagnendetails“.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -165,7 +165,7 @@ Das Panel **SMS/MMS/RCS Performance** zeigt Ihnen, wie gut Ihre Nachricht in ver
 
 Das Panel **Banner Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Diese Metriken variieren je nach Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen.
 
-![Banner-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![SMS/MMS-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### KakaoTalk-Performance
@@ -257,8 +257,8 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">Dieser Zähler</span> wird nicht erhöht, wenn eine Nutzer:in eine Content-Card zum zweiten Mal aufruft.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Da eine Nutzer:in jeden Tag als eindeutige Empfänger:in gezählt werden kann, sollten Sie davon ausgehen, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Da eine Nutzer:in jeden Tag eine eindeutige tägliche Impression haben kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -275,11 +275,11 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
 Bei der Protokollierung von Impressionen gibt es einige Unterschiede zwischen Web, Android und iOS. Generell protokolliert Braze eine Impression, wenn eine Karte gesehen wird – also nachdem eine Nutzer:in zur entsprechenden Content-Card in ihrem Feed gescrollt hat.
 {% endalert %}
 
-#### Unique Recipients versus Unique Impressions
+#### Unique Daily Impressions versus Unique Impressions
 
-Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Recipients_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
+Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Daily Impressions_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
 
-Angenommen, Sie sehen sich heute eine Content-Card an, erhalten morgen eine neue Karte aus derselben Kampagne und übermorgen wieder eine – dann werden Sie dreimal als _Unique Recipient_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt. Außerdem werden Sie in der Anzahl der _Messages Sent_ berücksichtigt, da die Karte auf Ihrem Gerät verfügbar war.
+Angenommen, Sie sehen sich heute eine Content-Card an, erhalten morgen eine neue Karte aus derselben Kampagne und übermorgen wieder eine – dann werden Sie dreimal als _Unique Daily Impression_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt. Außerdem werden Sie in der Anzahl der _Messages Sent_ berücksichtigt, da die Karte auf Ihrem Gerät verfügbar war.
 
 Ein weiteres Beispiel: Angenommen, Sie sehen fünf _Unique Impressions_ für eine Content-Card-Kampagne mit 150.000 _Messages Sent_. Das bedeutet, dass die Karte (im Backend) einer Zielgruppe von 150.000 Nutzer:innen zur Verfügung gestellt wurde, aber nur die Geräte von fünf Nutzer:innen alle folgenden Schritte nach dem Senden ausgeführt haben:
 
@@ -287,7 +287,7 @@ Ein weiteres Beispiel: Angenommen, Sie sehen fünf _Unique Impressions_ für ein
 2. Zur Content-Cards-Ansicht navigiert
 3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
-_Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind, während _Unique Recipients_ die Content Cards bezeichnet, die tatsächlich angesehen wurden.
+_Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind, während _Unique Daily Impressions_ die Content Cards bezeichnet, die tatsächlich angesehen wurden.
 
 {% elsif include.channel == "banner" %}
 
@@ -337,8 +337,8 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Da eine Betrachterin oder ein Betrachter jeden Tag als eindeutige Empfänger:in gezählt werden kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Da eine Betrachterin oder ein Betrachter jeden Tag eine eindeutige tägliche Impression haben kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -353,9 +353,9 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
 
 #### Berechnungsbeispiele für Banner-Metriken {#banner-metrics-calculation-examples}
 
-Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Recipients_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
+Es gibt mehrere Metriken, die die Sichtbarkeit Ihrer Nachricht erfassen, darunter _Unique Daily Impressions_ und _Unique Impressions_. Anhand einiger Beispielszenarien lassen sich diese Metriken besser verstehen.
 
-Angenommen, Sie sehen sich heute ein Banner an, morgen dasselbe Banner und übermorgen erneut – dann werden Sie dreimal als _Unique Recipient_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt.
+Angenommen, Sie sehen sich heute ein Banner an, morgen dasselbe Banner und übermorgen erneut – dann werden Sie dreimal als _Unique Daily Impression_ gezählt. Sie werden jedoch nur für eine _Unique Impression_ gezählt.
 
 Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in einer Banner-Kampagne. Das bedeutet, dass nur die Geräte von fünf Nutzer:innen alle folgenden Schritte ausgeführt haben:
 
@@ -363,7 +363,7 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 2. Zur Banner-Ansicht navigiert
 3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
-_Unique Recipients_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
+_Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
 
 {% elsif include.channel == "email" %}
 
@@ -595,6 +595,10 @@ Die Verteilung zwischen Kontroll- und Variantengruppen ist grundsätzlich annäh
 ### KakaoTalk-Metriken {#kakaotalk-metrics}
 
 Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Analytics sehen können. Weitere Details finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/).
+
+{% alert note %}
+Derzeit sind für KakaoTalk-Kampagnen keine geschätzten oder exakten Zielgruppenstatistiken verfügbar.
+{% endalert %}
 
 | Begriff | Definition |
 | --- | --- |

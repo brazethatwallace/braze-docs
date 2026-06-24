@@ -289,11 +289,7 @@ Dans cet exemple :
 
 Pour téléverser votre fichier, sélectionnez **Attributes** ou **Events**, cliquez sur **Browse Files**, puis téléversez votre CSV. Braze affiche un aperçu des premières lignes et un résumé des champs détectés.
 
-![La page d'aperçu du fichier montrant un aperçu du fichier après le téléversement.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 Pour les fichiers volumineux (jusqu'à 500 Mo pour les attributs par défaut et personnalisés, ou 50 Mo pour les événements personnalisés), le tableau de bord peut sembler temporairement non réactif pendant le téléversement du fichier et le calcul de l'importation par Braze. Ces téléversements et calculs peuvent prendre plus de temps que pour des fichiers plus petits. Laissez cette étape se terminer. Pour plus de contexte sur les limites de fichiers et les délais, consultez [Construire votre CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![La fenêtre modale de téléversement terminé montrant un aperçu du fichier, un champ de nom d'importation, les préférences de ciblage et une case de validation du fichier.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 Dans le champ **Import name**, vous pouvez renommer votre importation. Par défaut, le nom du fichier est utilisé.
 

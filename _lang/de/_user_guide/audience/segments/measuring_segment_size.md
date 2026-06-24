@@ -30,9 +30,13 @@ Damit Nutzer:innen als über einen bestimmten Kanal erreichbar aufgeführt werde
 
 Einzelne Nutzer:innen können zu verschiedenen Gruppen erreichbarer Nutzer:innen gehören. Beispielsweise könnte eine/ein Nutzer:in sowohl eine gültige E-Mail-Adresse als auch ein gültiges Android-Push-Token haben und für beides ein Opt-in erteilt haben, aber kein zugehöriges iOS-Push-Token besitzen. Die Differenz zwischen den insgesamt erreichbaren Nutzer:innen und der Summe der verschiedenen Kanäle entspricht der Anzahl der Nutzer:innen, die sich für das Segment qualifiziert haben, aber über diese Kommunikationskanäle nicht erreichbar sind.
 
+{% alert note %}
+**Insgesamt erreichbare Nutzer:innen** umfasst alle, die Ihren Segmentfiltern entsprechen, auch wenn sie einen Kanal nicht mehr abonniert haben. Kanalzeilen wie **iOS** zählen Nutzer:innen, die nur über diesen Kanal erreichbar sind, gemäß den Regeln unter [Erreichbare Nutzer:innen nach Kanal](#reachable-users-by-channel). Um die Segmenttotale mit abonnierten Nutzer:innen abzugleichen, fügen Sie Filter wie **Push enabled for iOS** ist wahr (oder das Äquivalent für Ihren Kanal) hinzu.
+{% endalert %}
+
 ## Statistiken zur Segmentgröße {#statistics-for-segment-size}
 
-Geschätzte Statistiken werden durch Stichproben nur eines Teils Ihres Segments approximiert. Sie sollten daher damit rechnen, dass geschätzte Größen größer oder kleiner als der tatsächliche Wert ausfallen, wobei größere Workspaces potenziell größere Fehlerspannen aufweisen können. Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment zu erhalten, wählen Sie **Calculate Exact Statistics**. Die exakte Segmentmitgliedschaft wird immer berechnet, bevor ein Segment von einer Nachricht betroffen ist, die in einer Campaign oder einem Canvas gesendet wird.
+Geschätzte Statistiken werden durch Stichproben nur eines Teils Ihres Segments approximiert. Sie sollten daher damit rechnen, dass geschätzte Größen größer oder kleiner als der tatsächliche Wert ausfallen, wobei größere Workspaces potenziell größere Fehlerspannen aufweisen können. Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment zu erhalten, wählen Sie **Calculate Exact Statistics**. Die exakte Segmentmitgliedschaft wird immer berechnet, bevor ein Segment von einer Nachricht betroffen ist, die in einer Kampagne oder einem Canvas gesendet wird.
 
 Braze stellt die folgenden Statistiken zur Segmentgröße bereit.
 
@@ -131,10 +135,10 @@ Die Mitgliedschaftszahl kann sich aus verschiedenen Gründen signifikant ändern
 
 | Grund | Beispiel |
 | --- | --- |
-| Normales Nutzer:innenverhalten | Nutzer:innen abonnieren nach einer besonders erfolgreichen Campaign. |
+| Normales Nutzer:innenverhalten | Nutzer:innen abonnieren nach einer besonders erfolgreichen Kampagne. |
 | Nutzer:innen werden per CSV importiert | Eine CSV-Datei mit Nutzer:innen wurde importiert, die die Segmentmitgliedschaft erheblich erhöht hat. |
 | Segmentzielgruppenkriterien werden geändert | Die Zielgruppenregeln eines bestehenden Segments (wie Filter) wurden geändert, was zu signifikanten Änderungen der Segmentmitgliedschaft führt. |
 | Nutzer:innen werden gelöscht | Eine erhebliche Anzahl von Nutzer:innen wurde gelöscht. |
 | Eine Partnerintegration hat sich mit Braze synchronisiert | Ein Drittanbieter hat Daten an Braze gesendet, die die Segmentmitgliedschaft erheblich beeinflusst haben. |
 | Inaktive Nutzer:innen werden archiviert | Eine erhebliche Anzahl inaktiver Profile wurde archiviert. Beispielsweise wird eine große Anzahl per CSV importierter Nutzer:innen, die nie Aktivität protokollieren, gleichzeitig archiviert. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gründe für signifikante Änderungen" }

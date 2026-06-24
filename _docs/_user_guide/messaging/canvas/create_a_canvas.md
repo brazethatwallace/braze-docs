@@ -224,15 +224,31 @@ You can add additional variants by selecting the <i class="fas fa-plus-circle"><
 ![Two example variants in a Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-By default, Canvas variant assignment is determined by a function of the user ID and Canvas ID, meaning that a given user is consistently assigned to the same variant on re-entry, as long as the variant distribution percentages remain unchanged. If you adjust the variant distribution after launch, users may be assigned to different variants when they re-enter the Canvas. <br><br>If you need full control over variant assignment that persists even when distribution changes, you can create a random number generator using Liquid, run it at the beginning of each user's Canvas entry, store the value as a custom attribute, and then use that attribute to divide users into branches.
+By default, Canvas variant assignment is determined by a deterministic hash of the user ID and Canvas ID (not a user's [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)), meaning that a given user is consistently assigned to the same variant on re-entry, as long as the variant distribution percentages remain unchanged. If you adjust the variant distribution after launch, users may be assigned to different variants when they re-enter the Canvas. <br><br>If you need assignment that stays fixed when distribution percentages change, use a single Canvas variant and route users with an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) step. At the start of the journey, use a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step to store a random number in a custom attribute, then filter on that attribute in Audience Paths.
 
 {% details Expand for steps %}
 
-1. Create a custom attribute to store your random number. Name it something easy to locate, like "lottery_number" or "random_assignment". You can create the attribute either [in your dashboard]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/), or through API calls to our [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).<br><br>
-2. Create a webhook campaign at the beginning of your Canvas. This campaign will be the medium in which you create your random number and store it as a custom attribute. Refer to [Create a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) for more. Set the URL to our `/users/track` endpoint.<br><br>
-3. Create the random number generator. You can do so with the code [ outlined here](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), which takes advantage of each user's unique time of entry to create a random number. Set the resulting number as a Liquid variable within your webhook campaign.<br><br>
-4. Format the `/users/track` call on your webhook campaign so that it sets the custom attribute you created in step 1 to the random number you've generated on your current user's profile. When this step runs, you will have successfully made a random number that changes each time a user enters your campaign.<br><br>
-5. Adjust the branches of your Canvas so that, instead of being divided by randomly chosen variants, they are divided based on audience rules. In the audience rules of each branch, set the audience filter according to your custom attribute. <br><br>For example, one branch may have "lottery_number is less than 3" as an audience filter, while another branch may have "lottery_number is more than 3 and less than 6" as an audience filter.
+1. Create a **Number** custom attribute to store your random number. Name it something easy to locate, like `lottery_number` or `random_assignment`. In your dashboard, go to **Data Settings** > **Custom Attributes**.<br><br>
+2. Use a single Canvas variant (or add the same User Update step to each variant). Add a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step at the beginning of the journey. This step generates and stores the random number before users reach your Audience Paths step.<br><br>
+3. In the User Update step, select the [Advanced JSON Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Use the {% raw %}{% random %}{% endraw %} tag to generate the number. For details, see [Send messages with a random number]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number). For example, {% raw %}`{% random 10 %}`{% endraw %} returns an integer from 0 through 9. Set the custom attribute from step 1 using JSON like this:<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+The {% raw %}`{% if %}`{% endraw %} block sets the number only when the attribute is blank, so users keep the same assignment when they re-enter the Canvas.<br><br>
+
+{: start="4"}
+4. Add an [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) step after the User Update step. In each audience group, add filters based on your custom attribute instead of using variant distribution percentages.<br><br>For example, if you used {% raw %}`{% random 10 %}`{% endraw %}, one group might use `lottery_number` **is less than 4**, another **is more than 3 and less than 7**, and a third **is more than 6 and less than 10**.
 
 {% enddetails %}
 {% endalert %}

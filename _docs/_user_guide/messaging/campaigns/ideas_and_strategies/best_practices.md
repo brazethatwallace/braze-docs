@@ -77,6 +77,8 @@ When editing campaign schedules or audiences, note the following best practices:
 - **Local send time campaigns:** Don't make edits 24 hours before the scheduled send time.
 - **Optimal send time campaigns:** Don't make edits 24 hours before midnight of the day the campaign is scheduled to be sent on.
 
+For Canvas scheduling nuances (drafts, stops, and evaluation near send time), see [Canvas best practices]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases).
+
 {% alert note %}
 Editing a live campaign and changing the delivery to **Local Send Time** will cause a new batch of messages to be enqueued, meaning your users will receive the message twice due to the message being enqueued twice. To prevent this, first stop the original campaign, then launch a duplicate after updating the schedule.
 {% endalert %}

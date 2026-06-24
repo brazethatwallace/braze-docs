@@ -48,3 +48,9 @@ Para arquivar um Canvas:
 Quando você desarquiva uma Campaign ou um Canvas, ele não será ativado automaticamente — seu status será apenas alterado para **Active**. Após o desarquivamento, você pode editar e revisar como a mensagem está configurada sem que nenhuma mensagem seja enviada.
 
 Para retomar a Campaign ou o Canvas e começar a enviar mensagens, selecione o menu <i class="fas fa-ellipsis-vertical"></i> na respectiva linha e selecione **Resume**.
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Campaigns e Canvas são excluídos quando eu os arquivo? {#are-campaigns-and-canvases-deleted-when-i-archive-them}
+
+Não. Selecionar **Archive** interrompe a entrega e oculta a mensagem das listas do dia a dia, mas a Braze mantém a Campaign ou o Canvas para relatórios e histórico do espaço de trabalho. Arquive suas mensagens para limpeza do ciclo de vida quando uma mensagem não precisar mais ser enviada.

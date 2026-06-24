@@ -24,7 +24,7 @@ Para gestionar los conmutadores de características en el dashboard, necesitará
 
 ### Paso 1: Crear un nuevo conmutador de características {#step-1-create-a-new-feature-flag}
 
-Ve a **Messaging** > **Feature Flags** y selecciona **Create Feature Flag**.
+Ve a **Mensajería** > **Feature Flags** y selecciona **Create Feature Flag**.
 
 ![Una tabla de datos que muestra un conmutador de características existente y cómo crear uno nuevo.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
@@ -53,17 +53,17 @@ En el siguiente ejemplo, el conmutador de características muestra un banner de 
 
 | Nombre de la propiedad | Tipo | Valor |
 |--|--|--|
-| `banner_height`|`number`|`75`|
-| `banner_color`|`string`|`blue`|
-| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
-|`dismissible`|`boolean`|`false`|
-| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `banner_height` | `number` | `75` |
+| `banner_color` | `string` | `blue` |
+| `banner_text` | `string` | `Widgets are out of stock until July 1.` |
+| `dismissible` | `boolean` | `false` |
+| `homepage_icon` | `image` | `http://s3.amazonaws.com/[bucket_name]/` |
+| `account_start` | `timestamp` | `2011-01-01T12:00:00Z` |
+| `footer_settings` | `JSON` | `{ "colors": [ "red", "blue", "green" ], "placement": 123 }` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2a: Crear propiedades personalizadas" }
 
 {% alert tip %}
-No hay límite en el número de propiedades que puedes añadir. Sin embargo, las propiedades de un conmutador de características están limitadas a un total de 10 KB. Tanto los valores de propiedad como las claves tienen una longitud máxima de 255 caracteres.
+No hay límite en el número de propiedades que puedes añadir. Sin embargo, las propiedades de un conmutador de características están limitadas a un total de 10.000 caracteres.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -887,9 +887,9 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## Comprobación de la elegibilidad de los usuarios {#checking-user-eligibility}
 
-Para comprobar a qué conmutadores de características tiene derecho un usuario en Braze, ve a **Audience** > **Search Users**, luego busca y selecciona un usuario.
+Para comprobar a qué conmutadores de características tiene derecho un usuario en Braze, ve a **Audiencia** > **Buscar usuarios**, luego busca y selecciona un usuario.
 
-En la pestaña **Feature Flags Eligibility**, puedes filtrar la lista de conmutadores de características elegibles por plataforma, aplicación o dispositivo. También puedes obtener una vista previa de la carga útil que se devolverá al usuario seleccionando <i class="fa-solid fa-eye"></i> junto a un conmutador de características.
+En la pestaña **Feature Flags Eligibility**, puedes filtrar la lista de conmutadores de características elegibles por plataforma, aplicación o dispositivo. También puedes obtener una vista previa de la carga útil que se devolverá al usuario seleccionando <i class="fa-solid fa-eye" aria-label="Vista previa"></i> junto a un conmutador de características.
 
 ![Imagen que muestra la tabla de conmutadores de características para los que un usuario es elegible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 

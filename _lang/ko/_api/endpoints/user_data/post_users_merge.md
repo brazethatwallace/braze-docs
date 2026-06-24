@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `merge_updates` | 필수 | 배열 | 오브젝트 배열입니다. 각 오브젝트에는 `identifier_to_merge` 오브젝트와 `identifier_to_keep` 오브젝트가 포함되어야 하며, 각각 `external_id`, `user_alias`, `phone` 또는 `email`로 사용자를 참조해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 병합 동작 {#merge-behavior}
 
@@ -88,7 +88,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 - Campaign 상호작용 데이터(Braze는 가장 최근 날짜 필드를 선택합니다)
 - 워크플로우 요약(Braze는 가장 최근 날짜 필드를 선택합니다)
 - 메시지 및 메시지 참여 내역
-- Braze는 앱이 두 고객 프로필 모두에 존재하는 경우에만 세션 데이터를 병합합니다.
+- Braze는 앱이 두 사용자 프로필 모두에 존재하는 경우에만 세션 데이터를 병합합니다.
 
 {% alert note %}
 사용자를 병합할 때 `/users/merge` 엔드포인트를 사용하는 것은 [`changeUser()` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 사용하는 것과 동일한 방식으로 작동합니다.
@@ -266,6 +266,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ## 문제 해결 {#troubleshooting}
 
+### 성공 응답이 반환되었지만 병합된 사용자가 여전히 검색 가능한 경우 {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+성공 응답은 요청이 수락되었음을 확인하지만, 병합 작업은 프로필 병합과 소스 프로필 제거의 두 단계로 이루어집니다. 이 때문에 성공 응답 후 짧은 시간 동안 `identifier_to_merge` 프로필이 대시보드에서 검색 가능한 상태로 남아 있을 수 있습니다. 이는 예상되는 동작입니다. 몇 분 기다린 후 병합이 완료되었는지 확인하세요.
+
+병합된 사용자가 몇 분 후에도 여전히 존재하는 경우, 요청의 식별자가 올바르고 요청에 사용된 API 키와 동일한 워크스페이스의 사용자에 속하는지 확인하세요.
+
+### 오류 참조 {#error-reference}
+
 다음 표에는 발생할 수 있는 오류 메시지가 나열되어 있습니다.
 
 | 오류 | 문제 해결 |
@@ -274,6 +282,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 한 요청에 병합 업데이트는 최대 50개까지만 지정할 수 있습니다. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | 요청에 포함된 식별자를 확인하세요. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates`에 `identifier_to_merge`와 `identifier_to_keep` 두 개의 오브젝트만 포함되어 있는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

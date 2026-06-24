@@ -102,7 +102,7 @@ Quando uma resposta inclui múltiplas métricas, o Operator prioriza taxas de en
 | Content Cards | *Envios*, *Impressões*, *Cliques* | Sim |
 | WhatsApp | *Envios*, *Entregas*, *Leituras*, *Cliques* | Ainda não |
 | RCS | *Envios*, *Entregas*, *Leituras*, *Cliques* (incluindo subtipos de URL de texto, botão, ação, ação de resposta e botão de resposta) | Ainda não |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported channels, metrics, and benchmark availability" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canais compatíveis, métricas e disponibilidade de benchmarks" }
 
 {% alert tip %}
 O Operator usa contagens únicas para taxas (por exemplo, *Aberturas Únicas* divididas por *Entregas* para *taxa de abertura de e-mail*). Se um valor diferir de um dashboard, compare a janela de atribuição, o período e a definição. O Operator lista os três em cada resposta.
@@ -120,7 +120,7 @@ O Operator Analyze usa por padrão o **ano fiscal da Braze**, que vai de 1º de 
 | FQ2 | Mai – Jul |
 | FQ3 | Ago – Out |
 | FQ4 | Nov – Jan |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze fiscal quarters and calendar months" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Trimestres fiscais da Braze e meses do calendário" }
 
 Para perguntas sobre o ano calendário, inclua "CY", "calendar year" ou "standard year". Prompts ambíguos como "last year" fazem o Operator confirmar qual calendário você quer dizer.
 
@@ -159,7 +159,7 @@ Perguntas fora do escopo recebem uma resposta direta, uma alternativa sugerida q
 
 ## Privacidade e segurança dos dados {#data-privacy-and-security}
 
-O Operator Analyze segue o mesmo modelo de privacidade e segurança do BrazeAI Operator<sup>TM</sup>. Para saber mais, consulte [Privacidade e segurança dos dados]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security).
+O Operator Analyze segue o mesmo modelo de privacidade e segurança do BrazeAI Operator<sup>TM</sup>. Para saber mais, consulte [Privacidade e segurança dos dados]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
 
 ## Próximas etapas {#next-steps}
 

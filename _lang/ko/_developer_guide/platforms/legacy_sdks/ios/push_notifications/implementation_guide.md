@@ -146,7 +146,6 @@ func didReceive(_ notification: UNNotification) {
 3. 정보가 제공되고 유효한 경우 등록 버튼이 표시됩니다.
 3. 확인 보기가 표시되고 푸시가 해제됩니다.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 여기서 요청하는 정보는 SMS 번호 캡처와 같은 광범위한 정보일 수 있으며 이메일로 한정되지 않아도 됩니다.
 

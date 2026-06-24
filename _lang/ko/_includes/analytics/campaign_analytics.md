@@ -67,7 +67,7 @@ WhatsApp 채널에는 읽기 비율이 포함됩니다. 이 측정기준은 읽�
 
 Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인할 수 있습니다. 페이지 상단의 제어판을 사용하여 다른 메시징 유형(채널)을 지우고 Canvas의 인앱 메시지만 볼 수 있습니다.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![In-App Message 체크박스가 선택된 채널 선택 옵션.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![Campaign Details 섹션.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -257,8 +257,8 @@ The **Message Performance** panel outlines how well your message has performed a
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">이 카운트는</span> 사용자가 콘텐츠 카드를 두 번째로 볼 때 증가하지 않습니다.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> 사용자가 매일 고유 수신자로 카운트될 수 있으므로, 이 값은 <i>Unique Impressions</i>보다 높을 수 있습니다.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> 사용자가 매일 고유 일일 노출로 카운트될 수 있으므로, 이 값은 <i>Unique Impressions</i>보다 높을 수 있습니다.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -275,11 +275,11 @@ The **Message Performance** panel outlines how well your message has performed a
 노출 횟수 기록 방식에는 웹, Android, iOS 간에 약간의 차이가 있습니다. 일반적으로 Braze는 사용자가 피드에서 특정 콘텐츠 카드까지 스크롤하여 카드를 볼 때 노출 횟수를 기록합니다.
 {% endalert %}
 
-#### Unique Recipients 대 Unique Impressions {#unique-recipients-versus-unique-impressions}
+#### Unique Daily Impressions 대 Unique Impressions {#unique-daily-impressions-versus-unique-impressions}
 
-메시지의 가시성을 다루는 몇 가지 측정기준이 있습니다. 여기에는 _Unique Recipients_와 _Unique Impressions_가 포함됩니다. 몇 가지 예시 시나리오를 통해 이 측정기준을 더 잘 이해해 보겠습니다.
+메시지의 가시성을 다루는 몇 가지 측정기준이 있습니다. 여기에는 _Unique Daily Impressions_와 _Unique Impressions_가 포함됩니다. 몇 가지 예시 시나리오를 통해 이 측정기준을 더 잘 이해해 보겠습니다.
 
-오늘 콘텐츠 카드를 보고, 내일 같은 캠페인에서 새 카드를 받고, 모레 다시 받는다면 _Unique Recipients_로 세 번 카운트됩니다. 하지만 _Unique Impressions_로는 한 번만 카운트됩니다. 카드가 기기에서 사용 가능했으므로 _Messages Sent_ 수에도 포함됩니다.
+오늘 콘텐츠 카드를 보고, 내일 같은 캠페인에서 새 카드를 받고, 모레 다시 받는다면 _Unique Daily Impression_으로 세 번 카운트됩니다. 하지만 _Unique Impression_으로는 한 번만 카운트됩니다. 카드가 기기에서 사용 가능했으므로 _Messages Sent_ 수에도 포함됩니다.
 
 또 다른 예로, 콘텐츠 카드 캠페인에서 _Messages Sent_가 150,000이고 _Unique Impressions_가 5인 경우를 가정해 보겠습니다. 이는 카드가 150,000명의 오디언스에게(백엔드에서) 제공되었지만, 발송 이후 다음 단계를 모두 수행한 기기는 5대뿐이었음을 의미합니다:
 
@@ -287,7 +287,7 @@ The **Message Performance** panel outlines how well your message has performed a
 2. Content Cards 보기로 이동했습니다
 3. SDK가 노출 횟수를 기록하고 서버에 전송했습니다
 
-_Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _Unique Recipients_는 실제로 본 Content Cards를 의미합니다.
+_Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _Unique Daily Impressions_는 실제로 본 Content Cards를 의미합니다.
 
 {% elsif include.channel == "banner" %}
 
@@ -337,8 +337,8 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> 시청자가 매일 고유 수신자로 카운트될 수 있으므로, 이 값은 <i>Unique Impressions</i>보다 높을 수 있습니다.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> 시청자가 매일 고유 일일 노출로 카운트될 수 있으므로, 이 값은 <i>Unique Impressions</i>보다 높을 수 있습니다.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -353,9 +353,9 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 
 #### 배너 측정기준 계산 예시 {#banner-metrics-calculation-examples}
 
-메시지의 가시성을 다루는 몇 가지 측정기준이 있습니다. 여기에는 _Unique Recipients_와 _Unique Impressions_가 포함됩니다. 몇 가지 예시 시나리오를 통해 이 측정기준을 더 잘 이해해 보겠습니다.
+메시지의 가시성을 다루는 몇 가지 측정기준이 있습니다. 여기에는 _Unique Daily Impressions_와 _Unique Impressions_가 포함됩니다. 몇 가지 예시 시나리오를 통해 이 측정기준을 더 잘 이해해 보겠습니다.
 
-오늘 배너를 보고, 내일 같은 배너를 보고, 모레 다시 본다면 _Unique Recipients_로 세 번 카운트됩니다. 하지만 _Unique Impressions_로는 한 번만 카운트됩니다.
+오늘 배너를 보고, 내일 같은 배너를 보고, 모레 다시 본다면 _Unique Daily Impression_으로 세 번 카운트됩니다. 하지만 _Unique Impression_으로는 한 번만 카운트됩니다.
 
 또 다른 예로, 배너 캠페인에서 _Unique Impressions_가 5인 경우를 가정해 보겠습니다. 이는 다음 단계를 모두 수행한 기기가 5대뿐이었음을 의미합니다:
 
@@ -363,7 +363,7 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 2. 배너 보기로 이동했습니다
 3. SDK가 노출 횟수를 기록하고 서버에 전송했습니다
 
-_Unique Recipients_는 실제로 본 배너를 의미합니다.
+_Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
 
 {% elsif include.channel == "email" %}
 
@@ -595,6 +595,10 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 ### KakaoTalk 측정기준 {#kakaotalk-metrics}
 
 분석에서 볼 수 있는 몇 가지 주요 KakaoTalk 측정기준을 소개합니다. 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)을 참조하세요.
+
+{% alert note %}
+현재 KakaoTalk 캠페인에 대한 추정 또는 정확한 오디언스 통계는 제공되지 않습니다.
+{% endalert %}
 
 | 용어 | 정의 |
 | --- | --- |

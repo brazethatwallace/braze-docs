@@ -47,7 +47,7 @@ Dependiendo del tipo de notificación, **All Dashboard Users** y **All Admins** 
 | Errores de webhook | Notifica a los destinatarios cuando un punto de conexión de webhook tiene errores. | Correo electrónico |
 | Informe de análisis semanal | Envía un resumen de la actividad del espacio de trabajo de la semana anterior a los destinatarios cada lunes. Los destinatarios reciben un resumen de cada espacio de trabajo al que pertenecen. | Correo electrónico |
 | Límites de volumen de entrada diaria de Canvas/Campaign | Envía notificaciones cada vez que se alcanza un límite de envío. | Correo electrónico |
-| Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/) ha alcanzado su límite de ejecución, utiliza un modelo que ya no está disponible o encuentra un error de facturación con su proveedor de LLM (solo con clave de API propia). | Correo electrónico |
+| Error de la Consola de Agente | Notifica a los destinatarios cuando un agente de la [Consola de Agente]({{site.baseurl}}/user_guide/brazeai/agents/) ha alcanzado su límite de invocación, utiliza un modelo que ya no está disponible o encuentra un error de facturación con su proveedor de LLM (solo con clave de API propia). | Correo electrónico |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificaciones disponibles" }
 
 {% alert note %}

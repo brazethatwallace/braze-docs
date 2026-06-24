@@ -12,7 +12,7 @@ hide_toc: true
 
 Los Action Credits se pueden aplicar en cualquiera de los canales y características presentados en esta página.
 
-Ten en cuenta que el "Ratio de créditos" referenciado en esta página se define como el número exacto de Action Credits necesarios para realizar la acción especificada.
+Ten en cuenta que el "ratio de créditos" referenciado en esta página se define como el número exacto de Action Credits necesarios para realizar la acción especificada.
 
 ## Tabla de contenidos {#table-of-contents}
 
@@ -44,7 +44,7 @@ Consulta nuestra [documentación de correo electrónico](https://www.braze.com/d
 
 ## Detalles de los canales SMS, MMS y RCS {#sms-mms-and-rcs-channel-details}
 
-Los ratios de créditos de SMS y MMS se denominan en incrementos de segmentos entrantes o salientes enviados desde la plataforma Braze. Los ratios de créditos de RCS se denominan en incrementos de tipos Basic o Single enviados desde la plataforma Braze.
+Los ratios de créditos de SMS y MMS se denominan en incrementos de segmentos enviados desde la plataforma Braze. Los ratios de créditos de RCS se denominan en incrementos de tipos Basic y Rich Media, o tipos Single y Rich Media entregados desde la plataforma Braze. Tanto los tipos de entrada como los de salida se facturan.
 
 {% alert note %}
 Cuando corresponda para estos canales, las tarifas del operador se facturan por separado (a mes vencido) y no se consideran parte de los Action Credits.

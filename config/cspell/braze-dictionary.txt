@@ -333,6 +333,7 @@ Grouparoo's
 growthloop
 Hailo
 handleize
+Harborlight
 Hashanah
 hashpart
 Heartbleed
@@ -662,6 +663,7 @@ ridesharing
 Rish
 Rishing
 Rica
+Rican
 Rokt
 Rokt Calendar
 roleplay

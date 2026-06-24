@@ -224,7 +224,6 @@ Google Cloud에서 Android 앱이 사용 중인 프로젝트를 선택한 다음
 
 서비스 계정 이름, ID, 설명을 입력한 다음 **생성 후 계속**을 선택합니다.
 
-!["서비스 계정 세부 정보" 양식.]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 **역할** 필드에서 역할 목록에서 **Firebase Cloud Messaging API Admin**을 찾아 선택합니다. 보다 제한적인 액세스를 원하면 `cloudmessaging.messages.create` 권한으로 [커스텀 역할](https://cloud.google.com/iam/docs/creating-custom-roles)을 생성한 다음 목록에서 해당 역할을 선택합니다. 완료되면 **완료**를 선택합니다.
 

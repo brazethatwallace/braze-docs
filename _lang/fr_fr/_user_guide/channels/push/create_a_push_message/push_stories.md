@@ -15,8 +15,8 @@ channel:
 
 | Exemple Android (développé) | Exemple iOS (développé) |
 | :-----: | :----------: |
-| ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
+| ![Aperçu des contenus push sur Android.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Aperçu des contenus push sur iOS]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Contenu push" }
 
 {% alert note %}
 À partir des versions 3.13.0+ du SDK iOS, en raison d'un changement dans la façon dont le SDK télécharge les images, une miniature de la première image ne s'affichera pas dans la vue condensée de la notification push. Assurez-vous que le texte de votre message incite les utilisateurs à développer la notification push pour voir les images.
@@ -31,7 +31,7 @@ Les versions suivantes du SDK sont requises pour recevoir les contenus push :
 
 ## Comment utiliser les contenus push {#how-to-use-push-stories}
 
-![]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Menu déroulant de l'éditeur de contenu push]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 Pour utiliser les contenus push, procédez comme suit :
 
@@ -43,14 +43,13 @@ Pour utiliser les contenus push, procédez comme suit :
 
 Pour créer une page, effectuez les étapes suivantes :
 
-1. Cliquez sur **Manage Pages** depuis l'éditeur principal.
-    <br><br>![]({% image_buster /assets/img_archive/pushstories_add_pages.png %}){: style="max-width:70%"}<br><br>
+1. Sélectionnez **Add new page** depuis l'éditeur principal.
 2. Insérez une image pour chaque page, ainsi que le comportement au clic pour cette image.
 3. Si vous le souhaitez, ajoutez un **Title** et une **Description** pour chaque page. Si vous utilisez un titre et une description pour une page, ils doivent être renseignés pour toutes les pages.
 
 Les prévisualisations sont reflétées et interactives.
 
-![]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Éditeur de contenu push]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
 Si vous intégrez des images avec le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content), assurez-vous que l'URL de votre image commence par `https://`. L'utilisation de `http://` provoquera un plantage de votre application.

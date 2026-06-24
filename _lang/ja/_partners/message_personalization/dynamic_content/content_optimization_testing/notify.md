@@ -21,7 +21,7 @@ BrazeとNotifyの統合により、マーケターはさまざまなプラット
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Braze REST APIキー | `users.export.segment`および`campaigns.trigger.send`の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | CNAME設定 | Notifyがメッセージングに対するユーザーエンゲージメントを追跡してモデルにさらなる情報を提供するために、メールで使用されるトラッキングピクセル用のサブドメインを作成する必要があります。サブドメインの作成後、そのURLをNotifyと共有してください。 |
-| データベースのオプトインエクスポート | 過去1年間（12か月）のCampaignおよび購入データをNotifyに送信します。このエクスポートは、Notifyの予測モデルのトレーニングに使用されます。<br><br>**フィールド:**<br><br>**メール:** メールのSHA256ハッシュ。小文字に変換し、先頭および末尾のスペースを除去したもの。<br><br>**Segment:** アクティビティレベル（アクティブまたは非アクティブ）を定義するSegment情報。<br><br>**サブSegment:** 購買アクティビティレベルなど、その他の関連するアクティビティ情報。|
+| データベースのオプトインエクスポート | 過去1年間（12か月）のCampaignおよび購入データをNotifyに送信します。このエクスポートは、Notifyの予測モデルのトレーニングに使用されます。<br><br>**フィールド:**<br><br>**メール:** メールのSHA256ハッシュ。小文字に変換し、先頭および末尾のスペースを除去したもの。<br><br>**セグメント:** アクティビティレベル（アクティブまたは非アクティブ）を定義するセグメント情報。<br><br>**サブセグメント:** 購買アクティビティレベルなど、その他の関連するアクティビティ情報。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
@@ -30,13 +30,13 @@ BrazeとNotifyの統合により、マーケターはさまざまなプラット
 
 Brazeで[APIトリガーCampaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)を作成します。次に、Campaignの`api_identifier`をNotifyと共有します。
 
-### ステップ2: BrazeでSegmentを作成する {#step-2-create-your-segment-in-braze}
+### ステップ2: Brazeでセグメントを作成する {#step-2-create-your-segment-in-braze}
 
-次に、[ステップ1](#step-1-create-your-campaign)で作成したCampaignでターゲットにしたいユーザーのSegmentを作成します。そして、Segment IDをNotifyと共有します。
+次に、[ステップ1](#step-1-create-your-campaign)で作成したCampaignでターゲットにしたいユーザーのセグメントを作成します。そして、セグメント IDをNotifyと共有します。
 
-### ステップ3: Segmentを取得する {#step-3-fetch-your-segment}
+### ステップ3: セグメントを取得する {#step-3-fetch-your-segment}
 
-Notifyが、Campaignに関連付けられたSegment内のユーザーをエクスポートします。
+Notifyが、Campaignに関連付けられたセグメント内のユーザーをエクスポートします。
 
 ### ステップ4: NotifyがCampaignをトリガーする {#step-4-notify-triggers-the-campaign}
 

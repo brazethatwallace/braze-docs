@@ -17,6 +17,8 @@ Pour commencer, consultez les ressources suivantes :
 
 ## Démarrage rapide {#quickstart}
 
+Les extraits de code suivants montrent la configuration minimale requise pour ajouter le SDK Braze Swift à votre application.
+
 ``` swift
 // AppDelegate.swift
 import BrazeKit
@@ -47,9 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Consultez le [guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift) pour les options d'intégration avancées.
+Pour en savoir plus sur les options d'intégration avancées, consultez le [guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Versions prises en charge {#version-support}
+
+Le tableau suivant répertorie les versions minimales prises en charge pour les outils utilisés par le SDK Braze Swift.
 
 Outil | Version minimale prise en charge
 :----|:----
@@ -60,10 +64,12 @@ visionOS|1.0+
 Xcode|26.0+ (17A324)
 
 ## Gestionnaires de paquets {#package-managers}
-- Gestionnaire de paquets Swift
+- Swift Package Manager
 - CocoaPods
 
 ## Bibliothèques {#libraries}
+
+Le tableau suivant décrit chaque bibliothèque du SDK Braze Swift.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
@@ -103,7 +109,7 @@ Explorez notre [projet d'exemples](https://github.com/braze-inc/braze-swift-sdk/
 
 ## Contact {#contact}
 
-Si vous avez des questions, veuillez contacter [support@braze.com](mailto:support@braze.com).
+Si vous avez des questions, contactez [support@braze.com](mailto:support@braze.com).
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

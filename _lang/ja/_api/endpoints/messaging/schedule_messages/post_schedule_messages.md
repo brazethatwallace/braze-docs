@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `external_user_ids` | オプション | 文字列の配列 | [外部ユーザー識別子]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)を参照してください。 |
 | `user_aliases` | オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。 |
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
-| `segment_id` | オプション | 文字列 | [Segment識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `segment_id` | オプション | 文字列 | [セグメント識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `campaign_id` | オプション | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `override_messaging_limits` | オプション | ブール値 | キャンペーンのフリークエンシーキャップを無視します。デフォルトは false です。 |

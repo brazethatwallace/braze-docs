@@ -210,7 +210,6 @@ Sie können den Namen der Zugangsdaten für Authentifizierungstypen bearbeiten.
 - Für die einfache Authentifizierung können Sie den Benutzernamen und das Passwort aktualisieren. Beachten Sie, dass das zuvor eingegebene Passwort nicht sichtbar sein wird.
 - Für die Token-Authentifizierung können Sie die Header-Schlüssel-Wert-Paare und die zulässige Domain aktualisieren. Beachten Sie, dass die zuvor festgelegten Header-Werte nicht sichtbar sein werden.
 
-![Die Option zum Bearbeiten von Zugangsdaten.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Connected-Content-IP-Allowlisting {#connected-content-ip-allowlisting}
 

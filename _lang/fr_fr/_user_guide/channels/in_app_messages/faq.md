@@ -139,6 +139,36 @@ Ce tableau compare les flux de messages in-app que Sam a expérimentés :
 | Modélisé | Un événement d'annulation a été enregistré car Sam a effectué l'action de déclenchement pour déclencher le message in-app modélisé, mais a reçu une annulation lors du templating Liquid.<br><br>Les messages in-app modélisés enregistrent les annulations car l'évaluation Liquid se produit après que l'action de déclenchement a été effectuée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparaison du comportement d'annulation des messages in-app" }
 
+### Quand le contenu connecté s'exécute-t-il pour les messages in-app ? {#when-does-connected-content-run-for-in-app-messages}
+
+Pour les [messages in-app modélisés](#what-are-templated-in-app-messages), le contenu connecté et les autres étiquettes Liquid sont résolus lorsque l'événement déclencheur se produit et que l'appareil demande le payload du message, et non lorsque l'utilisateur clique sur un bouton à l'intérieur du message. Chaque récupération modélisée peut inclure des appels de contenu connecté pour cet affichage.
+
+Si votre HTML fait référence à des données REST renvoyées par le contenu connecté, ces données sont disponibles pour la session au cours de laquelle le message a été modélisé. Plusieurs boutons peuvent faire référence à la même réponse de contenu connecté sans déclencher d'appels supplémentaires au clic.
+
+### Pourquoi y a-t-il un délai avant l'affichage de mon message in-app ? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+Les messages in-app standard s'affichent dès que le payload mis en cache est prêt après l'événement déclencheur. Sur Android et iOS, les images volumineuses ou d'autres ressources hébergées sur un CDN référencées dans le message peuvent ajouter un court délai pendant le téléchargement de ces ressources avant l'apparition du message in-app.
+
+Les [messages in-app modélisés](#what-are-templated-in-app-messages) et les campagnes avec l'option **Re-evaluate campaign eligibility before displaying** sélectionnée nécessitent une requête réseau supplémentaire après le déclencheur avant l'affichage du message. Cela peut ajouter un court délai (généralement inférieur à 100 ms sur une connexion stable). Pour plus d'informations, consultez [Choisir les utilisateurs à cibler]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+
+### Pourquoi mon message in-app est-il différent de l'aperçu du tableau de bord ? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+Les messages in-app distribués peuvent différer de l'aperçu du tableau de bord lorsque :
+
+- Votre intégration applique un style personnalisé ou remplace l'interface utilisateur par défaut des messages in-app sur certaines plateformes
+- L'aperçu utilise un profil d'utilisateur test avec des attributs différents de ceux du destinataire
+- Le contenu modélisé se résout différemment au moment de l'envoi par rapport au mode aperçu
+
+Utilisez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) avec un utilisateur test dont le profil correspond à votre audience cible lors de la validation de l'apparence.
+
+### Pourquoi un message in-app multipage utilise-t-il le même arrière-plan sur chaque page ? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+Lorsque l'option **Image d'arrière-plan** est activée sur une page d'un message in-app multipage, cet arrière-plan s'applique à toutes les pages du message. Pour utiliser des arrière-plans différents par page, utilisez un bloc HTML personnalisé avec du JavaScript pour changer les images entre les pages.
+
+### Comment tester les messages in-app web ? {#how-do-i-test-web-in-app-messages}
+
+Les envois de test de messages in-app web nécessitent que les notifications push soient activées sur l'appareil de test, car le flux de test envoie une notification push qui ouvre l'application ou le site où le message in-app s'affiche. Le même chemin de test basé sur les notifications push s'applique sur toute plateforme où les notifications push ne sont pas configurées avec Braze, bien que l'absence de notifications push soit le plus souvent rencontrée sur le web car de nombreuses intégrations mobiles ont déjà les notifications push activées. Utilisez plutôt une campagne en production vers un segment de test interne. Pour les étapes, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+
 ## Pourquoi le bouton de fermeture est-il masqué sur les messages in-app HTML plein écran sur Android ? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
 Sur les appareils avec des écrans bord à bord (y compris Android 15+), les messages in-app HTML plein écran peuvent s'afficher derrière la barre d'état du système et masquer un contrôle de fermeture en haut de la mise en page.

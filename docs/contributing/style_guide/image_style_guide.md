@@ -45,7 +45,15 @@ Because Braze docs already add a border to each image, omit borders in a section
 
 ## Blur sensitive information
 
-Blur any personal identifiable information (PII) like names, emails, and API keys.
+Blur any personally identifiable information (PII) like names, emails, API keys, and **real `external_id` / user identifier values** in CSV import previews.
+
+Never publish production customer data in screenshots. Use [dashboard-06](https://dashboard-06.braze.com/) (FakeBrandz fixture data). Person names in preview tables are flagged by CI — replace real employee or customer names, or document fictional examples with a `.pii-audit-dismiss.json` sidecar (see `@screenshot-pii-audit`).
+
+```bash
+python3 scripts/check_screenshot_pii.py path/to/your-image.png
+```
+
+CI runs a **blocking** screenshot PII audit on changed images under `assets/img/`. For false positives, add a `.pii-audit-dismiss.json` sidecar (see `@screenshot-pii-audit`).
 
 
 <table>

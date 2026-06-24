@@ -4,12 +4,12 @@ article_title: ガバナンス
 layout: dev_guide
 page_order: 2
 guide_top_header: "ガバナンス"
-guide_top_text: "キャンペーンやキャンバスのライフサイクルと整理を管理します。以下の記事を参照して、承認ワークフローの設定、アイテムのアーカイブや複製、ワークスペース間でのコピー、ステータスやタグを使用したワークスペースの整理について確認してください。"
+guide_top_text: "CampaignsやCanvases、ランディングページのライフサイクルと整理を管理します。以下の記事を参照して、承認ワークフローの設定、アイテムのアーカイブや複製、ワークスペース間でのコピー、ステータスやタグを使用したワークスペースの整理について確認してください。"
 page_type: landing
 tool:
-  - キャンペーン
-  - キャンバス
-description: "キャンペーンやキャンバスの承認、アーカイブ、複製、ワークスペース間でのコピー、ステータス、タグについて説明します。"
+  - Campaigns
+  - Canvas
+description: "CampaignsやCanvases、ランディングページの承認、アーカイブ、複製、ワークスペース間でのコピー、ステータス、タグについて説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
