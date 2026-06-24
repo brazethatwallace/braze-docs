@@ -123,7 +123,6 @@ After launch, review results in:
 - The landing page analytics view for landing page surveys
 {% endif %}
 
-![Landing page analytics tab.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Top-level analytics include:
 
@@ -172,7 +171,6 @@ During early access, you can:
 
 {% elsif include.channel == 'landing_page' %}
 
-![Trigger setup and segmentation filter for landing page survey follow up.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
 - Trigger campaigns and Canvases when a user completes a survey on a landing page.
 
@@ -182,7 +180,6 @@ During early access, you can:
 
 - Trigger campaigns and Canvases when a user completes a survey in a landing page or an in-app message campaign.
 
-![Trigger setup and segmentation filter for landing page survey follow up.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
 ![Trigger setup and segmentation filter for in-app message campaign survey follow up.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 

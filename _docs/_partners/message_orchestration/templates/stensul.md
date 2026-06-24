@@ -37,7 +37,7 @@ This is a one-time setup and any exports in the future will automatically utiliz
 
 ### Step 1: Create Stensul email
 
-Create a Stensul email in the Stensul platform and click **Complete**. Stensul Save Options.
+Create a Stensul email in the Stensul platform and click **Complete**.
 
 
 ### Step 2: Export template to Braze

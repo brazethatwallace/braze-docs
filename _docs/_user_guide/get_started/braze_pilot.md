@@ -29,7 +29,7 @@ The core of Braze Pilot is its library of app simulations. Each app is a realist
 
 ### Steppington
 
-Steppington is a fitness app with workouts, exercise goals, and a Steppington+ premium service. It offers several places to demonstrate [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), a section that can be revealed with [feature flags]({{site.baseurl}}/developer_guide/feature_flags), and a robust library of custom event logging that make it possible to illustrate many customer journeys for this industry. The home page for Steppington with icons for marathon training, yoga, cycling, and weights.
+Steppington is a fitness app with workouts, exercise goals, and a Steppington+ premium service. It offers several places to demonstrate [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), a section that can be revealed with [feature flags]({{site.baseurl}}/developer_guide/feature_flags), and a robust library of custom event logging that make it possible to illustrate many customer journeys for this industry.
 
 
 {% endtab %}

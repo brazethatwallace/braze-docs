@@ -200,13 +200,12 @@ th:nth-child(6), td:nth-child(6) {
 
 | Icon | Image |
 | --- | --- |
-A running shoe icon.
-
+| `RUNNING_HOME` | |
 | `HEART_DETAILS` | ![A heart icon.]({% image_buster /assets/img/braze_pilot/heart_details_icon.png %}){:style="max-width:30%"} |
 | `TIMER_DETAILS` | ![A stopwatch icon.]({% image_buster /assets/img/braze_pilot/timer_details_icon.png %}){:style="max-width:30%"} |
-An icon of person in a yoga pose.
-
-A bicycle icon.
+| `YOGA_HOME` | |
+| `BICYCLE_HOME` | |
+| `DUMBBELL_HOME` | |
 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 

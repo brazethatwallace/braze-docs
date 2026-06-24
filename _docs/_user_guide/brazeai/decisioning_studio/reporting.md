@@ -19,7 +19,7 @@ Before you can view Decisioning Studio reports in the Braze, you must:
 
 ## View reports {#view}
 
-To view metrics for a Decisioning Studio agent in Braze, go to **AI Decisioning** > **BrazeAI Decisioning Studio™**, then select an agent. BrazeAI Decisioning Studio™ reporting home screen showing a dashboard with multiple report cards. Each card displays a report type such as Performance, Insights, Diagnostics, and Timeline, with brief descriptions and icons for each.
+To view metrics for a Decisioning Studio agent in Braze, go to **AI Decisioning** > **BrazeAI Decisioning Studio™**, then select an agent.
 
 
 Here, you can view reports like performance, insights, diagnostics, and timelines. For more details, see [Available reports](#available-reports).
