@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 """Apply one maintenance batch of redundant-image removals for CI draft PRs.
 
-Reads high-confidence candidates from find_redundant_image_candidates.py,
-removes image references in English docs, merges alt text into prose when needed,
-and deletes image binaries only when no references remain anywhere in the repo.
-
-Intended for .github/workflows/image-curator-maintenance.yml — agents should
-follow .github/skills/image-curator/SKILL.md for manual runs and medium-confidence
-review.
+Reads high-confidence candidates from find_redundant_image_candidates.py and
+removes image references from English docs. Does **not** merge alt text into
+prose — agents follow the alt merge gate in .github/skills/image-curator/ for
+the rare cases where prose needs a manual update.
 
 Requires IMAGE_CURATION_DELETE_FORCE=1.
 """
@@ -47,7 +44,7 @@ def _run_gh(args: list[str]) -> subprocess.CompletedProcess[str]:
 
 
 def has_open_ic_pr() -> bool:
-    listed = _run_gh(["pr", "list", "--state", "open", "--json", "title", "--limit", "200"])
+    listed = _run_gh(["pr", "list", "--state", "open", "--json", "title", "--limit", 200])
     if listed.returncode != 0:
         return False
     try:
@@ -55,31 +52,6 @@ def has_open_ic_pr() -> bool:
     except json.JSONDecodeError:
         return False
     return any(title.startswith(PR_TITLE_PREFIX) for title in titles)
-
-
-def alt_to_prose_sentence(alt: str) -> str | None:
-    alt = alt.strip()
-    if not alt:
-        return None
-    alt = re.sub(r"^(?:a\s+)?(?:screenshot|image|picture)\s+of\s+", "", alt, flags=re.I)
-    if not alt:
-        return None
-    if alt[-1] not in ".!?":
-        alt += "."
-    if alt[0].islower():
-        alt = alt[0].upper() + alt[1:]
-    return alt
-
-
-def prose_already_has_alt(context: str, alt: str) -> bool:
-    if not alt:
-        return True
-    alt_words = [w.lower() for w in re.findall(r"\w{4,}", alt)]
-    if not alt_words:
-        return False
-    ctx = context.lower()
-    hits = sum(1 for w in alt_words if w in ctx)
-    return hits / len(alt_words) >= 0.6
 
 
 def find_image_line_index(
@@ -121,48 +93,35 @@ def remove_image_line(
     *,
     hint_line_number: int | None = None,
 ) -> tuple[str, bool]:
+    """Remove image reference only; never modify other prose on the line."""
     lines = content.splitlines(keepends=True)
     idx = find_image_line_index(
         lines, match_line, image_path, hint_line_number=hint_line_number
     )
     if idx is None:
         return content, False
+
+    line = lines[idx]
+    target = match_line.strip()
+
+    if line.strip() == target:
+        del lines[idx]
+        return "".join(lines), True
+
+    if target in line:
+        new_line = line.replace(target, "")
+        new_line = re.sub(r"!\[[^\]]*\]\([^)]+\)", "", new_line)
+        new_line = re.sub(r"\s*<br\s*/?>\s*$", "", new_line.rstrip(), flags=re.I)
+        new_line = re.sub(r"\s*<br\s*/?>\s*(?=\s*$)", "", new_line, flags=re.I)
+        new_line = new_line.rstrip()
+        if not new_line.strip():
+            del lines[idx]
+        else:
+            lines[idx] = new_line + "\n"
+        return "".join(lines), True
+
     del lines[idx]
     return "".join(lines), True
-
-
-def merge_alt_into_previous_paragraph(
-    content: str,
-    match_line: str,
-    image_path: str,
-    alt: str,
-    *,
-    hint_line_number: int | None = None,
-) -> str:
-    sentence = alt_to_prose_sentence(alt)
-    if not sentence:
-        return content
-    lines = content.splitlines(keepends=True)
-    idx = find_image_line_index(
-        lines, match_line, image_path, hint_line_number=hint_line_number
-    )
-    if idx is None:
-        return content
-
-    for prev in range(idx - 1, max(-1, idx - 6), -1):
-        if prev < 0:
-            break
-        line = lines[prev]
-        stripped = line.strip()
-        if not stripped or stripped.startswith("#") or stripped.startswith("|"):
-            continue
-        if stripped.startswith("{%") or stripped.startswith("<"):
-            continue
-        lines[prev] = line.rstrip("\n") + " " + sentence + "\n"
-        return "".join(lines)
-
-    lines.insert(idx, sentence + "\n\n")
-    return "".join(lines)
 
 
 def sort_batch_for_processing(batch: list) -> list:
@@ -178,7 +137,25 @@ def image_still_referenced(rel_path: str) -> bool:
         if ".git" in root.split(os.sep):
             continue
         for name in files:
-            if name.endswith((".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".md", ".html", ".yml", ".yaml", ".js", ".css", ".rb", ".liquid", ".json")):
+            if name.endswith(
+                (
+                    ".png",
+                    ".jpg",
+                    ".jpeg",
+                    ".gif",
+                    ".svg",
+                    ".webp",
+                    ".md",
+                    ".html",
+                    ".yml",
+                    ".yaml",
+                    ".js",
+                    ".css",
+                    ".rb",
+                    ".liquid",
+                    ".json",
+                )
+            ):
                 path = Path(root) / name
                 try:
                     text = path.read_text(encoding="utf-8", errors="replace")
@@ -223,7 +200,7 @@ def write_pr_body(
 
 This **draft** pull request was opened automatically by the [Image curator (maintenance)]({run_url}) workflow.
 
-**Human review required** before merge. This batch removes **redundant image references** from English docs (`_docs/`, `_includes/`) per the [writing style guide](docs/contributing/style_guide/writing_style_guide.md) and [image style guide](docs/contributing/style_guide/image_style_guide.md). Alt text was merged into surrounding prose where the image was removed.
+**Human review required** before merge. This batch removes **redundant image references** from English docs (`_docs/`, `_includes/`) per the [writing style guide](docs/contributing/style_guide/writing_style_guide.md) and [image style guide](docs/contributing/style_guide/image_style_guide.md). Image references were deleted only; alt text was **not** auto-merged into prose.
 
 | Metric | Value |
 |--------|-------|
@@ -251,7 +228,7 @@ python3 scripts/image-curator/find_redundant_image_candidates.py --csv candidate
 IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 25
 ```
 
-English-only prose edits. For medium-confidence candidates or nuanced UI screenshots, use `@image-curator` manually.
+English-only edits. Prose updates after removal require manual review via `@image-curator`.
 """
     path.write_text(body, encoding="utf-8")
 
@@ -305,18 +282,8 @@ def main() -> int:
         file_edited = False
 
         for ref in file_refs:
-            context = f"{ref.context_before}\n{ref.context_after}"
             image_path = ref.normalized_path()
             hint = ref.line_number
-
-            if ref.alt_text and not prose_already_has_alt(context, ref.alt_text):
-                content = merge_alt_into_previous_paragraph(
-                    content,
-                    ref.match_line,
-                    image_path,
-                    ref.alt_text,
-                    hint_line_number=hint,
-                )
 
             content, removed = remove_image_line(
                 content,

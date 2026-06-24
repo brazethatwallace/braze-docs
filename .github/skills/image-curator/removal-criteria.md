@@ -52,6 +52,8 @@ When Tesseract is available (`scripts/check_screenshot_pii.py` uses the same bin
 
 **Default: delete the image reference only.** Merging alt text into prose is the exception, not the rule. When the image is redundant, its alt text is usually redundant too.
 
+**Automated batches and agents must not append alt text to existing sentences.** Alt text describes what the screenshot *looks like*, not what the reader should *do*. If the surrounding step or paragraph already gives the instruction, delete the image and leave prose unchanged.
+
 ### Alt merge gate (required before any merge)
 
 Evaluate alt text **before** editing. Merge only when **all** of the following are true:
@@ -71,6 +73,9 @@ If any check fails → **remove the image line only**; leave prose unchanged.
 | “**Save** button highlighted” | “Select **Save**.” | Delete image only |
 | “Screenshot of the dashboard home page” | “Open the dashboard.” | Delete image only |
 | “A screenshot of…” + rest duplicates nearby text | Same facts in steps above | Delete image only |
+| Alt is a UI label or caption (`Stensul Save Options`, `Expand`, `Home dashboard in Braze`) | Image illustrated UI the prose already describes | Delete image only |
+| Alt describes a metric tile, chart, or field layout | Prose already explains the metric or filter | Delete image only |
+| Alt is appended to a **previous** step or bullet | Image was on a different line or step | Revert; delete image only |
 
 ### Anti-pattern
 
@@ -92,6 +97,50 @@ If any check fails → **remove the image line only**; leave prose unchanged.
 ```markdown
 2. Select the ad account you are having issues with.
 3. In the navigation, select your **Account Overview**.
+```
+
+### Anti-pattern: alt appended to wrong line
+
+**Before:**
+
+```markdown
+Create a Stensul email in the Stensul platform and click **Complete**.
+
+![Stensul Save Options]({% image_buster /assets/img_archive/stensul_save_options.png %})
+```
+
+**Wrong** — alt merged into the step above:
+
+```markdown
+Create a Stensul email in the Stensul platform and click **Complete**. Stensul Save Options.
+```
+
+**Correct** — image removed; prose unchanged:
+
+```markdown
+Create a Stensul email in the Stensul platform and click **Complete**.
+```
+
+### Anti-pattern: alt appended to list item or paragraph
+
+**Before:**
+
+```markdown
+- [Performance overview](#performance-overview)
+
+![Home dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
+```
+
+**Wrong:**
+
+```markdown
+- [Performance overview](#performance-overview) Home dashboard in Braze.
+```
+
+**Correct:**
+
+```markdown
+- [Performance overview](#performance-overview)
 ```
 
 ### When merge is appropriate

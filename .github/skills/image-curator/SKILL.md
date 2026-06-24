@@ -36,7 +36,7 @@ Skills do not run on a schedule. **Twice-yearly maintenance** is handled by GitH
 | What CI does | Scan high-confidence candidates; remove up to **25** references per run; open a **draft** `[IC]` PR |
 | Human review | **Merge the draft PR** after reviewing prose edits and deletions |
 
-CI applies rule-based prose merge (alt text → sentence). **Treat automated merges as suspect** — review every prose change against the [alt merge gate](removal-criteria.md#alt-merge-gate-required-before-any-merge). Medium/low confidence candidates stay for manual `@image-curator` runs.
+CI opens draft `[IC]` PRs with **delete-image-only** edits. The batch script does not merge alt text. Review diffs for any prose change beyond image removal; revert hunks that append alt fragments.
 
 CI skips opening a new batch when another open `[IC]` PR already exists (merge or close it first).
 
@@ -78,7 +78,7 @@ Load and follow [workflows/curation-batch.md](workflows/curation-batch.md).
 
 1. **Scan** — Run the candidate finder; read the CSV.
 2. **Review** — Open each high/medium candidate; read the image file (vision), alt text, and surrounding markdown.
-3. **Edit** — Remove the reference. Merge alt/OCR into prose **only** when the [alt merge gate](removal-criteria.md#alt-merge-gate-required-before-any-merge) passes ([`braze-docs`](../braze-docs/SKILL.md) style). Default: delete image only.
+3. **Edit** — Remove the reference only. Do **not** append alt text unless you manually pass the [alt merge gate](removal-criteria.md#alt-merge-gate-required-before-any-merge) ([`braze-docs`](../braze-docs/SKILL.md) style).
 4. **Delete** — Remove binaries only when `rg` shows zero references repo-wide.
 5. **Verify** — `./bdocs fblinks`
 6. **PR** — Draft `[IC]` PR with label `image pruning`.
@@ -115,7 +115,7 @@ Do not mix curation edits with script/skill changes in one PR.
 ## Agent rules
 
 1. **Always scan before editing.** Use the candidate script; do not delete images from a single page in isolation without checking repo-wide references.
-2. **Read every image** you remove (vision + alt + OCR). **Default: delete the image only.** Merge alt into prose only when the [alt merge gate](removal-criteria.md#alt-merge-gate-required-before-any-merge) passes — alt must add facts missing from prose and must be merged into the **same** step, never a prior numbered step.
+2. **Read every image** you remove (vision + alt + OCR). **Delete the image only** by default. Never append alt text to a prior step, list item, or paragraph. Merge alt only when you manually pass the [alt merge gate](removal-criteria.md#alt-merge-gate-required-before-any-merge) on the **same** line or step.
 3. **English only** — `_docs/`, `_includes/`. Leave `_lang/` alone; binaries may remain referenced there.
 4. **Batch ≤ 25** removals per PR.
 5. **Do not curate style-guide teaching images** under `assets/img/contributing/style_guide/`.
