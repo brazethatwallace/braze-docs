@@ -107,7 +107,7 @@ To use drag-and-drop product blocks, you need to set up a Braze catalog that inc
 |`variant_image_url` | The URL for the variant image. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
 
-Get a jumpstart by working off this [sample Product Catalog]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), which includes the required fields. 
+Get a jumpstart by working off this [sample Product Catalog](/docs/assets/download_file/ecommerce_product_catalog_sample.csv), which includes the required fields. 
 
 ![A sample CSV file with the required fields in addition to others.]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 
