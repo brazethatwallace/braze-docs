@@ -74,9 +74,10 @@ The **Overview** tab contains basic information about a user and their interacti
 For more information on this data, see [SDK data collection]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
 {% endtab %}
+<a id="engagement-tab"></a>
 {% tab Engagement tab %}
 
-### Engagement tab {#engagement-tab}
+### Engagement tab
 
 The **Engagement** tab contains information about a user's interactions with the messages you sent them using Braze.
 
@@ -93,9 +94,10 @@ The **Engagement** tab contains information about a user's interactions with the
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab" }
 
 {% endtab %}
+<a id="event-history-tab"></a>
 {% tab Event History tab %}
 
-### Event History tab {#event-history-tab}
+### Event History tab
 
 {% alert note %}
 To view the **Event History** tab, you need the **Search Users** and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), because event properties can contain personal data.
