@@ -31,7 +31,7 @@ from find_redundant_image_candidates import (  # noqa: E402
     pr_title,
 )
 
-DEFAULT_MAX_EDITS = 25
+DEFAULT_MAX_EDITS = 15
 
 
 def _run_gh(args: list[str]) -> subprocess.CompletedProcess[str]:
@@ -225,7 +225,7 @@ This **draft** pull request was opened automatically by the [Image curator (main
 
 ```bash
 python3 scripts/image-curator/find_redundant_image_candidates.py --csv candidates.csv --min-confidence high
-IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 25
+IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15
 ```
 
 English-only edits. Prose updates after removal require manual review via `@image-curator`.

@@ -2,10 +2,10 @@
 name: image-curator
 description: >
   Finds redundant, outdated, or unneeded images still referenced in English docs
-  (_docs/, _includes/). Removes image references, absorbs alt/OCR content into
-  prose per the style guide, and deletes dereferenced binaries. Targets Save
-  buttons, home pages, full dashboards, and other low-value screenshots. Use for
-  image curation, redundant screenshot cleanup, or @image-curator. Complements
+  (_docs/, _includes/). Removes image references (delete-image-only by default),
+  and deletes dereferenced binaries when safe. Targets home/list-page chrome,
+  save/cancel-only shots, and other low-value screenshots. Use for image
+  curation, redundant screenshot cleanup, or @image-curator. Complements
   @image-pruner (unreferenced files). Scheduled twice yearly via CI; also runs manually.
 ---
 
@@ -33,7 +33,7 @@ Skills do not run on a schedule. **Twice-yearly maintenance** is handled by GitH
 | Batch script | [`scripts/image-curator/run_curation_batch.py`](../../../scripts/image-curator/run_curation_batch.py) |
 | Schedule | **June 1** and **December 1** at 14:00 America/New_York (4 hours after image-pruner) |
 | Branch | `develop` |
-| What CI does | Scan high-confidence candidates; remove up to **25** references per run; open a **draft** `[IC]` PR |
+| What CI does | Scan high-confidence candidates; remove up to **15** references per run; open a **draft** `[IC]` PR |
 | Human review | **Merge the draft PR** after reviewing prose edits and deletions |
 
 CI opens draft `[IC]` PRs with **delete-image-only** edits. The batch script does not merge alt text. Review diffs for any prose change beyond image removal; revert hunks that append alt fragments.
@@ -70,6 +70,10 @@ Per the style guide, prefer prose over images when the screenshot shows:
 
 - **Technology Partner screenshots** (`_docs/_partners/`) — partner UIs are usually instructional
 - **Diagrams and workflows** — integration graphics, data flows, architecture overviews, process diagrams
+- **Builder / editor UI** — landing page drag-and-drop panels, form blocks, toggles, personalization dialogs
+- **Reference table icons** — markdown tables where images illustrate constants (for example `braze_pilot/deep_links.md`)
+- **Third-party admin consoles** — GCP, AWS, Azure, Infobip navigation (save/cancel-only shots on those pages may still be removable)
+- **Metric and chart examples** — metric tiles, trend lines, and chart layouts on dashboard pages
 
 See [removal-criteria.md](removal-criteria.md) for the full matrix.
 
@@ -95,10 +99,10 @@ python3 scripts/image-curator/find_redundant_image_candidates.py \
   --csv scripts/image-curator/redundant_image_candidates.csv \
   --min-confidence high
 
-IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 25
+IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15
 ```
 
-Requires `IMAGE_CURATION_DELETE_FORCE=1`. Default cap: **25** edits per run.
+Requires `IMAGE_CURATION_DELETE_FORCE=1`. Default cap: **15** edits per run (raised only after human review of batch precision).
 
 ---
 
@@ -122,14 +126,16 @@ Do not mix curation edits with script/skill changes in one PR.
 1. **Always scan before editing.** Use the candidate script; do not delete images from a single page in isolation without checking repo-wide references.
 2. **Read every image** you remove (vision + alt + OCR). **Delete the image only** by default. Never append alt text to a prior step, list item, or paragraph. Merge alt only when you manually pass the [alt merge gate](removal-criteria.md#alt-merge-gate-required-before-any-merge) on the **same** line or step.
 3. **English only** — `_docs/`, `_includes/`. Leave `_lang/` alone; binaries may remain referenced there.
-4. **Batch ≤ 25** removals per PR.
+4. **Batch ≤ 15** removals per PR (CI default; increase only when batch precision is verified).
 5. **Do not curate style-guide teaching images** under `assets/img/contributing/style_guide/`.
 6. **Skip `_docs/_partners/`** in automated batches; partner screenshots need human review before removal.
-7. **Never auto-remove diagrams or workflows** — integration graphics, data-flow images, architecture overviews, and process diagrams stay unless a human confirms they are redundant.
-8. **Run `./bdocs fblinks`** after edits.
-9. **Label `image pruning`** on every curation PR.
-10. **Follow [`screenshot-pii-audit`](../screenshot-pii-audit/SKILL.md)** if you add replacement screenshots.
-11. **Review CI draft PRs** for bad alt merges (alt echoed in prose, alt appended to wrong step). Revert to delete-image-only per [anti-pattern](removal-criteria.md#anti-pattern). Reject partner-page or diagram removals.
+7. **Never auto-remove diagrams, workflows, builder UI, table icons, or third-party console navigation** — see [removal-criteria.md](removal-criteria.md).
+8. **High confidence requires corroboration** — two signals (filename + alt, filename + OCR, and so on). Filename-only `save`/`landing` hits are medium at most.
+9. **Run `./bdocs fblinks`** after edits.
+10. **Label `image pruning`** on every curation PR.
+11. **Follow [`screenshot-pii-audit`](../screenshot-pii-audit/SKILL.md)** if you add replacement screenshots.
+12. **Review CI draft PRs** for bad alt merges, wrong-image removal on multi-image steps, and unrelated prose/heading edits. Revert to delete-image-only per [anti-pattern](removal-criteria.md#anti-pattern). Reject partner-page, diagram, or builder removals.
+13. **Count PR removals from `git diff develop`** for the title — not from the batch script output alone.
 
 ---
 

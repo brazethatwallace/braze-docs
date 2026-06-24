@@ -63,15 +63,44 @@ _YAML_IMAGE = re.compile(
 )
 
 # Heuristic signals (filename + alt + OCR text).
-_FILENAME_HIGH = re.compile(
-    r"(?:^|/)(?:.*_)?(?:"
-    r"save(?:_button)?|cancel(?:_button)?|submit(?:_button)?|"
-    r"home(?:_?page)?|homepage|landing(?:_page)?|"
+# Narrow list/home/overview chrome — safe to flag; still needs corroboration for high.
+_FILENAME_LIST_HOME = re.compile(
+    r"(?:"
+    r"homepage|home_page|home_dashboard|landing-pages-homepage|"
+    r"reporting_home|credits_usage_overview|survey-analytics|"
+    r"keyword_home|export_logs_cancel|cancel_calculation|cancel_number"
+    r")",
+    re.IGNORECASE,
+)
+# Save/cancel filenames — medium at most unless alt/OCR corroborates.
+_FILENAME_SAVE_CANCEL = re.compile(
+    r"(?:"
+    r"save(?:_button|_changes|_as_template|_flow)?|"
+    r"cancel(?:_button|_calculation|_number|_export)?|"
+    r"submit(?:_button)?"
+    r")",
+    re.IGNORECASE,
+)
+# Full-page chrome and nav-only shots.
+_FILENAME_CHROME = re.compile(
+    r"(?:"
     r"full_(?:page|dashboard|screen)|entire_dashboard|"
-    r"overview(?:_page)?|dashboard_overview|"
     r"browser_(?:frame|chrome)|url_bar|"
     r"left_(?:nav|sidebar)|sidebar_only|header_only"
-    r")(?:\.|_|$)",
+    r")",
+    re.IGNORECASE,
+)
+# Builder/editor UI filenames — keep (paired with builder path check).
+_BUILDER_UI_FILENAME = re.compile(
+    r"(?:"
+    r"(?:^|/)dnd\.|/form\.|page_container|device_responsive|wrap_with_span|"
+    r"span_properties|get-snippet|select-personalization|pre-fill|lp_liquid|"
+    r"lp-optional|connect_subdomain|segmentation_selected|trigger\.|"
+    r"url-handle-example|manage-lp-template|copy-url|"
+    r"landing_pages/template\.png|"
+    r"placement_details|content_card_|full_page\.|_home_icon\.|teams\.png|"
+    r"sms_keywords|identifier_for_reporting"
+    r")",
     re.IGNORECASE,
 )
 _ALT_HIGH = re.compile(
@@ -94,7 +123,12 @@ _OCR_BUTTON_ONLY = re.compile(
     r"^(?:save|cancel|submit|done|ok|close|back|next)\s*$",
     re.IGNORECASE,
 )
+_OCR_MIN_USEFUL_LEN = 40
 PARTNER_SOURCE_PREFIX = "_docs/_partners/"
+BUILDER_SOURCE_PREFIXES = (
+    "_docs/_user_guide/messaging/landing_pages/",
+    "_includes/span_text.md",
+)
 
 # Diagrams, workflows, and integration graphics — keep; do not auto-curate.
 _DIAGRAM_WORKFLOW = re.compile(
@@ -102,7 +136,34 @@ _DIAGRAM_WORKFLOW = re.compile(
     r"diagram|workflow|flowchart|flow.?chart|architecture|schematic|"
     r"data.?flow|process.?flow|integration.?flow|lifecycle|funnel|"
     r"overview.?graphic|graphic.?showing|shows?\s+how|fit\s+together|"
-    r"arrow.?point|process\s+to\s+update|cov\b|connection\s+flow"
+    r"arrow.?point|process\s+to\s+update|connection\s+flow|"
+    r"churn_overview|rate_limiting_overview|user_profile_process|"
+    r"overview of churn|venn diagram"
+    r")",
+    re.IGNORECASE,
+)
+# Third-party admin consoles (GCP, AWS, Infobip, etc.) — keep.
+_THIRD_PARTY_CONSOLE = re.compile(
+    r"(?:"
+    r"google cloud|gcp|aws |amazon web services|azure|infobip|"
+    r"meta ads|facebook ads|service account|cloud console|fabric console|"
+    r"iam section|manage keys|create service account"
+    r")",
+    re.IGNORECASE,
+)
+# Metric tiles and chart examples — keep even on dashboard pages.
+_METRIC_CHART_EXAMPLE = re.compile(
+    r"(?:"
+    r"metric tile|trend line|chart|graph showing|performance over time|"
+    r"increase badge|percent increase"
+    r")",
+    re.IGNORECASE,
+)
+# Instructional placement — pencil icons, permissions panels, card types.
+_ALT_INSTRUCTIONAL_PLACEMENT = re.compile(
+    r"(?:"
+    r"pencil icon|placement (?:ID|details)|permissions|content card|"
+    r"identifier for reporting|opt-in keywords|custom attribute checkbox"
     r")",
     re.IGNORECASE,
 )
@@ -147,6 +208,47 @@ def is_partner_page(source_file: str) -> bool:
 def is_diagram_or_workflow(path: str, alt: str, ocr_text: str) -> bool:
     combined = f"{path} {alt} {ocr_text}".lower()
     return bool(_DIAGRAM_WORKFLOW.search(combined))
+
+
+def is_builder_editor_ui(source_file: str, path: str) -> bool:
+    sf = source_file.replace("\\", "/")
+    basename = Path(path).name.lower()
+    if "landing-pages-homepage" in basename or basename.endswith("homepage.png"):
+        return False
+    if any(sf.startswith(prefix) or sf == prefix.rstrip("/") for prefix in BUILDER_SOURCE_PREFIXES):
+        return True
+    if "/messaging/landing_pages/" in sf:
+        return True
+    return bool(_BUILDER_UI_FILENAME.search(path))
+
+
+def is_reference_table_icon(ref: ImageRef) -> bool:
+    line = ref.match_line
+    if "|" in line and "image_buster" in line:
+        return True
+    alt = ref.alt_text.strip().lower()
+    if "icon" in alt and "`" in f"{ref.context_before}\n{line}\n{ref.context_after}":
+        return True
+    if "_home_icon" in ref.normalized_path():
+        return True
+    return False
+
+
+def is_third_party_console(path: str, alt: str, match_line: str) -> bool:
+    basename = Path(path).name
+    if _FILENAME_SAVE_CANCEL.search(basename):
+        return False
+    combined = f"{path} {alt} {match_line}"
+    return bool(_THIRD_PARTY_CONSOLE.search(combined))
+
+
+def is_metric_chart_example(alt: str, ocr_text: str) -> bool:
+    combined = f"{alt} {ocr_text}"
+    return bool(_METRIC_CHART_EXAMPLE.search(combined))
+
+
+def is_instructional_placement(alt: str, match_line: str) -> bool:
+    return bool(_ALT_INSTRUCTIONAL_PLACEMENT.search(f"{alt} {match_line}"))
 
 
 def iter_english_files() -> list[Path]:
@@ -228,8 +330,37 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
         ref.confidence = "low"
         return
 
-    if _FILENAME_HIGH.search(path) or _FILENAME_HIGH.search(basename):
-        ref.reasons.append("filename_suggests_redundant_ui")
+    if is_builder_editor_ui(ref.source_file, path):
+        ref.reasons.append("builder_editor_ui")
+        ref.confidence = "low"
+        return
+
+    if is_reference_table_icon(ref):
+        ref.reasons.append("reference_table_icon")
+        ref.confidence = "low"
+        return
+
+    if is_third_party_console(path, alt, ref.match_line):
+        ref.reasons.append("third_party_console")
+        ref.confidence = "low"
+        return
+
+    if is_metric_chart_example(alt, ocr_text):
+        ref.reasons.append("metric_chart_example")
+        ref.confidence = "low"
+        return
+
+    if is_instructional_placement(alt, ref.match_line):
+        ref.reasons.append("instructional_placement")
+        ref.confidence = "low"
+        return
+
+    if _FILENAME_LIST_HOME.search(path) or _FILENAME_LIST_HOME.search(basename):
+        ref.reasons.append("filename_list_home_chrome")
+    if _FILENAME_SAVE_CANCEL.search(basename):
+        ref.reasons.append("filename_save_cancel")
+    if _FILENAME_CHROME.search(path) or _FILENAME_CHROME.search(basename):
+        ref.reasons.append("filename_page_chrome")
     if alt and _ALT_HIGH.search(alt):
         ref.reasons.append("alt_describes_redundant_ui")
     if alt and _ALT_REDUNDANT_PREFIX.match(alt) and prose_covers_alt(context, alt):
@@ -254,21 +385,34 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
         ref.confidence = "low"
         return
 
-    high_signals = {
-        "filename_suggests_redundant_ui",
+    # High confidence requires corroboration (test PR #14293: ~75% false positives
+    # when filename alone triggered high).
+    corroborating = {
+        "filename_list_home_chrome",
+        "filename_page_chrome",
         "alt_describes_redundant_ui",
         "alt_redundant_with_prose",
         "ocr_button_only",
         "ocr_mostly_action_button",
     }
-    medium_signals = {
+    medium_only = {
+        "filename_save_cancel",
         "missing_alt_prose_already_covers",
         "terminal_or_code_as_image",
     }
 
-    if any(r in high_signals for r in ref.reasons):
+    active = set(ref.reasons)
+    corroboration_count = len(active & corroborating)
+
+    if corroboration_count >= 2:
         ref.confidence = "high"
-    elif any(r in medium_signals for r in ref.reasons):
+    elif (
+        corroboration_count >= 1
+        and ("filename_list_home_chrome" in active or "filename_page_chrome" in active)
+        and active & {"alt_describes_redundant_ui", "alt_redundant_with_prose", "ocr_button_only", "ocr_mostly_action_button"}
+    ):
+        ref.confidence = "high"
+    elif active & medium_only or corroboration_count == 1:
         ref.confidence = "medium"
     else:
         ref.confidence = "low"

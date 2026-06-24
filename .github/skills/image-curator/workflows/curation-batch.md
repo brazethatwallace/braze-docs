@@ -8,7 +8,7 @@ Use this workflow for manual `@image-curator` runs and when reviewing CI draft P
 Task progress:
 - [ ] 1. Scan candidates
 - [ ] 2. Review CSV (high → medium)
-- [ ] 3. Apply edits in batches (≤25 per PR)
+- [ ] 3. Apply edits in batches (≤15 per PR)
 - [ ] 4. Delete dereferenced binaries
 - [ ] 5. Verify links and prose
 - [ ] 6. Open draft PR
@@ -30,6 +30,8 @@ Optional faster scan (no Tesseract):
 python3 scripts/image-curator/find_redundant_image_candidates.py --no-ocr --min-confidence medium
 ```
 
+CI processes **high** confidence only. Manual runs should review **medium** candidates with vision before removal.
+
 ## Step 2: Review candidates
 
 Sort CSV by `confidence` (high first). For each row:
@@ -37,17 +39,28 @@ Sort CSV by `confidence` (high first). For each row:
 1. Open `source_file` at `line_number`.
 2. Read the image file (`image_path`) with vision; compare to alt text and OCR snippet.
 3. Apply rules in [removal-criteria.md](removal-criteria.md).
-4. **High** — safe for automated batch or agent removal after quick spot-check.
-5. **Medium** — agent must read image + prose; skip if the screenshot shows a non-obvious control location.
+4. **High** — safe for automated batch after spot-check (requires corroborating signals in CSV `reasons` column).
+5. **Medium** — agent must read image + prose; skip if the screenshot shows a non-obvious control location, builder UI, or table icon.
 6. **Low** — skip unless user asked for aggressive cleanup.
 
-Skip when:
+Skip when `reasons` includes:
+
+| Reason | Meaning |
+|--------|---------|
+| `partner_page_skip` | Technology Partner page |
+| `diagram_or_workflow` | Diagram, data flow, or process graphic |
+| `builder_editor_ui` | Landing page / editor instructional UI |
+| `reference_table_icon` | Icon in a markdown table (for example `deep_links.md`) |
+| `third_party_console` | GCP / AWS / Infobip navigation screenshot |
+| `metric_chart_example` | Metric tile or chart layout |
+| `instructional_placement` | Pencil icon, permissions panel, or similar placement shot |
+
+Also skip when:
 
 - Open PR touches the same file or image path.
 - Image is under `assets/img/contributing/style_guide/`.
-- Source is under `_docs/_partners/` (Technology Partner page).
-- Alt, filename, or OCR suggests a **diagram or workflow** (see [removal-criteria.md](../removal-criteria.md#diagrams-and-workflows-never-auto-remove)).
 - `_lang/` still needs the binary (do not edit locales; binary may remain referenced there).
+- The page has **multiple images** and the candidate path does not exactly match the intended removal.
 
 ## Step 3: Apply edits
 
@@ -58,8 +71,9 @@ For each approved candidate:
 3. **Do not append alt text** unless the gate passes on the **same** step or paragraph.
 4. Follow [`braze-docs`](../braze-docs/SKILL.md) for lists, alerts, and UI labels (`**bold**` for controls).
 5. Re-read the edited block and confirm numbered steps are sequential and no step lost its instruction.
+6. **Do not mix unrelated edits** (heading level changes, prose rewrites) in the same `[IC]` PR.
 
-**Batch size:** ≤ **25** image removals per PR (prose edits need human review).
+**Batch size:** ≤ **15** image removals per PR (CI default; prose edits need human review).
 
 ### CI / automated batch review
 
@@ -68,8 +82,21 @@ The maintenance script removes image references **only** — it does not merge a
 - Appends alt text or image captions to prose (`Stensul Save Options.`, `Home dashboard in Braze.`, `Expand.`)
 - Merges alt into a **different** numbered step, list item, or paragraph than the image was on
 - Collapses or skips step numbers
+- Removes the **wrong image** on a step that has multiple `image_buster` references
+- Changes heading levels or unrelated prose
 
 Revert those hunks to **delete-image-only** per [removal-criteria.md](../removal-criteria.md#anti-pattern-alt-appended-to-wrong-line).
+
+### Lessons from test PR #14293
+
+Before merge, confirm:
+
+1. **Partner pages** (`_docs/_partners/`) — no image removals unless explicitly approved
+2. **Landing page builder docs** — only `*-homepage.png`-style list shots removed; editor/workflow images kept
+3. **`braze_pilot/deep_links.md`** — icon table intact
+4. **Diagrams** — `user_profile_process3.png`, `churn_overview.png`, `tealium_overview.png`, and similar kept
+5. **GCP / third-party console** navigation screenshots kept; save/cancel-only shots reviewed individually
+6. **PR title count** matches `git diff develop` image removals, not batch script output
 
 ## Step 4: Delete binaries
 
@@ -87,13 +114,13 @@ Delete the file under `assets/img/` only when the search returns no hits. Do **n
 ./bdocs fblinks
 ```
 
-Spot-check 3–5 edited pages in preview if available.
+Spot-check 3–5 edited pages in preview if available. Pay extra attention to partner pages, landing page builder docs, and multi-image steps.
 
 ## Step 6: Open draft PR
 
-- **Title:** `[IC] Remove N redundant image references from English docs` — adjust `N` and add a short qualifier when helpful (for example `…from email channel docs`).
+- **Title:** `[IC] Remove N redundant image references from English docs` — set `N` from `git diff develop` (count removed `image_buster` lines), not from the batch script alone.
 - **Label:** `image pruning` (required — same as image-pruner).
-- **Body:** Must include an **Image Pruning** section stating this PR removes redundant **references** and updates prose; list scan command, count of references removed, count of binaries deleted, and note English-only scope.
+- **Body:** Must include an **Image Pruning** section stating this PR removes redundant **references** (delete-image-only); list scan command, count of references removed, count of binaries deleted, and note English-only scope.
 - **Draft:** Yes for scheduled/CI batches; manual runs may be draft or ready for review per user preference.
 - Do not mix image curation with script/skill changes in one PR.
 
@@ -104,16 +131,16 @@ gh pr create --draft \
   --body "$(cat <<'EOF'
 ## Image Pruning
 
-This PR is for **Image Pruning**: removes 12 redundant image references from English docs and merges alt text into surrounding prose where needed.
+This PR removes 12 redundant image references from English docs (delete-image-only; no alt merged into prose).
 
 ## Scan
 
 ```bash
-python3 scripts/image-curator/find_redundant_image_candidates.py --min-confidence medium
+python3 scripts/image-curator/find_redundant_image_candidates.py --min-confidence high
 ```
 
 - References removed: 12
-- Image files deleted (unreferenced after edit): 8
+- Image files deleted (unreferenced after edit): 0
 - Scope: `_docs/`, `_includes/` only
 EOF
 )"

@@ -16,8 +16,8 @@ Images that add little or no information beyond what prose should carry:
 
 | Category | Examples | Why remove |
 |----------|----------|------------|
-| **Action buttons only** | Save, Cancel, Submit, Done, OK, Close | Describe the action in a step; no unique UI to show |
-| **Home / landing pages** | Dashboard home, channel overview with no highlighted control | Navigation can be one sentence (`Go to **Messaging** > **Email**`) |
+| **Action buttons only** | Save, Cancel, Submit, Done, OK, Close | Describe the action in a step — **only when prose names the control and the image shows no non-obvious placement** |
+| **Home / list pages** | Dashboard home, channel list pages (`*-homepage.png`), reporting/analytics tab overviews | Navigation can be one sentence (`Go to **Messaging** > **Email**`) |
 | **Full-page chrome** | Entire dashboard, header + sidebar, browser frame, URL bar | Style guide: crop tightly; explain nav in text |
 | **Redundant with prose** | Alt duplicates the previous paragraph; decorative screenshot after numbered steps | Style guide: blank alt when redundant; prefer prose for screen-reader users |
 | **Terminal / code as image** | Screenshot of terminal output or code | Use fenced code blocks instead |
@@ -34,6 +34,59 @@ Images that add little or no information beyond what prose should carry:
 | **Style guide examples** | `assets/img/contributing/style_guide/**` — teaching images |
 | **Protected paths** | `logos/`, `braze_icons/`, `icons/` |
 | **Technology Partner pages** | `_docs/_partners/**` — partner product UI is often essential context |
+| **Builder / editor UI** | Landing page DnD panels, form blocks, toggles, personalization dialogs, span styling |
+| **Reference table icons** | Images in markdown tables mapping constants to icons (`braze_pilot/deep_links.md`) |
+| **Third-party admin consoles** | GCP, AWS, Azure, Infobip navigation screenshots |
+| **Metric and chart examples** | Metric tiles, trend lines, chart layouts — even on Home dashboard pages |
+
+## Builder and editor UI (never auto-remove)
+
+**Default: keep images on builder and editor docs** — especially under `_docs/_user_guide/messaging/landing_pages/`.
+
+The automated scanner excludes these via `builder_editor_ui`. Filenames like `dnd.png`, `form.png`, `page_container.png`, and `get-snippet.png` illustrate *how* to use the editor, not where to navigate.
+
+**Remove only** clear list/home chrome on these pages (for example `landing-pages-homepage.png` when prose already says **Messaging** > **Landing Pages**).
+
+## Reference table icons (never auto-remove)
+
+Keep images that are part of a **markdown table** or icon grid where the image *is* the reference content:
+
+| Pattern | Example |
+|---------|---------|
+| Image in a table cell | `\| \`RUNNING_HOME\` \| ![running shoe icon](...) \|` in `deep_links.md` |
+| Filename `*_home_icon.png` | Braze Pilot deep link constant table |
+| Alt contains "icon" and cell has a code constant | Icon illustrates the constant name |
+
+Automated batches skip these via `reference_table_icon`.
+
+## Third-party admin consoles (extra caution)
+
+Keep screenshots of **external** admin UIs unless a human confirms they are redundant:
+
+- Google Cloud / AWS / Azure IAM and service-account flows
+- Infobip, Meta Ads Manager, and similar partner consoles (on developer-guide pages)
+
+Save/cancel-only shots on these pages may still be removable when prose already names the control and alt/OCR corroborate (`filename_save_cancel` + `alt_describes_redundant_ui`).
+
+Automated batches skip navigation console shots via `third_party_console`.
+
+## Metric and chart examples (keep)
+
+Do **not** remove metric tiles, trend lines, or chart layouts that show how data is displayed — for example `home_dashboard_metric_tile.png` when prose explains Daily Active Users.
+
+The scanner skips these via `metric_chart_example`.
+
+## Automated confidence (corroboration required)
+
+Test PR #14293 showed ~75% false positives when **filename alone** triggered high confidence.
+
+| Confidence | Rule |
+|------------|------|
+| **High** | At least **two** corroborating signals (for example `filename_list_home_chrome` + `alt_describes_redundant_ui`, or list/home filename + OCR button-only) |
+| **Medium** | Single signal — for example `filename_save_cancel` alone, or one alt/prose match. **Requires vision review** before removal. |
+| **Low** | Skip reasons: partner, diagram, builder UI, table icon, third-party console, metric chart, instructional placement |
+
+CI automated batches process **high** confidence only, capped at **15** references per run.
 
 ## Technology Partner pages (extra caution)
 
@@ -65,9 +118,17 @@ Automated batches skip these via `diagram_or_workflow` and `partner_page_skip` r
 
 Flag for review when **filename** or **alt text** suggests:
 
-- `save`, `cancel`, `submit`, `home_page`, `homepage`, `landing`, `overview`, `full_page`, `entire_dashboard`, `browser_frame`, `left_nav`, `sidebar`, `header_only`
+- `homepage`, `home_dashboard`, `landing-pages-homepage`, `reporting_home`, `credits_usage_overview`, `survey-analytics`
+- `save`, `cancel`, `submit` — **medium at most** unless alt or OCR corroborates
+- `full_page`, `entire_dashboard`, `browser_frame`, `left_nav`, `sidebar`, `header_only`
 - Alt starts with “A screenshot of…” and the body already states the same navigation
 - Alt describes only a standard button with no surrounding instructional value
+
+**Do not flag as removable** based on filename alone:
+
+- `landing_pages/dnd.png`, `form.png`, `page_container.png`, and other builder/editor assets
+- `*_home_icon.png` in reference tables
+- `*_overview.png` on architecture, limits, or prediction pages (treat as diagram)
 
 ## OCR signals
 

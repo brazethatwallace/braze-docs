@@ -1,7 +1,7 @@
 # Image curator (maintenance): twice-yearly scan on develop — opens a draft [IC] PR.
 #
-# Scans English docs for redundant image references, removes up to 25 high-confidence
-# candidates (prose merge + dereferenced binary delete), and opens a draft PR.
+# Scans English docs for redundant image references, removes up to 15 high-confidence
+# candidates (delete-image-only + dereferenced binary delete), and opens a draft PR.
 # Human review happens at merge time — do not auto-merge.
 #
 # Schedule: June 1 and December 1 at 14:00 America/New_York (4h after image-pruner).
@@ -94,7 +94,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           python3 scripts/image-curator/run_curation_batch.py \
-            --limit 25 \
+            --limit 15 \
             --skip-if-open-ic-pr \
             --scan-date "${{ steps.stamp.outputs.ymd }}" \
             --run-url "$RUN_URL" \
