@@ -24,6 +24,7 @@ DOCS_URL_RE = re.compile(
 )
 
 REDIRECT_TO_RE = re.compile(r"^(\s*redirect_to:\s*)", re.IGNORECASE)
+YAML_LINK_RE = re.compile(r"^(\s*link:\s*)", re.IGNORECASE)
 APIMETHOD_RE = re.compile(r"(\{%\s*apimethod\s+\S+\|)", re.IGNORECASE)
 ABSOLUTE_CONTEXT_RE = re.compile(
     r"(urlTemplate|\"url\"\s*:|placeholder\s*=\s*['\"])",
@@ -48,7 +49,7 @@ def _replace_url(url_match: str, line: str) -> str:
     if path_part.endswith("/") and path_part != "/docs/":
         path_part = path_part.rstrip("/")
 
-    if REDIRECT_TO_RE.search(line):
+    if REDIRECT_TO_RE.search(line) or YAML_LINK_RE.search(line):
         return path_part
 
     if APIMETHOD_RE.search(line):
