@@ -143,7 +143,7 @@ list-unsubscribeヘッダーを使用すると、受信者はメッセージ本�
 
 テスト送信には通常、list-unsubscribeヘッダーは**含まれません**。ライブヘッダーが表示されるかどうかはメールボックスプロバイダーによって決定され、レピュテーションに基づきます。送信者のレピュテーションが高いほど、通常は表示される可能性が高くなります。
 
-![]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
+![メッセージ本文の外側にlist-unsubscribeが表示される、メッセージの横にUnsubscribeオプションがあるメールクライアントのメールボックスUI。]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
 受信者が**Unsubscribe**を選択すると、メールボックスプロバイダーはメールヘッダーで定義された送信先に配信停止リクエストを送信します。
 
@@ -243,7 +243,7 @@ list-unsubscribeヘッダーのワンクリック配信停止（[RFC 8058](https
 
 この設定を調整すると、このメールのワンクリックlist-unsubscribeのデフォルト動作が上書きされます。
 
-![]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
+![ワークスペースのデフォルトやカスタムURLなど、メッセージレベルのワンクリックlist-unsubscribeオプションがあるメールエディターの送信設定。]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
 
 #### 要件 {#requirements}
 
@@ -256,13 +256,13 @@ list-unsubscribeヘッダーのワンクリック配信停止（[RFC 8058](https
 
 **Custom list-unsubscribe header**を選択して、独自に設定したワンクリック配信停止エンドポイントとオプションの「mailto:」を追加します。Brazeはカスタムlist-unsubscribeヘッダーをサポートするためにURLの入力を必要とします。これは、ワンクリック配信停止HTTPがYahooとGmailの大量送信者に対する要件であるためです。
 
-![]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
+![ワンクリック配信停止URLとオプションのmailtoのカスタムlist-unsubscribeヘッダーフィールドがあるメール設定。]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
 
 ## メール件名行への追加 {#append-email-subject-lines}
 
 トグルを使用して、テストおよびシードメールの件名行に「[TEST]」および「[SEED]」を含めます。これにより、テストとして送信されたメールキャンペーンを識別するのに役立ちます。
 
-![]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![テストおよびシードメールの件名行にTESTおよびSEEDプレフィックスを追加するワークスペースのメール設定トグル。]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
 ## 新規メールでのデフォルトCSSインライン化 {#inline-css-on-new-emails-by-default}
 
@@ -274,7 +274,7 @@ CSSインライン化は、メールおよび新規メールのCSSスタイル�
 
 ユーザーがメールアドレスを変更した際に、自動的に再購読させることができます。たとえば、以前に配信停止したワークスペースユーザーがメールアドレスをBrazeの配信停止リストにないアドレスに変更した場合、自動的に再購読されます。
 
-![]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![メールアドレスが変更された際にユーザーを自動的に再購読するワークスペース設定。]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## 購読ページおよびフッター {#subscription-pages-and-footers}
 
@@ -287,27 +287,27 @@ CSSインライン化は、メールおよび新規メールのCSSスタイル�
 - 配信停止URLと物理的な郵送先住所を含める必要があります。
 - 100 KB未満である必要があります。
 
-![]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![CAN-SPAM準拠のための配信停止リンクと郵送先住所フィールドがあるカスタムメールフッターエディター。]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-カスタムフッターのLiquidテンプレートについて詳しくは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)のドキュメントをご覧ください。
+カスタムフッターのLiquidテンプレートについて詳しくは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions)を参照してください。
 
 {% endtab %}
 {% tab カスタム購読解除ページ %}
 
 Brazeでは、独自のHTMLを使用して**カスタム購読解除ページ**を設定できます。このページは、ユーザーがメールの下部から配信停止を選択した後に表示されます。このページは750 KB未満である必要があることに注意してください。
 
-![]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![ユーザーがメールから配信停止した後に表示されるページのカスタム購読解除ページHTMLエディターとプレビュー。]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)をご覧ください。
+メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)を参照してください。
 
 {% endtab %}
 {% tab カスタムオプトインページ %}
 
 独自のHTMLを使用してカスタムオプトインページを作成できます。これをメールに含めることは、ユーザーライフサイクル全体を通じてブランディングとメッセージの一貫性を維持したい場合に特に有益です。このページは750 KB未満である必要があることに注意してください。
 
-![]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![ブランド化されたメール購読確認のためのカスタムオプトインページHTMLエディターとプレビュー。]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)をご覧ください。
+メールリスト管理のベストプラクティスについて詳しくは、[メールサブスクリプションの管理]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses)を参照してください。
 
 {% endtab %}
 {% endtabs %}

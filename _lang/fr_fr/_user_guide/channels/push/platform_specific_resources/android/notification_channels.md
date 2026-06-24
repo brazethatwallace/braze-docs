@@ -24,7 +24,7 @@ Android prend en charge la localisation des noms de canaux, de sorte que dans le
 
 Une fois ces canaux créés, vos ingénieurs devront transmettre les identifiants de canal associés à votre équipe marketing. Votre équipe devra saisir les noms et identifiants de vos canaux dans le tableau de bord de Braze pour les utiliser dans vos campagnes et Canvas.
 
-Pour ajouter un canal au tableau de bord de Braze, accédez au composeur de notification push Android, sélectionnez le champ des canaux de notification, puis sélectionnez « gérer les canaux ».
+Pour ajouter un canal au tableau de bord de Braze, accédez au composeur de notification push Android, sélectionnez le champ des canaux de notification, puis sélectionnez **Gérer les canaux**.
 {% alert important %}
 Seuls les utilisateurs disposant d'autorisations incluant « gérer les applications » pourront gérer les canaux.
 {% endalert %}
@@ -73,13 +73,13 @@ Pour mieux comprendre le comportement attendu des canaux, consultez le tableau s
 
 Lorsque vous appliquez un canal de notification à une campagne ou une étape du Canvas spécifique, le nombre d'**utilisateurs pouvant être atteints** (situé dans l'étape Audience cible) pour la notification push Android ne semblera pas changer. Cependant, seuls les utilisateurs abonnés au canal de notification sélectionné verront le message, et les analyses de votre campagne (comme les clics) seront mesurées en fonction de cette audience.
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Composeur de notification push Android avec l'option Gérer les canaux de notification et une liste de canaux configurés.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Cliquez sur **Ajouter un canal de notification**.
-5. Saisissez le nom et l'identifiant du canal de notification que vous souhaitez ajouter.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. Sélectionnez **Ajouter un canal de notification**.
+5. Saisissez le nom et l'identifiant du canal de notification que vous souhaitez ajouter.<br><br>![Boîte de dialogue Ajouter un canal de notification avec des champs pour le nom du canal et l'identifiant du canal.]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Répétez les étapes 4 et 5 pour chaque canal de notification que vous souhaitez ajouter.
-7. Appuyez sur **Enregistrer** pour enregistrer vos modifications.
+7. Sélectionnez **Enregistrer** pour enregistrer vos modifications.
 
 ## Spécifier votre canal de secours {#specifying-your-fallback-channel}
 

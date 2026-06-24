@@ -37,7 +37,11 @@ toc_headers: h2
 
 ### 2단계: 에이전트 선택 {#step-2-choose-your-agent}
 
-이 단계에서 데이터를 처리할 에이전트를 선택합니다. 기존 에이전트를 선택하세요. 설정 안내는 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)을 참조하세요.
+이 단계에서 데이터를 처리할 에이전트를 선택합니다. 설정 안내는 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)을 참조하세요.
+
+에이전트 목록에서 각 에이전트에는 [일일 호출 한도]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details)가 표시됩니다. 한도 위에 마우스를 올리면 오늘의 한도 대비 진행 상황을 확인할 수 있으며, 사용 비율과 한도 대비 오늘 사용된 호출 수가 표시됩니다.
+
+![에이전트 드롭다운에 두 개의 에이전트가 나열된 에이전트 단계 설정 패널. 각 에이전트에는 일일 호출 한도가 표시됩니다. 첫 번째 에이전트의 툴팁에는 사용 비율과 오늘 사용된 호출 수가 표시됩니다.]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
 ### 3단계: 에이전트 출력 설정 {#define-the-output-variable}
 
@@ -51,7 +55,7 @@ toc_headers: h2
 | 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)에서의 라우팅 |
 | 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)에서의 예/아니오 분기 |
 | 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 위의 데이터 유형 중 하나 이상을 활용 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정 #define-the-output-variable" }
 
 컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
@@ -77,11 +81,11 @@ toc_headers: h2
 
 ## 오류 처리 {#error-handling}
 
-Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어를 처리하는 방법에 대해서는 Braze 에이전트의 [오류 처리]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)를 참조하세요.
+Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어를 처리하는 방법에 대해서는 에이전트 배포의 [오류 처리 및 대체 동작]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior)과 Braze 에이전트의 [오류 처리]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)를 참조하세요.
 
-- 에이전트가 어떤 이유로든(예: 타임아웃 오류 또는 잘못된 API 키) 실패하면, 출력 변수는 `null`로 설정됩니다.
-    - 에이전트가 일일 호출 한도에 도달하면, 출력 변수는 `null`로 설정됩니다.
-- 오류에 대비하여 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
+- 연결된 모델이 LLM 공급자로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)를 반환하면, Braze는 호출이 성공하거나 완료할 수 없다고 판단할 때까지 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다. 이후 사용자는 다음 캔버스 단계로 진행합니다.
+- 기타 실패(예: 타임아웃 오류 또는 잘못된 API 키)가 발생하거나 에이전트가 일일 호출 한도에 도달하면, 에이전트 콘솔에서 [대체 값이 설정]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values)되어 있지 않은 한 출력 변수는 `null`로 설정됩니다. 대체 값이 설정된 경우, Braze는 사용자별로 Liquid를 사용하여 대체 값을 렌더링하고 그 결과를 출력 변수에 저장합니다. 일일 한도로 인해 호출이 차단된 경우에도 마찬가지입니다.
+- 대체 값을 설정하지 않은 경우, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)을 사용하여 null 출력을 처리하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다.
     - 캐시된 값을 사용하는 응답도 총 호출 수 및 일일 호출 수에 포함됩니다.
 - 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. Braze는 [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)에 따라 호출을 대기줄에 넣으므로, 대량 발송 시 사용자가 대기 상태로 남아 있을 수 있습니다. 로그를 확인하여 호출이 진행되고 있는지 확인하세요.

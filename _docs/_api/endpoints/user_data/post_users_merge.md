@@ -266,6 +266,14 @@ The status code `400` could return the following response body. Refer to [Troubl
 
 ## Troubleshooting
 
+### A success response was returned but the merged user is still searchable
+
+A successful response confirms the request was accepted, but the merge operation involves two steps: merging the profiles and then removing the source profile. Because of this, the `identifier_to_merge` profile may remain searchable in the dashboard for a short period after a successful response. This is expected behavior—wait a few minutes and then verify the merge is complete.
+
+If the merged user still exists after several minutes, verify that the identifiers in your request are correct and belong to users in the same workspace as the API key used for the request.
+
+### Error reference
+
 The following table lists possible error messages that may occur.
 
 | Error | Troubleshooting |

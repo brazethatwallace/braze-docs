@@ -224,7 +224,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 ![Braze Canvasの2つのバリアント例。]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの関数によって決定されます。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>配分の割合を変更しても固定された割り当てが必要な場合は、単一のCanvasバリアントを使用し、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップでユーザーをルーティングしてください。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用して乱数をカスタム属性に保存し、オーディエンスパスでその属性をフィルタリングします。
+デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの決定論的ハッシュによって決定されます（ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)ではありません）。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>配分の割合を変更しても固定された割り当てが必要な場合は、単一のCanvasバリアントを使用し、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップでユーザーをルーティングしてください。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用して乱数をカスタム属性に保存し、オーディエンスパスでその属性をフィルタリングします。
 
 {% details 手順を展開 %}
 
@@ -248,7 +248,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 {% raw %}`{% if %}`{% endraw %} ブロックは、属性が空白の場合にのみ数値を設定するため、ユーザーがキャンバスに再エントリしても同じ割り当てが維持されます。<br><br>
 
 {: start="4"}
-4. ユーザーの更新ステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップを追加します。各オーディエンスグループで、バリアント配分の割合を使用する代わりに、カスタム属性に基づくフィルターを追加します。<br><br>たとえば、{% raw %}`{% random 10 %}`{% endraw %} を使用した場合、あるグループは `lottery_number` が **4未満**、別のグループは **3より大きく7未満**、3番目のグループは **6より大きく10未満** とすることができます。
+4. ユーザーの更新ステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップを追加します。各オーディエンスグループで、バリアント配分の割合を使用する代わりに、カスタム属性に基づくフィルターを追加します。<br><br>たとえば、{% raw %}`{% random 10 %}`{% endraw %} を使用した場合、あるグループは `lottery_number` が**4未満**、別のグループは**3より大きく7未満**、3番目のグループは**6より大きく10未満**とすることができます。
 
 {% enddetails %}
 {% endalert %}

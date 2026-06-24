@@ -25,6 +25,7 @@ description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter an
 - Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
 - Standardmäßig enthält der Segmentfilter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ Objekt, Array-of-Object-Attribute und angepasste Attribute vom Typ Array. Wenn Sie ein Attribut auswählen, enthält der Eigenschafts-Schema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute auf oberster Ebene vom Typ Array aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/).
+- Wenn Sie Nachrichten im Dashboard mit **Als angepasste Nutzer:in anzeigen** in der Vorschau betrachten, können Sie Testdaten nur als String oder String-Array eingeben – verschachtelte Objekte werden nicht unterstützt. Um eine Nachricht in der Vorschau anzuzeigen, die auf verschachtelte angepasste Attribute verweist, wählen Sie eine vorhandene Nutzer:in aus, die das verschachtelte Attribut bereits in ihrem Profil hat. Für verschachtelte angepasste Event-Eigenschaften müssen Sie eine Live-Campaign starten, die auf eine Testnutzer:in ausgerichtet ist, um das Rendering zu überprüfen.
 
 ## API-Beispiel {#api-example}
 
@@ -272,7 +273,7 @@ Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punkt-Notatio
 
 Im folgenden Personalisierungs-Modal wird beispielsweise das verschachtelte angepasste Attribut eines lokalen Nachbarschaftsbüros basierend auf den Präferenzen der Nutzer:innen eingefügt.
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![Das Modal „Personalisierung hinzufügen“ mit dem Personalisierungstyp „Verschachtelte angepasste Attribute“, dem übergeordneten Attribut „preferences“ und dem Attribut-Schlüssel „neighborhood_office“, mit einer Liquid-Vorschau des resultierenden Tags.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 Überprüfen Sie, ob ein Schema generiert wurde, wenn Sie die Option zum Einfügen verschachtelter angepasster Attribute nicht sehen.
@@ -286,7 +287,7 @@ So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
-3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus"></i> **Schema verwalten** aus, um das Schema zu verwalten.
+3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus" aria-label="Schema verwalten"></i> **Schema verwalten** aus, um das Schema zu verwalten.
 4. Ein Modal wird angezeigt. Wählen Sie **Schema neu generieren**.
 
 Die Aktion **Schema neu generieren** ist auf **einmal pro Kalendertag** in der Zeitzone Ihres Unternehmens beschränkt. Sie können keine weitere Neugenerierung starten, während ein Schema-Job bereits **in Bearbeitung** ist (die Option ist nicht verfügbar, solange der Status **Wird generiert** lautet). Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.

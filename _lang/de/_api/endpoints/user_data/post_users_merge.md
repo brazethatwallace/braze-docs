@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `merge_updates` | Erforderlich | Array | Ein Objekt-Array. Jedes Objekt sollte ein `identifier_to_merge`-Objekt und ein `identifier_to_keep`-Objekt enthalten, die jeweils eine Nutzer:in entweder über `external_id`, `user_alias`, `phone` oder `email` referenzieren sollten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ### Zusammenführungsverhalten {#merge-behavior}
 
@@ -266,6 +266,14 @@ Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Weitere Inf
 
 ## Fehlerbehebung {#troubleshooting}
 
+### Eine erfolgreiche Antwort wurde zurückgegeben, aber die zusammengeführte Nutzer:in ist weiterhin auffindbar {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+Eine erfolgreiche Antwort bestätigt, dass die Anfrage akzeptiert wurde, aber der Zusammenführungsvorgang umfasst zwei Schritte: das Zusammenführen der Profile und anschließend das Entfernen des Quellprofils. Aus diesem Grund kann das `identifier_to_merge`-Profil nach einer erfolgreichen Antwort noch für kurze Zeit im Dashboard auffindbar sein. Dies ist erwartetes Verhalten – warten Sie einige Minuten und überprüfen Sie dann, ob die Zusammenführung abgeschlossen ist.
+
+Wenn die zusammengeführte Nutzer:in nach mehreren Minuten noch existiert, überprüfen Sie, ob die Bezeichner in Ihrer Anfrage korrekt sind und zu Nutzer:innen im selben Workspace gehören wie der für die Anfrage verwendete API-Schlüssel.
+
+### Fehlerreferenz {#error-reference}
+
 Die folgende Tabelle listet mögliche Fehlermeldungen auf, die auftreten können.
 
 | Fehler | Fehlerbehebung |
@@ -274,6 +282,6 @@ Die folgende Tabelle listet mögliche Fehlermeldungen auf, die auftreten können
 | `a single request may not contain more than 50 merge updates` | Sie können in einer einzelnen Anfrage nur bis zu 50 Zusammenführungs-Updates angeben. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Überprüfen Sie die Bezeichner in Ihrer Anfrage. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Stellen Sie sicher, dass `merge_updates` nur die beiden Objekte `identifier_to_merge` und `identifier_to_keep` enthält. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

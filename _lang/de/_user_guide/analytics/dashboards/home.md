@@ -41,7 +41,7 @@ Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherig
 
 Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *täglich aktiven Nutzer:innen* einen prozentualen Anstieg von 1,8 % anzeigen, bedeutet das, dass Sie diese Woche 1,8 % mehr täglich aktive Nutzer:innen hatten als in der Vorwoche.
 
-![Eine Metrik-Kachel der Performance-Übersicht mit Metrikwert und prozentualer Veränderung.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Eine Metrik-Kachel für täglich aktive Nutzer:innen mit einem Durchschnitt von 22,2 Tausend, einem Anstieg von 7,1 % und einer Trendlinie.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Aufschlüsselung anzeigen {#show-breakdown}
 

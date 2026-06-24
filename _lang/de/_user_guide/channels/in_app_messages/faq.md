@@ -13,7 +13,7 @@ tool: in-app messages
 
 ## Was ist eine In-Browser-Nachricht und wie unterscheidet sie sich von einer In-App-Nachricht? {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
 
-In-Browser-Nachrichten sind In-App-Nachrichten, die an Webbrowser gesendet werden. Um eine In-Browser-Nachricht zu erstellen, wählen Sie beim Erstellen Ihrer In-App-Nachricht-Campaign oder Ihres Canvas unter dem Feld **Send To** die Option **Web Browser** aus.
+In-Browser-Nachrichten sind In-App-Nachrichten, die an Webbrowser gesendet werden. Um eine In-Browser-Nachricht zu erstellen, wählen Sie beim Erstellen Ihrer In-App-Nachricht-Campaign oder Ihres Canvas unter dem Feld **Senden an** die Option **Webbrowser** aus.
 
 ## Wird eine In-App-Nachricht angezeigt, wenn ein Gerät offline ist? {#does-an-in-app-message-display-if-a-device-is-offline}
 
@@ -139,11 +139,41 @@ Diese Tabelle vergleicht die In-App-Nachricht-Abläufe, die Sam erlebt hat:
 | Vorlagenbasiert | Ein Abbruch-Event wurde protokolliert, da Sam die Trigger-Aktion ausgeführt hat, um die vorlagenbasierte In-App-Nachricht zu triggern, aber einen Abbruch im Liquid-Templating erhalten hat.<br><br>Vorlagenbasierte In-App-Nachrichten protokollieren Abbrüche, da die Liquid-Auswertung nach der Ausführung der Trigger-Aktion erfolgt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vergleich des Abbruchverhaltens bei In-App-Nachrichten" }
 
+### Wann wird Connected Content bei In-App-Nachrichten ausgeführt? {#when-does-connected-content-run-for-in-app-messages}
+
+Bei [vorlagenbasierten In-App-Nachrichten](#what-are-templated-in-app-messages) werden Connected Content und andere Liquid-Tags aufgelöst, wenn das Trigger-Event auftritt und das Gerät die Nachricht-Payload anfordert – nicht wenn der/die Nutzer:in auf einen Button innerhalb der Nachricht klickt. Jeder vorlagenbasierte Abruf kann Connected-Content-Aufrufe für diese Anzeige enthalten.
+
+Wenn Ihr HTML auf REST-Daten verweist, die von Connected Content zurückgegeben werden, sind diese Daten für die Sitzung verfügbar, in der die Nachricht vorlagenbasiert erstellt wurde. Mehrere Buttons können auf dieselbe Connected-Content-Antwort verweisen, ohne beim Klick zusätzliche Aufrufe auszulösen.
+
+### Warum gibt es eine Verzögerung, bevor meine In-App-Nachricht angezeigt wird? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+Standard-In-App-Nachrichten werden angezeigt, sobald die zwischengespeicherte Payload nach dem Trigger-Event bereit ist. Auf Android und iOS können große Bilder oder andere CDN-gehostete Assets, auf die in der Nachricht verwiesen wird, eine kurze Verzögerung verursachen, während diese Ressourcen heruntergeladen werden, bevor die In-App-Nachricht erscheint.
+
+[Vorlagenbasierte In-App-Nachrichten](#what-are-templated-in-app-messages) und Campaigns mit aktivierter Option **Campaign-Berechtigung vor der Anzeige erneut prüfen** erfordern nach dem Trigger eine zusätzliche Netzwerkanfrage, bevor die Nachricht erscheint. Dies kann eine kurze Verzögerung verursachen (in der Regel unter 100 ms bei einer stabilen Verbindung). Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+
+### Warum sieht meine In-App-Nachricht anders aus als die Dashboard-Vorschau? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+Zugestellte In-App-Nachrichten können von der Dashboard-Vorschau abweichen, wenn:
+
+- Ihre Integration angepasste Stile anwendet oder die Standard-UI für In-App-Nachrichten auf bestimmten Plattformen überschreibt
+- Die Vorschau ein Testnutzerprofil mit anderen Attributen als der/die Empfänger:in verwendet
+- Vorlagenbasierte Inhalte zum Sendezeitpunkt anders aufgelöst werden als im Vorschaumodus
+
+Verwenden Sie [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) mit einem/einer Testnutzer:in, dessen/deren Profil Ihrer Zielgruppe entspricht, um das Erscheinungsbild zu überprüfen.
+
+### Warum verwendet eine mehrseitige In-App-Nachricht auf jeder Seite denselben Hintergrund? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+Wenn **Hintergrundbild** auf einer Seite einer mehrseitigen In-App-Nachricht aktiviert ist, wird dieser Hintergrund auf alle Seiten der Nachricht angewendet. Um unterschiedliche Hintergründe pro Seite zu verwenden, nutzen Sie einen angepassten HTML-Block mit JavaScript, um Bilder zwischen den Seiten zu wechseln.
+
+### Wie teste ich Web-In-App-Nachrichten? {#how-do-i-test-web-in-app-messages}
+
+Für den Testversand von Web-In-App-Nachrichten muss Push auf dem Testgerät aktiviert sein, da der Testablauf eine Push-Benachrichtigung sendet, die die App oder Website öffnet, auf der die In-App-Nachricht angezeigt wird. Derselbe Push-basierte Testpfad gilt auf jeder Plattform, auf der Push nicht mit Braze konfiguriert ist, obwohl fehlendes Push am häufigsten im Web auftritt, da viele mobile Integrationen Push bereits aktiviert haben. Verwenden Sie stattdessen eine Live-Campaign an ein internes Testsegment. Die Schritte finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+
 ## Warum ist der Schließen-Button bei Vollbild-HTML-In-App-Nachrichten auf Android ausgeblendet? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
 Auf Geräten mit randlosen Displays (einschließlich Android 15+) können Vollbild-HTML-In-App-Nachrichten hinter der System-Statusleiste gezeichnet werden und ein Schließen-Steuerelement am oberen Rand des Layouts verdecken.
 
-Braze Android SDK Version 37.0.0 und höher wendet standardmäßig Fenster-Insets auf HTML-In-App-Nachrichten an, sodass Steuerelemente im sicheren Bereich bleiben. Wenn Nutzer:innen weiterhin Überlappungen sehen, aktualisieren Sie auf die neueste Version des Braze Android SDK.
+Das Braze Android SDK ab Version 37.0.0 wendet standardmäßig Fenster-Insets auf HTML-In-App-Nachrichten an, sodass Steuerelemente im sicheren Bereich bleiben. Wenn Nutzer:innen weiterhin Überlappungen sehen, aktualisieren Sie auf die neueste Version des Braze Android SDK.
 
 Bei älteren SDK-Versionen konnten Entwickler:innen `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` aktivieren, bevor dieses Verhalten zum Standard wurde.
 

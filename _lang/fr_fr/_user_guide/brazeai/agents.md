@@ -68,11 +68,17 @@ Les restrictions suivantes s'appliquent :
     - Si vos agents dépassent régulièrement le délai imparti, contactez votre gestionnaire de compte Braze pour augmenter cette limite.
 - Les données d'entrée sont limitées à 25 Ko par requête. Les entrées plus longues sont tronquées.
 
+## Bonnes pratiques {#best-practices}
+
+Ciblez les cas d'utilisation à forte valeur ajoutée où les agents peuvent générer le meilleur retour sur investissement (ROI), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités — par exemple, recibler les utilisateurs qui ont effectué une recherche récemment mais n'ont pas converti, plutôt que d'envoyer du contenu généré par un agent à l'ensemble de votre base d'utilisateurs.
+
+Pour valider le ROI avant de passer à l'échelle, utilisez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) pour n'envoyer qu'une partie de votre audience à travers une étape Agent. Pour plus de conseils sur le déploiement, consultez [Déployer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
 ## Gestion des erreurs {#error-handling}
 
-Si le modèle connecté renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) du fournisseur de LLM lors d'une étape Agent dans Canvas, Braze relance la requête jusqu'à cinq fois en utilisant des délais exponentiels. Pour les autres types d'échecs (comme un dépassement de délai ou une clé API invalide), la sortie de l'agent est définie sur `null`. Si un agent atteint sa limite d'invocation quotidienne, la sortie est également définie sur `null`.
+Si le modèle connecté renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) du fournisseur de LLM lors d'une **étape Agent dans Canvas**, Braze relance la requête en continu en utilisant des délais exponentiels. Les agents de catalogue ne relancent pas les invocations soumises à une limite de débit. Pour les autres types d'échecs (comme un dépassement de délai ou une clé API invalide), la sortie de l'agent Canvas est définie sur `null`, sauf si l'agent dispose de [valeurs de repli configurées]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) dans la Console des agents (étapes Agent dans Canvas uniquement). Si un agent atteint sa limite d'invocation quotidienne, Braze applique les valeurs de repli configurées lorsqu'elles sont présentes ; sinon, la sortie est définie sur `null`.
 
-Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, le traitement peut prendre plus de temps en raison des [contrôles de flux d'invocation]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour vous prémunir contre les sorties `null` dans vos messages.
+Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, le traitement peut prendre plus de temps en raison des [contrôles de flux d'invocation]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls). Configurez des valeurs de repli dans la Console des agents pour les agents Canvas afin que les utilisateurs reçoivent toujours un résultat en cas d'échec d'une invocation, ou utilisez les [valeurs Liquid par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) dans les étapes Message en aval.
 
 ## Comment mes données sont-elles utilisées et transmises aux LLM fournis par Braze ? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

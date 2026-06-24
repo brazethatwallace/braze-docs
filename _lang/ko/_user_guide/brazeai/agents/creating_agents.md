@@ -47,8 +47,8 @@ alias: /creating-agents/
 
 **에이전트 생성**을 선택한 다음 다음 옵션 중 하나를 선택합니다:
 
-a. **커스텀 에이전트**를 선택하여 처음부터 에이전트를 구축합니다.
-b. **Operator로 에이전트 생성**의 옵션을 선택하여 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 사용해 [시작 템플릿](#agent-templates-built-with-operator)을 적용합니다.
+- **커스텀 에이전트**를 선택하여 처음부터 에이전트를 구축합니다.
+- **Operator로 에이전트 생성**의 옵션을 선택하여 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 사용해 [시작 템플릿](#agent-templates-built-with-operator)을 적용합니다.
 
 Operator를 사용하는 경우, 다음 단계로 진행하기 전에 채팅에서 변경 사항을 검토하고 승인하세요.
 
@@ -96,7 +96,30 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 [고급 출력 스키마]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas)를 사용할 때, 에이전트가 다른 출력과 함께 근거를 반환하도록 하려면 `explanation`이라는 이름의 문자열 필드를 추가하세요. 응답을 검토하거나 디버깅하는 데 도움이 되도록 [지침](#agent-instructions)에서 에이전트에게 `explanation`을 채우도록 지시하세요.
 {% endalert %}
 
-### 6단계: 에이전트 테스트 및 생성 {#step-6-test-and-create-the-agent}
+#### 대체 값 구성 {#configure-fallback-values}
+
+대체 값은 **캔버스 단계 에이전트**에서만 사용할 수 있습니다. Canvas 에이전트의 **출력** 섹션에서 에이전트 호출이 실패할 때(예: LLM이 시간 초과되거나 잘못된 API 키 오류를 반환하는 경우) Braze가 사용하는 값을 정의할 수 있습니다. 대체 값은 개인화 기본값처럼 작동합니다. 에이전트가 실행할 수 없을 때에도 사용자에게 유용한 출력을 제공하는 정적 제목란이나 짧은 메시지를 설정할 수 있습니다.
+
+**카탈로그 에이전트**는 에이전트 콘솔에서 대체 값 구성을 지원하지 않습니다.
+
+![숫자 스키마에 대한 대체 출력 필드를 보여주는 에이전트 콘솔 출력 구성.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+
+Canvas 에이전트의 경우, 대체 값은 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) 템플릿을 지원하므로 대체 텍스트에서 사용자 속성이나 컨텍스트 변수를 참조할 수 있습니다.
+
+대체 필드는 Canvas 에이전트의 출력 형식에 맞게 조정됩니다:
+
+| 출력 형식 | 대체 구성 |
+| --- | --- |
+| 문자열, 숫자 또는 부울 | 단일 대체 값을 입력합니다(Liquid 지원). |
+| 필드(고급 스키마) | 에이전트 출력에 정의된 각 필드에 대해 대체 값을 입력합니다. |
+| JSON 스키마(고급 스키마) | Braze가 JSON 스키마를 읽고 각 속성에 대한 입력 필드를 생성하여 키별로 대체 값을 정의할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="대체 값 구성" }
+
+대체 값이 있는 Canvas 에이전트가 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)에서 실행되면, Braze는 사용자별로 대체를 렌더링하고 `null` 대신 출력 변수에 저장합니다. 대체 값을 구성하지 않으면 실패한 호출은 Canvas 출력을 미설정(`null`) 상태로 남깁니다.
+
+런타임 동작에 대해서는 [오류 처리 및 대체 동작]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior)을 참조하세요.
+
+### 6단계: 에이전트 테스트 {#step-6-test-the-agent}
 
 **미리보기** 창은 구성 화면 내에서 나란히 패널로 표시되는 에이전트의 인스턴스입니다. 에이전트를 생성하거나 업데이트하는 동안 이 섹션을 사용하여 테스트할 수 있으며, 최종 사용자와 유사한 방식으로 경험해 볼 수 있습니다. 이 단계는 에이전트가 예상대로 동작하는지 확인하는 데 도움이 되며, 라이브로 전환하기 전에 미세 조정할 기회를 제공합니다.
 

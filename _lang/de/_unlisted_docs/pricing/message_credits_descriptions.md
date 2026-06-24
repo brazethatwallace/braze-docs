@@ -44,7 +44,7 @@ Weitere Informationen zu unserem E-Mail-Kanal finden Sie in unserer [E-Mail-Doku
 
 ## Details zu SMS-, MMS- und RCS-Kanälen {#sms-mms-and-rcs-channel-details}
 
-Die Credit-Verhältnisse für SMS und MMS werden in Schritten von eingehenden oder ausgehenden Segmenten berechnet, die über die Braze-Plattform gesendet werden. Die Credit-Verhältnisse für RCS werden in Schritten von Basic- oder Single-Typen berechnet, die über die Braze-Plattform gesendet werden.
+Die Credit-Verhältnisse für SMS und MMS werden in Schritten von über die Braze-Plattform gesendeten Segmenten berechnet. Die Credit-Verhältnisse für RCS werden in Schritten von Basic- und Rich-Media-Typen oder Single- und Rich-Media-Typen berechnet, die über die Braze-Plattform zugestellt werden. Sowohl eingehende als auch ausgehende Typen werden abgerechnet.
 
 {% alert note %}
 Sofern für diese Kanäle zutreffend, werden Carrier-Gebühren separat (nachträglich) in Rechnung gestellt und sind nicht Bestandteil der Action Credits.

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Better Email
 
-> [Better Email](https://www.betteremail.dev) ist eine kollaborative E-Mail-Erstellungsplattform, die auf einem E-Mail-Design-System basiert. Teams können produktionsfertige E-Mails aus einem gemeinsamen System von Blöcken und Stilen entwerfen, verwalten und exportieren – und so Markenkonsistenz im großen Maßstab sicherstellen, ohne auf Entwickler:innen oder Agenturen angewiesen zu sein.
+> [Better Email](https://better.email) ist eine kollaborative E-Mail-Erstellungsplattform, die auf einem E-Mail-Design-System basiert. Teams können produktionsfertige E-Mails aus einem gemeinsamen System von Blöcken und Stilen entwerfen, verwalten und exportieren – und so Markenkonsistenz im großen Maßstab sicherstellen, ohne auf Entwickler:innen oder Agenturen angewiesen zu sein.
 
 _Diese Integration wird von Better Email gepflegt._
 
@@ -26,7 +26,7 @@ Beim erneuten Export wird das bestehende Braze-Template aktualisiert, anstatt ei
 | Better-Email-Konto | Ein Better-Email-Konto mit Administratorzugriff zum Erstellen von Integrationen |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Verwenden Sie den REST-Host, nicht die Dashboard-URL – zum Beispiel `rest.fra-01.braze.eu`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -64,7 +64,7 @@ Wenn die Integration aktiv ist, öffnen Sie eine beliebige E-Mail in Better Emai
 
 Better Email erstellt oder aktualisiert das entsprechende Braze-E-Mail-Template. Nach dem ersten Export speichert Better Email die Braze-Template-ID – ein erneuter Export derselben E-Mail aktualisiert dieses Template, anstatt ein Duplikat zu erstellen.
 
-### Optional: Empfängerfelder aus Braze synchronisieren {#optional-sync-recipient-fields-from-braze}
+### Empfängerfelder aus Braze synchronisieren (optional) {#sync-recipient-fields-from-braze-optional}
 
 Better Email kann angepasste Braze-Attribute synchronisieren, um sie als Merge-Tags und Segmentierungsfelder zu verwenden.
 
@@ -72,7 +72,7 @@ Better Email kann angepasste Braze-Attribute synchronisieren, um sie als Merge-T
 2. Aktivieren Sie **Sync recipient fields**.
 3. Wählen Sie **Save** aus.
 4. Gehen Sie zu **Recipient Fields**.
-5. Führen Sie **Sync from** mit Ihrem Integrationsnamen aus.
+5. Wählen Sie **Sync from** neben Ihrer Integration aus.
 
 Better Email liest die verfügbaren angepassten Braze-Attribute und ordnet sie den Empfängerfeldern zu.
 
@@ -83,9 +83,9 @@ Wenn ein Export oder eine Synchronisierung fehlschlägt, überprüfen Sie Folgen
 - Die **Instanz-URL** ist die REST-URL, nicht die Dashboard-URL.
 - Der API-Schlüssel ist noch aktiv und verfügt über die erforderlichen **Templates**-Berechtigungen.
 - Die Integration ist in Better Email aktiviert.
-- Die richtigen Nutzer:innen oder Gruppen haben Zugriff auf die Integration.
+- Nutzer:innen oder Gruppen, die die Integration benötigen, haben unter **Access** Zugriff.
 
-Für weiteren Support kontaktieren Sie [support@better.email](mailto:support@better.email).
+Für weitere Hilfe [kontaktieren Sie den Better-Email-Support](mailto:support@better.email).
 
 ## Die Integration verwenden {#use-the-integration}
 

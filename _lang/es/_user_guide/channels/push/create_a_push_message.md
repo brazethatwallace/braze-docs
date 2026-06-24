@@ -12,7 +12,7 @@ tool:
 
 # Crear un mensaje push {#create-a-push-message}
 
-> Las notificaciones push son excelentes para llamadas a la acción urgentes, así como para volver a captar a usuarios que no han entrado en la aplicación en un tiempo. Las campañas push exitosas dirigen al usuario directamente al contenido y demuestran el valor de tu aplicación. Para ver ejemplos de notificaciones push, consulta nuestros [casos de estudio](https://www.braze.com/customers).
+> Las notificaciones push son excelentes para llamadas a la acción urgentes, así como para volver a captar a usuarios que no han entrado en la aplicación en un tiempo. Las campañas push exitosas dirigen al usuario directamente al contenido y demuestran el valor de tu aplicación. Para ver ejemplos de notificaciones push, consulta los [casos de estudio de clientes de Braze](https://www.braze.com/customers).
 
 ## Paso 1: Elige dónde crear tu mensaje {#create-new-campaign-push}
 
@@ -59,7 +59,7 @@ Hay varias formas de hacer esto dependiendo de tus selecciones anteriores:
 | Selección anterior | Opciones |
 | --- | --- |
 | Campaña de notificación push | Selecciona una o más plataformas y dispositivos. Si eliges dirigirte a múltiples dispositivos y plataformas, tu experiencia de edición se optimiza para redactar un mensaje para todas las plataformas seleccionadas. Consulta [Push multiplataforma]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/) para entender qué es diferente en esta experiencia de edición. |
-| Campaña multicanal | Selecciona **Add Messaging Channel** para agregar plataformas push adicionales. Dado que las selecciones de plataforma son específicas de cada variante, puedes probar la interacción del mensaje por plataforma.
+| Campaña multicanal | Selecciona **Add Messaging Channel** para agregar plataformas push adicionales. Dado que las selecciones de plataforma son específicas de cada variante, puedes probar la interacción del mensaje por plataforma. |
 | Canvas | En tu paso de mensaje, selecciona **+ Add more** para agregar plataformas push adicionales. Similar a las campañas multicanal, las selecciones de plataforma son específicas de cada variante. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Selecciona las plataformas push" }
 
@@ -180,7 +180,7 @@ Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/us
 
 Construye el resto de tu campaña; consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear notificaciones push.
 
-#### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
+### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
 
 Los mensajes push pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -188,7 +188,7 @@ Para la entrega basada en acciones, también puedes establecer la duración de l
 
 En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Elige los usuarios objetivo {#choose-users-to-target}
+### Elige los usuarios objetivo {#choose-users-to-target}
 
 A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para reducir tu audiencia. Recibirás automáticamente una vista previa de cómo se ve la población aproximada de ese segmento. Las estadísticas detalladas de audiencia para los canales a los que se dirige tu campaña están disponibles en el pie de página. Para ver qué porcentaje de tu base de usuarios está siendo objetivo y el valor de duración del ciclo de vida para este segmento, selecciona **Show Additional Stats**.
 
@@ -222,7 +222,7 @@ Para hacerlo, en **Audience Summary**, selecciona enviar esta campaña a "solo u
 Con esta configuración, no incluyas ningún filtro en el paso **Target Audiences** que limite la audiencia a un solo canal (por ejemplo, `Foreground Push Enabled = True` o `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Elige eventos de conversión {#choose-conversion-events}
+### Elige eventos de conversión {#choose-conversion-events}
 
 Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
 

@@ -24,7 +24,7 @@ Para gerenciar as Feature Flags no dashboard, você precisará ser um administra
 
 ### Etapa 1: Criar uma nova Feature Flag {#step-1-create-a-new-feature-flag}
 
-Acesse **Messaging** > **Feature Flags** e selecione **Criar Feature Flag**.
+Acesse **Envio de mensagens** > **Feature Flags** e selecione **Criar Feature Flag**.
 
 ![Uma tabela de dados mostrando uma Feature Flag existente e como criar uma nova.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
@@ -63,7 +63,7 @@ No exemplo a seguir, a Feature Flag mostra um banner de produto esgotado para um
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2a: Criar propriedades personalizadas" }
 
 {% alert tip %}
-Não há limite para o número de propriedades que você pode adicionar. No entanto, as propriedades de uma Feature Flag são limitadas a um total de 10 KB. Tanto os valores de propriedade quanto as chaves estão limitados a 255 caracteres de comprimento.
+Não há limite para o número de propriedades que você pode adicionar. No entanto, as propriedades de uma Feature Flag são limitadas a um total de 10.000 caracteres.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -889,7 +889,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar usuários** e pesquise e selecione um usuário.
 
-Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de uma Feature Flag.
+Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye" aria-label="Pré-visualizar"></i> ao lado de uma Feature Flag.
 
 ![Uma imagem mostrando a tabela de Feature Flags para as quais um usuário é elegível.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 

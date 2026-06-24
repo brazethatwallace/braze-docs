@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Better Email
 
-> [Better Email](https://www.betteremail.dev)은 이메일 디자인 시스템을 기반으로 구축된 협업 이메일 제작 플랫폼입니다. 팀은 공유 블록 및 스타일 시스템에서 프로덕션 준비가 완료된 이메일을 디자인, 관리 및 내보내기할 수 있으며, 개발자나 에이전시에 의존하지 않고도 대규모로 브랜드 일관성을 유지할 수 있습니다.
+> [Better Email](https://better.email)은 이메일 디자인 시스템을 기반으로 구축된 협업 이메일 제작 플랫폼입니다. 팀은 공유 블록 및 스타일 시스템에서 프로덕션 준비가 완료된 이메일을 디자인, 관리 및 내보내기할 수 있으며, 개발자나 에이전시에 의존하지 않고도 대규모로 브랜드 일관성을 유지할 수 있습니다.
 
 _이 통합은 Better Email에서 유지 관리합니다._
 
@@ -24,13 +24,13 @@ Braze와 Better Email 통합을 사용하면 Better Email의 협업 편집기에
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Better Email 계정 | 통합을 생성할 수 있는 관리자 액세스 권한이 있는 Better Email 계정 |
-| Braze REST API 키 | 전체 **Templates** 권한이 있는 Braze REST API 키.<br><br>이 키는 Braze 대시보드의 **Settings** > **API Keys**에서 생성할 수 있습니다. |
+| Braze REST API 키 | 전체 **템플릿** 권한이 있는 Braze REST API 키.<br><br>이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 대시보드 URL이 아닌 REST 호스트를 사용하세요. 예: `rest.fra-01.braze.eu`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
-Better Email은 디자인 시스템을 통해 이메일을 관리하고 수동 HTML 작업 없이 Braze로 내보내려는 마케팅 팀을 위해 만들어졌습니다. 다음과 같은 경우에 적합합니다:
+Better Email은 디자인 시스템을 통해 이메일을 관리하고 수동 HTML 작업 없이 Braze로 내보내려는 마케팅 팀을 위해 만들어졌습니다. 다음과 같은 경우 Better Email을 고려해 보세요:
 
 - 대규모 이메일 템플릿 라이브러리를 유지 관리하면서 모든 템플릿의 일관성을 유지해야 하는 경우
 - 공유 이메일 디자인 시스템을 통해 브랜드 가이드라인을 적용하려는 경우
@@ -43,8 +43,8 @@ Better Email은 디자인 시스템을 통해 이메일을 관리하고 수동 H
 
 Braze 대시보드에서 다음 정보를 수집하세요:
 
-- **Instance URL** — 대시보드 URL이 아닌 REST 호스트를 사용하세요(예: `rest.fra-01.braze.eu`).
-- **API Key** — **Settings** > **API Keys**에서 생성한 전체 **Templates** 권한이 있는 REST API 키.
+- **인스턴스 URL** — 대시보드 URL이 아닌 REST 호스트를 사용하세요(예: `rest.fra-01.braze.eu`).
+- **API 키** — **설정** > **API 키**에서 생성한 전체 **템플릿** 권한이 있는 REST API 키.
 
 ### 2단계: Better Email에서 통합 설정하기 {#step-2-set-up-the-integration-in-better-email}
 
@@ -64,7 +64,7 @@ Braze 대시보드에서 다음 정보를 수집하세요:
 
 Better Email이 해당 Braze 이메일 템플릿을 생성하거나 업데이트합니다. 첫 번째 내보내기 후 Better Email은 Braze 템플릿 ID를 저장하므로, 동일한 이메일을 다시 내보내면 중복을 생성하는 대신 해당 템플릿이 업데이트됩니다.
 
-### 선택 사항: Braze에서 수신자 필드 동기화하기 {#optional-sync-recipient-fields-from-braze}
+### Braze에서 수신자 필드 동기화하기(선택 사항) {#sync-recipient-fields-from-braze-optional}
 
 Better Email은 Braze 커스텀 속성을 동기화하여 병합 태그 및 세분화 필드로 사용할 수 있습니다.
 
@@ -72,7 +72,7 @@ Better Email은 Braze 커스텀 속성을 동기화하여 병합 태그 및 세�
 2. **Sync recipient fields**를 활성화합니다.
 3. **Save**를 선택합니다.
 4. **Recipient Fields**로 이동합니다.
-5. 통합 이름에서 **Sync from**을 실행합니다.
+5. 통합 옆의 **Sync from**을 선택합니다.
 
 Better Email이 사용 가능한 Braze 커스텀 속성을 읽고 수신자 필드에 매핑합니다.
 
@@ -80,13 +80,13 @@ Better Email이 사용 가능한 Braze 커스텀 속성을 읽고 수신자 필�
 
 내보내기 또는 동기화가 실패하면 다음 사항을 확인하세요:
 
-- **Instance URL**이 대시보드 URL이 아닌 REST URL인지 확인
-- API 키가 여전히 활성 상태이며 필요한 **Templates** 권한이 있는지 확인
-- Better Email에서 통합이 활성화되어 있는지 확인
-- 올바른 사용자 또는 그룹이 통합에 대한 액세스 권한을 가지고 있는지 확인
+- **인스턴스 URL**이 대시보드 URL이 아닌 REST URL인지 확인합니다.
+- API 키가 여전히 활성 상태이며 필요한 **템플릿** 권한이 있는지 확인합니다.
+- Better Email에서 통합이 활성화되어 있는지 확인합니다.
+- 통합이 필요한 사용자 또는 그룹이 **Access**에서 액세스 권한을 가지고 있는지 확인합니다.
 
-추가 지원이 필요하면 [support@better.email](mailto:support@better.email)로 문의하세요.
+추가 지원이 필요하면 [Better Email 고객지원에 문의](mailto:support@better.email)하세요.
 
 ## 통합 사용하기 {#use-the-integration}
 
-내보낸 Better Email 템플릿은 Braze의 **Templates & Media** > **Email Templates**에서 확인할 수 있습니다. 모든 Braze Campaign 또는 Canvas에서 사용하세요.
+내보낸 Better Email 템플릿은 Braze의 **템플릿 및 미디어** > **이메일 템플릿**에서 확인할 수 있습니다. 모든 Braze Campaign 또는 Canvas에서 사용하세요.

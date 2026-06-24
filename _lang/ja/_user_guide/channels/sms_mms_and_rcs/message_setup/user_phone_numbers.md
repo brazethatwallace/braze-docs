@@ -19,7 +19,7 @@ channel:
 
 異なる国コードや市外局番を持つ複数の地域に送信する場合でも正確性を確保するため、電話番号は[`E.164`](https://en.wikipedia.org/wiki/e.164)形式でインポートすることを推奨します&#8212;米国ベースの電話番号であっても同様です。
 
-- **米国の番号：** すべての米国の番号は、有効な市外局番を持つ有効な10桁の電話番号である必要があります。10桁の電話番号に`+`と国コードが欠けている場合、Brazeはそれを米国の番号としてマッピングします。
+- **米国の番号：** すべての米国の番号は、有効な市外局番を持つ有効な10桁の電話番号である必要があります。10桁の電話番号に`+`と国コードが欠けている場合、Brazeはそれを米国の番号としてマッピングします。プエルトリコの電話番号は、米国スタイルの市外局番を使用した10桁のフォーマットであっても、`+`と国コードが必要です。
 - **国際番号：** すべての国際番号は`+`で始まり、その後に国コード、そして電話番号が続く必要があります。例：`+442071838750`。
 
 ![有効なE.164国際電話番号の例。]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -31,7 +31,7 @@ channel:
 | 米国 | `4155552671` | 1 | `+14155552671` |
 | 英国 | `2071838750` | 44 | `+442071838750` |
 | ブラジル | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recommended format" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="推奨フォーマット" }
 
 ## 電話番号のインポート {#import-phone-numbers}
 
@@ -65,7 +65,7 @@ Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https:/
 複数のユーザープロファイルが同じ電話番号を持ち、その電話番号が無効としてマークされた場合、その番号を持つ既存のすべてのユーザープロファイルが無効として表示されます。新しく作成されたユーザープロファイルは、最初から無効としてマークされることはありません。
 {% endalert %}
 
-[セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
+[Segmentを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
 
 ## 拒否されたSMS送信をセグメンテーションから除外する {#exclude-rejected-sms-sends-from-segmentation}
 
@@ -73,13 +73,13 @@ Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https:/
 SMSの拒否はSMS割り当てに対して課金されます。
 {% endalert %}
 
-拒否されたSMS送信を持つユーザーをセグメントから除外するには、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を使用して以下の手順を実行してください。
+拒否されたSMS送信を持つユーザーをSegmentから除外するには、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)を使用して以下の手順を実行してください。
 
 1. **オーディエンス** > **セグメントエクステンション**に移動します。
 2. **新規エクステンションを作成** > **フルリフレッシュ**または**インクリメンタルリフレッシュ**を選択します。
 3. SMSの拒否を持つユーザーを特定するSQLクエリを記述します。例えば、`USERS_MESSAGES_SMS_REJECTION_SHARED`イベントをクエリして、SMSの拒否を受けたユーザーを見つけることができます。
 4. セグメントエクステンションを保存します。
-5. SMSのセグメントを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
+5. SMSのSegmentを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
 
 ## SMSおよびRCSサブスクリプショングループへのユーザー追加 {#add-users-to-sms-and-rcs-subscription-groups}
 

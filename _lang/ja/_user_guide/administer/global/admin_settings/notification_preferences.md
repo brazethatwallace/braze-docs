@@ -30,7 +30,7 @@ Slackと統合して通知を受信することもできます。手順につい
 {% endalert %}
 
 | 通知 | 説明 | 利用可能な通知チャネル |
-|--------------|-------------|-----------------|
+|---|---|---|
 | API使用量アラート | これを選択すると**API使用量ダッシュボード**に移動し、[**API使用量アラート**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/)タブで主要なAPIリクエスト量を追跡するアラートを設定できます。 | メール、Webhook |
 | AWS認証情報エラー | BrazeがデータエクスポートのためにAmazon Web Servicesの認証情報を使用しようとした際にエラーが発生した場合、受信者に通知します。これには、Google Cloud StorageとAzure（Microsoft Cloud Services）の認証エラー通知が含まれます。 | メール、Webhook |
 | Campaignの自動停止 | BrazeがCampaignを停止したときに受信者に通知します。 | メール |

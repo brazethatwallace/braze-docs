@@ -23,11 +23,11 @@ Brazeから配信されるイベントの命名規則は、パートナーによ
 * [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/)
 * [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)
 
-弊社はCurrentsとデータウェアハウスの組み合わせの力を確信しており、[社内でも活用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)。
+Brazeでは、Currentsとデータウェアハウスの組み合わせの力を確信しており、[社内でも活用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)。
 
 ## 顧客データ {#customer-data}
 
-ここに示す顧客データプラットフォームは、複数のソースから情報を収集してさまざまな場所に転送するため、Brazeのデータを可能な限り最も優れた方法で活用できます。
+ここに示す顧客データプラットフォームは、複数のソースから情報を収集してさまざまな場所に転送するため、Brazeのデータを最大限に活用できます。
 
 * [mParticle]({{site.baseurl}}/partners/mparticle_for_currents/)
 * [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/)

@@ -28,6 +28,13 @@ When **[Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segment
 
 ![The Canvas Details page showing top-line statistics including messages sent, conversion rate, total entries, total revenue, total exits, and estimated audience, with channel and statistics filters.]({% image_buster /assets/img_archive/Journey_5.png %})
 
+{% alert tip %}
+If a segment you've built from Canvas activity shows fewer reachable users than you expect based on Canvas analytics, there are two common reasons:
+
+- **Estimation sampling:** Segment statistics may display an estimate based on a random sample with a 95% confidence interval of ±1%, rather than an exact count.
+- **Users no longer matching criteria:** Some users counted in Canvas analytics may no longer qualify for the segment—for example, because they unsubscribed or their profile data changed since the Canvas ran. Check the **Historical Performance** of the Canvas for a high volume of unsubscribes.
+{% endalert %}
+
 ### Changes Since Last Viewed
 
 The number of updates to the Canvas from other members of your team is tracked by the *Changes Since Last Viewed* metric on the Canvas overview page. Select **Changes Since Last Viewed** to view a changelog of updates to the Canvas name, schedule, tags, message, audience, approval status, or team access configuration. For each update, you can see who performed the update and when. You can use this changelog to audit changes to your Canvases.
@@ -106,4 +113,3 @@ Funnel reporting offers a visual report that allows you to analyze the journeys 
 ### Retention report
 
 User retention is one of the most important metrics for any marketer. Keeping engaged users coming back for more indicates that business is healthy. Braze now allows you to measure user retention right on the **Canvas Analytics** page. For more information on how to read and interpret your retention report, check out [Retention reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
-

@@ -235,7 +235,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Total Dismissals</i> is the number of times Content Cards from a campaign have been dismissed. 
+<i>Total Dismissals</i> is the number of times users dismissed a message from a campaign. For Content Cards, this counts each card dismissal. For Banners, this counts each time a user dismissed the Banner when dismissal behavior is enabled.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}

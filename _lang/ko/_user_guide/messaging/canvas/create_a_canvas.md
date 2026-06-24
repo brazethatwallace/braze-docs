@@ -224,7 +224,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 ![Braze Canvas의 두 가지 배리언트 예시.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-기본적으로 캔버스 배리언트 할당은 사용자 ID와 Canvas ID의 함수에 의해 결정됩니다. 즉, 배리언트 분배 비율이 변경되지 않는 한 주어진 사용자는 재진입 시 일관되게 동일한 배리언트에 할당됩니다. 시작 후 배리언트 분배를 조정하면 사용자가 Canvas에 재진입할 때 다른 배리언트에 할당될 수 있습니다. <br><br>분배 비율이 변경되더라도 고정된 할당이 필요한 경우, 단일 캔버스 배리언트를 사용하고 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 단계로 사용자를 라우팅하세요. 여정 시작 부분에서 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 사용하여 커스텀 속성에 난수를 저장한 다음 오디언스 경로에서 해당 속성으로 필터링합니다.
+기본적으로 캔버스 배리언트 할당은 사용자 ID와 Canvas ID의 결정론적 해시에 의해 결정됩니다(사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)가 아님). 즉, 배리언트 분배 비율이 변경되지 않는 한 주어진 사용자는 재진입 시 일관되게 동일한 배리언트에 할당됩니다. 시작 후 배리언트 분배를 조정하면 사용자가 Canvas에 재진입할 때 다른 배리언트에 할당될 수 있습니다. <br><br>분배 비율이 변경되더라도 고정된 할당이 필요한 경우, 단일 캔버스 배리언트를 사용하고 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 단계로 사용자를 라우팅하세요. 여정 시작 부분에서 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 사용하여 커스텀 속성에 난수를 저장한 다음 오디언스 경로에서 해당 속성으로 필터링합니다.
 
 {% details 단계 펼치기 %}
 

@@ -139,6 +139,36 @@ Esta tabela compara os fluxos de mensagem no app que Sam experimentou:
 | Com modelo | Um evento de aborto foi registrado porque Sam realizou a ação-gatilho para disparar a mensagem no app com modelo, mas recebeu um aborto no modelo Liquid.<br><br>Mensagens no app com modelo registram abortos porque a avaliação Liquid ocorre após a ação-gatilho ter sido realizada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparação do comportamento de aborto de mensagens no app" }
 
+### Quando o Conteúdo conectado é executado para mensagens no app? {#when-does-connected-content-run-for-in-app-messages}
+
+Para [mensagens no app com modelo](#what-are-templated-in-app-messages), o Conteúdo conectado e outras Liquid tags são resolvidos quando o evento de gatilho ocorre e o dispositivo solicita a carga útil da mensagem — não quando o usuário clica em um botão dentro da mensagem. Cada busca de modelo pode incluir chamadas de Conteúdo conectado para aquela exibição.
+
+Se o seu HTML faz referência a dados REST retornados pelo Conteúdo conectado, esses dados ficam disponíveis para a sessão em que a mensagem foi modelada. Vários botões podem fazer referência à mesma resposta de Conteúdo conectado sem disparar chamadas adicionais ao clicar.
+
+### Por que há um atraso antes de minha mensagem no app ser exibida? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+Mensagens no app padrão são exibidas assim que a carga útil em cache estiver pronta após o evento de gatilho. No Android e iOS, imagens grandes ou outros ativos hospedados em CDN referenciados na mensagem podem adicionar um pequeno atraso enquanto esses recursos terminam de ser baixados antes de a mensagem no app aparecer.
+
+[Mensagens no app com modelo](#what-are-templated-in-app-messages) e Campaigns com **Re-evaluate campaign eligibility before displaying** selecionado exigem uma solicitação de rede adicional após o gatilho antes de a mensagem aparecer. Isso pode adicionar um pequeno atraso (normalmente menos de 100 ms em uma conexão estável). Para saber mais, consulte [Escolher usuários para segmentar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+
+### Por que minha mensagem no app parece diferente da pré-visualização do dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+Mensagens no app entregues podem diferir da pré-visualização do dashboard quando:
+
+- Sua integração aplica estilos personalizados ou substitui a interface padrão de mensagens no app em determinadas plataformas
+- A pré-visualização usa um perfil de usuário teste com atributos diferentes dos do destinatário
+- O conteúdo com modelo é resolvido de forma diferente no momento do envio em comparação com o modo de pré-visualização
+
+Use [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) com um usuário teste cujo perfil corresponda ao seu público-alvo ao validar a aparência.
+
+### Por que uma mensagem no app de várias páginas usa o mesmo fundo em todas as páginas? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+Quando a **Imagem de fundo** está ativada em uma página de uma mensagem no app de várias páginas, esse fundo se aplica a todas as páginas da mensagem. Para usar fundos diferentes por página, use um bloco HTML personalizado com JavaScript para trocar as imagens entre as páginas.
+
+### Como testo mensagens no app na web? {#how-do-i-test-web-in-app-messages}
+
+O envio de teste de mensagens no app na web exige que o push esteja ativado no dispositivo de teste, pois o fluxo de teste entrega uma notificação por push que abre o app ou site onde a mensagem no app é exibida. O mesmo caminho de teste baseado em push se aplica em qualquer plataforma onde o push não esteja configurado com a Braze, embora a ausência de push seja mais frequentemente encontrada na web, já que muitas integrações mobile já têm o push ativado. Em vez disso, use uma Campaign ativa para um Segment de teste interno. Para ver as etapas, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+
 ## Por que o botão de fechar está oculto em mensagens no app HTML de tela inteira no Android? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
 Em dispositivos com telas de borda a borda (incluindo Android 15+), mensagens no app HTML de tela inteira podem ser desenhadas atrás da barra de status do sistema e ocultar um controle de fechar no topo do layout.

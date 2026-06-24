@@ -37,7 +37,11 @@ toc_headers: h2
 
 ### ステップ 2: エージェントを選択する {#step-2-choose-your-agent}
 
-このステップでデータを処理するエージェントを選択します。既存のエージェントから選択してください。セットアップのガイダンスについては、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)を参照してください。
+このステップでデータを処理するエージェントを選択します。セットアップのガイダンスについては、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)を参照してください。
+
+エージェントリストでは、各エージェントに[1日の呼び出し上限]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details)がラベル付けされています。上限にカーソルを合わせると、使用率や本日の呼び出し回数と上限の比較など、本日の進捗状況が表示されます。
+
+![エージェント設定パネル。エージェントドロップダウンに2つのエージェントが表示されています。各エージェントには1日の呼び出し上限がラベル付けされています。最初のエージェントのツールチップには、使用率と本日の呼び出し回数が表示されています。]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
 ### ステップ 3: エージェントの出力を設定する {#define-the-output-variable}
 
@@ -77,11 +81,11 @@ toc_headers: h2
 
 ## エラー処理 {#error-handling}
 
-Brazeがエージェントの失敗、レート制限エラー、呼び出しフロー制御をどのように処理するかについては、Brazeエージェントの[エラー処理]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)を参照してください。
+Brazeがエージェントの失敗、レート制限エラー、呼び出しフロー制御をどのように処理するかについては、エージェントのデプロイの[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior)およびBrazeエージェントの[エラー処理]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling)を参照してください。
 
-- エージェントが何らかの理由（タイムアウトエラーや無効なAPIキーなど）で失敗した場合、出力変数は`null`に設定されます。
-    - エージェントが1日の呼び出し上限に達した場合、出力変数は`null`に設定されます。
-- エラーに対するバッファとして[デフォルトのLiquid値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を使用してください。たとえば、**Add Personalization**モーダルで、{% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %}や{% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}のようなデフォルトのLiquid値を入力できます。
+- 接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors)を返した場合、Brazeはエクスポネンシャルバックオフを使用して、呼び出しが成功するか完了できないと判断されるまで継続的にリクエストを再試行します。その後、ユーザーは次のCanvasステップに進みます。
+- その他の失敗（タイムアウトエラーや無効なAPIキーなど）、またはエージェントが1日の呼び出し上限に達した場合、エージェントコンソールで[フォールバック値が設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values)されていない限り、出力変数は`null`に設定されます。フォールバック値が設定されている場合、BrazeはユーザーごとにフォールバックをLiquidでレンダリングし、結果を出力変数に保存します。これは1日の上限により呼び出しがブロックされた場合も同様です。
+- フォールバック値を設定しない場合は、下流のメッセージステップで[デフォルトのLiquid値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を使用してnull出力を処理してください。たとえば、**Add Personalization**モーダルで、{% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %}や{% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}のようなデフォルトのLiquid値を入力できます。
 - 同一の入力に対する応答はキャッシュされ、数分以内の同一の呼び出しに再利用される場合があります。
     - キャッシュされた値を使用する応答も、合計および1日の呼び出し回数にカウントされます。
 - エージェントステップは、大量のユーザーバッチの処理に時間がかかる場合があります。Brazeは[呼び出しフロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls)に従って呼び出しをキューに入れるため、大量送信時にユーザーが保留中になる場合があります。ログを確認して呼び出しが行われていることを確認してください。

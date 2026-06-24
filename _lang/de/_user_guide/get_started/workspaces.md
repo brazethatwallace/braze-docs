@@ -208,8 +208,8 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
     <tr>
         <th scope="row">Duplizieren von Inhalten</th>
         <td>N/A</td>
-        <td>Segmente, Push- oder Content-Card-Campaigns oder Canvases können nicht über Workspaces hinweg dupliziert werden.</td>
-        <td>Campaigns können für die folgenden unterstützten Kanäle <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>über Workspaces hinweg dupliziert werden</a>: SMS, In-App-Nachrichten, E-Mail, E-Mail-Templates und Content Blocks.<br><br>Sie können Segmente, Campaigns und Canvases duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
+        <td>Einige Inhalte, wie Segmente und Content-Card-Kampagnen, können nicht über Workspaces hinweg kopiert werden.</td>
+        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Sie können Segmente, Campaigns, Canvases und Landing-Pages duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
         <td>N/A</td>
     </tr>
     <tr>

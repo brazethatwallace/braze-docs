@@ -41,11 +41,11 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 예를 들어, 날짜 범위를 **최근 7일**로 설정하고 *일일 활성 사용자*가 1.8% 증가를 보인다면, 이번 주에 지난 주보다 일일 활성 사용자가 1.8% 더 많았다는 의미입니다.
 
-![측정기준 값과 백분율 변화를 보여주는 성과 개요 측정기준 타일.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![일일 활성 사용자 측정기준 타일로, 평균 22.2천 명과 7.1% 증가 배지 및 추세선이 표시된 모습.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 세부 내역 보기 {#show-breakdown}
 
-성과 개요 통계의 각 행에서 **세부 내역 보기**를 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
+성과 개요 통계의 각 행에서 **Show Breakdown**을 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
 
 ![세부 내역 확장]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
@@ -63,7 +63,7 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 - 이메일
 - 인앱 메시지
 - KPI 수식
-  - **KPI 수식 관리**를 선택하여 수식을 생성하거나 기존 수식을 편집할 수 있습니다.
+  - **Manage KPI Formulas**를 선택하여 수식을 생성하거나 기존 수식을 편집할 수 있습니다.
 - LINE
 - 월간 활성 사용자(MAU)
 - 신규 사용자

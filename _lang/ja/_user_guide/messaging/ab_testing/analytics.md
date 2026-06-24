@@ -30,7 +30,7 @@ BrazeAI<sup>TM</sup> バリアントセレクションを使用している場�
 
 BrazeAI<sup>TM</sup> バリアントセレクションでのリフトのレポート方法の詳細については、[バリアントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/)を参照してください。
 
-![BrazeAI バリアントセレクションのリフト結果]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![BrazeAI バリアントセレクションによるリフトを示すキャンペーン分析。実験ウィンドウ後の比較指標が含まれています。]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### 勝者バリアント {#winning-variant}
 
@@ -84,7 +84,7 @@ Campaignの設定時に最適化として**パーソナライズ済みバリア�
 
 カスタムイベントとメッセージの好みとの関係性は、**初期送信**タブのテーブルに表示されます。
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![初期テストタブのテーブル。ユーザーのカスタムイベントと好みのメッセージバリアントとの関係性を要約しています。]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 テストでカスタムイベントとパスの好みとの間に意味のある関係性が見つからない場合、テストはセッションベースの分析方法にフォールバックし、カスタムイベントのデータテーブルは表示されません。
 
@@ -125,7 +125,7 @@ Campaignの設定時に最適化として**パーソナライズ済みバリア�
 
 このページのテーブルには、パーソナライズ済みバリアント送信の各バリアントの指標が表示されます。**オーディエンス %** は、パーソナライズ済みバリアントグループ用に予約したターゲットSegmentの割合の合計になります。
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![パーソナライズ済みバリアントタブのテーブル。最終送信後の各バリアントのオーディエンス割合とパフォーマンス指標が一覧表示されています。]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -175,34 +175,34 @@ Brazeは、各バリアントのコンバージョン率をコントロールの
 
 1回の多変量テストと AB テストは、将来のテストのアイデアを刺激し（そうすべきです！）、メッセージング戦略の変更を導くことができます。考えられるフォローアップアクションには以下が含まれます。
 
-#### テスト結果に基づいてメッセージング戦略を変更する {#change-your-messaging-strategy-based-on-test-results}
+### テスト結果に基づいてメッセージング戦略を変更する {#change-your-messaging-strategy-based-on-test-results}
 
 多変量テストの結果により、メッセージの文言やフォーマットの方法を変更することになる場合があります。
 
-#### ユーザーの理解方法を変更する {#change-the-way-you-understand-your-users}
+### ユーザーの理解方法を変更する {#change-the-way-you-understand-your-users}
 
 各テストは、ユーザーの行動、ユーザーがさまざまなメッセージングチャネルにどのように反応するか、Segment間の違い（および類似点）を明らかにします。
 
-#### 将来のテストの構成方法を改善する {#improve-the-way-you-structure-future-tests}
+### 将来のテストの構成方法を改善する {#improve-the-way-you-structure-future-tests}
 
 サンプルサイズが小さすぎましたか？バリアント間の差が微妙すぎましたか？各テストは、将来のテストを改善する方法を学ぶ機会を提供します。信頼度が低い場合は、サンプルサイズが小さすぎるため、将来のテストでは拡大する必要があります。バリアントのパフォーマンスに明確な差が見られない場合は、差が微妙すぎてユーザーの反応に識別可能な効果を与えられなかった可能性があります。
 
-#### より大きなサンプルサイズでフォローアップテストを実行する {#run-a-follow-up-test-with-a-larger-sample-size}
+### より大きなサンプルサイズでフォローアップテストを実行する {#run-a-follow-up-test-with-a-larger-sample-size}
 
 サンプルが大きいほど、バリアント間の小さな差を検出できる可能性が高くなります。
 
-#### 異なるメッセージングチャネルを使用してフォローアップテストを実行する {#run-a-follow-up-test-using-a-different-messaging-channel}
+### 異なるメッセージングチャネルを使用してフォローアップテストを実行する {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 特定の戦略があるチャネルで非常に効果的であることがわかった場合、その戦略を他のチャネルでもテストしたいと思うかもしれません。あるタイプのメッセージがあるチャネルでは効果的だが別のチャネルでは効果的でない場合、特定のタイプのメッセージに対してより適したチャネルがあると結論付けることができるかもしれません。あるいは、プッシュ通知を有効にする可能性が高いユーザーと、アプリ内メッセージに注意を払う可能性が高いユーザーとの間に違いがあるかもしれません。最終的に、この種のテストを実行することで、オーディエンスがさまざまなコミュニケーションチャネルとどのようにやり取りするかを学ぶのに役立ちます。
 
-#### 異なるユーザーSegmentでフォローアップテストを実行する {#run-a-follow-up-test-on-a-different-segment-of-users}
+### 異なるユーザーSegmentでフォローアップテストを実行する {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 これを行うには、同じメッセージングチャネルとバリアントで別のテストを作成しますが、異なるユーザーSegmentを選択します。たとえば、あるタイプのメッセージングがエンゲージメントの高いユーザーに非常に効果的だった場合、休眠ユーザーへの効果を調査することが有用かもしれません。休眠ユーザーが同様に反応する可能性もあれば、他のバリアントのいずれかを好む可能性もあります。このテストは、さまざまなSegmentとそれらがさまざまなタイプのメッセージにどのように反応するかについて、より多くのことを学ぶのに役立ちます。データに基づいて戦略を立てることができるのに、Segmentについて仮定を立てる必要はありません。
 
-#### 以前のテストからのインサイトに基づいてフォローアップテストを実行する {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
+### 以前のテストからのインサイトに基づいてフォローアップテストを実行する {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 過去のテストから得たインサイトを使用して、将来のテストを導きましょう。以前のテストで、あるメッセージング手法がより効果的であることが示唆されていますか？バリアントのどの特定の側面がより優れていたのか確信が持てませんか？これらの疑問に基づいてフォローアップテストを実行することで、ユーザーに関する洞察に富んだ発見を生み出すのに役立ちます。
 
-#### 異なるバリアントの長期的な影響を比較する {#compare-the-long-term-impact-of-different-variants}
+### 異なるバリアントの長期的な影響を比較する {#compare-the-long-term-impact-of-different-variants}
 
 再エンゲージメントメッセージの AB テストを行っている場合は、[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)を使用して、異なるバリアントの長期的な影響を比較することを忘れないでください。リテンションレポートを使用して、メッセージ受信後の数日、数週間、1か月後に、各バリアントが選択したユーザー行動にどのような影響を与えたかを分析し、リフトがあるかどうかを確認できます。

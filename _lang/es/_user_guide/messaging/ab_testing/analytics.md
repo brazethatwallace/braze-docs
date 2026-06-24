@@ -25,11 +25,11 @@ Si seleccionaste **Sin optimización** al configurar tu campaña, tu vista de an
 Para más detalles, consulta el artículo [Análisis de campañas]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) para tu canal de mensajería.
 
 ### Selección de variante con BrazeAI<sup>TM</sup> (solo push) {#brazeai-variant-selection-push-only}
-Si estás usando la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que la ventana del experimento (o el primer período para recurrentes) haya pasado, verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a los de la variante ganadora a continuación si ejecutas una campaña de envío único.
+Si usas la selección de variante con BrazeAI<sup>TM</sup>, dependiendo de si se trata de un envío único o una campaña recurrente, una vez que la ventana del experimento (o el primer período para recurrentes) haya pasado, verás el incremento, si lo hay, en la página de inicio de la campaña. También verás más detalles similares a los de la variante ganadora a continuación si ejecutas una campaña de envío único.
 
 Para más detalles sobre cómo reportamos el incremento en la selección de variante con BrazeAI<sup>TM</sup>, consulta [Selección de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
 
-![Resultados de incremento de la selección de variante con BrazeAI]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Análisis de campaña que muestra el incremento de la selección de variante con BrazeAI<sup>TM</sup>, incluyendo métricas de comparación después de la ventana del experimento.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Variante ganadora {#winning-variant}
 
@@ -79,11 +79,11 @@ La pestaña **Prueba inicial** muestra las métricas de cada variante de la prue
 
 ![Resultados de una prueba inicial enviada para determinar la variante con mejor rendimiento para cada usuario. Una tabla muestra el rendimiento de cada variante basándose en varias métricas para el canal objetivo.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
 
-De forma predeterminada, la prueba busca asociaciones entre los eventos personalizados de los usuarios y sus preferencias de variante de mensaje. Este análisis detecta si los eventos personalizados aumentan o disminuyen la probabilidad de responder a una variante de mensaje en particular. Estas relaciones se utilizan luego para determinar qué usuarios reciben qué variante de mensaje en el envío final.
+De forma predeterminada, la prueba busca asociaciones entre los eventos personalizados de cada usuario y sus preferencias de variante de mensaje. Este análisis detecta si los eventos personalizados aumentan o disminuyen la probabilidad de responder a una variante de mensaje en particular. Estas relaciones se utilizan luego para determinar qué usuarios reciben qué variante de mensaje en el envío final.
 
 Las relaciones entre eventos personalizados y preferencias de mensaje se muestran en la tabla de la pestaña **Envío inicial**.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tabla de la pestaña Prueba inicial que resume las relaciones entre los eventos personalizados de los usuarios y sus variantes de mensaje preferidas.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 Si la prueba no puede encontrar una relación significativa entre los eventos personalizados y las preferencias de ruta, recurre a un método de análisis basado en sesiones, y no se muestran tablas de datos de eventos personalizados.
 
@@ -124,7 +124,7 @@ Las tres tarjetas en esta página muestran tu incremento proyectado, los resulta
 
 La tabla en esta página muestra las métricas de cada variante del envío de la variante personalizada. Tu **% de audiencia** suma el porcentaje del segmento objetivo que reservaste para el grupo de la variante personalizada.
 
-![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Tabla de la pestaña Variante personalizada que muestra el porcentaje de audiencia y las métricas de rendimiento de cada variante después del envío final.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -174,34 +174,34 @@ Para campañas de mensajes dentro de la aplicación desencadenados que incluyen 
 
 Una prueba multivariante y A/B puede (¡y debería!) inspirar ideas para futuras pruebas, así como guiarte hacia cambios en tu estrategia de mensajería. Las posibles acciones de seguimiento incluyen las siguientes:
 
-#### Cambiar tu estrategia de mensajería basándote en los resultados de la prueba {#change-your-messaging-strategy-based-on-test-results}
+### Cambiar tu estrategia de mensajería basándote en los resultados de la prueba {#change-your-messaging-strategy-based-on-test-results}
 
 Tus resultados multivariantes pueden llevarte a cambiar la forma en que redactas o formateas tu mensajería.
 
-#### Cambiar la forma en que entiendes a tus usuarios {#change-the-way-you-understand-your-users}
+### Cambiar la forma en que entiendes a tus usuarios {#change-the-way-you-understand-your-users}
 
 Cada prueba arrojará luz sobre los comportamientos de tus usuarios, cómo responden a diferentes canales de mensajería y las diferencias (y similitudes) entre tus segmentos.
 
-#### Mejorar la forma en que estructuras futuras pruebas {#improve-the-way-you-structure-future-tests}
+### Mejorar la forma en que estructuras futuras pruebas {#improve-the-way-you-structure-future-tests}
 
 ¿Tu tamaño de muestra fue demasiado pequeño? ¿Las diferencias entre tus variantes fueron demasiado sutiles? Cada prueba brinda una oportunidad para aprender cómo mejorar futuras pruebas. Si tu confianza es baja, tu tamaño de muestra es demasiado pequeño y debería ampliarse para futuras pruebas. Si no encuentras una diferencia clara entre el rendimiento de tus variantes, es posible que las diferencias fueran demasiado sutiles para tener un efecto perceptible en las respuestas de los usuarios.
 
-#### Ejecutar una prueba de seguimiento con un tamaño de muestra mayor {#run-a-follow-up-test-with-a-larger-sample-size}
+### Ejecutar una prueba de seguimiento con un tamaño de muestra mayor {#run-a-follow-up-test-with-a-larger-sample-size}
 
 Las muestras más grandes aumentarán las posibilidades de detectar pequeñas diferencias entre variantes.
 
-#### Ejecutar una prueba de seguimiento usando un canal de mensajería diferente {#run-a-follow-up-test-using-a-different-messaging-channel}
+### Ejecutar una prueba de seguimiento usando un canal de mensajería diferente {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 Si descubres que una estrategia particular es muy efectiva en un canal, es posible que quieras probar esa estrategia en otros canales. Si un tipo de mensaje es efectivo en un canal pero no en otro, puedes concluir que ciertos canales son más propicios para ciertos tipos de mensajes. O quizás hay una diferencia entre los usuarios que son más propensos a habilitar las notificaciones push y aquellos que son más propensos a prestar atención a los mensajes dentro de la aplicación. En última instancia, ejecutar este tipo de prueba te ayudará a aprender cómo tu audiencia interactúa con tus diferentes canales de comunicación.
 
-#### Ejecutar una prueba de seguimiento en un segmento diferente de usuarios {#run-a-follow-up-test-on-a-different-segment-of-users}
+### Ejecutar una prueba de seguimiento en un segmento diferente de usuarios {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 Para hacer esto, crea otra prueba con el mismo canal de mensajería y variantes, pero elige un segmento diferente de usuarios. Por ejemplo, si un tipo de mensajería fue extremadamente efectivo para usuarios activos, puede ser útil investigar su efecto en usuarios inactivos. Es posible que los usuarios inactivos respondan de manera similar, o que prefieran otra de las otras variantes. Esta prueba te ayudará a aprender más sobre tus diferentes segmentos y cómo responden a diferentes tipos de mensajes. ¿Por qué hacer suposiciones sobre tus segmentos cuando puedes basar tu estrategia en datos?
 
-#### Ejecutar una prueba de seguimiento basada en información de una prueba anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
+### Ejecutar una prueba de seguimiento basada en información de una prueba anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 Usa la información que recopilas de pruebas anteriores para guiar las futuras. ¿Una prueba anterior sugiere que una técnica de mensajería es más efectiva? ¿No estás seguro de qué aspecto específico de una variante la hizo mejor? Ejecutar pruebas de seguimiento basadas en estas preguntas te ayudará a generar hallazgos valiosos sobre tus usuarios.
 
-#### Comparar el impacto a largo plazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
+### Comparar el impacto a largo plazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
 
 Si estás realizando pruebas A/B de mensajes de reactivación de la interacción, no olvides comparar el impacto a largo plazo de diferentes variantes usando [Informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). Puedes usar los informes de retención para analizar cómo cada variante impactó cualquier comportamiento de usuario de tu elección días, semanas o un mes después de la recepción del mensaje, y ver si hay incremento.

@@ -23,7 +23,7 @@ O Android suporta localização para nomes de canais, então no código do seu a
 
 Depois que esses canais forem criados, seus engenheiros precisarão repassar os IDs de canal associados para sua equipe de marketing. Sua equipe deve inserir os nomes e IDs dos canais no dashboard da Braze para uso em suas Campaigns e Canvas.
 
-Para adicionar um canal ao dashboard da Braze, navegue até o criador de push para Android, selecione o campo de canais de notificação e então selecione "gerenciar canais".
+Para adicionar um canal ao dashboard da Braze, acesse o criador de push para Android, selecione o campo de canais de notificação e então selecione **Gerenciar canais**.
 {% alert important %}
 Somente usuários com permissões que incluem "gerenciar apps" poderão gerenciar canais.
 {% endalert %}
@@ -57,10 +57,10 @@ No caso de um ID de canal inválido ser fornecido à Braze (como se você fornec
 Para entender melhor o comportamento esperado dos canais, consulte a tabela a seguir:
 
 | Cenário | Resultado |
-| ---|-------------
-| **Empresa ABC** atualiza para um SDK que suporta Android O<br>**Empresa ABC** não adiciona nenhum canal ao dashboard da Braze<br>**Empresa ABC** não renomeia o canal padrão do SDK | Notificações por push enviadas para dispositivos Android O criarão um canal chamado "General" e as notificações serão enviadas pelo canal "General"
-| **Empresa XYZ** atualiza para um SDK que suporta Android O <br>**Empresa XYZ** não adiciona nenhum canal ao dashboard da Braze<br>**Empresa XYZ** renomeia o canal padrão do SDK para "Marketing" | Notificações por push enviadas para dispositivos Android O criarão um canal chamado "Marketing" e as notificações serão enviadas pelo canal "Marketing"
-| **Empresa LMN** atualiza para um SDK que suporta Android O <br>**Empresa LMN** define dois canais no código do app, "Promotions" e "Order Updates" <br>**Empresa LMN** adiciona os IDs dos canais "Promotions" e "Order Updates" ao dashboard da Braze <br>**Empresa LMN** designa "Promotions" como o canal de fallback do dashboard<br>**Empresa LMN** renomeia o canal padrão do SDK para "Marketing" | Notificações por push enviadas para dispositivos Android O não criarão um canal<br><br>A menos que o profissional de marketing especifique explicitamente que as notificações devem ser enviadas pelo canal "Order Updates" ou "Marketing", todas as notificações criadas antes dos canais serem adicionados ao dashboard serão enviadas pelo canal "Promotions"<br><br>O canal padrão do SDK, "Marketing", só é criado e usado se a empresa tentar enviar uma notificação por um ID de canal inválido ou se for explicitamente selecionado
+| --- | --- |
+| **Empresa ABC** atualiza para um SDK que suporta Android O<br>**Empresa ABC** não adiciona nenhum canal ao dashboard da Braze<br>**Empresa ABC** não renomeia o canal padrão do SDK | Notificações por push enviadas para dispositivos Android O criarão um canal chamado "General" e as notificações serão enviadas pelo canal "General" |
+| **Empresa XYZ** atualiza para um SDK que suporta Android O<br>**Empresa XYZ** não adiciona nenhum canal ao dashboard da Braze<br>**Empresa XYZ** renomeia o canal padrão do SDK para "Marketing" | Notificações por push enviadas para dispositivos Android O criarão um canal chamado "Marketing" e as notificações serão enviadas pelo canal "Marketing" |
+| **Empresa LMN** atualiza para um SDK que suporta Android O<br>**Empresa LMN** define dois canais no código do app, "Promotions" e "Order Updates"<br>**Empresa LMN** adiciona os IDs dos canais "Promotions" e "Order Updates" ao dashboard da Braze<br>**Empresa LMN** designa "Promotions" como o canal de fallback do dashboard<br>**Empresa LMN** renomeia o canal padrão do SDK para "Marketing" | Notificações por push enviadas para dispositivos Android O não criarão um canal<br><br>A menos que o profissional de marketing especifique explicitamente que as notificações devem ser enviadas pelo canal "Order Updates" ou "Marketing", todas as notificações criadas antes dos canais serem adicionados ao dashboard serão enviadas pelo canal "Promotions"<br><br>O canal padrão do SDK, "Marketing", só é criado e usado se a empresa tentar enviar uma notificação por um ID de canal inválido ou se for explicitamente selecionado |
 | **Empresa HIJ** atualiza para o Android O, mas não atualiza o SDK da Braze para Android para a versão 2.1.0 ou posterior | Notificações enviadas para usuários com Android O ou posterior não aparecerão |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canal de fallback do dashboard" }
 
@@ -68,17 +68,17 @@ Para entender melhor o comportamento esperado dos canais, consulte a tabela a se
 
 1. Abra ou crie qualquer Campaign ou Canvas que inclua um push para Android.
 2. Navegue até o criador de mensagens push para Android.
-3. Selecione **Manage Notification Channels**. Quaisquer canais adicionados aqui estarão disponíveis globalmente para todas as Campaigns e Canvas. Você deve ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) de "Manage Apps" para seu espaço de trabalho para gerenciar canais.
+3. Selecione **Gerenciar canais de notificação**. Quaisquer canais adicionados aqui estarão disponíveis globalmente para todas as Campaigns e Canvas. Você deve ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions) de "Gerenciar apps" para seu espaço de trabalho para gerenciar canais.
 
 Quando você aplica um canal de notificação a uma Campaign ou etapa do Canvas específica, a contagem de **Usuários contatáveis** (localizada na etapa de Público-alvo) para push Android não parecerá mudar. No entanto, somente os usuários inscritos no canal de notificação selecionado verão a mensagem, e a análise de dados da sua campanha (como cliques) será medida com base nesse público.
 
-![]({% image_buster /assets/img_archive/push_notification_channels.png %})
+![Criador de push para Android com Gerenciar canais de notificação e uma lista de canais configurados.]({% image_buster /assets/img_archive/push_notification_channels.png %})
 
 {:start="4"}
-4. Clique em **Add Notification Channel**.
-5. Insira o nome e o ID do canal de notificação que você deseja adicionar.<br><br>![]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
+4. Selecione **Adicionar canal de notificação**.
+5. Insira o nome e o ID do canal de notificação que você deseja adicionar.<br><br>![Caixa de diálogo Adicionar canal de notificação com campos para nome do canal e ID do canal.]({% image_buster /assets/img_archive/push_notifications_channels_manage.png %})<br><br>
 6. Repita as etapas 4 e 5 para cada canal de notificação que você deseja adicionar.
-7. Pressione **Save** para salvar suas alterações.
+7. Selecione **Salvar** para salvar suas alterações.
 
 ## Especificando seu canal de fallback {#specifying-your-fallback-channel}
 
@@ -86,7 +86,7 @@ Seu canal de fallback é o canal que a Braze tentará usar para enviar sua mensa
 
 1. Abra qualquer Campaign ou Canvas existente.
 2. Navegue até o criador de push para Android.
-3. Selecione **Manage Notification Channels** após expandir as opções de canal de notificação.
+3. Selecione **Gerenciar canais de notificação** após expandir as opções de canal de notificação.
 4. Adicione o canal ao dashboard (se ainda não tiver sido adicionado).
 5. Selecione o botão de rádio ao lado do canal que você deseja designar como canal de fallback.
 6. Salve suas alterações. Suas alterações serão aplicadas globalmente.

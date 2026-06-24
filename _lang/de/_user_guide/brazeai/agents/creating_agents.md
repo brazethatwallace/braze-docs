@@ -47,8 +47,8 @@ Um einen Agenten zu erstellen, wählen Sie zunächst Ihren Agententyp aus:
 
 Wählen Sie **Agent erstellen** aus und entscheiden Sie sich dann für eine der folgenden Optionen:
 
-a. **Angepasster Agent**, um einen Agenten von Grund auf zu erstellen
-b. Eine Option unter **Agent mit Operator erstellen**, um [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) zu verwenden und ein [Starttemplate](#agent-templates-built-with-operator) anzuwenden
+- **Angepasster Agent**, um einen Agenten von Grund auf zu erstellen
+- Eine Option unter **Agent mit Operator erstellen**, um [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) zu verwenden und ein [Starttemplate](#agent-templates-built-with-operator) anzuwenden
 
 Wenn Sie Operator verwenden, überprüfen und genehmigen Sie die Änderungen im Chat, bevor Sie mit dem nächsten Schritt fortfahren.
 
@@ -96,7 +96,30 @@ Um optimale Ergebnisse zu erzielen, stellen Sie sicher, dass die Angaben im Absc
 Wenn Sie ein [erweitertes Ausgabeschema]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas) verwenden, fügen Sie ein String-Feld namens `explanation` hinzu, wenn der Agent zusätzlich zu seinen anderen Ausgaben seine Begründung zurückgeben soll. Weisen Sie den Agenten in Ihren [Anweisungen](#agent-instructions) an, `explanation` zu befüllen, wenn Ihnen das bei der Überprüfung oder Fehlersuche hilft.
 {% endalert %}
 
-### 6. Schritt: Agenten testen und erstellen {#step-6-test-and-create-the-agent}
+#### Fallback-Werte konfigurieren {#configure-fallback-values}
+
+Fallback-Werte sind nur für **Canvas-Schritt-Agenten** verfügbar. Im Abschnitt **Ausgabe** eines Canvas-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Agentenaufruf fehlschlägt – beispielsweise wenn das LLM eine Zeitüberschreitung verursacht oder einen ungültigen API-Schlüssel-Fehler zurückgibt. Fallback-Werte funktionieren wie Personalisierungsstandards. Sie könnten eine statische Betreffzeile oder eine kurze Nachricht festlegen, die den Nutzer:innen dennoch eine nützliche Ausgabe liefert, wenn der Agent nicht ausgeführt werden kann.
+
+**Katalog-Agenten** unterstützen die Konfiguration von Fallback-Werten in der Agentenkonsole nicht.
+
+![Ausgabekonfiguration der Agentenkonsole mit dem Fallback-Ausgabefeld für ein Zahlenschema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+
+Für Canvas-Agenten unterstützen Fallback-Werte [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)-Templating, sodass Sie Nutzerattribute oder Kontextvariablen im Fallback-Text referenzieren können.
+
+Die Fallback-Felder passen sich dem Ausgabeformat Ihres Canvas-Agenten an:
+
+| Ausgabeformat | Fallback-Konfiguration |
+| --- | --- |
+| String, Zahl oder Boolescher Wert | Geben Sie einen einzelnen Fallback-Wert ein (Liquid wird unterstützt). |
+| Felder (erweitertes Schema) | Geben Sie einen Fallback-Wert für jedes in der Ausgabe des Agenten definierte Feld ein. |
+| JSON-Schema (erweitertes Schema) | Braze liest Ihr JSON-Schema und generiert ein Eingabefeld für jede Eigenschaft, sodass Sie einen Fallback-Wert pro Schlüssel definieren können. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fallback-Werte konfigurieren" }
+
+Wenn ein Canvas-Agent mit Fallback-Werten in einem [Agenten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) ausgeführt wird, rendert Braze den Fallback pro Nutzer:in und speichert ihn in der Ausgabevariable anstelle von `null`. Wenn Sie keine Fallback-Werte konfigurieren, bleibt die Canvas-Ausgabe bei fehlgeschlagenen Aufrufen ungesetzt (`null`).
+
+Informationen zum Laufzeitverhalten finden Sie unter [Fehlerbehandlung und Fallback-Verhalten]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+
+### 6. Schritt: Agenten testen {#step-6-test-the-agent}
 
 Der **Vorschaubereich** ist eine Instanz des Agenten, die als nebeneinander angeordnetes Panel innerhalb der Konfiguration angezeigt wird. Sie können diesen Bereich verwenden, um den Agenten zu testen, während Sie ihn erstellen oder aktualisieren, und ihn auf ähnliche Weise wie Endnutzer:innen zu erleben. Dieser Schritt hilft Ihnen zu bestätigen, dass er sich wie erwartet verhält, und gibt Ihnen die Möglichkeit, vor der Live-Schaltung Feinabstimmungen vorzunehmen.
 

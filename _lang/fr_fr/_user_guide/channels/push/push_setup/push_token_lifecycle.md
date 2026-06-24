@@ -121,7 +121,7 @@ Consultez le tableau suivant pour les actions qui entraînent des modifications 
 
 Lorsqu'un utilisateur ouvre une nouvelle application et accorde l'accès push via une invite push, un appel est effectué depuis le SDK Braze vers les fournisseurs push. Lorsque cet appel est effectué, le fournisseur push vérifie que tout est correctement configuré. Si c'est le cas, un jeton de notification push est transmis à votre appareil. Lorsque ce jeton arrive, le SDK le communique à Braze. Une fois que Braze a reçu le jeton du fournisseur push, nous mettons à jour ou créons un nouveau profil utilisateur. Ces utilisateurs sont alors considérés comme enregistrés.
 
-Si nous voulons lancer une campagne, nous créons une Campaign dans Braze qui génère un payload push à envoyer au fournisseur push. À partir de là, le fournisseur délivre le payload push à l'appareil de l'utilisateur et le SDK transmet l'état de l'envoi de messages à Braze.
+Si nous voulons lancer une campagne, nous créons une campagne dans Braze qui génère un payload push à envoyer au fournisseur push. À partir de là, le fournisseur délivre le payload push à l'appareil de l'utilisateur et le SDK transmet l'état de l'envoi de messages à Braze.
 
 ![Un diagramme de flux illustrant le processus push décrit ci-dessus entre Braze, le client et le service Apple Push Notification ou Firebase Cloud Messaging.]({% image_buster /assets/img/push_process.png %})
 
