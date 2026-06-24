@@ -467,6 +467,7 @@ The key-value pairs for this use case include:
 - `message_header` set as `Full Page`
 - `class_type` set as `message_full_page`
 
+![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% tab Webview message - HTML %}

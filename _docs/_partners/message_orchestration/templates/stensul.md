@@ -39,6 +39,7 @@ This is a one-time setup and any exports in the future will automatically utiliz
 
 Create a Stensul email in the Stensul platform and click **Complete**.
 
+![Stensul Save Options]({% image_buster /assets/img_archive/stensul_save_options.png %})
 
 ### Step 2: Export template to Braze
 In the new dialogue that appears on the completion page, select **Upload to ESP**.

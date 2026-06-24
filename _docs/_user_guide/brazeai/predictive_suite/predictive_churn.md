@@ -21,6 +21,7 @@ After the prediction model is built, users in the prediction audience will be as
 
 Updating the risk scores of the prediction audience can be done at a [frequency you choose]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#step-4-choose-the-update-frequency-for-churn-prediction). This way, you can contact users who are at risk of churning before they actually do and prevent it from happening in the first place. Using up to three active predictions, you can leverage Predictive Churn to tailor individual models to help prevent churn within specific segments of your users that you deem to be the most valuable.
 
+![An overview of churn, which includes a past prediction audience with training with historical data. This contributes to predicting risk for future churn by measuring today's predicted audience with a churn risk score.]({% image_buster /assets/img/churn/churn_overview.png %})
 
 ## Accessing Predictive Churn
 

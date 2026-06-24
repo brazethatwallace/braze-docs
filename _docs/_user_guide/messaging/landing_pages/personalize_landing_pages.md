@@ -17,6 +17,7 @@ Liquid personalization for landing pages is only available on the Pro tier of la
 
 In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#using-liquid).
 
+![Landing page editor with Liquid personalization added.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
 ## Previewing and testing
 
@@ -59,6 +60,7 @@ Use pre-fill form fields:
 2. In the right-hand settings panel, map the field to the appropriate profile attribute.
 3. Select **Pre-fill from user profile**.
 
+![Landing page form field settings showing the option to pre-fill from user profile data.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 
 Pre-filling only works for [identified users](#use-liquid-for-identified-and-anonymous-users). For anonymous visitors, form fields keep their default state:
 

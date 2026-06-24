@@ -111,6 +111,7 @@ By default, rules are ordered in the sequence that they're created, but you can 
 
 ![An image showing that a user can add a rule to a feature flag.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
+![An image showing a summary of a feature flag with multiple rules added and an everyone else rule.]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
 ### Multi-rule feature flag use cases
 
