@@ -90,6 +90,7 @@ You can also choose to set a custom footer for plaintext emails from the **Subsc
 
 If you don't include a plaintext footer, Braze will automatically build one from the HTML footer. When your custom footers are to your liking, select **Save**.
 
+![Email with Set Custom Plaintext Footer option selected.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
 ## Considerations
 

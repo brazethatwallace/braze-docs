@@ -81,9 +81,6 @@ To resolve this, do the following:
 
 1. Complete setting up your WhatsApp message step.
 2. Confirm you checked **Save Flow responses as a custom attribute**.
-
-
-{: start="3"}
 3. Send yourself a test message and complete the Flow as a user.
 
 Now, Braze has the shape of the Flow response JSON and can generate the custom attribute.

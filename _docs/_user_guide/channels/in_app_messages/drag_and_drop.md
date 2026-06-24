@@ -168,27 +168,28 @@ Consider the following questions as you test your in-app message:
 
 ## Frequently asked questions
 
-#### Why are body clicks not appearing on my analytics page?
+### Why are body clicks not appearing on my analytics page?
 
 Body clicks are not automatically collected for in-app messages created with the drag-and-drop editor. For more details, refer to the SDK changelogs for [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) and [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Can I segment based on button clicks?
+### Can I segment based on button clicks?
 
 Yes, you can segment based on button clicks for up to two buttons in your message. To do so, set the **Identifier for Reporting** for your buttons to "0" and "1", which will correspond to the segmentation filters "Clicked in-app message button 1" and "Clicked in-app message button 2" respectively.
 
 ![The "Identifier for Reporting" field with a value of "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
+### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
 
 You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a Custom Code block. You can use Custom Code blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements.
 
-#### How can I create a slideup in-app message?
+### How can I create a slideup in-app message?
 
 Currently the editor is limited to modal and fullscreen messages only. You can switch between display types in the **Message container** section of the **Message styles** panel.
 
-#### Can I save my in-app message as a template after I build it within my campaign or Canvas?
+### Can I save my in-app message as a template after I build it within my campaign or Canvas?
 
 Yes. For any in-app message you want to reuse in a future campaign or Canvas step, you can save it as a custom template using the **Save as template** button, available after you exit the editor. Before you can save it as a template, you must first launch the campaign OR save it as a draft.
 
+![A preview of an in-app message for a product tour.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
 You can also create and save in-app message templates by navigating to **Content** > **In-App Message**.

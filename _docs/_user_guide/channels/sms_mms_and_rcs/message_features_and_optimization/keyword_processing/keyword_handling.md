@@ -30,13 +30,13 @@ Braze uses your full set of opt-out keywords ([default keywords]({{site.baseurl}
 {% tabs %}
 {% tab Add Keyword Triggers %}
 
-#### Add keyword triggers
+### Add keyword triggers
 
 In addition to the default opt-in and opt-out keywords, you may also define your own keywords to trigger Opt-In, Opt-Out, and Help responses.
 
 To define your own keywords, do the following:
 
-1. In the Braze dashboard, go to **Audience** > **Subscription Group Management** and select an **SMS/MMS/RCS** subscription group.<br><br>
+1. In the Braze dashboard, go to **Audience** > **Subscription Group Management** and select an **SMS/MMS/RCS** subscription group.
 2. Under **Global Keywords**, select the pencil icon next to the keyword category you want to add a keyword to. ![Opt-in keywords with the pencil icon displaying.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. In the tab that opens, add a keyword you want to trigger this keyword category. Note that keywords are case insensitive, and universal keywords like `START`, `YES`, and `UNSTOP` cannot be changed. ![Editing keywords for "Opt-In" category. Added keywords are "START", "UNSTOP", and "YES". The reply message field reads "You have been unsubscribed to messages from this number. Reply HELP for help. Reply STOP to unsubscribe. Message and data rates may apply."]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -54,7 +54,7 @@ Interested in seeing how these keywords can be used in your campaigns and Canvas
 
 {% tab Manage responses %}
 
-#### Manage responses
+### Manage responses
 
 You can manage your own responses that are sent to users after they text in a keyword to a specific keyword category.
 
@@ -63,7 +63,7 @@ You can manage your own responses that are sent to users after they text in a ke
 3. In the tab that opens, edit your response. Be mindful of our [six rules to get compliance right]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) as you create your response, and read the following rules that apply to keywords and keyword responses.<br><br>
 4. To automatically shorten static URLs in your response, select the **Link Shortening** toggle. The character counter will update to show the expected length of the shortened URL. ![A GIF showing the character counter updating when the "Link Shortening" toggle is on.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
-##### Considerations
+#### Considerations
 
 | Keywords | Keyword responses |
 | -------- | ----------------- |

@@ -68,7 +68,7 @@ You can use these blocks to add content and customize the layout of your landing
 | Custom Code | A block that allows you to insert and run custom HTML, CSS, or JavaScript for advanced customization. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
-##### Span text
+#### Span text
 
 {% multi_lang_include span_text.md %}
 
