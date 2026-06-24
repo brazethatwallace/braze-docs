@@ -45,7 +45,7 @@ Here’s a quick summary of the previously announced changes:
 Additional July 1 changes (announced by Meta on May 15th): 
 - Meta is updating utility and authentication rates across several markets as part of continued efforts to ensure pricing is on-par with alternative channels.
     - Pricing for utility and authentication messaging is dropping in all markets except Indonesia. In Indonesia, utility pricing is increasing and authentication pricing is decreasing. 
-- Meta is refining their definition of utility, based on user engagement and sentiment, thus shifting specific use cases to and from the utility category. See their new definition for utility templates [here](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines).
+- Meta is refining their definition of utility, based on user engagement and sentiment, thus shifting specific use cases to and from the utility category. See Meta's new [utility template definition](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines).
 
 For most customers, these updates will take effect automatically on July 1.
 

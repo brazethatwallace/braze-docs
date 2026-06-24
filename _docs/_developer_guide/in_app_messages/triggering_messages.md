@@ -306,7 +306,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 Create a [silent push campaign]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) triggered via the server sent event.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Delivery step of a silent push campaign configured for action-based delivery with a server_event custom event trigger.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 The push campaign must include key-value pair extras that indicate that this push campaign is sent to log an SDK custom event. This event will be used to trigger the in-app message.
 

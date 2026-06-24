@@ -26,15 +26,15 @@ If you are targeting a segment, a record of your request is stored in the [Devel
 When using this endpoint for API campaigns, the recipient must already exist in Braze for the request to succeed. This applies when specifying users in the `external_user_ids` or `user_aliases` parameters.
 {% endalert %}
 
-### Creating new users with API sends
+## Creating new users with API sends
 
 If you need to create a user as part of a send using the API, you have two options:
 
-#### Option 1: Use `/users/track` then send
+### Option 1: Use `/users/track` then send
 
 First, create the user with the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint, then wait for the data to propagate (generally, a few minutes is recommended) before initiating the API-only send. Note that Braze doesn't guarantee data processing times on `/users/track`, so [race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) may occur if you don't allow enough time between these calls.
 
-#### Option 2: Use an API-triggered campaign or Canvas
+### Option 2: Use an API-triggered campaign or Canvas
 
 Use an [API-triggered campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) or [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) workflow. These allow you to create a recipient if one doesn't already exist. This option simplifies your backend processes, but requires you to configure a campaign or Canvas in the Braze dashboard.
 

@@ -78,33 +78,33 @@ If there isn't an option to restore interaction data, this may be because:
 
 ## Frequently asked questions
 
-#### What campaigns or Canvases does this apply to?
+### What campaigns or Canvases does this apply to?
 
 This will apply to campaigns and Canvases that already meet the previously listed criteria, and campaigns and Canvases that will meet the criteria moving forward.
 
-#### How do I know if a campaign or Canvas is idle?
+### How do I know if a campaign or Canvas is idle?
 
 Idle campaigns and Canvases will be displayed in the campaign and Canvas list pages under the category **Idle**. The date on which the campaign or Canvas will be stopped is listed as a column in the list.
 
 ![The "Idle" filter on the "Campaigns" page.][1]{: style="max-width:60%;"}
 
-#### What happens if an idle campaign or Canvas is updated?
+### What happens if an idle campaign or Canvas is updated?
 
 If a campaign that hasn’t sent a message or a Canvas that hasn’t entered users is updated, the countdown will reset.
 
-#### What happens to campaigns that haven’t sent a message in one year (or Canvases that haven’t entered users in one year), but have an end date in the future?
+### What happens to campaigns that haven’t sent a message in one year (or Canvases that haven’t entered users in one year), but have an end date in the future?
 
 We will stop these campaigns and Canvases seven days after the end date at 4 am UTC.
 
-##### Can I stop campaigns from automatically stopping?
+#### Can I stop campaigns from automatically stopping?
 
 No. This helps keep only the necessary campaigns active to keep dashboards less cluttered and improve performance. If you'd like a list of all auto-stopped campaigns, [submit a Support ticket]({{site.baseurl}}/help/support) to be provided one. 
 
-#### Who will receive email notifications about stopped campaigns and Canvases?
+### Who will receive email notifications about stopped campaigns and Canvases?
 
 By default, all users with administrator permissions are opted into email notifications about auto-stopping campaigns and Canvases. The creator of the campaign or Canvas will always be notified when it is stopped. Users can manage email notification preferences by going to **Company Settings** > **Notification Preferences**, then adding or removing recipients from the notification **Campaign Automatically Stopped** and the notification **Canvas Automatically Stopped**.
 
-#### How does stopping Content Cards work?
+### How does stopping Content Cards work?
 
 Content Cards in campaigns will not be stopped until their expiration deadline and the appropriate buffer period. They will be stopped at the later of the buffer period (corresponding to whether the campaign is a one-time send, has an end date, or does not have an end date) and the expiration deadline. 
 
@@ -112,15 +112,15 @@ For example, if a Content Card expires on April 1, is a one-time send, and has a
 
 Canvases are only stopped after the Content Cards are stopped, meaning their maximum duration has passed.
 
-#### I have a feature flag experiment in my Canvas. After my feature flag is set, will the Canvas remain active?
+### I have a feature flag experiment in my Canvas. After my feature flag is set, will the Canvas remain active?
 
 Canvases with feature flag steps are not automatically stopped and do not become idle.
 
-#### Why am I seeing idle campaigns displayed in my campaigns list when I applied a filter to show active campaigns only?
+### Why am I seeing idle campaigns displayed in my campaigns list when I applied a filter to show active campaigns only?
 
 Idle campaigns are considered active until they're stopped.
 
-#### Would a campaign be listed as idle when it's still sending push notifications?
+### Would a campaign be listed as idle when it's still sending push notifications?
 
 No. A campaign will be listed as idle when it's no longer actively sending messages.
 
