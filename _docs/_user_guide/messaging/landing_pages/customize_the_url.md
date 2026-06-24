@@ -24,7 +24,6 @@ To connect a domain to your Braze account, have an administrator follow the step
 3. Copy and paste the **TXT** and **CNAME** records into the DNS settings of your domain provider.
 4. Return to the Braze dashboard to verify the connection.
 
-![Landing Page Settings page with one TXT and two CNAME records listed with their respective names and values.]({% image_buster /assets/img/landing_pages/connect_subdomain.png %})
 
 {% alert note %}
 Depending on your domain provider, the connection can take up to 48 hours. When the process is complete, we’ll start using your custom domain for your landing pages in the Braze dashboard.

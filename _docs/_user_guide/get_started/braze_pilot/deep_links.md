@@ -208,7 +208,6 @@ An icon of person in a yoga pose.
 
 A bicycle icon.
 
-| `DUMBBELL_HOME` | ![A dumbbell icon.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 
 ## PantsLabyrinth

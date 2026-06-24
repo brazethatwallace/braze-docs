@@ -350,7 +350,8 @@ To find your account and business ID, follow these steps:
 Check if you have any pending tasks with Facebook that could be blocking you from using Facebook Ads services:
 
 1. [Log into Facebook Ads Manager](https://adsmanager.facebook.com/).
-2. Select the ad account you are having issues with. The navigation with Account Overview selected.
+2. Select the ad account you are having issues with.
+3. In the navigation, select your **Account Overview**.
 4. Check if there are any alerts that need to be addressed. <br> ![An account with an expired credit card.]({% image_buster /assets/img/fb_audience_sync/resolve_alerts.png %})
 
 {:start="5"}

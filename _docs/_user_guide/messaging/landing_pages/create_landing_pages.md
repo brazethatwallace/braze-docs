@@ -19,7 +19,6 @@ To access the landing page builder, you need [certain permissions]({{site.baseur
 
 Go to **Messaging** > **Landing Pages**, then select **Create landing page**. You can also select the name of an existing landing page to duplicate or make changes to it.
 
-![The landing pages section in the Braze dashboard.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Step 2: Enter the page details
 
@@ -47,11 +46,9 @@ We suggest following these best practices:
 
 If you haven't already, select **Save as draft**. To start customizing your page, select **Edit landing page**. The drag-and-drop editor will preload with a default template that you can customize to fit your use case.
 
-![An example landing page being created in the drag-and-drop editor.]({% image_buster /assets/img/landing_pages/template.png %})
 
 The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row. For a dedicated reference of each block and properties, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
-![The 'Build' section containing 'Rows' and 'Form Blocks'.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
 {% tabs %}
 {% tab Basic blocks %}
@@ -79,7 +76,6 @@ You can use these blocks to add content and customize the layout of your landing
 
 You can use these blocks to create a form that links user-submitted data to their profile in Braze. Keep in mind, if you use form blocks, you'll also need to create an additional landing page for the confirmation state.
 
-![A form block that registers a new customer and will send a discount code to their email.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
 
 | Block Type     | Description |
 |---------------|-------------|
@@ -104,7 +100,6 @@ You can set styles to be applied across all relevant component blocks in your la
 
 We recommend setting up page container-level styles before you customize styles at the block level. You can also add a background image for the entire page.
 
-![The 'Page container' section with options to customize background images, colors, border details, and content styling.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
 #### Responsive to user devices
 
@@ -112,7 +107,6 @@ You can make your landing page responsive to the size of a user's device by vert
 
 When enabled, you can also reverse stack columns to control the vertical order of multi-column content on smaller screens. This makes pages look and feel better on mobile without custom code.
 
-![The "Vertically stack on smaller screens" toggle in the "Customize columns" section.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
 #### Optional and required fields
 
@@ -120,7 +114,6 @@ You can choose whether a form field is required or optional. Required fields mus
 
 For example, to enforce consent capture before form submission, you can turn on **Required field input** to set a checkbox to be required with the appropriate disclaimer text.
 
-![A checkbox form field with the "Required input field" toggle selected.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
 
 ### Step 4: Create a confirmation page (optional)
 
@@ -142,7 +135,6 @@ If your confirmation page opens in a new tab, a user who returns to the original
 
 You can preview your landing page in the editor's **Preview** tab. After saving your landing page as a draft, you can visit the URL by going to **Landing Pages** and selecting **Copy URL** next to your landing page. You can also share the URL with collaborators.
 
-![A landing page with the menu open to show the "Copy URL" option.]({% image_buster /assets/img/landing_pages/copy-url.png %})
 
 Before you publish, make sure:
 
@@ -164,13 +156,11 @@ Use landing page templates to create templates for your next campaigns. These te
 
 You can preview, archive, or edit landing page templates. You can duplicate your own landing page templates (located in **Your Templates**), but not Braze Templates. When editing a landing page, you can save your landing page as a template, make changes to the template, or delete the content of the landing page.
 
-![A dropdown with options to save, change, and delete a landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
 ## Viewing analytics
 
 To analyze the effectiveness of your landing page, go to **Messaging** > **Landing Pages**, then selected a landing page you've published. Here, you can track the number of page views, page clicks, page submissions, and the submission rates for your landing page.
 
-![The analytics section for a landing page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
 ## Handling form submission errors {#handling-form-submission-errors}
 

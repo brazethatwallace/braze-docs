@@ -191,7 +191,6 @@ This time frame can be measured in minutes, days, or weeks (seven days), with a 
 
 Each line of frequency caps is connected using the `AND` operator, and you can add up to 10 rules per workspace. You can include multiple caps for the same message types. For instance, you can cap users to no more than one push per day and no more than three pushes per week. Note that aborted messages do not count toward frequency capping.
 
-![Frequency capping section with lists of campaigns and Canvases that rules will and will not apply to.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"} 
 
 #### Behavior when users are frequency capped on a Canvas step
 
