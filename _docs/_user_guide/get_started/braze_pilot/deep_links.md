@@ -200,13 +200,12 @@ th:nth-child(6), td:nth-child(6) {
 
 | Icon | Image |
 | --- | --- |
-| `RUNNING_HOME` | |
+| `RUNNING_HOME` | ![A running shoe icon.]({% image_buster /assets/img/braze_pilot/running_home_icon.png %}){:style="max-width:30%"} |
 | `HEART_DETAILS` | ![A heart icon.]({% image_buster /assets/img/braze_pilot/heart_details_icon.png %}){:style="max-width:30%"} |
 | `TIMER_DETAILS` | ![A stopwatch icon.]({% image_buster /assets/img/braze_pilot/timer_details_icon.png %}){:style="max-width:30%"} |
-| `YOGA_HOME` | |
-| `BICYCLE_HOME` | |
-| `DUMBBELL_HOME` | |
-
+| `YOGA_HOME` | ![An icon of person in a yoga pose.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
+| `BICYCLE_HOME` | ![A bicycle icon.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
+| `DUMBBELL_HOME` | ![A dumbbell icon.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 
 ## PantsLabyrinth
