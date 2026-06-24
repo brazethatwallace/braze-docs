@@ -20,7 +20,6 @@ tool: Media
 
 The classic card is great for standard messaging and notifications or even visually categorizing messages with icons. The image is optional, but it must be at a 1:1 ratio.
 
-![Image of a classic card with recommended details and a classic card example]({% image_buster /assets/img/content_card_classic.png %}){: style="max-width:45%;border:0;"}
 
 | Card Capability | Details |
 | --- | ---|
@@ -35,7 +34,6 @@ The classic card is great for standard messaging and notifications or even visua
 
 The Captioned Image card is a great way to show off and attract attention to important content, like a big sale or a new app feature.
 
-![Image of a Captioned Image card with recommended details and a Captioned Image card example]({% image_buster /assets/img/content_card_captioned.png %}){: style="max-width:90%;border:0;"}
 
 | Card Capability | Details |
 | --- | ---|

@@ -15,9 +15,8 @@ tool:
 
 The **Home** page has two main sections:
 - [Pick up where you left off](#pick-up-where-you-left-off)
-- [Performance overview](#performance-overview)
+- [Performance overview](#performance-overview) Home dashboard in Braze.
 
-![Home dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Pick up where you left off
 
@@ -33,21 +32,18 @@ The **Pick up where you left off** section appears after you have edited or crea
 
 ## Performance overview
 
-By default, the **Performance overview** section shows the last 30 days of data for all apps and sites. Your metrics are all calculated based on the selected date range.
+By default, the **Performance overview** section shows the last 30 days of data for all apps and sites. Your metrics are all calculated based on the selected date range. Date range and app fields on the Home dashboard.
 
-![Date range and app fields on the Home dashboard.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
 
 Percentages are calculated based on the current date range as compared to the previous date range, with the exception of *Monthly Active Users* (MAU), which uses the last day of the prior period instead of a range. 
 
-For example, if you set your date range to **Last 7 Days** and your *Daily Active Users* shows a percent increase of 1.8%, that means you had 1.8% more daily active users this week compared to last week.
+For example, if you set your date range to **Last 7 Days** and your *Daily Active Users* shows a percent increase of 1.8%, that means you had 1.8% more daily active users this week compared to last week. A metric tile for Daily Active Users showing an average of 22.2 thousand with a 7.1% increase badge and a trend line.
 
-![A metric tile for Daily Active Users showing an average of 22.2 thousand with a 7.1% increase badge and a trend line.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Show breakdown
 
-Select **Show Breakdown** for each row of the performance overview statistics to view each statistic's value per day for the date range specified.
+Select **Show Breakdown** for each row of the performance overview statistics to view each statistic's value per day for the date range specified. Expand.
 
-![Expand]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Performance over time
 

@@ -52,9 +52,8 @@ Then perform the following steps:
 
 {: start="2"}
 2. Select **+ Add team-level permissions**, then select the **Team** you'd like to add this user to.
-3. Assign specific permissions from the **Team** permissions section.
+3. Assign specific permissions from the **Team** permissions section. Team-level landing page template permissions.
 
-![Team-level landing page template permissions.]({% image_buster /assets/img/teams.png %})
 
 ### Available Team-level permissions
 
