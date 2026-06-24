@@ -82,26 +82,73 @@ def prose_already_has_alt(context: str, alt: str) -> bool:
     return hits / len(alt_words) >= 0.6
 
 
-def remove_image_line(content: str, line_number: int, match_line: str) -> tuple[str, bool]:
+def find_image_line_index(
+    lines: list[str],
+    match_line: str,
+    image_path: str,
+    *,
+    hint_line_number: int | None = None,
+) -> int | None:
+    """Return 0-based index of the image reference line, or None if not found."""
+    target = match_line.strip()
+    path_fragment = image_path.replace("\\", "/")
+
+    exact: list[int] = []
+    fuzzy: list[int] = []
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped == target:
+            exact.append(i)
+        elif target and target in stripped:
+            fuzzy.append(i)
+        elif path_fragment and path_fragment in stripped:
+            fuzzy.append(i)
+
+    candidates = exact or fuzzy
+    if not candidates:
+        return None
+    if len(candidates) == 1 or hint_line_number is None:
+        return candidates[0]
+
+    hint_idx = hint_line_number - 1
+    return min(candidates, key=lambda i: abs(i - hint_idx))
+
+
+def remove_image_line(
+    content: str,
+    match_line: str,
+    image_path: str,
+    *,
+    hint_line_number: int | None = None,
+) -> tuple[str, bool]:
     lines = content.splitlines(keepends=True)
-    idx = line_number - 1
-    if idx < 0 or idx >= len(lines):
+    idx = find_image_line_index(
+        lines, match_line, image_path, hint_line_number=hint_line_number
+    )
+    if idx is None:
         return content, False
-    if lines[idx].strip() != match_line.strip():
-        # Fuzzy: remove line that contains the image path fragment
-        target = match_line.strip()
-        if target not in lines[idx]:
-            return content, False
     del lines[idx]
     return "".join(lines), True
 
 
-def merge_alt_into_previous_paragraph(content: str, line_number: int, alt: str) -> str:
+def merge_alt_into_previous_paragraph(
+    content: str,
+    match_line: str,
+    image_path: str,
+    alt: str,
+    *,
+    hint_line_number: int | None = None,
+) -> str:
     sentence = alt_to_prose_sentence(alt)
     if not sentence:
         return content
     lines = content.splitlines(keepends=True)
-    idx = line_number - 1
+    idx = find_image_line_index(
+        lines, match_line, image_path, hint_line_number=hint_line_number
+    )
+    if idx is None:
+        return content
+
     for prev in range(idx - 1, max(-1, idx - 6), -1):
         if prev < 0:
             break
@@ -111,15 +158,16 @@ def merge_alt_into_previous_paragraph(content: str, line_number: int, alt: str) 
             continue
         if stripped.startswith("{%") or stripped.startswith("<"):
             continue
-        if stripped.endswith((".", "!", "?")):
-            lines[prev] = line.rstrip("\n") + " " + sentence + "\n"
-            return "".join(lines)
         lines[prev] = line.rstrip("\n") + " " + sentence + "\n"
         return "".join(lines)
-    # Prepend before removed line position
-    insert_at = max(0, idx)
-    lines.insert(insert_at, sentence + "\n\n")
+
+    lines.insert(idx, sentence + "\n\n")
     return "".join(lines)
+
+
+def sort_batch_for_processing(batch: list) -> list:
+    """Bottom-up within each file so earlier edits do not shift later match lines."""
+    return sorted(batch, key=lambda r: (r.source_file, -r.line_number))
 
 
 def image_still_referenced(rel_path: str) -> bool:
@@ -233,45 +281,71 @@ def main() -> int:
         return 0
 
     candidates = collect_candidates(min_confidence="high", use_ocr=True)
-    batch = candidates[: args.limit]
+    batch = sort_batch_for_processing(candidates[: args.limit])
 
     edited: list[dict] = []
     deleted_images: list[str] = []
     skipped: list[str] = []
 
-    for ref in batch:
-        file_path = REPO_ROOT / ref.source_file
+    file_idx = 0
+    while file_idx < len(batch):
+        source_file = batch[file_idx].source_file
+        file_refs: list = []
+        while file_idx < len(batch) and batch[file_idx].source_file == source_file:
+            file_refs.append(batch[file_idx])
+            file_idx += 1
+
+        file_path = REPO_ROOT / source_file
         if not file_path.is_file():
-            skipped.append(f"{ref.source_file}:{ref.line_number} (file missing)")
+            for ref in file_refs:
+                skipped.append(f"{ref.source_file}:{ref.line_number} (file missing)")
             continue
 
         content = file_path.read_text(encoding="utf-8")
-        context = f"{ref.context_before}\n{ref.context_after}"
+        file_edited = False
 
-        if ref.alt_text and not prose_already_has_alt(context, ref.alt_text):
-            content = merge_alt_into_previous_paragraph(content, ref.line_number, ref.alt_text)
+        for ref in file_refs:
+            context = f"{ref.context_before}\n{ref.context_after}"
+            image_path = ref.normalized_path()
+            hint = ref.line_number
 
-        new_content, removed = remove_image_line(content, ref.line_number, ref.match_line)
-        if not removed:
-            skipped.append(f"{ref.source_file}:{ref.line_number} (line not found)")
-            continue
+            if ref.alt_text and not prose_already_has_alt(context, ref.alt_text):
+                content = merge_alt_into_previous_paragraph(
+                    content,
+                    ref.match_line,
+                    image_path,
+                    ref.alt_text,
+                    hint_line_number=hint,
+                )
 
-        file_path.write_text(new_content, encoding="utf-8")
-        edited.append(
-            {
-                "source_file": ref.source_file,
-                "line_number": ref.line_number,
-                "image_path": ref.normalized_path(),
-                "reasons": ref.reasons,
-            }
-        )
+            content, removed = remove_image_line(
+                content,
+                ref.match_line,
+                image_path,
+                hint_line_number=hint,
+            )
+            if not removed:
+                skipped.append(f"{ref.source_file}:{ref.line_number} (line not found)")
+                continue
 
-        img_rel = ref.normalized_path()
-        if img_rel.startswith("assets/img/"):
-            disk = REPO_ROOT / img_rel
-            if disk.is_file() and not image_still_referenced(img_rel):
-                disk.unlink()
-                deleted_images.append(img_rel)
+            file_edited = True
+            edited.append(
+                {
+                    "source_file": ref.source_file,
+                    "line_number": ref.line_number,
+                    "image_path": image_path,
+                    "reasons": ref.reasons,
+                }
+            )
+
+            if image_path.startswith("assets/img/"):
+                disk = REPO_ROOT / image_path
+                if disk.is_file() and not image_still_referenced(image_path):
+                    disk.unlink()
+                    deleted_images.append(image_path)
+
+        if file_edited:
+            file_path.write_text(content, encoding="utf-8")
 
     title = pr_title(len(edited)) if edited else ""
     outputs = {
