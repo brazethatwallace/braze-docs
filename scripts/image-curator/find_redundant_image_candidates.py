@@ -49,9 +49,10 @@ _MD_IMAGE = re.compile(
     re.IGNORECASE,
 )
 _HTML_IMG = re.compile(
-    r'<img[^>]+src=["\']([^"\']+)["\'][^>]*(?:alt=["\']([^"\']*)["\'])?',
+    r'<img\b[^>]*?\bsrc=["\']([^"\']+)["\'][^>]*>',
     re.IGNORECASE,
 )
+_ALT_ATTR = re.compile(r'\balt=["\']([^"\']*)["\']', re.IGNORECASE)
 _IMAGE_BUSTER = re.compile(
     r"image_buster\s+/?(assets/(?:img|img_archive)/[^\s%}]+)",
     re.IGNORECASE,
@@ -93,7 +94,18 @@ _OCR_BUTTON_ONLY = re.compile(
     r"^(?:save|cancel|submit|done|ok|close|back|next)\s*$",
     re.IGNORECASE,
 )
-_OCR_MIN_USEFUL_LEN = 12
+PARTNER_SOURCE_PREFIX = "_docs/_partners/"
+
+# Diagrams, workflows, and integration graphics — keep; do not auto-curate.
+_DIAGRAM_WORKFLOW = re.compile(
+    r"(?:"
+    r"diagram|workflow|flowchart|flow.?chart|architecture|schematic|"
+    r"data.?flow|process.?flow|integration.?flow|lifecycle|funnel|"
+    r"overview.?graphic|graphic.?showing|shows?\s+how|fit\s+together|"
+    r"arrow.?point|process\s+to\s+update|cov\b|connection\s+flow"
+    r")",
+    re.IGNORECASE,
+)
 
 
 @dataclass
@@ -126,6 +138,15 @@ class ImageRef:
 def is_protected_path(rel_path: str) -> bool:
     rel_path = rel_path.replace("\\", "/")
     return any(rel_path.startswith(prefix) for prefix in PROTECTED_IMG_PREFIXES)
+
+
+def is_partner_page(source_file: str) -> bool:
+    return source_file.replace("\\", "/").startswith(PARTNER_SOURCE_PREFIX)
+
+
+def is_diagram_or_workflow(path: str, alt: str, ocr_text: str) -> bool:
+    combined = f"{path} {alt} {ocr_text}".lower()
+    return bool(_DIAGRAM_WORKFLOW.search(combined))
 
 
 def iter_english_files() -> list[Path]:
@@ -194,6 +215,16 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
 
     if is_protected_path(path):
         ref.reasons.append("protected_path")
+        ref.confidence = "low"
+        return
+
+    if is_partner_page(ref.source_file):
+        ref.reasons.append("partner_page_skip")
+        ref.confidence = "low"
+        return
+
+    if is_diagram_or_workflow(path, alt, ocr_text):
+        ref.reasons.append("diagram_or_workflow")
         ref.confidence = "low"
         return
 
@@ -271,7 +302,8 @@ def extract_refs_from_file(path: Path) -> list[ImageRef]:
             )
         for match in _HTML_IMG.finditer(line):
             src = match.group(1)
-            alt = match.group(2) or ""
+            alt_match = _ALT_ATTR.search(match.group(0))
+            alt = alt_match.group(1) if alt_match else ""
             before, after = context(idx - 1)
             refs.append(
                 ImageRef(

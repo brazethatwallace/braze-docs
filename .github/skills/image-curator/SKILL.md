@@ -19,7 +19,7 @@ Remove **referenced but redundant** images from English canonical docs. Unlike [
 
 **Scope:** `_docs/` and root `_includes/` only. Do **not** edit `_lang/` unless the user explicitly requests locale work.
 
-**Never curate:** `assets/img/logos/`, `assets/img/braze_icons/`, `assets/img/icons/`, `assets/img/contributing/style_guide/**`.
+**Never curate:** `assets/img/logos/`, `assets/img/braze_icons/`, `assets/img/icons/`, `assets/img/contributing/style_guide/**`, **`_docs/_partners/**`** (Technology Partner pages — manual review only).
 
 ---
 
@@ -65,6 +65,11 @@ Per the style guide, prefer prose over images when the screenshot shows:
 - **Full dashboard, header, sidebar, or browser chrome**
 - **Terminal output or code** (use code fences)
 - **Redundant visuals** where alt text duplicates existing steps
+
+**Do not remove** from automated batches:
+
+- **Technology Partner screenshots** (`_docs/_partners/`) — partner UIs are usually instructional
+- **Diagrams and workflows** — integration graphics, data flows, architecture overviews, process diagrams
 
 See [removal-criteria.md](removal-criteria.md) for the full matrix.
 
@@ -119,10 +124,12 @@ Do not mix curation edits with script/skill changes in one PR.
 3. **English only** — `_docs/`, `_includes/`. Leave `_lang/` alone; binaries may remain referenced there.
 4. **Batch ≤ 25** removals per PR.
 5. **Do not curate style-guide teaching images** under `assets/img/contributing/style_guide/`.
-6. **Run `./bdocs fblinks`** after edits.
-7. **Label `image pruning`** on every curation PR.
-8. **Follow [`screenshot-pii-audit`](../screenshot-pii-audit/SKILL.md)** if you add replacement screenshots.
-9. **Review CI draft PRs** for bad alt merges (alt echoed in prose, alt appended to wrong step). Revert to delete-image-only per [anti-pattern](removal-criteria.md#anti-pattern).
+6. **Skip `_docs/_partners/`** in automated batches; partner screenshots need human review before removal.
+7. **Never auto-remove diagrams or workflows** — integration graphics, data-flow images, architecture overviews, and process diagrams stay unless a human confirms they are redundant.
+8. **Run `./bdocs fblinks`** after edits.
+9. **Label `image pruning`** on every curation PR.
+10. **Follow [`screenshot-pii-audit`](../screenshot-pii-audit/SKILL.md)** if you add replacement screenshots.
+11. **Review CI draft PRs** for bad alt merges (alt echoed in prose, alt appended to wrong step). Revert to delete-image-only per [anti-pattern](removal-criteria.md#anti-pattern). Reject partner-page or diagram removals.
 
 ---
 

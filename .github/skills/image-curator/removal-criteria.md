@@ -10,6 +10,8 @@ Canonical sources (defer to these over this summary):
 
 ## Remove (high confidence)
 
+**Scope:** Braze-owned pages (`_docs/_user_guide/`, `_docs/_developer_guide/`, `_docs/_api/`, etc.) — **not** `_docs/_partners/`.
+
 Images that add little or no information beyond what prose should carry:
 
 | Category | Examples | Why remove |
@@ -27,10 +29,37 @@ Images that add little or no information beyond what prose should carry:
 |----------|----------|
 | **Unique UI placement** | Shows where a control lives when prose alone is ambiguous |
 | **Complex workflows** | Multi-step builder states, drag-and-drop layouts, comparison do/don't pairs |
-| **Diagrams and architecture** | Concepts that are hard to describe in text alone |
+| **Diagrams and architecture** | Concepts that are hard to describe in text alone — **never auto-remove** |
+| **Workflow and integration graphics** | Arrows, data flows, partner connection diagrams, process overviews |
 | **Style guide examples** | `assets/img/contributing/style_guide/**` — teaching images |
 | **Protected paths** | `logos/`, `braze_icons/`, `icons/` |
-| **Partner co-marketing** | Unless explicitly deprecated; flag for human review |
+| **Technology Partner pages** | `_docs/_partners/**` — partner product UI is often essential context |
+
+## Technology Partner pages (extra caution)
+
+**Default: do not remove images on `_docs/_partners/` pages.** Partner articles document third-party UIs Braze does not control. Screenshots often show:
+
+- Partner setup wizards, credential forms, and export dialogs
+- Where to click in the partner console to connect Braze
+- Integration-specific fields that differ from Braze dashboard copy
+
+The automated scanner **excludes** `_docs/_partners/` from high- and medium-confidence batches. Manual review is required before removing any partner image, even when alt text looks redundant.
+
+**Keep** unless a human confirms the image is purely decorative (for example, a duplicate Save button with no unique partner UI).
+
+## Diagrams and workflows (never auto-remove)
+
+Do **not** remove images that illustrate structure, data flow, or multi-step processes. Signals include:
+
+| Signal | Examples |
+|--------|----------|
+| **Alt text** | "overview graphic showing how…", "diagram", "workflow", "process to update", "arrow pointing" |
+| **Filename** | `*_diagram*`, `*_workflow*`, `*_flow*`, `*_architecture*`, `*_process*` |
+| **Content** | Integration maps, cohort sync flows, alias-profile diagrams, Canvas step illustrations |
+
+If prose summarizes the diagram, **keep the image** — sighted readers rely on visual layout; removing the reference loses spatial context the alt text cannot replace.
+
+Automated batches skip these via `diagram_or_workflow` and `partner_page_skip` reasons in the candidate CSV.
 
 ## Filename and alt signals
 

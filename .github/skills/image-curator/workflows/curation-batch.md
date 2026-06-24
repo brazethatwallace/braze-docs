@@ -45,6 +45,8 @@ Skip when:
 
 - Open PR touches the same file or image path.
 - Image is under `assets/img/contributing/style_guide/`.
+- Source is under `_docs/_partners/` (Technology Partner page).
+- Alt, filename, or OCR suggests a **diagram or workflow** (see [removal-criteria.md](../removal-criteria.md#diagrams-and-workflows-never-auto-remove)).
 - `_lang/` still needs the binary (do not edit locales; binary may remain referenced there).
 
 ## Step 3: Apply edits

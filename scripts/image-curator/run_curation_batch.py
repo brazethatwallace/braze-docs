@@ -280,6 +280,7 @@ def main() -> int:
 
         content = file_path.read_text(encoding="utf-8")
         file_edited = False
+        deleted_candidates: list[str] = []
 
         for ref in file_refs:
             image_path = ref.normalized_path()
@@ -306,13 +307,16 @@ def main() -> int:
             )
 
             if image_path.startswith("assets/img/"):
-                disk = REPO_ROOT / image_path
-                if disk.is_file() and not image_still_referenced(image_path):
-                    disk.unlink()
-                    deleted_images.append(image_path)
+                deleted_candidates.append(image_path)
 
         if file_edited:
             file_path.write_text(content, encoding="utf-8")
+
+        for image_path in deleted_candidates:
+            disk = REPO_ROOT / image_path
+            if disk.is_file() and not image_still_referenced(image_path):
+                disk.unlink()
+                deleted_images.append(image_path)
 
     title = pr_title(len(edited)) if edited else ""
     outputs = {
