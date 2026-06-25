@@ -18,10 +18,6 @@ description: "This article provides an overview of multi-language settings in th
 
 1. Go to **Settings** > **Localization Settings**.
 2. Select **Add locale**, and then select **Default locale** or **Custom Attributes**.
-
-![The "Add locale" dropdown with options to select the default locale or custom attributes.]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
-
-{: start="3"}
 3. Enter a name for the locale.
 4. [Select a language for accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility). This setting allows assistive technologies like screen readers to correctly pronounce text.
 5. Select the respective user attributes for your chosen locale option. When setting up a locale, you can either select languages from the default user attributes or custom attributes. You can't select from both.

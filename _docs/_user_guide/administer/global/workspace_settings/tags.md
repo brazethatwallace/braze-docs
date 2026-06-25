@@ -16,11 +16,8 @@ To learn how to add tags to campaigns, Canvases, segments, and custom data, see 
 
 To further organize your tags, you can nest them under a parent tag. For example, you can keep all holiday tags nested under a parent `Holidays` tag, or all tags related to a stage of your marketing funnel under a parent `Funnel` tag.
 
-![The Tag Management page showing a list of tags organized by nested groups.]({% image_buster /assets/img_archive/tags_view.png %})
-
-To nest a new tag, create a tag, select **Nest Tag Under**, and choose which existing tag to nest your new tag under.
-
-To nest an existing tag, go to the **Tag Management** page, hover over a row with your tag, and select **<i class="fas fa-pencil-alt"></i>Edit**. Then, select **Nest Tag Under** and choose the parent tag.
+- **Nest a new tag**: Create a tag, select **Nest Tag Under**, and choose which existing tag to nest your new tag under.
+- **Nest an existing tag:** Go to the **Tag Management** page, hover over a row with your tag, and select **<i class="fas fa-pencil-alt"></i>Edit**. Then, select **Nest Tag Under** and choose the parent tag.
 
 ### Parent tag is in use but missing from **Nest Tag Under**
 
