@@ -14,8 +14,8 @@ The following table shows a few common entry points — not every skill or workf
 | Skill / resource | When to use | Example |
 |------------------|-------------|---------|
 | **braze-docs** | Drafting, editing, or reviewing `_docs/` articles; fixing links; merge conflicts | *"Update the CSV import page to mention the new column limit"* (no tag needed) |
-| **check-accessibility** | Pre-PR WCAG 2.2 AA check on changed docs or site files | `@check-accessibility` — *"Run an a11y check on my branch"* |
-| **reference-repos** | Verifying product, API, or SDK behavior against source code | `@reference-repos` — *"Verify this endpoint limit against platform source"* |
+| **check-accessibility** | Pre-PR WCAG 2.2 AA check on changed docs or site files | `/check-accessibility` — *"Run an a11y check on my branch"* |
+| **reference-repos** | Verifying product, API, or SDK behavior against source code | `/reference-repos` — *"Verify this endpoint limit against platform source"* |
 | **Style guide** | Voice, tone, formatting, images, API article structure | [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — *"Does this section follow the writing style guide?"* |
 
 For every skill, invocation syntax, and when-to-use guidance, see **[CAPABILITIES.md](CAPABILITIES.md)**.
@@ -29,3 +29,15 @@ For work under `_docs/` or root `_includes/`:
 **Canonical human style guide:** [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — defer to those files over summaries in skills.
 
 **Non-Cursor agents:** See root [`AGENTS.md`](AGENTS.md) for skill paths and how to invoke them.
+
+## Contextual skill hints
+
+When the contributor has **not** already invoked a skill in the session (no chat `/skill-name` from the user, no explicit request to follow a skill file, and the agent is not already working from one), you may offer a **single brief, optional** suggestion based on what they are editing or the branch context. These are soft hints — do not auto-load a skill, redirect the task, or repeat a hint once declined or ignored.
+
+| Context | Suggestion (natural language) |
+|---------|-------------------------------|
+| Adding or editing files under `assets/img/` | Mention the [screenshot-pii-audit](.github/skills/screenshot-pii-audit/SKILL.md) skill — it OCR-scans screenshots for PII before they open a PR; CI blocks on PII hits. |
+| Drafting or revising `_docs/` or root `_includes/` without naming a skill | Note that describing the task is enough for routine edits ([braze-docs](.github/skills/braze-docs/SKILL.md) loads via the routing above). |
+| Current branch name suggests a merge (`merge/*`, `*-merge`, etc.) or edited files contain conflict markers | Suggest conflict-resolution help through [braze-docs](.github/skills/braze-docs/SKILL.md) Conflict mode — a written plan before bulk resolution keeps the contributor in control. |
+| Editing `assets/js/broken_redirect_list.js` or fixing broken links / redirects | Point to [braze-docs](.github/skills/braze-docs/SKILL.md) Links mode for redirect-list and cross-reference conventions. |
+| About to open a PR that touches markdown under `_docs/`, root `_includes/`, or other site-facing files | Mention the [check-accessibility](.github/skills/check-accessibility/SKILL.md) skill as an optional pre-PR WCAG 2.2 AA check. |

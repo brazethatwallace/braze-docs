@@ -208,10 +208,12 @@ For the full glossary, load [references/glossary.md](references/glossary.md) (lo
 
 ## Related skills
 
+When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name` in instructions — do not use `@` or `/` syntax inside skill text. Prefer relative links to sibling `SKILL.md` files for discovery.
+
 | Skill | Use for |
 |-------|---------|
-| [reference-repos](../reference-repos/SKILL.md) | Verify product, API, or SDK behavior against sibling repos |
-| [docs-discrepancies](../docs-discrepancies/SKILL.md) | Audit `_docs` pages against platform source and open discrepancy PRs |
-| [support-analyzer](../support-analyzer/SKILL.md) | Triage support case CSVs and draft docs updates |
-| [salesforce-migration](../salesforce-migration/SKILL.md) | SF Knowledge Base migration tickets (Phase 1/2) |
-| [check-accessibility](../check-accessibility/SKILL.md) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
+| [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) | Verify product, API, or SDK behavior against sibling repos |
+| [docs-discrepancies](../docs-discrepancies/SKILL.md) (`braze-docs:docs-discrepancies`) | Audit `_docs` pages against platform source and open discrepancy PRs |
+| [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
+| [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
+| [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
