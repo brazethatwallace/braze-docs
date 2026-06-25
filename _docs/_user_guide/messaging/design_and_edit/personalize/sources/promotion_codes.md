@@ -58,7 +58,7 @@ Looking for next steps? Start here:
 
 ### Which messaging channels can I use with promotion codes?
 
-Promotion codes are currently supported for email, mobile push, web push, Content Cards, webhook, SMS, and WhatsApp. In-app message campaigns support promotion codes as an early access feature. Braze Transactional Email campaigns and in-app messages in Canvas do not currently support promotion codes.
+Promotion codes are supported for email, mobile push, web push, Content Cards, webhook, SMS, and WhatsApp. In-app message campaigns support promotion codes as an early access feature. Braze Transactional Email campaigns and in-app messages in Canvas do not support promotion codes.
 
 ### Do test and seed sends count towards usage?
 
