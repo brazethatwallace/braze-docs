@@ -197,9 +197,9 @@ Let's say you set a rate limit of 500 users and enable frequency capping. If 200
 
 If you need to reach a specific number of users when using both features together, consider the following approaches:
 
-- **Increase your rate limit** to account for users who are frequency capped. For example, if you want to reach 500 users but expect some to be frequency capped, set your rate limit higher (such as 1,000 users).
-- **Use rate limiting alone** if your goal is simply to control the volume of messages sent per campaign.
-- **Engage your customer success manager** for help designing a robust messaging strategy that balances both business needs and technical considerations.
+- **Increase your rate limit:** to account for users who are frequency capped. For example, if you want to reach 500 users but expect some to be frequency capped, set your rate limit higher (such as 1,000 users).
+- **Use rate limiting alone:** if your goal is simply to control the volume of messages sent per campaign.
+- **Engage your customer success manager:** for help designing a robust messaging strategy that balances both business needs and technical considerations.
 
 ### Feature overview {#freq-cap-feat-over}
 
