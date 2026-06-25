@@ -15,16 +15,16 @@ search_rank: 2
 
 ## Prerequisites
 
-Before you can send email with Braze, you need to configure your dedicated IPs, domains, email authentication, and IP warming. For a full walkthrough, refer to [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Before you can send email with Braze, you need to configure your dedicated IPs, domains, email authentication, and IP warming. For a full walkthrough, refer to [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Customize your emails
 
 You can customize your email messaging in a variety of ways, including:
 
-- [Braze email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [Custom HTML templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)
-- [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Braze email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [Custom HTML templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
 ## Use cases
 
@@ -35,7 +35,7 @@ You can customize your email messaging in a variety of ways, including:
 | Rich messages | Allow for rich and dynamic HTML messages. |
 | Multimedia content | Ease of multimedia content placement that engages users such as videos and images. |
 | Newsletters | Conveniently send monthly or weekly newsletters to maintain user engagement. |
-| Transactions | Notify users of recent purchases and deliver important product and shipping information with [transactional emails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
+| Transactions | Notify users of recent purchases and deliver important product and shipping information with [transactional emails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Email services {#email-services}
@@ -60,6 +60,6 @@ These services can include:
 
 ## Next steps
 
-- [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [Create an email with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [Create an email with the HTML editor]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [Create an email with the drag-and-drop editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [Create an email with the HTML editor]({{site.baseurl}}/user_guide/channels/email/html_editor)

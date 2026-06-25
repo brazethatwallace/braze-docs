@@ -64,4 +64,4 @@ To determine whether this is feasible, refer to the documentation for your platf
 
 After defining your audience, proceed to set up orchestration:
 
-- [Set up orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Set up orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

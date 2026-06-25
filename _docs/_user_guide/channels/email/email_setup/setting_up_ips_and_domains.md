@@ -100,4 +100,4 @@ When an IP pool contains multiple dedicated IP addresses, Braze and your email s
 
 ### Next steps
 
-After your sender verification is complete, we recommend IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, be sure to also consult with the Braze Onboarding team to confirm if your domains and [IP address]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) are working.
+After your sender verification is complete, we recommend IP warming so that your messages reach their destination inboxes at a consistently high rate. After completing this setup, be sure to also consult with the Braze Onboarding team to confirm if your domains and [IP address]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) are working.

@@ -14,7 +14,7 @@ You can use nested objects—objects that are inside of another object—to send
 
 ## Considerations
 
-- Nested data is supported for both [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) and [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), but not other event types.
+- Nested data is supported for both [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) and [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), but not other event types.
 - Event property objects that contain array or object values can have an event property payload of up to 100 KB.
 - Event property schemas cannot be generated for purchase events.
 - Event property schemas are generated through sampling custom events from the last 24 hours.
@@ -167,7 +167,7 @@ If your event property contains the `[]` or `.` characters, escape them by wrapp
 
 ### Segmentation
 
-To segment users based on nested event properties, you must use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). After you've generated a schema, the nested objects explorer will display in the segmentation section. 
+To segment users based on nested event properties, you must use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension). After you've generated a schema, the nested objects explorer will display in the segmentation section. 
 
 ![]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 

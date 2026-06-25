@@ -35,9 +35,9 @@ description: "This reference article explains the different components of the Br
 }
 ```
 
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
+- [App identifier]({{site.baseurl}}/api/identifier_types)
   - Any valid `app_id` from an app configured in your workspace works for all users in your workspace, regardless of whether the user has the specific app on their profile or not.
-- For more information and best practices on preheaders, see [Email styling]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
+- For more information and best practices on preheaders, see [Email styling]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling).
 
 {% alert warning %}
 Braze recommends that you avoid using Google Drive links for your attachment's `url`, as this can block our servers' calls to get the file and result in the email message not sending.
@@ -98,5 +98,5 @@ When Braze fetches a file from an attachment `url`:
 - **Caching:** Braze may reuse a recently retrieved file for up to approximately 24 hours. If you need every send to pick up a new version of the file immediately, use a distinct URL per version (for example, a path or query that changes when the file changes).
 - **Timeouts:** Hosts should respond quickly. If the attachment URL is slow or hangs, the message send can fail—aim for responses within about two minutes.
 - **Security:** Do not put personally identifiable information (PII) or secrets in attachment URLs (including query strings), because URLs can appear in logs or downstream systems.
-- **Firewalls:** If the URL is only reachable from specific networks, allow traffic from Braze in line with [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Use [basic authentication credentials](#authentication-for-email-file-attachments) when the file requires login.
+- **Firewalls:** If the URL is only reachable from specific networks, allow traffic from Braze in line with [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Use [basic authentication credentials](#authentication-for-email-file-attachments) when the file requires login.
 

@@ -45,7 +45,7 @@ Watch the following video for an optional overview of setting up and using multi
 
 ### Step 1: Set up locales
 
-Before you can add translations to a message, you must first [create the locales you want to support]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/). Locales define the language (and optionally region) variants available for messaging. 
+Before you can add translations to a message, you must first [create the locales you want to support]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Locales define the language (and optionally region) variants available for messaging. 
 
 ### Step 2: Mark content for translation
 
@@ -197,7 +197,7 @@ When you duplicate a Canvas step, campaign, or variation, translations are inclu
 
 ### Save translations in Content Blocks
 
-Content Blocks support multi-language in the same way as messages. When creating or editing Content Blocks, you can tag content for translation, add locales, and upload translations using a CSV or the [translation API]({{site.baseurl}}/api/endpoints/translations/).
+Content Blocks support multi-language in the same way as messages. When creating or editing Content Blocks, you can tag content for translation, add locales, and upload translations using a CSV or the [translation API]({{site.baseurl}}/api/endpoints/translations).
 
 Saved translations remain associated with the Content Block. When the block is added to a message, its translations are automatically included.
 
@@ -213,7 +213,7 @@ When filling in the translation file for languages that are written from right-t
 
 ### Email link tracking
 
-In email campaigns, Braze tracks links by adding tracking information (query parameters) to each URL. This behavior supports both [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) and [link templating]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+In email campaigns, Braze tracks links by adding tracking information (query parameters) to each URL. This behavior supports both [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) and [link templating]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
 When a URL is wrapped in translation tags, Braze may not be able to determine where to add this tracking information. To ensure this works correctly, you must include a special character at the end of the URL to indicate where tracking should be added.
 
@@ -231,7 +231,7 @@ URLs use two special characters to control how this works:
 
 ### Language settings and accessibility {#language-settings-and-accessibility}
 
-Start with [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) in [Accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) for WCAG context, channel and editor behavior (including landing pages), and message-level **Accessibility** settings.
+Start with [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) in [Accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) for WCAG context, channel and editor behavior (including landing pages), and message-level **Accessibility** settings.
 
 When you use **multi-language messages**, align accessibility language with each locale so localized sends declare the appropriate language.
 
@@ -241,13 +241,13 @@ You can set accessibility language at two levels:
 
 ##### Message level
 
-At the message level, set accessibility language in the **Accessibility** section of your message settings. For selecting a language, using Liquid, and limitations by channel, refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
+At the message level, set accessibility language in the **Accessibility** section of your message settings. For selecting a language, using Liquid, and limitations by channel, refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ##### Locale level
 
 For multi-language messages, set accessibility language for each locale in **Localization Settings**. You can use {% raw %}`{{accessibility_language}}`{% endraw %} in the **Accessibility** section so document or card language maps to those locale values.
 
-Whether that token appears by default for new messages depends on the channel and editor. For example, in-app messages and Banners behave differently from landing pages and drag-and-drop emails. Refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) for details.
+Whether that token appears by default for new messages depends on the channel and editor. For example, in-app messages and Banners behave differently from landing pages and drag-and-drop emails. Refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) for details.
 
 ## Frequently asked questions
 
@@ -279,7 +279,7 @@ Additionally, consider wrapping smaller, semantically-related pieces of text to 
 
 #### Can I make a change to the translated copy in one of my locales?
 
-Yes. If using a CSV, first make the edit in the file, then upload it again to make a change to the translated copy. If  using the [translation API]({{site.baseurl}}/api/endpoints/translations/), use the Update endpoints to make changes.
+Yes. If using a CSV, first make the edit in the file, then upload it again to make a change to the translated copy. If  using the [translation API]({{site.baseurl}}/api/endpoints/translations), use the Update endpoints to make changes.
 
 #### What validations or extra checks does Braze do?
 

@@ -26,7 +26,7 @@ Experiencing delivery challenges with push notifications? There are a number of 
 
 #### Push subscription status
 
-Pushes can only be sent to subscribed or opted-in users. Check your user profile in the [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) tab in the **User Profile** section to confirm if you are actively registered for push for the workspace that you are testing. If you are registered for multiple apps, you will find them listed in the **Push Registered For** field:
+Pushes can only be sent to subscribed or opted-in users. Check your user profile in the [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) tab in the **User Profile** section to confirm if you are actively registered for push for the workspace that you are testing. If you are registered for multiple apps, you will find them listed in the **Push Registered For** field:
 
 ![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
@@ -42,7 +42,7 @@ Make sure you fall into the segment that you are targeting (if this is a live ca
 
 ![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+You can also confirm that the user is part of the segment by using **User Lookup** when creating a segment. **User Lookup** accepts only `external_id` or `braze_id`—not email addresses or phone numbers. To search by email, phone, push token, or user alias, use [**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![User Lookup section with a search field.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -71,8 +71,8 @@ A push token is an identifier that senders use to target specific devices with a
 #### Push notification type
 
 Check that you're using the correct type of push notification. For example, if you want to target a FireTV, then you would use a Kindle push notification, not an Android push campaign. Likewise, if you want to target an Android, use an Android push notification and not an iOS push campaign. Check out the following articles for more information on understanding the Braze workflow for:
-- [Apple Push Notification]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+- [Apple Push Notification]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=swift)
+- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting?sdktab=android)
 
 #### Current app
 
@@ -136,7 +136,7 @@ If clicking a push notification doesn't open your app, check the following based
 ### iOS
 
 1. **Verify on-click behavior:** Confirm that the campaign is configured to open the app when clicked.
-2. **Check push integration:** Deep linking from a push into the app is automatically handled by the Braze [standard push integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Confirm that the integration is implemented correctly, including any custom delegate handling.
+2. **Check push integration:** Deep linking from a push into the app is automatically handled by the Braze [standard push integration]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Confirm that the integration is implemented correctly, including any custom delegate handling.
 3. **Collect verbose logs:** [Enable verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduce the issue, and provide the logs to Braze Support.
 
 ## Push clicks unexpectedly open in app
@@ -157,9 +157,9 @@ If this is not the issue, there may be a problem with your push implementation.
 
 If links in your push notifications are opening in the app unexpectedly, it might be due to issues with your push notification integration or customization settings. Follow these steps to troubleshoot:
 
-1. **Review the push delegate implementation:** Ensure that the Braze push delegate is implemented correctly. For detailed instructions, refer to the integration guide for push notifications for your [platform]({{site.baseurl}}/developer_guide/home/).
+1. **Review the push delegate implementation:** Ensure that the Braze push delegate is implemented correctly. For detailed instructions, refer to the integration guide for push notifications for your [platform]({{site.baseurl}}/developer_guide/home).
 2. **Inspect custom link handling:** Check if the app includes custom handling for all `https://` links. Custom configurations might override default behaviors. Collaborate with your development team to review and adjust these settings if necessary.
-3. **Verify iOS push registration:** For iOS, revisit step 1 of the push integration guide on [registering push notifications with APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns). Ensure your delegate object is assigned synchronously before the app finishes launching. This step should be completed in the `application:didFinishLaunchingWithOptions:` method.
+3. **Verify iOS push registration:** For iOS, revisit step 1 of the push integration guide on [registering push notifications with APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns). Ensure your delegate object is assigned synchronously before the app finishes launching. This step should be completed in the `application:didFinishLaunchingWithOptions:` method.
 4. **Test your integration:** After making adjustments, test the push notification behavior on both iOS and Android devices to confirm the issue is resolved.
 
 ### Deep links with app still running in the background (iOS)
@@ -170,7 +170,7 @@ If deep links work when the app is not running or when the link is used directly
 
 Apple `.p8` authentication keys are the required approach for APNs push in Braze. Unlike legacy certificate file types, `.p8` keys don't expire and support all of your apps under a single key, eliminating the need for annual certificate renewals and reducing the risk of push delivery failures.
 
-If you're currently using a `.p12` or `.pem` certificate, migrate to a `.p8` key as soon as possible. For instructions on creating and uploading a `.p8` key, see [Upload your APNs push certificate]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). For Apple's guidance on generating a `.p8` key from your developer account, see [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+If you're currently using a `.p12` or `.pem` certificate, migrate to a `.p8` key as soon as possible. For instructions on creating and uploading a `.p8` key, see [Upload your APNs push certificate]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). For Apple's guidance on generating a `.p8` key from your developer account, see [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
 ### .p8 keys versus .p12 certificates
 
@@ -186,7 +186,7 @@ When you replace a `.p12` certificate with a `.p8` key (or upload a new credenti
 
 In **Settings** > **App Settings** > **Push Notification Settings**, confirm that **App Bundle ID**, **Team ID**, and **Key ID** (for `.p8` keys) match the values in your Apple Developer account. Multiple Braze workspaces can use the same Apple push credential when the iOS app **bundle ID** is identical; the credential environment (development versus production) must match how the app was built.
 
-Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
+Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
 
 ## Web push notifications aren't behaving as expected
 
@@ -280,6 +280,6 @@ Your push permissions are now reset. Open a new tab to your site and try it out.
 
 ## Push error messages
 
-For detailed information about common push error messages (such as `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered`, and others), refer to [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+For detailed information about common push error messages (such as `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered`, and others), refer to [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
-Still need help? Open a [support ticket]({{site.baseurl}}/braze_support/).
+Still need help? Open a [support ticket]({{site.baseurl}}/braze_support).

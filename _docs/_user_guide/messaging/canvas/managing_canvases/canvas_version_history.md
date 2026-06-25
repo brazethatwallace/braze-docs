@@ -15,7 +15,7 @@ tool: Canvas
 Referencing your Canvas version history can be especially helpful to maintain a record of the evolution of a Canvas. For example, if you make a large-scale change, you can reference previous Canvas versions to better understand how your workflows have progressed.
 
 {% alert tip %}
-For a full list of Canvases in your workspace (for example, for an audit), use the [Export Canvas list endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) and paginate through the results.
+For a full list of Canvases in your workspace (for example, for an audit), use the [Export Canvas list endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) and paginate through the results.
 {% endalert %}
 
 ## Managing versions

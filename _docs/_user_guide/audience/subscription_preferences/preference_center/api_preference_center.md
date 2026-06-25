@@ -9,7 +9,7 @@ channel:
 
 # API email preference center
 
-> Setting up a preference center provides a one-stop shop for your users to edit and manage their notification preferences for your [email messaging]({{site.baseurl}}/user_guide/channels/email/). This article includes steps for building an API-generated preference center, but you can also build a preference center using the [drag-and-drop editor]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/).
+> Setting up a preference center provides a one-stop shop for your users to edit and manage their notification preferences for your [email messaging]({{site.baseurl}}/user_guide/channels/email). This article includes steps for building an API-generated preference center, but you can also build a preference center using the [drag-and-drop editor]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center).
 
 In the Braze dashboard, go to **Audience** > **Email Preference Centers**.
 
@@ -37,9 +37,9 @@ Using Liquid enables you to retrieve the names of your subscription groups, and 
 
 ### Step 1: Use the Create preference center endpoint
 
-Let's begin building a preference center using the [Create preference center endpoint]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/). To customize your preference center, you can include HTML that aligns with your branding in the `preference_center_page_html` field and `confirmation_page_html` field.
+Let's begin building a preference center using the [Create preference center endpoint]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). To customize your preference center, you can include HTML that aligns with your branding in the `preference_center_page_html` field and `confirmation_page_html` field.
 
-The [Generate preference center URL endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) allows you to grab the preference center URL for a specific user outside of an email that is sent through Braze.
+The [Generate preference center URL endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) allows you to grab the preference center URL for a specific user outside of an email that is sent through Braze.
 
 {% alert note %}
 Braze renders `confirmation_page_html` in an iframe that uses a `data:` URL. Browsers treat `data:` URLs as opaque origins. As a result, scripts in that iframe can't load additional external resources, and navigating the parent window or communicating across frames from that page fails.<br><br>Instead, you can link to external content, such as a hosted survey URL, instead of embedding scripts. If you must embed a third-party tool and the vendor allows it, use an `<iframe>` whose `src` points to the tool's hosted HTTPS URL.
@@ -57,7 +57,7 @@ To place a link to the preference center in your emails, use the following Liqui
 ```
 {%endraw%}
 
-You can also use a combination of HTML that includes Liquid. For example, you can paste the following as the URL in either the HTML editor or drag-and-drop editor. This shows the basic preference center layout that lists all of the email subscription groups automatically. If you use [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/), add a trailing question mark (`?`) after the Liquid tag so Braze can append tracking parameters.
+You can also use a combination of HTML that includes Liquid. For example, you can paste the following as the URL in either the HTML editor or drag-and-drop editor. This shows the basic preference center layout that lists all of the email subscription groups automatically. If you use [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing), add a trailing question mark (`?`) after the Liquid tag so Braze can append tracking parameters.
 
 {% raw %}
 ```html
@@ -73,15 +73,15 @@ The above Liquid tag only works when launching a campaign or Canvas. Sending a t
 
 #### Edit a preference center
 
-You can edit and update your preference center by using the [Update preference center endpoint]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/). 
+You can edit and update your preference center by using the [Update preference center endpoint]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center). 
 
 #### Identify preference centers and details
 
-To identify your preference centers, use the [View details for preference center endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) to return related information such as the last updated timestamp, the preference center ID, and more.
+To identify your preference centers, use the [View details for preference center endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) to return related information such as the last updated timestamp, the preference center ID, and more.
 
 ## Customize a preference center
 
-Braze manages the subscription state updates from the preference center, which keeps the preference center in sync. However, you can also create and host your own preference center using the [subscription groups APIs]({{site.baseurl}}/api/endpoints/subscription_groups/) with the following options.
+Braze manages the subscription state updates from the preference center, which keeps the preference center in sync. However, you can also create and host your own preference center using the [subscription groups APIs]({{site.baseurl}}/api/endpoints/subscription_groups) with the following options.
 
 ### Option 1: Link with string query parameters
 

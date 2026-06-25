@@ -97,11 +97,11 @@ Log level can only be set at runtime with Braze iOS SDK v4.4.0 or newer. If usin
 
 In previous versions of the Braze iOS Swift SDK, the IDFV (Identifier for Vendor) field was automatically collected as the user's device ID. 
 
-Beginning in Swift SDK v5.7.0, the IDFV field can optionally be disabled, and instead, Braze will set a random UUID as the device ID. For more information, refer to [Collecting IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift).
+Beginning in Swift SDK v5.7.0, the IDFV field can optionally be disabled, and instead, Braze will set a random UUID as the device ID. For more information, refer to [Collecting IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
 
 ## Optional IDFA collection
 
-IDFA Collection is optional within the Braze SDK and disabled by default. IDFA Collection is only required within Braze if you intend to use our [install attribution integrations]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/). If you opt to store your IDFA, we will store it free of charge, so you may take advantage of these options immediately upon release without additional development work.
+IDFA Collection is optional within the Braze SDK and disabled by default. IDFA Collection is only required within Braze if you intend to use our [install attribution integrations]({{site.baseurl}}/partners/message_orchestration/attribution/adjust). If you opt to store your IDFA, we will store it free of charge, so you may take advantage of these options immediately upon release without additional development work.
 
 As a result, we recommend continuing to collect the IDFA if you meet any of the following criteria:
 

@@ -84,12 +84,12 @@ The following are the definitions of your available statistics, how they're calc
 
 *Users* is the total number of users created in that workspace. This includes all users recorded using your app or website at any point in time, and those who might not be associated with a specific app or website. This number is the percentage of how many of your lifetime users are represented as *Monthly Active Users* (MAU), which is useful for seeing user retention over a long period of time.
 
-A low MAU-to-user ratio may indicate that you need to diversify your messaging channels or increase your efforts in reaching out to lapsing users. See our quick win on [capturing lapsing users]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) for more info. In general, the MAU-to-lifetime ratio will inevitably decrease over time because of user churn, but Braze tools can help you minimize this effect by keeping users engaged longer.
+A low MAU-to-user ratio may indicate that you need to diversify your messaging channels or increase your efforts in reaching out to lapsing users. See our quick win on [capturing lapsing users]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) for more info. In general, the MAU-to-lifetime ratio will inevitably decrease over time because of user churn, but Braze tools can help you minimize this effect by keeping users engaged longer.
 
 ### Lifetime sessions
 
 *Lifetime sessions* is the total count of sessions that Braze has recorded since integration. A session is each time a user uses the app or visits your website. For a more precise definition on how sessions are defined by platform, view the corresponding 
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), or [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web) session tracking developer articles.
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), or [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web) session tracking developer articles.
 
 ### Monthly active users
 
@@ -141,7 +141,7 @@ MAU snapshots are calculated once per day and never change retroactively. In thi
 {% alert note %}
 When you initially integrate Braze, all users will look like new users because Braze has never recorded a session for them before.
 
-Unlike MAU, the *New Users* count can decrease retroactively when Braze merges an anonymous profile into an identified profile and orphans the anonymous profile. Braze removes the orphaned profile from app usage totals, which can lower *New Users* for dates you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Unlike MAU, the *New Users* count can decrease retroactively when Braze merges an anonymous profile into an identified profile and orphans the anonymous profile. Braze removes the orphaned profile from app usage totals, which can lower *New Users* for dates you already viewed. For profile linking behavior, see [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

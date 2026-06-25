@@ -14,9 +14,9 @@ guide_top_text: "Use the Braze SMS Endpoints to manage your users' phone numbers
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: Query Invalid Phone Numbers"
-    link: /docs/api/endpoints/sms/get_query_invalid_numbers/
+    link: /docs/api/endpoints/sms/get_query_invalid_numbers
     image: /assets/img/braze_icons/clipboard-check.svg
   - name: "POST: Remove Invalid Phone Numbers"
-    link: /docs/api/endpoints/sms/post_remove_invalid_numbers/
+    link: /docs/api/endpoints/sms/post_remove_invalid_numbers
     image: /assets/img/braze_icons/phone.svg
 ---

@@ -21,15 +21,15 @@ When Personalized Paths is turned on in an Experiment Path step, the behavior is
 
 ### Step 1: Add an Experiment Path
 
-Add an [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) to your Canvas, then turn on **Personalized Paths**.
+Add an [Experiment Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) to your Canvas, then turn on **Personalized Paths**.
 
 ![]({% image_buster /assets/img/experiment_step/experiment_personalized_path.png %})
 
 ### Step 2: Configure Personalized Paths settings
 
-Specify the conversion event that should determine the winner. If there are no conversion events available, return to the first step of Canvas setup and [assign conversion events]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#choose-conversion-events). 
+Specify the conversion event that should determine the winner. If there are no conversion events available, return to the first step of Canvas setup and [assign conversion events]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#choose-conversion-events). 
 
-If you choose opens or clicks as your conversion event, make sure the first step in the path is a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/). Braze only counts engagement from the first Message step in each respective path. If the path starts with a different step (like a Delay or Audience Path step) and the message comes later, that message won’t be included when evaluating performance.
+If you choose opens or clicks as your conversion event, make sure the first step in the path is a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Braze only counts engagement from the first Message step in each respective path. If the path starts with a different step (like a Delay or Audience Path step) and the message comes later, that message won’t be included when evaluating performance.
 
 Then set the **Experiment Window**. The **Experiment Window** determines how long users will be sent down all paths before choosing the best path for each user in the delay group. The window begins when the first user enters the step.
 

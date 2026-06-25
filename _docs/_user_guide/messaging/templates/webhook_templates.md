@@ -24,13 +24,13 @@ In the Braze dashboard, go to **Content** > **Webhook**.
 
 From here, you can choose to create a new template, use one of the predesigned webhook templates, or edit an existing template.
 
-For example, if you're using [LINE]({{site.baseurl}}/user_guide/channels/line/) as a messaging channel, you can set up several webhooks using the predesigned templates for **LINE Carousel** or **LINE Image**.
+For example, if you're using [LINE]({{site.baseurl}}/user_guide/channels/line) as a messaging channel, you can set up several webhooks using the predesigned templates for **LINE Carousel** or **LINE Image**.
 
 ## Step 3: Fill out template details
 
 1. Give your webhook template a unique name.
 2. (Optional) Add a template description to explain how this template is intended to be used.
-3. Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) and [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) as needed to help find and filter for your template.
+3. Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) as needed to help find and filter for your template.
 
 ## Step 4: Build your template
 
@@ -55,5 +55,5 @@ Edits made to an existing template aren't reflected in campaigns that were creat
 
 ## Managing your templates
 
-You can [duplicate and archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) webhook templates to help better organize and manage your list of templates.
+You can [duplicate and archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) webhook templates to help better organize and manage your list of templates.
 

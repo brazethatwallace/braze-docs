@@ -18,11 +18,11 @@ Campaign and Canvas attributes are available as Liquid tags in the dashboard {% 
 
 ### REST API
 
-Campaign and Canvas attributes are also available in the [Export campaign details endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) or [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/). Use the Braze REST API to build mappings—that is, a list of all the Canvas names and their corresponding IDs.
+Campaign and Canvas attributes are also available in the [Export campaign details endpoint]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) or [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details). Use the Braze REST API to build mappings—that is, a list of all the Canvas names and their corresponding IDs.
 
 ### Currents
 
-Campaign and Canvas attributes are tied to [message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) from Currents. Note that only Message steps have access to campaign attributes, and other Canvas steps only have access to Canvas attributes. This is important so that you can determine what campaign or Canvas component a push send or email open is associated with.
+Campaign and Canvas attributes are tied to [message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) from Currents. Note that only Message steps have access to campaign attributes, and other Canvas steps only have access to Canvas attributes. This is important so that you can determine what campaign or Canvas component a push send or email open is associated with.
 
 ## Campaign attributes
 

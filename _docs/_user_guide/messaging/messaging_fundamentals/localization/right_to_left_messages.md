@@ -48,7 +48,7 @@ The preview and test functions are built for left-to-right messages, so right-to
 For push notifications, title alignment generally follows the device language settings, while body alignment can follow the first strong directional character on each line (treat each line after a newline separately). That means a single push can mix alignment across lines—for example, a right-to-left body line followed by a left-to-right line. When you need a predictable layout, maintain directional consistency and use line breaks between mixed-language segments.
 
 {% alert note %}
-Rendering still depends on the device OS and push client. Send [test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) to your own devices to confirm alignment before you go live.
+Rendering still depends on the device OS and push client. Send [test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) to your own devices to confirm alignment before you go live.
 {% endalert %}
 
 ### Bi-directional text

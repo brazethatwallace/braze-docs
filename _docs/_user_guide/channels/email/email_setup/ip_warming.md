@@ -25,8 +25,8 @@ A healthy delivery rate is often around 99% delivered with a bounce rate no high
 
 Before you start IP warming:
 
-1. In **Settings** > **Email Preferences**, set your default sending domain, add a valid unsubscribe link in your [custom footer]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), turn on the [list-unsubscribe header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe), and consider custom unsubscribe/opt-in pages where needed.
-2. Configure [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) for email.
+1. In **Settings** > **Email Preferences**, set your default sending domain, add a valid unsubscribe link in your [custom footer]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), turn on the [list-unsubscribe header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe), and consider custom unsubscribe/opt-in pages where needed.
+2. Configure [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) for email.
 3. Create your required templates by going to **Content** > **Email**.
 
 ## What if I don't have time to warm IPs?
@@ -37,7 +37,7 @@ ISPs throttle email delivery when suspicion of spam arises so that they can prot
 
 If engagement is moderate, they may continue to throttle your email to collect more engagement data to determine whether or not the email is spam with more certainty. If the email has very high engagement metrics, they may cease to throttle this email entirely. They use that data to create an email reputation that will eventually determine whether or not your emails are filtered to spam automatically.
 
-If your domain or IP is blocked by an ISP, the message logs in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) will contain information about what websites to visit to appeal to these ISPs and to get off those lists.
+If your domain or IP is blocked by an ISP, the message logs in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) will contain information about what websites to visit to appeal to these ISPs and to get off those lists.
 
 ## IP warming schedules
 
@@ -155,7 +155,7 @@ After three months of non-use, Braze may recycle and reassign IP addresses. Rega
 
 ## How to limit sends during warming
 
-Our built-in user limiting feature serves as a useful tool to help you with warming your IP address. After choosing your desired messaging segments during campaign creation, on the [Target Users]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) step, select the **Advanced Options** dropdown to limit your users. As your warming schedule continues, you can gradually raise this limit to increase the volume of emails you send.
+Our built-in user limiting feature serves as a useful tool to help you with warming your IP address. After choosing your desired messaging segments during campaign creation, on the [Target Users]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas) step, select the **Advanced Options** dropdown to limit your users. As your warming schedule continues, you can gradually raise this limit to increase the volume of emails you send.
 
 ![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
@@ -189,17 +189,17 @@ Refer to our [IP warming schedule](#ip-warming-schedules) to spread your send ac
 
 ### Clean your email lists
 
-Confirm that your email list is clean and doesn't have old or unverified emails. Ensuring that you're both [CASL- and CAN-SPAM-compliant]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations/) is ideal.
+Confirm that your email list is clean and doesn't have old or unverified emails. Ensuring that you're both [CASL- and CAN-SPAM-compliant]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) is ideal.
 
 ### Monitor your sender reputation
 
 When conducting the IP warming process, be sure to carefully monitor your sender reputation while you conduct the IP warming process. These specific metrics are important to watch:
-- **Bounce Rates:** If any campaign bounces at more than 3-5%, you should evaluate the cleanliness of your list by following the guidelines in our [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) article. Additionally, you should consider implementing a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/) to stop emailing unengaged or dormant email addresses.
+- **Bounce Rates:** If any campaign bounces at more than 3-5%, you should evaluate the cleanliness of your list by following the guidelines in our [Keep It Clean: The Importance of Email List Hygiene](https://www.braze.com/blog/email-list-hygiene/) article. Additionally, you should consider implementing a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) to stop emailing unengaged or dormant email addresses.
 - **Spam Reports:** If any campaign is reported as spam at a rate of more than 0.08%, you should re-evaluate the content you're sending, check that it is targeted to an interested audience, and make sure your emails are appropriately worded to pique their interest.
 - **Open Rates:** Open rates are a useful proxy for inbox placement. If your unique open rates are over 25%, you're likely experiencing high inbox placement, which indicates a positive sender reputation.
 
 {% alert tip %}
-Braze recommends against using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) to warm your IPs. Because IP warming campaigns are some of the first campaigns you send, Braze won't have enough information on your users to calculate an optimal send time. In this case, all messages with Intelligent Timing would default to the fallback time and send at the same time anyway.
+Braze recommends against using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) to warm your IPs. Because IP warming campaigns are some of the first campaigns you send, Braze won't have enough information on your users to calculate an optimal send time. In this case, all messages with Intelligent Timing would default to the fallback time and send at the same time anyway.
 {% endalert %}
 
 {% alert tip %}

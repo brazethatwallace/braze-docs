@@ -36,4 +36,4 @@ Constraints limit the decisioning agent's actions to respect critical business r
 
 ### What is the difference between Decisioning Studio Go and Decisioning Studio Pro?
 
-Decisioning Studio Pro includes AI Decisioning Services support from Braze's forward deployed data science team, which will help you design and configure your agent to maximize your business outcomes. For more information, see [Decisioning Studio Go versus Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Decisioning Studio Pro includes AI Decisioning Services support from Braze's forward deployed data science team, which will help you design and configure your agent to maximize your business outcomes. For more information, see [Decisioning Studio Go versus Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro).

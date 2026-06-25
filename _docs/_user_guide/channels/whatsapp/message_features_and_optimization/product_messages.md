@@ -90,7 +90,7 @@ Make sure to use the Braze Business Manager ID, `332231937299182`, as the partne
 ![WhatsApp Manager settings page for the "Catalog_products" catalog.]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. In Braze, go through the [embedded signup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) process to provide permissions. Be sure to select **all** the catalogs you want to provide permissions for. This will unlock the Braze integrated product selector.
+4. In Braze, go through the [embedded signup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) process to provide permissions. Be sure to select **all** the catalogs you want to provide permissions for. This will unlock the Braze integrated product selector.
 
 ![Window with five catalogs selected provide permissions.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -159,7 +159,7 @@ If you remove referenced products from your catalog, the associated messages wil
 
 ## Receiving inbound product questions 
 
-Users can respond to your product or catalog message with product questions. These arrive as inbound messages, which can then be sorted with an [Action Path]({{site.baseurl}}/action_paths/). 
+Users can respond to your product or catalog message with product questions. These arrive as inbound messages, which can then be sorted with an [Action Path]({{site.baseurl}}/action_paths). 
 
 Additionally, Braze extracts the product ID and catalog ID from these questions, so if you wish to automate responses or send questions to another team (such as customer support), you can include those details. For example, you could personalize responses with the WhatsApp properties of `inbound_product_id` or `inbound_catalog_id`.
 
@@ -249,7 +249,7 @@ Make an API call to your eCommerce system to generate a personalized checkout UR
 #### Setup
 
 1. Create a webhook campaign or Canvas step triggered by the [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated) eCommerce event, which will send the cart data to your eCommerce system.
-2. Create a WhatsApp campaign or Canvas Message step triggered by the same eCommerce event to send a WhatsApp response message with the cart URL to the user. Follow the direction in the subsequent response message to use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+2. Create a WhatsApp campaign or Canvas Message step triggered by the same eCommerce event to send a WhatsApp response message with the cart URL to the user. Follow the direction in the subsequent response message to use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 ![Diagram showing the checkout experience workflow for a Connected Content call: Meta sends an order received message to Braze, which has back-and-forth calls with an eCommerce platform, then sends a WhatsApp message.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 

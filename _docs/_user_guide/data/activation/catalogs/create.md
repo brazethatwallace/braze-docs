@@ -144,13 +144,13 @@ Next, we'll name this catalog "games_catalog" and select the **Process Catalog**
 
 Note that you won't be able to edit this name after the catalog is created. You can delete a catalog and re-upload an updated version using the same catalog name.
 
-After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Prerequisites
 
-Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) for your workspace:
+Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) for your workspace:
 
 - View Catalogs
 - Edit Catalogs
@@ -223,19 +223,19 @@ To update your catalog after uploading a CSV or creating a catalog in the browse
 
 ### Using the REST API
 
-As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) to return a list of the catalogs in a workspace.
+As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) to return a list of the catalogs in a workspace.
 
 The REST API supports all [catalog data types](#supported-data-types), including JSON objects and string arrays. JSON objects and string arrays can only be created or updated through the REST API.
 
 ### Using Cloud Data Ingestion
 
-You can maintain catalogs through [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) by syncing catalog data directly from your data warehouse (such as Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, or S3) on a scheduled basis.
+You can maintain catalogs through [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) by syncing catalog data directly from your data warehouse (such as Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric, or S3) on a scheduled basis.
 
 ## Managing catalog items
 
 In addition to managing your catalogs, you can also use asynchronous and synchronous endpoints to manage the catalog items. This includes the ability to edit and delete catalog items, and to list catalog item details. 
 
-For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
+For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Catalog storage {#tiers}
 

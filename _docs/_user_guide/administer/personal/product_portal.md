@@ -53,5 +53,5 @@ The more information and context the better! Include links to campaigns, Canvase
 - Do you have any additional insight? (For example, how this would benefit you and your teams)
 - Are there any current workarounds? (This is not for our prioritization process, but may help with any solution discovery work) 
 
-For an example of a well-written product request, see this [Product Request Example]({{site.baseurl}}/product_request/). 
+For an example of a well-written product request, see this [Product Request Example]({{site.baseurl}}/product_request). 
 

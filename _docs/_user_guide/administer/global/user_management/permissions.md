@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Create a permission set
 
-Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permission sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **User Management** > **Permission Sets**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permission sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **User Management** > **Permission Sets**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
@@ -32,7 +32,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 
 ## Creating a role
 
-Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
@@ -91,7 +91,7 @@ Keep the following behaviors in mind when you assign dashboard access:
 - **Limited users:** Limited users with the "Edit Dashboard Users" permission can manage other limited users but cannot create or manage Company Admin accounts.
 - **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
 - **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
-- **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners/) typically requires both partner access and a baseline read permission for the related workspace features.
+- **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners) typically requires both partner access and a baseline read permission for the related workspace features.
 - **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
 
 ## Edit a user's permissions
@@ -107,14 +107,14 @@ To edit a user's current admin, company, or workspace permissions, go to **Setti
 
 Admins have access to all features and the ability to modify any company setting. They can:
 
-- Change [approval settings]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow)
-- Add, edit, delete, suspend, or unsuspend other [Braze users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
+- Change [approval settings]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow)
+- Add, edit, delete, suspend, or unsuspend other [Braze users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users)
 - Export Braze users as a CSV
 
 To grant or remove admin privileges, select **This user is an admin**, then select **Update user**.
 
 {% alert warning %}
-If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -135,7 +135,7 @@ To manage the following company-level permissions for a user, check or uncheck t
 
 ### Workspace
 
-You can give a user different permissions for each workspace they belong to in Braze. To manage their workspace-level permissions, select **Select workspaces and permissions**, then choose their permissions manually or assign a [permission set or role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) you previously created. If you need to give a user different permissions for different workspaces, repeat this process as many times as needed. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+You can give a user different permissions for each workspace they belong to in Braze. To manage their workspace-level permissions, select **Select workspaces and permissions**, then choose their permissions manually or assign a [permission set or role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) you previously created. If you need to give a user different permissions for different workspaces, repeat this process as many times as needed. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -185,12 +185,12 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Campaigns | Launch Campaigns | Start, stop, pause, or resume existing campaigns |
 | Campaigns | Archive Campaigns | Move campaigns to archive |
 | Campaigns | Edit Campaigns | Create and update campaigns |
-| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Campaigns | Approve and Deny Campaigns | Approve or deny campaigns. The [approval workflow for campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
 | Canvas | View Canvases | View Canvases |
 | Canvas | Archive Canvases | Move Canvases to archive |
 | Canvas | Edit Canvases | Create and update Canvases |
 | Canvas | Launch Canvases | Start, stop, pause, or resume existing Canvases |
-| Canvas | Approve and Deny Canvases | Approve or deny Canvases. The [approval workflow for Canvases]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
+| Canvas | Approve and Deny Canvases | Approve or deny Canvases. The [approval workflow for Canvases]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) must be turned on for this permission to apply. This setting is currently in early access. Contact your account manager if you’re interested in participating in the early access. |
 | Feature flags | View Feature Flags | View feature flags |
 | Feature flags | Archive Feature Flags | Move feature flags to archive |
 | Feature flags | Edit Feature Flags | Create and update feature flags |
@@ -257,7 +257,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Webhook Templates | View Webhook Templates | View webhook templates without making changes |
 | Webhook Templates | Archive Webhook Templates | Move webhook templates to archive |
 | Webhook Templates | Edit Webhook Templates | Create and update webhook templates |
-| Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
+| Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) |
 | Whatsapp Message Templates | Edit WhatsApp Message Templates | Allows users to create WhatsApp message templates in the template builder. This feature is currently in early access. |
 | WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | View All WhatsApp Templates |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template permissions" }

@@ -66,7 +66,7 @@ If your in-app messages are not being returned, you're likely experiencing a cam
 
 If your app is successfully requesting and receiving in-app messages but they are not being shown, some device-side logic may be preventing display:
 
-- Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), which defaults to 30 seconds.
+- Triggered in-app messages are rate-limited based on the [minimum time interval between triggers]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers), which defaults to 30 seconds.
 - If you have set a delegate to customize in-app message handling, check your delegate to ensure it is not affecting in-app message display.
 - Failed image downloads will prevent in-app messages with images from displaying. Image downloads will always fail if the `SDWebImage` framework is not integrated properly. Check your device logs to ensure that image downloads are not failing.
 - If the device orientation did not match the orientation specified by the in-app message, the in-app message will not display. Make sure that your device is in the correct orientation.

@@ -63,8 +63,8 @@ The “Other” category includes any user string that cannot be identified as d
 
 To better understand what is in this "Other" category, you can extract the user agents using either of these options:
 
-1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) will send you the exact user agent string that was retrieved from your users' devices.
-2. Leverage our [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) to use SQL or our [AI Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) to view the user agents.
+1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) will send you the exact user agent string that was retrieved from your users' devices.
+2. Leverage our [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) to use SQL or our [AI Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) to view the user agents.
 
 ![Engagement by Device report that shows the number of clicks for mobile, desktop, tablet, and other devices. The most number of clicks occurs on mobile devices.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -90,7 +90,7 @@ The **Time of the day** engagement report breaks down opens or clicks by each ho
 
 ![An example Time of the day engagement report with the opens or clicks from 12 am to 11 pm.]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-For more information on analytics for your emails, check out [Email reporting]({{site.baseurl}}/user_guide/channels/email/reporting/).
+For more information on analytics for your emails, check out [Email reporting]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
 {% tab SMS performance %}
@@ -197,7 +197,7 @@ This means that while Braze recorded positive counts for a particular metric for
 
 #### If a metric displays "--"
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->
 

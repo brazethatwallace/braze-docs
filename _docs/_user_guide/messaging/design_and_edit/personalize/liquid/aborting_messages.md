@@ -69,7 +69,7 @@ You can also have the abort message log something to your Message Activity Log b
 
 ## Query for abort messages
 
-You can use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) or your own data warehouse, if it's connected to Braze, to query for specific abort messages that are triggered when Liquid logic causes a message to abort.
+You can use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) or your own data warehouse, if it's connected to Braze, to query for specific abort messages that are triggered when Liquid logic causes a message to abort.
 
 ## When abort logic is evaluated
 
@@ -81,7 +81,7 @@ Abort logic is evaluated at send time, when Braze processes the message for deli
 
 ### In-app messages
 
-Abort logic is evaluated for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated) only at the time the in-app message is triggered (for example, when the user performs the trigger event or starts a session), not when the message is initially sent to the device. In-app messages are delivered to the SDK on session start and cached locally; the Liquid—including any `abort_message()` calls—is executed when the trigger condition is met.
+Abort logic is evaluated for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) only at the time the in-app message is triggered (for example, when the user performs the trigger event or starts a session), not when the message is initially sent to the device. In-app messages are delivered to the SDK on session start and cached locally; the Liquid—including any `abort_message()` calls—is executed when the trigger condition is met.
 
 ## Considerations
 

@@ -120,7 +120,7 @@ With Braze Cloud Data Ingestion, you set up an integration between your data war
 When a sync runs, Braze directly connects to your data warehouse instance, retrieves all new data from the specified table, and deletes the corresponding user profiles on your Braze dashboard. 
 
 {% alert warning %}
-Deleting user profiles cannot be undone. The delete action permanently removes users, which may cause discrepancies in your data. For details, see [Effects of deleting user profiles]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
+Deleting user profiles cannot be undone. The delete action permanently removes users, which may cause discrepancies in your data. For details, see [Effects of deleting user profiles]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

@@ -23,7 +23,7 @@ This editing experience is best for the following use cases:
 
 To create a campaign targeting multiple platforms and devices:
 
-1. Create a campaign or add a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) to a Canvas.  
+1. Create a campaign or add a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) to a Canvas.  
 2. Select **Push notification**.
 3. Select your desired platforms (Mobile, Web, Kindle) and mobile devices (iOS, Android). If you select multiple devices, multivariate testing will not be available for your campaign.
 
@@ -39,7 +39,7 @@ To create a campaign targeting multiple platforms and devices:
 
 ## Running a multi-platform, multivariate test
 
-Multivariate testing is supported on multi-platform campaigns, simply select the plus icon beside the variant name as you normally would for single platform campaigns. We recommend you [read our guide]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) to creating multivariate tests and utilize [BrazeAI™ Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/) to automate and maximize your engagement.
+Multivariate testing is supported on multi-platform campaigns, simply select the plus icon beside the variant name as you normally would for single platform campaigns. We recommend you [read our guide]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) to creating multivariate tests and utilize [BrazeAI™ Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) to automate and maximize your engagement.
 
 ![Easy multi-platform, multivariate tests]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_multivariate.png %})
 
@@ -53,7 +53,7 @@ The preview pane shows an approximation of what your message looks like for each
 ![Single editing view with one title, message, and on-click behavior field for three push types: iOS, Android, and Web.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
 ### Separate assets
-In the **Assets** section, select or upload the images you want to appear for each platform. Keep in mind that different devices have different specifications for images and character counts. Refer to [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) for help.
+In the **Assets** section, select or upload the images you want to appear for each platform. Keep in mind that different devices have different specifications for images and character counts. Refer to [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats) for help.
 
 ![Assets section of the single editing view with fields for Push Icon Image, iOS notification image, Android notification image, and Web notification image.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_assets.png %}){:style="max-width:50%"}
 
@@ -63,7 +63,7 @@ The notification type defaults to "Standard Push" and cannot be changed. If you 
 
 ### Device-specific settings
 
-You can edit platform-specific settings in the editor. This includes settings like [push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), notification channels and groups, TTL, display priority, sounds, and more. 
+You can edit platform-specific settings in the editor. This includes settings like [push action buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), notification channels and groups, TTL, display priority, sounds, and more. 
 
 For more information on device-specific settings, refer to the following article collections:
 

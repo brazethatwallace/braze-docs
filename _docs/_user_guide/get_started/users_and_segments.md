@@ -13,13 +13,13 @@ description: "This article provides an overview of users and segments, outlining
 
 ## Users
 
-In Braze, information about your audience is stored in user profiles. A [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) is a comprehensive collection of information and attributes that describe an individual consumer. It serves as a central repository for storing and managing data related to their behavior, preferences, and demographic details.
+In Braze, information about your audience is stored in user profiles. A [user profile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) is a comprehensive collection of information and attributes that describe an individual consumer. It serves as a central repository for storing and managing data related to their behavior, preferences, and demographic details.
 
 ### Parts of a user profile
 
 By understanding user profiles, you can gain insights into your audience and engage with them on a personalized and targeted level. A user's profile contains a lot of information, but here are some of the key parts:
 
-- **User Identifier:** Each user profile is uniquely identified by a user ID, called an `external_id`. This identifier allows Braze to track and associate user data across different channels and devices, providing a unified view of each user's interactions with your brand. [Anonymous user profiles]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/) (users who visit your website or application without logging in) don't have an `external_id`, but can be assigned [user aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#assigning-user-aliases) as an alternative identifier.
+- **User Identifier:** Each user profile is uniquely identified by a user ID, called an `external_id`. This identifier allows Braze to track and associate user data across different channels and devices, providing a unified view of each user's interactions with your brand. [Anonymous user profiles]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) (users who visit your website or application without logging in) don't have an `external_id`, but can be assigned [user aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users#assigning-user-aliases) as an alternative identifier.
 - [Attributes](#attributes)**:** These are specific pieces of information about the user, such as their name, age, location, or any other demographic information. You can use these attributes to segment your audience and personalize your messaging.
 - [Events](#events)**:** These are actions that the user takes, like making a purchase, clicking on a link, or opening an app. Braze tracks these events to help you understand the user’s behavior and engagement. Similar to attributes, you can also use events to segment and personalize.
 - **Purchases:** This section records the user's purchase history. It's crucial for understanding the user's buying habits and preferences.
@@ -52,7 +52,7 @@ Standard attributes are predefined attributes you can track with Braze after int
 
 #### Custom attributes
 
-[Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) are attributes that you define based on your specific business needs. They allow you to track information that is unique to your app or business. 
+[Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) are attributes that you define based on your specific business needs. They allow you to track information that is unique to your app or business. 
 
 For example, a music streaming app might track custom attributes like:
 
@@ -87,7 +87,7 @@ Events represent specific actions or behaviors performed by users within your ap
 
 #### Custom events
 
-[Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) are events that you define based on the specific actions you want to track within your app or site. For example, a music streaming app might track custom events like:
+[Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) are events that you define based on the specific actions you want to track within your app or site. For example, a music streaming app might track custom events like:
 
 - Song Played
 - Playlist Created
@@ -109,11 +109,11 @@ Data points are consumed when a user's profile data is updated or when they perf
 
 By thoughtfully considering what information to track as data points, you're targeting the highest-impact data for your users' experience. Your Braze account manager will help recommend data best practices to fit your needs.
 
-Visit our dedicated article to learn more about [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+Visit our dedicated article to learn more about [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 ## Segments
 
-[Segmentation]({{site.baseurl}}/user_guide/audience/segments/) allows you to target users based on their demographic, behavioral, social, or technical characteristics and actions (that is, attributes and events). Creative and intelligent use of segmentation and messaging automation enables you to seamlessly move your users through their customer lifecycle journey.
+[Segmentation]({{site.baseurl}}/user_guide/audience/segments) allows you to target users based on their demographic, behavioral, social, or technical characteristics and actions (that is, attributes and events). Creative and intelligent use of segmentation and messaging automation enables you to seamlessly move your users through their customer lifecycle journey.
 
 Tips for working with segments:
 

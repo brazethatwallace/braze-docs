@@ -34,7 +34,7 @@ Use the following options to customize what data appears in the **Performance Ov
 To export your custom events data, select <i class="fas fa-bars" title="Chart context menu"></i> **Chart context menu** in the **Performance Over Time** graph and select your export option.
 
 {% alert tip %}
-For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, refer to [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 ## Troubleshooting
