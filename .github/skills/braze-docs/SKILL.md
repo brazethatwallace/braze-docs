@@ -108,7 +108,7 @@ Jekyll site. Collections dir: `_docs/`. Base URL: `/docs`.
 
 Contributor handbook (not a Jekyll collection): `docs/contributing/` in this repository.
 
-Permalink pattern: `./:collection/:path/` (pretty URLs, trailing slash).
+Permalink pattern: `./:collection/:path/` (Jekyll build paths). Production URLs omit trailing slashes (`vercel.json` `trailingSlash: false`); use no-slash paths in links, redirects, and canonical targets.
 
 ## Locale and English source
 

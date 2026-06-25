@@ -2687,8 +2687,8 @@ _MD_LINK_FRAGMENT_ANCHOR_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9_-]*$")
 
 
 def _normalize_single_internal_link_url(url):
-    """If ``url`` is a ``{{site.baseurl}}`` doc link whose path omits ``/``
-    before ``#anchor``, insert the slash. Returns ``(new_url, changed)``.
+    """If ``url`` is a ``{{site.baseurl}}`` doc link with ``/`` before ``#anchor``,
+    remove the slash. Returns ``(new_url, changed)``.
     """
     if "{{site.baseurl}}" not in url:
         return url, False
@@ -2698,17 +2698,17 @@ def _normalize_single_internal_link_url(url):
     if hashidx <= 0:
         return url, False
     before, frag = url[:hashidx], url[hashidx + 1 :]
-    if not frag or before.endswith("/"):
+    if not frag or not before.endswith("/"):
         return url, False
     bl = before.lower()
     if bl.endswith((".md", ".html", ".htm", ".json", ".xml")):
         return url, False
-    last_seg = before.rsplit("/", 1)[-1]
+    last_seg = before.rstrip("/").rsplit("/", 1)[-1]
     if "." in last_seg:
         return url, False
     if not _MD_LINK_FRAGMENT_ANCHOR_RE.match(frag):
         return url, False
-    return f"{before}/#{frag}", True
+    return f"{before.rstrip('/')}#{frag}", True
 
 
 _SUP_BOLD_STAR_TYPO = re.compile(r"<sup>\*\*([^*<]+)\*</sup>")
@@ -2729,22 +2729,22 @@ def repair_sup_addon_footnote_bold_typo(translated_content: str):
 
 
 def repair_ideas_and_strategies_internal_link_trailing_slash(translated_content: str):
-    """Ensure ``ideas_and_strategies`` doc links use a trailing ``/`` before ``)``."""
+    """Remove trailing ``/`` from ``ideas_and_strategies`` doc links."""
     repairs = []
     new = translated_content
     for wrong, right in (
         (
-            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
             "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)",
+            "]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies)",
         ),
         (
-            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
             "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/)",
+            "]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies)",
         ),
     ):
         if wrong in new:
             new = new.replace(wrong, right)
-            repairs.append("md-link — ideas_and_strategies trailing /")
+            repairs.append("md-link — ideas_and_strategies trailing / removed")
     if repairs:
         return new, repairs
     return translated_content, []
@@ -2780,7 +2780,7 @@ def repair_markdown_site_baseurl_link_paren_typos(translated_content: str):
 
 
 def repair_markdown_internal_link_fragments(content):
-    """Normalize ``]({{site.baseurl}}/...slug#anchor)`` → ``.../slug/#anchor``."""
+    """Normalize ``]({{site.baseurl}}/...slug/#anchor)`` → ``.../slug#anchor``."""
     repairs = []
 
     def repl(match):
@@ -2789,7 +2789,7 @@ def repair_markdown_internal_link_fragments(content):
         if changed:
             preview = url if len(url) <= 100 else url[:97] + "..."
             repairs.append(
-                f"md-fragment — inserted '/' before # in internal link ({preview})"
+                f"md-fragment — removed '/' before # in internal link ({preview})"
             )
         return f"]({new_url})"
 
@@ -3093,17 +3093,15 @@ _SLASH_SKIP_EXTS = (
 
 
 def _normalize_trailing_slash_on_baseurl(url):
-    """Add trailing ``/`` to extensionless ``{{site.baseurl}}`` doc links.
+    """Remove trailing ``/`` from extensionless ``{{site.baseurl}}`` doc links.
 
-    Braze docs are directory-style (Jekyll permalinks end in ``/``). Bare
-    ``{{site.baseurl}}/path)`` without a trailing slash causes redirects
-    and inconsistent in-page link formats (Copilot flag on PR #13302).
+    Production URLs omit trailing slashes (Vercel ``trailingSlash: false``).
     """
     if "{{site.baseurl}}" not in url:
         return url, False
     if "?" in url or "#" in url:
         return url, False
-    if url.endswith("/"):
+    if not url.endswith("/"):
         return url, False
     if url.rstrip().endswith("}}"):
         return url, False
@@ -3111,7 +3109,7 @@ def _normalize_trailing_slash_on_baseurl(url):
     tail = url[idx + len("{{site.baseurl}}") :]
     if not tail or not tail.startswith("/"):
         return url, False
-    last_seg = tail.rsplit("/", 1)[-1]
+    last_seg = tail.rstrip("/").rsplit("/", 1)[-1]
     if not last_seg:
         return url, False
     lower = last_seg.lower()
@@ -3119,18 +3117,11 @@ def _normalize_trailing_slash_on_baseurl(url):
         return url, False
     if "." in last_seg:
         return url, False
-    return url + "/", True
+    return url.rstrip("/"), True
 
 
 def repair_markdown_internal_link_trailing_slash(content):
-    """Generalize ``repair_ideas_and_strategies_internal_link_trailing_slash``
-    to every extensionless ``{{site.baseurl}}`` directory-style link.
-
-    PR #13302 had the same link appearing both as
-    ``.../ecommerce_use_cases)`` and ``.../ecommerce_use_cases/)`` within a
-    single localized file. The translation prompt already asks for trailing
-    ``/`` on directory-style links; this is a deterministic backstop.
-    """
+    """Remove trailing ``/`` from extensionless ``{{site.baseurl}}`` directory-style links."""
     repairs = []
     counts = {}
 
@@ -3146,7 +3137,7 @@ def repair_markdown_internal_link_trailing_slash(content):
         total = sum(counts.values())
         distinct = len(counts)
         repairs.append(
-            f"md-link — added trailing / to {total} directory-style "
+            f"md-link — removed trailing / from {total} directory-style "
             f"{{{{site.baseurl}}}} link(s) ({distinct} distinct path(s))"
         )
         return new, repairs

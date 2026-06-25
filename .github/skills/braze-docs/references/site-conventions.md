@@ -44,7 +44,7 @@ Some pages use YAML fields like `guide_top_text` that contain inline links. Thes
 **Use a plain HTML anchor instead:**
 
 ```yaml
-guide_top_text: "See our article for <a href='/docs/user_guide/path/to/page/'>page title</a>."
+guide_top_text: "See our article for <a href='/docs/user_guide/path/to/page'>page title</a>."
 ```
 
 - Use an absolute `/docs/`-prefixed path (not `{{site.baseurl}}`).
