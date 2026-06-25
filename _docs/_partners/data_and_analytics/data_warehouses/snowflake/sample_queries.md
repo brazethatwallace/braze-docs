@@ -252,21 +252,23 @@ GROUP BY email_address;
 
 For an alternative approach scoped to a specific campaign, Canvas, or Canvas step, use the following query. Set the date range and identifier variables, then run the `SELECT` statements to return unique opens calculated three ways:
 
+The query results may differ slightly from dashboard metrics in some workspaces. For example, uniqueness can be partitioned by `email_address`, and some historical open events may not include an email address after profile deletion. In those cases, exact parity may not be possible for the same timeframe.
+
 ```sql
 /* 
     Set or comment out variables if not required. These are set per session.
     You can obtain the from and to dates from the Campaign, Canvas, or Canvas step URL. These are the startDate and endDate parameters.
     
-    For example, endDate=1735776000&startDate=1735689600
+    For example, endDate=1234567890&startDate=1234500000
     
     To run, select all of this code block (CMD + A) to first set the necessary variables, then run the SELECT statements below.
 */
 
-SET fromDateTime = '1735689600';
-SET toDateTime = '1735776000';
--- SET campaignID = '7a2f4c8b3e6d1a5f9c0b8e2d';
--- SET canvasID = '4b9e1d8c2a3f6b5e7d0c9a1e';
-SET canvasStepID = '8c3a5e7d9b2f4c1e6d0a8b3f';
+SET fromDateTime = '1234500000';
+SET toDateTime = '1234567890';
+-- SET campaignID = '';
+-- SET canvasID = '';
+SET canvasStepID = '0123456789abcdef01234567';
 
 SELECT
     'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(concat(user_id, dispatch_id))) total
