@@ -89,4 +89,8 @@ Se os usuários entrarem em uma jornada de ação várias vezes e tiverem múlti
 | **Ativada** | Todas as entradas avançam ao final do período de avaliação correspondente. Nenhuma deduplicação ocorre. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas com reelegibilidade" }
 
+{% alert warning %}
+Não altere a opção **Avançar usuários com base na ordem de classificação** após o lançamento quando já houver usuários na etapa. A Braze aplica a configuração de classificação atual ao processar eventos e quando o período de avaliação termina, mas o estado da jornada registrado anteriormente no período pode refletir uma configuração anterior. Por exemplo, se você desativar a classificação depois que os usuários realizaram uma ação classificada, eles podem não avançar pela jornada esperada quando o período terminar. Em vez disso, crie uma nova jornada de ação com a configuração de classificação desejada ou duplique o Canvas.
+{% endalert %}
+
 Observe que as classificações não são [editáveis após o lançamento]({{site.baseurl}}/post-launch_edits/).

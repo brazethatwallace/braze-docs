@@ -62,12 +62,24 @@ Wenn ein Gerät nicht mit dem Internet verbunden ist, kann es zu einer Verzöger
 
 Eine vollständige Liste der Events, die Currents protokolliert, finden Sie in den Glossaren [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). Sie können diese Glossare nach Event-Typ filtern (z. B. Sendungen, Zustellungen oder Öffnungen).
 
-## Warum unterscheidet sich die `external_id` in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Nutzerprofil im Braze-Dashboard? {#why-does-the-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
+## Warum stimmen meine Currents-Event-Zahlen nicht mit meinen Dashboard- oder Engagement-Bericht-Metriken überein? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
+
+Currents und das Braze-Dashboard berechnen bestimmte Metriken unterschiedlich, sodass eine exakte Übereinstimmung zwischen Currents-Events und Dashboard-Metriken nicht zu erwarten ist.
+
+**Eindeutige Klicks:** Für E-Mails erfasst das Dashboard eindeutige Klicks über einen Zeitraum von sieben Tagen und misst sie anhand der `dispatch_id`. Currents zeichnet jedes einzelne Klick-Event auf. Um die auf Currents basierenden eindeutigen Klickzahlen mit den Dashboard-Metriken abzugleichen, filtern Sie nach Events, bei denen `is_unique` den Wert `true` hat.
+
+**Abmeldungen:** Die Dashboard-Metrik *Abmeldungen* spiegelt Klicks auf den Standard-Abmeldelink von Braze wider. Angepasste Abmeldeseiten erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren die Nutzer:innen über die API. Das Currents-Event `users.messages.email.Unsubscribe` ist ein spezialisiertes Klick-Event, das ausgelöst wird, wenn ein:e Nutzer:in auf einen Abmeldelink im E-Mail-Text oder in der Fußzeile klickt oder den List-Unsubscribe-Header verwendet. Es repräsentiert nicht jede Änderung des E-Mail-Abo-Status.
+
+**Zeitstempel und Zeitzonen:** Alle Currents-Zeitstempel sind in UTC. Dashboard-Metriken folgen der Zeitzone Ihres Unternehmens. Wenn Sie Currents-Daten nach Kalendertag aggregieren, ohne sie in die Zeitzone Ihres Unternehmens umzurechnen, können Zählungen in andere Datums-Buckets fallen als im Dashboard angezeigt.
+
+**Doppelte Events:** Currents bietet eine At-least-once-Zustellung, d. h. doppelte Events können gelegentlich geschrieben werden. Deduplizieren Sie anhand des eindeutigen `id`-Felds jedes Events, bevor Sie Summen mit Dashboard-Metriken vergleichen.
+
+## Warum unterscheidet sich die `external_user_id` (Braze-Schema: `external_id`) in meinem Currents-E-Mail-Öffnungs- oder Klick-Event vom Nutzerprofil im Braze-Dashboard? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
 - **Im Braze-Dashboard:** Wenn ein:e Nutzer:in, der/die mit einer E-Mail-Adresse verknüpft ist, eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet bzw. angeklickt markiert. Weitere Informationen finden Sie unter [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 - **In Currents:** Dieselbe Öffnung oder derselbe Klick wird nur einem Profil zugeordnet. Braze ordnet das Event dem Profil zu, das ursprünglich für den Versand ausgewählt wurde, sofern dieses Profil die E-Mail-Adresse noch teilt. Andernfalls ordnet Braze es einem zufällig ausgewählten Profil unter denjenigen zu, die die E-Mail-Adresse teilen.
 
-Aus diesem Grund stimmt die `external_id` eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Nutzerprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
+Aus diesem Grund stimmt der Wert von `external_user_id` (im Braze-Schema-Mapping als `external_id` bezeichnet) eines Currents-E-Mail-Öffnungs- oder Klick-Events möglicherweise nicht mit dem Nutzerprofil überein, das Sie erwarten, wenn Sie Currents mit dem Braze-Dashboard vergleichen.
 
 ## Werden alle Sende-Events in Currents protokolliert? {#are-all-send-events-logged-to-currents}
 
@@ -80,6 +92,12 @@ Unter normalen Umständen werden Currents-Daten nicht beschädigt. Obwohl es imm
 ## Warum sehe ich angepasste Event-Daten mit einem Datum vor der Einrichtung meiner Currents-Integration? {#why-do-i-see-custom-event-data-dated-before-my-currents-integration-was-set-up}
 
 Braze füllt Events nicht rückwirkend in Currents auf. Angepasste Events können jedoch mit einem vergangenen Zeitstempel protokolliert werden (z. B. wenn ein Gerät zum Zeitpunkt des Events offline war und die Daten später synchronisiert wurden). In diesen Fällen spiegelt der Event-Zeitstempel den Zeitpunkt wider, an dem das Event ursprünglich aufgetreten ist, was vor der Konfiguration der Currents-Integration liegen kann.
+
+## Welche Nutzer-Bezeichner sind in Currents-Events enthalten? {#what-user-identifiers-are-included-in-currents-events}
+
+Nachrichten-Engagement-Events (Sendungen, Öffnungen, Klicks usw.) enthalten die Braze-Nutzer-ID (`user_id`) und, sofern im Profil vorhanden, den externen Bezeichner (`external_user_id` in Event-Payloads, im Braze-Schema-Mapping als `external_id` bezeichnet). Einige E-Mail-Nachrichten-Engagement-Events enthalten auch `email_address`. Angepasste Attribute sind nicht enthalten – siehe unten.
+
+Wenn Sie Currents-Daten an ein Data Warehouse oder CRM weiterleiten und mit Profildaten verknüpfen müssen, führen Sie diesen Join in Ihrem nachgelagerten System über `user_id` oder `external_user_id` durch.
 
 ## Kann ich angepasste Attribute in Currents-Sende-Events einbeziehen? {#can-i-include-custom-attributes-in-currents-send-events}
 
