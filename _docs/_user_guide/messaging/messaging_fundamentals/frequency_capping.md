@@ -181,9 +181,9 @@ As your user base continues to grow and your messaging scales to include lifecyc
 
 When you enable both rate limiting and frequency capping on a campaign, Braze applies them in the following order:
 
-1. **Rate limit** is applied first to select the initial pool of users who can receive messages
-2. **Frequency cap** is applied second to filter users from that pool
-3. **Messages are sent** to the remaining users
+1. **Rate limit** is applied first to select the initial pool of users who can receive messages.
+2. **Frequency cap** is applied second to filter users from that pool.
+3. **Messages are sent** to the remaining users.
 
 {% alert important %}
 If many users in your rate-limited pool are frequency capped, you may send fewer messages than your rate limit value. Braze does not backfill additional users from the rate limit once frequency capping removes users from the send pool.
@@ -191,14 +191,14 @@ If many users in your rate-limited pool are frequency capped, you may send fewer
 
 #### Example
 
-Let's say you set a rate limit of 500 users and enable frequency capping. If 200 of those 500 rate-limited users are frequency capped, only 300 messages are sent—not 500.
+With a rate limit of 500 users and frequency capping enabled, if 200 of those 500 rate-limited users are frequency capped, only 300 messages are sent—not 500.
 
 #### Recommendations
 
 If you need to reach a specific number of users when using both features together, consider the following approaches:
 
 - **Increase your rate limit:** To account for users who are frequency capped. For example, if you want to reach 500 users but expect some to be frequency capped, set your rate limit higher (such as 1,000 users).
-- **Use rate limiting alone:** If your goal is simply to control the volume of messages sent per campaign.
+- **Use rate limiting alone:** If your goal is to control the volume of messages sent per campaign.
 - **Engage your customer success manager:** For help designing a robust messaging strategy that balances both business needs and technical considerations.
 
 ### Feature overview {#freq-cap-feat-over}
