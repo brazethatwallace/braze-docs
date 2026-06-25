@@ -59,7 +59,7 @@ You can also further filter trigger events through Braze [custom event propertie
 
 For example, let's say we have a campaign with an abandoned cart custom event that is further targeted by the "cart value" property filter. This campaign will only reach users who've left between $100 and $200 worth of goods in their carts. 
 
-![Screenshot: customeventproperties.]({% image_buster /assets/img_archive/customEventProperties.png %})
+![Abandoned cart campaign filtered by a custom event property for cart value between $100 and $200.]({% image_buster /assets/img_archive/customEventProperties.png %})
 
 {% alert note %}
 The trigger event "start session" can be the user's very first app open if your campaign's segment applies to new users. (for example, if your segment consists of those with no sessions).
@@ -74,7 +74,7 @@ With respect to the trigger event for when a user adds an email address to their
 
 In addition, triggered in-app messages still abide by in-app message delivery rules and appear at the beginning of an app session.
 
-![Screenshot: schedule triggered1.]({% image_buster /assets/img_archive/schedule_triggered1.png %})
+![Action-based campaign delivery schedule showing trigger event configuration options.]({% image_buster /assets/img_archive/schedule_triggered1.png %})
 
 ### Step 2: Select delay length
 
