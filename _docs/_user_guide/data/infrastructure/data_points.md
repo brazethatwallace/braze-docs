@@ -84,7 +84,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 {% tabs %}
 {% tab Non-billable %}
 
-#### Non-billable data points (default)
+### Non-billable data points (default)
 
 <div class="small_table"></div>
 

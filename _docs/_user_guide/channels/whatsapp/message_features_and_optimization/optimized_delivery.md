@@ -18,7 +18,7 @@ WhatsApp messages with optimized delivery are sent using Meta’s [Marketing Mes
 
 Brands can expect equal or greater deliverability with MM API for WhatsApp, compared to Cloud API. In India, high engagement marketing messages saw up to 9% more messages delivered compared to Cloud API, according to Meta. Note that MM API for WhatsApp still does not guarantee 100% deliverability.
 
-### Regional availability
+## Regional availability
 
 The availability and optimization capabilities of optimized delivery depend on the region of the business phone number and the user. To learn more, refer to [Geographic availability of features](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/get-started#geographic-availability-of-features). 
 

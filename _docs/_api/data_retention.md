@@ -36,7 +36,7 @@ A User may have multiple profiles, and you may need to delete multiple profiles 
 
 ## Data Retention Handled by Braze for Specific Features of the Braze Services
 
-#### Braze Database: Automatic Archiving/Deletion of Churned Users
+### Braze Database: Automatic Archiving/Deletion of Churned Users
 
 Each week, Braze runs a process to remove Inactive and Dormant Users from the Braze Services. In general, these are users who are not reachable (for example, have no email address, no phone number, no push token, do not use your apps or visit your websites), have had no activity recorded on their user profile, and have not been messaged or engaged with using Braze. This is done to adhere to GDPR principles and best practices. You can read more about this process on our [user archival definitions]({{site.baseurl}}/user_archival) page.
 
@@ -52,7 +52,7 @@ Messaging interaction data refers to how a user interacts with a campaign or Can
 
 The below retention policies pertain to Braze's compliance with GDPR and privacy regulations and are regarding transient data storage as it passes through our internal systems. These retention policies do not impact the Braze Services and are informational for your legal and privacy teams.
 
-#### Braze Servers: Short-term Retention for Recovery Purposes
+### Braze Servers: Short-term Retention for Recovery Purposes
 
 Data sent by Braze to certain subprocessors may still exist in Braze's internal systems for up to 90 days.
 

@@ -15,7 +15,7 @@ tool: Canvas
 > How quickly a user fully leaves the Canvas depends on the step they're in, especially for Delay steps.
 > For more information, see [How users exit](#how-users-exit).
 
-### How users exit
+## How users exit
 
 When a user performs the exit event, Braze immediately marks them to exit the Canvas. After that, they don't advance to any later steps.
 

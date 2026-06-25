@@ -10,7 +10,7 @@ description: "This page provides answers to frequently asked questions about Dec
 
 > This article provides answers to some frequently asked questions about Decisioning Studio.
 
-### What is a decisioning agent?
+## What is a decisioning agent?
 
 A decisioning agent is a custom configuration for BrazeAI Decisioning Studio™ that's tailor-made to meet a specific business goal. This is defined by the success metric, dimensions, and options you choose. The decisioning agent automatically discovers the optimal action for every customer to maximize your chosen business metric.
 

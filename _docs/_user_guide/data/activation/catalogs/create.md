@@ -68,7 +68,7 @@ Need more space to accommodate for your CSV files? Contact your Braze account ma
 
 Drag and drop your file to the upload zone, or select **Upload CSV** and choose your file.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Drag and drop your file to the upload zone, or select Upload CSV and choose your file.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Select a data type for each column.
 
@@ -76,7 +76,7 @@ Select a data type for each column.
 This data type cannot be edited after you set up your catalog. In addition, a `NULL` value isn't supported in CSV upload and will be treated as a string.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![This data type cannot be edited after you set up your catalog. In addition, a NULL value isn't supported in CSV upload and will be treated as a string.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Enter a name and optional description for your catalog. Keep the following requirements in mind when naming your catalog:
 
@@ -245,7 +245,7 @@ The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV
 The package entitlement shown in the Braze dashboard is rounded to the nearest unit for visual purposes; however, you are still entitled to the full entitlement purchased. To request an upgrade for catalog storage, contact your Braze account manager.
 {% endalert %}
 
-#### Free version
+### Free version
 
 The storage size for the free version of catalogs is up to 100&nbsp;MB. You can have unlimited items as long as they're under 100&nbsp;MB. 
 

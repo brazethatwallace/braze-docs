@@ -37,7 +37,7 @@ The following steps help you build a `BrazeManager` helper file that your produc
 {% tabs local %}
 {% tab Create BrazeManager swift %}
 
-##### Create BrazeManager.swift
+#### Create BrazeManager.swift
 To build out your `BrazeManager.swift` file, create a new Swift file named _BrazeManager_ to add to your project at your desired location. Next, Replace `import Foundation` with `import AppboyUI` for SPM (`import Appboy_iOS_SDK` for CocoaPods) and then create a `BrazeManager` class that will be used to host all Braze-related methods and variables. `Appboy_iOS_SDK`
 
 {% alert note %}
@@ -102,7 +102,7 @@ class BrazeManager: NSObject {
 {% tabs local %}
 {% tab Step 1: Initialize SDK from BrazeManager swift %}
 
-##### Initialize SDK from BrazeManager.swift
+#### Initialize SDK from BrazeManager.swift
 Next, you must initialize the SDK. This guide assumes you have already [added the SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) into your Xcode project. You must also have your [workspace SDK endpoint]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/completing_integration#step-2-specify-your-data-cluster) and [`LogLevel`]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations#braze-log-level) set in your `Info.plist` file or in `appboyOptions`.
 
 Add the `didFinishLaunchingWithOptions` method from the `AppDelegate.swift` file without a return type in your `BrazeManager.swift` file. By creating a similar method in the `BrazeManager.swift` file, there will not be an `import AppboyUI` statement in your `AppDelegate.swift` file. 
@@ -176,11 +176,11 @@ Proceed to compile your code and run your application.<br><br>At this point, the
 {% tabs local %}
 {% tab Step 1: Add Push Certificate %}
 
-##### Add push certificate
+#### Add push certificate
 
 Navigate to your existing workspace in the Braze dashboard. Under **Push Notification Settings** upload your push certificate file to your Braze dashboard and save it. 
 
-![]({% image_buster /assets/img/ios_sdk/ios_sdk2.png %}){: style="max-width:60%;"}
+![Braze dashboard Push Notification Settings with APNs key upload fields.]({% image_buster /assets/img/ios_sdk/ios_sdk2.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% tab Step 2: Register for Notifications %}
@@ -366,7 +366,7 @@ Proceed to compile your code and run your application. <br><br>Try sending yours
 {% tabs local %}
 {% tab Create User Variables and Methods %}
 
-##### Create user variables and methods
+#### Create user variables and methods
 
 Next, you will want easy access to the `ABKUser` variables and methods. Create an extension for your user code in the `BrazeManager.swift` file so it reads in a more organized manner as to what purpose is being served in the helper file, like so:
 
@@ -429,7 +429,7 @@ Proceed to compile your code and run your application.<br><br>Try identifying us
 {% tabs local %}
 {% tab Step 1: Custom Events %}
 
-##### Create log custom event method
+#### Create log custom event method
 
 Based on the following Braze SDK `logCustomEvent` method, create a matching method. 
 
@@ -576,7 +576,7 @@ Proceed to compile your code and run your application. <br><br>Try logging custo
 The following in-app message section is not required for integration if you do not plan to use this channel in your application.
 {% endalert %}
 
-##### Conform to ABKInAppMessageUIDelegate
+#### Conform to ABKInAppMessageUIDelegate
 
 Next, enable your `BrazeManager.swift` file code to conform to the `ABKInAppMessageUIDelegate` to directly handle the associated methods. 
 
@@ -680,7 +680,7 @@ Proceed to compile your code and run your application. <br><br>Try sending yours
 The following Content Card section is not required for integration if you do not plan to use this channel in your application.
 {% endalert %}
 
-##### Create Content Card variables and methods
+#### Create Content Card variables and methods
 
 Enable your production code to display the Content Cards view controller without the need for unnecessary `import AppboyUI` statements. 
 

@@ -50,7 +50,7 @@ Filters users who have received a message from a specific campaign. With this fi
 
 To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select **Interact with Campaign** as the trigger action for an action-based campaign. Next, select **Receive SMS** and the SMS, MMS, or RCS campaign you would like to use.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select Interact with Campaign as the trigger action for an action-based campaign. Next, select Receive SMS and the SMS, MMS, or RCS campaign you would like to use.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### Filter by advanced tracking links
 
@@ -63,7 +63,7 @@ Only campaigns that have advanced tracking enabled appear in the following dropd
 2. Select **clicked shortened sms link**.
 3. Choose the desired campaign.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![Screenshot related to retarget users who have clicked a specific sms, mms, or rcs campaign.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### Retarget users who have clicked a specific Canvas Step
 
@@ -71,7 +71,7 @@ Only campaigns that have advanced tracking enabled appear in the following dropd
 2. Select **clicked shortened sms link**.
 3. Choose the desired Canvas and Canvas step.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![Screenshot related to retarget users who have clicked a specific canvas step.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## Keyword category-specific retargeting
 

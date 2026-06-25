@@ -48,7 +48,7 @@ It's important that your marketing and developer teams coordinate on which key-v
 
 ## Content Cards as supplemental content
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed with a hybrid list blending local data and Braze Content Cards.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 You can seamlessly blend Content Cards into an existing feed, allowing data from multiple feeds to load simultaneously. This creates a cohesive, harmonious experience with Braze Content Cards and existing feed content.
 
@@ -69,7 +69,7 @@ The key-value pairs for this use case include a `discount_percentage` set as the
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"} 
+![Interactive Content Card showing a checkout promotion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"} 
 
 ## Content Card badges
 

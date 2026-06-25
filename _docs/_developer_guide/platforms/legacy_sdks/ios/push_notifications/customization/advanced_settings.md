@@ -16,7 +16,7 @@ noindex: true
 
 When creating a push campaign, on the compose step, select **Settings** to view the advanced settings available.
 
-![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![iOS push campaign advanced settings in the Braze dashboard.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ## Extracting data from push key-value pairs
 

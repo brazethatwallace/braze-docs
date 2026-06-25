@@ -33,7 +33,7 @@ After your account manager has enabled SAML SSO for your account, go to **Settin
 
 From your Okta Admin dashboard, Okta provides you with a target URL (login URL) and `x.509` certificate, which you must input into your Braze account's **Security Settings** page.
 
-![]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
+![Screenshot related to step 1b: edit saml sso settings.]({% image_buster /assets/img/Okta/okta5.png %}){: style="max-width:75%"}
 
 | Requirement | Details |
 |---|---|

@@ -23,7 +23,7 @@ An API-triggered campaign is different from an [API campaign]({{site.baseurl}}/d
 
 Next, configure your copy and notifications the same way as you would normally for scheduled notifications and select **API-Triggered Delivery**. For more information on the triggering of these campaigns from your server, check out this [API-triggered campaign sending]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) article.
 
-![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![Next, configure your copy and notifications the same way as you would normally for scheduled notifications and select API-Triggered Delivery. For more information on the triggering of these campaigns from your server, check out this API-triggered campaign sending article.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## Using the templated content included with an API request
 
@@ -39,6 +39,6 @@ The number of times a user receives an API-triggered campaign can be limited usi
 
 For example, let's say you're using an API-triggered campaign to send the user a campaign about an item they recently viewed. In this case, you can limit the campaign to send a maximum of one message a day regardless of how many items they viewed while firing the API trigger for each item. On the other hand, if your API-triggered campaign is transactional, you will want to make sure that the user receives the campaign every time they do the transaction by setting the delay to zero minutes.
 
-![]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![Screenshot related to re-eligibility with api-triggered campaigns.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
 
 

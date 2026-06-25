@@ -279,11 +279,11 @@ Depending on the configuration of your Microsoft Fabric account, you may need to
 
 Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Snowflake Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Create a connected source in the Braze dashboard. Go to Data Settings > Cloud Data Ingestion > Connected Sources, and then select Create new data sync > Snowflake Import.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Input the information for your Snowflake data warehouse and source schema, then proceed to the next step.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
+![Screenshot related to step 3.1: add snowflake connection information and source table.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
 
 #### Step 3.2: Configure sync details
 
@@ -295,13 +295,13 @@ Configure a maximum runtime for this source. Braze will automatically abort any 
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
+![Screenshot related to step 3.2: configure sync details.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### Step 3.3: Note the public key  
 
 In the **Test connection** step, take note of the RSA public key. You'll need it to complete the integration in Snowflake.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+![Screenshot related to step 3.3: note the public key.]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
 
 {% endtab %}
 {% tab Redshift %}
@@ -309,11 +309,11 @@ In the **Test connection** step, take note of the RSA public key. You'll need it
 
 Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create data connection** > **Amazon Redshift Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Create a connected source in the Braze dashboard. Go to Data Settings > Cloud Data Ingestion > Connected Sources, and then select Create data connection > Amazon Redshift Import.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Input the information for your Redshift data warehouse and source schema, then proceed to the next step.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
+![Screenshot related to step 3.1: add redshift connection information and source table.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
 
 #### Step 3.2: Configure sync details
 
@@ -325,13 +325,13 @@ Configure a maximum runtime for this source. Braze will automatically abort any 
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
+![Screenshot related to step 3.2: configure sync details.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### Step 3.3: Note the public key (optional)
 
 If your credentials have **Connect with SSH Tunnel** selected, take note of the RSA public key in the **Test connection** step. You'll need it to complete the integration in Redshift.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+![If your credentials have Connect with SSH Tunnel selected, take note of the RSA public key in the Test connection step. You'll need it to complete the integration in Redshift.]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
 
 {% endtab %}
 {% tab BigQuery %}
@@ -339,11 +339,11 @@ If your credentials have **Connect with SSH Tunnel** selected, take note of the 
 
 Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Google BigQuery Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Create a connected source in the Braze dashboard. Go to Data Settings > Cloud Data Ingestion > Connected Sources, and then select Create new data sync > Google BigQuery Import.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Input the information for your BigQuery project and dataset, then proceed to the next step.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
+![Screenshot related to step 3.1: add bigquery connection information and source table.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
 
 #### Step 3.2: Configure sync details
 
@@ -355,13 +355,13 @@ Configure a maximum runtime for this source. Braze will automatically abort any 
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
+![Screenshot related to step 3.2: configure sync details.]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### Step 3.3: Test the connection
 
 Select **Test Connection** to verify that the list of tables visible to the user is what you expect, then select **Done**. Your connected source is now created and ready to use in CDI Segment Extensions.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Select Test Connection to verify that the list of tables visible to the user is what you expect, then select Done. Your connected source is now created and ready to use in CDI Segment Extensions.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Databricks %}
@@ -369,11 +369,11 @@ Select **Test Connection** to verify that the list of tables visible to the user
 
 Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Databricks Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Create a connected source in the Braze dashboard. Go to Data Settings > Cloud Data Ingestion > Connected Sources, and then select Create new data sync > Databricks Import.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Input the information for your Databricks credentials and, optional catalog and source schema, then proceed to the next step.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
+![Screenshot related to step 3.1: add databricks connection information and source table.]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
 
 #### Step 3.2: Configure sync details
 
@@ -385,13 +385,13 @@ Configure a maximum runtime for this source. Braze will automatically abort any 
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or dedicating a larger warehouse to the Braze user.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
+![Screenshot related to step 3.2: configure sync details.]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
 
 #### Step 3.3: Test the connection
 
 Select **Test Connection** to verify that the list of tables visible to the user is what you expect, then select **Done**. Your connected source is now created and ready to use in CDI Segment Extensions.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Select Test Connection to verify that the list of tables visible to the user is what you expect, then select Done. Your connected source is now created and ready to use in CDI Segment Extensions.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -399,11 +399,11 @@ Select **Test Connection** to verify that the list of tables visible to the user
 
 Create a connected source in the Braze dashboard. Go to **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, and then select **Create new data sync** > **Microsoft Fabric Import**.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+![Create a connected source in the Braze dashboard. Go to Data Settings > Cloud Data Ingestion > Connected Sources, and then select Create new data sync > Microsoft Fabric Import.]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
 
 Input the information for your Microsoft Fabric credentials, as well as the source warehouse and schema, then proceed to the next step.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
+![Screenshot related to step 3.1: add microsoft fabric connection information and source table.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
 
 #### Step 3.2: Configure sync details
 
@@ -415,13 +415,13 @@ Configure a maximum runtime for this source. Braze will automatically abort any 
 If queries are consistently timing out and you have set a maximum runtime of 60 minutes, consider trying to optimize your query execution time or scaling the Fabric capacity.
 {% endalert %}
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
+![Screenshot related to step 3.2: configure sync details.]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
 
 #### Step 3.3: Test the connection
 
 Select **Test Connection** to verify that the list of tables visible to the user is what you expect, then select **Done**. Your connected source is now created and ready to use in CDI Segment Extensions.
 
-![]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
+![Select Test Connection to verify that the list of tables visible to the user is what you expect, then select Done. Your connected source is now created and ready to use in CDI Segment Extensions.]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}

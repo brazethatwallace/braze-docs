@@ -63,7 +63,7 @@ For steps to use these locales in your messages, refer to [Using locales]({{site
 
 ## Frequently asked questions
 
-#### How many locales can I add?
+### How many locales can I add?
 
 You can add up to 200 locales.
 

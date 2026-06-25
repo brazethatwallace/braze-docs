@@ -15,7 +15,7 @@ tool:
 
 > This page provides answers to some frequently asked questions related to the drag-and-drop editor for email.
 
-### Can I preview how my email appears in dark mode?
+## Can I preview how my email appears in dark mode?
 
 Yes. Go to the **Preview and Test** section of the drag-and-drop editor and turn on **Dark mode**. We recommend also previewing and testing your emails across different user platforms and using transparent images for row background images when possible. 
 

@@ -251,7 +251,7 @@ Whether that token appears by default for new messages depends on the channel an
 
 ## Frequently asked questions
 
-#### What are the limits for translation tags?
+### What are the limits for translation tags?
 
 When using translation tags, the following limits apply:
 

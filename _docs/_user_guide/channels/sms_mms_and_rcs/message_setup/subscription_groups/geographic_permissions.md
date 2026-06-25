@@ -20,7 +20,7 @@ If you're an admin, you can configure the countries that are on the allowlist. T
 
 ![The editable Geographic Permissions section for an admin with several countries selected in the "Country allowlist".]({% image_buster /assets/img/sms/sms_geographic_permissions.png %}){: style="max-width:80%;"}
 
-### Selecting countries
+## Selecting countries
 
 Add countries to the allowlist with the dropdown. The most common SMS, MMS, and RCS countries are shown at the top, with others shown below. You can also search for countries by typing in the text field.
 

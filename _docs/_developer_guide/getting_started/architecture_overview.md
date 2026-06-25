@@ -117,7 +117,7 @@ Braze was designed to handle an evolving technological landscape with its channe
 
 The [Braze SDK]({{site.baseurl}}/user_guide/get_started/sdk_overview) powers additional messaging channels: push, in-app messages, and Content Cards. You integrate the SDK with your app or site to allow your marketing team to use the Braze dashboard to coordinate their campaigns across all supported messaging channels.
 
-![]({% image_buster /assets/img/getting_started/channels.png %})
+![Diagram of Braze messaging channels available through the SDK.]({% image_buster /assets/img/getting_started/channels.png %})
 
 ## Exporting data
 Critically, all end-user interactions with Braze are tracked so you can measure your engagement and outreach. And after Braze has aggregated your data from all these sources, it can be exported back to your tech stack using a variety of tools, closing the loop.
@@ -147,7 +147,7 @@ Your product announcement was sent to all customers who liked a similar item in 
 
 When Mel opens the announcement, she adds your new product to her wishlist. Braze tracks that she clicked the email automatically. The SDK tracks that she's wishlisted your new product. Each time they engage with your brand, you and your users are learning more about each other.
 
-![]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})
+![Diagram showing how Braze tracks user actions across messaging channels.]({% image_buster /assets/img/getting-started/putting-it-all-together.png %})
 
 
 

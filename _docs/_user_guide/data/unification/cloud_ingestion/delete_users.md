@@ -17,7 +17,7 @@ User delete syncs are supported for all available Cloud Data Ingestion data sour
 
 Follow the standard process to [create a new integration in the Braze dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) for the data warehouse you want to connect to. Ensure that you include a role that can access the delete table. On the **Create import sync** page, set the **Data Type** to **Delete Users** so that the proper actions are taken during the integration run to delete users.
 
-![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
+![Follow the standard process to create a new integration in the Braze dashboard for the data warehouse you want to connect to. Ensure that you include a role that can access the delete table. On the Create import sync page, set the Data Type to Delete Users so that the proper actions are taken during the integration run to delete users.]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
 ## Configure source data
 

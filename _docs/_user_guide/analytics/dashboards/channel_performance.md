@@ -187,7 +187,7 @@ For the _Unique Opens_ metric, Braze will deduplicate any repeat opens registere
 
 ## Empty values in your data
 
-#### If a metric displays "0%" or "0"
+### If a metric displays "0%" or "0"
 
 This means Braze recorded zero for that particular metric during the time frame you've selected.
 

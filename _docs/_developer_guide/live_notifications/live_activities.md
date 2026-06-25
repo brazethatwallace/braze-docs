@@ -176,7 +176,7 @@ Next, register the Live Activity type, so Braze can track all push-to-start toke
 The iOS operating system only generates push-to-start tokens during the first app install after a device is restarted. To ensure your tokens are reliably registered, call `registerPushToStart` in your `didFinishLaunchingWithOptions` method.
 {% endalert %}
 
-###### Example
+##### Example
 
 In the following example, the `LiveActivityManager` class handles Live Activity objects. Then, the `registerPushToStart` method registers `SportsActivityAttributes`:
 
@@ -266,7 +266,7 @@ To ensure Braze tracks your Live Activity upon app launch:
 
 This allows Braze to resume tasks to track push token updates for all active Live Activities. Note that if a user has explicitly dismissed the Live Activity on their device, it is considered removed, and Braze no longer tracks it.
 
-###### Example
+#### Example
 
 ```swift
 import UIKit
@@ -438,7 +438,7 @@ Multiple subscribers are supported—each active subscription receives every emi
 | `.pushTokenUpdated(activityId:activityType:)` | ActivityKit rotated the activity's push token. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped events" }
 
-###### Example
+##### Example
 
 ```swift
 func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
@@ -501,7 +501,7 @@ Use the `isTransient` flag to determine whether a retry is appropriate. The SDK 
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` was called with an invalid tag. Tags must be non-empty and under 256 bytes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Instance-scoped errors" }
 
-###### Example
+##### Example
 
 ```swift
 func handleLiveActivityError(_ error: Braze.LiveActivities.ErrorEvent) {

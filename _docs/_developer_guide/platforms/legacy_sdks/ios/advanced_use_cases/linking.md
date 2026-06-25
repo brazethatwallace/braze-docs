@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Example of deep link configuration in the Braze dashboard.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Universal links
 

@@ -15,14 +15,14 @@ channel:
 
 Opt-ins can come from external sources or from Braze methods, such as SMS or in-app and in-browser messages. Opt-outs can be dealt with using keywords set in Braze and WhatsApp marketing buttons. Reference the following methods for guidance on setting up opt-ins and opt-outs.
 
-#### Opt-in methods
+## Opt-in methods
 - [External to Braze opt-in methods](#external-to-braze-opt-in-methods)
   - [Externally built opt-in list](#externally-built-opt-in-list)
   - [Outbound message in customer support WhatsApp channel](#outbound-message-in-customer-support-whatsapp-channel)
   - [Inbound WhatsApp message](#inbound-whatsapp-message)
 - [Braze-powered opt-in methods](#braze-powered-opt-in-methods)
 
-#### Opt-out methods
+### Opt-out methods
 - [General opt-out keywords](#general-opt-out-keywords)
 - [Marketing opt-out selection](#marketing-opt-out-selection)
 

@@ -25,7 +25,7 @@ There is a limit of five concurrently active predictions. Before purchasing Pred
 {: start="2"}
 2. Give your prediction a unique name. You can also provide a description to save any relevant notes.
 
-![]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
+![Screenshot related to step 1: create a new prediction.]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
 
 {: start="3"}
 3. Click **Forward** to move to the next step. <br><br>Optionally, you can click **Build Now** to use all the default settings and skip to the last step of creation. You will have a chance to review the settings before starting the build process. Also, you can return to any step later by clicking it in the top bar.
@@ -36,7 +36,7 @@ Specify if your users' events are stored in Braze as [purchase events]({{site.ba
 
 Here, you'll see if the selected method provides enough data for Braze to create a machine learning model. If the requirement is not met, try and select the other logging method if it is also used by your application. Unfortunately, if it is not, Braze is unable to create a prediction with the quantity of data available. If you believe you're incorrectly seeing this error, get in touch with your customer success manager.
 
-#### Event window
+### Event window
 
 The event window is the time frame in which you want to predict if a user will perform the event. It can be set up to 60 days. This window is used to query historical data for training the prediction. Additionally, after the prediction is created and users receive scores, the likelihood score indicates how likely a user is to perform the event within the number of days specified by the event window.
 

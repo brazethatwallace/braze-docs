@@ -11,7 +11,7 @@ channel: email
 
 > This article provides answers to some frequently asked questions about emails.
 
-### What happens when an email is sent out, and multiple profiles have the same email address?
+## What happens when an email is sent out, and multiple profiles have the same email address?
 
 If multiple users with matching email addresses are in a segment to receive a campaign, a single user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
@@ -36,7 +36,7 @@ Email campaign and Canvas step re-eligibility uses each user's profile—not the
 
 Users are not deduped by email on Canvas entry, so they may not be deduped beyond the first step of a Canvas if they progress at slightly different times due to rate-limited entry. When a user associated with a given email address opens or clicks an email, all user profiles that share that email address are marked as having opened or clicked the campaign.
 
-#### Exception: API-triggered campaigns
+### Exception: API-triggered campaigns
 
 API-triggered campaigns will deduplicate or send deduplicates depending on where the audience is defined. Duplicate emails must be targeted separately in the API call using distinct `user_ids` to receive multiple deliveries. Here are three possible scenarios for API-triggered campaigns:
 

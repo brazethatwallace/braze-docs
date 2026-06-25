@@ -70,7 +70,7 @@ To include UTM tags in your deep links for push notifications, set the on-click 
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![Screenshot related to attribute push opens and in-app message clicks with utm tags.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab In-app message clicks %}
@@ -81,7 +81,7 @@ To include UTM tags in the deep links in your in-app messages, use the following
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![Screenshot related to attribute push opens and in-app message clicks with utm tags.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}

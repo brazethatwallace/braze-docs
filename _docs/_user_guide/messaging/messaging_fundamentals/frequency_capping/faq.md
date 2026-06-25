@@ -12,7 +12,7 @@ tool: Campaigns
 
 > This article provides answers to some frequently asked questions about rate limiting and frequency capping.
 
-### If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
+## If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
 
 Yes, when you increase or decrease a Canvas rate limit, the updated limit takes effect for new messages. There may be a brief delay before the update is reflected across the Canvas.
 

@@ -52,7 +52,7 @@ Our test application within the [Android SDK GitHub repository](https://github.c
 The Hello Braze test application shows a minimal use case of the Braze SDK and additionally shows how to easily integrate the Braze SDK into a Gradle project.
 
 1. Copy your API identifier key from the **Manage Settings** page into your `braze.xml` file in the `res/values` folder.
-![]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
+![Screenshot related to building "hello braze".]({% image_buster /assets/img_archive/hello_appboy.png %})<br><br>
 2. To install the sample app to a device or emulator, run the following command within the SDK directory:
 ```
 ./gradlew installDebug

@@ -32,17 +32,17 @@ Before creating your first CDI Segment Extension, set up a new connected source 
 
 First, create a new [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension), then select **Full refresh**.
 
-![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:60%;"}
+![Content Card modal placement example.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:60%;"}
 
 For your data source, choose **CDI Data Tables**.
 
-![]({% image_buster /assets/img/segment/cdi_data_tables.png %}){: style="max-width:60%;"}
+![Screenshot related to step 2: create a segment.]({% image_buster /assets/img/segment/cdi_data_tables.png %}){: style="max-width:60%;"}
 
 As part of your CDI setup, you can select from different connections to use in CDI Segment Extensions. Each connection has a specific set of data tables. Your development team can configure your connections and data tables during CDI setup.
 
 To view the available data tables, including their schema and any available descriptions, select **Reference**. When you're ready, select a connection.
 
-![]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
+![To view the available data tables, including their schema and any available descriptions, select Reference. When you're ready, select a connection.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
 
 Next, write the SQL for your segment using [the Braze SQL syntax]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#writing-sql).
 

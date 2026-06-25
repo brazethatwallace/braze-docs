@@ -38,7 +38,7 @@ noindex: true
 
 In your project settings, ensure that under the **Capabilities** tab, your **Push Notifications** capability is toggled on.
 
-![]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
+![In your project settings, ensure that under the Capabilities tab, your Push Notifications capability is toggled on.]({% image_buster /assets/img_archive/Enable_push_capabilities.png %})
 
 If you have separate development and production push certificates, make sure to uncheck the **Automatically manage signing** box in the **General** tab. This will allow you to choose different provisioning profiles for each build configuration, as Xcode's automatic code signing feature only does development signing.
 

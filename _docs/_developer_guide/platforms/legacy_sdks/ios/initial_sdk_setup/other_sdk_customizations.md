@@ -125,7 +125,7 @@ The prompt for app tracking transparency authorization requires an `Info.plist` 
 
 Follow these steps to implement IDFA Collection:
 
-##### Step 1: Implement ABKIDFADelegate
+#### Step 1: Implement ABKIDFADelegate
 
 Create a class that conforms to the [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h) protocol:
 

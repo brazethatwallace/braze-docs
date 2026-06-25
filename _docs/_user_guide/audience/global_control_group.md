@@ -114,7 +114,7 @@ To view a report for your Global Control Group from the dashboard, go to **Analy
 
 Next, select the parameter you want to run your report with (sessions or a particular custom event) and select **Run Report**.
 
-![]({% image_buster /assets/img/control_group/control_group6.png %})
+![Next, select the parameter you want to run your report with (sessions or a particular custom event) and select Run Report.]({% image_buster /assets/img/control_group/control_group6.png %})
 
 ### Configuring your report
 

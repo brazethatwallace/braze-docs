@@ -64,7 +64,7 @@ Refer to the following when configuring your webhook:
 - **Webhook URL:** Your [REST endpoint URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) followed by `/canvas/trigger/send`. For example, for the `US-06` instance, the URL would be `https://rest.iad-06.braze.com/canvas/trigger/send`.
 - **Request Body:** Raw Text
 
-#### Request headers and method
+### Request headers and method
 
 Braze requires an HTTP header for authorization that includes your API key and another that declares your content type.
 

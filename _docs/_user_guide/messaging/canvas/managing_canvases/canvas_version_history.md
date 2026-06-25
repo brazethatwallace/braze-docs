@@ -20,7 +20,7 @@ For a full list of Canvases in your workspace (for example, for an audit), use t
 
 ## Managing versions
 
-![]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Screenshot related to managing versions.]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 To create a new version, click **Update Canvas**. This allows you to make changes without overwriting the Canvas's previous setup. When a new Canvas version is created, the users already in the Canvas will progress through the workflow of the new version. Users entering the Canvas will also enter the new version. 
 

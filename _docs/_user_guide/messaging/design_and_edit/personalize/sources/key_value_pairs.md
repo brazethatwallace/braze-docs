@@ -49,7 +49,7 @@ When you add key-value pairs in the message composer, values are sent as strings
 
 Apple Push Notification service (APNs) supports setting alert preferences and sending custom data using key-value pairs. APNs makes use of the Apple-reserved ```aps``` library, which includes predetermined keys and values that govern alert properties.
 
-##### APS library
+#### APS library
 
 | Key  | Value Type  | Value Description |
 |-------------------|-----------------------------|----------------------------------|
@@ -78,7 +78,7 @@ The Braze message composer automatically handles the creation of the following k
 
 These values can be input in the **Settings** tab when building a push message. Select **Alert Options** and select an alert dictionary key for the key to be automatically populated in a new key-value entry.
 
-![]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
+![These values can be input in the Settings tab when building a push message. Select Alert Options and select an alert dictionary key for the key to be automatically populated in a new key-value entry.]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
 {% raw %}
 When Braze sends a push notification to APNs, the payload will be formatted as a JSON.
 
@@ -113,7 +113,7 @@ When Braze sends a push notification to APNs, the payload will be formatted as a
 
 In addition to the ```aps``` library payload values, you may send custom key-value pairs to a user's device. The values in these pairs are restricted to primitive types: dictionary (object), array, string, number, and boolean.
 
-![]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
+![Screenshot related to custom key-value pairs.]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
 Use cases for custom key-value pairs include but are not limited to internal metrics keeping and setting the context for the user interface. Braze allows you to send additional key-value pairs along with a push notification to be used through your application within the [extras key]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs). If you prefer to use another key, confirm that your app can handle this custom key.
 
@@ -135,7 +135,7 @@ Braze allows you to send custom-defined string key-value pairs, known as `extras
 
 Braze allows you to send send additional data payloads in push notifications using key-value pairs.
 
-##### Data payload
+#### Data payload
 
 Similar to iOS push, you may send custom key-value pairs to a user's device.
 
@@ -145,7 +145,7 @@ Some use cases for custom key-value pairs include internal metrics keeping and s
 Your app's backend must be able to process custom key-value pairs for the data payload to function properly.
 {% endalert %}
 
-###### API-triggered campaigns
+##### API-triggered campaigns
 
 Braze allows you to send custom-defined string key-value pairs, known as `extras`. To access your extras in API-triggered and scheduled API-triggered campaigns, in the dashboard set a key as "example_key", and a value as {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. This will result in a developer console output of `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
@@ -153,7 +153,7 @@ Braze allows you to send custom-defined string key-value pairs, known as `extras
 
 Android push notifications can be further customized with FCM message options. These include [notification priority]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority), [sound]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#sounds), delay, lifespan, and collapsibility. These values can be specified in the **Settings** tab when creating a push message. Refer to [Advanced push notification settings]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) for further instructions on how to set these options in the Braze message composer.
 
-![]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
+![Screenshot related to fcm messaging options.]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
 ### Silent push notifications
 
@@ -181,9 +181,9 @@ You can add a key-value pair to an in-app message in the [traditional editor]({{
 {% alert note %}
 Key-value pairs cannot be set through the drag-and-drop editor for in-app messages.
 {% endalert %}
-![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
+![Screenshot related to in-app messages.]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### API-triggered campaigns
+### API-triggered campaigns
 
 Braze allows you to send custom-defined string key-value pairs, known as `extras`. To access your extras in API-triggered and scheduled API-triggered campaigns, in the dashboard set a key as "example_key", and a value as {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. This will result in a developer console output of `"extras": { "test": { "foo": 1, "bar": 1 }`.
 

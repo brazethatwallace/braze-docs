@@ -14,12 +14,12 @@ noindex: true
 
 <br>
 {% alert important %}
-Looking for the basic Content Card developer integration guide? Find it [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
+Looking for the basic Content Card developer integration guide? Find it [basic Content Card developer integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Content Card implementation guide
 
-> This optional and advanced implementation guide covers Content Card code considerations, three custom use cases built by our team, accompanying code snippets, and guidance on logging impressions, clicks, and dismissals. Visit our Braze Demo Repository [here](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Note that this implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested.
+> This optional and advanced implementation guide covers Content Card code considerations, three custom use cases built by our team, accompanying code snippets, and guidance on logging impressions, clicks, and dismissals. Visit our Braze Demo Repository [Braze Demo Repository on GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Note that this implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested.
 
 ## Code considerations
 
@@ -434,7 +434,7 @@ We've provided three use cases below. Each use case offers a detailed explanatio
 
 ### Content Cards as supplemental content
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed with a hybrid list blending local data and Braze Content Cards.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 You can seamlessly blend Content Cards into an existing feed, allowing data from multiple feeds to load simultaneously. This creates a cohesive, harmonious experience with Braze Content Cards and existing feed content.
 
@@ -453,7 +453,7 @@ Visit the [following section](#logging-impressions-clicks-and-dismissals) to get
 <br>
 Content Cards can be used in a message center format where each message is its own card. Each message in the message center is populated via a Content Card payload, and each card contains additional key-value pairs that power on-click UI/UX. In the following example, one message directs you to an arbitrary custom view, while another opens to a webview that displays custom HTML.
 
-![]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![Content Card message center with individual message cards.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
 #### Dashboard configuration
 
@@ -467,7 +467,7 @@ The key-value pairs for this use case include:
 - `message_header` set as `Full Page`
 - `class_type` set as `message_full_page`
 
-![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
+![Full-page Content Card message example.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% tab Webview message - HTML %}
@@ -480,7 +480,7 @@ The key-value pairs for this use case include:
 
 This message also looks for an HTML key-value pair, but if you are working with a web domain, a URL key-value pair is also valid.
 
-![]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![Content Card opening an HTML webview from a key-value pair.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -541,7 +541,7 @@ Well-placed cards like this are a great way to give users a "nudge" toward speci
 
 The dashboard configuration for interactive Content Cards is straightforward. The key-value pairs for this use case include a `discount_percentage` set as the desired discount amount and `class_type` set as `coupon_code`. These key-value pairs are how type-specific Content Cards get filtered and displayed on the checkout screen.
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"} 
+![Interactive Content Card showing a checkout promotion.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"} 
 
 ##### Ready to log analytics?
 Visit the [following section](#logging-impressions-clicks-and-dismissals) to get a better understanding of how the flow of data should look.
@@ -556,7 +556,7 @@ This behavior can be overridden as detailed in our [custom styling guide]({{site
 
 After extending your custom objects to function as Content Cards, logging valuable metrics like impressions, clicks, and dismissals is quick. This can be done by using a `ContentCardable` protocol that references and provides data to a helper file to be logged by the Braze SDK.
 
-#### Implementation components<br><br>
+### Implementation components<br><br>
 
 {% tabs %}
 {% tab Swift %}

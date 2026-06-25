@@ -28,7 +28,7 @@ The Short Messaging Service (SMS) is a standardized communication protocol that 
 
 As you create an SMS campaign or Canvas using Braze, the messages you build in the composer are representative of what your users may see when the message gets delivered to their phone, but **is not indicative of how your message will be split into segments and ultimately how you be charged**. Understanding how many segments will be sent and being aware of the potential overages that could occur is your responsibility, but we provide some resources to make this easier for you. Check out our in-house [segment calculator](#segment-calculator).
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![As you create an SMS campaign or Canvas using Braze, the messages you build in the composer are representative of what your users may see when the message gets delivered to their phone, but is not indicative of how your message will be split into segments and ultimately how you be charged. Understanding how many segments will be sent and being aware of the potential overages that could occur is your responsibility, but we provide some resources to make this easier for you. Check out our in-house segment calculator.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Segment breakdown
 

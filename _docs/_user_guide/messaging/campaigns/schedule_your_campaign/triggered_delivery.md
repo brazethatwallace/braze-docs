@@ -59,7 +59,7 @@ You can also further filter trigger events through Braze [custom event propertie
 
 For example, let's say we have a campaign with an abandoned cart custom event that is further targeted by the "cart value" property filter. This campaign will only reach users who've left between $100 and $200 worth of goods in their carts. 
 
-![]({% image_buster /assets/img_archive/customEventProperties.png %})
+![Screenshot: customeventproperties.]({% image_buster /assets/img_archive/customEventProperties.png %})
 
 {% alert note %}
 The trigger event "start session" can be the user's very first app open if your campaign's segment applies to new users. (for example, if your segment consists of those with no sessions).
@@ -74,7 +74,7 @@ With respect to the trigger event for when a user adds an email address to their
 
 In addition, triggered in-app messages still abide by in-app message delivery rules and appear at the beginning of an app session.
 
-![]({% image_buster /assets/img_archive/schedule_triggered1.png %})
+![Screenshot: schedule triggered1.]({% image_buster /assets/img_archive/schedule_triggered1.png %})
 
 ### Step 2: Select delay length
 
@@ -86,18 +86,18 @@ Braze uses the timestamp sent with the custom event to evaluate the delay for an
 
 Additionally, users who complete the trigger event after your campaign is launched will be the first to start receiving the message after the delay has passed. Users who have completed the trigger event before the campaign launches will not qualify to receive the campaign.
 
-![]({% image_buster /assets/img_archive/schedule_triggered22.png %})
+![Screenshot related to step 2: select delay length.]({% image_buster /assets/img_archive/schedule_triggered22.png %})
 
 You may also elect to send the campaign on either a specific day of the week (by choosing "on the next" and then selecting a day) or a specific number of days (by selecting "in") in the future. Alternatively, you may choose to send your message using the [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) feature instead of manually selecting a delivery time.
 
-![]({% image_buster /assets/img_archive/schedule_triggered7.png %})
-![]({% image_buster /assets/img_archive/schedule_triggered8.png %})
+![You may also elect to send the campaign on either a specific day of the week (by choosing "on the next" and then selecting a day) or a specific number of days (by selecting "in") in the future. Alternatively, you may choose to send your message using the Intelligent Timing feature instead of manually selecting a delivery time.]({% image_buster /assets/img_archive/schedule_triggered7.png %})
+![You may also elect to send the campaign on either a specific day of the week (by choosing "on the next" and then selecting a day) or a specific number of days (by selecting "in") in the future. Alternatively, you may choose to send your message using the Intelligent Timing feature instead of manually selecting a delivery time.]({% image_buster /assets/img_archive/schedule_triggered8.png %})
 
 ### Step 3: Select exception events
 
 Select an exception event that will disqualify users from receiving this campaign. You can only do this if your triggered message sends after a time delay. [Exception events]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) can be making a purchase, starting a session, performing one of a campaign's designated [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), or performing a custom event. If a user completes the trigger event but then completes your exception event before the message sends due to the time delay, they will not receive the campaign. Users who do not receive the campaign due to the exception event will automatically be eligible to receive it in the future, the next time they complete the trigger event, even if you do not elect for users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 
-![]({% image_buster /assets/img_archive/schedule_triggered32.png %})
+![Select an exception event that will disqualify users from receiving this campaign. You can only do this if your triggered message sends after a time delay. Exception events can be making a purchase, starting a session, performing one of a campaign's designated conversion events, or performing a custom event. If a user completes the trigger event but then completes your exception event before the message sends due to the time delay, they will not receive the campaign. Users who do not receive the campaign due to the exception event will automatically be eligible to receive it in the future, the next time they complete the trigger event, even if you do not elect for users to become re-eligible.]({% image_buster /assets/img_archive/schedule_triggered32.png %})
 
 You can read more about how to employ exception events in our section on [use cases]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#use-cases).
 
@@ -111,7 +111,7 @@ You cannot make a "session start" both the trigger event and exception event for
 
 Assign the campaign's duration by specifying a start time and optional end time.
 
-![]({% image_buster /assets/img_archive/schedule_triggered43.png %})
+![Screenshot related to step 4: assign duration.]({% image_buster /assets/img_archive/schedule_triggered43.png %})
 
 If a user completes a trigger event during the specified time frame but qualifies for the message outside of the time frame due to a scheduled delay, then they will not receive the campaign. Therefore, if you set a time delay longer than the message's time frame, no users will receive your campaign. In addition, you can elect to send the message in users' [local time zones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns).
 
@@ -119,11 +119,11 @@ If a user completes a trigger event during the specified time frame but qualifie
 
 Select whether the user will receive the campaign during a specific portion of the day. If you give the message a time frame and the user either completes the trigger event outside the time frame or the message delay causes them to miss the time frame, then by default, the user will not receive your message.
 
-![]({% image_buster /assets/img_archive/schedule_triggered5.png %})
+![Select whether the user will receive the campaign during a specific portion of the day. If you give the message a time frame and the user either completes the trigger event outside the time frame or the message delay causes them to miss the time frame, then by default, the user will not receive your message.]({% image_buster /assets/img_archive/schedule_triggered5.png %})
 
 In the case where a user completes the trigger event within the time frame, but the message delay causes the user to fall out of the time frame, you can check the following box so that these users will still receive the campaign.
 
-![]({% image_buster /assets/img_archive/schedule_triggered_next_available.png %})
+![Screenshot related to step 5: select time frame.]({% image_buster /assets/img_archive/schedule_triggered_next_available.png %})
 
 If a user doesn't receive the message because they miss the time frame, then they will still be qualified to receive it the next time they complete the trigger event, even if you did not elect for users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility). If you do elect for users to become re-eligible, then users can receive the campaign each time they complete the trigger event, assuming they qualify during the specified time frame.
 
@@ -133,7 +133,7 @@ If you have also assigned the campaign a certain duration, then a user must qual
 
 Determine whether users can become [re-eligible]({% image_buster /assets/img_archive/ReEligible.png %}) for the campaign. If you allow users to become re-eligible, you may specify a time delay before the user can receive the campaign again. This will prevent your triggered campaigns from becoming "spammy".
 
-![]({% image_buster /assets/img_archive/schedule_triggered6.png %})
+![Screenshot related to step 6: determine re-eligibility.]({% image_buster /assets/img_archive/schedule_triggered6.png %})
 
 ## Use cases
 
@@ -175,7 +175,7 @@ If your campaign is triggered by a specific custom event and you select a segmen
 
 We recommend either changing the target audience to include all users, or checking that the users expected to perform the event are already part of the campaign's audience for the message to be triggered.
 
-![]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
+![Screenshot related to audience criteria evaluation.]({% image_buster /assets/img_archive/reevaluate_segment_membership.png %})
 
 ### Troubleshooting custom events
 

@@ -121,7 +121,7 @@ Currently, only one button variable can be specified, which is the path componen
 }
 ```
 
-###### Example
+##### Example
 
 ```json
 {
@@ -139,7 +139,7 @@ Currently, only one button variable can be specified, which is the path componen
 }
 ```
 
-###### Example
+##### Example
 
 ```json
 {

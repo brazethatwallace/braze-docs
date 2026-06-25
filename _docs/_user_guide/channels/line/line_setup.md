@@ -237,13 +237,13 @@ To help manage this, Braze offers tooling and logic that supports a well-integra
 
 These are use cases of how users can be updated after you follow the setup steps above.
 
-##### Existing Braze user profile already follows LINE channel
+### Existing Braze user profile already follows LINE channel
 
 1. The Braze user profile is updated with a `native_line_id` attribute. Its default subscription status is `unsubscribed`.
 2. The subscription sync tool is run, finds that the user is following the LINE channel, and then updates the user profile with the subscription status `subscribed`.
 3. If any subscription status changes occur (such as the user blocks, unfriends, or refollows the channel), Braze receives the update from LINE and updates the user profile with the `native_line_id` accordingly.
 
-##### Existing user profile has blocked, unfriended, or unfollowed LINE channel 
+#### Existing user profile has blocked, unfriended, or unfollowed LINE channel 
 
 1. The Braze user profile is updated with a `native_line_id` attribute. Its default subscription status is `unsubscribed`.
 2. The subscription sync tool doesn't find that the user is following the LINE channel and the user’s subscription status remains as `unsubscribed`.

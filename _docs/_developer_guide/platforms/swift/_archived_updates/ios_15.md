@@ -27,7 +27,7 @@ iOS 15 introduced new notification features to help users stay focused and avoid
 
 iOS 15 users can now create "Focus Modes"—custom profiles used to determine which notifications they want to break through their focus and display prominently.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![IOS 15 users can now create "Focus Modes"—custom profiles used to determine which notifications they want to break through their focus and display prominently.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### Interruption levels {#interruption-levels}
 
@@ -42,7 +42,7 @@ See [iOS notification options]({{site.baseurl}}/user_guide/message_building_by_c
 
 ### Notification summary {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Screenshot related to notification summary.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 In iOS 15, users can (optionally) choose certain times throughout the day to receive a summary of notifications. Notifications that don't require immediate attention (such as sent as "Passive" or while the user is in Focus Mode) will be grouped to prevent constant interruptions throughout the day.
 

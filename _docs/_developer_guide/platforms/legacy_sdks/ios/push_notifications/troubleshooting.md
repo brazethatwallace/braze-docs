@@ -23,7 +23,7 @@ The Apple Push Notification service (APNs) is Apple's infrastructure for push no
 3. You launch a Braze push campaign
 4. Braze removes invalid tokens
 
-#### Step 1: Configuring the push certificate and provisioning profile
+### Step 1: Configuring the push certificate and provisioning profile
 
 In developing your app, you'll need to create an SSL certificate to enable push notifications. This certificate will be included in the provisioning profile your app is built with and will also need to be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that we are allowed to send push notifications on your behalf.
 
@@ -59,13 +59,13 @@ Common errors you might see here include user-specific notifications, such as ["
 
 In addition, Braze also provides a push changelog on the user profile under the **Engagement** tab. This changelog provides insight into push registration behavior such as token invalidation, push registration errors, tokens being moved to new users, etc.
 
-![]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![Animated Content Card example.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ## Push registration issues
 
 To add verification for your application's push registration logic, implement [push unit testing]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests).
 
-#### No push registration prompt
+### No push registration prompt
 
 If the application does not prompt you to register for push notifications, there is likely an issue with your push registration integration. Ensure you have followed our [documentation]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) and correctly integrated our push registration. You can also set breakpoints in your code to ensure the push registration code is running.
 
@@ -84,11 +84,11 @@ If the application does not prompt you to register for push notifications, there
 
 ## Devices not receiving push notifications
 
-#### Users no longer "push registered" after sending a push notification
+### Users no longer "push registered" after sending a push notification
 
 This likely indicates that the user had an invalid push token. This can happen for several reasons:
 
-##### Dashboard and app certificate mismatch
+#### Dashboard and app certificate mismatch
 
 If the push certificate you uploaded in the dashboard is not the same one in the provisioning profile that your app was built with, APNs will reject the token. Verify that you have uploaded the correct certificate and completed another session in the app before attempting another test notification.
 
@@ -124,7 +124,7 @@ To troubleshoot push notifications that aren't sending, refer to [Troubleshootin
 
 ## Message activity log errors
 
-#### Received unregistered sending to push token {#received-unregistered-sending}
+### Received unregistered sending to push token {#received-unregistered-sending}
 
 - Make sure that the push token being sent to Braze from the method `[[Appboy sharedInstance] registerPushToken:]` is valid. You can look in the **Message Activity Log** to see the push token. It should look something like `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, a long string containing a mix of letters and numbers. If your push token looks different, check your [code]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) for sending Braze the push tokens.
 - Ensure that your push provisioning profile matches the environment you're testing. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app will not work.
@@ -149,7 +149,7 @@ The `BadDeviceToken` is an APNs error code and does not originate from Braze. Th
 
 To add verification for your application's push handling, implement [push unit tests]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests) .
 
-#### Push clicks not logged {#push-clicks-not-logged}
+### Push clicks not logged {#push-clicks-not-logged}
 
 - If this is only occurring on iOS 10, make sure you have followed the push integration steps for [iOS 10]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling).
 - Braze does not handle push notifications received silently in the foreground (for example, default foreground push behavior prior to the `UserNotifications` framework). This means that links will not be opened, and push clicks will not be logged. If your application has not yet integrated the `UserNotifications` framework, Braze will not handle push notifications when the application state is `UIApplicationStateActive`. You should ensure that your app does not delay calls to our [push handling methods]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling); otherwise, the iOS SDK may treat push notifications as silent foreground push events and not handing them.

@@ -41,7 +41,7 @@ You can no longer create or duplicate Canvases using the original editor. Note t
 
 {% enddetails %}
 
-### Things to know
+## Things to know
 
 - Context is only available for reference in Liquid. To filter on the properties within the Canvas, use [event property segmentation]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) instead.
 - For in-app message channels, you can reference `context` and `event_properties` in a Canvas. `event_properties` can be accessed when included in the first Canvas step because it's trigger-based.

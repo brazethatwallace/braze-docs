@@ -67,7 +67,7 @@ Each partner requires a different set of configuration steps. To enable each int
 
 Choose the events you wish to pass to that partner by checking from the available options. You can find listings of these events in our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) libraries.
 
-![]({% image_buster /assets/img/current4.png %})
+![Screenshot related to step 4: configure your events.]({% image_buster /assets/img/current4.png %})
 
 If needed, you can learn more about our events in our [event delivery semantics]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics) article.
 

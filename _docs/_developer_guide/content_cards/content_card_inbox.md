@@ -170,7 +170,7 @@ fun ContentCardItem(
 !!step
 lines-MainApplication.kt=12
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging.
 
@@ -366,7 +366,7 @@ class ContentCardsActivity : ComponentActivity() {
 !!step
 lines-MainApplication.kt=12
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging.
 
@@ -532,7 +532,7 @@ class BrazeInboxViewController: UITableViewController {
 !!step
 lines-AppDelegate.swift=15
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging.
 
@@ -737,7 +737,7 @@ braze.requestContentCardsRefresh();
 !!step
 lines-main.js=3-4,9
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging. Optionally, you can also run Braze Web SDK methods in the console.
 

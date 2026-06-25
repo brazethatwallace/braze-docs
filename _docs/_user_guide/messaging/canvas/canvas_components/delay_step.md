@@ -19,7 +19,7 @@ Delays can make your Canvas look cleaner. You can also use this component to del
 
 To create a delay, add a step to your Canvas. Drag and drop the Delay component from the sidebar, or select the <i class="fas fa-plus-circle"></i> plus button at the bottom of a step and then choose **Delay**.
 
-#### Extended delays
+### Extended delays
 
 You can extend Delay steps up to two years (730 days). For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
 
@@ -48,9 +48,9 @@ As an example, let's say today is December 11, and our Delay step is set to **Du
 
 Selecting **Calendar date** allows you to hold users in the step until a specific date and time.
 
-#### Considerations
+### Considerations
 
-##### Users won't receive past-dated steps or messages
+#### Users won't receive past-dated steps or messages
 
 If the selected date and time have already passed by the time users proceed to the Delay step, users will exit the Canvas. There can be up to 31 days between the start of the Canvas and the dates chosen for "wait until an exact day" steps.
 

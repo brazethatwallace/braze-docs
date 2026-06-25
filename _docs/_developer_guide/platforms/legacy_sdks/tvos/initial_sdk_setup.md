@@ -59,7 +59,7 @@ pod install
 
 At this point, you should be able to open the new Xcode project workspace created by CocoaPods. Make sure to use this Xcode workspace instead of your Xcode project. 
 
-![]({% image_buster /assets/img_archive/podsworkspace.png %})
+![At this point, you should be able to open the new Xcode project workspace created by CocoaPods. Make sure to use this Xcode workspace instead of your Xcode project.]({% image_buster /assets/img_archive/podsworkspace.png %})
 
 ### Step 4: Updating your app delegate
 

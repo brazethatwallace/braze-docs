@@ -129,7 +129,7 @@ Once your structure is in place, the next step is making sure your words are act
 
 Finally, let's talk about the finer details—the things that help users not just see your content, but understand and interact with it. 
 
-- **Clearly label links and buttons:** Make sure your [link](#links) and [button](#buttons) text clearly explains what happens next. It helps people using screen readers or navigating with a keyboard know what to expect.
+- **Clearly label links and buttons:** Make sure your [link guidance](#links) and [button](#buttons) text clearly explains what happens next. It helps people using screen readers or navigating with a keyboard know what to expect.
 - **Go easy on symbols and emojis:** Special characters and emojis can make your content playful, but they can be confusing when read by screen readers. Use them sparingly, and make sure they don't replace clear, descriptive text.
 - **Test for truncation:** Always test your copy by [sending a test message]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) to a device to make sure your text isn't truncated. If your message is being cut off, this hurts both you and your audience, since it prevents your content from reaching them.
 
@@ -171,7 +171,7 @@ When Braze adds a root-level language tag to HTML, it follows the HTML [`lang`](
 
 ### Buttons
 
-Use **buttons** to indicate an action, such as sending a form or playing a carousel. If you're navigating to a new URL, consider using a [link](#links) instead.
+Use **buttons** to indicate an action, such as sending a form or playing a carousel. If you're navigating to a new URL, consider using a [link guidance](#links) instead.
 
 #### Write clear, action-oriented text
 

@@ -57,7 +57,7 @@ Currents will create a file for each event type using the following format:
 ```
 
 {% alert tip %}
-Can't see the code because of the scroll bar? Learn how to fix that [here]({{site.baseurl}}/user_guide).
+Can't see the code because of the scroll bar? Learn how to fix that [on the Braze User Guide homepage]({{site.baseurl}}/user_guide).
 {% endalert %}
 
 For example, a push send event path can look like:

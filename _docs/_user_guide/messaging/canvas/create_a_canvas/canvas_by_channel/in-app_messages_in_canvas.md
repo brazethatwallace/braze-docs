@@ -205,7 +205,7 @@ If you have multiple in-app messages within one Canvas, a user must start multip
 When **Advance When In-App Message Live** is selected, the in-app message will be available until it expires, even if the user has moved to subsequent steps. If you do not want the in-app message to be live when the next steps in the Canvas are delivered, ensure that the expiration is shorter than the delay on subsequent steps.
 {% endalert %}
 
-#### Steps with multiple channels {#steps-multiple-channels}
+### Steps with multiple channels {#steps-multiple-channels}
 
 Steps with an in-app message and another channel have the following advancement options:
 

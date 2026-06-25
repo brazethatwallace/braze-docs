@@ -89,7 +89,7 @@ Check out the following lists for HTML tags and attributes that aren't allowed i
 - `<bgsound>`
 - `<embed>`
 - `<frameset>`
-- `<iframe>`
+- `iframe`
 - `<ilayer>`
 - `<layer>`
 - `<link>`

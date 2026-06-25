@@ -13,12 +13,12 @@ noindex: true
 
 <br>
 {% alert important %}
-Looking for the basic in-app message developer integration guide? Find it [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
+Looking for the basic in-app message developer integration guide? Find it [basic in-app message developer integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview).
 {% endalert %}
 
 # In-app messaging implementation guide
 
-> This optional and advanced implementation guide covers in-app message code considerations, three custom use cases built by our team, and accompanying code snippets. Visit our Braze Demo repository [here](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! This implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested. Looking for HTML implementations? Take a look at our [HTML template repository](https://github.com/braze-inc/in-app-message-templates)!
+> This optional and advanced implementation guide covers in-app message code considerations, three custom use cases built by our team, and accompanying code snippets. Visit our Braze Demo repository [Braze Demo repository on GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! This implementation guide is centered around a Swift implementation, but Objective-C snippets are provided for those interested. Looking for HTML implementations? Take a look at our [HTML template repository](https://github.com/braze-inc/in-app-message-templates)!
 
 ## Code considerations
 

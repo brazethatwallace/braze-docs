@@ -29,7 +29,7 @@ This table lists the operators that are supported. Note that parentheses are inv
 Operators can be used in conditional statements (`if`, `elsif`, `unless`) but not in `assign` statements, `for` loops, or array access brackets. In `case` and `when` tags, each branch compares the `case` expression to a `when` value using equality instead of arbitrary operator expressions. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). For a full breakdown, see [Where to use operators and filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Grouping conditions without parentheses
+## Grouping conditions without parentheses
 
 Liquid doesn't support parentheses for grouping expressions. To evaluate complex boolean logic such as `(a and b) or c`, use nested `if` statements or intermediate variables.
 

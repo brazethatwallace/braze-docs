@@ -12,7 +12,7 @@ tool: Campaigns
 
 > This article provides answers to some frequently asked questions about campaigns.
 
-### How do I create a multichannel campaign?
+## How do I create a multichannel campaign?
 
 See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps and supported channels.
 

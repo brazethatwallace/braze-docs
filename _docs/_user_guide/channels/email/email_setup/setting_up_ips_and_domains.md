@@ -72,7 +72,7 @@ A sending domain is used in the "from" address when sending an email. Enter a se
 
 Next, add the TXT and CNAME records from the bottom of the page to your DNS provider. Then, return to the Braze dashboard and click **Verify**.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![Next, add the TXT and CNAME records from the bottom of the page to your DNS provider. Then, return to the Braze dashboard and click Verify.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 If verification fails and you believe your DNS records are correct, contact Braze Support for assistance.
 

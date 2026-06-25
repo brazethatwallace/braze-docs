@@ -169,11 +169,11 @@ We recommend careful use of Connected Content Liquid personalization in User Upd
 
 Add an attribute, event, or purchase JSON object up to 65,536 characters to the JSON editor. A user's [global subscription]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) and [subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) state can also be set.
 
-![]({% image_buster /assets/img_archive/canvas_user_update_composer.png %}){: style="max-width:90%;"}
+![Add an attribute, event, or purchase JSON object up to 65,536 characters to the JSON editor. A user's global subscription and subscription group state can also be set.]({% image_buster /assets/img_archive/canvas_user_update_composer.png %}){: style="max-width:90%;"}
 
 Using the JSON editor, you can also preview and test that the user profile is updated with your changes in the **Preview and test** tab. You can either select a random user or search for a specific user. Then, after sending a test to a user, view the user profile using the generated link.
 
-![]({% image_buster /assets/img_archive/canvas_user_update_test_preview.png %}){: style="max-width:90%;"}
+![Using the JSON editor, you can also preview and test that the user profile is updated with your changes in the Preview and test tab. You can either select a random user or search for a specific user. Then, after sending a test to a user, view the user profile using the generated link.]({% image_buster /assets/img_archive/canvas_user_update_test_preview.png %}){: style="max-width:90%;"}
 
 ### Considerations
 
