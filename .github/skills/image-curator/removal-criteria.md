@@ -1,6 +1,6 @@
 # Redundant image removal criteria
 
-Canonical sources (defer to these over this summary):
+Defer to the style guide over this summary:
 
 | Source | Use for |
 |--------|---------|
@@ -8,286 +8,163 @@ Canonical sources (defer to these over this summary):
 | [`image_style_guide.md`](../../../docs/contributing/style_guide/image_style_guide.md) | Cropping, placement, embedded text |
 | [`images.md`](../../../docs/contributing/content_management/images.md) | Authoring policy |
 
-## Remove (high confidence)
+## Confidence tiers
 
-**Scope:** Braze-owned pages (`_docs/_user_guide/`, `_docs/_developer_guide/`, `_docs/_api/`, etc.) — **not** `_docs/_partners/`.
+The scanner assigns **high**, **medium**, or **low**. Filename-only hits are **medium** at most.
 
-Images that add little or no information beyond what prose should carry:
+| Tier | Rule | Who acts |
+|------|------|----------|
+| **High** | Two or more corroborating removal signals (for example `filename_list_home_chrome` + `alt_describes_redundant_ui`) | CI batch after spot-check |
+| **Medium** | One removal signal | Vision review before removal |
+| **Low** | Skip reason below, or no removal signal | Do not auto-remove |
 
-| Category | Examples | Why remove |
-|----------|----------|------------|
-| **Action buttons only** | Save, Cancel, Submit, Done, OK, Close | Describe the action in a step — **only when prose names the control and the image shows no non-obvious placement** |
-| **Home / list pages** | Dashboard home, channel list pages (`*-homepage.png`), reporting/analytics tab overviews | Navigation can be one sentence (`Go to **Messaging** > **Email**`) |
-| **Full-page chrome** | Entire dashboard, header + sidebar, browser frame, URL bar | Style guide: crop tightly; explain nav in text |
-| **Redundant with prose** | Alt duplicates the previous paragraph; decorative screenshot after numbered steps | Style guide: blank alt when redundant; prefer prose for screen-reader users |
-| **Terminal / code as image** | Screenshot of terminal output or code | Use fenced code blocks instead |
-| **Outdated UI** | Deprecated feature, removed nav item, old branding with no instructional value | Replace with updated copy or delete if steps are obsolete |
+CI processes **high** only, capped at **15** references per run.
 
-## Keep (do not remove)
+### Scanner skip reasons (low — do not auto-remove)
 
-| Category | Why keep |
-|----------|----------|
-| **Unique UI placement** | Shows where a control lives when prose alone is ambiguous |
-| **Complex workflows** | Multi-step builder states, drag-and-drop layouts, comparison do/don't pairs |
-| **Diagrams and architecture** | Concepts that are hard to describe in text alone — **never auto-remove** |
-| **Workflow and integration graphics** | Arrows, data flows, partner connection diagrams, process overviews |
-| **Style guide examples** | `assets/img/contributing/style_guide/**` — teaching images |
-| **Protected paths** | `logos/`, `braze_icons/`, `icons/` |
-| **Technology Partner pages** | `_docs/_partners/**` — partner product UI is often essential context |
-| **Builder / editor UI** | Landing page DnD panels, form blocks, toggles, personalization dialogs, span styling |
-| **Reference table icons** | Images in markdown tables mapping constants to icons (`braze_pilot/deep_links.md`) |
-| **Third-party admin consoles** | GCP, AWS, Azure, Infobip navigation screenshots |
-| **Metric and chart examples** | Metric tiles, trend lines, chart layouts — even on Home dashboard pages |
+| Reason | Keep when |
+|--------|-----------|
+| `partner_page_skip` | Source is `_docs/_partners/` |
+| `diagram_or_workflow` | Diagram, data flow, architecture, or process graphic |
+| `builder_editor_ui` | Landing page / editor instructional UI (`dnd.png`, `form.png`, etc.) |
+| `reference_table_icon` | Image in a markdown table (for example `braze_pilot/deep_links.md`) |
+| `third_party_console` | GCP, AWS, Azure, or Infobip navigation screenshot |
+| `metric_chart_example` | Metric tile, trend line, or chart layout |
+| `settings_field_keep` | Administer modal, field dialog, test preview, or SAML tooling |
+| `instructional_placement` | Pencil icon, permissions matrix, or non-obvious control placement |
+| `protected_path` | `logos/`, `braze_icons/`, `icons/`, style-guide teaching images |
 
-## Builder and editor UI (never auto-remove)
+### Scanner removal signals (review for medium/high)
 
-**Default: keep images on builder and editor docs** — especially under `_docs/_user_guide/messaging/landing_pages/`.
+| Signal | Typical target |
+|--------|----------------|
+| `filename_list_home_chrome` | `*-homepage.png`, `home_dashboard*`, `export_logs.png`, admin list pages |
+| `filename_save_cancel` | Save, cancel, or submit in filename |
+| `filename_page_chrome` | Full dashboard, browser frame, sidebar-only shots |
+| `alt_describes_redundant_ui` | Alt describes home page, toggle, login screen, or button prose already states |
+| `alt_redundant_with_prose` | Alt duplicates surrounding paragraph |
+| `alt_settings_overview` | Administer page/list overview (often with `image_before_settings_navigation`) |
+| `image_before_settings_navigation` | Image sits above `Go to **Settings**` or `To access this page` |
+| `ocr_button_only` / `ocr_mostly_action_button` | OCR is only a button label |
 
-The automated scanner excludes these via `builder_editor_ui`. Filenames like `dnd.png`, `form.png`, `page_container.png`, and `get-snippet.png` illustrate *how* to use the editor, not where to navigate.
+---
 
-**Remove only** clear list/home chrome on these pages (for example `landing-pages-homepage.png` when prose already says **Messaging** > **Landing Pages**).
+## Remove
 
-## Reference table icons (never auto-remove)
+**Scope:** Braze-owned pages — **not** `_docs/_partners/` without explicit approval.
 
-Keep images that are part of a **markdown table** or icon grid where the image *is* the reference content:
+| Category | Examples | Why |
+|----------|----------|-----|
+| **Settings / list overview** | Notification Preferences page, exports log list, tag management list | Prose gives **Settings** navigation; image is destination chrome |
+| **Home / channel list pages** | `*-homepage.png`, reporting home, credits overview tab | One navigation sentence suffices |
+| **Save / Cancel / Submit** | Save-as-template, cancel export, checkbox named in steps | Prose names the control; image adds no placement context |
+| **Full-page chrome** | Entire dashboard, header + sidebar, browser frame | Crop tightly or describe in text |
+| **Redundant with prose** | Alt duplicates the previous paragraph | Prefer prose for screen-reader users |
+| **Terminal / code as image** | Screenshot of terminal output | Use fenced code blocks |
+| **Outdated UI** | Deprecated nav or branding | Update copy or delete obsolete steps |
 
-| Pattern | Example |
-|---------|---------|
-| Image in a table cell | `\| \`RUNNING_HOME\` \| ![running shoe icon](...) \|` in `deep_links.md` |
-| Filename `*_home_icon.png` | Braze Pilot deep link constant table |
-| Alt contains "icon" and cell has a code constant | Icon illustrates the constant name |
+---
 
-Automated batches skip these via `reference_table_icon`.
+## Keep
 
-## Third-party admin consoles (extra caution)
+| Category | Why |
+|----------|-----|
+| **Unique UI placement** | Prose alone does not show where a control lives |
+| **Builder / editor UI** | DnD panels, form blocks, toggles, personalization dialogs |
+| **Diagrams and workflows** | Layout and data flow prose cannot replace |
+| **Reference table icons** | Image is the reference content in a table cell |
+| **Third-party consoles** | External admin UI (GCP, AWS, Infobip) — except redundant save/cancel on those pages |
+| **Metric and chart examples** | How data is displayed (for example metric tiles on Home) |
+| **Administer field dialogs** | Multi-field modals, email setting fields, locale dialogs, SAML tracer tooling |
+| **Technology Partner pages** | Partner product UI — default keep |
 
-Keep screenshots of **external** admin UIs unless a human confirms they are redundant:
+### Administer (`_docs/_user_guide/administer/`)
 
-- Google Cloud / AWS / Azure IAM and service-account flows
-- Infobip, Meta Ads Manager, and similar partner consoles (on developer-guide pages)
+Calibrated from manual curation of the Administer folder.
 
-Save/cancel-only shots on these pages may still be removable when prose already names the control and alt/OCR corroborate (`filename_save_cancel` + `alt_describes_redundant_ui`).
+**Remove:** settings page overviews; images above a Settings navigation sentence; login-screen chrome; toggles/checkboxes/export actions already named in steps; filtered list views when prose describes the filter.
 
-Automated batches skip navigation console shots via `third_party_console`.
+**Keep:** field-level email settings; Edit-button placement (`single_edit_icon.png`); bulk-edit UI; locale dialog windows; test/seed previews; SAML settings toggle and tracer tooling; AWS S3 setup screenshots.
 
-## Metric and chart examples (keep)
+Acceptable non-image edit: reorganize duplicate intro prose into bullets (as in `tags.md`) — not alt appended to the wrong line.
 
-Do **not** remove metric tiles, trend lines, or chart layouts that show how data is displayed — for example `home_dashboard_metric_tile.png` when prose explains Daily Active Users.
-
-The scanner skips these via `metric_chart_example`.
-
-## Administer and Settings (`_docs/_user_guide/administer/`)
-
-Manual curation of the Administer folder ([PR #14325](https://github.com/braze-inc/braze-docs/pull/14325)) established these patterns.
-
-### Remove (delete-image-only)
-
-| Pattern | Examples from PR #14325 | Why |
-|---------|-------------------------|-----|
-| **Settings page overview** | `notification_preferences.png`, `workspace_time_zones_page.png`, `export_logs.png`, `tags_view.png` | Alt describes a full page or list; prose gives **Settings** navigation on the next line |
-| **Image before navigation sentence** | Same files — image sits above `Go to **Settings** > …` or `To access this page` | Sighted readers do not need a screenshot of the destination page |
-| **Login / list chrome** | `sso1.png` (login screen), `contract_details.png` (billing panel) | Generic chrome; prose covers the path or fields |
-| **Toggle / checkbox named in steps** | `elevated_access.png`, `designated_support_contact.png` | Step text already names the control |
-| **Dropdown after steps describe it** | `add_locale_options.png`, `edit_single_workspace.png` | Steps name **Add locale**, **Save**, or the dropdown action |
-| **Export / share when prose names action** | `exporting_user_permissions.png`, `export_logs_share.png` | **Export Users**, **Share Log** already in prose |
-| **Archived / filtered list views** | `unarchive_brand_guideline.png` | Filter state is described in prose |
-
-Scanner signals: `alt_settings_overview`, `image_before_settings_navigation`, `filename_list_home_chrome` (admin filenames).
-
-### Keep
-
-| Pattern | Examples left in Administer | Why |
-|---------|----------------------------|-----|
-| **Field-level or modal UI** | `default_option.png`, `guidelines_create.png`, `display_name_address.png` | Shows specific fields, not whole-page chrome |
-| **Control placement** | `single_edit_icon.png`, `bulk_edit_workspace_time_zone.png` | Shows *where* to click when prose is ambiguous |
-| **Workflow / test integration** | `content_test_preview.png`, `seed_group_campaign.png`, `company_analytics_report_new.png` | Tied to a composer or report configuration step |
-| **SAML / security tooling** | `samlsso.png` (toggle in settings), `sso3.png`, `saml_tracer_example.png` | Technical setup or troubleshooting, not login chrome |
-| **Email settings fields** | All `email_settings/*` screenshots | Individual field layout on complex settings pages |
-| **AWS / third-party console** | `security_export_s3.md` images | External admin UI (existing `third_party_console` skip) |
-| **Permissions / checkbox in permissions matrix** | `relaystate_troubleshoot.png`, `teams.png` | May still be removable after vision review — default **keep** when alt shows a specific permission checkbox |
-
-Scanner skip reason: `settings_field_keep`.
-
-### Prose edits beyond image removal
-
-`tags.md` in PR #14325 converted duplicate intro sentences into bullets after removing a list screenshot. That is acceptable when it **does not** append alt text — it reorganizes steps already in prose.
-
-## Automated confidence (corroboration required)
-
-Test PR #14293 showed ~75% false positives when **filename alone** triggered high confidence.
-
-| Confidence | Rule |
-|------------|------|
-| **High** | At least **two** corroborating signals (for example `filename_list_home_chrome` + `alt_describes_redundant_ui`, or list/home filename + OCR button-only) |
-| **Medium** | Single signal — for example `filename_save_cancel` alone, or one alt/prose match. **Requires vision review** before removal. |
-| **Low** | Skip reasons: partner, diagram, builder UI, table icon, third-party console, metric chart, instructional placement, settings field keep |
-
-CI automated batches process **high** confidence only, capped at **15** references per run.
-
-## Technology Partner pages (extra caution)
-
-**Default: do not remove images on `_docs/_partners/` pages.** Partner articles document third-party UIs Braze does not control. Screenshots often show:
-
-- Partner setup wizards, credential forms, and export dialogs
-- Where to click in the partner console to connect Braze
-- Integration-specific fields that differ from Braze dashboard copy
-
-The automated scanner **excludes** `_docs/_partners/` from high- and medium-confidence batches. Manual review is required before removing any partner image, even when alt text looks redundant.
-
-**Keep** unless a human confirms the image is purely decorative (for example, a duplicate Save button with no unique partner UI).
-
-## Diagrams and workflows (never auto-remove)
-
-Do **not** remove images that illustrate structure, data flow, or multi-step processes. Signals include:
-
-| Signal | Examples |
-|--------|----------|
-| **Alt text** | "overview graphic showing how…", "diagram", "workflow", "process to update", "arrow pointing" |
-| **Filename** | `*_diagram*`, `*_workflow*`, `*_flow*`, `*_architecture*`, `*_process*` |
-| **Content** | Integration maps, cohort sync flows, alias-profile diagrams, Canvas step illustrations |
-
-If prose summarizes the diagram, **keep the image** — sighted readers rely on visual layout; removing the reference loses spatial context the alt text cannot replace.
-
-Automated batches skip these via `diagram_or_workflow` and `partner_page_skip` reasons in the candidate CSV.
+---
 
 ## Filename and alt signals
 
-Flag for review when **filename** or **alt text** suggests:
+Flag for review:
 
-- `homepage`, `home_dashboard`, `landing-pages-homepage`, `reporting_home`, `credits_usage_overview`, `survey-analytics`
-- `save`, `cancel`, `submit` — **medium at most** unless alt or OCR corroborates
-- `full_page`, `entire_dashboard`, `browser_frame`, `left_nav`, `sidebar`, `header_only`
-- Alt starts with “A screenshot of…” and the body already states the same navigation
-- Alt describes only a standard button with no surrounding instructional value
+- `homepage`, `home_dashboard`, `landing-pages-homepage`, `reporting_home`, `export_logs`, `tags_view`
+- `save`, `cancel`, `submit` — medium at most unless corroborated
+- Alt starts with “A screenshot of…” and body already states the same navigation
 
-**Do not flag as removable** based on filename alone:
-
-- `landing_pages/dnd.png`, `form.png`, `page_container.png`, and other builder/editor assets
-- `*_home_icon.png` in reference tables
-- `*_overview.png` on architecture, limits, or prediction pages (treat as diagram)
+Do **not** flag from filename alone: builder assets (`dnd.png`, `form.png`), `*_home_icon.png` in tables, architecture `*_overview.png` (treat as diagram).
 
 ## OCR signals
 
-When Tesseract is available (`scripts/check_screenshot_pii.py` uses the same binary):
+When Tesseract is available:
 
-- Very short OCR text that is only a button label → candidate for removal
-- OCR shows mostly nav chrome with no highlighted feature → candidate for removal
-- OCR reveals steps or field labels not in prose → **keep** and merge missing detail into text instead of deleting
+- Button-only OCR → removal candidate (corroborate before high)
+- Nav chrome with no highlighted feature → removal candidate
+- Field labels not in prose → **keep**; merge only via [alt merge gate](#alt-merge-gate-required-before-any-merge)
 
-## Prose absorption rules
+---
 
-**Default: delete the image reference only.** Merging alt text into prose is the exception, not the rule. When the image is redundant, its alt text is usually redundant too.
+## Prose rules (delete-image-only default)
 
-**Automated batches and agents must not append alt text to existing sentences.** Alt text describes what the screenshot *looks like*, not what the reader should *do*. If the surrounding step or paragraph already gives the instruction, delete the image and leave prose unchanged.
+**Default: remove the image line only.** Alt text describes appearance, not action. If the step already instructs the reader, delete the image and leave prose unchanged.
 
-### Alt merge gate (required before any merge)
+Automated batches and agents **must not** append alt text to existing sentences.
 
-Evaluate alt text **before** editing. Merge only when **all** of the following are true:
+### Alt merge gate (required before any prose edit)
 
-1. **New information** — Alt or OCR states a navigation path, control label, or setting name that does **not** already appear in the same step, the previous step, or the surrounding paragraph.
-2. **Same step** — The image sits on the step or paragraph you are editing. **Never** append alt text to a *different* numbered step (for example, do not merge step 3’s alt into step 2).
-3. **Not a visual echo** — Alt does not merely restate what the prose already tells the reader to do (for example, prose says “select **Account Overview**” and alt says “navigation with Account Overview selected”).
-4. **List integrity** — Numbered and bulleted lists keep correct sequence and one instruction per step after the edit.
+Merge only when **all** are true:
 
-If any check fails → **remove the image line only**; leave prose unchanged.
+1. **New information** — Alt or OCR names a path, label, or setting **not** already in the same step or adjacent paragraph.
+2. **Same step** — Image is on the step or paragraph you edit.
+3. **Not a visual echo** — Alt does not restate what prose already says.
+4. **List integrity** — Numbered and bulleted lists stay sequential.
 
-### Redundant alt patterns (delete image, do not merge)
+If any check fails → delete the image only.
 
-| Alt pattern | Prose already says | Action |
-|-------------|-------------------|--------|
-| “The navigation with **Account Overview** selected.” | “select your **Account Overview**” on the same step | Delete image; keep step text |
-| “**Save** button highlighted” | “Select **Save**.” | Delete image only |
-| “Screenshot of the dashboard home page” | “Open the dashboard.” | Delete image only |
-| “A screenshot of…” + rest duplicates nearby text | Same facts in steps above | Delete image only |
-| Alt is a UI label or caption (`Stensul Save Options`, `Expand`, `Home dashboard in Braze`) | Image illustrated UI the prose already describes | Delete image only |
-| Alt describes a metric tile, chart, or field layout | Prose already explains the metric or filter | Delete image only |
-| Alt is appended to a **previous** step or bullet | Image was on a different line or step | Revert; delete image only |
+### Anti-patterns
 
-### Anti-pattern
-
-**Before (step 3 has redundant nav screenshot):**
-
-```markdown
-2. Select the ad account you are having issues with.
-3. In the navigation, select your **Account Overview**. <br> ![The navigation with Account Overview selected.]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
-```
+| Mistake | Fix |
+|---------|-----|
+| Alt merged into a **previous** step, list item, or paragraph | Revert; delete image only |
+| Alt caption appended (`Stensul Save Options.`, `Home dashboard in Braze.`) | Delete image only |
+| Alt echoes navigation prose on the **same** step (Facebook Account Overview) | Delete image only |
+| Step numbers skipped or collapsed after removal | Restore numbering |
+| Wrong `image_buster` removed on a multi-image step | Revert; match exact path from CSV |
 
 **Wrong** — alt merged into step 2:
 
 ```markdown
-2. Select the ad account you are having issues with. The navigation with Account Overview selected.
-```
-
-**Correct** — image removed; step 3 prose unchanged:
-
-```markdown
-2. Select the ad account you are having issues with.
+2. Select the ad account. The navigation with Account Overview selected.
 3. In the navigation, select your **Account Overview**.
-```
-
-### Anti-pattern: alt appended to wrong line
-
-**Before:**
-
-```markdown
-Create a Stensul email in the Stensul platform and click **Complete**.
-
-![Stensul Save Options]({% image_buster /assets/img_archive/stensul_save_options.png %})
-```
-
-**Wrong** — alt merged into the step above:
-
-```markdown
-Create a Stensul email in the Stensul platform and click **Complete**. Stensul Save Options.
-```
-
-**Correct** — image removed; prose unchanged:
-
-```markdown
-Create a Stensul email in the Stensul platform and click **Complete**.
-```
-
-### Anti-pattern: alt appended to list item or paragraph
-
-**Before:**
-
-```markdown
-- [Performance overview](#performance-overview)
-
-![Home dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
-```
-
-**Wrong:**
-
-```markdown
-- [Performance overview](#performance-overview) Home dashboard in Braze.
 ```
 
 **Correct:**
 
 ```markdown
-- [Performance overview](#performance-overview)
+2. Select the ad account.
+3. In the navigation, select your **Account Overview**.
 ```
-
-### When merge is appropriate
-
-Merge only when alt/OCR adds facts **missing** from prose — for example, a field label visible in the screenshot that is not named in the step text, and removing the image would leave readers without that label.
 
 ### Edit checklist
 
-1. Read the image (vision), alt text, and 3–5 lines before/after the reference.
-2. Run the [alt merge gate](#alt-merge-gate-required-before-any-merge).
-3. Remove the image line (and inline `<br>` before it when the step text is complete without the image).
-4. If the gate passes, add **one** short sentence to the **same** step or paragraph — never to a prior step.
-5. Follow [`braze-docs`](../braze-docs/SKILL.md) voice: imperative steps, sentence case, no “screenshot of”.
-6. Confirm list numbering is intact; renumber if a step becomes empty.
-7. Run `./bdocs fblinks` on touched files.
+1. Read image (vision), alt, and 3–5 lines of context.
+2. Run the [alt merge gate](#alt-merge-gate-required-before-any-merge) if editing prose.
+3. Remove the image line (and trailing `<br>` when the step is complete without it).
+4. Confirm list numbering; run `./bdocs fblinks`.
+
+---
 
 ## Relationship to image-pruner
 
 | Skill | Removes |
 |-------|---------|
-| **image-pruner** | Unreferenced binaries under `assets/img/` (all locales) |
-| **image-curator** (this skill) | Referenced but redundant images in English docs; may delete binaries after dereferencing |
+| **image-pruner** | Unreferenced binaries under `assets/img/` |
+| **image-curator** | Referenced but redundant English references; may delete binaries after dereferencing |
 
-Run **image-curator** before or between **image-pruner** batches so prose is updated before orphan scans.
+Run **image-curator** before **image-pruner** so prose is updated before orphan scans.
