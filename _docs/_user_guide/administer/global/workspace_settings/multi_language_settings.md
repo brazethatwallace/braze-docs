@@ -59,14 +59,14 @@ For steps to use these locales in your messages, refer to [Using locales]({{site
 
 ## Frequently asked questions
 
-#### How many locales can I add?
+### How many locales can I add?
 
 You can add up to 200 locales.
 
-#### Where are the translation files stored in Braze?
+### Where are the translation files stored in Braze?
 
 Translation files are stored at a campaign level, meaning each message variant must have uploaded translations. Translations can also be stored in Content Blocks. When the block is added to a message, its translations are automatically included.
 
-#### Does the locale name have to follow a specific pattern or format?
+### Does the locale name have to follow a specific pattern or format?
 
 No. You can use your preferred naming convention. The locale name is used when selecting the locale in the editor and will be in the headings of the file you download with translation IDs.
