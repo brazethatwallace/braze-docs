@@ -41,7 +41,7 @@ Os percentuais são calculados com base no intervalo de datas atual em comparaç
 
 Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e seus *Usuários ativos diários* mostrarem um aumento percentual de 1,8%, isso significa que você teve 1,8% mais usuários ativos diários nesta semana em comparação com a semana passada.
 
-![Um bloco de métrica da visão geral de desempenho mostrando o valor da métrica e a variação percentual.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Um bloco de métrica de Usuários ativos diários mostrando uma média de 22,2 mil com um indicador de aumento de 7,1% e uma linha de tendência.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar detalhamento {#show-breakdown}
 

@@ -596,7 +596,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 {% endtabs %}

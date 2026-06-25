@@ -596,6 +596,10 @@ La répartition entre les groupes de contrôle et les variantes est censée êtr
 
 Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos analyses. Pour plus de détails, consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/data/report_metrics/).
 
+{% alert note %}
+Actuellement, les statistiques d'audience estimées ou exactes ne sont pas disponibles pour les campagnes KakaoTalk.
+{% endalert %}
+
 | Terme | Définition |
 | --- | --- |
 | Audience | L'_audience_ est le pourcentage d'utilisateurs qui ont reçu un message particulier. <br><br>_(Nombre de destinataires dans la variante) / (Destinataires uniques)_ |

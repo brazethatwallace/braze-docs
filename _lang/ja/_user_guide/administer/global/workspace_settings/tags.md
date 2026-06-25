@@ -3,14 +3,14 @@ nav_title: タグの管理
 article_title: タグの管理
 page_order: 6
 page_type: reference
-description: "このリファレンス記事では、Brazeダッシュボードでのタグの管理方法について説明します。タグのネスト、名前変更、キャンペーン、Canvas、Segment全体でのタグの整理などを取り上げます。"
+description: "このリファレンス記事では、Brazeダッシュボードでのタグの管理方法について説明します。タグのネスト、名前変更、キャンペーン、Canvas、セグメント全体でのタグの整理などを取り上げます。"
 ---
 
 # タグの管理 {#managing-tags}
 
-> キャンペーン、Canvas、Segment全体で使用するタグを一元的に管理できます。タグの名前変更、削除、追加を行うには、**設定** > **タグ管理**に移動します。
+> キャンペーン、Canvas、セグメント全体で使用するタグを一元的に管理できます。タグの名前変更、削除、追加を行うには、**設定** > **タグ管理**に移動します。
 
-キャンペーン、Canvas、Segment、カスタムデータにタグを追加する方法については、[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)を参照してください。
+キャンペーン、Canvas、セグメント、カスタムデータにタグを追加する方法については、[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)を参照してください。
 
 ## タグのネスト {#nesting-tags}
 
@@ -30,7 +30,7 @@ description: "このリファレンス記事では、Brazeダッシュボード�
 
 ## ベストプラクティス {#tags-best-practices}
 
-タグを使用して、キャンペーン、Canvas、Segmentをビジネス目標、ファネルステージ、地域などで整理します。
+タグを使用して、キャンペーン、Canvas、セグメントをビジネス目標、ファネルステージ、地域などで整理します。
 
 次の表は、eコマースアプリで役立つタグの例を示しています。
 

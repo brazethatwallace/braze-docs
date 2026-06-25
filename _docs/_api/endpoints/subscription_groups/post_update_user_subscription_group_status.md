@@ -10,7 +10,7 @@ description: "This article outlines details about the Update user's subscription
 
 {% api %}
 # Update user's subscription group status
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 

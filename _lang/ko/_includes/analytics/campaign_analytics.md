@@ -596,6 +596,10 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 
 분석에서 볼 수 있는 몇 가지 주요 KakaoTalk 측정기준을 소개합니다. 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)을 참조하세요.
 
+{% alert note %}
+현재 KakaoTalk 캠페인에 대한 추정 또는 정확한 오디언스 통계는 제공되지 않습니다.
+{% endalert %}
+
 | 용어 | 정의 |
 | --- | --- |
 | 오디언스 | _오디언스_는 특정 메시지를 수신한 사용자의 비율입니다. <br><br>_(배리언트의 수신자 수) / (고유 수신자)_ |

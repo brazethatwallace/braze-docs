@@ -8,7 +8,7 @@ description: "This reference article covers how to automatically export security
 
 # Security events export with Amazon S3
 
-> You can automatically export security events to Amazon S3, a cloud storage provider, with a daily job that runs at midnight UTC. After setting up, you don't need to manually export security events from the dashboard. The job exports the security events for the past 24 hours in CSV format to your configured S3 storage. The CSV file has the same structure as a manually exported report.
+> You can automatically export security events to Amazon S3, a cloud storage provider, with a daily job that runs at midnight UTC. After setting up, you don't need to manually export security events from the dashboard. The job exports the security events for the past 24 hours in CSV format to your configured S3 storage. The CSV file uses the same columns as a manually exported report, plus a `Version` column.
 
 {% alert note %}
 The 10,000-row limit applies only to the manual CSV report download from the dashboard. Security event exports to S3 aren't subject to this row limit.

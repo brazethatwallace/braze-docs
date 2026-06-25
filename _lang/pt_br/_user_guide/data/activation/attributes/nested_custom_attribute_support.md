@@ -25,6 +25,7 @@ description: "Este artigo de referência aborda o uso de atributos personalizado
 - Nem todos os parceiros da Braze suportam atributos personalizados aninhados. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home/) para confirmar se integrações com parceiros específicos suportam esse recurso.
 - Os atributos personalizados aninhados não podem ser usados como filtro ao fazer uma chamada à API do Connected Audience.
 - Por padrão, o filtro de Segment **Nested Custom Attributes** inclui atributos personalizados do tipo objeto, atributos de vetor de objetos e atributos personalizados do tipo vetor. Quando você seleciona um atributo, o seletor de esquema de propriedades inclui caminhos de vetor (usando a notação `[]`) para campos de vetor aninhados. Para ocultar atributos personalizados de vetor de nível superior desse filtro, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/).
+- Ao pré-visualizar mensagens no dashboard usando **Preview as a Custom User**, você pode inserir dados simulados apenas como uma string ou vetor de strings — objetos aninhados não são suportados. Para pré-visualizar uma mensagem que referencia atributos personalizados aninhados, selecione um usuário existente que já tenha o atributo aninhado em seu perfil. Para propriedades de eventos personalizados aninhados, você deve lançar uma campanha ativa direcionada a um usuário teste para verificar a renderização.
 
 ## Exemplo de API {#api-example}
 
@@ -272,7 +273,7 @@ Usando o modal **Add Personalization**, você também pode inserir atributos per
 
 Por exemplo, no modal de personalização abaixo, isso insere o atributo personalizado aninhado de um escritório de bairro local com base nas preferências do usuário.
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![O modal Add Personalization com o tipo de personalização definido como "Nested Custom Attrib...", o atributo de nível superior definido como "preferences" e a chave do atributo definida como "neighborhood_office", mostrando uma pré-visualização Liquid da tag resultante.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 Verifique se um esquema foi gerado caso você não veja a opção de inserir atributos personalizados aninhados.
@@ -307,7 +308,7 @@ Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova a�
 
 ## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Quando você usa múltiplos filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se _qualquer_ item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao _mesmo_ item.
+Quando você usa múltiplos filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se *qualquer* item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao *mesmo* item.
 
 Por exemplo, suponha que um usuário tenha o seguinte vetor:
 

@@ -24,13 +24,13 @@ Se você selecionou **No optimization** ao configurar sua campanha, a visualiza�
 
 Para mais detalhes, consulte o artigo [Análise de dados de Campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) do seu canal de envio de mensagens.
 
-### BrazeAI<sup>TM</sup> Variant Selection (somente push) {#brazeai-variant-selection-push-only}
+### Seleção de variante com BrazeAI<sup>TM</sup> (somente push) {#brazeai-variant-selection-push-only}
 
-Se você estiver usando BrazeAI<sup>TM</sup> Variant Selection, dependendo de ser um envio único ou uma campanha recorrente, após o término da janela do experimento (ou do primeiro período para campanhas recorrentes), você verá o aumento, se houver, na página inicial da campanha. Você também verá mais detalhes semelhantes à variante vencedora abaixo, caso execute uma campanha de envio único.
+Se você estiver usando a seleção de variante com BrazeAI<sup>TM</sup>, dependendo de ser um envio único ou uma campanha recorrente, após o término da janela do experimento (ou do primeiro período para campanhas recorrentes), você verá o aumento, se houver, na página inicial da campanha. Você também verá mais detalhes semelhantes à variante vencedora abaixo, caso execute uma campanha de envio único.
 
-Para mais detalhes sobre como reportamos o aumento no BrazeAI<sup>TM</sup> Variant Selection, consulte [Seleção de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+Para mais detalhes sobre como reportamos o aumento na seleção de variante com BrazeAI<sup>TM</sup>, consulte [Seleção de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
 
-![Resultados de aumento do BrazeAI Variant Selection]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Análise de dados da campanha mostrando o aumento da seleção de variante com BrazeAI<sup>TM</sup>, incluindo métricas de comparação após a janela do experimento.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
 ### Variante vencedora {#winning-variant}
 
@@ -84,7 +84,7 @@ Por padrão, o teste busca associações entre os eventos personalizados dos usu
 
 As relações entre eventos personalizados e preferências de mensagem são exibidas na tabela da guia **Initial Send**.
 
-![Tabela mostrando as relações entre eventos personalizados e preferências de variante de mensagem]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tabela da guia Initial Test resumindo as relações entre os eventos personalizados dos usuários e suas variantes de mensagem preferidas.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 Se o teste não encontrar uma relação significativa entre eventos personalizados e preferências de jornada, ele recorre a um método de análise baseado em sessões, e nenhuma tabela de dados de eventos personalizados é exibida.
 
@@ -125,7 +125,7 @@ Os três cartões nesta página mostram o aumento projetado, os resultados gerai
 
 A tabela nesta página mostra as métricas de cada variante do envio da variante personalizada. Seu **Audience %** soma a porcentagem do segmento-alvo que você reservou para o grupo da variante personalizada.
 
-![Tabela de métricas para cada variante do envio da variante personalizada]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Tabela da guia Personalized Variant listando a porcentagem do público e as métricas de desempenho de cada variante após o envio final.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -175,34 +175,34 @@ Para campanhas de mensagens no app disparadas que incluem exibições com poster
 
 Um teste multivariante e A/B pode (e deve!) inspirar ideias para testes futuros, além de orientar mudanças na sua estratégia de envio de mensagens. Possíveis ações de acompanhamento incluem:
 
-#### Mudar sua estratégia de envio de mensagens com base nos resultados do teste {#change-your-messaging-strategy-based-on-test-results}
+### Mudar sua estratégia de envio de mensagens com base nos resultados do teste {#change-your-messaging-strategy-based-on-test-results}
 
 Os resultados do seu teste multivariante podem levar você a mudar a forma como redige ou formata suas mensagens.
 
-#### Mudar a forma como você entende seus usuários {#change-the-way-you-understand-your-users}
+### Mudar a forma como você entende seus usuários {#change-the-way-you-understand-your-users}
 
 Cada teste esclarece os comportamentos dos seus usuários, como eles respondem a diferentes canais de envio de mensagens e as diferenças (e semelhanças) entre seus segmentos.
 
-#### Melhorar a forma como você estrutura testes futuros {#improve-the-way-you-structure-future-tests}
+### Melhorar a forma como você estrutura testes futuros {#improve-the-way-you-structure-future-tests}
 
 O tamanho da sua amostra era muito pequeno? As diferenças entre suas variantes eram muito sutis? Cada teste oferece uma oportunidade de aprender como melhorar testes futuros. Se seu intervalo de confiança é baixo, o tamanho da amostra é muito pequeno e deve ser aumentado para testes futuros. Se você não encontrar uma diferença clara entre o desempenho das suas variantes, é possível que as diferenças fossem muito sutis para ter um efeito perceptível nas respostas dos usuários.
 
-#### Executar um teste de acompanhamento com um tamanho de amostra maior {#run-a-follow-up-test-with-a-larger-sample-size}
+### Executar um teste de acompanhamento com um tamanho de amostra maior {#run-a-follow-up-test-with-a-larger-sample-size}
 
 Amostras maiores aumentam as chances de detectar pequenas diferenças entre variantes.
 
-#### Executar um teste de acompanhamento usando um canal de envio de mensagens diferente {#run-a-follow-up-test-using-a-different-messaging-channel}
+### Executar um teste de acompanhamento usando um canal de envio de mensagens diferente {#run-a-follow-up-test-using-a-different-messaging-channel}
 
 Se você descobrir que uma estratégia específica é muito eficaz em um canal, pode querer testar essa estratégia em outros canais. Se um tipo de mensagem é eficaz em um canal, mas não em outro, você pode concluir que certos canais são mais propícios a certos tipos de mensagens. Ou talvez haja uma diferença entre usuários que são mais propensos a ativar notificações por push e aqueles que são mais propensos a prestar atenção em mensagens no app. Em última análise, executar esse tipo de teste ajudará você a aprender como seu público interage com seus diferentes canais de comunicação.
 
-#### Executar um teste de acompanhamento em um segmento diferente de usuários {#run-a-follow-up-test-on-a-different-segment-of-users}
+### Executar um teste de acompanhamento em um segmento diferente de usuários {#run-a-follow-up-test-on-a-different-segment-of-users}
 
 Para fazer isso, crie outro teste com o mesmo canal de envio de mensagens e variantes, mas escolha um segmento diferente de usuários. Por exemplo, se um tipo de mensagem foi extremamente eficaz para usuários engajados, pode ser útil investigar seu efeito em usuários inativos. É possível que os usuários inativos respondam de forma semelhante, ou podem preferir outra variante. Esse teste ajudará você a aprender mais sobre seus diferentes segmentos e como eles respondem a diferentes tipos de mensagens. Por que fazer suposições sobre seus segmentos quando você pode basear sua estratégia em dados?
 
-#### Executar um teste de acompanhamento baseado em insights de um teste anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
+### Executar um teste de acompanhamento baseado em insights de um teste anterior {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
 
 Use os insights que você obteve de testes anteriores para orientar os futuros. Um teste anterior sugere que uma técnica de envio de mensagens é mais eficaz? Você não tem certeza sobre qual aspecto específico de uma variante a tornou melhor? Executar testes de acompanhamento baseados nessas perguntas ajudará você a gerar descobertas valiosas sobre seus usuários.
 
-#### Comparar o impacto de longo prazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
+### Comparar o impacto de longo prazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
 
 Se você está fazendo testes A/B em mensagens de reengajamento, não se esqueça de comparar o impacto de longo prazo de diferentes variantes usando [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). Você pode usar os relatórios de retenção para analisar como cada variante impactou qualquer comportamento de usuário de sua escolha dias, semanas ou um mês após o recebimento da mensagem, e verificar se houve aumento.

@@ -25,6 +25,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 - 모든 Braze 파트너가 중첩 커스텀 속성을 지원하는 것은 아닙니다. 특정 파트너 통합에서 이 기능을 지원하는지 확인하려면 [파트너 설명서]({{site.baseurl}}/partners/home/)를 참조하세요.
 - 연결된 오디언스 API를 호출할 때 중첩 커스텀 속성을 필터로 사용할 수 없습니다.
 - 기본적으로 **중첩 커스텀 속성** Segment 필터에는 오브젝트 유형 커스텀 속성, 오브젝트 배열 속성, 배열 유형 커스텀 속성이 포함됩니다. 속성을 선택하면 등록정보 스키마 선택기에 중첩 배열 필드에 대한 배열 경로(`[]` 표기법 사용)가 포함됩니다. 해당 필터에서 최상위 배열 커스텀 속성을 숨기려면 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+- 대시보드에서 **커스텀 사용자로 미리보기**를 사용하여 메시지를 미리 볼 때, 모의 데이터는 문자열 또는 문자열 배열로만 입력할 수 있으며 중첩 오브젝트는 지원되지 않습니다. 중첩 커스텀 속성을 참조하는 메시지를 미리 보려면 프로필에 이미 중첩 속성이 있는 기존 사용자를 선택하세요. 중첩 커스텀 이벤트 등록정보의 경우, 렌더링을 확인하려면 테스트 사용자를 타겟으로 하는 라이브 Campaign을 시작해야 합니다.
 
 ## API 예제 {#api-example}
 
@@ -272,7 +273,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 예를 들어, 아래 개인화 모달에서는 사용자의 선호도에 따라 지역 사무소의 중첩 커스텀 속성을 삽입합니다.
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+![개인화 유형이 "중첩 커스텀 속성"으로 설정되고, 최상위 속성이 "preferences"로, 속성 키가 "neighborhood_office"로 설정된 개인화 추가 모달. 결과 태그의 Liquid 미리보기가 표시됩니다.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
 
 {% alert tip %}
 중첩 커스텀 속성을 삽입하는 옵션이 표시되지 않으면 스키마가 생성되었는지 확인하세요.

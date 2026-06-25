@@ -123,7 +123,6 @@ En el siguiente flujo, la vista personalizada es capaz de responder a los cambio
 3. Se proporciona la información y, si está en el formato esperado, se muestra el botón de registro.
 3. Se muestra la vista de confirmación y se descarta la notificación push.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### Configuración del dashboard {#dashboard-configuration-2}
 

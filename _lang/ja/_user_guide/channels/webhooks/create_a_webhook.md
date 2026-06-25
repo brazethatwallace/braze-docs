@@ -47,7 +47,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
 2. Canvasを設定したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#schedule-your-canvas-step)を選択し、必要に応じて遅延を指定します。
-4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
+4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#advancement-behavior)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
@@ -182,7 +182,7 @@ Webhookは、スケジュールされた時間、アクション、またはAPI�
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。このステップでは、Segmentからより大きなオーディエンスを選択し、必要に応じてフィルターを使用してそのSegmentをさらに絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。このステップでは、セグメントからより大きなオーディエンスを選択し、必要に応じてフィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 {% multi_lang_include target_audiences.md %}
 
@@ -264,6 +264,6 @@ Braze間のWebhookを作成し、許可リストを使用している場合は�
 
 ### ユーザーの削除 {#delete-users}
 
-個々のユーザーまたはSegmentのユーザーを削除するには、**オーディエンス** > **オーディエンスを管理** > **ユーザーを削除**に移動します。ダッシュボードは一括Segment削除（最大1,000万プロファイル）をサポートしており、7日間のキャンセル期間が含まれ、共有REST APIレート制限を消費しません。手順、制限、権限については、[ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)を参照してください。
+個々のユーザーまたはセグメントのユーザーを削除するには、**オーディエンス** > **オーディエンスを管理** > **ユーザーを削除**に移動します。ダッシュボードは一括セグメント削除（最大1,000万プロファイル）をサポートしており、7日間のキャンセル期間が含まれ、共有REST APIレート制限を消費しません。手順、制限、権限については、[ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)を参照してください。
 
 プログラムによる小規模バッチの削除には、Webhookキャンペーンの代わりに[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)を使用してください。

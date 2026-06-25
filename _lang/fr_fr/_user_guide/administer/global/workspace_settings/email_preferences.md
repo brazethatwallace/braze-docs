@@ -143,7 +143,7 @@ L'utilisation d'un en-tête list-unsubscribe permet à vos destinataires de se d
 
 Les envois de test n'incluent généralement **pas** les en-têtes list-unsubscribe. L'affichage de l'en-tête en production dépend du fournisseur de messagerie et est basé sur la réputation — une meilleure réputation d'expéditeur améliore généralement la visibilité.
 
-![]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
+![Interface de la boîte de réception d'un client de messagerie avec une option Se désabonner à côté du message, où le list-unsubscribe apparaît en dehors du corps du message.]({% image_buster /assets/img_archive/list_unsub_img1.png %}){: style="float:right;max-width:60%;margin-left:15px;"}
 
 Lorsqu'un destinataire sélectionne **Unsubscribe**, le fournisseur de messagerie envoie la demande de désabonnement à la destination définie dans l'en-tête de l'e-mail.
 
@@ -243,7 +243,7 @@ L'exclusion du désabonnement en un clic ou de tout mécanisme de désabonnement
 
 L'ajustement de ce paramètre remplace le comportement par défaut du désabonnement en un clic pour cet e-mail.
 
-![]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
+![Paramètres d'envoi dans l'éditeur d'e-mail avec les options de désabonnement en un clic au niveau du message, y compris la valeur par défaut de l'espace de travail et l'URL personnalisée.]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
 
 #### Exigences {#requirements}
 
@@ -256,13 +256,13 @@ Si vous envoyez des e-mails avec votre propre fonctionnalité de désabonnement 
 
 Sélectionnez **Custom list-unsubscribe header** pour ajouter votre propre endpoint de désabonnement en un clic configuré, et un « mailto: » optionnel. Braze exige une saisie pour l'URL afin de prendre en charge un en-tête list-unsubscribe personnalisé, car le désabonnement en un clic HTTP est une exigence de Yahoo et Gmail pour les expéditeurs en masse.
 
-![]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
+![Préférences des e-mails avec les champs d'en-tête list-unsubscribe personnalisé pour une URL de désabonnement en un clic et un mailto optionnel.]({% image_buster /assets/img/email_settings/email_unsubscribe_header_custom.png %}){: style="max-width:80%;"}
 
 ## Ajouter un préfixe aux lignes d'objet des e-mails {#append-email-subject-lines}
 
 Utilisez le bouton pour inclure « [TEST] » et « [SEED] » dans les lignes d'objet de vos e-mails de test et initiateurs. Cela peut aider à identifier les campagnes d'e-mail envoyées en tant que tests.
 
-![]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
+![Bouton de préférence d'e-mail de l'espace de travail qui ajoute les préfixes TEST et SEED aux lignes d'objet des e-mails de test et initiateurs.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
 ## Insertion CSS par défaut pour les nouveaux e-mails {#inline-css-on-new-emails-by-default}
 
@@ -274,7 +274,7 @@ La modification de ce paramètre n'affecte aucun de vos messages ou modèles d'e
 
 Vous pouvez automatiquement réabonner les utilisateurs lorsqu'ils changent leur adresse e-mail. Par exemple, si un utilisateur d'espace de travail précédemment désabonné change son adresse e-mail pour une adresse qui ne figure pas sur la liste de désabonnement de Braze, il sera automatiquement réabonné.
 
-![]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![Paramètre de l'espace de travail qui réabonne automatiquement les utilisateurs lorsque leur adresse e-mail change.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## Pages et pieds de page d'abonnement {#subscription-pages-and-footers}
 
@@ -287,27 +287,27 @@ Notez les exigences suivantes lors de la création d'un pied de page personnalis
 - Doit inclure une URL de désabonnement et une adresse postale physique.
 - Doit faire moins de 100 Ko.
 
-![]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![Éditeur de pied de page d'e-mail personnalisé avec les champs de lien de désabonnement et d'adresse postale pour la conformité CAN-SPAM.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Pour en savoir plus sur le templating Liquid des pieds de page personnalisés, consultez notre documentation sur les [Pieds de page personnalisés]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Pour en savoir plus sur le templating Liquid des pieds de page personnalisés, consultez [Pieds de page personnalisés]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Page de désabonnement personnalisée %}
 
 Braze vous permet de définir une **Page de désabonnement personnalisée** avec votre propre HTML. Cette page apparaît après qu'un utilisateur a choisi de se désabonner en bas d'un e-mail. Notez que cette page doit faire moins de 750 Ko.
 
-![]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![Éditeur HTML et prévisualisation de la page de désabonnement personnalisée affichée après qu'un utilisateur se désabonne d'un e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
-En savoir plus sur les bonnes pratiques de gestion des listes d'e-mails dans [Gérer les abonnements aux e-mails]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Pour les bonnes pratiques de gestion des listes d'e-mails, consultez [Gérer les abonnements aux e-mails]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
 
 {% endtab %}
 {% tab Page d'abonnement personnalisée %}
 
 Vous pouvez créer une page d'abonnement personnalisée en utilisant votre propre HTML. L'inclusion de cette page dans vos e-mails peut être particulièrement bénéfique si vous souhaitez que votre image de marque et votre message restent cohérents tout au long du cycle de vie de l'utilisateur. Notez que cette page doit faire moins de 750 Ko.
 
-![]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![Éditeur HTML et prévisualisation de la page d'abonnement personnalisée pour la confirmation d'abonnement aux e-mails avec votre image de marque.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
-En savoir plus sur les bonnes pratiques de gestion des listes d'e-mails dans [Gérer les abonnements aux e-mails]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
+Pour les bonnes pratiques de gestion des listes d'e-mails, consultez [Gérer les abonnements aux e-mails]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
 
 {% endtab %}
 {% endtabs %}

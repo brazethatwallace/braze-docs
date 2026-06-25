@@ -59,7 +59,7 @@ Canvasから送信されるアプリ内メッセージの場合、ユーザー�
 
 ## アーカイブしたアプリ内メッセージCampaignがまだアプリ内メッセージのインプレッションを配信しているのはなぜですか？ {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
-これは、アプリ内メッセージCampaignがアクティブだったときにSegment条件を満たしたユーザーに対して発生する可能性があります。
+これは、アプリ内メッセージCampaignがアクティブだったときにセグメント条件を満たしたユーザーに対して発生する可能性があります。
 
 これを防ぐには、Campaign設定時に**表示前にCampaignの適格性を再評価する**を選択してください。
 
@@ -139,13 +139,43 @@ BrazeがSamのケースで中止イベントを記録しないのは、中止の
 | テンプレート化 | Samがテンプレート化されたアプリ内メッセージをトリガーするトリガーアクションを実行したが、Liquidテンプレート処理で中止を受けたため、中止イベントが記録されました。<br><br>テンプレート化されたアプリ内メッセージは、トリガーアクションが実行された後にLiquid評価が行われるため、中止を記録します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージの中止動作の比較" }
 
+### アプリ内メッセージでコネクテッドコンテンツはいつ実行されますか？ {#when-does-connected-content-run-for-in-app-messages}
+
+[テンプレート化されたアプリ内メッセージ](#what-are-templated-in-app-messages)の場合、コネクテッドコンテンツやその他のLiquidタグは、トリガーイベントが発生しデバイスがメッセージペイロードをリクエストしたときに解決されます。ユーザーがメッセージ内のボタンをクリックしたときではありません。テンプレート化された各フェッチには、その表示のためのコネクテッドコンテンツ呼び出しが含まれる場合があります。
+
+HTMLがコネクテッドコンテンツから返されたRESTデータを参照している場合、そのデータはメッセージがテンプレート化されたセッション内で利用可能です。複数のボタンが同じコネクテッドコンテンツのレスポンスを参照しても、クリック時に追加の呼び出しがトリガーされることはありません。
+
+### アプリ内メッセージが表示されるまでに遅延があるのはなぜですか？ {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+標準アプリ内メッセージは、トリガーイベント後にキャッシュされたペイロードの準備ができ次第すぐに表示されます。AndroidおよびiOSでは、メッセージ内で参照されている大きな画像やその他のCDNホストのアセットが、アプリ内メッセージが表示される前にダウンロードを完了するまで、短い遅延が発生する場合があります。
+
+[テンプレート化されたアプリ内メッセージ](#what-are-templated-in-app-messages)および**表示前にCampaignの適格性を再評価する**が選択されたCampaignでは、トリガー後にメッセージが表示される前に追加のネットワークリクエストが必要です。これにより短い遅延が発生する場合があります（安定した接続では通常100ミリ秒未満）。詳細については、[ターゲットユーザーの選択]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target)を参照してください。
+
+### アプリ内メッセージがダッシュボードのプレビューと異なって見えるのはなぜですか？ {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+配信されたアプリ内メッセージは、以下の場合にダッシュボードのプレビューと異なることがあります。
+
+- インテグレーションが特定のプラットフォームでカスタムスタイルを適用したり、デフォルトのアプリ内メッセージUIをオーバーライドしている場合
+- プレビューが受信者とは異なる属性を持つテストユーザープロファイルを使用している場合
+- テンプレート化されたコンテンツが送信時とプレビューモードで異なる解決をする場合
+
+外観を検証する際は、ターゲットオーディエンスと一致するプロファイルを持つテストユーザーで[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を使用してください。
+
+### マルチページのアプリ内メッセージですべてのページで同じ背景が使用されるのはなぜですか？ {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+マルチページのアプリ内メッセージの1つのページで**背景画像**を有効にすると、その背景はメッセージ内のすべてのページに適用されます。ページごとに異なる背景を使用するには、JavaScriptを使用してページ間で画像を切り替えるカスタムHTMLブロックを使用してください。
+
+### Webアプリ内メッセージをテストするにはどうすればよいですか？ {#how-do-i-test-web-in-app-messages}
+
+Webアプリ内メッセージのテスト送信では、テストデバイスでプッシュが有効になっている必要があります。テストフローでは、アプリ内メッセージが表示されるアプリまたはサイトを開くプッシュ通知が配信されるためです。Brazeでプッシュが設定されていないプラットフォームでも同じプッシュベースのテストパスが適用されますが、多くのモバイルインテグレーションではすでにプッシュが有効になっているため、プッシュの未設定はWebで最もよく遭遇します。代わりに、内部テストセグメントへのライブCampaignを使用してください。手順については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)を参照してください。
+
 ## AndroidのフルスクリーンHTMLアプリ内メッセージで閉じるボタンが非表示になるのはなぜですか？ {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
 エッジツーエッジディスプレイを搭載したデバイス（Android 15以降を含む）では、フルスクリーンHTMLアプリ内メッセージがシステムステータスバーの背後に描画され、レイアウト上部の閉じるコントロールが隠れることがあります。
 
 Braze Android SDKバージョン37.0.0以降では、デフォルトでHTMLアプリ内メッセージにウィンドウインセットが適用されるため、コントロールはセーフエリア内に留まります。それでもユーザーに重なりが見られる場合は、最新のBraze Android SDKにアップグレードしてください。
 
-古いSDKバージョンでは、この動作がデフォルトになる前に、開発者が `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` を有効にすることで対応できました。
+古いSDKバージョンでは、この動作がデフォルトになる前に、開発者が`BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)`を有効にすることで対応できました。
 
 ## ドラッグ＆ドロップのアプリ内メッセージをカスタマイズする際に知っておくべきことは何ですか？ {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 

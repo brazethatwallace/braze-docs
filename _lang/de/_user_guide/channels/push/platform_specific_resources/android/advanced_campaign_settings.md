@@ -3,7 +3,7 @@ nav_title: "Erweiterte Push-Campaign-Einstellungen"
 article_title: "Erweiterte Push-Campaign-Einstellungen"
 page_order: 5
 page_layout: reference
-description: "Dieser Referenzartikel behandelt einige erweiterte Push-Campaign-Einstellungen wie Priorität, benutzerdefinierte URLs, Zustellungsoptionen und mehr."
+description: "Dieser Referenzartikel behandelt erweiterte Android-Push-Campaign-Einstellungen wie Priorität, benutzerdefinierte URLs, Zustellungsoptionen und mehr."
 platform: Android
 channel:
   - push
@@ -20,7 +20,7 @@ tool:
 
 Eine Benachrichtigungs-ID ist ein eindeutiger Bezeichner für eine von Ihnen gewählte Nachrichtenkategorie, der den Messaging-Dienst anweist, nur die aktuellste Nachricht mit dieser ID zu berücksichtigen. Durch das Setzen einer Benachrichtigungs-ID können Sie nur die aktuellste und relevanteste Nachricht senden, anstatt einen Stapel veralteter, irrelevanter Nachrichten.
 
-Um eine Benachrichtigungs-ID zuzuweisen, navigieren Sie zur Erstellungsseite der Push-Benachrichtigung, der Sie die ID hinzufügen möchten, und wählen Sie den Tab **Settings** aus. Geben Sie eine Ganzzahl im Abschnitt **Notification ID** ein. Um diese Benachrichtigung nach dem Versand zu aktualisieren, senden Sie eine weitere Benachrichtigung mit derselben ID, die Sie zuvor verwendet haben.
+Um eine Benachrichtigungs-ID zuzuweisen, navigieren Sie zur Erstellungsseite der Push-Benachrichtigung, die Sie aktualisieren möchten, und wählen Sie den Tab **Settings** aus. Geben Sie dann eine Ganzzahl im Abschnitt **Notification ID** ein. Um diese Benachrichtigung nach dem Versand zu aktualisieren, senden Sie eine weitere Benachrichtigung mit derselben ID, die Sie zuvor verwendet haben.
 
 ![Feld für die Benachrichtigungs-ID.]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
@@ -36,7 +36,7 @@ Nehmen wir zum Beispiel an, Ihre App veranstaltet einen wöchentlichen Quizwettb
 
 {% details Best Practices %}
 
-#### Wann kürzere TTL sinnvoll sind {#when-to-use-shorter-ttl}
+### Wann kürzere TTL sinnvoll sind {#when-to-use-shorter-ttl}
 
 Kürzere TTLs stellen sicher, dass Nutzer:innen zeitnahe Benachrichtigungen für Ereignisse oder Aktionen erhalten, die schnell an Relevanz verlieren. Zum Beispiel:
 
@@ -45,7 +45,7 @@ Kürzere TTLs stellen sicher, dass Nutzer:innen zeitnahe Benachrichtigungen für
 - **Transport-Apps:** Ankunfts-Updates für Fahrten teilen (TTL: wenige Minuten)
 - **Erinnerungen:** Nutzer:innen benachrichtigen, wenn ein Webinar bald beginnt (TTL: unter 1 Stunde)
 
-#### Wann kürzere TTL vermieden werden sollten {#when-to-avoid-shorter-ttl}
+### Wann kürzere TTL vermieden werden sollten {#when-to-avoid-shorter-ttl}
 
 - Wenn die Nachricht Ihrer Campaign über mehrere Tage oder Wochen relevant bleibt, wie z. B. Abo-Verlängerungserinnerungen oder laufende Aktionen.
 - Wenn maximale Reichweite wichtiger ist als Dringlichkeit, wie bei App-Update-Ankündigungen oder Feature-Aktionen.
@@ -62,7 +62,7 @@ Das Feld **Firebase Messaging Delivery Priority** ermöglicht es Ihnen zu steuer
 | Hoch | Sofortige Zustellung mit höherem Akkuverbrauch | Zeitkritische Benachrichtigungen, wichtige Warnungen, Live-Event-Updates, Kontowarnungen, Eilmeldungen oder dringende Erinnerungen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase-Messaging-Zustellungspriorität" }
 
-#### Hinweise {#considerations}
+### Hinweise {#considerations}
 
 - **Standardeinstellung**: Sie können eine Standard-FCM-Priorität für alle Android-Campaigns in Ihren [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) festlegen. Diese Einstellung auf Campaign-Ebene überschreibt bei Bedarf den Standard.
 - **Herabstufung**: Wenn FCM erkennt, dass Ihre App häufig Nachrichten mit hoher Priorität sendet, die nicht zu sichtbaren Benachrichtigungen oder Nutzer:innen-Engagement führen, können diese Nachrichten automatisch auf normale Priorität herabgestuft werden.

@@ -63,7 +63,7 @@ Im folgenden Beispiel zeigt das Feature-Flag ein Banner für einen nicht vorrät
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2a: Angepasste Eigenschaften erstellen" }
 
 {% alert tip %}
-Sie können beliebig viele Eigenschaften hinzufügen. Die Eigenschaften eines Feature-Flags sind jedoch auf insgesamt 10 KB begrenzt. Sowohl die Eigenschaftswerte als auch die Schlüssel sind auf eine Länge von 255 Zeichen begrenzt.
+Sie können beliebig viele Eigenschaften hinzufügen. Die Eigenschaften eines Feature-Flags sind jedoch auf insgesamt 10.000 Zeichen begrenzt.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

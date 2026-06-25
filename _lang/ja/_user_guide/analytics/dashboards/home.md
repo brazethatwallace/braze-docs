@@ -23,13 +23,13 @@ tool:
 
 Brazeダッシュボードで最近編集または作成したファイルに直接アクセスして、前回の続きから作業を再開できます。このセクションは、Brazeダッシュボードの**ホーム**ページの上部に表示されます。
 
-最近編集または作成したCampaign、Canvas、Segmentを再度確認できます。各カードには、コンテンツタイプ（Campaign、Canvas、Segment）とステータス（アクティブ、下書き、アーカイブ、停止）を示すタグが付いています。
+最近編集または作成したCampaign、Canvas、セグメントを再度確認できます。各カードには、コンテンツタイプ（Campaign、Canvas、セグメント）とステータス（アクティブ、下書き、アーカイブ、停止）を示すタグが付いています。
 
 {% alert note %}
-**前回の続きから再開**セクションは、Campaign、Canvas、またはSegmentを編集または作成した後に表示されます。
+**前回の続きから再開**セクションは、Campaign、Canvas、またはセグメントを編集または作成した後に表示されます。
 {% endalert %}
 
-![「前回の続きから再開」セクションに表示されたCanvasの下書き、アクティブなSegment、Campaignの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![「前回の続きから再開」セクションに表示されたCanvasの下書き、アクティブなセグメント、Campaignの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## パフォーマンス概要 {#performance-overview}
 
@@ -41,7 +41,7 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 
 例えば、日付範囲を**過去7日間**に設定し、*デイリーアクティブユーザー*が1.8%の増加を示している場合、先週と比較して今週のデイリーアクティブユーザーが1.8%多かったことを意味します。
 
-![指標値とパーセンテージの変化を表示するパフォーマンス概要の指標タイル。]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![デイリーアクティブユーザーの指標タイル。平均22.2千人で、7.1%の増加バッジとトレンドラインが表示されています。]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 内訳を表示 {#show-breakdown}
 
@@ -59,7 +59,7 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 - バナー
 - Content Cards
 - デイリーアクティブユーザー
-  - （オプション）Segment別の内訳
+  - （オプション）セグメント別の内訳
 - メール
 - アプリ内メッセージ
 - KPI計算式
@@ -68,15 +68,15 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 - 月間アクティブユーザー（MAU）
 - 新規ユーザー
 - プッシュ
-  - （オプション）Segment別の内訳
+  - （オプション）セグメント別の内訳
 - セッション
-  - （オプション）Segmentまたはアプリバージョン別の内訳
+  - （オプション）セグメントまたはアプリバージョン別の内訳
 - 時間別セッション
 - MAUあたりのセッション
 - SMS
 - スティッキネス
 - アンインストール
-  - （オプション）Segment別の内訳
+  - （オプション）セグメント別の内訳
 - ユーザー
 - Webhook
 - WhatsApp

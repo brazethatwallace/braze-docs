@@ -153,3 +153,8 @@ A campaign or Canvas appears in the report when its **Last sent** date falls in 
 
 For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a campaign is included, but **Show data for** is December 1, 2024–January 14, 2025. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
 
+### Download link has expired
+
+Report download links expire after one hour. If your link has expired, generate a new report and download it within the hour. There is no way to extend the expiry time.
+
+If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.

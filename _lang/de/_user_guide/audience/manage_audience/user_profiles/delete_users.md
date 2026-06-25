@@ -48,7 +48,6 @@ Löschungen einzelner Nutzer:innen sind dauerhaft – Profile können nach dem L
 
 Wählen Sie auf der Profilseite <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. Beachten Sie, dass es einige Minuten dauern kann, bis die Nutzer:innen vollständig in Braze gelöscht sind.
 
-![Ein:e Nutzer:in in Braze mit geöffnetem Dreipunktmenü, das die Option zum Löschen zeigt.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Segment löschen {#delete-segment}
 

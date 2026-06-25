@@ -24,7 +24,7 @@ Folgendes wird nicht automatisch migriert, wenn Sie SDKs oder APIs auf einen neu
 | **Segmente und Filter** | Segmentdefinitionen verbleiben im Quell-Workspace. Bauen Sie Segmente im Ziel-Workspace mit derselben Logik neu auf, wo dies möglich ist. |
 | **Messaging-Verlauf** | Der Campaign- und Canvas-Empfangsverlauf eines Profils ist an den Quell-Workspace gebunden. Er erscheint nicht auf einem neuen Profil in einem anderen Workspace, es sei denn, Sie modellieren ihn selbst (z. B. über angepasste Attribute), wie in den [Braze-Onboarding-FAQs]({{site.baseurl}}/user_guide/onboarding_faq/) beschrieben. |
 | **Kanalspezifische Konfiguration** | Versanddomains, SMS-Abos, WhatsApp-Nummern und ähnliche Einstellungen sind Workspace-bezogen. Konfigurieren Sie sie im Ziel-Workspace neu, wo zutreffend. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What Braze does not automatically migrate between workspaces" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Was Braze nicht automatisch zwischen Workspaces migriert" }
 
 {% alert important %}
 Wenn Sie separate Workspaces für Staging und Produktion verwenden, denken Sie daran, dass [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Konnektoren nicht zwischen Workspaces geteilt werden. Planen Sie, welcher Workspace die Produktionsexporte besitzt. Weitere Details finden Sie unter [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/#currents-connectors).
@@ -32,9 +32,9 @@ Wenn Sie separate Workspaces für Staging und Produktion verwenden, denken Sie d
 
 ## Was Sie verschieben oder neu erstellen können {#what-you-can-move-or-recreate}
 
-### Campaign- und Canvas-Inhalte {#campaign-and-canvas-content}
+### Campaign-, Canvas- und Landing-Page-Inhalte {#campaign-canvas-and-landing-page-content}
 
-Sie können viele Campaign- und Canvas-Definitionen als Entwürfe in einen anderen Workspace kopieren. Unterstützte Kanäle, ausgelassene Felder und Liquid-Einschränkungen sind in [Campaigns und Canvases zwischen Workspaces kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) dokumentiert. Aktualisieren Sie nach dem Kopieren Segmente, Trigger und alle Workspace-spezifischen Referenzen, bevor Sie starten.
+Sie können viele Campaign-, Canvas- und Landing-Page-Definitionen als Entwürfe in einen anderen Workspace kopieren. Unterstützte Kanäle, ausgelassene Felder und Liquid-Einschränkungen sind in [Campaigns, Canvases und Landing-Pages zwischen Workspaces kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/) dokumentiert. Aktualisieren Sie nach dem Kopieren Segmente, Trigger und alle Workspace-spezifischen Referenzen, bevor Sie starten oder veröffentlichen.
 
 ### Nutzerprofildaten {#user-profile-data}
 
@@ -71,7 +71,7 @@ Sie können `date_of_first_session` und `date_of_last_session` über [`/users/tr
 
 #### Zufällige Bucket-Nummer (`random_bucket`) {#random-bucket-random_bucket}
 
-Jeder Nutzer:in wird in ihrem Workspace eine [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-update-events) zugewiesen. Dieser Wert kann nicht reimportiert werden; Nutzer:innen erhalten eine neue zufällige Bucket-Nummer im Ziel-Workspace.
+Jede:r Nutzer:in erhält in ihrem Workspace eine [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-update-events). Dieser Wert kann nicht reimportiert werden; Nutzer:innen erhalten eine neue zufällige Bucket-Nummer im Ziel-Workspace.
 
 Wenn Sie sich auf die alte Nummer für Holdouts oder Stichproben verlassen (z. B. Ausschluss von Nutzer:innen, deren `random_bucket` unter einem Schwellenwert liegt), speichern Sie den exportierten Wert als angepasstes Attribut und erstellen Sie Segmente oder Filter auf diesem Attribut anstelle des integrierten Felds für die zufällige Bucket-Nummer.
 

@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}커스텀 이벤트 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> 이 문서에서는 커스텀 이벤트 및 속성정보, 관련 세분화 필터, Canvas 진입 속성정보, 관련 분석 등에 대해 설명합니다. Braze 이벤트에 대해 전반적으로 알아보려면 [이벤트]({{site.baseurl}}/user_guide/data/activation/events/)를 참조하세요.
+> 이 문서에서는 커스텀 이벤트 및 속성정보, 고객 프로필 이벤트 기록, 관련 세분화 필터, Canvas 진입 속성정보, 관련 분석 등에 대해 설명합니다. Braze 이벤트에 대해 전반적으로 알아보려면 [이벤트]({{site.baseurl}}/user_guide/data/activation/events/)를 참조하세요.
 
 커스텀 이벤트는 사용자가 수행한 동작 또는 사용자에 대한 업데이트입니다. 커스텀 이벤트가 기록되면 원하는 수와 유형의 후속 Campaign을 트리거할 수 있습니다. 그런 다음 [세분화 필터](#segmentation-filters)를 사용하여 해당 커스텀 이벤트가 발생한 최근성 및 빈도에 따라 사용자를 세분화할 수 있습니다. 따라서 커스텀 이벤트는 애플리케이션 내에서 가치가 높은 사용자 상호작용을 추적하는 데 가장 적합합니다.
 
@@ -86,6 +86,38 @@ search_rank: 2
 ## 커스텀 이벤트 저장 {#custom-event-storage}
 
 **고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_archival/#active-users) 상태인 한 무기한 보존됩니다.
+
+## 사용자의 이벤트 기록 보기 {#view-a-users-event-history}
+
+{% alert important %}
+이벤트 기록은 현재 얼리 액세스 중입니다. 참여에 관심이 있으시면 Braze 계정 매니저에게 문의하세요.
+{% endalert %}
+
+사용자 프로필의 **이벤트 기록** 탭을 사용하여 해당 사용자의 최근 커스텀 이벤트 및 구매를 확인할 수 있습니다. 이를 통해 통합이 이벤트를 올바르게 기록하고 있는지 확인하고 대시보드에서 직접 사용자 수준의 문제를 해결할 수 있습니다.
+
+사용자의 이벤트 기록을 보려면:
+
+1. **오디언스** > **사용자 검색**으로 이동한 다음 사용자를 선택하여 프로필을 엽니다.
+2. **이벤트 기록** 탭을 선택합니다.
+
+이 탭에는 지난 30일간의 사용자 커스텀 이벤트 및 구매가 최신순으로 최대 100개까지 표시됩니다.
+
+각 이벤트에는 다음 정보가 포함됩니다:
+
+- **이벤트 유형:** 이벤트가 커스텀 이벤트인지 구매인지 여부입니다.
+- **이벤트 이름:** 기록된 이벤트 이름입니다.
+- **시간:** 이벤트가 발생한 시점입니다.
+- **속성정보:** 해당 발생에 대한 전체 이벤트 속성정보로, JSON 형식으로 표시됩니다.
+
+일반적인 활용 사례는 다음과 같습니다:
+
+- 개발 중이거나 릴리스 후에 SDK 또는 API 통합이 예상대로 이벤트를 전송하고 있는지 확인합니다.
+- 사용자가 이벤트 트리거 Campaign 또는 Canvas에 진입했거나 진입하지 않은 이유를 문제 해결합니다.
+- 데이터 내보내기를 설정하지 않고도 특정 사용자에 대한 고객지원 문제를 조사합니다.
+
+{% alert note %}
+**이벤트 기록** 탭을 보려면 이벤트 속성정보에 개인 데이터가 포함될 수 있으므로 **사용자 검색** 및 **PII 보기** 사용자 권한이 모두 필요합니다. 자세한 내용은 [회사 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
+{% endalert %}
 
 ## 세분화 필터 {#segmentation-filters}
 

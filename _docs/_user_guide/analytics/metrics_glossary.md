@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Total Dismissals
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} If a user receives two different cards from the same campaign and dismisses both, this count will increase by two. Re-eligibility allows you to increment _Total Dismissals_ once every time a user receives a card; each card is a different message.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} For Content Cards, if a user receives two different cards from the same campaign and dismisses both, this count increases by two. Re-eligibility allows you to increment _Total Dismissals_ once every time a user receives a card; each card is a different message. For Banners, this counts each dismissal when dismissal behavior is enabled.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>. This number is received from Braze and is based on the `user_id`. Unique recipients are counted at the campaign or Canvas step level, not the <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>send identifier</a> level.
+Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>. This number is received from Braze and is based on the `user_id`. Unique recipients are counted at the campaign or Canvas step level, not the <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>send identifier</a> level.
 
 <span class="calculation-line">Calculation: Count</span>
 

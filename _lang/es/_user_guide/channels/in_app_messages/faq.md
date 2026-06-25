@@ -25,7 +25,7 @@ Cuando un usuario inicia una sesión, Braze comprueba si se han realizado cambio
 
 ## ¿Cómo configuro las horas tranquilas para una campaña de mensajes dentro de la aplicación? {#how-do-i-set-up-quiet-hours-for-an-in-app-message-campaign}
 
-La función de horas tranquilas no está disponible para campañas de mensajes dentro de la aplicación. Esta función se utiliza para evitar que se envíen mensajes a tus usuarios durante horas específicas. En las campañas de mensajes dentro de la aplicación, tus usuarios solo recibirán mensajes dentro de la aplicación si están activos en la aplicación.
+La función de horas tranquilas no está disponible para campañas de mensajes dentro de la aplicación. Esta función se utiliza para evitar que se envíen mensajes a tus usuarios durante horas específicas. En las campañas de mensajes dentro de la aplicación, tus usuarios solo reciben mensajes dentro de la aplicación si están activos en la aplicación.
 
 Como alternativa para enviar mensajes dentro de la aplicación durante un horario específico, utiliza el siguiente código Liquid de ejemplo. Esto permite que el mensaje se cancele si el mensaje dentro de la aplicación se muestra después de las 7:59 pm o antes de las 8 am en la zona horaria especificada.
 
@@ -138,6 +138,36 @@ Esta tabla compara los flujos de mensajes dentro de la aplicación que experimen
 | Estándar | No se registró un evento de cancelación porque Sam no realizó ninguna acción que desencadenaría un mensaje.<br><br>Los mensajes dentro de la aplicación estándar no registran cancelaciones porque la definición de una cancelación es "no vio el mensaje a pesar de realizar la acción desencadenante". Dado que los mensajes dentro de la aplicación se entregan al dispositivo antes de que ocurran las acciones desencadenantes, no tiene sentido considerar como cancelados los mensajes dentro de la aplicación omitidos debido a la lógica de Liquid. |
 | Con plantilla | Se registró un evento de cancelación porque Sam realizó la acción desencadenante para desencadenar el mensaje dentro de la aplicación con plantilla, pero recibió una cancelación en la plantilla de Liquid.<br><br>Los mensajes dentro de la aplicación con plantilla registran cancelaciones porque la evaluación de Liquid ocurre después de que se ha realizado la acción desencadenante. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparación del comportamiento de cancelación de mensajes dentro de la aplicación" }
+
+### ¿Cuándo se ejecuta el contenido conectado para los mensajes dentro de la aplicación? {#when-does-connected-content-run-for-in-app-messages}
+
+Para los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages), el contenido conectado y otras etiquetas de Liquid se resuelven cuando ocurre el evento desencadenante y el dispositivo solicita la carga útil del mensaje, no cuando el usuario hace clic en un botón dentro del mensaje. Cada obtención con plantilla puede incluir llamadas de contenido conectado para esa visualización.
+
+Si tu HTML hace referencia a datos REST devueltos por el contenido conectado, esos datos están disponibles para la sesión en la que se generó la plantilla del mensaje. Varios botones pueden hacer referencia a la misma respuesta de contenido conectado sin desencadenar llamadas adicionales al hacer clic.
+
+### ¿Por qué hay un retraso antes de que se muestre mi mensaje dentro de la aplicación? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+Los mensajes dentro de la aplicación estándar se muestran tan pronto como la carga útil almacenada en caché está lista después del evento desencadenante. En Android e iOS, las imágenes grandes u otros activos alojados en CDN a los que hace referencia el mensaje pueden añadir un breve retraso mientras esos recursos terminan de descargarse antes de que aparezca el mensaje dentro de la aplicación.
+
+Los [mensajes dentro de la aplicación con plantilla](#what-are-templated-in-app-messages) y las campañas con **Re-evaluate campaign eligibility before displaying** seleccionado requieren una solicitud de red adicional después del desencadenante antes de que aparezca el mensaje. Esto puede añadir un breve retraso (normalmente menos de 100 ms en una conexión estable). Para más información, consulta [Elegir usuarios objetivo]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+
+### ¿Por qué mi mensaje dentro de la aplicación se ve diferente a la vista previa del dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+Los mensajes dentro de la aplicación entregados pueden diferir de la vista previa del dashboard cuando:
+
+- Tu integración aplica estilos personalizados o anula la interfaz predeterminada de mensajes dentro de la aplicación en ciertas plataformas
+- La vista previa usa un perfil de usuario de prueba con atributos diferentes a los del destinatario
+- El contenido con plantilla se resuelve de manera diferente en el momento del envío que en el modo de vista previa
+
+Usa [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) con un usuario de prueba cuyo perfil coincida con tu audiencia objetivo al validar la apariencia.
+
+### ¿Por qué un mensaje dentro de la aplicación de varias páginas usa el mismo fondo en todas las páginas? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+Cuando se habilita **Imagen de fondo** en una página de un mensaje dentro de la aplicación de varias páginas, ese fondo se aplica a todas las páginas del mensaje. Para usar fondos diferentes por página, usa un bloque HTML personalizado con JavaScript para intercambiar imágenes entre páginas.
+
+### ¿Cómo pruebo los mensajes dentro de la aplicación en web? {#how-do-i-test-web-in-app-messages}
+
+Los envíos de prueba de mensajes dentro de la aplicación en web requieren que las notificaciones push estén habilitadas en el dispositivo de prueba, ya que el flujo de prueba entrega una notificación push que abre la aplicación o el sitio donde se muestra el mensaje dentro de la aplicación. La misma ruta de prueba basada en push se aplica en cualquier plataforma donde las notificaciones push no estén configuradas con Braze, aunque la falta de push se encuentra con mayor frecuencia en web porque muchas integraciones móviles ya tienen push habilitado. En su lugar, usa una campaña en vivo dirigida a un segmento de prueba interno. Para los pasos, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
 
 ## ¿Por qué el botón de cierre está oculto en los mensajes dentro de la aplicación HTML de pantalla completa en Android? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 

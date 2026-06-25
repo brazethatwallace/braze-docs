@@ -224,7 +224,6 @@ Google Cloudで、Androidアプリが使用しているプロジェクトを選�
 
 サービスアカウント名、ID、説明を入力して、**作成して続行**を選択します。
 
-![「サービスアカウントの詳細」のフォーム。]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 **ロール**フィールドで、ロールのリストから**Firebase Cloud Messaging API管理者**を見つけて選択します。アクセスをより制限する場合は、`cloudmessaging.messages.create`権限を持つ[カスタムロール](https://cloud.google.com/iam/docs/creating-custom-roles)を作成し、代わりにリストからそれを選択します。完了したら、**完了**を選択します。
 

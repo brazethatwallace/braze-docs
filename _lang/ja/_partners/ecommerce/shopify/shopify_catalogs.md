@@ -208,7 +208,7 @@ Brazeは各Shopify商品につき最大250のバリアントをカタログに�
 {% tabs %}
 {% tab 商品タグ %}
 
-商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections/)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのSegmentを構築したりできます。
+商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections/)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのセグメントを構築したりできます。
 
 商品タグは、各カタログアイテムの配列フィールドとして保存されます。商品タグの同期を設定するには、[Shopify商品タグ](#shopify-product-tags)を参照してください。
 
@@ -297,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### カタログセグメンテーション（SQL） {#catalog-segmentation-sql}
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品タグとインタラクションしたユーザーに基づいてSegmentを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品タグとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```liquid
@@ -415,7 +415,7 @@ Check out the latest summer products:
 
 ### カタログセグメンテーション（SQL）
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてSegmentを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```sql
@@ -677,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### カタログセグメンテーション（SQL）
 
-コレクションとインタラクションしたユーザーのSegmentを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてSegmentを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
+コレクションとインタラクションしたユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてセグメントを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```json

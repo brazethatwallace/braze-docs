@@ -93,7 +93,7 @@ Estos pasos están adaptados de la documentación para desarrolladores de Apple.
 2. Selecciona **Associated Domains**.
 3. Haz clic en **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Sección App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Paso 1c: Activa Associated Domains en tu proyecto Xcode {#step-1c}
 
@@ -113,7 +113,7 @@ Si ves el error "An App ID with Identifier 'your-app-id' is not available. Pleas
 
 En la sección de dominios, añade la etiqueta de dominio apropiada. Debes añadir el prefijo `applinks:`. En este caso, puedes ver que hemos añadido `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Sección Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Paso 1e: Confirma que el archivo de permisos está incluido en la compilación {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -446,6 +446,5 @@ Asegúrate de que tienes las definiciones correctas para los dominios que tu apl
 
 En algunos casos, tu dominio de seguimiento de clics puede no ser capaz de alojar los archivos `.well-known` requeridos debido a limitaciones del ESP o restricciones de infraestructura. Si no puedes alojar el archivo AASA o Digital Asset Links en tu dominio de seguimiento, considera las siguientes opciones:
 
-- **Ponte en contacto con tu ESP para que aloje los archivos en su dominio de seguimiento:** Tu subdominio de seguimiento de clics normalmente es un CNAME que apunta a tu ESP (SendGrid, SparkPost o Amazon SES). Dado que el ESP termina el tráfico para ese dominio, puede alojar los archivos `.well-known` por ti. Tanto SendGrid como SparkPost admiten esto. Ponte en contacto directamente con tu ESP para solicitarlo.
-- **Desactiva selectivamente el seguimiento de clics en las URL de vínculos profundos:** Si tu ESP no puede alojar los archivos, puedes desactivar el seguimiento de clics para enlaces universales específicos para que vayan directamente a tu dominio principal (donde puedes alojar el archivo AASA o Digital Asset Links). Ten en cuenta que este método puede causar la pérdida de análisis de clics para esos enlaces específicos. Consulta [Desactivar el seguimiento de clics enlace por enlace](#turning-off-click-tracking-on-a-link-to-link-basis) para obtener instrucciones.
+- **Desactiva selectivamente el seguimiento de clics en las URL de vínculos profundos:** Puedes desactivar el seguimiento de clics para enlaces universales específicos para que vayan directamente a tu dominio principal (donde puedes alojar el archivo AASA o Digital Asset Links). Ten en cuenta que este método puede causar la pérdida de análisis de clics para esos enlaces específicos. Consulta [Desactivar el seguimiento de clics enlace por enlace](#turning-off-click-tracking-on-a-link-to-link-basis) para obtener instrucciones.
 - **Coloca un CDN delante del subdominio de seguimiento:** Si necesitas cobertura completa de seguimiento de clics y vinculación en profundidad, puedes colocar un CDN (como Cloudflare o CloudFront) delante de tu subdominio de seguimiento. Configura el CDN para servir los archivos `.well-known` localmente y redirigir todo el demás tráfico a tu ESP. Este enfoque es más complejo, pero te da control total sobre el seguimiento de clics y los enlaces universales.

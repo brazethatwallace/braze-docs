@@ -91,6 +91,17 @@ MODEL = os.environ.get("TRANSLATION_MODEL", "claude-opus-4-6")
 MAX_TOKENS = int(os.environ.get("TRANSLATION_MAX_TOKENS", "128000"))
 MAX_FILE_KB = int(os.environ.get("TRANSLATION_MAX_FILE_KB", "130"))
 CHUNK_TARGET_KB = int(os.environ.get("TRANSLATION_CHUNK_KB", "50"))
+# Table-heavy confidential pricing pages (~50KB+) are chunked even below
+# MAX_FILE_KB — single-shot requests often trigger transient API 500s (June 2026).
+FORCE_CHUNK_MIN_KB = int(os.environ.get("TRANSLATION_FORCE_CHUNK_MIN_KB", "40"))
+_FORCE_CHUNK_PATH_PREFIXES = tuple(
+    p.strip()
+    for p in os.environ.get(
+        "TRANSLATION_FORCE_CHUNK_PATH_PREFIXES",
+        "_docs/_unlisted_docs/pricing/",
+    ).split(",")
+    if p.strip()
+)
 MAX_WORKERS = int(os.environ.get("TRANSLATION_WORKERS", "12"))
 API_RETRIES = int(os.environ.get("TRANSLATION_API_RETRIES", "6"))
 FAILED_PASS_RETRIES = int(os.environ.get("TRANSLATION_FAILED_PASS_RETRIES", "6"))
@@ -381,7 +392,20 @@ _RETRYABLE_API_ERROR_TOKENS = (
     "broken pipe",
     "remote protocol",
     "server disconnected",
+    "internal server error",
+    "api_error",
 )
+
+
+def _uses_chunked_translation(fpath, size_kb):
+    """Return True when a file should use chunked translation."""
+    if size_kb > MAX_FILE_KB:
+        return True
+    if size_kb >= FORCE_CHUNK_MIN_KB:
+        norm = fpath.replace("\\", "/")
+        if any(norm.startswith(prefix) for prefix in _FORCE_CHUNK_PATH_PREFIXES):
+            return True
+    return False
 
 
 def _is_retryable_api_error(exc):
@@ -1367,9 +1391,17 @@ def cmd_translate(args):
     chunked = []
     for fpath in md_files:
         size_kb = (REPO_ROOT / fpath).stat().st_size / 1024
-        if size_kb > MAX_FILE_KB:
+        if _uses_chunked_translation(fpath, size_kb):
             chunked.append(fpath)
-            print(f"  CHUNKED: {fpath} ({round(size_kb)} KB — will use chunked translation)")
+            reason = (
+                "pricing table path"
+                if size_kb <= MAX_FILE_KB
+                else "size limit"
+            )
+            print(
+                f"  CHUNKED: {fpath} ({round(size_kb)} KB — "
+                f"will use chunked translation, {reason})"
+            )
         else:
             translatable.append(fpath)
 

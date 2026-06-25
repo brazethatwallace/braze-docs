@@ -30,6 +30,10 @@ Para que um usuário seja listado como contatável por um determinado canal, ele
 
 Um único usuário pode pertencer a diferentes grupos de usuários contatáveis. Por exemplo, um usuário pode ter tanto um endereço de e-mail válido quanto um token por push válido para Android e ter feito opt-in para ambos, mas não ter nenhum token por push para iOS associado. A diferença entre o total de usuários contatáveis e a soma dos diferentes canais representa o número de usuários que se qualificaram para o Segment, mas não são contatáveis por esses canais de comunicação.
 
+{% alert note %}
+**Total de usuários contatáveis** inclui todos que correspondem aos filtros do seu Segment, mesmo que não estejam mais inscritos em um canal. As linhas de canal, como **iOS**, contam os usuários que são contatáveis apenas naquele canal de acordo com as regras em [Usuários contatáveis por canal](#reachable-users-by-channel). Para alinhar os totais do Segment com os usuários inscritos, adicione filtros como **Push enabled for iOS** é verdadeiro (ou o equivalente para o seu canal).
+{% endalert %}
+
 ## Estatísticas de tamanho do Segment {#statistics-for-segment-size}
 
 As estatísticas estimadas são aproximadas por meio da amostragem de apenas uma parte do seu Segment, então você deve esperar tamanhos estimados maiores ou menores do que o valor real, com espaços de trabalho maiores apresentando margens de erro potencialmente maiores. Para obter uma contagem precisa de usuários no seu Segment, selecione **Calculate Exact Statistics**. A associação exata ao Segment sempre será calculada antes que um Segment seja afetado por uma mensagem enviada em uma Campaign ou Canvas.

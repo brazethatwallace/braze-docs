@@ -41,7 +41,7 @@ Les pourcentages sont calculés en comparant la plage de dates actuelle à la pl
 
 Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** et que vos *utilisateurs actifs quotidiens* affichent une augmentation de 1,8 %, cela signifie que vous avez eu 1,8 % d'utilisateurs actifs quotidiens de plus cette semaine par rapport à la semaine précédente.
 
-![Tuile d'indicateur de l'aperçu des performances affichant une valeur et un pourcentage de variation.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Tuile d'indicateur pour les utilisateurs actifs quotidiens affichant une moyenne de 22,2 milliers avec un badge d'augmentation de 7,1 % et une courbe de tendance.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Afficher le détail {#show-breakdown}
 
@@ -137,7 +137,7 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 

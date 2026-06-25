@@ -596,6 +596,10 @@ A distribuição entre os grupos de controle e variante é projetada para ser ap
 
 Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise de dados. Para mais detalhes, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/).
 
+{% alert note %}
+Atualmente, estatísticas de público estimadas ou exatas não estão disponíveis para Campaigns KakaoTalk.
+{% endalert %}
+
 | Termo | Definição |
 | --- | --- |
 | Público | _Público_ é a porcentagem de usuários que receberam uma mensagem específica. <br><br>_(Número de destinatários na variante) / (Destinatários únicos)_ |

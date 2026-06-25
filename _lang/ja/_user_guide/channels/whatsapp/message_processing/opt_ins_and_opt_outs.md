@@ -74,7 +74,7 @@ Brazeは`/users/track`エンドポイントの改善をリリースし、サブ�
 #### SMSメッセージ {#sms-message}
 
 Canvasで、以下のいずれかの方法を使用して、WhatsAppメッセージの受信をオプトインするかどうかを顧客に尋ねるCampaignを設定します。
-- 顧客Segment：米国外の購読済みマーケティンググループ
+- 顧客セグメント：米国外の購読済みマーケティンググループ
 - カスタムキーワードトリガーの設定
 
 ユーザープロファイルのサブスクリプションステータスの更新については、[購読グループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status)を参照してください。

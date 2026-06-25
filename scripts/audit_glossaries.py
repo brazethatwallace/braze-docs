@@ -8,11 +8,13 @@ Compares scripts/glossaries/*.json against:
   - Swift SDK strings (Sources/BrazeUI/Resources/Localization/*.lproj/*.strings)
   - GrapesJS locale files (src/i18n/locale/{lang}.js)
 
-With --fix, automatically updates glossary files and writes a PR-ready summary.
+With --fix, automatically updates glossary files, propagates new/updated
+terms into matching ``_lang/`` locale docs, and writes a PR-ready summary.
 
 Usage:
     python audit_glossaries.py [--platform-repo ../platform] [--output report.json]
     python audit_glossaries.py --fix [--output report.json]
+    python audit_glossaries.py --fix --no-propagate-locales
 """
 
 import argparse
@@ -32,6 +34,7 @@ GLOSSARY_DIR = REPO_ROOT / "scripts" / "glossaries"
 # flagged by Copilot on PR #13303.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _glossary_protected_terms import PROTECTED_PRODUCT_TERMS  # noqa: E402
+from _glossary_locale_propagation import propagate_glossary_changes  # noqa: E402
 
 
 def _protected_value(term, lang_key):
@@ -440,13 +443,15 @@ def apply_fixes(report):
     - Substring mismatches are skipped (ambiguous, need human judgment).
 
     Returns {"fixes_applied": N, "terms_added": M, "fixes_skipped_downgrade": K,
-             "skipped_downgrade_details": [...], "details": {...}}.
+             "skipped_downgrade_details": [...], "details": {...},
+             "locale_changes": [...]}.
     """
     total_fixed = 0
     total_added = 0
     total_skipped_downgrade = 0
     skipped_downgrade_details = []
     details = {}
+    locale_changes = []
 
     for lang_key, lang_data in sorted(report["languages"].items()):
         glossary_path = GLOSSARY_DIR / f"{lang_key}.json"
@@ -500,6 +505,14 @@ def apply_fixes(report):
                     continue
                 glossary[term] = new_val
                 lang_fixed += 1
+                if old_val != new_val:
+                    locale_changes.append({
+                        "lang": lang_key,
+                        "term": term,
+                        "kind": "updated",
+                        "search": old_val,
+                        "replace": new_val,
+                    })
             else:
                 print(f"  {lang_key}: skipping '{term}' — conflicting sources: {source_values}")
 
@@ -510,11 +523,20 @@ def apply_fixes(report):
                 # Protected product terms always land as their English
                 # canonical, regardless of what the upstream source says.
                 protected = _protected_value(term, lang_key)
-                glossary[term] = (
+                new_val = (
                     protected if protected is not None else m["source_translation"]
                 )
+                glossary[term] = new_val
                 glossary_lower.add(term.lower())
                 lang_added += 1
+                if term != new_val:
+                    locale_changes.append({
+                        "lang": lang_key,
+                        "term": term,
+                        "kind": "added",
+                        "search": term,
+                        "replace": new_val,
+                    })
 
         if lang_fixed or lang_added:
             sorted_glossary = {k: glossary[k] for k in sorted(glossary, key=str.lower)}
@@ -539,6 +561,7 @@ def apply_fixes(report):
         "fixes_skipped_downgrade": total_skipped_downgrade,
         "skipped_downgrade_details": skipped_downgrade_details,
         "details": details,
+        "locale_changes": locale_changes,
     }
 
 
@@ -546,7 +569,7 @@ def apply_fixes(report):
 # Report generation
 # ---------------------------------------------------------------------------
 
-def generate_markdown_report(report, fix_results=None):
+def generate_markdown_report(report, fix_results=None, locale_results=None):
     """Generate a markdown summary from the audit report.
 
     When fix_results is provided, the report is formatted as a PR body
@@ -564,6 +587,11 @@ def generate_markdown_report(report, fix_results=None):
         if sk:
             lines.append(
                 f"**Fixes skipped (de-localization guard):** {sk}"
+            )
+        if locale_results:
+            lines.append(
+                f"**Locale docs updated:** {locale_results['files_changed']} files, "
+                f"{locale_results['replacements']} replacements"
             )
         lines.append(f"**Languages audited:** {stats['languages_audited']}")
         lines.append(f"**Source strings scanned:** {stats['total_source_strings']}")
@@ -653,6 +681,23 @@ def generate_markdown_report(report, fix_results=None):
             if len(substr) > 30:
                 lines.append(f"\n*...and {len(substr) - 30} more*\n")
             lines.append("")
+
+    if fixed_mode and locale_results and locale_results.get("details"):
+        lines.append("### Locale doc propagation\n")
+        lines.append(
+            "Glossary adds/updates were applied to matching prose in "
+            "``_lang/`` (code fences, alert keys, glossary identifiers, and "
+            "partner/UI literals are skipped).\n"
+        )
+        lines.append("| File | Replacements |")
+        lines.append("|------|-------------|")
+        for row in locale_results["details"][:40]:
+            lines.append(f"| `{row['file']}` | {row['replacements']} |")
+        if len(locale_results["details"]) > 40:
+            lines.append(
+                f"\n*...and {len(locale_results['details']) - 40} more files*\n"
+            )
+        lines.append("")
 
     if fixed_mode and fix_results.get("skipped_downgrade_details"):
         lines.append("### Skipped — de-localization guard\n")
@@ -796,6 +841,7 @@ def run_audit(args):
 
     # Auto-fix if requested
     fix_results = None
+    locale_results = None
     if getattr(args, "fix", False) and (total_mismatches > 0 or total_missing > 0):
         print("\nApplying fixes...")
         fix_results = apply_fixes(report)
@@ -805,9 +851,25 @@ def run_audit(args):
             f"{fix_results.get('fixes_skipped_downgrade', 0)} skipped (de-localization)"
         )
 
+        if (
+            not getattr(args, "no_propagate_locales", False)
+            and fix_results.get("locale_changes")
+        ):
+            print("\nPropagating glossary changes to _lang/ docs...")
+            locale_results = propagate_glossary_changes(
+                fix_results["locale_changes"],
+                repo_root=REPO_ROOT,
+            )
+            print(
+                f"  Locale docs: {locale_results['files_changed']} files, "
+                f"{locale_results['replacements']} replacements"
+            )
+
     # Write markdown report
     md_output = output.with_suffix(".md")
-    md_output.write_text(generate_markdown_report(report, fix_results))
+    md_output.write_text(
+        generate_markdown_report(report, fix_results, locale_results)
+    )
     print(f"Markdown report written to {md_output}")
 
     print(f"\nAudit complete:")
@@ -817,12 +879,14 @@ def run_audit(args):
 
     if fix_results:
         total_changes = fix_results["fixes_applied"] + fix_results["terms_added"]
+        locale_files = locale_results["files_changed"] if locale_results else 0
         gh_output = os.environ.get("GITHUB_OUTPUT")
         if gh_output:
             with open(gh_output, "a") as f:
                 f.write(f"fixes_applied={fix_results['fixes_applied']}\n")
                 f.write(f"terms_added={fix_results['terms_added']}\n")
                 f.write(f"total_changes={total_changes}\n")
+                f.write(f"locale_files_changed={locale_files}\n")
         return 0
 
     return 1 if total_mismatches > 0 or total_missing > 0 else 0
@@ -846,6 +910,14 @@ def main():
         help=(
             "Report fuzzy substring mismatches (noisy; not auto-fixed). "
             "Default is exact mismatches only."
+        ),
+    )
+    parser.add_argument(
+        "--no-propagate-locales",
+        action="store_true",
+        help=(
+            "With --fix, update glossaries only; do not search _lang/ docs "
+            "for new or updated terms."
         ),
     )
     args = parser.parse_args()

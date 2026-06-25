@@ -86,6 +86,7 @@ The Braze voice is **straightforward**, **empowering**, and **human**. Key rules
 - Standard contractions (you're, can't). No noun+verb contractions (Braze'll).
 - Oxford comma required. Sentence case for headings.
 - Never use "simple", "simply", "just", "easy" in instructions.
+- Avoid "not X, but Y" antithesis. State the positive directly; use before/after framing for contrast.
 - Use "customers" for brands, "consumers" for their end users, "company users" for platform users. Never "clients".
 - Descriptive link text. Never "Learn more", "here", "click here".
 - Use gender-neutral pronouns. Avoid ableist language.

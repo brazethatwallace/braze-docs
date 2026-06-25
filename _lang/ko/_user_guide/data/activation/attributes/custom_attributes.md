@@ -134,3 +134,21 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 **고객 프로필**에 저장된 모든 데이터(커스텀 속성 데이터 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_archival/#active-users) 상태인 한 무기한 보존됩니다.
 
 부울, 숫자, 문자열, 배열, 시간, 오브젝트, 오브젝트 배열 등 커스텀 속성으로 저장할 수 있는 모든 데이터 유형에 대한 전체 참조는 [커스텀 속성 데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)을 확인하세요.
+
+### 빈 문자열과 null 값 비교 {#blank-strings-versus-null-values}
+
+커스텀 속성을 지우거나 설정 해제할 때 빈 문자열(`""`)을 전달하는지 `null`을 전달하는지에 따라 동작이 달라집니다:
+
+| 값 | 동작 |
+| --- | --- |
+| `""` (빈 문자열) | 속성이 빈 값으로 설정되며 고객 프로필에 계속 표시됩니다. |
+| `null` | 속성이 고객 프로필에서 완전히 제거됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="빈 문자열과 null 값 비교" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="빈 문자열과 null 값 비교" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="빈 문자열과 null 값 비교" }
+
+{% alert important %}
+Braze 대시보드에서 데이터 유형을 수동으로 설정한(자동 감지가 아닌) 비문자열 데이터 유형의 경우 값을 설정 해제하려면 `null`을 사용해야 합니다. `""`를 전달하는 것은 문자열 속성에만 유효합니다. 예를 들어 부울 속성을 `""`로 설정하면 빈 문자열로 처리되며, 이는 해당 유형에 유효하지 않은 값입니다. 부울을 설정 해제하려면 `null`을 전달하세요.
+
+CSV 가져오기는 `null`을 지원하지 않습니다. CSV 가져오기에서 부울 값은 `TRUE` 또는 `FALSE`여야 합니다.
+{% endalert %}

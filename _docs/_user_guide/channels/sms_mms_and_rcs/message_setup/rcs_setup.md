@@ -50,6 +50,24 @@ Because current carrier coverage varies by country, and user hardware and softwa
 
 We highly recommend reviewing your current SMS opt-in experience, subscription groups, and audience segmentation before deploying your first RCS campaign. If needed, your customer success manager is always available to provide guidance and help you navigate the setup process.
 
+#### How SMS fallback works with events and segmentation
+
+{% tabs %}
+{% tab Event behavior %}
+
+When you use SMS fallback with RCS, the event behavior depends on whether the message is successfully sent through RCS or falls back to SMS:
+
+- **If the RCS send succeeds:** You receive an RCS send event and an RCS delivery event.
+- **If the RCS send falls back to SMS:** You receive an RCS send event, an RCS rejection event, and an SMS delivery event. The SMS delivery event has `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Segmentation behavior %}
+
+For SMS and RCS, received message [segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) (such as [Received Message from Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) and [Received Message from Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) evaluate when a message is sent, not when it reaches the user's device. With SMS fallback enabled, users can still match these filters if an RCS message is rejected and falls back to SMS, or if the fallback SMS isn't delivered to the user's device.
+
+{% endtab %}
+{% endtabs %}
+
 ### Timeline for carrier approval
 
 The timeline for carrier approval varies by country and can also vary within a country. Keep in mind that the RCS market is still in its infancy, so carrier and aggregator processes are rapidly evolving. In the United States, Braze estimates that carrier approval turnaround time for an RCS-verified sender typically falls within the 4—6 week range, with a test sender typically approved within one week.

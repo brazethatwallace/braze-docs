@@ -17,7 +17,7 @@
 | 権限                                                                    | できること                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **フィーチャーフラグを管理する**                                                      | フィーチャーフラグを表示、作成、編集します。     |
-| **キャンペーン、キャンバス、カード、フィーチャーフラグ、セグメント、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
+| **Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeの権限" }
 
 ## フィーチャーフラグを作成する {#creating-a-feature-flag}
@@ -48,7 +48,7 @@
 **プロパティ**では、機能が有効な場合にアプリがBraze SDKを通じてアクセスできるカスタムプロパティをオプションで作成できます。各変数には文字列、ブール値、画像、タイムスタンプ、JSON、数値を割り当てることができ、デフォルト値を設定することもできます。
 
 {% tabs local %}
-{% tab example %}
+{% tab 例 %}
 次の例では、フィーチャーフラグが指定されたカスタムプロパティを使用して、eコマースストアに在庫切れバナーを表示します。
 
 | プロパティ名 | タイプ | 値 |
@@ -63,14 +63,14 @@
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2a:カスタムプロパティを作成する" }
 
 {% alert tip %}
-追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10 KBに制限されています。プロパティ値とキーの長さはともに255文字に制限されています。
+追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10,000文字に制限されています。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### ステップ4:ターゲットとするセグメントを選ぶ {#step-4-choose-segments-to-target}
 
-フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[セグメント]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとセグメントのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
+フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとSegmentのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
 
 ![セグメントとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -120,7 +120,7 @@
 例えば、eコマースブランドで働いていて、新しいチェックアウトページを安定性を確保しながら異なる地域に展開したい場合を考えてみましょう。複数ルールのフィーチャーフラグを使用すると、以下の設定が可能です。
 
 - **ルール1:** 米国セグメントを100%に設定します。
-- **ルール2:** ブラジルユーザーの50%に設定し、全員が同時にフローを受け取らないようにします。
+- **ルール2:** ブラジルユーザーの50%にセグメントを設定し、全員が同時にフローを受け取らないようにします。
 - **ルール3（その他のユーザー）:** その他の全ユーザーに対しては、「その他のユーザー」ルールを有効にし、15%に設定します。これにより、全ユーザーの一部が新しいフローでチェックアウトできるようになります。
 
 #### まず内部テスターに届ける {#reach-internal-testers-first}
@@ -154,7 +154,7 @@ if (featureFlag?.enabled) {
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 let featureFlag = braze.featureFlags.featureFlag(id: "expanded_user_profile")
 if featureFlag?.enabled == true {
   print("expanded_user_profile is enabled")
@@ -166,7 +166,7 @@ if featureFlag?.enabled == true {
 {% tab Android %}
 {% subtabs local %}
 {% subtab Java %}
-`````````java
+```java
 FeatureFlag featureFlag = braze.getFeatureFlag("expanded_user_profile");
 if (featureFlag != null && featureFlag.getEnabled()) {
   Log.i(TAG, "expanded_user_profile is enabled");
@@ -178,7 +178,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 val featureFlag = braze.getFeatureFlag("expanded_user_profile")
 if (featureFlag?.enabled == true) {
   Log.i(TAG, "expanded_user_profile is enabled.")
@@ -192,7 +192,7 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 {% tab React Native %}
 
-`````````javascript
+```javascript
 const featureFlag = await Braze.getFeatureFlag("expanded_user_profile");
 if (featureFlag?.enabled) {
   console.log(`expanded_user_profile is enabled`);
@@ -203,7 +203,7 @@ if (featureFlag?.enabled) {
 
 {% endtab %}
 {% tab Unity %}
-`````````csharp
+```csharp
 var featureFlag = Appboy.AppboyBinding.GetFeatureFlag("expanded_user_profile");
 if (featureFlag != null && featureFlag.Enabled) {
   Console.WriteLine("expanded_user_profile is enabled");
@@ -214,7 +214,7 @@ if (featureFlag != null && featureFlag.Enabled) {
 {% endtab %}
 
 {% tab Cordova %}
-`````````javascript
+```javascript
 const featureFlag = await BrazePlugin.getFeatureFlag("expanded_user_profile");
 if (featureFlag?.enabled) {
   console.log(`expanded_user_profile is enabled`);
@@ -224,7 +224,7 @@ if (featureFlag?.enabled) {
 ```
 {% endtab %}
 {% tab Flutter %}
-`````````dart
+```dart
 BrazeFeatureFlag? featureFlag = await braze.getFeatureFlagByID("expanded_user_profile");
 if (featureFlag?.enabled == true) {
   print("expanded_user_profile is enabled");
@@ -235,7 +235,7 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 
 {% tab Roku %}
-`````````brightscript
+```brightscript
 featureFlag = m.braze.getFeatureFlag("expanded_user_profile")
 if featureFlag <> invalid and featureFlag.enabled
   print "expanded_user_profile is enabled"
@@ -255,14 +255,14 @@ end if
 {% tabs %}
 {% tab Web %}
 
-`````````javascript
+```javascript
 braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 braze.featureFlags.logFeatureFlagImpression(id: "expanded_user_profile")
 ```
 
@@ -271,14 +271,14 @@ braze.featureFlags.logFeatureFlagImpression(id: "expanded_user_profile")
 {% subtabs local %}
 {% subtab Java %}
 
-`````````java
+```java
 braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 braze.logFeatureFlagImpression("expanded_user_profile")
 ```
 
@@ -287,30 +287,30 @@ braze.logFeatureFlagImpression("expanded_user_profile")
 {% endtab %}
 {% tab React Native %}
 
-`````````javascript
+```javascript
 Braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endtab %}
 {% tab Unity %}
 
-`````````csharp
+```csharp
 Appboy.AppboyBinding.LogFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endtab %}
 {% tab Cordova %}
-`````````javascript
+```javascript
 BrazePlugin.logFeatureFlagImpression("expanded_user_profile");
 ```
 {% endtab %}
 {% tab Flutter %}
-`````````dart
+```dart
 braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 {% endtab %}
 {% tab Roku %}
-`````````brightscript
+```brightscript
 m.Braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 {% endtab %}
@@ -325,7 +325,7 @@ m.Braze.logFeatureFlagImpression("expanded_user_profile");
 {% tabs %}
 {% tab Web %}
 
-`````````javascript
+```javascript
 // Returns the Feature Flag instance
 const featureFlag = braze.getFeatureFlag("expanded_user_profile");
 
@@ -351,7 +351,7 @@ const jsonProperty = featureFlag.getJsonProperty("footer_settings");
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 // Returns the Feature Flag instance
 let featureFlag: FeatureFlag = braze.featureFlags.featureFlag(id: "expanded_user_profile")
 
@@ -379,7 +379,7 @@ let jsonObjectProperty: [String: Any]? = featureFlag.jsonObjectProperty(key: "fo
 {% subtabs local %}
 {% subtab Java %}
 
-`````````java
+```java
 // Returns the Feature Flag instance
 FeatureFlag featureFlag = braze.getFeatureFlag("expanded_user_profile");
 
@@ -405,7 +405,7 @@ JSONObject jsonObjectProperty = featureFlag.getJSONProperty("footer_settings");
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 // Returns the Feature Flag instance
 val featureFlag = braze.getFeatureFlag("expanded_user_profile")
 
@@ -433,7 +433,7 @@ val jsonObjectProperty: JSONObject? = featureFlag.getJSONProperty("footer_settin
 {% endtab %}
 {% tab React Native %}
 
-`````````javascript
+```javascript
 // Returns the String property
 const stringProperty = await Braze.getFeatureFlagStringProperty("expanded_user_profile", "color");
 
@@ -456,7 +456,7 @@ const jsonObjectProperty = await Braze.getFeatureFlagJSONProperty("expanded_user
 {% endtab %}
 {% tab Unity %}
 
-`````````csharp
+```csharp
 // Returns the Feature Flag instance
 var featureFlag = Appboy.AppboyBinding.GetFeatureFlag("expanded_user_profile");
 
@@ -485,7 +485,7 @@ var jsonObjectProperty = featureFlag.GetJSONProperty("footer_settings");
 {% endtab %}
 {% tab Cordova %}
 
-`````````javascript
+```javascript
 // Returns the String property
 const stringProperty = await BrazePlugin.getFeatureFlagStringProperty("expanded_user_profile", "color");
 
@@ -508,7 +508,7 @@ const jsonObjectProperty = await BrazePlugin.getFeatureFlagJSONProperty("expande
 {% endtab %}
 {% tab Flutter %}
 
-`````````dart
+```dart
 // Returns the Feature Flag instance
 BrazeFeatureFlag featureFlag = await braze.getFeatureFlagByID("expanded_user_profile");
 
@@ -534,7 +534,7 @@ var jsonObjectProperty = featureFlag.getJSONProperty("footer_settings");
 {% endtab %}
 {% tab Roku %}
 
-`````````brightscript
+```brightscript
 ' Returns the String property
 color = featureFlag.getStringProperty("color")
 
@@ -562,7 +562,7 @@ footer_settings = featureFlag.getJSONProperty("footer_settings")
 {% tabs %}
 {% tab Web %}
 
-`````````javascript
+```javascript
 const features = getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
@@ -572,7 +572,7 @@ for(const feature of features) {
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 let features = braze.featureFlags.featureFlags
 for let feature in features {
   print("Feature: \(feature.id)", feature.enabled)
@@ -584,7 +584,7 @@ for let feature in features {
 {% subtabs local %}
 {% subtab Java %}
 
-`````````java
+```java
 List<FeatureFlag> features = braze.getAllFeatureFlags();
 for (FeatureFlag feature: features) {
   Log.i(TAG, "Feature: ", feature.getId(), feature.getEnabled());
@@ -594,7 +594,7 @@ for (FeatureFlag feature: features) {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 val featureFlags = braze.getAllFeatureFlags()
 featureFlags.forEach { feature ->
   Log.i(TAG, "Feature: ${feature.id} ${feature.enabled}")
@@ -606,7 +606,7 @@ featureFlags.forEach { feature ->
 {% endtab %}
 {% tab React Native %}
 
-`````````javascript
+```javascript
 const features = await Braze.getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
@@ -616,7 +616,7 @@ for(const feature of features) {
 {% endtab %}
 {% tab Unity %}
 
-`````````csharp
+```csharp
 List<FeatureFlag> features = Appboy.AppboyBinding.GetAllFeatureFlags();
 foreach (FeatureFlag feature in features) {
   Console.WriteLine("Feature: {0} - enabled: {1}", feature.ID, feature.Enabled);
@@ -625,7 +625,7 @@ foreach (FeatureFlag feature in features) {
 
 {% endtab %}
 {% tab Cordova %}
-`````````javascript
+```javascript
 const features = await BrazePlugin.getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
@@ -633,7 +633,7 @@ for(const feature of features) {
 ```
 {% endtab %}
 {% tab Flutter %}
-`````````dart
+```dart
 List<BrazeFeatureFlag> featureFlags = await braze.getAllFeatureFlags();
 featureFlags.forEach((feature) {
   print("Feature: ${feature.id} ${feature.enabled}");
@@ -641,7 +641,7 @@ featureFlags.forEach((feature) {
 ```
 {% endtab %}
 {% tab Roku %}
-`````````brightscript
+```brightscript
 features = m.braze.getAllFeatureFlags()
 for each feature in features
       print "Feature: " + feature.id + " enabled: " + feature.enabled.toStr()
@@ -661,7 +661,7 @@ end for
 {% tabs %}
 {% tab Web %}
 
-`````````javascript
+```javascript
 braze.refreshFeatureFlags(() => {
   console.log(`Feature flags have been refreshed.`);
 }, () => {
@@ -672,7 +672,7 @@ braze.refreshFeatureFlags(() => {
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 braze.featureFlags.requestRefresh { result in
   switch result {
   case .success(let features):
@@ -688,14 +688,14 @@ braze.featureFlags.requestRefresh { result in
 {% subtabs local %}
 {% subtab Java %}
 
-`````````java
+```java
 braze.refreshFeatureFlags();
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 braze.refreshFeatureFlags()
 ```
 
@@ -704,30 +704,30 @@ braze.refreshFeatureFlags()
 {% endtab %}
 {% tab React Native %}
 
-`````````javascript
+```javascript
 Braze.refreshFeatureFlags();
 ```
 
 {% endtab %}
 {% tab Unity %}
 
-`````````csharp
+```csharp
 Appboy.AppboyBinding.RefreshFeatureFlags();
 ```
 
 {% endtab %}
 {% tab Cordova %}
-`````````javascript
+```javascript
 BrazePlugin.refreshFeatureFlags();
 ```
 {% endtab %}
 {% tab Flutter %}
-`````````dart
+```dart
 braze.refreshFeatureFlags();
 ```
 {% endtab %}
 {% tab Roku %}
-`````````brightscript
+```brightscript
 m.Braze.refreshFeatureFlags()
 ```
 {% endtab %}
@@ -742,7 +742,7 @@ SDKがフィーチャーフラグを更新するときにアプリをリッス�
 {% tabs %}
 {% tab Web %}
 
-`````````javascript
+```javascript
 // Register an event listener
 const subscriptionId = braze.subscribeToFeatureFlagsUpdates((features) => {
   console.log(`Features were updated`, features);
@@ -754,7 +754,7 @@ braze.removeSubscription(subscriptionId);
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 // Create the feature flags subscription
 // - You must keep a strong reference to the subscription to keep it active
 let subscription = braze.featureFlags.subscribeToUpdates { features in
@@ -769,7 +769,7 @@ subscription.cancel()
 {% subtabs local %}
 {% subtab Java %}
 
-`````````java
+```java
 braze.subscribeToFeatureFlagsUpdates(event -> {
   Log.i(TAG, "Feature flags were updated.");
   for (FeatureFlag feature: event.getFeatureFlags()) {
@@ -781,7 +781,7 @@ braze.subscribeToFeatureFlagsUpdates(event -> {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-`````````kotlin
+```kotlin
 braze.subscribeToFeatureFlagsUpdates() { event ->
   Log.i(TAG, "Feature flags were updated.")
   event.featureFlags.forEach { feature ->
@@ -795,7 +795,7 @@ braze.subscribeToFeatureFlagsUpdates() { event ->
 {% endtab %}
 {% tab React Native %}
 
-`````````javascript
+```javascript
 // Register an event listener
 Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
   console.log(`featureFlagUpdates`, JSON.stringify(featureFlags));
@@ -809,7 +809,7 @@ Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
 
 {% endtab %}
 {% tab Cordova %}
-`````````javascript
+```javascript
 // Register an event listener
 BrazePlugin.subscribeToFeatureFlagUpdates((featureFlags) => {
     console.log(`featureFlagUpdates`, JSON.stringify(featureFlags));
@@ -820,7 +820,7 @@ BrazePlugin.subscribeToFeatureFlagUpdates((featureFlags) => {
 
 アプリのDartコードでは、以下のサンプルコードを使用します。
 
-`````````dart
+```dart
 // Create stream subscription
 StreamSubscription featureFlagsStreamSubscription;
 
@@ -849,14 +849,14 @@ Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイ�
 
 {% endtab %}
 {% tab Roku %}
-`````````brightscript
+```brightscript
 ' Define a function called `onFeatureFlagChanges` to be called when feature flags are refreshed
 m.BrazeTask.ObserveField("BrazeFeatureFlags", "onFeatureFlagChanges")
 ```
 {% endtab %}
 
 {% tab React Hook %}
-`````````typescript
+```typescript
 import { useEffect, useState } from "react";
 import {
   FeatureFlag,
@@ -889,7 +889,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Brazeでユーザーがどのフィーチャーフラグを利用できるか確認するには、**オーディエンス** > **ユーザーを検索**に移動し、ユーザーを検索して選択します。
 
-**フィーチャーフラグの適格性**タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある<i class="fa-solid fa-eye"></i>を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
+**フィーチャーフラグの適格性**タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある<i class="fa-solid fa-eye" aria-label="プレビュー"></i>を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
 
 ![ユーザーが利用可能なフィーチャーフラグの一覧表を示す画像。]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
@@ -905,7 +905,7 @@ Brazeでユーザーがどのフィーチャーフラグを利用できるか確
 
 ## フィーチャーフラグでセグメント化する {#segmentation}
 
-Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)を使ってセグメントまたはターゲットメッセージングを作成できます。セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
+Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)を使ってSegmentまたはターゲットメッセージングを作成できます。Segmentでのフィルタリングの詳細については、[Segmentの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
 
 ![「フィルター」セクションで、フィルター検索バーに「フィーチャーフラグ」と入力した状態。]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -915,15 +915,15 @@ Brazeは、現在フィーチャーフラグが有効になっているユーザ
 
 ## ベストプラクティス {#best-practices}
 
-### ロールアウトをキャンバスや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
+### ロールアウトをCanvasesや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
 
-異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、キャンバスまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、キャンバスや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
+異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、Canvasまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、Canvasや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
 
 ### 命名規則 {#naming-conventions}
 
 コードを明確で一貫性のあるものにするために、フィーチャーフラグIDに名前を付けるときは、以下のフォーマットを使用することを検討してください。
 
-`````````plaintext
+```plaintext
 BEHAVIOR_PRODUCT_FEATURE
 ```
 
@@ -938,7 +938,7 @@ BEHAVIOR_PRODUCT_FEATURE
 
 `show`が動作、`animation_profile`が製品、`driver`が機能であるフィーチャーフラグの例を次に示します。
 
-`````````plaintext
+```plaintext
 show_animation_profile_driver
 ```
 

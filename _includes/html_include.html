@@ -8,6 +8,7 @@
 
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncatewords: 25 }}{% else %}{% if page.content.size > 5 %}{{ page.content | strip_html | truncatewords: 25 }}{% else %}{{ page.id | slice: 1,page.id.size | replace: '/', ' ' | replace: '_', ' ' }}{% endif %}{% endif %}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.homeurl }}">
+  {% include hreflang_links.html %}
 
   <meta name="keywords" content="braze, docs, documentation, appboy, academy{{ page.id | replace: '_', ' ' | replace: '/', ', ' }} ">
 
@@ -15,12 +16,12 @@
   {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "url": "https://www.braze.com/docs",
+      "url": "{{ site.homeurl }}{{ site.baseurl }}",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://www.braze.com/docs/search/?query={search_term_string}"
+          "urlTemplate": "{{ site.homeurl }}{{ site.baseurl }}/search/?query={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }

@@ -17,7 +17,7 @@ Operator 분석은 현재 베타 버전입니다. 기능과 지원되는 분석�
 
 ## Operator 분석을 사용하는 이유 {#why-use-operator-analyze}
 
-대부분의 성과 관련 질문은 여전히 도구를 전환하거나, 뷰를 구축하거나, 다른 사람을 기다려야 합니다. 예를 들어 "지난주 성과는 어땠나요", "벤치마크 대비 잘하고 있나요", "어떤 Campaign(캠페인)이 가장 좋은 결과를 내고 있나요?" 같은 질문이 있습니다.
+대부분의 성과 관련 질문은 여전히 도구를 전환하거나, 뷰를 구축하거나, 다른 사람을 기다려야 합니다. 예를 들어 "지난주 성과는 어땠나요", "벤치마크 대비 잘하고 있나요", "어떤 Campaign이 가장 좋은 결과를 내고 있나요?" 같은 질문이 있습니다.
 
 Operator 분석은 참여 측정기준, *기여 매출*, 업계 벤치마크를 다룹니다. 이는 보고서나 대시보드에서 가져오는 것과 동일한 데이터입니다. Operator 패널에서 자유롭게 질문하세요. 차트, 순위 비교 또는 테이블과 함께 1~5개의 유용한 인사이트를 받을 수 있습니다.
 
@@ -102,7 +102,7 @@ Operator는 데이터가 뒷받침될 때 차트를 추가합니다. **꺾은선
 | Content Cards | *발송*, *노출 횟수*, *클릭 수* | 예 |
 | WhatsApp | *발송*, *전달*, *읽음*, *클릭 수* | 아직 미지원 |
 | RCS | *발송*, *전달*, *읽음*, *클릭 수* (텍스트 URL, 버튼, 동작, 답장 동작, 답장 버튼 하위 유형 포함) | 아직 미지원 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported channels, metrics, and benchmark availability" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="지원되는 채널, 측정기준, 벤치마크 제공 여부" }
 
 {% alert tip %}
 Operator는 비율에 고유 수치를 사용합니다(예: *이메일 열람률*의 경우 *고유 열람*을 *전달*로 나눔). 수치가 대시보드와 다른 경우, 기여도 기간, 시간 범위, 정의를 비교하세요. Operator는 각 응답에 세 가지를 모두 표시합니다.
@@ -120,7 +120,7 @@ Operator 분석은 기본적으로 2월 1일부터 1월 31일까지인 **Braze �
 | FQ2 | 5월 – 7월 |
 | FQ3 | 8월 – 10월 |
 | FQ4 | 11월 – 1월 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze fiscal quarters and calendar months" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 회계 분기 및 해당 월" }
 
 역년 관련 질문에는 "CY", "calendar year" 또는 "standard year"를 포함하세요. 모호한 "last year" 프롬프트의 경우 Operator가 어떤 캘린더를 의미하는지 확인합니다.
 
@@ -159,7 +159,7 @@ Operator 분석의 기본값은 **7일**입니다. 질문에 기간을 명시하
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-Operator 분석은 BrazeAI Operator<sup>TM</sup>와 동일한 프라이버시 및 보안 모델을 따릅니다. 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security)을 참조하세요.
+Operator 분석은 BrazeAI Operator<sup>TM</sup>와 동일한 프라이버시 및 보안 모델을 따릅니다. 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 

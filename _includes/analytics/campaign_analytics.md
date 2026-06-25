@@ -389,7 +389,7 @@ Here are some key email-specific metrics that you won't see in other channels. T
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. This number should be between 5–10%. Anything greater than 10% is exceptional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. This number should be between 5–10%. Anything greater than 10% is exceptional!
             </td>
         </tr>
         <tr>
@@ -602,6 +602,10 @@ The distribution between control and variant groups is intended to be roughly ev
 ### KakaoTalk metrics
 
 Here are some key KakaoTalk metrics you may see in your analytics. For more details, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/).
+
+{% alert note %}
+Currently, estimated or exact audience statistics are not available for KakaoTalk campaigns.
+{% endalert %}
 
 | Term | Definition |
 | --- | --- |

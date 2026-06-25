@@ -30,6 +30,10 @@ Para que un usuario aparezca como alcanzable a través de un canal determinado, 
 
 Un solo usuario puede pertenecer a diferentes grupos de usuarios alcanzables. Por ejemplo, un usuario podría tener tanto una dirección de correo electrónico válida como un token de push de Android válido y haber optado por ambos, pero no tener un token de push de iOS asociado. La diferencia entre el total de usuarios alcanzables y la suma de los diferentes canales es el número de usuarios que calificaron para el segmento pero no son alcanzables a través de esos canales de comunicación.
 
+{% alert note %}
+**Total de usuarios alcanzables** incluye a todos los que coinciden con los filtros de tu segmento, incluso si ya no están suscritos a un canal. Las filas de canales como **iOS** cuentan a los usuarios que son alcanzables solo en ese canal según las reglas en [Usuarios alcanzables por canal](#reachable-users-by-channel). Para alinear los totales del segmento con los usuarios suscritos, añade filtros como **Push enabled for iOS** es verdadero (o el equivalente para tu canal).
+{% endalert %}
+
 ## Estadísticas del tamaño del segmento {#statistics-for-segment-size}
 
 Las estadísticas estimadas se aproximan muestreando solo una parte de tu segmento, por lo que debes esperar ver tamaños estimados que sean mayores o menores que el valor real, con espacios de trabajo más grandes que potencialmente presentan mayores márgenes de error. Para obtener un recuento preciso de los usuarios en tu segmento, selecciona **Calculate Exact Statistics**. La membresía exacta del segmento siempre se calculará antes de que un segmento se vea afectado por un mensaje enviado en una campaña o Canvas.
@@ -45,6 +49,7 @@ Para cada grupo de filtros, puedes ver los usuarios alcanzables estimados. Selec
 ## Estimación de usuarios alcanzables {#reachable-users-estimate}
 
 Puedes ver los usuarios alcanzables estimados de un segmento completo, incluyendo los recuentos estimados de usuarios para cada canal, en el panel lateral **Reachable users**. Esta **estimación** te muestra un rango aproximado para el tamaño de tu segmento, y una estimación de qué porcentaje de tu base de usuarios total cae en este segmento. Ten en cuenta que las estadísticas estimadas se almacenan en caché durante 15 minutos a menos que hagas ediciones a tu segmento, en cuyo caso las estadísticas estimadas se actualizarán automáticamente. También puedes ver un recuento exacto de usuarios alcanzables (tanto para el segmento en general como por canal) seleccionando **Calculate exact statistics**.
+
 
 ![El panel "Reachable users" indicando que hay entre 2,3M y 2,4M de usuarios estimados.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 

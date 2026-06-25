@@ -22,7 +22,7 @@ Primero, ve a **Messaging** > **Canvas** y selecciona **Create Canvas**.
 El constructor de Canvas te guiará paso a paso en la configuración de tu Canvas, desde ponerle nombre hasta establecer eventos de conversión y atraer a los usuarios adecuados a tu recorrido del cliente. Selecciona cada una de las siguientes pestañas para ver qué configuraciones puedes ajustar en cada paso del constructor.
 
 {% tabs local %}
-  {% tab Basics %}
+  {% tab Básicos %}
     Aquí configurarás los aspectos básicos de tu Canvas:
     - Nombra tu Canvas
     - Añade equipos
@@ -31,7 +31,7 @@ El constructor de Canvas te guiará paso a paso en la configuración de tu Canva
 
     Aprende más sobre el [paso Básicos](#step-11-start-with-your-canvas-basics).
   {% endtab %}
-  {% tab Entry Schedule %}
+  {% tab Horario de entrada %}
     Aquí decidirás cómo y cuándo tus usuarios entrarán en tu Canvas:
     - Planificada: Esta es una entrada a Canvas basada en tiempo
     - Basada en acciones: Tu usuario entrará en tu Canvas después de realizar una acción definida
@@ -39,7 +39,7 @@ El constructor de Canvas te guiará paso a paso en la configuración de tu Canva
 
     Aprende más sobre el [paso Horario de entrada](#step-12-determine-your-canvas-entry-schedule).
   {% endtab %}
-  {% tab Target Audience %}
+  {% tab Audiencia objetivo %}
     Aquí seleccionarás tu audiencia objetivo:
     - Crea tu audiencia añadiendo segmentos y filtros
     - Ajusta la reentrada al Canvas y los límites de entrada
@@ -47,7 +47,7 @@ El constructor de Canvas te guiará paso a paso en la configuración de tu Canva
 
     Aprende más sobre el [paso Audiencia objetivo](#step-13-set-your-target-entry-audience).
   {% endtab %}
-  {% tab Send Settings %}
+  {% tab Ajustes de envío %}
     Aquí seleccionarás los ajustes de envío de tu Canvas:
     - Selecciona tu configuración de suscripción
     - Establece un límite de velocidad de envío para los mensajes de tu Canvas
@@ -55,12 +55,12 @@ El constructor de Canvas te guiará paso a paso en la configuración de tu Canva
 
     Aprende más sobre el [paso Ajustes de envío](#step-14-select-your-send-settings).
   {% endtab %}
-  {% tab Build Canvas %}
+  {% tab Construir Canvas %}
     Aquí construirás tu Canvas.
 
     Aprende cómo [construir tu Canvas](#step-2-build-your-canvas) usando el constructor de Canvas.
   {% endtab %}
-  {% tab Summary %}
+  {% tab Resumen %}
     Aquí encontrarás el resumen de los detalles de tu Canvas. Si tienes activado el [flujo de trabajo de aprobación de Canvas]({{site.baseurl}}/user_guide/messaging/governance/approvals/), puedes aprobar los detalles del Canvas listados antes de lanzarlo.
 
   {% endtab %}
@@ -92,7 +92,7 @@ Puedes elegir una de tres formas en que los usuarios pueden entrar en tu Canvas.
 
 {% tabs local %}
 {% tab Entrega planificada %}
-Con la entrega planificada, los usuarios entrarán según un horario, de manera similar a como planificarías una Campaign. Puedes inscribir usuarios en un Canvas tan pronto como se lance, hacerlos entrar en tu recorrido en algún momento en el futuro, o de forma recurrente (diaria, semanal o mensual).
+Con la entrega planificada, los usuarios entrarán según un horario, de manera similar a como planificarías una campaña. Puedes inscribir usuarios en un Canvas tan pronto como se lance, hacerlos entrar en tu recorrido en algún momento en el futuro, o de forma recurrente (diaria, semanal o mensual).
 
 Si seleccionas un horario recurrente mensual, ten en cuenta que algunos meses pueden no tener el día seleccionado. Por ejemplo, supongamos que configuras un Canvas para enviarse mensualmente el día 31. En este escenario, Braze envía el último día de ese mes, como el 30 de abril, porque el 31 de abril no existe.
 
@@ -224,7 +224,7 @@ Puedes añadir variantes adicionales seleccionando el botón <i class="fas fa-pl
 ![Dos variantes de ejemplo en un Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-De forma predeterminada, la asignación de variante en Canvas se determina mediante una función del ID de usuario y el ID de Canvas, lo que significa que un usuario dado se asigna de manera consistente a la misma variante al volver a entrar, siempre que los porcentajes de distribución de variantes permanezcan sin cambios. Si ajustas la distribución de variantes después del lanzamiento, los usuarios pueden ser asignados a variantes diferentes cuando vuelvan a entrar en el Canvas. <br><br>Si necesitas una asignación que permanezca fija cuando los porcentajes de distribución cambien, usa una sola variante en Canvas y dirige a los usuarios con un paso de [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/). Al inicio del recorrido, usa un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) para almacenar un número aleatorio en un atributo personalizado y luego filtra por ese atributo en las Rutas de audiencia.
+De forma predeterminada, la asignación de variante en Canvas se determina mediante un hash determinista del ID de usuario y el ID de Canvas (no el [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) de un usuario), lo que significa que un usuario dado se asigna de manera consistente a la misma variante al volver a entrar, siempre que los porcentajes de distribución de variantes permanezcan sin cambios. Si ajustas la distribución de variantes después del lanzamiento, los usuarios pueden ser asignados a variantes diferentes cuando vuelvan a entrar en el Canvas. <br><br>Si necesitas una asignación que permanezca fija cuando los porcentajes de distribución cambien, usa una sola variante en Canvas y dirige a los usuarios con un paso de [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/). Al inicio del recorrido, usa un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) para almacenar un número aleatorio en un atributo personalizado y luego filtra por ese atributo en las Rutas de audiencia.
 
 {% details Expande para ver los pasos %}
 
@@ -287,7 +287,7 @@ Los componentes ligeros en Canvas permiten una experiencia de edición simple, p
 
 #### Mensajes en Canvas {#messages-in-canvas}
 
-Edita los mensajes en un componente de Canvas para controlar los mensajes que un paso particular enviará. Canvas puede enviar mensajes de correo electrónico, push móvil y notificación push web, y webhooks para integrarse con otros sistemas. De manera similar a las Campaigns, puedes usar ciertas plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) para personalizar tus mensajes.
+Edita los mensajes en un componente de Canvas para controlar los mensajes que un paso particular enviará. Canvas puede enviar mensajes de correo electrónico, push móvil y notificación push web, y webhooks para integrarse con otros sistemas. De manera similar a las campañas, puedes usar ciertas plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) para personalizar tus mensajes.
 
 {% alert tip %}
 ¿Sabías que puedes incluir nombres de componentes de Canvas en tus mensajes y plantillas de enlaces?<br>
@@ -314,7 +314,7 @@ Por ejemplo, considera la siguiente solicitud: `"context" : {"product_name" : "s
 {% endtab %}
 
 {% tab Propiedades del evento %}
-Las propiedades del evento son las propiedades que tú estableces en eventos personalizados y compras. Estas `event_properties` se pueden usar en Campaigns con entrega basada en acciones así como en Canvas.
+Las propiedades del evento son las propiedades que tú estableces en eventos personalizados y compras. Estas `event_properties` se pueden usar en campañas con entrega basada en acciones así como en Canvas.
 
 En Canvas, las propiedades de eventos personalizados y eventos de compra se pueden usar en Liquid en cualquier paso de mensaje que siga a un paso de Rutas de acción. Usa este Liquid {% raw %} ``{{event_properties.${property_name}}}`` {% endraw %} al hacer referencia a estas `event_properties`. Estos eventos deben ser eventos personalizados o eventos de compra para usarse de esta manera en el componente de mensaje.
 

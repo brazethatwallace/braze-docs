@@ -12,7 +12,7 @@ tool:
 
 # Criar uma mensagem push {#create-a-push-message}
 
-> As notificações por push são excelentes para chamadas à ação urgentes, bem como para reengajar usuários que não acessam o app há algum tempo. Campaigns de push bem-sucedidas direcionam o usuário diretamente ao conteúdo e demonstram o valor do seu app. Para ver exemplos de notificações por push, confira nossos [estudos de caso](https://www.braze.com/customers).
+> As notificações por push são excelentes para chamadas à ação urgentes, bem como para reengajar usuários que não acessam o app há algum tempo. Campaigns de push bem-sucedidas direcionam o usuário diretamente ao conteúdo e demonstram o valor do seu app. Para ver exemplos de notificações por push, confira os [estudos de caso da Braze](https://www.braze.com/customers).
 
 ## Etapa 1: Escolha onde criar sua mensagem {#create-new-campaign-push}
 
@@ -79,11 +79,11 @@ Se você quiser incluir imagens na sua Campaign de push, consulte os seguintes g
 
 ## Etapa 4: Redija sua mensagem push {#step-4-compose-your-push-message}
 
-Agora é hora de escrever sua mensagem push! A guia **Compose** permite editar todos os aspectos do conteúdo e comportamento da sua mensagem.
+Agora é hora de escrever sua mensagem push! A guia **Redigir** permite editar todos os aspectos do conteúdo e comportamento da sua mensagem.
 
-![Guia Compose da criação de uma notificação por push.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
+![Guia Redigir da criação de uma notificação por push.]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
-O conteúdo da guia **Compose** varia com base no tipo de notificação escolhido na etapa anterior, mas pode incluir qualquer uma das seguintes opções:
+O conteúdo da guia **Redigir** varia com base no tipo de notificação escolhido na etapa anterior, mas pode incluir qualquer uma das seguintes opções:
 
 ### Canal ou grupo de notificação (iOS e Android) {#notification-channel-or-group-ios-and-android}
 
@@ -180,7 +180,7 @@ Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/u
 
 Construa o restante da sua Campaign; consulte as seções a seguir para mais detalhes sobre como usar melhor nossas ferramentas para criar notificações por push.
 
-#### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
+### Escolha o agendamento de entrega ou gatilho {#choose-delivery-schedule-or-trigger}
 
 As mensagens push podem ser entregues com base em um horário agendado, uma ação ou com base em um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -188,7 +188,7 @@ Para entrega baseada em ação, você também pode definir a duração da Campai
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a Campaign, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Escolha os usuários a direcionar {#choose-users-to-target}
+### Escolha os usuários a direcionar {#choose-users-to-target}
 
 Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse Segment. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o Lifetime Value para esse Segment, selecione **Show Additional Stats**.
 
@@ -208,7 +208,7 @@ Você também pode optar por enviar sua Campaign apenas para usuários que tenha
 
 Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment, ou permitir que os usuários recebam a mesma mensagem duas vezes em caso de recorrência da Campaign.
 
-##### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
+#### Campaigns multicanal com e-mail e push {#multichannel-campaigns-with-email-and-push}
 
 Para Campaigns multicanal direcionadas a canais de e-mail e push, você pode querer limitar sua Campaign para que apenas os usuários que fizeram opt-in explicitamente recebam a mensagem (excluindo usuários inscritos ou que cancelaram a inscrição). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
@@ -222,7 +222,7 @@ Para fazer isso, em **Audience Summary**, selecione enviar esta Campaign para "o
 Com essa configuração, não inclua nenhum filtro na etapa **Target Audiences** que limite o público a um único canal (por exemplo, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Escolha eventos de conversão {#choose-conversion-events}
+### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite que você acompanhe com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma Campaign. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 

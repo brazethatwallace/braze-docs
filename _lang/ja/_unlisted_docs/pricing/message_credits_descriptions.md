@@ -44,7 +44,7 @@ hide_toc: true
 
 ## SMS、MMS、RCSチャネルの詳細 {#sms-mms-and-rcs-channel-details}
 
-SMSおよびMMSのクレジット比率は、Brazeプラットフォームから送受信されるセグメント単位で計算されます。RCSのクレジット比率は、Brazeプラットフォームから送信されるBasicまたはSingleタイプ単位で計算されます。
+SMSおよびMMSのクレジット比率は、Brazeプラットフォームから送信されるセグメント単位で計算されます。RCSのクレジット比率は、Brazeプラットフォームから配信されるBasicおよびRich Mediaタイプ、またはSingleおよびRich Mediaタイプの単位で計算されます。受信および送信の両方のタイプが課金対象となります。
 
 {% alert note %}
 これらのチャネルにおいて、該当する場合、キャリア料金は別途（後払いで）請求され、アクションクレジットの一部とはみなされません。

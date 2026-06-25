@@ -15,8 +15,8 @@ hide_toc: true
 <b>エージェントコンソール:</b> 呼び出し回数<br>
 <b>SMS:</b> セグメント数<br>
 <b>MMS:</b> 送信数<br>
-<b>WhatsApp:</b> メッセージ数<br>
-<b>RCS:</b> セグメント数、送信数<br>
+<b>WhatsApp:</b> 配信メッセージ数<br>
+<b>RCS:</b> 配信セグメント数、配信送信数<br>
 <b>LINE:</b> 送信数<br>
 <b>KakaoTalk:</b> 送信数<br>
 
@@ -28,15 +28,15 @@ hide_toc: true
 各列の定義は以下のとおりです。
 
 |---------|-------------------------------------------------|
-| **送信先** | Brazeプラットフォームを通じて送信される最終的な地域、国、またはアクションの種類 |
+| **送信先** | Brazeプラットフォームを通じて送信される具体的な最終地域、国、またはアクションの種類 |
 | **1送信あたりのクレジット** | 1回の送信に必要なメッセージクレジットの正確な数<br>（1送信あたりのクレジット = クレジット比率 × 送信先乗数） |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## メッセージクレジット - Thetaのクレジット比率表 {#credit-ratio-table-for-message-credits-theta}
+## メッセージクレジットのクレジット比率テーブル - Theta {#credit-ratio-table-for-message-credits-theta}
 
 {% details クリックして展開 %}
-<table class="credits-table" aria-label="メッセージクレジット - Thetaのクレジット比率表">
+<table class="credits-table" aria-label="メッセージクレジットのクレジット比率テーブル - Theta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -50,12 +50,12 @@ hide_toc: true
     </thead>
     <tbody>
 <tr>
-        <td>Agent Console</td>
+        <td>エージェントコンソール</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>Agent Console</td>
+        <td>エージェントコンソール</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -2135,7 +2135,7 @@ hide_toc: true
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2146,7 +2146,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>Webhooks</td>
-        <td>Standard</td>
+        <td>標準</td>
         <td>0.08</td>
     </tr>
     <tr>
@@ -2286,75 +2286,72 @@ hide_toc: true
 
 ------
 ## エージェントコンソールの詳細 {#agent-console-details}
-Brazeは、Brazeプラットフォームから送信されたエージェントコンソールの呼び出しに対してメッセージクレジットを課金します。呼び出しは、エージェントがLLMへのコールを開始した時点で記録されます。デフォルトでは、ご契約にはサブスクリプション期間の各期間ごとに1万回の呼び出しが含まれています。
+Brazeは、Brazeプラットフォームから送信されたエージェントコンソールの呼び出し（Invocation）に対してメッセージクレジットを課金します。Invocationは、エージェントがLLMへの呼び出しを開始した際に記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに1万回のInvocationが含まれています。
 
 ## SMS/MMSチャネルの詳細 {#smsmms-channel-details}
 
 ### SMSセグメント {#sms-segments}
 
-SMSメッセージセグメントは、SMS業界でメッセージをカウントする方法です。メッセージセグメントとは、定義された文字数（GSM-7エンコーディングの場合は160文字、UCS-2エンコーディングの場合は67文字）までのグループであり、1回のSMS配信で送信されます。GSM-7エンコーディングで161文字のSMSを配信した場合、2つのメッセージセグメントが送信されたことになります。複数のメッセージセグメントを送信すると、追加料金が発生します。
+SMSメッセージセグメントは、SMS業界でメッセージをカウントする方法です。メッセージセグメントとは、1回のSMS送信で送られる所定の文字数（GSM-7エンコーディングの場合は160文字、UCS-2エンコーディングの場合は67文字）までのグループです。GSM-7エンコーディングで161文字のSMSを送信した場合、2つのメッセージセグメントが送信されたことになります。複数のメッセージセグメントを送信すると、追加料金が発生します。
 
 ### MMSセグメント {#mms-segments}
 
 MMSの場合、メッセージの上限は5 MB（マルチメディアアセットとメッセージ本文のサイズを含む）です。安全のため、Brazeではマルチメディアアセットを600 KB以下に抑え、メッセージ本文も含めることを推奨しています。
 
-### RCSタイプ {#rcs-types}
+### RCSの種類 {#rcs-types}
 
-RCSはSMSとMMSの次世代版です。SMSのような直接的で高エンゲージメントなチャネルのメリットを備えつつ、リッチコンテンツ（画像、動画、文書）、認証済みおよびブランド付き送信、候補返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するより豊富な機能を提供します。
+RCSはSMSおよびMMSの次世代版です。SMSのような直接的で高エンゲージメントなチャネルの利点を備えつつ、現代の消費者が期待するリッチコンテンツ（画像、動画、文書）、認証済みおよびブランド付き送信、おすすめの返信やアクションなどのインタラクティブ機能など、より豊富な機能を提供します。
 
-- RCSの課金は、2つの異なるメッセージタイプ（米国向けの区分あり）に基づいています。
+- RCSの課金は、2つの異なるメッセージタイプに基づいています（米国向けには区別があります）。
     - **Basic RCS:** テキストのみ、最大160文字
     - **Single RCS:** リッチコンテンツを含むメッセージ、または160文字を超えるテキストのみのメッセージ
-    - **Rich RCS（米国のみ）:** テキストのみ、限定的なサジェスト/ボタン（quickReply、dialPhone、webviewなしのopenURL）を含む場合があり、160 UTF-8バイトごとにセグメント化
-    - **Rich Media RCS（米国のみ）:** メディアを含むもの、またはよりリッチなサジェスト/ボタン（webview、ロケーション、カレンダーなど）を含むテキスト。1メッセージとしてカウント
+    - **Rich RCS（米国のみ）:** テキストのみ、限定的なサジェスチョン/ボタン（quickReply、dialPhone、webviewなしのopenURL）を含む場合があり、160 UTF-8バイトごとにセグメント化されます
+    - **Rich Media RCS（米国のみ）:** メディアを含むメッセージ、またはよりリッチなサジェスチョン/ボタン（webview、location、calendarなど）を含むテキスト。1メッセージとしてカウントされます
 
 ## WhatsAppチャネルの詳細 {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## その他のチャネルの詳細 {#additional-channel-details}
+## チャネルの追加詳細 {#additional-channel-details}
 
 ### Webhook {#webhooks}
 
-Webhookは2024年12月9日にメッセージクレジットの対象となりました。Brazeは、Brazeプラットフォームから送信されたすべてのwebhookに対してメッセージクレジットを課金します。デフォルトでは、ご契約にはサブスクリプション期間の各期間ごとに10万件のwebhookが含まれています。追加のwebhookは、注文書に従って課金されます。
+Webhookは2024年12月9日にメッセージクレジットの対象となりました。Brazeは、Brazeプラットフォームから送信されるすべてのwebhookに対してメッセージクレジットを課金します。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに10万件のwebhookが含まれています。追加のwebhookは、注文書に従って課金されます。
 
 ### 自社SMS接続（BYO SMSコネクター） {#bring-your-own-byo-sms-connectors}
 
-Brazeでは、「BYO SMSコネクター」モデルを通じてサードパーティプロバイダーと連携し、SMSメッセージを送信できます。Brazeは、BYO SMSコネクターを通じてBrazeプラットフォームから送信された各メッセージに対してメッセージクレジットを課金します。
+Brazeでは、「BYO SMSコネクター」モデルを通じて、サードパーティプロバイダーと統合してSMSメッセージを送信できます。BrazeはBYO SMSコネクターを通じてBrazeプラットフォームから送信される各メッセージに対してメッセージクレジットを課金します。
 
 ### LINE
 
-Brazeは、Brazeプラットフォームから送信されたすべてのLINEメッセージに対してメッセージクレジットを課金します。
+BrazeはBrazeプラットフォームから送信されるすべてのLINEメッセージに対してメッセージクレジットを課金します。
 
-## 課金地域の内訳 {#billing-region-breakdown}
+## 請求リージョンの内訳 {#billing-region-breakdown}
 
 ### 北米 {#north-america}
 
-United States、Canada
+米国、カナダ
 
 ### その他のアフリカ {#rest-of-africa}
 
-Algeria、Angola、Benin、Botswana、Burkina Faso、Burundi、Cameroon、Chad、Congo、Eritrea、Ethiopia、Gabon、Gambia、Ghana、Guinea-Bissau、Ivory Coast、Kenya、Lesotho、Liberia、Libya、
-Madagascar、Malawi、Mali、Mauritania、Morocco、Mozambique、Namibia、Niger、Rwanda、Senegal、Sierra Leone、Somalia、South Sudan、Sudan、Swaziland、Tanzania、Togo、Tunisia、Uganda、Zambia
+アルジェリア、アンゴラ、ベナン、ボツワナ、ブルキナファソ、ブルンジ、カメルーン、チャド、コンゴ、エリトリア、エチオピア、ガボン、ガンビア、ガーナ、ギニアビサウ、コートジボワール、ケニア、レソト、リベリア、リビア、マダガスカル、マラウイ、マリ、モーリタニア、モロッコ、モザンビーク、ナミビア、ニジェール、ルワンダ、セネガル、シエラレオネ、ソマリア、南スーダン、スーダン、エスワティニ、タンザニア、トーゴ、チュニジア、ウガンダ、ザンビア
 
 ### その他のアジア太平洋 {#rest-of-asia-pacific}
 
-Afghanistan、Australia、Bangladesh、Cambodia、China、Hong Kong、Japan、Laos、Mongolia、Nepal、New Zealand、Papua New Guinea、Philippines、Singapore、Sri Lanka、Taiwan、Tajikistan、Thailand、
-Turkmenistan、Uzbekistan、Vietnam
+アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、香港、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、シンガポール、スリランカ、台湾、タジキスタン、タイ、トルクメニスタン、ウズベキスタン、ベトナム
 
 ### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
 
-Albania、Armenia、Azerbaijan、Belarus、Bulgaria、Croatia、Czech Republic、Georgia、Greece、Hungary、Latvia、Lithuania、Macedonia、Moldova、Poland、Romania、Serbia、Slovakia、Slovenia、Ukraine
+アルバニア、アルメニア、アゼルバイジャン、ベラルーシ、ブルガリア、クロアチア、チェコ共和国、ジョージア、ギリシャ、ハンガリー、ラトビア、リトアニア、マケドニア、モルドバ、ポーランド、ルーマニア、セルビア、スロバキア、スロベニア、ウクライナ
 
 ### その他のラテンアメリカ {#rest-of-latin-america}
 
-Bolivia、Costa Rica、Dominican Republic、Ecuador、El Salvador、
-Guatemala、Haiti、Honduras、Jamaica、Nicaragua、Panama、Paraguay、Puerto Rico、Uruguay、Venezuela
+ボリビア、コスタリカ、ドミニカ共和国、エクアドル、エルサルバドル、グアテマラ、ハイチ、ホンジュラス、ジャマイカ、ニカラグア、パナマ、パラグアイ、プエルトリコ、ウルグアイ、ベネズエラ
 
 ### その他の中東 {#rest-of-middle-east}
 
-Bahrain、Iraq、Jordan、Kuwait、Lebanon、Oman、Qatar、Yemen
+バーレーン、イラク、ヨルダン、クウェート、レバノン、オマーン、カタール、イエメン
 
 ### その他の西ヨーロッパ {#rest-of-western-europe}
 
-Austria、Belgium、Denmark、Finland、Ireland、Norway、Portugal、Sweden、Switzerland
+オーストリア、ベルギー、デンマーク、フィンランド、アイルランド、ノルウェー、ポルトガル、スウェーデン、スイス

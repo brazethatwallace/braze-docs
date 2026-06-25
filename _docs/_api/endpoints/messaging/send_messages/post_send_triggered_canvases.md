@@ -10,7 +10,7 @@ description: "This article outlines details about the Send Canvases using API-tr
 ---
 {% api %}
 # Send Canvas messages using API-triggered delivery
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/send
 {% endapimethod %}
 

@@ -89,7 +89,7 @@ Braze는 1일의 만료 시간을 사용자가 메시지를 수신할 자격을 
 이는 세션 시작 시 기기가 전체 메시지 대신 해당 인앱 메시지의 트리거를 수신한다는 것을 의미합니다. 사용자가 인앱 메시지를 트리거하면, 사용자의 기기가 실제 메시지를 가져오기 위해 네트워크 요청을 합니다.
 
 {% alert note %}
-기기가 인터넷에 접근할 수 없는 경우 메시지가 전달되지 않습니다. Liquid 로직을 해결하는 데 너무 오래 걸리면 메시지가 전달되지 않을 수 있습니다.
+기기가 인터넷에 접근할 수 없는 경우 메시지가 전달되지 않습니다. Liquid 로직을 해석하는 데 너무 오래 걸리면 메시지가 전달되지 않을 수 있습니다.
 {% endalert %}
 
 ## 인앱 메시지의 중단 동작은 어떻게 작동하나요? {#how-does-abort-behavior-work-for-in-app-messages}
@@ -138,6 +138,36 @@ Braze는 Sam의 경우 중단 이벤트를 기록하지 않습니다. 이는 중
 | 표준 | Sam이 메시지를 트리거할 동작을 수행하지 않았기 때문에 중단 이벤트가 기록되지 않았습니다.<br><br>표준 인앱 메시지는 중단을 기록하지 않습니다. 중단의 정의가 "트리거 동작을 수행했음에도 메시지를 보지 못한 것"이기 때문입니다. 인앱 메시지는 트리거 동작이 발생하기 전에 기기로 전달되므로, Liquid 로직으로 인해 생략된 인앱 메시지를 중단으로 간주하는 것은 적절하지 않습니다. |
 | 템플릿 | Sam이 템플릿 인앱 메시지를 트리거하기 위해 트리거 동작을 수행했지만 Liquid 템플릿에서 중단을 수신했기 때문에 중단 이벤트가 기록되었습니다.<br><br>템플릿 인앱 메시지는 Liquid 평가가 트리거 동작이 수행된 후에 발생하기 때문에 중단을 기록합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인앱 메시지 중단 동작 비교" }
+
+### 인앱 메시지에서 연결된 콘텐츠는 언제 실행되나요? {#when-does-connected-content-run-for-in-app-messages}
+
+[템플릿 인앱 메시지](#what-are-templated-in-app-messages)의 경우, 연결된 콘텐츠 및 기타 Liquid 태그는 트리거 이벤트가 발생하고 기기가 메시지 페이로드를 요청할 때 해석됩니다. 사용자가 메시지 내부의 버튼을 클릭할 때가 아닙니다. 각 템플릿 가져오기에는 해당 표시를 위한 연결된 콘텐츠 호출이 포함될 수 있습니다.
+
+HTML이 연결된 콘텐츠에서 반환된 REST 데이터를 참조하는 경우, 해당 데이터는 메시지가 템플릿된 세션에서 사용할 수 있습니다. 여러 버튼이 클릭 시 추가 호출을 트리거하지 않고 동일한 연결된 콘텐츠 응답을 참조할 수 있습니다.
+
+### 인앱 메시지가 표시되기 전에 지연이 발생하는 이유는 무엇인가요? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+표준 인앱 메시지는 트리거 이벤트 후 캐시된 페이로드가 준비되는 즉시 표시됩니다. Android 및 iOS에서는 메시지에 참조된 대용량 이미지 또는 기타 CDN 호스팅 자산이 다운로드를 완료하는 동안 인앱 메시지가 나타나기 전에 짧은 지연이 추가될 수 있습니다.
+
+[템플릿 인앱 메시지](#what-are-templated-in-app-messages) 및 **Re-evaluate campaign eligibility before displaying**이 선택된 Campaign은 트리거 후 메시지가 나타나기 전에 추가 네트워크 요청이 필요합니다. 이로 인해 짧은 지연이 추가될 수 있습니다(안정적인 연결에서 일반적으로 100ms 미만). 자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target)을 참조하세요.
+
+### 인앱 메시지가 대시보드 미리보기와 다르게 보이는 이유는 무엇인가요? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+전달된 인앱 메시지는 다음과 같은 경우 대시보드 미리보기와 다를 수 있습니다:
+
+- 통합에서 특정 플랫폼에 커스텀 스타일을 적용하거나 기본 인앱 메시지 UI를 재정의하는 경우
+- 미리보기에서 수신자와 다른 속성을 가진 테스트 사용자 프로필을 사용하는 경우
+- 템플릿 콘텐츠가 미리보기 모드와 발송 시점에서 다르게 해석되는 경우
+
+외관을 검증할 때는 타겟 오디언스와 일치하는 프로필을 가진 테스트 사용자로 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)를 사용하세요.
+
+### 다중 페이지 인앱 메시지가 모든 페이지에서 동일한 배경을 사용하는 이유는 무엇인가요? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+다중 페이지 인앱 메시지의 한 페이지에서 **배경 이미지**가 활성화되면, 해당 배경이 메시지의 모든 페이지에 적용됩니다. 페이지별로 다른 배경을 사용하려면 JavaScript를 사용하여 페이지 간에 이미지를 전환하는 커스텀 HTML 블록을 사용하세요.
+
+### 웹 인앱 메시지를 어떻게 테스트하나요? {#how-do-i-test-web-in-app-messages}
+
+웹 인앱 메시지 테스트 발송은 테스트 기기에서 푸시가 활성화되어 있어야 합니다. 테스트 플로우가 앱 또는 사이트를 여는 푸시 알림을 전달하고, 그곳에서 인앱 메시지가 표시되기 때문입니다. 동일한 푸시 기반 테스트 경로는 Braze에서 푸시가 구성되지 않은 모든 플랫폼에 적용되지만, 많은 모바일 통합에서는 이미 푸시가 활성화되어 있으므로 웹에서 푸시 누락이 가장 자주 발생합니다. 대신 내부 테스트 Segment에 대한 라이브 Campaign을 사용하세요. 단계는 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)를 참조하세요.
 
 ## Android에서 전체화면 HTML 인앱 메시지의 닫기 버튼이 숨겨지는 이유는 무엇인가요? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 

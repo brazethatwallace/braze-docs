@@ -40,7 +40,7 @@ Braze runs only read-only queries against your data and does not modify your und
 Follow these steps to create source first, then a sync with SQL Editor. If you've already set up a source for CDI, you can skip to Step 3.
 
 {% alert note %}
-Note that these steps use a Snowflake source as an example. The setup process for other data warehouse sources is similar and can be found in [Step 2: Create a new source in Braze dashboard](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) of the [Setting up data warehouse integrations](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) documentation.
+Note that these steps use a Snowflake source as an example. The setup process for other data warehouse sources is similar and can be found in [Step 2: Create a new source in Braze dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) of the [Setting up data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) documentation.
 {% endalert %}
 
 ### Step 1: Set up your Snowflake role, permissions, warehouse, and user
