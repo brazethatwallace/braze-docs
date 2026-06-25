@@ -159,3 +159,13 @@ The following events unblock response messages:
 ### Filtering by a custom time attribute
 
 If your action-based WhatsApp campaign or Canvas audience depends on a custom time attribute falling within a relative window (for example, between now and the next 24 hours), combine two filters as described in [Time]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+
+### Inbound media storage and URL expiration
+
+When a user sends a WhatsApp message that contains media (such as an image, audio file, or document), Braze stores that media in Amazon S3 for 30 days from the time the message is received. 
+
+However, the `inbound_media_urls` Liquid field, which references the URL of that media, is valid for seven days from the time Braze receives the inbound message. Because the URL is generated once at receipt and not regenerated, the seven-day window applies regardless of when you access the field. The shorter of the two limits applies, so in practice, `inbound_media_urls` should be treated as valid for up to seven days.
+
+{% alert note %}
+If you save an `inbound_media_urls` value to a user custom attribute for later use, be aware of this seven-day expiration. Attempting to access the URL after it has expired results in a broken link.
+{% endalert %}

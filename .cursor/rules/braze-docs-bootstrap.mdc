@@ -5,6 +5,21 @@ alwaysApply: true
 
 # Braze Docs AI bootstrap
 
+## New to this repo?
+
+This repo uses **skills** — reusable agent workflows for common documentation tasks — plus a human-authored **style guide** for writing conventions. In Cursor, invoke a skill with `/skill-name` in chat, or describe a routine `_docs/` edit and the agent routes to `braze-docs` automatically.
+
+The following table shows a few common entry points — not every skill or workflow in the repo.
+
+| Skill / resource | When to use | Example |
+|------------------|-------------|---------|
+| **braze-docs** | Drafting, editing, or reviewing `_docs/` articles; fixing links; merge conflicts | *"Update the CSV import page to mention the new column limit"* (no tag needed) |
+| **check-accessibility** | Pre-PR WCAG 2.2 AA check on changed docs or site files | `@check-accessibility` — *"Run an a11y check on my branch"* |
+| **reference-repos** | Verifying product, API, or SDK behavior against source code | `@reference-repos` — *"Verify this endpoint limit against platform source"* |
+| **Style guide** | Voice, tone, formatting, images, API article structure | [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — *"Does this section follow the writing style guide?"* |
+
+For every skill, invocation syntax, and when-to-use guidance, see **[CAPABILITIES.md](CAPABILITIES.md)**.
+
 For work under `_docs/` or root `_includes/`:
 
 - **Writing, links, merge conflicts, review:** Follow [`.github/skills/braze-docs/SKILL.md`](.github/skills/braze-docs/SKILL.md).

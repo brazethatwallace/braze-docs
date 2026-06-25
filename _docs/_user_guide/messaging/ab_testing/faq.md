@@ -67,6 +67,8 @@ Confidence increases over time if all else holds constant. Holding constant mean
 
 Confidence is a measurement of how confident Braze is that the variant is different from the control. As more messages are sent, the statistical power of the test increases, which would increase the confidence that measured differences in performance are not due to random chance. Generally, a larger sample size increases our confidence in identifying smaller differences in performance between variants and control.
 
+However, if conversion rates across variants and the control converge (get closer together) as more messages are sent, confidence can decrease, because the measured gap you care about is shrinking, which can outweigh the benefit of a larger sample size.
+
 ### Can control and test group assignments introduce bias to testing?
 
 There is no practical way that a user’s attributes or behaviors before the creation of a particular campaign or Canvas could vary systematically between variants and control. 

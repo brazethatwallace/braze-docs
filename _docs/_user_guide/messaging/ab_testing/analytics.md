@@ -83,7 +83,7 @@ By default, the test looks for associations between each user's custom events an
 
 The relationships between custom events and message preferences are displayed in the table on the **Initial Send** tab.
 
-![Initial Test tab table summarizing relationships between users' custom events and their preferred message variants.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Custom Event Data tables for Variant 1 and Variant 2 showing custom event impact scores that indicate how each event influences variant preference.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 If the test can't find a meaningful relationship between custom events and path preferences, the test falls back to a session-based analysis method, and no custom event data tables are shown.
 
@@ -124,7 +124,7 @@ The three cards on this page show your projected lift, overall results, and the 
 
 The table on this page shows the metrics for each variant from the Personalized Variant send. Your **Audience %** adds up to the percentage of the target segment you reserved for the Personalized Variant group.
 
-![Personalized Variant tab table listing audience percentage and performance metrics for each variant after the final send.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Personalized Variant send results table showing performance metrics for Variant A, Variant B, and All Variations, including audience percentage, sends, deliveries, opens, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -143,7 +143,9 @@ Braze compares each variant's conversion rate against the control's conversion r
 
 In general, a confidence of at least 95% is necessary to show that your results are reflective of users' actual preferences, and not due to chance. In rigorous scientific tests, 95% confidence (or otherwise commonly referred to as the "p" value being less than 0.05) is the common benchmark used to determine statistical significance. If you continually fail to achieve 95% confidence, try increasing your sample size or decreasing the number of variants. 
 
-Confidence does not describe whether one variant is better than the others. It is purely a measure of how sure we are that the two (or more) conversion rates are actually different than each other. This is only a function of the sample size and the differences between the apparent conversion rates. Whether the overall rates are high or low does not affect the strength of the confidence measure. It's possible for one variant to have a very different conversion rate from another and yet not have a 95% or higher confidence. It's also possible for two sets of variants to have similar conversion/uplift rates, and yet different confidence.
+Confidence reflects how likely it is that an observed difference between variant and control conversion rates is real rather than due to random chance. It is a function of sample size and the magnitude of the difference between conversion rates. Whether overall conversion rates are high or low is typically less important than the observed difference and sample size in determining the strength of the confidence measure. It's possible for one variant to have a very different conversion rate from another and yet not have a 95% or higher confidence. It's also possible for two sets of variants to have similar conversion or uplift rates, yet different confidence.
+
+As more data arrives, confidence can decline if variant and control conversion rates move closer together—the difference you are measuring is getting smaller, which can outweigh the effect of a larger sample.
 
 ### Statistically insignificant results
 
@@ -158,7 +160,7 @@ Whether or not your test has a clear winner, it can be helpful to run a [follow-
 
 ## Discrepancies between the control group and variant
 
-In in-app message campaigns, the way users are tracked and how impressions are logged can cause discrepancies in the expected split between the control group and variant. This is because the actual impressions logged may not reflect this split, and Braze ultimately has no control over the individual user behavior of who will perform the trigger.
+For in-app message campaigns with A/B or multivariate splits, the percentages you configure are assignment targets. Reported impressions rarely match those percentages exactly, because only users who perform the trigger action log impressions, and control-group users who trigger log an impression even though they never see a message.
 
 For example, let's say a campaign has a target audience of 200 users at launch, with 100 users in the control group and 100 users in the variant.
 
