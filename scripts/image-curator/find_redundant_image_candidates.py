@@ -68,7 +68,10 @@ _FILENAME_LIST_HOME = re.compile(
     r"(?:"
     r"homepage|home_page|home_dashboard|landing-pages-homepage|"
     r"reporting_home|credits_usage_overview|survey-analytics|"
-    r"keyword_home|export_logs_cancel|cancel_calculation|cancel_number"
+    r"keyword_home|export_logs_cancel|cancel_calculation|cancel_number|"
+    r"export_logs\.png|export_logs_share|notification_preferences|"
+    r"workspace_time_zones_page|tags_view|contract_details|scim_unfilled|"
+    r"elevated_access|designated_support_contact|add_locale_options"
     r")",
     re.IGNORECASE,
 )
@@ -98,7 +101,7 @@ _BUILDER_UI_FILENAME = re.compile(
     r"lp-optional|connect_subdomain|segmentation_selected|trigger\.|"
     r"url-handle-example|manage-lp-template|copy-url|"
     r"landing_pages/template\.png|"
-    r"placement_details|content_card_|full_page\.|_home_icon\.|teams\.png|"
+    r"placement_details|content_card_|full_page\.|_home_icon\.|"
     r"sms_keywords|identifier_for_reporting"
     r")",
     re.IGNORECASE,
@@ -111,7 +114,10 @@ _ALT_HIGH = re.compile(
     r"\bleft\s+(?:navigation|nav|sidebar)\b|"
     r"\bbrowser\s+(?:frame|chrome|window)\b|"
     r"\burl\s+bar\b|\bbookmarks?\b.*\btabs?\b|"
-    r"\bscreenshot\s+of\s+the\s+(?:entire|full)\b"
+    r"\bscreenshot\s+of\s+the\s+(?:entire|full)\b|"
+    r"\bpage\s+in\s+(?:the\s+)?braze\s+dashboard\b|"
+    r"\blogin\s+screen\b|\bdashboard\s+login\b|"
+    r"\btoggle\.?\b|\bcheckbox\s+for\b"
     r")",
     re.IGNORECASE,
 )
@@ -124,7 +130,39 @@ _OCR_BUTTON_ONLY = re.compile(
     re.IGNORECASE,
 )
 _OCR_MIN_USEFUL_LEN = 40
+# Administer / Settings — field dialogs and workflow UI to keep.
+_SETTINGS_FIELD_KEEP = re.compile(
+    r"(?:"
+    r"window called|fields to enter|fields for|section with fields|"
+    r"edit button next to|bulk edit|content test group|seed group|seed test|"
+    r"saml tracer|authentication rules|example setup of|"
+    r"selecting events to be included|operator with|"
+    r"open tracking pixel|reply-to address|bcc address|outbound email|"
+    r"team-level permissions|workspace-level permissions|team tag|"
+    r"saml sso settings with the toggle"
+    r")",
+    re.IGNORECASE,
+)
+# Administer / Settings — overview, list, and login chrome (PR #14325 patterns).
+_ALT_SETTINGS_OVERVIEW = re.compile(
+    r"(?:"
+    r"page in (?:the )?braze(?: dashboard)?|"
+    r"list of (?:completed|previous|workspaces)|"
+    r"page showing a list|page with a list|"
+    r"section of (?:the |total )|"
+    r"login screen|dashboard login|"
+    r"dropdown with (?:options|the)|dropdown menu with|"
+    r"filtered for archived|settings form with|"
+    r"option in focus|internal group settings when creating"
+    r")",
+    re.IGNORECASE,
+)
+_SETTINGS_NAVIGATION_PROSE = re.compile(
+    r"(?:go to \*\*settings\*\*|to access this page|settings\s*>\s*)",
+    re.IGNORECASE,
+)
 PARTNER_SOURCE_PREFIX = "_docs/_partners/"
+ADMINISTER_SOURCE_PREFIX = "_docs/_user_guide/administer/"
 BUILDER_SOURCE_PREFIXES = (
     "_docs/_user_guide/messaging/landing_pages/",
     "_includes/span_text.md",
@@ -205,6 +243,21 @@ def is_partner_page(source_file: str) -> bool:
     return source_file.replace("\\", "/").startswith(PARTNER_SOURCE_PREFIX)
 
 
+def is_administer_page(source_file: str) -> bool:
+    return source_file.replace("\\", "/").startswith(ADMINISTER_SOURCE_PREFIX)
+
+
+def is_settings_field_keep(alt: str, path: str) -> bool:
+    if re.search(r"\blogin\s+screen\b", alt, re.I):
+        return False
+    combined = f"{alt} {path}"
+    return bool(_SETTINGS_FIELD_KEEP.search(combined))
+
+
+def image_before_settings_navigation(ref: ImageRef) -> bool:
+    return bool(_SETTINGS_NAVIGATION_PROSE.search(ref.context_after))
+
+
 def is_diagram_or_workflow(path: str, alt: str, ocr_text: str) -> bool:
     combined = f"{path} {alt} {ocr_text}".lower()
     return bool(_DIAGRAM_WORKFLOW.search(combined))
@@ -248,7 +301,7 @@ def is_metric_chart_example(alt: str, ocr_text: str) -> bool:
 
 
 def is_instructional_placement(alt: str, match_line: str) -> bool:
-    return bool(_ALT_INSTRUCTIONAL_PLACEMENT.search(f"{alt} {match_line}"))
+    return bool(_ALT_INSTRUCTIONAL_PLACEMENT.search(alt))
 
 
 def iter_english_files() -> list[Path]:
@@ -355,6 +408,17 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
         ref.confidence = "low"
         return
 
+    if is_administer_page(ref.source_file) and is_settings_field_keep(alt, path):
+        ref.reasons.append("settings_field_keep")
+        ref.confidence = "low"
+        return
+
+    if is_administer_page(ref.source_file):
+        if alt and _ALT_SETTINGS_OVERVIEW.search(alt):
+            ref.reasons.append("alt_settings_overview")
+        if image_before_settings_navigation(ref):
+            ref.reasons.append("image_before_settings_navigation")
+
     if _FILENAME_LIST_HOME.search(path) or _FILENAME_LIST_HOME.search(basename):
         ref.reasons.append("filename_list_home_chrome")
     if _FILENAME_SAVE_CANCEL.search(basename):
@@ -394,6 +458,8 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
         "alt_redundant_with_prose",
         "ocr_button_only",
         "ocr_mostly_action_button",
+        "alt_settings_overview",
+        "image_before_settings_navigation",
     }
     medium_only = {
         "filename_save_cancel",
@@ -408,8 +474,20 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
         ref.confidence = "high"
     elif (
         corroboration_count >= 1
-        and ("filename_list_home_chrome" in active or "filename_page_chrome" in active)
-        and active & {"alt_describes_redundant_ui", "alt_redundant_with_prose", "ocr_button_only", "ocr_mostly_action_button"}
+        and (
+            "filename_list_home_chrome" in active
+            or "filename_page_chrome" in active
+            or "alt_settings_overview" in active
+        )
+        and active
+        & {
+            "alt_describes_redundant_ui",
+            "alt_redundant_with_prose",
+            "ocr_button_only",
+            "ocr_mostly_action_button",
+            "image_before_settings_navigation",
+            "alt_settings_overview",
+        }
     ):
         ref.confidence = "high"
     elif active & medium_only or corroboration_count == 1:

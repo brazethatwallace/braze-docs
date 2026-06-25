@@ -53,6 +53,8 @@ Skip when `reasons` includes:
 | `reference_table_icon` | Icon in a markdown table (for example `deep_links.md`) |
 | `third_party_console` | GCP / AWS / Infobip navigation screenshot |
 | `metric_chart_example` | Metric tile or chart layout |
+| `settings_field_keep` | Administer field dialog, modal, test preview, or SAML tooling |
+| `alt_settings_overview` | Administer list/page overview — **review** before removal |
 | `instructional_placement` | Pencil icon, permissions panel, or similar placement shot |
 
 Also skip when:
@@ -97,6 +99,16 @@ Before merge, confirm:
 4. **Diagrams** — `user_profile_process3.png`, `churn_overview.png`, `tealium_overview.png`, and similar kept
 5. **GCP / third-party console** navigation screenshots kept; save/cancel-only shots reviewed individually
 6. **PR title count** matches `git diff develop` image removals, not batch script output
+
+### Lessons from manual Administer curation (PR #14325)
+
+Before merging `_docs/_user_guide/administer/` batches:
+
+1. **Remove** settings page overviews and list screenshots when navigation is in the next paragraph
+2. **Keep** field-level email settings, locale dialogs, Edit-button placement, and test/seed previews
+3. **Keep** SAML settings toggles and tracer tooling; **remove** generic login-screen chrome (`sso1.png`)
+4. **Review** permission-checkbox screenshots individually (`relaystate_troubleshoot.png` may stay or go)
+5. Acceptable non-image edit: reorganize intro prose into bullets (`tags.md`) — not alt appended to wrong line
 
 ## Step 4: Delete binaries
 

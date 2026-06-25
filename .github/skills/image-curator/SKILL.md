@@ -74,6 +74,7 @@ Per the style guide, prefer prose over images when the screenshot shows:
 - **Reference table icons** — markdown tables where images illustrate constants (for example `braze_pilot/deep_links.md`)
 - **Third-party admin consoles** — GCP, AWS, Azure, Infobip navigation (save/cancel-only shots on those pages may still be removable)
 - **Metric and chart examples** — metric tiles, trend lines, and chart layouts on dashboard pages
+- **Administer field dialogs** — modal windows, multi-field forms, email setting fields, locale dialogs, SAML tracer tooling
 
 See [removal-criteria.md](removal-criteria.md) for the full matrix.
 
@@ -129,7 +130,7 @@ Do not mix curation edits with script/skill changes in one PR.
 4. **Batch ≤ 15** removals per PR (CI default; increase only when batch precision is verified).
 5. **Do not curate style-guide teaching images** under `assets/img/contributing/style_guide/`.
 6. **Skip `_docs/_partners/`** in automated batches; partner screenshots need human review before removal.
-7. **Never auto-remove diagrams, workflows, builder UI, table icons, or third-party console navigation** — see [removal-criteria.md](removal-criteria.md).
+7. **Never auto-remove diagrams, workflows, builder UI, table icons, third-party console navigation, or Administer field dialogs** — see [removal-criteria.md](removal-criteria.md).
 8. **High confidence requires corroboration** — two signals (filename + alt, filename + OCR, and so on). Filename-only `save`/`landing` hits are medium at most.
 9. **Run `./bdocs fblinks`** after edits.
 10. **Label `image pruning`** on every curation PR.

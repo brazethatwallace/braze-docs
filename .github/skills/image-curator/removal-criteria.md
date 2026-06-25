@@ -76,6 +76,42 @@ Do **not** remove metric tiles, trend lines, or chart layouts that show how data
 
 The scanner skips these via `metric_chart_example`.
 
+## Administer and Settings (`_docs/_user_guide/administer/`)
+
+Manual curation of the Administer folder ([PR #14325](https://github.com/braze-inc/braze-docs/pull/14325)) established these patterns.
+
+### Remove (delete-image-only)
+
+| Pattern | Examples from PR #14325 | Why |
+|---------|-------------------------|-----|
+| **Settings page overview** | `notification_preferences.png`, `workspace_time_zones_page.png`, `export_logs.png`, `tags_view.png` | Alt describes a full page or list; prose gives **Settings** navigation on the next line |
+| **Image before navigation sentence** | Same files — image sits above `Go to **Settings** > …` or `To access this page` | Sighted readers do not need a screenshot of the destination page |
+| **Login / list chrome** | `sso1.png` (login screen), `contract_details.png` (billing panel) | Generic chrome; prose covers the path or fields |
+| **Toggle / checkbox named in steps** | `elevated_access.png`, `designated_support_contact.png` | Step text already names the control |
+| **Dropdown after steps describe it** | `add_locale_options.png`, `edit_single_workspace.png` | Steps name **Add locale**, **Save**, or the dropdown action |
+| **Export / share when prose names action** | `exporting_user_permissions.png`, `export_logs_share.png` | **Export Users**, **Share Log** already in prose |
+| **Archived / filtered list views** | `unarchive_brand_guideline.png` | Filter state is described in prose |
+
+Scanner signals: `alt_settings_overview`, `image_before_settings_navigation`, `filename_list_home_chrome` (admin filenames).
+
+### Keep
+
+| Pattern | Examples left in Administer | Why |
+|---------|----------------------------|-----|
+| **Field-level or modal UI** | `default_option.png`, `guidelines_create.png`, `display_name_address.png` | Shows specific fields, not whole-page chrome |
+| **Control placement** | `single_edit_icon.png`, `bulk_edit_workspace_time_zone.png` | Shows *where* to click when prose is ambiguous |
+| **Workflow / test integration** | `content_test_preview.png`, `seed_group_campaign.png`, `company_analytics_report_new.png` | Tied to a composer or report configuration step |
+| **SAML / security tooling** | `samlsso.png` (toggle in settings), `sso3.png`, `saml_tracer_example.png` | Technical setup or troubleshooting, not login chrome |
+| **Email settings fields** | All `email_settings/*` screenshots | Individual field layout on complex settings pages |
+| **AWS / third-party console** | `security_export_s3.md` images | External admin UI (existing `third_party_console` skip) |
+| **Permissions / checkbox in permissions matrix** | `relaystate_troubleshoot.png`, `teams.png` | May still be removable after vision review — default **keep** when alt shows a specific permission checkbox |
+
+Scanner skip reason: `settings_field_keep`.
+
+### Prose edits beyond image removal
+
+`tags.md` in PR #14325 converted duplicate intro sentences into bullets after removing a list screenshot. That is acceptable when it **does not** append alt text — it reorganizes steps already in prose.
+
 ## Automated confidence (corroboration required)
 
 Test PR #14293 showed ~75% false positives when **filename alone** triggered high confidence.
@@ -84,7 +120,7 @@ Test PR #14293 showed ~75% false positives when **filename alone** triggered hig
 |------------|------|
 | **High** | At least **two** corroborating signals (for example `filename_list_home_chrome` + `alt_describes_redundant_ui`, or list/home filename + OCR button-only) |
 | **Medium** | Single signal — for example `filename_save_cancel` alone, or one alt/prose match. **Requires vision review** before removal. |
-| **Low** | Skip reasons: partner, diagram, builder UI, table icon, third-party console, metric chart, instructional placement |
+| **Low** | Skip reasons: partner, diagram, builder UI, table icon, third-party console, metric chart, instructional placement, settings field keep |
 
 CI automated batches process **high** confidence only, capped at **15** references per run.
 
