@@ -48,8 +48,10 @@ _MD_IMAGE = re.compile(
     r"!\[([^\]]*)\]\(([^)]+)\)",
     re.IGNORECASE,
 )
+# Alt is extracted with _ALT_ATTR on the full tag match — not an optional group on
+# this regex. A greedy [^>]* before alt in a combined pattern prevents backtracking.
 _HTML_IMG = re.compile(
-    r'<img\b[^>]*?\bsrc=["\']([^"\']+)["\'][^>]*>',
+    r'<img\b[^>]*?\bsrc=["\']([^"\']+)["\'][^>]*?>',
     re.IGNORECASE,
 )
 _ALT_ATTR = re.compile(r'\balt=["\']([^"\']*)["\']', re.IGNORECASE)
