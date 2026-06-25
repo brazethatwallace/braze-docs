@@ -89,6 +89,15 @@ If you've uploaded incorrect codes, you have two options to resolve this:
 
 For general guidance on updating a list, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
 
+### Does Braze track which users received or redeemed which promotion codes?
+
+When a message uses a promotion code, Braze marks that code as consumed so it can't be sent again and updates the list's remaining count. Braze doesn't maintain a report of sent codes, track which specific users received each code, or track whether codes were redeemed.
+
+If you need to associate codes with users or track redemption yourself, you can:
+
+- Save promotion codes to user profiles through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+- Send promotion code values to Currents using the `message_extras` Liquid tag. For more information, see [Sending promotion code information to Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents).
+
 ### Can I save a promotion code to a user's profile for future messages?
 
 Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
