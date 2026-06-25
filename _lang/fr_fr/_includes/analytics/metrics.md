@@ -235,7 +235,7 @@ Le <i>nombre total de clics</i> est le nombre (ou le pourcentage) de destinatair
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-Le terme <i>Total des rejets</i> désigne le nombre de fois où les Content Cards d'une campagne ont été rejetées.
+Le terme <i>Total des rejets</i> désigne le nombre de fois où les utilisateurs ont fermé un message d'une campagne. Pour les Content Cards, cela comptabilise chaque fermeture de carte. Pour les bannières, cela comptabilise chaque fois qu'un utilisateur a fermé la bannière lorsque le comportement de fermeture est activé.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}

@@ -85,9 +85,9 @@ O comportamento ao clicar pode ser substituído se um elemento específico (como
 
 #### Etapa 3.3: Configurar o comportamento de dispensa (opcional) {#dismiss-behavior}
 
-Marque a caixa de seleção **Banner can be dismissed** na seção **Dismiss Behavior** para permitir que os usuários dispensem o Banner. Essa opção é útil em cenários em que você deseja promover uma venda por tempo limitado para todos os usuários do app, mas permitir que eles dispensem a mensagem caso não tenham interesse.
+Marque a caixa de seleção **Banner can be dismissed** na seção **Dismiss behavior** para permitir que os usuários dispensem o Banner. Essa opção é útil quando você deseja promover uma oferta por tempo limitado para um público amplo, mas ainda permitir que usuários desinteressados ocultem a mensagem.
 
-Quando a dispensa está ativada, você pode personalizar o botão de dispensa na seção **Dismiss Behavior**:
+Quando a dispensa está ativada, você pode personalizar o botão de dispensa na seção **Dismiss behavior**:
 
 | Configuração | Descrição |
 |---------|-------------|

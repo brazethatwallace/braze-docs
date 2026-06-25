@@ -68,11 +68,11 @@
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:ターゲットとするセグメントを選ぶ {#step-4-choose-segments-to-target}
+### ステップ4:ターゲットとするSegmentを選ぶ {#step-4-choose-segments-to-target}
 
 フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとSegmentのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
 
-![セグメントとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Segmentとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
 ### ステップ5:ロールアウトトラフィックを設定する {#rollout}
 
@@ -889,7 +889,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Brazeでユーザーがどのフィーチャーフラグを利用できるか確認するには、**オーディエンス** > **ユーザーを検索**に移動し、ユーザーを検索して選択します。
 
-**フィーチャーフラグの適格性**タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある<i class="fa-solid fa-eye" aria-label="プレビュー"></i>を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
+**フィーチャーフラグの適格性**タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある<i class="fa-solid fa-eye"></i>を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
 
 ![ユーザーが利用可能なフィーチャーフラグの一覧表を示す画像。]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 

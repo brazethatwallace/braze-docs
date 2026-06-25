@@ -205,7 +205,7 @@ Si vous prévoyez d'utiliser Liquid, veillez à inclure une valeur par défaut p
 
 #### Générer du texte avec l'IA {#generating-ai-copy}
 
-Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
+Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
 
 ![Bouton Lancer le rédacteur IA, situé dans le champ Message du compositeur SMS.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 

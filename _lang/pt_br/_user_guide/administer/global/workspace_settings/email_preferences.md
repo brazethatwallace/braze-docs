@@ -58,6 +58,10 @@ Adicionar um endereço de e-mail nesta seção permite que você o selecione com
 
 ![Seção "Reply-To Address" com campos para inserir múltiplos endereços de resposta.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Os domínios de envio da Braze não aceitam e-mails de entrada. Se um destinatário responder a um e-mail enviado de um domínio de envio configurado pela Braze, a resposta será rejeitada com um erro `550 5.7.1 relaying denied`. O endereço de resposta não precisa compartilhar o mesmo domínio que o endereço de remetente. Se você precisa receber respostas — por exemplo, para coletar confirmações de convites de calendário — use um subdomínio que não esteja configurado para envio e que tenha uma caixa de entrada configurada para receber e-mails.
+{% endalert %}
+
 #### Personalizar com Liquid
 
 Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) no campo **Reply-To Address** para criar dinamicamente o endereço de resposta com base em atributos personalizados. Por exemplo, você pode usar lógica condicional para enviar respostas para diferentes regiões ou departamentos:
@@ -359,7 +363,7 @@ Não. Se a configuração do espaço de trabalho estiver desativada e a configur
 {% enddetails %}
 
 {% details O que acontece se um grupo de inscrições for arquivado? Isso quebra o cancelamento de inscrição com um clique em e-mails enviados? %}
-Se um grupo de inscrições referenciado em **Sending Info** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição do cancelamento com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de segmento, perfil de usuário e áreas similares).
+Se um grupo de inscrições referenciado em **Sending Info** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição do cancelamento com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de Segment, perfil de usuário e áreas similares).
 {% enddetails %}
 
 {% details A configuração de cancelamento de inscrição com um clique está disponível para modelos de e-mail? %}

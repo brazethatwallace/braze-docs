@@ -14,7 +14,7 @@ hidden: true
 
 ### Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campanhas são melhores para campanhas de mensagens simples e únicas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campaigns são melhores para campanhas de mensagens simples e únicas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -59,7 +59,7 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 ### Etapa 2: Selecione o tipo de mensagem RCS {#step-2-select-your-rcs-message-type}
 
-Durante a criação de campanhas e Canvas, escolha entre três tipos de mensagem RCS (Texto, Mídia, Rich Card) para configurar mensagens que melhor atendam aos seus objetivos.
+Durante a criação de Campaigns e Canvas, escolha entre três tipos de mensagem RCS (Texto, Mídia, Rich Card) para configurar mensagens que melhor atendam aos seus objetivos.
 
 ![Opções para selecionar entre um tipo de mensagem Texto, Mídia ou Cartão.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
 
@@ -223,7 +223,7 @@ Se você planeja usar Liquid, certifique-se de incluir um valor padrão para a p
 
 ### Gerando texto com IA {#generating-ai-copy}
 
-Precisa de ajuda para criar textos envolventes? Experimente usar o [Assistente de Copywriting com IA](https://braze.com/docs/user_guide/brazeai/generative_ai/copywriting/). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
+Precisa de ajuda para criar textos envolventes? Experimente usar o [Assistente de Copywriting com IA](https://braze.com/docs/user_guide/brazeai/operator/capabilities/#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
 
 ![Criador de mensagens com um ícone para abrir o assistente de copywriting com IA.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

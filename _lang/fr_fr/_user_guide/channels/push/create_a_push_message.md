@@ -116,7 +116,7 @@ Vous **ne pouvez pas** envoyer un message push Android sans titre&#8212;cependan
 {% endtabs %}
 
 {% alert tip %}
-Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
+Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
 
 ![Bouton Lancer le rédacteur IA, situé dans le champ Corps du compositeur push.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}

@@ -1,53 +1,45 @@
 ---
-nav_title: メッセージテンプレートアシスタント
-article_title: メッセージテンプレートアシスタント
+nav_title: HTMLメールテンプレート
+article_title: HTMLメールテンプレートの生成
 permalink: "/template_assistant/"
-description: "このリファレンス記事では、メッセージテンプレートアシスタントを使用してメールメッセージング用のテンプレートを生成する方法について説明します。"
+description: "このリファレンス記事では、Operatorを使用してHTMLメールテンプレートを生成する方法について、仕組みやプロンプトの例を含めて説明します。"
 page_type: reference
 ---
 
-# メッセージテンプレートアシスタント {#message-template-assistant}
+# HTMLメールテンプレートの生成 {#generate-html-email-templates}
 
-> メッセージテンプレートアシスタントは、GenAIを使用して特定のニーズに基づいたテンプレートを生成することで、既存のHTMLメールテンプレートの改善を支援します。この機能は、特定のユースケース、オーディエンス、またはコンバージョンに合わせてコンテンツを最適化し、メール作成にかかる時間と労力を削減するのに役立ちます。
+> Operatorを使用して、HTMLメールテンプレートを生成・改善できます。必要なテンプレートを自然言語で説明すると、Operatorがブランドガイドラインとグローバルスタイル設定を使用してテンプレートを構築または変更します。
 
 {% alert important %}
-メッセージテンプレートアシスタントは早期アクセス段階です。この早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。<br><br>この機能は現在、メールチャネルのHTMLエディターでのみサポートされており、その他のエディター（ドラッグ＆ドロップやAMPなど）ではサポートされていません。
+OperatorによるHTMLメールテンプレートの生成は早期アクセス段階です。この早期アクセスへの参加にご興味がある場合は、Brazeアカウントマネージャーにお問い合わせください。
+
+この機能はメールチャネルのHTMLエディターでのみサポートされており、その他のエディター（ドラッグ＆ドロップやAMPなど）ではサポートされていません。
 {% endalert %}
+
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
+
+## アクセス方法 {#how-to-access}
+
+{% multi_lang_include brazeai/generative_ai/access_html_template.md %}
 
 ## 仕組み {#how-it-works}
 
-メッセージテンプレートアシスタントは、[ブランドガイドライン](https://www.braze.com/docs/user_guide/administrative/app_settings/brand_guidelines)と[グローバルスタイル設定](https://www.braze.com/docs/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings)を使用して、メッセージのコンテンツとスタイルをブランドに合わせて調整します。
+Operatorは、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)と[グローバルスタイル設定]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/)を使用して、メッセージのコンテンツとスタイルをブランドに合わせて調整します。
 
-たとえば、グローバルスタイル設定が設定されている場合、メッセージテンプレートアシスタントはブランドのカラーやスタイルを取り入れます。Brazeでブランドガイドラインが定義されている場合、アシスタントはそれらを参照して、ブランドのトーンやパーソナリティに合ったコピーを作成することもできます。
+たとえば、グローバルスタイル設定が設定されている場合、Operatorはブランドのカラーやスタイルを取り入れます。Brazeでブランドガイドラインが定義されている場合、Operatorはそれらも参照して、ブランドのトーンやパーソナリティに合ったコピーを作成します。
 
-メッセージテンプレートアシスタントは、同じチャットウィンドウ内にいる間のみチャット履歴を記憶できます。つまり、将来のプロンプトを生成する際に、以前のプロンプトを参照する場合があります。また、アシスタントはモバイルレスポンシブ対応のテンプレートへの改善も試みます。
+Operatorは、モバイルレスポンシブ対応のテンプレートへの改善も行います。
 
-たとえば、フィットネスブランドに関するプロンプトから、その後のプロンプトで一般的なブランドに切り替えた場合、メッセージテンプレートアシスタントは引き続き同じフィットネスブランド向けであるとテンプレートに反映する可能性があります。新しいチャットを開始するには、チャットウィンドウで**Clear History**を選択し、メッセージテンプレートアシスタントを再度開いてください。
+## プロンプトの例 {#example-prompts}
 
-## テンプレートの作成 {#creating-a-template}
+{% include copy_block.html content="Build a responsive HTML email template for a product launch with a hero image and two feature blocks." %}
 
-1. ダッシュボードで、**テンプレート** > **メールテンプレート**に移動します。
-2. 既存のメールテンプレートを選択します。
-3. HTMLエディターの**Create with AI**セクションで、**Template**を選択します。
-4. ここから、さまざまなプロンプトを入力したり、コンテンツに関する質問をしたりできます。
-5. メッセージテンプレートアシスタントが応答を提供し、テンプレートに必要な変更を判断します。
-6. **Generate**を選択して提案を適用します。
+{% include copy_block.html content="Create a clean, single-column newsletter template that matches our brand guidelines." %}
 
-{% alert important %}
-生成された出力がメッセージングの内容と一致しているか、テストすることを強くお勧めします。
-{% endalert %}
+{% include copy_block.html content="Add a feedback survey at the bottom of the email" %}
 
-![複数のメールに使用する複数のセクションを含むテンプレートを作成するためのプロンプト例。メッセージテンプレートアシスタントが現在のテンプレートへの変更内容を説明しています。]({% image_buster /assets/unlisted_docs/img/ai_message_template_assistant1.png %}){: style="width:70%;"}
+{% include copy_block.html content="Change font to [font name] and font size of the paragraph to size [number]" %}
 
-### プロンプトの例 {#example-prompts}
+{% include copy_block.html content="Make all the images have rounded corners" %}
 
-以下は、使い始めるためのプロンプト例です。
-
-- メールの下部にフィードバック調査を追加する
-- フォントを{% raw %}`{{font name}}`に変更し、段落のフォントサイズを`{{number}}`{% endraw %}に変更する
-- すべての画像の角を丸くする
-- 画像とコールトゥアクションを含む別のセクションを追加する
-
-{% alert note %}
-プロンプトと応答の内容によっては、メッセージテンプレートアシスタントが新しいテンプレートを生成する際にプレースホルダー画像を追加する場合があります。
-{% endalert %}
+{% include copy_block.html content="Add another section with an image and a call-to-action" %}

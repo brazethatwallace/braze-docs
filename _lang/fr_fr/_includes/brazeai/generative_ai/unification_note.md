@@ -1,0 +1,3 @@
+{% alert note %}
+Cette fonctionnalité fait désormais partie de [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/), l'assistant d'intelligence artificielle unifié de Braze. Les fonctionnalités d'intelligence artificielle auparavant disponibles sous forme d'assistants autonomes sont désormais toutes accessibles via Operator, où que vous vous trouviez dans le tableau de bord.
+{% endalert %}

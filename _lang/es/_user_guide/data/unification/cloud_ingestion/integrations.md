@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.1: Preparar la tabla" }
 
 Puedes nombrar el proyecto, el conjunto de datos y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.1: Preparar la tabla" }
 
 Puedes nombrar el esquema y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -596,7 +596,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Por último, configura tu sincronización como no recurrente o recurrente.
 
 Las sincronizaciones no recurrentes se pueden desencadenar manualmente o a través de la API.
 
-Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze utiliza la zona horaria configurada en tu dashboard de Braze para programar la sincronización recurrente.
+Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minutos hasta una vez al mes. Braze programa la sincronización recurrente en la zona horaria UTC.
 
 {% endtab %}
 {% endtabs %}

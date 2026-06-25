@@ -12,6 +12,8 @@ description: "Dieser Artikel enthält Antworten auf häufig gestellte Fragen zur
 
 > Diese Seite enthält Antworten auf häufig gestellte Fragen zur Medienbibliothek in Braze.
 
+## Allgemein {#general}
+
 ### Gibt es Speicherlimits für Bilder in der Medienbibliothek? {#are-there-storage-limits-for-images-within-the-media-library}
 
 Nein, es gibt keine Speicherlimits für Assets in der Medienbibliothek. Es gibt jedoch Größenbeschränkungen für Assets (maximal 5 MB).
@@ -57,7 +59,7 @@ Das liegt daran, dass die meisten Composer Einschränkungen hinsichtlich des zul
 
 ### Ein Bild mit KI generieren {#generate-an-image-using-ai}
 
-Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **KI-Bildgenerator** auswählen. Sie benötigen die Berechtigung **Medienbibliothek-Assets bearbeiten**. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kundenteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie **KI-Bildgenerator** auswählen. Sie benötigen die Berechtigung **Medienbibliothek-Assets bearbeiten**. Wenn Sie die Option nicht sehen, wenden Sie sich an Ihr Braze-Kundenteam. Weitere Informationen zu den Schritten und Richtlinien finden Sie unter [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) und [Bilder mit BrazeAI generieren]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
 
 ### Kann ich Vanity-URLs für Medienbibliothek-Bild-Assets erstellen? {#can-i-create-vanity-urls-for-media-library-image-assets}
 

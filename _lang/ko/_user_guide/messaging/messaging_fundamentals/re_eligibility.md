@@ -12,7 +12,7 @@ toc_headers: h2
 
 # Campaigns 및 Canvas 재적격성 {#re-eligibility-for-campaigns-and-canvas}
 
-> 반복 또는 트리거 Campaign이나 Canvas를 예약할 때, 사용자가 다시 적격 상태가 되도록 허용하는 옵션을 설정할 수 있습니다. 재적격성이란 사용자가 트리거를 기반으로 Campaign이나 Canvas에 여러 번 진입할 수 있음을 의미합니다.
+> 반복 또는 트리거 Campaign이나 Canvas를 스케줄할 때, 사용자가 다시 적격 상태가 되도록 허용하는 옵션을 설정할 수 있습니다. 재적격성이란 사용자가 트리거를 기반으로 Campaign이나 Canvas에 여러 번 진입할 수 있음을 의미합니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -30,7 +30,7 @@ Campaign의 재적격성을 활성화하려면 **전달 제어** 섹션에서 **
 "수신"에는 공유 채널 식별자를 통한 기여도가 포함됩니다. 메시지가 전달, 열람 또는 클릭되면 Braze는 동일한 이메일 또는 전화번호를 공유하는 모든 프로필의 데이터를 업데이트하므로, 직접 메시지를 받지 않은 사용자도 수신한 것으로 표시되어 재적격 상태가 되지 않을 수 있습니다.
 {% endalert %}
 
-또한 재적격 기간이 0분인 메시지를 즉시 발송하려는 경우, 사용자가 이전 버전의 Campaign이나 Canvas를 수신했는지에 관계없이 항상 즉시 예약을 시도합니다.
+또한 재적격 기간이 0분인 메시지를 즉시 발송하려는 경우, 사용자가 이전 버전의 Campaign이나 Canvas를 수신했는지에 관계없이 항상 즉시 스케줄을 시도합니다.
 
 ### API 트리거 Campaign의 재적격성 {#re-eligibility-with-api-triggered-campaigns}
 
@@ -67,7 +67,7 @@ Campaigns와 Canvases 모두의 재적격성은 캘린더 일수가 아닌 초 �
 
 ### 예시
 
-다음 시나리오를 고려해 보겠습니다:
+다음 시나리오를 고려해 보겠습니다.
 
 * Campaign이 매월 15일에 발송되도록 설정되어 있으며 재적격 기간은 30일로 설정되어 있습니다.
 * 2월 15일과 3월 15일 사이에는 30일 미만의 기간이 있습니다.
@@ -78,9 +78,13 @@ Campaigns와 Canvases 모두의 재적격성은 캘린더 일수가 아닌 초 �
 
 Content Cards Campaign이나 캔버스 단계에 재적격성이 활성화된 경우, 동일한 Campaign의 이전 카드가 아직 피드에 남아 있는 상태에서 사용자가 다른 카드를 수신할 수 있으며, 이는 중복 카드처럼 보일 수 있습니다. 중복을 줄이려면 재적격성을 비활성화하거나, 사용자가 다음 발송 자격을 얻기 전에 첫 번째 카드가 [피드에서 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility)되도록 재적격 기간을 늘리세요.
 
+## 배너 재적격성 {#re-eligibility-for-banners}
+
+배너 Campaign에 재적격성이 활성화된 경우, 배너를 닫은 사용자는 닫은 시점부터 시작되는 설정 가능한 쿨다운 기간 이후 다시 적격 상태가 될 수 있습니다. 재적격성이 활성화되지 않은 경우, 배너를 닫은 사용자는 부적격 상태로 유지됩니다. 재적격성을 구성하려면 [재적격성 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)을 참조하세요. Canvas 배너 단계는 Canvas 재진입 설정을 대신 사용합니다.
+
 ## 다변량 테스트 {#multivariate-testing}
 
-다변량 테스트의 경우, Braze는 다음 규칙을 사용하여 모든 Campaign, 트리거 인앱 메시지 및 Canvases의 배리언트 재적격성을 결정합니다:
+다변량 테스트의 경우, Braze는 다음 규칙을 사용하여 모든 Campaign, 트리거 인앱 메시지 및 Canvases의 배리언트 재적격성을 결정합니다.
 
 - 배리언트 비율이 변경되지 않으면, 각 사용자는 재적격 상태가 될 때마다 항상 Campaign, 트리거 인앱 메시지 또는 Canvas 진입의 동일한 배리언트에 진입합니다.
 - 배리언트 비율이 변경되면, 사용자가 다른 배리언트로 재배분될 수 있습니다.

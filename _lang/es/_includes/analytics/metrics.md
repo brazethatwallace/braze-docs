@@ -183,7 +183,7 @@ Las <i>lecturas</i> se producen cuando el usuario lee el mensaje. Los recibos de
 {% endif %}
 
 {% if include.metric == "Read Rate" %}
-La <i>tasa de lectura</i> es el porcentaje de envíos que dieron lugar a una lectura. Solo se da a los usuarios que tienen activados los recibos de lectura.
+La <i>tasa de lectura</i> es el porcentaje de envíos que dieron lugar a una lectura. Solo se proporciona para los usuarios que tienen activados los recibos de lectura.
 {% endif %}
 
 {% if include.metric == "Received" %}
@@ -235,7 +235,7 @@ El <i>total de clics</i> es el número (o porcentaje) de destinatarios únicos q
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-El <i>total de descartes</i> es el número de veces que se han descartado Content Cards de una Campaign.
+El <i>total de descartes</i> es el número de veces que los usuarios descartaron un mensaje de una Campaign. Para Content Cards, esto cuenta cada descarte de tarjeta. Para los Banners, esto cuenta cada vez que un usuario descartó el Banner cuando el comportamiento de descarte está habilitado.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}

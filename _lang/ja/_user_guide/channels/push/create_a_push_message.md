@@ -22,8 +22,8 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 {% tabs %}
 {% tab Campaign %}
-1. **Messaging** > **Campaigns**に移動し、**Create Campaign**を選択します。
-2. 複数チャネルをターゲットとするCampaignsの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。
+1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
+2. 複数チャネルをターゲットとするCampaignsの場合は、**マルチチャネル**を選択します。それ以外の場合は、**プッシュ通知**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
 
@@ -35,7 +35,7 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 5. Campaignに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している場合や同じコンテンツの場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
+Campaign内のすべてのメッセージが類似している場合や同じコンテンツの場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -59,15 +59,15 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 | 以前の選択 | オプション |
 | --- | --- |
 | プッシュ通知Campaign | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、選択したすべてのプラットフォーム向けに1つのメッセージを作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[マルチプラットフォームプッシュ]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/)を参照してください。 |
-| マルチチャネルCampaign | **Add Messaging Channel**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。 |
-| Canvas | メッセージステップで、**+ Add more**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルCampaignsと同様に、プラットフォームの選択は各バリアントに固有です。 |
+| マルチチャネルCampaign | **メッセージングチャネルを追加**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。 |
+| Canvas | メッセージステップで、**+ さらに追加**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルCampaignsと同様に、プラットフォームの選択は各バリアントに固有です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2: プッシュプラットフォームを選択する" }
 
 ## ステップ 3: 通知タイプを選択する（iOSおよびAndroid） {#step-3-select-notification-type-ios-and-android}
 
-マルチプラットフォームプッシュCampaignを作成しており、WebやKindleを選択した場合、通知タイプは自動的に**Standard Push**に設定され、変更できません。
+マルチプラットフォームプッシュCampaignを作成しており、WebやKindleを選択した場合、通知タイプは自動的に**標準プッシュ**に設定され、変更できません。
 
-![通知タイプの例としてStandard Pushが選択されている画面。]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![通知タイプの例として標準プッシュが選択されている画面。]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 それ以外の場合、iOSおよびAndroidでは、通知タイプを選択します。
 
@@ -79,11 +79,11 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 ## ステップ 4: プッシュメッセージを作成する {#step-4-compose-your-push-message}
 
-いよいよプッシュメッセージを作成します！**Compose**タブでは、メッセージのコンテンツと動作のすべての側面を編集できます。
+いよいよプッシュメッセージを作成します！**作成**タブでは、メッセージのコンテンツと動作のすべての側面を編集できます。
 
-![プッシュ通知作成のComposeタブ。]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
+![プッシュ通知作成の作成タブ。]({% image_buster /assets/img_archive/push_multiple_platform_message_composer.png %})
 
-**Compose**タブの内容は、前のステップで選択した通知タイプによって異なりますが、以下のオプションが含まれる場合があります。
+**作成**タブの内容は、前のステップで選択した通知タイプによって異なりますが、以下のオプションが含まれる場合があります。
 
 ### 通知チャネルまたはグループ（iOSおよびAndroid） {#notification-channel-or-group-ios-and-android}
 
@@ -91,7 +91,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 ### 言語 {#language}
 
-**Add Languages**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquidの適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**言語を追加**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquidの適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
 
 右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示は、サービスプロバイダーのレンダリング方法に大きく依存します。できるだけ正確に表示される右から左のメッセージを作成するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
 
@@ -116,7 +116,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 {% endtabs %}
 
 {% alert tip %}
-素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)をお試しください。製品名や説明を入力すると、AIがメッセージングに使用できる人間らしいマーケティングコピーを生成します。
+素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)をお試しください。製品名や説明を入力すると、AIがメッセージングに使用できる人間らしいマーケティングコピーを生成します。
 
 ![プッシュコンポーザーの本文フィールドにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}
@@ -145,7 +145,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 ### 送信オプション {#sending-options}
 
-ユーザーが複数のデバイスにアプリをインストールしている場合、デフォルトでは、有効なプッシュトークンが割り当てられたすべてのデバイスにプッシュメッセージが送信されます。必要に応じて、**Most recently used device**を選択できます。
+ユーザーが複数のデバイスにアプリをインストールしている場合、デフォルトでは、有効なプッシュトークンが割り当てられたすべてのデバイスにプッシュメッセージが送信されます。必要に応じて、**最後に使用したデバイス**を選択できます。
 
 ![ユーザーの最後に使用したデバイスにのみこのプッシュを送信するデバイスオプションのチェックボックス。]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
 
@@ -153,7 +153,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 デフォルトでは、Brazeは有効なプッシュトークンを持つユーザーのすべてのデバイスにメッセージを送信します。iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイスのみに通知を送信するように、リーチをさらに絞り込むことができます。
 
-必要に応じて、プッシュの送信先を**Most recently used device**に設定できます。
+必要に応じて、プッシュの送信先を**最後に使用したデバイス**に設定できます。
 
 #### 最後に使用したデバイス {#most-recently-used-device}
 
@@ -169,7 +169,7 @@ iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイス
 
 ## ステップ 5: メッセージをプレビューしてテストする（オプション） {#step-5-preview-and-test-your-message-optional}
 
-テストは間違いなく最も重要なステップの1つです。完璧なプッシュメッセージの作成が完了したら、送信前にテストしてください。**Test**タブを選択して、プッシュメッセージのテスト方法のオプションから選択します。**Test Recipients**で、コンテンツテストグループまたは個々のユーザーを選択できます。また、**Preview message as user**を使用して、ランダムなユーザー、既存のユーザー、カスタムユーザー、または多言語ユーザーとしてモバイルでメッセージがどのように表示されるかを確認できます。
+テストは間違いなく最も重要なステップの1つです。完璧なプッシュメッセージの作成が完了したら、送信前にテストしてください。**テスト**タブを選択して、プッシュメッセージのテスト方法のオプションから選択します。**テスト受信者**で、コンテンツテストグループまたは個々のユーザーを選択できます。また、**ユーザーとしてメッセージをプレビュー**を使用して、ランダムなユーザー、既存のユーザー、カスタムユーザー、または多言語ユーザーとしてモバイルでメッセージがどのように表示されるかを確認できます。
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=push)を参照してください。
 
@@ -216,10 +216,10 @@ Campaignの残りを構築します。プッシュ通知を構築するための
 - **ユーザーB**はメールにオプトインしていますが、プッシュは有効ではありません。このユーザーはメールを受信しますが、プッシュは受信しません。
 - **ユーザーC**はメールにオプトインしており、プッシュも有効です。このユーザーはメールとプッシュの両方を受信します。
 
-これを行うには、**Audience Summary**で、このCampaignを「オプトインしたユーザーのみ」に送信するように選択します。このオプションにより、オプトインしたユーザーのみがメールを受信し、Brazeはデフォルトでプッシュが有効なユーザーにのみプッシュを送信します。
+これを行うには、**オーディエンスの概要**で、このCampaignを「オプトインしたユーザーのみ」に送信するように選択します。このオプションにより、オプトインしたユーザーのみがメールを受信し、Brazeはデフォルトでプッシュが有効なユーザーにのみプッシュを送信します。
 
 {% alert important %}
-この設定では、**Target Audiences**ステップに、オーディエンスを単一のチャネルに制限するフィルター（例えば、`Foreground Push Enabled = True`や`Email Subscription = Opted-In`）を含めないでください。
+この設定では、**ターゲットオーディエンス**ステップに、オーディエンスを単一のチャネルに制限するフィルター（例えば、`Foreground Push Enabled = True`や`Email Subscription = Opted-In`）を含めないでください。
 {% endalert %}
 
 ### コンバージョンイベントを選択する {#choose-conversion-events}

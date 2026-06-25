@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Total Dismissals {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Se um usuário receber dois cartões diferentes da mesma campanha e dispensar ambos, essa contagem aumentará em dois. A reelegibilidade permite incrementar o _Total Dismissals_ uma vez a cada vez que um usuário recebe um cartão; cada cartão é uma mensagem diferente.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Para Content Cards, se um usuário receber dois cartões diferentes da mesma campanha e dispensar ambos, essa contagem aumentará em dois. A reelegibilidade permite incrementar o _Total Dismissals_ uma vez a cada vez que um usuário recebe um cartão; cada cartão é uma mensagem diferente. Para Banners, isso conta cada dispensa quando o comportamento de dispensa está ativado.
 
 {::nomarkdown}
 <span class="calculation-line">

@@ -24,7 +24,7 @@ Identifica una plataforma externa que quieras conectar a Braze y comprueba que l
 
 A continuación se muestra un ejemplo de [webhook de Typeform](https://www.typeform.com/help/a/webhooks-360029573471/), que se puede configurar iniciando sesión en su plataforma:
 
-![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Ejemplo de carga útil de webhook de Typeform en la configuración de la plataforma Typeform.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## Paso 2: Crear una transformación {#step-2-create-a-transformation}
 
@@ -56,9 +56,9 @@ Si tienes poca o ninguna experiencia con código JavaScript o prefieres instrucc
 Si eres desarrollador o tienes mucha experiencia con código JavaScript, sigue la pestaña **Advanced - POST: Track users** para obtener instrucciones de alto nivel sobre cómo escribir tu código de transformación.
 
 {% alert tip %}
-Transformación de datos de Braze tiene un copiloto de IA que pide a ChatGPT que te ayude a escribir tu código. Para acceder al copiloto de IA, selecciona <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**. Para utilizarlo, debe enviarse un webhook a tu transformación. También puedes acceder a la biblioteca de plantillas seleccionando **Insert code** > **Insert template**.
+Para generar código de transformación con IA, elige **Code with Operator** encima del editor de código de transformación. Para usarlo, se debe enviar un webhook a tu transformación. Para empezar con una plantilla prediseñada, elige **Insert Template**. Para ver ejemplos de prompts, consulta [Generar código de transformación de datos]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
 
-![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
+**Code with Operator** solo está disponible si Operator está habilitado para tu cuenta. Si no lo ves, ponte en contacto con tu director de cuentas.
 {% endalert %}
 
 {% tabs %}
@@ -232,4 +232,4 @@ Para una supervisión y solución de problemas más detalladas, consulta la pág
 
 Si no hay entregas, comprueba que tu código de transformación no contenga errores de sintaxis y confirma que el código se compila. A continuación, comprueba si la salida es una solicitud de destino válida.
 
-Las entregas inferiores al número de solicitudes entrantes indican que al menos algunos webhooks se entregan correctamente. Consulta los registros de transformación para ver ejemplos de errores y comprueba si la salida de la transformación es la esperada. Es posible que tu código de transformación no tenga en cuenta todas las variaciones de los webhooks recibidos.
+Si el número de entregas es inferior al de solicitudes entrantes, esto indica que al menos algunos webhooks se entregan correctamente. Consulta los registros de transformación para ver ejemplos de errores y comprueba si la salida de la transformación es la esperada. Es posible que tu código de transformación no tenga en cuenta todas las variaciones de los webhooks recibidos.

@@ -35,7 +35,7 @@ Las etiquetas facilitan encontrar tus campañas y generar informes a partir de e
 5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si todos los mensajes en tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
+Si todos los mensajes en tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Añadir variante**.
 {% endalert %}
 
 {% endtab %}
@@ -116,7 +116,7 @@ Para hacer tu push personalizado y dirigido, puedes incluir [Liquid]({{site.base
 {% endtabs %}
 
 {% alert tip %}
-¿Necesitas ayuda para crear un texto excelente? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto y la IA generará un texto de marketing similar al humano para usar en tu mensajería.
+¿Necesitas ayuda para crear un texto excelente? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Introduce un nombre o descripción de producto y la IA generará un texto de marketing similar al humano para usar en tu mensajería.
 
 ![Botón Lanzar redactor con IA, ubicado en el campo Cuerpo del compositor push.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}

@@ -12,6 +12,8 @@ description: "이 문서에서는 Braze의 미디어 라이브러리에 대해 �
 
 > 이 페이지에서는 Braze의 미디어 라이브러리에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
+## 기본설정 {#general}
+
 ### 미디어 라이브러리 내 이미지에 대한 저장 용량 제한이 있나요? {#are-there-storage-limits-for-images-within-the-media-library}
 
 아니요, 미디어 라이브러리 내 자산에 대한 저장 용량 제한은 없습니다. 다만, 자산의 크기 제한은 있습니다(최대 5 MB).
@@ -57,7 +59,7 @@ description: "이 문서에서는 Braze의 미디어 라이브러리에 대해 �
 
 ### AI를 사용하여 이미지 생성 {#generate-an-image-using-ai}
 
-**콘텐츠** > **미디어 라이브러리**에서 **AI Image Generator**를 선택하여 이미지를 생성할 수 있습니다. **미디어 라이브러리 자산 편집** 권한이 필요합니다. 해당 옵션이 보이지 않으면 Braze 고객지원 팀에 문의하세요. 단계 및 정책 세부 정보는 [BrazeAI로 이미지 생성]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) 및 [BrazeAI로 이미지 생성하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)를 참조하세요.
+**콘텐츠** > **미디어 라이브러리**에서 **AI Image Generator**를 선택하여 이미지를 생성할 수 있습니다. **미디어 라이브러리 자산 편집** 권한이 필요합니다. 해당 옵션이 보이지 않으면 Braze 고객지원 팀에 문의하세요. 단계 및 정책 세부 정보는 [BrazeAI로 이미지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) 및 [BrazeAI로 이미지 생성하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)를 참조하세요.
 
 ### 미디어 라이브러리 이미지 자산에 대해 커스텀 URL을 만들 수 있나요? {#can-i-create-vanity-urls-for-media-library-image-assets}
 

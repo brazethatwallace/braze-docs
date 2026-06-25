@@ -112,7 +112,7 @@ Cada evento incluye:
 Los casos de uso habituales incluyen:
 
 - Verificar que tu integración de SDK o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
-- Solucionar problemas sobre por qué un usuario entró o no entró en una campaña o Canvas desencadenados por eventos.
+- Solucionar problemas sobre por qué un usuario entró o no entró en una Campaign o Canvas desencadenados por eventos.
 - Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
 
 {% alert note %}

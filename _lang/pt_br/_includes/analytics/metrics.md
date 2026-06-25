@@ -75,7 +75,7 @@ Os <i>cliques no corpo da mensagem</i> ocorrem quando um usuário clica em uma m
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>Desistências da página de confirmação</i> é o total de cliques no botão fechar (x) na página de confirmação de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Descartes da página de confirmação</i> é o total de cliques no botão fechar (x) na página de confirmação de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -223,7 +223,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Dispensas da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Descartes da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
@@ -235,7 +235,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Total de descartes</i> é o número de vezes que os Content Cards de uma Campaign foram descartados.
+<i>Total de descartes</i> é o número de vezes que os usuários descartaram uma mensagem de uma Campaign. Para Content Cards, isso conta cada descarte de cartão. Para Banners, isso conta cada vez que um usuário descartou o Banner quando o comportamento de descarte está ativado.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -255,7 +255,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
-<i>Dispensas únicas</i> é o número de destinatários únicos que dispensaram um Content Card de uma Campaign. Um usuário que descarta um Content Card de uma Campaign várias vezes representa uma única dispensa.
+<i>Descartes únicos</i> é o número de destinatários únicos que descartaram um Content Card de uma Campaign. Um usuário que descarta um Content Card de uma Campaign várias vezes representa um único descarte.
 {% endif %}
 
 <!-- Unique Impressions & Unique Recipients have a dedicated section in campaign_analytics.md -->

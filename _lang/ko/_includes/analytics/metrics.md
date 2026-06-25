@@ -235,7 +235,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫힌 횟수입니다.
+<i>총 닫기</i> 횟수는 사용자가 Campaign의 메시지를 닫은 횟수입니다. Content Cards의 경우 각 카드 닫기를 계산합니다. 배너의 경우 닫기 동작이 활성화되어 있을 때 사용자가 배너를 닫은 각 횟수를 계산합니다.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -285,5 +285,5 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>배리언트</i>는 크리에이터가 정의한 대로 서로 다른 Campaign 배리언트의 수입니다.
+<i>배리언트</i>는 크리에이터가 정의한 대로 서로 다른 Campaign 변형의 수입니다.
 {% endif %}

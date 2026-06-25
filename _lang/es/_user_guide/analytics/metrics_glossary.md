@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Descartes totales {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumentará en dos. La reelegibilidad te permite incrementar los _Total Dismissals_ una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Para Content Cards, si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumenta en dos. La reelegibilidad te permite incrementar los _Total Dismissals_ una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente. Para Banners, esto cuenta cada descarte cuando el comportamiento de descarte está habilitado.
 
 {::nomarkdown}
 <span class="calculation-line">

@@ -28,6 +28,13 @@ Cuando **[Calcular estadísticas exactas]({{site.baseurl}}/user_guide/audience/s
 
 ![La página Canvas Details mostrando estadísticas principales que incluyen mensajes enviados, tasa de conversión, entradas totales, ingresos totales, salidas totales y audiencia estimada, con filtros de canal y estadísticas.]({% image_buster /assets/img_archive/Journey_5.png %})
 
+{% alert tip %}
+Si un segmento que has creado a partir de la actividad de Canvas muestra menos usuarios alcanzables de lo que esperabas según los análisis de Canvas, hay dos razones comunes:
+
+- **Muestreo de estimación:** Las estadísticas de segmentos pueden mostrar una estimación basada en una muestra aleatoria con un intervalo de confianza del 95 % de ±1 %, en lugar de un recuento exacto.
+- **Usuarios que ya no cumplen los criterios:** Algunos usuarios contabilizados en los análisis de Canvas pueden ya no calificar para el segmento, por ejemplo, porque cancelaron su suscripción o sus datos de perfil cambiaron desde que se ejecutó el Canvas. Consulta el **rendimiento histórico** del Canvas para verificar un alto volumen de cancelaciones de suscripción.
+{% endalert %}
+
 ### Cambios desde la última visualización {#changes-since-last-viewed}
 
 El número de actualizaciones al Canvas realizadas por otros miembros de tu equipo se registra mediante la métrica *Cambios desde la última visualización* en la página de resumen del Canvas. Selecciona **Changes Since Last Viewed** para ver un registro de cambios de las actualizaciones al nombre del Canvas, planificación, etiquetas, mensaje, audiencia, estado de aprobación o configuración de acceso del equipo. Para cada actualización, puedes ver quién realizó la actualización y cuándo. Puedes usar este registro de cambios para auditar los cambios en tus Canvas.

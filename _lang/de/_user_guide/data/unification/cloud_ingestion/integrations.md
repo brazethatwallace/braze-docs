@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.1: Tabelle einrichten" }
 
 Sie können das Projekt, den Datensatz und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.1: Tabelle einrichten" }
 
 Sie können das Schema und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -596,7 +596,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 {% endtabs %}
@@ -774,26 +774,26 @@ Wenn Sie dieselbe Nutzerin oder denselben Nutzer bei verschiedenen Integrationen
 
 {% tabs %}
 {% tab Snowflake %}
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab Redshift %}
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab BigQuery %}
 
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab Databricks %}
 
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 

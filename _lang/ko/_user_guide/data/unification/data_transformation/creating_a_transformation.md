@@ -16,7 +16,7 @@ description: "이 참조 문서에서는 Braze 데이터 변환을 사용하여 
 | --- | --- |
 | 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication)(2FA) 또는 [싱글사인온]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
 | 올바른 권한 | 계정 관리자 또는 워크스페이스 관리자이거나 "변환 관리" 사용자 권한이 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: 소스 플랫폼 식별 {#step-1-identify-a-source-platform}
 
@@ -24,7 +24,7 @@ Braze에 연결하려는 외부 플랫폼을 식별하고 해당 플랫폼이 �
 
 다음은 해당 플랫폼에 로그인하여 구성할 수 있는 [Typeform 웹훅](https://www.typeform.com/help/a/webhooks-360029573471/) 예시입니다:
 
-![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Typeform 플랫폼 설정에서 Typeform 웹훅 페이로드 예시.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## 2단계: 변환 만들기 {#step-2-create-a-transformation}
 
@@ -43,7 +43,7 @@ Braze에 연결하려는 외부 플랫폼을 식별하고 해당 플랫폼이 �
 
 Typeform의 경우 다음과 같이 표시됩니다:
 
-![웹훅을 Braze 사용자 프로필에 매핑하는 데이터 변환 코드 예시]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
+![웹훅을 Braze 사용자 프로필에 매핑하는 데이터 변환 코드 예시.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
 Braze 데이터 변환은 웹훅에 대한 특별한 확인이나 인증이 필요한 외부 플랫폼을 아직 지원하지 않을 수 있습니다. Braze 데이터 변환에 이러한 유형의 플랫폼을 사용하는 데 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 남겨 주세요.
@@ -56,9 +56,9 @@ JavaScript 코드에 대한 경험이 거의 없거나 더 자세한 지침을 �
 개발자이거나 JavaScript 코드에 대한 상당한 경험이 있는 경우 **고급 - POST: Track users** 탭에서 변환 코드 작성에 대한 개략적인 지침을 확인하세요.
 
 {% alert tip %}
-Braze 데이터 변환에는 ChatGPT에 코드 작성을 도와달라고 요청하는 AI 코파일럿이 있습니다. AI 코파일럿에 액세스하려면 <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**를 선택합니다. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. **Insert code** > **Insert template**을 선택하여 템플릿 라이브러리에 액세스할 수도 있습니다.
+AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기 위에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 프롬프트 예시는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)을 참조하세요.
 
-![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
+**Code with Operator**는 계정에 Operator가 활성화된 경우에만 사용할 수 있습니다. 표시되지 않으면 계정 매니저에게 문의하세요.
 {% endalert %}
 
 {% tabs %}
