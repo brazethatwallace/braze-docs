@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <title>Braze</title>
-    <link rel="canonical" href="{{ page.redirect_to  | multi_lang}}">
+    <link rel="canonical" href="{{ page.redirect_to | public_doc_path | multi_lang }}">
     <script type="text/text/javascript">
     var redirected_count = parseInt(query_params.get('redirected'),10) || 0;
     redirected_count++;
