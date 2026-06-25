@@ -43,7 +43,7 @@ For example, in the following conditional Liquid, codes from both lists (`vip-de
 {% endtabs %}
 
 {% alert important %}
-Promotion codes can’t be sent in in-app messages in Canvas.
+Promotion codes are available in in-app message campaigns as an early access feature, but can’t be sent in in-app messages in Canvas.
 {% endalert %}
 
 ## Next steps
@@ -58,7 +58,7 @@ Looking for next steps? Start here:
 
 ### Which messaging channels can I use with promotion codes?
 
-Promotion codes are currently supported for email, mobile push, web push, Content Cards, webhook, SMS, and WhatsApp. Braze Transactional Email campaigns and in-app messages do not currently support promotion codes.
+Promotion codes are currently supported for email, mobile push, web push, Content Cards, webhook, SMS, and WhatsApp. In-app message campaigns support promotion codes as an early access feature. Braze Transactional Email campaigns and in-app messages in Canvas do not currently support promotion codes.
 
 ### Do test and seed sends count towards usage?
 
