@@ -9,7 +9,7 @@ alwaysApply: true
 
 This repo uses **skills** — reusable agent workflows for common documentation tasks — plus a human-authored **style guide** for writing conventions. In Cursor, invoke a skill with `@skill-name` in chat, or describe a routine `_docs/` edit and the agent routes to `braze-docs` automatically.
 
-The table below shows a few common entry points — not every skill or workflow in the repo.
+The following table shows a few common entry points — not every skill or workflow in the repo.
 
 | Skill / resource | When to use | Example |
 |------------------|-------------|---------|
