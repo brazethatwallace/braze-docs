@@ -44,7 +44,7 @@ Each week, Braze runs a process to remove Inactive and Dormant Users from the Br
 Customers have full control over whether or not a user is Inactive or Dormant and can prevent archiving of user profiles by recording a data point at regular intervals. Braze Canvas offers the ability to do this automatically, allowing you to effectively turn off this functionality for some or all of your Inactive or Dormant Users.
 {% endalert %}
 
-#### Campaign and Canvas Interactions Data
+### Campaign and Canvas Interactions Data
 
 Messaging interaction data refers to how a user interacts with a campaign or Canvas they received (for example, when a user opens campaign A or a user receives variant A). This data is used for retargeting. You can read more about messaging interaction data availability on [About messaging interaction data availability]({{site.baseurl}}/messaging_interaction_data).
 
@@ -56,12 +56,12 @@ The below retention policies pertain to Braze's compliance with GDPR and privacy
 
 Data sent by Braze to certain subprocessors may still exist in Braze's internal systems for up to 90 days.
 
-#### Braze Data Lake Data Retention
+### Braze Data Lake Data Retention
 
 Data available to Customers within the Braze dashboard is mostly aggregated. Detailed logs are kept in a separate database created by Braze (the "Data Lake"). Data Lake data is used for aggregate reporting and other advanced functionality. Braze removes personally identifiable information from events data stored in the Data Lake after two years (see more information in our [Snowflake Data Retention]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/snowflake/data_retention#snowflake-data-retention) page).
 
 If you use our APIs to delete user profiles or delete or amend attributes from user profiles, it may take up to three weeks for that data to be deleted from Braze's Data Lake. Deletion of data in the Data Lake will not affect segmentation or personalization but rather ensures the data is removed from all Braze systems.
 
-#### Braze Backup Servers
+### Braze Backup Servers
 
 When data is deleted from your production instance, the data remains in Braze's backup servers for six months and is then deleted according to our internal processes.
