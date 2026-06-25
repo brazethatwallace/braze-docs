@@ -138,11 +138,49 @@ Braze always recommends previewing and testing your message before sending it. S
 A conversation window is required to send response messages, including test messages. To initiate a conversation window, send a WhatsApp message to the phone number associated with the subscription group you’re using for this message. The associated phone number is listed in the alert on the **Test** tab.
 {% endalert %}
 
-![An alert that says, "To test, first open a conversation window by sending a WhatsApp message to +1 217-582-9414. Then, send your response message to the test user."]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![An alert that says to open a message window by sending a WhatsApp message, then send a message to the test user.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp).
 
-### Step 4: Build the remainder of your campaign or Canvas
+### Step 4: View test send results
+
+After sending a test WhatsApp message, you can view a detailed delivery report directly in the message composer. This helps you confirm your message reached the intended recipient and troubleshoot failures before launch.
+
+The **View test results** button appears when test send data is available for the current campaign or Canvas step. Select it to open the results panel. 
+
+The results panel shows each stage your message passed through on its way to the recipient:
+- **Braze:** Whether Braze successfully processed and dispatched the message
+- **Meta:** Whether Meta accepted the message for delivery
+- **User device:** Whether the message was delivered to the recipient's device
+
+Each stage displays its current status. If a stage failed, the panel shows the error encountered and guidance on how to resolve it. The results persist if you close and reopen the same campaign or Canvas.
+
+![Test results panel showing two successful test sends and one failed test send.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+
+#### Retries and past attempts
+
+If a test send fails, Braze automatically retries delivery for up to 24 hours. The results panel reflects this with two tabs:
+
+- **Latest:** The most recent delivery attempt, updated in real time as retries occur
+- **Past attempts:** A history of previous retry runs, each showing the stage statuses and any errors encountered
+
+When the final outcome is determined (successful delivery, exhausted retries, or a failure that retrying won't resolve), the tabs rename respectively to **Result** and **Retry history**.
+
+{% alert note %} 
+Because retries can continue for up to 24 hours, you may not see a final result immediately after a failed send. 
+{% endalert %}
+
+#### Troubleshoot failures
+
+If a stage shows a failure, the panel displays the error and suggested next steps. Common reasons a test send may fail include:
+
+- The message template is paused or not yet approved in Meta
+- The recipient's phone number is rate-limited
+- Liquid variables in the message didn't populate for the selected test user
+
+For persistent issues, check your template status in Meta Business Manager or verify that your test recipient has the required user attributes populated in Braze.
+
+### Step 5: Build the remainder of your campaign or Canvas
 
 {% tabs %}
 {% tab Campaign %}
