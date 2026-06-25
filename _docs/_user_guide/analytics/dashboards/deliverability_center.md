@@ -81,6 +81,13 @@ If your subdomains aren't included in the Deliverability Center for Google Postm
 
 ## Integrate Google Postmaster {#integrating-google-postmaster}
 
+{% alert important %}
+**Google Postmaster Tools v2 migration**<br>
+Google is deprecating the old Postmaster Tools (v1) and has released a next-generation version (v2) with a modern user interface and new dashboards, including a Compliance dashboard to help monitor adherence to Gmail's sender guidelines. All users must migrate to v2 by **October 31, 2026**.<br><br>
+To re-authorize your Google Postmaster Tool connection, go to **Partner Integrations** > **Technology Partners**, open **Google Postmaster**, and select **Change Account** to re-authenticate with the new v2 permissions. Once successful, you'll be upgraded to v2 and gain access to new dashboards and data.<br><br>
+For more information, refer to [Google's announcement about the new Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
+
 Before setting up your Deliverability Center, check that your domains have been [added to the Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
 Follow these steps to integrate with Google Postmaster and set up your Deliverability Center:
