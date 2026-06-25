@@ -37,13 +37,13 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    display_name: "Segmentメンバーシップ"
-    description: フィルターが使用される場所（Segments、Campaignsなど）でSegmentメンバーシップに基づいてフィルタリングし、1つのCampaign内で複数の異なるSegmentsをターゲットにできます。<br><br>特定の時点でのSegmentメンバーシップをキャプチャするには、CampaignまたはCanvasを送信する前に、ダッシュボードからSegmentのユーザーをエクスポートするか、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)エンドポイントを呼び出してください。詳細については、[SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)を参照してください。<br><br>このフィルターを既に使用しているSegmentsは、他のSegmentsにさらに含めたりネストしたりすることはできません。これは、Segment AがSegment Bを含み、Segment Bが再びSegment Aを含もうとするサイクルが発生する可能性があるためです。そのような場合、Segmentは自身を参照し続け、実際に誰がそのSegmentに属しているかを計算することが不可能になります。また、このようなSegmentsのネストは複雑さを増し、処理速度を低下させる可能性があります。代わりに、同じフィルターを使用して含めたいSegmentを再作成してください。<br><br>**Segmentメンバーシップ**フィルターのドロップダウンにSegmentが表示されない場合は、同じフィルターで再作成して新しいSegmentを選択するか、サイクルを生成する形でこのオーディエンスに既に依存していないことを確認してください。
+    display_name: "セグメントメンバーシップ"
+    description: フィルターが使用される場所（Segments、Campaignsなど）でセグメントメンバーシップに基づいてフィルタリングし、1つのCampaign内で複数の異なるSegmentsをターゲットにできます。<br><br>特定の時点でのセグメントメンバーシップをキャプチャするには、CampaignまたはCanvasを送信する前に、ダッシュボードからセグメントのユーザーをエクスポートするか、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)エンドポイントを呼び出してください。詳細については、[セグメントデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)を参照してください。<br><br>このフィルターを既に使用しているSegmentsは、他のSegmentsにさらに含めたりネストしたりすることはできません。これは、セグメント Aがセグメント Bを含み、セグメント Bが再びセグメント Aを含もうとするサイクルが発生する可能性があるためです。そのような場合、セグメントは自身を参照し続け、実際に誰がそのセグメントに属しているかを計算することが不可能になります。また、このようなSegmentsのネストは複雑さを増し、処理速度を低下させる可能性があります。代わりに、同じフィルターを使用して含めたいセグメントを再作成してください。<br><br>**セグメントメンバーシップ**フィルターのドロップダウンにセグメントが表示されない場合は、同じフィルターで再作成して新しいセグメントを選択するか、サイクルを生成する形でこのオーディエンスに既に依存していないことを確認してください。
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
     display_name: "Brazeセグメントエクステンション"
-    description: Brazeダッシュボードでセグメントエクステンションを作成した後、Segmentにそれらのエクステンションを含めるか除外するかを選択できます。
+    description: Brazeダッシュボードでセグメントエクステンションを作成した後、セグメントにそれらのエクステンションを含めるか除外するかを選択できます。
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
@@ -93,12 +93,12 @@ glossaries:
       - Custom events
   - name: X Custom Event In Y Days
     display_name: "Y日間にX回のカスタムイベント"
-    description: 指定された暦日数（1〜30日）の間に、ユーザーが特別に記録されたイベントを0〜50回実行したかどうかを判定します。（暦日 = 1暦日は24〜48時間のユーザー履歴を確認します）<br> <a href="/docs/x-in-y-behavior/">X-in-Y動作の詳細はこちらをご覧ください。</a> <br><br>例:<br>過去1暦日にカート放棄がちょうど0回<br><br>タイムゾーン:<br>UTC - すべてのタイムゾーンに対応するため、1暦日はSegmentが評価される時間に応じて24〜48時間のユーザー履歴を確認します。2暦日の場合は48〜72時間のユーザー履歴を確認し、以降同様です。
+    description: 指定された暦日数（1〜30日）の間に、ユーザーが特別に記録されたイベントを0〜50回実行したかどうかを判定します。（暦日 = 1暦日は24〜48時間のユーザー履歴を確認します）<br> <a href="/docs/x-in-y-behavior/">X-in-Y動作の詳細はこちらをご覧ください。</a> <br><br>例:<br>過去1暦日にカート放棄がちょうど0回<br><br>タイムゾーン:<br>UTC - すべてのタイムゾーンに対応するため、1暦日はセグメントが評価される時間に応じて24〜48時間のユーザー履歴を確認します。2暦日の場合は48〜72時間のユーザー履歴を確認し、以降同様です。
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
     display_name: "Y日間にX回のカスタムイベントプロパティ"
-    description: 指定された暦日数（1〜30日）の間に、ユーザーが特定のプロパティに関連して特別に記録されたイベントを0〜50回実行したかどうかを判定します。（暦日 = 1暦日は24〜48時間のユーザー履歴を確認します）<br><a href="/docs/x-in-y-behavior/">X-in-Y動作の詳細はこちらをご覧ください。</a> <br><br>例:<br>過去1暦日にプロパティ「event_name」でお気に入りに追加がちょうど0回<br><br>タイムゾーン:<br>UTC - すべてのタイムゾーンに対応するため、1暦日はSegmentが評価される時間に応じて24〜48時間のユーザー履歴を確認します。2暦日の場合は48〜72時間のユーザー履歴を確認し、以降同様です。
+    description: 指定された暦日数（1〜30日）の間に、ユーザーが特定のプロパティに関連して特別に記録されたイベントを0〜50回実行したかどうかを判定します。（暦日 = 1暦日は24〜48時間のユーザー履歴を確認します）<br><a href="/docs/x-in-y-behavior/">X-in-Y動作の詳細はこちらをご覧ください。</a> <br><br>例:<br>過去1暦日にプロパティ「event_name」でお気に入りに追加がちょうど0回<br><br>タイムゾーン:<br>UTC - すべてのタイムゾーンに対応するため、1暦日はセグメントが評価される時間に応じて24〜48時間のユーザー履歴を確認します。2暦日の場合は48〜72時間のユーザー履歴を確認し、以降同様です。
     tags:
       - Custom events
   - name: Email Address
@@ -263,12 +263,12 @@ glossaries:
       - Retargeting
   - name: Hard Bounced
     display_name: "ハードバウンス"
-    description: メールアドレスがハードバウンスしたかどうか（メールアドレスが無効など）でユーザーをセグメント化します。無効なメールを持つユーザーをエクスポートするには、[`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/)エンドポイントを呼び出すか、メールアドレスが空白でない、メールが利用不可、メールサブスクリプションステータスが配信停止でないなどのフィルターでSegmentを作成してください。
+    description: メールアドレスがハードバウンスしたかどうか（メールアドレスが無効など）でユーザーをセグメント化します。無効なメールを持つユーザーをエクスポートするには、[`/email/hard_bounces`]({{site.baseurl}}/api/endpoints/email/get_list_hard_bounces/)エンドポイントを呼び出すか、メールアドレスが空白でない、メールが利用不可、メールサブスクリプションステータスが配信停止でないなどのフィルターでセグメントを作成してください。
     tags:
       - Retargeting
   - name: Soft Bounced
     display_name: "ソフトバウンス"
-    description: Y日間にX回ソフトバウンスしたかどうかでユーザーをセグメント化します。Segmentフィルターは過去30日間のみ遡ることができますが、セグメントエクステンションを使用するとさらに遡ることができます。<br><br>このフィルターは、Currentsのソフトバウンスイベントとは異なる動作をします。ソフトバウンスSegmentフィルターは、72時間のリトライ期間中に配信が成功しなかった場合にソフトバウンスをカウントします。Currentsでは、失敗したリトライごとにソフトバウンスイベントとして送信されます。
+    description: Y日間にX回ソフトバウンスしたかどうかでユーザーをセグメント化します。セグメントフィルターは過去30日間のみ遡ることができますが、セグメントエクステンションを使用するとさらに遡ることができます。<br><br>このフィルターは、Currentsのソフトバウンスイベントとは異なる動作をします。ソフトバウンスセグメントフィルターは、72時間のリトライ期間中に配信が成功しなかった場合にソフトバウンスをカウントします。Currentsでは、失敗したリトライごとにソフトバウンスイベントとして送信されます。
     tags:
       - Retargeting
   - name: Has Marked You As Spam
@@ -333,7 +333,7 @@ glossaries:
       - Retargeting
   - name: Feature Flags
     display_name: "フィーチャーフラグ"
-    description: 特定の<a href="/docs/developer_guide/feature_flags/">フィーチャーフラグ</a> が現在有効になっているユーザーのSegmentです。
+    description: 特定の<a href="/docs/developer_guide/feature_flags/">フィーチャーフラグ</a> が現在有効になっているユーザーのセグメントです。
     tags:
       - Retargeting
   - name: Subscription Group
@@ -758,7 +758,7 @@ glossaries:
       - Social activity
   - name: Phone Number
     display_name: "電話番号"
-    description: E.164形式の電話番号フィールドでユーザーをセグメント化します。<br><br>電話番号がBrazeに送信されると、BrazeはSMS、RCS、WhatsAppチャネルでの送信に使用される<a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">E.164形式</a> に変換しようとします。番号が正しくフォーマットされていない場合、変換プロセスが失敗し、ユーザープロファイルに未フォーマットの電話番号はあるが送信用電話番号がないという結果になります。このSegmentフィルターは、E.164形式の電話番号（利用可能な場合）でユーザーを返します。<br><br>ユースケース:<br>- SMS、RCS、またはWhatsAppメッセージを送信する際に、最も正確なターゲットオーディエンスサイズを把握するためにこのフィルターを使用します。<br>- このフィルターで正規表現（regex）を使用して、特定の国コードの電話番号でセグメント化します。<br>- E.164変換プロセスに失敗した電話番号でユーザーをセグメント化するためにこのフィルターを使用します。
+    description: E.164形式の電話番号フィールドでユーザーをセグメント化します。<br><br>電話番号がBrazeに送信されると、BrazeはSMS、RCS、WhatsAppチャネルでの送信に使用される<a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">E.164形式</a> に変換しようとします。番号が正しくフォーマットされていない場合、変換プロセスが失敗し、ユーザープロファイルに未フォーマットの電話番号はあるが送信用電話番号がないという結果になります。このセグメントフィルターは、E.164形式の電話番号（利用可能な場合）でユーザーを返します。<br><br>ユースケース:<br>- SMS、RCS、またはWhatsAppメッセージを送信する際に、最も正確なターゲットオーディエンスサイズを把握するためにこのフィルターを使用します。<br>- このフィルターで正規表現（regex）を使用して、特定の国コードの電話番号でセグメント化します。<br>- E.164変換プロセスに失敗した電話番号でユーザーをセグメント化するためにこのフィルターを使用します。
     tags:
       - Other Filters
 ---

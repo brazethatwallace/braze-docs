@@ -162,7 +162,7 @@ Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.ba
 Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - それぞれに個別のメッセージパラメーターを持つ、最大50個の特定の`external_ids`
-- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのSegment
+- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのセグメント
 - リクエスト内で[Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}
@@ -191,7 +191,7 @@ Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.ba
 Brazeのエンドポイントは[APIリクエストのバッチ処理]({{site.baseurl}}/api/api_limits/#batching-api-requests)をサポートしています。メッセージングエンドポイントへの単一のリクエストは、次のいずれかに到達できます。
 
 - 最大50個の特定の`external_ids`
-- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのSegment
+- `segment_id`で指定される、Brazeダッシュボードで作成された任意のサイズのセグメント
 - リクエスト内で[Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)オブジェクトとして定義された、任意のサイズのオーディエンスセグメント
 
 {% endif %}

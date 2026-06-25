@@ -11,7 +11,7 @@ tool:
 
 # CampaignとCanvasの複製 {#duplicate-campaigns-and-canvases}
 
-> 既存のCampaignやCanvasを複製して、成功した戦略を継続的にIterateし、発展させることができます。CampaignやCanvasを複製することで、配信の詳細やオーディエンスSegmentの再設定にかかる時間を最小限に抑えることができます。
+> 既存のCampaignやCanvasを複製して、成功した戦略を継続的にIterateし、発展させることができます。CampaignやCanvasを複製することで、配信の詳細やオーディエンスセグメントの再設定にかかる時間を最小限に抑えることができます。
 
 ## 複製する {#duplicating}
 

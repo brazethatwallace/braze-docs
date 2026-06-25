@@ -57,7 +57,7 @@ toc_headers: h2
 | オブジェクト | 単一のLLM呼び出しで、予測可能なデータ構造内の上記データタイプを1つ以上活用 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 3: エージェントの出力を設定する" }
 
-出力変数は、コンテキスト変数と同じテンプレート構文を使用してCanvas全体で使用できます。**Context Variable** Segmentフィルターを使用するか、Liquidを使用してエージェントの応答を直接テンプレート化します: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}。
+出力変数は、コンテキスト変数と同じテンプレート構文を使用してCanvas全体で使用できます。**Context Variable** セグメントフィルターを使用するか、Liquidを使用してエージェントの応答を直接テンプレート化します: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}。
 
 オブジェクト出力変数から特定のプロパティを使用するには、Liquidでドット記法を使用してそのプロパティにアクセスします: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 

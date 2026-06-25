@@ -434,7 +434,7 @@ Brazeには「このメールをブラウザで表示」機能は組み込まれ
 
 容量超過またはメールボックスフルのバウンスは、受信者のメールボックスが新しいメールを受け付けられないことを意味します。無効またはリスクのあるアドレスを持つ新規登録者や、受信トレイが休止状態の間にいっぱいになった長期間非アクティブなプロファイルの中にこれらのアドレスが見られることがあります。
 
-Segmentとソースごとにバウンス率を確認し、繰り返しハードバウンスするアドレスを削除またはサンセットし、新規サブスクライバーには確認済みまたはダブルオプトインを使用してください。リスト衛生のプラクティスについては、[配信性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)および[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting)を参照してください。
+セグメントとソースごとにバウンス率を確認し、繰り返しハードバウンスするアドレスを削除またはサンセットし、新規サブスクライバーには確認済みまたはダブルオプトインを使用してください。リスト衛生のプラクティスについては、[配信性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)および[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting)を参照してください。
 
 ### 550 5.7.1 迷惑メール {#550-571-unsolicited-mail}
 

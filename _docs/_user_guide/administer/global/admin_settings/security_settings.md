@@ -131,6 +131,22 @@ This manual report download contains only the most recent 10,000 security events
 
 To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
 
+### CSV column definitions
+
+The Security Event report CSV contains the following columns:
+
+| Column | Description |
+|--------|-------------|
+| CreatedAt | Timestamp when the event was recorded, in UTC. |
+| EmailAtTimeOfEvent | Email address of the dashboard user who triggered the event, as recorded when the event occurred. |
+| CurrentEmail | Current email address of the dashboard user who triggered the event. If the user no longer exists, their developer ID is used instead. |
+| EventName | Type of security event. See the list of reported security events below. |
+| OtherAccount | Email address of another dashboard user affected by the event, when applicable (for example, when an account is added or removed). |
+| JsonProperties | Event-specific properties in JSON format. The fields included vary by event type. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV column definitions" }
+
+[S3 exports]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) include these columns plus `Version`, the schema version for the export format (currently `1`).
+
 {% details Reported security events %}
 ### Login and account
 - Signed In
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment

@@ -32,17 +32,17 @@ channel: push
 
 Brazeのエクスポートエンドポイントを使用してユーザープロファイルをエクスポートすることもできます。
 - [識別子によるユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
-- [Segmentによるユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
+- [セグメントによるユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 
 いずれのエンドポイントも、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
 
-#### Segment {#segment}
+#### セグメント {#segment}
 
-ターゲットにしているSegmentに自分が含まれていることを確認してください（ライブCampaignの場合、テストではない場合）。**ユーザープロファイル**には、ユーザーが現在含まれているSegmentの一覧が表示されます。セグメンテーションはリアルタイムで更新されるため、これは常に変化する変数であることに注意してください。
+ターゲットにしているセグメントに自分が含まれていることを確認してください（ライブCampaignの場合、テストではない場合）。**ユーザープロファイル**には、ユーザーが現在含まれているセグメントの一覧が表示されます。セグメンテーションはリアルタイムで更新されるため、これは常に変化する変数であることに注意してください。
 
-![Segmentの一覧]({% image_buster /assets/img_archive/trouble2.png %})
+![セグメントの一覧]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segmentを作成する際に**ユーザー検索**を使用して、ユーザーがそのSegmentに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)を使用してください。
+セグメントを作成する際に**ユーザー検索**を使用して、ユーザーがそのセグメントに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)を使用してください。
 
 ![検索フィールドを含むユーザー検索セクション。]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -63,7 +63,7 @@ CampaignまたはCanvasにレート制限が設定されている場合、この
 単一チャネルのCampaignまたはコントロールグループを含むCanvasの場合、コントロールグループに入っている可能性があります。
 
   1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing/#step-5-distribute-users-among-your-variants)を確認して、コントロールグループがあるかどうかを確認します。
-  2. コントロールグループがある場合は、[Campaignコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter)でフィルタリングするSegmentを作成し、[Segmentをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv)して、自分のユーザーIDがこのリストに含まれているかどうかを確認します。
+  2. コントロールグループがある場合は、[Campaignコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv)して、自分のユーザーIDがこのリストに含まれているかどうかを確認します。
 
 #### 有効なプッシュトークン {#valid-push-token}
 プッシュトークンは、送信者が特定のデバイスにプッシュ通知を送信するために使用する識別子です。そのため、デバイスに有効なプッシュトークンがない場合、プッシュ通知を送信する方法はありません。

@@ -10,7 +10,7 @@ description: "This article outlines details about the synchronous Track user Bra
 ---
 {% api %}
 # Create and update users (synchronous)
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

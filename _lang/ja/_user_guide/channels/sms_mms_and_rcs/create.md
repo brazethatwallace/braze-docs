@@ -277,7 +277,7 @@ RCSのレンダリングはユーザーのオペレーティングシステム�
 
 {% multi_lang_include target_audiences.md %}
 
-Segmentsからより大きなオーディエンスを選択し、オプションのフィルターでそのSegmentをさらに絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+Segmentsからより大きなオーディエンスを選択し、オプションのフィルターでそのセグメントをさらに絞り込みます。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 {% alert tip %}
 リターゲティングに興味がありますか？詳細については、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)を参照してください。

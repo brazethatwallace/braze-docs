@@ -61,12 +61,12 @@ tool: Canvas
 以下を確認してください。
 
 - **エントリスケジュールとタイムゾーン：** Canvasがライブであり、ユーザーが[エントリ時間枠]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule)中にトリガーを実行したことを確認します。
-- **評価時のターゲットオーディエンス：** Segmentとフィルターの変更ログを確認します。[ユーザー検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)は、一部のフィルタータイプ（文字列形式の日付属性など）で偽陽性を示すことがあります。
+- **評価時のターゲットオーディエンス：** セグメントとフィルターの変更ログを確認します。[ユーザー検索]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)は、一部のフィルタータイプ（文字列形式の日付属性など）で偽陽性を示すことがあります。
 - **エントリキャップ：** [最大エントリ数]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)またはオーディエンスキャップに達している可能性があります。
 - **グローバルコントロールグループ：** [グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)のユーザーはメッセージングCanvasesに入りません。
-- **Canvasコントロールグループ：** エントリ時にCanvasコントロールグループに割り当てられたユーザーは、バリアントメッセージを受信しません。バリアントの割り当てはエントリ時に行われ、Segmentフィルターを通じて行われるわけではありません。[Canvas分析の不一致](#canvas-analytics-mismatches)を参照してください。
+- **Canvasコントロールグループ：** エントリ時にCanvasコントロールグループに割り当てられたユーザーは、バリアントメッセージを受信しません。バリアントの割り当てはエントリ時に行われ、セグメントフィルターを通じて行われるわけではありません。[Canvas分析の不一致](#canvas-analytics-mismatches)を参照してください。
 - **退出条件：** ユーザーがエントリ前またはエントリ中に[退出条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)に一致した可能性があります。エントリと退出が同じイベントを使用する場合は、[エントリ条件と退出条件の一致]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/)を参照してください。
-- **APIトリガーのエントリ：** ユーザーが[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)で追加されたことを確認します。Canvasエントリフィルターで[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)でユーザーをエクスポートできます。
+- **APIトリガーのエントリ：** ユーザーが[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)で追加されたことを確認します。Canvasエントリフィルターで[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)でユーザーをエクスポートできます。
 
 ### トリガーイベント数がCanvasエントリより多い {#trigger-event-count-is-higher-than-canvas-entries}
 
@@ -95,7 +95,7 @@ Brazeは同じ瞬間に発生した複数のエントリ試行を重複排除す
 次に、トリガーまたはステップタイプ別に以下を確認してください。
 
 - **カスタムイベントまたは購入トリガー：** イベントが**Analytics** > **カスタムイベントレポート**（購入の場合は**収益**）に表示されることを確認します。イベントのタイムスタンプを、Canvasがライブになった時刻およびステップのスケジュールされた遅延と比較してください。
-- **APIトリガーのエントリ：** [ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)で説明されているように、CanvasのSegmentフィルターとエクスポートでエントリを確認します。
+- **APIトリガーのエントリ：** [ユーザーがCanvasに入らなかった](#user-didnt-enter-the-canvas)で説明されているように、Canvasのセグメントフィルターとエクスポートでエントリを確認します。
 - **アクションパスまたはメッセージステップのトリガー：** ユーザーが前提条件のイベントを実行し、[イベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#event-properties)がステップで利用可能であることを確認します。
 - **アプリ内メッセージステップ：** アプリ内メッセージは、ユーザーがステップに入った後の次のセッション開始時に送信され、SDKイベントからのみ送信されます（REST APIからは送信されません）。Canvas FAQの[Canvasのアプリ内メッセージはいつ送信されますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#when-are-in-app-messages-in-canvas-sent)を参照してください。
 - **Canvasコントロールグループ：** ユーザーがエントリ時にCanvasコントロールグループに割り当てられていないことを確認します。
@@ -122,7 +122,7 @@ Canvasのメッセージステップが送信を中止した場合でも、ユ�
 
 - Canvasがアクティブであり、現在の時刻がスケジュールされたエントリ時間枠内であること。
 - [エントリ設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls)（再適格性、最大エントリ数、エントリキャップ）が、予想するユーザーのエントリを許可していること。
-- ターゲットオーディエンスとSegmentフィルターが、起動後も予想するユーザーに一致していること。
+- ターゲットオーディエンスとセグメントフィルターが、起動後も予想するユーザーに一致していること。
 - グローバルおよびCanvasコントロールグループの割合が、各パスに入るユーザーとメッセージを受信するユーザーの割合を示していること。
 - ワークスペースのレート制限またはエントリキューにより、ユーザーが資格を満たしてからエントリまたはステップに進むまでの間に遅延が発生する可能性があること。
 
@@ -142,7 +142,7 @@ Canvasのメッセージステップが送信を中止した場合でも、ユ�
 
 **症状：** Canvas分析が正しくない（コントロールグループの分割、コンバージョン、または送信数ゼロ）。
 
-コントロールグループとバリアントの割り当ては、Segmentフィルターではなく、ビルダーで設定した割合に基づいてCanvasのエントリ時に行われます。特定のチャネルを受信できないユーザーでもバリアントに入ることがあります。各メッセージタイプの受信者を制限するには、**ターゲットオーディエンス**をチャネルフィルターで絞り込むのではなく、ステップごとの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)を使用してください。
+コントロールグループとバリアントの割り当ては、セグメントフィルターではなく、ビルダーで設定した割合に基づいてCanvasのエントリ時に行われます。特定のチャネルを受信できないユーザーでもバリアントに入ることがあります。各メッセージタイプの受信者を制限するには、**ターゲットオーディエンス**をチャネルフィルターで絞り込むのではなく、ステップごとの[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings)を使用してください。
 
 Canvasコントロールグループと[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group/)を区別してください。フィルターの定義については、Canvas FAQの[「Canvasバリアントに入っていない」と「Canvasコントロールグループに含まれていない」の違いは何ですか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group)を参照してください。
 
@@ -158,9 +158,9 @@ Canvasコントロールグループと[グローバルコントロールグル�
 
 このシナリオでは、Canvasに入るユーザーの90%がバリアントに入ります。
 
-アクティブユーザーのSegmentを確認すると、29.8kのユーザーが含まれているにもかかわらず、プッシュが有効なのはそのうち64%のみであることがわかります。
+アクティブユーザーのセグメントを確認すると、29.8kのユーザーが含まれているにもかかわらず、プッシュが有効なのはそのうち64%のみであることがわかります。
 
-![「プッシュ有効」フィルターが「true」に設定され、推定ユーザー数が29.8kのSegment。]({% image_buster /assets/img_archive/trouble16.png %})
+![「プッシュ有効」フィルターが「true」に設定され、推定ユーザー数が29.8kのセグメント。]({% image_buster /assets/img_archive/trouble16.png %})
 
 つまり、90%のユーザーがバリアントに入るように指定しても、それらのユーザー全員がプッシュ通知を受信できるわけではありません。プッシュを受信できないユーザーもバリアントには入ります。送信数はエントリ時のバリアント割り当てではなく、ステップでのチャネル適格性を反映しています。
 

@@ -45,7 +45,7 @@ Brazeで**パートナー連携** > **テクノロジーパートナー**に移�
 
 Brazeで**Segments**に移動し、Heapコホートセグメントに名前を付け、フィルターとして**Heap Cohorts**を選択します。ここから、含めたいHeapコホートを選択できます。Heapコホートセグメントを作成したら、CampaignまたはCanvasを作成するときにオーディエンスフィルターとして選択できます。
 
-![BrazeのSegmentビルダーで、ユーザー属性フィルター「Heap cohort」が「次を含む」と「Heap Test Cohort」に設定されている。]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
+![Brazeのセグメントビルダーで、ユーザー属性フィルター「Heap cohort」が「次を含む」と「Heap Test Cohort」に設定されている。]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### この統合を使う {#using-this-integration}
 

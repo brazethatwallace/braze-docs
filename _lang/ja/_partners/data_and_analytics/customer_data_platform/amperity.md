@@ -18,7 +18,7 @@ _この統合はAmperityによって管理されています。_
 
 BrazeとAmperityの統合により、2つのプラットフォームにわたる顧客の統合ビューが提供されます。この統合により、以下のことが可能になります：
 - **顧客プロファイルを同期する**：ユーザーデータとカスタム属性をAmperityからBrazeにマッピングします。
-- **オーディエンスを作成して送信する**：アクティブな顧客とそれに関連付けられたカスタム属性のリストを返すSegmentを作成し、Brazeに送信します。
+- **オーディエンスを作成して送信する**：アクティブな顧客とそれに関連付けられたカスタム属性のリストを返すセグメントを作成し、Brazeに送信します。
 - **データの更新を管理する**：カスタム属性の更新をBrazeに送信する頻度を制御します。
 - **データを統合する**：AmperityがサポートするさまざまなプラットフォームとBrazeでデータを統合します。
 - **BrazeのデータをAmazon S3に同期する**：Braze Currentsを使用して、BrazeのCampaignsからのエンゲージメントデータを統合し、Apache AvroフォーマットでAmazon S3にデータを同期できます。
@@ -162,21 +162,21 @@ Amperityのクエリ機能に移動し、目的の顧客データセットを得
 
 #### 同期オプション2：AmpIQ経由でBrazeにオーディエンスを送信する {#syncing-option-2-send-audiences-to-braze-via-ampiq}
 
-AmpIQユーザーは、SQL以外のインターフェイスを使ってAmperityでSegmentを作成し、Brazeなどの下流の送信先に同期できます。ユーザーは送信先を選択し、各送信先に送信する属性のリストを設定できます。
+AmpIQユーザーは、SQL以外のインターフェイスを使ってAmperityでセグメントを作成し、Brazeなどの下流の送信先に同期できます。ユーザーは送信先を選択し、各送信先に送信する属性のリストを設定できます。
 
-##### ステップ1：AmperityでSegmentを作成する {#step-1-create-a-segment-in-amperity}
+##### ステップ1：Amperityでセグメントを作成する {#step-1-create-a-segment-in-amperity}
 
-Amperityで顧客のリストを返すSegmentを作成します。このSegmentは、Brazeで更新するカスタム属性に関連付けられている必要があります。
+Amperityで顧客のリストを返すセグメントを作成します。このセグメントは、Brazeで更新するカスタム属性に関連付けられている必要があります。
 
 {% alert note %}
-Amperityのドキュメントで、Brazeに送信できるさまざまなSegmentタイプの例を確認してください。
+Amperityのドキュメントで、Brazeに送信できるさまざまなセグメントタイプの例を確認してください。
 {% endalert %}
 
 ##### ステップ2：AmperityでCampaignを構築する {#step-2-build-a-campaign-in-amperity}
 
 1. **Campaign**セクションに移動し、新しいCampaignを作成するオプションをクリックします。
 2. 特に複数のCampaignsがある場合に後で識別しやすいよう、説明的でユニークな名前を付けます。
-3. このCampaignでターゲットにする顧客のSegmentを選択します。これは先ほど作成したSegmentです。<br>![ターゲティングから除外するSegmentのドロップダウンフィールド。]({% image_buster /assets/img/amperity/select_segments.png %}){: style="max-width:50%;"}<br><br>
+3. このCampaignでターゲットにする顧客のセグメントを選択します。これは先ほど作成したセグメントです。<br>![ターゲティングから除外するセグメントのドロップダウンフィールド。]({% image_buster /assets/img/amperity/select_segments.png %}){: style="max-width:50%;"}<br><br>
 4. Campaignの一部として送信したいデータを選択します。これにはさまざまな顧客属性が含まれる可能性があります。![「Edit Campaign Attributes」モーダルでは、送信先と顧客属性を選択できます。]({% image_buster /assets/img/amperity/edit_campaign_attributes.png %}){: style="max-width:90%;"}<br><br>
 5. Campaignデータの送信先として**Braze**を選択します。
 6. いつ、どのくらいの頻度でCampaignを実行するかを選択します。これは1回限りのイベントでも、定期的なスケジュールでも構いません。
@@ -184,7 +184,7 @@ Amperityのドキュメントで、Brazeに送信できるさまざまなSegment
 
 ##### ステップ3：Campaignを実行する {#step-3-run-the-campaign}
 
-BrazeにSegmentを送信するためにCampaignを実行します。これは手動で行うことも、Campaign設定で設定したスケジュールに基づいて行うこともできます。
+Brazeにセグメントを送信するためにCampaignを実行します。これは手動で行うことも、Campaign設定で設定したスケジュールに基づいて行うこともできます。
 
 
 ### AmperityとBraze Currentsを組み合わせて使用する {#using-amperity-with-braze-currents}

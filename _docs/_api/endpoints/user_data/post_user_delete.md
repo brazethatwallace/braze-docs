@@ -10,7 +10,7 @@ description: "This article outlines details about the Delete users Braze endpoin
 ---
 {% api %}
 # Delete users
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 

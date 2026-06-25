@@ -15,7 +15,7 @@ description: "このリファレンス記事では、Brazeがeコマースイベ
 
 [eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
 
-これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるSegmentの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
+これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるセグメントの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
 
 これらのイベントは定義済みスキーマに従うため、サポートされる各機能は、カスタムプロパティマッピングや機能ごとの設定なしに構造化データを読み取ることができます。
 
@@ -32,7 +32,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 - カート放棄フロー向けのカート状態管理
 - Predictive Events、Predictive Churn、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
 
-また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするSegmentを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
+また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするセグメントを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
 
 #### イベント命名 {#event-naming}
 

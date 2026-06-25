@@ -45,7 +45,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
 2. Canvasの設定が完了したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)を選択し、必要に応じて遅延を指定します。
-4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
+4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 {% endtab %}
@@ -279,13 +279,13 @@ Campaignの期間を設定したり、[サイレント時間]({{site.baseurl}}/u
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentやフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むSegment人口のライブプレビューを表示します。正確なSegmentメンバーシップは送信直前に計算されます。
+次に、セグメントやフィルターを選択して[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)します。Brazeは、メールでリーチ可能なユーザー数を含むセグメント人口のライブプレビューを表示します。正確なセグメントメンバーシップは送信直前に計算されます。
 
 {% multi_lang_include target_audiences.md %}
 
 特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を持つユーザー（購読中でメールにオプトインしているユーザーなど）にのみCampaignを送信することもできます。
 
-オプションで、Segment内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにしたりすることもできます。
+オプションで、セグメント内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにしたりすることもできます。
 
 {% alert note %}
 新しいメールキャンペーンを作成する場合、コントロールグループはデフォルトで20%に設定されており、Campaignの必要に応じて調整または削除できます。

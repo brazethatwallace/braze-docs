@@ -18,7 +18,7 @@ description: "この記事では、APIトリガー配信を使用したCampaign�
 
 APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボード内に保存しながら、メッセージの送信タイミングと送信先をAPIを使用して指定できます。
 
-Segmentをターゲットにしている場合、リクエストの記録は[開発者コンソール](https://dashboard.braze.com/app_settings/developer_console/activitylog/)に保存されます。このエンドポイントを使用してメッセージを送信するには、[APIトリガーCampaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)を構築する際に作成した[Campaign ID]({{site.baseurl}}/api/identifier_types/)が必要です。
+セグメントをターゲットにしている場合、リクエストの記録は[開発者コンソール](https://dashboard.braze.com/app_settings/developer_console/activitylog/)に保存されます。このエンドポイントを使用してメッセージを送信するには、[APIトリガーCampaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)を構築する際に作成した[Campaign ID]({{site.baseurl}}/api/identifier_types/)が必要です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -75,9 +75,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | 必須 | 文字列 | [Campaign識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `trigger_properties` | オプション | オブジェクト | [トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)を参照してください。パーソナライゼーションのキーと値のペアは、このリクエストの全ユーザーに適用されます。 |
-| `broadcast` | オプション | ブール値 | BrazeダッシュボードでCampaignのターゲットオーディエンスとして設定されたSegment全体にメッセージを送信する場合は、`broadcast` をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast` がtrueに設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する際は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `broadcast` | オプション | ブール値 | BrazeダッシュボードでCampaignのターゲットオーディエンスとして設定されたセグメント全体にメッセージを送信する場合は、`broadcast` をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast` がtrueに設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する際は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience` を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
-| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only` が `false` の場合、`attributes` オブジェクトを含める必要があります。<br><br>ネストされた `attributes` オブジェクト内に `subscription_groups` を含めることで、ユーザーのサブスクリプショングループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照してください。<br><br>`recipients` が指定されず、`broadcast` がtrueに設定されている場合、メッセージはBrazeダッシュボードでCampaignのターゲットオーディエンスとして設定されたSegment全体に送信されます。<br><br>`email` が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
+| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only` が `false` の場合、`attributes` オブジェクトを含める必要があります。<br><br>ネストされた `attributes` オブジェクト内に `subscription_groups` を含めることで、ユーザーのサブスクリプショングループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照してください。<br><br>`recipients` が指定されず、`broadcast` がtrueに設定されている場合、メッセージはBrazeダッシュボードでCampaignのターゲットオーディエンスとして設定されたセグメント全体に送信されます。<br><br>`email` が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
 | `attachments` | オプション | 配列 | `broadcast` がtrueに設定されている場合、`attachments` リストを含めることはできません。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
@@ -118,7 +118,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 `external_user_id` または `user_alias` で識別された受信者に対してメール専用Campaignをトリガーし、そのユーザープロファイルに呼び出し時点でメールアドレスがない場合、Brazeは約2時間まで送信をリトライします。これは、ユーザーの作成とメールアドレスの設定が短い間隔で行われる一般的なパターンに対応しています。遅延なく送信するには、`recipients[].attributes` 内に `email` 属性を含めて、トリガーと同じ呼び出しでアドレスを設定してください。
 
 {% alert note %}
-このエンドポイントでは `segment_id` パラメーターはサポートされていません。Segmentをターゲットにするには、BrazeダッシュボードのCampaignのターゲットオーディエンス設定でSegmentを設定し、`"broadcast": true` を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで `audience` パラメーターを使用してください。
+このエンドポイントでは `segment_id` パラメーターはサポートされていません。セグメントをターゲットにするには、BrazeダッシュボードのCampaignのターゲットオーディエンス設定でセグメントを設定し、`"broadcast": true` を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで `audience` パラメーターを使用してください。
 {% endalert %}
 
 ## リクエスト例 {#example-request}

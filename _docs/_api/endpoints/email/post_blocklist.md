@@ -10,7 +10,7 @@ description: "This article outlines the details about the Blocklist emails Braze
 ---
 {% api %}
 # Blocklist emails
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 

@@ -42,9 +42,9 @@ API trigger properties must use two curly braces per tag: {% raw %}`{{api_trigge
 
 ### Supported attributes
 
-Campaign, Card, and Canvas attributes are only supported in their corresponding messaging templates (for example, `dispatch_id` isn't available in in-app message campaigns).
+Campaign, Card, and Canvas attributes are only supported in their corresponding messaging templates. For example, `dispatch_id` is supported in Liquid for messaging channels such as email, push, SMS, and WhatsApp, but not for in-app messages or Banners.
 
-For more detail, see [Campaign and Canvas attributes across sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
+Refer to [Campaign and Canvas attributes across sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources) for more details.
 
 ### Canvas and campaign tag differences 
 

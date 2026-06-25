@@ -180,11 +180,11 @@ The following default attributes are available for user import.
 
 #### Updating subscription group status (optional)
 
-Additionally, you can add users to email or SMS subscription groups through user import. This is particularly useful for SMS, because a user must be enrolled into an SMS subscription group to be messaged with the SMS channel. For more information, refer to [SMS subscription groups](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Additionally, you can add users to email or SMS subscription groups through user import. This is particularly useful for SMS, because a user must be enrolled into an SMS subscription group to be messaged with the SMS channel. For more information, refer to [SMS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
 If you are updating subscription group statuses, you must have the following two columns in your CSV:
 
-- `subscription_group_id`: The `id` of the [subscription group](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).  
+- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).  
 - `subscription_state`: Available values are `unsubscribed` (not in the subscription group) or `subscribed` (in the subscription group).
 
 | external_id | first_name | subscription_group_id | subscription_state |

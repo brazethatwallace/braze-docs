@@ -116,6 +116,7 @@ module Jekyll
       <head>
       <link rel="canonical" href="#{destination_url}"/>
       <meta charset="utf-8">
+      <meta name="robots" content="noindex">
       <meta http-equiv="refresh" content="0;url=#{destination_url}" />
       </head>
       </html>

@@ -190,23 +190,23 @@ Campaignの残りを構築します。プッシュ通知を構築するための
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsやフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのSegment人口のプレビューが自動的に表示されます。Campaignがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのSegmentのライフタイムバリューを確認するには、**Show Additional Stats**を選択します。
+次に、Segmentsやフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのセグメント人口のプレビューが自動的に表示されます。Campaignがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのセグメントのライフタイムバリューを確認するには、**Show Additional Stats**を選択します。
 
 {% multi_lang_include target_audiences.md %}
 
 {% details 到達可能なユーザーの合計指標がすべてのチャネルの合計と一致しないのはなぜですか？ %}
 
-フィルタリングされたオーディエンスの到達可能なユーザーの合計を表示すると、個々の列の合計が到達可能なユーザーの合計よりも小さいことに気づく場合があります。このギャップは通常、CampaignのSegmentまたはフィルターの条件を満たしているが、プッシュ経由では到達できないユーザー（例えば、有効またはアクティブな[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#push-tokens)を持っていないため）が多数いることが原因です。
+フィルタリングされたオーディエンスの到達可能なユーザーの合計を表示すると、個々の列の合計が到達可能なユーザーの合計よりも小さいことに気づく場合があります。このギャップは通常、Campaignのセグメントまたはフィルターの条件を満たしているが、プッシュ経由では到達できないユーザー（例えば、有効またはアクティブな[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#push-tokens)を持っていないため）が多数いることが原因です。
 
 {% enddetails %}
 
 ![到達可能なユーザーの詳細なオーディエンス統計テーブル。]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
-正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 また、購読中やプッシュにオプトインしているユーザーなど、特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を持つユーザーにのみCampaignを送信することもできます。
 
-オプションとして、Segment内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにすることもできます。
+オプションとして、セグメント内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにすることもできます。
 
 #### メールとプッシュのマルチチャネルCampaign {#multichannel-campaigns-with-email-and-push}
 
