@@ -85,9 +85,9 @@ El comportamiento al hacer clic puede ser anulado si un elemento específico (co
 
 #### Paso 3.3: Configurar el comportamiento de descarte (opcional) {#dismiss-behavior}
 
-Selecciona la casilla **Banner can be dismissed** en la sección **Dismiss Behavior** para permitir que los usuarios descarten el banner. Esta opción es útil en escenarios donde quieres promocionar una venta por tiempo limitado para todos los usuarios de la aplicación, pero permitirles descartar el mensaje si no están interesados.
+Selecciona la casilla **Banner can be dismissed** en la sección **Dismiss behavior** para permitir que los usuarios descarten el banner. Esto es útil cuando quieres promocionar una oferta por tiempo limitado a una audiencia amplia, pero permitir que los usuarios no interesados oculten el mensaje.
 
-Cuando el descarte está habilitado, puedes personalizar el botón de descarte en la sección **Dismiss Behavior**:
+Cuando el descarte está habilitado, puedes personalizar el botón de descarte en la sección **Dismiss behavior**:
 
 | Configuración | Descripción |
 |---------|-------------|

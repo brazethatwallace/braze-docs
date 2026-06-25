@@ -23,7 +23,7 @@ Die <i>geschätzten realen Öffnungen</i> sind eine Schätzung der Anzahl der ei
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
-Ein <i>Hard Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines dauerhaften Zustellungsfehlers nicht an die Empfänger:in zugestellt werden kann. Ein Hard Bounce kann auftreten, weil der Domänenname nicht existiert oder weil die Empfänger:in unbekannt ist.
+Ein <i>Hard Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines dauerhaften Zustellungsfehlers nicht an die Empfänger:in zugestellt werden kann. Ein Hard Bounce kann auftreten, weil der Domainname nicht existiert oder weil die Empfänger:in unbekannt ist.
 {% endif %}
 
 {% if include.metric == "Soft Bounce" %}
@@ -103,7 +103,7 @@ Die <i>Gesamtzahl der Conversions</i> ist die Gesamtzahl der Fälle, in denen ei
 {% endif %}
 
 {% if include.metric == "Delivery Failures" %}
-<i>Zustellungsfehler</i> treten auf, wenn die SMS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (SMS werden mit einer höheren Rate gesendet, als Ihre Lang- oder Kurzcodes verarbeiten können).
+<i>Zustellungsfehler</i> treten auf, wenn die SMS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (SMS werden mit einer höheren Rate gesendet, als Ihre Lang- oder Shortcodes verarbeiten können).
 {% endif %}
 
 {% if include.metric == "Delivery Failures RCS" %}
@@ -235,7 +235,7 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Ausblendungen insgesamt</i> ist die Anzahl der Fälle, in denen Content Cards aus einer Campaign ausgeblendet wurden.
+<i>Ausblendungen insgesamt</i> ist die Anzahl der Fälle, in denen Nutzer:innen eine Nachricht aus einer Campaign ausgeblendet haben. Bei Content Cards wird jede Karten-Ausblendung gezählt. Bei Bannern wird jedes Mal gezählt, wenn ein:e Nutzer:in das Banner ausgeblendet hat, sofern das Ausblendungsverhalten aktiviert ist.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}

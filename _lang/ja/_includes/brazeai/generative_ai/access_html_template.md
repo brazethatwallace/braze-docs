@@ -1,0 +1,1 @@
+HTMLメールテンプレートエディターでは、**生成**サイドバーグループに**テンプレート**オプションがあります。これを選択すると、ブランドに沿ったHTMLメールテンプレートを生成またはIterateできます。オペレーターは[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)を適用するため、結果がブランドのボイスやスタイルに一致します。

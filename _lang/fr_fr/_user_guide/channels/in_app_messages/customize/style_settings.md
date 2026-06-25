@@ -124,7 +124,7 @@ Ensuite, prenez votre extrait de code Liquid généré et insérez-le dans votre
 
 ### Utilisation du rédacteur IA {#using-the-ai-copywriter}
 
-Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **Rédacteur IA** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
+Lorsqu'un bloc de texte est sélectionné dans votre message in-app, sélectionnez <i class="fa-solid fa-wand-magic-sparkles" title="Rédacteur IA"></i> **Rédacteur IA** dans la barre d'outils du bloc pour lancer l'[assistant de rédaction alimenté par l'intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). L'assistant de rédaction IA transmet un bref nom ou une description de produit à l'outil de génération de texte GPT3 d'OpenAI pour générer un texte marketing semblable à celui d'un humain pour vos messages.
 
 {% alert tip %}
 Vous pouvez gagner quelques clics en surlignant le texte à l'intérieur du bloc avant de cliquer sur l'icône. Le texte surligné sera ajouté à l'outil, et le texte sera généré immédiatement.

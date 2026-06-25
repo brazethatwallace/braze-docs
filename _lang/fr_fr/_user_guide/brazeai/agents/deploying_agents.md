@@ -110,7 +110,7 @@ Les références circulaires dans les catalogues ne sont pas prises en charge, c
 
 ### Ajouter un agent à un champ de catalogue {#add-an-agent-to-a-catalog-field}
 
-![Une étape Agent dans un champ de catalogue.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Une étape Agent dans un champ de catalogue.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 Pour ajouter un agent à votre champ de catalogue :
 
@@ -121,8 +121,6 @@ Pour ajouter un agent à votre champ de catalogue :
 5. (Facultatif) Activez **Only run when required columns have values** pour ignorer les lignes où une ou plusieurs colonnes d'entrée sélectionnées sont vides. Lorsque cette option est activée, sélectionnez lesquelles des colonnes d'entrée doivent être renseignées pour que l'agent s'exécute — toutes les colonnes sélectionnées sont requises par défaut, mais vous pouvez retirer celles qui sont autorisées à rester vides sans bloquer l'exécution.
 6. Décidez si l'agent doit recalculer les champs lorsque les lignes du catalogue sont mises à jour. Si vous ne sélectionnez pas cette option, l'agent ne s'exécute qu'une seule fois par ligne.
 7. Sélectionnez **Add fields** pour déployer l'agent et consulter les estimations de coûts. La fenêtre modale **Cost estimation** indique le nombre de fois que l'agent s'exécutera sur ce catalogue, soit approximativement le nombre total de lignes. Pour continuer, sélectionnez **Confirm**.
-
-![L'option permettant de sélectionner « Apply AI agent » pour un champ du catalogue.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 ### Bonnes pratiques pour les agents de catalogue {#catalog-agent-best-practices}
 
@@ -179,11 +177,11 @@ Vous pouvez également remplacer manuellement la cellule générée par l'agent 
 
 La surveillance fonctionne de la même manière, que votre agent s'exécute dans Canvas ou dans les catalogues.
 
-Dans la section **Usage** de votre agent, vous pouvez consulter et accéder aux endroits où l'agent est activement utilisé dans les catalogues et les Canvas.
+Dans la section **Utilisation** de votre agent, vous pouvez consulter et accéder aux endroits où l'agent est activement utilisé dans les catalogues et les Canvas.
 
-![Section Usage de l'agent affichant deux agents actifs et un agent inactif pour les Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Section Utilisation de l'agent affichant deux agents actifs et un agent inactif pour les Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Dans la section **Logs** de votre agent, vous pouvez surveiller les appels réels de l'agent dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Export CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
+Dans la section **Journaux** de votre agent, vous pouvez surveiller les appels réels de l'agent dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Exporter en CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
 
 {% alert tip %}
 Vous pouvez également surveiller les erreurs de limite d'invocations quotidiennes dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
@@ -191,7 +189,7 @@ Vous pouvez également surveiller les erreurs de limite d'invocations quotidienn
 
 ![Journaux pour un agent AI Sentiment Score.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Sélectionnez **View** pour un appel d'agent spécifique afin de consulter l'entrée, la sortie et l'ID utilisateur.
+Sélectionnez **Voir** pour un appel d'agent spécifique afin de consulter l'entrée, la sortie et l'ID utilisateur.
 
 ![Le panneau de détails d'un agent Random Sports Assignment affichant l'invite d'entrée, la réponse de sortie et l'ID utilisateur associé.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

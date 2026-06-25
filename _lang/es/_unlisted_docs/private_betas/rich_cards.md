@@ -14,7 +14,7 @@ hidden: true
 
 ### Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
-¿No tienes claro si tu mensaje debe enviarse mediante una Campaign o un Canvas? Las Campaigns son mejores para campañas de mensajería sencillas y únicas, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
+¿No tienes claro si tu mensaje debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería sencillos y únicos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
 {% tabs %}
 {% tab Campaign %}
@@ -26,7 +26,7 @@ hidden: true
 
 {: start="5"}
 5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B](https://braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing/).
-- **Pruebas de variantes SMS y RCS**: Braze te permite incluir variantes tanto de SMS como de RCS dentro de una sola Campaign, lo que te permite comparar el rendimiento de cada una. Puedes añadir variantes de SMS y RCS durante el primer paso de la composición del mensaje.
+- **Pruebas de variantes SMS y RCS**: Braze te permite incluir variantes tanto de SMS como de RCS dentro de una sola campaña, lo que te permite comparar el rendimiento de cada una. Puedes añadir variantes de SMS y RCS durante el primer paso de la composición del mensaje.
 
 {: start="6"}
 6. Selecciona un [grupo de suscripción](https://braze.com/docs/sms_rcs_subscription_groups/) habilitado para RCS. Al seleccionar un grupo de suscripción, Braze añadirá automáticamente un filtro de segmentación, asegurando que solo los usuarios suscritos reciban la campaña. Solo se usarán los códigos largos y códigos abreviados que pertenezcan a ese grupo de suscripción para enviar SMS a los usuarios objetivo.
@@ -164,9 +164,9 @@ Antes de continuar, lee nuestras [directrices sobre los límites de mensajes RCS
 
 Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Ve a la pestaña **Prueba** para enviar un RCS de prueba a grupos de prueba de contenido o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
-### Paso 5: Construye el resto de tu Campaign o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+### Paso 5: Construye el resto de tu campaña o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
-A continuación, construye el resto de tu Campaign o Canvas. Consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear mensajes RCS.
+A continuación, construye el resto de tu campaña o Canvas. Consulta las siguientes secciones para más detalles sobre cómo usar mejor nuestras herramientas para crear mensajes RCS.
 
 #### Paso 5.1: Elige la planificación de entrega o el desencadenante {#step-51-choose-delivery-schedule-or-trigger}
 
@@ -200,13 +200,13 @@ También puedes establecer eventos de conversión personalizados según tu caso 
 
 ### Paso 6: Revisa y despliega {#step-6-review-and-deploy}
 
-Después de terminar de construir tu Campaign o Canvas, revisa sus detalles, pruébala y luego envíala.
+Después de terminar de construir tu campaña o Canvas, revisa sus detalles, pruébala y luego envíala.
 
 A continuación, consulta [Informes para SMS, MMS y RCS](https://braze.com/docs/sms_mms_rcs_reporting/) para aprender cómo puedes acceder a los resultados de tus campañas RCS.
 
 ## Análisis e informes {#analytics-and-reporting}
 
-Los análisis de tu Campaign o Canvas incluyen:
+Los análisis de tu campaña o Canvas incluyen:
 
 - Estadísticas de _Clics totales_ que incluyen todas las interacciones con la tarjeta enriquecida, como clics en botones y respuestas sugeridas o acciones.
 - Una tabla desglosada que proporciona una vista más detallada de estas interacciones.
@@ -223,7 +223,7 @@ Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la pe
 
 ### Generar texto con IA {#generating-ai-copy}
 
-¿Necesitas ayuda para crear textos atractivos? Prueba a usar el [asistente de redacción con inteligencia artificial](https://braze.com/docs/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
+¿Necesitas ayuda para crear textos atractivos? Prueba a usar el [asistente de redacción con inteligencia artificial](https://braze.com/docs/user_guide/brazeai/operator/capabilities/#generate-copy). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
 
 ![Compositor de mensajes con un icono para abrir el asistente de redacción con inteligencia artificial.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

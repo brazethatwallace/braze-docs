@@ -1,0 +1,1 @@
+En la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), selecciona **Generar con Operator** en el panel Cargar activos. Describe la imagen que deseas y Operator la genera y la guarda directamente en tu biblioteca de medios.

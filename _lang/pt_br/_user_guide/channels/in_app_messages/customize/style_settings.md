@@ -124,7 +124,7 @@ Em seguida, pegue o snippet Liquid gerado e insira-o na sua mensagem. Após proj
 
 ### Usando o Assistente de Copywriting com IA {#using-the-ai-copywriter}
 
-Quando um bloco de texto é selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
+Quando um bloco de texto é selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
 
 {% alert tip %}
 Você pode economizar alguns cliques destacando o texto dentro do bloco antes de clicar no ícone. O texto destacado será adicionado à ferramenta, e o texto será gerado imediatamente.

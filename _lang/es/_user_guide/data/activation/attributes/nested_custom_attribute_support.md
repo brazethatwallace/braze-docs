@@ -265,15 +265,31 @@ Usa la etiqueta de personalización `custom_attribute` y la notación de punto p
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Uso de Liquid para incluir en una plantilla el nombre de una canción y el número de veces que un oyente ha reproducido esa canción en un mensaje]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+Para usar Liquid de atributos personalizados anidados en tu mensaje:
+
+1. Ve a una campaña o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
+3. Usa **Preview & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
 ### Personalización {#personalization}
 
-Usando el modal **Add Personalization**, también puedes insertar atributos personalizados anidados en tu mensajería. Selecciona **Nested Custom Attributes** como tipo de personalización. A continuación, selecciona el atributo de nivel superior y la clave del atributo.
+Puedes usar **Add Personalization** para insertar un atributo personalizado anidado en tu mensaje.
 
-Por ejemplo, en el modal de personalización a continuación, esto inserta el atributo personalizado anidado de una oficina de barrio local basándose en las preferencias de un usuario.
+Para abrir **Add Personalization**:
 
-![El modal Add Personalization con el tipo de personalización configurado como "Nested Custom Attrib...", el atributo de nivel superior configurado como "preferences" y la clave de atributo configurada como "neighborhood_office", mostrando una vista previa Liquid de la etiqueta resultante.]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Ve a una campaña o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+2. En el creador de mensajes, selecciona **Personalization** para abrir la barra lateral **Add Personalization**, donde puedes elegir opciones de personalización.
+
+Para configurar la personalización de atributos personalizados anidados:
+
+1. En **Personalization Type**, selecciona **Nested Custom Attributes**.
+2. En **Top Level Attribute**, selecciona la ruta del atributo personalizado anidado que quieras insertar.
+   Por ejemplo, selecciona `preferences.neighborhood_office`.
+3. Opcional: En **Default value**, introduce un valor alternativo para los usuarios que no tengan su propio valor para ese atributo.
+4. Revisa el **Liquid Snippet** generado para confirmar que coincide con la ruta esperada.
+5. Selecciona **Insert**.
+
+En este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
 
 {% alert tip %}
 Verifica que se haya generado un esquema si no ves la opción de insertar atributos personalizados anidados.
@@ -304,7 +320,14 @@ Puedes desencadenar acciones cuando un objeto de atributo personalizado anidado 
 
 Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
 
-![Configuración de entrega de campaña basada en acciones con un desencadenador de cambio de valor de atributo personalizado para preferencias anidadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+Para configurar este desencadenador en una campaña basada en acciones:
+
+1. Crea o edita una campaña, luego establece el tipo de entrega en **Entrega basada en acciones**.
+2. En la configuración de desencadenadores, selecciona **Change Custom Attribute Value**.
+3. Selecciona la ruta del atributo personalizado anidado que quieras monitorear.
+   Por ejemplo, selecciona `preferences.neighborhood_office`.
+4. Selecciona la condición de desencadenamiento que desees, como **any new value**.
+5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lanza la campaña.
 
 ## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 

@@ -58,6 +58,10 @@ Default to English Display Name
 
 ![複数の返信先アドレスを入力するフィールドがある「返信先アドレス」セクション。]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Brazeの送信ドメインは受信メールを受け付けません。受信者がBrazeで設定された送信ドメインから送信されたメールに返信した場合、その返信は`550 5.7.1 relaying denied`エラーでバウンスします。返信先アドレスは差出人アドレスと同じドメインを共有する必要はありません。返信を受信する必要がある場合（たとえば、カレンダー招待の確認を収集する場合）は、送信用に設定されておらず、メールを受信するための受信トレイが設定されているサブドメインを使用してください。
+{% endalert %}
+
 #### Liquidによるパーソナライズ
 
 **返信先アドレス**フィールドで[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用して、カスタム属性に基づいて返信先アドレスを動的にテンプレート化することもできます。たとえば、条件ロジックを使用して、異なるリージョンや部門に返信を送信できます。

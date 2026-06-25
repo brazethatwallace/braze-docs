@@ -1,0 +1,1 @@
+Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), sélectionnez **Générer avec Operator** dans le panneau Charger des ressources. Décrivez l'image souhaitée : Operator la génère et l'enregistre directement dans votre bibliothèque multimédia.

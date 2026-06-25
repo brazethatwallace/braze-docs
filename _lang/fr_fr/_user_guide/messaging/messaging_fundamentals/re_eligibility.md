@@ -78,6 +78,10 @@ Cela signifie que les utilisateurs ayant reçu la Campaign le 15 février ne son
 
 Lorsque la rééligibilité est activée pour des Campaigns ou des étapes de Canvas de Content Cards, un utilisateur peut recevoir une autre carte alors qu'une carte précédente de la même Campaign est encore présente dans son flux, ce qui peut ressembler à des cartes en double. Pour réduire les doublons, désactivez la rééligibilité ou allongez la fenêtre de rééligibilité afin que la première carte [expire du flux]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) avant que l'utilisateur ne se qualifie pour un nouvel envoi.
 
+## Rééligibilité pour les bannières {#re-eligibility-for-banners}
+
+Lorsque la rééligibilité est activée pour des Campaigns de bannières, les utilisateurs qui ferment une bannière peuvent redevenir éligibles après une fenêtre de temporisation configurable qui commence au moment de la fermeture. Si la rééligibilité n'est pas activée, les utilisateurs ayant fermé la bannière restent inéligibles. Pour configurer la rééligibilité, consultez [Configurer la rééligibilité]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility). Notez que les étapes de bannière dans Canvas utilisent les paramètres de réentrée du Canvas à la place.
+
 ## Test multivarié {#multivariate-testing}
 
 Pour les tests multivariés, Braze détermine la rééligibilité des variantes pour toutes les Campaigns, les messages in-app déclenchés et les Canvas en utilisant les règles suivantes :

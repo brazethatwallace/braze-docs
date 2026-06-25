@@ -25,7 +25,7 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
    * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports](https://braze.com/docs/user_guide/analytics/reporting/report_builder/), vous pouvez filtrer par étiquettes spécifiques.
 
 {: start="5"}
-5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus, consultez [Tests multivariés et A/B](https://braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing/).
+5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes. Pour en savoir plus, consultez [Tests multivariés et A/B](https://braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing/).
 - **Test de variantes SMS et RCS** : Braze vous permet d'inclure des variantes SMS et RCS au sein d'une même campagne, ce qui vous permet de comparer les performances de chacune. Vous pouvez ajouter des variantes SMS et RCS lors de la première étape de la composition du message.
 
 {: start="6"}
@@ -33,7 +33,7 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 - **Repli SMS** : Braze recommande fortement que chaque groupe d'abonnement contenant un expéditeur RCS inclue également au moins un code SMS pour le repli. Cela est important pour la livrabilité dans les cas où les messages RCS ne parviennent pas à être livrés. Les raisons possibles incluent l'incompatibilité de l'appareil de l'utilisateur et une couverture opérateur incomplète dans un pays ou une région donnée. En activant le repli SMS, votre message sera tout de même livré à votre utilisateur et vous ne manquerez jamais cette opportunité de communiquer avec lui.
 
 {: start="7"}
-7. Choisissez entre SMS et RCS. Avant de composer des messages RCS, choisissez le canal avec lequel vous envoyez. Nous recommandons généralement d'utiliser RCS dans la mesure du possible, car les avantages en termes d'engagement utilisateur sont significatifs par rapport au SMS ; cependant, nous offrons toujours la possibilité d'envoyer par SMS afin que vous disposiez d'une flexibilité et d'un contrôle maximaux.
+7. Choisissez entre SMS et RCS. Avant de composer des messages RCS, choisissez le canal d'envoi. Nous recommandons généralement d'utiliser RCS dans la mesure du possible, car les avantages en termes d'engagement utilisateur sont significatifs par rapport au SMS ; cependant, nous offrons toujours la possibilité d'envoyer par SMS afin que vous disposiez d'une flexibilité et d'un contrôle maximaux.
 
 ![Options pour sélectionner un type de message RCS ou SMS/MMS.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
@@ -50,7 +50,7 @@ Si tous les messages de votre campagne vont être similaires ou avoir le même c
 - **Repli SMS** : Braze recommande fortement que chaque groupe d'abonnement contenant un expéditeur RCS inclue également au moins un code SMS pour le repli. Cela est important pour la livrabilité dans les cas où les messages RCS ne parviennent pas à être livrés. Les raisons possibles incluent l'incompatibilité de l'appareil de l'utilisateur et une couverture opérateur incomplète dans un pays ou une région donnée. En activant le repli SMS, votre message sera tout de même livré à votre utilisateur et vous ne manquerez jamais cette opportunité de communiquer avec lui.
 
 {: start="5"}
-5. Choisissez entre SMS et RCS. Avant de composer des messages RCS, choisissez le canal avec lequel vous envoyez. Nous recommandons généralement d'utiliser RCS dans la mesure du possible, car les avantages en termes d'engagement utilisateur sont significatifs par rapport au SMS ; cependant, nous offrons toujours la possibilité d'envoyer par SMS afin que vous disposiez d'une flexibilité et d'un contrôle maximaux.
+5. Choisissez entre SMS et RCS. Avant de composer des messages RCS, choisissez le canal d'envoi. Nous recommandons généralement d'utiliser RCS dans la mesure du possible, car les avantages en termes d'engagement utilisateur sont significatifs par rapport au SMS ; cependant, nous offrons toujours la possibilité d'envoyer par SMS afin que vous disposiez d'une flexibilité et d'un contrôle maximaux.
 
 ![Options pour sélectionner un type de message RCS ou SMS/MMS.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_message_type.png %}){: style="max-width:65%;"}
 
@@ -65,22 +65,22 @@ Lors de la création d'une campagne ou d'un Canvas, choisissez parmi trois types
 
 {% tabs local %}
 {% tab Texte %}
-Comme son nom l'indique, les messages texte RCS se concentrent sur le texte comme support. Si vous saisissez jusqu'à 160 caractères, le message RCS est facturé comme un message texte uniquement (ou « basique »). Si vous dépassez 160 caractères ou utilisez un élément enrichi, le message est facturé comme un message RCS enrichi (ou « unique ») (et la limite de caractères passe à 3 072 caractères).
+Comme son nom l'indique, les messages texte RCS se concentrent sur le texte comme support. Si vous saisissez jusqu'à 160 caractères, le message RCS est facturé comme un message texte uniquement (ou « basique »). Si vous dépassez 160 caractères ou utilisez un élément enrichi, le message est facturé comme un message RCS enrichi (ou « unique ») et la limite de caractères passe à 3 072 caractères.
 
 #### Fonctionnalités {#features}
 
 - Les types de messages texte incluent toutes les fonctionnalités SMS. Seul le suivi avancé est possible pour le suivi des clics sur les URL, ce qui vous offre une granularité de reporting au niveau de l'utilisateur.
 - De plus, vous avez désormais la possibilité d'inclure des boutons **Réponses suggérées** et **Actions suggérées** qui favorisent des actions utilisateur à fort engagement, comme visiter une page d'accueil ou passer une commande.
     - Les **Réponses suggérées** sont des boutons contenant des réponses suggérées sur lesquelles les utilisateurs peuvent cliquer et qui sont pré-remplies dans leur champ de saisie, supprimant la friction de devoir réfléchir à une réponse en leur fournissant un ensemble limité de choix.
-    - Les **Actions suggérées** sont des boutons qui déclenchent une action sur l'appareil de l'utilisateur. Elles consistent généralement en un ou deux mots descriptifs et une icône visuelle pour aider l'utilisateur à comprendre ce que fait le bouton. Braze prend actuellement en charge les actions suggérées OpenURL. Cela fonctionne de manière similaire à une URL, où les utilisateurs qui sélectionnent le bouton sont redirigés vers une page web ou un autre emplacement identifié par URL.
+    - Les **Actions suggérées** sont des boutons qui déclenchent une action sur l'appareil de l'utilisateur. Elles consistent généralement en un ou deux mots descriptifs et une icône visuelle pour aider l'utilisateur à comprendre ce que fait le bouton. Braze prend actuellement en charge les actions suggérées OpenURL. Cela fonctionne de manière similaire à une URL : les utilisateurs qui sélectionnent le bouton sont redirigés vers une page web ou un autre emplacement identifié par URL.
 
 ![Un GIF de trois actions suggérées pour un message RCS promouvant des styles de mode tendance : « Fairytale royalty », « Edgy academia » et « Show me your other styles ».]({% image_buster /assets/unlisted_docs/img/rcs/rcs_suggested_actions.gif %}){: style="max-width:70%;"}
 
 #### Considérations {#considerations}
 
-- Pour les limites de caractères sur le texte, vous pouvez écrire jusqu'à 160 caractères pour un message RCS texte uniquement (basique) ou jusqu'à 3 072 pour un message RCS enrichi (unique).
+- Pour les limites de caractères, vous pouvez écrire jusqu'à 160 caractères pour un message RCS texte uniquement (basique) ou jusqu'à 3 072 pour un message RCS enrichi (unique).
 - Pour les limites de boutons, vous pouvez ajouter jusqu'à cinq boutons par message. Ces boutons peuvent être des actions suggérées ou des réponses suggérées.
-- Les blocs de texte longs et un trop grand nombre de boutons peuvent frustrer les utilisateurs, donc dans la mesure du possible, nous recommandons de privilégier la simplicité.
+- Les blocs de texte longs et un trop grand nombre de boutons peuvent frustrer les utilisateurs ; dans la mesure du possible, nous recommandons de privilégier la simplicité.
 - Dans certains cas, il peut être plus rentable d'envoyer des messages texte plus longs via RCS qu'avec SMS. En effet, les messages SMS plus longs sont divisés en plusieurs segments, chacun étant facturable, tandis que les messages RCS sont facturés par message. Contactez votre gestionnaire de compte Braze pour plus de détails et de conseils.
 {% endtab %}
 
@@ -110,7 +110,7 @@ Les messages média RCS vous permettent d'utiliser des formats média engageants
 
 L'expérience utilisateur lors de la réception de messages RCS peut varier légèrement en fonction de plusieurs facteurs, notamment la couverture opérateur dans le pays de destination, le matériel de l'appareil mobile et le système d'exploitation de l'appareil mobile.
 
-De manière générale, le RCS s'intègre plus naturellement avec les appareils Android (cette méthode a été largement mise en œuvre par Google, et la messagerie RCS pair-à-pair est largement adoptée au sein de la communauté Android). Différents appareils peuvent rendre l'expérience à des vitesses et qualités différentes.
+De manière générale, le RCS s'intègre plus naturellement avec les appareils Android (cette méthode a été largement mise en œuvre par Google, et la messagerie RCS pair-à-pair est largement adoptée au sein de la communauté Android). Différents appareils peuvent offrir l'expérience à des vitesses et qualités différentes.
 {% endtab %}
 
 {% tab Carte enrichie %}
@@ -142,7 +142,7 @@ Une carte enrichie Média est un message visuel contenant une image ou une vidé
 {% endsubtabs %}
 
 ### Fonctionnalités
-- **Boutons de carte** et **Suggestions :** Vous pouvez ajouter jusqu'à quatre boutons et cinq suggestions (jusqu'à 25 caractères chacune) en bas de la carte enrichie (boutons) ou en bas de l'écran de message (suggestions). Un utilisateur peut sélectionner ces options de clic pour envoyer une réponse spécifique ou effectuer une action spécifique.
+- **Boutons de carte** et **Suggestions :** Vous pouvez ajouter jusqu'à quatre boutons et cinq suggestions (jusqu'à 25 caractères chacune) en bas de la carte enrichie (boutons) ou en bas de l'écran de message (suggestions). Un utilisateur peut sélectionner ces options pour envoyer une réponse spécifique ou effectuer une action spécifique.
 - **Personnalisation :** Vous pouvez utiliser Liquid pour personnaliser tous les éléments de la carte enrichie, y compris le titre, la description, le média et les boutons.
 - **Facturation :** Les cartes enrichies sont facturées comme un seul message RCS enrichi (ou « unique »).
 - **Recommandations pour les URL :** Les URL saisies en texte brut dans le titre ou la description ne seront pas cliquables. Vous devez utiliser un bouton **OpenURL** pour diriger les utilisateurs vers un site web.
@@ -182,7 +182,7 @@ Ciblez les utilisateurs en choisissant des segments ou des filtres pour affiner 
 
 {% multi_lang_include target_audiences.md %}
 
-Ensuite, vous sélectionnerez l'audience plus large parmi vos segments et affinerez ce segment davantage avec des [filtres](https://braze.com/docs/user_guide/engagement_tools/segments/segmentation_filters/) optionnels. Vous obtiendrez automatiquement un aperçu de ce à quoi ressemble approximativement la population de ce segment en ce moment. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée juste avant l'envoi du message.
+Ensuite, sélectionnez l'audience plus large parmi vos segments et affinez ce segment davantage avec des [filtres](https://braze.com/docs/user_guide/engagement_tools/segments/segmentation_filters/) optionnels. Vous obtiendrez automatiquement un aperçu de la population approximative de ce segment. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée juste avant l'envoi du message.
 
 {% alert tip %}
 Vous souhaitez utiliser le reciblage RCS pour cibler les utilisateurs en fonction de leurs interactions SMS et RCS ? Consultez [Reciblage](https://braze.com/docs/sms_mms_rcs_user_retargeting/).
@@ -223,7 +223,7 @@ Si vous prévoyez d'utiliser Liquid, assurez-vous d'inclure une valeur par défa
 
 ### Générer du texte avec l'IA {#generating-ai-copy}
 
-Besoin d'aide pour créer un texte engageant ? Essayez d'utiliser l'[assistant de rédaction IA](https://braze.com/docs/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing semblable à celui d'un humain pour l'utiliser dans vos messages.
+Besoin d'aide pour créer un texte engageant ? Essayez d'utiliser l'[assistant de rédaction IA](https://braze.com/docs/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing au ton naturel pour l'utiliser dans vos messages.
 
 ![Compositeur de messages avec une icône pour ouvrir l'assistant de rédaction IA.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

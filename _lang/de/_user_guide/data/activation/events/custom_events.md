@@ -17,7 +17,7 @@ Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchge
 
 Einige häufige Anwendungsfälle für angepasste Events sind:
 
-- Auslösen einer Campaign oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
+- Auslösen einer Kampagne oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)
 - Segmentierung der Nutzer:innen danach, wie oft sie ein angepasstes Event durchgeführt haben, wann das Event zuletzt aufgetreten ist und Ähnliches
 - Nutzung der Dashboard-[Analytics für angepasste Events](#analytics), um eine aggregierte Ansicht darüber zu erhalten, wie oft jedes Event aufgetreten ist
 - Zusätzliche Analytics mithilfe von [Funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps)- und [Bindungs]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)-Berichten gewinnen
@@ -112,7 +112,7 @@ Jedes Event enthält:
 Häufige Anwendungsfälle sind:
 
 - Überprüfung, ob Ihre SDK- oder API-Integration Events wie erwartet sendet – während der Entwicklung oder nach einem Release.
-- Fehlerbehebung, warum eine Nutzer:in eine Event-getriggerte Campaign oder einen Canvas betreten hat oder nicht.
+- Fehlerbehebung, warum eine Nutzer:in eine Event-getriggerte Kampagne oder einen Canvas betreten hat oder nicht.
 - Untersuchung eines Support-Falls für eine bestimmte Nutzer:in, ohne einen Datenexport einrichten zu müssen.
 
 {% alert note %}
@@ -141,7 +141,7 @@ Die folgende Tabelle zeigt die verfügbaren Filter zur Segmentierung von Nutzer:
 
 Braze erfasst die Anzahl der Vorkommen angepasster Events und den Zeitpunkt, zu dem sie zuletzt von den einzelnen Nutzer:innen durchgeführt wurden, für die Segmentierung. Sie können diese Analytics einsehen, indem Sie zu **Analytics** > **Bericht zu angepassten Events** navigieren.
 
-Auf der Seite **Bericht zu angepassten Events** im Dashboard können Sie in aggregierter Form sehen, wie oft jedes angepasste Event auftritt. Die grauen Linien, die über die Zeitreihe gelegt werden, zeigen an, wann zuletzt eine Campaign gesendet wurde – das ist nützlich, um zu sehen, wie Ihre Campaigns die Aktivität angepasster Events beeinflusst haben.
+Auf der Seite **Bericht zu angepassten Events** im Dashboard können Sie in aggregierter Form sehen, wie oft jedes angepasste Event auftritt. Die grauen Linien, die über die Zeitreihe gelegt werden, zeigen an, wann zuletzt eine Kampagne gesendet wurde – das ist nützlich, um zu sehen, wie Ihre Kampagnen die Aktivität angepasster Events beeinflusst haben.
 
 ![Grafik der Anzahl angepasster Events auf der Seite „Angepasste Events“ im Dashboard, die Trends für ein angepasstes Event zeigt]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 

@@ -205,7 +205,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 #### AIコピーの生成 {#generating-ai-copy}
 
-[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)を試してみてください。製品名や説明を入力すると、AIがメッセージングで使用できる人間らしいマーケティングコピーを生成します。
+[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)を試してみてください。製品名や説明を入力すると、AIがメッセージングで使用できる人間らしいマーケティングコピーを生成します。
 
 ![SMSコンポーザーのメッセージフィールドにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 

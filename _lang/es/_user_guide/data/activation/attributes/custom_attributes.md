@@ -85,25 +85,25 @@ Para exportar la lista de atributos personalizados como un archivo CSV, seleccio
 
 ### Requisitos previos {#prerequisites}
 
-El atributo personalizado no debe estar actualmente en uso en ninguna Campaign, Canvas ni ningún Segment activo. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el dashboard mostrará un error y bloqueará el cambio.
+El atributo personalizado no debe estar actualmente en uso en ninguna campaña, Canvas ni segmento activo. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el dashboard mostrará un error y bloqueará el cambio.
 
 ### Cambiar el tipo de datos {#changing-the-data-type}
 
-1. Detén cualquier Campaign o Canvas activo que use el atributo en segmentos o filtros.
-2. Elimina el atributo de todos los filtros de Segments, Campaigns y Canvas.
+1. Detén cualquier campaña o Canvas activo que use el atributo en segmentos o filtros.
+2. Elimina el atributo de todos los filtros de segmentos, campañas y Canvas.
 3. Ve a **Configuración de datos** > **Atributos personalizados** (o **Eventos personalizados**), busca el atributo y actualízalo al tipo de datos deseado.
 4. Actualiza los valores del atributo en los perfiles de usuario existentes para que coincidan con el nuevo tipo de datos (por ejemplo, usando el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
-5. Vuelve a aplicar el atributo a los Segments, Campaigns y Canvas relevantes, y luego reactiva cualquier Campaign o Canvas detenido.
+5. Vuelve a aplicar el atributo a los segmentos, campañas y Canvas relevantes, y luego reactiva cualquier campaña o Canvas detenido.
 
 ### Cosas a tener en cuenta {#things-to-know}
 
 - **Los datos de usuario no se actualizan retroactivamente.** Si un perfil de usuario tenía el atributo con el tipo de datos anterior, ese valor permanece sin cambios. El filtro de segmentación busca el nuevo tipo de datos, por lo que los usuarios con el valor anterior quedan excluidos de los segmentos coincidentes hasta que se actualice su perfil.
 - **Los nuevos datos deben coincidir con el nuevo tipo de datos.** Después del cambio, las llamadas a la API o los eventos del SDK que envíen el tipo de datos anterior para este atributo no serán aceptados. Solo se ingieren valores que coincidan con el nuevo tipo de datos.
-- **Los filtros no se actualizan automáticamente.** Los Segments y los filtros de Campaigns que hacen referencia al atributo modificado no se actualizan retroactivamente. Debes eliminarlos y volver a añadirlos después del cambio.
+- **Los filtros no se actualizan automáticamente.** Los segmentos y los filtros de campañas que hacen referencia al atributo modificado no se actualizan retroactivamente. Debes eliminarlos y volver a añadirlos después del cambio.
 
 ## Ver informes de uso {#view-usage-reports}
 
-El informe de uso muestra todos los Canvas, Campaigns y Segments que utilizan un atributo personalizado específico. Esta lista no incluye usos de Liquid.
+El informe de uso muestra todos los Canvas, campañas y segmentos que utilizan un atributo personalizado específico. Esta lista no incluye usos de Liquid.
 
 Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de verificación junto a los atributos personalizados correspondientes y luego seleccionando **Ver informe de uso**.
 

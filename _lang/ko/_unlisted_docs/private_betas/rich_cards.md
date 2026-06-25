@@ -223,7 +223,7 @@ Liquid를 사용할 계획이라면, 수신자의 사용자 프로필이 불완�
 
 ### AI 문구 생성 {#generating-ai-copy}
 
-매력적인 문구를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트](https://braze.com/docs/user_guide/brazeai/generative_ai/copywriting/)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 문구를 생성합니다.
+매력적인 문구를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트](https://braze.com/docs/user_guide/brazeai/operator/capabilities/#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 문구를 생성합니다.
 
 ![AI 카피라이팅 어시스턴트를 여는 아이콘이 있는 메시지 작성기.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

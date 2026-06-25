@@ -62,7 +62,7 @@ Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_
 1. Suchen Sie die Nutzer:in über **Nutzer:innen suchen**.
 2. Wählen Sie unter **Engagement** die Option **Unsubscribed**, **Subscribed** oder **Opted In**, um den Abo-Status der Nutzer:in zu ändern.
 
-Falls verfügbar, zeigt das Nutzerprofil auch einen Zeitstempel an, wann das Abo der Nutzer:in zuletzt geändert wurde.
+Das Nutzerprofil zeigt auch einen Zeitstempel an, wann das Abo der Nutzer:in zuletzt geändert wurde. Ein Zeitstempel wird aufgezeichnet, wenn der Status **Opted-in** oder **Unsubscribed** ist, aber nicht, wenn der Status **Subscribed** ist – beispielsweise hat ein neu erstelltes Profil, das sich nie explizit an- oder abgemeldet hat, keinen Abo-Zeitstempel.
 
 #### Präferenzzentrum {#preference-center}
 
@@ -79,7 +79,19 @@ Sie können den E-Mail-Abo-Status einer Nutzer:in auf folgende Weise überprüfe
 
 Wenn eine Nutzer:in ihre E-Mail-Adresse aktualisiert, wird ihr Abo-Status auf „Abonniert“ gesetzt. Wenn die aktualisierte E-Mail-Adresse bereits an anderer Stelle in einem Braze-Workspace existiert, übernimmt die Nutzer:in den Abo-Status von dieser bestehenden Nutzer:in, es sei denn, **Resubscribe users when they update their email setting** ist in der **Sendekonfiguration** aktiviert.
 
-Um Änderungen des Abo-Status nachzuvollziehen, überprüfen Sie die **Email Subscription-State Changes** in den Nutzerprofil-Protokollen, um den Verlauf und die Quelle (API oder SDK) einzusehen.
+Um Änderungen des Abo-Status nachzuvollziehen, überprüfen Sie die **Email Subscription-State Changes** in den Nutzerprofil-Protokollen, um den Verlauf und die Quelle einzusehen. Die folgenden Quellen können eine Änderung des E-Mail-Abo-Status auslösen:
+
+| Quelle | Beschreibung |
+| ------ | ----------- |
+| SDK | Nutzerattribut-Update, gesendet über ein Braze SDK |
+| REST API | Nutzerattribut-Update, gesendet über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt |
+| Dashboard | Abo-Status manuell auf der Nutzerprofil-Seite geändert |
+| CSV-Import | Abo-Status während eines Nutzer-CSV-Imports festgelegt |
+| Präferenzzentrum | Nutzer:in hat ihre Präferenz über ein von Braze gehostetes Präferenzzentrum aktualisiert |
+| Abo-Seite | Nutzer:in hat einen Abmeldelink in einer E-Mail ausgewählt und ist auf der Braze-Abo-Seite gelandet |
+| List-Unsubscribe | Nutzer:in hat sich über den nativen List-Unsubscribe-Header des E-Mail-Clients abgemeldet |
+| Canvas-Nutzeraktualisierungsschritt | Abo-Status durch einen [Nutzeraktualisierungsschritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) in einem Canvas aktualisiert |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quellen für Aktualisierungen des E-Mail-Abo-Status" }
 
 Wenn sich der globale E-Mail-Abo-Status einer Nutzer:in ändert, überträgt Braze diesen Status auf andere Profile, die dieselbe E-Mail-Adresse verwenden – bis zu 100 Profile pro Änderung. Braze garantiert keine Übertragung, wenn mehr als 100 Profile dieselbe E-Mail-Adresse verwenden. Wenn Nutzer:innen, die eine E-Mail-Adresse teilen, unterschiedliche Abo-Status aufweisen, wenden Sie sich an den Braze-Support.
 
@@ -98,7 +110,7 @@ Verwenden Sie die [Abo-Gruppen-Endpunkte]({{site.baseurl}}/api/endpoints/subscri
 1. Gehen Sie zu **Audience** > **Subscription Group Management**.
 2. Wählen Sie **Create email subscription group**.
 3. Geben Sie Ihrer Abo-Gruppe einen Namen und eine Beschreibung.
-4. Wählen Sie **Save**.
+4. Wählen Sie **Speichern**.
 
 Alle Abo-Gruppen werden automatisch zu Ihrem Präferenzzentrum hinzugefügt.
 
@@ -106,7 +118,7 @@ Alle Abo-Gruppen werden automatisch zu Ihrem Präferenzzentrum hinzugefügt.
 
 ### Mit einer Abo-Gruppe segmentieren {#segmenting-with-a-subscription-group}
 
-Legen Sie beim Erstellen Ihrer Segmente den Namen der Abo-Gruppe als Filter fest. Dadurch wird sichergestellt, dass Nutzer:innen, die sich für Ihre Gruppe entschieden haben, Ihre E-Mails erhalten. Dies eignet sich hervorragend für monatliche Newsletter, Gutscheine, Mitgliedschaftsstufen und mehr.
+Legen Sie beim Erstellen Ihrer Segmente den Namen der Abo-Gruppe als Filter fest, um Nutzer:innen anzusprechen, die sich für Ihre Gruppe entschieden haben. Dies eignet sich hervorragend für monatliche Newsletter, Gutscheine, Mitgliedschaftsstufen und mehr.
 
 ![Beispiel für das Targeting von Nutzer:innen im Segment „Inaktive Nutzer:innen“ mit dem Filter für Nutzer:innen in der Abo-Gruppe „Wöchentliche E-Mails“.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 

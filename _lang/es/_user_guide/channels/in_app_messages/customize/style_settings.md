@@ -124,7 +124,7 @@ A continuación, toma tu fragmento de código Liquid generado e insértalo en tu
 
 ### Usar el asistente de redacción con inteligencia artificial {#using-the-ai-copywriter}
 
-Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> **AI copywriter** en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
+Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> **AI copywriter** en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
 
 {% alert tip %}
 Puedes ahorrarte algunos clics resaltando el texto dentro del bloque antes de hacer clic en el icono. El texto resaltado se añadirá a la herramienta y se generará el texto de inmediato.

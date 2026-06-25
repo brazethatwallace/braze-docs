@@ -58,6 +58,10 @@ Agregar una dirección de correo electrónico en esta sección te permite selecc
 
 ![Sección "Reply-To Address" con campos para ingresar múltiples direcciones de respuesta.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Los dominios de envío de Braze no aceptan correo electrónico entrante. Si un destinatario responde a un correo electrónico enviado desde un dominio de envío configurado en Braze, su respuesta rebota con un error `550 5.7.1 relaying denied`. La dirección de respuesta no necesita compartir el mismo dominio que la dirección del remitente. Si necesitas recibir respuestas, por ejemplo, para recopilar confirmaciones de invitaciones de calendario, usa un subdominio que no esté configurado para envío y que tenga un buzón de entrada configurado para aceptar correo.
+{% endalert %}
+
 #### Personalizar con Liquid
 
 También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) en el campo **Reply-To Address** para crear dinámicamente la plantilla de la dirección de respuesta basándote en atributos personalizados. Por ejemplo, puedes usar lógica condicional para enviar respuestas a diferentes regiones o departamentos:

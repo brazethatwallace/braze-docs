@@ -128,7 +128,7 @@ Confira [Outras personalizações](#other-customizations) para outras formas de 
 Enquanto constrói seu e-mail, você pode alternar entre a visualização para desktop e celular para ver como sua mensagem ficará para seus grupos de usuários. Isso garante que seu conteúdo seja responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
 
 {% alert tip %}
-Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso nas suas mensagens.
+Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso nas suas mensagens.
 
 ![Botão do Assistente de Copywriting, localizado no painel de Conteúdo ao lado das Configurações de estilo no editor de arrastar e soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}

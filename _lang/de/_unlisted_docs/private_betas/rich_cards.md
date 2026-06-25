@@ -223,7 +223,7 @@ Wenn Sie Liquid verwenden möchten, stellen Sie sicher, dass Sie einen Standardw
 
 ### KI-Texte generieren {#generating-ai-copy}
 
-Brauchen Sie Hilfe beim Erstellen ansprechender Texte? Probieren Sie den [KI-Textassistenten](https://braze.com/docs/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Erstellen ansprechender Texte? Probieren Sie den [KI-Textassistenten](https://braze.com/docs/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
 ![Nachrichten-Editor mit einem Symbol zum Öffnen des KI-Textassistenten.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

@@ -128,7 +128,7 @@ Consultez [Autres personnalisations](#other-customizations) pour découvrir d'au
 Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vous permet de vérifier que votre contenu est responsive et d'effectuer les ajustements nécessaires au fur et à mesure.
 
 {% alert tip %}
-Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité professionnelle à utiliser dans vos messages.
+Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité professionnelle à utiliser dans vos messages.
 
 ![Bouton de l'assistant de rédaction, situé dans le panneau Content à côté des paramètres de style dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -200,13 +200,13 @@ Notez que les modifications apportées à un modèle d'e-mail ne seront pas refl
 
 #### Utiliser Inbox Vision {#use-inbox-vision}
 
-Inbox Vision vous permet de visualiser vos campagnes d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail avec Inbox Vision, sélectionnez **Inbox Vision** dans la section **Preview & Test** puis sélectionnez **Run Inbox Vision**.
+Inbox Vision vous permet de visualiser vos Campaigns d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail avec Inbox Vision, sélectionnez **Inbox Vision** dans la section **Preview & Test** puis sélectionnez **Run Inbox Vision**.
 
 Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de coupures entre les images, ou des clients comme Windows Outlook peuvent ne pas afficher les images d'arrière-plan. Inbox Vision peut vous aider à identifier ces différences entre les clients. Dans ce cas, définissez une couleur d'arrière-plan de secours pour que ces images s'affichent comme prévu.
 
 Pour plus d'informations, consultez [Envoyer des messages test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
 
-Après avoir utilisé l'éditeur par glisser-déposer pour concevoir et créer votre e-mail, continuez à [créer]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) le reste de votre campagne ou Canvas.
+Après avoir utilisé l'éditeur par glisser-déposer pour concevoir et créer votre e-mail, continuez à [créer]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) le reste de votre Campaign ou Canvas.
 
 {% details À propos du moteur HTML mis à jour %}
 Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-déposer a été optimisé et mis à jour, offrant des avantages en termes de compression et de rendu des fichiers HTML.
@@ -249,7 +249,7 @@ Pour ajuster le remplissage, faites défiler jusqu'à **Block Options** et séle
 
 ### Arrière-plan du contenu {#content-background}
 
-Vous pouvez ajouter une image d'arrière-plan à votre configuration de ligne, ce qui vous permet d'intégrer davantage de design et de contenu visuel dans votre campagne d'e-mail.
+Vous pouvez ajouter une image d'arrière-plan à votre configuration de ligne, ce qui vous permet d'intégrer davantage de design et de contenu visuel dans votre Campaign d'e-mail.
 
 ### Attribut de langue {#language-attribute}
 

@@ -116,7 +116,7 @@ Sie **können** keine Android-Push-Nachricht ohne Titel senden&#8212;Sie können
 {% endtabs %}
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Erstellen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte für Ihr Messaging.
+Brauchen Sie Hilfe beim Erstellen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte für Ihr Messaging.
 
 ![Button „KI-Textassistent starten“ im Textfeld des Push-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_push.png %}){: style="max-width:60%"}
 {% endalert %}

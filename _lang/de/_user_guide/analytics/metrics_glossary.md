@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Abweisungen insgesamt {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Wenn Nutzer:innen zwei verschiedene Cards aus derselben Campaign erhalten und beide abweisen, erhöht sich diese Zahl um zwei. Die erneute Berechtigung ermöglicht es, die _Abweisungen insgesamt_ jedes Mal zu erhöhen, wenn Nutzer:innen eine Card erhalten; jede Card ist eine separate Nachricht.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Wenn Nutzer:innen bei Content Cards zwei verschiedene Cards aus derselben Campaign erhalten und beide abweisen, erhöht sich diese Zahl um zwei. Die erneute Berechtigung ermöglicht es, die _Abweisungen insgesamt_ jedes Mal zu erhöhen, wenn Nutzer:innen eine Card erhalten; jede Card ist eine separate Nachricht. Bei Bannern wird jede Abweisung gezählt, wenn das Abweisungsverhalten aktiviert ist.
 
 {::nomarkdown}
 <span class="calculation-line">

@@ -235,7 +235,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>却下数の合計</i>は、CampaignのContent Cardsが却下された回数です。
+<i>却下数の合計</i>は、ユーザーがCampaignのメッセージを却下した回数です。Content Cardsの場合、各カードの却下がカウントされます。バナーの場合、却下動作が有効になっているときにユーザーがバナーを却下した回数がカウントされます。
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -255,7 +255,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
-<i>ユニーク却下数</i>は、CampaignからContent Cardsを却下した受信者の一意の数です。あるユーザーがCampaignからContent Cardsを複数回却下した場合、ユニーク却下1回としてカウントされます。
+<i>ユニーク却下数</i>は、CampaignからContent Cardsを却下したユニーク受信者の数です。あるユーザーがCampaignからContent Cardsを複数回却下した場合、ユニーク却下1回としてカウントされます。
 {% endif %}
 
 <!-- Unique Impressions & Unique Recipients have a dedicated section in campaign_analytics.md -->

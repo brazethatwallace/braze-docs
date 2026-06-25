@@ -30,7 +30,7 @@ search_rank: 1
 {% tab Campaign %}
 
 1. **メッセージング** > **Campaigns**に移動し、**キャンペーンを作成**を選択します。
-2. **Email**を選択するか、複数チャネルを対象とするCampaignの場合は**Multichannel**を選択します。
+2. **Email**を選択するか、複数チャネルを対象とするCampaignの場合は**マルチチャネル**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使うと、Campaignの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
@@ -89,7 +89,7 @@ Brazeは、属性として参照されるHTMLイベントハンドラーを自�
 {% endalert %}
 
 {% alert tip %}
-素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)をお試しください。製品名や説明を入力すると、AIがメッセージングに使用できる人間らしいマーケティングコピーを生成します。
+素晴らしいコピーの作成にお困りですか？[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)をお試しください。製品名や説明を入力すると、AIがメッセージングに使用できる人間らしいマーケティングコピーを生成します。
 
 ![メールコンポーザーの本文タブにある「AIコピーライターを起動」ボタン。]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}

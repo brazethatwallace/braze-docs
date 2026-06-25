@@ -58,6 +58,10 @@ L'ajout d'une adresse e-mail dans cette section vous permet de la sélectionner 
 
 ![Section « Reply-To Address » avec des champs pour saisir plusieurs adresses de réponse.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Les domaines d'envoi de Braze n'acceptent pas les e-mails entrants. Si un destinataire répond à un e-mail envoyé depuis un domaine d'envoi configuré par Braze, sa réponse sera rejetée avec une erreur `550 5.7.1 relaying denied`. L'adresse de réponse n'a pas besoin de partager le même domaine que l'adresse d'expédition. Si vous devez recevoir des réponses — par exemple, pour collecter des confirmations d'invitations de calendrier — utilisez un sous-domaine qui n'est pas configuré pour l'envoi et qui dispose d'une boîte de réception configurée pour accepter les e-mails.
+{% endalert %}
+
 #### Personnaliser avec Liquid
 
 Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) dans le champ **Reply-To Address** pour créer dynamiquement l'adresse de réponse en fonction d'attributs personnalisés. Par exemple, vous pouvez utiliser une logique conditionnelle pour envoyer les réponses à différentes régions ou départements :
@@ -328,8 +332,8 @@ Non, cela ne respecte pas la RFC 8058, ce qui signifie que vous ne serez pas con
 Un centre de préférences n'est pas considéré comme un lien de désabonnement. Vos destinataires d'e-mails doivent avoir la possibilité de se désabonner de tout e-mail commercial pour rester conforme à la loi CAN-SPAM.
 {% enddetails %}
 
-{% details Dois-je modifier les campagnes d'e-mail et Canvas existants pour appliquer le paramètre de désabonnement en un clic après l'avoir activé ? %}
-Si vous n'avez aucun des cas d'utilisation pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les campagnes d'e-mail et les étapes Canvas existantes en conséquence.
+{% details Dois-je modifier les Campaigns d'e-mail et Canvas existants pour appliquer le paramètre de désabonnement en un clic après l'avoir activé ? %}
+Si vous n'avez aucun des cas d'utilisation pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mail et les étapes Canvas existantes en conséquence.
 {% enddetails %}
 
 {% details Je peux voir l'en-tête list-unsubscribe et de désabonnement en un clic dans le message original ou les données brutes, mais pourquoi ne vois-je pas le bouton Se désabonner dans Gmail ou Yahoo ? %}
@@ -359,7 +363,7 @@ Non. Si le paramètre de l'espace de travail est désactivé et que le paramètr
 {% enddetails %}
 
 {% details Que se passe-t-il si un groupe d'abonnement est archivé ? Cela casse-t-il le désabonnement en un clic sur les e-mails envoyés ? %}
-Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de Segment, profil utilisateur et zones similaires).
+Si un groupe d'abonnement référencé dans les **Sending Info** pour le désabonnement en un clic est archivé, Braze continue de traiter les désabonnements en un clic. Le groupe d'abonnement n'apparaît plus dans le tableau de bord (filtre de segment, profil utilisateur et zones similaires).
 {% enddetails %}
 
 {% details Le paramètre de désabonnement en un clic est-il disponible pour les modèles d'e-mail ? %}

@@ -717,6 +717,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### 통합 {#integrations}
+
 #### 표준 배너 통합(드래그 앤 드롭 편집기) {#standard-banner-integrations-drag-and-drop-editor}
 
 배너가 드래그 앤 드롭 편집기를 사용하고 해제 버튼 구성요소를 포함하는 경우 추가 코드가 필요하지 않습니다. 사용자가 해제 버튼을 클릭하면 메시지가 숨겨지고, 해제가 트리거된 후 분석을 위한 해제 이벤트가 기록됩니다.

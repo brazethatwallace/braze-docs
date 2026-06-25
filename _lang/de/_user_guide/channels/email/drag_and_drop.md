@@ -128,7 +128,7 @@ Weitere Möglichkeiten zur Anpassung Ihrer Drag-and-Drop-E-Mail finden Sie unter
 Während Sie Ihre E-Mail erstellen, können Sie zwischen einer Desktop- und einer Mobilansicht wechseln, um eine Vorschau zu sehen, wie Ihre E-Mail-Nachricht für Ihre Nutzergruppen aussehen wird. So können Sie überprüfen, ob Ihr Inhalt responsiv ist, und unterwegs alle notwendigen Anpassungen vornehmen.
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
 ![Button „Textassistent“ im Content-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}

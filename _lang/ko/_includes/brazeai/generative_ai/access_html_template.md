@@ -1,0 +1,1 @@
+HTML 이메일 템플릿 편집기에서 **생성** 사이드바 그룹에 **템플릿** 옵션이 있습니다. 이 옵션을 선택하면 브랜드에 맞는 HTML 이메일 템플릿을 생성하거나 Iterate할 수 있습니다. Operator는 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)을 적용하여 결과물이 브랜드의 보이스와 스타일에 맞도록 합니다.

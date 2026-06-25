@@ -1,0 +1,1 @@
+Na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), selecione **Gerar com Operator** no painel Fazer Upload de Ativos. Descreva a imagem que você deseja, e o Operator a gera e salva diretamente na sua Biblioteca de mídia.
