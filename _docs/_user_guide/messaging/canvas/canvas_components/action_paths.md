@@ -89,4 +89,8 @@ If users enter an action path multiple times and have multiple entries in the ac
 | **On** | All entries advance at the end of the relevant evaluation window. No deduplication occurs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases with re-eligibility" }
 
+{% alert warning %}
+Changing the **Advance users based on ranked order** setting after launch can cause unintended behavior for users already in the step. Users who entered the action path before the change are evaluated based on the original ranking setting at the time the evaluation window ends. If you change the setting (for example, from ranking on to ranking off), users who performed an action may not advance as expected—they will advance based on the original ranking setting they entered with. To avoid this, create a new action path with the desired ranking setting, or duplicate the Canvas before making changes.
+{% endalert %}
+
 Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).
