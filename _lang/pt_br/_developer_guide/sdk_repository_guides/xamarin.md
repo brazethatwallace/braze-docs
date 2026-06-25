@@ -12,8 +12,8 @@ O SDK .NET MAUI (Xamarin) da Braze ajuda você a integrar recursos de envio de m
 
 Para começar, consulte os seguintes recursos:
 
-- [Guia do usuário da Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guia do desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=xamarin)
+- [Guia do usuário da Braze]({{site.baseurl}}/user_guide/introduction/)
+- [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=xamarin)
 
 ## Componentes {#components}
 

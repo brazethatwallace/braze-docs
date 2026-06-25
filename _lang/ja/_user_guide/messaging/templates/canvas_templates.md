@@ -24,7 +24,6 @@ Brazeダッシュボードで、**Messaging** > **Canvas**に移動し、テン�
 
 Canvasエディターで、Canvasがアクティブか下書きかに応じて、**Edit Canvas**または**Edit draft**を選択します。フッターの**Save as draft**ドロップダウンを展開し、**Save as template**を選択します。
 
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
 
 ### ステップ3: テンプレートを保存する {#step-3-save-your-template}
 
@@ -34,7 +33,7 @@ Canvasエディターで、Canvasがアクティブか下書きかに応じて�
 
 ### ステップ1: キャンバステンプレートエディターに移動する {#step-1-go-to-the-canvas-template-editor}
 
-Brazeダッシュボードで、**Content** > **Canvas**に移動します。
+Brazeダッシュボードで、**コンテンツ** > **Canvas**に移動します。
 
 ### ステップ2: 新しいテンプレートを作成する {#step-2-create-a-new-template}
 
@@ -55,7 +54,7 @@ Brazeダッシュボードで、**Content** > **Canvas**に移動します。
 Canvasを作成する際にテンプレートを使用する方法は2つあります。
 
 - **Messagingから**: **Messaging** > **Canvas**に移動します。**Create Canvas**ボタンを選択し、**Use a Canvas Template**を選択します。
-- **Contentから**: **Content** > **Canvas**に移動し、**Canvas templates**で目的のテンプレートを見つけます。次に、<i class="fas fa-ellipsis-vertical"></i> メニューから**Apply template**を選択します。これにより、Canvasコンポーザーでテンプレートが適用された新しいCanvasが表示されます。
+- **コンテンツから**: **コンテンツ** > **Canvas**に移動し、**キャンバステンプレート**で目的のテンプレートを見つけます。次に、<i class="fas fa-ellipsis-vertical"></i> メニューから**Apply template**を選択します。これにより、Canvasコンポーザーでテンプレートが適用された新しいCanvasが表示されます。
 
 ### 利用可能なBrazeテンプレート {#available-braze-templates}
 

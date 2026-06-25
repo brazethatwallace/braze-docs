@@ -24,7 +24,7 @@ Identifica una plataforma externa que quieras conectar a Braze y comprueba que l
 
 A continuación se muestra un ejemplo de [webhook de Typeform](https://www.typeform.com/help/a/webhooks-360029573471/), que se puede configurar iniciando sesión en su plataforma:
 
-![Ejemplo de carga útil de webhook de Typeform en la configuración de la plataforma Typeform.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Un ejemplo de carga útil de webhook de Typeform en la configuración de la plataforma Typeform.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## Paso 2: Crear una transformación {#step-2-create-a-transformation}
 
@@ -39,7 +39,7 @@ Este paso es opcional, pero recomendamos enviar un webhook de prueba desde tu pl
 - Si tu plataforma de origen solicita un tipo de solicitud, selecciona **POST**.
 - Si tu plataforma de origen proporciona opciones de autenticación, selecciona **No authentication**.
 - Si tu plataforma de origen te pide secretos, selecciona **No secrets**.
-3. Actualiza tu página en el panel de Braze para ver si se ha recibido el webhook. Si se ha recibido, deberías ver la carga útil del webhook en **Most recent webhook**.
+3. Actualiza tu página en el dashboard de Braze para ver si se ha recibido el webhook. Si se ha recibido, deberías ver la carga útil del webhook en **Most recent webhook**.
 
 Esto es lo que se ve para Typeform:
 
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
 
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,

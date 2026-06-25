@@ -633,19 +633,19 @@ eCommerce 추천 이벤트와 기존 구매 이벤트를 일치시키기 위해 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 스토리지 대상(AWS S3, GCS, Azure Blob Storage) 및 Snowflake 데이터 공유를 위한 두 가지 새로운 [이벤트](http://braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)(`agentconsole.AgentExecuted` 및 `agentconsole.ToolInvocation`)를 사용할 수 있습니다. 이러한 이벤트를 통해 다운스트림 시스템에서 에이전트 콘솔 사용량과 세부 정보를 분석하여 에이전트 사용량을 이해하고 최대한 활용할 수 있습니다. 에이전트를 사용하면 Canvas 또는 카탈로그에서 콘텐츠를 생성하고 지능적인 의사 결정에 따라 사용자를 다른 경로로 라우팅하는 등 Braze 전반에서 특정 작업을 수행할 수 있는 지능형 에이전트를 만들고 배포할 수 있습니다. 자세한 내용은 [커런츠 체인지로그](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 스토리지 대상(AWS S3, GCS, Azure Blob Storage) 및 Snowflake 데이터 공유를 위한 두 가지 새로운 [이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)(`agentconsole.AgentExecuted` 및 `agentconsole.ToolInvocation`)를 사용할 수 있습니다. 이러한 이벤트를 통해 다운스트림 시스템에서 에이전트 콘솔 사용량과 세부 정보를 분석하여 에이전트 사용량을 이해하고 최대한 활용할 수 있습니다. 에이전트를 사용하면 Canvas 또는 카탈로그에서 콘텐츠를 생성하고 지능적인 의사 결정에 따라 사용자를 다른 경로로 라우팅하는 등 Braze 전반에서 특정 작업을 수행할 수 있는 지능형 에이전트를 만들고 배포할 수 있습니다. 자세한 내용은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### 개별 채널에 대한 새로운 '재시도' 이벤트 {#new-retry-events-for-individual-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 제한의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [커런츠 체인지로그](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 제한의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### TokenStateChange 이벤트에 새로운 'time_ms' 필드 추가 {#add-new-time_ms-field-to-tokenstatechange-event}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[`users.behaviors.pushnotification.TokenStateChange`](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 이벤트에 새로운 `time_ms` 필드가 추가되어 푸시 토큰 상태 변화를 추적하기 위한 밀리초 수준의 세분성을 제공합니다. 이 향상된 정밀도는 같은 초 내에 여러 변경 사항이 발생할 때 푸시 토큰의 최신 상태를 파악하는 데 도움이 되며, 다운스트림 시스템에서 올바른 구독 상태를 유지하고 있다는 확신을 줍니다. 자세한 내용은 [커런츠 체인지로그](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+[`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 이벤트에 새로운 `time_ms` 필드가 추가되어 푸시 토큰 상태 변화를 추적하기 위한 밀리초 수준의 세분성을 제공합니다. 이 향상된 정밀도는 같은 초 내에 여러 변경 사항이 발생할 때 푸시 토큰의 최신 상태를 파악하는 데 도움이 되며, 다운스트림 시스템에서 올바른 구독 상태를 유지하고 있다는 확신을 줍니다. 자세한 내용은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### Tealium 대상으로 익명 사용자 보내기 {#send-anonymous-user-to-tealium-destinations}
 

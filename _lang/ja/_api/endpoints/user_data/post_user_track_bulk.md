@@ -12,7 +12,7 @@ description: "この記事では、一括ユーザートラッキングエンド
 ---
 {% api %}
 # ユーザーの作成と更新（一括） {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 

@@ -6,7 +6,7 @@ hidden: true
 
 # [![Brazeラーニングコース]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント](https://www.braze.com/docs/user_guide/data/custom_data/events/)を参照してください。
+> この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/custom_data/events/)を参照してください。
 
 カスタムイベントは、ユーザーが行ったアクション、またはユーザーに関する更新です。カスタムイベントが記録されると、任意の数やタイプのフォローアップCampaignsをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日に基づいてユーザーをセグメント化できます。これにより、カスタムイベントはアプリケーション内の価値の高いユーザーインタラクションの追跡に最適です。
 
@@ -14,13 +14,13 @@ hidden: true
 
 一般的なカスタムイベントのユースケースには、以下のようなものがあります。
 
-- [アクションベースの配信](https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を使用して、カスタムイベントに基づいてCampaignやCanvasをトリガーする
+- [アクションベースの配信]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)を使用して、カスタムイベントに基づいてCampaignやCanvasをトリガーする
 - カスタムイベントの実行回数、最終発生日などに基づいてユーザーをセグメント化する
-- ダッシュボードの[カスタムイベント分析](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics)を使用して、各イベントの発生回数の集計を表示する
-- [ファネル](https://www.braze.com/docs/user_guide/data_and_analytics/reporting/funnel_reports/#step-2-select-events-for-funnel-steps)レポートや[リテンション](https://www.braze.com/docs/user_guide/analytics/reporting/retention_reports/)レポートを使用して追加の分析を行う
-- [永続的なエントリプロパティ](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties/)を活用して、顧客イベントのメタデータをキャンバスステップでのパーソナライゼーションに使用する
-- [Currents](https://www.braze.com/docs/user_guide/data/braze_currents/)を使用してより高度な分析を生成する
-- [終了条件](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria)を設定して、ユーザーがCanvasを終了するタイミングを定義する
+- ダッシュボードの[カスタムイベント分析]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-analytics)を使用して、各イベントの発生回数の集計を表示する
+- [ファネル]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports/#step-2-select-events-for-funnel-steps)レポートや[リテンション]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/)レポートを使用して追加の分析を行う
+- [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties/)を活用して、顧客イベントのメタデータをキャンバスステップでのパーソナライゼーションに使用する
+- [Currents]({{site.baseurl}}/user_guide/data/braze_currents/)を使用してより高度な分析を生成する
+- [終了条件]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria/)を設定して、ユーザーがCanvasを終了するタイミングを定義する
 
 ## エンタイトルメント {#entitlements}
 
@@ -50,11 +50,11 @@ hidden: true
 
 ### 説明の追加 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases`の[ユーザー権限](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)がある場合、カスタムイベントの作成後に説明を追加できます。カスタムイベントの**説明を編集**を選択し、チームへのメモなど、任意の内容を入力します。
+`Manage Events, Attributes, Purchases`の[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)がある場合、カスタムイベントの作成後に説明を追加できます。カスタムイベントの**説明を編集**を選択し、チームへのメモなど、任意の内容を入力します。
 
 ## タグの追加 {#adding-tags}
 
-「Manage Events, Attributes, Purchases」の[ユーザー権限](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)がある場合、カスタムイベントの作成後にタグを追加できます。タグはイベントリストのフィルタリングに使用できます。
+「Manage Events, Attributes, Purchases」の[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)がある場合、カスタムイベントの作成後にタグを追加できます。タグはイベントリストのフィルタリングに使用できます。
 
 ### 使用状況レポートの表示 {#viewing-usage-reports}
 
@@ -72,19 +72,19 @@ hidden: true
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
-- [AndroidおよびFireOS](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/logging_custom_events/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=roku)
+- [AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events/?sdktab=unity)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=roku)
 
 {% enddetails %}
 
 ## カスタムイベントの保存 {#custom-event-storage}
 
-**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users)である限り、無期限に保持されます。
+**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users)である限り、無期限に保持されます。
 
 ## セグメンテーションフィルター {#segmentation-filters}
 
@@ -115,7 +115,7 @@ Brazeは、カスタムイベントの発生回数と各ユーザーによる最
 **フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー（MAU）別、Segments別、またはKPI数式別に分類することもできます。
 
 {% alert tip %}
-カスタムイベントに似たユーザーアクションのカウンターを保持するには、[カスタム属性のインクリメント](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#integers)を使用します。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録する必要があります。
+カスタムイベントに似たユーザーアクションのカウンターを保持するには、[カスタム属性のインクリメント]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#integers)を使用します。ただし、カスタム属性データを時系列で表示することはできません。時系列で分析する必要のないユーザーアクションは、この方法で記録する必要があります。
 {% endalert %}
 
 ### カスタムイベント分析が表示されない理由 {#why-custom-events-analytics-arent-showing}
@@ -151,7 +151,7 @@ Brazeは、カスタムイベントの発生回数と各ユーザーによる最
 
 配列またはオブジェクト値を含むイベントプロパティオブジェクトは、最大100&nbsp;KBのイベントプロパティペイロードを持つことができます。
 
-カスタムイベントプロパティのデータタイプを変更できますが、データ収集後に[データタイプを変更](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/)する影響に注意してください。
+カスタムイベントプロパティのデータタイプを変更できますが、データ収集後に[データタイプを変更]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/)する影響に注意してください。
 
 ### カスタムイベントプロパティの使用 {#using-custom-event-properties}
 
@@ -171,7 +171,7 @@ Brazeは、カスタムイベントの発生回数と各ユーザーによる最
 
 メッセージングテンプレート内でパーソナライゼーションにカスタムイベントプロパティを使用することもできます。トリガーイベントを使用した[アクションベースの配信][19]を使用するCampaignは、そのイベントのカスタムイベントプロパティをメッセージングのパーソナライゼーションに使用できます。
 
-たとえば、ゲームアプリがあり、レベルをクリアしたユーザーにメッセージを送信したい場合、ユーザーがそのレベルをクリアするのにかかった時間のプロパティでメッセージをさらにパーソナライズできます。この例では、[条件付きロジック][18]を使用して3つの異なるSegmentsに対してメッセージがパーソナライズされています。`time_spent`というカスタムイベントプロパティは、``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``を呼び出すことでメッセージに含めることができます。
+たとえば、ゲームアプリがあり、レベルをクリアしたユーザーにメッセージを送信したい場合、ユーザーがそのレベルをクリアするのにかかった時間のプロパティでメッセージをさらにパーソナライズできます。この例では、[条件付きロジック][18]を使用して3つの異なるセグメントに対してメッセージがパーソナライズされています。`time_spent`というカスタムイベントプロパティは、``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``を呼び出すことでメッセージに含めることができます。
 
 {% raw %}
 ```liquid
@@ -189,7 +189,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 ユーザーがインターネット接続を持っていない場合、テンプレート化されたカスタムイベントプロパティ（例: {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}）を含むトリガーされたアプリ内メッセージは失敗し、表示されません。
 {% endalert %}
 
-アプリ内メッセージをテンプレート化されたアプリ内メッセージとして配信するLiquidタグの完全なリストについては、[よくある質問](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/)を参照してください。
+アプリ内メッセージをテンプレート化されたアプリ内メッセージとして配信するLiquidタグの完全なリストについては、[よくある質問]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/)を参照してください。
 
 ##### フィルターに関する考慮事項 {#considerations-with-filters}
 
@@ -200,11 +200,11 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 イベントプロパティセグメンテーションを使用して、実行されたカスタムイベントとそれらのイベントに関連するプロパティに基づいてユーザーをターゲットにします。これにより、購入やカスタムイベントによるセグメンテーション時のフィルタリングオプションが増えます。
 
-カスタムイベントのイベントプロパティは、それらを使用するセグメントに対してリアルタイムで更新されます。**データ設定** > **カスタムイベント**に移動し、関連するカスタムイベントの**プロパティを管理**を選択してプロパティを管理できます。特定のセグメントフィルターで使用されるカスタムイベントプロパティには、最大30日間のルックバック履歴があります。
+カスタムイベントのイベントプロパティは、それらを使用するSegmentに対してリアルタイムで更新されます。**データ設定** > **カスタムイベント**に移動し、関連するカスタムイベントの**プロパティを管理**を選択してプロパティを管理できます。特定のセグメントフィルターで使用されるカスタムイベントプロパティには、最大30日間のルックバック履歴があります。
 
 ##### セグメンテーション用のイベントプロパティの追加 {#adding-event-properties-for-segmentation}
 
-イベントプロパティの頻度と最新性に基づいてSegmentsを作成するには、「Manage Custom Event Property Segmentation」の[ユーザー権限](https://www.braze.com/docs/user_guide/data/data_points/#viewing-data-point-usage)が必要です。
+イベントプロパティの頻度と最新性に基づいてSegmentsを作成するには、「Manage Custom Event Property Segmentation」の[ユーザー権限]({{site.baseurl}}/user_guide/data/data_points/#viewing-data-point-usage)が必要です。
 
 デフォルトでは、ワークスペースごとに20のセグメント化可能なイベントプロパティを使用できます。この制限を増やすには、Brazeアカウントマネージャーにお問い合わせください。
 
@@ -232,12 +232,12 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 ### Canvasエントリプロパティとイベントプロパティ {#canvas-entry-properties-and-event-properties}
 
-Canvasユーザージャーニーで`canvas_entry_properties`と`event_properties`を使用できます。詳細と例については、[Canvasエントリプロパティとイベントプロパティ](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/)を参照してください。
+Canvasユーザージャーニーで`canvas_entry_properties`と`event_properties`を使用できます。詳細と例については、[Canvasエントリプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/)を参照してください。
 
 {% tabs local %}
 {% tab Canvasエントリプロパティ %}
 
-[Canvasエントリプロパティ](https://www.braze.com/docs/api/objects_filters/canvas_entry_properties_object/)は、アクションベースまたはAPIトリガーのCanvasesにマッピングするプロパティです。`canvas_entry_properties`オブジェクトの最大サイズ制限は50 KBです。
+[Canvasエントリプロパティ]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/)は、アクションベースまたはAPIトリガーのCanvasesにマッピングするプロパティです。`canvas_entry_properties`オブジェクトの最大サイズ制限は50 KBです。
 
 {% alert note %}
 特にアプリ内メッセージチャネルの場合、`canvas_entry_properties`はキャンバスフローとオリジナルのCanvasエディターでのみ参照できます。ただし、オリジナルのエディターでは、以前の早期アクセスの一部として永続的なエントリプロパティが有効になっている場合に限ります。
@@ -300,7 +300,7 @@ RetailAppは、ユーザーが購入イベントをトリガーした後にタ�
 
 ネストされたオブジェクト（別のオブジェクトの内部にあるオブジェクト）を使用して、カスタムイベントと購入のプロパティとしてネストされたJSONデータを送信できます。このネストされたデータは、メッセージ内のパーソナライズされた情報のテンプレート化、メッセージ送信のトリガー、およびユーザーのセグメンテーションに使用できます。
 
-詳細については、[ネストされたオブジェクト](https://www.braze.com/docs/user_guide/data/custom_data/custom_events/nested_objects/)の専用ページを参照してください。
+詳細については、[ネストされたオブジェクト]({{site.baseurl}}/user_guide/data/custom_data/custom_events/nested_objects/)の専用ページを参照してください。
 
 ## カスタムイベントプロパティの保存 {#custom-event-property-storage}
 
@@ -309,7 +309,7 @@ RetailAppは、ユーザーが購入イベントをトリガーした後にタ�
 イベントプロパティの値に基づいてセグメント化するには、2つの方法があります。
 
 1. **30日以内:** Brazeサポート担当者は、BrazeのSegments内で特定のイベントプロパティ値の頻度と最新性に基づいてイベントプロパティセグメンテーションを有効にできます。Segments内でイベントプロパティを活用したい場合は、Brazeアカウントエグゼクティブまたはカスタマーサクセスマネージャーにお問い合わせください。このオプションはデータ使用量に影響します。<br><br>
-2. **30日以内および30日を超える場合:** 短期および長期のイベントプロパティセグメンテーションの両方をカバーするには、[セグメントエクステンション](https://www.braze.com/docs/user_guide/engagement_tools/segments/segment_extension/)を使用できます。この機能は、過去2年間に追跡されたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
+2. **30日以内および30日を超える場合:** 短期および長期のイベントプロパティセグメンテーションの両方をカバーするには、[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/)を使用できます。この機能は、過去2年間に追跡されたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
 
 特定のニーズに応じた最適なアプローチについての推奨事項は、Brazeカスタマーサクセスマネージャーにお問い合わせください。
 
@@ -321,6 +321,6 @@ RetailAppは、ユーザーが購入イベントをトリガーした後にタ�
 [6]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/schema_generation_example.png %}
 [8]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/custom_event_analytics_example.png %} "custom_event_analytics_example.png"
 [16]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/customEventProperties.png %} "customEventProperties.png"
-[18]: https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/
-[19]: https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/
+[18]: {{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/
+[19]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/
 [20]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/customEventPropertiesNested.png %} "customEventPropertiesNested.png"

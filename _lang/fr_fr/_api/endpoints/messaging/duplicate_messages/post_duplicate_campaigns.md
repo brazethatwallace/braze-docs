@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Dupliquer des campagne
 ---
 {% api %}
 # Dupliquer des campagnes à l'aide de l'API {#duplicate-campaigns-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
@@ -48,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `name` | Requis | Chaîne de caractères | Le nom de la campagne résultante. |
 | `description` | Facultatif | Chaîne de caractères | Le champ de description de la campagne résultante. |
 | `tag_names` | Facultatif | Chaîne de caractères | Les étiquettes de la campagne résultante. Il doit s'agir d'étiquettes existantes. Si vous ajoutez de nouvelles étiquettes dans la requête, elles remplaceront toutes les étiquettes présentes sur la campagne d'origine. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 
 ## Réponse {#response}

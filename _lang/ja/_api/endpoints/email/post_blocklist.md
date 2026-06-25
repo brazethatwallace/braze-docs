@@ -10,7 +10,7 @@ description: "この記事では、メールのブロックリスト登録Braze�
 ---
 {% api %}
 # メールのブロックリスト登録 {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 

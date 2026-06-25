@@ -21,15 +21,15 @@ Sind Sie unsicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesende
 1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
 2. Wählen Sie **SMS/MMS/RCS** oder, für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
-4. Fügen Sie nach Bedarf [Teams](https://braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/teams/) und [Tags](https://braze.com/docs/user_guide/administrative/app_settings/tags/) hinzu.
-   * Tags erleichtern das Auffinden Ihrer Campaigns und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder](https://braze.com/docs/user_guide/analytics/reporting/report_builder/) verwenden, können Sie nach bestimmten Tags filtern.
+4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/teams/) und [Tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) hinzu.
+   * Tags erleichtern das Auffinden Ihrer Campaigns und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) verwenden, können Sie nach bestimmten Tags filtern.
 
 {: start="5"}
-5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie für Ihre Campaign benötigen. Sie können für jede hinzugefügte Variante verschiedene Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests](https://braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing/).
+5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie für Ihre Campaign benötigen. Sie können für jede hinzugefügte Variante verschiedene Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/).
 - **SMS- und RCS-Variantentests**: Braze ermöglicht es Ihnen, sowohl SMS- als auch RCS-Varianten in einer einzigen Campaign einzuschließen, sodass Sie die Performance beider vergleichen können. Sie können SMS- und RCS-Varianten im ersten Schritt der Nachrichtenkomposition hinzufügen.
 
 {: start="6"}
-6. Wählen Sie eine RCS-fähige [Abo-Gruppe](https://braze.com/docs/sms_rcs_subscription_groups/). Bei der Auswahl einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Senden von SMS an Zielnutzer:innen verwendet.
+6. Wählen Sie eine RCS-fähige [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups/). Bei der Auswahl einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Senden von SMS an Zielnutzer:innen verwendet.
 - **SMS-Fallback**: Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback enthält. Dies ist wichtig für die Zustellbarkeit in Fällen, in denen RCS-Nachrichten nicht zugestellt werden können. Gründe dafür können unter anderem Inkompatibilität des Nutzergeräts und unvollständige Carrier-Abdeckung in einem bestimmten Land oder einer Region sein. Durch die Aktivierung des SMS-Fallbacks wird Ihre Nachricht dennoch an Ihre Nutzer:innen zugestellt, sodass Sie nie die Gelegenheit verpassen, mit ihnen in Kontakt zu treten.
 
 {: start="7"}
@@ -43,10 +43,10 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 
 {% endtab %}
 {% tab Canvas %}
-1. [Erstellen Sie Ihr Canvas](https://braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) mit dem Canvas-Composer.
+1. [Erstellen Sie Ihr Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) mit dem Canvas-Composer.
 2. Nachdem Sie Ihr Canvas eingerichtet haben, fügen Sie einen **SMS/MMS/RCS**-Nachrichtenschritt im Canvas-Builder hinzu.
 3. Geben Sie Ihrem Schritt einen klaren und aussagekräftigen Namen.
-4. Wählen Sie eine RCS-fähige [Abo-Gruppe](https://braze.com/docs/sms_rcs_subscription_groups/). Bei der Auswahl einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Targeting von Nutzer:innen verwendet.
+4. Wählen Sie eine RCS-fähige [Abo-Gruppe]({{site.baseurl}}/sms_rcs_subscription_groups/). Bei der Auswahl einer Abo-Gruppe fügt Braze automatisch einen Segmentierungsfilter hinzu, der sicherstellt, dass nur abonnierte Nutzer:innen die Campaign erhalten. Nur Langcodes und Shortcodes, die zu dieser Abo-Gruppe gehören, werden zum Targeting von Nutzer:innen verwendet.
 - **SMS-Fallback**: Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback enthält. Dies ist wichtig für die Zustellbarkeit in Fällen, in denen RCS-Nachrichten nicht zugestellt werden können. Gründe dafür können unter anderem Inkompatibilität des Nutzergeräts und unvollständige Carrier-Abdeckung in einem bestimmten Land oder einer Region sein. Durch die Aktivierung des SMS-Fallbacks wird Ihre Nachricht dennoch an Ihre Nutzer:innen zugestellt, sodass Sie nie die Gelegenheit verpassen, mit ihnen in Kontakt zu treten.
 
 {: start="5"}
@@ -85,7 +85,7 @@ Wie der Name schon sagt, konzentrieren sich RCS-Textnachrichten auf Text als Med
 {% endtab %}
 
 {% tab Media %}
-RCS-Media-Nachrichten ermöglichen es Ihnen, ansprechende Medienformate zu verwenden, die mit SMS nicht möglich sind. Dazu gehören Bild-, Video- und Dokumentdateien. Diese Medienoptionen helfen Ihnen, Ihre Zielgruppe noch intensiver anzusprechen und völlig neue Anwendungsfälle zu ermöglichen. Derzeit wird nur der Bild-Upload über die [Medienbibliothek](https://braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library/) unterstützt.
+RCS-Media-Nachrichten ermöglichen es Ihnen, ansprechende Medienformate zu verwenden, die mit SMS nicht möglich sind. Dazu gehören Bild-, Video- und Dokumentdateien. Diese Medienoptionen helfen Ihnen, Ihre Zielgruppe noch intensiver anzusprechen und völlig neue Anwendungsfälle zu ermöglichen. Derzeit wird nur der Bild-Upload über die [Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) unterstützt.
 
 #### Features
 
@@ -154,10 +154,10 @@ Eine Media-Rich-Card ist eine visuelle Nachricht mit einem Bild oder Video. Sie 
 
 ### 3. Schritt: Verfassen Sie Ihre RCS-Nachricht {#step-3-compose-your-rcs-message}
 
-Schreiben Sie Ihre Nachricht unter Verwendung von Sprachen und Personalisierung ([Liquid](https://braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/), [Connected-Content](https://braze.com/docs/user_guide/personalization_and_dynamic_content/connected_content/) und Emojis) nach Bedarf. Achten Sie darauf, unsere Limits für Nachrichtentexte einzuhalten, um das Risiko von Zusatzkosten zu reduzieren.
+Schreiben Sie Ihre Nachricht unter Verwendung von Sprachen und Personalisierung ([Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/), [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) und Emojis) nach Bedarf. Achten Sie darauf, unsere Limits für Nachrichtentexte einzuhalten, um das Risiko von Zusatzkosten zu reduzieren.
 
 {% alert important %}
-Bevor Sie fortfahren, lesen Sie unsere [Richtlinien für RCS-Nachrichtenlimits](#step-2-select-your-rcs-message-type). RCS-Nachrichten werden [pro Nachricht abgerechnet](https://braze.com/docs/sms_rcs_billing_calculators/), daher ist es sinnvoll, die Nuancen zu verstehen, was in jedem RCS-Nachrichtentyp enthalten sein kann.
+Bevor Sie fortfahren, lesen Sie unsere [Richtlinien für RCS-Nachrichtenlimits](#step-2-select-your-rcs-message-type). RCS-Nachrichten werden [pro Nachricht abgerechnet]({{site.baseurl}}/sms_rcs_billing_calculators/), daher ist es sinnvoll, die Nuancen zu verstehen, was in jedem RCS-Nachrichtentyp enthalten sein kann.
 {% endalert %}
 
 ### 4. Schritt: Vorschau und Test Ihrer Nachricht {#step-4-preview-and-test-your-message}
@@ -170,7 +170,7 @@ Erstellen Sie als Nächstes den Rest Ihrer Campaign oder Ihres Canvas. In den fo
 
 #### Schritt 5.1: Wählen Sie Zustellungszeitplan oder Trigger {#step-51-choose-delivery-schedule-or-trigger}
 
-RCS-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen](https://braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/).
+RCS-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/).
 
 Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und Ruhezeiten festlegen.
 
@@ -182,10 +182,10 @@ Richten Sie Ihre Zielgruppe aus, indem Sie Segmente oder Filter wählen, um Ihre
 
 {% multi_lang_include target_audiences.md %}
 
-Als Nächstes wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen dieses Segment mit optionalen [Filtern](https://braze.com/docs/user_guide/engagement_tools/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Vorschau, wie die ungefähre Segmentpopulation aktuell aussieht. Beachten Sie, dass die genaue Segmentzugehörigkeit immer erst unmittelbar vor dem Senden der Nachricht berechnet wird.
+Als Nächstes wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen dieses Segment mit optionalen [Filtern]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Vorschau, wie die ungefähre Segmentpopulation aktuell aussieht. Beachten Sie, dass die genaue Segmentzugehörigkeit immer erst unmittelbar vor dem Senden der Nachricht berechnet wird.
 
 {% alert tip %}
-Möchten Sie RCS-Retargeting verwenden, um Nutzer:innen basierend auf ihren SMS- und RCS-Interaktionen anzusprechen? Weitere Informationen finden Sie unter [Retargeting](https://braze.com/docs/sms_mms_rcs_user_retargeting/).
+Möchten Sie RCS-Retargeting verwenden, um Nutzer:innen basierend auf ihren SMS- und RCS-Interaktionen anzusprechen? Weitere Informationen finden Sie unter [Retargeting]({{site.baseurl}}/sms_mms_rcs_user_retargeting/).
 {% endalert %}
 
 #### Schritt 5.3: Wählen Sie Konversions-Events {#step-53-choose-conversion-events}
@@ -202,7 +202,7 @@ Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezi
 
 Nachdem Sie Ihre Campaign oder Ihr Canvas fertig erstellt haben, überprüfen Sie die Details, testen Sie es und senden Sie es ab!
 
-Lesen Sie als Nächstes [Reporting für SMS, MMS und RCS](https://braze.com/docs/sms_mms_rcs_reporting/), um zu erfahren, wie Sie auf die Ergebnisse Ihrer RCS-Campaigns zugreifen können.
+Lesen Sie als Nächstes [Reporting für SMS, MMS und RCS]({{site.baseurl}}/sms_mms_rcs_reporting/), um zu erfahren, wie Sie auf die Ergebnisse Ihrer RCS-Campaigns zugreifen können.
 
 ## Analytics und Reporting {#analytics-and-reporting}
 
@@ -223,7 +223,7 @@ Wenn Sie Liquid verwenden möchten, stellen Sie sicher, dass Sie einen Standardw
 
 ### KI-Texte generieren {#generating-ai-copy}
 
-Brauchen Sie Hilfe beim Erstellen ansprechender Texte? Probieren Sie den [KI-Textassistenten](https://braze.com/docs/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Erstellen ansprechender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
 ![Nachrichten-Editor mit einem Symbol zum Öffnen des KI-Textassistenten.]({% image_buster /assets/unlisted_docs/img/rcs/rcs_ai_copywriter.png %}){: style="max-width:70%;"}
 

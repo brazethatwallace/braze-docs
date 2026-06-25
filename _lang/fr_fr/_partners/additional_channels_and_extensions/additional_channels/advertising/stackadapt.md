@@ -9,7 +9,7 @@ search_tag: Partner
 
 # StackAdapt
 
-> [StackAdapt](https://www.stackadapt.com/) est la principale plateforme de marketing alimentée par l'intelligence artificielle utilisée par les spécialistes du marketing numérique pour diffuser des publicités ciblées axées sur la performance.
+> [StackAdapt](https://www.stackadapt.com/) est la principale plateforme de marketing alimentée par l'intelligence artificielle utilisée par les marketeurs numériques pour diffuser des publicités ciblées axées sur la performance.
 
 _Cette intégration est maintenue par StackAdapt._
 
@@ -27,9 +27,9 @@ L'intégration de Braze et de StackAdapt vous permet de synchroniser les donnée
 | Condition | Description |
 | ----------- | ------------------- |
 | **Compte StackAdapt** | Vous avez besoin d'un compte StackAdapt actif avec des autorisations pour gérer les intégrations Data Hub. |
-| **Clé API REST Braze** | Une clé API REST de Braze avec les autorisations suivantes : <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Settings** > **API Keys.** |
-| **Endpoint REST Braze** | [L'URL de votre endpoint REST](https://www.braze.com/docs/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Clé REST API Braze** | Une clé REST API Braze avec les autorisations suivantes : <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| **Endpoint REST Braze** | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Fonctionnement {#how-it-works}
 
@@ -90,8 +90,8 @@ Suivez ces étapes pour importer vos profils utilisateurs Braze :
 2. Dans le menu de navigation, sélectionnez **Data Hub**.
 3. Sélectionnez **Import Profiles**, puis sélectionnez **Braze** dans la liste des intégrations disponibles.
 4. Saisissez vos identifiants API Braze lorsque vous y êtes invité.
-- **Braze REST API Key :** Accessible dans Braze en allant dans **Settings** > **API Keys**. En tant que bonne pratique de sécurité, nous vous recommandons de créer une clé API dédiée à votre intégration StackAdapt.
-- **Braze App Key :** Accessible dans Braze en allant dans **Settings** > **API Keys** ou **Manage Apps**.
+- **Braze REST API Key :** Accessible dans Braze en allant dans **Paramètres** > **Clés API**. En tant que bonne pratique de sécurité, nous vous recommandons de créer une clé API dédiée à votre intégration StackAdapt.
+- **Braze App Key :** Accessible dans Braze en allant dans **Paramètres** > **Clés API** ou **Manage Apps**.
 - **Braze REST Endpoint URL :** L'URL de base de votre instance Braze (par exemple, `https://rest.iad-01.braze.com`).
 5. Sélectionnez **Connect** pour vérifier les identifiants.
 

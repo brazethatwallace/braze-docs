@@ -17,7 +17,6 @@ La page **Accueil** comporte deux sections principales :
 - [Reprendre là où vous vous étiez arrêté](#pick-up-where-you-left-off)
 - [Aperçu des performances](#performance-overview)
 
-![Tableau de bord Accueil dans Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Reprendre là où vous vous étiez arrêté {#pick-up-where-you-left-off}
 
@@ -35,8 +34,6 @@ La section **Reprendre là où vous vous étiez arrêté** apparaît après que 
 
 Par défaut, la section **Aperçu des performances** affiche les données des 30 derniers jours pour l'ensemble des applications et sites. Tous vos indicateurs sont calculés en fonction de la plage de dates sélectionnée.
 
-![Champs de plage de dates et d'application sur le tableau de bord Accueil.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Les pourcentages sont calculés en comparant la plage de dates actuelle à la plage de dates précédente, à l'exception des *utilisateurs actifs par mois* (MAU), qui utilisent le dernier jour de la période précédente plutôt qu'une plage.
 
 Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** et que vos *utilisateurs actifs quotidiens* affichent une augmentation de 1,8 %, cela signifie que vous avez eu 1,8 % d'utilisateurs actifs quotidiens de plus cette semaine par rapport à la semaine précédente.
@@ -45,13 +42,11 @@ Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** e
 
 ### Afficher le détail {#show-breakdown}
 
-Sélectionnez **Afficher le détail** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
-
-![Développer]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
+Sélectionnez **Show Breakdown** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
 
 ### Performances dans le temps {#performance-over-time}
 
-Le graphique **Performances dans le temps** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
+Le graphique **Performance Over Time** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
 
 ![Le graphique Performances dans le temps montrant les statistiques des nouveaux utilisateurs sur 30 jours.]({% image_buster /assets/img/dashboards/performance_over_time.png %})
 
@@ -63,7 +58,7 @@ Vous pouvez tracer des statistiques pour :
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
-  - Sélectionnez **Gérer les formules d'indicateurs** pour créer une formule ou modifier une formule existante.
+  - Sélectionnez **Manage KPI Formulas** pour créer une formule ou modifier une formule existante.
 - LINE
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
@@ -93,8 +88,7 @@ Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos ca
 
 ### Sessions à vie {#lifetime-sessions}
 
-*Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+*Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
 
 ### Utilisateurs actifs par mois {#monthly-active-users}
 
@@ -137,7 +131,7 @@ Les instantanés de MAU sont calculés une fois par jour et ne changent jamais r
 
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 

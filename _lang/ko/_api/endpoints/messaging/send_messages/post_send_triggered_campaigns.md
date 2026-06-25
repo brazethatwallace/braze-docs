@@ -9,8 +9,8 @@ description: "이 문서에서는 API 트리거 전송을 사용하여 캠페인
 
 ---
 {% api %}
-# API 트리거 전송을 사용하여 캠페인 메시지 보내기 {#send-campaign-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# API 트리거 전송을 사용하여 Campaign 메시지 보내기 {#send-campaign-messages-using-api-triggered-delivery}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 

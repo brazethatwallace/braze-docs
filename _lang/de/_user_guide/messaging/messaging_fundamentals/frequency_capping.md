@@ -347,9 +347,9 @@ Nutzer:innen, die Frequency-gekappt werden, erzeugen kein Sende-Ereignis für di
 
 ### Warum zeigt das Dashboard einen Rate-Limit-Fehler für meine Campaign an? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-Dies bedeutet in der Regel, dass das [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting) der Campaign für die Zielgruppengröße zu niedrig eingestellt ist, sodass der Abschluss der Sendung länger dauern würde als das zulässige Fenster und Braze eine Warnung anzeigt. Erhöhen Sie das Zustellgeschwindigkeits-Rate-Limit, reduzieren Sie die Zielgruppe oder verwenden Sie **Limit the number of people who will receive this campaign**, damit jeder geplante Versand innerhalb des zulässigen Sendefensters abgeschlossen wird. Sie können auch ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) festlegen, um eine Obergrenze über alle Campaigns hinweg durchzusetzen.
+Dies bedeutet in der Regel, dass das [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting) der Campaign für die Zielgruppengröße zu niedrig eingestellt ist, sodass der Abschluss der Sendung länger dauern würde als das zulässige Fenster und Braze eine Warnung anzeigt. Erhöhen Sie das Zustellgeschwindigkeits-Rate-Limit, reduzieren Sie die Zielgruppe oder verwenden Sie **Limit send volume**, damit jeder geplante Versand innerhalb des zulässigen Sendefensters abgeschlossen wird. Sie können auch ein [Workspace-Messaging-Rate-Limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) festlegen, um eine Obergrenze über alle Campaigns hinweg durchzusetzen.
 
-**Limit the number of people who will receive this campaign** steuert, wie viele Nutzer:innen für eine Sendung berechtigt sind, nicht wie viele Nachrichten Braze pro Minute sendet. Nur ein Zustellgeschwindigkeits-Rate-Limit legt den Durchsatz pro Minute fest.
+**Limit send volume** steuert, wie viele Nutzer:innen für eine Sendung berechtigt sind, nicht wie viele Nachrichten Braze pro Minute sendet. Nur ein Zustellgeschwindigkeits-Rate-Limit legt den Durchsatz pro Minute fest.
 
 ### Was bedeutet „Gesendet“ für Frequency-Capping? {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +359,6 @@ In Analytics und Frequency-Capping bezieht sich _Gesendet_ darauf, wann Braze di
 
 E-Mail-Bounce- und Zurückstellungsnachrichten verwenden viele verschiedene Codes und anbieterspezifische Texte. Behandeln Sie einen bestimmten Code nicht als Zeichen eines Rate-Limiting-Problems, da die Ursache von Ihrem Sendekontext und dem Feedback des Mailbox-Anbieters abhängt.
 
-Wenn Nachrichten vorübergehend zurückgestellt werden, kann weniger Senden kurzfristig helfen. Verwenden Sie ein [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign** oder beides.
+Wenn Nachrichten vorübergehend zurückgestellt werden, kann weniger Senden kurzfristig helfen. Verwenden Sie ein [Zustellgeschwindigkeits-Rate-Limit](#delivery-speed-rate-limiting), **Limit send volume** oder beides.
 
 Für eine langfristige Lösung arbeiten Sie mit einem Zustellbarkeitsexperten zusammen, um Ihre Bounce- und Zurückstellungsdaten zu überprüfen.

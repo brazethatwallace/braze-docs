@@ -15,7 +15,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 /media_library/create
 {% endapimethod %}
 
-> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリ](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library)にアセットを追加できます。このエンドポイントは画像と、画像を含むZIPファイルをサポートしています。
+> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/)にアセットを追加できます。このエンドポイントは画像と、画像を含むZIPファイルをサポートしています。
 
 {% alert tip %}
 このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)から[`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメディアライブラリにアセットをアップロードできます。
@@ -58,7 +58,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 | `asset_url` | オプション | 文字列 | Brazeにアップロードするアセットの、一般にアクセス可能なURL。 |
 | `asset_file` | オプション | バイナリ | バイナリファイルデータ。 |
 | `name` | オプション | 文字列 | このアセットのメディアライブラリに表示される名前。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエスト本文" }
 
 {% alert important %}
 `asset_url`と`asset_file`は相互に排他的です。APIリクエストにはどちらか一方のみを含める必要があります。
@@ -74,7 +74,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 | --- | --- |
 | `name`を指定した場合 | `name`の値がメディアライブラリのアセット名として使用されます。 |
 | `name`を省略した場合 | URLまたはアップロードされたファイルの元のファイル名が使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="Single file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="単一ファイルのアップロード" }
 
 #### ZIPファイルのアップロード {#zip-file-uploads}
 
@@ -82,7 +82,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 | --- | --- |
 | `name`を指定した場合 | `name`の値がプレフィックスとして使用され、サフィックスとして連番が追加されます（例：「My File 1」、「My File 2」、「My File 3」）。 |
 | `name`を省略した場合 | 各ファイルはZIPファイル内の元のファイル名を保持します。 |
-{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIP file uploads" }
+{: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="ZIPファイルのアップロード" }
 
 ## リクエスト例 {#example-request}
 
@@ -127,7 +127,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | 400 | "Either asset_url or asset_file must be provided." | リクエストにアセットパラメーターが指定されていません。 |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | 両方のアセットパラメーターが指定されましたが、許可されているのは1つだけです。 |
 | 403 | "Media Library Public APIs are not enabled for this company." | このワークスペースではメディアライブラリ機能が有効になっていません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="バリデーションエラー" }
 
 #### 処理エラー {#processing-errors}
 
@@ -155,7 +155,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP内のファイルエントリに名前がありません。ZIPファイルが破損していないことを確認し、名前のないファイルエントリに名前を追加してください。 |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIPファイルにネストされたディレクトリが含まれていますが、これはサポートされていません。すべてのファイルはZIPのルートレベルに配置する必要があります。 |
 | `GENERIC_ERROR` | 500 | アップロード中に予期しないエラーが発生しました。`meta`オブジェクトにはデバッグ用の`original_error`メッセージが含まれています。再試行するか、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="処理エラー" }
 
 
 ## 応答 {#response}

@@ -270,7 +270,7 @@ Use o SDK Braze Swift para integrar com o visionOS. A maioria dos recursos dispo
 Para saber mais, acesse o [guia de integração do SDK Swift para iOS](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Alguns recursos do iOS são parcialmente compatíveis ou incompatíveis. Para a lista completa, consulte o [suporte ao visionOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Alguns recursos do iOS são parcialmente compatíveis ou incompatíveis. Para a lista completa, consulte o [suporte ao visionOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/).
 {% endalert %}
 
 ## Direcionamento de apps {#app-targeting}

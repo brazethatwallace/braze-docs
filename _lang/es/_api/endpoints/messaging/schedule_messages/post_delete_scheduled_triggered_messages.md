@@ -10,11 +10,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Eliminar campañas programadas desencadenadas por API {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Utiliza este punto de conexión para cancelar un mensaje Canvas que hayas programado previamente a través de la API antes de que se haya enviado.
+> Utiliza este punto de conexión para cancelar un mensaje de campaña que hayas programado previamente a través de la API antes de que se haya enviado.
 
 Los mensajes programados o desencadenados que se eliminan cerca de la hora a la que debían enviarse o durante la misma se actualizan con el máximo esfuerzo, por lo que Braze puede aplicar eliminaciones de último momento a todos, a algunos o a ninguno de tus usuarios objetivo.
 

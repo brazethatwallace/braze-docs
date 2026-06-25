@@ -123,8 +123,6 @@
 - ランディングページアンケートのランディングページ分析ビュー
 {% endif %}
 
-![ランディングページの分析タブ。]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 トップレベルの分析には以下が含まれます。
 
 - **All responses:** 完了および未完了の回答の合計

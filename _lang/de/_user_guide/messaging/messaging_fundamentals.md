@@ -4,7 +4,7 @@ article_title: Messaging-Grundlagen
 layout: dev_guide
 page_order: 1
 guide_top_header: "Grundlagen"
-guide_top_text: "Legen Sie fest, wer Ihre Nachricht erhält, wann sie gesendet wird und wie Sie den Erfolg messen. Diese Konzepte gelten unabhängig davon, ob Sie eine <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign oder einen Canvas</a> verwenden."
+guide_top_text: "Legen Sie fest, wer Ihre Nachricht erhält, wann sie gesendet wird und wie Sie den Erfolg messen – egal, ob Sie eine <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign oder einen Canvas</a> verwenden. Dieser Abschnitt behandelt Zielgruppen-Targeting, Zustellungs- und Eingangstypen, Conversion-Event-Tracking, Frequency-Capping, Regeln zur erneuten Berechtigung, Lokalisierung, Barrierefreiheit und die Checkliste vor dem Start. Machen Sie sich mit diesen Konzepten vertraut, bevor Sie Nachrichten erstellen, damit Ihre Nachrichten die richtigen Nutzer:innen erreichen, ohne sie zu überfordern."
 page_type: landing
 tool:
   - Campaigns
@@ -19,7 +19,7 @@ guide_featured_list:
   - name: Zustellungs- und Eingangstypen
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
-  - name: Dispatch-ID
+  - name: Versand-ID
     link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
     image: /assets/img/braze_icons/key-01.svg
   - name: Erneute Berechtigung

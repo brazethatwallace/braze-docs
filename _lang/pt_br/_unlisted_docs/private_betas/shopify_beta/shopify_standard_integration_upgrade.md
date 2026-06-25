@@ -212,4 +212,4 @@ Para verificar se o seu novo conector do Shopify está ativo, teste o seguinte:
 - **Personalizações do SDK (opcional):** se você fez personalizações na sua integração da Braze com o Shopify (como registrar eventos personalizados ou atributos), verifique se estão funcionando corretamente após o upgrade.
 - **Coleta de inscritos de e-mail ou SMS (opcional):** se você ativou anteriormente a coleta de inscritos de e-mail ou SMS, novos grupos de inscrições padrão serão criados para refletir o status mais recente dos seus inscritos durante o upgrade. Os grupos de inscrições padrão terão o nome da sua storefront do Shopify. Esses novos grupos de inscrições padrão estarão disponíveis aproximadamente 5 horas após o upgrade, e você precisará adicioná-los às suas mensagens ativas.
 
-Se você tiver alguma dúvida, [fale com o Suporte](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Se você tiver alguma dúvida, [fale com o Suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

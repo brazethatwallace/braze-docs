@@ -131,6 +131,22 @@ Braze 계정에서 2단계 인증(2FA)을 수동으로 활성화하려면 다음
 
 이 행 제한 없이 보안 이벤트를 Amazon S3로 내보내려면 [Amazon S3로 보안 이벤트 내보내기]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)를 참조하세요.
 
+### CSV 열 정의 {#csv-column-definitions}
+
+보안 이벤트 보고서 CSV에는 다음 열이 포함됩니다:
+
+| 열 | 설명 |
+|--------|-------------|
+| CreatedAt | 이벤트가 기록된 타임스탬프(UTC 기준). |
+| EmailAtTimeOfEvent | 이벤트를 트리거한 대시보드 사용자의 이메일 주소(이벤트 발생 시점 기준). |
+| CurrentEmail | 이벤트를 트리거한 대시보드 사용자의 현재 이메일 주소. 사용자가 더 이상 존재하지 않는 경우 개발자 ID가 대신 사용됩니다. |
+| EventName | 보안 이벤트 유형. 아래의 보고되는 보안 이벤트 목록을 참조하세요. |
+| OtherAccount | 해당되는 경우 이벤트의 영향을 받은 다른 대시보드 사용자의 이메일 주소(예: 계정이 추가되거나 제거된 경우). |
+| JsonProperties | JSON 형식의 이벤트별 속성. 포함되는 필드는 이벤트 유형에 따라 다릅니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV 열 정의" }
+
+[S3 내보내기]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)에는 이러한 열과 함께 내보내기 형식의 스키마 버전인 `Version`(현재 `1`)이 포함됩니다.
+
 {% details 보고되는 보안 이벤트 %}
 ### 로그인 및 계정 {#login-and-account}
 - Signed In
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment

@@ -22,7 +22,7 @@ Pour plus d'informations sur l'une des mises à jour énumérées sur cette page
 
 #### Tableau de bord des performances push {#push-performance-dashboard}
 
-Le [tableau de bord des performances push]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance?tab=push%20performance#push-performance-dashboard) vous offre une vue unique au niveau du canal de l'engagement push, incluant les envois, les rebonds, les réceptions/distributions et les taux d'ouverture directs, influencés et totaux sur une fenêtre temporelle configurable. Utilisez-le pour comprendre la santé globale de votre canal push sans avoir à agréger les données de campagnes ou de Canvas individuels.
+Le [tableau de bord des performances push]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance?tab=push%20performance#push-performance-dashboard) vous offre une vue unique au niveau du canal de l'engagement push, incluant les envois, les rebonds, les réceptions/distributions et les taux d'ouverture directs, influencés et totaux sur une fenêtre temporelle configurable. Utilisez-le pour comprendre la santé globale de votre canal push sans avoir à agréger les données de Campaigns ou de Canvas individuels.
 
 #### Champs de géolocalisation dans les sélections de catalogue {#geolocation-fields-in-catalog-selections}
 
@@ -52,7 +52,7 @@ Vous pouvez utiliser l'[Optimiseur de contenu]({{site.baseurl}}/user_guide/braze
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Utilisez les [fuseaux horaires de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/admin_settings/workspace_time_zone/) pour définir des fuseaux horaires spécifiques pour chaque espace de travail. Cela permet aux campagnes et Canvas planifiés (qui n'utilisent pas l'heure locale ou le timing intelligent) d'être envoyés selon le fuseau horaire désigné de l'espace de travail, plutôt que le fuseau horaire global de l'entreprise.
+Utilisez les [fuseaux horaires de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/admin_settings/workspace_time_zone/) pour définir des fuseaux horaires spécifiques pour chaque espace de travail. Cela permet aux Campaigns et Canvas planifiés (qui n'utilisent pas l'heure locale ou le timing intelligent) d'être envoyés selon le fuseau horaire désigné de l'espace de travail, plutôt que le fuseau horaire global de l'entreprise.
 
 Les fuseaux horaires de l'espace de travail pour l'envoi de messages sont déployés progressivement, il est donc possible que vous ne voyiez pas encore ces paramètres dans votre tableau de bord.
 
@@ -70,7 +70,7 @@ Braze [gère automatiquement les enregistrements d'état d'abonnement orphelins]
 
 #### Chord - Plateforme de données client {#chord-customer-data-platform}
 
-[Chord](https://www.chord.co/) fournit une plateforme de données client qui capture et standardise les événements de votre vitrine e-commerce. Lorsque vous connectez Chord à Braze, les activités d'achat, les événements comportementaux et les mises à jour d'identité sont transmis à Braze afin que vous puissiez déclencher des campagnes et maintenir les profils à jour sans avoir à construire ces pipelines vous-même.
+[Chord](https://www.chord.co/) fournit une plateforme de données client qui capture et standardise les événements de votre vitrine e-commerce. Lorsque vous connectez Chord à Braze, les activités d'achat, les événements comportementaux et les mises à jour d'identité sont transmis à Braze afin que vous puissiez déclencher des Campaigns et maintenir les profils à jour sans avoir à construire ces pipelines vous-même.
 
 Pour plus d'informations, consultez [Chord]({{site.baseurl}}/partners/chord/).
 
@@ -210,7 +210,7 @@ Utilisez les [limites de débit de messagerie de l'espace de travail]({{site.bas
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Le [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/) vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business Manager. Une fois que Meta a approuvé votre modèle, utilisez-le dans autant de campagnes et de Canvas que vous le souhaitez.
+Le [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/) vous permet de créer et de soumettre des modèles de messages WhatsApp directement dans Braze, sans avoir à basculer entre Braze et le Meta Business Manager. Une fois que Meta a approuvé votre modèle, utilisez-le dans autant de Campaigns et de Canvas que vous le souhaitez.
 
 #### Étiquettes de produits, métachamps et collections Shopify {#shopify-product-tags-metafields-and-collections}
 
@@ -240,7 +240,7 @@ Les mises à jour SDK suivantes ont été publiées. Les mises à jour majeures 
 - [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
     - Prise en charge de l'initialisation différée.
 - [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
-    - Corrections de bugs pour les messages in-app et les bannières.
+    - Corrections de bugs pour les In-App Messages et les bannières.
 - [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
     - Prise en charge de la fermeture des bannières.
 - [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
@@ -425,7 +425,7 @@ Les [importations d'utilisateurs par CSV]({{site.baseurl}}/user_guide/audience/m
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Le [tableau de bord de diagnostic des messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/) fournit une ventilation de haut niveau des résultats d'envoi de messages, vous permettant de repérer les tendances et de diagnostiquer les problèmes potentiels dans votre configuration de messagerie. Ce tableau de bord peut vous aider à comprendre pourquoi les messages de vos campagnes ou Canvas n'ont peut-être pas été envoyés comme prévu.
+Le [tableau de bord de diagnostic des messages]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/) fournit une ventilation de haut niveau des résultats d'envoi de messages, vous permettant de repérer les tendances et de diagnostiquer les problèmes potentiels dans votre configuration de messagerie. Ce tableau de bord peut vous aider à comprendre pourquoi les messages de vos Campaigns ou Canvas n'ont peut-être pas été envoyés comme prévu.
 
 ### BrazeAI<sup>TM</sup>
 
@@ -447,7 +447,7 @@ Braze introduit les [autorisations granulaires]({{site.baseurl}}/user_guide/admi
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Lors de la définition d'une limite de débit de vitesse de réception/distribution pour une campagne ou un Canvas multicanal, vous pouvez choisir de définir soit une limite de débit partagée, soit une [limite basée sur le canal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases). Lorsqu'une campagne ou un Canvas multicanal utilise une limitation de débit basée sur le canal, la limite de débit s'applique à chacun des canaux sélectionnés. Par exemple, vous pouvez configurer votre campagne ou Canvas pour envoyer un maximum de 5 000 webhooks et 2 500 messages SMS par minute sur l'ensemble de la campagne ou du Canvas.
+Lors de la définition d'une limite de débit de vitesse de réception/distribution pour une Campaign ou un Canvas multicanal, vous pouvez choisir de définir soit une limite de débit partagée, soit une [limite basée sur le canal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases). Lorsqu'une Campaign ou un Canvas multicanal utilise une limitation de débit basée sur le canal, la limite de débit s'applique à chacun des canaux sélectionnés. Par exemple, vous pouvez configurer votre Campaign ou Canvas pour envoyer un maximum de 5 000 webhooks et 2 500 messages SMS par minute sur l'ensemble de la Campaign ou du Canvas.
 
 #### Étape Canvas Context {#canvas-context-step}
 
@@ -503,7 +503,7 @@ Après avoir ajouté des locales à votre espace de travail, vous pouvez [cibler
 
 #### Mailizio - Orchestration des messages - Modèles {#mailizio-message-orchestration-templates}
 
-[Mailizio]({{site.baseurl}}/partners/message_orchestration/templates/Mailizio/) est une plateforme de création et de gestion d'e-mails qui facilite la conception de contenus réutilisables et conformes à la marque à l'aide d'un éditeur visuel intuitif. Grâce à l'intégration de Mailizio à Braze, vous pouvez exporter vos blocs de contenu et vos modèles d'e-mail, puis générer automatiquement des messages in-app à partir de ces mêmes ressources, permettant un déploiement rapide et entièrement contrôlé des campagnes.
+[Mailizio]({{site.baseurl}}/partners/message_orchestration/templates/Mailizio/) est une plateforme de création et de gestion d'e-mails qui facilite la conception de contenus réutilisables et conformes à la marque à l'aide d'un éditeur visuel intuitif. Grâce à l'intégration de Mailizio à Braze, vous pouvez exporter vos blocs de contenu et vos modèles d'e-mail, puis générer automatiquement des messages in-app à partir de ces mêmes ressources, permettant un déploiement rapide et entièrement contrôlé des Campaigns.
 
 #### Open Loyalty - Données et analyse - Fidélisation {#open-loyalty-data-and-analytics-loyalty}
 
@@ -519,7 +519,7 @@ Après avoir ajouté des locales à votre espace de travail, vous pouvez [cibler
 
 #### Splio - Données et analyse - Importation de cohortes {#splio-data-and-analytics-cohort-import}
 
-[Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio/) est un outil de construction d'audiences qui vous permet d'augmenter le nombre de campagnes et le chiffre d'affaires sans nuire à l'expérience client, et fournit des analyses pour suivre les performances des campagnes CRM en ligne et hors ligne.
+[Splio]({{site.baseurl}}/partners/data_and_analytics/cohort_import/splio/) est un outil de construction d'audiences qui vous permet d'augmenter le nombre de Campaigns et le chiffre d'affaires sans nuire à l'expérience client, et fournit des analyses pour suivre les performances des campagnes CRM en ligne et hors ligne.
 
 ### SDK
 
@@ -617,7 +617,7 @@ La plateforme de données comportementales de [Fullstory]({{site.baseurl}}/partn
 
 #### Mailizio - Orchestration des messages {#mailizio-message-orchestration}
 
-[Mailizio]({{site.baseurl}}/partners/mailizio/) est une plateforme de création et de gestion d'e-mails qui facilite la conception de contenus réutilisables et conformes à la marque à l'aide d'un éditeur visuel intuitif. Grâce à l'intégration de Mailizio à Braze, exportez vos blocs de contenu et vos modèles d'e-mail, puis générez automatiquement des messages in-app à partir de ces mêmes ressources, permettant un déploiement rapide et entièrement contrôlé des campagnes.
+[Mailizio]({{site.baseurl}}/partners/mailizio/) est une plateforme de création et de gestion d'e-mails qui facilite la conception de contenus réutilisables et conformes à la marque à l'aide d'un éditeur visuel intuitif. Grâce à l'intégration de Mailizio à Braze, exportez vos blocs de contenu et vos modèles d'e-mail, puis générez automatiquement des messages in-app à partir de ces mêmes ressources, permettant un déploiement rapide et entièrement contrôlé des Campaigns.
 
 ### API {#apis}
 
@@ -633,19 +633,19 @@ Les ressources de la bibliothèque multimédia peuvent désormais être ajoutée
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Deux nouveaux [événements](http://braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) sont désormais disponibles pour les destinations de stockage (AWS S3, GCS et Azure Blob Storage) et Snowflake Datashare : `agentconsole.AgentExecuted` et `agentconsole.ToolInvocation`. Ces événements vous permettent d'analyser l'utilisation de la Console des agents et les détails dans vos systèmes en aval, vous aidant à comprendre et à tirer le meilleur parti de l'utilisation de vos agents. Les agents vous permettent de créer et de déployer des agents intelligents capables d'effectuer des tâches spécifiques dans Braze, notamment de générer du contenu dans des Canvas ou des catalogues et d'acheminer les utilisateurs vers différents chemins sur la base d'une prise de décision intelligente. Pour plus d'informations, consultez le [journal des modifications de Currents](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+Deux nouveaux [événements]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) sont désormais disponibles pour les destinations de stockage (AWS S3, GCS et Azure Blob Storage) et Snowflake Datashare : `agentconsole.AgentExecuted` et `agentconsole.ToolInvocation`. Ces événements vous permettent d'analyser l'utilisation de la Console des agents et les détails dans vos systèmes en aval, vous aidant à comprendre et à tirer le meilleur parti de l'utilisation de vos agents. Les agents vous permettent de créer et de déployer des agents intelligents capables d'effectuer des tâches spécifiques dans Braze, notamment de générer du contenu dans des Canvas ou des catalogues et d'acheminer les utilisateurs vers différents chemins sur la base d'une décision intelligente. Pour plus d'informations, consultez le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04).
 
 #### Nouveaux événements « Retry » pour les canaux individuels {#new-retry-events-for-individual-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-De nouveaux [événements de réessai](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) sont désormais disponibles pour les e-mails, LINE, les notifications push, les SMS, les webhooks et les canaux WhatsApp. Ces événements permettent de savoir quand la limitation de fréquence entraîne le report d'un message planifié au lieu de son annulation. Lorsqu'un message est dépriorisé ou soumis à une limite de fréquence, il peut désormais être réessayé dans une fenêtre de réessai configurée, vous offrant de meilleures informations sur les modèles de réception/distribution des messages et l'impact de la limitation de fréquence. Pour plus d'informations, consultez le [journal des modifications de Currents](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+De nouveaux [événements de réessai]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) sont désormais disponibles pour les e-mails, LINE, les notifications push, les SMS, les webhooks et les canaux WhatsApp. Ces événements permettent de savoir quand la limitation de fréquence entraîne le report d'un message planifié au lieu de son annulation. Lorsqu'un message est dépriorisé ou soumis à une limite de fréquence, il peut désormais être réessayé dans une fenêtre de réessai configurée, vous offrant de meilleures informations sur les modèles de réception/distribution des messages et l'impact de la limitation de fréquence. Pour plus d'informations, consultez le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04).
 
 #### Ajout d'un nouveau champ « time_ms » à l'événement TokenStateChange {#add-new-time_ms-field-to-tokenstatechange-event}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Un nouveau champ `time_ms` a été ajouté à l'événement [`users.behaviors.pushnotification.TokenStateChange`](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), fournissant une granularité de l'ordre de la milliseconde pour le suivi des changements d'état du jeton push. Cette précision accrue vous aide à comprendre le dernier statut d'un jeton push lorsque plusieurs changements se produisent au cours de la même seconde, vous donnant confiance dans les systèmes en aval quant au statut correct de l'abonnement. Pour plus d'informations, consultez le [journal des modifications de Currents](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+Un nouveau champ `time_ms` a été ajouté à l'événement [`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/), fournissant une granularité de l'ordre de la milliseconde pour le suivi des changements d'état du jeton push. Cette précision accrue vous aide à comprendre le dernier statut d'un jeton push lorsque plusieurs changements se produisent au cours de la même seconde, vous donnant confiance dans les systèmes en aval quant au statut correct de l'abonnement. Pour plus d'informations, consultez le [journal des modifications de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04).
 
 #### Envoyer un utilisateur anonyme vers les destinations Tealium {#send-anonymous-user-to-tealium-destinations}
 
@@ -721,7 +721,7 @@ Dans le [tableau de bord **Sync Log** de l'ingestion de données cloud]({{site.b
 
 #### Connecteur WhatsApp BYO (Bring Your Own) {#bring-your-own-byo-whatsapp-connector}
 
-Le [connecteur WhatsApp BYO (Bring Your Own)]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector/) propose un partenariat entre Braze et Infobip, dans le cadre duquel vous donnez à Braze l'accès à votre gestionnaire WhatsApp Business (WABA) d'Infobip. Cela vous permet de gérer et de payer les coûts de messagerie directement avec Infobip tout en utilisant Braze pour la segmentation, la personnalisation et l'orchestration des campagnes.
+Le [connecteur WhatsApp BYO (Bring Your Own)]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector/) propose un partenariat entre Braze et Infobip, dans le cadre duquel vous donnez à Braze l'accès à votre gestionnaire WhatsApp Business (WABA) d'Infobip. Cela vous permet de gérer et de payer les coûts de messagerie directement avec Infobip tout en utilisant Braze pour la segmentation, la personnalisation et l'orchestration des Campaigns.
 
 #### Bannières dans Canvas
 
@@ -733,11 +733,11 @@ Sélectionnez **Banners** comme canal de communication dans une [étape Message]
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Avec la [CCI dynamique]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=bcc%20address#dynamic-bcc), utilisez Liquid dans votre adresse CCI. Notez que cette fonctionnalité n'est disponible que dans les **Préférences des e-mails** et ne peut pas être définie dans la campagne elle-même. Une seule adresse CCI par destinataire d'e-mail est autorisée.
+Avec la [CCI dynamique]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=bcc%20address#dynamic-bcc), utilisez Liquid dans votre adresse CCI. Notez que cette fonctionnalité n'est disponible que dans les **Préférences des e-mails** et ne peut pas être définie dans la Campaign elle-même. Une seule adresse CCI par destinataire d'e-mail est autorisée.
 
 #### Limites de débit basées sur le canal {#channel-based-rate-limits}
 
-Au lieu d'une limite de débit partagée sur l'ensemble d'une campagne ou d'un Canvas multicanal, sélectionnez une limite de débit spécifique par canal. Dans ce cas, la limite de débit s'appliquera à chacun des canaux sélectionnés. Par exemple, configurez votre campagne ou Canvas pour envoyer un maximum de 5 000 webhooks et 2 500 messages SMS par minute sur l'ensemble de la campagne ou du Canvas. Pour plus de détails, consultez [Limitation de débit et limitation de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+Au lieu d'une limite de débit partagée sur l'ensemble d'une Campaign ou d'un Canvas multicanal, sélectionnez une limite de débit spécifique par canal. Dans ce cas, la limite de débit s'appliquera à chacun des canaux sélectionnés. Par exemple, configurez votre Campaign ou Canvas pour envoyer un maximum de 5 000 webhooks et 2 500 messages SMS par minute sur l'ensemble de la Campaign ou du Canvas. Pour plus de détails, consultez [Limitation de débit et limitation de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
 
 ### Partenariats
 
@@ -790,7 +790,7 @@ Notre [calculateur de segments SMS]({{site.baseurl}}/user_guide/channels/sms_mms
 
 L'API MM pour WhatsApp n'offrant pas une livrabilité à 100 %, il est important de comprendre comment recibler les utilisateurs qui n'ont peut-être pas reçu votre message sur d'autres canaux.
 
-Pour recibler les utilisateurs, nous vous recommandons de créer un segment d'utilisateurs qui n'ont pas reçu un message spécifique. Pour ce faire, filtrez par le code d'erreur `131049`, qui indique qu'un message de modèle marketing n'a pas été envoyé en raison de l'application de la limite de modèles marketing par utilisateur de WhatsApp. Vous pouvez le faire en [utilisant Braze Currents ou les extensions de segments SQL]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/#retargeting-users-on-other-braze-channels).
+Pour recibler les utilisateurs, nous vous recommandons de créer un Segment d'utilisateurs qui n'ont pas reçu un message spécifique. Pour ce faire, filtrez par le code d'erreur `131049`, qui indique qu'un message de modèle marketing n'a pas été envoyé en raison de l'application de la limite de modèles marketing par utilisateur de WhatsApp. Vous pouvez le faire en [utilisant Braze Currents ou les extensions de Segments SQL]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/#retargeting-users-on-other-braze-channels).
 
 ### Partenariats
 
@@ -818,9 +818,9 @@ Les mises à jour SDK suivantes ont été publiées. Les mises à jour majeures 
 
 Le filtre `Live Activities Push to Start Registered for App` segmente vos utilisateurs selon qu'ils sont ou non enregistrés pour démarrer une activité en direct via les notifications push iOS pour une application spécifique.
 
-#### Extension de segments RFM SQL {#rfm-sql-segment-extension}
+#### Extension de Segments RFM SQL {#rfm-sql-segment-extension}
 
-Vous pouvez créer une [extension de segments RFM (récence, fréquence, monétaire)]({{site.baseurl}}/rfm_segments/) pour cibler vos meilleurs utilisateurs en mesurant leurs habitudes d'achat.
+Vous pouvez créer une [extension de Segments RFM (récence, fréquence, monétaire)]({{site.baseurl}}/rfm_segments/) pour cibler vos meilleurs utilisateurs en mesurant leurs habitudes d'achat.
 
 L'analyse RFM est une technique marketing qui identifie vos meilleurs utilisateurs en les notant sur une échelle de 0 à 3 pour chaque catégorie (récence, fréquence, monétaire), 3 étant le meilleur score et 0 le plus mauvais. La récence, la fréquence et les valeurs monétaires sont toutes basées sur les données d'une période spécifique de votre choix.
 
@@ -868,7 +868,7 @@ Les [messages WhatsApp avec réception/distribution optimisée]({{site.baseurl}}
 
 #### WhatsApp Flows
 
-Lorsque vous intégrez un message WhatsApp Flow dans un Canvas ou une campagne Braze, vous pouvez vouloir capturer et utiliser des informations spécifiques que les utilisateurs soumettent via le Flow. Braze a besoin de recevoir des informations supplémentaires concernant la structure de la réponse de l'utilisateur, en particulier la forme attendue de la réponse JSON, pour générer le schéma d'attribut personnalisé imbriqué (NCA) requis.
+Lorsque vous intégrez un message WhatsApp Flow dans un Canvas ou une Campaign Braze, vous pouvez vouloir capturer et utiliser des informations spécifiques que les utilisateurs soumettent via le Flow. Braze a besoin de recevoir des informations supplémentaires concernant la structure de la réponse de l'utilisateur, en particulier la forme attendue de la réponse JSON, pour générer le schéma d'attribut personnalisé imbriqué (NCA) requis.
 
 Vous pouvez désormais fournir à Braze les informations relatives à la structure de la réponse en [enregistrant la réponse au Flow en tant qu'attribut personnalisé]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows/?tab=recommended%20method#step-1-generate-the-flow-custom-attribute) et en effectuant un envoi test.
 
@@ -917,7 +917,7 @@ Vous pouvez sélectionner l'un de ces modèles GPT à utiliser pour différents 
 
 #### Cloudinary - Contenu dynamique {#cloudinary-dynamic-content}
 
-[Cloudinary]({{site.baseurl}}/partners/cloudinary/) est une plateforme d'images et de vidéos qui vous permet de gérer, modifier, optimiser et diffuser des images et des vidéos à grande échelle dans le cadre de n'importe quelle campagne sur l'ensemble des canaux et des parcours clients. Une fois intégrée et activée, la gestion des médias de Cloudinary alimentera et fournira une diffusion dynamique, contextuelle et personnalisée des ressources pour vos campagnes et Canvas Braze.
+[Cloudinary]({{site.baseurl}}/partners/cloudinary/) est une plateforme d'images et de vidéos qui vous permet de gérer, modifier, optimiser et diffuser des images et des vidéos à grande échelle dans le cadre de n'importe quelle Campaign sur l'ensemble des canaux et des parcours clients. Une fois intégrée et activée, la gestion des médias de Cloudinary alimentera et fournira une diffusion dynamique, contextuelle et personnalisée des ressources pour vos Campaigns et Canvas Braze.
 
 #### Kameleoon - Test A/B {#kameleoon-ab-testing}
 

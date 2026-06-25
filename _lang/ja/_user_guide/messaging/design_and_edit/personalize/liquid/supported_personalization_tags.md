@@ -42,7 +42,7 @@ API トリガープロパティでは、タグごとに 2 つの波括弧を使�
 
 ### サポートされている属性 {#supported-attributes}
 
-Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています（例えば、`dispatch_id` はアプリ内メッセージCampaignでは使用できません）。
+Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています。例えば、`dispatch_id` はメール、プッシュ、SMS、WhatsApp などのメッセージングチャネルの Liquid ではサポートされていますが、アプリ内メッセージやバナーではサポートされていません。
 
 詳細については、[ソース別のCampaignおよびCanvas属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)を参照してください。
 

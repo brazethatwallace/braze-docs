@@ -14,12 +14,12 @@ description: "이 문서에서는 이메일용 업데이트된 HTML 편집기에
 
 업데이트된 HTML 편집기는 다른 메시징 채널의 편집기와 일관된 경험을 제공합니다. 상단 편집기 내비게이션을 통해 편집기(HTML, 클래식, 일반 텍스트, AMP) 간에 원활하게 전환할 수 있습니다. 이전 HTML 편집기에서는 이러한 옵션이 드롭다운에 숨겨져 있었습니다.
 
-또한 향상된 Liquid 구문 지원과 [다국어 설정 지원](https://www.braze.com/docs/user_guide/administrative/app_settings/multi_language_settings)이 포함됩니다.
+또한 향상된 Liquid 구문 지원과 [다국어 설정 지원]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/)이 포함됩니다.
 
-[링크 별칭 지정](https://www.braze.com/docs/user_guide/message_building_by_channel/email/templates/link_aliasing/)을 활성화하지 않은 경우에도 업데이트된 HTML 편집기에서 링크 관리가 지원됩니다.
+[링크 별칭 지정]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates/link_aliasing/)을 활성화하지 않은 경우에도 업데이트된 HTML 편집기에서 링크 관리가 지원됩니다.
 
 ![예시 HTML 이메일이 포함된 업데이트된 이메일 HTML 편집기.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
 
 {% alert tip %}
-추가 리소스는 전용 [이메일 HTML 편집기](https://www.braze.com/docs/user_guide/message_building_by_channel/email/html_editor) 섹션을 확인하세요.
+추가 리소스는 전용 [이메일 HTML 편집기]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/) 섹션을 확인하세요.
 {% endalert %}

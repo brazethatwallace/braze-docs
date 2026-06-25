@@ -40,7 +40,7 @@ Braze führt nur lesende Anfragen gegen Ihre Daten aus und ändert Ihre zugrunde
 Befolgen Sie diese Schritte, um zuerst eine Quelle und dann eine Synchronisierung mit dem SQL-Editor zu erstellen. Wenn Sie bereits eine Quelle für CDI eingerichtet haben, können Sie direkt zu Schritt 3 springen.
 
 {% alert note %}
-Beachten Sie, dass diese Schritte eine Snowflake-Quelle als Beispiel verwenden. Der Einrichtungsprozess für andere Data-Warehouse-Quellen ist ähnlich und kann unter [2. Schritt: Eine neue Quelle im Braze-Dashboard erstellen](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) in der Dokumentation [Data-Warehouse-Integrationen einrichten](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) nachgelesen werden.
+Beachten Sie, dass diese Schritte eine Snowflake-Quelle als Beispiel verwenden. Der Einrichtungsprozess für andere Data-Warehouse-Quellen ist ähnlich und kann unter [2. Schritt: Eine neue Quelle im Braze-Dashboard erstellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard) in der Dokumentation [Data-Warehouse-Integrationen einrichten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) nachgelesen werden.
 {% endalert %}
 
 ### 1. Schritt: Snowflake-Rolle, Berechtigungen, Warehouse und Nutzer:in einrichten {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -281,7 +281,7 @@ Wenn bereits eine Synchronisierung läuft, werden Ihre Änderungen beim nächste
 
 Dieser Abschnitt enthält häufige Fehler und Hinweise zur Fehlerbehebung.
 
-### „Keine Vorschau verfügbar“ {#no-preview-available}
+### Keine Vorschau verfügbar {#no-preview-available}
 
 Wenn „Keine Vorschau verfügbar“ angezeigt wird, kann einer der folgenden zugrunde liegenden Fehlertypen die Ursache sein.
 
@@ -291,20 +291,20 @@ Wenn „Keine Vorschau verfügbar“ angezeigt wird, kann einer der folgenden zu
 | „Verbindung zur Quelle nicht möglich“ | Überprüfen Sie den konfigurierten Nutzernamen, den Account Locator und die RSA-Schlüsselpaar-Authentifizierungseinrichtung.<br>Stellen Sie sicher, dass das Warehouse läuft.<br>Bestätigen Sie den Netzwerkzugriff. |
 | „SQL-Syntaxfehler“ | Überprüfen Sie Ihre SQL-Syntax. |
 | „Objekt existiert nicht oder nicht autorisiert“ | Stellen Sie sicher, dass die Rolle `SELECT`-Zugriff auf die Tabelle hat.<br>Bestätigen Sie die Datenbank- und Schemaberechtigungen.<br>Überprüfen Sie Tippfehler im Tabellennamen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="„Keine Vorschau verfügbar“" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keine Vorschau verfügbar" }
 
-### „Bezeichner-Spalte erforderlich“ {#identity-column-required}
+### Bezeichner-Spalte erforderlich {#identity-column-required}
 
 Stellen Sie sicher, dass Ihre Anfrage einen gültigen Bezeichner enthält, wie z. B. `external_id`.
 
-### „`UPDATED_AT`-Spalte fehlt“ {#updated_at-column-is-missing}
+### `UPDATED_AT`-Spalte fehlt {#updated_at-column-is-missing}
 
 Fügen Sie eine Zeitstempel-Spalte für die inkrementelle Synchronisierung hinzu.
 
-### „Weitere Spalten hinzufügen … Es sind keine Attribute/Katalogfelder/Kontofelder zum Synchronisieren vorhanden“ {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
+### Weitere Spalten hinzufügen … Es sind keine Attribute/Katalogfelder/Kontofelder zum Synchronisieren vorhanden {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 Fügen Sie mindestens eine zusätzliche Spalte neben dem Bezeichner und `UPDATED_AT` hinzu.
 
-### „Anfrageausführung hat das Zeitlimit überschritten“ {#query-execution-timed-out}
+### Anfrageausführung hat das Zeitlimit überschritten {#query-execution-timed-out}
 
 Optimieren Sie Ihre Anfrage oder verwenden Sie ein größeres Warehouse.

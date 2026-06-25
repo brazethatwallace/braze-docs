@@ -75,7 +75,7 @@ table td {
 2. **데이터 업데이트**를 선택합니다.
 3. **CSV 업로드**에서 **사용자**를 선택한 다음 파일을 Braze에 업로드합니다.
 
-![Braze의 '계정' 페이지에 있는 '데이터 업로드' 드롭다운]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Braze의 계정 페이지에 있는 데이터 업로드 드롭다운.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ### 2단계: 계정 데이터 가져오기 {#step-2-import-account-data}
 
@@ -123,7 +123,7 @@ CSV를 통해 데이터를 가져오려면:
 2. **데이터 업데이트**를 선택합니다.
 3. **CSV 업로드**에서 **계정 데이터**를 선택한 다음 파일을 Braze에 업로드합니다.
 
-![Braze의 '계정' 페이지에 있는 '데이터 업로드' 드롭다운]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Braze의 계정 페이지에 있는 데이터 업로드 드롭다운.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ## Braze API 사용하기 {#using-the-braze-api}
 
@@ -142,7 +142,7 @@ Braze API를 사용하면 대규모로 계정 데이터를 프로그래밍 방�
 HTTP 메서드와 REST API 작동 방식에 대한 자세한 내용은 다음 리소스를 참조하세요:
 - MDN Web Docs의 [HTTP 요청 메서드](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods)
 - [REST API 튜토리얼](https://restapitutorial.com/)
-- [Braze API 개요](https://www.braze.com/docs/api/basics)
+- [Braze API 개요]({{site.baseurl}}/api/basics/)
 
 {% alert note %}
 `/business/accounts` 엔드포인트에 대한 요청을 인증하려면 카탈로그 권한이 있는 API 키를 사용하세요.
@@ -333,7 +333,7 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
 현재 여러 계정 필터를 사용하려면 **OR/AND** 드롭다운 대신 **기준 추가**를 선택하세요.
 {% endalert %}
 
-![의료 회사의 디렉터인 사용자를 위한 세그먼트를 생성하도록 설정된 세분화 필터]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
+![의료 회사의 디렉터인 사용자를 위한 세그먼트를 생성하도록 설정된 세분화 필터.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
 
 {% alert note %}
 세분화는 기준에 일치하는 처음 1,000개의 계정 레코드에서만 작동합니다. 세그먼트당 최대 하나의 비즈니스 필터를 사용할 수 있으며, 모든 기준은 하나의 필터 안에 있어야 합니다.

@@ -25,7 +25,7 @@ La fonctionnalité de bloc produit en glisser-déposer est en accès anticipé e
 | Modèles de Canvas pour le commerce électronique | Les événements recommandés pour le commerce électronique prennent en charge des modèles prédéfinis, y compris des modèles de Canvas pour le commerce électronique conçus pour des cas d'utilisation essentiels tels que la navigation abandonnée, les paniers abandonnés et les confirmations de commande. <br><br>Si vous prévoyez d'implémenter l'un de ces cas d'utilisation essentiels du commerce électronique à l'aide des [modèles de Canvas pour le commerce électronique]({{site.baseurl}}/ecommerce_use_cases/), vous devez utiliser ou suivre le modèle de Canvas fourni. |
 | Catalogue Braze | Vous devez créer un catalogue Braze qui inclut les champs suivants, que vous utilisez dans la configuration de votre bloc produit :{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | Sélection de catalogue | Pour les blocs produit statiques, vous devez créer une [sélection de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) pour spécifier quels produits inclure dans votre bloc produit. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions" }
 
 ## Types de blocs produit en glisser-déposer {#types-of-drag-and-drop-product-blocks}
 
@@ -33,7 +33,7 @@ La fonctionnalité de bloc produit en glisser-déposer est en accès anticipé e
 | --- | --- | --- | --- |
 | Dynamique | Personnalisez vos messages avec une vitrine de produits basée sur les interactions des clients en utilisant les [événements recommandés pour le commerce électronique]({{site.baseurl}}/ecommerce_events/) et les catalogues au sein de nos [modèles de Canvas pour le commerce électronique]({{site.baseurl}}/ecommerce_use_cases/). | {::nomarkdown}<ul><li>Navigation abandonnée</li><li>Panier abandonné</li><li>Paiement abandonné</li><li>Confirmations de commande</li></ul>{:/} | Disponible uniquement dans Canvas. |
 | Statique | Personnalisez les produits en utilisant les données stockées dans un catalogue Braze. Vous devez utiliser une [sélection de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) pour spécifier quels produits inclure. | Idéal pour mettre en avant les lancements de nouveaux produits ou les offres spécifiques à une catégorie. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types of drag-and-drop product blocks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types de blocs produit en glisser-déposer" }
 
 ## Configuration du contenu des blocs produit {#product-block-content-configuration}
 
@@ -52,7 +52,7 @@ Dans la section **Product Fields**, sélectionnez votre type de bloc produit, pu
 | Bouton pour l'URL du produit | Catalogues |
 | Prix | Propriété de l'événement recommandé pour le commerce électronique |
 | Quantité | Propriété de l'événement recommandé pour le commerce électronique |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamic product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloc produit dynamique" }
 
 ![Champs produit pour un bloc produit dynamique, divisés en données de catalogue et données d'événement.]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
@@ -64,7 +64,7 @@ Dans la section **Product Fields**, sélectionnez votre type de bloc produit, pu
 | Titre du produit | Catalogues |
 | Bouton pour l'URL du produit | Catalogues |
 | Prix | Catalogues |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Static product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloc produit statique" }
 
 ![Champs produit pour un bloc produit statique, tous catégorisés comme données de catalogue.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,7 +78,7 @@ Utilisez les options de disposition pour personnaliser l'affichage de vos produi
 | Alignement | Ajustez l'alignement des champs de texte et du bouton au sein du bloc. |
 | Nombre maximum de produits par ligne | Affichez jusqu'à trois produits par ligne, jusqu'à 12 produits au total pour les blocs produit statiques et jusqu'à 24 produits au total pour les blocs produit dynamiques. |
 | Espacement des produits | Définissez l'espacement entre les produits. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Options de disposition" }
 
 ![Options de disposition pour l'orientation du produit, l'alignement, le nombre maximum de produits par ligne et l'espacement des produits.]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
@@ -105,15 +105,15 @@ Pour utiliser les blocs produit en glisser-déposer, vous devez configurer un ca
 | `product_title` | Le titre du produit. |
 | `product_url` | L'URL où les clients peuvent consulter ou acheter le produit. |
 | `variant_image_url` | L'URL de l'image de la variante. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuration du catalogue" }
 
-Prenez de l'avance en vous appuyant sur cet [exemple de catalogue de produits]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), qui inclut les champs requis.
+Prenez de l'avance en vous appuyant sur cet [exemple de catalogue de produits](/docs/assets/download_file/ecommerce_product_catalog_sample.csv), qui inclut les champs requis.
 
 ![Un exemple de fichier CSV avec les champs requis en plus d'autres champs.]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 
 #### Mappage vers les champs du catalogue {#mapping-to-catalog-fields}
 
-Dans l'onglet **Settings** de votre catalogue, vous pouvez activer le bouton **Product blocks** pour mapper vers des champs et des informations spécifiques de votre catalogue. Cela vous permet de sélectionner les champs à utiliser comme titre du produit, URL du produit et URL de l'image. Notez que les champs du catalogue Shopify sont mappés par défaut et ne peuvent pas être modifiés.
+Dans l'onglet **Paramètres** de votre catalogue, vous pouvez activer le bouton **Product blocks** pour mapper vers des champs et des informations spécifiques de votre catalogue. Cela vous permet de sélectionner les champs à utiliser comme titre du produit, URL du produit et URL de l'image. Notez que les champs du catalogue Shopify sont mappés par défaut et ne peuvent pas être modifiés.
 
 {% alert note %}
 Si vous n'utilisez pas Shopify, vous pouvez contacter votre gestionnaire de compte pour activer le mappage de champs, ce qui vous permet de connecter n'importe quel catalogue aux blocs produit et de mapper ses champs vers `product_title`, `product_url` et `variant_image_url`.

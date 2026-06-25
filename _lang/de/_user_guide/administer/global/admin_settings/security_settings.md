@@ -131,6 +131,22 @@ Dieser manuelle Berichtsdownload enthält nur die letzten 10.000 Sicherheitserei
 
 Um Sicherheitsereignisse ohne diese Zeilenbegrenzung nach Amazon S3 zu exportieren, siehe [Export von Sicherheitsereignissen mit Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
 
+### Spaltendefinitionen der CSV-Datei {#csv-column-definitions}
+
+Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
+
+| Spalte | Beschreibung |
+|--------|-------------|
+| CreatedAt | Zeitstempel, wann das Ereignis aufgezeichnet wurde, in UTC. |
+| EmailAtTimeOfEvent | E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat, wie zum Zeitpunkt des Ereignisses erfasst. |
+| CurrentEmail | Aktuelle E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat. Wenn der/die Nutzer:in nicht mehr existiert, wird stattdessen die Entwickler-ID verwendet. |
+| EventName | Art des Sicherheitsereignisses. Siehe die Liste der gemeldeten Sicherheitsereignisse unten. |
+| OtherAccount | E-Mail-Adresse eines/einer anderen Dashboard-Nutzer:in, der/die von dem Ereignis betroffen ist, sofern zutreffend (z. B. wenn ein Konto hinzugefügt oder entfernt wird). |
+| JsonProperties | Ereignisspezifische Eigenschaften im JSON-Format. Die enthaltenen Felder variieren je nach Ereignistyp. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spaltendefinitionen der CSV-Datei" }
+
+[S3-Exporte]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) enthalten diese Spalten plus `Version`, die Schemaversion für das Exportformat (derzeit `1`).
+
 {% details Gemeldete Sicherheitsereignisse %}
 ### Anmeldung und Konto {#login-and-account}
 - Signed In
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment

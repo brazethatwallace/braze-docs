@@ -32,7 +32,7 @@ Sie können die Ausgabe jedes KI-Schritts auch als angepasstes Attribut protokol
 
 ### Kontext-Schritte verwenden {#using-context-steps}
 
-Sie können [Canvas-Kontext-Schritte](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) nutzen, um Ausgaben später in Ihrem Canvas einfach zu referenzieren.
+Sie können [Canvas-Kontext-Schritte]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) nutzen, um Ausgaben später in Ihrem Canvas einfach zu referenzieren.
 
 Das Folgende ist ein Beispiel für einen Kontext-Schritt, den Sie nach Ihrem KI-Schritt einrichten könnten. In diesem Beispiel enthält ein vorheriger KI-Schritt die KI-Schritt-Ausgaben für Sentiment-Score und Nachricht, und dieser Kontext-Schritt erstellt die Variablen `sentiment_score` und `message`, die in nachfolgenden Schritten verwendet werden können.
 

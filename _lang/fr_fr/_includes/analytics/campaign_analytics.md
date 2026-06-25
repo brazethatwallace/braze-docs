@@ -389,7 +389,7 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Ceci est suivi sur une période de sept jours pour les e-mails et mesuré par <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Cela inclut les clics sur les liens de désabonnement fournis par Braze. Ce nombre devrait se situer entre 5 et 10 %. Au-delà de 10 %, c'est exceptionnel !
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Ceci est suivi sur une période de sept jours pour les e-mails et mesuré par <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Cela inclut les clics sur les liens de désabonnement fournis par Braze. Ce nombre devrait se situer entre 5 et 10 %. Au-delà de 10 %, c'est exceptionnel !
             </td>
         </tr>
         <tr>

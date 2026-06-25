@@ -149,7 +149,7 @@ Consulta lo siguiente al crear tu tabla de origen:
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Set up your source table in BigQuery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1.2: Configura tu tabla de origen en BigQuery" }
 
 {% alert note %}
 No es necesario que todas las filas o usuarios tengan propiedades. Sin embargo, los valores de las propiedades deben ser una cadena JSON válida. Introduce una cadena `{}` vacía si no hay propiedades para la fila.
@@ -178,7 +178,7 @@ Crea un usuario y concédele permisos. Si ya tienes credenciales de otra sincron
 | BigQuery User | Permite a Braze ejecutar consultas, leer metadatos y enumerar tablas. |
 | BigQuery Data Viewer | Permite a Braze ver conjuntos de datos y contenidos. |
 | BigQuery Job User | Permite a Braze ejecutar trabajos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.3: Set up credentials" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1.3: Configurar credenciales" }
 
 Después de conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener instrucciones. La subirás más tarde al panel de Braze.
 
@@ -205,7 +205,7 @@ Consulta lo siguiente al crear tu tabla de origen:
 | `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Set up your source table in Databricks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.2: Configura tu tabla de origen en Databricks" }
 
 Puedes nombrar el esquema y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -267,7 +267,7 @@ GO
 
 ##### Paso 1.2: Configurar credenciales
 
-Crea una entidad de servicio y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas, solo asegúrate de que tengan acceso a la tabla de cuentas.
+Crea una entidad de servicio y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; solo asegúrate de que tengan acceso a la tabla de cuentas.
 
 ##### Paso 1.3: Configurar políticas de red
 
@@ -283,10 +283,10 @@ Para sincronizar los desencadenantes de Canvas desde el almacenamiento de archiv
 | `EXTERNAL_ID` | Sí, uno de `external_id` o `alias_name` y `alias_label` | Identifica al usuario que deseas actualizar. Debe coincidir con el valor `external_id` utilizado en Braze. |
 | `ALIAS_NAME` y `ALIAS_LABEL` | Sí, uno de `external_id` o `alias_name` y `alias_label` | Estas dos columnas crean un objeto de alias de usuario. `alias_name` debe ser un identificador único y `alias_label` especifica el tipo de alias. Los usuarios pueden tener varios alias con diferentes etiquetas, pero solo un `alias_name` por `alias_label`. |
 | `PROPERTIES` | Sí | Cadena JSON de campos que estarán disponibles como propiedades de personalización en tu Canvas. Debe contener información específica del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1.3: Configurar políticas de red" }
 
 {% alert tip %}
-Los nombres de los archivos deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para garantizar la unicidad. Para obtener más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Los nombres de los archivos deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para garantizar la unicidad. Para obtener más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
 {% endalert %}
 
 {% endtab %}

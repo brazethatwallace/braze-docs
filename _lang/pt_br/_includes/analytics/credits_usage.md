@@ -6,7 +6,7 @@ O dashboard **Credits Usage** é dividido em duas seções:
 - [Visão geral do uso de créditos](#credits-usage-overview)
 - [Guias de canais](#credits-features)
 
-Acesse o dashboard em **Settings** > **Billing** > **Credits Usage**.
+Acesse o dashboard em **Configurações** > **Billing** > **Credits Usage**.
 
 ## Visão geral do uso de créditos {#credits-usage-overview}
 
@@ -20,7 +20,6 @@ Se você adquiriu o WhatsApp, mas não está em um contrato de créditos, ainda 
 
 Os dados da visão geral de uso de créditos são limitados ao período contratual, exibido em **Credits contract overview**. Não é possível filtrar por um intervalo de datas fora do **Credits period**.
 
-![Guia de visão geral do uso de créditos com painéis de uso de créditos e uma visão geral do contrato de créditos.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Uso de créditos ao longo do contrato {#credits-usage-over-contract}
 

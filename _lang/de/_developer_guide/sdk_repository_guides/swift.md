@@ -12,8 +12,8 @@ Das Braze Swift SDK hilft Ihnen, Braze-Messaging, Analytics und Funktionen zum N
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
-- [Braze-Benutzerhandbuch](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze-Entwicklerleitfaden](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
+- [Braze-Benutzerhandbuch]({{site.baseurl}}/user_guide/introduction/)
+- [Braze-Entwicklerleitfaden]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Schnellstart {#quickstart}
 
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerleitfaden](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
+Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze-Entwicklerleitfaden]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Versionsunterstützung {#version-support}
 
@@ -85,13 +85,13 @@ Die folgende Tabelle beschreibt jede Bibliothek im Braze Swift SDK.
 <sup>1</sup> _Push-Benachrichtigungen werden auf tvOS nicht unterstützt_<br/>
 <sup>2</sup> _Geofence-Überwachung wird auf tvOS und visionOS nicht unterstützt_
 
-[Analytics]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[Push-Benachrichtigungen]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
-[In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
-[Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
-[Standort-Analytics und Geofence-Überwachung]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
-[Rich-Push-Benachrichtigungen]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
-[Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
+[Analytics]: {{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[Push-Benachrichtigungen]: {{site.baseurl}}/user_guide/message_building_by_channel/push
+[In-App Messages]: {{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages
+[Content Cards]: {{site.baseurl}}/user_guide/message_building_by_channel/content_cards
+[Standort-Analytics und Geofence-Überwachung]: {{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences
+[Rich-Push-Benachrichtigungen]: {{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[Push Stories]: {{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
 ## Beispiele {#examples}
 

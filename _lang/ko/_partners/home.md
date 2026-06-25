@@ -1,7 +1,7 @@
 ---
 page_order: 0
 article_title: 기술 파트너
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 

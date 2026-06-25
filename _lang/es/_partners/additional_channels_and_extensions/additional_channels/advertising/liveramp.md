@@ -73,7 +73,7 @@ A continuación, crea una tabla de datos con el [formato requerido](https://docs
 
 #### Identificadores de Braze {#braze-identifiers}
 
-Los registros de eventos de Braze contienen identificadores que puedes utilizar dentro de la aplicación nativa de LiveRamp. Para obtener una lista completa de los identificadores disponibles para cada tipo de evento, descarga los [esquemas e identificadores de eventos de Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Los registros de eventos de Braze contienen identificadores que puedes utilizar dentro de la aplicación nativa de LiveRamp. Para obtener una lista completa de los identificadores disponibles para cada tipo de evento, descarga los [esquemas e identificadores de eventos de Braze](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 
 | Tipo de identificador | Descripción |
 |---|---|

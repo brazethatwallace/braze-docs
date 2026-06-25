@@ -10,7 +10,7 @@ description: "In diesem Artikel finden Sie Einzelheiten über den Braze-Endpunkt
 ---
 {% api %}
 # Campaign-Nachrichten mit API-getriggerter Zustellung versenden {#send-campaign-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 

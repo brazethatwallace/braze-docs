@@ -22,7 +22,7 @@ page_type: reference
 
 #### プッシュパフォーマンスダッシュボード {#push-performance-dashboard}
 
-[プッシュパフォーマンスダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance?tab=push%20performance#push-performance-dashboard)は、プッシュエンゲージメントのチャネルレベルの単一ビューを提供します。送信、バウンス、配信、直接・影響・合計の開封率を設定可能な時間ウィンドウで確認できます。個々のキャンペーンやCanvasesからデータを集計することなく、プッシュチャネル全体の健全性を把握するために使用します。
+[プッシュパフォーマンスダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance?tab=push%20performance#push-performance-dashboard)は、プッシュエンゲージメントのチャネルレベルの単一ビューを提供します。送信、バウンス、配信、直接・影響・合計の開封率を設定可能な時間ウィンドウで確認できます。個々のCampaignsやCanvasesからデータを集計することなく、プッシュチャネル全体の健全性を把握するために使用します。
 
 #### カタログセレクションのジオロケーションフィールド {#geolocation-fields-in-catalog-selections}
 
@@ -544,7 +544,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 - [Expo Plugin 4.0.0](https://github.com/braze-inc/braze-expo-plugin/releases/tag/4.0.0)
     - このバージョンにはBraze React Native SDK 19.0.0が必要です。
     - （Android）データ永続化レイヤーのメモリリークを修正。
-    - （Android）アプリが終了状態から起動された場合のプッシュ通知ディープリンクを処理するためのBraze.getInitialPushPayload()のサポートを追加。これにより、アプリがコールドスタートされた場合にAndroidでプッシュ通知からのディープリンクが処理されない問題が解決されます。
+    - （Android）アプリが終了状態から起動された場合のプッシュ通知ディープリンクを処理するための`Braze.getInitialPushPayload()`のサポートを追加。これにより、アプリがコールドスタートされた場合にAndroidでプッシュ通知からのディープリンクが処理されない問題が解決されます。
 - [React Native SDK 19.0.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.0.0)
     - ネイティブSwift SDKバージョンバインディングをBraze Swift SDK 13.3.0から14.0.1に更新。
     - ネイティブAndroid SDKバージョンバインディングをBraze Android SDK 40.0.2から41.0.0に更新。
@@ -633,19 +633,19 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-2つの新しい[イベント](http://braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)が、ストレージ送信先（AWS S3、GCS、Azure Blob Storage）とSnowflakeデータ共有で利用可能になりました：`agentconsole.AgentExecuted`および`agentconsole.ToolInvocation`。これらのイベントにより、ダウンストリームシステムでエージェントコンソールの使用状況と詳細を分析でき、エージェントの使用状況を理解し最大限に活用するのに役立ちます。エージェントを使用すると、Canvasesやカタログでのコンテンツ生成、インテリジェントな意思決定に基づくユーザーの異なるパスへのルーティングなど、Braze全体で特定のタスクを実行できるインテリジェントエージェントを作成・デプロイできます。詳細については、[Currents変更ログ](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
+2つの新しい[イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)が、ストレージ送信先（AWS S3、GCS、Azure Blob Storage）とSnowflakeデータ共有で利用可能になりました：`agentconsole.AgentExecuted`および`agentconsole.ToolInvocation`。これらのイベントにより、ダウンストリームシステムでエージェントコンソールの使用状況と詳細を分析でき、エージェントの使用状況を理解し最大限に活用するのに役立ちます。エージェントを使用すると、Canvasesやカタログでのコンテンツ生成、インテリジェントな意思決定に基づくユーザーの異なるパスへのルーティングなど、Braze全体で特定のタスクを実行できるインテリジェントエージェントを作成・デプロイできます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)を参照してください。
 
 #### 各チャネルの新しい「再試行」イベント {#new-retry-events-for-individual-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-新しい[再試行イベント](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が、メール、LINE、プッシュ通知、SMS、webhook、およびWhatsAppチャネルで利用可能になりました。これらのイベントは、フリークエンシーキャップによってスケジュールされたメッセージがアボートされるのではなく遅延される場合の可視性を提供します。メッセージが優先度を下げられたりフリークエンシーキャップが適用されたりすると、設定された再試行ウィンドウ内で再試行できるようになり、メッセージ配信パターンとフリークエンシーキャップの影響についてより良いインサイトが得られます。詳細については、[Currents変更ログ](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
+新しい[再試行イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)が、メール、LINE、プッシュ通知、SMS、webhook、およびWhatsAppチャネルで利用可能になりました。これらのイベントは、フリークエンシーキャップによってスケジュールされたメッセージがアボートされるのではなく遅延される場合の可視性を提供します。メッセージが優先度を下げられたりフリークエンシーキャップが適用されたりすると、設定された再試行ウィンドウ内で再試行できるようになり、メッセージ配信パターンとフリークエンシーキャップの影響についてより良いインサイトが得られます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)を参照してください。
 
 #### TokenStateChangeイベントに新しい「time_ms」フィールドを追加 {#add-new-time_ms-field-to-tokenstatechange-event}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-新しい`time_ms`フィールドが[`users.behaviors.pushnotification.TokenStateChange`](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)イベントに追加され、プッシュトークンの状態変更をミリ秒レベルの粒度で追跡できるようになりました。この精度の向上により、同じ秒内に複数の変更が発生した場合のプッシュトークンの最新ステータスを理解でき、ダウンストリームシステムで正しいサブスクリプションステータスを持っていることに確信を持てます。詳細については、[Currents変更ログ](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
+新しい`time_ms`フィールドが[`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)イベントに追加され、プッシュトークンの状態変更をミリ秒レベルの粒度で追跡できるようになりました。この精度の向上により、同じ秒内に複数の変更が発生した場合のプッシュトークンの最新ステータスを理解でき、ダウンストリームシステムで正しいサブスクリプションステータスを持っていることに確信を持てます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)を参照してください。
 
 #### Tealium送信先への匿名ユーザーの送信 {#send-anonymous-user-to-tealium-destinations}
 

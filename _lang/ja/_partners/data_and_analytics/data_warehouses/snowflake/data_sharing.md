@@ -2,7 +2,7 @@
 nav_title: "データ共有"
 article_title: Snowflake データ共有
 page_order: 0
-description: "このリファレンス記事では、Snowflake セキュアデータ共有の統合について説明します。この統合により、BrazeのエンゲージメントおよびキャンペーンデータにSnowflakeインスタンスから直接アクセスできます。"
+description: "このリファレンス記事では、Snowflake セキュアデータ共有の統合について説明します。この統合により、BrazeのエンゲージメントおよびCampaignデータにSnowflakeインスタンスから直接アクセスできます。"
 page_type: partner
 search_tag: Partner
 
@@ -24,7 +24,7 @@ Snowflakeデータ共有は、Brazeデータディストリビューションの
 
 さらに、Snowflakeの組み込みロールと権限機能を使用することで、Brazeから共有されたデータへのアクセスは、Snowflakeアカウントおよびそのデータに対して既に設定されているアクセス制御を使用して管理・統制できます。アクセスは、自社データと同じ方法で制限および監視できます。
 
-- **インサイトまでの時間を短縮**<br>構築に数週間かかるETLプロセスに別れを告げましょう。BrazeとSnowflakeの独自のアーキテクチャにより、すべてのカスタマーエンゲージメントおよびキャンペーンデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリが可能です。データのコピーや移動は行われないため、最も関連性が高く最新の情報のみに基づいてカスタマーエクスペリエンスを提供できます。
+- **インサイトまでの時間を短縮**<br>構築に数週間かかるETLプロセスに別れを告げましょう。BrazeとSnowflakeの独自のアーキテクチャにより、すべてのカスタマーエンゲージメントおよびCampaignデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリが可能です。データのコピーや移動は行われないため、最も関連性が高く最新の情報のみに基づいてカスタマーエクスペリエンスを提供できます。
 - **データのサイロ化を解消**<br>チャネルやプラットフォーム全体で顧客の全体像を構築できます。データ共有により、Brazeのカスタマーエンゲージメントデータと他のすべてのSnowflakeデータの結合がこれまで以上に簡単になり、単一の信頼できる情報源からより豊富なインサイトを得ることができます。
 - **エンゲージメントの比較評価**<br>Brazeベンチマークを使用してカスタマーエンゲージメント戦略を最適化しましょう。BrazeとSnowflakeを活用したこのインタラクティブツールにより、チャネル、業界、デバイスプラットフォーム全体のベンチマークとブランドのエンゲージメントデータを比較できます。
 
@@ -36,7 +36,7 @@ Snowflakeのデータ共有の詳細については、[セキュアデータ共�
 | ----------- | ----------- |
 | Brazeへのアクセス | データ共有を設定するには、Brazeアカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。 |
 | Snowflakeアカウント | `admin` 権限を持つSnowflakeアカウント。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## セキュアデータ共有の設定 {#setting-up-secure-data-sharing}
 
@@ -77,7 +77,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 - 生のイベントまたはユーザーデータをCRM（Salesforceなど）にマッピング
 - その他
 
-[生のテーブルスキーマはこちらからダウンロードできます。]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[生のテーブルスキーマをダウンロードできます。](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -87,7 +87,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニーク識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルのユニーク識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーIDスキーマ" }
 
 ## 重要な情報と制限事項 {#important-information-and-limitations}
 

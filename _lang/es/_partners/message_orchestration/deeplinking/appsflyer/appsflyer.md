@@ -136,7 +136,7 @@ Si la integración se ha realizado correctamente, Braze mapea todos los datos de
 
 Puedes segmentar tu base de usuarios por datos de atribución en el dashboard de Braze utilizando los filtros de atribución de instalación.
 
-![Cuatro filtros disponibles. El primero es "La fuente de atribución de instalación es network_val_0". El segundo es "La fuente de atribución de instalación es campaign_val_0". El tercero es "La fuente de atribución de instalación es adgroup_val_0". El cuarto es "La fuente de atribución de instalación es creative_val_0". Junto a los filtros enumerados, puedes ver cómo se añadirán estas fuentes de atribución al perfil de usuario. En el cuadro "Atribución de instalación" de la página de información de un usuario, la fuente de instalación aparece como network_val_0, y la campaña como campaign_val_0, etc.]({% image_buster /assets/img/braze_attribution.png %})
+![Cuatro filtros disponibles. El primero es "La fuente de atribución de instalación es network_val_0". El segundo es "La fuente de atribución de instalación es campaign_val_0". El tercero es "La fuente de atribución de instalación es adgroup_val_0". El cuarto es "La fuente de atribución de instalación es creative_val_0". Junto a los filtros enumerados, puedes ver cómo se añadirán estas fuentes de atribución al perfil de usuario. En el cuadro "Atribución de instalación" de la página de información de un usuario, la fuente de instalación aparece como network_val_0, y la Campaign como campaign_val_0, etc.]({% image_buster /assets/img/braze_attribution.png %})
 
 Además, los datos de atribución de un usuario concreto están disponibles en el perfil de cada usuario en el dashboard de Braze.
 
@@ -219,7 +219,7 @@ AppsFlyer [ofrece orientación](https://support.appsflyer.com/hc/en-us/articles/
 
 ## Paso 5: Confirma que el seguimiento de clics SSL está habilitado con Braze {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-En esta fase, después de compartir y validar los detalles del CTD en AppsFlyer, te recomendamos que realices un envío de prueba para confirmar si tu dominio de envío OneLink tiene un certificado SSL. Esto se ajusta a nuestra guía de [configuración del correo electrónico](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
+En esta fase, después de compartir y validar los detalles del CTD en AppsFlyer, te recomendamos que realices un envío de prueba para confirmar si tu dominio de envío OneLink tiene un certificado SSL. Esto se ajusta a nuestra guía de [configuración del correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
 
 Puedes realizar la garantía de calidad y la solución de problemas enviando un vínculo profundo mediante OneLink. Consulta la [documentación de AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) para más detalles sobre el uso de OneLink.
 

@@ -27,7 +27,7 @@ Também é possível passar seus públicos da AppsFlyer (coortes) diretamente pa
 | SDK da AppsFlyer | Além do SDK da Braze obrigatório, você deve instalar o [SDK da AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started).
 | Configuração completa do domínio de e-mail | Você deve ter concluído a [etapa de configuração de IP e domínio]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) para configurar seu e-mail durante a integração com a Braze. |
 | Certificado SSL | Seu [certificado SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) deve estar configurado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -132,7 +132,7 @@ Se sua integração foi bem-sucedida, a Braze mapeia todos os dados de instalaç
 | `campaign` | Campaign atribuída |
 | `af_adset` | Grupo de anúncios atribuído |
 | `af_ad` | Anúncio atribuído |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de dados disponíveis" }
 
 Você pode segmentar sua base de usuários por dados de atribuição no dashboard da Braze usando os filtros de atribuição de instalação.
 
@@ -219,7 +219,7 @@ A AppsFlyer [oferece orientação](https://support.appsflyer.com/hc/en-us/articl
 
 ## Etapa 5: confirme se o rastreamento de cliques SSL está ativado com a Braze {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-Nessa etapa, depois de compartilhar e validar os detalhes do CTD na AppsFlyer, recomendamos realizar um envio de teste para confirmar se o domínio de envio do OneLink tem um certificado SSL. Isso está de acordo com nosso guia de [configuração de e-mail](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
+Nessa etapa, depois de compartilhar e validar os detalhes do CTD na AppsFlyer, recomendamos realizar um envio de teste para confirmar se o domínio de envio do OneLink tem um certificado SSL. Isso está de acordo com nosso guia de [configuração de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
 
 Você pode realizar a garantia de qualidade e a solução de problemas enviando um deep link usando o OneLink. Consulte a [documentação da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) para obter detalhes sobre o uso do OneLink.
 

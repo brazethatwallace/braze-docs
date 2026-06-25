@@ -17,7 +17,6 @@ A página **Início** tem duas seções principais:
 - [Continue de onde parou](#pick-up-where-you-left-off)
 - [Visão geral de desempenho](#performance-overview)
 
-![Dashboard Início na Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Continue de onde parou {#pick-up-where-you-left-off}
 
@@ -35,8 +34,6 @@ A seção **Continue de onde parou** aparece depois que você edita ou cria uma 
 
 Por padrão, a seção **Visão geral de desempenho** mostra os dados dos últimos 30 dias para todos os apps e sites. Suas métricas são calculadas com base no intervalo de datas selecionado.
 
-![Campos de intervalo de datas e app no dashboard Início.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Os percentuais são calculados com base no intervalo de datas atual em comparação com o intervalo anterior, com exceção dos *Usuários ativos mensais* (MAU), que usam o último dia do período anterior em vez de um intervalo.
 
 Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e seus *Usuários ativos diários* mostrarem um aumento percentual de 1,8%, isso significa que você teve 1,8% mais usuários ativos diários nesta semana em comparação com a semana passada.
@@ -46,8 +43,6 @@ Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e se
 ### Mostrar detalhamento {#show-breakdown}
 
 Selecione **Show Breakdown** para cada linha das estatísticas da visão geral de desempenho para visualizar o valor de cada estatística por dia no intervalo de datas especificado.
-
-![Expandir detalhamento das estatísticas do dashboard Início.]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Desempenho ao longo do tempo {#performance-over-time}
 

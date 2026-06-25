@@ -2,7 +2,7 @@
 nav_title: Peak
 article_title: Peak
 description: "Cet article de référence décrit le partenariat entre Braze et Peak, une plateforme d'intelligence décisionnelle, qui vous permet de prendre la probabilité d'attrition prédite et les attributs basés sur les comportements et interactions des clients, et de les importer dans Braze pour les utiliser dans la segmentation et le ciblage des clients."
-alias: /partners/Peak/
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 
@@ -26,8 +26,8 @@ Pour commencer, un tenant Peak doit héberger l'intégration entre Peak et Braze
 | ----------- | ----------- |
 | Tenant Peak | Une instance de la plateforme Peak, connue sous le nom de tenant, est requise pour héberger et orchestrer l'intégration. |
 | Solution d'intelligence décisionnelle | L'intégration entre Peak et Braze est basée sur des résultats pilotés par l'intelligence artificielle et nécessite donc une solution Peak ou une solution client déployée au sein de votre tenant. |
-| Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`. <br><br>Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Clé REST API de Braze | Une clé REST API de Braze avec les autorisations `users.track`. <br><br>Celle-ci peut être créée dans le tableau de bord de Braze à partir de **Paramètres** > **Clés API**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -41,10 +41,10 @@ En fonction du moment où les attributs ont été mis à jour, une sélection es
 
 ### Étape 2 : Mettre à jour Braze {#step-2-update-braze}
 
-Une fois les clients mis à jour et les attributs associés récupérés, Peak les enverra à Braze via l'endpoint [`/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), en utilisant l'en-tête [bulk]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates).
+Une fois les clients mis à jour et les attributs associés récupérés, Peak les envoie à Braze via l'endpoint [`/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), en utilisant l'en-tête [bulk]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates).
 
-À la réception des codes d'état de réussite de l'API, Peak enregistrera la synchronisation réussie entre Peak et Braze.
+À la réception des codes d'état de réussite de l'API, Peak enregistre la synchronisation réussie entre Peak et Braze.
 
-### Étape 3 : Utilisation de cette intégration {#step-3-using-this-integration}
+### Étape 3 : Utiliser cette intégration {#step-3-using-this-integration}
 
 Une fois la synchronisation entre Peak et Braze réussie, les utilisateurs mis à jour incluent désormais les nouveaux attributs. Utilisez ces attributs dans les Campaigns et les Canvas pour cibler les utilisateurs et personnaliser les messages.

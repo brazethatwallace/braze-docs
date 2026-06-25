@@ -50,6 +50,24 @@ Dado que la cobertura actual de los operadores varía según el país, y el hard
 
 Recomendamos encarecidamente revisar tu experiencia actual de adhesión voluntaria a SMS, los grupos de suscripción y la segmentación de audiencia antes de desplegar tu primera campaña de RCS. Si es necesario, tu administrador del éxito del cliente siempre está disponible para brindarte orientación y ayudarte a navegar el proceso de configuración.
 
+#### Cómo funciona la alternativa de SMS con eventos y segmentación {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Comportamiento de eventos %}
+
+Cuando usas la alternativa de SMS con RCS, el comportamiento de los eventos depende de si el mensaje se envía correctamente a través de RCS o recurre a SMS:
+
+- **Si el envío de RCS tiene éxito:** recibes un evento de envío de RCS y un evento de entrega de RCS.
+- **Si el envío de RCS recurre a SMS:** recibes un evento de envío de RCS, un evento de rechazo de RCS y un evento de entrega de SMS. El evento de entrega de SMS tiene `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Comportamiento de segmentación %}
+
+Para SMS y RCS, los [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) de mensajes recibidos (como [Mensaje recibido de Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) y [Mensaje recibido de paso en Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)) se evalúan cuando se envía un mensaje, no cuando llega al dispositivo del usuario. Con la alternativa de SMS habilitada, los usuarios aún pueden coincidir con estos filtros si un mensaje RCS es rechazado y recurre a SMS, o si el SMS alternativo no se entrega al dispositivo del usuario.
+
+{% endtab %}
+{% endtabs %}
+
 ### Plazo para la aprobación del operador {#timeline-for-carrier-approval}
 
 El plazo para la aprobación del operador varía según el país y también puede variar dentro de un mismo país. Ten en cuenta que el mercado de RCS aún está en sus inicios, por lo que los procesos de los operadores y agregadores están evolucionando rápidamente. En Estados Unidos, Braze estima que el tiempo de respuesta para la aprobación del operador de un remitente verificado de RCS generalmente se encuentra en el rango de 4 a 6 semanas, con un remitente de prueba generalmente aprobado en una semana.
@@ -72,13 +90,13 @@ Crea un Canvas y nómbralo con algo fácilmente identificable (como "Transferenc
 
 ### Paso 2: Definir tu audiencia {#step-2-define-your-audience}
 
-Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Users who are subscribed or opted-in**.
+Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Usuarios suscritos o con adhesión voluntaria**.
 
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Construye un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10% aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Target Audience** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Público objetivo** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Definir tu audiencia" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 

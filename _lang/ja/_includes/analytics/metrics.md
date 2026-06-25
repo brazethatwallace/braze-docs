@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>ヘルプ</i>は、ユーザーがメッセージに<a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">HELPキーワード</a> で返信し、HELP自動レスポンスが送信された場合です。
+<i>ヘルプ</i>は、ユーザーがメッセージに<a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">HELPキーワード</a> で返信し、HELP自動レスポンスが送信された場合です。
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -51,11 +51,11 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>送信された選択肢数</i>は、<a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の質問ページでユーザーが送信ボタンをクリックしたときに選択された選択肢の総数です。
+<i>送信された選択肢数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の質問ページでユーザーが送信ボタンをクリックしたときに選択された選択肢の総数です。
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>クリック開封率</i>は、開封されたメールのうち、単一のユーザーまたは機械によって少なくとも1回クリックされたものの割合です。この指標は<a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>レポートビルダー</a> でのみ利用可能です。
+<i>クリック開封率</i>は、開封されたメールのうち、単一のユーザーまたは機械によって少なくとも1回クリックされたものの割合です。この指標は<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>レポートビルダー</a> でのみ利用可能です。
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,11 +71,11 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>確認ページボタン</i>は、<a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の確認ページにあるコールトゥアクションボタンのクリック数の合計です。
+<i>確認ページボタン</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の確認ページにあるコールトゥアクションボタンのクリック数の合計です。
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>確認ページ却下数</i>は、<a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の確認ページにある [閉じる] (x) ボタンのクリック数の合計です。
+<i>確認ページ却下数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の確認ページにある [閉じる] (x) ボタンのクリック数の合計です。
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -167,7 +167,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>オプトアウト</i>は、ユーザーがメッセージに<a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">オプトアウトキーワード</a> で返信し、SMSまたはRCSプログラムから購読解除された場合です。
+<i>オプトアウト</i>は、ユーザーがメッセージに<a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">オプトアウトキーワード</a> で返信し、SMSまたはRCSプログラムから購読解除された場合です。
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -223,11 +223,11 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>調査ページ却下数</i>は、<a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の質問ページにある [閉じる] (x) ボタンのクリック数の合計です。
+<i>調査ページ却下数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の質問ページにある [閉じる] (x) ボタンのクリック数の合計です。
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>調査送信数</i>は、<a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の送信ボタンをクリックした回数の合計です。
+<i>調査送信数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の送信ボタンをクリックした回数の合計です。
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +235,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>却下数の合計</i>は、ユーザーがCampaignのメッセージを却下した回数です。Content Cardsの場合、各カードの却下がカウントされます。バナーの場合、却下動作が有効になっているときにユーザーがバナーを却下した回数がカウントされます。
+<i>却下数の合計</i>は、ユーザーがCampaignのメッセージを却下した回数です。Content Cardsの場合、各カードの却下がカウントされます。バナーの場合、却下動作が有効になっているときにユーザーがバナーを却下するたびにカウントされます。
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +251,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>ユニーククリック数</i>は、メッセージ内のリンクを少なくとも1回クリックした受信者の固有数で、<a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。
+<i>ユニーククリック数</i>は、メッセージ内のリンクを少なくとも1回クリックした受信者の固有数で、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

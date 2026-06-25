@@ -32,7 +32,7 @@ CampaignおよびCanvasの属性は、Currentsの[メッセージエンゲージ
 | Campaign ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A（API呼び出し自体の入力として使用） | `campaign_id` |
 | バリアント名 | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | N/A（Campaignの詳細をエクスポートするエンドポイントを使用してバリアント名をバリアントIDにマッピング） |
 | バリアントID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign属性" }
 
 ## Canvas属性 {#canvas-attributes}
 
@@ -46,4 +46,4 @@ CampaignおよびCanvasの属性は、Currentsの[メッセージエンゲージ
 | ステップID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | `steps.id` | `canvas_step_id` |
 | メッセージチャネル | N/A | `steps.messages.message_variation_id.channel` | N/A（プッシュ送信やメール開封などのイベントタイプに固有） |
 | メッセージID | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `steps.message.message_variation_id` | `canvas_step_message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Canvas attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Canvas属性" }

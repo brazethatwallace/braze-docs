@@ -90,7 +90,7 @@ A função `initialize` aceita um objeto de opções com as seguintes propriedad
 | `requireExplicitInAppMessageDismissal` | `boolean` | `false` | Por padrão, mensagens no app podem ser dispensadas clicando fora delas ou pressionando a tecla Escape. Defina esta opção como true para exigir que os usuários cliquem explicitamente em um botão de dispensar ou botão de ação para fechar a mensagem. |
 | `devicePropertyAllowlist` | `string[]` | `undefined` | Por padrão, o Braze SDK detecta e coleta automaticamente todas as propriedades do dispositivo em DeviceProperties. Para substituir esse comportamento, forneça um array de DeviceProperties. Para desativar o envio de todas as propriedades aos servidores da Braze, forneça um array vazio. Sem algumas propriedades, nem todos os recursos funcionarão corretamente. Por exemplo, sem o fuso horário, a entrega no fuso horário local não funcionará. |
 | `serviceWorkerScope` | `string` | `undefined` | Por padrão, o Braze Web SDK registrará seu service worker com o escopo padrão (o diretório do service worker). Forneça um valor para esta opção para substituir esse padrão e especificar um escopo personalizado para o service worker. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Opções de inicialização" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Initialization Options" }
 
 ---
 
@@ -771,7 +771,7 @@ Para integração com AMP, você precisará:
 4. **Criar service worker**: Adicione o arquivo de service worker da Braze
 5. **Configurar o elemento amp-web-push**: Adicione o elemento `amp-web-push` com sua chave de API e URL base como parâmetros de consulta
 
-Para instruções detalhadas de integração com AMP, consulte o [Guia do desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
+Para instruções detalhadas de integração com AMP, consulte o [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp).
 
 ### Electron
 
@@ -792,7 +792,7 @@ O Electron não oferece suporte oficial a notificações por push para a web (ve
 
 #### Tealium iQ
 
-O Tealium iQ oferece uma integração básica e pronta com a Braze. Para configurar a integração, pesquise por Braze na interface de gerenciamento de tags do Tealium e forneça a chave de API do Web SDK do seu dashboard. Para mais detalhes ou suporte aprofundado de configuração do Tealium, confira nossa [documentação de integração](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) ou entre em contato com seu gerente de conta do Tealium.
+O Tealium iQ oferece uma integração básica e pronta com a Braze. Para configurar a integração, pesquise por Braze na interface de gerenciamento de tags do Tealium e forneça a chave de API do Web SDK do seu dashboard. Para mais detalhes ou suporte aprofundado de configuração do Tealium, confira nossa [documentação de integração]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) ou entre em contato com seu gerente de conta do Tealium.
 
 #### Outros gerenciadores de tags {#other-tag-managers}
 
@@ -802,12 +802,12 @@ A Braze também pode ser compatível com outras soluções de gerenciamento de t
 
 ## Bibliotecas {#libraries}
 
-| Nome | Descrição | npm | URL do CDN
-| ---- | --------- | --- | ----------
-| Full | SDK completo com UI. Ao usar a versão npm, empacotadores JavaScript removerão qualquer código não utilizado, incluindo a UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
-| Core | Contém o SDK sem UI. Você precisará implementar sua própria UI para In-App Messages e Content Cards ao usar esta versão do SDK. Nossos elementos de UI são totalmente personalizáveis via CSS, então geralmente recomendamos a integração da biblioteca completa. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
-| No-AMD | Contém o SDK completo sem suporte a AMD. Isso é útil se o seu site usa RequireJS ou outro carregador de módulos AMD, mas você prefere carregar o SDK pelo CDN. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotecas" }
+| Nome | Descrição | npm | URL do CDN |
+| ---- | --------- | --- | ---------- |
+| Full | SDK completo com UI. Ao usar a versão npm, empacotadores JavaScript removerão qualquer código não utilizado, incluindo a UI. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js |
+| Core | Contém o SDK sem UI. Você precisará implementar sua própria UI para In-App Messages e Content Cards ao usar esta versão do SDK. Nossos elementos de UI são totalmente personalizáveis via CSS, então geralmente recomendamos a integração da biblioteca completa. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js |
+| No-AMD | Contém o SDK completo sem suporte a AMD. Isso é útil se o seu site usa RequireJS ou outro carregador de módulos AMD, mas você prefere carregar o SDK pelo CDN. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Libraries" }
 
 ## Navegadores compatíveis {#supported-browsers}
 
@@ -825,7 +825,7 @@ A Braze usa [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0 par
 
 ## Recursos adicionais {#additional-resources}
 
-- [Guia do desenvolvedor da Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
+- [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
 - [Documentação do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [Exemplos de builds](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

@@ -43,7 +43,7 @@ hidden: true
 3. **Rows**ドロップダウンで、レポートを作成する対象を選択します。
 4. （オプション）**Add drilldown**を選択し、レポートをさらに詳しく掘り下げる領域を選択します。
 5. **Columns**で**Customize metrics**を選択します。
-6. **Conversions**で**Last Touch Attribution**を選択し、**Select All**を選択します。
+6. **Conversions**で**Last Touch Attribution**を選択し、次に**Select All**を選択します。
 
 {% alert note %}
 収益および購入指標は利用できません。
@@ -52,7 +52,7 @@ hidden: true
 ![ラストタッチアトリビューション指標が表示された指標カスタマイズパネル。]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. [レポートビルダー](https://www.braze.com/docs/user_guide/analytics/reporting/report_builder)ページのステップ7〜9に従ってください。
+7. [レポートビルダー]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/)ページのステップ7〜9に従ってください。
 
 {% alert note %}
 フィードバックはカスタマーサクセスマネージャーにお送りいただくか、**フィードバックを送信**ボタンを選択してご提供ください。
