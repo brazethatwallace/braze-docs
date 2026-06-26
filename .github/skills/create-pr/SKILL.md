@@ -139,7 +139,7 @@ Call these out in **Approach** or **Verification** when relevant — do not leav
 | **Redirects** | `broken_redirect_list.js` and [redirecting URLs](https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/content_management/redirecting_urls.md) when renaming or moving pages |
 | **Images** | Do not delete replaced originals; screenshot PII audit passed |
 | **Legal** | Paid SKU, third party, SMS, AI, or privacy — written Braze Legal approval |
-| **URLs** | `{{site.baseurl}}` and trailing slashes on internal links |
+| **URLs** | `{{site.baseurl}}` and **no** trailing slashes on internal links (production uses `trailingSlash: false`) |
 | **Revertibility** | Especially for shared `_includes/`, layouts, JS, and CSS |
 
 ## Step 3: Write the title

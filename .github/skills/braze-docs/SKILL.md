@@ -144,11 +144,11 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 ## Internal linking
 
 ```markdown
-[Link text]({{site.baseurl}}/user_guide/path/to/page/)
+[Link text]({{site.baseurl}}/user_guide/path/to/page)
 ```
 
-- Always use `{{site.baseurl}}` (resolves to `/docs`). Trailing slash required.
-- Anchor links: `{{site.baseurl}}/user_guide/path/to/page/#heading-slug`
+- Always use `{{site.baseurl}}` (resolves to `/docs`). Do not add a trailing slash on internal links.
+- Anchor links: `{{site.baseurl}}/user_guide/path/to/page#heading-slug`
 - Same-page anchors: `[heading text](#heading-slug)`
 - Never use "Learn more", "here", or "click here" as link text.
 - Standard cross-reference phrase: "To learn more, refer to [Topic](...)." or "For more information, see [Topic](...)."
