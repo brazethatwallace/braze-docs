@@ -34,14 +34,14 @@ An [API-triggered campaign]({{site.baseurl}}/user_guide/messaging/campaigns/sche
 
 To configure your campaign, perform the following steps:
 
-1. Add a descriptive title so you can find the results on our campaigns page after you've sent your messages.
+1. Add a descriptive title so you can find the results on the campaigns page after you've sent your messages.
 2. Select **Add Message** and add the message types included in your API campaign. This allows you to generate a `campaign_id` and a message variation ID, which differs for each channel you include.
 3. Optionally, you can add a conversion event to track user conversions on a specific action or campaign goal.
 4. Select **Save Campaign** and you're set to begin your API campaign!
 
 ## API calls
 
-After you save your API campaign include the following in your API request:
+After you save your API campaign, include the following in your API request:
 - The generated `campaign_id` fields with your API request where noted in the [Send Messages Endpoints]({{site.baseurl}}/api/endpoints/messaging#send-endpoints).
 - A [message object]({{site.baseurl}}/api/objects_filters#messaging-objects) for each platform included in the campaign. In the message object, provide the message variation ID. This specifies that statistics should be collected and displayed under that variant. The following message objects are supported: Android, Content Cards, email, iOS, Kindle, SMS/MMS, web push, and webhook.
 
