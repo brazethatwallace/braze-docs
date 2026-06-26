@@ -59,7 +59,7 @@ toc_headers: h2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="利用可能なビュー" }
 
 ## ユーザープロファイルスナップショット {#user-profile-snapshots}
 
@@ -75,9 +75,7 @@ toc_headers: h2
 * 特に`USER_ID`以外の属性でフィルタリングする場合、クエリの実行が高速です。
 * **制限事項:** データはリアルタイムで更新されません。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_default_attributes_view_shared-schema}
 
@@ -97,10 +95,11 @@ toc_headers: h2
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
@@ -111,11 +110,13 @@ toc_headers: h2
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## リアルタイムユーザープロファイルビュー {#real-time-user-profile-views}
@@ -134,9 +135,7 @@ toc_headers: h2
     * USER_IDフィルターを使用しないクエリは全ユーザーの集計が必要となるため、実行時間が大幅に長くなります。
     * 大規模なデータセット（1億人以上のユーザーなど）に対するクエリは数分かかる場合があります。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`スキーマ {#user_latest_state_default_attributes_view_shared-schema}
 
@@ -148,6 +147,7 @@ toc_headers: h2
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
@@ -159,7 +159,7 @@ toc_headers: h2
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`スキーマ {#user_latest_state_custom_attribute_view_shared-schema}
@@ -168,9 +168,11 @@ toc_headers: h2
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
@@ -189,9 +191,7 @@ toc_headers: h2
 * データは12時間ごとにスナップショットされます。つまり、この時間枠内の複数の更新は1つのレコードに統合されます。この期間内の個々の変更は個別に保持されません。
 * `EFF_DT`と`END_DT`は、ユーザーの属性状態の開始と終了を示します。
 
-{% alert note %}
-`TIME`フィールドは、ユーザープロファイルが更新された時刻を秒単位で表します。`TIME_MS`フィールドは、ミリ秒精度で同じ時刻を示します。バックフィルされたデータの場合、`TIME`と`TIME_MS`の値はバックフィルの実行時刻です。
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`スキーマ {#user_default_attributes_history_view_shared-schema}
 
@@ -211,7 +211,7 @@ toc_headers: h2
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -226,11 +226,13 @@ toc_headers: h2
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
@@ -243,8 +245,8 @@ toc_headers: h2
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
 | 最近の更新を必要としない**一般的なクエリ** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 高速な実行。データは最大12時間前のものです。                          |
 | **最新のユーザー属性**を必要とするクエリ       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`と`USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | ほぼリアルタイムの更新を提供しますが、大規模なデータセットでは低速になる場合があります。 |
-| 属性変更の**履歴トラッキング**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
+| 属性変更の**履歴追跡**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`と`USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 属性の変更を12時間の粒度で保存します。                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="推奨されるクエリの使用方法" }
 
 ### パフォーマンスに関する考慮事項 {#performance-considerations}
 

@@ -37,7 +37,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 ```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Authorization: Bearer YOUR-SCIM–TOKEN-HERE' \
 --data raw '{
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

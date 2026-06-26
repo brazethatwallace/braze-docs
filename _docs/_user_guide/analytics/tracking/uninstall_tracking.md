@@ -81,6 +81,10 @@ For more on using uninstall tracking, see our blog post [Uninstall Tracking: An 
 
 ## Troubleshooting
 
+### When is a user's profile flagged as uninstalled? When is the uninstall tag cleared?
+
+Braze flags a user as having uninstalled when we detect that the app is no longer on the device (see [How it works](#how-it-works) for detection with regular push and optional uninstall tracking). After someone reinstalls your app, the uninstall tag can stay on their profile until they **open the app and start a new session**—reinstalling alone does not clear the tag. Until that session, segments and filters that use uninstall state (for example **Has Not Uninstalled**) still treat the user as uninstalled.
+
 ### Why am I suddenly seeing a spike in uninstalls?
 
 If you see a spike in app uninstalls, it may be due to Firebase Cloud Messaging (FCM) and Apple Push Notification Service (APNS) revoking old tokens at a different frequency.

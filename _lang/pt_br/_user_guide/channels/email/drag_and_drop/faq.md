@@ -74,7 +74,7 @@ Você pode colar esse HTML em um [bloco HTML]({{site.baseurl}}/user_guide/channe
 
 Problemas de layout geralmente são causados por **HTML ou CSS personalizado** que conflita com a marcação gerada pelo editor. Tente as seguintes etapas:
 
-1. Remova ou isole blocos de HTML personalizado para verificar se o problema desaparece.
+1. Remova ou isole blocos HTML personalizados para ver se o problema desaparece.
 2. Verifique as configurações do **editor de e-mail de arrastar e soltar** para fontes personalizadas que podem não carregar em todos os clientes.
 3. Em **Row Properties**, revise o padding e as larguras das colunas.
 4. Ao adicionar HTML personalizado, prefira layouts baseados em tabelas, imagens fluidas e larguras totais de tabela que se ajustem à largura do seu e-mail — imagens com pixels fixos ou estruturas que não usam tabelas frequentemente quebram no Outlook e em outros clientes.

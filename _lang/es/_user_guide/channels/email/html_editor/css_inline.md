@@ -10,7 +10,7 @@ channel:
 
 # Inserción de CSS {#css-inlining}
 
-> CSS inlining es una forma de preprocesamiento de correo electrónico que traslada los estilos de una hoja de estilos CSS al cuerpo de un correo electrónico HTML. El término "inlining" se refiere al hecho de que los estilos se aplican "en línea" a elementos HTML individuales.
+> La inserción de CSS (CSS inlining) es una forma de preprocesamiento de correo electrónico que traslada los estilos de una hoja de estilos CSS al cuerpo de un correo electrónico HTML. El término "inlining" se refiere al hecho de que los estilos se aplican "en línea" a elementos HTML individuales.
 
 Para algunos clientes de correo electrónico, la inserción de CSS puede mejorar la presentación de los mensajes y confirmar que tienen el aspecto esperado. Si ya tienes la mayor parte del CSS insertado en línea o estás seguro de que tu HTML y CSS son compatibles con los requisitos de la mayoría de los clientes de correo, puede que no sea necesario activar esta característica. Puede hacer que los estilos incrustados dinámicamente entren en conflicto con tus estilos en línea existentes y puede alterar la vista previa esperada y la representación del correo electrónico.
 
@@ -28,8 +28,8 @@ Puedes establecer un estado predeterminado de activación o desactivación de fo
 
 ## Contenido conectado e inserción de CSS {#connected-content-and-css-inlining}
 
-La inserción de CSS se ejecuta **antes** de que se evalúe el [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). El HTML devuelto por el Contenido conectado **no** pasa por el mismo paso de inserción en línea. Coloca los estilos que necesites del Contenido conectado directamente en la respuesta (atributos `style` en línea o reglas incrustadas), o desactiva la inserción en línea para el mensaje si eso se ajusta mejor a tu plantilla.
+La inserción de CSS se ejecuta **antes** de que se evalúe el [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). El HTML devuelto por el Contenido conectado **no** pasa por el mismo paso de inserción. Coloca los estilos que necesites del Contenido conectado directamente en la respuesta (atributos `style` en línea o reglas incrustadas), o desactiva la inserción para el mensaje si eso se ajusta mejor a tu plantilla.
 
 ## Content Blocks en plantillas HTML personalizadas {#content-blocks-in-custom-html-templates}
 
-Cuando incorporas un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) con Liquid dentro de una plantilla de correo electrónico o una Campaign con **HTML personalizado**, las reglas CSS de la plantilla principal pueden sobrescribir los estilos definidos dentro del bloque de contenido. Comprueba si hay selectores en conflicto o reglas globales en el envoltorio de la plantilla.
+Cuando incorporas un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) con Liquid dentro de una plantilla de correo electrónico o Campaign con **HTML personalizado**, las reglas CSS de la plantilla principal pueden anular los estilos definidos dentro del bloque de contenido. Comprueba si hay selectores en conflicto o reglas globales en el envoltorio de la plantilla.

@@ -91,7 +91,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 Conforme definido pela [Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14), "App Transport Security é um recurso que melhora a segurança das conexões entre um app e serviços web. O recurso consiste em requisitos de conexão padrão que estão em conformidade com as melhores práticas para conexões seguras. Os apps podem substituir esse comportamento padrão e desativar a segurança de transporte."
 
-O ATS é aplicado por padrão. Requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com sigilo direto. Consulte [Requisitos para Conexão Usando ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
+O ATS é aplicado por padrão. Requer que todas as conexões usem HTTPS e sejam criptografadas usando TLS 1.2 com sigilo direto. Consulte [Requirements for Connecting Using ATS](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) para saber mais. Todas as imagens servidas pela Braze para dispositivos finais são gerenciadas por uma rede de entrega de conteúdo ("CDN") que suporta TLS 1.2 e é compatível com ATS.
 
 A menos que sejam especificadas como exceções no `Info.plist` do seu aplicativo, conexões que não seguem esses requisitos falharão com erros semelhantes aos seguintes.
 
@@ -116,7 +116,7 @@ Você pode lidar com ATS de uma das seguintes maneiras, mas recomendamos **cumpr
 
 {% tabs local %}
 {% tab Cumprir %}
-Sua integração com a Braze pode atender aos requisitos do ATS, garantindo que todos os links existentes para os quais você direciona os usuários (por exemplo, por meio de mensagens no app e Campaigns de push) atendam aos requisitos do ATS. Embora existam maneiras de contornar as restrições do ATS, nossa recomendação é garantir que todos os URLs vinculados estejam em conformidade com o ATS. Dada a ênfase crescente da Apple na segurança de aplicativos, as seguintes abordagens para permitir exceções do ATS não têm garantia de suporte pela Apple.
+Sua integração com a Braze pode atender aos requisitos do ATS, garantindo que todos os links existentes para os quais você direciona os usuários (por exemplo, por meio de mensagens no app e Campaigns de push) atendam aos requisitos do ATS. Embora existam maneiras de contornar as restrições do ATS, nossa recomendação é garantir que todos os URLs vinculados estejam em conformidade com o ATS. Dada a ênfase crescente da Apple na segurança de aplicativos, as seguintes abordagens para permitir exceções do ATS não são garantidas como suportadas pela Apple.
 {% endtab %}
 
 {% tab Desativar parcialmente %}
@@ -142,7 +142,7 @@ Para adicionar um domínio como exceção do ATS, adicione o seguinte ao arquivo
 </dict>
 ```
 
-Consulte o artigo da Apple sobre [chaves de segurança de transporte de app](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) para saber mais.
+Consulte o artigo da Apple sobre [chaves de app transport security](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) para saber mais.
 {% endtab %}
 
 {% tab Desativar completamente %}
@@ -246,7 +246,7 @@ Quando uma notificação por push ou mensagem no app usa **Abrir URL da web dent
 
 #### Links universais {#universal-links}
 
-A Braze oferece suporte a links universais em notificações por push, mensagens no app e Content Cards. Para ativar o suporte a links universais, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) deve ser definido como `true`.
+A Braze oferece suporte a links universais em notificações por push, In-App Messages e Content Cards. Para ativar o suporte a links universais, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) deve ser definido como `true`.
 
 Quando ativado, a Braze encaminhará links universais para o `AppDelegate` do seu app por meio do método [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application).
 
@@ -258,7 +258,7 @@ Para adicionar suporte às compilações do simulador, você pode adicionar o ar
 {% endalert %}
 
 {% alert note %}
-O SDK não consulta o arquivo `apple-app-site-association` dos seus domínios. Ele realiza a diferenciação entre links universais e URLs regulares observando apenas o nome do domínio. Como resultado, o SDK não respeita nenhuma regra de exclusão definida em `apple-app-site-association` conforme [Suporte a domínios associados](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
+O SDK não consulta o arquivo `apple-app-site-association` dos seus domínios. Ele realiza a diferenciação entre links universais e URLs regulares observando apenas o nome do domínio. Como resultado, o SDK não respeita nenhuma regra de exclusão definida no `apple-app-site-association` conforme [Supporting associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
 {% endalert %}
 
 ## Exemplos {#examples}

@@ -31,7 +31,7 @@ platform:
 
 ### ステップ2:アプリの配置を更新する {#requestBannersRefresh}
 
-配置は、以下に説明する更新メソッドを呼び出すことで更新できます。これらの配置は、ユーザーのセッションが期限切れになったとき、または`changeUser`メソッドを使用して識別済みユーザーを変更したときに自動的にキャッシュされます。
+配置は、以下に説明する更新メソッドを呼び出すことで更新できます。`subscribeToBannersUpdates`がアクティブな場合、SDKは新しいセッションの開始時および`changeUser`を呼び出したときに、キャッシュされた配置IDを自動的に再パブリッシュします。この自動更新はレート制限トークンを消費しません。
 
 {% alert tip %}
 バナーのダウンロードや表示の遅延を避けるため、できるだけ早く配置を更新してください。
@@ -717,6 +717,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### 統合 {#integrations}
+
 #### 標準バナー統合（ドラッグ＆ドロップエディター） {#standard-banner-integrations-drag-and-drop-editor}
 
 バナーがドラッグ＆ドロップエディターを使用しており、非表示ボタンコンポーネントが含まれている場合、追加のコードは不要です。ユーザーが非表示ボタンをクリックすると、メッセージが非表示になり、非表示がトリガーされ、分析用の非表示イベントが記録されます。

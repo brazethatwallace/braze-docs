@@ -23,9 +23,13 @@ O Canvas atual com a etapa Enviar para Destino é a origem. Dentro da etapa, voc
 
 Essa etapa permite que os usuários do Canvas 1 sejam enviados para o Canvas 2. Quando os usuários do Canvas 1 entram na etapa Enviar para Destino, eles são avaliados com base nos critérios de entrada e de público do Canvas 2 para determinar se são elegíveis para entrar no Canvas. Nesse caso, os usuários que fizeram um pedido podem entrar no Canvas 2 e também continuar sua jornada no Canvas 1. Para os usuários que não fizeram um pedido, eles continuam sua jornada apenas no Canvas 1.
 
-### Entrada em tempo real {#real-time-entry}
+### Comportamento de entrada {#entry-behavior}
 
-A etapa Enviar para Destino insere os usuários no Canvas de destino assim que eles chegam a essa etapa. Ela funciona como um ponto de entrada único no Canvas de destino. Os usuários que atendem aos critérios de entrada e de público do Canvas de destino iniciam essa jornada em tempo real. Os usuários que não atendem a esses critérios naquele momento não entram no Canvas de destino e continuam no Canvas de origem.
+A etapa Enviar para Destino insere os usuários no Canvas de destino assim que eles chegam a essa etapa. Ela funciona como um ponto de entrada único no Canvas de destino. Os usuários que atendem aos critérios de entrada e de público do Canvas de destino iniciam essa jornada no Canvas. Os usuários que não atendem a esses critérios naquele momento não entram no Canvas de destino e continuam no Canvas de origem.
+
+Se o Canvas de destino usa um cronograma de entrada agendado, a etapa Enviar para Destino ignora esse cronograma de entrada. Ela também ignora a opção [**Limitar volume de entrada**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) em **Controles de entrada** no Canvas de destino quando está definida como **Toda vez que o Canvas for agendado**. Os usuários enviados por essa etapa não aguardam a próxima janela de avaliação agendada — eles são avaliados e inseridos quando chegam à etapa Enviar para Destino, desde que atendam aos critérios de entrada e de público do Canvas de destino.
+
+Se o Canvas de destino usa entrada baseada em ação, a etapa Enviar para Destino ignora a exigência de que os usuários realizem a ação de entrada configurada para entrar nesse Canvas.
 
 ## Criar uma etapa Enviar para Destino {#create-a-send-to-destination-step}
 
@@ -41,7 +45,7 @@ Selecione o menu suspenso ou digite o nome do Canvas no campo **Destination**. E
 
 ### Etapa 3: Pré-visualizar o destino {#step-3-preview-your-destination}
 
-Você pode selecionar **Preview destination** para ver a jornada dos usuários que atendem aos critérios de entrada do Canvas de destino.
+Você pode selecionar **Preview destination** para visualizar o Canvas para o qual está enviando os usuários.
 
 Após configurar essa etapa do Canvas, você pode [pré-visualizar a jornada do usuário]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) para verificar se um usuário avança para a próxima etapa no Canvas atual e se também segue para o Canvas de destino.
 

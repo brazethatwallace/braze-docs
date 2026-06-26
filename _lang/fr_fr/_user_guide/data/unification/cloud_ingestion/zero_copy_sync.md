@@ -202,7 +202,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 | :---- | :---- | :---- |
 | `UPDATED_AT` | Timestamp | Oui |
 | `PROPERTIES` | JSON | Oui |
-| `EXTERNAL_ID` | STRING | NULLABLE |
+| `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Configurer votre table source dans Databricks" }
@@ -283,10 +283,10 @@ Pour synchroniser les déclencheurs Canvas à partir du stockage de fichiers, cr
 | `EXTERNAL_ID` | Oui, `external_id` ou `alias_name` et `alias_label` | Identifie l'utilisateur que vous souhaitez mettre à jour. Cette valeur doit correspondre à la valeur `external_id` utilisée dans Braze. |
 | `ALIAS_NAME` et `ALIAS_LABEL` | Oui, `external_id` ou `alias_name` et `alias_label` | Ces deux colonnes créent un objet d'alias d'utilisateur. `alias_name` doit être un identifiant unique et `alias_label` spécifie le type d'alias. Les utilisateurs peuvent avoir plusieurs alias avec des libellés différents, mais un seul `alias_name` par `alias_label`. |
 | `PROPERTIES` | Oui | Chaîne de caractères JSON des champs à rendre disponibles en tant que propriétés de personnalisation dans votre Canvas. Elle doit contenir des informations spécifiques à l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.3 : Configurer les politiques réseau" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurer les politiques réseau" }
 
 {% alert tip %}
-Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
 {% endalert %}
 
 {% endtab %}

@@ -19,17 +19,17 @@ KakaoTalk wird sowohl in Campaigns als auch in Canvas unterstützt. Campaigns ei
 {% tabs local %}
 {% tab Campaign %}
 
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Create Campaign**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
 2. Wählen Sie **KakaoTalk** für eine Einzelkanal-Kampagne oder **Multichannel Campaign** für eine Mehrkanal-Kampagne.
 
 ![Panel mit Optionen zur Auswahl des Messaging-Kanals.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. Sie können zusätzliche Varianten zu Ihrer Kampagne hinzufügen, sodass Sie verschiedene Nachrichtentypen und Layouts auswählen können. Weitere Informationen finden Sie unter [Multivariate und A/B-Tests](https://www.braze.com/docs/user_guide/messaging/ab_testing/).
+3. Sie können zusätzliche Varianten zu Ihrer Kampagne hinzufügen, sodass Sie verschiedene Nachrichtentypen und Layouts auswählen können. Weitere Informationen finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Erstellen Sie Ihren Canvas](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/).
+1. [Erstellen Sie Ihren Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
 2. Fügen Sie einen Nachrichtenschritt im Canvas-Builder hinzu und wählen Sie **KakaoTalk**.
 
 ![Canvas-Messaging-Kanal-Auswahl.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
@@ -194,7 +194,7 @@ Nachdem Sie Ihre Testnutzer:innen ausgewählt haben, wählen Sie **Send Test**. 
 Um eine Nachricht für bestehende Nutzer:innen in der Vorschau anzuzeigen und eine Testnachricht zu senden, benötigen Sie die Berechtigung „View PII“. Sie können eine Nachricht für benutzerdefinierte Nutzer:innen ohne diese Berechtigungen in der Vorschau anzeigen und als Test senden.
 {% endalert %}
 
-Um die Ergebnisse eines Versands zu überprüfen oder Probleme zu beheben, gehen Sie zu **Settings** > **Message Activity Log**. Weitere Informationen finden Sie unter [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+Um die Ergebnisse eines Versands zu überprüfen oder Probleme zu beheben, gehen Sie zu **Einstellungen** > **Nachrichten-Aktivitätsprotokoll**. Weitere Informationen finden Sie unter [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
 
 ## 5. Schritt: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 

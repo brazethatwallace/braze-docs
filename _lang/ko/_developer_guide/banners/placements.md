@@ -31,7 +31,7 @@ platform:
 
 ### 2단계: 앱에서 배치 새로고침 {#requestBannersRefresh}
 
-아래에 설명된 새로고침 메서드를 호출하여 배치를 새로고침할 수 있습니다. 사용자의 세션이 만료되거나 `changeUser` 메서드를 사용하여 식별된 사용자를 변경할 때 이러한 배치는 자동으로 캐시됩니다.
+아래에 설명된 새로고침 메서드를 호출하여 배치를 새로고침할 수 있습니다. `subscribeToBannersUpdates`가 활성 상태인 경우, SDK는 새 세션이 시작될 때와 `changeUser`를 호출할 때 캐시된 배치 ID를 자동으로 다시 게시합니다. 이 자동 새로고침은 사용량 제한 토큰을 소비하지 않습니다.
 
 {% alert tip %}
 배너 다운로드 또는 표시 지연을 방지하려면 가능한 한 빨리 배치를 새로고침하세요.
@@ -717,6 +717,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### 통합 {#integrations}
+
 #### 표준 배너 통합(드래그 앤 드롭 편집기) {#standard-banner-integrations-drag-and-drop-editor}
 
 배너가 드래그 앤 드롭 편집기를 사용하고 해제 버튼 구성요소를 포함하는 경우 추가 코드가 필요하지 않습니다. 사용자가 해제 버튼을 클릭하면 메시지가 숨겨지고, 해제가 트리거된 후 분석을 위한 해제 이벤트가 기록됩니다.

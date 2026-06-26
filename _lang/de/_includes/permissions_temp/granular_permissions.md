@@ -89,7 +89,6 @@ Admins haben Zugriff auf alle Features und können alle Unternehmenseinstellunge
 
 Um Admin-Rechte zu gewähren oder zu entfernen, wählen Sie **This user is an admin** und dann **Update user**.
 
-![Die Details der ausgewählten Nutzer:in mit dem Admin-Kontrollkästchen im Fokus.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Wenn Sie Nutzer:innen die Administratorrechte entziehen, können diese nicht mehr auf Braze zugreifen, bis Sie ihnen mindestens eine [Berechtigung auf Unternehmens- oder Workspace-Ebene]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions) zuweisen.
@@ -152,6 +151,12 @@ Wenn Sie fertig sind, wählen Sie **Update user**.
 Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen** und wählen Sie dann **Export Users**. Eine CSV-Datei wird in Kürze an Ihre E-Mail-Adresse gesendet.
 
 ![Die Seite „Unternehmensnutzer:innen“ in Braze mit der Option „Export Users“ im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+
+Sie können keine vollständige Berechtigungsmatrix für alle Dashboard-Nutzer:innen in einem Schritt aus dem Braze-Dashboard exportieren. Wenn Sie mehr Details benötigen, als **Export Users** bietet, ziehen Sie die folgenden Optionen in Betracht:
+
+- Verwenden Sie die [automatisierte Nutzerbereitstellung]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/) (SCIM), um Dashboard-Nutzerkonten zu verwalten. Sie können beispielsweise [eine Dashboard-Nutzer:in per E-Mail suchen]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) oder Nutzerdetails anhand der Ressourcen-ID abrufen, wie unter [Nutzerkontoinformationen anzeigen]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/) beschrieben.
+- [Kontaktieren Sie den Braze-Support]({{site.baseurl}}/braze_support/). In einigen Fällen kann der Support eine Liste der Konten bereitstellen, jedoch keine vollständige Berechtigungsmatrix.
+- Filtern Sie den [Sicherheitsereignisbericht]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) Ihres Unternehmens, der Ereignisse wie **Konto hinzugefügt** und **Berechtigungen aktualisiert** aufzeichnet, um Berechtigungsänderungen außerhalb des Dashboards zu überprüfen.
 
 ## Liste der Berechtigungen {#list-of-permissions}
 

@@ -168,12 +168,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     },
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     }
   ]
 }
@@ -211,6 +211,12 @@ We recommend that you allow for a 5-minute delay between consecutive endpoint ca
 Understanding the optimal delay between endpoints is crucial when making consecutive calls to the Braze API. Problems arise when endpoints depend on the successful processing of other endpoints, and if called too soon, could raise errors. For example, if you're assigning users an alias through our `/user/alias/new` endpoint, and then hitting that alias to send a custom event through our `/users/track` endpoint, how long should you wait?
 
 Under normal conditions, the time for our data eventual consistency to occur is 10-100ms (1/10 of a second). However, there can be some cases where it takes longer for that consistency to occur, so we recommend that you allow for a 5-minute delay between making subsequent calls to minimize the probability of error.
+
+## Payload size limits
+
+Braze API requests are subject to payload size limits, separate from rate limits. Most endpoints accept request bodies up to 4&nbsp;MB. When a request exceeds the applicable limit, Braze may reject it with HTTP `413 Request Entity Too Large` or HTTP `400 Bad Request`, depending on the endpoint.
+
+The [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) endpoint has a 2&nbsp;MB payload limit and returns HTTP `400` when the request body exceeds that limit. For endpoint-specific limits and error handling, see [User data endpoints]({{site.baseurl}}/api/endpoints/user_data/).
 
 ### Rate limit reset
 

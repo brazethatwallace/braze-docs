@@ -16,16 +16,9 @@ Sie benötigen Administratorberechtigungen, um Nutzer:innen zu Ihrem Braze-Konto
 
 So fügen Sie eine:n neue:n Nutzer:in hinzu:
 
-1. Gehen Sie zu **Settings** > **Company Users**.
+1. Gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen**.
 2. Wählen Sie **+ Add New User**.
 3. Geben Sie die erforderlichen Informationen ein, einschließlich E-Mail-Adresse, Abteilung und [Nutzerrolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role).
-
-{% alert tip %}
-Die im Profil einer Nutzerin oder eines Nutzers angegebene Abteilung bestimmt, welche Arten von Mitteilungen sie oder er von Braze erhält. So wird sichergestellt, dass alle nur die Mitteilungen und Benachrichtigungen erhalten, die für ihre Nutzung von Braze relevant sind.
-{% endalert %}
-
-{:start="4"}
-
 4. Wählen Sie für Nutzer:innen, die keine Administratoren sind, die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions) auf Unternehmens- und Workspace-Ebene aus, die diese:r Nutzer:in haben soll.
 
 ![Berechtigungen auf Workspace-Ebene mit einem Abschnitt für angepasste Berechtigungsfelder.]({% image_buster /assets/img/add_new_user_3.png %})
@@ -36,9 +29,11 @@ Jede E-Mail-Adresse, die in einer [Instanz]({{site.baseurl}}/user_guide/administ
 
 Wenn Ihr Team Gmail verwendet und Sie Probleme beim Hinzufügen einer E-Mail-Adresse haben, können Sie einen Alias erstellen, indem Sie ein Pluszeichen (+) wie „+1“ oder „+test“ zur E-Mail-Adresse hinzufügen. Beispielsweise kann `contractor@braze.com` den Alias `contractor+1@braze.com` haben. E-Mails an `contractor+1@braze.com` werden weiterhin an `contractor@braze.com` zugestellt, aber der Alias wird als eindeutige E-Mail-Adresse erkannt.
 
+Um ein Konto über mehrere Unternehmen hinweg ohne Aliase zu verwenden, lesen Sie [Multi-Unternehmens-Entwickler:innen verwenden]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). Wenn Sie SSO verwenden, lesen Sie [Hinweise zu Single Sign-on (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso), bevor Sie sich mit mehreren E-Mail-Adressen registrieren.
+
 ### Kann ich die E-Mail-Adresse meines Braze-Kontos ändern? {#can-i-change-my-braze-accounts-email-address}
 
-Aus Sicherheitsgründen können Nutzer:innen die mit ihrem Braze-Konto verknüpfte E-Mail-Adresse nicht ändern. Wenn eine Nutzerin oder ein Nutzer ihre bzw. seine E-Mail-Adresse aktualisieren möchte, sollte ein:e Administrator:in [ein neues Konto erstellen](#adding-braze-users) mit der gewünschten E-Mail-Adresse.
+Aus Sicherheitsgründen können Nutzer:innen die mit ihrem Braze-Konto verknüpfte E-Mail-Adresse nicht ändern. Wenn eine Nutzerin oder ein Nutzer ihre bzw. seine E-Mail-Adresse aktualisieren möchte, sollte ein:e Administrator:in [ein neues Konto erstellen](#adding-company-users) mit der gewünschten E-Mail-Adresse.
 
 ## Nutzerzugriff und Verantwortlichkeiten zuweisen {#assigning-user-access-and-responsibilities}
 
@@ -48,17 +43,17 @@ Aus Sicherheitsgründen können Nutzer:innen die mit ihrem Braze-Konto verknüpf
 
 Durch das Sperren wird das Konto einer Nutzerin oder eines Nutzers in einen inaktiven Zustand versetzt, in dem sich die Person nicht mehr anmelden kann, die mit dem Konto verknüpften Daten jedoch erhalten bleiben. Nur Administratoren können Unternehmensnutzer:innen sperren oder entsperren. Beachten Sie, dass gesperrte Nutzer:innen weiterhin Benachrichtigungen von Braze erhalten können.
 
-Um eine:n Nutzer:in zu sperren, gehen Sie zu **Settings** > **Company Users**, suchen Sie den Nutzernamen und wählen Sie <i class="fa-solid fa-user-lock"></i> **Suspend**.
+Um eine:n Nutzer:in zu sperren, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen**, suchen Sie den Nutzernamen und wählen Sie <i class="fa-solid fa-user-lock"></i> **Sperren**.
 
 ![Option zum Sperren einer Nutzerin oder eines Nutzers.]({% image_buster /assets/img_archive/suspend_user.png %})
 
-Administratoren können eine:n Nutzer:in auch sperren, indem sie den Namen in der Liste auswählen und in der Fußzeile **Suspend user** wählen.
+Administratoren können eine:n Nutzer:in auch sperren, indem sie den Namen in der Liste auswählen und in der Fußzeile **Nutzer:in sperren** wählen.
 
 ![Eine:n Nutzer:in sperren beim Bearbeiten der Nutzerdetails.]({% image_buster /assets/img_archive/suspend_user2.png %}){: style="max-width:70%;"}
 
 ## Unternehmensnutzer:innen löschen {#deleting-company-users}
 
-Um eine:n Nutzer:in zu löschen, gehen Sie zu **Settings** > **Company Users**, suchen Sie den Nutzernamen und wählen Sie <i class="fa fa-trash-can"></i> **Delete user**.
+Um eine:n Nutzer:in zu löschen, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen**, suchen Sie den Nutzernamen und wählen Sie <i class="fa fa-trash-can"></i> **Nutzer:in löschen**.
 
 Nur Administratoren können Unternehmensnutzer:innen löschen, und Unternehmensnutzer:innen können ihre eigenen Konten nicht löschen. Ein:e Administrator:in kann das eigene Dashboard-Konto nicht löschen; ein:e andere:r Administrator:in muss dies übernehmen.
 
@@ -78,11 +73,11 @@ Nachdem eine Nutzerin oder ein Nutzer gelöscht wurde, speichert Braze keine der
 Braze behält die folgenden Kontodaten:
 
 - Angepasste Attribute oder Testdaten, die mit dem Konto verknüpft sind
-- Campaigns oder Canvases, die erstellt wurden (der Name der Nutzerin oder des Nutzers wird jedoch nicht mehr angezeigt, z. B. in der Spalte **Last Edited By**)
+- Campaigns oder Canvases, die erstellt wurden (der Name der Nutzerin oder des Nutzers wird jedoch nicht mehr angezeigt, z. B. in der Spalte **Zuletzt bearbeitet von**)
 
 ### Auswirkungen des Löschens einer Dashboard-Nutzerin oder eines Dashboard-Nutzers {#impact-of-deleting-a-dashboard-user}
 
-Wenn eine Dashboard-Nutzerin oder ein Dashboard-Nutzer gelöscht wird, hat dies keine wesentlichen Auswirkungen auf die im Dashboard erstellten Assets wie Campaigns, Segments und Canvases. Allerdings zeigt das Feld **Created By** für diese Assets einen „null“-Wert anstelle der E-Mail-Adresse der gelöschten Nutzerin oder des gelöschten Nutzers an.
+Wenn eine Dashboard-Nutzerin oder ein Dashboard-Nutzer gelöscht wird, hat dies keine wesentlichen Auswirkungen auf die im Dashboard erstellten Assets wie Campaigns, Segmente und Canvases. Allerdings zeigt das Feld **Erstellt von** für diese Assets einen „null“-Wert anstelle der E-Mail-Adresse der gelöschten Nutzerin oder des gelöschten Nutzers an.
 
 Wenn anschließend eine neue Dashboard-Nutzerin oder ein neuer Dashboard-Nutzer mit derselben E-Mail-Adresse wie die gelöschte Person erstellt wird, verknüpft Braze die von der gelöschten Person erstellten Assets nicht erneut mit der neuen Nutzerin oder dem neuen Nutzer. Die neue Dashboard-Nutzerin oder der neue Dashboard-Nutzer beginnt mit einem leeren Konto und wird nicht als Ersteller:in bestehender Assets im Dashboard aufgeführt.
 

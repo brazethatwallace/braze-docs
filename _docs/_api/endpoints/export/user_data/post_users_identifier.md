@@ -81,7 +81,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   ],
   "device_id": "1234567",
   "braze_id": "braze_identifier",
-  "email_address": "example@braze.com",
+  "email_address": "example@example.com",
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
@@ -215,7 +215,8 @@ User export object (we will include the least data possible - if a field is miss
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -302,13 +303,13 @@ User export object (we will include the least data possible - if a field is miss
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -361,7 +362,8 @@ User export object (we will include the least data possible - if a field is miss
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],

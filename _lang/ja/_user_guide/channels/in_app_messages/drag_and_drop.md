@@ -70,7 +70,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 **メッセージを作成**を選択して、ドラッグ＆ドロップエディターでアプリ内メッセージのデザインを開始します。
 
-![基本、バックグラウンド画像、電話番号キャプチャ、または空白テンプレートを選択できるBrazeテンプレートセクション。]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
+![基本、背景画像、電話番号キャプチャ、または空白テンプレートを選択できるBrazeテンプレートセクション。]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
 ダッシュボードの**テンプレート**セクションからすべてのテンプレートにアクセスすることもできます。
 
@@ -95,7 +95,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 既存のページを複製するには：
 
-1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプションを開く"></i>を選択してその他のオプションを開きます。
+1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>**その他のオプション**を選択します。
 2. **複製**を選択します。
 3. ページにわかりやすい名前を付けます。これはページ同士を接続する際に役立ちます。
 
@@ -104,7 +104,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ページを削除または名前変更するには：
 
-1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプションを開く"></i>を選択してその他のオプションを開きます。
+1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>**その他のオプション**を選択します。
 2. **名前変更**または**削除**を選択します。
 
 {% endtab %}
@@ -168,25 +168,25 @@ Campaignを送信する前に、アプリ内メッセージを必ずテストす
 
 ## よくある質問 {#frequently-asked-questions}
 
-#### 分析ページにボディクリックが表示されないのはなぜですか？ {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### 分析ページにボディクリックが表示されないのはなぜですか？ {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 ドラッグ＆ドロップエディターで作成されたアプリ内メッセージでは、ボディクリックは自動的に収集されません。詳細については、[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310)および[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100)のSDK変更ログを参照してください。
 
-#### ボタンクリックに基づいてセグメンテーションできますか？ {#can-i-segment-based-on-button-clicks}
+### ボタンクリックに基づいてセグメンテーションできますか？ {#can-i-segment-based-on-button-clicks}
 
 はい、メッセージ内の最大2つのボタンのボタンクリックに基づいてセグメンテーションできます。これを行うには、ボタンの**Identifier for Reporting**を「0」と「1」に設定します。これはそれぞれ、セグメンテーションフィルター「Clicked in-app message button 1」と「Clicked in-app message button 2」に対応します。
 
 ![値が「0」の「Identifier for Reporting」フィールド。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 既存のHTMLメッセージをエディターに直接移行することはできませんが、カスタムコードブロックに生のHTML、CSS、JavaScriptを挿入できます。カスタムコードブロックを使用して、サードパーティの動画や、コネクテッドコンテンツや条件文などの高度なLiquidを埋め込むことができます。
 
-#### スライドアップのアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
+### スライドアップのアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
 
 現在、エディターはモーダルとフルスクリーンメッセージのみに対応しています。**Message styles**パネルの**Message container**セクションで表示タイプを切り替えることができます。
 
-#### CampaignまたはCanvas内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### CampaignまたはCanvas内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 はい。今後のCampaignまたはキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存する前に、まずCampaignを起動するか、下書きとして保存する必要があります。
 

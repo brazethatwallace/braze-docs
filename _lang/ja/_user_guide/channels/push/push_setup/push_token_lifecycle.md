@@ -27,11 +27,11 @@ channel:
 
 プッシュトークンは、フォアグラウンドプッシュ通知とバックグラウンドプッシュ通知の両方の送信に使用されます。
 
-| タイプ       | オプトインが必要？ | 説明                                                 |
+| タイプ | オプトインが必要？ | 説明 |
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
-| フォアグラウンドプッシュ | はい       | アプリがフォアグラウンドにある間、ユーザーに通知が視覚的に表示されます。           |
-| バックグラウンドプッシュ | いいえ        | 通知は表示されずにバックグラウンドでサイレントに配信されます。アンインストール追跡などの機能によく使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Foreground vs. background push #foreground-vs-background" }
+| フォアグラウンドプッシュ | はい | アプリがフォアグラウンドにある間、ユーザーに通知が視覚的に表示されます。 |
+| バックグラウンドプッシュ | いいえ | 通知は表示されずにバックグラウンドでサイレントに配信されます。アンインストール追跡などの機能によく使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="フォアグラウンドプッシュとバックグラウンドプッシュ" }
 
 ユーザーがアプリのプッシュ通知にオプトインすると、「プッシュ登録済み」とみなされ、Brazeの`Foreground Push Enabled for App`セグメンテーションフィルターを使用してターゲティングできるようになります。
 
@@ -67,27 +67,27 @@ channel:
 {% tab Android %}
 アプリがインストールされると、アプリ用のプッシュトークンが自動的に生成されます。ただし、ユーザーが明示的にオプトインするまでは、[バックグラウンドプッシュ通知](#foreground-vs-background)にのみ使用できます。また、登録はAndroidのバージョンによって異なる方法で処理されます。
 
-| バージョン       | 詳細                                                                                                                                                |
+| バージョン | 詳細 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Android 13**         | プッシュ権限はユーザーによってリクエストおよび許可される必要があります。アプリは手動で権限をリクエストできます。また、[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)が作成された後に自動的にプロンプトが表示されます。 |
+| **Android 13** | プッシュ権限はユーザーによってリクエストおよび許可される必要があります。アプリは手動で権限をリクエストできます。また、[通知チャネル](https://developer.android.com/reference/android/app/NotificationChannel)が作成された後に自動的にプロンプトが表示されます。 |
 | **Android 12以前** | すべてのユーザーは最初のセッション後に`Subscribed`とみなされます。Brazeはこの時点でプッシュトークンを自動的にリクエストし、有効なトークンとデフォルトのサブスクリプション状態`Subscribed`でユーザーのプッシュを有効にします。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token registration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュトークンの登録" }
 {% endtab %}
 
 {% tab iOS %}
 iOSでは、アプリがインストールされた際にプッシュトークンが自動的に生成されることはありません。また、登録はiOSのバージョンによって異なる方法で処理されます。
 
-| バージョン                         | 仮承認？ | 詳細                                                                                                                                                     |
+| バージョン | 仮承認？ | 詳細 |
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **iOS 12**      | はい                         | ユーザーがプッシュ通知にオプトインすると、標準の承認が付与され、[フォアグラウンドプッシュ通知](#foreground-vs-background)を送信できるようになります。ただし、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)をリクエストすることもでき、通知センターに直接サイレントな[バックグラウンドプッシュ通知](#foreground-vs-background)を送信できます。 |
-| **iOS 11以前** | いいえ                          | すべてのユーザーはプッシュ通知を受信するために明示的にオプトインする必要があります。プッシュトークンは権限が付与された後にのみ生成されます。                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push token registration" }
+| **iOS 12** | はい | ユーザーがプッシュ通知にオプトインすると、標準の承認が付与され、[フォアグラウンドプッシュ通知](#foreground-vs-background)を送信できるようになります。ただし、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)をリクエストすることもでき、通知センターに直接サイレントな[バックグラウンドプッシュ通知](#foreground-vs-background)を送信できます。 |
+| **iOS 11以前** | いいえ | すべてのユーザーはプッシュ通知を受信するために明示的にオプトインする必要があります。プッシュトークンは権限が付与された後にのみ生成されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="プッシュトークンの登録" }
 {% endtab %}
 {% endtabs %}
 
 ### ユーザーのプッシュサブスクリプション状態の確認 {#checking-users-push-subscription-state}
 
-![プッシュサブスクリプション状態が「購読中」に設定されたJohn Doeのユーザープロファイル。]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Jane Doeのユーザープロファイル。「エンゲージメント」タブにプッシュサブスクリプション状態とプッシュ登録の詳細が表示されています。]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Brazeでユーザーのプッシュサブスクリプション状態を確認するには、2つの方法があります。
 
@@ -115,20 +115,20 @@ Brazeでユーザーのプッシュサブスクリプション状態を確認す
 | `changeUser()`メソッドの呼び出し | Brazeの`changeUser()`メソッドは、SDKがユーザー行動データを割り当てるユーザーIDを切り替えます。このメソッドは通常、ユーザーがアプリケーションにログインしたときに呼び出されます。特定のデバイスで異なるまたは新しいユーザーIDで`changeUser()`が呼び出されると、そのデバイスのプッシュトークンは対応するユーザーIDを持つ適切なBrazeプロファイルに移動されます。 |
 | プッシュエラーの発生 | トークンの削除につながる一般的なプッシュエラーには、`MismatchSenderId`、`InvalidRegistration`、およびその他のタイプのプッシュバウンスがあります。<br><br>一般的な[プッシュエラー]({{site.baseurl}}/user_guide/channels/push/push_error_codes/)の完全なリストを確認してください。 |
 | ユーザーのアンインストール | ユーザーがデバイスからアプリケーションをアンインストールすると、Brazeはそのユーザーのプッシュトークンをプロファイルから削除します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token management" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュトークンの管理" }
 
 ### より広い視点で見ると {#what-does-this-look-like-on-a-broader-scale}
 
 ユーザーが新しいアプリケーションを開き、プッシュプロンプトからプッシュアクセスを許可すると、Braze SDKからプッシュプロバイダーへの呼び出しが行われます。この呼び出しが行われると、プッシュプロバイダーはすべてが正しく設定されているかチェックを実行します。正しく設定されている場合、プッシュトークンがデバイスに渡されます。トークンが届くと、SDKはこれをBrazeに通知します。Brazeがプッシュプロバイダーからトークンを受信した後、ユーザープロファイルを更新または新規作成します。これらのユーザーは登録済みとみなされます。
 
-キャンペーンを起動する場合、Brazeでプッシュプロバイダーに送信するプッシュペイロードを生成するキャンペーンを作成します。そこからプロバイダーがプッシュペイロードをユーザーのデバイスに配信し、SDKがメッセージングの状態をBrazeに渡します。
+Campaignを起動する場合、Brazeでプッシュプロバイダーに送信するプッシュペイロードを生成するCampaignを作成します。そこからプロバイダーがプッシュペイロードをユーザーのデバイスに配信し、SDKがメッセージングの状態をBrazeに渡します。
 
 ![Braze、顧客、Apple Push Notification ServiceまたはFirebase Cloud Messagingの間の前述のプッシュプロセスをマッピングしたフローチャート。]({% image_buster /assets/img/push_process.png %})
 
 | 登録ステップ | メッセージングステップ |
 | ------------------ | --------------- |
 | 1. 顧客（デバイス）がプッシュプロバイダーに登録<br>2. プロバイダーがプッシュトークンを生成して配信<br>3. トークンをBrazeにフラッシュ |1. Brazeがプッシュペイロードをプロバイダーに送信<br>2. プロバイダーがプッシュペイロードをデバイスに配信<br>3. SDKがメッセージング統計をBrazeに渡す |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What does this look like on a broader scale?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="より広い視点で見ると" }
 
 ## よくある質問 {#frequently-asked-questions}
 

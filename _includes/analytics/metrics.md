@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Help</i> is when a user replied to your message with a <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">HELP keyword</a> and was dispatched a HELP auto-response. 
+<i>Help</i> is when a user replied to your message with a <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">HELP keyword</a> and was dispatched a HELP auto-response. 
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -51,11 +51,11 @@ Push Story Notifications record a <i>Body Click</i> when the notification is cli
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>Choices Submitted</i> is the total number of choices selected when the user clicks the submit button on the survey question page of a <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
+<i>Choices Submitted</i> is the total number of choices selected when the user clicks the submit button on the survey question page of a <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>Click-to-Open Rate</i> is the percentage of opened emails that have been clicked by a single user or machine at least once, and is only available in the <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>Report Builder</a>.
+<i>Click-to-Open Rate</i> is the percentage of opened emails that have been clicked by a single user or machine at least once, and is only available in the <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Report Builder</a>.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,11 +71,11 @@ Push Story Notifications record a <i>Body Click</i> when the notification is cli
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>Confirmation Page Button</i> is the total clicks on the call to action button on the confirmation page of a <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
+<i>Confirmation Page Button</i> is the total clicks on the call to action button on the confirmation page of a <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>Confirmation Page Dismissals</i> is the total clicks on the close (x) button on the confirmation page of a <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
+<i>Confirmation Page Dismissals</i> is the total clicks on the close (x) button on the confirmation page of a <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -167,7 +167,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Opt-Out</i> is when a user replied to your message with an <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">opt-out keyword</a> and was unsubscribed from your SMS or RCS program. 
+<i>Opt-Out</i> is when a user replied to your message with an <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">opt-out keyword</a> and was unsubscribed from your SMS or RCS program. 
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -223,11 +223,11 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Survey Page Dismissals</i> is the total clicks on the close (x) button on the survey question page of a <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
+<i>Survey Page Dismissals</i> is the total clicks on the close (x) button on the survey question page of a <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>Survey Submissions</i> is the total clicks on the submit button of a <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
+<i>Survey Submissions</i> is the total clicks on the submit button of a <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>simple survey</a>.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +235,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Total Dismissals</i> is the number of times Content Cards from a campaign have been dismissed. 
+<i>Total Dismissals</i> is the number of times users dismissed a message from a campaign. For Content Cards, this counts each card dismissal. For Banners, this counts each time a user dismissed the Banner when dismissal behavior is enabled.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +251,7 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
+<i>Unique Clicks</i>  is the distinct number of recipients who have clicked a link within a message at least once and is measured by <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -262,6 +262,10 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 
 {% if include.metric == "Unique Impressions" %}
 <i>Unique Impressions</i> is the total number of users who have viewed a message from a given campaign. An impression is logged only when the message becomes visible on a user's screen.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+<i>Unique Daily Impressions</i> is the number of unique users who viewed the message on a given day. This count resets each calendar day, so a user who views the same message on two different days is counted twice. This metric aligns with the billing metric of the same name.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

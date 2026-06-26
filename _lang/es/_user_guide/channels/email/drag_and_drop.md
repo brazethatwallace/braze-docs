@@ -20,10 +20,13 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
 
 <table aria-label="Acerca del editor" style="width: 100%; table-layout: fixed;">
     <caption>Componentes del editor: contenido y filas</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenido</th>
         <th style="width: 50%;">Filas</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="La pestaña «Filas» que incluye diferentes combinaciones estructurales para el diseño de tu correo electrónico." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="La pestaña «Contenido» que incluye bloques básicos, multimedia y avanzados." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Acerca del editor" }
 
@@ -124,7 +128,7 @@ Consulta [Otras personalizaciones](#other-customizations) para conocer otras for
 A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea responsivo, y puedes hacer los ajustes necesarios sobre la marcha.
 
 {% alert tip %}
-¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
+¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
 
 ![Botón del asistente de redacción, ubicado en el panel de Contenido junto a Configuración de estilo en el editor de arrastrar y soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}

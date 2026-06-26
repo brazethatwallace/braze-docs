@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Create and update users
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --data-raw '{
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 26,
@@ -108,7 +108,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -139,7 +139,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "purchases": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "product_id": "product_name",
             "currency": "USD",
@@ -199,7 +199,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
   {
     "external_id": "user_identifier",
-    "email": "example@email.com",
+    "email": "example@example.com",
     "email_subscribe": "subscribed",
     "subscription_groups": [{
       "subscription_group_id": "subscription_group_identifier_1",
@@ -233,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -335,7 +334,7 @@ The following errors are specific to the `/users/track` endpoint and are returne
 If the `external_id` exists, Braze prioritizes the most recently updated profile with an external ID for updates. If the `external_id` doesn't exist, Braze prioritizes the most recently updated profile for updates.
 
 ### What happens if no profile with the email address exists?
-Braze creates a profile and an email-only user and sets the email field to test@braze.com, as noted in the example request for updating a user profile by email address. Braze does not create an alias.
+Braze creates a profile and an email-only user and sets the email field to test@example.com, as noted in the example request for updating a user profile by email address. Braze does not create an alias.
 
 ### How do you use `/users/track` to import legacy user data?
 You may submit data through the Braze API for a user who has not yet used your mobile app to generate a user profile. If the user subsequently uses the application, all information following their identification using the SDK is merged with the existing user profile you created using the API call. Any user behavior recorded anonymously by the SDK before identification is lost upon merging with the existing API-generated user profile.
@@ -358,6 +357,32 @@ Each event object in the events array represents a single occurrence of a custom
 ### How does `/users/track` handle invalid nested custom attributes?
 
 When a nested custom attribute contains any invalid values (such as invalid time formats or null values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. To help ensure successful processing, verify that all values within nested custom attributes are valid before sending.
+
+### Are requests to `/users/track` guaranteed to be processed in order?
+
+When you make multiple separate API calls to `/users/track` in rapid succession, Braze cannot guarantee that requests are processed in the exact order they are sent or received. This is because Braze uses asynchronous processing to maximize speed and flexibility.
+
+For example, if you send multiple update requests for the same user within seconds of each other—some with null attribute values and others with valid values—the requests containing null values may be processed after requests with valid values, even if sent earlier. This can result in attribute values appearing to revert or not reflect the most recently sent update.
+
+To avoid race conditions when updating user data:
+
+- **Batch updates in a single request:** Include all attribute updates for a user in one API call rather than making separate consecutive calls.
+- **Add delays between requests:** If you must make separate calls for the same user, add a delay (a few seconds) between requests to allow the first request to complete processing before the next one is sent.
+- **Avoid overlapping updates for the same field:** If two requests update the same attribute with different values, send those updates in one request or separate them with a delay to reduce the chance of out-of-order results.
+
+For more information about race conditions and best practices, see [Race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
+
+### Why is my `/users/track` response slower than I expect?
+
+Successful `/users/track` calls are usually accepted quickly, but Braze still processes attribute, event, and purchase updates asynchronously. Perceived latency can increase when payloads are large or when network routing to your [REST endpoint]({{site.baseurl}}/api/basics/#endpoints) is slow. If you need a synchronous acknowledgment per user or stricter ordering between calls, see [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**limited beta**).
+
+### How do rate limits affect `/users/track`?
+
+When you approach your [rate limit](#rate-limit), you receive `429` responses. For non-`429` responses on supported contracts, you can use the `X-RateLimit-*` response headers described in [Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) to see how much of your current window remains.
+
+### Why do I get `400 Bad Request` with a bad syntax or parse error?
+
+An HTTP `400` with a syntax or parse error typically means the request body is not valid JSON. Common causes include trailing commas, comments inside JSON, single-quoted strings, an extra opening `{` before the payload, or sending a non-JSON body while the `Content-Type` header is `application/json`. Validate payloads with a JSON linter before sending, confirm your HTTP client JSON-encodes objects (rather than concatenating raw strings), and confirm the body is UTF-8 encoded. For other `400` responses (for example, payload size and per-request object limits), refer to [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors) and the [Endpoint-specific errors](#endpoint-specific-errors) table on this page.
 
 ## Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU
 

@@ -111,7 +111,7 @@ mParticleでオーディエンスを作成するには:
 | 外部IDタイプ | Brazeにexternal IDとして転送するmParticleユーザーIDタイプ。デフォルト値のCustomer IDのままにすることをお勧めします。 |
 | メールIDタイプ | Brazeにメールとして転送するmParticleユーザーIDタイプ。 |
 | Brazeインスタンス | Brazeデータの転送先クラスターを指定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1: mParticleでオーディエンスを作成する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1:mParticleでオーディエンスを作成する" }
 
 {:start="3"}
 3. 最後にオーディエンスを**保存**します。
@@ -276,7 +276,7 @@ iOSでBrazeイベントキット（組み込みキット統合）を使用して
 3. **メソッドスウィズリング:** mParticle Appleキットは、メソッドスウィズリングを使用してプッシュトークンを自動的に転送し、プッシュ通知イベントを処理します。スウィズリングを無効にしている場合や、別のSDKが干渉している場合、プッシュトークンがBrazeに届かない可能性があります。mParticle設定でスウィズリングが有効になっていることを確認してください。
 4. **手動トークン処理:** プッシュトークンを手動で管理している場合（たとえば、`application:didRegisterForRemoteNotificationsWithDeviceToken:`を実装している場合）、プッシュ通知トークンプロパティに割り当てることで、トークンをmParticleに渡していることを確認してください。例: `MParticle.sharedInstance().pushNotificationToken = deviceToken`。キットがそれをBrazeに転送します。
 5. **環境の不一致:** APNs認証情報の環境（開発 vs. 本番）がアプリのビルドと一致していることを確認してください。詳細については、[iOSプッシュのトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)を参照してください。
-6. **キットの初期化タイミング:** `didFinishLaunchingWithOptions`からBrazeインスタンスにアクセスする場合、プッシュが届いたときにmParticleキットがまだ準備できていない可能性があります。[`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)（または同等の通知応答デリゲート）でプッシュ処理を初期化して、ユーザーが通知を開いたときにBrazeキットがアクティブになるようにしてください。
+6. **キットの初期化タイミング:** `didFinishLaunchingWithOptions`からBrazeインスタンスにアクセスしている場合、プッシュが届いたときにmParticleキットがまだ準備できていない可能性があります。[`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)（または同等の通知応答デリゲート）でプッシュ処理を初期化して、ユーザーが通知を開いたときにBrazeキットがアクティブになるようにしてください。
 
 ### 不要または重複したデータのBrazeへの送信 {#sending-unnecessary-or-duplicate-data-to-braze}
 Brazeは、値が変更されていなくても、属性がBrazeに渡されるたびにデータポイントをカウントします。このため、Brazeでは、Braze内でアクションに必要なデータのみを転送し、属性の差分のみが渡されていることを確認することをお勧めします。

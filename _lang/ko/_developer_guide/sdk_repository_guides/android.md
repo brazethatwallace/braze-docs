@@ -12,8 +12,8 @@ Braze Android SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애�
 
 시작하려면 다음 리소스를 참조하세요:
 
-- [Braze 사용자 가이드](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
+- [Braze 사용자 가이드]({{site.baseurl}}/user_guide/introduction/)
+- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
 
 ## 빠른 시작 {#quickstart}
 
@@ -47,7 +47,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-고급 통합 옵션에 대한 자세한 내용은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)를 참조하세요.
+고급 통합 옵션에 대한 자세한 내용은 [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)를 참조하세요.
 
 ## 버전 지원 {#version-support}
 

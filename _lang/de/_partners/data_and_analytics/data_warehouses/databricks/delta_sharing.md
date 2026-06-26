@@ -25,7 +25,7 @@ Bei Databricks erfolgt die Datenfreigabe zwischen einem Datenanbieter und einem 
 
 ### 1. Schritt: Freigabe in Braze konfigurieren {#step-1-configure-sharing-from-braze}
 
-1. Gehen Sie in Braze zu **Partner Integrations** > **Data Sharing** > **Databricks Delta Sharing**.
+1. Gehen Sie in Braze zu **Partnerintegrationen** > **Datenfreigabe** > **Databricks Delta Sharing**.
 2. Geben Sie Ihren Databricks-Freigabebezeichner ein.
 3. Wenn Sie fertig sind, wählen Sie **Create Datashare**. Braze sendet die Freigabe an Ihr Databricks-Konto.
 
@@ -56,7 +56,7 @@ Nachdem die Datenfreigabe bereitgestellt wurde, erstellen Sie einen Katalog aus 
 - Rohe Ereignis- oder Nutzerdaten einem CRM zuzuordnen (wie Salesforce)
 - Und mehr
 
-Eine vollständige Liste der in Databricks verfügbaren Tabellen und Spalten finden Sie im Download der [Databricks-Rohtabellenschemata]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) als Textdatei. Diese Datei spiegelt das Databricks-Delta-Sharing-Schema wider (zum Beispiel `DB_CREATED_AT` für den Aufnahmezeitpunkt). Sie ist nicht austauschbar mit den [Snowflake-Rohtabellenschemata]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) oder der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), die Snowflake-Benennungen und -Felder beschreiben.
+Eine vollständige Liste der in Databricks verfügbaren Tabellen und Spalten finden Sie im Download der [Databricks-Rohtabellenschemata](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) als Textdatei. Diese Datei spiegelt das Databricks-Delta-Sharing-Schema wider (zum Beispiel `DB_CREATED_AT` für den Aufnahmezeitpunkt). Sie ist nicht austauschbar mit den [Snowflake-Rohtabellenschemata](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) oder der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), die Snowflake-Benennungen und -Felder beschreiben.
 
 {% alert note %}
 Während der geschlossenen Beta ist möglicherweise nicht jede in der Databricks-Schemadatei aufgeführte Tabelle in Ihrer Freigabe verfügbar. Spaltennamen und -typen können sich ebenfalls von der Snowflake-Datenfreigabe unterscheiden (zum Beispiel `DB_CREATED_AT` statt `SF_CREATED_AT`). Kontaktieren Sie Ihren Braze-Customer-Success-Manager, wenn Sie die aktuelle Tabellenliste für Ihren Workspace benötigen.
@@ -70,13 +70,13 @@ Beachten Sie die folgenden Unterschiede zwischen den Benennungskonventionen von 
 | ----------- | ----------- | ----------- |
 | `braze_id` | `USER_ID` | Der eindeutige Bezeichner, den Braze automatisch zuweist. |
 | `external_id` | `EXTERNAL_USER_ID` | Der eindeutige Bezeichner eines Nutzerprofils, den Sie in Braze festlegen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Nutzer-ID-Schema" }
 
 ## Wichtige Informationen und Einschränkungen {#important-information-and-limitations}
 
 ### Verfügbarkeit der geschlossenen Beta {#closed-beta-availability}
 
-Während der geschlossenen Beta enthält Ihre Freigabe möglicherweise nicht jede Tabelle in der Datei der [Databricks-Rohtabellenschemata]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}). Freigegebene Daten können sich auch in Spaltennamen und -typen von der Snowflake-Datenfreigabe unterscheiden. Zum Beispiel verwenden Databricks-Freigaben `DB_CREATED_AT` für den Aufnahmezeitpunkt, während Snowflake-Freigaben `SF_CREATED_AT` verwenden.
+Während der geschlossenen Beta enthält Ihre Freigabe möglicherweise nicht jede Tabelle in der Datei der [Databricks-Rohtabellenschemata](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Freigegebene Daten können sich auch in Spaltennamen und -typen von der Snowflake-Datenfreigabe unterscheiden. Zum Beispiel verwenden Databricks-Freigaben `DB_CREATED_AT` für den Aufnahmezeitpunkt, während Snowflake-Freigaben `SF_CREATED_AT` verwenden.
 
 ### Nicht abwärtskompatible versus abwärtskompatible Änderungen {#breaking-versus-non-breaking-changes}
 
@@ -121,7 +121,7 @@ Ereignisdaten in den Datenfreigabe-Ansichten (zum Beispiel `USERS_BEHAVIORS_CUST
 | ----- | ------- |
 | `TIME` | Unix-Zeitstempel, zu dem das Ereignis stattfand. Bevorzugen Sie dieses Feld beim Filtern nach Vorkommen. |
 | `DB_CREATED_AT` | Zeitstempel, zu dem die Zeile in Databricks geladen wurde (Aufnahmezeitpunkt). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abfrage freigegebener Daten: TIME und Abfrage-Performance" }
 
 ### Geschwindigkeit, Performance und Kosten von Abfragen {#speed-performance-and-cost-of-queries}
 

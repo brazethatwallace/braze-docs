@@ -56,7 +56,7 @@ Assim como o Currents, você pode usar o Databricks Delta Sharing para:
 - Mapear dados brutos de eventos ou de usuários para um CRM (como o Salesforce)
 - E muito mais
 
-Para uma lista completa de tabelas e colunas disponíveis no Databricks, [baixe os esquemas de tabelas brutas do Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) como arquivo de texto. Esse arquivo reflete o esquema do Databricks Delta Sharing (por exemplo, `DB_CREATED_AT` para o horário de ingestão). Ele não é intercambiável com os [esquemas de tabelas brutas do Snowflake]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) ou a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), que descrevem a nomenclatura e os campos do Snowflake.
+Para uma lista completa de tabelas e colunas disponíveis no Databricks, [baixe os esquemas de tabelas brutas do Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) como arquivo de texto. Esse arquivo reflete o esquema do Databricks Delta Sharing (por exemplo, `DB_CREATED_AT` para o horário de ingestão). Ele não é intercambiável com os [esquemas de tabelas brutas do Snowflake](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), que descrevem a nomenclatura e os campos do Snowflake.
 
 {% alert note %}
 Durante o beta fechado, nem todas as tabelas listadas no arquivo de esquema do Databricks podem estar disponíveis no seu compartilhamento. Os nomes e tipos de colunas também podem diferir do Snowflake Data Sharing (por exemplo, `DB_CREATED_AT` em vez de `SF_CREATED_AT`). Entre em contato com o seu gerente de sucesso do cliente da Braze se precisar da lista de tabelas atual para o seu espaço de trabalho.
@@ -70,13 +70,13 @@ Observe as seguintes diferenças entre as convenções de nomenclatura da Braze 
 | ----------- | ----------- | ----------- |
 | `braze_id` | `USER_ID` | O identificador único que a Braze atribui automaticamente. |
 | `external_id` | `EXTERNAL_USER_ID` | O identificador único do perfil de um usuário que você define na Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquema de ID do usuário" }
 
 ## Informações importantes e limitações {#important-information-and-limitations}
 
 ### Disponibilidade do beta fechado {#closed-beta-availability}
 
-Durante o beta fechado, o seu compartilhamento pode não incluir todas as tabelas no arquivo de [esquemas de tabelas brutas do Databricks]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}). Os dados compartilhados também podem diferir do Snowflake Data Sharing em nomes e tipos de colunas. Por exemplo, os compartilhamentos do Databricks usam `DB_CREATED_AT` para o horário de ingestão, enquanto os compartilhamentos do Snowflake usam `SF_CREATED_AT`.
+Durante o beta fechado, o seu compartilhamento pode não incluir todas as tabelas no arquivo de [esquemas de tabelas brutas do Databricks](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt). Os dados compartilhados também podem diferir do Snowflake Data Sharing em nomes e tipos de colunas. Por exemplo, os compartilhamentos do Databricks usam `DB_CREATED_AT` para o horário de ingestão, enquanto os compartilhamentos do Snowflake usam `SF_CREATED_AT`.
 
 ### Alterações com e sem quebra de compatibilidade {#breaking-versus-non-breaking-changes}
 
@@ -121,7 +121,7 @@ Os dados de eventos nas views de compartilhamento de dados (por exemplo, `USERS_
 | ----- | ------- |
 | `TIME` | Timestamp Unix do momento em que o evento ocorreu. Prefira este campo ao filtrar por horário de ocorrência. |
 | `DB_CREATED_AT` | Timestamp de quando a linha foi carregada no Databricks (horário de ingestão). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consulta de dados compartilhados: TIME e desempenho de consultas" }
 
 ### Velocidade, desempenho e custo das consultas {#speed-performance-and-cost-of-queries}
 

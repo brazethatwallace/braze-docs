@@ -68,7 +68,7 @@ Ja. Sie können Anhänge zu Ihrer E-Mail-Nachricht hinzufügen, indem Sie zu **S
 2. Wählen Sie **Edit email body** aus, um den Drag-and-Drop-Editor zu öffnen.
 3. Wählen Sie **Download file** (am unteren Rand des Editors) aus. Entpacken Sie das Archiv, um auf das generierte HTML zuzugreifen.
 
-Sie können dieses HTML in einen [HTML-Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) oder den HTML-Editor einfügen, wenn Sie Anpassungen auf Code-Ebene vornehmen möchten – zum Beispiel, um das [Klick-Tracking für bestimmte Links zu deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
+Sie können dieses HTML in einen [HTML-Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#content) oder den HTML-Editor einfügen, wenn Sie Änderungen auf Code-Ebene vornehmen möchten – zum Beispiel, um das [Klick-Tracking für bestimmte Links zu deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
 
 ### Warum wird mein Drag-and-Drop-Layout fehlerhaft dargestellt? {#why-is-my-drag-and-drop-layout-breaking}
 

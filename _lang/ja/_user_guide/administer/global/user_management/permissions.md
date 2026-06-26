@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## 権限セットを作成する {#create-a-permission-set}
 
-権限セットを使用して、特定の分野やアクションに関連する権限をまとめることができます。権限セットは、異なるワークスペースで同じアクセスを必要とするダッシュボードユーザーに適用できます。権限セットを作成するには、**設定** > **権限設定**に移動し、**権限セットを作成**を選択します。各権限の説明については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)を参照してください。
+権限セットを使用して、特定の分野やアクションに関連する権限をまとめることができます。権限セットは、異なるワークスペースで同じアクセスを必要とするダッシュボードユーザーに適用できます。権限セットを作成するには、**設定** > **ユーザー管理** > **権限セット**に移動し、**権限セットを作成**を選択します。各権限の説明については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
 
 {% tabs local %}
 {% tab 権限セットの例 %}
@@ -26,22 +26,22 @@ tool: Dashboard
 | 開発者 | 「APIキーを表示」、「APIキーを編集」、「内部グループを表示」、「内部グループを編集」、「メッセージアクティビティログを表示」、「イベントユーザーログを表示」、「API識別子を表示」、「API使用状況ダッシュボードを表示」、「APIリミットを表示」、「API使用状況アラートを表示」、「API使用状況アラートを編集」、「SDKデバッガーを表示」、「SDKデバッガーを編集」 |
 | マーケター | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「フリークエンシーキャップルールを表示」、「フリークエンシーキャップルールを編集」、「メッセージ優先順位を表示」、「メッセージ優先順位を編集」、「Content Blocksを表示」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「グローバルコントロールグループを編集」、「IAMテンプレートを表示」、「IAMテンプレートを編集」、「IAMテンプレートをアーカイブ」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メールテンプレートをアーカイブ」、「Webhookテンプレートを表示」、「Webhookテンプレートを編集」、「Webhookテンプレートをアーカイブ」、「メールリンクテンプレートを表示」、「メールリンクテンプレートを編集」、「メディアライブラリアセットを表示」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」、「ダッシュボードレポートを編集」、「バナーテンプレートを表示」、「ローカライゼーション設定を表示」、「オペレーターを使用」、「Decisioning Studioエージェントを表示」 |
 | ユーザー管理 | 「ダッシュボードユーザーを編集」、「Teamsを表示」、「Teamsを編集」、「Teamsをアーカイブ」 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Example permission set" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="権限セットの例" }
 {% endtab %}
 {% endtabs %}
 
 ## ロールを作成する {#creating-a-role}
 
-ロールは、個別のカスタム権限とワークスペースアクセスコントロールを組み合わせることで、より構造化された管理を可能にします。これは、1つのダッシュボードに多数のブランドや地域別ワークスペースが存在する場合に特に便利です。ロールを使用すると、ダッシュボードユーザーを適切なワークスペースに追加し、関連する権限を直接付与できます。各権限の説明については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions)を参照してください。
+ロールは、個別のカスタム権限とワークスペースアクセスコントロールを組み合わせることで、より構造化された管理を可能にします。これは、1つのダッシュボードに多数のブランドや地域別ワークスペースが存在する場合に特に便利です。ロールを使用すると、ダッシュボードユーザーを適切なワークスペースに追加し、関連する権限を直接付与できます。ロールを作成するには、**設定** > **ユーザー管理** > **ロール**に移動し、**ロールを作成**を選択します。各権限の説明については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
 
 {% tabs local %}
 {% tab ロールの例 %}
-| ロール名 | ワークスペース | 権限 |
+| ロール名 | ワークスペース | 権限  |
 | ----------- | ----------- | --------- |
 | マーケター - ファッションブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを公開」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」 |
 | マーケター - スキンケアブランド | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを公開」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」 |
 | ユーザー管理 - 全ブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「ダッシュボードユーザーを編集」、「Teamsを表示」、「Teamsを編集」、「Teamsをアーカイブ」 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example roles" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ロールの例" }
 {% endtab %}
 {% endtabs %}
 
@@ -64,7 +64,7 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 | 権限 | 制限付きユーザーは、「ダッシュボードユーザーを編集」権限を持っている場合、他の制限付きユーザーの権限を編集できます。また、新しい制限付きユーザーを作成し、権限セットを変更することもできます。ただし、会社管理者アカウントの作成や管理はできません。 |
 | ロールの制限 | 制限付きユーザーが「ワークスペース管理者」以外のすべての権限を持っている場合でも、ワークスペース管理者に通常付与されるその他すべての権限にアクセスできます。 |
 | 権限の可視性 | 制限付きユーザーが1つのワークスペース（例：Dev）に対して「ダッシュボードユーザーを編集」権限を持っているが、別のワークスペース（例：Prod）に対しては持っていない場合、ダッシュボードユーザー詳細ページにProdワークスペースの権限は表示されません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Permissions for limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="制限付きユーザーの権限" }
 
 ### 制限付きユーザーの比較 {#compare-limited-users}
 
@@ -73,7 +73,7 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 | ワークスペース管理者 | ワークスペース管理者はワークスペースの管理に特化した権限を持ちますが、会社管理者と同じ権限は持ちません。制限付きユーザーは、必要な権限がチェックされている場合、ワークスペース管理者と同様の権限を継承できます。 |
 | 管理者（会社管理者） | 会社管理者はより広範な権限を持ち、ダッシュボードユーザーの削除も可能です。ただし、自分自身のアカウントは削除できないため、別の会社管理者に依頼する必要があります。 |
 | 表示のみアクセス | Campaignsページなどダッシュボードの一部にアクセスするには、ユーザーに表示権限が割り当てられている必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparison of limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="制限付きユーザーの比較" }
 
 ### 制限付きアクセスエラー {#limited-access-error}
 
@@ -83,9 +83,20 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 あるダッシュボードユーザーから別のダッシュボードユーザーへ権限をマージまたはインポートすることはできません。
 {% endalert %}
 
+## ユーザー権限のニュアンス {#nuances-of-user-permissions}
+
+ダッシュボードアクセスを割り当てる際は、以下の動作に注意してください。
+
+- **ワークスペース管理者と会社管理者:** ワークスペース管理者は、割り当てられたワークスペース内の権限を管理します。会社管理者は会社全体の権限を持ち、他のダッシュボードユーザーの削除も可能です。
+- **制限付きユーザー:** 「ダッシュボードユーザーを編集」権限を持つ制限付きユーザーは、他の制限付きユーザーを管理できますが、会社管理者アカウントの作成や管理はできません。
+- **ダッシュボードユーザー管理のスコープ:** ユーザー詳細ページでは、編集者がアクセスできるワークスペースの権限のみが表示されます。1つのワークスペースでユーザーを編集できる制限付きユーザーは、別のワークスペースの権限チェックボックスが表示されない場合があります。
+- **ユーザーデータのエクスポート:** ユーザーデータのエクスポートには、エクスポート権限に加えてワークスペースレベルのアクセスが必要です。
+- **複合権限:** 一部のエリアでは複数の権限が必要です。例えば、[テクノロジーパートナー]({{site.baseurl}}/partners)の設定には、通常パートナーアクセスと関連するワークスペース機能の基本的な読み取り権限の両方が必要です。
+- **ユーザーデータのインポートと更新:** この権限には、ダッシュボードユーザーレコードだけでなく、インポートフローを通じたアプリユーザープロファイルの編集機能も含まれます。
+
 ## ユーザーの権限を編集する {#edit-a-users-permissions}
 
-ユーザーの現在の管理者、会社、またはワークスペースの権限を編集するには、**設定** > **会社ユーザー**に移動し、ユーザー名を選択します。
+ユーザーの現在の管理者、会社、またはワークスペースの権限を編集するには、**設定** > **ユーザー管理** > **会社ユーザー**に移動し、ユーザー名を選択します。
 
 ![Brazeの「会社ユーザー」ページ。ダッシュボードユーザーの一覧テーブルが表示されています。]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
@@ -96,13 +107,11 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 
 管理者はすべての機能にアクセスでき、会社の設定を変更できます。管理者は以下のことが可能です。
 
-- [承認設定]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow)の変更
-- 他の[Brazeユーザー]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)の追加、編集、削除、一時停止、一時停止解除
+- [承認設定]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow)の変更
+- 他の[Brazeユーザー]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users)の追加、編集、削除、一時停止、一時停止解除
 - BrazeユーザーのCSVエクスポート
 
 管理者権限を付与または削除するには、**このユーザーは管理者です**を選択し、**ユーザーを更新**を選択します。
-
-![選択されたユーザーの詳細。管理者チェックボックスがフォーカスされています。]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 ユーザーから管理者権限を削除すると、少なくとも1つの[会社レベルまたはワークスペースレベルの権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)を割り当てるまで、そのユーザーはBrazeにアクセスできなくなります。
@@ -119,7 +128,7 @@ Teamに同じ権限を維持したままユーザーを追加するには、ワ�
 |----------|-----------|
 | 会社設定を管理 | 権限設定と送信者の検証を変更できます。 |
 | ワークスペースの作成と削除 | ワークスペースの作成と削除ができます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company-level permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="会社レベルの権限" }
 
 {% endtab %}
 {% tab ワークスペース %}
@@ -135,7 +144,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 
 完了したら、**ユーザーを更新**を選択します。
 
-![Brazeでワークスペースレベルの権限を手動で選択している画面。]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
+![Brazeでワークスペースレベルの権限を手動で選択している画面]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_individual.png %})
 
 {% endsubtab %}
 {% subtab 権限セットを割り当て %}
@@ -144,7 +153,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 
 完了したら、**ユーザーを更新**を選択します。
 
-![Brazeで権限セットを通じてワークスペースレベルの権限を割り当てている画面。]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
+![Brazeで権限セットを通じてワークスペースレベルの権限を割り当てている画面]({% image_buster /assets/img/braze_permissions/workspace_level_permissions_set.png %})
 
 {% endsubtab %}
 {% subtab ロールを割り当て %}
@@ -153,7 +162,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 
 完了したら、**ユーザーを更新**を選択します。
 
-![Brazeでロールを通じてワークスペースレベルの権限を割り当てている画面。]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
+![Brazeでロールを通じてワークスペースレベルの権限を割り当てている画面]({% image_buster /assets/img/braze_permissions/workspace_level_role.png %})
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -162,9 +171,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 
 ## ユーザー権限をエクスポートする {#exporting-user-permissions}
 
-ユーザーとその権限の一覧をダウンロードするには、**設定** > **会社ユーザー**に移動し、**ユーザーをエクスポート**を選択します。CSVファイルがまもなくメールアドレスに送信されます。
-
-![Brazeの「会社ユーザー」ページ。「ユーザーをエクスポート」オプションがフォーカスされています。]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+ユーザーとその権限の一覧をダウンロードするには、**設定** > **ユーザー管理** > **会社ユーザー**に移動し、**ユーザーをエクスポート**を選択します。CSVファイルがまもなくメールアドレスに送信されます。
 
 ## 権限の一覧 {#list-of-permissions}
 
@@ -176,12 +183,12 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | Campaigns | Campaignsを起動 | 既存のCampaignsの開始、停止、一時停止、再開を行います |
 | Campaigns | Campaignsをアーカイブ | Campaignsをアーカイブに移動します |
 | Campaigns | Campaignsを編集 | Campaignsの作成と更新を行います |
-| Campaigns | Campaignsを承認・却下 | Campaignsを承認または却下します。[Campaignsの承認ワークフロー]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)がオンになっている必要があります。この設定は現在早期アクセス中です。早期アクセスへの参加に興味がある場合は、アカウントマネージャーにお問い合わせください。 |
+| Campaigns | Campaignsを承認・却下 | Campaignsを承認または却下します。[Campaignsの承認ワークフロー]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals)がオンになっている必要があります。この設定は現在早期アクセス中です。早期アクセスへの参加に興味がある場合は、アカウントマネージャーにお問い合わせください。 |
 | Canvas | Canvasesを表示 | Canvasesを表示します |
 | Canvas | Canvasesをアーカイブ | Canvasesをアーカイブに移動します |
 | Canvas | Canvasesを編集 | Canvasesの作成と更新を行います |
 | Canvas | Canvasesを起動 | 既存のCanvasesの開始、停止、一時停止、再開を行います |
-| Canvas | Canvasesを承認・却下 | Canvasesを承認または却下します。[Canvasesの承認ワークフロー]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/)がオンになっている必要があります。この設定は現在早期アクセス中です。早期アクセスへの参加に興味がある場合は、アカウントマネージャーにお問い合わせください。 |
+| Canvas | Canvasesを承認・却下 | Canvasesを承認または却下します。[Canvasesの承認ワークフロー]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals)がオンになっている必要があります。この設定は現在早期アクセス中です。早期アクセスへの参加に興味がある場合は、アカウントマネージャーにお問い合わせください。 |
 | フィーチャーフラグ | フィーチャーフラグを表示 | フィーチャーフラグを表示します |
 | フィーチャーフラグ | フィーチャーフラグをアーカイブ | フィーチャーフラグをアーカイブに移動します |
 | フィーチャーフラグ | フィーチャーフラグを編集 | フィーチャーフラグの作成と更新を行います |
@@ -195,7 +202,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | メッセージ優先順位 | メッセージ優先順位を表示 | メッセージ優先順位の設定を変更せずに表示します |
 | メッセージ優先順位 | メッセージ優先順位を編集 | メッセージ優先順位の設定の作成と更新を行います |
 | WhatsApp Flows | WhatsApp Flowsを表示 | すべてのWhatsApp Flowsを表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="メッセージングの権限" }
 
 ### オーディエンス {#audience}
 
@@ -213,11 +220,12 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | ユーザーデータ | ユーザーをインポート | ダッシュボードにユーザーをアップロードします |
 | ユーザーデータ | ユーザーデータを編集 | ユーザーデータの作成と更新を行います |
 | ユーザーデータ | ユーザーデータをエクスポート | ダッシュボードからユーザーをダウンロードします |
-| ユーザー削除記録 | ユーザーマージ記録を表示 | ユーザーマージ記録の一覧を表示します |
+| 重複ユーザー | ユーザーマージ記録を表示 | ユーザーマージ記録の一覧を表示します |
 | ユーザー | ユーザープロファイルを表示（PII非表示） | PII準拠の方法でユーザープロファイルを表示します |
 | 重複ユーザー | 重複ユーザーをマージ | 重複ユーザーを1つのユーザーに統合します。マージ後、重複は削除されます |
-| ユーザー | ユーザーを削除 | ダッシュボードからユーザーを個別または一括で完全に削除します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience permissions" }
+| ユーザー削除 | ユーザー削除記録を表示 | ユーザー削除記録の一覧を表示します |
+| ユーザー削除 | ユーザーを削除 | ダッシュボードからユーザーを個別または一括で完全に削除します |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="オーディエンスの権限" }
 
 ### テンプレート {#template}
 
@@ -247,10 +255,10 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | Webhookテンプレート | Webhookテンプレートを表示 | Webhookテンプレートを変更せずに表示します |
 | Webhookテンプレート | Webhookテンプレートをアーカイブ | Webhookテンプレートをアーカイブに移動します |
 | Webhookテンプレート | Webhookテンプレートを編集 | Webhookテンプレートの作成と更新を行います |
-| WhatsAppメッセージテンプレート | WhatsAppメッセージテンプレートを表示 | [WhatsAppメッセージテンプレート]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)の表示をユーザーに許可します |
+| WhatsAppメッセージテンプレート | WhatsAppメッセージテンプレートを表示 | [WhatsAppメッセージテンプレート]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message)の表示をユーザーに許可します |
 | WhatsAppメッセージテンプレート | WhatsAppメッセージテンプレートを編集 | テンプレートビルダーでWhatsAppメッセージテンプレートの作成をユーザーに許可します。この機能は現在早期アクセス中です。 |
 | Meta提供のWhatsAppメッセージテンプレート | Meta提供のWhatsAppメッセージテンプレートを表示 | すべてのWhatsAppテンプレートを表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="テンプレートの権限" }
 
 ### パートナー連携 {#partner-integrations}
 
@@ -259,7 +267,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | Currents連携 | Currents連携を表示 | Currents連携を表示します |
 | Currents連携 | Currents連携を編集 | Currents連携の作成、更新、削除を行います |
 | テクノロジーパートナー | テクノロジーパートナーを編集 | テクノロジーパートナーの作成と更新を行います |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="パートナー連携の権限" }
 
 ### データ設定 {#data-settings}
 
@@ -286,7 +294,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | 製品 | 製品をブロックリストに追加 | ダッシュボードでの使用を制限するブロックリストに製品を追加します |
 | 製品 | 製品を編集 | 製品の作成と更新を行います |
 | 購入プロパティセグメンテーション | 購入プロパティセグメンテーションを編集 | 購入イベントプロパティのセグメンテーションの有効化と無効化を行います |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="データ設定の権限" }
 
 ### 設定 {#settings}
 
@@ -327,7 +335,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | Teams | Teamsをアーカイブ | Teamsをアーカイブに移動します |
 | Teams | Teamsを編集 | Teamsの作成と更新を行います |
 | WhatsApp設定 | WhatsApp設定を表示 | すべてのWhatsAppチャネル設定を表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="設定の権限" }
 
 ### Decisioning Studio
 
@@ -335,7 +343,7 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | --- | --- | --- |
 | Decisioning Studioエージェント | Decisioning Studioエージェントを表示 | Decisioning Studioエージェントの設定を変更せずに表示します |
 | Decisioning Studioオーディエンス | Decisioning Studioオーディエンスを表示 | Decisioning Studioエージェント設定サマリーのオーディエンス詳細を表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisioning Studio permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisioning Studioの権限" }
 
 ### その他 {#other}
 
@@ -368,6 +376,5 @@ Brazeでユーザーが所属する各ワークスペースに対して、異な
 | サブスクリプショングループ | サブスクリプションを編集 | サブスクリプショングループの作成と更新を行います |
 | データ変換 | データ変換を編集 | データ変換の作成と更新を行います |
 | データ変換 | データ変換を表示 | データ変換を表示します |
-| ユーザー削除記録 | ユーザー削除記録を表示 | ユーザー削除記録を表示します |
 | サポートチケット | サポートチケットを作成 | サポートチケットの作成と更新を行います |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other permissions" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="その他の権限" }

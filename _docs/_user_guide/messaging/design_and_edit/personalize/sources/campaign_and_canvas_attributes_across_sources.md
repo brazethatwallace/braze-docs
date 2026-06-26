@@ -8,7 +8,7 @@ description: "This reference article compares campaign and Canvas attribute name
 
 # Campaign and Canvas attributes across sources
 
-> Campaign, Canvas, and Canvas Step names and IDs are all available in Liquid, the Braze REST API, and Currents. These attributes map to the same value across all three sources, but may be named differently. Use this page to draw connections between the three.
+> Campaign, Canvas, and Canvas step names and IDs are all available in Liquid, the Braze REST API, and Currents. These attributes map to the same value across all three sources, but may be named differently. Use this page to draw connections between the three.
 
 ## Use cases
 

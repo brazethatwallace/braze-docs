@@ -10,7 +10,7 @@ description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인�
 ---
 {% api %}
 # 사용자 생성 및 업데이트 (동기) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

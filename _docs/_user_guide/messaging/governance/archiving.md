@@ -21,6 +21,10 @@ You can't delete campaigns and Canvases from the dashboard, but but you can arch
 
 When you archive a campaign or Canvas, no more messages will be delivered and your in-app messages won't be displayed. You can still view results after it's archived, but you won't be able to edit the campaign or Canvas. To do so, you'll need to [unarchive it](#unarchiving-campaigns-and-canvases) first.
 
+{% alert note %}
+**Archive** does not delete your campaign or Canvas. Braze stops delivery, hides the message from day-to-day lists, and retains it for reporting and workspace history.
+{% endalert %}
+
 {% tabs local %}
 {% tab campaign %}
 To archive a campaign:
@@ -44,3 +48,9 @@ To archive a Canvas:
 When you unarchive a campaign or Canvas, it won't go live&mdash;its status will only be changed to **Active**. After unarchiving, you can edit and review how the message is set up without any messages being sent.
 
 To resume the campaign or Canvas and begin sending messages, select the <i class="fas fa-ellipsis-vertical"></i> menu for the respective row and select **Resume**.
+
+## Frequently asked questions
+
+### Are campaigns and Canvases deleted when I archive them?
+
+No. Selecting **Archive** stops delivery and hides the message from day-to-day lists, but Braze retains the campaign or Canvas for reporting and workspace history. Archive your messages for lifecycle cleanup when a message should no longer be sent.

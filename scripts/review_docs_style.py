@@ -12,7 +12,7 @@ Environment:
     GITHUB_REPOSITORY  owner/repo
     GITHUB_BASE_REF    Base branch name (e.g. develop)
     ANTHROPIC_API_KEY  Required
-    REVIEW_MODEL       Optional (default claude-sonnet-4-20250514)
+    REVIEW_MODEL       Optional (default claude-sonnet-4-6)
     MAX_INLINE_COMMENTS Optional (default 25)
 """
 
@@ -23,6 +23,7 @@ import os
 import re
 import subprocess
 import sys
+import difflib
 from pathlib import Path
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "braze-inc/braze-docs")
@@ -30,7 +31,7 @@ PR_NUMBER = os.environ.get("PR_NUMBER", "")
 HEAD_SHA = os.environ.get("HEAD_SHA", "")
 HEAD_REF = os.environ.get("GITHUB_HEAD_REF", "")
 BASE_REF = os.environ.get("GITHUB_BASE_REF", "develop")
-REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-20250514")
+REVIEW_MODEL = os.environ.get("REVIEW_MODEL", "claude-sonnet-4-6")
 MAX_INLINE = int(os.environ.get("MAX_INLINE_COMMENTS", "25"))
 MAX_FILES = int(os.environ.get("MAX_STYLE_REVIEW_FILES", "25"))
 MAX_DIFF_CHARS = int(os.environ.get("MAX_STYLE_DIFF_CHARS", "12000"))
@@ -103,6 +104,15 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
     "PR-level notes that are not tied to a single line (optional)."
   ]
 }
+
+- "message" must describe ONLY the specific edit you are making—the difference between
+  the current line in the numbered excerpt and suggested_line. Name the exact word(s) or
+  punctuation being changed (for example: `Replace "click" with "select" for the toolbar
+  action.`). Do not restate a style rule that is not reflected in that diff.
+- Do not mention "click", tense changes, "for example", or other issues unless
+  suggested_line actually changes those words on that line. If the line already complies,
+  omit the item.
+- Use straight quotation marks and apostrophes in prose, not curly/smart typography.
 
 - "line" is the 1-based line number on the RIGHT (new) side of the diff for the exact line you
   are replacing. It must match the numbered file excerpt (not a nearby blank line, Liquid tag,
@@ -912,6 +922,223 @@ def filter_misapplied_tense_suggestions(inline: list[dict]) -> list[dict]:
     return kept
 
 
+_CURLY_QUOTE_CHARS = frozenset("\u2018\u2019\u201c\u201d")
+_STRAIGHT_APOSTROPHE = "'"
+_STRAIGHT_DOUBLE = '"'
+
+# Maps change topics to review messages when the model's message does not match the diff.
+_DERIVED_REVIEW_MESSAGES: dict[str, str] = {
+    "ui_click_select": 'Replace "click" with "select" when describing UI menu or toolbar actions.',
+    "ui_check_select": 'Use "select" instead of "check" when referring to checkboxes.',
+    "ui_uncheck_clear": 'Use "clear" instead of "uncheck" when referring to checkboxes.',
+    "straighten_apostrophe": "Use a straight apostrophe (`'`) instead of a curly apostrophe.",
+    "straighten_quotes": 'Use straight quotation marks (`"`) instead of curly quotation marks.',
+    "remove_will": 'Use present tense instead of "will" for the result of user action.',
+    "remove_would": 'Avoid hypothetical "would" when describing product behavior.',
+    "latin_eg": 'Replace "e.g." with "for example" or "such as".',
+    "for_example_to_such_as": 'Use "such as" instead of "for example" before a short list.',
+    "such_as_to_for_example": 'Use "for example" instead of "such as" before a short list.',
+}
+
+
+def _significant_line_changes(current: str, suggested: str) -> list[tuple[str, str]]:
+    matcher = difflib.SequenceMatcher(None, current, suggested)
+    changes: list[tuple[str, str]] = []
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        if tag == "equal":
+            continue
+        old = current[i1:i2]
+        new = suggested[j1:j2]
+        if old or new:
+            changes.append((old, new))
+    return changes
+
+
+def _analyze_line_change(current: str, suggested: str) -> set[str]:
+    """Return change-topic tags derived from the diff between current and suggested lines."""
+    topics: set[str] = set()
+    for old, new in _significant_line_changes(current, suggested):
+        if _STRAIGHT_APOSTROPHE in old and any(ch in new for ch in _CURLY_QUOTE_CHARS):
+            topics.add("introduced_curly_apostrophe")
+        if any(ch in old for ch in _CURLY_QUOTE_CHARS) and _STRAIGHT_APOSTROPHE in new:
+            topics.add("straighten_apostrophe")
+        if _STRAIGHT_DOUBLE in old and any(ch in new for ch in _CURLY_QUOTE_CHARS):
+            topics.add("introduced_curly_quotes")
+        if any(ch in old for ch in _CURLY_QUOTE_CHARS) and _STRAIGHT_DOUBLE in new:
+            topics.add("straighten_quotes")
+        if re.search(r"\bclick\b", old, re.IGNORECASE) and re.search(
+            r"\bselect\b", new, re.IGNORECASE
+        ):
+            topics.add("ui_click_select")
+        if re.search(r"\bcheck\b", old, re.IGNORECASE) and re.search(
+            r"\bselect\b", new, re.IGNORECASE
+        ):
+            topics.add("ui_check_select")
+        if re.search(r"\buncheck\b", old, re.IGNORECASE) and re.search(
+            r"\bclear\b", new, re.IGNORECASE
+        ):
+            topics.add("ui_uncheck_clear")
+        if re.search(r"\bwill\b", old, re.IGNORECASE) and not re.search(
+            r"\bwill\b", new, re.IGNORECASE
+        ):
+            topics.add("remove_will")
+        if re.search(r"\bwould\b", old, re.IGNORECASE) and not re.search(
+            r"\bwould\b", new, re.IGNORECASE
+        ):
+            topics.add("remove_would")
+        if re.search(r"\be\.g\.\b", old, re.IGNORECASE) and not re.search(
+            r"\be\.g\.\b", new, re.IGNORECASE
+        ):
+            topics.add("latin_eg")
+        if re.search(r"\bfor example\b", old, re.IGNORECASE) and re.search(
+            r"\bsuch as\b", new, re.IGNORECASE
+        ):
+            topics.add("for_example_to_such_as")
+        if re.search(r"\bsuch as\b", old, re.IGNORECASE) and re.search(
+            r"\bfor example\b", new, re.IGNORECASE
+        ):
+            topics.add("such_as_to_for_example")
+    return topics
+
+
+def _message_claim_topics(message: str) -> set[str]:
+    """Topics the review message claims to address."""
+    claims: set[str] = set()
+    lower = message.lower()
+    if "click" in lower and ("select" in lower or "ui" in lower or "menu" in lower):
+        claims.add("ui_click_select")
+    if "check" in lower and "select" in lower:
+        claims.add("ui_check_select")
+    if "uncheck" in lower and "clear" in lower:
+        claims.add("ui_uncheck_clear")
+    if "curly" in lower and ("apostrophe" in lower or "quote" in lower):
+        if "straight" in lower or "instead" in lower:
+            claims.add("straighten_apostrophe")
+            claims.add("straighten_quotes")
+    if "present tense" in lower or "past tense" in lower or "will" in lower:
+        claims.add("remove_will")
+        claims.add("remove_would")
+    if "e.g." in lower or "latin" in lower:
+        claims.add("latin_eg")
+    if "for example" in lower and "such as" in lower:
+        claims.add("for_example_to_such_as")
+    return claims
+
+
+def _message_mentions_change_tokens(message: str, current: str, suggested: str) -> bool:
+    """True when the message quotes or names a token that actually changes."""
+    for old, new in _significant_line_changes(current, suggested):
+        for token in (old.strip(), new.strip()):
+            if len(token) < 3:
+                continue
+            if token in message or token.lower() in message.lower():
+                return True
+    return False
+
+
+def _derive_review_message(topics: set[str]) -> str | None:
+    for topic in (
+        "ui_click_select",
+        "ui_check_select",
+        "ui_uncheck_clear",
+        "straighten_apostrophe",
+        "straighten_quotes",
+        "remove_will",
+        "remove_would",
+        "latin_eg",
+        "for_example_to_such_as",
+        "such_as_to_for_example",
+    ):
+        if topic in topics:
+            return _DERIVED_REVIEW_MESSAGES[topic]
+    return None
+
+
+def filter_curly_typography_suggestions(inline: list[dict]) -> list[dict]:
+    """Skip suggestions that introduce curly quotes or apostrophes (style guide requires straight)."""
+    kept: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        file_path = REPO_ROOT / path
+        if not file_path.exists():
+            kept.append(item)
+            continue
+        lines = file_path.read_text(encoding="utf-8", errors="replace").splitlines()
+        line_num = item["line"]
+        if line_num < 1 or line_num > len(lines):
+            kept.append(item)
+            continue
+        current = lines[line_num - 1]
+        suggested = item["suggested_line"].rstrip()
+        topics = _analyze_line_change(current, suggested)
+        if "introduced_curly_apostrophe" in topics or "introduced_curly_quotes" in topics:
+            print(
+                f"Skipping curly typography on `{path}` line {line_num} "
+                "(Braze docs require straight quotes and apostrophes)"
+            )
+            continue
+        kept.append(item)
+    return kept
+
+
+def align_review_messages(inline: list[dict]) -> list[dict]:
+    """Ensure each comment message describes the actual suggested_line diff."""
+    kept: list[dict] = []
+    for item in inline:
+        path = item["path"]
+        file_path = REPO_ROOT / path
+        if not file_path.exists():
+            kept.append(item)
+            continue
+        lines = file_path.read_text(encoding="utf-8", errors="replace").splitlines()
+        line_num = item["line"]
+        if line_num < 1 or line_num > len(lines):
+            kept.append(item)
+            continue
+
+        current = lines[line_num - 1]
+        suggested = item["suggested_line"].rstrip()
+        topics = _analyze_line_change(current, suggested)
+        message = item["message"].strip()
+        claims = _message_claim_topics(message)
+
+        if not topics:
+            print(
+                f"Skipping suggestion on `{path}` line {line_num}: "
+                "unable to classify line diff for review message"
+            )
+            continue
+
+        claim_overlap = claims & topics
+        mentions_tokens = _message_mentions_change_tokens(message, current, suggested)
+        if claim_overlap or (mentions_tokens and not claims - topics):
+            kept.append(item)
+            continue
+
+        if claims and not claim_overlap:
+            derived = _derive_review_message(topics)
+            if derived:
+                print(
+                    f"Rewrote mismatched review message on `{path}` line {line_num} "
+                    f"(was: {message[:60]}…)"
+                )
+                kept.append({**item, "message": derived})
+                continue
+            print(
+                f"Skipping mismatched review message on `{path}` line {line_num}: "
+                f"message mentions {sorted(claims)} but diff changes {sorted(topics)}"
+            )
+            continue
+
+        derived = _derive_review_message(topics)
+        if derived:
+            kept.append({**item, "message": derived})
+            continue
+
+        kept.append(item)
+    return kept
+
+
 def validate_inline(item: dict) -> dict | None:
     path = item.get("path")
     line = item.get("line")
@@ -1519,6 +1746,8 @@ def main() -> None:
 
     validated = filter_nbsp_removal_suggestions(validated)
     validated = filter_misapplied_tense_suggestions(validated)
+    validated = filter_curly_typography_suggestions(validated)
+    validated = align_review_messages(validated)
     validated = filter_dismissed_suggestions(
         validated, dismissed_suggested, dismissed_message
     )

@@ -107,7 +107,7 @@ jobs:
             core.info(`PR ${prNumber}: had_unresolved=${hadUnresolved}, fp_label=${hasFpLabel}, types=${violationTypes || 'none'}`);
 
       - name: Checkout repo for git operations
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}

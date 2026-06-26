@@ -8,7 +8,7 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 # ローカライゼーション設定 {#localization-settings}
 
-> 多言語機能を使用すると、[翻訳タグ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を使用して、単一のメッセージ内で異なる言語やロケーションのユーザーをターゲットにできます。
+> 多言語機能を使用すると、[翻訳タグ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を使用して、単一のメッセージ内で異なる言語やロケーションのユーザーをターゲットにできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -18,12 +18,8 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 1. **設定** > **ローカライゼーション設定**に移動します。
 2. **ロケールを追加**を選択し、**デフォルトのロケール**または**カスタム属性**を選択します。
-
-![デフォルトのロケールまたはカスタム属性を選択するオプションがある「ロケールを追加」ドロップダウン。]({% image_buster /assets/img/multi-language_support/add_locale_options.png %}){: style="max-width:40%;"}
-
-{: start="3"}
 3. ロケールの名前を入力します。
-4. [アクセシビリティ用の言語を選択します]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#language-settings-and-accessibility)。この設定により、スクリーンリーダーなどの支援技術がテキストを正しく読み上げることができます。
+4. [アクセシビリティ用の言語を選択します]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility)。この設定により、スクリーンリーダーなどの支援技術がテキストを正しく読み上げることができます。
 5. 選択したロケールオプションに対応するユーザー属性を選択します。ロケールを設定する際は、デフォルトのユーザー属性またはカスタム属性から言語を選択できます。両方から選択することはできません。
 
 {% tabs %}
@@ -31,14 +27,14 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 **デフォルトのロケール**の場合、ドロップダウンを使用して、追加する言語、およびオプションで言語に関連付ける国を選択します。
 
-![「ロケールを追加 - デフォルト言語と国」というウィンドウで言語と国を指定します。]({% image_buster /assets/img/multi-language_support/default_option.png %})
+![言語と国を指定する「ロケールを追加 - デフォルト言語と国」というウィンドウ。]({% image_buster /assets/img/multi-language_support/default_option.png %})
 
 {% endtab %}
 {% tab Custom attributes %}
 
 **カスタム属性**の場合、ドロップダウンを使用して関連付けるカスタム属性を選択し、テキストフィールドに値を入力します。
 
-![「ロケールを追加 - カスタム属性」というウィンドウで、カスタム属性とその値を指定します。]({% image_buster /assets/img/multi-language_support/custom_attributes_option.png %})
+![カスタム属性とその値を指定する「ロケールを追加 - カスタム属性」というウィンドウ。]({% image_buster /assets/img/multi-language_support/custom_attributes_option.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -46,7 +42,7 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 {: start="6"}
 6. **ロケールを追加**を選択します。
 
-メッセージでこれらのロケールを使用する手順については、[ロケールの使用]({{site.baseurl}}/locales_in_messages/)を参照してください。
+メッセージでこれらのロケールを使用する手順については、[ロケールの使用]({{site.baseurl}}/locales_in_messages)を参照してください。
 
 ## 考慮事項 {#considerations}
 
@@ -63,14 +59,14 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 ## よくある質問 {#frequently-asked-questions}
 
-#### ロケールはいくつ追加できますか？ {#how-many-locales-can-i-add}
+### ロケールはいくつ追加できますか？ {#how-many-locales-can-i-add}
 
 最大200のロケールを追加できます。
 
-#### 翻訳ファイルはBrazeのどこに保存されますか？ {#where-are-the-translation-files-stored-in-braze}
+### 翻訳ファイルはBrazeのどこに保存されますか？ {#where-are-the-translation-files-stored-in-braze}
 
-翻訳ファイルはキャンペーンレベルで保存されるため、各メッセージバリアントに翻訳をアップロードする必要があります。翻訳はContent Blocksにも保存できます。ブロックがメッセージに追加されると、その翻訳が自動的に含まれます。
+翻訳ファイルはCampaignレベルで保存されるため、各メッセージバリアントに翻訳をアップロードする必要があります。翻訳はContent Blocksにも保存できます。ブロックがメッセージに追加されると、その翻訳が自動的に含まれます。
 
-#### ロケール名は特定のパターンやフォーマットに従う必要がありますか？ {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
+### ロケール名は特定のパターンやフォーマットに従う必要がありますか？ {#does-the-locale-name-have-to-follow-a-specific-pattern-or-format}
 
 いいえ。お好みの命名規則を使用できます。ロケール名はエディターでロケールを選択する際に使用され、翻訳IDを含むダウンロードファイルの見出しにも表示されます。

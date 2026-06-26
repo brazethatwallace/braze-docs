@@ -9,7 +9,7 @@ description: "This article outlines details about the Track users (bulk) endpoin
 
 {% api %}
 # Track users (bulk)
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %} 
+{% apimethod post core_endpoint|/docs/core_endpoints %} 
 /users/track/bulk
 {% endapimethod %}
 

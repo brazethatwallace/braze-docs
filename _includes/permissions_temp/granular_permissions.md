@@ -89,7 +89,6 @@ Admins have access to all features and the ability to modify any company setting
 
 To grant or remove admin privileges, select **This user is an admin**, then select **Update user**.
 
-![The details of the selected user with the admin checkbox in focus.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -152,6 +151,12 @@ When you're finished, select **Update user**.
 To download a list of your users and their permissions, go to **Settings** > **Company Users**, then select **Export Users**. A CSV file will be sent to your email address shortly.
 
 ![The "Company Users" page in Braze with the "Export Users" option in focus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+
+You cannot export a full permission matrix for every dashboard user in bulk from the Braze dashboard. If you need more detail than **Export Users** provides, consider these options:
+
+- Use [automated user provisioning]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/) (SCIM) to manage dashboard user accounts. For example, you can [look up a dashboard user by email]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) or get user details by resource ID as described in [See user account information]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/).
+- [Contact Braze Support]({{site.baseurl}}/braze_support/). In some situations, Support can provide a list of accounts, but not a full permission matrix.
+- Filter your company’s [security event report]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report), which records events such as **Added Account** and **Updated Permissions**, to audit permission changes outside the dashboard.
 
 ## List of permissions
 

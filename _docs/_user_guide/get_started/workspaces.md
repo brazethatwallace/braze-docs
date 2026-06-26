@@ -155,6 +155,7 @@ The following table describes the benefits and drawbacks of these two approaches
 
 <table aria-label="Overview of each approach">
   <caption>Overview of each approach</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">Separate workspaces</th>
@@ -167,6 +168,8 @@ The following table describes the benefits and drawbacks of these two approaches
         <th scope="col">Benefits</th>
         <th scope="col">Drawbacks</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">Targeting</th>
         <td>Safest way to keep communications separate. Campaigns are guaranteed to target only specific user profiles.</td>
@@ -205,8 +208,8 @@ The following table describes the benefits and drawbacks of these two approaches
     <tr>
         <th scope="row">Duplicating content</th>
         <td>N/A</td>
-        <td>Cannot duplicate segments, push or Content Card campaigns, or Canvases across workspaces.</td>
-        <td>Can <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>duplicate campaigns across workspaces</a> for the following supported channels: SMS, in-app messages, email, email templates, and Content Blocks. <br><br>Can duplicate segments, campaigns, and Canvases to reuse content from one app instance to another.</td>
+        <td>Some content, such as segments and Content Card campaigns, can't be copied across workspaces.</td>
+        <td>Can <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copy campaigns, Canvases, and landing pages across workspaces</a>. Supported content includes campaigns and Canvases for eligible channels, as well as landing pages, email templates, feature flags, and Content Blocks.<br><br>Can duplicate segments, campaigns, Canvases, and landing pages to reuse content from one app instance to another.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -216,6 +219,7 @@ The following table describes the benefits and drawbacks of these two approaches
         <td>N/A</td>
         <td>Global statistics will be aggregated for all app instances in the workspace on the Home page.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Best practices

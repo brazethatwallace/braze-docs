@@ -10,7 +10,7 @@ description: "이 문서에서는 예약된 API 트리거 캠페인 삭제 Braze
 ---
 {% api %}
 # 예약된 API 트리거 캠페인 삭제 {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 

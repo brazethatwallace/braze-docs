@@ -58,7 +58,9 @@ CSVエクスポートでは、Brazeがダウンロードリンクをメールで
 - 特定のフィールド（`-`、`=`、`+`、`@`など）の先頭にアポストロフィが追加されるのは想定された動作です。たとえば、`-1943`はCSVでは`'-1943`になります。Brazeは、スプレッドシートプログラムがデータを誤って解釈するのを防ぐためにこの処理を行っています。これは、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)から返されるものなどのJSONエクスポートには適用されません。
 
 ## APIエクスポート
-ストレージパートナーが接続された状態でAPIを通じてデータをエクスポートすると、エクスポートファイルはバケットに書き込まれます。メールは送信されません。Brazeが返すダウンロードURLには引き続き時間制限がある場合がありますが、基盤となるオブジェクトはお客様のストレージに存在し、リテンション設定に従います。各ZIPファイルには、1行に1つのJSONオブジェクトが含まれています。大規模なエクスポートは、単一のZIPではなく複数のZIPファイルに分割される場合があり、これにより通常、大量のエクスポートに対してこの方法の信頼性が高くなります。
+ストレージパートナーが接続された状態でAPIを通じてデータをエクスポートすると、エクスポートファイルはバケットに書き込まれます。メールは送信されません。Brazeが返すダウンロードURLには引き続き時間制限がある場合がありますが、基盤となるオブジェクトはお客様のストレージに存在し、リテンション設定に従います。
+
+ファイルは通常、エクスポートの実行中にバケットに表示されるため、ジョブ全体の完了を待たずに部分的な結果にアクセスできます。Brazeは完了したバッチをすべてまとめて最後に送信するのではなく、順次アップロードします。大規模なエクスポートは複数の圧縮ファイル（ZIPまたはGZIP）に分割され、それぞれに1行に1つのJSONオブジェクトが含まれます。これにより、大量のエクスポートに対してこの方法の信頼性が高くなります。
 
 ### 一般的なエラー
 
@@ -83,27 +85,37 @@ Campaignの CSVエクスポートで、*送信済みメッセージ*や*ユニ�
 
 CSVエクスポートは、特定のCampaignまたはCanvasを受信した既存ユーザーのスナップショットを提供します。ユーザーは削除またはマージされる可能性があるため、CSVエクスポートのカウントはユニーク受信者数よりも少なくなることがあります。たとえば、1,000人のユーザーがCampaignを受信した場合、Campaignには1,000人のユニーク受信者が表示され、同日のCSVエクスポートにも1,000人のユーザーが表示されます。1か月後にそのうち50人が削除された場合、CSVエクスポートには950人のユーザーが含まれますが、累積されたユニーク受信者数は引き続き1,000のままです。
 
-## ダッシュボードのSegmentエクスポートメール {#dashboard-segment-export-emails}
+## ダッシュボードのセグメントエクスポートメール {#dashboard-segment-export-emails}
 
-### 「Segmentが大きすぎます」またはSegmentが500,000ユーザー未満に見えるのにエクスポートが失敗する {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+### 「セグメントが大きすぎます」またはセグメントが500,000ユーザー未満に見えるのにエクスポートが失敗する {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
 
-ダッシュボードのSegment**サイズは推定値です**。CSVエクスポートはその推定値を使用して[500,000ユーザーのエクスポート制限]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)を適用します。エクスポートパイプラインは、SegmentビルダーのUIとは異なる方法でサイズを評価する場合もあります。そのしきい値付近のSegmentでエクスポートが失敗する場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)を使用するか、オーディエンスをより小さなSegmentsに分割するか、[大規模なSegmentsのエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)に記載されている[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用してください。
+ダッシュボードのセグメント**サイズは推定値です**。CSVエクスポートはその推定値を使用して[500,000ユーザーのエクスポート制限]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details)を適用します。エクスポートパイプラインは、セグメントビルダーのUIとは異なる方法でサイズを評価する場合もあります。そのしきい値付近のセグメントでエクスポートが失敗する場合は、[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)を使用するか、オーディエンスをより小さなSegmentsに分割するか、[大規模なSegmentsのエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)に記載されている[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用してください。
 
-### Segmentエクスポートメールが届かないのはなぜですか？ {#why-arent-i-receiving-segment-export-emails}
+### セグメントエクスポートメールが届かないのはなぜですか {#why-arent-i-receiving-segment-export-emails}
 
 まず、`no-reply@alerts.braze.com`からのメールがスパムフォルダーにないか確認してください。メールがスパムフォルダーにある場合は、今後のエクスポートメッセージがフィルタリングされないよう、そのアドレスを安全な送信者リストに追加してください。
 
 メールがスパムフォルダーにもない場合は、チームの他のメンバーがエクスポートを受信できるか確認してください。受信できない場合は、エクスポートのサイズを考慮してください。配信時間はエクスポートサイズによって異なりますが、1時間経ってもメールが届かない場合は、[サポート]({{site.baseurl}}/braze_support/)にお問い合わせください。
 
-## SegmentエクスポートAPIのダウンロード {#segment-export-api-downloads}
+## セグメントエクスポートAPIのダウンロード {#segment-export-api-downloads}
 
-### BrazeのURLからエクスポートされたSegmentのZIPファイルをダウンロードできない {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
+### BrazeのURLからエクスポートされたセグメントのZIPファイルをダウンロードできない {#cant-download-an-exported-segment-zip-file-from-a-braze-url}
 
 [`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)の使用時に`403 Forbidden`エラーが発生した場合、ファイルの準備がまだ完了していない可能性があります。大規模なエクスポートは処理に時間がかかることがあります。再度ダウンロードする前に最大1時間お待ちください。
 
-自動化スクリプトを使用してファイルを取得する場合も、URLのリクエストが早すぎると`403 Forbidden`エラーが発生することがあります。Segmentデータを定期的にエクスポートする場合は、独自のS3バケット連携を接続し、ファイルを独自のETLパイプラインに渡すことを検討してください。
+自動化スクリプトを使用してファイルを取得する場合も、URLのリクエストが早すぎると`403 Forbidden`エラーが発生することがあります。セグメントデータを定期的にエクスポートする場合は、独自のS3バケット連携を接続し、ファイルを独自のETLパイプラインに渡すことを検討してください。
 
 エクスポートの完了には時間がかかるため、スクリプトからの即時アクセスは失敗することが多くあります。以下の方法を検討してください。
 
 - エクスポネンシャルバックオフでダウンロードURLをポーリングする
 - [`callback_endpoint`パラメーター]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters)を使用して、エクスポートの準備ができたときにスクリプトを実行するサービスを指定する
+
+## セグメントおよびユーザーエクスポートAPIのフィールド {#segment-and-user-export-api-fields}
+
+### セグメントエクスポートファイルに期待されるカラムが含まれていない {#expected-columns-are-missing-from-a-segment-export-file}
+
+ダッシュボードのセグメントからの**ユーザーデータを CSV 形式でエクスポート**は、固定のカラムセットを使用します（[セグメントデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)を参照）。`fields_to_export`カラムやパラメーターは含まれていません。
+
+APIのセグメントエクスポートでは、リクエストボディに`fields_to_export`を渡す必要があります。一部のフィールドは関連データを自動的に取得します。たとえば、`canvases_received`をリクエストすると、ユーザープロファイルのジャーニーサマリーデータも必要になります。有効なフィールド名と要件については、[`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)エンドポイントリファレンスを参照してください。
+
+APIエクスポートのZIPにカラムが不足している場合は、リクエストの`fields_to_export`配列に必要なすべてのフィールドが含まれていること、およびワークスペースで必要なエクスポート権限が設定されていることを確認してください。

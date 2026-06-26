@@ -124,7 +124,7 @@ page_order: 1
 
 ### AIコピーライターの使用 {#using-the-ai-copywriter}
 
-アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i>をクリックすると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
+アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
 
 {% alert tip %}
 ブロック内のテキストをハイライトしてからアイコンをクリックすると、数クリック省略できます。ハイライトされたテキストがツールに追加され、すぐにコピーが生成されます。
@@ -146,9 +146,9 @@ page_order: 1
 
 ![スタイルをコピーするオプションのドロップダウンメニュー。]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. 要素を選択した状態で、プロパティパネル名の横にある<i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i>を選択します（たとえば、ボタンを選択している場合は「ボタンプロパティ」の横）。
+1. 要素を選択した状態で、プロパティパネル名の横にある<i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i> **スタイルのコピーまたは貼り付け**を選択します（たとえば、ボタンを選択している場合は「ボタンプロパティ」の横）。
 2. **スタイルをコピー**をクリックし、コピーしたスタイルを適用する要素を選択します。
-3. <i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i>を再度選択し、**スタイルを貼り付け**を選択します。
+3. <i class="fas fa-paintbrush" title="スタイルのコピーまたは貼り付け"></i> **スタイルのコピーまたは貼り付け**を再度選択し、**スタイルを貼り付け**を選択します。
 
 #### キーボードショートカット {#keyboard-shortcuts}
 

@@ -36,8 +36,6 @@ Now that your data source is set up, in the RudderStack dashboard, select **ADD 
 
 In the Braze destination, provide the app key, Braze REST API key, data cluster, and native SDK option (device mode only). The native SDK option will use the Braze native SDK to send events if toggled on. 
 
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
 ### Step 3: Choose the type of integration
 
 You can choose to integrate RudderStack's web and native client-side libraries with Braze using one the following approaches:
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,

@@ -15,8 +15,8 @@ Los diferentes productos tendrán distintas unidades de medida en los informes.<
 <b>Consola de Agente:</b> Invocaciones<br>
 <b>SMS:</b> Segmentos<br>
 <b>MMS:</b> Envíos<br>
-<b>WhatsApp:</b> Mensajes<br>
-<b>RCS:</b> Segmentos, Envíos<br>
+<b>WhatsApp:</b> Mensajes entregados<br>
+<b>RCS:</b> Segmentos entregados, Envíos entregados<br>
 <b>LINE:</b> Envíos<br>
 <b>KakaoTalk:</b> Envíos<br>
 
@@ -29,18 +29,19 @@ Las definiciones de las columnas son las siguientes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Región final específica, país o tipo de acción que se envía a través de la plataforma Braze |
-| **Créditos por 1 envío** | Número exacto de Message Credits para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
+| **Créditos por 1 envío** | Número exacto de créditos de mensaje para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabla de ratio de créditos para Message Credits - Lambda {#credit-ratio-table-for-message-credits-lambda}
+## Tabla de ratios de créditos para créditos de mensaje - Lambda {#credit-ratio-table-for-message-credits-lambda}
 
 {% details Haz clic para expandir %}
-<table>
+<table class="credits-table" aria-label="Tabla de ratios de créditos para créditos de mensaje - Lambda">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Canal</b></th>
         <th><b>Destino</b></th>
@@ -51,6 +52,8 @@ Las definiciones de las columnas son las siguientes:
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Consola de Agente</td>
         <td>BYO LLM API Key</td>
@@ -1218,691 +1221,691 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Autenticación</td>
+        <td>Argentina autenticación</td>
         <td>7.67</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing</td>
+        <td>Argentina marketing</td>
         <td>16.39</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - Entrega optimizada</td>
+        <td>Argentina marketing - entrega optimizada</td>
         <td>16.39</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Utilidad</td>
+        <td>Argentina utilidad</td>
         <td>7.67</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brasil Autenticación</td>
+        <td>Brasil autenticación</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brasil Marketing</td>
+        <td>Brasil marketing</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brasil Marketing - Entrega optimizada</td>
+        <td>Brasil marketing - entrega optimizada</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brasil Utilidad</td>
+        <td>Brasil utilidad</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Autenticación</td>
+        <td>Chile autenticación</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing</td>
+        <td>Chile marketing</td>
         <td>23.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - Entrega optimizada</td>
+        <td>Chile marketing - entrega optimizada</td>
         <td>23.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Utilidad</td>
+        <td>Chile utilidad</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Autenticación</td>
+        <td>Colombia autenticación</td>
         <td>0.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing</td>
+        <td>Colombia marketing</td>
         <td>3.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - Entrega optimizada</td>
+        <td>Colombia marketing - entrega optimizada</td>
         <td>3.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Utilidad</td>
+        <td>Colombia utilidad</td>
         <td>0.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egipto Autenticación</td>
+        <td>Egipto autenticación</td>
         <td>1.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egipto Autenticación Internacional</td>
+        <td>Egipto autenticación internacional</td>
         <td>17.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egipto Marketing</td>
+        <td>Egipto marketing</td>
         <td>28.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egipto Marketing - Entrega optimizada</td>
+        <td>Egipto marketing - entrega optimizada</td>
         <td>28.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egipto Utilidad</td>
+        <td>Egipto utilidad</td>
         <td>1.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Francia Autenticación</td>
+        <td>Francia autenticación</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Francia Marketing</td>
+        <td>Francia marketing</td>
         <td>37.99</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Francia Marketing - Entrega optimizada</td>
+        <td>Francia marketing - entrega optimizada</td>
         <td>37.99</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Francia Utilidad</td>
+        <td>Francia utilidad</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Alemania Autenticación</td>
+        <td>Alemania autenticación</td>
         <td>14.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Alemania Marketing</td>
+        <td>Alemania marketing</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Alemania Marketing - Entrega optimizada</td>
+        <td>Alemania marketing - entrega optimizada</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Alemania Utilidad</td>
+        <td>Alemania utilidad</td>
         <td>14.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Autenticación</td>
+        <td>India autenticación</td>
         <td>0.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Autenticación Internacional</td>
+        <td>India autenticación internacional</td>
         <td>7.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing</td>
+        <td>India marketing</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - Entrega optimizada</td>
+        <td>India marketing - entrega optimizada</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Utilidad</td>
+        <td>India utilidad</td>
         <td>0.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Autenticación</td>
+        <td>Indonesia autenticación</td>
         <td>6.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Autenticación Internacional</td>
+        <td>Indonesia autenticación internacional</td>
         <td>36.08</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing</td>
+        <td>Indonesia marketing</td>
         <td>10.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - Entrega optimizada</td>
+        <td>Indonesia marketing - entrega optimizada</td>
         <td>10.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Utilidad</td>
+        <td>Indonesia utilidad</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Autenticación</td>
+        <td>Israel autenticación</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing</td>
+        <td>Israel marketing</td>
         <td>9.36</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - Entrega optimizada</td>
+        <td>Israel marketing - entrega optimizada</td>
         <td>9.36</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Utilidad</td>
+        <td>Israel utilidad</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italia Autenticación</td>
+        <td>Italia autenticación</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italia Marketing</td>
+        <td>Italia marketing</td>
         <td>18.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italia Marketing - Entrega optimizada</td>
+        <td>Italia marketing - entrega optimizada</td>
         <td>18.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italia Utilidad</td>
+        <td>Italia utilidad</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malasia Autenticación</td>
+        <td>Malasia autenticación</td>
         <td>3.70</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malasia Autenticación Internacional</td>
+        <td>Malasia autenticación internacional</td>
         <td>11.09</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malasia Marketing</td>
+        <td>Malasia marketing</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malasia Marketing - Entrega optimizada</td>
+        <td>Malasia marketing - entrega optimizada</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malasia Utilidad</td>
+        <td>Malasia utilidad</td>
         <td>3.70</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>México Autenticación</td>
+        <td>México autenticación</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>México Marketing</td>
+        <td>México marketing</td>
         <td>11.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>México Marketing - Entrega optimizada</td>
+        <td>México marketing - entrega optimizada</td>
         <td>11.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>México Utilidad</td>
+        <td>México utilidad</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Países Bajos Autenticación</td>
+        <td>Países Bajos autenticación</td>
         <td>13.26</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Países Bajos Marketing</td>
+        <td>Países Bajos marketing</td>
         <td>42.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Países Bajos Marketing - Entrega optimizada</td>
+        <td>Países Bajos marketing - entrega optimizada</td>
         <td>42.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Países Bajos Utilidad</td>
+        <td>Países Bajos utilidad</td>
         <td>13.26</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Autenticación</td>
+        <td>Nigeria autenticación</td>
         <td>1.78</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Autenticación Internacional</td>
+        <td>Nigeria autenticación internacional</td>
         <td>19.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing</td>
+        <td>Nigeria marketing</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - Entrega optimizada</td>
+        <td>Nigeria marketing - entrega optimizada</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Utilidad</td>
+        <td>Nigeria utilidad</td>
         <td>1.78</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Norteamérica Autenticación</td>
+        <td>Norteamérica autenticación</td>
         <td>3.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Norteamérica Marketing</td>
+        <td>Norteamérica marketing</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Norteamérica Marketing - Entrega optimizada</td>
+        <td>Norteamérica marketing - entrega optimizada</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Norteamérica Utilidad</td>
+        <td>Norteamérica utilidad</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Otros Autenticación</td>
+        <td>Otros autenticación</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Otros Marketing</td>
+        <td>Otros marketing</td>
         <td>16.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Otros Marketing - Entrega optimizada</td>
+        <td>Otros marketing - entrega optimizada</td>
         <td>16.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Otros Utilidad</td>
+        <td>Otros utilidad</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistán Autenticación</td>
+        <td>Pakistán autenticación</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistán Autenticación Internacional</td>
+        <td>Pakistán autenticación internacional</td>
         <td>19.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistán Marketing</td>
+        <td>Pakistán marketing</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistán Marketing - Entrega optimizada</td>
+        <td>Pakistán marketing - entrega optimizada</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistán Utilidad</td>
+        <td>Pakistán utilidad</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Perú Autenticación</td>
+        <td>Perú autenticación</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Perú Marketing</td>
+        <td>Perú marketing</td>
         <td>18.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Perú Marketing - Entrega optimizada</td>
+        <td>Perú marketing - entrega optimizada</td>
         <td>18.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Perú Utilidad</td>
+        <td>Perú utilidad</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de África Autenticación</td>
+        <td>Resto de África autenticación</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de África Marketing</td>
+        <td>Resto de África marketing</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de África Marketing - Entrega optimizada</td>
+        <td>Resto de África marketing - entrega optimizada</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de África Utilidad</td>
+        <td>Resto de África utilidad</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Asia Pacífico Autenticación</td>
+        <td>Resto de Asia Pacífico autenticación</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Asia Pacífico Marketing</td>
+        <td>Resto de Asia Pacífico marketing</td>
         <td>19.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Asia Pacífico Marketing - Entrega optimizada</td>
+        <td>Resto de Asia Pacífico marketing - entrega optimizada</td>
         <td>19.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Asia Pacífico Utilidad</td>
+        <td>Resto de Asia Pacífico utilidad</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Central y Oriental Autenticación</td>
+        <td>Resto de Europa Central y Oriental autenticación</td>
         <td>5.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Central y Oriental Marketing</td>
+        <td>Resto de Europa Central y Oriental marketing</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Central y Oriental Marketing - Entrega optimizada</td>
+        <td>Resto de Europa Central y Oriental marketing - entrega optimizada</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Central y Oriental Utilidad</td>
+        <td>Resto de Europa Central y Oriental utilidad</td>
         <td>5.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Latinoamérica Autenticación</td>
+        <td>Resto de Latinoamérica autenticación</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Latinoamérica Marketing</td>
+        <td>Resto de Latinoamérica marketing</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Latinoamérica Marketing - Entrega optimizada</td>
+        <td>Resto de Latinoamérica marketing - entrega optimizada</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Latinoamérica Utilidad</td>
+        <td>Resto de Latinoamérica utilidad</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Oriente Medio Autenticación</td>
+        <td>Resto de Oriente Medio autenticación</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Oriente Medio Marketing</td>
+        <td>Resto de Oriente Medio marketing</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Oriente Medio Marketing - Entrega optimizada</td>
+        <td>Resto de Oriente Medio marketing - entrega optimizada</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Oriente Medio Utilidad</td>
+        <td>Resto de Oriente Medio utilidad</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Occidental Autenticación</td>
+        <td>Resto de Europa Occidental autenticación</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Occidental Marketing</td>
+        <td>Resto de Europa Occidental marketing</td>
         <td>15.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Occidental Marketing - Entrega optimizada</td>
+        <td>Resto de Europa Occidental marketing - entrega optimizada</td>
         <td>15.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Resto de Europa Occidental Utilidad</td>
+        <td>Resto de Europa Occidental utilidad</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rusia Autenticación</td>
+        <td>Rusia autenticación</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rusia Marketing</td>
+        <td>Rusia marketing</td>
         <td>21.28</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rusia Marketing - Entrega optimizada</td>
+        <td>Rusia marketing - entrega optimizada</td>
         <td>21.28</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rusia Utilidad</td>
+        <td>Rusia utilidad</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Arabia Saudita Autenticación</td>
+        <td>Arabia Saudita autenticación</td>
         <td>3.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Arabia Saudita Autenticación Internacional</td>
+        <td>Arabia Saudita autenticación internacional</td>
         <td>15.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Arabia Saudita Marketing</td>
+        <td>Arabia Saudita marketing</td>
         <td>11.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Arabia Saudita Marketing - Entrega optimizada</td>
+        <td>Arabia Saudita marketing - entrega optimizada</td>
         <td>11.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Arabia Saudita Utilidad</td>
+        <td>Arabia Saudita utilidad</td>
         <td>3.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Sudáfrica Autenticación</td>
+        <td>Sudáfrica autenticación</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Sudáfrica Autenticación Internacional</td>
+        <td>Sudáfrica autenticación internacional</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Sudáfrica Marketing</td>
+        <td>Sudáfrica marketing</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Sudáfrica Marketing - Entrega optimizada</td>
+        <td>Sudáfrica marketing - entrega optimizada</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Sudáfrica Utilidad</td>
+        <td>Sudáfrica utilidad</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>España Autenticación</td>
+        <td>España autenticación</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>España Marketing</td>
+        <td>España marketing</td>
         <td>16.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>España Marketing - Entrega optimizada</td>
+        <td>España marketing - entrega optimizada</td>
         <td>16.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>España Utilidad</td>
+        <td>España utilidad</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turquía Autenticación</td>
+        <td>Turquía autenticación</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turquía Marketing</td>
+        <td>Turquía marketing</td>
         <td>2.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turquía Marketing - Entrega optimizada</td>
+        <td>Turquía marketing - entrega optimizada</td>
         <td>2.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turquía Utilidad</td>
+        <td>Turquía utilidad</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Emiratos Árabes Unidos Autenticación</td>
+        <td>Emiratos Árabes Unidos autenticación</td>
         <td>4.17</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Emiratos Árabes Unidos Autenticación Internacional</td>
+        <td>Emiratos Árabes Unidos autenticación internacional</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Emiratos Árabes Unidos Marketing</td>
+        <td>Emiratos Árabes Unidos marketing</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Emiratos Árabes Unidos Marketing - Entrega optimizada</td>
+        <td>Emiratos Árabes Unidos marketing - entrega optimizada</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Emiratos Árabes Unidos Utilidad</td>
+        <td>Emiratos Árabes Unidos utilidad</td>
         <td>4.17</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Reino Unido Autenticación</td>
+        <td>Reino Unido autenticación</td>
         <td>5.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Reino Unido Marketing</td>
+        <td>Reino Unido marketing</td>
         <td>14.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Reino Unido Marketing - Entrega optimizada</td>
+        <td>Reino Unido marketing - entrega optimizada</td>
         <td>14.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Reino Unido Utilidad</td>
+        <td>Reino Unido utilidad</td>
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>Todas las regiones</td>
         <td>0.15</td>
     </tr>
@@ -1917,118 +1920,118 @@ Las definiciones de las columnas son las siguientes:
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
+        <td>Conector SMS BYO</td>
         <td>Infobip - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
+        <td>Conector SMS BYO</td>
         <td>Twilio - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brasil - Basic</td>
+        <td>Brasil - Básico</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brasil - Single</td>
+        <td>Brasil - Único</td>
         <td>3.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Basic</td>
+        <td>Colombia - Básico</td>
         <td>1.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Single</td>
+        <td>Colombia - Único</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Francia - Basic</td>
+        <td>Francia - Básico</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Francia - Single</td>
+        <td>Francia - Único</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Alemania - Basic</td>
+        <td>Alemania - Básico</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Alemania - Single</td>
+        <td>Alemania - Único</td>
         <td>12.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italia - Basic</td>
+        <td>Italia - Básico</td>
         <td>4.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italia - Single</td>
+        <td>Italia - Único</td>
         <td>6.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>México - Basic</td>
+        <td>México - Básico</td>
         <td>6.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>México - Single</td>
+        <td>México - Único</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapur - Basic</td>
+        <td>Singapur - Básico</td>
         <td>4.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapur - Single</td>
+        <td>Singapur - Único</td>
         <td>8.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>España - Basic</td>
+        <td>España - Básico</td>
         <td>6.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>España - Single</td>
+        <td>España - Único</td>
         <td>13.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Suecia - Basic</td>
+        <td>Suecia - Básico</td>
         <td>7.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Suecia - Single</td>
+        <td>Suecia - Único</td>
         <td>10.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Reino Unido - Basic</td>
+        <td>Reino Unido - Básico</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Reino Unido - Single</td>
+        <td>Reino Unido - Único</td>
         <td>14.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Estados Unidos - Basic - Obsoleto</td>
+        <td>Estados Unidos - Básico - Obsoleto</td>
         <td>1.00</td>
     </tr>
     <tr>
@@ -2041,6 +2044,7 @@ Las definiciones de las columnas son las siguientes:
         <td>Estados Unidos - Rich Media</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2048,27 +2052,27 @@ Las definiciones de las columnas son las siguientes:
 ------
 
 ## Detalles de la Consola de Agente {#agent-console-details}
-Braze cobrará Message Credits por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
+Braze cobrará créditos de mensaje por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
 ## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Los segmentos de mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento de mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos de mensaje. Enviar múltiples segmentos de mensaje generará cargos adicionales.
+Los segmentos de mensaje SMS son la forma en que la industria de SMS contabiliza los mensajes. Un segmento de mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un solo despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos de mensaje. Enviar múltiples segmentos de mensaje generará cargos adicionales.
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no exceder los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
+Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no superar los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
 
 ### Tipos de RCS {#rcs-types}
 
 RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta interacción como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se centra en dos tipos de mensajes diferentes (con distinciones para EE. UU.):
-    - **Basic RCS:** Solo texto, hasta 160 caracteres
-    - **Single RCS:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
-    - **Rich RCS (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **Rich Media RCS (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
+- La facturación de RCS se basa en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
+    - **RCS básico:** Solo texto, hasta 160 caracteres
+    - **RCS único:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
+    - **RCS Rich (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
+    - **RCS Rich Media (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contabilizado como un solo mensaje
 
 ## Detalles del canal WhatsApp {#whatsapp-channel-details}
 
@@ -2078,45 +2082,45 @@ RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal d
 
 ### Webhooks
 
-Los webhooks pasaron a formar parte de Message Credits el 9 de diciembre de 2024. Braze cobrará Message Credits por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
+Los webhooks pasaron a formar parte de los créditos de mensaje el 9 de diciembre de 2024. Braze cobrará créditos de mensaje por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
 ### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo "BYO SMS connector". Braze cobrará Message Credits por cada mensaje enviado desde la plataforma Braze a través de los conectores BYO SMS.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará créditos de mensaje por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
 
 ### LINE
 
-Braze cobrará Message Credits por cualquier mensaje de LINE enviado desde la plataforma Braze.
+Braze cobrará créditos de mensaje por cualquier mensaje de LINE enviado desde la plataforma Braze.
 
 ## Desglose por región de facturación {#billing-region-breakdown}
 
-#### Norteamérica {#north-america}
+### Norteamérica {#north-america}
 
 Estados Unidos, Canadá
 
-#### Resto de África {#rest-of-africa}
+### Resto de África {#rest-of-africa}
 
 Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia,
 Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
-#### Resto de Asia Pacífico {#rest-of-asia-pacific}
+### Resto de Asia Pacífico {#rest-of-asia-pacific}
 
 Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia,
 Turkmenistán, Uzbekistán, Vietnam
 
-#### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
+### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
 
-#### Resto de Latinoamérica {#rest-of-latin-america}
+### Resto de Latinoamérica {#rest-of-latin-america}
 
 Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador,
 Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Resto de Oriente Medio {#rest-of-middle-east}
+### Resto de Oriente Medio {#rest-of-middle-east}
 
 Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
 
-#### Resto de Europa Occidental {#rest-of-western-europe}
+### Resto de Europa Occidental {#rest-of-western-europe}
 
 Austria, Bélgica, Dinamarca, Finlandia, Irlanda, Noruega, Portugal, Suecia, Suiza

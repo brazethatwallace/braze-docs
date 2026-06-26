@@ -34,11 +34,12 @@ Follow these steps to set up your AWS secret key authentication method.
     - **Braze EU clusters:** `eu-central-1`
     - **Braze AU cluster:** `ap-southeast-2`
     - **Braze ID cluster:** `ap-southeast-3`
+    - **Braze JP cluster:** `ap-northeast-1`
 4. In AWS Key Management Service, create two keys and make sure that the IAM user is added in key usage permissions:
     - **[Encrypt/decrypt](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** Select **Symmetric** key type and **Encrypt and Decrypt** key usage.
     - **[Hash](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** Select **Symmetric** key type and **Generate and Verify MAC** key usage. The key spec should be **HMAC_256**. After creating the key, note the HMAC key ID somewhere as you’ll need to input this in Braze.
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Configure key settings with the options symmetric, generate and verify MAC, and HMAC_256 selected.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
 ## Step 1: Connect your AWS KMS keys
 
@@ -54,7 +55,7 @@ Next, select **Email address** to encrypt the field.
 
 When encryption is turned on for a field, it can’t be reverted to a decrypted field. This means encryption is a permanent setting. When setting up encryption for email address, confirm that no users have email addresses in the workspace. This makes sure that no plaintext email addresses are stored in Braze when turning on the feature for the workspace.
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![Field-Level Encryption settings.]({% image_buster /assets/img/field_level_encryption.png %})
 
 ## Step 3: Import and update users
 

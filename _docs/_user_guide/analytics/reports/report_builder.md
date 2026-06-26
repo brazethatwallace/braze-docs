@@ -101,6 +101,8 @@ If you want to report on Canvas variants or steps, select **Canvases** for rows 
 
 Statistics for deleted message variants are not displayed when you break down your report by campaigns or Canvases. However, channel-level totals include all statistics regardless of whether the variant was deleted. For example, _Sends_ for email include all email sends, but if you break down those statistics by campaign, the numbers may be lower because sends for deleted message variants are filtered out.
 
+In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ when a message variant was deleted after send. Campaign-level _Unique Recipients_ can still include users who received the deleted variant, while _Unique Impressions_ omit stats from deleted variants in message-level aggregations.
+
 ## Viewing a report
 
 After running your report, you can view your results in table format on the report page. 
@@ -151,3 +153,8 @@ A campaign or Canvas appears in the report when its **Last sent** date falls in 
 
 For example, suppose **Last sent** is January 1, 2025–April 14, 2025, so a campaign is included, but **Show data for** is December 1, 2024–January 14, 2025. If that campaign had no sends in December or January, it still appears in the table with no send metrics.
 
+### Download link has expired
+
+Report download links expire after one hour. If your link has expired, generate a new report and download it within the hour. There is no way to extend the expiry time.
+
+If you have an [Amazon S3 bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) connected in **Partner Integrations**, you may be able to retrieve data from older reports by browsing your S3 bucket directly.

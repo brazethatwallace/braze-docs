@@ -58,8 +58,8 @@ If you are uploading or updating user profiles that are alias only, you must hav
 
 | `user_alias_name` | `user_alias_label` | `last_name` | `email` | sample_attribute |
 | :---- | :---- | :---- | :---- | :---- |
-| 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
-| 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
+| 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
+| 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 2: Choose an identifier #choose-an-identifier" }
 
 When you provide both a `user_alias_name` and `user_alias_label` in your import, Braze updates any existing user with the same `user_alias_name` and `user_alias_label`. If a user isn’t found, Braze creates a newly identified user with that `user_alias_name` set.
@@ -161,7 +161,7 @@ The following default attributes are available for user import.
 | `user_alias_label` | String | A common label by which to group user aliases. Must be used with `user_alias_name`. | Conditionally. See [Required Identifiers](#required-identifiers-attributes). |
 | `first_name` | String | The first name of your users as they have indicated (for example, `Jane`). | No |
 | `last_name` | String | The last name of your users as they have indicated (for example, `Doe`). | No |
-| `email` | String | The email of your users as they have indicated (for example, `jane.doe@braze.com`). | No |
+| `email` | String | The email of your users as they have indicated (for example, `jane.doe@example.com`). | No |
 | `country` | String | Country codes must be passed to Braze in the ISO-3166-1 alpha-2 standard (for example, `GB`). | No |
 | `dob` | String | Must be passed in the format “YYYY-MM-DD” (for example, `1980-12-21`). This imports your user’s Date of Birth and enables you to target users whose birthday is “today”. | No |
 | `gender` | String | “M”, “F”, “O” (other), “N” (not applicable), “P” (prefer not to say), or nil (unknown). | No |
@@ -180,11 +180,11 @@ The following default attributes are available for user import.
 
 #### Updating subscription group status (optional)
 
-Additionally, you can add users to email or SMS subscription groups through user import. This is particularly useful for SMS, because a user must be enrolled into an SMS subscription group to be messaged with the SMS channel. For more information, refer to [SMS subscription groups](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Additionally, you can add users to email or SMS subscription groups through user import. This is particularly useful for SMS, because a user must be enrolled into an SMS subscription group to be messaged with the SMS channel. For more information, refer to [SMS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
 If you are updating subscription group statuses, you must have the following two columns in your CSV:
 
-- `subscription_group_id`: The `id` of the [subscription group](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).  
+- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).  
 - `subscription_state`: Available values are `unsubscribed` (not in the subscription group) or `subscribed` (in the subscription group).
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -222,7 +222,7 @@ For example, the custom event `trip_booked` may have the properties `destination
 | `braze_id` | String | A Braze assigned identifier for your user. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
 | `user_alias_name` | String | A unique user identifier for anonymous users, that's an alternative to `external_id`. Must be used with `user_alias_label`. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
 | `user_alias_label` | String | A common label by which to group user aliases. Must be used with `user_alias_name`. | Conditionally. See [Required identifiers](#required-identifiers-custom-events). |
-| `email` | String | The email of your users as they have indicated (for example, `jane.doe@braze.com`). | No, and can only be used in the absence of other identifiers. See the following note. |
+| `email` | String | The email of your users as they have indicated (for example, `jane.doe@example.com`). | No, and can only be used in the absence of other identifiers. See the following note. |
 | `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) for formatting guidance. | No, and can only be used in the absence of other identifiers. See the following note. |
 | `name` | String | A custom event of your users. | Yes |
 | `time` | String | The time of the event. May be passed in one of the following ISO-8601 formats: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (for example, 2019-11-20T18:38:57) | Yes |
@@ -289,11 +289,7 @@ In this example:
 
 To upload your file, select **Attributes** or **Events**, click **Browse Files**, and upload your CSV. Braze displays a preview of the first few rows and a summary of the detected fields.
 
-![The file preview page showing a preview of the file after upload.]({% image_buster /assets/img/csv_import/upload_completed_file_preview.png %})
-
 For large files (up to 500 MB for default attributes and custom attributes, or 50 MB for custom events), the dashboard may appear temporarily unresponsive while the file uploads and Braze calculates the import. These uploads and calculations can take longer to complete than they do for smaller files. Let this step complete. For more context on file limits and timing, see [Constructing your CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/#constructing-your-csv).
-
-![The upload completed modal showing a file preview, import name field, targeting preferences, and file validation checkbox.]({% image_buster /assets/img/csv_import/upload_completed.png %})
 
 In the **Import name** field, you can rename your import. By default, the file name is used.
 
@@ -427,6 +423,14 @@ If you used [file validation](#file-validation), start with the error report, as
 
 For troubleshooting CSV import, review these common issues below.
 
+### Use email as `external_id`
+
+Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).
+
+### Quote characters in `external_id` values
+
+If an `external_id` cell contains a double quotation mark, escape it by doubling the character (`""`), as described under [Unescaped or unbalanced double quotation marks](#missing-row). CSV import does not use backslash escaping.
+
 ### CSV import isn't available as a segment filter
 
 You can use a CSV import as a segment filter only if you enabled a targeting preference during upload.
@@ -508,8 +512,8 @@ Trailing spaces and differences in capitalization can cause a value to be interp
 
 ```plaintext
 external_id,email,email_subscribe,push_subscribe
-brazetest1,test1@braze.com,unsubscribed,unsubscribed
-brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
+brazetest1,test1@example.com,unsubscribed,unsubscribed
+brazetest2,test2@example.com,Unsubscribed,Unsubscribed
 ```
 
 ### "Select CSV File" is not working

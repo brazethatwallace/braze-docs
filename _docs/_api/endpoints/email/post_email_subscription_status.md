@@ -10,7 +10,7 @@ description: "This article outlines the details about the Change user's email su
 ---
 {% api %}
 # Change email subscription status
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/status
 {% endapimethod %}
 
@@ -39,7 +39,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```

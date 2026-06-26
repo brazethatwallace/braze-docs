@@ -102,11 +102,9 @@ Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Cont
 | **image_url** | Das Bild, das dem Rezept entspricht. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
-Nachdem der Katalog in Braze hochgeladen wurde, überprüfen Sie die Vorschau einer ausgewählten Anzahl von Katalogartikeln, um die Richtigkeit der importierten Informationen zu bestätigen. Die Artikel können in der Vorschau zufällig angeordnet sein, aber das hat keinen Einfluss auf die Ausgabe des Empfehlungssystems.
+Nachdem der Katalog in Braze hochgeladen wurde, bestätigen Sie die Richtigkeit der importierten Informationen, indem Sie Ihren Katalog auf der Katalogseite auswählen und den Tab **Vorschau** öffnen. Eine ausgewählte Anzahl von Artikeln wird in der Vorschau angezeigt und kann zufällig angeordnet sein, aber das hat keinen Einfluss auf die Ausgabe des Empfehlungssystems.
 
-![Beispielkatalog in Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
-
-Erstellen Sie eine Content-Card-Kampagne. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
+Erstellen Sie mit dem vorhandenen Katalog eine [Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/). Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
 
 {% subtabs local %}
 {% subtab title %}

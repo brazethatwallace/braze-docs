@@ -210,7 +210,6 @@ Puedes editar el nombre de la credencial para los tipos de autenticación.
 - Para autenticación básica, puedes actualizar el nombre de usuario y la contraseña. Ten en cuenta que la contraseña ingresada anteriormente no será visible.
 - Para autenticación por token, puedes actualizar los pares clave-valor del encabezado y el dominio permitido. Ten en cuenta que los valores de encabezado configurados anteriormente no serán visibles.
 
-![La opción para editar credenciales.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Lista de IP permitidas de Contenido conectado {#connected-content-ip-allowlisting}
 
@@ -236,12 +235,14 @@ Ten en cuenta que el valor hash cambia regularmente. Si estás filtrando tráfic
 
 ## Solución de problemas {#troubleshooting}
 
-Usa [Webhook.site](https://webhook.site/) para solucionar problemas con tus llamadas de Contenido conectado.
+Usa [Webhook.site](https://webhook.site/) para solucionar problemas con tus llamadas de Contenido conectado y para diagnosticar problemas con los encabezados de solicitud, el cuerpo de la solicitud y otra información que se envía en la llamada.
 
 1. Cambia la URL en tu llamada de Contenido conectado por la URL única generada en el sitio.
 2. Previsualiza y prueba tu campaña o paso en Canvas para ver las solicitudes llegar a este sitio web.
 
-Usando esta herramienta, puedes diagnosticar problemas con los encabezados de solicitud, el cuerpo de la solicitud y otra información que se envía en la llamada.
+También puedes verificar que la etiqueta Liquid incluya los parámetros que tu punto de conexión espera (por ejemplo, `:method`, `:headers`, `:content_type`, `:body` y `:basic_auth` cuando sea necesario). Si dependes de la clave de código de estado HTTP en un objeto JSON guardado, el punto de conexión debe devolver un objeto JSON y un estado `2XX`.
+
+Para tasas de error altas desde tu host, revisa [Detección de host no saludable]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) y [Volumen de llamadas de Contenido conectado](#understanding-connected-content-call-volume).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

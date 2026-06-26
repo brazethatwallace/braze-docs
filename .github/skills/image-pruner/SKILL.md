@@ -5,7 +5,7 @@ description: >
   documentation articles (_docs/, _includes/, _lang/), contributing guides (docs/),
   or site chrome (layouts, CSS, plugins). Never touches logos/, braze_icons/, or icons/.
   Use when cleaning up unused screenshots, reducing repo size, image pruning, or when
-  the user mentions unreferenced images or @image-pruner.
+  the user mentions unreferenced images or image-pruner.
 ---
 
 # Image pruning
@@ -19,6 +19,41 @@ Remove image files under `assets/img/` that no documentation article, contributi
 **Never deleted** regardless of references: `assets/img/logos/`, `assets/img/braze_icons/`, and `assets/img/icons/`.
 
 > **Policy note:** [`docs/contributing/content_management/images.md`](../../../docs/contributing/content_management/images.md) tells authors not to delete image files when updating a single page. This workflow is for **intentional repo-wide cleanup** after verifying an image is unreferenced in **all** locales—not for routine article edits.
+
+---
+
+## Scheduled maintenance (CI)
+
+Skills do not run on a schedule. **Twice-yearly maintenance** is handled by GitHub Actions:
+
+| Item | Detail |
+|------|--------|
+| Workflow | [`.github/workflows/image-pruner-maintenance.yml`](../../../.github/workflows/image-pruner-maintenance.yml) |
+| Batch script | [`scripts/image-pruner/run_maintenance_batch.py`](../../../scripts/image-pruner/run_maintenance_batch.py) |
+| Schedule | **June 1** and **December 1** at 10:00 America/New_York |
+| Branch | `develop` |
+| What CI does | Scan; delete up to **100** unreferenced files (secondary verify, open-PR exclusions); open a **draft** `[IP]` PR |
+| Human review | **Merge the draft PR** after reviewing the image deletions in the diff |
+
+Each run always executes a delete batch (up to 100 files). CI opens a **draft PR whenever at least one file is deleted**—there is no minimum count. If every candidate is skipped (secondary verify) or the scan finds zero unreferenced images, no PR is opened.
+
+CI skips opening a new batch when another open `[IP] Remove …` PR already exists (merge or close it first, then re-run).
+
+**Maintenance phase** (after bulk cleanup): expect few or no deletable files per run. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or invoke this skill (`braze-docs:image-pruner`) for the next batch.
+
+### Manual runs
+
+- **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`).
+- **Cursor / agents:** Invoke `braze-docs:image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
+
+### Division of labor
+
+| Trigger | Who acts |
+|---------|----------|
+| Scheduled run (Jun/Dec) | CI runs batch and opens a draft `[IP]` PR when deletions exist |
+| Draft PR opened by CI | Docs team reviews diff and merges (or closes without merging) |
+| Spike after a large IA move | Run workflow manually or invoke this skill (`braze-docs:image-pruner`); do not wait for the next scheduled run |
+| More than 100 files remain | Merge current PR, then re-run workflow for the next batch |
 
 ---
 
@@ -244,10 +279,16 @@ Be skeptical when the CSV shows:
 
 ## Example prompts
 
+Natural-language example requests:
+
 ```
-@image-pruner Run a scan and summarize how many MB we can reclaim.
+Run a scan and summarize how many MB we can reclaim.
 ```
 
 ```
-@image-pruner Delete unreferenced images after I approve the CSV.
+Delete unreferenced images after I approve the CSV.
+```
+
+```
+The maintenance workflow opened a draft PR — help review the deletion batch.
 ```

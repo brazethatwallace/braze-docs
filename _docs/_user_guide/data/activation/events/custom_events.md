@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Braze Learning course]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Custom events
 
-> This article describes custom events and properties, related segmentation filters, Canvas entry properties, relevant analytics, and more. To learn about Braze events in general, refer to [Events]({{site.baseurl}}/user_guide/data/activation/events/).
+> This article describes custom events and properties, user profile event history, related segmentation filters, Canvas entry properties, relevant analytics, and more. To learn about Braze events in general, refer to [Events]({{site.baseurl}}/user_guide/data/activation/events/).
 
 Custom events are actions taken by, or updates about, your users. When custom events are logged, they can trigger any number and type of follow-up campaigns. You can then use [segmentation filters](#segmentation-filters) to segment users based on how recently and frequently those custom events occurred. This makes custom events best suited for tracking high-value user interactions within your application.
 
@@ -44,10 +44,6 @@ When you block a custom event:
 Additionally, if a blocked custom event is currently referenced by filters or triggers in other areas of Braze, a warning modal will appear explaining that all instances of the filters or triggers that reference it will be removed and archived.
 
 For more details on blocklisting and deleting custom data, see [Blocklist custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
-
-### Marking as personally identifiable information (PII)
-
-Administrators can also create custom events and mark them as PII from this page. These events are only visible to admins and dashboard users with the "View Custom Attributes Marked as PII" permission.
 
 ### Adding descriptions
 
@@ -90,6 +86,38 @@ Custom events require additional setup. Refer to the list below for documentatio
 ## Custom event storage
 
 All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_archival#active-users).
+
+## View a user's event history
+
+{% alert important %}
+Event History is currently in early access. Contact your Braze account manager if you're interested in participating.
+{% endalert %}
+
+Use the **Event History** tab on a user's profile to view that user's recent custom events and purchases. This helps you confirm your integration is logging events correctly and troubleshoot user-level issues directly in the dashboard.
+
+To view a user's event history:
+
+1. Go to **Audience** > **Search Users**, then select a user to open their profile.
+2. Select the **Event History** tab.
+
+The tab lists the user's custom events and purchases from the past 30 days, up to their 100 most recent events, ordered from newest to oldest.
+
+Each event includes:
+
+- **Event type:** Whether the event is a custom event or a purchase.
+- **Event name:** The event name as it was logged.
+- **Time:** When the event occurred.
+- **Properties:** The full event properties for that occurrence, shown as JSON.
+
+Common use cases include:
+
+- Verifying your SDK or API integration is sending events as expected during development or after a release.
+- Troubleshooting why a user did or did not enter an event-triggered campaign or Canvas.
+- Investigating a support issue for a specific user without setting up a data export.
+
+{% alert note %}
+Viewing the **Event History** tab requires both the **Search Users** and **View PII** user permissions because event properties can contain personal data. For more information, refer to [Company user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+{% endalert %}
 
 ## Segmentation filters
 

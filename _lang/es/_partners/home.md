@@ -1,7 +1,7 @@
 ---
 page_order: 0
 article_title: Socios tecnológicos
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 
@@ -136,6 +136,8 @@ valid_partner_list:
   url: /docs/partners/optilyz/
 - name: Digioh
   url: /docs/partners/digioh/
+- name: DinMo
+  url: /docs/partners/dinmo/
 - name: Nexla
   url: /docs/partners/nexla/
 - name: Amperity
@@ -358,6 +360,8 @@ valid_partner_list:
   url: /docs/partners/sessionm/
 - name: Tapcart
   url: /docs/partners/tapcart/
+- name: Talkable
+  url: /docs/partners/talkable/
 - name: Mention Me
   url: /docs/partners/mention_me/
 - name: JustAI

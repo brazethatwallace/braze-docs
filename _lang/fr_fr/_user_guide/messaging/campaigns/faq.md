@@ -168,6 +168,10 @@ Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre atte
 Pour obtenir une assistance supplémentaire sur la résolution des problèmes de campagne, assurez-vous de contacter l'assistance Braze dans les 30 jours suivant la survenue de votre problème, car nous ne disposons que des 30 derniers jours de journaux de diagnostic.
 {% endalert %}
 
+### Pourquoi les utilisateurs ont-ils reçu ma campagne deux fois après que je l'ai modifiée ? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Si vous modifiez une campagne active sans l'arrêter au préalable, les utilisateurs peuvent recevoir le message deux fois. Cela se produit parce que la modification d'une campagne active remet les utilisateurs en file d'attente pour la version mise à jour alors que la file d'attente originale est encore en cours de traitement. Les utilisateurs qui n'ont pas encore reçu le message original peuvent se retrouver dans les deux files d'attente. Pour éviter cela, [arrêtez toujours la campagne]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) avant d'apporter des modifications.
+
 ### Quelle est la différence entre les options Exporter les données utilisateur en CSV et Exporter les adresses e-mail en CSV sur ma page d'analyse de campagne ? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 L'option **Exporter les adresses e-mail en CSV** télécharge uniquement les données des utilisateurs ayant des adresses e-mail. Par exemple, si vous avez un segment de 100 000 utilisateurs, mais que seulement 50 000 d'entre eux ont des adresses e-mail, et que vous cliquez sur **Exporter les adresses e-mail en CSV**, l'export ne contiendra que 50 000 lignes de données. En comparaison, l'option **Exporter les données utilisateur en CSV** exporte toutes les données utilisateur.
@@ -271,3 +275,17 @@ Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à l
 ### Où trouver les questions fréquemment posées sur la limite de fréquence globale ? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
 Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) pour [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Pourquoi les destinataires uniques peuvent-ils dépasser les envois pour les e-mails et les SMS ? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Pour les e-mails et les SMS, Braze incrémente les **destinataires uniques** avant la tentative d'envoi par le fournisseur de services de messagerie (ESP) et incrémente les **envois** après une réponse réussie de l'ESP. Les erreurs permanentes (comme les adresses e-mail invalides) ou les adresses en double font que les destinataires uniques dépassent les envois.
+
+### Pourquoi le **dernier envoi** ne correspond-il pas à l'heure d'envoi planifiée ? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Pour une campagne avec un seul envoi planifié, le **dernier envoi** correspond à l'heure de lancement. Pour les campagnes récurrentes avec l'option **Envoyer en fuseau horaire local** activée, le **dernier envoi** peut apparaître plus tôt que l'heure planifiée, car les envois aux utilisateurs dans des fuseaux horaires plus avancés (par exemple, GMT par rapport à PST) se terminent avant l'heure planifiée de votre espace de travail.
+
+### Pourquoi une campagne historique arrêtée n'affiche-t-elle plus d'indicateurs sur la page **Analytics** ? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+L'onglet **Analytics** affiche par défaut les 90 derniers jours. Si la campagne a été envoyée pour la dernière fois en dehors de cette fenêtre, les indicateurs peuvent apparaître à zéro jusqu'à ce que vous ajustiez la plage de dates sur la page **Analytics** pour inclure la période d'envoi de la campagne. Pour en savoir plus, consultez [Analyse de campagne]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restaurer les données d'interaction** ne restaure pas les analyses de campagne. Cette fonctionnalité s'applique uniquement aux filtres de reciblage et à l'historique d'interaction des utilisateurs. Pour en savoir plus, consultez [Données d'interaction de messagerie]({{site.baseurl}}/messaging_interaction_data/).

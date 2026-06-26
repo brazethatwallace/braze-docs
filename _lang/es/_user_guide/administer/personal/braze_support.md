@@ -16,7 +16,7 @@ search_rank: 7
 
 Para ponerte en contacto con el equipo de soporte de Braze, navega al dashboard de Braze y selecciona **Support**. El menú ofrece dos opciones:
 
-- **Get help with Operator** abre BrazeAI Operator<sup>TM</sup>, que puede solucionar tu problema en el momento utilizando el contexto de tu conversación y la pantalla actual. Si Operator no puede resolver tu problema, puedes pedirle que redacte un ticket de soporte basado en tu conversación. Para más información, consulta [enviar tickets de soporte con BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help with Operator** abre BrazeAI Operator<sup>TM</sup>, que puede solucionar tu problema en el momento utilizando el contexto de tu conversación y la pantalla actual. Si Operator no puede resolver tu problema, puedes pedirle que redacte un ticket de soporte basado en tu conversación. Para más información, consulta [enviar tickets de soporte con BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
 - **Get help** te lleva directamente al portal de soporte de Braze (si eres un contacto de soporte designado) o a nuestro formulario de soporte estándar, donde puedes enviar y hacer seguimiento de casos. Si no estás seguro de si eres un contacto de soporte de Braze, ponte en contacto con el administrador de Braze de tu empresa, tu gestor de éxito de Braze o el propietario de la cuenta.
 
 ![El menú desplegable "Support" mostrando las opciones "Get help with Operator" y "Get help".]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
@@ -30,8 +30,6 @@ Los contactos de soporte designados pueden acceder a todos los casos de soporte 
 2. Selecciona el nombre del usuario o pasa el cursor sobre la fila del nombre del usuario para mostrar un menú.
 3. En el menú, selecciona **Editar** para ser redirigido a la página **Editar usuario**.
 4. Marca la casilla de verificación **Set this user as a Designated Support Contact for Braze Support Portal**.
-
-![La casilla de verificación para configurar un usuario como contacto de soporte designado.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### Obtener acceso {#gaining-access}
 
@@ -102,7 +100,7 @@ Marcar un problema como "Crítico" significa que tu instancia de producción est
 Si el dashboard de Braze no se carga correctamente, prueba lo siguiente antes de ponerte en contacto con soporte:
 
 1. Abre el dashboard en un navegador diferente o en una ventana de incógnito o privada.
-2. [Borra la caché y las cookies de tu navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+2. [Borra la caché y las cookies de tu navegador]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
 3. Desactiva los bloqueadores de anuncios y las extensiones del navegador, y luego recarga el dashboard.
 4. Si usas una VPN, desconéctala e inténtalo de nuevo.
 

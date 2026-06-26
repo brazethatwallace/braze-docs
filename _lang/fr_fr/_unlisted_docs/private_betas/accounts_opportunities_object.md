@@ -142,7 +142,7 @@ L'API Braze vous donne un contrôle programmatique sur les données de compte à
 Pour plus d'informations sur les méthodes HTTP et le fonctionnement des API REST, consultez les ressources suivantes :
 - [Méthodes de requête HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) sur MDN Web Docs
 - [Tutoriel REST API](https://restapitutorial.com/)
-- [Aperçu de l'API Braze](https://www.braze.com/docs/api/basics)
+- [Aperçu de l'API Braze]({{site.baseurl}}/api/basics/)
 
 {% alert note %}
 Utilisez une clé API avec les autorisations de catalogues pour authentifier les requêtes vers l'endpoint `/business/accounts`.

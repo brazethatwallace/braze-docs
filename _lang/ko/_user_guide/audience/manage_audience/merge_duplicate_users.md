@@ -7,7 +7,7 @@ page_order: 4
 
 # 중복 사용자 병합 {#merge-duplicate-users}
 
-> Campaign(캠페인)과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아보세요.
+> Campaign과 Canvases의 효과를 극대화할 수 있도록 중복 사용자를 찾고 병합하는 방법을 알아보세요.
 
 ## REST API: 사용자 식별 및 병합 {#rest-api-identify-and-merge-users}
 
@@ -28,13 +28,13 @@ Braze는 병합 시 삭제 예정 사용자, 테스트 사용자, 전역 제어 
 
 ### 1단계: 중복 프로필 검색 {#step-1-search-for-a-duplicate-profile}
 
-Braze에서 **Audience** > **User Search**를 선택합니다.
+Braze에서 **오디언스** > **사용자 검색**을 선택합니다.
 
-![내비게이션 메뉴에서 강조 표시된 "User Search" 타일.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
+![내비게이션 메뉴에서 강조 표시된 "사용자 검색" 타일.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_search_users.png %}){: style="max-width:60%;"}
 
-중복 프로필의 이메일 주소나 전화번호와 같은 고유 식별자를 입력한 다음 **Search**를 선택합니다.
+중복 프로필의 이메일 주소나 전화번호와 같은 고유 식별자를 입력한 다음 **검색**을 선택합니다.
 
-![Braze 대시보드의 "User Search" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
+![Braze 대시보드의 "사용자 검색" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
 
 ### 2단계: 중복 항목 병합 {#step-2-merge-duplicates}
 
@@ -44,7 +44,6 @@ Braze에서 **Audience** > **User Search**를 선택합니다.
 
 유지할 고객 프로필과 병합할 프로필을 선택한 다음 **Merge profiles**를 선택합니다. 모든 중복 프로필이 병합될 때까지 이 과정을 반복합니다.
 
-![중복 프로필의 개별 병합 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
@@ -52,23 +51,22 @@ Braze에서 **Audience** > **User Search**를 선택합니다.
 
 ## 일괄 병합 {#bulk-merging}
 
-중복 사용자를 일괄 병합하면 Braze가 일치하는 식별자(예: 이메일 주소)를 가진 프로필을 찾아 하나의 프로필을 유지합니다. Braze는 먼저 `external_id`가 있는 프로필을 우선시한 다음 **Resolving ties** 설정인 **Resolve ties using** 및 **Prioritization**을 적용합니다. `external_id`가 있는 프로필이 없는 경우 Braze는 `external_id`가 없는 프로필 전체에 **Resolve ties using** 및 **Prioritization**을 사용합니다. Braze는 이러한 설정이 유지할 프로필 하나를 식별하는 경우에만 사용자를 병합합니다. 예를 들어, **Resolve ties using**이 **Updated date**이고 두 프로필의 마지막 업데이트 타임스탬프가 동일한 경우 Braze는 동점을 해결할 수 없으므로 해당 사용자는 병합되지 않습니다.
+중복 사용자를 일괄 병합하면 Braze가 일치하는 식별자(예: 이메일 주소)를 가진 프로필을 찾아 하나의 프로필을 유지합니다. Braze는 먼저 `external_id`가 있는 프로필을 우선시한 다음 **동점 해결** 설정인 **Resolve ties using** 및 **Prioritization**을 적용합니다. `external_id`가 있는 프로필이 없는 경우 Braze는 `external_id`가 없는 프로필 전체에 **Resolve ties using** 및 **Prioritization**을 사용합니다. Braze는 이러한 설정이 유지할 프로필 하나를 식별하는 경우에만 사용자를 병합합니다. 예를 들어, **Resolve ties using**이 **Updated date**이고 두 프로필의 마지막 업데이트 타임스탬프가 동일한 경우 Braze는 동점을 해결할 수 없으므로 해당 사용자는 병합되지 않습니다.
 
 ### 1단계: 오디언스 관리로 이동 {#step-1-go-to-manage-audience}
 
-Braze 대시보드에서 **Audience** > **Manage Audience**를 선택합니다.
+Braze 대시보드에서 **오디언스** > **오디언스 관리**를 선택합니다.
 
-![내비게이션 메뉴에서 강조 표시된 "Manage Audience" 타일.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
+![내비게이션 메뉴에서 강조 표시된 "오디언스 관리" 타일.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
 
 ### 2단계: 결과 미리보기(선택 사항) {#step-2-preview-the-results-optional}
 
 중복 항목을 병합하기 전에 결과를 미리 보려면 **Generate list of duplicates**를 선택합니다.
 
-![**Generate list of duplicates**가 강조 표시된 "Manage Audience" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
+![**Generate list of duplicates**가 강조 표시된 "오디언스 관리" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_generate_list.png %})
 
 Braze가 미리보기를 생성하여 이메일 주소로 CSV 파일로 전송합니다.
 
-![생성된 CSV 파일 링크가 포함된 Braze 이메일.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 다음 예시에서 Braze는 사용자의 외부 ID를 사용하여 중복 프로필을 표시하고 유지할 프로필을 식별합니다. 이러한 프로필이 일괄 병합되면 Braze는 외부 ID가 있는 프로필을 사용자의 새 기본 프로필로 사용합니다.
 
@@ -95,7 +93,6 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
 {% endalert %}
 
-![**Merge all duplicates**가 강조 표시된 "Manage Audience" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## 규칙 기반 병합 {#rules-based-merging}
 
@@ -103,7 +100,7 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 
 ### 1단계: 규칙 정의 {#step-1-define-your-rules}
 
-1. **Audience** > **Manage Audience** > **Edit rules**로 이동합니다.
+1. **오디언스** > **오디언스 관리** > **Edit rules**로 이동합니다.
 2. **Edit rules** 패널의 **Profile to keep** 섹션에서 중복 항목 병합 시 유지할 프로필의 **Identifier**를 선택합니다. 이메일 주소 또는 전화번호를 선택할 수 있습니다.
 3. **Resolving ties** 섹션에서 **Profile to keep**의 일치하는 기준을 가진 프로필 간의 동점을 해결하는 기준을 선택합니다. 다음을 선택할 수 있습니다:<br>
 - **Resolve ties using**: Created date, Updated date, Last session
@@ -119,7 +116,7 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 
 ### 3단계: 중복 항목 병합 {#step-3-merge-duplicates}
 
-미리보기 결과에 만족하면 **Manage Audience** 페이지로 돌아가서 **Merge all duplicates**를 선택합니다.
+미리보기 결과에 만족하면 **오디언스 관리** 페이지로 돌아가서 **Merge all duplicates**를 선택합니다.
 
 {% alert warning %}
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
@@ -129,7 +126,7 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 
 규칙 기반 병합과 유사하게, 예약 병합을 사용하면 사전 구성된 규칙을 사용하여 매일 고객 프로필 병합을 자동화할 수 있습니다.
 
-![**Schedule** 버튼이 있는 "Manage Audience" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
+![schedule 버튼이 있는 "오디언스 관리" 페이지.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
 
 기능이 활성화되면 Braze가 자동으로 시간대를 할당하여 사용자의 회사 시간대 기준 매일 약 오전 12시에 병합 프로세스를 수행합니다. 예약 병합은 언제든지 비활성화할 수 있습니다. Braze는 예약된 병합이 실행되기 24시간 전에 워크스페이스 관리자에게 알림을 보내 구성을 검토할 시간을 제공합니다.
 
@@ -137,11 +134,11 @@ Braze는 유지되는 프로필의 비어 있는 필드를 병합된 프로필�
 중복 사용자 프로필은 병합 후 복구할 수 없습니다.
 {% endalert %}
 
-## 동일한 이메일 주소에 여러 사용자 프로필이 연결되는 이유 {#why-are-multiple-user-profiles-associated-with-the-same-email-address}
+## 동일한 이메일 주소에 여러 고객 프로필이 연결되는 이유 {#why-are-multiple-user-profiles-associated-with-the-same-email-address}
 
-Braze는 서로 다른 식별자, 가져오기 또는 식별 전 익명 세션을 통해 프로필이 생성된 경우 동일한 이메일 주소를 공유하는 여러 사용자 프로필을 저장합니다. 이는 사용자가 단일 `external_id`를 공유하지 않을 때 예상되는 동작입니다.
+Braze는 서로 다른 식별자, 가져오기 또는 식별 전 익명 세션을 통해 프로필이 생성된 경우 동일한 이메일 주소를 공유하는 여러 고객 프로필을 저장합니다. 이는 사용자가 단일 `external_id`를 공유하지 않을 때 예상되는 동작입니다.
 
-중복 항목을 병합하기 전에 [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 이메일 주소에 어떤 프로필이 존재하는지, 각 프로필에 어떤 필드가 포함되어 있는지 확인하세요. **Audience** > **User Search**에서 이메일로 검색하여 대시보드에서 중복 항목을 검토할 수도 있습니다.
+중복 항목을 병합하기 전에 [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)를 사용하여 이메일 주소에 어떤 프로필이 존재하는지, 각 프로필에 어떤 필드가 포함되어 있는지 확인하세요. **오디언스** > **사용자 검색**에서 이메일로 검색하여 대시보드에서 중복 항목을 검토할 수도 있습니다.
 
 ## 관련 문서 {#related-articles}
 

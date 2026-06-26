@@ -193,9 +193,9 @@ Each line of frequency caps is connected using the `AND` operator, and you can a
 
 ![Frequency capping section with lists of campaigns and Canvases that rules will and will not apply to.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"} 
 
-#### Behavior when users are frequency capped on a Canvas step
+#### Behavior when users are frequency capped or a message is aborted on a Canvas step
 
-Global frequency capping alone doesn't exit users from a Canvas. On [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), users still advance when a message isn't sent because of global frequency capping, in line with [how users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) through the step.
+Global frequency capping alone doesn't exit users from a Canvas. On [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), users still advance when a message isn't sent because of global frequency capping, in line with [how users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) through the step. The same applies when a message is aborted (for example, by a Liquid abort condition): the user continues through the Canvas as if the message had been sent.
 
 This is separate from **Delivery validations** on a Message step. If a user doesn't meet your delivery validation criteria at send time, they can exit the Canvas at that step.
 
@@ -330,3 +330,35 @@ For example, you might set up the following rule:
 > No more than three email campaigns or Canvas components per week from all campaigns and Canvas steps.
 
 This rule determines that no users receive more than 100 emails per week because, at most, users receive three emails per week from campaigns or Canvas components with frequency capping turned on.
+
+## Frequently asked questions
+
+### If I change a send throttle on an active Canvas, does it affect users already in the Canvas?
+
+Yes, when you increase or decrease a Canvas rate limit, the updated limit takes effect for new messages within approximately 30 seconds of the change due to caching.
+
+### Does frequency capping cause users to exit a Canvas?
+
+No. If a Canvas user is frequency-capped because of global frequency capping settings, the user immediately advances to the next Canvas step. The user does **not** exit the Canvas because of the frequency cap.
+
+### How can I identify users who were frequency capped in a Canvas?
+
+Users who are frequency capped don't generate a send event for that step. To identify these users, you can use [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) to track message frequency capped events. Alternatively, you can create a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) to analyze users who entered the Canvas but didn't receive the expected message.
+
+### Why does the dashboard show a rate limit error for my campaign?
+
+This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set too low for the audience size, so completing the send would take longer than the allowed window and Braze surfaces a warning. Increase the delivery speed rate limit, reduce the audience, or use **Limit send volume** so each scheduled occurrence finishes within the allowed send window. You can also set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) to enforce a cap across campaigns.
+
+**Limit send volume** controls how many users are eligible for a send, not how many messages Braze sends per minute. Only a delivery speed rate limit sets per-minute throughput.
+
+### What does "Sent" mean for frequency capping?
+
+In analytics and frequency capping, _Sent_ refers to when Braze dispatches the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
+
+### Why am I seeing email bounces or deferrals?
+
+Email bounce and deferral messages use many different codes and provider-specific text. Don't treat a particular code as a sign of a rate limiting problem, as the cause depends on your sending context and mailbox-provider feedback.
+
+If messages are temporarily deferred, sending less may help in the short term. Use a [delivery speed rate limit](#delivery-speed-rate-limiting), **Limit send volume**, or both.
+
+For a long-term solution, work with a deliverability expert to review your bounce and deferral data.

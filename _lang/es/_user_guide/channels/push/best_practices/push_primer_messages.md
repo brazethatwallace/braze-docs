@@ -101,14 +101,14 @@ Para mejores prácticas y recursos adicionales, consulta [Crear avisos personali
 
 ## Paso 3: Especifica el comportamiento de los botones {#button-actions}
 
-Para añadir botones a tu mensaje dentro de la aplicación, arrastra dos bloques de **Button** a tu mensaje, que actúan como los botones primario y secundario en tu mensaje dentro de la aplicación. También puedes arrastrar una fila a tu mensaje y luego arrastrar los botones a la fila, para que los botones estén en la misma fila horizontal (en lugar de apilados uno encima del otro). Recomendamos "Allow notifications" y "Not now" como botones iniciales, pero hay muchos avisos de botón diferentes que puedes asignar.
+Para añadir botones a tu mensaje dentro de la aplicación, arrastra dos bloques de **Botón** a tu mensaje, que actúan como los botones primario y secundario en tu mensaje dentro de la aplicación. También puedes arrastrar una fila a tu mensaje y luego arrastrar los botones a la fila, para que los botones estén en la misma fila horizontal (en lugar de apilados uno encima del otro). Recomendamos "Permitir notificaciones" y "Ahora no" como botones iniciales, pero hay muchos avisos de botón diferentes que puedes asignar.
 
 Después de haber añadido el texto de los botones, especifica el comportamiento de clic para cada botón:
 
-- **Button 1:** Configúralo como "Close Message". Este es tu botón secundario, o la opción "Not now".
-- **Button 2:** Configúralo como "Request Push Permission". Este es tu botón primario, o la opción "Allow notifications".
+- **Botón 1:** Configúralo como "Close Message". Este es tu botón secundario, o la opción "Ahora no".
+- **Botón 2:** Configúralo como "Request Push Permission". Este es tu botón primario, o la opción "Permitir notificaciones".
 
-![Creador de mensajes dentro de la aplicación con dos botones: "Allow notifications" y "Not now".]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
+![Creador de mensajes dentro de la aplicación con dos botones: "Permitir notificaciones" y "Ahora no".]({% image_buster /assets/img_archive/push_primer_button_behavior.png %})
 
 ## Paso 4: Planifica la entrega {#step-4-schedule-delivery}
 

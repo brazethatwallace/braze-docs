@@ -29,7 +29,7 @@ Use Braze user profile field names (listed as follows or any listed in the secti
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean),
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -41,10 +41,10 @@ Use Braze user profile field names (listed as follows or any listed in the secti
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
-  // Removing from an array of objects (REST API syntax)
-  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
+  // Removing from an array of objects (nested custom attribute syntax)
+  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
@@ -52,16 +52,16 @@ Use Braze user profile field names (listed as follows or any listed in the secti
 - [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
 {% alert note %}
-For REST API requests to [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), use `add`, `remove`, and `update` keys for array operations. Keys prefixed with `$` (such as `$add`) are for SDK method payloads.
+For regular array custom attributes, use `add` and `remove` (without `$`).
 
-When a REST API request uses `$add`, `$remove`, or `$update`, Braze can return `success` without applying the array update.
+For array of objects (nested custom attributes), use `$add`, `$remove`, and `$update` in `/users/track` request payloads. These operators apply object-level changes by matching identifiers (`$identifier_key` and `$identifier_value`) and support in-place updates with `$new_object`.
 
-For more details, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) and [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+Use this format when you need to append, remove, or update objects inside an existing array while preserving the rest of the array state. For full request examples, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) and [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 {% endalert %}
 
 To remove a profile attribute, set it to `null`. Some fields, such as `external_id` and `user_alias` cannot be removed after they're added to a user profile.
 
-#### Identifier resolution
+### Identifier resolution
 
 Unless you're performing an [anonymous push token import](#push-token-import), each user attributes object must include at least one identifier: `external_id`, `user_alias`, `braze_id`, `email`, or `phone`. When possible, include only one identifier per object to avoid ambiguity about which user profile is being updated or created.
 
@@ -111,9 +111,9 @@ The following data types can be stored as a custom attribute:
 | Data Type | Notes |
 | --- | --- |
 | Arrays | Custom attribute arrays are supported. When you add an element, it's appended to the end of the array. If the element already exists, it's moved from its current position to the end.<br><br>Only unique values are stored. For example, importing `['hotdog','hotdog','hotdog','pizza']` results in `['hotdog', 'pizza']`.<br><br>You can set an array directly (for example, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), add to an existing array with `"my_array_custom_attribute" : { "add" : ["Value3"] }`, or remove values with `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>The default and maximum number of elements in an array is 500. You can update the maximum number of arrays in the Braze dashboard, under **Data Settings** > **Custom Attributes**. For more information, see [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
-| Array of objects | Use an array of objects to define a list of objects where each object contains a set of attributes. Use this type to store multiple sets of related data for a user, such as hotel stays, purchase history, or preferences. <br><br>For example, define a custom attribute named `hotel_stays` on a user profile as an array where each object represents a separate stay, with attributes such as `hotel_name`, `check_in_date`, and `nights_stayed`.<br><br>Arrays of objects have no limit on the number of items but do have a maximum size of 100&nbsp;KB. If an update causes the array to exceed this limit, Braze drops the update, and the attribute is unchanged.<br><br>For REST API requests, add items with `add`, remove items with `remove`, and update items with `update`. For SDK methods, use `$add`, `$remove`, and `$update` in the payload passed to the SDK. For details, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example), and [Array of objects example](#array-of-objects-example). |
+| Array of objects | Use an array of objects to define a list of objects where each object contains a set of attributes. Use this type to store multiple sets of related data for a user, such as hotel stays, purchase history, or preferences. <br><br>For example, define a custom attribute named `hotel_stays` on a user profile as an array where each object represents a separate stay, with attributes such as `hotel_name`, `check_in_date`, and `nights_stayed`.<br><br>Arrays of objects have no limit on the number of items but do have a maximum size of 100&nbsp;KB. If an update causes the array to exceed this limit, Braze drops the update, and the attribute is unchanged.<br><br>For `/users/track` and SDK payloads, use `$add`, `$remove`, and `$update` for array-of-objects operations. Use `add` and `remove` (without `$`) for regular array custom attributes that contain scalar values. For details, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example), and [Array of objects example](#array-of-objects-example). |
 | Booleans | `true` or `false` |
-| Dates | Must be stored in the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format or in any of the following formats: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Note that "T" is a time designator, not a placeholder, and should not be changed or removed. <br><br>Time attributes without a time zone default to midnight UTC (and are formatted on the dashboard as the equivalent of midnight UTC in the company's time zone). To specify a time zone, append a UTC offset to the timestamp (for example, `2024-11-10T18:00:00-05:00` for EST). If the time zone offset is missing or formatted incorrectly, the value defaults to UTC. <br><br>Times are displayed on the dashboard in your company's time zone. For example, `2024-11-10T18:00:00-05:00` (6:00 PM EST) would appear as the equivalent time in your company's configured time zone. <br><br>Events with timestamps in the future default to the current time. <br><br>For regular custom attributes, if the year is less than 0 or greater than 3000, Braze stores the value as a string on the user profile. |
+| Dates | Store dates in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (recommended) or in any of these formats: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Note that "T" is a time designator, not a placeholder, and should not be changed or removed. <br><br>Date values that don't match any of the listed formats are stored as strings on the user profile instead of as the Time data type. This means time-based segmentation filters (such as "before", "after", or "in the last X days") don't work for those attributes. For example, `Mar 26 2026 06:12 PM +00:00` is stored as a string because it doesn't match a supported format. To avoid this, use ISO 8601 format (such as `2026-03-26T18:12:00Z`). <br><br>Time attributes without a time zone default to midnight UTC (and are formatted on the dashboard as the equivalent of midnight UTC in the company's time zone). To specify a time zone, append a UTC offset to the timestamp (for example, `2024-11-10T18:00:00-05:00` for EST). If the time zone offset is missing or formatted incorrectly, the value defaults to UTC. <br><br>Times are displayed on the dashboard in your company's time zone. For example, `2024-11-10T18:00:00-05:00` (6:00 PM EST) would appear as the equivalent time in your company's configured time zone. <br><br>Events with timestamps in the future default to the current time. <br><br>For regular custom attributes, if the year is less than 0 or greater than 3000, Braze stores the value as a string on the user profile. |
 | Floats | Float custom attributes are positive or negative numbers with a decimal point. For example, you can use floats to store account balances or user ratings for products or services. |
 | Integers | You can increment integer custom attributes by assigning an object with the "inc" field and the amount to add. <br><br>Example: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Nested custom attributes | Nested custom attributes define a set of attributes as a property of another attribute. When you define a custom attribute object, you add a set of attributes to that object. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
@@ -135,7 +135,7 @@ This array of objects allows you to create segments based on specific criteria w
 ]}
 ```
 
-For API examples that use `add`, `remove`, and `update`, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example). For SDK examples that use `$add`, `$remove`, and `$update`, see [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+For array-of-objects examples that use `$add`, `$remove`, and `$update`, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) and [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
 
 #### Braze user profile fields {#braze-user-profile-fields}
 
@@ -191,21 +191,21 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes" : [
     {
       "external_id" : "user1",
-      "first_name" : "Jon",
+      "first_name" : "Alex",
       "has_profile_picture" : true,
       "dob": "1988-02-14",
       "music_videos_favorited" : { "add" : [ "calvinharris-summer" ], "remove" : ["nickiminaj-anaconda"] }
     },
     {
       "external_id" : "user2",
-      "first_name" : "Jill",
+      "first_name" : "Lee",
       "has_profile_picture" : false,
       "push_tokens": [{"app_id": "Your App Identifier", "token": "abcd", "device_id": "optional_field_value"}]
 
     },
     {
       "user_alias" : { "alias_name" : "device123", "alias_label" : "my_device_identifier"},
-      "first_name" : "Alice",
+      "first_name" : "Yuri",
       "has_profile_picture" : false
     },
     {
@@ -216,7 +216,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Migrating push tokens
+## Migrate push tokens
 
 If you were sending push notifications prior to integrating Braze, either on your own or through another provider, push token migration allows you to continue sending push notifications to your users with registered push tokens.
 
@@ -293,7 +293,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
     {
       "push_token_import" : true,
-      "email": "braze.test1@testbraze.com",
+      "email": "braze.test1@example.com",
       "country": "US",
       "language": "en",
       "YOUR_CUSTOM_ATTRIBUTE": "YOUR_VALUE",
@@ -304,7 +304,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
     {
       "push_token_import" : true,
-      "email": "braze.test2@testbraze.com",
+      "email": "braze.test2@example.com",
       "country": "US",
       "language": "en",
       "YOUR_CUSTOM_ATTRIBUTE_1": "YOUR_VALUE",
@@ -323,7 +323,23 @@ Braze checks once a month to find any anonymous profile with the `push_token_imp
 {% endtab %}
 {% endtabs %}
 
-### Importing Android push tokens
+### Import iOS push tokens
+
+When migrating iOS push tokens with `/users/track`, the `gateway` field is not set on the push token. Braze assumes that tokens imported through the API are valid foreground push tokens but cannot determine which APNs environment the token belongs to.
+
+Without the gateway field, Braze uses your app's configured fallback environment setting when sending push notifications. This can lead to `BadDeviceToken` errors if the token's actual environment differs from the configured fallback. For example, a development token sent through the production gateway will fail.
+
+To avoid delivery issues:
+
+- Ensure your app's environment setting in the Braze dashboard matches the tokens you're importing.
+- For production apps, import only production tokens.
+- For testing environments, verify that both your app configuration and imported tokens use the development environment.
+
+{% alert note %}
+Tokens registered through the Braze SDK include the gateway field automatically, as the SDK detects the environment from your app's entitlements.
+{% endalert %}
+
+### Import Android push tokens
 
 {% alert important %}
 The following consideration applies only for Android apps. iOS apps do not require these steps because that platform has only one framework for displaying push, and push notifications render immediately as long as Braze has the necessary push tokens and certificates.

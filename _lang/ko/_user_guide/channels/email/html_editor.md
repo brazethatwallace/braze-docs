@@ -83,14 +83,13 @@ Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML �
 정확한 미리보기와 함께 이메일에 모션을 추가하려면 JavaScript 대신 GIF를 사용하세요. 대부분의 받은편지함에서 JavaScript를 지원하지 않습니다.
 {% endalert %}
 
-![이메일 작성을 위한 이메일 배리언트 패널.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze는 속성으로 참조된 HTML 이벤트 핸들러를 자동으로 제거합니다. 이로 인해 HTML이 수정되므로, 작성을 완료한 후 이메일을 다시 확인하세요. [HTML 핸들러](https://www.w3schools.com/tags/ref_eventattributes.asp)에 대해 자세히 알아보세요.
 {% endalert %}
 
 {% alert tip %}
-멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
+멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
 
 ![이메일 작성기의 본문 탭에 있는 AI 카피라이터 시작 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
@@ -214,23 +213,23 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 
 ### 3.2단계: 메시지 미리보기 및 테스트하기 {#step-3b-preview-and-test-your-message}
 
-이메일 작성을 완료한 후, 발송하기 전에 테스트하세요. 개요 화면 하단에서 **Preview and Test**를 선택합니다.
+이메일 작성을 완료한 후, 발송하기 전에 테스트하세요. 개요 화면 하단에서 **미리보기 및 테스트**를 선택합니다.
 
-여기서 고객의 받은편지함에 이메일이 어떻게 표시되는지 미리볼 수 있습니다. **Preview as User**를 선택하면 랜덤 사용자로 이메일을 미리보거나, 특정 사용자를 선택하거나, 커스텀 사용자를 만들 수 있습니다. 이를 통해 연결된 콘텐츠와 개인화 호출이 제대로 작동하는지 테스트할 수 있습니다.
+여기서 고객의 받은편지함에 이메일이 어떻게 표시되는지 미리볼 수 있습니다. **사용자로 미리보기**를 선택하면 랜덤 사용자로 이메일을 미리보거나, 특정 사용자를 선택하거나, 커스텀 사용자를 만들 수 있습니다. 이를 통해 연결된 콘텐츠와 개인화 호출이 제대로 작동하는지 테스트할 수 있습니다.
 
-그런 다음 **Copy preview link**를 사용하여 랜덤 사용자에게 이메일이 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
+그런 다음 **미리보기 링크 복사**를 사용하여 랜덤 사용자에게 이메일이 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
 
 데스크탑, 모바일, 일반 텍스트 보기 간에 전환하여 다양한 컨텍스트에서 메시지가 어떻게 표시되는지 확인할 수도 있습니다.
 
 {% alert tip %}
-다크 모드 사용자에게 이메일이 어떻게 보이는지 궁금하신가요? **Preview and Test** 섹션에 있는 **Dark Mode Preview** 토글을 선택하세요(드래그 앤 드롭 편집기만 해당). HTML 편집기를 사용하는 경우에도 [Gmail 모바일 앱과 다크 모드](#gmail-dark-mode)를 통해 Gmail 모바일 다크 모드 렌더링을 처리할 수 있습니다.
+다크 모드 사용자에게 이메일이 어떻게 보이는지 궁금하신가요? **미리보기 및 테스트** 섹션에 있는 **다크 모드 미리보기** 토글을 선택하세요(드래그 앤 드롭 편집기만 해당). HTML 편집기를 사용하는 경우에도 [Gmail 모바일 앱과 다크 모드](#gmail-dark-mode)를 통해 Gmail 모바일 다크 모드 렌더링을 처리할 수 있습니다.
 {% endalert %}
 
-최종 확인 준비가 되면 **Test Send**를 선택하고 자신이나 테스터 그룹에 테스트 메시지를 보내 이메일이 기기와 클라이언트에서 올바르게 표시되는지 확인합니다.
+최종 확인 준비가 되면 **테스트 발송**을 선택하고 자신이나 테스터 그룹에 테스트 메시지를 보내 이메일이 기기와 클라이언트에서 올바르게 표시되는지 확인합니다.
 
 ![이메일 작성 시 테스트 발송 옵션과 예시 이메일 미리보기.]({% image_buster /assets/img_archive/newEmailTest.png %})
 
-이메일에 문제가 있거나 변경하고 싶은 사항이 있으면 **Edit Email**을 선택하여 편집기로 돌아갑니다.
+이메일에 문제가 있거나 변경하고 싶은 사항이 있으면 **이메일 편집**을 선택하여 편집기로 돌아갑니다.
 
 {% alert tip %}
 미리보기 텍스트를 지원하는 이메일 클라이언트는 항상 사용 가능한 모든 미리보기 텍스트 공간을 채울 만큼 충분한 문자를 가져옵니다. 그러나 이로 인해 미리보기 텍스트가 불완전하거나 최적화되지 않은 상황이 발생할 수 있습니다.
@@ -268,7 +267,7 @@ Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려�
 {% tab Campaign %}
 다음으로, Campaign의 나머지 부분을 구축합니다. Braze 도구를 사용하여 이메일 Campaign을 구축하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
-#### 전달 스케줄 또는 트리거 선택하기 {#choose-delivery-schedule-or-trigger}
+### 전달 스케줄 또는 트리거 선택하기 {#choose-delivery-schedule-or-trigger}
 
 예약된 시간, 동작 또는 API 트리거를 기반으로 이메일을 전달합니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
@@ -278,7 +277,7 @@ API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**
 
 Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
 
-#### 타겟 사용자 선택하기 {#choose-users-to-target}
+### 타겟 사용자 선택하기 {#choose-users-to-target}
 
 다음으로, Segments 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
 
@@ -292,7 +291,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 새 이메일 Campaign을 만들 때 대조군은 기본적으로 20%로 설정되며, Campaign에 맞게 조정하거나 제거할 수 있습니다.
 {% endalert %}
 
-##### 이메일과 푸시를 포함하는 멀티채널 Campaign {#multichannel-campaigns-with-email-and-push}
+#### 이메일과 푸시를 포함하는 멀티채널 Campaign {#multichannel-campaigns-with-email-and-push}
 
 이메일과 푸시 채널을 모두 타겟팅하는 멀티채널 Campaign의 경우, 명시적으로 옵트인한 사용자만 메시지를 받도록 Campaign을 제한할 수 있습니다(가입됨 또는 가입 취소된 사용자 제외). 예를 들어, 서로 다른 옵트인 상태를 가진 세 명의 사용자가 있다고 가정해 보겠습니다:
 
@@ -306,7 +305,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 이 구성에서는 **타겟 오디언스** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
-#### 전환 이벤트 선택하기 {#choose-conversion-events}
+### 전환 이벤트 선택하기 {#choose-conversion-events}
 
 Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 얼마나 자주 수행하는지 추적할 수 있습니다. 다음 동작 중 하나를 전환 이벤트로 지정할 수 있습니다:
 
@@ -325,6 +324,6 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 
 ## 5단계: 검토 및 배포하기 {#step-5-review-and-deploy}
 
-마지막 섹션에서는 설계한 Campaign의 요약을 보여줍니다. 모든 관련 세부 정보를 확인하고 **Launch Campaign**을 선택합니다.
+마지막 섹션에서는 설계한 Campaign의 요약을 보여줍니다. 모든 관련 세부 정보를 확인하고 **캠페인 시작**을 선택합니다.
 
 이메일 Campaign의 결과에 액세스하는 방법을 알아보려면 [이메일 보고서]({{site.baseurl}}/user_guide/channels/email/reporting/)를 확인하세요.

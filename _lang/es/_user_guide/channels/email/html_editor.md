@@ -83,14 +83,13 @@ Braze actualiza automáticamente la versión de texto plano a partir de la versi
 Para añadir movimiento en un correo electrónico con una vista previa precisa, usa GIF en lugar de elementos que requieran JavaScript, ya que la mayoría de las bandejas de entrada no admiten JavaScript.
 {% endalert %}
 
-![Panel de variantes de correo electrónico para redactar tu correo.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze elimina automáticamente los controladores de eventos HTML referenciados como atributos. Esto modifica el HTML, así que vuelve a revisar el correo electrónico después de terminar. Obtén más información sobre [controladores HTML](https://www.w3schools.com/tags/ref_eventattributes.asp).
 {% endalert %}
 
 {% alert tip %}
-¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto y la IA generará textos de marketing similares a los escritos por humanos para usar en tus mensajes.
+¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Introduce un nombre o descripción de producto y la IA generará textos de marketing similares a los escritos por humanos para usar en tus mensajes.
 
 ![Botón Lanzar el redactor con IA, ubicado en la pestaña Cuerpo del compositor de correo electrónico.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
@@ -112,7 +111,8 @@ Por ejemplo, para mantener un fondo blanco en una celda, usa esto:
 Reemplaza `#ffffff` con el color que desees.
 
 {% alert note %}
-Este enfoque no se aplica de forma fiable solo a elementos `<table>`, así que establece el degradado en la celda en lugar de solo en la tabla.
+Este enfoque no se aplica de forma fiable solo a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, así que establece el degradado en la celda en lugar de solo en la tabla.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 Para más información sobre la sintaxis de degradados, consulta [Degradados CSS en W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -267,7 +267,7 @@ Antes de enviar, el editor señala problemas comunes:
 {% tab Campaign %}
 A continuación, construye el resto de tu campaña. Consulta las siguientes secciones para obtener más detalles sobre cómo usar las herramientas de Braze para crear tu campaña de correo electrónico.
 
-#### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
+### Elige la planificación de entrega o el desencadenante {#choose-delivery-schedule-or-trigger}
 
 Entrega correos electrónicos basándote en un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -277,7 +277,7 @@ Para campañas desencadenadas por API, cuando la acción desencadenante se estab
 
 También puedes establecer la duración de la campaña, especificar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) y configurar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Elige los usuarios objetivo {#choose-users-to-target}
+### Elige los usuarios objetivo {#choose-users-to-target}
 
 A continuación, [dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros. Braze muestra una vista previa en vivo de la población del segmento, incluyendo cuántos usuarios son alcanzables por correo electrónico. La membresía exacta del segmento se calcula justo antes del envío.
 
@@ -291,7 +291,7 @@ Opcionalmente, también puedes limitar la entrega a un número específico de us
 Al crear una nueva campaña de correo electrónico, el grupo de control se establece por defecto en 20 % y se puede ajustar o eliminar según sea necesario para tu campaña.
 {% endalert %}
 
-##### Campañas multicanal con correo electrónico y push {#multichannel-campaigns-with-email-and-push}
+#### Campañas multicanal con correo electrónico y push {#multichannel-campaigns-with-email-and-push}
 
 Para campañas multicanal dirigidas tanto a canales de correo electrónico como push, es posible que desees limitar tu campaña para que solo los usuarios que hayan optado explícitamente reciban el mensaje (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión voluntaria:
 
@@ -305,7 +305,7 @@ Para hacerlo, en **Audience Summary**, selecciona enviar esta campaña a «opted
 Con esta configuración, no incluyas ningún filtro en el paso **Target Audiences** que limite la audiencia a un solo canal (por ejemplo, `Foreground Push Enabled = True` o `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Elige eventos de conversión {#choose-conversion-events}
+### Elige eventos de conversión {#choose-conversion-events}
 
 Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), después de recibir una campaña. Puedes especificar cualquiera de las siguientes acciones como evento de conversión:
 

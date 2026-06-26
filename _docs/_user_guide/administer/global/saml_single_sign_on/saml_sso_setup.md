@@ -73,14 +73,12 @@ Make sure that your `x.509` certificate follows this format when adding it to th
 
 Save your security settings and log out. Then, sign back in with your identity provider.
 
-![Dashboard login screen with SSO enabled]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Setting up your RelayState
 
 1. In Braze, go to **Settings** > **APIs and Identifiers**.
 2. In the **API Keys** tab, select the **Create API key** button.
 3. In the **API key name** field, enter a name for your key.
-4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.<br><br>![The "Permissions" section with sso.saml.login checked.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.
 5. Select **Create API key**.
 6. In the **API Keys** tab, copy the identifier next to the API key you created.
 7. Paste the RelayState API Key into your IdP's RelayState (it may also appear as "Relay State" or "Default Relay State" depending on your IdP).
@@ -182,6 +180,20 @@ If you're using another IdP, check if your company uploaded the correct SAML or 
 ### Are you using a manual integration?
 
 If your company didn't download the Braze app from your IdP's app store, you need to download the pre-built integration. For example, if Okta is your IdP, you'd download the Braze app from their [integration page](https://www.okta.com/integrations/braze/).
+
+## Google SSO
+
+If your company uses Google SSO instead of custom SAML, contact your Braze account manager to enable Google SSO for your workspace. After it's enabled, go to **Security Settings** and select **Enforce Google SSO only login** to require Google Authentication for all company users.
+
+When Google SSO enforcement is turned on, users must sign in with Google Authentication and can no longer use a Braze password. Each user must sign in with the Google account that matches their Braze dashboard email address. If a user selects a different Google account during sign-in, Braze rejects the authentication attempt.
+
+### Troubleshooting Google SSO sign-in
+
+If some users can't sign in with Google SSO, check the following:
+
+- The user's Google account email matches their Braze dashboard email address exactly.
+- The user has access to a Google account for their company email address.
+- The user isn't suspended in Braze (**Settings** > **Company Users**).
 
 ## Next steps
 

@@ -31,7 +31,7 @@ These are the minimum SDK versions needed to create Banner placements:
 
 ### Step 2: Refresh placements in your app {#requestBannersRefresh}
 
-Placements can be refreshed by calling the refresh methods described below. These placements will be cached automatically when a user's session expires or when you change identified users using the `changeUser` method.
+Placements can be refreshed by calling the refresh methods described below. If `subscribeToBannersUpdates` is active, the SDK automatically re-publishes your cached placement IDs at the start of each new session and when you call `changeUser`. This automatic refresh does not consume a rate limiting token.
 
 {% alert tip %}
 Refresh placements as soon as possible to avoid delays in downloading or displaying Banners.
@@ -717,6 +717,7 @@ These are the minimum SDK versions required to log Banner dismissals:
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integrations
+
 #### Standard Banner integrations (drag-and-drop editor)
 
 If your Banner uses the drag-and-drop editor and includes a dismiss button component, no additional code is required. When a user clicks the dismiss button, the message is hidden, triggers a dismissal, and then records a dismissal event for analytics.

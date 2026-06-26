@@ -37,8 +37,9 @@ platform:
             <th>アプリ内メッセージ</th>
             <th>Content Cards</th>
             <th>プッシュ通知</th>
-            <th>キャンバス</th>
+            <th>Canvas</th>
             <th>フィーチャーフラグ</th>
+            <th>バナー</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@ platform:
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Kindle Fire</td>
@@ -59,6 +61,7 @@ platform:
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Android TV</td>
@@ -68,6 +71,7 @@ platform:
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>LGテレビ（webOS）</td>
@@ -77,6 +81,7 @@ platform:
             <td for="push">該当なし</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
@@ -86,6 +91,7 @@ platform:
             <td for="push">該当なし</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Roku</td>
@@ -95,6 +101,7 @@ platform:
             <td for="push">該当なし</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-times text-warning"></i></td>
         </tr>
         <tr>
             <td>Apple TV OS</td>
@@ -104,6 +111,7 @@ platform:
             <td for="push"><i class="fa-solid fa-minus"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
        <tr>
           <td>Apple Vision Pro</td>
@@ -113,6 +121,7 @@ platform:
           <td for="push"><i class="fa-solid fa-minus"></i></td>
           <td for="canvas"><i class="fas fa-check text-success"></i></td>
           <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+          <td for="banners"><i class="fas fa-check text-success"></i></td>
       </tr>
     </tbody>
 </table>
@@ -136,7 +145,9 @@ Amazon Fire TVデバイスと統合するには、Braze Fire OS SDKを使用し�
 - Content Cards
 - フィーチャーフラグ
 - アプリ内メッセージ
-  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）。
+  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、Fire TVアプリにメッセージを直接埋め込みます。
 
 詳細については、[Fire OS統合ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)を参照してください。
 
@@ -151,6 +162,8 @@ Amazon Kindle Fireデバイスと統合するには、Braze Fire OS SDKを使用
 - Content Cards
 - フィーチャーフラグ
 - アプリ内メッセージ
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、Kindle Fireにメッセージを直接埋め込みます。
 
 詳細については、[Fire OS統合ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)を参照してください。
 
@@ -164,9 +177,11 @@ Braze Android SDKを使用して、Android TVデバイスと統合します。
 - Content Cards
 - フィーチャーフラグ
 - アプリ内メッセージ
-  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）。
+  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）
 - &#42; プッシュ通知（手動統合が必要）
   - プッシュ通知はAndroid TVでネイティブにサポートされていません。理由については、Googleの[デザインガイドライン](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html)を参照してください。ただし、**プッシュ通知UIの手動統合を行うことでこれを実現できます**。設定方法については、[ドキュメント]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv)を参照してください。
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、Android TVアプリにメッセージを直接埋め込みます。
 
 詳細については、[Android SDK統合ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)を参照してください。
 
@@ -184,6 +199,8 @@ Braze Web SDKを使用して[LG webOSテレビ](https://webostv.developer.lge.co
 - Content Cards（[ヘッドレスUI](#custom-ui)経由）
 - フィーチャーフラグ
 - アプリ内メッセージ（[ヘッドレスUI](#custom-ui)経由）
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、webOSアプリにメッセージを直接埋め込みます。
 
 詳細については、[Web Smart TV統合ガイド]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/)を参照してください。
 
@@ -197,6 +214,8 @@ Braze Web SDKを使用して[Samsung Tizenテレビ](https://developer.samsung.c
 - Content Cards（[ヘッドレスUI](#custom-ui)経由）
 - フィーチャーフラグ
 - アプリ内メッセージ（[ヘッドレスUI](#custom-ui)経由）
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、Tizenアプリにメッセージを直接埋め込みます。
 
 詳細については、[Web Smart TV統合ガイド]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/)を参照してください。
 
@@ -223,9 +242,11 @@ tvOSと統合するにはBraze Swift SDKを使用します。Swift SDKにはtvOS
 - Content Cards（[ヘッドレスUI](#custom-ui)経由）
 - フィーチャーフラグ
 - アプリ内メッセージ（[ヘッドレスUI](#custom-ui)経由）
-  - tvOSプラットフォームではWebビューがサポートされていないため、HTMLアプリ内メッセージもサポートされていません。
+  - tvOSプラットフォームではWebviewがサポートされていないため、HTMLアプリ内メッセージもサポートされていません。
   - tvOSでカスタマイズされたメッセージングにヘッドレスUIを使用する方法の詳細については、[サンプルアプリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui)を参照してください。
 - サイレントプッシュ通知とバッジの更新
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、tvOSアプリにメッセージを直接埋め込みます。
 
 詳細については、[iOS Swift SDK統合ガイド](https://github.com/braze-inc/braze-swift-sdk)を参照してください。
 
@@ -243,18 +264,20 @@ Braze Swift SDKを使用してvisionOSと統合します。iOSで利用可能な
 - プッシュ通知（アクションボタン付きのユーザー可視通知とサイレント通知）
 - フィーチャーフラグ
 - ロケーション分析
+- バナー
+  - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、visionOSアプリにメッセージを直接埋め込みます。
 
 詳細については、[iOS Swift SDK統合ガイド](https://github.com/braze-inc/braze-swift-sdk)を参照してください。
 
 {% alert important %}
-一部のiOS機能は部分的にサポートされているか、サポートされていません。完全なリストについては、[visionOSサポート](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos)を参照してください。
+一部のiOS機能は部分的にサポートされているか、サポートされていません。完全なリストについては、[visionOSサポート]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/)を参照してください。
 {% endalert %}
 
 ## アプリターゲティング {#app-targeting}
 
-メッセージングでOTTアプリをターゲットにするには、OTTアプリ専用のセグメントを作成することをお勧めします。
+メッセージングでOTTアプリをターゲットにするには、OTTアプリ専用のSegmentを作成することをお勧めします。
 
-![Android OTTアプリを使用して作成されたセグメント。]({% image_buster /assets/img/android_ott.png %})
+![Android OTTアプリを使用して作成されたSegment。]({% image_buster /assets/img/android_ott.png %})
 
 ## ヘッドレスUI {#custom-ui}
 

@@ -80,7 +80,7 @@ DailyPlayストリームでアクションを完了したユーザーは、Braze
 
 ## DailyPlayをBrazeで使用する {#use-dailyplay-with-braze}
 
-特定の顧客Segmentをエンゲージするには、インテグレーションのセットアップ完了後に以下のステップに従ってください。
+特定の顧客セグメントをエンゲージするには、インテグレーションのセットアップ完了後に以下のステップに従ってください。
 
 ### ステップ 1: DailyPlayの設定をセットアップする {#step-1-set-up-your-dailyplay-configuration}
 

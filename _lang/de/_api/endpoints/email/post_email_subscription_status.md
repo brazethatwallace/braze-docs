@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Statu
 ---
 {% api %}
 # Status des E-Mail-Abos ändern {#change-email-subscription-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/status
 {% endapimethod %}
 
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Fehlerbehebung bei SendGrid-E-Mail-Blockierungen {#troubleshooting-sendgrid-email-blocks}
 
-Wenn SendGrid eine Empfängerin oder einen Empfänger blockiert, aktualisieren Sie den Abo-Status über diesen Endpunkt und überprüfen Sie das Engagement mithilfe von Segment-Filtern. Verwenden Sie Soft-Bounce-Ereignisse von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) zur Überwachung der Zustellbarkeit und bestätigen Sie den Abo-Status, bevor Sie erneut senden.
+Wenn SendGrid eine/n Empfänger:in blockiert, aktualisieren Sie den Abo-Status mit diesem Endpunkt und überprüfen Sie das Engagement mithilfe von Segment-Filtern. Verwenden Sie Soft-Bounce-Ereignisse von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) zur Überwachung der Zustellbarkeit und bestätigen Sie den Abo-Status, bevor Sie den Versand erneut versuchen.
 
 ## Beispielanfrage {#example-request}
 ```

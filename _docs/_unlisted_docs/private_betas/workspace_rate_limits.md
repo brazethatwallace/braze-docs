@@ -10,7 +10,7 @@ permalink: /workspace_rate_limits/
 
 ## Prerequisites
 
-Workspace rate limits are only available for Braze contracts without data points. Additionally, you'll need [admin permissions](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) manage rate limits.
+Workspace rate limits are only available for Braze contracts without data points. Additionally, you'll need [admin permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) manage rate limits.
 
 ## About workspace rate limits
 
@@ -73,6 +73,6 @@ The `Retry-After` value reflects the number of seconds until the start of the ne
 
 ### API usage dashboard
 
-To monitor request volume, response codes, and ingestion behavior across workspaces, you can also use the [API Usage Dashboard](https://www.braze.com/docs/user_guide/analytics/dashboard/api_usage_dashboard).
+To monitor request volume, response codes, and ingestion behavior across workspaces, you can also use the [API Usage Dashboard]({{site.baseurl}}/user_guide/analytics/dashboard/api_usage_dashboard).
 
 You can filter the dashboard to show `429 Workspace Rate Limited` or `429 Company Rate Limited`, so you can quickly identify whether a request was limited by the company or workspace rate limit.

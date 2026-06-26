@@ -41,7 +41,7 @@ Der Canvas-Builder führt Sie Schritt für Schritt durch die Einrichtung Ihres C
   {% endtab %}
   {% tab Zielgruppe %}
     Hier wählen Sie Ihre Zielgruppe aus:
-    - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segments und Filtern
+    - Erstellen Sie Ihre Zielgruppe durch Hinzufügen von Segmenten und Filtern
     - Verfeinern Sie den Canvas-Wiedereintritt und die Eintrittslimits
     - Sehen Sie eine Zusammenfassung Ihrer Zielgruppe
 
@@ -135,7 +135,7 @@ Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim v
 
 ### Schritt 1.3: Legen Sie Ihre Entry-Zielgruppe fest {#step-13-set-your-target-entry-audience}
 
-Nur Nutzer:innen, die Ihren definierten Kriterien entsprechen, können im Schritt **Target Audience** in die Journey eintreten. Das bedeutet, dass Braze die Zielgruppe zuerst auf Berechtigung prüft, **bevor** Nutzer:innen in die Canvas-Journey eintreten. Wenn Sie beispielsweise neue Nutzer:innen ansprechen möchten, können Sie ein Segment von Nutzer:innen auswählen, die Ihre App vor weniger als einer Woche zum ersten Mal verwendet haben.
+Nur Nutzer:innen, die Ihren definierten Kriterien entsprechen, können im Schritt **Zielgruppe** in die Journey eintreten. Das bedeutet, dass Braze die Zielgruppe zuerst auf Berechtigung prüft, **bevor** Nutzer:innen in die Canvas-Journey eintreten. Wenn Sie beispielsweise neue Nutzer:innen ansprechen möchten, können Sie ein Segment von Nutzer:innen auswählen, die Ihre App vor weniger als einer Woche zum ersten Mal verwendet haben.
 
 Unter **Entry Controls** können Sie die Anzahl der Nutzer:innen begrenzen, die jedes Mal eintreten, wenn das Canvas planmäßig ausgeführt wird. Für API-getriggerte und aktionsbasierte Canvases gilt dieses Limit pro UTC-Stunde.
 
@@ -143,7 +143,7 @@ Unter **Entry Controls** können Sie die Anzahl der Nutzer:innen begrenzen, die 
 
 #### Ihre Zielgruppe testen {#testing-your-audience}
 
-Nachdem Sie Segments und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [nach Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
+Nachdem Sie Segmente und Filter zu Ihrer Zielgruppe hinzugefügt haben, können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie [nach Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), um zu bestätigen, ob sie den Zielgruppenkriterien entsprechen.
 
 ![Das Feld „User Lookup“, mit dem Sie nach externer Nutzer-ID oder Braze-ID suchen können.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -165,17 +165,17 @@ Braze empfiehlt nicht, **Every time the Canvas is scheduled** für IP-Warming au
 
 #### Ausstiegskriterien festlegen {#setting-exit-criteria}
 
-Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) bestimmt, welche Nutzer:innen ein Canvas verlassen sollen. Wenn Nutzer:innen das Ausnahme-Event ausführen oder den Segments und Filtern entsprechen, erhalten sie keine weiteren Nachrichten.
+Das Festlegen der [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) bestimmt, welche Nutzer:innen ein Canvas verlassen sollen. Wenn Nutzer:innen das Ausnahme-Event ausführen oder den Segmenten und Filtern entsprechen, erhalten sie keine weiteren Nachrichten.
 
 #### Zielpopulation berechnen {#calculating-target-population}
 
-Im Abschnitt **Zielpopulation** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segments und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
+Im Abschnitt **Zielpopulation** können Sie eine Zusammenfassung Ihrer Zielgruppe sehen, z. B. Ihre ausgewählten Segmente und zusätzlichen Filter, sowie eine Aufschlüsselung, wie viele Nutzer:innen pro Messaging-Kanal erreichbar sind. Um die genaue Anzahl der erreichbaren Nutzer:innen in Ihrer Zielgruppe anstelle der Standardschätzung zu berechnen, wählen Sie [Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
 
 Beachten Sie Folgendes:
 
 - Die Berechnung genauer Statistiken kann einige Minuten dauern. Diese Funktion berechnet die genauen Statistiken nur auf Segment-Ebene, nicht auf Filter- oder Filtergruppen-Ebene.
 - Während die genauen Statistiken geladen werden, kann eine gerundete Schätzung angezeigt werden. Die genaue Zahl erscheint im Abschnitt **Erreichbare Nutzer:innen**, sobald sie geladen ist. Sie können **Show Additional Stats** auswählen, um eine detaillierte Aufschlüsselung zu erhalten.
-- Bei großen Segments ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
+- Bei großen Segmenten ist es normal, dass selbst bei der Berechnung genauer Statistiken leichte Abweichungen auftreten. Die Genauigkeit dieser Funktion liegt bei 99,999 % oder höher.
 
 Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetime-Umsatz für angesprochene Nutzer:innen, wählen Sie **Show Additional Statistics**.
 
@@ -187,7 +187,7 @@ Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetim
 
 ### Schritt 1.4: Wählen Sie Ihre Sendeeinstellungen {#step-14-select-your-send-settings}
 
-Wählen Sie **Send Settings**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) einzuschalten. Durch Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
+Wählen Sie **Sendeeinstellungen**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) einzuschalten. Durch Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
 
 Für Canvases, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canvas möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich zugestimmt haben, die Nachricht erhalten (ausgenommen abonnierte oder abgemeldete Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
@@ -195,15 +195,15 @@ Für Canvases, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canva
 - **Nutzer:in B** hat E-Mail-Opt-in, aber Push ist nicht aktiviert. Diese Person erhält die E-Mail, aber nicht den Push.
 - **Nutzer:in C** hat E-Mail-Opt-in und Push ist aktiviert. Diese Person erhält sowohl die E-Mail als auch den Push.
 
-Setzen Sie dazu die **Subscription Settings** auf „Nur an Nutzer:innen mit Opt-in senden“. Diese Option stellt sicher, dass nur Nutzer:innen mit Opt-in Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, bei denen Push aktiviert ist.
+Setzen Sie dazu die **Abo-Einstellungen** auf „Nur an Nutzer:innen mit Opt-in senden“. Diese Option stellt sicher, dass nur Nutzer:innen mit Opt-in Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, bei denen Push aktiviert ist.
 
 Diese Abo-Einstellungen werden pro Schritt angewendet, was bedeutet, dass sie keinen Einfluss auf die Entry-Zielgruppe haben. Diese Einstellung wird also verwendet, um die Berechtigung von Nutzer:innen für den Empfang jedes Canvas-Schritts zu bewerten.
 
 {% alert important %}
-Mit dieser Konfiguration sollten Sie im Schritt **Target Audience** keine Filter einschließen, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
+Mit dieser Konfiguration sollten Sie im Schritt **Zielgruppe** keine Filter einschließen, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Send Settings**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
+Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Sendeeinstellungen**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
 
 ![Die Seite „Ruhezeiten“ mit einem Kontrollkästchen zum Aktivieren der Ruhezeiten. Wenn aktiviert, können Startzeit, Endzeit und Fallback-Verhalten festgelegt werden.]({% image_buster /assets/img/quiet_hours.png %})
 
@@ -217,29 +217,45 @@ Sparen Sie Zeit und optimieren Sie Ihre Canvas-Erstellung mit [Braze-Canvas-Temp
 
 ![Der Button „Variante hinzufügen“ ist ausgewählt und zeigt ein Kontextmenü mit der Option „Variante hinzufügen“.]({% image_buster /assets/img_archive/canvas_add_variant.gif %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
-Wählen Sie **Add Variant** und fügen Sie dann eine neue Variante zu Ihrem Canvas hinzu. Varianten repräsentieren eine Journey, die Ihre Nutzer:innen durchlaufen, und können mehrere Schritte und Verzweigungen enthalten.
+Wählen Sie **Variante hinzufügen** und fügen Sie dann eine neue Variante zu Ihrem Canvas hinzu. Varianten repräsentieren eine Journey, die Ihre Nutzer:innen durchlaufen, und können mehrere Schritte und Verzweigungen enthalten.
 
 Sie können weitere Varianten hinzufügen, indem Sie den <i class="fas fa-plus-circle"></i> Plus-Button auswählen. Wenn Sie neue Varianten hinzufügen, können Sie anpassen, wie Ihre Nutzer:innen zwischen ihnen verteilt werden, sodass Sie verschiedene Engagement-Strategien vergleichen und deren Wirksamkeit analysieren können.
 
 ![Zwei Beispiel-Varianten in einem Braze-Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-Standardmäßig wird die Canvas-Variantenzuweisung festgelegt, wenn Nutzer:innen in das Canvas eintreten. Das bedeutet: Wenn Nutzer:innen zuerst eine Variante betreten, ist das bei jedem erneuten Eintritt in das Canvas ihre Variante. Es gibt jedoch Möglichkeiten, dieses Verhalten zu umgehen. <br><br>Dazu können Sie einen Zufallszahlengenerator mit Liquid erstellen, ihn zu Beginn jedes Canvas-Eintritts ausführen, den Wert als angepasstes Attribut speichern und dann dieses Attribut verwenden, um Nutzer:innen zufällig aufzuteilen.
+Standardmäßig wird die Canvas-Variantenzuweisung durch einen deterministischen Hash aus Nutzer-ID und Canvas-ID bestimmt (nicht durch die [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) von Nutzer:innen), was bedeutet, dass Nutzer:innen bei erneutem Eintritt konsistent derselben Variante zugewiesen werden, solange die Prozentsätze der Variantenverteilung unverändert bleiben. Wenn Sie die Variantenverteilung nach dem Start anpassen, können Nutzer:innen bei erneutem Eintritt in das Canvas anderen Varianten zugewiesen werden. <br><br>Wenn Sie eine Zuweisung benötigen, die auch bei Änderungen der Verteilungsprozentsätze bestehen bleibt, verwenden Sie eine einzelne Canvas-Variante und leiten Sie Nutzer:innen mit einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)-Schritt weiter. Verwenden Sie zu Beginn der Journey einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritt, um eine Zufallszahl in einem angepassten Attribut zu speichern, und filtern Sie dann in den Zielgruppenpfaden nach diesem Attribut.
 
 {% details Erweitern für die Schritte %}
 
-1. Erstellen Sie ein angepasstes Attribut, um Ihre Zufallszahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. „lottery_number“ oder „random_assignment“. Sie können das Attribut entweder [in Ihrem Dashboard]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) oder über API-Aufrufe an unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) erstellen.<br><br>
-2. Erstellen Sie eine Webhook-Campaign am Anfang Ihres Canvas. Diese Campaign dient als Medium, in dem Sie Ihre Zufallszahl erstellen und als angepasstes Attribut speichern. Weitere Informationen finden Sie unter [Webhook erstellen]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook). Setzen Sie die URL auf unseren `/users/track`-Endpunkt.<br><br>
-3. Erstellen Sie den Zufallszahlengenerator. Sie können dies mit dem [hier beschriebenen Code](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486) tun, der die einzigartige Eintrittszeit jeder Person nutzt, um eine Zufallszahl zu generieren. Setzen Sie die resultierende Zahl als Liquid-Variable in Ihrer Webhook-Campaign.<br><br>
-4. Formatieren Sie den `/users/track`-Aufruf in Ihrer Webhook-Campaign so, dass er das in Schritt 1 erstellte angepasste Attribut auf die generierte Zufallszahl im Profil der aktuellen Person setzt. Wenn dieser Schritt ausgeführt wird, haben Sie erfolgreich eine Zufallszahl erstellt, die sich bei jedem Eintritt in Ihre Campaign ändert.<br><br>
-5. Passen Sie die Verzweigungen Ihres Canvas so an, dass sie nicht nach zufällig gewählten Varianten aufgeteilt werden, sondern basierend auf Zielgruppenregeln. Setzen Sie in den Zielgruppenregeln jeder Verzweigung den Zielgruppen-Filter entsprechend Ihrem angepassten Attribut. <br><br>Beispielsweise könnte eine Verzweigung „lottery_number ist kleiner als 3“ als Zielgruppen-Filter haben, während eine andere Verzweigung „lottery_number ist größer als 3 und kleiner als 6“ als Zielgruppen-Filter haben könnte.
+1. Erstellen Sie ein angepasstes Attribut vom Typ **Number**, um Ihre Zufallszahl zu speichern. Benennen Sie es so, dass es leicht zu finden ist, z. B. `lottery_number` oder `random_assignment`. Gehen Sie in Ihrem Dashboard zu **Dateneinstellungen** > **Angepasste Attribute**.<br><br>
+2. Verwenden Sie eine einzelne Canvas-Variante (oder fügen Sie denselben Nutzeraktualisierung-Schritt zu jeder Variante hinzu). Fügen Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritt am Anfang der Journey hinzu. Dieser Schritt generiert und speichert die Zufallszahl, bevor Nutzer:innen Ihren Zielgruppenpfade-Schritt erreichen.<br><br>
+3. Wählen Sie im Nutzeraktualisierung-Schritt den [erweiterten JSON-Editor]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#advanced-json-editor). Verwenden Sie den {% raw %}{% random %}{% endraw %}-Tag, um die Zahl zu generieren. Weitere Details finden Sie unter [Nachrichten mit einer Zufallszahl senden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number). Beispielsweise gibt {% raw %}`{% random 10 %}`{% endraw %} eine Ganzzahl von 0 bis 9 zurück. Setzen Sie das angepasste Attribut aus Schritt 1 mit JSON wie folgt:<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+Der {% raw %}`{% if %}`{% endraw %}-Block setzt die Zahl nur, wenn das Attribut leer ist, sodass Nutzer:innen bei erneutem Eintritt in das Canvas dieselbe Zuweisung behalten.<br><br>
+
+{: start="4"}
+4. Fügen Sie einen [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)-Schritt nach dem Nutzeraktualisierung-Schritt hinzu. Fügen Sie in jeder Zielgruppen-Gruppe Filter basierend auf Ihrem angepassten Attribut hinzu, anstatt Variantenverteilungsprozentsätze zu verwenden.<br><br>Wenn Sie beispielsweise {% raw %}`{% random 10 %}`{% endraw %} verwendet haben, könnte eine Gruppe `lottery_number` **ist kleiner als 4** verwenden, eine andere **ist größer als 3 und kleiner als 7**, und eine dritte **ist größer als 6 und kleiner als 10**.
 
 {% enddetails %}
 {% endalert %}
 
 ### Schritt 2.2: Canvas-Schritte hinzufügen {#step-22-add-canvas-steps}
 
-Sie können weitere Schritte zu Ihrem Canvas-Workflow hinzufügen, indem Sie Komponenten aus der Seitenleiste **Components** per Drag-and-Drop ziehen. Oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button, um eine Komponente über das Popover-Menü hinzuzufügen.
+Sie können weitere Schritte zu Ihrem Canvas-Workflow hinzufügen, indem Sie Komponenten aus der Seitenleiste **Komponenten** per Drag-and-Drop ziehen. Oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button, um eine Komponente über das Popover-Menü hinzuzufügen.
 
 {% alert tip %}
 Wenn Sie mehr Schritte hinzufügen, können Sie die Zoomstufe anpassen, um sich auf Details zu konzentrieren oder die gesamte User Journey zu überblicken. Zoomen Sie mit <kbd>Shift</kbd> + <kbd>+</kbd> hinein oder mit <kbd>Shift</kbd> + <kbd>-</kbd> heraus.
@@ -263,9 +279,9 @@ Sie können jeden Schritt in Ihrem Canvas-Workflow bearbeiten, indem Sie eine de
 
 ![Ein Beispiel für einen Verzögerungsschritt mit der Verzögerung auf „Bis zu einem bestimmten Tag“ eingestellt.]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
-Oder Sie können schnell die **Action Settings** Ihres [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)-Schritts bearbeiten und anpassen, um Nutzer:innen für ein Zeitfenster zu halten. Dies priorisiert ihren nächsten Pfad basierend auf den Aktionen während dieses Bewertungszeitraums.
+Oder Sie können schnell die **Aktionseinstellungen** Ihres [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)-Schritts bearbeiten und anpassen, um Nutzer:innen für ein Zeitfenster zu halten. Dies priorisiert ihren nächsten Pfad basierend auf den Aktionen während dieses Bewertungszeitraums.
 
-![Der zweite Schritt im Canvas, „Action Settings“, mit einem Bewertungsfenster von 1 Tag.]({% image_buster /assets/img_archive/action_paths_flow.png %})
+![Der zweite Schritt im Canvas, „Aktionseinstellungen“, mit einem Bewertungsfenster von 1 Tag.]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
 Die leichtgewichtigen Komponenten in Canvas ermöglichen eine einfache Bearbeitungserfahrung, sodass die Feinabstimmung Ihres Canvas erleichtert wird.
 
@@ -278,16 +294,16 @@ Wussten Sie, dass Sie Canvas-Komponentennamen in Ihren Nachrichten und Link-Temp
 Verwenden Sie den Liquid-Tag `campaign.${name}` in Canvas, um den aktuellen Canvas-Komponentennamen anzuzeigen.
 {% endalert %}
 
-Die Nachrichtenkomponente verwaltet die Nachrichten, die an Nutzer:innen gesendet werden. Sie können Ihre **Messaging Channels** auswählen und die **Delivery Settings** anpassen, um Ihr Canvas-Messaging zu optimieren. Weitere Details zu dieser Komponente finden Sie unter [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+Die Nachrichtenkomponente verwaltet die Nachrichten, die an Nutzer:innen gesendet werden. Sie können Ihre **Messaging-Kanäle** auswählen und die **Zustellungseinstellungen** anpassen, um Ihr Canvas-Messaging zu optimieren. Weitere Details zu dieser Komponente finden Sie unter [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
 
-![Der Schritt „Set up Messages“ mit ausgewählten „Messaging Channels“, der die Liste der verfügbaren Messaging-Kanäle anzeigt, wie Android-Push, Content Cards, E-Mail und mehr.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
+![Der Schritt „Nachrichten einrichten“ mit ausgewählten „Messaging-Kanälen“, der die Liste der verfügbaren Messaging-Kanäle anzeigt, wie Android-Push, Content Cards, E-Mail und mehr.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
 Wählen Sie **Done**, nachdem Sie die Konfiguration Ihrer Canvas-Komponente abgeschlossen haben.
 
 {% tabs local %}
 {% tab Canvas-Eingangs-Eigenschaften %}
 
-Das [`context`-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) wird im Schritt **Entry Schedule** bei der Erstellung eines Canvas konfiguriert und gibt den Trigger an, der Nutzer:innen in ein Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Eintritts-Payloads in API-getriggerten Canvases zugreifen. Beachten Sie, dass das `context`-Objekt bis zu 50 KB groß sein kann.
+Das [`context`-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) wird im Schritt **Entry Schedule** bei der Erstellung eines Canvas konfiguriert und gibt den Trigger an, der Nutzer:innen in ein Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Eingangs-Payloads in API-getriggerten Canvases zugreifen. Beachten Sie, dass das `context`-Objekt bis zu 50 KB groß sein kann.
 
 Verwenden Sie das folgende Liquid, wenn Sie auf diese beim Eintritt in das Canvas erstellten Eigenschaften verweisen: {% raw %} ``context.${property_name}`` {% endraw %}. Beachten Sie, dass die Events angepasste Events oder Kauf-Events sein müssen, um auf diese Weise verwendet zu werden.
 
@@ -311,7 +327,7 @@ Im ersten Nachrichtenschritt nach einem Aktionspfad können Sie `event_propertie
 
 Um eine Verbindung zwischen Schritten zu verschieben, wählen Sie den Pfeil aus, der die beiden Komponenten verbindet, und wählen Sie eine andere Komponente aus. Um die Verbindung zu entfernen, wählen Sie den Pfeil und dann **Cancel Connection** in der Fußzeile des Canvas-Composers.
 
-Wenn eine einzelne Variante mehrere Verzweigungen mit derselben Zielgruppe und Sendezeit hat, garantiert Braze keine gleichmäßige Aufteilung auf diese Verzweigungen. Die Verteilung kann die zuerst erstellte Verzweigung bevorzugen. Für eine gleichmäßige Aufteilung verwenden Sie [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)-Filter in jeder Verzweigung. Weitere Informationen finden Sie unter [Was passiert, wenn Zielgruppe und Sendezeit für ein Canvas mit einer Variante, aber mehreren Verzweigungen identisch sind?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)
+Wenn eine einzelne Variante mehrere Verzweigungen mit derselben Zielgruppe und Sendezeit hat, garantiert Braze keine gleichmäßige Aufteilung auf diese Verzweigungen. Die Verteilung kann die zuerst erstellte Verzweigung bevorzugen. Für eine gleichmäßige Aufteilung verwenden Sie Filter mit [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) in jeder Verzweigung. Weitere Informationen finden Sie unter [Was passiert, wenn Zielgruppe und Sendezeit für ein Canvas mit einer Variante, aber mehreren Verzweigungen identisch sind?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
 ## Schritt 3: Kontrollgruppe hinzufügen {#step-3-add-a-control-group}
 

@@ -30,7 +30,7 @@ Os recursos dos Banners incluem:
 
 - **Construção de conteúdo fácil:** Crie e visualize seu Banner usando um editor visual de arrastar e soltar com suporte para imagens, texto, botões, formulários de captura de e-mail, código personalizado e muito mais.
 - **Posicionamentos flexíveis:** Defina múltiplos locais dentro do seu aplicativo ou site onde os Banners podem aparecer, permitindo direcionamento preciso a contextos ou experiências de usuário específicas.
-- **Personalização dinâmica:** Os Banners podem ser atualizados durante uma sessão ativa quando seu app chama explicitamente `requestBannersRefresh()`, ou automaticamente no início de uma nova sessão quando `subscribeToBannersUpdates()` foi implementado e `requestBannersRefresh()` foi chamado pelo menos uma vez anteriormente para os IDs de posicionamento relevantes.
+- **Personalização dinâmica:** Os Banners só podem ser atualizados no início de uma nova sessão ou durante a sessão se você solicitar explicitamente a atualização. Os Banners não são atualizados automaticamente em uma nova sessão. Se você não solicitar a atualização, o Banner não será atualizado.
 - **Priorização nativa:** Defina a prioridade de exibição para quando vários Banners visam o mesmo posicionamento, garantindo que a mensagem certa chegue aos usuários no momento certo.
 - **Bloco de editor de código personalizado:** Use o bloco de editor de código personalizado para adicionar HTML personalizado para personalização avançada ou integração perfeita com seus estilos web existentes.
 
@@ -62,7 +62,7 @@ Se vários Banners estiverem definidos com a mesma prioridade, o Banner mais rec
 
 As mensagens de Banner são entregues ao seu app ou site como conteúdo HTML, tipicamente renderizado dentro de um iframe. Isso garante que seus Banners sejam renderizados de forma consistente em diferentes dispositivos e ajuda a manter seus estilos e scripts separados do restante do seu código.
 
-Os iframes permitem atualizações de conteúdo dinâmico e personalizado que não requerem alterações na sua base de código. Cada iframe recupera e exibe o HTML para cada sessão de usuário usando direcionamento de campanha e lógica de personalização.
+Os iframes permitem atualizações de conteúdo dinâmico e personalizado que não requerem alterações na sua base de código. Cada iframe recupera e exibe o HTML para cada sessão de usuário usando direcionamento de Campaign e lógica de personalização.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -84,11 +84,6 @@ Além disso, as mensagens de Banner não suportam os seguintes recursos:
 - Conteúdo conectado
 - Códigos promocionais
 - `catalog_items` usando a [tag `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Dispensas controladas pelo usuário (somente acesso antecipado)
-
-{% alert important %}
-Permitir que os usuários dispensem manualmente um Banner está em acesso antecipado. Consulte [Configurar comportamento de dispensa]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para mais detalhes. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
-{% endalert %}
 
 ## Próximos passos {#next-steps}
 

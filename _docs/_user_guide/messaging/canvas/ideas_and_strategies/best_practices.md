@@ -52,8 +52,27 @@ Determine the impact of your Canvas messaging by incorporating control groups. T
 Canvas will prevent you from using scheduled send with a time that has already passed. However, it's possible to launch a Canvas during the exact same minute that the campaign is scheduled (or in the seconds before). This can lead to the Canvas missing the scheduled entry time and users not entering the Canvas. We recommend sending Canvases immediately in the event that any campaigns are edited within minutes of the scheduled send time.
 {% endalert %}
 
+{% alert important %}
+If you change audience, schedule, or delivery close to a scheduled entry or send window, some users may already be waiting on a step or were evaluated under earlier settings, so not everyone is guaranteed to pick up the change. To see how schedule changes, audience changes, **Evaluate at enqueue time**, and Message step delivery timing interact, read [Change your Canvas after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). When in doubt, stop the Canvas, duplicate it, and relaunch for a clean re-evaluation.
+{% endalert %}
+
 For Canvas steps, consider the following details when scheduling your Canvas:
 
-- Schedule changes will only apply to users who aren't already waiting to receive the step.
+- Schedule changes only apply to users who aren't already waiting to receive the step.
 - Audience changes by default apply to all users, unless you schedule changes to apply to users who aren't waiting to receive the step.
-- Editing a Canvas that is scheduled to deliver as soon as deployed and selecting **Update** will essentially cause it to be sent.
+- Editing a Canvas that is scheduled to deliver as soon as deployed and selecting **Update** essentially sends it.
+
+### Post-launch edits
+
+If you stop an active Canvas while an unsaved draft exists, stopping can discard that draft. Save, launch, or discard the draft before stopping if you need to keep in-progress edits.
+
+#### Audience evaluation timing
+
+Braze evaluates audiences at different points in the Canvas builder and in individual steps. For setup details, see:
+
+- [Set your target entry audience]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-13-set-your-target-entry-audience) and [Determine your Canvas entry schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule) when you create a Canvas
+- [How target audience and entry criteria work together]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#how-target-audience-and-entry-criteria-work-together)
+- [Edit delivery settings]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#step-2-edit-delivery-settings) for Message steps
+- [How users are evaluated]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/#how-users-are-evaluated) for Audience Paths steps
+
+If you edit a live Canvas close to a scheduled entry or send window, users already enqueued for a **Message** step may not pick up your changes. For more information, see [Edit Canvases after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/).

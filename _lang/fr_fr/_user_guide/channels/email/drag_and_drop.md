@@ -20,10 +20,13 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
 
 <table aria-label="À propos de l'éditeur" style="width: 100%; table-layout: fixed;">
     <caption>Composants de l'éditeur : Contenu et Lignes</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Contenu</th>
         <th style="width: 50%;">Lignes</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet « Lignes » qui présente différentes combinaisons structurelles pour la disposition de votre e-mail." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet « Contenu » qui comprend les blocs de base, les médias et les options avancées." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="À propos de l'éditeur" }
 
@@ -70,7 +74,7 @@ Les **Lignes** sont des unités structurelles qui définissent la composition ho
 
 #### Imbriquer des images dans des blocs de texte {#nesting-images-inside-text-blocks}
 
-Vous ne pouvez pas imbriquer une image dans un paragraphe ou un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page de texte, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Hide on mobile** pour cette ligne, et une ligne séparée réservée au mobile (avec **Hide on desktop** et **Do not stack on mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
+Vous ne pouvez pas imbriquer une image dans un paragraphe ou un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page de texte, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Hide on mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Hide on desktop** et **Do not stack on mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
 
 #### Style Cartes {#cards-style}
 
@@ -124,7 +128,7 @@ Consultez [Autres personnalisations](#other-customizations) pour découvrir d'au
 Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vous permet de vérifier que votre contenu est responsive et d'effectuer les ajustements nécessaires au fur et à mesure.
 
 {% alert tip %}
-Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité professionnelle à utiliser dans vos messages.
+Besoin d'aide pour rédiger un texte percutant ? Essayez l'[assistant de rédaction par intelligence artificielle]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité professionnelle à utiliser dans vos messages.
 
 ![Bouton de l'assistant de rédaction, situé dans le panneau Content à côté des paramètres de style dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -202,7 +206,7 @@ Il est important de tester et de vérifier les détails les plus fins de votre e
 
 Pour plus d'informations, consultez [Envoyer des messages test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
 
-Après avoir utilisé l'éditeur par glisser-déposer pour concevoir et créer votre e-mail, continuez à [créer]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) le reste de votre campagne ou Canvas.
+Après avoir utilisé l'éditeur par glisser-déposer pour concevoir et créer votre e-mail, continuez à [créer]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) le reste de votre Campaign ou Canvas.
 
 {% details À propos du moteur HTML mis à jour %}
 Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-déposer a été optimisé et mis à jour, offrant des avantages en termes de compression et de rendu des fichiers HTML.
@@ -245,7 +249,7 @@ Pour ajuster le remplissage, faites défiler jusqu'à **Block Options** et séle
 
 ### Arrière-plan du contenu {#content-background}
 
-Vous pouvez ajouter une image d'arrière-plan à votre configuration de ligne, ce qui vous permet d'intégrer davantage de design et de contenu visuel dans votre campagne d'e-mail.
+Vous pouvez ajouter une image d'arrière-plan à votre configuration de ligne, ce qui vous permet d'intégrer davantage de design et de contenu visuel dans votre Campaign d'e-mail.
 
 ### Attribut de langue {#language-attribute}
 

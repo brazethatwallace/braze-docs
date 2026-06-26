@@ -4,14 +4,14 @@ Le service Apple Push Notification (APNs) est l'infrastructure permettant d'envo
 
 1. Vous configurez le certificat push et le profil de provisionnement
 2. Les appareils s'enregistrent auprès des APNs et fournissent à Braze des jetons de notification push
-3. Vous lancez une campagne de notifications push Braze
+3. Vous lancez une Campaign de notifications push Braze
 4. Braze supprime les jetons non valides
 
 ### Étape 1 : Configurer le certificat push et le profil de provisionnement {#step-1-configuring-the-push-certificate-and-provisioning-profile}
 
 Lors du développement de votre application, vous devez créer un certificat SSL pour activer les notifications push. Ce certificat sera inclus dans le profil de provisionnement avec lequel votre application est créée et devra également être téléchargé sur le tableau de bord de Braze. Le certificat permet à Braze de communiquer aux APNs que nous sommes autorisés à envoyer des notifications push en votre nom.
 
-Il existe deux types de [profils de provisionnement](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) et de certificats : développement et distribution. Nous vous recommandons d'utiliser uniquement des profils et des certificats de distribution pour éviter toute confusion. Si vous choisissez d'utiliser des profils et des certificats différents pour le développement et la distribution, assurez-vous que le certificat téléchargé sur le tableau de bord correspond au profil de provisionnement que vous utilisez actuellement.
+Il existe deux types de [profils de provisionnement](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) et de certificats : développement et distribution. Nous vous recommandons d'utiliser uniquement des profils et des certificats de distribution pour éviter toute confusion. Si vous choisissez d'utiliser différents profils et certificats pour le développement et la distribution, assurez-vous que le certificat téléchargé sur le tableau de bord correspond au profil de provisionnement que vous utilisez actuellement.
 
 {% alert warning %}
 Ne modifiez pas l'environnement du certificat push (développement par rapport à la production). Modifier le certificat push pour un environnement incorrect peut entraîner la suppression accidentelle du jeton de notification push de vos utilisateurs, les rendant inaccessibles par notification push.
@@ -19,7 +19,7 @@ Ne modifiez pas l'environnement du certificat push (développement par rapport �
 
 ### Étape 2 : Les appareils s'enregistrent auprès des APNs et fournissent à Braze des jetons de notification push {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-Lorsque les utilisateurs ouvrent votre application, ils sont invités à accepter les notifications push. S'ils acceptent cette invite, les APNs génèrent un jeton de notification push pour cet appareil particulier. Le SDK Swift envoie immédiatement et de manière asynchrone le jeton push pour les applications utilisant la [politique de vidage automatique]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing) par défaut. Une fois qu'un jeton push est associé à un utilisateur, celui-ci apparaît comme « Push Registered » dans le tableau de bord sur son profil utilisateur sous l'onglet **Engagement** et sera éligible pour recevoir des notifications push des Campaigns Braze.
+Lorsque les utilisateurs ouvrent votre application, ils sont invités à accepter les notifications push. S'ils acceptent cette invite, les APNs génèrent un jeton de notification push pour cet appareil particulier. Le SDK Swift enverra immédiatement et de manière asynchrone le jeton push pour les applications utilisant la [politique de vidage automatique]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing) par défaut. Une fois qu'un jeton push est associé à un utilisateur, celui-ci apparaîtra comme « Push Registered » dans le tableau de bord sur son profil utilisateur sous l'onglet **Engagement** et sera éligible pour recevoir des notifications push des Campaigns Braze.
 
 {% alert note %}
 À partir de macOS 13, sur certains appareils, vous pouvez tester les notifications push sur un simulateur iOS 16 fonctionnant sous Xcode 14. Pour plus de détails, reportez-vous aux [notes de version de Xcode 14](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes).
@@ -32,14 +32,14 @@ Lorsque les utilisateurs ouvrent votre application, ils sont invités à accepte
 - Si les utilisateurs désinstallent votre application, Braze n'en est pas immédiatement informé et le jeton continuera d'apparaître comme valide jusqu'à ce qu'il soit retiré par les APNs.
 - À un moment donné, les APNs retireront les anciens jetons. Braze n'a aucun contrôle ni aucune visibilité sur ce point.
 
-### Étape 3 : Lancer une campagne de notifications push Braze {#step-3-launching-a-braze-push-campaign}
+### Étape 3 : Lancer une Campaign de notifications push Braze {#step-3-launching-a-braze-push-campaign}
 
-Lorsqu'une campagne de notifications push est lancée, Braze effectue des requêtes auprès des APNs pour distribuer votre message. Plus précisément, les requêtes sont transmises aux APNs pour chaque jeton push valide actuel, sauf si l'option **Envoyer à l'appareil le plus récent de l'utilisateur** est sélectionnée. Une fois que Braze a reçu une réponse positive de la part des APNs, nous enregistrons une distribution réussie dans le profil utilisateur, même si celui-ci n'a pas reçu le message pour diverses raisons, notamment :
+Lorsqu'une Campaign de notifications push est lancée, Braze effectue des requêtes auprès des APNs pour distribuer votre message. Plus précisément, les requêtes sont transmises aux APNs pour chaque jeton push valide actuel, sauf si l'option **Envoyer à l'appareil le plus récent de l'utilisateur** est sélectionnée. Une fois que Braze a reçu une réponse positive de la part des APNs, nous enregistrons une distribution réussie dans le profil utilisateur, même si celui-ci n'a pas reçu le message pour diverses raisons, notamment :
 - Son appareil est éteint.
 - Son appareil n'est pas connecté à Internet (Wi-Fi ou réseau cellulaire).
-- L'utilisateur a récemment désinstallé l'application.
+- Il a récemment désinstallé l'application.
 
-Braze utilise le certificat push SSL téléchargé dans le tableau de bord pour authentifier et vérifier que nous sommes autorisés à envoyer des notifications push aux jetons de notification push fournis. Si un appareil est en ligne, la notification devrait être reçue peu de temps après l'envoi de la campagne. Notez que Braze fixe à 30 jours la [date d'expiration](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns#2947607) par défaut des APNs pour les notifications.
+Braze utilisera le certificat push SSL téléchargé dans le tableau de bord pour authentifier et vérifier que nous sommes autorisés à envoyer des notifications push aux jetons de notification push fournis. Si un appareil est en ligne, la notification devrait être reçue peu de temps après l'envoi de la Campaign. Notez que Braze fixe à 30 jours la [date d'expiration](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns#2947607) par défaut des APNs pour les notifications.
 
 ### Étape 4 : Supprimer les jetons non valides {#step-4-removing-invalid-tokens}
 
@@ -65,7 +65,7 @@ En outre, Braze fournit également un journal des modifications push sur le prof
 
 #### Réception d'un envoi non enregistré au jeton de notification push {#received-unregistered-sending}
 
-- Assurez-vous que le jeton push envoyé à Braze à partir de la méthode `AppDelegate.braze?.notifications.register(deviceToken:)` est valide. Vous pouvez consulter le **journal d'activité des messages** pour voir le jeton de notification push. Il devrait ressembler à quelque chose comme `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, une longue chaîne de caractères contenant un mélange de lettres et de chiffres. Si votre jeton push semble différent, vérifiez votre [code]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze) d'envoi des jetons push à Braze.
+- Assurez-vous que le jeton de notification push envoyé à Braze à partir de la méthode `AppDelegate.braze?.notifications.register(deviceToken:)` est valide. Vous pouvez consulter le **journal d'activité des messages** pour voir le jeton de notification push. Il devrait ressembler à quelque chose comme `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, une longue chaîne de caractères contenant un mélange de lettres et de chiffres. Si votre jeton push semble différent, vérifiez votre [code]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze) d'envoi des jetons push à Braze.
 - Vérifiez que votre profil de provisionnement push correspond à l'environnement dans lequel vous effectuez des tests. Les certificats universels peuvent être configurés dans le tableau de bord de Braze pour envoyer vers l'environnement de développement ou de production des APNs. L'utilisation d'un certificat de développement pour une application de production ou d'un certificat de production pour une application de développement ne fonctionnera pas.
  - Vérifiez que le jeton de notification push que vous avez téléchargé sur Braze correspond au profil de provisionnement que vous avez utilisé pour créer l'application à partir de laquelle vous avez envoyé le jeton de notification push.
 
@@ -158,7 +158,7 @@ Ce qui suit indiquerait un problème avec l'enregistrement push ou que le jeton 
 
 ## Les liens profonds ne fonctionnent pas {#deep-links-not-working}
 
-Pour une résolution des problèmes complète sur tous les canaux, y compris les liens universels, les schémas personnalisés, les e-mails et les fournisseurs tiers tels que Branch, consultez [Résolution des problèmes de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Pour une résolution des problèmes complète sur tous les canaux — y compris les liens universels, les schémas personnalisés, les e-mails et les fournisseurs tiers tels que Branch — consultez [Résolution des problèmes de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
 
 ### Les liens web issus des clics sur les notifications push ne s'ouvrent pas {#web-links-from-push-clicks-not-opening}
 

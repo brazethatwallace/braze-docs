@@ -210,7 +210,6 @@ You can edit the credential name for authentication types.
 - For basic authentication, you can update the username and password. Note that the previously entered password will not be visible.
 - For token authentication, you can update the header key-value pairs and the allowed domain. Note that the previously set header values will not be visible.
 
-![The option to edit credentials.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Connected Content IP allowlisting
 
@@ -236,12 +235,14 @@ Keep in mind that the hash value changes regularly. If you're filtering traffic 
 
 ## Troubleshooting
 
-Use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls. 
+Use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls and to diagnose issues with the request headers, request body, and other information that is being sent in the call.
 
 1. Switch the URL in your Connected Content call with the unique URL generated on the site.
 2. Preview and test your campaign or Canvas step to see the requests come through to this website.
 
-Using this tool, you can diagnose issues with the request headers, request body, and other information that is being sent in the call.
+You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status. 
+
+For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
 
 ## Frequently asked questions
 

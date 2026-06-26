@@ -18,8 +18,8 @@ description: "This reference article explains the different components of the Br
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -79,7 +79,7 @@ An `email_template_id` can be retrieved from the bottom of any email template cr
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",

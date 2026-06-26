@@ -95,7 +95,7 @@ Vous pouvez ajouter jusqu'à 10 pages par message in-app.
 
 Pour dupliquer une page existante :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Duplicate**.
 3. Donnez un nom significatif à la page. Cela vous aidera lorsque vous relierez les pages entre elles.
 
@@ -104,7 +104,7 @@ Pour dupliquer une page existante :
 
 Pour supprimer ou renommer une page :
 
-1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> pour ouvrir plus d'options.
+1. Survolez la page dans la liste et sélectionnez <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Sélectionnez **Rename** ou **Delete**.
 
 {% endtab %}
@@ -168,28 +168,28 @@ Tenez compte des questions suivantes lorsque vous testez votre message in-app :
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-#### Pourquoi les clics sur le corps n'apparaissent-ils pas sur ma page d'analyse ? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### Pourquoi les clics sur le corps n'apparaissent-ils pas sur ma page d'analyse ? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Les clics sur le corps ne sont pas automatiquement collectés pour les messages in-app créés avec l'éditeur par glisser-déposer. Pour plus de détails, consultez les journaux de modifications du SDK pour [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) et [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Puis-je segmenter en fonction des clics sur les boutons ? {#can-i-segment-based-on-button-clicks}
+### Puis-je segmenter en fonction des clics sur les boutons ? {#can-i-segment-based-on-button-clicks}
 
 Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum de deux boutons dans votre message. Pour ce faire, définissez l'**Identifier for Reporting** de vos boutons sur « 0 » et « 1 », ce qui correspondra respectivement aux filtres de segmentation « Clicked in-app message button 1 » et « Clicked in-app message button 2 ».
 
 ![Le champ « Identifier for Reporting » avec une valeur de « 0 ».]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Puis-je personnaliser mon message in-app en utilisant du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc de code personnalisé. Vous pouvez utiliser les blocs de code personnalisé pour intégrer des vidéos tierces et du Liquid avancé, comme le Contenu connecté ou les instructions conditionnelles.
 
-#### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
+### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 
 Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquement. Vous pouvez basculer entre les types d'affichage dans la section **Message container** du panneau **Message styles**.
 
-#### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma campagne ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future campagne ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé en utilisant le bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la campagne OU l'enregistrer en tant que brouillon.
 
 ![Une prévisualisation d'un message in-app pour une visite guidée du produit.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Vous pouvez également créer et enregistrer des modèles de messages in-app en accédant à **Templates** > **In-App Message Templates**.
+Vous pouvez également créer et enregistrer des modèles de messages in-app en accédant à **Content** > **In-App Message Templates**.

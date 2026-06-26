@@ -75,7 +75,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.2: クリック時の動作を定義する（オプション） {#step-32-define-on-click-behavior-optional}
 
-ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics/)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。
+ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics/)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。より詳細なクリックトラッキングのために、プロパティパネルの **Identifier for Reporting** フィールドを使用して、各インタラクティブ要素にカスタム識別子を割り当てます。
 
 {% alert important %}
 {::nomarkdown}
@@ -85,16 +85,16 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### ステップ3.3: 非表示の動作を設定する（オプション） {#dismiss-behavior}
 
-**Dismiss Behavior** セクションの **Banner can be dismissed** チェックボックスを選択すると、ユーザーがバナーを非表示にできるようになります。このオプションは、すべてのアプリユーザーに期間限定セールを宣伝したいが、興味がない場合はメッセージを非表示にできるようにしたいシナリオで役立ちます。
+**Dismiss behavior** セクションの **Banner can be dismissed** チェックボックスを選択すると、ユーザーがバナーを非表示にできるようになります。このオプションは、幅広いオーディエンスに期間限定のオファーを宣伝したいが、興味のないユーザーにはメッセージを非表示にできるようにしたい場合に便利です。
 
-非表示が有効になっている場合、**Dismiss Behavior** セクションで非表示ボタンをカスタマイズできます。
+非表示が有効になっている場合、**Dismiss behavior** セクションで非表示ボタンをカスタマイズできます。
 
 | 設定 | 説明 |
 |---------|-------------|
 | **ボタンサイズ** | バナーに表示される非表示ボタンのサイズです。 |
 | **ボタンの色** | 非表示ボタンの色です。 |
 | **ARIAラベル** | スクリーンリーダーが使用する非表示ボタンのアクセシブルラベルです。空白の場合、デフォルトで「Close」になります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="非表示ボタンの設定" }
 
 ユーザーがバナーを非表示にすると、Campaignのターゲティング条件に引き続き該当していても、そのユーザーにはバナーが再度表示されません。
 
@@ -117,7 +117,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 | プロパティタイプ | プロパティのデータタイプです。サポートされるタイプには、文字列、ブール値、数値、タイムスタンプ、画像URL、JSONオブジェクトがあります。 | 文字列 |
 | プロパティキー | プロパティの一意の識別子です。このキーはSDKでプロパティにアクセスするために使用されます。 | `color` |
 | 値 | プロパティに割り当てられた値です。選択したプロパティタイプと一致する必要があります。 | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ3.4: カスタムプロパティを追加する（オプション）" }
 
 完了したら、**Done** を選択します。
 
@@ -148,7 +148,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### オーディエンスを選択する {#choose-your-audience}
 
-1. **ターゲットオーディエンス**で、Segmentsまたはフィルターを選択してオーディエンスを絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に計算されます。
+1. **ターゲットオーディエンス**で、Segmentsまたはフィルターを選択してオーディエンスを絞り込みます。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に計算されます。
 
 {% multi_lang_include target_audiences.md %}
 
@@ -165,7 +165,7 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)の実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
 
-Canvasバナーステップの再適格性を制御するには、Canvasの再エントリ設定を使用します。詳細については、[CampaignsとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
+CanvasバナーステップのCampaign再適格性を制御するには、Canvasの再エントリ設定を使用します。詳細については、[CampaignsとCanvasの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)を参照してください。
 
 {% endtab %}
 {% endtabs %}

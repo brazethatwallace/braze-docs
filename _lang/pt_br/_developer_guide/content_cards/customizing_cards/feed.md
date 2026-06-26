@@ -490,7 +490,7 @@ Para saber mais, consulte a [documentação do método do SDK](https://js.appboy
 
 Por padrão, o feed de Content Cards é exibido em um [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) e [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) retorna uma lista de cartões para exibir após receber um [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) do SDK da Braze. No entanto, ele apenas classifica os cartões e não lida com nenhum filtro diretamente.
 
-#### Etapa 2.1: Crie um manipulador personalizado {#step-21-create-a-custom-handler}
+#### Etapa 2.1: Criar um manipulador personalizado {#step-21-create-a-custom-handler}
 
 Você pode filtrar Content Cards implementando um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) personalizado usando os pares chave-valor definidos por [`Card.getExtras()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/extras.html) no dashboard, e então modificá-lo para remover quaisquer cartões da lista que não correspondam ao valor de `feed_type` que você definiu anteriormente.
 
@@ -573,7 +573,7 @@ private fun getUpdateHandlerForFeedType(desiredFeedType: String): IContentCardsU
 ```
 {% enddetails %}
 
-#### Etapa 2.2: Adicione-o a um fragmento {#step-22-add-it-to-a-fragment}
+#### Etapa 2.2: Adicionar a um fragmento {#step-22-add-it-to-a-fragment}
 
 Depois de criar um [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html), crie um [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) que o utilize. Esse feed personalizado pode ser usado como qualquer outro `ContentCardsFragment`. Nas diferentes partes do seu app, exiba diferentes feeds de Content Cards com base na chave fornecida no dashboard. Cada feed do `ContentCardsFragment` terá um conjunto exclusivo de cartões exibidos graças ao `IContentCardsUpdateHandler` personalizado em cada fragmento.
 

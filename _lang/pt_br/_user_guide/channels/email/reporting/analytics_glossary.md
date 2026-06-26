@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> Este glossário define as métricas na guia **Analytics** para campanhas de e-mail e Canvas. A Braze não oferece uma página hospedada de "visualizar este e-mail no navegador" — consulte [Posso adicionar um link "visualizar este e-mail no navegador" aos meus e-mails?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) para uma alternativa. Para outras soluções de problemas que abrangem múltiplas métricas, consulte [Perguntas frequentes sobre e-mail]({{site.baseurl}}/user_guide/channels/email/faq/).
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -148,7 +150,7 @@ Para e-mail, *% de bounce* ou *taxa de bounce* é a porcentagem de mensagens que
 Um bounce de e-mail para clientes que usam SendGrid consiste em hard bounces, spam (`spam_report_drops`) e e-mails enviados para endereços inválidos (`invalid_emails`).
 
 {% alert note %}
-No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), adiamentos temporários do ESP são frequentemente representados como soft bounces. Ferramentas de entregabilidade (por exemplo, relatórios nativos do SendGrid ou modelos do Looker) podem usar adiamentos para a mesma situação. Adiamentos geralmente são temporários, e o e-mail costuma ser entregue após novas tentativas. Após tentativas prolongadas (até aproximadamente 72 horas para soft bounces na análise de dados de campanhas), uma mensagem pode ser tratada como não entregável, dependendo do seu ESP. Os eventos de e-mail do Currents são somente de adição — um soft bounce registrado não é removido posteriormente se a mensagem for entregue com sucesso.
+No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), adiamentos temporários do ESP são frequentemente representados como soft bounces. Ferramentas de entregabilidade (por exemplo, relatórios nativos do SendGrid ou modelos do Looker) podem usar adiamentos para a mesma situação. Adiamentos geralmente são temporários, e o e-mail costuma ser entregue após novas tentativas. Após tentativas prolongadas (até aproximadamente 72 horas para soft bounces na análise de dados de campanhas), uma mensagem pode ser tratada como não entregável, dependendo do seu ESP. Os eventos de e-mail do Currents são somente de adição — um soft bounce registrado não é removido posteriormente se a mensagem for entregue.
 {% endalert %}
 
 {::nomarkdown}
@@ -247,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (uma única tentativa de envio). Isso inclui cliques nos links de cancelamento de inscrição fornecidos pela Braze. Após sete dias, outro clique único pode ser contabilizado para o mesmo usuário se ele clicar novamente. As métricas de engajamento de e-mail no dashboard, incluindo *Cliques únicos*, são calculadas na Braze e não são reconciliadas a partir de relatórios agregados do ESP. Para corresponder às contagens do dashboard a partir do Currents, filtre por eventos em que `is_unique` é `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (uma única tentativa de envio). Isso inclui cliques nos links de cancelamento de inscrição fornecidos pela Braze. URLs de cancelamento de inscrição personalizadas rastreadas também contam para *Cliques únicos* quando um usuário seleciona o link. Após sete dias, outro clique único é contabilizado para o mesmo usuário se ele clicar novamente. As métricas de engajamento de e-mail no dashboard, incluindo _Cliques únicos_, são calculadas na Braze e não são reconciliadas a partir de relatórios agregados do ESP. Para corresponder às contagens do dashboard a partir do Currents, filtre por eventos em que `is_unique` é `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -258,6 +260,24 @@ Count, Percentage
     </ul>
 </span>
 {:/}
+
+#### Links inesperados no mapa de calor de e-mail {#unexpected-links-on-the-email-heatmap}
+
+Quando o [mapa de calor de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/) mostrar links que você não espera, inspecione o HTML da mensagem em busca de [blocos de conteúdo]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) ou espaçamentos entre palavras que criam URLs rastreadas. Use a **Tabela de links por total de cliques** na visualização do mapa de calor para identificar URLs que não correspondem ao texto visível.
+
+{% endapi %}
+
+{% api %}
+
+### Total de cliques {#total-clicks}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>Total de cliques</i> é o número total de vezes que os usuários clicaram em links no e-mail entregue, incluindo múltiplos cliques do mesmo usuário. Isso inclui cliques nos links de cancelamento de inscrição da Braze e URLs de cancelamento de inscrição personalizadas rastreadas.
+
+Quando o *Total de cliques* é muito maior do que os *Cliques únicos*, ferramentas de segurança ou provedores de caixa de e-mail estão escaneando links sem que os usuários abram a mensagem. Compare os *Cliques únicos* ao avaliar o engajamento internamente.
 
 {% endapi %}
 
@@ -368,6 +388,18 @@ Count
 
 {% api %}
 
+### Aberturas reais estimadas {#estimated-real-opens}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} A Braze recalcula essa estimativa à medida que novos dados de abertura e clique chegam. O valor normalmente se estabiliza alguns dias após o envio, mas continua sendo atualizado quando novos eventos qualificados ocorrem.
+
+{% endapi %}
+
+{% api %}
+
 ### Taxa de clique por abertura {#click-to-open-rate}
 
 {% apitags %}
@@ -377,6 +409,10 @@ Percentage
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">Cálculo: (Cliques únicos) / (Aberturas únicas) (para e-mail)</span>
+
+#### Pontuações de probabilidade de abertura de mensagem (segmentação) {#message-open-likelihood-scores-segmentation}
+
+O filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) classifica a probabilidade de um usuário abrir e-mails em uma escala de 0 a 100%. Usuários sem histórico suficiente de envio ou abertura para o canal aparecem em branco. Para e-mail, as aberturas por máquina são excluídas do cálculo, que usa o histórico recente de mensagens nesse canal (consulte [Filtro de probabilidade de abertura de mensagem para canais individuais]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels)).
 
 {% endapi %}
 
@@ -390,6 +426,10 @@ Quando um destinatário clica em um link de cancelamento de inscrição, a Braze
 
 A Braze não inclui um recurso nativo de "Visualizar este e-mail no navegador". Hospede o conteúdo do e-mail em uma landing page externa (como o seu site) e adicione um link a partir da mensagem usando a ferramenta **Link** do editor de e-mail. Para saber mais, consulte [Posso adicionar um link "visualizar este e-mail no navegador" aos meus e-mails?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
 
+### Atualizações na página de cancelamento de inscrição personalizada {#custom-unsubscribe-page-updates}
+
+Alterações na sua [página de cancelamento de inscrição personalizada]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) aparecem em poucos minutos. Envios ativos usam um cache de curta duração da página que é atualizado quando você salva as alterações.
+
 ### Bounces por cota excedida e caixa de e-mail cheia {#over-quota-and-full-mailbox-bounces}
 
 Um bounce por cota excedida ou caixa de e-mail cheia significa que a caixa de entrada do destinatário não pode aceitar novos e-mails. Você pode ver esses endereços entre novos cadastros com endereços inválidos ou arriscados, ou entre perfis inativos há muito tempo cujas caixas de entrada ficaram cheias enquanto estavam inativos.
@@ -398,7 +438,7 @@ Revise as taxas de bounce por segmento e origem, remova ou desative endereços q
 
 ### 550 5.7.1 e-mail não solicitado {#550-571-unsolicited-mail}
 
-Uma resposta `550 5.7.1` como "Our system has detected that this message is likely unsolicited mail" geralmente vem de provedores de caixa de e-mail rigorosos (por exemplo, Gmail) quando os sinais de reputação ou engajamento parecem ruins. Fatores comuns incluem reclamações de spam, baixo engajamento, listas compradas ou alugadas e picos repentinos de volume.
+Uma resposta `550 5.7.1` como "Nosso sistema detectou que esta mensagem provavelmente é e-mail não solicitado" geralmente vem de provedores de caixa de e-mail rigorosos (por exemplo, Gmail) quando os sinais de reputação ou engajamento parecem ruins. Fatores comuns incluem reclamações de spam, baixo engajamento, listas compradas ou alugadas e picos repentinos de volume.
 
 Concentre-se no crescimento de lista baseado em consentimento, desative assinantes inativos e monitore as taxas de reclamação e bounce. Para saber mais, consulte [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
@@ -408,14 +448,14 @@ Concentre-se no crescimento de lista baseado em consentimento, desative assinant
 
 Como orientação geral, busque uma taxa de entrega próxima de 99% com hard bounces abaixo de aproximadamente 1%, e acompanhe aberturas e cliques para tendências de engajamento. As metas exatas variam por setor e padrão de envio. Para práticas que apoiam a reputação, consulte [Melhorar a entregabilidade de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) e [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
-### "Campaign is already in delay window, so not enqueueing another"
+### "Campaign is already in delay window, so not enqueueing another" {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
-No registro de atividades de mensagem ou nos logs de diagnóstico de [campanhas baseadas em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), esse resultado de processamento significa que a Braze bloqueou um envio duplicado enquanto um gatilho anterior para o mesmo usuário ainda está dentro da janela de entrega da campanha. Um bloqueio de debounce impede múltiplos enfileiramentos para a mesma rajada de gatilhos.
+No registro de atividades de mensagem ou nos logs de diagnóstico de [Campaigns baseadas em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), esse resultado de processamento significa que a Braze bloqueou um envio duplicado enquanto um gatilho anterior para o mesmo usuário ainda está dentro do período de entrega da Campaign. Um bloqueio de debounce impede múltiplos enfileiramentos para a mesma rajada de gatilhos.
 
-Você pode ver esse resultado mesmo quando a campanha mostra **Enviar imediatamente** se qualquer uma das seguintes condições se aplicar:
+Você pode ver esse resultado mesmo quando a Campaign mostra **Enviar imediatamente** se qualquer uma das seguintes condições se aplicar:
 
-- A campanha usa um [evento de exceção]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) ou uma postergação no momento do envio que afeta o tempo.
-- Os usuários têm um período de [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/), então não podem receber a mensagem novamente até que essa janela passe.
-- Outra campanha ou etapa de mensagem do Canvas com prioridade mais alta consumiu o slot de envio quando os gatilhos se sobrepõem.
+- A Campaign usa um [evento de exceção]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) ou uma postergação no horário de envio que afeta o tempo.
+- Os usuários têm um período de [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/), então não podem receber a mensagem novamente até que esse período passe.
+- Outra Campaign ou etapa de mensagem do Canvas com prioridade mais alta consumiu o slot de envio quando os gatilhos se sobrepõem.
 
 Se um usuário deveria ter recebido a mensagem, mas não recebeu, verifique os resultados anteriores para o mesmo gatilho (por exemplo, bounce de e-mail ou canal não ativado). Outra mensagem no mesmo fluxo de trabalho pode ter impedido esse envio.

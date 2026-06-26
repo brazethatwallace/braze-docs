@@ -135,7 +135,7 @@ APIトリガー配信には以下のエンドポイントを使用できます�
 
 ### ステップ 1.3: ターゲットエントリオーディエンスを設定する {#step-13-set-your-target-entry-audience}
 
-**ターゲットオーディエンス**ステップでは、定義した条件に一致するユーザーのみがジャーニーに入ることができます。つまり、Brazeはユーザーがキャンバスジャーニーに入る**前に**、まずターゲットオーディエンスの適格性を評価します。たとえば、新規ユーザーをターゲットにしたい場合、1週間以内にアプリを初めて使用したユーザーのSegmentを選択できます。
+**ターゲットオーディエンス**ステップでは、定義した条件に一致するユーザーのみがジャーニーに入ることができます。つまり、Brazeはユーザーがキャンバスジャーニーに入る**前に**、まずターゲットオーディエンスの適格性を評価します。たとえば、新規ユーザーをターゲットにしたい場合、1週間以内にアプリを初めて使用したユーザーのセグメントを選択できます。
 
 **エントリコントロール**では、キャンバスが実行されるようにスケジュールされるたびにユーザー数を制限できます。APIトリガーベースおよびアクションベースのCanvasesの場合、この制限はUTC時間の毎時に適用されます。
 
@@ -173,7 +173,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 注意事項:
 
-- 正確な統計の計算には数分かかる場合があります。この機能はSegmentレベルでのみ正確な統計を計算し、フィルターやフィルターグループレベルでは計算しません。
+- 正確な統計の計算には数分かかる場合があります。この機能はセグメントレベルでのみ正確な統計を計算し、フィルターやフィルターグループレベルでは計算しません。
 - 正確な統計の読み込み中は、概算値が表示される場合があります。正確な数値は読み込みが完了すると**到達可能なユーザー**セクションに表示されます。**追加統計を表示**を選択すると、詳細な内訳を確認できます。
 - 大規模なSegmentsの場合、正確な統計を計算しても若干の変動が見られることは正常です。この機能の精度は99.999%以上と想定されています。
 
@@ -224,15 +224,31 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 ![Braze Canvasの2つのバリアント例。]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-デフォルトでは、Canvasのバリアント割り当てはユーザーがキャンバスに入った時点でロックされます。つまり、ユーザーが最初にあるバリアントに入った場合、キャンバスに再エントリするたびにそのバリアントが割り当てられます。ただし、この動作を回避する方法があります。<br><br>これを行うには、Liquidを使用して乱数ジェネレーターを作成し、各ユーザーのキャンバスエントリの最初に実行し、その値をカスタム属性として保存してから、その属性を使用してユーザーをランダムに分割します。
+デフォルトでは、Canvasのバリアント割り当てはユーザーIDとCanvas IDの決定論的ハッシュによって決定されます（ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)ではありません）。つまり、バリアント配分の割合が変更されない限り、特定のユーザーは再エントリ時に常に同じバリアントに割り当てられます。起動後にバリアント配分を調整した場合、ユーザーがキャンバスに再エントリする際に異なるバリアントに割り当てられる可能性があります。<br><br>配分の割合を変更しても固定された割り当てが必要な場合は、単一のCanvasバリアントを使用し、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップでユーザーをルーティングしてください。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを使用して乱数をカスタム属性に保存し、オーディエンスパスでその属性をフィルタリングします。
 
 {% details 手順を展開 %}
 
-1. 乱数を保存するカスタム属性を作成します。「lottery_number」や「random_assignment」など、見つけやすい名前を付けてください。属性は[ダッシュボード]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)で作成するか、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)へのAPI呼び出しで作成できます。<br><br>
-2. キャンバスの最初にWebhook Campaignを作成します。このCampaignが乱数を作成し、カスタム属性として保存する手段となります。詳細は[Webhookの作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook)を参照してください。URLを `/users/track` エンドポイントに設定します。<br><br>
-3. 乱数ジェネレーターを作成します。[こちらに記載されているコード](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486)を使用して作成できます。これは各ユーザーのユニークなエントリ時間を利用して乱数を生成します。生成された数値をWebhook Campaign内のLiquid変数として設定します。<br><br>
-4. Webhook Campaignの `/users/track` 呼び出しをフォーマットして、ステップ1で作成したカスタム属性を、現在のユーザーのプロファイルに生成した乱数に設定するようにします。このステップが実行されると、ユーザーがCampaignに入るたびに変わる乱数が正常に作成されます。<br><br>
-5. キャンバスの分岐を、ランダムに選択されたバリアントで分割するのではなく、オーディエンスルールに基づいて分割するように調整します。各分岐のオーディエンスルールで、カスタム属性に基づいてオーディエンスフィルターを設定します。<br><br>たとえば、ある分岐のオーディエンスフィルターを「lottery_number が3未満」に設定し、別の分岐のオーディエンスフィルターを「lottery_number が3より大きく6未満」に設定できます。
+1. 乱数を保存する**数値**カスタム属性を作成します。`lottery_number` や `random_assignment` など、見つけやすい名前を付けてください。ダッシュボードで**データ設定** > **カスタム属性**に移動します。<br><br>
+2. 単一のCanvasバリアントを使用します（または各バリアントに同じユーザーの更新ステップを追加します）。ジャーニーの最初に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを追加します。このステップは、ユーザーがオーディエンスパスステップに到達する前に乱数を生成して保存します。<br><br>
+3. ユーザーの更新ステップで、[高度なJSONエディター]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#advanced-json-editor)を選択します。{% raw %}{% random %}{% endraw %} タグを使用して数値を生成します。詳細については、[乱数を含むメッセージを送信する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number)を参照してください。たとえば、{% raw %}`{% random 10 %}`{% endraw %} は0から9の整数を返します。ステップ1のカスタム属性を以下のようなJSONで設定します:<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+{% raw %}`{% if %}`{% endraw %} ブロックは、属性が空白の場合にのみ数値を設定するため、ユーザーがキャンバスに再エントリしても同じ割り当てが維持されます。<br><br>
+
+{: start="4"}
+4. ユーザーの更新ステップの後に[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)ステップを追加します。各オーディエンスグループで、バリアント配分の割合を使用する代わりに、カスタム属性に基づくフィルターを追加します。<br><br>たとえば、{% raw %}`{% random 10 %}`{% endraw %} を使用した場合、あるグループは `lottery_number` が**4未満**、別のグループは**3より大きく7未満**、3番目のグループは**6より大きく10未満**とすることができます。
 
 {% enddetails %}
 {% endalert %}
@@ -311,7 +327,7 @@ Canvasで `campaign.${name}` Liquidタグを使用すると、現在のキャン
 
 ステップ間の接続を移動するには、2つのコンポーネントを接続する矢印を選択し、別のコンポーネントを選択します。接続を削除するには、矢印を選択し、キャンバスコンポーザーのフッターにある**Cancel Connection**を選択します。
 
-単一のバリアントに同じオーディエンスと送信時間を持つ複数の分岐がある場合、Brazeはそれらの分岐間で均等な分割を保証しません。配分は最初に作成された分岐が優先される場合があります。均等な分割を行うには、各分岐に[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)フィルターを使用してください。詳細については、[1つのバリアントを持つキャンバスで複数の分岐がある場合、オーディエンスと送信時間が同一だとどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)を参照してください。
+単一のバリアントに同じオーディエンスと送信時間を持つ複数の分岐がある場合、Brazeはそれらの分岐間で均等な分割を保証しません。配分は最初に作成された分岐が優先される場合があります。均等な分割を行うには、各分岐に[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)フィルターを使用してください。詳細については、[1つのバリアントを持つキャンバスで、オーディエンスと送信時間が同一の複数の分岐がある場合はどうなりますか？]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches)を参照してください。
 
 ## ステップ 3: コントロールグループを追加する {#step-3-add-a-control-group}
 

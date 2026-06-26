@@ -15,8 +15,8 @@ hide_toc: true
 <b>에이전트 콘솔:</b> 호출(Invocations)<br>
 <b>SMS:</b> Segments<br>
 <b>MMS:</b> 발송<br>
-<b>WhatsApp:</b> 메시지<br>
-<b>RCS:</b> Segments, 발송<br>
+<b>WhatsApp:</b> 전달된 메시지<br>
+<b>RCS:</b> 전달된 Segments, 전달된 발송<br>
 <b>LINE:</b> 발송<br>
 <b>KakaoTalk:</b> 발송<br>
 
@@ -35,19 +35,21 @@ hide_toc: true
 
 ## 메시지 크레딧 - Sigma 크레딧 비율 표 {#credit-ratio-table-for-message-credits-sigma}
 
-{% details 클릭하여 펼치기 %}
-<table>
+{% details 펼치려면 클릭하세요 %}
+<table class="credits-table" aria-label="메시지 크레딧 - Sigma 크레딧 비율 표">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>채널</b></th>
         <th><b>대상</b></th>
         <th class="credits-column"><b>1회 발송당 크레딧</b></th>
     </tr>
-<table>
-<tr>
+    </thead>
+    <tbody>
+    <tr>
         <td>에이전트 콘솔</td>
         <td>Braze Auto</td>
         <td>1.60</td>
@@ -2128,7 +2130,7 @@ hide_toc: true
         <td>4.35</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2272,6 +2274,7 @@ hide_toc: true
         <td>United States - Single - Deprecated</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
@@ -2279,13 +2282,13 @@ hide_toc: true
 ------
 
 ## 에이전트 콘솔 세부 정보 {#agent-console-details}
-Braze는 Braze 플랫폼에서 발송된 에이전트 콘솔 호출(Invocations)에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로 계약에는 구독 기간의 각 기간당 1만 건의 호출이 포함됩니다.
+Braze는 Braze 플랫폼에서 발송된 에이전트 콘솔 호출(Invocation)에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로 계약에는 구독 기간의 각 기간당 1만 건의 호출이 포함되어 있습니다.
 
 ## SMS/MMS 채널 세부 정보 {#smsmms-channel-details}
 
 ### SMS 세그먼트 {#sms-segments}
 
-SMS 메시지 세그먼트는 SMS 업계에서 메시지를 계산하는 방식입니다. 메시지 세그먼트는 정해진 글자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 문자 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 발송하면 추가 요금이 발생합니다.
+SMS 메시지 세그먼트는 SMS 업계에서 메시지를 계산하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 문자 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 발송하면 추가 요금이 발생합니다.
 
 ### MMS 세그먼트 {#mms-segments}
 
@@ -2293,9 +2296,9 @@ MMS의 경우 메시지 제한은 5MB입니다(멀티미디어 자산과 메시�
 
 ### RCS 유형 {#rcs-types}
 
-RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 높은 참여도의 채널 장점을 제공하면서, 리치 콘텐츠(이미지, 동영상, 문서), 인증 및 브랜드 발신, 추천 답장 및 동작과 같은 인터랙티브 기능 등 현대 소비자가 기대하는 더 풍부한 기능을 갖추고 있습니다.
+RCS는 차세대 SMS 및 MMS입니다. SMS와 같은 직접적이고 높은 참여도의 채널 장점을 제공하면서, 리치 콘텐츠(이미지, 동영상, 문서), 인증 및 브랜드 발신, 추천 답장 및 동작과 같은 인터랙티브 기능 등 현대 소비자가 기대하는 더 풍부한 기능을 갖추고 있습니다.
 
-- RCS 과금은 두 가지 메시지 유형을 중심으로 합니다(미국의 경우 구분이 있음):
+- RCS 과금은 두 가지 메시지 유형을 기준으로 합니다(미국의 경우 구분이 다름):
     - **Basic RCS:** 텍스트 전용, 최대 160자
     - **Single RCS:** 리치 콘텐츠를 포함하는 메시지 또는 160자를 초과하는 텍스트 전용 메시지
     - **Rich RCS (미국 전용):** 텍스트 전용, 제한된 제안/버튼(quickReply, dialPhone, 웹뷰 없는 openURL) 포함 가능, 160 UTF-8 바이트 단위로 세그먼트 분할
@@ -2309,45 +2312,45 @@ RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 �
 
 ### 웹훅 {#webhooks}
 
-웹훅은 2024년 12월 9일부터 메시지 크레딧에 포함되었습니다. Braze는 Braze 플랫폼에서 발송된 모든 웹훅에 대해 메시지 크레딧을 청구합니다. 기본적으로 계약에는 구독 기간의 각 기간당 10만 건의 웹훅이 포함됩니다. 추가 웹훅은 주문서에 따라 청구됩니다.
+웹훅은 2024년 12월 9일부터 메시지 크레딧의 일부가 되었습니다. Braze는 Braze 플랫폼에서 발송되는 모든 웹훅에 대해 메시지 크레딧을 청구합니다. 기본적으로 계약에는 구독 기간의 각 기간당 십만 건의 웹훅이 포함되어 있습니다. 추가 웹훅은 주문서에 따라 청구됩니다.
 
-### BYO(Bring Your Own) SMS 커넥터 {#bring-your-own-byo-sms-connectors}
+### 자체 SMS 커넥터(BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 제공업체와 연동하여 SMS 메시지를 발송할 수 있도록 합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 발송된 각 메시지에 대해 메시지 크레딧을 청구합니다.
+Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 제공업체와 통합하여 SMS 메시지를 발송할 수 있도록 지원합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 발송되는 각 메시지에 대해 메시지 크레딧을 청구합니다.
 
 ### LINE
 
-Braze는 Braze 플랫폼에서 발송된 모든 LINE 메시지에 대해 메시지 크레딧을 청구합니다.
+Braze는 Braze 플랫폼에서 발송되는 모든 LINE 메시지에 대해 메시지 크레딧을 청구합니다.
 
-## 과금 지역 분류 {#billing-region-breakdown}
+## 청구 지역 분류 {#billing-region-breakdown}
 
-#### 북미 {#north-america}
+### 북미 {#north-america}
 
-United States, Canada
+미국, 캐나다
 
-#### 기타 아프리카 {#rest-of-africa}
+### 기타 아프리카 {#rest-of-africa}
 
-Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Chad, Congo, Eritrea, Ethiopia, Gabon, Gambia, Ghana, Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya,
-Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwanda, Senegal, Sierra Leone, Somalia, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia
+알제리, 앙골라, 베냉, 보츠와나, 부르키나파소, 부룬디, 카메룬, 차드, 콩고, 에리트레아, 에티오피아, 가봉, 감비아, 가나, 기니비사우, 코트디부아르, 케냐, 레소토, 라이베리아, 리비아,
+마다가스카르, 말라위, 말리, 모리타니, 모로코, 모잠비크, 나미비아, 니제르, 르완다, 세네갈, 시에라리온, 소말리아, 남수단, 수단, 에스와티니, 탄자니아, 토고, 튀니지, 우간다, 잠비아
 
-#### 기타 아시아 태평양 {#rest-of-asia-pacific}
+### 기타 아시아 태평양 {#rest-of-asia-pacific}
 
-Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand,
-Turkmenistan, Uzbekistan, Vietnam
+아프가니스탄, 호주, 방글라데시, 캄보디아, 중국, 홍콩, 일본, 라오스, 몽골, 네팔, 뉴질랜드, 파푸아뉴기니, 필리핀, 싱가포르, 스리랑카, 대만, 타지키스탄, 태국,
+투르크메니스탄, 우즈베키스탄, 베트남
 
-#### 기타 중앙 및 동유럽 {#rest-of-central-eastern-europe}
+### 기타 중앙 및 동유럽 {#rest-of-central-eastern-europe}
 
-Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
+알바니아, 아르메니아, 아제르바이잔, 벨라루스, 불가리아, 크로아티아, 체코, 조지아, 그리스, 헝가리, 라트비아, 리투아니아, 북마케도니아, 몰도바, 폴란드, 루마니아, 세르비아, 슬로바키아, 슬로베니아, 우크라이나
 
-#### 기타 라틴 아메리카 {#rest-of-latin-america}
+### 기타 라틴 아메리카 {#rest-of-latin-america}
 
-Bolivia, Costa Rica, Dominican Republic, Ecuador, El Salvador,
-Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, Uruguay, Venezuela
+볼리비아, 코스타리카, 도미니카 공화국, 에콰도르, 엘살바도르,
+과테말라, 아이티, 온두라스, 자메이카, 니카라과, 파나마, 파라과이, 푸에르토리코, 우루과이, 베네수엘라
 
-#### 기타 중동 {#rest-of-middle-east}
+### 기타 중동 {#rest-of-middle-east}
 
-Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
+바레인, 이라크, 요르단, 쿠웨이트, 레바논, 오만, 카타르, 예멘
 
-#### 기타 서유럽 {#rest-of-western-europe}
+### 기타 서유럽 {#rest-of-western-europe}
 
-Austria, Belgium, Denmark, Finland, Ireland, Norway, Portugal, Sweden, Switzerland
+오스트리아, 벨기에, 덴마크, 핀란드, 아일랜드, 노르웨이, 포르투갈, 스웨덴, 스위스

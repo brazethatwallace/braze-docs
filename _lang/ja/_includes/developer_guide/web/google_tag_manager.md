@@ -3,10 +3,20 @@
 Google Tag Manager（GTM）を使えば、プロダクションコードのリリースやエンジニアリングリソースを必要とせずに、Webサイトのタグをリモートで追加、削除、編集できます。BrazeはWeb SDK用に以下のテンプレートを提供しています。
 
 | タグの種類 | ユースケース |
-| --------- | ----------- |
+|--------|--------|
 | 初期化タグ | このタグにより、サイトのコードを変更することなく、[Web Braze SDKを統合する]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web)ことができます。|
 | アクションタグ | このタグで[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager)、[ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web)、[データ収集の管理]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web)ができます。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Google Tag Manager for Webについて" }
+
+## Brazeアクションタグのタグシーケンス {#tag-sequencing-for-braze-action-tags}
+
+カスタムイベントやその他のBrazeアクションタグは、**Braze Initialization**タグがWeb SDKの読み込みを完了する前に発火すると失敗することがあります。Google Tag Managerでアクションタグを開き、**Advanced Settings** > **Tag Sequencing**に移動して、**A tag that fires before [this tag] is fired**を選択し、Braze Initializationタグを選択してください。
+
+詳細については、[カスタムイベントのタグシーケンスの検証]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing)を参照してください。
+
+## GTMで購入を記録する {#log-purchases-with-gtm}
+
+BrazeアクションタグおよびCustom HTMLタグで `braze.logPurchase()` を呼び出して収益を記録します。レガシーの `appboy.logPurchase()` 名前空間は、現在のWeb SDK統合ではサポートされていません。
 
 ## GTMでカスタムイベントを記録する {#logging-custom-events-with-gtm}
 
@@ -44,7 +54,7 @@ GTMの**Custom HTML**タグを使用してカスタムイベントを記録で�
 
 イベントプロパティを含めるには、2番目の引数として渡します。
 
-`````````html
+```html
 <script>
 window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"});
 </script>
@@ -63,7 +73,7 @@ GoogleのEUユーザー同意ポリシーの一環として、以下のブール
 
 GTM統合を使用してこれらを設定する場合、カスタム属性ではカスタムHTMLタグを作成する必要があります。以下は、これらの値を（文字列としてではなく）ブール値データタイプとして記録する方法の例です。
 
-`````````js
+```js
 <script>
 window.braze.getUser().setCustomUserAttribute("$google_ad_personalization", true);
 </script>

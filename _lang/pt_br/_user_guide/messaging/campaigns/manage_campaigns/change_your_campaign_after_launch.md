@@ -12,6 +12,22 @@ description: "Este artigo de referência oferece uma visão geral dos resultados
 
 > Este artigo oferece uma visão geral dos resultados de editar determinados aspectos de uma campanha após o lançamento.
 
+## Por que você deve interromper uma campanha antes de editar {#risks-of-editing-live}
+
+{% alert important %}
+A Braze recomenda interromper uma campanha antes de fazer alterações, em vez de editá-la enquanto está ativa. Editar uma campanha ativa sem interrompê-la primeiro pode levar a comportamentos inesperados, incluindo usuários recebendo a mensagem duas vezes.
+{% endalert %}
+
+Quando uma campanha é lançada, todos os usuários elegíveis são enfileirados para receber a mensagem. No entanto, um usuário não é marcado como tendo recebido a campanha até que a mensagem seja realmente entregue, e não quando é enfileirado. Se você editar uma campanha ativa sem interrompê-la primeiro, a Braze reenfileira os usuários elegíveis para a versão atualizada enquanto a fila original ainda está sendo processada. Os usuários que ainda não receberam a mensagem original estarão em ambas as filas, o que pode resultar em:
+
+- Usuários recebendo a campanha duas vezes (a versão original e a atualizada), mesmo que a reelegibilidade esteja desativada.
+- A versão original da campanha ainda sendo entregue aos usuários na primeira fila.
+- Contagens de público inesperadas na análise de dados da campanha.
+
+Isso é mais provável de ocorrer com campanhas que direcionam um público grande e estão programadas para envio imediato, já que há uma grande fila de usuários sendo processada de uma vez. Para campanhas baseadas em ação com gatilhos graduais (como eventos de cadastro), o risco é menor porque apenas um pequeno número de usuários normalmente está na fila em um dado momento.
+
+Para fazer alterações com segurança, interrompa a campanha primeiro e depois edite a campanha interrompida ou [duplique-a](#making-immediate-changes) com suas alterações.
+
 ## Interromper sua campanha {#stopping-your-campaign}
 
 Para interromper uma campanha, abra a página **Campaign Details** e selecione **Interromper campanha**. Quando uma campanha é interrompida:
@@ -56,6 +72,12 @@ Se sua campanha usa Intelligent Timing ou entrega por fuso horário local, as ed
 ### Taxa de envio {#send-rate}
 
 Ao usar um limite de taxa de envio, a Braze "programa" suas mensagens em intervalos de tempo com granularidade de minutos. Portanto, se você quiser alterar a taxa de envio de mensagens, siga o processo abaixo para fazer alterações imediatas.
+
+#### Pausar campanhas com limite de velocidade de entrega {#pausing-campaigns-with-delivery-speed-rate-limiting}
+
+Quando você pausa uma campanha que usa [limite de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), a Braze distribui os envios em intervalos baseados em minutos. **Resume** não reenvia mensagens de intervalos que foram cancelados enquanto a campanha estava pausada, e nem todas as mensagens são necessariamente enviadas quando a campanha é retomada.
+
+Se alguns usuários não receberam mensagens porque a campanha estava pausada, duplique a campanha e direcione apenas esses usuários, em vez de depender de **Resume** para entregar as mensagens perdidas.
 
 ## Fazer alterações imediatas {#making-immediate-changes}
 

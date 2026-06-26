@@ -27,7 +27,7 @@ Nehmen wir an, Sie verwalten E-Mail-Aktionen für bezahlte Partnerschaften und K
 
 ## Kategorien {#categories}
 
-Priorisierungsregeln basieren auf einer Rangfolge von Kategorien, die ein Label darstellen, das Sie einer bestimmten Campaign zuweisen können (ähnlich wie ein [Tag](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)). Sie können bis zu 20 Kategorien gleichzeitig erstellen.
+Priorisierungsregeln basieren auf einer Rangfolge von Kategorien, die ein Label darstellen, das Sie einer bestimmten Campaign zuweisen können (ähnlich wie ein [Tag]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)). Sie können bis zu 20 Kategorien gleichzeitig erstellen.
 
 So fügen Sie eine neue Kategorie hinzu:
 
@@ -140,7 +140,7 @@ Wir gehen davon aus, dass Ihre Nachricht zum ursprünglich geplanten Zeitpunkt g
 
 ### Meine Nachricht wurde priorisiert, aber in letzter Minute abgebrochen. Was bedeutet das für die Priorisierung? {#my-message-was-prioritized-but-aborted-last-minute-what-does-that-mean-for-prioritization}
 
-Wenn eine Nachricht priorisiert wird, geht Braze davon aus, dass sie zum ursprünglich geplanten Zeitpunkt gesendet wurde. Generell empfehlen wir für die Nachrichtenpriorisierung nicht die Verwendung von Liquid-Abbrüchen. Wenn eine Nachricht aufgrund von [`abort_message`-Liquid-Logik](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages) abgebrochen wird, gehen wir davon aus, dass sie an diese Nutzer:innen gesendet wurde, und priorisieren zukünftige Campaigns entsprechend.
+Wenn eine Nachricht priorisiert wird, geht Braze davon aus, dass sie zum ursprünglich geplanten Zeitpunkt gesendet wurde. Generell empfehlen wir für die Nachrichtenpriorisierung nicht die Verwendung von Liquid-Abbrüchen. Wenn eine Nachricht aufgrund von [`abort_message`-Liquid-Logik]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) abgebrochen wird, gehen wir davon aus, dass sie an diese Nutzer:innen gesendet wurde, und priorisieren zukünftige Campaigns entsprechend.
 
 Nehmen wir an, Sie haben zwei Nachrichten: Nachricht 1 und Nachricht 2. Wenn Nachricht 1 zugunsten einer zukünftigen Nachricht 2 mit höherer Priorität abgebrochen wird, garantiert dies nicht, dass Nachricht 2 tatsächlich gesendet wird. Nachricht 2 kann aus verschiedenen Gründen ebenfalls abgebrochen werden, darunter:
 
@@ -167,4 +167,4 @@ Derzeit wird die Nachrichtenpriorisierung für aktionsbasierte oder API-getrigge
 
 ### Gibt es Berichts- oder Analytics-Funktionen speziell für die Nachrichtenpriorisierung? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-Derzeit gibt es keine Berichts- oder Analytics-Funktionen speziell für dieses Feature. Wir empfehlen Ihnen, die bestehende [Braze-Berichtsfunktionalität](https://www.braze.com/docs/user_guide/analytics/reporting) zu nutzen, um den Zustand und die Performance Ihrer priorisierten Campaigns zu überwachen.
+Derzeit gibt es keine Berichts- oder Analytics-Funktionen speziell für dieses Feature. Wir empfehlen Ihnen, die bestehende [Braze-Berichtsfunktionalität]({{site.baseurl}}/user_guide/analytics/reporting/) zu nutzen, um den Zustand und die Performance Ihrer priorisierten Campaigns zu überwachen.

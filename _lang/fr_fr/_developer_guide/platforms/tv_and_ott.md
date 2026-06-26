@@ -39,6 +39,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <th>Notifications push</th>
             <th>Canvas</th>
             <th>Indicateurs de fonctionnalité</th>
+            <th>Bannières</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Kindle Fire</td>
@@ -59,6 +61,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Android TV</td>
@@ -68,6 +71,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>LG TV (webOS)</td>
@@ -77,6 +81,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push">S.O.</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
@@ -86,6 +91,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push">S.O.</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Roku</td>
@@ -95,6 +101,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push">S.O.</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-times text-warning"></i></td>
         </tr>
         <tr>
             <td>Apple TV OS</td>
@@ -104,6 +111,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
             <td for="push"><i class="fa-solid fa-minus"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
        <tr>
           <td>Apple Vision Pro</td>
@@ -113,6 +121,7 @@ Voici la liste des fonctionnalités et canaux de communication pris en charge au
           <td for="push"><i class="fa-solid fa-minus"></i></td>
           <td for="canvas"><i class="fas fa-check text-success"></i></td>
           <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+          <td for="banners"><i class="fas fa-check text-success"></i></td>
       </tr>
     </tbody>
 </table>
@@ -137,6 +146,8 @@ Les fonctionnalités comprennent :
 - Indicateurs de fonctionnalité
 - Messages in-app
   - Pour afficher les messages HTML dans des environnements non tactiles tels que les téléviseurs, définissez `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` sur `false` (disponible à partir du [SDK Android v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre application Fire TV.
 
 Pour plus d'informations, consultez le [guide d'intégration Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -151,6 +162,8 @@ Les fonctionnalités comprennent :
 - Content Cards
 - Indicateurs de fonctionnalité
 - Messages in-app
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre Kindle Fire.
 
 Pour plus d'informations, consultez le [guide d'intégration Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -167,6 +180,8 @@ Les fonctionnalités comprennent :
   - Pour afficher les messages HTML dans des environnements non tactiles tels que les téléviseurs, définissez `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` sur `false` (disponible à partir du [SDK Android v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Notifications push (intégration manuelle requise)
   - Les notifications push ne sont pas prises en charge nativement sur Android TV. Pour en savoir plus, consultez les [directives de conception](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) de Google. Vous pouvez toutefois **procéder à une intégration manuelle de l'interface utilisateur des notifications push pour y parvenir**. Consultez notre [documentation]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv) pour savoir comment procéder.
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre application Android TV.
 
 Pour plus d'informations, consultez le [guide d'intégration du SDK Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -181,9 +196,11 @@ Utilisez le SDK Web de Braze pour l'intégration avec les [téléviseurs LG webO
 Les fonctionnalités comprennent :
 
 - Collecte de données et d'analyses pour l'engagement cross-canal
-- Content Cards (via [l'interface utilisateur Headless](#custom-ui))
+- Content Cards (via l'[interface utilisateur Headless](#custom-ui))
 - Indicateurs de fonctionnalité
-- Messages in-app (via [l'interface utilisateur Headless](#custom-ui))
+- Messages in-app (via l'[interface utilisateur Headless](#custom-ui))
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre application webOS.
 
 Pour plus d'informations, consultez le [guide d'intégration TV connectée Web]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -194,9 +211,11 @@ Utilisez le SDK Web de Braze pour l'intégration avec les [téléviseurs Samsung
 Les fonctionnalités comprennent :
 
 - Collecte de données et d'analyses pour l'engagement cross-canal
-- Content Cards (via [l'interface utilisateur Headless](#custom-ui))
+- Content Cards (via l'[interface utilisateur Headless](#custom-ui))
 - Indicateurs de fonctionnalité
-- Messages in-app (via [l'interface utilisateur Headless](#custom-ui))
+- Messages in-app (via l'[interface utilisateur Headless](#custom-ui))
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre application Tizen.
 
 Pour plus d'informations, consultez le [guide d'intégration TV connectée Web]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -207,7 +226,7 @@ Utilisez le SDK Roku de Braze pour l'intégration avec les [téléviseurs Roku](
 Les fonctionnalités comprennent :
 
 - Collecte de données et d'analyses pour l'engagement cross-canal
-- Messages in-app (via [l'interface utilisateur Headless](#custom-ui))
+- Messages in-app (via l'[interface utilisateur Headless](#custom-ui))
   - Les webviews ne sont pas prises en charge par la plateforme Roku. Par conséquent, les messages in-app HTML ne sont pas pris en charge.
 - Indicateurs de fonctionnalité
 
@@ -220,17 +239,19 @@ Utilisez le SDK Swift de Braze pour l'intégration avec tvOS. Gardez à l'esprit
 Les fonctionnalités comprennent :
 
 - Collecte de données et d'analyses pour l'engagement cross-canal
-- Content Cards (via [l'interface utilisateur Headless](#custom-ui))
+- Content Cards (via l'[interface utilisateur Headless](#custom-ui))
 - Indicateurs de fonctionnalité
-- Messages in-app (via [l'interface utilisateur Headless](#custom-ui))
+- Messages in-app (via l'[interface utilisateur Headless](#custom-ui))
   - Les webviews ne sont pas prises en charge par la plateforme tvOS. Par conséquent, les messages in-app HTML ne sont pas pris en charge.
   - Consultez notre [exemple d'application](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) pour en savoir plus sur l'utilisation d'une interface utilisateur Headless pour un envoi de messages personnalisé sur tvOS.
 - Notifications push silencieuses et mise à jour des badges
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre application tvOS.
 
 Pour plus d'informations, consultez le [guide d'intégration du SDK Swift pour iOS](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert note %}
-Pour éviter d'afficher des messages in-app mobiles à vos utilisateurs TV, veillez à configurer soit le [ciblage des applications](#app-targeting), soit l'utilisation de paires clé-valeur pour filtrer les messages. Par exemple, n'affichez les messages tvOS que s'ils contiennent une paire clé-valeur spéciale `tv = true`.
+Pour éviter d'afficher des messages in-app mobiles à vos utilisateurs TV, veillez à configurer soit le [ciblage des applications](#app-targeting), soit des paires clé-valeur pour filtrer les messages. Par exemple, n'affichez les messages tvOS que s'ils contiennent une paire clé-valeur spéciale `tv = true`.
 {% endalert %}
 
 ### Apple Vision Pro {#vision-pro}
@@ -243,11 +264,13 @@ Utilisez le SDK Swift de Braze pour l'intégration avec visionOS. La plupart des
 - Notifications push (visibles par l'utilisateur avec boutons d'action et notifications silencieuses)
 - Indicateurs de fonctionnalité
 - Analyse de localisation
+- Bannières
+  - Utilisez les [emplacements de bannières]({{site.baseurl}}/developer_guide/banners/placements/) pour intégrer des messages directement dans votre application visionOS.
 
 Pour plus d'informations, consultez le [guide d'intégration du SDK Swift pour iOS](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Certaines fonctionnalités iOS sont partiellement prises en charge ou non prises en charge. Pour obtenir la liste complète, consultez la [prise en charge de visionOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Certaines fonctionnalités iOS sont partiellement prises en charge ou non prises en charge. Pour obtenir la liste complète, consultez la [prise en charge de visionOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/).
 {% endalert %}
 
 ## Ciblage des applications {#app-targeting}

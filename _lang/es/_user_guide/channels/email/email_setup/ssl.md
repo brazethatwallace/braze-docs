@@ -1,6 +1,6 @@
 ---
 nav_title: SSL en Braze
-article_title: Descripción general de SSL
+article_title: Resumen de SSL
 page_order: 5
 page_type: reference
 description: "Este artículo de referencia trata sobre SSL, para qué se utiliza y cómo se utiliza en Braze."
@@ -10,11 +10,11 @@ channel: email
 
 # SSL en Braze {#ssl-at-braze}
 
-> Una capa de conexión segura (SSL) cifra una URL con HTTPS en lugar de HTTP. HTTPS indica que existe un certificado SSL o TLS válido y fiable y que el sitio web es seguro para visitar.
+> Una capa de conexión segura (SSL) cifra una URL con HTTPS en lugar de HTTP. HTTPS indica que existe un certificado SSL o TLS válido y de confianza y que el sitio web es seguro para visitar.
 
 {% multi_lang_include video.html id="zP1N_wN0SsQ" align="right" %}
 
-## ¿Por qué es importante el SSL? {#why-is-ssl-important}
+## ¿Por qué es importante SSL? {#why-is-ssl-important}
 
 La mayoría de los dominios no requieren SSL, pero Braze recomienda encarecidamente utilizar SSL por los siguientes motivos.
 
@@ -22,13 +22,15 @@ Proteger tu sitio web y tus enlaces con SSL es una práctica habitual incluso pa
 
 ### Necesario para el seguimiento de clics y aperturas {#necessary-for-click-and-open-tracking}
 
-Braze transforma tus enlaces utilizando tu subdominio de seguimiento de enlaces de marca para realizar el seguimiento de los clics y las aperturas. De forma predeterminada, estos enlaces comienzan con HTTP. Los usuarios con navegadores o extensiones que restringen el tráfico no seguro pueden tener dificultades para pasar por la redirección antes de la URL de destino, incluso si la URL es segura. Esto puede provocar imágenes rotas y un seguimiento inexacto. Aplica SSL al subdominio de seguimiento de enlaces para confirmar que las redirecciones son seguras.
+Braze transforma tus enlaces utilizando tu subdominio de seguimiento de enlaces de marca para realizar el seguimiento de clics y aperturas. De forma predeterminada, estos enlaces comienzan con HTTP. Los usuarios con navegadores o extensiones que restringen el tráfico no seguro pueden tener dificultades para pasar por la redirección antes de la URL de destino, incluso si la URL es segura. Esto puede provocar imágenes rotas y un seguimiento inexacto. Aplica SSL al subdominio de seguimiento de enlaces para confirmar que las redirecciones son seguras.
 
-### Requisito del navegador {#browser-requirement}
+## Requisitos {#requirements}
+
+### Navegador {#browser}
 
 Los principales navegadores, como Google Chrome, restringen el tráfico a través de URL no seguras para proteger a los usuarios. Usar SSL ayuda a confirmar que el contenido es de confianza y minimiza problemas como enlaces e imágenes rotos en los correos electrónicos.
 
-### Requisito de dominios HSTS {#hsts-domains-requirement}
+### Dominios HSTS {#hsts-domains}
 
 Si tienes un dominio con HTTP Strict Transport Security (HSTS), configura SSL y un CDN para enviar los certificados de seguridad requeridos. Sin SSL, los enlaces de imágenes y web se rompen.
 
@@ -39,10 +41,11 @@ Obtén un certificado SSL a través de un tercero, generalmente una red de entre
 Para iniciar la configuración de SSL, ponte en contacto con tu administrador del éxito del cliente de Braze para iniciar una configuración completa de correo electrónico de Braze.
 
 Después de que Braze inicie la configuración, sigue estos pasos:
+
 1. Braze proporcionará registros de DNS para agregar a tu registro de dominio.
 2. Braze verificará si los registros se han agregado correctamente a tu registro.
-3. Después de esto, seleccionarás un CDN y obtendrás certificados SSL de un proveedor externo.
-4. En este punto, configuras tu CDN. Ten en cuenta que Braze no puede ayudar con la solución de problemas de configuración del CDN. Ponte en contacto con tu proveedor de CDN para cualquier asistencia adicional.
+3. Después de esto, selecciona un CDN y obtén certificados SSL de un proveedor externo.
+4. En este punto, configura tu CDN. Ten en cuenta que Braze no puede ayudar con la solución de problemas de configuración del CDN. Ponte en contacto con tu proveedor de CDN para cualquier asistencia adicional.
 5. Ponte en contacto con tu administrador del éxito del cliente para activar SSL.
 
 ## ¿Qué es un CDN y por qué lo necesito? {#what-is-a-cdn-and-why-do-i-need-it}
@@ -62,7 +65,7 @@ Si no puedes o no quieres usar los CDN listados para el seguimiento de clics y a
 ### Recursos adicionales {#additional-resources}
 
 {% alert important %}
-Para la solución de problemas de configuración de tu CDN, ponte en contacto con tu proveedor de CDN.
+Para la solución de problemas de configuración de tu CDN, ponte en contacto con tu proveedor de CDN o consulta [Solución de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) para obtener orientación general.
 {% endalert %}
 
 Consulta los siguientes recursos de los socios ESP sobre cómo configurar ciertos CDN. Aunque tu CDN específico puede no estar listado, debes asegurarte de que tu CDN tenga la capacidad de aplicar certificados SSL.
@@ -94,30 +97,10 @@ Si estás usando Amazon SES como tu ESP, consulta **Opción 2: Configurar un dom
 - **Clústeres de Braze en EE. UU.:** `r.us-east-1.awstrack.me`
 - **Clústeres de Braze en la UE:** `r.eu-central-1.awstrack.me`
 
+{% alert important %}
+Cuando configures el dominio de seguimiento de clics de tu CDN, habilita el encabezado `X-Forwarded-Host` para prevenir posibles problemas de seguridad como ataques de encabezado de host. Consulta a tu proveedor de CDN para los pasos a seguir.
+{% endalert %}
+
 ## Solución de problemas {#troubleshooting}
 
-Aunque debes gestionar la configuración del CDN, los certificados y los problemas de proxy con tu CDN, usa estos consejos para identificar problemas comunes de seguimiento de clics con SSL.
-
-### Tasas bajas de apertura de correo electrónico {#low-email-open-rates}
-
-Si de repente experimentas tasas bajas de apertura de correo electrónico, confirma que el certificado SSL esté actualizado. Si ha expirado, debes renovar ese certificado SSL con tu CDN o proveedor de certificados.
-
-### Problemas con el registro de dominio {#domain-registry-issues}
-
-Ejecuta un comando dig para confirmar que apuntas el seguimiento de enlaces al CDN. En tu terminal ejecuta `dig CNAME link_tracking_subdomain`. En `ANSWER SECTION`, se lista hacia dónde apunta tu CNAME. Si apunta al proveedor de servicios de correo electrónico (SendGrid o SparkPost) y no a tu CDN, reconfigura tu registro de dominio para que apunte a tu CDN.
-
-### Problemas con el CDN {#cdn-issues}
-
-Si los enlaces de correo electrónico en vivo se rompen durante la configuración, probablemente apuntaste el DNS hacia tu CDN antes de la configuración adecuada. Esto puede aparecer como un error de "enlace incorrecto". Ponte en contacto con tu proveedor de CDN y revisa su documentación para solucionar la configuración.
-
-Si ves un mensaje de error indicando que tu conexión no es privada, esto puede indicar que tu SSL o CDN no está configurado correctamente. Ejecuta un comando `dig` en tu terminal (por ejemplo, `dig CNAME your_link_tracking_subdomain`). En `ANSWER SECTION`, si el resultado apunta a tu ESP en lugar de a tu CDN, el problema es una mala configuración. Para que el seguimiento de clics con SSL de Braze funcione, el CNAME debe apuntar a tu CDN. Coordina con el equipo que gestiona tu configuración de SSL y CDN para obtener asistencia adicional.
-
-#### HTTP 403 en enlaces de redirección {#http-403-on-redirect-links}
-
-Si los enlaces de redirección con seguimiento devuelven **403 Forbidden**, el fallo suele ocurrir en tu red de entrega de contenido (CDN) o en tu firewall de aplicaciones web (WAF), por ejemplo, reglas en AWS WAF o Amazon CloudFront que bloquean ciertos agentes de usuario, cadenas de consulta o patrones de redirección. Revisa los registros de solicitudes bloqueadas y las métricas con tu CDN o proveedor de nube. Para AWS, consulta [Solución de problemas con CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
-
-Para comprobar si el problema es específico del seguimiento de clics, desactiva el seguimiento de clics para un enlace de prueba (consulta [Desactivar el seguimiento de clics enlace por enlace]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)). Si la URL de destino carga cuando el seguimiento de clics está desactivado pero devuelve 403 cuando el seguimiento está activado, concéntrate en la configuración de tu dominio de seguimiento de clics, CDN y WAF.
-
-### Estado de habilitación de SSL {#ssl-enablement-status}
-
-Si completas la configuración de SSL y los enlaces aún aparecen como HTTP, ponte en contacto con tu administrador del éxito del cliente de Braze para confirmar que Braze habilitó SSL. Braze habilita SSL solo después de que se completen todos los pasos de configuración.
+Aunque debes gestionar la configuración del CDN, los certificados y los problemas de proxy con tu CDN, usa estos consejos para identificar problemas comunes de seguimiento de clics con SSL. Para obtener orientación sobre la solución de problemas, consulta [Solución de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).

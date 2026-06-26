@@ -166,5 +166,5 @@ Brazeは、統合を通じて[Segment]({{site.baseurl}}/partners/segment/)、デ
 | [パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) | ユーザーデータを使用して、以下のようなコンテンツをカスタマイズします。{::nomarkdown}<ul><li>メッセージコピー内の名前やプリファレンス</li> <li>ダイナミックなおすすめ</li> <li>ロケーションや言語に固有のコンテンツ</li></ul>{:/} |
 | オートメーションとオーケストレーション | 以下に基づいてメッセージやジャーニーをトリガーします。{::nomarkdown}<ul><li>ユーザーアクション</li> <li>属性の変更</li> <li>時間ベースの条件</li></ul>{:/} |
 | クロスチャネルコーディネーション | 以下を尊重しながら、最も適切なチャネルでユーザーにリーチします。{::nomarkdown}<ul><li>オプトインステータス</li> <li>フリークエンシーキャップ</li> <li>チャネルプリファレンス</li></ul>{:/} |
-| [分析とインサイト]({{site.baseurl}}/user_guide/analytics/) | 以下を分析して、さまざまなオーディエンスの行動を理解します。{::nomarkdown}<ul><li>エンゲージメント率</li> <li>コンバージョンパス</li> <li>Segmentの経時的なパフォーマンス</li></ul>{:/} |
+| [分析とインサイト]({{site.baseurl}}/user_guide/analytics/) | 以下を分析して、さまざまなオーディエンスの行動を理解します。{::nomarkdown}<ul><li>エンゲージメント率</li> <li>コンバージョンパス</li> <li>セグメントの経時的なパフォーマンス</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="オーディエンスデータ機能" }

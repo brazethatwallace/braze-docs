@@ -17,6 +17,7 @@ _Cette intégration est maintenue par OneTrust._
 ## À propos de l'intégration {#about-the-integration}
 
 L'intégration entre Braze et OneTrust vous permet d'utiliser le générateur de flux de travail OneTrust pour créer des flux de travail de sécurité pour votre produit.
+
 ## Conditions préalables {#prerequisites}
 
 | Exigences | Description |
@@ -48,44 +49,44 @@ Suivez les invites de l'écran **Enter Credential Details** et fournissez les in
 #### Étape 1 : Créer un flux de travail {#step-1-create-a-workflow}
 
 {% tabs %}
-{% tab User Consent Update %}
-1. Dans le menu des intégrations OneTrust, naviguez vers **Gallery** > **Braze** > **Add** pour créer un nouveau flux de travail.![]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
+{% tab Mise à jour du consentement utilisateur %}
+1. Dans le menu des intégrations OneTrust, naviguez vers **Gallery** > **Braze** > **Add** pour créer un nouveau flux de travail.![Galerie OneTrust affichant l'intégration Braze avec un bouton Add.]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
 2. Indiquez un nom et un e-mail de notification dans la fenêtre modale du flux de travail. Cliquez sur le bouton **Create**. Lors de la création, vous accéderez au générateur de flux de travail. Votre flux de travail Braze sera initialisé avec des appels d'API et des actions pouvant être utilisés pour traiter les requêtes de suppression. <br><br>
-3. Dans le générateur de flux de travail, choisissez l'action que vous souhaitez déclencher dans le flux de travail.<br>![]({% image_buster /assets/img/onetrust/onetrust2.png %})
+3. Dans le générateur de flux de travail, choisissez l'action que vous souhaitez déclencher dans le flux de travail.<br>![Générateur de flux de travail OneTrust pour un événement de mise à jour du consentement d'une personne concernée.]({% image_buster /assets/img/onetrust/onetrust2.png %})
 
 {% endtab %}
-{% tab User Deletion %}
+{% tab Suppression utilisateur %}
 
-1. Dans le menu des intégrations OneTrust, naviguez vers **Gallery** > **Braze** > **Add** pour créer un nouveau flux de travail.![]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
+1. Dans le menu des intégrations OneTrust, naviguez vers **Gallery** > **Braze** > **Add** pour créer un nouveau flux de travail.![Galerie OneTrust affichant l'intégration Braze avec un bouton Add.]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
 2. Indiquez un nom et un e-mail de notification dans la fenêtre modale du flux de travail. Cliquez sur le bouton **Create**. Lors de la création, vous accéderez au générateur de flux de travail. Votre flux de travail Braze sera initialisé avec des appels d'API et des actions pouvant être utilisés pour traiter les requêtes de suppression. <br><br>
-3. Dans le générateur de flux de travail, choisissez l'action que vous souhaitez déclencher dans le flux de travail.<br>![]({% image_buster /assets/img/onetrust/onetrust8.png %})
+3. Dans le générateur de flux de travail, choisissez l'action que vous souhaitez déclencher dans le flux de travail.<br>![Générateur de flux de travail OneTrust pour un événement de suppression d'une personne concernée.]({% image_buster /assets/img/onetrust/onetrust8.png %})
 {% endtab %}
 {% endtabs %}
 
 #### Étape 2 : Sélectionner une action {#step-2-select-action}
 {% tabs %}
-{% tab User Consent Update %}
+{% tab Mise à jour du consentement utilisateur %}
 
 1. Lorsque vous avez terminé, cliquez sur **Done** et choisissez **Add Action**. Notez que l'action que vous choisissez dépend du type de préférence mis à jour et de votre endpoint préféré.
-- Pour mettre à jour les préférences d'abonnement globales d'un utilisateur, sélectionnez l'action **POST User track - Attributes**.
-- Pour mettre à jour les préférences d'un utilisateur en matière de groupe d'abonnement, choisissez l'action **POST User Track - Attributes** ou l'action **POST Set Users Subscription Group Status**.<br>![]({% image_buster /assets/img/onetrust/onetrust4.png %})<br><br>
-2. Choisissez l'action souhaitée, sélectionnez vos identifiants Braze créés précédemment et cliquez sur **Next**.<br>![]({% image_buster /assets/img/onetrust/onetrust5.png %})
+- Pour mettre à jour les préférences d'abonnement globales d'un utilisateur, sélectionnez l'action **POST User track - attributes**.
+- Pour mettre à jour les préférences d'un utilisateur en matière de groupe d'abonnement, choisissez l'action **POST User Track - Attributes** ou l'action **POST Set Users Subscription Group Status**.<br>![Menu Add Action de OneTrust affichant POST User track - attributes.]({% image_buster /assets/img/onetrust/onetrust4.png %})<br><br>
+2. Choisissez l'action souhaitée, sélectionnez vos identifiants Braze créés précédemment et cliquez sur **Next**.<br>![Sélection des identifiants OneTrust pour une action POST User track - attributes.]({% image_buster /assets/img/onetrust/onetrust5.png %})
 
 {% endtab %}
-{% tab User Deletion %}
+{% tab Suppression utilisateur %}
 
 1. Lorsque vous avez terminé, cliquez sur **Done** et choisissez **Add Action**.
 - Pour supprimer un utilisateur de Braze, sélectionnez l'action **POST User Delete Action**.
-<br>![]({% image_buster /assets/img/onetrust/onetrust9.png %})<br><br>
-2. Choisissez l'action souhaitée, sélectionnez vos identifiants Braze créés précédemment et cliquez sur **Next**.<br>![]({% image_buster /assets/img/onetrust/onetrust5.png %})
+<br>![Menu Add Action de OneTrust affichant POST User Delete.]({% image_buster /assets/img/onetrust/onetrust9.png %})<br><br>
+2. Choisissez l'action souhaitée, sélectionnez vos identifiants Braze créés précédemment et cliquez sur **Next**.<br>![Sélection des identifiants OneTrust pour une action POST User Delete.]({% image_buster /assets/img/onetrust/onetrust5.png %})
 
 {% endtab %}
 {% endtabs %}
 #### Étape 3 : Mettre à jour le corps de la requête {#step-3-update-request-body}
 {% tabs %}
-{% tab User Consent Update %}
+{% tab Mise à jour du consentement utilisateur %}
 
-1. Mettez à jour le corps de la requête pour y inclure toutes les valeurs dynamiques nécessaires. Assurez-vous que le corps de l'action correspond à l'[endpoint `/users/track`](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) et à l'[endpoint `/subscription/status/set`](https://www.braze.com/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+1. Mettez à jour le corps de la requête pour y inclure toutes les valeurs dynamiques nécessaires. Assurez-vous que le corps de l'action correspond à l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) et à l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 2. Personnalisez le flux de travail avec des paramètres supplémentaires ou une logique conditionnelle pour répondre aux besoins de votre organisation.
 3. Une fois la modification terminée, cliquez sur **Finish**, puis sur **Activate** pour activer le flux de travail.
 
@@ -93,15 +94,15 @@ Suivez les invites de l'écran **Enter Credential Details** et fournissez les in
 Lorsque vous utilisez les flux de travail OneTrust pour mettre à jour les préférences des groupes d'abonnement dans Braze, le paramètre `subscription_group_id` doit correspondre à l'ID défini par Braze lors de la création du groupe d'abonnement. Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en naviguant vers la page **Subscription Group** dans le tableau de bord de Braze.
 {% endalert %}
 
-![]({% image_buster /assets/img/onetrust/onetrust6.png %})
+![Corps de la requête OneTrust pour POST User track - attributes avec les champs du groupe d'abonnement.]({% image_buster /assets/img/onetrust/onetrust6.png %})
 
 {% endtab %}
-{% tab User Deletion %}
+{% tab Suppression utilisateur %}
 
 1. Mettez à jour le corps de la requête pour y inclure toutes les valeurs dynamiques nécessaires. Assurez-vous que le corps de l'action correspond à l'[endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/).
 2. Une fois la modification terminée, sélectionnez **Finish** puis **Activate** pour activer le flux de travail.
 
-![]({% image_buster /assets/img/onetrust/onetrust10.png %})
+![Corps de la requête OneTrust pour POST User Delete avec un champ external_id.]({% image_buster /assets/img/onetrust/onetrust10.png %})
 
 #### Mettre à jour le flux de travail pour les requêtes des personnes concernées {#update-the-data-subject-request-workflow}
 1. Dans le menu **Privacy Rights Automation**, sélectionnez **Workflows**.
@@ -122,4 +123,4 @@ Pour consulter la liste complète des actions prises en charge :
 2. Choisissez le système **Braze**.
 3. Accédez à l'onglet **Actions**.
 
-![]({% image_buster /assets/img/onetrust/onetrust7.png %})
+![Onglet Actions du système Braze dans OneTrust listant les actions API prises en charge.]({% image_buster /assets/img/onetrust/onetrust7.png %})

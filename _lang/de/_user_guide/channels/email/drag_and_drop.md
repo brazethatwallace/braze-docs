@@ -20,10 +20,13 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
 
 <table aria-label="Über den Editor" style="width: 100%; table-layout: fixed;">
     <caption>Inhalt und Zeilen als Editor-Komponenten</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Inhalt</th>
         <th style="width: 50%;">Zeilen</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="Der Tab 'Zeilen' mit verschiedenen strukturellen Kombinationen für Ihr E-Mail-Layout." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="Der Tab 'Inhalt' mit grundlegenden Blöcken, Medien und erweiterten Optionen." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="Über den Editor" }
 
@@ -70,7 +74,7 @@ Obwohl der Drag-and-Drop-Editor Ihren Workflow mit diesen Blöcken vereinfacht, 
 
 #### Bilder in Textblöcken verschachteln {#nesting-images-inside-text-blocks}
 
-Sie können ein Bild nicht innerhalb eines Absatzes oder eines anderen Textblocks im Drag-and-Drop-Editor verschachteln. Um ein Bild neben oder innerhalb eines Textlayouts zu platzieren, verwenden Sie Spalten in einer **Zeile**: zum Beispiel eine mehrspaltige Zeile auf dem Desktop mit **Hide on mobile** für diese Zeile und eine separate Zeile nur für Mobilgeräte (mit **Hide on desktop** und **Do not stack on mobile** nach Bedarf), damit Bild und Text auf kleinen Bildschirmen sauber ausgerichtet sind.
+Sie können im Drag-and-Drop-Editor kein Bild innerhalb eines Absatzes oder eines anderen Textblocks verschachteln. Um ein Bild neben oder innerhalb eines Textlayouts zu platzieren, verwenden Sie Spalten in einer **Zeile**: zum Beispiel eine mehrspaltige Zeile auf dem Desktop mit **Hide on mobile** für diese Zeile und eine separate, nur für Mobilgeräte bestimmte Zeile (mit **Hide on desktop** und **Do not stack on mobile** nach Bedarf), damit Bild und Text auf kleinen Bildschirmen sauber ausgerichtet sind.
 
 #### Cards-Stil {#cards-style}
 
@@ -124,7 +128,7 @@ Weitere Möglichkeiten zur Anpassung Ihrer Drag-and-Drop-E-Mail finden Sie unter
 Während Sie Ihre E-Mail erstellen, können Sie zwischen einer Desktop- und einer Mobilansicht wechseln, um eine Vorschau zu sehen, wie Ihre E-Mail-Nachricht für Ihre Nutzergruppen aussehen wird. So können Sie überprüfen, ob Ihr Inhalt responsiv ist, und unterwegs alle notwendigen Anpassungen vornehmen.
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
 ![Button „Textassistent“ im Content-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -210,7 +214,8 @@ Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wur
 Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was zu schnellerem Laden und Rendering, weniger mobilem Clipping und geringerem Bandbreitenverbrauch führt.
 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
-- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table>`-formatierten Codebasis
+- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Inbox Vision verwenden">`-formatierten Codebasis
+  <caption>Inbox Vision verwenden</caption>
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
 - Transparente Trennlinien werden automatisch in Inhalts-Padding umgewandelt

@@ -3,9 +3,9 @@ page_order: 0
 nav_title: Accueil
 layout: dev_guide
 guide_top_header: "Guide du développeur Braze"
-guide_top_text: "C'est ici que les développeurs trouveront tout ce qu'ils doivent savoir sur le SDK de Braze. Chaque SDK est hébergé dans son propre dépôt public GitHub, qui comprend des exemples d'applications entièrement constructibles que vous pouvez utiliser pour tester les fonctionnalités de Braze ou mettre en œuvre parallèlement à vos propres applications. Pour en savoir plus, consultez les <a href='https://www.braze.com/docs/developer_guide/references/'>références, les référentiels et les exemples d'applications.</a><br><br>Vous souhaitez vous connecter, apprendre et être inspiré par d'autres développeurs qui créent avec Braze ? Rejoignez la <a href='https://www.braze.com/dev-portal'>communauté des développeurs de Braze</a>!"
+guide_top_text: "C'est ici que les développeurs trouveront tout ce qu'ils doivent savoir sur le SDK Braze. Chaque SDK est hébergé dans son propre dépôt public GitHub, qui comprend des exemples d'applications entièrement compilables que vous pouvez utiliser pour tester les fonctionnalités de Braze ou les intégrer à vos propres applications. Pour en savoir plus, consultez <a href='/docs/developer_guide/references/'>Références, dépôts et exemples d'applications</a>.<br><br>Vous souhaitez échanger, apprendre et vous inspirer d'autres développeurs qui créent avec Braze ? Rejoignez la <a href='https://www.braze.com/dev-portal'>communauté des développeurs Braze</a> !"
 article_title: Guide du développeur Braze
-description: "Cette page d’accueil est l’endroit où les développeurs peuvent trouver toutes les intégrations disponibles pour Braze."
+description: "Cette page d'accueil est l'endroit où les développeurs peuvent trouver toutes les intégrations disponibles avec Braze."
 
 guide_featured_title: "Intégrations disponibles"
 guide_featured_list:
@@ -21,7 +21,7 @@ guide_featured_list:
   link: /docs/developer_guide/sdk_integration/?sdktab=swift
   image: /assets/img/braze_icons/swift.svg
 
-guide_menu_title: "All integrations"
+guide_menu_title: "Toutes les intégrations"
 guide_menu_list:
   - name: Cordova
     link: /docs/developer_guide/sdk_integration/?sdktab=cordova
@@ -51,7 +51,7 @@ guide_menu_list:
     link: /docs/developer_guide/sdk_integration/?sdktab=.net%20maui%20(xamarin)
     image: /assets/img/xamarin.png
     nav_link: xamarin
-  - name: TV ET OTT
+  - name: TV et OTT
     link: /docs/developer_guide/platforms/tv_and_ott/
     image: /assets/img/braze_icons/tv-03.svg
     nav_link: tv_and_ott

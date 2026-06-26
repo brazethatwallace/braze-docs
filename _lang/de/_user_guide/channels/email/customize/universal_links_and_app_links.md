@@ -93,7 +93,7 @@ Diese Schritte sind aus der Apple-Entwicklerdokumentation übernommen. Weitere I
 2. Wählen Sie **Associated Domains** aus.
 3. Klicken Sie auf **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Abschnitt „App Services“]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren {#step-1c}
 
@@ -113,7 +113,7 @@ Wenn Sie den Fehler „An App ID with Identifier 'your-app-id' is not available.
 
 Fügen Sie im Abschnitt „Domains“ den entsprechenden Domain-Tag hinzu. Sie müssen ihm `applinks:` voranstellen. In diesem Fall sehen Sie, dass wir `applinks:yourdomain.com` hinzugefügt haben.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Abschnitt „Associated Domains“]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Schritt 1e: Bestätigen, dass die Berechtigungsdatei im Build enthalten ist {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -446,6 +446,5 @@ Stellen Sie sicher, dass Sie die korrekten Definitionen für Domains haben, die 
 
 In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von ESP-Einschränkungen oder Infrastrukturbeschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
 
-- **Kontaktieren Sie Ihren ESP, um die Dateien auf seiner Tracking-Domain zu hosten:** Ihre Klick-Tracking-Subdomain ist in der Regel ein CNAME, der auf Ihren ESP (SendGrid, SparkPost oder Amazon SES) verweist. Da der ESP den Datenverkehr für diese Domain terminiert, kann er die `.well-known`-Dateien für Sie hosten. Sowohl SendGrid als auch SparkPost unterstützen dies. Wenden Sie sich direkt an Ihren ESP, um dies anzufordern.
-- **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Wenn Ihr ESP die Dateien nicht hosten kann, können Sie das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
+- **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Sie können das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
 - **CDN vor die Tracking-Subdomain schalten:** Wenn Sie vollständige Klick-Tracking-Abdeckung und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über Klick-Tracking und Universal Links.

@@ -20,10 +20,13 @@ tool:
 
 <table aria-label="편집기 소개" style="width: 100%; table-layout: fixed;">
     <caption>콘텐츠 및 행 편집기 구성요소</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">콘텐츠</th>
         <th style="width: 50%;">행</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="이메일 레이아웃을 위한 다양한 구조 조합이 포함된 '행' 탭." style="max-width: 100%; height: auto;">
@@ -32,6 +35,7 @@ tool:
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="기본 블록, 미디어, 고급이 포함된 '콘텐츠' 탭." style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 aria-label="편집기 소개" }
 
@@ -124,7 +128,7 @@ tool:
 이메일을 작성하면서 데스크탑과 모바일 보기를 전환하여 사용자 그룹에게 이메일 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 반응형인지 확인하고 필요한 조정을 할 수 있습니다.
 
 {% alert tip %}
-멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
+멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
 
 ![드래그 앤 드롭 편집기의 Content 패널에서 Style Settings 옆에 있는 카피라이터 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}

@@ -192,7 +192,6 @@
   "CACI": "CACI",
   "calendar": "Kalender",
   "callback": "Callback",
-  "campaign": "Kampagne",
   "Campaign": "Campaign",
   "Campaign or Canvas": "Kampagne oder Canvas",
   "campaign variant": "Kampagnenvariante",
@@ -1507,5 +1506,6 @@
   "zeotap": "Zeotap",
   "zero-party data": "Zero-Party-Daten",
   "App Settings": "App Settings",
-  "Dashboard Builder": "Dashboard Builder"
+  "Dashboard Builder": "Dashboard Builder",
+  "campaign": "Campaign"
 }

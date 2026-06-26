@@ -73,14 +73,12 @@ Assurez-vous que votre certificat `x.509` respecte ce format lorsque vous l'ajou
 
 Enregistrez vos paramètres de sécurité et déconnectez-vous. Ensuite, reconnectez-vous avec votre fournisseur d'identité.
 
-![Écran de connexion au tableau de bord avec l'authentification unique activée]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Configuration de votre RelayState {#setting-up-your-relaystate}
 
 1. Dans Braze, accédez à **Paramètres** > **Clés API**.
 2. Dans l'onglet **Clés API**, sélectionnez le bouton **Créer une clé API**.
 3. Dans le champ **Nom de la clé API**, saisissez un nom pour votre clé.
-4. Développez le menu déroulant **SSO** sous **Autorisations** et cochez **sso.saml.login**.<br><br>![La section « Autorisations » avec sso.saml.login coché.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Développez le menu déroulant **SSO** sous **Autorisations** et cochez **sso.saml.login**.
 5. Sélectionnez **Créer une clé API**.
 6. Dans l'onglet **Clés API**, copiez l'identifiant à côté de la clé API que vous avez créée.
 7. Collez la clé API RelayState dans le champ RelayState de votre IdP (il peut également apparaître sous le nom « Relay State » ou « Default Relay State » selon votre IdP).
@@ -171,11 +169,11 @@ Si vous obtenez l'erreur `ERROR_CODE_SSO_INVALID_RELAY_STATE`, votre RelayState 
 
 Cela peut se produire lorsque le RelayState n'est pas correctement configuré. Vérifiez que vous avez créé une clé API (dans **Paramètres** > **Clés API**) pour la connexion IdP et que vous avez défini cette clé API comme paramètre `RelayState` dans votre IdP. Le RelayState identifie le compte d'entreprise auquel vous vous connectez. Pour des instructions détaillées, consultez [Configuration de votre RelayState](#setting-up-your-relaystate).
 
-Si vous ne parvenez toujours pas à vous connecter, [contactez l'assistance Braze]({{site.baseurl}}/braze_support/) avec une trace SAML si possible. Pour obtenir de l'aide sur la capture d'une trace, consultez [Obtenir une trace SAML](#obtaining-a-saml-trace).
+Si vous ne parvenez toujours pas à vous connecter, [contactez l'assistance Braze]({{site.baseurl}}/braze_support) avec une trace SAML si possible. Pour obtenir de l'aide sur la capture d'une trace, consultez [Obtenir une trace SAML](#obtaining-a-saml-trace).
 
 ### L'utilisateur est-il bloqué dans une boucle de connexion entre Okta et Braze ? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-Si un utilisateur ne peut pas se connecter parce qu'il est bloqué dans un cycle entre l'authentification unique Okta et le tableau de bord de Braze, vous devez accéder à Okta et définir la destination de l'URL SSO sur votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) (par exemple, `https://dashboard-07.braze.com`).
+Si un utilisateur ne peut pas se connecter parce qu'il est bloqué dans un cycle entre l'authentification unique Okta et le tableau de bord de Braze, vous devez accéder à Okta et définir la destination de l'URL SSO sur votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (par exemple, `https://dashboard-07.braze.com`).
 
 Si vous utilisez un autre IdP, vérifiez si votre entreprise a téléchargé le bon certificat SAML ou x.509 dans Braze.
 
@@ -183,9 +181,23 @@ Si vous utilisez un autre IdP, vérifiez si votre entreprise a téléchargé le 
 
 Si votre entreprise n'a pas téléchargé l'application Braze depuis la boutique d'applications de votre IdP, vous devez télécharger l'intégration préconfigurée. Par exemple, si Okta est votre IdP, vous devez télécharger l'application Braze depuis leur [page d'intégration](https://www.okta.com/integrations/braze/).
 
+## Google SSO
+
+Si votre entreprise utilise Google SSO au lieu de l'authentification unique (SSO) SAML personnalisée, contactez votre gestionnaire de compte Braze pour activer Google SSO pour votre espace de travail. Une fois activé, accédez à **Paramètres de sécurité** et sélectionnez **Enforce Google SSO only login** pour exiger l'authentification Google pour tous les utilisateurs de l'entreprise.
+
+Lorsque l'application de Google SSO est activée, les utilisateurs doivent se connecter avec l'authentification Google et ne peuvent plus utiliser de mot de passe Braze. Chaque utilisateur doit se connecter avec le compte Google correspondant à son adresse e-mail du tableau de bord de Braze. Si un utilisateur sélectionne un autre compte Google lors de la connexion, Braze rejette la tentative d'authentification.
+
+### Résolution des problèmes de connexion Google SSO {#troubleshooting-google-sso-sign-in}
+
+Si certains utilisateurs ne parviennent pas à se connecter avec Google SSO, vérifiez les points suivants :
+
+- L'adresse e-mail du compte Google de l'utilisateur correspond exactement à son adresse e-mail du tableau de bord de Braze.
+- L'utilisateur a accès à un compte Google pour son adresse e-mail professionnelle.
+- L'utilisateur n'est pas suspendu dans Braze (**Paramètres** > **Utilisateurs de l'entreprise**).
+
 ## Étapes suivantes {#next-steps}
 
 Après avoir configuré l'authentification unique (SSO) SAML, vous pouvez :
 
-- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
-- [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.
+- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
+- [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.

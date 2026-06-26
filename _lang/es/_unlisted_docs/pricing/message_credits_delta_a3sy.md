@@ -15,8 +15,8 @@ Los diferentes productos tendrán distintas unidades de medida en los informes.<
 <b>Consola de Agente:</b> Invocaciones<br>
 <b>SMS:</b> Segmentos<br>
 <b>MMS:</b> Envíos<br>
-<b>WhatsApp:</b> Mensajes<br>
-<b>RCS:</b> Segmentos, Envíos<br>
+<b>WhatsApp:</b> Mensajes entregados<br>
+<b>RCS:</b> Segmentos entregados, Envíos entregados<br>
 <b>LINE:</b> Envíos<br>
 <b>KakaoTalk:</b> Envíos<br>
 
@@ -29,23 +29,26 @@ Las definiciones de las columnas son las siguientes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Región final específica, país o tipo de acción que se envía a través de la plataforma Braze |
-| **Créditos por 1 envío** | Número exacto de Message Credits para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
+| **Créditos por 1 envío** | Número exacto de créditos de mensaje para realizar un envío<br> (créditos por envío = ratio de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabla de ratio de créditos para Message Credits - Delta {#credit-ratio-table-for-message-credits-delta}
+## Tabla de ratios de créditos para Message Credits - Delta {#credit-ratio-table-for-message-credits-delta}
 
 {% details Haz clic para expandir %}
-<table>
+<table class="credits-table" aria-label="Tabla de ratios de créditos para Message Credits - Delta">
     <colgroup>
-        <col span="3" style="background-color:#FFFFFF;">
-        <col style="background-color:#f0f0f5">
+        <col span="3">
+        <col class="col-highlight">
     </colgroup>
+    <thead>
     <tr>
         <th><b>Canal</b></th>
         <th><b>Destino</b></th>
         <th class="credits-column"><b>Créditos por 1 envío</b></th>
     </tr>
+    </thead>
+    <tbody>
 <tr>
         <td>Consola de Agente</td>
         <td>Braze Auto</td>
@@ -2127,13 +2130,13 @@ Las definiciones de las columnas son las siguientes:
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
-        <td>All Regions</td>
+        <td>Line</td>
+        <td>Todas las regiones</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>All Regions</td>
+        <td>Todas las regiones</td>
         <td>0.20</td>
     </tr>
     <tr>
@@ -2143,12 +2146,12 @@ Las definiciones de las columnas son las siguientes:
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Infobip - All Regions</td>
+        <td>Infobip - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Twilio - All Regions</td>
+        <td>Twilio - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
@@ -2271,81 +2274,82 @@ Las definiciones de las columnas son las siguientes:
         <td>United States - Single - Deprecated</td>
         <td>1.30</td>
     </tr>
+    </tbody>
 </table>
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% enddetails %}
 
 ------
 ## Detalles de la Consola de Agente {#agent-console-details}
-Braze cobrará Message Credits por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
+Braze cobrará créditos de mensaje por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Se registra una invocación cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
 ## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
+Los segmentos de mensaje SMS son la forma en que la industria de SMS contabiliza los mensajes. Un segmento de mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se envía en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos de mensaje. Enviar múltiples segmentos de mensaje generará cargos adicionales.
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no exceder los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
+Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y el tamaño del cuerpo del mensaje). Para mayor seguridad, Braze recomienda no superar los 600 KB para tu activo multimedia e incluir también un cuerpo de mensaje.
 
 ### Tipos de RCS {#rcs-types}
 
 RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta interacción como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se centra en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
+- La facturación de RCS se basa en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
     - **RCS básico:** Solo texto, hasta 160 caracteres
     - **RCS único:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
     - **RCS enriquecido (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **RCS multimedia enriquecido (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
+    - **RCS multimedia enriquecido (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contabilizado como un solo mensaje
 
 ## Detalles del canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalles de canales adicionales {#additional-channel-details}
+## Detalles adicionales del canal {#additional-channel-details}
 
 ### Webhooks
 
-Los webhooks pasaron a formar parte de Message Credits el 9 de diciembre de 2024. Braze cobrará Message Credits por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
+Los webhooks pasaron a formar parte de los Créditos de Mensaje el 9 de diciembre de 2024. Braze cobrará Créditos de Mensaje por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada Período de tu Plazo de Suscripción. Los webhooks adicionales se cobrarán según lo establecido en tu Formulario de Pedido.
 
 ### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará Message Credits por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará Créditos de Mensaje por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
 
 ### LINE
 
-Braze cobrará Message Credits por cualquier mensaje de LINE enviado desde la plataforma Braze.
+Braze cobrará Créditos de Mensaje por cualquier mensaje de LINE enviado desde la plataforma Braze.
 
 ## Desglose por región de facturación {#billing-region-breakdown}
 
-#### Norteamérica {#north-america}
+### Norteamérica {#north-america}
 
 Estados Unidos, Canadá
 
-#### Resto de África {#rest-of-africa}
+### Resto de África {#rest-of-africa}
 
 Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia,
 Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
-#### Resto de Asia-Pacífico {#rest-of-asia-pacific}
+### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
 Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia,
 Turkmenistán, Uzbekistán, Vietnam
 
-#### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
+### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
 Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
 
-#### Resto de Latinoamérica {#rest-of-latin-america}
+### Resto de América Latina {#rest-of-latin-america}
 
 Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador,
 Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
-#### Resto de Oriente Medio {#rest-of-middle-east}
+### Resto de Oriente Medio {#rest-of-middle-east}
 
 Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
 
-#### Resto de Europa Occidental {#rest-of-western-europe}
+### Resto de Europa Occidental {#rest-of-western-europe}
 
 Austria, Bélgica, Dinamarca, Finlandia, Irlanda, Noruega, Portugal, Suecia, Suiza

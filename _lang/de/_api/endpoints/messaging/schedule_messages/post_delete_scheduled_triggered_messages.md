@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Löschen geplante
 ---
 {% api %}
 # Geplante, API-getriggerte Campaigns löschen {#delete-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 

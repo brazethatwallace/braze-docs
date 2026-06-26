@@ -12,7 +12,7 @@ description: "Cet article décrit en détail l'endpoint de suivi des utilisateur
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs (en masse) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 

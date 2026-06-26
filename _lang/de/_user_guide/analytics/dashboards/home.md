@@ -17,7 +17,6 @@ Die **Home**-Seite besteht aus zwei Hauptbereichen:
 - [Dort weitermachen, wo Sie aufgehört haben](#pick-up-where-you-left-off)
 - [Performance-Übersicht](#performance-overview)
 
-![Home-Dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Dort weitermachen, wo Sie aufgehört haben {#pick-up-where-you-left-off}
 
@@ -35,19 +34,15 @@ Der Abschnitt **Dort weitermachen, wo Sie aufgehört haben** erscheint, nachdem 
 
 Standardmäßig zeigt der Abschnitt **Performance-Übersicht** die Daten der letzten 30 Tage für alle Apps und Websites an. Alle Metriken werden basierend auf dem ausgewählten Zeitraum berechnet.
 
-![Felder für Zeitraum und App im Home-Dashboard.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherigen Zeitraum berechnet, mit Ausnahme der *monatlich aktiven Nutzer:innen* (MAU), bei denen der letzte Tag des vorherigen Zeitraums anstelle eines Bereichs verwendet wird.
 
 Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *täglich aktiven Nutzer:innen* einen prozentualen Anstieg von 1,8 % anzeigen, bedeutet das, dass Sie diese Woche 1,8 % mehr täglich aktive Nutzer:innen hatten als in der Vorwoche.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Eine Metrik-Kachel für täglich aktive Nutzer:innen mit einem Durchschnitt von 22,2 Tausend, einem Anstieg von 7,1 % und einer Trendlinie.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Aufschlüsselung anzeigen {#show-breakdown}
 
 Wählen Sie **Show Breakdown** für jede Zeile der Performance-Übersicht, um den Wert jeder Statistik pro Tag für den angegebenen Zeitraum anzuzeigen.
-
-![Aufklappen]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Performance im Zeitverlauf {#performance-over-time}
 
@@ -110,13 +105,15 @@ MAU-Berechnungen folgen bestimmten Regeln, um eine genaue und konsistente Abrech
 
 - **Berechnungszeitpunkt**: Wird einmal täglich um 12:05 UTC als 30-Tage-Snapshot berechnet; Zahlen ändern sich nie rückwirkend.
 - **Anonyme Profile**: Werden **nur** gezählt, wenn mindestens eine Sitzung protokolliert wurde.
-- **Identifizierte Profile**: Werden automatisch gezählt, sobald sie existieren.
+- **Identifizierte Profile**: Werden nur gezählt, wenn `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters liegt.
 - **Verwaiste Profile**: Duplikate, die mit einem anderen Profil zusammengeführt wurden, werden **nicht** gezählt.
-- **CSV-Uploads**: Per CSV hochgeladene Nutzer:innen werden nur gezählt, wenn `date_of_first_session` oder `date_of_last_session` angegeben ist oder wenn sie später eine Sitzung protokollieren.
+- **CSV-Uploads und REST-API-Importe**: Per CSV oder über die REST API hochgeladene Nutzer:innen zählen zu den MAU, wenn Sie `date_of_last_session` innerhalb des rollierenden 30-Tage-Fensters angeben oder wenn sie später eine Sitzung protokollieren. Die alleinige Angabe von `date_of_first_session` hat keinen Einfluss auf die MAU.
 - **API-Löschungen**: Das Löschen von Nutzer:innen über die API aktualisiert die MAU nicht sofort; die Zahl korrigiert sich im nächsten monatlichen Zyklus von selbst.
 
 {% alert note %}
 Anonyme Nutzer:innen zählen ebenfalls zu Ihren MAU. Bei Mobilgeräten sind anonyme Nutzer:innen geräteabhängig. Bei Web-Nutzer:innen sind anonyme Nutzer:innen vom Browser-Cache abhängig.
+
+MAU-Zahlen in Braze können von Tools wie Amplitude abweichen, wenn jedes Produkt eine andere Definition für aktive Nutzer:innen verwendet. Vergleichen Sie die Konfiguration in Amplitude (und Ihre oben genannten Braze-MAU-Regeln), bevor Sie eine Abweichung als Datenpipeline-Problem untersuchen.
 {% endalert %}
 
 #### Beispiel zur MAU-Berechnung {#mau-calculation-example}
@@ -170,6 +167,10 @@ Der MAU-Wert wird nächtlich berechnet und erst am nächsten Tag aktualisiert.
 ### Tägliche Sitzungen {#daily-sessions}
 
 *Tägliche Sitzungen* ist die Anzahl der an einem bestimmten Tag aufgezeichneten Sitzungen. Ein Vergleich dieses Werts mit Ihrer DAU-Zahl kann Ihnen zeigen, wie oft Ihre Nutzer:innen die App öffnen oder die Website besuchen an Tagen, an denen sie mindestens eine Sitzung aufzeichnen.
+
+{% alert note %}
+Die *Anzahl der täglichen Sitzungen* für ein bestimmtes Datum kann sich ändern, wenn Sie das Home-Dashboard an verschiedenen Tagen aufrufen. Wenn ein:e Nutzer:in eine Sitzung offline startet, erreicht die Sitzung Braze möglicherweise erst, wenn die App erneut geöffnet wird. Wenn diese Sitzung übermittelt wird, ordnet Braze sie dem Datum zu, an dem die Sitzung gestartet wurde, was die Zahl für dieses Datum rückwirkend erhöhen kann.
+{% endalert %}
 
 ### Tägliche Sitzungen pro MAU {#daily-sessions-per-mau}
 

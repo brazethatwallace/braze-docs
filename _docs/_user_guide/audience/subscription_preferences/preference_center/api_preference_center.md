@@ -42,7 +42,7 @@ Let's begin building a preference center using the [Create preference center end
 The [Generate preference center URL endpoint]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) allows you to grab the preference center URL for a specific user outside of an email that is sent through Braze.
 
 {% alert note %}
-Braze renders `confirmation_page_html` in an iframe that uses a `data:` URL. Browsers treat `data:` URLs as opaque origins. As a result, scripts in that iframe can't load additional external resources, and navigating the parent window or communicating across frames from that page fails.<br><br>Instead, you can link to external content, such as a hosted survey URL, instead of embedding scripts. If you must embed a third-party tool and the vendor allows it, use an `<iframe>` whose `src` points to the tool's hosted HTTPS URL.
+Braze renders `confirmation_page_html` in an iframe that uses a `data:` URL. Browsers treat `data:` URLs as opaque origins. As a result, scripts in that iframe can't load additional external resources, and navigating the parent window or communicating across frames from that page fails.<br><br>Instead, you can link to external content, such as a hosted survey URL, instead of embedding scripts. If you must embed a third-party tool and the vendor allows it, use an `<iframe title="Description of the embedded content" src="https://example.com/...">` pointing to the tool's hosted HTTPS URL.
 {% endalert %}
 
 ### Step 2: Include in your email campaign
@@ -88,7 +88,7 @@ Braze manages the subscription state updates from the preference center, which k
 Use query string field-value pairs in the body of the URL to pass the user ID and email category to the page so users only need to confirm their choice to unsubscribe. This option is good for those who store a user identifier in a hashed format and do not already have a subscription center.
 
 For this option, each email category requires its own specific unsubscribe link:<br>
-`http://mycompany.com/query-string-form-fill?field_id=John&field_category=offers`
+`http://mycompany.com/query-string-form-fill?field_id=Alex&field_category=offers`
 
 {% alert tip %}
 It is also possible to hash the user's external ID at the point of send using a Liquid filter. This will convert the `user_id` to an MD5 hash value, for example:
@@ -109,7 +109,7 @@ This approach does not require query string value-pairs embedded in the URL as t
 ```json
 {
     "user_id": "1234567890",
-    "name": "John Doe",
+    "name": "Alex Smith",
     "category": "offers"
 }
 ```

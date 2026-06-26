@@ -14,7 +14,7 @@ channel:
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-KakaoTalk은 Campaigns과 Canvas 모두에서 지원됩니다. Campaigns은 단일 메시징 캠페인에 가장 적합하며, Canvases를 사용하면 다단계, 다채널 사용자 여정을 오케스트레이션할 수 있습니다.
+KakaoTalk은 Campaign과 Canvas 모두에서 지원됩니다. Campaign은 단일 메시징 캠페인에 가장 적합하며, Canvas를 사용하면 다단계, 다채널 사용자 여정을 오케스트레이션할 수 있습니다.
 
 {% tabs local %}
 {% tab Campaign %}
@@ -24,12 +24,12 @@ KakaoTalk은 Campaigns과 Canvas 모두에서 지원됩니다. Campaigns은 단�
 
 ![메시징 채널을 선택하는 옵션이 있는 패널.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. 캠페인에 추가 배리언트를 추가하여 다양한 메시지 유형과 레이아웃을 선택할 수 있습니다. 자세한 내용은 [다변량 및 A/B 테스트](https://www.braze.com/docs/user_guide/messaging/ab_testing/)를 참조하세요.
+3. 캠페인에 추가 배리언트를 추가하여 다양한 메시지 유형과 레이아웃을 선택할 수 있습니다. 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Canvas를 생성](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/)합니다.
+1. [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)합니다.
 2. Canvas 빌더에서 메시지 단계를 추가하고 **KakaoTalk**을 선택합니다.
 
 ![Canvas 메시징 채널 선택 화면.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
@@ -61,7 +61,7 @@ KakaoTalk 텍스트 메시지는 가장 간단한 커뮤니케이션 형태인 �
 | 콘텐츠 | 이모지 및 Liquid 개인화를 포함한 텍스트 콘텐츠 |
 | 텍스트 용량 | 최대 1,000자 |
 | 버튼 | 최대 5개의 선택 버튼. 현재 클릭 시 URL을 여는 용도로만 사용할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사양" }
 
 ![작성기에서의 KakaoTalk 텍스트 메시지.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
@@ -79,7 +79,7 @@ KakaoTalk 텍스트 메시지는 가장 간단한 커뮤니케이션 형태인 �
 | 권장 너비 | 500px |
 | 파일 크기 | 최대 500kb |
 | 종횡비 | 2:1(넓은 형식)에서 3:4(세로 형식) 사이여야 합니다 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="General specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="일반 사양" }
 
 좁은 형식과 넓은 형식의 이미지 메시지는 각각 다른 글자 수 및 버튼 고려 사항이 있습니다.
 
@@ -99,7 +99,7 @@ KakaoTalk 텍스트 메시지는 가장 간단한 커뮤니케이션 형태인 �
 | 버튼 | 최대 5개의 선택 버튼 |
 | 이미지 소스 | Braze 미디어 라이브러리 또는 직접 URL을 사용하여 이미지를 추가할 수 있습니다 |
 | 커스터마이징 | 이미지의 클릭 시 동작을 지정할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사양" }
 
 ![KakaoTalk 좁은 형식 메시지.]({% image_buster /assets/img/kakaotalk/narrow_image.png %})
 
@@ -119,7 +119,7 @@ KakaoTalk 텍스트 메시지는 가장 간단한 커뮤니케이션 형태인 �
 | 버튼 | 최대 2개의 선택 버튼 |
 | 이미지 소스 | Braze 미디어 라이브러리 또는 직접 URL을 사용하여 이미지를 추가할 수 있습니다 |
 | 커스터마이징 | 이미지의 클릭 시 동작을 지정할 수 있습니다 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사양" }
 
 ![KakaoTalk 넓은 형식 메시지.]({% image_buster /assets/img/kakaotalk/wide_image.png %})
 
@@ -151,7 +151,7 @@ KakaoTalk 아이템 리스트 메시지는 콘텐츠 항목 목록을 명확한 
 | 헤더 | 최대 250자 |
 | 아이템 제목 | 최대 25자 |
 | 웹사이트 URL(아이템당) | 최대 250자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사양" }
 
 ![KakaoTalk 리스트 아이템 메시지.]({% image_buster /assets/img/kakaotalk/item_list.png %})
 

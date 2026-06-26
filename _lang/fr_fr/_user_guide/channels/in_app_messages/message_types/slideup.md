@@ -35,11 +35,11 @@ Les messages contextuels peuvent contenir jusqu'à trois lignes de texte avant t
 
 Vous devriez toujours [prévisualiser et tester vos messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) sur une variété d'appareils pour vous assurer que les zones les plus importantes de votre image et de votre message apparaissent comme prévu. Notez que lors de la prévisualisation de votre message dans le composeur, le rendu réel sur les appareils peut différer.
 
-## Liens hypertexte et texte d'ancrage {#hyperlinks-and-anchor-text}
+## Liens hypertextes et texte d'ancrage {#hyperlinks-and-anchor-text}
 
 Pour ajouter un lien dans un message contextuel, saisissez le texte du message dans le champ **Corps** et définissez la destination dans **Comportement au clic** (par exemple, **Rediriger vers une URL**). Lorsque le **Comportement au clic** est configuré, un appui n'importe où sur le message, à l'exception du bouton de fermeture, déclenche cette action.
 
-Pour les messages in-app HTML personnalisés, vous pouvez utiliser directement des liens HTML. Consultez [Messages in-app HTML personnalisés]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
+Pour les messages in-app HTML personnalisés, vous pouvez utiliser des liens HTML directement. Consultez [Messages in-app HTML personnalisés]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
 ## Appareils mobiles {#mobile-devices}
 

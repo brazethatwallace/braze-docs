@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Create a permission set
 
-Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permission sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **Permission Settings**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permission sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **User Management** > **Permission Sets**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
@@ -32,7 +32,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 
 ## Creating a role
 
-Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Roles allow for more structure by bundling together your individual custom permissions with workspace access controls. This is especially useful if you have many brands or regional workspaces in one dashboard. With roles, you can add dashboard users to the right workspaces and directly grant them the associated permissions. To create a role, go to **Settings** > **User Management** > **Roles**, then select **Create role**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab example roles %}
@@ -83,9 +83,20 @@ Users may encounter messages like "You need “View Landing Pages” permissions
 It isn't possible to merge or import user permissions from one dashboard user to another.
 {% endalert %}
 
+## Nuances of user permissions
+
+Keep the following behaviors in mind when you assign dashboard access:
+
+- **Workspace Admin versus Company Admin:** Workspace Admins manage permissions within assigned workspaces. Company Admins have company-wide authority, including deleting other dashboard users.
+- **Limited users:** Limited users with the "Edit Dashboard Users" permission can manage other limited users but cannot create or manage Company Admin accounts.
+- **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
+- **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
+- **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners/) typically requires both partner access and a baseline read permission for the related workspace features.
+- **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
+
 ## Edit a user's permissions
 
-To edit a user's current admin, company, or workspace permissions, go to **Settings** > **Company Users**, then select their name.
+To edit a user's current admin, company, or workspace permissions, go to **Settings** > **User Management** > **Company Users**, then select their name.
 
 ![The "Company Users" page in Braze showing a table of dashboard users.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
@@ -101,8 +112,6 @@ Admins have access to all features and the ability to modify any company setting
 - Export Braze users as a CSV
 
 To grant or remove admin privileges, select **This user is an admin**, then select **Update user**.
-
-![The details of the selected user with the admin checkbox in focus.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -162,9 +171,7 @@ When you're finished, select **Update user**.
 
 ## Exporting user permissions
 
-To download a list of your users and their permissions, go to **Settings** > **Company Users**, then select **Export Users**. A CSV file will be sent to your email address shortly.
-
-![The "Company Users" page in Braze with the "Export Users" option in focus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+To download a list of your users and their permissions, go to **Settings** > **User Management** > **Company Users**, then select **Export Users**. A CSV file will be sent to your email address shortly.
 
 ## List of permissions
 
@@ -213,10 +220,11 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | User Data | Import Users | Upload users to the dashboard |
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
-| User Deletion Records | View User Merge Records | View a list of user merge records |
+| Duplicate Users | View User Merge Records | View a list of user merge records |
 | Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
-| Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
+| Delete Users | View User Deletion Records | View a list of user deletion records |
+| Delete Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience permissions" }
 
 ### Template
@@ -368,6 +376,5 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Subscription Groups | Edit Subscriptions | Create and update subscription groups |
 | Transformations | Edit Data Transformation | Create and update data transformations |
 | Transformations | View Data Transformation | View data transformations |
-| User Deletion Records | View User Deletion Records | View user deletion records |
 | Support Tickets | Create Support Ticket | Create and update Support tickets |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other permissions" }

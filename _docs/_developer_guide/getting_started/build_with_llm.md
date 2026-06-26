@@ -166,8 +166,8 @@ You can access the Braze Developer Guide documentation as plain text files optim
 
 | File | Description |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | An index of Braze developer documentation pages with titles and descriptions. Use this as a starting point for discovering available documentation. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | The complete Braze developer documentation in a single plain text file, formatted for LLM consumption. |
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | An index of Braze developer documentation pages with titles and descriptions. Use this as a starting point for discovering available documentation. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | The complete Braze developer documentation in a single plain text file, formatted for LLM consumption. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Plain text documentation" }
 
 These files follow the [llms.txt standard](https://llmstxt.org/), an emerging convention for making documentation accessible to AI tools. You can reference these files directly in your prompts or paste their contents into an LLM for context.

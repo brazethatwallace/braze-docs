@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Eppo
 
-> [Eppo](https://www.geteppo.com/) es una plataforma de experimentación de nueva generación que permite a los equipos realizar pruebas A/B, gestionar características a escala y aprovechar la información basada en IA para la toma de decisiones basadas en datos.
+> [Eppo](https://www.geteppo.com/) es una plataforma de experimentación de nueva generación que permite a los equipos realizar pruebas A/B, gestionar características a escala y aprovechar la información basada en IA para la toma de decisiones basada en datos.
 
 *Esta integración está mantenida por Eppo.*
 
@@ -18,7 +18,7 @@ La integración de Braze y Eppo te permite configurar pruebas A/B en Braze y ana
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
-|---|---|
+|------------------------------------|-------------------------------------------------------------------------------------|
 | Cuenta Eppo | Se necesita una cuenta de Eppo para beneficiarse de esta asociación. |
 | Currents o uso compartido de datos de Snowflake | Para que Eppo analice los datos de los experimentos, es necesario Currents o el uso compartido de datos de Snowflake. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -31,7 +31,7 @@ Eppo analiza los experimentos directamente en tu almacén de datos. Para habilit
 
 ### Paso 2: Configura tu experimento en una campaña o Canvas de Braze {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-Puedes utilizar las características nativas de pruebas A/B en tus campañas y Canvas. Para saber más, consulta [Pruebas multivariantes y A/B](https://www.braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing).
+Puedes utilizar las características nativas de pruebas A/B en tus campañas y Canvas. Para saber más, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing).
 
 ### Paso 3: Configurar Eppo para medir experimentos de Braze {#step-3-set-up-eppo-to-measure-braze-experiments}
 

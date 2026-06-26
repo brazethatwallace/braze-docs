@@ -59,7 +59,7 @@ Si observas discrepancias generalizadas, ponte en contacto con tu administrador 
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Vistas disponibles" }
 
 ## Instantáneas del perfil de usuario {#user-profile-snapshots}
 
@@ -75,13 +75,11 @@ Estas vistas proporcionan instantáneas periódicas de los atributos del perfil 
 * Ejecución más rápida de la consulta, sobre todo al filtrar por atributos distintos de `USER_ID`.
 * **Limitación:** Los datos no están actualizados en tiempo real.
 
-{% alert note %}
-El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
 
-| Nombre de columna | Tipo de datos |
+| Nombre de columna     | Tipo de datos     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
@@ -97,26 +95,29 @@ El campo `TIME` representa la hora en segundos de la actualización del perfil d
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
+| `ARCHIVED` | BOOLEAN |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERDEFAULTATTRIBUTESVIEWSHARED" }
 
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` {#user_custom_attributes_view_shared-schema}
 
-| Nombre de columna | Tipo de datos |
+| Nombre de columna     | Tipo de datos     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
+| `ARCHIVED` | BOOLEAN |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERCUSTOMATTRIBUTESVIEWSHARED" }
 
 ## Vistas del perfil de usuario en tiempo real {#real-time-user-profile-views}
 
@@ -134,13 +135,11 @@ Estas vistas proporcionan actualizaciones casi en tiempo real de los atributos d
     * Las consultas sin filtros de USER_ID requieren la agregación de todos los usuarios, lo que conlleva tiempos de ejecución significativamente más largos.
     * Las consultas en un gran conjunto de datos (como más de 100 millones de usuarios) pueden tardar muchos minutos.
 
-{% alert note %}
-El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_latest_state_default_attributes_view_shared-schema}
 
-| Nombre de columna | Tipo de datos |
+| Nombre de columna     | Tipo de datos     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
@@ -148,6 +147,7 @@ El campo `TIME` representa la hora en segundos de la actualización del perfil d
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
 | `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
@@ -159,22 +159,24 @@ El campo `TIME` representa la hora en segundos de la actualización del perfil d
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
+| `TIME_ZONE` | VARCHAR |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
 
-| Nombre de columna | Tipo de datos |
+| Nombre de columna     | Tipo de datos     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
+| `ARCHIVED` | BOOLEAN |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED" }
 
 ## Historial de cambios {#historical-change-logs}
 
@@ -189,13 +191,11 @@ Estas vistas almacenan registros de cambios históricos de los atributos de los 
 * Los datos se capturan en instantáneas cada 12 horas, lo que significa que varias actualizaciones en esta ventana se combinan en un único registro. Los cambios individuales dentro de este periodo no se conservan por separado.
 * `EFF_DT` y `END_DT` marcan el inicio y el final del estado de atributo de un usuario.
 
-{% alert note %}
-El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_default_attributes_history_view_shared-schema}
 
-| Nombre de columna | Tipo de datos |
+| Nombre de columna     | Tipo de datos     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
@@ -211,40 +211,42 @@ El campo `TIME` representa la hora en segundos de la actualización del perfil d
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERDEFAULTATTRIBUTESHISTORYVIEWSHARED" }
 
 ### Esquema de `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_custom_attributes_history_view_shared-schema}
 
-| Nombre de columna | Tipo de datos |
+| Nombre de columna     | Tipo de datos     |
 |-----------------|---------------|
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
 | `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
+| `ARCHIVED` | BOOLEAN |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de USERCUSTOMATTRIBUTESHISTORYVIEWSHARED" }
 
 ## Buenas prácticas {#best-practices}
 
 ### Uso recomendado de consultas {#recommended-query-usage}
 
-| Caso de uso | Vistas recomendadas | Notas |
+| Caso de uso                                               | Vistas recomendadas                                   | Notas                                                                 |
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
-| **Consultas generales** que no requieren actualizaciones recientes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` | Ejecución rápida, con datos de hasta 12 horas de antigüedad. |
-| Consultas que requieren los **últimos atributos del usuario** | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Proporciona actualizaciones casi en tiempo real, pero puede ser más lento para grandes conjuntos de datos. |
-| **Seguimiento histórico** de los cambios de atributos | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` | Almacena los cambios de atributos con una granularidad de 12 horas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
+| **Consultas generales** que no requieren actualizaciones recientes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Ejecución rápida, con datos de hasta 12 horas de antigüedad.                          |
+| Consultas que requieren los **últimos atributos del usuario**       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` y `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Proporciona actualizaciones casi en tiempo real, pero puede ser más lento para grandes conjuntos de datos. |
+| **Seguimiento histórico** de los cambios de atributos           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` y `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Almacena los cambios de atributos con una granularidad de 12 horas.                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Uso recomendado de consultas" }
 
 ### Consideraciones de rendimiento {#performance-considerations}
 

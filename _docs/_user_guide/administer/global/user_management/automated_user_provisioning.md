@@ -161,8 +161,6 @@ Log in to your Microsoft Entra admin center.
 - **Service Origin:** Enter the origin domain of your SCIM requests. Braze uses this in the `X-Request-Origin` header to verify where requests are coming from.
 - **IP Allowlisting (optional):** You can restrict SCIM requests to specific IP addresses. Enter a comma-separated list or range of IP addresses to allow. The `X-Request-Origin` header in each request is used to check the request IP address against the allowlist.
 
-![SCIM Provisioning settings form with three fields: Default Workspace, Service Origin, and optional IP Allowlisting. The “Generate SCIM Token” button is disabled.]({% image_buster /assets/img/scim_unfilled.png %})
-
 ## Step 2: Generate a SCIM token
 
 After completing the required fields, press **Generate SCIM token** to generate a SCIM token and see your SCIM API endpoint. Make sure to copy the SCIM token before you navigate away. **This token appears only once.** 

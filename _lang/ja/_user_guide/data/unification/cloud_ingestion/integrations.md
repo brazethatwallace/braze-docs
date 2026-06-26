@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.1: テーブルの設定" }
 
 プロジェクト、データセット、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.1: テーブルの設定" }
 
 スキーマとテーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -596,7 +596,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 {% endtabs %}

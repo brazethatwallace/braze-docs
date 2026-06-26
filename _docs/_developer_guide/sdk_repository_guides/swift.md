@@ -12,10 +12,12 @@ The Braze Swift SDK helps you integrate Braze messaging, analytics, and user eng
 
 To get started, refer to the following resources:
 
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
+- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Quickstart
+
+The following snippets show the minimum configuration required to add the Braze Swift SDK to your app.
 
 ``` swift
 // AppDelegate.swift
@@ -47,11 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-See [the Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift) for advanced integration options.
+For more information about advanced integration options, see the [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift).
 
-## Version Support
+## Version support
 
-Tool | Minimum Supported Version
+The following table lists the minimum supported versions for tools used by the Braze Swift SDK.
+
+Tool | Minimum supported version
 :----|:----
 iOS|12.0+
 Mac Catalyst|16.0+
@@ -64,6 +68,8 @@ Xcode|26.0+ (17A324)
 - CocoaPods
 
 ## Libraries
+
+The following table describes each library in the Braze Swift SDK.
 
 <!-- Table generated with https://www.tablesgenerator.com/markdown_tables -->
 
@@ -79,13 +85,13 @@ Xcode|26.0+ (17A324)
 <sup>1</sup> _Push notifications not supported on tvOS_<br/>
 <sup>2</sup> _Geofence monitoring not supported on tvOS and visionOS_
 
-[analytics]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[push notifications]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
-[In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
-[Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
-[location analytics and geofence monitoring]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
-[rich push notifications]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
-[Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
+[analytics]: {{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[push notifications]: {{site.baseurl}}/user_guide/message_building_by_channel/push
+[In-App Messages]: {{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages
+[Content Cards]: {{site.baseurl}}/user_guide/message_building_by_channel/content_cards
+[location analytics and geofence monitoring]: {{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences
+[rich push notifications]: {{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[Push Stories]: {{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
 ## Examples
 
@@ -103,7 +109,7 @@ Explore our [examples project](https://github.com/braze-inc/braze-swift-sdk/blob
 
 ## Contact
 
-If you have questions, please contact [support@braze.com](mailto:support@braze.com).
+For questions, contact [support@braze.com](mailto:support@braze.com).
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

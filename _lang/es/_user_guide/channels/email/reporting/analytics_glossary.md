@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> Este glosario define las métricas en la pestaña **Analytics** para campañas de correo electrónico y Canvas. Braze no ofrece una página alojada de «ver este correo electrónico en un navegador»; consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) para una solución alternativa. Para otros problemas que abarcan varias métricas, consulta [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq/).
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -148,7 +150,7 @@ Para correo electrónico, el *% de rebotes* o la *tasa de rebote* es el porcenta
 Un rebote de correo electrónico para clientes que usan SendGrid consiste en rebotes duros, correo no deseado (`spam_report_drops`) y correos electrónicos enviados a direcciones no válidas (`invalid_emails`).
 
 {% alert note %}
-En [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), los aplazamientos temporales del ESP a menudo se representan como rebotes blandos. Las herramientas de capacidad de entrega (por ejemplo, los informes nativos de SendGrid o los modelos de Looker) pueden usar aplazamientos para la misma situación. Los aplazamientos suelen ser temporales y el correo a menudo se entrega después de reintentos. Tras reintentos prolongados (hasta aproximadamente 72 horas para rebotes blandos en los análisis de campañas), un mensaje puede tratarse como no entregable según tu ESP. Los eventos de correo electrónico de Currents son de solo adición: un rebote blando registrado no se elimina posteriormente si el mensaje finalmente se entrega.
+En [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), los aplazamientos temporales del ESP a menudo se representan como rebotes blandos. Las herramientas de capacidad de entrega (por ejemplo, los informes nativos de SendGrid o los modelos de Looker) pueden usar aplazamientos para la misma situación. Los aplazamientos suelen ser temporales y el correo a menudo se entrega después de reintentos. Tras reintentos prolongados (hasta aproximadamente 72 horas para rebotes blandos en los análisis de Campaign), un mensaje puede tratarse como no entregable según tu ESP. Los eventos de correo electrónico de Currents son de solo adición: un rebote blando registrado no se elimina posteriormente si el mensaje finalmente se entrega.
 {% endalert %}
 
 {::nomarkdown}
@@ -189,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente se reintentará en un plazo de 72 horas, pero el número de reintentos varía según el receptor.
 
-Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) o excluir a estos usuarios de tu envío con el [filtro de Segment de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
+Aunque los rebotes blandos no se rastrean en los análisis de tu Campaign, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) o excluir a estos usuarios de tu envío con el [filtro de Segment de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -247,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (un único intento de envío). Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Después de siete días, otro clic único puede contarse para el mismo usuario si hace clic de nuevo. Las métricas de interacción de correo electrónico del dashboard, incluidos los *Clics únicos*, se calculan en Braze y no se concilian a partir de informes agregados del ESP. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto se rastrea durante un período de siete días para correo electrónico y se mide por <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (un único intento de envío). Esto incluye clics en los enlaces de cancelación de suscripción proporcionados por Braze. Las URL de cancelación de suscripción personalizadas rastreadas también cuentan para *Clics únicos* cuando un usuario selecciona el enlace. Después de siete días, otro clic único se contabiliza para el mismo usuario si hace clic de nuevo. Las métricas de interacción de correo electrónico del dashboard, incluidos los _Clics únicos_, se calculan en Braze y no se concilian a partir de informes agregados del ESP. Para que coincidan los recuentos del dashboard con Currents, filtra por eventos donde `is_unique` sea `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -259,6 +261,24 @@ Count, Percentage
 </span>
 {:/}
 
+#### Enlaces inesperados en el mapa de calor del correo electrónico {#unexpected-links-on-the-email-heatmap}
+
+Cuando el [mapa de calor del correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/) muestra enlaces que no esperas, inspecciona el HTML del mensaje en busca de [bloques de contenido]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) o espacios entre palabras que crean URL rastreadas. Usa la **tabla de enlaces por clics totales** en la vista del mapa de calor para identificar URL que no coinciden con el texto visible.
+
+{% endapi %}
+
+{% api %}
+
+### Clics totales {#total-clicks}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>Clics totales</i> es el número total de veces que los usuarios hicieron clic en enlaces del correo electrónico entregado, incluidos múltiples clics del mismo usuario. Esto incluye clics en los enlaces de cancelación de suscripción de Braze y en las URL de cancelación de suscripción personalizadas rastreadas.
+
+Cuando los *Clics totales* son mucho mayores que los *Clics únicos*, es posible que herramientas de seguridad o proveedores de buzón estén escaneando los enlaces sin que los usuarios abran el mensaje. Compara los *Clics únicos* cuando evalúes la interacción internamente.
+
 {% endapi %}
 
 {% api %}
@@ -269,7 +289,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-Las *cancelaciones de suscripción* reflejan el enlace estándar de cancelación de suscripción de Braze. Las páginas personalizadas para cancelar la suscripción no incrementarán esta métrica a menos que actualices a los usuarios mediante la API. Las **series temporales de grupos de suscripción** sí reflejan los cambios realizados a través de la API.
+Las _cancelaciones de suscripción_ reflejan el enlace estándar de cancelación de suscripción de Braze. Las páginas personalizadas para cancelar la suscripción no incrementarán esta métrica a menos que actualices a los usuarios mediante la API. Las **series temporales de grupos de suscripción** sí reflejan los cambios realizados a través de la API.
 
 {% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
 
@@ -368,6 +388,18 @@ Count
 
 {% api %}
 
+### Aperturas reales estimadas {#estimated-real-opens}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} Braze recalcula esta estimación a medida que llegan nuevos datos de aperturas y clics. El valor suele estabilizarse unos días después del envío, pero continúa actualizándose cuando se producen nuevos eventos que califican.
+
+{% endapi %}
+
+{% api %}
+
 ### Tasa de clic a apertura {#click-to-open-rate}
 
 {% apitags %}
@@ -377,6 +409,10 @@ Percentage
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">Cálculo: (Clics únicos) / (Aperturas únicas) (para correo electrónico)</span>
+
+#### Puntuaciones de probabilidad de apertura de mensajes (segmentación) {#message-open-likelihood-scores-segmentation}
+
+El filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) puntúa la probabilidad de que un usuario abra un correo electrónico en una escala de 0 a 100 %. Los usuarios sin suficiente historial de envíos o aperturas para el canal aparecen en blanco. Para correo electrónico, las aperturas automáticas se excluyen del cálculo, que utiliza el historial de mensajes recientes en ese canal (consulta [Filtro de probabilidad de apertura de mensajes para canales individuales]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels)).
 
 {% endapi %}
 
@@ -388,13 +424,17 @@ Cuando un destinatario hace clic en un enlace de cancelación de suscripción, B
 
 ### Ver en el navegador {#view-in-browser}
 
-Braze no incluye una función integrada de «Ver este correo electrónico en un navegador». Aloja el contenido del correo electrónico en una página de inicio externa (como tu sitio web) y añade un enlace desde el mensaje usando la herramienta **Enlace** del editor de correo electrónico. Para más información, consulta [¿Puedo añadir un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+Braze no incluye una función integrada de «Ver este correo electrónico en un navegador». Aloja el contenido del correo electrónico en una página de inicio externa (como tu sitio web) y agrega un enlace desde el mensaje usando la herramienta **Enlace** del editor de correo electrónico. Para más información, consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+
+### Actualizaciones de la página personalizada para cancelar la suscripción {#custom-unsubscribe-page-updates}
+
+Los cambios en tu [página personalizada para cancelar la suscripción]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) aparecen en pocos minutos. Los envíos en vivo usan una caché de corta duración de la página que se actualiza cuando guardas los cambios.
 
 ### Rebotes por cuota excedida y buzón lleno {#over-quota-and-full-mailbox-bounces}
 
 Un rebote por cuota excedida o buzón lleno significa que el buzón del destinatario no puede aceptar correo nuevo. Puedes ver estas direcciones entre nuevos registros con direcciones no válidas o de riesgo, o entre perfiles inactivos durante mucho tiempo cuyos buzones se llenaron mientras estaban inactivos.
 
-Revisa las tasas de rebote por segmento y fuente, elimina o retira las direcciones que rebotan de forma dura repetidamente, y usa la adhesión voluntaria confirmada o doble para nuevos suscriptores. Para prácticas de higiene de listas, consulta [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) e [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting).
+Revisa las tasas de rebote por segmento y fuente, elimina o retira las direcciones que rebotan repetidamente de forma dura, y usa la adhesión voluntaria confirmada o doble para nuevos suscriptores. Para prácticas de higiene de listas, consulta [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) e [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting).
 
 ### 550 5.7.1 correo no solicitado {#550-571-unsolicited-mail}
 
@@ -408,14 +448,14 @@ La **entrega** indica si el servidor receptor acepta tu mensaje; puedes medirla 
 
 Como guía general, apunta a una entrega cercana al 99 % con rebotes duros por debajo de aproximadamente el 1 %, y observa las aperturas y los clics para detectar tendencias de interacción. Los objetivos exactos varían según la industria y el patrón de envío. Para prácticas que respaldan la reputación, consulta [Mejorar la capacidad de entrega del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) y [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
-### «Campaign is already in delay window, so not enqueueing another»
+### «La Campaign ya está en la ventana de retraso, por lo que no se pone en cola otra» {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
-En la actividad de mensajes o los registros de diagnóstico de [campañas basadas en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), este resultado de procesamiento significa que Braze bloqueó un envío duplicado mientras un desencadenante anterior para el mismo usuario aún se encuentra dentro de la ventana de entrega de la campaña. Un bloqueo de antirrebote evita múltiples puestas en cola para la misma ráfaga de desencadenantes.
+En el registro de actividad de mensajes o los registros de diagnóstico de [campañas basadas en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), este resultado de procesamiento significa que Braze bloqueó un envío duplicado mientras un desencadenante anterior para el mismo usuario aún se encuentra dentro de la ventana de entrega de la Campaign. Un bloqueo de antirrebote evita múltiples puestas en cola para la misma ráfaga de desencadenantes.
 
-Puedes ver este resultado incluso cuando la campaña muestra **Enviar inmediatamente** si se cumple alguna de las siguientes condiciones:
+Puedes ver este resultado incluso cuando la Campaign muestra **Enviar inmediatamente** si se cumple alguna de las siguientes condiciones:
 
-- La campaña usa un [evento de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) o un retraso en el momento de envío que afecta la temporización.
+- La Campaign usa un [evento de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) o un retraso en el momento de envío que afecta la temporización.
 - Los usuarios tienen un período de [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/), por lo que no pueden recibir el mensaje de nuevo hasta que pase esa ventana.
-- Otra campaña u otro paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
+- Otro mensaje de Campaign o paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
 
-Si un usuario debería haber recibido el mensaje pero no lo hizo, revisa los resultados anteriores para el mismo desencadenante (por ejemplo, rebote de correo electrónico o canal no habilitado). Otro mensaje en el mismo flujo de trabajo puede haber impedido este envío.
+Si un usuario debería haber recibido el mensaje pero no lo hizo, verifica los resultados anteriores para el mismo desencadenante (por ejemplo, rebote de correo electrónico o canal no habilitado). Otro mensaje en el mismo flujo de trabajo puede haber impedido este envío.

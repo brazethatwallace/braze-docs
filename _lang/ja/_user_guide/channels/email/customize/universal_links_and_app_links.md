@@ -3,19 +3,19 @@ nav_title: "ユニバーサルリンクとApp Links"
 article_title: "ユニバーサルリンクとApp Links"
 page_order: 6.4
 page_type: reference
-description: "この記事では、Apple ユニバーサルリンクと Android App Linksの設定方法について説明します。"
+description: "この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。"
 channel: email
 ---
 
 # ユニバーサルリンクとApp Links {#universal-links-and-app-links}
 
-> この記事では、Apple ユニバーサルリンクと Android App Linksの設定方法について説明します。
+> この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。
 
 {% alert tip %}
 すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
 {% endalert %}
 
-Apple ユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
+Appleユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
 
 ## ユニバーサルリンクとApp Linksの仕組み {#how-universal-links-and-app-links-work}
 
@@ -37,7 +37,7 @@ Apple ユニバーサルリンクと Android App Linksは、Webコンテンツ�
 
 ## ユースケース {#use-cases}
 
-ユニバーサルリンクとApp Linksは、メールキャンペーンで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
+ユニバーサルリンクとApp Linksは、メールCampaignで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
 
 一部のチャネルはこれらのリンクとうまく連携しません。たとえば、プッシュ通知、アプリ内メッセージ、Content Cardsでは、スキームベースのディープリンク（`mydomain://`）を使用する必要があります。
 
@@ -93,7 +93,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 2. **Associated Domains**を選択します。
 3. **Save**をクリックします。
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![App Servicesセクション]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする {#step-1c}
 
@@ -113,7 +113,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 
 ドメインセクションで、適切なドメインタグを追加します。`applinks:`をプレフィックスとして付ける必要があります。この例では、`applinks:yourdomain.com`を追加しています。
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Associated Domainsセクション]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### ステップ1e:エンタイトルメントファイルがビルドに含まれていることを確認する {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -343,7 +343,7 @@ Amazon SESのクリックトラッキングリンクをユニバーサルリン�
 }]
 ```
 
-アプリがこれらのラップされたリンクを処理するように設定されていることを確認してください。クリックトラッキングドメインをアプリのAssociated Domains（iOS）またはインテントフィルター（Android）に追加し、この記事で前述したとおり、そのドメインにAASAまたはDigital Asset Linksファイルをホストしてください。
+アプリがこれらのラップされたリンクを処理するように設定されていることを確認してください。クリックトラッキングドメインをアプリのAssociated Domains（iOS）またはインテントフィルター（Android）に追加し、この記事で前述したとおりにAASAまたはDigital Asset Linksファイルをそのドメインにホストしてください。
 
 {% endtab %}
 {% endtabs %}
@@ -396,7 +396,7 @@ Amazon SESのクリックトラッキングリンクをユニバーサルリン�
 - **Name:** `data-msys-clicktrack`
 - **Value:** `0`
 
-![テキストリンクのカスタム属性。]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
+![テキストリンクのカスタム属性]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ##### ボタンまたは画像のカスタム属性 {#custom-attribute-for-a-button-or-image}
 
@@ -416,15 +416,15 @@ Amazon SESのクリックトラッキングリンクをユニバーサルリン�
 - **Value:** `0`
 - **Type:** Link
 
-![ボタンのカスタム属性。]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
+![ボタンのカスタム属性]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ### クリックトラッキング付きユニバーサルリンクのトラブルシューティング {#troubleshooting-universal-links-with-click-tracking}
 
 メール内のユニバーサルリンクが期待どおりに機能しない場合（受信者がメールアプリからWebブラウザーに移動し、最終的にアプリにリダイレクトされるなど）、以下のヒントを参照してユニバーサルリンクの設定をトラブルシューティングしてください。
 
-#### Outlookで`[?it=`や生のURLテキストがボタンの代わりに表示される {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+#### Outlookでボタンの代わりに`[?it=`や生のURLテキストが表示される {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
 
-Outlookでは、リンクが有効な**`http://`または`https://`** URLスキームを使用していない場合、コールトゥアクションテキストが`[?it=`のように表示されたり、`href`の一部が印刷されたりすることがあります。カスタムスキーム、スキームの欠落、または不正なURLはハイパーリンクとして扱われないため、クライアントは属性テキストを代わりに表示します。すべてのボタン、画像リンク、およびトラッキングURLが完全な`https://`（または`http://`）の送信先を使用していることを確認してください。これはユニバーサルリンクと標準的なWebリンクの両方に適用されます。
+Outlookでは、リンクが有効な**`http://`または`https://`** URLスキームを使用していない場合、コールトゥアクションテキストとして`[?it=`が表示されたり、`href`の一部が印刷されたりすることがあります。カスタムスキーム、スキームの欠落、または不正なURLはハイパーリンクとして扱われないため、クライアントは属性テキストを代わりに表示します。すべてのボタン、画像リンク、およびトラッキングURLが完全な`https://`（または`http://`）の送信先を使用していることを確認してください。これはユニバーサルリンクと標準的なWebリンクの両方に適用されます。
 
 #### リンクファイルの場所を確認する {#verify-link-file-location}
 
@@ -446,6 +446,5 @@ AASAファイル（iOS）またはDigital Asset Linksファイル（Android）�
 
 場合によっては、ESPの制限やインフラの制約により、クリックトラッキングドメインが必要な`.well-known`ファイルをホストできないことがあります。トラッキングドメインにAASAまたはDigital Asset Linksファイルをホストできない場合は、以下のオプションを検討してください。
 
-- **ESPにトラッキングドメインでファイルをホストするよう依頼する:** クリックトラッキングサブドメインは通常、ESP（SendGrid、SparkPost、またはAmazon SES）を指すCNAMEです。ESPがそのドメインのトラフィックを終端するため、`.well-known`ファイルをホストできます。SendGridとSparkPostはどちらもこれをサポートしています。ESPに直接連絡してリクエストしてください。
-- **ディープリンクURLのクリックトラッキングを選択的に無効にする:** ESPがファイルをホストできない場合、特定のユニバーサルリンクのクリックトラッキングを無効にして、メインドメイン（AASAまたはDigital Asset Linksファイルをホストできる場所）に直接移動するようにできます。この方法では、それらの特定のリンクのクリック分析が失われる可能性があることに注意してください。手順については、[リンクごとのクリックトラッキングの無効化](#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
+- **ディープリンクURLのクリックトラッキングを選択的に無効にする:** 特定のユニバーサルリンクのクリックトラッキングを無効にして、メインドメイン（AASAまたはDigital Asset Linksファイルをホストできる場所）に直接移動するようにできます。この方法では、それらの特定のリンクのクリック分析が失われる可能性があることに注意してください。手順については、[リンクごとのクリックトラッキングの無効化](#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
 - **トラッキングサブドメインの前にCDNを配置する:** 完全なクリックトラッキングカバレッジとディープリンクの両方が必要な場合は、トラッキングサブドメインの前にCDN（CloudflareやCloudFrontなど）を配置できます。CDNを設定して`.well-known`ファイルをローカルで提供し、その他のすべてのトラフィックをESPにプロキシします。このアプローチはより複雑ですが、クリックトラッキングとユニバーサルリンクの両方を完全に制御できます。

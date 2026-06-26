@@ -165,7 +165,7 @@ eコマース推奨イベントは、顧客が現在使用しているものと�
 | ラストタッチアトリビューション収益ダッシュボード | 注文確定前にユーザーが最後にインタラクションしたCampaignまたはCanvasに帰属する収益。タッチイベントには、メールクリック、プッシュ開封、コンテンツカードクリック、アプリ内メッセージクリック、SMSまたはWhatsAppショートリンククリックが含まれます。 |
 | CampaignおよびCanvasの分析 | 1次コンバージョンウィンドウ内で特定のCampaignまたはCanvasに帰属する合計収益。 |
 | コンバージョンレポート | CampaignおよびCanvasのコンバージョンイベントに紐づく収益。<br> **注:** `ecommerce.order_placed`の収益をカウントするには、CampaignまたはCanvasのコンバージョンイベントとして「Place Order」コンバージョンイベントタイプを使用する必要があります。 |
-| セグメントインサイト | セグメントインサイトダッシュボードにおけるSegment間の収益比較。 |
+| セグメントインサイト | セグメントインサイトダッシュボードにおけるセグメント間の収益比較。 |
 | レポートビルダー | レポートビルダーで構築されたカスタムレポートの収益指標。 |
 | ダッシュボードビルダー | ダッシュボードビルダーで構築されたカスタムダッシュボードの収益指標。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
@@ -189,8 +189,8 @@ Brazeは、データウェアハウス、BIツール、またはダウンスト�
 |------------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) | eコマースイベントはカスタムイベントとしてストリーミングされます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入として利用可能です。 |
 | [Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | eコマースイベントはカスタムイベントとして共有されます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入テーブルで利用可能です。 |
-| [セグメントデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | SegmentメンバーのCSVエクスポートです。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
-| [Segmentごとのユーザープロファイルをエクスポート（API）]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | SegmentメンバーのユーザープロファイルデータがAPI経由で返されます。eコマースイベントはカスタムイベントとして含まれます。 |
+| [セグメントデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | セグメントメンバーのCSVエクスポートです。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
+| [セグメントごとのユーザープロファイルをエクスポート（API）]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | セグメントメンバーのユーザープロファイルデータがAPI経由で返されます。eコマースイベントはカスタムイベントとして含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### 特定の製品でユーザーをセグメント化するにはどうすればよいですか？ {#how-do-i-segment-users-by-a-specific-product}

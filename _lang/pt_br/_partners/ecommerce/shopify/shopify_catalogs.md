@@ -93,7 +93,9 @@ A Braze oferece suporte aos seguintes objetos de metacampos e alguns de seus res
 | `number_integer` | Inteiro |
 | `single_line_text_field`, `list.single_line_text_field` | String, Array de Strings |
 | `url`, `list.url` | String (URL), Array de Strings (URLs) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
+| `metaobject_reference`, `list.metaobject_reference` | String, Array de Strings |
+| `mixed_reference`, `list.mixed_reference` | String, Array de Strings |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional) #step-3" }
 
 {% endsubtab %}
 {% subtab Metacampos não compatíveis %}
@@ -189,7 +191,7 @@ Alterar suas seleções sincronizadas pode afetar Campaigns, Canvas ou seleçõe
 | `product_tags` | array | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produtos. |
 | `collection_ids` | array | `[123456789012, 987654321098]` (IDs de coleção da Shopify)<br><br>Requer a sincronização de coleções da Shopify. |
 | `Metafield columns` | Varia por tipo | Cada metacampo sincronizado aparece como uma coluna separada nomeada pela sua chave. Consulte [Metacampos compatíveis](#step-3) na guia "Metacampos de produtos" da etapa 3 para mais informações. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dados de catálogo compatíveis com a Shopify" }
 
 {% alert warning %}
 Seu catálogo da Shopify é gerenciado pela Shopify. Para atualizar seu catálogo, faça alterações diretamente na sua loja Shopify e elas serão sincronizadas automaticamente com a Braze. Para excluir seu catálogo da Shopify, acesse a página de parceiros da Shopify na Braze e [desative a sincronização](#deactivate).
@@ -222,6 +224,10 @@ As tags de produtos são armazenadas como um campo de array em cada item do cat�
 ![Modal para selecionar tags de produtos da Shopify, com 15 tags relacionadas a roupas selecionadas, incluindo "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalização {#personalization}
+
+{% alert note %}
+Ao referenciar tags de produtos ou coleções em seleções de catálogo, use apenas o valor em si, sem os colchetes `[]` ou aspas `""` que aparecem nos dados do catálogo. Por exemplo, se uma tag de produto aparece como `["Women's"]` no seu catálogo, escreva `Women's` no filtro da sua seleção.
+{% endalert %}
 
 1. Crie uma seleção de catálogo que filtre produtos que possuam a respectiva tag de produto, como "Women's". Você só pode usar um campo de array único em uma única seleção de catálogo, e até 50 produtos na sua seleção de catálogo.
 
@@ -598,6 +604,10 @@ Para coleções da Shopify, você deve usar o **Collection ID**, que é encontra
 
 ### Personalização
 
+{% alert note %}
+Ao referenciar IDs de coleção em seleções de catálogo, use apenas o valor numérico do ID, sem os colchetes `[]` que aparecem nos dados do catálogo. Por exemplo, se os IDs de coleção aparecem como `[123456789012, 987654321098]` no seu catálogo, escreva apenas o ID numérico (como `470645342446`) no filtro da sua seleção.
+{% endalert %}
+
 1. Crie uma seleção de catálogo chamada "New Women's Products - In Stock" que filtre produtos que possuam o ID dessa coleção. Você só pode usar um campo de array único em uma única seleção de catálogo, e até 50 produtos na sua coleção.
  - Você também pode criar suas próprias seleções personalizadas filtrando pelo campo **Collections**.
 
@@ -717,4 +727,4 @@ Se a sincronização de produtos da Shopify apresentar um erro, ele pode ser res
 | Erro do servidor | Isso ocorre se houver um erro de servidor no lado da Shopify quando tentamos sincronizar seus produtos. | [Desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
 | SKU duplicado | Isso ocorre se você usar um SKU como ID do item do catálogo e tiver produtos com o mesmo SKU. Como o ID do item do catálogo deve ser exclusivo, todos os seus produtos devem ter SKUs exclusivos. | Faça uma auditoria na sua lista completa de produtos e variantes na Shopify para garantir que não haja SKUs duplicados. Se houver SKUs duplicados, atualize-os para que sejam SKUs exclusivos somente na sua conta da loja Shopify. Depois que isso for corrigido, [desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
 | Limite de catálogo excedido | Isso ocorre se você exceder o limite do catálogo. A Braze não poderá concluir a sincronização ou manter a sincronização ativa devido à falta de espaço de armazenamento disponível. | Há duas soluções para esse problema:<br><br>1. Entre em contato com o gerente da sua conta para fazer upgrade do seu nível e aumentar o limite do seu catálogo.<br><br>2. Libere espaço de armazenamento excluindo qualquer um dos seguintes itens:<br>- Itens de catálogo de outros catálogos<br>- Outros catálogos<br>- Seleções criadas<br><br> Depois de usar qualquer uma das soluções, a sincronização deve ser desativada e reativada em seguida. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solução de problemas" }

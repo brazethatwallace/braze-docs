@@ -58,7 +58,7 @@ Para criar uma seleção, faça o seguinte.
 4. Em **Filter Field**, selecione a coluna do catálogo pela qual você deseja filtrar. Campos de string com mais de 1.000 caracteres não podem ser selecionados para filtros.
 5. Termine de definir seus critérios de filtro selecionando o operador relevante (por exemplo, "equals" ou "does not equal") e o atributo.
 6. Na seção **Sort type**, determine como os resultados são classificados. Por padrão, os resultados são retornados sem uma ordem específica. Para especificar a classificação por um campo específico, desative a opção **Randomize Sort Order** e especifique o **Sort Field** e a **Sort Order** (ascendente ou descendente).
-7. Na seção **Results limit**, insira os resultados (até 50).
+7. Na seção **Results limit**, insira o limite de resultados (até 50).
 8. Selecione **Create Selection**.
 
 ### Teste e pré-visualização {#test-and-preview}
@@ -79,7 +79,7 @@ O Conteúdo conectado via Liquid não é compatível com essas configurações d
 
 Depois de criar sua seleção, personalize suas mensagens com Liquid para inserir os itens filtrados desse catálogo. Você pode fazer com que a Braze gere o Liquid para você na janela de personalização encontrada nos criadores de mensagens:
 
-1. Em qualquer criador de mensagens que suporte personalização, selecione <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Adicionar personalização"></i> para abrir a janela de personalização.
+1. Em qualquer criador de mensagens que suporte personalização, selecione <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Adicionar personalização"></i> **Adicionar personalização** para abrir a janela de personalização.
 2. Em **Personalization Type**, selecione **Catalog Items**.
 3. Selecione o nome do catálogo.
 4. Em **Item selection method**, selecione **Use a selection**.
@@ -87,7 +87,7 @@ Depois de criar sua seleção, personalize suas mensagens com Liquid para inseri
 5. Em **Information to Display**, selecione quais campos do catálogo devem ser incluídos para cada item.
 6. Selecione o ícone **Copy** e cole o Liquid onde for necessário em sua mensagem.
 
-![O modal Add Personalization com as seguintes seleções: "Catalog Items" para "Personalization Type", "Games" para "Catalog Name", "Selections" para "Selection Type", "game_selection" para "Selection" e "title" e "description_en" para "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
+![O modal Adicionar personalização com as seguintes seleções: "Catalog Items" para "Personalization Type", "Games" para "Catalog Name", "Selections" para "Selection Type", "game_selection" para "Selection" e "title" e "description_en" para "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
 
 ## Caso de uso {#use-case}
 

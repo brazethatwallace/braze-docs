@@ -10,17 +10,18 @@ description: "Este artigo de referência aborda como gerenciar tags no dashboard
 
 > Você pode gerenciar as tags usadas em campanhas, Canvas e segmentos a partir de um local centralizado. Para renomear, remover ou adicionar tags, acesse **Configurações** > **Gerenciamento de tags**.
 
-Para saber como adicionar tags a campanhas, Canvas, segmentos e dados personalizados, consulte [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/).
+Para saber como adicionar tags a campanhas, Canvas, segmentos e dados personalizados, consulte [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags).
 
 ## Aninhamento de tags {#nesting-tags}
 
 Para organizar ainda mais suas tags, você pode aninhá-las sob uma tag principal. Por exemplo, você pode manter todas as tags de feriados aninhadas sob uma tag principal `Holidays`, ou todas as tags relacionadas a uma etapa do seu funil de marketing sob uma tag principal `Funnel`.
 
-![A página de gerenciamento de tags mostrando uma lista de tags organizadas por grupos aninhados.]({% image_buster /assets/img_archive/tags_view.png %})
+- **Aninhar uma nova tag:** Crie uma tag, selecione **Nest Tag Under** e escolha sob qual tag existente deseja aninhar a nova tag.
+- **Aninhar uma tag existente:** Acesse a página **Gerenciamento de tags**, passe o cursor sobre a linha com a tag e selecione **<i class="fas fa-pencil-alt"></i>Edit**. Em seguida, selecione **Nest Tag Under** e escolha a tag principal.
 
-Para aninhar uma nova tag, crie uma tag, selecione **Nest Tag Under** e escolha sob qual tag existente deseja aninhar a nova tag.
+### A tag principal está em uso, mas não aparece em **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
-Para aninhar uma tag existente, acesse a página **Gerenciamento de tags**, passe o cursor sobre a linha com a tag e selecione **<i class="fas fa-pencil-alt"></i>Edit**. Em seguida, selecione **Nest Tag Under** e escolha a tag principal.
+Quando uma tag principal está aplicada no dashboard, mas não aparece no menu suspenso **Nest Tag Under** ao criar uma nova tag, recrie a tag principal como uma tag independente para que ela se torne pesquisável na lista. Esse comportamento é esperado quando a tag principal existe apenas como uma dependência aninhada em outro lugar do seu espaço de trabalho.
 
 ![A caixa de diálogo de nova tag com a opção Nest Tag Under selecionada.]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
@@ -28,7 +29,7 @@ Para aninhar uma tag existente, acesse a página **Gerenciamento de tags**, pass
 
 Use tags para organizar suas campanhas, Canvas e segmentos por objetivos de negócios, etapas do funil, regiões e muito mais.
 
-A tabela a seguir mostra exemplos de tags que um app de eCommerce pode considerar úteis:
+A tabela a seguir mostra exemplos de tags que um app de e-commerce pode considerar úteis:
 
 <style>
 table td {
@@ -37,7 +38,7 @@ table td {
 </style>
 
 
-<table aria-label="Best practices #tags-best-practices">
+<table aria-label="Práticas recomendadas">
   <caption>Práticas recomendadas</caption>
 <thead>
   <tr>
@@ -81,7 +82,7 @@ Limite a frequência com que seus clientes recebem campanhas de um determinado t
 
 ### Relatórios {#reporting}
 
-Configure um relatório de engajamento para acompanhar o volume de todas as campanhas com uma determinada tag. Por exemplo, se você deseja monitorar todas as suas campanhas de push, pode adicionar uma tag como `Push Reporting` a essas campanhas e, em seguida, configurar um [relatório de engajamento]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) para enviar um relatório dessas campanhas com tag todos os dias.
+Configure um relatório de engajamento para acompanhar o volume de todas as campanhas com uma determinada tag. Por exemplo, se você deseja monitorar todas as suas campanhas de push, pode adicionar uma tag como `Push Reporting` a essas campanhas e, em seguida, configurar um [relatório de engajamento]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) para enviar um relatório dessas campanhas com tag todos os dias.
 
 {% endtab %}
 {% endtabs %}

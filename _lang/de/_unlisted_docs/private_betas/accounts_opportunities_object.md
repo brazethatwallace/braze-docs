@@ -142,7 +142,7 @@ Die Braze API gibt Ihnen programmatische Kontrolle über Kontodaten im großen M
 Weitere Informationen zu HTTP-Methoden und der Funktionsweise von REST APIs finden Sie in den folgenden Ressourcen:
 - [HTTP-Anfragemethoden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) auf MDN Web Docs
 - [REST API Tutorial](https://restapitutorial.com/)
-- [Braze API-Übersicht](https://www.braze.com/docs/api/basics)
+- [Braze API-Übersicht]({{site.baseurl}}/api/basics/)
 
 {% alert note %}
 Verwenden Sie einen API-Schlüssel mit Katalog-Berechtigungen, um Anfragen an den Endpunkt `/business/accounts` zu authentifizieren.

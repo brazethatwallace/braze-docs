@@ -85,25 +85,25 @@ Para exportar a lista de atributos personalizados como um arquivo CSV, selecione
 
 ### Pré-requisitos {#prerequisites}
 
-O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou Segment ativo. Se você tentar alterar o tipo de dados enquanto o atributo ainda estiver sendo referenciado, o dashboard exibirá um erro e bloqueará a alteração.
+O atributo personalizado não pode estar em uso em nenhuma campanha, Canvas ou segmento ativo. Se você tentar alterar o tipo de dados enquanto o atributo ainda estiver sendo referenciado, o dashboard exibirá um erro e bloqueará a alteração.
 
 ### Alterando o tipo de dados {#changing-the-data-type}
 
-1. Interrompa quaisquer Campaigns ou Canvas ativos que usem o atributo em Segments ou filtros.
-2. Remova o atributo de todos os filtros de Segment, Campaign e Canvas.
+1. Interrompa quaisquer campanhas ou Canvas ativos que usem o atributo em segmentos ou filtros.
+2. Remova o atributo de todos os filtros de segmento, campanha e Canvas.
 3. Acesse **Configurações de dados** > **Atributos personalizados** (ou **Eventos personalizados**), encontre o atributo e atualize-o para o tipo de dados desejado.
 4. Atualize os valores do atributo nos perfis de usuário existentes para corresponder ao novo tipo de dados (por exemplo, usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
-5. Reaplique o atributo aos Segments, Campaigns e Canvas relevantes e reative quaisquer Campaigns ou Canvas interrompidos.
+5. Reaplique o atributo aos segmentos, campanhas e Canvas relevantes e reative quaisquer campanhas ou Canvas interrompidos.
 
 ### Informações importantes {#things-to-know}
 
-- **Os dados de usuários não são atualizados retroativamente.** Se um perfil de usuário tinha o atributo com o tipo de dados antigo, esse valor permanece inalterado. O filtro de segmentação procura o novo tipo de dados, então usuários com o valor antigo são excluídos dos Segments correspondentes até que seu perfil seja atualizado.
+- **Os dados de usuários não são atualizados retroativamente.** Se um perfil de usuário tinha o atributo com o tipo de dados antigo, esse valor permanece inalterado. O filtro de segmentação procura o novo tipo de dados, então usuários com o valor antigo são excluídos dos segmentos correspondentes até que seu perfil seja atualizado.
 - **Novos dados devem corresponder ao novo tipo de dados.** Após a alteração, chamadas de API ou eventos do SDK que enviem o tipo de dados anterior para esse atributo não serão aceitos. Apenas valores que correspondam ao novo tipo de dados serão processados.
-- **Os filtros não são atualizados automaticamente.** Segments e filtros de Campaign que referenciam o atributo alterado não são atualizados retroativamente. Você deve removê-los e adicioná-los novamente após a alteração.
+- **Os filtros não são atualizados automaticamente.** Segmentos e filtros de campanha que referenciam o atributo alterado não são atualizados retroativamente. Você deve removê-los e adicioná-los novamente após a alteração.
 
 ## Visualizar relatórios de uso {#view-usage-reports}
 
-O relatório de uso lista todos os Canvas, Campaigns e Segments que usam um atributo personalizado específico. Esta lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, campanhas e segmentos que usam um atributo personalizado específico. Esta lista não inclui usos de Liquid.
 
 Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos atributos personalizados e depois selecionando **Visualizar relatório de uso**.
 
@@ -134,3 +134,21 @@ A seguir estão listados os métodos em várias plataformas usados para definir 
 Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_archival/#active-users).
 
 Para uma referência completa de todos os tipos de dados que podem ser armazenados como atributos personalizados — incluindo booleanos, números, strings, arrays, tempo, objetos e vetores de objetos — consulte [Tipos de dados de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+
+### Strings vazias versus valores nulos {#blank-strings-versus-null-values}
+
+Ao limpar ou remover um atributo personalizado, o comportamento difere dependendo de você passar uma string vazia (`""`) ou `null`:
+
+| Valor | Comportamento |
+| --- | --- |
+| `""` (string vazia) | O atributo é definido como um valor vazio e permanece visível no perfil de usuário. |
+| `null` | O atributo é removido completamente do perfil de usuário. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Strings vazias versus valores nulos" }
+
+{% alert important %}
+Para tipos de dados que não são string, em que o tipo de dados é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover o valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover um booleano, passe `null`.
+
+Observe que a importação de CSV não suporta `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
+{% endalert %}

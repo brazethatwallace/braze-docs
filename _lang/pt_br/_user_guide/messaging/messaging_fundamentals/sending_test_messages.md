@@ -274,8 +274,6 @@ Após criar sua mensagem SMS, MMS ou RCS, você pode enviar uma mensagem de test
 
 Após criar seu webhook, você pode fazer um envio de teste para verificar a resposta do webhook. Selecione a guia **Test** e selecione **Send Test** para enviar um teste para a URL do webhook fornecida. Você também pode selecionar um usuário individual para pré-visualizar a resposta como um usuário específico.
 
-![Testar webhook]({% image_buster /assets/img/webhook_test.png %})
-
 {% endtab %}
 {% tab WhatsApp %}
 
@@ -399,6 +397,6 @@ Se sua Campaign de mensagem no app não está sendo disparada por uma Campaign d
 
 Para envios de teste no Android e iOS, as mensagens no app que usam o comportamento ao clicar **Request push permission** podem não ser exibidas em alguns dispositivos. Como solução alternativa:
 - **Android:** Os dispositivos devem estar no Android 13 e na versão 21.0.0 do nosso SDK Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já possui um prompt no nível do sistema. Você pode ter selecionado **Do not ask again**, então pode ser necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
-- **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação de notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para mais informações, consulte [Mensagens no app de introdução ao push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+- **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação de notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para saber mais, consulte [Mensagens no app de introdução ao push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
 
 Para que uma Campaign de mensagem no app baseada em ação seja entregue, você deve registrar eventos personalizados por meio do SDK da Braze, não por REST APIs, para que os usuários recebam mensagens no app elegíveis diretamente em seus dispositivos. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.

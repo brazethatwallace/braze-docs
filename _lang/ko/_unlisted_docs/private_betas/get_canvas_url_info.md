@@ -28,7 +28,7 @@ description: "이 문서에서는 Canvas 링크 별칭 목록 엔드포인트에
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `canvas_step_id` | 필수 | 문자열 | [캔버스 단계 API 식별자](https://www.braze.com/docs/api/identifier_types/#canvas-api-identifier)를 참조하세요. |
+| `canvas_step_id` | 필수 | 문자열 | [캔버스 단계 API 식별자]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)를 참조하세요. |
 | `message_variation_id ` | 필수 | 문자열 | 메시지 배리언트 API 식별자(해당 단계의 이메일 메시지 배리언트용). **Canvas 세부 정보** 페이지에서 **배리언트 분석**을 클릭하면 확인할 수 있습니다. |
 | `includes_link_id` | 선택 사항 | 문자열 | 특정 링크 식별자(Braze에서 할당) 또는 `null`. 결과를 특정 `link_id`로 필터링하는 데 사용됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -66,8 +66,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | Canvas API ID는 API 식별자여야 합니다. [Canvas 목록 내보내기 엔드포인트](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvases/)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
-| `Missing/Invalid Message Variant ID` | 메시지 배리언트 API ID는 API 식별자여야 합니다. [Canvas 세부 정보 내보내기 엔드포인트](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvas_details/)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
+| `Missing/Invalid Canvas ID` | Canvas API ID는 API 식별자여야 합니다. [Canvas 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
+| `Missing/Invalid Message Variant ID` | 메시지 배리언트 API ID는 API 식별자여야 합니다. [Canvas 세부 정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

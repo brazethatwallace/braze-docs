@@ -10,7 +10,7 @@ description: "This article outlines details about the Delete users Braze endpoin
 ---
 {% api %}
 # Delete users
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -95,7 +95,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   ],
   "email_addresses": [
     {
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]

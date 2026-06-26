@@ -34,7 +34,7 @@ A partir de macOS 13, en determinados dispositivos, puedes probar las notificaci
 
 ### Paso 3: Lanzamiento de una Campaign push de Braze {#step-3-launching-a-braze-push-campaign}
 
-Cuando se lance una Campaign push, Braze hará peticiones a APN para que entregue tu mensaje. Concretamente, las solicitudes se envían a APN para cada token de notificaciones push válido actual, a menos que se seleccione **Enviar al dispositivo más reciente del usuario**. Una vez que Braze reciba una respuesta satisfactoria de APN, registraremos una entrega satisfactoria en el perfil de usuario, aunque es posible que el usuario no haya recibido el mensaje real por motivos como:
+Cuando se lance una Campaign push, Braze hará peticiones a APN para que entreguen tu mensaje. Concretamente, las solicitudes se envían a APN para cada token de notificaciones push válido actual, a menos que se seleccione **Enviar al dispositivo más reciente del usuario**. Una vez que Braze reciba una respuesta satisfactoria de APN, registraremos una entrega satisfactoria en el perfil de usuario, aunque es posible que el usuario no haya recibido el mensaje real por motivos como:
 - Su dispositivo está apagado.
 - Su dispositivo no está conectado a Internet (Wi-Fi o red móvil).
 - Recientemente desinstalaron la aplicación.
@@ -79,7 +79,7 @@ Para resolver la discrepancia:
 2. Verifica que el perfil de aprovisionamiento utilizado para crear la aplicación incluye la capacidad push para ese ID de paquete.
 3. Confirma que la credencial push cargada en Braze coincide con el entorno de la aplicación (desarrollo frente a producción).
 4. Para claves `.p8`, verifica que el **Team ID** y el **Key ID** en Braze coinciden con tu cuenta de Apple Developer.
-5. Vuelve a cargar una clave `.p8` o un certificado `.p12` válido si las credenciales fueron rotadas o revocadas.
+5. Vuelve a cargar una clave `.p8` válida o un certificado `.p12` si las credenciales fueron rotadas o revocadas.
 
 Prefiere las claves de autenticación `.p8` cuando sea posible. Para los tipos de credenciales e indicadores de estado del panel, consulta [Migrar a una clave de autenticación .p8]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key).
 
@@ -145,7 +145,7 @@ Comprueba la programación que has establecido para tu mensaje de prueba. Si est
 
 ### Usuario no "registrado push" para la aplicación que se está probando {#user-not-push-registered-for-the-app-being-tested}
 
-Comprueba el perfil de usuario del usuario al que intentas enviar un mensaje de prueba. En la pestaña **Interacción**, debería haber una lista de "aplicaciones pushables". Comprueba que la aplicación a la que intentas enviar mensajes de prueba está en esta lista. Los usuarios aparecerán como "Registrados push" si tienen un token de notificaciones push para cualquier aplicación de tu espacio de trabajo, por lo que podría tratarse de un falso positivo.
+Comprueba el perfil de usuario del usuario al que intentas enviar un mensaje de prueba. En la pestaña **Interacción**, debería haber una lista de "aplicaciones con push habilitado". Comprueba que la aplicación a la que intentas enviar mensajes de prueba está en esta lista. Los usuarios aparecerán como "Registrados push" si tienen un token de notificaciones push para cualquier aplicación de tu espacio de trabajo, por lo que podría tratarse de un falso positivo.
 
 Lo siguiente indicaría un problema con el registro push o que el token de notificaciones push del usuario ha sido devuelto a Braze como no válido por APN después de haber sido enviado:
 
@@ -166,6 +166,6 @@ Los enlaces de las notificaciones push deben ser compatibles con ATS para poder 
 
 ### Los vínculos profundos de los clics push no se abren {#deep-links-from-push-clicks-not-opening}
 
-La mayor parte del código que gestiona los vínculos profundos también gestiona las aperturas push. Primero, asegúrate de que se registran las aperturas push. Si no es así, soluciona ese problema (ya que la solución suele arreglar el manejo de los enlaces).
+La mayor parte del código que gestiona los vínculos profundos también gestiona las aperturas push. Primero, asegúrate de que se registran las aperturas push. Si no es así, soluciona ese problema (ya que la solución suele arreglar también la gestión de los enlaces).
 
 Si se registran aperturas, comprueba si se trata de un problema con el vínculo profundo en general o con la gestión de los clics push de vinculación en profundidad. Para ello, prueba a ver si funciona un vínculo profundo desde un clic de mensaje dentro de la aplicación.

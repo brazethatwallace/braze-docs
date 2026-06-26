@@ -11,7 +11,7 @@ description: "Cet article présente en détail l'endpoint Braze Ajouter des e-ma
 ---
 {% api %}
 # Ajouter des e-mails à la liste noire {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | -----------|----------| --------|------- |
 | `email` | Requis | Chaîne de caractères ou tableau | Adresse e-mail sous forme de chaîne de caractères à ajouter à la liste noire, ou un tableau de 50 adresses e-mail maximum à ajouter à la liste noire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}
 ```

@@ -17,7 +17,6 @@ The **Home** page has two main sections:
 - [Pick up where you left off](#pick-up-where-you-left-off)
 - [Performance overview](#performance-overview)
 
-![Home dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Pick up where you left off
 
@@ -35,19 +34,15 @@ The **Pick up where you left off** section appears after you have edited or crea
 
 By default, the **Performance overview** section shows the last 30 days of data for all apps and sites. Your metrics are all calculated based on the selected date range.
 
-![Date range and app fields on the Home dashboard.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Percentages are calculated based on the current date range as compared to the previous date range, with the exception of *Monthly Active Users* (MAU), which uses the last day of the prior period instead of a range. 
 
 For example, if you set your date range to **Last 7 Days** and your *Daily Active Users* shows a percent increase of 1.8%, that means you had 1.8% more daily active users this week compared to last week.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![A metric tile for Daily Active Users showing an average of 22.2 thousand with a 7.1% increase badge and a trend line.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Show breakdown
 
 Select **Show Breakdown** for each row of the performance overview statistics to view each statistic's value per day for the date range specified.
-
-![Expand]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Performance over time
 
@@ -110,13 +105,15 @@ MAU calculations follow specific rules to ensure accurate and consistent billing
 
 - **Calculation timing**: Calculated once per day at 12:05 UTC as a 30-day snapshot; counts never change retroactively.
 - **Anonymous profiles**: Count **only** when at least one session is logged.
-- **Identified profiles**: Count automatically once they exist.
+- **Identified profiles**: Count only when `date_of_last_session` is within the rolling 30-day window.
 - **Orphaned profiles**: Duplicates merged into another user are **not** counted.
-- **CSV uploads**: Users uploaded by CSV count only when `date_of_first_session` or `date_of_last_session` is supplied, or when they later log a session.
+- **CSV uploads and REST API imports**: Users uploaded through CSV or the REST API count toward MAU when you supply `date_of_last_session` within the rolling 30-day window, or when they later log a session. Supplying only `date_of_first_session` does not affect MAU.
 - **API deletions**: Deleting a user via API does not update MAU immediately; the count self-corrects in the next monthly cycle.
 
 {% alert note %}
 Anonymous users also count toward your MAU. For mobile devices, anonymous users are device-dependent. For web users, anonymous users are browser cache-dependent.
+
+MAU counts in Braze can differ from tools such as Amplitude when each product uses a different definition of an active user. Compare configuration in Amplitude (and your Braze MAU rules above) before investigating a discrepancy as a data pipeline issue.
 {% endalert %}
 
 #### MAU calculation example
@@ -171,7 +168,10 @@ The MAU value is calculated nightly and won't update until the next day.
 
 *Daily Sessions* is the number of sessions recorded on a given day. Comparing this value to your DAU count can inform you of how many times your users open the app or visit your website on days where they record at least one session.
 
+{% alert note %}
+*Daily Session Count* for a given date can change when you view the home dashboard on different days. If a user starts a session while offline, the session may not reach Braze until they open the app again. When that session is flushed, Braze attributes it to the date the session started, which can increase the count for that date retroactively.
+{% endalert %}
+
 ### Daily sessions per MAU
 
-*Daily Sessions per MAU* is the ratio of *Daily Sessions* to MAU on a given day. This statistic tells you how many sessions per day you can expect to have logged per MAU. When aggregated and averaged, this can give you an idea of the relative frequency of when your users use your app or site. That is, if your *Daily Sessions per MAU* were on average 0.5, then you could expect each MAU to record a session about every 2 days.  
-
+*Daily Sessions per MAU* is the ratio of *Daily Sessions* to MAU on a given day. This statistic tells you how many sessions per day you can expect to have logged per MAU. When aggregated and averaged, this can give you an idea of the relative frequency of when your users use your app or site. That is, if your *Daily Sessions per MAU* were on average 0.5, then you could expect each MAU to record a session about every 2 days.

@@ -9,7 +9,7 @@ description: "この記事では、ユーザーの追跡（一括）エンドポ
 
 {% api %}
 # ユーザーの追跡（一括） {#track-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -210,7 +210,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 #### 致命的でないエラーを含む成功メッセージ {#successful-message-with-non-fatal-errors}
 
-メッセージが成功したものの、長いイベントリストの中に1つの無効なイベントオブジェクトがあるなど、致命的でないエラーがある場合、以下の応答が返されます。
+メッセージは成功したものの、長いイベントリストの中に1つの無効なイベントオブジェクトがあるなど、致命的でないエラーがある場合、以下の応答が返されます。
 
 ```json
 {

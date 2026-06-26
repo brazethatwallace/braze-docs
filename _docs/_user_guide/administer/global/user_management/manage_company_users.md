@@ -16,16 +16,9 @@ You must have administrator permissions to add users to your Braze account.
 
 To add a new user:
 
-1. Go to **Settings** > **Company Users**.
+1. Go to **Settings** > **User Management** > **Company Users**.
 2. Select **+ Add New User**.
 3. Enter their information as prompted, including their email, department, and [user role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#creating-a-role).
-
-{% alert tip %}
-The department listed in a user's profile determines what types of communications they receive from Braze. This is so everyone only receives the communications and alerts that are relevant to how they use Braze.
-{% endalert %}
-
-{:start="4"}
-
 4. For users that aren't administrators, select the company-level and workspace-level [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-a-users-permissions) you want this user to have.
 
 ![Workspace-level permissions with a section for custom permissions fields.]({% image_buster /assets/img/add_new_user_3.png %})
@@ -36,9 +29,11 @@ Every email address used in an [instance]({{site.baseurl}}/user_guide/administer
 
 If your team uses Gmail and you're experiencing issues adding an email address, you can create an alias by adding a plus sign (+) like "+1" or "+test" to the email address. For example, `contractor@braze.com` can have an alias of `contractor+1@braze.com`. Emails to `contractor+1@braze.com` will still be delivered to `contractor@braze.com`, but the alias will be recognized as a unique email address.
 
+To use one account across multiple companies without aliases, see [Use multi-company developers]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#use-multi-company-developers). If you use SSO, review [Considerations for Single Sign-On (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#considerations-for-single-sign-on-sso) before registering with multiple email addresses.
+
 ### Can I change my Braze account's email address?
 
-For security reasons, users cannot change the email address associated with their Braze account. If a user wants to update their email address, an administrator should [create a new account](#adding-braze-users) for them with their preferred email address.
+For security reasons, users cannot change the email address associated with their Braze account. If a user wants to update their email address, an administrator should [create a new account](#adding-company-users) for them with their preferred email address.
 
 ## Assigning user access and responsibilities
 
@@ -48,7 +43,7 @@ For security reasons, users cannot change the email address associated with thei
 
 Suspending a user puts their account into an inactive state, where the user can no longer log in, but the data associated with their account is preserved. Only administrators can suspend or unsuspend company users. Note that suspended users may still receive notifications from Braze.
 
-To suspend a user, go to **Settings** > **Company Users**, find their username, and select <i class="fa-solid fa-user-lock"></i> **Suspend**.
+To suspend a user, go to **Settings** > **User Management** > **Company Users**, find their username, and select <i class="fa-solid fa-user-lock"></i> **Suspend**.
 
 ![Option to suspend a user.]({% image_buster /assets/img_archive/suspend_user.png %})
 
@@ -58,7 +53,7 @@ Administrators can also suspend a user by selecting their name from the list and
 
 ## Deleting company users
 
-To delete a user, go to **Settings** > **Company Users**, find the user's name, and select <i class="fa fa-trash-can"></i> **Delete user**. 
+To delete a user, go to **Settings** > **User Management** > **Company Users**, find the user's name, and select <i class="fa fa-trash-can"></i> **Delete user**. 
 
 Only administrators can delete company users, and company users cannot delete their own accounts. An administrator cannot delete their own dashboard account; another administrator must delete it for them.
 

@@ -38,13 +38,21 @@ Os seguintes casos de uso mostram algumas maneiras de aproveitar agentes persona
 
 ### Etapa 1: Escolher um tipo de agente {#step-1-choose-an-agent-type}
 
-Para criar seu agente personalizado:
+Para criar um agente, primeiro escolha o tipo de agente:
 
-1. Acesse **Console do agente** > **Gerenciamento de agentes** no dashboard da Braze.
-2. Selecione **Criar agente**.
-3. Escolha criar um agente Canvas ou um agente de catálogo.
+1. Acesse **Console do agente**.
+2. Escolha **Agentes de etapa do Canvas** ou **Agentes de catálogo**.
 
-### Etapa 2: Configurar informações {#step-2-set-up-details}
+### Etapa 2: Escolher como construir um agente {#step-2-choose-how-to-build-an-agent}
+
+Selecione **Criar agente** e escolha uma das seguintes opções:
+
+- **Agente personalizado** para construir um agente do zero
+- Uma opção em **Criar um agente com Operator** para usar o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) e aplicar um [modelo inicial](#agent-templates-built-with-operator)
+
+Se você usar o Operator, revise e aprove as alterações no chat antes de continuar para a próxima etapa.
+
+### Etapa 3: Configurar informações {#step-3-set-up-details}
 
 Em seguida, configure as informações do seu agente:
 
@@ -56,9 +64,11 @@ Em seguida, configure as informações do seu agente:
 
 ![Interface do Console do agente para criar um agente personalizado na Braze. A tela exibe campos para inserir o nome e a descrição do agente, selecionar um modelo e definir um limite diário de invocação.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
-### Etapa 3: Escreva as instruções {#agent-instructions}
+### Etapa 4: Escreva as instruções {#agent-instructions}
 
-Dê instruções ao agente. Recomendamos incluir instruções sobre o que o agente deve fazer em cenários inesperados ou ambíguos. Isso minimiza o risco de que a confusão do agente leve a erros. Por exemplo, em vez de pedir ao agente apenas valores de sentimento "positivo" ou "negativo", peça para retornar "incerto" se ele não conseguir decidir.
+Dê instruções ao agente. Se você usou um modelo do Operator, revise as instruções pré-preenchidas e edite conforme necessário.
+
+Inclua instruções sobre o que o agente deve fazer em cenários inesperados ou ambíguos. Isso minimiza o risco de que a confusão do agente leve a erros. Por exemplo, em vez de pedir ao agente apenas valores de sentimento "positivo" ou "negativo", peça para retornar "incerto" se ele não conseguir decidir.
 
 Consulte [Escrevendo instruções]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) para melhores práticas e [Exemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) para inspiração sobre como orientar seu agente.
 
@@ -71,22 +81,45 @@ Para agentes Canvas, você pode usar Liquid nas suas instruções para referenci
 Selecione **+ Contexto do agente** para escolher o que seu agente pode referenciar. Isso inclui:
 
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Dê ao agente acesso aos dados do seu catálogo para respostas mais precisas.
-- [Associação a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos Segments aos quais um usuário pertence. Você pode selecionar até cinco Segments.
+- [Associação a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permita que o agente personalize respostas com base nos segmentos aos quais um usuário pertence. Você pode selecionar até cinco segmentos.
 - [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Referencie a voz da marca e as diretrizes de estilo para o agente seguir. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz da marca motivacional e em negrito predefinida.
 - [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
 - [Dados de interação do usuário]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Forneça ao agente os dados recentes de aberturas, cliques e conversões de Campaigns e Canvas de cada usuário.
 
-### Etapa 4: Selecione a saída {#select-output}
+### Etapa 5: Selecione a saída {#select-output}
 
-Na seção **Saída**, você pode organizar e definir a [saída]({{site.baseurl}}/user_guide/brazeai/agents/reference/#outputs) do agente por esquemas básicos ou esquemas avançados.
+Na seção **Saída**, você pode organizar e definir a [saída]({{site.baseurl}}/user_guide/brazeai/agents/reference/#outputs) do agente por esquemas básicos ou esquemas avançados. Se você usou um modelo do Operator, revise o esquema de saída pré-preenchido e edite conforme necessário.
 
-Para melhores resultados, certifique-se de que o que você especifica na seção **Saída** corresponda às instruções do agente que você inseriu na [Etapa 3](#agent-instructions). Por exemplo, se você mencionou nas instruções do agente que deseja um objeto com duas strings, certifique-se de especificar um objeto com duas strings na seção **Saída**. Se as instruções do seu agente não estiverem alinhadas com a saída especificada, o agente pode ficar confuso, expirar ou gerar saídas indesejadas.
+Para melhores resultados, certifique-se de que o que você especifica na seção **Saída** corresponda às instruções do agente que você inseriu na [Etapa 4](#agent-instructions). Por exemplo, se você mencionou nas instruções do agente que deseja um objeto com duas strings, certifique-se de especificar um objeto com duas strings na seção **Saída**. Se as instruções do seu agente não estiverem alinhadas com a saída especificada, o agente pode ficar confuso, expirar ou gerar saídas indesejadas.
 
 {% alert tip %}
 Quando você usar um [esquema de saída avançado]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas), adicione um campo de string chamado `explanation` se quiser que o agente retorne sua justificativa além das outras saídas. Diga ao agente nas suas [instruções](#agent-instructions) para preencher `explanation` quando isso ajudar você a revisar ou depurar respostas.
 {% endalert %}
 
-### Etapa 5: Teste e crie o agente {#step-5-test-and-create-the-agent}
+#### Configurar valores de fallback {#configure-fallback-values}
+
+Os valores de fallback estão disponíveis apenas para **agentes de etapa do Canvas**. Na seção **Saída** de um agente Canvas, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira ou retorna um erro de chave de API inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
+
+**Agentes de catálogo** não suportam a configuração de valores de fallback no Console do agente.
+
+![Configuração de saída do Console do agente mostrando o campo de saída de fallback para um esquema de número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+
+Para agentes Canvas, os valores de fallback suportam templates [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) para que você possa referenciar atributos do usuário ou variáveis de contexto no texto de fallback.
+
+Os campos de fallback se adaptam ao formato de saída do seu agente Canvas:
+
+| Formato de saída | Configuração de fallback |
+| --- | --- |
+| String, número ou booleano | Insira um único valor de fallback (Liquid suportado). |
+| Campos (esquema avançado) | Insira um valor de fallback para cada campo definido na saída do agente. |
+| Esquema JSON (esquema avançado) | A Braze lê seu esquema JSON e gera um campo de entrada para cada propriedade, para que você possa definir um valor de fallback por chave. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar valores de fallback" }
+
+Quando um agente Canvas com valores de fallback é executado em uma [etapa do agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/), a Braze renderiza o fallback por usuário e o armazena na variável de saída em vez de `null`. Se você não configurar valores de fallback, invocações com falha deixam a saída do Canvas indefinida (`null`).
+
+Para o comportamento em tempo de execução, veja [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+
+### Etapa 6: Teste o agente {#step-6-test-the-agent}
 
 O painel de **Pré-visualização** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
 
@@ -112,9 +145,31 @@ Se algo parecer errado, atualize a configuração do agente e teste novamente. E
 Evite dizer ao agente exatamente o que você não quer que ele faça. Os LLMs ainda podem gerar esse conteúdo se você mencioná-lo nas instruções.
 {% endalert %}
 
-### Etapa 6: Use seu agente {#step-6-use-your-agent}
+### Etapa 7: Use seu agente {#step-7-use-your-agent}
 
 Seu agente está pronto para uso! Para mais detalhes, consulte [Implantar agentes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/).
+
+## Modelos de agente criados com o Operator {#agent-templates-built-with-operator}
+
+O Operator pode pré-configurar instruções, campos de saída e contexto para os seguintes modelos iniciais do Console do agente. Escolha um modelo no Operator ou peça ao Operator para aplicar um pelo nome.
+
+### Modelos de agente de etapa do Canvas {#canvas-step-agent-templates}
+
+| Modelo | Descrição | Exemplo de saída |
+| --- | --- | --- |
+| Redator personalizado | Gera textos de mensagem específicos para o canal a partir de atributos do usuário, contexto do Canvas e diretrizes da marca | Assunto e pré-cabeçalho de e-mail; título e corpo de push |
+| Analista de feedback | Analisa feedback aberto de pesquisas ou suporte em campos estruturados para ramificação no Canvas | Sentimento, tópico, próxima ação recomendada |
+| Roteador de jornada | Direciona cada usuário para a jornada do Canvas mais relevante com base no perfil e no contexto da jornada | Nome da jornada ou booleano para etapas de divisão de decisão |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de agente de etapa do Canvas" }
+
+### Modelos de agente de catálogo {#catalog-agent-templates}
+
+| Modelo | Descrição | Exemplo de saída |
+| --- | --- | --- |
+| Redator de descrições | Escreve descrições curtas de marketing a partir de colunas existentes do catálogo | Descrição de produto ou destino |
+| Categorizador de itens | Atribui categorias ou tags a partir dos dados da linha | Rótulos de categoria para filtragem e recomendações |
+| Tradutor de localização | Traduz strings do catálogo para localidades-alvo dentro de limites de caracteres | Texto localizado por localidade |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de agente de catálogo" }
 
 ## Recursos relacionados {#related-resources}
 

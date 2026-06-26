@@ -22,7 +22,7 @@ Vous pouvez utiliser SendGrid, SparkPost ou Amazon Simple Email Service (SES) co
 
 ## Méthode 1 : Coordonner avec Braze (recommandé) {#method-1-coordinate-with-braze-recommended}
 
-### Étape 1 : Informations détaillées {#step-1-outline-information}
+### Étape 1 : Rassembler les informations {#step-1-outline-information}
 
 Envoyez les informations suivantes à votre conseiller Braze :
 
@@ -32,7 +32,7 @@ Envoyez les informations suivantes à votre conseiller Braze :
 
 ### Étape 2 : Braze configure les informations {#step-2-braze-configures-information}
 
-Après avoir reçu votre e-mail, nous allons configurer vos adresses IP, domaines et sous-domaines, ainsi que vos pools d'adresses IP.
+Après avoir reçu votre e-mail, nous nous chargerons de configurer vos adresses IP, domaines et sous-domaines, ainsi que vos pools d'adresses IP.
 
 ### Étape 3 : Ajouter des enregistrements DNS {#step-3-add-dns-records}
 
@@ -96,7 +96,7 @@ Notez que les domaines supplémentaires qui ont été ajoutés n'apparaissent pa
 
 ### Pools d'adresses IP avec plusieurs adresses IP dédiées {#ip-pools-with-more-than-one-dedicated-ip}
 
-Lorsqu'un pool d'adresses IP contient plusieurs adresses IP dédiées, Braze et votre fournisseur de services d'e-mailing répartissent les envois volumineux entre ces adresses IP pour optimiser la capacité et la livrabilité. La répartition est approximative : tous les messages d'une campagne n'utilisent pas nécessairement chaque adresse IP, et les envois plus petits peuvent sembler inégalement répartis entre les adresses. SendGrid traite souvent les e-mails par lots (de l'ordre d'environ 1 500 messages par lot), de sorte que le volume ne se divise pas toujours selon un ratio strict un pour un entre les adresses IP. Si vous envoyez régulièrement un volume quotidien très élevé, discutez du dimensionnement du pool avec votre contact d'onboarding ou de satisfaction client chez Braze.
+Lorsqu'un pool d'adresses IP contient plusieurs adresses IP dédiées, Braze et votre fournisseur de services d'e-mailing répartissent les envois volumineux sur ces adresses IP pour optimiser la capacité et la livrabilité. La répartition est approximative : tous les messages d'une campagne n'utilisent pas nécessairement chaque adresse IP, et les envois plus petits peuvent sembler inégalement répartis entre les adresses. SendGrid traite souvent les e-mails par lots (de l'ordre d'environ 1 500 messages par lot), de sorte que le volume ne se divise pas toujours selon un ratio strict un pour un entre les adresses IP. Si vous envoyez régulièrement un volume quotidien très élevé, discutez du dimensionnement de votre pool avec votre contact d'onboarding ou de satisfaction client chez Braze.
 
 ### Étapes suivantes
 

@@ -93,7 +93,7 @@ Ces étapes sont adaptées de la documentation développeur Apple. Pour plus d'i
 2. Sélectionnez **Associated Domains**.
 3. Cliquez sur **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Section App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Étape 1c : Activer les Associated Domains dans votre projet Xcode {#step-1c}
 
@@ -113,7 +113,7 @@ Si vous voyez l'erreur « An App ID with Identifier 'your-app-id' is not availab
 
 Dans la section des domaines, ajoutez l'étiquette de domaine appropriée. Vous devez la préfixer avec `applinks:`. Dans ce cas, vous pouvez voir que nous avons ajouté `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Section Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Étape 1e : Confirmer que le fichier de droits est inclus dans le build {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -276,11 +276,11 @@ Ensuite, assurez-vous que votre application est configurée pour gérer correcte
 
 Utilisez des chemins personnalisés pour ajouter des segments de chemin aux URL de suivi des clics des e-mails. Cela crée des modèles d'URL prévisibles que les systèmes d'exploitation mobiles peuvent reconnaître pour les liens universels et les App Links.
 
-Lorsque les utilisateurs appuient sur des liens d'e-mail sur des appareils mobiles, les chemins personnalisés vous aident à contrôler si les liens s'ouvrent dans votre application mobile principale, une application spécialisée ou le navigateur mobile (par exemple, pages produits, programmes de fidélité, liens de désabonnement ou pages juridiques).
+Lorsque les utilisateurs appuient sur des liens d'e-mail sur des appareils mobiles, les chemins personnalisés vous aident à contrôler si les liens s'ouvrent dans votre application mobile principale, une application spécialisée ou le navigateur mobile (par exemple les pages produits, les programmes de fidélité, les liens de désabonnement ou les pages juridiques).
 
 Pour traiter un lien de suivi des clics Amazon SES comme un lien universel ou un App Link :
 
-1. Ajoutez des attributs `ses:custom-path` à vos balises d'ancrage dans le HTML de l'e-mail, ou ajoutez l'attribut dans la section **Attributes** de l'éditeur par glisser-déposer pour l'e-mail. Le chemin personnalisé est inséré dans l'URL de suivi des clics encapsulée.
+1. Ajoutez des attributs `ses:custom-path` à vos balises d'ancrage dans le HTML de l'e-mail, ou ajoutez l'attribut dans la section **Attributs** de l'éditeur par glisser-déposer pour l'e-mail. Le chemin personnalisé est inséré dans l'URL de suivi des clics encapsulée.
 
 Par exemple :
 
@@ -424,7 +424,7 @@ Si vos liens universels ne fonctionnent pas comme prévu dans vos e-mails, par e
 
 #### Outlook affiche `[?it=` ou du texte d'URL brut au lieu d'un bouton {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
 
-Outlook peut afficher du texte d'appel à l'action comme `[?it=` ou imprimer une partie du `href` lorsqu'un lien n'utilise pas un schéma d'URL **`http://` ou `https://`** valide. Les schémas personnalisés, les schémas manquants ou les URL mal formées ne sont pas traités comme des hyperliens, de sorte que le client affiche le texte de l'attribut à la place. Confirmez que chaque bouton, lien d'image et URL suivie utilise une destination complète `https://` (ou `http://`). Cela s'applique aussi bien aux liens universels qu'aux liens web standard.
+Outlook peut afficher du texte d'appel à l'action comme `[?it=` ou imprimer une partie du `href` lorsqu'un lien n'utilise pas un schéma d'URL **`http://` ou `https://`** valide. Les schémas personnalisés, les schémas manquants ou les URL mal formées ne sont pas traités comme des hyperliens, de sorte que le client affiche le texte de l'attribut à la place. Confirmez que chaque bouton, lien d'image et URL suivie utilise une destination `https://` (ou `http://`) complète. Cela s'applique aussi bien aux liens universels qu'aux liens web standard.
 
 #### Vérifier l'emplacement du fichier de liens {#verify-link-file-location}
 
@@ -446,6 +446,5 @@ Assurez-vous que les définitions des domaines que votre application est autoris
 
 Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison de limitations de l'ESP ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
 
-- **Contactez votre ESP pour héberger les fichiers sur leur domaine de suivi :** votre sous-domaine de suivi des clics est généralement un CNAME pointant vers votre ESP (SendGrid, SparkPost ou Amazon SES). Comme l'ESP termine le trafic pour ce domaine, il peut héberger les fichiers `.well-known` pour vous. SendGrid et SparkPost prennent tous deux en charge cette fonctionnalité. Contactez directement votre ESP pour en faire la demande.
-- **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** si votre ESP ne peut pas héberger les fichiers, vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
+- **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
 - **Placez un réseau de diffusion de contenu devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un réseau de diffusion de contenu (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le réseau de diffusion de contenu pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre ESP. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.

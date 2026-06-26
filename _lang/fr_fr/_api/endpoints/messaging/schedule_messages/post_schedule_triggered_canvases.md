@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Planifier des Ca
 ---
 {% api %}
 # Planifier des Canvas déclenchés par API {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 

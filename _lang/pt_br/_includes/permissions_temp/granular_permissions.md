@@ -4,7 +4,7 @@
 
 ## Criando um conjunto de permissões {#creating-a-permission-set}
 
-Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de Permissão** e selecione **Create permission set**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
+Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de permissão** e selecione **Create permission set**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
 
 {% tabs local %}
 {% tab example permission sets %}
@@ -13,7 +13,7 @@ Use conjuntos de permissões para agrupar permissões relacionadas a áreas ou a
 | Desenvolvedores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
 | Profissionais de marketing | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents". |
 | Gerenciamento de usuários | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams". |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Criando um conjunto de permissões" }
 {% endtab %}
 {% endtabs %}
 
@@ -23,12 +23,12 @@ As funções permitem mais estrutura ao agrupar suas permissões personalizadas 
 
 {% tabs local %}
 {% tab example roles %}
-| Nome da função    | Espaço de trabalho | Permissões
+| Nome da função | Espaço de trabalho | Permissões
 ----------- | ----------- | ---------
 | Profissional de marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
-| Profissional de marketing - Marcas de cuidados com a pele | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers".|
-| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams"|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
+| Profissional de marketing - Marcas de cuidados com a pele | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
+| Gerenciamento de usuários - Todas as marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams" |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Criando uma função" }
 {% endtab %}
 {% endtabs %}
 
@@ -51,7 +51,7 @@ Usuários limitados têm permissões específicas que permitem gerenciar certos 
 | Permissões | Usuários limitados podem editar as permissões de outros usuários limitados se tiverem a permissão "Edit Dashboard Users". Eles também podem criar novos usuários limitados e modificar seus conjuntos de permissões. No entanto, não podem criar ou gerenciar contas de administrador da empresa. |
 | Limitações de função | Se um usuário limitado tiver todas as permissões, exceto "Workspace Admin", ele ainda terá acesso a todas as outras permissões normalmente concedidas a um administrador do espaço de trabalho. |
 | Visibilidade das permissões | Se um usuário limitado tiver a permissão "Edit Dashboard Users" para um espaço de trabalho (como Dev), mas não para outro (como Prod), ele não verá as permissões do espaço de trabalho Prod na página de detalhes dos usuários do dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usuários limitados" }
 
 ### Comparando usuários limitados {#comparing-limited-users}
 
@@ -59,8 +59,8 @@ Usuários limitados têm permissões específicas que permitem gerenciar certos 
 | --- | --- |
 | Administrador do espaço de trabalho | Os administradores do espaço de trabalho têm permissões específicas para gerenciar espaços de trabalho, mas não têm a mesma autoridade que os administradores da empresa. Usuários limitados podem herdar permissões semelhantes às dos administradores do espaço de trabalho se tiverem as permissões necessárias marcadas. |
 | Administrador (administrador da empresa) | Os administradores da empresa têm permissões mais amplas, incluindo a capacidade de excluir usuários do dashboard. No entanto, eles não podem excluir suas próprias contas e devem entrar em contato com outro administrador da empresa para essa ação. |
-| Acesso somente para visualização | Para acessar partes do dashboard, como a página de Campaigns, os usuários devem ter permissões de visualização atribuídas a eles.
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
+| Acesso somente para visualização | Para acessar partes do dashboard, como a página de Campaigns, os usuários devem ter permissões de visualização atribuídas a eles. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparando usuários limitados" }
 
 ### Erro de acesso limitado {#limited-access-error}
 
@@ -72,9 +72,9 @@ Não é possível mesclar ou importar permissões de usuário de um usuário do 
 
 ## Editando as permissões de um usuário {#editing-a-users-permissions}
 
-Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Usuários da Empresa** e selecione o nome dele.
+Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Usuários da empresa** e selecione o nome dele.
 
-![A página "Usuários da Empresa" na Braze mostrando uma tabela de usuários do dashboard.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
+![A página "Usuários da empresa" na Braze mostrando uma tabela de usuários do dashboard.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
 {% tabs local %}
 {% tab Admin %}
@@ -89,7 +89,6 @@ Os administradores têm acesso a todos os recursos e a capacidade de modificar q
 
 Para conceder ou remover privilégios de administrador, selecione **This user is an admin** e depois selecione **Update user**.
 
-![Os detalhes do usuário selecionado com a caixa de seleção de administrador em foco.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua a ele pelo menos uma [permissão em nível de empresa ou em nível de espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -106,7 +105,7 @@ Para gerenciar as seguintes permissões em nível de empresa para um usuário, m
 |----------|-----------|
 | Gerenciar configurações da empresa | Permite que os usuários modifiquem as configurações de permissão e verificação do remetente. |
 | Criar e excluir espaços de trabalho | Permite que os usuários criem e excluam espaços de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Empresa" }
 
 {% endtab %}
 {% tab Workspace %}
@@ -149,9 +148,15 @@ Quando terminar, selecione **Update user**.
 
 ## Exportando permissões de usuário {#exporting-user-permissions}
 
-Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Usuários da Empresa** e selecione **Export Users**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
+Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Usuários da empresa** e selecione **Export Users**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
 
-![A página "Usuários da Empresa" na Braze com a opção "Export Users" em foco.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+![A página "Usuários da empresa" na Braze com a opção "Export Users" em foco.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+
+Não é possível exportar uma matriz completa de permissões para todos os usuários do dashboard em massa a partir do dashboard da Braze. Se você precisar de mais detalhes do que o **Export Users** oferece, considere estas opções:
+
+- Use o [provisionamento automatizado de usuários]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/) (SCIM) para gerenciar contas de usuários do dashboard. Por exemplo, você pode [pesquisar um usuário do dashboard por e-mail]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) ou obter detalhes do usuário por ID de recurso, conforme descrito em [Ver informações da conta do usuário]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/).
+- [Fale com o suporte da Braze]({{site.baseurl}}/braze_support/). Em algumas situações, o suporte pode fornecer uma lista de contas, mas não uma matriz completa de permissões.
+- Filtre o [relatório de eventos de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) da sua empresa, que registra eventos como **Added Account** e **Updated Permissions**, para auditar alterações de permissão fora do dashboard.
 
 ## Lista de permissões {#list-of-permissions}
 
@@ -182,7 +187,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Priorização de mensagens | View Message Prioritization | Ver configurações de priorização de mensagens sem fazer alterações |
 | Priorização de mensagens | Edit Message Prioritization | Criar e atualizar configurações de priorização de mensagens |
 | WhatsApp Flows | View WhatsApp Flows | Ver todos os WhatsApp Flows |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Envio de mensagens" }
 
 ### Público {#audience}
 
@@ -204,7 +209,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Usuários | View User Profiles (PII Redacted) | Ver perfis de usuário de forma compatível com IPI |
 | Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. As duplicatas são removidas após a mesclagem |
 | Usuários | Delete Users | Excluir permanentemente usuários do dashboard individualmente ou em massa |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Público" }
 
 ### Modelo {#template}
 
@@ -237,7 +242,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Modelos de mensagem do WhatsApp | View WhatsApp Message Templates | Permite que os usuários vejam [modelos de mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
 | Modelos de mensagem do WhatsApp | Edit WhatsApp Message Templates | Permite que os usuários criem modelos de mensagem do WhatsApp no construtor de modelos. Este recurso está atualmente em acesso antecipado. |
 | Modelos de mensagem do WhatsApp do Meta | View WhatsApp Message Templates From Meta | Ver todos os modelos do WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelo" }
 
 ### Integrações de parceiros {#partner-integrations}
 
@@ -246,7 +251,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Integrações do Currents | View Currents Integration | Ver integrações do Currents |
 | Integrações do Currents | Edit Currents Integrations | Criar, atualizar e excluir integrações do Currents |
 | Parceiros de tecnologia | Edit Technology Partners | Criar e atualizar parceiros de tecnologia |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Integrações de parceiros" }
 
 ### Configurações de dados {#data-settings}
 
@@ -273,7 +278,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Produtos | Blocklist Products | Adicionar produtos a uma lista de bloqueio que restringe o uso no dashboard |
 | Produtos | Edit Products | Criar e atualizar produtos |
 | Segmentação de propriedades de compra | Edit Purchase Property Segmentation | Ativar e desativar a segmentação para propriedades de eventos de compra |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurações de dados" }
 
 ### Configurações {#settings}
 
@@ -314,7 +319,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Equipes | Archive Teams | Mover equipes para o arquivo |
 | Equipes | Edit Teams | Criar e atualizar equipes |
 | Configurações do WhatsApp | View WhatsApp Settings | Ver todas as configurações do canal WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurações" }
 
 ### Decisioning Studio
 
@@ -356,4 +361,4 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Transformações | View Data Transformation | Ver transformações de dados |
 | Registros de exclusão de usuários | View User Deletion Records | Ver registros de exclusão de usuários |
 | Tickets de suporte | Create Support Ticket | Criar e atualizar tickets de suporte |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Outros" }

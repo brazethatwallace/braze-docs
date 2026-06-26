@@ -44,7 +44,7 @@ Use esse campo para definir por quanto tempo a Braze manterá sua sessão ativa.
 
 Você pode restringir seus usuários a fazer login usando uma senha ou SSO.
 
-Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), os clientes precisam configurar suas definições de SAML antes de aplicar a restrição. Se os clientes usam Google SSO, basta aplicar a página de configurações de segurança sem nenhuma configuração adicional.
+Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), os clientes precisam configurar suas definições de SAML antes de aplicar a restrição. Se os clientes usam Google SSO, basta aplicar a página de configurações de segurança sem nenhuma configuração adicional.
 
 ## Lista de permissões de IP do dashboard {#dashboard-ip-allowlisting}
 
@@ -111,11 +111,9 @@ Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braz
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um segmento ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
 
 Se um usuário não conseguir verificar novamente, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a verificação bem-sucedida, ele não precisará verificar novamente na próxima hora — a menos que faça logout primeiro.
-
-![Botão de ativação do Acesso elevado.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Download de relatório de eventos de segurança {#security-event-report}
 
@@ -129,119 +127,135 @@ Para baixar esse relatório, faça o seguinte:
 
 Esse download manual de relatório contém apenas os 10.000 eventos de segurança mais recentes da sua conta.
 
-Para exportar eventos de segurança para o Amazon S3 sem esse limite de linhas, consulte [Exportação de eventos de segurança com Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Para exportar eventos de segurança para o Amazon S3 sem esse limite de linhas, consulte [Exportação de eventos de segurança com Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### Definições das colunas do CSV {#csv-column-definitions}
+
+O CSV do relatório de eventos de segurança contém as seguintes colunas:
+
+| Coluna | Descrição |
+|--------|-------------|
+| CreatedAt | Timestamp de quando o evento foi registrado, em UTC. |
+| EmailAtTimeOfEvent | Endereço de e-mail do usuário do dashboard que disparou o evento, conforme registrado no momento do evento. |
+| CurrentEmail | Endereço de e-mail atual do usuário do dashboard que disparou o evento. Se o usuário não existir mais, o ID de desenvolvedor é usado. |
+| EventName | Tipo de evento de segurança. Consulte a lista de eventos de segurança reportados abaixo. |
+| OtherAccount | Endereço de e-mail de outro usuário do dashboard afetado pelo evento, quando aplicável (por exemplo, quando uma conta é adicionada ou removida). |
+| JsonProperties | Propriedades específicas do evento em formato JSON. Os campos incluídos variam por tipo de evento. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definições das colunas do CSV" }
+
+As [exportações para S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluem essas colunas mais `Version`, a versão do esquema para o formato de exportação (atualmente `1`).
 
 {% details Eventos de segurança reportados %}
 ### Login e conta {#login-and-account}
-- Login realizado
-- Falha no login
-- Configuração da autenticação de dois fatores concluída
-- Redefinição da autenticação de dois fatores concluída
-- 2FA do desenvolvedor removida
-- Desenvolvedor adicional adicionado
-- Conta adicionada
-- Desenvolvedor suspenso
-- Suspensão do desenvolvedor removida
-- Desenvolvedor atualizado
-- Desenvolvedor removido
-- Conta removida
-- Status de inscrição do usuário atualizado
-- Usuário atualizado
-- Conta do desenvolvedor atualizada
+- Signed In
+- Failed Login
+- Two-Factor Auth Setup Completed
+- Two-Factor Auth Reset Completed
+- Cleared Developer 2FA
+- Added Additional Developer
+- Added Account
+- Developer Suspended
+- Developer Unsuspended
+- Developer Updated
+- Removed Developer
+- Removed Account
+- User Subscription Status Updated
+- User Updated
+- Developer Account Updated
 
 ### Acesso elevado
-- Fluxo de acesso elevado iniciado
-- Fluxo de acesso elevado concluído
-- Falha na verificação 2FA para acesso elevado
-- Aplicação de acesso elevado ativada
-- Aplicação de acesso elevado desativada
+- Started Elevated Access Flow
+- Completed Elevated Access Flow
+- Failed 2FA Verification For Elevated Access
+- Enabled Elevated Access Enforcement
+- Disabled Elevated Access Enforcement
 
 Campaign
-- Campaign adicionada
-- Campaign editada
+- Added Campaign
+- Edited Campaign
 
 Canvas
-- Jornada adicionada
-- Jornada editada
+- Added Canvas
+- Edited Canvas
 
 ### Segment
-- Segment adicionado
-- Segment editado
-- Dados exportados para CSV
-- Segment exportado via API
-- Usuários do Segment excluídos
-- Coorte removida
+- Added Segment
+- Edited Segment
+- Exported data to CSV
+- Exported Segment via API
+- Segment Users Deleted
+- Cleared Cohort
 
 ### Chave da API REST {#rest-api-key}
-- Chave da API REST adicionada
-- Chave da API REST removida
+- Added REST API key
+- Removed REST API key
 
 ### Credencial de autenticação básica {#basic-authentication-credential}
-- Credencial de autenticação básica adicionada
-- Credencial de autenticação básica atualizada
-- Credencial de autenticação básica removida
+- Added Basic Auth credential
+- Updated Basic Auth credential
+- Removed Basic Auth credential
 
 ### Permissão {#permission}
-- 2FA do desenvolvedor removida
-- Permissão da conta atualizada
-- Equipe adicionada
-- Equipe editada
-- Equipe arquivada
-- Equipe desarquivada
-- Conjunto de permissões do grupo de app criado
-- Conjunto de permissões do grupo de app editado
-- Conjunto de permissões do grupo de app removido
-- Função personalizada criada
-- Função personalizada atualizada
-- Função personalizada excluída
+- Cleared Developer 2FA
+- Updated Account Permission
+- Added Team
+- Edited Team
+- Archived Team
+- Unarchived Team
+- Created App Group Permission Set
+- Edited App Group Permission Set
+- Removed App Group Permission Set
+- Created Custom Role
+- Updated Custom Role
+- Deleted Custom Role
 
 ### Configurações da empresa {#company-settings}
-- Grupo de app adicionado
-- App adicionado
-- Configurações da empresa alteradas
-- Configurações de segurança da empresa atualizadas
-- Exportação de eventos de segurança para nuvem atualizada
-- Domínio personalizado de landing pages adicionado
-- Domínio personalizado de landing pages removido
-- Domínio personalizado criado
-- Domínio personalizado excluído
-- Grupo de controle global ativado
-- Grupo de controle global desativado
-- Exclusões do controle global atualizadas
-- Lista de permissões de SMS do grupo de inscrições atualizada
+- Added App Group
+- Added App
+- Company Settings Changed
+- Updated Company Security Settings
+- Updated Security Event Cloud Export
+- Added Landing Pages Custom Domain
+- Removed Landing Pages Custom Domain
+- Custom Domain Created
+- Custom Domain Deleted
+- Enabled Global Control Group
+- Disabled Global Control Group
+- Updated Global Control Exclusions
+- Updated Subscription Group SMS Allow List
 
 ### Modelo de e-mail {#email-template}
-- Modelo de e-mail adicionado
-- Modelo de e-mail atualizado
+- Added Email Template
+- Updated Email Template
 
 ### Credencial de push {#push-credential}
-- Credencial de push atualizada
-- Credencial de push removida
+Updated Push Credential
+Removed Push Credential
 
 ### Depurador do SDK {#sdk-debugger}
-- Sessão do Depurador do SDK iniciada
-- Log do Depurador do SDK exportado
+- Started SDK Debugger Session
+- Exported SDK Debugger Log
 
 ### Usuários {#users}
-- Usuários excluídos
-- Usuários visualizados
-- Importação de usuários iniciada
-- Status do grupo de inscrições do usuário atualizado
-- Usuário excluído
-- Exclusão de usuário individual cancelada
-- Exclusão de usuários em massa cancelada
+- Users Deleted
+- Users Viewed
+- User Import Started
+- User Subscription Group Status Updated
+- User Deleted
+- Single User Deletion Cancelled
+- Bulk User Deletion Cancelled
 
 ### Catálogos {#catalogs}
-- Catálogo criado
-- Catálogo excluído
+- Catalog Created
+- Catalog Deleted
 
 ### Braze Agents
-- Agente criado
-- Agente editado
+- Created Agent
+- Edited Agent
 
 ### BrazeAI Operator
-- Resposta do BrazeAI Operator solicitada
-- BrazeAI Operator respondeu
+- Requested BrazeAI Operator Response
+- BrazeAI Operator Responded
 {% enddetails %}
 
 ## Visualização de informações pessoais identificáveis (IPI) {#view-pii}
@@ -249,15 +263,15 @@ Canvas
 A permissão **Visualizar IPI** é acessível apenas a alguns usuários selecionados da empresa. Por padrão, todos os administradores têm a permissão **Visualizar IPI** ativada nas permissões de usuário. Isso significa que eles podem ver todos os atributos padrão e personalizados que sua empresa definiu como IPI em todo o dashboard. Quando essa permissão é desativada para os usuários, eles não poderão ver nenhum desses atributos.
 
 {% alert note %}
-Você precisa da permissão **Visualizar IPI** para usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), pois ele permite acesso direto a alguns dados de clientes.
+Você precisa da permissão **Visualizar IPI** para usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), pois ele permite acesso direto a alguns dados de clientes.
 {% endalert %}
 
-Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Definição de IPI {#defining-pii}
 
 {% alert important %}
-Selecionar e definir determinados campos como campos de IPI afeta apenas o que os usuários podem visualizar no dashboard da Braze e não impacta como os dados do usuário final nesses campos de IPI são tratados.<br><br>Consulte sua equipe jurídica para alinhar as configurações do seu dashboard com quaisquer regulamentações e políticas de privacidade aplicáveis à sua empresa, incluindo aquelas relacionadas à [retenção de dados]({{site.baseurl}}/data_retention/).
+Selecionar e definir determinados campos como campos de IPI afeta apenas o que os usuários podem visualizar no dashboard da Braze e não impacta como os dados do usuário final nesses campos de IPI são tratados.<br><br>Consulte sua equipe jurídica para alinhar as configurações do seu dashboard com quaisquer regulamentações e políticas de privacidade aplicáveis à sua empresa, incluindo aquelas relacionadas à [retenção de dados]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 Você pode selecionar os campos que sua empresa designa como IPI no dashboard. Para fazer isso, acesse **Configurações da empresa** > **Configurações de administrador** > **Configurações de segurança**.
@@ -268,8 +282,8 @@ Os seguintes atributos podem ser designados como IPI e ocultados dos usuários d
 
 | Atributos padrão | Atributos personalizados |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
+| {::nomarkdown}<ul> <li>Endereço de e-mail </li> <li> Número de telefone </li> <li> Nome </li> <li> Sobrenome </li> <li> Gênero </li> <li> Data de nascimento </li> <li> IDs de dispositivo </li> <li> LINE ID </li> <li> Localização mais recente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos os atributos personalizados<ul><li>Atributos personalizados individuais podem ser marcados como IPI se você não precisar ocultar todos os atributos.</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos potenciais de IPI" }
 
 ### Áreas limitadas {#limited-areas}
 
@@ -282,7 +296,7 @@ O seguinte pressupõe que todos os campos estão definidos como IPI, e os usuár
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | No menu suspenso **Dados de usuários**: {::nomarkdown} <ul> <li> O usuário não terá a opção <b>Exportar endereços de e-mail em CSV</b>. </li> <li> O usuário não receberá os atributos padrão e personalizados anteriores no arquivo CSV ao selecionar <b>Exportar dados de usuários em CSV</b>. </li> </ul> {:/} | |
 | Grupo de teste interno | O usuário não terá acesso aos atributos padrão anteriores de qualquer usuário adicionado ao grupo de teste interno. | |
 | Registro de atividades de envio de mensagem | O usuário não terá acesso aos atributos padrão anteriores de quaisquer usuários identificados no registro de atividades de envio de mensagem. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limited areas" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Áreas limitadas" }
 
 {% alert note %}
 Ao pré-visualizar uma mensagem, a permissão **Visualizar IPI** não é aplicada, então os usuários podem ver os [atributos padrão anteriores](#potential-pii-attributes) se eles foram referenciados na mensagem por meio de Liquid.
@@ -303,7 +317,7 @@ Você é responsável por determinar as preferências corretas para o seu espaç
 | Evento personalizado | properties |  |
 | Evento de compra | properties |  |
 | Evento de envio de mensagem | message_extras | Vários tipos de evento contêm um campo `message_extras`. A preferência se aplica a todos os tipos de evento de envio de mensagem que suportam `message_extras`, incluindo tipos de evento adicionados no futuro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevant fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos relevantes" }
 
 {% alert warning %}
 **A exclusão é permanente!** Se você optar por remover quaisquer campos do Snowflake para usuários excluídos, a configuração se aplica a todos os dados históricos nos seus espaços de trabalho e a quaisquer eventos de usuários excluídos no futuro. Após a Braze executar o processo para aplicar as configurações aos dados históricos de eventos de usuários excluídos, você **não poderá restaurar** os dados.
@@ -328,7 +342,7 @@ Se você ficar preso em um loop após inserir com sucesso seu número de telefon
 3. Reinicie seu PC ou laptop.
 4. Tente configurar a 2FA novamente.
 
-Se o problema persistir após essas etapas, entre em contato com o [Suporte]({{site.baseurl}}/braze_support/) para obter assistência.
+Se o problema persistir após essas etapas, entre em contato com o [Suporte]({{site.baseurl}}/braze_support) para obter assistência.
 
 ### Não é possível ativar a autenticação de dois fatores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -352,5 +366,5 @@ Se os problemas persistirem, exclua o perfil antigo no app Authy e escaneie o c�
 
 Para saber mais sobre autenticação e acesso, consulte:
 
-- [SAML e login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) para configurar SSO com seu provedor de identidade.
-- [Permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para controlar quais ações os usuários podem realizar no dashboard.
+- [SAML e login único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar SSO com seu provedor de identidade.
+- [Permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar quais ações os usuários podem realizar no dashboard.

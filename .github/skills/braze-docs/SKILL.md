@@ -24,6 +24,7 @@ Detect mode from $ARGUMENTS first, then modified files, then ask.
 | $ARGUMENTS: "link", "redirect", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
 | $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
 | $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
+| $ARGUMENTS: "css", "layout", "component", "include", "i18n", "custom" | **Custom** | *(workflow is in this file — see Custom components and CSS)* |
 | Modified files include `broken_redirect_list.js` | **Links** | [site-conventions.md](references/site-conventions.md) |
 | Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
 | Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
@@ -85,6 +86,7 @@ The Braze voice is **straightforward**, **empowering**, and **human**. Key rules
 - Standard contractions (you're, can't). No noun+verb contractions (Braze'll).
 - Oxford comma required. Sentence case for headings.
 - Never use "simple", "simply", "just", "easy" in instructions.
+- Avoid "not X, but Y" antithesis. State the positive directly; use before/after framing for contrast.
 - Use "customers" for brands, "consumers" for their end users, "company users" for platform users. Never "clients".
 - Descriptive link text. Never "Learn more", "here", "click here".
 - Use gender-neutral pronouns. Avoid ableist language.
@@ -106,7 +108,7 @@ Jekyll site. Collections dir: `_docs/`. Base URL: `/docs`.
 
 Contributor handbook (not a Jekyll collection): `docs/contributing/` in this repository.
 
-Permalink pattern: `./:collection/:path/` (pretty URLs, trailing slash).
+Permalink pattern: `./:collection/:path/` (Jekyll build paths). Production URLs omit trailing slashes (`vercel.json` `trailingSlash: false`); use no-slash paths in links, redirects, and canonical targets.
 
 ## Locale and English source
 
@@ -153,6 +155,46 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 
 For broken link detection, redirect rules, Liquid syntax, and page anatomy, load [references/site-conventions.md](references/site-conventions.md) (loaded automatically in Links mode).
 
+## Custom components and CSS
+
+Use this section when adding new `_includes/` components, custom CSS in `assets/css/_content.scss`, or page-specific layouts.
+
+### CSS specificity hierarchy
+
+Rules in `_tabs.scss` and `_content.scss` are nested inside `#main_content #article-main { ... }`, giving them effective specificity ~(2,1,x). New rules added at file root have specificity ~(0,1,0) and will silently lose to the global rules. Resolve with `!important` on the override — do not restructure the nesting.
+
+### Known global bleeds into custom components
+
+Any new HTML inside `#main_content` inherits these rules — plan for explicit overrides:
+
+| Rule | Effect | Override |
+|------|--------|----------|
+| `#main_content p { margin-bottom: 25px }` | Adds large bottom margin to every `<p>` inside your component | `margin-bottom: 0 !important` on the element |
+| `#main_content img { border: 1px solid ... }` | Adds a border to every `<img>` inside your component | `border: none !important` on the element |
+
+### Margin collapsing in SDK tab panes
+
+`.sdk-tab-content` and `.sdk-ab-sub_tab-content` both have `padding: 0` and no border, so `margin-top` on their first child collapses through both parents and produces no visible gap. Use `padding-top` on a scoped wrapper div instead — padding does not collapse.
+
+### Page-scoping CSS without `page_class`
+
+The site has no `page_class` frontmatter support. To scope styles to a single page:
+
+1. Wrap the relevant content in a `<div class="semantic-page-name">` directly in the markdown file.
+2. Add the CSS rule targeting that wrapper in `assets/css/_content.scss`.
+3. Add `!important` — the global high-specificity rules will otherwise win.
+
+Example: a prompt library page wraps its tab block in `<div class="prompt-library-tabs">` and the CSS targets `.prompt-library-tabs .sdk-tab-content { padding-top: 16px !important }`.
+
+### i18n for user-facing strings in includes
+
+All user-visible text added to `_includes/` files must be localized:
+
+1. Add the key to **all 7 language blocks** in `_data/i18n.yml`: `en`, `fr`, `ja`, `ko`, `pt-br`, `es`, `de`.
+2. Access in Liquid: `{{ site.data.i18n[site.language].key | default: "English fallback" }}`.
+3. Use `site.language` — **not** `site.lang` (that variable is always nil).
+4. Access in JavaScript via the `site_i18n` global (injected by `_includes/html_include.html`). Always guard: `(typeof site_i18n !== 'undefined' && site_i18n['key']) ? site_i18n['key'] : 'English fallback'`.
+
 ## Key glossary
 
 - **Canvas** — Always capitalized. Plural: Canvases.
@@ -166,10 +208,12 @@ For the full glossary, load [references/glossary.md](references/glossary.md) (lo
 
 ## Related skills
 
+When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name` in instructions — do not use `@` or `/` syntax inside skill text. Prefer relative links to sibling `SKILL.md` files for discovery.
+
 | Skill | Use for |
 |-------|---------|
-| [reference-repos](../reference-repos/SKILL.md) | Verify product, API, or SDK behavior against sibling repos |
-| [docs-discrepancies](../docs-discrepancies/SKILL.md) | Audit `_docs` pages against platform source and open discrepancy PRs |
-| [support-analyzer](../support-analyzer/SKILL.md) | Triage support case CSVs and draft docs updates |
-| [salesforce-migration](../salesforce-migration/SKILL.md) | SF Knowledge Base migration tickets (Phase 1/2) |
-| [check-accessibility](../check-accessibility/SKILL.md) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
+| [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) | Verify product, API, or SDK behavior against sibling repos |
+| [docs-discrepancies](../docs-discrepancies/SKILL.md) (`braze-docs:docs-discrepancies`) | Audit `_docs` pages against platform source and open discrepancy PRs |
+| [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
+| [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
+| [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |

@@ -75,7 +75,7 @@ Um die Hintergrundeigenschaften, Rahmeneinstellungen und mehr Ihrer Nachricht an
 
 #### Schritt 3.2: Klickverhalten definieren (optional) {#step-32-define-on-click-behavior-optional}
 
-Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics/), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken.
+Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics/), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.
 
 {% alert important %}
 {::nomarkdown}
@@ -85,16 +85,16 @@ Das Klickverhalten kann überschrieben werden, wenn ein bestimmtes Element (z. B
 
 #### Schritt 3.3: Schließverhalten konfigurieren (optional) {#dismiss-behavior}
 
-Aktivieren Sie das Kontrollkästchen **Banner can be dismissed** im Abschnitt **Dismiss Behavior**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option ist in Szenarien nützlich, in denen Sie eine zeitlich begrenzte Aktion für alle App-Nutzer:innen bewerben möchten, ihnen aber erlauben, die Nachricht zu schließen, wenn sie nicht interessiert sind.
+Aktivieren Sie das Kontrollkästchen **Banner can be dismissed** im Abschnitt **Dismiss behavior**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option ist nützlich, wenn Sie ein zeitlich begrenztes Angebot für eine breite Zielgruppe bewerben, aber nicht interessierten Nutzer:innen erlauben möchten, die Nachricht auszublenden.
 
-Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnitt **Dismiss Behavior** anpassen:
+Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnitt **Dismiss behavior** anpassen:
 
 | Einstellung | Beschreibung |
 |---------|-------------|
 | **Button size** | Die Größe des Schließen-Buttons, der auf dem Banner angezeigt wird. |
 | **Button color** | Die Farbe des Schließen-Buttons. |
 | **ARIA label** | Das barrierefreie Label für den Schließen-Button, das von Screenreadern verwendet wird. Standardmäßig „Close“, wenn leer gelassen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dismiss button settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Einstellungen für den Schließen-Button" }
 
 Wenn Nutzer:innen ein Banner schließen, wird es für diese Nutzer:innen nicht erneut angezeigt, selbst wenn sie weiterhin die Targeting-Kriterien der Kampagne erfüllen.
 
@@ -117,7 +117,7 @@ Füllen Sie für jede Eigenschaft, die Sie hinzufügen möchten, Folgendes aus:
 | Eigenschaftstyp | Der Datentyp für die Eigenschaft. Unterstützte Typen sind String, Boolescher Wert, Zahl, Zeitstempel, Bild-URL und JSON-Objekt. | String |
 | Eigenschaftsschlüssel | Der eindeutige Bezeichner für die Eigenschaft. Dieser Schlüssel wird im SDK verwendet, um auf die Eigenschaft zuzugreifen. | `color` |
 | Wert | Der der Eigenschaft zugewiesene Wert. Muss dem ausgewählten Eigenschaftstyp entsprechen. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Eigenschaften hinzufügen" }
 
 Wenn Sie fertig sind, wählen Sie **Done**.
 
@@ -142,7 +142,7 @@ Wenn Sie mehrere Banner-Kampagnen mit derselben Placement-ID haben, empfehlen wi
 
 #### Erneute Berechtigung konfigurieren (optional) {#re-eligibility}
 
-Standardmäßig sind Nutzer:innen, die ein Banner geschlossen haben, nie erneut für diese Kampagne berechtigt. Um geschlossene Banner erneut anzuzeigen, gehen Sie zum Schritt **Delivery Controls** und wählen Sie **Allow users to become re-eligible to receive campaign**. Wenn aktiviert, legen Sie ein Abklingfenster in Minuten, Stunden, Tagen oder Wochen fest.
+Standardmäßig sind Nutzer:innen, die ein Banner geschlossen haben, nie erneut für diese Kampagne berechtigt. Um geschlossenen Nutzer:innen das Banner erneut anzuzeigen, gehen Sie zum Schritt **Delivery Controls** und wählen Sie **Allow users to become re-eligible to receive campaign**. Wenn aktiviert, legen Sie ein Abklingfenster in Minuten, Stunden, Tagen oder Wochen fest.
 
 Der Countdown beginnt, wenn Nutzer:innen das Banner schließen. Nach Ablauf des Fensters sind die Nutzer:innen automatisch erneut berechtigt – ein Neustart der Kampagne ist nicht erforderlich. Die erneute Berechtigung wird pro Nutzer:in und pro Kampagne verfolgt.
 

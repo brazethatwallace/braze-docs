@@ -68,7 +68,7 @@ Em **Configurações de inscrição**, para **Enviar para esses usuários:** sel
 
 #### Etapa 4a: Adicionar uma jornada de ação {#step-4a-add-an-action-path}
 
-Na sua variante, selecione o ícone de mais e, em seguida, selecione **Jornadas de ação**.
+Na sua variante, selecione <i class="fas fa-plus" aria-label="Adicionar"></i> **Adicionar** e, em seguida, selecione **Jornadas de ação**.
 
 ![Canvas com "Jornadas de ação" exibidas no menu aberto pelo ícone de adição.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 

@@ -182,7 +182,7 @@ Informationen zur Einrichtung von RCS-Absendern und Abo-Gruppen finden Sie auch 
 
 ### Separate Abo-Gruppen festlegen {#designate-separate-subscription-groups}
 
-- **Nachrichtentyp:** Erstellen Sie separate Abo-Gruppen für jeden Nachrichtentyp, z. B. Transaktional und Marketing.
+- **Nachrichtentyp:** Erstellen Sie separate Abo-Gruppen für jeden Nachrichtentyp, z. B. transaktional und Marketing.
 - **Workspace:** Erstellen Sie separate Abo-Gruppen für jeden Workspace, um Klarheit und Organisation zu gewährleisten.
 
 Betrachten Sie das folgende Beispiel mit vier Abo-Gruppen über zwei Workspaces:

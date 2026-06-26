@@ -4,7 +4,7 @@
 
 URLの長さは、有効にしたトラッキングの種類によって決まります。
 - **基本トラッキング**は、キャンペーンレベルのクリックトラッキングを有効にします。静的URLの長さは20文字、パーソナライズ済みURLの長さは25文字になります。
-- **高度なトラッキング**は、キャンペーンレベルおよびユーザーレベルのクリックトラッキングを有効にし、クリックに基づくセグメンテーションやリターゲティング機能の使用を可能にします。クリックはCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)も生成します。高度なトラッキングを使用した静的URLの長さは27〜28文字になり、URLをクリックしたユーザーのSegmentを作成できます。パーソナライズ済みURLの長さは32〜33文字になります。
+- **高度なトラッキング**は、キャンペーンレベルおよびユーザーレベルのクリックトラッキングを有効にし、クリックに基づくセグメンテーションやリターゲティング機能の使用を可能にします。クリックはCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)も生成します。高度なトラッキングを使用した静的URLの長さは27〜28文字になり、URLをクリックしたユーザーのセグメントを作成できます。パーソナライズ済みURLの長さは32〜33文字になります。
 
 リンクは、共有短縮ドメイン（`brz.ai`）またはカスタムリンク短縮ドメインを使用して短縮されます。URLの例は次のようになります：`https://brz.ai/8jshX`（基本、静的）または`https://brz.ai/p/8jshX/2dj8d`（高度、パーソナライズ済み）。詳細については[テスト](#testing)を参照してください。
 
@@ -66,7 +66,7 @@ LiquidによってレンダリングされたURLは、APIトリガープロパ�
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | オプション | ブール値 | `link_shortening_enabled`を`true`に設定すると、リンク短縮とキャンペーンレベルのクリックトラッキングが有効になります。トラッキングを使用するには、`campaign_id`と`message_variation_id`が必要です。|
-| `user_click_tracking_enabled` | オプション | ブール値 | `user_click_tracking_enabled`を`true`に設定すると、リンク短縮、キャンペーンレベルおよびユーザーレベルのクリックトラッキングが有効になります。トラッキングデータを使用して、URLをクリックしたユーザーのSegmentを作成できます。<br><br>このパラメーターを使用するには、`link_shortening_enabled`が`true`であり、`campaign_id`と`message_variation_id`が必要です。|
+| `user_click_tracking_enabled` | オプション | ブール値 | `user_click_tracking_enabled`を`true`に設定すると、リンク短縮、キャンペーンレベルおよびユーザーレベルのクリックトラッキングが有効になります。トラッキングデータを使用して、URLをクリックしたユーザーのセグメントを作成できます。<br><br>このパラメーターを使用するには、`link_shortening_enabled`が`true`であり、`campaign_id`と`message_variation_id`が必要です。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 リクエストパラメーターの完全なリストについては、[リクエストパラメーター]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)を参照してください。

@@ -112,17 +112,17 @@ Se suas mensagens usam Conteúdo conectado e você envia em alto volume, planeje
 
 ### Usando autenticação básica {#using-basic-authentication}
 
-Se a URL requer autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar na sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Settings** > **Connected Content**.
+Se a URL requer autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar na sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Configurações** > **Conteúdo conectado**.
 
 ![As configurações de Conteúdo conectado no dashboard da Braze.]({% image_buster /assets/img/connected_content/basic_auth_mgmt.png %})
 
-Para adicionar uma nova credencial, selecione **Add credential** > **Basic authentication**.
+Para adicionar uma nova credencial, selecione **Adicionar credencial** > **Autenticação básica**.
 
-![Menu suspenso "Add credential" com a opção de usar autenticação básica ou autenticação por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
+![Menu suspenso "Adicionar credencial" com a opção de usar autenticação básica ou autenticação por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
 Dê um nome à sua credencial e insira o nome de usuário e a senha.
 
-![A janela "Create New Credential" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![A janela "Criar nova credencial" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 Você pode então usar essa credencial de autenticação básica nas suas chamadas de API referenciando o nome do token:
 
@@ -142,7 +142,7 @@ As credenciais armazenadas se aplicam a solicitações {% raw %}`{% connected_co
 
 Ao usar o Conteúdo conectado da Braze, você pode descobrir que certas APIs exigem um token em vez de um nome de usuário e senha. A Braze também pode armazenar credenciais que contêm valores de cabeçalho de autenticação por token.
 
-Para adicionar uma credencial que contém valores de token, selecione **Add credential** > **Token authentication**. Em seguida, adicione os pares chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
+Para adicionar uma credencial que contém valores de token, selecione **Adicionar credencial** > **Autenticação por token**. Em seguida, adicione os pares chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
 
 ![Um exemplo de token "token_credential_abc" com detalhes de autenticação por token.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
@@ -210,7 +210,6 @@ Você pode editar o nome da credencial para os tipos de autenticação.
 - Para autenticação básica, você pode atualizar o nome de usuário e a senha. Observe que a senha inserida anteriormente não ficará visível.
 - Para autenticação por token, você pode atualizar os pares chave-valor do cabeçalho e o domínio permitido. Observe que os valores de cabeçalho definidos anteriormente não ficarão visíveis.
 
-![A opção de editar credenciais.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Lista de permissões de IP do Conteúdo conectado {#connected-content-ip-allowlisting}
 
@@ -236,12 +235,14 @@ Tenha em mente que o valor do hash muda regularmente. Se você estiver filtrando
 
 ## Solução de problemas {#troubleshooting}
 
-Use o [Webhook.site](https://webhook.site/) para solucionar problemas nas suas chamadas de Conteúdo conectado.
+Use o [Webhook.site](https://webhook.site/) para solucionar problemas nas suas chamadas de Conteúdo conectado e diagnosticar problemas com os cabeçalhos da solicitação, corpo da solicitação e outras informações que estão sendo enviadas na chamada.
 
 1. Substitua a URL na sua chamada de Conteúdo conectado pela URL única gerada no site.
 2. Pré-visualize e teste sua Campaign ou etapa do Canvas para ver as solicitações chegando a esse site.
 
-Usando essa ferramenta, você pode diagnosticar problemas com os cabeçalhos da solicitação, corpo da solicitação e outras informações que estão sendo enviadas na chamada.
+Você também pode verificar se a Liquid tag inclui os parâmetros que seu endpoint espera (por exemplo, `:method`, `:headers`, `:content_type`, `:body` e `:basic_auth` quando necessário). Se você depende da chave de código de status HTTP em um objeto JSON salvo, o endpoint deve retornar um objeto JSON e um status `2XX`.
+
+Para altas taxas de erro do seu host, consulte [Detecção de host com problemas]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) e [Volume de chamadas de Conteúdo conectado](#understanding-connected-content-call-volume).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

@@ -45,7 +45,7 @@ Voici un résumé rapide des changements précédemment annoncés :
 Modifications supplémentaires du 1er juillet (annoncées par Meta le 15 mai) :
 - Meta met à jour les tarifs utilitaires et d'authentification dans plusieurs marchés dans le cadre d'efforts continus pour garantir que la tarification est au même niveau que les canaux alternatifs.
     - Les tarifs pour les messages utilitaires et d'authentification diminuent dans tous les marchés sauf l'Indonésie. En Indonésie, les tarifs utilitaires augmentent et les tarifs d'authentification diminuent.
-- Meta affine sa définition de la catégorie utilitaire, en se basant sur l'engagement et le sentiment des utilisateurs, déplaçant ainsi certains cas d'utilisation vers et depuis la catégorie utilitaire. Consultez leur nouvelle définition des modèles utilitaires [ici](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines).
+- Meta affine sa définition de la catégorie utilitaire, en se basant sur l'engagement et le sentiment des utilisateurs, déplaçant ainsi certains cas d'utilisation vers et depuis la catégorie utilitaire. Consultez la nouvelle [définition des modèles utilitaires](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines) de Meta.
 
 Pour la plupart des clients, ces mises à jour prendront effet automatiquement le 1er juillet.
 
@@ -87,12 +87,12 @@ Cette mise à jour s'applique aux modèles marketing, utilitaires et d'authentif
 
 Une [fenêtre de service client de 24 heures](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows) est créée lorsqu'un utilisateur final envoie un message à une marque. Si votre marque répond avec un modèle utilitaire, celui-ci sera gratuit.
 
-Les modèles utilitaires envoyés en dehors d'une fenêtre de service client de 24 heures (par exemple, les modèles utilitaires envoyés de manière proactive par une marque pour des rappels de compte ou des mises à jour de statut de la commande) seront toujours facturés.
+Les modèles utilitaires envoyés en dehors d'une fenêtre de service client de 24 heures (par exemple, les modèles utilitaires envoyés de manière proactive par une marque pour des rappels de compte ou des mises à jour de statut de commande) seront toujours facturés.
 
 Nous recommandons les bonnes pratiques suivantes pour prendre en compte ces changements et optimiser votre budget marketing WhatsApp :
 
 - Limitez l'envoi de plusieurs modèles de messages du même type (sans réponse de l'utilisateur) dans la période de 24 heures. Vous ne serez pas facturé plus que ce que vous payiez auparavant avec le modèle « par conversation ». C'est également une bonne pratique pour offrir des expériences de qualité à vos clients et limiter la fatigue liée aux messages.
-- Utilisez les [messages de réponse](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/) lorsque vous répondez aux messages des utilisateurs finaux. Les messages de réponse sont gratuits.
+- Utilisez les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/) lorsque vous répondez aux messages des utilisateurs finaux. Les messages de réponse sont gratuits.
 
 | Exemple de scénario | Tarification avant avril 2025 | Tarification après avril 2025 |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ Nous recommandons les bonnes pratiques suivantes pour prendre en compte ces chan
 Nous recommandons les bonnes pratiques suivantes pour prendre en compte ces changements et optimiser votre budget marketing WhatsApp :
 
 - Limitez l'envoi de plusieurs modèles de messages du même type (sans réponse de l'utilisateur) dans la période de 24 heures. Cela vous évite d'être facturé plus que ce que vous payiez auparavant avec le modèle « par conversation ». C'est également une bonne pratique pour offrir des expériences de qualité à vos clients et limiter la fatigue liée aux messages.
-- Utilisez les [messages de réponse](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) lorsque vous répondez aux messages des utilisateurs finaux. Les messages de réponse sont gratuits.
+- Utilisez les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) lorsque vous répondez aux messages des utilisateurs finaux. Les messages de réponse sont gratuits.
 
 *Remarque : cette mise à jour était initialement prévue pour le 1er avril et désormais le **1er juillet**.*
 
@@ -133,18 +133,18 @@ Les conversations marketing vous permettent d'atteindre un large éventail d'obj
 
 ### Conversations de service {#service-conversations}
 
-Le 1er novembre 2024, toutes les conversations de service sont gratuites. Les conversations de service ne consommeront plus de droits Message Credits ou WhatsApp Credits. Ce changement entrera en vigueur le même jour que celui de Meta (1er novembre).
+Le 1er novembre 2024, toutes les conversations de service sont gratuites. Les conversations de service ne consommeront plus de droits Message Credits ou WhatsApp Credits. Ce changement est entré en vigueur le même jour que celui de Meta (1er novembre).
 
 #### Que sont les conversations de service ? {#what-are-service-conversations}
 
-Les conversations de service vous permettent de répondre aux demandes des clients. Cela inclut les conversations initiées par un utilisateur final auxquelles la marque répond avec un [message de réponse](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) au lieu d'un modèle de message.
+Les conversations de service vous permettent de répondre aux demandes des clients. Cela inclut les conversations initiées par un utilisateur final auxquelles la marque répond avec un [message de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) au lieu d'un modèle de message.
 
 #### Comment tirer parti de cette mise à jour ?
 
 Certaines conversations qui étaient auparavant facturées comme « service » seront désormais gratuites. Cela inclut :
 
-- Les [campagnes de réponse non reconnue](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) où un utilisateur final envoie un message non reconnu et la marque répond avec un message générique en utilisant les [messages de réponse](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Par exemple, un utilisateur final envoie un message sans mot-clé et la marque répond « Nous ne reconnaissons pas votre message, veuillez contacter le service client. »
-- Les conversations qui démarrent lorsqu'un utilisateur final envoie un mot-clé promu à la marque et que celle-ci répond en utilisant un [message de réponse](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Les exemples courants sont l'abonnement aux messages WhatsApp ou la participation à une promotion spécifique.
+- Les [campagnes de réponse non reconnue]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) où un utilisateur final envoie un message non reconnu et la marque répond avec un message générique en utilisant les [messages de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Par exemple, un utilisateur final envoie un message sans mot-clé et la marque répond « Nous ne reconnaissons pas votre message, veuillez contacter le service client. »
+- Les conversations qui démarrent lorsqu'un utilisateur final envoie un mot-clé promu à la marque et que celle-ci répond en utilisant un [message de réponse]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Les exemples courants sont l'abonnement aux messages WhatsApp ou la participation à une promotion spécifique.
 
 <br>
 

@@ -124,7 +124,7 @@ Em seguida, pegue o snippet Liquid gerado e insira-o na sua mensagem. Após proj
 
 ### Usando o Assistente de Copywriting com IA {#using-the-ai-copywriter}
 
-Quando um bloco de texto é selecionado na sua mensagem no app, clique em <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> na barra de ferramentas do bloco para abrir o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
+Quando um bloco de texto é selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
 
 {% alert tip %}
 Você pode economizar alguns cliques destacando o texto dentro do bloco antes de clicar no ícone. O texto destacado será adicionado à ferramenta, e o texto será gerado imediatamente.
@@ -146,9 +146,9 @@ Após fazer alterações na estilização de um elemento, você pode copiar e co
 
 ![Menu suspenso com opção de copiar estilos.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. Com o elemento selecionado, clique em <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> ao lado do nome do painel de propriedades (por exemplo, se você tiver um botão selecionado, ao lado de "Button properties").
+1. Com o elemento selecionado, clique em <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> **Copy or paste styles** ao lado do nome do painel de propriedades (por exemplo, se você tiver um botão selecionado, ao lado de "Button properties").
 2. Clique em **Copy styles** e selecione o elemento onde deseja aplicar o estilo copiado.
-3. Clique em <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> novamente e escolha **Paste styles**.
+3. Clique em <i class="fas fa-paintbrush" title="Copiar ou colar estilos"></i> **Copy or paste styles** novamente e escolha **Paste styles**.
 
 #### Atalhos de teclado {#keyboard-shortcuts}
 

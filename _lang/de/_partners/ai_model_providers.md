@@ -4,7 +4,7 @@ article_title: KI-Modell-Anbieter
 page_order: 11
 
 page_type: landing
-description: "Auf dieser Landing-Page finden Sie KI-Modell-Anbieter, die Sie mit Braze integrieren können, um angepasste KI-Agenten zu verwenden."
+description: "Auf dieser Landing-Page finden Sie KI-Modell-Anbieter, die Sie mit Braze integrieren können, um sie mit angepassten KI-Agenten zu verwenden."
 layout: partner_page
 search_tag: Partner
 

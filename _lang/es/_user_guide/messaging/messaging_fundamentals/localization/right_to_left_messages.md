@@ -23,7 +23,7 @@ Además, verifica la puntuación y los emojis para determinar si tu mensaje se e
 | Renderizado occidental estándar | Renderizado de derecha a izquierda |
 |------------------|------------------------|
 | Muestra el signo de exclamación y el emoji al **final** de las oraciones. | Muestra el signo de exclamación y el emoji al **inicio** de la oración. |
-| ![Un ejemplo de un mensaje estándar de derecha a izquierda.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Un ejemplo de un mensaje de izquierda a derecha.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
+| ![Un ejemplo de un mensaje con renderizado estándar.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Un ejemplo de un mensaje con renderizado de derecha a izquierda.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Apariencia del mensaje" }
 
 ## Crear un mensaje de derecha a izquierda {#creating-a-right-to-left-message}
@@ -43,6 +43,14 @@ El método de copiar y pegar para mensajes push puede ser difícil de usar con n
 
 Las funciones de vista previa y prueba están diseñadas para mensajes de izquierda a derecha, por lo que los mensajes de derecha a izquierda no se renderizarán correctamente en la sección **Preview & Test**, pero sí se renderizarán correctamente en los dispositivos de los usuarios si su configuración está preparada para ello. Te sugerimos enviarte mensajes a ti mismo en un entorno en vivo para confirmar que se renderizan correctamente según la configuración del dispositivo.
 
+### Alineación del título y el cuerpo {#title-and-body-alignment}
+
+En las notificaciones push, la alineación del título generalmente sigue la configuración de idioma del dispositivo, mientras que la alineación del cuerpo puede seguir el primer carácter direccional fuerte en cada línea (trata cada línea después de un salto de línea por separado). Esto significa que una sola notificación push puede mezclar la alineación entre líneas; por ejemplo, una línea de cuerpo de derecha a izquierda seguida de una línea de izquierda a derecha. Cuando necesites un diseño predecible, mantén la consistencia direccional y usa saltos de línea entre segmentos de idiomas mixtos.
+
+{% alert note %}
+El renderizado aún depende del sistema operativo del dispositivo y del cliente push. Envía [mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) a tus propios dispositivos para confirmar la alineación antes de lanzar en vivo.
+{% endalert %}
+
 ### Texto bidireccional {#bi-directional-text}
 
 Muchos usuarios que escriben en idiomas de derecha a izquierda en realidad usan texto bidireccional: una combinación de idiomas de izquierda a derecha y de derecha a izquierda. Por ejemplo, un especialista en marketing puede enviar un mensaje en hebreo con un nombre de empresa en inglés. Braze no puede manejar el formato del texto bidireccional. Dos formas de evitar problemas de formato son evitar completamente el texto bidireccional o separar el texto de izquierda a derecha del texto de derecha a izquierda usando saltos de línea.
@@ -57,4 +65,4 @@ Los caracteres especiales (como puntuación, símbolos matemáticos y monedas), 
 
 ### Mensajes en árabe {#arabic-messages}
 
-Al redactar mensajes en árabe, usa tamaños de fuente significativamente más grandes para lograr la misma legibilidad que conseguirías con otros idiomas. Te sugerimos usar un tamaño de fuente aproximadamente un 20% más grande que tu tamaño habitual para idiomas que usan el alfabeto latino o romano. Esto se debe a que las fuentes árabes se hacen pequeñas para acomodar el espacio vertical que ocupan los diacríticos (marcas de acento).
+Al redactar mensajes en árabe, usa tamaños de fuente significativamente más grandes para lograr la misma legibilidad que conseguirías con otros idiomas. Te sugerimos usar un tamaño de fuente aproximadamente un 20% más grande que tu tamaño habitual para idiomas que usan el alfabeto latino o romano. Esto se debe a que las fuentes árabes se diseñan pequeñas para acomodar el espacio vertical que ocupan los diacríticos (marcas de acento).

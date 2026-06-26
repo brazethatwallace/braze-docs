@@ -81,7 +81,7 @@ It's essential that you [fix all breaking changes](#fixing-breaking-changes) bef
 
 ### Step 1: Initialize and load the Braze Web SDK to enable onsite tracking {#step-1}
 
-If you haven't already, initialize and load the Braze Web SDK to enable onsite tracking. For a full walkthrough, refer to [Shopify custom integration setup](https://www.braze.com/docs/partners/ecommerce/shopify/shopify_custom_integration/#step-1): 
+If you haven't already, initialize and load the Braze Web SDK to enable onsite tracking. For a full walkthrough, refer to [Shopify custom integration setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1): 
 - Create a Braze web app 
 - Add subdomain and environmental variables 
 - Enable onsite tracking 
@@ -169,7 +169,7 @@ You need to create a public endpoint that Braze can call to retrieve the externa
 
 ```
 GET 
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### Expected response
@@ -219,4 +219,4 @@ To verify that your new Shopify connector is live, test the following:
 - **SDK customizations (optional):** If you made any customizations to your Braze and Shopify integration (such as logging custom events or attributes), verify that they are working correctly after the upgrade.
 - **Email or SMS subscriber collection (optional):** If you previously enabled email or SMS subscriber collection, new default subscription groups will be created to reflect the latest status of your subscribers during the upgrade. The default subscription groups will be the name of your Shopify storefront. These new default subscription groups will be available approximately 5 hours after the upgrade, and you'll need to add them to your active messages.
 
-If you have any questions, [contact Support](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+If you have any questions, [contact Support]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

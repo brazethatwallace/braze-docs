@@ -62,8 +62,8 @@ Facebookオーディエンスエクスポートは、**ユーザーアクセス�
 
 Brazeでは、Facebookオーディエンスのエクスポートは**Segments**ページからアクセスできます。
 
-1. **Segments**ページで、エクスポートするSegmentを選択します。
-2. **ユーザーデータ**を選択し、**Facebookオーディエンスとしてエクスポート**を選択します。<br><br>![「ユーザーデータ」を選択したSegmentの「Segment詳細」セクションに、「Facebookオーディエンスとしてエクスポート」を含むオプションのドロップダウンが表示されます。]({% image_buster /assets/img/fb/afb_6.png %})
+1. **Segments**ページで、エクスポートするセグメントを選択します。
+2. **ユーザーデータ**を選択し、**Facebookオーディエンスとしてエクスポート**を選択します。<br><br>![「ユーザーデータ」を選択したセグメントの「セグメント詳細」セクションに、「Facebookオーディエンスとしてエクスポート」を含むオプションのドロップダウンが表示されます。]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
 3. Braze内でFacebookをまだアクティブにしていない場合は、ダッシュボードでFacebookテクノロジーパートナーページに移動するように促されます。**テクノロジーパートナー** > **Facebook**を通じてすでにFacebookをアクティブにしている場合は、Facebook広告アカウントとエクスポートするユーザーフィールドを選択できます。<br><br> エクスポートできるフィールドは以下のとおりです。
@@ -76,7 +76,7 @@ Brazeでは、Facebookオーディエンスのエクスポートは**Segments**�
 {% endalert %}
 
 {: start="4"}
-4. ユーザーフィールドを選択したら**Segmentをエクスポート**を選択します。CSVエクスポートと同様に、Facebookへのセグメントのエクスポートが完了するとメールが届きます。
+4. ユーザーフィールドを選択したら**Export Segment**を選択します。CSVエクスポートと同様に、Facebookへのセグメントのエクスポートが完了するとメールが届きます。
 5. [Facebook広告マネージャー](https://www.facebook.com/ads/manager/audiences/manage/)でカスタムオーディエンスを表示します。
 
 {% alert important %}

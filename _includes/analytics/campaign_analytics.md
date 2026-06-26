@@ -66,7 +66,7 @@ The WhatsApp channel includes read rate. This metric is only delivered for users
 
 In Canvas, you'll see in-app message performance mapped onto the Canvas you've created. You can use the control panel at the top of the page to clear other messaging types (channels) and only view the in-app messages in your Canvas.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![An option to select the channel, with the In-App Message checkbox selected.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![The Campaign Details section.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -135,7 +135,7 @@ The **Content Card Performance** panel outlines how well your message has perfor
 {% elsif include.channel == "email" %}
 ### Email Performance
 
-The **Email Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can click on the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
+The **Email Performance** panel outlines how well your message has performed across various dimensions. The metrics in this panel vary depending on your chosen messaging channel, and whether or not you are running a multivariate test. You can select the <i class="fa fa-eye preview-icon"></i> **Preview** icon to view your message for each variant or channel.
 
 ![Email message performance analytics]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -194,7 +194,11 @@ If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remov
 
 #### Heatmaps
 
-Using heatmaps, you can see how successful different links in a single email campaign. From the **Message Analytics** section, go to the **Email Performance** panel. Select **Preview & Heatmap** to view a preview of your email campaign and the heatmap. Alternatively, you can select the hyperlink in the variant name to view the heatmap.
+Using heatmaps, you can see how successful different links in a single email campaign are. From the **Message Analytics** section, go to the **Email Performance** panel. Select **Preview & Heatmap** to view a preview of your email campaign and the heatmap. Alternatively, you can select the hyperlink in the variant name to view the heatmap.
+
+{% alert note %}
+Campaign analytics display click data for up to 100 unique URLs per variant, sorted by total clicks. URLs are grouped by their normalized form, which does not include query parameters. If a variant has more than 100 unique normalized URLs, only the top 100 by click count are shown. Click data for URLs beyond this limit still exists, but won't appear in the dashboard or heatmap. When link aliasing is enabled, clicks are tracked by link ID rather than raw URL, which typically results in fewer unique entries and makes this limit less likely to be reached.
+{% endalert %}
 
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
 
@@ -253,8 +257,8 @@ Here is a breakdown of some key metrics you may see while reviewing your message
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">This count</span> doesn't increment the second time that a user views a Content Card.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Because a user can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Because a user can have a unique daily impression every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -271,11 +275,11 @@ Here is a breakdown of some key metrics you may see while reviewing your message
 Regarding how impressions are logged, there are some nuances between web, Android, and iOS. Generally speaking, Braze logs an impression when a card is seen, which is after a user scrolls to the specific Content Card in their feed.
 {% endalert %}
 
-#### Unique Recipients versus Unique Impressions
+#### Unique Daily Impressions versus Unique Impressions
 
-There are a few metrics available that cover the visibility of your message. This includes _Unique Recipients_ and _Unique Impressions_. Let's use a few example scenarios to understand these metrics better.
+There are a few metrics available that cover the visibility of your message. This includes _Unique Daily Impressions_ and _Unique Impressions_. Let's use a few example scenarios to understand these metrics better.
 
-Let’s say you view a Content Card today, then receive a new card from the same campaign tomorrow, and again the day after tomorrow—you will be counted as a _Unique Recipient_ three times. However, you will only be counted for one _Unique Impression_. You’ll also be included in the number of _Messages Sent_, as the card was available on your device.
+Let’s say you view a Content Card today, then receive a new card from the same campaign tomorrow, and again the day after tomorrow—you will be counted as a _Unique Daily Impression_ three times. However, you will only be counted for one _Unique Impression_. You’ll also be included in the number of _Messages Sent_, as the card was available on your device.
 
 As another example, suppose you see five _Unique Impressions_ on a Content Card campaign showing 150,000 _Messages Sent_. This means the card was made available (on the backend) to an audience of 150,000 users, but only five users' devices performed all of the following steps after that send occurred:
 
@@ -283,7 +287,7 @@ As another example, suppose you see five _Unique Impressions_ on a Content Card 
 2. Navigated to the Content Cards view
 3. SDK recorded an impression and logged it to the server
 
-Your _Messages Sent_ refers to Content Cards available to be seen, while _Unique Recipients_ refers to Content Cards that were actually seen.
+Your _Messages Sent_ refers to Content Cards available to be seen, while _Unique Daily Impressions_ refers to Content Cards that were actually seen.
 
 {% elsif include.channel == "banner" %}
 
@@ -333,8 +337,8 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Because a viewer can have a unique daily impression every day, you should expect this to be higher than <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -349,9 +353,9 @@ For the full definitions of all Banners metrics, refer to the [Report Metrics Gl
 
 #### Banner metrics calculation examples
 
-There are a few metrics available that cover the visibility of your message. This includes _Unique Recipients_ and _Unique Impressions_. Let’s use a few example scenarios to understand these metrics better.
+There are a few metrics available that cover the visibility of your message. This includes _Unique Daily Impressions_ and _Unique Impressions_. Let’s use a few example scenarios to understand these metrics better.
 
-Let's say you view a Banner today, then view the same Banner tomorrow, and again the day after tomorrow—you will be counted as a _Unique Recipient_ three times. However, you will only be counted for one _Unique Impression_.
+Let's say you view a Banner today, then view the same Banner tomorrow, and again the day after tomorrow—you will be counted as a _Unique Daily Impression_ three times. However, you will only be counted for one _Unique Impression_.
 
 As another example, suppose you see five _Unique Impressions_ on a Banner campaign. This means only five users' devices performed all of the following steps:
 
@@ -359,7 +363,7 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 2. Navigated to the Banners view
 3. SDK recorded an impression and logged it to the server
 
-_Unique Recipients_ refers to the Banners that were actually seen.
+_Unique Daily Impressions_ refers to the Banners that were actually seen.
 
 {% elsif include.channel == "email" %}
 
@@ -385,7 +389,7 @@ Here are some key email-specific metrics that you won't see in other channels. T
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. This number should be between 5–10%. Anything greater than 10% is exceptional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. This number should be between 5–10%. Anything greater than 10% is exceptional!
             </td>
         </tr>
         <tr>
@@ -445,7 +449,16 @@ The dashboard highlights _Hard Bounces_. Some _Bounces_ may be soft bounces and 
 
 _Sends − (Deliveries + Hard Bounces) ≈ Soft Bounces_
 
-_Deliveries_ can rise during the first 72 hours as retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes.
+_Deliveries_ can rise during your email service provider (ESP) retry window while retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes. SendGrid and SparkPost retry for up to 72 hours; Amazon SES retries for up to 14 hours.
+
+###### Common delivery troubleshooting scenarios
+
+When reviewing your email analytics, keep these patterns in mind:
+
+- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula above to approximate in-flight soft bounces.
+- **Low _Deliveries_ after retries finish:** If delivery rates stay low once retries have finished, compare this send's volume to your typical patterns. Mailbox providers may defer, throttle, or soft bounce mail when volume spikes relative to your sender reputation. You may see messages such as `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to pace large sends, and refer to [Throttled IPs]({{site.baseurl}}/user_guide/channels/email/reporting/#throttled-ips) for additional troubleshooting steps.
+- **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals) below.
+- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula above to estimate how many sends are still in retry.
 
 ##### Clicks without an open event
 
@@ -479,7 +492,7 @@ Some email security products follow links to scan for threats. Those requests ca
 
 ##### Deferrals
 
-Deferred or deferral is when an email was not immediately delivered, but Braze will retry the email for up to 72 hours after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
+Deferred or deferral is when an email was not immediately delivered, but Braze retries the email through your ESP after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. SendGrid and SparkPost retry for up to 72 hours; Amazon SES retries for up to 14 hours. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
 
 _Deferrals_ differ from _Soft Bounces_. If no email was successfully delivered during this retry period, Braze will send one soft bounce event per attempted campaign sent. Before February 25, 2025, these retries were counted as multiple soft bounces for 1 campaign send.
 
@@ -591,6 +604,10 @@ The distribution between control and variant groups is intended to be roughly ev
 ### KakaoTalk metrics
 
 Here are some key KakaoTalk metrics you may see in your analytics. For more details, see the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/).
+
+{% alert note %}
+Currently, estimated or exact audience statistics are not available for KakaoTalk campaigns.
+{% endalert %}
 
 | Term | Definition |
 | --- | --- |

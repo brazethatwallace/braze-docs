@@ -20,7 +20,7 @@ AI 단계는 현재 베타 기능으로 제공됩니다. 이 베타 체험에 �
 
 1. Canvas에 새 단계를 추가하고 **AI Step**을 선택합니다. <br><br>![Canvas 빌더의 AI 단계][1]{: style="max-width: 30%;"}<br><br>
 2. AI가 다양한 사용자 동작에 어떻게 응답할지 알려주는 프롬프트를 작성합니다. 응답에는 커스텀 속성 업데이트 또는 메시지 발송이 포함될 수 있습니다. 이 프롬프트는 Liquid를 사용하여 다양한 사용자 속성이나 입력에 따라 서로 다른 응답 출력을 할당할 수 있습니다. <br><br>동일한 Canvas 내에서 향후 메시지를 개인화하는 데 사용할 수 있는 출력을 할당하려면, 특정 이름(예: "message" 및 "sentiment score")으로 변수를 저장하는 프롬프트를 작성합니다. <br><br> ![생성된 감정 점수를 기반으로 개인화된 메시지를 보내기 위해 AI 단계 설정에서 사용된 샘플 AI 프롬프트. 이 예시는 '고객 감정 응답' 섹션에 설명되어 있습니다.][2] <br><br>
-3. **Preview** 탭을 사용하여 특정 사용자에 대해 AI가 어떤 출력을 생성할 수 있는지 테스트합니다.<br><br> ![이름이 Cameron, 제품명이 shoes, 텍스트가 'decent but my shoe lace already broke'인 세 가지 매개변수에 대해 AI가 생성한 개인화된 메시지를 보여주는 AI 단계 설정의 미리보기 탭][3]
+3. **미리보기** 탭을 사용하여 특정 사용자에 대해 AI가 어떤 출력을 생성할 수 있는지 테스트합니다.<br><br> ![이름이 Cameron, 제품명이 shoes, 텍스트가 'decent but my shoe lace already broke'인 세 가지 매개변수에 대해 AI가 생성한 개인화된 메시지를 보여주는 AI 단계 설정의 미리보기 탭][3]
 
 ## Liquid를 사용하여 AI 출력 참조하기 {#referencing-ai-output-using-liquid}
 
@@ -32,7 +32,7 @@ AI 단계는 현재 베타 기능으로 제공됩니다. 이 베타 체험에 �
 
 ### 컨텍스트 단계 사용하기 {#using-context-steps}
 
-[Canvas 컨텍스트 단계](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works)를 활용하여 Canvas 후반부에서 출력을 쉽게 참조할 수 있습니다.
+[Canvas 컨텍스트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works)를 활용하여 Canvas 후반부에서 출력을 쉽게 참조할 수 있습니다.
 
 다음은 AI 단계 이후에 설정할 수 있는 컨텍스트 단계의 예시입니다. 이 예시에서 이전 AI 단계에는 감정 점수와 메시지에 대한 AI 단계 출력이 포함되어 있으며, 이 컨텍스트 단계는 후속 단계에서 사용할 수 있는 `sentiment_score` 및 `message` 변수를 생성합니다.
 

@@ -47,7 +47,7 @@ Campaign이 타겟팅하는 모든 Segment에 이 필터를 추가하면 사용�
 
 #### 최대 사용자 수 설정 {#setting-a-maximum-user-cap}
 
-Campaign 작성기의 **Target Audiences** 단계에서 메시지를 받을 총 사용자 수를 제한할 수도 있습니다. 이는 Campaign 필터와 독립적인 확인 역할을 합니다.
+Campaign 작성기의 **타겟 오디언스** 단계에서 메시지를 받을 총 사용자 수를 제한할 수도 있습니다. 이는 Campaign 필터와 독립적인 확인 역할을 합니다.
 
 ![Campaign을 받는 사람 수를 제한하는 체크박스가 선택된 오디언스 요약.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
@@ -81,12 +81,12 @@ A/B 테스트에서 사용량 제한을 사용할 때, 사용량 제한은 대�
 
 대규모 Campaign이 사용자 활동의 급증을 유발하고 서버에 과부하를 줄 것으로 예상되는 경우, 메시지 발송에 대한 분당 사용량 제한을 지정할 수 있습니다. 이는 Braze가 1분 내에 사용량 제한 설정 이상으로 발송하지 않음을 의미합니다.
 
-Campaign 생성 중 사용자를 타겟팅할 때, **Target Audiences**(Campaign의 경우) 또는 **Send Settings**(Canvas의 경우)로 이동하여 사용량 제한을 선택할 수 있습니다(분당 최소 10개에서 최대 500,000개 메시지까지 다양한 단위로).
+Campaign 생성 중 사용자를 타겟팅할 때, **타겟 오디언스**(Campaign의 경우) 또는 **발송 설정**(Canvas의 경우)으로 이동하여 사용량 제한을 선택할 수 있습니다(분당 최소 10개에서 최대 500,000개 메시지까지 다양한 단위로).
 
 사용량 제한이 없는 Campaign은 이러한 전달 제한을 초과할 수 있습니다. 그러나 낮은 사용량 제한으로 인해 72시간 이상 지연되면 메시지가 중단된다는 점에 유의하세요. 사용량 제한이 너무 낮으면 Campaign 작성자는 대시보드와 이메일로 알림을 받습니다.
 
 {% alert tip %}
-전체 워크스페이스에 사용량 제한을 적용하려면 [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)을 설정하세요.
+전체 워크스페이스에 사용량 제한을 적용하려면 [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)을 설정하세요.
 {% endalert %}
 
 #### 예시 {#example}
@@ -139,17 +139,17 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
 - 다음 메시지는 사용량 제한에 의해 조절되거나 사용량 제한에 포함되지 않습니다:
     - 테스트 발송
     - 시드 그룹
-    - "첫 노출 시" 생성으로 구성된 Content Cards (이는 앱 노출 비율에 의해 제어됩니다. 카드 생성 옵션 간의 차이점에 대한 자세한 내용은 [카드 생성]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences)을 참조하세요.)
+    - "첫 노출 시" 생성으로 구성된 Content Cards (이는 앱 노출 비율에 의해 제어됩니다. 카드 생성 옵션 간의 차이점에 대한 자세한 내용은 [카드 생성]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences)을 참조하세요.)
 - 다음에 대해서는 전달 속도 사용량 제한이 지원되지 않습니다:
     - SMS 자동 응답
-    - SLA 지원 메시지([트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) 등)
+    - SLA 지원 메시지([트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) 등)
     - 인앱 메시지
     - 기능 플래그
     - 배너
 
 #### 사용량 제한과 연결된 콘텐츠 재시도 {#rate-limiting-and-connected-content-retries}
 
-[연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)가 켜져 있으면, Braze는 각 재발송에 대해 설정한 사용량 제한을 준수하면서 호출 실패를 재시도합니다. 분당 10,000개의 사용량 제한으로 75,000개의 메시지를 발송하는 시나리오를 생각해 보겠습니다. 첫 번째 분에 호출이 실패하거나 느려서 4,000개의 메시지만 발송되었다고 가정합니다.
+[연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)가 켜져 있으면, Braze는 각 재발송에 대해 설정한 사용량 제한을 준수하면서 호출 실패를 재시도합니다. 분당 10,000개의 사용량 제한으로 75,000개의 메시지를 발송하는 시나리오를 생각해 보겠습니다. 첫 번째 분에 호출이 실패하거나 느려서 4,000개의 메시지만 발송되었다고 가정합니다.
 
 지연을 만회하기 위해 두 번째 분에 나머지 6,000개의 메시지를 발송하거나 이미 발송 예정인 10,000개에 추가하는 대신, Braze는 해당 6,000개의 메시지를 "대기줄의 뒤"로 이동하고, 필요한 경우 메시지 발송에 소요되는 총 시간에 1분을 추가합니다.
 
@@ -164,7 +164,7 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
 | 7      | 10,000     | 10,000                    |
 | 8      | 5,000      | 10,000                    |
 | 9      | 0          | 6,000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용량 제한과 연결된 콘텐츠 재시도" }
 
 연결된 콘텐츠 요청은 독립적으로 사용량 제한이 적용되지 않으며 웹훅 사용량 제한을 따릅니다. 즉, 웹훅당 고유 엔드포인트에 대한 연결된 콘텐츠 호출이 하나 있는 경우, 분당 5,000개의 웹훅과 5,000개의 연결된 콘텐츠 호출이 예상됩니다. 캐싱이 이에 영향을 미쳐 연결된 콘텐츠 호출 수를 줄일 수 있습니다. 또한 재시도로 인해 연결된 콘텐츠 호출이 증가할 수 있으므로, 연결된 콘텐츠 엔드포인트가 약간의 변동을 처리할 수 있는지 확인하는 것이 좋습니다.
 
@@ -193,9 +193,9 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
 
 ![규칙이 적용되는 Campaign 및 Canvases와 적용되지 않는 목록이 있는 최대 게재빈도 설정 섹션.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
 
-#### Canvas 단계에서 사용자가 최대 게재빈도 설정에 도달한 경우의 동작 {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
+#### Canvas 단계에서 사용자가 최대 게재빈도 설정에 도달하거나 메시지가 중단된 경우의 동작 {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
-글로벌 최대 게재빈도 설정만으로는 사용자가 Canvas에서 나가지 않습니다. [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)에서 글로벌 최대 게재빈도 설정으로 인해 메시지가 발송되지 않더라도, 사용자는 단계를 통해 [진행하는 방식]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)에 따라 계속 진행합니다.
+글로벌 최대 게재빈도 설정만으로는 사용자가 Canvas에서 나가지 않습니다. [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에서 글로벌 최대 게재빈도 설정으로 인해 메시지가 발송되지 않더라도, 사용자는 단계를 통해 [진행하는 방식]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance)에 따라 계속 진행합니다. 메시지가 중단된 경우(예: Liquid 중단 조건에 의해)에도 동일하게 적용됩니다. 사용자는 메시지가 발송된 것처럼 Canvas를 계속 진행합니다.
 
 이는 메시지 단계의 **전달 유효성 검사**와는 별개입니다. 사용자가 발송 시점에 전달 유효성 검사 기준을 충족하지 않으면, 해당 단계에서 Canvas를 나갈 수 있습니다.
 
@@ -207,7 +207,7 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
 
 이후, 이 Campaign이 여전히 최대 게재빈도에 포함되어야 하는지 묻는 메시지가 표시됩니다. 최대 게재빈도에 포함되는 메시지는 인텔리전트 채널 필터 계산에 포함됩니다.
 
-트랜잭션인 경우가 많은 [API Campaign]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging)을 발송할 때, API 요청에서 `override_frequency_capping`을 `true`로 설정하여 Campaign이 최대 게재빈도 설정 규칙을 무시하도록 지정할 수 있습니다.
+트랜잭션인 경우가 많은 [API Campaign]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging)을 발송할 때, API 요청에서 `override_frequency_capping`을 `true`로 설정하여 Campaign이 최대 게재빈도 설정 규칙을 무시하도록 지정할 수 있습니다.
 
 기본적으로 최대 게재빈도 설정을 따르지 않는 새 Campaign 및 Canvases는 최대 게재빈도에 포함되지도 않습니다. 이는 각 Campaign 및 Canvas에 대해 구성할 수 있습니다.
 
@@ -228,7 +228,7 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
 In-App Messages와 Content Cards는 모든 유형의 Campaign 또는 Canvas 구성요소에 대한 제한으로 계산되거나 포함되지 않습니다.
 
 {% alert important %}
-글로벌 최대 게재빈도 설정은 사용자의 시간대를 기준으로 스케줄되며, 24시간 단위가 아닌 달력 일 기준으로 계산됩니다. 예를 들어, 하루에 1개 이하의 Campaign을 발송하는 최대 게재빈도 설정 규칙을 설정한 경우, 사용자가 현지 시간대로 오후 11시에 메시지를 받을 수 있으며, 1시간 후에 다른 메시지를 받을 자격이 있습니다.
+글로벌 최대 게재빈도 설정은 사용자의 시간대를 기준으로 스케줄되며, 24시간 단위가 아닌 캘린더 일 기준으로 계산됩니다. 예를 들어, 하루에 1개 이하의 Campaign을 발송하는 최대 게재빈도 설정 규칙을 설정한 경우, 사용자가 현지 시간대로 오후 11시에 메시지를 받을 수 있으며, 1시간 후에 다른 메시지를 받을 자격이 있습니다.
 {% endalert %}
 
 #### 활용 사례 {#use-cases}
@@ -311,7 +311,7 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 |---|---|
 | 사용자가 메시지를 받은 후, **Campaign B가 발송되기 전에** **Campaign A**에서 `promotional` 태그가 제거됩니다. | 사용자는 **Campaign B**를 받습니다. |
 | 사용자가 메시지를 받은 후 **Campaign A**에서 `promotional` 태그가 실수로 제거됩니다. <br> **Campaign B**가 발송되기 전 화요일에 **Campaign A**에 태그가 다시 추가됩니다. | 사용자는 **Campaign B**를 받지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 #### 대규모 발송 {#sending-at-large-scales}
 
@@ -330,3 +330,35 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 > 모든 Campaign 및 Canvas 단계에서 주당 3개 이하의 이메일 Campaign 또는 Canvas 구성요소.
 
 이 규칙은 최대 게재빈도 설정이 켜진 Campaign 또는 Canvas 구성요소에서 사용자가 주당 최대 3개의 이메일을 받으므로, 주당 100개 이상의 이메일을 받는 사용자가 없도록 합니다.
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 활성 Canvas에서 발송 스로틀을 변경하면 이미 Canvas에 있는 사용자에게 영향을 미치나요? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
+
+네, Canvas 사용량 제한을 늘리거나 줄이면 캐싱으로 인해 변경 후 약 30초 이내에 업데이트된 제한이 새 메시지에 적용됩니다.
+
+### 최대 게재빈도 설정으로 인해 사용자가 Canvas에서 나가나요? {#does-frequency-capping-cause-users-to-exit-a-canvas}
+
+아니요. Canvas 사용자가 글로벌 최대 게재빈도 설정으로 인해 최대 게재빈도에 도달한 경우, 사용자는 즉시 다음 캔버스 단계로 진행합니다. 최대 게재빈도 설정으로 인해 사용자가 Canvas에서 **나가지 않습니다**.
+
+### Canvas에서 최대 게재빈도가 적용된 사용자를 어떻게 식별할 수 있나요? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
+
+최대 게재빈도가 적용된 사용자는 해당 단계에 대한 발송 이벤트를 생성하지 않습니다. 이러한 사용자를 식별하려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 메시지 최대 게재빈도 적용 이벤트를 추적할 수 있습니다. 또는 [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 생성하여 Canvas에 진입했지만 예상 메시지를 수신하지 못한 사용자를 분석할 수 있습니다.
+
+### 대시보드에 Campaign에 대한 사용량 제한 오류가 표시되는 이유는 무엇인가요? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+
+이는 일반적으로 Campaign의 [전달 속도 사용량 제한](#delivery-speed-rate-limiting)이 오디언스 규모에 비해 너무 낮게 설정되어 허용된 기간 내에 발송을 완료하는 데 시간이 오래 걸리고 Braze가 경고를 표시하는 것을 의미합니다. 전달 속도 사용량 제한을 높이거나, 오디언스를 줄이거나, **Limit send volume**을 사용하여 각 스케줄된 발송이 허용된 발송 기간 내에 완료되도록 하세요. [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)을 설정하여 Campaign 전체에 제한을 적용할 수도 있습니다.
+
+**Limit send volume**은 발송 대상 사용자 수를 제어하는 것이지, Braze가 분당 발송하는 메시지 수를 제어하는 것이 아닙니다. 분당 처리량은 전달 속도 사용량 제한만으로 설정됩니다.
+
+### 최대 게재빈도 설정에서 "발송됨"은 무엇을 의미하나요? {#what-does-sent-mean-for-frequency-capping}
+
+분석 및 최대 게재빈도 설정에서 _발송됨_은 Braze가 메시지를 발송한 시점(발송이 기록된 시점)을 의미하며, 기기나 받은편지함으로의 최종 전달을 보장하는 것이 아닙니다. 최대 게재빈도 설정 및 발송 횟수는 이러한 기록된 발송 이벤트를 사용하며, 이는 다운스트림 "전달됨" 측정기준과 다를 수 있습니다.
+
+### 이메일 반송 또는 지연이 발생하는 이유는 무엇인가요? {#why-am-i-seeing-email-bounces-or-deferrals}
+
+이메일 반송 및 지연 메시지는 다양한 코드와 공급자별 텍스트를 사용합니다. 특정 코드를 사용량 제한 문제의 징후로 간주하지 마세요. 원인은 발송 컨텍스트와 메일박스 공급자 피드백에 따라 달라집니다.
+
+메시지가 일시적으로 지연되는 경우, 발송량을 줄이면 단기적으로 도움이 될 수 있습니다. [전달 속도 사용량 제한](#delivery-speed-rate-limiting), **Limit send volume** 또는 둘 다를 사용하세요.
+
+장기적인 해결책을 위해서는 전달 가능성 전문가와 협력하여 반송 및 지연 데이터를 검토하세요.

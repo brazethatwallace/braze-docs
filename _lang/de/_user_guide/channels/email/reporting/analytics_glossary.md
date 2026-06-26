@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> Dieses Glossar definiert Metriken auf dem **Analytics**-Tab für E-Mail-Campaigns und Canvases. Braze bietet keine gehostete Seite „Diese E-Mail im Browser anzeigen“ an – siehe [Kann ich einen „Diese E-Mail im Browser anzeigen“-Link zu meinen E-Mails hinzufügen?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) für eine Problemumgehung. Weitere Fehlerbehebung, die mehrere Metriken betrifft, finden Sie unter [E-Mail-FAQ]({{site.baseurl}}/user_guide/channels/email/faq/).
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -148,7 +150,7 @@ Bei E-Mails ist *Bounce %* oder *Bounce-Rate* der Prozentsatz der Nachrichten, d
 Ein E-Mail-Bounce für Kund:innen, die SendGrid verwenden, umfasst Hard Bounces, Spam (`spam_report_drops`) und E-Mails, die an ungültige Adressen gesendet wurden (`invalid_emails`).
 
 {% alert note %}
-In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) werden temporäre ESP-Zurückstellungen häufig als Soft Bounces dargestellt. Zustellbarkeits-Tools (z. B. native SendGrid-Berichte oder Looker-Modelle) verwenden möglicherweise Zurückstellungen für dieselbe Situation. Zurückstellungen sind in der Regel vorübergehend, und die E-Mail wird nach erneuten Versuchen oft zugestellt. Nach längeren Wiederholungsversuchen (bis zu ca. 72 Stunden für Soft Bounces in Campaign-Analytics) kann eine Nachricht je nach ESP als unzustellbar behandelt werden. Currents-E-Mail-Ereignisse sind append-only – ein protokollierter Soft Bounce wird nicht nachträglich entfernt, wenn die Nachricht schließlich zugestellt wird.
+In [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) werden temporäre ESP-Zurückstellungen häufig als Soft Bounces dargestellt. Zustellbarkeits-Tools (z. B. native SendGrid-Berichte oder Looker-Modelle) verwenden möglicherweise Zurückstellungen für dieselbe Situation. Zurückstellungen sind in der Regel vorübergehend, und die E-Mail wird nach Wiederholungsversuchen oft zugestellt. Nach längeren Wiederholungsversuchen (bis zu ca. 72 Stunden für Soft Bounces in Campaign-Analytics) kann eine Nachricht je nach ESP als unzustellbar behandelt werden. Currents-E-Mail-Ereignisse sind append-only – ein protokollierter Soft Bounce wird nicht nachträglich entfernt, wenn die Nachricht schließlich zugestellt wird.
 {% endalert %}
 
 {::nomarkdown}
@@ -247,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (ein einzelner Sendeversuch) gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Nach sieben Tagen kann ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt werden, wenn er/sie erneut klickt. E-Mail-Engagement-Metriken im Dashboard, einschließlich *Eindeutige Klicks*, werden in Braze berechnet und nicht mit aggregierten ESP-Berichten abgeglichen. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Dies wird bei E-Mails über einen Zeitraum von sieben Tagen erfasst und anhand der <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (ein einzelner Sendeversuch) gemessen. Dies umfasst Klicks auf von Braze bereitgestellte Abmeldelinks. Erfasste angepasste Abmelde-URLs zählen ebenfalls zu den *Eindeutigen Klicks*, wenn Nutzer:innen den Link auswählen. Nach sieben Tagen wird ein weiterer eindeutiger Klick für dieselbe:n Nutzer:in gezählt, wenn er/sie erneut klickt. E-Mail-Engagement-Metriken im Dashboard, einschließlich _Eindeutige Klicks_, werden in Braze berechnet und nicht mit aggregierten ESP-Berichten abgeglichen. Um die Dashboard-Zähler mit Currents abzugleichen, filtern Sie nach Ereignissen, bei denen `is_unique` den Wert `true` hat.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -259,6 +261,24 @@ Count, Percentage
 </span>
 {:/}
 
+#### Unerwartete Links in der E-Mail-Heatmap {#unexpected-links-on-the-email-heatmap}
+
+Wenn die [E-Mail-Heatmap]({{site.baseurl}}/user_guide/channels/email/reporting/) Links anzeigt, die Sie nicht erwarten, überprüfen Sie den HTML-Code der Nachricht auf [Content Blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) oder Abstände zwischen Wörtern, die erfasste URLs erzeugen. Verwenden Sie die **Link-Tabelle nach Gesamtklicks** in der Heatmap-Ansicht, um URLs zu identifizieren, die nicht mit dem sichtbaren Text übereinstimmen.
+
+{% endapi %}
+
+{% api %}
+
+### Gesamtklicks {#total-clicks}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>Gesamtklicks</i> ist die Gesamtzahl der Klicks von Nutzer:innen auf Links in der zugestellten E-Mail, einschließlich mehrfacher Klicks derselben Nutzer:innen. Dies umfasst Klicks auf Braze-Abmeldelinks und erfasste angepasste Abmelde-URLs.
+
+Wenn *Gesamtklicks* deutlich höher ist als *Eindeutige Klicks*, scannen Sicherheitstools oder Postfachanbieter Links, ohne dass Nutzer:innen die Nachricht öffnen. Vergleichen Sie *Eindeutige Klicks*, wenn Sie das Engagement intern bewerten.
+
 {% endapi %}
 
 {% api %}
@@ -269,7 +289,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-*Abmeldungen* beziehen sich auf den Standard-Abmeldelink von Braze. Angepasste Abmeldeseiten erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren Nutzer:innen über die API. **Abo-Gruppen-Zeitreihen** spiegeln weiterhin API-gesteuerte Änderungen wider.
+_Abmeldungen_ beziehen sich auf den Standard-Abmeldelink von Braze. Angepasste Abmeldeseiten erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren Nutzer:innen über die API. **Abo-Gruppen-Zeitreihen** spiegeln weiterhin API-gesteuerte Änderungen wider.
 
 {% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
 
@@ -368,6 +388,18 @@ Count
 
 {% api %}
 
+### Geschätzte tatsächliche Öffnungen {#estimated-real-opens}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} Braze berechnet diese Schätzung neu, sobald neue Öffnungs- und Klickdaten eintreffen. Der Wert stabilisiert sich in der Regel einige Tage nach dem Versand, wird aber weiterhin aktualisiert, wenn neue qualifizierende Ereignisse auftreten.
+
+{% endapi %}
+
+{% api %}
+
 ### Klick-zu-Öffnungs-Rate {#click-to-open-rate}
 
 {% apitags %}
@@ -377,6 +409,10 @@ Percentage
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">Berechnung: (Eindeutige Klicks) / (Eindeutige Öffnungen) (für E-Mail)</span>
+
+#### Message-Open-Likelihood-Scores (Segmentierung) {#message-open-likelihood-scores-segmentation}
+
+Der Segment-Filter [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) bewertet auf einer Skala von 0–100 %, wie wahrscheinlich es ist, dass Nutzer:innen eine E-Mail öffnen. Nutzer:innen ohne ausreichende Versand- oder Öffnungshistorie für den Kanal werden als leer angezeigt. Bei E-Mails werden maschinelle Öffnungen aus der Berechnung ausgeschlossen, die die aktuelle Nachrichtenhistorie auf diesem Kanal verwendet (siehe [Message-Open-Likelihood-Filter für einzelne Kanäle]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels)).
 
 {% endapi %}
 
@@ -389,6 +425,10 @@ Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick
 ### Im Browser anzeigen {#view-in-browser}
 
 Braze bietet keine integrierte Funktion „Diese E-Mail im Browser anzeigen“. Hosten Sie den E-Mail-Inhalt auf einer externen Landing-Page (z. B. Ihrer Website) und fügen Sie über das **Link**-Tool im E-Mail-Editor einen Link aus der Nachricht hinzu. Weitere Informationen finden Sie unter [Kann ich einen „Diese E-Mail im Browser anzeigen“-Link zu meinen E-Mails hinzufügen?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+
+### Aktualisierungen der angepassten Abmeldeseite {#custom-unsubscribe-page-updates}
+
+Änderungen an Ihrer [angepassten Abmeldeseite]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) werden innerhalb weniger Minuten wirksam. Aktive Sendungen verwenden einen kurzlebigen Cache der Seite, der beim Speichern von Änderungen aktualisiert wird.
 
 ### Bounces bei überschrittenem Kontingent und vollem Postfach {#over-quota-and-full-mailbox-bounces}
 
@@ -406,11 +446,11 @@ Setzen Sie auf einwilligungsbasiertes Listenwachstum, setzen Sie inaktive Abonne
 
 **Zustellung** gibt an, ob der empfangende Server Ihre Nachricht akzeptiert; Sie können dies mit Metriken wie *Zustellungen* und Bounce-Rate messen. **Zustellbarkeit** (Posteingangsplatzierung) hängt von der Filterung des Anbieters ab und wird nicht als einzelne Braze-Metrik angezeigt.
 
-Als allgemeine Richtlinie sollten Sie eine Zustellrate nahe 99 % mit Hard Bounces unter ca. 1 % anstreben und Öffnungen sowie Klicks für Engagement-Trends beobachten. Die genauen Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
+Als allgemeine Richtlinie sollten Sie eine Zustellrate von nahezu 99 % mit Hard Bounces unter ca. 1 % anstreben und Öffnungen sowie Klicks für Engagement-Trends beobachten. Die genauen Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
-### „Campaign is already in delay window, so not enqueueing another“
+### „Campaign is already in delay window, so not enqueueing another“ {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
-In der Nachrichtenaktivität oder in Diagnoseprotokollen für [aktionsbasierte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) bedeutet dieses Verarbeitungsergebnis, dass Braze einen doppelten Versand blockiert hat, während ein früherer Trigger für dieselbe:n Nutzer:in noch innerhalb des Zustellfensters der Campaign liegt. Eine Entprellungssperre verhindert mehrfaches Einreihen in die Warteschlange für denselben Trigger-Burst.
+In der Nachrichtenaktivität oder den Diagnoseprotokollen für [aktionsbasierte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) bedeutet dieses Verarbeitungsergebnis, dass Braze einen doppelten Versand blockiert hat, während ein früherer Trigger für dieselbe:n Nutzer:in noch innerhalb des Zustellfensters der Campaign liegt. Eine Entprellungssperre verhindert mehrfaches Einreihen in die Warteschlange für denselben Trigger-Burst.
 
 Dieses Ergebnis kann auch auftreten, wenn die Campaign **Sofort senden** anzeigt, sofern eine der folgenden Bedingungen zutrifft:
 

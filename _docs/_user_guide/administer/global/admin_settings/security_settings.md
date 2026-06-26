@@ -115,8 +115,6 @@ Elevated Access adds an extra layer of security for sensitive actions in your Br
 
 If a user can’t re-verify, they’ll be redirected to where they left off and won’t be able to continue with the sensitive action. After they successfully re-verify, they won’t need to do so again for the next hour—unless they log out first.
 
-![Elevated Access toggle.]({% image_buster /assets/img/elevated_access.png %})
-
 ## Downloading a security event report {#security-event-report}
 
 The Security Event report is a CSV report of security events such as account invitations, account removals, failed and successful login attempts, and other activities. You can use it to perform internal audits.
@@ -130,6 +128,22 @@ To download this report, do the following:
 This manual report download contains only the most recent 10,000 security events for your account.
 
 To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+
+### CSV column definitions
+
+The Security Event report CSV contains the following columns:
+
+| Column | Description |
+|--------|-------------|
+| CreatedAt | Timestamp when the event was recorded, in UTC. |
+| EmailAtTimeOfEvent | Email address of the dashboard user who triggered the event, as recorded when the event occurred. |
+| CurrentEmail | Current email address of the dashboard user who triggered the event. If the user no longer exists, their developer ID is used instead. |
+| EventName | Type of security event. See the list of reported security events below. |
+| OtherAccount | Email address of another dashboard user affected by the event, when applicable (for example, when an account is added or removed). |
+| JsonProperties | Event-specific properties in JSON format. The fields included vary by event type. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV column definitions" }
+
+[S3 exports]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) include these columns plus `Version`, the schema version for the export format (currently `1`).
 
 {% details Reported security events %}
 ### Login and account
@@ -161,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -268,7 +282,7 @@ The following attributes can be designated as PII and hidden from company users 
 
 | Standard attributes | Custom attributes |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
+| {::nomarkdown}<ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> LINE ID </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
 
 ### Limited areas

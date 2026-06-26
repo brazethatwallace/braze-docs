@@ -46,12 +46,16 @@ You can use the [Engagement tab](#engagement-tab) to verify whether a certain us
 
 ## Elements of user profile
 
-There are four main sections of a user's profile.
+There are five main sections of a user's profile.
 
 - **Overview:** Basic information about the user, session data, custom attributes, custom events, purchases, and the most recent device that the user logged into.
 - **Engagement:** Information about the user's contact settings, campaigns received, segments, communication stats, install attribution, and random bucket number.
+- **Event History:** Custom events and purchases from the past 30 days, with full event properties shown as JSON.
 - **Messaging History:** Recent messaging-related events for this user from the past 30 days.
 - **Feature Flags Eligibility:** Validate which feature flags a user is currently eligible for across rollouts, canvas steps, and experiments. 
+
+{% tabs %}
+{% tab Overview tab %}
 
 ### Overview tab {#overview-tab}
 
@@ -69,23 +73,49 @@ The **Overview** tab contains basic information about a user and their interacti
 
 For more information on this data, see [SDK data collection]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-![The Overview tab of a user profile.]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab Engagement tab %}
 
-### Engagement tab {#engagement-tab}
+### Engagement tab
 
 The **Engagement** tab contains information about a user's interactions with the messages you sent them using Braze.
 
 | Engagement category | Contains |
 | --- | --- |
 | Contact settings | Subscription status for email, SMS, and push, and the subscription groups this user is associated with for these three channels. This section also includes changelog information for push tokens. Refer to [email]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/), and [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) for information on how subscriptions and opt-ins are set. |
-| Campaigns received | **Campaigns received** reflects channel-specific send and view timing. Most channels record a send when Braze passes the message to the delivery provider, even when the message is not ultimately delivered. **Content Cards** are different: campaigns appear here only after the user views the card in the app. For a breakdown by channel, see [When campaigns appear in Campaigns received](#when-campaigns-appear-in-campaigns-received). When a message is received, opened, or clicked, Braze updates data for all profiles that share the same channel identifier as the profile that logged the interaction (for example, the same email address for email, or the same phone number for SMS or WhatsApp). Users who share an identifier with someone who received, opened, or clicked the message can match this filter even if they were not originally in the campaign or were not directly sent the message.<br><br> Select a campaign from the list to view it. |
+| Campaigns received | **Campaigns received** reflects channel-specific send and view timing. Most channels record a send when Braze passes the message to the delivery provider, even when the message is not ultimately delivered. **Content Cards** are different: campaigns appear here only after the user views the card in the app. For a breakdown by channel, see [When campaigns appear in Campaigns received](#when-campaigns-appear-in-campaigns-received). <br><br>When a message is received, opened, or clicked, Braze updates data for all profiles that share the same channel identifier as the profile that logged the interaction (for example, the same email address for email, or the same phone number for SMS or WhatsApp). Users who share an identifier with someone who received, opened, or clicked the message can match this filter even if they were not originally in the campaign or were not directly sent the message.<br><br>These lists use [messaging interaction data]({{site.baseurl}}/api/data_retention/messaging_interaction_data/) (including expiration rules) when determining what appears for retargeting and history.<br><br> Select a campaign from the list to view it. |
 | Segments | Segments this user is included in. Select a segment from the list to view it. |
 | Communication stats | When this user last received messages from you from each channel. |
 | Install attribution | Information about how and when a user installed your app. Learn more about [understanding user installs]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Miscellaneous | The user's [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/). |
-| Canvas messages received | Canvas messages this user has received and when. Send timing follows the same channel rules as **Campaigns received**; see [When campaigns appear in Campaigns received](#when-campaigns-appear-in-campaigns-received). When a message is received, opened, or clicked, Braze updates data for all profiles that share the same channel identifier as the profile that logged the interaction (for example, the same email address for email, or the same phone number for SMS or WhatsApp). Users who share an identifier with someone who received, opened, or clicked the message can match this filter even if they were not originally in the campaign or were not directly sent the message.<br><br> Select a message from the list to view it. |
+| Canvas messages received | Canvas messages this user has received and when. Send timing follows the same channel rules as **Campaigns received**; see [When campaigns appear in Campaigns received](#when-campaigns-appear-in-campaigns-received).<br><br> When a message is received, opened, or clicked, Braze updates data for all profiles that share the same channel identifier as the profile that logged the interaction (for example, the same email address for email, or the same phone number for SMS or WhatsApp). Users who share an identifier with someone who received, opened, or clicked the message can match this filter even if they were not originally in the campaign or were not directly sent the message.<br><br> Select a message from the list to view it. |
 | Predictions | [Churn prediction]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) and [event prediction]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) scores for this user. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab Event History tab %}
+
+### Event History tab
+
+{% alert note %}
+To view the **Event History** tab, you need the **Search Users** and **View PII** [permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), because event properties can contain personal data.
+{% endalert %}
+
+The **Event History** tab shows the custom events and purchases a user has logged. Use it to verify event data is arriving correctly and troubleshoot user-level issues directly in the dashboard—no data exports or external tooling required.
+
+| Event History category | Contains |
+| --- | --- |
+| Event list | Custom events and purchases from the past 30 days (up to 100 most recent), ordered newest first. |
+| Event type | Whether the row is a **Custom Event** or **Purchase**. |
+| Timestamp | When the event was logged. |
+| Event name | The name of the custom event or purchase. |
+| Event properties | Full event properties for the event, shown as JSON. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Event History tab" }
+
+{% endtab %}
+{% endtabs %}
 
 ### When campaigns appear in Campaigns received {#when-campaigns-appear-in-campaigns-received}
 
@@ -169,6 +199,7 @@ Some fields may be absent in a user's **Message History** tab in the following s
 - When an event is missing data for **Campaign/Canvas** and **Message Sent**, this indicates that this message was sent from an API campaign (not API-triggered campaigns) that didn't specify the `campaign_id` and `message_variation_id`. These fields are optional and may be left out of the request body. When these fields are specified, that information is populated into the message history logs.
    - If a particular message is missing entirely from the messaging history but appears in the **Campaigns Received** log, it's likely the user received the campaign before being identified as the current user. If an existing profile is orphaned, the **Campaigns Received** log is transferred, but the messaging history is not. 
 - When data is missing for **Campaign/Canvas**, a manual test may have been sent. Manual tests are logged in the **Messaging History** tab, but the campaign or Canvas that was sent won't be logged.
+- When a user is in a seed group or other internal test audience, **Messaging History** may show limited campaign or Canvas metadata compared to production sends.
 
 ## Related articles
 

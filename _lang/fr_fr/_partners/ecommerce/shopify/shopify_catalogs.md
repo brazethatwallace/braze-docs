@@ -93,6 +93,8 @@ Braze prend en charge les objets de métachamps suivants ainsi que certains de l
 | `number_integer` | Entier |
 | `single_line_text_field`, `list.single_line_text_field` | Chaîne de caractères, Tableau de chaînes de caractères |
 | `url`, `list.url` | Chaîne de caractères (URL), Tableau de chaînes de caractères (URL) |
+| `metaobject_reference`, `list.metaobject_reference` | Chaîne de caractères, Tableau de chaînes de caractères |
+| `mixed_reference`, `list.mixed_reference` | Chaîne de caractères, Tableau de chaînes de caractères |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer des données produit supplémentaires (facultatif) #step-3" }
 
 {% endsubtab %}
@@ -222,6 +224,10 @@ Les étiquettes de produit sont stockées sous forme de champ tableau sur chaque
 ![Fenêtre modale de sélection des étiquettes de produit Shopify, avec 15 étiquettes liées aux vêtements sélectionnées, dont « Women's ».]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personnalisation {#personalization}
+
+{% alert note %}
+Lorsque vous référencez des étiquettes de produit ou des collections dans les sélections de catalogue, utilisez uniquement la valeur elle-même sans les crochets `[]` ni les guillemets `""` qui apparaissent dans les données du catalogue. Par exemple, si une étiquette de produit s'affiche sous la forme `["Women's"]` dans votre catalogue, écrivez `Women's` dans votre filtre de sélection.
+{% endalert %}
 
 1. Créez une sélection de catalogue qui filtre les produits possédant l'étiquette de produit correspondante, comme « Women's ». Vous ne pouvez utiliser qu'un seul champ tableau unique au sein d'une même sélection de catalogue, et jusqu'à 50 produits dans votre sélection de catalogue.
 
@@ -597,6 +603,10 @@ Pour les collections Shopify, vous devez utiliser l'**ID de collection**, qui se
 {% endalert %}
 
 ### Personnalisation
+
+{% alert note %}
+Lorsque vous référencez des ID de collection dans les sélections de catalogue, utilisez uniquement la valeur numérique de l'ID sans les crochets `[]` qui apparaissent dans les données du catalogue. Par exemple, si les ID de collection s'affichent sous la forme `[123456789012, 987654321098]` dans votre catalogue, écrivez simplement l'ID numérique (comme `470645342446`) dans votre filtre de sélection.
+{% endalert %}
 
 1. Créez une sélection de catalogue nommée « New Women's Products - In Stock » qui filtre les produits possédant l'ID de cette collection. Vous ne pouvez utiliser qu'un seul champ tableau unique au sein d'une même sélection de catalogue, et jusqu'à 50 produits dans votre collection.
  - Vous pouvez également créer vos propres sélections personnalisées en filtrant avec le champ **Collections**.

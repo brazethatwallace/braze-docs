@@ -389,5 +389,5 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 - 개발자 팀에 이벤트가 올바르게 기록되고 예상된 사용자 동작에서 트리거되는지 확인하도록 요청하세요.
 - 팀이 Braze 고객지원에 티켓을 열 때 [상세 로그]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) 및 관련 코드 스니펫을 포함하세요.
-- 앱이 Swift 또는 Android를 사용하는 경우, 개발자 팀은 [SDK 디버거 필수 조건](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites)을 사용하여 상세 로그를 생성할 수 있습니다.
+- 앱이 Swift 또는 Android를 사용하는 경우, 개발자 팀은 [SDK 디버거 필수 조건]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites)을 사용하여 상세 로그를 생성할 수 있습니다.
 - 개발자 팀이 문제를 식별할 수 없는 경우, [Braze 고객지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support/)을 열어주세요.

@@ -13,7 +13,7 @@ Usa conjuntos de permisos para agrupar permisos relacionados con áreas temátic
 | Desarrolladores | «Ver claves de API», «Editar claves de API», «Ver grupos internos», «Editar grupos internos», «Ver registro de actividad de mensajes», «Ver registro de eventos de usuario», «Ver identificadores de API», «Ver panel de uso de API», «Ver límites de API», «Ver alertas de uso de API», «Editar alertas de uso de API», «Ver depurador de SDK», «Editar depurador de SDK». |
 | Especialistas en marketing | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver reglas de limitación de frecuencia», «Editar reglas de limitación de frecuencia», «Ver priorización de mensajes», «Editar priorización de mensajes», «Ver Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Editar grupo de control global», «Ver plantillas de IAM», «Editar plantillas de IAM», «Archivar plantillas de IAM», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Archivar plantillas de correo electrónico», «Ver plantillas de webhook», «Editar plantillas de webhook», «Archivar plantillas de webhook», «Ver plantillas de enlaces de correo electrónico», «Editar plantillas de enlaces de correo electrónico», «Ver activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias», «Editar informes del dashboard», «Ver plantillas de banners», «Ver configuración de localización», «Usar Operator», «Ver agentes de Decisioning Studio». |
 | Gestión de usuarios | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos». |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creación de un conjunto de permisos" }
 {% endtab %}
 {% endtabs %}
 
@@ -28,7 +28,7 @@ Los roles permiten una mayor estructura al agrupar los permisos personalizados i
 | Especialista en marketing - Marcas de moda | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias». |
 | Especialista en marketing - Marcas de cuidado de la piel | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Ver Campaigns», «Editar Campaigns», «Archivar Campaigns», «Ver Canvas», «Editar Canvas», «Archivar Canvas», «Ver Content Blocks», «Editar Content Blocks», «Archivar Content Blocks», «Lanzar Content Blocks», «Ver conmutadores de características», «Editar conmutadores de características», «Archivar conmutadores de características», «Ver Segments», «Editar Segments», «Ver plantillas de banners», «Editar plantillas de banners», «Ver plantillas de correo electrónico», «Editar plantillas de correo electrónico», «Ver activos de la biblioteca multimedia», «Editar activos de la biblioteca multimedia», «Eliminar activos de la biblioteca multimedia», «Ver ubicaciones», «Editar ubicaciones», «Archivar ubicaciones», «Ver códigos promocionales», «Editar códigos promocionales», «Exportar códigos promocionales», «Ver centros de preferencias», «Editar centros de preferencias». |
 | Gestión de usuarios - Todas las marcas | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | «Editar usuarios del dashboard», «Ver equipos», «Editar equipos», «Archivar equipos» |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creación de un rol" }
 {% endtab %}
 {% endtabs %}
 
@@ -51,7 +51,7 @@ Los usuarios limitados tienen permisos específicos que les permiten gestionar d
 | Permisos | Los usuarios limitados pueden editar los permisos de otros usuarios limitados si tienen el permiso «Editar usuarios del dashboard». También pueden crear nuevos usuarios limitados y modificar sus conjuntos de permisos. Sin embargo, no pueden crear ni gestionar cuentas de administrador de la empresa. |
 | Limitaciones de roles | Si un usuario limitado tiene todos los permisos excepto «Administrador del espacio de trabajo», seguirá teniendo acceso a todos los demás permisos que normalmente se conceden a un administrador del espacio de trabajo. |
 | Visibilidad de los permisos | Si un usuario limitado tiene el permiso «Editar usuarios del dashboard» para un espacio de trabajo (como Dev) pero no para otro (como Prod), no verá los permisos del espacio de trabajo Prod en la página de detalles de los usuarios del dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usuarios limitados" }
 
 ### Comparación de usuarios limitados {#comparing-limited-users}
 
@@ -60,7 +60,7 @@ Los usuarios limitados tienen permisos específicos que les permiten gestionar d
 | Administrador del espacio de trabajo | Los administradores del espacio de trabajo tienen permisos específicos para gestionar los espacios de trabajo, pero no tienen la misma autoridad que los administradores de la empresa. Los usuarios limitados pueden heredar permisos similares a los de los administradores del espacio de trabajo si tienen marcados los permisos necesarios. |
 | Administrador (administrador de la empresa) | Los administradores de la empresa tienen permisos más amplios, incluida la posibilidad de eliminar usuarios del dashboard. Sin embargo, no pueden eliminar sus propias cuentas y deben ponerse en contacto con otro administrador de la empresa para realizar esa acción. |
 | Acceso de solo lectura | Para acceder a algunas partes del dashboard, como la página de Campaigns, los usuarios deben tener asignados permisos de visualización. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparación de usuarios limitados" }
 
 ### Error de acceso limitado {#limited-access-error}
 
@@ -89,7 +89,6 @@ Los administradores tienen acceso a todas las funciones y la posibilidad de modi
 
 Para conceder o eliminar privilegios de administrador, selecciona **Este usuario es un administrador** y luego selecciona **Actualizar usuario**.
 
-![Los detalles del usuario seleccionado con la casilla de verificación de administrador activada.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Si eliminas los privilegios de administrador de un usuario, este no podrá acceder a Braze hasta que le asignes al menos un [permiso a nivel de empresa o de espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -106,7 +105,7 @@ Para gestionar los siguientes permisos a nivel de empresa para un usuario, marca
 |----------|-----------|
 | Administrar configuración de empresa | Permite a los usuarios modificar la configuración de permisos y la verificación del remitente. |
 | Crear y eliminar espacios de trabajo | Permite a los usuarios crear y eliminar espacios de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Empresa" }
 
 {% endtab %}
 {% tab Workspace %}
@@ -153,6 +152,12 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 
 ![La página «Usuarios de la empresa» en Braze con la opción «Exportar usuarios» resaltada.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
+No puedes exportar una matriz completa de permisos para todos los usuarios del dashboard de forma masiva desde el dashboard de Braze. Si necesitas más detalle del que proporciona **Exportar usuarios**, considera estas opciones:
+
+- Usa el [aprovisionamiento automatizado de usuarios]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/) (SCIM) para gestionar las cuentas de los usuarios del dashboard. Por ejemplo, puedes [buscar un usuario del dashboard por correo electrónico]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) u obtener los detalles del usuario por ID de recurso como se describe en [Ver información de la cuenta de usuario]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/).
+- [Ponte en contacto con soporte de Braze]({{site.baseurl}}/braze_support/). En algunas situaciones, el equipo de soporte puede proporcionar una lista de cuentas, pero no una matriz completa de permisos.
+- Filtra el [informe de eventos de seguridad]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) de tu empresa, que registra eventos como **Cuenta añadida** y **Permisos actualizados**, para auditar los cambios de permisos fuera del dashboard.
+
 ## Lista de permisos {#list-of-permissions}
 
 ### Mensajería {#messaging}
@@ -182,7 +187,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Message Prioritization | View Message Prioritization | Ver la configuración de priorización de mensajes sin realizar cambios |
 | Message Prioritization | Edit Message Prioritization | Crear y actualizar la configuración de priorización de mensajes |
 | WhatsApp Flows | View WhatsApp Flows | Ver todos los WhatsApp Flows |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensajería" }
 
 ### Audiencia {#audience}
 
@@ -204,7 +209,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Users | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII |
 | Duplicate Users | Merge Duplicate Users | Combinar usuarios duplicados en un solo usuario. Los duplicados se eliminan después de la fusión. |
 | Users | Delete Users | Eliminar permanentemente usuarios del dashboard de forma individual o masiva |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audiencia" }
 
 ### Plantilla {#template}
 
@@ -237,7 +242,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Whatsapp Message Templates | View WhatsApp Message Templates | Permite a los usuarios ver [plantillas de mensajes de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
 | Whatsapp Message Templates | Edit WhatsApp Message Templates | Permite a los usuarios crear plantillas de mensajes de WhatsApp en el generador de plantillas. Esta característica está actualmente en acceso anticipado. |
 | WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | Ver todas las plantillas de WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plantilla" }
 
 ### Integraciones de socios {#partner-integrations}
 
@@ -246,7 +251,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Currents Integrations | View Currents Integration | Ver integraciones de Currents |
 | Currents Integrations | Edit Currents Integrations | Crear, actualizar y eliminar integraciones de Currents |
 | Technology Partners | Edit Technology Partners | Crear y actualizar socios tecnológicos |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Integraciones de socios" }
 
 ### Configuración de datos {#data-settings}
 
@@ -273,7 +278,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Products | Blocklist Products | Añadir productos a una lista de bloqueo que restringe su uso en el dashboard |
 | Products | Edit Products | Crear y actualizar productos |
 | Purchase Property Segmentation | Edit Purchase Property Segmentation | Habilitar y deshabilitar la segmentación para propiedades de eventos de compra |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configuración de datos" }
 
 ### Configuración {#settings}
 
@@ -314,7 +319,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Teams | Archive Teams | Mover equipos al archivo |
 | Teams | Edit Teams | Crear y actualizar equipos |
 | WhatsApp Settings | View WhatsApp Settings | Ver toda la configuración del canal de WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configuración" }
 
 ### Decisioning Studio
 
@@ -356,4 +361,4 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Transformations | View Data Transformation | Ver transformaciones de datos |
 | User Deletion Records | View User Deletion Records | Ver registros de eliminación de usuarios |
 | Support Tickets | Create Support Ticket | Crear y actualizar tickets de soporte |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Otros" }

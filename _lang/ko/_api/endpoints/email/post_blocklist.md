@@ -10,7 +10,7 @@ description: "이 문서에서는 차단 목록 이메일 Braze 엔드포인트�
 ---
 {% api %}
 # 차단 목록 이메일 {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 

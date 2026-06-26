@@ -148,7 +148,7 @@ Si tienes problemas con enlaces en notificaciones push que se abren inesperadame
 
 En tu campaña o paso en Canvas, verifica que **Open web URL inside mobile app** no esté seleccionado. Si lo está, desmarca la selección y vuelve a lanzar.
 
-![Campo "On-click behavior" de la configuración de una notificación push establecido en "Open web URL" con "Open web URL inside mobile app" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
+![Campo "Comportamiento al hacer clic" de la configuración de una notificación push establecido en "Open web URL" con "Open web URL inside mobile app" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
 
 La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abrirán en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
 
@@ -183,7 +183,7 @@ Si actualmente estás usando un certificado `.p12` o `.pem`, migra a una clave `
 
 Cuando reemplazas un certificado `.p12` con una clave `.p8` (o cargas una nueva credencial), la entrega push puede pausarse brevemente mientras Braze procesa el cambio. Planifica las actualizaciones durante una ventana de mantenimiento cuando sea posible.
 
-En **Settings** > **App Settings** > **Push Notification Settings**, confirma que **App Bundle ID**, **Team ID** y **Key ID** (para claves `.p8`) coincidan con los valores de tu cuenta de Apple Developer. Varios espacios de trabajo de Braze pueden usar la misma credencial push de Apple cuando el **bundle ID** de la aplicación iOS es idéntico; el entorno de la credencial (desarrollo frente a producción) debe coincidir con la forma en que se compiló la aplicación.
+En **Settings** > **App Settings** > **Push Notification Settings**, confirma que **App Bundle ID**, **Team ID** y **Key ID** (para claves `.p8`) coincidan con los valores en tu cuenta de Apple Developer. Varios espacios de trabajo de Braze pueden usar la misma credencial push de Apple cuando el **bundle ID** de la aplicación iOS es idéntico; el entorno de la credencial (desarrollo frente a producción) debe coincidir con la forma en que se compiló la aplicación.
 
 Las aplicaciones con [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) o posterior pueden usar la [gestión dinámica de la puerta de enlace de APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management), que enruta los tokens al entorno de APNs correcto automáticamente.
 
@@ -224,7 +224,7 @@ Tus permisos push se han restablecido. Abre una nueva pestaña en tu sitio y pru
 
 Si tienes una notificación de tu sitio visible en el cajón de notificaciones de Android:
 
-1. Desde la notificación push, toca <i class="fas fa-cog" title="Configuración"></i> y selecciona **Site settings**.
+1. Desde la notificación push, toca <i class="fas fa-cog" title="Configuración"></i> **Configuración** y selecciona **Site settings**.
 2. Desde **Site settings**, toca **Clear & Reset**.
 
 Si no tienes una notificación de tu sitio abierta:
@@ -244,7 +244,7 @@ Tus permisos push se han restablecido. Abre una nueva pestaña en tu sitio y pru
 ### Restablecer Firefox en escritorio {#reset-firefox-on-desktop}
 
 1. Junto a la URL de tu sitio, selecciona <i class="fa-solid fa-circle-info" alt="icono de información"></i> o <i class="fas fa-lock" alt="icono de candado"></i>.
-2. En **Permissions**, junto a **Receive Notifications**, selecciona <i class="fa-solid fa-circle-xmark" title="Borrar este permiso y preguntar de nuevo"></i> para borrar los permisos de notificación.
+2. En **Permissions**, junto a **Receive Notifications**, selecciona <i class="fa-solid fa-circle-xmark" title="Borrar este permiso y preguntar de nuevo"></i> **Borrar permiso** para borrar los permisos de notificación.
 3. En el mismo menú, selecciona **Clear Cookies and Site Data**.
 4. En el diálogo para confirmar tu elección, selecciona **OK**.
 

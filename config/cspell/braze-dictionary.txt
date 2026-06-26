@@ -178,6 +178,7 @@ CONTENTCARD
 Contentful
 Contentful's
 Contentsquare
+Convercus
 cookieless
 Cooldown
 cooldowns
@@ -332,6 +333,7 @@ Grouparoo's
 growthloop
 Hailo
 handleize
+Harborlight
 Hashanah
 hashpart
 Heartbleed
@@ -661,6 +663,7 @@ ridesharing
 Rish
 Rishing
 Rica
+Rican
 Rokt
 Rokt Calendar
 roleplay
@@ -707,6 +710,7 @@ SENA
 Sendbird
 sendds
 Sendgrid
+Selfservice
 senni
 SESSIONEND
 sessionm

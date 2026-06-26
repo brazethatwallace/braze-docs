@@ -263,7 +263,7 @@ Field | Type | Description
 `gender` | `string` | [PII] Gender
 `phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -287,7 +287,7 @@ Field | Type | Description
 `gender` | `string` | [PII] Gender
 `phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -316,7 +316,7 @@ Field | Type | Description
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ## Catalogs
@@ -1431,6 +1431,10 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILBOUNCESHARED #USERSMESSAGESEMAILBOUNCESHARED" }
+
+{% alert note %}
+You may see multiple rows for the same user around a single hard bounce. That can happen when events are processed asynchronously or when related sends have different `dispatch_id` values. When deduplicating or analyzing exports, consider `dispatch_id`, `time`, and `id` together.
+{% endalert %}
 
 ### USERS_MESSAGES_EMAIL_CLICK_SHARED {#USERS_MESSAGES_EMAIL_CLICK_SHARED}
 

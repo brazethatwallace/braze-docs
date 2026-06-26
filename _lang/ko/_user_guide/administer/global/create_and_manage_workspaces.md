@@ -35,7 +35,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 글로벌 헤더의 워크스페이스 드롭다운에서 새 워크스페이스를 생성하거나 기존 워크스페이스 간에 전환할 수 있습니다.
 
-1. 워크스페이스 드롭다운을 선택한 다음 <i class="fa-solid fa-square-plus" style="color: #0b8294;"></i> **Create workspace**를 선택합니다.
+1. 워크스페이스 드롭다운을 선택한 다음 <i class="fa-solid fa-square-plus" style="color: #0b8294;" aria-hidden="true"></i> **워크스페이스 생성**을 선택합니다.
 
 ![워크스페이스 생성 버튼이 있는 워크스페이스 드롭다운.]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
 
@@ -47,31 +47,31 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 {% endalert %}
 
 {:start="3"}
-3. **Create**를 선택합니다. Braze가 워크스페이스를 생성하는 데 몇 초가 걸릴 수 있습니다.
+3. **생성**을 선택합니다. Braze가 워크스페이스를 생성하는 데 몇 초가 걸릴 수 있습니다.
 
-!["Upon Voyage US - Staging"이라는 이름이 입력된 "Create Workspace" 모달.]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
+!["Upon Voyage US - Staging"이라는 이름이 입력된 워크스페이스 생성 모달.]({% image_buster /assets/img/workspaces/workspace_name.png %}){: style="max-width:60%" }
 
-앱 인스턴스를 추가할 수 있는 **App Settings** 페이지로 이동합니다. 이 페이지는 **Settings** > **App Settings**에서 언제든지 접근할 수 있습니다.
+앱 인스턴스를 추가할 수 있는 **앱 설정** 페이지로 이동합니다. 이 페이지는 **설정** > **앱 설정**에서 언제든지 접근할 수 있습니다.
 
-![앱 추가 버튼이 있는 Upon Voyage US - Staging 워크스페이스의 "App Settings" 페이지.]({% image_buster /assets/img/workspaces/workspace_empty_state.png %})
+![앱 추가 버튼이 있는 Upon Voyage US - Staging 워크스페이스의 앱 설정 페이지.]({% image_buster /assets/img/workspaces/workspace_empty_state.png %})
 
 ### 3단계: 앱 인스턴스 추가 {#step-3-add-your-app-instances}
 
 워크스페이스 내에 수집되는 다양한 사이트와 앱을 "앱 인스턴스"라고 합니다.
 
-1. **App Settings** 페이지에서 **+ Add app**을 선택합니다.
+1. **앱 설정** 페이지에서 **+ 앱 추가**를 선택합니다.
 2. 앱 인스턴스에 이름을 지정하고 이 앱 인스턴스가 사용하는 플랫폼을 선택합니다. 여러 플랫폼을 선택하면 Braze가 각 플랫폼에 대해 하나의 앱 인스턴스를 생성합니다.
 
-![앱 세부 정보를 선택할 수 있는 옵션이 있는 "Add New App to Upon Voyage US - Staging" 모달.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
+![앱 세부 정보를 선택할 수 있는 옵션이 있는 "Upon Voyage US - Staging에 새 앱 추가" 모달.]({% image_buster /assets/img/workspaces/workspace_add_app.png %}){: style="max-width:60%" }
 
 {:start="3"}
-3. **Add app**을 선택하여 확인합니다.
+3. **앱 추가**를 선택하여 확인합니다.
 
 #### 앱 API 키 {#app-api-keys}
 
 앱 인스턴스를 추가하면 해당 API 키에 접근할 수 있습니다. API 키는 앱 인스턴스와 Braze API 간의 요청을 수행할 때 사용됩니다. API 키는 Braze SDK를 앱이나 웹사이트에 통합하는 데에도 중요합니다.
 
-![API Key 및 SDK Endpoint 필드가 있는 Upon Voyage iOS 앱의 설정 페이지.]({% image_buster /assets/img/workspaces/app_api_key.png %})
+![API 키 및 SDK 엔드포인트 필드가 있는 Upon Voyage iOS 앱의 설정 페이지.]({% image_buster /assets/img/workspaces/app_api_key.png %})
 
 {% alert note %}
 각 플랫폼의 앱 버전마다 별도의 앱 인스턴스를 생성해야 합니다. 예를 들어, iOS와 Android 모두에서 무료 버전과 프로 버전의 앱이 있는 경우 워크스페이스 내에 네 개의 앱 인스턴스(무료 iOS 앱, 무료 Android 앱, 프로 iOS 앱, 프로 Android 앱)를 생성합니다. 이렇게 하면 각 앱 인스턴스에 대해 하나씩 네 개의 API 키를 사용할 수 있습니다.
@@ -79,11 +79,11 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 #### 라이브 SDK 버전 {#live-sdk-version}
 
-특정 앱의 App Settings 페이지에 표시되는 라이브 SDK 버전은 전체 일일 세션의 5% 이상을 차지하고 지난 하루 동안 500회 이상의 세션이 있는 가장 높은 앱 버전입니다.
+특정 앱의 앱 설정 페이지에 표시되는 라이브 SDK 버전은 전체 일일 세션의 5% 이상을 차지하고 지난 하루 동안 500회 이상의 세션이 있는 가장 높은 앱 버전입니다.
 
 이 필드는 Braze SDK를 앱이나 웹사이트에 통합한 후에 나타납니다. 해당 플랫폼에 더 새로운 버전의 Braze SDK가 있는 경우 "Newer Version Available" 태그와 함께 여기에 표시됩니다.
 
-![필드 값이 "5.4.0"이고 새 버전이 사용 가능하다는 아이콘이 있는 "Live SDK Version" 섹션.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
+![필드 값이 "5.4.0"이고 새 버전이 사용 가능하다는 아이콘이 있는 "라이브 SDK 버전" 섹션.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
 
 ### 4단계: 필요에 따라 반복 {#step-4-repeat-as-needed}
 
@@ -99,14 +99,14 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 자주 사용하는 워크스페이스를 즐겨찾기에 추가하여 더 빠르게 접근할 수 있습니다.
 
-!["Favorite workspaces" 탭이 있는 워크스페이스 드롭다운.]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
+![워크스페이스 즐겨찾기 탭이 있는 워크스페이스 드롭다운.]({% image_buster /assets/img/workspaces/workspace_favorites.png %}){: style="max-width:50%;"}
 
 워크스페이스를 즐겨찾기에 추가하려면:
 
-1. 프로필 드롭다운을 선택한 다음 **Manage your account**를 선택합니다.
-2. **Account Profile** 섹션에서 **Favorite workspaces** 필드를 찾습니다.
+1. 프로필 드롭다운을 선택한 다음 **내 계정 관리**를 선택합니다.
+2. **계정 프로필** 섹션에서 **워크스페이스 즐겨찾기** 필드를 찾습니다.
 3. 목록에서 워크스페이스를 선택합니다.
-4. **Save changes**를 선택합니다.
+4. **변경 사항 저장**을 선택합니다.
 
 즐겨찾기에 추가할 수 있는 워크스페이스 수에는 제한이 없지만, 편의를 위해 목록을 짧게 유지하는 것을 권장합니다.
 
@@ -114,9 +114,9 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 워크스페이스 이름을 변경하려면:
 
-1. **Settings** > **App Settings**으로 이동합니다.
-2. 워크스페이스 이름 위에 마우스를 올리고 <i class="fa-solid fa-pencil" style="color: #0b8294;"></i>을 선택합니다.
-3. 워크스페이스에 새 이름을 지정한 다음 <i class="fa-solid fa-square-check" style="color: #0b8294;"></i> **Save**를 선택합니다.
+1. **설정** > **앱 설정**으로 이동합니다.
+2. 워크스페이스 이름 위에 마우스를 올리고 <i class="fa-solid fa-pencil" style="color: #0b8294;" aria-hidden="true"></i> **편집**을 선택합니다.
+3. 워크스페이스에 새 이름을 지정한 다음 <i class="fa-solid fa-square-check" style="color: #0b8294;" aria-hidden="true"></i> **저장**을 선택합니다.
 
 ![워크스페이스 이름 옆에 나타나는 연필 아이콘.]({% image_buster /assets/img/workspaces/workspace_rename.gif %}){: style="max-width:50%;"}
 
@@ -124,8 +124,8 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 워크스페이스 또는 앱 인스턴스를 삭제하려면:
 
-1. **Settings** > **App Settings**으로 이동합니다.
-2. 해당 워크스페이스를 삭제하려면 **Delete workspace**를 선택하거나, 해당 앱 인스턴스 옆의 휴지통 아이콘을 선택합니다.
+1. **설정** > **앱 설정**으로 이동합니다.
+2. 해당 워크스페이스를 삭제하려면 **워크스페이스 삭제**를 선택하거나, 해당 앱 인스턴스 옆의 휴지통 아이콘을 선택합니다.
 
 현재 사용자 타겟팅에 사용 중이거나 1,000명 이상의 사용자가 있는 앱 인스턴스 또는 워크스페이스는 삭제할 수 없습니다. 삭제를 시도하면 오류 메시지가 표시됩니다. 삭제를 진행하려면 대시보드 링크와 삭제할 앱 인스턴스 또는 워크스페이스 이름을 포함하여 [고객지원 케이스를 생성]({{site.baseurl}}/user_guide/administer/personal/braze_support/)하세요.
 
@@ -133,7 +133,7 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 워크스페이스를 삭제할 때 주의하세요! 워크스페이스가 삭제되면 복원할 수 없습니다.
 {% endalert %}
 
-![워크스페이스 삭제 버튼과 앱 삭제를 위한 휴지통 아이콘이 있는 App Settings 페이지.]({% image_buster /assets/img/workspaces/workspace_delete.png %})
+![워크스페이스 삭제 버튼과 앱 삭제를 위한 휴지통 아이콘이 있는 앱 설정 페이지.]({% image_buster /assets/img/workspaces/workspace_delete.png %})
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -167,15 +167,15 @@ Braze에서 하는 모든 작업은 워크스페이스 내에서 이루어집니
 
 #### Campaigns
 
-Campaigns의 경우, 작성기의 **Target Audiences** 단계에서 Segment를 추가합니다.
+Campaigns의 경우, 작성기의 **타겟 오디언스** 단계에서 Segment를 추가합니다.
 
 #### Canvas
 
-Canvas에서는 메시지 단계의 **Delivery Validations** 섹션에서 Segment를 추가합니다. 전달 유효성 검사는 메시지 전송 시 오디언스가 전달 기준을 충족하는지 다시 한번 확인합니다. 올바른 앱에 전달되도록 각 메시지 단계에 대해 전달 유효성 검사를 지정하세요. 진입 수준에서 세분화할 필요는 없습니다.
+Canvas에서는 메시지 단계의 **전달 유효성 검사** 섹션에서 Segment를 추가합니다. 전달 유효성 검사는 메시지 전송 시 오디언스가 전달 기준을 충족하는지 다시 한번 확인합니다. 올바른 앱에 전달되도록 각 메시지 단계에 대해 전달 유효성 검사를 지정하세요. 진입 수준에서 세분화할 필요는 없습니다.
 
 {% details 기존 Canvas 워크플로의 단계를 보려면 펼치기 %}
 
-기존 Canvas 워크플로에서는 **Audience** 섹션의 Canvas 구성요소 수준에서 Segment를 추가합니다. 진입 수준에서 세분화할 필요는 없습니다.
+기존 Canvas 워크플로에서는 **오디언스** 섹션의 Canvas 구성요소 수준에서 Segment를 추가합니다. 진입 수준에서 세분화할 필요는 없습니다.
 
 {% enddetails %}
 

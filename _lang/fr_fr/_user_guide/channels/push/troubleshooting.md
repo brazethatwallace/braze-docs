@@ -40,7 +40,7 @@ Ces deux endpoints renvoient un objet de jeton de notification push qui inclut l
 
 Assurez-vous que vous faites partie du segment que vous ciblez (s'il s'agit d'une campagne en production et non d'un test). Dans le **User Profile**, vous verrez la liste des segments auxquels l'utilisateur appartient actuellement. N'oubliez pas qu'il s'agit d'une variable en constante évolution, car la segmentation est mise à jour en temps réel.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![Liste des segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment. **User Lookup** n'accepte que les `external_id` ou `braze_id`, pas les adresses e-mail ni les numéros de téléphone. Pour effectuer une recherche par e-mail, téléphone, jeton de notification push ou alias d'utilisateur, utilisez [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
 
@@ -52,7 +52,7 @@ Vérifiez les limites de fréquence globales. Il est possible que vous n'ayez pa
 
 Vous pouvez vérifier cela en consultant la [limite de fréquence globale]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) dans le tableau de bord. Si la campagne est configurée pour respecter les règles de limite de fréquence, un certain nombre d'utilisateurs seront impactés par ces paramètres.
 
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+![Détails de la campagne]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Limites de débit {#rate-limits}
 
@@ -132,13 +132,13 @@ Si cliquer sur une notification push n'ouvre pas votre application, vérifiez le
 2. **Vérifiez la gestion des liens profonds :** Dans votre fichier `braze.xml`, vérifiez si `com_braze_handle_push_deep_links_automatically` est défini sur `true` ou `false`.
    - S'il est défini sur `true`, le SDK Braze gère les liens profonds directement et l'application devrait s'ouvrir comme prévu.
    - S'il est défini sur `false`, votre application a besoin d'un récepteur de diffusion pour écouter et gérer les intentions de réception et d'ouverture des notifications push. Vérifiez que ce récepteur est correctement implémenté.
-3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux ainsi que vos fichiers `braze.xml` et `AndroidManifest.xml` au support Braze.
+3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux ainsi que vos fichiers `braze.xml` et `AndroidManifest.xml` à l'assistance Braze.
 
 ### iOS
 
 1. **Vérifiez le comportement au clic :** Confirmez que la campagne est configurée pour ouvrir l'application lorsqu'on clique dessus.
 2. **Vérifiez l'intégration push :** La création de liens profonds depuis une notification push vers l'application est automatiquement gérée par l'[intégration push standard]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) de Braze. Confirmez que l'intégration est correctement implémentée, y compris toute gestion de délégué personnalisée.
-3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux au support Braze.
+3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux à l'assistance Braze.
 
 ## Les clics sur les notifications push ouvrent de manière inattendue dans l'application {#push-clicks-unexpectedly-open-in-app}
 
@@ -175,9 +175,9 @@ Si vous utilisez actuellement un certificat `.p12` ou `.pem`, migrez vers une cl
 
 ### Clés .p8 et certificats .p12 {#p8-keys-versus-p12-certificates}
 
-| Identifiant | Expiration | Indicateur d'état dans le tableau de bord |
+| Identifiant | Expiration | Indicateur de statut dans le tableau de bord |
 | --- | --- | --- |
-| Clé d'authentification `.p8` | N'expire pas | Pas d'indicateur d'état vert (c'est normal) |
+| Clé d'authentification `.p8` | N'expire pas | Pas d'indicateur de statut vert (c'est normal) |
 | Certificat push `.p12` | Expire chaque année | Indicateur vert lorsque le certificat est valide |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Clés .p8 et certificats .p12" }
 

@@ -18,7 +18,7 @@ _Esta integración es mantenida por Databricks._
 
 ## Acerca de la integración {#about-the-integration}
 
-La integración de Braze y Databricks Mosaic te permite conectar tu token y espacio de trabajo de Databricks a Braze para que puedas usar modelos de Databricks al crear agentes de IA personalizados. Braze utiliza tus credenciales de Databricks Mosaic para generar contenido para tus clientes. Con esta integración, tus agentes pueden generar textos personalizados, tomar decisiones en tiempo real o actualizar campos de Catálogo usando modelos de Databricks.
+La integración de Braze y Databricks Mosaic te permite conectar tu token y espacio de trabajo de Databricks a Braze para que puedas usar modelos de Databricks al crear agentes de IA personalizados. Braze utiliza tus credenciales de Databricks Mosaic para generar contenido para tus clientes. Con esta integración, tus agentes pueden generar textos personalizados, tomar decisiones en tiempo real o actualizar campos de catálogo usando modelos de Databricks.
 
 ## Requisitos previos {#prerequisites}
 

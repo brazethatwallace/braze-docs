@@ -1,12 +1,12 @@
 ---
 nav_title: コネクテッドコンテンツの呼び出しを行う
-article_title: コネクテッドコンテンツ API の呼び出しを行う
+article_title: コネクテッドコンテンツAPIの呼び出しを行う
 page_order: 0
-description: "このリファレンス記事では、コネクテッドコンテンツ API の呼び出し方法、役立つ例、高度なコネクテッドコンテンツのユースケースについて説明します。"
+description: "このリファレンス記事では、コネクテッドコンテンツAPIの呼び出し方法、役立つ例、高度なコネクテッドコンテンツのユースケースについて説明します。"
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}コネクテッドコンテンツ API の呼び出しを行う {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}コネクテッドコンテンツAPIの呼び出しを行う {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
 
 > コネクテッドコンテンツを使用すると、APIでアクセス可能な情報をユーザーに送信するメッセージに直接挿入できます。Webサーバーから直接、または公開されているAPIからコンテンツを取得できます。<br><br>このページでは、コネクテッドコンテンツAPIの呼び出し方法、高度なコネクテッドコンテンツのユースケース、エラー処理などについて説明します。
 
@@ -210,7 +210,6 @@ Brazeのコネクテッドコンテンツを使用する際、一部のAPIでは
 - ベーシック認証の場合、ユーザー名とパスワードを更新できます。以前に入力したパスワードは表示されないことに注意してください。
 - トークン認証の場合、ヘッダーのキーと値のペアと許可されたドメインを更新できます。以前に設定したヘッダー値は表示されないことに注意してください。
 
-![認証情報を編集するオプション。]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## コネクテッドコンテンツのIP許可リスト {#connected-content-ip-allowlisting}
 
@@ -236,12 +235,14 @@ Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 
 ## トラブルシューティング {#troubleshooting}
 
-コネクテッドコンテンツの呼び出しのトラブルシューティングには、[Webhook.site](https://webhook.site/)を使用してください。
+コネクテッドコンテンツの呼び出しのトラブルシューティングや、呼び出しで送信されるリクエストヘッダー、リクエスト本文、その他の情報に関する問題の診断には、[Webhook.site](https://webhook.site/)を使用してください。
 
 1. コネクテッドコンテンツの呼び出しのURLを、サイトで生成された一意のURLに切り替えます。
 2. Campaignまたはキャンバスステップをプレビューしてテストし、このWebサイトにリクエストが届くことを確認します。
 
-このツールを使用すると、呼び出しで送信されるリクエストヘッダー、リクエスト本文、その他の情報に関する問題を診断できます。
+Liquidタグにエンドポイントが期待するパラメーター（たとえば、`:method`、`:headers`、`:content_type`、`:body`、必要に応じて `:basic_auth`）が含まれていることも確認できます。保存されたJSONオブジェクトのHTTPステータスコードキーに依存する場合、エンドポイントはJSONオブジェクトと `2XX` ステータスを返す必要があります。
+
+ホストからのエラー率が高い場合は、[異常ホスト検出]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection)と[コネクテッドコンテンツの呼び出し量](#understanding-connected-content-call-volume)を確認してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

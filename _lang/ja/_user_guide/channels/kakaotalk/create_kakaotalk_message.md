@@ -24,12 +24,12 @@ KakaoTalkはCampaignsとCanvasの両方でサポートされています。Campa
 
 ![メッセージングチャネルを選択するオプションのパネル。]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. キャンペーンにバリアントを追加して、異なるメッセージタイプやレイアウトを選択できます。詳細については、[多変量テストとABテスト](https://www.braze.com/docs/user_guide/messaging/ab_testing/)を参照してください。
+3. キャンペーンにバリアントを追加して、異なるメッセージタイプやレイアウトを選択できます。詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Canvasを作成](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/)します。
+1. [Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
 2. Canvasビルダーでメッセージステップを追加し、**KakaoTalk** を選択します。
 
 ![Canvasメッセージングチャネルの選択。]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
@@ -61,7 +61,7 @@ KakaoTalkテキストメッセージは、最もシンプルなコミュニケ�
 | コンテンツ | 絵文字やLiquidパーソナライゼーションを含むテキストコンテンツ |
 | テキスト容量 | 最大1,000文字 |
 | ボタン | 最大5つのオプションボタン。現在、クリック時にURLを開く用途にのみ使用できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="仕様" }
 
 ![コンポーザーでのKakaoTalkテキストメッセージ。]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
@@ -79,7 +79,7 @@ KakaoTalkテキストメッセージは、最もシンプルなコミュニケ�
 | 推奨幅 | 500px |
 | ファイルサイズ | 最大500kb |
 | アスペクト比 | 2:1（ワイド）から3:4（トール）の間 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="General specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="一般仕様" }
 
 ナロー画像メッセージとワイド画像メッセージでは、文字数とボタンの考慮事項が異なります。
 
@@ -99,7 +99,7 @@ KakaoTalkテキストメッセージは、最もシンプルなコミュニケ�
 | ボタン | 最大5つのオプションボタン |
 | 画像ソース | Brazeメディアライブラリまたは直接URLから画像を追加できます |
 | カスタマイズ | 画像のクリック時の動作を指定できます |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="仕様" }
 
 ![KakaoTalkナローメッセージ。]({% image_buster /assets/img/kakaotalk/narrow_image.png %})
 
@@ -119,7 +119,7 @@ KakaoTalkテキストメッセージは、最もシンプルなコミュニケ�
 | ボタン | 最大2つのオプションボタン |
 | 画像ソース | Brazeメディアライブラリまたは直接URLから画像を追加できます |
 | カスタマイズ | 画像のクリック時の動作を指定できます |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="仕様" }
 
 ![KakaoTalkワイドメッセージ。]({% image_buster /assets/img/kakaotalk/wide_image.png %})
 
@@ -150,8 +150,8 @@ KakaoTalkアイテムリストメッセージは、コンテンツアイテム�
 | ボタン | 最大5つのオプションボタン |
 | ヘッダー | 最大250文字 |
 | アイテムタイトル | 最大25文字 |
-| WebサイトURL（アイテムごと）| 最大250文字 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+| WebサイトURL（アイテムごと） | 最大250文字 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="仕様" }
 
 ![KakaoTalkリストアイテムメッセージ。]({% image_buster /assets/img/kakaotalk/item_list.png %})
 
@@ -161,7 +161,7 @@ KakaoTalkアイテムリストメッセージは、コンテンツアイテム�
 
 ## ステップ 3:クリックトラッキングを設定する {#step-3-set-up-click-tracking}
 
-KakaoTalkクリックトラッキングをオンにすると、Brazeは自動的にURLを短縮し、トラッキングメカニズムを追加して、リアルタイムでクリックを記録します。このデータにより、クリック動作に基づくユーザーのセグメンテーションや、特定のクリックに応じたメッセージのトリガーなど、よりターゲットを絞ったセグメンテーションおよびリターゲティング戦略を作成できます。
+KakaoTalkクリックトラッキングをオンにすると、BrazeはURLを自動的に短縮し、トラッキングメカニズムを追加して、リアルタイムでクリックを記録します。このデータにより、クリック動作に基づくユーザーのセグメンテーションや、特定のクリックに応じたメッセージのトリガーなど、よりターゲットを絞ったセグメンテーションおよびリターゲティング戦略を作成できます。
 
 クリックトラッキングは、テキスト、画像、リストアイテムメッセージでサポートされています。ボタン内のリンクと画像のクリック時アクションをサポートしています。Liquidやカスタムドメインを使用してURLをパーソナライズすることもできます。
 

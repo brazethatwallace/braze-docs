@@ -95,7 +95,7 @@ Puedes agregar hasta 10 páginas por mensaje dentro de la aplicación.
 
 Para duplicar una página existente:
 
-1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> para abrir más opciones.
+1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Selecciona **Duplicate**.
 3. Dale a la página un nombre significativo. Esto te ayudará cuando conectes las páginas entre sí.
 
@@ -104,7 +104,7 @@ Para duplicar una página existente:
 
 Para eliminar o renombrar una página:
 
-1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> para abrir más opciones.
+1. Pasa el cursor sobre la página en la lista y selecciona <i class="fas fa-ellipsis-vertical"></i> **More options**.
 2. Selecciona **Rename** o **Delete**.
 
 {% endtab %}
@@ -168,25 +168,25 @@ Considera las siguientes preguntas mientras pruebas tu mensaje dentro de la apli
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Los clics en el cuerpo no se recopilan automáticamente para los mensajes dentro de la aplicación creados con el editor de arrastrar y soltar. Para más detalles, consulta los registros de cambios del SDK para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) y [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### ¿Puedo segmentar basándome en los clics de botones? {#can-i-segment-based-on-button-clicks}
+### ¿Puedo segmentar basándome en los clics de botones? {#can-i-segment-based-on-button-clicks}
 
 Sí, puedes segmentar basándote en los clics de botones para hasta dos botones en tu mensaje. Para hacerlo, establece el **Identifier for Reporting** de tus botones en "0" y "1", que corresponderán a los filtros de segmentación "Clicked in-app message button 1" y "Clicked in-app message button 2" respectivamente.
 
 ![El campo "Identifier for Reporting" con un valor de "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML o JavaScript personalizado, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### ¿Puedo personalizar mi mensaje dentro de la aplicación usando HTML o JavaScript personalizado, o transferir mensajes HTML existentes al editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 No puedes transferir directamente mensajes HTML existentes al editor, pero puedes insertar HTML sin procesar, CSS y JavaScript en un bloque de código personalizado. Puedes usar bloques de código personalizado para incrustar videos de terceros y Liquid avanzado, como contenido conectado o sentencias condicionales.
 
-#### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
+### ¿Cómo puedo crear un mensaje dentro de la aplicación de deslizamiento hacia arriba? {#how-can-i-create-a-slideup-in-app-message}
 
 Actualmente, el editor está limitado solo a mensajes modales y de pantalla completa. Puedes cambiar entre tipos de visualización en la sección **Message container** del panel **Message styles**.
 
-#### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi campaña o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### ¿Puedo guardar mi mensaje dentro de la aplicación como plantilla después de construirlo dentro de mi campaña o Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura campaña o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la campaña O guardarlo como borrador.
 

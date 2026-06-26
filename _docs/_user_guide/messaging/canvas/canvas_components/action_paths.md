@@ -71,6 +71,10 @@ Add a trigger or multiple triggers to define your action groups. Here, you can s
 - Trigger a geofence
 - Send an SMS or WhatsApp inbound message
 
+#### Add an email address trigger
+
+The **Add an Email Address** action group trigger fires when an email address is added or updated on a user profile during the action path's **Evaluation Window**. This behavior matches other profile update triggers: users advance through the action group when the profile change qualifies under your configuration, including any filters on the trigger.
+
 ![An action group named "Group 1" for users who make any purchase.]({% image_buster /assets/img/actionpath_group.png %})
 
 In each action group setting, you also have the option to select the checkbox **I want this group to exit the Canvas**, meaning that the users within this group exit the Canvas at the end of the evaluation period.
@@ -84,5 +88,9 @@ If users enter an action path multiple times and have multiple entries in the ac
 | **Off** | A user can enter an action path more than once. These entries are held in the action path until a trigger action or event is recorded. If the trigger event does not satisfy an entry's property filters (for example, a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) does not match the trigger's property filters), the entry remains in the action path. <br><br>If the trigger event satisfies more than one entry, Braze deduplicates only these entries and immediately advances the earliest matching entry through the relevant action group. |
 | **On** | All entries advance at the end of the relevant evaluation window. No deduplication occurs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases with re-eligibility" }
+
+{% alert warning %}
+Do not change **Advance users based on ranked order** after launch when users are already in the step. Braze applies the current ranking setting when processing events and when the evaluation window ends, but path state recorded earlier in the window may reflect a previous setting. For example, if you turn ranking off after users performed a ranked action, they may not advance through the path you expect when the window closes. Instead, create a new action path with the desired ranking setting, or duplicate the Canvas.
+{% endalert %}
 
 Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).

@@ -19,7 +19,7 @@ Las <i>aperturas reales estimadas</i> son una estimación de cuántas aperturas 
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Ayuda</i> es cuando un usuario respondió a tu mensaje con una <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palabra clave AYUDA</a> y se le envió una respuesta automática de AYUDA.
+<i>Ayuda</i> es cuando un usuario respondió a tu mensaje con una <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palabra clave AYUDA</a> y se le envió una respuesta automática de AYUDA.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -31,7 +31,7 @@ Un <i>rebote blando</i> es cuando un correo electrónico no se entrega al destin
 {% endif %}
 
 {% if include.metric == "Deferral" %}
-Un <i>aplazamiento</i> es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico hasta 72 horas después de este fallo de entrega temporal para maximizar las posibilidades de éxito en la entrega antes de que se detengan los intentos para esa campaña específica.
+Un <i>aplazamiento</i> es cuando un correo electrónico no se entregó inmediatamente, pero Braze reintenta el correo electrónico hasta 72 horas después de este fallo de entrega temporal para maximizar las posibilidades de éxito en la entrega antes de que se detengan los intentos para esa Campaign específica.
 {% endif %}
 
 {% if include.metric == "Body Click" %}
@@ -51,11 +51,11 @@ Los <i>clics en el cuerpo</i> se producen cuando un usuario hace clic en un mens
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>Opciones enviadas</i> es el número total de opciones seleccionadas cuando el usuario hace clic en el botón enviar de la página de preguntas de un <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
+<i>Opciones enviadas</i> es el número total de opciones seleccionadas cuando el usuario hace clic en el botón enviar de la página de preguntas de un <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-La <i>tasa de clics sobre aperturas</i> es el porcentaje de correos electrónicos abiertos en los que un usuario o una máquina ha hecho clic al menos una vez, y solo está disponible en el <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>generador de informes</a>.
+La <i>tasa de clics sobre aperturas</i> es el porcentaje de correos electrónicos abiertos en los que un usuario o una máquina ha hecho clic al menos una vez, y solo está disponible en el <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>generador de informes</a>.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,15 +71,15 @@ La <i>confianza</i> es el porcentaje de confianza en que una determinada variant
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>Botón de página de confirmación</i> es el total de clics en el botón de llamada a la acción de la página de confirmación de un <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
+<i>Botón de página de confirmación</i> es el total de clics en el botón de llamada a la acción de la página de confirmación de un <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-Los <i>descartes de la página de confirmación</i> son el total de clics en el botón de cierre (x) de la página de confirmación de un <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
+Los <i>descartes de la página de confirmación</i> son el total de clics en el botón de cierre (x) de la página de confirmación de un <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
-La <i>tasa de conversión</i> es el porcentaje de veces que se ha producido un evento definido en comparación con todos los destinatarios de un mensaje. Este evento definido se determina cuando construyes la campaña.
+La <i>tasa de conversión</i> es el porcentaje de veces que se ha producido un evento definido en comparación con todos los destinatarios de un mensaje. Este evento definido se determina cuando construyes la Campaign.
 {% endif %}
 
 {% if include.metric == "Conversion Window" %}
@@ -91,7 +91,7 @@ Las <i>conversiones (B, C, D)</i> son eventos de conversión adicionales añadid
 {% endif %}
 
 {% if include.metric == "Total Conversions" %}
-<i>Conversiones totales</i> es el número total de veces que un usuario completa un evento de conversión específico después de ver una campaña de mensajería dentro de la aplicación.
+<i>Conversiones totales</i> es el número total de veces que un usuario completa un evento de conversión específico después de ver una Campaign de mensajes dentro de la aplicación.
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
@@ -143,7 +143,7 @@ El <i>valor de duración del ciclo de vida por usuario</i> son los <i>ingresos d
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
-Los <i>ingresos medios diarios</i> son la media de la suma de los ingresos de la campaña y de Canvas de un día determinado.
+Los <i>ingresos medios diarios</i> son la media de la suma de los ingresos de la Campaign y de Canvas de un día determinado.
 {% endif %}
 
 {% if include.metric == "Daily Purchases" %}
@@ -167,7 +167,7 @@ Las <i>aperturas</i> son instancias que incluyen tanto <i>Direct Opens</i> como 
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-La <i>exclusión voluntaria</i> se produce cuando un usuario responde a tu mensaje con una <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palabra clave de exclusión voluntaria</a> y cancela la suscripción a tu programa SMS o RCS.
+La <i>exclusión voluntaria</i> se produce cuando un usuario responde a tu mensaje con una <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palabra clave de exclusión voluntaria</a> y cancela la suscripción a tu programa SMS o RCS.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -175,7 +175,7 @@ El <i>reintento pendiente</i> es el número de solicitudes que fueron rechazadas
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña.
+<i>Conversiones primarias (A)</i> o <i>evento de conversión primaria</i> es el número de veces que se ha producido un evento definido tras interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la Campaign.
 {% endif %}
 
 {% if include.metric == "Reads" %}
@@ -183,7 +183,7 @@ Las <i>lecturas</i> se producen cuando el usuario lee el mensaje. Los recibos de
 {% endif %}
 
 {% if include.metric == "Read Rate" %}
-La <i>tasa de lectura</i> es el porcentaje de envíos que dieron lugar a una lectura. Solo se da a los usuarios que tienen activados los recibos de lectura.
+La <i>tasa de lectura</i> es el porcentaje de envíos que dieron lugar a una lectura. Solo se proporciona para los usuarios que tienen activados los recibos de lectura.
 {% endif %}
 
 {% if include.metric == "Received" %}
@@ -195,7 +195,7 @@ Los <i>rechazos</i> se producen cuando el SMS o RCS ha sido rechazado por el ope
 {% endif %}
 
 {% if include.metric == "Revenue" %}
-Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de la campaña dentro de la <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>ventana de conversión primaria</a> establecida.
+Los <i>ingresos</i> son los ingresos totales en dólares de los destinatarios de la Campaign dentro de la <a href='/docs/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events'>ventana de conversión primaria</a> establecida.
 {% endif %}
 
 {% if include.metric == "Messages Sent" %}
@@ -223,11 +223,11 @@ El <i>correo no deseado</i> es el número total de correos electrónicos entrega
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-Los <i>descartes de la página del cuestionario</i> son el total de clics en el botón cerrar (x) de la página de preguntas de un <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
+Los <i>descartes de la página del cuestionario</i> son el total de clics en el botón cerrar (x) de la página de preguntas de un <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-Los <i>envíos de cuestionarios</i> son el total de clics en el botón de envío de un <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
+Los <i>envíos de cuestionarios</i> son el total de clics en el botón de envío de un <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>cuestionario simple</a>.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +235,7 @@ El <i>total de clics</i> es el número (o porcentaje) de destinatarios únicos q
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-El <i>total de descartes</i> es el número de veces que se han descartado Content Cards de una Campaign.
+El <i>total de descartes</i> es el número de veces que los usuarios descartaron un mensaje de una Campaign. Para Content Cards, esto cuenta cada descarte de tarjeta. Para los Banners, esto cuenta cada vez que un usuario descartó el Banner cuando el comportamiento de descarte está habilitado.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +251,7 @@ Los <i>ingresos totales</i> son los ingresos totales en dólares de los destinat
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-Los <i>clics únicos</i> son el número diferenciado de destinatarios que han hecho clic en un enlace dentro de un mensaje al menos una vez y se miden mediante <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
+Los <i>clics únicos</i> son el número diferenciado de destinatarios que han hecho clic en un enlace dentro de un mensaje al menos una vez y se miden mediante <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -262,6 +262,10 @@ Los <i>clics únicos</i> son el número diferenciado de destinatarios que han he
 
 {% if include.metric == "Unique Impressions" %}
 Las <i>impresiones únicas</i> son el número total de usuarios que han visto un mensaje de una Campaign determinada. Una impresión solo se registra cuando el mensaje se hace visible en la pantalla de un usuario.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+Las <i>impresiones diarias únicas</i> son el número de usuarios únicos que vieron el mensaje en un día determinado. Este recuento se restablece cada día natural, por lo que un usuario que ve el mismo mensaje en dos días diferentes se cuenta dos veces. Esta métrica se alinea con la métrica de facturación del mismo nombre.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}

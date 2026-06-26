@@ -146,3 +146,10 @@ Wenn Sie Zeilen nach gesamter Campaign oder Canvas aggregiert haben möchten ans
 #### Doppelte Button-Klicks in HTML-In-App-Nachrichten {#duplicate-button-clicks-in-html-in-app-messages}
 
 Wenn Sie HTML-In-App-Nachrichten verwenden und **Body-Klicks** im Engagement-Bericht hoch erscheinen, protokollieren Sie möglicherweise Klicks doppelt – zum Beispiel indem Sie `brazeBridge.logClick()` für einen generischen Body-Klick und gleichzeitig `brazeBridge.logClick('body click')` (oder eine andere ID) für dieselbe Interaktion aufrufen. Durchsuchen Sie Ihr Markup nach `brazeBridge.logClick(` und vereinheitlichen Sie auf ein Muster pro Steuerelement. Für die empfohlene Verwendung siehe [Button-Tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+
+#### Fehlerhafte Links in per E-Mail versendeten Engagement-Berichten {#broken-links-in-emailed-engagement-reports}
+
+Wenn Links in einer geplanten Engagement-Bericht-E-Mail in Ihrem E-Mail-Client nicht korrekt geöffnet werden, versuchen Sie folgende Schritte:
+
+1. Leiten Sie den Bericht an ein Gmail-Postfach weiter und öffnen Sie die Links in Google Chrome.
+2. Überprüfen Sie in den Engagement-Bericht-Einstellungen, ob **Report Schedule** so konfiguriert ist, dass der Versand zum erwarteten Zeitpunkt erfolgt (z. B. sofort nach der Berichtserstellung und nicht nach einem verzögerten Zeitplan).

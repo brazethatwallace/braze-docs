@@ -355,7 +355,7 @@ Um zu bestätigen, dass die Event-Eigenschaften erfolgreich getrackt werden, kö
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events**.
 2. Suchen Sie Ihr angepasstes Event in der Liste.
-3. Wählen Sie für Ihr Event **Manage Properties**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
+3. Wählen Sie für Ihr Event **Eigenschaften verwalten**, um die Namen der mit einem Event verknüpften Eigenschaften anzuzeigen.
 
 ### Werte überprüfen {#verify-values}
 
@@ -389,5 +389,5 @@ Wenn angepasste Events nicht wie erwartet angezeigt werden, bestätigen Sie, das
 
 - Bitten Sie Ihr Entwickler:innen-Team zu überprüfen, ob das Event korrekt protokolliert und durch die erwartete Nutzer:innen-Aktion getriggert wird.
 - Wenn Ihr Team ein Ticket beim Braze Support eröffnet, fügen Sie [ausführliche Protokolle]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) und relevante Code-Snippets bei.
-- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
+- Wenn Ihre App Swift oder Android verwendet, kann Ihr Entwickler:innen-Team die [Voraussetzungen für den SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites) nutzen, um ausführliche Protokolle zu generieren.
 - Wenn Ihr Entwickler:innen-Team das Problem nicht identifizieren kann, eröffnen Sie ein [Braze Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).

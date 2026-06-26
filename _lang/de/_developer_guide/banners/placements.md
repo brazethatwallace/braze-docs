@@ -31,7 +31,7 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Bannerplatzierungen zu
 
 ### 2. Schritt: Platzierungen in Ihrer App aktualisieren {#requestBannersRefresh}
 
-Platzierungen können durch Aufruf der unten beschriebenen Aktualisierungsmethoden aktualisiert werden. Diese Platzierungen werden automatisch zwischengespeichert, wenn die Sitzung einer Nutzer:in abläuft oder wenn Sie identifizierte Nutzer:innen mithilfe der `changeUser`-Methode ändern.
+Platzierungen können durch Aufruf der unten beschriebenen Aktualisierungsmethoden aktualisiert werden. Wenn `subscribeToBannersUpdates` aktiv ist, veröffentlicht das SDK Ihre zwischengespeicherten Platzierungs-IDs automatisch zu Beginn jeder neuen Sitzung und wenn Sie `changeUser` aufrufen. Diese automatische Aktualisierung verbraucht kein Rate-Limiting-Token.
 
 {% alert tip %}
 Aktualisieren Sie die Platzierungen so schnell wie möglich, um Verzögerungen beim Herunterladen oder Anzeigen von Bannern zu vermeiden.
@@ -717,6 +717,7 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Banner-Schließungen z
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integrationen {#integrations}
+
 #### Standard-Banner-Integrationen (Drag-and-Drop-Editor) {#standard-banner-integrations-drag-and-drop-editor}
 
 Wenn Ihr Banner den Drag-and-Drop-Editor verwendet und eine Schließen-Button-Komponente enthält, ist kein zusätzlicher Code erforderlich. Wenn Nutzer:innen auf den Schließen-Button klicken, wird die Nachricht ausgeblendet, eine Schließung ausgelöst und anschließend ein Schließungsereignis für Analytics aufgezeichnet.

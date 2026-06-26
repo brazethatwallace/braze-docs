@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Databricks Mosaic
 
-> [Databricks Mosaic AI](https://www.databricks.com/product/artificial-intelligence)는 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포, 관리하기 위한 Databricks의 통합 플랫폼입니다.
+> [Databricks Mosaic AI](https://www.databricks.com/product/artificial-intelligence)는 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포, 관리할 수 있는 Databricks의 통합 플랫폼입니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
@@ -26,7 +26,7 @@ Braze와 Databricks Mosaic 통합을 사용하면 Databricks 토큰과 워크스
 |---|---|
 | 개인 액세스 토큰이 있는 Databricks 계정 | [개인 액세스 토큰](https://docs.databricks.com/en/dev-tools/auth/pat.html)이 있는 Databricks 계정이 필요합니다. 도움이 필요하면 관리자 또는 [Databricks 고객지원](https://help.databricks.com/)에 문의하세요. |
 | Databricks 워크스페이스 이름 | Databricks 계정의 워크스페이스 이름(또는 인스턴스)입니다. `.cloud.databricks.com` 또는 `.azuredatabricks.net` 앞의 서브도메인입니다(예: `dbc-eb57d699-f22c`). |
-| Braze 인스턴스 | Braze 인스턴스는 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인하거나 Braze 온보딩 매니저에게 문의하세요. |
+| Braze 인스턴스 | Braze 인스턴스는 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인하거나 Braze 온보딩 매니저에게 문의할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}

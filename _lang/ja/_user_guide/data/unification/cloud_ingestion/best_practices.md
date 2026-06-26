@@ -313,8 +313,8 @@ CDIは、最後に同期された`UPDATED_AT`タイムスタンプにおける�
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table aria-label="Example: Managing subsequent updates">
-  <caption>Example: Managing subsequent updates</caption>
+<table aria-label="例：その後の更新を管理する">
+  <caption>例：その後の更新を管理する</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -419,10 +419,10 @@ FROM EXAMPLE_DATA;
   </tbody>
 </table>
 
-同期が実行され、Brazeにより「2023-03-16 15:00:00」まで利用可能なすべてのデータを同期したと記録されます。次に、2日目の朝にETLが実行され、ユーザーテーブルの一部のフィールドが更新されます（強調表示）。
+同期が実行され、Brazeにより「2023-03-16 15:00:00」まで利用可能なすべてのデータを同期したと記録されます。次に、2日目の朝にETLが実行され、ユーザーテーブルの一部のフィールドが更新されます（*で示されています）。
 
-<table aria-label="Example: Managing subsequent updates">
-  <caption>Example: Managing subsequent updates</caption>
+<table aria-label="例：その後の更新を管理する">
+  <caption>例：その後の更新を管理する。*は前回の同期以降に更新されたフィールドを示します。</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -435,14 +435,14 @@ FROM EXAMPLE_DATA;
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -451,13 +451,13 @@ FROM EXAMPLE_DATA;
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -465,7 +465,7 @@ FROM EXAMPLE_DATA;
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -573,7 +573,7 @@ CDIを使用したデータポイント使用量は、REST APIやSDKなどの他
 {% tabs local %}
 {% tab Snowflake %}
 このクエリをSnowflakeで使用して、ソース列をCDIフィールドにフォーマットします。
-`````````sql
+```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
      attribute_2 string,
@@ -596,7 +596,7 @@ SELECT
 {% endtab %}
 {% tab Redshift %}
 このクエリをRedshiftで使用して、ソース列をCDIフィールドにフォーマットします。
-`````````sql
+```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
      attribute_2 string,
@@ -619,7 +619,7 @@ SELECT
 {% endtab %}
 {% tab BigQuery %}
 このクエリをBigQueryで使用して、ソース列をCDIフィールドにフォーマットします。
-`````````sql
+```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
      attribute_3 NUMERIC,
@@ -640,7 +640,7 @@ SELECT
 {% endtab %}
 {% tab Databricks %}
 このクエリをDatabricksで使用して、ソース列をCDIフィールドにフォーマットします。
-`````````sql
+```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
     attribute_2 STRING,
@@ -663,7 +663,7 @@ SELECT
 {% endtab %}
 {% tab Microsoft Fabric %}
 このクエリをMicrosoft Fabricで使用して、ソース列をCDIフィールドにフォーマットします。
-`````````sql
+```sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
     attribute_2 VARCHAR,
@@ -717,6 +717,6 @@ Brazeは`UPDATED_AT`タイムスタンプを使用して、正常に同期され
 | データタイプ | クラウドデータ取り込みを通じて、ユーザー属性、イベント、および購入を同期できます。 |
 | Brazeリージョン | この製品はすべてのBrazeリージョンで利用可能です。任意のBrazeリージョンを任意のソースデータリージョンに接続できます。 |
 | ソースリージョン | Brazeは、あらゆるリージョンまたはクラウドプロバイダーのデータウェアハウスやクラウド環境に接続できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="製品の制限事項" }
 
 <br><br>

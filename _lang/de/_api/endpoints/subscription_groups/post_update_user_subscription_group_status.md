@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Updat
 
 {% api %}
 # Update des Abo-Gruppenstatus von Nutzer:innen {#update-users-subscription-group-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 

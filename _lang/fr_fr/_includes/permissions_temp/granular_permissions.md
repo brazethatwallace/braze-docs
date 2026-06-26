@@ -13,7 +13,7 @@ Utilisez les ensembles d'autorisations pour regrouper les autorisations liées �
 | Développeurs | "Afficher les clés API", "Modifier les clés API", "Afficher les groupes internes", "Modifier les groupes internes", "Afficher le journal d'activité des messages", "Afficher le journal des événements utilisateurs", "Afficher les identifiants API", "Afficher le tableau de bord d'utilisation de l'API", "Afficher les limites de l'API", "Afficher les alertes d'utilisation de l'API", "Modifier les alertes d'utilisation de l'API", "Afficher le débogueur SDK", "Modifier le débogueur SDK". |
 | Marketeurs | "Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les règles de limite de fréquence", "Modifier les règles de limite de fréquence", "Afficher la priorisation des messages", "Modifier la priorisation des messages", "Afficher les Content Blocks", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Modifier le groupe de contrôle global", "Afficher les modèles IAM", "Modifier les modèles IAM", "Archiver les modèles IAM", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Archiver les modèles d'e-mail", "Afficher les modèles de webhook", "Modifier les modèles de webhook", "Archiver les modèles de webhook", "Afficher les modèles de liens d'e-mail", "Modifier les modèles de liens d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences", "Modifier les rapports du tableau de bord", "Afficher les modèles de bannières", "Afficher les paramètres de localisation", "Utiliser l'opérateur", "Afficher les agents Decisioning Studio". |
 | Gestion des utilisateurs | "Modifier les utilisateurs du tableau de bord", "Afficher les équipes", "Modifier les équipes", "Archiver les équipes". |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Création d'un ensemble d'autorisations" }
 {% endtab %}
 {% endtabs %}
 
@@ -28,7 +28,7 @@ Les rôles offrent une meilleure structuration en regroupant vos autorisations p
 | Marketeur - Marques de mode | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les Content Blocks", "Modifier les Content Blocks", "Archiver les Content Blocks", "Lancer les Content Blocks", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Afficher les modèles de bannières", "Modifier les modèles de bannières", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Modifier les ressources de la bibliothèque multimédia", "Supprimer les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences". |
 | Marketeur - Marques de soins de la peau | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Afficher les campagnes", "Modifier les campagnes", "Archiver les campagnes", "Afficher les Canvas", "Modifier les Canvas", "Archiver les Canvas", "Afficher les Content Blocks", "Modifier les Content Blocks", "Archiver les Content Blocks", "Lancer les Content Blocks", "Afficher les indicateurs de fonctionnalité", "Modifier les indicateurs de fonctionnalité", "Archiver les indicateurs de fonctionnalité", "Afficher les segments", "Modifier les segments", "Afficher les modèles de bannières", "Modifier les modèles de bannières", "Afficher les modèles d'e-mail", "Modifier les modèles d'e-mail", "Afficher les ressources de la bibliothèque multimédia", "Modifier les ressources de la bibliothèque multimédia", "Supprimer les ressources de la bibliothèque multimédia", "Afficher les emplacements", "Modifier les emplacements", "Archiver les emplacements", "Afficher les codes de promotion", "Modifier les codes de promotion", "Exporter les codes de promotion", "Afficher les centres de préférences", "Modifier les centres de préférences". |
 | Gestion des utilisateurs - Toutes les marques | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Modifier les utilisateurs du tableau de bord", "Afficher les équipes", "Modifier les équipes", "Archiver les équipes" |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Création d'un rôle" }
 {% endtab %}
 {% endtabs %}
 
@@ -51,7 +51,7 @@ Les utilisateurs limités disposent d'autorisations spécifiques qui leur permet
 | Autorisations | Les utilisateurs limités peuvent modifier les autorisations d'autres utilisateurs limités s'ils disposent de l'autorisation « Modifier les utilisateurs du tableau de bord ». Ils peuvent également créer de nouveaux utilisateurs limités et modifier leurs ensembles d'autorisations. En revanche, ils ne peuvent pas créer ni gérer de comptes administrateur d'entreprise. |
 | Limitations de rôle | Si un utilisateur limité dispose de toutes les autorisations sauf « Administrateur de l'espace de travail », il conserve l'accès à toutes les autres autorisations généralement accordées à un administrateur d'espace de travail. |
 | Visibilité des autorisations | Si un utilisateur limité dispose de l'autorisation « Modifier les utilisateurs du tableau de bord » pour un espace de travail (par exemple Dev) mais pas pour un autre (par exemple Prod), il ne verra pas les autorisations de l'espace de travail Prod dans la page de détails des utilisateurs de son tableau de bord. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Utilisateurs limités" }
 
 ### Comparaison des types d'utilisateurs limités {#comparing-limited-users}
 
@@ -60,7 +60,7 @@ Les utilisateurs limités disposent d'autorisations spécifiques qui leur permet
 | Administrateur de l'espace de travail | Les administrateurs d'espace de travail disposent d'autorisations spécifiques à la gestion des espaces de travail, mais n'ont pas les mêmes prérogatives que les administrateurs d'entreprise. Les utilisateurs limités peuvent hériter d'autorisations similaires à celles des administrateurs d'espace de travail s'ils disposent des autorisations nécessaires. |
 | Administrateur (administrateur d'entreprise) | Les administrateurs d'entreprise disposent d'autorisations plus étendues, notamment la possibilité de supprimer des utilisateurs du tableau de bord. Cependant, ils ne peuvent pas supprimer leur propre compte et doivent contacter un autre administrateur d'entreprise pour cette action. |
 | Accès en lecture seule | Pour accéder à certaines parties du tableau de bord, comme la page Campaigns, les utilisateurs doivent disposer des autorisations de consultation correspondantes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparaison des types d'utilisateurs limités" }
 
 ### Erreur d'accès restreint {#limited-access-error}
 
@@ -89,7 +89,6 @@ Les administrateurs ont accès à toutes les fonctionnalités et peuvent modifie
 
 Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **This user is an admin**, puis sélectionnez **Update user**.
 
-![Les détails de l'utilisateur sélectionné avec la case à cocher admin mise en évidence.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Si vous retirez les privilèges d'administrateur à un utilisateur, celui-ci ne pourra plus accéder à Braze tant que vous ne lui aurez pas attribué au moins une [autorisation au niveau de l'entreprise ou de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -106,7 +105,7 @@ Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilis
 |----------|-----------|
 | Gérer les paramètres de l'entreprise | Permet aux utilisateurs de modifier les paramètres d'autorisation et la vérification de l'expéditeur. |
 | Créer et supprimer des espaces de travail | Permet aux utilisateurs de créer et de supprimer des espaces de travail. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entreprise" }
 
 {% endtab %}
 {% tab Espace de travail %}
@@ -153,6 +152,12 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 
 ![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » mise en évidence.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 
+Il n'est pas possible d'exporter en masse une matrice complète des autorisations de chaque utilisateur du tableau de bord depuis Braze. Si vous avez besoin de plus de détails que ce que fournit **Export Users**, envisagez les options suivantes :
+
+- Utilisez le [provisionnement automatisé des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/) (SCIM) pour gérer les comptes des utilisateurs du tableau de bord. Par exemple, vous pouvez [rechercher un utilisateur du tableau de bord par e-mail]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user/) ou obtenir les détails d'un utilisateur par identifiant de ressource, comme décrit dans [Consulter les informations d'un compte utilisateur]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information/).
+- [Contactez l'assistance Braze]({{site.baseurl}}/braze_support/). Dans certains cas, l'assistance peut fournir une liste de comptes, mais pas une matrice complète des autorisations.
+- Filtrez le [rapport d'événements de sécurité]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report) de votre entreprise, qui enregistre des événements tels que **Added Account** et **Updated Permissions**, pour auditer les modifications d'autorisations en dehors du tableau de bord.
+
 ## Liste des autorisations {#list-of-permissions}
 
 ### Envoi de messages {#messaging}
@@ -182,7 +187,7 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Priorisation des messages | Afficher la priorisation des messages | Consulter les paramètres de priorisation des messages sans apporter de modifications |
 | Priorisation des messages | Modifier la priorisation des messages | Créer et mettre à jour les paramètres de priorisation des messages |
 | WhatsApp Flows | Afficher les WhatsApp Flows | Afficher tous les WhatsApp Flows |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Envoi de messages" }
 
 ### Audience
 
@@ -237,7 +242,7 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Modèles de messages WhatsApp | Afficher les modèles de messages WhatsApp | Permet aux utilisateurs de visualiser les [modèles de messages WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
 | Modèles de messages WhatsApp | Modifier les modèles de messages WhatsApp | Permet aux utilisateurs de créer des modèles de messages WhatsApp dans le générateur de modèles. Cette fonctionnalité est actuellement disponible en accès anticipé. |
 | Modèles de messages WhatsApp depuis Meta | Afficher les modèles de messages WhatsApp depuis Meta | Afficher tous les modèles WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles" }
 
 ### Intégrations partenaires {#partner-integrations}
 
@@ -246,7 +251,7 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Intégrations Currents | Afficher les intégrations Currents | Consulter les intégrations Currents |
 | Intégrations Currents | Modifier les intégrations Currents | Créer, mettre à jour et supprimer des intégrations Currents |
 | Partenaires technologiques | Modifier les partenaires technologiques | Créer et mettre à jour les partenaires technologiques |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Intégrations partenaires" }
 
 ### Paramètres des données {#data-settings}
 
@@ -273,7 +278,7 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Produits | Ajouter les produits à la liste de blocage | Ajouter des produits à une liste de blocage qui en restreint l'utilisation dans le tableau de bord |
 | Produits | Modifier les produits | Créer et mettre à jour des produits |
 | Segmentation des propriétés d'achat | Modifier la segmentation des propriétés d'achat | Activer et désactiver la segmentation pour les propriétés d'événements d'achat |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres des données" }
 
 ### Paramètres {#settings}
 
@@ -314,7 +319,7 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Équipes | Archiver les équipes | Déplacer les équipes vers les archives |
 | Équipes | Modifier les équipes | Créer et mettre à jour des équipes |
 | Paramètres WhatsApp | Afficher les paramètres WhatsApp | Consulter tous les paramètres du canal WhatsApp |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres" }
 
 ### Decisioning Studio
 
@@ -356,4 +361,4 @@ Pour télécharger la liste de vos utilisateurs et de leurs autorisations, accé
 | Transformations | Afficher les transformations de données | Afficher les transformations de données |
 | Enregistrements de suppression d'utilisateurs | Afficher les enregistrements de suppression d'utilisateurs | Consulter les enregistrements de suppression d'utilisateurs |
 | Tickets d'assistance | Créer un ticket d'assistance | Créer et mettre à jour des tickets d'assistance |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autres" }

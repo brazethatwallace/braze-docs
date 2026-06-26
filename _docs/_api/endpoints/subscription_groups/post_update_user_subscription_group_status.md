@@ -10,7 +10,7 @@ description: "This article outlines details about the Update user's subscription
 
 {% api %}
 # Update user's subscription group status
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 
@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
   "subscription_group_id": "subscription_group_identifier",
   "subscription_state": "unsubscribed",
   "external_id": "external_identifier",
-  "email": ["example1@email.com", "example2@email.com"]
+  "email": ["example1@example.com", "example2@example.com"]
 }
 '
 ```

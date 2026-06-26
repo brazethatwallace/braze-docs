@@ -19,14 +19,18 @@ Vous ne pouvez pas supprimer des Campaigns et des Canvas depuis le tableau de bo
 
 ## Archivage {#archiving}
 
-Lorsque vous archivez une Campaign ou un Canvas, aucun message supplémentaire ne sera envoyé et vos messages in-app ne seront plus affichés. Vous pouvez toujours consulter les résultats après l'archivage, mais vous ne pourrez pas modifier la Campaign ou le Canvas. Pour ce faire, vous devrez d'abord [les désarchiver](#unarchiving-campaigns-and-canvases).
+Lorsque vous archivez une campagne ou un Canvas, aucun message supplémentaire ne sera envoyé et vos messages in-app ne seront plus affichés. Vous pouvez toujours consulter les résultats après l'archivage, mais vous ne pourrez pas modifier la campagne ou le Canvas. Pour ce faire, vous devrez d'abord [les désarchiver](#unarchiving-campaigns-and-canvases).
+
+{% alert note %}
+**Archiver** ne supprime pas votre campagne ou Canvas. Braze arrête la distribution, masque le message des listes quotidiennes et le conserve pour les rapports et l'historique de l'espace de travail.
+{% endalert %}
 
 {% tabs local %}
 {% tab campaign %}
-Pour archiver une Campaign :
+Pour archiver une campagne :
 
 1. Allez dans **Messaging** > **Campaigns**.
-2. Survolez la ligne de la Campaign et sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
+2. Survolez la ligne de la campagne et sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
 3. Sélectionnez **Archive**.
 {% endtab %}
 
@@ -41,6 +45,12 @@ Pour archiver un Canvas :
 
 ## Désarchivage {#unarchiving}
 
-Lorsque vous désarchivez une Campaign ou un Canvas, il ne sera pas remis en production — son statut sera simplement changé en **Actif**. Après le désarchivage, vous pouvez modifier et vérifier la configuration du message sans qu'aucun message ne soit envoyé.
+Lorsque vous désarchivez une campagne ou un Canvas, le message ne sera pas remis en production — son statut sera simplement changé en **Actif**. Après le désarchivage, vous pouvez modifier et vérifier la configuration du message sans qu'aucun message ne soit envoyé.
 
-Pour reprendre la Campaign ou le Canvas et commencer à envoyer des messages, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> de la ligne correspondante et sélectionnez **Resume**.
+Pour reprendre la campagne ou le Canvas et commencer à envoyer des messages, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> de la ligne correspondante et sélectionnez **Resume**.
+
+## Questions fréquentes {#frequently-asked-questions}
+
+### Les Campaigns et Canvas sont-ils supprimés lorsque je les archive ? {#are-campaigns-and-canvases-deleted-when-i-archive-them}
+
+Non. Sélectionner **Archive** arrête la distribution et masque le message des listes quotidiennes, mais Braze conserve la campagne ou le Canvas pour les rapports et l'historique de l'espace de travail. Archivez vos messages dans le cadre du cycle de vie lorsqu'un message ne doit plus être envoyé.

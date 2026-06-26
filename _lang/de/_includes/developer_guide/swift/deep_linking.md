@@ -191,11 +191,11 @@ Um einen kodierten Link zu dekodieren, verwenden Sie die `String`-Eigenschaft [`
 
 ## Deeplinking zu App-Einstellungen {#deep-linking-to-app-settings}
 
-Sie können `UIApplicationOpenSettingsURLString` nutzen, um Nutzer:innen über Braze-Push-Benachrichtigungen und In-App-Nachrichten einen Deeplink zu den Einstellungen Ihrer App zu setzen.
+Sie können `UIApplicationOpenSettingsURLString` nutzen, um Nutzer:innen über Push-Benachrichtigungen und In-App-Nachrichten von Braze einen Deeplink zu den Einstellungen Ihrer App zu setzen.
 
 Um Nutzer:innen aus Ihrer App in die iOS-Einstellungen zu bringen:
 1. Vergewissern Sie sich zunächst, dass Ihre Anwendung entweder für [schemabasierte Deeplinks](#swift_register-a-scheme) oder für [universelle Links](#swift_universal-links) eingerichtet ist.
-2. Legen Sie eine URI für Deeplinking auf die Seite **Einstellungen** fest (z. B. `myapp://settings` oder `https://www.braze.com/settings`).
+2. Legen Sie eine URI für Deeplinks auf die Seite **Einstellungen** fest (z. B. `myapp://settings` oder `https://www.braze.com/settings`).
 3. Wenn Sie angepasste schemabasierte Deeplinks verwenden, fügen Sie den folgenden Code zu Ihrer `application:openURL:options:`-Methode hinzu:
 
 {% tabs %}
@@ -240,7 +240,7 @@ Sie können den `Braze.WebViewController` über die Delegate-Methode [`BrazeDele
 
 ### Anpassung der Link-Handhabung {#linking-handling-customization}
 
-Das Protokoll `BrazeDelegate` kann verwendet werden, um die Handhabung von URLs wie Deeplinks, Web-URLs und universellen Links anzupassen. Um den Delegate während der Braze-Initialisierung zu setzen, setzen Sie ein Delegate-Objekt auf die `Braze`-Instanz. Braze ruft dann die Implementierung von `shouldOpenURL` in Ihrem Delegate auf, bevor es URIs verarbeitet.
+Das Protokoll `BrazeDelegate` kann verwendet werden, um die Handhabung von URLs wie Deeplinks, Web-URLs und universellen Links anzupassen. Um den Delegaten während der Initialisierung von Braze zu setzen, setzen Sie ein Delegate-Objekt auf die `Braze`-Instanz. Braze ruft dann die Implementierung von `shouldOpenURL` in Ihrem Delegaten auf, bevor es URIs verarbeitet.
 
 Wenn eine Push-Benachrichtigung oder In-App-Nachricht **Web-URL in der mobilen App öffnen** verwendet, übergibt Braze `context.useWebView == true` an [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). Wenn die Nachricht die URL stattdessen im Systembrowser öffnet, ist `useWebView` `false`. Prüfen Sie `context.useWebView` in `braze(_:shouldOpenURL:)`, um Ihre benutzerdefinierte Handhabung zu verzweigen – zum Beispiel, um einen In-App-`WebViewController` nur dann zu öffnen, wenn die Campaign die In-App-Anzeige angefordert hat.
 

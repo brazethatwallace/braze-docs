@@ -1,25 +1,19 @@
 ---
 nav_title: Images
-article_title: Generate images with BrazeAI
-page_order: 10
-description: "Learn how to generate images for your media library using DALL·E 3, an AI system from OpenAI and a Braze third-party provider."
+article_title: Generate images
+page_order: 4
+page_type: reference
+description: "This reference article covers how to generate images for your media library using Operator."
 ---
 
-# Generate images with BrazeAI
+# Generate images
 
 > {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
-## About the media library
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
 
-The media library allows you to manage your assets in a single, centralized location. To access your Braze media library, go to **Content** > **Media Library**. For more detailed information, see [Media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+## How to access {#how-to-access}
 
-## Generating an image
+{% multi_lang_include brazeai/generative_ai/access_images.md %}
 
-1. Go to your media library, then select <i class="fas fa-wand-magic-sparkles"></i> **AI Image Generator**.
-2. Enter a description of the image you want to generate, up to 300 characters. The more detailed the description, the better your result. This feature only supports text input—uploading an image as a reference isn’t available.
-3. Select **Generate Images**. It can take about a minute for images to generate.
-4. Select <i class="fas fa-download" title="Add image to Media Library"></i> on the images you would like to add to your media library.
-
-![AI image generator modal in the media library.]({% image_buster /assets/img_archive/media_library_dalle.png %}){: style="max-width:75%"}
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
+For more information, including prompt tips, example prompts, and usage limits, see [Generate images in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images).

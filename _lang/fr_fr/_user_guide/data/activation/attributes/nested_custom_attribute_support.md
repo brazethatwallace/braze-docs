@@ -24,7 +24,8 @@ description: "Cet article de référence explique comment utiliser les attributs
 - Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
 - Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Reportez-vous à la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si les intégrations spécifiques du partenaire prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel API Connected Audience.
-- Par défaut, le filtre de segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/).
+- Par défaut, le filtre de Segment **Attributs personnalisés imbriqués** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriété inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez l'[assistance Braze]({{site.baseurl}}/braze_support/).
+- Lors de la prévisualisation de messages dans le tableau de bord à l'aide de **Prévisualiser en tant qu'utilisateur personnalisé**, vous ne pouvez saisir des données fictives que sous forme de chaîne de caractères ou de tableau de chaînes de caractères — les objets imbriqués ne sont pas pris en charge. Pour prévisualiser un message qui fait référence à des attributs personnalisés imbriqués, sélectionnez un utilisateur existant qui possède déjà l'attribut imbriqué dans son profil. Pour les propriétés d'événements personnalisés imbriqués, vous devez lancer une campagne en production ciblant un utilisateur test pour vérifier le rendu.
 
 ## Exemple d'API {#api-example}
 
@@ -264,15 +265,31 @@ Utilisez la balise de personnalisation `custom_attribute` et la notation par poi
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Utilisation de Liquid pour intégrer le nom d'une chanson et le nombre de fois qu'un auditeur l'a écoutée dans un message]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+Pour utiliser le Liquid d'attributs personnalisés imbriqués dans votre message :
+
+1. Accédez à une campagne ou un Canvas, puis ouvrez l'étape de message dans laquelle vous souhaitez ajouter la personnalisation.
+2. Dans le compositeur de messages, insérez l'extrait Liquid à l'endroit où vous souhaitez que la valeur apparaisse.
+3. Utilisez **Prévisualiser et tester** avec un utilisateur existant qui possède déjà l'attribut personnalisé imbriqué dans son profil pour confirmer que la valeur s'affiche comme prévu.
 
 ### Personnalisation {#personalization}
 
-En utilisant la fenêtre modale **Ajouter une personnalisation**, vous pouvez également insérer des attributs personnalisés imbriqués dans vos messages. Sélectionnez **Attributs personnalisés imbriqués** comme type de personnalisation. Ensuite, sélectionnez l'attribut de niveau supérieur et la clé d'attribut.
+Vous pouvez utiliser **Ajouter une personnalisation** pour insérer un attribut personnalisé imbriqué dans votre message.
 
-Par exemple, dans la fenêtre modale de personnalisation ci-dessous, cela insère l'attribut personnalisé imbriqué d'un bureau de quartier local en fonction des préférences d'un utilisateur.
+Pour ouvrir **Ajouter une personnalisation** :
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Accédez à une campagne ou un Canvas, puis ouvrez l'étape de message dans laquelle vous souhaitez ajouter la personnalisation.
+2. Dans le compositeur de messages, sélectionnez **Personnalisation** pour ouvrir le panneau latéral **Ajouter une personnalisation**, où vous pouvez choisir les options de personnalisation.
+
+Pour configurer la personnalisation d'un attribut personnalisé imbriqué :
+
+1. Dans **Type de personnalisation**, sélectionnez **Attributs personnalisés imbriqués**.
+2. Dans **Attribut de niveau supérieur**, sélectionnez le chemin de l'attribut personnalisé imbriqué que vous souhaitez insérer.
+   Par exemple, sélectionnez `preferences.neighborhood_office`.
+3. Facultatif : dans **Valeur par défaut**, saisissez une valeur de repli pour les utilisateurs qui n'ont pas leur propre valeur pour cet attribut.
+4. Vérifiez l'**extrait Liquid** généré pour confirmer qu'il correspond au chemin attendu.
+5. Sélectionnez **Insérer**.
+
+Dans cet exemple, Braze insère la valeur imbriquée de `preferences.neighborhood_office` dans votre message. Les valeurs par défaut sont des valeurs de repli que votre message inclut pour les utilisateurs qui n'ont pas leur propre valeur pour un attribut.
 
 {% alert tip %}
 Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insertion d'attributs personnalisés imbriqués.
@@ -286,10 +303,10 @@ Pour régénérer le schéma de votre attribut personnalisé imbriqué :
 
 1. Accédez à **Paramètres des données** > **Attributs personnalisés**.
 2. Recherchez votre attribut personnalisé imbriqué.
-3. Dans la colonne **Attribute Name** correspondant à votre attribut, sélectionnez <i class="fas fa-plus"></i> pour gérer le schéma.
-4. Une fenêtre modale apparaîtra. Sélectionnez **Regenerate Schema**.
+3. Dans la colonne **Nom de l'attribut** correspondant à votre attribut, sélectionnez <i class="fas fa-plus" aria-label="Gérer le schéma"></i> **Gérer le schéma** pour gérer le schéma.
+4. Une fenêtre modale apparaîtra. Sélectionnez **Régénérer le schéma**.
 
-L'action **Regenerate Schema** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que l'état est **Generating**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
+L'action **Régénérer le schéma** est limitée à **une fois par jour calendaire** dans le fuseau horaire de votre entreprise. Vous ne pouvez pas lancer une autre régénération tant qu'une tâche de schéma est déjà **en cours** (l'option est indisponible tant que l'état est **En cours de génération**). La régénération du schéma ne détecte que les nouveaux objets et ne supprime pas les objets qui existent déjà dans le schéma.
 
 {% alert important %}
 Pour réinitialiser le schéma d'un tableau d'objets avec un objet existant, vous devez créer un nouvel attribut personnalisé. La régénération du schéma ne supprime pas les objets existants.
@@ -301,9 +318,16 @@ Si les données n'apparaissent pas comme prévu après la régénération du sch
 
 Vous pouvez déclencher une action lorsqu'un objet d'attribut personnalisé imbriqué change. Cette option n'est pas disponible pour les modifications de tableaux d'objets. Si vous ne voyez pas l'option d'affichage de l'explorateur de chemins, vérifiez que vous avez généré un schéma.
 
-Par exemple, dans une Campaign basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Change Custom Attribute Value** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
+Par exemple, dans une campagne basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Modifier la valeur d'un attribut personnalisé** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
 
-![Paramètres de réception d'une Campaign basée sur une action avec un déclencheur de modification de la valeur d'un attribut personnalisé pour les préférences imbriquées.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+Pour configurer ce déclencheur dans une campagne basée sur une action :
+
+1. Créez ou modifiez une campagne, puis définissez le type de livraison sur **Livraison par événement**.
+2. Dans les paramètres de déclenchement, sélectionnez **Modifier la valeur d'un attribut personnalisé**.
+3. Sélectionnez le chemin de l'attribut personnalisé imbriqué que vous souhaitez surveiller.
+   Par exemple, sélectionnez `preferences.neighborhood_office`.
+4. Sélectionnez la condition de déclenchement souhaitée, par exemple **toute nouvelle valeur**.
+5. Terminez la configuration du message et de l'audience de votre campagne, puis lancez la campagne.
 
 ## Comportement de segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 

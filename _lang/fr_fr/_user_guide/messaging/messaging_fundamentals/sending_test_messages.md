@@ -191,7 +191,7 @@ Braze propose trois générations de messages in-app. Vous pouvez affiner les ap
 ![Basculement entre les générations lors de la prévisualisation d'un message in-app.]({% image_buster /assets/img/iam-generations.gif %}){: height="50%" width="50%"}
 
 {% alert warning %}
-Dans la **Preview**, l'affichage de votre message peut ne pas être identique à son rendu réel sur l'appareil de l'utilisateur. Nous recommandons toujours d'envoyer un message de test à un appareil pour vous assurer que vos médias, textes, personnalisations et attributs personnalisés s'affichent correctement.
+Dans la **prévisualisation**, l'affichage de votre message peut ne pas être identique à son rendu réel sur l'appareil de l'utilisateur. Nous recommandons toujours d'envoyer un message de test à un appareil pour vous assurer que vos médias, textes, personnalisations et attributs personnalisés s'affichent correctement.
 {% endalert %}
 
 ### Liste de vérification du test
@@ -273,8 +273,6 @@ Après avoir créé votre message SMS, MMS ou RCS, vous pouvez envoyer un messag
 {% tab Webhook %}
 
 Après avoir créé votre webhook, vous pouvez effectuer un envoi de test pour vérifier la réponse du webhook. Sélectionnez l'onglet **Test** et sélectionnez **Send Test** pour envoyer un test à l'URL du webhook fournie. Vous pouvez également sélectionner un utilisateur individuel pour prévisualiser la réponse en tant qu'utilisateur spécifique.
-
-![Webhook de test]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}

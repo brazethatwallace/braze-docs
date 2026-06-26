@@ -37,7 +37,7 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 
 - [Identificador do app]({{site.baseurl}}/api/identifier_types/)
   - Qualquer `app_id` válido de um app configurado no seu espaço de trabalho funciona para todos os usuários no seu espaço de trabalho, independentemente de o usuário ter ou não o app específico em seu perfil.
-- Para saber mais e conhecer as melhores práticas sobre pré-cabeçalhos, consulte [Estilização de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
+- Para saber mais e conferir as melhores práticas sobre pré-cabeçalhos, consulte [Estilização de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
 
 {% alert warning %}
 A Braze recomenda que você evite usar links do Google Drive para o `url` dos seus anexos, pois isso pode bloquear as chamadas dos nossos servidores para obter o arquivo e resultar no não envio da mensagem de e-mail.
@@ -96,6 +96,6 @@ Um `email_template_id` pode ser recuperado na parte inferior de qualquer modelo 
 Quando a Braze busca um arquivo a partir de um `url` de anexo:
 
 - **Cache:** a Braze pode reutilizar um arquivo recuperado recentemente por até aproximadamente 24 horas. Se você precisa que cada envio utilize uma nova versão do arquivo imediatamente, use uma URL distinta por versão (por exemplo, um caminho ou parâmetro de consulta que mude quando o arquivo for alterado).
-- **Timeouts:** os hosts devem responder rapidamente. Se a URL do anexo for lenta ou travar, o envio da mensagem pode falhar — busque respostas em cerca de dois minutos.
+- **Timeouts:** os hosts devem responder rapidamente. Se a URL do anexo for lenta ou travar, o envio da mensagem pode falhar — procure obter respostas em cerca de dois minutos.
 - **Segurança:** não inclua informações de identificação pessoal (IPI) ou dados sensíveis nas URLs de anexos (incluindo query strings), pois as URLs podem aparecer em registros ou sistemas downstream.
-- **Firewalls:** se a URL só for acessível a partir de redes específicas, permita o tráfego da Braze conforme a [lista de IPs permitidos do Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Use [credenciais de autenticação básica](#authentication-for-email-file-attachments) quando o arquivo exigir login.
+- **Firewalls:** se a URL só é acessível a partir de redes específicas, libere o tráfego da Braze conforme a [lista de IPs permitidos do Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Use [credenciais de autenticação básica](#authentication-for-email-file-attachments) quando o arquivo exigir login.

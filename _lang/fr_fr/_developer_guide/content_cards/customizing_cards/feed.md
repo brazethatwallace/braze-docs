@@ -121,7 +121,7 @@ Les synchronisations partielles réduisent la charge serveur et la consommation 
 
 ### Limite de débit {#rate-limit}
 
-Braze utilise un algorithme de compartiments à jetons pour appliquer les limites de débit suivantes :
+Braze utilise un algorithme de compartiment à jetons pour appliquer les limites de débit suivantes :
 - Jusqu'à 5 appels d'actualisation par appareil, partagés entre les utilisateurs et les appels à `openSession()`
 - Une fois la limite atteinte, un nouvel appel devient disponible toutes les 180 secondes (3 minutes)
 - Le système conserve jusqu'à cinq appels que vous pouvez utiliser à tout moment

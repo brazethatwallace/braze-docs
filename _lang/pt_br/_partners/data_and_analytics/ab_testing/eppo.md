@@ -31,7 +31,7 @@ O Eppo analisa experimentos diretamente no seu data warehouse. Para ativar a int
 
 ### Etapa 2: Configure seu experimento em uma Campaign ou Canvas da Braze {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-Você pode usar recursos nativos de testes A/B em suas Campaigns e Canvas. Para saber mais, veja [Testes multivariantes e A/B](https://www.braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing).
+Você pode usar recursos nativos de testes A/B em suas Campaigns e Canvas. Para saber mais, veja [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing).
 
 ### Etapa 3: Configure o Eppo para medir experimentos da Braze {#step-3-set-up-eppo-to-measure-braze-experiments}
 

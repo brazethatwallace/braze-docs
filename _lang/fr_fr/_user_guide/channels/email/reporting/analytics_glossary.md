@@ -10,6 +10,8 @@ channel:
   - email
 ---
 
+> Ce glossaire définit les indicateurs de l'onglet **Analytics** pour les campagnes par e-mail et les Canvas. Braze ne propose pas de page hébergée « afficher cet e-mail dans un navigateur » — consultez [Puis-je ajouter un lien « afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) pour une solution de contournement. Pour d'autres questions de résolution des problèmes couvrant plusieurs indicateurs, consultez la [FAQ e-mail]({{site.baseurl}}/user_guide/channels/email/faq/).
+
 <style>
   .calculation-line {
     color: #76848C;
@@ -114,7 +116,7 @@ Count
 <span class="calculation-line">Calcul : (Envois) - (Rebonds) </span>
 
 {% alert note %}
-Pour l'état **reçu** au niveau de l'utilisateur et la logique associée (comme la limite de fréquence), Braze marque généralement un utilisateur lorsque l'envoi est traité et transmis pour livraison, et non lorsque le fournisseur de services d'e-mailing (ESP) confirme la livraison finale dans la boîte de réception. Cela évite les décalages temporels entre la confirmation de l'ESP et les règles internes au produit. Les résultats peuvent différer des rapports de livraison de l'ESP ou de fournisseurs tiers.
+Pour l'état **reçu** au niveau de l'utilisateur et la logique associée (comme la limite de fréquence), Braze marque généralement un utilisateur lorsque l'envoi est traité et transmis pour livraison, et non lorsque le fournisseur de services d'e-mailing (ESP) confirme la livraison finale dans la boîte de réception. Cela évite les décalages temporels entre la confirmation de l'ESP et les règles internes au produit. Les résultats peuvent différer des rapports de livraison de l'ESP ou de tiers.
 {% endalert %}
 
 {% endapi %}
@@ -148,7 +150,7 @@ Pour les e-mails, le *% de rebonds* ou le *taux de rebond* correspond au pourcen
 Un rebond d'e-mail pour les clients utilisant SendGrid comprend les échecs d'envoi définitifs, le spam (`spam_report_drops`) et les e-mails envoyés à des adresses invalides (`invalid_emails`).
 
 {% alert note %}
-Dans [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), les reports temporaires de l'ESP sont souvent représentés comme des échecs provisoires d'envoi. Les outils de livrabilité (par exemple, les rapports natifs de SendGrid ou les modèles Looker) peuvent utiliser les reports pour la même situation. Les reports sont généralement temporaires, et le courrier est souvent livré après de nouvelles tentatives. Après des tentatives prolongées (jusqu'à environ 72 heures pour les échecs provisoires d'envoi dans l'analyse des campagnes), un message peut être considéré comme non livrable selon votre ESP. Les événements e-mail de Currents sont en ajout uniquement : un échec provisoire d'envoi enregistré n'est pas supprimé ultérieurement si le message finit par être livré.
+Dans [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), les reports temporaires de l'ESP sont souvent représentés comme des échecs provisoires d'envoi. Les outils de livrabilité (par exemple, les rapports natifs de SendGrid ou les modèles Looker) peuvent utiliser les reports pour la même situation. Les reports sont généralement temporaires et le courrier est souvent livré après de nouvelles tentatives. Après des tentatives prolongées (jusqu'à environ 72 heures pour les échecs provisoires d'envoi dans l'analyse des campagnes), un message peut être considéré comme non livrable selon votre ESP. Les événements e-mail de Currents sont en ajout uniquement : un échec provisoire d'envoi enregistré n'est pas supprimé ultérieurement si le message finit par être livré.
 {% endalert %}
 
 {::nomarkdown}
@@ -247,7 +249,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Le suivi s'effectue sur une période de sept jours pour les e-mails et est mesuré par <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (une seule tentative d'envoi). Cela inclut les clics sur les liens de désabonnement fournis par Braze. Après sept jours, un nouveau clic unique peut être comptabilisé pour le même utilisateur s'il clique à nouveau. Les indicateurs d'engagement e-mail du tableau de bord, y compris les _Clics uniques_, sont calculés dans Braze et ne sont pas réconciliés à partir des rapports agrégés de l'ESP. Pour faire correspondre les chiffres du tableau de bord à partir de Currents, filtrez les événements où `is_unique` est `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Le suivi s'effectue sur une période de sept jours pour les e-mails et est mesuré par <a href='/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> (une seule tentative d'envoi). Cela inclut les clics sur les liens de désabonnement fournis par Braze. Les URL de désabonnement personnalisées suivies sont également comptabilisées dans les *Clics uniques* lorsqu'un utilisateur sélectionne le lien. Après sept jours, un nouveau clic unique est comptabilisé pour le même utilisateur s'il clique à nouveau. Les indicateurs d'engagement e-mail du tableau de bord, y compris les _Clics uniques_, sont calculés dans Braze et ne sont pas réconciliés à partir des rapports agrégés de l'ESP. Pour faire correspondre les chiffres du tableau de bord à partir de Currents, filtrez les événements où `is_unique` est `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -259,6 +261,24 @@ Count, Percentage
 </span>
 {:/}
 
+#### Liens inattendus sur la carte de chaleur des e-mails {#unexpected-links-on-the-email-heatmap}
+
+Lorsque la [carte de chaleur des e-mails]({{site.baseurl}}/user_guide/channels/email/reporting/) affiche des liens que vous n'attendez pas, inspectez le HTML du message à la recherche de [blocs de contenu]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) ou d'espaces entre les mots qui créent des URL suivies. Utilisez le **tableau des liens par nombre total de clics** dans la vue de la carte de chaleur pour identifier les URL qui ne correspondent pas au texte visible.
+
+{% endapi %}
+
+{% api %}
+
+### Clics totaux {#total-clicks}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+<i>Clics totaux</i> correspond au nombre total de fois où les utilisateurs ont cliqué sur des liens dans l'e-mail livré, y compris les clics multiples du même utilisateur. Cela inclut les clics sur les liens de désabonnement Braze et les URL de désabonnement personnalisées suivies.
+
+Lorsque les *Clics totaux* sont nettement supérieurs aux *Clics uniques*, des outils de sécurité ou des fournisseurs de messagerie analysent les liens sans que les utilisateurs n'ouvrent le message. Comparez les *Clics uniques* lorsque vous évaluez l'engagement en interne.
+
 {% endapi %}
 
 {% api %}
@@ -269,7 +289,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-Les *désabonnements* reflètent le lien de désabonnement standard de Braze. Les pages de désabonnement personnalisées n'incrémentent pas cet indicateur, sauf si vous mettez à jour les utilisateurs via l'API. La **chronologie des groupes d'abonnement** reflète toujours les modifications effectuées via l'API.
+Les _désabonnements_ reflètent le lien de désabonnement standard de Braze. Les pages de désabonnement personnalisées n'incrémentent pas cet indicateur, sauf si vous mettez à jour les utilisateurs via l'API. La **chronologie des groupes d'abonnement** reflète toujours les modifications effectuées via l'API.
 
 {% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
 
@@ -368,6 +388,18 @@ Count
 
 {% api %}
 
+### Ouvertures réelles estimées {#estimated-real-opens}
+
+{% apitags %}
+Count, Percentage
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} Braze recalcule cette estimation à mesure que de nouvelles données d'ouverture et de clic arrivent. La valeur se stabilise généralement quelques jours après l'envoi, mais continue de se mettre à jour lorsque de nouveaux événements qualifiants surviennent.
+
+{% endapi %}
+
+{% api %}
+
 ### Taux de clics par ouverture {#click-to-open-rate}
 
 {% apitags %}
@@ -377,6 +409,10 @@ Percentage
 {% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">Calcul : (Clics uniques) / (Ouvertures uniques) (pour les e-mails)</span>
+
+#### Scores de probabilité d'ouverture de message (segmentation) {#message-open-likelihood-scores-segmentation}
+
+Le filtre de segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) évalue la probabilité qu'un utilisateur ouvre un e-mail sur une échelle de 0 à 100 %. Les utilisateurs sans historique d'envoi ou d'ouverture suffisant pour le canal apparaissent comme vides. Pour les e-mails, les ouvertures automatiques sont exclues du calcul, qui utilise l'historique récent des messages sur ce canal (voir [Filtre de probabilité d'ouverture de message pour les canaux individuels]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#individual-channels)).
 
 {% endapi %}
 
@@ -388,34 +424,38 @@ Lorsqu'un destinataire clique sur un lien de désabonnement, Braze le comptabili
 
 ### Afficher dans le navigateur {#view-in-browser}
 
-Braze n'inclut pas de fonctionnalité intégrée « Afficher cet e-mail dans un navigateur ». Hébergez le contenu de l'e-mail sur une page externe (comme votre site web) et ajoutez un lien depuis le message à l'aide de l'outil **Lien** de l'éditeur d'e-mail. Pour en savoir plus, consultez [Puis-je ajouter un lien « Afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+Braze n'inclut pas de fonctionnalité intégrée « Afficher cet e-mail dans un navigateur ». Hébergez le contenu de l'e-mail sur une page externe (comme votre site web) et ajoutez un lien depuis le message à l'aide de l'outil **Lien** de l'éditeur d'e-mail. Pour en savoir plus, consultez [Puis-je ajouter un lien « afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+
+### Mises à jour de la page de désabonnement personnalisée {#custom-unsubscribe-page-updates}
+
+Les modifications apportées à votre [page de désabonnement personnalisée]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) apparaissent en quelques minutes. Les envois en cours utilisent un cache de courte durée de la page, qui est actualisé lorsque vous enregistrez les modifications.
 
 ### Rebonds pour dépassement de quota et boîte de réception pleine {#over-quota-and-full-mailbox-bounces}
 
 Un rebond pour dépassement de quota ou boîte de réception pleine signifie que la boîte de réception du destinataire ne peut pas accepter de nouveaux messages. Vous pouvez observer ces adresses parmi les nouvelles inscriptions avec des adresses invalides ou à risque, ou parmi les profils inactifs depuis longtemps dont les boîtes de réception se sont remplies pendant leur période d'inactivité.
 
-Examinez les taux de rebond par segment et par source, supprimez ou désactivez les adresses qui subissent des échecs d'envoi définitifs de manière répétée, et utilisez l'abonnement confirmé ou le double opt-in pour les nouveaux abonnés. Pour les bonnes pratiques d'hygiène de liste, consultez [Pièges de livrabilité et spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) et [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting).
+Examinez les taux de rebond par segment et par source, supprimez ou désactivez les adresses qui subissent des échecs d'envoi définitifs de manière répétée, et utilisez l'abonnement confirmé ou le double opt-in pour les nouveaux abonnés. Pour les bonnes pratiques d'hygiène de liste, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/) et [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/#troubleshooting).
 
 ### 550 5.7.1 courrier non sollicité {#550-571-unsolicited-mail}
 
 Une réponse `550 5.7.1` telle que « Our system has detected that this message is likely unsolicited mail » provient souvent de fournisseurs de messagerie stricts (par exemple, Gmail) lorsque les signaux de réputation ou d'engagement sont faibles. Les causes courantes incluent les plaintes pour spam, un faible engagement, des listes achetées ou louées, et des pics de volume soudains.
 
-Concentrez-vous sur une croissance de liste basée sur le consentement, désactivez les abonnés inactifs et surveillez les taux de plaintes et de rebonds. Pour en savoir plus, consultez [Pièges de livrabilité et spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
+Concentrez-vous sur une croissance de liste basée sur le consentement, désactivez les abonnés inactifs et surveillez les taux de plaintes et de rebonds. Pour en savoir plus, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
 ### Bons taux de livrabilité des e-mails {#good-email-deliverability-rates}
 
 La **livraison** indique si le serveur destinataire accepte votre message ; vous pouvez la mesurer avec des indicateurs tels que les *Livraisons* et le taux de rebond. La **livrabilité** (placement en boîte de réception) dépend du filtrage du fournisseur et n'est pas affichée comme un indicateur unique dans Braze.
 
-En règle générale, visez un taux de livraison proche de 99 % avec des échecs d'envoi définitifs inférieurs à environ 1 %, et surveillez les ouvertures et les clics pour les tendances d'engagement. Les objectifs exacts varient selon le secteur et le modèle d'envoi. Pour les pratiques qui soutiennent la réputation, consultez [Améliorer la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) et [Pièges de livrabilité et spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
+En règle générale, visez un taux de livraison proche de 99 % avec des échecs d'envoi définitifs inférieurs à environ 1 %, et surveillez les ouvertures et les clics pour les tendances d'engagement. Les objectifs exacts varient selon le secteur et le modèle d'envoi. Pour les pratiques qui soutiennent la réputation, consultez [Améliorer la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) et [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/).
 
-### « Campaign is already in delay window, so not enqueueing another »
+### « Campaign is already in delay window, so not enqueueing another » {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
 
 Dans le journal d'activité des messages ou les journaux de diagnostic des [campagnes déclenchées par une action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), ce résultat de traitement signifie que Braze a bloqué un envoi en double alors qu'un déclencheur précédent pour le même utilisateur est encore dans la fenêtre de livraison de la campagne. Un verrou anti-rebond empêche les mises en file d'attente multiples pour la même rafale de déclencheurs.
 
-Vous pouvez voir ce résultat même lorsque la campagne affiche **Envoyer immédiatement** si l'une des conditions suivantes s'applique :
+Vous pouvez observer ce résultat même lorsque la campagne affiche **Envoyer immédiatement** si l'une des conditions suivantes s'applique :
 
 - La campagne utilise un [événement d'exception]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/#exception-events) ou un délai d'envoi qui affecte le timing.
 - Les utilisateurs ont une période de [rééligibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/), de sorte qu'ils ne peuvent pas recevoir le message à nouveau tant que cette fenêtre n'est pas écoulée.
 - Un autre message de campagne ou une étape de message Canvas avec une priorité plus élevée a consommé le créneau d'envoi lorsque les déclencheurs se chevauchent.
 
-Si un utilisateur aurait dû recevoir le message mais ne l'a pas reçu, vérifiez les résultats précédents pour le même déclencheur (par exemple, rebond d'e-mail ou canal non activé). Un autre message dans le même workflow peut avoir empêché cet envoi.
+Si un utilisateur aurait dû recevoir le message mais ne l'a pas reçu, vérifiez les résultats précédents pour le même déclencheur (par exemple, rebond d'e-mail ou canal non activé). Un autre message dans le même flux de travail peut avoir empêché cet envoi.

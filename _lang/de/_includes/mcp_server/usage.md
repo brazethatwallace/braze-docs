@@ -26,11 +26,59 @@ Nach [der Einrichtung des Braze MCP-Servers]{% if include.section == "user" %}({
 
 {% tabs %}
 {% tab Claude %}
-![„Welche Braze-Funktionen stehen mir zur Verfügung?“ – diese Frage wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Beispiel-Prompt**
+
+`What are my available Braze functions?`
+
+**Beispielantwort**
+
+Ich habe den Braze MCP-Server mit `list_functions` abgefragt und 38 verfügbare API-Funktionen gefunden.
+
+Hier sind einige Beispiele nach Kategorie:
+
+- **Campaign-Analytics und -Verwaltung**
+  - `get_campaign_dataseries`
+  - `get_campaign_details`
+  - `get_campaign_list`
+- **Canvas-Analytics und -Verwaltung**
+  - `get_canvas_data_series`
+  - `get_canvas_data_summary`
+  - `get_canvas_list`
+  - `get_canvas_details`
+- **Templates**
+  - `create_email_template`
+- **Content Blocks**
+  - `create_content_block`
+  - `get_content_blocks`
+  - `get_content_block_info`
+  - `update_content_block`
 {% endtab %}
 
 {% tab Cursor %}
-![Die Frage „Welche Braze-Funktionen stehen mir zur Verfügung?“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Beispiel-Prompt**
+
+`What are my available Braze functions?`
+
+**Beispielantwort**
+
+Ich überprüfe Ihre verfügbaren Funktionen über den Braze MCP-Server.
+
+- `list_functions` aufgerufen
+
+Basierend auf dem Ergebnis stehen Ihnen 38 Braze-API-Funktionen zur Verfügung, die in Kategorien wie die folgenden unterteilt sind:
+
+- Campaign-Analytics und -Verwaltung
+- Canvas-Analytics und -Verwaltung
+- Templates
+- Content Blocks
+
+Beispielfunktionen:
+
+- `get_campaign_list`
+- `get_canvas_list`
+- `get_canvas_details`
+- `create_email_template`
+- `update_content_block`
 {% endtab %}
 {% endtabs %}
 
@@ -40,11 +88,50 @@ Weitere Informationen zur Funktion `list_functions` finden Sie unter [Verfügbar
 
 {% tabs %}
 {% tab Claude %}
-![„Details zu einer Canvas-ID abrufen“ wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/get_details_about_a_canvas_id.png %}){: style="max-width:85%;"}
+**Beispiel-Prompt**
+
+`Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+
+**Beispielantwort**
+
+Ich habe die Details für `YOUR-TEST-CANVAS-ID-123` mit `get_canvas_details` abgerufen.
+
+- **Canvas-Name:** `YOUR-TEST-CANVAS-NAME`
+- **ID:** `YOUR-TEST-CANVAS-ID-123`
+- **Status:** Entwurf (nicht aktiviert)
+- **Erstellt am:** 15. Jan. 2026, 10:30 Uhr UTC
+- **Zuletzt aktualisiert:** 16. Jan. 2026, 14:45 Uhr UTC
+- **Zeitplantyp:** Zeitbasiert
+- **Primärer Kanal:** E-Mail
+
+Details zur E-Mail-Nachricht:
+
+- **Betreff:** `YOUR-TEST-SUBJECT-LINE`
+- **Von:** `YOUR-TEST-SENDER@example.com`
+- **Nachrichten-ID:** `YOUR-TEST-MESSAGE-ID-123`
 {% endtab %}
 
 {% tab Cursor %}
-![„Details zu einer Canvas-ID abrufen“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/get_details_about_a_canvas_id.png %})
+**Beispiel-Prompt**
+
+`Get details about canvas ID YOUR-TEST-CANVAS-ID-123`
+
+**Beispielantwort**
+
+Ich habe diesen Canvas mit `get_canvas_details` abgerufen:
+
+- **Canvas-ID:** `YOUR-TEST-CANVAS-ID-123`
+- **Canvas-Name:** `YOUR-TEST-CANVAS-NAME`
+- **Status:** Entwurf
+- **Kanal:** E-Mail
+- **Nachrichten-ID:** `YOUR-TEST-MESSAGE-ID-123`
+
+Zusammenfassung des E-Mail-Inhalts:
+
+1. Header-Bereich mit Markenbild
+2. Hauptüberschrift
+3. Hero-Bereich mit CTA-Button
+4. Feature-Bereich mit ergänzendem Inhalt
 {% endtab %}
 {% endtabs %}
 
@@ -54,11 +141,49 @@ Weitere Informationen zur Funktion `get_canvas_details` finden Sie unter [Verfü
 
 {% tabs %}
 {% tab Claude %}
-![„Meine aktuellen Canvases anzeigen“ wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
+**Beispiel-Prompt**
+
+`Show me my recent Canvases`
+
+**Beispielantwort**
+
+Ich habe Ihre verfügbaren Tools mit `list_functions` überprüft und dann `get_canvas_list` verwendet, um Ihre zuletzt bearbeiteten Canvases abzurufen.
+
+Neueste Canvases:
+
+1. **YOUR-TEST-CANVAS-ALPHA**
+   - ID: `YOUR-TEST-ID-123`
+   - Zuletzt bearbeitet: 16. Jan. 2026, 14:45 Uhr UTC
+2. **YOUR-TEST-CANVAS-BETA**
+   - ID: `YOUR-TEST-ID-456`
+   - Zuletzt bearbeitet: 15. Jan. 2026, 11:10 Uhr UTC
+3. **YOUR-TEST-CANVAS-GAMMA**
+   - ID: `YOUR-TEST-ID-789`
+   - Zuletzt bearbeitet: 14. Jan. 2026, 20:25 Uhr UTC
 {% endtab %}
 
 {% tab Cursor %}
-![„Meine aktuellen Canvases anzeigen“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
+**Beispiel-Prompt**
+
+`Show me my recent Canvases`
+
+**Beispielantwort**
+
+Ich rufe Ihre aktuelle Canvas-Liste vom Braze MCP-Server ab.
+
+- `list_functions` aufgerufen
+- `get_canvas_list` aufgerufen
+
+Aktuelle Canvases (sortiert nach zuletzt bearbeitet):
+
+- **Canvas-Name:** `YOUR-TEST-CANVAS-ALPHA`
+  - **Zuletzt bearbeitet:** 16. Jan. 2026, 14:45 Uhr UTC
+  - **Canvas-ID:** `YOUR-TEST-ID-123`
+  - **Tags:** `lifecycle`, `email`
+- **Canvas-Name:** `YOUR-TEST-CANVAS-BETA`
+  - **Zuletzt bearbeitet:** 15. Jan. 2026, 11:10 Uhr UTC
+  - **Canvas-ID:** `YOUR-TEST-ID-456`
+  - **Tags:** `promo`
 {% endtab %}
 {% endtabs %}
 
@@ -67,8 +192,39 @@ Weitere Informationen zur Funktion `get_canvas_list` finden Sie unter [Verfügba
 ### Ein E-Mail-Template erstellen {#create-an-email-template}
 
 {% tabs %}
+{% tab Claude %}
+**Beispiel-Prompt**
+
+`Create an email template named "YOUR-TEST-TEMPLATE-NAME" for onboarding messages.`
+
+**Beispielantwort**
+
+Ich habe Ihr Template mit `create_email_template` erstellt.
+
+- **Template-Name:** `YOUR-TEST-TEMPLATE-NAME`
+- **Template-ID:** `YOUR-TEST-TEMPLATE-ID-123`
+- **Betreffzeile:** `YOUR-TEST-SUBJECT-LINE`
+- **Preheader:** `YOUR-TEST-PREHEADER`
+- **Erstellt am:** 16. Jan. 2026, 15:10 Uhr UTC
+
+Sie können `YOUR-TEST-TEMPLATE-ID-123` jetzt beim Erstellen oder Aktualisieren von Campaigns und Canvases referenzieren.
+{% endtab %}
+
 {% tab Cursor %}
-![„Ein E-Mail-Template erstellen“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
+**Beispiel-Prompt**
+
+`Create an email template named "YOUR-TEST-TEMPLATE-NAME" for onboarding messages.`
+
+**Beispielantwort**
+
+Ich habe `create_email_template` verwendet und ein neues Template erfolgreich erstellt.
+
+- **Template-ID:** `YOUR-TEST-TEMPLATE-ID-123`
+- **Template-Name:** `YOUR-TEST-TEMPLATE-NAME`
+- **Betreff:** `YOUR-TEST-SUBJECT-LINE`
+- **Beschreibung:** `Onboarding lifecycle template`
+
+Wenn Sie möchten, kann ich auch einen HTML-Startkörper und einen Nur-Text-Fallback für dieses Template generieren.
 {% endtab %}
 {% endtabs %}
 
@@ -77,8 +233,42 @@ Weitere Informationen zur Funktion `create_email_template` finden Sie unter [Ver
 ### Einen Content-Block aktualisieren {#update-a-content-block}
 
 {% tabs %}
+{% tab Claude %}
+**Beispiel-Prompt**
+
+`Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123" with new body copy for our spring promotion.`
+
+**Beispielantwort**
+
+Ich habe Ihren Content-Block mit `update_content_block` aktualisiert.
+
+- **Content-Block-ID:** `YOUR-TEST-CONTENT-BLOCK-ID-123`
+- **Name:** `YOUR-TEST-CONTENT-BLOCK-NAME`
+- **Status:** Aktualisiert
+- **Aktualisiert am:** 16. Jan. 2026, 15:25 Uhr UTC
+
+Vorschau:
+
+`YOUR-TEST-CONTENT-BLOCK-BODY-V2`
+{% endtab %}
+
 {% tab Cursor %}
-![„Einen Content-Block aktualisieren“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
+**Beispiel-Prompt**
+
+`Update content block "YOUR-TEST-CONTENT-BLOCK-ID-123" with new body copy for our spring promotion.`
+
+**Beispielantwort**
+
+Ich habe `update_content_block` ausgeführt und die Aktualisierung bestätigt.
+
+- **Content-Block-ID:** `YOUR-TEST-CONTENT-BLOCK-ID-123`
+- **Vorherige Version:** `v1`
+- **Aktuelle Version:** `v2`
+- **Zuletzt aktualisiert:** 16. Jan. 2026, 15:25 Uhr UTC
+
+Aktualisierte Inhaltsvorschau:
+
+`YOUR-TEST-CONTENT-BLOCK-BODY-V2`
 {% endtab %}
 {% endtabs %}
 

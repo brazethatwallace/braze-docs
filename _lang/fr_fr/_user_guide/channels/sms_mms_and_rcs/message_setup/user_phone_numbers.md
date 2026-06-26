@@ -19,7 +19,7 @@ channel:
 
 Nous recommandons d'importer les numéros de téléphone au format [`E.164`](https://en.wikipedia.org/wiki/e.164) afin de garantir la précision lorsque vous envoyez des messages vers plusieurs régions avec différents indicatifs de pays ou de zone&#8212;même pour les numéros de téléphone basés aux États-Unis.
 
-- **Numéros américains :** Tous les numéros américains doivent être des numéros de téléphone valides à 10 chiffres avec un indicatif régional valide. Si un numéro à 10 chiffres ne comporte pas de `+` et d'indicatif de pays, Braze le considérera comme un numéro américain.
+- **Numéros américains :** Tous les numéros américains doivent être des numéros de téléphone valides à 10 chiffres avec un indicatif régional valide. Si un numéro à 10 chiffres ne comporte pas de `+` et d'indicatif de pays, Braze le considérera comme un numéro américain. Les numéros de téléphone portoricains nécessitent tout de même un `+` et un indicatif de pays, même s'ils utilisent un format à 10 chiffres avec des indicatifs régionaux de type américain.
 - **Numéros internationaux :** Tous les numéros internationaux doivent commencer par un `+`, suivi de l'indicatif du pays puis du numéro de téléphone. Par exemple, `+442071838750`.
 
 ![Exemple d'un numéro de téléphone international valide au format E.164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
@@ -31,7 +31,7 @@ Voici quelques exemples illustrant les différences entre le formatage local et 
 | USA | `4155552671` | 1 | `+14155552671` |
 | UK | `2071838750` | 44 | `+442071838750` |
 | Brésil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Recommended format" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Format recommandé" }
 
 ## Importation des numéros de téléphone {#import-phone-numbers}
 
@@ -76,7 +76,7 @@ Les rejets SMS sont décomptés de votre allocation SMS.
 Pour exclure de vos segments les utilisateurs dont les envois SMS ont été rejetés, utilisez les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) en procédant comme suit :
 
 1. Accédez à **Audience** > **Extensions de segments**.
-2. Sélectionnez **Create New Extension** > **Full refresh** ou **Incremental refresh**.
+2. Sélectionnez **Créer** > **Actualisation complète** ou **Actualisation incrémentale**.
 3. Rédigez une requête SQL qui identifie les utilisateurs ayant des rejets SMS. Par exemple, vous pouvez interroger l'événement `USERS_MESSAGES_SMS_REJECTION_SHARED` pour trouver les utilisateurs ayant reçu des rejets SMS.
 4. Enregistrez votre extension de segment.
 5. Lors de la création de votre segment SMS, ajoutez un filtre pour exclure les utilisateurs de cette extension de segment.

@@ -43,7 +43,7 @@ Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conte
 4. Escolha quando a Braze calcula a elegibilidade do público e a personalização para o Content Card. Isso pode ser na entrada da etapa ou na primeira impressão (recomendado). Etapas que contêm Content Cards podem ser agendadas ou baseadas em ação.
 5. Escolha se deseja remover os Content Cards quando os usuários concluírem uma compra ou realizarem um evento personalizado.
 6. Defina uma expiração para o Content Card (tempo no feed). Isso pode ser após um período de tempo ou em um momento específico.
-7. Filtre seu público, ou os destinatários, para esta etapa conforme necessário em **Delivery Settings**. Você pode refinar ainda mais seu público especificando Segments e adicionando filtros adicionais. As opções de público são verificadas após a postergação, no momento em que as mensagens são enviadas.
+7. Filtre seu público, ou os destinatários, para esta etapa conforme necessário em **Delivery Settings**. Você pode refinar ainda mais seu público especificando segmentos e adicionando filtros adicionais. As opções de público são verificadas após a postergação, no momento em que as mensagens são enviadas.
 8. Escolha quaisquer outros canais de envio de mensagens que você queira combinar com sua mensagem.
 
 {% endtab %}
@@ -147,7 +147,7 @@ Para Campaigns de Content Card com entrega agendada, você pode escolher quando 
 
 #### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse Segment. Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para refinar seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include target_audiences.md %}
 
@@ -331,7 +331,7 @@ Se você quiser que um cartão pareça estar sempre disponível, pode criar uma 
 
 ### Sincronização e atualização de Content Cards {#content-card-sync-and-refresh}
 
-Content Cards sincronizam em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e a integração do SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+Content Cards sincronizam em um cronograma e quando seu app atualiza o feed. O comportamento de sincronização difere entre sincronizações completas e parciais, e sua integração de SDK afeta quando os cartões são atualizados no início da sessão. Para detalhes de implementação, consulte [Personalizar o feed de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) e [Criando Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
 
 ### Impacto de interromper Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
 

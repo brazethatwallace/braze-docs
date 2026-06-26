@@ -94,7 +94,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 #### 상단에 고정 {#pin-to-top}
 
-Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. Braze가 콘텐츠 카드를 전달할 때 카드는 고정 또는 비고정 상태이며, 해당 상태는 카드의 수명 동안 변경되지 않습니다. Campaign에서 고정 설정을 변경하면 향후 전송되는 카드에만 업데이트가 적용됩니다. 이미 사용자의 피드에 있는 카드의 고정 상태는 변경되지 않습니다.
+Braze는 고정된 카드를 사용자 피드 상단에 표시하며, 사용자는 이를 닫을 수 없습니다. 사용자의 피드에 여러 개의 고정 카드가 있는 경우, Braze는 시간순으로 정렬합니다. Braze가 콘텐츠 카드를 전달할 때 카드는 고정 또는 고정 해제 상태이며, 해당 상태는 카드의 수명 동안 변경되지 않습니다. Campaign에서 고정 설정을 변경하면 향후 전송되는 카드에만 업데이트가 적용됩니다. 이미 사용자의 피드에 있는 카드의 고정 상태는 변경되지 않습니다.
 
 !["이 카드를 피드 상단에 고정" 옵션이 선택된 모바일 및 웹용 Braze 콘텐츠 카드 미리보기 나란히 비교.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
@@ -331,7 +331,7 @@ Content Cards는 전송된 후 최대 30일 동안 사용할 수 있으며, 30�
 
 ### Content Cards 동기화 및 새로고침 {#content-card-sync-and-refresh}
 
-Content Cards는 스케줄에 따라 그리고 앱이 피드를 새로고침할 때 동기화됩니다. 동기화 동작은 전체 동기화와 부분 동기화에 따라 다르며, SDK 통합은 세션 시작 시 카드가 새로고침되는 시점에 영향을 줍니다. 구현 세부 정보는 [Content Cards 피드 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) 및 [Content Cards 생성]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)을 참조하세요.
+Content Cards는 스케줄에 따라 그리고 앱이 피드를 새로고침할 때 동기화됩니다. 동기화 동작은 전체 동기화와 부분 동기화에 따라 다르며, SDK 통합에 따라 세션 시작 시 카드가 새로고침되는 시점이 달라집니다. 구현 세부 정보는 [Content Cards 피드 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) 및 [Content Cards 생성]({{site.baseurl}}/developer_guide/content_cards/creating_cards/)을 참조하세요.
 
 ### Content Cards Campaign 중지의 영향 {#impact-of-stopping-content-cards-campaigns}
 
