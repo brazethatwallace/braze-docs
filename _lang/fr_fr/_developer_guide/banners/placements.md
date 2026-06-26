@@ -717,6 +717,7 @@ Voici les versions minimales du SDK requises pour enregistrer les fermetures de 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Intégrations {#integrations}
+
 #### Intégrations de bannières standard (éditeur par glisser-déposer) {#standard-banner-integrations-drag-and-drop-editor}
 
 Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message est masqué, déclenche une fermeture, puis enregistre un événement de fermeture pour les analyses.

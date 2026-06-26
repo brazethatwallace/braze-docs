@@ -85,9 +85,9 @@ Das Klickverhalten kann überschrieben werden, wenn ein bestimmtes Element (z. B
 
 #### Schritt 3.3: Schließverhalten konfigurieren (optional) {#dismiss-behavior}
 
-Aktivieren Sie das Kontrollkästchen **Banner can be dismissed** im Abschnitt **Dismiss Behavior**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option ist in Szenarien nützlich, in denen Sie eine zeitlich begrenzte Aktion für alle App-Nutzer:innen bewerben möchten, ihnen aber erlauben, die Nachricht zu schließen, wenn sie nicht interessiert sind.
+Aktivieren Sie das Kontrollkästchen **Banner can be dismissed** im Abschnitt **Dismiss behavior**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option ist nützlich, wenn Sie ein zeitlich begrenztes Angebot für eine breite Zielgruppe bewerben, aber nicht interessierten Nutzer:innen erlauben möchten, die Nachricht auszublenden.
 
-Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnitt **Dismiss Behavior** anpassen:
+Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnitt **Dismiss behavior** anpassen:
 
 | Einstellung | Beschreibung |
 |---------|-------------|
@@ -142,7 +142,7 @@ Wenn Sie mehrere Banner-Kampagnen mit derselben Placement-ID haben, empfehlen wi
 
 #### Erneute Berechtigung konfigurieren (optional) {#re-eligibility}
 
-Standardmäßig sind Nutzer:innen, die ein Banner geschlossen haben, nie erneut für diese Kampagne berechtigt. Um geschlossene Banner erneut anzuzeigen, gehen Sie zum Schritt **Delivery Controls** und wählen Sie **Allow users to become re-eligible to receive campaign**. Wenn aktiviert, legen Sie ein Abklingfenster in Minuten, Stunden, Tagen oder Wochen fest.
+Standardmäßig sind Nutzer:innen, die ein Banner geschlossen haben, nie erneut für diese Kampagne berechtigt. Um geschlossenen Nutzer:innen das Banner erneut anzuzeigen, gehen Sie zum Schritt **Delivery Controls** und wählen Sie **Allow users to become re-eligible to receive campaign**. Wenn aktiviert, legen Sie ein Abklingfenster in Minuten, Stunden, Tagen oder Wochen fest.
 
 Der Countdown beginnt, wenn Nutzer:innen das Banner schließen. Nach Ablauf des Fensters sind die Nutzer:innen automatisch erneut berechtigt – ein Neustart der Kampagne ist nicht erforderlich. Die erneute Berechtigung wird pro Nutzer:in und pro Kampagne verfolgt.
 

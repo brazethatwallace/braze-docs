@@ -65,7 +65,7 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 
 ### Step 1: Set up tables or views
 
-Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) to understand source table requirements compared to `PAYLOAD` formatting requirements.
+Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) to understand source table requirements compared to `PAYLOAD` formatting requirements.
 
 {% alert note %}
 Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
@@ -596,7 +596,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 {% endtabs %}

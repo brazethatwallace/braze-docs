@@ -2,7 +2,6 @@
 nav_title: "Expresiones regulares"
 article_title: "Expresiones regulares"
 page_order: 8
-
 description: "Este artículo de referencia cubre qué son las expresiones regulares (regex), cómo empezar a usarlas, y ofrece funcionalidad de depuración para validar y probar expresiones regulares."
 page_type: reference
 tool:
@@ -10,7 +9,7 @@ tool:
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Expresiones regulares {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Expresiones regulares {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
 
 > Una expresión regular, conocida comúnmente como regex, es una secuencia de caracteres que define un patrón de búsqueda. Las expresiones regulares te permiten validar agrupaciones de texto y realizar acciones de buscar y reemplazar. En Braze, aprovechamos las expresiones regulares para ofrecerte una solución de coincidencia de cadenas más flexible en tu segmentación y filtrado de Campaign para tu audiencia objetivo.<br><br>Esta página cubre las expresiones regulares (regex), cómo usarlas, preguntas frecuentes, y proporciona un depurador de regex para probar expresiones regulares.
 
@@ -139,11 +138,19 @@ $( document ).ready(function() {
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿El filtro `does not match regex` incluye valores en blanco? {#does-the-does-not-match-regex-filter-include-blank-values}
+### ¿El filtro `does not match regex` incluye valores en blanco? {#does-the-does-not-match-regex-filter-include-blank-values}
 
 No. Si el valor está en blanco, el usuario no será incluido en el filtro `does not match regex`.
 
-#### ¿Cómo filtro direcciones de correo electrónico específicas de un buzón de entrada al segmentar? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
+### ¿Cómo hago coincidir cualquiera de varios valores exactos (lógica OR) para un atributo personalizado de cadena? {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
+
+Usa la alternancia con anclas de inicio y fin para que cada valor coincida exactamente y no obtengas coincidencias parciales. Por ejemplo, para hacer coincidir exactamente `gold`, `silver` o `bronze`:
+
+```
+(^gold$)|(^silver$)|(^bronze$)
+```
+
+### ¿Cómo filtro direcciones de correo electrónico específicas de un buzón de entrada al segmentar? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
 
 {% raw %}
 Usa el filtro de dirección de correo electrónico, configúralo como `matches regex`. Luego haz referencia a la regex para direcciones de correo electrónico:
@@ -160,13 +167,13 @@ Podemos desglosar esta regex en las siguientes tres partes:
 
 {% endraw %}
 
-#### ¿Cómo filtro direcciones de correo electrónico asociadas a un dominio específico? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
+### ¿Cómo filtro direcciones de correo electrónico asociadas a un dominio específico? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
 
 Supongamos que quieres filtrar correos electrónicos que terminan en "@braze.com". Usarías el filtro de dirección de correo electrónico, lo configurarías como `matches regex`, e introducirías "@braze.com" en el campo de regex. Lo mismo aplica para cualquier otro dominio de correo electrónico.
 
 ![Filtro para una dirección de correo electrónico que coincide con la regex "@braze.com".]({% image_buster /assets/img/regex/regeximg1.png %})
 
-#### ¿Cómo puedo usar cadenas de filtro numérico para valores ≥ x o ≤ x? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
+### ¿Cómo puedo usar cadenas de filtro numérico para valores ≥ x o ≤ x? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
 
 Si buscas valores mayores o iguales a (≥) x, usa la siguiente regex:
 
@@ -184,7 +191,7 @@ Si buscas valores menores o iguales a (≤) x, usa la siguiente regex:
 
 Donde `x-y` es el rango de números (0-9) del primer dígito, y `a-b` es el rango del límite inferior de x. Por ejemplo, para valores menores o iguales a 50, la regex sería `^([5-9][0-9]|[0-4][0-9])$`.
 
-#### ¿Cómo filtro atributos personalizados que comienzan con una cadena específica? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
+### ¿Cómo filtro atributos personalizados que comienzan con una cadena específica? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
 
 Usa el símbolo de acento circunflejo (`^`) para indicar con qué comienza la cadena, y luego introduce el nombre del atributo personalizado que deseas especificar.
 
@@ -192,13 +199,19 @@ Por ejemplo, si intentas dirigirte a usuarios que viven en ciudades que comienza
 
 ![Filtro para una ciudad que coincide con la regex "^San \w".]({% image_buster /assets/img/regex/regeximg2.png %})
 
-#### ¿Cómo filtro números de teléfono específicos? {#how-do-i-filter-for-specific-phone-numbers}
+### ¿Cómo filtro números de teléfono específicos? {#how-do-i-filter-for-specific-phone-numbers}
 
 Antes de usar regex para filtrar números de teléfono, recuerda que los números registrados para perfiles de usuario deben estar en formato [E.164](https://en.wikipedia.org/wiki/E.164), como se especifica en [Números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/).
 
 Suponiendo que buscas números de teléfono de EE. UU., usa el formato de regex `1?\d\d\d\d\d\d\d\d\d\d`, donde cada repetición de `\d` es un dígito que deseas especificar. Los primeros tres dígitos son el código de área.
 
 De igual manera, el formato para números de teléfono del Reino Unido es `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Cualquier otro país sería el código de país respectivo, seguido del número necesario de repeticiones de `\d` para cada dígito restante. Así, en el caso de Lituania con un código de país "3", su regex sería `^\+3\d\d\d\d\d\d\d\d\d\d`.
+
+Si tus números de móvil del Reino Unido están almacenados sin un `+` inicial en el formato común que comienza con `447` (por ejemplo, `447123456789`), puedes hacerlos coincidir con:
+
+```
+^447\d{9}$
+```
 
 Por ejemplo, supongamos que quieres filtrar usuarios por número de teléfono para un código de área específico, "718". Usa el filtro de número de teléfono, configúralo como `matches regex`, e introduce la siguiente regex:
 

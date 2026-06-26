@@ -21,4 +21,4 @@ Logging in at [dashboard.braze.com](https://dashboard.braze.com) will automatica
 When integrating your SDK, use the SDK endpoint. When making calls to our REST API, use the REST endpoint.
 {% endalert %}
 
-For details about accessing the API, see our [API overview article]({{site.baseurl}}/api/basics/). 
+For details about accessing the API, see our [API overview article]({{site.baseurl}}/api/basics). 

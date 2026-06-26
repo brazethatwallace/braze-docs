@@ -12,8 +12,8 @@ Braze Android SDKは、Brazeのメッセージング、分析、ユーザーエ�
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
+- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction/)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
 
 ## クイックスタート {#quickstart}
 
@@ -47,7 +47,7 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-高度な統合オプションの詳細については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)を参照してください。
+高度な統合オプションの詳細については、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)を参照してください。
 
 ## バージョンサポート {#version-support}
 

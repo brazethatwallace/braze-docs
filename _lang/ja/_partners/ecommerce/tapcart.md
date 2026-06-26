@@ -18,7 +18,7 @@ _この統合はTapcartによって管理されます。_
 | 必要条件              | 説明                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tapcartエンタープライズアカウント | この統合は、**Tapcart Enterpriseの顧客**のみが利用できます。                                                                              |
-| BrazeアプリAPIキー         | [Brazeアプリ識別子APIキー](https://www.braze.com/docs/api/identifier_types)が必要です。各プラットフォーム（iOSやAndroidなど）には、独自のアプリ識別子があります。Brazeダッシュボードで、**Settings** > **APIs and Identifiers** > **App Identifiers** に移動します。 |
+| BrazeアプリAPIキー         | [Brazeアプリ識別子APIキー]({{site.baseurl}}/api/identifier_types/)が必要です。各プラットフォーム（iOSやAndroidなど）には、独自のアプリ識別子があります。Brazeダッシュボードで、**設定** > **APIキー** > **アプリ識別子**に移動します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合について {#about-the-integration}

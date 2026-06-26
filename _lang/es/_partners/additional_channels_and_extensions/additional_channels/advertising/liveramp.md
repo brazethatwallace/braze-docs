@@ -1,15 +1,22 @@
 ---
 nav_title: LiveRamp
 article_title: LiveRamp
-description: "Aprende a conectar LiveRamp, Snowflake y Braze para crear campañas de marketing altamente personalizadas y relevantes."
+description: "Aprende a conectar LiveRamp y Braze a través de Snowflake Data Sharing o Braze Currents para crear campañas de marketing altamente personalizadas y relevantes."
 alias: /partners/liveramp/
 page_type: partner
 search_tag: Partner
 ---
 
-# Conecta LiveRamp, Snowflake y Braze {#connect-liveramp-snowflake-and-braze}
+# LiveRamp
 
-> Aprende a conectar LiveRamp, Snowflake y Braze para crear campañas de marketing altamente personalizadas y relevantes reduciendo el tiempo de obtención de información, eliminando los silos de datos y optimizando la interacción con los clientes. Esta integración mejora el marketing basado en datos al proporcionar información procesable basada en las personas y consolidar los puntos de intervención del consumidor para una mejor segmentación de la audiencia y campañas oportunas. También aprovecha los puntos de referencia de Snowflake para ayudarte a perfeccionar tus estrategias de marketing comparándolas con los estándares del sector.
+> Aprende a conectar LiveRamp y Braze a través de Snowflake Data Sharing o Braze Currents para crear campañas de marketing altamente personalizadas y relevantes reduciendo el tiempo de obtención de información, eliminando los silos de datos y optimizando la interacción con los clientes. Esta integración mejora el marketing basado en datos al proporcionar información procesable basada en las personas y consolidar los puntos de intervención del consumidor para una mejor segmentación de la audiencia y campañas oportunas.
+
+## Opciones de integración {#integration-options}
+
+Puedes integrar LiveRamp con Braze utilizando uno de dos métodos:
+
+- **Snowflake Data Sharing:** Comparte datos de Braze directamente a través de los Secure Data Shares de Snowflake sin mover datos. Este método aprovecha los puntos de referencia de Snowflake para ayudarte a perfeccionar tus estrategias de marketing comparándolas con los estándares del sector.
+- **Braze Currents:** Transmite datos de interacción a nivel de evento en tiempo real desde Braze a un destino de almacenamiento en la nube (Amazon S3, Google Cloud Storage o Microsoft Azure Blob Storage), luego carga esos datos en tu almacén de datos y utiliza las funciones de resolución de identidad de LiveRamp en tu entorno en la nube.
 
 {% alert important %}
 El [intercambio seguro de datos](https://docs.snowflake.com/en/user-guide/data-sharing-intro) de Snowflake no transfiere datos entre LiveRamp, Snowflake y Braze. Los datos solo se comparten a través de los servicios y el almacén de metadatos de Snowflake, lo que significa que no se copian datos ni se producen cargos adicionales por almacenamiento. El acceso a los datos compartidos se controla y regula mediante los controles de acceso de tu cuenta de Snowflake.
@@ -17,20 +24,24 @@ El [intercambio seguro de datos](https://docs.snowflake.com/en/user-guide/data-s
 
 ## Casos de uso {#use-cases}
 
-- **Minimización de datos:** La aplicación Activation de LiveRamp utiliza la característica Secure Data Share de Snowflake para leer eficazmente las tablas directamente desde tu instancia. No se mueven datos desde Snowflake hasta el punto de entrega al socio posterior.
-- **Activación segura de 1.ª parte:** Al utilizar la aplicación de resolución de identidad mencionada anteriormente, la aplicación Activation de LiveRamp solo utilizará las tablas basadas en RampID en tu instancia de Snowflake, por lo que la PII nunca tendrá que salir de tus paredes.
-- **Acelerar el tiempo en vivo:** Al resolver los datos a RampID directamente en tu entorno, la entrega a un destino final puede producirse en cuestión de horas, en comparación con varios días cuando se utiliza el enfoque más tradicional basado en archivos de LiveRamp. Esto aumenta enormemente la capacidad de optimizar el rendimiento de las campañas en el momento oportuno.
-- **Ahorro operativo:** De forma similar a lo anterior, mediante el uso de la característica Secure Data Share de Snowflake, los clientes ahorran tiempo y dinero en comparación con la coordinación de la salida de archivos a LiveRamp o directamente a cualquier destino final.
+Esta integración admite los siguientes casos de uso en todos los entornos de almacén de datos:
 
-## Requisitos previos {#prerequisites}
+- **Minimización de datos:** Las soluciones de LiveRamp utilizan características de intercambio seguro de datos o resolución de identidad nativa en la nube para leer tablas directamente desde tu almacén de datos. No se mueven datos hasta el punto de entrega al socio posterior.
+- **Activación segura de datos propios:** Al utilizar la resolución de identidad de LiveRamp, la aplicación de activación de LiveRamp solo utiliza las tablas basadas en RampID en tu almacén de datos, por lo que la PII nunca tiene que salir de tu entorno.
+- **Acelerar el tiempo en vivo:** Al resolver los datos a RampID directamente en tu entorno, la entrega a un destino final puede producirse en cuestión de horas, en comparación con varios días cuando se utiliza el enfoque más tradicional basado en archivos de LiveRamp. Esto aumenta enormemente la capacidad de optimizar el rendimiento de las campañas en el momento oportuno.
+- **Ahorro operativo:** Mediante el intercambio seguro de datos o la resolución de identidad nativa en la nube, ahorras tiempo y dinero en comparación con la coordinación de la salida de archivos a LiveRamp o directamente a cualquier destino final.
+
+## Integración con Snowflake Data Sharing {#integration-with-snowflake-data-sharing}
+
+Los siguientes pasos describen cómo integrar LiveRamp con Braze a través de Snowflake Data Sharing.
+
+### Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 |---|---|
 | Cuenta de Snowflake | Necesitas una cuenta de Snowflake con permisos de nivel de administrador. |
 | Cuenta de LiveRamp | Ponte en contacto con tu equipo de cuentas de LiveRamp o con [snowflake@liveramp.com](mailto:snowflake@liveramp.com) para hablar de las aplicaciones de LiveRamp necesarias dentro de Snowflake. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
-
-## Configuración de la integración {#setting-up-the-integration}
 
 ### Paso 1: Solicitar un intercambio de datos a Braze {#step-1-request-a-data-share-from-braze}
 
@@ -62,7 +73,7 @@ A continuación, crea una tabla de datos con el [formato requerido](https://docs
 
 #### Identificadores de Braze {#braze-identifiers}
 
-Los registros de eventos de Braze contienen identificadores que puedes utilizar dentro de la aplicación nativa de LiveRamp. Para obtener una lista completa de los identificadores disponibles para cada tipo de evento, descarga los [esquemas e identificadores de eventos de Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Los registros de eventos de Braze contienen identificadores que puedes utilizar dentro de la aplicación nativa de LiveRamp. Para obtener una lista completa de los identificadores disponibles para cada tipo de evento, descarga los [esquemas e identificadores de eventos de Braze](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 
 | Tipo de identificador | Descripción |
 |---|---|
@@ -114,15 +125,91 @@ $output_table_name
 
 Con tus datos ahora seudonimizados a tu codificación dedicada de RampID, tienes la capacidad de compartir las tablas basadas en RampID con la aplicación Managed Activation de LiveRamp para la entrega optimizada a tus socios clave de plataformas publicitarias. La aplicación Activation incluye una interfaz fácil de usar para usuarios de negocio que permite la segmentación adicional y la selección/configuración de socios de destino posteriores. Para más detalles sobre la aplicación, ponte en contacto con el equipo de tu cuenta de LiveRamp o con [snowflake@liveramp.com](mailto:snowflake@liveramp.com).
 
+## Integración con Braze Currents {#integration-with-braze-currents}
+
+Braze Currents proporciona un flujo en tiempo real de eventos de interacción que se pueden exportar a destinos de almacenamiento en la nube. Puedes usar Currents con LiveRamp para transmitir datos de eventos de Braze al almacenamiento en la nube, cargarlos en tu almacén de datos y luego aplicar las funciones de resolución de identidad de LiveRamp dentro de tu entorno en la nube.
+
+### Cómo funciona {#how-it-works}
+
+1. **Braze proporciona datos a nivel de evento en tiempo real:** Braze transmite datos de interacción sin procesar a tu almacén de datos o destino de almacenamiento a través de Currents.
+2. **LiveRamp conecta los datos a RampID:** LiveRamp elimina la PII y conecta tus datos al identificador universal de tu marca, RampID.
+3. **Activar y medir:** Los datos propios de Braze se pueden combinar con otros datos de terceros para crear segmentos de clientes más precisos para publicidad. Las audiencias seudonimizadas se envían a LiveRamp para la activación posterior en socios de plataformas, y LiveRamp recibe datos de exposición publicitaria de los socios para la medición a nivel de personas.
+
+### Plataformas en la nube compatibles {#supported-cloud-platforms}
+
+Las funciones de resolución de identidad de LiveRamp están disponibles en los siguientes entornos en la nube:
+
+| Plataforma | Solución de LiveRamp | Descripción |
+|----------|------------------|-------------|
+| Google BigQuery | [LiveRamp Embedded Identity en BigQuery](https://docs.liveramp.com/identity/en/liveramp-embedded-identity-in-bigquery.html#liveramp-embedded-identity-in-bigquery) | Realiza la resolución de identidad y la traducción de RampID de forma nativa en BigQuery utilizando el BigQuery Entity Resolution Framework. Carga los datos de Currents desde Google Cloud Storage en BigQuery antes de ejecutar la resolución de identidad. |
+| AWS | [LiveRamp Identity en AWS](https://docs.liveramp.com/identity/en/liveramp-identity-in-aws.html#liveramp-identity-in-aws) | Resuelve identificadores a RampIDs y realiza la traducción de identidad utilizando AWS Entity Resolution o a través de Amazon Data Exchange (ADX) de forma independiente. Carga los datos de Currents desde Amazon S3 antes de ejecutar la resolución de identidad. |
+| Microsoft Azure | Ponte en contacto con LiveRamp | Azure Blob Storage es compatible como destino de Currents. Ponte en contacto con tu representante de LiveRamp para obtener soluciones de resolución de identidad específicas de Azure. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plataformas en la nube compatibles" }
+
+{% alert note %}
+LiveRamp Embedded Identity en BigQuery se encuentra actualmente en versión beta. Ponte en contacto con [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com) para hablar sobre la participación en el programa.
+{% endalert %}
+
+### Requisitos previos
+
+| Requisito | Descripción |
+|-------------|-------------|
+| Braze Currents | Para transmitir datos de eventos al almacenamiento en la nube, necesitas tener [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) configurado para tu cuenta. |
+| Cuenta de almacenamiento en la nube | Necesitas una cuenta de almacenamiento en la nube (Amazon S3, Google Cloud Storage o Microsoft Azure Blob Storage) donde Currents transmita tus datos. |
+| Cuenta de LiveRamp | Ponte en contacto con tu equipo de cuentas de LiveRamp o con [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com) para configurar la resolución de identidad de LiveRamp en tu entorno en la nube. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
+
+### Paso 1: Configurar Braze Currents {#step-1-set-up-braze-currents}
+
+Primero, configura Braze Currents para transmitir tus datos de interacción a tu destino de almacenamiento en la nube. Consulta las siguientes guías según la plataforma que hayas elegido:
+
+- [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)
+- [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/)
+- [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)
+
+Configura Currents para exportar los eventos que contengan los identificadores que necesitas para la resolución de identidad de LiveRamp. Para obtener una lista completa de los identificadores disponibles para cada tipo de evento, consulta los glosarios de [eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) y [eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).
+
+### Paso 2: Configurar la resolución de identidad de LiveRamp {#step-2-set-up-liveramp-identity-resolution}
+
+Una vez que Currents esté transmitiendo datos a tu almacenamiento en la nube, trabaja con tu representante de LiveRamp para configurar la resolución de identidad en tu entorno en la nube:
+
+- **Para BigQuery:** Sigue la guía de configuración de [LiveRamp Embedded Identity en BigQuery](https://docs.liveramp.com/identity/en/liveramp-embedded-identity-in-bigquery.html#liveramp-embedded-identity-in-bigquery) para habilitar la resolución de identidad y la traducción de RampID. Coordínate con tu representante de LiveRamp para completar los pasos de acuerdo y aprovisionamiento requeridos para el programa beta.
+- **Para AWS:** Sigue la guía de configuración de [LiveRamp Identity en AWS](https://docs.liveramp.com/identity/en/liveramp-identity-in-aws.html#liveramp-identity-in-aws) para configurar la resolución de identidad de RampID utilizando AWS Entity Resolution o ADX de forma independiente.
+
+### Paso 3: Cargar y transformar tus datos {#step-3-load-and-transform-your-data}
+
+Crea un proceso ETL (extraer, transformar, cargar) para:
+
+1. Cargar los datos de Currents desde tu almacenamiento en la nube en las tablas de tu almacén de datos.
+2. Transformar los datos al formato requerido por el servicio de resolución de identidad de LiveRamp.
+3. Preparar las tablas de entrada con los identificadores necesarios para la resolución de LiveRamp (como direcciones de correo electrónico, ID de dispositivos o ID de usuario externos).
+
+### Paso 4: Realizar la resolución de identidad {#step-4-perform-identity-resolution}
+
+Utiliza la resolución de identidad nativa en la nube de LiveRamp para resolver tus identificadores de Braze a RampIDs. El proceso:
+
+1. Resuelve los identificadores proporcionados (PII o dispositivo) al identificador seudonimizado basado en personas de LiveRamp, RampID.
+2. Escribe las tablas de salida con RampIDs de vuelta en tu almacén de datos, con los datos PII eliminados.
+
+### Paso 5: Activar tus audiencias {#step-5-activate-your-audiences}
+
+Con tus datos ahora seudonimizados a RampID, puedes:
+
+- Combinar datos propios de Braze con otros orígenes de datos para crear segmentos de clientes más precisos.
+- Activar audiencias seudonimizadas a través de la plataforma de activación de LiveRamp para campañas publicitarias.
+- Recibir datos de exposición publicitaria de los socios para la medición a nivel de personas.
+
+Para más detalles sobre la activación, ponte en contacto con tu equipo de cuentas de LiveRamp o con [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com).
+
 ## Solución de problemas {#troubleshooting}
 
 {% alert note %}
-Si tienes cuestiones o preguntas más específicas, ponte en contacto con [martech@liveramp.com](mailto:martech@liveramp.com).
+Si tienes cuestiones o preguntas más específicas, ponte en contacto con [martech@liveramp.com](mailto:martech@liveramp.com) o [LiveRampIdentitySupport@liveramp.com](mailto:LiveRampIdentitySupport@liveramp.com).
 {% endalert %}
 
 ### Regiones de Snowflake {#snowflake-regions}
 
-Actualmente, esta aplicación solo está disponible para las siguientes regiones de EE. UU.:
+Actualmente, la aplicación nativa de Snowflake solo está disponible para las siguientes regiones de EE. UU.:
 
   - aws-us-east-1: POA18931
   - aws-us-west-2: FAA28932
@@ -130,7 +217,7 @@ Actualmente, esta aplicación solo está disponible para las siguientes regiones
 
 ### Privacidad y valores de columna {#privacy-column-values}
 
-El proceso evalúa la combinación de todos los valores de columna por fila en busca de valores únicos. Si una determinada combinación de valores de columna aparece 3 o menos veces, las filas que contengan esos valores de columna no serán coincidentes y no se devolverán en la tabla de salida. Asimismo, para garantizar la privacidad, el servicio de LiveRamp evalúa la unicidad de las combinaciones de valores de columna, garantizando que si más del 5 % de las filas del archivo resultan no coincidentes debido a combinaciones raras, el trabajo fallará.
+El proceso de resolución de identidad de LiveRamp evalúa la combinación de todos los valores de columna por fila en busca de valores únicos. Si una determinada combinación de valores de columna aparece 3 o menos veces, las filas que contengan esos valores de columna no serán coincidentes y no se devolverán en la tabla de salida. Asimismo, para garantizar la privacidad, el servicio de LiveRamp evalúa la unicidad de las combinaciones de valores de columna, garantizando que si más del 5 % de las filas del archivo resultan no coincidentes debido a combinaciones raras, el trabajo fallará.
 
 ### Datos históricos {#historical-data}
 

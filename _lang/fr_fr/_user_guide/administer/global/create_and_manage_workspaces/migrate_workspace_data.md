@@ -8,7 +8,7 @@ description: "Découvrez comment les données d'un espace de travail sont isolé
 
 # Migrer des données entre espaces de travail et instances {#migrate-data-between-workspaces-and-instances}
 
-> Les espaces de travail maintiennent vos données Braze séparées. Cette page explique comment cet isolement affecte la migration, ce que vous pouvez déplacer avec les fonctionnalités du produit et les API, et ce que vous devez reconstruire ou gérer en dehors de Braze. La migration est généralement un effort transversal, pas uniquement une tâche d'administrateur de société. Les administrateurs sont souvent responsables de la configuration de l'espace de travail et des canaux ; les développeurs gèrent les modifications du SDK et de l'API ; les marketeurs reconstruisent les segments et copient le contenu des messages. Chaque étape nécessite les [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) appropriées dans les espaces de travail source et de destination.
+> Les espaces de travail maintiennent vos données Braze séparées. Cette page explique comment cet isolement affecte la migration, ce que vous pouvez déplacer avec les fonctionnalités du produit et les API, et ce que vous devez reconstruire ou gérer en dehors de Braze. La migration est généralement un effort transversal — pas uniquement une tâche d'administrateur de société. Les administrateurs sont souvent responsables de la configuration de l'espace de travail et des canaux ; les développeurs gèrent les modifications du SDK et de l'API ; les marketeurs reconstruisent les segments et copient le contenu des messages. Chaque étape nécessite les [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) appropriées dans les espaces de travail source et de destination.
 
 Tout ce que vous stockez dans Braze — profils utilisateur, segments, contenu des messages et historique d'engagement — réside dans un espace de travail. Un segment, une Campaign ou un Canvas ne peut pas lire ni cibler des données provenant d'un autre espace de travail. Les utilisateurs du tableau de bord utilisent souvent plusieurs espaces de travail sur le même tableau de bord d'entreprise pour le staging et la production, pour différentes marques ou pour des répartitions régionales. Cette configuration vous offre l'isolement, mais cela signifie également qu'il n'existe aucune action unique dans le tableau de bord permettant de déplacer toutes les données d'un espace de travail vers un autre espace de travail ou une autre instance Braze.
 
@@ -24,7 +24,7 @@ Les éléments suivants ne sont pas migrés en masse lorsque vous pointez les SD
 | **Segments et filtres** | Les définitions de segments restent dans l'espace de travail source. Reconstruisez les segments dans l'espace de travail de destination en utilisant la même logique lorsque c'est possible. |
 | **Historique des messages** | L'historique de réception des Campaigns et Canvas sur un profil est lié à l'espace de travail source. Il n'apparaît pas sur un nouveau profil dans un autre espace de travail, sauf si vous le modélisez vous-même (par exemple, via des attributs personnalisés), comme indiqué dans la [FAQ d'onboarding Braze]({{site.baseurl}}/user_guide/onboarding_faq/). |
 | **Configuration spécifique aux canaux** | Les domaines d'envoi, les abonnements SMS, les numéros WhatsApp et les paramètres similaires sont limités à l'espace de travail. Reconfigurez-les dans l'espace de travail de destination le cas échéant. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What Braze does not automatically migrate between workspaces" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ce que Braze ne migre pas automatiquement entre les espaces de travail" }
 
 {% alert important %}
 Si vous utilisez des espaces de travail distincts pour le staging et la production, n'oubliez pas que les connecteurs [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ne sont pas partagés entre les espaces de travail. Planifiez quel espace de travail gère les exports de production. Pour plus de détails, consultez [Premiers pas : espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces/#currents-connectors).
@@ -32,9 +32,9 @@ Si vous utilisez des espaces de travail distincts pour le staging et la producti
 
 ## Ce que vous pouvez déplacer ou recréer {#what-you-can-move-or-recreate}
 
-### Contenu des Campaigns et Canvas {#campaign-and-canvas-content}
+### Contenu des Campaigns, Canvas et pages d'accueil {#campaign-canvas-and-landing-page-content}
 
-Vous pouvez copier de nombreuses définitions de Campaigns et Canvas vers un autre espace de travail sous forme de brouillons. Les canaux pris en charge, les champs omis et les mises en garde concernant Liquid sont documentés dans [Copier des Campaigns et Canvas entre espaces de travail]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Après la copie, mettez à jour les segments, les déclencheurs et toutes les références spécifiques à l'espace de travail avant de lancer.
+Vous pouvez copier de nombreuses définitions de Campaigns, Canvas et pages d'accueil vers un autre espace de travail sous forme de brouillons. Les canaux pris en charge, les champs omis et les mises en garde concernant Liquid sont documentés dans [Copier des Campaigns, Canvas et pages d'accueil entre espaces de travail]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Après la copie, mettez à jour les segments, les déclencheurs et toutes les références spécifiques à l'espace de travail avant de lancer ou de publier.
 
 ### Données de profil utilisateur {#user-profile-data}
 

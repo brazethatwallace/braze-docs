@@ -28,7 +28,7 @@ description: "この記事では、リンクエイリアス一覧のBrazeエン�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `campaign_id` | 必須 | 文字列 | [Campaign API識別子](https://www.braze.com/docs/api/identifier_types/#campaign-api-identifier)を参照してください。|
+| `campaign_id` | 必須 | 文字列 | [Campaign API識別子]({{site.baseurl}}/api/identifier_types/#campaign-api-identifier)を参照してください。|
 | `message_variation_id ` | 必須 | 文字列 | メッセージバリアントAPI識別子。これはCampaignの詳細ページの**API Identifier**セクションで確認できます。 |
 | `includes_link_id` | オプション | 文字列 | 特定のリンク識別子（Brazeによって割り当てられたもの）または`null`。これは結果を特定の`link_id`でフィルタリングするために使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
@@ -65,8 +65,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | Campaign API IDはAPI識別子である必要があります。これは[Campaigns一覧エクスポートエンドポイント](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaigns/)を使用するか、ダッシュボードにログインして確認できます。 |
-| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[Campaign詳細エクスポートエンドポイント](https://www.braze.com/docs/api/endpoints/export/campaigns/get_campaign_details/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Campaign ID` | Campaign API IDはAPI識別子である必要があります。これは[Campaigns一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[Campaign詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)を使用するか、ダッシュボードにログインして確認できます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

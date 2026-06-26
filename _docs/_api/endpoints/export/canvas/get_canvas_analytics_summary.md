@@ -20,7 +20,7 @@ description: "This article describes the Export Canvas data summary analytics Br
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.data_summary` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.data_summary` permission.
 
 ## Rate limit
 
@@ -30,7 +30,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter | Required | Data Type | Description |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Required | String | See [Canvas API identifier]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Required | String | See [Canvas API identifier]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Required | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | End date for the data export. Defaults to the time of the request. |
 | `starting_at` | Optional* | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Start date for the data export. <br><br>* Either `length` or `starting_at` is required. |
 | `length` | Optional* | String | Maximum number of days before `ending_at` included in the returned series. Must be between 1 and 14 (inclusive). <br><br>* Either `length` or `starting_at` is required. |
@@ -55,7 +55,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ## Response
 
 {% alert note %}
-In `total_stats`, `variant_stats`, and `step_stats`, `conversions` is the count for the [primary conversion event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) of the Canvas. When you configure additional conversion events, the payload can also include `conversions1`, `conversions2`, and higher-indexed fields for the second, third, and further events. This is similar to the [multivariate response]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response) for the ` /campaigns/data_series` endpoint. Where present, fields ending in `_by_entry_time` attribute those conversions by Canvas entry time.
+In `total_stats`, `variant_stats`, and `step_stats`, `conversions` is the count for the [primary conversion event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) of the Canvas. When you configure additional conversion events, the payload can also include `conversions1`, `conversions2`, and higher-indexed fields for the second, third, and further events. This is similar to the [multivariate response]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) for the ` /campaigns/data_series` endpoint. Where present, fields ending in `_by_entry_time` attribute those conversions by Canvas entry time.
 {% endalert %}
 
 ```json
@@ -109,7 +109,7 @@ In the API response, the `influenced_opens` field represents the total number of
 
 ## Related articles
 
-- [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+- [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
 
 
 {% endapi %}

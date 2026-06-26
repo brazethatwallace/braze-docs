@@ -89,7 +89,7 @@ The Trade DeskのCRMオーディエンスには最小オーディエンスサイ
 
 ### The Trade Deskにユーザーを渡した後、ユーザーがマッチしたかどうかはどのように確認できますか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 
-The Trade Deskでは、受信したIDがSegmentの横に表示されます。
+The Trade Deskでは、受信したIDがセグメントの横に表示されます。
 
 - 受信済みIDは、過去30日間に受信したIDの数です。
 - アクティブIDは、過去7日間に入札で確認されたIDの数です。

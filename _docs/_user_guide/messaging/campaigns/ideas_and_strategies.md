@@ -3,7 +3,7 @@ nav_title: Ideas and strategies
 article_title: Ideas and strategies
 layout: dev_guide
 guide_top_header: "Ideas and strategies"
-guide_top_text: "Learn more about how to build your ideal campaign with these use cases and other ideas."
+guide_top_text: "Find worked examples and patterns for common campaign goals. This section covers retargeting active and lapsed users, driving feature adoption and app updates, capturing install attribution, adding calendar links to messages, and automating registration workflows with external tools like Zoom. Browse these use cases to find approaches you can adapt for your own audiences."
 page_order: 5
 
 tool: Campaigns

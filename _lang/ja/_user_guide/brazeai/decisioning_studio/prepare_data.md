@@ -3,7 +3,7 @@ nav_title: データの準備
 article_title: データの準備
 layout: dev_guide
 guide_top_header: "データの準備"
-guide_top_text: "高品質なデータは、効果的なDecisioning Studioエージェントの基盤です。これらの記事では、AI意思決定のためにデータを準備するための原則、アセット、テクニックについて説明します。"
+guide_top_text: "高品質なデータは、効果的なDecisioning Studioエージェントの基盤です。これらの記事では、データの評価方法、データウェアハウスやイベントソースの接続、重要なアセットと特徴量の定義、スナップショットとイベントストリームの選択、Braze external IDの統一、エージェントのデザインと起動前の過去データのバックフィルについて説明します。"
 page_order: 2
 page_type: landing
 description: "このランディングページでは、BrazeAI Decisioning Studioのためのデータ準備方法について説明しています。データの原則、必須アセット、スナップショットとイベントストリームの比較、アイデンティティ、特徴量エンジニアリング、データソースの接続などを取り上げます。"
@@ -13,7 +13,7 @@ guide_featured_list:
   - name: 一般原則
     link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/data_principles/
     image: /assets/img/braze_icons/list.svg
-  - name: データの接続
+  - name: データを接続する
     link: /docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources/
     image: /assets/img/braze_icons/link-03.svg
   - name: 重要なデータアセット

@@ -11,15 +11,13 @@ page_order: 0
 
 ## Prerequisites
 
-To access the landing page builder, you need [certain permissions]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). If you don’t have access, ask your Braze admin for help.
+To access the landing page builder, you need [certain permissions]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). If you don’t have access, ask your Braze admin for help.
 
 ## Creating a landing page
 
 ### Step 1: Create a new draft
 
 Go to **Messaging** > **Landing Pages**, then select **Create landing page**. You can also select the name of an existing landing page to duplicate or make changes to it.
-
-![The landing pages section in the Braze dashboard.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Step 2: Enter the page details
 
@@ -40,7 +38,7 @@ We suggest following these best practices:
 | Site title | The title that displays on the browser tab. | Use up to 60 characters. |
 | Meta description | A text snippet that displays in search results. | Use between 140-160 characters.|
 | Favicon | The icon that appears next to the site title on the browser tab. | Use an aspect ratio of 1:1, and a supported file type of PNG, JPEG, or ICO. |
-| Page URL | This is URL path to your landing page. This value is also referenced when using [landing page liquid tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) that you can embed in a message to automatically identify when they submit your form.| This value must be unique across your workspace. |
+| Page URL | This is URL path to your landing page. This value is also referenced when using [landing page liquid tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) that you can embed in a message to automatically identify when they submit your form.| This value must be unique across your workspace. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### Step 3: Customize the page
@@ -49,7 +47,7 @@ If you haven't already, select **Save as draft**. To start customizing your page
 
 ![An example landing page being created in the drag-and-drop editor.]({% image_buster /assets/img/landing_pages/template.png %})
 
-The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row. For a dedicated reference of each block and properties, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+The editor uses two types of components for landing page composition: basic blocks and form blocks. All blocks must be placed in a row. For a dedicated reference of each block and properties, see [Editor blocks (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![The 'Build' section containing 'Rows' and 'Form Blocks'.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -70,7 +68,7 @@ You can use these blocks to add content and customize the layout of your landing
 | Custom Code | A block that allows you to insert and run custom HTML, CSS, or JavaScript for advanced customization. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
-##### Span text
+#### Span text
 
 {% multi_lang_include span_text.md %}
 
@@ -92,7 +90,7 @@ You can use these blocks to create a form that links user-submitted data to thei
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
-After creating a landing page with a form, be sure to embed its [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) into your message. With this tag, Braze can automatically identify and update existing user profiles when they submit the form.
+After creating a landing page with a form, be sure to embed its [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) into your message. With this tag, Braze can automatically identify and update existing user profiles when they submit the form.
 {% endalert %}
 
 {% endtab %}

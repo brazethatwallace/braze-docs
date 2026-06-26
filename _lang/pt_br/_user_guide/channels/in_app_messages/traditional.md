@@ -61,7 +61,7 @@ Comece escolhendo quais plataformas devem receber a mensagem. Use essa seleção
 | Apps móveis                     | SDKs iOS, Android e Vega |
 | Navegadores web                    | SDK Web                      |
 | Apps móveis e navegadores web | SDKs iOS, Android, Vega e Web |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Especifique as plataformas de entrega" }
 
 ## Etapa 3: Especifique seus tipos de mensagem {#step-3-specify-your-message-types}
 
@@ -84,7 +84,7 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Message types" class="tg">
+<table aria-label="Tipos de mensagem" class="tg">
   <caption>Tipos de mensagem</caption>
 <thead>
   <tr>
@@ -134,7 +134,7 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 
 Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 
-<table aria-label="Advanced message types" class="tg">
+<table aria-label="Tipos de mensagem avançados" class="tg">
   <caption>Tipos de mensagem avançados</caption>
 <thead>
   <tr>
@@ -207,7 +207,7 @@ Alguns tipos de mensagem não precisam e, portanto, não solicitam cabeçalhos.
 
 ##### Gerando texto com IA {#generating-ai-copy}
 
-Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Insira o nome ou a descrição de um produto e a IA gerará um texto de marketing semelhante ao humano para uso no seu envio de mensagens.
+Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Insira o nome ou a descrição de um produto e a IA gerará um texto de marketing semelhante ao humano para uso no seu envio de mensagens.
 
 ![Botão Iniciar Assistente de Copywriting com IA, localizado no campo Mensagem do criador de mensagens no app.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
@@ -241,7 +241,7 @@ Quando seu cliente clica em um botão na sua mensagem no app, as seguintes açõ
 | Registrar evento personalizado | Escolha um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para disparar. Pode ser usado para exibir outra mensagem no app ou disparar envio de mensagens adicionais. |
 | Registrar atributo personalizado | Escolha um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para definir para o usuário atual. |
 | Solicitar permissão de push | Exibe a solicitação nativa de permissão de push. Leia mais sobre [push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), bem como [melhores práticas]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) para preparar os usuários para push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento ao clicar" }
 
 Observação: as opções __Solicitar permissão de push__, __Registrar evento personalizado__ e __Registrar atributo personalizado__ requerem as seguintes versões mínimas do SDK:
 
@@ -287,7 +287,7 @@ O conteúdo da guia **Style** varia com base nas opções de mensagem escolhidas
 | Cor de fundo | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Este é o fundo de toda a mensagem e será exibido claramente atrás do corpo do texto. |
 | Sobreposição de tela | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Disponível apenas para versões mais recentes do SDK da Braze. Este é o quadro ao redor de toda a mensagem. |
 | Seta ou outra opção de fechar mensagem | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 5: Estilize sua mensagem no app" }
 
 Sempre [pré-visualize e teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) sua mensagem antes de enviar.
 
@@ -308,7 +308,7 @@ Você pode adicionar [pares chave-valor]({{site.baseurl}}/user_guide/messaging/d
 
 Construa o restante da sua campanha; consulte as seções a seguir para mais orientações sobre como usar melhor nossas ferramentas para criar mensagens no app.
 
-#### Escolha um gatilho {#choose-a-trigger}
+### Escolha um gatilho {#choose-a-trigger}
 
 Selecione a ação que você deseja que dispare sua mensagem, bem como os horários de início e término da sua campanha ou Canvas.
 
@@ -331,7 +331,7 @@ Uma data e hora de início devem ser selecionadas; no entanto, uma data de térm
 
 Consulte nossa documentação para desenvolvedores sobre [disparo de eventos no servidor]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) e [entrega local de mensagens no app]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Disparo online versus offline {#online-versus-offline-triggering}
+#### Disparo online versus offline {#online-versus-offline-triggering}
 
 Mensagens no app funcionam enviando a mensagem e os gatilhos para o dispositivo do usuário. Depois que as mensagens no app estão no dispositivo, elas aguardam para serem exibidas até que a condição de gatilho seja atendida. Se as mensagens no app já estiverem em cache no dispositivo do usuário, você pode até disparar mensagens no app offline sem conexão com a Braze (por exemplo, no modo avião).
 
@@ -339,7 +339,7 @@ Mensagens no app funcionam enviando a mensagem e os gatilhos para o dispositivo 
 Depois que uma mensagem no app for interrompida, pode haver alguns usuários que continuem a ver a mensagem se iniciaram uma sessão antes de a mensagem ser interrompida e, posteriormente, realizarem o evento de gatilho. Esses usuários serão contados como uma impressão única mesmo após a campanha ter sido interrompida.
 {% endalert %}
 
-#### Escolha uma prioridade {#choose-a-priority}
+### Escolha uma prioridade {#choose-a-priority}
 
 Por fim, depois de selecionar a ação que disparará a mensagem no app, você também deve definir uma prioridade. Se duas mensagens forem disparadas pela mesma ação, mensagens de alta prioridade serão agendadas para aparecer nos dispositivos dos usuários antes de mensagens com prioridades mais baixas.
 
@@ -358,7 +358,7 @@ Para definir prioridades dentro desses agrupamentos, clique em **Set Exact Prior
 
 ![Um exemplo de como a prioridade é definida para uma campanha de mensagem no app e Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### Escolha os usuários-alvo {#choose-users-to-target}
+### Escolha os usuários-alvo {#choose-users-to-target}
 
 Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente um snapshot de como é a população aproximada desse Segment. Tenha em mente que a associação exata ao Segment é sempre calculada antes de a mensagem ser enviada.
 
@@ -366,7 +366,7 @@ Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/mes
 Se houver uma postergação na etapa de mensagem no app, a associação ao Segment será avaliada após a postergação. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
 {% endalert %}
 
-##### Reavaliar elegibilidade da campanha e Liquid {#re-evaluate-campaign-eligibility-and-liquid}
+#### Reavaliar elegibilidade da campanha e Liquid {#re-evaluate-campaign-eligibility-and-liquid}
 
 Em alguns cenários, você pode querer reavaliar a elegibilidade de um usuário quando ele dispara uma mensagem no app para exibição. Exemplos incluem campanhas que direcionam um atributo personalizado que muda frequentemente ou mensagens que devem refletir quaisquer alterações de perfil de última hora.
 
@@ -382,13 +382,13 @@ Habilitar essa opção resultará em um leve atraso (< 100ms) entre o momento em
 Não use essa opção para mensagens que podem ser disparadas enquanto o usuário está offline ou quando a reavaliação de elegibilidade e Liquid não é necessária.
 {% endalert %}
 
-##### Usar dados adicionados pela REST API em uma mensagem {#use-data-added-by-rest-api-in-a-message}
+#### Usar dados adicionados pela REST API em uma mensagem {#use-data-added-by-rest-api-in-a-message}
 
 Dados de usuário que o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) adiciona na mesma sessão podem, às vezes, ser usados na mensagem no app desse usuário. Por exemplo, se um usuário está no público de uma mensagem no app que está aguardando um gatilho, inicia uma sessão e, nessa mesma sessão, a REST API atualiza seu perfil, esses novos dados podem aparecer na mensagem no app quando **Re-evaluate campaign eligibility before displaying** estiver selecionado. A Braze não processará o template da mensagem no app até que seja hora de renderizá-la.
 
 Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com uma postergação agendada. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
 
-#### Escolha eventos de conversão {#choose-conversion-events}
+### Escolha eventos de conversão {#choose-conversion-events}
 
 A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contada se o usuário realizar a ação especificada.
 

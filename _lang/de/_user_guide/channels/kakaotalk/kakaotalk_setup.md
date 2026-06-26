@@ -135,8 +135,6 @@ Gehen Sie zu Ihrem Infobip-Dashboard und sammeln Sie die folgenden Informationen
 
 Nutzerprofile müssen Telefonnummern im E.164-Format enthalten, um ihnen Nachrichten über KakaoTalk zu senden. Telefonnummern werden im Nutzerprofil angezeigt. KakaoTalk erfordert, dass Telefonnummern im E.164-Format vorliegen (zum Beispiel `+821025749774`). Dies unterscheidet sich von einigen anderen Messaging-Kanälen, die Telefonnummern in mehreren Formaten akzeptieren.
 
-![Nutzerprofil eines Testnutzers mit einer Telefonnummer im E.164-Format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
-
 ### Telefonnummern importieren {#import-phone-numbers}
 
 Importieren Sie Telefonnummern, indem Sie [eine CSV-Datei hochladen oder die API verwenden]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/), um Nutzer:innen zu erstellen. Stellen Sie sicher, dass die Telefonnummern vor dem Import im E.164-Format vorliegen.

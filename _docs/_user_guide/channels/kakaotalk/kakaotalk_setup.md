@@ -10,7 +10,7 @@ channel:
 
 # Set up KakaoTalk
 
-> This article covers how to set up the [KakaoTalk messaging channel]({{site.baseurl}}/kakaotalk/) in Braze, including how to set up users, reconcile user IDs, and create KakaoTalk test users.
+> This article covers how to set up the [KakaoTalk messaging channel]({{site.baseurl}}/kakaotalk) in Braze, including how to set up users, reconcile user IDs, and create KakaoTalk test users.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Register the Braze IP addresses for your cluster in your Comm.One dashboard.
 
 1. In your Comm.One dashboard, go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
 2. Select **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Comm.One dashboard showing where you can add IP addresses.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -94,7 +94,7 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 ![Comm.One dashboard showing a censored Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-You can integrate a KakaoTalk Sender Key into only one workspace at a time. To use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact [Braze Support]({{site.baseurl}}/braze_support/) to remove the integration. After Braze removes the integration, you can set up the integration in the new workspace.
+You can integrate a KakaoTalk Sender Key into only one workspace at a time. To use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact [Braze Support]({{site.baseurl}}/braze_support) to remove the integration. After Braze removes the integration, you can set up the integration in the new workspace.
 {% endalert %}
 
 ![Credentials for a Braze KakaoTalk channel.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -135,8 +135,6 @@ Go to your Infobip dashboard and gather the following information.
 
 User profiles must have phone numbers in E.164 format to message them through KakaoTalk. Phone numbers are shown on the user profile. KakaoTalk requires phone numbers to be in E.164 format (for example, `+821025749774`). This differs from some other messaging channels that may accept phone numbers in multiple formats.
 
-![User profile for a test user with a phone number in E.164 format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
-
 ### Import phone numbers
 
-Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) to create a user. Ensure phone numbers are in E.164 format before importing.
+Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) to create a user. Ensure phone numbers are in E.164 format before importing.

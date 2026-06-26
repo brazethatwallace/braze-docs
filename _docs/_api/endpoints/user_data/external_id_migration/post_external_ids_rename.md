@@ -30,7 +30,7 @@ Make sure to remove deprecated external IDs with the `/users/external_ids/remove
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.external_ids.rename` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.external_ids.rename` permission.
 
 ## Rate limit
 

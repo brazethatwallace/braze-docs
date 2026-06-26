@@ -106,10 +106,7 @@ Confirmez que votre WhatsApp Business Account n'est pas connecté à un autre es
 1. Confirmez que votre WhatsApp Business Account n'est pas connecté à Braze ou à un autre partenaire.
 2. Confirmez qu'aucun numéro de téléphone de votre WhatsApp Business Account n'est connecté à un autre compte Infobip. Pour les numéros importés, vous pouvez trouver le numéro dans Infobip et sélectionner **Cancel number**.
 
-![Le bouton « Cancel number » pour un numéro Infobip.]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
-
 ## Considérations {#considerations}
-
 
 Bien que toutes les fonctionnalités existantes avec Braze soient prises en charge, les cas d'utilisation suivants ne sont actuellement pas pris en charge.
 

@@ -1,0 +1,1 @@
+Em qualquer criador de mensagens, abra o Operator para rascunhar e refinar textos de marketing. Descreva seu produto ou campanha, e o Operator retorna um texto que você pode revisar e inserir.

@@ -22,7 +22,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 {% endalert %}
 
 {% alert tip %}
-[未加工のテーブルスキーマ]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df)をこちらからダウンロードするか、Snowflakeマーケットプレイスで入手可能な[サンプルイベントデータ](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset)セットを使用して、共有されるイベントに慣れることができます。
+[未加工のテーブルスキーマ](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)をダウンロードするか、Snowflakeマーケットプレイスで入手可能な[サンプルイベントデータ](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset)セットを使用して、共有されるイベントに慣れることができます。
 {% endalert %}
 
 ## 重複イベントの処理 {#handling-duplicate-events}
@@ -50,19 +50,19 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 
 ## SNAPSHOTSテーブルとCHANGELOGSテーブルが更新されるタイミング {#when-snapshots-and-changelogs-tables-are-updated}
 
-SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャンバスの変更を追跡します。これらのテーブルがいつ更新されるかを理解することは、最新のメッセージバリエーションやキャンバス設定をクエリする際に重要です。
+SNAPSHOTSテーブルとCHANGELOGSテーブルは、CampaignとCanvasの変更を追跡します。これらのテーブルがいつ更新されるかを理解することは、最新のメッセージバリエーションやCanvas設定をクエリする際に重要です。
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
 以下の場合、`CHANGELOGS_CAMPAIGN_SHARED` に行が追加されます。
-- キャンペーンが起動された場合、または
+- Campaignが起動された場合、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
   - 名前
   - アクション（メッセージ内容の変更を含む）
   - コンバージョン動作
 
 {% alert important %}
-起動後の下書きを保存または更新しても、更新は自動的にトリガーされません。更新がトリガーされるのは、キャンペーンを起動した場合、または起動後の下書きの変更をアクティブなキャンペーンに適用した場合のみです。
+起動後の下書きを保存または更新しても、更新は自動的にトリガーされません。更新がトリガーされるのは、Campaignを起動した場合、または起動後の下書きの変更をアクティブなCampaignに適用した場合のみです。
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED
@@ -72,14 +72,14 @@ SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャ�
 ### CHANGELOGS_CANVAS_SHARED
 
 以下の場合、`CHANGELOGS_CANVAS_SHARED` に行が追加されます。
-- キャンバスが起動された場合、または
+- Canvasが起動された場合、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
   - 名前
   - コンバージョン動作
   - バリエーション（パーセンテージ、最初のステップの割り当て、バリエーション名）
 
 {% alert important %}
-起動後の下書きを保存または更新しても、更新は自動的にトリガーされません。更新がトリガーされるのは、キャンバスを起動した場合、または起動後の下書きの変更をアクティブなキャンバスに適用した場合のみです。
+起動後の下書きを保存または更新しても、更新は自動的にトリガーされません。更新がトリガーされるのは、Canvasを起動した場合、または起動後の下書きの変更をアクティブなCanvasに適用した場合のみです。
 {% endalert %}
 
 ### SNAPSHOTS_CANVAS_VARIATION_SHARED
@@ -89,26 +89,26 @@ SNAPSHOTSテーブルとCHANGELOGSテーブルは、キャンペーンとキャ�
 ### SNAPSHOTS_CANVAS_STEP_SHARED
 
 以下の場合、`SNAPSHOTS_CANVAS_STEP_SHARED` に行が追加されます。
-- キャンバスが起動された場合、または
-- アクティブなキャンバスが更新された場合（起動後の下書きが適用された場合）、または
+- Canvasが起動された場合、または
+- アクティブなCanvasが更新された場合（起動後の下書きが適用された場合）、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
   - 名前
   - アクション（メッセージバリエーション内でのメッセージ内容の変更を含む）
 
 {% alert important %}
-起動後の下書きを保存しても、更新は自動的にトリガーされません。更新がトリガーされるのは、キャンバスを起動した場合、または起動後の下書きの変更をアクティブなキャンバスに適用した場合のみです。
+起動後の下書きを保存しても、更新は自動的にトリガーされません。更新がトリガーされるのは、Canvasを起動した場合、または起動後の下書きの変更をアクティブなCanvasに適用した場合のみです。
 {% endalert %}
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED
 
 以下の場合、`SNAPSHOTS_CANVAS_FLOW_STEP_SHARED` に行が追加されます。
-- キャンバスが起動された場合、または
-- アクティブなキャンバスが更新された場合（起動後の下書きが適用された場合）、または
+- Canvasが起動された場合、または
+- アクティブなCanvasが更新された場合（起動後の下書きが適用された場合）、または
 - 以下のスナップショット可能なフィールドのいずれかが変更された場合：
   - 名前
 
 {% alert important %}
-起動後の下書きを保存しても、更新は自動的にトリガーされません。更新がトリガーされるのは、キャンバスを起動した場合、または起動後の下書きの変更をアクティブなキャンバスに適用した場合のみです。
+起動後の下書きを保存しても、更新は自動的にトリガーされません。更新がトリガーされるのは、Canvasを起動した場合、または起動後の下書きの変更をアクティブなCanvasに適用した場合のみです。
 {% endalert %}
 
 ## 一般データ保護規則（GDPR）への準拠 {#general-data-protection-regulation-gdpr-compliance}

@@ -84,11 +84,6 @@ iframe은 코드베이스 변경 없이 동적이고 개인화된 콘텐츠 업�
 - 연결된 콘텐츠
 - 프로모션 코드
 - [`:rerender` 태그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)를 사용하는 `catalog_items`
-- 사용자 제어 해제(얼리 액세스만 해당)
-
-{% alert important %}
-사용자가 배너를 수동으로 해제할 수 있도록 허용하는 기능은 얼리 액세스 중입니다. 자세한 내용은 [해제 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)을 참조하세요. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
 
 ## 다음 단계 {#next-steps}
 

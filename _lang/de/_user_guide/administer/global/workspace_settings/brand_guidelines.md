@@ -3,20 +3,20 @@ nav_title: Markenrichtlinien
 article_title: Markenrichtlinien
 page_order: 1
 page_type: reference
-description: "Dieser Referenzartikel beschreibt, wie Sie Markenrichtlinien erstellen, verwalten und verwenden, die Sie mit dem KI-Texterstellungsassistenten auf Ihre Nachrichten anwenden können."
+description: "Dieser Referenzartikel beschreibt, wie Sie Markenrichtlinien erstellen, verwalten und verwenden, die Operator beim Generieren von Texten, Templates und Bildern anwendet."
 ---
 
 # Markenrichtlinien {#brand-guidelines}
 
 > Passen Sie den Stil Ihrer KI-generierten Texte mit personalisierten Markenrichtlinien an die Stimme, den Ton und die Persönlichkeit Ihrer Marke an.
 
-Sie können Ihre Markenrichtlinien erstellen und verwalten, indem Sie zu **Content** > **Brand Guidelines** gehen. Sie können sie auch im [KI-Texterstellungsassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/) erstellen.
+Erstellen und verwalten Sie Markenrichtlinien unter **Content** > **Brand Guidelines**.
 
 ## Markenrichtlinien erstellen {#creating-brand-guidelines}
 
 ### 1. Schritt: Markenrichtlinie erstellen {#step-1-create-a-brand-guideline}
 
-Wählen Sie auf der Seite **Brand Guidelines** die Option **Create new** aus. Wenn Sie möchten, dass diese Markenrichtlinie der Standard für den Workspace ist, markieren Sie **Use as default brand guideline**. Sie können einen Standard pro Workspace haben.
+Wählen Sie auf der Seite **Brand Guidelines** die Option **Neu erstellen** aus. Wenn Sie möchten, dass diese Markenrichtlinie der Standard für den Workspace ist, markieren Sie **Use as default brand guideline**. Sie können einen Standard pro Workspace haben.
 
 ### 2. Schritt: Beschreiben Sie Ihre Markenpersönlichkeit {#step-2-describe-your-brand-personality}
 
@@ -44,7 +44,7 @@ Testen Sie Ihre Richtlinien, um zu sehen, wie sie funktionieren. Erweitern Sie *
 
 ### 5. Schritt: Ihre Richtlinien speichern {#step-5-save-your-guidelines}
 
-Wenn Sie mit Ihren Richtlinien zufrieden sind, wählen Sie **Save brand guideline**. Ihre neuen Richtlinien werden in Ihrem Workspace für die zukünftige Verwendung gespeichert.
+Wenn Sie mit Ihren Richtlinien zufrieden sind, wählen Sie **Save brand guideline**. Ihre Richtlinien werden in Ihrem Workspace für die zukünftige Verwendung gespeichert.
 
 {% alert important %}
 Sie können die Ausgabesprache unabhängig von der Sprache Ihres Textes ändern, aber weder Braze noch OpenAI garantieren die Qualität der Übersetzung. Testen und überprüfen Sie Übersetzungen immer, bevor Sie sie verwenden.
@@ -52,14 +52,12 @@ Sie können die Ausgabesprache unabhängig von der Sprache Ihres Textes ändern,
 
 ## Markenrichtlinien verwalten {#managing-brand-guidelines}
 
-Sie können Markenrichtlinien bearbeiten, indem Sie sie auf der Seite **Brand Guidelines** auswählen. Archivieren Sie eine Markenrichtlinie, um sie zu deaktivieren und aus dem KI-Texterstellungsassistenten zu entfernen. Um sie wieder aktiv und auswählbar zu machen, können Sie nach archivierten Markenrichtlinien filtern und sie dann dearchivieren.
-
-![Die Seite „Markenrichtlinien“ mit Filter für archivierte Markenrichtlinien.]({% image_buster /assets/img/unarchive_brand_guideline.png %})
+Sie können Markenrichtlinien bearbeiten, indem Sie sie auf der Seite **Brand Guidelines** auswählen. Archivieren Sie eine Markenrichtlinie, um sie zu deaktivieren und in Nachrichten-Editoren nicht mehr verfügbar zu machen. Um sie wieder aktiv und auswählbar zu machen, können Sie nach archivierten Markenrichtlinien filtern und sie dann dearchivieren.
 
 ## Markenrichtlinien verwenden {#using-brand-guidelines}
 
-Öffnen Sie beim Verfassen einer Nachricht den [KI-Texterstellungsassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) und wählen Sie Ihre Markenrichtlinie im Dropdown-Menü **Apply brand guideline** aus. Wenn Sie eine bestimmte Markenrichtlinie als Standard festlegen, wird sie automatisch im Dropdown-Menü ausgewählt, aber Sie können eine andere Richtlinie wählen.
+Öffnen Sie beim Verfassen einer Nachricht Operator, um [Texte zu generieren]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy), und wählen Sie Ihre Markenrichtlinie im Dropdown-Menü **Apply brand guideline** aus. Wenn Sie eine bestimmte Markenrichtlinie als Standard festlegen, wählt Braze sie automatisch im Dropdown-Menü aus, aber Sie können eine andere Richtlinie wählen.
 
-![KI-Texterstellungsassistent mit „Important Alerts!!“ als ausgewählter Markenrichtlinie.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
+![Operator mit „Important Alerts!!“ als ausgewählter Markenrichtlinie.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

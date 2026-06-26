@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 {% api %}
 # Actualizar el estado del grupo de suscripción del usuario {#update-users-subscription-group-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 

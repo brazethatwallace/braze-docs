@@ -20,9 +20,9 @@ Each custom event or purchase can have up to 256 distinct custom event propertie
 
 ## Expected format {#expected-format}
 
-Property values must be an object: keys are the property names (non-empty strings, 255 characters or fewer, no leading `$`), and values are the property values. For supported data types, format requirements, and payload limits, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types).
+Property values must be an object: keys are the property names (non-empty strings, 255 characters or fewer, no leading `$`), and values are the property values. For supported data types, format requirements, and payload limits, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#event-property-data-types).
 
-You can change the data type of your custom event property, but be aware of the impacts of [changing data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#changing-custom-attribute-or-event-data-type) after data has been collected.
+You can change the data type of your custom event property, but be aware of the impacts of [changing data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type) after data has been collected.
 
 ### Reserved keys
 
@@ -44,15 +44,15 @@ Use custom event properties to further narrow your audience for a particular cam
 
 ![Custom event property filters for an abandoned card. Two filters are combined with an AND operator to send this campaign to users who abandoned their card with a price between 100 and 200 dollars]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
-Nested custom event properties are also supported in [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
+Nested custom event properties are also supported in [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ![Custom event property filters for an abandoned card. One filter is selected if any items in the cart have a price more than 100 dollars.]({% image_buster /assets/img_archive/customEventPropertiesNested.png %} "customEventPropertiesNested.png"){: style="max-width:70%;"}
 
 ### Personalize messages
 
-You can also use custom event properties for personalization within the messaging template. Any campaign using [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) with a trigger event can use custom event properties from that event for messaging personalization.
+You can also use custom event properties for personalization within the messaging template. Any campaign using [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) with a trigger event can use custom event properties from that event for messaging personalization.
 
-For example, if you have a gaming app and want to send a message to users who completed a level, you could further personalize your message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). The custom event property called `time_spent` can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
+For example, if you have a gaming app and want to send a message to users who completed a level, you could further personalize your message with a property for the time it took users to complete that level. In this example, the message is personalized for three different segments using [conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic). The custom event property called `time_spent` can be included in the message by calling ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
 {% raw %}
 ```liquid
@@ -70,7 +70,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 If the user doesn't have an internet connection, triggered in-app messages with templated custom event properties (for example, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) will fail and not display.
 {% endalert %}
 
-For a full list of Liquid tags that will cause in-app messages to deliver as templated in-app messages, refer to [Frequently asked questions]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages/).
+For a full list of Liquid tags that will cause in-app messages to deliver as templated in-app messages, refer to [Frequently asked questions]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
 
 #### Considerations with filters
 
@@ -119,7 +119,7 @@ In regards to subscription usage, custom event properties enabled for segmentati
 
 You can use nested objects (objects inside of another object) to send nested JSON data as properties of custom events and purchases. This nested data can be used for templating personalized information in messages, triggering message sends, and segmenting users.
 
-To learn more, refer to our dedicated page on [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+To learn more, refer to our dedicated page on [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ## Custom event property storage
 
@@ -128,6 +128,6 @@ Custom event properties are designed to help you increase targeting precision an
 You can segment based on the values of event properties in two ways:
 
 1. **Within 30 days:** You can use event property segmentation based on the frequency and recency of specific event property values within Braze segments. This option impacts data usage.<br><br>
-2. **Within and beyond 30 days:** To cover both short-term and long-term event property segmentation, you can use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). This feature segments users based on custom events and event properties tracked within the past two years. This option does not impact data usage.
+2. **Within and beyond 30 days:** To cover both short-term and long-term event property segmentation, you can use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension). This feature segments users based on custom events and event properties tracked within the past two years. This option does not impact data usage.
 
 Contact your Braze customer success manager for recommendations on the best approach depending on your specific needs.

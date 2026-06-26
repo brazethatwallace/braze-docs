@@ -16,7 +16,7 @@ Shopify 컬렉션 동기화는 현재 베타 버전입니다. 베타에 참여�
 
 ## Shopify 컬렉션 동기화 설정 {#setting-up-shopify-collections-sync}
 
-Shopify 스토어의 제품을 Braze에 동기화하려면 [Shopify 통합](https://braze.com/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify#setting-up-shopify-in-braze)의 **제품 동기화** 단계에서 **Shopify 컬렉션 동기화** 체크박스를 선택합니다.<br><br>![Shopify 제품 동기화의 4단계에서 "Shopify 컬렉션 동기화" 체크박스가 선택된 모습.][1]
+Shopify 스토어의 제품을 Braze에 동기화하려면 [Shopify 통합]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify/#setting-up-shopify-in-braze)의 **제품 동기화** 단계에서 **Shopify 컬렉션 동기화** 체크박스를 선택합니다.<br><br>![Shopify 제품 동기화의 4단계에서 "Shopify 컬렉션 동기화" 체크박스가 선택된 모습.][1]
 
 제품이 동기화되면 Shopify 카탈로그를 확인하여 어떤 제품이 컬렉션에 연결되어 있는지 볼 수 있습니다. <br><br>![카탈로그 테이블 행에 "best-sellers" 및 "front page" 컬렉션에 포함된 제품이 표시된 모습.][2]
 
@@ -32,7 +32,7 @@ Shopify 카탈로그에서 **Selections** 탭을 통해 Shopify 컬렉션을 확
 
 ## Shopify 컬렉션 사용 {#using-shopify-collections}
 
-Shopify 컬렉션을 사용하여 Campaign(캠페인)의 각 사용자에게 맞춤 메시지를 개인화할 수 있으며, [Braze selection](https://braze.com/docs/user_guide/personalization_and_dynamic_content/catalogs/selections/)을 사용하는 방식과 유사합니다.
+Shopify 컬렉션을 사용하여 Campaign(캠페인)의 각 사용자에게 맞춤 메시지를 개인화할 수 있으며, [Braze Selection]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/catalogs/selections/)을 사용하는 방식과 유사합니다.
 
 {% alert warning %}
 베타에서 다음 동작에 유의하세요: <br><br>Shopify 컬렉션 설명이나 필터 설정을 업데이트하면 Shopify 컬렉션 동기화가 중단됩니다. 그 결과 Shopify 컬렉션이 예상대로 작동하지 않습니다.
@@ -44,12 +44,12 @@ Shopify 컬렉션을 사용하여 Campaign(캠페인)의 각 사용자에게 맞
 2. **Limit number**에 최대 결과 수(최대 50)를 입력합니다.
 3. **Update Selection**을 선택합니다.
 
-![필터 설정, 정렬 유형 및 결과 제한을 선택할 수 있는 선택 편집 페이지.][4]
+![필터 설정, 정렬 유형 및 결과 제한을 선택할 수 있는 Selection 편집 페이지.][4]
 
 ### 2단계: Campaign에서 컬렉션 사용 {#step-2-use-the-collection-in-a-campaign}
 
 1. Campaign을 생성한 다음 메시지 작성기에서 **+ Personalization**을 선택합니다.
-2. 다음을 선택합니다:<br>- **Personalization type**으로 **Catalog Items**<br>- 카탈로그 이름<br>- 항목 선택 방법<br>- 선택 이름(Shopify 컬렉션 이름) <br>- 메시지에 표시할 정보
+2. 다음을 선택합니다:<br>- **개인화 유형**으로 **Catalog Items**<br>- 카탈로그 이름<br>- 항목 선택 방법<br>- Selection 이름(Shopify 컬렉션 이름) <br>- 메시지에 표시할 정보
 
 {: start="3"}
 3. 메시지에서 정보를 표시할 위치에 Liquid 스니펫을 복사하여 붙여넣습니다.
@@ -58,7 +58,7 @@ Shopify 컬렉션을 사용하여 Campaign(캠페인)의 각 사용자에게 맞
 
 #### Selection 결과의 Liquid {#liquid-in-selection-results}
 
-커스텀 속성 및 커스텀 이벤트와 같은 카탈로그의 결과를 사용하면 selection에서 각 사용자에 대해 다른 결과가 반환될 수 있습니다.
+커스텀 속성 및 커스텀 이벤트와 같은 카탈로그의 결과를 사용하면 Selection에서 각 사용자에 대해 다른 결과가 반환될 수 있습니다.
 
 [1]: {% image_buster /assets/unlisted_docs/img/shopify/sync_products.png %}
 [2]: {% image_buster /assets/unlisted_docs/img/shopify/view_catalog.png %}

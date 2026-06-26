@@ -13,8 +13,6 @@ description: "이 참조 문서에서는 회사 계정의 메시징 및 활동�
 
 **알림 환경설정** 페이지에서는 회사에 대한 알림을 받을 사람(있는 경우)을 구성할 수 있습니다. Campaign 전달 또는 기술적 오류에 대한 알림을 수신할 대상을 구성할 수 있습니다. 주간 분석 보고서의 수신자를 지정할 수도 있습니다. 대부분의 알림에 대해 Braze는 이메일과 웹훅 채널을 지원합니다.
 
-![Braze 대시보드의 알림 환경설정 페이지]({% image_buster /assets/img_archive/notification_preferences.png %})
-
 이 페이지에 액세스하려면 **설정** > **관리자 설정** > **알림 환경설정**으로 이동합니다.
 
 {% alert tip %}
@@ -31,7 +29,7 @@ Slack과 통합하여 알림을 받을 수도 있습니다. 단계는 [수신 �
 
 | 알림 | 설명 | 사용 가능한 알림 채널 |
 |---|---|---|
-| API 사용량 알림 | 이 항목을 선택하면 **API 사용량 대시보드**로 이동하며, 여기서 [**API 사용량 알림**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/) 탭으로 이동하여 주요 API 요청 볼륨을 추적하는 알림을 설정할 수 있습니다. | 이메일, 웹훅 |
+| API 사용량 알림 | 이 항목을 선택하면 **API 사용량 대시보드**로 이동하며, 여기서 [**API 사용량 알림**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) 탭으로 이동하여 주요 API 요청 볼륨을 추적하는 알림을 설정할 수 있습니다. | 이메일, 웹훅 |
 | AWS 자격 증명 오류 | Braze가 데이터 내보내기를 위해 Amazon Web Services 자격 증명을 사용하는 중에 오류가 발생할 때 수신자에게 알립니다. 여기에는 Google Cloud Storage 및 Azure(Microsoft Cloud Services)에 대한 자격 증명 오류 알림도 포함됩니다. | 이메일, 웹훅 |
 | Campaign 자동 중단 | Braze가 Campaign을 중단했을 때 수신자에게 알립니다. | 이메일 |
 | Canvas 자동 중단 | Braze가 Canvas를 중단했을 때 수신자에게 알립니다. | 이메일 |
@@ -47,11 +45,11 @@ Slack과 통합하여 알림을 받을 수도 있습니다. 단계는 [수신 �
 | 웹훅 오류 | 웹훅 엔드포인트에 오류가 발생할 때 수신자에게 알립니다. | 이메일 |
 | 주간 분석 보고서 | 매주 월요일에 수신자에게 지난 한 주간의 워크스페이스 활동 요약을 보냅니다. 수신자는 자신이 속한 각 워크스페이스에 대한 요약을 받습니다. | 이메일 |
 | 일일 Canvas/Campaign 진입 볼륨 한도 | 발송 한도에 도달할 때마다 알림을 보냅니다. | 이메일 |
-| 에이전트 콘솔 오류 | [에이전트 콘솔 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)가 실행 한도에 도달했거나, 사용할 수 없게 된 모델을 사용하거나, LLM 제공업체와의 결제 오류가 발생했을 때(자체 API 키 사용 시에만) 수신자에게 알립니다. | 이메일 |
+| 에이전트 콘솔 오류 | [에이전트 콘솔 에이전트]({{site.baseurl}}/user_guide/brazeai/agents)가 호출 한도에 도달했거나, 사용할 수 없게 된 모델을 사용하거나, LLM 제공업체와의 결제 오류가 발생했을 때(자체 API 키 사용 시에만) 수신자에게 알립니다. | 이메일 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사용 가능한 알림" }
 
 {% alert note %}
-[일시 중지된 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users)도 Braze로부터 알림을 계속 받을 수 있습니다.
+[일시 중지된 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)도 Braze로부터 알림을 계속 받을 수 있습니다.
 {% endalert %}
 
 ## 주간 분석 보고 {#weekly-analytics-reporting}

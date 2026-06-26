@@ -89,7 +89,6 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 
 管理者権限の付与または削除を行うには、**このユーザーは管理者です**を選択してから、**ユーザーを更新**を選択します。
 
-![管理者チェックボックスがフォーカスされた、選択されたユーザーの詳細。]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 ユーザーから管理者権限を削除すると、少なくとも1つの[会社レベルまたはワークスペースレベルの権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions)を割り当てるまで、そのユーザーはBrazeにアクセスできなくなります。

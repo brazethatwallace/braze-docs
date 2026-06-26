@@ -717,6 +717,7 @@ Estas são as versões mínimas do SDK necessárias para registrar dispensas de 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integrações {#integrations}
+
 #### Integrações padrão de Banner (editor de arrastar e soltar) {#standard-banner-integrations-drag-and-drop-editor}
 
 Se seu Banner usar o editor de arrastar e soltar e incluir um componente de botão de dispensa, nenhum código adicional é necessário. Quando um usuário clicar no botão de dispensa, a mensagem será ocultada, uma dispensa será acionada e um evento de dispensa será registrado para análise de dados.

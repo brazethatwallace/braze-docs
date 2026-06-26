@@ -1,7 +1,7 @@
 ---
 nav_title: Alpaco
 article_title: Alpaco
-alias: /partners/Alpaco
+alias: /partners/alpaco/
 description: "A integração entre a Braze e a Alpaco permite exportar modelos de e-mail e blocos de conteúdo compatíveis com Liquid e alinhados à marca para a Braze, prontos para uso em e-mail e mensagens no app."
 page_type: partner
 search_tag: Partner
@@ -22,7 +22,7 @@ A Alpaco oferece suporte pleno a [variáveis Liquid](https://shopify.github.io/l
 | Requisito | Descrição |
 | ------------| ----------- |
 | Conta Alpaco | É necessário ter uma conta na Alpaco para usar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Modelos**. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Instância do cluster | Sua [instância de cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze se alinha com o dashboard e o endpoint REST da Braze. <br><br> Por exemplo, se a URL do seu dashboard for `https://dashboard-03.braze.com`, seu endpoint será `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

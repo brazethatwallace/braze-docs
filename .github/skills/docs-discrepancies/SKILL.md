@@ -16,7 +16,7 @@ Verify Braze docs against source code to identify discrepancies and propose docs
 
 For the .md file in `_docs/*`:
 1. **Extract Product Behavior** - Distill the page down to a set of product and platform behaviors that need to be verified.
-2. **Verify Product Behavior** - Cross-reference with source code per the [reference-repos](../reference-repos/SKILL.md) skill (Main Product at `../platform`). Do not rely on other documentation to verify. Always cross-reference with source code. If you can verify the resolution against the source code, add a reference to the source file(s). If you cannot verify the resolution, say that you could not verify the resolution against the source code.
+2. **Verify Product Behavior** — **REQUIRED SUB-SKILL:** Use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) and cross-reference with source code (main product at `../platform`). Do not rely on other documentation to verify. Always cross-reference with source code. If you can verify the resolution against the source code, add a reference to the source file(s). If you cannot verify the resolution, say that you could not verify the resolution against the source code.
 3. **Identify Target** - Which existing doc page should be updated? (or flag as new page)
 4. **Suggest Changes** - Which changes should be made to the existing doc?
 
@@ -78,11 +78,14 @@ Cursor identifies team members based on the CODEOWNERS file. If no owner is foun
 | Main product | `../platform` |
 
 
-## Example Prompt
+## Example prompts
+
+Natural-language example requests:
 
 ```
-@docs-discrepancies Identify discrepancies for each .md file in `_docs/*`
+Identify discrepancies for each .md file in `_docs/*`
+```
 
-@docs-discrepancies Identify discrepancies for ai.md
-
+```
+Identify discrepancies for ai.md
 ```

@@ -11,15 +11,15 @@ tool:
 
 # セグメント分析の追跡 {#segment-analytics-tracking}
 
-> あるSegmentについて分析の追跡がオンになっている場合、そのSegmentのセッション、カスタムイベント、および収益の推移を表示できます。
+> あるセグメントについて分析の追跡がオンになっている場合、そのセグメントのセッション、カスタムイベント、および収益の推移を表示できます。
 
-Segmentの分析の追跡をオンにしなくても、そのSegmentの[リアルタイム統計情報]({{site.baseurl}}/user_guide/audience/segments/segment_data/#segment-statistics)にアクセスして、ユーザーをCampaignsのターゲットにすることができます。唯一の違いは、このページに記載されている特定の分析ツールにアクセスできるかどうかです。
+セグメントの分析の追跡をオンにしなくても、そのセグメントの[リアルタイム統計情報]({{site.baseurl}}/user_guide/audience/segments/segment_data/#segment-statistics)にアクセスして、ユーザーをCampaignsのターゲットにすることができます。唯一の違いは、このページに記載されている特定の分析ツールにアクセスできるかどうかです。
 
 ## セグメント分析を有効にする {#turning-on-segment-analytics}
 
-Segmentのページの**Segment Details**セクションで、**Analytics Tracking**を有効にします。
+セグメントのページの**Segment Details**セクションで、**Analytics Tracking**を有効にします。
 
-![Segmentの分析の追跡トグル]({% image_buster /assets/img_archive/A_Tracking_2.png %})
+![セグメントの分析の追跡トグル]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
 アプリでは、最大25個のSegmentsについて追跡をオンにすることができます。Brazeでは、Campaignsがセッション、収益、および購入に及ぼす効果を把握するうえで、分析すべき重要なSegmentsを追跡することをお勧めします。
 
@@ -29,21 +29,21 @@ Segmentのページの**Segment Details**セクションで、**Analytics Tracki
 
 ## 収益と購入の推移の表示 {#viewing-revenue-and-purchases-over-time}
 
-[このSegmentの収益と購入の推移]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)に関するデータを表示するには、**Analytics** > **Revenue Report**に移動します。
+[このセグメントの収益と購入の推移]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)に関するデータを表示するには、**Analytics** > **Revenue Report**に移動します。
 
-収益と購入のグラフには、そのSegmentの分析の追跡がオンになった後に記録されたアクティビティが反映されます。追跡をオンにしても、それ以前の購入がレポートに遡って反映されることはありません。Segmentsを比較する場合は、選択した各Segmentで追跡が有効になっていた期間のみを使用してください。
+収益と購入のグラフには、そのセグメントの分析の追跡がオンになった後に記録されたアクティビティが反映されます。追跡をオンにしても、それ以前の購入がレポートに遡って反映されることはありません。Segmentsを比較する場合は、選択した各セグメントで追跡が有効になっていた期間のみを使用してください。
 
 ![セグメント別の収益データ]({% image_buster /assets/img_archive/Revenue.png %})
 
 任意のカスタム期間のセグメントデータを視覚的に比較するには、Segmentsをグラフに追加するか、グラフから削除します。**Breakdown**ドロップダウンで**By Segment**を選択し、**Breakdown values**でSegmentsを選択します。
 
-グラフの上にある任意のSegment名を選択して、そのSegmentの指標の表示・非表示を切り替えます。
+グラフの上にある任意のセグメント名を選択して、そのセグメントの指標の表示・非表示を切り替えます。
 
 ![複数Segmentsの収益]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## セッション数の推移 {#sessions-over-time}
 
-同様に、[この特定Segmentのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home/#exporting-app-usage-data)に関するデータは、**Home**ページで確認できます。
+同様に、[この特定セグメントのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home/#exporting-app-usage-data)に関するデータは、**Home**ページで確認できます。
 
 ![セグメント別のセッションデータ]({% image_buster /assets/img_archive/events_over_time2.png %})
 
@@ -59,4 +59,4 @@ Segmentのページの**Segment Details**セクションで、**Analytics Tracki
 
 ### 分析の追跡が正しくない、または空に見える場合は何を確認すべきですか？ {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
 
-**Segment Details**で**Analytics Tracking**がまだ有効になっていることを確認し、アプリごとの上限（追跡対象のSegmentsは25個まで）を超えていないことを確認してください。また、追跡を初めて有効にした後、データが反映されるまで最大24時間かかる場合があります。問題が続く場合は、Segmentの定義とレポートの日付範囲を確認してから、[サポートにお問い合わせください]({{site.baseurl}}/braze_support/)。
+**Segment Details**で**Analytics Tracking**がまだ有効になっていることを確認し、アプリごとの上限（追跡対象のSegmentsは25個まで）を超えていないことを確認してください。また、追跡を初めて有効にした後、データが反映されるまで最大24時間かかる場合があります。問題が続く場合は、セグメントの定義とレポートの日付範囲を確認してから、[サポートにお問い合わせください]({{site.baseurl}}/braze_support/)。

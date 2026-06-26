@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -357,6 +357,20 @@ Chaque objet d'événement du tableau d'événements représente une occurrence 
 ### Comment `/users/track` gère-t-il les attributs personnalisés imbriqués non valides ? {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
 Lorsqu'un attribut personnalisé imbriqué contient des valeurs non valides (telles que des formats d'heure incorrects ou des valeurs nulles), Braze abandonne le traitement de toutes les mises à jour d'attributs personnalisés imbriqués de la demande. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Pour garantir un traitement réussi, vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi.
+
+### Les demandes envoyées à `/users/track` sont-elles garanties d'être traitées dans l'ordre ? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+Lorsque vous effectuez plusieurs appels API distincts à `/users/track` en succession rapide, Braze ne peut pas garantir que les demandes sont traitées dans l'ordre exact où elles ont été envoyées ou reçues. En effet, Braze utilise un traitement asynchrone pour maximiser la vitesse et la flexibilité.
+
+Par exemple, si vous envoyez plusieurs demandes de mise à jour pour le même utilisateur en l'espace de quelques secondes — certaines avec des valeurs d'attribut nulles et d'autres avec des valeurs valides — les demandes contenant des valeurs nulles peuvent être traitées après les demandes contenant des valeurs valides, même si elles ont été envoyées plus tôt. Cela peut entraîner des valeurs d'attribut qui semblent revenir en arrière ou ne pas refléter la mise à jour la plus récemment envoyée.
+
+Pour éviter les conditions de concurrence lors de la mise à jour des données utilisateur :
+
+- **Regroupez les mises à jour dans une seule demande :** incluez toutes les mises à jour d'attributs pour un utilisateur dans un seul appel API plutôt que d'effectuer des appels consécutifs séparés.
+- **Ajoutez des délais entre les demandes :** si vous devez effectuer des appels séparés pour le même utilisateur, ajoutez un délai (quelques secondes) entre les demandes pour permettre à la première demande de terminer son traitement avant l'envoi de la suivante.
+- **Évitez les mises à jour simultanées du même champ :** si deux demandes mettent à jour le même attribut avec des valeurs différentes, envoyez ces mises à jour dans une seule demande ou séparez-les par un délai pour réduire le risque de résultats dans le désordre.
+
+Pour plus d'informations sur les conditions de concurrence et les bonnes pratiques, consultez [Conditions de concurrence]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
 
 ### Pourquoi la réponse de `/users/track` est-elle plus lente que prévu ? {#why-is-my-userstrack-response-slower-than-i-expect}
 

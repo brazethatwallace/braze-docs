@@ -389,5 +389,5 @@ Se os eventos personalizados não estão aparecendo conforme o esperado, confirm
 
 - Peça à sua equipe de desenvolvimento para verificar se o evento está sendo registrado corretamente e disparado a partir da ação esperada do usuário.
 - Quando sua equipe abrir um ticket com o suporte da Braze, inclua [logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) e trechos de código relevantes.
-- Se seu app usa Swift ou Android, sua equipe de desenvolvimento pode usar os [pré-requisitos do Depurador do SDK](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites) para ajudar a gerar logs detalhados.
+- Se seu app usa Swift ou Android, sua equipe de desenvolvimento pode usar os [pré-requisitos do Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites) para ajudar a gerar logs detalhados.
 - Se sua equipe de desenvolvimento não conseguir identificar o problema, abra um [ticket de suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).

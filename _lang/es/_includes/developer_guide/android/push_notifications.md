@@ -224,7 +224,6 @@ A continuación, crea una nueva cuenta de servicio para que Braze pueda realizar
 
 Introduce un nombre de cuenta de servicio, un ID y una descripción, luego selecciona **Create and continue**.
 
-![El formulario para "Service account details".]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 En el campo **Role**, busca y selecciona **Firebase Cloud Messaging API Admin** en la lista de roles. Para un acceso más restrictivo, crea un [rol personalizado](https://cloud.google.com/iam/docs/creating-custom-roles) con el permiso `cloudmessaging.messages.create` y, en su lugar, elígelo de la lista. Cuando hayas terminado, selecciona **Done**.
 

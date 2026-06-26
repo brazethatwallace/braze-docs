@@ -75,16 +75,16 @@ Chaque fournisseur de LLM propose un mélange légèrement différent de capacit
 
 Les contrôles du flux d'invocation suivants s'appliquent par espace de travail :
 
-- **Modèle fourni par Braze :** 1 000 invocations par minute
-- **Clé API personnelle :** 2 500 invocations par minute
+- **Modèle fourni par Braze :** 5 000 invocations par minute
+- **Clé API personnelle :** 5 000 invocations par minute
 
 Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, Braze met les invocations en file d'attente selon ces limites, de sorte que le traitement peut prendre plus de temps lors d'envois à fort volume.
 
 ### Erreurs de limite de débit {#rate-limit-errors}
 
-Si le fournisseur de LLM renvoie une erreur de limite de débit, Braze relance la requête en utilisant des délais exponentiels. Ce comportement de relance s'applique aux étapes Agent dans Canvas. Les agents de catalogue ne relancent pas les invocations échouées, y compris les erreurs de limite de débit du fournisseur de LLM.
+Si le fournisseur de LLM renvoie une erreur de limite de débit lors d'une **étape Agent dans Canvas**, Braze relance continuellement la requête en utilisant des délais exponentiels jusqu'à ce que l'appel aboutisse ou que Braze détermine qu'il ne peut pas être complété. Les **agents de catalogue** ne relancent pas les invocations soumises à une limite de débit.
 
-Si toutes les tentatives échouent, le panneau de détails des **Logs** affiche **Error** et le message du fournisseur (tel que `Rate limit exceeded`) dans **Output**. Chaque tentative est visible dans les logs, y compris la toute première invocation, quel que soit son résultat final. Pour un utilisateur donné, s'il faut quatre tentatives pour obtenir un succès, vous pouvez rechercher l'ID utilisateur et voir les cinq tentatives (l'originale plus quatre relances) dans les **Logs**, et l'originale ainsi que les trois premières relances afficheront **Error** avec `Rate limit exceeded`.
+Lorsque les tentatives de relance dans Canvas sont épuisées, le panneau de détails des **Logs** affiche **Error** et le message du fournisseur (tel que `Rate limit exceeded`) dans **Output**. Les tentatives de relance sont visibles dans les logs, y compris la toute première invocation, quel que soit son résultat final. Pour un utilisateur donné, s'il faut quatre tentatives de relance pour obtenir un succès, vous pouvez rechercher l'ID utilisateur et voir les cinq entrées (l'originale plus quatre relances) dans les **Logs**, et l'originale ainsi que les trois premières relances afficheront **Error** avec `Rate limit exceeded`.
 
 ![Détails du log de la Console des agents montrant une erreur de dépassement de limite de débit dans le champ Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -158,6 +158,14 @@ Les options de schéma avancé incluent la structuration manuelle de champs ou l
 
 Nous recommandons d'utiliser les schémas avancés lorsque vous souhaitez que l'agent renvoie une structure de données comportant plusieurs valeurs définies de manière structurée, plutôt qu'une sortie à valeur unique. Cela permet de mieux formater la sortie en tant que variable de contexte cohérente.
 
+### Sortie de secours {#fallback-output}
+
+Les valeurs de secours ne sont disponibles que pour les **agents d'étape Canvas**. Dans la section **Sortie** de la Console des agents pour un agent Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation échoue.
+
+Pour les schémas **JSON**, Braze lit le schéma et génère un champ de saisie pour chaque propriété afin que vous puissiez définir une valeur de secours par clé. Pour les schémas **Champs**, vous saisissez une valeur de secours pour chaque champ. Pour les schémas de base, vous saisissez une seule valeur de secours. Les agents Canvas prennent en charge Liquid dans les valeurs de secours.
+
+Pour les étapes de configuration, consultez [Configurer les valeurs de secours]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values). Pour le comportement à l'exécution dans Canvas, consultez [Gestion des erreurs et comportement de secours]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+
 Par exemple, vous pouvez utiliser un format de sortie au sein d'un agent destiné à créer un exemple d'itinéraire de voyage pour un utilisateur à partir d'un formulaire qu'il a soumis. Le format de sortie vous permet de définir que chaque réponse de l'agent doit contenir des valeurs pour `tripStartDate`, `tripEndDate` et `destination`. Chacune de ces valeurs peut être extraite des variables de contexte et placée dans une étape Message pour la personnalisation via Liquid.
 
 {% tabs %}
@@ -206,9 +214,15 @@ Choisissez des catalogues spécifiques auxquels un agent peut se référer pour 
 
 ![Le catalogue « restaurants » et la colonne « Loyalty_Program » sélectionnés pour la recherche de l'agent.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
+Lorsque vous déployez un agent de catalogue sur un champ de catalogue, activez le contrôle d'entrée requise et choisissez quelles colonnes sélectionnées sont **requises pour l'exécution** avant que l'agent ne s'invoque. L'agent ignore une ligne uniquement lorsqu'une de ces colonnes requises est vide ou manquante, par exemple un champ `gender` qui n'a pas encore été renseigné. Les colonnes sélectionnées sont requises par défaut, mais vous pouvez retirer des colonnes susceptibles d'être vides sans bloquer l'exécution. Cela évite de gaspiller des jetons sur des données incomplètes.
+
+Les agents de catalogue respectent également l'ordre des colonnes lorsque les champs d'entrée dépendent les uns des autres. Si la colonne D doit être générée à partir des colonnes B et C, l'agent ne s'exécute pas sur la colonne D tant que B et C ne contiennent pas de valeurs pour cette ligne.
+
+Pour les scénarios de déploiement et des exemples, consultez [Utiliser les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#use-catalog-agents) et [Bonnes pratiques pour les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices).
+
 ## Contexte d'appartenance à un segment {#segment-membership-context}
 
-Vous pouvez sélectionner jusqu'à cinq segments pour que l'agent puisse croiser l'appartenance de chaque utilisateur à ces segments lorsqu'il est utilisé dans un Canvas. Supposons que votre agent ait accès à l'appartenance au segment « Utilisateurs fidèles » et qu'il soit utilisé dans un Canvas. Lorsque des utilisateurs entrent dans une étape Agent, celui-ci peut vérifier si chaque utilisateur est membre des segments que vous avez spécifiés dans la Console des agents, et utiliser cette appartenance (ou non-appartenance) comme contexte pour le LLM.
+Vous pouvez sélectionner jusqu'à cinq segments pour que l'agent puisse croiser l'appartenance de chaque utilisateur à ces segments lorsqu'il est utilisé dans un Canvas. Supposons que votre agent ait accès à l'appartenance au segment « Utilisateurs fidèles » et qu'il soit utilisé dans un Canvas. Lorsque des utilisateurs entrent dans une étape Agent, celui-ci peut vérifier si chaque utilisateur est membre de chaque segment que vous avez spécifié dans la Console des agents, et utiliser l'appartenance (ou la non-appartenance) de chaque utilisateur comme contexte pour le LLM.
 
 ![Le segment « Utilisateurs fidèles » sélectionné pour l'accès à l'appartenance de l'agent.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
@@ -233,5 +247,3 @@ Au fur et à mesure que vous créez des agents personnalisés, vous pouvez organ
 
 1. Survolez la ligne de l'agent et sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Sélectionnez **Archiver**.
-
-![Page Gestion des agents avec des agents archivés.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

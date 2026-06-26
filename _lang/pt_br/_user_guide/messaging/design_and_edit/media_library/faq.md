@@ -12,6 +12,8 @@ description: "Este artigo fornece respostas para perguntas frequentes sobre a Bi
 
 > Esta página fornece respostas para perguntas frequentes sobre a Biblioteca de mídia na Braze.
 
+## Geral {#general}
+
 ### Existem limites de armazenamento para imagens na Biblioteca de mídia? {#are-there-storage-limits-for-images-within-the-media-library}
 
 Não, não existem limites de armazenamento para ativos na Biblioteca de mídia. No entanto, existem limites de tamanho para ativos (máximo de 5 MB).
@@ -30,11 +32,11 @@ Não, a Biblioteca de mídia não oferece suporte ao recorte de imagens GIF.
 
 ### Como faço para recortar uma imagem existente? {#how-do-i-crop-an-existing-image}
 
-Você pode recortar uma imagem existente selecionando a imagem na Biblioteca de mídia e clicando em **Crop & Save New Image**.
+Você pode recortar uma imagem existente selecionando a imagem na Biblioteca de mídia e clicando em **Recortar e salvar nova imagem**.
 
 ![Pré-visualização de imagem da Biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
 
-Você será redirecionado para um criador de recorte onde poderá selecionar o tipo de proporção e editar o nome da nova imagem. Ao selecionar **Save**, sua nova imagem estará pronta para uso.
+Você será redirecionado para um criador de recorte onde poderá selecionar o tipo de proporção e editar o nome da nova imagem. Ao selecionar **Salvar**, sua nova imagem estará pronta para uso.
 
 ![Janela para recortar e salvar imagem da Biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
 
@@ -57,7 +59,7 @@ Isso acontece porque a maioria dos criadores possui restrições quanto à propo
 
 ### Gerar uma imagem usando IA {#generate-an-image-using-ai}
 
-Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da Biblioteca de mídia**. Se você não vir essa opção, entre em contato com a equipe da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da Biblioteca de mídia**. Se você não vir essa opção, entre em contato com a equipe da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
 
 ### Posso criar URLs personalizadas para ativos de imagem da Biblioteca de mídia? {#can-i-create-vanity-urls-for-media-library-image-assets}
 

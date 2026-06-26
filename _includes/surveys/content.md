@@ -77,6 +77,12 @@ You can add the following form blocks to surveys:
 - Single checkbox
 - Checkbox group
 
+### Randomize answer choices
+
+Radio button group, checkbox group, and dropdown blocks support randomized answer choices. Turn on **Randomize choice order** to shuffle the choices each time the survey loads. Use this setting to reduce order bias when the same first option could skew responses.
+
+Randomization changes only the display order for each survey respondent. Reporting labels and values remain mapped to the choices you configured, so analytics, CSV exports, and segmentation use the same response data.
+
 ### Long text capture
 
 Long text capture is useful for qualitative feedback.
@@ -116,8 +122,6 @@ After launch, review results in:
 - The **Responses** tab for in-app message surveys
 - The landing page analytics view for landing page surveys
 {% endif %}
-
-![Landing page analytics tab.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Top-level analytics include:
 

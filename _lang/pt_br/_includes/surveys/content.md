@@ -77,6 +77,12 @@ Você pode adicionar os seguintes blocos de formulário às pesquisas:
 - Caixa de seleção individual
 - Grupo de caixas de seleção
 
+### Randomizar opções de resposta {#randomize-answer-choices}
+
+Os blocos de grupo de botões de opção, grupo de caixas de seleção e menu suspenso suportam opções de resposta randomizadas. Ative **Randomize choice order** para embaralhar as opções cada vez que a pesquisa for carregada. Use essa configuração para reduzir o viés de ordem quando a mesma primeira opção pode distorcer as respostas.
+
+A randomização altera apenas a ordem de exibição para cada respondente da pesquisa. Os rótulos e valores dos relatórios permanecem mapeados para as opções que você configurou, então a análise de dados, as exportações CSV e a segmentação usam os mesmos dados de resposta.
+
 ### Captura de texto longo {#long-text-capture}
 
 A captura de texto longo é útil para feedback qualitativo.
@@ -116,8 +122,6 @@ Após o lançamento, revise os resultados em:
 - A guia **Responses** para pesquisas de mensagem no app
 - A visualização de análise de dados da landing page para pesquisas de landing page
 {% endif %}
-
-![Guia de análise de dados da landing page.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 As análises de nível superior incluem:
 

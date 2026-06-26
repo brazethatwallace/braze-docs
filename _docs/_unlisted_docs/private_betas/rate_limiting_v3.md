@@ -28,6 +28,6 @@ The following abilities **aren't** included in this early access:
 
 - This rate limiting update doesn't prevent you from setting a very low rate limit. This means without this prevention in place, you would be able to set a rate limit, and, depending on the audience size, could cause your messages to be sent at an extremely slow rate.
 - The **Send Settings** summaries for campaigns and Canvases may contain inaccurate descriptions for the rate limits that have been set: <br><br>![Send Settings for campaigns where there are no limitations on the rate at which users will receive messages.]({% image_buster /assets/unlisted_docs/img/send_settings_example.png %}){: style="max-width:65%"}<br><br>
-- Rate limiting for multichannel campaigns (not Canvases or push campaigns) will reflect the [non-updated multichannel campaign rate limiting behavior](https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting). We recommend avoiding creating rate-limited multichannel campaigns while part of this stage of early access.
+- Rate limiting for multichannel campaigns (not Canvases or push campaigns) will reflect the [non-updated multichannel campaign rate limiting behavior]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting). We recommend avoiding creating rate-limited multichannel campaigns while part of this stage of early access.
 
 

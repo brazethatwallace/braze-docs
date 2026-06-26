@@ -34,7 +34,7 @@ Embora os Banners não suportem [entrega baseada em ação]({{site.baseurl}}/use
 
 Por exemplo, para mostrar um Banner especial apenas para usuários que completaram um evento `purchase`:
 1. **Direcionamento:** Na sua campanha, direcione um segmento de usuários que realizaram o evento personalizado `purchase` pelo menos uma vez.
-2. **Prioridade:** Se você tiver um Banner geral para todos os usuários e este Banner específico para compradores direcionando o mesmo posicionamento, defina a prioridade do Banner específico como **High** e a do Banner geral como **Medium** ou **Low**.
+2. **Prioridade:** Se você tiver um Banner geral para todos os usuários e este Banner específico para compradores direcionando o mesmo posicionamento, defina a prioridade do Banner específico como **Alta** e a do Banner geral como **Média** ou **Baixa**.
 
 Quando o usuário inicia uma nova sessão ou atualiza os Banners após realizar a ação, a Braze avalia sua elegibilidade. Se ele corresponder ao segmento "Compra", o Banner de alta prioridade será exibido.
 
@@ -46,10 +46,6 @@ Sim. Você pode permitir que os usuários dispensem manualmente um Banner ativan
 Os usuários podem dispensar manualmente os Banners apenas se o comportamento de dispensa estiver ativado. Se a dispensa não estiver ativada, você pode controlar a visibilidade do Banner gerenciando a elegibilidade do segmento de usuários. Quando um usuário não atende mais aos critérios de direcionamento de uma campanha de Banner, ele não verá o Banner novamente na próxima sessão.
 
 Quando um usuário dispensa um Banner, ele se torna inelegível para essa campanha por padrão. Para permitir que usuários que dispensaram vejam o Banner novamente, [configure a reelegibilidade]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) na etapa de **Controles de entrega** da campanha. As etapas de Banner em Canvas usam as configurações de reentrada do Canvas para controlar a reelegibilidade.
-
-{% alert important %}
-[Dispensas de Banner]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) estão atualmente em acesso antecipado. Se você tiver interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
-{% endalert %}
 
 Por exemplo, se você exibir um Banner promocional até que um usuário faça uma compra, registrar um evento como `purchase_completed` pode remover esse usuário do segmento direcionado, ocultando efetivamente o Banner nas sessões seguintes.
 

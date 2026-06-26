@@ -231,3 +231,11 @@ Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{
 {% endalert %}
 
 {% endapi %}
+
+## Fehlerbehebung {#troubleshooting}
+
+### Zustellungsfehler für API-getriggerte Kampagnen anzeigen {#viewing-delivery-failures-for-api-triggered-campaigns}
+
+Der Endpunkt [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) gibt aggregierte tägliche Statistiken zurück (zum Beispiel `delivery_failed` für SMS oder `errors` für Webhooks). Er gibt keine Fehlerursachen pro Empfänger:in zurück.
+
+Für Sendefehler, Bounces und Abbrüche pro Nachricht bei API-getriggerten oder API-Kampagnen verwenden Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) im Dashboard. Für benutzerdefinierte Berichte zu Sende- und Zustellungs-Events verwenden Sie den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) mit [Abfragevorlagen]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) oder benutzerdefiniertem SQL. Sie können Fehler-Events auch über Currents oder Snowflake-Datenfreigabe streamen, wenn Ihr Workspace diese Produkte aktiviert hat.

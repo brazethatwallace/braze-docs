@@ -51,6 +51,10 @@ Ermitteln Sie die Wirkung Ihres Canvas-Messagings, indem Sie Kontrollgruppen ein
 Canvas verhindert, dass Sie einen geplanten Versand mit einer bereits vergangenen Uhrzeit verwenden. Es ist jedoch möglich, ein Canvas in genau derselben Minute zu starten, in der die Campaign geplant ist (oder in den Sekunden davor). Dies kann dazu führen, dass das Canvas den geplanten Eintrittszeitpunkt verpasst und Nutzer:innen nicht in das Canvas eintreten. Wir empfehlen, Canvases sofort zu senden, falls Campaigns innerhalb von Minuten vor dem geplanten Versandzeitpunkt bearbeitet werden.
 {% endalert %}
 
+{% alert important %}
+Wenn Sie Zielgruppen-, Zeitplan- oder Zustellungseinstellungen kurz vor einem geplanten Eintritts- oder Versandfenster ändern, warten einige Nutzer:innen möglicherweise bereits auf einen Schritt oder wurden unter früheren Einstellungen ausgewertet, sodass nicht garantiert ist, dass alle die Änderung übernehmen. Informationen dazu, wie Zeitplanänderungen, Zielgruppenänderungen, **Zum Zeitpunkt der Einreihung auswerten** und die Zustellungszeitpunkte von Message-Schritten zusammenwirken, finden Sie unter [Canvas nach dem Start ändern]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). Im Zweifelsfall stoppen Sie das Canvas, duplizieren Sie es und starten Sie es neu, um eine saubere Neuauswertung zu gewährleisten.
+{% endalert %}
+
 Beachten Sie bei Canvas-Schritten die folgenden Details bei der Zeitplanung Ihres Canvas:
 
 - Änderungen am Zeitplan gelten nur für Nutzer:innen, die nicht bereits darauf warten, den Schritt zu erhalten.

@@ -46,12 +46,16 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ## ユーザープロファイルの要素 {#elements-of-user-profile}
 
-ユーザープロファイルには4つの主要セクションがあります。
+ユーザープロファイルには5つの主要セクションがあります。
 
 - **概要:** ユーザーに関する基本情報、セッションデータ、カスタム属性、カスタムイベント、購入、およびユーザーが最後にログインしたデバイス。
 - **エンゲージメント:** ユーザーの連絡先設定、受信したCampaign、Segment、コミュニケーション統計、インストールアトリビューション、ランダムバケット番号に関する情報。
+- **イベント履歴:** 過去30日間のカスタムイベントと購入。完全なイベントプロパティがJSONとして表示されます。
 - **メッセージ履歴:** 過去30日間のこのユーザーに関する最近のメッセージング関連イベント。
 - **フィーチャーフラグの適格性:** ロールアウト、キャンバスステップ、実験全体で、ユーザーが現在どのフィーチャーフラグに適格であるかを検証します。
+
+{% tabs %}
+{% tab 概要タブ %}
 
 ### 概要タブ {#overview-tab}
 
@@ -69,7 +73,9 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 このデータの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を参照してください。
 
-![ユーザープロファイルの概要タブ。]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab エンゲージメントタブ %}
 
 ### エンゲージメントタブ {#engagement-tab}
 
@@ -87,6 +93,30 @@ description: "このリファレンス記事では、ダッシュボードでユ
 | 予測 | このユーザーの[チャーン予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)および[イベント予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)スコア。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="エンゲージメントタブ" }
 
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab イベント履歴タブ %}
+
+### イベント履歴タブ {#event-history-tab}
+
+{% alert note %}
+**イベント履歴**タブを表示するには、**Search Users**および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+{% endalert %}
+
+**イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。
+
+| イベント履歴カテゴリ | 内容 |
+| --- | --- |
+| イベントリスト | 過去30日間のカスタムイベントと購入（最新100件まで）。新しい順に表示されます。 |
+| イベントタイプ | その行が**カスタムイベント**か**購入**かを示します。 |
+| タイムスタンプ | イベントが記録された日時。 |
+| イベント名 | カスタムイベントまたは購入の名前。 |
+| イベントプロパティ | イベントの完全なイベントプロパティ。JSONとして表示されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="イベント履歴タブ" }
+
+{% endtab %}
+{% endtabs %}
+
 ### 受信したCampaignにCampaignが表示されるタイミング {#when-campaigns-appear-in-campaigns-received}
 
 一般的に、Brazeはメッセージの送信を試みた後に**受信したCampaign**にCampaignを表示します。送信が記録されるために、ユーザーのデバイスや受信トレイへの配信は必要ありません。**受信したCanvasメッセージ**も、各Canvasメッセージタイプに対して同じチャネル固有のルールに従います。
@@ -95,7 +125,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 - **プッシュ:** Brazeは、メッセージがプッシュプロバイダー（例えば、Apple Push Notification service（APNs）やFirebase Cloud Messaging（FCM））に引き渡された時点で送信を記録します。プロバイダーは通常、即座に配信を試みます。デバイスが利用できない場合（例えば、オフラインの場合）、プロバイダーはメッセージの有効期限が切れるまで再試行する場合があります。
 - **アプリ内メッセージ:** Brazeは、Campaignが起動された時点で送信を記録します。
 - **Content Cards:** Brazeが*送信済み*イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cards Campaignがユーザープロファイルの**受信したCampaign**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged)および[受信したCampaignとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters)を参照してください。
-- **SMS、WhatsApp、webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはwebhookエンドポイント）に入った時点で送信を記録します。
+- **SMS、WhatsApp、Webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはWebhookエンドポイント）に入った時点で送信を記録します。
 
 {% alert note %}
 これらの説明は、**受信したCampaign**に対して送信が記録されるタイミングについてのものです。プロバイダーに到達する前にメッセージを停止できる[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)とは別のものです。
@@ -119,7 +149,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ##### メッセージエンゲージメントイベント {#message-engagement-events}
 
-以下のメッセージエンゲージメントイベントは、メール、SMS、プッシュ、アプリ内メッセージ、Content Cards、webhookで利用できます。特定のイベントのトラッキング方法の詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。
+以下のメッセージエンゲージメントイベントは、メール、SMS、プッシュ、アプリ内メッセージ、Content Cards、Webhookで利用できます。特定のイベントのトラッキング方法の詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。
 
 | チャネル | 利用可能なエンゲージメントイベント |
 | --- | --- |
@@ -151,7 +181,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ##### 空白の送信先 {#blank-destinations}
 
-一部のメッセージ送信は、メッセージ履歴で送信先が空白（「—」で表示）で表示される場合があります。これは、Content Cardsやwebhookなどの一部のチャネルでは、メッセージ送信時にデバイスデータを収集しないためです。
+一部のメッセージ送信は、メッセージ履歴で送信先が空白（「—」で表示）で表示される場合があります。これは、Content CardsやWebhookなどの一部のチャネルでは、メッセージ送信時にデバイスデータを収集しないためです。
 
 Content Cardsの送信は、カードが表示可能になった時点で記録されます。Content Cardsは複数のデバイスで表示できるため、送信時にデバイスデータは記録されません。代わりに、この情報はインプレッション時（カードが実際に表示された時点）に記録されます。Webhookはシステムエンドポイント（デバイスではなく）に送信されるため、デバイスデータは該当しません。
 

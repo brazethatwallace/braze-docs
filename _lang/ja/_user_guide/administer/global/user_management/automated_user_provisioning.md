@@ -3,31 +3,31 @@ nav_title: 自動ユーザープロビジョニング
 article_title: 自動ユーザープロビジョニング
 page_order: 3
 page_type: reference
-description: "このリファレンス記事では、自動ユーザープロビジョニングを行うために提供する必要がある情報と、生成されたクロスドメイン ID 管理用システム（SCIM）トークンの使用方法と使用場所について説明します。"
+description: "このリファレンス記事では、自動ユーザープロビジョニングを行うために提供する必要がある情報と、生成されたクロスドメインID管理用システム（SCIM）トークンの使用方法と使用場所について説明します。"
 alias: /scim/automated_user_provisioning/
 
 ---
 
 # 自動ユーザープロビジョニング {#automated-user-provisioning}
 
-> 自動ユーザープロビジョニングを使用すると、ダッシュボードで手動で行う代わりに、APIを通じてBrazeユーザーを作成・管理できます。Brazeはクロスドメイン ID 管理用システム（SCIM）を通じてこの機能をサポートしています。この記事では、提供すべき情報、SCIMトークンの生成方法、SCIM APIエンドポイントの場所について説明します。
+> 自動ユーザープロビジョニングを使用すると、ダッシュボードで手動で行う代わりに、APIを通じてBrazeユーザーを作成・管理できます。Brazeはクロスドメインid管理用システム（SCIM）を通じてこの機能をサポートしています。この記事では、提供すべき情報、SCIMトークンの生成方法、SCIM APIエンドポイントの場所について説明します。
 
 ## SCIMプロビジョニング設定へのアクセス {#accessing-scim-provisioning-settings}
 
-1. Brazeのダッシュボードで、**設定** > **管理者設定** > **SCIMプロビジョニング**に移動し、**SCIM連携の設定**を選択します。
-2. **Brazeの設定**ステップでは、プロビジョニング方法を選択し、アクセス設定を提供します。
+1. Brazeダッシュボードで、**設定** > **管理者設定** > **SCIMプロビジョニング**に移動し、**SCIM連携の設定**を選択します。
+2. **Brazeの設定**ステップで、プロビジョニング方法を選択し、アクセス設定を入力します。
 
 ![SCIM連携を設定するページで、プロビジョニング方法の選択とアクセス設定の提供を行うセクションがあります。]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. **IdP設定**ステップでは、選択したプロビジョニング方法に対応するプラットフォーム内のステップに従ってください。
+3. **IdP設定**ステップで、選択したプロビジョニング方法に対応するプラットフォーム内のステップに従ってください。
 
 {% tabs %}
 {% tab Okta - Braze app %}
 
 {% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
 
-OktaでBrazeアプリをSAML SSO用に設定した場合、**Okta - Brazeアプリ**オプションを使用します。SSO用のカスタムアプリを設定した場合は、[Okta - カスタムアプリ統合]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning)タブの手順に従ってください。
+OktaでBrazeアプリをSAML SSO用に設定した場合は、**Okta - Brazeアプリ**オプションを使用します。SSO用のカスタムアプリを設定した場合は、[Okta - カスタムアプリ統合]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning)タブの手順に従ってください。
 
 ## ステップ1:SCIMプロビジョニングを設定する {#step-1-set-up-scim-provisioning}
 
@@ -78,7 +78,7 @@ OktaでBrazeアプリをSAML SSO用に設定した場合、**Okta - Brazeアプ�
 
 {% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
 
-SSO用のカスタムアプリを設定した場合、**Okta - カスタムアプリ統合**オプションを使用します。OktaでBrazeアプリをSAML SSO用に設定した場合は、[Okta - Brazeアプリ]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning)タブの手順に従ってください。
+SSO用のカスタムアプリを設定した場合は、**Okta - カスタムアプリ統合**オプションを使用します。OktaでBrazeアプリをSAML SSO用に設定した場合は、[Okta - Brazeアプリ]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning)タブの手順に従ってください。
 
 ## ステップ1:SCIMプロビジョニングを設定する
 
@@ -157,11 +157,9 @@ Microsoft Entra管理センターにログインします。
 
 ## ステップ1:SCIM設定を構成する {#step-1-configure-your-scim-settings}
 
-- **デフォルトワークスペース:** 新しいユーザーがデフォルトで追加されるワークスペースを選択します。[SCIM APIリクエスト]({{site.baseurl}}/post_create_user_account/)でワークスペースを指定しない場合、Brazeはユーザーをこのワークスペースに割り当てます。
+- **デフォルトワークスペース:** 新しいユーザーがデフォルトで追加されるワークスペースを選択します。[SCIM APIリクエスト]({{site.baseurl}}/post_create_user_account)でワークスペースを指定しない場合、Brazeはユーザーをこのワークスペースに割り当てます。
 - **サービスOrigin:** SCIMリクエストのOriginドメインを入力します。Brazeはリクエストの送信元を確認するために`X-Request-Origin`ヘッダーでこれを使用します。
 - **IP許可リスト（オプション）:** SCIMリクエストを特定のIPアドレスに制限できます。許可するIPアドレスのカンマ区切りリストまたは範囲を入力します。各リクエストの`X-Request-Origin`ヘッダーを使用して、リクエストのIPアドレスが許可リストと照合されます。
-
-![SCIMプロビジョニング設定フォームで、デフォルトワークスペース、サービスOrigin、オプションのIP許可リストの3つのフィールドがあります。「SCIMトークンを生成」ボタンは無効になっています。]({% image_buster /assets/img/scim_unfilled.png %})
 
 ## ステップ2:SCIMトークンを生成する {#step-2-generate-a-scim-token}
 
@@ -169,7 +167,7 @@ Microsoft Entra管理センターにログインします。
 
 ![SCIM APIエンドポイントとSCIMトークンのフィールドがマスクされた値とコピーボタンとともに表示されています。トークンフィールドの下に「トークンをリセット」ボタンがあります。]({% image_buster /assets/img/scim.png %})
 
-Brazeはすべての SCIMリクエストに、HTTP `Authorization`ヘッダーに添付されたSCIM APIベアラートークンが含まれていることを要求します。
+Brazeはすべてのsciリクエストに、HTTP `Authorization`ヘッダーに添付されたSCIM APIベアラートークンが含まれていることを要求します。
 
 {% endtab %}
 {% endtabs %}

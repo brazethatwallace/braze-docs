@@ -24,7 +24,6 @@ Antes de criar uma notificação Rich por push para iOS, observe os seguintes de
 - Para garantir que seu app possa enviar notificações Rich, siga as instruções de [integração de push para iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications), pois seu desenvolvedor precisará adicionar uma extensão de serviço ao seu app.
 - Os tipos de arquivo que atualmente suportamos para upload direto no nosso dashboard incluem JPEG, PNG ou GIF. Esses arquivos também podem ser inseridos no campo de URL com template, junto com estes tipos de arquivo adicionais: AIF, M4A, MP3, MP4 ou WAV.
 - Consulte a [documentação da Apple](https://developer.apple.com/reference/usernotifications/unnotificationattachment) para limitações e especificações de mídia.
-- As notificações Rich do iOS não estão disponíveis ao criar uma Campaign de push rápido.
 - O iOS redimensiona as imagens para caber na tela e ajusta as imagens avançadas para a visualização ativa ou bloqueada.
 
 {% alert note %}
@@ -130,7 +129,7 @@ Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_
 
 ### Etapa 2: Adicione mídia {#step-2-add-media}
 
-Adicione seu arquivo de imagem, GIF, áudio ou vídeo no campo **Rich Notification Media** no criador da mensagem. Consulte os [requisitos](#requirements) sobre como adicionar seus arquivos de conteúdo.
+Adicione seu arquivo de imagem, GIF, áudio ou vídeo no campo **iOS Notification Image** no criador da mensagem. Consulte os [requisitos](#requirements) sobre como adicionar seus arquivos de conteúdo.
 
 ![Um exemplo de texto resumido para uma notificação por push.]({% image_buster /assets/img_archive/rich_notification_add_image.png %}){: style="max-width:70%;" }
 

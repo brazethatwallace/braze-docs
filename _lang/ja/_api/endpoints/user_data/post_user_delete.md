@@ -10,7 +10,7 @@ description: "この記事では、「ユーザーの削除」Brazeエンドポ�
 ---
 {% api %}
 # ユーザーを削除する {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | オプション | 文字列の配列 | 削除するBrazeユーザー識別子。 |
 | `email_addresses` | オプション | 文字列の配列 | 削除するユーザーのメール。詳細については、[メールによるユーザーの削除](#deleting-users-by-email)を参照してください。 |
 | `phone_numbers` | オプション | 文字列の配列 | 削除するユーザーの電話番号。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### メールアドレスと電話番号によるユーザーの削除 {#deleting-users-by-email-addresses-and-phone-numbers}
 

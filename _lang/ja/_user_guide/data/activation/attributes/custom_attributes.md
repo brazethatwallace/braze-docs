@@ -11,7 +11,7 @@ search_rank: 1
 
 > このページでは、ユーザー固有の特性のコレクションであるカスタム属性について説明します。カスタム属性は、ユーザーに関する属性や、アプリケーション内の価値の低いアクションに関する情報を格納するのに最適です。
 
-Brazeに保存すると、カスタム属性を使用してオーディエンスSegmentを構築し、Liquidを使用してメッセージングをパーソナライズできます。カスタムイベントとは異なり、カスタム属性の時系列情報は保存されないため、時系列情報に基づくグラフを取得できない点に注意してください。
+Brazeに保存すると、カスタム属性を使用してオーディエンスSegmentsを構築し、Liquidを使用してメッセージングをパーソナライズできます。カスタムイベントとは異なり、カスタム属性の時系列情報は保存されないため、時系列情報に基づくグラフを取得できない点に注意してください。
 
 {% alert important %}
 **名前は完全一致です。** カスタム属性キーは**大文字と小文字が区別されます**。例えば、`Home_City`と`home_city`は2つの異なる属性です。[REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)やSDKを通じてデータを送信する場合、Brazeは属性名の**先頭と末尾のスペースを除去します**。そのため、`greeting`と` greeting `は同じキーに解決されます。属性を参照するすべての場所（**データ設定** > **カスタム属性**、APIおよびSDKペイロード、CSVインポート）で同じスペルと大文字小文字を使用してください。[データタイプを強制]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion)した場合にBrazeが受信値をどのように変換するかについては、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)を参照してください。
@@ -36,7 +36,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 ![ブール値である4つのカスタム属性。]({% image_buster /assets/img/export_custom_attributes.png %})
 
-「**最終更新日**」の列には、カスタム属性が最後に編集された時間（ブロックリストやアクティブに設定された時間など）が表示されます。
+**最終更新日**の列には、カスタム属性が最後に編集された時間（ブロックリストやアクティブに設定された時間など）が表示されます。
 
 {% alert important %}
 メッセージのターゲットを正しく設定するには、カスタム属性のデータタイプが実際のカスタム属性と一致していることを確認してください。<br><br>例えば、`newsletter_subscribed`が文字列として定義されている場合、Liquid構文は次のようになります：{% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}。`newsletter_subscribed`がブール値として定義されている場合、Liquid構文には単一引用符を使用しません：{% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}。
@@ -90,7 +90,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 ### データタイプの変更 {#changing-the-data-type}
 
 1. Segmentsやフィルターでその属性を使用しているアクティブなCampaignsまたはCanvasesを停止します。
-2. すべてのSegment、Campaign、Canvasフィルターからその属性を削除します。
+2. すべてのセグメント、Campaign、Canvasフィルターからその属性を削除します。
 3. **データ設定** > **カスタム属性**（または**カスタムイベント**）に移動し、属性を見つけて、目的のデータタイプに更新します。
 4. 既存のユーザープロファイルの属性値を新しいデータタイプに合わせて更新します（例：[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用）。
 5. 関連するSegments、Campaigns、Canvasesに属性を再適用し、停止したCampaignsやCanvasesを再開します。
@@ -134,3 +134,21 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 **ユーザープロファイル**に保存されるすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival/#active-users)である限り、無期限に保持されます。
 
 カスタム属性として保存できるすべてのデータタイプ（ブール値、数値、文字列、配列、時間、オブジェクト、オブジェクトの配列）の完全なリファレンスについては、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)を参照してください。
+
+### 空文字列とnull値 {#blank-strings-versus-null-values}
+
+カスタム属性をクリアまたは設定解除する場合、空文字列（`""`）を渡すか`null`を渡すかによって動作が異なります。
+
+| 値 | 動作 |
+| --- | --- |
+| `""`（空文字列） | 属性は空の値に設定され、ユーザープロファイルに引き続き表示されます。 |
+| `null` | 属性はユーザープロファイルから完全に削除されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
+
+{% alert important %}
+文字列以外のデータタイプで、Brazeダッシュボードでデータタイプが手動で設定されている場合（自動検出ではない場合）、値の設定を解除するには`null`を使用する必要があります。`""`の送信は文字列属性にのみ有効です。例えば、ブール値属性に`""`を設定すると空文字列として扱われ、そのタイプでは無効な値となります。ブール値の設定を解除するには、`null`を渡してください。
+
+CSVインポートは`null`をサポートしていない点に注意してください。CSVインポートのブール値は`TRUE`または`FALSE`である必要があります。
+{% endalert %}

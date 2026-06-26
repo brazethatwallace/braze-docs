@@ -45,11 +45,7 @@ Ja. Sie können Nutzer:innen erlauben, ein Banner manuell zu schließen, indem S
 
 Nutzer:innen können Banner nur dann manuell schließen, wenn das Schließverhalten aktiviert ist. Wenn das Schließen nicht aktiviert ist, können Sie die Sichtbarkeit von Bannern steuern, indem Sie die Segment-Berechtigung der Nutzer:innen verwalten. Wenn ein:e Nutzer:in die Targeting-Kriterien für eine Banner-Campaign nicht mehr erfüllt, wird das Banner bei der nächsten Sitzung nicht mehr angezeigt.
 
-Wenn ein:e Nutzer:in ein Banner schließt, ist diese Person standardmäßig nicht mehr für diese Campaign berechtigt. Um geschlossene Banner erneut anzuzeigen, [konfigurieren Sie die erneute Berechtigung]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) im Schritt **Delivery Controls** der Campaign. Canvas-Banner-Schritte verwenden stattdessen die Canvas-Wiedereintrittseinstellungen zur Steuerung der erneuten Berechtigung.
-
-{% alert important %}
-[Banner-Schließungen]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, kontaktieren Sie Ihren Customer-Success-Manager.
-{% endalert %}
+Wenn ein:e Nutzer:in ein Banner schließt, ist diese Person standardmäßig nicht mehr für diese Campaign berechtigt. Um geschlossene Banner erneut anzuzeigen, [konfigurieren Sie die erneute Berechtigung]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility) im Schritt **Zustellungs-Kontrollgruppen** der Campaign. Canvas-Banner-Schritte verwenden stattdessen die Canvas-Wiedereintrittseinstellungen zur Steuerung der erneuten Berechtigung.
 
 Wenn Sie beispielsweise ein Werbebanner anzeigen, bis ein:e Nutzer:in einen Kauf tätigt, kann die Protokollierung eines Events wie `purchase_completed` diese:n Nutzer:in aus dem Ziel-Segment entfernen und das Banner in nachfolgenden Sitzungen effektiv ausblenden.
 

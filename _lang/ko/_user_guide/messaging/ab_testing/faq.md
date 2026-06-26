@@ -31,7 +31,7 @@ Braze는 피어슨 카이제곱 검정을 사용하여 모든 배리언트를 �
 
 ### 배리언트 분배가 균등하지 않은 이유는 무엇인가요? {#why-isnt-the-variant-distribution-even}
 
-배리언트 할당은 각 발송 시 무작위로 이루어지므로, 실제 분배는 설정한 비율과 정확히 일치하지 않을 수 있습니다. 특히 표본 크기가 작을 때 더 그렇습니다. 자세한 내용은 [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/)를 참조하세요.
+배리언트 할당은 각 발송 시 무작위로 이루어지므로, 실제 분배는 설정한 비율과 정확히 일치하지 않을 수 있습니다. 특히 표본 크기가 작을 때 더 그렇습니다. 자세한 내용은 [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution)를 참조하세요.
 
 ## 테스트 실행 및 종료 {#running-and-concluding-tests}
 
@@ -55,9 +55,9 @@ Braze는 피어슨 카이제곱 검정을 사용하여 모든 배리언트를 �
 
 실험 이후의 Canvas 경로도 배리언트이므로 동일하게 적용됩니다.
 
-#### Campaign과 Canvas에서 사용자를 재분배하기 위한 조치를 취할 수 있나요? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
+#### Campaign과 Canvases에서 사용자를 재분배하기 위한 조치를 취할 수 있나요? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-Canvas에서 사용자를 재분배하는 유일한 방법은 [실험 경로의 무작위 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution)를 사용하는 것입니다. 이 방법은 사용자가 Canvas에 다시 진입할 때 항상 경로 할당을 무작위로 지정합니다. 그러나 이것은 표준 실험이 아니며, 대조군이 처리 사용자로 오염될 수 있으므로 실험 결과가 무효화될 수 있습니다.
+Canvases에서 사용자를 재분배하는 유일한 방법은 [실험 경로의 무작위 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution)를 사용하는 것입니다. 이 방법은 사용자가 Canvas에 다시 진입할 때 항상 경로 할당을 무작위로 지정합니다. 그러나 이것은 표준 실험이 아니며, 대조군이 처리 사용자로 오염될 수 있으므로 실험 결과가 무효화될 수 있습니다.
 
 ## 신뢰도 및 편향 {#confidence-and-bias}
 
@@ -67,6 +67,8 @@ Canvas에서 사용자를 재분배하는 유일한 방법은 [실험 경로의 
 
 신뢰도는 배리언트가 대조군과 다르다는 것에 대한 Braze의 확신 정도를 측정합니다. 더 많은 메시지가 발송될수록 테스트의 통계적 검정력이 증가하여, 성과의 측정된 차이가 무작위 우연에 의한 것이 아니라는 신뢰도가 높아집니다. 일반적으로 표본 크기가 클수록 배리언트와 대조군 간의 작은 성과 차이를 식별하는 데 대한 신뢰도가 높아집니다.
 
+그러나 더 많은 메시지가 발송됨에 따라 배리언트와 대조군 간의 전환율이 수렴(가까워짐)하면 신뢰도가 감소할 수 있습니다. 이는 관심 있는 측정된 차이가 줄어들고 있기 때문이며, 이 효과가 더 큰 표본 크기의 이점을 상쇄할 수 있습니다.
+
 ### 대조군과 테스트 그룹 할당이 테스트에 편향을 도입할 수 있나요? {#can-control-and-test-group-assignments-introduce-bias-to-testing}
 
 특정 Campaign이나 Canvas가 생성되기 전에 사용자의 속성이나 행동이 배리언트와 대조군 간에 체계적으로 다를 수 있는 실질적인 방법은 없습니다.
@@ -75,4 +77,4 @@ Canvas에서 사용자를 재분배하는 유일한 방법은 [실험 경로의 
 
 ### 대조군과 함께 사용량 제한을 사용할 수 없는 이유는 무엇인가요? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze는 현재 대조군이 있는 A/B 테스트에서 사용량 제한을 지원하지 않습니다. 이는 사용량 제한이 배리언트와 동일한 방식으로 대조군에 적용되지 않아 편향이 발생하기 때문입니다. 대신 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)을 사용하는 것을 고려하세요. 지능형 선택은 분석 및 Campaign 성과를 기반으로 각 배리언트를 받을 사용자의 비율을 자동으로 조정합니다.
+Braze는 현재 대조군이 있는 A/B 테스트에서 사용량 제한을 지원하지 않습니다. 이는 사용량 제한이 배리언트와 동일한 방식으로 대조군에 적용되지 않아 편향이 발생하기 때문입니다. 대신 [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하는 것을 고려하세요. 지능형 선택은 분석 및 Campaign 성과를 기반으로 각 배리언트를 받을 사용자의 비율을 자동으로 조정합니다.

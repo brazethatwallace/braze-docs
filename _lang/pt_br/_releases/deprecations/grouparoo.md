@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "Este artigo descreve a parceria entre a Braze e o Grouparoo, uma ferramenta de ETL reversa de código aberto usada para alimentar as ferramentas de marketing, vendas e suporte com dados do seu data warehouse."
 page_type: update
+noindex: true
+description: "Este artigo descreve a parceria entre a Braze e o Grouparoo, uma ferramenta de ETL reversa de código aberto usada para alimentar as ferramentas de marketing, vendas e suporte com dados do seu data warehouse."
 
 ---
 
@@ -23,7 +24,7 @@ A integração entre a Braze e o Grouparoo sincroniza os dados do warehouse com 
 | Conta e projeto do Grouparoo | É necessário ter uma conta e um projeto do Grouparoo para aproveitar essa parceria.<br><br>Essa integração pode ser usada com a edição comunitária gratuita e com as soluções empresariais fornecidas pelo Grouparoo. A configuração ocorrerá na interface de usuário de configuração do Grouparoo. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de usuários e rastreamento. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [A URL do seu endpoint REST](https://www.grouparoo.com/). Seu endpoint dependerá da URL da Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -31,7 +32,7 @@ A integração entre a Braze e o Grouparoo sincroniza os dados do warehouse com 
 
 No Grouparoo, navegue até **Apps** e selecione **Braze** para criar um novo app da Braze. Na janela modal exibida, informe sua chave de API da Braze e o endpoint REST.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![O modal Criar app da Braze no Grouparoo, com campos para a chave de API da Braze e o endpoint REST.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### Etapa 2: Configurar um modelo e uma fonte de dados {#step-2-set-up-a-model-and-data-source}
 

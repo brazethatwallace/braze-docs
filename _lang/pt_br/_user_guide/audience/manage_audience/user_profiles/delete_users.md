@@ -48,7 +48,6 @@ Exclusões de usuários individuais são permanentes — os perfis não podem se
 
 Na página do perfil, selecione <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. Lembre-se de que pode levar alguns minutos para que o usuário seja totalmente excluído na Braze.
 
-![Um usuário na Braze com o menu de reticências verticais aberto, mostrando a opção de excluir o usuário.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Excluindo um segmento {#delete-segment}
 

@@ -717,6 +717,7 @@ Dies sind die erforderlichen Mindestversionen des SDK, um Banner-Schließungen z
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integrationen {#integrations}
+
 #### Standard-Banner-Integrationen (Drag-and-Drop-Editor) {#standard-banner-integrations-drag-and-drop-editor}
 
 Wenn Ihr Banner den Drag-and-Drop-Editor verwendet und eine Schließen-Button-Komponente enthält, ist kein zusätzlicher Code erforderlich. Wenn Nutzer:innen auf den Schließen-Button klicken, wird die Nachricht ausgeblendet, eine Schließung ausgelöst und anschließend ein Schließungsereignis für Analytics aufgezeichnet.

@@ -123,7 +123,6 @@ No fluxo a seguir, a visualização personalizada é capaz de responder a mudan�
 3. As informações são fornecidas e, se estiverem no formato esperado, o botão de registro é exibido.
 3. A visualização de confirmação é exibida e o push é dispensado.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### Configuração do dashboard {#dashboard-configuration}
 

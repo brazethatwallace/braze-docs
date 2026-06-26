@@ -67,7 +67,7 @@ Facebookとの接続は、Brazeのワークスペースレベルで適用され�
 {% alert important %}
 これまでに[Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを受けたことがある顧客のシステムユーザートークンは、Facebook Audienceコンポーネントに対して引き続き有効です。FacebookパートナーページからFacebookシステムユーザートークンを編集したり、取り消したりすることはできません。その代わりに、Facebookアカウントに接続して、Brazeワークスペース内でFacebookシステムユーザートークンを置き換えることができます。
 
-<br><br>Facebook oAuthの設定は、[Segmentを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
+<br><br>Facebook oAuthの設定は、[セグメントを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
 {% endalert %}
 
 ### ステップ2: カスタムオーディエンスの利用規約に同意する {#step-2-accept-custom-audiences-terms-of-service}
@@ -220,9 +220,9 @@ Facebookカスタムオーディエンスの利用規約に同意したら、以
 
 **Number of Facebook Friends Using App**および**Connected Facebook**のBrazeセグメンテーションフィルターは非推奨になりました。FacebookおよびBraze SDKは、これらのフィルターが依存していた基盤データを収集しなくなりました。
 
-非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのSegmentに置き換えてください。例えば、**Connected Facebook**の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App**の代わりに紹介、招待、共有を使用できます。
+非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのセグメントに置き換えてください。例えば、**Connected Facebook**の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App**の代わりに紹介、招待、共有を使用できます。
 
-Canvasのリターゲティングについては、[ステップ4: 同期設定](#step-4-sync-setup)で示されているように、メール、電話、名、姓を使用してユーザーをマッチングします。リーチを拡大するには、高価値のSegmentをFacebookに同期し、Meta Ads Managerで類似オーディエンスを作成します。
+Canvasのリターゲティングについては、[ステップ4: 同期設定](#step-4-sync-setup)で示されているように、メール、電話、名、姓を使用してユーザーをマッチングします。リーチを拡大するには、高価値のセグメントをFacebookに同期し、Meta Ads Managerで類似オーディエンスを作成します。
 
 ## トラブルシューティング {#troubleshooting}
 

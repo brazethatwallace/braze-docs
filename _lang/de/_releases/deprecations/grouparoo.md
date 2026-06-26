@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "Dieser Artikel beschreibt die Partnerschaft zwischen Braze und Grouparoo, einem Open-Source Reverse ETL-Tool, das Marketing-, Vertriebs- und Support-Tools mit Daten aus Ihrem Data Warehouse versorgt."
 page_type: update
+noindex: true
+description: "Dieser Artikel beschreibt die Partnerschaft zwischen Braze und Grouparoo, einem Open-Source Reverse ETL-Tool, das Marketing-, Vertriebs- und Support-Tools mit Daten aus Ihrem Data Warehouse versorgt."
 
 ---
 
@@ -21,9 +22,9 @@ Die Integration von Braze und Grouparoo synchronisiert Warehouse-Daten mit Braze
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Grouparoo-Konto und -Projekt | Sie benötigen ein Grouparoo-Konto und ein Projekt, um die Vorteile dieser Partnerschaft zu nutzen.<br><br>Diese Integration kann sowohl mit der kostenlosen Community Edition als auch mit den Enterprise-Lösungen von Grouparoo genutzt werden. Die Einrichtung erfolgt über die Benutzeroberfläche der Grouparoo-Konfiguration. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für Nutzer:innen und Tracking. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für Nutzer:innen und Tracking. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL](https://www.grouparoo.com/). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -31,7 +32,7 @@ Die Integration von Braze und Grouparoo synchronisiert Warehouse-Daten mit Braze
 
 Navigieren Sie in Grouparoo zu **Apps** und wählen Sie **Braze** aus, um eine neue Braze-App zu erstellen. Geben Sie in dem daraufhin angezeigten Modal Ihren Braze-API-Schlüssel und den REST-Endpunkt an.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![Das Modal „Braze-App erstellen“ in Grouparoo mit Feldern für den Braze-API-Schlüssel und den REST-Endpunkt.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### 2. Schritt: Einrichten eines Modells und einer Datenquelle {#step-2-set-up-a-model-and-data-source}
 

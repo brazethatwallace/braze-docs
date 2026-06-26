@@ -17,7 +17,7 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 
 ## 필수 조건 {#prerequisites}
 
-내부 그룹을 생성하고 관리하려면 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다:
+내부 그룹을 생성하고 관리하려면 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다:
 
 - API 키 보기
 - API 키 편집
@@ -47,7 +47,7 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 | **사용자 이벤트 그룹** | 테스트 기기에서 이벤트 또는 로그를 확인하는 데 사용합니다. |
 | **콘텐츠 테스트 그룹** | 푸시, 이메일, 인앱 메시지 전반에서 렌더링된 메시지 사본을 발송하는 데 사용합니다. |
 | **시드 그룹** | 발송 시 시드 그룹의 모든 구성원에게 이메일 사본을 자동으로 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating an internal group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="내부 그룹 생성하기" }
 
 {:start="5"}
 
@@ -63,18 +63,16 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 | 방법 | 설명 |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **식별된 사용자 추가** | 외부 사용자 ID, 이메일 주소, 전화번호 또는 푸시 토큰으로 사용자를 검색합니다. |
-| **익명 사용자 추가** | IP 주소로 검색합니다. 그런 다음 추가하는 각 테스트 사용자에 대해 이름을 입력합니다. 이 이름은 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) 페이지에서 모든 이벤트 로그와 연결되는 이름입니다. |
-| **사용자 일괄 추가** | 이메일 주소 또는 외부 ID 목록을 복사하여 붙여넣습니다. 대시보드에 이미 알려진 사용자만 추가할 수 있습니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Adding test users" }
-
-![새 내부 그룹을 생성할 때의 내부 그룹 설정]({% image_buster /assets/img_archive/internal_group_add_user.png %})
+| **익명 사용자 추가** | IP 주소로 검색합니다. 그런 다음 추가하는 각 테스트 사용자에 대해 이름을 입력합니다. 이 이름은 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) 페이지에서 모든 이벤트 로그와 연결되는 이름입니다. |
+| **사용자 일괄 추가** | 이메일 주소 또는 외부 ID 목록을 복사하여 붙여넣습니다. 대시보드에 이미 알려진 사용자만 추가할 수 있습니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="테스트 사용자 추가하기" }
 
 ### 콘텐츠 테스트 그룹 {#content-test-groups}
 
 메시지의 미리보기 테스트를 발송하는 것과 유사하게, 콘텐츠 테스트 그룹은 시간을 절약하고 사전 정의된 Braze 사용자 목록에 동시에 테스트를 시작할 수 있게 해줍니다. Braze에서 푸시, 인앱 메시지, SMS, 이메일 및 Content Cards에 사용할 수 있습니다. 콘텐츠 테스트 그룹으로 태그된 그룹만 메시지의 미리보기 섹션에서 사용할 수 있습니다.
 
 {% alert note %}
-[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) 테스트 메시지는 데이터베이스에 있는 유효한 전화번호로만 발송할 수 있습니다.
+[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) 테스트 메시지는 데이터베이스에 있는 유효한 전화번호로만 발송할 수 있습니다.
 {% endalert %}
 
 개별 Braze 사용자 또는 원하는 수의 내부 그룹을 선택하여 메시지를 발송합니다. 메시지에 Liquid 또는 기타 동적 개인화가 포함된 경우, Braze는 각 사용자에게 사용 가능한 속성을 사용하여 메시지 콘텐츠를 개인화합니다. 속성이 없는 사용자의 경우 Braze는 설정된 기본값을 사용합니다.
@@ -108,7 +106,7 @@ IP 풀을 사용하여 이메일을 발송하는 경우, 사용 가능한 드롭
 {% alert tip %}
 시드 그룹 구성원이 메시지를 받지 못하는 경우, 내부 그룹에 포함되어 있는지 확인하고, Gmail에서 메시지가 스레드로 묶이지 않도록 고유한 제목란을 사용하며, 스팸 폴더를 확인하도록 요청하세요.
 
-이메일이 [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)를 사용하는 경우, 시드 그룹 구성원도 발송을 수신하려면 중단 조건을 충족해야 합니다.
+이메일이 [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 사용하는 경우, 시드 그룹 구성원도 발송을 수신하려면 중단 조건을 충족해야 합니다.
 {% endalert %}
 
 #### Campaign의 경우 {#for-campaigns}

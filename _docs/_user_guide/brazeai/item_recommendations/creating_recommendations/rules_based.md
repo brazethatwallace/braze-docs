@@ -11,10 +11,10 @@ page_order: 2
 
 ## About rules-based item recommendations
 
-A rules-based recommendation engine uses user data and product information to suggest relevant items to users within messages. It uses [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) and either Braze [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) to dynamically personalize content based on user behavior and attributes.
+A rules-based recommendation engine uses user data and product information to suggest relevant items to users within messages. It uses [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) and either Braze [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) to dynamically personalize content based on user behavior and attributes.
 
 {% alert important %}
-Rules-based recommendations are based on fixed logic that you must manually set. This means your recommendations won’t adjust to a user's purchase history and tastes unless you update the logic.<br><br>To create personalized AI recommendations that automatically adjust to a user’s history, check out [AI item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/).
+Rules-based recommendations are based on fixed logic that you must manually set. This means your recommendations won’t adjust to a user's purchase history and tastes unless you update the logic.<br><br>To create personalized AI recommendations that automatically adjust to a user’s history, check out [AI item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 {% endalert %}
 
 ## Recommendation engine options
@@ -83,7 +83,7 @@ Create your recommendation engine using either a catalog or Connected Content:
 {% tab using a catalog %}
 To create your recommendation engine using a catalog:
 
-1. [Create a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/) of products.
+1. [Create a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) of products.
 2. For each product, add a list of recommended products as a string separated by a delimiter (like a pipe `|`) in a column named “product_recommendations”.
 3. Pass the product ID that you want to find recommendations for to the catalog.
 4. Get the `product_recommendations` value for that catalog item and split it by the delimiter with a Liquid split filter.
@@ -102,11 +102,9 @@ Let’s say you have a health food app and want to create a Content Card campaig
 | **image_url** | The image that corresponds to the recipe. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
-After the catalog is uploaded to Braze, check the preview of a select number of catalog items to confirm the information imported accurately. The items may be randomized in the preview, but this won’t affect the output of the recommendation engine.
+After the catalog is uploaded to Braze, confirm the information imported accurately by selecting your catalog from the Catalogs page and opening the **Preview** tab. A select number of items appears in the preview, and may be randomized, but this doesn't affect the output of the recommendation engine.
 
-![Example catalog in Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
-
-Create a Content Card campaign. In the composer, enter Liquid logic to determine which users should receive the campaign, and which recipe and image should display. In this use case, Braze will pull the user’s `start_date` (or sign-up date) and compare it to the current date. The difference in days will determine which Content Card is sent.
+With the catalog in place, [create a Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). In the composer, enter Liquid logic to determine which users should receive the campaign, and which recipe and image should display. In this use case, Braze pulls the user's `start_date` (or sign-up date) and compares it to the current date. The difference in days determines which Content Card is sent.
 
 {% subtabs local %}
 {% subtab title %}
@@ -186,7 +184,7 @@ To create your recommendation engine using Connected Content, first create a new
 |------|-----------|
 |**Convert a spreadsheet**|Convert a spreadsheet into a JSON API endpoint by using a service like SheetDP, and take note of the API URL this generates.|
 |**Create a custom endpoint**|Build, host, and maintain a custom-built in-house endpoint.|
-|**Use a third-party engine** |Use a third-party recommendation engine, such as one of our [Alloy partners]({{site.baseurl}}/partners/message_personalization/), including [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/), and others.|
+|**Use a third-party engine** |Use a third-party recommendation engine, such as one of our [Alloy partners]({{site.baseurl}}/partners/message_personalization), including [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield), and others.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 Next, use Liquid in your message that calls your endpoint to match a custom attribute value with a user’s profile and pull the corresponding recommendation.
@@ -214,7 +212,7 @@ Replace the following:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 
 {% alert note %}
-This is a basic example and you might need to modify it further based on your specific needs and data structure. For more detailed guidance, refer to the [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) or consult with a developer.
+This is a basic example and you might need to modify it further based on your specific needs and data structure. For more detailed guidance, refer to the [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) or consult with a developer.
 {% endalert %}
 
 ### Example

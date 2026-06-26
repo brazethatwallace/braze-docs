@@ -40,6 +40,14 @@ No. Los agentes solo reciben los puntos de datos de usuario específicos que se 
 
 Considera usar [Operator]({{site.baseurl}}/user_guide/brazeai/operator/) para investigar por qué tu agente no está siguiendo tus instrucciones. Operator puede proporcionar instrucciones paso a paso y explicaciones detalladas.
 
+### ¿Por qué mi agente de catálogo omitió algunas filas? {#why-did-my-catalog-agent-skip-some-rows}
+
+Los agentes de catálogo omiten una fila cuando una columna que marcaste como **obligatoria para ejecutar** está vacía o falta; por ejemplo, un campo `gender` que no se ha rellenado. Después de seleccionar las columnas de entrada, habilita el control de entrada obligatoria para el campo del catálogo y elige qué columnas deben contener valores antes de que el agente se ejecute; las columnas seleccionadas comienzan como obligatorias de forma predeterminada, pero puedes quitar columnas que pueden estar vacías sin bloquear la invocación. Esto evita el desperdicio de tokens en datos incompletos.
+
+El agente también respeta las dependencias entre columnas. Si una columna de salida depende de otras columnas (por ejemplo, la columna D requiere valores en las columnas B y C), el agente no se ejecuta hasta que esas columnas previas estén completadas para esa fila.
+
+Para más detalles, consulta [Mejores prácticas de agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices).
+
 ### Mi agente tiene dificultades con una tarea compleja. ¿Cómo puedo mejorar su rendimiento? {#subagent-approach}
 
 Si notas que el agente tiene dificultades con las tareas que le pides, considera un enfoque de subagentes. Por ejemplo, podrías usar tres agentes para hacer lo siguiente:
@@ -56,6 +64,8 @@ Un agente personalizado puede agotar el tiempo de espera si:
 - Las instrucciones del agente no cubren todos los escenarios ni incluyen una condición alternativa (como "Si todas las entradas están en blanco, devolver 'No se pudo personalizar'")
 - Las instrucciones del agente le piden que genere un formato de salida diferente al especificado en la pestaña **Salida** (por ejemplo, si las instrucciones del agente piden una cadena, pero en la pestaña **Salida** la salida está definida como un número)
 - La tarea del agente es demasiado compleja y se beneficiaría de un [enfoque de subagentes](#subagent-approach) en su lugar
+
+Para los agentes de Canvas, configura [valores alternativos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) en la Consola de Agente para que los usuarios sigan recibiendo una salida cuando una invocación falle.
 
 ## Cumplimiento normativo {#compliance}
 

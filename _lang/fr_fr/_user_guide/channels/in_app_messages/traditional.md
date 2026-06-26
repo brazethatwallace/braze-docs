@@ -61,7 +61,7 @@ Commencez par choisir les plateformes qui doivent recevoir le message. Utilisez 
 | Applications mobiles                     | SDK iOS, Android et Vega |
 | Navigateurs web                    | SDK Web                      |
 | Applications mobiles et navigateurs web | SDK iOS, Android, Vega et Web |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Spécifier les plateformes de diffusion" }
 
 ## Étape 3 : Spécifier vos types de messages {#step-3-specify-your-message-types}
 
@@ -84,7 +84,7 @@ Ces messages in-app sont acceptés à la fois par les applications mobiles et le
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Message types" class="tg">
+<table aria-label="Types de messages" class="tg">
   <caption>Types de messages</caption>
 <thead>
   <tr>
@@ -134,7 +134,7 @@ Ces messages in-app sont acceptés à la fois par les applications mobiles et le
 
 Ces messages in-app sont personnalisables selon vos besoins.
 
-<table aria-label="Advanced message types" class="tg">
+<table aria-label="Types de messages avancés" class="tg">
   <caption>Types de messages avancés</caption>
 <thead>
   <tr>
@@ -207,7 +207,7 @@ Certains types de messages n'ont pas besoin d'en-têtes et n'en demandent donc p
 
 ##### Générer du texte avec l'IA {#generating-ai-copy}
 
-Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
+Besoin d'aide pour créer un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Saisissez un nom ou une description de produit et l'IA générera un texte marketing de qualité humaine à utiliser dans vos messages.
 
 ![Bouton Lancer le rédacteur IA, situé dans le champ Message du compositeur de messages in-app.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
@@ -241,7 +241,7 @@ Lorsque votre client clique sur un bouton dans votre message in-app, les actions
 | Enregistrer un événement personnalisé | Choisissez un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) à déclencher. Peut être utilisé pour afficher un autre message in-app ou déclencher des messages supplémentaires. |
 | Enregistrer un attribut personnalisé | Choisissez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) à définir pour l'utilisateur actuel. |
 | Demander l'autorisation push | Affiche la demande d'autorisation push native. En savoir plus sur l'[amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), ainsi que les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) pour préparer les utilisateurs au push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
 
 Remarque : les options __Demander l'autorisation push__, __Enregistrer un événement personnalisé__ et __Enregistrer un attribut personnalisé__ nécessitent les versions minimales de SDK suivantes :
 
@@ -287,7 +287,7 @@ Le contenu de l'onglet **Style** varie en fonction des options de message choisi
 | Couleur d'arrière-plan | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. C'est l'arrière-plan de l'ensemble du message et il s'affichera clairement derrière le corps de votre texte. |
 | Overlay de l'écran | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. Disponible uniquement pour les versions plus récentes du SDK Braze. C'est le cadre autour de l'ensemble du message. |
 | Chevron ou autre option de fermeture du message | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 5 : Styliser votre message in-app" }
 
 [Prévisualisez et testez]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) toujours votre message avant de l'envoyer.
 
@@ -308,7 +308,7 @@ Vous pouvez ajouter des [paires clé-valeur]({{site.baseurl}}/user_guide/messagi
 
 Construisez le reste de votre Campaign ; consultez les sections suivantes pour plus de conseils sur la meilleure façon d'utiliser nos outils pour créer des messages in-app.
 
-#### Choisir un déclencheur {#choose-a-trigger}
+### Choisir un déclencheur {#choose-a-trigger}
 
 Sélectionnez l'action qui déclenchera votre message, ainsi que les heures de début et de fin de votre Campaign ou Canvas.
 
@@ -331,7 +331,7 @@ Une date et une heure de début doivent être sélectionnées ; cependant, une d
 
 Consultez notre documentation développeur pour le [déclenchement d'événements côté serveur]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) et la [diffusion locale de messages in-app]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Déclenchement en ligne versus hors ligne {#online-versus-offline-triggering}
+#### Déclenchement en ligne versus hors ligne {#online-versus-offline-triggering}
 
 Les messages in-app fonctionnent en envoyant le message et les déclencheurs à l'appareil de l'utilisateur. Une fois les messages in-app sur un appareil, ils attendent d'être affichés jusqu'à ce que la condition de déclenchement soit remplie. Si les messages in-app sont déjà mis en cache sur l'appareil de l'utilisateur, vous pouvez même déclencher des messages in-app hors ligne sans connexion à Braze (par exemple, en mode avion).
 
@@ -339,7 +339,7 @@ Les messages in-app fonctionnent en envoyant le message et les déclencheurs à 
 Une fois qu'un message in-app a été arrêté, il est possible que certains utilisateurs continuent à voir le message s'ils ont démarré une session avant l'arrêt du message et effectuent ensuite l'événement déclencheur. Ces utilisateurs seront comptés comme une impression unique même après l'arrêt de la Campaign.
 {% endalert %}
 
-#### Choisir une priorité {#choose-a-priority}
+### Choisir une priorité {#choose-a-priority}
 
 Enfin, après avoir sélectionné l'action qui déclenchera le message in-app, vous devez également définir une priorité. Si deux messages sont déclenchés par la même action, les messages de haute priorité seront programmés pour s'afficher sur les appareils des utilisateurs avant les messages de priorité inférieure.
 
@@ -358,7 +358,7 @@ Pour définir les priorités au sein de ces compartiments, cliquez sur **Set Exa
 
 ![Un exemple de la façon dont la priorité est définie pour une Campaign de message in-app et un Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### Choisir les utilisateurs à cibler {#choose-users-to-target}
+### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
 Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
 
@@ -366,7 +366,7 @@ Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messag
 S'il y a un délai sur l'étape du message in-app, l'appartenance au Segment sera évaluée après le délai. Si l'utilisateur est éligible, le message in-app se synchronisera lors de la prochaine session disponible.
 {% endalert %}
 
-##### Réévaluer l'éligibilité de la Campaign et le Liquid {#re-evaluate-campaign-eligibility-and-liquid}
+#### Réévaluer l'éligibilité de la Campaign et le Liquid {#re-evaluate-campaign-eligibility-and-liquid}
 
 Dans certains scénarios, vous pouvez souhaiter réévaluer l'éligibilité d'un utilisateur lorsqu'il déclenche l'affichage d'un message in-app. Les exemples incluent les Campaigns qui ciblent un attribut personnalisé qui change fréquemment ou les messages qui doivent refléter les changements de profil de dernière minute.
 
@@ -382,13 +382,13 @@ L'activation de cette option entraînera un léger délai (< 100 ms) entre le mo
 N'utilisez pas cette option pour les messages qui peuvent être déclenchés lorsqu'un utilisateur est hors ligne ou lorsque la réévaluation de l'éligibilité et du Liquid n'est pas nécessaire.
 {% endalert %}
 
-##### Utiliser des données ajoutées par la REST API dans un message {#use-data-added-by-rest-api-in-a-message}
+#### Utiliser des données ajoutées par la REST API dans un message {#use-data-added-by-rest-api-in-a-message}
 
 Les données utilisateur que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) ajoute dans la même session peuvent parfois être utilisées dans le message in-app de cet utilisateur. Par exemple, si un utilisateur fait partie de l'audience d'un message in-app en attente d'un déclencheur, démarre une session, et que dans cette même session la REST API met à jour son profil, ces nouvelles données peuvent apparaître dans le message in-app lorsque **Re-evaluate campaign eligibility before displaying** est sélectionné. Braze ne modélisera pas le message in-app tant qu'il ne sera pas temps de l'afficher.
 
 Si un déclencheur envoie à la fois des données à Braze et déclenche le message in-app, le message ne peut pas utiliser ces données de profil nouvellement mises à jour, même avec un délai planifié. Utilisez plutôt deux déclencheurs distincts : un pour envoyer les données, et un pour déclencher le message in-app.
 
-#### Choisir les événements de conversion {#choose-conversion-events}
+### Choisir les événements de conversion {#choose-conversion-events}
 
 Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une Campaign. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
 
@@ -406,7 +406,7 @@ Pour des informations sur les options de messages in-app spécifiques à Canvas,
 
 Après avoir terminé la construction de votre Campaign ou Canvas, vérifiez ses détails, [testez-la]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message), puis envoyez-la !
 
-Ensuite, consultez [Rapports sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) pour découvrir comment accéder aux résultats de vos campagnes de messages.
+Ensuite, consultez [Rapports sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) pour découvrir comment accéder aux résultats de vos campagnes de communication.
 
 ## Bon à savoir {#things-to-know}
 

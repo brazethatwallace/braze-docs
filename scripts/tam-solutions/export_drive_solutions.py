@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Export Google Docs from a shared Drive folder (recursive) to JSON for @tam-solutions.
+Export Google Docs from a shared Drive folder (recursive) to JSON for the tam-solutions skill.
 
 Uses the Google Drive API to list folders and export native Google Docs as plain text.
 Output is intended for local Cursor triage—not for committing raw TAM content to develop.

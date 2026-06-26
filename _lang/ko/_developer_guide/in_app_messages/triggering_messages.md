@@ -32,7 +32,7 @@ Braze는 세션 시작 시 다음 유형의 인앱 메시지를 사용자 기기
 
 `inapp`(또는 "[표준]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)") 인앱 메시지는 Braze가 이미 알고 있는 커스텀 속성 등 필요한 정보가 이미 템플릿화되어 있습니다. 일반적으로 인앱 메시지가 기기에 다운로드되면 트리거 이벤트가 발생할 때 기기가 오프라인이거나 비행기 모드인 경우에도 SDK가 `inapp` 인앱 메시지를 표시합니다.
 
-### `templated_iam` (템플릿) {#templatediam-templated}
+### `templated_iam` (템플릿) {#templated_iam-templated}
 
 `templated_iam`(또는 "템플릿") 인앱 메시지는 아직 필요한 정보가 템플릿화되지 않은 상태입니다. Braze는 메시지가 표시되기 전에 정보를 가져오기 위해 추가 요청을 해야 합니다.
 
@@ -152,10 +152,10 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% endtab %}
 
 {% tab android %}
-1. 커스텀 리스너를 설정하려면 [`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)를 구현하세요.
+1. 커스텀 리스너를 설정하려면 [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)를 구현하세요.
 2. [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) 메서드를 업데이트하여 [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html)를 반환하도록 하세요.
 
-메시지 타이밍에 대한 고급 제어(나중에 표시 및 재대기열 포함)에 대해서는 [메시지 커스터마이징](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener) 페이지를 참조하세요.
+메시지 타이밍에 대한 고급 제어(나중에 표시 및 재대기열 포함)에 대해서는 [메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener) 페이지를 참조하세요.
 {% endtab %}
 
 {% tab swift %}
@@ -306,7 +306,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 서버 전송 이벤트를 통해 트리거되는 [무음 푸시 Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 만듭니다.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![server_event 커스텀 이벤트 트리거를 사용한 실행 기반 전달로 구성된 무음 푸시 Campaign의 전달 단계.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 푸시 Campaign에는 이 푸시 Campaign이 SDK 커스텀 이벤트를 기록하기 위해 전송되었음을 나타내는 키-값 페어 추가 항목이 포함되어야 합니다. 이 이벤트는 인앱 메시지를 트리거하는 데 사용됩니다.
 
@@ -379,7 +379,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 
 푸시 페이로드의 키-값 페어 추가 항목 내에서 원하는 값을 전송하여 이벤트 이름이나 이벤트 속성정보를 변경할 수 있습니다. 커스텀 이벤트를 기록할 때 이러한 추가 항목은 이벤트 이름의 매개변수 또는 이벤트 속성정보로 사용할 수 있습니다.
 
-#### 3단계: 인앱 메시지 Campaign 만들기 {#step-3-create-an-in-app-message-campaign}
+#### 3단계: 인앱 메시지 Campaign 만들기
 
 Braze 대시보드에서 사용자에게 표시되는 인앱 메시지 Campaign을 생성하세요. 이 Campaign은 실행 기반 전달이어야 하며, `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` 메서드 내에서 기록된 커스텀 이벤트에서 트리거되어야 합니다.
 

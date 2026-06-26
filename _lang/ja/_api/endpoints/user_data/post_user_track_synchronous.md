@@ -10,7 +10,7 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 ---
 {% api %}
 # ユーザーを作成および更新する（同期処理） {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

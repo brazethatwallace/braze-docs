@@ -145,7 +145,7 @@ Amazon Fire TVデバイスと統合するには、Braze Fire OS SDKを使用し�
 - Content Cards
 - フィーチャーフラグ
 - アプリ内メッセージ
-  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）。
+  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）
 - バナー
   - [バナープレースメント]({{site.baseurl}}/developer_guide/banners/placements/)を使用して、Fire TVアプリにメッセージを直接埋め込みます。
 
@@ -177,7 +177,7 @@ Braze Android SDKを使用して、Android TVデバイスと統合します。
 - Content Cards
 - フィーチャーフラグ
 - アプリ内メッセージ
-  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）。
+  - TVなどの非タッチ環境でHTMLメッセージを表示するには、`com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`を`false`に設定します（[Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)から利用可能）
 - &#42; プッシュ通知（手動統合が必要）
   - プッシュ通知はAndroid TVでネイティブにサポートされていません。理由については、Googleの[デザインガイドライン](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html)を参照してください。ただし、**プッシュ通知UIの手動統合を行うことでこれを実現できます**。設定方法については、[ドキュメント]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv)を参照してください。
 - バナー
@@ -242,7 +242,7 @@ tvOSと統合するにはBraze Swift SDKを使用します。Swift SDKにはtvOS
 - Content Cards（[ヘッドレスUI](#custom-ui)経由）
 - フィーチャーフラグ
 - アプリ内メッセージ（[ヘッドレスUI](#custom-ui)経由）
-  - tvOSプラットフォームではWebビューがサポートされていないため、HTMLアプリ内メッセージもサポートされていません。
+  - tvOSプラットフォームではWebviewがサポートされていないため、HTMLアプリ内メッセージもサポートされていません。
   - tvOSでカスタマイズされたメッセージングにヘッドレスUIを使用する方法の詳細については、[サンプルアプリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui)を参照してください。
 - サイレントプッシュ通知とバッジの更新
 - バナー
@@ -270,7 +270,7 @@ Braze Swift SDKを使用してvisionOSと統合します。iOSで利用可能な
 詳細については、[iOS Swift SDK統合ガイド](https://github.com/braze-inc/braze-swift-sdk)を参照してください。
 
 {% alert important %}
-一部のiOS機能は部分的にサポートされているか、サポートされていません。完全なリストについては、[visionOSサポート](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos)を参照してください。
+一部のiOS機能は部分的にサポートされているか、サポートされていません。完全なリストについては、[visionOSサポート]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/)を参照してください。
 {% endalert %}
 
 ## アプリターゲティング {#app-targeting}

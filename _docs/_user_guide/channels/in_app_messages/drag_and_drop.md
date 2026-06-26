@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Create an in-app message with drag-and-drop
 
-> With the drag-and-drop editor, you can create completely custom and personalized in-app messages in either campaigns or Canvas using the drag-and-drop editing experience. For more on the building blocks available in the editor, refer to [Editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> With the drag-and-drop editor, you can create completely custom and personalized in-app messages in either campaigns or Canvas using the drag-and-drop editing experience. For more on the building blocks available in the editor, refer to [Editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 If you want to use your existing custom HTML templates or templates created by a third party, they must be recreated in the drag-and-drop editor.
 
-Not sure whether your in-app message should be sent using a campaign or a [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Campaigns are better for single, targeted messaging campaigns, while Canvases are better for multi-step user journeys. After you've selected where to build your message, let's dive into the steps to create a drag-and-drop in-app message.
+Not sure whether your in-app message should be sent using a campaign or a [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Campaigns are better for single, targeted messaging campaigns, while Canvases are better for multi-step user journeys. After you've selected where to build your message, let's dive into the steps to create a drag-and-drop in-app message.
 
 ## Prerequisites
 
@@ -134,9 +134,9 @@ Users can select the close X button to exit the message at any time. This button
 
 Here's where your message gets to strut down the runway, dressed in your brand's signature style. Using a combination of editor blocks and style settings, you can customize and design your in-app message.
 
-- For a list of available editor blocks and their properties, refer to [Editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- For help customizing the look and feel of your message, check out [Style settings]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- For best practices creating right-to-left messages, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- For a list of available editor blocks and their properties, refer to [Editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- For help customizing the look and feel of your message, check out [Style settings]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- For best practices creating right-to-left messages, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Step 5: Test your in-app message
 
@@ -168,25 +168,25 @@ Consider the following questions as you test your in-app message:
 
 ## Frequently asked questions
 
-#### Why are body clicks not appearing on my analytics page?
+### Why are body clicks not appearing on my analytics page?
 
 Body clicks are not automatically collected for in-app messages created with the drag-and-drop editor. For more details, refer to the SDK changelogs for [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) and [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Can I segment based on button clicks?
+### Can I segment based on button clicks?
 
 Yes, you can segment based on button clicks for up to two buttons in your message. To do so, set the **Identifier for Reporting** for your buttons to "0" and "1", which will correspond to the segmentation filters "Clicked in-app message button 1" and "Clicked in-app message button 2" respectively.
 
 ![The "Identifier for Reporting" field with a value of "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
+### Can I customize my in-app message using custom HTML or JavaScript or transfer existing HTML messages into the editor?
 
 You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a Custom Code block. You can use Custom Code blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements.
 
-#### How can I create a slideup in-app message?
+### How can I create a slideup in-app message?
 
 Currently the editor is limited to modal and fullscreen messages only. You can switch between display types in the **Message container** section of the **Message styles** panel.
 
-#### Can I save my in-app message as a template after I build it within my campaign or Canvas?
+### Can I save my in-app message as a template after I build it within my campaign or Canvas?
 
 Yes. For any in-app message you want to reuse in a future campaign or Canvas step, you can save it as a custom template using the **Save as template** button, available after you exit the editor. Before you can save it as a template, you must first launch the campaign OR save it as a draft.
 

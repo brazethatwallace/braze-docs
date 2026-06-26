@@ -1,6 +1,6 @@
 ---
-nav_title: "À propos d'Audience Sync"
-article_title: "À propos d'Audience Sync"
+nav_title: À propos d'Audience Sync
+article_title: À propos d'Audience Sync
 alias: /partners/about_audience_sync/
 description: "Cet article de référence vous explique comment utiliser la fonctionnalité Audience Sync de Braze vers Facebook, pour diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore."
 page_order: 0
@@ -87,6 +87,22 @@ Après avoir sélectionné vos destinations Audience Sync Pro, connectez le comp
 ![Paramètres Audience Sync de Snapchat avec le message : « You successfully connected 1 Snapchat account ».]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 Enfin, créez votre étape Audience Sync dans Canvas en utilisant cette destination Audience Sync Pro.
+
+### Regroupement par lots et latence {#batching-and-latency}
+
+Lorsque les utilisateurs entrent dans une étape Audience Sync dans Canvas, Braze les place dans une file d'attente au sein d'un système de regroupement par lots qui agrège les mises à jour utilisateur avant de les envoyer à l'API du partenaire. Un lot est envoyé lorsque l'une des conditions suivantes est remplie :
+
+- **Le lot atteint sa limite de taille.** Celle-ci varie selon le partenaire :
+  - Par défaut, jusqu'à 2 000 utilisateurs
+  - Google Ads prend en charge jusqu'à 10 000 utilisateurs
+  - Facebook et TikTok prennent en charge jusqu'à 2 000 utilisateurs
+- **Le délai de latence du lot expire.** La valeur par défaut est d'une heure, mais elle est configurable par partenaire. Par exemple, The Trade Desk utilise 10 minutes.
+
+Les Canvas à fort volume peuvent envoyer des lots plus rapidement, car ceux-ci se remplissent plus vite. Les Canvas à faible volume attendent l'expiration du délai de latence. Braze ne garantit pas un délai d'envoi fixe ; le timing dépend de la taille du lot et de la fenêtre de latence configurée.
+
+Braze enregistre l'activité d'envoi dans des journaux internes à des fins de surveillance et de résolution des problèmes, mais ces horodatages ne sont pas exposés en tant que champs interrogeables. Après l'envoi d'un lot par Braze à l'API du partenaire, celui-ci traite la mise à jour de l'audience conformément à ses propres accords de niveau de service, généralement entre 6 et 48 heures.
+
+Braze ne reçoit pas de confirmation de la part des partenaires indiquant que des utilisateurs individuels ont été mis en correspondance ou synchronisés. Les réponses des partenaires sont des accusés de réception HTTP, et non des confirmations de correspondance. Pour vérifier qu'une audience a été alimentée, consultez la plateforme publicitaire du partenaire (comme Google Ads Audience Manager ou Meta Business Manager).
 
 ### E-mails d'erreur d'Audience Sync {#audience-sync-error-emails}
 

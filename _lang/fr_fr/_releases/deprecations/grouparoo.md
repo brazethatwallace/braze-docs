@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "Cet article présente le partenariat entre Braze et Grouparoo, un outil de reverse ETL open source utilisé pour alimenter les outils de marketing, de vente et d'assistance avec les données de votre entrepôt de données."
 page_type: update
+noindex: true
+description: "Cet article présente le partenariat entre Braze et Grouparoo, un outil de reverse ETL open source utilisé pour alimenter les outils de marketing, de vente et d'assistance avec les données de votre entrepôt de données."
 
 ---
 
@@ -31,7 +32,7 @@ L'intégration de Braze et Grouparoo synchronise les données de l'entrepôt ave
 
 Dans Grouparoo, accédez à **Apps** et sélectionnez **Braze** pour créer une nouvelle application Braze. Dans la boîte de dialogue modale qui apparaît, saisissez votre clé API Braze et votre endpoint REST.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![La boîte de dialogue modale de création d'application Braze dans Grouparoo, avec des champs pour la clé API Braze et l'endpoint REST.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### Étape 2 : Configurer un modèle et une source de données {#step-2-set-up-a-model-and-data-source}
 

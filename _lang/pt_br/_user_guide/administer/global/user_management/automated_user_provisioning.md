@@ -14,7 +14,7 @@ alias: /scim/automated_user_provisioning/
 
 ## Acessando as configurações de provisionamento SCIM {#accessing-scim-provisioning-settings}
 
-1. No dashboard da Braze, acesse **Settings** > **Admin Settings** > **SCIM Provisioning** e selecione **Configure SCIM integration**.
+1. No dashboard da Braze, acesse **Configurações** > **Configurações de administrador** > **Provisionamento de SCIM** e selecione **Configure SCIM integration**.
 2. Na etapa **Braze configuration**, selecione um método de provisionamento e forneça as configurações de acesso.
 
 ![Uma página para configurar a integração SCIM com seções para selecionar um método de provisionamento e fornecer configurações de acesso.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
@@ -157,11 +157,9 @@ Faça login no centro de administração do Microsoft Entra.
 
 ## Etapa 1: Configurar suas definições de SCIM {#step-1-configure-your-scim-settings}
 
-- **Default Workspace:** Selecione o espaço de trabalho onde novos usuários devem ser adicionados por padrão. Se você não especificar um espaço de trabalho na sua [solicitação da API SCIM]({{site.baseurl}}/post_create_user_account/), a Braze atribuirá os usuários a esse espaço de trabalho.
-- **Service Origin:** Insira o domínio de origem das suas solicitações SCIM. A Braze usa isso no cabeçalho `X-Request-Origin` para verificar a origem das solicitações.
-- **IP Allowlisting (opcional):** Você pode restringir as solicitações SCIM a endereços IP específicos. Insira uma lista separada por vírgulas ou um intervalo de endereços IP permitidos. O cabeçalho `X-Request-Origin` em cada solicitação é usado para verificar o endereço IP da solicitação em relação à lista de permitidos.
-
-![Formulário de configurações de provisionamento SCIM com três campos: espaço de trabalho padrão, origin do serviço e lista de IPs permitidos (opcional). O botão "Generate SCIM Token" está desativado.]({% image_buster /assets/img/scim_unfilled.png %})
+- **Default Workspace:** selecione o espaço de trabalho onde novos usuários devem ser adicionados por padrão. Se você não especificar um espaço de trabalho na sua [solicitação da API SCIM]({{site.baseurl}}/post_create_user_account), a Braze atribuirá os usuários a esse espaço de trabalho.
+- **Service Origin:** insira o domínio de origem das suas solicitações SCIM. A Braze usa isso no cabeçalho `X-Request-Origin` para verificar a origem das solicitações.
+- **IP Allowlisting (opcional):** você pode restringir as solicitações SCIM a endereços IP específicos. Insira uma lista separada por vírgulas ou um intervalo de endereços IP permitidos. O cabeçalho `X-Request-Origin` em cada solicitação é usado para verificar o endereço IP da solicitação em relação à lista de permitidos.
 
 ## Etapa 2: Gerar um token SCIM {#step-2-generate-a-scim-token}
 

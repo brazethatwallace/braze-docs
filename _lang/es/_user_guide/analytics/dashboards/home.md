@@ -17,7 +17,6 @@ La página **Inicio** tiene dos secciones principales:
 - [Retoma donde lo dejaste](#pick-up-where-you-left-off)
 - [Resumen de rendimiento](#performance-overview)
 
-![Dashboard de inicio en Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Retoma donde lo dejaste {#pick-up-where-you-left-off}
 
@@ -35,19 +34,15 @@ La sección **Retoma donde lo dejaste** aparece después de que hayas editado o 
 
 De forma predeterminada, la sección **Resumen de rendimiento** muestra los datos de los últimos 30 días para todas las aplicaciones y sitios. Todas tus métricas se calculan en función del rango de fechas seleccionado.
 
-![Campos de rango de fechas y aplicación en el dashboard de inicio.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Los porcentajes se calculan comparando el rango de fechas actual con el rango de fechas anterior, con la excepción de *Usuarios activos al mes* (MAU), que utiliza el último día del período anterior en lugar de un rango.
 
 Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usuarios activos diarios* muestran un aumento porcentual del 1,8 %, eso significa que tuviste un 1,8 % más de usuarios activos diarios esta semana en comparación con la semana pasada.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Un mosaico de métrica para usuarios activos diarios que muestra un promedio de 22,2 mil con una señal de aumento del 7,1 % y una línea de tendencia.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar desglose {#show-breakdown}
 
 Selecciona **Mostrar desglose** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
-
-![Expandir]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Rendimiento a lo largo del tiempo {#performance-over-time}
 
@@ -87,7 +82,7 @@ A continuación se presentan las definiciones de las estadísticas disponibles, 
 
 ### Usuarios {#users}
 
-*Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número representa el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
+*Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número es el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
 
 Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido al abandono de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
 
@@ -110,9 +105,9 @@ Los cálculos de MAU siguen reglas específicas para garantizar una facturación
 
 - **Momento del cálculo**: se calcula una vez al día a las 12:05 UTC como una instantánea de 30 días; los recuentos nunca cambian retroactivamente.
 - **Perfiles anónimos**: se cuentan **solo** cuando se registra al menos una sesión.
-- **Perfiles identificados**: se cuentan automáticamente una vez que existen.
+- **Perfiles identificados**: se cuentan solo cuando `date_of_last_session` está dentro de la ventana móvil de 30 días.
 - **Perfiles huérfanos**: los duplicados fusionados con otro usuario **no** se cuentan.
-- **Cargas por CSV**: los usuarios cargados por CSV se cuentan solo cuando se proporciona `date_of_first_session` o `date_of_last_session`, o cuando posteriormente registran una sesión.
+- **Cargas por CSV e importaciones por REST API**: los usuarios cargados por CSV o la REST API cuentan para el MAU cuando proporcionas `date_of_last_session` dentro de la ventana móvil de 30 días, o cuando posteriormente registran una sesión. Proporcionar solo `date_of_first_session` no afecta al MAU.
 - **Eliminaciones por API**: eliminar un usuario a través de la API no actualiza el MAU de inmediato; el recuento se corrige automáticamente en el siguiente ciclo mensual.
 
 {% alert note %}

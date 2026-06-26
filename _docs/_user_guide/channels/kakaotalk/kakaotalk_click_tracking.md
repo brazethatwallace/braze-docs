@@ -51,7 +51,7 @@ To set up click tracking for a list item message:
 
 ## Custom domains
 
-KakaoTalk click tracking allows you to use your own domain to personalize the look and feel of your shortened URLs, helping portray a consistent brand image. For more information, refer to [Custom domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/).
+KakaoTalk click tracking allows you to use your own domain to personalize the look and feel of your shortened URLs, helping portray a consistent brand image. For more information, refer to [Custom domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
 
 ## Liquid personalization in URLs
 
@@ -88,7 +88,7 @@ If a draft is created within an active Canvas, a shortened URL won't be generate
 
 ## Reporting
 
-The KakaoTalk performance table includes the column **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on KakaoTalk metrics, refer to [KakaoTalk reporting]({{site.baseurl}}/kakaotalk_reporting/).
+The KakaoTalk performance table includes the column **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on KakaoTalk metrics, refer to [KakaoTalk reporting]({{site.baseurl}}/kakaotalk_reporting).
 
 Click data will be automatically reported in the analytics dashboard.
 

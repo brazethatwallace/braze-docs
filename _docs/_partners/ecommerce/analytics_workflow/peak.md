@@ -2,7 +2,7 @@
 nav_title: Peak
 article_title: Peak
 description: "This reference article outlines the partnership between Braze and Peak, a decision intelligence platform, allows you to take predicted churn probability and attributes based on customer behaviors and interactions, and import them into Braze to use in customer segmentation and targeting."
-alias: /partners/Peak/
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 

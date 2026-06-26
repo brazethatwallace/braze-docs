@@ -771,7 +771,7 @@ AMP 통합을 위해 다음이 필요합니다:
 4. **서비스 워커 생성**: Braze 서비스 워커 파일을 추가합니다
 5. **AMP 웹 푸시 요소 구성**: API 키와 기본 URL을 쿼리 파라미터로 포함하여 `amp-web-push` 요소를 추가합니다
 
-자세한 AMP 통합 지침은 [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)를 참조하세요.
+자세한 AMP 통합 지침은 [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp)를 참조하세요.
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electron은 공식적으로 웹 푸시 알림을 지원하지 않습니다 (참�
 
 #### Tealium iQ
 
-Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 Web SDK API 키를 제공합니다. 자세한 내용이나 심층적인 Tealium 구성 지원은 [통합 설명서](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
+Tealium iQ는 기본적인 턴키 Braze 통합을 제공합니다. 통합을 구성하려면 Tealium 태그 관리 인터페이스에서 Braze를 검색하고 대시보드에서 Web SDK API 키를 제공합니다. 자세한 내용이나 심층적인 Tealium 구성 지원은 [통합 설명서]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)를 확인하거나 Tealium 계정 매니저에게 문의하세요.
 
 #### 기타 태그 관리자 {#other-tag-managers}
 
@@ -825,7 +825,7 @@ Braze는 인앱 메시지 아이콘에 [Font Awesome](http://fortawesome.github.
 
 ## 추가 리소스 {#additional-resources}
 
-- [Braze 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
+- [Braze 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
 - [SDK 설명서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [샘플 빌드](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

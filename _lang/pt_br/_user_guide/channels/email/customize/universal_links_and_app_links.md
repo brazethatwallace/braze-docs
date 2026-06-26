@@ -93,7 +93,7 @@ Estas etapas são adaptadas da documentação para desenvolvedores da Apple. Par
 2. Selecione **Associated Domains**.
 3. Clique em **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Seção App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Etapa 1c: Ative Associated Domains no seu projeto Xcode {#step-1c}
 
@@ -113,7 +113,7 @@ Se você vir o erro "An App ID with Identifier 'your-app-id' is not available. P
 
 Na seção de domínios, adicione a tag de domínio apropriada. Você deve prefixá-la com `applinks:`. Neste caso, você pode ver que adicionamos `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Seção Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Etapa 1e: Confirme que o arquivo de entitlements está incluído no build {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -446,6 +446,5 @@ Certifique-se de que você tem as definições corretas para os domínios que se
 
 Em alguns casos, o seu domínio de rastreamento de cliques pode não conseguir hospedar os arquivos `.well-known` necessários devido a limitações do ESP ou restrições de infraestrutura. Se você não conseguir hospedar o arquivo AASA ou Digital Asset Links no seu domínio de rastreamento, considere as seguintes opções:
 
-- **Entre em contato com o seu ESP para hospedar os arquivos no domínio de rastreamento:** Seu subdomínio de rastreamento de cliques normalmente é um CNAME apontando para o seu ESP (SendGrid, SparkPost ou Amazon SES). Como o ESP encerra o tráfego para esse domínio, ele pode hospedar os arquivos `.well-known` para você. Tanto o SendGrid quanto o SparkPost oferecem suporte a isso. Entre em contato diretamente com o seu ESP para solicitar.
-- **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Se o seu ESP não puder hospedar os arquivos, você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
+- **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
 - **Coloque um CDN na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar um CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure o CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu ESP. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.

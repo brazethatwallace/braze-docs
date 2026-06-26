@@ -69,11 +69,11 @@ Um ein Asset zu ersetzen, benötigen Sie die Berechtigung „Replace Media Libra
 
 - Die Ersatzdatei muss dieselbe Dateierweiterung wie das Original haben. Beispielsweise können Sie ein `.png`-Asset nicht durch eine `.jpg`-Datei ersetzen.
 - Video-Assets können nicht ersetzt werden.
-- Nach dem Ersetzen kann es aufgrund von CDN-Caching einige Zeit dauern, bis die aktualisierte Datei allen Verbraucher:innen angezeigt wird.
+- Nach dem Ersetzen kann es aufgrund von CDN-Caching einige Zeit dauern, bis die aktualisierte Datei allen Nutzer:innen angezeigt wird.
 
 ### Kanäle mit verarbeiteten Bildkopien {#channels-with-processed-image-copies}
 
-Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Verbraucher:innen bei Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
+Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Nutzer:innen bei Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
 
 Sie können ein Asset auch programmatisch über den Endpunkt [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) ersetzen.
 
@@ -90,7 +90,7 @@ GIFs mit sehr langgestreckten Formen (z. B. 3000 x 2 Pixel) oder 300 oder mehr F
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-Bevor Sie dieses Feature verwenden, lesen Sie, [wie Ihre Daten verwendet und an OpenAI gesendet werden]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
+Bevor Sie dieses Feature verwenden, lesen Sie, [wie Ihre Daten verwendet und an OpenAI gesendet werden]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
 {% endalert %}
 
-Wenn Sie **AI Image Generator** auf der Seite **Media Library** nicht sehen, bestätigen Sie, dass Sie die Berechtigung **Edit Media Library Assets** haben. Falls die Option weiterhin fehlt, wenden Sie sich an Ihr Braze-Kundenteam, um zu bestätigen, dass Ihr Workspace Zugriff auf die BrazeAI-Bildgenerierung hat. Falls die Generierung fehlschlägt, lesen Sie die [OpenAI-Inhaltsrichtlinie]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
+Wenn Sie **AI Image Generator** auf der Seite **Media Library** nicht sehen, bestätigen Sie, dass Sie die Berechtigung **Edit Media Library Assets** haben. Falls die Option weiterhin fehlt, wenden Sie sich an Ihr Braze-Kundenteam, um zu bestätigen, dass Ihr Workspace Zugriff auf die BrazeAI-Bildgenerierung hat. Falls die Generierung fehlschlägt, lesen Sie die [OpenAI-Inhaltsrichtlinie]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).

@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt Details zum synchronen Endpunkt „Nutze
 ---
 {% api %}
 # Nutzer:innen erstellen und aktualisieren (synchron) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

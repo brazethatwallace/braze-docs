@@ -49,16 +49,16 @@ Folgen Sie den Aufforderungen auf dem Bildschirm **Enter Credential Details** un
 
 {% tabs %}
 {% tab User Consent Update %}
-1. Navigieren Sie im OneTrust-Integrationsmenü zu **Gallery** > **Braze** > **Add**, um einen neuen Workflow zu erstellen.![]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
+1. Navigieren Sie im OneTrust-Integrationsmenü zu **Gallery** > **Braze** > **Add**, um einen neuen Workflow zu erstellen.![OneTrust-Galerie mit der Braze-Integration und einem „Add“-Button.]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
 2. Geben Sie einen Namen und eine Benachrichtigungs-E-Mail im Workflow-Modal an. Klicken Sie auf den Button **Create**. Bei der Erstellung werden Sie zum Workflow Builder weitergeleitet. Ihr Braze-Workflow wird mit API-Aufrufen und Aktionen bestückt, die für die Bearbeitung von Löschanfragen verwendet werden können. <br><br>
-3. Wählen Sie im Workflow Builder die Aktion, die Sie im Workflow triggern möchten.<br>![]({% image_buster /assets/img/onetrust/onetrust2.png %})
+3. Wählen Sie im Workflow Builder die Aktion, die Sie im Workflow triggern möchten.<br>![OneTrust Workflow Builder für ein Einwilligungs-Update-Ereignis einer betroffenen Person.]({% image_buster /assets/img/onetrust/onetrust2.png %})
 
 {% endtab %}
 {% tab User Deletion %}
 
-1. Navigieren Sie im OneTrust-Integrationsmenü zu **Gallery** > **Braze** > **Add**, um einen neuen Workflow zu erstellen.![]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
+1. Navigieren Sie im OneTrust-Integrationsmenü zu **Gallery** > **Braze** > **Add**, um einen neuen Workflow zu erstellen.![OneTrust-Galerie mit der Braze-Integration und einem „Add“-Button.]({% image_buster /assets/img/onetrust/onetrust.png %})<br><br>
 2. Geben Sie einen Namen und eine Benachrichtigungs-E-Mail im Workflow-Modal an. Klicken Sie auf den Button **Create**. Bei der Erstellung werden Sie zum Workflow Builder weitergeleitet. Ihr Braze-Workflow wird mit API-Aufrufen und Aktionen bestückt, die für die Bearbeitung von Löschanfragen verwendet werden können. <br><br>
-3. Wählen Sie im Workflow Builder die Aktion, die Sie im Workflow triggern möchten.<br>![]({% image_buster /assets/img/onetrust/onetrust8.png %})
+3. Wählen Sie im Workflow Builder die Aktion, die Sie im Workflow triggern möchten.<br>![OneTrust Workflow Builder für ein Löschungs-Ereignis einer betroffenen Person.]({% image_buster /assets/img/onetrust/onetrust8.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -67,17 +67,17 @@ Folgen Sie den Aufforderungen auf dem Bildschirm **Enter Credential Details** un
 {% tab User Consent Update %}
 
 1. Wenn Sie fertig sind, klicken Sie auf **Done** und wählen Sie **Add Action**. Beachten Sie, dass die von Ihnen gewählte Aktion davon abhängt, welche Art von Einstellung aktualisiert werden soll und welchen Endpunkt Sie bevorzugen.
-- Um die globalen Abo-Einstellungen einer Nutzer:in zu aktualisieren, wählen Sie die Aktion **POST User track - attributes**.
-- Um die Abo-Gruppen-Einstellungen einer Nutzer:in zu aktualisieren, wählen Sie die Aktion **POST User Track - Attributes** oder die Aktion **POST Set Users Subscription Group Status**.<br>![]({% image_buster /assets/img/onetrust/onetrust4.png %})<br><br>
-2. Wählen Sie die gewünschte Aktion, wählen Sie Ihre zuvor erstellten Braze-Zugangsdaten aus und klicken Sie auf **Next**.<br>![]({% image_buster /assets/img/onetrust/onetrust5.png %})
+- Um die globalen Abo-Einstellungen von Nutzer:innen zu aktualisieren, wählen Sie die Aktion **POST User track - attributes**.
+- Um die Abo-Gruppen-Einstellungen von Nutzer:innen zu aktualisieren, wählen Sie die Aktion **POST User Track - Attributes** oder die Aktion **POST Set Users Subscription Group Status**.<br>![OneTrust-Menü „Add Action“ mit der Option „POST User track - attributes“.]({% image_buster /assets/img/onetrust/onetrust4.png %})<br><br>
+2. Wählen Sie die gewünschte Aktion, wählen Sie Ihre zuvor erstellten Braze-Zugangsdaten aus und klicken Sie auf **Next**.<br>![OneTrust-Zugangsdatenauswahl für eine „POST User track - attributes“-Aktion.]({% image_buster /assets/img/onetrust/onetrust5.png %})
 
 {% endtab %}
 {% tab User Deletion %}
 
 1. Wenn Sie fertig sind, klicken Sie auf **Done** und wählen Sie **Add Action**.
 - Um Nutzer:innen aus Braze zu löschen, wählen Sie die Aktion **POST User Delete Action**.
-<br>![]({% image_buster /assets/img/onetrust/onetrust9.png %})<br><br>
-2. Wählen Sie die gewünschte Aktion, wählen Sie Ihre zuvor erstellten Braze-Zugangsdaten aus und klicken Sie auf **Next**.<br>![]({% image_buster /assets/img/onetrust/onetrust5.png %})
+<br>![OneTrust-Menü „Add Action“ mit der Option „POST User Delete“.]({% image_buster /assets/img/onetrust/onetrust9.png %})<br><br>
+2. Wählen Sie die gewünschte Aktion, wählen Sie Ihre zuvor erstellten Braze-Zugangsdaten aus und klicken Sie auf **Next**.<br>![OneTrust-Zugangsdatenauswahl für eine „POST User Delete“-Aktion.]({% image_buster /assets/img/onetrust/onetrust5.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -85,7 +85,7 @@ Folgen Sie den Aufforderungen auf dem Bildschirm **Enter Credential Details** un
 {% tabs %}
 {% tab User Consent Update %}
 
-1. Aktualisieren Sie den Body, um alle notwendigen dynamischen Werte aufzunehmen. Stellen Sie sicher, dass der Body der Aktion mit dem [`/users/track`-Endpunkt](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) und dem [`/subscription/status/set`-Endpunkt](https://www.braze.com/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) übereinstimmt.
+1. Aktualisieren Sie den Body, um alle notwendigen dynamischen Werte aufzunehmen. Stellen Sie sicher, dass der Body der Aktion mit dem [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) und dem [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) übereinstimmt.
 2. Passen Sie den Workflow mit zusätzlichen Parametern oder bedingter Logik an die Anforderungen Ihres Unternehmens an.
 3. Wenn Sie mit der Bearbeitung fertig sind, klicken Sie auf **Finish** und dann auf **Activate**, um den Workflow zu aktivieren.
 
@@ -93,7 +93,7 @@ Folgen Sie den Aufforderungen auf dem Bildschirm **Enter Credential Details** un
 Wenn Sie die OneTrust-Workflows verwenden, um die Einstellungen für Abo-Gruppen in Braze zu aktualisieren, muss die `subscription_group_id` mit der ID übereinstimmen, die von Braze bei der Erstellung der Abo-Gruppe festgelegt wurde. Sie können auf die `subscription_group_id` einer Abo-Gruppe zugreifen, indem Sie im Braze-Dashboard zur Seite **Abo-Gruppe** navigieren.
 {% endalert %}
 
-![]({% image_buster /assets/img/onetrust/onetrust6.png %})
+![OneTrust-Anfrage-Body für „POST User track - attributes“ mit Abo-Gruppen-Feldern.]({% image_buster /assets/img/onetrust/onetrust6.png %})
 
 {% endtab %}
 {% tab User Deletion %}
@@ -101,7 +101,7 @@ Wenn Sie die OneTrust-Workflows verwenden, um die Einstellungen für Abo-Gruppen
 1. Aktualisieren Sie den Body, um alle notwendigen dynamischen Werte aufzunehmen. Stellen Sie sicher, dass der Body der Aktion mit dem [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) übereinstimmt.
 2. Wenn Sie mit der Bearbeitung fertig sind, wählen Sie **Finish** und dann **Activate**, um den Workflow zu aktivieren.
 
-![]({% image_buster /assets/img/onetrust/onetrust10.png %})
+![OneTrust-Anfrage-Body für „POST User Delete“ mit einem external_id-Feld.]({% image_buster /assets/img/onetrust/onetrust10.png %})
 
 #### Workflow für Betroffenenanfragen aktualisieren {#update-the-data-subject-request-workflow}
 1. Wählen Sie im Menü **Privacy Rights Automation** die Option **Workflows** aus.
@@ -122,4 +122,4 @@ Um eine vollständige Liste der unterstützten Aktionen zu sehen:
 2. Wählen Sie das **Braze**-System.
 3. Navigieren Sie zum Tab **Actions**.
 
-![]({% image_buster /assets/img/onetrust/onetrust7.png %})
+![OneTrust-Braze-System-Tab „Actions“ mit einer Liste unterstützter API-Aktionen.]({% image_buster /assets/img/onetrust/onetrust7.png %})

@@ -75,9 +75,7 @@ Diese Ansichten bieten regelmäßige Schnappschüsse der Attribute des Nutzerpro
 * Schnellere Abfrageausführung, insbesondere beim Filtern nach anderen Attributen als `USER_ID`.
 * **Einschränkung:** Die Daten sind nicht in Realtime auf dem neuesten Stand.
 
-{% alert note %}
-Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das Feld `TIME_MS` gibt diesen Zeitpunkt in Millisekunden-Präzision an. Bei nachträglich aufgefüllten Daten entsprechen die Werte von `TIME` und `TIME_MS` dem Zeitpunkt der Auffüllung.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED`-Schema
 
@@ -97,7 +95,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -137,9 +135,7 @@ Diese Ansichten bieten nahezu Realtime-Updates der Attribute des Nutzerprofils, 
     * Abfragen ohne USER_ID-Filter erfordern eine Aggregation über alle Nutzer:innen, was zu deutlich längeren Ausführungszeiten führt.
     * Abfragen eines großen Datensatzes (z. B. über 100 Millionen Nutzer:innen) können viele Minuten dauern.
 
-{% alert note %}
-Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das Feld `TIME_MS` gibt diesen Zeitpunkt in Millisekunden-Präzision an. Bei nachträglich aufgefüllten Daten entsprechen die Werte von `TIME` und `TIME_MS` dem Zeitpunkt der Auffüllung.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`-Schema
 
@@ -163,7 +159,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`-Schema
@@ -195,9 +191,7 @@ Diese Ansichten speichern historische Änderungsprotokolle von Nutzerattributen,
 * Die Daten werden alle 12 Stunden in einem Snapshot festgehalten, d. h. mehrere Updates in diesem Fenster werden zu einem einzigen Datensatz zusammengefasst. Einzelne Änderungen innerhalb dieses Zeitraums werden nicht separat gespeichert.
 * `EFF_DT` und `END_DT` markieren den Beginn und das Ende des Attribut-Status einer:eines Nutzer:in.
 
-{% alert note %}
-Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das Feld `TIME_MS` gibt diesen Zeitpunkt in Millisekunden-Präzision an. Bei nachträglich aufgefüllten Daten entsprechen die Werte von `TIME` und `TIME_MS` dem Zeitpunkt der Auffüllung.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`-Schema
 
@@ -217,7 +211,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates in Sekunden an; das 
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |

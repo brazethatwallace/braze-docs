@@ -47,7 +47,7 @@ In-App-Nachricht-Umfragen enthalten standardmäßig zwei Seiten:
 - **Seite 1**, auf der Nutzer:innen Fragen beantworten
 - **Bestätigungsseite**, auf der die Umfrage abgesendet wird
 
-Standardmäßig sind Buttons mit **Next page** verknüpft. Um dieses Verhalten zu ändern, aktualisieren Sie jeden Button im **Actions**-Panel.
+Standardmäßig sind Buttons mit **Next page** verknüpft. Um dieses Verhalten zu ändern, aktualisieren Sie jeden Button im **Aktionen**-Panel.
 
 ![Seitenfluss und Aktionseinstellungen einer In-App-Nachricht-Umfrage.]({% image_buster /assets/img/surveys/iam-survey-nav.png %}){: style="max-width:40%;"}
 
@@ -76,6 +76,12 @@ Sie können die folgenden Formularblöcke zu Umfragen hinzufügen:
 - Dropdown
 - Einzelnes Kontrollkästchen
 - Kontrollkästchen-Gruppe
+
+### Antwortoptionen randomisieren {#randomize-answer-choices}
+
+Optionsfeld-Gruppen, Kontrollkästchen-Gruppen und Dropdown-Blöcke unterstützen randomisierte Antwortoptionen. Aktivieren Sie **Randomize choice order**, um die Optionen bei jedem Laden der Umfrage zufällig anzuordnen. Verwenden Sie diese Einstellung, um Reihenfolge-Bias zu reduzieren, wenn dieselbe erste Option die Antworten verzerren könnte.
+
+Die Randomisierung ändert nur die Anzeigereihenfolge für jede:n Umfrageteilnehmer:in. Berichtslabels und -werte bleiben den von Ihnen konfigurierten Optionen zugeordnet, sodass Analytics, CSV-Exporte und Segmentierung dieselben Antwortdaten verwenden.
 
 ### Langtexterfassung {#long-text-capture}
 
@@ -116,8 +122,6 @@ Während des Early Access:
 - Dem Tab **Responses** für In-App-Nachricht-Umfragen
 - Der Landing-Page-Analytics-Ansicht für Landing-Page-Umfragen
 {% endif %}
-
-![Landing-Page-Analytics-Tab.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Übergeordnete Analytics umfassen:
 

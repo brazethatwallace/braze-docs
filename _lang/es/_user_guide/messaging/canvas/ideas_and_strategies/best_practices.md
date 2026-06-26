@@ -52,6 +52,10 @@ Determina el impacto de la mensajería de tu Canvas incorporando grupos de contr
 Canvas te impedirá usar el envío planificado con una hora que ya haya pasado. Sin embargo, es posible lanzar un Canvas durante el mismo minuto exacto en que la campaña está planificada (o en los segundos anteriores). Esto puede provocar que el Canvas no alcance la hora de entrada planificada y que los usuarios no entren en el Canvas. Recomendamos enviar los Canvas inmediatamente en caso de que alguna campaña se edite dentro de los minutos previos a la hora de envío planificada.
 {% endalert %}
 
+{% alert important %}
+Si cambias la audiencia, la planificación o la entrega cerca de una ventana de entrada o envío planificada, es posible que algunos usuarios ya estén esperando en un paso o hayan sido evaluados con la configuración anterior, por lo que no se garantiza que todos reciban el cambio. Para ver cómo interactúan los cambios de planificación, los cambios de audiencia, **Evaluate at enqueue time** y el momento de entrega de los pasos de Mensaje, consulta [Cambiar tu Canvas después del lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). En caso de duda, detén el Canvas, duplícalo y relánzalo para una reevaluación limpia.
+{% endalert %}
+
 Para los pasos en Canvas, ten en cuenta los siguientes detalles al planificar tu Canvas:
 
 - Los cambios de planificación solo se aplican a los usuarios que aún no estén esperando para recibir el paso.

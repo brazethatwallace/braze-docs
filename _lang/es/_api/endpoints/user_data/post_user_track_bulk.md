@@ -12,7 +12,7 @@ description: "Este artículo describe los detalles del punto de conexión masivo
 ---
 {% api %}
 # Crear y actualizar usuarios (masivo) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 

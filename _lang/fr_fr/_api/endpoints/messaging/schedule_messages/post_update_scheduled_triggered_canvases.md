@@ -10,11 +10,11 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour d
 ---
 {% api %}
 # Mettre à jour des Canvas planifiés déclenchés par API {#update-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
-> Utilisez cet endpoint pour mettre à jour des Canvas déclenchés par API planifiés qui ont été créés dans le tableau de bord.
+> Utilisez cet endpoint pour mettre à jour des Canvas planifiés déclenchés par API qui ont été créés dans le tableau de bord.
 
 Vous pouvez ainsi décider de l'action qui déclenche l'envoi du message. Vous pouvez transmettre des `trigger_properties` que Braze intègre dans le message lui-même.
 

@@ -1,6 +1,6 @@
 ---
-nav_title: "POST:ブラックリストのメール"
-article_title: "POST:ブラックリストのメール"
+nav_title: "POST: ブラックリストのメール"
+article_title: "POST: ブラックリストのメール"
 search_tag: Endpoint
 page_order: 10
 layout: api_page
@@ -11,7 +11,7 @@ description: "この記事では、ブラックリストのメールBrazeエン�
 ---
 {% api %}
 # ブラックリストのメール {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 

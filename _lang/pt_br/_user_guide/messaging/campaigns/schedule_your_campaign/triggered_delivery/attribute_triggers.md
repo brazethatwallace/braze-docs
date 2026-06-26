@@ -17,13 +17,14 @@ tool:
 Os gatilhos de atributo estão disponíveis para os seguintes cenários:
 
 - Atualizações do estado de inscrição.
-- Valores de atributos personalizados do tipo booleano, inteiro ou string mudam para qualquer valor ou para um valor específico.
+- Valores de atributos personalizados do tipo booleano, Número, string ou data/hora mudam para qualquer valor.
+- Valores de atributos personalizados do tipo booleano, Número ou string mudam para um valor específico.
 
 {% alert important %}
-Atributos personalizados do tipo data não estão disponíveis como opções de gatilho de atributo no dashboard. Use um gatilho de entrega diferente ou outro fluxo de canal para reagir a alterações de data.
+No dashboard, atributos de números inteiros usam o tipo **Number**, e datas ou timestamps usam o tipo **Time** (eles não são rotulados como "integer" ou "date" na interface). Atributos do tipo **Time** suportam **Change Custom Attribute Value** apenas com a opção **any new value** — eles não suportam a opção **specific value**.
 {% endalert %}
 
-Para começar a usar gatilhos de atributo, crie uma Campaign ou componente do Canvas e selecione **Entrega baseada em ação** como método de entrega. Em seguida, selecione o gatilho de atributo que deseja usar.
+Para começar a usar gatilhos de atributo, crie uma Campaign ou um componente do Canvas e selecione **Entrega baseada em ação** como método de entrega. Em seguida, selecione o gatilho de atributo que deseja usar.
 
 ![Seção "Entrega baseada em ação" com um menu suspenso para selecionar um gatilho.]({% image_buster /assets/img_archive/trigger_attribute.png %})
 
@@ -61,7 +62,7 @@ Para alteração de atributo, o gatilho é avaliado primeiro e depois os critér
 
 ### Opção de qualquer novo valor {#any-new-value-option}
 
-Use o gatilho `Change Custom Attribute Value` com a opção `any new value` para direcionar usuários quando um valor booleano, inteiro ou string mudar para qualquer novo valor.
+Use o gatilho `Change Custom Attribute Value` com a opção `any new value` para direcionar usuários quando um valor booleano, Número, string ou do tipo data/hora mudar para qualquer novo valor.
 
 Por exemplo, direcione usuários quando o número de pontos de recompensa mudar para informá-los quantos pontos eles têm agora. Neste exemplo, digamos que um usuário tem 85 pontos de recompensa e você configurou uma Campaign para ser disparada quando o atributo de pontos de recompensa mudar para qualquer novo valor. Se o valor do atributo de pontos de recompensa desse usuário mudar para qualquer novo valor (como 83, 84, 86 e assim por diante), a Campaign será disparada.
 
@@ -83,14 +84,14 @@ Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_ti
 
 ### Valor específico {#specific-value}
 
-Use o gatilho `Change Custom Attribute Value` com a opção `specific value` para direcionar usuários quando um atributo personalizado do tipo booleano, inteiro ou string mudar para um valor específico.
+Use o gatilho `Change Custom Attribute Value` com a opção `specific value` para direcionar usuários quando um atributo personalizado do tipo booleano, Número ou string mudar para um valor específico.
 
 Por exemplo, direcione usuários quando o nível de recompensas deles mudar para o melhor nível. Neste exemplo, digamos que o melhor nível de recompensas é Super VIP. Você pode configurar uma Campaign para ser disparada quando o atributo personalizado de nível de recompensas de um usuário mudar para `Super VIP`, para que você possa parabenizá-lo por se tornar um Super VIP.
 
 ![Um gatilho "Change Custom Attribute Value" para "AA_current_rewards_tier" mudando para o valor específico "super vip".]({% image_buster /assets/img_archive/super_vip.png %})
 
 {% alert important %}
-- Os gatilhos de atributo para valores específicos de atributos personalizados não estão disponíveis para atributos personalizados do tipo array e data.
+- Os gatilhos de atributo para valores específicos de atributos personalizados não estão disponíveis para atributos personalizados do tipo array e data/hora.
 - O gatilho de alteração de valores de atributos personalizados não é disparado quando o valor do atributo personalizado é atualizado para null.
 - O gatilho de alteração de valores de atributos personalizados só será disparado quando o valor de um atributo personalizado mudar. Se o valor atual de um atributo personalizado for reenviado para a Braze (por exemplo, o valor do atributo de cor favorita é vermelho e você reenvia o valor vermelho para a Braze), o gatilho de alteração de valores de atributos personalizados não será acionado.
 - O gatilho de alteração de valores de atributos personalizados também se aplica a novos usuários criados.

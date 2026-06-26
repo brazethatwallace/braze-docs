@@ -15,8 +15,8 @@ Les différents produits utilisent des unités de mesure différentes dans les r
 <b>Console des agents :</b> Invocations<br>
 <b>SMS :</b> Segments<br>
 <b>MMS :</b> Envois<br>
-<b>WhatsApp :</b> Messages<br>
-<b>RCS :</b> Segments, Envois<br>
+<b>WhatsApp :</b> Messages distribués<br>
+<b>RCS :</b> Segments distribués, Envois distribués<br>
 <b>LINE :</b> Envois<br>
 <b>KakaoTalk :</b> Envois<br>
 
@@ -28,15 +28,15 @@ Enfin, les frais opérateur liés aux SMS, MMS et RCS sont facturés séparémen
 Les définitions des colonnes sont les suivantes :
 
 |---------|-------------------------------------------------|
-| **Destination** | Région finale, pays ou type d'action spécifique envoyé via la plateforme Braze |
-| **Crédits par envoi** | Nombre exact de Message Credits pour effectuer un envoi<br> (crédits par envoi = ratio de crédits × multiplicateur de destination) |
+| **Destination** | Région finale spécifique, pays ou type d'action envoyé via la plateforme Braze |
+| **Crédits par envoi** | Nombre exact de crédits de message nécessaires pour effectuer un envoi<br> (crédits par envoi = ratio de crédits × multiplicateur de destination) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tableau des ratios de crédits pour Message Credits - Delta {#credit-ratio-table-for-message-credits-delta}
+## Tableau des ratios de crédits pour les crédits de message - Delta {#credit-ratio-table-for-message-credits-delta}
 
 {% details Cliquez pour développer %}
-<table class="credits-table" aria-label="Tableau des ratios de crédits pour Message Credits - Delta">
+<table class="credits-table" aria-label="Tableau des ratios de crédits pour les crédits de message - Delta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -2130,7 +2130,7 @@ Les définitions des colonnes sont les suivantes :
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2280,15 +2280,14 @@ Les définitions des colonnes sont les suivantes :
 {% enddetails %}
 
 ------
-## Détails de la Console des agents {#agent-console-details}
-
-Braze facture des Message Credits pour les invocations de la Console des agents envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
+## Détails de la console des agents {#agent-console-details}
+Braze facture des crédits de message pour les invocations de la console des agents envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent lance un appel à un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
 
 ## Détails du canal SMS/MMS {#smsmms-channel-details}
 
 ### Segments SMS {#sms-segments}
 
-Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en une seule expédition SMS. Si vous envoyez un SMS de 161 caractères en encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
+Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en utilisant l'encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraînera des frais supplémentaires.
 
 ### Segments MMS {#mms-segments}
 
@@ -2296,31 +2295,31 @@ Pour les MMS, la limite de message est de 5 Mo (cela inclut la ressource multim�
 
 ### Types RCS {#rcs-types}
 
-Le RCS est la nouvelle génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des capacités plus riches que les consommateurs modernes attendent désormais : contenu enrichi (images, vidéos, documents), envoi vérifié et brandé, fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches que les consommateurs modernes attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 - La facturation RCS repose sur deux types de messages différents (avec des distinctions pour les États-Unis) :
-    - **RCS Basic :** Texte uniquement, jusqu'à 160 caractères
-    - **RCS Single :** Messages contenant du contenu enrichi, ou messages texte uniquement de plus de 160 caractères
-    - **RCS Rich (États-Unis uniquement) :** Texte uniquement, peut inclure des suggestions/boutons limités (quickReply, dialPhone, openURL sans webview), segmenté par tranche de 160 octets UTF-8
-    - **RCS Rich Media (États-Unis uniquement) :** Tout média OU texte avec des suggestions/boutons plus riches (webview, localisation, calendrier, etc.), comptabilisé comme un seul message
+    - **Basic RCS :** Texte uniquement, jusqu'à 160 caractères
+    - **Single RCS :** Messages contenant du contenu enrichi, ou messages texte uniquement de plus de 160 caractères
+    - **Rich RCS (États-Unis uniquement) :** Texte uniquement, peut inclure des suggestions/boutons limités (quickReply, dialPhone, openURL sans webview), segmenté par tranche de 160 octets UTF-8
+    - **Rich Media RCS (États-Unis uniquement) :** Tout média OU texte avec des suggestions/boutons plus riches (webview, localisation, calendrier, etc.), comptabilisé comme un seul message
 
 ## Détails du canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Détails des canaux supplémentaires {#additional-channel-details}
+## Détails supplémentaires par canal {#additional-channel-details}
 
 ### Webhooks
 
-Les webhooks font partie des Message Credits depuis le 9 décembre 2024. Braze facture des Message Credits pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires sont facturés conformément à votre bon de commande.
+Les webhooks font partie des crédits de messages depuis le 9 décembre 2024. Braze facturera des crédits de messages pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
 
-### Connecteurs SMS BYO (Bring Your Own) {#bring-your-own-byo-sms-connectors}
+### Connecteurs SMS en propre (BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facture des Message Credits pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
+Braze permet aux clients de s'intégrer à des fournisseurs tiers pour envoyer des messages SMS via le modèle « connecteur SMS BYO ». Braze facturera des crédits de messages pour chaque message envoyé depuis la plateforme Braze via les connecteurs SMS BYO.
 
 ### LINE
 
-Braze facture des Message Credits pour tout message LINE envoyé depuis la plateforme Braze.
+Braze facturera des crédits de messages pour tout message LINE envoyé depuis la plateforme Braze.
 
 ## Répartition par région de facturation {#billing-region-breakdown}
 

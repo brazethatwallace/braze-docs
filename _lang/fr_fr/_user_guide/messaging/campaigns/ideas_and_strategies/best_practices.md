@@ -77,6 +77,8 @@ Lorsque vous modifiez la planification ou l'audience d'une campagne, gardez à l
 - **Campagnes avec heure d'envoi locale :** n'effectuez pas de modifications dans les 24 heures précédant l'heure d'envoi prévue.
 - **Campagnes avec heure d'envoi optimale :** n'effectuez pas de modifications dans les 24 heures précédant minuit le jour où la campagne est planifiée.
 
+Pour les subtilités de planification de Canvas (brouillons, arrêts et évaluation proche de l'heure d'envoi), consultez les [bonnes pratiques pour Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases).
+
 {% alert note %}
 Modifier une campagne en production et changer la distribution en **Heure d'envoi locale** entraînera la mise en file d'attente d'un nouveau lot de messages, ce qui signifie que vos utilisateurs recevront le message deux fois en raison de la double mise en file d'attente. Pour éviter cela, arrêtez d'abord la campagne d'origine, puis lancez un duplicata après avoir mis à jour la planification.
 {% endalert %}

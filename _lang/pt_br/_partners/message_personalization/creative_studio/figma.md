@@ -44,9 +44,9 @@ Depois, selecione seu espaço de trabalho da Braze no menu suspenso **Braze work
 
 ### Etapa 3: Selecionar seus ativos do Figma {#step-3-select-your-figma-assets}
 
-Selecione as imagens e ativos visuais para exportar para a Braze. Para selecionar múltiplos ativos, você pode pressionar <kbd>Shift</kbd> ou arrastar e soltar o cursor sobre os ativos.
+Selecione as imagens e os ativos visuais para exportar para a Braze. Para selecionar múltiplos ativos, pressione <kbd>Shift</kbd> ou arraste e solte o cursor sobre os ativos.
 
-O nome da imagem ou ativo visual exportado usa o nome do frame selecionado no Figma.
+O nome da imagem ou do ativo visual exportado usa o nome do frame selecionado no Figma.
 
 ### Etapa 4: Exportar para a Braze {#step-4-export-to-braze}
 

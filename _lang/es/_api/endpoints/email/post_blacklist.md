@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Añadir correos electrónicos a la lista negra {#blacklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blacklist
 {% endapimethod %}
 
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | -----------|----------| --------|------- |
 | `email` | Obligatorio | Cadena o matriz | Cadena de dirección de correo electrónico para añadir a la lista negra, o una matriz de hasta 50 direcciones de correo electrónico para añadir a la lista negra. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

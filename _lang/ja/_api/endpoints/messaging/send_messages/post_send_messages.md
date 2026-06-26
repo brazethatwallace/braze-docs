@@ -10,7 +10,7 @@ description: "この記事では、APIのみを使用したBrazeエンドポイ�
 ---
 {% api %}
 # APIのみを使用してメッセージを即座に送信する {#send-messages-immediately-using-the-api-only}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/send
 {% endapimethod %}
 
@@ -26,15 +26,15 @@ Segmentをターゲットにしている場合、リクエストの記録は[開
 このエンドポイントをAPI Campaignsで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
 {% endalert %}
 
-### API送信で新規ユーザーを作成する {#creating-new-users-with-api-sends}
+## API送信で新規ユーザーを作成する {#creating-new-users-with-api-sends}
 
 APIを使用して送信の一部としてユーザーを作成する必要がある場合、次の2つの方法があります。
 
-#### オプション 1: `/users/track` を使用してから送信する {#option-1-use-userstrack-then-send}
+### オプション 1: `/users/track` を使用してから送信する {#option-1-use-userstrack-then-send}
 
 まず、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントでユーザーを作成し、データが伝播するのを待ちます（通常、数分間待つことを推奨します）。その後にAPIのみの送信を開始します。Brazeは `/users/track` のデータ処理時間を保証しないため、これらの呼び出し間に十分な時間を設けない場合、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)が発生する可能性があります。
 
-#### オプション 2: APIトリガー型CampaignまたはCanvasを使用する {#option-2-use-an-api-triggered-campaign-or-canvas}
+### オプション 2: APIトリガー型CampaignまたはCanvasを使用する {#option-2-use-an-api-triggered-campaign-or-canvas}
 
 [APIトリガー型Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)または[Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)ワークフローを使用します。これらを使用すると、受信者がまだ存在しない場合に作成できます。このオプションはバックエンドのプロセスを簡素化しますが、BrazeダッシュボードでCampaignまたはCanvasを設定する必要があります。
 
@@ -101,7 +101,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `override_frequency_capping` | オプション | ブール値 | Campaignsの `frequency_capping` を無視します。デフォルトは `false` です。 |
 | `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、配信登録済みかオプトインしているユーザーのみ（`subscribed`）、または配信停止済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
 | `messages` | オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

@@ -88,6 +88,22 @@ After selecting your Audience Sync Pro destinations, connect your selected partn
 
 Lastly, create your Audience Sync step in Canvas using this Audience Sync Pro destination.
 
+### Batching and latency
+
+When users enter an Audience Sync step in Canvas, Braze enqueues them into a batching system that aggregates user updates before dispatching to the partner API. A batch is sent when one of the following occurs:
+
+- **The batch reaches its size limit.** This varies by partner:
+  - Default supports up to 2,000 users
+  - Google Ads supports up to 10,000 users
+  - Facebook and TikTok support up to 2,000 users
+- **The batch latency timer expires.** The default is one hour, but this is configurable per partner. For example, The Trade Desk uses 10 minutes.
+
+High-volume Canvases may dispatch sooner because batches fill faster. Lower-volume Canvases wait until the latency timer expires. Braze doesn't guarantee a fixed dispatch time; the timing depends on batch size and the configured latency window.
+
+Braze records dispatch activity in internal logs for monitoring and troubleshooting, but these timestamps are not exposed as queryable fields. After Braze dispatches a batch to the partner API, the partner processes the audience update according to their own Service Level Agreements—typically 6-48 hours. 
+
+Braze doesn't receive confirmation from partners that individual users have been matched or synced. Partner responses are HTTP acknowledgments of receipt, not match confirmations. To verify that an audience has been populated, check the partner's ad platform (such as Google Ads Audience Manager or Meta Business Manager).
+
 ### Audience Sync error emails
 
 If the error is related to the overall partner integration (such as an authorization issue), an email is sent to the user who connected the integration. If that user no longer exists, then the administrators will receive the emails. 

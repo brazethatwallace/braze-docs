@@ -46,12 +46,16 @@ Você pode usar a [guia Engajamento](#engagement-tab) para verificar se um deter
 
 ## Elementos do perfil de usuário {#elements-of-user-profile}
 
-Existem quatro seções principais no perfil de um usuário.
+Existem cinco seções principais no perfil de um usuário.
 
 - **Visão geral:** Informações básicas sobre o usuário, dados de sessão, atributos personalizados, eventos personalizados, compras e o dispositivo mais recente em que o usuário fez login.
 - **Engajamento:** Informações sobre as configurações de contato do usuário, Campaigns recebidas, Segments, estatísticas de comunicação, atribuição da instalação e número de bucket aleatório.
+- **Histórico de eventos:** Eventos personalizados e compras dos últimos 30 dias, com propriedades completas do evento exibidas como JSON.
 - **Histórico de mensagens:** Eventos recentes relacionados a mensagens para este usuário nos últimos 30 dias.
 - **Elegibilidade para Feature Flags:** Valide para quais Feature Flags um usuário é atualmente elegível em rollouts, etapas do Canvas e experimentos.
+
+{% tabs %}
+{% tab Guia Visão geral %}
 
 ### Guia Visão geral {#overview-tab}
 
@@ -69,7 +73,9 @@ A guia **Visão geral** contém informações básicas sobre um usuário e suas 
 
 Para saber mais sobre esses dados, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-![A guia Visão geral de um perfil de usuário.]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab Guia Engajamento %}
 
 ### Guia Engajamento {#engagement-tab}
 
@@ -83,9 +89,33 @@ A guia **Engajamento** contém informações sobre as interações de um usuári
 | Estatísticas de comunicação | Quando este usuário recebeu mensagens suas pela última vez em cada canal. |
 | Atribuição da instalação | Informações sobre como e quando um usuário instalou seu app. Saiba mais sobre [entender as instalações de usuários]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Diversos | O [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) do usuário. |
-| Mensagens do Canvas recebidas | Mensagens do Canvas que este usuário recebeu e quando. O momento do envio segue as mesmas regras de canal de **Campaigns recebidas**; consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received).<br><br> Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br> Selecione uma mensagem da lista para visualizá-la. |
+| Mensagens do Canvas recebidas | Mensagens do Canvas que este usuário recebeu e quando. O momento do envio segue as mesmas regras de canal de **Campaigns recebidas**; consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received).<br><br>Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal que o perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br> Selecione uma mensagem da lista para visualizá-la. |
 | Previsões | Pontuações de [previsão de churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) e [previsão de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) para este usuário. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Guia Engajamento" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab Guia Histórico de eventos %}
+
+### Guia Histórico de eventos {#event-history-tab}
+
+{% alert note %}
+Para visualizar a guia **Histórico de eventos**, você precisa das [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) **Search Users** e **View PII**, pois as propriedades de eventos podem conter dados pessoais.
+{% endalert %}
+
+A guia **Histórico de eventos** mostra os eventos personalizados e as compras que um usuário registrou. Use-a para verificar se os dados de eventos estão chegando corretamente e para solucionar problemas no nível do usuário diretamente no dashboard, sem necessidade de exportações de dados ou ferramentas externas.
+
+| Categoria do histórico de eventos | Contém |
+| --- | --- |
+| Lista de eventos | Eventos personalizados e compras dos últimos 30 dias (até os 100 mais recentes), ordenados do mais recente para o mais antigo. |
+| Tipo de evento | Se a linha é um **Evento personalizado** ou uma **Compra**. |
+| Timestamp | Quando o evento foi registrado. |
+| Nome do evento | O nome do evento personalizado ou da compra. |
+| Propriedades do evento | Propriedades completas do evento, exibidas como JSON. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Guia Histórico de eventos" }
+
+{% endtab %}
+{% endtabs %}
 
 ### Quando as Campaigns aparecem em Campaigns recebidas {#when-campaigns-appear-in-campaigns-received}
 

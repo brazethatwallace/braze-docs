@@ -75,9 +75,7 @@ Ces vues fournissent des instantanés périodiques des attributs du profil utili
 * L'exécution des requêtes est plus rapide, en particulier lors du filtrage sur des attributs autres que `USER_ID`.
 * **Limitation :** les données ne sont pas actualisées en temps réel.
 
-{% alert note %}
-Le champ `TIME` représente l'heure en secondes de la mise à jour du profil utilisateur ; le champ `TIME_MS` indique cette valeur avec une précision à la milliseconde. Pour les données rétro-remplies, les valeurs `TIME` et `TIME_MS` correspondent à l'heure du rétro-remplissage.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Schéma `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
 
@@ -97,7 +95,7 @@ Le champ `TIME` représente l'heure en secondes de la mise à jour du profil uti
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -134,12 +132,10 @@ Ces vues fournissent des mises à jour quasi en temps réel des attributs du pro
 * Utile pour les analyses en temps réel et les scénarios nécessitant des données récentes.
 * **Considérations relatives aux performances :**
     * Les requêtes sur des utilisateurs individuels sont plus rapides (moins d'une minute avec un grand entrepôt).
-    * Les requêtes sans filtres USER_ID nécessitent une agrégation pour tous les utilisateurs, ce qui allonge considérablement le temps d'exécution.
+    * Les requêtes sans filtre sur USER_ID nécessitent une agrégation pour tous les utilisateurs, ce qui allonge considérablement le temps d'exécution.
     * Les requêtes sur un grand ensemble de données (plus de 100 millions d'utilisateurs, par exemple) peuvent prendre plusieurs minutes.
 
-{% alert note %}
-Le champ `TIME` représente l'heure en secondes de la mise à jour du profil utilisateur ; le champ `TIME_MS` indique cette valeur avec une précision à la milliseconde. Pour les données rétro-remplies, les valeurs `TIME` et `TIME_MS` correspondent à l'heure du rétro-remplissage.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Schéma `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_latest_state_default_attributes_view_shared-schema}
 
@@ -163,7 +159,7 @@ Le champ `TIME` représente l'heure en secondes de la mise à jour du profil uti
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### Schéma `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
@@ -192,12 +188,10 @@ Ces vues stockent les journaux de modifications historiques des attributs utilis
 ### Utilisation
 
 * Fournit un enregistrement des modifications historiques des attributs utilisateur sur une période glissante de 6 mois.
-* Les données sont capturées toutes les 12 heures, ce qui signifie que les mises à jour multiples dans cette fenêtre sont combinées en un seul enregistrement. Les modifications individuelles au cours de cette période ne sont pas conservées séparément.
+* Les données sont capturées toutes les 12 heures, ce qui signifie que les mises à jour multiples au cours de cette fenêtre sont combinées en un seul enregistrement. Les modifications individuelles au cours de cette période ne sont pas conservées séparément.
 * `EFF_DT` et `END_DT` marquent le début et la fin de l'état des attributs d'un utilisateur.
 
-{% alert note %}
-Le champ `TIME` représente l'heure en secondes de la mise à jour du profil utilisateur ; le champ `TIME_MS` indique cette valeur avec une précision à la milliseconde. Pour les données rétro-remplies, les valeurs `TIME` et `TIME_MS` correspondent à l'heure du rétro-remplissage.
-{% endalert %}
+{% include partners/snowflake_user_attributes_date_fields_note.md %}
 
 ### Schéma `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_default_attributes_history_view_shared-schema}
 
@@ -217,7 +211,7 @@ Le champ `TIME` représente l'heure en secondes de la mise à jour du profil uti
 | `GENDER` | VARCHAR |
 | `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIMEZONE` | VARCHAR |
+| `TIME_ZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -249,7 +243,7 @@ Le champ `TIME` représente l'heure en secondes de la mise à jour du profil uti
 
 | Cas d'utilisation | Vues recommandées | Remarques |
 |--------------------------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------|
-| **Requêtes générales** ne nécessitant pas de mises à jour récentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` et `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` | Exécution rapide, avec des données remontant jusqu'à 12 heures. |
+| **Requêtes générales** ne nécessitant pas de mises à jour récentes | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` et `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` | Exécution rapide, avec des données datant de 12 heures au maximum. |
 | Requêtes nécessitant les **derniers attributs utilisateur** | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` et `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Fournit des mises à jour quasi en temps réel, mais peut être plus lent pour les grands ensembles de données. |
 | **Suivi historique** des changements d'attributs | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` et `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` | Enregistre les changements d'attributs avec une granularité de 12 heures. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Utilisation recommandée des requêtes" }

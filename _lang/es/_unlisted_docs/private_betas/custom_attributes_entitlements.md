@@ -42,18 +42,18 @@ Los administradores también pueden crear atributos personalizados y marcarlos c
 
 ### Añadir descripciones {#adding-descriptions}
 
-Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
+Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
 
 ### Añadir etiquetas {#adding-tags}
 
-Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". Las etiquetas pueden utilizarse para filtrar la lista de atributos.
+Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". Las etiquetas pueden utilizarse para filtrar la lista de atributos.
 
 ### Eliminar atributos personalizados {#removing-custom-attributes}
 
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
-* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`](https://www.braze.com/docs/api/endpoints/user_data/post_user_track#user-track).
+* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
+* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
 
 ### Ver informes de uso {#viewing-usage-reports}
 
@@ -71,19 +71,19 @@ A continuación se enumeran los métodos en varias plataformas que se utilizan p
 
 {% details Expandir para ver la documentación por plataforma %}
 
-- [Android y FireOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/setting_custom_attributes/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/)
+- [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
 
 {% enddetails %}
 
 ## Almacenamiento de atributos personalizados {#custom-attribute-storage}
 
-Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
 ## Tipos de datos de atributos personalizados {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Los siguientes tipos de datos pueden almacenarse como atributos personalizados:
 - [Cadenas](#strings)
 - [Arrays](#arrays)
 - [Tiempo](#time)
-- [Objetos](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays de objetos](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
+- [Arrays de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
 
 ### Booleanos (verdadero/falso) {#booleans}
 
@@ -107,7 +107,7 @@ Los atributos booleanos son útiles para almacenar datos binarios simples sobre 
 | ---------------------| --------------- | ------------- | -------- |
 | Comprobar si el valor booleano **es** verdadero, falso, verdadero o no establecido, o falso o no establecido | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** o **FALSE OR NOT SET** | Si este filtro especifica `coffee_drinker`, un usuario coincidirá con este filtro en las siguientes circunstancias: <br> {::nomarkdown}<ul><li>Si este filtro es <code>true</code> y el usuario tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>false</code> y el usuario no tiene el valor <code>coffee_drinker</code></li><li>Si este filtro es <code>true or not set</code> y el usuario tiene el valor <code>coffee_drinker</code> o ningún valor</li><li>Si este filtro es <code>false or not set</code> y el usuario no tiene <code>coffee_drinker</code> o ningún valor</li></ul>{:/} |
 | Comprobar si el valor booleano **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario tiene un valor para el atributo `coffee_drinker`, el usuario coincidirá con este filtro. |
-| Comprobar si el valor booleano **no existe** en el perfil de un usuario o es nulo | **IS BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario no tiene el atributo `coffee_drinker` o el valor de `coffee_drinker` es nulo, el usuario coincidirá con este filtro. |
+| Comprobar si el valor booleano **no existe** en el perfil de un usuario o es nulo | **IS BLANK**  | **N/A** | Si este filtro especifica `coffee_drinker` y un usuario no tiene el atributo `coffee_drinker` o el valor de `coffee_drinker` es nulo, el usuario coincidirá con este filtro.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Números {#numbers}
@@ -129,7 +129,7 @@ El dinero gastado no debe registrarse con este método. Más bien, debe registra
 | Comprobar si el atributo numérico **es mayor que** un **número** | **MORE THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor mayor que `10`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo numérico **es menor que** un **número** | **LESS THAN** | **NUMBER** | Si este filtro especifica `10` y un perfil de usuario tiene un valor menor que `10`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo numérico **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si un perfil de usuario contiene el atributo numérico especificado, independientemente del valor, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo numérico **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si un perfil de usuario no contiene el atributo numérico especificado o el valor del atributo es nulo, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo numérico **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si un perfil de usuario no contiene el atributo numérico especificado o el valor del atributo es nulo, el usuario coincidirá con este filtro.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 #### Detalles de atributos numéricos {#number-attribute-details}
@@ -148,17 +148,17 @@ Ten en cuenta que si introduces valores con espacios entre, antes o después de 
 | Comprobar si el atributo de cadena **coincide exactamente** con una cadena introducida | **EQUALS** | **STRING**<br>Distingue mayúsculas y minúsculas | Si este filtro especifica `book` y un perfil de usuario tiene un atributo de cadena para `last_item_purchased` que contiene `book`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo de cadena **coincide parcialmente** con una cadena introducida **O** expresión regular | **MATCHES REGEX** | **STRING** **O** **REGULAR EXPRESSION** <br>No distingue mayúsculas y minúsculas; máximo de 32 764 caracteres |
 | Comprobar si el atributo de cadena **no coincide parcialmente** con una cadena introducida **O** expresión regular | **DOES NOT MATCH REGEX** * | **STRING** **O** **REGULAR EXPRESSION**<br>No distingue mayúsculas y minúsculas; máximo de 32 764 caracteres |
-| Comprobar si el atributo de cadena **no coincide** con una cadena introducida | **DOES NOT EQUAL** | **STRING**<br>No distingue mayúsculas y minúsculas | Si este filtro especifica `book` y un perfil de usuario tiene un atributo de cadena para `last_item_purchased` que no contiene `book`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de cadena **existe** en el perfil de un usuario y no es una cadena vacía | **IS NOT BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro independientemente del valor de su atributo. Por ejemplo, el usuario puede tener `sci-fi`, `romance` u otro valor. |
-| Comprobar si el atributo de cadena **no existe** en el perfil de un usuario | **BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario no tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de cadena **no coincide** con una cadena introducida | **DOES NOT EQUAL** | **STRING**<br>No distingue mayúsculas y minúsculas  | Si este filtro especifica `book` y un perfil de usuario tiene un atributo de cadena para `last_item_purchased` que no contiene `book`, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de cadena **existe** en el perfil de un usuario y no es una cadena vacía | **IS NOT BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro independientemente del valor de su atributo. Por ejemplo, el usuario puede tener `sci-fi`, `romance` u otro valor.|
+| Comprobar si el atributo de cadena **no existe** en el perfil de un usuario | **BLANK** | **N/A** | Si este filtro especifica `favorite_genre` y un perfil de usuario no tiene el atributo `favorite_genre`, el usuario coincidirá con este filtro.|
 | Comprobar si la cadena coincide exactamente con **cualquiera** de las cadenas introducidas | **IS ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario tiene al menos una de esas cadenas, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de cadena **no coincide exactamente con ninguna** de las cadenas introducidas | **IS NONE OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario no contiene ninguna de esas cadenas, el usuario coincidirá con el filtro. |
+| Comprobar si el atributo de cadena **no coincide exactamente con ninguna** de las cadenas introducidas | **IS NONE OF** |**STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `book`, `bookmark` y `reading light`, y un perfil de usuario no contiene ninguna de esas cadenas, el usuario coincidirá con el filtro.|
 | Comprobar si el atributo de cadena **coincide parcialmente con alguna** de las cadenas introducidas | **CONTAINS ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario contiene `gold` en cualquier cadena, como `gold_tier` o `former_gold_tier`, el usuario coincidirá con el filtro. |
-| Comprobar si el atributo de cadena **no coincide parcialmente con ninguna** de las cadenas introducidas | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de cadena **no coincide parcialmente con ninguna** de las cadenas introducidas | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples cadenas (máximo 256) | Si este filtro especifica `gold` y un perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Una cadena de fecha como "12-1-2021" o "12/1/2021" se convertirá en un objeto datetime y se tratará como un [atributo de tiempo](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Una cadena de fecha como "12-1-2021" o "12/1/2021" se convertirá en un objeto datetime y se tratará como un [atributo de tiempo]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
 {% endalert %}
 
 {% alert important %}
@@ -181,23 +181,23 @@ La opción de aumentar la longitud máxima no estará disponible si el atributo 
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
-| Comprobar si el atributo de array **incluye un valor que coincide exactamente** con un valor introducido | **INCLUDES VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario tiene el valor `sci-fi`, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de array **no incluye un valor que coincida exactamente** con un valor introducido | **DOESN'T INCLUDE VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario no tiene el valor `sci-fi`, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de array **incluye un valor que coincide exactamente** con un valor introducido | **INCLUDES VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario tiene el valor `sci-fi`, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de array **no incluye un valor que coincida exactamente** con un valor introducido | **DOESN'T INCLUDE VALUE** | **STRING** | Si este filtro especifica `sci-fi` y un perfil de usuario no tiene el valor `sci-fi`, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de array **contiene un valor que coincide parcialmente** con un valor introducido **O** expresión regular | **MATCHES REGEX** | **STRING** **O** **REGULAR EXPRESSION**<br>Máximo de 32 764 caracteres | |
 | Comprobar si el atributo de array **tiene algún valor** o no está vacío | **HAS A VALUE** | **N/A** | Si este filtro especifica `favorite_genres` y un perfil de usuario contiene `favorite_genres` con cualquier valor, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de array **está vacío** o no existe | **IS EMPTY** | **N/A** | Si este filtro especifica `favorite_genres` y un perfil de usuario no contiene `favorite_genres` o contiene `favorite_genres` pero no tiene valores, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de array **incluye un valor que coincide exactamente con alguno** de los valores introducidos | **INCLUDES ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene cualquier combinación de `sci-fi`, `fantasy` o `romance`, incluyendo solo uno de ellos (como solo `sci-fi`). Un usuario puede tener `horror` u otro valor en su cadena si también tiene alguno de `sci-fi`, `fantasy` y `romance`. |
-| Comprobar si el atributo de array **no incluye un valor que coincida exactamente con ninguno** de los valores introducidos | **INCLUDES NONE OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene ninguna combinación de `sci-fi`, `fantasy` o `romance`, el usuario coincidirá con este filtro. El usuario puede tener `horror` u otro valor si no tiene ninguno de `sci-fi`, `fantasy` o `romance`. |
-| Comprobar si el atributo de array **contiene un valor que coincide parcialmente con alguno** de los valores introducidos | **VALUES CONTAIN ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y un array del perfil de usuario contiene `gold` en al menos una cadena, el usuario coincidirá con este filtro. Esto incluye valores de cadena como `gold_tier`, `former_gold_tier` y otros. |
-| Comprobar si el atributo de array **no incluye un valor que coincida parcialmente con ninguno** de los valores introducidos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y un array del perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro. Esto significa que los usuarios con valores de cadena como `gold_tier` y `former_gold_tier` no coincidirán con este filtro. |
-| Comprobar si el atributo de array **incluye todos** los valores introducidos | **IS ALL OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene todos esos valores, el usuario coincidirá con este filtro. El usuario también puede tener `horror` u otros valores y aún coincidir con este filtro. |
-| Comprobar si el atributo de array **no incluye todos** los valores introducidos | **ISN'T ALL OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene todos esos valores, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de array **está vacío** o no existe | **IS EMPTY** | **N/A** | Si este filtro especifica `favorite_genres` y un perfil de usuario no contiene `favorite_genres` o contiene `favorite_genres` pero no tiene valores, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de array **incluye un valor que coincide exactamente con alguno** de los valores introducidos | **INCLUDES ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene cualquier combinación de `sci-fi`, `fantasy` o `romance`, incluyendo solo uno de ellos (como solo `sci-fi`). Un usuario puede tener `horror` u otro valor en su cadena si también tiene alguno de `sci-fi`, `fantasy` y `romance`.|
+| Comprobar si el atributo de array **no incluye un valor que coincida exactamente con ninguno** de los valores introducidos | **INCLUDES NONE OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene ninguna combinación de `sci-fi`, `fantasy` o `romance`, el usuario coincidirá con este filtro. El usuario puede tener `horror` u otro valor si no tiene ninguno de `sci-fi`, `fantasy` o `romance`.|
+| Comprobar si el atributo de array **contiene un valor que coincide parcialmente con alguno** de los valores introducidos | **VALUES CONTAIN ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y un array del perfil de usuario contiene `gold` en al menos una cadena, el usuario coincidirá con este filtro. Esto incluye valores de cadena como `gold_tier`, `former_gold_tier` y otros.|
+| Comprobar si el atributo de array **no incluye un valor que coincida parcialmente con ninguno** de los valores introducidos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `gold` y un array del perfil de usuario no contiene `gold` en ninguna cadena, el usuario coincidirá con este filtro. Esto significa que los usuarios con valores de cadena como `gold_tier` y `former_gold_tier` no coincidirán con este filtro.|
+| Comprobar si el atributo de array **incluye todos** los valores introducidos | **IS ALL OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario tiene todos esos valores, el usuario coincidirá con este filtro. El usuario también puede tener `horror` u otros valores y aún coincidir con este filtro.|
+| Comprobar si el atributo de array **no incluye todos** los valores introducidos | **ISN'T ALL OF** | **STRING**<br>Distingue mayúsculas y minúsculas; se permiten múltiples valores (máximo 256) | Si este filtro especifica `sci-fi, fantasy, romance` y un perfil de usuario no tiene todos esos valores, el usuario coincidirá con este filtro.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
 Para más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
 - [Expresiones regulares compatibles con Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex con Braze](https://www.braze.com/docs/user_guide/engagement_tools/segments/regex/)
+- [Regex con Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
 - [Depurador y probador de regex](https://www.regex101.com/)
 - [Tutorial de regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -219,10 +219,10 @@ La última fecha en que ocurrió un evento personalizado o un evento de compra s
 | Comprobar si el atributo de tiempo **es anterior a** una **fecha seleccionada** | **BEFORE** | **CALENDAR DATE SELECTOR** | Si este filtro especifica `2024-01-31` y un perfil de usuario tiene una fecha anterior a `2024-1-31`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo de tiempo **es posterior a** una **fecha seleccionada** | **AFTER** | **CALENDAR DATE SELECTOR** | Si este filtro especifica `2024-01-31` y un perfil de usuario tiene una fecha posterior a `2024-1-31`, el usuario coincidirá con este filtro. |
 | Comprobar si el atributo de tiempo es **hace más de X número** de **días** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace más de siete días, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de tiempo es **hace menos de X número** de **días** | **LESS THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace menos de siete días, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de tiempo es **en más de X número** de **días en el futuro** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de más de siete días en el futuro, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de tiempo es **en menos de X número** de **días en el futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de menos de siete días en el futuro, el usuario coincidirá con este filtro. |
-| Comprobar si el atributo de tiempo **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si este filtro especifica un atributo de tiempo que está en un perfil de usuario, el usuario coincidirá con este filtro. |
+| Comprobar si el atributo de tiempo es **hace menos de X número** de **días** | **LESS THAN** | **NUMBER OF DAYS AGO** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de hace menos de siete días, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de tiempo es **en más de X número** de **días en el futuro** | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de más de siete días en el futuro, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de tiempo es **en menos de X número** de **días en el futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de menos de siete días en el futuro, el usuario coincidirá con este filtro.|
+| Comprobar si el atributo de tiempo **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si este filtro especifica un atributo de tiempo que está en un perfil de usuario, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de tiempo **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si este filtro especifica un atributo de tiempo que no está en un perfil de usuario, el usuario coincidirá con este filtro. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -236,11 +236,11 @@ La última fecha en que ocurrió un evento personalizado o un evento de compra s
 
 ### Objetos {#objects}
 
-Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ### Arrays de objetos {#arrays-of-objects}
 
-Usa un array de objetos para agrupar atributos relacionados. Para más detalles, consulta nuestro artículo sobre [Array de objetos](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Usa un array de objetos para agrupar atributos relacionados. Para más detalles, consulta nuestro artículo sobre [Array de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
 
 ### Operadores consolidados {#consolidated-operators}
 
@@ -261,19 +261,19 @@ Usar nuestros métodos de compra para registrar compras dentro de la aplicación
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |
 | Comprobar si el número total de dólares gastados **es mayor que** un **número** | **GREATER THAN** | **NUMBER** | Si este filtro especifica `500` y un perfil de usuario tiene un valor mayor que `500`, el usuario coincidirá con este filtro. |
-| Comprobar si el número total de dólares gastados **es menor que** un **número** | **LESS THAN** | **NUMBER** | Si este filtro especifica `500` y un perfil de usuario tiene un valor menor que `500`, el usuario coincidirá con este filtro. |
+| Comprobar si el número total de dólares gastados **es menor que** un **número** | **LESS THAN** | **NUMBER** | Si este filtro especifica `500` y un perfil de usuario tiene un valor menor que `500`, el usuario coincidirá con este filtro.|
 | Comprobar si el número total de dólares gastados **es exactamente** un **número** | **EXACTLY** | **NUMBER** | Si este filtro especifica `500` y un perfil de usuario tiene el valor `500`, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió por última vez **después de la fecha X** | **AFTER** | **TIME** | Si este filtro especifica `2024/31/1` y la última compra de un usuario fue después de `2024/31/1`, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió por última vez **antes de la fecha X** | **BEFORE** | **TIME** | Si este filtro especifica `2024/31/1` y la última compra de un usuario fue antes de `2024/31/1`, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió por última vez **hace más de X días** | **MORE THAN** | **TIME** | Si este filtro especifica `7` y la última compra de un usuario fue hace más de siete días desde hoy, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió por última vez **hace menos de X días** | **LESS THAN** | **TIME** | Si este filtro especifica `7` y la última compra de un usuario fue hace menos de siete días desde hoy, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió **más de X (máx. = 50) veces** | **MORE THAN** | en los últimos **Y días (Y = 1,3,7,14,21,30)** | Si este filtro especifica `7` veces y `21` días, y un usuario realizó más de siete compras en los últimos 21 días, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió **menos de X (máx. = 50) veces** | **LESS THAN** | en los últimos **Y días (Y = 1,3,7,14,21,30)** | Si este filtro especifica `7` veces y `21` días, y un usuario realizó menos de siete compras en los últimos 21 días, el usuario coincidirá con este filtro. |
-| Comprobar si la compra ocurrió **exactamente X (máx. = 50) veces** | **EXACTLY** | en los últimos **Y días (Y = 1,3,7,14,21,30)** | Si este filtro especifica `7` veces y `21` días, y un usuario realizó siete compras en los últimos 21 días, el usuario coincidirá con este filtro. |
+| Comprobar si la compra ocurrió por última vez **después de la fecha X** | **AFTER** | **TIME** | Si este filtro especifica `2024/31/1` y la última compra de un usuario fue después de `2024/31/1`, el usuario coincidirá con este filtro.|
+| Comprobar si la compra ocurrió por última vez **antes de la fecha X** | **BEFORE** | **TIME** | Si este filtro especifica `2024/31/1` y la última compra de un usuario fue antes de `2024/31/1`, el usuario coincidirá con este filtro.|
+| Comprobar si la compra ocurrió por última vez **hace más de X días** | **MORE THAN** | **TIME** | Si este filtro especifica `7` y la última compra de un usuario fue hace más de siete días desde hoy, el usuario coincidirá con este filtro.|
+| Comprobar si la compra ocurrió por última vez **hace menos de X días** | **LESS THAN** | **TIME** |  Si este filtro especifica `7` y la última compra de un usuario fue hace menos de siete días desde hoy, el usuario coincidirá con este filtro.|
+| Comprobar si la compra ocurrió **más de X (máx. = 50) veces** | **MORE THAN** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |  Si este filtro especifica `7` veces y `21` días, y un usuario realizó más de siete compras en los últimos 21 días, el usuario coincidirá con este filtro.|
+| Comprobar si la compra ocurrió **menos de X (máx. = 50) veces** | **LESS THAN** | en los últimos **Y días (Y = 1,3,7,14,21,30)** | Si este filtro especifica `7` veces y `21` días, y un usuario realizó menos de siete compras en los últimos 21 días, el usuario coincidirá con este filtro.|
+| Comprobar si la compra ocurrió **exactamente X (máx. = 50) veces** | **EXACTLY** | en los últimos **Y días (Y = 1,3,7,14,21,30)** | Si este filtro especifica `7` veces y `21` días, y un usuario realizó siete compras en los últimos 21 días, el usuario coincidirá con este filtro.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-Si deseas segmentar por el número de veces que se ha realizado una compra específica, también debes registrar esa compra individualmente como un [atributo personalizado incremental](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
+Si deseas segmentar por el número de veces que se ha realizado una compra específica, también debes registrar esa compra individualmente como un [atributo personalizado incremental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos de [cambiar los tipos de datos](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/).
+Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos de [cambiar los tipos de datos]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).

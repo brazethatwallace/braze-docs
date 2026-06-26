@@ -19,7 +19,7 @@
 | `campaign_does_not_exist` | このメッセージに関連付けられたCampaignが存在しなくなりました。 |
 | `campaign_action_does_not_exist` | このメッセージに関連付けられたCampaignアクションが存在しなくなりました。 |
 | `message_variation_does_not_exist` | このユーザーに割り当てられたメッセージバリエーションが存在しなくなりました。 |
-| `user_not_in_segment` | ユーザーがターゲットSegmentに含まれていないため、メッセージは送信されませんでした。 |
+| `user_not_in_segment` | ユーザーがターゲットセグメントに含まれていないため、メッセージは送信されませんでした。 |
 | `trigger_event_blacklisted` | トリガーイベントがブロックリストに登録されているため、メッセージは送信されませんでした。 |
 | `exhausted_retries` | 最大リトライ回数を超えてもメッセージを送信できませんでした。 |
 | `frequency_capped` | ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping)ルールで許可されたメッセージの最大数をユーザーがすでに受信しています。 |

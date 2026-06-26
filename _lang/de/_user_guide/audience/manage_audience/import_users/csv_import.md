@@ -180,11 +180,11 @@ Die folgenden Standardattribute stehen für den Nutzerimport zur Verfügung.
 
 #### Abo-Gruppenstatus aktualisieren (optional) {#updating-subscription-group-status-optional}
 
-Zusätzlich können Sie Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders für SMS nützlich, da Nutzer:innen in eine SMS-Abo-Gruppe eingetragen sein müssen, um über den SMS-Kanal Nachrichten zu erhalten. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Zusätzlich können Sie Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders für SMS nützlich, da Nutzer:innen in eine SMS-Abo-Gruppe eingetragen sein müssen, um über den SMS-Kanal Nachrichten zu erhalten. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups/#subscription-group-mms-enablement).
 
 Wenn Sie Abo-Gruppenstatus aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
 
-- `subscription_group_id`: Die `id` der [Abo-Gruppe](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).
+- `subscription_group_id`: Die `id` der [Abo-Gruppe]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups).
 - `subscription_state`: Verfügbare Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe).
 
 | external_id | first_name | subscription_group_id | subscription_state |

@@ -123,7 +123,6 @@ Im folgenden Ablauf kann die angepasste Ansicht auf Zustandsänderungen reagiere
 3. Die Informationen werden eingegeben, und wenn sie im erwarteten Format vorliegen, wird der Registrierungs-Button angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### Dashboard-Konfiguration {#dashboard-configuration-2}
 

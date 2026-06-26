@@ -10,7 +10,7 @@ description: "この記事では、「APIトリガーCanvasesのスケジュー�
 ---
 {% api %}
 # APIトリガーCanvasesのスケジュール {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 

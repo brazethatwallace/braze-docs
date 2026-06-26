@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para envia
 ---
 {% api %}
 # Enviar mensagens de Campaign usando entrega disparada por API {#send-campaign-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). Quando você inclui `audience`, a mensagem é enviada apenas para usuários que correspondem aos filtros definidos, como atributos personalizados e status de inscrição. |
 | `recipients` | Opcional | Vetor | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Se `send_to_existing_only` for `false`, um objeto `attributes` deverá ser incluído.<br><br>Você pode atualizar o status do grupo de inscrições de um usuário incluindo `subscription_groups` no objeto `attributes` aninhado. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Se `recipients` não for fornecido e `broadcast` estiver definido como true, a mensagem é enviada para todo o Segment configurado como o público-alvo da Campaign no dashboard da Braze.<br><br>Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) no objeto de destinatários. |
 | `attachments` | Opcional | Vetor | Se `broadcast` estiver definido como true, a lista `attachments` não poderá ser incluída. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Comportamento de resolução de destinatários {#recipient-resolution-behavior}
 
@@ -114,6 +114,8 @@ Saiba o que acontece quando `prioritization` não retorna exatamente um perfil.
 
 - Quando `prioritization` não retorna exatamente um perfil de usuário, a Braze tenta a resolução novamente até 40 vezes. Esse comportamento de nova tentativa é esperado.
 - A configuração `send_to_existing_only` não altera o comportamento de empate de `prioritization`. O mesmo comportamento de empate e nova tentativa se aplica independentemente de essa configuração ser `true` ou `false`.
+
+Se você disparar uma Campaign somente de e-mail para um destinatário identificado por `external_user_id` ou `user_alias`, e esse perfil de usuário não tiver um endereço de e-mail no momento da chamada, a Braze tenta o envio novamente por aproximadamente 2 horas. Isso cobre o padrão comum de criar um usuário e definir seu endereço de e-mail em sequência. Para enviar sem atraso, inclua o atributo `email` dentro de `recipients[].attributes` para que o endereço seja definido na mesma chamada do disparo.
 
 {% alert note %}
 O parâmetro `segment_id` não é compatível com este endpoint. Para direcionar um Segment, configure o Segment nas configurações de público-alvo da Campaign no dashboard da Braze e use `"broadcast": true`, ou use o parâmetro `audience` com filtros de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/).

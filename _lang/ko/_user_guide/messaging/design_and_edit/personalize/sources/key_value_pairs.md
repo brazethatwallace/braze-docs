@@ -41,7 +41,9 @@ channel:
 
 키-값 페어는 Android, iOS 및 웹 푸시 알림에 추가할 수 있습니다. 키-값 페어를 사용하여 내부 측정기준 및 앱 콘텐츠를 업데이트하거나 알림 우선순위, 현지화, 사운드 등의 푸시 알림 등록정보를 커스터마이즈할 수 있습니다.
 
-메시지 작성기에서 **Settings** 탭을 선택하고 **Add New Pair**를 선택한 다음 키-값 페어를 지정합니다.
+메시지 작성기에서 **설정** 탭을 선택하고 **새 페어 추가**를 선택한 다음 키-값 페어를 지정합니다.
+
+메시지 작성기에서 키-값 페어를 추가하면 값은 문자열로 전송됩니다. iOS 푸시의 경우, **알림 옵션**을 통해 추가하는 예약된 Apple 푸시 알림 서비스(APNs) 알림 키(현지화 인수를 위한 `loc-args` 등)는 페이로드에서 올바른 JSON 유형으로 포맷됩니다. 커스텀 키의 경우, 통합에서 구문 분석하지 않는 한 앱은 문자열 값을 수신합니다.
 
 ### iOS
 
@@ -55,7 +57,7 @@ Apple 푸시 알림 서비스(APNs)는 키-값 페어를 사용하여 알림 기
 | badge             | 숫자                      | 앱 아이콘에 배지로 표시되는 숫자를 제어합니다                                                                                                                              |
 | sound             | 문자열                      | 알림으로 재생할 사운드 파일의 이름입니다. 앱 번들 또는 ```Library/Sounds``` 폴더에 있어야 합니다                                                                                    |
 | content-available | 숫자                      | 입력 값 1은 앱 시작 또는 세션 재개 시 새로운 정보의 가용성을 앱에 알립니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS library" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS 라이브러리" }
 
 
 ##### 알림 등록정보 라이브러리 {#alert-properties-library}
@@ -70,11 +72,11 @@ Apple 푸시 알림 서비스(APNs)는 키-값 페어를 사용하여 알림 기
 | loc-key        | 문자열 또는 null           | ```Localizable.strings``` 파일에서 현재 현지화에 대한 알림 메시지를 설정하는 키                                  |
 | loc-args       | 문자열 배열         | loc-key의 현지화 형식 지정자 대신 표시될 수 있는 문자열 값                                                       |
 | launch-image   | 문자열                  | 사용자가 실행 버튼을 탭하거나 실행 슬라이드를 이동할 때 시작 이미지로 사용할 앱 번들의 이미지 파일 이름 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alert properties library" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="알림 등록정보 라이브러리" }
 
 Braze 메시지 작성기는 다음 키의 생성을 자동으로 처리합니다: **alert** 및 **해당 등록정보**, **content-available**, **sound**, **category**.
 
-이러한 값은 푸시 메시지를 작성할 때 **Settings** 탭에서 입력할 수 있습니다. **Alert Options**를 선택하고 알림 사전 키를 선택하면 새 키-값 항목에 키가 자동으로 채워집니다.
+이러한 값은 푸시 메시지를 작성할 때 **설정** 탭에서 입력할 수 있습니다. **알림 옵션**을 선택하고 알림 사전 키를 선택하면 새 키-값 항목에 키가 자동으로 채워집니다.
 
 ![]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
 {% raw %}
@@ -149,7 +151,7 @@ Braze에서는 `extras`라고 하는 커스텀 정의 문자열 키-값 페어�
 
 ##### FCM 메시징 옵션 {#fcm-messaging-options}
 
-Android 푸시 알림은 FCM 메시지 옵션으로 추가 커스터마이즈할 수 있습니다. 여기에는 [알림 우선순위]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority), [사운드]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#sounds), 지연, 수명 및 축소 가능성이 포함됩니다. 이러한 값은 푸시 메시지를 생성할 때 **Settings** 탭에서 지정할 수 있습니다. Braze 메시지 작성기에서 이러한 옵션을 설정하는 방법에 대한 자세한 내용은 [고급 푸시 알림 설정]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#android_settings)을 참조하세요.
+Android 푸시 알림은 FCM 메시지 옵션으로 추가 커스터마이즈할 수 있습니다. 여기에는 [알림 우선순위]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority), [사운드]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#sounds), 지연, 수명 및 축소 가능성이 포함됩니다. 이러한 값은 푸시 메시지를 생성할 때 **설정** 탭에서 지정할 수 있습니다. Braze 메시지 작성기에서 이러한 옵션을 설정하는 방법에 대한 자세한 내용은 [고급 푸시 알림 설정]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#android_settings)을 참조하세요.
 
 ![]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
@@ -174,7 +176,7 @@ iOS 무음 알림 제한으로 인해 다음과 같은 증상이 발생할 수 �
 
 ## 인앱 메시지 {#in-app-messages}
 
-[기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에서 **Settings** 탭을 선택하고 **Add New Pair**를 선택한 다음 키-값 페어를 지정하여 인앱 메시지에 키-값 페어를 추가할 수 있습니다.
+[기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에서 **설정** 탭을 선택하고 **새 페어 추가**를 선택한 다음 키-값 페어를 지정하여 인앱 메시지에 키-값 페어를 추가할 수 있습니다.
 
 {% alert note %}
 인앱 메시지의 드래그 앤 드롭 편집기에서는 키-값 페어를 설정할 수 없습니다.
@@ -197,6 +199,6 @@ SparkPost와 SendGrid 모두 이메일에서 키-값 페어를 지원합니다. 
 
 ## Content Cards
 
-Content Cards에 키-값 페어를 추가하려면 Braze 메시지 작성기의 **Settings** 탭으로 이동하여 **Add New Pair**를 선택합니다.
+Content Cards에 키-값 페어를 추가하려면 Braze 메시지 작성기의 **설정** 탭으로 이동하여 **새 페어 추가**를 선택합니다.
 
 ![Content Cards에 키-값 페어 추가]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}

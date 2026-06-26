@@ -39,6 +39,7 @@ en:
     "android push": Android Push
     "in-app message": In-App Message
     "content cards": Content Cards
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -210,6 +211,10 @@ en:
     sms: SMS
     "time zones": Time zones
     "week/day/month": Week/Day/Month
+  works_best_in: "Works best in:"
+  clipboard_copied: "Copied"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copy to clipboard"
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -252,6 +257,7 @@ fr:
     "android push": Push Android
     "in-app message": Message in-app
     "content cards": Content Cards
+    banners: Bannières
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -283,6 +289,10 @@ fr:
   agents_use_case_tag_labels:
     "canvas agent": Agent Canvas
     "catalog agent": Agent de catalogue
+  works_best_in: "Idéal pour :"
+  clipboard_copied: "Copié"
+  clipboard_error: "Erreur"
+  copy_to_clipboard: "Copier dans le presse-papiers"
 ja:
   next: 次へ
   previous: 前へ
@@ -325,6 +335,7 @@ ja:
     "android push": Androidプッシュ
     "in-app message": アプリ内メッセージ
     "content cards": コンテンツカード
+    banners: バナー
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -482,6 +493,10 @@ ja:
     sms: SMS
     "time zones": タイムゾーン
     "week/day/month": 週/日/月
+  works_best_in: "最適なページ："
+  clipboard_copied: "コピーしました"
+  clipboard_error: "エラー"
+  copy_to_clipboard: "クリップボードにコピー"
 ko:
   next: 다음
   previous: 이전
@@ -524,6 +539,7 @@ ko:
     "android push": Android 푸시
     "in-app message": 인앱 메시지
     "content cards": 콘텐츠 카드
+    banners: 배너
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -676,6 +692,10 @@ ko:
     sms: SMS
     "time zones": 시간대
     "week/day/month": 주/일/월
+  works_best_in: "최적 페이지:"
+  clipboard_copied: "복사됨"
+  clipboard_error: "오류"
+  copy_to_clipboard: "클립보드에 복사"
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -718,6 +738,7 @@ pt-br:
     "android push": Push Android
     "in-app message": Mensagem no app
     "content cards": Content Cards
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -749,6 +770,10 @@ pt-br:
   agents_use_case_tag_labels:
     "canvas agent": Agente de Canvas
     "catalog agent": Agente de catálogo
+  works_best_in: "Funciona melhor em:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Erro"
+  copy_to_clipboard: "Copiar para a área de transferência"
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -791,6 +816,7 @@ es:
     "android push": Push Android
     "in-app message": Mensaje in-app
     "content cards": Tarjetas de contenido
+    banners: Banners
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -822,6 +848,10 @@ es:
   agents_use_case_tag_labels:
     "canvas agent": Agente de Canvas
     "catalog agent": Agente de catálogo
+  works_best_in: "Funciona mejor en:"
+  clipboard_copied: "Copiado"
+  clipboard_error: "Error"
+  copy_to_clipboard: "Copiar al portapapeles"
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -864,6 +894,7 @@ de:
     "android push": Android-Push
     "in-app message": In-App-Nachricht
     "content cards": Content Cards
+    banners: Banner
     "sms/mms": SMS/MMS
     rcs: RCS
     line: LINE
@@ -895,3 +926,7 @@ de:
   agents_use_case_tag_labels:
     "canvas agent": Canvas-Agent
     "catalog agent": Katalog-Agent
+  works_best_in: "Am besten geeignet für:"
+  clipboard_copied: "Kopiert"
+  clipboard_error: "Fehler"
+  copy_to_clipboard: "In die Zwischenablage kopieren"

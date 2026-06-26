@@ -212,4 +212,4 @@ Pour vérifier que votre nouveau connecteur Shopify est en production, testez le
 - **Personnalisations du SDK (facultatif) :** Si vous avez effectué des personnalisations de votre intégration Braze et Shopify (comme la journalisation d'événements personnalisés ou d'attributs), vérifiez qu'elles fonctionnent correctement après la mise à niveau.
 - **Collecte d'abonnés e-mail ou SMS (facultatif) :** Si vous aviez précédemment activé la collecte d'abonnés e-mail ou SMS, de nouveaux groupes d'abonnement par défaut seront créés pour refléter le dernier statut de vos abonnés lors de la mise à niveau. Les groupes d'abonnement par défaut porteront le nom de votre vitrine Shopify. Ces nouveaux groupes d'abonnement par défaut seront disponibles environ 5 heures après la mise à niveau, et vous devrez les ajouter à vos messages actifs.
 
-Si vous avez des questions, [contactez l'assistance](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Si vous avez des questions, [contactez l'assistance]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

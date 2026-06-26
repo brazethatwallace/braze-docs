@@ -28,7 +28,7 @@ description: "この記事では、Canvasのリンクエイリアス一覧エン
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `canvas_step_id` | 必須 | 文字列 | [キャンバスステップAPI識別子](https://www.braze.com/docs/api/identifier_types/#canvas-api-identifier)を参照してください。 |
+| `canvas_step_id` | 必須 | 文字列 | [キャンバスステップAPI識別子]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)を参照してください。 |
 | `message_variation_id ` | 必須 | 文字列 | メッセージバリアントAPI識別子（そのステップのメールメッセージバリアント用）。これは、**Canvas詳細**ページで**Analyze Variants**をクリックすると確認できます。 |
 | `includes_link_id` | オプション | 文字列 | 特定のリンク識別子（Brazeによって割り当てられたもの）または`null`。これは結果を特定の`link_id`でフィルタリングするために使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -66,8 +66,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | Canvas API IDはAPI識別子である必要があります。これは[Canvas一覧エクスポートエンドポイント](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvases/)を使用するか、ダッシュボードにログインして確認できます。 |
-| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[Canvas詳細エクスポートエンドポイント](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvas_details/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Canvas ID` | Canvas API IDはAPI識別子である必要があります。これは[Canvas一覧エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/)を使用するか、ダッシュボードにログインして確認できます。 |
+| `Missing/Invalid Message Variant ID` | メッセージバリアントAPI IDはAPI識別子である必要があります。これは[Canvas詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を使用するか、ダッシュボードにログインして確認できます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

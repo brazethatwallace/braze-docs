@@ -73,14 +73,12 @@ ID 공급자에서 Braze 설정을 완료하면 ID 공급자가 Braze 계정에 
 
 보안 설정을 저장하고 로그아웃합니다. 그런 다음 ID 공급자를 사용하여 다시 로그인합니다.
 
-![SSO가 활성화된 대시보드 로그인 화면]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## RelayState 설정하기 {#setting-up-your-relaystate}
 
 1. Braze에서 **설정** > **API 키**로 이동합니다.
 2. **API 키** 탭에서 **API 키 생성** 버튼을 선택합니다.
 3. **API 키 이름** 필드에 키 이름을 입력합니다.
-4. **권한** 아래의 **SSO** 드롭다운을 확장하고 **sso.saml.login**을 체크합니다.<br><br>![sso.saml.login이 체크된 "권한" 섹션.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. **권한** 아래의 **SSO** 드롭다운을 확장하고 **sso.saml.login**을 체크합니다.
 5. **API 키 생성**을 선택합니다.
 6. **API 키** 탭에서 생성한 API 키 옆의 식별자를 복사합니다.
 7. RelayState API 키를 IdP의 RelayState에 붙여넣습니다(IdP에 따라 "Relay State" 또는 "Default Relay State"로 표시될 수 있습니다).
@@ -171,11 +169,11 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 RelayState가 올바르게 구성되지 않은 경우 이 문제가 발생할 수 있습니다. IdP 로그인을 위한 API 키를 생성(**설정** > **API 키**)하고 해당 API 키를 IdP에서 `RelayState` 매개변수로 설정했는지 확인하세요. RelayState는 로그인하려는 회사 계정을 식별합니다. 단계별 지침은 [RelayState 설정하기](#setting-up-your-relaystate)를 참조하세요.
 
-여전히 로그인할 수 없는 경우, 가능하면 SAML 트레이스와 함께 [Braze 고객지원에 문의]({{site.baseurl}}/braze_support/)하세요. 트레이스 캡처에 대한 도움말은 [SAML 트레이스 얻기](#obtaining-a-saml-trace)를 참조하세요.
+여전히 로그인할 수 없는 경우, 가능하면 SAML 트레이스와 함께 [Braze 고객지원에 문의]({{site.baseurl}}/braze_support)하세요. 트레이스 캡처에 대한 도움말은 [SAML 트레이스 얻기](#obtaining-a-saml-trace)를 참조하세요.
 
 ### 사용자가 Okta와 Braze 사이에서 로그인 루프에 빠져 있나요? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-사용자가 Okta SSO와 Braze 대시보드 사이를 순환하며 로그인할 수 없는 경우, Okta로 이동하여 SSO URL 대상을 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)(예: `https://dashboard-07.braze.com`)로 설정해야 합니다.
+사용자가 Okta SSO와 Braze 대시보드 사이를 순환하며 로그인할 수 없는 경우, Okta로 이동하여 SSO URL 대상을 [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)(예: `https://dashboard-07.braze.com`)로 설정해야 합니다.
 
 다른 IdP를 사용하는 경우, 회사에서 올바른 SAML 또는 x.509 인증서를 Braze에 업로드했는지 확인하세요.
 
@@ -201,5 +199,5 @@ Google SSO 적용이 활성화되면 사용자는 Google 인증으로 로그인�
 
 SAML SSO를 설정한 후 다음을 수행할 수 있습니다:
 
-- 보안 설정에서 [SSO 전용 로그인 적용]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction)을 설정하여 사용자가 비밀번호로 로그인하는 것을 제한합니다.
-- [SAML 적시 프로비저닝 설정]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)을 통해 새 사용자가 첫 SSO 로그인 시 자동으로 Braze 계정을 생성하도록 합니다.
+- 보안 설정에서 [SSO 전용 로그인 적용]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction)을 설정하여 사용자가 비밀번호로 로그인하는 것을 제한합니다.
+- [SAML 적시 프로비저닝 설정]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)을 통해 새 사용자가 첫 SSO 로그인 시 자동으로 Braze 계정을 생성하도록 합니다.

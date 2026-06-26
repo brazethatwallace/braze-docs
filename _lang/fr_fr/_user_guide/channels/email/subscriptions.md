@@ -62,7 +62,7 @@ Utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/po
 1. Trouvez l'utilisateur via **Search Users**.
 2. Sous **Engagement**, sélectionnez **Unsubscribed**, **Subscribed** ou **Opted In** pour modifier l'état d'abonnement de l'utilisateur.
 
-Si disponible, le profil utilisateur affiche également un horodatage indiquant la dernière modification de l'abonnement de l'utilisateur.
+Le profil utilisateur affiche également un horodatage indiquant la dernière modification de l'abonnement de l'utilisateur. Un horodatage est enregistré lorsque l'état est **Opted-in** ou **Unsubscribed**, mais pas lorsque l'état est **Subscribed** — par exemple, un profil nouvellement créé qui n'a jamais explicitement confirmé ou refusé l'abonnement n'a pas d'horodatage d'abonnement.
 
 #### Centre de préférences {#preference-center}
 
@@ -79,7 +79,19 @@ Vous pouvez vérifier l'état d'abonnement e-mail d'un utilisateur de la manièr
 
 Lorsqu'un utilisateur met à jour son adresse e-mail, son état d'abonnement est défini sur « abonné ». Si l'adresse e-mail mise à jour existe déjà ailleurs dans un espace de travail Braze, l'utilisateur hérite de l'état d'abonnement de cet utilisateur existant, sauf si l'option **Resubscribe users when they update their email setting** est activée dans **Sending Configuration**.
 
-Pour résoudre les problèmes liés aux changements d'état d'abonnement, consultez **Email Subscription-State Changes** dans les journaux du profil utilisateur pour l'historique et la source (API ou SDK).
+Pour résoudre les problèmes liés aux changements d'état d'abonnement, consultez **Email Subscription-State Changes** dans les journaux du profil utilisateur pour l'historique et la source. Les sources suivantes peuvent déclencher un changement d'état d'abonnement e-mail :
+
+| Source | Description |
+| ------ | ----------- |
+| SDK | Mise à jour d'attribut utilisateur envoyée via un SDK Braze |
+| REST API | Mise à jour d'attribut utilisateur envoyée via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) |
+| Tableau de bord | État d'abonnement modifié manuellement sur la page du profil utilisateur |
+| Import CSV | État d'abonnement défini lors d'un import CSV d'utilisateurs |
+| Centre de préférences | L'utilisateur a mis à jour ses préférences depuis un centre de préférences hébergé par Braze |
+| Page d'abonnement | L'utilisateur a sélectionné un lien de désabonnement dans un e-mail et a accédé à la page d'abonnement Braze |
+| List-Unsubscribe | L'utilisateur s'est désabonné via l'en-tête list-unsubscribe natif du client de messagerie |
+| Étape de mise à jour utilisateur Canvas | État d'abonnement mis à jour par une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) dans un Canvas |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sources de mise à jour de l'état d'abonnement e-mail" }
 
 Lorsque l'état d'abonnement e-mail global d'un utilisateur change, Braze propage cet état aux autres profils partageant la même adresse e-mail, jusqu'à 100 profils par changement. Braze ne garantit pas la propagation lorsque plus de 100 profils partagent la même adresse e-mail. Si des utilisateurs partageant une adresse e-mail affichent des états d'abonnement différents, contactez l'assistance Braze.
 
@@ -106,7 +118,7 @@ Tous les groupes d'abonnement sont automatiquement ajoutés à votre centre de p
 
 ### Segmentation avec un groupe d'abonnement {#segmenting-with-a-subscription-group}
 
-Lors de la création de vos segments, définissez le nom du groupe d'abonnement comme filtre. Cela garantit que les utilisateurs qui se sont abonnés à votre groupe recevront vos e-mails. C'est idéal pour les newsletters mensuelles, les coupons, les niveaux d'adhésion, et bien plus encore.
+Lors de la création de vos segments, définissez le nom du groupe d'abonnement comme filtre pour cibler les utilisateurs qui se sont abonnés à votre groupe. C'est idéal pour les newsletters mensuelles, les coupons, les niveaux d'adhésion, et bien plus encore.
 
 ![Exemple de ciblage des utilisateurs dans le segment « Utilisateurs inactifs » avec le filtre pour les utilisateurs du groupe d'abonnement « E-mails hebdomadaires ».]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
@@ -129,7 +141,7 @@ Vous pouvez consulter le graphique **Subscription Group Timeseries** sur la page
 
 Si le décompte de la série temporelle diverge fortement d'un segment utilisant **Email Subscription Status is Unsubscribed**, rappelez-vous que le graphique comptabilise l'appartenance à ce **groupe d'abonnement**, tandis que ce filtre reflète l'état d'abonnement e-mail **global** — par exemple, des utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique.
 
-#### Consultation des groupes d'abonnement dans l'analyse des Campaigns {#viewing-subscription-groups-in-campaign-analytics}
+#### Consultation des groupes d'abonnement dans l'analyse des campagnes {#viewing-subscription-groups-in-campaign-analytics}
 
 Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonné ou désabonné) à partir d'une Campaign e-mail spécifique sur la page d'analyse de cette Campaign.
 
@@ -200,9 +212,9 @@ Utilisez un processus de double abonnement pour améliorer votre portée. Braze 
 
 ![E-mail d'abonnement personnalisé avec le message « Heureux de voir que vous souhaitez toujours avoir de nos nouvelles ».]({% image_buster /assets/img/custom_optin.png %})
 
-## Abonnements et ciblage des Campaigns {#subscriptions-and-campaign-targeting}
+## Abonnements et ciblage des campagnes {#subscriptions-and-campaign-targeting}
 
-Par défaut, Braze cible les Campaigns avec des messages push ou e-mail vers les utilisateurs qui sont abonnés ou dont l'abonnement est confirmé. Modifiez cela dans **Target Audience** en sélectionnant le menu déroulant à côté de **Send to these users:**.
+Par défaut, Braze cible les campagnes avec des messages push ou e-mail vers les utilisateurs qui sont abonnés ou dont l'abonnement est confirmé. Modifiez cela dans **Target Audience** en sélectionnant le menu déroulant à côté de **Send to these users:**.
 
 Braze prend en charge trois états de ciblage :
 

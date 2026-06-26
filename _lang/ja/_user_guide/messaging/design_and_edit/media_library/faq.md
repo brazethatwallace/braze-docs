@@ -12,6 +12,8 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 > このページでは、Brazeのメディアライブラリに関するよくある質問への回答を提供します。
 
+## 一般 {#general}
+
 ### メディアライブラリ内の画像にストレージ制限はありますか？ {#are-there-storage-limits-for-images-within-the-media-library}
 
 いいえ、メディアライブラリ内のアセットにストレージ制限はありません。ただし、アセットのサイズ制限（最大5 MB）はあります。
@@ -57,7 +59,7 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 ### AIを使用して画像を生成する {#generate-an-image-using-ai}
 
-**コンテンツ** > **メディアライブラリ**から**AI Image Generator**を選択することで画像を生成できます。**メディアライブラリアセットの編集**権限が必要です。このオプションが表示されない場合は、Brazeカスタマーチームにお問い合わせください。手順とポリシーの詳細については、[BrazeAIで画像を生成する]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/)および[BrazeAIによる画像生成]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)を参照してください。
+**コンテンツ** > **メディアライブラリ**から**AI Image Generator**を選択することで画像を生成できます。**メディアライブラリアセットの編集**権限が必要です。このオプションが表示されない場合は、Brazeカスタマーチームにお問い合わせください。手順とポリシーの詳細については、[BrazeAIで画像を生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images)および[BrazeAIによる画像生成]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)を参照してください。
 
 ### メディアライブラリの画像アセットにバニティURLを作成できますか？ {#can-i-create-vanity-urls-for-media-library-image-assets}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Alpaco
 article_title: Alpaco
-alias: /partners/Alpaco
+alias: /partners/alpaco/
 description: "Braze와 Alpaco 통합을 사용하면 브랜드에 맞는 Liquid 호환 이메일 템플릿과 콘텐츠 블록을 Braze로 내보내어 이메일 및 인앱 메시징에 바로 사용할 수 있습니다."
 page_type: partner
 search_tag: Partner
@@ -24,7 +24,7 @@ Alpaco는 [전체 Liquid](https://shopify.github.io/liquid/) 변수를 지원하
 | Alpaco 계정 | 이 파트너십을 활용하려면 Alpaco 계정이 필요합니다. |
 | Braze REST API 키 | 전체 **템플릿** 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | 클러스터 인스턴스 | Braze [클러스터 인스턴스]({{site.baseurl}}/api/basics/#endpoints)는 Braze 대시보드 및 REST 엔드포인트와 일치합니다. <br><br> 예를 들어, 대시보드 URL이 `https://dashboard-03.braze.com`이면 엔드포인트는 `dashboard-03`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -46,19 +46,19 @@ Braze REST API 키와 클러스터 인스턴스를 Alpaco 고객 성공 팀에 �
 
 ### 1단계: Alpaco에서 템플릿 생성 {#step-1-create-a-template-in-alpaco}
 
-Alpaco에서 브랜드 아이덴티티를 표현하는 템플릿을 생성합니다. 준비가 되면 **Save**를 선택합니다.
+Alpaco에서 브랜드 아이덴티티를 표현하는 템플릿을 생성합니다. 준비가 되면 **저장**을 선택합니다.
 
 ![Alpaco 템플릿 만들기]({% image_buster /assets/img/alpaco/alpaco_1.png %})
 
 ### 2단계: 템플릿을 사용하여 메시지 작성 {#step-2-draft-a-message-using-the-template}
 
-다음으로, Alpaco 로비로 이동하여 템플릿을 사용해 이메일, 인앱 메시지 또는 콘텐츠 블록을 생성합니다. 내보내기 전에 메시지를 다시 확인하려면 **Review**를 선택합니다.
+다음으로, Alpaco 로비로 이동하여 템플릿을 사용해 이메일, 인앱 메시지 또는 콘텐츠 블록을 생성합니다. 내보내기 전에 메시지를 다시 확인하려면 **검토**를 선택합니다.
 
 ![Alpaco 이메일 만들기]({% image_buster /assets/img/alpaco/alpaco_2.png %})
 
 ### 3단계: Braze로 메시지 내보내기 {#step-3-export-your-message-to-braze}
 
-**Export**를 선택한 다음 Braze 통합을 선택하고 이메일 템플릿을 내보낼지 콘텐츠 블록을 내보낼지 지정합니다.
+**내보내기**를 선택한 다음 Braze 통합을 선택하고 이메일 템플릿을 내보낼지 콘텐츠 블록을 내보낼지 지정합니다.
 
 내보내기 후 변경 사항이 있으면 Alpaco에서 콘텐츠를 다시 내보내어 Braze에서 업데이트할 수 있습니다.
 

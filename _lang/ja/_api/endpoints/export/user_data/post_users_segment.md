@@ -14,7 +14,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 /users/export/segment
 {% endapimethod %}
 
-> このエンドポイントを使用して、Segment内のすべてのユーザーをエクスポートします。
+> このエンドポイントを使用して、セグメント内のすべてのユーザーをエクスポートします。
 
 {% alert important %}
 このエンドポイントを使用する場合は、次の点に注意してください。<br><br>1. このAPIリクエストの`fields_to_export`フィールドは**必須**です。<br>2. `custom_events`、`purchases`、`campaigns_received`、`canvases_received`のフィールドには、過去90日間のデータのみが含まれます。
@@ -26,7 +26,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 **エクスポートの出力形式**: エクスポートが成功し、クラウドストレージ認証情報を設定していない場合、HTTPレスポンスには圧縮アーカイブ（ZIPまたはGZIPファイル）をダウンロードするためのURLが含まれます。クラウドストレージ認証情報（S3、Azure、またはGoogle Cloud Storage）が設定されている場合、Brazeはエクスポートをバケットに直接書き込み、レスポンスにはダウンロードURLは含まれません。エクスポートが失敗した場合は、代わりにメール通知が届きます。クラウドストレージ認証情報を設定すると、大規模なエクスポートで障害が発生する可能性が低くなります。
 {% endalert %}
 
-企業は、このエンドポイントを使用するSegmentごとに、特定の時刻に最大1つのエクスポートを実行できます。エクスポートが完了するのを待ってから、再試行してください。
+企業は、このエンドポイントを使用するセグメントごとに、特定の時刻に最大1つのエクスポートを実行できます。エクスポートが完了するのを待ってから、再試行してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cfa6fa98-632c-4f25-8789-6c3f220b9457 {% endapiref %}
 
@@ -40,7 +40,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 
 ## 認証情報ベースの応答の詳細 {#credentials-based-response-details}
 
-[S3][1]、[Azure][2]、または[Google Cloud Storage][3]の認証情報をBrazeに追加した場合、各ファイルは`segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`のようなキー形式でZIPファイルとしてバケットにアップロードされます。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。通常、Brazeは処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなSegmentをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての`json`ファイルを1つのファイルに連結できます。`output_format`に`gzip`を指定すると、ファイル拡張子は`.zip`ではなく`.gz`になります。
+[S3][1]、[Azure][2]、または[Google Cloud Storage][3]の認証情報をBrazeに追加した場合、各ファイルは`segment-export/SEGMENT_ID/YYYY-MM-dd/RANDOM_UUID-TIMESTAMP_WHEN_EXPORT_STARTED/filename.zip`のようなキー形式でZIPファイルとしてバケットにアップロードされます。Azureを使用している場合は、BrazeのAzureパートナー概要ページで**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認してください。通常、Brazeは処理を最適化するために5,000ユーザーごとに1つのファイルを作成します。大きなワークスペース内で小さなセグメントをエクスポートすると、複数のファイルが生成される場合があります。その後、ファイルを展開し、必要に応じてすべての`json`ファイルを1つのファイルに連結できます。`output_format`に`gzip`を指定すると、ファイル拡張子は`.zip`ではなく`.gz`になります。
 
 {% details ZIPのエクスポートパスの内訳 %}
 **ZIP形式:**
@@ -64,7 +64,7 @@ description: "この記事では、「セグメント別ユーザーのエクス
 
 このエンドポイントを使用する際にエクスポートに独自のバケットポリシーを適用するため、独自のS3またはAzure認証情報を設定することを強くお勧めします。クラウドストレージの認証情報がない場合は、リクエストへの応答で、すべてのユーザーファイルを含むZIPファイルをダウンロードできるURLが提供されます。URLは、エクスポートの準備ができた後にのみ有効な場所になります。
 
-クラウドストレージ認証情報を提供しない場合は、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザーの数によっては、ファイルが大きすぎるとファイル転送が失敗することがあります。ベストプラクティスは、`fields_to_export`を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのSegmentに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000から2,000の間のSegmentを作成します）。
+クラウドストレージ認証情報を提供しない場合は、このエンドポイントからエクスポートできるデータ量に制限があることに注意してください。エクスポートするフィールドやユーザーの数によっては、ファイルが大きすぎるとファイル転送が失敗することがあります。ベストプラクティスは、`fields_to_export`を使用してエクスポートするフィールドを指定し、転送サイズを抑えるために必要なフィールドのみを指定することです。ファイルの生成でエラーが発生する場合は、ランダムバケット番号に基づいてユーザー群をより多くのセグメントに分割することを検討してください（たとえば、ランダムバケット番号が1,000未満、または1,000から2,000の間のセグメントを作成します）。
 
 どちらのシナリオでも、オプションで`callback_endpoint`を指定して、エクスポートの準備が整ったときに通知を受け取ることができます。`callback_endpoint`が指定されている場合、Brazeはダウンロードの準備ができたときに、指定されたアドレスにPOSTリクエストを行います。POSTの本文は"success":trueです。S3認証情報をBrazeに追加していない場合、POSTの本文にはダウンロードURLを値として持つ属性`url`が追加されます。
 
@@ -90,7 +90,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------------------------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `segment_id` | 必須 | 文字列 | エクスポートするSegmentの識別子。[Segment識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>特定のSegmentの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから確認できます。または、[Segment一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用することもできます。 |
+| `segment_id` | 必須 | 文字列 | エクスポートするセグメントの識別子。[セグメント識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br>特定のセグメントの`segment_id`は、Brazeアカウントの[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから確認できます。または、[セグメント一覧エンドポイント]({{site.baseurl}}/api/endpoints/export/segments/get_segment/)を使用することもできます。 |
 | `callback_endpoint` | オプション | 文字列 | エクスポートが利用可能になったときにダウンロードURLをPOSTするエンドポイント。 |
 | `fields_to_export` | 必須* | 文字列の配列 | エクスポートするユーザーデータフィールドの名前。このパラメーターに`custom_attributes`を含めることで、すべてのカスタム属性をエクスポートすることもできます。エクスポートできるフィールドの完全なリストについては、[エクスポートするフィールド](#fields-to-export)を参照してください。 |
 | `custom_attributes_to_export` | オプション | 文字列の配列 | エクスポートする特定のカスタム属性の名前（最大500個）。このパラメーターを使用する場合は、`fields_to_export`から`custom_attributes`を省略してください。省略しないと、Brazeはこのリストに関係なくすべてのカスタム属性をエクスポートします。ダッシュボードでカスタム属性を作成および管理するには、**データ設定** > **カスタム属性**に移動してください。 |
@@ -160,7 +160,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `phone` | 文字列 | Brazeにインポートされた形式のユーザーの電話番号。たとえば、電話番号を追加するリクエストが`1234567890`として送信された場合、同じ形式でエクスポートされます。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | ユーザーのプッシュトークンに関する情報。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布Segmentを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignおよびCanvasesのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
@@ -172,9 +172,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 - `custom_events`、`purchases`、`campaigns_received`、および`canvases_received`のフィールドには、過去90日間のデータのみが含まれます。
 - `custom_events`と`purchases`の両方に、`first`と`count`のフィールドが含まれています。これらのフィールドは両方とも全期間の情報を反映しており、過去90日間のデータに限定されません。たとえば、特定のユーザーが90日以上前にイベントを最初に実行した場合、これは`first`フィールドに正確に反映され、`count`フィールドは過去90日より前に発生したイベントも考慮します。
 - 企業がエンドポイントレベルで実行できる同時セグメントエクスポートの数は100に制限されています。この制限を超えると、エラーが発生します。
-- 最初のエクスポートジョブの実行中にSegmentを2回目にエクスポートしようとすると、429エラーが発生します。
+- 最初のエクスポートジョブの実行中にセグメントを2回目にエクスポートしようとすると、429エラーが発生します。
 - [`403 Forbidden`レスポンス]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads)は、多くの場合、エクスポートファイルがまだ準備できていないことを意味します。
-- サブスクリプショングループのデータは、セグメントエクスポートでは利用できません。サブスクリプションステータスでユーザーを特定するには、サブスクリプショングループのメンバーシップに基づいて別のSegmentを作成し、そのSegmentをエクスポートしてください。
+- サブスクリプショングループのデータは、セグメントエクスポートでは利用できません。サブスクリプションステータスでユーザーを特定するには、サブスクリプショングループのメンバーシップに基づいて別のセグメントを作成し、そのセグメントをエクスポートしてください。
 
 ## 応答 {#response}
 
@@ -268,7 +268,8 @@ APIレスポンスに`object_prefix`が表示され、データをダウンロ�
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -414,7 +415,8 @@ APIレスポンスに`object_prefix`が表示され、データをダウンロ�
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],

@@ -224,15 +224,31 @@ Vous pouvez ajouter des variantes supplémentaires en sélectionnant le bouton p
 ![Deux exemples de variantes dans un Canvas Braze.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-Par défaut, l'affectation de la variante du Canvas est déterminée par une fonction de l'ID utilisateur et de l'ID Canvas, ce qui signifie qu'un utilisateur donné est systématiquement affecté à la même variante lors d'une ré-entrée, tant que les pourcentages de répartition des variantes restent inchangés. Si vous ajustez la répartition des variantes après le lancement, les utilisateurs peuvent être affectés à des variantes différentes lorsqu'ils ré-entrent dans le Canvas. <br><br>Si vous avez besoin d'un contrôle total sur l'affectation des variantes qui persiste même lorsque la répartition change, vous pouvez créer un générateur de nombres aléatoires en utilisant Liquid, l'exécuter au début de chaque entrée de l'utilisateur dans le Canvas, stocker la valeur en tant qu'attribut personnalisé, puis utiliser cet attribut pour répartir les utilisateurs dans les branches.
+Par défaut, l'affectation de la variante du Canvas est déterminée par un hachage déterministe de l'ID utilisateur et de l'ID Canvas (et non par le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) d'un utilisateur), ce qui signifie qu'un utilisateur donné est systématiquement affecté à la même variante lors d'une ré-entrée, tant que les pourcentages de répartition des variantes restent inchangés. Si vous ajustez la répartition des variantes après le lancement, les utilisateurs peuvent être affectés à des variantes différentes lorsqu'ils ré-entrent dans le Canvas. <br><br>Si vous avez besoin d'une affectation qui reste fixe même lorsque les pourcentages de répartition changent, utilisez une seule variante de Canvas et orientez les utilisateurs avec une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/). Au début du parcours, utilisez une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) pour stocker un nombre aléatoire dans un attribut personnalisé, puis filtrez sur cet attribut dans les Parcours d'audience.
 
 {% details Développer pour les étapes %}
 
-1. Créez un attribut personnalisé pour stocker votre nombre aléatoire. Nommez-le de manière facile à retrouver, comme « lottery_number » ou « random_assignment ». Vous pouvez créer l'attribut soit [dans votre tableau de bord]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/), soit via des appels API à notre [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).<br><br>
-2. Créez une Campaign webhook au début de votre Canvas. Cette Campaign sera le moyen par lequel vous créerez votre nombre aléatoire et le stockerez en tant qu'attribut personnalisé. Consultez [Créer un webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#step-1-set-up-a-webhook) pour en savoir plus. Définissez l'URL vers notre endpoint `/users/track`.<br><br>
-3. Créez le générateur de nombres aléatoires. Vous pouvez le faire avec le code [décrit ici](https://community.shopify.com/c/technical-q-a/is-there-any-way-to-generate-random-number-with-liquid-shopify/m-p/1595486), qui tire parti de l'heure d'entrée unique de chaque utilisateur pour créer un nombre aléatoire. Définissez le nombre résultant comme variable Liquid dans votre Campaign webhook.<br><br>
-4. Formatez l'appel `/users/track` dans votre Campaign webhook de sorte qu'il définisse l'attribut personnalisé créé à l'étape 1 sur le nombre aléatoire que vous avez généré dans le profil de l'utilisateur actuel. Lorsque cette étape s'exécute, vous aurez réussi à créer un nombre aléatoire qui change à chaque entrée d'un utilisateur dans votre Campaign.<br><br>
-5. Ajustez les branches de votre Canvas de sorte qu'au lieu d'être réparties par variantes choisies aléatoirement, elles soient réparties en fonction de règles d'audience. Dans les règles d'audience de chaque branche, définissez le filtre d'audience en fonction de votre attribut personnalisé. <br><br>Par exemple, une branche peut avoir « lottery_number est inférieur à 3 » comme filtre d'audience, tandis qu'une autre branche peut avoir « lottery_number est supérieur à 3 et inférieur à 6 » comme filtre d'audience.
+1. Créez un attribut personnalisé de type **Nombre** pour stocker votre nombre aléatoire. Nommez-le de manière facile à retrouver, comme `lottery_number` ou `random_assignment`. Dans votre tableau de bord, accédez à **Paramètres des données** > **Attributs personnalisés**.<br><br>
+2. Utilisez une seule variante de Canvas (ou ajoutez la même étape Mise à jour utilisateur à chaque variante). Ajoutez une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) au début du parcours. Cette étape génère et stocke le nombre aléatoire avant que les utilisateurs n'atteignent votre étape Parcours d'audience.<br><br>
+3. Dans l'étape Mise à jour utilisateur, sélectionnez l'[éditeur JSON avancé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#advanced-json-editor). Utilisez la balise {% raw %}{% random %}{% endraw %} pour générer le nombre. Pour plus de détails, consultez [Envoyer des messages avec un nombre aléatoire]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#send-messages-with-a-random-number). Par exemple, {% raw %}`{% random 10 %}`{% endraw %} renvoie un entier de 0 à 9. Définissez l'attribut personnalisé de l'étape 1 en utilisant un JSON comme celui-ci :<br><br>{% raw %}
+```json
+{% if {{custom_attribute.${lottery_number}}} == blank %}
+{% capture lottery_number_str %}{% random 10 %}{% endcapture %}
+{
+  "attributes": [
+    {
+      "lottery_number": {{ lottery_number_str | plus: 0 }}
+    }
+  ]
+}
+{% endif %}
+```
+{% endraw %}
+<br><br>
+Le bloc {% raw %}`{% if %}`{% endraw %} ne définit le nombre que lorsque l'attribut est vide, de sorte que les utilisateurs conservent la même affectation lorsqu'ils ré-entrent dans le Canvas.<br><br>
+
+{: start="4"}
+4. Ajoutez une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) après l'étape Mise à jour utilisateur. Dans chaque groupe d'audience, ajoutez des filtres basés sur votre attribut personnalisé au lieu d'utiliser les pourcentages de répartition des variantes.<br><br>Par exemple, si vous avez utilisé {% raw %}`{% random 10 %}`{% endraw %}, un groupe pourrait utiliser `lottery_number` **est inférieur à 4**, un autre **est supérieur à 3 et inférieur à 7**, et un troisième **est supérieur à 6 et inférieur à 10**.
 
 {% enddetails %}
 {% endalert %}
@@ -313,13 +329,11 @@ Pour déplacer une connexion entre des étapes, sélectionnez la flèche reliant
 
 Si une seule variante comporte plusieurs branches avec la même audience et le même horaire d'envoi, Braze ne garantit pas une répartition égale entre ces branches. La répartition peut favoriser la branche créée en premier. Pour une répartition égale, utilisez des filtres de [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) sur chaque branche. Pour en savoir plus, consultez [Que se passe-t-il si l'audience et l'horaire d'envoi sont identiques pour un Canvas qui a une variante, mais plusieurs branches ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
-Si une seule variante comporte plusieurs branches avec la même audience et le même horaire d'envoi, Braze ne garantit pas une répartition égale entre ces branches. La distribution peut favoriser la branche créée en premier. Pour une répartition égale, utilisez des filtres de [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) sur chaque branche. Pour en savoir plus, consultez [Que se passe-t-il si l'audience et l'horaire d'envoi sont identiques pour un Canvas qui a une variante, mais plusieurs branches ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
-
 ## Étape 3 : Ajouter un groupe de contrôle {#step-3-add-a-control-group}
 
 Vous pouvez ajouter un groupe de contrôle à votre Canvas en sélectionnant le bouton plus <i class="fas fa-plus-circle"></i> pour ajouter une nouvelle variante.
 
-Braze suivra les conversions des utilisateurs placés dans le groupe de contrôle, bien qu'ils ne recevront aucun message. Pour préserver un test précis, nous suivrons le nombre de conversions pour vos variantes et le groupe de contrôle pendant exactement la même durée, comme indiqué sur l'écran de sélection des événements de conversion.
+Braze suivra les conversions des utilisateurs placés dans le groupe de contrôle, bien qu'ils ne reçoivent aucun message. Pour préserver un test précis, nous suivrons le nombre de conversions pour vos variantes et le groupe de contrôle pendant exactement la même durée, comme indiqué sur l'écran de sélection des événements de conversion.
 
 Vous pouvez ajuster la répartition entre vos messages en double-cliquant sur les en-têtes **Nom de la variante**.
 
