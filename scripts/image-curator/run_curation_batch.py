@@ -55,6 +55,40 @@ def has_open_ic_pr() -> bool:
     return any(title.startswith(PR_TITLE_PREFIX) for title in titles)
 
 
+def _path_in_line_pattern(image_path: str) -> str:
+    """Regex fragment for image_path with optional leading slash."""
+    path = image_path.replace("\\", "/").lstrip("/")
+    return rf"/?{re.escape(path)}"
+
+
+def strip_image_markup_by_path(line: str, image_path: str) -> tuple[str, bool]:
+    """Remove image markup containing image_path; leave other line content intact."""
+    if not image_path.strip():
+        return line, False
+
+    path_pat = _path_in_line_pattern(image_path)
+    patterns = (
+        rf"!\[[^\]]*\]\(\s*(?:\{{%[^%]*image_buster\s+)?{path_pat}[^)]*\)",
+        rf"\{{%[^%]*image_buster\s+{path_pat}[^%]*%\}}",
+        rf"<img\b[^>]*\bsrc=[\"'][^\"']*?{path_pat}[^\"']*[\"'][^>]*>",
+    )
+
+    new_line = line
+    removed = False
+    for pattern in patterns:
+        new_line, count = re.subn(pattern, "", new_line, count=1, flags=re.I)
+        if count:
+            removed = True
+            break
+
+    if not removed:
+        return line, False
+
+    new_line = re.sub(r"\s*<br\s*/?>\s*$", "", new_line.rstrip(), flags=re.I)
+    new_line = re.sub(r"\s*<br\s*/?>\s*(?=\s*$)", "", new_line, flags=re.I)
+    return new_line.rstrip(), True
+
+
 def find_image_line_index(
     lines: list[str],
     match_line: str,
@@ -118,10 +152,17 @@ def remove_image_line(
         if not new_line.strip():
             del lines[idx]
         else:
-            lines[idx] = new_line + "\n"
+            lines[idx] = new_line + ("\n" if line.endswith("\n") else "")
         return "".join(lines), True
 
-    del lines[idx]
+    new_line, removed = strip_image_markup_by_path(line, image_path)
+    if not removed:
+        return content, False
+
+    if not new_line.strip():
+        del lines[idx]
+    else:
+        lines[idx] = new_line + ("\n" if line.endswith("\n") else "")
     return "".join(lines), True
 
 
