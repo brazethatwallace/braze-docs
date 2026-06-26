@@ -35,7 +35,7 @@ An [API-triggered campaign]({{site.baseurl}}/user_guide/messaging/campaigns/sche
 To configure your campaign, perform the following steps:
 
 1. Add a descriptive title so you can find the results on our campaigns page after you've sent your messages.
-2. Click **Add Message** and add the messages types which will be included in your API campaign. This will allow you to generate a `campaign_id` and a message variation ID, which differs for each channel you include.
+2. Click **Add Message** and add the message types included in your API campaign. This allows you to generate a `campaign_id` and a message variation ID, which differs for each channel you include.
 3. Optionally, You can add a conversion event to track user conversions on a specific action or campaign goal.
 4. Click **Save Campaign** and you're set to begin your API campaign!
 
