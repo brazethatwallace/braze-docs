@@ -123,8 +123,6 @@ After launch, review results in:
 - The landing page analytics view for landing page surveys
 {% endif %}
 
-![Landing page analytics tab.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 Top-level analytics include:
 
 - **All responses:** Total complete and incomplete responses

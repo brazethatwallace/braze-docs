@@ -9,7 +9,7 @@ description: "이 문서에서는 예약된 API 트리거 캠페인 업데이트
 ---
 {% api %}
 # 예약된 API 트리거 캠페인 업데이트 {#update-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/update
 {% endapimethod %}
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `campaign_id` | 필수 | 문자열 | [Campaign 식별자]({{site.baseurl}}/api/identifier_types/) 참조 |
 | `schedule_id` | 필수 | 문자열 | 업데이트할 `schedule_id` (스케줄 생성 응답에서 얻은 값) |
 | `schedule` | 필수 | 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/) 참조 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

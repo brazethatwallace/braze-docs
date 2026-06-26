@@ -110,7 +110,7 @@ Referências circulares em catálogos não são suportadas. Portanto, o seguinte
 
 ### Adicionar um agente a um campo de catálogo {#add-an-agent-to-a-catalog-field}
 
-![Uma etapa de agente em um campo de catálogo.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Uma etapa de agente em um campo de catálogo.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 Para adicionar um agente ao seu campo de catálogo:
 
@@ -121,8 +121,6 @@ Para adicionar um agente ao seu campo de catálogo:
 5. (Opcional) Ative **Only run when required columns have values** para pular linhas em que uma ou mais colunas de entrada selecionadas estejam em branco. Quando essa opção está ativada, selecione quais das colunas de entrada devem estar preenchidas para que o agente execute — todas as colunas selecionadas começam como obrigatórias por padrão, mas você pode remover qualquer uma que possa ficar vazia sem bloquear a execução.
 6. Decida se o agente deve recalcular os campos quando as linhas do catálogo forem atualizadas. Se você não selecionar esta opção, o agente será executado apenas uma vez por linha.
 7. Selecione **Add fields** para implantar o agente e revisar as estimativas de custo. O modal **Cost estimation** mostra quantas vezes o agente será executado neste catálogo, aproximadamente igual ao número total de linhas. Para continuar, selecione **Confirm**.
-
-![A opção de selecionar "Apply AI agent" para um campo de catálogo.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 ### Práticas recomendadas para agentes de catálogo {#catalog-agent-best-practices}
 

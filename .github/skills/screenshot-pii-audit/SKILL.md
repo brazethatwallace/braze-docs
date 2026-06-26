@@ -34,3 +34,15 @@ Load and follow [workflows/audit-changed-images.md](workflows/audit-changed-imag
 | **Sidecar file** | `<image>.pii-audit-dismiss.json` documents false positives in-repo. |
 
 Style guide: [docs/contributing/style_guide/image_style_guide.md](../../../docs/contributing/style_guide/image_style_guide.md)
+
+## Code snippets (fenced blocks)
+
+English markdown under `_docs/` and root `_includes/` can be scanned without OCR:
+
+```bash
+python3 scripts/check_snippet_pii.py _docs/path/to/page.md
+```
+
+- Shared patterns live in `scripts/pii_text_scan.py` (snippet rules skip alphanumeric `external_id` values and relax numeric IDs when placeholders like `YOUR_REST_API_KEY` appear).
+- CI: **Check snippet PII (advisory)** — warning-only, does not block merge.
+- Dismissals: `_docs/path/to/page.md.pii-audit-dismiss.json` (same JSON as screenshot sidecars).

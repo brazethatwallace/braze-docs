@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 ---
 {% api %}
 # Excluir usuários {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids`       | Opcional | Array de strings           | Identificadores de usuário da Braze a serem excluídos.                                                  |
 | `email_addresses` | Opcional | Array de strings           | E-mails de usuários a serem excluídos. Para saber mais, consulte [Exclusão de usuários por e-mail](#deleting-users-by-email).                                                             |
 | `phone_numbers` | Opcional | Array de strings | Números de telefone do usuário a serem excluídos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Exclusão de usuários por endereços de e-mail e números de telefone {#deleting-users-by-email-addresses-and-phone-numbers}
 

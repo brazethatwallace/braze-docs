@@ -10,17 +10,14 @@ description: "このリファレンス記事では、Brazeダッシュボード�
 
 > キャンペーン、Canvas、セグメント全体で使用するタグを一元的に管理できます。タグの名前変更、削除、追加を行うには、**設定** > **タグ管理**に移動します。
 
-キャンペーン、Canvas、セグメント、カスタムデータにタグを追加する方法については、[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)を参照してください。
+キャンペーン、Canvas、セグメント、カスタムデータにタグを追加する方法については、[タグ]({{site.baseurl}}/user_guide/messaging/governance/tags)を参照してください。
 
 ## タグのネスト {#nesting-tags}
 
 タグをさらに整理するために、親タグの下にネストできます。たとえば、すべてのホリデータグを親タグ `Holidays` の下にネストしたり、マーケティングファネルのステージに関連するすべてのタグを親タグ `Funnel` の下にネストしたりできます。
 
-![ネストされたグループごとに整理されたタグのリストを表示するタグ管理ページ。]({% image_buster /assets/img_archive/tags_view.png %})
-
-新しいタグをネストするには、タグを作成し、**Nest Tag Under**を選択して、新しいタグをネストする既存のタグを選択します。
-
-既存のタグをネストするには、**タグ管理**ページに移動し、タグのある行にカーソルを合わせて**<i class="fas fa-pencil-alt"></i>Edit**を選択します。次に、**Nest Tag Under**を選択して親タグを選択します。
+- **新しいタグをネストする:** タグを作成し、**Nest Tag Under**を選択して、新しいタグをネストする既存のタグを選択します。
+- **既存のタグをネストする:** **タグ管理**ページに移動し、タグのある行にカーソルを合わせて**<i class="fas fa-pencil-alt"></i>Edit**を選択します。次に、**Nest Tag Under**を選択して親タグを選択します。
 
 ### 親タグが使用中だが **Nest Tag Under** に表示されない場合 {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
@@ -41,7 +38,7 @@ table td {
 </style>
 
 
-<table aria-label="ベストプラクティス">
+<table aria-label="ベストプラクティス #tags-best-practices">
   <caption>ベストプラクティス</caption>
 <thead>
   <tr>
@@ -85,7 +82,7 @@ table td {
 
 ### レポート {#reporting}
 
-エンゲージメントレポートを設定して、特定のタグが付いたすべてのキャンペーンのボリュームを監視します。たとえば、すべてのプッシュキャンペーンを監視したい場合は、それらのキャンペーンに `Push Reporting` のようなタグを追加し、[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)を設定して、タグ付けされたキャンペーンのレポートを毎日送信するようにできます。
+エンゲージメントレポートを設定して、特定のタグが付いたすべてのキャンペーンのボリュームを監視します。たとえば、すべてのプッシュキャンペーンを監視したい場合は、それらのキャンペーンに `Push Reporting` のようなタグを追加し、[エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)を設定して、タグ付けされたキャンペーンのレポートを毎日送信するようにできます。
 
 {% endtab %}
 {% endtabs %}

@@ -62,12 +62,24 @@ If a device isn't connected to the internet, there may be a delay in creating th
 
 For a full list of events that Currents logs, refer to the [Customer behavior events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) and [Message engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) glossaries. You can filter these glossaries by event type (such as sends, deliveries, or opens).
 
-## Why does the `external_id` in my Currents email open or click event differ from the user profile in the Braze dashboard?
+## Why do my Currents event counts not match my dashboard or Engagement Report metrics?
+
+Currents and the Braze dashboard calculate certain metrics differently, so exact matches between Currents events and dashboard metrics are not expected.
+
+**Unique clicks:** For email, the dashboard tracks unique clicks over a seven-day period and measures them by `dispatch_id`. Currents records each raw click event. To align Currents-based unique click counts with dashboard metrics, filter for events where `is_unique` is `true`.
+
+**Unsubscribes:** The dashboard *Unsub* metric reflects clicks on Braze's standard unsubscribe link. Custom unsubscribe pages do not increment this metric unless you update the user through the API. The Currents `users.messages.email.Unsubscribe` event is a specialized click event that fires when a user clicks an unsubscribe link in the email body or footer, or through the list-unsubscribe header. It does not represent every email subscription state change.
+
+**Timestamps and time zones:** All Currents timestamps are in UTC. Dashboard metrics follow your company's time zone. Aggregating Currents data by calendar day without converting to your company's time zone can cause counts to fall in different date buckets than they appear in the dashboard.
+
+**Duplicate events:** Currents provides at-least-once delivery, meaning duplicate events can occasionally be written. Deduplicate by the unique `id` field on each event before comparing totals to dashboard metrics.
+
+## Why does the `external_user_id` (Braze schema: `external_id`) in my Currents email open or click event differ from the user profile in the Braze dashboard?
 
 - **In the Braze dashboard:** When a user associated with an email address opens or clicks an email, all user profiles that share that email address are marked as having opened or clicked that email. For more information, see [What happens when an email is sent out, and multiple profiles have the same email address?]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 - **In Currents:** That same open or click is stored on one profile. Braze attributes it to the profile that was originally targeted for the send if that profile still shares the email address. Otherwise, Braze attributes it to one randomly selected profile among those that share the email address.
 
-Because of this, the `external_id` on a Currents email open or click event may not match the user profile you expect when you compare Currents to the Braze dashboard.
+Because of this, the `external_user_id` value (named `external_id` in the Braze schema mapping table) on a Currents email open or click event may not match the user profile you expect when you compare Currents to the Braze dashboard.
 
 ## Are all send events logged to Currents?
 
@@ -80,6 +92,12 @@ Under normal circumstances, Currents data is not corrupted. While there is alway
 ## Why do I see custom event data dated before my Currents integration was set up?
 
 Braze does not backfill events to Currents. However, custom events can be logged with a past timestamp (for example, if a device was offline when the event occurred and synced later). In these cases, the event timestamp reflects when the event originally occurred, which may be before the Currents integration was configured.
+
+## What user identifiers are included in Currents events?
+
+Message engagement events (sends, opens, clicks, and so on) include the Braze user ID (`user_id`) and, when present on the profile, the external identifier (`external_user_id` in event payloads, labeled as `external_id` in the Braze schema mapping table). Some email message engagement events also include `email_address`. Custom attributes are not included—see below.
+
+If you are routing Currents data to a warehouse or CRM and need to join on profile data, perform that join in your downstream system using `user_id` or `external_user_id`.
 
 ## Can I include custom attributes in Currents send events?
 

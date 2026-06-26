@@ -12,8 +12,8 @@ El SDK de Flutter de Braze te ayuda a integrar las capacidades de mensajería, a
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter)
+- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction/)
+- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=flutter)
 
 ## Inicio rápido {#quickstart}
 
@@ -79,7 +79,7 @@ _braze = new BrazePlugin();
 _braze.changeUser("Jane Doe");
 ```
 
-Consulta [la guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=flutter) para opciones de integración avanzadas.
+Consulta [la guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=flutter) para opciones de integración avanzadas.
 
 ## Compatibilidad de versiones {#version-support}
 

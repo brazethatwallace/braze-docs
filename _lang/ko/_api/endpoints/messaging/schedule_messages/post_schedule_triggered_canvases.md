@@ -10,7 +10,7 @@ description: "이 문서에서는 API 트리거 Canvases 예약하기 Braze 엔�
 ---
 {% api %}
 # API 트리거 Canvases 예약하기 {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 

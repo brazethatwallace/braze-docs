@@ -1,7 +1,7 @@
 ---
 page_order: 0
 article_title: Parceiros de tecnologia
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 

@@ -90,28 +90,28 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 ### Modifier le type de données {#changing-the-data-type}
 
 1. Arrêtez toutes les Campaigns ou tous les Canvas actifs qui utilisent l'attribut dans des segments ou des filtres.
-2. Supprimez l'attribut de tous les filtres de Segments, Campaigns et Canvas.
+2. Supprimez l'attribut de tous les filtres de segments, Campaigns et Canvas.
 3. Accédez à **Paramètres des données** > **Attributs personnalisés** (ou **Événements personnalisés**), trouvez l'attribut et mettez-le à jour avec le type de données souhaité.
 4. Mettez à jour les valeurs de l'attribut sur les profils utilisateur existants pour qu'elles correspondent au nouveau type de données (par exemple, en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)).
-5. Réappliquez l'attribut aux Segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
+5. Réappliquez l'attribut aux segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
 
 ### Points importants {#things-to-know}
 
-- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des Segments correspondants tant que leur profil n'est pas mis à jour.
+- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
-- **Les filtres ne sont pas mis à jour automatiquement.** Les Segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
+- **Les filtres ne sont pas mis à jour automatiquement.** Les segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
 
 ## Consulter les rapports d'utilisation {#view-usage-reports}
 
 Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
-Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des attributs personnalisés, puis en sélectionnant **View usage report**.
+Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des attributs personnalisés, puis en sélectionnant **Consulter le rapport d'utilisation**.
 
 ### Onglet Valeurs {#values-tab}
 
-Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Values** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Values** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
+Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Valeurs** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
 
-![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Values » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Valeurs » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## Définir des attributs personnalisés {#set-custom-attributes}
 

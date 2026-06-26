@@ -9,7 +9,7 @@ description: "이 문서에서는 사용자 추적(대량) 엔드포인트에 �
 
 {% api %}
 # 사용자 추적 (대량) {#track-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 

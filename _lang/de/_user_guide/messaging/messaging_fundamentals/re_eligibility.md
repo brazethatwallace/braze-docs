@@ -22,7 +22,7 @@ Standardmäßig sendet Braze eine Nachricht nur einmal an eine:n Nutzer:in, selb
 
 {% tabs local %}
 {% tab campaign %}
-Um die erneute Berechtigung für eine Campaign zu aktivieren, wählen Sie das Kontrollkästchen **Allow users to become re-eligible to receive campaign** im Abschnitt **Zustellungs-Kontrollgruppen** aus. Die maximale Zeit für die erneute Berechtigung einer Campaign beträgt 720 Tage.
+Um die erneute Berechtigung für eine Campaign zu aktivieren, wählen Sie das Kontrollkästchen **Allow users to become re-eligible to receive campaign** im Abschnitt **Delivery Controls** aus. Die maximale Zeit für die erneute Berechtigung einer Campaign beträgt 720 Tage.
 
 Bei getriggerten Campaigns mit aktivierter erneuter Berechtigung qualifizieren sich Nutzer:innen, die [die Campaign-Nachricht nicht tatsächlich erhalten haben]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#why-did-a-user-not-receive-my-triggered-campaign) (obwohl sie das Trigger-Ereignis ausgelöst haben), automatisch für die Nachricht beim nächsten Mal, wenn sie das Trigger-Ereignis auslösen. Dies liegt daran, dass die erneute Berechtigung auf dem Nachrichtenempfang basiert und nicht auf dem Campaign-Eintritt. Indem Sie Nutzer:innen für eine getriggerte Campaign erneut berechtigen, ermöglichen Sie ihnen, die Nachricht tatsächlich zu erhalten (und nicht nur zu triggern) – und zwar mehr als einmal.
 
@@ -77,6 +77,10 @@ Das bedeutet, dass Nutzer:innen, die die Campaign am 15. Februar erhalten haben,
 ## Erneute Berechtigung für Content Cards {#re-eligibility-for-content-cards}
 
 Wenn die erneute Berechtigung für Content-Card-Kampagnen oder Canvas-Schritte aktiviert ist, kann eine:r Nutzer:in eine weitere Card erhalten, während eine frühere Card derselben Campaign noch in ihrem/seinem Feed vorhanden ist, was wie doppelte Cards aussehen kann. Um Duplikate zu reduzieren, deaktivieren Sie die erneute Berechtigung oder verlängern Sie das Zeitfenster für die erneute Berechtigung, sodass die erste Card [aus dem Feed abläuft]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility), bevor die/der Nutzer:in sich für einen weiteren Versand qualifiziert.
+
+## Erneute Berechtigung für Banner {#re-eligibility-for-banners}
+
+Wenn die erneute Berechtigung für Banner-Kampagnen aktiviert ist, können Nutzer:innen, die ein Banner schließen, nach einem konfigurierbaren Abklingzeitraum ab dem Schließen erneut berechtigt werden. Wenn die erneute Berechtigung nicht aktiviert ist, bleiben Nutzer:innen, die das Banner geschlossen haben, nicht berechtigt. Informationen zur Konfiguration der erneuten Berechtigung finden Sie unter [Erneute Berechtigung konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility). Beachten Sie, dass Canvas-Banner-Schritte stattdessen die Canvas-Wiedereintrittseinstellungen verwenden.
 
 ## Multivariates Testen {#multivariate-testing}
 

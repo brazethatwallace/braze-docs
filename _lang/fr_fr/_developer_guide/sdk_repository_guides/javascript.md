@@ -12,8 +12,8 @@ Le SDK JavaScript de Braze vous aide à intégrer les fonctionnalités d'envoi d
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur de Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=javascript)
+- [Guide utilisateur de Braze]({{site.baseurl}}/user_guide/introduction/)
+- [Guide développeur de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=javascript)
 
 ### Aperçu de l'architecture {#architecture-overview}
 
@@ -28,8 +28,8 @@ Le SDK JavaScript de Braze est une bibliothèque **indépendante de la plateform
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
-- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
+- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Démarrage rapide {#quickstart}
@@ -98,7 +98,7 @@ await logPurchase('sku-1', 9.99, 'USD', 1);
 
 L'objet de configuration d'initialisation nécessite `storageManager`. `networkManager` et `pushManager` sont facultatifs.
 
-**1. StorageManager** - Interface de stockage clé-valeur asynchrone
+**1. StorageManager** — Interface de stockage clé-valeur asynchrone
 ``` typescript
 interface StorageManager {
   store(key: string, value: string, isId?: boolean): Promise<void>;
@@ -110,7 +110,7 @@ interface StorageManager {
 - Le paramètre `isId` indique un **stockage d'identifiant persistant** : lorsqu'il est `true`, le SDK stocke un identifiant persistant (ID d'appareil, ID utilisateur) ou le drapeau de désinscription. Les implémentations doivent persister ces données entre les redémarrages de l'application afin que le SDK puisse reconnaître le même appareil/utilisateur. Lorsqu'il est `false`, la valeur est une donnée de session/cache (événements, attributs, etc.) et peut être uniquement en mémoire. Pour les environnements web, envisagez d'utiliser des cookies pour les clés stockées avec `isId: true` afin d'assurer la persistance entre les sessions.
 - Doit gérer les opérations asynchrones pour toutes les opérations de stockage
 
-**2. NetworkManager** (facultatif) - Interface de requête HTTP POST
+**2. NetworkManager** (facultatif) — Interface de requête HTTP POST
 ``` typescript
 interface NetworkManager {
   postRequest(
@@ -124,7 +124,7 @@ interface NetworkManager {
 - Peut être remplacée si `fetch` n'est pas l'API préférée
 - Remarque : le SDK intègre déjà une logique de réessai et de limitation de débit
 
-**3. PushManager** (facultatif) - Interface de notification push
+**3. PushManager** (facultatif) — Interface de notification push
 ``` typescript
 interface PushManager {
   isPushBlocked(): boolean | undefined;
@@ -631,7 +631,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 **Échecs de validation :**
 - Clé API ou URL de base invalide : `initialize()` retourne `false`, journalise l'erreur
-- Noms d'événements/clés invalides : maximum 255 caractères, ne peuvent pas commencer par `$`, alphanumériques + ponctuation uniquement
+- Noms d'événements/clés invalides : maximum 255 caractères, ne peuvent pas commencer par `$`, alphanumériques et ponctuation uniquement
 - Valeurs d'attributs invalides : chaînes de 255 caractères maximum, pas de retours à la ligne/tabulations/guillemets doubles, ne peuvent pas commencer par `$`
 - Codes de devise invalides : les codes non pris en charge génèrent un avertissement, aucune action effectuée
 - Quantité d'achat invalide : doit être entre 1 et 100, sinon ignorée
@@ -693,7 +693,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 11. **Sécurité des types** : le SDK est écrit en TypeScript avec des définitions de types complètes. Utilisez TypeScript pour une meilleure expérience et une vérification des types.
 
-12. **Règles de validation** : les noms d'événements, les clés d'attributs et les clés de propriétés ont une validation stricte (255 caractères maximum, ne peuvent pas commencer par `$`, alphanumériques + ponctuation uniquement). Les valeurs invalides peuvent être ignorées ou provoquer des erreurs.
+12. **Règles de validation** : les noms d'événements, les clés d'attributs et les clés de propriétés ont une validation stricte (255 caractères maximum, ne peuvent pas commencer par `$`, alphanumériques et ponctuation uniquement). Les valeurs invalides peuvent être ignorées ou provoquer des erreurs.
 
 ## Débogage et résolution des problèmes {#debugging-troubleshooting}
 

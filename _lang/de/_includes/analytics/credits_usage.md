@@ -1,12 +1,12 @@
-# Dashboard für die Credits-Nutzung {#credits-usage-dashboard}
+# Dashboard zur Nutzung von Credits {#credits-usage-dashboard}
 
-> Das Dashboard für die Credits-Nutzung bietet Self-Service-Insights zu Ihrer Credit-Nutzung und ermöglicht einen umfassenden Überblick über die historische und aktuelle Nutzung im Vergleich zu den vertraglich vereinbarten Kontingenten. Diese Insights können Unklarheiten reduzieren und Ihnen helfen, Anpassungen vorzunehmen, um Überschreitungsrisiken zu vermeiden.
+> Das Dashboard zur Nutzung von Credits bietet Self-Service-Insights zu Ihrer Credit-Nutzung und ermöglicht einen umfassenden Überblick über die historische und aktuelle Nutzung im Vergleich zu den vertraglich vereinbarten Kontingenten. Diese Insights können Unklarheiten reduzieren und Ihnen helfen, Anpassungen vorzunehmen, um Überschreitungsrisiken zu vermeiden.
 
 Das Dashboard **Credits Usage** ist in zwei Abschnitte unterteilt:
 - [Übersicht der Credits-Nutzung](#credits-usage-overview)
 - [Kanal-Tabs](#credits-features)
 
-Rufen Sie das Dashboard auf, indem Sie zu **Settings** > **Billing** > **Credits Usage** navigieren.
+Rufen Sie das Dashboard auf, indem Sie zu **Einstellungen** > **Billing** > **Credits Usage** navigieren.
 
 ## Übersicht der Credits-Nutzung {#credits-usage-overview}
 
@@ -20,7 +20,6 @@ Wenn Sie WhatsApp erworben haben, aber keinen Credits-Vertrag haben, wird der Cr
 
 Die Übersichtsdaten zur Credits-Nutzung sind auf den Vertragszeitraum beschränkt, der in der **Credits contract overview** angezeigt wird. Sie können keinen Datumsbereich außerhalb des **Credits period** filtern.
 
-![Tab „Übersicht der Credit-Nutzung“ mit Panels für die Credits-Nutzung und einer Übersicht des Credits-Vertrags.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Credits-Nutzung über den Vertragszeitraum {#credits-usage-over-contract}
 

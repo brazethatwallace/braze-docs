@@ -10,7 +10,7 @@ description: "Este artigo detalha o endpoint síncrono de rastreamento de usuár
 ---
 {% api %}
 # Criar e atualizar usuários (síncrono) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

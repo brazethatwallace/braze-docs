@@ -44,7 +44,7 @@ Utilisez ce champ pour définir la durée pendant laquelle Braze maintient votre
 
 Vous pouvez restreindre la connexion de vos utilisateurs à un mot de passe ou à l'authentification unique (SSO).
 
-Pour l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), les clients doivent configurer leurs paramètres SAML avant d'appliquer cette restriction. Si les clients utilisent Google SSO, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
+Pour l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), les clients doivent configurer leurs paramètres SAML avant d'appliquer cette restriction. Si les clients utilisent Google SSO, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
 
 ## Liste d'adresses IP autorisées du tableau de bord {#dashboard-ip-allowlisting}
 
@@ -111,11 +111,9 @@ Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre co
 
 ## Accès élevé {#elevated-access}
 
-L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
+L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un Segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
 
 Si un utilisateur ne peut pas re-vérifier son identité, il sera redirigé vers l'endroit où il se trouvait et ne pourra pas poursuivre l'action sensible. Après une re-vérification réussie, il n'aura pas besoin de le refaire pendant l'heure suivante, sauf s'il se déconnecte entre-temps.
-
-![Bouton d'activation de l'accès élevé.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Téléchargement d'un rapport d'événements de sécurité {#security-event-report}
 
@@ -129,7 +127,23 @@ Pour télécharger ce rapport, procédez comme suit :
 
 Ce téléchargement manuel de rapport contient uniquement les 10 000 événements de sécurité les plus récents pour votre compte.
 
-Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation d'événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation des événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### Définitions des colonnes CSV {#csv-column-definitions}
+
+Le rapport CSV des événements de sécurité contient les colonnes suivantes :
+
+| Colonne | Description |
+|---------|-------------|
+| CreatedAt | Horodatage de l'enregistrement de l'événement, en UTC. |
+| EmailAtTimeOfEvent | Adresse e-mail de l'utilisateur du tableau de bord qui a déclenché l'événement, telle qu'enregistrée au moment de l'événement. |
+| CurrentEmail | Adresse e-mail actuelle de l'utilisateur du tableau de bord qui a déclenché l'événement. Si l'utilisateur n'existe plus, son identifiant développeur est utilisé à la place. |
+| EventName | Type d'événement de sécurité. Consultez la liste des événements de sécurité signalés ci-dessous. |
+| OtherAccount | Adresse e-mail d'un autre utilisateur du tableau de bord affecté par l'événement, le cas échéant (par exemple, lorsqu'un compte est ajouté ou supprimé). |
+| JsonProperties | Propriétés spécifiques à l'événement au format JSON. Les champs inclus varient selon le type d'événement. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions des colonnes CSV" }
+
+Les [exportations S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluent ces colonnes ainsi que `Version`, la version du schéma pour le format d'exportation (actuellement `1`).
 
 {% details Événements de sécurité signalés %}
 ### Connexion et compte {#login-and-account}
@@ -161,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -215,8 +229,8 @@ Canvas
 - Updated Email Template
 
 ### Identifiant push {#push-credential}
-Updated Push Credential
-Removed Push Credential
+- Updated Push Credential
+- Removed Push Credential
 
 ### Outil de débogage du SDK {#sdk-debugger}
 - Started SDK Debugger Session
@@ -249,15 +263,15 @@ Removed Push Credential
 L'autorisation **Voir les PII** n'est accessible qu'à quelques utilisateurs sélectionnés de l'entreprise. Par défaut, tous les administrateurs ont leur autorisation **Voir les PII** activée dans les autorisations utilisateur. Cela signifie qu'ils peuvent voir tous les attributs standard et personnalisés que votre entreprise a définis comme PII dans l'ensemble du tableau de bord. Lorsque cette autorisation est désactivée pour des utilisateurs, ces derniers ne peuvent voir aucun de ces attributs.
 
 {% alert note %}
-Vous avez besoin de l'autorisation **Voir les PII** pour utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), car il permet un accès direct à certaines données client.
+Vous avez besoin de l'autorisation **Voir les PII** pour utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), car il permet un accès direct à certaines données client.
 {% endalert %}
 
-Pour les capacités existantes d'autorisations d'équipe, consultez [Définir les autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Pour les capacités existantes d'autorisations d'équipe, consultez [Définir les autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Définition des PII {#defining-pii}
 
 {% alert important %}
-La sélection et la définition de certains champs comme champs PII n'affectent que ce que les utilisateurs peuvent voir sur le tableau de bord de Braze et n'ont aucun impact sur la manière dont les données des utilisateurs finaux dans ces champs PII sont traitées.<br><br>Consultez votre équipe juridique pour aligner les paramètres de votre tableau de bord avec les réglementations et politiques de confidentialité applicables à votre entreprise, y compris celles relatives à la [conservation des données]({{site.baseurl}}/data_retention/).
+La sélection et la définition de certains champs comme champs PII n'affectent que ce que les utilisateurs peuvent voir sur le tableau de bord de Braze et n'ont aucun impact sur la manière dont les données des utilisateurs finaux dans ces champs PII sont traitées.<br><br>Consultez votre équipe juridique pour aligner les paramètres de votre tableau de bord avec les réglementations et politiques de confidentialité applicables à votre entreprise, y compris celles relatives à la [conservation des données]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 Vous pouvez sélectionner les champs que votre entreprise désigne comme PII dans le tableau de bord. Pour ce faire, allez dans **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
@@ -328,7 +342,7 @@ Si vous vous retrouvez dans une boucle après avoir saisi avec succès votre num
 3. Redémarrez votre PC ou ordinateur portable.
 4. Tentez à nouveau de configurer la 2FA.
 
-Si le problème persiste après ces étapes, contactez l'[Assistance]({{site.baseurl}}/braze_support/) pour obtenir de l'aide.
+Si le problème persiste après ces étapes, contactez l'[Assistance]({{site.baseurl}}/braze_support) pour obtenir de l'aide.
 
 ### Impossible d'activer l'authentification à deux facteurs (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -352,5 +366,5 @@ Si les problèmes persistent, supprimez l'ancien profil dans l'application Authy
 
 Pour plus d'informations sur l'authentification et l'accès, consultez :
 
-- [SAML et authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) pour configurer le SSO avec votre fournisseur d'identité.
-- [Autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) pour contrôler les actions que les utilisateurs peuvent effectuer dans le tableau de bord.
+- [SAML et authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) pour configurer le SSO avec votre fournisseur d'identité.
+- [Autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) pour contrôler les actions que les utilisateurs peuvent effectuer dans le tableau de bord.

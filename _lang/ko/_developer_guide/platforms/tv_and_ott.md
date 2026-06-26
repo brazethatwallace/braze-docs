@@ -270,7 +270,7 @@ Braze Swift SDK를 사용하여 visionOS와 통합하세요. iOS에서 사용할
 자세한 내용은 [iOS Swift SDK 통합 가이드](https://github.com/braze-inc/braze-swift-sdk)를 참조하세요.
 
 {% alert important %}
-일부 iOS 기능은 부분적으로 지원되거나 지원되지 않습니다. 전체 목록은 [visionOS 지원](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos)을 참조하세요.
+일부 iOS 기능은 부분적으로 지원되거나 지원되지 않습니다. 전체 목록은 [visionOS 지원]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/)을 참조하세요.
 {% endalert %}
 
 ## 앱 타겟팅 {#app-targeting}

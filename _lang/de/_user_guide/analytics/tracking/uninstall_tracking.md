@@ -81,6 +81,10 @@ Weitere Informationen zur Verwendung des Uninstall-Trackings finden Sie in unser
 
 ## Fehlerbehebung {#troubleshooting}
 
+### Wann wird ein Nutzerprofil als deinstalliert markiert? Wann wird die Deinstallationsmarkierung entfernt? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+
+Braze markiert eine:n Nutzer:in als deinstalliert, wenn erkannt wird, dass die App nicht mehr auf dem Gerät vorhanden ist (siehe [Funktionsweise](#how-it-works) zur Erkennung über reguläre Push-Nachrichten und optionales Uninstall-Tracking). Nachdem jemand Ihre App erneut installiert hat, kann die Deinstallationsmarkierung im Profil bestehen bleiben, bis die Person **die App öffnet und eine neue Sitzung startet** – die bloße Neuinstallation entfernt die Markierung nicht. Bis zu dieser Sitzung behandeln Segmente und Filter, die den Deinstallationsstatus verwenden (z. B. **Has Not Uninstalled**), den oder die Nutzer:in weiterhin als deinstalliert.
+
 ### Warum sehe ich plötzlich einen Anstieg bei den Deinstallationen? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
 Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNS) alte Token in unterschiedlicher Häufigkeit widerrufen.
@@ -97,7 +101,7 @@ So zeigen Sie Deinstallationen nach Segment an:
 1. Gehen Sie zur **Home**-Seite des Dashboards.
 2. Wählen Sie im Abschnitt **Performance Over Time** die Option **Uninstalls** für **Statistics For** und **By Segment** für **Breakdown** aus.
 
-Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) verfolgt, vergleichen Sie dessen Deinstallationstrend mit dem allgemeinen App-Trend.
+Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) verfolgt, vergleichen Sie dessen Deinstallationstrend mit dem allgemeinen App-Trend.
 
 ### Wie kann ich bestätigen, dass Deinstallationen echt sind? {#how-do-i-confirm-uninstalls-are-genuine}
 

@@ -36,7 +36,7 @@ table td {
 | --- | --- | --- | --- | --- |
 | [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync/) | 最長24時間 | 1分あたり250,000リクエスト。Googleのフィードバックに基づく自動リトライで、5秒ごとにバッチ処理されます。 | はい | {::nomarkdown}<ul><li>Criteoは最大1,000件の広告オーディエンスに対応します。</li><li>最小オーディエンスサイズは500人、推奨は20,000人以上です。</li></ul>{:/} |
 | [FacebookまたはInstagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) | 最長24時間 | 毎時190,000件の広告アカウント | はい | {::nomarkdown}<ul><li>Facebookは最大500の広告オーディエンスに対応します。</li><li>Facebookのオーディエンスは1,000ユーザー以上にする必要があります。</li></ul>{:/} |
-| [Google広告またはYouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) | 6～12時間 | Googleのフィードバックに基づく自動リトライで、5秒ごとにバッチ処理されます。 | いいえ | {::nomarkdown}<ul><li><b>カスタマーマッチ:</b>モバイル広告、メールアドレス、電話番号のいずれかを使用します。</li><li>Googleオーディエンスでの広告配信の開始には、5,000人以上のユーザーが必要です。</li><li>ユーザー数が1,000人以上になるまでは、オーディエンスサイズはゼロと表示されます。</li></ul>{:/} |
+| [Google広告またはYouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) | 6～12時間 | Googleのフィードバックに基づく自動リトライで、5秒ごとにバッチ処理されます。 | いいえ | {::nomarkdown}<ul><li><b>カスタマーマッチ:</b> モバイル広告、メールアドレス、電話番号のいずれかを使用します。</li><li>Googleオーディエンスでの広告配信の開始には、5,000人以上のユーザーが必要です。</li><li>ユーザー数が1,000人以上になるまでは、オーディエンスサイズはゼロと表示されます。</li></ul>{:/} |
 | [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync/) | 48時間 | LinkedInは毎秒10件のクエリを処理し、リクエスト1件あたり100,000ユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | AI予測オーディエンス | {::nomarkdown}<ul><li>ロケーションターゲティングを考慮した場合、オーディエンスの最小サイズは300人です。</li><li>LinkedInはBrazeダッシュボードにマッチ率を表示します。</li></ul>{:/} |
 | [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync/) | 24～48時間 | Pinterestは毎秒7件のクエリを処理し、リクエスト1件あたり1,900ユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | Pinterestのオーディエンスには100人以上のユーザーが必要です。 |
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchatは毎秒10件のクエリを処理し、リクエスト1件あたり100,000ユーザーを処理します。Brazeは5秒ごとにユーザーをバッチ処理します。 | はい | Snapchatは最大1,000の広告オーディエンスに対応します。 |
@@ -87,6 +87,22 @@ Audience Sync Pro送信先を選択したら、パートナータイルをクリ
 ![Snapchatオーディエンス同期設定。「Snapchatアカウント1件の接続に成功しました」というメッセージを表示。]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 最後に、このAudience Sync Pro送信先を使用して、Canvasでオーディエンス同期ステップを作成します。
+
+### バッチ処理とレイテンシー {#batching-and-latency}
+
+Canvas内でユーザーがオーディエンス同期ステップに入ると、Brazeはユーザーをバッチ処理システムにキューイングし、パートナーAPIにディスパッチする前にユーザーの更新を集約します。バッチは以下のいずれかの条件が満たされたときに送信されます。
+
+- **バッチがサイズ上限に達した場合。** これはパートナーによって異なります。
+  - デフォルトでは最大2,000ユーザー
+  - Google広告では最大10,000ユーザー
+  - FacebookとTikTokでは最大2,000ユーザー
+- **バッチのレイテンシータイマーが期限切れになった場合。** デフォルトは1時間ですが、パートナーごとに設定可能です。たとえば、The Trade Deskでは10分です。
+
+大量のCanvasではバッチがより早く満たされるため、ディスパッチが早くなる場合があります。少量のCanvasではレイテンシータイマーが期限切れになるまで待機します。Brazeは固定のディスパッチ時間を保証しません。タイミングはバッチサイズと設定されたレイテンシーウィンドウに依存します。
+
+Brazeはモニタリングとトラブルシューティングのために内部ログにディスパッチアクティビティを記録しますが、これらのタイムスタンプはクエリ可能なフィールドとしては公開されません。BrazeがパートナーAPIにバッチをディスパッチした後、パートナーは独自のサービスレベルアグリーメントに従ってオーディエンスの更新を処理します（通常6～48時間）。
+
+Brazeは、個々のユーザーがマッチまたは同期されたことについてパートナーから確認を受け取りません。パートナーの応答は受信のHTTP確認であり、マッチの確認ではありません。オーディエンスが正しく構成されたことを確認するには、パートナーの広告プラットフォーム（Google広告オーディエンスマネージャーやMeta Business Managerなど）を確認してください。
 
 ### オーディエンス同期エラーメール {#audience-sync-error-emails}
 

@@ -78,6 +78,10 @@ CampaignとCanvasの両方の再エントリ資格は、カレンダー日では
 
 Content Cards CampaignまたはCanvasステップで再エントリ資格が有効になっている場合、同じCampaignからの以前のカードがまだフィードに残っている状態で、ユーザーが別のカードを受信する可能性があり、重複カードのように見えることがあります。重複を減らすには、再エントリ資格をオフにするか、最初のカードがユーザーが次の送信対象となる前に[フィードから期限切れになる]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility)よう、再エントリ資格の期間を長くしてください。
 
+## バナーの再エントリ資格 {#re-eligibility-for-banners}
+
+バナーCampaignで再エントリ資格が有効になっている場合、バナーを閉じたユーザーは、閉じた時点から始まる設定可能なクールダウン期間の後に再度対象となることができます。再エントリ資格がオンになっていない場合、閉じたユーザーは対象外のままです。再エントリ資格を設定するには、[再エントリ資格の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)を参照してください。Canvasのバナーステップでは、代わりにCanvasの再エントリ設定が使用されます。
+
 ## 多変量テスト {#multivariate-testing}
 
 多変量テストでは、Brazeは以下のルールを使用して、すべてのCampaign、トリガーアプリ内メッセージ、およびCanvasのバリアント再エントリ資格を決定します。

@@ -19,7 +19,7 @@ A <i>estimativa de aberturas reais</i> é uma estimativa de quantas aberturas ú
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Ajuda</i> é quando um usuário respondeu à sua mensagem com a <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave HELP</a> e recebeu uma resposta automática de HELP.
+<i>Ajuda</i> é quando um usuário respondeu à sua mensagem com uma <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave HELP</a> e recebeu uma resposta automática de HELP.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -35,7 +35,7 @@ Um <i>adiamento</i> é quando um e-mail não foi entregue imediatamente, mas a B
 {% endif %}
 
 {% if include.metric == "Body Click" %}
-As notificações de push stories registram um <i>clique no corpo da mensagem</i> quando a notificação é clicada. Ele não será registrado quando uma mensagem for expandida ou para cliques em botões de ação.
+As notificações de Push Stories registram um <i>clique no corpo da mensagem</i> quando a notificação é clicada. Ele não será registrado quando uma mensagem for expandida ou para cliques em botões de ação.
 {% endif %}
 
 {% if include.metric == "Body Clicks" %}
@@ -51,11 +51,11 @@ Os <i>cliques no corpo da mensagem</i> ocorrem quando um usuário clica em uma m
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>Opções enviadas</i> é o número total de opções selecionadas quando o usuário clica no botão enviar na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Opções enviadas</i> é o número total de opções selecionadas quando o usuário clica no botão enviar na página de perguntas de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>Taxa de clique para abertura</i> é a porcentagem de e-mails abertos que foram clicados por um único usuário ou máquina pelo menos uma vez, e está disponível apenas no <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>Criador de relatórios</a>.
+<i>Taxa de clique para abertura</i> é a porcentagem de e-mails abertos que foram clicados por um único usuário ou máquina pelo menos uma vez, e está disponível apenas no <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Criador de relatórios</a>.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,11 +71,11 @@ Os <i>cliques no corpo da mensagem</i> ocorrem quando um usuário clica em uma m
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>Botão da página de confirmação</i> é o total de cliques no botão de chamada para ação na página de confirmação de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Botão da página de confirmação</i> é o total de cliques no botão de chamada para ação na página de confirmação de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>Desistências da página de confirmação</i> é o total de cliques no botão fechar (x) na página de confirmação de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Desistências da página de confirmação</i> é o total de cliques no botão fechar (x) na página de confirmação de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -167,7 +167,7 @@ As <i>aberturas</i> são instâncias que incluem <i>aberturas diretas</i> e <i>a
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Descadastramento</i> é quando um usuário respondeu à sua mensagem com uma <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave de descadastramento</a> e teve a inscrição cancelada do seu programa de SMS ou RCS.
+<i>Descadastramento</i> é quando um usuário respondeu à sua mensagem com uma <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave de descadastramento</a> e teve a inscrição cancelada do seu programa de SMS ou RCS.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -223,11 +223,11 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Dispensas da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Dispensas da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>Envios de questionário</i> é o total de cliques no botão enviar de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Envios de questionário</i> é o total de cliques no botão enviar de um <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +235,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>Total de descartes</i> é o número de vezes que os Content Cards de uma Campaign foram descartados.
+<i>Total de descartes</i> é o número de vezes que os usuários descartaram uma mensagem de uma Campaign. Para Content Cards, isso conta cada descarte de cartão. Para Banners, isso conta cada vez que um usuário descartou o Banner quando o comportamento de descarte está ativado.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,11 +251,11 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Cliques únicos</i> é o número distinto de destinatários que clicaram em um link dentro de uma mensagem pelo menos uma vez e é medido por <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
+<i>Cliques únicos</i> é o número distinto de destinatários que clicaram em um link dentro de uma mensagem pelo menos uma vez e é medido por <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
-<i>Dispensas únicas</i> é o número de destinatários únicos que dispensaram um Content Card de uma Campaign. Um usuário que descarta um Content Card de uma Campaign várias vezes representa uma única dispensa.
+<i>Descartes únicos</i> é o número de destinatários únicos que descartaram um Content Card de uma Campaign. Um usuário que descarta um Content Card de uma Campaign várias vezes representa um único descarte.
 {% endif %}
 
 <!-- Unique Impressions & Unique Recipients have a dedicated section in campaign_analytics.md -->

@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Enviar mensagens im
 ---
 {% api %}
 # Envio imediato de mensagens usando apenas a API {#send-messages-immediately-using-the-api-only}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/send
 {% endapimethod %}
 
@@ -26,15 +26,15 @@ Se estiver direcionando a um segmento, um registro da sua solicitação será ar
 Ao usar este endpoint para Campaigns da API, o destinatário já deve existir na Braze para que a solicitação seja bem-sucedida. Isso se aplica ao especificar usuários nos parâmetros `external_user_ids` ou `user_aliases`.
 {% endalert %}
 
-### Criar novos usuários com envios de API {#creating-new-users-with-api-sends}
+## Criar novos usuários com envios de API {#creating-new-users-with-api-sends}
 
 Se você precisar criar um usuário como parte de um envio usando a API, tem duas opções:
 
-#### Opção 1: Use `/users/track` e depois envie {#option-1-use-userstrack-then-send}
+### Opção 1: Use `/users/track` e depois envie {#option-1-use-userstrack-then-send}
 
 Primeiro, crie o usuário com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) e, em seguida, aguarde a propagação dos dados (geralmente, recomenda-se aguardar alguns minutos) antes de iniciar o envio somente pela API. Observe que a Braze não garante os tempos de processamento de dados em `/users/track`, portanto, podem ocorrer [condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/) se você não deixar tempo suficiente entre essas chamadas.
 
-#### Opção 2: Use uma Campaign disparada por API ou Canvas {#option-2-use-an-api-triggered-campaign-or-canvas}
+### Opção 2: Use uma Campaign disparada por API ou Canvas {#option-2-use-an-api-triggered-campaign-or-canvas}
 
 Use uma [Campaign disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) ou um fluxo de trabalho de [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/). Isso permite que você crie um destinatário, caso ainda não exista um. Essa opção simplifica seus processos de back-end, mas exige que você configure uma Campaign ou um Canvas no dashboard da Braze.
 
@@ -101,7 +101,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `override_frequency_capping` | Opcional | Booleano | Ignore `frequency_capping` para Campaigns, o padrão é `false`. |
 | `recipient_subscription_state` | Opcional | String | Use essa opção para enviar mensagens apenas para usuários que tenham aceitado receber mensagens (`opted_in`), apenas para usuários que tenham feito a inscrição ou aceitado receber mensagens (`subscribed`) ou para todos os usuários, inclusive os que cancelaram a inscrição (`all`). <br><br>O uso de `all` é útil para e-mail de transação. O padrão é `subscribed`. |
 | `messages` | Opcional | Objetos de envio de mensagens | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

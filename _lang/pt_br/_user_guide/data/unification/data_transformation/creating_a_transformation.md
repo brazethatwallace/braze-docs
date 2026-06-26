@@ -14,7 +14,7 @@ description: "Este artigo de referência fornece etapas para criar uma transform
 
 | Requisito | Descrição |
 | --- | --- |
-| Autenticação de dois fatores ou SSO | Você deve ter a [autenticação de dois fatores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) ou o [login único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) ativado para sua conta. |
+| autenticação de dois fatores ou SSO | Você deve ter a [autenticação de dois fatores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) ou o [login único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) ativado para sua conta. |
 | Permissões corretas | Você deve ser um administrador de conta ou um administrador de espaço de trabalho, ou ter permissões de usuário para "Gerenciar Transformações". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -24,7 +24,7 @@ Identifique uma plataforma externa que você deseja conectar à Braze e verifiqu
 
 O seguinte é um exemplo de [webhook do Typeform](https://www.typeform.com/help/a/webhooks-360029573471/), que é configurável ao fazer login na plataforma deles:
 
-![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Um exemplo de carga útil de webhook do Typeform nas configurações da plataforma Typeform.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## Etapa 2: Criar uma transformação {#step-2-create-a-transformation}
 
@@ -56,9 +56,9 @@ Se você tem pouca ou nenhuma experiência com código JavaScript ou prefere ins
 Se você é um desenvolvedor ou tem experiência significativa com código JavaScript, siga a guia **Avançado - POST: Rastrear usuários** para instruções de alto nível sobre como escrever seu código de transformação.
 
 {% alert tip %}
-A Transformação de dados da Braze tem um copiloto de IA que pede ao ChatGPT para ajudar você a escrever seu código. Para acessar o copiloto de IA, selecione <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**. Para usar isso, um webhook deve ser enviado para sua transformação. Você também pode acessar a biblioteca de modelos selecionando **Insert code** > **Insert template**.
+Para gerar código de transformação com IA, escolha **Code with Operator** acima do editor de código de transformação. Para usar isso, um webhook deve ser enviado para sua transformação. Para começar a partir de um modelo pré-construído, escolha **Insert Template**. Para exemplos de prompts, consulte [Gerar código de transformação de dados]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
 
-![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
+**Code with Operator** só está disponível se o Operator estiver ativado para sua conta. Se você não vir essa opção, entre em contato com seu gerente de conta.
 {% endalert %}
 
 {% tabs %}
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
 
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,
@@ -206,7 +206,7 @@ Nesta etapa, você transformará a carga útil do webhook da plataforma de orige
   - Objetos de atributos de usuário, objetos de eventos e objetos de compra
   - Atributos aninhados e propriedades de evento personalizado aninhadas
   - Atualizações do grupo de inscrições
-  - Endereço de e-mail como um identificador
+  - Endereço de e-mail como identificador
 
 Selecione **Validate** para retornar uma prévia da saída do seu código e verificar se é uma solicitação `/users/track` aceitável.
 
@@ -222,7 +222,7 @@ Solicitações de rede externa, bibliotecas de terceiros e webhooks não JSON n�
 Depois de ativar sua transformação, consulte a análise de dados na página principal de **Transformations** para obter um resumo do desempenho.
 
 * **Incoming Requests:** Este é o número de webhooks recebidos na URL desta transformação. Se as solicitações recebidas forem 0, sua plataforma de origem não enviou nenhum webhook ou a conexão não pôde ser estabelecida.
-* **Deliveries:** Após receber solicitações de entrada, a Transformação de dados aplica seu código de transformação para enviar ao destino Braze selecionado.
+* **Deliveries:** Após receber solicitações de entrada, a Transformação de dados aplica seu código de transformação para enviar ao destino da Braze selecionado.
 
 É uma boa meta ter 100% das solicitações recebidas levando a entregas. O número de entregas nunca excederá o número de solicitações recebidas.
 

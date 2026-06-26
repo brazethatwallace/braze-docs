@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## 총 닫기 수 {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} 사용자가 동일한 Campaign에서 두 개의 다른 카드를 수신하고 둘 다 닫으면, 이 횟수는 2만큼 증가합니다. 재자격을 사용하면 사용자가 카드를 수신할 때마다 _총 닫기 수_를 한 번씩 증가시킬 수 있으며, 각 카드는 별도의 메시지입니다.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Content Cards의 경우, 사용자가 동일한 Campaign에서 두 개의 다른 카드를 수신하고 둘 다 닫으면, 이 횟수는 2만큼 증가합니다. 재자격을 사용하면 사용자가 카드를 수신할 때마다 _총 닫기 수_를 한 번씩 증가시킬 수 있으며, 각 카드는 별도의 메시지입니다. 배너의 경우, 닫기 동작이 활성화되어 있을 때 각 닫기를 집계합니다.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-조회자는 매일 고유 수신자가 될 수 있으므로, 이 수치는 <i>고유 노출 횟수</i>보다 높을 수 있습니다. 이 수치는 Braze에서 수신되며 `user_id`를 기반으로 합니다. 고유 수신자 수는 <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>발송 식별자</a> 수준이 아닌 Campaign 또는 캔버스 단계 수준에서 집계됩니다.
+조회자는 매일 고유 수신자가 될 수 있으므로, 이 수치는 <i>고유 노출 횟수</i>보다 높을 수 있습니다. 이 수치는 Braze에서 수신되며 `user_id`를 기반으로 합니다. 고유 수신자 수는 <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>발송 식별자</a> 수준이 아닌 Campaign 또는 캔버스 단계 수준에서 집계됩니다.
 
 <span class="calculation-line">계산: 횟수</span>
 

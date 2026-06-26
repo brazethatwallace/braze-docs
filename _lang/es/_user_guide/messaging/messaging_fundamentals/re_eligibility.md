@@ -78,6 +78,10 @@ Esto significa que los usuarios que recibieron la campaña el 15 de febrero no s
 
 Cuando la reelegibilidad está habilitada para campañas de Content Cards o pasos en Canvas, un usuario puede recibir otra tarjeta mientras una tarjeta anterior de la misma campaña todavía está en su fuente, lo que puede parecer tarjetas duplicadas. Para reducir los duplicados, desactiva la reelegibilidad o amplía el período de reelegibilidad para que la primera tarjeta [expire de la fuente]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) antes de que el usuario cumpla los requisitos para otro envío.
 
+## Reelegibilidad para banners {#re-eligibility-for-banners}
+
+Cuando la reelegibilidad está habilitada para campañas de Banner, los usuarios que descarten un banner pueden volver a ser elegibles después de un período de espera configurable que comienza en el momento del descarte. Si la reelegibilidad no está activada, los usuarios que descartaron el banner permanecen no elegibles. Para configurar la reelegibilidad, consulta [Configurar la reelegibilidad]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility). Ten en cuenta que los pasos de Banner en Canvas usan la configuración de reentrada de Canvas en su lugar.
+
 ## Pruebas multivariante {#multivariate-testing}
 
 Para las pruebas multivariante, Braze determina la reelegibilidad de variante para todas las campañas, mensajes dentro de la aplicación desencadenados y Canvas utilizando las siguientes reglas:

@@ -5,7 +5,7 @@ description: >
   documentation articles (_docs/, _includes/, _lang/), contributing guides (docs/),
   or site chrome (layouts, CSS, plugins). Never touches logos/, braze_icons/, or icons/.
   Use when cleaning up unused screenshots, reducing repo size, image pruning, or when
-  the user mentions unreferenced images or @image-pruner.
+  the user mentions unreferenced images or image-pruner.
 ---
 
 # Image pruning
@@ -41,12 +41,12 @@ Each run always executes a delete batch (up to 100 files). CI opens a **draft PR
 
 CI skips opening a new batch when another open `[IP] Remove …` PR already exists (merge or close it first, then re-run).
 
-**Maintenance phase** (after bulk cleanup): expect few or no deletable files per run. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or use `@image-pruner` for the next batch.
+**Maintenance phase** (after bulk cleanup): expect few or no deletable files per run. Known primary-scan false positives (for example `assets/img/Braze Komo Images v2/`) are skipped by secondary verification and never appear in the PR diff. If more than 100 files remain after a PR merges, re-run the workflow or invoke this skill (`braze-docs:image-pruner`) for the next batch.
 
 ### Manual runs
 
 - **GitHub Actions:** *Actions → Image pruner (maintenance) → Run workflow* (`workflow_dispatch`).
-- **Cursor / agents:** `@image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
+- **Cursor / agents:** Invoke `braze-docs:image-pruner` for ad-hoc scans and extra `[IP]` batch PRs any time.
 
 ### Division of labor
 
@@ -54,7 +54,7 @@ CI skips opening a new batch when another open `[IP] Remove …` PR already exis
 |---------|----------|
 | Scheduled run (Jun/Dec) | CI runs batch and opens a draft `[IP]` PR when deletions exist |
 | Draft PR opened by CI | Docs team reviews diff and merges (or closes without merging) |
-| Spike after a large IA move | Run workflow manually or `@image-pruner`; do not wait for the next scheduled run |
+| Spike after a large IA move | Run workflow manually or invoke this skill (`braze-docs:image-pruner`); do not wait for the next scheduled run |
 | More than 100 files remain | Merge current PR, then re-run workflow for the next batch |
 
 ---
@@ -281,14 +281,16 @@ Be skeptical when the CSV shows:
 
 ## Example prompts
 
+Natural-language example requests:
+
 ```
-@image-pruner Run a scan and summarize how many MB we can reclaim.
+Run a scan and summarize how many MB we can reclaim.
 ```
 
 ```
-@image-pruner Delete unreferenced images after I approve the CSV.
+Delete unreferenced images after I approve the CSV.
 ```
 
 ```
-@image-pruner The maintenance workflow opened a draft PR — help review the deletion batch.
+The maintenance workflow opened a draft PR — help review the deletion batch.
 ```

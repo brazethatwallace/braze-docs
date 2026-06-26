@@ -485,7 +485,7 @@ hide_toc: true
 
               <div class="form-group" id="doc_request_url">
                 <label for="doc_request" id="doc_request_url_label">Braze URL</label>
-                <input type="url" name="Request_Url" id="doc_request_url" maxlength="180" required="required" value="" placeholder="e.g., https://www.braze.com/docs/" class="form-control" />
+                <input type="url" name="Request_Url" id="doc_request_url" maxlength="180" required="required" value="" placeholder="e.g., {{ site.homeurl }}{{ site.baseurl }}/" class="form-control" />
               </div>
 
               <div class="form-group">

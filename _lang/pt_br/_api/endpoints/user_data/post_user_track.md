@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Criar e atualizar usuários {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -393,7 +393,7 @@ Para os clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, We
 - Além do limite por hora, a Braze impõe um limite de burst no número de solicitações que podem ser enviadas a cada três segundos.
 - Cada solicitação pode conter até 75 atualizações combinadas entre objetos de atributo, evento ou compra.
 
-Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Settings** > **APIs and Identifiers** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
+Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Configurações** > **APIs e identificadores** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
 
 ### Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

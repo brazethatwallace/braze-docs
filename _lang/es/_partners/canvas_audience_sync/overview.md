@@ -88,13 +88,29 @@ Después de seleccionar tus destinos de Audience Sync Pro, conecta la cuenta pub
 
 Por último, crea tu paso de Audience Sync en Canvas utilizando este destino de Audience Sync Pro.
 
+### Procesamiento por lotes y latencia {#batching-and-latency}
+
+Cuando los usuarios entran en un paso de Audience Sync en Canvas, Braze los pone en cola en un sistema de procesamiento por lotes que agrega las actualizaciones de usuarios antes de enviarlas a la API del socio. Un lote se envía cuando ocurre alguna de las siguientes situaciones:
+
+- **El lote alcanza su límite de tamaño.** Esto varía según el socio:
+  - El valor predeterminado admite hasta 2.000 usuarios
+  - Google Ads admite hasta 10.000 usuarios
+  - Facebook y TikTok admiten hasta 2.000 usuarios
+- **El temporizador de latencia del lote expira.** El valor predeterminado es de una hora, pero es configurable por socio. Por ejemplo, The Trade Desk utiliza 10 minutos.
+
+Los Canvas de alto volumen pueden enviar antes porque los lotes se llenan más rápido. Los Canvas de bajo volumen esperan hasta que el temporizador de latencia expire. Braze no garantiza un tiempo de envío fijo; el momento depende del tamaño del lote y la ventana de latencia configurada.
+
+Braze registra la actividad de envío en registros internos para monitoreo y solución de problemas, pero estas marcas de tiempo no están expuestas como campos consultables. Después de que Braze envía un lote a la API del socio, el socio procesa la actualización de la audiencia de acuerdo con sus propios acuerdos de nivel de servicio, normalmente entre 6 y 48 horas.
+
+Braze no recibe confirmación de los socios de que los usuarios individuales hayan sido emparejados o sincronizados. Las respuestas de los socios son confirmaciones HTTP de recepción, no confirmaciones de coincidencia. Para verificar que una audiencia se ha completado, consulta la plataforma publicitaria del socio (como Google Ads Audience Manager o Meta Business Manager).
+
 ### Correos electrónicos de error de Audience Sync {#audience-sync-error-emails}
 
 Si el error está relacionado con la integración general del socio (como un problema de autorización), se envía un correo electrónico al usuario que conectó la integración. Si ese usuario ya no existe, los administradores recibirán los correos electrónicos.
 
 Si el error está relacionado con problemas con el componente de Audience Sync (como "La audiencia no existe") en Canvas, se envía un correo electrónico al usuario que configuró el Canvas. Si ese usuario ya no existe, entonces recae en el administrador de la empresa.
 
-Para configurar quién recibirá estos correos electrónicos, ponte en contacto con tu administrador del éxito del cliente para añadir destinatarios en **Preferencias de notificación**. Dado que esta característica cambiará el comportamiento actual, tendrás que añadir inmediatamente destinatarios a esta nueva preferencia de notificación, ya que Braze no incluye a nadie de forma predeterminada mediante adhesión voluntaria, para asegurarte de que no se pierda ningún correo electrónico de error.
+Para configurar quién recibirá estos correos electrónicos, ponte en contacto con tu administrador del éxito del cliente para añadir destinatarios en **Preferencias de notificación**. Dado que esta característica cambiará el comportamiento actual, tendrás que añadir inmediatamente destinatarios a esta nueva preferencia de notificación, ya que Braze no incluye a nadie de forma predeterminada mediante adhesión voluntaria, y así asegurarte de que no se pierda ningún correo electrónico de error.
 
 ## Consideraciones sobre la privacidad de datos {#data-privacy-considerations}
 

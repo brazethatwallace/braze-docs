@@ -45,7 +45,7 @@ Aqui está um resumo rápido das alterações anunciadas anteriormente:
 Alterações adicionais de 1º de julho (anunciadas pela Meta em 15 de maio):
 - A Meta está atualizando as tarifas de utilidade e autenticação em vários mercados como parte dos esforços contínuos para garantir que os preços estejam no mesmo nível dos canais alternativos.
     - Os preços de mensagens de utilidade e autenticação estão caindo em todos os mercados, exceto na Indonésia. Na Indonésia, os preços de utilidade estão aumentando e os preços de autenticação estão diminuindo.
-- A Meta está refinando sua definição de utilidade, com base no engajamento e sentimento dos usuários, transferindo casos de uso específicos de e para a categoria de utilidade. Veja a nova definição para modelos de utilidade [aqui](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines).
+- A Meta está refinando sua definição de utilidade, com base no engajamento e sentimento dos usuários, transferindo casos de uso específicos de e para a categoria de utilidade. Veja a nova [definição de modelo de utilidade](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines) da Meta.
 
 Para a maioria dos clientes, essas atualizações entrarão em vigor automaticamente em 1º de julho.
 
@@ -55,7 +55,7 @@ Para a maioria dos clientes, essas atualizações entrarão em vigor automaticam
 
 O WhatsApp está fazendo mais duas atualizações em seus preços a partir de 1º de julho de 2025. A Braze atualizará nossos preços para refletir essas alterações no mesmo dia. Um resumo das alterações e as melhores práticas para se preparar estão abaixo.
 
-### Atualização 1: Os preços do WhatsApp passarão para um modelo "por mensagem" em vez de um modelo "por conversa". {#update-1-whatsapp-pricing-will-shift-to-a-per-message-model-instead-of-a-per-conversation-model}
+### Atualização 1: Os preços do WhatsApp passarão para um modelo "por mensagem" em vez de um modelo "por conversa" {#update-1-whatsapp-pricing-will-shift-to-a-per-message-model-instead-of-a-per-conversation-model}
 
 **As tarifas "por mensagem" serão as mesmas que as tarifas atuais "por conversa".**
 
@@ -81,7 +81,7 @@ Essa atualização se aplica a modelos de marketing, utilidade e autenticação.
 
 *Nota: Essa atualização estava originalmente prevista para 1º de abril, 1º de maio e agora **1º de julho**.*
 
-### Atualização 2: Modelos de utilidade enviados durante uma janela de atendimento ao cliente de 24 horas serão gratuitos. {#update-2-utility-templates-sent-during-a-24-hour-customer-service-window-will-be-free-of-charge}
+### Atualização 2: Modelos de utilidade enviados durante uma janela de atendimento ao cliente de 24 horas serão gratuitos {#update-2-utility-templates-sent-during-a-24-hour-customer-service-window-will-be-free-of-charge}
 
 #### Como isso funciona? {#how-does-this-work}
 
@@ -92,7 +92,7 @@ Modelos de utilidade enviados fora de uma janela de atendimento ao cliente de 24
 Recomendamos as seguintes melhores práticas para se preparar para essas alterações e maximizar seu orçamento de marketing no WhatsApp:
 
 - Limite o envio de múltiplos modelos de mensagem do mesmo tipo (sem uma resposta do usuário) no período de 24 horas. Você não será cobrado mais do que era anteriormente no modelo "por conversa". Essa também é uma melhor prática para oferecer experiências de qualidade aos seus clientes e limitar a fadiga de mensagens.
-- Use [mensagens de resposta](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/) ao responder mensagens de usuários finais. Mensagens de resposta são gratuitas.
+- Use [mensagens de resposta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages/) ao responder mensagens de usuários finais. Mensagens de resposta são gratuitas.
 
 | Cenário de exemplo | Preço antes de abril de 2025 | Preço depois de abril de 2025 |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ Recomendamos as seguintes melhores práticas para se preparar para essas altera�
 Recomendamos as seguintes melhores práticas para se preparar para essas alterações e maximizar seu orçamento de marketing no WhatsApp:
 
 - Limite o envio de múltiplos modelos de mensagem do mesmo tipo (sem uma resposta do usuário) no período de 24 horas. Isso evita que você seja cobrado mais do que era anteriormente no modelo "por conversa". Essa também é uma melhor prática para oferecer experiências de qualidade aos seus clientes e limitar a fadiga de mensagens.
-- Use [mensagens de resposta](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) ao responder mensagens de usuários finais. Mensagens de resposta são gratuitas.
+- Use [mensagens de resposta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) ao responder mensagens de usuários finais. Mensagens de resposta são gratuitas.
 
 *Nota: Essa atualização estava originalmente prevista para 1º de abril e **agora 1º de julho**.*
 
@@ -137,14 +137,14 @@ Em 1º de novembro de 2024, todas as conversas de atendimento são gratuitas. As
 
 #### O que são conversas de atendimento? {#what-are-service-conversations}
 
-As conversas de atendimento permitem que você responda a consultas de clientes. Isso inclui conversas iniciadas por um usuário final em que a marca responde com uma [mensagem de resposta](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) em vez de um modelo de mensagem.
+As conversas de atendimento permitem que você responda a consultas de clientes. Isso inclui conversas iniciadas por um usuário final em que a marca responde com uma [mensagem de resposta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) em vez de um modelo de mensagem.
 
 #### Como você pode se beneficiar dessa atualização?
 
 Algumas conversas que antes eram cobradas como "atendimento" agora serão gratuitas. Isso inclui:
 
-- [Campanhas de resposta não reconhecida](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) em que um usuário final envia uma mensagem não reconhecida e a marca responde com uma mensagem genérica usando [mensagens de resposta](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Por exemplo, um usuário final envia uma mensagem sem uma palavra-chave e a marca responde com "Não reconhecemos sua mensagem, entre em contato com o suporte ao cliente."
-- Conversas que começam quando um usuário final envia uma palavra-chave promovida para a marca e a marca responde usando uma [mensagem de resposta](https://braze.com/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Exemplos comuns são opt-in para envio de mensagens pelo WhatsApp ou participação em uma promoção específica.
+- [Campanhas de resposta não reconhecida]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) em que um usuário final envia uma mensagem não reconhecida e a marca responde com uma mensagem genérica usando [mensagens de resposta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Por exemplo, um usuário final envia uma mensagem sem uma palavra-chave e a marca responde com "Não reconhecemos sua mensagem, entre em contato com o suporte ao cliente."
+- Conversas que começam quando um usuário final envia uma palavra-chave promovida para a marca e a marca responde usando uma [mensagem de resposta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Exemplos comuns são opt-in para envio de mensagens pelo WhatsApp ou participação em uma promoção específica.
 
 <br>
 

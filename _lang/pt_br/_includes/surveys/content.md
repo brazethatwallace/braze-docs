@@ -123,8 +123,6 @@ Após o lançamento, revise os resultados em:
 - A visualização de análise de dados da landing page para pesquisas de landing page
 {% endif %}
 
-![Guia de análise de dados da landing page.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 As análises de nível superior incluem:
 
 - **All responses:** total de respostas completas e incompletas

@@ -50,6 +50,24 @@ Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und So
 
 Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Kampagne bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
 
+#### Wie SMS-Fallback mit Ereignissen und Segmentierung funktioniert {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Ereignisverhalten %}
+
+Wenn Sie SMS-Fallback mit RCS verwenden, hängt das Ereignisverhalten davon ab, ob die Nachricht erfolgreich über RCS gesendet wird oder auf SMS zurückfällt:
+
+- **Wenn der RCS-Versand erfolgreich ist:** Sie erhalten ein RCS-Sendeereignis und ein RCS-Zustellungsereignis.
+- **Wenn der RCS-Versand auf SMS zurückfällt:** Sie erhalten ein RCS-Sendeereignis, ein RCS-Ablehnungsereignis und ein SMS-Zustellungsereignis. Das SMS-Zustellungsereignis hat `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Segmentierungsverhalten %}
+
+Für SMS und RCS werden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)) ausgewertet, wenn eine Nachricht gesendet wird, nicht wenn sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht auf dem Gerät der Nutzerin oder des Nutzers zugestellt wird.
+
+{% endtab %}
+{% endtabs %}
+
 ### Zeitrahmen für die Carrier-Genehmigung {#timeline-for-carrier-approval}
 
 Der Zeitrahmen für die Carrier-Genehmigung variiert je nach Land und kann auch innerhalb eines Landes unterschiedlich sein. Beachten Sie, dass sich der RCS-Markt noch in den Anfängen befindet, sodass sich die Prozesse bei Carriern und Aggregatoren schnell weiterentwickeln. In den Vereinigten Staaten schätzt Braze, dass die Bearbeitungszeit für die Carrier-Genehmigung eines RCS-verifizierten Senders in der Regel im Bereich von 4–6 Wochen liegt, wobei ein Test-Sender typischerweise innerhalb einer Woche genehmigt wird.
@@ -78,7 +96,7 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 |---------|-------------|
 | **Ein Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
 | **Kampagnen- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Kampagne oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Ihre Zielgruppe definieren" }
 
 ### 3. Schritt: Einen Nutzeraktualisierungs-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 

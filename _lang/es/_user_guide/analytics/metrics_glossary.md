@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Descartes totales {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumentará en dos. La reelegibilidad te permite incrementar los _Total Dismissals_ una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Para Content Cards, si un usuario recibe dos tarjetas diferentes de la misma campaña y descarta ambas, este recuento aumenta en dos. La reelegibilidad te permite incrementar los _Total Dismissals_ una vez cada vez que un usuario recibe una tarjeta; cada tarjeta es un mensaje diferente. Para Banners, esto cuenta cada descarte cuando el comportamiento de descarte está habilitado.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de campaña o paso en Canvas, no a nivel de <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identificador de envío</a>.
+Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de campaña o paso en Canvas, no a nivel de <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identificador de envío</a>.
 
 <span class="calculation-line">Cálculo: Recuento</span>
 

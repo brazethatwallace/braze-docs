@@ -3,7 +3,7 @@ nav_title: Ideas y estrategias
 article_title: Ideas y estrategias
 layout: dev_guide
 guide_top_header: "Ideas y estrategias"
-guide_top_text: "Aprende más sobre cómo crear tu campaña ideal con estos casos de uso y otras ideas."
+guide_top_text: "Encuentra ejemplos prácticos y patrones para objetivos comunes de campañas. Esta sección cubre la reorientación de usuarios activos e inactivos, la adopción de características y actualizaciones de la aplicación, la captura de atribución de instalación, la adición de enlaces de calendario a los mensajes y la automatización de flujos de trabajo de registro con herramientas externas como Zoom. Examina estos casos de uso para encontrar enfoques que puedas adaptar a tus propias audiencias."
 page_order: 5
 
 tool: Campaigns

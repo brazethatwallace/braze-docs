@@ -58,6 +58,10 @@ Default to English Display Name
 
 ![여러 회신 주소를 입력하는 필드가 있는 회신 주소 섹션.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Braze 발송 도메인은 수신 이메일을 수락하지 않습니다. 수신자가 Braze에서 구성한 발송 도메인에서 보낸 이메일에 회신하면 `550 5.7.1 relaying denied` 오류와 함께 회신이 반송됩니다. 회신 주소는 보낸 사람 주소와 동일한 도메인을 공유할 필요가 없습니다. 회신을 수신해야 하는 경우(예: 캘린더 초대 확인을 수집하기 위해) 발송용으로 구성되지 않고 메일을 수신할 수 있는 받은편지함이 설정된 하위 도메인을 사용하세요.
+{% endalert %}
+
 #### Liquid로 개인화하기
 
 **Reply-To Address** 필드에서 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 사용하여 커스텀 속성을 기반으로 회신 주소를 동적으로 템플릿화할 수도 있습니다. 예를 들어, 조건 로직을 사용하여 다른 지역이나 부서로 회신을 보낼 수 있습니다:
@@ -179,7 +183,7 @@ _*Yahoo와 Gmail은 결국 "mailto:" 헤더를 지원 중단하고 원클릭만 
 
 ### 워크스페이스의 이메일 탈퇴 헤더 {#email-unsubscribe-header-in-workspaces}
 
-![발송 대상으로 "가입했거나 옵트인한 사용자"를 선택하는 화면.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
+![발송 대상으로 가입했거나 옵트인한 사용자를 선택하는 화면.]({% image_buster /assets/img/email_settings/email_unsub_header_workspaces.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 이메일 탈퇴 헤더 기능이 켜져 있으면 이 설정은 회사 수준이 아닌 전체 워크스페이스에 적용됩니다. Campaign 및 Canvas 빌더의 **타겟 오디언스** 단계에서 가입했거나 옵트인한 사용자, 또는 옵트인한 사용자에게 발송하도록 설정된 Campaigns 및 Canvases에 추가됩니다.
 

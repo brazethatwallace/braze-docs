@@ -152,3 +152,9 @@ Você pode compartilhar um link do dashboard para o relatório selecionando **Sh
 Uma Campaign ou Canvas aparece no relatório quando sua data de **Last sent** está dentro do período de **Last sent** que você configurou. **Sends** e outras métricas são preenchidos apenas para atividades dentro do intervalo de datas de **Show data for**. Se a mensagem não foi enviada durante o período de **Show data for**, a linha ainda pode listar a Campaign ou Canvas com zero envios.
 
 Por exemplo, suponha que **Last sent** seja de 1º de janeiro de 2025 a 14 de abril de 2025, então uma Campaign é incluída, mas **Show data for** é de 1º de dezembro de 2024 a 14 de janeiro de 2025. Se essa Campaign não teve envios em dezembro ou janeiro, ela ainda aparece na tabela sem métricas de envio.
+
+### O link de download expirou {#download-link-has-expired}
+
+Os links de download de relatórios expiram após uma hora. Se o seu link expirou, gere um novo relatório e baixe-o dentro de uma hora. Não é possível estender o tempo de vencimento.
+
+Se você tem um [bucket Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) conectado em **Integrações de parceiros**, pode ser possível recuperar dados de relatórios mais antigos navegando diretamente pelo seu bucket S3.

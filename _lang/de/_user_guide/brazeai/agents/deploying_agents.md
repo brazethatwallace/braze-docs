@@ -16,7 +16,7 @@ Angepasste Agenten werden je nach Typ in verschiedenen Bereichen von Braze berei
 
 | Agententyp | Bereitgestellt in | Wird ausgeführt, wenn | Abschnitt |
 | --- | --- | --- | --- |
-| Canvas-Schritt-Agent | [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) in Canvas | Eine Nutzer:in den Schritt erreicht | [Canvas-Schritt-Agenten verwenden](#use-canvas-step-agents) |
+| Canvas-Schritt-Agent | [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) in Canvas | Nutzer:innen den Schritt erreichen | [Canvas-Schritt-Agenten verwenden](#use-canvas-step-agents) |
 | Katalog-Agent | Katalogfeld | Eine Katalogzeile erstellt oder aktualisiert wird | [Katalog-Agenten verwenden](#use-catalog-agents) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Typen angepasster Agenten" }
 
@@ -36,7 +36,7 @@ Nachdem Sie einen Canvas-Agenten erstellt haben, fügen Sie ihn als Agent-Schrit
 
 ### Funktionsweise {#how-it-works}
 
-Wenn eine Nutzer:in einen Agent-Schritt in einem Canvas erreicht, sendet Braze die von Ihnen konfigurierten Eingabedaten an Ihren Agenten. Der Agent verarbeitet die Eingabe mithilfe seines Modells und seiner Anweisungen und gibt dann eine Ausgabe zurück, die in der von Ihnen im Schritt definierten Ausgabevariable gespeichert wird. Sie können diese Ausgabe für Entscheidungen, Personalisierung oder nachgelagerte Verarbeitung verwenden.
+Wenn Nutzer:innen einen Agent-Schritt in einem Canvas erreichen, sendet Braze die von Ihnen konfigurierten Eingabedaten an Ihren Agenten. Der Agent verarbeitet die Eingabe mithilfe seines Modells und seiner Anweisungen und gibt dann eine Ausgabe zurück, die in der von Ihnen im Schritt definierten Ausgabevariable gespeichert wird. Sie können diese Ausgabe für Entscheidungen, Personalisierung oder nachgelagerte Verarbeitung verwenden.
 
 Agent-Schritte verwenden [Canvas-Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/), um relevanten Kontext aufzunehmen und eine Variable auszugeben, die im Canvas verwendet werden kann. Voraussetzungen und eine vollständige Referenz finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
@@ -110,7 +110,7 @@ Zirkuläre Referenzen in Katalogen werden nicht unterstützt, d. h. das folgende
 
 ### Einen Agenten zu einem Katalogfeld hinzufügen {#add-an-agent-to-a-catalog-field}
 
-![Ein Agent-Schritt in einem Katalogfeld.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Ein Agent-Schritt in einem Katalogfeld.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
 Um einen Agenten zu Ihrem Katalogfeld hinzuzufügen:
 
@@ -121,8 +121,6 @@ Um einen Agenten zu Ihrem Katalogfeld hinzuzufügen:
 5. (Optional) Aktivieren Sie **Nur ausführen, wenn erforderliche Spalten Werte enthalten**, um Zeilen zu überspringen, in denen eine oder mehrere ausgewählte Eingabespalten leer sind. Wenn diese Option aktiviert ist, wählen Sie aus, welche der Eingabespalten befüllt sein müssen, damit der Agent ausgeführt wird – alle ausgewählten Spalten sind standardmäßig als erforderlich markiert, aber Sie können jede entfernen, die leer bleiben darf, ohne eine Ausführung zu blockieren.
 6. Entscheiden Sie, ob der Agent Felder neu berechnen soll, wenn Katalogzeilen aktualisiert werden. Wenn Sie diese Option nicht auswählen, wird der Agent nur einmal pro Zeile ausgeführt.
 7. Wählen Sie **Felder hinzufügen** aus, um den Agenten bereitzustellen und die Kostenschätzungen zu überprüfen. Das Modal **Kostenschätzung** zeigt an, wie oft der Agent auf diesem Katalog ausgeführt wird – in etwa entsprechend der Gesamtzahl der Zeilen. Um fortzufahren, wählen Sie **Bestätigen** aus.
-
-![Die Option „KI-Agent anwenden“ für ein Katalogfeld auswählen.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 ### Best Practices für Katalog-Agenten {#catalog-agent-best-practices}
 

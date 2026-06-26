@@ -112,7 +112,6 @@ Braze prioriza un cálculo a la vez por espacio de trabajo, por lo que ejecutar 
 
 Puedes cancelar un cálculo de estadísticas exactas seleccionando **Cancel**. Esto puede ser beneficioso si hay múltiples cálculos en la cola y quieres priorizar otro cálculo primero.
 
-![Un cálculo activo con la opción de cancelar]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Ver el tamaño histórico de membresía del segmento {#viewing-historical-segment-membership-size}
 

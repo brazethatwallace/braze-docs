@@ -10,7 +10,7 @@ description: "이 문서에서는 API 트리거 전달을 사용한 Canvas 보�
 ---
 {% api %}
 # API 트리거 전달을 사용하여 Canvas 메시지 보내기 {#send-canvas-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/send
 {% endapimethod %}
 
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | 선택 사항 | 부울 | Braze 대시보드에서 Canvas의 타겟 오디언스로 구성된 전체 Segment에 메시지를 보낼 때 `broadcast`를 true로 설정해야 합니다. 이 매개변수는 기본적으로 false로 설정됩니다(2017년 8월 31일 기준). <br><br> `broadcast`가 true로 설정되면 `recipients` 목록을 포함할 수 없습니다. 그러나 이 플래그를 실수로 설정하면 예상보다 많은 오디언스에게 메시지를 보낼 수 있으므로 `broadcast: true`를 설정할 때는 주의하세요. |
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/)를 참조하세요. `audience`를 포함하면 메시지는 커스텀 속성 및 구독 상태와 같은 정의된 필터와 일치하는 사용자에게만 전송됩니다. |
 | `recipients` | 선택 사항 | 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object/)를 참조하세요. <br><br> `send_to_existing_only`가 `false`인 경우, 수신자에 `attributes` 오브젝트를 포함해야 합니다. <br><br>제공되지 않고 `broadcast`가 `true`로 설정된 경우, 메시지는 Braze 대시보드에서 Canvas의 타겟 오디언스로 구성된 전체 Segment에 전송됩니다.<br><br> `recipients` 배열에는 최대 50개의 오브젝트가 포함될 수 있습니다. 각 오브젝트에는 `external_user_id`, `user_alias` 또는 `email` 중 정확히 하나가 포함되어야 하며, Canvas 컨텍스트 등록정보를 위한 수신자별 `context` 오브젝트를 포함할 수 있습니다(수신자별 키는 충돌 시 상위 수준 `context`를 재정의합니다). <br><br> `email`이 식별자인 경우 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)을 포함해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

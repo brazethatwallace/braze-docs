@@ -58,6 +58,10 @@ Durch das Hinzufügen einer E-Mail-Adresse in diesem Abschnitt können Sie diese
 
 ![Abschnitt „Antwortadresse“ mit Feldern zur Eingabe mehrerer Antwortadressen.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
+{% alert note %}
+Braze-Sendedomains akzeptieren keine eingehenden E-Mails. Wenn eine Empfängerin oder ein Empfänger auf eine E-Mail antwortet, die von einer in Braze konfigurierten Sendedomain gesendet wurde, wird die Antwort mit einem `550 5.7.1 relaying denied`-Fehler zurückgewiesen. Die Antwortadresse muss nicht dieselbe Domain wie die Absenderadresse verwenden. Wenn Sie Antworten empfangen müssen – beispielsweise um Kalendereinladungsbestätigungen zu sammeln – verwenden Sie eine Subdomain, die nicht für den Versand konfiguriert ist und bei der ein Posteingang für den E-Mail-Empfang eingerichtet ist.
+{% endalert %}
+
 #### Mit Liquid personalisieren
 
 Sie können auch [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) im Feld **Antwortadresse** verwenden, um die Antwortadresse dynamisch auf Basis angepasster Attribute zu erstellen. Sie können beispielsweise bedingte Logik verwenden, um Antworten an verschiedene Regionen oder Abteilungen zu senden:

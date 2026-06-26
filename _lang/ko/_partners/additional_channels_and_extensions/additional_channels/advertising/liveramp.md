@@ -73,7 +73,7 @@ PII 기반 테이블을 준비하기 전에 작업 중 실행되는 [LiveRamp의
 
 #### Braze 식별자 {#braze-identifiers}
 
-Braze의 이벤트 로그에는 LiveRamp 네이티브 앱 내에서 사용할 수 있는 식별자가 포함되어 있습니다. 각 이벤트 유형에 사용 가능한 식별자의 전체 목록은 [Braze 이벤트 스키마 및 식별자]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt)를 다운로드하세요.
+Braze의 이벤트 로그에는 LiveRamp 네이티브 앱 내에서 사용할 수 있는 식별자가 포함되어 있습니다. 각 이벤트 유형에 사용 가능한 식별자의 전체 목록은 [Braze 이벤트 스키마 및 식별자](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)를 다운로드하세요.
 
 | 식별자 유형 | 설명 |
 |---|---|

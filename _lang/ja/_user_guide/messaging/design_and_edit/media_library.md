@@ -90,7 +90,7 @@ CDN（コンテンツデリバリーネットワーク）の代わりにメデ�
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)を確認してください。
+この機能を使用する前に、[データがどのように使用され、OpenAIに送信されるか]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy)を確認してください。
 {% endalert %}
 
-**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy)を確認してください。
+**Media Library**ページに**AI Image Generator**が表示されない場合は、**Edit Media Library Assets**権限があることを確認してください。それでもオプションが表示されない場合は、Brazeカスタマーチームに連絡して、ワークスペースがBrazeAI画像生成にアクセスできることを確認してください。生成に失敗した場合は、[OpenAIコンテンツポリシー]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy)を確認してください。

@@ -89,4 +89,8 @@ If users enter an action path multiple times and have multiple entries in the ac
 | **On** | All entries advance at the end of the relevant evaluation window. No deduplication occurs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases with re-eligibility" }
 
+{% alert warning %}
+Do not change **Advance users based on ranked order** after launch when users are already in the step. Braze applies the current ranking setting when processing events and when the evaluation window ends, but path state recorded earlier in the window may reflect a previous setting. For example, if you turn ranking off after users performed a ranked action, they may not advance through the path you expect when the window closes. Instead, create a new action path with the desired ranking setting, or duplicate the Canvas.
+{% endalert %}
+
 Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).

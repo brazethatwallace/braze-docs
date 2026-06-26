@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## 合計却下数 {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} ユーザーが同じCampaignから2つの異なるカードを受信し、両方を却下した場合、このカウントは2増加します。再適格性を使用すると、ユーザーがカードを受信するたびに_合計却下数_を1回ずつ増加させることができます。各カードは異なるメッセージです。
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Content Cardsの場合、ユーザーが同じCampaignから2つの異なるカードを受信し、両方を却下した場合、このカウントは2増加します。再適格性を使用すると、ユーザーがカードを受信するたびに_合計却下数_を1回ずつ増加させることができます。各カードは異なるメッセージです。バナーの場合、却下動作が有効になっている場合に各却下がカウントされます。
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-閲覧者は毎日ユニーク受信者になり得るため、この数値は<i>ユニークインプレッション数</i>よりも高くなることが予想されます。この数値はBrazeから受信され、`user_id`に基づいています。ユニーク受信者数はCampaignまたはCanvasステップレベルでカウントされ、<a href='https://braze.com/docs/api/identifier_types/#send-identifier'>送信識別子</a> レベルではカウントされません。
+閲覧者は毎日ユニーク受信者になり得るため、この数値は<i>ユニークインプレッション数</i>よりも高くなることが予想されます。この数値はBrazeから受信され、`user_id`に基づいています。ユニーク受信者数はCampaignまたはCanvasステップレベルでカウントされ、<a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>送信識別子</a> レベルではカウントされません。
 
 <span class="calculation-line">計算式: カウント</span>
 

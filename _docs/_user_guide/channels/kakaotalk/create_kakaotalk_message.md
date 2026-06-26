@@ -24,12 +24,12 @@ KakaoTalk is supported in both campaigns and Canvas. Campaigns are best suited f
 
 ![Panel with options to select messaging channel.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. You can add additional variants to your campaign, allowing you to choose different message types and layouts. For more information, refer to [Multivariate and A/B testing](https://www.braze.com/docs/user_guide/messaging/ab_testing/).
+3. You can add additional variants to your campaign, allowing you to choose different message types and layouts. For more information, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Create your Canvas](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/).
+1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/).
 2. Add a Message step in the Canvas builder and select **KakaoTalk**.
 
 ![Canvas messaging channel selections.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})

@@ -57,7 +57,7 @@ De forma continua, los Canvas inactivos que cumplan los siguientes criterios se 
 
 Para los Canvas sin fechas de finalización, si un usuario ingresa o el Canvas se actualiza, la cuenta regresiva de un año para detener el Canvas se reiniciará. Cuando los Canvas se detengan, Braze notificará a los clientes en su dashboard y por correo electrónico.
 
-La [duración máxima](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) de un Canvas es el tiempo más largo posible que un usuario puede tardar en completar un Canvas determinado. Esta duración incluye las expiraciones de Content Cards y mensajes dentro de la aplicación.
+La [duración máxima]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) de un Canvas es el tiempo más largo posible que un usuario puede tardar en completar un Canvas determinado. Esta duración incluye las expiraciones de Content Cards y mensajes dentro de la aplicación.
 
 Consulta esta tabla para saber cómo mantener activo un Canvas inactivo:
 
@@ -78,33 +78,33 @@ Si no hay una opción para restaurar los datos de interacción, esto puede deber
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-#### ¿A qué Campaigns o Canvas se aplica esto? {#what-campaigns-or-canvases-does-this-apply-to}
+### ¿A qué Campaigns o Canvas se aplica esto? {#what-campaigns-or-canvases-does-this-apply-to}
 
 Esto se aplicará a las Campaigns y los Canvas que ya cumplen con los criterios mencionados anteriormente, y a las Campaigns y los Canvas que cumplirán con los criterios en el futuro.
 
-#### ¿Cómo sé si una Campaign o un Canvas está inactivo? {#how-do-i-know-if-a-campaign-or-canvas-is-idle}
+### ¿Cómo sé si una Campaign o un Canvas está inactivo? {#how-do-i-know-if-a-campaign-or-canvas-is-idle}
 
 Las Campaigns y los Canvas inactivos se mostrarán en las páginas de lista de Campaigns y Canvas bajo la categoría **Inactivo**. La fecha en la que la Campaign o el Canvas se detendrá aparece como una columna en la lista.
 
 ![El filtro "Inactivo" en la página "Campaigns".][1]{: style="max-width:60%;"}
 
-#### ¿Qué sucede si se actualiza una Campaign o un Canvas inactivo? {#what-happens-if-an-idle-campaign-or-canvas-is-updated}
+### ¿Qué sucede si se actualiza una Campaign o un Canvas inactivo? {#what-happens-if-an-idle-campaign-or-canvas-is-updated}
 
 Si se actualiza una Campaign que no ha enviado un mensaje o un Canvas que no ha ingresado usuarios, la cuenta regresiva se reiniciará.
 
-#### ¿Qué sucede con las Campaigns que no han enviado un mensaje en un año (o los Canvas que no han ingresado usuarios en un año), pero tienen una fecha de finalización en el futuro? {#what-happens-to-campaigns-that-havent-sent-a-message-in-one-year-or-canvases-that-havent-entered-users-in-one-year-but-have-an-end-date-in-the-future}
+### ¿Qué sucede con las Campaigns que no han enviado un mensaje en un año (o los Canvas que no han ingresado usuarios en un año), pero tienen una fecha de finalización en el futuro? {#what-happens-to-campaigns-that-havent-sent-a-message-in-one-year-or-canvases-that-havent-entered-users-in-one-year-but-have-an-end-date-in-the-future}
 
 Detendremos estas Campaigns y Canvas siete días después de la fecha de finalización a las 4 am UTC.
 
-##### ¿Puedo evitar que las Campaigns se detengan automáticamente? {#can-i-stop-campaigns-from-automatically-stopping}
+#### ¿Puedo evitar que las Campaigns se detengan automáticamente? {#can-i-stop-campaigns-from-automatically-stopping}
 
-No. Esto ayuda a mantener activas solo las Campaigns necesarias para que los dashboards estén menos saturados y mejorar el rendimiento. Si deseas una lista de todas las Campaigns detenidas automáticamente, [envía un ticket de soporte](https://www.braze.com/docs/help/support) para que te la proporcionen.
+No. Esto ayuda a mantener activas solo las Campaigns necesarias para que los dashboards estén menos saturados y mejorar el rendimiento. Si deseas una lista de todas las Campaigns detenidas automáticamente, [envía un ticket de soporte]({{site.baseurl}}/help/support/) para que te la proporcionen.
 
-#### ¿Quién recibirá notificaciones por correo electrónico sobre las Campaigns y los Canvas detenidos? {#who-will-receive-email-notifications-about-stopped-campaigns-and-canvases}
+### ¿Quién recibirá notificaciones por correo electrónico sobre las Campaigns y los Canvas detenidos? {#who-will-receive-email-notifications-about-stopped-campaigns-and-canvases}
 
 De forma predeterminada, todos los usuarios con permisos de administrador están suscritos a las notificaciones por correo electrónico sobre la detención automática de Campaigns y Canvas. El creador de la Campaign o el Canvas siempre será notificado cuando se detenga. Los usuarios pueden gestionar las preferencias de notificación por correo electrónico yendo a **Configuración de empresa** > **Preferencias de notificación**, y luego añadiendo o eliminando destinatarios de la notificación **Campaign Automatically Stopped** y la notificación **Canvas Automatically Stopped**.
 
-#### ¿Cómo funciona la detención de Content Cards? {#how-does-stopping-content-cards-work}
+### ¿Cómo funciona la detención de Content Cards? {#how-does-stopping-content-cards-work}
 
 Las Content Cards en Campaigns no se detendrán hasta su plazo de expiración y el período de espera correspondiente. Se detendrán en la fecha más tardía entre el período de espera (correspondiente a si la Campaign es un envío único, tiene una fecha de finalización o no tiene una fecha de finalización) y el plazo de expiración.
 
@@ -112,15 +112,15 @@ Por ejemplo, si una Content Card expira el 1 de abril, es un envío único y tie
 
 Los Canvas solo se detienen después de que las Content Cards se detengan, lo que significa que su duración máxima ha pasado.
 
-#### Tengo un experimento de conmutador de características en mi Canvas. Después de configurar mi conmutador de características, ¿el Canvas permanecerá activo? {#i-have-a-feature-flag-experiment-in-my-canvas-after-my-feature-flag-is-set-will-the-canvas-remain-active}
+### Tengo un experimento de conmutador de características en mi Canvas. Después de configurar mi conmutador de características, ¿el Canvas permanecerá activo? {#i-have-a-feature-flag-experiment-in-my-canvas-after-my-feature-flag-is-set-will-the-canvas-remain-active}
 
 Los Canvas con pasos de conmutador de características no se detienen automáticamente y no se vuelven inactivos.
 
-#### ¿Por qué veo Campaigns inactivas en mi lista de Campaigns cuando apliqué un filtro para mostrar solo las Campaigns activas? {#why-am-i-seeing-idle-campaigns-displayed-in-my-campaigns-list-when-i-applied-a-filter-to-show-active-campaigns-only}
+### ¿Por qué veo Campaigns inactivas en mi lista de Campaigns cuando apliqué un filtro para mostrar solo las Campaigns activas? {#why-am-i-seeing-idle-campaigns-displayed-in-my-campaigns-list-when-i-applied-a-filter-to-show-active-campaigns-only}
 
 Las Campaigns inactivas se consideran activas hasta que se detienen.
 
-#### ¿Se listaría una Campaign como inactiva cuando todavía está enviando notificaciones push? {#would-a-campaign-be-listed-as-idle-when-its-still-sending-push-notifications}
+### ¿Se listaría una Campaign como inactiva cuando todavía está enviando notificaciones push? {#would-a-campaign-be-listed-as-idle-when-its-still-sending-push-notifications}
 
 No. Una Campaign se listará como inactiva cuando ya no esté enviando mensajes activamente.
 

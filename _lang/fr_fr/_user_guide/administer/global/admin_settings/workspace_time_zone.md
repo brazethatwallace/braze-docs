@@ -25,8 +25,6 @@ Si vous êtes administrateur, vous pouvez accéder aux fuseaux horaires des espa
 
 Ici, vous pouvez consulter la liste de tous vos espaces de travail, leur fuseau horaire défini et la dernière modification du fuseau horaire. Utilisez la barre de recherche pour trouver des espaces de travail spécifiques par nom.
 
-![Page « Fuseaux horaires de l'espace de travail » avec une liste d'espaces de travail, leurs fuseaux horaires respectifs et la date de dernière modification des fuseaux horaires.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
 ### Définir un fuseau horaire {#setting-a-time-zone}
 
 {% alert note %}
@@ -36,28 +34,27 @@ La prise en compte des mises à jour de fuseau horaire peut prendre quelques min
 {% tabs %}
 {% tab Espace de travail unique %}
 1. Localisez l'espace de travail souhaité dans la liste.
-2. Sélectionnez l'icône **Edit** à côté du nom de l'espace de travail.
+2. Sélectionnez l'icône **Modifier** à côté du nom de l'espace de travail.
 
-![Bouton « Edit » à côté du nom d'un espace de travail.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+![Bouton « Modifier » à côté du nom d'un espace de travail.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. Dans le menu déroulant, sélectionnez le fuseau horaire souhaité pour cet espace de travail.
-4. Sélectionnez **Save**.
+4. Sélectionnez **Enregistrer**.
 
-![Menu déroulant avec le fuseau horaire GMT sélectionné.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Plusieurs espaces de travail %}
 
 Vous pouvez appliquer un fuseau horaire spécifique à plusieurs espaces de travail en même temps en procédant comme suit :
 
 1. Cochez les cases à côté de tous les espaces de travail que vous souhaitez mettre à jour.
-2. Sélectionnez **Edit time zone**.
+2. Sélectionnez **Modifier le fuseau horaire**.
 3. Dans le menu déroulant, sélectionnez un fuseau horaire à appliquer à tous les espaces de travail sélectionnés.
 
-![Page « Fuseaux horaires de l'espace de travail » avec plusieurs espaces de travail sélectionnés et un bouton « Edit time zone ».]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![Page « Fuseaux horaires de l'espace de travail » avec plusieurs espaces de travail sélectionnés et un bouton « Modifier le fuseau horaire ».]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
-4. Sélectionnez **Save**.
+4. Sélectionnez **Enregistrer**.
 
 {% endtab %}
 {% endtabs %}
@@ -68,7 +65,7 @@ Vous pouvez appliquer un fuseau horaire spécifique à plusieurs espaces de trav
 Informez les équipes et les parties prenantes concernées au sein de chaque espace de travail de tout changement de fuseau horaire afin d'éviter toute confusion sur les planifications de campagnes.
 {% endalert %}
 
-- **Campagnes en heure locale et timing intelligent :** les campagnes et les Canvas qui utilisent l'heure locale de l'utilisateur ou le [timing intelligent]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing) pour la distribution continueront de fonctionner comme avant et ne seront pas affectés par les fuseaux horaires des espaces de travail.
+- **Campagnes en heure locale et timing intelligent :** les campagnes et les Canvas qui utilisent l'heure locale de l'utilisateur ou le [timing intelligent]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing) pour la distribution continueront de fonctionner comme avant et ne seront pas affectés par les fuseaux horaires des espaces de travail.
 - **Campagnes et Canvas planifiés :** toute campagne ou tout Canvas planifié qui n'utilise pas l'heure locale de l'utilisateur ou le timing intelligent pour la distribution sera désormais envoyé en fonction du fuseau horaire sélectionné pour l'espace de travail.
 - **Campagnes planifiées avant un changement de fuseau horaire :** si vous avez planifié une campagne ou un Canvas avant de modifier le fuseau horaire de l'espace de travail, Braze conserve l'heure d'envoi d'origine et ne la replanifie pas. Par exemple, si une campagne est configurée pour être envoyée à 19 h PST et que le fuseau horaire de l'espace de travail est modifié en EST, la campagne sera toujours envoyée à 19 h PST (ce qui correspond désormais à 22 h EST). Le système continuera de se référer à l'heure d'origine, mais l'interprétera selon le nouveau fuseau horaire de l'espace de travail.
 

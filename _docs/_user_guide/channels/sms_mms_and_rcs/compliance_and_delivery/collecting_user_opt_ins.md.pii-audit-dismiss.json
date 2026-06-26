@@ -1,0 +1,5 @@
+{
+  "reason": "collecting_user_opt_ins.md uses xyz-abcd-1234567 as the documented subscription_group_id placeholder shape in REST API examples.",
+  "dismiss_all": false,
+  "dismiss_ids": ["6576137e"]
+}

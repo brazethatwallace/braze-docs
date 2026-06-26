@@ -294,7 +294,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
 | In-App-Nachrichten | Die Metrik der täglichen <i>eindeutigen Impressionen</i> wird zur Berechnung der <i>Konversionsrate</i> für In-App-Nachrichten verwendet.<br><br><i>Eindeutige Impressionen</i> für In-App-Nachrichten können nur einmal pro Kalendertag in der Zeitzone Ihres Workspace gezählt werden. Die Anzahl der Male, die Nutzer:innen eine gewünschte Aktion ausführen (eine „Conversion“), kann innerhalb desselben Kalendertags steigen. Während Conversions mehr als einmal pro Tag stattfinden können, können <i>eindeutige Impressionen</i> das nicht. Wenn Nutzer:innen daher eine Conversion innerhalb eines Tages mehrfach ausführen, kann die <i>Konversionsrate</i> entsprechend steigen, aber <i>eindeutige Impressionen</i> werden für diesen Kalendertag nur einmal gezählt. Weitere Details finden Sie unter <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-App-Nachrichten-Reporting</a>. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion Rate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Konversionsrate" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -333,7 +333,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|
 | E-Mail | Bezieht sich auf die Gesamtzahl der Nachrichten (Sends), die erfolgreich an E-Mail-fähige Empfänger:innen gesendet und von diesen empfangen wurden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deliveries" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zustellungen" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -647,7 +647,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 |-------|-----------------------|
 | E-Mail, Push, Webhooks | Nach dem ersten Versand. |
 | Content Cards, In-App-Nachrichten | Wenn die Nutzer:innen die Content Card oder Nachricht zum ersten Mal ansehen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primäre Conversions (A) oder primäres Konversions-Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -705,7 +705,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | SMS/MMS | „Zugestellt“, nachdem der SMS-Anbieter eine Bestätigung vom vorgelagerten Carrier und dem Zielgerät erhalten hat. |
 | In-App-Nachricht | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Aktion. |
 | WhatsApp | Erhalten zum Zeitpunkt der Anzeige basierend auf der definierten Aktion. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Received" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erhalten" }
 
 {% endapi %}
 
@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Abweisungen insgesamt {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Wenn Nutzer:innen zwei verschiedene Cards aus derselben Campaign erhalten und beide abweisen, erhöht sich diese Zahl um zwei. Die erneute Berechtigung ermöglicht es, die _Abweisungen insgesamt_ jedes Mal zu erhöhen, wenn Nutzer:innen eine Card erhalten; jede Card ist eine separate Nachricht.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Wenn Nutzer:innen bei Content Cards zwei verschiedene Cards aus derselben Campaign erhalten und beide abweisen, erhöht sich diese Zahl um zwei. Die erneute Berechtigung ermöglicht es, die _Abweisungen insgesamt_ jedes Mal zu erhöhen, wenn Nutzer:innen eine Card erhalten; jede Card ist eine separate Nachricht. Bei Bannern wird jede Abweisung gezählt, wenn das Abweisungsverhalten aktiviert ist.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Da ein:e Betrachter:in jeden Tag ein:e eindeutige:r Empfänger:in sein kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>eindeutigen Impressionen</i>. Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige Empfänger:innen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt, nicht auf der Ebene des <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>Send-Identifiers</a>.
+Da ein:e Betrachter:in jeden Tag ein:e eindeutige:r Empfänger:in sein kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>eindeutigen Impressionen</i>. Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige Empfänger:innen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt, nicht auf der Ebene des <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>Send-Identifiers</a>.
 
 <span class="calculation-line">Berechnung: Anzahl</span>
 

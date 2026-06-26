@@ -114,7 +114,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes": [
     {
       "external_id": "user1",
-      "first_name": "Jane",
+      "first_name": "Alex",
       "last_name": "Doe",
       "email": "jane.doe@example.com",
       "country": "US",

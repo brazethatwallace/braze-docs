@@ -42,7 +42,7 @@ API 트리거 등록정보는 태그당 두 개의 중괄호를 사용해야 합
 
 ### 지원되는 속성 {#supported-attributes}
 
-Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다(예: `dispatch_id`는 인앱 메시지 Campaign에서 사용할 수 없습니다).
+Campaign, 카드, Canvas 속성은 해당하는 메시징 템플릿에서만 지원됩니다. 예를 들어, `dispatch_id`는 이메일, 푸시, SMS, WhatsApp과 같은 메시징 채널의 Liquid에서 지원되지만, 인앱 메시지나 배너에서는 지원되지 않습니다.
 
 자세한 내용은 [소스별 Campaign 및 Canvas 속성]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)을 참조하세요.
 

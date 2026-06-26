@@ -717,6 +717,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### 統合 {#integrations}
+
 #### 標準バナー統合（ドラッグ＆ドロップエディター） {#standard-banner-integrations-drag-and-drop-editor}
 
 バナーがドラッグ＆ドロップエディターを使用しており、非表示ボタンコンポーネントが含まれている場合、追加のコードは不要です。ユーザーが非表示ボタンをクリックすると、メッセージが非表示になり、非表示がトリガーされ、分析用の非表示イベントが記録されます。

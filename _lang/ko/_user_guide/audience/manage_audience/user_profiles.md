@@ -46,12 +46,16 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 ## 고객 프로필의 구성 요소 {#elements-of-user-profile}
 
-고객 프로필에는 네 가지 주요 섹션이 있습니다.
+고객 프로필에는 다섯 가지 주요 섹션이 있습니다.
 
 - **개요:** 사용자에 대한 기본 정보, 세션 데이터, 커스텀 속성, 커스텀 이벤트, 구매, 사용자가 마지막으로 로그인한 최근 기기.
 - **참여:** 사용자의 연락처 설정, 수신한 Campaigns, Segments, 커뮤니케이션 통계, 설치 경로, 무작위 버킷 번호에 대한 정보.
+- **이벤트 이력:** 지난 30일 동안의 커스텀 이벤트 및 구매 내역으로, 전체 이벤트 속성이 JSON으로 표시됩니다.
 - **메시징 이력:** 지난 30일 동안 이 사용자에 대한 최근 메시징 관련 이벤트.
 - **기능 플래그 자격:** 롤아웃, 캔버스 단계 및 실험 전반에서 사용자가 현재 자격이 있는 기능 플래그를 확인합니다.
+
+{% tabs %}
+{% tab 개요 탭 %}
 
 ### 개요 탭 {#overview-tab}
 
@@ -65,11 +69,13 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 최근 기기 | 로그인한 기기 수, 각 기기의 세부 정보, 관련 광고 ID(있는 경우). |
 | 커스텀 이벤트 | 이 사용자가 수행한 커스텀 이벤트, 수행 횟수, 각 이벤트를 마지막으로 수행한 시점. |
 | 구매 | 이 사용자에게 귀속된 평생 매출, 마지막 구매, 총 구매 횟수, 각 구매 목록. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="개요 탭" }
 
 이 데이터에 대한 자세한 내용은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
 
-![고객 프로필의 개요 탭.]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab 참여 탭 %}
 
 ### 참여 탭 {#engagement-tab}
 
@@ -85,7 +91,31 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | 기타 | 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/). |
 | 수신한 Canvas 메시지 | 이 사용자가 수신한 Canvas 메시지와 수신 시점. 전송 시점은 **수신한 Campaigns**와 동일한 채널 규칙을 따릅니다. [수신한 Campaigns에 Campaign이 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요.<br><br>메시지가 수신, 열림 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 Campaign에 포함되지 않았거나 메시지를 직접 전송받지 않았더라도 이 필터에 일치할 수 있습니다.<br><br>목록에서 메시지를 선택하여 확인합니다. |
 | 예측 | 이 사용자에 대한 [고객이탈 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) 및 [이벤트 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) 점수. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="참여 탭" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab 이벤트 이력 탭 %}
+
+### 이벤트 이력 탭 {#event-history-tab}
+
+{% alert note %}
+**이벤트 이력** 탭을 보려면 **Search Users** 및 **View PII** [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다. 이벤트 속성에 개인 데이터가 포함될 수 있기 때문입니다.
+{% endalert %}
+
+**이벤트 이력** 탭에는 사용자가 기록한 커스텀 이벤트와 구매가 표시됩니다. 이벤트 데이터가 올바르게 수신되고 있는지 확인하고 사용자 수준의 문제를 대시보드에서 직접 해결하는 데 사용할 수 있으며, 데이터 내보내기나 외부 도구가 필요하지 않습니다.
+
+| 이벤트 이력 카테고리 | 포함 내용 |
+| --- | --- |
+| 이벤트 목록 | 지난 30일 동안의 커스텀 이벤트 및 구매(최근 100개까지), 최신순으로 정렬. |
+| 이벤트 유형 | 해당 행이 **커스텀 이벤트**인지 **구매**인지 여부. |
+| 타임스탬프 | 이벤트가 기록된 시점. |
+| 이벤트 이름 | 커스텀 이벤트 또는 구매의 이름. |
+| 이벤트 속성 | 이벤트의 전체 이벤트 속성으로, JSON으로 표시됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이벤트 이력 탭" }
+
+{% endtab %}
+{% endtabs %}
 
 ### 수신한 Campaigns에 Campaign이 표시되는 시점 {#when-campaigns-appear-in-campaigns-received}
 
@@ -130,7 +160,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 | Content Cards | 클릭<br>해제<br>노출 횟수<br>전송 |
 | 웹훅 | 전송 |
 | WhatsApp | 중단<br>전달<br>실패<br>최대 게재빈도 설정<br>인바운드 수신<br>읽음<br>전송 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="메시지 참여 이벤트" }
 
 ##### 메시지 중단 이벤트 {#message-abort-events}
 

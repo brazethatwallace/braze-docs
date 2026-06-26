@@ -180,11 +180,11 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드
 
 #### 구독 그룹 상태 업데이트(선택 사항) {#updating-subscription-group-status-optional}
 
-또한 사용자 가져오기를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 이는 SMS 채널로 메시지를 보내려면 사용자가 SMS 구독 그룹에 등록되어 있어야 하므로 SMS에 특히 유용합니다. 자세한 내용은 [SMS 구독 그룹](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement)을 참조합니다.
+또한 사용자 가져오기를 통해 이메일 또는 SMS 구독 그룹에 사용자를 추가할 수 있습니다. 이는 SMS 채널로 메시지를 보내려면 사용자가 SMS 구독 그룹에 등록되어 있어야 하므로 SMS에 특히 유용합니다. 자세한 내용은 [SMS 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups/#subscription-group-mms-enablement)을 참조합니다.
 
 구독 그룹 상태를 업데이트하는 경우 CSV에 다음 두 열이 있어야 합니다:
 
-- `subscription_group_id`: [구독 그룹](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups)의 `id`입니다.
+- `subscription_group_id`: [구독 그룹]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups)의 `id`입니다.
 - `subscription_state`: 사용 가능한 값은 `unsubscribed`(구독 그룹에 없음) 또는 `subscribed`(구독 그룹에 있음)입니다.
 
 | external_id | first_name | subscription_group_id | subscription_state |

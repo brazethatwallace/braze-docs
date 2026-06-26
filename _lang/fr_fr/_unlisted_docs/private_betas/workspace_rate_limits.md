@@ -10,7 +10,7 @@ permalink: /workspace_rate_limits/
 
 ## Conditions préalables {#prerequisites}
 
-Les limites de débit de l'espace de travail sont uniquement disponibles pour les contrats Braze sans points de donnée. De plus, vous aurez besoin des [autorisations d'administrateur](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour gérer les limites de débit.
+Les limites de débit de l'espace de travail sont uniquement disponibles pour les contrats Braze sans points de donnée. De plus, vous aurez besoin des [autorisations d'administrateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) pour gérer les limites de débit.
 
 ## À propos des limites de débit de l'espace de travail {#about-workspace-rate-limits}
 
@@ -73,6 +73,6 @@ La valeur `Retry-After` reflète le nombre de secondes avant le début de l'heur
 
 ### Tableau de bord d'utilisation de l'API {#api-usage-dashboard}
 
-Pour surveiller le volume de demandes, les codes de réponse et le comportement d'ingestion entre les espaces de travail, vous pouvez également utiliser le [tableau de bord d'utilisation de l'API](https://www.braze.com/docs/user_guide/analytics/dashboard/api_usage_dashboard).
+Pour surveiller le volume de demandes, les codes de réponse et le comportement d'ingestion entre les espaces de travail, vous pouvez également utiliser le [tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboard/api_usage_dashboard/).
 
 Vous pouvez filtrer le tableau de bord pour afficher `429 Workspace Rate Limited` ou `429 Company Rate Limited`, afin d'identifier rapidement si une demande a été limitée par la limite de débit de la société ou de l'espace de travail.

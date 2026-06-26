@@ -84,11 +84,6 @@ Além disso, as mensagens de Banner não suportam os seguintes recursos:
 - Conteúdo conectado
 - Códigos promocionais
 - `catalog_items` usando a [tag `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Dispensas controladas pelo usuário (somente acesso antecipado)
-
-{% alert important %}
-Permitir que os usuários dispensem manualmente um Banner está em acesso antecipado. Consulte [Configurar comportamento de dispensa]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) para mais detalhes. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente.
-{% endalert %}
 
 ## Próximos passos {#next-steps}
 

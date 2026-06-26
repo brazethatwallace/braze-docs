@@ -10,7 +10,7 @@ description: "이 문서에서는 API 전용 Braze 엔드포인트를 사용하�
 ---
 {% api %}
 # API만 사용하여 즉시 메시지 보내기 {#send-messages-immediately-using-the-api-only}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/send
 {% endapimethod %}
 
@@ -26,15 +26,15 @@ Segment를 타겟팅하는 경우 요청에 대한 기록이 [개발자 콘솔](
 API 캠페인에 이 엔드포인트를 사용할 경우, 요청이 성공하려면 수신자가 Braze에 이미 존재해야 합니다. 이는 `external_user_ids` 또는 `user_aliases` 매개변수에서 사용자를 지정할 때 적용됩니다.
 {% endalert %}
 
-### API 호출을 통한 신규 사용자 생성 {#creating-new-users-with-api-sends}
+## API 호출을 통한 신규 사용자 생성 {#creating-new-users-with-api-sends}
 
 API를 사용하여 전송의 일환으로 사용자를 생성해야 하는 경우 두 가지 옵션이 있습니다:
 
-#### 옵션 1: `/users/track`을 사용한 후 보내기 {#option-1-use-userstrack-then-send}
+### 옵션 1: `/users/track`을 사용한 후 보내기 {#option-1-use-userstrack-then-send}
 
 먼저, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 사용하여 사용자를 생성한 후, 데이터가 전파되기를 기다립니다(일반적으로 몇 분 정도 권장됨). 이후 API 전용 전송을 시작합니다. Braze는 `/users/track`의 데이터 처리 시간을 보장하지 않으므로, 호출 간 충분한 시간을 두지 않을 경우 [경합 조건]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)이 발생할 수 있습니다.
 
-#### 옵션 2: API 트리거 Campaign 또는 Canvas 사용 {#option-2-use-an-api-triggered-campaign-or-canvas}
+### 옵션 2: API 트리거 Campaign 또는 Canvas 사용 {#option-2-use-an-api-triggered-campaign-or-canvas}
 
 [API 트리거 Campaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 또는 [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) 워크플로를 사용하세요. 이 방법을 사용하면 수신자가 아직 존재하지 않을 경우 자동으로 생성할 수 있습니다. 이 옵션은 백엔드 프로세스를 간소화하지만, Braze 대시보드에서 Campaign 또는 Canvas를 구성해야 합니다.
 
@@ -101,7 +101,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `override_frequency_capping` | 선택 사항 | 부울 | Campaign의 `frequency_capping`을 무시하며, 기본값은 `false`입니다. |
 | `recipient_subscription_state` | 선택 사항 | 문자열 | 이를 사용하여 수신 동의한 사용자(`opted_in`), 구독했거나 수신 동의한 사용자(`subscribed`) 또는 구독 취소한 사용자를 포함한 모든 사용자(`all`)에게만 메시지를 보낼 수 있습니다. <br><br>`all` 사용자를 사용하면 트랜잭션 이메일 메시징에 유용합니다. 기본값은 `subscribed`입니다. |
 | `messages` | 선택 사항 | 메시징 오브젝트 | [사용 가능한 메시징 오브젝트]({{site.baseurl}}/api/objects_filters/#messaging-objects)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

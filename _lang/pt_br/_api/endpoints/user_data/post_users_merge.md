@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Comportamento de mesclagem {#merge-behavior}
 
-O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, extensões de segmento, Criador de consultas e Currents.
+O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, Extensões de segmento, Criador de consultas e Currents.
 
 {% alert important %}
 O endpoint não garante a sequência de atualização dos objetos `merge_updates`.

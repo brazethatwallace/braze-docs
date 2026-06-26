@@ -11,7 +11,7 @@ search_rank: 1
 
 > このページでは、ユーザー固有の特性のコレクションであるカスタム属性について説明します。カスタム属性は、ユーザーに関する属性や、アプリケーション内の価値の低いアクションに関する情報を格納するのに最適です。
 
-Brazeに保存すると、カスタム属性を使用してオーディエンスセグメントを構築し、Liquidを使用してメッセージングをパーソナライズできます。カスタムイベントとは異なり、カスタム属性の時系列情報は保存されないため、時系列情報に基づくグラフを取得できない点に注意してください。
+Brazeに保存すると、カスタム属性を使用してオーディエンスSegmentsを構築し、Liquidを使用してメッセージングをパーソナライズできます。カスタムイベントとは異なり、カスタム属性の時系列情報は保存されないため、時系列情報に基づくグラフを取得できない点に注意してください。
 
 {% alert important %}
 **名前は完全一致です。** カスタム属性キーは**大文字と小文字が区別されます**。例えば、`Home_City`と`home_city`は2つの異なる属性です。[REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)やSDKを通じてデータを送信する場合、Brazeは属性名の**先頭と末尾のスペースを除去します**。そのため、`greeting`と` greeting `は同じキーに解決されます。属性を参照するすべての場所（**データ設定** > **カスタム属性**、APIおよびSDKペイロード、CSVインポート）で同じスペルと大文字小文字を使用してください。[データタイプを強制]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#data-type-coercion)した場合にBrazeが受信値をどのように変換するかについては、[カスタムデータの管理]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)を参照してください。

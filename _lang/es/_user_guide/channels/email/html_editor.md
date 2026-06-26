@@ -89,7 +89,7 @@ Braze elimina automáticamente los controladores de eventos HTML referenciados c
 {% endalert %}
 
 {% alert tip %}
-¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto y la IA generará textos de marketing similares a los escritos por humanos para usar en tus mensajes.
+¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Introduce un nombre o descripción de producto y la IA generará textos de marketing similares a los escritos por humanos para usar en tus mensajes.
 
 ![Botón Lanzar el redactor con IA, ubicado en la pestaña Cuerpo del compositor de correo electrónico.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
@@ -111,7 +111,8 @@ Por ejemplo, para mantener un fondo blanco en una celda, usa esto:
 Reemplaza `#ffffff` con el color que desees.
 
 {% alert note %}
-Este enfoque no se aplica de forma fiable solo a elementos `<table>`, así que establece el degradado en la celda en lugar de solo en la tabla.
+Este enfoque no se aplica de forma fiable solo a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, así que establece el degradado en la celda en lugar de solo en la tabla.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 Para más información sobre la sintaxis de degradados, consulta [Degradados CSS en W3Schools](https://www.w3schools.com/css/css3_gradients.asp).

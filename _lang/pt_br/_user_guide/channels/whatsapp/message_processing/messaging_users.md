@@ -105,7 +105,7 @@ Você só pode adicionar mensagens de lista do WhatsApp a Canvas baseados em aç
 
 #### Etapa 2: Criar uma etapa de mensagem do WhatsApp {#step-2-create-a-whatsapp-message-step}
 
-Adicione uma [etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) do WhatsApp e selecione o layout de mensagem de resposta **Mensagem de lista**.
+Adicione uma [etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) do WhatsApp e selecione o layout de mensagem de resposta **Mensagem de lista**.
 
 ![Uma coleção selecionável dos diferentes tipos de mensagens de resposta do WhatsApp que você pode criar, incluindo "Mensagem de lista".]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ Altere a ordem das seções e linhas selecionando e arrastando o ícone ao lado 
 
 ![Arrastando uma seção da lista para um novo local.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-De volta ao criador do Canvas, adicione uma [Jornada de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) após a etapa de mensagem que tenha um grupo para cada resposta da lista. Em cada grupo:
+De volta ao criador do Canvas, adicione uma [Jornada de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) após a etapa de mensagem que tenha um grupo para cada resposta da lista. Em cada grupo:
 
 1. Adicione um gatilho para **Sent inbound WhatsApp subscription group** e selecione o respectivo grupo de inscrições do WhatsApp.
 2. Marque a caixa de seleção **Where the message body**.
@@ -133,7 +133,7 @@ Continue construindo seu Canvas.
 
 ### Criando jornadas de ação para descrições longas {#creating-actions-paths-for-long-descriptions}
 
-Se você tiver descrições de linhas, deve usar **Matches regex** para especificar uma linha. Por exemplo, se você quiser especificar uma linha com a descrição "Nosso novo estilo que combina com seu par favorito de botas de cano curto", você poderia usar [regex]({{site.baseurl}}/user_guide/audience/segments/regex/) com "botas de cano curto".
+Se você tiver descrições de linhas, deve usar **Matches regex** para especificar uma linha. Por exemplo, se você quiser especificar uma linha com a descrição "Nosso novo estilo que combina com seu par favorito de botas de cano curto", você poderia usar [regex]({{site.baseurl}}/user_guide/audience/segments/regex) com "botas de cano curto".
 
 ![Um gatilho do WhatsApp usando o filtro "Matches regex" para capturar mensagens de resposta com "ankle boots".]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
@@ -146,11 +146,11 @@ As mensagens de resposta precisam ser enviadas dentro de 24 horas após o recebi
 Os seguintes eventos desbloqueiam mensagens de resposta:
 
 - Mensagem de entrada
-  - [Jornada de ação]({{site.baseurl}}/action_paths/) ou [entrada baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) com o gatilho **Send a WhatsApp inbound message**.
+  - [Jornada de ação]({{site.baseurl}}/action_paths) ou [entrada baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) com o gatilho **Send a WhatsApp inbound message**.
 
 ![Uma etapa de entrada baseada em ação com o gatilho "Send a WhatsApp inbound message".]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [Entrada acionada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [Entrada acionada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - Mensagem de produto de entrada
   - Evento [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
@@ -158,4 +158,14 @@ Os seguintes eventos desbloqueiam mensagens de resposta:
 
 ### Filtrando por um atributo de tempo personalizado {#filtering-by-a-custom-time-attribute}
 
-Se o público da sua Campaign ou Canvas do WhatsApp baseado em ação depende de um atributo de tempo personalizado dentro de uma janela relativa (por exemplo, entre agora e as próximas 24 horas), combine dois filtros conforme descrito em [Tempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time).
+Se o público da sua Campaign ou Canvas do WhatsApp baseado em ação depende de um atributo de tempo personalizado dentro de uma janela relativa (por exemplo, entre agora e as próximas 24 horas), combine dois filtros conforme descrito em [Tempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+
+### Armazenamento de mídia de entrada e expiração de URL {#inbound-media-storage-and-url-expiration}
+
+Quando um usuário envia uma mensagem do WhatsApp que contém mídia (como uma imagem, arquivo de áudio ou documento), a Braze armazena essa mídia no Amazon S3 por 30 dias a partir do momento em que a mensagem é recebida.
+
+No entanto, o campo Liquid `inbound_media_urls`, que referencia a URL dessa mídia, é válido por sete dias a partir do momento em que a Braze recebe a mensagem de entrada. Como a URL é gerada uma única vez no recebimento e não é regenerada, a janela de sete dias se aplica independentemente de quando você acessa o campo. O menor dos dois limites se aplica, então, na prática, `inbound_media_urls` deve ser tratado como válido por até sete dias.
+
+{% alert note %}
+Se você salvar um valor de `inbound_media_urls` em um atributo personalizado do usuário para uso posterior, esteja ciente dessa expiração de sete dias. Tentar acessar a URL após a expiração resultará em um link quebrado.
+{% endalert %}

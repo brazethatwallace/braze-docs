@@ -20,4 +20,4 @@ When adding or updating files under `assets/img/`:
 
 False positives: add `your-image.png.pii-audit-dismiss.json` with a documented `reason`, or ask a maintainer to add the `pii-audit-dismissed` label after review.
 
-See `@screenshot-pii-audit` and [image style guide](docs/contributing/style_guide/image_style_guide.md).
+See [.github/skills/screenshot-pii-audit/SKILL.md](.github/skills/screenshot-pii-audit/SKILL.md) and [image style guide](docs/contributing/style_guide/image_style_guide.md).

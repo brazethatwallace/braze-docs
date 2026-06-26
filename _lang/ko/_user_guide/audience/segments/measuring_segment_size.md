@@ -108,11 +108,10 @@ Segment의 정확한 사용자 수를 확인하려면 **Reachable users** 패널
 
 Braze는 워크스페이스당 한 번에 하나의 계산을 우선 처리하므로, 여러 계산을 동시에 실행하면 지연이 발생합니다. **View calculation queue**를 선택하면 앞에 있는 Segments, 진행 상황, 시작한 사람을 확인하고 계산이 언제 우선 처리될지 파악할 수 있습니다.
 
-![하나의 계산이 있는 계산 대기줄.]({% image_buster /assets/img_archive/calculation_queue.png %})
+![하나의 계산이 있는 계산 대기열.]({% image_buster /assets/img_archive/calculation_queue.png %})
 
-**Cancel**을 선택하여 정확한 통계 계산을 취소할 수 있습니다. 대기줄에 여러 계산이 있고 다른 계산을 먼저 우선 처리하고 싶을 때 유용합니다.
+**Cancel**을 선택하여 정확한 통계 계산을 취소할 수 있습니다. 대기열에 여러 계산이 있고 다른 계산을 먼저 우선 처리하고 싶을 때 유용합니다.
 
-![취소 옵션이 있는 활성 계산]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## 과거 Segment 멤버십 크기 보기 {#viewing-historical-segment-membership-size}
 

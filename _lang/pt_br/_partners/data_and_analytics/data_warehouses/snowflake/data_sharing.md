@@ -2,7 +2,7 @@
 nav_title: "Compartilhamento de dados"
 article_title: Compartilhamento de dados do Snowflake
 page_order: 0
-description: "Este artigo de referência aborda a integração de Compartilhamento Seguro de Dados do Snowflake, que permite acessar dados de engajamento e campanhas da Braze diretamente na sua instância do Snowflake."
+description: "Este artigo de referência aborda a integração de Compartilhamento Seguro de Dados do Snowflake, que permite acessar dados de engajamento e de campanhas diretamente na sua instância do Snowflake."
 page_type: partner
 search_tag: Partner
 
@@ -24,7 +24,7 @@ Com o compartilhamento de dados, nenhum dado real é copiado ou transferido entr
 
 Além disso, usando os recursos integrados de funções e permissões do Snowflake, o acesso aos dados compartilhados pela Braze pode ser controlado e governado usando os controles de acesso já existentes na sua conta do Snowflake e nos dados contidos nela. O acesso pode ser restringido e monitorado da mesma forma que seus próprios dados.
 
-- **Reduza o tempo para obter insights**<br>Diga adeus aos processos de ETL que levam semanas para serem construídos. As arquiteturas exclusivas da Braze e do Snowflake tornam todos os dados de engajamento de clientes e campanhas imediatamente acessíveis e consultáveis a partir do momento em que chegam ao data lake. Nenhum dado é copiado ou movido, então você pode oferecer experiências ao cliente com base apenas nas informações mais relevantes e atualizadas.
+- **Reduza o tempo para obter insights**<br>Diga adeus aos processos de ETL que levam semanas para serem construídos. As arquiteturas exclusivas da Braze e do Snowflake tornam todos os dados de engajamento de clientes e de campanhas imediatamente acessíveis e consultáveis a partir do momento em que chegam ao data lake. Nenhum dado é copiado ou movido, então você pode oferecer experiências ao cliente com base apenas nas informações mais relevantes e atualizadas.
 - **Elimine silos de dados**<br>Crie uma visão holística dos seus clientes em todos os canais e plataformas. O compartilhamento de dados torna mais fácil do que nunca unir seus dados de engajamento de clientes da Braze com todos os outros dados do Snowflake, criando insights mais ricos em uma única fonte confiável de verdade.
 - **Veja como seu engajamento se compara**<br>Otimize suas estratégias de engajamento de clientes com o Braze Benchmarks. Essa ferramenta interativa, desenvolvida pela Braze e pelo Snowflake, permite comparar os dados de engajamento da sua marca com benchmarks de canais, setores e plataformas de dispositivos.
 
@@ -36,7 +36,7 @@ Para saber mais sobre o compartilhamento de dados do Snowflake, consulte [Introd
 | ----------- | ----------- |
 | Acesso à Braze | Fale com sua conta da Braze ou gerente de sucesso do cliente para configurar o Compartilhamento de Dados. |
 | Conta do Snowflake | Uma conta do Snowflake com permissões de `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Configurando o Compartilhamento Seguro de Dados {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ No Snowflake, o compartilhamento de dados acontece entre um [provedor de dados](
 
 ### Etapa 1: Enviar o datashare a partir da Braze {#step-1-send-the-datashare-from-braze}
 
-1. Na Braze, acesse **Partner Integrations** > **Data Sharing**.
+1. Na Braze, acesse **Integrações de parceiros** > **Compartilhamento de dados**.
 2. Insira os detalhes e o localizador da sua conta do Snowflake. Para obter o localizador da sua conta, execute `SELECT CURRENT_ACCOUNT()` na conta de destino.
 3. Se estiver usando um compartilhamento CRR, especifique o provedor de nuvem e a região.
 4. Quando terminar, selecione **Create Datashare**. Isso enviará o datashare para sua conta do Snowflake.
@@ -77,7 +77,7 @@ Assim como o Currents, você pode usar o Compartilhamento Seguro de Dados do Sno
 - Mapear dados brutos de eventos ou de usuários para um CRM (como o Salesforce)
 - E muito mais
 
-[Baixe os esquemas de tabelas brutas aqui.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[Baixe os esquemas de tabelas brutas.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### Esquema de ID do usuário {#user-id-schema}
 
@@ -87,7 +87,7 @@ Observe as seguintes diferenças entre as convenções de nomenclatura da Braze 
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador único que é atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador único do perfil de um usuário que é definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID do usuário" }
 
 ## Informações importantes e limitações {#important-information-and-limitations}
 

@@ -39,7 +39,7 @@ hide_toc: true
 メールのクレジット比率は、Brazeプラットフォームから送信されるメール1,000通単位（CPM）で計算されます。
 
 {% alert note %}
-メールチャネルの詳細については、[メールドキュメント](https://www.braze.com/docs/user_guide/message_building_by_channel/email)を参照してください。
+メールチャネルの詳細については、[メールドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/email/)を参照してください。
 {% endalert %}
 
 ## SMS、MMS、RCSチャネルの詳細 {#sms-mms-and-rcs-channel-details}
@@ -69,7 +69,7 @@ RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで�
     - **Rich Media RCS（米国のみ）：** メディアを含むメッセージ、またはよりリッチなサジェスチョン/ボタン（webview、ロケーション、カレンダーなど）を含むテキスト、1メッセージとしてカウント
 
 {% alert note %}
-SMSファミリーの提供内容の詳細については、[SMSおよびMMSドキュメント](https://www.braze.com/docs/user_guide/message_building_by_channel/sms)を参照してください。
+SMSファミリーの提供内容の詳細については、[SMSおよびMMSドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/sms/)を参照してください。
 {% endalert %}
 
 ## WhatsAppチャネルの詳細 {#whatsapp-channel-details}
@@ -107,7 +107,7 @@ SMSファミリーの提供内容の詳細については、[SMSおよびMMSド�
 オーストリア、ベルギー、デンマーク、フィンランド、アイルランド、ノルウェー、ポルトガル、スウェーデン、スイス
 
 {% alert note %}
-WhatsAppの提供内容の詳細については、[WhatsAppドキュメント](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp)を参照してください。
+WhatsAppの提供内容の詳細については、[WhatsAppドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/)を参照してください。
 {% endalert %}
 
 ## エージェントコンソールの詳細 {#agent-console-details}
@@ -115,7 +115,7 @@ WhatsAppの提供内容の詳細については、[WhatsAppドキュメント](h
 エージェントコンソールのクレジット比率は、Brazeプラットフォームから実行される呼び出し（Invocation）1,000回単位で計算されます。呼び出しは、エージェントがLLMへのコールを開始した際に記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに、プラットフォームエディションで指定された呼び出し回数の割り当てが含まれています。追加の呼び出しは、注文書に従って課金されます。
 
 {% alert note %}
-エージェントコンソールの詳細については、[Braze エージェントドキュメント](https://www.braze.com/docs/user_guide/brazeai/agents)を参照してください。
+エージェントコンソールの詳細については、[Braze エージェントドキュメント]({{site.baseurl}}/user_guide/brazeai/agents/)を参照してください。
 {% endalert %}
 
 ## その他のチャネルの詳細 {#additional-channel-details}
@@ -125,7 +125,7 @@ WhatsAppの提供内容の詳細については、[WhatsAppドキュメント](h
 LINEのクレジット比率は、Brazeプラットフォームから送信されるLINEメッセージ単位で計算されます。
 
 {% alert note %}
-BrazeでのLINEの使用方法の詳細については、[LINEドキュメント](https://www.braze.com/docs/user_guide/message_building_by_channel/line)を参照してください。
+BrazeでのLINEの使用方法の詳細については、[LINEドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/line/)を参照してください。
 {% endalert %}
 
 ### KakaoTalk {#kakaotalk}
@@ -133,7 +133,7 @@ BrazeでのLINEの使用方法の詳細については、[LINEドキュメント
 KakaoTalkのクレジット比率は、Brazeプラットフォームから送信されるKakaoTalkメッセージ単位で計算されます。
 
 {% alert note %}
-BrazeでのKakaoTalkの使用方法の詳細については、[KakaoTalkドキュメント](https://braze.com/docs/kakaotalk/)を参照してください。
+BrazeでのKakaoTalkの使用方法の詳細については、[KakaoTalkドキュメント]({{site.baseurl}}/kakaotalk/)を参照してください。
 {% endalert %}
 
 ### Content Cards {#content-cards}
@@ -146,7 +146,7 @@ Brazeは、顧客がBrazeのガイダンスに従ってユニークインプレ�
     - 送信数と1日あたりのユニークインプレッション数の比率が100を超える
 
 {% alert note %}
-Braze Content Cardsの詳細については、[Content Cardsドキュメント](https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards)を参照してください。
+Braze Content Cardsの詳細については、[Content Cardsドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/)を参照してください。
 {% endalert %}
 
 ### バナー {#banners}
@@ -154,7 +154,7 @@ Braze Content Cardsの詳細については、[Content Cardsドキュメント](
 バナーのクレジット比率は、1日あたりのユニークインプレッション1,000回単位で計算されます。
 
 {% alert note %}
-Brazeバナーの詳細については、[バナードキュメント](https://braze.com/docs/developer_guide/banner_cards)を参照してください。
+Brazeバナーの詳細については、[バナードキュメント]({{site.baseurl}}/developer_guide/banner_cards/)を参照してください。
 {% endalert %}
 
 ### Audience Sync {#audience-sync}
@@ -162,7 +162,7 @@ Brazeバナーの詳細については、[バナードキュメント](https://b
 Audience Syncのクレジット比率は、合計ユーザー同期1,000回単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに500万回のユーザー同期が含まれています。追加のユーザー同期は、注文書に従って課金されます。
 
 {% alert note %}
-Canvas Audience Syncと利用可能なパートナーの詳細については、[Canvasドキュメント](https://www.braze.com/docs/partners/canvas_steps)を参照してください。
+Canvas Audience Syncと利用可能なパートナーの詳細については、[Canvasドキュメント]({{site.baseurl}}/partners/canvas_steps/)を参照してください。
 {% endalert %}
 
 ### メッセージのアーカイブ {#message-archiving}
@@ -170,7 +170,7 @@ Canvas Audience Syncと利用可能なパートナーの詳細については、
 メッセージのアーカイブのクレジット比率は、プッシュ、メール、SMS/MMSチャネル全体でアーカイブされたメッセージ1,000通単位で計算されます。
 
 {% alert note %}
-メッセージのアーカイブの詳細については、[メッセージアーカイブドキュメント](https://www.braze.com/docs/user_guide/data/export_braze_data/message_archiving#message-archiving)を参照してください。
+メッセージのアーカイブの詳細については、[メッセージアーカイブドキュメント]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving/#message-archiving)を参照してください。
 {% endalert %}
 
 ### Webhook {#webhooks}
@@ -178,5 +178,5 @@ Canvas Audience Syncと利用可能なパートナーの詳細については、
 Webhookのクレジット比率は、Brazeプラットフォームから送信されるwebhook 1,000回単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに10万回のwebhookが含まれています。追加のwebhookは、注文書に従って課金されます。
 
 {% alert note %}
-Braze Webhookの詳細については、[webhookドキュメント](https://www.braze.com/docs/user_guide/message_building_by_channel/webhooks)を参照してください。
+Braze Webhookの詳細については、[webhookドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/)を参照してください。
 {% endalert %}

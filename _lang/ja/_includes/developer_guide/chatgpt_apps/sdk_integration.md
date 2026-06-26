@@ -1,44 +1,44 @@
-# ChatGPTアプリの統合
+# ChatGPTアプリの統合 {#chatgpt-app-integration}
 
-## 設定
+## セットアップ {#setup}
 
-### ステップ 1: Brazeの統合ファイルを取得する
+### ステップ1:Brazeの統合ファイルを取得する {#step-1-get-the-braze-integration-file}
 
-[ChatGPTアプリ統合リポジトリ](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts)からファイルを`braze.js`プロジェクトにコピーせよ。このファイルには、必要なすべてのBraze SDK設定と補助関数が含まれている。
+[ChatGPTアプリ統合リポジトリ](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts)から`braze.js`ファイルをプロジェクトにコピーします。このファイルには、必要なすべてのBraze SDKの設定とヘルパー関数が含まれています。
 
-### ステップ 2:依存関係をインストールする
+### ステップ2:依存関係をインストールする {#step-2-install-dependencies}
 
-Brazeの最新機能を利用するには、当社のWeb SDKを導入せよ。
+Brazeの最新機能を利用するには、Web SDKをインストールします。
 
-**クライアントサイド統合については：**
+**クライアントサイド統合の場合：**
 ```bash
 npm install @braze/web-sdk
 ```
 
 <!-- **For server-side integration:**
-`````````bash
+```bash
 npm install @braze/javascript-sdk
-````````` -->
+``` -->
 
 <!-- The Braze JavaScript SDK is primarily designed for headless (server-side) environments and is currently in [beta](https://www.braze.com/company/legal/beta-terms). -->
 
-## 実装
+## Implementation
 
-BrazeをChatGPTアプリに統合する方法は、ユースケースに応じて2通りある：
+There are two ways to integrate Braze with your ChatGPT app depending on your use case:
 
-### クライアントサイド統合（カスタムウィジェット）
+### Client-side integration (custom widgets)
 
 {% alert tip %}
-**推奨されるアプローチ：**この方法により、ChatGPTアプリウィジェット内でリッチなメッセージング体験とリアルタイムのユーザーインタラクショントラッキングが可能になる。
+**Recommended Approach:** This method enables rich messaging experiences and real-time user interaction tracking within your ChatGPT app widgets.
 {% endalert %}
 
-カスタムChatGPTアプリウィジェット内でBrazeメッセージングを表示し、ユーザーインタラクションをトラッキングするには、Web SDK統合を使用する。完全なメッセージングの例は[、こちらの](https://github.com/braze-inc/chatgpt-apps-braze-integration/tree/main/src/inbox)サンプルリポジトリで見つけることができる。
+For displaying Braze messaging and tracking user interactions within your custom ChatGPT app widgets, use the Web SDK integration. A full messaging example can be found in our sample repository [here](https://github.com/braze-inc/chatgpt-apps-braze-integration/tree/main/src/inbox).
 
-#### ウィジェットのメタデータを設定する
+#### Configure widget metadata
 
-MCPサーバーファイルに以下のメタデータを追加し、Brazeドメインを許可する。CDNドメインは[地域](https://www.braze.com/docs/developer_guide/platforms/web/content_security_policy)に応じて更新すること：
+Add the following metadata to your MCP server file to allow Braze domains, ensuring to update the CDN domain based on [your region]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy/):
 
-`````````javascript
+```javascript
 "openai/widgetCSP": {
   connect_domains: ["https://YOUR-SDK-ENDPOINT"],
   resource_domains: [
@@ -50,11 +50,11 @@ MCPサーバーファイルに以下のメタデータを追加し、Brazeドメ
 }
 ```
 
-実際のBraze SDKエンドポイントで`YOUR-SDK-ENDPOINT`置き換える。
+`YOUR-SDK-ENDPOINT`を実際のBraze SDKエンドポイントに置き換えてください。
 
-#### useBrazeフックを設定する
+#### useBrazeフックを設定する {#set-up-the-usebraze-hook}
 
-`````````javascript
+```javascript
 import { useBraze } from "./utils/braze";
 
 function YourWidget() {
@@ -70,7 +70,7 @@ function YourWidget() {
 
     // Set user identity
     braze.changeUser("user-id-123");
-    
+
     // Log widget interactions
     braze.logCustomEvent("viewed_pizzaz_list");
   }, [braze.isInitialized]);
@@ -81,9 +81,9 @@ function YourWidget() {
 }
 ```
 
-#### Brazeコンテンツカードを表示する
+#### Braze Content Cardsを表示する {#display-braze-content-cards}
 
-`````````javascript
+```javascript
 const [cards, setCards] = useState([]);
 
 useEffect(() => {
@@ -104,9 +104,9 @@ useEffect(() => {
 }, []);
 ```
 
-#### ウィジェットのイベントのトラッキング
+#### ウィジェットイベントをトラッキングする {#track-widget-events}
 
-`````````javascript
+```javascript
 // Track user interactions within your widget
 const handleButtonClick = () => {
   braze.logCustomEvent("widget_button_clicked", {
@@ -123,21 +123,21 @@ const handleItemInteraction = (itemId) => {
 };
 ```
 
-### サーバーサイド統合（MCPサーバー）
+### サーバーサイド統合（MCPサーバー） {#server-side-integration-mcp-server}
 
 <!-- For tracking events and purchases from your MCP server, add these code snippets to your server file (typically `server.js` or `server.ts`) where you handle ChatGPT app requests and tool calls. -->
-MCPサーバー上でメッセージング機能のサーバーサイド統合も必要なら、に連絡せよ<span style="white-space:nowrap;">`mcp-product@braze.com`</span>。MCPサーバーからのイベントや購入のトラッキング, 追跡には、当社の[REST API]({{site.baseurl}}/api/home)を使用する。
+MCPサーバー上でメッセージング機能のサーバーサイド統合も必要な場合は、<span style="white-space:nowrap;">`mcp-product@braze.com`</span>までお問い合わせください。MCPサーバーからのイベントや購入のトラッキングには、[REST API]({{site.baseurl}}/api/home/)を使用してください。
 
 <!-- #### Import the Braze functions
 
-`````````javascript
+```javascript
 // Import the desired methods from wherever you saved the file
 import { BrazeSessionInfo, logCustomEvent, logPurchase } from "./braze/braze.js";
 ```
 
 #### Set up session information
 
-`````````javascript
+```javascript
 // Create session info for Braze
 const brazeSessionInfo: BrazeSessionInfo = {
   userId: userId,
@@ -147,7 +147,7 @@ const brazeSessionInfo: BrazeSessionInfo = {
 
 #### Track user interactions
 
-`````````javascript
+```javascript
 // Log custom events for user interactions
 await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
   app_id: "your_chatgpt_app_id",
@@ -159,7 +159,7 @@ await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
 
 #### Track purchases and transactions
 
-`````````javascript
+```javascript
 // Calculate order details for purchases
 const totalPrice = examplePriceMethod(args.size, args.quantity);
 const orderId = `ORDER-${Date.now()}`;
@@ -178,15 +178,15 @@ const purchaseProperties = {
 
 // Log the purchase to Braze
 await logPurchase(
-  brazeSessionInfo, 
-  "pizza", 
-  totalPrice, 
-  "USD", 
-  args.quantity, 
+  brazeSessionInfo,
+  "pizza",
+  totalPrice,
+  "USD",
+  args.quantity,
   purchaseProperties
 );
 ```
 
 {% alert tip %}
-Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to verify your integration and troubleshoot any issues.
+Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) to verify your integration and troubleshoot any issues.
 {% endalert %} -->

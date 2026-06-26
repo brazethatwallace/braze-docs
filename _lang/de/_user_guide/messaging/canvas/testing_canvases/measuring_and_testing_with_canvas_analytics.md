@@ -28,6 +28,13 @@ Wenn **[Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segme
 
 ![Die Seite „Canvas Details“ mit den wichtigsten Statistiken, darunter gesendete Nachrichten, Konversionsrate, Gesamteintritte, Gesamtumsatz, Gesamtaustritte und geschätzte Zielgruppe, mit Kanal- und Statistikfiltern.]({% image_buster /assets/img_archive/Journey_5.png %})
 
+{% alert tip %}
+Wenn ein Segment, das Sie aus Canvas-Aktivitäten erstellt haben, weniger erreichbare Nutzer:innen anzeigt, als Sie aufgrund der Canvas Analytics erwarten, gibt es zwei häufige Gründe:
+
+- **Schätzung durch Stichproben:** Segment-Statistiken können eine Schätzung auf Basis einer Zufallsstichprobe mit einem 95-%-Konfidenzintervall von ±1 % anzeigen, anstatt einer exakten Zählung.
+- **Nutzer:innen erfüllen die Kriterien nicht mehr:** Einige Nutzer:innen, die in den Canvas Analytics gezählt werden, qualifizieren sich möglicherweise nicht mehr für das Segment – beispielsweise weil sie sich abgemeldet haben oder sich ihre Profildaten seit der Ausführung des Canvas geändert haben. Überprüfen Sie die **historische Performance** des Canvas auf ein hohes Volumen an Abmeldungen.
+{% endalert %}
+
 ### Änderungen seit der letzten Ansicht {#changes-since-last-viewed}
 
 Die Anzahl der Aktualisierungen am Canvas durch andere Mitglieder Ihres Teams wird durch die Metrik *Änderungen seit der letzten Ansicht* auf der Canvas-Übersichtsseite erfasst. Wählen Sie **Changes Since Last Viewed** aus, um einen Changelog der Aktualisierungen an Canvas-Name, Zeitplan, Tags, Nachricht, Zielgruppe, Genehmigungsstatus oder Team-Zugriffskonfiguration anzuzeigen. Für jede Aktualisierung können Sie sehen, wer sie durchgeführt hat und wann. Sie können diesen Changelog verwenden, um Änderungen an Ihren Canvases zu überprüfen.

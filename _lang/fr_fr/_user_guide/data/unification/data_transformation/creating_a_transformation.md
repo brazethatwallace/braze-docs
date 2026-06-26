@@ -16,7 +16,7 @@ description: "Cet article de référence décrit les étapes pour créer une tra
 | --- | --- |
 | Authentification à deux facteurs ou SSO | Vous devez avoir activé l'[authentification à deux facteurs]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) ou l'[authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) pour votre compte. |
 | Autorisations correctes | Vous devez être administrateur de compte ou d'espace de travail, ou disposer de l'autorisation utilisateur « Gérer les transformations ». |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Étape 1 : Identifier une plateforme source {#step-1-identify-a-source-platform}
 
@@ -24,7 +24,7 @@ Identifiez une plateforme externe que vous souhaitez connecter à Braze et véri
 
 Voici un exemple de [webhook Typeform](https://www.typeform.com/help/a/webhooks-360029573471/), configurable en se connectant à leur plateforme :
 
-![]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Un exemple de payload de webhook Typeform dans les paramètres de la plateforme Typeform.]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## Étape 2 : Créer une transformation {#step-2-create-a-transformation}
 
@@ -56,9 +56,9 @@ Si vous avez peu ou pas d'expérience avec le code JavaScript ou si vous préfé
 Si vous êtes développeur ou si vous avez une expérience significative avec le code JavaScript, suivez l'onglet **Avancé - POST : suivre les utilisateurs** pour obtenir des instructions générales sur l'écriture de votre code de transformation.
 
 {% alert tip %}
-La Transformation des données Braze dispose d'un copilote d'intelligence artificielle qui utilise ChatGPT pour vous aider à écrire votre code. Pour accéder au copilote d'intelligence artificielle, sélectionnez <i class="fa-solid fa-wand-magic-sparkles"></i> **Generate transformation code**. Pour l'utiliser, un webhook doit être envoyé à votre transformation. Vous pouvez également accéder à la bibliothèque de modèles en sélectionnant **Insert code** > **Insert template**.
+Pour générer du code de transformation avec l'intelligence artificielle, choisissez **Code with Operator** au-dessus de l'éditeur de code de transformation. Pour l'utiliser, un webhook doit être envoyé à votre transformation. Pour partir d'un modèle prédéfini, choisissez **Insert Template**. Pour des exemples de prompts, consultez [Générer du code de transformation des données]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code).
 
-![]({% image_buster /assets/img/data_transformation/data_transformation3.png %})
+**Code with Operator** n'est disponible que si Operator est activé pour votre compte. Si vous ne le voyez pas, contactez votre gestionnaire de compte.
 {% endalert %}
 
 {% tabs %}
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
 
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,

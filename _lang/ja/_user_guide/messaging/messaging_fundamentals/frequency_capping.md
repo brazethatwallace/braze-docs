@@ -86,7 +86,7 @@ Campaign作成時にユーザーをターゲットする際、**Target Audiences
 レート制限が設定されていないCampaignsは、これらの配信制限を超える場合があることに注意してください。ただし、低いレート制限により72時間以上遅延したメッセージは中止されることに注意してください。レート制限が低すぎる場合、Campaignの作成者はダッシュボードとメールでアラートを受け取ります。
 
 {% alert tip %}
-ワークスペース全体にレート制限を適用するには、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を設定してください。
+ワークスペース全体にレート制限を適用するには、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)を設定してください。
 {% endalert %}
 
 #### 例 {#example}
@@ -139,17 +139,17 @@ Brazeは、マルチチャネルCampaignsとCanvasesにレート制限がどの�
 - 以下のメッセージは、レート制限によるスロットリングの対象外であり、レート制限にカウントされません。
     - テスト送信
     - シードグループ
-    - 「最初のインプレッション時」に作成するように設定されたContent Cards（これはアプリのインプレッションレートによって制御されます。カード作成オプションの違いについては、[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences)を参照してください。）
+    - 「最初のインプレッション時」に作成するように設定されたContent Cards（これはアプリのインプレッションレートによって制御されます。カード作成オプションの違いについては、[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences)を参照してください。）
 - 以下については配信速度レート制限はサポートされていません。
     - SMS自動応答
-    - SLAに基づくメッセージ（[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)など）
+    - SLAに基づくメッセージ（[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)など）
     - アプリ内メッセージ
     - フィーチャーフラグ
     - バナー
 
 #### レート制限とコネクテッドコンテンツのリトライ {#rate-limiting-and-connected-content-retries}
 
-[コネクテッドコンテンツのリトライ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)がオンになっている場合、Brazeは設定されたレート制限を尊重しながら、各再送信のコール失敗をリトライします。75,000メッセージを1分あたり10,000のレート制限で送信するシナリオを考えてみましょう。最初の1分間にコールが失敗するか遅延し、4,000メッセージしか送信されなかったとします。
+[コネクテッドコンテンツのリトライ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)がオンになっている場合、Brazeは設定されたレート制限を尊重しながら、各再送信のコール失敗をリトライします。75,000メッセージを1分あたり10,000のレート制限で送信するシナリオを考えてみましょう。最初の1分間にコールが失敗するか遅延し、4,000メッセージしか送信されなかったとします。
 
 遅延を補うために残りの6,000メッセージを2分目に送信したり、すでに送信予定の10,000メッセージに追加したりする代わりに、Brazeはその6,000メッセージを「キューの最後尾」に移動し、必要に応じてメッセージ送信にかかる合計分数に1分を追加します。
 
@@ -193,9 +193,9 @@ Brazeは、マルチチャネルCampaignsとCanvasesにレート制限がどの�
 
 ![ルールが適用されるCampaignsとCanvasesのリスト、および適用されないリストを含むフリークエンシーキャップセクション。]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
 
-#### キャンバスステップでユーザーがフリークエンシーキャップに達した場合の動作 {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
+#### キャンバスステップでユーザーがフリークエンシーキャップに達した場合またはメッセージが中止された場合の動作 {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
-グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)では、グローバルフリークエンシーキャップによりメッセージが送信されない場合でも、ステップを通じた[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance)に従って、ユーザーは引き続き進行します。
+グローバルフリークエンシーキャップだけではユーザーをCanvasから退出させません。[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)では、グローバルフリークエンシーキャップによりメッセージが送信されない場合でも、ステップを通じた[ユーザーの進行方法]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance)に従って、ユーザーは引き続き進行します。メッセージが中止された場合（たとえば、Liquid中止条件による場合）も同様で、ユーザーはメッセージが送信されたかのようにCanvasを通じて進行し続けます。
 
 これはメッセージステップの**配信バリデーション**とは別のものです。送信時にユーザーが配信バリデーション条件を満たさない場合、そのステップでCanvasから退出する可能性があります。
 
@@ -207,7 +207,7 @@ Brazeは、マルチチャネルCampaignsとCanvasesにレート制限がどの�
 
 その後、このCampaignをフリークエンシーキャップにカウントするかどうかを尋ねられます。フリークエンシーキャップにカウントされるメッセージは、インテリジェントチャネルフィルターの計算に含まれます。
 
-[APIキャンペーン]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging)を送信する場合（多くの場合トランザクション的なもの）、APIリクエストで`override_frequency_capping`を`true`に設定することで、Campaignがフリークエンシーキャップルールを無視するように指定できます。
+[APIキャンペーン]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging)を送信する場合（多くの場合トランザクション的なもの）、APIリクエストで`override_frequency_capping`を`true`に設定することで、Campaignがフリークエンシーキャップルールを無視するように指定できます。
 
 デフォルトでは、フリークエンシーキャップに従わない新しいCampaignsとCanvasesは、フリークエンシーキャップにカウントもされません。これはCampaignとCanvasごとに設定可能です。
 
@@ -343,13 +343,13 @@ Canvasesはコンポーネントごとではなく、Canvasレベルでタグ付
 
 ### Canvas内でフリークエンシーキャップされたユーザーを特定するにはどうすればよいですか？ {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-フリークエンシーキャップされたユーザーは、そのステップの送信イベントを生成しません。これらのユーザーを特定するには、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用して、メッセージのフリークエンシーキャップイベントを追跡できます。または、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を作成して、Canvasに入ったが期待されるメッセージを受信しなかったユーザーを分析できます。
+フリークエンシーキャップされたユーザーは、そのステップの送信イベントを生成しません。これらのユーザーを特定するには、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用して、メッセージのフリークエンシーキャップイベントを追跡できます。または、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)を作成して、Canvasに入ったが期待されるメッセージを受信しなかったユーザーを分析できます。
 
 ### ダッシュボードにCampaignのレート制限エラーが表示されるのはなぜですか？ {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-これは通常、Campaignの[配信速度レート制限](#delivery-speed-rate-limiting)がオーディエンスサイズに対して低すぎるため、送信の完了に許可された時間枠よりも長くかかり、Brazeが警告を表示していることを意味します。配信速度レート制限を上げるか、オーディエンスを減らすか、**Limit the number of people who will receive this campaign**を使用して、スケジュールされた各送信が許可された送信時間枠内に完了するようにしてください。また、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を設定して、Campaigns全体にキャップを適用することもできます。
+これは通常、Campaignの[配信速度レート制限](#delivery-speed-rate-limiting)がオーディエンスサイズに対して低すぎるため、送信の完了に許可された時間枠よりも長くかかり、Brazeが警告を表示していることを意味します。配信速度レート制限を上げるか、オーディエンスを減らすか、**Limit send volume**を使用して、スケジュールされた各送信が許可された送信時間枠内に完了するようにしてください。また、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)を設定して、Campaigns全体にキャップを適用することもできます。
 
-**Limit the number of people who will receive this campaign**は、送信対象となるユーザー数を制御するもので、Brazeが1分あたりに送信するメッセージ数を制御するものではありません。1分あたりのスループットを設定するのは配信速度レート制限のみです。
+**Limit send volume**は、送信対象となるユーザー数を制御するもので、Brazeが1分あたりに送信するメッセージ数を制御するものではありません。1分あたりのスループットを設定するのは配信速度レート制限のみです。
 
 ### フリークエンシーキャップにおける「送信済み」とは何を意味しますか？ {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +359,6 @@ Canvasesはコンポーネントごとではなく、Canvasレベルでタグ付
 
 メールのバウンスおよび遅延メッセージは、さまざまなコードやプロバイダー固有のテキストを使用します。特定のコードをレート制限の問題の兆候として扱わないでください。原因は送信コンテキストとメールボックスプロバイダーのフィードバックによって異なります。
 
-メッセージが一時的に遅延されている場合、送信量を減らすことが短期的に役立つ場合があります。[配信速度レート制限](#delivery-speed-rate-limiting)、**Limit the number of people who will receive this campaign**、またはその両方を使用してください。
+メッセージが一時的に遅延されている場合、送信量を減らすことが短期的に役立つ場合があります。[配信速度レート制限](#delivery-speed-rate-limiting)、**Limit send volume**、またはその両方を使用してください。
 
 長期的な解決策としては、配信性の専門家と協力してバウンスおよび遅延データを確認してください。

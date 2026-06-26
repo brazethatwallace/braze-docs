@@ -16,7 +16,7 @@ Beachten Sie vor dem Fortfahren, dass Braze HTML-Daten beim Import nicht bereini
 
 ## REST API
 
-Sie können den [`/users/track`-Endpunkt](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) verwenden, um angepasste Events, Nutzerattribute und Käufe für Nutzer:innen aufzuzeichnen.
+Sie können den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) verwenden, um angepasste Events, Nutzerattribute und Käufe für Nutzer:innen aufzuzeichnen.
 
 ## CSV-Import
 
@@ -34,7 +34,7 @@ Wenn Sie eine Mischung aus Nutzer:innen mit einer `external_id` und Nutzer:innen
 
 ### Import mit externer ID {#importing-with-external-id}
 
-Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. Typischerweise handelt es sich um eine interne Datenbank-ID. Diese sollte mit der Art übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einziges Nutzerprofil in Braze über alle Geräte hinweg hat. Lesen Sie mehr über den Braze [Nutzerprofil-Lebenszyklus](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle).
+Beim Import Ihrer Kundendaten müssen Sie den eindeutigen Bezeichner jedes Kunden angeben, auch bekannt als `external_id`. Bevor Sie mit Ihrem CSV-Import beginnen, ist es wichtig, von Ihrem Entwicklerteam zu erfahren, wie Nutzer:innen in Braze identifiziert werden. Typischerweise handelt es sich um eine interne Datenbank-ID. Diese sollte mit der Art übereinstimmen, wie Nutzer:innen vom Braze SDK auf Mobilgeräten und im Internet identifiziert werden, und ist so konzipiert, dass jede:r Kund:in ein einziges Nutzerprofil in Braze über alle Geräte hinweg hat. Lesen Sie mehr über den Braze [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/).
 
 Wenn Sie eine `external_id` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit derselben `external_id` oder erstellt eine:n neu identifizierte:n Nutzer:in mit dieser `external_id`, falls keine:r gefunden wird.
 
@@ -59,7 +59,7 @@ Wenn Sie Nutzerprofile hochladen oder aktualisieren, die nur Aliase haben, müss
 Wenn Sie sowohl einen `user_alias_name` als auch ein `user_alias_label` in Ihrem Import angeben, aktualisiert Braze alle bestehenden Nutzer:innen mit demselben `user_alias_name` und `user_alias_label`. Wenn keine:r gefunden wird, erstellt Braze eine:n neu identifizierte:n Nutzer:in mit diesem `user_alias_name`.
 
 {% alert important %}
-Sie können keinen CSV-Import verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die:der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“](https://www.braze.com/docs/api/endpoints/user_data/post_user_identify/).
+Sie können keinen CSV-Import verwenden, um eine:n bestehende:n Nutzer:in mit einem `user_alias_name` zu aktualisieren, wenn diese:r bereits eine `external_id` hat. Stattdessen wird ein neues Nutzerprofil mit dem zugehörigen `user_alias_name` erstellt. Um eine:n Nutzer:in, die:der nur einen Alias hat, mit einer `external_id` zu verknüpfen, verwenden Sie den [Endpunkt „Nutzer:innen identifizieren“]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/).
 {% endalert %}
 
 - **Download:** [CSV-Alias-Attribut-Import-Template][template_alias_attributes]
@@ -101,8 +101,8 @@ Beim Import von Kundendaten als Attribute müssen die von Ihnen verwendeten Spal
 | `dob` | String | Muss im Format „YYYY-MM-DD“ übergeben werden (zum Beispiel `1980-12-21`). Dies importiert das Geburtsdatum Ihrer Nutzer:innen und ermöglicht es Ihnen, Nutzer:innen anzusprechen, deren Geburtstag „heute“ ist. | Nein |
 | `gender` | String | „M“, „F“, „O“ (andere), „N“ (nicht zutreffend), „P“ (möchte nicht angeben) oder nil (unbekannt). | Nein |
 | `home_city` | String | Der Wohnort Ihrer Nutzer:innen, wie von ihnen angegeben (zum Beispiel `London`). | Nein |
-| `language` | String | Die Sprache muss im ISO-639-1-Standard an Braze übergeben werden (zum Beispiel `en`). <br>Siehe unsere [Liste der akzeptierten Sprachen](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/language_codes/). | Nein |
-| `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (zum Beispiel `+442071838750`). <br> Siehe [Nutzer-Telefonnummern](https://www.braze.com/docs/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/) für Formatierungshinweise. | Nein |
+| `language` | String | Die Sprache muss im ISO-639-1-Standard an Braze übergeben werden (zum Beispiel `en`). <br>Siehe unsere [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes/). | Nein |
+| `phone` | String | Eine Telefonnummer, wie von Ihren Nutzer:innen angegeben, im `E.164`-Format (zum Beispiel `+442071838750`). <br> Siehe [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/) für Formatierungshinweise. | Nein |
 | `email_open_tracking_disabled` | Boolescher Wert | true oder false akzeptiert. Setzen Sie den Wert auf true, um zu verhindern, dass das Öffnungs-Tracking-Pixel zu allen zukünftigen E-Mails hinzugefügt wird, die an diese:n Nutzer:in gesendet werden. | Nein |
 | `email_click_tracking_disabled` | Boolescher Wert | true oder false akzeptiert. Setzen Sie den Wert auf true, um das Klick-Tracking für alle Links in zukünftigen E-Mails zu deaktivieren, die an diese:n Nutzer:in gesendet werden. | Nein |
 | `email_subscribe` | String | Verfügbare Werte sind `opted_in` (explizit für den Empfang von E-Mail-Nachrichten registriert), `unsubscribed` (explizit vom Empfang von E-Mail-Nachrichten abgemeldet) und `subscribed` (weder angemeldet noch abgemeldet). | Nein |
@@ -136,16 +136,16 @@ Die folgenden Datentypen werden beim Nutzerimport akzeptiert:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-Arrays und Push-Token werden beim Nutzerimport nicht unterstützt. Insbesondere bei Arrays werden Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert, sodass Kommas in Werten zu Fehlern beim Parsen der Datei führen. <br>Um diese Art von Werten hochzuladen, verwenden Sie den [`/users/track`-Endpunkt](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) oder die [Cloud-Datenaufnahme](https://www.braze.com/docs/user_guide/data_and_analytics/cloud_ingestion/).
+Arrays und Push-Token werden beim Nutzerimport nicht unterstützt. Insbesondere bei Arrays werden Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert, sodass Kommas in Werten zu Fehlern beim Parsen der Datei führen. <br>Um diese Art von Werten hochzuladen, verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/).
 {% endalert %}
 
 ### Abo-Gruppenstatus aktualisieren {#updating-subscription-group-status}
 
-Sie können Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders nützlich für SMS, da Nutzer:innen in eine SMS-Abo-Gruppe eingetragen sein müssen, um über den SMS-Kanal Nachrichten zu erhalten. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen](https://www.braze.com/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/#subscription-group-mms-enablement).
+Sie können Nutzer:innen über den Nutzerimport zu E-Mail- oder SMS-Abo-Gruppen hinzufügen. Dies ist besonders nützlich für SMS, da Nutzer:innen in eine SMS-Abo-Gruppe eingetragen sein müssen, um über den SMS-Kanal Nachrichten zu erhalten. Weitere Informationen finden Sie unter [SMS-Abo-Gruppen]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group/#subscription-group-mms-enablement).
 
 Wenn Sie den Abo-Gruppenstatus aktualisieren, müssen die folgenden zwei Spalten in Ihrer CSV-Datei vorhanden sein:
 
-- `subscription_group_id`: Die `id` der [Abo-Gruppe](https://www.braze.com/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups).
+- `subscription_group_id`: Die `id` der [Abo-Gruppe]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups).
 - `subscription_state`: Verfügbare Werte sind `unsubscribed` (nicht in der Abo-Gruppe) oder `subscribed` (in der Abo-Gruppe).
 
 <style type="text/css">
@@ -185,7 +185,7 @@ Pro Zeile im Nutzerimport kann nur eine einzige `subscription_group_id` festgele
 ### Angepasste Events importieren (Early Access) {#importing-custom-events}
 
 {% alert important %}
-Der Import angepasster Events befindet sich derzeit im Early Access. Kontaktieren Sie Ihre:n Braze Account Manager:in, wenn Sie an der Teilnahme am Early Access interessiert sind.
+Der Import angepasster Events befindet sich derzeit im Early Access. Kontaktieren Sie Ihre:n Braze Account Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.
 {% endalert %}
 
 Um angepasste Events für Ihre Nutzer:innen zu importieren, gehen Sie zu **Import Users** > **Events**.
@@ -273,7 +273,7 @@ Fehler basieren ausschließlich auf dem Datentyp und der Dateistruktur. Beispiel
 
 Sie können unser serverloses S3-Lambda-CSV-Import-Skript verwenden, um Nutzerattribute auf die Plattform hochzuladen. Diese Lösung funktioniert als CSV-Uploader, bei dem Sie Ihre CSV-Dateien in einen S3-Bucket ablegen und die Skripte sie über unsere API hochladen.
 
-Die geschätzte Ausführungszeit für eine Datei mit einer Million Zeilen beträgt etwa fünf Minuten. Weitere Informationen finden Sie unter [Nutzerattribut-CSV-zu-Braze-Import](https://www.braze.com/docs/user_csv_lambda/).
+Die geschätzte Ausführungszeit für eine Datei mit einer Million Zeilen beträgt etwa fünf Minuten. Weitere Informationen finden Sie unter [Nutzerattribut-CSV-zu-Braze-Import]({{site.baseurl}}/user_csv_lambda/).
 
 ## Segmentierung {#segmenting}
 

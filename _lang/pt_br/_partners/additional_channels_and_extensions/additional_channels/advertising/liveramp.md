@@ -55,7 +55,7 @@ Os recursos de tradução e resolução de identidade estão disponíveis no Sno
 
 Para configurar o app nativo, siga estas etapas na documentação da LiveRamp: [Configure o app nativo da LiveRamp no Snowflake](https://docs.liveramp.com/identity/en/set-up-the-liveramp-native-app-in-snowflake.html). Quando terminar, passe para a próxima etapa.
 
-### Etapa 3: Criar uma tabela de dados {#step-3-create-a-data-table}
+### Etapa 3: Crie uma tabela de dados {#step-3-create-a-data-table}
 
 {% alert warning %}
 Antes de preparar qualquer tabela baseada em IPI, certifique-se de entender o [filtro de privacidade da LiveRamp](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html), que é executado durante os trabalhos para garantir que as colunas de atributos (não identificadores) em suas tabelas de entrada não contenham valores muito exclusivos. Isso é fundamental para manter a privacidade do consumidor e evitar a reidentificação.
@@ -69,11 +69,11 @@ Em seguida, crie uma tabela de dados com o [formato necessário](https://docs.li
 | Apenas e-mail      | Os endereços de e-mail do usuário, como `alex-lee@email.com`. |
 | Dispositivo          | Inclui cookies de terceiros, IDs de publicidade móvel (MAIDs), IDs de TV conectada (CTV IDs) e RampIDs (resolvidos para um RampID de residência). |
 | CIDs            | Esses são identificadores de um parceiro de plataforma ou de uma sincronização de identidade com a LiveRamp, como seu ID de cliente interno. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Criar uma tabela de dados" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Crie uma tabela de dados" }
 
 #### Identificadores da Braze {#braze-identifiers}
 
-Os registros de eventos da Braze contêm identificadores que podem ser usados no app nativo da LiveRamp. Para obter uma lista completa dos identificadores disponíveis para cada tipo de evento, baixe o [Braze Event Schemas and Identifiers]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Os registros de eventos da Braze contêm identificadores que podem ser usados no app nativo da LiveRamp. Para obter uma lista completa dos identificadores disponíveis para cada tipo de evento, baixe o [Braze Event Schemas and Identifiers](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 
 | Tipo de identificador | Descrição  |
 |-----------------|--------------|
@@ -91,11 +91,11 @@ O uso de qualquer identificador personalizado específico do cliente ou da marca
 
 Em seguida, defina suas variáveis para o trabalho na planilha de etapas de execução fornecida no app. Isso inclui detalhes como o banco de dados de destino, as tabelas associadas (dados de entrada, métricas, registro) e a definição do nome da tabela de saída. Para obter um passo a passo completo, consulte [LiveRamp: Especifique as variáveis](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#specify-the-variables-43-150727).
 
-### Etapa 5: Criar a tabela de metadados para resolução de IPI {#step-5-create-the-metadata-table-for-pii-resolution}
+### Etapa 5: Crie a tabela de metadados para resolução de IPI {#step-5-create-the-metadata-table-for-pii-resolution}
 
-Agora que suas variáveis estão definidas, crie a tabela de metadados para a resolução de IPI. Isso fornecerá detalhes sobre o tipo de trabalho específico a ser executado com base na categoria de identificadores envolvidos. Para obter um passo a passo completo, consulte [LiveRamp: Criar a tabela de metadados](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#create-the-metadata-table-43).
+Agora que suas variáveis estão definidas, crie a tabela de metadados para a resolução de IPI. Isso fornecerá detalhes sobre o tipo de trabalho específico a ser executado com base na categoria de identificadores envolvidos. Para obter um passo a passo completo, consulte [LiveRamp: Crie a tabela de metadados](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#create-the-metadata-table-43).
 
-### Etapa 6: Executar a operação de resolução de identidade {#step-6-perform-the-identity-resolution-operation}
+### Etapa 6: Execute a operação de resolução de identidade {#step-6-perform-the-identity-resolution-operation}
 
 Por fim, execute a operação de resolução de identidade. Para obter um passo a passo completo, consulte [LiveRamp: Execute a operação de resolução de identidade](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html#perform-the-identity-resolution-operation).
 

@@ -28,6 +28,13 @@ Quando a opção **[Calcular estatísticas exatas]({{site.baseurl}}/user_guide/a
 
 ![A página Canvas Details mostrando estatísticas gerais, incluindo mensagens enviadas, taxa de conversão, total de entradas, receita total, total de saídas e público estimado, com filtros de canal e estatísticas.]({% image_buster /assets/img_archive/Journey_5.png %})
 
+{% alert tip %}
+Se um segmento que você criou a partir da atividade do Canvas mostrar menos usuários contatáveis do que o esperado com base na análise de dados do Canvas, existem dois motivos comuns:
+
+- **Amostragem de estimativa:** As estatísticas do segmento podem exibir uma estimativa baseada em uma amostra aleatória com um intervalo de confiança de 95% de ±1%, em vez de uma contagem exata.
+- **Usuários que não atendem mais aos critérios:** Alguns usuários contabilizados na análise de dados do Canvas podem não se qualificar mais para o segmento — por exemplo, porque cancelaram a inscrição ou seus dados de perfil mudaram desde que o Canvas foi executado. Verifique o **Desempenho histórico** do Canvas para um alto volume de cancelamentos de inscrição.
+{% endalert %}
+
 ### Alterações desde a última visualização {#changes-since-last-viewed}
 
 O número de atualizações no Canvas feitas por outros membros da sua equipe é rastreado pela métrica *Changes Since Last Viewed* na página de visão geral do Canvas. Selecione **Changes Since Last Viewed** para ver um changelog de atualizações no nome, programação, tags, mensagem, público, status de aprovação ou configuração de acesso da equipe do Canvas. Para cada atualização, você pode ver quem realizou a alteração e quando. Você pode usar esse changelog para auditar alterações nos seus Canvas.
@@ -105,4 +112,4 @@ O relatório de funil oferece um relatório visual que permite analisar as jorna
 
 ### Relatório de retenção {#retention-report}
 
-A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter usuários engajados voltando para mais indica que o negócio está saudável. A Braze agora permite que você meça a retenção de usuários diretamente na página **Canvas Analytics**. Para saber mais sobre como ler e interpretar seu relatório de retenção, confira [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
+A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter usuários engajados voltando para mais indica que o negócio está saudável. A Braze agora permite que você meça a retenção de usuários diretamente na página **Analytics** do Canvas. Para saber mais sobre como ler e interpretar seu relatório de retenção, confira [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).

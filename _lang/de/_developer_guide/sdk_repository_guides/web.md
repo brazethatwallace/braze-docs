@@ -33,8 +33,8 @@ Bevor Sie das Braze Web SDK integrieren, benötigen Sie:
 
 ### Ihre Zugangsdaten abrufen {#getting-your-credentials}
 
-1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter Einstellungen → API-Schlüssel
-2. **SDK-Endpunkt**: Zu finden unter Einstellungen → SDK-Authentifizierung → Endpunkte
+1. **API-Schlüssel**: Zu finden in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**
+2. **SDK-Endpunkt**: Zu finden unter **Einstellungen** > **SDK-Authentifizierung** > **Endpunkte**
 3. **Service Worker**: Erforderlich für Push-Benachrichtigungen (siehe Abschnitt Push-Benachrichtigungen)
 
 ## Installation {#installation}
@@ -771,7 +771,7 @@ Für die AMP-Integration müssen Sie:
 4. **Service Worker erstellen**: Fügen Sie die Braze-Service-Worker-Datei hinzu
 5. **AMP-Web-Push-Element konfigurieren**: Fügen Sie das `amp-web-push`-Element mit Ihrem API-Schlüssel und Ihrer Basis-URL als Abfrageparameter hinzu
 
-Detaillierte Anweisungen zur AMP-Integration finden Sie im [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
+Detaillierte Anweisungen zur AMP-Integration finden Sie im [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp).
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 
 #### Tealium iQ
 
-Tealium iQ bietet eine grundlegende schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web SDK API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration finden Sie in unserer [Integrationsdokumentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
+Tealium iQ bietet eine grundlegende schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web SDK API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration finden Sie in unserer [Integrationsdokumentation]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
 
 #### Andere Tag-Manager {#other-tag-managers}
 
@@ -825,7 +825,7 @@ Braze verwendet [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0
 
 ## Zusätzliche Ressourcen {#additional-resources}
 
-- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
+- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
 - [SDK-Dokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [Beispiel-Builds](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

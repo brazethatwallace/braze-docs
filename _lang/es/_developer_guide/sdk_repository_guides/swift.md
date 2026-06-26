@@ -12,8 +12,8 @@ El SDK Swift de Braze te ayuda a integrar las capacidades de mensajería, análi
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
+- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction/)
+- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Inicio rápido {#quickstart}
 
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Para obtener más información sobre las opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
+Para obtener más información sobre las opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Compatibilidad de versiones {#version-support}
 
@@ -85,13 +85,13 @@ La siguiente tabla describe cada biblioteca del SDK Swift de Braze.
 <sup>1</sup> _Las notificaciones push no son compatibles con tvOS_<br/>
 <sup>2</sup> _El monitoreo de geovallas no es compatible con tvOS ni visionOS_
 
-[análisis]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[notificaciones push]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
-[In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
-[Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
-[análisis de ubicación y monitoreo de geovallas]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
-[notificaciones push enriquecidas]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
-[Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
+[análisis]: {{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[notificaciones push]: {{site.baseurl}}/user_guide/message_building_by_channel/push
+[In-App Messages]: {{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages
+[Content Cards]: {{site.baseurl}}/user_guide/message_building_by_channel/content_cards
+[análisis de ubicación y monitoreo de geovallas]: {{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences
+[notificaciones push enriquecidas]: {{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[Push Stories]: {{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
 ## Ejemplos {#examples}
 

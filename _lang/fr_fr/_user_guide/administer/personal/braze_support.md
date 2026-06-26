@@ -16,7 +16,7 @@ search_rank: 7
 
 Pour contacter l'équipe d'assistance Braze, accédez au tableau de bord de Braze et sélectionnez **Support**. Le menu propose deux options :
 
-- **Get help with Operator** ouvre BrazeAI Operator<sup>TM</sup>, qui peut résoudre votre problème sur-le-champ en utilisant le contexte de votre conversation et de l'écran actuel. Si Operator ne parvient pas à résoudre votre problème, vous pouvez lui demander de rédiger un ticket d'assistance basé sur votre conversation. Pour en savoir plus, consultez [soumettre des tickets d'assistance avec BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help with Operator** ouvre BrazeAI Operator<sup>TM</sup>, qui peut résoudre votre problème sur-le-champ en utilisant le contexte de votre conversation et de l'écran actuel. Si Operator ne parvient pas à résoudre votre problème, vous pouvez lui demander de rédiger un ticket d'assistance basé sur votre conversation. Pour en savoir plus, consultez [soumettre des tickets d'assistance avec BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
 - **Get help** vous dirige directement vers le portail d'assistance Braze (si vous êtes un contact d'assistance désigné) ou vers notre formulaire d'assistance standard, où vous pouvez soumettre et suivre des demandes. Si vous ne savez pas si vous êtes un contact d'assistance Braze, contactez l'administrateur Braze de votre entreprise, votre gestionnaire de réussite Braze ou le propriétaire du compte.
 
 ![Le menu déroulant « Support » affichant les options « Get help with Operator » et « Get help ».]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
@@ -30,8 +30,6 @@ Les contacts d'assistance désignés peuvent accéder à toutes les demandes d'a
 2. Sélectionnez le nom de l'utilisateur ou survolez la ligne du nom de l'utilisateur pour afficher un menu.
 3. Dans le menu, sélectionnez **Edit** pour être redirigé vers la page **Edit user**.
 4. Cochez la case **Set this user as a Designated Support Contact for Braze Support Portal**.
-
-![La case à cocher pour définir un utilisateur comme contact d'assistance désigné.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### Obtenir l'accès {#gaining-access}
 
@@ -102,7 +100,7 @@ Marquer un problème comme « Critique » signifie que votre instance de product
 Si le tableau de bord de Braze ne se charge pas correctement, essayez les étapes suivantes avant de contacter l'assistance :
 
 1. Ouvrez le tableau de bord dans un autre navigateur ou dans une fenêtre de navigation privée.
-2. [Videz le cache et les cookies de votre navigateur]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+2. [Videz le cache et les cookies de votre navigateur]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
 3. Désactivez les bloqueurs de publicités et les extensions de navigateur, puis rechargez le tableau de bord.
 4. Si vous utilisez un VPN, déconnectez-vous et réessayez.
 

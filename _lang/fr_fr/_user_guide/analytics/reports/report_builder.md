@@ -152,3 +152,9 @@ Vous pouvez partager un lien vers le rapport en sélectionnant **Share** et l'un
 Une Campaign ou un Canvas apparaît dans le rapport lorsque sa date de **Last sent** se situe dans la fenêtre de **Last sent** que vous avez configurée. Les **Sends** et les autres indicateurs ne se remplissent que pour l'activité comprise dans la plage de dates **Show data for**. Si le message n'a pas été envoyé pendant la période **Show data for**, la ligne peut tout de même lister la Campaign ou le Canvas avec zéro envoi.
 
 Par exemple, supposons que **Last sent** est du 1er janvier 2025 au 14 avril 2025, de sorte qu'une Campaign est incluse, mais **Show data for** est du 1er décembre 2024 au 14 janvier 2025. Si cette Campaign n'a eu aucun envoi en décembre ou en janvier, elle apparaît tout de même dans le tableau sans indicateurs d'envoi.
+
+### Le lien de téléchargement a expiré {#download-link-has-expired}
+
+Les liens de téléchargement de rapport expirent après une heure. Si votre lien a expiré, générez un nouveau rapport et téléchargez-le dans l'heure. Il n'est pas possible de prolonger le délai d'expiration.
+
+Si vous avez un [compartiment Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) connecté dans **Partner Integrations**, vous pouvez éventuellement récupérer les données de rapports plus anciens en parcourant directement votre compartiment S3.
