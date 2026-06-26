@@ -187,8 +187,13 @@ _THIRD_PARTY_CONSOLE = re.compile(
     r"(?:"
     r"google cloud|gcp|aws |amazon web services|azure|infobip|"
     r"meta ads|facebook ads|service account|cloud console|fabric console|"
-    r"iam section|manage keys|create service account"
+    r"iam section|\biam\b|manage keys|create service account|"
+    r"aws management console|identity and access management"
     r")",
+    re.IGNORECASE,
+)
+_THIRD_PARTY_CONSOLE_PATH = re.compile(
+    r"(?:security_export/|aws_s3/|gcp_|azure_|infobip/)",
     re.IGNORECASE,
 )
 # Metric tiles and chart examples — keep even on dashboard pages.
@@ -289,11 +294,15 @@ def is_reference_table_icon(ref: ImageRef) -> bool:
     return False
 
 
-def is_third_party_console(path: str, alt: str, match_line: str) -> bool:
+def is_third_party_console(
+    path: str, alt: str, match_line: str, *, context: str = ""
+) -> bool:
     basename = Path(path).name
     if _FILENAME_SAVE_CANCEL.search(basename):
         return False
-    combined = f"{path} {alt} {match_line}"
+    combined = f"{path} {alt} {match_line} {context}"
+    if _THIRD_PARTY_CONSOLE_PATH.search(path):
+        return True
     return bool(_THIRD_PARTY_CONSOLE.search(combined))
 
 
@@ -395,7 +404,12 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
         ref.confidence = "low"
         return
 
-    if is_third_party_console(path, alt, ref.match_line):
+    if is_third_party_console(
+        path,
+        alt,
+        ref.match_line,
+        context=f"{ref.context_before}\n{ref.context_after}",
+    ):
         ref.reasons.append("third_party_console")
         ref.confidence = "low"
         return
@@ -473,24 +487,6 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
     corroboration_count = len(active & corroborating)
 
     if corroboration_count >= 2:
-        ref.confidence = "high"
-    elif (
-        corroboration_count >= 1
-        and (
-            "filename_list_home_chrome" in active
-            or "filename_page_chrome" in active
-            or "alt_settings_overview" in active
-        )
-        and active
-        & {
-            "alt_describes_redundant_ui",
-            "alt_redundant_with_prose",
-            "ocr_button_only",
-            "ocr_mostly_action_button",
-            "image_before_settings_navigation",
-            "alt_settings_overview",
-        }
-    ):
         ref.confidence = "high"
     elif active & medium_only or corroboration_count == 1:
         ref.confidence = "medium"

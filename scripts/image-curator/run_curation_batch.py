@@ -44,7 +44,7 @@ def _run_gh(args: list[str]) -> subprocess.CompletedProcess[str]:
 
 
 def has_open_ic_pr() -> bool:
-    listed = _run_gh(["pr", "list", "--state", "open", "--json", "title", "--limit", 200])
+    listed = _run_gh(["pr", "list", "--state", "open", "--json", "title", "--limit", "200"])
     if listed.returncode != 0:
         return False
     try:
@@ -139,14 +139,10 @@ def image_still_referenced(rel_path: str) -> bool:
         for name in files:
             if name.endswith(
                 (
-                    ".png",
-                    ".jpg",
-                    ".jpeg",
-                    ".gif",
                     ".svg",
-                    ".webp",
                     ".md",
                     ".html",
+                    ".htm",
                     ".yml",
                     ".yaml",
                     ".js",

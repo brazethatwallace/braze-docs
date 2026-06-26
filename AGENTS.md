@@ -46,7 +46,7 @@ Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unrefere
 
 ## Image curator (CI)
 
-Twice-yearly GitHub Actions (June 1 and December 1, 14:00 ET) scans English docs for redundant image references via [`.github/workflows/image-curator-maintenance.yml`](.github/workflows/image-curator-maintenance.yml). Each run removes up to 25 high-confidence references (prose merge, dereferenced binary delete) and opens a **draft** `[IC]` pull request labeled `image pruning`. Manual vision review and medium-confidence batches use the **image-curator** skill or `@image-curator`.
+Twice-yearly GitHub Actions (June 1 and December 1, 14:00 ET) scans English docs for redundant image references via [`.github/workflows/image-curator-maintenance.yml`](.github/workflows/image-curator-maintenance.yml). Each run removes up to 15 high-confidence references (delete-image-only, dereferenced binary delete) and opens a **draft** `[IC]` pull request labeled `image pruning`. Manual vision review and medium-confidence batches use the **image-curator** skill or `@image-curator`.
 
 ## Cursor rules (always on)
 
