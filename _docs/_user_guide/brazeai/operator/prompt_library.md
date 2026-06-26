@@ -1,7 +1,7 @@
 ---
 nav_title: Prompt library
 article_title: Prompt library for BrazeAI Operator
-page_order: 5
+page_order: 4
 page_type: reference
 description: "Browse example prompts for BrazeAI Operator, organized by what you want to accomplish."
 ---

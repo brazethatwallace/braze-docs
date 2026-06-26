@@ -1,7 +1,7 @@
 ---
 nav_title: Capabilities
 article_title: What you can do with Operator
-page_order: 6
+page_order: 1
 page_type: reference
 toc_headers: h2
 description: "This reference article covers the AI tasks available through BrazeAI Operator™ — including copywriting, Liquid, image generation, data transformation code, and content review."
