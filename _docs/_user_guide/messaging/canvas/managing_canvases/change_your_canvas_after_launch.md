@@ -101,8 +101,10 @@ When editing the [Send to Destination]({{site.baseurl}}/user_guide/messaging/can
 
 - **Changing the destination Canvas:** Editing the Send to Destination step to point to a different destination Canvas follows the same general post-launch editing rules. Changes only affect users who haven't yet reached the Send to Destination step.
   - Users who already passed through the step remain in the original destination Canvas — they are not re-routed.
-  - Users currently queued in earlier steps (for example, waiting in a Delay step before the Send to Destination step) are sent to the new destination Canvas when they reach it.
-- **Stopped destination Canvas:** If the destination Canvas is stopped, users who reach the Send to Destination step are not sent to the destination and exit the Canvas instead. This causes user drop-off, not just a pause in the hand-off.
+  - Users currently queued in earlier steps (for example, waiting in a Delay step before the Send to Destination step) are evaluated against the new destination Canvas's entry and audience criteria when they reach the step. Eligible users are sent to the new destination Canvas.
+- **Stopped destination Canvas:** If the destination Canvas is stopped while your source Canvas is still active, users who reach the Send to Destination step are not sent to the destination Canvas. This causes user drop-off for the hand-off, not a pause while the destination is stopped.
+  - Users who can't enter the stopped destination continue in the source Canvas if more steps follow the Send to Destination step. For more on advancement behavior, see [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination#how-does-advancement-behavior-work-for-send-to-destination-steps).
+  - You can't launch a source Canvas with a Send to Destination step that points to a stopped destination. This behavior applies when a destination Canvas is stopped after the source Canvas is already live.
 
 ### Canvas variant percentages
 
