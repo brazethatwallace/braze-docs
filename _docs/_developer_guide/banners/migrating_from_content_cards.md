@@ -66,7 +66,7 @@ Before migrating, ensure your Braze SDK meets the minimum version requirements:
 
 {% multi_lang_include sdk_versions.md feature='banners' %}
 
-For dismissals and re-eligibility, ensure you have the minimum SDK versions:
+For dismissals and re-eligibility, you need the minimum SDK versions:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
