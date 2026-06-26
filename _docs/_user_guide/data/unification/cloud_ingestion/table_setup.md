@@ -97,7 +97,7 @@ You can sync one event per row.
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```

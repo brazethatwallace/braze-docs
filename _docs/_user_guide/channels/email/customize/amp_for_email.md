@@ -55,8 +55,8 @@ You can also use AMP for email with our API. If you use any of the Braze [Messag
 {
   "app_id": (required, string) see app identifier above,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set),
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
   "amp_body": (optional, updates the text-amp-html MIME type) the email body in AMP HTML. The MIME (Multipurpose Internet Mail Extensions) type to be referenced is "text/x-amp-html",
   "body": (required unless email_template_id is given, valid HTML),

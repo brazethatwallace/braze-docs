@@ -154,7 +154,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]

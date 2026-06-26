@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
   "subscription_group_id": "subscription_group_identifier",
   "subscription_state": "unsubscribed",
   "external_id": "external_identifier",
-  "email": ["example1@email.com", "example2@email.com"]
+  "email": ["example1@example.com", "example2@example.com"]
 }
 '
 ```

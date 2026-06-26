@@ -39,7 +39,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }
 ```
@@ -62,7 +62,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
-  "email": "example@braze.com",
+  "email": "example@example.com",
   "subscription_state": "subscribed"
 }'
 ```
