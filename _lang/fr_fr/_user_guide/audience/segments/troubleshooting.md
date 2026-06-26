@@ -10,7 +10,7 @@ description: "Cet article de référence couvre la résolution des problèmes li
 
 # Résolution des problèmes liés aux segments {#troubleshoot-segments}
 
-> Identifiez votre symptôme ci-dessous pour accéder à la section appropriée. Cette page couvre les erreurs de lancement, l'éligibilité des utilisateurs, les problèmes de filtres et les incohérences d'analyse. Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). Pour les estimations de taille de segment, les comptages exacts et les graphiques d'historique d'appartenance, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+> Identifiez votre symptôme ci-dessous pour accéder à la section appropriée. Cette page couvre les erreurs de lancement, l'éligibilité des utilisateurs, les problèmes de filtres et les incohérences d'analyse. Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Pour les estimations de taille de segment, les comptages exacts et les graphiques d'historique d'appartenance, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Commencez ici : identifiez votre symptôme {#start-here-match-your-symptom}
 
@@ -32,24 +32,24 @@ description: "Cet article de référence couvre la résolution des problèmes li
 Utilisez ce flux de travail lorsqu'un utilisateur devrait être dans un segment mais ne l'est pas, ou lorsqu'un comptage de segment semble incorrect.
 
 1. **Lancement bloqué :** si vous voyez une erreur de complexité d'audience ou de filtre de 10 000 octets sur une Campaign ou un Canvas, commencez par [Erreurs](#errors) (solution de contournement CSV, simplification des filtres).
-2. **Prévisualisation utilisateur ou recherche d'utilisateur :** testez un utilisateur spécifique par rapport aux filtres de votre segment. Lorsqu'un utilisateur ne correspond pas à tout ou partie des critères, les critères manquants sont listés pour la résolution des problèmes. Pour les étapes, consultez [Tester les segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments) dans Créer un segment.
-3. **Calculer les statistiques exactes :** si l'estimation du segment affiche 0 utilisateur ou semble incorrecte, sélectionnez **Calculate exact stats** dans le panneau **Utilisateurs pouvant être atteints**. Enregistrez votre segment avant de calculer. Si un calcul est déjà en cours, attendez qu'il se termine ; des chiffres obsolètes peuvent s'afficher jusqu'à ce que le nouveau calcul soit terminé. Pour plus de détails, consultez [Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#calculating-exact-statistics).
+2. **Prévisualisation utilisateur ou recherche d'utilisateur :** testez un utilisateur spécifique par rapport aux filtres de votre segment. Lorsqu'un utilisateur ne correspond pas à tout ou partie des critères, les critères manquants sont listés pour la résolution des problèmes. Pour les étapes, consultez [Tester les segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments) dans Créer un segment.
+3. **Calculer les statistiques exactes :** si l'estimation du segment affiche 0 utilisateur ou semble incorrecte, sélectionnez **Calculate exact stats** dans le panneau **Utilisateurs pouvant être atteints**. Enregistrez votre segment avant de calculer. Si un calcul est déjà en cours, attendez qu'il se termine ; des chiffres obsolètes peuvent s'afficher jusqu'à ce que le nouveau calcul soit terminé. Pour plus de détails, consultez [Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 4. **Vérifier les valeurs des filtres :** recherchez les fautes de frappe, les incohérences de type de données, les références obsolètes à des étapes Canvas et la [logique filtre négatif + OU](#segment-is-much-larger-than-expected).
 5. **Vérifier la complexité :** si le lancement est bloqué, consultez [L'audience cible est trop complexe pour être lancée](#target-audience-is-too-complex-to-launch).
-6. **Contacter l'assistance :** pour obtenir de l'aide supplémentaire sur l'optimisation des filtres, [contactez l'assistance]({{site.baseurl}}/braze_support/).
+6. **Contacter l'assistance :** si le problème persiste, contactez l'[assistance Braze]({{site.baseurl}}/braze_support).
 
 ## Le segment affiche zéro utilisateur {#segment-shows-zero-users}
 
 La taille du segment dans le tableau de bord est souvent une estimation basée sur un échantillon d'utilisateurs. Les segments très petits peuvent afficher une plage estimée incluant 0, même lorsque des utilisateurs correspondent à vos filtres.
 
-- Sélectionnez **Calculate exact stats** dans le panneau **Utilisateurs pouvant être atteints** pour obtenir un comptage précis. Enregistrez d'abord le segment. Pour plus d'informations, consultez [Considérations relatives aux comptages estimés]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/#considerations-for-estimate-counts).
-- Si la **Prévisualisation utilisateur** ne renvoie aucun utilisateur pour un petit segment, cela ne signifie pas nécessairement que le segment est vide. Exécutez **Calculate exact stats** pour confirmer. Pour plus d'informations, consultez [Prévisualisation utilisateur]({{site.baseurl}}/user_guide/audience/segments/segment_data/#user-preview).
+- Sélectionnez **Calculate exact stats** dans le panneau **Utilisateurs pouvant être atteints** pour obtenir un comptage précis. Enregistrez d'abord le segment. Pour plus d'informations, consultez [Considérations relatives aux comptages estimés]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts).
+- Si la **Prévisualisation utilisateur** ne renvoie aucun utilisateur pour un petit segment, cela ne signifie pas nécessairement que le segment est vide. Exécutez **Calculate exact stats** pour confirmer. Pour plus d'informations, consultez [Prévisualisation utilisateur]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
 
 ## Appartenance rétroactive à un segment {#retroactive-segment-membership}
 
 Braze ne stocke pas l'historique d'appartenance aux segments par utilisateur. Vous ne pouvez pas vérifier si un utilisateur spécifique faisait partie d'un segment au moment d'un envoi passé.
 
-Pour capturer l'appartenance à un instant donné, exportez les utilisateurs du segment dans le tableau de bord ou appelez l'endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) avant d'envoyer une Campaign ou un Canvas. Pour plus d'informations, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) (filtre d'appartenance à un segment) et [Exporter les données de segment en CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
+Pour capturer l'appartenance à un instant donné, exportez les utilisateurs du segment dans le tableau de bord ou appelez l'endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) avant d'envoyer une Campaign ou un Canvas. Pour plus d'informations, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) (filtre d'appartenance à un segment) et [Exporter les données de segment en CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 ## Erreurs {#errors}
 
@@ -65,10 +65,10 @@ Votre tableau de bord affichera une erreur lorsqu'une Campaign, un Canvas ou un 
 
 - Si votre audience référence plusieurs segments, assurez-vous que les segments ne comportent pas de redondances, comme les mêmes filtres apparaissant dans plusieurs segments.
 - Assurez-vous de ne pas référencer des données obsolètes dans les filtres de segment. Par exemple, un filtre obsolète pourrait rechercher des utilisateurs qui n'ont pas reçu une certaine étape du Canvas au cours de la semaine passée, alors que le Canvas est arrêté depuis des mois.
-- Les segments qui sont simplement des listes d'ID utilisateur ou d'adresses e-mail (qui utilisent souvent un filtre regex) peuvent être convertis en [import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) et simplifiés en un seul filtre CSV.
+- Les segments qui sont simplement des listes d'ID utilisateur ou d'adresses e-mail (qui utilisent souvent un filtre regex) peuvent être convertis en [import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) et simplifiés en un seul filtre CSV.
 - Si vous utilisez CDI, vous pourrez peut-être créer un segment CDI qui extrait le groupe directement depuis votre entrepôt de données.
 
-Vous pouvez également [contacter l'assistance]({{site.baseurl}}/braze_support/) pour obtenir de l'aide supplémentaire sur l'optimisation des filtres.
+Vous pouvez également [contacter l'assistance]({{site.baseurl}}/braze_support) pour obtenir de l'aide supplémentaire sur l'optimisation des filtres.
 
 {% alert note %}
 La limitation du nombre de caractères a été mise en place en avril 2025. Les Campaigns et Canvas lancés avant avril 2025 étaient exemptés, ce qui signifie qu'ils peuvent continuer à dépasser la limite, tandis que les Campaigns et Canvas nouvellement créés ne peuvent pas la dépasser. Si vous modifiez ou clonez une Campaign ou un Canvas exempté, vous ne pourrez pas le lancer tant que l'audience n'aura pas été mise à jour pour être en dessous de la limite.
@@ -93,15 +93,15 @@ Cette erreur se produit très rarement, mais lorsqu'elle survient, c'est génér
 
 1. Exportez les utilisateurs du segment concerné ou du filtre regex spécifique.
 2. Nettoyez le CSV si nécessaire. Vous avez besoin soit de l'ID Braze, soit de l'ID Appboy, mais vous pouvez supprimer toutes les autres colonnes si elles ne sont pas nécessaires. Nous recommandons également de vérifier vos données pour confirmer qu'elles sont récentes (par exemple, supprimez les utilisateurs que vous ne cherchez plus à cibler).
-3. [Importez]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) à nouveau le fichier CSV, ce qui regroupe automatiquement les utilisateurs dans un seul filtre basé sur CSV, très efficace.
+3. [Importez]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) à nouveau le fichier CSV, ce qui regroupe automatiquement les utilisateurs dans un seul filtre basé sur CSV, très efficace.
 
 ## Comportement des utilisateurs {#user-behavior}
 
 ### Un utilisateur n'est plus dans un segment {#user-is-no-longer-in-a-segment}
 
-Si un utilisateur n'est pas disponible lors de la création d'un segment, ses données utilisateur qui déterminent son éligibilité au segment peuvent avoir changé en raison de sa propre activité ou d'autres Campaigns et Canvas avec lesquels il a interagi précédemment. Si la rééligibilité est activée, son profil utilisateur affichera les données les plus récentes de la Campaign reçue.
+Si un utilisateur n'est pas disponible lors de la création d'un segment, ses données utilisateur qui déterminent son éligibilité au segment peuvent avoir changé en raison de sa propre activité ou d'autres Campaigns et Canvas avec lesquels il a interagi précédemment. Si la rééligibilité est activée, son profil utilisateur affiche les données les plus récentes de la Campaign reçue.
 
-Pour tester si un utilisateur spécifique correspond à votre segment aujourd'hui, utilisez la [Prévisualisation utilisateur ou la recherche d'utilisateur]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+Pour tester si un utilisateur spécifique correspond à votre segment aujourd'hui, utilisez la [Prévisualisation utilisateur ou la recherche d'utilisateur]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 
 ### Des informations s'affichent pour des utilisateurs d'autres applications lorsque je filtre pour une application spécifique {#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app}
 
@@ -113,17 +113,17 @@ Les utilisateurs peuvent avoir plusieurs applications, donc sélectionner une ap
 
 Vos options de filtre sont liées au format (type de données) que vous transmettez à Braze pour votre attribut personnalisé. Pour vérifier le type de données que Braze reconnaît pour vos attributs personnalisés, accédez à **Paramètres des données** > **Attributs personnalisés**.
 
-Si vos options de filtre ont changé, cela indique que vos données sont transmises à Braze dans un format (type de données) différent de celui utilisé précédemment. Pour des descriptions détaillées des différents types de données et de leurs options de filtrage, consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types).
+Si vos options de filtre ont changé, cela indique que vos données sont transmises à Braze dans un format (type de données) différent de celui utilisé précédemment. Pour des descriptions détaillées des différents types de données et de leurs options de filtrage, consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types).
 
 Gardez à l'esprit que modifier le type de données d'un attribut personnalisé dans le tableau de bord rejettera les données envoyées à Braze dans un format différent. Vous ne pouvez pas modifier le type de données d'un attribut personnalisé tant que cet attribut est référencé dans des Campaigns, Canvas ou segments actifs ; le tableau de bord affichera une erreur et bloquera la modification.
 
-L'onglet **Valeurs** d'un attribut personnalisé affiche les résultats d'un échantillon d'environ 250 000 utilisateurs. N'utilisez pas l'onglet **Valeurs** pour confirmer l'existence d'une valeur d'attribut spécifique à des fins de résolution des problèmes. Pour plus d'informations, consultez [Onglet Valeurs]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#values-tab).
+L'onglet **Valeurs** d'un attribut personnalisé affiche les résultats d'un échantillon d'environ 250 000 utilisateurs. N'utilisez pas l'onglet **Valeurs** pour confirmer l'existence d'une valeur d'attribut spécifique à des fins de résolution des problèmes. Pour plus d'informations, consultez [Onglet Valeurs]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab).
 
 ### Le segment est beaucoup plus grand que prévu {#segment-is-much-larger-than-expected}
 
 Si votre segment semble beaucoup plus grand que prévu malgré des filtres qui paraissent restrictifs, vérifiez si vous utilisez des filtres négatifs (`n'est pas`, `n'est pas égal à`, `ne correspond pas à l'expression régulière` ou `non inclus`) avec l'opérateur **OU** sur le même attribut plus d'une fois. Cette combinaison peut cibler des utilisateurs avec toutes les valeurs de l'attribut.
 
-Pour savoir quand utiliser **ET** au lieu de **OU**, consultez [Quand éviter l'opérateur OU]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#when-to-avoid-the-or-operator) dans Créer un segment.
+Pour savoir quand utiliser **ET** au lieu de **OU**, consultez [Quand éviter l'opérateur OU]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#when-to-avoid-the-or-operator) dans Créer un segment.
 
 ## Analyse et reporting {#analytics-and-reporting}
 
@@ -139,9 +139,9 @@ Si le nombre dans l'analyse de votre Campaign pour *Messages envoyés* ou *Desti
 
 ### Un utilisateur est affecté à deux applications alors qu'il n'a enregistré une session que dans une seule {#user-is-assigned-to-two-apps-despite-logging-a-session-in-only-one-app}
 
-Lors de la création d'un segment, vous pouvez cibler les utilisateurs qui ont [utilisé des applications spécifiques]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-3-choose-your-app-or-platform). Un utilisateur doit avoir eu une session dans une application spécifique pour être affecté à cette application ; cependant, il existe deux scénarios dans lesquels un utilisateur peut tout de même être affecté à une application spécifique sans avoir enregistré de session dans celle-ci.
+Lors de la création d'un segment, vous pouvez cibler les utilisateurs qui ont [utilisé des applications spécifiques]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-3-choose-your-app-or-platform). Un utilisateur doit avoir eu une session dans une application spécifique pour être affecté à cette application ; cependant, il existe deux scénarios dans lesquels un utilisateur peut tout de même être affecté à une application spécifique sans avoir enregistré de session dans celle-ci.
 
-Le premier scénario est lorsque le champ `app_id` est renseigné lors de l'utilisation de l'endpoint `/users/track` — plus précisément lors de l'utilisation d'un [objet événement]({{site.baseurl}}/api/objects_filters/event_object/) ou d'un [objet achat]({{site.baseurl}}/api/objects_filters/purchase_object/), comme dans cet exemple :
+Le premier scénario est lorsque le champ `app_id` est renseigné lors de l'utilisation de l'endpoint `/users/track` — plus précisément lors de l'utilisation d'un [objet événement]({{site.baseurl}}/api/objects_filters/event_object) ou d'un [objet achat]({{site.baseurl}}/api/objects_filters/purchase_object), comme dans cet exemple :
 
 ```json
 {

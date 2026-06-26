@@ -76,8 +76,6 @@ search_rank: 5
 - **Allotted Data Points:** 請求期間ごとに契約で割り当てられたデータポイントの量です。
 - **Contract Data Point Usage:** 契約期間全体で記録されたすべてのデータポイントの累積合計であり、次の請求期間にリセットされません。
 
-![データポイント使用量の合計タブの契約詳細セクション]({% image_buster /assets/img/contract_details.png %})
-
 ### 会社の請求データ {#company-billing-data}
 
 #### アプリレベルのデータポイント使用量の合計 {#app-level-total-data-point-usage}
@@ -110,5 +108,5 @@ search_rank: 5
 
 ## 次のステップ {#next-steps}
 
-- [通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/)で、請求関連のイベントや使用量のしきい値に関するアラートを設定します。
-- [クレジット使用量ダッシュボード]({{site.baseurl}}/credits_usage_dashboard/)で、メッセージクレジットの消費量を監視します。
+- [通知設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences)で、請求関連のイベントや使用量のしきい値に関するアラートを設定します。
+- [クレジット使用量ダッシュボード]({{site.baseurl}}/credits_usage_dashboard)で、メッセージクレジットの消費量を監視します。

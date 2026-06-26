@@ -1,17 +1,17 @@
 ## 분석 보기 {#viewing-analytics}
 
-캠페인을 시작한 후, 해당 캠페인의 세부 정보 페이지로 돌아가 주요 측정기준을 확인할 수 있습니다. **Campaigns** 페이지로 이동하여 캠페인을 선택하면 세부 정보 페이지가 열립니다.{% if include.channel != "banner" %} {% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}배너{% elsif include.channel == "email" %}이메일{% elsif include.channel == "in-app message" %}인앱 메시지{% elsif include.channel == "KakaoTalk" %}KakaoTalk 메시지{% elsif include.channel == "push" %}푸시 메시지{% elsif include.channel == "SMS" %}SMS 메시지{% elsif include.channel == "whatsapp" %}WhatsApp 메시지{% elsif include.channel == "webhook" %}웹훅{% endif %}을 Canvas에서 전송한 경우, [Canvas 분석]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)을 참조하세요.{% endif %}
+캠페인을 시작한 후, 해당 캠페인의 세부 정보 페이지로 돌아가 주요 측정기준을 확인할 수 있습니다. **Campaigns** 페이지로 이동하여 캠페인을 선택하면 세부 정보 페이지가 열립니다.{% if include.channel != "banner" %} {% if include.channel == "Content Card" %}Content Cards{% elsif include.channel == "banner" %}배너{% elsif include.channel == "email" %}이메일{% elsif include.channel == "in-app message" %}인앱 메시지{% elsif include.channel == "KakaoTalk" %}KakaoTalk 메시지{% elsif include.channel == "push" %}푸시 메시지{% elsif include.channel == "SMS" %}SMS 메시지{% elsif include.channel == "whatsapp" %}WhatsApp 메시지{% elsif include.channel == "webhook" %}웹훅{% endif %}을 Canvas에서 전송한 경우, [Canvas 분석]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)을 참조하세요.{% endif %}
 
 {% alert tip %}
 보고서에 나열된 용어와 측정기준의 정의를 찾고 계신가요?
-  {% if include.channel == "email" %}[이메일 분석 용어집]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)을
-  {% elsif include.channel == "banner" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 배너로 필터링하여
-  {% elsif include.channel == "Content Card" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 Content Cards로 필터링하여
-  {% elsif include.channel == "in-app message" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 인앱 메시지로 필터링하여
-  {% elsif include.channel == "push" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 푸시로 필터링하여
-  {% elsif include.channel == "SMS" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 SMS/MMS 및 RCS로 필터링하여
-  {% elsif include.channel == "whatsapp" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 WhatsApp으로 필터링하여
-  {% elsif include.channel == "webhook" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)에서 웹훅으로 필터링하여{% endif %}
+  {% if include.channel == "email" %}[이메일 분석 용어집]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary)을
+  {% elsif include.channel == "banner" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 배너로 필터링하여
+  {% elsif include.channel == "Content Card" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 Content Cards로 필터링하여
+  {% elsif include.channel == "in-app message" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 인앱 메시지로 필터링하여
+  {% elsif include.channel == "push" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 푸시로 필터링하여
+  {% elsif include.channel == "SMS" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 SMS/MMS 및 RCS로 필터링하여
+  {% elsif include.channel == "whatsapp" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 WhatsApp으로 필터링하여
+  {% elsif include.channel == "webhook" %}[보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)에서 웹훅으로 필터링하여{% endif %}
   참조하세요.
 {% endalert %}
 
@@ -89,31 +89,31 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 | **Current Audience** | Braze가 워크스페이스 프로필의 전체 스캔으로 기본 통계를 계산할 수 있으므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience와 Current Audience" }
 
-샘플링 동작, **Calculate exact statistics** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)을 참조하세요.
+샘플링 동작, **Calculate exact statistics** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 참조하세요.
 
 {% if include.channel == "Content Card" %}
 
 #### 대조군 {#cc-control-group}
 
-개별 콘텐츠 카드의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
+개별 콘텐츠 카드의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
 
 {% elsif include.channel == "SMS" %}
 
 #### 대조군 {#sms-control-group}
 
-개별 SMS, MMS 또는 RCS 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
+개별 SMS, MMS 또는 RCS 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
 
 {% elsif include.channel == "whatsapp" %}
 
 #### 대조군 {#whatsapp-control-group}
 
-개별 WhatsApp 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
+개별 WhatsApp 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
 
 {% elsif include.channel == "webhook" %}
 
 #### 대조군 {#webhook-control-group}
 
-개별 웹훅 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
+개별 웹훅 메시지의 영향을 측정하려면 A/B 테스트에 [대조군]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants)을 추가할 수 있습니다. 최상위 **Campaign Details** 패널에는 대조군 배리언트의 측정기준이 포함되지 않습니다.
 
 {% endif %}
 
@@ -221,7 +221,7 @@ The **Message Performance** panel outlines how well your message has performed a
 
 #### 콘텐츠 카드 측정기준 {#content-card-metrics}
 
-메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 Content Cards 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)에서 Content Cards로 필터링하여 확인하세요.
+메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 Content Cards 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)에서 Content Cards로 필터링하여 확인하세요.
 
 <style>
     .no-split {
@@ -295,7 +295,7 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 
 배너 캠페인 성과를 검토할 때 추적해야 할 주요 측정기준입니다. 배너의 클릭 수와 노출 수는 SDK를 통해 자동으로 추적됩니다.
 
-모든 배너 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)에서 배너로 필터링하여 확인하세요.
+모든 배너 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)에서 배너로 필터링하여 확인하세요.
 
 <style>
     .no-split {
@@ -369,7 +369,7 @@ _Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
 
 #### 이메일 측정기준 {#email-metrics}
 
-다른 채널에서는 볼 수 없는 몇 가지 주요 이메일 전용 측정기준을 소개합니다. Braze에서 사용되는 모든 이메일 측정기준의 전체 정의는 [이메일 분석 용어집]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)을 참조하세요.
+다른 채널에서는 볼 수 없는 몇 가지 주요 이메일 전용 측정기준을 소개합니다. Braze에서 사용되는 모든 이메일 측정기준의 전체 정의는 [이메일 분석 용어집]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary)을 참조하세요.
 
 <style>
     .no-split {
@@ -449,7 +449,16 @@ _Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
 
 _발송 − (전달 + 하드바운스) ≈ 소프트바운스_
 
-재시도가 성공함에 따라 _전달_은 처음 72시간 동안 증가할 수 있으며, 일회성 발송의 _발송_ 수와 하드바운스는 발송이 완료되면 고정됩니다.
+이메일 서비스 제공업체(ESP)의 재시도 기간 동안 재시도가 성공함에 따라 _전달_이 증가할 수 있으며, 일회성 발송의 _발송_ 수와 하드바운스는 발송이 완료되면 고정됩니다. SendGrid와 SparkPost는 최대 72시간 동안 재시도하며, Amazon SES는 최대 14시간 동안 재시도합니다.
+
+###### 일반적인 전달 문제 해결 시나리오 {#common-delivery-troubleshooting-scenarios}
+
+이메일 분석을 검토할 때 다음 패턴을 염두에 두세요:
+
+- **_발송_과 (_전달_ + _하드바운스_) 간의 차이:** 일회성 발송 후 ESP 재시도 기간 동안 이 차이는 소프트바운스 또는 아직 재시도 중인 연기를 반영하는 경우가 많습니다. 재시도가 완료된 후 남아 있는 차이는 보통 소프트바운스되어 전달되지 않은 메시지를 의미합니다. 이러한 발송은 캠페인 _전달_ 또는 _반송_에 포함되지 않습니다. 위의 공식을 사용하여 진행 중인 소프트바운스를 대략적으로 계산하세요.
+- **재시도 완료 후 낮은 _전달_:** 재시도가 완료된 후에도 전달률이 낮은 경우, 이번 발송의 볼륨을 일반적인 패턴과 비교하세요. 메일함 제공업체는 발신자 평판 대비 볼륨이 급증하면 메일을 연기, 제한 또는 소프트바운스할 수 있습니다. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]`와 같은 메시지를 확인할 수 있습니다. 대량 발송의 속도를 조절하려면 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)을 사용하고, 추가 문제 해결 단계는 [제한된 IP]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips)를 참조하세요.
+- **캠페인 분석에 소프트바운스 및 연기가 표시되지 않는 경우:** 캠페인 분석에서는 _하드바운스_가 강조 표시되지만 _소프트바운스_ 또는 _연기_는 별도의 열로 포함되지 않습니다. 메시지 활동 로그, [소프트바운스 Segment 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced) 또는 Currents 연기 이벤트를 통해 이러한 이벤트를 모니터링하세요. 재시도 작동 방식에 대해서는 아래의 [연기](#deferrals)를 참조하세요.
+- **전달 백분율이 100%에 미치지 않을 수 있는 경우:** _전달 %_, _반송 %_ 및 _스팸률 %_의 합이 _발송_의 100%가 되지 않을 수 있습니다. ESP 재시도 기간 후 소프트바운스되어 전달되지 않은 메시지는 캠페인 _전달_ 또는 _반송_에 포함되지 않으므로, _발송_의 일부가 해당 비율에서 누락될 수 있습니다. 최종 전달 성과를 판단하기 전에 재시도가 완료될 때까지 기다리거나, 위의 공식을 사용하여 아직 재시도 중인 발송 수를 추정하세요.
 
 ##### 열람 이벤트 없는 클릭 {#clicks-without-an-open-event}
 
@@ -467,15 +476,15 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 다음과 같은 경우 픽셀이 로드되지 않을 수 있습니다:
 
-- **메시지가 잘린 경우.** 긴 HTML은 콘텐츠(하단의 픽셀 포함)를 "전체 메시지 보기" 스타일의 잘림 뒤로 밀어냅니다. Gmail에서는 약 [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size)보다 큰 메시지가 잘리는 경우가 많아, 전체 메시지를 열 때까지(그리고 클라이언트에 따라 그때도) 픽셀이 로드되지 않을 수 있습니다.
+- **메시지가 잘린 경우.** 긴 HTML은 콘텐츠(하단의 픽셀 포함)를 "전체 메시지 보기" 스타일의 잘림 뒤로 밀어냅니다. Gmail에서는 약 [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size)보다 큰 메시지가 잘리는 경우가 많아, 전체 메시지를 열 때까지(그리고 클라이언트에 따라 그때도) 픽셀이 로드되지 않을 수 있습니다.
 - **이미지가 차단되거나 제한된 경우.** 더 엄격한 받은편지함 보안(기업 계정에서 흔함)은 수신자가 이미지 로드를 선택할 때까지 원격 이미지를 차단할 수 있으므로, 추적된 링크를 클릭하더라도 열람 픽셀이 실행되지 않습니다.
 - **메시지가 스팸 또는 대량 메일 폴더에 있는 경우.** 많은 제공업체는 해당 폴더에서 기본적으로 원격 이미지(열람 픽셀 포함)를 로드하지 않습니다.
 
 **대응 방법**
 
-- **잘림:** HTML을 줄이고 간소화하며, 사용하지 않는 스타일이나 자산을 제거하고, 전체 메시지 크기를 클라이언트 제한 내로 유지하세요. Gmail의 경우 [이메일 크기]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size)에 설명된 대로 약 102&nbsp;KB 미만을 목표로 하세요.
+- **잘림:** HTML을 줄이고 간소화하며, 사용하지 않는 스타일이나 자산을 제거하고, 전체 메시지 크기를 클라이언트 제한 내로 유지하세요. Gmail의 경우 [이메일 크기]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size)에 설명된 대로 약 102&nbsp;KB 미만을 목표로 하세요.
 - **받은편지함 보안 및 이미지 로딩:** 수신자(또는 IT 정책)만이 이미지가 기본적으로 로드되는지 여부를 변경할 수 있습니다.
-- **스팸 배치:** [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) 및 목록 위생에 집중하세요. 메일이 지속적으로 스팸에 도착하고 측정기준이 이상하게 보이면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+- **스팸 배치:** [이메일 전달 가능성 개선]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) 및 목록 위생에 집중하세요. 메일이 지속적으로 스팸에 도착하고 측정기준이 이상하게 보이면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 **링크에 대한 보안 또는 봇 활동**
 
@@ -483,11 +492,11 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 ##### 연기 {#deferrals}
 
-연기(Deferral)는 이메일이 즉시 전달되지 않았지만, Braze가 이 임시 전달 실패 후 최대 72시간 동안 이메일 재전송을 시도하여 해당 캠페인에 대한 시도가 중단되기 전에 성공적인 전달 가능성을 극대화하는 것을 의미합니다. 일반적인 연기 사유에는 받은편지함 제공자의 평판 기반 이메일 볼륨 속도 제한, 일시적인 연결 문제 또는 DNS 오류가 포함됩니다.
+연기(Deferral)는 이메일이 즉시 전달되지 않았지만, Braze가 이 임시 전달 실패 후 ESP를 통해 이메일 재전송을 시도하여 해당 캠페인에 대한 시도가 중단되기 전에 성공적인 전달 가능성을 극대화하는 것을 의미합니다. SendGrid와 SparkPost는 최대 72시간 동안 재시도하며, Amazon SES는 최대 14시간 동안 재시도합니다. 일반적인 연기 사유에는 받은편지함 제공자의 평판 기반 이메일 볼륨 속도 제한, 일시적인 연결 문제 또는 DNS 오류가 포함됩니다.
 
 _연기_는 _소프트바운스_와 다릅니다. 이 재시도 기간 동안 이메일이 성공적으로 전달되지 않으면, Braze는 시도된 캠페인 발송당 하나의 소프트바운스 이벤트를 전송합니다. 2025년 2월 25일 이전에는 이러한 재시도가 1개의 캠페인 발송에 대해 여러 번의 소프트바운스로 카운트되었습니다.
 
-_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. 캠페인 또는 Canvas 분석에 포함하고 싶으시다면 [제품 피드백을 제출]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)해 주세요.
+_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. 캠페인 또는 Canvas 분석에 포함하고 싶으시다면 [제품 피드백을 제출]({{site.baseurl}}/user_guide/administrative/access_braze/portal)해 주세요.
 
 ##### 추정 실제 열람율 {#estimated-real-open-rate}
 
@@ -512,17 +521,17 @@ Estimated Real Open Rate는 Campaigns에서만 사용할 수 있으며, Currents
 궁극적으로 이메일이 서버를 떠난 후에는 가시성이 제한되지만, 결과에 영향을 미치는 NHI를 관리하기 위한 권장 사항은 다음과 같습니다:
 
 1. 이는 모든 발신자와 거의 모든 수신자에게 발생할 수 있다는 점을 인지하세요. 열람과 마찬가지로 클릭도 메시지와의 인간 상호작용을 완전히 신뢰할 수 있는 지표가 아니므로 NHI를 방지할 수는 없습니다.
-2. 높은 긍정적 참여는 낮은 NHI와 상관관계가 있는 경향이 있으므로, 이메일 메시징 [모범 사례]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/)를 따르는 것이 중요합니다. 여기에는 사용자로부터 이메일 전송에 대한 명시적인 동의를 받고, 참여하지 않는 가입자를 정기적으로 서비스 종료하는 것이 포함됩니다.
+2. 높은 긍정적 참여는 낮은 NHI와 상관관계가 있는 경향이 있으므로, 이메일 메시징 [모범 사례]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)를 따르는 것이 중요합니다. 여기에는 사용자로부터 이메일 전송에 대한 명시적인 동의를 받고, 참여하지 않는 가입자를 정기적으로 서비스 종료하는 것이 포함됩니다.
 3. 가능하면 이메일에 HTTPS 링크를 사용하세요. 보안 링크를 사용하는 발신자에게는 NHI가 덜 발생합니다.
-4. 단일 클릭 탈퇴 프로세스를 사용하는 경우, 사용자가 알림 환경설정을 편집하고 관리할 수 있는 페이지로 이동하는 [환경설정 센터]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/)를 만드는 것을 고려하세요. NHI가 실수로 사용자의 구독을 취소할 수 있으므로 이 방법이 유용합니다.
-5. 전환, 앱 세션 또는 사이트 방문과 같은 [다른 측정기준]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#email-performance)을 사용하여 이메일 마케팅 성과를 측정하는 것도 고려해 보세요.
+4. 단일 클릭 탈퇴 프로세스를 사용하는 경우, 사용자가 알림 환경설정을 편집하고 관리할 수 있는 페이지로 이동하는 [환경설정 센터]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview)를 만드는 것을 고려하세요. NHI가 실수로 사용자의 구독을 취소할 수 있으므로 이 방법이 유용합니다.
+5. 전환, 앱 세션 또는 사이트 방문과 같은 [다른 측정기준]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance)을 사용하여 이메일 마케팅 성과를 측정하는 것도 고려해 보세요.
 6. 이메일 캠페인에 숨겨진 링크를 추가하세요. 흰색 배경에 흰색 텍스트나 구두점처럼 사람이 알아차리지 못할 링크입니다. 봇은 모든 링크를 클릭하는 경향이 있으므로, 보이지 않는 링크에서 클릭 이벤트를 생성하는 사용자는 실제로 NHI의 결과라고 판단할 수 있습니다. 따라서 해당 열람이나 클릭이 반드시 긍정적인 참여를 나타내는 것은 아닙니다.
 
 {% elsif include.channel == "in-app message" %}
 
 #### 인앱 메시지 측정기준 {#in-app-message-metrics}
 
-분석에서 볼 수 있는 몇 가지 주요 인앱 메시지 측정기준을 소개합니다. Braze에서 사용되는 모든 인앱 메시지 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)을 참조하세요.
+분석에서 볼 수 있는 몇 가지 주요 인앱 메시지 측정기준을 소개합니다. Braze에서 사용되는 모든 인앱 메시지 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)을 참조하세요.
 
 {% alert note %}
 _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에서 **Identifier for Reporting**을 각각 "0"과 "1"로 지정한 경우에만 작동합니다.
@@ -594,7 +603,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 
 ### KakaoTalk 측정기준 {#kakaotalk-metrics}
 
-분석에서 볼 수 있는 몇 가지 주요 KakaoTalk 측정기준을 소개합니다. 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics/)을 참조하세요.
+분석에서 볼 수 있는 몇 가지 주요 KakaoTalk 측정기준을 소개합니다. 자세한 내용은 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data/report_metrics)을 참조하세요.
 
 {% alert note %}
 현재 KakaoTalk 캠페인에 대한 추정 또는 정확한 오디언스 통계는 제공되지 않습니다.
@@ -603,7 +612,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 | 용어 | 정의 |
 | --- | --- |
 | 오디언스 | _오디언스_는 특정 메시지를 수신한 사용자의 비율입니다. <br><br>_(배리언트의 수신자 수) / (고유 수신자)_ |
-| 고유 수신자 | _고유 수신자_는 하루에 새 메시지를 수신한 고유 일일 수신자 또는 사용자의 수입니다. 이 카운트가 사용자에 대해 두 번 이상 증가하려면 사용자가 다른 날에 새 메시지를 수신해야 합니다. 이 수치는 `user_id`를 기반으로 합니다. 자세한 내용은 [보고서 측정기준 용어집의 고유 수신자]({{site.baseurl}}/user_guide/data/report_metrics/#unique-recipients)를 참조하세요. |
+| 고유 수신자 | _고유 수신자_는 하루에 새 메시지를 수신한 고유 일일 수신자 또는 사용자의 수입니다. 이 카운트가 사용자에 대해 두 번 이상 증가하려면 사용자가 다른 날에 새 메시지를 수신해야 합니다. 이 수치는 `user_id`를 기반으로 합니다. 자세한 내용은 [보고서 측정기준 용어집의 고유 수신자]({{site.baseurl}}/user_guide/data/report_metrics#unique-recipients)를 참조하세요. |
 | 발송 수 | 캠페인에서 발송된 총 메시지 수입니다. 메시지가 기기에 수신되거나 전달되었음을 의미하지 않으며, 메시지가 발송되었다는 것만을 의미합니다. |
 | 총 클릭 수 | 발송된 KakaoTalk 메시지가 사용자에 의해 클릭된 총 횟수입니다. |
 | 오류 수 | _오류 수_는 KakaoTalk 제공자가 반환한 오류의 수입니다(발송 과정에서 증가). |
@@ -615,7 +624,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 
 #### 푸시 측정기준 {#push-metrics}
 
-메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 푸시 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)에서 푸시로 필터링하여 확인하세요.
+메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 푸시 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)에서 푸시로 필터링하여 확인하세요.
 
 <style>
     .no-split {
@@ -658,7 +667,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 {% tabs local %}
 {% tab Segment 필터 %}
 
-푸시가 활성화되지 않은 사용자, 즉 구독하지 않았거나 옵트인하지 않았으며 [포그라운드 푸시 토큰]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens)이 없는 사용자를 식별하기 위해 Segment를 생성할 수 있습니다. 예를 들어, 앱에서 구독 취소 수를 확인하려면 다음 Segment의 "OR" 조합을 사용합니다:
+푸시가 활성화되지 않은 사용자, 즉 구독하지 않았거나 옵트인하지 않았으며 [포그라운드 푸시 토큰]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens)이 없는 사용자를 식별하기 위해 Segment를 생성할 수 있습니다. 예를 들어, 앱에서 구독 취소 수를 확인하려면 다음 Segment의 "OR" 조합을 사용합니다:
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
@@ -671,7 +680,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
 {% tab 커스텀 필터 %}
 
 {% alert important %}
-구독 변경에 대한 커스텀 이벤트를 기록하면 [데이터 포인트]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count)가 소비됩니다. 또는 Segment 필터를 사용하여 푸시가 활성화되지 않은 사용자를 식별하고 타겟팅할 수 있습니다.
+구독 변경에 대한 커스텀 이벤트를 기록하면 [데이터 포인트]({{site.baseurl}}/user_guide/data_and_analytics/data_points#consumption-count)가 소비됩니다. 또는 Segment 필터를 사용하여 푸시가 활성화되지 않은 사용자를 식별하고 타겟팅할 수 있습니다.
 {% endalert %}
 
 다른 방법으로, 사용자의 푸시 활성화 상태가 `true`인지 `false`인지에 따라 푸시 구독 취소에 대한 커스텀 이벤트를 생성하여 이 측정기준을 추적하는 것도 좋습니다.
@@ -685,11 +694,11 @@ _Direct Opens_와 _Influenced Opens_는 모두 "열람"이라는 단어를 포�
 
 ##### 푸시 실행 버튼과 보고 {#push-action-buttons-and-reporting}
 
-[푸시 실행 버튼]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)을 추가하면 **Push Performance** 패널에 **Direct Opens**와 같은 측정기준과 함께 **Body Clicks**, **Button 1 Clicks**, **Button 2 Clicks**가 포함될 수 있습니다. 이 열들은 서로 다른 상호작용을 측정하므로, 참여를 해석할 때 비교하세요.
+[푸시 실행 버튼]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons)을 추가하면 **Push Performance** 패널에 **Direct Opens**와 같은 측정기준과 함께 **Body Clicks**, **Button 1 Clicks**, **Button 2 Clicks**가 포함될 수 있습니다. 이 열들은 서로 다른 상호작용을 측정하므로, 참여를 해석할 때 비교하세요.
 
-_Direct Opens_는 메시지의 직접 열람으로 카운트되는 상호작용에 대한 대시보드 측정기준을 반영합니다. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 또는 Snowflake의 **Push Notification Open** 이벤트는 푸시 상호작용을 더 광범위하게 설명하며, `button_action_type`(예: `close`) 및 `button_string`과 같은 선택적 필드를 포함할 수 있습니다. 필드 정의는 [Push Notification Open 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events)를 참조하세요.
+_Direct Opens_는 메시지의 직접 열람으로 카운트되는 상호작용에 대한 대시보드 측정기준을 반영합니다. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 또는 Snowflake의 **Push Notification Open** 이벤트는 푸시 상호작용을 더 광범위하게 설명하며, `button_action_type`(예: `close`) 및 `button_string`과 같은 선택적 필드를 포함할 수 있습니다. 필드 정의는 [Push Notification Open 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#push-notification-open-events)를 참조하세요.
 
-**iOS**의 경우, Braze 기본 알림 카테고리(예: **Yes** / **No**, **Accept** / **Decline**, **Confirm** / **Cancel**)는 고정 페어링을 사용합니다. 첫 번째 동작은 `OPEN_APP`, URI 또는 딥링크를 지원합니다(작성기의 **On-Click Behavior**와 일치). 보조 동작은 기본적으로 `CLOSE`를 사용하며, 알림을 닫고 앱을 열지 않습니다. [Braze 기본 버튼용 Apple 푸시 실행 버튼 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons)에서 기본 매핑을 확인하세요.
+**iOS**의 경우, Braze 기본 알림 카테고리(예: **Yes** / **No**, **Accept** / **Decline**, **Confirm** / **Cancel**)는 고정 페어링을 사용합니다. 첫 번째 동작은 `OPEN_APP`, URI 또는 딥링크를 지원합니다(작성기의 **On-Click Behavior**와 일치). 보조 동작은 기본적으로 `CLOSE`를 사용하며, 알림을 닫고 앱을 열지 않습니다. [Braze 기본 버튼용 Apple 푸시 실행 버튼 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons)에서 기본 매핑을 확인하세요.
 
 이 때문에 해제형 프리셋 버튼(예: **No** 또는 **Decline**)을 탭해도 일반적으로 _Direct Opens_로 카운트되지 않습니다. 이러한 탭은 기록될 때 **Push Notification Open** 내보내기에 나타날 수 있으며, `button_action_type`이 `close`로 설정되고 `button_string`이 탭된 동작을 식별합니다. 캠페인 분석을 웨어하우스 데이터와 비교할 때, 이러한 페이로드 필드를 사용하여 해제형 탭을 알림 본문이나 기본 동작 탭과 동일하게 취급하지 않도록 하세요.
 
@@ -734,7 +743,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 #### SMS, MMS 및 RCS 측정기준 {#sms-mms-and-rcs-metrics}
 
-메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 SMS, MMS 및 RCS 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)에서 SMS/MMS 및 RCS로 필터링하여 확인하세요.
+메시지 성과를 검토할 때 볼 수 있는 주요 측정기준을 정리했습니다. 모든 SMS, MMS 및 RCS 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)에서 SMS/MMS 및 RCS로 필터링하여 확인하세요.
 
 <style>
     .no-split {
@@ -786,7 +795,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 #### 웹훅 측정기준 {#webhook-metrics}
 
-분석에서 볼 수 있는 몇 가지 주요 웹훅 측정기준을 소개합니다. Braze에서 사용되는 모든 웹훅 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)을 참조하세요.
+분석에서 볼 수 있는 몇 가지 주요 웹훅 측정기준을 소개합니다. Braze에서 사용되는 모든 웹훅 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)을 참조하세요.
 
 <style>
     .no-split {
@@ -822,7 +831,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 #### WhatsApp 측정기준 {#whatsapp-metrics}
 
-분석에서 볼 수 있는 몇 가지 주요 WhatsApp 측정기준을 소개합니다. Braze에서 사용되는 모든 WhatsApp 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)을 참조하세요.
+분석에서 볼 수 있는 몇 가지 주요 WhatsApp 측정기준을 소개합니다. Braze에서 사용되는 모든 WhatsApp 측정기준의 전체 정의는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics)을 참조하세요.
 
 <style>
     .no-split {
@@ -888,7 +897,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 ![옵트인, 옵트아웃, 도움말, 기타, 더보기 및 코칭에 대한 체크박스가 선택된 키워드 카테고리 섹션과 시간에 따른 키워드 분포 선 그래프가 포함된 캠페인 수준 SMS/MMS/RCS Keyword Responses 패널.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-여기에서 각 키워드 카테고리의 응답 분포를 확인하여 [리타겟팅]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/)의 다음 단계를 결정하고 편리하게 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)할 수 있습니다.
+여기에서 각 키워드 카테고리의 응답 분포를 확인하여 [리타겟팅]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns)의 다음 단계를 결정하고 편리하게 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment)할 수 있습니다.
 
 ![키워드 카테고리, 응답 분포 및 리타겟팅 열이 있는 선 그래프 아래의 테이블로, 키워드 카테고리로 Segment를 생성할 수 있는 옵션이 제공됩니다.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
@@ -896,13 +905,13 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 ### 전환 이벤트 세부 정보 {#conversion-event-details}
 
-**Conversion Event Details** 패널에는 캠페인의 전환 이벤트 성과가 표시됩니다. 자세한 내용은 [전환 이벤트]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results)를 참조하세요.
+**Conversion Event Details** 패널에는 캠페인의 전환 이벤트 성과가 표시됩니다. 자세한 내용은 [전환 이벤트]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events#step-3-view-results)를 참조하세요.
 
 ![Conversion Event Details 패널.]({% image_buster /assets/img/cc-conversion.png %})
 
 ### 전환 상관관계 {#conversion-correlation}
 
-**Conversion Correlation** 패널은 캠페인에 설정한 결과에 도움이 되거나 해가 되는 사용자 속성과 동작에 대한 인사이트를 제공합니다. 자세한 내용은 [전환 상관관계]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/)를 참조하세요.
+**Conversion Correlation** 패널은 캠페인에 설정한 결과에 도움이 되거나 해가 되는 사용자 속성과 동작에 대한 인사이트를 제공합니다. 자세한 내용은 [전환 상관관계]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation)를 참조하세요.
 
 ![주요 전환 이벤트 - A의 사용자 속성과 동작에 대한 분석이 포함된 Conversion Correlation 패널.]({% image_buster /assets/img/convcorr.png %})
 
@@ -910,7 +919,7 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
 
 ## 보고서 빌더 {#report-builder}
 
-[보고서 빌더]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/)를 사용하여 KakaoTalk 캠페인에 대한 커스텀 보고서를 작성할 수도 있습니다. 보고서를 생성할 때 **채널**에서 **KakaoTalk**을 선택하여 KakaoTalk 캠페인만 포함하도록 필터링하거나, KakaoTalk 캠페인에 적용한 태그로 필터링할 수 있습니다.
+[보고서 빌더]({{site.baseurl}}/user_guide/analytics/reporting/report_builder)를 사용하여 KakaoTalk 캠페인에 대한 커스텀 보고서를 작성할 수도 있습니다. 보고서를 생성할 때 **채널**에서 **KakaoTalk**을 선택하여 KakaoTalk 캠페인만 포함하도록 필터링하거나, KakaoTalk 캠페인에 적용한 태그로 필터링할 수 있습니다.
 
 {% endif %}
 
@@ -926,7 +935,7 @@ Braze 분석 외에도 템플릿 수준의 분석은 WhatsApp 비즈니스 매�
 
 ### SMS Currents 이벤트 {#sms-currents-events}
 
-이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
+이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
 
 {% alert note %}
 인바운드 메시지는 1,600자를 초과하면 잘립니다.
@@ -938,12 +947,12 @@ Braze 분석 외에도 템플릿 수준의 분석은 WhatsApp 비즈니스 매�
 
 ## 리텐션 보고서 {#retention-report}
 
-리텐션 보고서는 특정 캠페인{% if include.channel != "banner" %} 또는 Canvas{% endif %}에서 시간에 따라 사용자가 선택한 리텐션 이벤트를 수행한 비율을 보여줍니다. 자세한 내용은 [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/)를 참조하세요.
+리텐션 보고서는 특정 캠페인{% if include.channel != "banner" %} 또는 Canvas{% endif %}에서 시간에 따라 사용자가 선택한 리텐션 이벤트를 수행한 비율을 보여줍니다. 자세한 내용은 [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)를 참조하세요.
 
 ## 퍼널 보고서 {#funnel-report}
 
 퍼널 보고서는 캠페인{% if include.channel != "banner" %} 또는 Canvas{% endif %}를 받은 후 고객이 취하는 여정을 분석할 수 있는 시각적 보고서를 제공합니다. 캠페인{% if include.channel != "banner" %} 또는 Canvas{% endif %}에서 대조군이나 여러 배리언트를 사용하는 경우, 다양한 배리언트가 전환 퍼널에 미친 영향을 더 세부적으로 이해하고 이 데이터를 기반으로 최적화할 수 있습니다.
 
-자세한 내용은 [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports/)를 참조하세요.
+자세한 내용은 [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports)를 참조하세요.
 
 {% endif %}

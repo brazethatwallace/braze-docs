@@ -14,7 +14,7 @@ alias: /scim/automated_user_provisioning/
 
 ## Acceso a la configuración de aprovisionamiento SCIM {#accessing-scim-provisioning-settings}
 
-1. En el panel de Braze, ve a **Settings** > **Admin Settings** > **SCIM Provisioning** y, a continuación, selecciona **Configure SCIM integration**.
+1. En el panel de Braze, ve a **Configuración** > **Configuración de administrador** > **Aprovisionamiento de SCIM** y, a continuación, selecciona **Configure SCIM integration**.
 2. En el paso **Braze configuration**, selecciona un método de aprovisionamiento y proporciona la configuración de acceso.
 
 ![Una página para configurar la integración SCIM con secciones para seleccionar un método de aprovisionamiento y proporcionar la configuración de acceso.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
@@ -157,11 +157,9 @@ Inicia sesión en tu centro de administración de Microsoft Entra.
 
 ## Paso 1: Configurar los ajustes de SCIM {#step-1-configure-your-scim-settings}
 
-- **Espacio de trabajo predeterminado:** selecciona el espacio de trabajo donde se deben añadir los nuevos usuarios de forma predeterminada. Si no especificas un espacio de trabajo en tu [solicitud a la API SCIM]({{site.baseurl}}/post_create_user_account/), Braze asigna los usuarios a este espacio de trabajo.
+- **Espacio de trabajo predeterminado:** selecciona el espacio de trabajo donde se deben añadir los nuevos usuarios de forma predeterminada. Si no especificas un espacio de trabajo en tu [solicitud a la API SCIM]({{site.baseurl}}/post_create_user_account), Braze asigna los usuarios a este espacio de trabajo.
 - **Origin del servicio:** introduce el dominio de origen de tus solicitudes SCIM. Braze lo utiliza en el encabezado `X-Request-Origin` para verificar de dónde provienen las solicitudes.
 - **Lista de IP permitidas (opcional):** puedes restringir las solicitudes SCIM a direcciones IP específicas. Introduce una lista separada por comas o un rango de direcciones IP permitidas. El encabezado `X-Request-Origin` de cada solicitud se utiliza para comprobar la dirección IP de la solicitud con la lista de permitidas.
-
-![Formulario de configuración de aprovisionamiento SCIM con tres campos: espacio de trabajo predeterminado, origin del servicio y lista de IP permitidas opcional. El botón "Generate SCIM Token" está deshabilitado.]({% image_buster /assets/img/scim_unfilled.png %})
 
 ## Paso 2: Generar un token SCIM {#step-2-generate-a-scim-token}
 

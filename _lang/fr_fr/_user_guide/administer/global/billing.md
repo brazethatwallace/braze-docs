@@ -76,8 +76,6 @@ Les champs de cette section sont définis comme suit :
 - **Points de données alloués :** Le nombre de points de données alloués dans le contrat par période de facturation.
 - **Utilisation des points de données du contrat :** Total cumulé de tous les points de données enregistrés sur la durée de vie du contrat ; ce total ne se réinitialise pas lors de la période de facturation suivante.
 
-![Section Détails du contrat de l'onglet Utilisation totale des points de données]({% image_buster /assets/img/contract_details.png %})
-
 ### Données de facturation de la société {#company-billing-data}
 
 #### Utilisation totale des points de données au niveau de l'application {#app-level-total-data-point-usage}
@@ -110,5 +108,5 @@ Ce graphique vous permet de visualiser rapidement votre consommation totale de p
 
 ## Étapes suivantes {#next-steps}
 
-- [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) pour configurer des alertes relatives aux événements de facturation et aux seuils d'utilisation.
-- [Tableau de bord de l'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard/) pour surveiller la consommation de crédits de messages.
+- [Préférences de notification]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) pour configurer des alertes relatives aux événements de facturation et aux seuils d'utilisation.
+- [Tableau de bord de l'utilisation des crédits]({{site.baseurl}}/credits_usage_dashboard) pour surveiller la consommation de crédits de messages.

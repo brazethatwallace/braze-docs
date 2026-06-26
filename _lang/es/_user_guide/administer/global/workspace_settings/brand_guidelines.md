@@ -16,11 +16,11 @@ Crea y administra directrices de marca desde **Contenido** > **Directrices de ma
 
 ### Paso 1: Crear una directriz de marca {#step-1-create-a-brand-guideline}
 
-En la página **Directrices de marca**, selecciona **Crear nuevo**. Si quieres que esta directriz de marca sea la predeterminada para el espacio de trabajo, marca **Use as default brand guideline**. Puedes tener una predeterminada por espacio de trabajo.
+En la página **Directrices de marca**, selecciona **Crear nuevo**. Si quieres que esta directriz de marca sea la predeterminada para el espacio de trabajo, marca **Usar como directriz de marca predeterminada**. Puedes tener una predeterminada por espacio de trabajo.
 
 ### Paso 2: Describe la personalidad de tu marca {#step-2-describe-your-brand-personality}
 
-Para **Brand personality**, piensa en lo que hace única a tu marca. Incluye rasgos, valores, voz y cualquier arquetipo que defina tu marca. Aquí tienes algunas características a tener en cuenta:
+Para **Personalidad de marca**, piensa en lo que hace única a tu marca. Incluye rasgos, valores, voz y cualquier arquetipo que defina tu marca. Aquí tienes algunas características a tener en cuenta:
 
 | **Característica**       | **Definición**                                                                       | **Ejemplo**                                                        |
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -34,17 +34,17 @@ Para **Brand personality**, piensa en lo que hace única a tu marca. Incluye ras
 
 ### Paso 3: Define el lenguaje que debe evitarse (opcional) {#step-3-define-language-that-should-be-avoided-optional}
 
-Para **Exclusions**, enumera cualquier lenguaje o estilo que no se alinee con tu marca. Por ejemplo, podrías querer evitar el «sarcasmo», las «actitudes negativas» o los tonos «condescendientes».
+Para **Exclusiones**, enumera cualquier lenguaje o estilo que no se alinee con tu marca. Por ejemplo, podrías querer evitar el «sarcasmo», las «actitudes negativas» o los tonos «condescendientes».
 
-![La ventana «Create brand guideline» con campos para introducir el nombre, la descripción, la personalidad, las exclusiones y el tono.]({% image_buster /assets/img/guidelines_create.png %})
+![La ventana «Crear directriz de marca» con campos para introducir el nombre, la descripción, la personalidad, las exclusiones y el tono.]({% image_buster /assets/img/guidelines_create.png %})
 
 ### Paso 4: Prueba tus directrices {#step-4-test-your-guidelines}
 
-Prueba tus directrices para ver cómo funcionan. Expande **Test your guidelines** para generar textos de ejemplo y ajústalos según sea necesario.
+Prueba tus directrices para ver cómo funcionan. Expande **Probar tus directrices** para generar textos de ejemplo y ajústalos según sea necesario.
 
 ### Paso 5: Guarda tus directrices {#step-5-save-your-guidelines}
 
-Cuando estés conforme con tus directrices, selecciona **Save brand guideline**. Tus directrices se guardarán en tu espacio de trabajo para uso futuro.
+Cuando estés conforme con tus directrices, selecciona **Guardar directriz de marca**. Tus directrices se guardarán en tu espacio de trabajo para uso futuro.
 
 {% alert important %}
 Puedes cambiar el idioma de salida independientemente del idioma en el que esté tu texto, pero ni Braze ni OpenAI garantizan la calidad de la traducción. Siempre prueba y verifica las traducciones antes de usarlas.
@@ -54,11 +54,9 @@ Puedes cambiar el idioma de salida independientemente del idioma en el que esté
 
 Puedes editar las directrices de marca seleccionándolas en la página **Directrices de marca**. Archiva una directriz de marca para desactivarla y que no esté disponible en los creadores de mensajes. Para activarla y que sea seleccionable de nuevo, puedes filtrar por directrices de marca archivadas y luego desarchivarla.
 
-![La página «Directrices de marca» filtrada por directrices de marca archivadas.]({% image_buster /assets/img/unarchive_brand_guideline.png %})
-
 ## Usar directrices de marca {#using-brand-guidelines}
 
-Al redactar un mensaje, abre Operator para [generar texto]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) y selecciona tu directriz de marca en el menú desplegable **Apply brand guideline**. Si designas una directriz de marca específica como predeterminada, Braze la selecciona automáticamente en el menú desplegable, pero puedes elegir una directriz diferente.
+Al redactar un mensaje, abre Operator para [generar texto]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) y selecciona tu directriz de marca en el menú desplegable **Aplicar directriz de marca**. Si designas una directriz de marca específica como predeterminada, Braze la selecciona automáticamente en el menú desplegable, pero puedes elegir una directriz diferente.
 
 ![Operator con «Important Alerts!!» seleccionado como directriz de marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 

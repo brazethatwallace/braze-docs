@@ -25,8 +25,6 @@ toc_headers: h2
 
 여기에서 모든 워크스페이스의 목록, 설정된 시간대 및 마지막으로 시간대가 편집된 시간을 볼 수 있습니다. 검색창을 사용하여 이름으로 특정 워크스페이스를 찾을 수 있습니다.
 
-!["워크스페이스 시간대" 페이지에는 워크스페이스 목록, 해당 시간대 및 마지막으로 시간대가 편집된 시간이 표시되어 있습니다.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
 ### 시간대 설정 {#setting-a-time-zone}
 
 {% alert note %}
@@ -36,28 +34,27 @@ toc_headers: h2
 {% tabs %}
 {% tab 단일 워크스페이스 %}
 1. 목록에서 원하는 워크스페이스를 찾습니다.
-2. 워크스페이스 이름 옆에 있는 **Edit** 아이콘을 선택합니다.
+2. 워크스페이스 이름 옆에 있는 **편집** 아이콘을 선택합니다.
 
-![워크스페이스 이름 옆에 있는 "Edit" 버튼입니다.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+![워크스페이스 이름 옆에 있는 "편집" 버튼.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. 드롭다운 메뉴에서 해당 워크스페이스에 원하는 시간대를 선택합니다.
-4. **Save**를 선택합니다.
+4. **저장**을 선택합니다.
 
-![GMT 시간대가 선택된 드롭다운 메뉴입니다.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab 다중 워크스페이스 %}
 
 다음 단계를 수행하여 여러 워크스페이스에 특정 시간대를 한 번에 적용할 수 있습니다:
 
 1. 업데이트하려는 모든 워크스페이스 옆의 체크박스를 선택합니다.
-2. **Edit time zone**을 선택합니다.
+2. **시간대 편집**을 선택합니다.
 3. 드롭다운 메뉴에서 선택한 모든 워크스페이스에 적용할 시간대를 선택합니다.
 
-![여러 워크스페이스가 선택되고 "Edit time zone" 버튼이 있는 "워크스페이스 시간대" 페이지입니다.]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![여러 워크스페이스가 선택되고 "시간대 편집" 버튼이 있는 "워크스페이스 시간대" 페이지.]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
-4. **Save**를 선택합니다.
+4. **저장**을 선택합니다.
 
 {% endtab %}
 {% endtabs %}
@@ -68,7 +65,7 @@ toc_headers: h2
 Campaign 스케줄에 대한 혼란을 방지하기 위해 각 워크스페이스 내의 관련 팀과 이해관계자에게 시간대 변경 사항을 알려주세요.
 {% endalert %}
 
-- **로컬 시간 및 Intelligent Timing Campaign:** 사용자의 로컬 시간 또는 [Intelligent Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing)을 전달에 사용하는 Campaigns 및 Canvases는 이전과 동일하게 작동하며 워크스페이스 시간대의 영향을 받지 않습니다.
+- **로컬 시간 및 Intelligent Timing Campaign:** 사용자의 로컬 시간 또는 [Intelligent Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing)을 전달에 사용하는 Campaigns 및 Canvases는 이전과 동일하게 작동하며 워크스페이스 시간대의 영향을 받지 않습니다.
 - **예약된 Campaigns 및 Canvases:** 사용자의 로컬 시간 또는 Intelligent Timing을 전달에 사용하지 않는 예약된 Campaign 또는 Canvas는 이제 워크스페이스에서 선택한 시간대를 기준으로 전송됩니다.
 - **시간대 변경 전에 예약된 Campaigns:** 워크스페이스 시간대를 변경하기 전에 Campaign 또는 Canvas를 예약한 경우, Braze는 원래 전송 시간을 유지하며 다시 예약하지 않습니다. 예를 들어, Campaign이 오후 7시 PST에 전송되도록 설정되어 있고 워크스페이스 시간대가 EST로 변경된 경우, Campaign은 여전히 오후 7시 PST(현재 오후 10시 EST에 해당)에 전송됩니다. 시스템은 원래 시간을 계속 참조하지만 새로운 워크스페이스 시간대를 통해 해석합니다.
 

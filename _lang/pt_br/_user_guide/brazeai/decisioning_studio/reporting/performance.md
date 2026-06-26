@@ -39,7 +39,12 @@ Essas seleções determinam quais dias são incluídos, quais grupos são compar
 Alterar a configuração de agregação (como média móvel de 7 dias) afeta apenas a exibição do gráfico. Isso não altera os dados armazenados.
 {% endalert %}
 
-Se você não conseguir selecionar uma data recente no seletor de datas, essa data provavelmente está desabilitada para refletir um atraso temporário nos dados. Normalmente, leva alguns dias para que os dados do seu CDP cheguem ao Decisioning Studio de forma confiável.
+Se você não conseguir selecionar uma data recente no seletor de datas, essa data provavelmente está desabilitada devido a atrasos configurados nos dados. Existem dois tipos de atrasos que podem limitar a disponibilidade de datas:
+
+- **Atrasos no pipeline de dados:** O tempo necessário para ingerir e processar dados do seu CDP no Decisioning Studio. Isso garante que os relatórios mostrem apenas dados completos e confiáveis.
+- **Atrasos na ativação de recomendações:** O tempo entre o momento em que o mecanismo do Decisioning Studio prevê uma recomendação e o momento em que você a ativa nas suas Campaigns. Os relatórios não incluirão dias em que as recomendações ainda não foram ativadas.
+
+Esses atrasos são configurados para o seu caso de uso. Se você precisar entender o período específico do seu relatório, entre em contato com o seu AI Success Manager.
 
 ## Cartões de KPI {#kpi-cards}
 
@@ -119,9 +124,13 @@ Os KPIs para casos de uso Go são definidos automaticamente e padronizados, já 
 
 ### Por que não consigo selecionar certas datas recentes? {#why-cant-i-select-certain-recent-dates}
 
-O seletor de datas pode não permitir a seleção dos dias mais recentes. Isso é intencional. Os relatórios podem aplicar atrasos de ativação, atrasos de disponibilidade de dados ou datas explicitamente excluídas. Essas proteções evitam que dados incompletos ou instáveis apareçam nos seus resultados.
+O seletor de datas pode não permitir a seleção dos dias mais recentes. Isso é intencional. Os relatórios podem aplicar as seguintes restrições para evitar que dados incompletos ou instáveis apareçam:
 
-Se você precisar de esclarecimentos sobre o período do seu relatório ou regras de disponibilidade de dados, entre em contato com o seu AI Success Manager para obter a configuração específica do seu caso de uso.
+- **Atrasos no pipeline de dados:** Configurados para considerar o tempo necessário para ingerir e processar dados do seu CDP. Isso garante que todos os dados de um determinado dia estejam completos antes que ele apareça nos relatórios.
+- **Atrasos na ativação de recomendações:** Configurados para considerar o intervalo entre o momento em que as recomendações são geradas e o momento em que são ativadas nas suas Campaigns. Dias em que as recomendações ainda não foram ativadas não aparecerão nos relatórios.
+- **Datas explicitamente excluídas:** Datas que você excluiu manualmente nas configurações de relatório.
+
+Se você precisar de esclarecimentos sobre o período do seu relatório ou regras de disponibilidade de dados, entre em contato com o seu AI Success Manager.
 
 ### Qual é a diferença entre KPIs de "volume" e de "taxa"? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -142,7 +151,7 @@ Se você precisar entender como a unicidade foi definida na sua configuração, 
 
 ### Por que este relatório pode diferir de outro sistema? {#why-might-this-report-differ-from-another-system}
 
-Se o seu relatório de Performance não corresponder a outro dashboard (como um ESP, ferramenta de análise de dados ou relatório interno de BI), isso não significa necessariamente que algo está errado. Sistemas diferentes frequentemente aplicam definições e regras diferentes. Razões comuns incluem:
+Se o seu relatório de performance não corresponder a outro dashboard (como um ESP, ferramenta de análise de dados ou relatório interno de BI), isso não significa necessariamente que algo está errado. Sistemas diferentes frequentemente aplicam definições e regras diferentes. Razões comuns incluem:
 
 - **Regras de atribuição:** Algumas métricas aplicam lógica de atribuição, o que significa que apenas a atividade que atende a critérios definidos é contada. Se outro sistema conta toda a atividade sem lógica de atribuição, os totais podem diferir.
 - **Filtragem de engajamento de máquina e bot:** Engajamento conhecido gerado por máquinas ou bots (como varreduras de segurança automatizadas ou cliques não humanos) é filtrado para garantir que a performance reflita o comportamento humano real. Algumas plataformas incluem essas interações em seus totais.

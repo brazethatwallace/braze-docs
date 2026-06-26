@@ -16,7 +16,7 @@ search_rank: 7
 
 Um das Braze-Support-Team zu kontaktieren, navigieren Sie zum Braze-Dashboard und wählen Sie **Support** aus. Das Menü bietet zwei Optionen:
 
-- **Get help with Operator** öffnet BrazeAI Operator<sup>TM</sup>, der Ihr Problem direkt mithilfe des Kontexts aus Ihrer Konversation und dem aktuellen Bildschirm beheben kann. Wenn Operator Ihr Problem nicht lösen kann, können Sie ihn bitten, ein Support-Ticket auf Basis Ihrer Konversation zu erstellen. Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
+- **Get help with Operator** öffnet BrazeAI Operator<sup>TM</sup>, der Ihr Problem direkt mithilfe des Kontexts aus Ihrer Konversation und dem aktuellen Bildschirm beheben kann. Wenn Operator Ihr Problem nicht lösen kann, können Sie ihn bitten, ein Support-Ticket auf Basis Ihrer Konversation zu erstellen. Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
 - **Get help** leitet Sie direkt zum Braze-Support-Portal weiter (wenn Sie ein:e designierte:r Support-Kontakt sind) oder zu unserem Standard-Support-Formular, wo Sie Fälle einreichen und nachverfolgen können. Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze-Success-Manager oder den Kontoinhaber.
 
 ![Das Dropdown-Menü „Support“ mit den Optionen „Get help with Operator“ und „Get help“.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
@@ -30,8 +30,6 @@ Designierte Support-Kontakte können auf alle Support-Fälle Ihres Unternehmens 
 2. Wählen Sie entweder den Nutzernamen aus oder fahren Sie mit der Maus über die Zeile des Nutzernamens, um ein Menü anzuzeigen.
 3. Wählen Sie im Menü **Bearbeiten** aus, um zur Seite **Nutzer:in bearbeiten** weitergeleitet zu werden.
 4. Aktivieren Sie das Kontrollkästchen **Set this user as a Designated Support Contact for Braze Support Portal**.
-
-![Das Kontrollkästchen zum Festlegen eines/einer Nutzer:in als designierten Support-Kontakt.]({% image_buster /assets/img_archive/designated_support_contact.png %}){: style="max-width:70%;"}
 
 ### Zugang erhalten {#gaining-access}
 
@@ -102,7 +100,7 @@ Wenn Sie ein Problem als „Critical“ markieren, bedeutet dies, dass Ihre Prod
 Wenn das Braze-Dashboard nicht korrekt geladen wird, versuchen Sie Folgendes, bevor Sie den Support kontaktieren:
 
 1. Öffnen Sie das Dashboard in einem anderen Browser oder in einem Inkognito- bzw. privaten Fenster.
-2. [Leeren Sie Ihren Browser-Cache und Ihre Cookies]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#clearing-your-browser-cache-and-cookies).
+2. [Leeren Sie Ihren Browser-Cache und Ihre Cookies]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#clearing-your-browser-cache-and-cookies).
 3. Deaktivieren Sie Werbeblocker und Browser-Erweiterungen und laden Sie das Dashboard anschließend neu.
 4. Wenn Sie ein VPN verwenden, trennen Sie die Verbindung und versuchen Sie es erneut.
 

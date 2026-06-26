@@ -157,11 +157,9 @@ Melden Sie sich bei Ihrem Microsoft Entra Admin Center an.
 
 ## 1. Schritt: SCIM-Einstellungen konfigurieren {#step-1-configure-your-scim-settings}
 
-- **Standard-Workspace:** Wählen Sie den Workspace aus, dem neue Nutzer:innen standardmäßig hinzugefügt werden sollen. Wenn Sie in Ihrer [SCIM-API-Anfrage]({{site.baseurl}}/post_create_user_account/) keinen Workspace angeben, weist Braze Nutzer:innen diesem Workspace zu.
+- **Standard-Workspace:** Wählen Sie den Workspace aus, dem neue Nutzer:innen standardmäßig hinzugefügt werden sollen. Wenn Sie in Ihrer [SCIM-API-Anfrage]({{site.baseurl}}/post_create_user_account) keinen Workspace angeben, weist Braze Nutzer:innen diesem Workspace zu.
 - **Dienst-Herkunft:** Geben Sie die Herkunfts-Domain Ihrer SCIM-Anfragen ein. Braze verwendet diese im `X-Request-Origin`-Header, um zu überprüfen, woher die Anfragen stammen.
 - **IP-Zulassungsliste (optional):** Sie können SCIM-Anfragen auf bestimmte IP-Adressen beschränken. Geben Sie eine kommagetrennte Liste oder einen Bereich von IP-Adressen ein, die zugelassen werden sollen. Der `X-Request-Origin`-Header in jeder Anfrage wird verwendet, um die IP-Adresse der Anfrage mit der Zulassungsliste abzugleichen.
-
-![SCIM-Bereitstellungseinstellungen mit drei Feldern: Standard-Workspace, Dienst-Herkunft und optionale IP-Zulassungsliste. Der Button „SCIM-Token generieren“ ist deaktiviert.]({% image_buster /assets/img/scim_unfilled.png %})
 
 ## 2. Schritt: SCIM-Token generieren {#step-2-generate-a-scim-token}
 

@@ -15,10 +15,10 @@ channel:
 > 연락처 카드(vCard 또는 가상 연락처 파일(VCF)이라고도 함)는 비즈니스 및 연락처 정보를 전송하기 위한 표준화된 파일 형식으로, 주소록이나 연락처 목록에 쉽게 가져올 수 있습니다.
 
 {% alert note %}
-연락처 카드를 보내면 MMS 요금이 부과됩니다. 연락처 카드를 만들 때 예상 MMS 발송량과 메시지 또는 동작 크레딧 사용량을 검토하고, Braze [청구 페이지]({{site.baseurl}}/user_guide/administer/global/billing/)에서 비용을 확인하세요.
+연락처 카드를 보내면 MMS 요금이 부과됩니다. 연락처 카드를 만들 때 예상 MMS 발송량과 메시지 또는 동작 크레딧 사용량을 검토하고, Braze [청구 페이지]({{site.baseurl}}/user_guide/administer/global/billing)에서 비용을 확인하세요.
 {% endalert %}
 
-연락처 카드는 [프로그래밍 방식으로](https://www.twilio.com/blog/send-vcard-twilio-sms) 생성하여 Braze [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library)에 업로드하거나, 기본 제공되는 연락처 카드 생성기를 통해 만들 수 있습니다. 이 카드에는 회사 이름, 전화번호, 주소, 이메일, 작은 사진 등 일반적인 속성을 할당할 수 있습니다. 연락처 카드를 만들려면 먼저 Braze에서 MMS를 사용할 수 있도록 설정되어 있는지 확인하세요.
+연락처 카드는 [프로그래밍 방식으로](https://www.twilio.com/blog/send-vcard-twilio-sms) 생성하여 Braze [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library)에 업로드하거나, 기본 제공되는 연락처 카드 생성기를 통해 만들 수 있습니다. 이 카드에는 회사 이름, 전화번호, 주소, 이메일, 작은 사진 등 일반적인 속성을 할당할 수 있습니다. 연락처 카드를 만들려면 먼저 Braze에서 MMS를 사용할 수 있도록 설정되어 있는지 확인하세요.
 
 ## 연락처 카드 생성기 {#contact-card-generator}
 
@@ -42,17 +42,23 @@ channel:
 
 #### 연락처 카드 연락처 사진 업로드 {#upload-contact-card-contact-photo}
 
-연락처 카드에 선택적으로 썸네일 연락처 사진을 업로드할 수 있습니다. 240 x 240&nbsp;px JPEG 또는 PNG 이미지를 권장합니다. 업로드된 고해상도 이미지는 메시지의 전달 가능성을 보장하기 위해 240 x 240&nbsp;px로 크기가 조정됩니다. 5&nbsp;MB보다 큰 MMS 메시지는 전송에 실패할 수 있습니다.
+연락처 카드에 선택적으로 연락처 사진을 업로드할 수 있습니다. 240 x 240&nbsp;px JPEG 또는 PNG 이미지를 권장합니다. 업로드된 고해상도 이미지는 메시지의 전달 가능성을 보장하기 위해 240 x 240&nbsp;px로 크기가 조정됩니다. 5&nbsp;MB보다 큰 MMS 메시지는 전송에 실패할 수 있습니다.
+
+{% alert note %}
+업로드된 이미지는 수신자가 연락처 카드를 열 때 표시됩니다. [**Full Name** 필드](#add-more-information)는 메시지 채팅 썸네일에 표시되는 내용을 결정합니다.
+{% endalert %}
 
 #### 추가 정보 입력 {#add-more-information}
 
 기타 필드를 사용하면 이름, 부제목, 주소 및 사용자가 필요로 할 수 있는 기타 연락처 정보를 삽입할 수 있습니다.
 
+**Full Name** 필드는 메시지 채팅 썸네일에 표시되는 이니셜을 결정합니다. 이 필드가 선택 사항으로 표시되어 있고 비워 두면, 수신자에게 이니셜 대신 흰색 원이 표시됩니다.
+
 ### 4단계: 연락처 카드 저장 {#step-4-saving-your-contact-card}
 
-필요한 모든 필드를 입력한 후 **Generate Contact Card**를 클릭하면 Campaign 또는 Canvas에 자동으로 첨부됩니다. 여기에서 메시지를 추가하고, 연락처 카드를 테스트하고, Campaign 또는 Canvas를 시작할 수 있습니다.
+필요한 모든 필드를 입력한 후 **Generate Contact Card**를 선택하면 Campaign 또는 Canvas에 자동으로 첨부됩니다. 여기에서 메시지를 추가하고, 연락처 카드를 테스트하고, Campaign 또는 Canvas를 시작할 수 있습니다.
 
-연락처 카드는 향후 Campaigns 및 Canvases에서 쉽게 재사용할 수 있도록 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library)에도 저장됩니다.
+연락처 카드는 향후 Campaigns 및 Canvases에서 쉽게 재사용할 수 있도록 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library)에도 저장됩니다.
 
 ## 기존 연락처 카드 추가 {#adding-an-existing-contact-card}
 

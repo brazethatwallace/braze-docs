@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Berechtigungssatz erstellen {#create-a-permission-set}
 
-Verwenden Sie Berechtigungssätze, um Berechtigungen zu bündeln, die sich auf bestimmte Themenbereiche oder Aktionen beziehen. Sie können Berechtigungssätze auf Dashboard-Nutzer:innen anwenden, die in verschiedenen Workspaces denselben Zugriff benötigen. Um einen Berechtigungssatz zu erstellen, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Berechtigungssätze** und wählen Sie dann **Berechtigungssatz erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Verwenden Sie Berechtigungssätze, um Berechtigungen zu bündeln, die sich auf bestimmte Themenbereiche oder Aktionen beziehen. Sie können Berechtigungssätze auf Dashboard-Nutzer:innen anwenden, die in verschiedenen Workspaces denselben Zugriff benötigen. Um einen Berechtigungssatz zu erstellen, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Berechtigungssätze** und wählen Sie dann **Berechtigungssatz erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab Beispiel-Berechtigungssätze %}
@@ -32,7 +32,7 @@ Verwenden Sie Berechtigungssätze, um Berechtigungen zu bündeln, die sich auf b
 
 ## Rolle erstellen {#creating-a-role}
 
-Rollen ermöglichen mehr Struktur, indem sie Ihre individuellen angepassten Berechtigungen mit Workspace-Zugriffskontrollen bündeln. Dies ist besonders nützlich, wenn Sie viele Marken oder regionale Workspaces in einem Dashboard haben. Mit Rollen können Sie Dashboard-Nutzer:innen den richtigen Workspaces hinzufügen und ihnen direkt die zugehörigen Berechtigungen erteilen. Um eine Rolle zu erstellen, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Rollen** und wählen Sie dann **Rolle erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Rollen ermöglichen mehr Struktur, indem sie Ihre individuellen angepassten Berechtigungen mit Workspace-Zugriffskontrollen bündeln. Dies ist besonders nützlich, wenn Sie viele Marken oder regionale Workspaces in einem Dashboard haben. Mit Rollen können Sie Dashboard-Nutzer:innen den richtigen Workspaces hinzufügen und ihnen direkt die zugehörigen Berechtigungen erteilen. Um eine Rolle zu erstellen, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Rollen** und wählen Sie dann **Rolle erstellen**. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab Beispielrollen %}
@@ -91,7 +91,7 @@ Beachten Sie die folgenden Verhaltensweisen, wenn Sie Dashboard-Zugriff zuweisen
 - **Eingeschränkte Nutzer:innen:** Eingeschränkte Nutzer:innen mit der Berechtigung „Dashboard-Nutzer:innen bearbeiten“ können andere eingeschränkte Nutzer:innen verwalten, aber keine Unternehmensadminkonten erstellen oder verwalten.
 - **Geltungsbereich „Dashboard-Nutzer:innen verwalten“:** Auf der Nutzer:innen-Detailseite werden Berechtigungen nur für Workspaces angezeigt, auf die die bearbeitende Person Zugriff hat. Eingeschränkte Nutzer:innen, die Nutzer:innen in einem Workspace bearbeiten können, sehen möglicherweise die Berechtigungs-Kontrollkästchen eines anderen Workspaces nicht.
 - **Nutzerdaten exportieren:** Für den Export von Nutzerdaten ist zusätzlich zur Exportberechtigung ein Zugriff auf Workspace-Ebene erforderlich.
-- **Zusammengesetzte Berechtigungen:** Einige Bereiche erfordern mehrere Berechtigungen. Beispielsweise erfordert die Konfiguration von [Technologie-Partnern]({{site.baseurl}}/partners/) in der Regel sowohl den Partnerzugriff als auch eine grundlegende Leseberechtigung für die zugehörigen Workspace-Features.
+- **Zusammengesetzte Berechtigungen:** Einige Bereiche erfordern mehrere Berechtigungen. Beispielsweise erfordert die Konfiguration von [Technologie-Partnern]({{site.baseurl}}/partners) in der Regel sowohl den Partnerzugriff als auch eine grundlegende Leseberechtigung für die zugehörigen Workspace-Features.
 - **Nutzerdaten importieren und aktualisieren:** Diese Berechtigung umfasst die Möglichkeit, App-Nutzer:innen-Profile über Importabläufe zu bearbeiten, nicht nur Dashboard-Nutzer:innen-Datensätze.
 
 ## Berechtigungen von Nutzer:innen bearbeiten {#edit-a-users-permissions}
@@ -107,8 +107,8 @@ Um die aktuellen Admin-, Unternehmens- oder Workspace-Berechtigungen von Nutzer:
 
 Admins haben Zugriff auf alle Features und die Möglichkeit, alle Unternehmenseinstellungen zu ändern. Sie können:
 
-- [Genehmigungseinstellungen]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow) ändern
-- Andere [Braze-Nutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users) hinzufügen, bearbeiten, löschen, sperren oder entsperren
+- [Genehmigungseinstellungen]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow) ändern
+- Andere [Braze-Nutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users) hinzufügen, bearbeiten, löschen, sperren oder entsperren
 - Braze-Nutzer:innen als CSV exportieren
 
 Um Admin-Berechtigungen zu erteilen oder zu entfernen, wählen Sie **This user is an admin** und dann **Update user**.
@@ -173,8 +173,6 @@ Wenn Sie fertig sind, wählen Sie **Update user**.
 
 Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen** und wählen Sie dann **Export Users**. Eine CSV-Datei wird in Kürze an Ihre E-Mail-Adresse gesendet.
 
-![Die Seite „Unternehmensnutzer:innen“ in Braze mit der Option „Export Users“ im Fokus.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
-
 ## Liste der Berechtigungen {#list-of-permissions}
 
 ### Messaging {#messaging}
@@ -185,12 +183,12 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Campaigns | Launch Campaigns | Bestehende Campaigns starten, stoppen, pausieren oder fortsetzen |
 | Campaigns | Archive Campaigns | Campaigns archivieren |
 | Campaigns | Edit Campaigns | Campaigns erstellen und aktualisieren |
-| Campaigns | Approve and Deny Campaigns | Campaigns genehmigen oder ablehnen. Der [Genehmigungs-Workflow für Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie am Early Access teilnehmen möchten. |
+| Campaigns | Approve and Deny Campaigns | Campaigns genehmigen oder ablehnen. Der [Genehmigungs-Workflow für Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie am Early Access teilnehmen möchten. |
 | Canvas | View Canvases | Canvases anzeigen |
 | Canvas | Archive Canvases | Canvases archivieren |
 | Canvas | Edit Canvases | Canvases erstellen und aktualisieren |
 | Canvas | Launch Canvases | Bestehende Canvases starten, stoppen, pausieren oder fortsetzen |
-| Canvas | Approve and Deny Canvases | Canvases genehmigen oder ablehnen. Der [Genehmigungs-Workflow für Canvases]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie am Early Access teilnehmen möchten. |
+| Canvas | Approve and Deny Canvases | Canvases genehmigen oder ablehnen. Der [Genehmigungs-Workflow für Canvases]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) muss aktiviert sein, damit diese Berechtigung gilt. Diese Einstellung befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Account Manager, wenn Sie am Early Access teilnehmen möchten. |
 | Feature-Flags | View Feature Flags | Feature-Flags anzeigen |
 | Feature-Flags | Archive Feature Flags | Feature-Flags archivieren |
 | Feature-Flags | Edit Feature Flags | Feature-Flags erstellen und aktualisieren |
@@ -257,7 +255,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Webhook-Templates | View Webhook Templates | Webhook-Templates anzeigen, ohne Änderungen vorzunehmen |
 | Webhook-Templates | Archive Webhook Templates | Webhook-Templates archivieren |
 | Webhook-Templates | Edit Webhook Templates | Webhook-Templates erstellen und aktualisieren |
-| WhatsApp-Nachricht-Templates | View WhatsApp Message Templates | Ermöglicht Nutzer:innen, [WhatsApp-Nachricht-Templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) anzuzeigen |
+| WhatsApp-Nachricht-Templates | View WhatsApp Message Templates | Ermöglicht Nutzer:innen, [WhatsApp-Nachricht-Templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) anzuzeigen |
 | WhatsApp-Nachricht-Templates | Edit WhatsApp Message Templates | Ermöglicht Nutzer:innen, WhatsApp-Nachricht-Templates im Template-Builder zu erstellen. Dieses Feature befindet sich derzeit im Early Access. |
 | WhatsApp-Nachricht-Templates von Meta | View WhatsApp Message Templates From Meta | Alle WhatsApp-Templates anzeigen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template-Berechtigungen" }

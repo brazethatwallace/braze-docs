@@ -8,13 +8,13 @@ description: "Este artigo explica como visualizar e interpretar os resultados de
 
 # Análise de dados de testes multivariantes e A/B {#multivariate-and-ab-test-analytics}
 
-> Este artigo explica como visualizar os resultados de um teste multivariante ou A/B. Se você ainda não configurou seu teste, consulte [Criar testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) para ver o passo a passo.
+> Este artigo explica como visualizar os resultados de um teste multivariante ou A/B. Se você ainda não configurou seu teste, consulte [Criar testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) para ver o passo a passo.
 
 Após o lançamento da sua campanha, você pode verificar o desempenho de cada variante selecionando sua campanha na seção **Campaigns** do dashboard.
 
 ## Análise de dados por opção de otimização {#analytics-by-optimization-option}
 
-A visualização da análise de dados varia dependendo da [otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) selecionada durante a configuração inicial.
+A visualização da análise de dados varia dependendo da [otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) selecionada durante a configuração inicial.
 
 ### Sem otimização {#no-optimization}
 
@@ -22,13 +22,13 @@ Se você selecionou **No optimization** ao configurar sua campanha, a visualiza�
 
 ![Seção de desempenho da página Campaign Analytics para uma campanha de e-mail com múltiplas variantes. A tabela lista diversas métricas de desempenho para cada variante, como destinatários, bounces, cliques e conversões.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-Para mais detalhes, consulte o artigo [Análise de dados de Campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) do seu canal de envio de mensagens.
+Para mais detalhes, consulte o artigo [Análise de dados de Campanha]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) do seu canal de envio de mensagens.
 
 ### Seleção de variante com BrazeAI<sup>TM</sup> (somente push) {#brazeai-variant-selection-push-only}
 
 Se você estiver usando a seleção de variante com BrazeAI<sup>TM</sup>, dependendo de ser um envio único ou uma campanha recorrente, após o término da janela do experimento (ou do primeiro período para campanhas recorrentes), você verá o aumento, se houver, na página inicial da campanha. Você também verá mais detalhes semelhantes à variante vencedora abaixo, caso execute uma campanha de envio único.
 
-Para mais detalhes sobre como reportamos o aumento na seleção de variante com BrazeAI<sup>TM</sup>, consulte [Seleção de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+Para mais detalhes sobre como reportamos o aumento na seleção de variante com BrazeAI<sup>TM</sup>, consulte [Seleção de variante]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 ![Análise de dados da campanha mostrando o aumento da seleção de variante com BrazeAI<sup>TM</sup>, incluindo métricas de comparação após a janela do experimento.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
@@ -43,7 +43,7 @@ O **A/B Test Result** é dividido em duas guias: **Initial Test** e **Winning Va
 
 A guia **Initial Test** mostra as métricas de cada variante do teste A/B inicial enviado a uma parte do seu segmento-alvo. Você pode ver um resumo do desempenho de todas as variantes e se houve ou não uma vencedora durante o teste.
 
-Se uma variante superou todas as outras com mais de 95% de [intervalo de confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence), a Braze marca essa variante com o rótulo "Winner".
+Se uma variante superou todas as outras com mais de 95% de [intervalo de confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence), a Braze marca essa variante com o rótulo "Winner".
 
 Se nenhuma variante superou todas as outras com 95% de intervalo de confiança e você optou por enviar a variante com melhor desempenho mesmo assim, a variante com melhor desempenho ainda será enviada e indicada com o rótulo "Winner".
 
@@ -84,7 +84,7 @@ Por padrão, o teste busca associações entre os eventos personalizados dos usu
 
 As relações entre eventos personalizados e preferências de mensagem são exibidas na tabela da guia **Initial Send**.
 
-![Tabela da guia Initial Test resumindo as relações entre os eventos personalizados dos usuários e suas variantes de mensagem preferidas.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+![Tabelas de dados de eventos personalizados para a Variante 1 e a Variante 2, mostrando pontuações de impacto de eventos personalizados que indicam como cada evento influencia a preferência de variante.]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
 
 Se o teste não encontrar uma relação significativa entre eventos personalizados e preferências de jornada, ele recorre a um método de análise baseado em sessões, e nenhuma tabela de dados de eventos personalizados é exibida.
 
@@ -125,7 +125,7 @@ Os três cartões nesta página mostram o aumento projetado, os resultados gerai
 
 A tabela nesta página mostra as métricas de cada variante do envio da variante personalizada. Seu **Audience %** soma a porcentagem do segmento-alvo que você reservou para o grupo da variante personalizada.
 
-![Tabela da guia Personalized Variant listando a porcentagem do público e as métricas de desempenho de cada variante após o envio final.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+![Tabela de resultados do envio da variante personalizada mostrando métricas de desempenho para a Variante A, Variante B e todas as variações, incluindo porcentagem do público, envios, entregas, aberturas, cliques e conversões.]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -144,7 +144,9 @@ A Braze compara a taxa de conversão de cada variante com a taxa de conversão d
 
 Em geral, um intervalo de confiança de pelo menos 95% é necessário para demonstrar que seus resultados refletem as preferências reais dos usuários e não são resultado do acaso. Em testes científicos rigorosos, 95% de intervalo de confiança (ou, como é comumente referido, o valor "p" sendo menor que 0,05) é o padrão usado para determinar significância estatística. Se você não conseguir atingir 95% de intervalo de confiança repetidamente, tente aumentar o tamanho da amostra ou diminuir o número de variantes.
 
-O intervalo de confiança não indica se uma variante é melhor que as outras. É puramente uma medida de quão certos estamos de que as duas (ou mais) taxas de conversão são realmente diferentes entre si. Isso depende apenas do tamanho da amostra e das diferenças entre as taxas de conversão aparentes. Se as taxas gerais são altas ou baixas não afeta a força da medida de intervalo de confiança. É possível que uma variante tenha uma taxa de conversão muito diferente de outra e ainda assim não tenha um intervalo de confiança de 95% ou mais. Também é possível que dois conjuntos de variantes tenham taxas de conversão/aumento semelhantes, mas intervalos de confiança diferentes.
+O intervalo de confiança reflete a probabilidade de que uma diferença observada entre as taxas de conversão da variante e do controle seja real, e não resultado do acaso. Ele depende do tamanho da amostra e da magnitude da diferença entre as taxas de conversão. Se as taxas gerais de conversão são altas ou baixas normalmente é menos importante do que a diferença observada e o tamanho da amostra para determinar a força da medida de intervalo de confiança. É possível que uma variante tenha uma taxa de conversão muito diferente de outra e ainda assim não tenha um intervalo de confiança de 95% ou mais. Também é possível que dois conjuntos de variantes tenham taxas de conversão ou aumento semelhantes, mas intervalos de confiança diferentes.
+
+À medida que mais dados chegam, o intervalo de confiança pode diminuir se as taxas de conversão da variante e do controle se aproximarem — a diferença que você está medindo está ficando menor, o que pode superar o efeito de uma amostra maior.
 
 ### Resultados estatisticamente insignificantes {#statistically-insignificant-results}
 
@@ -159,7 +161,7 @@ Independentemente de o seu teste ter uma vencedora clara, pode ser útil executa
 
 ## Discrepâncias entre o grupo de controle e a variante {#discrepancies-between-the-control-group-and-variant}
 
-Em campanhas de mensagens no app, a forma como os usuários são rastreados e como as impressões são registradas pode causar discrepâncias na divisão esperada entre o grupo de controle e a variante. Isso acontece porque as impressões reais registradas podem não refletir essa divisão, e a Braze não tem controle sobre o comportamento individual do usuário em relação a quem realizará o gatilho.
+Em campanhas de mensagens no app com divisões A/B ou multivariantes, as porcentagens que você configura são metas de atribuição. As impressões reportadas raramente correspondem exatamente a essas porcentagens, porque apenas os usuários que realizam a ação-gatilho registram impressões, e os usuários do grupo de controle que disparam o gatilho registram uma impressão mesmo sem ver a mensagem.
 
 Por exemplo, digamos que uma campanha tenha um público-alvo de 200 usuários no lançamento, com 100 usuários no grupo de controle e 100 usuários na variante.
 
@@ -205,4 +207,4 @@ Use os insights que você obteve de testes anteriores para orientar os futuros. 
 
 ### Comparar o impacto de longo prazo de diferentes variantes {#compare-the-long-term-impact-of-different-variants}
 
-Se você está fazendo testes A/B em mensagens de reengajamento, não se esqueça de comparar o impacto de longo prazo de diferentes variantes usando [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). Você pode usar os relatórios de retenção para analisar como cada variante impactou qualquer comportamento de usuário de sua escolha dias, semanas ou um mês após o recebimento da mensagem, e verificar se houve aumento.
+Se você está fazendo testes A/B em mensagens de reengajamento, não se esqueça de comparar o impacto de longo prazo de diferentes variantes usando [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports). Você pode usar os relatórios de retenção para analisar como cada variante impactou qualquer comportamento de usuário de sua escolha dias, semanas ou um mês após o recebimento da mensagem, e verificar se houve aumento.
