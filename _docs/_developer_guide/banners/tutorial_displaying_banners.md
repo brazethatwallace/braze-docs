@@ -8,7 +8,7 @@ layout: scrolly
 
 # Tutorial: Displaying a Banner by Placement ID
 
-> Follow along with the sample code in this tutorial to display Banners using their placement ID. For more general information, see [Banners]({{site.baseurl}}/developer_guide/banners/).
+> Follow along with the sample code in this tutorial to display Banners using their placement ID. For more general information, see [Banners]({{site.baseurl}}/developer_guide/banners).
 
 {% sdktabs %}
 {% sdktab web %}

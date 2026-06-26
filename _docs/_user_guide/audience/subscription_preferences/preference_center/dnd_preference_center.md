@@ -13,7 +13,7 @@ page_order: 2
 You can manage existing drag-and-drop preference centers from **Audience** > **Email Preference Centers**:
 
 - To change a preference center's name or content, open the preference center from the dashboard.
-- Drag-and-drop preference centers can't be deleted from the dashboard. To remove one, first remove its Liquid tag from any email campaigns or Canvas steps, then contact [Braze Support]({{site.baseurl}}/support_contact/).
+- Drag-and-drop preference centers can't be deleted from the dashboard. To remove one, first remove its Liquid tag from any email campaigns or Canvas steps, then contact [Braze Support]({{site.baseurl}}/support_contact).
 - If a removed preference center was used in previously sent messages, it will stop working in those delivered emails.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -85,7 +85,7 @@ Blocks represent different types of content you can use in your message. Drag on
 
 ![Option to select blocks, including title, paragraph, button, image, and spacer.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Every block has its own settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor blocks (preference center)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
+Every block has its own settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor blocks (preference center)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center).
 
 If you're using the Custom Code block in your preference center, inline frames may not generate in the custom code when delivered to your users.
 

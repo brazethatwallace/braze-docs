@@ -31,7 +31,7 @@ This is a separate test from the confidence score, which only describes the perf
 
 ### Why isn't the variant distribution even?
 
-Variant assignment is randomized on each send, so the actual split may not match your configured percentages exactly—especially with smaller sample sizes. For more information, see [Variant distribution]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/).
+Variant assignment is randomized on each send, so the actual split may not match your configured percentages exactly—especially with smaller sample sizes. For more information, see [Variant distribution]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution).
 
 ## Running and concluding tests
 
@@ -57,7 +57,7 @@ The same applies because the Canvas paths following an experiment are also varia
 
 #### Can I take actions to redistribute users in campaigns and Canvases?
 
-The only way to redistribute users in Canvases is to use [Randomized Paths in Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution), which will always randomize path assignments when users re-enter the Canvas. However, this isn’t a standard experiment and could invalidate any experiment results because the control group can become contaminated with treatment users.
+The only way to redistribute users in Canvases is to use [Randomized Paths in Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), which will always randomize path assignments when users re-enter the Canvas. However, this isn’t a standard experiment and could invalidate any experiment results because the control group can become contaminated with treatment users.
 
 ## Confidence and bias
 
@@ -77,4 +77,4 @@ To assign users to message variants, Canvas variants, or their respective contro
 
 ### Why can't I use rate limiting with a control group?
 
-Braze currently doesn’t support rate limiting with A/B testing that has a control group. This is because rate limiting doesn’t apply to the control group in the same way as the variants, thus introducing bias. Instead, consider using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), which automatically adjusts the percentage of users that will receive each variant based on analytics and the performance of the campaign.
+Braze currently doesn’t support rate limiting with A/B testing that has a control group. This is because rate limiting doesn’t apply to the control group in the same way as the variants, thus introducing bias. Instead, consider using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), which automatically adjusts the percentage of users that will receive each variant based on analytics and the performance of the campaign.

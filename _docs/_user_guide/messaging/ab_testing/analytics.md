@@ -8,13 +8,13 @@ description: "This article explains how to view and interpret the results of a m
 
 # Multivariate and A/B test analytics
 
-> This article explains how to view the results of a multivariate or A/B test. If you haven't set up your test yet, refer to [Create multivariate and A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for steps.
+> This article explains how to view the results of a multivariate or A/B test. If you haven't set up your test yet, refer to [Create multivariate and A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) for steps.
 
 After your campaign has launched, you can check how each variant is performing by selecting your campaign from the **Campaigns** section of the dashboard. 
 
 ## Analytics by optimization option
 
-Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) during your initial setup.
+Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) during your initial setup.
 
 ### No optimization
 
@@ -22,12 +22,12 @@ If you selected **No optimization** when setting up your campaign, your analytic
 
 ![Performance section of the Campaign Analytics for an email campaign with multiple variants. The table lists various performance metrics for each variant, such as recipients, bounces, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
-For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) article for your messaging channel.
+For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) article for your messaging channel.
 
 ### BrazeAI™ variant selection (push only)
 If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant below if you run a single send campaign.
 
-For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 ![Campaign analytics showing uplift from BrazeAI™ variant selection, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
@@ -42,7 +42,7 @@ The **A/B Test Result** is divided into two tabs: **Initial Test** and **Winning
 
 The **Initial Test** tab shows the metrics for each variant from the initial A/B test sent to a portion of your target segment. You can see a summary of how all the variants performed and whether or not there was a winner during the test.
 
-If one variant outperformed all the others with better than 95% [confidence]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence), Braze marks that variant with a "Winner" label.
+If one variant outperformed all the others with better than 95% [confidence]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence), Braze marks that variant with a "Winner" label.
 
 If no variant beats all the others with 95% confidence and you chose to send the best performing variant anyway, the best performing variant will still be sent out and indicated with the label "Winner".
 
@@ -206,4 +206,4 @@ Use the insights you gather from past tests to guide your future ones. Does a pr
 
 ### Compare the long-term impact of different variants
 
-If you're A/B testing re-engagement messages, don't forget to compare the long-term impact of different variants using [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/). You can use Retention Reports to analyze how each variant impacted any user behavior of your choice days, weeks, a month after message receipt, and see if there is uplift.
+If you're A/B testing re-engagement messages, don't forget to compare the long-term impact of different variants using [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports). You can use Retention Reports to analyze how each variant impacted any user behavior of your choice days, weeks, a month after message receipt, and see if there is uplift.

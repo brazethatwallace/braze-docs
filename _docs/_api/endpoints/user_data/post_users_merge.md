@@ -22,7 +22,7 @@ Up to 50 merges may be specified per request. This endpoint is asynchronous.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.merge` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.merge` permission.
 
 ## Rate limit
 
@@ -60,7 +60,7 @@ This endpoint merges the following fields if they're not found on the target use
 
 - First name
 - Last name
-- Email addresses (unless they are [encrypted]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/))
+- Email addresses (unless they are [encrypted]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption))
 - Gender
 - Date of birth
 - Phone number
@@ -94,7 +94,7 @@ This endpoint merges the following fields if they're not found on the target use
 When merging users, using the `/users/merge` endpoint works the same way as using the [`changeUser()` method](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+Braze handles three user types differently when merging: users marked for deletion, test users, and Global Control Group users. For details, see [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Custom event date and purchase event date behavior
 

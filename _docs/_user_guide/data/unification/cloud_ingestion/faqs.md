@@ -17,7 +17,7 @@ This type of email usually means there's an issue with your CDI setup. Here are 
 
 ### CDI can't access the data warehouse or table using your credentials
 
-This could mean the credentials in CDI are incorrect or are misconfigured on the data warehouse. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+This could mean the credentials in CDI are incorrect or are misconfigured on the data warehouse. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### The table cannot be found
 
@@ -41,7 +41,7 @@ Test Connection is running on your data warehouse, so increasing warehouse capac
 
 ### Error connecting to Snowflake instance: Incoming request with IP is not allowed to access Snowflake
 
-Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), or allow the relevant IPs:
+Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), or allow the relevant IPs:
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
 
@@ -156,7 +156,7 @@ To avoid these behaviors in the future, we recommend using monotonically increas
 
 Yes. For high-volume runs (for example, more than approximately 10 million rows), make sure your source data has mostly distinct `UPDATED_AT` values. If too many rows share the same timestamp, CDI is more likely to re-select rows at boundary timestamps in later runs. This can increase duplicate syncs and data point consumption.
 
-For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Where do I run these SQL checks?
 
@@ -206,7 +206,7 @@ If your warehouse doesn't support `LIMIT` (for example, Fabric), use an equivale
 
 ## Why can a CDI sync with a small number of rows still take several minutes?
 
-A CDI sync includes a fixed startup period before row processing begins. Because this startup time is similar across sync sizes, a small sync can still take several minutes and may appear slower in rows per minute. Total sync time still depends on your source query complexity, data shape, and available capacity in your data warehouse. For more information, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+A CDI sync includes a fixed startup period before row processing begins. Because this startup time is similar across sync sizes, a small sync can still take several minutes and may appear slower in rows per minute. Total sync time still depends on your source query complexity, data shape, and available capacity in your data warehouse. For more information, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## During a sync, is the order preserved if multiple records share the same ID?
 
@@ -234,4 +234,4 @@ Braze has the following measures in place for CDI:
 We recommend you and your team set up the following security measures on your side: 
 
 - Restrict credential access to the minimum required for CDI to operate. This is because we need to be able to run select (and count) on the specific tables and views.
-- Restrict the IPs that can access the tables to officially published [Braze IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+- Restrict the IPs that can access the tables to officially published [Braze IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).

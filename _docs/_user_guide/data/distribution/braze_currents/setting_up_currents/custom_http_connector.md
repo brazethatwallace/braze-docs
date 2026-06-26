@@ -60,7 +60,7 @@ Occasionally, we'll make non-breaking changes to Braze Currents schemas. Non-bre
 We typically give a two-week notice for these changes, but sometimes this isn't possible. It's essential that you design your integration to handle unrecognized fields or event types, otherwise it will likely lead to data loss.
 
 {% alert tip %}
-For the full list of Currents event schemas, see [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) and [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+For the full list of Currents event schemas, see [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) and [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Batching and serialization

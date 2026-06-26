@@ -39,10 +39,10 @@ To use action buttons in your iOS push messages, do the following:
 ![iOS Notification Category dropdown menu.]({% image_buster /assets/img_archive/push_action_buttons_ios.png %}){: style="max-width:70%"}
 
 {% alert note %}
-Due to iOS's handling of buttons, you need to perform additional integration steps when setting up push action buttons, which are outlined in our [developer documentation]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). In particular, you need to either configure iOS Categories or select from certain default button options. For Android integrations, these buttons will work automatically.
+Due to iOS's handling of buttons, you need to perform additional integration steps when setting up push action buttons, which are outlined in our [developer documentation]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=swift#swift_customizing-push-categories). In particular, you need to either configure iOS Categories or select from certain default button options. For Android integrations, these buttons will work automatically.
 {% endalert %}
 
-Preset pairs such as **Yes** / **No** map the second button to a dismissive (**CLOSE**) action by default, so it doesn't open the app the same way as the first button. **_Direct Opens_** doesn't include that kind of tap, but **Push Notification Open** data in Currents or Snowflake may still log it with `button_action_type` and `button_string`. For more information, see [Push action buttons and reporting]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
+Preset pairs such as **Yes** / **No** map the second button to a dismissive (**CLOSE**) action by default, so it doesn't open the app the same way as the first button. **_Direct Opens_** doesn't include that kind of tap, but **Push Notification Open** data in Currents or Snowflake may still log it with `button_action_type` and `button_string`. For more information, see [Push action buttons and reporting]({{site.baseurl}}/user_guide/channels/push/reporting#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -53,7 +53,7 @@ To use action buttons in your Android push messages, do the following:
 2. Select <i class="fas fa-plus-circle"></i> **Add Button** and specify your button text and **On-Click Behavior**. You can select from the following available actions:
   - Open App
   - Redirect to Web URL
-  - [Deep Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) Into Application
+  - [Deep Link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) Into Application
 
 ![Selecting "Open App" as the on-click behavior for a notification button.]({% image_buster /assets/img_archive/push_action_buttons_android.png %}){: style="max-width:70%"}
 

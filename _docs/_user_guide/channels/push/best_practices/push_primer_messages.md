@@ -77,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## Step 1: Create an in-app message
 
-First, [create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), then select your message type and layout.
+First, [create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), then select your message type and layout.
 
 To ensure you have enough space for both your message and buttons, use a fullscreen or modal message layout. If you choose fullscreen, note that an image is required.
 
@@ -97,7 +97,7 @@ While a streaming app might use the following:
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-For best practices and additional resources, refer to [Creating custom opt-in prompts]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+For best practices and additional resources, refer to [Creating custom opt-in prompts]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Step 3: Specify button behavior {#button-actions}
 
@@ -218,4 +218,4 @@ The `targeted_device` Liquid filter looks only at the device where the message i
 
 ## Step 6: Conversion events
 
-Braze suggests default settings for conversions, but you may want to set up [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) surrounding push primers.
+Braze suggests default settings for conversions, but you may want to set up [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) surrounding push primers.

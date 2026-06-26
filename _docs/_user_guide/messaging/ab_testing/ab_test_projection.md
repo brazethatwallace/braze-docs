@@ -28,7 +28,7 @@ A modal will open with the subject lines of any message variants you have alread
 The subject line our AI predicts to be best will be highlighted with a **Projected Winner** label.
 
 {% alert note %}
-For [multiple platform push campaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), A/B testing is supported when you select multiple platforms.
+For [multiple platform push campaigns]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push), A/B testing is supported when you select multiple platforms.
 {% endalert %}
 
 ### How accurate are the projections?

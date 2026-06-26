@@ -12,8 +12,8 @@ The Braze Unity SDK helps you integrate Braze messaging, analytics, and user eng
 
 To get started, refer to the following resources:
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
-- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=unity)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
+- [Braze Developer Guide]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity)
 
 ## Plugin Setup
 

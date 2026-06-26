@@ -17,7 +17,7 @@ We also recommend checking out our [Testing and Troubleshooting](https://learnin
 
 ## Prerequisites
 
-To create and manage internal groups, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
+To create and manage internal groups, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions):
 
 - View API Keys
 - Edit API Keys
@@ -63,8 +63,8 @@ After you create your internal group, add test users as members of that group.
 | Method                  | Description                                                                                                                                                                                                                                          |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add identified user** | Search for the user by their external user ID, email address, phone number, or push token.                                                                                                                                                           |
-| **Add anonymous user**  | Search by IP address. Then, provide a name for each test user you add. This is the name that all event logs are associated with on the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) page. |
-| **Bulk add users**      | Copy and paste a list of email addresses or external IDs. You can add only users who are already known in the dashboard. For more information, refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).          |
+| **Add anonymous user**  | Search by IP address. Then, provide a name for each test user you add. This is the name that all event logs are associated with on the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) page. |
+| **Bulk add users**      | Copy and paste a list of email addresses or external IDs. You can add only users who are already known in the dashboard. For more information, refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).          |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Adding test users" }
 
 ### Content Test Groups
@@ -72,7 +72,7 @@ After you create your internal group, add test users as members of that group.
 Similar to sending a preview test of a message, the Content Test Group saves you time and lets you launch tests to a pre-defined list of Braze users simultaneously. This is available for push, in-app messages, SMS, email, and Content Cards in Braze. Only groups tagged as Content Test Groups are available in the preview section of a message.
 
 {% alert note %}
-[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) test messages can only be sent to valid phone numbers in the database.
+[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) test messages can only be sent to valid phone numbers in the database.
 {% endalert %}
 
 Select individual Braze users or any number of internal groups to send the message to. If your message includes any Liquid or other dynamic personalization, Braze uses the attributes available for each user to personalize the message contents. For users who have no attributes, Braze uses the default value set.
@@ -106,7 +106,7 @@ Seed sends are designed for internal QA and review, so they intentionally bypass
 {% alert tip %}
 If Seed Group members don't see the message, confirm they're in the internal group, use distinct subject lines so Gmail doesn't thread messages together, and ask them to check spam.
 
-If the email uses [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), Seed Group members must still satisfy the abort condition to receive the send.
+If the email uses [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), Seed Group members must still satisfy the abort condition to receive the send.
 {% endalert %}
 
 #### For campaigns

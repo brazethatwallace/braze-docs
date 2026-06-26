@@ -9,10 +9,10 @@ tool: Canvas
 
 # Troubleshoot Canvases
 
-> Use this page to diagnose Canvas entry, send, and analytics issues. For definitions and deep dives, see the [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/).
+> Use this page to diagnose Canvas entry, send, and analytics issues. For definitions and deep dives, see the [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs).
 
 {% alert note %}
-**Messaging History** and **Messaging Diagnostics** logs are available for up to **30 days** from the event. Contact [Braze Support]({{site.baseurl}}/braze_support/) within that window if you need help investigating a specific incident.
+**Messaging History** and **Messaging Diagnostics** logs are available for up to **30 days** from the event. Contact [Braze Support]({{site.baseurl}}/braze_support) within that window if you need help investigating a specific incident.
 {% endalert %}
 
 ## Start here: Match your symptom
@@ -38,12 +38,12 @@ Use this workflow to investigate a specific user or an aggregate send issue. Sta
 3. Check a user's messaging record by going to **Audience** > **Search users**, opening the profile, and selecting **Messaging History** (last 30 days).
    - If no record exists for the expected send time, the issue is with entry, not the message. Go to [User didn't enter the Canvas](#user-didnt-enter-the-canvas).
 4. Check the Canvas **Changelog** and changelogs for any segments used in targeting. Confirm the audience, steps, or send settings weren't changed during the incident.
-5. Check aggregate outcomes on the Canvas analytics page by opening the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/) and reviewing abort and drop reasons.
-   - If you see an outcome you don't recognize, see [Abort outcomes]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/#abort-outcomes) in the diagnostics doc.
-   - If a step shows zero entries (not zero sends), check the previous step type ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/), [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/), [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/), or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)).
-6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support/) within 30 days with the Canvas ID, affected user IDs, timestamps (with timezone), and screenshots from Messaging History or Messaging Diagnostics.
+5. Check aggregate outcomes on the Canvas analytics page by opening the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) and reviewing abort and drop reasons.
+   - If you see an outcome you don't recognize, see [Abort outcomes]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes) in the diagnostics doc.
+   - If a step shows zero entries (not zero sends), check the previous step type ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)).
+6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support) within 30 days with the Canvas ID, affected user IDs, timestamps (with timezone), and screenshots from Messaging History or Messaging Diagnostics.
 
-Before launch, use [Sending test Canvases]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) and [Preview user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) to validate your setup.
+Before launch, use [Sending test Canvases]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) and [Preview user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) to validate your setup.
 
 ## User didn't enter the Canvas
 
@@ -51,7 +51,7 @@ Before launch, use [Sending test Canvases]({{site.baseurl}}/user_guide/messaging
 
 Users must match the **Target Audience** before Braze evaluates the entry trigger (except for [change in attribute]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value) triggers). A trigger alone doesn't guarantee entry if the user wasn't in the audience at evaluation time.
 
-Re-eligibility and re-entry are separate controls in [Selecting entry controls]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls):
+Re-eligibility and re-entry are separate controls in [Selecting entry controls]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls):
 
 - **Re-eligibility:** Determines whether a user is allowed to enter the Canvas again after exiting (time window and **Allow users to re-enter Canvas** setting).
 - **Re-entry:** Determines whether a user who is currently inside the Canvas can enter a concurrent path.
@@ -60,13 +60,13 @@ A user can be re-eligible but blocked because they're still in the Canvas, or ca
 
 Check the following:
 
-- **Entry schedule and timezone:** Confirm the Canvas was live and the user performed the trigger during the [entry window]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule).
-- **Target audience at evaluation time:** Review segment and filter changelogs. [User Lookup]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) can show a false positive for some filter types (for example, string-formatted date attributes).
-- **Entry caps:** [Maximum entries]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) or audience caps may have been reached.
-- **Global control group:** Users in the [global control group]({{site.baseurl}}/user_guide/audience/global_control_group/) don't enter messaging Canvases.
+- **Entry schedule and timezone:** Confirm the Canvas was live and the user performed the trigger during the [entry window]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule).
+- **Target audience at evaluation time:** Review segment and filter changelogs. [User Lookup]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) can show a false positive for some filter types (for example, string-formatted date attributes).
+- **Entry caps:** [Maximum entries]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) or audience caps may have been reached.
+- **Global control group:** Users in the [global control group]({{site.baseurl}}/user_guide/audience/global_control_group) don't enter messaging Canvases.
 - **Canvas control group:** Users assigned to the Canvas control group at entry don't receive variant messages. Variant assignment happens at entry, not through segment filters. See [Canvas analytics mismatches](#canvas-analytics-mismatches).
-- **Exit criteria:** The user may have matched [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) before or during entry. If entry and exit use the same event, see [Matching entry and exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/).
-- **API-triggered entry:** Confirm the user was added with the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/). You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) with a Canvas entry filter and export users with [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
+- **Exit criteria:** The user may have matched [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) before or during entry. If entry and exit use the same event, see [Matching entry and exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
+- **API-triggered entry:** Confirm the user was added with the [`/canvas/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). You can [create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) with a Canvas entry filter and export users with [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
 ### Trigger event count is higher than Canvas entries
 
@@ -90,38 +90,38 @@ To avoid this, ensure your custom attribute or event updates occur more than one
 
 **Symptom:** A user entered the Canvas but didn't get the expected message or step.
 
-Check the user's [**Messaging History**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#messaging-history-tab) for the Canvas step and timestamp. If no record exists, return to [User didn't enter the Canvas](#user-didnt-enter-the-canvas).
+Check the user's [**Messaging History**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) for the Canvas step and timestamp. If no record exists, return to [User didn't enter the Canvas](#user-didnt-enter-the-canvas).
 
 Then check the following by trigger or step type:
 
 - **Custom event or purchase triggers:** Confirm the event appears in **Analytics** > **Custom Events Report** (or **Revenue** for purchases). Compare the event timestamp to when the Canvas went live and to any scheduled delay on the step.
 - **API-triggered entry:** Confirm entry with a Canvas segment filter and export, as described in [User didn't enter the Canvas](#user-didnt-enter-the-canvas).
-- **Action Paths or Message step triggers:** Confirm the user performed the prerequisite event and that [event properties]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#event-properties) are available on the step.
-- **In-app message steps:** In-app messages are sent on the next session start after the user enters the step, and only from SDK events (not the REST API). See [When are in-app messages in Canvas sent?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#when-are-in-app-messages-in-canvas-sent) in the Canvas FAQ.
+- **Action Paths or Message step triggers:** Confirm the user performed the prerequisite event and that [event properties]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#event-properties) are available on the step.
+- **In-app message steps:** In-app messages are sent on the next session start after the user enters the step, and only from SDK events (not the REST API). See [When are in-app messages in Canvas sent?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) in the Canvas FAQ.
 - **Canvas control group:** Verify the user wasn't assigned to the Canvas control group at entry.
-- **Channel eligibility and send settings:** Confirm subscription status, push enabled state, and per-step [Send Settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) (for example, **Subscription Settings** set to opted-in users only). Don't add single-channel filters to **Target Audience** on multi-channel Canvases.
-- **Delivery validations:** If you've enabled **Validate audience at message send** on a Message step, users who no longer match filters at send time don't receive the message. See [Delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations).
+- **Channel eligibility and send settings:** Confirm subscription status, push enabled state, and per-step [Send Settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) (for example, **Subscription Settings** set to opted-in users only). Don't add single-channel filters to **Target Audience** on multi-channel Canvases.
+- **Delivery validations:** If you've enabled **Validate audience at message send** on a Message step, users who no longer match filters at send time don't receive the message. See [Delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
 - **Quiet Hours, Intelligent Timing, frequency caps, and rate limits:** These can defer, suppress, or abort sends. Users may still remain in the Canvas after a Quiet Hours abort.
-- **Race conditions:** If the user triggered multiple actions at once, see [Race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+- **Race conditions:** If the user triggered multiple actions at once, see [Race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert important %}
-When a Canvas Message step aborts a send, the user still advances to the next step. Canvas advances on abort so later Delay and Action Path steps aren't permanently blocked. See [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#how-users-advance) and [Abort outcomes]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/#abort-outcomes).
+When a Canvas Message step aborts a send, the user still advances to the next step. Canvas advances on abort so later Delay and Action Path steps aren't permanently blocked. See [How users advance]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) and [Abort outcomes]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes).
 {% endalert %}
 
-For step-level filters, conflicts between branches, and IAM branching behavior, see [Launch with Canvas Flow — Troubleshooting]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow/#troubleshooting) and the [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#messages-and-delivery).
+For step-level filters, conflicts between branches, and IAM branching behavior, see [Launch with Canvas Flow — Troubleshooting]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#troubleshooting) and the [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery).
 
 {% alert important %}
-If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp uses the current time, not a backdated time. Braze evaluates delays from the timestamp sent with the event. See [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-12-determine-your-canvas-entry-schedule).
+If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp uses the current time, not a backdated time. Braze evaluates delays from the timestamp sent with the event. See [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule).
 {% endalert %}
 
 ## Low or zero Canvas entries
 
 **Symptom:** No one or fewer users entered the Canvas than expected.
 
-Start with the [Launch with Canvas Flow checklist]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow/#launch-checklist), then confirm:
+Start with the [Launch with Canvas Flow checklist]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#launch-checklist), then confirm:
 
 - The Canvas is active and the current time falls within the scheduled entry window.
-- [Entry settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) (re-eligibility, maximum entries, and entry caps) allow the users you expect to enter.
+- [Entry settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) (re-eligibility, maximum entries, and entry caps) allow the users you expect to enter.
 - The target audience and segment filters still match the users you expect after launch.
 - Global and Canvas control group percentages show what share of users enter each path versus receive messages.
 - Workspace rate limits or entry queues are expected to add delays between when users qualify and when they enter or advance into a step.
@@ -134,17 +134,17 @@ For a single user, follow the [standard investigation path](#standard-investigat
 
 Common causes include audience re-evaluation at send time, channel eligibility, control groups, Quiet Hours, Intelligent Timing, rate limits, and in-app message delivery behavior (zero _Sends_ with impressions is expected for in-app messages).
 
-For a detailed list, see [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#why-are-sends-lower-than-the-estimated-audience-size) in the Canvas FAQ and [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size) for campaigns.
+For a detailed list, see [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#why-are-sends-lower-than-the-estimated-audience-size) in the Canvas FAQ and [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size) for campaigns.
 
-Use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/) to see abort and drop reasons at the step level.
+Use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) to see abort and drop reasons at the step level.
 
 ## Canvas analytics mismatches
 
 **Symptom:** Canvas analytics look wrong (control group splits, conversions, or zero sends).
 
-Control group and variant assignment happens at Canvas entry based on the percentages you set in the builder—not through segment filters. Users who can't receive a specific channel may still enter a variant; use per-step [Send Settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-14-select-your-send-settings) to limit who receives each message type instead of narrowing **Target Audience** with channel filters.
+Control group and variant assignment happens at Canvas entry based on the percentages you set in the builder—not through segment filters. Users who can't receive a specific channel may still enter a variant; use per-step [Send Settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) to limit who receives each message type instead of narrowing **Target Audience** with channel filters.
 
-Distinguish the Canvas control group from the [global control group]({{site.baseurl}}/user_guide/audience/global_control_group/). For filter definitions, see [What is the difference between "Has not entered Canvas variation" and "Is not in Canvas control group"?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group) in the Canvas FAQ.
+Distinguish the Canvas control group from the [global control group]({{site.baseurl}}/user_guide/audience/global_control_group). For filter definitions, see [What is the difference between "Has not entered Canvas variation" and "Is not in Canvas control group"?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group) in the Canvas FAQ.
 
 {% details Why variant sends can be lower than the variant percentage %}
 
@@ -166,7 +166,7 @@ This means that even though you specified 90% of users to enter the variant, not
 
 {% enddetails %}
 
-For conversion rate definitions and step-level analytics, see [Analytics and conversions]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#analytics-and-conversions) in the Canvas FAQ.
+For conversion rate definitions and step-level analytics, see [Analytics and conversions]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions) in the Canvas FAQ.
 
 ## Editor and save issues
 
@@ -185,9 +185,9 @@ If the editor freezes on a large or complex Canvas, try the following:
 - Use Canvas zoom controls to reduce the view to 25% or 10% to lower the amount of UI the browser must render.
 - Try a different web browser.
 
-If the Canvas won't load and won't progress, a previous version didn't save correctly and may contain invalid steps. Duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support/).
+If the Canvas won't load and won't progress, a previous version didn't save correctly and may contain invalid steps. Duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support).
 
-For "Request Timed Out" support tickets, include a screen recording, timestamp and time zone, browser and version, steps to reproduce, and optionally a HAR log from your browser developer tools. See [What should I include when submitting a support ticket for a "Request Timed Out" error?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) in the Canvas FAQ.
+For "Request Timed Out" support tickets, include a screen recording, timestamp and time zone, browser and version, steps to reproduce, and optionally a HAR log from your browser developer tools. See [What should I include when submitting a support ticket for a "Request Timed Out" error?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) in the Canvas FAQ.
 
 ## Stopped Canvas behavior
 
@@ -197,7 +197,7 @@ When you stop a Canvas, users can't enter and no further messages are sent from 
 
 Users waiting on a Delay or Action Path step aren't automatically removed from the journey when you stop the Canvas. If you re-enable the Canvas before their scheduled send time passes, they may still receive pending steps.
 
-For full details, see [What happens when you stop a Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) in the Canvas FAQ.
+For full details, see [What happens when you stop a Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) in the Canvas FAQ.
 
 ## "Too many Canvas branches" error
 
@@ -209,7 +209,18 @@ To resolve it:
 
 - Reduce step branching in the Canvas.
 - Reduce the entry audience size.
-- Use [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) to consolidate branching instead of many parallel paths.
-- If your Canvas uses the original editor, [clone it to Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) and rebuild with Canvas components.
+- Use [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) to consolidate branching instead of many parallel paths.
+- If your Canvas uses the original editor, [clone it to Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) and rebuild with Canvas components.
 
-If you still need to launch the Canvas without changes and can't move to Canvas Flow, contact [Support]({{site.baseurl}}/support_contact/).
+If you still need to launch the Canvas without changes and can't move to Canvas Flow, contact [Support]({{site.baseurl}}/support_contact).
+
+## When to contact Support
+
+Contact [Braze Support]({{site.baseurl}}/braze_support) within 30 days of the issue if you've completed the [standard investigation path](#standard-investigation-path) and still need help.
+
+Include:
+
+- Canvas ID and affected user IDs (external ID or Braze ID)
+- Timestamps with time zone
+- Screenshots or exports from **Messaging History** or **Messaging Diagnostics**
+- For editor "Request Timed Out" errors, the details listed in [Editor and save issues](#editor-and-save-issues)

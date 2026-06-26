@@ -49,6 +49,7 @@ guide_top_text: "See our article for <a href='/docs/user_guide/path/to/page'>pag
 
 - Use an absolute `/docs/`-prefixed path (not `{{site.baseurl}}`).
 - Production URLs omit trailing slashes (`vercel.json` `trailingSlash: false`). Use `/docs/user_guide/path/to/page`, not `/docs/user_guide/path/to/page/`, in static HTML anchors and redirect targets.
+- Bulk cleanup for `_user_guide/`, `_developer_guide/`, and `_api/`: `python3 scripts/strip_internal_doc_link_trailing_slashes.py --dry-run` then `--apply`.
 - The link checker (`scripts/find_broken_links.ts`) scans for Markdown-style links only, so HTML anchors are not checked — verify the target path exists manually.
 - Reference example: `_docs/_api/endpoints/catalogs.md`.
 

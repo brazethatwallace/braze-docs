@@ -29,7 +29,7 @@ Depending on the notification type, **All Dashboard Users** and **All Admins** m
 
 | Notification | Description | Available notification channels |
 |--------------|-------------|-----------------|
-| API Usage Alerts | Selecting this takes you to the **API Usage Dashboard**, where you can then go to the [**API Usage Alerts**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/) tab and set up alerts to track key API request volumes. | Email, Webhook |
+| API Usage Alerts | Selecting this takes you to the **API Usage Dashboard**, where you can then go to the [**API Usage Alerts**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) tab and set up alerts to track key API request volumes. | Email, Webhook |
 | AWS Credential Errors | Notifies recipients when Braze receives an error while attempting to use your Amazon Web Services credentials for a data export. This includes credential error notifications for Google Cloud Services and Azure (Microsoft Cloud Services). | Email, Webhook |
 | Campaign Automatically Stopped | Notifies recipients when Braze has stopped a campaign. | Email |
 | Canvas Automatically Stopped | Notifies recipients when Braze has stopped a Canvas. | Email |

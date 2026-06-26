@@ -105,7 +105,7 @@ Braze offers app IDs (referred to as API keys in the Braze dashboard) that you c
 
 To test your integration, you'll need a user ID:
 
-If your workspace uses [identifier field-level encryption]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), any new test user you create with the `/users/track` endpoint must follow the email requirements for encrypted workspaces. Send the `email` field as the Base64-encoded HMAC-SHA256 hash of the downcased email value, and send `email_encrypted` as the encrypted email value generated with your configured PII encryption keys.
+If your workspace uses [identifier field-level encryption]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), any new test user you create with the `/users/track` endpoint must follow the email requirements for encrypted workspaces. Send the `email` field as the Base64-encoded HMAC-SHA256 hash of the downcased email value, and send `email_encrypted` as the encrypted email value generated with your configured PII encryption keys.
 
 1. In the Braze dashboard, go to **Audience** > **Search Users**.
 2. Search for the user by their external user ID, user alias, email, phone number, or push token.
@@ -377,4 +377,4 @@ You're all set! You can now begin triggering sends through BrazeAI Decisioning S
 
 Now that you've set up orchestration, proceed to design your agent:
 
-- [Design your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Design your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

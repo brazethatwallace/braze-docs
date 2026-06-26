@@ -22,11 +22,11 @@ description: "This reference article covers using an array of objects as a data 
 Updating or removing items in an array requires identifying the item by key and value, so consider including a unique identifier for each item in the array. The uniqueness is scoped only to the array and is useful if you want to update and remove specific objects from your array. This is not enforced by Braze.
 
 {% alert important %}
-When a nested custom attribute in your request contains any invalid values (such as invalid time formats or `null` values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. Verify that all values within nested custom attributes are valid before sending. For more information, refer to [Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
+When a nested custom attribute in your request contains any invalid values (such as invalid time formats or `null` values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. Verify that all values within nested custom attributes are valid before sending. For more information, refer to [Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 {% endalert %}
 
 ## API example
@@ -104,7 +104,7 @@ Use `$add` when you need to append one or more new objects and keep existing obj
 {% endtab %}
 {% tab Update %}
 
-Update values for specific objects within an array using the `_merge_objects` parameter and the `$update` operator. Similar to updates to other [nested custom attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) objects, this performs a deep merge.
+Update values for specific objects within an array using the `_merge_objects` parameter and the `$update` operator. Similar to updates to other [nested custom attribute]({{site.baseurl}}/nested_custom_attribute_support#api-request-body) objects, this performs a deep merge.
 
 Note that `$update` can't be used to remove a nested property from an object inside an array. To do this, you'll need to remove the entire item from the array and then add the object without that specific key (using a combination of `$remove` and `$add`).
 
@@ -220,7 +220,7 @@ When including fields like timestamps in an array of objects, use the `$time` fo
 ```
 
 {% alert tip %}
-For more information, see [Nested Custom Attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+For more information, see [Nested Custom Attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
 ## SDK example
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-In this scenario, you can use Liquid to loop through the `pets` array and print out a statement for each pet. [Assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) to the `pets` custom attribute and use dot notation to access properties on an object. Specify the name of the object, followed by a period `.`, followed by the property name.
+In this scenario, you can use Liquid to loop through the `pets` array and print out a statement for each pet. [Assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) to the `pets` custom attribute and use dot notation to access properties on an object. Specify the name of the object, followed by a period `.`, followed by the property name.
 
 ## Segmentation
 

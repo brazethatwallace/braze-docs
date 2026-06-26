@@ -13,7 +13,7 @@ description: "This article covers how to get your Braze account, how to log in a
 
 If you are your company's first Braze user and logging in for the first time, you receive a welcome email from `@alerts.braze.com` asking you to confirm your email and log in on the first day of your contract.
 
-After confirming your account, you can add additional users from the [Company Users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) page of your dashboard. All users receive an email asking them to confirm their account after they've been added.
+After confirming your account, you can add additional users from the [Company Users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) page of your dashboard. All users receive an email asking them to confirm their account after they've been added.
 
 If you aren't the first user on your company's Braze account, contact your company's Braze account administrator and ask them to create your account. You then receive a welcome email from `@alerts.braze.com` asking you to confirm your email and log in.
 
@@ -21,13 +21,13 @@ If you aren't the first user on your company's Braze account, contact your compa
 
 Whether it's your first time logging in or your hundredth, here's how to access your dashboard. If you are your company's first user, follow the guidance in the preceding section. Otherwise, you can log in after your company's Braze admin creates your account.
 
-You can either log in from the [Braze.com](https://www.braze.com) home site, or use your dashboard URL that corresponds to your specific [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). For your convenience, Braze has several single sign-on (SSO) options such as:
+You can either log in from the [Braze.com](https://www.braze.com) home site, or use your dashboard URL that corresponds to your specific [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). For your convenience, Braze has several single sign-on (SSO) options such as:
 
-* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)
-    * [SAML just-in-time provisioning]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/)
-* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso/)
-* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta/)
-* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin/)
+* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+    * [SAML just-in-time provisioning]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
+* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
+* [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
 After you log into Braze with SSO, you can no longer use your password to log into the dashboard.Both email addresses will direct emails to the same inbox, but Braze will recognize them as separate accounts when you log in. Clearing cookies will log you out, so unsaved work will be lost.
 
@@ -61,7 +61,7 @@ If your email provider doesn't support `+` aliasing, you can still create separa
 
 The multi-company developers feature allows sharing of a single user account across multiple companies. Users can toggle between different company dashboards from their user profile menu.
 
-If you have SSO and want to set up multi-company developers, you need to enable a SAML Custom Entity ID by setting up a custom SAML SSO integration. Follow the steps in [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/), but apply these changes:
+If you have SSO and want to set up multi-company developers, you need to enable a SAML Custom Entity ID by setting up a custom SAML SSO integration. Follow the steps in [Service Provider (SP) initiated login]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), but apply these changes:
 - Change **Entity ID** to `braze_dashboard_<companyID>` for each dashboard integration.
 - Contact your customer success manager or account manager to enable the `saml_sso_custom_entity_id` feature flipper for each dashboard.
 
@@ -90,7 +90,7 @@ Clearing cookies logs you out, so unsaved work is lost.
 - [Clear cookies and site data in Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Delete all cookies in Microsoft Edge](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
-If clearing your browser cache and cookies doesn't resolve your issues, contact [Support]({{site.baseurl}}/support_contact/).
+If clearing your browser cache and cookies doesn't resolve your issues, contact [Support]({{site.baseurl}}/support_contact).
 
 ### "Aw, Snap!" error in Google Chrome
 
@@ -100,11 +100,11 @@ If Google Chrome shows an "Aw, Snap!" error, Chrome has trouble loading the Braz
 
 This error may appear when a company user does not belong to any workspaces. To troubleshoot:
 
-1. Go to the [Company Users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) page.
+1. Go to the [Company Users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) page.
 2. Check whether the user has been added to a workspace.
 3. If they are not part of any workspace, add them and assign the appropriate permissions.
 4. Ask the user to refresh their dashboard.
-5. If the issue persists, contact [Support]({{site.baseurl}}/support_contact/).
+5. If the issue persists, contact [Support]({{site.baseurl}}/support_contact).
 
 ### Accessing the drag-and-drop editor
 
@@ -116,7 +116,7 @@ The editor may experience loading issues due to the following:
 - **Major error:** This may involve an underlying infrastructure or product issue.  You can check our [Braze system status page](https://braze.statuspage.io/) as we are likely aware of the situation and actively working to resolve it.
 
 {% alert important %}
-If you're still experiencing issues, [open a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/). Before doing so, check that your IT administrator has confirmed that `*.bz-rndr.com` is allowlisted on your end.
+If you're still experiencing issues, [open a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support). Before doing so, check that your IT administrator has confirmed that `*.bz-rndr.com` is allowlisted on your end.
 {% endalert %}
 
 ### Accessing Braze Learning
@@ -166,9 +166,9 @@ You can tell what kind of lock out you're experiencing by the error message you 
 #### Password error
 
 Your account security is important to us, so passwords are required to log into your Braze account.
-- Check that you are logging into the correct [Braze dashboard instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Check with your account administrator or Braze account manager to be sure.
+- Check that you are logging into the correct [Braze dashboard instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Check with your account administrator or Braze account manager to be sure.
 - Your password may have expired, so you need to [reset it](#resetting-your-password).
-- If you use a [single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/) service, check with your account administrator that the set up has been completed properly.
+- If you use a [single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) service, check with your account administrator that the set up has been completed properly.
 - If your company is on several instances of Braze, you may be using the incorrect email to log in.
 
 When in doubt, you can always [reset your password](#resetting-your-password).
@@ -177,7 +177,7 @@ When in doubt, you can always [reset your password](#resetting-your-password).
 
 If you are using the same machine you usually do to log in, Braze should automatically detect the correct instance. However, if it doesn't or you're logging in for the first time, consider the following:
 
-- Check that you are logging into the correct [Braze dashboard instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Check with your account administrator or Braze account manager to be sure.
+- Check that you are logging into the correct [Braze dashboard instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Check with your account administrator or Braze account manager to be sure.
 - If your company is on several instances of Braze, you may be using the incorrect email to log in.
 
 #### Account suspension
@@ -201,7 +201,7 @@ If the issue occurs on all browsers, try the following:
 - **Check your network connection:** Try turning off your VPN, if possible, or disable and re-enable your network connection.
 - **Restart your device:** Try logging into your Braze dashboard after restarting your device.
 
-If you've solved the prior issues and your dashboard still won't load or work as expected, contact [Support]({{site.baseurl}}/braze_support/).
+If you've solved the prior issues and your dashboard still won't load or work as expected, contact [Support]({{site.baseurl}}/braze_support).
 
 ### The user belongs to no workspace
 
@@ -222,11 +222,11 @@ If you're a new Braze user having trouble logging in or accessing your account f
 - Reset 2FA: If you're having trouble setting up 2FA, your admin can reset 2FA for your user account in the settings.
 - Re-add user: If issues persist, the admin can delete your user account from the dashboard and re-add you. This allows for the creation of the user with the same details.
 
-If problems continue after these steps, contact [Support]({{site.baseurl}}/braze_support/) for further assistance.
+If problems continue after these steps, contact [Support]({{site.baseurl}}/braze_support) for further assistance.
 
 ## Next steps
 
 After you access your account, explore these resources:
 
-- [The Braze dashboard]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) to learn how to navigate key features and tools.
-- [Language settings]({{site.baseurl}}/user_guide/administer/personal/language_settings/) to set your preferred dashboard language.
+- [The Braze dashboard]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard) to learn how to navigate key features and tools.
+- [Language settings]({{site.baseurl}}/user_guide/administer/personal/language_settings) to set your preferred dashboard language.

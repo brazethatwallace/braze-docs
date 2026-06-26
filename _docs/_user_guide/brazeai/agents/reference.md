@@ -7,7 +7,7 @@ page_order: 3
 
 # Reference for agents
 
-> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For step-by-step setup, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For step-by-step setup, see [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq).
 
 ## Models
 
@@ -29,7 +29,7 @@ If you don't see **Braze Auto** as an option in the **Model** dropdown when crea
 
 With this option, you can connect your Braze account with providers like OpenAI, Anthropic, or Google Gemini. If you bring your own API key from an LLM provider, token costs are billed directly through your provider, not through Braze.
 
-We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. Make sure you have sufficient credits with your provider to run your agents at scale. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available or encounters billing issues with your LLM provider.
+We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. Make sure you have sufficient credits with your provider to run your agents at scale. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) to be alerted when Braze detects a model is no longer available or encounters billing issues with your LLM provider.
 
 To set this up:
 
@@ -92,7 +92,7 @@ When Canvas retries are exhausted, the **Logs** details panel shows **Error** an
 
 Instructions are the rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. System instructions can be up to 25 KB.
 
-If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), review the pre-filled instructions and edit as needed.
+If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), review the pre-filled instructions and edit as needed.
 
 Here are some general best practices to get you started with prompting:
 
@@ -109,11 +109,11 @@ Here are some general best practices to get you started with prompting:
 
 ### Examples {#examples}
 
-For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
 
 ### Using Liquid
 
-Including [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in your agent's instructions can add an extra layer of personalization in its response. You can specify the exact Liquid variable the agent gets and can include it in the context of your prompt. For example, instead of explicitly writing "first name", you can use the Liquid snippet {% raw %}`{{${first_name}}}`{% endraw %}:
+Including [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in your agent's instructions can add an extra layer of personalization in its response. You can specify the exact Liquid variable the agent gets and can include it in the context of your prompt. For example, instead of explicitly writing "first name", you can use the Liquid snippet {% raw %}`{{${first_name}}}`{% endraw %}:
 
 {% raw %}
 ```
@@ -135,7 +135,7 @@ For more details on prompting best practices, refer to guides from the following
 
 ## Outputs
 
-If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), review the pre-filled output schema and edit as needed.
+If you built your agent with [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) using a [starting template]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), review the pre-filled output schema and edit as needed.
 
 ### Basic schemas
 
@@ -164,7 +164,7 @@ Fallback values are available for **Canvas step agents** only. In the **Output**
 
 For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas agents support Liquid in fallback values.
 
-For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values). For runtime behavior in Canvas, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). For runtime behavior in Canvas, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
 For example, you may use an output format within an agent that is intended to create a sample travel itinerary for a user based on a form they submitted. The output format allows you to define that every agent response should come back with values for `tripStartDate`, `tripEndDate`, and `destination` values. Each of these values can be extracted from context variables and placed in a Message step for personalization using Liquid.
 
@@ -218,7 +218,7 @@ When you deploy a catalog agent to a catalog field, enable the required-input co
 
 Catalog agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
 
-For deployment scenarios and examples, see [Use catalog agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#use-catalog-agents) and [Catalog agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#catalog-agent-best-practices).
+For deployment scenarios and examples, see [Use catalog agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) and [Catalog agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ## Segment membership context
 
@@ -228,7 +228,7 @@ You can select up to five segments for the agent to cross-reference each user's 
 
 ## Brand guidelines
 
-You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
+You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 
 ## User-specific interaction history {#user-history}
 

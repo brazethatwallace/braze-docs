@@ -9,13 +9,13 @@ description: "This article will walk you through how to configure SAML just-in-t
 
 # SAML just-in-time provisioning 
 
-> Just-in-time provisioning works with [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/) to allow new company users to create a Braze account on their first sign in. This eliminates the need for administrators to manually create an account for a new company user, choose their permissions, assign them to a workspace, and wait for them to activate their account.
+> Just-in-time provisioning works with [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup) to allow new company users to create a Braze account on their first sign in. This eliminates the need for administrators to manually create an account for a new company user, choose their permissions, assign them to a workspace, and wait for them to activate their account.
 
 As a security measure, SAML just-in-time provisioning (JITP) only works for users with email domains that already exist in your company. JITP is only possible for domains where there is already at least one confirmed, non-impersonation developer in the company. 
 
 For example, let's say the account ```jon.smith@decorumsoft.com``` can use JITP to log into Decorumsoft. The account ```jane.smith@decorumsoft.com``` has the same domain and can also be allowed provisioning. However, if you try to use JITP with ```jon.smith@decorumsoft.eu```, provisioning won't be allowed because there isn't a ```decorumsoft.eu``` account within the Decorumsoft Braze dashboard. 
 
-To make an exception for a company, contact [Support]({{site.baseurl}}/braze_support/).
+To make an exception for a company, contact [Support]({{site.baseurl}}/braze_support).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Have a Braze administrator do the following:
 1. Navigate to **Settings** > **Admin Settings** > **Security Settings**.
 2. In the **SAML SSO** section, toggle on the **Automatic user provisioning** option.
 3. Select a default workspace to add a new company user.
-4. Select the default permission set to assign to that new company user. To learn how to create a permission set, see [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+4. Select the default permission set to assign to that new company user. To learn how to create a permission set, see [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 6. Select **Save changes** at the bottom of the page
 7. In your SSO provider’s settings, add all users that need Braze access to your SSO provider's directory.
 8. Instruct users to access Braze through your IdP portal for their first login. After this, the SAML single sign-on button displays for future logins.
@@ -37,7 +37,7 @@ Have a Braze administrator do the following:
 
 ### How do I disable SAML JITP?
 
-After setting up JITP, you must [contact Support]({{site.baseurl}}/braze_support/) to have it turned off.
+After setting up JITP, you must [contact Support]({{site.baseurl}}/braze_support) to have it turned off.
 
 ## Troubleshooting
 

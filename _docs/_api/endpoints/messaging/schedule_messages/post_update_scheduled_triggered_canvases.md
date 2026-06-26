@@ -18,7 +18,7 @@ description: "This article outlines details about the Update scheduled API-trigg
 
 This allows you to decide what action triggers the message to send. You can pass in `trigger_properties` that Braze templates into the message itself.
 
-Note that to send messages with this endpoint, you must have a Canvas ID, created when you build a [Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier).
+Note that to send messages with this endpoint, you must have a Canvas ID, created when you build a [Canvas]({{site.baseurl}}/api/identifier_types#canvas-api-identifier).
 
 Any schedule will completely overwrite the one that you provided in the create schedule request or in previous update schedule requests.
   - For example, if you originally provide `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` and then in your update you provide `"schedule" : {"time" : "2015-02-20T14:14:47"}`, Braze sends your message at the provided time in UTC, not in the user's local time.
@@ -28,7 +28,7 @@ Any schedule will completely overwrite the one that you provided in the create s
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.trigger.schedule.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.trigger.schedule.update` permission.
 
 ## Rate limit
 
@@ -55,9 +55,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|Required|String| See [Canvas identifier]({{site.baseurl}}/api/identifier_types/). |
+|`canvas_id`|Required|String| See [Canvas identifier]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Optional | String | The `schedule_id` to update (obtained from the response to create schedule). |
-|`schedule` | Required | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+|`schedule` | Required | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request

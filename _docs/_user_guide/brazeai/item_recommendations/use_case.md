@@ -13,7 +13,7 @@ Let's say Camila is a CRM manager at MovieCanon, a streaming platform featuring 
 
 Camila’s goal is to keep viewers engaged after they finish watching something. Historically, MovieCanon’s "You might also like" messages were based on broad genre matching and sent at arbitrary times—often hours or days after a session. Engagement was low, and her team knew they could do better.
 
-Using [AI Item Recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai/), Camila sets up a system to automatically recommend new titles based on each viewer’s watching history, delivered immediately after a user finishes a film or episode. It’s a smarter, more personal way to help users discover content they’ll actually want to watch next and keep them engaged with the platform.
+Using [AI Item Recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai), Camila sets up a system to automatically recommend new titles based on each viewer’s watching history, delivered immediately after a user finishes a film or episode. It’s a smarter, more personal way to help users discover content they’ll actually want to watch next and keep them engaged with the platform.
 
 ![In-app message reading "Next up, just for you. Because you watched "Nomads of the Sun", with an image, title name, description, and CTA to "Watch now" or "Skip" to the next recommendation.]({% image_buster /assets/img/ai_use_cases/recommendation_rendered.png %})
 

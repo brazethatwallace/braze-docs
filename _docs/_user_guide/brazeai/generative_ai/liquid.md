@@ -16,4 +16,4 @@ page_order: 5
 
 {% multi_lang_include brazeai/generative_ai/access_liquid.md %}
 
-For more information, including supported channels, Liquid attributes, best practices, and example prompts, see [Generate Liquid in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-liquid).
+For more information, including supported channels, Liquid attributes, best practices, and example prompts, see [Generate Liquid in Operator capabilities]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-liquid).

@@ -79,7 +79,7 @@ Landing pages are copied as drafts. Before publishing a copied landing page, rev
 | Description | Territories | 
 | Type | Tags | 
 | Actions (nested) | Segments and filters | 
-| Conversion behaviors (nested) | [Approvals]({{site.baseurl}}/user_guide/messaging/governance/approvals/) | 
+| Conversion behaviors (nested) | [Approvals]({{site.baseurl}}/user_guide/messaging/governance/approvals) | 
 | Quiet time configurations | Trigger schedule | 
 | Frequency capping configurations | Campaign summaries | 
 | Recipient subscription state |  | 
@@ -95,7 +95,7 @@ Landing pages are copied as drafts. Before publishing a copied landing page, rev
 | Description | Territories | 
 | Type | Tags | 
 | Actions (nested) | Segments and filters | 
-| Conversion behaviors (nested) | [Approvals]({{site.baseurl}}/user_guide/messaging/governance/approvals/) | 
+| Conversion behaviors (nested) | [Approvals]({{site.baseurl}}/user_guide/messaging/governance/approvals) | 
 | Quiet time configurations | Trigger schedule | 
 | Frequency capping configurations | Canvas summaries | 
 | Recipient subscription state |  | 
@@ -103,7 +103,7 @@ Landing pages are copied as drafts. Before publishing a copied landing page, rev
 | Is Transactional |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
-Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps) aren't copied to the destination workspace. Reconfigure those filters after you copy.
+Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) steps) aren't copied to the destination workspace. Reconfigure those filters after you copy.
 
 {% endtab %}
 {% endtabs %}
@@ -335,7 +335,7 @@ Filter criteria from Canvas steps (for example, [Decision Split]({{site.baseurl}
 
 ## Copying messages that contain Liquid
 
-Liquid references within message bodies are copied over to the destination workspace, but the references may not function as expected. This means if a Canvas from Workspace A is copied to Workspace B, then Workspace B can't reference Workspace A's details, including Liquid references. For example, fields like trigger actions, audience filters, and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) filter criteria aren't copied over.
+Liquid references within message bodies are copied over to the destination workspace, but the references may not function as expected. This means if a Canvas from Workspace A is copied to Workspace B, then Workspace B can't reference Workspace A's details, including Liquid references. For example, fields like trigger actions, audience filters, and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) filter criteria aren't copied over.
 
 Keep track of the following Liquid references with dependencies when copying campaigns, Canvases, and landing pages across workspaces:
 
