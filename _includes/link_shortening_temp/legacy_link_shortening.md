@@ -8,10 +8,10 @@ The length of the URL is determined by the type of tracking that is turned on:
 
 Links are shortened using our shared short domain (`brz.ai`) or your custom link shortening domain. An example URL may look something like this: `https://brz.ai/8jshX` (basic, static) or `https://brz.ai/p/8jshX/2dj8d` (advanced, personalized). Refer to [Testing](#testing) for more information.
 
-Any static URLs that start with `http://` or `https://` are shortened. Static shortened URLs are valid for one year from the date they were created. Shortened URLs that contain Liquid personalization are valid for two months.
+Any static URLs that start with `http://` or `https://` are shortened. Static shortened URLs are valid for one year from the date they were created. Shortened URLs that contain Liquid personalization are valid for two months. 
 
 {% alert note %}
-If you plan to use the BrazeAI<sup>TM</sup> [Intelligent Channel filter]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) and want the SMS and RCS channels to be selectable, turn on link shortening with advanced tracking.
+Braze shortened links always include the `https://` protocol and can't be configured to use a different protocol.
 {% endalert %}
 
 ## Using link shortening
@@ -23,6 +23,10 @@ To use link shortening, make sure the link shortening toggle in the message comp
 Braze recognizes only URLs that start with `http://` or `https://`. When a URL is recognized, the **Preview** section updates with a placeholder URL. Braze estimates the length of the URL after shortening, but a warning prompts you to select a test user and save the message as a draft for a more accurate estimate.
 
 ![Message composer with a long URL in the "Message" box and a generated shortened link in the preview.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
+
+{% alert note %}
+If you plan to use the BrazeAI<sup>TM</sup> [Intelligent Channel filter]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) and want the SMS and RCS channels to be selectable, turn on link shortening with advanced tracking.
+{% endalert %}
 
 ### Adding UTM parameters
 
