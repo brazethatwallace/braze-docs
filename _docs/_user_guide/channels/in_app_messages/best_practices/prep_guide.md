@@ -41,6 +41,7 @@ For example, a user might receive an in-app message with an eight-second delay a
 - What is your header and body copy? Are they eye-catching and relevant to your user?
 - In-app messages only appear for a set amount of time. Is your copy concise and memorable?
 - Will you be using [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) to add custom copy?
+- Do users need to copy message text (such as a discount or voucher code)? On iOS and Android, users can long-press text or text input fields to copy content. Long-press doesn't work on images, so use text or text input fields instead of images that contain codes or other copy users might need to copy.
 - For fullscreen in-app messages, is your image or other media within the [safe zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - For survey in-app messages, do you want to log attributes or submissions? Have you set up your confirmation page?
 
