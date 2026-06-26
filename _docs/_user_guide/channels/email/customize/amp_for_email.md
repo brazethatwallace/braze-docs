@@ -39,6 +39,10 @@ Before you can send AMP emails to users, you must register with our email client
 
 For a full list of supported email clients, refer to [AMP documentation](https://amp.dev/support/faq/email-support).
 
+#### Sending to unregistered providers
+
+If you send an AMP email to providers like Yahoo or Mail.ru before completing their registration process, those providers will ignore the AMP portion of the email and display the HTML or plaintext fallback version instead. The AMP portion itself doesn't cause deliverability issues for unregistered senders.
+
 ### Enable Gmail account {#enabling-gmail-account}
 
 Go to your Gmail settings, and select **Enable dynamic email** in the **General** tab.
