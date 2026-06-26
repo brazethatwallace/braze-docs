@@ -41,7 +41,7 @@ For a full list of supported email clients, refer to [AMP documentation](https:/
 
 #### Sending to unregistered providers
 
-If you send an AMP email to providers like Yahoo or Mail.ru before completing their registration process, those providers will ignore the AMP portion of the email and display the HTML or plaintext fallback version instead. The AMP portion itself doesn't cause deliverability issues for unregistered senders.
+If you send an AMP email to providers like Yahoo or Mail.ru before completing their registration process, those providers ignore the AMP portion of the email and display the HTML or plaintext fallback version instead. The AMP portion itself doesn't cause deliverability issues for unregistered senders.
 
 ### Enable Gmail account {#enabling-gmail-account}
 
