@@ -449,16 +449,16 @@ The dashboard highlights _Hard Bounces_. Some _Bounces_ may be soft bounces and 
 
 _Sends − (Deliveries + Hard Bounces) ≈ Soft Bounces_
 
-_Deliveries_ can rise during the first 72 hours as retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes.
+_Deliveries_ can rise during your email service provider (ESP) retry window while retries succeed, while _Sends_ and hard bounces for a one-time send stay fixed once the send completes. SendGrid and SparkPost retry for up to 72 hours; Amazon SES retries for up to 14 hours.
 
 ###### Common delivery troubleshooting scenarios
 
 When reviewing your email analytics, keep these patterns in mind:
 
-- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the first 72 hours after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After 72 hours, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula above to approximate in-flight soft bounces.
-- **Low _Deliveries_ after 72 hours:** If delivery rates stay low once retries have finished, compare this send's volume to your typical patterns. Mailbox providers may defer, throttle, or soft bounce mail when volume spikes relative to your sender reputation. You may see messages such as `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to pace large sends, and refer to [Throttled IPs]({{site.baseurl}}/user_guide/channels/email/reporting/#throttled-ips) for additional troubleshooting steps.
+- **Gap between _Sends_ and (_Deliveries_ + _Hard Bounces_):** During the ESP retry window after a one-time send, this gap often reflects soft bounces or deferrals still being retried. After retries finish, any remaining gap usually means messages that soft bounced and were never delivered—those sends are not counted toward campaign _Deliveries_ or _Bounces_. Use the formula above to approximate in-flight soft bounces.
+- **Low _Deliveries_ after retries finish:** If delivery rates stay low once retries have finished, compare this send's volume to your typical patterns. Mailbox providers may defer, throttle, or soft bounce mail when volume spikes relative to your sender reputation. You may see messages such as `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) to pace large sends, and refer to [Throttled IPs]({{site.baseurl}}/user_guide/channels/email/reporting/#throttled-ips) for additional troubleshooting steps.
 - **Soft bounces and deferrals not shown in campaign analytics:** Campaign analytics highlight _Hard Bounces_ but do not include _Soft Bounces_ or _Deferrals_ as separate columns. Monitor these events in the Message Activity Log, with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced), or through Currents deferral events. For how retries work, see [Deferrals](#deferrals) below.
-- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the retry period (up to 72 hours) are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula above to estimate how many sends are still in retry.
+- **Delivery percentages that may not add up to 100%:** _Deliveries %_, _Bounce %_, and _Spam Rate %_ may not sum to 100% of _Sends_. Messages that soft bounce and are never delivered after the ESP retry window are not counted in campaign _Deliveries_ or _Bounces_, so they can leave a portion of _Sends_ unaccounted for in those rates. Wait until retries finish before judging final delivery performance, or use the formula above to estimate how many sends are still in retry.
 
 ##### Clicks without an open event
 
@@ -492,7 +492,7 @@ Some email security products follow links to scan for threats. Those requests ca
 
 ##### Deferrals
 
-Deferred or deferral is when an email was not immediately delivered, but Braze will retry the email for up to 72 hours after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
+Deferred or deferral is when an email was not immediately delivered, but Braze retries the email through your ESP after this temporary delivery failure to maximize the chances of successful delivery before attempts for that specific campaign are stopped. SendGrid and SparkPost retry for up to 72 hours; Amazon SES retries for up to 14 hours. Typical reasons for deferrals include reputation-based email volume rate-limiting from the inbox provider, temporary connectivity issues, or DNS errors.
 
 _Deferrals_ differ from _Soft Bounces_. If no email was successfully delivered during this retry period, Braze will send one soft bounce event per attempted campaign sent. Before February 25, 2025, these retries were counted as multiple soft bounces for 1 campaign send.
 
