@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",

@@ -33,6 +33,7 @@ After the user signs up, do the following:
 
 1. Use the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) to create the user and save their attributes.
 
+{% raw %}
 ```http
 POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
@@ -46,10 +47,12 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 }
 '
 ```
+{% endraw %}
 
 {: start="2"}
 2. Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to subscribe the user to SMS.
 
+{% raw %}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
@@ -70,6 +73,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   ]
 }'
 ```
+{% endraw %}
 
 {% alert tip %}
 To enter users into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) workflow when subscribing them through the REST API, set the `use_double_opt_in_logic` parameter to `true` in your request. If you omit this parameter, users are subscribed without receiving a double opt-in confirmation.

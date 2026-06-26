@@ -50,13 +50,13 @@ Use this format when you want to create the attribute for the first time or repl
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -81,19 +81,19 @@ Use `$add` when you need to append one or more new objects and keep existing obj
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -240,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -262,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -338,13 +338,13 @@ let json: [[String: Any?]] = [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -360,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -444,12 +444,12 @@ const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
@@ -468,12 +468,12 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
@@ -562,7 +562,7 @@ For example, if you want to filter a `top_3_movies` array of objects based on th
 
 ### Levels of nesting
 
-You can create a segment with up to one level of array nesting (array within another array). For example, given the following attributes, you can make a segment for `pets[].name` contains `Gus`, but you can't make a segment for `pets[].nicknames[]` contains `Gugu`.
+You can create a segment with up to one level of array nesting (array within another array). For example, given the following attributes, you can make a segment for `pets[].name` contains `Mochi`, but you can't make a segment for `pets[].nicknames[]` contains `Gugu`.
 
 {% raw %}
 ```json
@@ -575,20 +575,20 @@ You can create a segment with up to one level of array nesting (array within ano
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -617,13 +617,13 @@ Creating a new array logs one data point for each attribute in an object. This e
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

@@ -73,7 +73,7 @@ Replace `YOUR_REST_ENDPOINT` with the [REST endpoint URL]({{site.baseurl}}/api/b
       "app_id": "YOUR_APP_ID",
       "message_variation_id": "YOUR_MESSAGE_VARIATION_ID",
       "subject": "You have a new message!",
-      "from": "Notifications <notifications@yourcompany.com>",
+      "from": "Notifications <notifications@example.com>",
       "body": "<html><body><h1>You have a new message!</h1><p>Hi {{${first_name}}},</p><p>You received a new message in your inbox. Click the link below to read it:</p><a href='https://yourwebsite.com/messages'>View message</a><p>Thank you for using our service!</p></body></html>"
     }
   }
@@ -81,7 +81,7 @@ Replace `YOUR_REST_ENDPOINT` with the [REST endpoint URL]({{site.baseurl}}/api/b
 ```
 {% endraw %}
 
-Replace the placeholder values with your actual IDs. The `from` field must use the format `"Display Name <email@address.com>"`. The `body` field accepts valid HTML and supports [Liquid personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), so you can tailor the email content to each recipient. For the full list of parameters supported by the email messaging object, see [Email object]({{site.baseurl}}/api/objects_filters/messaging/email_object).
+Replace the placeholder values with your actual IDs. The `from` field must use the format `"Display Name <user@example.com>"`. The `body` field accepts valid HTML and supports [Liquid personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), so you can tailor the email content to each recipient. For the full list of parameters supported by the email messaging object, see [Email object]({{site.baseurl}}/api/objects_filters/messaging/email_object).
 
 After constructing the request, send the POST request from your backend service to the Braze REST API.
 

@@ -42,6 +42,7 @@ on:
       - 'assets/img/**/*.jpg'
       - 'assets/img/**/*.jpeg'
       - 'scripts/check_screenshot_pii.py'
+      - 'scripts/pii_text_scan.py'
       - 'scripts/pii_name_lexicon.py'
       - '.github/workflows/check-screenshot-pii.yml'
 

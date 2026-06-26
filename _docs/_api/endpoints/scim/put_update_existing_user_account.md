@@ -35,7 +35,7 @@ To use this endpoint, you'll need a SCIM token. You'll use your service origin a
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `id` | Required | String | The user's resource ID. This parameter is returned by the  `POST` `/scim/v2/Users/` or `GET`  `/scim/v2/Users?filter=userName eq "user@test.com"` methods. |
+| `id` | Required | String | The user's resource ID. This parameter is returned by the  `POST` `/scim/v2/Users/` or `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"` methods. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request body
@@ -141,7 +141,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
-    "userName": "user@test.com",
+    "userName": "user@example.com",
     "name": {
         "givenName": "Test",
         "familyName": "User"

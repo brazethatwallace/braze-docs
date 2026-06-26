@@ -74,7 +74,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}

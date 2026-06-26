@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --data-raw '{
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 26,
@@ -108,7 +108,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -139,7 +139,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     ],
     "purchases": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "product_id": "product_name",
             "currency": "USD",
@@ -199,7 +199,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   "attributes": [
   {
     "external_id": "user_identifier",
-    "email": "example@email.com",
+    "email": "example@example.com",
     "email_subscribe": "subscribed",
     "subscription_groups": [{
       "subscription_group_id": "subscription_group_identifier_1",
@@ -334,7 +334,7 @@ The following errors are specific to the `/users/track` endpoint and are returne
 If the `external_id` exists, Braze prioritizes the most recently updated profile with an external ID for updates. If the `external_id` doesn't exist, Braze prioritizes the most recently updated profile for updates.
 
 ### What happens if no profile with the email address exists?
-Braze creates a profile and an email-only user and sets the email field to test@braze.com, as noted in the example request for updating a user profile by email address. Braze does not create an alias.
+Braze creates a profile and an email-only user and sets the email field to test@example.com, as noted in the example request for updating a user profile by email address. Braze does not create an alias.
 
 ### How do you use `/users/track` to import legacy user data?
 You may submit data through the Braze API for a user who has not yet used your mobile app to generate a user profile. If the user subsequently uses the application, all information following their identification using the SDK is merged with the existing user profile you created using the API call. Any user behavior recorded anonymously by the SDK before identification is lost upon merging with the existing API-generated user profile.

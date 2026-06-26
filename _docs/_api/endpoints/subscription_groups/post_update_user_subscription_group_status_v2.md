@@ -116,12 +116,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     },
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "external_ids":["example-user","example1@email.com"]
+      "external_ids":["example-user","example1@example.com"]
     }
   ]
 }
@@ -138,7 +138,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     {
       "subscription_group_id":"subscription_group_identifier",
       "subscription_state":"subscribed",
-      "emails":["example1@email.com","example2@email.com"]
+      "emails":["example1@example.com","example2@example.com"]
     }
   ]
 }

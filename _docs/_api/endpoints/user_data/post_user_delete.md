@@ -95,7 +95,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   ],
   "email_addresses": [
     {
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
