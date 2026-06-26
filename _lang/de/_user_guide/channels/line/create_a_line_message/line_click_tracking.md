@@ -32,7 +32,7 @@ So richten Sie das Klick-Tracking für eine Textnachricht ein:
 
 1. Ziehen Sie eine **Text**-Nachricht in den Editor und fügen Sie eine URL in das Textfeld ein.
 
-![LINE-Nachrichten-Editor mit einer Textnachricht, die eine lange URL enthält: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![LINE-Nachrichten-Editor mit einer Textnachricht, die eine lange URL enthält: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. Gehen Sie zum Tab **Einstellungen** und bestätigen Sie, dass **Click Tracking** aktiviert ist. Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
@@ -102,7 +102,7 @@ Braze kürzt URLs, die durch Liquid gerendert werden, auch solche, die in API-Tr
 
 ## Testen {#testing}
 
-Bevor Sie Ihre Campaign oder Ihren Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine LINE-Nachricht an Inhaltstestgruppen oder einzelne Nutzer:innen in der Vorschau anzuzeigen und zu senden.
+Bevor Sie Ihre Kampagne oder Ihren Canvas starten, empfiehlt es sich, Ihre Nachricht zunächst in der Vorschau anzuzeigen und zu testen. Gehen Sie dazu zum Tab **Test**, um eine LINE-Nachricht an Inhaltstestgruppen oder einzelne Nutzer:innen in der Vorschau anzuzeigen und zu senden.
 
 Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL aktualisiert.
 
@@ -141,7 +141,7 @@ Sie können Nutzer:innen, die auf eine URL in einer LINE-Nachricht geklickt habe
 
 ### Sind die Links, die ich beim Testsenden erhalte, echte URLs? {#are-the-links-i-receive-when-test-sending-real-urls}
 
-Ja, beim Testsenden werden echte URLs generiert. Die genaue URL, die in einer gestarteten Campaign gesendet wird, kann sich jedoch von der im Testsenden gesendeten URL unterscheiden.
+Ja, beim Testsenden werden echte URLs generiert. Die genaue URL, die in einer gestarteten Kampagne gesendet wird, kann sich jedoch von der im Testsenden gesendeten URL unterscheiden.
 
 ### Kann ich UTM-Parameter zu einer URL hinzufügen, bevor sie gekürzt wird? {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

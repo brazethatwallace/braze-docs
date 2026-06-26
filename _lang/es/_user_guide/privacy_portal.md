@@ -58,7 +58,7 @@ guide_featured_list:
   link: /docs/user_archival/
   image: /assets/img/braze_icons/users-01.svg
 - name: Acceso a PII de usuarios
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: Recursos adicionales sobre privacidad
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy
@@ -96,7 +96,7 @@ guide_menu_list:
 
 guide_menu_title2: "Seguridad"
 guide_menu_list2:
-- name: "Hoja de datos sobre seguridad, privacidad y arquitectura"
+- name: Hoja de datos sobre seguridad, privacidad y arquitectura
   link: https://www.braze.com/company/legal/security-schedule
   image: /assets/img/braze_icons/lock-01.svg
 - name: Certificaciones de seguridad de Braze

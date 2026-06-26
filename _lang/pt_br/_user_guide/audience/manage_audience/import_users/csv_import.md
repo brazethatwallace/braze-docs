@@ -180,11 +180,11 @@ Os seguintes atributos padrão estão disponíveis para importação de usuário
 
 #### Atualizar o status do grupo de inscrições (opcional) {#updating-subscription-group-status-optional}
 
-Além disso, você pode adicionar usuários a grupos de inscrições de e-mail ou SMS por meio da importação de usuários. Isso é particularmente útil para SMS, pois um usuário precisa estar inscrito em um grupo de inscrições de SMS para receber mensagens pelo canal de SMS. Para saber mais, consulte [Grupos de inscrições de SMS](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Além disso, você pode adicionar usuários a grupos de inscrições de e-mail ou SMS por meio da importação de usuários. Isso é particularmente útil para SMS, pois um usuário precisa estar inscrito em um grupo de inscrições de SMS para receber mensagens pelo canal de SMS. Para saber mais, consulte [Grupos de inscrições de SMS]({{site.baseurl}}/sms_rcs_subscription_groups/#subscription-group-mms-enablement).
 
 Se você estiver atualizando os status dos grupos de inscrições, é necessário ter as duas colunas a seguir no seu CSV:
 
-- `subscription_group_id`: O `id` do [grupo de inscrições](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).
+- `subscription_group_id`: O `id` do [grupo de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups).
 - `subscription_state`: Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições).
 
 | external_id | first_name | subscription_group_id | subscription_state |

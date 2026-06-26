@@ -84,9 +84,9 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 
 | フッターラベル | 使用される場合 |
 | --- | --- |
-| **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはセグメントビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいセグメントでは、誤差が生じることがあります。 |
+| **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはセグメントビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentでは、誤差が生じることがあります。 |
 | **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="推定オーディエンスと現在のオーディエンス" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
@@ -389,7 +389,7 @@ _Unique Daily Impressions_は、実際に閲覧されたバナーを指します
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する配信停止リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する配信停止リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
             </td>
         </tr>
         <tr>
@@ -487,7 +487,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 *延期*は*ソフトバウンス*とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたキャンペーンごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のキャンペーン送信に対して複数のソフトバウンスとしてカウントされていました。
 
-*延期*は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQL セグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやCanvas分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)してください。
+*延期*は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやCanvas分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)してください。
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 
@@ -658,7 +658,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 {% tabs local %}
 {% tab セグメントフィルター %}
 
-プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens)を持っていないユーザーを識別するセグメントを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のセグメントを「OR」条件で組み合わせます：
+プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens)を持っていないユーザーを識別するSegmentを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のSegmentを「OR」条件で組み合わせます：
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
@@ -699,7 +699,7 @@ _Direct Opens_は、メッセージの直接開封としてカウントされる
 
 以下の理由により、_送信数_が_ユニーク受信者数_を上回る場合があります：
 
-- **再適格性がオンになっている：** キャンペーンまたはCanvasの設定で再適格性が有効になっている場合、セグメントと配信条件を満たすユーザーは同じプッシュ通知を複数回受け取ることができます。その結果、総送信数が多くなります。
+- **再適格性がオンになっている：** キャンペーンまたはCanvasの設定で再適格性が有効になっている場合、Segmentと配信条件を満たすユーザーは同じプッシュ通知を複数回受け取ることができます。その結果、総送信数が多くなります。
 - **ユーザーが複数のデバイスを持っている：** 再適格性が有効になっていない場合、ユーザーが複数のデバイスをプロファイルに関連付けていることで差異が説明される場合があります。例えば、ユーザーがスマートフォンとタブレットの両方を持っていて、プッシュ通知が登録されたすべてのデバイスに送信される場合です。各配信は送信としてカウントされますが、ユニーク受信者は1人のみ記録されます。
 - **ユーザーが複数のアプリに割り当てられている：** ユーザーが複数のアプリに関連付けられている場合（新しいアプリのテスト時など）、それぞれのアプリで同じプッシュ通知を受け取ることがあります。これが送信数の増加につながります。
 
@@ -724,7 +724,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 | アンインストールされたアプリケーション | メッセージがデバイスに配信されようとして、そのデバイスで対象のアプリがアンインストールされている場合、メッセージは破棄され、デバイスの登録IDは無効になります。今後そのデバイスにメッセージを送信しようとすると、NotRegisteredエラーが返されます。 |
 | バックアップされたアプリケーション | アプリケーションがバックアップされると、アプリケーションが復元される前に登録IDが無効になる可能性があります。この場合、FCMはアプリケーションの登録IDを保存しなくなり、アプリケーションはメッセージを受信しなくなります。そのため、アプリケーションのバックアップ時に登録IDを保存すべきでは**ありません**。 |
 | 更新されたアプリケーション | アプリケーションが更新されると、以前のバージョンの登録IDが使えなくなることがあります。そのため、更新されたアプリケーションは既存の登録IDを置き換える必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="バウンスが発生する理由" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -888,9 +888,9 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 
 ![キャンペーンレベルのSMS/MMS/RCSキーワード応答パネル。時間経過に伴うキーワード分布の折れ線グラフと、キーワードカテゴリセクション（オプトイン、オプトアウト、ヘルプ、その他、詳細、コーチングのチェックボックスが選択されている）が含まれます。]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-ここでは、[リターゲティング]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/)の次のステップを決定し、便利に[セグメントを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)するために、各キーワードカテゴリの応答分布を確認することもできます。
+ここでは、[リターゲティング]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/)の次のステップを決定し、便利に[Segmentを作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)するために、各キーワードカテゴリの応答分布を確認することもできます。
 
-![折れ線グラフの下にあるテーブル。キーワードカテゴリ、応答分布、リターゲティングの列があり、キーワードカテゴリでセグメントを作成するオプションが提供されています。]({% image_buster /assets/img/sms/keyword_segments.png %})
+![折れ線グラフの下にあるテーブル。キーワードカテゴリ、応答分布、リターゲティングの列があり、キーワードカテゴリでSegmentを作成するオプションが提供されています。]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 

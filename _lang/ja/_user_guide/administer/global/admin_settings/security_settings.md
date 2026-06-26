@@ -111,7 +111,7 @@ Braze アカウントで 2 要素認証（2FA）を手動で有効にするに�
 
 ## 昇格アクセス {#elevated-access}
 
-昇格アクセスは、Braze ダッシュボードでの機密性の高いアクションに対して追加のセキュリティレイヤーを提供します。有効にすると、ユーザーはセグメントのエクスポートや API キーの表示を行う前にアカウントを再認証する必要があります。昇格アクセスを使用するには、**設定** > **管理者設定** > **セキュリティ設定**に移動してトグルをオンにします。
+昇格アクセスは、Braze ダッシュボードでの機密性の高いアクションに対して追加のセキュリティレイヤーを提供します。有効にすると、ユーザーはSegmentのエクスポートや API キーの表示を行う前にアカウントを再認証する必要があります。昇格アクセスを使用するには、**設定** > **管理者設定** > **セキュリティ設定**に移動してトグルをオンにします。
 
 ユーザーが再認証できない場合、元の場所にリダイレクトされ、機密性の高いアクションを続行できません。再認証に成功すると、ログアウトしない限り、次の 1 時間は再認証の必要はありません。
 
@@ -130,6 +130,22 @@ Braze アカウントで 2 要素認証（2FA）を手動で有効にするに�
 この手動レポートダウンロードには、アカウントの最新 10,000 件のセキュリティイベントのみが含まれます。
 
 この行数制限なしでセキュリティイベントを Amazon S3 にエクスポートするには、[Amazon S3 でのセキュリティイベントのエクスポート]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)を参照してください。
+
+### CSV 列の定義 {#csv-column-definitions}
+
+セキュリティイベントレポートの CSV には以下の列が含まれます。
+
+| 列 | 説明 |
+|--------|-------------|
+| CreatedAt | イベントが記録されたタイムスタンプ（UTC）。 |
+| EmailAtTimeOfEvent | イベントをトリガーしたダッシュボードユーザーのメールアドレス（イベント発生時に記録されたもの）。 |
+| CurrentEmail | イベントをトリガーしたダッシュボードユーザーの現在のメールアドレス。ユーザーが存在しなくなった場合は、開発者 ID が代わりに使用されます。 |
+| EventName | セキュリティイベントのタイプ。以下のレポートされるセキュリティイベントの一覧を参照してください。 |
+| OtherAccount | イベントの影響を受けた別のダッシュボードユーザーのメールアドレス（該当する場合。例：アカウントの追加や削除時）。 |
+| JsonProperties | JSON 形式のイベント固有のプロパティ。含まれるフィールドはイベントタイプによって異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV列の定義" }
+
+[S3 エクスポート]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)には、これらの列に加えて `Version`（エクスポート形式のスキーマバージョン、現在は `1`）が含まれます。
 
 {% details レポートされるセキュリティイベント %}
 ### ログインとアカウント {#login-and-account}
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -172,7 +188,7 @@ Canvas
 - Segment Users Deleted
 - Cleared Cohort
 
-### REST APIキー {#rest-api-key}
+### REST API キー {#rest-api-key}
 - Added REST API key
 - Removed REST API key
 
@@ -218,7 +234,7 @@ Canvas
 Updated Push Credential
 Removed Push Credential
 
-### SDKデバッガー {#sdk-debugger}
+### SDK デバッガー {#sdk-debugger}
 - Started SDK Debugger Session
 - Exported SDK Debugger Log
 
@@ -269,7 +285,7 @@ Removed Push Credential
 | 標準属性項目 | カスタム属性 |
 | ------------------- | ----------------- |
 | {::nomarkdown}<ul> <li>メールアドレス</li> <li>電話番号</li> <li>名</li> <li>姓</li> <li>性別</li> <li>生年月日</li> <li>デバイス ID</li> <li>LINE ID</li> <li>最新のロケーション</li> </ul> {:/} | {::nomarkdown} <ul> <li>すべてのカスタム属性<ul><li>すべての属性を非表示にする必要がない場合は、個々のカスタム属性を PII としてマークできます。</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="PII の可能性がある属性" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PIIの可能性がある属性" }
 
 ### 制限されるエリア {#limited-areas}
 

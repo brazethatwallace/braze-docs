@@ -1,39 +1,39 @@
 ---
 nav_title: API使用アラート
 article_title: API使用状況アラート
-description: "この記事では、予期しないトラフィックを事前に検出できるAPI使用量アラートの概要を説明します。"
+description: "この記事では、予期しないトラフィックを事前に検出できるAPI使用状況アラートの概要を説明します。"
 page_order: 0
 ---
 
 # API使用アラート {#api-usage-alerts}
 
-> API使用状況アラートは、APIの使用状況を可視化する重要な手段であり、予期せぬトラフィックを事前に検知することを可能にします。これらのアラートを設定して主要なAPIリクエスト量をトラッキングすれば、リアルタイムで通知を受け取ることができ、問題がマーケティングキャンペーンに影響を与える前に解決できます。
+> API使用状況アラートは、APIの使用状況を可視化する重要な手段であり、予期しないトラフィックを事前に検知できます。これらのアラートを設定して主要なAPIリクエスト量をトラッキングすることで、リアルタイムで通知を受け取り、問題がマーケティングキャンペーンに影響を与える前に対処できます。
 
 ## API使用アラートについて {#about-api-usage-alerts}
 
-API使用量アラートを使って、以下のカテゴリのリクエスト量を監視できます。
+API使用状況アラートを使用して、以下のカテゴリのリクエスト量を監視できます。
 
 | APIカテゴリ | 詳細 |
 |--------------|---------|
-| REST APIエンドポイント | Brazeのバックエンドに対して行われたすべてのREST API呼び出しの使用状況をトラッキングします。例えば、メッセージ送信、キャンペーン作成、ユーザーエクスポートなどです。 |
-| SDK APIリクエスト | Braze SDKからクライアントアプリに対して行われるAPIリクエストを追跡します。例えば、アプリ内メッセージのトリガーやユーザーデータの同期などです。<br><br>_*「月間アクティブユーザー – CY 24-25」を購入した顧客のみが利用可能です。_ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
+| REST APIエンドポイント | Brazeのバックエンドに対して行われたすべてのREST API呼び出しの使用状況をトラッキングします。例えば、メッセージの送信、Campaignsの作成、ユーザーのエクスポートなどです。 |
+| SDK APIリクエスト | Braze SDKからクライアントアプリに対して行われるAPIリクエストをトラッキングします。例えば、アプリ内メッセージのトリガーやユーザーデータの同期などです。<br><br>_*「月間アクティブユーザー – CY 24-25」を購入したお客様のみ利用可能です。_ |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API使用アラートについて" }
 
-## API使用量アラートの作成 {#creating-an-api-usage-alert}
+## API使用アラートの作成 {#creating-an-api-usage-alert}
 
-API使用量アラートを作成するには：
+API使用アラートを作成するには：
 
 1. **設定** > **APIキー** > **API使用量アラート**に移動し、新しいアラートを作成します。
 2. アラートの名前を入力し、通知を受け取りたいREST APIエンドポイントとAPIキーを選択します。
-3. アラート基準を定義するには、1つ以上の応答コードを選択し、[アラートしきい値](#api-usage-alert-thresholds)を指定します。
+3. 1つ以上の応答コードを選択し、[アラートしきい値](#api-usage-alert-thresholds)を指定してアラート基準を定義します。
 4. 完了したら、**Alert enabled**をオンに切り替えます。
-    ![API使用アラートの例。ユーザートラッキングエンドポイントが1時間以内に100％増加した場合に通知を送信します。]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
+    ![API使用アラートの例。Track usersエンドポイントが1時間以内に100％増加した場合に通知を送信します。]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
 
 ## アラートしきい値 {#api-usage-alert-thresholds}
 
-アラート基準を定義する際には、以下のしきい値を調整できます。
+アラート基準を定義する際に、以下のしきい値を調整できます。
 
-<table aria-label="Alert thresholds #api-usage-alert-thresholds">
+<table aria-label="アラートしきい値">
   <caption>アラートしきい値</caption>
   <thead>
     <tr>
@@ -45,7 +45,7 @@ API使用量アラートを作成するには：
     <tr>
       <td>しきい値条件</td>
       <td>
-        通知を受けたいしきい値のボリュームに至るまでの条件を定義します。以下がサポートされています。<br><br>
+        通知を受けたいしきい値ボリュームに至るまでの条件を定義します。以下がサポートされています。<br><br>
         <ul>
           <li><strong>Increased by</strong>または<strong>Decreased by</strong>：リクエストを前回の時間枠と比較します。</li>
           <li><strong>Increased by percentage</strong>または<strong>Decreased by percentage</strong>：リクエストのパーセント変化を前回の時間枠と比較します。</li>
@@ -63,17 +63,17 @@ API使用量アラートを作成するには：
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アラートしきい値" }
 
 ## アラート通知の設定 {#setting-up-alert-notifications}
 
-メールアラート、Webhookアラート、またはその両方を設定できます。Webhookアラートは、Slackチャネルなどの外部プラットフォームにアラートを送信するようなユースケースに非常に便利です。例については、通知設定でSlackと連携する方法に関する[ドキュメント](https://www.braze.com/docs/user_guide/administer/global/admin_settings/notification_preferences#slack-incoming-webhook-integration)をご覧ください。
+メールアラート、Webhookアラート、またはその両方を設定できます。Webhookアラートは、Slackチャネルなどの外部プラットフォームにアラートを送信するようなユースケースに非常に便利です。例については、通知設定でSlackと連携する方法に関する[ドキュメント]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration)をご覧ください。
 
 ![アラートの基準に達すると、選択したメールアドレスにメールが送信されます。]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
 ### サンプルペイロード {#payload}
 
-以下は、API使用量アラートWebhookのボディのサンプルペイロードです。
+以下は、API使用状況アラートWebhookのボディのサンプルペイロードです。
 
 ```json
 {
@@ -99,7 +99,7 @@ API使用量アラートを作成するには：
 
 ### アラートの例 {#example-alerts}
 
-以下のシナリオで通知を受け取るためのAPI使用量アラート設定の例をいくつか紹介します。
+以下のシナリオで通知を受け取るためのAPI使用状況アラート設定の例をいくつか紹介します。
 
 {% tabs local %}
 {% tab APIの健全性 %}
@@ -108,7 +108,7 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | すべてのエンドポイント | すべてのAPIキー | `4XX` および `5XX` | 10%増加 | 10 | 1時間 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="アラートの例" }
 {% endtab %}
 
 {% tab エンドポイントのレート制限 %}
@@ -117,16 +117,16 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | すべてのAPIキー | `429` | 以上 | 100 | 1時間 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="アラートの例" }
 {% endtab %}
 
-{% tab APIトリガーのキャンペーン %}
-このアラート設定は、APIトリガーのキャンペーンやキャンバスでエラーが発生した場合に通知します。これらの中には優先度の高いものも含まれる場合があります。
+{% tab APIトリガーのCampaigns %}
+このアラート設定は、APIトリガーのCampaignsやCanvasesでエラーが発生した場合に通知します。これらの中には優先度の高いものも含まれる場合があります。
 
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | すべてのAPIキー | `4XX` および `5XX` | 以上 | 1 | 1時間 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="アラートの例" }
 {% endtab %}
 
 {% tab パートナー連携 %}
@@ -135,7 +135,7 @@ APIの全般的な健全性を監視するためのアラートを設定でき�
 | エンドポイント | APIキー | 応答コード | しきい値条件 | しきい値ボリューム | 時間枠 |
 | --- | --- | --- | --- | --- | --- |
 | すべてのエンドポイント | パートナー連携に使用しているAPIキー | すべての応答コード | 以下 | 0 | 1日 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="アラートの例" }
 {% endtab %}
 {% endtabs %}
 

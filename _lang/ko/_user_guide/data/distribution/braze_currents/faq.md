@@ -62,12 +62,24 @@ Currents는 "최소 1회" 전달을 보장하므로, 중복 이벤트가 간혹 
 
 Currents가 기록하는 이벤트의 전체 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 용어집을 참조하세요. 이벤트 유형(예: 발송, 전달, 열기)별로 이 용어집을 필터링할 수 있습니다.
 
-## Currents 이메일 열기 또는 클릭 이벤트의 `external_id`가 Braze 대시보드의 고객 프로필과 다른 이유는 무엇인가요? {#why-does-the-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
+## Currents 이벤트 수가 대시보드 또는 참여 보고서 측정기준과 일치하지 않는 이유는 무엇인가요? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
+
+Currents와 Braze 대시보드는 특정 측정기준을 다르게 계산하므로, Currents 이벤트와 대시보드 측정기준 간의 정확한 일치는 예상되지 않습니다.
+
+**고유 클릭:** 이메일의 경우, 대시보드는 7일 기간 동안의 고유 클릭을 추적하며 `dispatch_id`로 측정합니다. Currents는 각 원시 클릭 이벤트를 기록합니다. Currents 기반 고유 클릭 수를 대시보드 측정기준과 맞추려면 `is_unique`가 `true`인 이벤트를 필터링하세요.
+
+**탈퇴:** 대시보드의 *탈퇴* 측정기준은 Braze의 표준 탈퇴 링크 클릭을 반영합니다. 커스텀 탈퇴 페이지는 API를 통해 사용자를 업데이트하지 않는 한 이 측정기준을 증가시키지 않습니다. Currents의 `users.messages.email.Unsubscribe` 이벤트는 사용자가 이메일 본문이나 푸터의 탈퇴 링크를 클릭하거나 list-unsubscribe 헤더를 통해 클릭할 때 발생하는 특수 클릭 이벤트입니다. 이는 모든 이메일 구독 상태 변경을 나타내는 것은 아닙니다.
+
+**타임스탬프 및 시간대:** 모든 Currents 타임스탬프는 UTC입니다. 대시보드 측정기준은 회사의 시간대를 따릅니다. 회사의 시간대로 변환하지 않고 Currents 데이터를 달력 날짜별로 집계하면 대시보드에 표시되는 것과 다른 날짜 버킷에 수치가 포함될 수 있습니다.
+
+**중복 이벤트:** Currents는 최소 1회 전달을 제공하므로 중복 이벤트가 간혹 기록될 수 있습니다. 대시보드 측정기준과 비교하기 전에 각 이벤트의 고유 `id` 필드로 중복을 제거하세요.
+
+## Currents 이메일 열기 또는 클릭 이벤트의 `external_user_id`(Braze 스키마: `external_id`)가 Braze 대시보드의 고객 프로필과 다른 이유는 무엇인가요? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
 - **Braze 대시보드에서:** 이메일 주소와 연결된 사용자가 이메일을 열거나 클릭하면, 해당 이메일 주소를 공유하는 모든 고객 프로필이 이메일을 열었거나 클릭한 것으로 표시됩니다. 자세한 내용은 [이메일이 발송될 때 여러 프로필이 동일한 이메일 주소를 가지고 있으면 어떻게 되나요?]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)를 참조하세요.
 - **Currents에서:** 동일한 열기 또는 클릭은 하나의 프로필에 저장됩니다. Braze는 해당 프로필이 여전히 이메일 주소를 공유하고 있는 경우 원래 발송 대상이었던 프로필에 귀속시킵니다. 그렇지 않으면 이메일 주소를 공유하는 프로필 중 무작위로 선택된 하나의 프로필에 귀속시킵니다.
 
-이러한 이유로, Currents 이메일 열기 또는 클릭 이벤트의 `external_id`는 Currents와 Braze 대시보드를 비교할 때 예상하는 고객 프로필과 일치하지 않을 수 있습니다.
+이러한 이유로, Currents 이메일 열기 또는 클릭 이벤트의 `external_user_id` 값(Braze 스키마 매핑 테이블에서 `external_id`로 명명됨)은 Currents와 Braze 대시보드를 비교할 때 예상하는 고객 프로필과 일치하지 않을 수 있습니다.
 
 ## 모든 발송 이벤트가 Currents에 기록되나요? {#are-all-send-events-logged-to-currents}
 
@@ -80,6 +92,12 @@ Currents가 기록하는 이벤트의 전체 목록은 [고객 행동 이벤트]
 ## 커런츠 통합을 설정하기 전 날짜의 커스텀 이벤트 데이터가 보이는 이유는 무엇인가요? {#why-do-i-see-custom-event-data-dated-before-my-currents-integration-was-set-up}
 
 Braze는 Currents에 이벤트를 소급 적용하지 않습니다. 하지만 커스텀 이벤트는 과거 타임스탬프로 기록될 수 있습니다(예: 이벤트 발생 시 기기가 오프라인이었고 나중에 동기화된 경우). 이러한 경우 이벤트 타임스탬프는 이벤트가 원래 발생한 시점을 반영하며, 이는 커런츠 통합이 구성되기 전일 수 있습니다.
+
+## Currents 이벤트에는 어떤 사용자 식별자가 포함되나요? {#what-user-identifiers-are-included-in-currents-events}
+
+메시지 참여 이벤트(발송, 열기, 클릭 등)에는 Braze 사용자 ID(`user_id`)와 프로필에 존재하는 경우 외부 식별자(이벤트 페이로드에서 `external_user_id`, Braze 스키마 매핑 테이블에서는 `external_id`로 표시됨)가 포함됩니다. 일부 이메일 메시지 참여 이벤트에는 `email_address`도 포함됩니다. 커스텀 속성은 포함되지 않습니다. 아래를 참조하세요.
+
+Currents 데이터를 데이터 웨어하우스나 CRM으로 라우팅하고 프로필 데이터와 조인해야 하는 경우, 다운스트림 시스템에서 `user_id` 또는 `external_user_id`를 사용하여 조인을 수행하세요.
 
 ## Currents 발송 이벤트에 커스텀 속성을 포함할 수 있나요? {#can-i-include-custom-attributes-in-currents-send-events}
 

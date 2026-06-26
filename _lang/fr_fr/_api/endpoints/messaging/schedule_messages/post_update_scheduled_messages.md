@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour l
 ---
 {% api %}
 # Mettre à jour les messages planifiés {#update-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
 

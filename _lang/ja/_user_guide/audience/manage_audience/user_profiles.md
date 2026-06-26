@@ -27,7 +27,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 一致するものが見つかった場合、Braze SDKで記録したそのユーザーの情報を表示できます。検索結果に複数のユーザープロファイルが返された場合は、各プロファイルを個別にマージするか、一括ユーザーマージを実行できます。詳しい手順については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)を参照してください。
 
 {% alert note %}
-**Search Users**はセグメントやCampaignコンポーザーの**User Lookup**とは異なります。**User Lookup**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**Search Users**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)を参照してください。
+**Search Users**はSegmentやCampaignコンポーザーの**User Lookup**とは異なります。**User Lookup**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**Search Users**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[Segmentのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)を参照してください。
 {% endalert %}
 
 {% alert important %}
@@ -38,20 +38,24 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ## ユースケース {#use-cases}
 
-ユーザープロファイルは、ユーザーのエンゲージメント履歴、セグメントメンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストに最適なリソースです。
+ユーザープロファイルは、ユーザーのエンゲージメント履歴、Segmentメンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストに最適なリソースです。
 
 例えば、ユーザーが問題を報告し、使用しているデバイスやオペレーティングシステムが不明な場合、[概要タブ](#overview-tab)を使用してこの情報を確認できます（メールアドレスまたはユーザーIDがわかっている場合）。また、ユーザーの言語を確認することもでき、期待どおりに動作しなかった[多言語Campaign]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)のトラブルシューティングに役立ちます。
 
-[エンゲージメントタブ](#engagement-tab)を使用して、特定のユーザーがCampaignを受信したかどうかを確認できます。さらに、そのユーザーがCampaignを受信した場合、いつ受信したかを確認できます。また、ユーザーが特定のセグメントに含まれているかどうか、プッシュ、メール、またはその両方にオプトインしているかどうかも確認できます。この情報はトラブルシューティングに役立ちます。例えば、ユーザーが受信するはずのCampaignを受信しなかった場合や、受信するはずでないCampaignを受信した場合に、この情報を確認する必要があります。
+[エンゲージメントタブ](#engagement-tab)を使用して、特定のユーザーがCampaignを受信したかどうかを確認できます。さらに、そのユーザーがCampaignを受信した場合、いつ受信したかを確認できます。また、ユーザーが特定のSegmentに含まれているかどうか、プッシュ、メール、またはその両方にオプトインしているかどうかも確認できます。この情報はトラブルシューティングに役立ちます。例えば、ユーザーが受信するはずのCampaignを受信しなかった場合や、受信するはずでないCampaignを受信した場合に、この情報を確認する必要があります。
 
 ## ユーザープロファイルの要素 {#elements-of-user-profile}
 
-ユーザープロファイルには4つの主要セクションがあります。
+ユーザープロファイルには5つの主要セクションがあります。
 
 - **概要:** ユーザーに関する基本情報、セッションデータ、カスタム属性、カスタムイベント、購入、およびユーザーが最後にログインしたデバイス。
-- **エンゲージメント:** ユーザーの連絡先設定、受信したCampaign、セグメント、コミュニケーション統計、インストールアトリビューション、ランダムバケット番号に関する情報。
+- **エンゲージメント:** ユーザーの連絡先設定、受信したCampaign、Segment、コミュニケーション統計、インストールアトリビューション、ランダムバケット番号に関する情報。
+- **イベント履歴:** 過去30日間のカスタムイベントと購入。完全なイベントプロパティがJSONとして表示されます。
 - **メッセージ履歴:** 過去30日間のこのユーザーに関する最近のメッセージング関連イベント。
 - **フィーチャーフラグの適格性:** ロールアウト、キャンバスステップ、実験全体で、ユーザーが現在どのフィーチャーフラグに適格であるかを検証します。
+
+{% tabs %}
+{% tab 概要タブ %}
 
 ### 概要タブ {#overview-tab}
 
@@ -69,7 +73,9 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 このデータの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を参照してください。
 
-![ユーザープロファイルの概要タブ。]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab エンゲージメントタブ %}
 
 ### エンゲージメントタブ {#engagement-tab}
 
@@ -79,13 +85,37 @@ description: "このリファレンス記事では、ダッシュボードでユ
 | --- | --- |
 | 連絡先設定 | メール、SMS、プッシュのサブスクリプションステータス、およびこれら3つのチャネルでこのユーザーが関連付けられている購読グループ。このセクションには、プッシュトークンの変更ログ情報も含まれます。サブスクリプションとオプトインの設定方法については、[メール]({{site.baseurl}}/user_guide/channels/email/subscriptions/)、[SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)、[プッシュ]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)を参照してください。 |
 | 受信したCampaign | **受信したCampaign**は、チャネル固有の送信および表示タイミングを反映します。ほとんどのチャネルでは、Brazeが配信プロバイダーにメッセージを渡した時点で送信が記録されます（メッセージが最終的に配信されなかった場合でも同様です）。**Content Cards**は異なります。Campaignがここに表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。チャネルごとの詳細については、[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>これらのリストは、リターゲティングと履歴に表示される内容を決定する際に、[メッセージングインタラクションデータ]({{site.baseurl}}/api/data_retention/messaging_interaction_data/)（有効期限ルールを含む）を使用します。<br><br>リストからCampaignを選択して表示します。 |
-| セグメント | このユーザーが含まれているセグメント。リストからセグメントを選択して表示します。 |
+| Segment | このユーザーが含まれているSegment。リストからSegmentを選択して表示します。 |
 | コミュニケーション統計 | このユーザーが各チャネルから最後にメッセージを受信した日時。 |
 | インストールアトリビューション | ユーザーがアプリをインストールした方法と時期に関する情報。詳しくは[ユーザーインストールの理解]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/)を参照してください。 |
 | その他 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)。 |
 | 受信したCanvasメッセージ | このユーザーが受信したCanvasメッセージとその受信日時。送信タイミングは**受信したCampaign**と同じチャネルルールに従います。[受信したCampaignにCampaignが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々Campaignの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>リストからメッセージを選択して表示します。 |
 | 予測 | このユーザーの[チャーン予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)および[イベント予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)スコア。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="エンゲージメントタブ" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab イベント履歴タブ %}
+
+### イベント履歴タブ {#event-history-tab}
+
+{% alert note %}
+**イベント履歴**タブを表示するには、**Search Users**および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+{% endalert %}
+
+**イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。
+
+| イベント履歴カテゴリ | 内容 |
+| --- | --- |
+| イベントリスト | 過去30日間のカスタムイベントと購入（最新100件まで）。新しい順に表示されます。 |
+| イベントタイプ | その行が**カスタムイベント**か**購入**かを示します。 |
+| タイムスタンプ | イベントが記録された日時。 |
+| イベント名 | カスタムイベントまたは購入の名前。 |
+| イベントプロパティ | イベントの完全なイベントプロパティ。JSONとして表示されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="イベント履歴タブ" }
+
+{% endtab %}
+{% endtabs %}
 
 ### 受信したCampaignにCampaignが表示されるタイミング {#when-campaigns-appear-in-campaigns-received}
 
@@ -95,7 +125,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 - **プッシュ:** Brazeは、メッセージがプッシュプロバイダー（例えば、Apple Push Notification service（APNs）やFirebase Cloud Messaging（FCM））に引き渡された時点で送信を記録します。プロバイダーは通常、即座に配信を試みます。デバイスが利用できない場合（例えば、オフラインの場合）、プロバイダーはメッセージの有効期限が切れるまで再試行する場合があります。
 - **アプリ内メッセージ:** Brazeは、Campaignが起動された時点で送信を記録します。
 - **Content Cards:** Brazeが*送信済み*イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cards Campaignがユーザープロファイルの**受信したCampaign**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged)および[受信したCampaignとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters)を参照してください。
-- **SMS、WhatsApp、webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはwebhookエンドポイント）に入った時点で送信を記録します。
+- **SMS、WhatsApp、Webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはWebhookエンドポイント）に入った時点で送信を記録します。
 
 {% alert note %}
 これらの説明は、**受信したCampaign**に対して送信が記録されるタイミングについてのものです。プロバイダーに到達する前にメッセージを停止できる[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)とは別のものです。
@@ -119,7 +149,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ##### メッセージエンゲージメントイベント {#message-engagement-events}
 
-以下のメッセージエンゲージメントイベントは、メール、SMS、プッシュ、アプリ内メッセージ、Content Cards、webhookで利用できます。特定のイベントのトラッキング方法の詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。
+以下のメッセージエンゲージメントイベントは、メール、SMS、プッシュ、アプリ内メッセージ、Content Cards、Webhookで利用できます。特定のイベントのトラッキング方法の詳細については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。
 
 | チャネル | 利用可能なエンゲージメントイベント |
 | --- | --- |
@@ -151,7 +181,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ##### 空白の送信先 {#blank-destinations}
 
-一部のメッセージ送信は、メッセージ履歴で送信先が空白（「—」で表示）で表示される場合があります。これは、Content Cardsやwebhookなどの一部のチャネルでは、メッセージ送信時にデバイスデータを収集しないためです。
+一部のメッセージ送信は、メッセージ履歴で送信先が空白（「—」で表示）で表示される場合があります。これは、Content CardsやWebhookなどの一部のチャネルでは、メッセージ送信時にデバイスデータを収集しないためです。
 
 Content Cardsの送信は、カードが表示可能になった時点で記録されます。Content Cardsは複数のデバイスで表示できるため、送信時にデバイスデータは記録されません。代わりに、この情報はインプレッション時（カードが実際に表示された時点）に記録されます。Webhookはシステムエンドポイント（デバイスではなく）に送信されるため、デバイスデータは該当しません。
 

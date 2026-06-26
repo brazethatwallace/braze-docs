@@ -14,7 +14,7 @@ alias: /dnd_product_blocks/
 > 드래그 앤 드롭 편집기를 사용하면 커스텀 Liquid 코드를 만들 필요 없이 메시지에 제품 블록을 신속하게 추가하고 구성하여 원활한 제품 쇼케이스를 만들 수 있습니다.
 
 {% alert important %}
-드래그 앤 드롭 제품 블록 기능은 초기 액세스 중이며 현재 이메일에만 제공됩니다. 초기 액세스에 참여하고 싶다면 Braze 계정 매니저에게 문의하세요.
+드래그 앤 드롭 제품 블록 기능은 얼리 액세스 중이며 현재 이메일에만 제공됩니다. 얼리 액세스에 참여하고 싶다면 Braze 계정 매니저에게 문의하세요.
 {% endalert %}
 
 ## 요구 사항 {#requirements}
@@ -25,7 +25,7 @@ alias: /dnd_product_blocks/
 | eCommerce 캔버스 템플릿 | eCommerce 추천 이벤트는 방치된 탐색, 유기한 장바구니 및 주문 확인과 같은 필수 사용 사례를 위해 설계된 eCommerce 캔버스 템플릿을 포함한 미리 구축된 템플릿을 지원합니다. <br><br>[eCommerce 캔버스 템플릿]({{site.baseurl}}/ecommerce_use_cases/)을 사용하여 이러한 필수 eCommerce 사용 사례 중 하나를 구현할 계획이라면 제공된 캔버스 템플릿을 사용하거나 따라야 합니다. |
 | Braze 카탈로그 | Braze 카탈로그를 생성해야 하며, 여기에는 제품 블록 구성에서 사용하는 다음 필드가 포함되어야 합니다:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | 카탈로그 선택 | 정적 제품 블록의 경우, 제품 블록에 포함할 제품을 지정하기 위해 [카탈로그 선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)을 생성해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## 드래그 앤 드롭 제품 블록의 유형 {#types-of-drag-and-drop-product-blocks}
 
@@ -33,7 +33,7 @@ alias: /dnd_product_blocks/
 | --- | --- | --- | --- |
 | 동적 | [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)와 카탈로그를 [eCommerce 캔버스 템플릿]({{site.baseurl}}/ecommerce_use_cases/) 내에서 사용하여 고객 상호작용을 기반으로 제품 쇼케이스로 메시징을 개인화합니다. | {::nomarkdown}<ul><li>방치된 탐색</li><li>유기한 장바구니</li><li>유기한 결제</li><li>주문 확인</li></ul>{:/} | Canvas에서만 사용 가능합니다. |
 | 정적 | Braze 카탈로그에 저장된 데이터를 사용하여 제품을 개인화합니다. 포함할 제품을 지정하려면 [카탈로그 선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)을 사용해야 합니다. | 신제품 출시 또는 카테고리별 상품을 쇼케이스하는 데 적합합니다. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types of drag-and-drop product blocks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="드래그 앤 드롭 제품 블록의 유형" }
 
 ## 제품 블록 콘텐츠 구성 {#product-block-content-configuration}
 
@@ -52,7 +52,7 @@ alias: /dnd_product_blocks/
 | 제품 URL 버튼 | 카탈로그 |
 | 가격 | eCommerce 추천 이벤트 속성정보 |
 | 수량 | eCommerce 추천 이벤트 속성정보 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamic product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="동적 제품 블록" }
 
 ![카탈로그 데이터와 이벤트 데이터로 구분된 동적 제품 블록의 제품 필드]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
@@ -64,7 +64,7 @@ alias: /dnd_product_blocks/
 | 제품 제목 | 카탈로그 |
 | 제품 URL 버튼 | 카탈로그 |
 | 가격 | 카탈로그 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Static product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="정적 제품 블록" }
 
 ![모두 카탈로그 데이터로 분류된 정적 제품 블록의 제품 필드]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,7 +78,7 @@ alias: /dnd_product_blocks/
 | 정렬 | 블록 내에서 텍스트 필드와 버튼의 정렬을 조정합니다. |
 | 행당 최대 제품 수 | 행당 최대 3개의 제품을 표시하며, 정적 제품 블록은 총 최대 12개, 동적 제품 블록은 총 최대 24개의 제품을 표시할 수 있습니다. |
 | 제품 간격 | 제품 간의 간격을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="레이아웃 옵션" }
 
 ![제품 방향, 정렬, 행당 최대 제품 수, 제품 간격에 대한 레이아웃 옵션]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
@@ -105,9 +105,9 @@ alias: /dnd_product_blocks/
 | `product_title` | 제품의 제목입니다. |
 | `product_url` | 고객이 제품을 보거나 구매할 수 있는 URL입니다. |
 | `variant_image_url` | 배리언트 이미지의 URL입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="카탈로그 설정" }
 
-필수 필드가 포함된 이 [샘플 제품 카탈로그]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv)를 활용하여 빠르게 시작하세요.
+필수 필드가 포함된 이 [샘플 제품 카탈로그](/docs/assets/download_file/ecommerce_product_catalog_sample.csv)를 활용하여 빠르게 시작하세요.
 
 ![필수 필드와 기타 필드가 포함된 샘플 CSV 파일]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 

@@ -42,7 +42,7 @@ As propriedades de gatilho da API devem usar duas chaves por tag: {% raw %}`{{ap
 
 ### Atributos compatíveis {#supported-attributes}
 
-Os atributos de Campaign, cartão e Canvas são compatíveis apenas em seus modelos de envio de mensagens correspondentes (por exemplo, `dispatch_id` não está disponível em campanhas de mensagens no app).
+Os atributos de Campaign, cartão e Canvas são compatíveis apenas em seus modelos de envio de mensagens correspondentes. Por exemplo, `dispatch_id` é compatível com Liquid para canais de envio de mensagens como e-mail, push, SMS e WhatsApp, mas não para mensagens no app ou Banners.
 
 Para saber mais, consulte [Atributos de Campaign e Canvas entre fontes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 

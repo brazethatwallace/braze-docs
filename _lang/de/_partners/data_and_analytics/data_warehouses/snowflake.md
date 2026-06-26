@@ -89,7 +89,7 @@ Nachdem der Data Share bereitgestellt wurde, müssen Sie aus dem eingehenden Dat
 
 Eine vollständige Liste der verfügbaren Tabellen und Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Snowflake Data Sharing umfasst alle Tabellen in dieser Referenz sowie zusätzliche Snowflake-exklusive Tabellen für Snapshots, Campaign- und Canvas-Changelogs, Agentenkonsole-Ereignisse und Nachrichtenwiederholungsereignisse.
 
-Sie können auch [die Rohtabellenschemata herunterladen]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) (als Textdatei).
+Sie können auch [die Rohtabellenschemata herunterladen](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) (als Textdatei).
 
 ### Nutzer-ID-Schema {#user-id-schema}
 

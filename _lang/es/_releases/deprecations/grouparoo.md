@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "Este artículo describe la asociación entre Braze y Grouparoo, una herramienta ETL inversa de código abierto utilizada para potenciar las herramientas de marketing, ventas y soporte con datos de tu almacén de datos."
 page_type: update
+noindex: true
+description: "Este artículo describe la asociación entre Braze y Grouparoo, una herramienta ETL inversa de código abierto utilizada para potenciar las herramientas de marketing, ventas y soporte con datos de tu almacén de datos."
 
 ---
 
@@ -21,7 +22,7 @@ La integración de Braze y Grouparoo sincroniza los datos del almacén con Braze
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta y proyecto Grouparoo | Para beneficiarte de esta asociación es necesario disponer de una cuenta y un proyecto de Grouparoo.<br><br>Esta integración se puede utilizar con la edición comunitaria gratuita y las soluciones empresariales proporcionadas por Grouparoo. La configuración tendrá lugar en la interfaz de usuario de configuración de Grouparoo. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de usuarios y seguimiento. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de usuarios y seguimiento. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST](https://www.grouparoo.com/). Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -31,7 +32,7 @@ La integración de Braze y Grouparoo sincroniza los datos del almacén con Braze
 
 En Grouparoo, ve a **Apps** y selecciona **Braze** para crear una nueva aplicación Braze. En el modal que aparece, proporciona tu clave de API de Braze y el punto de conexión REST.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![El modal Crear aplicación Braze en Grouparoo, con campos para la clave de API de Braze y el punto de conexión REST.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### Paso 2: Configurar un modelo y un origen de datos {#step-2-set-up-a-model-and-data-source}
 

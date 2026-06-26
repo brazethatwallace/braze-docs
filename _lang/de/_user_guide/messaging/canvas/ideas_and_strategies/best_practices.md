@@ -52,7 +52,7 @@ Canvas verhindert, dass Sie einen geplanten Versand mit einer bereits vergangene
 {% endalert %}
 
 {% alert important %}
-Die Auswertung von Zeitplan und Zielgruppe kann sich zwischen geplanten Eintritten und sofortigen Versandeinträgen unterscheiden – beispielsweise wenn Schritte Optionen verwenden, die näher am Versandzeitpunkt ausgewertet werden. Wenn Sie Zielgruppen-, Zeitplan- oder Zustellungseinstellungen innerhalb von Minuten vor einem geplanten Eintritt oder Versandfenster bearbeiten, prüfen Sie, ob Nutzer:innen, die bereits für den nächsten Schritt in der Warteschlange stehen, die Änderung übernehmen (siehe [Canvas nach dem Start ändern]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)). Im Zweifelsfall stoppen, duplizieren und starten Sie das Canvas neu, um eine saubere Neuauswertung zu gewährleisten.
+Wenn Sie Zielgruppen-, Zeitplan- oder Zustellungseinstellungen kurz vor einem geplanten Eintritts- oder Versandfenster ändern, warten einige Nutzer:innen möglicherweise bereits auf einen Schritt oder wurden unter früheren Einstellungen ausgewertet, sodass nicht garantiert ist, dass alle die Änderung übernehmen. Informationen dazu, wie Zeitplanänderungen, Zielgruppenänderungen, **Zum Zeitpunkt der Einreihung auswerten** und die Zustellungszeitpunkte von Message-Schritten zusammenwirken, finden Sie unter [Canvas nach dem Start ändern]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). Im Zweifelsfall stoppen Sie das Canvas, duplizieren Sie es und starten Sie es neu, um eine saubere Neuauswertung zu gewährleisten.
 {% endalert %}
 
 Beachten Sie bei Canvas-Schritten die folgenden Details bei der Zeitplanung Ihres Canvas:

@@ -389,7 +389,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
             </td>
         </tr>
         <tr>

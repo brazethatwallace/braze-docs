@@ -12,16 +12,11 @@ description: "This page covers the exports log, which lets you view the status o
 
 You can find the exports log by going to **Settings** > **Exports Log**. Here, you can view previous exports, the name of exported segments, the status of each export, the source of each export, and when each export started and finished. 
 
-![The export logs with a list of completed exports.]({% image_buster /assets/img/export_logs.png %})
-
 ## Cancelling a pending export
 
 You can cancel pending exports directly from the **Exports Log** page by selecting the <i class="fas fa-ellipsis-vertical"></i> menu and then selecting **Cancel Export**, or selecting the **Export ID** and then selecting **Cancel Export** on the export's page.
 
-
 ## Sharing a specific export log
 
 Share an export log by selecting the **Export ID** and then selecting **Share Log**.
-
-![A dropdown window with the link to share the page.]({% image_buster /assets/img/export_logs_share.png %}){: style="max-width:45%;"}
 

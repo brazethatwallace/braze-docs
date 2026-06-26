@@ -16,7 +16,7 @@ tool: Currents
 特定の日付範囲のCampaignまたはCanvasの指標を取得するには、以下のいずれかの方法を使用してください。
 
 - 標準APIの時間枠外でダッシュボードスタイルのレポートが必要な場合は、日付に合わせたエクスポートの[製品リクエスト](https://portal.braze.com/)を送信してください。
-- `ending_at` と `length` パラメーターを指定して[Campaign分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)または[Canvas分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)エンドポイントを呼び出すか、時系列データには [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) および [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) を使用してください。
+- `ending_at` と `length` パラメーターを指定して[Campaign分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)または[Canvas分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)エンドポイントを呼び出すか、時系列データには[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)および[`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/)を使用してください。
 - Amazon S3、Azure Blob Storage、またはその他のサポートされている送信先で、継続的にクエリ可能なメッセージエンゲージメントデータが必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用してイベントをウェアハウスにストリーミングしてください。
 
 ## ライブのCurrents統合を編集するにはどうすればよいですか？ {#how-do-i-edit-a-live-currents-integration}
@@ -62,12 +62,24 @@ Currentsは「at-least-once（少なくとも1回）」の配信を保証して�
 
 Currentsがログに記録するイベントの完全なリストについては、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)および[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)の用語集を参照してください。これらの用語集はイベントタイプ（送信、配信、開封など）でフィルターできます。
 
-## Currentsのメール開封またはクリックイベントの `external_id` がBrazeダッシュボードのユーザープロファイルと異なるのはなぜですか？ {#why-does-the-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
+## Currentsのイベント数がダッシュボードやエンゲージメントレポートの指標と一致しないのはなぜですか？ {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
+
+CurrentsとBrazeダッシュボードでは特定の指標の計算方法が異なるため、Currentsイベントとダッシュボード指標が完全に一致することは想定されていません。
+
+**ユニーククリック数：** メールの場合、ダッシュボードは7日間のユニーククリックを追跡し、`dispatch_id` で測定します。Currentsは各生のクリックイベントを記録します。Currentsベースのユニーククリック数をダッシュボード指標と一致させるには、`is_unique` が `true` のイベントでフィルターしてください。
+
+**配信停止：** ダッシュボードの*配信停止*指標は、Brazeの標準配信停止リンクのクリックを反映しています。カスタム配信停止ページは、APIを通じてユーザーを更新しない限り、この指標をインクリメントしません。Currentsの `users.messages.email.Unsubscribe` イベントは、ユーザーがメール本文やフッターの配信停止リンク、またはlist-unsubscribeヘッダーを通じてクリックしたときに発火する特殊なクリックイベントです。これはすべてのメールサブスクリプション状態の変更を表すものではありません。
+
+**タイムスタンプとタイムゾーン：** CurrentsのすべてのタイムスタンプはUTCです。ダッシュボード指標は会社のタイムゾーンに従います。会社のタイムゾーンに変換せずにCurrentsデータをカレンダー日ごとに集計すると、ダッシュボードに表示されるものとは異なる日付バケットにカウントが入る可能性があります。
+
+**重複イベント：** Currentsはat-least-once配信を提供しているため、重複イベントが書き込まれることがあります。ダッシュボード指標と合計を比較する前に、各イベントのユニーク `id` フィールドで重複を排除してください。
+
+## Currentsのメール開封またはクリックイベントの `external_user_id`（Brazeスキーマ: `external_id`）がBrazeダッシュボードのユーザープロファイルと異なるのはなぜですか？ {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
 - **Brazeダッシュボードの場合：** あるメールアドレスに関連付けられたユーザーがメールを開封またはクリックすると、そのメールアドレスを共有するすべてのユーザープロファイルが、そのメールを開封またはクリックしたとしてマークされます。詳細については、[メールが送信されたとき、複数のプロファイルが同じメールアドレスを持っている場合はどうなりますか？]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)を参照してください。
 - **Currentsの場合：** 同じ開封またはクリックは1つのプロファイルに保存されます。Brazeは、送信時に元々ターゲットとされたプロファイルがまだそのメールアドレスを共有している場合、そのプロファイルに帰属させます。そうでない場合、Brazeはそのメールアドレスを共有するプロファイルの中からランダムに選択された1つのプロファイルに帰属させます。
 
-このため、Currentsのメール開封またはクリックイベントの `external_id` は、CurrentsとBrazeダッシュボードを比較したときに期待するユーザープロファイルと一致しない場合があります。
+このため、Currentsのメール開封またはクリックイベントの `external_user_id` 値（Brazeスキーママッピングテーブルでは `external_id` と表記）は、CurrentsとBrazeダッシュボードを比較したときに期待するユーザープロファイルと一致しない場合があります。
 
 ## すべての送信イベントはCurrentsにログ記録されますか？ {#are-all-send-events-logged-to-currents}
 
@@ -80,6 +92,12 @@ Currentsがログに記録するイベントの完全なリストについては
 ## Currents統合を設定する前の日付のカスタムイベントデータが表示されるのはなぜですか？ {#why-do-i-see-custom-event-data-dated-before-my-currents-integration-was-set-up}
 
 BrazeはCurrentsにイベントをバックフィルしません。ただし、カスタムイベントは過去のタイムスタンプでログ記録されることがあります（たとえば、イベント発生時にデバイスがオフラインで、後から同期された場合など）。このような場合、イベントのタイムスタンプはイベントが最初に発生した時刻を反映するため、Currents統合が設定される前の日付になることがあります。
+
+## Currentsイベントにはどのユーザー識別子が含まれますか？ {#what-user-identifiers-are-included-in-currents-events}
+
+メッセージエンゲージメントイベント（送信、開封、クリックなど）には、BrazeユーザーID（`user_id`）と、プロファイルに存在する場合は外部識別子（イベントペイロードでは `external_user_id`、Brazeスキーママッピングテーブルでは `external_id` と表記）が含まれます。一部のメールメッセージエンゲージメントイベントには `email_address` も含まれます。カスタム属性は含まれません（以下を参照）。
+
+CurrentsデータをウェアハウスやCRMにルーティングし、プロファイルデータと結合する必要がある場合は、`user_id` または `external_user_id` を使用してダウンストリームシステムで結合を実行してください。
 
 ## Currentsの送信イベントにカスタム属性を含めることはできますか？ {#can-i-include-custom-attributes-in-currents-send-events}
 
@@ -97,7 +115,7 @@ Currentsの変更（新しいイベントフィールドやイベントタイプ
 
 ストレージ要件は、イベントの量とエクスポートするイベントの種類によって異なります。Brazeは[Avro形式のサンプルイベント](https://github.com/appboy/currents-examples/tree/master/sample-data)を提供しており、ユースケースに合わせてファイルサイズを見積もることができます。
 
-## CurrentsデータでCampaign名やCanvasステップ名が `NULL` になるのはなぜですか？ {#why-is-the-campaign-name-or-canvas-step-name-null-in-my-currents-data}
+## CurrentsデータでCampaign名やキャンバスステップ名が `NULL` になるのはなぜですか？ {#why-is-the-campaign-name-or-canvas-step-name-null-in-my-currents-data}
 
 新しいCampaignやCanvasを作成すると、名前がすべてのBrazeシステムに伝播するまでに時間がかかることがあります。この時間枠内にCurrentsを通じて送信されたイベントでは、名前フィールド（`campaign_name` や `canvas_step_name` など）が `NULL` になることがあります。これは、イベントがログ記録される直前に名前が変更された場合にも発生します。これを回避するには、CampaignやCanvasステップを作成または名前変更した後、送信前にしばらく時間を置いてください。
 

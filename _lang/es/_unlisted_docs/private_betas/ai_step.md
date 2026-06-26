@@ -32,7 +32,7 @@ También puedes registrar la salida de cualquier paso de IA como un atributo per
 
 ### Usar pasos de contexto {#using-context-steps}
 
-Puedes aprovechar los [pasos de contexto de Canvas](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) para hacer referencia fácilmente a las salidas más adelante en tu Canvas.
+Puedes aprovechar los [pasos de contexto de Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) para hacer referencia fácilmente a las salidas más adelante en tu Canvas.
 
 A continuación se muestra un ejemplo de paso de contexto que podrías configurar después de tu paso de IA. En este ejemplo, un paso de IA anterior contiene las salidas del paso de IA para la puntuación de sentimiento y el mensaje, y este paso de contexto crea las variables `sentiment_score` y `message`, que pueden utilizarse en pasos posteriores.
 

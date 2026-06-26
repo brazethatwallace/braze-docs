@@ -14,11 +14,209 @@ page_type: reference
 이 페이지에 나열된 업데이트에 대한 자세한 내용은 계정 매니저에게 문의하거나 [지원 티켓을 개설하세요]({{site.baseurl}}/user_guide/administer/personal/braze_support/). 월간 SDK 릴리스, 개선 사항 및 주요 변경 사항에 대한 자세한 내용은 [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/)에서 확인할 수 있습니다.
 {% endalert %}
 
+{% details 2026년 6월 25일 %}
+
+## 2026년 6월 25일 릴리스 {#june-25-2026-release}
+
+### 데이터 및 보고 {#data-reporting}
+
+#### Content Cards 및 배너의 측정기준 이름 업데이트 {#metric-name-update-for-content-cards-and-banners}
+
+Content Cards 및 배너의 _고유 수신자_ 측정기준이 _일일 고유 노출 횟수_로 이름이 변경되었습니다. _일일 고유 노출 횟수_는 Braze에서 수신한 수를 나타내며 `user_id`를 기반으로 합니다. 일일 고유 노출 횟수는 캠페인 또는 캔버스 단계 수준에서 집계됩니다. 자세한 내용은 [측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)을 참조하세요.
+
+#### 사용자 삭제 {#user-deletion}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)를 사용하면 더 이상 필요하지 않거나, 오류로 생성되었거나, 규정 준수(GDPR 또는 CCPA 등)를 위해 삭제해야 하는 프로필을 제거하여 데이터베이스를 관리할 수 있습니다.
+
+#### 데이터 포인트 제외 {#data-point-exclusions}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[eCommerce 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)는 더 이상 청구 가능한 데이터 포인트에 포함되지 않습니다. 데이터 포인트 소비 없이 Braze eCommerce 이벤트(`ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, `ecommerce.order_placed`, `ecommerce.order_cancelled`, `ecommerce.order_refunded`)를 도입할 수 있습니다.
+
+#### 이벤트 기록 탭 {#event-history-tab}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)의 **이벤트 기록** 탭에는 최근 30일간의 사용자 커스텀 이벤트 및 구매 내역이 나열됩니다(최대 100개의 최근 항목). SDK 또는 API 통합이 예상대로 이벤트를 전송하고 있는지 확인하거나, 사용자가 이벤트 트리거 캠페인 또는 Canvas에 진입한(또는 진입하지 않은) 이유를 디버깅하거나, 특정 사용자에 대한 지원 에스컬레이션을 조사하는 데 사용할 수 있습니다.
+
+#### 전달 가능성 센터에서 Amazon SES 고객을 위한 Microsoft SNDS 데이터 표시 {#deliverability-center-surfaces-microsoft-snds-data-for-amazon-ses-customers}
+
+Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [전달 가능성 센터]({{site.baseurl}}/deliverability_center/)에서 전용 전송 IP에 대한 Microsoft SNDS 측정기준을 표시합니다. 이 기능이 워크스페이스에 활성화되면 Braze는 최대 90일간의 과거 SNDS 데이터를 백필합니다.
+
+### BrazeAI<sup>TM</sup>
+
+#### Operator에서 통합된 BrazeAI 어시스턴트 {#unified-brazeai-assistants-in-operator}
+
+대시보드 전반에 있던 독립형 BrazeAI 어시스턴트가 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)로 통합되어, Operator가 대시보드 전반에서 마케터 대상 생성형 AI 지원을 위한 단일 AI 어시스턴트로 자리잡았습니다. 다음 어시스턴트가 이제 Operator를 통해 라우팅됩니다:
+
+- AI Liquid 에이전트
+- AI 카피라이터
+- AI HTML 이메일 템플릿 에이전트
+- AI 이미지 생성기
+- AI를 활용한 콘텐츠 QA
+- 데이터 변환을 위한 AI 코파일럿
+
+기존 진입점은 각 레거시 어시스턴트 버튼이 있던 위치에 그대로 유지됩니다. 독립형 어시스턴트를 여는 대신, 이러한 진입점은 이제 작업에 맞게 사전 범위가 지정된 동적 프롬프트와 함께 Operator 패널을 엽니다. 이러한 진입점은 기존 워크플로우를 조정하지 않고도 이러한 기능을 사용할 수 있도록 Operator로의 직접 경로를 제공합니다.
+
+#### 캠페인 생성 및 편집을 위한 Operator 지원 {#operator-support-for-campaign-creation-and-editing}
+
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator/)는 이제 메시지 작성뿐만 아니라 전체 캠페인을 생성하고 편집할 수 있습니다. 단일 자연어 프롬프트 또는 캠페인 브리프에서 Operator는 메시지 작성, 전달 예약, 오디언스 타겟팅, 전환 이벤트 할당 등 검토 준비가 된 캠페인을 처음부터 끝까지 구축한 다음 검토 단계에서 구축한 내용을 요약합니다. 이전에는 Operator가 메시지 작성(캠페인 생성 5단계 중 하나)만 할 수 있었지만, 이제 나머지 예약, 타겟, 할당 및 검토 단계에 대한 가시성과 제어 권한을 갖게 되었습니다.
+
+이 기능은 **Campaigns** 페이지 또는 기존 캠페인 내에서 사용할 수 있습니다. 결과적으로 Operator는 다음을 수행할 수 있습니다:
+
+- "이탈 사용자에게 다음에 앱을 열거나 구독을 취소하는 커스텀 이벤트를 기록할 때 20% 할인 프로모션 코드가 포함된 푸시 알림을 보내고 싶습니다"와 같은 프롬프트에 응답합니다.
+- 캠페인 마법사의 각 개별 단계에서 작업 중인 내용에 대한 완전한 가시성과 페이지의 양식 입력을 변경할 수 있는 기능으로 지원합니다.
+- 열린 캠페인에서 시작하든 **Campaigns** 페이지에서 시작하든 마법사의 올바른 단계로 이동하여 작업을 시작합니다.
+
+#### Content Blocks를 위한 Operator 지원 {#operator-support-for-content-blocks}
+
+[Operator]({{site.baseurl}}/user_guide/brazeai/operator/)는 이제 자연어 프롬프트에서 직접 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)—한 번 구축하고 여러 메시지에서 참조하는 재사용 가능한 스니펫—를 생성하고 편집할 수 있습니다. **Content Blocks** 페이지에서 Operator에게 처음부터 새 Content Block을 생성하거나 기존 것을 편집하도록 요청하면 Operator가 검토할 콘텐츠를 생성하거나 업데이트합니다.
+
+#### Operator로 구축된 에이전트 콘솔 템플릿 {#agent-console-templates-built-with-operator}
+
+**에이전트 콘솔**에서 에이전트를 구축할 때 커스텀 에이전트를 생성하거나 **Operator로 에이전트 생성**에서 옵션을 선택하여 BrazeAI Operator를 사용하여 시작 템플릿을 적용할 수 있습니다. Operator는 다음 에이전트 콘솔 시작 템플릿에 대한 지침, 출력 필드 및 컨텍스트를 사전 구성할 수 있습니다.
+
+자세한 내용은 [커스텀 에이전트 생성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator)을 참조하세요.
+
+#### 에이전트 콘솔 개선 사항 {#agent-console-enhancements}
+
+[에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents/)에서 다음을 수행할 수 있습니다:
+
+- **에이전트 생성** 버튼 드롭다운을 통해 Operator로 사전 설정된 활용 사례를 구성합니다.
+- 에이전트 목록에서 기존 에이전트를 복제합니다.
+- 생성 중에 에이전트를 초안으로 저장하고 나중에 구성을 완료합니다.
+- Canvas 에이전트에 대한 대체 출력 값을 설정하여 에이전트 오류 발생 시 출력 변수가 null로 설정되는 것을 방지합니다.
+- 카탈로그 에이전트 필드에 필수 입력 필드를 설정하여 필수 입력 필드 값이 비어 있거나 누락된 경우 에이전트가 실행되지 않도록 합니다.
+- 에이전트 열의 모든 빈 셀에 대해 에이전트를 다시 실행하여 전체 열을 다시 실행하지 않고도 누락된 값을 채울 수 있습니다.
+
+#### 출시된 콘텐츠 최적화 프로그램 단계 편집 {#edit-a-launched-content-optimizer-step}
+
+{% multi_lang_include release_type.md release="Beta" %}
+
+Canvas가 출시된 후 이제 [콘텐츠 최적화 프로그램 단계를 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/#edit-a-launched-step)하여 다음을 수행할 수 있습니다:
+
+- 구성요소당 5개 변형 제한까지 수동으로 또는 AI 생성 제안을 사용하여 기존 구성요소에 새 변형을 추가합니다.
+- 변형을 비활성화하여 사용자에게 전송을 중지합니다.
+- 이전에 비활성화된 변형을 다시 활성화합니다(구성요소가 5개 변형 제한 이하를 유지하는 경우).
+
+### 채널 및 터치포인트 {#channels-touchpoints}
+
+#### 배너의 사용자 해제 {#user-dismissals-for-banners}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+해제 동작을 구성할 때 **배너를 해제할 수 있음**을 선택하여 사용자가 배너를 수동으로 해제할 수 있도록 허용할 수 있습니다. 이 옵션은 모든 앱 사용자에게 한정 세일을 홍보하되 관심이 없는 경우 메시지를 해제할 수 있도록 하려는 시나리오에서 유용합니다.
+
+해제 활성화 및 해제 버튼 커스터마이징에 대한 자세한 내용은 [해제 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)을 참조하세요.
+
+#### 배너의 커스텀 클릭 추적 {#custom-click-tracking-for-banners}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+배너에 대한 더 세분화된 클릭 추적을 위해 속성 패널의 **보고용 식별자** 필드를 사용하여 각 인터랙티브 요소에 [커스텀 식별자를 할당]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-32-define-on-click-behavior-optional)할 수 있습니다.
+
+#### 배너의 재자격 {#re-eligibility-for-banners}
+
+배너 캠페인에 재자격이 활성화되면 배너를 해제한 사용자는 해제 시점부터 시작되는 구성 가능한 쿨다운 기간 후에 다시 자격을 얻을 수 있습니다. 재자격이 활성화되지 않은 경우 해제한 사용자는 자격이 없는 상태로 유지됩니다. 재자격을 구성하려면 [재자격 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)을 참조하세요. Canvas 배너 단계는 대신 Canvas 재진입 설정을 사용합니다.
+
+#### Quick Push A/B 테스트 {#quick-push-ab-testing}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Quick Push A/B 테스트는 이제 변형 그룹을 통해 멀티 플랫폼 푸시 캠페인 및 캔버스 단계를 지원하므로 하나의 워크플로우에서 정렬된 iOS 및 Android 메시지 변형을 테스트할 수 있습니다. 자세한 내용은 [멀티 플랫폼 푸시 메시지]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/#use-cases)를 참조하세요.
+
+#### BrazeAI<sup>TM</sup> 변형 선택 {#brazeai-variant-selection}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+BrazeAI<sup>TM</sup> 변형 선택은 여러 푸시 변형을 추가할 때 자동으로 활성화되며, 추천 실험 기본값을 적용하고, 참여를 개선하기 위해 가장 성과가 좋은 변형으로 최적화합니다. 즉시 전송해야 하는 경우 끌 수 있습니다. 자세한 내용은 [BrazeAI<sup>TM</sup> 변형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/)을 참조하세요.
+
+#### WhatsApp 테스트 전송 결과 {#whatsapp-test-send-results}
+
+테스트 WhatsApp 메시지를 전송한 후 메시지 작성기에서 직접 [상세 전달 보고서]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-4-view-test-send-results)를 볼 수 있습니다. 이를 통해 메시지가 의도한 수신자에게 도달했는지 확인하고 출시 전에 실패를 문제 해결할 수 있습니다.
+
+### 파트너십 {#partnerships}
+
+#### Convercus - 데이터 및 분석 - 로열티 {#convercus-data-and-analytics-loyalty}
+
+[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus/)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS 로열티 및 쿠폰 플랫폼입니다.
+
+#### Copy Pastd - 메시지 오케스트레이션 - 템플릿 {#copy-pastd-message-orchestration-templates}
+
+[Copy Pastd]({{site.baseurl}}/partners/copy_pastd/) Building Blocks는 Liquid 기반 Content Blocks와 전체 템플릿을 Braze 워크스페이스에 직접 푸시하는 드래그 앤 드롭 이메일 빌더입니다. 한 번 디자인하고 Braze에 동기화한 다음 매번 HTML을 다시 빌드하지 않고도 캠페인, Canvas 및 트리거 플로우에서 동일한 구성요소를 재사용할 수 있습니다.
+
+#### Databricks Mosaic - AI 모델 제공업체 {#databricks-mosaic-ai-model-providers}
+
+[Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic/)은 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포 및 관리하기 위한 Databricks의 통합 플랫폼입니다.
+
+#### DinMo - 데이터 및 분석 - 리버스 ETL {#dinmo-data-and-analytics-reverse-etl}
+
+[DinMo]({{site.baseurl}}/partners/dinmo/)는 리버스 ETL(Extract, Transform, Load)을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(CDP)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
+
+#### EmailShepherd - 메시지 오케스트레이션 - 템플릿 {#emailshepherd-message-orchestration-templates}
+
+[EmailShepherd]({{site.baseurl}}/partners/emailshepherd/)는 이메일 디자인 시스템을 기반으로 구축된 에이전트 기반 이메일 제작 플랫폼으로, 전체 마케팅 팀과 AI 에이전트가 병목 현상 없이 브랜드에 맞는 프로덕션 준비 이메일을 제작할 수 있도록 합니다. Braze 통합은 승인된 이메일을 Braze 워크스페이스에 직접 게시하므로 마케터가 브랜드 일관성을 희생하지 않고 Braze에서 이메일 제작을 확장할 수 있습니다.
+
+#### Talkable - 메시지 개인화 - 추천 {#talkable-message-personalization-referrals}
+
+[Talkable]({{site.baseurl}}/partners/talkable/)은 소비자 브랜드가 만족한 고객을 확장 가능한 추천 채널로 전환하는 데 도움을 줍니다. Braze 통합을 통해 Talkable 추천 캠페인에서 캡처된 마케팅 이메일 옵트인이 실시간으로 Braze에 유입되어 팀이 모든 새로운 옹호자와 친구를 환영하고, 세분화하고, 참여시키는 데 필요한 동의, 컨텍스트 및 캠페인 데이터를 제공합니다.
+
+### SDK
+
+#### SDK 주요 업데이트 {#sdk-breaking-updates}
+
+다음 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 아래에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그를 확인하면 확인할 수 있습니다.
+
+- [Swift SDK 14.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+- [Android SDK 42.3.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.3.0)
+    - `BannerView`: `onDismissCallback`에 전달되는 `BannerDismissSnapshot` 필드가 이제 non-null입니다. SDK가 `placementId`, `stableKey` 또는 `trackingId`를 확인할 수 없는 경우 콜백이 건너뛰어지고 경고가 기록됩니다.
+- [Web SDK 6.8.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
+    - 새로운 eCommerce 이벤트 메서드 지원을 추가합니다.
+- [Swift SDK 14.2.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1421)
+- [Swift SDK 15.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+    - 배너: `onDismiss`가 이제 `Braze/Banner` 대신 `Braze/BannerDismissalEvent`를 수신합니다.
+    - Xcode 버전을 26.0(17A324)으로 올립니다.
+    - 최소 Mac Catalyst 배포 대상을 iOS 13(macOS 10.15 Catalina)에서 iOS 16(macOS 13 Ventura)으로 올립니다.
+        - macOS 12 Monterey 이하의 Mac Catalyst 사용자는 더 이상 지원되지 않습니다.
+    - 특정 엣지 케이스에서 SDK가 다른 사용자에게 인앱 메시지 표시를 방지하는지 여부를 제어하는 기능을 제거합니다.
+        - `Braze.Configuration.preventInAppMessageDisplayForDifferentUser`를 통한 구성 옵션을 제거합니다.
+        - 이제 SDK는 이 구성 옵션이 true로 설정된 것처럼 항상 동작합니다.
+    - `Braze.WebViewBridge.ScriptMessageHandler` 및 `Braze.WebViewBridge.SchemeHandler` init을 non-optional `channel` 매개변수를 갖도록 업데이트합니다.
+- [Android SDK 42.3.1](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#4231)
+    - 새로운 eCommerce 이벤트 메서드 지원을 추가합니다.
+    - 커스텀 UI 구현을 위한 배너 해제 메서드를 추가합니다.
+    - HTML 인앱 메시지 버그 수정을 포함합니다.
+- [Swift SDK 15.0.1](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1501)
+- [React Native 21.0.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/21.0.0)
+    - 네이티브 Swift 및 Android SDK 버전 바인딩을 업데이트합니다.
+    - 네이티브 Swift SDK 버전 바인딩을 [Braze Swift SDK 14.0.4에서 15.0.1로](https://github.com/braze-inc/braze-swift-sdk/compare/14.0.4...15.0.1#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트합니다.
+    - Content Cards JSDoc을 수정합니다.
+        - Xcode 버전을 26.0(17A324)으로 올립니다.
+- [Swift SDK 15.1.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+    - 새로운 eCommerce 이벤트 메서드 지원을 추가합니다.
+    - 커스텀 UI 구현을 위한 배너 해제 메서드를 추가합니다.
+    - 배너를 사용한 커스텀 UI 구축을 위한 예제 구현을 추가합니다.
+    - 패스스루 라이브 활동 관측 가능성을 추가하여 오류 및 업데이트 이벤트를 더 정밀하고 세분화하여 추적할 수 있습니다.
+    - Content Cards에 대한 비동기 콜백 기반 getter를 추가하고 이전 getter를 더 이상 사용하지 않습니다.
+    - 상태 관리 안정성을 개선합니다.
+- [Segment Swift 9.0.0](https://github.com/braze-inc/braze-segment-swift/releases/tag/9.0.0)
+    - Braze Swift SDK 바인딩을 `15.0.0+` SemVer 디노미네이션의 릴리스가 필요하도록 업데이트합니다.
+        - 이를 통해 `15.0.0`에서 `16.0.0` 미만까지의 모든 버전의 Braze SDK와 호환이 가능합니다.
+        - Xcode 버전을 26.0(17A324)으로 올립니다.
+        - 잠재적인 주요 변경 사항에 대한 자세한 내용은 [`15.0.0` 체인지로그 항목](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1500)을 참조하세요.
+- [React Native 21.1.0](https://www.npmjs.com/package/@braze/react-native-sdk/v/21.1.0)
+- [Swift SDK 15.2.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
+
+{% enddetails %}
+
 {% details 2026년 5월 28일 %}
 
 ## 2026년 5월 28일 릴리스 {#may-28-2026-release}
 
-### 데이터 및 보고 {#data-reporting}
+### 데이터 및 보고
 
 #### 푸시 성과 대시보드 {#push-performance-dashboard}
 
@@ -56,7 +254,7 @@ page_type: reference
 
 메시지 전송을 위한 워크스페이스 시간대는 점진적으로 출시되고 있으므로 대시보드에서 아직 이러한 설정이 표시되지 않을 수 있습니다.
 
-### 채널 및 터치포인트 {#channels-touchpoints}
+### 채널 및 터치포인트
 
 #### WhatsApp `inbound_profile_name`
 
@@ -66,7 +264,7 @@ Meta의 인바운드 메시징 웹훅에서 사용자의 WhatsApp 표시 이름�
 
 Braze는 [고아 구독 상태 레코드를 자동으로 관리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#how-braze-handles-orphaned-subscription-states)합니다(사용자 프로필에 연결되지 않은 전화번호 또는 이메일 주소에 저장된 구독 데이터). 이를 통해 의도하지 않은 구독 상태 상속을 방지합니다. 이는 새로 생성된 사용자 프로필이 이전에 삭제되었거나 관련 없는 사용자의 구독 상태를 잘못 상속하는 시나리오로부터 사용자를 보호합니다.
 
-### 파트너십 {#partnerships}
+### 파트너십
 
 #### Chord - 고객 데이터 플랫폼 {#chord-customer-data-platform}
 
@@ -88,7 +286,7 @@ Braze는 [고아 구독 상태 레코드를 자동으로 관리]({{site.baseurl}
 
 ### SDK
 
-#### SDK 주요 업데이트 {#sdk-breaking-updates}
+#### SDK 주요 업데이트
 
 다음 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 아래에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그를 확인하면 확인할 수 있습니다.
 
@@ -561,9 +759,9 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer/)은 자동화된 참여 최적화를 제공하는 지속적인 고변형 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성 요소를 정의하고, AI를 사용하여 변형을 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성 요소를 메시지 콘텐츠에 매핑할 수 있습니다.
+[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer/)은 자동화된 참여 최적화를 제공하는 지속적인 고변형 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성요소를 정의하고, AI를 사용하여 변형을 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성요소를 메시지 콘텐츠에 매핑할 수 있습니다.
 
-비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 콘텐츠 최적화 프로그램은 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성 요소 변형 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성능이 우수한 변형은 자연스럽게 전송 할당이 증가하고 성능이 낮은 변형은 감소합니다. 콘텐츠 최적화 프로그램은 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvas에서 가장 잘 작동합니다.
+비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 콘텐츠 최적화 프로그램은 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 변형 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 변형은 자연스럽게 전송 할당이 증가하고 성과가 낮은 변형은 감소합니다. 콘텐츠 최적화 프로그램은 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvas에서 가장 잘 작동합니다.
 
 ### 데이터 및 보고
 
@@ -633,31 +831,31 @@ eCommerce 추천 이벤트와 기존 구매 이벤트를 일치시키기 위해 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 스토리지 대상(AWS S3, GCS, Azure Blob Storage) 및 Snowflake 데이터 공유를 위한 두 가지 새로운 [이벤트](http://braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)(`agentconsole.AgentExecuted` 및 `agentconsole.ToolInvocation`)를 사용할 수 있습니다. 이러한 이벤트를 통해 다운스트림 시스템에서 에이전트 콘솔 사용량과 세부 정보를 분석하여 에이전트 사용량을 이해하고 최대한 활용할 수 있습니다. 에이전트를 사용하면 Canvas 또는 카탈로그에서 콘텐츠를 생성하고 지능적인 의사 결정에 따라 사용자를 다른 경로로 라우팅하는 등 Braze 전반에서 특정 작업을 수행할 수 있는 지능형 에이전트를 만들고 배포할 수 있습니다. 자세한 내용은 [커런츠 체인지로그](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 스토리지 대상(AWS S3, GCS, Azure Blob Storage) 및 Snowflake 데이터 공유를 위한 두 가지 새로운 [이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)(`agentconsole.AgentExecuted` 및 `agentconsole.ToolInvocation`)를 사용할 수 있습니다. 이러한 이벤트를 통해 다운스트림 시스템에서 에이전트 콘솔 사용량과 세부 정보를 분석하여 에이전트 사용량을 이해하고 최대한 활용할 수 있습니다. 에이전트를 사용하면 Canvas 또는 카탈로그에서 콘텐츠를 생성하고 지능적인 의사 결정에 따라 사용자를 다른 경로로 라우팅하는 등 Braze 전반에서 특정 작업을 수행할 수 있는 지능형 에이전트를 만들고 배포할 수 있습니다. 자세한 내용은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### 개별 채널에 대한 새로운 '재시도' 이벤트 {#new-retry-events-for-individual-channels}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 제한의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [커런츠 체인지로그](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 제한의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### TokenStateChange 이벤트에 새로운 'time_ms' 필드 추가 {#add-new-time_ms-field-to-tokenstatechange-event}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[`users.behaviors.pushnotification.TokenStateChange`](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 이벤트에 새로운 `time_ms` 필드가 추가되어 푸시 토큰 상태 변화를 추적하기 위한 밀리초 수준의 세분성을 제공합니다. 이 향상된 정밀도는 같은 초 내에 여러 변경 사항이 발생할 때 푸시 토큰의 최신 상태를 파악하는 데 도움이 되며, 다운스트림 시스템에서 올바른 구독 상태를 유지하고 있다는 확신을 줍니다. 자세한 내용은 [커런츠 체인지로그](https://www.braze.com/docs/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+[`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 이벤트에 새로운 `time_ms` 필드가 추가되어 푸시 토큰 상태 변화를 추적하기 위한 밀리초 수준의 세분성을 제공합니다. 이 향상된 정밀도는 같은 초 내에 여러 변경 사항이 발생할 때 푸시 토큰의 최신 상태를 파악하는 데 도움이 되며, 다운스트림 시스템에서 올바른 구독 상태를 유지하고 있다는 확신을 줍니다. 자세한 내용은 [커런츠 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### Tealium 대상으로 익명 사용자 보내기 {#send-anonymous-user-to-tealium-destinations}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents) 대상으로 스트리밍할 수 있습니다. 커런츠 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents) 대상으로 스트리밍할 수 있습니다. 커런츠 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 활용 사례에 매우 중요합니다.
 
 ##### CustomHTTP 대상으로 익명 사용자 보내기 {#send-anonymous-user-to-customhttp-destinations}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. 커런츠 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. 커런츠 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 활용 사례에 매우 중요합니다.
 
 #### 이메일 열기 이벤트 — "machine_open" 필드 {#email-open-event-machine_open-field}
 
@@ -770,9 +968,9 @@ Canvas의 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas
 
 ### 오케스트레이션
 
-#### SMS Liquid 사용 사례 {#sms-liquid-use-case}
+#### SMS Liquid 활용 사례 {#sms-liquid-use-case}
 
-[인바운드 SMS 키워드에 따라 다른 메시지로 응답]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/#sms-keyword-response) 사용 사례는 동적 SMS 키워드 처리를 통합하여 특정 인바운드 메시지에 다른 메시지 카피로 응답합니다. 예를 들어, 누군가 "START" 문자를 보낼 때와 "JOIN" 문자를 보낼 때 다른 응답을 보낼 수 있습니다.
+[인바운드 SMS 키워드에 따라 다른 메시지로 응답]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/#sms-keyword-response) 활용 사례는 동적 SMS 키워드 처리를 통합하여 특정 인바운드 메시지에 다른 메시지 카피로 응답합니다. 예를 들어, 누군가 "START" 문자를 보낼 때와 "JOIN" 문자를 보낼 때 다른 응답을 보낼 수 있습니다.
 
 #### 연결된 콘텐츠에 대한 허용 목록 {#allowlisting-for-connected-content}
 
@@ -805,155 +1003,5 @@ WhatsApp용 MM API는 100% 전달 가능성을 제공하지 않으므로, 다른
 다음 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 아래에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그를 확인하면 확인할 수 있습니다.
 
 - [Web SDK 6.3.1](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
-
-{% enddetails %}
-
-{% details 2025년 11월 11일 %}
-
-## 2025년 11월 11일 {#november-11-2025}
-
-### 데이터 유연성 {#data-flexibility}
-
-#### `Live Activities Push to Start Registered for App` 세분화 필터 {#live-activities-push-to-start-registered-for-app-segmentation-filter}
-
-`Live Activities Push to Start Registered for App` 필터는 특정 앱에 대한 iOS 푸시 알림을 통해 라이브 활동을 시작하도록 등록되었는지 여부에 따라 사용자를 세분화합니다.
-
-#### RFM SQL 세그먼트 확장 {#rfm-sql-segment-extension}
-
-[RFM(최근성, 빈도, 금액) 세그먼트 확장]({{site.baseurl}}/rfm_segments/)을 생성하여 구매 습관을 측정하여 우수 사용자를 타겟팅할 수 있습니다.
-
-RFM 분석은 각 카테고리(최근성, 빈도, 금액)별로 사용자에게 0~3점(3점이 최고점, 0점이 최저점)의 점수를 부여하여 최고의 사용자를 식별하는 마케팅 기법입니다. 최근성, 빈도 및 금전적 가치는 모두 사용자가 선택한 특정 시간 범위의 데이터를 기반으로 합니다.
-
-#### 커스텀 속성 — 값 {#custom-attributes-values}
-
-사용량 보고서를 볼 때 [**값** 탭]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#values-tab)을 선택하면 약 250,000명의 사용자 샘플을 기준으로 선택한 커스텀 속성의 상위 값을 볼 수 있습니다.
-
-#### 클라우드 데이터 수집을 위한 동기화 로그 및 관측 가능성 {#sync-logs-and-observability-for-cloud-data-ingestion}
-
-{% multi_lang_include release_type.md release="General availability" %}
-
-클라우드 데이터 수집(CDI) [동기화 로그 대시보드]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_logs/)를 사용하면 CDI에서 처리한 모든 데이터를 모니터링하고, 데이터가 성공적으로 동기화되었는지 확인하고, "부정확하거나" 누락된 데이터의 문제를 진단할 수 있습니다.
-
-#### 다중 규칙 기능 플래그 롤아웃 {#multi-rule-feature-flag-rollouts}
-
-[다중 규칙 기능 플래그 롤아웃]({{site.baseurl}}/developer_guide/feature_flags/create/#multi-rule-feature-flag-rollouts)을 사용하여 사용자를 평가하기 위한 일련의 규칙을 정의하면 정확한 세분화와 제어된 기능 릴리스가 가능합니다. 이 방법은 다양한 오디언스에게 동일한 기능을 배포하는 데 이상적입니다.
-
-#### 드래그 앤 드롭 제품 블록을 위한 카탈로그 필드에 매핑하기 {#mapping-to-catalog-fields-for-drag-and-drop-product-blocks}
-
-카탈로그 설정에서 **제품 블록** 토글을 선택하여 카탈로그의 [특정 필드 및 정보에 매핑]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/#catalog-setup)할 수 있습니다. 이를 통해 제품 제목, 제품 URL, 이미지 URL로 사용할 필드를 선택할 수 있습니다.
-
-#### 커런츠에서 최대 게재빈도 설정 중단 이벤트 {#frequency-capping-abort-events-in-currents}
-
-커런츠 사용 시 채널 중단 이벤트에서 `abort_type`을 참조할 수 있습니다. 최대 게재빈도 설정으로 인해 메시지가 중단되었음을 식별하고 중단의 원인이 된 최대 게재빈도 설정 규칙을 포함합니다. 최대 게재빈도 설정 규칙을 설정하는 데 도움이 됩니다. 특정 커런츠 이벤트에 대한 자세한 내용은 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)를 참조하세요.
-
-### 강력한 채널 {#robust-channels}
-
-#### 배경 행 이미지 {#background-row-images}
-
-{% multi_lang_include release_type.md release="General availability" %}
-
-**행 속성** 패널에서 인앱 메시지 또는 랜딩 페이지에 [배경 행 이미지를 추가]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#background-image)할 수 있습니다. **배경 이미지**를 토글한 다음 이미지 URL을 입력하거나 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 이미지를 선택합니다. 마지막으로 대체 텍스트, 크기, 위치, 이미지 반복 여부를 구성하여 행 전체에 패턴을 만들 수 있습니다.
-
-![가로 반복 패턴이 있는 피자의 행 배경 이미지.]({% image_buster /assets/img_archive/background_row.png %})
-
-#### 미리보기 링크 복사 {#copy-preview-link}
-
-[배너]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-5-test-your-message-optional), [이메일 커스텀 바닥글]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#creating-your-custom-footer), [이메일 옵트인 및 탈퇴 페이지]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=custom%20footer#subscription-pages-and-footers)에서 **미리보기 링크 복사**를 사용하여 콘텐츠가 임의의 사용자에게 어떻게 보이는지 보여주는 공유 가능한 링크를 생성할 수 있습니다.
-
-#### 최적화된 전달이 가능한 WhatsApp 메시지 {#whatsapp-messages-with-optimized-delivery}
-
-Meta의 고급 AI 시스템을 사용하여 참여 가능성이 가장 높은 더 많은 사용자에게 마케팅 메시지를 전달하여 전달 가능성과 메시지 참여도를 크게 높일 수 있습니다.
-
-[전달이 최적화된 WhatsApp 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/)는 기존 클라우드 API에 비해 뛰어난 성능을 제공하는 Meta의 새로운 [마케팅 메시지 라이트 API](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/)를 사용하여 전송됩니다. 이 새로운 전송 파이프라인을 사용하면 메시지를 소중히 여기고 수신하고자 하는 사용자에게 더 효과적으로 도달할 수 있습니다.
-
-#### WhatsApp Flows
-
-WhatsApp Flow 메시지를 Braze Canvas 또는 캠페인에 통합할 때, 사용자가 Flow를 통해 제출하는 특정 정보를 캡처하여 활용하고 싶을 수 있습니다. Braze는 필요한 중첩 고객 속성(NCA) 스키마를 생성하기 위해 사용자 응답의 구조, 특히 JSON 응답의 예상 형태에 관한 추가 정보를 수신해야 합니다.
-
-이제 [Flow 응답을 커스텀 속성으로 저장]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows/?tab=recommended%20method#step-1-generate-the-flow-custom-attribute)하고 테스트 전송을 완료하여 응답 구조에 대한 정보를 Braze에 제공할 수 있습니다.
-
-#### 편집 가능한 사용자 미리보기 {#editable-user-preview}
-
-[무작위 또는 기존 사용자의 개별 필드를 편집]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=webhook#customizing-an-existing-user)하여 메시지 내의 동적 콘텐츠를 테스트할 수 있습니다. **편집**을 선택하여 선택한 사용자를 수정할 수 있는 커스텀 사용자로 전환합니다.
-
-!["편집" 버튼이 있는 "사용자로 미리보기" 탭.]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
-
-### AI 및 ML 자동화 {#ai-and-ml-automation}
-
-#### BrazeAI Decisioning Studio™ Go
-
-이제 다음 구성 문서를 참조하여 [BrazeAI Decisioning Studio™ Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/)와의 통합을 설정할 수 있습니다:
-
-- [Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-- [Klaviyo]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-- [Salesforce Marketing Cloud]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-
-#### Braze 에이전트를 위한 새로운 기능 {#new-features-for-braze-agents}
-
-{% multi_lang_include release_type.md release="Beta" %}
-
-이제 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)를 다음과 같이 커스터마이즈할 수 있습니다:
-
-- 에이전트가 응답할 때 준수해야 할 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)을 적용합니다.
-- 카탈로그를 참조하여 메시지를 더욱 개인화할 수 있습니다.
-- [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#output-format)을 제공하여 에이전트의 출력을 구조화합니다.
-- 에이전트의 출력에 대한 편차 수준에 맞게 [온도]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#temperature)를 조정합니다.
-
-### BrazeAI Operator<sup>TM</sup>를 사용한 ChatGPT 모델 {#chatgpt-models-with-brazeai-operatortm}
-
-{% multi_lang_include release_type.md release="Beta" %}
-
-이러한 GPT 모델 중에서 선택하여 [Operator]({{site.baseurl}}/user_guide/brazeai/operator/)의 다양한 요청 유형에 사용할 수 있습니다:
-
-- GPT-5 nano
-- GPT-5 mini(기본값)
-- GPT-5
-
-### 새로운 Braze 파트너십 {#new-braze-partnerships}
-
-#### StackAdapt - 광고 {#stackadapt-advertising}
-
-[StackAdapt]({{site.baseurl}}/partners/stackadapt/)는 타겟팅된 성과 중심 광고를 제공하는 AI 기반 마케팅 플랫폼입니다. Braze의 사용자 프로필 데이터를 StackAdapt 데이터 허브에 동기화할 수 있습니다. 두 플랫폼을 연결하면 고객에 대한 통합된 뷰를 생성하고 퍼스트파티 데이터를 활성화하여 광고 성과를 개선할 수 있습니다.
-
-#### Cloudinary - 동적 콘텐츠 {#cloudinary-dynamic-content}
-
-[Cloudinary]({{site.baseurl}}/partners/cloudinary/)는 채널과 고객 여정에 걸쳐 모든 캠페인에 이미지와 비디오를 대규모로 관리, 편집, 최적화 및 전달할 수 있도록 지원하는 이미지 및 비디오 플랫폼입니다. 통합 및 활성화가 완료되면 Cloudinary의 미디어 관리가 Braze 캠페인과 Canvas에 동적, 상황별, 개인화된 자산을 전달할 수 있습니다.
-
-#### Kameleoon - A/B 테스트 {#kameleoon-ab-testing}
-
-[Kameleoon]({{site.baseurl}}/partners/kameleoon/)은 하나의 통합 플랫폼에서 실험, AI 기반 개인화 및 기능 관리 기능을 갖춘 최적화 솔루션입니다.
-
-### SDK 업데이트 {#sdk-updates}
-
-다음 SDK 업데이트가 릴리스되었습니다. 주요 업데이트는 아래에 나열되어 있으며, 그 외의 모든 업데이트는 해당 SDK 체인지로그를 확인하면 확인할 수 있습니다.
-
-- [React Native SDK 18.0.0](https://github.com/braze-inc/braze-react-native-sdk/blob/16.1.0/CHANGELOG.md)
-    - `subscribeToInAppMessage` 및 `addListener`의 콜백에 대한 Typescript 유형을 `Braze.Events.IN_APP_MESSAGE_RECEIVED`로 수정했습니다.
-        - 이제 이러한 리스너는 새로운 `InAppMessageEvent` 유형의 콜백을 올바르게 반환합니다. 이전에는 메서드에 `BrazeInAppMessage` 유형을 반환하도록 주석이 달렸지만 실제로는 `String`을 반환했습니다.
-         - 두 가지 구독 API 중 하나를 사용하는 경우 이 버전으로 업데이트한 후 인앱 메시지의 동작이 변경되지 않았는지 확인하세요. `BrazeProject.tsx`에서 샘플 코드를 확인하세요.
-    - 이제 API `logInAppMessageClicked`, `logInAppMessageImpression`, `logInAppMessageButtonClicked`는 기존 공개 인터페이스와 일치하도록 `BrazeInAppMessage` 객체만 허용합니다.
-        - 이전에는 `BrazeInAppMessage` 객체와 `String`을 모두 허용했습니다.
-    - `BrazeInAppMessage.toString()`은 이제 JSON 문자열 표현 대신 사람이 읽을 수 있는 문자열을 반환합니다.
-        - 인앱 메시지의 JSON 문자열 표현을 얻으려면 `BrazeInAppMessage.inAppMessageJsonString`을 사용합니다.
-    - iOS에서 `[[BrazeReactUtils sharedInstance] formatPushPayload:withLaunchOptions:]`가 `[BrazeReactDataTranslator formatPushPayload:withLaunchOptions:]`로 이동되었습니다.
-        - 이 새로운 메서드는 이제 인스턴스 메서드가 아닌 클래스 메서드입니다.
-    - `BrazeReactUtils` 메서드에 null 가능성 어노테이션을 추가합니다.
-    - API에서 더 이상 사용되지 않는 다음 메서드와 속성을 제거합니다:
-        - `getInstallTrackingId(callback:)` → `getDeviceId` 사용.
-        - `registerAndroidPushToken(token:)` → `registerPushToken` 사용.
-        - `setGoogleAdvertisingId(googleAdvertisingId:adTrackingEnabled:)` → `setAdTrackingEnabled` 사용.
-        - `PushNotificationEvent.push_event_type` → `payload_type` 사용.
-        - `PushNotificationEvent.deeplink` → `url` 사용.
-        - `PushNotificationEvent.content_text` → `body` 사용.
-        - `PushNotificationEvent.raw_android_push_data` → `android` 사용.
-        - `PushNotificationEvent.kvp_data` → `braze_properties` 사용.
-    - 네이티브 Android SDK 버전 바인딩을 [Braze Android SDK 39.0.0에서 40.0.2로](https://github.com/braze-inc/braze-android-sdk/compare/v39.0.0...v40.0.2#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트합니다.
-- [.NET MAUI (Xamarin) SDK 버전 8.0.0](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)
-    - iOS 바인딩을 [Braze Swift SDK 12.1.0에서 13.3.0으로](https://github.com/braze-inc/braze-swift-sdk/compare/12.1.0...13.3.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트했습니다. 여기에는 Xcode 26 지원이 포함됩니다.
-- [Flutter SDK 16.0.0](https://pub.dev/packages/braze_plugin/changelog)
-    - 네이티브 Android 브리지를 [Braze Android SDK 39.0.0에서 40.0.0으로](https://github.com/braze-inc/braze-android-sdk/compare/v39.0.0...v40.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed) 업데이트합니다.
-- [Braze Swift SDK 13.3.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-- [Web SDK 6.3.0](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)
-- [Android SDK 40.0.0-40.0.2](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md)
 
 {% enddetails %}

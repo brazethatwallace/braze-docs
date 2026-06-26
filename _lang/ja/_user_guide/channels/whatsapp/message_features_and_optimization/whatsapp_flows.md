@@ -81,10 +81,6 @@ Braze内で以前使用されたことのないFlowを使用している場合�
 
 1. WhatsAppメッセージステップの設定を完了します。
 2. **Flowレスポンスをカスタム属性として保存**にチェックが入っていることを確認します。
-
-![Flowレスポンスをカスタム属性として保存するチェックボックスがあるMeta Flowセクション。]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. 自分自身にテストメッセージを送信し、ユーザーとしてFlowを完了します。
 
 これで、BrazeはFlowレスポンスJSONの形状を取得し、カスタム属性を生成できます。
@@ -190,7 +186,7 @@ UIエディターで、以下を選択します。
 
 [サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を使用してLiquidでFlowレスポンスを利用するには、以下のステップを完了します。
 
-1. WhatsAppメッセージの作成時に、<i class="fas fa-plus-circle" aria-label="Add Personalization"></i> **Add Personalization**を選択して**Add Personalization**ウィンドウを開きます。
+1. WhatsAppメッセージの作成時に、<i class="fas fa-plus-circle" aria-label="パーソナライゼーションを追加"></i> **Add Personalization**を選択して**Add Personalization**ウィンドウを開きます。
 2. パーソナライゼーションタイプとして**WhatsApp Properties**を選択し、カスタム属性として**inbound_flow_response**を選択します。これを使用して、ユーザープロファイルに情報を保存したり、メッセージに含めたり、webhookなどの他のサービスに転送したりできます。
 
 ![カスタム属性inbound_flow_responseを使用したWhatsAppプロパティのパーソナライゼーションを挿入する「Add Personalization」コンポーネントが表示されたWhatsAppメッセージ作成画面。]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}

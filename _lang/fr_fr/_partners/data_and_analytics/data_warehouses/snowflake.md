@@ -89,7 +89,7 @@ Comme avec Currents, vous pouvez utiliser le partage sécurisé de données Snow
 
 Pour obtenir la liste complète des tables et colonnes disponibles, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Le partage de données Snowflake inclut toutes les tables de cette référence, ainsi que des tables supplémentaires exclusives à Snowflake pour les snapshots, les journaux des modifications de Campaign et de Canvas, les événements de la console des agents et les événements de renvoi de messages.
 
-Vous pouvez également [télécharger les schémas de tables bruts]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) sous forme de fichier texte.
+Vous pouvez également [télécharger les schémas de tables bruts](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) sous forme de fichier texte.
 
 ### Schéma d'ID utilisateur {#user-id-schema}
 

@@ -81,7 +81,7 @@ Shopify 통합에서 중단된 이벤트를 사용하는 활성 메시지를 처
 
 ### 1단계: 온사이트 추적을 활성화하기 위해 Braze Web SDK 초기화 및 로드 {#step-1}
 
-아직 하지 않았다면, 온사이트 추적을 활성화하기 위해 Braze Web SDK를 초기화하고 로드하세요. 전체 안내는 [Shopify 커스텀 통합 설정](https://www.braze.com/docs/partners/ecommerce/shopify/shopify_custom_integration/#step-1)을 참조하세요:
+아직 하지 않았다면, 온사이트 추적을 활성화하기 위해 Braze Web SDK를 초기화하고 로드하세요. 전체 안내는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1)을 참조하세요:
 - Braze 웹 앱 생성
 - 하위 도메인 및 환경 변수 추가
 - 온사이트 추적 활성화
@@ -118,7 +118,7 @@ Shopify 사이트에서 안내에 따라 Braze 앱을 재인증합니다. 이를
 재인증 프로세스는 몇 분이 걸릴 수 있지만, 완료되면 Shopify 페이지에서 자동으로 업데이트됩니다.
 {% endalert %}
 
-!["Reauthorize the Braze app" 옆에 회전 아이콘이 있는 Shopify 업그레이드 패널.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_app_loading.png %}){: style="max-width:35%;"}
+!["Braze 앱 재인증" 옆에 회전 아이콘이 있는 Shopify 업그레이드 패널.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_app_loading.png %}){: style="max-width:35%;"}
 
 ### 4단계: 외부 ID 유형 선택 {#step-4-choose-an-external-id-type}
 
@@ -219,4 +219,4 @@ Braze로 돌아가면 Shopify 통합 설치가 완료되었을 때 알림을 받
 - **SDK 커스터마이징(선택 사항):** Braze 및 Shopify 통합에 커스터마이징(예: 커스텀 이벤트 또는 속성 로깅)을 적용한 경우, 업그레이드 후 올바르게 작동하는지 확인합니다.
 - **이메일 또는 SMS 구독자 수집(선택 사항):** 이전에 이메일 또는 SMS 구독자 수집을 활성화한 경우, 업그레이드 중 구독자의 최신 상태를 반영하기 위해 새로운 기본 구독 그룹이 생성됩니다. 기본 구독 그룹은 Shopify 스토어프론트의 이름으로 지정됩니다. 이러한 새로운 기본 구독 그룹은 업그레이드 후 약 5시간 후에 사용할 수 있으며, 활성 메시지에 추가해야 합니다.
 
-질문이 있으시면 [고객지원에 문의](https://www.braze.com/docs/user_guide/administrative/access_braze/support/)하세요.
+질문이 있으시면 [고객지원에 문의]({{site.baseurl}}/user_guide/administrative/access_braze/support/)하세요.

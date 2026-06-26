@@ -24,7 +24,7 @@ Brazeに接続する外部プラットフォームを特定し、そのプラッ
 
 以下に[Typeform Webhook](https://www.typeform.com/help/a/webhooks-360029573471/)の例を示します。これは、Typeformのプラットフォームにログインすることで設定できます。
 
-![Typeformプラットフォーム設定でのTypeform Webhookペイロードの例]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
+![Typeformプラットフォーム設定でのTypeform Webhookペイロードの例。]({% image_buster /assets/img/data_transformation/data_transformation8.png %})
 
 ## ステップ2:変換の作成 {#step-2-create-a-transformation}
 
@@ -43,7 +43,7 @@ Brazeに接続する外部プラットフォームを特定し、そのプラッ
 
 Typeformの場合は以下のようになります。
 
-![WebhookをBrazeユーザープロファイルにマッピングするデータ変換コードの例]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
+![WebhookをBrazeユーザープロファイルにマッピングするデータ変換コードの例。]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
 Brazeデータ変換は、Webhookに特別な検証や認証を必要とする外部プラットフォームをまだサポートしていない可能性があります。Brazeデータ変換でこのタイプのプラットフォームを使用することに関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal/)を残すことを検討してください。
@@ -58,7 +58,7 @@ JavaScriptコードの経験がほとんどないか、より詳しい手順を�
 {% alert tip %}
 AIで変換コードを生成するには、変換コードエディターの上にある**Code with Operator**を選択します。これを使用するには、変換にWebhookを送信する必要があります。ビルド済みテンプレートから開始するには、**Insert Template**を選択します。プロンプトの例については、[データ変換コードの生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)を参照してください。
 
-**Code with Operator**は、アカウントでOperatorが有効になっている場合にのみ利用できます。表示されない場合は、アカウントマネージャーにお問い合わせください。
+**Code with Operator**は、アカウントでOperatorが有効になっている場合にのみ使用できます。表示されない場合は、アカウントマネージャーにお問い合わせください。
 {% endalert %}
 
 {% tabs %}
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
 
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,
@@ -198,7 +198,7 @@ return brazecall;
 {% endtab %}
 {% tab 上級 - ユーザーの追跡 %}
 
-このステップでは、Webhookペイロードをソースプラットフォームからのデータに基づいてJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
+このステップでは、WebhookペイロードをソースプラットフォームからJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
 
 - 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
 - 変換コードは、`payload`変数を介してWebhookリクエスト本文にアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。

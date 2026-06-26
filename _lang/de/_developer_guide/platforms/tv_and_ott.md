@@ -244,7 +244,7 @@ Zu den Features zählen:
 - In-App-Nachrichten (über [Headless UI](#custom-ui))
   - Webviews werden von der tvOS-Plattform nicht unterstützt, daher werden In-App-Nachrichten im HTML-Format nicht unterstützt.
   - Sehen Sie sich unsere [Beispiel-App](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) an, um mehr darüber zu erfahren, wie Sie eine Headless UI für angepasstes Messaging unter tvOS verwenden können.
-- Stille Push-Benachrichtigungen und Update-Badges
+- Stille Push-Benachrichtigungen und Badge-Aktualisierungen
 - Banner
   - Verwenden Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/), um Nachrichten direkt in Ihre tvOS-App einzubetten.
 
@@ -270,7 +270,7 @@ Verwenden Sie das Braze Swift SDK für die Integration mit visionOS. Die meisten
 Weitere Informationen finden Sie in der [Anleitung zur iOS Swift SDK-Integration](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Einige iOS-Features werden nur teilweise oder gar nicht unterstützt. Die vollständige Liste finden Sie unter [visionOS-Unterstützung](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Einige iOS-Features werden nur teilweise oder gar nicht unterstützt. Die vollständige Liste finden Sie unter [visionOS-Unterstützung]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/).
 {% endalert %}
 
 ## App-Targeting {#app-targeting}

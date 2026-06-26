@@ -54,8 +54,6 @@ You can change the output language regardless of what language your copy is in, 
 
 You can edit brand guidelines by selecting them on the **Brand Guidelines** page. Archive a brand guideline to make it inactive and unavailable in message composers. To make it active and selectable again, you can filter for archived brand guidelines and then unarchive it.
 
-![The "Brand Guidelines" page filtered for archived brand guidelines.]({% image_buster /assets/img/unarchive_brand_guideline.png %})
-
 ## Using brand guidelines
 
 When composing a message, open Operator to [generate copy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) and select your brand guideline in the **Apply brand guideline** dropdown. If you designate a specific brand guideline as the default, Braze automatically selects it in the dropdown, but you can choose a different guideline.

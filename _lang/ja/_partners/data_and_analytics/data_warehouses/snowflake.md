@@ -89,7 +89,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して次の
 
 利用可能なテーブルと列の完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。Snowflakeデータ共有には、そのリファレンスのすべてのテーブルに加え、スナップショット、CampaignおよびCanvasの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルが含まれます。
 
-[未加工のテーブルスキーマをダウンロード]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})してテキストファイルとして確認することもできます。
+[未加工のテーブルスキーマをダウンロード](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)してテキストファイルとして確認することもできます。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 

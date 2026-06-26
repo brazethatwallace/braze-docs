@@ -33,8 +33,8 @@ Braze Web SDKを統合する前に、以下が必要です。
 
 ### 認証情報の取得 {#getting-your-credentials}
 
-1. **APIキー**: Brazeダッシュボードの**Settings** > **API Keys**にあります
-2. **SDKエンドポイント**: **Settings** > **SDK Authentication** > **Endpoints**にあります
+1. **APIキー**: Brazeダッシュボードの**設定** > **APIキー**にあります
+2. **SDKエンドポイント**: **設定** > **SDK認証** > **エンドポイント**にあります
 3. **Service Worker**: プッシュ通知に必要です（プッシュ通知セクションを参照）
 
 ## インストール {#installation}
@@ -771,7 +771,7 @@ AMP統合には、以下が必要です。
 4. **Service Workerの作成**: BrazeのService Workerファイルを追加します
 5. **AMP Webプッシュ要素の設定**: APIキーとベースURLをクエリパラメーターとして`amp-web-push`要素を追加します
 
-AMPの統合手順の詳細については、[Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
+AMPの統合手順の詳細については、[Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp)を参照してください。
 
 ### Electron
 
@@ -792,7 +792,7 @@ Electronは公式にはWebプッシュ通知をサポートしていません（
 
 #### Tealium iQ
 
-Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
+Tealium iQは、基本的なターンキーBraze統合を提供します。統合を設定するには、Tealiumタグ管理インターフェイスでBrazeを検索し、ダッシュボードからWeb SDK APIキーを入力してください。詳細やTealiumの設定サポートについては、[統合ドキュメント]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium)を確認するか、Tealiumのアカウントマネージャーにお問い合わせください。
 
 #### その他のタグマネージャー {#other-tag-managers}
 
@@ -825,7 +825,7 @@ Brazeはアプリ内メッセージのアイコンに[Font Awesome](http://forta
 
 ## その他のリソース {#additional-resources}
 
-- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
 - [SDKドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [サンプルビルド](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

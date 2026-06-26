@@ -17,7 +17,6 @@ Die **Home**-Seite besteht aus zwei Hauptbereichen:
 - [Dort weitermachen, wo Sie aufgehört haben](#pick-up-where-you-left-off)
 - [Performance-Übersicht](#performance-overview)
 
-![Home-Dashboard in Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Dort weitermachen, wo Sie aufgehört haben {#pick-up-where-you-left-off}
 
@@ -35,8 +34,6 @@ Der Abschnitt **Dort weitermachen, wo Sie aufgehört haben** erscheint, nachdem 
 
 Standardmäßig zeigt der Abschnitt **Performance-Übersicht** die Daten der letzten 30 Tage für alle Apps und Websites an. Alle Metriken werden basierend auf dem ausgewählten Zeitraum berechnet.
 
-![Felder für Zeitraum und App im Home-Dashboard.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Prozentsätze werden auf Basis des aktuellen Zeitraums im Vergleich zum vorherigen Zeitraum berechnet, mit Ausnahme der *monatlich aktiven Nutzer:innen* (MAU), bei denen der letzte Tag des vorherigen Zeitraums anstelle eines Bereichs verwendet wird.
 
 Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *täglich aktiven Nutzer:innen* einen prozentualen Anstieg von 1,8 % anzeigen, bedeutet das, dass Sie diese Woche 1,8 % mehr täglich aktive Nutzer:innen hatten als in der Vorwoche.
@@ -46,8 +43,6 @@ Wenn Sie beispielsweise Ihren Zeitraum auf **Letzte 7 Tage** setzen und Ihre *t�
 ### Aufschlüsselung anzeigen {#show-breakdown}
 
 Wählen Sie **Show Breakdown** für jede Zeile der Performance-Übersicht, um den Wert jeder Statistik pro Tag für den angegebenen Zeitraum anzuzeigen.
-
-![Aufklappen]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Performance im Zeitverlauf {#performance-over-time}
 

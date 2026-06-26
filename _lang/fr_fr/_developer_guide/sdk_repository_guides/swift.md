@@ -12,8 +12,8 @@ Le SDK Braze Swift vous aide à intégrer les fonctionnalités d'envoi de messag
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift)
+- [Guide utilisateur Braze]({{site.baseurl}}/user_guide/introduction/)
+- [Guide développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)
 
 ## Démarrage rapide {#quickstart}
 
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Pour en savoir plus sur les options d'intégration avancées, consultez le [guide développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=swift).
+Pour en savoir plus sur les options d'intégration avancées, consultez le [guide développeur Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift).
 
 ## Versions prises en charge {#version-support}
 
@@ -85,13 +85,13 @@ Le tableau suivant décrit chaque bibliothèque du SDK Braze Swift.
 <sup>1</sup> _Notifications push non prises en charge sur tvOS_<br/>
 <sup>2</sup> _Suivi de géorepérage non pris en charge sur tvOS et visionOS_
 
-[analyse]: https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
-[notifications push]: https://www.braze.com/docs/user_guide/message_building_by_channel/push
-[In-App Messages]: https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages
-[Content Cards]: https://www.braze.com/docs/user_guide/message_building_by_channel/content_cards
-[analyse de localisation et du suivi de géorepérage]: https://www.braze.com/docs/user_guide/engagement_tools/locations_and_geofences
-[notifications push enrichies]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/ios/rich_notifications/
-[Push Stories]: https://www.braze.com/docs/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
+[analyse]: {{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/
+[notifications push]: {{site.baseurl}}/user_guide/message_building_by_channel/push
+[In-App Messages]: {{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages
+[Content Cards]: {{site.baseurl}}/user_guide/message_building_by_channel/content_cards
+[analyse de localisation et du suivi de géorepérage]: {{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences
+[notifications push enrichies]: {{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/
+[Push Stories]: {{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/
 
 ## Exemples {#examples}
 

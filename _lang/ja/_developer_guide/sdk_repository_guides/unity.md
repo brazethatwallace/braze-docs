@@ -12,8 +12,8 @@ Braze Unity SDKは、Brazeのメッセージング、分析、およびユーザ
 
 開始するには、以下のリソースを参照してください。
 
-- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
+- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction/)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=unity)
 
 ## プラグインのセットアップ {#plugin-setup}
 
@@ -31,7 +31,7 @@ UnityスクリプトでBrazeの使用を開始する前に、プラグインフ�
 BrazeをUnityアプリケーションに統合するには、[Braze Unity SDKの統合][2]の手順を完了してください。
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
-[2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
+[2]: {{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity
 
 ## お問い合わせ {#contact}
 

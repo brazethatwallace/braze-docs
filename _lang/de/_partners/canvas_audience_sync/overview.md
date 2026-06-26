@@ -39,8 +39,8 @@ table td {
 | [Google Ads oder YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) | Zwischen 6 und 12 Stunden | Alle 5 Sekunden gebatcht mit automatischer Wiederholung basierend auf Google-Feedback | Nein | {::nomarkdown}<ul><li><b>Customer Match:</b> Verwenden Sie entweder eine mobile Anzeigen-ID oder eine E-Mail-Adresse oder Telefonnummer.</li><li>Google Audiences benötigen mindestens 5.000 Nutzer:innen, um mit dem Adserving zu beginnen.</li><li>Die Zielgruppengröße wird als Null angezeigt, bis es mindestens 1.000 Nutzer:innen gibt.</li></ul>{:/} |
 | [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync/) | 48 Stunden | LinkedIn verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | KI-Prognosen für Zielgruppen | {::nomarkdown}<ul><li>Die Mindestgröße der Zielgruppe beträgt 300 Mitglieder, wobei das Standort-Targeting berücksichtigt wird.</li><li>LinkedIn zeigt die Match-Rate im Braze-Dashboard an.</li></ul>{:/} |
 | [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync/) | Zwischen 24 und 48 Stunden | Pinterest verarbeitet 7 Abfragen pro Sekunde und 1.900 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | Für die Zielgruppen von Pinterest sind mindestens 100 Nutzer:innen erforderlich. |
-| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | -- | Snapchat verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | Snapchat unterstützt bis zu 1.000 Zielgruppen. |
-| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Bis zu 24 Stunden | -- | Ja | {::nomarkdown}<ul><li>Es gibt keine Mindestgröße für CRM-Zielgruppen in The Trade Desk.</li><li>Es gibt kein Limit für die Anzahl der Zielgruppen, die The Trade Desk unterstützt.</li><li>Wenn Sie mit einer Zielgruppe synchronisieren, deren Region auf die EU eingestellt ist, wird die Telefonnummer nicht unterstützt.</li></ul>{:/} |
+| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat verarbeitet 10 Abfragen pro Sekunde und 100.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | Snapchat unterstützt bis zu 1.000 Zielgruppen. |
+| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Bis zu 24 Stunden | N/A | Ja | {::nomarkdown}<ul><li>Es gibt keine Mindestgröße für CRM-Zielgruppen in The Trade Desk.</li><li>Es gibt kein Limit für die Anzahl der Zielgruppen, die The Trade Desk unterstützt.</li><li>Wenn Sie mit einer Zielgruppe synchronisieren, deren Region auf die EU eingestellt ist, wird die Telefonnummer nicht unterstützt.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Zwischen 24 und 48 Stunden | TikTok verarbeitet 50 Abfragen pro Sekunde und 10.000 Nutzer:innen pro Anfrage. Braze fasst Nutzer:innen alle 5 Sekunden zusammen. | Ja | {::nomarkdown}<ul><li>TikTok unterstützt bis zu 400 Zielgruppen.</li><li>Die Zielgruppen von TikTok benötigen mindestens 1.000 Nutzer:innen, um mit dem Adserving zu beginnen.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Übersicht" }
 <sup>Wenn das Rate-Limit erreicht ist, versucht Braze, die Synchronisierung 13 Stunden lang zu wiederholen.</sup>
@@ -87,6 +87,22 @@ Nachdem Sie Ihre Audience Sync Pro-Ziele ausgewählt haben, verbinden Sie Ihr au
 ![Snapchat Audience Sync-Einstellungen mit der Nachricht: „Sie haben erfolgreich 1 Snapchat-Konto verbunden“.]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 Erstellen Sie abschließend Ihren Audience Sync-Schritt in Canvas mit diesem Audience Sync Pro-Ziel.
+
+### Batching und Latenz {#batching-and-latency}
+
+Wenn Nutzer:innen einen Audience Sync-Schritt in Canvas erreichen, reiht Braze sie in ein Batching-System ein, das Nutzeraktualisierungen aggregiert, bevor sie an die Partner-API gesendet werden. Ein Batch wird gesendet, wenn eine der folgenden Bedingungen eintritt:
+
+- **Der Batch erreicht sein Größenlimit.** Dieses variiert je nach Partner:
+  - Standard unterstützt bis zu 2.000 Nutzer:innen
+  - Google Ads unterstützt bis zu 10.000 Nutzer:innen
+  - Facebook und TikTok unterstützen bis zu 2.000 Nutzer:innen
+- **Der Latenz-Timer des Batches läuft ab.** Der Standardwert beträgt eine Stunde, ist aber pro Partner konfigurierbar. Zum Beispiel verwendet The Trade Desk 10 Minuten.
+
+Canvases mit hohem Volumen senden möglicherweise früher, da die Batches schneller gefüllt werden. Canvases mit geringerem Volumen warten, bis der Latenz-Timer abläuft. Braze garantiert keine feste Versandzeit; der Zeitpunkt hängt von der Batch-Größe und dem konfigurierten Latenzfenster ab.
+
+Braze protokolliert die Versandaktivität in internen Logs zur Überwachung und Fehlerbehebung, aber diese Zeitstempel werden nicht als abfragbare Felder bereitgestellt. Nachdem Braze einen Batch an die Partner-API gesendet hat, verarbeitet der Partner die Zielgruppenaktualisierung gemäß seinen eigenen Service Level Agreements – in der Regel 6 bis 48 Stunden.
+
+Braze erhält keine Bestätigung von Partnern, dass einzelne Nutzer:innen abgeglichen oder synchronisiert wurden. Die Antworten der Partner sind HTTP-Empfangsbestätigungen, keine Match-Bestätigungen. Um zu überprüfen, ob eine Zielgruppe befüllt wurde, prüfen Sie die Anzeigenplattform des Partners (z. B. Google Ads Audience Manager oder Meta Business Manager).
 
 ### Audience Sync-Fehler-E-Mails {#audience-sync-error-emails}
 

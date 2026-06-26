@@ -10,7 +10,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Campaigns dup
 ---
 {% api %}
 # Campaigns über die API duplizieren {#duplicate-campaigns-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
@@ -48,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `name` | Erforderlich | String | Der Name der resultierenden Campaign. |
 | `description` | Optional | String | Das Beschreibungsfeld für die resultierende Campaign. |
 | `tag_names` | Optional | String | Die Tags für die resultierende Campaign. Diese müssen bereits vorhandene Tags sein. Wenn Sie in der Anfrage neue Tags hinzufügen, überschreiben diese alle Tags, die der ursprünglichen Campaign zugewiesen waren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 
 ## Antwort {#response}

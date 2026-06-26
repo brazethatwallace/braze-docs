@@ -30,7 +30,7 @@ Eagle Eye Connect는 Braze와 AIR 간의 양방향 통합으로, 브랜드가 �
 |--------------------------|-------------|
 | Eagle Eye AIR 계정 | 이 파트너십을 활용하려면 활성 Eagle Eye AIR 계정이 필요합니다. 시작하려면 [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com)으로 Eagle Eye 파트너십 팀에 문의하세요. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br>Braze 대시보드의 **설정 > API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL](https://www.braze.com/docs/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 아웃바운드 vs. 인바운드 {#outbound-vs-inbound}

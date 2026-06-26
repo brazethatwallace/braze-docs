@@ -32,7 +32,7 @@ Vous pouvez également enregistrer la sortie de n'importe quelle étape IA en ta
 
 ### Utiliser les étapes Contexte {#using-context-steps}
 
-Vous pouvez exploiter les [étapes Contexte de Canvas](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) pour référencer facilement les sorties plus tard dans votre Canvas.
+Vous pouvez exploiter les [étapes Contexte de Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) pour référencer facilement les sorties plus tard dans votre Canvas.
 
 Voici un exemple d'étape Contexte que vous pourriez configurer après votre étape IA. Dans cet exemple, une étape IA précédente contient les sorties de l'étape IA pour le score de sentiment et le message, et cette étape Contexte crée les variables `sentiment_score` et `message`, qui peuvent être utilisées dans les étapes suivantes.
 

@@ -9,7 +9,7 @@ description: "Cet article décrit en détail l'endpoint Suivre les utilisateurs 
 
 {% api %}
 # Suivre les utilisateurs (en masse) {#track-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 

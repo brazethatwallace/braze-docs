@@ -10,7 +10,7 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 
 {% api %}
 # 사용자의 구독 그룹 상태 업데이트 {#update-users-subscription-group-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 
@@ -149,7 +149,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
 구독 그룹 업데이트가 간헐적으로 실패하거나 동기화되지 않는 것처럼 보이는 경우, 업데이트 요청 사이에 몇 분 정도 기다리거나 [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)를 호출하여 다른 업데이트를 보내기 전에 사용자의 상태를 확인하세요.
 
 {% alert important %}
-엔드포인트는 `email` 또는 `phone` 값만 허용하며 둘 다 허용하지 않습니다. 두 가지를 모두 제공하면 다음과 같은 응답을 받게 됩니다: `{"message":"Either an email address or a phone number should be provided, but not both."}`
+이 엔드포인트는 `email` 또는 `phone` 값만 허용하며 둘 다 허용하지 않습니다. 두 가지를 모두 제공하면 다음과 같은 응답을 받게 됩니다: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
 구독 업데이트가 전화번호에 적용되도록 하려면 E.164 형식의 전화번호(예: `+15555550123`)를 전송했는지, 올바른 `subscription_group_id`를 사용했는지, 동일한 요청 본문에서 `phone`만(`phone`과 `email` 둘 다가 아닌) 전달했는지 확인하세요. 여러 번호를 업데이트하려면 [SMS 및 RCS](#sms-and-rcs)에 표시된 `phone` 배열 형식을 사용하세요.

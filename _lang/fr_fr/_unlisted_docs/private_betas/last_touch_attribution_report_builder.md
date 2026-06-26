@@ -52,7 +52,7 @@ Les indicateurs de chiffre d'affaires et d'achat ne sont pas disponibles.
 ![Le panneau Personnaliser les indicateurs avec les indicateurs d'attribution au dernier contact.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Suivez les étapes 7 à 9 sur la page du [Générateur de rapports](https://www.braze.com/docs/user_guide/analytics/reporting/report_builder).
+7. Suivez les étapes 7 à 9 sur la page du [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/).
 
 {% alert note %}
 Envoyez des commentaires à votre gestionnaire de la satisfaction client ou fournissez-les après avoir sélectionné le bouton **Envoyer des commentaires**.

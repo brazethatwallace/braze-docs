@@ -10,7 +10,7 @@ description: "この記事では、APIトリガー配信を使用したCanvas送
 ---
 {% api %}
 # APIトリガー配信を使用したCanvasメッセージの送信 {#send-canvas-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/send
 {% endapimethod %}
 
@@ -65,10 +65,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `context` | オプション | オブジェクト | このリクエストのすべての受信者に対するCanvasコンテキストプロパティです。パーソナライゼーションのキーと値のペアは、受信者ごとの`context`でキーが上書きされない限り、すべてのユーザーに適用されます。`context`オブジェクトは最大50KBです。 |
-| `broadcast` | オプション | ブール値 | BrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたセグメント全体にメッセージを送信する場合、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `broadcast` | オプション | ブール値 | BrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたSegment全体にメッセージを送信する場合、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience`を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
-| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、受信者に`attributes`オブジェクトを含める必要があります。<br><br>指定されておらず、`broadcast`が`true`に設定されている場合、メッセージはBrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたセグメント全体に送信されます。<br><br>`recipients`配列には最大50個のオブジェクトを含めることができます。各オブジェクトには`external_user_id`、`user_alias`、または`email`のいずれか1つを正確に含める必要があり、Canvasコンテキストプロパティ用の受信者ごとの`context`オブジェクトを含めることもできます（受信者ごとのキーは競合する場合に親レベルの`context`を上書きします）。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、受信者に`attributes`オブジェクトを含める必要があります。<br><br>指定されておらず、`broadcast`が`true`に設定されている場合、メッセージはBrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたSegment全体に送信されます。<br><br>`recipients`配列には最大50個のオブジェクトを含めることができます。各オブジェクトには`external_user_id`、`user_alias`、または`email`のいずれか1つを正確に含める必要があり、Canvasコンテキストプロパティ用の受信者ごとの`context`オブジェクトを含めることもできます（受信者ごとのキーは競合する場合に親レベルの`context`を上書きします）。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -172,8 +172,8 @@ APIトリガー配信を使用してCanvasメッセージを送信するAPI呼�
 - **メールとSMSのアドレス指定：** まだBrazeに存在しないユーザーへのメールまたはSMSのAPIトリガー送信のほとんどでは、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、サブスクリプショングループのメンバーシップやサブスクリプションステータスもそこで設定できます。
 - **Canvasの適格性：** プロファイルが存在または更新された後も、そのユーザーはCanvasのダッシュボードターゲットオーディエンスとチャネル送信ルール（例：メールのオプトイン済み）に一致する必要があります。一致しない場合、Brazeはメッセージを送信しません。
 - **ユーザーエイリアスの制限**：`send_to_existing_only`フラグはユーザーエイリアスでは使用できません。エイリアスのみのユーザーに送信するには、そのユーザーがすでにBrazeに存在している必要があります。
-- **セグメントターゲティング**：このエンドポイントでは`segment_id`パラメーターはサポートされていません。セグメントをターゲットにするには、BrazeダッシュボードのCanvasのターゲットオーディエンス設定でセグメントを設定し、`broadcast: true`を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで`audience`パラメーターを使用します。
-- **複合ターゲティング**：`recipients`パラメーターを含め、かつダッシュボードでターゲットセグメントを設定した場合、メッセージはAPI呼び出しで指定されたユーザープロファイルのうち、セグメントのフィルターにも一致するものにのみ送信されます。
+- **Segmentターゲティング**：このエンドポイントでは`segment_id`パラメーターはサポートされていません。Segmentをターゲットにするには、BrazeダッシュボードのCanvasのターゲットオーディエンス設定でSegmentを設定し、`broadcast: true`を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで`audience`パラメーターを使用します。
+- **複合ターゲティング**：`recipients`パラメーターを含め、かつダッシュボードでターゲットSegmentを設定した場合、メッセージはAPI呼び出しで指定されたユーザープロファイルのうち、Segmentのフィルターにも一致するものにのみ送信されます。
 - **サーバー間通信**：サーバー間通信を行う場合、ファイアウォールの内側にいるときは適切なAPI URLを許可リストに追加する必要がある場合があります。
 
 ## Canvasの属性オブジェクト {#attributes-object-for-canvas}

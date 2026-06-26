@@ -6,21 +6,20 @@ page_type: reference
 description: "Esta página cubre el registro de exportaciones, que te permite ver el estado de los trabajos de exportación y cancelar las exportaciones en curso."
 ---
 
-# Registro de exportaciones
+# Registro de exportaciones {#exports-log}
 
-> Utiliza la página **Registro de exportaciones** para ver el estado de los trabajos de exportación y cancelar las exportaciones en curso directamente desde la plataforma Braze. <br><br> Actualmente, el registro de exportaciones sólo admite exportaciones de segmentos. Para obtener información sobre la herramienta de exportación de segmentos, consulta [Exportar datos de segmentos a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
+> Utiliza la página **Registro de exportaciones** para ver el estado de los trabajos de exportación y cancelar las exportaciones en curso directamente desde la plataforma Braze. <br><br> Actualmente, el registro de exportaciones solo admite exportaciones de Segments. Para obtener información sobre la herramienta de exportación de Segments, consulta [Exportar datos de Segments a CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
 
-Puedes encontrar el registro de exportaciones yendo a **Configuración** > **Registro de exportaciones**. Aquí puedes ver las exportaciones anteriores, el nombre de los segmentos exportados, el estado de cada exportación, el origen de cada exportación y cuándo empezó y terminó cada exportación.
+Puedes encontrar el registro de exportaciones yendo a **Configuración** > **Registro de exportaciones**. Aquí puedes ver las exportaciones anteriores, el nombre de los Segments exportados, el estado de cada exportación, la fuente de cada exportación y cuándo empezó y terminó cada exportación.
 
 ![Los registros de exportación con una lista de las exportaciones completadas.]({% image_buster /assets/img/export_logs.png %})
 
-## Anular una exportación pendiente
+## Cancelar una exportación pendiente {#cancelling-a-pending-export}
 
-Puedes cancelar las exportaciones pendientes directamente desde la página **Registro de exportaciones** seleccionando el menú <i class="fas fa-ellipsis-vertical"></i> y luego **Cancelar exportación**, o seleccionando el **ID de exportación** y luego **Cancelar exportación** en la página de la exportación.
+Puedes cancelar las exportaciones pendientes directamente desde la página **Registro de exportaciones** seleccionando el menú <i class="fas fa-ellipsis-vertical" aria-label="Más opciones"></i> y luego **Cancelar exportación**, o seleccionando el **ID de exportación** y luego **Cancelar exportación** en la página de la exportación.
 
-![El registro de exportaciones muestra una exportación pendiente y la opción de "Cancelar exportación".]({% image_buster /assets/img/export_logs_cancel.png %})
 
-## Compartir un registro de exportación específico
+## Compartir un registro de exportación específico {#sharing-a-specific-export-log}
 
 Comparte un registro de exportación seleccionando el **ID de exportación** y luego **Compartir registro**.
 

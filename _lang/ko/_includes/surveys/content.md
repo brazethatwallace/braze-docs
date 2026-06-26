@@ -123,8 +123,6 @@
 - 랜딩 페이지 설문조사의 랜딩 페이지 분석 보기
 {% endif %}
 
-![랜딩 페이지 분석 탭.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 상위 수준 분석에는 다음이 포함됩니다:
 
 - **All responses:** 완료 및 미완료 응답의 총합

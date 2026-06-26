@@ -123,8 +123,6 @@ Después del lanzamiento, revisa los resultados en:
 - La vista de análisis de la página de inicio para cuestionarios de páginas de inicio
 {% endif %}
 
-![Pestaña de análisis de la página de inicio.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 Los análisis de nivel superior incluyen:
 
 - **Todas las respuestas:** Total de respuestas completas e incompletas

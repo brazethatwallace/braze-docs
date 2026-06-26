@@ -11,7 +11,7 @@ description: "재사용 가능한 캔버스 템플릿을 생성하고 관리하�
 > 이 참조 문서에서는 Canvas 템플릿을 생성하고 관리하는 방법을 다룹니다. 템플릿을 사용하면 Canvases 전반에서 특정 목표에 맞게 쉽게 커스터마이즈할 수 있는 일관된 프레임워크를 만들어 메시징을 개선할 수 있습니다.
 
 {% alert tip %}
-[Braze 캔버스 템플릿](#available-braze-templates)을 사용하여 시간을 절약하고 Canvas 생성을 간소화하세요! 미리 구축된 템플릿 라이브러리를 탐색하여 사용 사례에 맞는 템플릿을 찾고 특정 요구 사항에 맞게 커스터마이즈하세요.
+[Braze Canvas 템플릿](#available-braze-templates)을 사용하여 시간을 절약하고 Canvas 생성을 간소화하세요! 미리 구축된 템플릿 라이브러리를 탐색하여 사용 사례에 맞는 템플릿을 찾고 특정 요구 사항에 맞게 커스터마이즈하세요.
 {% endalert %}
 
 ## 방법 1: 기존 Canvas에서 생성 {#method-1-create-from-an-existing-canvas}
@@ -34,13 +34,13 @@ Canvas 편집기에서 Canvas가 활성 상태인지 임시저장 상태인지�
 
 ### 1단계: 캔버스 템플릿 편집기로 이동 {#step-1-go-to-the-canvas-template-editor}
 
-Braze 대시보드에서 **Content** > **Canvas**로 이동합니다.
+Braze 대시보드에서 **콘텐츠** > **Canvas**로 이동합니다.
 
 ### 2단계: 새 템플릿 생성 {#step-2-create-a-new-template}
 
-**Create template**을 선택하고 Canvas 세부 정보를 설정합니다. 먼저 캔버스 템플릿에 이름을 지정할 수 있습니다.
+**Create template**을 선택하고 Canvas 세부 정보를 설정합니다. 먼저 Canvas 템플릿에 이름을 지정할 수 있습니다.
 
-![설명이 "연간 봄 프로모션에 사용"인 "연간 세일 캔버스 템플릿"이라는 이름의 캔버스 템플릿 예시.]({% image_buster /assets/img/canvas_template_example.png %})
+![설명이 "연간 봄 프로모션에 사용"인 "연간 세일 Canvas 템플릿"이라는 이름의 Canvas 템플릿 예시.]({% image_buster /assets/img/canvas_template_example.png %})
 
 ### 3단계: 템플릿 커스터마이즈 {#step-3-customize-your-template}
 
@@ -48,18 +48,18 @@ Braze 대시보드에서 **Content** > **Canvas**로 이동합니다.
 
 ### 4단계: 템플릿 저장 {#step-4-save-your-template}
 
-템플릿 커스터마이즈를 완료한 후 **Save template** 버튼을 선택합니다. **캔버스 템플릿** 페이지에서 <i class="fas fa-list" aria-label="템플릿 세부 정보"></i> **Template details**를 선택하여 캔버스 템플릿 세부 정보를 확인할 수 있습니다.
+템플릿 커스터마이즈를 완료한 후 **Save template** 버튼을 선택합니다. **캔버스 템플릿** 페이지에서 <i class="fas fa-list" aria-label="템플릿 세부 정보"></i> **Template details**를 선택하여 Canvas 템플릿 세부 정보를 확인할 수 있습니다.
 
 ## 캔버스 템플릿 사용 {#using-canvas-templates}
 
 Canvas를 작성할 때 템플릿을 사용하는 두 가지 방법이 있습니다:
 
-- **메시징에서**: **Messaging** > **Canvas**로 이동합니다. **Create Canvas** 버튼을 선택한 다음 **Use a Canvas Template**을 선택합니다.
-- **콘텐츠에서**: **Content** > **Canvas**로 이동하여 **Canvas templates**에서 원하는 템플릿을 찾습니다. 그런 다음 <i class="fas fa-ellipsis-vertical" aria-label="더 보기 메뉴"></i> 메뉴를 선택한 후 **Apply template**을 선택합니다. 그러면 Canvas 작성기에서 템플릿이 적용된 새 Canvas로 이동합니다.
+- **메시징에서**: **메시징** > **Canvas**로 이동합니다. **Create Canvas** 버튼을 선택한 다음 **Use a Canvas Template**을 선택합니다.
+- **콘텐츠에서**: **콘텐츠** > **Canvas**로 이동하여 **캔버스 템플릿**에서 원하는 템플릿을 찾습니다. 그런 다음 <i class="fas fa-ellipsis-vertical" aria-label="더 보기 메뉴"></i> 메뉴를 선택한 후 **Apply template**을 선택합니다. 그러면 Canvas 작성기에서 템플릿이 적용된 새 Canvas로 이동합니다.
 
 ### 사용 가능한 Braze 템플릿 {#available-braze-templates}
 
-사용 가능한 캔버스 템플릿 목록은 [Braze 캔버스 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)을 참조하세요. eCommerce 캔버스 템플릿 사용에 대한 자세한 내용은 [eCommerce 추천 이벤트 사용 방법]({{site.baseurl}}/ecommerce_use_cases/)을 참조하세요.
+사용 가능한 Canvas 템플릿 목록은 [Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/)을 참조하세요. eCommerce Canvas 템플릿 사용에 대한 자세한 내용은 [eCommerce 추천 이벤트 사용 방법]({{site.baseurl}}/ecommerce_use_cases/)을 참조하세요.
 
 ## 캔버스 템플릿 관리 {#managing-canvas-templates}
 

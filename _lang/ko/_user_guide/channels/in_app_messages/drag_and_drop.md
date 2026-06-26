@@ -168,25 +168,25 @@ Campaigns를 보내기 전에 항상 인앱 메시지를 테스트하여 사용�
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-#### 분석 페이지에 본문 클릭이 표시되지 않는 이유는 무엇인가요? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### 분석 페이지에 본문 클릭이 표시되지 않는 이유는 무엇인가요? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 드래그 앤 드롭 편집기로 만든 인앱 메시지에서는 본문 클릭이 자동으로 수집되지 않습니다. 자세한 내용은 [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) 및 [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100) SDK 체인지로그를 참조하세요.
 
-#### 버튼 클릭을 기반으로 세분화할 수 있나요? {#can-i-segment-based-on-button-clicks}
+### 버튼 클릭을 기반으로 세분화할 수 있나요? {#can-i-segment-based-on-button-clicks}
 
 네, 메시지에서 최대 두 개의 버튼에 대한 버튼 클릭을 기반으로 세분화할 수 있습니다. 이를 위해 버튼의 **Identifier for Reporting**을 "0"과 "1"로 설정하면, 각각 "Clicked in-app message button 1" 및 "Clicked in-app message button 2" 세분화 필터에 해당합니다.
 
 !["0" 값이 입력된 "Identifier for Reporting" 필드.]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### 커스텀 HTML이나 JavaScript를 사용하여 인앱 메시지를 커스텀하거나 기존 HTML 메시지를 편집기로 전환할 수 있나요? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### 커스텀 HTML이나 JavaScript를 사용하여 인앱 메시지를 커스텀하거나 기존 HTML 메시지를 편집기로 전환할 수 있나요? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 기존 HTML 메시지를 편집기로 직접 전환할 수는 없지만, 커스텀 코드 블록에 원시 HTML, CSS 및 JavaScript를 삽입할 수 있습니다. 커스텀 코드 블록을 사용하여 서드파티 동영상과 연결된 콘텐츠 또는 조건문과 같은 고급 Liquid를 임베드할 수 있습니다.
 
-#### 슬라이드업 인앱 메시지를 만들려면 어떻게 해야 하나요? {#how-can-i-create-a-slideup-in-app-message}
+### 슬라이드업 인앱 메시지를 만들려면 어떻게 해야 하나요? {#how-can-i-create-a-slideup-in-app-message}
 
 현재 편집기는 모달 및 전체화면 메시지만 지원합니다. **메시지 스타일** 패널의 **메시지 컨테이너** 섹션에서 표시 유형을 전환할 수 있습니다.
 
-#### Campaign이나 Canvas에서 작성한 인앱 메시지를 템플릿으로 저장할 수 있나요? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Campaign이나 Canvas에서 작성한 인앱 메시지를 템플릿으로 저장할 수 있나요? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 네. 향후 Campaign이나 캔버스 단계에서 재사용하려는 인앱 메시지의 경우, 편집기를 종료한 후 사용할 수 있는 **템플릿으로 저장** 버튼을 사용하여 커스텀 템플릿으로 저장할 수 있습니다. 템플릿으로 저장하려면 먼저 Campaign을 시작하거나 초안으로 저장해야 합니다.
 

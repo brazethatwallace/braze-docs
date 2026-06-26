@@ -67,8 +67,6 @@ After you create your internal group, add test users as members of that group.
 | **Bulk add users**      | Copy and paste a list of email addresses or external IDs. You can add only users who are already known in the dashboard. For more information, refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/).          |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Adding test users" }
 
-![Internal Group Settings when creating a new internal group]({% image_buster /assets/img_archive/internal_group_add_user.png %})
-
 ### Content Test Groups
 
 Similar to sending a preview test of a message, the Content Test Group saves you time and lets you launch tests to a pre-defined list of Braze users simultaneously. This is available for push, in-app messages, SMS, email, and Content Cards in Braze. Only groups tagged as Content Test Groups are available in the preview section of a message.

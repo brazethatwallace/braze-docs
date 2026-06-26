@@ -111,7 +111,6 @@ Braze priorisiert jeweils eine Berechnung pro Workspace, sodass das gleichzeitig
 
 Sie können eine Berechnung exakter Statistiken abbrechen, indem Sie **Cancel** auswählen. Dies kann vorteilhaft sein, wenn sich mehrere Berechnungen in der Warteschlange befinden und Sie eine andere Berechnung zuerst priorisieren möchten.
 
-![Eine aktive Berechnung mit der Option zum Abbrechen]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Historische Segmentmitgliedschaftsgröße anzeigen {#viewing-historical-segment-membership-size}
 

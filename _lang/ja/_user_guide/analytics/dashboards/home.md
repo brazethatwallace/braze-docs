@@ -17,25 +17,22 @@ tool:
 - [前回の続きから再開](#pick-up-where-you-left-off)
 - [パフォーマンス概要](#performance-overview)
 
-![Brazeのホームダッシュボード。]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## 前回の続きから再開 {#pick-up-where-you-left-off}
 
 Brazeダッシュボードで最近編集または作成したファイルに直接アクセスして、前回の続きから作業を再開できます。このセクションは、Brazeダッシュボードの**ホーム**ページの上部に表示されます。
 
-最近編集または作成したCampaign、Canvas、セグメントを再度確認できます。各カードには、コンテンツタイプ（Campaign、Canvas、セグメント）とステータス（アクティブ、下書き、アーカイブ、停止）を示すタグが付いています。
+最近編集または作成したCampaign、Canvas、Segmentを再度確認できます。各カードには、コンテンツタイプ（Campaign、Canvas、Segment）とステータス（アクティブ、下書き、アーカイブ、停止）を示すタグが付いています。
 
 {% alert note %}
-**前回の続きから再開**セクションは、Campaign、Canvas、またはセグメントを編集または作成した後に表示されます。
+**前回の続きから再開**セクションは、Campaign、Canvas、またはSegmentを編集または作成した後に表示されます。
 {% endalert %}
 
-![「前回の続きから再開」セクションに表示されたCanvasの下書き、アクティブなセグメント、Campaignの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![「前回の続きから再開」セクションに表示されたCanvasの下書き、アクティブなSegment、Campaignの下書き。]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 ## パフォーマンス概要 {#performance-overview}
 
 デフォルトでは、**パフォーマンス概要**セクションには、すべてのアプリとサイトの過去30日間のデータが表示されます。すべての指標は、選択した日付範囲に基づいて計算されます。
-
-![ホームダッシュボードの日付範囲とアプリのフィールド。]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
 
 パーセンテージは、現在の日付範囲と前の日付範囲を比較して計算されます。ただし、*月間アクティブユーザー*（MAU）は範囲ではなく前の期間の最終日を使用します。
 
@@ -47,8 +44,6 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 
 パフォーマンス概要の統計の各行で**Show Breakdown**を選択すると、指定した日付範囲の各統計の日別値を確認できます。
 
-![展開された内訳表示。]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
-
 ### 経時パフォーマンス {#performance-over-time}
 
 **経時パフォーマンス**グラフには、指定したアプリの指定した日付範囲における各統計の値が表示されます。
@@ -59,7 +54,7 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 - バナー
 - Content Cards
 - デイリーアクティブユーザー
-  - （オプション）セグメント別の内訳
+  - （オプション）Segment別の内訳
 - メール
 - アプリ内メッセージ
 - KPI計算式
@@ -68,15 +63,15 @@ Brazeダッシュボードで最近編集または作成したファイルに直
 - 月間アクティブユーザー（MAU）
 - 新規ユーザー
 - プッシュ
-  - （オプション）セグメント別の内訳
+  - （オプション）Segment別の内訳
 - セッション
-  - （オプション）セグメントまたはアプリバージョン別の内訳
+  - （オプション）Segmentまたはアプリバージョン別の内訳
 - 時間別セッション
 - MAUあたりのセッション
 - SMS
 - スティッキネス
 - アンインストール
-  - （オプション）セグメント別の内訳
+  - （オプション）Segment別の内訳
 - ユーザー
 - Webhook
 - WhatsApp
@@ -131,7 +126,7 @@ BrazeのMAUカウントは、各製品がアクティブユーザーの定義を
 | 2 | **匿名ユーザー1**を識別（プロファイルが識別済みに変換） | 0 | 1 |
 | 3 | **匿名ユーザー2**を作成し、セッションを記録 | +1 | 2 |
 | 4 | **匿名ユーザー2**をユーザー1と**同一人物**として識別（ユーザー2が孤立状態になる） | –1 | 1 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="MAU calculation example" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="MAUの計算例" }
 
 MAUスナップショットは1日1回計算され、遡って変更されることはありません。この例では、ステップ3の翌日のMAUカウントは、ユーザー2がその後孤立状態になっても永続的に2のままです。ただし、それ以降の日のMAUカウントには、孤立していないユーザーのみが反映されます。30日間のウィンドウ内では、孤立していない個別のユーザーが1人だけ残るため、このフローは最終的に1 MAUを消費します。
 

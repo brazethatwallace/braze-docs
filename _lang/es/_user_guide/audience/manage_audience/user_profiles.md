@@ -46,12 +46,16 @@ Puedes usar la [pestaña Interacción](#engagement-tab) para verificar si un usu
 
 ## Elementos del perfil de usuario {#elements-of-user-profile}
 
-Hay cuatro secciones principales en el perfil de un usuario.
+Hay cinco secciones principales en el perfil de un usuario.
 
 - **Resumen:** Información básica sobre el usuario, datos de sesión, atributos personalizados, eventos personalizados, compras y el dispositivo más reciente en el que el usuario inició sesión.
 - **Interacción:** Información sobre la configuración de contacto del usuario, campañas recibidas, segmentos, estadísticas de comunicación, atribución de instalación y número de contenedor aleatorio.
+- **Historial de eventos:** Eventos personalizados y compras de los últimos 30 días, con las propiedades completas del evento mostradas como JSON.
 - **Historial de mensajes:** Eventos recientes relacionados con mensajería para este usuario de los últimos 30 días.
 - **Elegibilidad de conmutadores de características:** Valida para qué conmutadores de características un usuario es actualmente elegible en despliegues, pasos en Canvas y experimentos.
+
+{% tabs %}
+{% tab Pestaña Resumen %}
 
 ### Pestaña Resumen {#overview-tab}
 
@@ -69,7 +73,9 @@ La pestaña **Resumen** contiene información básica sobre un usuario y sus int
 
 Para más información sobre estos datos, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-![La pestaña Resumen de un perfil de usuario.]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab Pestaña Interacción %}
 
 ### Pestaña Interacción {#engagement-tab}
 
@@ -86,6 +92,30 @@ La pestaña **Interacción** contiene información sobre las interacciones de un
 | Mensajes de Canvas recibidos | Mensajes de Canvas que este usuario ha recibido y cuándo. Los tiempos de envío siguen las mismas reglas de canal que **Campaigns recibidas**; consulta [Cuándo aparecen las campañas en Campaigns recibidas](#when-campaigns-appear-in-campaigns-received).<br><br>Cuando un mensaje se recibe, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no estaban originalmente en la campaña o no recibieron directamente el mensaje.<br><br> Selecciona un mensaje de la lista para verlo. |
 | Predicciones | Puntuaciones de [predicción de cancelación]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) y [predicción de eventos]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) para este usuario. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pestaña Interacción" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab Pestaña Historial de eventos %}
+
+### Pestaña Historial de eventos {#event-history-tab}
+
+{% alert note %}
+Para ver la pestaña **Historial de eventos**, necesitas los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) **Buscar usuarios** y **Ver PII**, ya que las propiedades del evento pueden contener datos personales.
+{% endalert %}
+
+La pestaña **Historial de eventos** muestra los eventos personalizados y las compras que un usuario ha registrado. Úsala para verificar que los datos de eventos llegan correctamente y solucionar problemas a nivel de usuario directamente en el dashboard, sin necesidad de exportaciones de datos ni herramientas externas.
+
+| Categoría del historial de eventos | Contiene |
+| --- | --- |
+| Lista de eventos | Eventos personalizados y compras de los últimos 30 días (hasta los 100 más recientes), ordenados del más nuevo al más antiguo. |
+| Tipo de evento | Si la fila es un **Evento personalizado** o una **Compra**. |
+| Marca de tiempo | Cuándo se registró el evento. |
+| Nombre del evento | El nombre del evento personalizado o la compra. |
+| Propiedades del evento | Las propiedades completas del evento, mostradas como JSON. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pestaña Historial de eventos" }
+
+{% endtab %}
+{% endtabs %}
 
 ### Cuándo aparecen las campañas en Campaigns recibidas {#when-campaigns-appear-in-campaigns-received}
 

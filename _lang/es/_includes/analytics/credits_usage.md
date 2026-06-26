@@ -6,7 +6,7 @@ El dashboard de **uso de créditos** se divide en dos secciones:
 - [Resumen de uso de créditos](#credits-usage-overview)
 - [Pestañas de canales](#credits-features)
 
-Accede al dashboard en **Settings** > **Billing** > **Credits Usage**.
+Accede al dashboard en **Configuración** > **Facturación** > **Uso de créditos**.
 
 ## Resumen de uso de créditos {#credits-usage-overview}
 
@@ -20,7 +20,6 @@ Si compraste WhatsApp pero no tienes un contrato de créditos, seguirás viendo 
 
 Los datos generales de uso de créditos están limitados al período del contrato, que se muestra en **Credits contract overview**. No puedes filtrar por un rango de fechas fuera del **Credits period**.
 
-![Pestaña de resumen de uso de créditos con paneles para el uso de créditos y un resumen del contrato de créditos.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Uso de créditos durante el contrato {#credits-usage-over-contract}
 
@@ -72,7 +71,7 @@ Usa **Export** para descargar los datos de la tabla.
 ![Uso de créditos de Content Cards con mosaicos para créditos e impresiones únicas y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_content_cards.png %})
 
 {% endtab %}
-{% tab Email %}
+{% tab Correo electrónico %}
 
 ### Correo electrónico {#email}
 
@@ -184,7 +183,7 @@ Puedes filtrar tus datos por:
 ![Uso de créditos de WhatsApp con un mosaico para el total de créditos consumidos y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/whatsapp_credit_consumption4.png %})
 
 {% endtab %}
-{% tab Credit Ratios %}
+{% tab Ratios de créditos %}
 
 ### Ratios de créditos {#credit-ratios}
 
@@ -201,7 +200,7 @@ Usa **Export** para descargar los datos de la tabla.
 ![Página de ratios de créditos con una tabla de ratios de créditos y filtros de canal y destino.]({% image_buster /assets/img/app_settings/credits_usage_credit_ratios.png %})
 
 {% endtab %}
-{% tab Agent Console %}
+{% tab Consola de Agente %}
 
 ### Consola de Agente {#agent-console}
 
@@ -238,7 +237,7 @@ Usa **Export** para descargar los datos de la tabla.
 ![Uso de créditos de Audience Sync con mosaicos para créditos y sincronizaciones de audiencia y una tabla de uso por cuenta.]({% image_buster /assets/img/app_settings/credits_usage_audience_sync.png %})
 
 {% endtab %}
-{% tab Message Archiving %}
+{% tab Archivado de mensajes %}
 
 ### Archivado de mensajes {#message-archiving}
 

@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Gepla
 ---
 {% api %}
 # Geplante API-getriggerte Canvases aktualisieren {#update-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
 | `schedule_id` | Optional | String | Die zu aktualisierende `schedule_id` (erhalten aus der Antwort auf die Anfrage zum Erstellen des Zeitplans). |
 | `schedule` | Erforderlich | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```

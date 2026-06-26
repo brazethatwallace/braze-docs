@@ -123,8 +123,6 @@ Après le lancement, consultez les résultats dans :
 - La vue analytique de la page d'accueil pour les enquêtes sur les pages d'accueil
 {% endif %}
 
-![Onglet d'analyse de la page d'accueil.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 Les analyses de haut niveau incluent :
 
 - **All responses :** total des réponses complètes et incomplètes

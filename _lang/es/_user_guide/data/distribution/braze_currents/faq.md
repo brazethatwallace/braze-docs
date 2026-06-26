@@ -62,12 +62,24 @@ Si un dispositivo no está conectado a internet, puede haber un retraso en la cr
 
 Para obtener una lista completa de los eventos que registra Currents, consulta los glosarios de [Eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) y [Eventos de interacción con mensajes]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). Puedes filtrar estos glosarios por tipo de evento (como envíos, entregas o aperturas).
 
-## ¿Por qué el `external_id` en mi evento de apertura o clic de correo electrónico en Currents difiere del perfil de usuario en el panel de Braze? {#why-does-the-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
+## ¿Por qué los recuentos de eventos de Currents no coinciden con las métricas de mi dashboard o de los informes de participación? {#why-do-my-currents-event-counts-not-match-my-dashboard-or-engagement-report-metrics}
+
+Currents y el dashboard de Braze calculan ciertas métricas de forma diferente, por lo que no se esperan coincidencias exactas entre los eventos de Currents y las métricas del dashboard.
+
+**Clics únicos:** para el correo electrónico, el dashboard rastrea los clics únicos durante un período de siete días y los mide por `dispatch_id`. Currents registra cada evento de clic sin procesar. Para alinear los recuentos de clics únicos basados en Currents con las métricas del dashboard, filtra los eventos donde `is_unique` sea `true`.
+
+**Cancelaciones de suscripción:** la métrica *Unsub* del dashboard refleja los clics en el enlace estándar de cancelación de suscripción de Braze. Las páginas personalizadas de cancelación de suscripción no incrementan esta métrica a menos que actualices al usuario a través de la API. El evento `users.messages.email.Unsubscribe` de Currents es un evento de clic especializado que se activa cuando un usuario hace clic en un enlace de cancelación de suscripción en el cuerpo o pie del correo electrónico, o a través del encabezado list-unsubscribe. No representa todos los cambios de estado de suscripción de correo electrónico.
+
+**Marcas de tiempo y zonas horarias:** todas las marcas de tiempo de Currents están en UTC. Las métricas del dashboard siguen la zona horaria de tu empresa. Agregar datos de Currents por día calendario sin convertir a la zona horaria de tu empresa puede hacer que los recuentos caigan en contenedores de fechas diferentes a los que aparecen en el dashboard.
+
+**Eventos duplicados:** Currents proporciona entrega al menos una vez, lo que significa que ocasionalmente pueden escribirse eventos duplicados. Deduplica por el campo único `id` de cada evento antes de comparar los totales con las métricas del dashboard.
+
+## ¿Por qué el `external_user_id` (esquema de Braze: `external_id`) en mi evento de apertura o clic de correo electrónico en Currents difiere del perfil de usuario en el panel de Braze? {#why-does-the-external_user_id-braze-schema-external_id-in-my-currents-email-open-or-click-event-differ-from-the-user-profile-in-the-braze-dashboard}
 
 - **En el panel de Braze:** cuando un usuario asociado a una dirección de correo electrónico abre o hace clic en un correo electrónico, todos los perfiles de usuario que comparten esa dirección de correo electrónico se marcan como que abrieron o hicieron clic en ese correo electrónico. Para más información, consulta [¿Qué ocurre cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico?]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 - **En Currents:** esa misma apertura o clic se almacena en un solo perfil. Braze lo atribuye al perfil que fue originalmente el objetivo del envío, si ese perfil aún comparte la dirección de correo electrónico. De lo contrario, Braze lo atribuye a un perfil seleccionado aleatoriamente entre los que comparten la dirección de correo electrónico.
 
-Debido a esto, el `external_id` en un evento de apertura o clic de correo electrónico en Currents puede no coincidir con el perfil de usuario que esperas cuando comparas Currents con el panel de Braze.
+Debido a esto, el valor de `external_user_id` (denominado `external_id` en la tabla de mapeo del esquema de Braze) en un evento de apertura o clic de correo electrónico en Currents puede no coincidir con el perfil de usuario que esperas cuando comparas Currents con el panel de Braze.
 
 ## ¿Se registran todos los eventos de envío en Currents? {#are-all-send-events-logged-to-currents}
 
@@ -80,6 +92,12 @@ En circunstancias normales, los datos de Currents no se corrompen. Aunque siempr
 ## ¿Por qué veo datos de eventos personalizados con fechas anteriores a la configuración de mi integración de Currents? {#why-do-i-see-custom-event-data-dated-before-my-currents-integration-was-set-up}
 
 Braze no rellena eventos retroactivamente en Currents. Sin embargo, los eventos personalizados pueden registrarse con una marca de tiempo pasada (por ejemplo, si un dispositivo estaba sin conexión cuando ocurrió el evento y se sincronizó después). En estos casos, la marca de tiempo del evento refleja cuándo ocurrió originalmente, lo que puede ser anterior a la configuración de la integración de Currents.
+
+## ¿Qué identificadores de usuario se incluyen en los eventos de Currents? {#what-user-identifiers-are-included-in-currents-events}
+
+Los eventos de interacción con mensajes (envíos, aperturas, clics, etc.) incluyen el ID de usuario de Braze (`user_id`) y, cuando está presente en el perfil, el identificador externo (`external_user_id` en las cargas útiles de eventos, etiquetado como `external_id` en la tabla de mapeo del esquema de Braze). Algunos eventos de interacción con mensajes de correo electrónico también incluyen `email_address`. Los atributos personalizados no se incluyen; consulta más abajo.
+
+Si estás enrutando datos de Currents a un almacén de datos o CRM y necesitas unirlos con datos de perfil, realiza esa unión en tu sistema de destino utilizando `user_id` o `external_user_id`.
 
 ## ¿Puedo incluir atributos personalizados en los eventos de envío de Currents? {#can-i-include-custom-attributes-in-currents-send-events}
 

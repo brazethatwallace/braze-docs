@@ -27,7 +27,7 @@ BrazeとAppsFlyerの統合により、AppsFlyerのモバイルインストール
 | AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)をインストールする必要があります。 |
 | メールドメインのセットアップ完了 | Brazeオンボーディング時にメールを設定するには、[IPとドメインの設定ステップ]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)を完了している必要があります。 |
 | SSL証明書 | [SSL証明書]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -118,13 +118,13 @@ AppsFlyerのIntegrationタブでBraze RESTエンドポイントを入力する�
 
 BrazeのAppsFlyerテクノロジーパートナーページでは、ステップ2でデータインポートAPIキーを生成するまで、接続インジケーターに**Not Connected**と表示されます。キーを生成すると、インジケーターが**Connected**に変わり、タイムスタンプが表示されます。このタイムスタンプは、AppsFlyerが最後にポストバックを送信した時点ではなく、Brazeで統合が最初にセットアップされた時点（データインポートキーが作成された時点）を反映しています。
 
-インストールアトリビューションデータがAppsFlyerから流入していることを確認するには、ステップ5を使用して、非オーガニックインストールデータがBrazeのセグメントフィルターに表示されることを検証してください。BrazeはAppsFlyerのポストバックからのオーガニックインストールを無視し、アトリビューション付きインストールデータとして保存しません。
+インストールアトリビューションデータがAppsFlyerから流入していることを確認するには、ステップ5を使用して、非オーガニックインストールデータがBrazeのSegmentフィルターに表示されることを検証してください。BrazeはAppsFlyerのポストバックからのオーガニックインストールを無視し、アトリビューション付きインストールデータとして保存しません。
 
 ### ステップ5: ユーザーアトリビューションデータを確認する {#step-5-viewing-user-attribution-data}
 
 #### 利用可能なデータフィールド {#available-data-fields}
 
-統合が成功した場合、Brazeはすべての非オーガニックインストールデータをセグメントフィルターにマッピングします。
+統合が成功した場合、Brazeはすべての非オーガニックインストールデータをSegmentフィルターにマッピングします。
 
 | AppsFlyerデータフィールド | Braze Segmentフィルター |
 | -------------------- | --------------------- |
@@ -132,7 +132,7 @@ BrazeのAppsFlyerテクノロジーパートナーページでは、ステップ
 | `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能なデータフィールド" }
 
 Brazeダッシュボードでは、インストールアトリビューションフィルターを使用して、アトリビューションデータでユーザー群をセグメンテーションできます。
 
@@ -219,7 +219,7 @@ AppsFlyerは、ユニバーサルリンクをサポートするためにWebチ�
 
 ## ステップ5: BrazeでSSLクリックトラッキングが有効になっていることを確認する {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-この段階で、AppsFlyerでCTDの詳細を共有し検証した後、OneLinkの送信ドメインにSSL証明書があるかどうかを確認するため、テスト送信を実行することを推奨します。これは[メール設定](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)ガイドに沿ったものです。
+この段階で、AppsFlyerでCTDの詳細を共有し検証した後、OneLinkの送信ドメインにSSL証明書があるかどうかを確認するため、テスト送信を実行することを推奨します。これは[メール設定]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)ガイドに沿ったものです。
 
 OneLinkを使ってディープリンクを送信することで、品質保証やトラブルシューティングを行うことができます。OneLinkの使い方の詳細については、[AppsFlyerのドキュメント](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a)を参照してください。
 

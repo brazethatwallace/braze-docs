@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para criar
 ---
 {% api %}
 # Criar envios de mensagens programadas {#create-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para criar
 Se você estiver direcionando um segmento, um registro da sua solicitação será armazenado no [Console de desenvolvedor](https://dashboard.braze.com/app_settings/developer_console/activitylog/) após o envio de todas as mensagens programadas.
 
 {% alert tip %}
-Se você deseja enviar mensagens imediatamente para usuários designados, use o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
+Se você deseja enviar mensagens imediatamente para usuários designados, use o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) em vez disso.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#25272fb8-bc39-41df-9a41-07ecfd76cb1d {% endapiref %}
@@ -86,7 +86,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `recipient_subscription_state` | Opcional | String | Use essa opção para enviar mensagens apenas para usuários que tenham aceitado receber mensagens (`opted_in`), apenas para usuários que tenham feito a inscrição ou aceitado receber mensagens (`subscribed`) ou para todos os usuários, inclusive os que cancelaram a inscrição (`all`). <br><br>O uso de `all` é útil para envio de e-mail de transação. O padrão é `subscribed`. |
 | `schedule` | Obrigatória | Objeto de programação | Consulte [objeto de programação]({{site.baseurl}}/api/objects_filters/schedule_object/) |
 | `messages` | Opcional | Objeto de envio de mensagens | Consulte os [objetos de envio de mensagens disponíveis]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

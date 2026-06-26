@@ -252,16 +252,11 @@ $(document).ready(function() {
       var active_toc = $('#toc').find("a.nav-link.active").last().attr("href");
       var hash = active_toc;
       if (!hash){
-        hash = '.';
+        hash = window.location.pathname || '.';
         active_toc = '.';
-        if (window.location.pathname.substr(-1) != '/') {
-          hash = window.location.pathname + '/' ;
-        }
       }
       else {
-        if (window.location.pathname.substr(-1) != '/')  {
-          hash = window.location.pathname + '/' + hash;
-        }
+        hash = window.location.pathname + hash;
       }
 
       window.history.replaceState(null, null, hash);
@@ -319,12 +314,7 @@ $(document).ready(function() {
           'sdktab': sdk_tab
         };
         let query_str = replaceParams(window.location.search, tab_replace, true) + '#' + sdk_hash.attr('id');
-        if (window.location.pathname.substr(-1) != '/')  {
-          window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-        }
-        else {
-          window.history.replaceState(null, null,  window.location.pathname + query_str);
-        }
+        window.history.replaceState(null, null, window.location.pathname + query_str);
       }
     }
   }
@@ -335,12 +325,7 @@ $(document).ready(function() {
     let tab_replace = {};
     tab_replace[query_name] = encodeURIComponent(tab_norm);
     let query_str = replaceParams(window.location.search, tab_replace, true);
-    if (window.location.pathname.substr(-1) != '/')  {
-      window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-    }
-    else {
-      window.history.replaceState(null, null,  window.location.pathname + query_str);
-    }
+    window.history.replaceState(null, null, window.location.pathname + query_str);
     switch(query_name) {
       case 'sdktab': {
         Cookies.set('sdktab',tab_norm, { expires: 365 });

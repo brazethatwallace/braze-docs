@@ -9,7 +9,7 @@ description: "Este artículo describe los detalles del punto de conexión Rastre
 
 {% api %}
 # Rastrear usuarios (masivo) {#track-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -29,7 +29,7 @@ De forma similar al [punto de conexión POST: Rastrear usuarios]({{site.baseurl}
 Considera utilizar este punto de conexión cuando estés rellenando muchos perfiles de usuario durante la incorporación o sincronizando grandes cantidades de perfiles de usuario como parte de una sincronización diaria.
 
 {% alert note %}
-A partir del 26 de mayo de 2025, este punto de conexión se puede utilizar para rastrear métricas de conversión, así como para desencadenar eventos de excepción, o Campaigns y Canvas basados en acciones. Este comportamiento es similar a cualquier otro método de ingesta de datos de Braze.
+A partir del 26 de mayo de 2025, este punto de conexión se puede utilizar para rastrear métricas de conversión, así como para desencadenar eventos de excepción o Campaigns y Canvas basados en acciones. Este comportamiento es similar a cualquier otro método de ingesta de datos de Braze.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}

@@ -12,14 +12,14 @@ El SDK web de Braze te permite integrar la plataforma de interacción con los cl
 
 ### Lo que puedes hacer {#what-you-can-do}
 
-- **Gestión de usuarios**: Rastrea y gestiona identidades de usuarios, atributos y comportamiento en tu aplicación web
-- **In-App Messages**: Muestra mensajes y notificaciones dirigidos a los usuarios mientras están usando activamente tu sitio
-- **Content Cards**: Muestra feeds de contenido personalizados y tarjetas promocionales que se actualizan en tiempo real
-- **Banners**: Muestra mensajes de banner en ubicaciones específicas dentro de tu sitio
-- **Notificaciones push**: Envía notificaciones push web para interactuar con los usuarios incluso cuando no están en tu sitio
-- **Conmutadores de características**: Controla el despliegue de características y las pruebas A/B con la gestión de conmutadores de características del lado del servidor
-- **Análisis**: Rastrea eventos personalizados, interacciones de usuarios y métricas de conversión
-- **Gestión de sesiones**: Monitoriza las sesiones de los usuarios y los patrones de interacción
+- **Gestión de usuarios**: rastrea y gestiona identidades de usuarios, atributos y comportamiento en tu aplicación web
+- **In-App Messages**: muestra mensajes y notificaciones dirigidos a los usuarios mientras están usando activamente tu sitio
+- **Content Cards**: muestra feeds de contenido personalizados y tarjetas promocionales que se actualizan en tiempo real
+- **Banners**: muestra mensajes de banner en ubicaciones específicas dentro de tu sitio
+- **Notificaciones push**: envía notificaciones push web para interactuar con los usuarios incluso cuando no están en tu sitio
+- **Conmutadores de características**: controla el despliegue de características y las pruebas A/B con la gestión de conmutadores de características del lado del servidor
+- **Análisis**: rastrea eventos personalizados, interacciones de usuarios y métricas de conversión
+- **Gestión de sesiones**: monitoriza las sesiones de los usuarios y los patrones de interacción
 
 Ya sea que estés creando una aplicación de página única, un sitio de comercio electrónico o una plataforma de contenido, el SDK web de Braze proporciona las herramientas que necesitas para crear experiencias de usuario personalizadas y atractivas que impulsen el crecimiento y la retención.
 
@@ -27,15 +27,15 @@ Ya sea que estés creando una aplicación de página única, un sitio de comerci
 
 Antes de integrar el SDK web de Braze, necesitarás:
 
-- **Cuenta de Braze**: Una cuenta de Braze con acceso a la API
-- **Clave de API**: La clave de API de tu aplicación desde el dashboard de Braze
-- **Punto final de SDK**: La URL de tu punto final de SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
+- **Cuenta de Braze**: una cuenta de Braze con acceso a la API
+- **Clave de API**: la clave de API de tu aplicación desde el dashboard de Braze
+- **Punto final de SDK**: la URL de tu punto final de SDK de Braze (por ejemplo, `sdk.iad-01.braze.com`)
 
 ### Obtener tus credenciales {#getting-your-credentials}
 
-1. **Clave de API**: Se encuentra en tu dashboard de Braze en **Configuración** > **Claves de API**
-2. **Punto final de SDK**: Se encuentra en **Configuración** > **Autenticación SDK** > **Puntos finales**
-3. **Prestador de servicios**: Necesario para las notificaciones push (consulta la sección de notificaciones push)
+1. **Clave de API**: se encuentra en tu dashboard de Braze en **Configuración** > **Claves de API**
+2. **Punto final de SDK**: se encuentra en **Configuración** > **Autenticación SDK** > **Puntos finales**
+3. **Prestador de servicios**: necesario para las notificaciones push (consulta la sección de notificaciones push)
 
 ## Instalación {#installation}
 
@@ -765,13 +765,13 @@ require(['path/to/braze.min.js'], function(braze) {
 
 Para la integración con AMP, necesitarás:
 
-1. **Incluir el script de push web de AMP**: Añade la etiqueta de script asíncrono a tu head
-2. **Añadir widgets de suscripción**: Añade widgets para permitir que los usuarios se suscriban o cancelen su suscripción
-3. **Añadir archivos auxiliares**: Incluye `helper-iframe.html` y `permission-dialog.html`
-4. **Crear un prestador de servicios**: Añade el archivo de prestador de servicios de Braze
-5. **Configurar el elemento de push web de AMP**: Añade el elemento `amp-web-push` con tu clave de API y URL base como parámetros de consulta
+1. **Incluir el script de push web de AMP**: añade la etiqueta de script asíncrono a tu head
+2. **Añadir widgets de suscripción**: añade widgets para permitir que los usuarios se suscriban o cancelen su suscripción
+3. **Añadir archivos auxiliares**: incluye `helper-iframe.html` y `permission-dialog.html`
+4. **Crear un prestador de servicios**: añade el archivo de prestador de servicios de Braze
+5. **Configurar el elemento de push web de AMP**: añade el elemento `amp-web-push` con tu clave de API y URL base como parámetros de consulta
 
-Para instrucciones detalladas de integración con AMP, consulta la [Guía para desarrolladores de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web#amp).
+Para instrucciones detalladas de integración con AMP, consulta la [Guía para desarrolladores de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#amp).
 
 ### Electron
 
@@ -779,20 +779,20 @@ Electron no es compatible oficialmente con las notificaciones push web (consulta
 
 ### Integración por CDN {#cdn-integration}
 
-- **Carga de scripts**: Inicializa después de que se cargue la etiqueta de script colocando el código de inicialización después de la etiqueta de script, o utiliza el controlador de eventos `onload` de la etiqueta de script
-- **Acceso global**: El SDK está disponible como `window.braze` cuando se carga a través del CDN
+- **Carga de scripts**: inicializa después de que se cargue la etiqueta de script colocando el código de inicialización después de la etiqueta de script, o utiliza el controlador de eventos `onload` de la etiqueta de script
+- **Acceso global**: el SDK está disponible como `window.braze` cuando se carga a través del CDN
 
 ### Prestador de servicios (notificaciones push) {#service-worker-push-notifications}
 
-- **Obligatorio**: Debes incluir el prestador de servicios de Braze para que las notificaciones push funcionen
-- **Registro**: Registra el prestador de servicios en el código de tu sitio web usando `navigator.serviceWorker.register()`
-- **Permisos de push**: Llama a `braze.requestPushPermission()` en respuesta a interacciones del usuario (por ejemplo, clics en botones). Utiliza indicaciones de push suaves (interfaz personalizada) antes de solicitar el permiso del navegador
+- **Obligatorio**: debes incluir el prestador de servicios de Braze para que las notificaciones push funcionen
+- **Registro**: registra el prestador de servicios en el código de tu sitio web usando `navigator.serviceWorker.register()`
+- **Permisos de push**: llama a `braze.requestPushPermission()` en respuesta a interacciones del usuario (por ejemplo, clics en botones). Utiliza indicaciones de push suaves (interfaz personalizada) antes de solicitar el permiso del navegador
 
 ### Gestores de etiquetas {#tag-managers}
 
 #### Tealium iQ
 
-Tealium iQ ofrece una integración básica llave en mano con Braze. Para configurar la integración, busca Braze en la interfaz de gestión de etiquetas de Tealium y proporciona la clave de API del SDK web desde tu dashboard. Para más detalles o soporte de configuración avanzada de Tealium, consulta nuestra [documentación de integración](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) o ponte en contacto con tu director de cuentas de Tealium.
+Tealium iQ ofrece una integración básica llave en mano con Braze. Para configurar la integración, busca Braze en la interfaz de gestión de etiquetas de Tealium y proporciona la clave de API del SDK web desde tu dashboard. Para más detalles o soporte de configuración avanzada de Tealium, consulta nuestra [documentación de integración]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) o ponte en contacto con tu director de cuentas de Tealium.
 
 #### Otros gestores de etiquetas {#other-tag-managers}
 
@@ -802,11 +802,11 @@ Braze también puede ser compatible con otras soluciones de gestión de etiqueta
 
 ## Bibliotecas {#libraries}
 
-| Nombre | Descripción | npm | URL del CDN
-| ---- | ----------- | --- | -------
-| Full | SDK completo con interfaz de usuario. Al usar la versión npm, los empaquetadores de JavaScript eliminarán cualquier código no utilizado, incluida la interfaz de usuario. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js
-| Core | Contiene el SDK sin interfaz de usuario. Necesitarás implementar tu propia interfaz de usuario para In-App Messages y Content Cards al usar esta versión del SDK. Nuestros elementos de interfaz de usuario son totalmente personalizables a través de CSS, por lo que generalmente recomendamos la integración de la biblioteca completa. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js
-| No-AMD | Contiene el SDK completo sin compatibilidad con AMD. Esto es útil si tu sitio utiliza RequireJS u otro cargador de módulos AMD, pero prefieres cargar el SDK a través del CDN. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js
+| Nombre | Descripción | npm | URL del CDN |
+| ---- | ----------- | --- | ------- |
+| Full | SDK completo con interfaz de usuario. Al usar la versión npm, los empaquetadores de JavaScript eliminarán cualquier código no utilizado, incluida la interfaz de usuario. | `@braze/web-sdk` | https://js.appboycdn.com/web-sdk/6.8/braze.min.js |
+| Core | Contiene el SDK sin interfaz de usuario. Necesitarás implementar tu propia interfaz de usuario para In-App Messages y Content Cards al usar esta versión del SDK. Nuestros elementos de interfaz de usuario son totalmente personalizables a través de CSS, por lo que generalmente recomendamos la integración de la biblioteca completa. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.core.min.js |
+| No-AMD | Contiene el SDK completo sin compatibilidad con AMD. Esto es útil si tu sitio utiliza RequireJS u otro cargador de módulos AMD, pero prefieres cargar el SDK a través del CDN. | N/A | https://js.appboycdn.com/web-sdk/6.8/braze.no-amd.min.js |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliotecas" }
 
 ## Navegadores compatibles {#supported-browsers}
@@ -825,7 +825,7 @@ Braze utiliza [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.7.0 p
 
 ## Recursos adicionales {#additional-resources}
 
-- [Guía para desarrolladores de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=web)
+- [Guía para desarrolladores de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)
 - [Documentación del SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)
 - [Compilaciones de ejemplo](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/)
 

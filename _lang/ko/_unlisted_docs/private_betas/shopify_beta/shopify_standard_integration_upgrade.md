@@ -212,4 +212,4 @@ Braze로 돌아가면 Shopify 통합 설치가 완료되었을 때 알림을 받
 - **SDK 커스터마이징(선택 사항):** Braze 및 Shopify 통합에 커스터마이징(예: 커스텀 이벤트 또는 속성 로깅)을 적용한 경우, 업그레이드 후 정상적으로 작동하는지 확인합니다.
 - **이메일 또는 SMS 구독자 수집(선택 사항):** 이전에 이메일 또는 SMS 구독자 수집을 활성화한 경우, 업그레이드 중 구독자의 최신 상태를 반영하는 새로운 기본 구독 그룹이 생성됩니다. 기본 구독 그룹은 Shopify 스토어프론트의 이름으로 지정됩니다. 이러한 새로운 기본 구독 그룹은 업그레이드 후 약 5시간 후에 사용할 수 있으며, 활성 메시지에 추가해야 합니다.
 
-질문이 있으시면 [고객지원에 문의](https://www.braze.com/docs/user_guide/administrative/access_braze/support/)하세요.
+질문이 있으시면 [고객지원에 문의]({{site.baseurl}}/user_guide/administrative/access_braze/support/)하세요.

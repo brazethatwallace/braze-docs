@@ -235,7 +235,7 @@ Use o modelo a seguir para testar a configuração do CDN do seu domínio de ras
                             <li><strong>Tracked URL Fails / Untracked Works:</strong> This indicates a CDN or SSL certificate issue. Verify that your SSL certificate is valid and correctly bound to your tracking domain.</li>
                             <li><strong>Privacy Error (HTTPS):</strong> Ensure your CDN is configured to handle port 443 traffic and that the certificate matches your tracking CNAME.</li>
                             <li><strong>Both URLs Fail:</strong> Check the destination URL or your internal network firewall settings.</li>
-                            <li>For more information, visit: <a href="https://www.braze.com/docs/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
+                            <li>For more information, visit: <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
                         </ul>
                     </div>
                 </td>

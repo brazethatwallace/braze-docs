@@ -25,7 +25,7 @@ La característica de bloques de producto de arrastrar y soltar se encuentra en 
 | Plantillas de Canvas de comercio electrónico | Los eventos recomendados de comercio electrónico son compatibles con plantillas prediseñadas, incluyendo plantillas de Canvas de comercio electrónico diseñadas para casos de uso esenciales como navegación abandonada, carritos abandonados y confirmaciones de pedido. <br><br>Si planeas implementar alguno de estos casos de uso esenciales de comercio electrónico utilizando las [plantillas de Canvas de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases/), debes usar o seguir la plantilla de Canvas proporcionada. |
 | Catálogo de Braze | Debes crear un catálogo de Braze que incluya los siguientes campos, que usarás en la configuración de tu bloque de producto:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | Selección de catálogo | Para los bloques de producto estáticos, debes crear una [selección de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para especificar qué productos incluir en tu bloque de producto. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Tipos de bloques de producto de arrastrar y soltar {#types-of-drag-and-drop-product-blocks}
 
@@ -33,7 +33,7 @@ La característica de bloques de producto de arrastrar y soltar se encuentra en 
 | --- | --- | --- | --- |
 | Dinámico | Personaliza tu mensajería con un escaparate de productos basado en las interacciones del cliente utilizando [eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_events/) y catálogos dentro de nuestras [plantillas de Canvas de comercio electrónico]({{site.baseurl}}/ecommerce_use_cases/). | {::nomarkdown}<ul><li>Navegación abandonada</li><li>Carrito abandonado</li><li>Pago abandonado</li><li>Confirmaciones de pedido</li></ul>{:/} | Disponible solo en Canvas. |
 | Estático | Personaliza productos usando datos almacenados en un catálogo de Braze. Debes usar una [selección de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para especificar qué productos incluir. | Perfecto para presentar lanzamientos de nuevos productos u ofertas específicas por categoría. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types of drag-and-drop product blocks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de bloques de producto de arrastrar y soltar" }
 
 ## Configuración de contenido del bloque de producto {#product-block-content-configuration}
 
@@ -52,7 +52,7 @@ En la sección **Product Fields**, selecciona tu tipo de bloque de producto y lu
 | Botón para URL del producto | Catálogos |
 | Precio | Propiedad de evento recomendado de comercio electrónico |
 | Cantidad | Propiedad de evento recomendado de comercio electrónico |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamic product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloque de producto dinámico" }
 
 ![Campos de producto para un bloque de producto dinámico, que se dividen en datos de catálogo y datos de evento.]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
@@ -64,7 +64,7 @@ En la sección **Product Fields**, selecciona tu tipo de bloque de producto y lu
 | Título del producto | Catálogos |
 | Botón para URL del producto | Catálogos |
 | Precio | Catálogos |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Static product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloque de producto estático" }
 
 ![Campos de producto para un bloque de producto estático, que están todos categorizados como datos de catálogo.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,7 +78,7 @@ Usa las opciones de diseño para personalizar cómo se muestran tus productos de
 | Alineación | Ajusta la alineación de los campos de texto y el botón dentro del bloque. |
 | Máximo de productos por fila | Muestra hasta tres productos por fila, hasta 12 productos en total para bloques de producto estáticos y hasta 24 productos en total para bloques de producto dinámicos. |
 | Espaciado entre productos | Establece el espaciado entre productos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opciones de diseño" }
 
 ![Opciones de diseño para orientación del producto, alineación, máximo de productos por fila y espaciado entre productos.]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
@@ -105,15 +105,15 @@ Para usar los bloques de producto de arrastrar y soltar, necesitas configurar un
 | `product_title` | El título del producto. |
 | `product_url` | La URL donde los clientes pueden ver o comprar el producto. |
 | `variant_image_url` | La URL de la imagen de la variante. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración del catálogo" }
 
-Empieza rápidamente trabajando con este [catálogo de productos de ejemplo]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), que incluye los campos obligatorios.
+Empieza rápidamente trabajando con este [catálogo de productos de ejemplo](/docs/assets/download_file/ecommerce_product_catalog_sample.csv), que incluye los campos obligatorios.
 
 ![Un archivo CSV de ejemplo con los campos obligatorios además de otros.]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 
 #### Mapeado a campos del catálogo {#mapping-to-catalog-fields}
 
-En la pestaña **Settings** de tu catálogo, puedes seleccionar el interruptor **Product blocks** para mapear a campos e información específicos en tu catálogo. Esto te permite seleccionar qué campos usar como título del producto, URL del producto y URL de la imagen. Ten en cuenta que los campos del catálogo de Shopify están mapeados de forma predeterminada y no se pueden cambiar.
+En la pestaña **Configuración** de tu catálogo, puedes seleccionar el interruptor **Product blocks** para mapear a campos e información específicos en tu catálogo. Esto te permite seleccionar qué campos usar como título del producto, URL del producto y URL de la imagen. Ten en cuenta que los campos del catálogo de Shopify están mapeados de forma predeterminada y no se pueden cambiar.
 
 {% alert note %}
 Si no estás usando Shopify, puedes ponerte en contacto con tu director de cuentas para activar el mapeado de campos, lo que te permite conectar cualquier catálogo a los bloques de producto y mapear sus campos a `product_title`, `product_url` y `variant_image_url`.
@@ -123,7 +123,7 @@ Si no estás usando Shopify, puedes ponerte en contacto con tu director de cuent
 
 Esta guía te llevará a través de los pasos para crear, probar y asegurar la funcionalidad de un bloque de producto dinámico o estático usando nuestro editor de correo electrónico de arrastrar y soltar.
 
-### Paso 1: Crea una campaña de correo electrónico o un paso de correo electrónico en Canvas {#step-1-create-an-email-campaign-or-email-canvas-step}
+### Paso 1: Crea una Campaign de correo electrónico o un paso de correo electrónico en Canvas {#step-1-create-an-email-campaign-or-email-canvas-step}
 
 #### Bloque de producto dinámico
 
@@ -141,7 +141,7 @@ Para instrucciones detalladas sobre cómo crear tus Canvas de comercio electrón
 
 #### Bloque de producto estático
 
-Crea una campaña de correo electrónico de arrastrar y soltar, un Canvas basado en acciones o una plantilla que tenga un paso de mensaje de correo electrónico de arrastrar y soltar.
+Crea una Campaign de correo electrónico de arrastrar y soltar, un Canvas basado en acciones o una plantilla que tenga un paso de mensaje de correo electrónico de arrastrar y soltar.
 
 ### Paso 2: Añade un bloque de producto {#step-2-add-a-product-block}
 
