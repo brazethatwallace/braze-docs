@@ -95,6 +95,15 @@ For individual Canvas steps, you can edit the following details after launch:
 
 However, the step's schedule type and control percentages are not editable after launch. For Action Paths and Audience Paths steps, the rankings and evaluation windows aren't editable after launch.
 
+#### Send to Destination step
+
+When editing the [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) step on a live Canvas, the following behaviors apply:
+
+- **Changing the destination Canvas:** Editing the Send to Destination step to point to a different destination Canvas follows the same general post-launch editing rules. Changes only affect users who haven't yet reached the Send to Destination step.
+  - Users who already passed through the step remain in the original destination Canvas — they are not re-routed.
+  - Users currently queued in earlier steps (for example, waiting in a Delay step before the Send to Destination step) are sent to the new destination Canvas when they reach it.
+- **Stopped destination Canvas:** If the destination Canvas is stopped, users who reach the Send to Destination step are not sent to the destination and exit the Canvas instead. This causes user drop-off, not just a pause in the hand-off.
+
 ### Canvas variant percentages
 
 After launching a Canvas, you can only decrease the control variant percentages. If a variant percentage is modified in Canvas, you'll find that your users may be redistributed to other variants.
