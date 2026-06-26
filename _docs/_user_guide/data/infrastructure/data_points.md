@@ -84,7 +84,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 {% tabs %}
 {% tab Non-billable %}
 
-#### Non-billable data points (default)
+### Non-billable data points (default)
 
 <div class="small_table"></div>
 
@@ -120,7 +120,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 {% endtab %}
 {% tab Billable %}
 
-#### Billable data points
+### Billable data points
 
 {% alert important %}
 Adding, removing, or updating the following data types will incur a billable data point.
