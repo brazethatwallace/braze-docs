@@ -97,7 +97,7 @@ Braze fournit des statistiques détaillées sur l'audience des canaux ciblés da
 
 ##### Pourquoi le nombre de l'audience cible peut différer du nombre d'utilisateurs pouvant être atteints {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![La section « Population totale » avec des estimations du nombre d'utilisateurs pouvant être atteints pour chaque canal ciblé.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

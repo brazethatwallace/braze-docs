@@ -72,7 +72,7 @@ If you created a segment where you expect users to enter and exit regularly, man
 
 ### Designating refresh settings
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Use cases
 

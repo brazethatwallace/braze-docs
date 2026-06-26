@@ -280,7 +280,7 @@ Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}
 
 Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen. Braze zeigt eine Live-Vorschau der Segment-Population an, einschließlich der Anzahl der per E-Mail erreichbaren Nutzer:innen. Die genaue Segment-Zugehörigkeit wird kurz vor dem Versand berechnet.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Sie können auch wählen, Ihre Campaign nur an Nutzer:innen mit einem bestimmten [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions/) zu senden, z. B. an diejenigen, die abonniert und für E-Mail angemeldet sind.
 

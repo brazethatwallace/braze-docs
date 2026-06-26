@@ -60,7 +60,7 @@ Toute autre saisie qui ne correspond pas au standard d'étiquette décrit ci-des
 
 ## Envoi d'informations de codes de promotion à Currents {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Considérations {#considerations}
 

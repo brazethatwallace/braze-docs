@@ -37,7 +37,7 @@ Shopify 스토어에 Braze 앱을 설치하고 첫 번째 스토어를 설치한
 
 필요에 가장 적합한 옵션을 선택하세요:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 각 스토어 통합을 확인하고 고급 설정을 구성하려면 드롭다운 메뉴에서 스토어를 선택합니다.
 

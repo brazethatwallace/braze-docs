@@ -60,7 +60,7 @@ Any other input that doesn't match the tag standard discussed above may fail to 
 
 ## Sending promotion code information to Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Considerations
 

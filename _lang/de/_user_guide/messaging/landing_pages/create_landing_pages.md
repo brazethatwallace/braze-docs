@@ -70,7 +70,7 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 
 #### Span-Text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Formularblöcke %}

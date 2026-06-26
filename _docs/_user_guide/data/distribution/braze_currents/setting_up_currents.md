@@ -67,7 +67,7 @@ Each partner requires a different set of configuration steps. To enable each int
 
 Choose the events you wish to pass to that partner by checking from the available options. You can find listings of these events in our [Customer Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) and [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) libraries.
 
-![Screenshot related to step 4: configure your events.]({% image_buster /assets/img/current4.png %})
+![Currents configuration page with partner events selected for export.]({% image_buster /assets/img/current4.png %})
 
 If needed, you can learn more about our events in our [event delivery semantics]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics) article.
 
@@ -109,10 +109,10 @@ To upgrade your Test Currents connector, edit the integration in the dashboard a
 
 ## Updating Currents
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## IP allowlisting
 
 Braze will send Currents data from the listed IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}

@@ -20,7 +20,7 @@ Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die E
 {% tabs %}
 {% tab Mehrsprachige Locales %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Nachrichtentypen %}

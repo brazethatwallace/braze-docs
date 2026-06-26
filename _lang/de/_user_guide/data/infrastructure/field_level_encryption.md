@@ -11,7 +11,7 @@ page_type: reference
 
 > Verschlüsseln Sie E-Mail-Adressen, um den Austausch von personenbezogenen Daten (PII) in Braze zu minimieren.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 Die Verschlüsselung auf Bezeichner-Feldebene ist als zusätzliches Feature verfügbar. Wenden Sie sich an Ihren Braze Account Manager, um mit der Verschlüsselung auf Bezeichner-Feldebene zu beginnen.

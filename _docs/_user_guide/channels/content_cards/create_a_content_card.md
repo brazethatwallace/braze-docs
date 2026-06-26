@@ -149,7 +149,7 @@ For Content Card campaigns with scheduled delivery, you can choose when Braze ev
 
 Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) by choosing segments or filters to narrow your audience. You automatically receive a preview of what that approximate segment population looks like. Keep in mind that exact segment membership is always calculated before the message is sent.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Choose conversion events
 

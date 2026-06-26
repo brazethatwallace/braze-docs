@@ -101,7 +101,7 @@ Canvas에 지연 구성요소를 추가하고 후속 단계가 없는 경우, �
 
 ### 개인화된 지연 {#personalized-delays}
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 **지연 개인화** 토글을 선택하여 사용자에 대한 개인화된 지연을 설정합니다. [Context 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)와 함께 사용하여 지연할 컨텍스트 변수를 선택할 수 있습니다. 이렇게 하면 선택한 속성 또는 등록정보에 설정된 시간이 재정의됩니다. 일 또는 주 단위로 오프셋을 적용하고 사용자가 특정 시간에 진행하기를 원할 때 유용합니다. 시간대는 속성 또는 등록정보에서 가져오며, 사용할 수 없는 경우 대체 시간대를 사용합니다.
 

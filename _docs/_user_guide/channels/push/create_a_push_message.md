@@ -192,7 +192,7 @@ This step is also where you can specify delivery controls, such as allowing user
 
 Next, you must [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) by choosing segments or filters to narrow your audience. You automatically receive a preview of what that approximate segment population looks like. Detailed audience statistics for the channels targeted by your campaign are available in the footer. To see what percentage of your user base is being targeted and the Lifetime Value for this segment, select **Show Additional Stats**.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {% details Why does my Total Reachable Users metric not match the sum of all channels? %}
 

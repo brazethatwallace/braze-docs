@@ -49,7 +49,7 @@ When using endpoints for API calls, use the REST endpoint.
 For SDK integration, use the [SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), not the REST endpoint.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 ### API limits
 

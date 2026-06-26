@@ -101,7 +101,7 @@ Si añades un componente de demora a tu Canvas y no hay pasos posteriores, cualq
 
 ### Demoras personalizadas
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 Selecciona el conmutador **Personalize delay** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) para seleccionar la variable de contexto por la cual retrasar. Esto anulará la hora del día establecida en el atributo o propiedad seleccionados. Esto es útil cuando se aplica un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o propiedad, o usa la alternativa si no hay ninguna disponible.
 

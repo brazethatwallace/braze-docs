@@ -43,7 +43,7 @@ Test Connection is running on your data warehouse, so increasing warehouse capac
 
 Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), or allow the relevant IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Error executing SQL due to customer config: 002003 (42S02): SQL compilation error: does not exist or not authorized
 

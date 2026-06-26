@@ -22,7 +22,7 @@ There are two types of Content Blocks: drag-and-drop and HTML. Each type corresp
 {% tabs %}
 {% tab Drag-and-drop %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Each drag-and-drop Content Block is limited to one row. However, you can use drag-and-drop editor blocks to build and customize the Content Block to suit your email messaging.
@@ -31,7 +31,7 @@ Each drag-and-drop Content Block is limited to one row. However, you can use dra
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

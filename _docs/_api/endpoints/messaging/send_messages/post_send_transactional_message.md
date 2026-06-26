@@ -126,6 +126,6 @@ Most endpoints at Braze have a rate limit implementation that returns a 429 resp
 
 ## Transactional HTTP event postback
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 {% endapi %}

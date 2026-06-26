@@ -199,7 +199,7 @@ This step is also where you can specify delivery controls, such as allowing user
 
 Next, you must [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) by choosing segments or filters to narrow your audience. You should have already chosen the subscription group, which narrows users by the level or category of communication they want to have with you. In this step, you select the larger audience from your segments and narrow that segment further with our filters. You automatically receive a snapshot of what that approximate segment population looks like. Remember that exact segment membership is always calculated before the message is sent.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Choose conversion events
 

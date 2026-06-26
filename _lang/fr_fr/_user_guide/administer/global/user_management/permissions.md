@@ -47,7 +47,7 @@ Les rôles permettent de structurer davantage en regroupant vos autorisations pe
 
 ## Quelle est la différence entre les ensembles d'autorisations, les rôles et les équipes ? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Considérations pour l'ajout d'autorisations utilisateur aux équipes {#considerations-for-adding-user-permissions-to-teams}
 

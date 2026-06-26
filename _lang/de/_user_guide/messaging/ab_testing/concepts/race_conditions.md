@@ -87,7 +87,7 @@ Wenn diese Objekte mit dem Trigger eingeschlossen werden, werden die Attribute z
 
 Verwenden Sie den [`/users/track/sync/`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/), um angepasste Events und Käufe zu erfassen und Nutzerprofilattribute synchron zu aktualisieren. Die Verwendung dieses Endpunkts zur gleichzeitigen Aktualisierung von Nutzerprofilen in einem einzigen Aufruf kann helfen, potenzielle Race-Conditions zu vermeiden.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Szenario 3: Passende aktionsbasierte Trigger und Zielgruppen-Filter {#scenario-3-matching-action-based-triggers-and-audience-filters}
 

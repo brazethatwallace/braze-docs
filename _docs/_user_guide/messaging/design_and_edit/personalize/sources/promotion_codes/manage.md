@@ -48,7 +48,7 @@ Test sends and seed group email sends use up promotion codes unless requested ot
 
 ### With message extras for Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Saving promotion codes to user profiles {#save-to-profile}
 

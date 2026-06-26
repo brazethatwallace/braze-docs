@@ -20,7 +20,7 @@ This message type is available in both the [drag-and-drop]({{site.baseurl}}/user
 
 ## Image specifications
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## Larger screens
 

@@ -192,7 +192,7 @@ Nesta etapa, você também pode especificar controles de entrega, como permitir 
 
 Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente uma pré-visualização de como é a população aproximada desse Segment. Estatísticas detalhadas do público para os canais direcionados pela sua Campaign estão disponíveis no rodapé. Para ver qual porcentagem da sua base de usuários está sendo direcionada e o Lifetime Value para esse Segment, selecione **Show Additional Stats**.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {% details Por que minha métrica de Total de Usuários Contatáveis não corresponde à soma de todos os canais? %}
 

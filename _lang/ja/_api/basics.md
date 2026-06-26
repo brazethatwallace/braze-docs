@@ -49,7 +49,7 @@ API呼び出しにエンドポイントを使用する場合は、RESTエンド�
 SDK統合には、RESTエンドポイントではなく[SDKエンドポイント]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)を使用してください。
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 ### API制限 {#api-limits}
 

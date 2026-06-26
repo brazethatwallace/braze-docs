@@ -60,7 +60,7 @@ Cualquier otra entrada que no coincida con el estándar de la etiqueta descrito 
 
 ## Envío de información de códigos promocionales a Currents {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Consideraciones {#considerations}
 

@@ -87,7 +87,7 @@ Quando esses objetos são incluídos com o gatilho, os atributos são processado
 
 Use o [endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) para registrar eventos personalizados e compras e atualizar atributos do perfil de usuário de forma síncrona. Usar esse endpoint para atualizar perfis de usuários ao mesmo tempo e em uma única chamada pode ajudar a evitar possíveis condições de corrida.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Cenário 3: Correspondência entre gatilhos baseados em ação e filtros de público {#scenario-3-matching-action-based-triggers-and-audience-filters}
 

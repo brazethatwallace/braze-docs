@@ -215,7 +215,7 @@ When approved, additional properties can be added in the dashboard under **Data 
 
 ### Canvas entry properties and event properties
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Log purchases at the order level
 

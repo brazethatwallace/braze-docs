@@ -37,7 +37,7 @@ For security reasons, users cannot change the email address associated with thei
 
 ## Assigning user access and responsibilities
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Suspending company users
 

@@ -151,7 +151,7 @@ The countdown starts from when the user dismisses the Banner. After the window e
 
 1. In **Target Audiences**, choose segments or filters to narrow your audience. You automatically receive a preview of the approximate segment population. Exact segment membership is calculated before the message is sent.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. In **Assign Conversions**, track how often users perform specific actions after receiving a campaign by defining conversion events with up to a 30-day window to count the action as a conversion.

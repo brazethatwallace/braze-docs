@@ -281,7 +281,7 @@ You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}
 
 Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) by choosing segments or filters. Braze shows a live preview of the segment population, including how many users are reachable through email. Exact segment membership is calculated just before send.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 You can also choose to only send your campaign to users who have a specific [subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions), such as those who are subscribed and opted in to email.
 

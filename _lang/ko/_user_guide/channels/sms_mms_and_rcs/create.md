@@ -279,7 +279,7 @@ RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메�
 
 다음으로 Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)합니다. 이미 구독 그룹을 선택했으므로 사용자가 원하는 커뮤니케이션 수준이나 카테고리에 따라 사용자가 좁혀집니다.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Segments에서 더 큰 오디언스를 선택하고 선택적 필터로 해당 Segment를 더 좁힙니다. 대략적인 Segment 인구가 어떻게 보이는지 자동으로 미리보기가 제공됩니다. 정확한 Segment 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요.
 

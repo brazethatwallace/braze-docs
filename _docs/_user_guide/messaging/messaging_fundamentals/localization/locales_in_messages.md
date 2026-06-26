@@ -20,7 +20,7 @@ Watch the following video for an optional overview of setting up and using multi
 {% tabs %}
 {% tab Multi-language locales %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Message types %}

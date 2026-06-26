@@ -113,7 +113,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 ### キャンバスのエントリプロパティとイベントプロパティ {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### ネストされたオブジェクト {#nested-objects}
 

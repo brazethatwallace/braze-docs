@@ -26,13 +26,13 @@ L'intégration de Braze à Shopify constitue une solution puissante pour les ent
 
 Braze propose aux marchands Shopify deux options d'intégration conçues pour répondre aux divers besoins des entreprises de commerce électronique : **Intégration standard** et **Intégration personnalisée**.
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 ## Comment fonctionne l'intégration {#how-the-integration-works}
 
 Si vous avez déjà configuré et activé le [remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) dans vos paramètres de configuration, la synchronisation initiale des données commencera immédiatement.
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 Après la synchronisation initiale des données, Braze suivra en permanence les nouvelles données et les mises à jour, directement depuis Shopify et les SDK de Braze.
 

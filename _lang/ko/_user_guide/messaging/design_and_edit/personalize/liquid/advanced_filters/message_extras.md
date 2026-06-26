@@ -60,7 +60,7 @@ Currents 또는 Snowflake 데이터 공유 발송 이벤트에 동적 또는 추
 
 ## Currents에 프로모션 코드 정보 보내기 {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## 고려 사항 {#considerations}
 

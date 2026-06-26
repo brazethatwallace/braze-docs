@@ -279,7 +279,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 A continuación, [dirige a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para acotar tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Selecciona la audiencia más amplia de tus segmentos y acota ese segmento aún más con filtros opcionales. Recibirás automáticamente una vista previa de la población aproximada de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de enviar el mensaje.
 

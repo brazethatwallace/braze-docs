@@ -113,7 +113,7 @@ In Bezug auf die Abo-Nutzung werden angepasste Event-Eigenschaften, die für die
 
 ### Canvas-Eingangs-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Verschachtelte Objekte {#nested-objects}
 

@@ -100,7 +100,7 @@ Segment에서 이벤트 속성정보나 중첩 고객 속성을 사용하기 위
 
 ### 4단계: 새로고침 설정 지정하기(선택 사항) {#step-4-designate-refresh-settings-optional}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ### 5단계: 세그먼트 확장 저장하기 {#step-5-save-your-segment-extension}
 

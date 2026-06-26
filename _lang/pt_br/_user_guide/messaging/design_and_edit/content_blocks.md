@@ -22,7 +22,7 @@ Existem dois tipos de blocos de conteúdo: arrastar e soltar e HTML. Cada tipo c
 {% tabs %}
 {% tab Arrastar e soltar %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto, você pode usar blocos do editor de arrastar e soltar para criar e personalizar o bloco de conteúdo de acordo com o seu envio de mensagens por e-mail.
@@ -31,7 +31,7 @@ Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

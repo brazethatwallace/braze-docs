@@ -64,7 +64,7 @@ Continue using Content Cards if you need:
 
 Before migrating, ensure your Braze SDK meets the minimum version requirements:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 Dismissals and re-eligibility require the following minimum SDK versions:
 

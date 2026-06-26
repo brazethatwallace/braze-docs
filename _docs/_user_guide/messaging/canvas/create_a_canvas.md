@@ -183,7 +183,7 @@ To view additional statistics, such as the average lifetime revenue for targeted
 
 #### Why the target audience count could differ from the reachable users count
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ### Step 1.4: Select your send settings
 

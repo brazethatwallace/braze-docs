@@ -12,7 +12,7 @@ description: "Este artículo ofrece un resumen de la configuración multilingüe
 
 ## Requisitos previos {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Añadir una configuración regional {#add-a-locale}
 

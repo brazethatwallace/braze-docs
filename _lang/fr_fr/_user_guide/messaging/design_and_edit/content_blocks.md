@@ -22,7 +22,7 @@ Il existe deux types de blocs de contenu : glisser-déposer et HTML. Chaque type
 {% tabs %}
 {% tab Glisser-déposer %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependant, vous pouvez utiliser les blocs de l'éditeur glisser-déposer pour créer et personnaliser le bloc de contenu selon vos besoins en matière d'e-mails.
@@ -31,7 +31,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

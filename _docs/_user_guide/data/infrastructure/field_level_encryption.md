@@ -11,7 +11,7 @@ page_type: reference
 
 > Encrypt email addresses to minimize personally identifiable information (PII) shared in Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 Identifier field-level encryption is available as an add-on feature. To get started with identifier field-level encryption, contact your Braze account manager.

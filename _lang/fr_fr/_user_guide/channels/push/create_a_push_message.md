@@ -192,7 +192,7 @@ Cette étape est également celle où vous pouvez spécifier les contrôles de l
 
 Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative de ce segment. Les statistiques détaillées de l'audience pour les canaux ciblés par votre campagne sont disponibles dans le pied de page. Pour voir quel pourcentage de votre base d'utilisateurs est ciblé et la valeur vie client pour ce segment, sélectionnez **Afficher les statistiques supplémentaires**.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {% details Pourquoi mon indicateur Total des utilisateurs atteignables ne correspond-il pas à la somme de tous les canaux ? %}
 

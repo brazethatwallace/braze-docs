@@ -99,7 +99,7 @@ eコマース推奨イベントを使用してイベントプロパティを追�
 
 ### ステップ 4:更新設定を指定する（オプション） {#step-4-designate-refresh-settings-optional}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ### ステップ 5:セグメントエクステンションを保存する {#step-5-save-your-segment-extension}
 

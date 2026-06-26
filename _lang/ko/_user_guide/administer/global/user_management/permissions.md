@@ -47,7 +47,7 @@ tool: Dashboard
 
 ## 권한 세트와 역할은 Teams와 어떻게 다른가요? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Teams에 사용자 권한을 추가할 때 고려 사항 {#considerations-for-adding-user-permissions-to-teams}
 

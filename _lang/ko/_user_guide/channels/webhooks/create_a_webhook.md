@@ -184,7 +184,7 @@ Content-Type 사양은 `Content-Type` 키를 사용해야 합니다. 일반적�
 
 다음으로 Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 이 단계에서는 Segments에서 더 큰 오디언스를 선택하고, 원하는 경우 필터를 사용하여 해당 Segment를 더 세밀하게 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 유의하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 ### 전환 이벤트 선택 {#choose-conversion-events}
 
@@ -260,7 +260,7 @@ Braze는 다음 IP에서 웹훅을 전송합니다. 나열된 IP는 허용 목�
 Braze 간 웹훅을 만들고 허용 목록을 사용하는 경우 `127.0.0.1`을 포함한 다음 IP를 모두 허용 목록에 추가해야 합니다.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### 사용자 삭제 {#delete-users}
 

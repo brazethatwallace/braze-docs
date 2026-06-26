@@ -100,7 +100,7 @@ No necesitas extensiones de segmento para usar propiedades del evento o atributo
 
 ### Paso 4: Configura los ajustes de actualización (opcional) {#step-4-designate-refresh-settings-optional}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ### Paso 5: Guarda tu extensión de segmento {#step-5-save-your-segment-extension}
 

@@ -203,7 +203,7 @@ Selecione uma extensão de segmento SQL para visualizar onde a extensão está s
 
 ### Definindo configurações de atualização {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Créditos do Snowflake {#credits}
 

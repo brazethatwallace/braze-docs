@@ -72,7 +72,7 @@ LIMIT 10
 
 ### 更新設定の指定 {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## ユースケース {#use-cases}
 

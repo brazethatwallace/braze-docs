@@ -12,7 +12,7 @@ description: "This article provides an overview of multi-language settings in th
 
 ## Prerequisites
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Add a locale
 

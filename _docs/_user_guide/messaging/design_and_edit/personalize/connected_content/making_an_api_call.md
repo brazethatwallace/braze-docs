@@ -219,7 +219,7 @@ Braze will send Connected Content requests from the following IP ranges. The lis
 
 Braze has a reserved set of IPs used for all services, not all of which are active at a given time. This is designed for Braze to send from a different data center or do maintenance, if necessary, without impacting customers. Braze may use one, a subset, or all of the following IPs listed when making Connected Content requests.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### `User-Agent` header
 
@@ -272,9 +272,9 @@ Caching can help reduce duplicate Connected Content calls but isn't guaranteed t
 
 ### What is the Connected Content HTTP default behavior? 
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### What happens if I use the same Connected Content call in multiple places?
 

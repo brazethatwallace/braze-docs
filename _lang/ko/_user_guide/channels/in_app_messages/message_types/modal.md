@@ -20,7 +20,7 @@ description: "이 참조 문서에서는 모달 인앱 메시지의 메시지 �
 
 ## 이미지 사양 {#image-specifications}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## 큰 화면 {#larger-screens}
 

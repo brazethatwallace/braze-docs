@@ -47,7 +47,7 @@ Los roles permiten una mayor estructura al agrupar tus permisos personalizados i
 
 ## ¿En qué se diferencian los conjuntos de permisos y los roles de los equipos? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Consideraciones para añadir permisos de usuario a equipos {#considerations-for-adding-user-permissions-to-teams}
 

@@ -23,6 +23,6 @@ Use this feature to:
 
 ## Tracking your transactional emails
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}
 
 

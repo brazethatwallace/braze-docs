@@ -11,7 +11,7 @@ page_type: reference
 
 > メールアドレスを暗号化して、Brazeで共有される個人を特定できる情報（PII）を最小限に抑えます。
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 識別子フィールドレベルの暗号化は、アドオン機能として利用できます。識別子フィールドレベルの暗号化を始めるには、Brazeアカウントマネージャーにお問い合わせください。

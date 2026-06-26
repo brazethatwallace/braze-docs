@@ -219,7 +219,7 @@ Brazeは以下のIP範囲からコネクテッドコンテンツリクエスト�
 
 Brazeはすべてのサービスに使用される予約済みのIPセットを持っており、特定の時点ですべてがアクティブであるとは限りません。これは、必要に応じてBrazeが別のデータセンターから送信したりメンテナンスを行ったりしても、顧客に影響を与えないように設計されています。Brazeはコネクテッドコンテンツリクエストを行う際に、以下にリストされたIPの1つ、サブセット、またはすべてを使用する場合があります。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### `User-Agent` ヘッダー {#user-agent-header}
 
@@ -272,9 +272,9 @@ GETリクエストはデフォルトでキャッシュされます（[レスポ�
 
 ### コネクテッドコンテンツのHTTPデフォルト動作はどうなっていますか？ {#what-is-the-connected-content-http-default-behavior}
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### 同じコネクテッドコンテンツの呼び出しを複数の場所で使用するとどうなりますか？ {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 

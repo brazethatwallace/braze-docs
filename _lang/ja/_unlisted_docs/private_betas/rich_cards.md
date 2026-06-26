@@ -180,7 +180,7 @@ RCSメッセージは、スケジュールされた時間、アクション、�
 
 Segmentsまたはフィルターを選択して、オーディエンスを絞り込むことでユーザーをターゲットにします。サブスクリプショングループはすでに選択されているはずで、これによりユーザーは希望するコミュニケーションのレベルやカテゴリで絞り込まれます。
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 次に、Segmentsからより大きなオーディエンスを選択し、オプションの[フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/)でそのSegmentをさらに絞り込みます。現在のおおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される直前に常に計算されることに留意してください。
 

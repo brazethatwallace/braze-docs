@@ -18,7 +18,7 @@ Teams are not available on all Braze contracts. To access this feature, contact 
 
 ## How do Teams differ from permission sets and roles?
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Create Teams {#creating-teams}
 

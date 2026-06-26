@@ -43,7 +43,7 @@ A conexão de teste está sendo executada no seu data warehouse, portanto, aumen
 
 Tente adicionar os IPs oficiais da Braze à sua lista de permissões de IP. Para saber mais, consulte [Integrações de data warehouse]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), ou permita os IPs relevantes:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Erro ao executar o SQL devido à configuração do cliente: 002003 (42S02): erro de compilação SQL: não existe ou não está autorizado {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 

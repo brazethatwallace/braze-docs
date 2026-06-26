@@ -70,7 +70,7 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 
 #### Texto con span {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Bloques de formulario %}

@@ -97,7 +97,7 @@ Braze provides detailed audience statistics of the targeted channels in the foot
 
 ##### Why the target audience count could differ from the reachable users count
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![The "Total Population" section with estimated counts for reachable users in each targeted channel.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

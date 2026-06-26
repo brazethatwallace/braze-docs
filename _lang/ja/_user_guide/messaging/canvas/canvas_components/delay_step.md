@@ -101,7 +101,7 @@ Canvasにディレイコンポーネントを追加し、後続のステップ�
 
 ### パーソナライズされたディレイ
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 **ディレイをパーソナライズ**トグルを選択して、ユーザー向けのパーソナライズされたディレイを設定します。これを[Contextステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)と組み合わせて使用し、遅延に使用するコンテキスト変数を選択できます。これにより、選択した属性またはプロパティで設定された時刻が上書きされます。これは、日数または週数のオフセットを適用し、ユーザーを特定の時間に進めたい場合に便利です。タイムゾーンは属性またはプロパティから取得され、利用できない場合はフォールバックが使用されます。
 

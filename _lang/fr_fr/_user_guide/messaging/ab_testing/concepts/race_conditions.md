@@ -87,7 +87,7 @@ Lorsque ces objets sont inclus avec le déclencheur, les attributs sont traités
 
 Utilisez l'[endpoint `/users/track/sync/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) pour enregistrer des événements personnalisés et des achats, et mettre à jour les attributs du profil utilisateur de manière synchrone. L'utilisation de cet endpoint pour mettre à jour les profils utilisateur en même temps et dans un seul appel peut aider à prévenir les conditions de concurrence potentielles.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Scénario 3 : Correspondance entre les déclencheurs basés sur l'action et les filtres d'audience {#scenario-3-matching-action-based-triggers-and-audience-filters}
 

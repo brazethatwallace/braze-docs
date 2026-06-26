@@ -180,7 +180,7 @@ Legen Sie Ihre Zustellungskontrollen fest, z. B. ob Nutzer:innen erneut für den
 
 Richten Sie Ihre Zielgruppe aus, indem Sie Segmente oder Filter wählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach dem Grad oder der Kategorie der Kommunikation eingrenzt, die sie mit Ihnen haben möchten.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Als Nächstes wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen dieses Segment mit optionalen [Filtern]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Vorschau, wie die ungefähre Segmentpopulation aktuell aussieht. Beachten Sie, dass die genaue Segmentzugehörigkeit immer erst unmittelbar vor dem Senden der Nachricht berechnet wird.
 

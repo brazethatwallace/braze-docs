@@ -203,7 +203,7 @@ SQL 세그먼트 확장을 선택하여 확장이 사용 중인 위치를 확인
 
 ### 새로고침 설정 지정 {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Snowflake 크레딧 {#credits}
 

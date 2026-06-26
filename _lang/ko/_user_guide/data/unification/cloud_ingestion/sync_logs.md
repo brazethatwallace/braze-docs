@@ -78,7 +78,7 @@ description: "이 페이지는 CDI에서 사용할 수 있는 관측성 기능�
 * **오류가 있는 행:** **Error** 상태인 행만 포함된 파일을 다운로드합니다.
 * **모든 행:** 실행 중에 처리된 모든 행이 포함된 파일을 다운로드합니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 대시보드에서 로그를 직접 내보낼 수 없습니다. 내보내기가 생성된 후 로그 내보내기 파일을 다운로드할 수 있는 링크가 포함된 이메일을 받게 됩니다.
 

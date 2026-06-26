@@ -97,7 +97,7 @@ Braze stellt detaillierte Zielgruppenstatistiken der angesprochenen Kanäle in d
 
 ##### Warum die Zielgruppengröße von der Anzahl erreichbarer Nutzer:innen abweichen kann {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![Der Abschnitt „Gesamtpopulation“ mit geschätzten Zahlen für erreichbare Nutzer:innen in jedem angesprochenen Kanal.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

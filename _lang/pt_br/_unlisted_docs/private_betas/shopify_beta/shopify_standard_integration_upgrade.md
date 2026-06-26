@@ -16,7 +16,7 @@ hidden: true
 
 Esse caminho de upgrade é destinado a marcas com uma loja online no Shopify.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Requisitos para o upgrade {#upgrade-requirements}
 

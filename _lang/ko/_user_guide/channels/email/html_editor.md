@@ -281,7 +281,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 
 다음으로, Segments 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 이메일에 가입하고 옵트인한 사용자와 같이 특정 [구독 상태]({{site.baseurl}}/user_guide/channels/email/subscriptions/)를 가진 사용자에게만 Campaign을 보내도록 선택할 수도 있습니다.
 

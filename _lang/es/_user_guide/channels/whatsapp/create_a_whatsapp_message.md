@@ -199,7 +199,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo segmentos o filtros para reducir tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo. En este paso, seleccionas la audiencia más amplia de tus segmentos y la reduces aún más con nuestros filtros. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese segmento. Recuerda que la membresía exacta del segmento siempre se calcula antes de enviar el mensaje.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Elige eventos de conversión {#choose-conversion-events}
 

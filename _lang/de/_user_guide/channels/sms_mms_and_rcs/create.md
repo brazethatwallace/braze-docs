@@ -279,7 +279,7 @@ In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nut
 
 Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe gewählt haben, die Nutzer:innen nach dem Grad oder der Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen Sie dieses Segment mit optionalen Filtern weiter ein. Sie erhalten automatisch eine Vorschau der ungefähren Segmentpopulation. Beachten Sie, dass die genaue Segmentzugehörigkeit immer vor dem Versand der Nachricht berechnet wird.
 

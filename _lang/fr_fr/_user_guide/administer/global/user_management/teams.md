@@ -18,7 +18,7 @@ L'option Teams n'est pas disponible sur tous les contrats Braze. Pour accéder �
 
 ## En quoi les Teams diffèrent-elles des jeux d'autorisations et des rôles ? {#how-do-teams-differ-from-permission-sets-and-roles}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ## Créer des Teams {#creating-teams}
 

@@ -12,7 +12,7 @@ description: "この記事では、Brazeダッシュボードの多言語設定�
 
 ## 前提条件 {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## ロケールを追加する {#add-a-locale}
 

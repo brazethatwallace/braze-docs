@@ -47,7 +47,7 @@ Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas in
 
 ## Qual a diferença entre conjuntos de permissões, papéis e equipes? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Considerações ao adicionar permissões de usuário a equipes {#considerations-for-adding-user-permissions-to-teams}
 

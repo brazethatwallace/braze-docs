@@ -57,7 +57,7 @@ To migrate a custom domain to another workspace:
 
 ## DNS resources
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## Troubleshooting 
 

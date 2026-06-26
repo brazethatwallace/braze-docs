@@ -78,7 +78,7 @@ description: "このページでは、CDIで利用可能な可観測性機能の
 * **エラーのある行:** **Error**ステータスの行のみを含むファイルをダウンロードします。
 * **すべての行:** 実行中に処理されたすべての行を含むファイルをダウンロードします。
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 ログはダッシュボードから直接エクスポートできません。エクスポートが生成された後、ログエクスポートファイルをダウンロードするためのリンクが記載されたメールが届きます。
 

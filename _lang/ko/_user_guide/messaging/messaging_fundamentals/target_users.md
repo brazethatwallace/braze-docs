@@ -97,7 +97,7 @@ Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제�
 
 ##### 타겟 오디언스 수와 도달 가능 사용자 수가 다를 수 있는 이유 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![각 타겟팅된 채널의 도달 가능 사용자에 대한 추정 수가 포함된 "전체 모집단" 섹션.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

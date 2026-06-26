@@ -63,7 +63,7 @@ For example, users won't receive steps or messages in these scenarios:
 - A message is scheduled to be sent on May 3rd at 9 pm, but the Delay step expires on May 3rd at 9 am. 
 - A Canvas step delays until a specific time in the user's local time zone, but the users don't have a time zone set on their user profile. The delay then defaults to the company time zone for these users, which has already passed the specified time. 
   
-##### Users will exit if a subsequent Delay step is within a prior Delay step's timeline
+#### Users will exit if a subsequent Delay step is within a prior Delay step's timeline
 
 If the Canvas has two Delay steps but the first Delay step is longer than the second Delay step, users will also exit the Canvas. 
 
@@ -101,7 +101,7 @@ If you add a Delay component to your Canvas and there are no subsequent steps, a
 
 ### Personalized delays
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 Select the **Personalize delay** toggle to set up a personalized delay for your users. You can use this with a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) to select the context variable to delay by. This will override the time of day set in the selected attribute or property. This is useful when applying an offset in days or weeks, and you want users to move forward at a specific time. The time zone comes from the attribute or property, or uses the fallback if none is available. 
 

@@ -43,7 +43,7 @@ toc_headers: h2
 
 공식 Braze IP를 IP 허용 목록에 추가해 보세요. 자세한 내용은 [데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)을 참조하거나 관련 IP를 허용하세요:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### 고객 구성으로 인해 SQL 실행 중 오류 발생: 002003 (42S02): SQL 컴파일 오류: 존재하지 않거나 권한이 없습니다 {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 

@@ -219,7 +219,7 @@ Braze sendet Connected-Content-Anfragen von den folgenden IP-Bereichen. Die aufg
 
 Braze verfügt über einen reservierten Satz von IPs, die für alle Dienste verwendet werden, von denen nicht alle zu einem bestimmten Zeitpunkt aktiv sind. Dies ist so konzipiert, dass Braze bei Bedarf von einem anderen Rechenzentrum senden oder Wartungsarbeiten durchführen kann, ohne Kund:innen zu beeinträchtigen. Braze kann eine, eine Teilmenge oder alle der folgenden aufgelisteten IPs verwenden, wenn Connected-Content-Anfragen gestellt werden.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### `User-Agent`-Header {#user-agent-header}
 
@@ -272,9 +272,9 @@ Caching kann helfen, doppelte Connected-Content-Aufrufe zu reduzieren, garantier
 
 ### Was ist das HTTP-Standardverhalten von Connected-Content? {#what-is-the-connected-content-http-default-behavior}
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
 ### Was passiert, wenn ich denselben Connected-Content-Aufruf an mehreren Stellen verwende? {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 

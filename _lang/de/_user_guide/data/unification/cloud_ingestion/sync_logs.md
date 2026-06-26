@@ -78,7 +78,7 @@ Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Sy
 * **Zeilen mit Fehlern:** Lädt eine Datei herunter, die ausschließlich die Zeilen mit dem Status **Error** enthält.
 * **Alle Zeilen:** Lädt eine Datei herunter, die alle in diesem Durchlauf verarbeiteten Zeilen enthält.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Protokolle können nicht direkt aus dem Dashboard exportiert werden. Nach der Erstellung des Exports erhalten Sie eine E-Mail mit einem Link zum Herunterladen der Protokollexportdatei.
 

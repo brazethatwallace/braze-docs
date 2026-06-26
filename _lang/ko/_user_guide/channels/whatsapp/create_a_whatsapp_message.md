@@ -199,7 +199,7 @@ WhatsApp 메시지는 스케줄된 시간, 실행 또는 API 트리거를 기반
 
 다음으로 Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 이미 구독 그룹을 선택했어야 하며, 이는 사용자가 원하는 커뮤니케이션 수준이나 카테고리에 따라 사용자를 좁힙니다. 이 단계에서는 Segments에서 더 큰 오디언스를 선택하고 필터를 사용하여 해당 Segment를 더 세밀하게 좁힙니다. 대략적인 Segment 인구가 어떻게 보이는지에 대한 스냅샷이 자동으로 제공됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 전에 계산된다는 점을 기억하세요.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 

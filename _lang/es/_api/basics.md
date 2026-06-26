@@ -49,7 +49,7 @@ Cuando utilices puntos finales para las llamadas a la API, utiliza el punto fina
 Para la integración de SDK, utiliza el [punto final de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), no el punto final REST.
 {% endalert %}
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 ### Límites de la API {#api-limits}
 

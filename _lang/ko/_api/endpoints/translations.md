@@ -61,7 +61,7 @@ guide_menu_list3:
 
 ---
 
-{% multi_lang_include early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
 
 ## 번역 엔드포인트 작동 방식 {#how-our-translation-endpoints-work}
 

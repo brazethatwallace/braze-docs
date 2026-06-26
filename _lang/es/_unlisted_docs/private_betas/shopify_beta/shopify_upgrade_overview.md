@@ -17,7 +17,7 @@ hidden: true
 - **De finales de febrero a abril:** Recibirás notificaciones sobre cuándo tu grupo específico (cohorte) estará listo para la actualización. Mantente atento a esta información importante.
 - **Fecha límite de actualización:** Todos los clientes deben completar la actualización antes del **28 de agosto de 2025**.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## ¿Qué cambia en la integración de Shopify? {#whats-changing-in-the-shopify-integration}
 

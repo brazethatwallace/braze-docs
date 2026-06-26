@@ -11,7 +11,7 @@ page_type: reference
 
 > Cifra direcciones de correo electrónico para minimizar la información de identificación personal (PII) compartida en Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 El cifrado a nivel de campo del identificador está disponible como característica adicional. Para empezar a utilizar el cifrado a nivel de campo del identificador, ponte en contacto con tu director de cuentas de Braze.

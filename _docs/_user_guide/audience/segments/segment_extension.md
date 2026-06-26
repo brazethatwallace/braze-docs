@@ -100,7 +100,7 @@ You don't need Segment Extensions to use event properties or nested custom attri
 
 ### Step 4: Designate refresh settings (optional)
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ### Step 5: Save your Segment Extension
 

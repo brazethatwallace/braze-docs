@@ -101,7 +101,7 @@ Se você adicionar um componente de postergação ao seu Canvas e não houver et
 
 ### Postergações personalizadas {#personalized-delays}
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
 Selecione o botão **Personalizar postergação** para configurar uma postergação personalizada para seus usuários. Você pode usar isso com uma [etapa de Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) para selecionar a variável de contexto pela qual postergar. Isso substituirá o horário do dia definido no atributo ou propriedade selecionada. Isso é útil ao aplicar um deslocamento em dias ou semanas quando você quer que os usuários avancem em um horário específico. O fuso horário vem do atributo ou propriedade, ou usa o fallback se nenhum estiver disponível.
 

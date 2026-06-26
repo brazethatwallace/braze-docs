@@ -17,7 +17,7 @@ hidden: true
 - **2月末から4月:** お客様の特定のグループ（コホート）がアップグレード可能になるタイミングについて通知が届きます。この重要な情報にご注意ください。
 - **アップグレード期限:** すべてのお客様は**2025年8月28日**までにアップグレードを完了する必要があります。
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Shopify統合の変更点 {#whats-changing-in-the-shopify-integration}
 

@@ -3435,4 +3435,4 @@ Campo | Tipo | Descripción
 
 ## Tipos de cancelación {#abort-types}
 
-{% include abort_types_reference.md combined_content_rendering=true %}
+{% include currents/abort_types_reference.md combined_content_rendering=true %}

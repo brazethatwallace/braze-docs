@@ -47,7 +47,7 @@ tool: Dashboard
 
 ## 権限セットとロールはTeamsとどう違うのですか？ {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Teamsにユーザー権限を追加する際の注意点 {#considerations-for-adding-user-permissions-to-teams}
 

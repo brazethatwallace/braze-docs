@@ -22,7 +22,7 @@ Es gibt zwei Arten von Content-Blöcken: Drag-and-Drop und HTML. Jeder Typ entsp
 {% tabs %}
 {% tab Drag-and-Drop %}
 
-{% multi_lang_include create_content_block.md location="dnd" %}
+{% multi_lang_include messaging/create_content_block.md location="dnd" %}
 
 {% alert important %}
 Jeder Drag-and-Drop-Content-Block ist auf eine Zeile beschränkt. Sie können jedoch Drag-and-Drop-Editor-Blöcke verwenden, um den Content-Block für Ihr E-Mail-Messaging zu erstellen und anzupassen.
@@ -31,7 +31,7 @@ Jeder Drag-and-Drop-Content-Block ist auf eine Zeile beschränkt. Sie können je
 {% endtab %}
 {% tab HTML %}
 
-{% multi_lang_include create_content_block.md location="html" %}
+{% multi_lang_include messaging/create_content_block.md location="html" %}
 
 {% endtab %}
 {% endtabs %}

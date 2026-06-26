@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-[Shopify連携の新バージョン]({{site.baseurl}}/partners/shopify/#new-shopify-integration)は、2025年4月から段階的にリリースされます。フェーズは、Shopifyストアのタイプと、初期連携のセットアップに使用されるexternal IDに基づきます。<br><br>**旧バージョンの連携は、2025年8月28日以降利用できなくなります。問題なく連携を引き続き使用するには、この日付までに新バージョンに更新してください。**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}

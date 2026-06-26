@@ -12,7 +12,7 @@ description: "Este artigo fornece uma visão geral das configurações multilín
 
 ## Pré-requisitos {#prerequisites}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 ## Adicionar uma localidade {#add-a-locale}
 
