@@ -343,6 +343,29 @@ Live Activity events are available in Currents, Snowflake Data Sharing, and Quer
 - [Live Activity Send]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events): Logs each time a Live Activity is started, updated, or ended by Braze.
 - [Live Activity Outcome]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events): Indicates the final delivery status to Apple Push Notification service (APNs) for every Live Activity sent from Braze.
 
+## Verify Live Activity sends
+
+If you need to confirm whether a workspace is sending iOS Live Activities, you can use the following methods:
+
+### Message Activity Log
+
+Go to **Settings** > **Message Activity Log** and filter for Live Activity errors to see any Live Activity-related delivery outcomes during your expected timeframe. For more information, see [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+
+### Query Builder, Currents, or Snowflake Data Sharing
+
+Check for the following Live Activity events to verify the Live Activity lifecycle and delivery:
+
+- **Live Activity Send:** Logged each time a Live Activity is started, updated, or ended by Braze
+- **Live Activity Outcome:** Final delivery status to APNs for each Live Activity sent
+
+Optionally, you can also check for token availability signals:
+- **Live Activity Push To Start Token Change**
+- **Live Activity Update Token Change**
+
+### API usage dashboard
+
+Go to **Settings** > **APIs and Identifiers** > **Dashboard**, select **Filters**, and filter by **Endpoint** to see API responses. For example, select `/messages/live_activity/update` (or `/messages/live_activity/start`) and view the request volume over the last 30 days. API responses indicate that the API is being called and that iOS Live Activity notifications are being used in this workspace. For more information, see [API usage dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage/).
+
 ## Observe Live Activity events (optional) {#observe-live-activity-events}
 
 {% sdk_min_versions swift:14.2.0 %}
