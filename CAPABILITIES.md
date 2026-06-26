@@ -29,6 +29,7 @@ Skill source files: [`.github/skills/`](.github/skills/)
 |-------|-------------|-------------|--------|-------------|
 | [`braze-docs`](.github/skills/braze-docs/SKILL.md) | Applies Braze writing style, site conventions, link rules, and Liquid formatting to documentation edits | Drafting or editing articles under `_docs/`; fixing broken links; resolving merge conflicts; reviewing for style | Describe the task (no tag needed), or `/braze-docs` | `Skill("anthropic-skills:braze-docs")` |
 | [`check-accessibility`](.github/skills/check-accessibility/SKILL.md) | Pre-PR WCAG 2.2 AA gate that audits changed markdown and site files for accessibility issues | Before opening any PR that touches docs or site files; when asked to run an a11y or WCAG check | `/check-accessibility` | `Skill("anthropic-skills:check-accessibility")` |
+| [`create-pr`](.github/skills/create-pr/SKILL.md) | Draft pull request workflow with repo-aligned descriptions, pre-PR gates, and manual verification checklists | Opening any PR to `develop`; submitting a branch for review after docs or site edits | `/create-pr` | `Skill("anthropic-skills:create-pr")` |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Audits a documentation page against platform source code, surfaces gaps, and opens a corrective PR | Verifying a page's accuracy against product behavior; cross-referencing docs with source code | `/docs-discrepancies` | `Skill("anthropic-skills:docs-discrepancies")` |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finds image files under `assets/img/` that are not referenced in docs, includes, or site chrome, then removes them | Cleaning up stale screenshots; reducing repo size; processing CI image-pruner draft PRs | `/image-pruner` | `Skill("anthropic-skills:image-pruner")` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Looks up product, SDK, and API behavior in sibling source repos as a ground-truth source for docs verification | Confirming product or SDK behavior; documenting API limits; cross-referencing a doc claim with code | `/reference-repos` | `Skill("anthropic-skills:reference-repos")` |
@@ -47,6 +48,7 @@ Skill source files: [`.github/skills/`](.github/skills/)
 | Fixing broken links or redirects | `braze-docs` |
 | Resolving merge conflicts in a docs branch | `braze-docs` |
 | Checking for WCAG 2.2 accessibility issues before a PR | `check-accessibility` |
+| Opening a draft pull request after finishing a branch | `create-pr` |
 | Verifying a page's claims against platform source code | `docs-discrepancies` |
 | Confirming SDK, API, or product behavior from source | `reference-repos` |
 | Removing unused images from `assets/img/` | `image-pruner` |

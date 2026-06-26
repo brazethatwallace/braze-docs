@@ -226,31 +226,44 @@ Offer a short summary: target file, sections added, verification status, and any
 
 ## Step 7: Open a draft pull request
 
-Create a **draft** PR to **`develop`**.
+**REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows.
+
+### Step 2 override (tam-solutions)
 
 | Field | Value |
 |-------|--------|
 | **Title** | `[TAM solutions] <short summary>` |
-| **Label** | `tam solutions` (for example `--label "tam solutions"`) |
-| **Draft** | Always use draft (for example `--draft` with `gh pr create`) |
-| **Assignees** | Longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](../../support_analyzer_doc_assignees.csv) for paths touched; otherwise `@braze-inc/docs-team` |
+| **Label** | `tam solutions` — `gh pr edit --add-label "tam solutions"` after create |
+| **Assignees** | Longest-prefix match in [`.github/support_analyzer_doc_assignees.csv`](../../support_analyzer_doc_assignees.csv) for paths touched; otherwise `braze-inc/docs-team` |
 
-**Jira:** A parent epic or ticket is **not yet created**. When it exists, link each PR to that parent in the PR body. Until then, omit Jira links or note "Parent epic pending."
+**Jira:** A parent epic or ticket is **not yet created**. When it exists, link each PR to that parent. Until then, omit Jira links or note "Parent epic pending."
 
-### PR body (minimum)
+**Body** — use the create-pr template and include:
 
-```text
+```markdown
+### Why are you making this change? (required)
+
+<What example this adds to the Operator Example library and for whom.>
+
 ## Changes
+
 - [What was added or updated — scope for reviewers, no internal repo paths]
 
 ## Verification
+
 - [Verified against Braze source code. | Partially verified — … | Not verified — …]
 
 ## TAM source
+
 - [Confluence or Google Drive URL for the solution this PR generalizes]
 
 ## Jira
+
 - Parent epic: pending
+
+### Contributor checklist
+
+<Copy from create-pr Step 2.>
 ```
 
 If verified against product source, include **Verified against Braze source code.** — do **not** paste `platform/` or SDK paths in the PR description.

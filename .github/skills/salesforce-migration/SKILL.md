@@ -100,11 +100,19 @@ If the script marks something actionable, accept it and proceed to Phase 2 witho
 2. **Verify** in reference repos (`inconclusive` especially). Prefer platform/source over SF copy.
 3. **Polish** bulk inserts and any remaining CSV prose to **ship-ready** user docs (tone, Liquid, heading levels, redundancy). Phase 1 should already have supplied strong draft material in `suggested_change`; this step finishes integration.
 4. Branch: `sf-cursor-<slug>-<YYYYMMDD>` (slug in actioned file).
-5. PR → `develop`, label **`salesforce migration`**, title **`[BD-####](SF) …`**. Jira: `sf_kb_jira_ticket.py`.
+5. **Open PR** — **REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows. Then run Jira: `sf_kb_jira_ticket.py`.
 6. Assignee: [`.github/support_analyzer_doc_assignees.csv`](.github/support_analyzer_doc_assignees.csv) (longest path). Bulk runner sets `--assignee` only when it resolves to a GitHub user.
 7. Commits: `_docs/` / `_includes/` only — **no** `_data/kb_articles*` in migration PRs.
 
-**PR body:** product vertical · summary · changes (files + verification paths) · `article_id` sources — use `build_sf_kb_github_pr_body()` in `sf_kb_jira_ticket.py`.
+#### Step 2 override (salesforce-migration)
+
+| Field | Value |
+|-------|--------|
+| **Title** | `[BD-####](SF) <short summary>` |
+| **Label** | `salesforce migration` — `gh pr edit --add-label "salesforce migration"` after create |
+| **Base** | `develop` (draft PR per create-pr) |
+
+**PR body:** Prefer `build_sf_kb_github_pr_body()` in `sf_kb_jira_ticket.py` for product vertical, summary, changes, and `article_id` sources. Merge that output into the create-pr template sections (**Why**, **Approach**, **Verification**, **Contributor checklist**). Do not paste `platform/` paths in the public PR body.
 
 **Jira:** one Task per PR under [**BD-6308**](https://jira.atl.braze.com/browse/BD-6308) — PR link, articles, vertical. Summary: `Salesforce KB batch - <theme>`.
 

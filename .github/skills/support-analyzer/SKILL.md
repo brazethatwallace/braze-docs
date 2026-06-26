@@ -146,29 +146,47 @@ Stage and commit only relevant **`_docs`** (and linked includes if needed) with 
 
 ## Step 7: Open the pull request
 
-- **Title pattern:** `[SA] <short summary>` (example: `[SA] Add FAQ entry about machine opens vs other opens`).
-- **Labels:** Always include **`support analyzer`** (for example `--label "support analyzer"` with `gh pr create`).
-- **Body must include:**
-  - Short list of **what** changed for reviewers.
-  - Bulleted **Salesforce case links**: `https://braze.lightning.force.com/lightning/r/Case/<case ID>/view`
-  - If verified against product source: **Verified against Braze source code.** — **do not** paste paths into `platform` or SDK repos in the PR description.
+**REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows.
 
-Optional template:
+### Step 2 override (support-analyzer)
 
-```text
+| Field | Value |
+|-------|--------|
+| **Title** | `[SA] <short summary>` (example: `[SA] Add FAQ entry about machine opens vs other opens`) |
+| **Label** | `support analyzer` — `gh pr edit --add-label "support analyzer"` after create |
+
+**Body** — use the create-pr template and add these sections:
+
+```markdown
+### Why are you making this change? (required)
+
+<Reader outcome in 1–2 sentences.>
+
+### Related PRs, issues, or features (optional)
+
+- [BD-1234](https://jira.atl.braze.com/browse/BD-1234) (if applicable)
+
 ## Changes
+
 - [Scope for reviewers — no internal repo paths]
-- [If docs discrepancy: note to tag Eng owner as needed]
+- If verified against product source: **Verified against Braze source code.** — do **not** paste `platform/` or SDK paths.
 
 ## Cases
+
 - https://braze.lightning.force.com/lightning/r/Case/<case ID>/view
+
+### Verification
+
+<Manual checks only — see create-pr.>
+
+### Contributor checklist
+
+<Copy from create-pr Step 2.>
 ```
 
----
+### Reviewers (Step 4 follow-up)
 
-## Step 8: Assign reviewers
-
-If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you changed, assign them. Otherwise assign **`@braze-inc/docs-team`**.
+If [`.github/CODEOWNERS`](.github/CODEOWNERS) lists owners for the paths you changed, assign them. Otherwise assign **`braze-inc/docs-team`** via `gh pr edit --add-reviewer`.
 
 ---
 
