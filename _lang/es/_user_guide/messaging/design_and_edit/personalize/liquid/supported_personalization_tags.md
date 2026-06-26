@@ -42,7 +42,7 @@ Las propiedades de desencadenamiento de API deben usar dos llaves por etiqueta: 
 
 ### Atributos compatibles {#supported-attributes}
 
-Los atributos de Campaign, tarjeta y Canvas solo son compatibles en sus plantillas de mensajería correspondientes (por ejemplo, `dispatch_id` no está disponible en Campaigns de mensajes dentro de la aplicación).
+Los atributos de Campaign, tarjeta y Canvas solo son compatibles en sus plantillas de mensajería correspondientes. Por ejemplo, `dispatch_id` es compatible en Liquid para canales de mensajería como correo electrónico, push, SMS y WhatsApp, pero no para mensajes dentro de la aplicación ni Banners.
 
 Para más detalles, consulta [Atributos de Campaign y Canvas en distintas fuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 

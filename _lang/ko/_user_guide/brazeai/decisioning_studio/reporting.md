@@ -21,8 +21,6 @@ Braze에서 Decisioning Studio 보고서를 보려면 다음 조건을 충족해
 
 Braze에서 Decisioning Studio 에이전트의 측정기준을 보려면 **AI Decisioning** > **BrazeAI Decisioning Studio™**로 이동한 다음 에이전트를 선택합니다.
 
-![여러 보고서 카드가 있는 대시보드를 보여주는 BrazeAI Decisioning Studio™ 보고서 홈 화면. 각 카드에는 성과, 인사이트, 진단, 타임라인 등의 보고서 유형이 각각에 대한 간략한 설명 및 아이콘과 함께 표시됩니다.]({% image_buster /assets/img/decisioning_studio/reporting_home.png %})
-
 여기에서 성과, 인사이트, 진단 및 타임라인과 같은 보고서를 볼 수 있습니다. 자세한 내용은 [사용 가능한 보고서](#available-reports)를 참조하세요.
 
 ## 보고서 날짜 변경 {#change-report-dates}

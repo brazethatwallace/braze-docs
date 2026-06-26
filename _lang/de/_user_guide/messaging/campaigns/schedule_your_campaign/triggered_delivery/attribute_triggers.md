@@ -17,11 +17,11 @@ tool:
 Attribut-Trigger sind für die folgenden Szenarien verfügbar:
 
 - Aktualisierungen des Abo-Status.
-- Änderungen von booleschen, ganzzahligen, String- oder Zeittyp-Werten angepasster Attribute auf einen beliebigen Wert.
-- Änderungen von booleschen, ganzzahligen oder String-Werten angepasster Attribute auf einen bestimmten Wert.
+- Änderungen von booleschen, Zahl-, String- oder Zeittyp-Werten angepasster Attribute auf einen beliebigen Wert.
+- Änderungen von booleschen, Zahl- oder String-Werten angepasster Attribute auf einen bestimmten Wert.
 
-{% alert note %}
-Im Dashboard werden angepasste Attributtypen als `Number` (für Ganzzahlen) und `Time` (für Datumsangaben) angezeigt, nicht als `String` oder `Date`.
+{% alert important %}
+Im Dashboard verwenden ganzzahlige Attribute den Typ **Zahl**, und Datums- oder Zeitstempelwerte verwenden den Typ **Time** (diese werden in der UI nicht als „Integer“ oder „Date“ bezeichnet). Attribute vom Typ **Time** unterstützen **Change Custom Attribute Value** nur mit der Option **any new value** – sie unterstützen nicht die Option **specific value**.
 {% endalert %}
 
 Um Attribut-Trigger zu verwenden, erstellen Sie eine Campaign oder Canvas-Komponente und wählen Sie **Aktionsbasierte Zustellung** als Zustellungsmethode. Wählen Sie dann den Attribut-Trigger aus, den Sie verwenden möchten.
@@ -62,7 +62,7 @@ Bei der Änderung eines Attributs wird zuerst der Trigger ausgewertet und dann d
 
 ### Option „Beliebiger neuer Wert“ {#any-new-value-option}
 
-Verwenden Sie den Trigger `Change Custom Attribute Value` mit der Option `any new value`, um Nutzer:innen anzusprechen, wenn sich ein boolescher, ganzzahliger, String- oder Zeittyp-Wert auf einen beliebigen neuen Wert ändert.
+Verwenden Sie den Trigger `Change Custom Attribute Value` mit der Option `any new value`, um Nutzer:innen anzusprechen, wenn sich ein boolescher, Zahl-, String- oder Zeittyp-Wert auf einen beliebigen neuen Wert ändert.
 
 Sprechen Sie beispielsweise Nutzer:innen an, wenn sich ihre Anzahl an Rewards-Punkten ändert, um ihnen mitzuteilen, wie viele Punkte sie jetzt haben. Nehmen wir in diesem Beispiel an, dass eine Nutzerin oder ein Nutzer 85 Rewards-Punkte hat und Sie eine Campaign eingerichtet haben, die ausgelöst wird, wenn sich das Rewards-Punkte-Attribut auf einen beliebigen neuen Wert ändert. Wenn sich der Wert des Rewards-Punkte-Attributs auf einen beliebigen neuen Wert ändert (z. B. 83, 84, 86 usw.), wird die Campaign ausgelöst.
 
@@ -84,7 +84,7 @@ Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_ti
 
 ### Bestimmter Wert {#specific-value}
 
-Verwenden Sie den Trigger `Change Custom Attribute Value` mit der Option `specific value`, um Nutzer:innen anzusprechen, wenn sich ein boolesches, ganzzahliges oder String-Attribut auf einen bestimmten Wert ändert.
+Verwenden Sie den Trigger `Change Custom Attribute Value` mit der Option `specific value`, um Nutzer:innen anzusprechen, wenn sich ein boolesches, Zahl- oder String-Attribut auf einen bestimmten Wert ändert.
 
 Sprechen Sie beispielsweise Nutzer:innen an, wenn sich ihre Rewards-Stufe auf die beste Stufe ändert. Nehmen wir in diesem Beispiel an, dass die beste Rewards-Stufe „Super VIP“ ist. Sie können eine Campaign einrichten, die ausgelöst wird, wenn sich das angepasste Attribut „Rewards-Stufe“ auf `Super VIP` ändert, um der Nutzerin oder dem Nutzer zum Super-VIP-Status zu gratulieren.
 

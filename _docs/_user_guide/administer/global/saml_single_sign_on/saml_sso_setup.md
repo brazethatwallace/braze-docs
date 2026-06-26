@@ -73,14 +73,12 @@ Make sure that your `x.509` certificate follows this format when adding it to th
 
 Save your security settings and log out. Then, sign back in with your identity provider.
 
-![Dashboard login screen with SSO enabled]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Setting up your RelayState
 
 1. In Braze, go to **Settings** > **APIs and Identifiers**.
 2. In the **API Keys** tab, select the **Create API key** button.
 3. In the **API key name** field, enter a name for your key.
-4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.<br><br>![The "Permissions" section with sso.saml.login checked.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Extend the **SSO** dropdown under **Permissions** and check **sso.saml.login**.
 5. Select **Create API key**.
 6. In the **API Keys** tab, copy the identifier next to the API key you created.
 7. Paste the RelayState API Key into your IdP's RelayState (it may also appear as "Relay State" or "Default Relay State" depending on your IdP).

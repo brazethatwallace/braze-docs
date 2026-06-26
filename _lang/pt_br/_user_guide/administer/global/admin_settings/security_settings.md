@@ -111,7 +111,7 @@ Para ativar manualmente a autenticação de dois fatores (2FA) na sua conta Braz
 
 ## Acesso elevado {#elevated-access}
 
-O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um segmento ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
+O Acesso elevado adiciona uma camada extra de segurança para ações sensíveis no seu dashboard da Braze. Quando ativo, os usuários precisam verificar novamente sua conta antes de exportar um Segment ou visualizar uma chave de API. Para usar o Acesso elevado, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e ative o recurso.
 
 Se um usuário não conseguir verificar novamente, ele será redirecionado para onde estava e não poderá continuar com a ação sensível. Após a verificação bem-sucedida, ele não precisará verificar novamente na próxima hora — a menos que faça logout primeiro.
 
@@ -131,117 +131,133 @@ Esse download manual de relatório contém apenas os 10.000 eventos de seguranç
 
 Para exportar eventos de segurança para o Amazon S3 sem esse limite de linhas, consulte [Exportação de eventos de segurança com Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
 
+### Definições das colunas do CSV {#csv-column-definitions}
+
+O CSV do relatório de eventos de segurança contém as seguintes colunas:
+
+| Coluna | Descrição |
+|--------|-------------|
+| CreatedAt | Timestamp de quando o evento foi registrado, em UTC. |
+| EmailAtTimeOfEvent | Endereço de e-mail do usuário do dashboard que disparou o evento, conforme registrado no momento do evento. |
+| CurrentEmail | Endereço de e-mail atual do usuário do dashboard que disparou o evento. Se o usuário não existir mais, o ID de desenvolvedor é usado. |
+| EventName | Tipo de evento de segurança. Consulte a lista de eventos de segurança reportados abaixo. |
+| OtherAccount | Endereço de e-mail de outro usuário do dashboard afetado pelo evento, quando aplicável (por exemplo, quando uma conta é adicionada ou removida). |
+| JsonProperties | Propriedades específicas do evento em formato JSON. Os campos incluídos variam por tipo de evento. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definições das colunas do CSV" }
+
+As [exportações para S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) incluem essas colunas mais `Version`, a versão do esquema para o formato de exportação (atualmente `1`).
+
 {% details Eventos de segurança reportados %}
 ### Login e conta {#login-and-account}
-- Login realizado
-- Falha no login
-- Configuração da autenticação de dois fatores concluída
-- Redefinição da autenticação de dois fatores concluída
-- 2FA do desenvolvedor removida
-- Desenvolvedor adicional adicionado
-- Conta adicionada
-- Desenvolvedor suspenso
-- Suspensão do desenvolvedor removida
-- Desenvolvedor atualizado
-- Desenvolvedor removido
-- Conta removida
-- Status de inscrição do usuário atualizado
-- Usuário atualizado
-- Conta do desenvolvedor atualizada
+- Signed In
+- Failed Login
+- Two-Factor Auth Setup Completed
+- Two-Factor Auth Reset Completed
+- Cleared Developer 2FA
+- Added Additional Developer
+- Added Account
+- Developer Suspended
+- Developer Unsuspended
+- Developer Updated
+- Removed Developer
+- Removed Account
+- User Subscription Status Updated
+- User Updated
+- Developer Account Updated
 
 ### Acesso elevado
-- Fluxo de acesso elevado iniciado
-- Fluxo de acesso elevado concluído
-- Falha na verificação 2FA para acesso elevado
-- Aplicação de acesso elevado ativada
-- Aplicação de acesso elevado desativada
+- Started Elevated Access Flow
+- Completed Elevated Access Flow
+- Failed 2FA Verification For Elevated Access
+- Enabled Elevated Access Enforcement
+- Disabled Elevated Access Enforcement
 
 Campaign
-- Campaign adicionada
-- Campaign editada
+- Added Campaign
+- Edited Campaign
 
 Canvas
-- Jornada adicionada
-- Jornada editada
+- Added Canvas
+- Edited Canvas
 
 ### Segment
-- Segment adicionado
-- Segment editado
-- Dados exportados para CSV
-- Segment exportado via API
-- Usuários do Segment excluídos
-- Coorte removida
+- Added Segment
+- Edited Segment
+- Exported data to CSV
+- Exported Segment via API
+- Segment Users Deleted
+- Cleared Cohort
 
 ### Chave da API REST {#rest-api-key}
-- Chave da API REST adicionada
-- Chave da API REST removida
+- Added REST API key
+- Removed REST API key
 
 ### Credencial de autenticação básica {#basic-authentication-credential}
-- Credencial de autenticação básica adicionada
-- Credencial de autenticação básica atualizada
-- Credencial de autenticação básica removida
+- Added Basic Auth credential
+- Updated Basic Auth credential
+- Removed Basic Auth credential
 
 ### Permissão {#permission}
-- 2FA do desenvolvedor removida
-- Permissão da conta atualizada
-- Equipe adicionada
-- Equipe editada
-- Equipe arquivada
-- Equipe desarquivada
-- Conjunto de permissões do grupo de app criado
-- Conjunto de permissões do grupo de app editado
-- Conjunto de permissões do grupo de app removido
-- Função personalizada criada
-- Função personalizada atualizada
-- Função personalizada excluída
+- Cleared Developer 2FA
+- Updated Account Permission
+- Added Team
+- Edited Team
+- Archived Team
+- Unarchived Team
+- Created App Group Permission Set
+- Edited App Group Permission Set
+- Removed App Group Permission Set
+- Created Custom Role
+- Updated Custom Role
+- Deleted Custom Role
 
 ### Configurações da empresa {#company-settings}
-- Grupo de app adicionado
-- App adicionado
-- Configurações da empresa alteradas
-- Configurações de segurança da empresa atualizadas
-- Exportação de eventos de segurança para nuvem atualizada
-- Domínio personalizado de landing pages adicionado
-- Domínio personalizado de landing pages removido
-- Domínio personalizado criado
-- Domínio personalizado excluído
-- Grupo de controle global ativado
-- Grupo de controle global desativado
-- Exclusões do controle global atualizadas
-- Lista de permissões de SMS do grupo de inscrições atualizada
+- Added App Group
+- Added App
+- Company Settings Changed
+- Updated Company Security Settings
+- Updated Security Event Cloud Export
+- Added Landing Pages Custom Domain
+- Removed Landing Pages Custom Domain
+- Custom Domain Created
+- Custom Domain Deleted
+- Enabled Global Control Group
+- Disabled Global Control Group
+- Updated Global Control Exclusions
+- Updated Subscription Group SMS Allow List
 
 ### Modelo de e-mail {#email-template}
-- Modelo de e-mail adicionado
-- Modelo de e-mail atualizado
+- Added Email Template
+- Updated Email Template
 
 ### Credencial de push {#push-credential}
-- Credencial de push atualizada
-- Credencial de push removida
+Updated Push Credential
+Removed Push Credential
 
 ### Depurador do SDK {#sdk-debugger}
-- Sessão do Depurador do SDK iniciada
-- Log do Depurador do SDK exportado
+- Started SDK Debugger Session
+- Exported SDK Debugger Log
 
 ### Usuários {#users}
-- Usuários excluídos
-- Usuários visualizados
-- Importação de usuários iniciada
-- Status do grupo de inscrições do usuário atualizado
-- Usuário excluído
-- Exclusão de usuário individual cancelada
-- Exclusão de usuários em massa cancelada
+- Users Deleted
+- Users Viewed
+- User Import Started
+- User Subscription Group Status Updated
+- User Deleted
+- Single User Deletion Cancelled
+- Bulk User Deletion Cancelled
 
 ### Catálogos {#catalogs}
-- Catálogo criado
-- Catálogo excluído
+- Catalog Created
+- Catalog Deleted
 
 ### Braze Agents
-- Agente criado
-- Agente editado
+- Created Agent
+- Edited Agent
 
 ### BrazeAI Operator
-- Resposta do BrazeAI Operator solicitada
-- BrazeAI Operator respondeu
+- Requested BrazeAI Operator Response
+- BrazeAI Operator Responded
 {% enddetails %}
 
 ## Visualização de informações pessoais identificáveis (IPI) {#view-pii}

@@ -131,6 +131,22 @@ Esta descarga manual de informe solo contiene los 10 000 eventos de seguridad m�
 
 Para exportar eventos de seguridad a Amazon S3 sin este límite de filas, consulta [Exportación de eventos de seguridad con Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
 
+### Definiciones de columnas del CSV {#csv-column-definitions}
+
+El informe CSV de eventos de seguridad contiene las siguientes columnas:
+
+| Columna | Descripción |
+|--------|-------------|
+| CreatedAt | Marca de tiempo en la que se registró el evento, en UTC. |
+| EmailAtTimeOfEvent | Dirección de correo electrónico del usuario del dashboard que desencadenó el evento, tal como se registró cuando ocurrió el evento. |
+| CurrentEmail | Dirección de correo electrónico actual del usuario del dashboard que desencadenó el evento. Si el usuario ya no existe, se usa su ID de desarrollador en su lugar. |
+| EventName | Tipo de evento de seguridad. Consulta la lista de eventos de seguridad reportados a continuación. |
+| OtherAccount | Dirección de correo electrónico de otro usuario del dashboard afectado por el evento, cuando corresponda (por ejemplo, cuando se añade o elimina una cuenta). |
+| JsonProperties | Propiedades específicas del evento en formato JSON. Los campos incluidos varían según el tipo de evento. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definiciones de columnas del CSV" }
+
+Las [exportaciones a S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) incluyen estas columnas más `Version`, la versión del esquema para el formato de exportación (actualmente `1`).
+
 {% details Eventos de seguridad reportados %}
 ### Inicio de sesión y cuenta {#login-and-account}
 - Signed In
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment

@@ -347,9 +347,9 @@ Canvasesはコンポーネントごとではなく、Canvasレベルでタグ付
 
 ### ダッシュボードにCampaignのレート制限エラーが表示されるのはなぜですか？ {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-これは通常、Campaignの[配信速度レート制限](#delivery-speed-rate-limiting)がオーディエンスサイズに対して低すぎるため、送信の完了に許可された時間枠よりも長くかかり、Brazeが警告を表示していることを意味します。配信速度レート制限を上げるか、オーディエンスを減らすか、**Limit the number of people who will receive this campaign**を使用して、スケジュールされた各送信が許可された送信時間枠内に完了するようにしてください。また、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を設定して、Campaigns全体にキャップを適用することもできます。
+これは通常、Campaignの[配信速度レート制限](#delivery-speed-rate-limiting)がオーディエンスサイズに対して低すぎるため、送信の完了に許可された時間枠よりも長くかかり、Brazeが警告を表示していることを意味します。配信速度レート制限を上げるか、オーディエンスを減らすか、**Limit send volume**を使用して、スケジュールされた各送信が許可された送信時間枠内に完了するようにしてください。また、[ワークスペースメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)を設定して、Campaigns全体にキャップを適用することもできます。
 
-**Limit the number of people who will receive this campaign**は、送信対象となるユーザー数を制御するもので、Brazeが1分あたりに送信するメッセージ数を制御するものではありません。1分あたりのスループットを設定するのは配信速度レート制限のみです。
+**Limit send volume**は、送信対象となるユーザー数を制御するもので、Brazeが1分あたりに送信するメッセージ数を制御するものではありません。1分あたりのスループットを設定するのは配信速度レート制限のみです。
 
 ### フリークエンシーキャップにおける「送信済み」とは何を意味しますか？ {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +359,6 @@ Canvasesはコンポーネントごとではなく、Canvasレベルでタグ付
 
 メールのバウンスおよび遅延メッセージは、さまざまなコードやプロバイダー固有のテキストを使用します。特定のコードをレート制限の問題の兆候として扱わないでください。原因は送信コンテキストとメールボックスプロバイダーのフィードバックによって異なります。
 
-メッセージが一時的に遅延されている場合、送信量を減らすことが短期的に役立つ場合があります。[配信速度レート制限](#delivery-speed-rate-limiting)、**Limit the number of people who will receive this campaign**、またはその両方を使用してください。
+メッセージが一時的に遅延されている場合、送信量を減らすことが短期的に役立つ場合があります。[配信速度レート制限](#delivery-speed-rate-limiting)、**Limit send volume**、またはその両方を使用してください。
 
 長期的な解決策としては、配信性の専門家と協力してバウンスおよび遅延データを確認してください。

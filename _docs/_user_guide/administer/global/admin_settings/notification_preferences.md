@@ -13,8 +13,6 @@ description: "This reference article covers your available options for monitorin
 
 The **Notification Preferences** page is where you can configure who (if anyone) receives notifications about your company. You can configure who should receive notifications about campaign delivery or technical errors. You can also specify recipients for the weekly analytics report. For most notifications, Braze supports email and webhook channels.
 
-![Notification Preferences page in the Braze dashboard]({% image_buster /assets/img_archive/notification_preferences.png %})
-
 To access this page, go to **Settings** > **Admin Settings** > **Notification Preferences**.
 
 {% alert tip %}

@@ -389,7 +389,7 @@ _Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} 이메일의 경우 7일 동안 추적되며 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 로 측정됩니다. Braze에서 제공하는 탈퇴 링크 클릭도 포함됩니다. 이 수치는 5~10% 사이가 일반적이며, 10%를 초과하면 매우 우수한 수준입니다!
             </td>
         </tr>
         <tr>

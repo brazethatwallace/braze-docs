@@ -53,7 +53,7 @@ Canvas te impedirá usar el envío planificado con una hora que ya haya pasado. 
 {% endalert %}
 
 {% alert important %}
-La evaluación de la planificación y la audiencia puede diferir entre las entradas planificadas y las entradas de envío inmediato; por ejemplo, cuando los pasos utilizan opciones que se evalúan más cerca del momento de envío. Cuando edites la audiencia, la planificación o la configuración de entrega dentro de los minutos previos a una entrada planificada o una ventana de envío, confirma si los usuarios que ya están en cola para el siguiente paso reciben el cambio (consulta [Cambiar tu Canvas después del lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)); en caso de duda, detén, duplica y relanza para una reevaluación limpia.
+Si cambias la audiencia, la planificación o la entrega cerca de una ventana de entrada o envío planificada, es posible que algunos usuarios ya estén esperando en un paso o hayan sido evaluados con la configuración anterior, por lo que no se garantiza que todos reciban el cambio. Para ver cómo interactúan los cambios de planificación, los cambios de audiencia, **Evaluate at enqueue time** y el momento de entrega de los pasos de Mensaje, consulta [Cambiar tu Canvas después del lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). En caso de duda, detén el Canvas, duplícalo y relánzalo para una reevaluación limpia.
 {% endalert %}
 
 Para los pasos en Canvas, ten en cuenta los siguientes detalles al planificar tu Canvas:

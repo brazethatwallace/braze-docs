@@ -4,15 +4,15 @@ description: >
   Generalizes Technical Account Management (TAM) solutions from Confluence or Google Drive into public
   User Guide Example library articles under _docs/_user_guide/example_library/. Audits completeness and
   product accuracy, applies FakeBrandz generalization, and opens draft PRs. Use when migrating TAM
-  solutions, building the Operator Example library, or when the user mentions @tam-solutions or TAM
+  solutions, building the Operator Example library, or when the user mentions tam-solutions or TAM
   solution docs.
 ---
 
 # TAM solutions → User Guide example library
 
-Turn internal TAM solution assets into generalized, product-accurate articles for the Braze User Guide. Invoke with **`@tam-solutions`**.
+Turn internal TAM solution assets into generalized, product-accurate articles for the Braze User Guide.
 
-**Dependencies:** For prose and structure use [`braze-docs`](../braze-docs/SKILL.md). For product verification use [`reference-repos`](../reference-repos/SKILL.md). Open [`braze-workspace.code-workspace`](../../../braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders when verifying behavior.
+**REQUIRED SUB-SKILL:** For prose and structure use [braze-docs](../braze-docs/SKILL.md) (`braze-docs:braze-docs`). **REQUIRED SUB-SKILL:** For product verification use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`). Open [`braze-workspace.code-workspace`](../../../braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders when verifying behavior.
 
 **Output location:** `_docs/_user_guide/example_library/` (English canonical only; do not edit `_lang/`).
 
@@ -44,7 +44,7 @@ python3 scripts/tam-solutions/export_drive_solutions.py
 - **Google Docs only** — PDFs in Drive are listed in `skipped`; paste those or convert to Google Docs.
 - Treat exports as sensitive until generalized. Do not commit raw JSON to `develop`.
 
-When the user points `@tam-solutions` at an export file, read the matching `solutions[]` entry by `title`, `path`, or `web_view_link` instead of fetching Drive.
+When the user invokes this skill with a local export file, read the matching `solutions[]` entry by `title`, `path`, or `web_view_link` instead of fetching Drive.
 
 **Reading sources (fallback order):** Local JSON export → user paste → Confluence (MCP) → Drive URL (often fails without auth). If all fail, ask the user to paste or export before continuing.
 
@@ -85,7 +85,7 @@ If any part is missing or too thin to generalize, report the gap in the audit ou
 
 ### 1b. Product accuracy
 
-Cross-check claims against source code per [`reference-repos`](../reference-repos/SKILL.md). Do not rely on the TAM text or existing docs alone.
+Cross-check claims against source code per [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`). Do not rely on the TAM text or existing docs alone.
 
 - Pull sibling repos before searching (`git pull --ff-only` in each repo you need).
 - If behavior is verified, note which repos you searched in your analysis.
@@ -169,7 +169,7 @@ Infer `doc_path` from the solution’s primary Braze feature. Search `_docs/` fo
 
 ## Step 4: Draft the example article
 
-Follow [`braze-docs`](../braze-docs/SKILL.md) and [`docs/contributing/style_guide/`](../../../docs/contributing/style_guide/).
+Follow [braze-docs](../braze-docs/SKILL.md) (`braze-docs:braze-docs`) and [`docs/contributing/style_guide/`](../../../docs/contributing/style_guide/).
 
 Draft all Example library prose per the [Braze style guide](../../../docs/contributing/style_guide/) (voice, headings, links, Liquid formatting). When the style guide conflicts with TAM source wording, follow the style guide.
 
@@ -275,18 +275,20 @@ No CI or scripts for v1 — Cursor-driven only.
 
 ## Example prompts
 
+Natural-language example requests:
+
 ```
-@tam-solutions Audit and generalize this TAM solution from Confluence: [URL]
+Audit and generalize this TAM solution from Confluence: [URL]
 ```
 
 ```
-@tam-solutions Process the abandoned cart Canvas solution from the TAM Assets Drive folder and draft an example under example_library/canvas/.
+Process the abandoned cart Canvas solution from the TAM Assets Drive folder and draft an example under example_library/canvas/.
 ```
 
 ```
-@tam-solutions Audit only — list completeness and duplicates for solutions in [Drive folder or Confluence space] without drafting.
+Audit only — list completeness and duplicates for solutions in [Drive folder or Confluence space] without drafting.
 ```
 
 ```
-@tam-solutions Triage solutions from _data/tam_solutions/export_<date>.json — audit completeness by category and list gaps.
+Triage solutions from _data/tam_solutions/export_<date>.json — audit completeness by category and list gaps.
 ```

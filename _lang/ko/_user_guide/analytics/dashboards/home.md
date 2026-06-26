@@ -17,7 +17,6 @@ tool:
 - [이전 작업 이어서 하기](#pick-up-where-you-left-off)
 - [성과 개요](#performance-overview)
 
-![Braze의 홈 대시보드.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## 이전 작업 이어서 하기 {#pick-up-where-you-left-off}
 
@@ -35,8 +34,6 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 기본적으로 **성과 개요** 섹션은 모든 앱과 사이트의 최근 30일 데이터를 표시합니다. 모든 측정기준은 선택한 날짜 범위를 기준으로 계산됩니다.
 
-![홈 대시보드의 날짜 범위 및 앱 필드.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 백분율은 현재 날짜 범위를 이전 날짜 범위와 비교하여 계산됩니다. 단, *월간 활성 사용자*(MAU)는 범위 대신 이전 기간의 마지막 날을 사용합니다.
 
 예를 들어, 날짜 범위를 **최근 7일**로 설정하고 *일일 활성 사용자*가 1.8% 증가를 보인다면, 이번 주에 지난 주보다 일일 활성 사용자가 1.8% 더 많았다는 의미입니다.
@@ -46,8 +43,6 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 ### 세부 내역 보기 {#show-breakdown}
 
 성과 개요 통계의 각 행에서 **Show Breakdown**을 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
-
-![세부 내역 확장]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### 시간별 성과 {#performance-over-time}
 

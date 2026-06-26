@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Agendar
 ---
 {% api %}
 # Agendar Canvas disparados por API {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 

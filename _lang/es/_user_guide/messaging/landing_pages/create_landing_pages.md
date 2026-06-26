@@ -19,8 +19,6 @@ Para acceder al creador de páginas de inicio, necesitas [ciertos permisos]({{si
 
 Ve a **Messaging** > **Landing Pages** y selecciona **Create landing page**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o hacerle cambios.
 
-![La sección de páginas de inicio en el panel de Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
-
 ### Paso 2: Introducir los detalles de la página {#step-2-enter-the-page-details}
 
 Añade detalles internos y públicos que te ayuden a organizar, personalizar la marca y compartir tu página de inicio.
@@ -41,7 +39,7 @@ Te sugerimos seguir estas buenas prácticas:
 | Meta descripción | Un fragmento de texto que se muestra en los resultados de búsqueda. | Usa entre 140 y 160 caracteres. |
 | Favicon | El icono que aparece junto al título del sitio en la pestaña del navegador. | Usa una relación de aspecto de 1:1 y un tipo de archivo compatible: PNG, JPEG o ICO. |
 | URL de la página | Esta es la ruta URL de tu página de inicio. Este valor también se utiliza como referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalles del sitio" }
 
 ### Paso 3: Personalizar la página {#step-3-customize-the-page}
 
@@ -68,9 +66,9 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 | Enlace | Un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Puede incrustarse dentro del texto o ser independiente. |
 | Espaciador | Un bloque invisible que añade espacio vertical entre elementos para mejorar el diseño y la legibilidad. |
 | Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizar la página" }
 
-##### Texto con span {#span-text}
+#### Texto con span {#span-text}
 
 {% multi_lang_include span_text.md %}
 
@@ -89,7 +87,7 @@ Puedes usar estos bloques para crear un formulario que vincule los datos enviado
 | Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributo personalizado a la lista. |
 | Casilla de verificación | Si un usuario marca la casilla, el atributo del bloque se establece en `true`. Si se deja sin marcar, su atributo se establece en `false`. |
 | Grupo de casillas de verificación | Los usuarios pueden seleccionar entre múltiples opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de tipo array definido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloques de formulario" }
 
 {% alert important %}
 Después de crear una página de inicio con un formulario, asegúrate de incrustar su [etiqueta de Liquid de página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) en tu mensaje. Con esta etiqueta, Braze puede identificar y actualizar automáticamente los perfiles de usuario existentes cuando envían el formulario.

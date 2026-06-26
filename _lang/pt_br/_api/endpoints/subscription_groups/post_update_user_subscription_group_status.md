@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 {% api %}
 # Atualizar o status do grupo de inscrições do usuário {#update-users-subscription-group-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 

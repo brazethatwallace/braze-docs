@@ -14,9 +14,9 @@ search_tag: Partner
 
 > [AppsFlyer](https://www.appsflyer.com/) ist eine Analytics-Plattform für Mobile-Marketing und Attribution, die Ihnen hilft, Ihre Apps durch Marketing-Analysen, Mobile-Attribution und Deeplinking zu analysieren und zu optimieren.
 
-Die Integration von Braze und AppsFlyer lässt Sie besser verstehen, wie Sie Ihre Campaigns optimieren und ganzheitlicher gestalten können, indem Sie die mobilen Install-Attribution-Daten von AppsFlyer nutzen.
+Die Integration von Braze und AppsFlyer lässt Sie besser verstehen, wie Sie Ihre Kampagnen optimieren und ganzheitlicher gestalten können, indem Sie die mobilen Install-Attribution-Daten von AppsFlyer nutzen.
 
-Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/)-Integration können Sie Ihre AppsFlyer-Zielgruppen (Kohorten) direkt an Braze weitergeben, was es Ihnen erlaubt, leistungsstarke Customer-Engagement-Campaigns zu erstellen, die genau auf die richtigen Nutzer:innen zur richtigen Zeit ausgerichtet sind.
+Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/)-Integration können Sie Ihre AppsFlyer-Zielgruppen (Kohorten) direkt an Braze weitergeben, was es Ihnen erlaubt, leistungsstarke Customer-Engagement-Kampagnen zu erstellen, die genau auf die richtigen Nutzer:innen zur richtigen Zeit ausgerichtet sind.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -27,7 +27,7 @@ Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohor
 | AppsFlyer SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started) installieren.
 | Einrichtung der E-Mail-Domain abgeschlossen | Sie müssen beim Onboarding von Braze den [Schritt zur Einrichtung von IP und Domain]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) abgeschlossen haben, um Ihre E-Mail einzurichten. |
 | SSL-Zertifikat | Ihr [SSL-Zertifikat]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) muss konfiguriert sein. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -132,7 +132,7 @@ Wenn Ihre Integration erfolgreich war, bildet Braze alle nicht-organischen Insta
 | `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Datenfelder" }
 
 Im Braze-Dashboard können Sie Ihre Nutzerbasis anhand von Attributionsdaten segmentieren, indem Sie die Filter für Install-Attribution verwenden.
 
@@ -141,7 +141,7 @@ Im Braze-Dashboard können Sie Ihre Nutzerbasis anhand von Attributionsdaten seg
 Außerdem sind die Attributionsdaten für eine bestimmte Nutzer:in auf dem Profil jeder Nutzer:in im Braze-Dashboard verfügbar.
 
 {% alert note %}
-Attribution-Daten für Facebook- und X-Campaigns (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
+Attribution-Daten für Facebook- und X-Kampagnen (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 {% endalert %}
 
 ## AppsFlyer mit Braze für Deeplinking integrieren {#integrate-appsflyer-with-braze-for-deep-linking}
@@ -158,14 +158,14 @@ Befolgen Sie die ersten Elemente der [E-Mail-Einrichtungsanleitung von Braze]({{
 
 ![Braze-UI mit dem Button „Get Help“, der sich unter dem Button „Support“ in der rechten oberen Ecke befindet]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
-Die Erstellung einer neuen CTD ist Pflicht, auch wenn Sie bereits eine bestehende verwenden. Dadurch wird sichergestellt, dass es keine Auswirkungen auf den Datenverkehr der laufenden Live-E-Mail-Campaigns gibt.
+Die Erstellung einer neuen CTD ist Pflicht, auch wenn Sie bereits eine bestehende verwenden. Dadurch wird sichergestellt, dass es keine Auswirkungen auf den Datenverkehr der laufenden Live-E-Mail-Kampagnen gibt.
 
 {% alert important%}
 AppsFlyer erstellt das SSL-Zertifikat. In diesem Stadium sind E-Mail-Links wahrscheinlich nicht gesichert, d. h. der URL-Präfix ist HTTP statt HTTPS. Dies wird in späteren Schritten behoben.
 {%endalert%}
 
 ## 2. Schritt: OneLink-Template in AppsFlyer erstellen {#step-2-create-a-onelink-template-in-appsflyer}
-Erstellen Sie ein [OneLink-Template](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures) und konfigurieren Sie Universal Links/App Links unter „When app is installed“. Dieses Template wird später verwendet, um OneLink-Links für Ihre E-Mail-Campaigns zu erstellen.
+Erstellen Sie ein [OneLink-Template](https://support.appsflyer.com/hc/en-us/articles/207032246-Create-a-OneLink-template#procedures) und konfigurieren Sie Universal Links/App Links unter „When app is installed“. Dieses Template wird später verwendet, um OneLink-Links für Ihre E-Mail-Kampagnen zu erstellen.
 
 {% alert note%} Wenn Sie bereits ein OneLink-Template konfiguriert haben, das Universal Links/App Links aktiviert, können Sie es verwenden.
 {%endalert%}
@@ -182,7 +182,7 @@ So richten Sie Ihre Braze-Integration in AppsFlyer ein:
 ![AppsFlyer-UI zeigt die Liste der ESP-Integrationen, einschließlich Braze.]({% image_buster /assets/img/attribution/appsflyer/3.png %})
 
 
-### 3. Wählen Sie das OneLink-Template aus, das Sie für Ihre E-Mail-Campaigns verwenden möchten, und klicken Sie dann auf „Next“ {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
+### 3. Wählen Sie das OneLink-Template aus, das Sie für Ihre E-Mail-Kampagnen verwenden möchten, und klicken Sie dann auf „Next“ {#3-select-the-onelink-template-you-want-to-use-for-email-campaigns-then-click-next}
 ![AppsFlyer-UI zeigt das Dropdown-Menü, mit dem Nutzer:innen ihr Template auswählen können.]({% image_buster /assets/img/attribution/appsflyer/4.png %})
 
 
@@ -201,7 +201,7 @@ Wenn Sie fertig sind, klicken Sie auf **Next**.
 
 #### a. Kopieren Sie die angepassten, vorgefertigten Anweisungen in AppsFlyer und senden Sie sie an Ihren IT- oder Domain-Administrator {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-Ihr Administrator muss den Datenverkehr Ihrer E-Mail-Campaigns von den ESP-Servern zu den AppsFlyer-Servern umleiten, indem er Ihre DNS-CNAME-Einträge mit der neuen Domain aktualisiert, die AppsFlyer zur Verfügung gestellt hat.
+Ihr Administrator muss den Datenverkehr Ihrer E-Mail-Kampagnen von den ESP-Servern zu den AppsFlyer-Servern umleiten, indem er Ihre DNS-CNAME-Einträge mit der neuen Domain aktualisiert, die AppsFlyer zur Verfügung gestellt hat.
 
 Daher wird jeder Klick auf einen Link an AppsFlyer weitergeleitet, das ihn wiederum an den ESP-Endpunkt weiterleitet.
 
@@ -219,7 +219,7 @@ AppsFlyer [bietet eine Anleitung](https://support.appsflyer.com/hc/en-us/article
 
 ## 5. Schritt: Bestätigen, dass SSL-Click-Tracking mit Braze aktiviert ist {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-In diesem Stadium, nachdem Sie die CTD-Details in AppsFlyer freigegeben und validiert haben, empfehlen wir Ihnen, einen Testversand durchzuführen, um zu überprüfen, ob Ihre OneLink-Sendedomain über ein SSL-Zertifikat verfügt. Dies entspricht unserer Anleitung zur [E-Mail-Einrichtung](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
+In diesem Stadium, nachdem Sie die CTD-Details in AppsFlyer freigegeben und validiert haben, empfehlen wir Ihnen, einen Testversand durchzuführen, um zu überprüfen, ob Ihre OneLink-Sendedomain über ein SSL-Zertifikat verfügt. Dies entspricht unserer Anleitung zur [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
 
 Sie können eine Qualitätssicherung und Fehlerbehebung durchführen, indem Sie mit OneLink einen Deeplink senden. Einzelheiten zur Verwendung von OneLink finden Sie in der [AppsFlyer-Dokumentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a).
 
@@ -233,9 +233,9 @@ Could you please enable SSL click tracking for CTD XXX? It is currently set to H
 
 ### AppsFlyer-Click-Tracking-URLs in Braze (optional)
 
-Sie können die [OneLink-Attribution-Links](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) von AppsFlyer in Braze-Campaigns für Push, E-Mail und mehr verwenden. Dies erlaubt es Ihnen, Daten zur Install-Attribution oder zur erneuten Interaktion aus Ihren Braze-Campaigns an AppsFlyer zurückzusenden. Auf diese Weise können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen treffen.
+Sie können die [OneLink-Attribution-Links](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) von AppsFlyer in Braze-Kampagnen für Push, E-Mail und mehr verwenden. Dies erlaubt es Ihnen, Daten zur Install-Attribution oder zur erneuten Interaktion aus Ihren Braze-Kampagnen an AppsFlyer zurückzusenden. Auf diese Weise können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen treffen.
 
-Sie können Ihre OneLink-Tracking-URL einfach in AppsFlyer erstellen und sie direkt in Ihre Braze-Campaigns einfügen. AppsFlyer verwendet dann seine [probabilistischen Attributionsmethoden](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre AppsFlyer-Tracking-Links mit einem Gerätebezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
+Sie können Ihre OneLink-Tracking-URL einfach in AppsFlyer erstellen und sie direkt in Ihre Braze-Kampagnen einfügen. AppsFlyer verwendet dann seine [probabilistischen Attributionsmethoden](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre AppsFlyer-Tracking-Links mit einem Gerätebezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Kampagnen zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs local %}
 {% tab Android %}

@@ -25,8 +25,6 @@ If you're an admin, you can access and manage workspace time zones by going to *
 
 Here, you can view a list of all your workspaces, their set time zone, and the last time the time zone was edited. Use the search bar to find specific workspaces by name.
 
-!["Workspace Time Zones" page with a list of workspaces, their respective time zones, and when the time zones were last edited.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
 ### Setting a time zone 
 
 {% alert note %}
@@ -44,7 +42,6 @@ It may take up to a few minutes for time zone updates to take effect.
 3. In the dropdown menu, select the desired time zone for that workspace.
 4. Select **Save**.
 
-![Dropdown menu with the GMT time zone selected.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Multiple workspaces %}
 

@@ -10,7 +10,7 @@ description: "이 문서에서는 사용자 삭제 Braze 엔드포인트에 대�
 ---
 {% api %}
 # 사용자 삭제 {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | 선택 사항 | 문자열 배열 | 삭제할 Braze 사용자 식별자. |
 | `email_addresses` | 선택 사항 | 문자열 배열 | 삭제할 사용자 이메일. 자세한 내용은 [이메일로 사용자 삭제하기](#deleting-users-by-email)를 참조하세요. |
 | `phone_numbers` | 선택 사항 | 문자열 배열 | 삭제할 사용자 전화번호. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 이메일 주소 및 전화번호로 사용자 삭제하기 {#deleting-users-by-email-addresses-and-phone-numbers}
 

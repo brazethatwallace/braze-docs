@@ -42,7 +42,7 @@ API-Trigger-Eigenschaften müssen zwei geschweifte Klammern pro Tag verwenden: {
 
 ### Unterstützte Attribute {#supported-attributes}
 
-Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt (zum Beispiel ist `dispatch_id` nicht in In-App-Nachrichten-Campaigns verfügbar).
+Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt. Zum Beispiel wird `dispatch_id` in Liquid für Messaging-Kanäle wie E-Mail, Push, SMS und WhatsApp unterstützt, aber nicht für In-App-Nachrichten oder Banner.
 
 Weitere Details finden Sie unter [Campaign- und Canvas-Attribute über verschiedene Quellen hinweg]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 

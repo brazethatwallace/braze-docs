@@ -347,9 +347,9 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 
 ### 대시보드에 Campaign에 대한 사용량 제한 오류가 표시되는 이유는 무엇인가요? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-이는 일반적으로 Campaign의 [전달 속도 사용량 제한](#delivery-speed-rate-limiting)이 오디언스 규모에 비해 너무 낮게 설정되어 허용된 기간 내에 발송을 완료하는 데 시간이 오래 걸리고 Braze가 경고를 표시하는 것을 의미합니다. 전달 속도 사용량 제한을 높이거나, 오디언스를 줄이거나, **Limit the number of people who will receive this campaign**을 사용하여 각 스케줄된 발송이 허용된 발송 기간 내에 완료되도록 하세요. [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)을 설정하여 Campaign 전체에 제한을 적용할 수도 있습니다.
+이는 일반적으로 Campaign의 [전달 속도 사용량 제한](#delivery-speed-rate-limiting)이 오디언스 규모에 비해 너무 낮게 설정되어 허용된 기간 내에 발송을 완료하는 데 시간이 오래 걸리고 Braze가 경고를 표시하는 것을 의미합니다. 전달 속도 사용량 제한을 높이거나, 오디언스를 줄이거나, **Limit send volume**을 사용하여 각 스케줄된 발송이 허용된 발송 기간 내에 완료되도록 하세요. [워크스페이스 메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/)을 설정하여 Campaign 전체에 제한을 적용할 수도 있습니다.
 
-**Limit the number of people who will receive this campaign**은 발송 대상 사용자 수를 제어하는 것이지, Braze가 분당 발송하는 메시지 수를 제어하는 것이 아닙니다. 분당 처리량은 전달 속도 사용량 제한만으로 설정됩니다.
+**Limit send volume**은 발송 대상 사용자 수를 제어하는 것이지, Braze가 분당 발송하는 메시지 수를 제어하는 것이 아닙니다. 분당 처리량은 전달 속도 사용량 제한만으로 설정됩니다.
 
 ### 최대 게재빈도 설정에서 "발송됨"은 무엇을 의미하나요? {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +359,6 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 
 이메일 반송 및 지연 메시지는 다양한 코드와 공급자별 텍스트를 사용합니다. 특정 코드를 사용량 제한 문제의 징후로 간주하지 마세요. 원인은 발송 컨텍스트와 메일박스 공급자 피드백에 따라 달라집니다.
 
-메시지가 일시적으로 지연되는 경우, 발송량을 줄이면 단기적으로 도움이 될 수 있습니다. [전달 속도 사용량 제한](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign** 또는 둘 다를 사용하세요.
+메시지가 일시적으로 지연되는 경우, 발송량을 줄이면 단기적으로 도움이 될 수 있습니다. [전달 속도 사용량 제한](#delivery-speed-rate-limiting), **Limit send volume** 또는 둘 다를 사용하세요.
 
 장기적인 해결책을 위해서는 전달 가능성 전문가와 협력하여 반송 및 지연 데이터를 검토하세요.

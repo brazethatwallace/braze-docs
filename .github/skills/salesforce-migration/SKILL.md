@@ -2,12 +2,12 @@
 name: salesforce-migration
 description: >
   Salesforce KB → Braze docs (Epic BD-6308): Phase 1 script-driven triage, Phase 2 PRs + Jira,
-  Phase 3 CSV write-back. `kb_articles.csv` / optional `sf_kb_articles.csv`. Invoke with @salesforce-migration.
+  Phase 3 CSV write-back. `kb_articles.csv` / optional `sf_kb_articles.csv`.
 ---
 
 # Salesforce Knowledge → Braze Docs (Epic BD-6308)
 
-**Invoke:** `@salesforce-migration` · **Verify:** [`reference-repos`](../reference-repos/SKILL.md) · **Prose:** [`docs/contributing/style_guide/`](../../../docs/contributing/style_guide.md)
+**Verify:** **REQUIRED SUB-SKILL:** Use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) when confirming product behavior. · **Prose:** [`docs/contributing/style_guide/`](../../../docs/contributing/style_guide.md)
 
 ---
 
@@ -131,18 +131,20 @@ After Phase 2 is complete for a batch, write the PR and Jira ticket IDs back to 
 
 ## Example prompts
 
+Natural-language example requests:
+
 ```
-@salesforce-migration Run Phase 1 (--infer-doc-paths) and summarize the backlog.
+Run Phase 1 (--infer-doc-paths) and summarize the backlog.
 ```
 
 ```
-@salesforce-migration Run Phase 2 for `_docs/_user_guide/channels/push/troubleshooting.md`.
+Run Phase 2 for `_docs/_user_guide/channels/push/troubleshooting.md`.
 ```
 
 ```
-@salesforce-migration Run Phase 2 for the next batch in kb_articles_actioned.md section 1.
+Run Phase 2 for the next batch in kb_articles_actioned.md section 1.
 ```
 
 ```
-@salesforce-migration Phase 2 is complete. Write back PR URLs and Jira ticket IDs to kb_articles.csv.
+Phase 2 is complete. Write back PR URLs and Jira ticket IDs to kb_articles.csv.
 ```

@@ -102,7 +102,7 @@ Braze は、Braze サービス外でメッセージの送信またはその他�
 
 ### 適用されるサードパーティプロバイダーの条件 {#applicable-third-party-provider-terms}
 
-お客様は、Braze の [WhatsApp セットアップ](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/)ページに記載されている、WhatsApp, LLC およびそのグループ関連会社が要求する条件を含む、WhatsApp チャネルに適用される前提条件、条件、およびポリシーに準拠する必要があります。
+お客様は、Braze の [WhatsApp セットアップ]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/)ページに記載されている、WhatsApp, LLC およびそのグループ関連会社が要求する条件を含む、WhatsApp チャネルに適用される前提条件、条件、およびポリシーに準拠する必要があります。
 
 ### Webhook 使用例外条件
 

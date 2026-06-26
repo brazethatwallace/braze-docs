@@ -123,8 +123,6 @@ Während des Early Access:
 - Der Landing-Page-Analytics-Ansicht für Landing-Page-Umfragen
 {% endif %}
 
-![Landing-Page-Analytics-Tab.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 Übergeordnete Analytics umfassen:
 
 - **All responses:** Gesamtzahl vollständiger und unvollständiger Antworten

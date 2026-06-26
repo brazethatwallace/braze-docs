@@ -17,11 +17,11 @@ tool:
 Los desencadenantes de atributos están disponibles para los siguientes escenarios:
 
 - Actualizaciones del estado de suscripción.
-- Los valores de atributos personalizados de tipo booleano, entero, cadena o fecha cambian a cualquier valor.
-- Los valores de atributos personalizados de tipo booleano, entero o cadena cambian a un valor específico.
+- Los valores de atributos personalizados de tipo Booleano, Número, cadena o Time cambian a cualquier valor.
+- Los valores de atributos personalizados de tipo Booleano, Número o cadena cambian a un valor específico.
 
-{% alert note %}
-En el dashboard, los tipos de atributos personalizados aparecen como `Number` (para enteros) y `Time` (para fechas), no como `String` o `Date`.
+{% alert important %}
+En el dashboard, los atributos de números enteros usan el tipo **Número**, y las fechas o marcas de tiempo usan el tipo **Time** (no aparecen como "integer" o "date" en la interfaz). Los atributos de tipo **Time** admiten **Change Custom Attribute Value** solo con la opción **any new value**; no admiten la opción **specific value**.
 {% endalert %}
 
 Para empezar a usar los desencadenantes de atributos, crea una campaña o un componente de Canvas y selecciona **Entrega basada en acciones** como tu método de entrega. Luego, selecciona el desencadenante de atributo que deseas usar.
@@ -62,7 +62,7 @@ Para el cambio de atributo, el desencadenante se evalúa primero y luego los cri
 
 ### Opción de cualquier valor nuevo {#any-new-value-option}
 
-Usa el desencadenante `Change Custom Attribute Value` con la opción `any new value` para dirigirte a los usuarios cuando un valor de tipo booleano, entero, cadena o fecha cambie a cualquier valor nuevo.
+Usa el desencadenante `Change Custom Attribute Value` con la opción `any new value` para dirigirte a los usuarios cuando un valor de tipo Booleano, Número, cadena o Time cambie a cualquier valor nuevo.
 
 Por ejemplo, dirígete a los usuarios cuando cambie su número de puntos de recompensa para informarles cuántos puntos tienen ahora. En este ejemplo, supongamos que un usuario tiene 85 puntos de recompensa y has configurado una campaña para que se desencadene cuando el atributo de puntos de recompensa cambie a cualquier valor nuevo. Si el valor del atributo de puntos de recompensa de este usuario cambia a cualquier valor nuevo (como 83, 84, 86, etc.), la campaña se desencadena.
 
@@ -84,14 +84,14 @@ Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_ti
 
 ### Valor específico {#specific-value}
 
-Usa el desencadenante `Change Custom Attribute Value` con la opción `specific value` para dirigirte a los usuarios cuando un atributo personalizado de tipo booleano, entero o cadena cambie a un valor específico.
+Usa el desencadenante `Change Custom Attribute Value` con la opción `specific value` para dirigirte a los usuarios cuando un atributo personalizado de tipo Booleano, Número o cadena cambie a un valor específico.
 
 Por ejemplo, dirígete a los usuarios cuando su nivel de recompensas cambie al mejor nivel. Para este ejemplo, supongamos que el mejor nivel de recompensas es Super VIP. Puedes configurar una campaña para que se desencadene cuando el atributo personalizado de nivel de recompensas de un usuario cambie a `Super VIP` para poder felicitar al usuario por convertirse en Super VIP.
 
 ![Un desencadenante "Change Custom Attribute Value" para "AA_current_rewards_tier" que cambia al valor específico de "super vip".]({% image_buster /assets/img_archive/super_vip.png %})
 
 {% alert important %}
-- Los desencadenantes de atributos para valores específicos de atributos personalizados no están disponibles para atributos personalizados de tipo array y fecha.
+- Los desencadenantes de atributos para valores específicos de atributos personalizados no están disponibles para atributos personalizados de tipo array y Time.
 - El desencadenante de cambio de valores de atributos personalizados no se activa cuando el valor del atributo personalizado se actualiza a null.
 - El desencadenante de cambio de valores de atributos personalizados solo se activa cuando el valor de un atributo personalizado cambia. Si el valor actual de un atributo personalizado se reenvía a Braze (por ejemplo, el valor del atributo de color favorito es rojo y vuelves a enviar el valor rojo a Braze), el desencadenante de cambio de valores de atributos personalizados no se activa.
 - El desencadenante de cambio de valores de atributos personalizados también se aplica a los nuevos usuarios creados.

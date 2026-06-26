@@ -9,7 +9,7 @@ description: "Este artigo descreve os detalhes sobre o endpoint da Braze \"Atual
 ---
 {% api %}
 # Atualizar Campaigns agendadas disparadas por API {#update-scheduled-api-triggered-campaigns}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/update
 {% endapimethod %}
 

@@ -16,7 +16,7 @@ Der Shopify-Kollektionen-Sync befindet sich derzeit in der Beta-Phase. Kontaktie
 
 ## Shopify-Kollektionen-Sync einrichten {#setting-up-shopify-collections-sync}
 
-Um Ihre Produkte aus Ihrem Shopify-Shop mit Braze zu synchronisieren, aktivieren Sie das Kontrollkästchen **Sync Shopify collections** im Schritt **Sync products** der [Shopify-Integration](https://braze.com/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify#setting-up-shopify-in-braze).<br><br>![Schritt 4 des Shopify-Produkt-Syncs mit aktiviertem Kontrollkästchen „Sync Shopify collections“.][1]
+Um Ihre Produkte aus Ihrem Shopify-Shop mit Braze zu synchronisieren, aktivieren Sie das Kontrollkästchen **Sync Shopify collections** im Schritt **Sync products** der [Shopify-Integration]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify/#setting-up-shopify-in-braze).<br><br>![Schritt 4 des Shopify-Produkt-Syncs mit aktiviertem Kontrollkästchen „Sync Shopify collections“.][1]
 
 Sobald Ihre Produkte synchronisiert wurden, können Sie sehen, welche Produkte mit Ihren Kollektionen verknüpft sind, indem Sie Ihren Shopify-Katalog aufrufen. <br><br>![Katalog-Tabellenzeile mit einem Produkt in den Kollektionen „best-sellers“ und „front page“.][2]
 
@@ -32,7 +32,7 @@ In Ihrem Shopify-Katalog können Sie Ihre Shopify-Kollektion im Tab **Selections
 
 ## Shopify-Kollektionen verwenden {#using-shopify-collections}
 
-Verwenden Sie Ihre Shopify-Kollektionen, um eine Nachricht für jede Nutzer:in in Ihrer Campaign zu personalisieren, ähnlich wie Sie eine [Braze-Auswahl](https://braze.com/docs/user_guide/personalization_and_dynamic_content/catalogs/selections/) verwenden würden.
+Verwenden Sie Ihre Shopify-Kollektionen, um eine Nachricht für jede:n Nutzer:in in Ihrer Campaign zu personalisieren, ähnlich wie Sie eine [Braze-Auswahl]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/catalogs/selections/) verwenden würden.
 
 {% alert warning %}
 Beachten Sie das folgende Verhalten in der Beta: <br><br>Wenn Sie die Beschreibung der Shopify-Kollektion oder die Filtereinstellungen aktualisieren, wird Ihr Shopify-Kollektionen-Sync unterbrochen. Infolgedessen funktioniert Ihre Shopify-Kollektion nicht wie erwartet.
@@ -58,7 +58,7 @@ Beachten Sie das folgende Verhalten in der Beta: <br><br>Wenn Sie die Beschreibu
 
 #### Liquid in Auswahl-Ergebnissen {#liquid-in-selection-results}
 
-Die Verwendung von Ergebnissen in Katalogen, wie z. B. angepasste Attribute und angepasste Events, kann dazu führen, dass für jede Nutzer:in in Ihrer Auswahl unterschiedliche Ergebnisse zurückgegeben werden.
+Die Verwendung von Ergebnissen in Katalogen, wie z. B. angepasste Attribute und angepasste Events, kann dazu führen, dass für jede:n Nutzer:in in Ihrer Auswahl unterschiedliche Ergebnisse zurückgegeben werden.
 
 [1]: {% image_buster /assets/unlisted_docs/img/shopify/sync_products.png %}
 [2]: {% image_buster /assets/unlisted_docs/img/shopify/view_catalog.png %}

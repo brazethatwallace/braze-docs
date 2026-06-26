@@ -12,7 +12,7 @@ description: "Este artigo descreve detalhes sobre o endpoint de rastreamento de 
 ---
 {% api %}
 # Criar e atualizar usuários (em massa) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 

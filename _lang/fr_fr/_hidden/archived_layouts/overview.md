@@ -8,7 +8,7 @@ noindex: true
 
 > La mise en page d'aperçu permet de créer une option de navigation spécifique en haut d'une page, offrant aux utilisateurs la possibilité de cliquer sur un bouton pour accéder à une partie précise de la page ou à une tout autre page.
 
-La page des [journaux des modifications du SDK](https://www.braze.com/docs/developer_guide/changelogs) ou la [page des détails créatifs des messages in-app](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/) sont des exemples classiques de la mise en page du sélecteur.
+La page des [journaux des modifications du SDK]({{site.baseurl}}/developer_guide/changelogs/) ou la [page des détails créatifs des messages in-app]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/) sont des exemples classiques de la mise en page du sélecteur.
 
 ## Composants requis {#required-components}
 
@@ -27,7 +27,7 @@ La page des [journaux des modifications du SDK](https://www.braze.com/docs/devel
 | `guide_top_text` | Alphanumérique | Décrivez votre page ; ce texte apparaîtra directement au-dessus des boutons et de leur titre. Des guillemets doivent entourer le contenu. |
 | `guide_featured_title` | Alphanumérique | Donnez un titre à vos cartes. Il sera placé directement au-dessus des boutons. |
 | `guide_featured_list` | Plus de YAML, Alphanumérique | Voir le [format des listes du guide](#guide-listing-format) ci-dessous. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres requis" }
 
 ### Format des listes du guide {#guide-listing-format}
 
@@ -36,7 +36,7 @@ La page des [journaux des modifications du SDK](https://www.braze.com/docs/devel
 | `name` | Alphanumérique | Attribuez un nom à la case. |
 | `link` | URL ou chemin d'accès | Lien vers la destination de la case. Doit contenir l'URL complète ou (s'il s'agit d'un lien interne) `/docs...` |
 | `image` | Chemin | Lien vers l'emplacement de l'image. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Guide Listing Format" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format des listes du guide" }
 
 Exemple de format :
 

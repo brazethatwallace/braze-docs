@@ -180,11 +180,11 @@ Los siguientes atributos predeterminados están disponibles para la importación
 
 #### Actualización del estado del grupo de suscripción (opcional) {#updating-subscription-group-status-optional}
 
-Además, puedes añadir usuarios a grupos de suscripción de correo electrónico o SMS a través de la importación de usuarios. Esto es particularmente útil para SMS, ya que un usuario debe estar inscrito en un grupo de suscripción SMS para recibir mensajes a través del canal SMS. Para más información, consulta [Grupos de suscripción SMS](https://www.braze.com/docs/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Además, puedes añadir usuarios a grupos de suscripción de correo electrónico o SMS a través de la importación de usuarios. Esto es particularmente útil para SMS, ya que un usuario debe estar inscrito en un grupo de suscripción SMS para recibir mensajes a través del canal SMS. Para más información, consulta [Grupos de suscripción SMS]({{site.baseurl}}/sms_rcs_subscription_groups/#subscription-group-mms-enablement).
 
 Si estás actualizando estados de grupos de suscripción, debes tener las siguientes dos columnas en tu CSV:
 
-- `subscription_group_id`: El `id` del [grupo de suscripción](https://www.braze.com/docs/user_guide/channels/email/subscriptions#subscription-groups).
+- `subscription_group_id`: El `id` del [grupo de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups).
 - `subscription_state`: Los valores disponibles son `unsubscribed` (no está en el grupo de suscripción) o `subscribed` (está en el grupo de suscripción).
 
 | external_id | first_name | subscription_group_id | subscription_state |
@@ -394,7 +394,7 @@ Después de iniciar tu importación, puedes verificar su estado en la página **
 | **En progreso** | La importación se está ejecutando actualmente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de importación" }
 
-![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Download error report y Download uploaded CSV.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
+![La página Import Users mostrando un estado de éxito parcial con el menú contextual abierto, mostrando las opciones Descargar informe de errores y Descargar CSV cargado.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
 El informe de errores posterior a la importación incluye filas que fallaron por razones que la validación no cubre, como cuando un usuario no existe en Braze.
 

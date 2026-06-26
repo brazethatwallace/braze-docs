@@ -4,7 +4,7 @@ article_title: Fondamentaux de l'envoi de messages
 layout: dev_guide
 page_order: 1
 guide_top_header: "Fondamentaux"
-guide_top_text: "Définissez qui reçoit votre message, quand il est envoyé et comment vous mesurez le succès. Ces concepts s'appliquent que vous utilisiez une <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campagne ou un Canvas</a>."
+guide_top_text: "Définissez qui reçoit votre message, quand il est envoyé et comment vous mesurez le succès, que vous utilisiez une <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campagne ou un Canvas</a>. Cette section couvre le ciblage d'audience, les types de distribution et d'entrée, le suivi des événements de conversion, la limite de fréquence, les règles de rééligibilité, la localisation, l'accessibilité et la checklist de pré-lancement. Passez en revue ces concepts avant de créer vos messages afin d'atteindre les bons utilisateurs sans les submerger."
 page_type: landing
 tool:
   - Campaigns

@@ -9,7 +9,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Nutzer:innen tra
 
 {% api %}
 # Nutzer:innen tracken (Bulk) {#track-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -38,7 +38,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen API-Schlüssel mit der Ber
 
 Wenn Sie die API für Server-zu-Server-Aufrufe verwenden, müssen Sie möglicherweise den Endpunkt (z. B. `rest.iad-01.braze.com`) auf die Zulassungsliste setzen, falls Sie sich hinter einer Firewall befinden. Weitere Informationen finden Sie unter [Endpunkte pro Instanz]({{site.baseurl}}/api/basics/#endpoints).
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit
 
 Wir wenden ein Basis-Geschwindigkeitslimit von 5 Anfragen pro Sekunde auf diesen Endpunkt für alle Kund:innen an.
 

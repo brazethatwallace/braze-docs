@@ -36,7 +36,7 @@ Pour en savoir plus sur le partage de données Snowflake, consultez l'[Introduct
 | ----------- | ----------- |
 | Accès à Braze | Contactez votre responsable de compte Braze ou votre gestionnaire de la satisfaction client pour configurer le partage de données. |
 | Compte Snowflake | Un compte Snowflake avec des autorisations `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Configuration du Secure Data Sharing {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ Chez Snowflake, le partage de données s'effectue entre un [fournisseur de donn�
 
 ### Étape 1 : Envoyer le datashare depuis Braze {#step-1-send-the-datashare-from-braze}
 
-1. Dans Braze, accédez à **Partner Integrations** > **Data Sharing**.
+1. Dans Braze, accédez à **Intégrations partenaires** > **Partage de données**.
 2. Saisissez les détails et le localisateur de votre compte Snowflake. Pour obtenir votre localisateur de compte, exécutez `SELECT CURRENT_ACCOUNT()` dans le compte de destination.
 3. Si vous utilisez un partage CRR, spécifiez le fournisseur cloud et la région.
 4. Lorsque vous avez terminé, sélectionnez **Create Datashare**. Le datashare sera alors envoyé à votre compte Snowflake.
@@ -77,7 +77,7 @@ Comme pour Currents, vous pouvez utiliser votre Snowflake Secure Data Sharing po
 - Associer des données brutes d'événements ou d'utilisateurs à un CRM (comme Salesforce)
 - Et bien plus encore
 
-[Téléchargez les schémas de tables brutes ici.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[Téléchargez les schémas de tables brutes.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### Schéma des ID utilisateur {#user-id-schema}
 
@@ -87,7 +87,7 @@ Notez les différences suivantes entre les conventions de nommage de Braze et de
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | L'identifiant unique attribué automatiquement par Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur, défini par le client. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schéma des ID utilisateur" }
 
 ## Informations importantes et limitations {#important-information-and-limitations}
 

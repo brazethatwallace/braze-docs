@@ -46,12 +46,16 @@ Vous pouvez utiliser l'[onglet Engagement](#engagement-tab) pour vérifier si un
 
 ## Éléments du profil utilisateur {#elements-of-user-profile}
 
-Un profil utilisateur comporte quatre sections principales.
+Un profil utilisateur comporte cinq sections principales.
 
 - **Aperçu :** informations de base sur l'utilisateur, données de session, attributs personnalisés, événements personnalisés, achats et dernier appareil sur lequel l'utilisateur s'est connecté.
 - **Engagement :** informations sur les paramètres de contact de l'utilisateur, les campagnes reçues, les segments, les statistiques de communication, l'attribution d'installation et le numéro de compartiment aléatoire.
+- **Historique des événements :** événements personnalisés et achats des 30 derniers jours, avec les propriétés d'événement complètes affichées en JSON.
 - **Historique de messagerie :** événements récents liés à la messagerie pour cet utilisateur au cours des 30 derniers jours.
 - **Éligibilité aux indicateurs de fonctionnalité :** vérifiez les indicateurs de fonctionnalité auxquels un utilisateur est actuellement éligible à travers les déploiements, les étapes du Canvas et les expériences.
+
+{% tabs %}
+{% tab Onglet Aperçu %}
 
 ### Onglet Aperçu {#overview-tab}
 
@@ -69,7 +73,9 @@ L'onglet **Aperçu** contient les informations de base sur un utilisateur et ses
 
 Pour plus d'informations sur ces données, consultez [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-![L'onglet Aperçu d'un profil utilisateur.]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab Onglet Engagement %}
 
 ### Onglet Engagement {#engagement-tab}
 
@@ -86,6 +92,30 @@ L'onglet **Engagement** contient des informations sur les interactions d'un util
 | Messages Canvas reçus | Messages Canvas que cet utilisateur a reçus et quand. Le moment d'envoi suit les mêmes règles par canal que **Campaigns reçues** ; consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received).<br><br>Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez un message dans la liste pour le consulter. |
 | Prédictions | Scores de [prédiction d'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) et de [prédiction des événements]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) pour cet utilisateur. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Engagement" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab Onglet Historique des événements %}
+
+### Onglet Historique des événements {#event-history-tab}
+
+{% alert note %}
+Pour consulter l'onglet **Historique des événements**, vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) **Search Users** et **View PII**, car les propriétés d'événement peuvent contenir des données personnelles.
+{% endalert %}
+
+L'onglet **Historique des événements** affiche les événements personnalisés et les achats qu'un utilisateur a enregistrés. Utilisez-le pour vérifier que les données d'événement arrivent correctement et résoudre les problèmes au niveau de l'utilisateur directement dans le tableau de bord, sans avoir besoin d'exporter des données ou d'utiliser des outils externes.
+
+| Catégorie de l'historique des événements | Contient |
+| --- | --- |
+| Liste des événements | Événements personnalisés et achats des 30 derniers jours (jusqu'aux 100 plus récents), classés du plus récent au plus ancien. |
+| Type d'événement | Indique si la ligne est un **événement personnalisé** ou un **achat**. |
+| Horodatage | Date et heure auxquelles l'événement a été enregistré. |
+| Nom de l'événement | Le nom de l'événement personnalisé ou de l'achat. |
+| Propriétés d'événement | Les propriétés d'événement complètes pour l'événement, affichées en JSON. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Historique des événements" }
+
+{% endtab %}
+{% endtabs %}
 
 ### Quand les campagnes apparaissent dans Campaigns reçues {#when-campaigns-appear-in-campaigns-received}
 

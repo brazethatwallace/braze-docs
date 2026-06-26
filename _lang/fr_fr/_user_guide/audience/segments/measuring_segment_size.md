@@ -112,7 +112,6 @@ Braze donne la priorité à un calcul à la fois par espace de travail, donc l'e
 
 Vous pouvez annuler un calcul de statistiques exactes en sélectionnant **Cancel**. Cela peut être utile s'il y a plusieurs calculs dans la file d'attente et que vous souhaitez donner la priorité à un autre calcul.
 
-![Un calcul actif avec l'option d'annulation]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Consulter l'historique de la taille d'appartenance au segment {#viewing-historical-segment-membership-size}
 
@@ -142,4 +141,4 @@ Le décompte d'appartenance peut changer de manière significative pour plusieur
 | Des utilisateurs sont supprimés | Un nombre significatif d'utilisateurs a été supprimé. |
 | Une intégration partenaire s'est synchronisée avec Braze | Un tiers a envoyé des données à Braze qui ont significativement influencé l'appartenance au segment. |
 | Des utilisateurs dormants sont archivés | Un nombre significatif de profils inactifs a été archivé. Par exemple, un grand nombre d'utilisateurs importés par CSV n'enregistrent jamais d'activité et sont archivés en même temps. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Raisons des changements significatifs" }
+{: .reset-td-br_1 .reset-td-br-2 aria-label="Raisons des changements significatifs" }

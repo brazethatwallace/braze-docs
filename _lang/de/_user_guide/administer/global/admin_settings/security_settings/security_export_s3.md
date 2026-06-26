@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Sicherheitsereignisse j
 
 # Export von Sicherheitsereignissen mit Amazon S3 {#security-events-export-with-amazon-s3}
 
-> Sie können Sicherheitsereignisse automatisch zu Amazon S3, einem Cloud-Speicheranbieter, exportieren, wobei ein täglicher Job um Mitternacht UTC ausgeführt wird. Nach der Einrichtung müssen Sie Sicherheitsereignisse nicht mehr manuell aus dem Dashboard exportieren. Der Job exportiert die Sicherheitsereignisse der letzten 24 Stunden im CSV-Format in Ihren konfigurierten S3-Speicher. Die CSV-Datei weist dieselbe Struktur auf wie ein manuell exportierter Bericht.
+> Sie können Sicherheitsereignisse automatisch zu Amazon S3, einem Cloud-Speicheranbieter, exportieren, wobei ein täglicher Job um Mitternacht UTC ausgeführt wird. Nach der Einrichtung müssen Sie Sicherheitsereignisse nicht mehr manuell aus dem Dashboard exportieren. Der Job exportiert die Sicherheitsereignisse der letzten 24 Stunden im CSV-Format in Ihren konfigurierten S3-Speicher. Die CSV-Datei weist dieselben Spalten auf wie ein manuell exportierter Bericht, zuzüglich einer Spalte `Version`.
 
 {% alert note %}
 Die Begrenzung auf 10.000 Zeilen gilt ausschließlich für den manuellen Download von CSV-Berichten über das Dashboard. Sicherheitsereignis-Exporte nach S3 unterliegen dieser Zeilenbegrenzung nicht.

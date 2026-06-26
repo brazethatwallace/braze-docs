@@ -8,7 +8,7 @@ description: "Este artigo de referência cobre como exportar automaticamente eve
 
 # Exportação de eventos de segurança com Amazon S3 {#security-events-export-with-amazon-s3}
 
-> Você pode exportar automaticamente eventos de segurança para o Amazon S3, um provedor de armazenamento em nuvem, com um trabalho diário que é executado à meia-noite UTC. Após a configuração, você não precisa exportar manualmente eventos de segurança do dashboard. O trabalho exporta os eventos de segurança das últimas 24 horas em formato CSV para o seu armazenamento S3 configurado. O arquivo CSV tem a mesma estrutura que um relatório exportado manualmente.
+> Você pode exportar automaticamente eventos de segurança para o Amazon S3, um provedor de armazenamento em nuvem, com um trabalho diário que é executado à meia-noite UTC. Após a configuração, você não precisa exportar manualmente eventos de segurança do dashboard. O trabalho exporta os eventos de segurança das últimas 24 horas em formato CSV para o seu armazenamento S3 configurado. O arquivo CSV usa as mesmas colunas de um relatório exportado manualmente, além de uma coluna `Version`.
 
 {% alert note %}
 O limite de 10.000 linhas se aplica apenas ao download manual do relatório CSV do dashboard. As exportações de eventos de segurança para S3 não estão sujeitas a esse limite de linhas.

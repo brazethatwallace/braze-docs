@@ -111,7 +111,7 @@ Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre co
 
 ## Accès élevé {#elevated-access}
 
-L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
+L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un Segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
 
 Si un utilisateur ne peut pas re-vérifier son identité, il sera redirigé vers l'endroit où il se trouvait et ne pourra pas poursuivre l'action sensible. Après une re-vérification réussie, il n'aura pas besoin de le refaire pendant l'heure suivante, sauf s'il se déconnecte entre-temps.
 
@@ -129,7 +129,23 @@ Pour télécharger ce rapport, procédez comme suit :
 
 Ce téléchargement manuel de rapport contient uniquement les 10 000 événements de sécurité les plus récents pour votre compte.
 
-Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation d'événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation des événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+
+### Définitions des colonnes CSV {#csv-column-definitions}
+
+Le rapport CSV des événements de sécurité contient les colonnes suivantes :
+
+| Colonne | Description |
+|---------|-------------|
+| CreatedAt | Horodatage de l'enregistrement de l'événement, en UTC. |
+| EmailAtTimeOfEvent | Adresse e-mail de l'utilisateur du tableau de bord qui a déclenché l'événement, telle qu'enregistrée au moment de l'événement. |
+| CurrentEmail | Adresse e-mail actuelle de l'utilisateur du tableau de bord qui a déclenché l'événement. Si l'utilisateur n'existe plus, son identifiant développeur est utilisé à la place. |
+| EventName | Type d'événement de sécurité. Consultez la liste des événements de sécurité signalés ci-dessous. |
+| OtherAccount | Adresse e-mail d'un autre utilisateur du tableau de bord affecté par l'événement, le cas échéant (par exemple, lorsqu'un compte est ajouté ou supprimé). |
+| JsonProperties | Propriétés spécifiques à l'événement au format JSON. Les champs inclus varient selon le type d'événement. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions des colonnes CSV" }
+
+Les [exportations S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/) incluent ces colonnes ainsi que `Version`, la version du schéma pour le format d'exportation (actuellement `1`).
 
 {% details Événements de sécurité signalés %}
 ### Connexion et compte {#login-and-account}
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -215,8 +231,8 @@ Canvas
 - Updated Email Template
 
 ### Identifiant push {#push-credential}
-Updated Push Credential
-Removed Push Credential
+- Updated Push Credential
+- Removed Push Credential
 
 ### Outil de débogage du SDK {#sdk-debugger}
 - Started SDK Debugger Session

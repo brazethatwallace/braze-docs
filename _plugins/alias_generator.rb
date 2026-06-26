@@ -109,7 +109,9 @@ module Jekyll
     # end
 
     def alias_template(site,destination_path)
-      destination_url = site.config['baseurl'] + destination_path
+      normalized_path = destination_path.to_s.gsub("index.html", "")
+      normalized_path = normalized_path.chomp("/") unless normalized_path.empty? || normalized_path == "/"
+      destination_url = site.config['baseurl'] + normalized_path
       <<-EOF
       <!DOCTYPE html>
       <html>

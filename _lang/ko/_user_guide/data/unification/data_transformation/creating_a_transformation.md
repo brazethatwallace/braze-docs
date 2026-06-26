@@ -56,7 +56,7 @@ JavaScript 코드에 대한 경험이 거의 없거나 더 자세한 지침을 �
 개발자이거나 JavaScript 코드에 대한 상당한 경험이 있는 경우 **고급 - POST: Track users** 탭에서 변환 코드 작성에 대한 개략적인 지침을 확인하세요.
 
 {% alert tip %}
-AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기 위에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 프롬프트 예시는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)을 참조하세요.
+AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기 위에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 예시 프롬프트는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-data-transformation-code)을 참조하세요.
 
 **Code with Operator**는 계정에 Operator가 활성화된 경우에만 사용할 수 있습니다. 표시되지 않으면 계정 매니저에게 문의하세요.
 {% endalert %}
@@ -144,7 +144,7 @@ let brazecall = {
   "catalog_name": "catalog_name",
 
   // After defining "catalog name", construct the Update Multiple Catalog Items request as usual below
-  // Documentation for the destination endpoint: https://www.braze.com/docs/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
+  // Documentation for the destination endpoint: {{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/
   "items": [
     {
       "id": payload.item_id_1,

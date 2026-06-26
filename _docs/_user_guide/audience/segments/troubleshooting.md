@@ -36,7 +36,7 @@ Use this workflow when a user should be in a segment but isn't, or when a segmen
 3. **Calculate exact statistics:** If the segment estimate shows 0 users or seems wrong, select **Calculate exact stats** in the **Reachable users** panel. Save your segment before calculating. If a calculation is already running, wait for it to finish; stale numbers may display until the new calculation completes. For details, see [Calculating exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 4. **Check filter values:** Look for typos, data type mismatches, stale Canvas step references, and [negative filter + OR logic](#segment-is-much-larger-than-expected).
 5. **Check complexity:** If launch is blocked, see [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch).
-6. **Contact Support:** For further assistance with filter optimization, [contact Support]({{site.baseurl}}/braze_support).
+6. **Contact Support:** If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support).
 
 ## Segment shows zero users
 

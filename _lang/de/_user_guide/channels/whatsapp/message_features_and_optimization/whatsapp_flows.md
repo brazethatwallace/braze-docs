@@ -81,10 +81,6 @@ Um dies zu beheben, gehen Sie wie folgt vor:
 
 1. Schließen Sie die Einrichtung Ihres WhatsApp-Nachrichtenschritts ab.
 2. Stellen Sie sicher, dass Sie **Save Flow responses as a custom attribute** aktiviert haben.
-
-![Meta-Flow-Abschnitt mit einem Kontrollkästchen zum Speichern von Flow-Antworten als angepasstes Attribut.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. Senden Sie sich selbst eine Testnachricht und durchlaufen Sie den Flow als Nutzer:in.
 
 Jetzt hat Braze die Form der Flow-Antwort-JSON und kann das angepasste Attribut generieren.

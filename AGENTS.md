@@ -25,8 +25,10 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 ## How to invoke (Cursor)
 
 - **Routine `_docs/` edits:** Describe the task; no tag required. The repo bootstrap rule points agents at `braze-docs`.
-- **Verification:** Use **`@reference-repos`** or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
-- **Heavy workflows:** Name the skill once (for example `@support-analyzer`, `@salesforce-migration`, `@docs-discrepancies`, `@image-pruner`, `@screenshot-pii-audit`).
+- **Verification:** Invoke **`/reference-repos`** from chat, or ask to “verify against source.” Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so `platform` and SDK repos are sibling folders.
+- **Heavy workflows:** Invoke from chat once (for example `/support-analyzer`, `/salesforce-migration`, `/docs-discrepancies`, `/image-pruner`, `/screenshot-pii-audit`).
+
+Inside `SKILL.md` files and agent rules, cross-reference other skills with `braze-docs:skill-name` or relative links — not `@` or `/`. See [CAPABILITIES.md](CAPABILITIES.md#cross-referencing-skills-in-instructions).
 
 ## Privacy
 
@@ -38,7 +40,7 @@ Twice-weekly GitHub Actions exports Looker cases, publishes a digest, and may op
 
 ## Image pruner (CI)
 
-Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unreferenced `assets/img/` files via [`.github/workflows/image-pruner-maintenance.yml`](.github/workflows/image-pruner-maintenance.yml). Each run deletes up to 100 candidates (secondary verify, open-PR exclusions) and opens a **draft** `[IP]` pull request when at least one file is removed. Extra batches use the **image-pruner** skill or `@image-pruner`.
+Twice-yearly GitHub Actions (June 1 and December 1) scans `develop` for unreferenced `assets/img/` files via [`.github/workflows/image-pruner-maintenance.yml`](.github/workflows/image-pruner-maintenance.yml). Each run deletes up to 100 candidates (secondary verify, open-PR exclusions) and opens a **draft** `[IP]` pull request when at least one file is removed. Extra batches use the [image-pruner](.github/skills/image-pruner/SKILL.md) skill (`/image-pruner` from chat).
 
 ## Cursor rules (always on)
 

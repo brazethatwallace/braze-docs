@@ -21,8 +21,6 @@ Bevor Sie Decisioning Studio-Berichte in Braze anzeigen können, müssen folgend
 
 Um die Metriken für einen Decisioning Studio-Agenten in Braze anzuzeigen, navigieren Sie zu **AI Decisioning** > **BrazeAI Decisioning Studio™** und wählen Sie anschließend einen Agenten aus.
 
-![Startbildschirm des BrazeAI Decisioning Studio™-Reportings mit einem Dashboard und mehreren Berichtskarten. Jede Karte zeigt einen Berichtstyp wie Performance, Insights, Diagnosen und Zeitleiste mit kurzen Beschreibungen und Symbolen an.]({% image_buster /assets/img/decisioning_studio/reporting_home.png %})
-
 Hier können Sie Berichte wie Performance, Insights, Diagnosen und Zeitleisten einsehen. Weitere Einzelheiten finden Sie unter [Verfügbare Berichte](#available-reports).
 
 ## Berichtsdaten ändern {#change-report-dates}
@@ -33,7 +31,7 @@ Nach dem [Öffnen eines Berichts](#view) können Sie den Datumsbereich ändern, 
 
 Sie können auch ein Standard-Startdatum festlegen oder bestimmte Daten auswählen, die immer ausgeschlossen werden sollen. Ausgeschlossene Daten werden aus allen Berichten für diesen Agenten herausgefiltert.
 
-Um Daten festzulegen oder auszuschließen, wählen Sie <i class="fa-solid fa-gear"></i> **Settings** aus und ändern Sie dann Ihr Standarddatum oder schließen Sie Daten nach Bedarf aus.
+Um Daten festzulegen oder auszuschließen, wählen Sie <i class="fa-solid fa-gear"></i> **Einstellungen** aus und ändern Sie dann Ihr Standarddatum oder schließen Sie Daten nach Bedarf aus.
 
 ![Geöffnetes Einstellungen-Panel in BrazeAI Decisioning Studio™ mit Optionen zum Festlegen eines Standard-Startdatums und zum Ausschließen bestimmter Daten aus Berichten. Das Panel enthält die zwei Abschnitte „Standard-Startdatum“ und „Daten ausschließen“. Unter „Daten ausschließen“ sind mehrere Daten mit je einem Kontrollkästchen aufgeführt.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 

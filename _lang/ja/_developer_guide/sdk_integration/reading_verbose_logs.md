@@ -402,7 +402,7 @@ Logged event:
 - **カードが表示されない**：セッション開始が記録されていることを確認してください。Content Cardsは同期するためにアクティブなセッションが必要です。
 - **新規ユーザーにカードが表示されない**：新規ユーザーは初回セッションではContent Cardsが表示されない場合があります。次のセッションまでお待ちください。これは想定される動作です。
 - **カードがサイズ制限を超えている**：2KBを超えるContent Cardsは表示されず、メッセージは中断されます。
-- **キャンペーンを停止した後もカードが残る**：キャンペーンを停止した後に同期が完了したことを確認してください。同期が成功すると、Content Cardsはデバイスから削除されます。キャンペーンを停止する際は、ユーザーフィードからアクティブなカードを削除するオプションが選択されていることを確認してください。
+- **Campaignを停止した後もカードが残る**：Campaignを停止した後に同期が完了したことを確認してください。同期が成功すると、Content Cardsはデバイスから削除されます。Campaignを停止する際は、ユーザーフィードからアクティブなカードを削除するオプションが選択されていることを確認してください。
 
 ## ディープリンク {#deep-links}
 
@@ -428,7 +428,7 @@ Opening '<DEEP_LINK_URL>':
 
 ディープリンクについては、Logcat内の**Deep Link Delegate**または**UriAction**エントリを探してください。ディープリンクの解決を独立してテストするには、以下のコマンドを実行してください：
 
-`````````bash
+```bash
 adb shell am start -W -a android.intent.action.VIEW -d "<YOUR_DEEP_LINK>" "<YOUR_PACKAGE_NAME>"
 ```
 
@@ -439,7 +439,7 @@ adb shell am start -W -a android.intent.action.VIEW -d "<YOUR_DEEP_LINK>" "<YOUR
 
 ### 確認すべき事項
 
-- ディープリンクURLがキャンペーンで設定した内容と一致していることを確認してください。
+- ディープリンクURLがCampaignで設定した内容と一致していることを確認してください。
 - あるチャネル（例：プッシュ通知）ではディープリンクが機能するが、別のチャネル（例：Content Cards）では機能しない場合は、ディープリンク処理の実装がすべてのチャネルに対応しているか確認してください。
 - iOSでは、ユニバーサルリンクには追加の処理が必要です。Brazeチャネルからユニバーサルリンクが機能しない場合は、アプリがURL処理用の`BrazeDelegate`プロトコルを実装しているか確認してください。
 - Androidでは、カスタムハンドラーを使用する場合、自動ディープリンク処理が無効になっていることを確認してください。そうでなければ、デフォルトのハンドラーが実装と競合する可能性があります。
@@ -526,3 +526,17 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 | `ccd` | Content Cardsの非表示 |
 | `lr` | 位置情報の記録 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="一般的なイベントの略称" }
+
+## トラブルシューティング {#troubleshooting}
+
+### ユーザープロファイルのセッション数が0と記録されるのはどのような場合ですか？ {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+ユーザープロファイルのセッション数が0と表示されるのは、REST API（[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)）またはCSVインポートで**初回セッション**や**最終セッション**のフィールドを含めずにユーザーをインポートした場合です。セッションは、ユーザーがSDKを通じてアプリを操作した際に記録されます。詳細については、[ユーザープロファイルのセッション数が0]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions)を参照してください。
+
+### SDKとREST APIを同時に使用した場合のユーザーデータの不一致 {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+SDKとREST APIを同時に使用すると、競合によりデータの不一致が発生する可能性があります。`changeUser()`を呼び出した後は、重要なREST API呼び出しを行う前にSDKが保留中のデータをフラッシュするのを待ち、時間的に重要な更新のバッチ処理を避け、SDKとAPIリクエストの間に短い遅延を入れることを検討してください。`changeUser()`の動作については、[changeUser()の仕組み]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works)を参照してください。
+
+### データがBrazeに到達しない {#data-not-reaching-braze}
+
+データがBrazeに到達しない場合は、ファイアウォールがBraze APIエンドポイントおよびCDNプロバイダーへの送信トラフィックを許可していることを確認してください。問題が発生している間にMTRテストを実行し、[Fastly Debug](https://www.fastly-debug.com/)を使用してください。許可リストへの登録と接続のトラブルシューティングについては、[APIネットワーク接続の問題]({{site.baseurl}}/api/network_connectivity_issues/)を参照してください。

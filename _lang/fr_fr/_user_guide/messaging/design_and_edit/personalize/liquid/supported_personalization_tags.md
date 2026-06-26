@@ -42,7 +42,7 @@ Les propriétés de déclencheur API doivent utiliser deux accolades par étique
 
 ### Attributs pris en charge {#supported-attributes}
 
-Les attributs de Campaign, de carte et de Canvas ne sont pris en charge que dans leurs modèles de messages correspondants (par exemple, `dispatch_id` n'est pas disponible dans les Campaigns de messages in-app).
+Les attributs de Campaign, de carte et de Canvas ne sont pris en charge que dans leurs modèles de messages correspondants. Par exemple, `dispatch_id` est pris en charge dans Liquid pour les canaux de communication tels que l'e-mail, les notifications push, les SMS et WhatsApp, mais pas pour les messages in-app ni les bannières.
 
 Pour plus de détails, consultez [Attributs de Campaign et de Canvas selon les sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 

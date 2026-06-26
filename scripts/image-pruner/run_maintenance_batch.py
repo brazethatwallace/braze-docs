@@ -127,7 +127,7 @@ python3 scripts/image-pruner/find_unreferenced_images.py \\
 
 Reference pass included `_lang/`, `docs/`, and site chrome. Excluded from deletion: `logos/`, `braze_icons/`, `icons/`.
 
-Paths in open pull requests were excluded from this batch. If more than 100 files remain, merge this PR and re-run the workflow (or use `@image-pruner`) for the next batch.
+Paths in open pull requests were excluded from this batch. If more than 100 files remain, merge this PR and re-run the workflow (or invoke the image-pruner skill) for the next batch.
 
 """
     if skipped:

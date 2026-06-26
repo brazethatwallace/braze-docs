@@ -43,7 +43,7 @@ Por exemplo, no seguinte Liquid condicional, os códigos de ambas as listas (`vi
 {% endtabs %}
 
 {% alert important %}
-Códigos de promoção não podem ser enviados em mensagens no app no Canvas.
+Códigos de promoção estão disponíveis em campanhas de mensagem no app como recurso de acesso antecipado, mas não podem ser enviados em mensagens no app no Canvas.
 {% endalert %}
 
 ## Próximas etapas {#next-steps}
@@ -58,7 +58,7 @@ Procurando os próximos passos? Comece aqui:
 
 ### Quais canais de envio de mensagens posso usar com códigos de promoção? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-Atualmente, os códigos de promoção são compatíveis com e-mail, push para celular, push para a web, Content Cards, webhook, SMS e WhatsApp. Campaigns de e-mail de transação da Braze e mensagens no app não são compatíveis com códigos de promoção no momento.
+Códigos de promoção são compatíveis com e-mail, push para celular, push para a web, Content Cards, webhook, SMS e WhatsApp. Campanhas de mensagem no app são compatíveis com códigos de promoção como recurso de acesso antecipado. Campanhas de e-mail de transação da Braze e mensagens no app no Canvas não são compatíveis com códigos de promoção.
 
 ### Envios de teste e envios para grupos de teste contam no uso? {#do-test-and-seed-sends-count-towards-usage}
 
@@ -84,10 +84,19 @@ Se a mensagem contiver lógica Liquid que insere condicionalmente um código de 
 
 Se você fez upload de códigos incorretos, há duas opções para resolver:
 
-- **Descontinuar a lista inteira:** pare de usar a lista atual em qualquer Campaign, Canvas ou modelo. Em seguida, faça upload dos códigos corretos em uma nova lista e atualize todas as suas mensagens para usar a nova lista.
-- **Esgotar os códigos incorretos:** crie uma Campaign que envie códigos da lista incorreta para um usuário de teste até que todos os códigos errados sejam consumidos. Depois disso, faça upload novamente dos códigos corretos na mesma lista, excluindo os incorretos.
+- **Descontinuar a lista inteira:** pare de usar a lista atual em qualquer campanha, Canvas ou modelo. Em seguida, faça upload dos códigos corretos em uma nova lista e atualize todas as suas mensagens para usar a nova lista.
+- **Esgotar os códigos incorretos:** crie uma campanha que envie códigos da lista incorreta para um usuário de teste até que todos os códigos errados sejam consumidos. Depois disso, faça upload novamente dos códigos corretos na mesma lista, excluindo os incorretos.
 
 Para orientações gerais sobre como atualizar uma lista, consulte [Atualizar uma lista de códigos de promoção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+
+### A Braze rastreia quais usuários receberam ou resgataram quais códigos de promoção? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
+
+Quando uma mensagem usa um código de promoção, a Braze marca esse código como consumido para que ele não possa ser enviado novamente e atualiza a contagem restante da lista. A Braze não mantém um relatório dos códigos enviados, não rastreia quais usuários específicos receberam cada código nem se os códigos foram resgatados.
+
+Se você precisar associar códigos a usuários ou rastrear o resgate por conta própria, você pode:
+
+- Salvar códigos de promoção em perfis de usuário por meio de uma etapa de Atualização de usuário. Para saber mais, consulte [Salvar códigos de promoção em perfis de usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+- Enviar valores de códigos de promoção para o Currents usando a Liquid tag `message_extras`. Para saber mais, consulte [Enviar informações de códigos de promoção para o Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents).
 
 ### Posso salvar um código de promoção no perfil de um usuário para mensagens futuras? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 

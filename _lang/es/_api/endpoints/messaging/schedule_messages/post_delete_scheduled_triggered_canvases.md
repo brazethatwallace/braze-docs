@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Eliminar Canvas programados desencadenados por API {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 

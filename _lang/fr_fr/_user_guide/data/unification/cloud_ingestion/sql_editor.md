@@ -40,7 +40,7 @@ Braze exécute uniquement des requêtes en lecture seule sur vos données et ne 
 Suivez ces étapes pour créer d'abord une source, puis une synchronisation avec l'éditeur SQL. Si vous avez déjà configuré une source pour CDI, vous pouvez passer à l'étape 3.
 
 {% alert note %}
-Notez que ces étapes utilisent une source Snowflake comme exemple. Le processus de configuration pour les autres sources d'entrepôt de données est similaire et peut être consulté dans l'[étape 2 : Créer une nouvelle source dans le tableau de bord de Braze](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) de la documentation [Configuration des intégrations d'entrepôt de données](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations).
+Notez que ces étapes utilisent une source Snowflake comme exemple. Le processus de configuration pour les autres sources d'entrepôt de données est similaire et peut être consulté dans l'[étape 2 : Créer une nouvelle source dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard) de la documentation [Configuration des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations).
 {% endalert %}
 
 ### Étape 1 : Configurer votre rôle, vos autorisations, votre entrepôt et votre utilisateur Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
@@ -84,7 +84,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-L'entrepôt doit avoir la reprise automatique activée. Si ce n'est pas le cas, accordez à Braze des privilèges `OPERATE` supplémentaires sur l'entrepôt afin que Braze puisse l'activer lors de l'exécution de la requête.
+L'entrepôt doit avoir l'indicateur de reprise automatique activé. Si ce n'est pas le cas, accordez à Braze des privilèges `OPERATE` supplémentaires sur l'entrepôt afin que Braze puisse l'activer lors de l'exécution de la requête.
 {% endalert %}
 
 #### Étape 1.4 : Créer un utilisateur Snowflake {#step-14-create-a-snowflake-user}

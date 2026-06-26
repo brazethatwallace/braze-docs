@@ -52,7 +52,7 @@ Las métricas de ingresos y compras no están disponibles.
 ![El panel Personalizar métricas con las métricas de atribución de último contacto.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Sigue los pasos 7-9 en la página del [Generador de informes](https://www.braze.com/docs/user_guide/analytics/reporting/report_builder).
+7. Sigue los pasos 7-9 en la página del [Generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/).
 
 {% alert note %}
 Envía comentarios a tu administrador del éxito del cliente o proporciónalos después de seleccionar el botón **Enviar comentarios**.

@@ -17,7 +17,6 @@ La página **Inicio** tiene dos secciones principales:
 - [Retoma donde lo dejaste](#pick-up-where-you-left-off)
 - [Resumen de rendimiento](#performance-overview)
 
-![Dashboard de inicio en Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Retoma donde lo dejaste {#pick-up-where-you-left-off}
 
@@ -35,8 +34,6 @@ La sección **Retoma donde lo dejaste** aparece después de que hayas editado o 
 
 De forma predeterminada, la sección **Resumen de rendimiento** muestra los datos de los últimos 30 días para todas las aplicaciones y sitios. Todas tus métricas se calculan en función del rango de fechas seleccionado.
 
-![Campos de rango de fechas y aplicación en el dashboard de inicio.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Los porcentajes se calculan comparando el rango de fechas actual con el rango de fechas anterior, con la excepción de *Usuarios activos al mes* (MAU), que utiliza el último día del período anterior en lugar de un rango.
 
 Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usuarios activos diarios* muestran un aumento porcentual del 1,8 %, eso significa que tuviste un 1,8 % más de usuarios activos diarios esta semana en comparación con la semana pasada.
@@ -46,8 +43,6 @@ Por ejemplo, si estableces tu rango de fechas en **Últimos 7 días** y tus *Usu
 ### Mostrar desglose {#show-breakdown}
 
 Selecciona **Mostrar desglose** para cada fila de las estadísticas del resumen de rendimiento para ver el valor de cada estadística por día dentro del rango de fechas especificado.
-
-![Expandir]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Rendimiento a lo largo del tiempo {#performance-over-time}
 
@@ -87,7 +82,7 @@ A continuación se presentan las definiciones de las estadísticas disponibles, 
 
 ### Usuarios {#users}
 
-*Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número representa el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
+*Usuarios* es el número total de usuarios creados en ese espacio de trabajo. Esto incluye a todos los usuarios registrados que han utilizado tu aplicación o sitio web en cualquier momento, y aquellos que podrían no estar asociados con una aplicación o sitio web específico. Este número es el porcentaje de cuántos de tus usuarios históricos están representados como *Usuarios activos al mes* (MAU), lo cual es útil para ver la retención de usuarios durante un largo período de tiempo.
 
 Una proporción baja de MAU respecto a usuarios puede indicar que necesitas diversificar tus canales de mensajería o aumentar tus esfuerzos para contactar a los usuarios inactivos. Consulta nuestra guía rápida sobre [captar usuarios inactivos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) para más información. En general, la proporción de MAU respecto a usuarios históricos inevitablemente disminuirá con el tiempo debido al abandono de usuarios, pero las herramientas de Braze pueden ayudarte a minimizar este efecto manteniendo a los usuarios comprometidos durante más tiempo.
 

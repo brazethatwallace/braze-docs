@@ -19,7 +19,7 @@ Die <i>geschätzten realen Öffnungen</i> sind eine Schätzung der Anzahl der ei
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
+<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -51,11 +51,11 @@ Push-Story-Benachrichtigungen zeichnen einen <i>Body Click</i> auf, wenn die Ben
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>Eingereichte Auswahlen</i> ist die Gesamtzahl der ausgewählten Optionen, wenn ein:e Nutzer:in auf der Seite mit den Umfragefragen einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a> auf den Button „Senden“ klickt.
+<i>Eingereichte Auswahlen</i> ist die Gesamtzahl der ausgewählten Optionen, wenn ein:e Nutzer:in auf der Seite mit den Umfragefragen einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a> auf den Button „Senden“ klickt.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-Die <i>Klick-Öffnungsrate</i> ist der Prozentsatz der geöffneten E-Mails, die mindestens einmal von einer einzelnen Nutzer:in oder einem Gerät angeklickt wurden, und ist nur im <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>Berichts-Builder</a> verfügbar.
+Die <i>Klick-Öffnungsrate</i> ist der Prozentsatz der geöffneten E-Mails, die mindestens einmal von einer einzelnen Nutzer:in oder einem Gerät angeklickt wurden, und ist nur im <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Berichts-Builder</a> verfügbar.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,11 +71,11 @@ Die <i>Konfidenz</i> ist der Prozentsatz des Vertrauens, dass eine bestimmte Var
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>Bestätigungsseiten-Button</i> ist die Gesamtzahl der Klicks auf den Call-to-Action-Button auf der Bestätigungsseite einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Bestätigungsseiten-Button</i> ist die Gesamtzahl der Klicks auf den Call-to-Action-Button auf der Bestätigungsseite einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>Bestätigungsseiten-Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Bestätigungsseite einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Bestätigungsseiten-Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Bestätigungsseite einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -167,7 +167,7 @@ Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro t
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Opt-Out</i> liegt vor, wenn ein:e Nutzer:in auf Ihre Nachricht mit einem <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Opt-Out-Schlüsselwort</a> geantwortet hat und sich von Ihrem SMS- oder RCS-Programm abgemeldet hat.
+<i>Opt-Out</i> liegt vor, wenn ein:e Nutzer:in auf Ihre Nachricht mit einem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Opt-Out-Schlüsselwort</a> geantwortet hat und sich von Ihrem SMS- oder RCS-Programm abgemeldet hat.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -191,7 +191,7 @@ Die <i>Leserate</i> ist der Prozentsatz der Sendungen, die zu einem Lesevorgang 
 {% endif %}
 
 {% if include.metric == "Rejections" %}
-<i>Ablehnungen</i> liegen vor, wenn die SMS oder RCS vom Netzbetreiber abgelehnt wurde. Dies kann verschiedene Gründe haben, z. B. die Filterung von Inhalten durch den Anbieter, die Verfügbarkeit des Zielgeräts, die Telefonnummer ist nicht mehr in Betrieb und ähnliches.
+<i>Ablehnungen</i> liegen vor, wenn die SMS oder RCS vom Netzbetreiber abgelehnt wurde. Dies kann verschiedene Gründe haben, z. B. die Filterung von Inhalten durch den Anbieter, die Verfügbarkeit des Zielgeräts, die Telefonnummer ist nicht mehr in Betrieb und Ähnliches.
 {% endif %}
 
 {% if include.metric == "Revenue" %}
@@ -223,11 +223,11 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Umfrageseiten-Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Seite mit den Umfragefragen einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Umfrageseiten-Ausblendungen</i> ist die Gesamtzahl der Klicks auf den Button „Schließen“ (x) auf der Seite mit den Umfragefragen einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>Umfrage-Übermittlungen</i> ist die Gesamtzahl der Klicks auf den Button „Senden“ einer <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
+<i>Umfrage-Übermittlungen</i> ist die Gesamtzahl der Klicks auf den Button „Senden“ einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a>.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -251,7 +251,7 @@ Die <i>Rate der Sendungen an Netzbetreiber</i> ist der Prozentsatz der insgesamt
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>Eindeutige Klicks</i> ist die eindeutige Anzahl von Empfänger:innen, die mindestens einmal auf einen Link innerhalb einer Nachricht geklickt haben, und wird gemessen durch <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
+<i>Eindeutige Klicks</i> ist die eindeutige Anzahl von Empfänger:innen, die mindestens einmal auf einen Link innerhalb einer Nachricht geklickt haben, und wird gemessen durch <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}

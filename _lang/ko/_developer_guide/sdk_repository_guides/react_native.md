@@ -29,9 +29,9 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 - **React Native** 개발 환경 ([React Native 환경 설정](https://reactnative.dev/docs/set-up-your-environment))
 - **iOS**: Xcode, CocoaPods (`cd ios && pod install`)
 - **Android**: Android Studio / Gradle; React Native 템플릿에서 요구하는 Kotlin Gradle 플러그인
-- **푸시** (사용 시): FCM (Android) 및 APNs (iOS) 설정 ([푸시 설명서](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/) 참조)
+- **푸시** (사용 시): FCM (Android) 및 APNs (iOS) 설정 ([푸시 설명서]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/push_notifications/) 참조)
 
-대시보드에서 자격 증명 위치를 확인하려면 [통합 개요](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)를 참조하세요.
+대시보드에서 자격 증명 위치를 확인하려면 [통합 개요]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)를 참조하세요.
 
 ## 설치 {#installation}
 
@@ -71,7 +71,7 @@ TypeScript 타이핑은 패키지와 함께 제공됩니다(GitHub의 `src/index
 
 ## 네이티브 설정 {#native-setup}
 
-> **정보 출처:** 단계별 화면, Gradle/CocoaPods 변경 사항, Android XML 키의 전체 목록은 [Braze React Native 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)에 있습니다. 아래 스니펫은 최소한의 예시입니다.
+> **정보 출처:** 단계별 화면, Gradle/CocoaPods 변경 사항, Android XML 키의 전체 목록은 [Braze React Native 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)에 있습니다. 아래 스니펫은 최소한의 예시입니다.
 
 ### Android
 
@@ -144,7 +144,7 @@ React Native에서 **구성은 네이티브**입니다: Android는 `res/values/b
 
 ### Android (`braze.xml`)
 
-기본값은 XML에 있으며, [`BrazeConfig.Builder`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html)로 시작 시 재정의할 수 있습니다. 키와 타입의 공식 목록은 [Android SDK 통합 가이드](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/) 및 [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html)에 있습니다(각 Kotlin 속성은 문서화된 `com_braze_*` 리소스에 해당합니다).
+기본값은 XML에 있으며, [`BrazeConfig.Builder`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html)로 시작 시 재정의할 수 있습니다. 키와 타입의 공식 목록은 [Android SDK 통합 가이드]({{site.baseurl}}/developer_guide/platforms/android/sdk_integration/) 및 [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html)에 있습니다(각 Kotlin 속성은 문서화된 `com_braze_*` 리소스에 해당합니다).
 
 자주 사용되는 항목:
 
@@ -158,7 +158,7 @@ React Native에서 **구성은 네이티브**입니다: Android는 `res/values/b
 | `com_braze_firebase_cloud_messaging_sender_id` | `string` | 자동 등록이 활성화된 경우의 FCM 발신자 ID입니다. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Braze가 푸시 딥링크를 자동으로 열도록 합니다. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | 인앱 메시지 트리거 동작 사이의 최소 시간(초)입니다. |
-| **기타** | *다양함* | 여기에 표시되지 않은 추가 키(세션 타임아웃, 지오펜스, 위치, 알림 기본값, 기기 허용 목록, 지연 초기화, SDK 인증 등). [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) 및 [Android SDK 통합 가이드](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/)를 참조하세요. |
+| **기타** | *다양함* | 여기에 표시되지 않은 추가 키(세션 타임아웃, 지오펜스, 위치, 알림 기본값, 기기 허용 목록, 지연 초기화, SDK 인증 등). [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) 및 [Android SDK 통합 가이드]({{site.baseurl}}/developer_guide/platforms/android/sdk_integration/)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Android (braze.xml)" }
 
 ### iOS (`Braze.Configuration`)
@@ -172,7 +172,7 @@ React Native에서 **구성은 네이티브**입니다: Android는 `res/values/b
 | **푸시** | `push.automation`, `push.appGroup`, … | 자동화는 등록을 간소화합니다. Push Stories / 확장 프로그램 사용 시 `appGroup`이 필요합니다. |
 | **인앱 메시지** | `triggerMinimumTimeInterval` | 트리거 사이 기본 **30**초입니다. |
 | **세션** | `sessionTimeout` | 새 세션 시작 전 비활성 시간(Braze 세션 문서 참조). |
-| **개인정보 / 데이터** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | [개인정보 매니페스트](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/) 및 SDK 인증 제품 설정에 맞춰 조정합니다. |
+| **개인정보 / 데이터** | `api.trackingPropertyAllowList`, `devicePropertyAllowList`, `api.sdkAuthentication` | [개인정보 매니페스트]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/) 및 SDK 인증 제품 설정에 맞춰 조정합니다. |
 | **네트워킹** | `api.requestPolicy`, `api.flushInterval` | 요청 재시도 정책 및 플러시 주기입니다. |
 | **푸시 구독** | `optInWhenPushAuthorized` | `true`이면 사용자가 알림을 승인한 후 구독이 옵트인으로 전환될 수 있습니다. |
 | **IAM + 사용자 변경** | `preventInAppMessageDisplayForDifferentUser` | 사용자 ID가 변경될 때 불일치하는 IAM을 줄입니다. |
@@ -207,7 +207,7 @@ Braze.addToSubscriptionGroup("NEWSLETTER_GROUP_UUID");
 
 ### 인앱 메시지 {#in-app-messages}
 
-- **기본 Braze UI**를 사용하는 경우 [인앱 메시지 설명서](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native)를 따르세요. 기본 UI만 표시하려면 일반적으로 `subscribeToInAppMessage`를 호출할 **필요가 없습니다**.
+- **기본 Braze UI**를 사용하는 경우 [인앱 메시지 설명서]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=react%20native)를 따르세요. 기본 UI만 표시하려면 일반적으로 `subscribeToInAppMessage`를 호출할 **필요가 없습니다**.
 - **커스텀** 처리의 경우 `useBrazeUI: false`로 구독한 다음 필요에 따라 노출/클릭을 기록합니다:
 
 ``` typescript
@@ -347,7 +347,7 @@ useEffect(() => {
 
 - **Expo**: 가능한 경우 수동 네이티브 연결을 피하기 위해 [Braze Expo 플러그인](https://github.com/braze-inc/braze-expo-plugin)을 사용합니다.
 - **새 아키텍처 / Turbo Modules**: 최신 플러그인 버전에서 지원됩니다. 마이그레이션하는 경우 개발자 가이드 및 샘플 `AppDelegate` / Gradle 설정을 따르세요.
-- **개인정보 (iOS)**: `updateTrackingPropertyAllowList`와 같은 메서드는 개인정보 매니페스트 관련 구성을 지원합니다. [Swift 개인정보 매니페스트](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/)를 참조하세요.
+- **개인정보 (iOS)**: `updateTrackingPropertyAllowList`와 같은 메서드는 개인정보 매니페스트 관련 구성을 지원합니다. [Swift 개인정보 매니페스트]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/)를 참조하세요.
 ## - **Jest**: `react-native` 네이티브 모듈 또는 Braze Turbo 모듈을 모킹합니다(패턴은 이 리포지토리의 `__tests__/jest.setup.js`를 참조하세요). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
 
 ## 버전 지원 {#version-support}
@@ -412,14 +412,14 @@ npx react-native run-android
 - **iOS** — `BrazeReactInitializer.configure`에 전달되는 `configure` 클로저에서 `config.logger.level = .debug`(또는 `.info`)를 설정합니다. 프로덕션에서는 사용자에게 로그가 표시되지 않도록 줄이거나 비활성화합니다.
 - **Android** — `braze.xml`에서 `com_braze_logger_initial_log_level` 리소스를 사용하거나 `BrazeConfig.Builder`에서 동등한 설정을 합니다([BrazeConfigurationProvider](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/logger-initial-log-level.html) 참조). 릴리스 전에 비상세 수준을 사용하거나 재정의를 제거합니다.
 
-더 깊은 문제 해결(네트워크, 세션 또는 Campaign 동작)은 [Braze React Native 개발자 가이드](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native) 및 네이티브 SDK 문서([Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk))를 참조하세요.
+더 깊은 문제 해결(네트워크, 세션 또는 Campaign 동작)은 [Braze React Native 개발자 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native) 및 네이티브 SDK 문서([Swift](https://github.com/braze-inc/braze-swift-sdk) · [Android](https://github.com/braze-inc/braze-android-sdk))를 참조하세요.
 
 ---
 
 ## 추가 리소스 {#additional-resources}
 
-- [Braze 개발자 가이드 — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
-- [푸시 알림 — React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
+- [Braze 개발자 가이드 — React Native]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)
+- [푸시 알림 — React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/push_notifications/)
 - [GitHub 리포지토리](https://github.com/braze-inc/braze-react-native-sdk)
 - [npm 패키지](https://www.npmjs.com/package/@braze/react-native-sdk)
 

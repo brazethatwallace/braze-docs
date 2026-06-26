@@ -27,7 +27,7 @@ description: "このリファレンス記事では、トップレベルのメッ
 
 ## カテゴリ {#categories}
 
-優先順位付けルールはカテゴリのランク付けに基づいています。カテゴリは、特定のCampaignに割り当てることができるラベルです（[タグ](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)と同様）。一度に最大20個のカテゴリを作成できます。
+優先順位付けルールはカテゴリのランク付けに基づいています。カテゴリは、特定のCampaignに割り当てることができるラベルです（[タグ]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)と同様）。一度に最大20個のカテゴリを作成できます。
 
 新しいカテゴリを追加するには：
 
@@ -140,12 +140,12 @@ Campaignを優先順位付けにオプトインするには、Campaignの**配�
 
 ### メッセージは優先順位付けされましたが、直前に中止されました。優先順位付けにどのような影響がありますか？ {#my-message-was-prioritized-but-aborted-last-minute-what-does-that-mean-for-prioritization}
 
-メッセージが優先順位付けされると、Brazeは元のスケジュール時刻に送信されたものと想定します。一般的に、メッセージの優先順位付けではLiquidの中止を使用することはお勧めしません。[`abort_message` Liquidロジック](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages)によってメッセージが中止された場合、そのユーザーに送信されたものと想定し、今後のCampaignをそれに応じて優先順位付けします。
+メッセージが優先順位付けされると、Brazeは元のスケジュール時刻に送信されたものと想定します。一般的に、メッセージの優先順位付けではLiquidの中止を使用することはお勧めしません。[`abort_message` Liquidロジック]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/)によってメッセージが中止された場合、そのユーザーに送信されたものと想定し、今後のCampaignをそれに応じて優先順位付けします。
 
 例えば、メッセージ1とメッセージ2の2つのメッセージがあるとします。メッセージ1が将来のより優先度の高いメッセージ2のために中止された場合、メッセージ2が実際に送信されることは保証されません。メッセージ2は以下を含むあらゆる理由で中止される可能性があります：
 
 - Liquidの中止メッセージ
-- ユーザーがセグメントに含まれなくなった場合
+- ユーザーがSegmentに含まれなくなった場合
 - 優先順位付けルール外のメッセージによるフリークエンシーキャップ
 
 メッセージ2が中止された場合、メッセージ1を送信する再試行は行われません。
@@ -167,4 +167,4 @@ Campaignを優先順位付けにオプトインするには、Campaignの**配�
 
 ### メッセージの優先順位付けに特化したレポートや分析機能はありますか？ {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-現時点では、この機能に特化したレポートや分析機能はありません。既存の[Brazeレポート機能](https://www.braze.com/docs/user_guide/analytics/reporting)を使用して、優先順位付けされたCampaignの健全性とパフォーマンスを監視することをお勧めします。
+現時点では、この機能に特化したレポートや分析機能はありません。既存の[Brazeレポート機能]({{site.baseurl}}/user_guide/analytics/reporting/)を使用して、優先順位付けされたCampaignの健全性とパフォーマンスを監視することをお勧めします。

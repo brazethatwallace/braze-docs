@@ -27,7 +27,7 @@ Supongamos que gestionas promociones por correo electrónico para asociaciones d
 
 ## Categorías {#categories}
 
-Las reglas de priorización se basan en una clasificación de categorías, que es una etiqueta que puedes asignar a una Campaign determinada (similar a una [etiqueta](https://www.braze.com/docs/user_guide/administrative/app_settings/tags)). Puedes crear hasta 20 categorías en un momento dado.
+Las reglas de priorización se basan en una clasificación de categorías, que es una etiqueta que puedes asignar a una Campaign determinada (similar a una [etiqueta]({{site.baseurl}}/user_guide/administrative/app_settings/tags/)). Puedes crear hasta 20 categorías en un momento dado.
 
 Para añadir una nueva categoría:
 
@@ -79,7 +79,7 @@ Para adherir una Campaign a la priorización, selecciona la casilla **Adhesión 
 
 A continuación, asigna la Campaign a una categoría seleccionando una del menú desplegable **Categoría**.
 
-![La casilla de "Adhesión voluntaria a la priorización de mensajes".]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization10.png %})
+![El menú desplegable de categoría para la priorización de mensajes.]({% image_buster /assets/unlisted_docs/img/message_prioritization/message_prioritization10.png %})
 
 Puedes adherir hasta 25 Campaigns activas en un momento dado. Las Campaigns en borrador, detenidas o archivadas no cuentan para este límite.
 
@@ -140,12 +140,12 @@ Asumiremos que tu mensaje se envió a la hora planificada originalmente si aún 
 
 ### Mi mensaje fue priorizado pero cancelado en el último momento. ¿Qué significa eso para la priorización? {#my-message-was-prioritized-but-aborted-last-minute-what-does-that-mean-for-prioritization}
 
-Cuando un mensaje es priorizado, Braze asumirá que se envió a su hora planificada originalmente. En general, para la priorización de mensajes, no recomendamos usar cancelaciones de Liquid. Si un mensaje se cancela debido a la [lógica Liquid de `abort_message`](https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), asumiremos que se envió a ese usuario y priorizaremos las Campaigns futuras en consecuencia.
+Cuando un mensaje es priorizado, Braze asumirá que se envió a su hora planificada originalmente. En general, para la priorización de mensajes, no recomendamos usar cancelaciones de Liquid. Si un mensaje se cancela debido a la [lógica Liquid de `abort_message`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/), asumiremos que se envió a ese usuario y priorizaremos las Campaigns futuras en consecuencia.
 
 Supongamos que tienes dos mensajes: Mensaje 1 y Mensaje 2. Si el Mensaje 1 se cancela a favor de un futuro Mensaje 2 de mayor prioridad, esto no garantiza que el Mensaje 2 se envíe realmente. El Mensaje 2 aún puede cancelarse por cualquier motivo, incluyendo:
 
 - Cancelaciones de Liquid
-- El usuario ya no está en el Segment
+- El usuario ya no está en el segmento
 - Limitación de frecuencia debido a un mensaje fuera de las reglas de priorización.
 
 Si el Mensaje 2 se cancela, no habrá otro intento de enviar el Mensaje 1.
@@ -167,4 +167,4 @@ En este momento, la priorización de mensajes no es compatible con las Campaigns
 
 ### ¿Hay alguna funcionalidad de informes o análisis específica para la priorización de mensajes? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-En este momento, no hay funcionalidad de informes o análisis específica para esta característica. Te animamos a utilizar la [funcionalidad de informes de Braze](https://www.braze.com/docs/user_guide/analytics/reporting) existente para monitorear la salud y el rendimiento de tus Campaigns priorizadas.
+En este momento, no hay funcionalidad de informes o análisis específica para esta característica. Te animamos a utilizar la [funcionalidad de informes de Braze]({{site.baseurl}}/user_guide/analytics/reporting/) existente para monitorear la salud y el rendimiento de tus Campaigns priorizadas.

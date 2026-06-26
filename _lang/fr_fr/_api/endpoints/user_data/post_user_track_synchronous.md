@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint synchrone de suivi uti
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs (synchrone) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

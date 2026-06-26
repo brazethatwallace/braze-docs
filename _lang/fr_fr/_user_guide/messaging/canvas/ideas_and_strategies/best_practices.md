@@ -53,7 +53,7 @@ Canvas vous empêchera d'utiliser un envoi planifié avec une heure déjà pass�
 {% endalert %}
 
 {% alert important %}
-L'évaluation de la planification et de l'audience peut différer entre les entrées planifiées et les entrées à envoi immédiat, par exemple lorsque des étapes utilisent des options évaluées plus près du moment de l'envoi. Si vous modifiez l'audience, la planification ou les paramètres de réception dans les minutes précédant une entrée planifiée ou une fenêtre d'envoi, vérifiez si les utilisateurs déjà en file d'attente pour l'étape suivante prennent en compte la modification (consultez [Modifier votre Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)) ; en cas de doute, arrêtez, dupliquez et relancez pour une réévaluation propre.
+Si vous modifiez l'audience, la planification ou les paramètres de réception peu avant une entrée planifiée ou une fenêtre d'envoi, certains utilisateurs peuvent déjà être en attente sur une étape ou avoir été évalués avec les paramètres précédents, de sorte que tout le monde n'est pas garanti de prendre en compte la modification. Pour comprendre comment les modifications de planification, les modifications d'audience, l'option **Évaluer au moment de la mise en file d'attente** et le timing de réception des étapes de message interagissent, consultez [Modifier votre Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). En cas de doute, arrêtez le Canvas, dupliquez-le et relancez-le pour une réévaluation propre.
 {% endalert %}
 
 Pour les étapes du Canvas, tenez compte des détails suivants lors de la planification de votre Canvas :

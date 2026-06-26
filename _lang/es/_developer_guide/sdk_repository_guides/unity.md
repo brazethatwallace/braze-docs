@@ -12,8 +12,8 @@ El SDK de Unity de Braze te ayuda a integrar las funciones de mensajería, anál
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
+- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction/)
+- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=unity)
 
 ## Configuración del plugin {#plugin-setup}
 
@@ -31,7 +31,7 @@ Antes de poder empezar a utilizar Braze en scripts de Unity, tendrás que import
 Para integrar Braze en tu aplicación de Unity, completa nuestras instrucciones para [integrar el SDK de Unity de Braze][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
-[2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
+[2]: {{site.baseurl}}/developer_guide/sdk_integration?sdktab=unity
 
 ## Ponte en contacto {#contact}
 

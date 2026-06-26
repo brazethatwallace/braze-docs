@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 

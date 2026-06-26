@@ -76,7 +76,7 @@ Shopify連携で廃止されたイベントを使用するアクティブなメ�
 アップグレードを開始する前に、すべての[破壊的変更を修正](#fixing-breaking-changes)することが不可欠です。
 {% endalert %}
 
-### ステップ 1:アップグレードの開始 {#step-1-start-the-upgrade}
+### ステップ 1: アップグレードの開始 {#step-1-start-the-upgrade}
 
 Brazeで、**パートナー連携** > **Shopify**に移動し、**アップグレードを開始**を選択します。
 
@@ -86,13 +86,13 @@ Brazeで、**パートナー連携** > **Shopify**に移動し、**アップグ�
 
 ![アップグレードにより破壊的変更が発生する可能性があることを理解していることを確認するモーダル。]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %})
 
-### ステップ 2:Braze SDKのセットアップ {#step-2-set-up-the-braze-sdks}
+### ステップ 2: Braze SDKのセットアップ {#step-2-set-up-the-braze-sdks}
 
 標準連携では、Braze SDKがShopifyサイトに自動的に追加されます。すでにBraze SDKを直接統合しているか、サードパーティツールを使用している場合は、アップグレード時に以前のSDK実装を削除するよう開発者と調整してください。
 
 ![新しい連携がBrazeおよびJavaScript SDKをストアに自動的に実装することを確認するモーダル。]({% image_buster /assets/unlisted_docs/img/shopify/confirm_integration.png %}){: style="max-width:70%;"}
 
-### ステップ 3:Brazeアプリの再認証 {#step-3-reauthorize-the-braze-app}
+### ステップ 3: Brazeアプリの再認証 {#step-3-reauthorize-the-braze-app}
 
 Brazeアプリを再認証するには、**Shopifyに移動**を選択します。
 
@@ -106,7 +106,7 @@ Shopifyサイトで、プロンプトに従ってBrazeアプリを再認証し�
 
 ![Shopifyイベントのステータスを表示する「連携設定」ページ。]({% image_buster /assets/unlisted_docs/img/shopify/reauthorization_status.png %})
 
-### ステップ 4:external IDタイプの選択 {#step-4-choose-an-external-id-type}
+### ステップ 4: external IDタイプの選択 {#step-4-choose-an-external-id-type}
 
 選択したexternal IDタイプは、Shopifyアカウントが作成されるか注文が行われた際に、新しいShopify顧客プロファイルに割り当てられます。また、既存のユーザープロファイルにShopify顧客IDエイリアスがあるがBrazeでexternal IDが割り当てられていない場合、そのプロファイルの更新にも使用されます。
 
@@ -129,7 +129,7 @@ external IDタイプを選択するには、Brazeに戻り、**external IDを確
 
 カスタムexternal IDタイプを選択した場合は、ステップ4.1〜4.3に進んでください。それ以外の場合は、ステップ5に進んでください。
 
-#### ステップ 4.1:`braze.external_id`メタフィールドの作成 {#step-41-create-the-brazeexternal_id-metafield}
+#### ステップ 4.1: `braze.external_id`メタフィールドの作成 {#step-41-create-the-brazeexternal_id-metafield}
 
 1. Shopify管理パネルで、**設定** > **メタフィールド**に移動します。
 2. **顧客** > **定義を追加**を選択します。
@@ -141,7 +141,7 @@ external IDタイプを選択するには、Brazeに戻り、**external IDを確
 - **顧客作成webhookのリッスン：**[`customer/create`イベント](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks)をリッスンするwebhookを設定します。これにより、新しい顧客が作成された際にメタフィールドを書き込むことができます。
 - **既存顧客のバックフィル：**[Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用して、以前に作成された顧客のメタフィールドをバックフィルします。
 
-#### ステップ 4.2:external IDを取得するエンドポイントの作成 {#step-42-create-an-endpoint-to-retrieve-your-external-id}
+#### ステップ 4.2: external IDを取得するエンドポイントの作成 {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
 Brazeがexternal IDを取得するために呼び出せるパブリックエンドポイントを作成する必要があります。これは、Shopifyが`braze.external_id`メタフィールドを提供できないシナリオで必要です。
 
@@ -179,7 +179,7 @@ Brazeは`200`ステータスコードを期待します。その他のコード�
 `shopify_customer_id`と`email_address`がShopifyの顧客値と一致していることを検証することが重要です。[Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用して、これらのパラメーターを検証し、`braze.external_id`メタフィールドを取得できます。
 {% endalert %}
 
-#### ステップ 4.3:external IDの入力 {#step-43-input-your-external-id}
+#### ステップ 4.3: external IDの入力 {#step-43-input-your-external-id}
 
 [ステップ4](#step-4-choose-an-external-id-type)を繰り返し、Brazeのexternal IDタイプとしてカスタムexternal IDを選択した後、エンドポイントURLを入力します。
 
@@ -189,7 +189,7 @@ Brazeは`200`ステータスコードを期待します。その他のコード�
 - `braze.external_id`メタフィールドでexternal IDが利用可能になると、連携はこのexternal IDを優先して割り当てます。
     - Shopify顧客IDが以前にBrazeのexternal IDとして設定されていた場合、`braze.external_id`メタフィールドの値に置き換えられます。
 
-### ステップ 5:Brazeアプリ埋め込みの有効化 {#step-5-enable-the-braze-app-embed}
+### ステップ 5: Brazeアプリ埋め込みの有効化 {#step-5-enable-the-braze-app-embed}
 
 ストアのテーマ内でBrazeアプリ埋め込みを有効にするには、Brazeに戻り、**Shopifyに移動**を選択します。
 
@@ -199,7 +199,7 @@ Shopifyサイトで、Brazeアプリ埋め込みを有効にし、変更を保�
 
 ![アプリ埋め込みの例。]({% image_buster /assets/unlisted_docs/img/shopify/app_embed.png %})
 
-### ステップ 6:アップグレードの確認 {#step-6-verify-the-upgrade}
+### ステップ 6: アップグレードの確認 {#step-6-verify-the-upgrade}
 
 Brazeに戻ると、Shopify連携のインストールが完了した際に通知されます。
 
@@ -212,4 +212,4 @@ Brazeに戻ると、Shopify連携のインストールが完了した際に通�
 - **SDKカスタマイズ（オプション）：**BrazeとShopifyの連携にカスタマイズ（カスタムイベントや属性のログ記録など）を行った場合、アップグレード後に正しく動作していることを確認します。
 - **メールまたはSMSサブスクライバーの収集（オプション）：**以前にメールまたはSMSサブスクライバーの収集を有効にしていた場合、アップグレード中にサブスクライバーの最新ステータスを反映する新しいデフォルトサブスクリプショングループが作成されます。デフォルトサブスクリプショングループの名前はShopifyストアフロントの名前になります。これらの新しいデフォルトサブスクリプショングループはアップグレード後約5時間で利用可能になり、アクティブなメッセージに追加する必要があります。
 
-ご質問がある場合は、[サポートにお問い合わせ](https://www.braze.com/docs/user_guide/administrative/access_braze/support/)ください。
+ご質問がある場合は、[サポートにお問い合わせ]({{site.baseurl}}/user_guide/administrative/access_braze/support/)ください。

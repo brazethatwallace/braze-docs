@@ -4,7 +4,7 @@ article_title: Fundamentos de mensajería
 layout: dev_guide
 page_order: 1
 guide_top_header: "Fundamentos"
-guide_top_text: "Configura quién recibe tu mensaje, cuándo se envía y cómo mides el éxito. Estos conceptos se aplican tanto si usas una <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campaña como un Canvas</a>."
+guide_top_text: "Configura quién recibe tu mensaje, cuándo se envía y cómo mides el éxito, ya sea que uses una <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campaña o un Canvas</a>. Esta sección cubre la segmentación de audiencia, los tipos de entrega y entrada, el seguimiento de eventos de conversión, la limitación de frecuencia, las reglas de re-elegibilidad, la localización, la accesibilidad y la lista de verificación previa al lanzamiento. Revisa estos conceptos antes de crear tus mensajes para que lleguen a los usuarios correctos sin saturarlos."
 page_type: landing
 tool:
   - Campaigns

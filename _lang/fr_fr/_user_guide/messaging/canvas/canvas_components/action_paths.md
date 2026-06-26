@@ -89,4 +89,8 @@ Si des utilisateurs entrent dans un parcours d'action plusieurs fois et ont plus
 | **Activé** | Toutes les entrées avancent à la fin de la fenêtre d'évaluation correspondante. Aucune déduplication n'est effectuée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas avec rééligibilité" }
 
+{% alert warning %}
+Ne modifiez pas l'option **Faire avancer les utilisateurs selon l'ordre de classement** après le lancement lorsque des utilisateurs se trouvent déjà dans l'étape. Braze applique le paramètre de classement en vigueur lors du traitement des événements et à la fin de la fenêtre d'évaluation, mais l'état du parcours enregistré plus tôt dans la fenêtre peut refléter un paramètre précédent. Par exemple, si vous désactivez le classement après que des utilisateurs ont effectué une action classée, ils risquent de ne pas avancer dans le parcours attendu à la fermeture de la fenêtre. Créez plutôt un nouveau parcours d'action avec le paramètre de classement souhaité, ou dupliquez le Canvas.
+{% endalert %}
+
 Notez que les classements ne sont pas [modifiables après le lancement]({{site.baseurl}}/post-launch_edits/).

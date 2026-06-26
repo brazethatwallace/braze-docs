@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # ユーザーの作成と更新 {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -18,7 +18,7 @@ toc_headers: h2
 
 {% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
 
-BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡す必要があります。
+BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡してください。
 
 ## ユーザーを一括更新する必要がありますか？ {#need-to-update-users-in-bulk}
 
@@ -62,7 +62,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
 | `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
 | `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 識別子の解決 {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | --------------- | ----------- | -------- |
 | プライマリ | `external_id`、`user_alias`、`braze_id` | ユーザープロファイルの検索に使用されます。リクエストオブジェクトごとに許可されるプライマリ識別子は1つのみです。複数を含めると、そのオブジェクトは拒否されます。 |
 | セカンダリ | `email`、`phone` | プライマリ識別子が存在しない場合に**のみ**、ユーザープロファイルの検索に使用されます。プライマリ識別子なしで`email`と`phone`の両方が含まれている場合、`email`が優先されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="識別子の解決" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 プライマリ識別子が存在する場合、同じリクエストオブジェクト内の`email`または`phone`の値は、ユーザー検索の識別子としてではなく、プロファイル属性として扱われます。たとえば、リクエストに`external_id`と`email`の両方が含まれている場合：
 
@@ -324,7 +324,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 | `EMAIL_BAD_FORMAT` | `email`に指定された値は有効なメールアドレスではありません。 |
 | `EXTERNAL_USER_ID_TOO_LARGE` | `external_id`が最大許容長の987バイトを超えています。 |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info`は有効な属性ではありません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="エンドポイント固有のエラー" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -404,7 +404,7 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 | `X-RateLimit-Limit` | 期間ごとに許可されるリクエスト数 |
 | `X-RateLimit-Remaining` | 時間枠内に残っているおおよそのリクエスト数 |
 | `X-RateLimit-Reset` | 現在の時間枠がリセットされるまでの残り秒数 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 HTTP `429`エラーが発生した場合、`RateLimit-Limit`、`RateLimit-Remaining`、`RateLimit-Reset`ヘッダーは返されないことに注意してください。エラーが発生すると、これらのヘッダーは`X-Ratelimit-Retry-After`ヘッダーに置き換えられ、リクエストを再開できるまでの秒数を示す整数が返されます。
 

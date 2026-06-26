@@ -6,7 +6,7 @@
 - [クレジット使用量の概要](#credits-usage-overview)
 - [チャネルタブ](#credits-features)
 
-ダッシュボードにアクセスするには、**Settings** > **Billing** > **Credits Usage** に移動します。
+ダッシュボードにアクセスするには、**設定** > **請求** > **クレジット使用量**に移動します。
 
 ## クレジット使用量の概要 {#credits-usage-overview}
 
@@ -20,7 +20,6 @@ WhatsAppを購入していてもクレジット契約を利用していない場
 
 クレジット使用量の概要データは、**クレジット契約の概要**に表示される契約期間に限定されます。**クレジット期間**外の日付範囲でフィルタリングすることはできません。
 
-![クレジット使用量とクレジット契約の概要パネルを含むクレジット使用量の概要タブ。]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### 契約期間中のクレジット使用量 {#credits-usage-over-contract}
 

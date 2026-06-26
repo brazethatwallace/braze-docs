@@ -18,7 +18,7 @@ Braze와 StackAdapt 통합을 통해 Braze의 사용자 프로필 데이터를 S
 ## 활용 사례 {#use-cases}
 
 - **휴면 사용자 재참여:** Braze의 이메일 마케팅 목록에서 탈퇴한 사용자를 식별하고 StackAdapt의 프로그래매틱 광고로 타겟팅하여 다른 채널을 통해 재참여를 유도할 수 있습니다.
-- **멀티채널 경험 만들기:** 사용자의 여정을 이메일을 넘어 확장하세요. 예를 들어, 사용자가 Braze에서 이메일 Campaign(캠페인)을 클릭하면 StackAdapt를 사용하여 보완적인 프로그래매틱 광고를 표시하여 메시지를 강화하고 추가 행동을 유도할 수 있습니다.
+- **멀티채널 경험 만들기:** 사용자의 여정을 이메일을 넘어 확장하세요. 예를 들어, 사용자가 Braze에서 이메일 Campaign을 클릭하면 StackAdapt를 사용하여 보완적인 프로그래매틱 광고를 표시하여 메시지를 강화하고 추가 행동을 유도할 수 있습니다.
 - **규모에 맞게 개인화하세요:** "Home City" 또는 "Language" 등 Braze의 세분화된 데이터 포인트를 활용하여 관련성이 높고 현지화된 언어별 광고와 이메일을 게재할 수 있습니다.
 - **오디언스에 대한 이해도를 높이세요:** 프로필 속성을 동기화하면 StackAdapt에서 더 풍부한 오디언스 세그먼트를 생성하여 보다 정밀한 타겟팅과 개인화된 광고 경험을 제공할 수 있습니다.
 
@@ -28,7 +28,7 @@ Braze와 StackAdapt 통합을 통해 Braze의 사용자 프로필 데이터를 S
 | ----------- | ------------------- |
 | **StackAdapt 계정** | 데이터 허브 통합을 관리할 수 있는 권한이 있는 활성 StackAdapt 계정이 필요합니다. |
 | **Braze REST API 키** | 다음 권한이 있는 Braze REST API 키: <br>- `users.export.ids`<br>- `users.export.segment`<br>- `email.unsubscribe`<br>- `email.hard_bounces`<br>- `messages.schedule_broadcasts`<br>- `campaigns.list`<br>- `campaigns.details`<br>- `canvas.list`<br>- `canvas.details`<br>- `segments.list`<br>- `segments.details`<br>- `purchases.product_list`<br>- `events.list`<br>- `feed.list`<br>- `feed.details`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `subscription.status.get`<br>- `subscription.groups.get`<br><br>Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다. |
-| **Braze REST 엔드포인트** | [REST 엔드포인트 URL](https://www.braze.com/docs/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| **Braze REST 엔드포인트** | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 작동 방식 {#how-it-works}
@@ -90,8 +90,8 @@ StackAdapt는 다음을 포함하되 이에 국한되지 않는 다양한 Braze 
 2. 탐색 메뉴에서 **Data Hub**를 선택합니다.
 3. **Import Profiles**를 선택한 다음 사용 가능한 통합 목록에서 **Braze**를 선택합니다.
 4. 메시지가 표시되면 Braze API 자격 증명을 입력합니다.
-- **Braze REST API Key:** Braze에서 **Settings** > **API Keys**로 이동하여 찾을 수 있습니다. 보안 모범 사례로, StackAdapt 통합을 위한 전용 API 키를 생성하는 것이 좋습니다.
-- **Braze App Key:** Braze에서 **Settings** > **API Keys** 또는 **Manage Apps**로 이동하여 찾을 수 있습니다.
+- **Braze REST API Key:** Braze에서 **설정** > **API 키**로 이동하여 찾을 수 있습니다. 보안 모범 사례로, StackAdapt 통합을 위한 전용 API 키를 생성하는 것이 좋습니다.
+- **Braze App Key:** Braze에서 **설정** > **API 키** 또는 **Manage Apps**로 이동하여 찾을 수 있습니다.
 - **Braze REST Endpoint URL:** Braze 인스턴스의 기본 URL(예: `https://rest.iad-01.braze.com`).
 5. **Connect**를 선택하여 자격 증명을 확인합니다.
 

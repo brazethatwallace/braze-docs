@@ -40,7 +40,7 @@ Braze는 데이터에 대해 읽기 전용 쿼리만 실행하며 기본 테이�
 먼저 소스를 생성한 다음 SQL 편집기로 동기화를 생성하려면 다음 단계를 따르세요. CDI용 소스를 이미 설정한 경우 3단계로 건너뛸 수 있습니다.
 
 {% alert note %}
-이 단계에서는 Snowflake 소스를 예시로 사용합니다. 다른 데이터 웨어하우스 소스의 설정 프로세스도 유사하며, [데이터 웨어하우스 통합 설정](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) 설명서의 [2단계: Braze 대시보드에서 새 소스 생성](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)에서 확인할 수 있습니다.
+이 단계에서는 Snowflake 소스를 예시로 사용합니다. 다른 데이터 웨어하우스 소스의 설정 프로세스도 유사하며, [데이터 웨어하우스 통합 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#setting-up-data-warehouse-integrations) 설명서의 [2단계: Braze 대시보드에서 새 소스 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-2-create-a-new-source-in-the-braze-dashboard)에서 확인할 수 있습니다.
 {% endalert %}
 
 ### 1단계: Snowflake 역할, 권한, 데이터 웨어하우스 및 사용자 설정 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}

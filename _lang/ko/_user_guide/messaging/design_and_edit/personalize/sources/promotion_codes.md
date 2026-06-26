@@ -43,7 +43,7 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 {% endtabs %}
 
 {% alert important %}
-프로모션 코드는 Canvas의 인앱 메시지에서는 발송할 수 없습니다.
+프로모션 코드는 인앱 메시지 Campaign에서 얼리 액세스 기능으로 사용할 수 있지만, Canvas의 인앱 메시지에서는 발송할 수 없습니다.
 {% endalert %}
 
 ## 다음 단계 {#next-steps}
@@ -58,7 +58,7 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 
 ### 프로모션 코드와 함께 사용할 수 있는 메시징 채널은 무엇인가요? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-프로모션 코드는 현재 이메일, 모바일 푸시, 웹 푸시, Content Cards, 웹훅, SMS, WhatsApp에서 지원됩니다. Braze 트랜잭션 이메일 Campaigns와 인앱 메시지는 현재 프로모션 코드를 지원하지 않습니다.
+프로모션 코드는 이메일, 모바일 푸시, 웹 푸시, Content Cards, 웹훅, SMS, WhatsApp에서 지원됩니다. 인앱 메시지 Campaign에서는 얼리 액세스 기능으로 프로모션 코드를 지원합니다. Braze 트랜잭션 이메일 Campaigns와 Canvas의 인앱 메시지에서는 프로모션 코드를 지원하지 않습니다.
 
 ### 테스트 및 시드 발송도 사용량에 포함되나요? {#do-test-and-seed-sends-count-towards-usage}
 
@@ -88,6 +88,15 @@ Braze가 프로모션 코드가 포함된 메시지를 발송할 때, 메시지�
 - **잘못된 코드 소진:** 잘못된 목록의 코드를 플레이스홀더 사용자에게 발송하는 Campaign을 생성하여 잘못된 코드가 모두 사용될 때까지 실행합니다. 그 후, 잘못된 코드를 제외하고 올바른 코드를 동일한 목록에 다시 업로드합니다.
 
 목록 업데이트에 대한 일반적인 안내는 [프로모션 코드 목록 업데이트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list)를 참조하세요.
+
+### Braze는 어떤 사용자가 어떤 프로모션 코드를 받았거나 사용했는지 추적하나요? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
+
+메시지에서 프로모션 코드를 사용하면, Braze는 해당 코드를 소비됨으로 표시하여 다시 발송되지 않도록 하고 목록의 잔여 수량을 업데이트합니다. Braze는 발송된 코드에 대한 보고서를 유지하거나, 어떤 사용자가 어떤 코드를 받았는지 추적하거나, 코드가 사용(리딤)되었는지 추적하지 않습니다.
+
+코드를 사용자와 연결하거나 사용 여부를 직접 추적해야 하는 경우 다음 방법을 사용할 수 있습니다:
+
+- 사용자 업데이트 단계를 통해 프로모션 코드를 고객 프로필에 저장합니다. 자세한 내용은 [고객 프로필에 프로모션 코드 저장]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile)을 참조하세요.
+- `message_extras` Liquid 태그를 사용하여 프로모션 코드 값을 Currents로 전송합니다. 자세한 내용은 [프로모션 코드 정보를 Currents로 전송]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents)을 참조하세요.
 
 ### 향후 메시지를 위해 프로모션 코드를 고객 프로필에 저장할 수 있나요? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 

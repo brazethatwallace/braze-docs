@@ -43,7 +43,7 @@ Par exemple, dans le Liquid conditionnel suivant, les codes des deux listes (`vi
 {% endtabs %}
 
 {% alert important %}
-Les codes de promotion ne peuvent pas être envoyés dans les messages in-app dans Canvas.
+Les codes de promotion sont disponibles dans les campagnes de messages in-app en tant que fonctionnalité en accès anticipé, mais ne peuvent pas être envoyés dans les messages in-app dans Canvas.
 {% endalert %}
 
 ## Étapes suivantes {#next-steps}
@@ -58,7 +58,7 @@ Vous cherchez les prochaines étapes ? Commencez ici :
 
 ### Quels canaux de communication puis-je utiliser avec les codes de promotion ? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-Les codes de promotion sont actuellement pris en charge pour les e-mails, les notifications push mobiles, les notifications push Web, les Content Cards, les webhooks, les SMS et WhatsApp. Les campagnes d'e-mails transactionnels Braze et les messages in-app ne prennent pas en charge les codes de promotion actuellement.
+Les codes de promotion sont pris en charge pour les e-mails, les notifications push mobiles, les notifications push Web, les Content Cards, les webhooks, les SMS et WhatsApp. Les campagnes de messages in-app prennent en charge les codes de promotion en tant que fonctionnalité en accès anticipé. Les campagnes d'e-mails transactionnels Braze et les messages in-app dans Canvas ne prennent pas en charge les codes de promotion.
 
 ### Les envois de test et les envois au groupe initiateur comptent-ils dans l'utilisation ? {#do-test-and-seed-sends-count-towards-usage}
 
@@ -88,6 +88,15 @@ Si vous avez importé des codes incorrects, vous avez deux options pour résoudr
 - **Épuiser les codes incorrects :** Créez une campagne qui envoie les codes de la liste incorrecte à un utilisateur fictif jusqu'à ce que tous les mauvais codes soient utilisés. Ensuite, réimportez les codes corrects dans la même liste, en excluant les codes incorrects.
 
 Pour des conseils généraux sur la mise à jour d'une liste, consultez [Mettre à jour une liste de codes de promotion]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+
+### Braze suit-il quels utilisateurs ont reçu ou utilisé quels codes de promotion ? {#does-braze-track-which-users-received-or-redeemed-which-promotion-codes}
+
+Lorsqu'un message utilise un code de promotion, Braze marque ce code comme consommé afin qu'il ne puisse pas être envoyé à nouveau et met à jour le nombre de codes restants dans la liste. Braze ne tient pas de rapport des codes envoyés, ne suit pas quels utilisateurs ont reçu chaque code, et ne suit pas si les codes ont été utilisés.
+
+Si vous avez besoin d'associer des codes à des utilisateurs ou de suivre l'utilisation vous-même, vous pouvez :
+
+- Enregistrer les codes de promotion dans les profils utilisateur via une étape de mise à jour utilisateur. Pour en savoir plus, consultez [Enregistrer des codes de promotion dans les profils utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+- Envoyer les valeurs des codes de promotion vers Currents à l'aide de l'étiquette Liquid `message_extras`. Pour en savoir plus, consultez [Envoyer des informations de codes de promotion vers Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/#sending-promotion-code-information-to-currents).
 
 ### Puis-je enregistrer un code de promotion dans le profil d'un utilisateur pour de futurs messages ? {#can-i-save-a-promotion-code-to-a-users-profile-for-future-messages}
 

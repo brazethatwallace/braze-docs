@@ -53,7 +53,7 @@ O Canvas impedirá que você use o envio agendado com um horário que já passou
 {% endalert %}
 
 {% alert important %}
-A avaliação de programação e público pode diferir entre entradas agendadas e entradas de envio imediato — por exemplo, quando etapas usam opções que avaliam mais perto do horário de envio. Ao editar configurações de público, programação ou entrega poucos minutos antes de uma entrada agendada ou janela de envio, confirme se os usuários já enfileirados para a próxima etapa receberão a alteração (consulte [Alterar seu Canvas após o lançamento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)); em caso de dúvida, pare, duplique e relance para uma reavaliação limpa.
+Se você alterar o público, a programação ou a entrega próximo a uma janela de entrada ou envio agendado, alguns usuários podem já estar aguardando em uma etapa ou terem sido avaliados com as configurações anteriores, então nem todos receberão a alteração. Para entender como alterações de programação, alterações de público, **Evaluate at enqueue time** e o momento de entrega da etapa de Mensagem interagem, consulte [Alterar seu Canvas após o lançamento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). Em caso de dúvida, pare o Canvas, duplique-o e relance para uma reavaliação limpa.
 {% endalert %}
 
 Para etapas do Canvas, considere os seguintes detalhes ao programar seu Canvas:

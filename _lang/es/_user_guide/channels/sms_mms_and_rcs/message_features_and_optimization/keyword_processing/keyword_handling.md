@@ -30,13 +30,13 @@ Braze utiliza tu conjunto completo de palabras clave de cancelación de suscripc
 {% tabs %}
 {% tab Añadir activadores de palabras clave %}
 
-#### Añadir activadores de palabras clave {#add-keyword-triggers}
+### Añadir activadores de palabras clave {#add-keyword-triggers}
 
 Además de las palabras clave predeterminadas de adhesión voluntaria y cancelación de suscripción, también puedes definir tus propias palabras clave para activar respuestas de adhesión voluntaria, cancelación de suscripción y ayuda.
 
 Para definir tus propias palabras clave, haz lo siguiente:
 
-1. En el panel de Braze, ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**.<br><br>
+1. En el panel de Braze, ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**.
 2. En **Global Keywords**, selecciona el icono de lápiz junto a la categoría de palabras clave a la que quieras añadir una palabra clave. ![Palabras clave de adhesión voluntaria con el icono de lápiz visible.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. En la pestaña que se abre, añade una palabra clave que quieras que active esta categoría de palabras clave. Ten en cuenta que las palabras clave no distinguen entre mayúsculas y minúsculas, y que las palabras clave universales como `START`, `YES` y `UNSTOP` no se pueden cambiar. ![Edición de palabras clave para la categoría "Opt-In". Las palabras clave añadidas son "START", "UNSTOP" y "YES". El campo del mensaje de respuesta dice "Has cancelado la suscripción a los mensajes de este número. Responde HELP para obtener ayuda. Responde STOP para cancelar la suscripción. Pueden aplicarse tarifas de mensajes y datos."]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -54,16 +54,16 @@ Las siguientes reglas se aplican a las palabras clave y las respuestas de palabr
 
 {% tab Administrar respuestas %}
 
-#### Administrar respuestas {#manage-responses}
+### Administrar respuestas {#manage-responses}
 
 Puedes administrar tus propias respuestas que se envían a los usuarios después de que envíen un mensaje de texto con una palabra clave a una categoría de palabras clave específica.
 
 1. En el panel de Braze, ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**. <br><br>
 2. En **Global Keywords**, selecciona una categoría de palabras clave para editar una respuesta seleccionando el icono de lápiz. ![Palabras clave de adhesión voluntaria con el icono de lápiz visible.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave. ![Respuestas]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
+3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
 4. Para acortar automáticamente las URL estáticas en tu respuesta, selecciona el conmutador **Link Shortening**. El contador de caracteres se actualizará para mostrar la longitud esperada de la URL acortada. ![Un GIF que muestra cómo se actualiza el contador de caracteres cuando el conmutador "Link Shortening" está activado.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
-##### Consideraciones {#considerations}
+#### Consideraciones {#considerations}
 
 | Palabras clave | Respuestas de palabras clave |
 | -------- | ----------------- |
@@ -134,7 +134,7 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
-1. Crea una [campaña de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+1. Crea una [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
 2. Para **Público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
 3. Para **Planificación**, elige **Entrega basada en acciones**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.

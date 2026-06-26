@@ -81,7 +81,7 @@ Es ist wichtig, dass Sie alle [Breaking Changes beheben](#fixing-breaking-change
 
 ### 1. Schritt: Das Braze Web SDK initialisieren und laden, um Onsite-Tracking zu aktivieren {#step-1}
 
-Falls noch nicht geschehen, initialisieren und laden Sie das Braze Web SDK, um Onsite-Tracking zu aktivieren. Eine vollständige Anleitung finden Sie unter [Angepasste Shopify-Integration einrichten](https://www.braze.com/docs/partners/ecommerce/shopify/shopify_custom_integration/#step-1):
+Falls noch nicht geschehen, initialisieren und laden Sie das Braze Web SDK, um Onsite-Tracking zu aktivieren. Eine vollständige Anleitung finden Sie unter [Angepasste Shopify-Integration einrichten]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1):
 - Eine Braze-Web-App erstellen
 - Subdomain und Umgebungsvariablen hinzufügen
 - Onsite-Tracking aktivieren
@@ -219,4 +219,4 @@ Um zu überprüfen, dass Ihr neuer Shopify-Konnektor aktiv ist, testen Sie Folge
 - **SDK-Anpassungen (optional):** Wenn Sie Anpassungen an Ihrer Braze- und Shopify-Integration vorgenommen haben (z. B. das Protokollieren angepasster Events oder Attribute), überprüfen Sie, dass diese nach dem Upgrade korrekt funktionieren.
 - **E-Mail- oder SMS-Abonnent:innenerfassung (optional):** Wenn Sie zuvor die E-Mail- oder SMS-Abonnent:innenerfassung aktiviert haben, werden während des Upgrades neue Standard-Abo-Gruppen erstellt, die den aktuellen Status Ihrer Abonnent:innen widerspiegeln. Die Standard-Abo-Gruppen tragen den Namen Ihrer Shopify-Storefront. Diese neuen Standard-Abo-Gruppen sind ungefähr 5 Stunden nach dem Upgrade verfügbar, und Sie müssen sie zu Ihren aktiven Nachrichten hinzufügen.
 
-Wenn Sie Fragen haben, [kontaktieren Sie den Support](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Wenn Sie Fragen haben, [kontaktieren Sie den Support]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
