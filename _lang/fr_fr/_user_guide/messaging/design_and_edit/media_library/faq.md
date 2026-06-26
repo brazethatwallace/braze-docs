@@ -12,6 +12,8 @@ description: "Cet article répond aux questions fréquemment posées sur la bibl
 
 > Cette page répond aux questions fréquemment posées sur la bibliothèque multimédia dans Braze.
 
+## Général {#general}
+
 ### Y a-t-il des limites de stockage pour les images dans la bibliothèque multimédia ? {#are-there-storage-limits-for-images-within-the-media-library}
 
 Non, il n'y a pas de limites de stockage pour les ressources dans la bibliothèque multimédia. En revanche, il existe des limites de taille par ressource (5 Mo maximum).
@@ -57,7 +59,7 @@ Cela s'explique par le fait que la plupart des éditeurs imposent des restrictio
 
 ### Générer une image à l'aide de l'intelligence artificielle {#generate-an-image-using-ai}
 
-Vous pouvez générer des images depuis **Contenu** > **Bibliothèque multimédia** en sélectionnant **AI Image Generator**. Vous devez disposer de la permission **Edit Media Library Assets**. Si vous ne voyez pas cette option, contactez votre équipe Braze. Pour les étapes et les détails de la politique, consultez [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) et [Génération d'images avec BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+Vous pouvez générer des images depuis **Contenu** > **Bibliothèque multimédia** en sélectionnant **AI Image Generator**. Vous devez disposer de la permission **Edit Media Library Assets**. Si vous ne voyez pas cette option, contactez votre équipe Braze. Pour les étapes et les détails de la politique, consultez [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) et [Génération d'images avec BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
 
 ### Puis-je créer des URL personnalisées pour les ressources d'images de la bibliothèque multimédia ? {#can-i-create-vanity-urls-for-media-library-image-assets}
 

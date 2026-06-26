@@ -146,7 +146,6 @@ func didReceive(_ notification: UNNotification) {
 3. 情報が提供され、有効な場合は、登録ボタンが表示されます。
 3. 確認画面が表示され、プッシュが解除されます。
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ここで要求される情報は、SMS 番号のキャプチャなど広範なものである可能性があり、メール固有である必要はないことに注意してください。
 

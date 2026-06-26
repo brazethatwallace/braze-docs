@@ -266,7 +266,6 @@ Rules:
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
 - Avoid spammy phrasing (ALL CAPS, excessive punctuation) and emojis.
 - Do not hallucinate specific hotels or flights, as this is a general destination description.
-- If any input fields are missing, write the best description possible with the available data
 - Include "explanation": a short string that states how you applied the rules (for review or QA).
 
 Final Output Specification:
@@ -303,7 +302,7 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 
 - **Agentenkontext**
     - **Katalogfelder:**
-        - **Katalog:** „App Localization“, der eine Zeile pro zu übersetzenden String enthält.
+        - **Katalog:** „App Localization“, der eine Zeile pro zu übersetzendem String enthält.
         - **Felder:** `<Source text>`, `<Target language code>`, `<UI category>`, `<Maximum character count>` – Spaltennamen, die dem Quellstring, dem Gebietsschema, der Platzierung und dem Zeichenlimit entsprechen, die in den Anweisungen verwendet werden.
 
 ### Anweisungen

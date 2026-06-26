@@ -52,7 +52,7 @@ Umsatz- und Kauf-Metriken sind nicht verfügbar.
 ![Das Panel „Metriken anpassen“ mit Last-Touch-Attribution-Metriken.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Folgen Sie den Schritten 7–9 auf der Seite [Berichts-Builder](https://www.braze.com/docs/user_guide/analytics/reporting/report_builder).
+7. Folgen Sie den Schritten 7–9 auf der Seite [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/).
 
 {% alert note %}
 Senden Sie Feedback an Ihren Customer-Success-Manager oder geben Sie es über den Button **Feedback senden** ab.

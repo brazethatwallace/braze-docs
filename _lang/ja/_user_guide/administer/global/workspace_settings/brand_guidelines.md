@@ -3,14 +3,14 @@ nav_title: ブランド・ガイドライン
 article_title: ブランド・ガイドライン
 page_order: 1
 page_type: reference
-description: "このリファレンス記事では、AIコピーライティングアシスタントを通じてメッセージに適用できるブランドガイドラインの作成、管理、および使用方法について説明します。"
+description: "このリファレンス記事では、オペレーターがコピー、テンプレート、画像を生成する際に適用するブランドガイドラインの作成、管理、および使用方法について説明します。"
 ---
 
 # ブランド・ガイドライン {#brand-guidelines}
 
 > カスタマイズされたブランドガイドラインで、AIが生成するコピーのスタイルをブランドのボイス、トーン、パーソナリティに合わせて調整できます。
 
-ブランドガイドラインの作成と管理は、**コンテンツ** > **ブランドガイドライン**で行うことができます。[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/)で作成することもできます。
+ブランドガイドラインの作成と管理は、**コンテンツ** > **ブランドガイドライン**で行います。
 
 ## ブランドガイドラインを作成する {#creating-brand-guidelines}
 
@@ -44,7 +44,7 @@ description: "このリファレンス記事では、AIコピーライティン�
 
 ### ステップ5:ガイドラインの保存 {#step-5-save-your-guidelines}
 
-ガイドラインに満足したら、**Save brand guideline**を選択します。新しいガイドラインはワークスペースに保存され、今後使用できるようになります。
+ガイドラインに満足したら、**Save brand guideline**を選択します。ガイドラインはワークスペースに保存され、今後使用できるようになります。
 
 {% alert important %}
 コピーの言語に関係なく出力言語を変更できますが、BrazeもOpenAIも翻訳の品質を保証するものではありません。使用する前に、必ず翻訳をテストして確認してください。
@@ -52,14 +52,14 @@ description: "このリファレンス記事では、AIコピーライティン�
 
 ## ブランドガイドラインの管理 {#managing-brand-guidelines}
 
-ブランドガイドラインを編集するには、**ブランドガイドライン**ページでガイドラインを選択します。ブランドガイドラインをアーカイブすると、非アクティブになり、AIコピーライティングアシスタントから削除されます。再びアクティブにして選択可能にするには、アーカイブ済みのブランドガイドラインでフィルタリングし、アーカイブを解除します。
+ブランドガイドラインを編集するには、**ブランドガイドライン**ページでガイドラインを選択します。ブランドガイドラインをアーカイブすると、非アクティブになり、メッセージ作成画面で使用できなくなります。再びアクティブにして選択可能にするには、アーカイブ済みのブランドガイドラインでフィルタリングし、アーカイブを解除します。
 
 ![アーカイブ済みのブランドガイドラインでフィルタリングされた「ブランドガイドライン」ページ。]({% image_buster /assets/img/unarchive_brand_guideline.png %})
 
 ## ブランドガイドラインの使用 {#using-brand-guidelines}
 
-メッセージを作成する際に、[AIコピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)を開き、**Apply brand guideline**ドロップダウンでブランドガイドラインを選択します。特定のブランドガイドラインをデフォルトに指定すると、ドロップダウンで自動的に選択されますが、別のガイドラインを選択することもできます。
+メッセージを作成する際に、Operatorを開いて[コピーを生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)し、**Apply brand guideline**ドロップダウンでブランドガイドラインを選択します。特定のブランドガイドラインをデフォルトに指定すると、Brazeがドロップダウンで自動的に選択しますが、別のガイドラインを選択することもできます。
 
-![ブランドガイドラインとして「Important Alerts!!」が選択されたAIコピーライティングアシスタント。]({% image_buster /assets/img/guidelines_ai_assistant.png %})
+![ブランドガイドラインとして「Important Alerts!!」が選択されたOperator。]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

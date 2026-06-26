@@ -15,7 +15,7 @@ tool: Campaign
 
 Braze는 Braze 플랫폼에서 활용할 의도가 있는 고객 데이터만 전송할 것을 권장합니다. "Braze의 4T 원칙"을 고려하여 실제로 사용할 데이터만 전송하세요:
 
-- **타겟(Target)**: [오디언스 세그먼트]({{site.baseurl}}/user_guide/audience/segments/)를 구축하여 오디언스를 타겟팅합니다.
+- **타겟(Target)**: [오디언스 Segments]({{site.baseurl}}/user_guide/audience/segments/)를 구축하여 오디언스를 타겟팅합니다.
 - **트리거(Trigger)**: [액션 기반]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/#action-based-delivery) 또는 [API 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) 전달로 메시지를 트리거합니다.
 - **템플릿(Template)**: [Liquid 조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)으로 메시지를 템플릿화하고 개인화합니다.
 - **추적(Track)**: [전환 추적]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)으로 캠페인의 효과를 추적합니다.
@@ -76,6 +76,8 @@ Segments와 필터를 활용하여 오디언스를 정의하세요. 캠페인과
 - **반복 스케줄 캠페인:** 예약된 발송 시간까지 캠페인을 편집할 수 있습니다.
 - **현지 발송 시간 캠페인:** 예약된 발송 시간 24시간 전에는 편집하지 마세요.
 - **최적 발송 시간 캠페인:** 캠페인이 발송 예정인 날의 자정 24시간 전에는 편집하지 마세요.
+
+Canvas 스케줄링의 세부 사항(초안, 중지, 발송 시간 전후 평가)은 [Canvas 모범 사례]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases)를 참조하세요.
 
 {% alert note %}
 라이브 캠페인을 편집하여 전달 방식을 **현지 발송 시간**으로 변경하면 새로운 메시지 배치가 대기줄에 추가되어, 메시지가 두 번 대기줄에 들어가므로 사용자가 메시지를 두 번 받게 됩니다. 이를 방지하려면 먼저 원래 캠페인을 중지한 다음, 스케줄을 업데이트한 후 복제본을 시작하세요.

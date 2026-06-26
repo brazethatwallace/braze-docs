@@ -24,7 +24,7 @@ Lo siguiente no se migra de forma masiva cuando apuntas los SDK o las API a un n
 | **Segments y filtros** | Las definiciones de Segments permanecen en el espacio de trabajo de origen. Reconstruye los Segments en el espacio de trabajo de destino utilizando la misma lógica cuando sea posible. |
 | **Historial de mensajes** | El historial de recepción de Campaigns y Canvas en un perfil está vinculado al espacio de trabajo de origen. No aparece en un nuevo perfil en otro espacio de trabajo a menos que lo modeles tú mismo (por ejemplo, mediante atributos personalizados), como se indica en las [Preguntas frecuentes de incorporación a Braze]({{site.baseurl}}/user_guide/onboarding_faq/). |
 | **Configuración específica del canal** | Los dominios de envío, las suscripciones de SMS, los números de WhatsApp y configuraciones similares tienen alcance de espacio de trabajo. Reconfigúralos en el espacio de trabajo de destino cuando corresponda. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What Braze does not automatically migrate between workspaces" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Lo que Braze no migra automáticamente entre espacios de trabajo" }
 
 {% alert important %}
 Si utilizas espacios de trabajo separados para staging y producción, recuerda que los conectores de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) no se comparten entre espacios de trabajo. Planifica qué espacio de trabajo es el propietario de las exportaciones de producción. Para más detalles, consulta [Primeros pasos: Espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/#currents-connectors).
@@ -32,9 +32,9 @@ Si utilizas espacios de trabajo separados para staging y producción, recuerda q
 
 ## Lo que puedes mover o recrear {#what-you-can-move-or-recreate}
 
-### Contenido de Campaigns y Canvas {#campaign-and-canvas-content}
+### Contenido de Campaigns, Canvas y páginas de inicio {#campaign-canvas-and-landing-page-content}
 
-Puedes copiar muchas definiciones de Campaigns y Canvas a otro espacio de trabajo como borradores. Los canales compatibles, los campos omitidos y las advertencias sobre Liquid están documentados en [Copiar Campaigns y Canvas entre espacios de trabajo]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Después de copiar, actualiza los Segments, los desencadenantes y cualquier referencia específica del espacio de trabajo antes de lanzar.
+Puedes copiar muchas definiciones de Campaigns, Canvas y páginas de inicio a otro espacio de trabajo como borradores. Los canales compatibles, los campos omitidos y las advertencias sobre Liquid están documentados en [Copiar Campaigns, Canvas y páginas de inicio entre espacios de trabajo]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/). Después de copiar, actualiza los Segments, los desencadenantes y cualquier referencia específica del espacio de trabajo antes de lanzar o publicar.
 
 ### Datos del perfil de usuario {#user-profile-data}
 

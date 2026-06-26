@@ -123,7 +123,6 @@ func didReceive(_ notification: UNNotification) {
 3. 정보가 제공되고 예상되는 형식인 경우 등록 버튼이 표시됩니다.
 3. 확인 보기가 표시되고 푸시가 해제됩니다.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 ### 대시보드 구성 {#dashboard-configuration}
 

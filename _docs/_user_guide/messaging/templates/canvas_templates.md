@@ -24,7 +24,6 @@ In the Braze dashboard, go to **Messaging** > **Canvas** and select an existing 
 
 In the Canvas editor, select **Edit Canvas** or **Edit draft**, depending on if your Canvas is active or in a draft. Expand the **Save as draft** dropdown in the footer and select **Save as template**.
 
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
 
 ### Step 3: Save your template
 

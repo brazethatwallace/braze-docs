@@ -72,8 +72,8 @@ Brazeで**Currents** > **+ Create Current** > **Azure Blob Data Export**に移�
 ### ステップ5:Azureデータエクスポートを設定する {#step-5-set-up-azure-data-export}
 
 次の目的で使用する認証情報を設定する手順を以下で説明します。
-1. APIを通じたSegmentのエクスポート
-2. CSVエクスポート（Campaign、Segment、Canvasのユーザーデータをダッシュボード経由でエクスポート）
+1. APIを通じたセグメントのエクスポート
+2. CSVエクスポート（Campaign、セグメント、Canvasのユーザーデータをダッシュボード経由でエクスポート）
 3. エンゲージメントレポート
 
 Brazeで**パートナー連携** > **テクノロジーパートナー** > **Microsoft Azure**に移動し、接続文字列、Azureストレージコンテナー名、Azureストレージ接頭辞を入力します。

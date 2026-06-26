@@ -62,7 +62,7 @@ Die von Ihnen gewählte Abo-Gruppe bestimmt, welche Nachrichtentypen im Composer
 | Nur SMS | SMS |
 | SMS mit MMS-fähigen Nummern | SMS und MMS |
 | RCS-fähig (mit RCS-verifiziertem Sender) | SMS, MMS (falls aktiviert) und RCS |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Wählen Sie eine Abo-Gruppe" }
 
 {% alert tip %}
 Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback umfasst. So wird sichergestellt, dass die Nachricht Ihre Nutzer:innen auch dann per SMS erreicht, wenn eine RCS-Nachricht nicht zugestellt werden kann (z. B. aufgrund von Geräteinkompatibilität oder unvollständiger Carrier-Abdeckung).
@@ -108,7 +108,7 @@ Geben Sie Ihren Nachrichtentext ein und laden Sie dann ein PNG-, JPEG- oder GIF-
 | --- | --- |
 | Größe | Bis zu 600&nbsp;KB |
 | Dateitypen | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bildspezifikationen" }
 
 ### Kontaktkarten {#contact-cards}
 
@@ -177,7 +177,7 @@ RCS-Mediennachrichten ermöglichen es Ihnen, ansprechende Medienformate zu verwe
 | Bild | Unterstützte Formate: JPG, JPEG, GIF |
 | Video | Unterstützte Formate: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Dokument | Unterstütztes Format: PDF |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dateispezifikationen" }
 
 **Hinweise:**
 
@@ -205,7 +205,7 @@ Wenn Sie Liquid verwenden möchten, stellen Sie sicher, dass Sie einen Standardw
 
 #### KI-generierten Text erstellen {#generating-ai-copy}
 
-Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnlichen Marketingtext zur Verwendung in Ihrem Messaging.
+Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnlichen Marketingtext zur Verwendung in Ihrem Messaging.
 
 ![Button „KI-Textassistent starten“ im Nachrichtenfeld des SMS-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 
@@ -263,7 +263,7 @@ Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}
 
 Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools zum Erstellen Ihrer Nachricht.
 
-#### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
 Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -271,7 +271,7 @@ Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruh
 
 In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktiviert werden sollen.
 
-#### Zielgruppe zusammenstellen {#choose-users-to-target}
+### Zielgruppe zusammenstellen {#choose-users-to-target}
 
 Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe gewählt haben, die Nutzer:innen nach dem Grad oder der Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
@@ -283,7 +283,7 @@ Wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen Sie dieses 
 Interessiert an Retargeting? Weitere Informationen finden Sie unter [Nutzer-Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/).
 {% endalert %}
 
-#### Konversions-Events wählen {#choose-conversion-events}
+### Konversions-Events wählen {#choose-conversion-events}
 
 Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 

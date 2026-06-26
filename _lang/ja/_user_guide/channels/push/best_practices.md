@@ -30,7 +30,7 @@ channel: push
 | Android | 3,930バイト |
 | iOS | 3,960バイト |
 | Kindle | 5,985バイト |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュ通知のペイロードサイズを削減する" }
 
 プッシュが最大ペイロードサイズを超えると、メッセージが送信されない場合があります。ベストプラクティスとして、ペイロードは数百バイト以内に収めてください。
 
@@ -69,13 +69,13 @@ Brazeは連携と分析の目的でプッシュペイロードの一部を予約
 
 ### 関連するユーザーデータを収集する {#collect-relevant-user-data}
 
-プッシュ通知は、タイムリーで関連性の高い通知でユーザーをターゲティングするために慎重に扱う必要があります。Brazeは、関連するセグメントをターゲティングするために使用できる有用なデバイスおよび使用状況の情報を収集します。この情報は、アプリ固有のカスタムイベントや属性で補完する必要があります。そのデータを使用して、メッセージを慎重にターゲティングし、開封率を向上させ、ユーザーがプッシュを無効にするケースを減らすことができます。
+プッシュ通知は、タイムリーで関連性の高い通知でユーザーをターゲティングするために慎重に扱う必要があります。Brazeは、関連するSegmentsをターゲティングするために使用できる有用なデバイスおよび使用状況の情報を収集します。この情報は、アプリ固有のカスタムイベントやカスタム属性で補完する必要があります。そのデータを使用して、メッセージを慎重にターゲティングし、開封率を向上させ、ユーザーがプッシュを無効にするケースを減らすことができます。
 
 ### 通知設定ページを作成する {#create-a-notification-settings-page}
 
 アプリ内に設定ページを作成して、ユーザーが受信したい通知を選択できるようにすることができます。一般的なアプローチは、アプリの設定ステータスに対応するブール値のカスタム属性をBrazeで作成することです。たとえば、ニュースアプリでは、速報、スポーツニュース、政治に関するサブスクリプション設定を用意できます。
 
-ニュースアプリが政治に関心のあるユーザーのみをターゲットにしたキャンペーンを作成する場合、セグメントに`Subscribes to Politics`属性フィルターを追加します。trueに設定すると、通知を購読しているユーザーのみが通知を受信します。
+ニュースアプリが政治に関心のあるユーザーのみをターゲットにしたCampaignを作成する場合、セグメントに`Subscribes to Politics`属性フィルターを追加します。trueに設定すると、通知を購読しているユーザーのみが通知を受信します。
 
 カスタム属性の設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)、[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes)、または[REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification)の記事を参照してください。
 
@@ -99,7 +99,7 @@ Android 13以降では、プッシュ通知を表示する前に許可を取得�
 
 オーディエンスのサイズやプッシュメッセージのスケジュールがどれだけ前に設定されているかによって、プッシュ配信に遅延が発生する場合があります。プッシュの送信にかかる時間は、割り当てられた処理能力に依存します。たとえば、プッシュメッセージが複数のコネクテッドコンテンツ呼び出しを使用している場合、プッシュメッセージのテンプレート処理の複雑さが増し、サードパーティAPIがデータを返す速度によって速度が制限される可能性があります。
 
-ペイロードを小さくし、通知の優先度を高くすることで、遅延を減らしメッセージをスケールできます。オーディエンスフィルターに`Push Enabled = true`を追加して、プッシュ有効なユーザーのみがキャンペーン送信の処理対象となるようにオーディエンスサイズを削減できます。
+ペイロードを小さくし、通知の優先度を高くすることで、遅延を減らしメッセージをスケールできます。オーディエンスフィルターに`Push Enabled = true`を追加して、プッシュ有効なユーザーのみがCampaign送信の処理対象となるようにオーディエンスサイズを削減できます。
 
 また、データの最適化によってAPI呼び出しの数を最小限に抑えることも推奨します。可能であれば、複数の呼び出しを行うのではなく、1回のAPI呼び出しで必要なすべてのデータを取得するようにしてください。
 
@@ -126,7 +126,7 @@ Android 13以降では、プッシュ通知を表示する前に許可を取得�
 
 ## アプリ開封のコンバージョンイベントを設定する {#set-conversion-events-for-app-opens}
 
-プッシュキャンペーンに[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を割り当てると、キャンペーンの受信後一定期間のアプリ開封を追跡できます。アプリ開封のコンバージョンイベントを設定すると、プッシュキャンペーン後に通常受け取る結果統計とは異なるインサイトが得られます。
+プッシュキャンペーンに[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を割り当てると、Campaignの受信後一定期間のアプリ開封を追跡できます。アプリ開封のコンバージョンイベントを設定すると、プッシュキャンペーン後に通常受け取る結果統計とは異なるインサイトが得られます。
 
 すべてのプッシュキャンペーンの結果はメッセージの直接開封数と開封数（直接開封と[インフルエンス開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)の両方を含む）を分類しますが、コンバージョントラッキングは直接開封かインフルエンス開封かを問わず、あらゆる種類の開封を追跡します。
 
@@ -143,12 +143,12 @@ Android 13以降では、プッシュ通知を表示する前に許可を取得�
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) 許容されないもの：(i) App Storeに類似した、またはサードパーティのアプリ、拡張機能、プラグインを表示するための一般的な関心のコレクションとしてのインターフェイスの作成。 |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) プッシュ通知はアプリの機能に必須であってはならず、機密性の高い個人情報や秘密情報の送信に使用してはなりません。プッシュ通知は、アプリのUIに表示される同意文言を通じて顧客が明示的にオプトインし、アプリ内でそのようなメッセージの受信をオプトアウトする方法を提供しない限り、プロモーションやダイレクトマーケティングの目的で使用してはなりません。 |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) プッシュ通知、カメラ、ジャイロスコープなどのハードウェアやオペレーティングシステムが提供する組み込み機能、またはApple Musicアクセス、iCloudストレージ、Screen Time APIなどのAppleのサービスやテクノロジーを収益化してはなりません。 |
-{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
+{: .reset-td-br-1 aria-label="アプリ向けモバイルプッシュの規制" }
 
 | Google Playストアポリシー |
 | --- |
 | [システム機能の不正使用または模倣](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) 通知や警告などのシステム機能を模倣または妨害するアプリや広告は許可されません。システムレベルの通知は、航空会社アプリが特別セールをユーザーに通知する場合や、ゲームがゲーム内プロモーションをユーザーに通知する場合など、アプリの不可欠な機能にのみ使用できます。 |
-{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
+{: .reset-td-br-1 aria-label="アプリ向けモバイルプッシュの規制" }
 
 ## 関連記事 {#related-articles}
 

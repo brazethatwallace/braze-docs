@@ -89,7 +89,6 @@ Los administradores tienen acceso a todas las funciones y la posibilidad de modi
 
 Para conceder o eliminar privilegios de administrador, selecciona **Este usuario es un administrador** y luego selecciona **Actualizar usuario**.
 
-![Los detalles del usuario seleccionado con la casilla de verificación de administrador activada.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Si eliminas los privilegios de administrador de un usuario, este no podrá acceder a Braze hasta que le asignes al menos un [permiso a nivel de empresa o de espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).

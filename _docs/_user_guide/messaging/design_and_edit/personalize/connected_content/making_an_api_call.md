@@ -210,7 +210,6 @@ You can edit the credential name for authentication types.
 - For basic authentication, you can update the username and password. Note that the previously entered password will not be visible.
 - For token authentication, you can update the header key-value pairs and the allowed domain. Note that the previously set header values will not be visible.
 
-![The option to edit credentials.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
 ## Connected Content IP allowlisting
 

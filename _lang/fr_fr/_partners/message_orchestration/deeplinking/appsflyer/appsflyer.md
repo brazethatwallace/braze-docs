@@ -219,7 +219,7 @@ AppsFlyer [propose des conseils](https://support.appsflyer.com/hc/en-us/articles
 
 ## Étape 5 : Confirmer que le suivi des clics SSL est activé avec Braze {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-À ce stade, après avoir partagé et validé les détails du CTD dans AppsFlyer, nous vous recommandons d'effectuer un envoi test pour confirmer que votre domaine d'envoi OneLink dispose d'un certificat SSL. Ceci est conforme à notre guide de [configuration de l'e-mail](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
+À ce stade, après avoir partagé et validé les détails du CTD dans AppsFlyer, nous vous recommandons d'effectuer un envoi test pour confirmer que votre domaine d'envoi OneLink dispose d'un certificat SSL. Ceci est conforme à notre guide de [configuration de l'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
 
 Vous pouvez procéder à l'assurance qualité et à la résolution des problèmes en envoyant un lien profond à l'aide de OneLink. Consultez la [documentation d'AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) pour plus de détails sur l'utilisation de OneLink.
 
@@ -233,9 +233,9 @@ Could you please enable SSL click tracking for CTD XXX? It is currently set to H
 
 ### URL de suivi de clics AppsFlyer dans Braze (facultatif) {#appsflyer-click-tracking-urls-in-braze-optional}
 
-Vous pouvez utiliser les [liens d'attribution OneLink](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) d'AppsFlyer dans les Campaigns Braze sur les notifications push, les e-mails, et plus encore. Cela vous permet de renvoyer les données d'attribution d'installation ou de réengagement de vos Campaigns Braze dans AppsFlyer. Vous pouvez ainsi mesurer plus efficacement vos efforts marketing et prendre des décisions fondées sur les données.
+Vous pouvez utiliser les [liens d'attribution OneLink](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) d'AppsFlyer dans les campagnes Braze sur les notifications push, les e-mails, et plus encore. Cela vous permet de renvoyer les données d'attribution d'installation ou de réengagement de vos campagnes Braze dans AppsFlyer. Vous pouvez ainsi mesurer plus efficacement vos efforts marketing et prendre des décisions fondées sur les données.
 
-Il vous suffit de créer votre URL de suivi OneLink dans AppsFlyer et de l'insérer directement dans vos Campaigns Braze. AppsFlyer utilise ensuite ses [méthodologies d'attribution probabiliste](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous recommandons d'ajouter un identifiant d'appareil à vos liens de suivi AppsFlyer pour améliorer la précision des attributions de vos Campaigns Braze. Cela permet d'attribuer de manière déterministe l'utilisateur qui a cliqué sur le lien.
+Il vous suffit de créer votre URL de suivi OneLink dans AppsFlyer et de l'insérer directement dans vos campagnes Braze. AppsFlyer utilise ensuite ses [méthodologies d'attribution probabiliste](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous recommandons d'ajouter un identifiant d'appareil à vos liens de suivi AppsFlyer pour améliorer la précision des attributions de vos campagnes Braze. Cela permet d'attribuer de manière déterministe l'utilisateur qui a cliqué sur le lien.
 
 {% tabs local %}
 {% tab Android %}

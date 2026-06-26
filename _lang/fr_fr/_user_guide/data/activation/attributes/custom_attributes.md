@@ -30,7 +30,7 @@ Voici quelques cas d'utilisation courants des attributs personnalisés :
 - Stocker des données de profil plus riches sous forme d'[objets]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/) ou de [tableaux d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/), comme des préférences structurées ou plusieurs adresses enregistrées
 - Déclencher des messages basés sur des actions lorsqu'une valeur d'attribut change à l'aide de [déclencheurs d'attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/), par exemple en envoyant une notification de montée en niveau lorsque l'attribut `rewards_tier` d'un utilisateur change
 
-## Gestion des attributs personnalisés {#managing-custom-attributes}
+## Gérer les attributs personnalisés {#managing-custom-attributes}
 
 Pour créer et gérer des attributs personnalisés dans le tableau de bord, accédez à **Paramètres des données** > **Attributs personnalisés**.
 
@@ -64,7 +64,7 @@ Les administrateurs peuvent également créer des attributs personnalisés et le
 
 ### Ajouter des descriptions {#add-descriptions}
 
-Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Edit description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
+Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Sélectionnez **Modifier la description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
 
 ### Ajouter des étiquettes {#add-tags}
 
@@ -79,7 +79,7 @@ Il existe deux façons de supprimer des attributs personnalisés des profils uti
 
 ### Exporter les données {#export-data}
 
-Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
+Pour exporter la liste des attributs personnalisés sous forme de fichier CSV, sélectionnez **Tout exporter** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
 
 ## Modifier le type d'un attribut personnalisé {#change-custom-attribute-type}
 
@@ -105,13 +105,13 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 
 Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
-Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des attributs personnalisés, puis en sélectionnant **View usage report**.
+Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des attributs personnalisés, puis en sélectionnant **Consulter le rapport d'utilisation**.
 
 ### Onglet Valeurs {#values-tab}
 
-Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Values** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Values** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
+Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Valeurs** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
 
-![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Values » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Valeurs » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## Définir des attributs personnalisés {#set-custom-attributes}
 
@@ -134,3 +134,19 @@ Voici les méthodes utilisées sur les différentes plateformes pour définir de
 Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_archival/#active-users).
 
 Pour une référence complète de tous les types de données pouvant être stockés en tant qu'attributs personnalisés — y compris les valeurs booléennes, les nombres, les chaînes de caractères, les tableaux, les dates, les objets et les tableaux d'objets — consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+
+### Chaînes vides et valeurs null {#blank-strings-versus-null-values}
+
+Lors de la suppression ou de la réinitialisation d'un attribut personnalisé, le comportement diffère selon que vous transmettez une chaîne vide (`""`) ou `null` :
+
+| Valeur | Comportement |
+| --- | --- |
+| `""` (chaîne vide) | L'attribut est défini sur une valeur vide et reste visible sur le profil utilisateur. |
+| `null` | L'attribut est entièrement supprimé du profil utilisateur. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes vides et valeurs null" }
+
+{% alert important %}
+Pour les types de données non-chaîne dont le type est défini manuellement dans le tableau de bord de Braze (et non détecté automatiquement), vous devez utiliser `null` pour réinitialiser la valeur. Transmettre `""` n'est valide que pour les attributs de type chaîne de caractères — par exemple, définir un attribut booléen sur `""` est traité comme une chaîne vide, ce qui est une valeur invalide pour ce type. Pour réinitialiser un booléen, transmettez `null`.
+
+Notez que l'import CSV ne prend pas en charge `null` — les valeurs booléennes dans les imports CSV doivent être `TRUE` ou `FALSE`.
+{% endalert %}

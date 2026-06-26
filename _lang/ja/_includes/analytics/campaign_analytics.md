@@ -66,7 +66,7 @@ WhatsAppチャネルには既読率が含まれます。この指標は既読通
 
 Canvasでは、作成したCanvasにアプリ内メッセージのパフォーマンスがマッピングされます。ページ上部のコントロールパネルを使用して、他のメッセージングタイプ（チャネル）をクリアし、Canvas内のアプリ内メッセージのみを表示できます。
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![In-App Messageのチェックボックスが選択されたチャネル選択オプション。]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![キャンペーンの詳細セクション。]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -84,11 +84,11 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 
 | フッターラベル | 使用される場合 |
 | --- | --- |
-| **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはSegmentビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentでは、誤差が生じることがあります。 |
+| **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはセグメントビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentでは、誤差が生じることがあります。 |
 | **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="推定オーディエンスと現在のオーディエンス" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
-サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
+サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
 {% if include.channel == "Content Card" %}
 
@@ -257,8 +257,8 @@ The **Message Performance** panel outlines how well your message has performed a
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">このカウントは、</span>ユーザーがコンテンツカードを2回目に閲覧しても増加しません。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> ユーザーは毎日ユニーク受信者になり得るため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> ユーザーは毎日ユニークデイリーインプレッションを持つことができるため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -275,11 +275,11 @@ The **Message Performance** panel outlines how well your message has performed a
 インプレッションの記録方法については、Web、Android、iOSで若干のニュアンスの違いがあります。一般的にBrazeは、ユーザーがフィード内の特定のコンテンツカードまでスクロールした後、カードが表示されたときにインプレッションを記録します。
 {% endalert %}
 
-#### ユニーク受信者数とユニークインプレッション数 {#unique-recipients-versus-unique-impressions}
+#### ユニークデイリーインプレッションとユニークインプレッション {#unique-daily-impressions-versus-unique-impressions}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Recipients_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Daily Impressions_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日コンテンツカードを閲覧し、翌日に同じキャンペーンから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Recipient_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
+例えば、今日コンテンツカードを閲覧し、翌日に同じキャンペーンから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Daily Impression_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
 
 別の例として、15万件の_Messages Sent_を示すContent Cardsキャンペーンで5件の_Unique Impressions_があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
 
@@ -287,7 +287,7 @@ The **Message Performance** panel outlines how well your message has performed a
 2. Content Cardsビューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-_Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は実際に閲覧されたContent Cardsを指します。
+_Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Daily Impressions_は実際に閲覧されたContent Cardsを指します。
 
 {% elsif include.channel == "banner" %}
 
@@ -337,8 +337,8 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> 閲覧者は毎日ユニーク受信者になり得るため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> 閲覧者は毎日ユニークデイリーインプレッションを持つことができるため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -353,9 +353,9 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
 
 #### バナー指標の計算例 {#banner-metrics-calculation-examples}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Recipients_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Daily Impressions_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、_Unique Recipient_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。
+例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、_Unique Daily Impression_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。
 
 別の例として、バナーキャンペーンで5件の_Unique Impressions_があるとします。これは、以下のすべてのステップを実行したユーザーのデバイスがわずか5台だったことを意味します：
 
@@ -363,7 +363,7 @@ _Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は
 2. バナービューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-_Unique Recipients_は、実際に閲覧されたバナーを指します。
+_Unique Daily Impressions_は、実際に閲覧されたバナーを指します。
 
 {% elsif include.channel == "email" %}
 
@@ -389,7 +389,7 @@ _Unique Recipients_は、実際に閲覧されたバナーを指します。
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する配信停止リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する配信停止リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
             </td>
         </tr>
         <tr>
@@ -487,7 +487,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 *延期*は*ソフトバウンス*とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたキャンペーンごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のキャンペーン送信に対して複数のソフトバウンスとしてカウントされていました。
 
-*延期*は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQL Segment、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやCanvas分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)してください。
+*延期*は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやCanvas分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal/)してください。
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 
@@ -596,6 +596,10 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 分析に表示される主なKakaoTalk指標をいくつか紹介します。詳細については、[レポート指標用語集]({{site.baseurl}}/user_guide/data/report_metrics/)を参照してください。
 
+{% alert note %}
+現在、KakaoTalkキャンペーンでは推定または正確なオーディエンス統計は利用できません。
+{% endalert %}
+
 | 用語 | 定義 |
 | --- | --- |
 | オーディエンス | *オーディエンス*は、特定のメッセージを受信したユーザーの割合です。<br><br>*（バリアント内の受信者数）/（ユニーク受信者数）* |
@@ -649,17 +653,17 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 プッシュ通知の配信停止はキャンペーン分析の指標に含まれておらず、AppleやGoogleなどのプロバイダーによるユーザーのプッシュステータスの更新に依存します。これらの更新は頻度が低く、予測不可能な場合があります。そのため、プッシュの配信停止はプッシュキャンペーン分析の指標として含まれていません。
 
-ただし、手動でプッシュの配信停止を追跡することで、通知の頻度やコンテンツの関連性に対するユーザーの反応について貴重なインサイトを得ることができます。プッシュの配信停止を追跡する方法は2つあります：Segmentフィルターまたはカスタムフィルターを使用する方法です。
+ただし、手動でプッシュの配信停止を追跡することで、通知の頻度やコンテンツの関連性に対するユーザーの反応について貴重なインサイトを得ることができます。プッシュの配信停止を追跡する方法は2つあります：セグメントフィルターまたはカスタムフィルターを使用する方法です。
 
 {% tabs local %}
-{% tab Segmentフィルター %}
+{% tab セグメントフィルター %}
 
 プッシュが有効になっていないユーザー、つまりサブスクライブまたはオプトインしておらず、[フォアグラウンドプッシュトークン]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens)を持っていないユーザーを識別するSegmentを作成できます。例えば、アプリ内の配信停止数を確認するには、以下のSegmentを「OR」条件で組み合わせます：
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
 
-![アプリに対する「Background or Foreground Push Enabled」フィルターがfalseであり、「Has Uninstalled」フィルターが選択されているSegmentビルダーセクション。]({% image_buster /assets/img/push_unsub_segment_example.png %})
+![アプリに対する「Background or Foreground Push Enabled」フィルターがfalseであり、「Has Uninstalled」フィルターが選択されているセグメントビルダーセクション。]({% image_buster /assets/img/push_unsub_segment_example.png %})
 
 セグメンテーションフィルターはおおよその目安であり、特定の日付やキャンペーンに結びつけることはできません。
 
@@ -667,7 +671,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 {% tab カスタムフィルター %}
 
 {% alert important %}
-サブスクリプション変更のカスタムイベントをログに記録すると、[データポイント]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count)が消費されます。または、Segmentフィルターを使用して、プッシュが有効になっていないユーザーを識別し、ターゲットにしてください。
+サブスクリプション変更のカスタムイベントをログに記録すると、[データポイント]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count)が消費されます。または、セグメントフィルターを使用して、プッシュが有効になっていないユーザーを識別し、ターゲットにしてください。
 {% endalert %}
 
 別の回避策として、この指標を追跡するために、ユーザーのプッシュ有効ステータスが`true`か`false`かに基づいて、プッシュの配信停止のカスタムイベントを作成することもお勧めします。
@@ -720,7 +724,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 | アンインストールされたアプリケーション | メッセージがデバイスに配信されようとして、そのデバイスで対象のアプリがアンインストールされている場合、メッセージは破棄され、デバイスの登録IDは無効になります。今後そのデバイスにメッセージを送信しようとすると、NotRegisteredエラーが返されます。 |
 | バックアップされたアプリケーション | アプリケーションがバックアップされると、アプリケーションが復元される前に登録IDが無効になる可能性があります。この場合、FCMはアプリケーションの登録IDを保存しなくなり、アプリケーションはメッセージを受信しなくなります。そのため、アプリケーションのバックアップ時に登録IDを保存すべきでは**ありません**。 |
 | 更新されたアプリケーション | アプリケーションが更新されると、以前のバージョンの登録IDが使えなくなることがあります。そのため、更新されたアプリケーションは既存の登録IDを置き換える必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="バウンスが発生する理由" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}

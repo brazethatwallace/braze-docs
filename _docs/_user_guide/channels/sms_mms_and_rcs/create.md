@@ -205,7 +205,7 @@ If you plan to use Liquid, be sure to include a default value for your chosen pe
 
 #### Generating AI copy
 
-Try using the [AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Input a product name or description, and the AI will generate human-like marketing copy for use in your messaging.
+Try using the [AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Input a product name or description, and the AI will generate human-like marketing copy for use in your messaging.
 
 ![Launch AI Copywriter button, located in the Message field of the SMS composer.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 
@@ -263,7 +263,7 @@ For more information, see [Send test messages]({{site.baseurl}}/user_guide/messa
 
 Next, build the remainder of your campaign. Refer to the following sections for further details on how to best use our tools to build your message.
 
-#### Choose delivery schedule or trigger
+### Choose delivery schedule or trigger
 
 Messages can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -271,7 +271,7 @@ For action-based delivery, you can also set the campaign's duration and [Quiet h
 
 This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
-#### Choose users to target
+### Choose users to target
 
 Next, [target users]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) by choosing segments or filters to narrow down your audience. You should have already chosen the subscription group, which narrows users by the level or category of communication they wish to have with you.
 
@@ -283,7 +283,7 @@ Select the larger audience from your segments, and narrow that segment further w
 Interested in retargeting? Refer to [User retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) to learn more.
 {% endalert %}
 
-#### Choose conversion events
+### Choose conversion events
 
 Braze allows you to track how often users perform specific actions, [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), after receiving a campaign. You have the option of allowing up to a 30-day window during which a conversion will be counted if the user takes the specified action.
 

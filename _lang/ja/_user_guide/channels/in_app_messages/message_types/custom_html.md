@@ -10,7 +10,7 @@ channel:
 
 # カスタムHTMLアプリ内メッセージ {#custom-html-messages}
 
-> 標準のアプリ内メッセージはさまざまな方法でカスタマイズできますが、HTML、CSS、JavaScriptを使用してデザイン・構築されたメッセージを使用することで、キャンペーンの外観と操作感をさらに細かくコントロールできます。シンプルな構成で、あらゆるニーズに合わせたカスタム機能やブランディングを実現できます。
+> 標準のアプリ内メッセージはさまざまな方法でカスタマイズできますが、HTML、CSS、JavaScriptを使用してデザイン・構築されたメッセージを使用することで、Campaignsの外観と操作感をさらに細かくコントロールできます。シンプルな構成で、あらゆるニーズに合わせたカスタム機能やブランディングを実現できます。
 
 このメッセージタイプは[従来のエディター]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)で利用できます。
 
@@ -101,13 +101,13 @@ BrazeにHTTPまたはHTTPSリンクをディープリンクとして処理させ
 このメッセージタイプは特定の新しいSDKバージョンでのみ受信できるため、サポートされていないSDKバージョンのユーザーにはメッセージが表示されません。ユーザー群の大部分がリーチ可能になった後にこのメッセージタイプを採用するか、アプリバージョンが要件を満たすユーザーのみをターゲットにすることを検討してください。[最新のアプリバージョンによるフィルタリング]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions)の詳細をご覧ください。
 {% endalert %}
 
-### キャンペーンの作成 {#instructions}
+### Campaignの作成 {#instructions}
 
-モバイルアプリのユーザーが**カスタムコード**のアプリ内メッセージを受信するには、サポートされているSDKバージョンにアップグレードする必要があります。新しいBraze SDKバージョンに依存するキャンペーンを開始する前に、[ユーザーにモバイルアプリのアップグレードを促す]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/)ことをお勧めします。
+モバイルアプリのユーザーが**カスタムコード**のアプリ内メッセージを受信するには、サポートされているSDKバージョンにアップグレードする必要があります。新しいBraze SDKバージョンに依存するCampaignsを開始する前に、[ユーザーにモバイルアプリのアップグレードを促す]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/)ことをお勧めします。
 
 #### アセットファイル {#asset-files}
 
-HTMLアップロードでカスタムコードのアプリ内メッセージを作成する際、キャンペーンアセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)にアップロードして、メッセージ内で参照できます。
+HTMLアップロードでカスタムコードのアプリ内メッセージを作成する際、Campaignアセットを[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)にアップロードして、メッセージ内で参照できます。
 
 以下のファイルタイプがアップロードに対応しています。
 
@@ -117,18 +117,18 @@ HTMLアップロードでカスタムコードのアプリ内メッセージを�
 | SVG画像 | `.svg` |
 | JavaScriptファイル | `.js` |
 | CSSファイル | `.css` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アセットファイル" }
 
 Brazeでは、以下の2つの理由からアセットをメディアライブラリにアップロードすることを推奨しています。
 
-1. メディアライブラリ経由でキャンペーンに追加されたアセットにより、ユーザーがオフラインの場合やインターネット接続が不安定な場合でもメッセージを表示できます。
-2. Brazeにアップロードされたアセットは、複数のキャンペーンで再利用できます。
+1. メディアライブラリ経由でCampaignに追加されたアセットにより、ユーザーがオフラインの場合やインターネット接続が不安定な場合でもメッセージを表示できます。
+2. Brazeにアップロードされたアセットは、複数のCampaignsで再利用できます。
 
 ##### アセットファイルの追加 {#adding-asset-files}
 
-キャンペーンに新規または既存のアセットを追加できます。
+Campaignに新規または既存のアセットを追加できます。
 
-キャンペーンに新しいアセットを追加するには、ドラッグ＆ドロップセクションを使用してファイルをアップロードします。このセクションで追加されたアセットは、メディアライブラリにも自動的に追加されます。メディアライブラリに既にアップロード済みのアセットを追加するには、**Add from Media Library**を選択します。
+Campaignに新しいアセットを追加するには、ドラッグ＆ドロップセクションを使用してファイルをアップロードします。このセクションで追加されたアセットは、メディアライブラリにも自動的に追加されます。メディアライブラリに既にアップロード済みのアセットを追加するには、**Add from Media Library**を選択します。
 
 アセットが追加されると、**Assets for this campaign**セクションに表示されます。
 
@@ -152,13 +152,25 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
 | ---------- | ---------------------------- |
 | Button 1   | `brazeBridge.logClick('0')` |
 | Button 2   | `brazeBridge.logClick('1')` |
-| Body click | `brazeBridge.logClick()` |
+| Body click | `brazeBridge.logClick()`    |
 | カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタントラッキング" }
 
 {% alert note %}
 このボタントラッキング方法は、以前の自動クリックトラッキング方法（`?abButtonId=0`など）に代わるもので、それらは削除されました。
 {% endalert %}
+
+トラッキング対象のボタンが3つ以上必要な場合は、プレビュー付きHTMLメッセージで[`brazeBridge.logClick(button_id)`](#button-tracking-improvements)を使用します。ボタン1とボタン2はそれぞれ`'0'`と`'1'`にマッピングされ、追加のボタンにはカスタムIDを使用します（Campaignあたり最大100個のユニークID）。ボタンIDの文字制限については、[ボタントラッキング](#button-tracking-improvements)を参照してください。
+
+### カスタムHTMLリンクと閉じる動作のトラブルシューティング {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### ボタンクリックでリンクが開かない {#button-clicks-do-not-open-the-link}
+
+カスタムHTMLアプリ内メッセージのボタンがクリックしても読み込まれない場合は、リンクが有効なURLまたはサポートされているディープリンクスキームを使用しているか確認してください。不正なURLやサポートされていないカスタムスキームは、クリックアクションの完了を妨げる可能性があります。
+
+#### メッセージを閉じる際のボディクリック {#body-clicks-when-closing-the-message}
+
+`brazeBridge.closeMessage()`を呼び出すとメッセージは閉じられますが、それ自体では分析を記録しません。ユーザーがメッセージを閉じる際にボディクリックを記録するには、`brazeBridge.closeMessage()`の前に`brazeBridge.logClick()`を呼び出して、プラットフォーム間でクリックログの一貫性を保ちます。
 
 ### 後方互換性のない変更 {#backward-incompatible-changes}
 
@@ -172,4 +184,4 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="後方互換性のない変更" }

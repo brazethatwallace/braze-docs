@@ -90,8 +90,8 @@ GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more fr
 {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 {% alert important %}
-Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
+Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
 {% endalert %}
 
-If you don't see **AI Image Generator** on the **Media Library** page, confirm you have **Edit Media Library Assets** permission. If the option is still missing, contact your Braze customer team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/#ai-policy).
+If you don't see **AI Image Generator** on the **Media Library** page, confirm you have **Edit Media Library Assets** permission. If the option is still missing, contact your Braze customer team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#ai-policy).
 

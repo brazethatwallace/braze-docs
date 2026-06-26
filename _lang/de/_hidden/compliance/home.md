@@ -102,7 +102,7 @@ Die folgenden zusätzlichen Bedingungen gelten für die Nutzung des WhatsApp-Kan
 
 ### Geltende Drittanbieter-Bedingungen {#applicable-third-party-provider-terms}
 
-Die Kund:innen müssen alle Voraussetzungen, Bedingungen und Richtlinien einhalten, die für den WhatsApp-Kanal gelten, einschließlich aller von WhatsApp, LLC und den mit ihr verbundenen Unternehmen geforderten Bedingungen, wie auf der Braze-Seite zur [WhatsApp-Einrichtung](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) beschrieben.
+Die Kund:innen müssen alle Voraussetzungen, Bedingungen und Richtlinien einhalten, die für den WhatsApp-Kanal gelten, einschließlich aller von WhatsApp, LLC und den mit ihr verbundenen Unternehmen geforderten Bedingungen, wie auf der Braze-Seite zur [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) beschrieben.
 
 ### Ausnahme für die Webhook-Nutzung
 

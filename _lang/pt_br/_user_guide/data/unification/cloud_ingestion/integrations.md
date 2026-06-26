@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.1: Preparar a tabela" }
 
 Você pode nomear o projeto, o conjunto de dados e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.1: Preparar a tabela" }
 
 Você pode nomear o esquema e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -596,7 +596,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -629,7 +629,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -660,7 +660,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -692,7 +692,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -725,7 +725,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 {% endtabs %}

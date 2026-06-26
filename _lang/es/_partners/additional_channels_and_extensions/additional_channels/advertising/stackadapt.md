@@ -27,9 +27,9 @@ La integración de Braze y StackAdapt te permite sincronizar los datos de perfil
 | Requisito | Descripción |
 | ----------- | ------------------- |
 | **Cuenta de StackAdapt** | Necesitas una cuenta de StackAdapt activa con permisos para gestionar las integraciones de Data Hub. |
-| **Clave de API REST de Braze** | Una clave de API REST de Braze con los siguientes permisos: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys.** |
-| **Punto de conexión REST de Braze** | [La URL de tu punto de conexión REST](https://www.braze.com/docs/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Clave de API REST de Braze** | Una clave de API REST de Braze con los siguientes permisos: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API.** |
+| **Punto de conexión REST de Braze** | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Cómo funciona {#how-it-works}
 
@@ -90,8 +90,8 @@ Sigue estos pasos para importar tus perfiles de usuario de Braze:
 2. En el menú de navegación, selecciona **Data Hub**.
 3. Selecciona **Import Profiles** y, a continuación, selecciona **Braze** en la lista de integraciones disponibles.
 4. Introduce tus credenciales de la API de Braze cuando se te solicite.
-- **Braze REST API Key:** Se encuentra en Braze yendo a **Settings** > **API Keys**. Como práctica recomendada de seguridad, recomendamos crear una clave de API dedicada para tu integración con StackAdapt.
-- **Braze App Key:** Se encuentra en Braze yendo a **Settings** > **API Keys** o **Manage Apps**.
+- **Braze REST API Key:** Se encuentra en Braze yendo a **Configuración** > **Claves de API**. Como práctica recomendada de seguridad, recomendamos crear una clave de API dedicada para tu integración con StackAdapt.
+- **Braze App Key:** Se encuentra en Braze yendo a **Configuración** > **Claves de API** o **Manage Apps**.
 - **Braze REST Endpoint URL:** La URL base de tu instancia de Braze (por ejemplo, `https://rest.iad-01.braze.com`).
 5. Selecciona **Connect** para verificar las credenciales.
 
@@ -102,7 +102,7 @@ Sigue estos pasos para importar tus perfiles de usuario de Braze:
 7. Configura tus **Property Mappings**. Revisa y confirma los mapeados predeterminados y las propiedades preseleccionadas que StackAdapt sugiere.
 8. (Opcional) Si quieres importar propiedades adicionales, selecciónalas marcando las casillas respectivas y especifica si contienen PII y su tipo de datos.
 
-![Conexión de Braze en StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_mappings.png %})
+![Mapeados de propiedades de Braze en StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_mappings.png %})
 
 {: start="9"}
 9. Añade tus perfiles a una **List** o crea una nueva para poder agrupar y segmentar tus perfiles.

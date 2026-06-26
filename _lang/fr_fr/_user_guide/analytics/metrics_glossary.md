@@ -118,7 +118,7 @@ In-App Message
 In-App Message
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Button 1 Clicks' %} Le suivi des _Button 1 Clicks_ ne fonctionne que si vous spécifiez l'**Identifier for Reporting** comme « 0 » dans le message in-app.
+{% multi_lang_include analytics/metrics.md metric='Button 1 Clicks' %} Le suivi des _clics sur le bouton 1_ ne fonctionne que si vous spécifiez l'**Identifier for Reporting** comme « 0 » dans le message in-app.
 
 <span class="calculation-line">Calcul : (Clics sur le bouton 1) / (Impressions)</span>
 
@@ -132,7 +132,7 @@ In-App Message
 In-App Message
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Button 2 Clicks' %} Le suivi des _Button 2 Clicks_ ne fonctionne que si vous spécifiez l'**Identifier for Reporting** comme « 1 » dans le message in-app.
+{% multi_lang_include analytics/metrics.md metric='Button 2 Clicks' %} Le suivi des _clics sur le bouton 2_ ne fonctionne que si vous spécifiez l'**Identifier for Reporting** comme « 1 » dans le message in-app.
 
 <span class="calculation-line">Calcul : (Clics sur le bouton 2) / (Impressions)</span>
 
@@ -653,8 +653,8 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 <span class="calculation-line">
     Calcul :
     <ul>
-        <li><i>Primary Conversions (A) ou Primary Conversion Event</i> : Nombre</li>
-        <li><i>% de Primary Conversions (A)</i> ou <i>Primary Conversion Event Rate</i> : (Conversions principales) / (Destinataires uniques)</li>
+        <li><i>Conversions principales (A) ou événement de conversion principal</i> : Nombre</li>
+        <li><i>% de conversions principales (A)</i> ou <i>taux de l'événement de conversion principal</i> : (Conversions principales) / (Destinataires uniques)</li>
     </ul>
 </span>
 {:/}
@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Fermetures totales {#total-dismissals}
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Si un utilisateur reçoit deux cartes différentes de la même campagne et ferme les deux, ce compteur augmentera de deux. La rééligibilité vous permet d'incrémenter les *fermetures totales* une fois à chaque fois qu'un utilisateur reçoit une carte ; chaque carte est un message différent.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} Pour les Content Cards, si un utilisateur reçoit deux cartes différentes de la même campagne et ferme les deux, ce compteur augmentera de deux. La rééligibilité vous permet d'incrémenter les *fermetures totales* une fois à chaque fois qu'un utilisateur reçoit une carte ; chaque carte est un message différent. Pour les bannières, chaque fermeture est comptabilisée lorsque le comportement de fermeture est activé.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1049,6 +1049,22 @@ Content Cards
 
 {% api %}
 
+## Impressions quotidiennes uniques {#unique-daily-impressions}
+
+{% apitags %}
+Content Cards, Banners
+{% endapitags %}
+
+{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %}
+
+Ce nombre est reçu de Braze et est basé sur le `user_id`. Les impressions quotidiennes uniques sont comptabilisées au niveau de la campagne ou de l'étape du Canvas.
+
+<span class="calculation-line">Calcul : Nombre</span>
+
+{% endapi %}
+
+{% api %}
+
 ## Impressions uniques {#unique-impressions}
 
 {% apitags %}
@@ -1100,12 +1116,12 @@ Email, LINE
 ## Destinataires uniques {#unique-recipients}
 
 {% apitags %}
-All
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Étant donné qu'un lecteur peut être un destinataire unique chaque jour, vous devez vous attendre à ce que ce nombre soit supérieur aux <i>impressions uniques</i>. Pour les Content Cards, chaque Content Card ne peut être reçue qu'une seule fois, donc consulter la même Content Card une deuxième fois, quel que soit le jour, n'incrémentera pas ce compteur.<br><br>Ce nombre est reçu de Braze et est basé sur le `user_id`. Les destinataires uniques sont comptabilisés au niveau de la campagne ou de l'étape du Canvas, et non au niveau de l'<a href='https://braze.com/docs/api/identifier_types/#send-identifier'>identifiant d'envoi</a>.
+Étant donné qu'un lecteur peut être un destinataire unique chaque jour, vous devez vous attendre à ce que ce nombre soit supérieur aux <i>impressions uniques</i>. Ce nombre est reçu de Braze et est basé sur le `user_id`. Les destinataires uniques sont comptabilisés au niveau de la campagne ou de l'étape du Canvas, et non au niveau de l'<a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identifiant d'envoi</a>.
 
 <span class="calculation-line">Calcul : Nombre</span>
 

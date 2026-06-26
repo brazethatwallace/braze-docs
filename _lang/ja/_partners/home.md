@@ -1,7 +1,7 @@
 ---
 page_order: 0
 article_title: テクノロジーパートナー
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 

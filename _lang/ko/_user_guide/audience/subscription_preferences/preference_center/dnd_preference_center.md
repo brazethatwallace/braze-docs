@@ -23,7 +23,6 @@ page_order: 2
 
 여기에 커스텀 환경설정 센터 목록이 표시됩니다. **새로 만들기**를 선택하여 새 환경설정 센터를 만들거나, 기존 환경설정 센터의 이름을 선택하여 변경합니다.
 
-![이름, 설명, 유형, 상태, 마지막 수정일, 생성자가 포함된 커스텀 환경설정 센터 목록.]({% image_buster /assets/img/preference_center/preference_center1.png %})
 
 ## 2단계: 이메일 환경설정 센터 이름 지정 {#step-2-name-the-email-preference-center}
 
@@ -31,7 +30,6 @@ page_order: 2
 
 이 Liquid 태그는 모든 아웃바운드 이메일 Campaign 또는 캔버스 단계에 포함할 수 있으며, 사용자를 환경설정 센터로 안내합니다.
 
-![환경설정 센터의 Liquid 예시.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
 ## 3단계: 환경설정 센터에 구독 그룹 추가 {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -48,7 +46,6 @@ page_order: 2
 - **Subscribe to all** 체크박스 추가 또는 제거 - 이 블록에 표시된 모든 구독 그룹에 사용자를 구독시킵니다
 - **Unsubscribe from all** 체크박스 추가 또는 제거 - 이 블록에 표시된 모든 구독 그룹에서 사용자의 구독을 취소합니다
 
-![모든 메시지, 마케팅, 뉴스레터, 주간 이메일을 구독하거나 모두 구독 취소할 수 있는 옵션이 있는 환경설정 센터 예시.]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
 
 템플릿 하단의 **Unsubscribe from all** 버튼은 제거할 수 없으며, 사용자가 이메일 메시지 수신을 [글로벌 구독 취소]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states)하게 됩니다.
 

@@ -1,0 +1,1 @@
+Dans l'éditeur de [Transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation/), sélectionnez **Insérer le code** pour générer du code de transformation qui convertit le payload d'un webhook entrant en demandes d'API Braze valides.

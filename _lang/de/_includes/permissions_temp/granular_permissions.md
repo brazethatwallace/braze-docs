@@ -89,7 +89,6 @@ Admins haben Zugriff auf alle Features und können alle Unternehmenseinstellunge
 
 Um Admin-Rechte zu gewähren oder zu entfernen, wählen Sie **This user is an admin** und dann **Update user**.
 
-![Die Details der ausgewählten Nutzer:in mit dem Admin-Kontrollkästchen im Fokus.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Wenn Sie Nutzer:innen die Administratorrechte entziehen, können diese nicht mehr auf Braze zugreifen, bis Sie ihnen mindestens eine [Berechtigung auf Unternehmens- oder Workspace-Ebene]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions) zuweisen.

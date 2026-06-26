@@ -12,8 +12,8 @@ Braze .NET MAUI (Xamarin) SDKは、Brazeのメッセージング、分析、ユ�
 
 開始するには、以下のリソースを参照してください：
 
-- [Brazeユーザーガイド](https://www.braze.com/docs/user_guide/introduction/)
-- [Braze開発者ガイド](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=xamarin)
+- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction/)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=xamarin)
 
 ## コンポーネント {#components}
 
@@ -34,7 +34,7 @@ Braze .NET MAUI (Xamarin) SDKは、Brazeのメッセージング、分析、ユ�
 | `AppboyPlatform.XamarinAndroidBinding.sln` | Xamarin.Android、<br/>Xamarin.Forms、<br/>.NET 5以前 | Android SDK 23.3.0以前                       | 1.26.0以前         |
 | `BrazeiOSBinding.sln`                      | .NET 9+                                                   | Swift SDK 14.0.1+                                   | 9.0.0+                    |
 | `AppboyPlatformXamariniOSBinding.sln`      | Xamarin.iOS、<br/>Xamarin.Forms、<br/>.NET 5以前     | `Appboy_iOS_SDK.framework` バージョン4.4.1以前 | 1.27.0以前         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="ネイティブバインディング" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Native Bindings" }
 
 ### XamarinとXamarin.Forms {#xamarin-xamarinforms}
 

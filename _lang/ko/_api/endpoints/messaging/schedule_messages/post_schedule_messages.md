@@ -10,7 +10,7 @@ description: "이 문서에서는 예약된 메시지 만들기 Braze 엔드포�
 ---
 {% api %}
 # 예약된 메시지 만들기 {#create-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 
@@ -86,7 +86,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `recipient_subscription_state` | 선택 사항 | 문자열 | 이를 사용하여 수신 동의한 사용자(`opted_in`), 구독했거나 수신 동의한 사용자(`subscribed`) 또는 구독 취소한 사용자를 포함한 모든 사용자(`all`)에게만 메시지를 보낼 수 있습니다. <br><br>`all` 사용자를 사용하면 트랜잭션 이메일 메시징에 유용합니다. 기본값은 `subscribed`입니다. |
 | `schedule` | 필수 | 스케줄 오브젝트 | [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object/)를 참조하세요. |
 | `messages` | 선택 사항 | 메시징 오브젝트 | [사용 가능한 메시징 오브젝트]({{site.baseurl}}/api/objects_filters/#messaging-objects)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

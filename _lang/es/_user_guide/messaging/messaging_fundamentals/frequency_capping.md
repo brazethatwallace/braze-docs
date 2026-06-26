@@ -347,9 +347,9 @@ Los usuarios con limitación de frecuencia no generan un evento de envío para e
 
 ### ¿Por qué el dashboard muestra un error de límite de velocidad para mi campaña? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-Esto generalmente significa que el [límite de velocidad de entrega](#delivery-speed-rate-limiting) de la campaña está configurado más alto de lo que tu espacio de trabajo, proveedor o host de buzón puede absorber, por lo que los envíos se acumulan y Braze muestra una advertencia. Reduce el límite de velocidad de entrega de la campaña para que el rendimiento por minuto se mantenga dentro de lo que esos sistemas pueden manejar. También puedes establecer un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar un límite en todas las campañas.
+Esto generalmente significa que el [límite de velocidad de entrega](#delivery-speed-rate-limiting) de la campaña está configurado demasiado bajo para el tamaño de la audiencia, por lo que completar el envío tardaría más de la ventana permitida y Braze muestra una advertencia. Aumenta el límite de velocidad de entrega, reduce la audiencia o usa **Limit send volume** para que cada envío planificado se complete dentro de la ventana de envío permitida. También puedes establecer un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar un límite en todas las campañas.
 
-**Limit the number of people who will receive this campaign** controla cuántos usuarios son elegibles para un envío, no cuántos mensajes envía Braze por minuto. Solo un límite de velocidad de entrega establece el rendimiento por minuto.
+**Limit send volume** controla cuántos usuarios son elegibles para un envío, no cuántos mensajes envía Braze por minuto. Solo un límite de velocidad de entrega establece el rendimiento por minuto.
 
 ### ¿Qué significa "Enviado" para la limitación de frecuencia? {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +359,6 @@ En análisis y limitación de frecuencia, _Enviado_ se refiere a cuando Braze de
 
 Los mensajes de rebote y aplazamiento de correo electrónico usan muchos códigos diferentes y texto específico del proveedor. No trates un código en particular como señal de un problema de límite de velocidad, ya que la causa depende de tu contexto de envío y la retroalimentación del proveedor de buzón.
 
-Si los mensajes se aplazan temporalmente, enviar menos puede ayudar a corto plazo. Usa un [límite de velocidad de entrega](#delivery-speed-rate-limiting), **Limit the number of people who will receive this campaign**, o ambos.
+Si los mensajes se aplazan temporalmente, enviar menos puede ayudar a corto plazo. Usa un [límite de velocidad de entrega](#delivery-speed-rate-limiting), **Limit send volume**, o ambos.
 
 Para una solución a largo plazo, trabaja con un experto en capacidad de entrega para revisar tus datos de rebotes y aplazamientos.

@@ -6,11 +6,17 @@ page_type: reference
 description: "Learn how to use Winning Variant or Personalized Variant when creating multivariate and A/B tests."
 ---
 
-# Optimize A/B tests with Winning Variant or Personalized Variants
+# Optimize A/B tests
 
-> Learn how to use Winning Variant or Personalized Variant when creating multivariate and A/B tests.
+> Learn how to use variant optimization when creating multivariate and A/B tests.
 
-When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for email, push, webhook, SMS, and WhatsApp campaigns scheduled to send once, you can select an optimization. There are two optimization options: **Winning Variant** and **Personalized Variant**.
+
+## Push
+When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for push then there is one optimization option [BrazeAI™ Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/). It is a feature that enables your single send or recurring A/B tests to automatically run an experiment and optimize for the best engagement results.
+
+## Email, Webhook, SMS, and WhatsApp
+
+When [creating an A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) for email, webhook, SMS, and WhatsApp campaigns scheduled to send once, you can select an optimization between two optimization options: **Winning Variant** and **Personalized Variant**.
 
 ![Optimization options listed in the A/B Testing section when choosing your target audience. Three options are listed: No Optimization, Winning Variant, and Personalized Variant. Personalized Variant is selected.]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 
@@ -34,6 +40,10 @@ Sending the Winning Variant is similar to a standard A/B test. Users in this gro
 | If No Winning Variant Can Be Determined | What happens if no variant wins by a statistically significant margin. Choose between sending the best performing variant anyway, or ending the test and not sending any further messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Winning Variant" }
 
+{% alert note %}
+For Winning Variants and Personalized Variants, Braze runs an eligibility check again on the second send. Users who were not in the target segment (or otherwise not reachable) at the first send can enter later; users who left the segment may no longer receive the follow-up. Plan your segment and scheduling so the audience you intend to include is eligible at both sends.
+{% endalert %}
+
 ## Personalized Variant
 
 Use Personalized Variants to send each user in your target segment the variant they're most likely to engage with.
@@ -53,4 +63,3 @@ To determine the best variant for each user, Braze will send an initial test to 
 ## Analytics
 
 To learn about the results of your A/B test with an optimization, refer to [Multivariate and A/B test analytics]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/).
-

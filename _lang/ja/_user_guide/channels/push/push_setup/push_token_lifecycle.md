@@ -92,7 +92,7 @@ iOSでは、アプリがインストールされた際にプッシュトーク�
 Brazeでユーザーのプッシュサブスクリプション状態を確認するには、2つの方法があります。
 
 - **ユーザープロファイル**: Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)ページから個々のユーザープロファイルにアクセスできます。ユーザーのプロファイルを見つけたら（メールアドレス、電話番号、または外部ユーザーIDで検索）、**エンゲージメント**タブを選択して、ユーザーのサブスクリプション状態を確認および手動で調整できます。
-- **REST APIエクスポート**: エクスポートの[Segmentごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
+- **REST APIエクスポート**: エクスポートの[セグメントごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
 
 ### プッシュ登録ステータスの確認 {#checking-push-registration-status}
 

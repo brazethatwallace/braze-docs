@@ -102,7 +102,7 @@ Content Cardsの最大有効期限は30日間です。コンテキスト変数�
   <tr>
     <td class="leftHeader">使用するタイミング</td>
     <td class="tg-0pky">特定の時点（起動時）でコンテンツのスナップショットを取得する必要がある場合。</td>
-    <td class="tg-0pky"><ul><li>起動後にSegmentに入る可能性のある新規ユーザーや匿名ユーザーにカードを表示する必要がある場合（<a href="#campaign_note">Campaignのみ*</a>）。</li><li>パーソナライゼーションを使用しており、カードに最新のコンテンツを表示したい場合。</li></ul></td>
+    <td class="tg-0pky"><ul><li>起動後にセグメントに入る可能性のある新規ユーザーや匿名ユーザーにカードを表示する必要がある場合（<a href="#campaign_note">Campaignのみ*</a>）。</li><li>パーソナライゼーションを使用しており、カードに最新のコンテンツを表示したい場合。</li></ul></td>
   </tr>
   <tr>
     <td class="leftHeader">オーディエンス</td>
@@ -121,7 +121,7 @@ Content Cardsの最大有効期限は30日間です。コンテキスト変数�
   </tr>
   <tr>
     <td class="leftHeader">処理時間</td>
-  <td class="tg-0pky">Brazeは起動時にSegment内のすべての対象ユーザーに対してカードを作成します。大規模なオーディエンスの場合は、<b>At first impression</b>を選択すると、起動後にカードがより迅速に利用可能になります。</td>
+  <td class="tg-0pky">Brazeは起動時にセグメント内のすべての対象ユーザーに対してカードを作成します。大規模なオーディエンスの場合は、<b>At first impression</b>を選択すると、起動後にカードがより迅速に利用可能になります。</td>
   <td class="tg-0pky">Brazeはユーザーが初めてカードを表示しようとしたときにカードを作成するため、初回インプレッション時に表示されるまで1〜2秒かかる場合があります。</td>
   </tr>
 </tbody>

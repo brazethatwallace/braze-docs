@@ -77,6 +77,12 @@ Puedes añadir los siguientes bloques de formulario a los cuestionarios:
 - Casilla de verificación única
 - Grupo de casillas de verificación
 
+### Aleatorizar opciones de respuesta {#randomize-answer-choices}
+
+Los bloques de grupo de botones de opción, grupo de casillas de verificación y desplegable admiten opciones de respuesta aleatorizadas. Activa **Randomize choice order** para mezclar las opciones cada vez que se carga el cuestionario. Usa esta configuración para reducir el sesgo de orden cuando la misma primera opción podría distorsionar las respuestas.
+
+La aleatorización solo cambia el orden de visualización para cada encuestado. Las etiquetas y los valores de los informes permanecen asignados a las opciones que configuraste, por lo que los análisis, las exportaciones CSV y la segmentación utilizan los mismos datos de respuesta.
+
 ### Captura de texto largo {#long-text-capture}
 
 La captura de texto largo es útil para obtener comentarios cualitativos.
@@ -94,7 +100,7 @@ Durante el acceso anticipado, las respuestas de texto largo están disponibles e
 
 ## Configurar campos obligatorios y atributos {#configure-required-fields-and-attributes}
 
-Para cada bloque de formulario, introduce un **Identificador para informes** en el panel de configuración del lado derecho. Este identificador aparece en los informes de cuestionarios y en las exportaciones CSV.
+Para cada bloque de formulario, introduce un **Identifier for Reporting** en el panel de configuración del lado derecho. Este identificador aparece en los informes de cuestionarios y en las exportaciones CSV.
 
 Durante el acceso anticipado:
 
@@ -116,8 +122,6 @@ Después del lanzamiento, revisa los resultados en:
 - La pestaña **Responses** para cuestionarios de mensajes dentro de la aplicación
 - La vista de análisis de la página de inicio para cuestionarios de páginas de inicio
 {% endif %}
-
-![Pestaña de análisis de la página de inicio.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Los análisis de nivel superior incluyen:
 

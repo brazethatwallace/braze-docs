@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Duplicar campañas utilizando la API {#duplicate-campaigns-using-the-api}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ Para utilizar este punto de conexión, deberás generar una clave de API con el 
 
 ## Límite de velocidad {#rate-limit}
 
-Este punto de conexión está limitado a 100 llamadas API por minuto.
+Este punto de conexión está limitado a 100 llamadas a la API por minuto.
 
 ## Cuerpo de la solicitud {#request-body}
 

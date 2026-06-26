@@ -85,9 +85,9 @@ Le comportement au clic peut être remplacé si un élément spécifique (comme 
 
 #### Étape 3.3 : Configurer le comportement de fermeture (facultatif) {#dismiss-behavior}
 
-Cochez la case **Banner can be dismissed** dans la section **Dismiss Behavior** pour permettre aux utilisateurs de fermer la bannière. Cette option est utile dans les cas où vous souhaitez promouvoir une vente à durée limitée auprès de tous les utilisateurs de l'application, tout en leur permettant de fermer le message s'ils ne sont pas intéressés.
+Cochez la case **Banner can be dismissed** dans la section **Dismiss behavior** pour permettre aux utilisateurs de fermer la bannière. Cette option est utile lorsque vous souhaitez promouvoir une offre à durée limitée auprès d'une large audience tout en permettant aux utilisateurs non intéressés de masquer le message.
 
-Lorsque la fermeture est activée, vous pouvez personnaliser le bouton de fermeture dans la section **Dismiss Behavior** :
+Lorsque la fermeture est activée, vous pouvez personnaliser le bouton de fermeture dans la section **Dismiss behavior** :
 
 | Paramètre | Description |
 |---------|-------------|

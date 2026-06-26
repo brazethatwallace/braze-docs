@@ -155,7 +155,7 @@ IP ウォームアップが完了し、目標の1日のボリュームに達し�
 
 ## ウォームアップ中に送信を制限する方法 {#how-to-limit-sends-during-warming}
 
-組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングSegmentを選択した後、[ターゲットユーザー]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas)ステップで**詳細オプション**ドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。
+組み込みのユーザー制限機能は、IP アドレスのウォームアップに役立つ便利なツールです。Campaign作成時に目的のメッセージングセグメントを選択した後、[ターゲットユーザー]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas)ステップで**詳細オプション**ドロップダウンを選択してユーザーを制限します。ウォームアップスケジュールが進むにつれて、この制限を徐々に引き上げて送信するメールのボリュームを増やすことができます。
 
 ![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 

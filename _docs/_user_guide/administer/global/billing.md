@@ -76,8 +76,6 @@ The fields in this section are defined as follows:
 - **Allotted Data Points:** The amount of data points allotted in the contract per billing term.
 - **Contract Data Point Usage:** A cumulative total of all data points logged over the contract's lifetime, and does not reset in the next billing term.
 
-![Contract Details section of Total Data Point Usage tab]({% image_buster /assets/img/contract_details.png %})
-
 ### Company billing data
 
 #### App level total data point usage

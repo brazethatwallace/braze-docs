@@ -9,7 +9,7 @@ description: "Si vous êtes un partenaire Braze, utilisez cet endpoint pour enre
 
 {% api %}
 # Suivre les utilisateurs (en masse) pour les partenaires Braze {#track-users-bulk-for-braze-partners}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -34,7 +34,7 @@ Nous prévoyons de réduire la limite d'objets de `/users/track` de 225 à 5 afi
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API](https://www.braze.com/docs/api/api_key/) avec l'autorisation `users.track`. Cette autorisation donne accès à `/users/track` et `/users/track/bulk`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.track`. Cette autorisation donne accès à `/users/track` et `/users/track/bulk`.
 
 Étant donné que la plupart de nos clients communs utilisent déjà une clé API avec les autorisations `users.track` pour leur intégration partenaire Braze, ils n'auront pas besoin de changer de clé API lorsque vous migrerez votre intégration vers `/users/track/bulk`.
 
@@ -46,9 +46,9 @@ Pour la plupart des clients, nous appliquons une limite de vitesse de base de 50
 
 Cependant, les clients disposant de contrats plus récents peuvent se voir attribuer une limite de débit en rafale (par seconde) et régulière (par heure), liée à leur nombre de MAU contractualisé avec Braze.
 
-Pour améliorer les interactions en temps réel avec notre API, veillez à utiliser nos [en-têtes de réponse recommandés](https://www.braze.com/docs/api/api_limits/#monitoring-your-rate-limits).
+Pour améliorer les interactions en temps réel avec notre API, veillez à utiliser nos [en-têtes de réponse recommandés]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits).
 
-Chaque requête `/users/track/bulk` a une limite de payload de 2&nbsp;Mo et peut contenir jusqu'à 1 000 objets d'événements, d'attributs ou d'achats.
+Chaque requête `/users/sync/bulk` a une limite de payload de 2&nbsp;Mo et peut contenir jusqu'à 1 000 objets d'événements, d'attributs ou d'achats.
 
 Chaque objet (tableaux d'événements, d'attributs et d'achats) peut mettre à jour un utilisateur chacun, ce qui signifie qu'un maximum de 1 000 utilisateurs différents peuvent être mis à jour en une seule requête. Un seul profil utilisateur peut mettre à jour un maximum de 100 objets en une seule requête.
 
@@ -242,9 +242,9 @@ Si votre message comporte une erreur fatale, vous recevrez la réponse suivante 
 
 #### Codes de réponse pour les erreurs fatales {#fatal-error-response-codes}
 
-Pour les codes d'état et les messages d'erreur associés qui seront renvoyés si votre requête rencontre une erreur fatale, consultez [Erreurs fatales et réponses](https://www.braze.com/docs/api/errors/#fatal-errors).
+Pour les codes d'état et les messages d'erreur associés qui seront renvoyés si votre requête rencontre une erreur fatale, consultez [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors).
 
-Si vous recevez l'erreur `provided external\_id is blacklisted and disallowed`, votre requête peut avoir inclus un `dummy user.` Pour plus d'informations, consultez [Blocage du spam](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Si vous recevez l'erreur `provided external\_id is blacklisted and disallowed`, votre requête peut avoir inclus un `dummy user.` Pour plus d'informations, consultez [Blocage du spam]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
 
 ## Questions fréquentes {#frequently-asked-questions}
 
@@ -261,7 +261,7 @@ Nous prévoyons de réduire la limite d'objets de `/users/track` de 225 à 5 afi
 
 ### Quels identifiants puis-je utiliser dans `/users/track/bulk` ? {#what-identifiers-can-i-use-in-userstrackbulk}
 
-L'un des éléments suivants est requis : `external\_id`, `braze\_id`, `user\_alias`, `email` ou `phone`. Consultez notre documentation pour l'[objet d'attributs utilisateur](https://www.braze.com/docs/api/objects_filters/user_attributes_object/), l'[objet d'événements](https://www.braze.com/docs/api/objects_filters/event_object/) ou l'[objet d'achats](https://www.braze.com/docs/api/objects_filters/purchase_object/) pour d'autres exemples.
+L'un des éléments suivants est requis : `external\_id`, `braze\_id`, `user\_alias`, `email` ou `phone`. Consultez notre documentation pour l'[objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/), l'[objet d'événements]({{site.baseurl}}/api/objects_filters/event_object/) ou l'[objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object/) pour d'autres exemples.
 
 ### Puis-je inclure des attributs, des événements et des achats dans une seule requête ? {#can-i-include-attributes-events-and-purchases-in-one-request}
 

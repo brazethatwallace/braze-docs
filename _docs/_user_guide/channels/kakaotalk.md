@@ -4,6 +4,7 @@ article_title: KakaoTalk
 alias: /kakaotalk/
 layout: dev_guide
 page_order: 4
+noindex: true
 guide_top_header: "KakaoTalk"
 guide_top_text: <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=en">KakaoTalk</a> is a messaging channel that enables broadcast messaging and 1:1 chat with users. Refer to the articles on this page to learn about all things KakaoTalk, including an overview of KakaoTalk message types, setting up the KakaoTalk integration, creating KakaoTalk messages, and understanding KakaoTalk metrics in the Braze dashboard.
 channel:

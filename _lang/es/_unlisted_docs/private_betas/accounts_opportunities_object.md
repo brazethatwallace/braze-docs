@@ -65,7 +65,7 @@ table td {
 | `phone`            | String     | No*      | El número de teléfono del usuario. |
 | `user_role`             | String     | No       | El rol que tiene el usuario en la cuenta, como "director" o "empleado". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-<sup>Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
+<sup>*Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
 
 #### Usar un archivo CSV {#using-a-csv-file}
 
@@ -142,7 +142,7 @@ La API de Braze te da control programático sobre los datos de cuenta a escala. 
 Para más información sobre métodos HTTP y cómo funcionan las REST API, consulta los siguientes recursos:
 - [Métodos de solicitud HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) en MDN Web Docs
 - [Tutorial de REST API](https://restapitutorial.com/)
-- [Resumen de la API de Braze](https://www.braze.com/docs/api/basics)
+- [Resumen de la API de Braze]({{site.baseurl}}/api/basics/)
 
 {% alert note %}
 Usa una clave de API con permisos de catálogos para autenticar solicitudes al punto de conexión `/business/accounts`.

@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer les me
 ---
 {% api %}
 # Supprimer les messages planifiés {#delete-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/delete
 {% endapimethod %}
 

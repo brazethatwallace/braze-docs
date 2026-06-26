@@ -1,8 +1,8 @@
 ---
 nav_title: Peak
 article_title: Peak
-description: "このリファレンス記事では、BrazeとPeakのパートナーシップについて説明します。Peakは意思決定インテリジェンスプラットフォームであり、顧客の行動とインタラクションに基づいて予測される解約確率と属性を取得し、それらをBrazeにインポートして顧客セグメンテーションとターゲット設定に使用できます。"
-alias: /partners/Peak/
+description: "このリファレンス記事では、BrazeとPeakのパートナーシップについて説明します。Peakは意思決定インテリジェンスプラットフォームであり、顧客の行動とインタラクションに基づいて予測される解約確率と属性を取得し、それらをBrazeにインポートして顧客セグメンテーションとターゲティングに使用できます。"
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 
@@ -16,7 +16,7 @@ _この統合はPeakによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとPeakのパートナーシップにより、顧客の行動とインタラクションに基づいて予測される解約確率と属性を取得し、それらをBrazeにインポートして顧客セグメンテーションとターゲット設定に使用できます。
+BrazeとPeakのパートナーシップにより、顧客の行動とインタラクションに基づいて予測される解約確率と属性を取得し、それらをBrazeにインポートして顧客セグメンテーションとターゲティングに使用できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -27,11 +27,11 @@ BrazeとPeakのパートナーシップにより、顧客の行動とインタ�
 | Peakテナント | 統合をホストおよびオーケストレーションするには、テナントとして知られるPeakプラットフォームのインスタンスが必要です。 |
 | 意思決定インテリジェンスソリューション | PeakとBrazeの統合はAI駆動の出力に基づいているため、テナント内にPeakまたは顧客がデプロイしたソリューションが必要です。 |
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-Peakソリューションの顧客インテリジェンスはモデルを活用して、顧客の行動とインタラクションに基づいてさまざまな将来的な属性を予測します。これらの属性はPeak内に保存され、顧客の解約確率などの予測セグメンテーションを生成するために使用できます。これらの予測属性の更新は、設定可能な頻度（毎日または毎週）に基づいて行われます。
+Peakソリューションの顧客インテリジェンスはモデルを活用して、顧客の行動とインタラクションに基づいてさまざまな将来予測属性を生成します。これらの属性はPeak内に保存され、顧客の解約確率などの予測セグメンテーションを生成するために使用できます。これらの予測属性の更新は、設定可能な頻度（毎日または毎週）に基づいて行われます。
 
 ### ステップ 1：モデルを実行して顧客を抽出する {#step-1-run-model-and-extract-customers}
 
@@ -41,10 +41,10 @@ Peakソリューションの顧客インテリジェンスはモデルを活用�
 
 ### ステップ 2：Brazeを更新する {#step-2-update-braze}
 
-更新された顧客と関連する属性を使用して、Peakは[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用してこれらをBrazeにPOSTし、[一括]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates)ヘッダーを利用します。
+更新された顧客と関連する属性を使用して、Peakは[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を利用し、[一括]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates)ヘッダーを指定してこれらをBrazeにPOSTします。
 
 APIから成功ステータスコードを受信すると、PeakはPeakとBrazeの間での同期の成功を記録します。
 
 ### ステップ 3：この統合を使用する {#step-3-using-this-integration}
 
-PeakとBrazeの同期が成功すると、更新されたユーザーには新しい属性が含まれるようになります。キャンペーンやキャンバスでこれらの属性を使用して、ユーザーをターゲットにし、メッセージをパーソナライズしましょう。
+PeakとBrazeの同期が成功すると、更新されたユーザーには新しい属性が含まれるようになります。CampaignsやCanvasesでこれらの属性を使用して、ユーザーをターゲティングし、メッセージをパーソナライズしましょう。

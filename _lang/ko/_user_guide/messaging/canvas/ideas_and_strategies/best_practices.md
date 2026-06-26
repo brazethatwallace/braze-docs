@@ -1,6 +1,6 @@
 ---
 nav_title: 모범 사례
-article_title: 캔버스 모범 사례
+article_title: Canvas 모범 사례
 page_order: 1
 description: "이 문서에서는 Canvas 및 Canvas Flow를 사용하여 사용자 여정을 생성하고 커스터마이징하기 위한 몇 가지 모범 사례를 제공합니다."
 tool: Canvas
@@ -50,6 +50,10 @@ tool: Canvas
 
 {% alert note %}
 Canvas는 이미 지난 시간으로 예약 발송을 설정하는 것을 방지합니다. 그러나 Campaign이 스케줄된 것과 정확히 같은 분(또는 그 직전 몇 초)에 Canvas를 시작하는 것은 가능합니다. 이 경우 Canvas가 예약된 진입 시간을 놓쳐 사용자가 Canvas에 진입하지 못할 수 있습니다. 예약 발송 시간 몇 분 이내에 Campaign이 편집된 경우에는 Canvases를 즉시 발송하는 것을 권장합니다.
+{% endalert %}
+
+{% alert important %}
+예약된 진입 또는 발송 기간에 가까운 시점에 오디언스, 스케줄 또는 전달 설정을 변경하면, 일부 사용자가 이미 단계에서 대기 중이거나 이전 설정으로 평가되었을 수 있으므로 모든 사용자에게 변경 사항이 반영된다고 보장할 수 없습니다. 스케줄 변경, 오디언스 변경, **대기열 추가 시 평가**, 메시지 단계 전달 타이밍이 어떻게 상호작용하는지 확인하려면 [시작 후 Canvas 변경]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)을 참조하세요. 확실하지 않은 경우 Canvas를 중지하고, 복제한 후 다시 시작하여 깨끗하게 재평가하세요.
 {% endalert %}
 
 캔버스 단계의 경우, Canvas 스케줄을 설정할 때 다음 사항을 고려하세요:

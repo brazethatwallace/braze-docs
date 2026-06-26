@@ -92,7 +92,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Canvas agent
 {% endapitags %}
 
-이 사용 사례는 Canvas 에이전트가 여행 후 설문조사에서 사용자 피드백을 분석하고 감정과 주제를 분류하는 방법을 설명합니다. 이 에이전트의 목표는 별도의 CRM 플랫폼을 위한 다음 단계를 결정하는 것입니다.
+이 사용 사례는 Canvas 에이전트가 여행 후 설문조사에서 사용자 피드백을 분석하고 감정과 주제를 분류하는 방법을 설명합니다. 이 에이전트의 목표는 별도의 고객 관계 관리 시스템을 위한 다음 단계를 결정하는 것입니다.
 
 ### 필수 조건
 
@@ -266,7 +266,6 @@ Rules:
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
 - Avoid spammy phrasing (ALL CAPS, excessive punctuation) and emojis.
 - Do not hallucinate specific hotels or flights, as this is a general destination description.
-- If any input fields are missing, write the best description possible with the available data
 - Include "explanation": a short string that states how you applied the rules (for review or QA).
 
 Final Output Specification:

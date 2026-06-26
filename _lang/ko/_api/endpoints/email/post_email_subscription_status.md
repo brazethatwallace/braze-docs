@@ -10,7 +10,7 @@ description: "이 문서에서는 사용자의 이메일 구독 상태 변경 Br
 ---
 {% api %}
 # 이메일 구독 상태 변경 {#change-email-subscription-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/status
 {% endapimethod %}
 

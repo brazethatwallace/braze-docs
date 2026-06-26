@@ -10,7 +10,7 @@ description: "Cet article décrit les détails de l'endpoint Braze pour supprime
 ---
 {% api %}
 # Supprimer les utilisateurs {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 

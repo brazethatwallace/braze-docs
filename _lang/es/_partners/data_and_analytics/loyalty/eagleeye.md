@@ -29,9 +29,9 @@ Eagle Eye Connect es una integración bidireccional entre Braze y AIR que habili
 | Requisito | Descripción |
 |--------------------------|-------------|
 | Cuenta Eagle Eye AIR | Necesitas una cuenta Eagle Eye AIR activa para beneficiarte de esta asociación. Para empezar, ponte en contacto con el equipo de asociaciones de Eagle Eye en [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com). |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Se puede crear en el panel de Braze desde **Settings > API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST](https://www.braze.com/docs/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Se puede crear en el panel de Braze desde **Configuración > Claves de API**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Saliente vs. entrante {#outbound-vs-inbound}
 
@@ -39,8 +39,8 @@ Las tablas siguientes describen los dos tipos de integraciones compatibles entre
 
 {% tabs local %}
 {% tab outbound %}
-<table aria-label="Outbound vs. inbound">
-  <caption>Outbound vs. inbound</caption>
+<table aria-label="Saliente vs. entrante">
+  <caption>Saliente vs. entrante</caption>
   <thead>
     <tr>
       <th>Dirección</th>
@@ -71,12 +71,12 @@ Las tablas siguientes describen los dos tipos de integraciones compatibles entre
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Saliente vs. entrante" }
 {% endtab %}
 
 {% tab inbound %}
-<table aria-label="Outbound vs. inbound">
-  <caption>Outbound vs. inbound</caption>
+<table aria-label="Saliente vs. entrante">
+  <caption>Saliente vs. entrante</caption>
   <thead>
     <tr>
       <th>Dirección</th>
@@ -105,7 +105,7 @@ Las tablas siguientes describen los dos tipos de integraciones compatibles entre
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Outbound vs. inbound" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Saliente vs. entrante" }
 {% endtab %}
 {% endtabs %}
 
@@ -129,7 +129,7 @@ En primer lugar, proporcionarás los siguientes datos a tu equipo de Eagle Eye:
 | Coincidencia de identificadores | Determina y comparte el identificador de usuario principal para las actualizaciones de perfil que sea común en AIR y Braze, como ID externo o correo electrónico. |
 | Clave de autenticación | Determina y comparte una clave de autenticación secreta para cada conector entrante y saliente. |
 | Código de moneda | Comparte el código de moneda de 3 dígitos para mostrar los importes monetarios de las compras (p. ej., USD). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Provide configuration details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Proporcionar detalles de configuración" }
 
 ### Paso 2: Configurar Eagle Eye Connect {#step-2-configure-eagle-eye-connect}
 

@@ -21,18 +21,18 @@ In-App-Nachrichten werden ausgelöst, wenn das SDK einen der folgenden angepasst
 Zu Beginn der Sitzung einer Nutzerin oder eines Nutzers stellt Braze alle in Frage kommenden In-App-Nachrichten auf deren Gerät zu, während gleichzeitig Assets vorab abgerufen werden, um die Anzeige-Latenz zu minimieren. Wenn das triggernde Ereignis mehr als eine in Frage kommende In-App-Nachricht hat, wird nur die Nachricht mit der höchsten Priorität zugestellt. Weitere Informationen finden Sie unter [Session Lifecycle]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#about-the-session-lifecycle).
 
 {% alert note %}
-In-App-Nachrichten können nicht über die API oder durch API-Ereignisse ausgelöst werden, sondern nur durch angepasste Events, die vom SDK protokolliert werden. Wenn Sie mehr über die Protokollierung erfahren möchten, lesen Sie den Abschnitt [Protokollierung angepasster Events]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+In-App-Nachrichten können nicht über die API oder durch API-Ereignisse ausgelöst werden&#8212;nur durch angepasste Events, die vom SDK protokolliert werden. Wenn Sie mehr über die Protokollierung erfahren möchten, lesen Sie den Abschnitt [Protokollierung angepasster Events]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
 ## Typen von In-App-Nachrichten {#types-of-in-app-messages}
 
 Braze sendet die folgenden Typen von In-App-Nachrichten beim Sitzungsstart an die Geräte der Nutzer:innen: `inapp` und `templated_iam`. Als Dashboard-Nutzer:in sehen Sie die verschiedenen Typen nicht, aber Braze behandelt sie je nach Einrichtung und Inhalt unterschiedlich.
 
-### `inapp` (Standard)
+### `inapp` (Standard) {#inapp-standard}
 
 Eine `inapp`- (oder „[Standard]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)“-) In-App-Nachricht ist bereits mit den erforderlichen Informationen vorausgefüllt, wie z. B. angepassten Attributen, die Braze bereits kennt. Wenn die In-App-Nachricht auf das Gerät heruntergeladen wird, bewirkt das triggernde Ereignis in der Regel, dass das SDK die `inapp`-In-App-Nachricht anzeigt, auch wenn das Gerät offline ist oder sich im Flugmodus befindet.
 
-### `templated_iam` (Templated)
+### `templated_iam` (Templated) {#templated_iam-templated}
 
 Eine `templated_iam`- (oder „Templated“-) In-App-Nachricht ist noch nicht mit den erforderlichen Informationen vorausgefüllt. Braze muss eine weitere Anfrage stellen, um die Informationen abzurufen, bevor die Nachricht angezeigt werden kann.
 
@@ -152,10 +152,10 @@ Für eine erweiterte Steuerung des Nachrichtenzeitplans, einschließlich des Auf
 {% endtab %}
 
 {% tab android %}
-1. Implementieren Sie den [`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener), um einen angepassten Listener festzulegen.
+1. Implementieren Sie den [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener), um einen angepassten Listener festzulegen.
 2. Aktualisieren Sie Ihre [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html)-Methode, um [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html) zurückzugeben.
 
-Für eine erweiterte Steuerung des Nachrichtenzeitplans, einschließlich der Anzeige zu einem späteren Zeitpunkt und der erneuten Einreihung in die Warteschlange, konsultieren Sie bitte unsere Seite [Anpassen von Nachrichten](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
+Für eine erweiterte Steuerung des Nachrichtenzeitplans, einschließlich der Anzeige zu einem späteren Zeitpunkt und der erneuten Einreihung in die Warteschlange, konsultieren Sie bitte unsere Seite [Anpassen von Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
 {% endtab %}
 
 {% tab swift %}
@@ -306,7 +306,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 Erstellen Sie eine [stille Push-Kampagne]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android), die über das vom Server gesendete Event getriggert wird.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Zustellungsschritt einer stillen Push-Kampagne, die für aktionsbasierte Zustellung mit einem angepassten Event-Trigger „server_event“ konfiguriert ist.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 Die Push-Kampagne muss Schlüssel-Wert-Paare enthalten, die angeben, dass diese Push-Kampagne gesendet wird, um ein angepasstes SDK-Event zu protokollieren. Dieses Event wird verwendet, um die In-App-Nachricht zu triggern.
 
@@ -318,7 +318,7 @@ Wenn Sie Ihrem „In-App-Nachricht triggern“-Event Event-Eigenschaften hinzuf�
 
 #### 3. Schritt: In-App-Kampagne erstellen {#step-3-create-an-in-app-message-campaign}
 
-Erstellen Sie Ihre für Nutzer:innen sichtbare In-App-Nachrichten-Kampagne im Braze-Dashboard. Diese Kampagne sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in Ihrem Push-Callback protokolliert wird.
+Erstellen Sie Ihre für Nutzer:innen sichtbare In-App-Nachrichten-Kampagne im Braze-Dashboard. Diese Kampagne sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in Ihrem angepassten Push-Callback protokolliert wird.
 
 Im folgenden Beispiel wurde die zu triggernde In-App-Nachricht konfiguriert, indem die Event-Eigenschaft im Rahmen des ursprünglichen stillen Push gesendet wurde.
 
@@ -379,7 +379,7 @@ Der Code in der Methode `application(_:didReceiveRemoteNotification:fetchComplet
 
 Sie können entweder den Event-Namen oder die Event-Eigenschaften ändern, indem Sie den gewünschten Wert in den zusätzlichen Schlüssel-Wert-Paaren (Extras) der Push-Nutzlast senden. Bei der Protokollierung des angepassten Events können diese Extras entweder als Parameter des Event-Namens oder der Event-Eigenschaft verwendet werden.
 
-#### 3. Schritt: In-App-Kampagne erstellen {#step-3-create-an-in-app-message-campaign}
+#### 3. Schritt: In-App-Kampagne erstellen
 
 Erstellen Sie im Braze-Dashboard eine für Ihre Nutzer:innen sichtbare In-App-Nachrichten-Kampagne. Diese Kampagne sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in der Methode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` protokolliert wird.
 

@@ -22,7 +22,7 @@ tool: Campaigns
 
 ### Canvas内でフリークエンシーキャップされたユーザーを特定するにはどうすればよいですか？ {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-フリークエンシーキャップされたユーザーは、そのステップの送信イベントを生成しません。これらのユーザーを特定するには、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用して、`abort_type`が`frequency_capped`であるメッセージ中止イベントを追跡できます。または、[Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を作成して、Canvasに入ったが期待されるメッセージを受信しなかったユーザーを分析できます。
+フリークエンシーキャップされたユーザーは、そのステップの送信イベントを生成しません。これらのユーザーを特定するには、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用して、`abort_type`が`frequency_capped`であるメッセージ中止イベントを追跡できます。または、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を作成して、Canvasに入ったが期待されるメッセージを受信しなかったユーザーを分析できます。
 
 ### 「1日あたり」のグローバルフリークエンシーキャップでは、暦日とタイムゾーンはどのように使用されますか？ {#how-are-calendar-days-and-time-zones-used-for-per-day-global-frequency-caps}
 

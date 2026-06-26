@@ -91,8 +91,8 @@ iOS ne génère pas automatiquement de jetons de notification push pour une appl
 
 Il existe deux façons de vérifier l'état d'abonnement push d'un utilisateur avec Braze :
 
-- **Profil utilisateur** : Vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour consulter et ajuster manuellement l'état d'abonnement d'un utilisateur.
-- **Export via REST API** : Vous pouvez exporter les profils utilisateurs individuels au format JSON en utilisant les endpoints d'export [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Braze renverra un objet de jetons de notification push contenant les informations d'activation push par appareil.
+- **Profil utilisateur** : vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page [Recherche d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour consulter et ajuster manuellement l'état d'abonnement d'un utilisateur.
+- **Export via REST API** : vous pouvez exporter les profils utilisateurs individuels au format JSON en utilisant les endpoints d'export [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Braze renverra un objet de jetons de notification push contenant les informations d'activation push par appareil.
 
 ### Vérifier l'état d'enregistrement push {#checking-push-registration-status}
 
@@ -121,7 +121,7 @@ Consultez le tableau suivant pour les actions qui entraînent des modifications 
 
 Lorsqu'un utilisateur ouvre une nouvelle application et accorde l'accès push via une invite push, un appel est effectué depuis le SDK Braze vers les fournisseurs push. Lorsque cet appel est effectué, le fournisseur push vérifie que tout est correctement configuré. Si c'est le cas, un jeton de notification push est transmis à votre appareil. Lorsque ce jeton arrive, le SDK le communique à Braze. Une fois que Braze a reçu le jeton du fournisseur push, nous mettons à jour ou créons un nouveau profil utilisateur. Ces utilisateurs sont alors considérés comme enregistrés.
 
-Si nous voulons lancer une campagne, nous créons une Campaign dans Braze qui génère un payload push à envoyer au fournisseur push. À partir de là, le fournisseur délivre le payload push à l'appareil de l'utilisateur et le SDK transmet l'état de l'envoi de messages à Braze.
+Si nous voulons lancer une campagne, nous créons une campagne dans Braze qui génère un payload push à envoyer au fournisseur push. À partir de là, le fournisseur délivre le payload push à l'appareil de l'utilisateur et le SDK transmet l'état de l'envoi de messages à Braze.
 
 ![Un diagramme de flux illustrant le processus push décrit ci-dessus entre Braze, le client et le service Apple Push Notification ou Firebase Cloud Messaging.]({% image_buster /assets/img/push_process.png %})
 

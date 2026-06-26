@@ -131,6 +131,22 @@ Braze アカウントで 2 要素認証（2FA）を手動で有効にするに�
 
 この行数制限なしでセキュリティイベントを Amazon S3 にエクスポートするには、[Amazon S3 でのセキュリティイベントのエクスポート]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)を参照してください。
 
+### CSV 列の定義 {#csv-column-definitions}
+
+セキュリティイベントレポートの CSV には以下の列が含まれます。
+
+| 列 | 説明 |
+|--------|-------------|
+| CreatedAt | イベントが記録されたタイムスタンプ（UTC）。 |
+| EmailAtTimeOfEvent | イベントをトリガーしたダッシュボードユーザーのメールアドレス（イベント発生時に記録されたもの）。 |
+| CurrentEmail | イベントをトリガーしたダッシュボードユーザーの現在のメールアドレス。ユーザーが存在しなくなった場合は、開発者 ID が代わりに使用されます。 |
+| EventName | セキュリティイベントのタイプ。以下のレポートされるセキュリティイベントの一覧を参照してください。 |
+| OtherAccount | イベントの影響を受けた別のダッシュボードユーザーのメールアドレス（該当する場合。例：アカウントの追加や削除時）。 |
+| JsonProperties | JSON 形式のイベント固有のプロパティ。含まれるフィールドはイベントタイプによって異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV列の定義" }
+
+[S3 エクスポート]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/)には、これらの列に加えて `Version`（エクスポート形式のスキーマバージョン、現在は `1`）が含まれます。
+
 {% details レポートされるセキュリティイベント %}
 ### ログインとアカウント {#login-and-account}
 - Signed In
@@ -161,8 +177,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -268,8 +284,8 @@ Removed Push Credential
 
 | 標準属性項目 | カスタム属性 |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>メールアドレス</li> <li>電話番号</li> <li>名</li> <li>姓</li> <li>性別</li> <li>生年月日</li> <li>デバイス ID</li> <li>最新のロケーション</li> </ul> {:/} | {::nomarkdown} <ul> <li>すべてのカスタム属性<ul><li>すべての属性を非表示にする必要がない場合は、個々のカスタム属性を PII としてマークできます。</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {::nomarkdown}<ul> <li>メールアドレス</li> <li>電話番号</li> <li>名</li> <li>姓</li> <li>性別</li> <li>生年月日</li> <li>デバイス ID</li> <li>LINE ID</li> <li>最新のロケーション</li> </ul> {:/} | {::nomarkdown} <ul> <li>すべてのカスタム属性<ul><li>すべての属性を非表示にする必要がない場合は、個々のカスタム属性を PII としてマークできます。</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PIIの可能性がある属性" }
 
 ### 制限されるエリア {#limited-areas}
 
@@ -282,7 +298,7 @@ Removed Push Credential
 | {::nomarkdown} <ul> <li>Segments</li> <li>Campaigns</li> <li>Canvas</li> </ul> {:/} | **ユーザーデータ**ドロップダウンで：{::nomarkdown} <ul> <li>ユーザーには<b>メールアドレスを CSV 形式でエクスポート</b>オプションが表示されません。</li> <li><b>ユーザーデータを CSV 形式でエクスポート</b>を選択した場合、CSV ファイルに前述の標準属性項目とカスタム属性が含まれません。</li> </ul> {:/} | |
 | 内部テストグループ | ユーザーは、内部テストグループに追加されたユーザーの前述の標準属性項目にアクセスできません。 | |
 | メッセージアクティビティログ | ユーザーは、メッセージアクティビティログで特定されたユーザーの前述の標準属性項目にアクセスできません。 | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="制限されるエリア" }
 
 {% alert note %}
 メッセージをプレビューする際、**PII の表示**権限は適用されないため、メッセージ内で Liquid を通じて参照されている場合、ユーザーは[前述の標準属性項目](#potential-pii-attributes)を確認できます。
@@ -303,7 +319,7 @@ Removed Push Credential
 | カスタムイベント | properties |  |
 | 購入イベント | properties |  |
 | メッセージ送信 | message_extras | いくつかのイベントタイプに `message_extras` フィールドが含まれています。この設定は、将来追加されるイベントタイプを含め、`message_extras` をサポートするすべてのメッセージ送信イベントタイプに適用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="関連フィールド" }
 
 {% alert warning %}
 **削除は永久的です！**削除されたユーザーの Snowflake からフィールドを削除することを選択した場合、この設定はワークスペース内のすべての履歴データと、将来削除されるユーザーのイベントに適用されます。Braze が削除されたユーザーの履歴イベントデータに設定を適用するプロセスを実行した後は、データを**復元することはできません**。

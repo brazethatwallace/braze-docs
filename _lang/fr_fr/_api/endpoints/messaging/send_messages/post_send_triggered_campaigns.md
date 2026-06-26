@@ -10,7 +10,7 @@ description: "Cet article présente les détails de l'endpoint Braze permettant 
 ---
 {% api %}
 # Envoyer des messages de Campaign via une distribution déclenchée par API {#send-campaign-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
@@ -18,7 +18,7 @@ description: "Cet article présente les détails de l'endpoint Braze permettant 
 
 La distribution déclenchée par API vous permet d'héberger le contenu des messages dans le tableau de bord de Braze tout en contrôlant, via votre API, quand un message est envoyé et à qui.
 
-Si vous ciblez un segment, un enregistrement de votre requête est conservé dans la [console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID de Campaign]({{site.baseurl}}/api/identifier_types/) créé lors de la création d'une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Si vous ciblez un segment, un enregistrement de votre requête est conservé dans la [Console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID de Campaign]({{site.baseurl}}/api/identifier_types/) créé lors de la création d'une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). Lorsque vous incluez `audience`, le message est envoyé uniquement aux utilisateurs qui correspondent aux filtres définis, tels que les attributs personnalisés et les statuts d'abonnement. |
 | `recipients` | Facultatif | Tableau | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Si `send_to_existing_only` est `false`, un objet `attributes` doit être inclus.<br><br>Vous pouvez mettre à jour le statut du groupe d'abonnement d'un utilisateur en incluant `subscription_groups` dans l'objet `attributes` imbriqué. Pour plus de détails, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Si `recipients` n'est pas fourni et que `broadcast` est défini sur true, le message est envoyé à l'ensemble du segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze.<br><br>Si `email` est l'identifiant, vous devez inclure [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) dans l'objet destinataire. |
 | `attachments` | Facultatif | Tableau | Si `broadcast` est défini sur true, la liste `attachments` ne peut pas être incluse. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 
 ### Comportement de résolution des destinataires {#recipient-resolution-behavior}
 
@@ -115,8 +115,10 @@ Découvrez ce qui se passe lorsque `prioritization` ne renvoie pas exactement un
 - Lorsque `prioritization` ne renvoie pas exactement un seul profil utilisateur, Braze retente la résolution jusqu'à 40 fois. Ce comportement de nouvelle tentative est attendu.
 - Le paramètre `send_to_existing_only` ne modifie pas le comportement en cas d'égalité de `prioritization`. Le même comportement d'égalité et de nouvelle tentative s'applique, que ce paramètre soit défini sur `true` ou `false`.
 
+Si vous déclenchez une Campaign e-mail uniquement pour un destinataire identifié par `external_user_id` ou `user_alias`, et que ce profil utilisateur ne possède pas d'adresse e-mail au moment de l'appel, Braze retente l'envoi pendant environ 2 heures. Cela couvre le cas courant où un utilisateur est créé et son adresse e-mail est définie dans un court laps de temps. Pour envoyer sans délai, incluez l'attribut `email` dans `recipients[].attributes` afin que l'adresse soit définie dans le même appel que le déclencheur.
+
 {% alert note %}
-Le paramètre `segment_id` n'est pas pris en charge pour cet endpoint. Pour cibler un segment, configurez-le dans les paramètres d'audience cible de la Campaign dans le tableau de bord de Braze et utilisez `"broadcast": true`, ou utilisez le paramètre `audience` avec les filtres [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/).
+Le paramètre `segment_id` n'est pas pris en charge pour cet endpoint. Pour cibler un segment, configurez-le dans les paramètres d'audience cible de la Campaign dans le tableau de bord de Braze et utilisez `"broadcast": true`, ou utilisez le paramètre `audience` avec les filtres [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/).
 {% endalert %}
 
 ## Exemple de requête {#example-request}

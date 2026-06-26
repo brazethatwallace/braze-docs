@@ -3,13 +3,13 @@ nav_title: カスタムイベント
 article_title: カスタムイベント
 page_order: 1
 page_type: reference
-description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、Canvasエントリプロパティ、関連する分析が表示される場所などについて説明します。"
+description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、Canvasエントリプロパティ、関連する分析の表示場所などについて説明します。"
 search_rank: 2
 ---
 
 # [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、「[イベント]({{site.baseurl}}/user_guide/data/activation/events/)」を参照してください。
+> この記事では、カスタムイベントとプロパティ、ユーザープロファイルのイベント履歴、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/activation/events/)を参照してください。
 
 カスタムイベントとは、ユーザーによって実行されたアクションまたはユーザーに関する更新です。カスタムイベントがログに記録されると、任意の数とタイプのフォローアップCampaignsをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日時に基づいてユーザーをセグメント化できます。これにより、カスタムイベントは、アプリケーション内の高価値のユーザーインタラクションの追跡に最適です。
 
@@ -43,7 +43,7 @@ search_rank: 2
 
 さらに、ブロックされたカスタムイベントがBrazeの他の領域でフィルターやトリガーによって現在参照されている場合、そのイベントを参照しているフィルターやトリガーのすべてのインスタンスが削除およびアーカイブされることを説明する警告モーダルが表示されます。
 
-カスタムデータのブロックリスト登録と削除の詳細については、「[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)」を参照してください。
+カスタムデータのブロックリスト登録と削除の詳細については、[カスタムデータのブロックリスト登録]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
 
 ### 説明の追加 {#adding-descriptions}
 
@@ -87,6 +87,38 @@ search_rank: 2
 
 **ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival/#active-users)である限り無期限に保持されます。
 
+## ユーザーのイベント履歴の表示 {#view-a-users-event-history}
+
+{% alert important %}
+イベント履歴は現在、早期アクセス段階です。参加をご希望の場合は、Brazeアカウントマネージャーにお問い合わせください。
+{% endalert %}
+
+ユーザープロファイルの**イベント履歴**タブを使用して、そのユーザーの最近のカスタムイベントと購入を確認できます。これにより、インテグレーションがイベントを正しく記録しているかどうかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングできます。
+
+ユーザーのイベント履歴を表示するには:
+
+1. **オーディエンス** > **ユーザーを検索**に移動し、ユーザーを選択してプロファイルを開きます。
+2. **イベント履歴**タブを選択します。
+
+このタブには、過去30日間のユーザーのカスタムイベントと購入が、最新のものから順に最大100件表示されます。
+
+各イベントには以下の情報が含まれます。
+
+- **イベントタイプ:** イベントがカスタムイベントか購入かを示します。
+- **イベント名:** 記録されたイベント名です。
+- **時刻:** イベントが発生した日時です。
+- **プロパティ:** その発生のイベントプロパティの全体がJSONとして表示されます。
+
+一般的なユースケースには以下が含まれます。
+
+- 開発中またはリリース後に、SDKまたはAPIインテグレーションが期待どおりにイベントを送信しているかどうかを確認する。
+- ユーザーがイベントトリガーのCampaignまたはCanvasにエントリしたかどうか、またはしなかった理由をトラブルシューティングする。
+- データエクスポートを設定せずに、特定のユーザーのサポート問題を調査する。
+
+{% alert note %}
+**イベント履歴**タブの表示には、イベントプロパティに個人データが含まれる可能性があるため、**ユーザーを検索**と**PIIの表示**の両方のユーザー権限が必要です。詳しくは、[会社のユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+{% endalert %}
+
 ## セグメンテーションフィルター {#segmentation-filters}
 
 以下の表は、カスタムイベントに基づいてユーザーをセグメント化するために使用できるフィルターを示しています。
@@ -113,7 +145,7 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 
 ![ダッシュボードのカスタムイベントページにあるカスタムイベント数グラフ。カスタムイベントのトレンドを表示しています]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-**フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー数（MAU）別、Segment別、またはKPI計算式別に分類することもできます。
+**フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー数（MAU）別、セグメント別、またはKPI計算式別に分類することもできます。
 
 ![カスタムイベントグラフのフィルター]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -129,4 +161,4 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 
 カスタムイベントプロパティは、イベントの特定の発生を記述するカスタムイベントのメタデータまたは属性です。これらのプロパティは、トリガー条件のさらなる絞り込み、メッセージングにおけるパーソナライゼーションの向上、コンバージョンのトラッキング、および生データエクスポートによるより高度な分析の生成に使用できます。
 
-詳しくは、「[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)」を参照してください。
+詳しくは、[カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)を参照してください。

@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `merge_updates` | Obligatorio | Matriz | Una matriz de objetos. Cada objeto debe contener un objeto `identifier_to_merge` y un objeto `identifier_to_keep`, cada uno de los cuales debe hacer referencia a un usuario mediante `external_id`, `user_alias`, `phone` o `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Comportamiento de la fusión {#merge-behavior}
 
@@ -266,7 +266,15 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 
 ## Solución de problemas {#troubleshooting}
 
-En la tabla siguiente se enumeran los posibles mensajes de error que pueden aparecer.
+### Se devolvió una respuesta satisfactoria, pero el usuario fusionado sigue siendo localizable {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+Una respuesta satisfactoria confirma que la solicitud fue aceptada, pero la operación de fusión implica dos pasos: fusionar los perfiles y luego eliminar el perfil de origen. Debido a esto, el perfil `identifier_to_merge` puede seguir siendo localizable en el dashboard durante un breve periodo después de una respuesta satisfactoria. Este es el comportamiento esperado: espera unos minutos y luego verifica que la fusión se haya completado.
+
+Si el usuario fusionado sigue existiendo después de varios minutos, verifica que los identificadores de tu solicitud sean correctos y pertenezcan a usuarios del mismo espacio de trabajo que la clave de API utilizada para la solicitud.
+
+### Referencia de errores {#error-reference}
+
+La siguiente tabla enumera los posibles mensajes de error que pueden aparecer.
 
 | Error | Solución de problemas |
 | --- | --- |
@@ -274,6 +282,6 @@ En la tabla siguiente se enumeran los posibles mensajes de error que pueden apar
 | `a single request may not contain more than 50 merge updates` | Solo puedes especificar hasta 50 actualizaciones de fusión en una única solicitud. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Comprueba los identificadores de tu solicitud. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Comprueba que `merge_updates` solo contiene los dos objetos `identifier_to_merge` e `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

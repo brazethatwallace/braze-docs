@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Crear y actualizar usuarios (sincrónico) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 

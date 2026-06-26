@@ -18,24 +18,24 @@ tool:
 Campaign 또는 Canvas를 복제하면 새 메시지의 제목이 자동으로 `"Copy of [Original Name]"`으로 지정되며, 편집 페이지로 이동합니다. 이러한 복제본은 편집하고 시작할 때까지 초안 상태로 유지됩니다.
 
 {% alert tip %}
-워크스페이스 간에 [Campaign을 복사]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/)할 수도 있습니다. 복사본은 편집하고 시작할 때까지 초안 상태로 유지됩니다.
+워크스페이스 간에 [Campaigns, Canvases, 랜딩 페이지를 복사]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/)할 수도 있습니다. 복사본은 편집하고 Campaign 또는 Canvas를 시작하거나 랜딩 페이지를 게시할 때까지 초안 상태로 유지됩니다.
 {% endalert %}
 
 {% tabs %}
-{% tab campaign %}
+{% tab Campaign %}
 Campaign을 복제하려면:
 
-1. **Messaging** > **Campaigns**로 이동합니다.
-2. Campaign 위에 마우스를 올리고 <i class="fas fa-gear"></i> **More actions**를 선택합니다.
-3. **Duplicate**를 선택합니다.
+1. **메시징** > **Campaigns**로 이동합니다.
+2. Campaign 위에 마우스를 올리고 <i class="fas fa-gear" aria-label="추가 동작"></i> **추가 동작**을 선택합니다.
+3. **복제**를 선택합니다.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 Canvas를 복제하려면:
 
-1. **Messaging** > **Canvas**로 이동합니다.
-2. Canvas 행 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical"></i> **More actions**를 선택합니다.
-3. **Duplicate**를 선택합니다.
+1. **메시징** > **Canvas**로 이동합니다.
+2. Canvas 행 위에 마우스를 올리고 <i class="fas fa-ellipsis-vertical" aria-label="추가 동작"></i> **추가 동작**을 선택합니다.
+3. **복제**를 선택합니다.
 
 {% endtab %}
 {% endtabs %}

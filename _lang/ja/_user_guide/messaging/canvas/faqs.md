@@ -106,11 +106,11 @@ CampaignsにおけるABテストと多変量テストの概念については、
 Canvas固有の要因も適用されます：
 
 - **アクションベースまたはAPIトリガーエントリ：** ユーザーはエントリ動作を実行した後にのみ入場（およびステップを受信）するため、それらのアクションが発生するまで実際の送信数は事前の推定を下回ります。
-- **オーディエンスパス：** ユーザーは適格な最も優先度の高いブランチにルーティングされるため、下流のブランチはフラットなSegment数が示すよりも少ないユーザーを受け取る場合があります。
+- **オーディエンスパス：** ユーザーは適格な最も優先度の高いブランチにルーティングされるため、下流のブランチはフラットなセグメント数が示すよりも少ないユーザーを受け取る場合があります。
 - **オーディエンスと送信時間のチェック：** フルステップは、別途設定しない限り送信時にフィルターを再評価します。Canvasの構築時に適格だったユーザーが、メッセージ送信前に脱落する場合があります。
 - **コントロールグループ：** グローバルまたはCanvasコントロールグループは、エントリしたユーザーの一部をメッセージングから除外します。
 - **サイレント時間帯と遅延：** メッセージが保留またはリスケジュールされ、表示中のレポート期間から送信がずれる場合があります。
-- **最大エントリまたはオーディエンスキャップ：** エントリまたは送信キャップにより、基盤となるSegmentが大きくても追加のユーザーが停止されます。
+- **最大エントリまたはオーディエンスキャップ：** エントリまたは送信キャップにより、基盤となるセグメントが大きくても追加のユーザーが停止されます。
 - **レポート期間：** 分析範囲に、推定と比較しているすべての送信が含まれていない場合があります。
 
 ### *ユニーク受信者*がターゲットしたユーザー数よりも多いのはなぜですか？ {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
@@ -170,7 +170,7 @@ Canvasバリアントのコンバージョン合計がステップ合計の合�
 
 ### APIトリガーのCanvasをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
 
-Canvasフィルターを使用して[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのSegment内のユーザーをエクスポートします。
+Canvasフィルターを使用して[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、ユーザーがCanvasに入ったか、特定のキャンバスステップを受信したかを確認できます。例えば、ユーザーがAPIトリガーのCanvasに入ったことを確認したい場合はCanvasエントリフィルターを使用し、Canvasからメッセージを受信したことを確認したい場合は受信ステップフィルターを使用します。次に、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのセグメント内のユーザーをエクスポートします。
 
 ### Canvasを削除できますか？ {#can-i-delete-a-canvas}
 
@@ -196,7 +196,7 @@ Canvasに入るユーザー数は、オーディエンスとトリガーの評�
 Canvasのトラブルシューティングについてさらにサポートが必要な場合は、問題発生から30日以内にBrazeサポートにお問い合わせください。直近30日間の診断ログのみ保持しています。
 {% endalert %}
 
-### 現在Canvasジャーニー中のユーザーをCampaignやSegmentから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+### 現在Canvasジャーニー中のユーザーをCampaignやセグメントから除外できますか？ {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
 
 [セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)（`Entered Canvas Variation`、`In Canvas Control Group`、`Received Message from Canvas Step`など）を使用して、Canvasエントリ、バリアント割り当て、またはステップエンゲージメントに基づいてユーザーをターゲットできます。これらのフィルターはエントリ履歴とインタラクションを評価するもので、ユーザーがアクティブなジャーニーをまだ進行中かどうかを示すものではありません。
 
@@ -314,7 +314,7 @@ BrazeにはWebhookステップ用の組み込みの非表示トラッキング�
 
 アプリ固有のターゲティングを確認するには、プロファイルの**テストプッシュ**だけに頼るのではなく、狭いオーディエンス（例：`external_id`でフィルター）を持つCampaignまたはCanvasを通じてライブまたはテストメッセージを送信してください。
 
-複数のアプリを持つ**Canvas**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にSegmentとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を参照してください。
+複数のアプリを持つ**Canvas**メッセージステップの場合、メッセージステップで**メッセージ送信時にオーディエンスを検証**をオンにして、送信時にセグメントとフィルターのチェックが実行されるようにします。詳細については、[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を参照してください。
 
 一般的なテストプッシュの動作については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)および[プッシュFAQ]({{site.baseurl}}/user_guide/channels/push/faqs/)を参照してください。
 

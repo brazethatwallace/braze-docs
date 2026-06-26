@@ -122,7 +122,7 @@ Wählen Sie die externe ID, die Sie für die Shopify-Integration Ihres Workspace
 Die Verwendung einer E-Mail-Adresse oder einer gehashten E-Mail-Adresse als Ihre externe Braze-ID kann die Identitätsverwaltung über Ihre Datenquellen hinweg vereinfachen. Es ist jedoch wichtig, die potenziellen Risiken für die Privatsphäre der Nutzer:innen und die Datensicherheit zu berücksichtigen.<br><br>
 
 - **Erratbare Informationen:** E-Mail-Adressen sind leicht zu erraten, was sie anfällig für Angriffe macht.
-- **Risiko des Missbrauchs:** Wenn ein böswilliger Nutzer seinen Webbrowser so manipuliert, dass er die E-Mail-Adresse einer anderen Person als externe ID sendet, könnte er potenziell auf vertrauliche Nachrichten oder Kontoinformationen zugreifen.
+- **Risiko des Missbrauchs:** Wenn böswillige Nutzer:innen ihren Webbrowser so manipulieren, dass die E-Mail-Adresse einer anderen Person als externe ID gesendet wird, könnten sie potenziell auf vertrauliche Nachrichten oder Kontoinformationen zugreifen.
 {% endalert %}
 
 Standardmäßig konvertiert Braze E-Mails von Shopify automatisch in Kleinbuchstaben, bevor sie als externe ID verwendet werden. Wenn Sie E-Mail oder gehashte E-Mail als Ihre externe ID verwenden, bestätigen Sie, dass Ihre E-Mail-Adressen ebenfalls in Kleinbuchstaben konvertiert werden, bevor Sie sie als externe ID zuweisen oder bevor Sie sie aus anderen Datenquellen hashen. Dies hilft, Diskrepanzen bei externen IDs zu vermeiden und die Erstellung doppelter Nutzerprofile in Braze zu verhindern.
@@ -212,4 +212,4 @@ Um zu überprüfen, dass Ihr neuer Shopify-Konnektor aktiv ist, testen Sie Folge
 - **SDK-Anpassungen (optional):** Wenn Sie Anpassungen an Ihrer Braze- und Shopify-Integration vorgenommen haben (z. B. das Protokollieren angepasster Events oder Attribute), überprüfen Sie, ob diese nach dem Upgrade korrekt funktionieren.
 - **E-Mail- oder SMS-Abonnent:innenerfassung (optional):** Wenn Sie zuvor die E-Mail- oder SMS-Abonnent:innenerfassung aktiviert haben, werden neue Standard-Abo-Gruppen erstellt, die den aktuellen Status Ihrer Abonnent:innen während des Upgrades widerspiegeln. Die Standard-Abo-Gruppen tragen den Namen Ihrer Shopify-Storefront. Diese neuen Standard-Abo-Gruppen sind ungefähr 5 Stunden nach dem Upgrade verfügbar, und Sie müssen sie zu Ihren aktiven Nachrichten hinzufügen.
 
-Wenn Sie Fragen haben, [kontaktieren Sie den Support](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Wenn Sie Fragen haben, [kontaktieren Sie den Support]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

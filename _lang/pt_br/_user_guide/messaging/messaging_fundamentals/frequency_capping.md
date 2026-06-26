@@ -347,9 +347,9 @@ Usuários que são limitados por frequência não geram um evento de envio para 
 
 ### Por que o dashboard mostra um erro de limite de taxa para minha Campaign? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
-Isso geralmente significa que o [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting) da Campaign está definido acima do que seu espaço de trabalho, provedor ou host de caixa de entrada pode absorver, então os envios se acumulam e a Braze exibe um aviso. Reduza o limite de taxa de velocidade de entrega da Campaign para que o desempenho por minuto fique dentro do que esses sistemas podem suportar. Você também pode definir um [limite de taxa de envio de mensagens do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar um limite em todas as Campaigns.
+Isso geralmente significa que o [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting) da Campaign está definido muito baixo para o tamanho do público, então concluir o envio levaria mais tempo do que a janela permitida e a Braze exibe um aviso. Aumente o limite de taxa de velocidade de entrega, reduza o público ou use **Limitar volume de envio** para que cada ocorrência agendada termine dentro da janela de envio permitida. Você também pode definir um [limite de taxa de envio de mensagens do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar um limite em todas as Campaigns.
 
-**Limitar o número de pessoas que receberão esta Campaign** controla quantos usuários são elegíveis para um envio, não quantas mensagens a Braze envia por minuto. Apenas um limite de taxa de velocidade de entrega define o desempenho por minuto.
+**Limitar volume de envio** controla quantos usuários são elegíveis para um envio, não quantas mensagens a Braze envia por minuto. Apenas um limite de taxa de velocidade de entrega define o desempenho por minuto.
 
 ### O que significa "Enviado" para o limite de frequência? {#what-does-sent-mean-for-frequency-capping}
 
@@ -359,6 +359,6 @@ Em análise de dados e limite de frequência, _Enviado_ refere-se ao momento em 
 
 Mensagens de bounce e adiamento de e-mail usam muitos códigos diferentes e textos específicos de provedores. Não trate um código específico como sinal de um problema de limite de taxa, pois a causa depende do seu contexto de envio e do feedback do provedor de caixa de entrada.
 
-Se as mensagens estão sendo temporariamente adiadas, enviar menos pode ajudar a curto prazo. Use um [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting), **Limitar o número de pessoas que receberão esta Campaign**, ou ambos.
+Se as mensagens estão sendo temporariamente adiadas, enviar menos pode ajudar a curto prazo. Use um [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting), **Limitar volume de envio**, ou ambos.
 
 Para uma solução de longo prazo, trabalhe com um especialista em entregabilidade para revisar seus dados de bounce e adiamento.

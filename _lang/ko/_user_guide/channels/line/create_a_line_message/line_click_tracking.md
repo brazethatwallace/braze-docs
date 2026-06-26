@@ -32,7 +32,7 @@ LINE 클릭 추적은 텍스트, 리치, 카드 기반 메시지에 사용할 �
 
 1. **Text** 메시지를 작성기로 드래그하고 텍스트 필드에 URL을 추가합니다.
 
-![긴 URL이 포함된 텍스트 메시지가 있는 LINE 메시지 작성기: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![긴 URL이 포함된 텍스트 메시지가 있는 LINE 메시지 작성기: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. **설정** 탭으로 이동하여 **클릭 추적**이 활성화되어 있는지 확인합니다. 클릭 추적은 모든 새 메시지에 대해 기본적으로 활성화되어 있습니다.

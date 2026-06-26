@@ -53,7 +53,7 @@ Choisissez une méthode de configuration dans chaque onglet de version : plugin 
 
 #### Méthode 1 : Utiliser le plugin Expo {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Installer le plugin Braze Expo {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
+##### 2.1 Installer le plugin Braze Expo {#21-install-the-braze-expo-plugin}
 
 Assurez-vous que votre version du plugin Braze Expo est au minimum 4.1.0. Pour obtenir la liste complète des versions prises en charge, consultez le [dépôt du plugin Braze Expo](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support).
 
@@ -63,7 +63,7 @@ L'extrait de code suivant montre la commande pour installer le plugin Braze Expo
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 Ajouter le plugin à votre app.json {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
+##### 2.2 Ajouter le plugin à votre app.json {#22-add-the-plugin-to-your-appjson}
 
 Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint ne sont plus définis ici. Fournissez-les au moment de l'exécution via `Braze.initialize()` depuis JavaScript. Ajoutez les paramètres de configuration facultatifs suivants en fonction des besoins de votre implémentation :
 
@@ -73,7 +73,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint n
 | `enableFirebaseCloudMessaging`                | booléen | Android uniquement. Détermine si Firebase Cloud Messaging est utilisé pour les notifications push.             |
 | `firebaseCloudMessagingSenderId`              | chaîne de caractères  | Android uniquement. Votre ID expéditeur Firebase Cloud Messaging.                                    |
 | `sessionTimeout`                              | entier | Le délai d'expiration de session Braze pour votre application, en secondes.                                                                                               |
-| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) est activée.      |
+| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) est activée.      |
 | `logLevel`                                    | entier | Le niveau de journalisation pour votre application. Le niveau par défaut est 8 et enregistre un minimum d'informations. Pour activer la journalisation détaillée pour le débogage, utilisez le niveau 0.    |
 | `minimumTriggerIntervalInSeconds`             | entier | L'intervalle minimum en secondes entre les déclenchements. 30 secondes par défaut.                                                                           |
 | `enableAutomaticLocationCollection`           | booléen | Détermine si la collecte automatique de localisation est activée (si l'utilisateur l'autorise).                                                                                  |
@@ -181,7 +181,7 @@ Le plugin Braze Expo fait référence à vos fichiers d'icônes depuis les répe
 
 Pour plus d'informations sur les icônes de notification Android, consultez les [directives relatives aux icônes de notification Android](https://developer.android.com/develop/ui/views/notifications#icon).
 
-##### 2.3 Compiler et exécuter votre application {#23-build-and-run-your-application} {#23-build-and-run-your-application}
+##### 2.3 Compiler et exécuter votre application {#23-build-and-run-your-application}
 
 La précompilation de votre application génère les fichiers natifs nécessaires au fonctionnement du plugin Braze Expo.
 
@@ -432,7 +432,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. Vous pouvez fournir les opt
 | `enableFirebaseCloudMessaging`                | booléen | Android uniquement. Détermine si Firebase Cloud Messaging est utilisé pour les notifications push. Introduit dans le SDK React Native v1.38.0 et le plugin Expo v0.4.0.             |
 | `firebaseCloudMessagingSenderId`              | chaîne de caractères  | Android uniquement. Votre ID expéditeur Firebase Cloud Messaging. Introduit dans le SDK React Native v1.38.0 et le plugin Expo v0.4.0.                                    |
 | `sessionTimeout`                              | entier | Le délai d'expiration de session Braze pour votre application, en secondes.                                                                                               |
-| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) est activée.      |
+| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) est activée.      |
 | `logLevel`                                    | entier | Le niveau de journalisation pour votre application. Le niveau par défaut est 8 et enregistre un minimum d'informations. Pour activer la journalisation détaillée pour le débogage, utilisez le niveau 0.    |
 | `minimumTriggerIntervalInSeconds`             | entier | L'intervalle minimum en secondes entre les déclenchements. 30 secondes par défaut.                                                                           |
 | `enableAutomaticLocationCollection`           | booléen | Détermine si la collecte automatique de localisation est activée (si l'utilisateur l'autorise).                                                                                  |

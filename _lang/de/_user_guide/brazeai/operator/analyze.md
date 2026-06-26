@@ -85,7 +85,7 @@ Fragen Sie nach *Attributed Revenue* und *Conversions*, aggregiert auf Campaign-
 
 ## Visualisierungen {#visualizations}
 
-Operator fügt ein Chart hinzu, wenn die Daten es unterstützen. **Liniendiagramme** eignen sich für Zeitreihen, **Balkendiagramme** für Kategorievergleiche und **Tabellen** für andere Fälle. Tabellen zeigen Prozentsätze mit zwei Dezimalstellen und verwenden Kommas für große Zahlen.
+Operator fügt ein Chart hinzu, wenn die Daten es unterstützen. **Liniendiagramme** eignen sich für Zeitreihen, **Balkendiagramme** für Kategorievergleiche und **Tabellen** für andere Fälle. Tabellen zeigen Prozentsätze mit zwei Dezimalstellen und verwenden Punkte als Tausendertrennzeichen.
 
 Wenn eine Antwort mehrere Metriken enthält, priorisiert Operator Engagement-Raten (*Öffnungsrate*, *Klickrate*, *Push-Öffnungsrate*) gegenüber reinen Zählwerten.
 
@@ -102,7 +102,7 @@ Wenn eine Antwort mehrere Metriken enthält, priorisiert Operator Engagement-Rat
 | Content Cards | *Sends*, *Impressions*, *Clicks* | Ja |
 | WhatsApp | *Sends*, *Deliveries*, *Reads*, *Clicks* | Noch nicht |
 | RCS | *Sends*, *Deliveries*, *Reads*, *Clicks* (einschließlich Text-URL-, Button-, Aktions-, Antwort-Aktions- und Antwort-Button-Untertypen) | Noch nicht |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported channels, metrics, and benchmark availability" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte Kanäle, Metriken und Benchmark-Verfügbarkeit" }
 
 {% alert tip %}
 Operator verwendet eindeutige Zählungen für Raten (zum Beispiel *Unique Opens* geteilt durch *Deliveries* für die *E-Mail-Öffnungsrate*). Wenn eine Zahl von einem Dashboard abweicht, vergleichen Sie Attributionsfenster, Zeitraum und Definition. Operator listet alle drei in jeder Antwort auf.
@@ -120,7 +120,7 @@ Operator Analyze verwendet standardmäßig das **Braze-Geschäftsjahr**, das vom
 | GQ2 | Mai – Jul |
 | GQ3 | Aug – Okt |
 | GQ4 | Nov – Jan |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze fiscal quarters and calendar months" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Geschäftsquartale und Kalendermonate" }
 
 Für Kalenderjahr-Fragen verwenden Sie „KJ“, „Kalenderjahr“ oder „Standardjahr“. Mehrdeutige Formulierungen wie „letztes Jahr“ veranlassen Operator, nachzufragen, welchen Kalender Sie meinen.
 
@@ -159,7 +159,7 @@ Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine 
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-Operator Analyze folgt demselben Datenschutz- und Sicherheitsmodell wie BrazeAI Operator<sup>TM</sup>. Weitere Informationen finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security).
+Operator Analyze folgt demselben Datenschutz- und Sicherheitsmodell wie BrazeAI Operator<sup>TM</sup>. Weitere Informationen finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).
 
 ## Nächste Schritte {#next-steps}
 

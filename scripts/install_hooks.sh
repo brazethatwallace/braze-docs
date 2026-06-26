@@ -66,6 +66,25 @@ fi
 if [[ $skipped -gt 0 ]]; then
   echo "Skipped $skipped hook(s) that already exist as non-symlinks."
 fi
+
+# ---------------------------------------------------------------------------
+# Dependency check: tesseract (required for the screenshot PII hook)
+# ---------------------------------------------------------------------------
 echo ""
-echo "To skip a check in an emergency:  SKIP_A11Y=1 git commit"
+if command -v tesseract >/dev/null 2>&1; then
+  echo "✅  tesseract $(tesseract --version 2>&1 | head -1) — PII image scanning is active."
+else
+  echo "⚠️  tesseract is not installed. The screenshot PII check will be skipped for staged images."
+  echo "   To enable it, install tesseract:"
+  if [[ "$(uname)" == "Darwin" ]]; then
+    echo "     brew install tesseract"
+  else
+    echo "     sudo apt-get install -y tesseract-ocr   # Debian/Ubuntu"
+    echo "     sudo dnf install -y tesseract           # Fedora/RHEL"
+  fi
+  echo "   Then re-run this script to confirm the installation."
+fi
+
+echo ""
+echo "To skip a check in an emergency:  SKIP_A11Y=1 git commit  |  SKIP_PII=1 git commit"
 echo "To uninstall:                      rm .git/hooks/pre-commit"

@@ -12,6 +12,8 @@ description: "This article provides answers to frequently asked questions about 
 
 > This page provides answers to frequently asked questions about the media library in Braze.
 
+## General
+
 ### Are there storage limits for images within the media library?
 
 No, there are no storage limits for assets within the media library. However, there are size limits for assets (maximum 5 MB).
@@ -57,7 +59,7 @@ This is because most composers have restrictions on the image ratio size that is
 
 ### Generate an image using AI
 
-You can generate images from **Content** > **Media Library** by selecting **AI Image Generator**. You need **Edit Media Library Assets** permission. If you don't see the option, contact your Braze customer team. For steps and policy details, see [Generate images with BrazeAI]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/) and [Generating images with BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
+You can generate images from **Content** > **Media Library** by selecting **AI Image Generator**. You need **Edit Media Library Assets** permission. If you don't see the option, contact your Braze customer team. For steps and policy details, see [Generate images with BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-images) and [Generating images with BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai).
 
 ### Can I create vanity URLs for media library image assets?
 

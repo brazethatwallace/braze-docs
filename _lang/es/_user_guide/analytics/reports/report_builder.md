@@ -132,7 +132,7 @@ Puedes compartir un enlace del dashboard al informe seleccionando **Share** y un
 
 ![Desplegable "Compartir un enlace" con un enlace al informe.]({% image_buster /assets/img/report_builder_2/share_this_report.png %}){: style="max-width:70%;"}
 
-- **Enviar o programar un correo electrónico:** Envía un correo electrónico de inmediato o en un momento designado que contenga un enlace de descarga que expira después de una hora. Puedes seleccionar destinatarios de los usuarios de la empresa listados en el desplegable **Email Recipients** o introducir cualquier otra dirección de correo electrónico.
+- **Enviar o programar un correo electrónico:** Envía un correo electrónico de inmediato o en un momento designado que contenga un enlace de descarga que caduca después de una hora. Puedes seleccionar destinatarios de los usuarios de la empresa listados en el desplegable **Email Recipients** o introducir cualquier otra dirección de correo electrónico.
 
 ![Ventana "Programar un correo electrónico" con campos para elegir el formato del informe, quién debe recibirlo y cuándo debe enviarse.]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
 
@@ -152,3 +152,9 @@ Puedes compartir un enlace del dashboard al informe seleccionando **Share** y un
 Una campaña o Canvas aparece en el informe cuando su fecha de **Last sent** se encuentra dentro de la ventana de **Last sent** que configuraste. **Envíos** y otras métricas solo se completan para la actividad dentro del rango de fechas de **Show data for**. Si el mensaje no se envió durante **Show data for**, la fila puede seguir mostrando la campaña o Canvas con cero envíos.
 
 Por ejemplo, supongamos que **Last sent** es del 1 de enero de 2025 al 14 de abril de 2025, por lo que se incluye una campaña, pero **Show data for** es del 1 de diciembre de 2024 al 14 de enero de 2025. Si esa campaña no tuvo envíos en diciembre o enero, seguirá apareciendo en la tabla sin métricas de envío.
+
+### El enlace de descarga ha caducado {#download-link-has-expired}
+
+Los enlaces de descarga de informes caducan después de una hora. Si tu enlace ha caducado, genera un nuevo informe y descárgalo dentro de la hora. No hay forma de extender el tiempo de caducidad.
+
+Si tienes un [contenedor de Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) conectado en **Integraciones de socios**, es posible que puedas recuperar datos de informes anteriores navegando directamente por tu contenedor de S3.

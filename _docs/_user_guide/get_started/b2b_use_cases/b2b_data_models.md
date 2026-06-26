@@ -99,10 +99,6 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
   </tbody>
 </table>
 
-##### Example table of mapped account fields
-
-![Table of Salesforce accounts with respective information, such as billing address and account owner.]({% image_buster /assets/img/b2b/sf_accounts.png %})
-
 {% endsubtab %}
 {% subtab Opportunity catalog %}
 
@@ -142,10 +138,6 @@ In this use case, Salesforce is the example CRM system. You can map over any fie
   </tr>
   </tbody>
 </table>
-
-##### Example table of mapped opportunity fields
-
-![Table of Salesforce opportunities with respective information, such as billing address and account owner.]({% image_buster /assets/img/b2b/sf_opportunities.png %})
 
 {% endsubtab %}
 {% endsubtabs %}

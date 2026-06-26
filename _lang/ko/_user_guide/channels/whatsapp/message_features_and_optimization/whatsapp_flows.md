@@ -81,10 +81,6 @@ Braze 내에서 이전에 사용된 적 없는 Flow를 사용하는 경우, **�
 
 1. WhatsApp 메시지 단계 설정을 완료합니다.
 2. **Flow 응답을 커스텀 속성으로 저장**이 체크되어 있는지 확인합니다.
-
-![Flow 응답을 커스텀 속성으로 저장하는 체크박스가 있는 Meta Flow 섹션.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. 자신에게 테스트 메시지를 보내고 사용자로서 Flow를 완료합니다.
 
 이제 Braze가 Flow 응답 JSON의 형태를 파악하여 커스텀 속성을 생성할 수 있습니다.

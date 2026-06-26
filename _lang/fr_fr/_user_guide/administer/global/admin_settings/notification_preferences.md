@@ -35,10 +35,10 @@ Selon le type de notification, **All Dashboard Users** et **All Admins** peuvent
 | Erreurs d'identifiants AWS | Informe les destinataires lorsque Braze reçoit une erreur en tentant d'utiliser vos identifiants Amazon Web Services pour une exportation de données. Cela inclut les notifications d'erreurs d'identifiants pour Google Cloud Storage et Azure (Microsoft Cloud Services). | E-mail, Webhook |
 | Campaign automatiquement arrêtée | Informe les destinataires lorsque Braze a arrêté une Campaign. | E-mail |
 | Canvas automatiquement arrêté | Informe les destinataires lorsque Braze a arrêté un Canvas. | E-mail |
-| Expiration des interactions de Campaign | Informe les destinataires de toute Campaign dont les données d'interaction arrivent à expiration, ainsi que de tout segment, Campaign ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
+| Expiration des interactions de Campaign | Informe les destinataires de toute Campaign dont les données d'interaction arrivent à expiration, ainsi que de tout Segment, Campaign ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
 | Campaign/Canvas mis à jour | Informe les destinataires lorsqu'une Campaign ou un Canvas actif est mis à jour ou désactivé, ainsi que lorsqu'une Campaign ou un Canvas inactif est réactivé ou que des brouillons sont lancés. | E-mail |
 | Limite de volume de Campaign/Canvas atteinte | Informe les destinataires lorsqu'une Campaign ou un Canvas atteint sa limite de volume. | E-mail |
-| Expiration des interactions de Canvas | Informe les destinataires de tout Canvas dont les données d'interaction arrivent à expiration, ainsi que de tout segment, Campaign ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
+| Expiration des interactions de Canvas | Informe les destinataires de tout Canvas dont les données d'interaction arrivent à expiration, ainsi que de tout Segment, Campaign ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
 | Commentaires dans les Canvas | Informe les destinataires lorsqu'un Canvas contient de nouveaux commentaires. | E-mail |
 | Erreurs de contenu connecté | Informe les destinataires lorsqu'un endpoint de contenu connecté rencontre des erreurs. | E-mail |
 | Erreurs push | Informe les destinataires lorsqu'un endpoint push rencontre des erreurs. | E-mail, Webhook |
@@ -47,7 +47,7 @@ Selon le type de notification, **All Dashboard Users** et **All Admins** peuvent
 | Erreurs de webhook | Informe les destinataires lorsqu'un endpoint webhook rencontre des erreurs. | E-mail |
 | Rapport d'analyse hebdomadaire | Envoie un résumé de l'activité de l'espace de travail de la semaine écoulée aux destinataires chaque lundi. Les destinataires reçoivent un résumé pour chaque espace de travail auquel ils appartiennent. | E-mail |
 | Limites quotidiennes de volume d'entrée Canvas/Campaign | Envoie des notifications chaque fois qu'une limite d'envoi est atteinte. | E-mail |
-| Erreur de la console des agents | Informe les destinataires lorsqu'un agent de la [console des agents]({{site.baseurl}}/user_guide/brazeai/agents/) a atteint sa limite d'exécution, utilise un modèle devenu indisponible ou rencontre une erreur de facturation avec son fournisseur LLM (clé API personnelle uniquement). | E-mail |
+| Erreur de la console des agents | Informe les destinataires lorsqu'un agent de la [console des agents]({{site.baseurl}}/user_guide/brazeai/agents/) a atteint sa limite d'invocations, utilise un modèle devenu indisponible ou rencontre une erreur de facturation avec son fournisseur LLM (clé API personnelle uniquement). | E-mail |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notifications disponibles" }
 
 {% alert note %}

@@ -83,14 +83,13 @@ Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML �
 정확한 미리보기와 함께 이메일에 모션을 추가하려면 JavaScript 대신 GIF를 사용하세요. 대부분의 받은편지함에서 JavaScript를 지원하지 않습니다.
 {% endalert %}
 
-![이메일 작성을 위한 이메일 배리언트 패널.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze는 속성으로 참조된 HTML 이벤트 핸들러를 자동으로 제거합니다. 이로 인해 HTML이 수정되므로, 작성을 완료한 후 이메일을 다시 확인하세요. [HTML 핸들러](https://www.w3schools.com/tags/ref_eventattributes.asp)에 대해 자세히 알아보세요.
 {% endalert %}
 
 {% alert tip %}
-멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
+멋진 카피를 작성하는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 쓴 것 같은 마케팅 카피를 생성합니다.
 
 ![이메일 작성기의 본문 탭에 있는 AI 카피라이터 시작 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
@@ -268,7 +267,7 @@ Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려�
 {% tab Campaign %}
 다음으로, Campaign의 나머지 부분을 구축합니다. Braze 도구를 사용하여 이메일 Campaign을 구축하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
-#### 전달 스케줄 또는 트리거 선택하기 {#choose-delivery-schedule-or-trigger}
+### 전달 스케줄 또는 트리거 선택하기 {#choose-delivery-schedule-or-trigger}
 
 예약된 시간, 동작 또는 API 트리거를 기반으로 이메일을 전달합니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
@@ -278,7 +277,7 @@ API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**
 
 Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
 
-#### 타겟 사용자 선택하기 {#choose-users-to-target}
+### 타겟 사용자 선택하기 {#choose-users-to-target}
 
 다음으로, Segments 또는 필터를 선택하여 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)합니다. Braze는 이메일을 통해 도달 가능한 사용자 수를 포함하여 Segment 모집단의 실시간 미리보기를 표시합니다. 정확한 Segment 멤버십은 발송 직전에 계산됩니다.
 
@@ -292,7 +291,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 새 이메일 Campaign을 만들 때 대조군은 기본적으로 20%로 설정되며, Campaign에 맞게 조정하거나 제거할 수 있습니다.
 {% endalert %}
 
-##### 이메일과 푸시를 포함하는 멀티채널 Campaign {#multichannel-campaigns-with-email-and-push}
+#### 이메일과 푸시를 포함하는 멀티채널 Campaign {#multichannel-campaigns-with-email-and-push}
 
 이메일과 푸시 채널을 모두 타겟팅하는 멀티채널 Campaign의 경우, 명시적으로 옵트인한 사용자만 메시지를 받도록 Campaign을 제한할 수 있습니다(가입됨 또는 가입 취소된 사용자 제외). 예를 들어, 서로 다른 옵트인 상태를 가진 세 명의 사용자가 있다고 가정해 보겠습니다:
 
@@ -306,7 +305,7 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 이 구성에서는 **타겟 오디언스** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
-#### 전환 이벤트 선택하기 {#choose-conversion-events}
+### 전환 이벤트 선택하기 {#choose-conversion-events}
 
 Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 얼마나 자주 수행하는지 추적할 수 있습니다. 다음 동작 중 하나를 전환 이벤트로 지정할 수 있습니다:
 

@@ -132,13 +132,13 @@ Si cliquer sur une notification push n'ouvre pas votre application, vérifiez le
 2. **Vérifiez la gestion des liens profonds :** Dans votre fichier `braze.xml`, vérifiez si `com_braze_handle_push_deep_links_automatically` est défini sur `true` ou `false`.
    - S'il est défini sur `true`, le SDK Braze gère les liens profonds directement et l'application devrait s'ouvrir comme prévu.
    - S'il est défini sur `false`, votre application a besoin d'un récepteur de diffusion pour écouter et gérer les intentions de réception et d'ouverture des notifications push. Vérifiez que ce récepteur est correctement implémenté.
-3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux ainsi que vos fichiers `braze.xml` et `AndroidManifest.xml` au support Braze.
+3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux ainsi que vos fichiers `braze.xml` et `AndroidManifest.xml` à l'assistance Braze.
 
 ### iOS
 
 1. **Vérifiez le comportement au clic :** Confirmez que la campagne est configurée pour ouvrir l'application lorsqu'on clique dessus.
 2. **Vérifiez l'intégration push :** La création de liens profonds depuis une notification push vers l'application est automatiquement gérée par l'[intégration push standard]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) de Braze. Confirmez que l'intégration est correctement implémentée, y compris toute gestion de délégué personnalisée.
-3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux au support Braze.
+3. **Collectez les journaux détaillés :** [Activez la journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduisez le problème et fournissez les journaux à l'assistance Braze.
 
 ## Les clics sur les notifications push ouvrent de manière inattendue dans l'application {#push-clicks-unexpectedly-open-in-app}
 

@@ -346,7 +346,7 @@ Requesting content cards sync.
 {% endtab %}
 {% endtabs %}
 
-### 노출 횟수, 클릭, 해제 {#impressions-clicks-and-dismissals}
+### 노출 횟수, 클릭 및 해제 {#impressions-clicks-and-dismissals}
 
 {% tabs %}
 {% tab Swift %}
@@ -525,4 +525,18 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 | `ccc` | Content Cards 클릭 |
 | `ccd` | Content Cards 해제됨 |
 | `lr` | 위치 기록됨 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="일반 이벤트 약어" }
+
+## 문제 해결 {#troubleshooting}
+
+### 사용자 프로필에 세션이 0으로 기록되는 경우는 언제인가요? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+REST API([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) 또는 CSV 가져오기를 통해 **첫 번째 세션** 또는 **마지막 세션** 필드 없이 사용자를 가져오면 사용자 프로필에 세션이 0으로 표시될 수 있습니다. 세션은 사용자가 SDK를 통해 앱과 상호작용할 때 기록됩니다. 자세한 내용은 [사용자 프로필에 세션이 0인 경우]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions)를 참조하세요.
+
+### SDK와 REST API를 함께 사용할 때 사용자 데이터 불일치 {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+SDK와 REST API를 동시에 사용하면 경합 조건으로 인해 데이터 불일치가 발생할 수 있습니다. `changeUser()`를 호출한 후 중요한 REST API 호출을 하기 전에 SDK가 대기 중인 데이터를 플러시할 수 있도록 하고, 시간에 민감한 업데이트를 일괄 처리하지 않으며, SDK와 API 요청 사이에 짧은 지연을 추가하는 것을 고려하세요. `changeUser()` 동작에 대한 자세한 내용은 [changeUser() 작동 방식]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works)을 참조하세요.
+
+### 데이터가 Braze에 도달하지 않는 경우 {#data-not-reaching-braze}
+
+데이터가 Braze에 도달하지 않는 경우 방화벽이 Braze API 엔드포인트 및 CDN 공급자에 대한 아웃바운드 트래픽을 허용하는지 확인하세요. 문제가 발생하는 동안 MTR 테스트를 실행하고 [Fastly Debug](https://www.fastly-debug.com/)를 사용하세요. 허용 목록 및 연결 문제 해결에 대한 자세한 내용은 [API 네트워크 연결 문제]({{site.baseurl}}/api/network_connectivity_issues/)를 참조하세요.

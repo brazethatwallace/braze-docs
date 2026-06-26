@@ -13,8 +13,6 @@ description: "This reference article covers your available options for monitorin
 
 The **Notification Preferences** page is where you can configure who (if anyone) receives notifications about your company. You can configure who should receive notifications about campaign delivery or technical errors. You can also specify recipients for the weekly analytics report. For most notifications, Braze supports email and webhook channels.
 
-![Notification Preferences page in the Braze dashboard]({% image_buster /assets/img_archive/notification_preferences.png %})
-
 To access this page, go to **Settings** > **Admin Settings** > **Notification Preferences**.
 
 {% alert tip %}
@@ -47,7 +45,7 @@ Depending on the notification type, **All Dashboard Users** and **All Admins** m
 | Webhook Errors | Notifies recipients when a webhook endpoint has errors. | Email |
 | Weekly Analytics Report | Sends a summary of the past week's workspace activity to recipients every Monday. Recipients receive a summary for each workspace that they belong to. | Email |
 | Daily Canvas/Campaign Entry Volume Limits | Sends notifications each time a send limit is reached. | Email |
-| Agents Console Error | Notifies recipients when an [Agent Console agent]({{site.baseurl}}/user_guide/brazeai/agents) has met its execution limit, uses a model that has become unavailable, or encounters a billing error with its LLM provider (bring-your-own API key only). | Email |
+| Agents Console Error | Notifies recipients when an [Agent Console agent]({{site.baseurl}}/user_guide/brazeai/agents) has met its invocation limit, uses a model that has become unavailable, or encounters a billing error with its LLM provider (bring-your-own API key only). | Email |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available notifications" }
 
 {% alert note %}

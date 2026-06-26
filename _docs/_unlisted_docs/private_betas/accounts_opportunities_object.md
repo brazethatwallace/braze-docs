@@ -142,7 +142,7 @@ The Braze API gives you programmatic control over account data at scale. You can
 For more information on HTTP methods and how REST APIs work, refer to the following resources:
 - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) on MDN Web Docs
 - [REST API Tutorial](https://restapitutorial.com/)
-- [Braze API overview](https://www.braze.com/docs/api/basics)
+- [Braze API overview]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 Use an API key with catalogs permissions to authenticate requests to the `/business/accounts` endpoint.

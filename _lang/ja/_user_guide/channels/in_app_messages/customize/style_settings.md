@@ -124,7 +124,7 @@ page_order: 1
 
 ### AIコピーライターの使用 {#using-the-ai-copywriter}
 
-アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
+アプリ内メッセージでテキストブロックを選択した状態で、ブロックツールバーの<i class="fa-solid fa-wand-magic-sparkles" title="AIコピーライター"></i> **AIコピーライター**を選択すると、[AI搭載コピーライティングアシスタント]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)が起動します。AIコピーライティングアシスタントは、簡単な製品名や説明をOpenAIのGPT3コピー生成ツールに渡し、メッセージング用の人間らしいマーケティングコピーを生成します。
 
 {% alert tip %}
 ブロック内のテキストをハイライトしてからアイコンをクリックすると、数クリック省略できます。ハイライトされたテキストがツールに追加され、すぐにコピーが生成されます。

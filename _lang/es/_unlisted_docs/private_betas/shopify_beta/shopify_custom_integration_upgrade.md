@@ -81,7 +81,7 @@ Es esencial que [corrijas todos los cambios con ruptura](#fixing-breaking-change
 
 ### Paso 1: Inicializar y cargar el SDK web de Braze para habilitar el seguimiento en el sitio {#step-1}
 
-Si aún no lo has hecho, inicializa y carga el SDK web de Braze para habilitar el seguimiento en el sitio. Para un recorrido completo, consulta [Configuración de la integración personalizada de Shopify](https://www.braze.com/docs/partners/ecommerce/shopify/shopify_custom_integration/#step-1):
+Si aún no lo has hecho, inicializa y carga el SDK web de Braze para habilitar el seguimiento en el sitio. Para un recorrido completo, consulta [Configuración de la integración personalizada de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-1):
 - Crear una aplicación web de Braze
 - Agregar subdominio y variables de entorno
 - Habilitar el seguimiento en el sitio
@@ -219,4 +219,4 @@ Para verificar que tu nuevo conector de Shopify esté en vivo, prueba lo siguien
 - **Personalizaciones del SDK (opcional):** Si realizaste personalizaciones en tu integración de Braze y Shopify (como registrar eventos personalizados o atributos), verifica que estén funcionando correctamente después de la actualización.
 - **Recopilación de suscriptores de correo electrónico o SMS (opcional):** Si habilitaste previamente la recopilación de suscriptores de correo electrónico o SMS, se crearán nuevos grupos de suscripción predeterminados para reflejar el estado más reciente de tus suscriptores durante la actualización. Los grupos de suscripción predeterminados tendrán el nombre de tu tienda de Shopify. Estos nuevos grupos de suscripción predeterminados estarán disponibles aproximadamente 5 horas después de la actualización, y necesitarás agregarlos a tus mensajes activos.
 
-Si tienes alguna pregunta, [ponte en contacto con Soporte](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Si tienes alguna pregunta, [ponte en contacto con Soporte]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

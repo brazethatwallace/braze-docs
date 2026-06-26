@@ -37,7 +37,7 @@ Lexer で **Manage > Integration** に移動し、**Braze** タイルを選択�
   - **AWS S3 [バケットリージョン](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
   - **AWS S3 バケットのパス**：このパスは、[S3 バケットを Braze に接続する]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)ときに指定したパスと一致している必要があります。Braze に何も指定しなかった場合は空白にしてください。
   - **AWS S3 シークレットアクセスキー**：[アクセスキーの作成](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/)に関する情報は Amazon を参照してください。
-- **Braze エクスポートセグメント ID**：Lexer にエクスポートしたいすべてのユーザーを含む、Braze で作成したSegmentの ID です。Lexer にエクスポートしたくないユーザーがいる場合は、Braze で作成したSegmentから除外できます。セグメント識別子を確認するには、Braze で目的のSegmentをクリックし、**セグメント API 識別子**を見つけます。
+- **Braze エクスポートセグメント ID**：Lexer にエクスポートしたいすべてのユーザーを含む、Braze で作成したセグメントの ID です。Lexer にエクスポートしたくないユーザーがいる場合は、Braze で作成したセグメントから除外できます。セグメント識別子を確認するには、Braze で目的のセグメントをクリックし、**セグメント API 識別子**を見つけます。
 
 ![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 
@@ -48,15 +48,15 @@ Braze を Lexer ハブに接続する方法として、Lexer マネージドバ�
 
 この統合は、既存の API トークンとシークレットを Lexer に提供し、Lexer がお客様に代わってこれらのエクスポートを行うことで機能します。また、これらの認証情報と S3 設定を使用して Braze データが Lexer にインポートされ、両方のプラットフォームのデータが自動的に同期されます。
 
-## Braze にSegmentを送信する {#sending-segments-to-braze}
+## Braze にセグメントを送信する {#sending-segments-to-braze}
 
 ### ステップ 1：アクティベーションを作成する {#step-1-create-activation}
 
-Lexer Activate により Braze プロファイルが自動的に更新され、Segmentへの顧客の出入りに応じて属性が追加または削除されます。
+Lexer Activate により Braze プロファイルが自動的に更新され、セグメントへの顧客の出入りに応じて属性が追加または削除されます。
 
 1. Lexer の **Lexer Activations** で **ACTIVATE NEW AUDIENCE** をクリックします。
 2. このCampaignに適切な Braze のアクティベーションを選択します。
-3. Segmentを追加します。
+3. セグメントを追加します。
 4. オーディエンス名を更新します。これは Braze での属性値となります。
 5. これが Braze で更新するカスタム属性です。更新については [Lexer サポート](support@lexer.io)に連絡してください。
 6. 適切なリストアクションを確認します。ほとんどの場合、リストを維持します。
@@ -74,4 +74,4 @@ Braze では、Lexer のオーディエンス名が `lexer_audience` カスタ�
 
 Segmentを作成するには、**Segment > + Create Segment** に移動し、フィルターとして **Custom Attribute** を選択します。次に、属性として `lexer_audience` を選択し、目的の Lexer オーディエンス名を選択します。完了したら、オーディエンスを**保存**します。
 
-この新しく作成したSegmentを、今後の Braze CampaignsやCanvasesに追加して、これらのエンドユーザーをターゲットにできます。
+この新しく作成したセグメントを、今後の Braze CampaignsやCanvasesに追加して、これらのエンドユーザーをターゲットにできます。

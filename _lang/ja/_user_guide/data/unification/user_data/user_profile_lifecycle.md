@@ -3,7 +3,7 @@ nav_title: ユーザープロファイルのライフサイクル
 article_title: ユーザープロファイルのライフサイクル
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Braze のユーザープロファイルのライフサイクルと、ユーザープロファイルを識別して参照するさまざまな方法について説明します。"
+description: "このリファレンス記事では、Brazeのユーザープロファイルのライフサイクルと、ユーザープロファイルを識別して参照するさまざまな方法について説明します。"
 
 ---
 
@@ -73,6 +73,10 @@ description: "このリファレンス記事では、Braze のユーザープロ
 {% alert note %}
 孤立したユーザーはメッセージを受信する資格がありません。
 {% endalert %}
+
+### 重複ユーザーのマージ {#merging-duplicate-users}
+
+ワークスペースで重複するユーザープロファイルを特定した場合、REST APIを使用してそれらをマージできます。ユーザーのマージと利用可能な方法の詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)を参照してください。
 
 ## ユーザーエイリアス {#user-aliases}
 

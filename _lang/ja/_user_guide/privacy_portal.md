@@ -48,7 +48,7 @@ guide_featured_list:
 - name: デフォルトおよび最小のSDKデータ収集
   link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
   image: /assets/img/braze_icons/settings-01.svg
-- name: キャンバス Audience Syncのデータプライバシーに関する考慮事項
+- name: Canvas Audience Syncのデータプライバシーに関する考慮事項
   link: /docs/partners/canvas_audience_sync/overview/#data-privacy-considerations
   image: /assets/img/braze_icons/fingerprint-03.svg
 - name: Brazeのデータリテンション
@@ -58,7 +58,7 @@ guide_featured_list:
   link: /docs/user_archival/
   image: /assets/img/braze_icons/users-01.svg
 - name: ユーザーPIIアクセス
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: その他のプライバシーリソース
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy

@@ -19,7 +19,7 @@ channel:
 
 Recomendamos importar números de telefone no formato [`E.164`](https://en.wikipedia.org/wiki/e.164) para garantir a precisão caso você esteja enviando para várias regiões com diferentes códigos de país ou área&#8212;mesmo para números de telefone dos EUA.
 
-- **Números dos EUA:** Todos os números dos EUA devem ser números de telefone válidos de 10 dígitos com um código de área válido. Se algum número de 10 dígitos estiver sem o `+` e o código do país, a Braze o mapeará como número dos EUA.
+- **Números dos EUA:** Todos os números dos EUA devem ser números de telefone válidos de 10 dígitos com um código de área válido. Se algum número de 10 dígitos estiver sem o `+` e o código do país, a Braze o mapeará como número dos EUA. Números de telefone de Porto Rico ainda exigem o `+` e o código do país, mesmo usando formatação de 10 dígitos com códigos de área no estilo dos EUA.
 - **Números internacionais:** Todos os números internacionais devem começar com `+`, seguido do código do país e do número de telefone. Por exemplo, `+442071838750`.
 
 ![Exemplo de um número de telefone internacional válido no formato E.164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}

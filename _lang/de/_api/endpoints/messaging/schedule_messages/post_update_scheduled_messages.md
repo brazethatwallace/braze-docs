@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Gepla
 ---
 {% api %}
 # Geplante Nachrichten aktualisieren {#update-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
 
@@ -50,10 +50,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `schedule_id` | Erforderlich | String | Die zu aktualisierende `schedule_id` (erhalten aus der Antwort auf Zeitplan erstellen). |
+| `schedule_id` | Erforderlich | String | Die zu aktualisierende `schedule_id` (erhalten aus der Antwort auf „Zeitplan erstellen“). |
 | `schedule` | Optional | Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
 | `messages` | Optional | Objekt | Siehe [verfügbare Messaging-Objekte]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```

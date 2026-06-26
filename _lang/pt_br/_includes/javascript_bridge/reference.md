@@ -56,10 +56,6 @@ Os seguintes métodos JavaScript são suportados dentro do HTML personalizado pa
 
 Use o método `brazeBridge.logClick(button_id)` para rastrear cliques no seu HTML personalizado.
 
-{% alert note %}
-**Banners:** Apenas `brazeBridge.logClick()` (sem argumentos) é suportado. IDs de botões e rastreamento de botões personalizados são suportados apenas para mensagens no app.
-{% endalert %}
-
 Para mensagens no app, você pode rastrear programaticamente "Button 1", "Button 2" e "Body Clicks" usando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`, respectivamente.
 
 | Cliques | Método | Com suporte |
@@ -67,7 +63,7 @@ Para mensagens no app, você pode rastrear programaticamente "Button 1", "Button
 | Clique no corpo | `brazeBridge.logClick()` | Mensagens no app e Banners |
 | Button 1 | `brazeBridge.logClick('0')` | Apenas mensagens no app |
 | Button 2 | `brazeBridge.logClick('1')` | Apenas mensagens no app |
-| Rastreamento de botões personalizados | `brazeBridge.logClick('your custom name here')` | Apenas mensagens no app |
+| Rastreamento de botões personalizados | `brazeBridge.logClick('your custom name here')` | Mensagens no app e Banners |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de cliques em botões" }
 
 Para mensagens no app, você pode rastrear múltiplos eventos de cliques em botões por impressão. Por exemplo, para fechar uma mensagem e registrar um clique no Button 2:

@@ -44,7 +44,6 @@ Para iniciar el proceso de fusión, selecciona **Merge duplicates**.
 
 Elige qué perfil de usuario conservar y cuál fusionar, y luego selecciona **Merge profiles**. Repite este proceso hasta que hayas fusionado todos los perfiles duplicados.
 
-![La página de fusión individual para un perfil duplicado.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 Los perfiles de usuario duplicados no se pueden recuperar después de la fusión.
@@ -68,7 +67,6 @@ Para previsualizar tus resultados antes de fusionar tus duplicados, selecciona *
 
 Braze generará tu vista previa y la enviará a tu dirección de correo electrónico como un archivo CSV.
 
-![Un correo electrónico de Braze con un enlace al archivo CSV generado.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 En el siguiente ejemplo, Braze utiliza el ID externo del usuario para marcar perfiles duplicados e identificar cuál conservar. Si estos perfiles se fusionan de forma masiva, Braze utilizará el perfil con un ID externo como el nuevo perfil principal del usuario.
 
@@ -95,7 +93,6 @@ Si estás conforme con los resultados de tu vista previa, selecciona **Merge all
 Los perfiles de usuario duplicados no se pueden recuperar después de la fusión.
 {% endalert %}
 
-![La página "Manage Audience" con "Merge all duplicates" resaltado.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## Fusión basada en reglas {#rules-based-merging}
 

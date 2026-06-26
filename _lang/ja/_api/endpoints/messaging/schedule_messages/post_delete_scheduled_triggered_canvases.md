@@ -1,20 +1,20 @@
 ---
-nav_title: "POST:スケジュールされたAPIトリガーキャンバスを削除"
-article_title: "POST:スケジュールされたAPIトリガーキャンバスを削除"
+nav_title: "POST:スケジュールされたAPIトリガーCanvasesを削除"
+article_title: "POST:スケジュールされたAPIトリガーCanvasesを削除"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「スケジュールされたAPIトリガーキャンバスを削除」Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、「スケジュールされたAPIトリガーCanvasesを削除」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# スケジュールされたAPIトリガーキャンバスを削除 {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# スケジュールされたAPIトリガーCanvasesを削除 {#delete-scheduled-api-triggered-canvases}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
-> 「スケジュールを削除」エンドポイントを使用すると、以前にスケジュールしたAPIトリガーキャンバスのメッセージを、送信前にキャンセルできます。
+> 「スケジュールを削除」エンドポイントを使用すると、以前にスケジュールしたAPIトリガーCanvasesのメッセージを、送信前にキャンセルできます。
 
 スケジュールされたメッセージやトリガーが、送信予定時刻の間近またはその最中に削除された場合、ベストエフォートで更新されます。そのため、Brazeは対象ユーザーの全員、一部、またはゼロ人に対して直前の削除を適用する可能性があります。
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id`| 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `schedule_id` | 必須 | 文字列 | 削除する`schedule_id`（スケジュール作成のレスポンスから取得）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 

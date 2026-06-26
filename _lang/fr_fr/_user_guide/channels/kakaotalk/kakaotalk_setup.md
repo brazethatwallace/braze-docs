@@ -80,7 +80,7 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 | **Sender Key (발신프로필 키)** | Accédez à **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Channel name (카카오톡 채널 프로필명)** | Dans votre tableau de bord Comm.One, accédez à **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Accédez à <b>Account Management (계정 관리)</b>, sélectionnez l'icône de menu, puis sélectionnez <b>View Details (자세히보기)</b>.</li><li>Accédez à <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ol>{:/} |
-| **Credential (ID) & Password (비밀번호)** | Accédez au même emplacement que pour le **Sender number (사업자 등록번호)**, puis accédez à **API** > **Brand Message (브랜드 메시지)**. |
+| **Credential (ID) et Password (비밀번호)** | Accédez au même emplacement que pour le **Sender number (사업자 등록번호)**, puis accédez à **API** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
@@ -105,7 +105,7 @@ Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espac
 ![Tableau de bord Comm.One affichant un nom de canal masqué.]({% image_buster /assets/img/kakaotalk/channel_profile_name.png %})
 
 {% endtab %}
-{% tab Credential (ID) & Password (비밀번호) %}
+{% tab Credential (ID) et Password (비밀번호) %}
 
 ![Tableau de bord Comm.One affichant un identifiant et un mot de passe masqués.]({% image_buster /assets/img/kakaotalk/id_and_password.png %})
 
@@ -134,8 +134,6 @@ Accédez à votre tableau de bord Infobip et rassemblez les informations suivant
 ## Configurer les profils utilisateur {#set-user-profiles}
 
 Les profils utilisateur doivent contenir des numéros de téléphone au format E.164 pour pouvoir leur envoyer des messages via KakaoTalk. Les numéros de téléphone sont affichés sur le profil utilisateur. KakaoTalk exige que les numéros de téléphone soient au format E.164 (par exemple, `+821025749774`). Cela diffère de certains autres canaux de communication qui peuvent accepter des numéros de téléphone dans plusieurs formats.
-
-![Profil utilisateur d'un utilisateur test avec un numéro de téléphone au format E.164.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
 
 ### Importer des numéros de téléphone {#import-phone-numbers}
 

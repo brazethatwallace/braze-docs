@@ -1,14 +1,14 @@
-# Integration der ChatGPT-App
+# Integration der ChatGPT-App {#chatgpt-app-integration}
 
-## Einrichtung
+## Einrichtung {#setup}
 
-### Schritt 1: Die Braze-Integrationsdatei herunterladen
+### 1. Schritt: Die Braze-Integrationsdatei herunterladen {#step-1-get-the-braze-integration-file}
 
-Bitte kopieren Sie die`braze.js`Datei aus unserem [ChatGPT-Apps-Integrations-Repository](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts) in Ihr Projekt. Diese Datei enthält alle erforderlichen Konfigurations- und Hilfsfunktionen für das Braze SDK.
+Kopieren Sie die `braze.js`-Datei aus unserem [ChatGPT-Apps-Integrations-Repository](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts) in Ihr Projekt. Diese Datei enthält alle erforderlichen Konfigurations- und Hilfsfunktionen für das Braze SDK.
 
-### Schritt 2: Installieren Sie die Abhängigkeiten.
+### 2. Schritt: Abhängigkeiten installieren {#step-2-install-dependencies}
 
-Installieren Sie unser Internet-SDK, um die aktuellsten Features von Braze zu nutzen:
+Installieren Sie unser Web SDK, um die aktuellsten Features von Braze zu nutzen:
 
 **Für die clientseitige Integration:**
 ```bash
@@ -36,7 +36,7 @@ Um Braze-Nachrichten anzuzeigen und Benutzerinteraktionen innerhalb Ihrer angepa
 
 #### Widget-Metadaten konfigurieren
 
-Fügen Sie die folgenden Metadaten zu Ihrer MCP-Serverdatei hinzu, um Braze-Domains zulässig zu machen. Achten Sie dabei darauf, die CDN-Domain entsprechend [Ihrer Region](https://www.braze.com/docs/developer_guide/platforms/web/content_security_policy) zu aktualisieren:
+Fügen Sie die folgenden Metadaten zu Ihrer MCP-Serverdatei hinzu, um Braze-Domains zulässig zu machen. Achten Sie dabei darauf, die CDN-Domain entsprechend [Ihrer Region]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy/) zu aktualisieren:
 
 ```javascript
 "openai/widgetCSP": {
@@ -50,9 +50,9 @@ Fügen Sie die folgenden Metadaten zu Ihrer MCP-Serverdatei hinzu, um Braze-Doma
 }
 ```
 
-Ersetzen Sie `YOUR-SDK-ENDPOINT`dies bitte durch Ihren tatsächlichen Braze SDK-Endpunkt.
+Ersetzen Sie `YOUR-SDK-ENDPOINT` durch Ihren tatsächlichen Braze-SDK-Endpunkt.
 
-#### Richten Sie den useBraze-Hook ein.
+#### Den useBraze-Hook einrichten {#set-up-the-usebraze-hook}
 
 ```javascript
 import { useBraze } from "./utils/braze";
@@ -70,7 +70,7 @@ function YourWidget() {
 
     // Set user identity
     braze.changeUser("user-id-123");
-    
+
     // Log widget interactions
     braze.logCustomEvent("viewed_pizzaz_list");
   }, [braze.isInitialized]);
@@ -81,7 +81,7 @@ function YourWidget() {
 }
 ```
 
-#### Braze-Content-Cards anzeigen
+#### Braze Content Cards anzeigen {#display-braze-content-cards}
 
 ```javascript
 const [cards, setCards] = useState([]);
@@ -104,7 +104,7 @@ useEffect(() => {
 }, []);
 ```
 
-#### Widget-Ereignisse verfolgen
+#### Widget-Events verfolgen {#track-widget-events}
 
 ```javascript
 // Track user interactions within your widget
@@ -123,10 +123,10 @@ const handleItemInteraction = (itemId) => {
 };
 ```
 
-### Serverseitige Integration (MCP-Server)
+### Serverseitige Integration (MCP-Server) {#server-side-integration-mcp-server}
 
 <!-- For tracking events and purchases from your MCP server, add these code snippets to your server file (typically `server.js` or `server.ts`) where you handle ChatGPT app requests and tool calls. -->
-Sollten Sie auch eine serverseitige Integration für Messaging-Funktionen auf Ihrem MCP-Server benötigen, wenden Sie sich bitte an <span style="white-space:nowrap;">`mcp-product@braze.com`</span>. Für das Tracking von Ereignissen und Käufen von Ihrem MCP-Server verwenden Sie bitte unsere [REST API]({{site.baseurl}}/api/home).
+Sollten Sie auch eine serverseitige Integration für Messaging-Funktionen auf Ihrem MCP-Server benötigen, wenden Sie sich an <span style="white-space:nowrap;">`mcp-product@braze.com`</span>. Für das Tracking von Events und Käufen von Ihrem MCP-Server verwenden Sie unsere [REST API]({{site.baseurl}}/api/home/).
 
 <!-- #### Import the Braze functions
 
@@ -178,15 +178,15 @@ const purchaseProperties = {
 
 // Log the purchase to Braze
 await logPurchase(
-  brazeSessionInfo, 
-  "pizza", 
-  totalPrice, 
-  "USD", 
-  args.quantity, 
+  brazeSessionInfo,
+  "pizza",
+  totalPrice,
+  "USD",
+  args.quantity,
   purchaseProperties
 );
 ```
 
 {% alert tip %}
-Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to verify your integration and troubleshoot any issues.
+Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) to verify your integration and troubleshoot any issues.
 {% endalert %} -->

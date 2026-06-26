@@ -61,7 +61,7 @@ Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Ver
 | Mobile Apps | iOS-, Android- und Vega-SDKs |
 | Webbrowser | Web-SDK |
 | Sowohl Mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zustellungsplattformen festlegen" }
 
 ## Schritt 3: Nachrichtentypen festlegen {#step-3-specify-your-message-types}
 
@@ -84,7 +84,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 .tg th{word-break:normal;}
 </style>
 
-<table aria-label="Message types" class="tg">
+<table aria-label="Nachrichtentypen" class="tg">
   <caption>Nachrichtentypen</caption>
 <thead>
   <tr>
@@ -134,7 +134,7 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 
 Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 
-<table aria-label="Advanced message types" class="tg">
+<table aria-label="Erweiterte Nachrichtentypen" class="tg">
   <caption>Erweiterte Nachrichtentypen</caption>
 <thead>
   <tr>
@@ -207,7 +207,7 @@ Einige Nachrichtentypen benötigen keine Überschriften und fragen daher auch ni
 
 ##### KI-generierten Text erstellen {#generating-ai-copy}
 
-Brauchen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnlichen Marketingtext zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnlichen Marketingtext zur Verwendung in Ihren Nachrichten.
 
 ![Button „KI-Textassistent starten“ im Nachrichtenfeld des In-App-Nachrichten-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
@@ -241,7 +241,7 @@ Wenn Ihre Kund:innen auf einen Button in Ihrer In-App-Nachricht klicken, stehen 
 | Angepasstes Event protokollieren | Wählen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) zum Auslösen. Kann verwendet werden, um eine weitere In-App-Nachricht anzuzeigen oder zusätzliches Messaging auszulösen. |
 | Angepasstes Attribut protokollieren | Wählen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
 | Push-Berechtigung anfordern | Zeigt die native Push-Berechtigungsabfrage an. Lesen Sie mehr über [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) sowie [Best Practices]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) zur Vorbereitung von Nutzer:innen auf Push. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
 Hinweis: Die Optionen __Push-Berechtigung anfordern__, __Angepasstes Event protokollieren__ und __Angepasstes Attribut protokollieren__ erfordern die folgenden SDK-Mindestversionen:
 
@@ -287,7 +287,7 @@ Der Inhalt des Tabs **Stil** variiert je nach den im vorherigen Schritt gewählt
 | Hintergrundfarbe | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. Dies ist der Hintergrund der gesamten Nachricht und wird deutlich hinter Ihrem Textkörper angezeigt. |
 | Bildschirm-Overlay | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. Nur für neuere Braze-SDK-Versionen verfügbar. Dies ist der Rahmen um die gesamte Nachricht. |
 | Chevron oder andere Nachricht-schließen-Option | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 5: Ihre In-App-Nachricht gestalten" }
 
 [Zeigen Sie immer eine Vorschau an und testen Sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) Ihre Nachricht, bevor Sie sie senden.
 
@@ -308,7 +308,7 @@ Sie können [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design
 
 Erstellen Sie den Rest Ihrer Campaign; in den folgenden Abschnitten finden Sie weitere Anleitungen zur optimalen Nutzung unserer Tools zum Erstellen von In-App-Nachrichten.
 
-#### Einen Trigger wählen {#choose-a-trigger}
+### Einen Trigger wählen {#choose-a-trigger}
 
 Wählen Sie die Aktion, die Ihre Nachricht auslösen soll, sowie die Start- und Endzeiten für Ihre Campaign oder Ihr Canvas.
 
@@ -331,7 +331,7 @@ Ein Startdatum und eine Startzeit müssen ausgewählt werden; ein Enddatum ist j
 
 Weitere Informationen finden Sie in unserer Entwicklerdokumentation zu [serverseitigem Event-Triggering]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) und [lokaler In-App-Nachrichtenzustellung]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Online- versus Offline-Triggering {#online-versus-offline-triggering}
+#### Online- versus Offline-Triggering {#online-versus-offline-triggering}
 
 In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Gerät der Nutzerin oder des Nutzers gesendet werden. Sobald die In-App-Nachrichten auf einem Gerät sind, wartet es mit der Anzeige, bis die Trigger-Bedingung erfüllt ist. Wenn die In-App-Nachrichten bereits auf dem Gerät der Nutzerin oder des Nutzers zwischengespeichert sind, können Sie In-App-Nachrichten sogar offline ohne Verbindung zu Braze auslösen (z. B. im Flugmodus).
 
@@ -339,7 +339,7 @@ In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Ger
 Nachdem eine In-App-Nachricht gestoppt wurde, kann es vorkommen, dass einige Nutzer:innen die Nachricht weiterhin sehen, wenn sie eine Sitzung gestartet haben, bevor die Nachricht gestoppt wurde, und anschließend das Trigger-Event ausführen. Diese Nutzer:innen werden als einzigartige Impression gezählt, auch nachdem die Campaign gestoppt wurde.
 {% endalert %}
 
-#### Eine Priorität wählen {#choose-a-priority}
+### Eine Priorität wählen {#choose-a-priority}
 
 Nachdem Sie die Aktion ausgewählt haben, die die In-App-Nachricht auslöst, sollten Sie auch eine Priorität festlegen. Wenn zwei Nachrichten durch dieselbe Aktion ausgelöst werden, werden Nachrichten mit hoher Priorität vor Nachrichten mit niedrigerer Priorität auf den Geräten der Nutzer:innen angezeigt.
 
@@ -358,7 +358,7 @@ Um Prioritäten innerhalb dieser Buckets festzulegen, klicken Sie auf **Genaue P
 
 ![Ein Beispiel, wie die Priorität für eine In-App-Nachrichten-Campaign und ein Canvas festgelegt wird.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### Zielgruppe zusammenstellen {#choose-users-to-target}
+### Zielgruppe zusammenstellen {#choose-users-to-target}
 
 Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch einen Überblick darüber, wie die ungefähre Segment-Population aussieht. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer berechnet wird, bevor die Nachricht gesendet wird.
 
@@ -366,7 +366,7 @@ Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user
 Wenn es eine Verzögerung beim In-App-Nachrichten-Schritt gibt, wird die Segment-Zugehörigkeit nach der Verzögerung ausgewertet. Wenn die Nutzerin oder der Nutzer berechtigt ist, wird die In-App-Nachricht bei der nächsten verfügbaren Sitzung synchronisiert.
 {% endalert %}
 
-##### Campaign-Berechtigung und Liquid erneut auswerten {#re-evaluate-campaign-eligibility-and-liquid}
+#### Campaign-Berechtigung und Liquid erneut auswerten {#re-evaluate-campaign-eligibility-and-liquid}
 
 In einigen Szenarien möchten Sie möglicherweise die Berechtigung einer Nutzerin oder eines Nutzers erneut auswerten, wenn eine In-App-Nachricht zur Anzeige ausgelöst wird. Beispiele hierfür sind Campaigns, die auf ein angepasstes Attribut abzielen, das sich häufig ändert, oder Nachrichten, die kurzfristige Profiländerungen widerspiegeln sollen.
 
@@ -382,13 +382,13 @@ Die Aktivierung dieser Option führt zu einer leichten Verzögerung (< 100 ms) z
 Verwenden Sie diese Option nicht für Nachrichten, die ausgelöst werden können, während eine Nutzerin oder ein Nutzer offline ist, oder wenn eine erneute Auswertung der Berechtigung und von Liquid nicht erforderlich ist.
 {% endalert %}
 
-##### Über die REST API hinzugefügte Daten in einer Nachricht verwenden {#use-data-added-by-rest-api-in-a-message}
+#### Über die REST API hinzugefügte Daten in einer Nachricht verwenden {#use-data-added-by-rest-api-in-a-message}
 
 Nutzerdaten, die der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) in derselben Sitzung hinzufügt, können manchmal in der In-App-Nachricht dieser Nutzerin oder dieses Nutzers verwendet werden. Wenn sich beispielsweise eine Nutzerin oder ein Nutzer in der Zielgruppe für eine In-App-Nachricht befindet, die auf einen Trigger wartet, eine Sitzung startet und in derselben Sitzung die REST API ihr oder sein Profil aktualisiert, können diese neuen Daten in der In-App-Nachricht erscheinen, wenn **Campaign-Berechtigung vor der Anzeige erneut auswerten** ausgewählt ist. Braze löst das Template der In-App-Nachricht erst auf, wenn es Zeit zum Rendern ist.
 
 Wenn ein Trigger sowohl Daten an Braze sendet als auch die In-App-Nachricht auslöst, kann die Nachricht diese neu aktualisierten Profildaten nicht verwenden, selbst mit einer geplanten Verzögerung. Verwenden Sie stattdessen zwei separate Trigger: einen zum Senden der Daten und einen zum Auslösen der In-App-Nachricht.
 
-#### Konversions-Events wählen {#choose-conversion-events}
+### Konversions-Events wählen {#choose-conversion-events}
 
 Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), nach Erhalt einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
 

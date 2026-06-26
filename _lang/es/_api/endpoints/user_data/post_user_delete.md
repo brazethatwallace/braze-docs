@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Eliminar usuarios {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | Opcional | Matriz de cadenas | Identificadores de usuario de Braze a eliminar. |
 | `email_addresses` | Opcional | Matriz de cadenas | Correos electrónicos de usuarios que deben eliminarse. Consulta [Eliminar usuarios por correo electrónico](#deleting-users-by-email) para más información. |
 | `phone_numbers` | Opcional | Matriz de cadenas | Números de teléfono de usuario que hay que eliminar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Eliminar usuarios por direcciones de correo electrónico y números de teléfono {#deleting-users-by-email-addresses-and-phone-numbers}
 

@@ -52,6 +52,10 @@ Determine o impacto do envio de mensagens do seu Canvas incorporando grupos de c
 O Canvas impedirá que você use o envio agendado com um horário que já passou. No entanto, é possível lançar um Canvas durante o mesmo minuto exato em que a campanha está agendada (ou nos segundos anteriores). Isso pode fazer com que o Canvas perca o horário de entrada agendado e os usuários não entrem no Canvas. Recomendamos enviar os Canvas imediatamente caso alguma campanha seja editada poucos minutos antes do horário de envio agendado.
 {% endalert %}
 
+{% alert important %}
+Se você alterar o público, a programação ou a entrega próximo a uma janela de entrada ou envio agendado, alguns usuários podem já estar aguardando em uma etapa ou terem sido avaliados com as configurações anteriores, então nem todos receberão a alteração. Para entender como alterações de programação, alterações de público, **Evaluate at enqueue time** e o momento de entrega da etapa de Mensagem interagem, consulte [Alterar seu Canvas após o lançamento]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). Em caso de dúvida, pare o Canvas, duplique-o e relance para uma reavaliação limpa.
+{% endalert %}
+
 Para etapas do Canvas, considere os seguintes detalhes ao programar seu Canvas:
 
 - As alterações de programação serão aplicadas apenas aos usuários que ainda não estão aguardando para receber a etapa.

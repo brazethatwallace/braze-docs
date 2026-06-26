@@ -46,11 +46,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `merge_updates` | Obrigatória | Vetor | Um vetor de objetos. Cada objeto deve conter um objeto `identifier_to_merge` e um objeto `identifier_to_keep`, cada um dos quais deve fazer referência a um usuário por `external_id`, `user_alias`, `phone` ou `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Comportamento de mesclagem {#merge-behavior}
 
-O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, extensões de segmento, Criador de consultas e Currents.
+O comportamento documentado abaixo é verdadeiro para todos os recursos da Braze que **não são** alimentados pelo Snowflake. As mesclagens de usuários não serão refletidas na guia **Histórico de mensagens**, Extensões de segmento, Criador de consultas e Currents.
 
 {% alert important %}
 O endpoint não garante a sequência de atualização dos objetos `merge_updates`.
@@ -266,6 +266,14 @@ O código de status `400` poderia retornar o seguinte corpo de resposta. Consult
 
 ## Solução de problemas {#troubleshooting}
 
+### Uma resposta de sucesso foi retornada, mas o usuário mesclado ainda pode ser encontrado {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+Uma resposta de sucesso confirma que a solicitação foi aceita, mas a operação de mesclagem envolve duas etapas: mesclar os perfis e depois remover o perfil de origem. Por causa disso, o perfil `identifier_to_merge` pode continuar pesquisável no dashboard por um curto período após uma resposta de sucesso. Esse é o comportamento esperado — aguarde alguns minutos e depois verifique se a mesclagem foi concluída.
+
+Se o usuário mesclado ainda existir após vários minutos, verifique se os identificadores na sua solicitação estão corretos e pertencem a usuários no mesmo espaço de trabalho da chave de API usada na solicitação.
+
+### Referência de erros {#error-reference}
+
 A tabela a seguir lista as possíveis mensagens de erro que podem ocorrer.
 
 | Erro | Solução de problemas |
@@ -274,6 +282,6 @@ A tabela a seguir lista as possíveis mensagens de erro que podem ocorrer.
 | `a single request may not contain more than 50 merge updates` | Você só pode especificar até 50 atualizações de mesclagem em uma única solicitação. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Verifique os identificadores na sua solicitação. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Verifique se `merge_updates` contém apenas os dois objetos `identifier_to_merge` e `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

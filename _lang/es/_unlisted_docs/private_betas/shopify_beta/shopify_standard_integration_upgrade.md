@@ -212,4 +212,4 @@ Para verificar que tu nuevo conector de Shopify esté en vivo, prueba lo siguien
 - **Personalizaciones del SDK (opcional):** Si realizaste personalizaciones en tu integración de Braze y Shopify (como registrar eventos personalizados o atributos), verifica que estén funcionando correctamente después de la actualización.
 - **Recopilación de suscriptores de correo electrónico o SMS (opcional):** Si habilitaste previamente la recopilación de suscriptores de correo electrónico o SMS, se crearán nuevos grupos de suscripción predeterminados para reflejar el estado más reciente de tus suscriptores durante la actualización. Los grupos de suscripción predeterminados tendrán el nombre de tu tienda de Shopify. Estos nuevos grupos de suscripción predeterminados estarán disponibles aproximadamente 5 horas después de la actualización, y necesitarás añadirlos a tus mensajes activos.
 
-Si tienes alguna pregunta, [ponte en contacto con Soporte](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Si tienes alguna pregunta, [ponte en contacto con Soporte]({{site.baseurl}}/user_guide/administrative/access_braze/support/).

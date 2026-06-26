@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Criar um conjunto de permissões {#create-a-permission-set}
 
-Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Configurações de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Use conjuntos de permissões para agrupar permissões relacionadas a áreas de assunto ou ações específicas. Você pode aplicar conjuntos de permissões a usuários do dashboard que precisam do mesmo acesso em diferentes espaços de trabalho. Para criar um conjunto de permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Conjuntos de permissões** e selecione **Criar conjunto de permissões**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de conjuntos de permissões %}
@@ -32,7 +32,7 @@ Use conjuntos de permissões para agrupar permissões relacionadas a áreas de a
 
 ## Criar um papel {#creating-a-role}
 
-Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Os papéis permitem mais estrutura ao agrupar suas permissões personalizadas individuais com controles de acesso ao espaço de trabalho. Isso é especialmente útil se você tem muitas marcas ou espaços de trabalho regionais em um único dashboard. Com papéis, você pode adicionar usuários do dashboard aos espaços de trabalho corretos e conceder diretamente as permissões associadas. Para criar um papel, acesse **Configurações** > **Gerenciamento de usuários** > **Papéis** e selecione **Criar papel**. Para uma descrição de cada permissão, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
 
 {% tabs local %}
 {% tab exemplos de papéis %}
@@ -96,7 +96,7 @@ Tenha em mente os seguintes comportamentos ao atribuir acesso ao dashboard:
 
 ## Editar as permissões de um usuário {#edit-a-users-permissions}
 
-Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Usuários da empresa** e selecione o nome dele.
+Para editar as permissões atuais de administrador, empresa ou espaço de trabalho de um usuário, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa** e selecione o nome dele.
 
 ![A página "Usuários da empresa" na Braze mostrando uma tabela de usuários do dashboard.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
@@ -112,8 +112,6 @@ Administradores têm acesso a todos os recursos e a capacidade de modificar qual
 - Exportar usuários da Braze como CSV
 
 Para conceder ou remover privilégios de administrador, selecione **Este usuário é um administrador** e depois selecione **Atualizar usuário**.
-
-![Os detalhes do usuário selecionado com a caixa de seleção de administrador em destaque.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
 
 {% alert warning %}
 Se você remover os privilégios de administrador de um usuário, ele não poderá acessar a Braze até que você atribua pelo menos uma [permissão no nível da empresa ou do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
@@ -173,7 +171,7 @@ Quando terminar, selecione **Atualizar usuário**.
 
 ## Exportar permissões de usuário {#exporting-user-permissions}
 
-Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Usuários da empresa** e selecione **Exportar usuários**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
+Para baixar uma lista dos seus usuários e suas permissões, acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa** e selecione **Exportar usuários**. Um arquivo CSV será enviado para o seu endereço de e-mail em breve.
 
 ![A página "Usuários da empresa" na Braze com a opção "Exportar usuários" em destaque.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
 

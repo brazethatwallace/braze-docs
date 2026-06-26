@@ -47,8 +47,8 @@ Pour créer un agent, commencez par choisir votre type d'agent :
 
 Sélectionnez **Créer un agent**, puis choisissez l'une des options suivantes :
 
-a. **Agent personnalisé** pour créer un agent à partir de zéro
-b. Une option dans **Créer un agent avec Operator** pour utiliser [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) et appliquer un [modèle de départ](#agent-templates-built-with-operator)
+- **Agent personnalisé** pour créer un agent à partir de zéro
+- Une option dans **Créer un agent avec Operator** pour utiliser [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) et appliquer un [modèle de départ](#agent-templates-built-with-operator)
 
 Si vous utilisez Operator, vérifiez et approuvez ses modifications dans le chat avant de passer à l'étape suivante.
 
@@ -84,7 +84,7 @@ Sélectionnez **+ Contexte de l'agent** pour choisir les éléments auxquels vot
 - [Appartenance à un segment]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq segments.
 - [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) : Référencez les directives relatives au ton et au style de la marque que l'agent doit respecter. Par exemple, si vous souhaitez que votre agent génère un SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre directive prédéfinie, audacieuse et motivante.
 - [Contexte Canvas complet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) : Analysez toutes les données de contexte Canvas pour un utilisateur lorsque cet agent est invoqué, y compris les variables qui ne sont pas référencées dans la section **Instructions**.
-- [Données d'interaction utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history) : Fournissez à l'agent les données récentes d'ouvertures, de clics et de conversions des campagnes et Canvas de chaque utilisateur.
+- [Données d'interaction utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history) : Fournissez à l'agent les données récentes d'ouvertures, de clics et de conversions des Campaigns et Canvas de chaque utilisateur.
 
 ### Étape 5 : Sélectionner la sortie {#select-output}
 
@@ -96,7 +96,30 @@ Pour obtenir les meilleurs résultats, assurez-vous que ce que vous spécifiez d
 Lorsque vous utilisez un [schéma de sortie avancé]({{site.baseurl}}/user_guide/brazeai/agents/reference/#advanced-schemas), ajoutez un champ de type chaîne de caractères nommé `explanation` si vous souhaitez que l'agent renvoie son raisonnement en plus de ses autres sorties. Indiquez à l'agent dans vos [instructions](#agent-instructions) de renseigner `explanation` lorsque cela vous aide à vérifier ou déboguer les réponses.
 {% endalert %}
 
-### Étape 6 : Tester et créer l'agent {#step-6-test-and-create-the-agent}
+#### Configurer les valeurs de repli {#configure-fallback-values}
+
+Les valeurs de repli sont disponibles uniquement pour les **agents d'étape Canvas**. Dans la section **Sortie** d'un agent Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation de l'agent échoue, par exemple lorsque le LLM expire ou renvoie une erreur de clé API non valide. Les valeurs de repli fonctionnent comme des valeurs par défaut de personnalisation. Vous pouvez définir une ligne d'objet statique ou un court message qui fournit tout de même un résultat utile aux utilisateurs lorsque l'agent ne peut pas s'exécuter.
+
+Les **agents de catalogue** ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
+
+![Configuration de la sortie dans la Console des agents, affichant le champ de sortie de repli pour un schéma de type Nombre.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+
+Pour les agents Canvas, les valeurs de repli prennent en charge le templating [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) afin que vous puissiez faire référence aux attributs utilisateur ou aux variables de contexte dans le texte de repli.
+
+Les champs de repli s'adaptent au format de sortie de votre agent Canvas :
+
+| Format de sortie | Configuration du repli |
+| --- | --- |
+| Chaîne de caractères, nombre ou valeur booléenne | Saisissez une seule valeur de repli (Liquid pris en charge). |
+| Champs (schéma avancé) | Saisissez une valeur de repli pour chaque champ défini dans la sortie de l'agent. |
+| Schéma JSON (schéma avancé) | Braze lit votre schéma JSON et génère un champ de saisie pour chaque propriété afin que vous puissiez définir une valeur de repli par clé. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les valeurs de repli" }
+
+Lorsqu'un agent Canvas avec des valeurs de repli s'exécute dans une [étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/), Braze effectue le rendu du repli par utilisateur et le stocke dans la variable de sortie au lieu de `null`. Si vous ne configurez pas de valeurs de repli, les invocations échouées laissent la sortie Canvas non définie (`null`).
+
+Pour le comportement à l'exécution, consultez [Gestion des erreurs et comportement de repli]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior).
+
+### Étape 6 : Tester l'agent {#step-6-test-the-agent}
 
 Le volet **Prévisualisation** est une instance de l'agent qui s'affiche sous la forme d'un panneau côte à côte dans l'interface de configuration. Vous pouvez l'utiliser pour tester l'agent pendant que vous le créez ou le mettez à jour, afin de le découvrir de la même manière que les utilisateurs finaux. Cette étape vous permet de vérifier que tout fonctionne comme prévu et vous donne l'occasion d'effectuer des ajustements avant la mise en production.
 

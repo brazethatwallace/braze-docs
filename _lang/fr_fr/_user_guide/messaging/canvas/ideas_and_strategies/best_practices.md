@@ -52,11 +52,15 @@ Mesurez l'impact de vos messages Canvas en intégrant des groupes de contrôle. 
 Canvas vous empêchera d'utiliser un envoi planifié avec une heure déjà passée. Cependant, il est possible de lancer un Canvas pendant la même minute exacte où la campagne est planifiée (ou dans les secondes qui précèdent). Le Canvas risque alors de manquer l'heure d'entrée planifiée, empêchant les utilisateurs d'y entrer. Nous recommandons d'envoyer les Canvas immédiatement si des campagnes sont modifiées dans les minutes précédant l'heure d'envoi planifiée.
 {% endalert %}
 
+{% alert important %}
+Si vous modifiez l'audience, la planification ou les paramètres de réception peu avant une entrée planifiée ou une fenêtre d'envoi, certains utilisateurs peuvent déjà être en attente sur une étape ou avoir été évalués avec les paramètres précédents, de sorte que tout le monde n'est pas garanti de prendre en compte la modification. Pour comprendre comment les modifications de planification, les modifications d'audience, l'option **Évaluer au moment de la mise en file d'attente** et le timing de réception des étapes de message interagissent, consultez [Modifier votre Canvas après le lancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/). En cas de doute, arrêtez le Canvas, dupliquez-le et relancez-le pour une réévaluation propre.
+{% endalert %}
+
 Pour les étapes du Canvas, tenez compte des détails suivants lors de la planification de votre Canvas :
 
-- Les modifications de planification ne s'appliqueront qu'aux utilisateurs qui ne sont pas déjà en attente de recevoir l'étape.
+- Les modifications de planification ne s'appliquent qu'aux utilisateurs qui ne sont pas déjà en attente de recevoir l'étape.
 - Les modifications d'audience s'appliquent par défaut à tous les utilisateurs, sauf si vous planifiez les modifications pour qu'elles ne s'appliquent qu'aux utilisateurs qui ne sont pas en attente de recevoir l'étape.
-- La modification d'un Canvas planifié pour être envoyé dès son déploiement, suivie de la sélection de **Mettre à jour**, entraînera essentiellement son envoi.
+- La modification d'un Canvas planifié pour être envoyé dès son déploiement, suivie de la sélection de **Mettre à jour**, entraîne essentiellement son envoi.
 
 ### Modifications après le lancement {#post-launch-edits}
 

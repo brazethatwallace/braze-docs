@@ -1,72 +1,70 @@
 ---
 nav_title: SDK-Ersteinrichtung mit Eclipse
 page_order: 1
-
 page_type: update
-description: "Dieser archivierte Artikel beschreibt, wie Sie ein erstes SDK-Setup mit Eclipse durchführen. Braze hat die Unterstützung für die Eclipse IDE eingestellt."
+noindex: true
+description: "Dieser archivierte Artikel beschreibt, wie Sie eine SDK-Ersteinrichtung mit Eclipse durchführen. Braze hat die Unterstützung für die Eclipse IDE eingestellt."
 ---
 
-# SDK-Ersteinrichtung mit Eclipse
+# SDK-Ersteinrichtung mit Eclipse {#initial-sdk-setup-with-eclipse}
 
 {% alert update %}
-Braze hat die Unterstützung für die Eclipse IDE entfernt, da [Google die Unterstützung für das Eclipse Android Developer Tools Plugin Sunsetting](http://android-developers.blogspot.com/2015/06/an-update-on-eclipse-android-developer.html). Wenn Sie vor der Migration Hilfe bei der Integration von Eclipse benötigen, [senden Sie eine E-Mail an den Support]({{site.baseurl}}/support_contact/).
+Braze hat die Unterstützung für die Eclipse IDE entfernt, da [Google die Unterstützung für das Eclipse Android Developer Tools Plugin eingestellt hat](http://android-developers.blogspot.com/2015/06/an-update-on-eclipse-android-developer.html). Wenn Sie vor der Migration Hilfe bei Ihrer Eclipse-Integration benötigen, [senden Sie eine E-Mail an den Support]({{site.baseurl}}/support_contact/).
 {% endalert %}
 
-## Schritt 1
+## 1. Schritt {#step-1}
 Klonen Sie in Ihrer Befehlszeile das [Braze Android GitHub Repository](https://github.com/braze-inc/braze-android-sdk).
 
 ```bash
 $ git clone git@github.com:braze-inc/braze-android-sdk.git
 ```
 
-## Schritt 2
-Importieren Sie das Braze-Projekt in Ihren lokalen Workspace
+## 2. Schritt {#step-2}
+Importieren Sie das Braze-Projekt in Ihren lokalen Workspace.
 
 In Eclipse:
 
-  - Navigieren Sie zu Datei > Importieren.
+  - Navigieren Sie zu **Datei** > **Importieren**.
 
     ![Datei-Import]({{site.baseurl}}/assets/img_archive/file_import.png)
-  - Wählen Sie Android > Vorhandener Android Code in Workspace.
+  - Wählen Sie **Android** > **Vorhandenen Android-Code in Workspace importieren**.
 
-    ![Android Import]({{site.baseurl}}/assets/img_archive/android_import.png)
-  - Klicken Sie auf "Durchsuchen".
+    ![Android-Import]({{site.baseurl}}/assets/img_archive/android_import.png)
+  - Klicken Sie auf „Durchsuchen“.
 
     ![Durchsuchen]({{site.baseurl}}/assets/img_archive/click_browse.png)
-  - Markieren Sie den Braze UI Projektordner sowie "Projekt in Workspace kopieren" und klicken Sie auf "Fertig stellen".
+  - Markieren Sie den Braze-UI-Projektordner sowie „Projekt in Workspace kopieren“ und klicken Sie auf „Fertig stellen“.
 
-    ![Android UI Projekt auswählen]({{site.baseurl}}/assets/img_archive/select_project_android.png)
+    ![Android-UI-Projekt auswählen]({{site.baseurl}}/assets/img_archive/select_project_android.png)
 
-## Schritt 3
+## 3. Schritt {#step-3}
 Referenzieren Sie Braze in Ihrem eigenen Projekt.
 In Eclipse:
 
-  - Klicken Sie mit der rechten Maustaste auf Ihr Projekt und wählen Sie "Eigenschaften".
+  - Klicken Sie mit der rechten Maustaste auf Ihr Projekt und wählen Sie „Eigenschaften“.
 
-    ![Klicken Sie auf Eigenschaften]({{site.baseurl}}/assets/img_archive/click_properties.png)
-  - Klicken Sie unter "Android" im Abschnitt "Bibliothek" auf "Hinzufügen..." und fügen Sie android-sdk-ui als Bibliothek zu Ihrer App hinzu.
+    ![Auf „Eigenschaften“ klicken]({{site.baseurl}}/assets/img_archive/click_properties.png)
+  - Klicken Sie unter „Android“ im Abschnitt „Bibliothek“ auf „Hinzufügen…“ und fügen Sie android-sdk-ui als Bibliothek zu Ihrer App hinzu.
 
-    ![Braze Add]({{site.baseurl}}/assets/img_archive/add_appboy_ui.png)
+    ![Braze hinzufügen]({{site.baseurl}}/assets/img_archive/add_appboy_ui.png)
 
-## Schritt 4
-Beheben Sie Abhängigkeitsfehler und korrigieren Sie das Build-Targeting.
+## 4. Schritt {#step-4}
+Beheben Sie Abhängigkeitsfehler und korrigieren Sie das Build-Target.
 
-Es kann sein, dass beim Code von Braze Fehler auftreten, weil die Abhängigkeiten nicht ausgefüllt sind und das Targeting für die Erstellung möglicherweise falsch ist:
+Zu diesem Zeitpunkt können Fehler im Braze-Code auftreten, da die Abhängigkeiten nicht aufgelöst sind und das Build-Target möglicherweise falsch eingestellt ist:
 
-   - Klicken Sie mit der rechten Maustaste auf das Braze UI-Projekt und wählen Sie Eigenschaften->Android, um sicherzustellen, dass das Build-Target auf die aktuelle Version der Braze-Build-Tools eingestellt ist.
+   - Klicken Sie mit der rechten Maustaste auf das Braze-UI-Projekt und wählen Sie **Eigenschaften** > **Android**, um sicherzustellen, dass das Build-Target auf die aktuelle Version der Braze-Build-Tools eingestellt ist.
 
-      ![Ziel aufbauen]({{site.baseurl}}/assets/img_archive/build_target.png)
-   - Klicken Sie mit der rechten Maustaste auf das Braze UI Projekt und wählen Sie Eigenschaften->Java Build Path->Add JARs... und fügen Sie 'android-support-v4.jar' aus der Hauptanwendung als Bibliothek hinzu.
+      ![Build-Target]({{site.baseurl}}/assets/img_archive/build_target.png)
+   - Klicken Sie mit der rechten Maustaste auf das Braze-UI-Projekt und wählen Sie **Eigenschaften** > **Java Build Path** > **Add JARs…** und fügen Sie „android-support-v4.jar“ aus der Hauptanwendung als Bibliothek hinzu.
 
       ![Support]({{site.baseurl}}/assets/img_archive/android_support_v4.png)
 
-## Schritt 5
+## 5. Schritt {#step-5}
 
 Fügen Sie die letzten Teile hinzu.
 
-  - Für SDK Version 1.10.0 oder höher, müssen Sie Folgendes hinzufügen
+  - Für SDK-Version 1.10.0 oder höher müssen Sie Folgendes zu Ihrer AndroidManifest.xml hinzufügen, da Eclipse das Zusammenführen von Manifesten nicht unterstützt:
   `<service android:name="com.appboy.services.AppboyDataSyncService" />`
-  zu Ihrem AndroidManifest.xml, da Eclipse das Zusammenführen von Manifesten nicht unterstützt.
 
-  - Für SDK Version 1.7.0 oder höher müssen Sie "assets/fontawesome-webfont.ttf" aus unserem Bibliothek-Projekt in Ihre Anwendung kopieren. Eclipse fügt den Assets-Ordner von Bibliotheken nicht automatisch ein.
-
+  - Für SDK-Version 1.7.0 oder höher müssen Sie „assets/fontawesome-webfont.ttf“ aus unserem Bibliotheksprojekt in Ihre Anwendung kopieren. Eclipse fügt den Assets-Ordner von Bibliotheken nicht automatisch ein.

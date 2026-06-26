@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Événements personnalisés {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Cet article décrit les événements et propriétés personnalisés, les filtres de segmentation associés, les propriétés d'entrée dans Canvas, les analyses pertinentes, etc. Pour en savoir plus sur les événements de Braze en général, consultez la rubrique [Événements]({{site.baseurl}}/user_guide/data/activation/events/).
+> Cet article décrit les événements et propriétés personnalisés, l'historique des événements du profil utilisateur, les filtres de segmentation associés, les propriétés d'entrée dans Canvas, les analyses pertinentes, etc. Pour en savoir plus sur les événements de Braze en général, consultez la rubrique [Événements]({{site.baseurl}}/user_guide/data/activation/events/).
 
 Les événements personnalisés sont des actions effectuées par vos utilisateurs, ou des mises à jour les concernant. Lorsque des événements personnalisés sont enregistrés, ils peuvent déclencher un nombre et un type quelconque de campagnes de suivi. Vous pouvez ensuite utiliser des [filtres de segmentation](#segmentation-filters) pour segmenter les utilisateurs en fonction de la fréquence et du caractère récent de ces événements personnalisés. Les événements personnalisés sont donc les mieux adaptés au suivi des interactions utilisateur de grande valeur au sein de votre application.
 
@@ -63,7 +63,7 @@ Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événem
 
 ## Consulter les rapports d'utilisation {#viewing-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, campagnes et segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, campagnes et Segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
 Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des événements personnalisés, puis en sélectionnant **Afficher le rapport d'utilisation**.
 
@@ -86,6 +86,38 @@ Les événements personnalisés nécessitent une configuration supplémentaire. 
 ## Stockage des événements personnalisés {#custom-event-storage}
 
 Toutes les données stockées dans le **profil utilisateur**, y compris les métadonnées des événements personnalisés (première ou dernière occurrence, nombre total et X sur Y au cours des 30 derniers jours), sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_archival/#active-users).
+
+## Consulter l'historique des événements d'un utilisateur {#view-a-users-event-history}
+
+{% alert important %}
+L'historique des événements est actuellement en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez y participer.
+{% endalert %}
+
+Utilisez l'onglet **Historique des événements** sur le profil d'un utilisateur pour consulter ses événements personnalisés et achats récents. Cela vous permet de confirmer que votre intégration enregistre correctement les événements et de résoudre les problèmes au niveau de l'utilisateur directement dans le tableau de bord.
+
+Pour consulter l'historique des événements d'un utilisateur :
+
+1. Accédez à **Audience** > **Rechercher des utilisateurs**, puis sélectionnez un utilisateur pour ouvrir son profil.
+2. Sélectionnez l'onglet **Historique des événements**.
+
+L'onglet répertorie les événements personnalisés et les achats de l'utilisateur au cours des 30 derniers jours, jusqu'à ses 100 événements les plus récents, classés du plus récent au plus ancien.
+
+Chaque événement comprend :
+
+- **Type d'événement :** indique s'il s'agit d'un événement personnalisé ou d'un achat.
+- **Nom de l'événement :** le nom de l'événement tel qu'il a été enregistré.
+- **Heure :** le moment où l'événement s'est produit.
+- **Propriétés :** les propriétés complètes de l'événement pour cette occurrence, affichées au format JSON.
+
+Parmi les cas d'utilisation courants :
+
+- Vérifier que votre intégration SDK ou API envoie les événements comme prévu pendant le développement ou après une mise en production.
+- Résoudre un problème lié au fait qu'un utilisateur est entré ou non dans une campagne ou un Canvas déclenché par un événement.
+- Investiguer un problème d'assistance pour un utilisateur spécifique sans avoir à configurer une exportation de données.
+
+{% alert note %}
+La consultation de l'onglet **Historique des événements** nécessite les autorisations utilisateur **Rechercher des utilisateurs** et **Voir les informations personnelles**, car les propriétés d'événement peuvent contenir des données personnelles. Pour en savoir plus, consultez [Autorisations utilisateur de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+{% endalert %}
 
 ## Filtres de segmentation {#segmentation-filters}
 
@@ -113,7 +145,7 @@ Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous p
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), segments ou formules d'indicateurs clés de performance.
+Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules d'indicateurs clés de performance.
 
 ![Filtres du graphique d'événements personnalisés]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -123,7 +155,7 @@ Vous pouvez également utiliser les **filtres** pour ventiler vos événements p
 
 ### Pourquoi les analyses d'événements personnalisés ne s'affichent pas {#why-custom-events-analytics-arent-showing}
 
-Les segments créés à partir de données d'événements personnalisés ne peuvent pas afficher les données historiques antérieures à leur création.
+Les Segments créés à partir de données d'événements personnalisés ne peuvent pas afficher les données historiques antérieures à leur création.
 
 ## Propriétés d'événement personnalisé {#custom-event-properties}
 

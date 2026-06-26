@@ -27,7 +27,7 @@ BrazeとSimon AIの統合を使用して、高度なオーディエンスを構�
 ## ユースケース {#use-cases}
 
 - Braze Canvasまたはメールをトリガーする
-- Segmentプロパティを渡して維持する
+- セグメントプロパティを渡して維持する
 - トレイトとコンタクトプロパティを同期する
 
 {% alert note %}
@@ -54,8 +54,8 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 
 3つのアクションが利用可能です。
 
-- **Sync Simon segment attribute**：Segmentの詳細をBrazeの新規または既存のカスタム属性と同期します。
-- **Trigger a Braze Canvas**：Simon Segmentデータを活用するBraze Canvasをトリガーします。
+- **Sync Simon segment attribute**：セグメントの詳細をBrazeの新規または既存のカスタム属性と同期します。
+- **Trigger a Braze Canvas**：Simon セグメントデータを活用するBraze Canvasをトリガーします。
 - **Send a Braze campaign**：SimonからBraze Campaign全体を起動します。
 
 ![Simon AIで利用可能なBrazeアクションのリストを表示するドロップダウン。][9]{: style="max-width:60%"}
@@ -64,7 +64,7 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 
 ### トレイトとコンタクトプロパティの同期 {#sync-traits-and-contact-properties}
 
-データ消費を最小限に抑えるために、Segment内のすべての顧客のすべてのフィールドを更新するのではなく、デフォルトで同期する特定のトレイトを選択できます。
+データ消費を最小限に抑えるために、セグメント内のすべての顧客のすべてのフィールドを更新するのではなく、デフォルトで同期する特定のトレイトを選択できます。
 
 {% alert note %}
 トレイト同期を開始するには、[Simonサポートセンター](https://docs.simondata.com/docs/support-center)でリクエストを送信してください。アカウントマネージャーが、以下のステップに進める準備ができたらお知らせします。

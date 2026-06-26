@@ -3,7 +3,7 @@ nav_title: Prepare your data
 article_title: Prepare your data
 layout: dev_guide
 guide_top_header: "Prepare your data"
-guide_top_text: "High-quality data is the foundation of an effective Decisioning Studio agent. These articles cover the principles, assets, and techniques for preparing your data for AI decisioning."
+guide_top_text: "High-quality data is the foundation of an effective Decisioning Studio agent. These articles explain how to assess your data, connect warehouse and event sources, define critical assets and features, choose between snapshots and event streams, align on Braze external IDs, and backfill historical data before you design and launch an agent."
 page_order: 2
 page_type: landing
 description: "This landing page covers how to prepare your data for BrazeAI Decisioning Studio, including data principles, required assets, snapshots versus event streams, identity, feature engineering, and connecting your data sources."

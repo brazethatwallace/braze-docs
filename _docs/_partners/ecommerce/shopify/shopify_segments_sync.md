@@ -19,6 +19,7 @@ The Shopify segments sync is currently in beta. To request access, contact your 
 | Requirement | Description |
 | --- | --- |
 | Braze Shopify integration | The Braze Shopify app must be installed on your Shopify store and connected to a Braze workspace. For setup instructions, see [Shopify Standard Integration Setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) or [Shopify Custom Integration Setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/). |
+| Shopify user permission | The Shopify user initiating the segment sync must have the **Export** permission to export customer data. For more information on Shopify permissions, see [Shopify's store permissions documentation](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions#customers-permissions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## How it works
