@@ -77,11 +77,12 @@ _FILENAME_LIST_HOME = re.compile(
     r")",
     re.IGNORECASE,
 )
-# Save/cancel filenames — medium at most unless alt/OCR corroborates.
-_FILENAME_SAVE_CANCEL = re.compile(
+# Save/cancel filename stems — medium at most unless alt/OCR corroborates.
+# fullmatch on stem only: save.png yes; save_policy.png and export_logs_cancel no.
+_FILENAME_SAVE_CANCEL_STEM = re.compile(
     r"(?:"
-    r"save(?:_button|_changes|_as_template|_flow)?|"
-    r"cancel(?:_button|_calculation|_number|_export)?|"
+    r"save(?:_(?:button|changes|as_template|flow))?|"
+    r"cancel(?:_(?:button|calculation|number|export))?|"
     r"submit(?:_button)?"
     r")",
     re.IGNORECASE,
@@ -294,16 +295,23 @@ def is_reference_table_icon(ref: ImageRef) -> bool:
     return False
 
 
+def filename_save_cancel_stem(path_or_basename: str) -> bool:
+    stem = Path(path_or_basename).stem
+    return bool(_FILENAME_SAVE_CANCEL_STEM.fullmatch(stem))
+
+
 def is_third_party_console(
     path: str, alt: str, match_line: str, *, context: str = ""
 ) -> bool:
-    basename = Path(path).name
-    if _FILENAME_SAVE_CANCEL.search(basename):
-        return False
     combined = f"{path} {alt} {match_line} {context}"
     if _THIRD_PARTY_CONSOLE_PATH.search(path):
         return True
-    return bool(_THIRD_PARTY_CONSOLE.search(combined))
+    if not _THIRD_PARTY_CONSOLE.search(combined):
+        return False
+    # Third-party by prose/context only — save/cancel crops may still be redundant.
+    if filename_save_cancel_stem(path):
+        return False
+    return True
 
 
 def is_metric_chart_example(alt: str, ocr_text: str) -> bool:
@@ -437,7 +445,7 @@ def score_candidate(ref: ImageRef, ocr_text: str) -> None:
 
     if _FILENAME_LIST_HOME.search(path) or _FILENAME_LIST_HOME.search(basename):
         ref.reasons.append("filename_list_home_chrome")
-    if _FILENAME_SAVE_CANCEL.search(basename):
+    if filename_save_cancel_stem(basename):
         ref.reasons.append("filename_save_cancel")
     if _FILENAME_CHROME.search(path) or _FILENAME_CHROME.search(basename):
         ref.reasons.append("filename_page_chrome")
@@ -623,6 +631,55 @@ def print_summary(candidates: list[ImageRef]) -> None:
     print("English scan roots:", ", ".join(ENGLISH_SCAN_DIRS))
     print(f"PR title prefix: {PR_TITLE_PREFIX}")
     print(f"PR label: {PR_LABEL}")
+
+
+def load_candidates_from_csv(
+    path: Path,
+    *,
+    min_confidence: Confidence = "high",
+) -> list[ImageRef]:
+    """Load scored candidates from a scan CSV (avoids rescanning/OCR in CI batch)."""
+    order: dict[Confidence, int] = {"high": 3, "medium": 2, "low": 1}
+    min_rank = order[min_confidence]
+    required = {
+        "confidence",
+        "reasons",
+        "source_file",
+        "line_number",
+        "image_path",
+        "match_line",
+    }
+    candidates: list[ImageRef] = []
+    with path.open(newline="", encoding="utf-8") as fh:
+        reader = csv.DictReader(fh)
+        if not reader.fieldnames or not required.issubset(reader.fieldnames):
+            missing = sorted(required - set(reader.fieldnames or []))
+            raise ValueError(f"CSV missing required columns: {missing}")
+        for row in reader:
+            conf = row["confidence"]
+            if conf not in order or order[conf] < min_rank:  # type: ignore[index]
+                continue
+            reasons = [part.strip() for part in row["reasons"].split(";") if part.strip()]
+            if not reasons:
+                continue
+            candidates.append(
+                ImageRef(
+                    source_file=row["source_file"],
+                    line_number=int(row["line_number"]),
+                    alt_text=row.get("alt_text", "") or "",
+                    image_path=row["image_path"],
+                    match_line=row["match_line"],
+                    context_before="",
+                    context_after="",
+                    reasons=reasons,
+                    confidence=conf,  # type: ignore[arg-type]
+                    ocr_snippet=row.get("ocr_snippet", "") or "",
+                )
+            )
+    candidates.sort(
+        key=lambda r: (-order[r.confidence], r.source_file, r.line_number),
+    )
+    return candidates
 
 
 def write_csv(path: Path, candidates: list[ImageRef]) -> None:

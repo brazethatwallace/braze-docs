@@ -28,6 +28,7 @@ from find_redundant_image_candidates import (  # noqa: E402
     PR_TITLE_PREFIX,
     REPO_ROOT,
     collect_candidates,
+    load_candidates_from_csv,
     pr_title,
 )
 
@@ -221,7 +222,7 @@ This **draft** pull request was opened automatically by the [Image curator (main
 
 ```bash
 python3 scripts/image-curator/find_redundant_image_candidates.py --csv candidates.csv --min-confidence high
-IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15
+IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15 --csv candidates.csv
 ```
 
 English-only edits. Prose updates after removal require manual review via `@image-curator`.
@@ -232,6 +233,11 @@ English-only edits. Prose updates after removal require manual review via `@imag
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--limit", type=int, default=DEFAULT_MAX_EDITS)
+    parser.add_argument(
+        "--csv",
+        type=Path,
+        help="Reuse scan CSV from find_redundant_image_candidates.py (skips OCR rescan)",
+    )
     parser.add_argument("--skip-if-open-ic-pr", action="store_true")
     parser.add_argument("--scan-date", default="")
     parser.add_argument("--run-url", default="")
@@ -253,7 +259,13 @@ def main() -> int:
             )
         return 0
 
-    candidates = collect_candidates(min_confidence="high", use_ocr=True)
+    if args.csv:
+        if not args.csv.is_file():
+            print(f"ERROR: CSV not found: {args.csv}", file=sys.stderr)
+            return 1
+        candidates = load_candidates_from_csv(args.csv, min_confidence="high")
+    else:
+        candidates = collect_candidates(min_confidence="high", use_ocr=True)
     batch = sort_batch_for_processing(candidates[: args.limit])
 
     edited: list[dict] = []

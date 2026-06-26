@@ -21,7 +21,7 @@ python3 scripts/image-curator/find_redundant_image_candidates.py \
   --min-confidence medium
 ```
 
-Add `--no-ocr` for a faster scan. CI uses `--min-confidence high` only.
+Add `--no-ocr` for a faster scan. CI uses `--min-confidence high` only. Pass the same CSV to `run_curation_batch.py --csv` so the batch step does not rescan or re-OCR.
 
 ## Step 2: Review
 

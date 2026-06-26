@@ -92,9 +92,11 @@ jobs:
           IMAGE_CURATION_DELETE_FORCE: "1"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SCAN_CSV: ${{ runner.temp }}/redundant_image_candidates.csv
         run: |
           python3 scripts/image-curator/run_curation_batch.py \
             --limit 15 \
+            --csv "$SCAN_CSV" \
             --skip-if-open-ic-pr \
             --scan-date "${{ steps.stamp.outputs.ymd }}" \
             --run-url "$RUN_URL" \

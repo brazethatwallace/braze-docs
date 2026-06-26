@@ -61,7 +61,7 @@ python3 scripts/image-curator/find_redundant_image_candidates.py \
   --csv scripts/image-curator/redundant_image_candidates.csv \
   --min-confidence high
 
-IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15
+IMAGE_CURATION_DELETE_FORCE=1 python3 scripts/image-curator/run_curation_batch.py --limit 15 --csv scripts/image-curator/redundant_image_candidates.csv
 ```
 
 Do not mix curation doc edits with script/skill changes in one PR.
