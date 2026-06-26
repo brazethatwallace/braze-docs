@@ -66,6 +66,10 @@ Before migrating, ensure your Braze SDK meets the minimum version requirements:
 
 {% multi_lang_include sdk_versions.md feature='banners' %}
 
+For dismissals and re-eligibility, you need the minimum SDK versions:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
+
 ### Subscribe to updates
 
 #### Content Cards approach
@@ -784,7 +788,8 @@ Banners only support scheduled delivery campaigns. To migrate a message that was
 | Context-specific placement | ❌ Feed-based | ✅ Native placement support |
 | Native prioritization | ❌ Requires custom logic | ✅ Built-in prioritization |
 | **User Interaction** |
-| Manual dismissal | ✅ Supported | ❌ Not supported |
+| Manual dismissal | ✅ Supported | ✅ Supported |
+| Re-eligibility after dismissal | ❌ Requires custom filters or campaign logic | ✅ Built-in cooldown window |
 | Pinned cards | ✅ Supported | N/A |
 | **Analytics** |
 | Automatic analytics (default UI) | ✅ Supported | ✅ Supported |
