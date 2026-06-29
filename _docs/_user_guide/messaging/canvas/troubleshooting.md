@@ -24,6 +24,7 @@ tool: Canvas
 | No one or fewer users entered than expected | [Low or zero Canvas entries](#low-or-zero-canvas-entries) |
 | Sends or deliveries are lower than the estimated audience | [Lower sends than expected](#lower-sends-than-expected) |
 | Canvas analytics look wrong (control group, conversions, zero sends) | [Canvas analytics mismatches](#canvas-analytics-mismatches) |
+| Analytics show far more sends than entries or more exits than entries | [Date range filtering can show unexpected numbers](#date-range-filtering-can-show-unexpected-numbers) |
 | Canvas won't save or the editor freezes | [Editor and save issues](#editor-and-save-issues) |
 | I stopped the Canvas but messages still went out | [Stopped Canvas behavior](#stopped-canvas-behavior) |
 | "Too many Canvas branches" error when launching | ["Too many Canvas branches" error](#too-many-canvas-branches-error) |
@@ -165,6 +166,18 @@ When you look at the active users segment, you'll see that even though it contai
 This means that even though you specified 90% of users to enter the variant, not all of those users can receive a push notification. Users who can't receive push still enter the variant regardless—the send count reflects channel eligibility at the step, not variant assignment at entry.
 
 {% enddetails %}
+
+### Date range filtering can show unexpected numbers
+
+**Symptom:** Canvas or step analytics show unexpected or improbable numbers, such as far more sends than entries, or more users exiting a step than entered.
+
+This can happen when you use the date range calendar filter at the top of the Canvas analytics page. If you select a date range that excludes some user actions, the metrics displayed may only show part of each user's journey.
+
+For example:
+- You may see 100 entries with 8,000 sends if your date range starts after most users entered but includes when they received messages.
+- You may see more users moving to the next step than entered the previous step if your range only captures exits but not the earlier entries.
+
+To resolve this, adjust the date range to either include all dates from when Canvas launched to the present, or select a range that covers the full time period relevant to the metrics you need.
 
 For conversion rate definitions and step-level analytics, see [Analytics and conversions]({{site.baseurl}}/user_guide/messaging/canvas/faqs#analytics-and-conversions) in the Canvas FAQ.
 
