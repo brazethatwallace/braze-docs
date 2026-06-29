@@ -24,7 +24,7 @@ Note that success means only that the RESTful API payload was correctly formed a
 
 ### Why does my request return success when no message was delivered?
 
-A `message: success` or `2XX` response means Braze accepted and queued the request for the endpoints involved—not that every recipient received a message. For messaging, delivery still depends on channel eligibility, tokens, provider errors, and content validation. Refer to the [fatal errors]({{site.baseurl}}/api/errors/#fatal-errors) table for HTTP errors that block sends, and to your campaign or Canvas analytics for downstream delivery metrics.
+A `message: success` or `2XX` response means Braze accepted and queued the request for the endpoints involved—not that every recipient received a message. For messaging, delivery still depends on channel eligibility, tokens, provider errors, and content validation. See the [fatal errors]({{site.baseurl}}/api/errors/#fatal-errors) table for HTTP errors that block sends, and to your campaign or Canvas analytics for downstream delivery metrics.
 
 For endpoints like [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), which don't send messages, a success message means only that Braze received the request for processing. If there is no match for the alias after processing, the request is stopped.
 
@@ -61,7 +61,7 @@ The provided send id can be used as a parameter for the `/send/data_series` endp
 The status code element of a server response is a 3-digit number where the first digit of the code defines the class of response.
 
 - The **2XX class** of status code (non-fatal) indicates that **your request** was successfully received, understood, and accepted.
-- The **4XX class** of status code (fatal) indicates a **client error**. Refer to the fatal errors chart for a full list of 4XX error codes and descriptions.
+- The **4XX class** of status code (fatal) indicates a **client error**. See the fatal errors chart for a full list of 4XX error codes and descriptions.
 - The **5XX class** of status code (fatal) indicates a **server error**. There are several potential causes, for example, the server you're trying to access is unable to execute the request, the server is undergoing maintenance making it unable to execute the request, or the server is experiencing high levels of traffic. When this happens, we recommend you retry your request with exponential backoff. In the event of an incident or outage, Braze is not able to replay any REST API call that failed during the incident window. You must retry any calls that failed during the incident window.
   - A **502 error** is a failure before it reaches the destination server.
   - A **503 error** means that the request made it to the destination server, but we can't complete the request because there isn't enough capacity, or there is a network issue, or similar.
