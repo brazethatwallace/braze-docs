@@ -10,7 +10,7 @@ tool: Currents
 
 # How Braze uses Currents
 
-> Braze uses Currents internally with selected [partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/).
+> Braze uses Currents internally with selected [partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners).
 
 We filter our data from email and push campaigns into a business insights tool, Looker, but it takes a slightly different route to get there. We use an inverted version of the Extract, Transform, Load (ETL) methodology—switching the order to Extract, Load, Transform (ELT).
 
@@ -32,7 +32,7 @@ Snowflake isn't the only warehouse option. Other options include [Redshift](http
 
 ### Snowflake Reader Accounts
 
-Snowflake Reader Accounts offer users access to the same data and functionality as [Snowflake Data Sharing]({{site.baseurl}}/partners/snowflake/), all without requiring a Snowflake account or customer relationship with Snowflake. With Reader Accounts, Braze will create and share your data into an account and provide you credentials to log in and access your data. This will result in all data sharing and usage billing being handled entirely by Braze. 
+Snowflake Reader Accounts offer users access to the same data and functionality as [Snowflake Data Sharing]({{site.baseurl}}/partners/snowflake), all without requiring a Snowflake account or customer relationship with Snowflake. With Reader Accounts, Braze will create and share your data into an account and provide you credentials to log in and access your data. This will result in all data sharing and usage billing being handled entirely by Braze. 
 
 To learn more, contact your customer success manager.
 

@@ -34,7 +34,7 @@ Se estiver participando do teste das contas de trabalho do Meta na versão beta,
 | [Gerente de negócios do Facebook](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Uma ferramenta centralizada para gerenciar os ativos do Facebook da sua marca (por exemplo, contas de anúncios, páginas, apps). |
 | [Conta de anúncios do Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Uma conta de anúncios ativa do Facebook vinculada ao gerente de negócios da sua marca que você deseja usar com os públicos personalizados da Braze.<br><br>Certifique-se de que o administrador do seu gerente de negócios do Facebook lhe concedeu permissões de administrador para as contas de anúncios do Facebook que você planeja usar com a Braze e que você aceitou os termos e condições da sua conta de anúncios. Caso contrário, não será possível acessar nenhuma conta de anúncios do Facebook na Braze. |
 | [Termos de públicos personalizados do Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Você deve aceitar os Termos de Públicos Personalizados do Facebook para suas contas de anúncios do Facebook que planeja usar com a Braze.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -63,7 +63,7 @@ Para os clientes que já passaram pelo processo de revisão do app do Facebook p
 Na Braze, a exportação do público do Facebook pode ser acessada por meio da página **Segments**.
 
 1. Na página **Segments**, selecione o segmento que você deseja exportar.
-2. Selecione **User Data** e, em seguida, selecione **Export as Facebook Audience**. <br><br>![A seção "Segment Details" de um segmento com "User Data" selecionado para exibir um menu suspenso de opções que inclui "Export as Facebook Audience".]({% image_buster /assets/img/fb/afb_6.png %})
+2. Selecione **User Data** e, em seguida, selecione **Exportar como público do Facebook**. <br><br>![A seção "Segment Details" de um segmento com "User Data" selecionado para exibir um menu suspenso de opções que inclui "Export as Facebook Audience".]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
 3. Se ainda não tiver ativado o Facebook na Braze, você verá uma indicação para acessar a página de parceiros de tecnologia do Facebook no dashboard. Se já tiver ativado o Facebook por meio de **Technology Partners** > **Facebook**, poderá selecionar sua conta de anúncios do Facebook e os campos de usuário a serem exportados. <br><br> Você pode exportar os seguintes campos:

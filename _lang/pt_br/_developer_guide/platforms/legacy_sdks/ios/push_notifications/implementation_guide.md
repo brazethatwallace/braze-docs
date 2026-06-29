@@ -146,7 +146,6 @@ Notificações por push podem capturar informações do usuário dentro de uma e
 3. As informações são fornecidas e, se forem válidas, o botão de registro é exibido.
 3. A visualização de confirmação é exibida e o push é dispensado.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 Note que as informações solicitadas aqui podem ser variadas, como captura de número de SMS; não precisam ser específicas para e-mail.
 

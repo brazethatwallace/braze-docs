@@ -1,0 +1,174 @@
+# Records WCAG 2.2 AA content-check outcomes whenever a PR is merged.
+#
+# Appends one CSV row per merged PR to _data/a11y_telemetry.csv on the
+# a11y-telemetry branch. Each row captures:
+#
+#   merged_at, pr_number, pr_title, author,
+#   violation_count, violation_types (pipe-separated),
+#   had_unresolved_violations (true if bot comment still present at merge),
+#   false_positive_label (true if a11y-false-positive label was on the PR)
+#
+# This gives you two key metrics over time:
+#   1. Merge-with-violations rate  → proxy for friction / ignored warnings
+#   2. False-positive label rate   → explicit signal from authors that a
+#                                    detection was wrong
+#
+# The a11y-telemetry branch is created automatically on first run.
+
+name: Track WCAG content-check telemetry
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: read
+  actions: read
+
+jobs:
+  record:
+    if: github.event.pull_request.merged == true
+    name: Record accessibility check outcome
+    runs-on: ubuntu-latest
+    steps:
+      - name: Collect PR metadata and violation data
+        id: collect
+        uses: actions/github-script@v9
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          MERGED_AT: ${{ github.event.pull_request.merged_at }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = parseInt(process.env.PR_NUMBER);
+            const marker = '<!-- braze-docs-content-a11y-bot -->';
+
+            // Check if the a11y bot comment still exists at merge time
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const botComment = comments.find(c => c.body && c.body.includes(marker));
+            const hadUnresolved = !!botComment;
+
+            // Check for false-positive label
+            const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+              owner, repo, issue_number: prNumber,
+            });
+            const hasFpLabel = labels.some(l => l.name === 'a11y-false-positive');
+
+            // Parse violation types from bot comment if present
+            let violationCount = 0;
+            let violationTypes = '';
+            if (botComment) {
+              // Extract WCAG criterion headings from the comment body
+              const criterionMatches = [...botComment.body.matchAll(/WCAG (\d+\.\d+\.\d+)/g)];
+              const types = [...new Set(criterionMatches.map(m => m[1]))];
+              violationCount = criterionMatches.length;
+              violationTypes = types.join('|');
+            }
+
+            // Try to pull violation count from the latest artifact for this PR
+            // (more accurate than parsing the comment)
+            try {
+              const { data: artifacts } = await github.rest.actions.listArtifactsForRepo({
+                owner, repo, per_page: 100,
+                name: `a11y-content-violations-pr${prNumber}`,
+              });
+              if (artifacts.artifacts.length > 0) {
+                // Artifact exists — count is logged via the comment parsing above;
+                // artifact itself is retained for 90 days for manual download.
+                core.info(`Found ${artifacts.artifacts.length} violation artifact(s) for PR ${prNumber}`);
+              }
+            } catch (e) {
+              core.info(`Could not list artifacts: ${e.message}`);
+            }
+
+            // Escape CSV values (wrap in quotes, double any internal quotes)
+            const csv = v => '"' + String(v).replace(/"/g, '""') + '"';
+
+            const row = [
+              csv(process.env.MERGED_AT),
+              csv(prNumber),
+              csv(process.env.PR_TITLE),
+              csv(process.env.PR_AUTHOR),
+              csv(violationCount),
+              csv(violationTypes),
+              csv(hadUnresolved),
+              csv(hasFpLabel),
+            ].join(',');
+
+            core.setOutput('csv_row', row);
+            core.setOutput('had_unresolved', String(hadUnresolved));
+            core.info(`PR ${prNumber}: had_unresolved=${hadUnresolved}, fp_label=${hasFpLabel}, types=${violationTypes || 'none'}`);
+
+      - name: Checkout repo for git operations
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Append row to telemetry CSV
+        env:
+          CSV_ROW: ${{ steps.collect.outputs.csv_row }}
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+        run: |
+          BRANCH="a11y-telemetry"
+          CSV_FILE="_data/a11y_telemetry.csv"
+          HEADER="merged_at,pr_number,pr_title,author,violation_count,violation_types,had_unresolved_violations,false_positive_label"
+
+          git config user.name  "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+
+          # Fetch or create the telemetry branch
+          if git fetch --no-tags origin "$BRANCH" 2>/dev/null; then
+            git checkout "$BRANCH"
+          else
+            echo "Creating $BRANCH branch..."
+            git checkout --orphan "$BRANCH"
+            git rm -rf . --quiet || true
+            mkdir -p _data
+            echo "$HEADER" > "$CSV_FILE"
+            git add "$CSV_FILE"
+            git commit -m "chore: initialize a11y telemetry branch"
+            git push -u origin "$BRANCH"
+          fi
+
+          # Create CSV with header if it doesn't exist
+          if [[ ! -f "$CSV_FILE" ]]; then
+            mkdir -p _data
+            echo "$HEADER" > "$CSV_FILE"
+          fi
+
+          # Append the new row
+          echo "$CSV_ROW" >> "$CSV_FILE"
+
+          git add "$CSV_FILE"
+          git commit -m "chore(a11y): record PR #${{ github.event.pull_request.number }} outcome"
+          git push origin "$BRANCH"
+
+      - name: Write job summary
+        env:
+          HAD_UNRESOLVED: ${{ steps.collect.outputs.had_unresolved }}
+        run: |
+          PR_NUM="${{ github.event.pull_request.number }}"
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+
+          echo "## WCAG content-check telemetry" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| PR | [#${PR_NUM}](https://github.com/${{ github.repository }}/pull/${PR_NUM}) — ${PR_TITLE} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Author | ${AUTHOR} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Merged with unresolved violations | ${HAD_UNRESOLVED} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| False-positive label present | ${{ contains(github.event.pull_request.labels.*.name, 'a11y-false-positive') }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "_Logged to \`_data/a11y_telemetry.csv\` on the \`a11y-telemetry\` branch._" >> "$GITHUB_STEP_SUMMARY"

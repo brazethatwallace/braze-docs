@@ -90,7 +90,7 @@ Consulte a tabela **Product Breakdown** para ver uma lista dos produtos comprado
 
 ## Exportando dados de receita {#exporting-revenue-data}
 
-Para exportar seus dados de receita, selecione <i class="fas fa-bars" title="Menu de contexto do gráfico"></i> no gráfico **Performance Over Time** e selecione sua opção de exportação.
+Para exportar seus dados de receita, selecione <i class="fas fa-bars" title="Menu de contexto do gráfico"></i> **Menu de contexto do gráfico** no gráfico **Performance Over Time** e selecione sua opção de exportação.
 
 {% alert tip %}
 Procurando mais formas de obter dados de receita? Tente adicionar comportamento de compra (assim como compra de um produto) a Campaigns ou Canvas como [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).

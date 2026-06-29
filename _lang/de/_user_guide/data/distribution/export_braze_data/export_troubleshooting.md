@@ -58,7 +58,9 @@ Im Cloud-Speicher werden CSV-Exporte in einer ZIP-Datei gebündelt. Die ZIP-Date
 - Apostrophe am Anfang bestimmter Felder (wie `-`, `=`, `+` oder `@`) sind erwartetes Verhalten. Beispielsweise wird `-1943` in der CSV-Datei zu `'-1943`. Braze tut dies, um zu verhindern, dass Tabellenkalkulationsprogramme die Daten falsch interpretieren. Dies gilt nicht für JSON-Exporte, wie sie etwa vom [Endpunkt `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) zurückgegeben werden.
 
 ## API-Exporte
-Wenn Sie Daten über die APIs mit einem verbundenen Speicherpartner exportieren, werden die Exportdateien in Ihren Bucket geschrieben. Es wird keine E-Mail versendet. Die zugrunde liegenden Objekte werden in Ihrem Speicher aufbewahrt und unterliegen Ihren Aufbewahrungseinstellungen, auch wenn die von Braze zurückgegebenen Download-URLs möglicherweise weiterhin zeitlich begrenzt sind. Jede ZIP-Datei enthält JSON-Objekte, eines pro Zeile. Umfangreiche Exporte können in mehrere ZIP-Dateien anstatt in eine einzige ZIP-Datei aufgeteilt werden, was diese Methode für umfangreiche Exporte im Allgemeinen zuverlässiger macht.
+Wenn Sie Daten über die APIs mit einem verbundenen Speicherpartner exportieren, werden die Exportdateien in Ihren Bucket geschrieben. Es wird keine E-Mail versendet. Die zugrunde liegenden Objekte werden in Ihrem Speicher aufbewahrt und unterliegen Ihren Aufbewahrungseinstellungen, auch wenn die von Braze zurückgegebenen Download-URLs möglicherweise weiterhin zeitlich begrenzt sind.
+
+Dateien erscheinen in der Regel in Ihrem Bucket, während der Export läuft, sodass Sie nicht warten müssen, bis der gesamte Vorgang abgeschlossen ist, bevor Sie auf Teilergebnisse zugreifen. Braze lädt jeden abgeschlossenen Batch inkrementell hoch, anstatt alles bis zum Ende zurückzuhalten. Umfangreiche Exporte werden in mehrere komprimierte Dateien (ZIP oder GZIP) aufgeteilt, die jeweils JSON-Objekte enthalten, eines pro Zeile. Das macht diese Methode für umfangreiche Exporte zuverlässiger.
 
 ### Häufige Fehler
 
@@ -71,19 +73,23 @@ Wenn Sie Daten über die APIs mit einem verbundenen Speicherpartner exportieren,
 
 ## Campaign- und Canvas-Analytics {#campaign-and-canvas-analytics}
 
-### Anzahl der Nutzer:innen im CSV-Export stimmt nicht mit „Gesendete Nachrichten“ oder „Eindeutige Empfänger:innen“ überein {#number-of-users-in-csv-export-doesnt-match-messages-sent-or-unique-recipients}
+### Anzahl der Nutzer:innen im CSV-Export stimmt nicht mit _Gesendete Nachrichten_ oder _Eindeutige Empfänger:innen_ überein {#number-of-users-in-csv-export-doesnt-match-_messages-sent_-or-_unique-recipients_}
 
-Der CSV-Export einer Campaign kann aus folgenden Gründen eine andere Anzahl von Nutzer:innen anzeigen als „Gesendete Nachrichten“ und „Eindeutige Empfänger:innen“:
+Der CSV-Export einer Campaign kann aus folgenden Gründen eine andere Anzahl von Nutzer:innen anzeigen als _Gesendete Nachrichten_ und _Eindeutige Empfänger:innen_:
 
 #### Erneute Berechtigung ist aktiviert {#re-eligibility-is-turned-on}
 
-Wenn Nutzer:innen die Campaign mehr als einmal erhalten können (oder konnten), stimmen die Campaign-Analytics-Zahlen und die Anzahl der Zeilen im Nutzerdaten-Export nicht überein. „Gesendete Nachrichten“ zählt jeden Versand, auch wenn dieselbe Nutzer:in mehrfach angeschrieben wird. Der Download **Nutzerdaten als CSV exportieren** listet eindeutige Nutzer:innen auf – eine Zeile pro Profil, das die Campaign erhalten hat – nicht eine Zeile pro Versand. Wenn beispielsweise „Gesendete Nachrichten“ 12 beträgt und die CSV-Datei 10 Zeilen enthält, wurden diese 12 Sendungen an 10 verschiedene Nutzer:innen zugestellt (einige Nutzer:innen haben die Campaign mehr als einmal erhalten).
+Wenn Nutzer:innen die Campaign mehr als einmal erhalten können (oder konnten), stimmen die Campaign-Analytics-Zahlen und die Anzahl der Zeilen im Nutzerdaten-Export nicht überein. _Gesendete Nachrichten_ zählt jeden Versand, auch wenn dieselbe Nutzer:in mehrfach angeschrieben wird. Der Download **Nutzerdaten als CSV exportieren** listet eindeutige Nutzer:innen auf – eine Zeile pro Profil, das die Campaign erhalten hat – nicht eine Zeile pro Versand. Wenn beispielsweise _Gesendete Nachrichten_ 12 beträgt und die CSV-Datei 10 Zeilen enthält, wurden diese 12 Sendungen an 10 verschiedene Nutzer:innen zugestellt (einige Nutzer:innen haben die Campaign mehr als einmal erhalten).
 
 #### Nutzer:innen wurden seit dem Versand der Campaign oder des Canvas gelöscht oder zusammengeführt {#users-were-deleted-or-merged-since-the-campaign-or-canvas-sent}
 
 Der CSV-Export liefert eine Momentaufnahme der vorhandenen Nutzer:innen, die eine bestimmte Campaign oder einen bestimmten Canvas erhalten haben. Da Nutzer:innen gelöscht oder zusammengeführt werden können, kann die Anzahl im CSV-Export niedriger sein als die Anzahl der eindeutigen Empfänger:innen. Wenn beispielsweise 1.000 Nutzer:innen eine Campaign erhalten, zeigt die Campaign 1.000 eindeutige Empfänger:innen an, und der CSV-Export am selben Tag enthält ebenfalls 1.000 Nutzer:innen. Werden einen Monat später 50 dieser 1.000 Nutzer:innen gelöscht, enthält der CSV-Export 950 Nutzer:innen, während die kumulierte Anzahl eindeutiger Empfänger:innen weiterhin 1.000 beträgt.
 
 ## E-Mails zum Dashboard-Segment-Export {#dashboard-segment-export-emails}
+
+### „Segment ist zu groß“ oder der Export schlägt fehl, obwohl mein Segment unter 500.000 Nutzer:innen liegt {#segment-is-too-large-or-export-fails-when-my-segment-looks-under-500000-users}
+
+Die Größe eines Dashboard-Segments ist **eine Schätzung**. Der CSV-Export verwendet diese Schätzung, um das [Exportlimit von 500.000 Nutzer:innen]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#segment-csv-export-details) durchzusetzen; die Export-Pipeline kann die Größe zudem anders bewerten als die Segment-Builder-Oberfläche. Wenn Exporte für ein Segment nahe an diesem Schwellenwert fehlschlagen, verwenden Sie [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) oder teilen Sie die Zielgruppe in kleinere Segmente auf, oder nutzen Sie den [Endpunkt `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) wie unter [Große Segmente exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-large-segments) beschrieben.
 
 ### Warum erhalte ich keine E-Mails zum Segment-Export? {#why-arent-i-receiving-segment-export-emails}
 
@@ -103,3 +109,13 @@ Exporte benötigen Zeit bis zur Fertigstellung, daher schlägt ein sofortiger Zu
 
 - Die Download-URL mit exponentiellem Backoff abfragen, oder
 - den [Parameter `callback_endpoint`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#request-parameters) verwenden und auf einen Dienst verweisen, der Ihr Skript ausführt, sobald der Export bereit ist.
+
+## Felder bei Segment- und Nutzer:innen-Export-APIs {#segment-and-user-export-api-fields}
+
+### Erwartete Spalten fehlen in einer Segment-Exportdatei {#expected-columns-are-missing-from-a-segment-export-file}
+
+Der Dashboard-Download **Nutzerdaten als CSV exportieren** aus einem Segment verwendet einen festen Spaltensatz (siehe [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#data-included-in-export)). Er enthält keine `fields_to_export`-Spalte und keinen entsprechenden Parameter.
+
+Für API-Segment-Exporte müssen Sie `fields_to_export` im Anfragekörper übergeben. Einige Felder ziehen automatisch zugehörige Daten nach – wenn Sie beispielsweise `canvases_received` anfordern, werden auch Journey-Zusammenfassungsdaten im Nutzerprofil benötigt. Gültige Feldnamen und Anforderungen finden Sie in der Referenz zum [Endpunkt `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/).
+
+Wenn Spalten in einer API-Export-ZIP-Datei fehlen, überprüfen Sie, ob das Array `fields_to_export` in Ihrer Anfrage jedes benötigte Feld enthält und ob Ihr Workspace über die erforderlichen Exportberechtigungen verfügt.

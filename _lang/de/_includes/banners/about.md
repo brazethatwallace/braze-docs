@@ -30,7 +30,7 @@ Zu den Features für Banner gehören:
 
 - **Einfache Erstellung von Inhalten:** Erstellen Sie Ihr Banner mit einem visuellen Drag-and-Drop-Editor, der Bilder, Text, Buttons, Formulare zur Erfassung von E-Mails, angepassten Code und vieles mehr unterstützt, und zeigen Sie eine Vorschau an.
 - **Flexible Platzierungen:** Definieren Sie mehrere Standorte innerhalb Ihrer Anwendung oder Website, an denen Banner erscheinen können, und ermöglichen Sie so ein präzises Targeting auf bestimmte Kontexte oder Nutzererlebnisse.
-- **Dynamische Personalisierung:** Banner können nur zu Beginn einer neuen Sitzung oder während einer Sitzung aktualisiert werden, wenn ein:e Kund:in die Aktualisierung explizit anfordert. Banner werden bei einer neuen Sitzung nicht automatisch aktualisiert. Wenn ein:e Kund:in die Aktualisierung nicht anfordert, wird das Banner nicht aktualisiert.
+- **Dynamische Personalisierung:** Banner können nur zu Beginn einer neuen Sitzung oder während einer Sitzung aktualisiert werden, wenn Sie die Aktualisierung explizit anfordern. Banner werden bei einer neuen Sitzung nicht automatisch aktualisiert. Wenn Sie die Aktualisierung nicht anfordern, wird das Banner nicht aktualisiert.
 - **Native Priorisierung:** Legen Sie die Anzeigepriorität fest, wenn mehrere Banner auf dieselbe Platzierung abzielen, um sicherzustellen, dass die richtige Nachricht die Nutzer:innen zur richtigen Zeit erreicht.
 - **Editor-Block für angepassten Code:** Verwenden Sie den Editor-Block für angepassten Code, um angepasstes HTML für erweiterte Anpassungen oder eine nahtlose Integration in Ihre bestehenden Webstile hinzuzufügen.
 
@@ -62,7 +62,7 @@ Wenn mehrere Banner auf dieselbe Priorität eingestellt sind, wird das neueste B
 
 Banner-Nachrichten werden Ihrer App oder Website als HTML-Inhalt zugestellt, der in der Regel innerhalb eines iFrames gerendert wird. Dadurch wird sichergestellt, dass Ihre Banner auf allen Geräten konsistent dargestellt werden, und Sie können deren Stile und Skripte vom Rest Ihres Codes trennen.
 
-iFrames ermöglichen dynamische und personalisierte Inhaltsaktualisierungen, ohne dass Änderungen an Ihrer Codebasis erforderlich sind. Jeder iFrame ruft den HTML-Code für jede Nutzersitzung ab und zeigt ihn mithilfe der Logik für das Kampagnen-Targeting und die Personalisierung an.
+iFrames ermöglichen dynamische und personalisierte Inhaltsaktualisierungen, ohne dass Änderungen an Ihrer Codebasis erforderlich sind. Jeder iFrame ruft den HTML-Code für jede Nutzersitzung ab und zeigt ihn mithilfe der Logik für das Campaign-Targeting und die Personalisierung an.
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
@@ -84,11 +84,6 @@ Außerdem unterstützen Banner-Nachrichten die folgenden Features nicht:
 - Connected-Content
 - Aktionscodes
 - `catalog_items` unter Verwendung des [`:rerender`-Tags]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Nutzer:innen-gesteuerte Schließung (nur Early Access)
-
-{% alert important %}
-Die Möglichkeit, Nutzer:innen ein Banner manuell schließen zu lassen, befindet sich im Early Access. Weitere Informationen finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior). Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
-{% endalert %}
 
 ## Nächste Schritte {#next-steps}
 

@@ -33,7 +33,7 @@ Use this filter to find users who have or have not:
 - Opened an email
 - Viewed an in-app message
 
-![]({% image_buster /assets/img_archive/clickedopened.png %})
+![Clicked/Opened Campaign filter with channel interaction options.]({% image_buster /assets/img_archive/clickedopened.png %})
 
 This can be further specified by selecting which campaign you want to retarget.
 
@@ -47,7 +47,7 @@ Use this filter to find users who have or have not interacted with campaigns or 
 - Opened an email
 - Viewed an in-app message
 
-![]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
+![Clicked or opened Campaign or Canvas with tag filter.]({% image_buster /assets/img_archive/retarget_tag_filter.png %})
 
 ### Converted From Campaign 
 
@@ -55,7 +55,7 @@ Use this filter to find users who have or have not converted (based on the prima
 
 For recurring campaigns, this filter refers to whether users have converted on the most recent message from the campaign.
 
-![]({% image_buster /assets/img_archive/converted_from_campaign.png %})
+![Converted From Campaign filter with campaign selection.]({% image_buster /assets/img_archive/converted_from_campaign.png %})
 
 ### Converted From Canvas 
 
@@ -63,47 +63,47 @@ Use this filter to find users who have or have not converted (based on the prima
 
 For recurring Canvases this filter refers to whether users have ever converted anytime they've gone through the Canvas.
 
-![]({% image_buster /assets/img_archive/converted_from_canvas.png %})
+![Converted From Canvas filter with Canvas selection.]({% image_buster /assets/img_archive/converted_from_canvas.png %})
 
 ### In Campaign Control Group 
 
 Use this filter to find users who are or are not in the control group of your target campaign.
 
-![]({% image_buster /assets/img_archive/campaign_control_group.png %})
+![In Campaign Control Group filter with campaign selection.]({% image_buster /assets/img_archive/campaign_control_group.png %})
 
 ### In Canvas Control Group 
 
 Use this filter to find users who are or are not in the control group of your target Canvas, which can be selected in the dropdown.
 
-![]({% image_buster /assets/img_archive/canvas_control_group.png %})
+![In Canvas Control Group filter with Canvas selection.]({% image_buster /assets/img_archive/canvas_control_group.png %})
 
 ### Last received message from specific campaign 
 
 Use this filter to find users who last received a specific campaign before or after a specified date or number of days. This filter doesn't consider when users received other campaigns.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
+![Last received message from specific campaign filter with date options.]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
 ### Last received message from campaign or Canvas with tag 
 
 Use this filter to find users who last received a campaign or Canvas with a given tag before or after a specified date or number of days. This filter doesn't consider when users received other campaigns or Canvases.
 
-![]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
+![Last received message from campaign or Canvas with tag filter.]({% image_buster /assets/img_archive/last_received_campaign_with_tag.png %})
 
 ### Received message from campaign 
 
 Use this filter to find users who have or have not received your target campaign.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
-![]({% image_buster /assets/img_archive/receivedcamp.png %})
+![Received message from campaign filter with campaign selection.]({% image_buster /assets/img_archive/receivedcamp.png %})
 
 ### Received message from campaign or Canvas with tag 
 
 Use this filter to find users who have or have not received a campaign or Canvas that has your target tag.
 
-![]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
+![Received message from campaign or Canvas with tag filter.]({% image_buster /assets/img_archive/received_campaign_with_tag.png %})
 
 ## Advantages with retargeting campaigns
 

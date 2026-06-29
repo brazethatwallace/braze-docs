@@ -39,8 +39,8 @@ Las listas de supresión se aplican a las Campaigns de API que se crean en el da
 Todos los usuarios pueden ver las listas de supresión, pero solo los usuarios con [permisos de administrador]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin) pueden crear y administrar listas de supresión.
 {% endalert %}
 
-1. Ve a **Audiencia** > **Listas de supresión**.<br><br>![La página "Listas de supresión" con una lista de tres listas de supresión.]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. Selecciona **Crear lista de supresión** y añade un nombre.<br><br>![Una ventana llamada "Crear una lista de supresión" con un campo para introducir un nombre.]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. Ve a **Audiencia** > **Listas de supresión**.
+2. Selecciona **Crear lista de supresión** y añade un nombre.
 3. Usa filtros de segmento para identificar a los usuarios en tus listas de supresión. Debes seleccionar al menos uno.
 
 {% alert important %}
@@ -81,13 +81,13 @@ Mientras creas una Campaign o Canvas, usa **Búsqueda de usuarios** dentro del p
 
 ![Ventana de "Búsqueda de usuarios" que muestra que un usuario está en una lista de supresión.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
 
-### Campaign {#campaign}
+### Campaign
 
 Si un usuario está en una lista de supresión, no recibirá una Campaign a la que se aplique esa lista de supresión. Consulta [Tipos de mensajes y canales afectados por las listas de supresión](#message-types-and-channels-affected-by-suppression-lists) para los casos en que una lista de supresión no se aplique.
 
 ![La sección "Listas de supresión" con una lista de supresión activa, llamada "Puntuaciones bajas de salud de marketing".]({% image_buster /assets/img/active_suppression_list.png %})
 
-### Canvas {#canvas}
+### Canvas
 
 Desde el momento en que un usuario se añade a una lista de supresión, no entrará en Canvas. Si ya ha entrado en un Canvas, no recibirá los pasos de mensaje. Esto significa que si un usuario ya está dentro de un Canvas cuando se le añade a una lista de supresión, avanzará a través del Canvas hasta el siguiente paso de mensaje, momento en el que saldrá sin recibir el paso de mensaje.
 

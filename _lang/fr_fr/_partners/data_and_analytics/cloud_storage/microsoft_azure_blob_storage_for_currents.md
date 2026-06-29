@@ -25,7 +25,7 @@ L'intégration de Braze et Microsoft Azure Blob Storage vous permet de réexport
 | ----------- | ----------- |
 | Microsoft Azure et compte de stockage Azure | Un compte Microsoft Azure et un compte de stockage Azure sont nécessaires pour tirer parti de ce partenariat. |
 | Currents | Pour exporter des données vers Currents, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. Currents n'est pas requis si vous ne configurez que l'archivage des messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -37,7 +37,7 @@ Dans Microsoft Azure, accédez à **Storage Accounts** dans la barre latérale e
 
 Même si vous disposez déjà d'un compte de stockage, nous vous recommandons d'en créer un nouveau spécifiquement pour vos données Braze.
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![La page de création de compte de stockage Microsoft Azure dans l'onglet Basics, avec le champ du nom du compte de stockage mis en évidence.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### Étape 2 : Obtenir la chaîne de connexion {#step-2-get-the-connection-string}
 
@@ -49,7 +49,7 @@ Microsoft fournit deux clés d'accès pour maintenir les connexions en utilisant
 Braze utilise la chaîne de connexion de ce menu, pas la clé.
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![La page Access keys d'un compte de stockage Azure, avec le champ de la chaîne de connexion sous key1 mis en évidence.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### Étape 3 : Créer un conteneur de service Blob {#step-3-create-a-blob-service-container}
 
@@ -57,7 +57,7 @@ Accédez au menu **Blobs** dans la section **Blob Service** de votre compte de s
 
 Fournissez un nom pour votre conteneur de service Blob. Les autres paramètres par défaut n'ont pas besoin d'être modifiés.
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![La page Blobs d'un compte de stockage Azure sous Blob Service, avec l'option d'ajout d'un conteneur.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### Étape 4 : Configurer Currents {#step-4-set-up-currents}
 
@@ -73,7 +73,7 @@ Enfin, faites défiler la page vers le bas et sélectionnez les événements d'e
 
 La configuration suivante définit les informations d'identification utilisées pour :
 1. Les exportations de segments via l'API
-2. Les exportations CSV (campagnes, segments, exportation de données utilisateur Canvas via le tableau de bord)
+2. Les exportations CSV (Campaign, Segment, exportation de données utilisateur Canvas via le tableau de bord)
 3. Les rapports d'engagement
 
 Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** > **Microsoft Azure** et fournissez votre chaîne de connexion, le nom du conteneur de stockage Azure et le préfixe de stockage Azure.
@@ -94,7 +94,13 @@ Les utilisateurs qui ont intégré une solution de stockage de données en nuage
 - Tous les rapports de tableau de bord et les rapports CSV seront envoyés à l'adresse e-mail de l'utilisateur pour téléchargement (aucune autorisation de stockage requise) et sauvegardés sur le stockage de données.
 
 {% alert important %}
-**Exigence relative au format JSON** : pour les exportations JSON, Braze utilise le format JSONL (JSON délimité par des nouvelles lignes), où chaque ligne contient un objet JSON distinct. Ce format diffère du JSON standard, qui est un tableau ou un objet JSON unique. Chaque ligne du fichier exporté est un objet JSON valide, mais le fichier dans son ensemble n'est pas un document JSON unique valide. Lorsque vous traitez ces fichiers, analysez chaque ligne individuellement en tant qu'objet JSON distinct plutôt que d'essayer d'analyser l'ensemble du fichier en tant que document JSON unique.
-
-Les exportations Currents utilisent le format Apache Avro (fichiers `.avro`), et non JSON. Cette exigence de format JSON s'applique aux exportations de données du tableau de bord et aux exportations d'API qui utilisent le format JSON.
+**Exigence relative au format JSON** : pour les exportations JSON, Braze utilise le format [JSONL](https://jsonlines.org/) (JSON délimité par des nouvelles lignes), où chaque ligne contient un objet JSON distinct. Ce format diffère du JSON standard, qui est un tableau ou un objet JSON unique. Chaque ligne du fichier exporté est un objet JSON valide, mais le fichier dans son ensemble n'est pas un document JSON unique valide. Lorsque vous traitez ces fichiers, analysez chaque ligne individuellement en tant qu'objet JSON distinct plutôt que d'essayer d'analyser l'ensemble du fichier en tant que document JSON unique. <br><br> Les exportations Currents utilisent le format [Apache Avro](https://avro.apache.org/) (fichiers `.avro`), et non JSON. Cette exigence de format JSON s'applique aux exportations de données du tableau de bord et aux exportations d'API qui utilisent le format JSON.
 {% endalert %}
+
+## FAQ
+
+### Braze peut-il fournir des adresses IP à ajouter à une liste d'autorisation pour Azure Blob Storage ? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Braze ne publie pas de liste fixe d'adresses IP autorisées pour les exportations Currents ou les exportations du tableau de bord vers Azure Blob Storage. Braze écrit dans votre conteneur en utilisant la chaîne de connexion et le nom du conteneur que vous fournissez, et Azure contrôle l'accès réseau via les paramètres de votre compte de stockage (par exemple, les règles de pare-feu du compte de stockage ou les endpoints privés).
+
+Si votre équipe de sécurité exige des restrictions basées sur les adresses IP, utilisez les fonctionnalités réseau d'Azure sur votre compte de stockage plutôt qu'une liste d'adresses IP fournie par Braze. Pour les étapes de configuration, consultez la [documentation de Microsoft sur la sécurisation d'Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

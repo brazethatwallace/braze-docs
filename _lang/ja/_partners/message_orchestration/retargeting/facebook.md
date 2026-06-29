@@ -34,7 +34,7 @@ Facebookオーディエンスエクスポートは、**ユーザーアクセス�
 | [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | ブランドのFacebook資産（広告アカウント、ページ、アプリなど）を一元管理するツールです。 |
 | [Facebook広告アカウント](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Brazeカスタムオーディエンスで使用したい、ブランドのビジネスマネージャーに紐づくアクティブなFacebook広告アカウントです。<br><br>Facebookビジネスマネージャーの管理者が、Brazeで使用する予定のFacebook広告アカウントの管理者権限を付与していること、および広告アカウントの利用規約に同意していることを確認してください。そうしないと、Braze内でFacebook広告アカウントにアクセスできなくなります。 |
 | [Facebookカスタムオーディエンス利用規約](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス利用規約に同意する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -62,8 +62,8 @@ Facebookオーディエンスエクスポートは、**ユーザーアクセス�
 
 Brazeでは、Facebookオーディエンスのエクスポートは**Segments**ページからアクセスできます。
 
-1. **Segments**ページで、エクスポートするSegmentを選択します。
-2. **User Data**を選択し、**Export as Facebook Audience**を選択します。<br><br>![「User Data」を選択したSegmentの「Segment Details」セクションに、「Export as Facebook Audience」を含むオプションのドロップダウンが表示されます。]({% image_buster /assets/img/fb/afb_6.png %})
+1. **Segments**ページで、エクスポートするセグメントを選択します。
+2. **ユーザーデータ**を選択し、**Facebookオーディエンスとしてエクスポート**を選択します。<br><br>![「ユーザーデータ」を選択したセグメントの「セグメント詳細」セクションに、「Facebookオーディエンスとしてエクスポート」を含むオプションのドロップダウンが表示されます。]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
 3. Braze内でFacebookをまだアクティブにしていない場合は、ダッシュボードでFacebookテクノロジーパートナーページに移動するように促されます。**テクノロジーパートナー** > **Facebook**を通じてすでにFacebookをアクティブにしている場合は、Facebook広告アカウントとエクスポートするユーザーフィールドを選択できます。<br><br> エクスポートできるフィールドは以下のとおりです。
@@ -76,7 +76,7 @@ Brazeでは、Facebookオーディエンスのエクスポートは**Segments**�
 {% endalert %}
 
 {: start="4"}
-4. ユーザーフィールドを選択したら**Export Segment**を選択します。CSVエクスポートと同様に、FacebookへのSegmentのエクスポートが完了するとメールが届きます。
+4. ユーザーフィールドを選択したら**Export Segment**を選択します。CSVエクスポートと同様に、Facebookへのセグメントのエクスポートが完了するとメールが届きます。
 5. [Facebook広告マネージャー](https://www.facebook.com/ads/manager/audiences/manage/)でカスタムオーディエンスを表示します。
 
 {% alert important %}
@@ -101,7 +101,7 @@ Facebookオーディエンスを構築する際、ユーザーの嗜好に基づ
 
 #### 類似オーディエンス {#lookalike-audiences}
 
-FacebookオーディエンスとしてSegmentをエクスポートしたら、Facebookの[類似オーディエンス](https://www.facebook.com/business/help/164749007013531?id=401668390442328)を使用して追加のグループを作成できます。この機能は、選択したオーディエンスのデモグラフィック、興味、その他の属性を調べ、類似する属性を持つ新しいオーディエンスを作成します。
+Facebookオーディエンスとしてセグメントをエクスポートしたら、Facebookの[類似オーディエンス](https://www.facebook.com/business/help/164749007013531?id=401668390442328)を使用して追加のグループを作成できます。この機能は、選択したオーディエンスのデモグラフィック、興味、その他の属性を調べ、類似する属性を持つ新しいオーディエンスを作成します。
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -113,7 +113,7 @@ Facebook Exportを使用している場合、以下の状況で`Error Validating
 
 このエラーを解決するには、以下のステップに従ってください。
 1. Facebookからログアウトし、再度ログインします。
-2. BrazeでFacebookの認証情報を削除し、保存します。Segmentをエクスポートしてみて、認証情報が削除されたことを確認します（エクスポートアイコンは無効になっているはずです）。
+2. BrazeでFacebookの認証情報を削除し、保存します。セグメントをエクスポートしてみて、認証情報が削除されたことを確認します（エクスポートアイコンは無効になっているはずです）。
 3. Facebookの認証情報を再度追加して保存します。
 4. もう一度エクスポートを試みます。
 
@@ -124,7 +124,7 @@ Facebook Exportを使用している場合、以下の状況で`Error Validating
 
 ### Facebookオーディエンスのエクスポート時のエラー {#error-when-exporting-a-facebook-audience}
 
-FacebookオーディエンスとしてSegmentをエクスポートする際にエラーが発生した場合、Facebookの開発者ドキュメントでは以下の一般的な原因が記載されています。
+Facebookオーディエンスとしてセグメントをエクスポートする際にエラーが発生した場合、Facebookの開発者ドキュメントでは以下の一般的な原因が記載されています。
 
 1. **アクセストークンが、アプリと広告アカウントの管理者ではないユーザーのものである：** Brazeに接続されているFacebookユーザーの認証情報には、適切な権限が必要です。
 2. **エクスポート先の広告アカウントがアプリに関連付けられていない：** Facebook広告アカウントは、Facebookの設定でアプリにリンクされている必要があります。

@@ -32,22 +32,36 @@ search_rank: 1
 | カスタム属性 <br> (ワークスペースに固有のものです。) | `{{custom_attribute.${your_custom_attribute}}}` |
 | <a href='/docs/api/objects_filters/trigger_properties_object/'>API トリガープロパティ</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Canvasエントリプロパティ | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされているタグの概要" }
 
 {% endraw %}
 
+{% alert note %}
+API トリガープロパティでは、タグごとに 2 つの波括弧を使用する必要があります: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`。3 つの波括弧（例: `{{{...}}}`）{% endraw %}は有効な Braze パーソナライゼーション構文ではありません。[API トリガーの Liquid が Braze で失敗するのはなぜですか？]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze)を参照してください。
+{% endalert %}
+
 ### サポートされている属性 {#supported-attributes}
 
-Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています（例えば、`dispatch_id` はアプリ内メッセージCampaignでは使用できません）。
+Campaign、カード、Canvasの属性は、対応するメッセージングテンプレートでのみサポートされています。例えば、`dispatch_id` はメール、プッシュ、SMS、WhatsApp などのメッセージングチャネルの Liquid ではサポートされていますが、アプリ内メッセージやバナーではサポートされていません。
 
-[Braze内のソースによってこれらの属性がどのように異なるか]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/)の詳細については、このヘルプ記事を参照してください。
+詳細については、[ソース別のCampaignおよびCanvas属性]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/)を参照してください。
 
 ### CanvasとCampaignのタグの違い {#canvas-and-campaign-tag-differences}
 
 以下のタグの動作は、CanvasとCampaignで異なります。
 {% raw %}
-- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `dispatch_id` の動作が異なるのは、Brazeがキャンバスステップを（「スケジュール済み」であっても）トリガーイベントとして扱うためです（スケジュール可能なエントリステップを除く）。詳細については、[ディスパッチ ID の動作]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)を参照してください。
 - Canvasで `{{campaign.${name}}}` タグを使用すると、Canvasコンポーネント名が表示されます。Campaignでこのタグを使用すると、Campaign名が表示されます。
+{% endraw %}
+
+#### URL 内のCampaign名 {#campaign-names-in-urls}
+
+{% raw %}
+Campaignおよびメッセージバリアント名には、`%`、スペース、`&` など、URLセーフでない文字が含まれる場合があります。`{{campaign.${name}}}` または `{{campaign.${message_name}}}` をリンクやクエリ文字列（`utm_campaign` パラメーターなど）に挿入する場合は、URLが正しく解析されるように [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) フィルターを適用してください。例えば：
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## 最近使用したデバイスの情報 {#most-recently-used-device-information}
@@ -62,13 +76,13 @@ Campaign、カード、Canvasの属性は、対応するメッセージングテ
 |`{{most_recently_used_device.${id}}}` | Brazeデバイス識別子です。iOSでは、Apple Identifier for Vendor (IDFV) または UUID になります。Androidやその他のプラットフォームでは、ランダムに生成された UUID です。|
 | `{{most_recently_used_device.${carrier}}}` | 最近使用されたデバイスの電話サービスキャリアです（利用可能な場合）。例として「Verizon」や「Orange」があります。|
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | デバイスで広告トラッキングが有効かどうかを示します。ブール値（`true` または `false`）です。|
-| `{{most_recently_used_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
+| `{{most_recently_used_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
 | `{{most_recently_used_device.${google_ad_id}}}` | Androidデバイスの場合、アプリケーションがオプションの Google Play 広告 ID 収集で設定されていれば、この値は Google Play Advertising Identifier になります。Android以外のデバイスでは、この値は null です。|
 | `{{most_recently_used_device.${roku_ad_id}}}` | Rokuデバイスの場合、アプリケーションがBrazeで設定されているときに収集される Roku Advertising Identifier がこの値になります。Roku以外のデバイスでは、この値は null です。|
 | `{{most_recently_used_device.${model}}}` | デバイスのモデル名です（利用可能な場合）。例として「iPhone 6S」、「Nexus 6P」、「Firefox」があります。|
 | `{{most_recently_used_device.${os}}}` | デバイスのオペレーティングシステムです（利用可能な場合）。例として「iOS 9.2.1」、「Android (Lollipop)」、「Windows」があります。|
 | `{{most_recently_used_device.${platform}}}` | デバイスのプラットフォームです（利用可能な場合）。設定されている場合、値は `ios`、`android`、`kindle`、`android_china`、`web`、`tvos` のいずれかです。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="最近使用したデバイスの情報" }
 
 デバイスキャリア、モデル名、オペレーティングシステムは非常に多岐にわたるため、これらの値に条件付きで依存する Liquid は十分にテストすることを推奨します。特定のデバイスで利用できない場合、これらの値は `null` になります。
 
@@ -80,7 +94,7 @@ Campaign、カード、Canvasの属性は、対応するメッセージングテ
 |------------------|---|
 | `{{app.${api_id}}}` | メッセージをリクエストしているアプリのAPIキーです。例えば、このキーを `abort_message()` Liquid と組み合わせて使用し、TVプラットフォームや別のSDK APIキーを使用する開発ビルドなど、特定のアプリへのアプリ内メッセージの送信を回避できます。|
 | `{{app.${name}}}` | メッセージをリクエストしているアプリの名前です（Brazeダッシュボードで定義されたもの）。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ターゲットアプリの情報" }
 
 例えば、以下の Liquid コードは、リクエストしているアプリがリスト内の 2 つのAPIキーのいずれでもない場合にメッセージを中止します。
 
@@ -101,14 +115,14 @@ User is in list of apps
 |------------------|---|
 | `{{targeted_device.${id}}}` | Brazeデバイス識別子です。iOSでは、Apple Identifier for Vendor (IDFV) または UUID になります。Androidやその他のプラットフォームでは、ランダムに生成された UUID です。例えば、ユーザーが 5 台のデバイスを持っている場合、5 台すべてのデバイスに対して送信が試行され、それぞれ対応するデバイス識別子が使用されます。メッセージがユーザーの最近使用したデバイスに送信するよう設定されている場合、Brazeで特定された最近使用したデバイスに対して 1 回のみ送信が試行されます。|
 | `{{targeted_device.${carrier}}}` | 最近使用されたデバイスの電話サービスキャリアです（利用可能な場合）。例として「Verizon」や「Orange」があります。|
-| `{{targeted_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
+| `{{targeted_device.${idfa}}}` | iOSデバイスの場合、アプリケーションがオプションの [IDFA 収集]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)で設定されていれば、この値は Identifier for Advertising (IDFA) になります。iOS以外のデバイスでは、この値は null です。|
 | `{{targeted_device.${google_ad_id}}}` | Androidデバイスの場合、アプリケーションがオプションの [Google Play 広告 ID 収集]で設定されていれば、この値は Google Play Advertising Identifier になります。Android以外のデバイスでは、この値は null です。|
 | `{{targeted_device.${roku_ad_id}}}` | Rokuデバイスの場合、アプリケーションがBrazeで設定されているときに収集される Roku Advertising Identifier がこの値になります。Roku以外のデバイスでは、この値は null です。|
 | `{{targeted_device.${model}}}` | デバイスのモデル名です（利用可能な場合）。例として「iPhone 6S」、「Nexus 6P」、「Firefox」があります。|
 | `{{targeted_device.${os}}}` | デバイスのオペレーティングシステムです（利用可能な場合）。例として「iOS 9.2.1」、「Android (Lollipop)」、「Windows」があります。|
 | `{{targeted_device.${platform}}}` | デバイスのプラットフォームです（利用可能な場合）。設定されている場合、値は `ios`、`android`、`kindle`、`android_china`、`web`、`tvos` のいずれかです。`most_recently_used_device` パーソナライゼーションタグも使用できます。|
 | `{{targeted_device.${foreground_push_enabled}}}` | ターゲットデバイスでフォアグラウンドプッシュが有効な場合、この値は `true` になり、それ以外の場合は `false` になります。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ターゲットデバイスの情報" }
 
 {% endraw %}
 
@@ -162,7 +176,7 @@ User is in list of apps
 
 `assign` タグを使用して、メッセージ作成画面で変数を作成できます。変数にはユニークな名前を使用することを推奨します。サポートされているパーソナライゼーションタグ（`language` など）と類似した名前の変数を作成すると、メッセージングロジックに影響を与える可能性があります。
 
-変数を作成した後、メッセージングロジックやメッセージ内でその変数を参照できます。このタグは、[コネクテッドコンテンツ]({% image_buster /assets/img_archive/personalized_firstname_.png %})機能から返されるコンテンツを再フォーマットしたい場合に便利です。詳細については、Shopify のドキュメントの[変数タグ](https://docs.shopify.com/themes/liquid/tags/variable-tags)を参照してください。
+変数を作成した後、メッセージングロジックやメッセージ内でその変数を参照できます。このタグは、[コネクテッドコンテンツ]({% image_buster /assets/img_archive/personalized_firstname_.png %})機能から返されるコンテンツを再フォーマットしたい場合に便利です。詳細については、Shopifyのドキュメントの[変数タグ](https://docs.shopify.com/themes/liquid/tags/variable-tags)を参照してください。
 
 {% alert tip %}
 毎回のメッセージで同じ変数を割り当てていませんか？`assign` タグを何度も書く代わりに、そのタグをコンテンツブロックとして保存し、メッセージの先頭に配置できます。
@@ -216,11 +230,11 @@ Sale on Converse!
 
 次に、`converse_viewer` が true の場合にセールメッセージを送信します。それ以外の場合はメッセージを中止します。
 
-これは、Brazeのメッセージ作成画面で反復タグを使用する方法の簡単な例です。詳細については、Shopify のドキュメントの[反復タグ](https://docs.shopify.com/themes/liquid/tags/iteration-tags)を参照してください。
+これは、Brazeのメッセージ作成画面で反復タグを使用する方法の簡単な例です。詳細については、Shopifyのドキュメントの[反復タグ](https://docs.shopify.com/themes/liquid/tags/iteration-tags)を参照してください。
 
 ## 構文タグ {#syntax-tags}
 
-構文タグを使用して、Liquid のレンダリング方法を制御できます。`echo` タグを使用して式を返すことができます。これは式を波括弧で囲むのと同じですが、Liquid タグ内でこのタグを使用できます。また、`liquid` タグを使用して、各タグにデリミタを付けずに Liquid のブロックを記述できます。`liquid` タグを使用する場合、各タグは独自の行に記述する必要があります。詳細と例については、Shopify のドキュメントの[構文タグ](https://shopify.dev/api/liquid/tags#syntax-tags)を参照してください。
+構文タグを使用して、Liquid のレンダリング方法を制御できます。`echo` タグを使用して式を返すことができます。これは式を波括弧で囲むのと同じですが、Liquid タグ内でこのタグを使用できます。また、`liquid` タグを使用して、各タグにデリミタを付けずに Liquid のブロックを記述できます。`liquid` タグを使用する場合、各タグは独自の行に記述する必要があります。詳細と例については、Shopifyのドキュメントの[構文タグ](https://shopify.dev/api/liquid/tags#syntax-tags)を参照してください。
 
 [空白制御](https://shopify.github.io/liquid/basics/whitespace/)を使用すると、タグの周囲の空白を削除でき、Liquid の出力の見た目をさらに制御できます。
 
@@ -302,7 +316,7 @@ It is between 2:00:00 pm and 2:59:59 pm PT!
 |-------|--------------|
 | `{% random %}` | 0 から 1 の間の浮動小数点数（0 を含み、1 を含まない）です。|
 | `{% random 10 %}` (整数引数) | 0 から指定した整数未満までの整数です。例えば、`{% random 10 %}` は 0 から 9 の整数を返します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ランダムな数値を使用したメッセージ送信" }
 
 {% endraw %}
 

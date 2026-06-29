@@ -32,7 +32,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInAppMessageUIDelegate?(self)
 ```
 
@@ -50,14 +50,14 @@ Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInA
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy sharedInstance].inAppMessageController.delegate = self;
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.inAppMessageController.delegate = self
 ```
 
@@ -68,7 +68,7 @@ Appboy.sharedInstance()?.inAppMessageController.delegate = self
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API_KEY"
           inApplication:application
       withLaunchOptions:options
@@ -78,7 +78,7 @@ Appboy.sharedInstance()?.inAppMessageController.delegate = self
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,

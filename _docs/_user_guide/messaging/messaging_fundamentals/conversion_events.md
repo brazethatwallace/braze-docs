@@ -29,6 +29,8 @@ Conversion tracking begins when a user receives the campaign or enters the campa
 
 Conversion tracking begins when a user enters the Canvas. For Canvas steps, conversions are attributed while the user is active in that step. When the user advances to another step, conversion tracking stops for the previous step and starts for the next step.
 
+While a user is in a Delay step or other non-message step, conversions that occur during that wait are still attributed to the last message step received until the user receives another message step. After the user receives the last message step in their path, conversions can still be recorded until the conversion deadline (counted from Canvas entry), even if there are no further message steps.
+
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +46,7 @@ Note the following about how Braze handles multiple conversions:
 
 - **Single-channel campaigns**: Conversions occur on a per-user basis, not a per-device basis. Within a single channel, a user converts only once per conversion event, even if a message is sent to multiple devices. For example, if a campaign has only one conversion event set to "Makes any purchase" and a user makes two separate purchases within the conversion deadline, Braze counts only one conversion.
 - **Multichannel campaigns**: For multichannel campaigns, each channel has its own conversion opportunity. A user can convert once per channel after receiving a message on that channel. This means if a user receives messages on multiple channels (for example, both email and push) and performs the conversion action, Braze counts one conversion for each channel, which can result in conversion rates exceeding 100%.
-- **Canvas message steps**: Braze attributes conversions that occur within the conversion deadline to the last Canvas message step the user received. After they receive the next message step, attribution moves to that step. Braze measures that window from when the user enters the Canvas, not from each message individually. Braze still counts conversions during delay periods between steps.
+- **Canvas message steps**: Braze attributes conversions that occur within the conversion deadline to the last Canvas Message step the user received. After they receive the next Message step, attribution moves to that step. Braze measures that window from when the user enters the Canvas, not from each message individually. Conversions that happen during delays between Message steps count toward the prior Message step's attribution until the user advances; conversions after the final Message step still count until the Canvas conversion deadline.
 - If a user performs one conversion event within the conversion deadlines of two separate campaigns or Canvases that they received, the conversion registers on both.
 - A user counts as converted if they performed the specific conversion event in the window, even if they did not open or click the message.
 
@@ -52,21 +54,21 @@ Note the following about how Braze handles multiple conversions:
 
 The primary conversion event is the first event you add during campaign or Canvas creation. This event has the most bearing on your engagement and reporting. Braze uses your primary conversion event to:
 
-- Compute the winning message variation in [multivariate]({{site.baseurl}}/user_guide/messaging/ab_testing/#multivariate-and-ab-testing) campaigns or Canvases.
+- Compute the winning message variation in [multivariate]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing) campaigns or Canvases.
 - Determine the window when revenue is calculated for the campaign or Canvas.
-- Adjust message distributions for campaigns and Canvases using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/).
+- Adjust message distributions for campaigns and Canvases using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 
 The primary conversion event count is the number of conversion events that occurred. For multichannel campaigns, Braze counts conversions per channel (as described in [Conversion tracking rules](#conversion-tracking-rules)), which means the conversion count can exceed the number of unique users and result in conversion rates greater than 100%. Braze calculates the primary conversion event rate by dividing this count by the number of unique recipients. Braze considers a user a recipient when the message is sent or shown, depending on the channel. For example, in push or email, a user becomes a recipient after Braze sends the message. For in-app messages or Content Cards, the user must view the message to be considered a recipient.
 
 {% alert note %}
-If you abort messages using the Liquid `abort` tag, Braze aborts messages only for users who go through variants. Messages to users in the control group are not aborted, which can lead to skewed conversion percentages across variants and control groups. As a workaround, use [segmentation]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) to target your users at campaign and Canvas entry.
+If you abort messages using the Liquid `abort` tag, Braze aborts messages only for users who go through variants. Messages to users in the control group are not aborted, which can lead to skewed conversion percentages across variants and control groups. As a workaround, use [segmentation]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) to target your users at campaign and Canvas entry.
 {% endalert %}
 
 ## Creating a campaign with conversion tracking
 
 ### Step 1: Set up your campaign
 
-[Create a campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/) for your desired messaging channel. After setting up your campaign's messages and schedule, you can add up to four conversion events for tracking.
+[Create a campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) for your desired messaging channel. After setting up your campaign's messages and schedule, you can add up to four conversion events for tracking.
 
 Use as many conversion events as necessary. Adding a second or third conversion event significantly enriches your reporting. For example, for a campaign targeting lapsing users, adding a secondary conversion event along with the primary **Starts Session** conversion event helps you understand how effective your campaign is at bringing users back into your application. 
 
@@ -77,7 +79,7 @@ First, select the general type of event you'd like to use:
 | Conversion Event Type   | Description                |
 |-------------------------|----------------------------|
 | **Starts Session**      | A user is counted as having converted when they open any one of the apps that you specify (defaults to all apps in the workspace).|
-| **Makes Purchase**      | A user is counted as having converted when they record a [Purchase event]({{site.baseurl}}/api/objects_filters/purchase_object/). This tracks any purchase by default, or you can specify a particular product.|
+| **Makes Purchase**      | A user is counted as having converted when they record a [Purchase event]({{site.baseurl}}/api/objects_filters/purchase_object). This tracks any purchase by default, or you can specify a particular product.|
 | **Places Order**        | A user is counted as having converted when they trigger the [Order Placed eCommerce recommended event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed). This tracks any order by default, or you can filter by a specific product.<br><br>The "Places Order" event is currently in early access. Contact your Braze account manager if you’re interested in participating in this early access. |
 | **Performs Custom Event**| A user is counted as having converted when they perform one of your existing custom events (no default, you must specify the event).|
 | **Upgrade App**         | A user is counted as having converted when they upgrade the app version on any one of the apps that you specify (defaults to all apps in the workspace). Braze performs a best-efforts numerical comparison to determine if the change was an upgrade. Non-numeric versions are counted as conversions if the version changes.|

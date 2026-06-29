@@ -29,7 +29,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 
 ### ステップ 1: StripeのWebhookを受け入れるようにBrazeデータ変換を設定する {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
 ### ステップ 2: Stripe webhookを設定する {#step-2-set-up-stripe-webhooks}
 
@@ -246,7 +246,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 
 /* This template is based on the source platform's documentation here: https://stripe.com/docs/webhooks
 

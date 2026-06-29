@@ -25,7 +25,7 @@ alias: /scim/automated_user_provisioning/
 {% tabs %}
 {% tab Okta - Braze app %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
 Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 **Okta - Braze app** 옵션을 사용합니다. SSO를 위해 커스텀 앱을 설정한 경우 [Okta - Custom app integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning) 탭의 지침을 따릅니다.
 
@@ -76,7 +76,7 @@ Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 **Okta - Braze app**
 {% endtab %}
 {% tab Okta - Custom app integration %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
 SSO를 위해 커스텀 앱을 설정한 경우 **Okta - Custom app integration** 옵션을 사용합니다. Okta에서 SAML SSO를 위해 Braze 앱을 설정한 경우 [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning) 탭의 지침을 따릅니다.
 
@@ -116,7 +116,7 @@ SSO를 위해 커스텀 앱을 설정한 경우 **Okta - Custom app integration*
 {% endtab %}
 {% tab Entra ID %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Entra ID integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
 
 ## 1단계: SCIM 프로비저닝 앱 설정하기 {#step-1-set-up-scim-provisioning-app}
 
@@ -153,19 +153,17 @@ Microsoft Entra 관리 센터에 로그인합니다.
 4. **Select** 버튼을 선택하여 할당을 확인합니다.
 
 {% endtab %}
-{% tab Custom %}
+{% tab 커스텀 %}
 
 ## 1단계: SCIM 설정 구성하기 {#step-1-configure-your-scim-settings}
 
-- **기본 워크스페이스:** 새 사용자가 기본적으로 추가될 워크스페이스를 선택합니다. [SCIM API 요청]({{site.baseurl}}/post_create_user_account/)에서 워크스페이스를 지정하지 않으면 Braze가 사용자를 이 워크스페이스에 할당합니다.
+- **기본 워크스페이스:** 새 사용자가 기본적으로 추가될 워크스페이스를 선택합니다. [SCIM API 요청]({{site.baseurl}}/post_create_user_account)에서 워크스페이스를 지정하지 않으면 Braze가 사용자를 이 워크스페이스에 할당합니다.
 - **서비스 오리진:** SCIM 요청의 오리진 도메인을 입력합니다. Braze는 이를 `X-Request-Origin` 헤더에서 사용하여 요청의 출처를 확인합니다.
 - **IP 허용 목록(선택 사항):** SCIM 요청을 특정 IP 주소로 제한할 수 있습니다. 허용할 IP 주소를 쉼표로 구분된 목록 또는 범위로 입력합니다. 각 요청의 `X-Request-Origin` 헤더를 사용하여 요청 IP 주소를 허용 목록과 대조합니다.
 
-![기본 워크스페이스, 서비스 오리진, 선택 사항인 IP 허용 목록의 세 가지 필드가 있는 SCIM 프로비저닝 설정 양식입니다. 'SCIM 토큰 생성' 버튼이 비활성화되어 있습니다.]({% image_buster /assets/img/scim_unfilled.png %})
-
 ## 2단계: SCIM 토큰 생성하기 {#step-2-generate-a-scim-token}
 
-필수 필드를 모두 입력한 후 **Generate SCIM token**을 눌러 SCIM 토큰을 생성하고 SCIM API 엔드포인트를 확인합니다. 페이지를 벗어나기 전에 SCIM 토큰을 반드시 복사하세요. **이 토큰은 한 번만 표시됩니다.**
+필수 필드를 모두 입력한 후 **SCIM 토큰 생성**을 눌러 SCIM 토큰을 생성하고 SCIM API 엔드포인트를 확인합니다. 페이지를 벗어나기 전에 SCIM 토큰을 반드시 복사하세요. **이 토큰은 한 번만 표시됩니다.**
 
 ![마스킹된 값과 복사 버튼이 있는 SCIM API 엔드포인트 및 SCIM 토큰 필드입니다. 토큰 필드 아래에 '토큰 재설정' 버튼이 있습니다.]({% image_buster /assets/img/scim.png %})
 

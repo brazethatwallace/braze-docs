@@ -32,6 +32,10 @@ The [Snowflake quickstart guide](https://quickstarts.snowflake.com/guide/braze_c
 2. In your Redshift instance, set up the tables or views you want to sync to Braze.
 3. Create a new source and sync in the Braze dashboard.
 4. Test the integration and start the sync.
+
+{% alert note %}
+Rows processed per sync depend on your warehouse performance, network latency, and how much new data matches the sync query. Use the integration **Sync history** in the dashboard to see duration and row counts for recent runs.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Create a service account and allow access to the BigQuery project(s) and dataset(s) that contain the data you want to sync.  
@@ -61,7 +65,7 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 
 ### Step 1: Set up tables or views
 
-Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) to understand source table requirements compared to `PAYLOAD` formatting requirements.
+Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) to understand source table requirements compared to `PAYLOAD` formatting requirements.
 
 {% alert note %}
 Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
@@ -144,7 +148,7 @@ When connecting different workspaces to the same Snowflake account, you must cre
 
 Depending on the configuration of your Snowflake account, you may need to allow the following IP addresses in your Snowflake network policy. For more information on enabling this, see the relevant Snowflake documentation on [modifying a network policy](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -207,7 +211,7 @@ Some important things to know:
  
 Allow access from the following IPs corresponding to your Braze dashboard’s region.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -290,7 +294,7 @@ After creating the service account and granting permissions, generate a JSON key
 
 If you have network policies in place, you must give Braze network access to your Big Query instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -364,7 +368,7 @@ Keep the token in a safe place until you need to enter it on the Braze dashboard
 
 If you have network policies in place, you must give Braze network access to your Databricks instance. Allow access from the following IPs corresponding to your Braze dashboard's region.  
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -453,7 +457,7 @@ To retrieve the SQL endpoint for your warehouse, go to the **workspace** in Fabr
 
 Depending on the configuration of your Microsoft Fabric account, you may need to allow the following IP addresses in your firewall to allow traffic from Braze. For more information on enabling this, see the relevant documentation on [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -471,9 +475,16 @@ In the Braze Dashboard, go to **Data Settings** > **Cloud Data Ingestion** > **S
 
 Choose a name for your source and input your Snowflake credentials and configuration, then proceed to the next step.
 
-{% alert note %}
-For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier), which typically follows a format like `xy12345.us-east-1.aws`. This is not the same as a database name or warehouse name.
-{% endalert %} 
+Before you continue, confirm the value you enter in **Snowflake Account Locator**.
+
+For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier). Enter only the account identifier value, such as `myorganization-myaccount`. Do not include `https://`, `.snowflakecomputing.com`, or any path.
+
+To find your Snowflake account identifier:
+
+1. In Snowsight, select your account menu.
+2. Select **View account details**.
+3. Copy the **Account identifier** value.
+4. If you copy from a Snowflake URL, use only the value before `.snowflakecomputing.com`.
 
 #### Step 2.2: Add a public key to the Braze user
 
@@ -585,7 +596,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -618,7 +629,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -649,7 +660,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 
@@ -681,7 +692,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -714,7 +725,7 @@ Lastly, configure your sync as non-recurring or recurring.
 
 Non-recurring syncs can be triggered manually or via the API.
 
-Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze uses the time zone configured in your Braze dashboard to schedule the recurring sync.
+Recurring syncs can have a frequency anywhere from every 15 minutes to once per month. Braze schedules the recurring sync in UTC timezone.
 
 {% endtab %}
 {% endtabs %}

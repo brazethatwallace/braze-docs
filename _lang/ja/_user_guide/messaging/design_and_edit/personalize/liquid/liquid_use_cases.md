@@ -1,6 +1,6 @@
 ---
-nav_title: Liquid ユースケースライブラリ
-article_title: Liquid ユースケースライブラリ
+nav_title: Liquidユースケースライブラリ
+article_title: Liquidユースケースライブラリ
 page_order: 10
 search_rank: 2
 excerpt_separator: ""
@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [一致するカスタム属性に基づいてメッセージをパーソナライズする](#attribute-matching)
+- [ヨーロッパの数値表記規則に合わせて通貨をフォーマットする](#european-currency-format)
 - [2つのカスタム属性を減算して差額を金額として表示する](#attribute-monetary-difference)
 - [フルネームがfirst_nameフィールドに保存されている場合にユーザーの名を参照する](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### ヨーロッパの数値表記規則に合わせて通貨をフォーマットする {#european-currency-format}
+
+小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**出力:** `1.234.567,89`
+
+**説明:** `money`フィルターは小数点以下を追加しますが、通貨記号やロケール固有の区切り文字は追加しません。`number_with_delimiter`はUS形式の千の位区切りを追加し、`replace`フィルターでヨーロッパ形式に変換します。
 {% endraw %}
 
 ### 2つのカスタム属性を減算して差額を金額として表示する {#attribute-monetary-difference}
@@ -1372,6 +1387,10 @@ Time zones
 - [ユーザーのローカルタイムゾーンの時間帯に基づいて異なるメッセージを送信する](#time-of-day)
 - [送信時に時間範囲外の場合にメッセージを中止する](#abort-send-time-hour-range)
 - [固定タイムゾーンの時間枠外でメッセージを中止する](#abort-fixed-timezone-window)
+
+{% alert note %}
+ユーザーが予期しないローカル時刻にメッセージを受信した場合、デバイスまたはプロファイルのタイムゾーンが変更された可能性があります（たとえば、旅行後など）。ローカルタイム配信では、送信時のプロファイルのタイムゾーンを使用します。{% raw %}`{{${time_zone}}}`{% endraw %}などの値が期待どおりに反映されるには、ユーザーが通常の地域で新しいセッションを開始する必要がある場合があります。ただし、[ユーザーのタイムゾーンをテンプレートに挿入する](#users-time-zone)ことは可能です。
+{% endalert %}
 
 ### ユーザーのタイムゾーンをテンプレートに挿入する {#users-time-zone}
 

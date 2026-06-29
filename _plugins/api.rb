@@ -9,7 +9,27 @@ module Api
       site = context.registers[:site]
       converter = site.find_converter_instance(Jekyll::Converters::Markdown)
       content = converter.convert(super)
-      return "<div id='#{@apiid}' class='api_div'>#{content}</div>"
+
+      # Build a search index so JS can search without touching lazy tab content.
+      # At this point `content` still has the full rendered tab HTML (before the
+      # lazy-loading plugin offloads panes). Extract JSON field names from the
+      # syntax-highlighted spans that Kramdown emits for JSON keys.
+      h2_match    = content.match(/<h2[^>]*>(.*?)<\/h2>/i)
+      tags_match  = content.match(/data-tags=['"]([^'"]*)['"]/i)
+      desc_match  = content.match(/class='api_tags'[^>]*><\/div>\s*<p>(.*?)<\/p>/m)
+      # JSON object keys are wrapped in <span class="nl">"field_name"</span>.
+      # Extract the names (lowercase snake_case identifiers) and deduplicate.
+      field_names = content.scan(/<span class="nl">"([a-z][a-z0-9_]+)"<\/span>/).flatten.uniq.join(' ')
+
+      keywords = [
+        h2_match   ? h2_match[1].gsub(/<[^>]+>/, '').strip   : '',
+        tags_match ? tags_match[1].strip                      : '',
+        desc_match ? desc_match[1].gsub(/<[^>]+>/, '').strip  : '',
+        field_names
+      ].reject(&:empty?).join(' ').downcase
+      keywords_escaped = keywords.gsub('"', '&quot;').gsub("'", '&#39;')
+
+      return "<div id='#{@apiid}' class='api_div' data-search-keywords='#{keywords_escaped}'>#{content}</div>"
     end
   end
 

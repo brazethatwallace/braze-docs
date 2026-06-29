@@ -14,15 +14,15 @@ page_order: 4
 このページのツールは、ダッシュボードで重複プロファイルを統合します。Brazeの[ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data/)を使用して、プロファイルの結合や再ポイントも可能です。
 
 - [POST: ユーザーの識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)（`/users/identify`）：エイリアスのみ、メールのみ、または電話番号のみのプロファイルを、`external_id`を持つプロファイルと結合します。
-- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)（`/users/merge`）：あるユーザープロファイルを別のプロファイルに統合します。両方のプロファイルがすでに`external_id`を持っている場合も含みます。このエンドポイントを呼び出す前に、[前提条件]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites)と[統合の動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を確認してください。
+- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)（`/users/merge`）：あるユーザープロファイルを別のプロファイルに統合します。両方のプロファイルがすでに`external_id`を持っている場合も含みます。このエンドポイントを呼び出す前に、[前提条件]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites)と[マージの動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を確認してください。
 
 匿名プロファイルが既存の識別済みプロファイルと一致した場合（たとえばSDKの`changeUser()`呼び出しや`/users/identify`を通じて）、Brazeは匿名プロファイルを孤立させ、特定のフィールドのみを識別済みプロファイルにコピーします。詳細については、[匿名ユーザーを識別した場合の動作]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)を参照してください。
 
 ユーザーの統合は元に戻すことが困難です。複数の`external_id`値にまたがる複雑な統合や大規模なプロファイル移行を計画している場合は、`/users/merge`に依存する前に、Brazeカスタマーサクセスマネージャーにガイダンスを求めてください。
 
-Brazeは統合時に、削除対象としてマークされたユーザー、テストユーザー、グローバルコントロールグループユーザーの3種類のユーザーを異なる方法で処理します。詳細については、[ユーザー統合の動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
+Brazeは統合時に、削除対象としてマークされたユーザー、テストユーザー、グローバルコントロールグループユーザーの3種類のユーザーを異なる方法で処理します。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
 
-## 個別統合 {#individual-merging}
+## 個別マージ {#individual-merging}
 
 ユーザー検索で重複プロファイルが返された場合、Brazeダッシュボードのユーザープロファイルから各プロファイルを個別に統合できます。
 
@@ -44,15 +44,14 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 保持するユーザープロファイルと統合するユーザープロファイルを選択し、**Merge profiles**を選択します。すべての重複プロファイルが統合されるまで、このプロセスを繰り返します。
 
-![重複プロファイルの個別統合ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
-## 一括統合 {#bulk-merging}
+## 一括マージ {#bulk-merging}
 
-重複ユーザーを一括統合すると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、1つのプロファイルを保持します。Brazeはまず`external_id`を持つプロファイルを優先し、次に**Resolving ties**設定（**Resolve ties using**と**Prioritization**）を適用します。`external_id`を持つプロファイルがない場合、Brazeは`external_id`を持たないプロファイル全体に対して**Resolve ties using**と**Prioritization**を使用します。Brazeは、これらの設定で保持するプロファイルが1つに特定できる場合にのみユーザーを統合します。たとえば、**Resolve ties using**が**Updated date**で、両方のプロファイルの最終更新タイムスタンプが同じ場合、Brazeはタイブレークを解決できないため、それらのユーザーは統合されません。
+重複ユーザーを一括マージすると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、1つのプロファイルを保持します。Brazeはまず`external_id`を持つプロファイルを優先し、次に**Resolving ties**設定（**Resolve ties using**と**Prioritization**）を適用します。`external_id`を持つプロファイルがない場合、Brazeは`external_id`を持たないプロファイル全体に対して**Resolve ties using**と**Prioritization**を使用します。Brazeは、これらの設定で保持するプロファイルが1つに特定できる場合にのみユーザーを統合します。たとえば、**Resolve ties using**が**Updated date**で、両方のプロファイルの最終更新タイムスタンプが同じ場合、Brazeはタイブレークを解決できないため、それらのユーザーは統合されません。
 
 ### ステップ1: オーディエンスを管理に移動する {#step-1-go-to-manage-audience}
 
@@ -68,9 +67,8 @@ Brazeダッシュボードで、**Audience** > **Manage Audience**を選択し�
 
 Brazeがプレビューを生成し、CSVファイルとしてメールアドレスに送信します。
 
-![生成されたCSVファイルへのリンクが含まれたBrazeからのメール。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
-次の例では、Brazeはユーザーのexternal IDを使用して重複プロファイルにフラグを付け、保持するプロファイルを特定します。これらのプロファイルが一括統合された場合、Brazeはexternal IDを持つプロファイルをユーザーの新しいプライマリプロファイルとして使用します。
+次の例では、Brazeはユーザーのexternal IDを使用して重複プロファイルにフラグを付け、保持するプロファイルを特定します。これらのプロファイルが一括マージされた場合、Brazeはexternal IDを持つプロファイルをユーザーの新しいプライマリプロファイルとして使用します。
 
 {% tabs local %}
 {% tab CSVファイルの例 %}
@@ -79,13 +77,13 @@ Brazeがプレビューを生成し、CSVファイルとしてメールアドレ
 | alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
 | alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
 | alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Preview the results (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2: 結果をプレビューする（オプション）" }
 {% endtab %}
 {% endtabs %}
 
-#### 統合の動作 {#merge-behavior}
+#### マージの動作 {#merge-behavior}
 
-Brazeは、保持されるプロファイルの空のフィールドを、統合されるプロファイルの値で埋めます。埋められるフィールドの一覧については、[統合の動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を参照してください。
+Brazeは、保持されるプロファイルの空のフィールドを、統合されるプロファイルの値で埋めます。埋められるフィールドの一覧については、[マージの動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を参照してください。
 
 ### ステップ3: 重複を統合する {#step-3-merge-your-duplicates}
 
@@ -95,11 +93,10 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
-![「Merge all duplicates」がハイライトされた「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
-## ルールベースの統合 {#rules-based-merging}
+## ルールベースのマージ {#rules-based-merging}
 
-ルールを使用して、統合実行時に重複プロファイルの解決方法を制御し、最も関連性の高いユーザープロファイルを保持できます。ルールが設定されると、Brazeは条件に一致するプロファイルを保持します。
+ルールを使用して、マージ実行時に重複プロファイルの解決方法を制御し、最も関連性の高いユーザープロファイルを保持できます。ルールが設定されると、Brazeは条件に一致するプロファイルを保持します。
 
 ### ステップ1: ルールを定義する {#step-1-define-your-rules}
 
@@ -125,20 +122,26 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
-## スケジュール統合 {#scheduled-merging}
+## スケジュールマージ {#scheduled-merging}
 
-ルールベースの統合と同様に、スケジュール統合では、事前設定されたルールを使用してユーザープロファイルの統合を毎日自動化できます。
+ルールベースのマージと同様に、スケジュールマージでは、事前設定されたルールを使用してユーザープロファイルの統合を毎日自動化できます。
 
 ![「schedule」ボタンがある「Manage Audience」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_scheduled_merge_rules.png %})
 
-この機能を有効にすると、Brazeはユーザーの会社のタイムゾーンで毎日午前0時頃に統合プロセスを実行するタイムスロットを自動的に割り当てます。スケジュール統合はいつでも無効にできます。Brazeは、スケジュールされた統合が実行される24時間前にワークスペースの管理者に通知し、設定を確認するためのリマインダーと時間を提供します。
+この機能を有効にすると、Brazeはユーザーの会社のタイムゾーンで毎日午前0時頃にマージプロセスを実行するタイムスロットを自動的に割り当てます。スケジュールマージはいつでも無効にできます。Brazeは、スケジュールされたマージが実行される24時間前にワークスペースの管理者に通知し、設定を確認するためのリマインダーと時間を提供します。
 
 {% alert warning %}
 重複ユーザープロファイルは、統合後に復元できません。
 {% endalert %}
 
+## 同じメールアドレスに複数のユーザープロファイルが関連付けられている理由 {#why-are-multiple-user-profiles-associated-with-the-same-email-address}
+
+Brazeは、異なる識別子、インポート、または識別前の匿名セッションを通じてプロファイルが作成された場合、同じメールアドレスを共有する複数のユーザープロファイルを保存します。これは、ユーザーが単一の`external_id`を共有していない場合に想定される動作です。
+
+重複を統合する前に、[識別子によるユーザープロファイルのエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を使用して、メールアドレスに対してどのプロファイルが存在し、各プロファイルにどのフィールドが含まれているかを確認してください。また、**Audience** > **User Search**でメールアドレスを検索して、ダッシュボードで重複を確認することもできます。
+
 ## 関連記事 {#related-articles}
 
-- [ユーザー統合の動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
 - [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
 - [ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

@@ -22,7 +22,8 @@ The most common types of race conditions may occur when you’re doing the follo
 
 - Targeting new users
 - Using multiple API endpoints
-- Matching action-based trigger and audience filters. 
+- Matching action-based trigger and audience filters
+- Using the "Interact with Step" trigger 
 
 Consider the following scenarios and implement best practices to avoid these race conditions.
 
@@ -86,7 +87,7 @@ When these objects are included with the trigger, the attributes are processed f
 
 Use the [`/users/track/sync/` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) to record custom events and purchases and update user profile attributes synchronously. Using this endpoint to update user profiles at the same time and in a single call can help prevent potential race conditions.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Scenario 3: Matching action-based triggers and audience filters
 
@@ -132,3 +133,21 @@ If there is a race condition during the Canvas entry evaluation, users may enter
 If a user triggers the Canvas entry event multiple times within the same second, Braze allows only one entry for that second (even if re-entry is enabled). This prevents duplicate entries, so the total number of Canvas entries may be lower than the total trigger events.
 
 We recommend confirming how user data is managed and updated, specifically when and how specific attributes are updated, such as by SDK, API, batch API, and other methods. This can help identify and clarify why a user has entered a campaign or Canvas versus when a user's profile was updated.
+
+## Scenario 4: Using the "Interact with Step" trigger
+
+In a Canvas, when a Message step is immediately followed by an Action Path step that uses the "Interact With Step" trigger, a race condition can occur. Because users can interact with a message as soon as it is delivered, it is possible for a user to complete the tracked action before they officially enter the Action Path step.
+
+In this case, the Action Path step does not register the interaction since it only evaluates events that occur after entry into the step, which means the user may be routed down an unintended path.
+
+A Canvas sends a push notification in a Message step, followed by an Action Path step that checks whether the user opens that push notification. If a user opens the push notification immediately upon receiving it (before entering the Action Path step), the open event may not be captured. The user could then be incorrectly routed down the "did not open" path, even though they did engage with the message.
+
+### Best practices 
+
+#### Track engagement using a custom event
+
+Avoid relying on "Interact With Step" immediately after a Message step when user interactions are expected to occur quickly. Instead, track engagement using a custom event (for example, triggered from the app or website after the interaction) and evaluate that event in a downstream step. This ensures the event is recorded after the user has entered the step.
+
+#### Avoid branches that are dependent on interaction
+
+Design your Canvas so that missing an immediate interaction does not break the user experience. For example, avoid critical branching decisions that depend solely on whether the interaction is captured in the next step, or add follow-up logic that can correct users' routes.

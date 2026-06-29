@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -62,7 +62,7 @@ Pour chaque composant de la demande listé dans le tableau suivant, vous devez i
 | `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Facultatif | Tableau d'objets Événement | Voir l'[objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Facultatif | Tableau d'objets Achat | Voir l'[objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ### Résolution des identifiants {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Chaque objet de la demande doit contenir au moins un identifiant. Le tableau sui
 | --------------- | ----------- | -------- |
 | Primaire | `external_id`, `user_alias`, `braze_id` | Utilisé pour la recherche du profil utilisateur. Un seul identifiant primaire est autorisé par objet de demande — en inclure plusieurs entraîne le rejet de cet objet. |
 | Secondaire | `email`, `phone` | Utilisé pour la recherche du profil utilisateur **uniquement** lorsqu'aucun identifiant primaire n'est présent. Si `email` et `phone` sont tous deux inclus sans identifiant primaire, `email` est prioritaire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Résolution des identifiants" }
 
 Lorsqu'un identifiant primaire est présent, les valeurs `email` ou `phone` dans le même objet de demande sont traitées comme des attributs de profil, et non comme des identifiants pour la recherche d'utilisateur. Par exemple, si une demande inclut à la fois un `external_id` et un `email` :
 
@@ -233,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -325,7 +324,7 @@ Les erreurs suivantes sont spécifiques à l'endpoint `/users/track` et sont ren
 | `EMAIL_BAD_FORMAT` | La valeur fournie pour `email` n'est pas une adresse e-mail valide. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | Le `external_id` dépasse la longueur maximale autorisée de 987 octets. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` n'est pas un attribut valide. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs spécifiques à l'endpoint" }
 
 ## Foire aux questions {#frequently-asked-questions}
 
@@ -359,6 +358,32 @@ Chaque objet d'événement du tableau d'événements représente une occurrence 
 
 Lorsqu'un attribut personnalisé imbriqué contient des valeurs non valides (telles que des formats d'heure incorrects ou des valeurs nulles), Braze abandonne le traitement de toutes les mises à jour d'attributs personnalisés imbriqués de la demande. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Pour garantir un traitement réussi, vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi.
 
+### Les demandes envoyées à `/users/track` sont-elles garanties d'être traitées dans l'ordre ? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+Lorsque vous effectuez plusieurs appels API distincts à `/users/track` en succession rapide, Braze ne peut pas garantir que les demandes sont traitées dans l'ordre exact où elles ont été envoyées ou reçues. En effet, Braze utilise un traitement asynchrone pour maximiser la vitesse et la flexibilité.
+
+Par exemple, si vous envoyez plusieurs demandes de mise à jour pour le même utilisateur en l'espace de quelques secondes — certaines avec des valeurs d'attribut nulles et d'autres avec des valeurs valides — les demandes contenant des valeurs nulles peuvent être traitées après les demandes contenant des valeurs valides, même si elles ont été envoyées plus tôt. Cela peut entraîner des valeurs d'attribut qui semblent revenir en arrière ou ne pas refléter la mise à jour la plus récemment envoyée.
+
+Pour éviter les conditions de concurrence lors de la mise à jour des données utilisateur :
+
+- **Regroupez les mises à jour dans une seule demande :** incluez toutes les mises à jour d'attributs pour un utilisateur dans un seul appel API plutôt que d'effectuer des appels consécutifs séparés.
+- **Ajoutez des délais entre les demandes :** si vous devez effectuer des appels séparés pour le même utilisateur, ajoutez un délai (quelques secondes) entre les demandes pour permettre à la première demande de terminer son traitement avant l'envoi de la suivante.
+- **Évitez les mises à jour simultanées du même champ :** si deux demandes mettent à jour le même attribut avec des valeurs différentes, envoyez ces mises à jour dans une seule demande ou séparez-les par un délai pour réduire le risque de résultats dans le désordre.
+
+Pour plus d'informations sur les conditions de concurrence et les bonnes pratiques, consultez [Conditions de concurrence]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+
+### Pourquoi la réponse de `/users/track` est-elle plus lente que prévu ? {#why-is-my-userstrack-response-slower-than-i-expect}
+
+Les appels `/users/track` réussis sont généralement acceptés rapidement, mais Braze traite toujours les mises à jour d'attributs, d'événements et d'achats de manière asynchrone. La latence perçue peut augmenter lorsque les payloads sont volumineux ou lorsque le routage réseau vers votre [endpoint REST]({{site.baseurl}}/api/basics/#endpoints) est lent. Si vous avez besoin d'un accusé de réception synchrone par utilisateur ou d'un ordonnancement plus strict entre les appels, consultez [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**bêta limitée**).
+
+### Comment les limites de débit affectent-elles `/users/track` ? {#how-do-rate-limits-affect-userstrack}
+
+Lorsque vous approchez de votre [limite de débit](#rate-limit), vous recevez des réponses `429`. Pour les réponses non `429` sur les contrats pris en charge, vous pouvez utiliser les en-têtes de réponse `X-RateLimit-*` décrits dans [En-têtes de limite de débit pour les utilisateurs actifs mensuels CY 24-25, Universal MAU, Web MAU et Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) pour voir combien de temps il reste dans votre fenêtre actuelle.
+
+### Pourquoi est-ce que je reçois une erreur `400 Bad Request` avec une erreur de syntaxe ou d'analyse ? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
+
+Une erreur HTTP `400` avec une erreur de syntaxe ou d'analyse signifie généralement que le corps de la demande n'est pas un JSON valide. Les causes courantes incluent les virgules en fin de ligne, les commentaires dans le JSON, les chaînes entre guillemets simples, une accolade ouvrante `{` supplémentaire avant le payload, ou l'envoi d'un corps non JSON alors que l'en-tête `Content-Type` est `application/json`. Validez vos payloads avec un linter JSON avant l'envoi, confirmez que votre client HTTP encode les objets en JSON (plutôt que de concaténer des chaînes brutes) et vérifiez que le corps est encodé en UTF-8. Pour les autres réponses `400` (par exemple, les limites de taille du payload et les limites d'objets par demande), reportez-vous à [Erreurs fatales et réponses]({{site.baseurl}}/api/errors/#fatal-errors) et au tableau [Erreurs spécifiques à l'endpoint](#endpoint-specific-errors) sur cette page.
+
 ## Utilisateurs actifs mensuels CY 24-25, MAU universel, MAU web et MAU mobile {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 Pour les clients bénéficiant d'une nouvelle tarification, les limites de débit sont appliquées au niveau de l'entreprise. Les clients peuvent définir des limites de débit par espace de travail pour les limites horaires, mais les limites de rafale restent partagées entre tous les espaces de travail.
@@ -379,7 +404,7 @@ Toutes les réponses non limitées par le débit (c'est-à-dire non `429`) conti
 | `X-RateLimit-Limit`     | Le nombre de demandes autorisées par période de temps |
 | `X-RateLimit-Remaining` | Le nombre approximatif de demandes restantes dans la fenêtre en cours |
 | `X-RateLimit-Reset`     | Le nombre de secondes restantes avant la réinitialisation de la fenêtre actuelle |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="En-têtes de limite de débit pour les utilisateurs actifs mensuels CY 24-25, Universal MAU, Web MAU et Mobile MAU" }
 
 Notez que les en-têtes `RateLimit-Limit`, `RateLimit-Remaining` et `RateLimit-Reset` ne sont pas renvoyés lorsque vous rencontrez une erreur HTTP `429`. Dans ce cas, ces en-têtes sont remplacés par un en-tête `X-Ratelimit-Retry-After` qui renvoie un nombre entier indiquant le nombre de secondes à attendre avant de pouvoir recommencer à envoyer des demandes.
 

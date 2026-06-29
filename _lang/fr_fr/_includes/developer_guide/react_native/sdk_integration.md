@@ -14,11 +14,17 @@ La version minimale suivante du SDK est compatible avec toutes les applications 
 Si votre application iOS est conforme à `RCTAppDelegate` et suit notre configuration `AppDelegate` précédente, consultez les exemples dans [Configuration native complète](#reactnative_step-2-complete-native-setup) pour éviter les plantages lors de l'abonnement à des événements dans le module Turbo.
 {% endalert %}
 
+## Exigences de version React et React Native {#react-and-react-native-version-requirements}
+
+Braze ne publie pas de versions minimales de React distinctes au-delà de ce que le SDK React Native prend en charge. Pour intégrer le SDK, utilisez React Native version 0.71 ou ultérieure. Pour obtenir la liste complète des versions React Native prises en charge, consultez le [dépôt GitHub du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+
+Lorsque vous mettez à jour React, React Native ou le SDK Braze, consultez le [CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) du SDK pour vérifier les changements incompatibles avant de déployer.
+
 ## Intégration du SDK React Native {#integrating-the-react-native-sdk}
 
 ### Conditions préalables {#prerequisites}
 
-Pour intégrer le SDK, la version 0.71 ou ultérieure de React Native est requise. Pour obtenir la liste complète des versions prises en charge, consultez notre [dépôt GitHub du SDK React Native](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+Pour les versions React Native prises en charge et les conseils de mise à jour, consultez [Exigences de version React et React Native](#react-and-react-native-version-requirements).
 
 ### Étape 1 : Intégrer la bibliothèque Braze {#step-1-integrate-the-braze-library}
 
@@ -67,7 +73,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint n
 | `enableFirebaseCloudMessaging`                | booléen | Android uniquement. Détermine si Firebase Cloud Messaging est utilisé pour les notifications push.             |
 | `firebaseCloudMessagingSenderId`              | chaîne de caractères  | Android uniquement. Votre ID expéditeur Firebase Cloud Messaging.                                    |
 | `sessionTimeout`                              | entier | Le délai d'expiration de session Braze pour votre application, en secondes.                                                                                               |
-| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) est activée.      |
+| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) est activée.      |
 | `logLevel`                                    | entier | Le niveau de journalisation pour votre application. Le niveau par défaut est 8 et enregistre un minimum d'informations. Pour activer la journalisation détaillée pour le débogage, utilisez le niveau 0.    |
 | `minimumTriggerIntervalInSeconds`             | entier | L'intervalle minimum en secondes entre les déclenchements. 30 secondes par défaut.                                                                           |
 | `enableAutomaticLocationCollection`           | booléen | Détermine si la collecte automatique de localisation est activée (si l'utilisateur l'autorise).                                                                                  |
@@ -85,7 +91,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint n
 | `iosPushStoryAppGroup`                        | chaîne de caractères  | iOS uniquement. Le groupe d'applications utilisé pour iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booléen | iOS uniquement. Détermine si l'ID de l'appareil utilise un UUID généré aléatoirement.                                                                                       |
 | `iosForwardUniversalLinks`                    | booléen | iOS uniquement. Indique si le SDK doit automatiquement reconnaître et transmettre les liens universels aux méthodes système (par défaut : `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Ajouter le plugin à votre app.json" }
 
 L'extrait de code suivant montre un exemple de configuration `app.json` :
 
@@ -426,7 +432,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. Vous pouvez fournir les opt
 | `enableFirebaseCloudMessaging`                | booléen | Android uniquement. Détermine si Firebase Cloud Messaging est utilisé pour les notifications push. Introduit dans le SDK React Native v1.38.0 et le plugin Expo v0.4.0.             |
 | `firebaseCloudMessagingSenderId`              | chaîne de caractères  | Android uniquement. Votre ID expéditeur Firebase Cloud Messaging. Introduit dans le SDK React Native v1.38.0 et le plugin Expo v0.4.0.                                    |
 | `sessionTimeout`                              | entier | Le délai d'expiration de session Braze pour votre application, en secondes.                                                                                               |
-| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) est activée.      |
+| `enableSdkAuthentication`                     | booléen | Détermine si la fonctionnalité [Authentification SDK]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) est activée.      |
 | `logLevel`                                    | entier | Le niveau de journalisation pour votre application. Le niveau par défaut est 8 et enregistre un minimum d'informations. Pour activer la journalisation détaillée pour le débogage, utilisez le niveau 0.    |
 | `minimumTriggerIntervalInSeconds`             | entier | L'intervalle minimum en secondes entre les déclenchements. 30 secondes par défaut.                                                                           |
 | `enableAutomaticLocationCollection`           | booléen | Détermine si la collecte automatique de localisation est activée (si l'utilisateur l'autorise).                                                                                  |
@@ -444,7 +450,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. Vous pouvez fournir les opt
 | `iosPushStoryAppGroup`                        | chaîne de caractères  | iOS uniquement. Le groupe d'applications utilisé pour iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booléen | iOS uniquement. Détermine si l'ID de l'appareil utilise un UUID généré aléatoirement.                                                                                       |
 | `iosForwardUniversalLinks`                    | booléen | iOS uniquement. Indique si le SDK doit automatiquement reconnaître et transmettre les liens universels aux méthodes système (par défaut : `false`). Lorsque cette option est activée, le SDK transmet automatiquement les liens universels aux méthodes système définies dans [Prise en charge des liens universels dans votre application](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/). Introduit dans le SDK React Native v11.1.0 et le plugin Expo v3.2.0. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2.2 : Ajouter le plugin à votre app.json" }
 
 L'extrait de code suivant montre un exemple de configuration `app.json` :
 

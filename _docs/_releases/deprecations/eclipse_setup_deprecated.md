@@ -1,8 +1,8 @@
 ---
 nav_title: Initial SDK setup with Eclipse
 page_order: 1
-
 page_type: update
+noindex: true
 description: "This archived article describes how to perform an initial SDK setup with Eclipse. Braze has deprecated support for the Eclipse IDE."
 ---
 

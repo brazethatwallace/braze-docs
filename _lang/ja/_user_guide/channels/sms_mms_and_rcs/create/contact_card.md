@@ -15,10 +15,10 @@ channel:
 > 連絡先カード（vCardまたはVirtual Contact Files（VCF）とも呼ばれます）は、ビジネス情報や連絡先情報を送信するための標準化されたファイル形式で、アドレス帳や連絡先帳に簡単にインポートできます。
 
 {% alert note %}
-連絡先カードの送信はMMSとして課金されます。連絡先カードを作成する際は、予想されるMMSの送信量とメッセージまたはアクションクレジットの使用量を確認し、Brazeの[請求ページ]({{site.baseurl}}/user_guide/administer/global/billing/)でコストを確認してください。
+連絡先カードの送信はMMSとして課金されます。連絡先カードを作成する際は、予想されるMMSの送信量とメッセージまたはアクションクレジットの使用量を確認し、Brazeの[請求ページ]({{site.baseurl}}/user_guide/administer/global/billing)でコストを確認してください。
 {% endalert %}
 
-連絡先カードは[プログラムで](https://www.twilio.com/blog/send-vcard-twilio-sms)作成してBrazeの[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library)にアップロードするか、組み込みの連絡先カードジェネレーターを使用して作成できます。これらのカードには、会社名、電話番号、住所、メール、小さな写真などの一般的なプロパティを割り当てることができます。連絡先カードの作成を始めるには、まずBrazeでMMSを使用するための設定が完了していることを確認してください。
+連絡先カードは[プログラムで](https://www.twilio.com/blog/send-vcard-twilio-sms)作成してBrazeの[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library)にアップロードするか、組み込みの連絡先カードジェネレーターを使用して作成できます。これらのカードには、会社名、電話番号、住所、メール、小さな写真などの一般的なプロパティを割り当てることができます。連絡先カードの作成を始めるには、まずBrazeでMMSを使用するための設定が完了していることを確認してください。
 
 ## 連絡先カードジェネレーター {#contact-card-generator}
 
@@ -42,17 +42,23 @@ channel:
 
 #### 連絡先カードの連絡先写真をアップロードする {#upload-contact-card-contact-photo}
 
-連絡先カードにオプションのサムネイル連絡先写真をアップロードできます。240 x 240&nbsp;pxのJPEGまたはPNG画像を推奨します。アップロードされた高解像度画像は、メッセージの配信性を確保するために240 x 240&nbsp;pxにリサイズされます。5&nbsp;MBを超えるMMSメッセージは送信に失敗する場合があります。
+連絡先カードにオプションの連絡先写真をアップロードできます。240 x 240&nbsp;pxのJPEGまたはPNG画像を推奨します。アップロードされた高解像度画像は、メッセージの配信性を確保するために240 x 240&nbsp;pxにリサイズされます。5&nbsp;MBを超えるMMSメッセージは送信に失敗する場合があります。
+
+{% alert note %}
+アップロードされた画像は、受信者が連絡先カードを開いたときに表示されます。メッセージチャットのサムネイルに表示される内容は、[**フルネーム**フィールド](#add-more-information)によって決まります。
+{% endalert %}
 
 #### 追加情報を入力する {#add-more-information}
 
 その他のフィールドでは、名前、サブヘッダー、住所、およびユーザーが利用したいその他の連絡先情報を挿入できます。
 
+**フルネーム**フィールドは、メッセージチャットのサムネイルに表示されるイニシャルを決定します。このフィールドはオプションとしてマークされており、空白のままにすると、受信者にはイニシャルの代わりに白い丸が表示されます。
+
 ### ステップ 4:連絡先カードを保存する {#step-4-saving-your-contact-card}
 
-必要なフィールドをすべて入力したら、**連絡先カードを生成**をクリックすると、CampaignまたはCanvasに自動的に添付されます。ここからメッセージを追加し、連絡先カードをテストして、CampaignまたはCanvasを起動できます。
+必要なフィールドをすべて入力したら、**連絡先カードを生成**を選択すると、CampaignまたはCanvasに自動的に添付されます。ここからメッセージを追加し、連絡先カードをテストして、CampaignまたはCanvasを起動できます。
 
-連絡先カードは[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library)にも保存され、今後のCampaignやCanvasesで簡単に再利用できます。
+連絡先カードは[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library)にも保存され、今後のCampaignsやCanvasesで簡単に再利用できます。
 
 ## 既存の連絡先カードを追加する {#adding-an-existing-contact-card}
 

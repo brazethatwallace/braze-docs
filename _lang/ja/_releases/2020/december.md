@@ -37,4 +37,4 @@ Rudderstack は、顧客イベントデータを収集し、希望するデー�
 
 ## Jebbitパートナーシップ {#jebbit-partnership}
 
-Jebbitは、ユーザー向けの魅力的なエクスペリエンスを構築してファーストパーティデータを取得できるPaaSです。JebbitはBrazeと提携しており、JebbitのCampaignsからユーザーのメールや属性をユーザーデータとしてリアルタイムでBrazeに渡すことができます。このデータは、パーソナライズされたメールキャンペーンやトリガーといったマーケティング施策の推進に活用できます。詳細については、[Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit/)ドキュメントを参照してください。
+Jebbitは、ユーザー向けの魅力的なエクスペリエンスを構築してファーストパーティデータを取得できるPaaSです。JebbitはBrazeと提携しており、Jebbitのキャンペーンからユーザーのメールや属性をユーザーデータとしてリアルタイムでBrazeに渡すことができます。このデータは、パーソナライズされたメールキャンペーンやトリガーといったマーケティング施策の推進に活用できます。詳細については、[Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit/)ドキュメントを参照してください。

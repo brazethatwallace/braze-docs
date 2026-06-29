@@ -42,9 +42,9 @@ Subscriber actions feed both reputation systems and future inbox decisions. High
 
 ## Related resources
 
-- [Sunset policies]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)
-- [IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)
-- [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)
-- [Know before you send]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/#general)
-- [Consent and address collection]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#subscriber-states)
-- [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)
+- [Sunset policies]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)
+- [IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
+- [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)
+- [Know before you send]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send#general)
+- [Consent and address collection]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#subscriber-states)
+- [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)

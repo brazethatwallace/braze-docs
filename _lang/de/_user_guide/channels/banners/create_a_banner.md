@@ -75,7 +75,7 @@ Um die Hintergrundeigenschaften, Rahmeneinstellungen und mehr Ihrer Nachricht an
 
 #### Schritt 3.2: Klickverhalten definieren (optional) {#step-32-define-on-click-behavior-optional}
 
-Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics/), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken.
+Wenn Nutzer:innen auf einen Link im Banner klicken, können Sie sie tiefer in Ihre App navigieren oder auf eine andere Webseite weiterleiten. Zusätzlich können Sie [ein angepasstes Attribut oder Event protokollieren]({{site.baseurl}}/developer_guide/analytics/), wodurch das Profil der Nutzer:innen mit angepassten Daten aktualisiert wird, wenn sie auf das Banner klicken. Für ein detaillierteres Klick-Tracking weisen Sie jedem interaktiven Element über das Feld **Identifier for Reporting** in dessen Eigenschaftenpanel einen angepassten Bezeichner zu.
 
 {% alert important %}
 {::nomarkdown}
@@ -85,11 +85,18 @@ Das Klickverhalten kann überschrieben werden, wenn ein bestimmtes Element (z. B
 
 #### Schritt 3.3: Schließverhalten konfigurieren (optional) {#dismiss-behavior}
 
-{% alert important %}
-Das Schließen von Bannern befindet sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, kontaktieren Sie Ihren Customer-Success-Manager.
-{% endalert %}
+Aktivieren Sie das Kontrollkästchen **Banner can be dismissed** im Abschnitt **Dismiss behavior**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option ist nützlich, wenn Sie ein zeitlich begrenztes Angebot für eine breite Zielgruppe bewerben, aber nicht interessierten Nutzer:innen erlauben möchten, die Nachricht auszublenden.
 
-Aktivieren Sie das Kontrollkästchen **Banner can be dismissed**, um Nutzer:innen das Schließen des Banners zu ermöglichen. Diese Option kann in Szenarien nützlich sein, in denen Sie eine zeitlich begrenzte Aktion für alle App-Nutzer:innen bewerben möchten, ihnen aber erlauben, die Nachricht zu schließen, wenn sie nicht interessiert sind.
+Wenn das Schließen aktiviert ist, können Sie den Schließen-Button im Abschnitt **Dismiss behavior** anpassen:
+
+| Einstellung | Beschreibung |
+|---------|-------------|
+| **Button size** | Die Größe des Schließen-Buttons, der auf dem Banner angezeigt wird. |
+| **Button color** | Die Farbe des Schließen-Buttons. |
+| **ARIA label** | Das barrierefreie Label für den Schließen-Button, das von Screenreadern verwendet wird. Standardmäßig „Close“, wenn leer gelassen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Einstellungen für den Schließen-Button" }
+
+Wenn Nutzer:innen ein Banner schließen, wird es für diese Nutzer:innen nicht erneut angezeigt, selbst wenn sie weiterhin die Targeting-Kriterien der Kampagne erfüllen.
 
 #### Schritt 3.4: Angepasste Eigenschaften hinzufügen (optional) {#custom-properties}
 
@@ -110,7 +117,7 @@ Füllen Sie für jede Eigenschaft, die Sie hinzufügen möchten, Folgendes aus:
 | Eigenschaftstyp | Der Datentyp für die Eigenschaft. Unterstützte Typen sind String, Boolescher Wert, Zahl, Zeitstempel, Bild-URL und JSON-Objekt. | String |
 | Eigenschaftsschlüssel | Der eindeutige Bezeichner für die Eigenschaft. Dieser Schlüssel wird im SDK verwendet, um auf die Eigenschaft zuzugreifen. | `color` |
 | Wert | Der der Eigenschaft zugewiesene Wert. Muss dem ausgewählten Eigenschaftstyp entsprechen. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Eigenschaften hinzufügen" }
 
 Wenn Sie fertig sind, wählen Sie **Done**.
 
@@ -125,7 +132,7 @@ Wenn Sie fertig sind, wählen Sie **Done**.
 
 Die [Banner-Priorität]({{site.baseurl}}/user_guide/channels/banners/#priority) bestimmt die Reihenfolge, in der Banner angezeigt werden, wenn sie dasselbe Placement teilen. Um die Priorität manuell festzulegen:
 
-1. Wählen Sie **Genaue Priorität festlegen**.
+1. Wählen Sie **Set exact priority**.
 2. Ordnen Sie die Kampagnen per Drag-and-Drop in der richtigen Prioritätsreihenfolge an.
 3. Wählen Sie **Apply Sort**.
 
@@ -133,11 +140,17 @@ Die [Banner-Priorität]({{site.baseurl}}/user_guide/channels/banners/#priority) 
 Wenn Sie mehrere Banner-Kampagnen mit derselben Placement-ID haben, empfehlen wir die Verwendung des Drag-and-Drop-Prioritätssortierers, um die genaue Priorität festzulegen.
 {% endalert %}
 
+#### Erneute Berechtigung konfigurieren (optional) {#re-eligibility}
+
+Standardmäßig sind Nutzer:innen, die ein Banner geschlossen haben, nie erneut für diese Kampagne berechtigt. Um geschlossenen Nutzer:innen das Banner erneut anzuzeigen, gehen Sie zum Schritt **Delivery Controls** und wählen Sie **Allow users to become re-eligible to receive campaign**. Wenn aktiviert, legen Sie ein Abklingfenster in Minuten, Stunden, Tagen oder Wochen fest.
+
+Der Countdown beginnt, wenn Nutzer:innen das Banner schließen. Nach Ablauf des Fensters sind die Nutzer:innen automatisch erneut berechtigt – ein Neustart der Kampagne ist nicht erforderlich. Die erneute Berechtigung wird pro Nutzer:in und pro Kampagne verfolgt.
+
 #### Zielgruppe auswählen {#choose-your-audience}
 
 1. Wählen Sie unter **Target Audiences** Segmente oder Filter aus, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segment-Population. Die genaue Segment-Zugehörigkeit wird berechnet, bevor die Nachricht gesendet wird.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. Verfolgen Sie unter **Assign Conversions**, wie oft Nutzer:innen bestimmte Aktionen nach Erhalt einer Kampagne ausführen, indem Sie Konversions-Events mit einem Zeitfenster von bis zu 30 Tagen definieren, um die Aktion als Conversion zu zählen.
@@ -151,6 +164,8 @@ Braze ermöglicht es Ihnen, [Konversions-Events]({{site.baseurl}}/user_guide/mes
 {% tab Canvas %}
 
 Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [multivariaten Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/) und [Intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+
+Um die erneute Berechtigung für Canvas-Banner-Schritte zu steuern, verwenden Sie die Canvas-Wiedereintrittseinstellungen. Weitere Informationen finden Sie unter [Erneute Berechtigung für Kampagnen und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
 
 {% endtab %}
 {% endtabs %}

@@ -20,9 +20,9 @@ search_rank: 2
 - [Android]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=android)
 - [Web]({{site.baseurl}}/developer_guide/analytics/tracking_location/?sdktab=web)
 
-一般的に、モバイルアプリはデバイスの GPS チップやその他のシステム（Wi-Fi スキャンなど）を使用してユーザーの位置を追跡します。Webアプリは WPS（Wi-Fi Positioning System）を使用してユーザーの位置を追跡します。これらのプラットフォームはすべて、ユーザーが位置情報の追跡にオプトインする必要があります。位置情報の追跡データの精度は、ユーザーがデバイスで Wi-Fi を有効にしているかどうかによって影響を受ける場合があります。Android ユーザーは異なる位置モードを選択することもできます。「バッテリー節約」または「デバイスのみ」モードのユーザーは、不正確なデータになる可能性があります。
+一般的に、モバイルアプリはデバイスの GPS チップやその他のシステム（Wi-Fi スキャンなど）を使用してユーザーの位置を追跡します。Web アプリは WPS（Wi-Fi Positioning System）を使用してユーザーの位置を追跡します。これらのプラットフォームはすべて、ユーザーが位置情報の追跡にオプトインする必要があります。位置情報の追跡データの精度は、ユーザーがデバイスで Wi-Fi を有効にしているかどうかによって影響を受ける場合があります。Android ユーザーは異なる位置モードを選択することもできます。「バッテリー節約」または「デバイスのみ」モードのユーザーは、不正確なデータになる可能性があります。
 
-### IPアドレスによるSDKユーザーの位置情報 {#sdk-user-location-by-ip-address}
+### IP アドレスによる SDK ユーザーの位置情報 {#sdk-user-location-by-ip-address}
 
 Brazeは、最初のSDKセッション開始時のIPアドレスを使用して、ジオロケーションされた国からユーザーの位置を検出します。
 
@@ -38,9 +38,9 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 ## 位置情報ターゲティング {#location-targeting}
 
-位置情報の追跡データとSegmentsを使用して、位置情報ベースのCampaignsと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションCampaignを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
+位置情報の追跡データとSegmentsを使用して、位置情報ベースのCampaignと戦略を設定できます。たとえば、特定の地域に住んでいるユーザー向けにプロモーションCampaignを実行したり、より厳しい規制がある地域のユーザーを除外したりすることができます。
 
-位置情報Segmentの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)を参照してください。
+位置情報セグメントの作成の詳細については、[位置情報ターゲティング]({{site.baseurl}}/user_guide/audience/segments/location_targeting/)を参照してください。
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 
@@ -68,6 +68,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
 
+## ジオフェンスと位置情報の追跡の違い {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## よくある質問 {#frequently-asked-questions}
 
 ### Brazeはいつ位置データを収集しますか？ {#when-does-braze-collect-location-data}
@@ -79,13 +83,13 @@ Brazeは、アプリケーションがフォアグラウンドで開いている
 - 位置情報が無効になっている場合、`Most Recent Location` フィルターは最後に記録された位置を表示します。
 - ユーザーのプロファイルに位置情報が保存されたことがある場合、その後位置情報の追跡をオプトアウトしていても、`Location Available` フィルターの条件を満たします。
 
-### Most Recent Device Localeフィルターと Most Recent Locationフィルターの違いは何ですか？ {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
+### Most Recent Device Locale フィルターと Most Recent Location フィルターの違いは何ですか？ {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
 
-`Most Recent Device Locale` はユーザーのデバイス設定から取得されます。たとえば、iPhoneユーザーの場合、デバイスの**設定** > **一般** > **言語と地域**に表示されます。このフィルターは、日付や住所などの言語と地域のフォーマットをキャプチャするために使用され、`Most Recent Location` フィルターとは独立しています。
+`Most Recent Device Locale` はユーザーのデバイス設定から取得されます。たとえば、iPhone ユーザーの場合、デバイスの**設定** > **一般** > **言語と地域**に表示されます。このフィルターは、日付や住所などの言語と地域のフォーマットをキャプチャするために使用され、`Most Recent Location` フィルターとは独立しています。
 
-`Most Recent Location` は、デバイスの最後の既知のGPS位置です。これはセッション開始時に更新され、ユーザーのプロファイルに保存されます。
+`Most Recent Location` は、デバイスの最後の既知の GPS 位置です。これはセッション開始時に更新され、ユーザーのプロファイルに保存されます。
 
-### ユーザーが位置情報の追跡をオプトアウトした場合、以前の位置データはBrazeから削除されますか？ {#if-a-user-opts-out-of-location-tracking-is-their-previous-location-data-removed-from-braze}
+### ユーザーが位置情報の追跡をオプトアウトした場合、以前の位置データは Braze から削除されますか？ {#if-a-user-opts-out-of-location-tracking-is-their-previous-location-data-removed-from-braze}
 
 いいえ。ユーザーのプロファイルに位置情報が保存されたことがある場合、その後位置情報の追跡をオプトアウトしても、そのデータは自動的に削除されません。
 
@@ -106,7 +110,7 @@ BrazeはデフォルトでSDKを通じてユーザーの最新の位置情報を
 
 ユーザーの位置データがBrazeに送信されているかどうかを確認するには、**Location Available** フィルターを使用します。このフィルターを使用すると、「最新の位置」を持つユーザーの割合を確認できます。
 
-![「Location Available」フィルターを使用した「Test Location」Segment。]({% image_buster /assets/img_archive/trouble7.png %})
+![「Location Available」フィルターを使用した「Test Location」セグメント。]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### データ転送 {#data-transfer}
 

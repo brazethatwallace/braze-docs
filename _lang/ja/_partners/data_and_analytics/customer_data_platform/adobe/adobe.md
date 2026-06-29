@@ -1,7 +1,7 @@
 ---
 nav_title: Adobe
 article_title: Adobe
-description: "このページでは、Brazeと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とSegments）をBrazeに接続してマッピングできます。その後、ブランドはこのデータに基づいて行動し、パーソナライズされたターゲットを絞った体験をユーザーに提供できます。"
+description: "このページでは、Brazeと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とセグメント）をBrazeに接続してマッピングできます。その後、ブランドはこのデータに基づいて行動し、パーソナライズされたターゲットを絞った体験をユーザーに提供できます。"
 page_type: partner
 page_order: 1
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 > Adobe Experience Platformに基づいて構築されたAdobe のリアルタイム顧客データプラットフォームは、複数のエンタープライズソースからの既知の匿名データをまとめて顧客プロファイルを作成します。その後、これらのプロファイルを使用して、パーソナライズされたエクスペリエンスをすべてのチャネルおよびデバイスでリアルタイムに提供できます。
 
-BrazeとAdobe CDPの統合により、ブランドのAdobe データ（カスタム属性とSegments）がリアルタイムでBrazeに接続され、マッピングされます。その後、このデータに基づいて行動し、ユーザーにパーソナライズされたターゲットを絞った体験を提供できます。Adobeでは、統合は直感的です。Adobeの任意の[ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)をBrazeのexternal IDにマッピングし、Brazeプラットフォームに送信するだけです。送信されたすべてのデータは、Brazeで新しい `AdobeExperiencePlatformSegments` 属性を通じてアクセスできます。
+BrazeとAdobe CDPの統合により、ブランドのAdobe データ（カスタム属性とセグメント）がリアルタイムでBrazeに接続され、マッピングされます。その後、このデータに基づいて行動し、ユーザーにパーソナライズされたターゲットを絞った体験を提供できます。Adobeでは、統合は直感的です。Adobeの任意の[ID](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en)をBrazeのexternal IDにマッピングし、Brazeプラットフォームに送信するだけです。送信されたすべてのデータは、Brazeで新しい `AdobeExperiencePlatformセグメント` 属性を通じてアクセスできます。
 
 {% alert important %}
 Adobe Experience Platform統合では、現在、ダイナミックなオーディエンスメンバーシップはサポートされていません。つまり、ユーザープロファイルには値を追加できますが、削除することはできません。
@@ -61,16 +61,16 @@ Brazeとの接続がすでに存在する場合は、送信先カードに**Acti
 ![]({% image_buster /assets/img/adobe/braze-destination-authentication.png %}){: style="max-width:60%;"}
 
 ### ステップ 4: 送信先を作成する {#step-4-create-destination}
-**Create destination**を選択します。送信先が作成されました。**Save & Exit**を選択して後でSegmentsを有効にするか、**Next**を選択してワークフローを続行し、有効にするSegmentsを選択できます。
+**Create destination**を選択します。送信先が作成されました。**Save & Exit**を選択して後でセグメントを有効にするか、**Next**を選択してワークフローを続行し、有効にするセグメントを選択できます。
 
-### ステップ 5: Segmentsを有効にする {#step-5-activate-segments}
-Adobe Real-Time CDPのデータを有効にするには、SegmentsをBraze送信先にマッピングします。
+### ステップ 5: セグメントを有効にする {#step-5-activate-segments}
+Adobe Real-Time CDPのデータを有効にするには、セグメントをBraze送信先にマッピングします。
 
-以下のリストでは、Segmentを有効にするために必要な一般的なステップを示します。AdobeのSegmentsとSegment有効化ワークフローの詳細なガイダンスについては、[Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites)を参照してください。
+以下のリストでは、セグメントを有効にするために必要な一般的なステップを示します。Adobeのセグメントとセグメント有効化ワークフローの詳細なガイダンスについては、[Adobe](https://experienceleague.adobe.com/docs/experience-platform/destinations/ui/activate-destinations.html?lang=en#prerequisites)を参照してください。
 
 1. Braze送信先を選択してアクティブ化します。
-2. 該当するSegmentsを選択します。
-4. エクスポートする各Segmentのスケジュールとファイル名を設定します。
+2. 該当するセグメントを選択します。
+4. エクスポートする各セグメントのスケジュールとファイル名を設定します。
 5. Brazeに送信する属性を選択します。
 6. アクティベーションを確認します。
 
@@ -101,7 +101,7 @@ Adobe Experience PlatformからBrazeにオーディエンスデータを正し�
 ![送信先マッピング: IdentityMap:IDFAをIdentityMap:external_idにマッピング、IdentityMap:GAIDをIdentityMap:external_idにマッピング、IdentityMap:EmailをIdentityMap:external_idにマッピング、xdm:mobilePhone.numberをCustomAttribute:PhoneNumberにマッピング、xdm:person.name.lastNameをCustomAttribute:LastNameにマッピング、xdm:person.name.firstNameをCustomAttribute:FirstNameにマッピング]({% image_buster /assets/img/adobe/braze-destination-mapping-example.png %})
 
 ## エクスポートされたデータ {#exported-data}
-データが正常にBrazeにエクスポートされたかどうかを確認するには、Brazeアカウントをチェックします。Adobe Experience PlatformのSegmentsは、`AdobeExperiencePlatformSegments` 属性でBrazeにエクスポートされます。
+データが正常にBrazeにエクスポートされたかどうかを確認するには、Brazeアカウントをチェックします。Adobe Experience Platformのセグメントは、`AdobeExperiencePlatformセグメント` 属性でBrazeにエクスポートされます。
 
 ## データの使用とガバナンス {#data-usage-and-governance}
 データの処理時に、Adobe Experience Platformのすべての送信先はデータ使用ポリシーに準拠します。Adobe Experience Platformによるデータガバナンスの実施方法の詳細については、[Real-Time CDPのデータガバナンス](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/privacy/data-governance-overview.html?lang=en)を参照してください。

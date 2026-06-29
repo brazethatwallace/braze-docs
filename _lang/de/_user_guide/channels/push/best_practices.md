@@ -8,7 +8,7 @@ channel: push
 
 # Push-Best-Practices {#push-best-practices}
 
-> Diese Seite enthält Best Practices und Anwendungsfälle für Push-Benachrichtigungen, damit Ihre Push-Nachrichten Engagement statt Ärger erzeugen. **In-App Messages** und E-Mail ergänzen Push, wenn Sie Nutzer:innen in der App oder außerhalb erreichen möchten.
+> Diese Seite enthält Best Practices und Anwendungsfälle für Push-Benachrichtigungen, damit Ihre Push-Nachrichten Engagement statt Ärger erzeugen.
 
 Push-Benachrichtigungen sind leistungsstarke Werkzeuge, um mit den Nutzer:innen Ihrer App zu interagieren, sollten aber mit Bedacht eingesetzt werden, um zeitnahe und relevante Nachrichten zu übermitteln. Bevor Sie Ihre Push-Nachricht senden, beachten Sie die folgenden Best Practices für Dinge, die Sie wissen und überprüfen sollten.
 
@@ -30,7 +30,7 @@ Die maximale Payload-Größe hängt von der Plattform ab.
 | Android | 3.930 Bytes |
 | iOS | 3.960 Bytes |
 | Kindle | 5.985 Bytes |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload-Größe von Push-Benachrichtigungen reduzieren" }
 
 Wenn Ihre Push-Benachrichtigung die maximale Payload-Größe überschreitet, wird die Nachricht möglicherweise nicht gesendet. Als Best Practice sollten Sie Ihre Payload auf wenige hundert Bytes beschränken.
 
@@ -89,7 +89,7 @@ Android 13 und höher erfordert eine Genehmigung, bevor Push-Benachrichtigungen 
 
 ### Nutzer:innen auf Push vorbereiten {#prime-users-for-push}
 
-Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und nachdem sie abgelehnt haben, ist es sehr schwer, sie davon zu überzeugen, Push in ihren Geräteeinstellungen wieder zu aktivieren. Aus diesem Grund sollten Sie Nutzer:innen mit einer In-App Message auf Push vorbereiten, bevor Sie die Systemaufforderung anzeigen. Weitere Informationen zur Steigerung der Opt-ins finden Sie unter [Push-Primer-In-App Messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und nachdem sie abgelehnt haben, ist es sehr schwer, sie davon zu überzeugen, Push in ihren Geräteeinstellungen wieder zu aktivieren. Aus diesem Grund sollten Sie Nutzer:innen mit einer In-App-Nachricht auf Push vorbereiten, bevor Sie die Systemaufforderung anzeigen. Weitere Informationen zur Steigerung der Opt-ins finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
 
 ### Push-Abo-Steuerungen hinzufügen {#add-push-subscription-controls}
 
@@ -122,7 +122,7 @@ Erstellen Sie dazu eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels
 3. Bevor Sie Push-Benachrichtigungen vollständig entfernen, senden Sie eine letzte Benachrichtigung, die erklärt, warum sie keine weiteren erhalten werden. Dies gibt Nutzer:innen die Möglichkeit, ihr Interesse an weiteren Push-Benachrichtigungen zu zeigen, indem sie diese Benachrichtigung öffnen.
 4. Nachdem die Sunset-Richtlinie in Kraft getreten ist, verwenden Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/), um diese Nutzer:innen daran zu erinnern, dass sie zwar keine Push-Benachrichtigungen mehr erhalten, In-App-Messaging-Kanäle aber weiterhin interessante, hilfreiche Informationen liefern.
 
-Auch wenn Sie möglicherweise zögern, Nutzer:innen, die sich ursprünglich für Push entschieden haben, keine Push-Benachrichtigungen mehr zu senden, denken Sie daran, dass andere Messaging-Kanäle diese Nutzer:innen effektiver erreichen können, insbesondere wenn sie Ihre Push-Benachrichtigungen zuvor ignoriert haben. Wenn Nutzer:innen Ihre E-Mails öffnen, sind E-Mail-Campaigns eine gute Möglichkeit, sie außerhalb Ihrer App zu erreichen. Wenn nicht, sind **In-App Messages** der beste Weg, Inhalte zu liefern, ohne zu riskieren, dass Nutzer:innen Ihre App deinstallieren.
+Auch wenn Sie möglicherweise zögern, Nutzer:innen, die sich ursprünglich für Push entschieden haben, keine Push-Benachrichtigungen mehr zu senden, denken Sie daran, dass andere Messaging-Kanäle diese Nutzer:innen effektiver erreichen können, insbesondere wenn sie Ihre Push-Benachrichtigungen zuvor ignoriert haben. Wenn Nutzer:innen Ihre E-Mails öffnen, sind E-Mail-Campaigns eine gute Möglichkeit, sie außerhalb Ihrer App zu erreichen. Wenn nicht, sind In-App Messages der beste Weg, Inhalte zu liefern, ohne zu riskieren, dass Nutzer:innen Ihre App deinstallieren.
 
 ## Konversions-Events für App-Öffnungen festlegen {#set-conversion-events-for-app-opens}
 
@@ -143,12 +143,12 @@ Da Push-Benachrichtigungen eine aufdringliche Art von Messaging sind, die direkt
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Inakzeptabel: (i) Erstellen einer Oberfläche zur Anzeige von Drittanbieter-Apps, Erweiterungen oder Plug-ins, die dem App Store ähnelt oder als allgemeine Sammlung dient. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) Push-Benachrichtigungen dürfen nicht für die Funktion der App erforderlich sein und sollten nicht zum Senden sensibler persönlicher oder vertraulicher Informationen verwendet werden. Push-Benachrichtigungen sollten nicht für Werbe- oder Direktmarketing-Zwecke verwendet werden, es sei denn, Kund:innen haben sich ausdrücklich über eine in der App-UI angezeigte Einwilligungsformulierung für den Empfang entschieden, und Sie bieten in Ihrer App eine Methode an, mit der Nutzer:innen den Empfang solcher Nachrichten abbestellen können. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) Sie dürfen integrierte Funktionen, die von der Hardware oder dem Betriebssystem bereitgestellt werden, wie Push-Benachrichtigungen, die Kamera oder das Gyroskop, nicht monetarisieren; ebenso wenig Apple-Dienste und -Technologien wie Apple Music-Zugang, iCloud-Speicher oder Screen Time APIs. |
-{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
+{: .reset-td-br-1 aria-label="Vorschriften für mobile Push-Benachrichtigungen in Apps" }
 
 | Google Play Store-Richtlinie |
 | --- |
 | [Unbefugte Nutzung oder Nachahmung von Systemfunktionen](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) Wir erlauben keine Apps oder Anzeigen, die Systemfunktionen wie Benachrichtigungen oder Warnungen nachahmen oder stören. Benachrichtigungen auf Systemebene dürfen nur für wesentliche Funktionen einer App verwendet werden, z. B. eine Fluggesellschafts-App, die Nutzer:innen über Sonderangebote informiert, oder ein Spiel, das Nutzer:innen über In-Game-Aktionen benachrichtigt. |
-{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
+{: .reset-td-br-1 aria-label="Vorschriften für mobile Push-Benachrichtigungen in Apps" }
 
 ## Verwandte Artikel {#related-articles}
 

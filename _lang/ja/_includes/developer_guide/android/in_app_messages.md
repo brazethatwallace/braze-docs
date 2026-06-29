@@ -34,7 +34,7 @@ BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(cont
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(context)
 ```
 
@@ -46,7 +46,7 @@ BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(cont
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 @Override
 public void onResume() {
   super.onResume();
@@ -59,7 +59,7 @@ public void onResume() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 public override fun onResume() {
   super.onResume()
   // Registers the BrazeInAppMessageManager for the current Activity. This Activity will now listen for
@@ -76,7 +76,7 @@ public override fun onResume() {
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 @Override
 public void onPause() {
   super.onPause();
@@ -88,7 +88,7 @@ public void onPause() {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 public override fun onPause() {
   super.onPause()
   // Unregisters the BrazeInAppMessageManager.
@@ -110,7 +110,7 @@ public override fun onPause() {
 {% subtabs local %}
 {% subtab JAVA %}
 
-```java
+`````````java
 public class MyApplication extends Application {
   @Override
   public void onCreate() {
@@ -126,7 +126,7 @@ public class MyApplication extends Application {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()

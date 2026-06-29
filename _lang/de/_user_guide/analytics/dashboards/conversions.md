@@ -87,7 +87,7 @@ Die folgende Tabelle beschreibt mögliche Metriken.
 | Konversionsrate (Attributionsmethode) | Definiert durch die [Attributionsmethode](#attribution-methods), die Sie beim Einrichten des Berichts ausgewählt haben. Wenn mehrere Kanäle ausgewählt sind, wird standardmäßig Last-Touch-Attribution verwendet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion-Details" }
 
-Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Kampagnen oder Canvases ausgewählt haben, können Sie auf <i class="fas fa-angle-down"></i> klicken, um die Tabelle zu erweitern.
+Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Kampagnen oder Canvases ausgewählt haben, können Sie auf <i class="fas fa-angle-down"></i> **Erweitern** klicken, um die Tabelle zu erweitern.
 
 ### Konversionstrichter {#conversion-funnel}
 
@@ -107,7 +107,7 @@ Dieses Diagramm zeigt nur Daten für jeweils einen einzelnen Kanal an. Verwenden
 
 Dieses Zeitreihendiagramm enthält eine Darstellung der Conversions pro Kampagne oder Canvas im Zeitverlauf. Standardmäßig werden alle ausgewählten Kampagnen und Canvases angezeigt. Um eine Kampagne oder einen Canvas abzuwählen, klicken Sie auf den Namen der Kampagne oder des Canvas, die/den Sie ausschließen möchten.
 
-Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars"></i> und dann Ihre Download-Option. Verfügbare Optionen sind PNG, JPEG, PDF, SVG oder CSV.
+Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** und dann Ihre Download-Option. Verfügbare Optionen sind PNG, JPEG, PDF, SVG oder CSV.
 
 ![Zeitreihendiagramm „Conversions im Zeitverlauf“ für zwei E-Mail-Kampagnen, das Conversions nach Tag zeigt.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 

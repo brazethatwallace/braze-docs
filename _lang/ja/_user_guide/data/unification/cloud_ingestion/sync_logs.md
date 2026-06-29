@@ -35,8 +35,6 @@ description: "このページでは、CDIで利用可能な可観測性機能の
 * **実行開始時刻:** 同期ジョブが開始された時刻です。
 * **実行時間:** 同期ジョブが完了するまでに要した合計時間です。
 
-![同期ログの詳細。]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### データリテンション {#data-retention}
 
 同期ログデータは、すべての行レベルのペイロードとエラー詳細を含め、最大**30日間**保持されます。30日以上経過したログは自動的に削除されます。
@@ -73,8 +71,6 @@ description: "このページでは、CDIで利用可能な可観測性機能の
 
 特定の行についてBrazeに送信された正確なデータを確認するには、**ソース**ペイロード列で**View payload**を選択します。これにより、そのユーザーに対して処理された生のJSONペイロードが表示されます。
 
-![同期ログ内の特定の行に対するペイロードの例。]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### 同期ログのエクスポート {#exporting-sync-logs}
 
 **Export rows**を選択すると、同期実行の行レベルログをエクスポートできます。次に、エクスポート方法を選択します。
@@ -82,7 +78,7 @@ description: "このページでは、CDIで利用可能な可観測性機能の
 * **エラーのある行:** **Error**ステータスの行のみを含むファイルをダウンロードします。
 * **すべての行:** 実行中に処理されたすべての行を含むファイルをダウンロードします。
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 ログはダッシュボードから直接エクスポートできません。エクスポートが生成された後、ログエクスポートファイルをダウンロードするためのリンクが記載されたメールが届きます。
 

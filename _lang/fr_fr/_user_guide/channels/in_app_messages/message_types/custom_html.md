@@ -117,7 +117,7 @@ Les types de fichiers suivants sont pris en charge pour le téléchargement :
 | Images SVG | `.svg` |
 | Fichiers JavaScript | `.js` |
 | Fichiers CSS | `.css` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fichiers de ressources" }
 
 Braze recommande de télécharger les ressources dans la bibliothèque multimédia pour deux raisons :
 
@@ -128,20 +128,20 @@ Braze recommande de télécharger les ressources dans la bibliothèque multiméd
 
 Vous pouvez ajouter des ressources nouvelles ou existantes à votre campagne.
 
-Pour ajouter de nouvelles ressources à votre campagne, utilisez la section de glisser-déposer pour télécharger un fichier. Les ressources ajoutées dans cette section seront également automatiquement ajoutées à la bibliothèque multimédia. Pour ajouter des ressources que vous avez déjà téléchargées dans la bibliothèque multimédia, sélectionnez **Add from Media Library**.
+Pour ajouter de nouvelles ressources à votre campagne, utilisez la section de glisser-déposer pour télécharger un fichier. Les ressources ajoutées dans cette section seront également automatiquement ajoutées à la bibliothèque multimédia. Pour ajouter des ressources que vous avez déjà téléchargées dans la bibliothèque multimédia, sélectionnez **Ajouter depuis la bibliothèque multimédia**.
 
-Une fois vos ressources ajoutées, elles apparaîtront dans la section **Assets for this campaign**.
+Une fois vos ressources ajoutées, elles apparaîtront dans la section **Ressources pour cette campagne**.
 
 Si le nom de fichier d'une ressource correspond à celui d'une ressource HTML locale, elle est remplacée automatiquement (par exemple, `cat.png` est téléchargé et `<img src="cat.png" />` existe).
 
-Sinon, survolez une ressource de la liste et sélectionnez <i class="fas fa-copy"></i> **Copy** pour copier l'URL du fichier dans votre presse-papiers. Collez ensuite l'URL de la ressource copiée dans votre HTML comme vous le feriez normalement pour référencer une ressource distante.
+Sinon, survolez une ressource de la liste et sélectionnez <i class="fas fa-copy"></i> **Copier** pour copier l'URL du fichier dans votre presse-papiers. Collez ensuite l'URL de la ressource copiée dans votre HTML comme vous le feriez normalement pour référencer une ressource distante.
 
 ### Éditeur HTML {#html-editor}
 
 Les modifications que vous apportez dans le HTML sont automatiquement rendues dans le panneau de prévisualisation au fur et à mesure que vous tapez. Les méthodes JavaScript [`brazeBridge`](#bridge) que vous utilisez dans votre HTML ne mettront pas à jour les profils utilisateur lors de la prévisualisation dans le tableau de bord.
 
 {% alert tip %}
-Vous pouvez sélectionner <i class="fa-solid fa-magnifying-glass"></i> **Search** dans l'éditeur HTML pour effectuer une recherche dans votre code !
+Vous pouvez sélectionner <i class="fa-solid fa-magnifying-glass"></i> **Rechercher** dans l'éditeur HTML pour effectuer une recherche dans votre code !
 {% endalert %}
 
 ### Suivi des boutons {#button-tracking-improvements}
@@ -154,11 +154,23 @@ Vous pouvez suivre les performances au sein de votre message in-app avec code pe
 | Bouton 2 | `brazeBridge.logClick('1')` |
 | Clic sur le corps | `brazeBridge.logClick()` |
 | Suivi de bouton personnalisé | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des boutons" }
 
 {% alert note %}
 Cette méthode de suivi des boutons remplace les méthodes de suivi automatique des clics précédentes (telles que `?abButtonId=0`), qui ont été supprimées.
 {% endalert %}
+
+Utilisez [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) pour les messages HTML avec prévisualisation lorsque vous avez besoin de plus de deux boutons suivis. Les Boutons 1 et 2 correspondent à `'0'` et `'1'` ; les boutons supplémentaires utilisent des identifiants personnalisés (jusqu'à 100 identifiants uniques par campagne). Pour les restrictions de caractères sur les identifiants de bouton, consultez [Suivi des boutons](#button-tracking-improvements).
+
+### Résoudre les problèmes de liens HTML personnalisés et de comportement de fermeture {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### Les clics sur les boutons n'ouvrent pas le lien {#button-clicks-do-not-open-the-link}
+
+Si un bouton de votre message in-app HTML personnalisé ne se charge pas lorsqu'on clique dessus, vérifiez que le lien utilise une URL valide ou un schéma de lien profond pris en charge. Les URL mal formées ou les schémas personnalisés non pris en charge peuvent empêcher l'action de clic de s'exécuter.
+
+#### Clics sur le corps lors de la fermeture du message {#body-clicks-when-closing-the-message}
+
+L'appel de `brazeBridge.closeMessage()` ferme le message mais n'enregistre pas d'analyse en soi. Pour enregistrer un clic sur le corps lorsque l'utilisateur ferme le message, appelez `brazeBridge.logClick()` avant `brazeBridge.closeMessage()` afin que l'enregistrement des clics reste cohérent sur toutes les plateformes.
 
 ### Modifications rétro-incompatibles {#backward-incompatible-changes}
 
@@ -172,4 +184,4 @@ Cette méthode de suivi des boutons remplace les méthodes de suivi automatique 
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modifications rétro-incompatibles" }

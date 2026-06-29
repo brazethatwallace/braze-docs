@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 ## リクエスト例 {#example-request}
-```bash
+`````````bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
@@ -56,13 +56,13 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 
 ### エラー応答例 {#example-error-response}
 
-```http
+`````````http
 HTTP/1.1 204 Not Found
 Content-Type: text/html; charset=UTF-8
 ```
 
 このIDを持つ開発者がBrazeに存在しない場合、エンドポイントは次のように応答します。
-```http
+`````````http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8
 

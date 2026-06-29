@@ -29,7 +29,7 @@ page_order: 1.2
 
 メッセージ作成画面の**Add personalization**セクションからLiquidを生成できます。
 
-1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Add personalization"></i>を選択してパーソナライゼーションウィンドウを開きます。
+1. パーソナライゼーションをサポートするメッセージ作成画面で、<i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="パーソナライゼーションを追加"></i> **Add personalization**を選択してパーソナライゼーションウィンドウを開きます。
 2. **Personalization Type**で、**Item Recommendation**を選択します。
 3. **Item Recommendation Name**で、先ほど作成したおすすめを選択します。
 4. **Number of Predicted Items**で、挿入する上位製品の数を入力します。たとえば、購入数の多い上位3つのアイテムを表示できます。
@@ -44,7 +44,7 @@ page_order: 1.2
 |-------------|-------|
 | **構造** | 各アイテムは`items[index]`としてアクセスされます。インデックスは0（最初のアイテム）から始まり、後続のアイテムごとにインクリメントされます。|
 | **カタログフィールド** | 配列内の各アイテムには、カタログ内のフィールド（列）に対応するキーと値のペアが含まれます。たとえば、製品レコメンデーションの一般的なカタログフィールドには次のようなものがあります：<br>- `name`または`title`<br>- `price`<br>- `image_url`|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1:Liquidコードの追加" }
 
 `assign`タグを使用して`product_recommendation`データをフェッチし、変数に割り当てます。
 
@@ -60,7 +60,7 @@ page_order: 1.2
 |-----------|-----------|
 | `recommendation_name` | Brazeで作成したAIレコメンデーションの名前。|
 | `items` | おすすめアイテム配列を格納する変数。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1:Liquidコードの追加" }
 
 次に、配列インデックスとドット表記を使用して、特定のアイテムとそのフィールドを参照します：
 
@@ -110,7 +110,7 @@ AIレコメンデーションは複数の製品を配列として返します。
 |-----------|-----------|
 | `recommendation_name` | おすすめの名前。|
 | `image_url_field` | 画像URLを含むカタログ内のフィールドの名前。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2:画像を参照する（オプション）" }
 
 プレビューおよびテストメールにプレースホルダー画像を含めるには、**Choose image**を選択し、メディアライブラリから画像を選択するか、ホスティングサイトの画像URLを入力します。
 {% endtab %}
@@ -131,6 +131,6 @@ HTML画像参照の場合、画像の`src`属性をカタログの画像URLフ�
 |-----------|-----------|
 | `recommendation_name` | おすすめの名前。|
 | `image_url_field` | 画像URLを含むカタログ内のフィールドの名前。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2:画像を参照する（オプション）" }
 {% endtab %}
 {% endtabs %}

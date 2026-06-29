@@ -36,7 +36,7 @@ Um mehrere Olo-Events innerhalb dieser einzigen Transformation zu verarbeiten, s
 
 ### 1. Schritt: Braze-Datentransformation einrichten, um das Test-Event von Olo zu akzeptieren {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### 2. Schritt: Olo-Webhooks einrichten {#step-2-set-up-olo-webhooks}
 

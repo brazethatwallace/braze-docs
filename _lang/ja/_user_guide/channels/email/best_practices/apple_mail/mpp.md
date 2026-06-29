@@ -16,7 +16,7 @@ channel:
 
 Appleのメールプライバシー保護（MPP）は、2021年9月中旬にリリースされたiOS 15、iPadOS 15、MacOS Monterey、およびwatchOS 8のApple Mailアプリのユーザー向けに利用可能なプライバシー更新です。MPP にオプトインするユーザー（ほとんどのユーザーがそうすると予測されます）の場合、メールはプロキシサーバーを使用してプリロードされ、画像がキャッシュされ、[開封トラッキング]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel)などの指標のためのトラッキングピクセルを利用する機能が制限されます。
 
-ブランドとしては、MPP によって、メール配信可能性指標に関する問題や、これらの指標に基づいてトリガーされる既存の Campaigns や Canvases に関する問題が発生することが予想されます。メール配信可能性への影響を理解するには、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)を参照してください。
+ブランドとしては、MPP によって、メール配信可能性指標に関する問題や、これらの指標に基づいてトリガーされる既存の キャンペーン や キャンバス に関する問題が発生することが予想されます。メール配信可能性への影響を理解するには、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)を参照してください。
 
 ### 誰に影響を与えるか
 

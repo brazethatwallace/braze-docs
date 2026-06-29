@@ -30,7 +30,7 @@ You can choose from the following options when using scheduled delivery:
 
 - Send as soon as the campaign is launched
 - Send at a designated time
-- [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
+- [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
 {% endtab %}
 
 {% tab canvas %}
@@ -66,7 +66,7 @@ The entry window of your Canvas determines which users can enter the Canvas at t
 
 {% tabs %}
 {% tab campaign %}
-When you select API-triggered as your delivery option, you'll receive a campaign ID to identify which campaign to send in with the [`/campaigns/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#prerequisites). 
+When you select API-triggered as your delivery option, you'll receive a campaign ID to identify which campaign to send in with the [`/campaigns/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#prerequisites). 
 {% endtab %}
 
 {% tab canvas %}

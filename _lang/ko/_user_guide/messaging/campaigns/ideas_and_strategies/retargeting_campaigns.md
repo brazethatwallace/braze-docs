@@ -81,7 +81,7 @@ Braze는 사용자가 수신한 메시지를 기반으로 리타겟팅하는 기
 
 이 필터를 사용하여 특정 캠페인에서 지정된 날짜 또는 일수 이전 또는 이후에 마지막으로 메시지를 수신한 사용자를 찾을 수 있습니다. 이 필터는 사용자가 다른 캠페인에서 메시지를 수신한 시점은 고려하지 않습니다.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
@@ -95,7 +95,7 @@ Braze는 사용자가 수신한 메시지를 기반으로 리타겟팅하는 기
 
 이 필터를 사용하여 타겟 캠페인에서 메시지를 수신한 사용자 또는 수신하지 않은 사용자를 찾을 수 있습니다.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/receivedcamp.png %})
 

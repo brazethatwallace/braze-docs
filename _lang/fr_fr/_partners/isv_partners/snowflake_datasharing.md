@@ -22,7 +22,7 @@ Braze héberge actuellement toutes les données au niveau de l'utilisateur dans 
 {% endalert %}
 
 {% alert tip %}
-Téléchargez les [schémas des tables brutes]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) ici ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
+Téléchargez les [schémas des tables brutes](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou utilisez cet ensemble d'[exemples de données d'événements](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponible sur la place de marché Snowflake pour vous familiariser avec les événements partagés.
 {% endalert %}
 
 ## Gestion des événements en double {#handling-duplicate-events}

@@ -315,17 +315,6 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 	#nav_top > .nav-item {
 		padding-top: 4px;
 		width: 100%;
-		div {
-			width: fit-content;
-		}
-		div.nav_item_row,
-		div.nav_reg,
-		div.nav_block {
-			width: 100%;
-		}
-		div.nav-item {
-			width: 100%;
-		}
 		a.nav_toggle i {
 			width: 15px;
 			text-align: center;
@@ -399,17 +388,16 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 		.nav_title[data-toggle="collapse"] {
 			cursor: pointer;
 		}
-		// Shrink-wrap the label so :focus-visible doesnâ€™t span the gap to the caret (see .nav_link + .nav_title flex rule above)
+		// Section-label button: wraps long titles, fills the row width up to the caret
 		button.nav_title {
 			background: none;
 			border: none;
-			flex: 0 1 auto;
+			flex: 1 1 auto;
 			min-width: 0;
 			width: auto;
 			max-width: calc(100% - 36px);
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			overflow-wrap: break-word;
+			word-break: break-word;
 			padding: 6px 6px 6px 8px;
 			margin: 0;
 			font: inherit;
@@ -433,9 +421,8 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 			border-radius: 8px;
 			box-sizing: border-box;
 			color: $black-shark;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			overflow-wrap: break-word;
+			word-break: break-word;
 		}
 		&:hover {
 			background-color: $nav-hover-bg;
@@ -574,17 +561,6 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 					}
 				}
 
-			div {
-				width: fit-content;
-			}
-			div.nav_item_row,
-			div.nav_reg,
-			div.nav_block {
-				width: 100%;
-			}
-			div.nav-item {
-				width: 100%;
-			}
 			&.active_parent {
 					a {
 						font-family: $braze-regular;
@@ -655,12 +631,10 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 				color: inherit;
 			}
 			&:focus-visible {
-				outline: 2px solid $braze-purple;
-				outline-offset: -2px;
-				border-radius: 4px;
+				@include focus-ring($offset: -2px, $radius: 4px);
 			}
 		}
-		#status-indicator {
+		.status-indicator {
 			&:hover {
 				.status-title {
 					opacity: 1;
@@ -711,7 +685,7 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 		.status-title {
 			display: block;
 			font-family: $braze-bold;
-			margin-left: 15px;
+			margin: 0 0 0 15px;
 			opacity: 0.7;
 			letter-spacing: 0.46px;
 			color: $black-shark;

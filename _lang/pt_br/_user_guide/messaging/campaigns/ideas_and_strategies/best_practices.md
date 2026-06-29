@@ -77,6 +77,8 @@ Ao editar agendamentos ou públicos de campanhas, observe as seguintes melhores 
 - **Campanhas com horário de envio local:** não faça edições nas 24 horas anteriores ao horário de envio agendado.
 - **Campanhas com horário de envio otimizado:** não faça edições nas 24 horas anteriores à meia-noite do dia em que a campanha está agendada para ser enviada.
 
+Para detalhes sobre agendamento de Canvas (rascunhos, paradas e avaliação próxima ao horário de envio), consulte [Melhores práticas de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/best_practices/#scheduling-your-canvases).
+
 {% alert note %}
 Editar uma campanha ativa e alterar a entrega para **Horário de Envio Local** fará com que um novo lote de mensagens seja enfileirado. Isso significa que seus usuários receberão a mensagem duas vezes, pois ela será enfileirada duas vezes. Para evitar isso, primeiro pare a campanha original e depois lance uma duplicata após atualizar o agendamento.
 {% endalert %}

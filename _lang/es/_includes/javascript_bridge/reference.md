@@ -50,19 +50,11 @@ Los siguientes métodos JavaScript son compatibles con el HTML personalizado par
 }
 </style>
 
-{% alert note %}
-No puedes hacer referencia a Liquid para insertar <code>customAttributes</code> en métodos puente de JavaScript.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### Seguimiento de clics en botones {#button-click-tracking}
 
 Utiliza el método `brazeBridge.logClick(button_id)` para realizar el seguimiento de los clics en tu HTML personalizado.
-
-{% alert note %}
-**Banners:** Solo se admite `brazeBridge.logClick()` (sin argumentos). Los ID de botones y el seguimiento de botones personalizados solo son compatibles con los mensajes dentro de la aplicación.
-{% endalert %}
 
 Para los mensajes dentro de la aplicación, puedes realizar el seguimiento mediante programación de «Botón 1», «Botón 2» y «Clics en el cuerpo» utilizando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` o `brazeBridge.logClick()`, respectivamente.
 
@@ -71,10 +63,10 @@ Para los mensajes dentro de la aplicación, puedes realizar el seguimiento media
 | Clic en el cuerpo | `brazeBridge.logClick()`    | Mensajes dentro de la aplicación y banners |
 | Botón 1   | `brazeBridge.logClick('0')` | Solo mensajes dentro de la aplicación |
 | Botón 2   | `brazeBridge.logClick('1')` | Solo mensajes dentro de la aplicación |
-| Seguimiento de botones personalizados | `brazeBridge.logClick('your custom name here')` | Solo mensajes dentro de la aplicación |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+| Seguimiento de botones personalizados | `brazeBridge.logClick('your custom name here')` | Mensajes dentro de la aplicación y banners |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de clics en botones" }
 
-En el caso de los mensajes dentro de la aplicación, puedes realizar el seguimiento de varios eventos de clics en botones por impresión. Por ejemplo, para cerrar un mensaje y registrar un clic en el botón 2:
+En el caso de los mensajes dentro de la aplicación, puedes realizar el seguimiento de varios eventos de clic en botones por impresión. Por ejemplo, para cerrar un mensaje y registrar un clic en el botón 2:
 
 ```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>

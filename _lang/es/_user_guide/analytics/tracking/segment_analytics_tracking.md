@@ -31,6 +31,8 @@ Después de habilitar el seguimiento analítico, puede haber un retraso hasta qu
 
 Ve a **Analytics** > **Revenue Report** para ver los datos sobre [ingresos y compras a lo largo del tiempo para este segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).
 
+Los gráficos de ingresos y compras reflejan la actividad registrada después de que se active el seguimiento analítico para ese segmento. Activar el seguimiento no rellena retroactivamente las compras anteriores en esos informes. Cuando compares segmentos, utiliza solo intervalos de tiempo en los que el seguimiento estuviera habilitado para cada segmento que selecciones.
+
 ![Datos de ingresos por segmento]({% image_buster /assets/img_archive/Revenue.png %})
 
 Para comparar visualmente los datos de los segmentos en cualquier intervalo de tiempo personalizado, añade o elimina segmentos del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y, a continuación, selecciona tus segmentos en **Breakdown values**.
@@ -52,3 +54,9 @@ Para ver los datos de [los eventos personalizados a lo largo del tiempo para los
 ## Utilización de las plantillas del Generador de consultas {#using-query-builder-templates}
 
 Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del Generador de consultas para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data/#performance-data-by-segment).
+
+## Preguntas frecuentes {#frequently-asked-questions}
+
+### ¿Qué debo comprobar si el seguimiento analítico parece incorrecto o está vacío? {#what-should-i-check-if-analytics-tracking-looks-wrong-or-empty}
+
+Confirma que **Analytics Tracking** sigue habilitado en **Segment Details**, que no has superado el límite por aplicación (25 segmentos con seguimiento) y espera hasta 24 horas para que los datos se completen después de habilitar el seguimiento por primera vez. Si los problemas continúan, verifica la definición del segmento y el intervalo de fechas del informe, y luego [ponte en contacto con Soporte]({{site.baseurl}}/braze_support/).

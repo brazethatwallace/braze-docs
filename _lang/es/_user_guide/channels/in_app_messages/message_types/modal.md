@@ -20,7 +20,7 @@ Este tipo de mensaje está disponible tanto en el [editor de arrastrar y soltar]
 
 ## Especificaciones de imagen {#image-specifications}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## Pantallas más grandes {#larger-screens}
 

@@ -57,7 +57,7 @@ Para migrar um domínio personalizado para outro espaço de trabalho:
 
 ## Recursos de DNS {#dns-resources}
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## Solução de problemas {#troubleshooting}
 

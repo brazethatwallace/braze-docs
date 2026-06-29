@@ -155,6 +155,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
 
 <table aria-label="Aperçu de chaque approche">
   <caption>Aperçu de chaque approche</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">Espaces de travail séparés</th>
@@ -167,6 +168,8 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
         <th scope="col">Avantages</th>
         <th scope="col">Inconvénients</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">Ciblage</th>
         <td>C'est le moyen le plus sûr de séparer les communications. Les Campaigns sont assurées de ne cibler que des profils utilisateur spécifiques.</td>
@@ -205,8 +208,8 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
     <tr>
         <th scope="row">Duplication de contenu</th>
         <td>S.O.</td>
-        <td>Impossible de dupliquer des segments, des Campaigns push ou de cartes de contenu, ni des Canvas entre les espaces de travail.</td>
-        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>dupliquer des Campaigns entre différents espaces de travail</a> pour les canaux pris en charge suivants : SMS, messages in-app, e-mails, modèles d'e-mails et Content Blocks. <br><br>Possibilité de dupliquer les segments, les Campaigns et les Canvas pour réutiliser le contenu d'une instance d'application à l'autre.</td>
+        <td>Certains contenus, comme les segments et les campagnes de cartes de contenu, ne peuvent pas être copiés entre les espaces de travail.</td>
+        <td>Possibilité de <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>copier des Campaigns, des Canvas et des pages d'accueil entre les espaces de travail</a>. Les contenus pris en charge incluent les Campaigns et les Canvas pour les canaux éligibles, ainsi que les pages d'accueil, les modèles d'e-mails, les indicateurs de fonctionnalité et les Content Blocks.<br><br>Possibilité de dupliquer les segments, les Campaigns, les Canvas et les pages d'accueil pour réutiliser le contenu d'une instance d'application à l'autre.</td>
         <td>S.O.</td>
     </tr>
     <tr>
@@ -216,6 +219,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
         <td>S.O.</td>
         <td>Les statistiques globales seront agrégées pour toutes les instances d'application dans l'espace de travail sur la page d'accueil.</td>
     </tr>
+    </tbody>
 </table>
 
 ## Bonnes pratiques {#best-practices}

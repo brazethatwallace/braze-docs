@@ -11,7 +11,7 @@ page_type: reference
 
 > メールアドレスを暗号化して、Brazeで共有される個人を特定できる情報（PII）を最小限に抑えます。
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 識別子フィールドレベルの暗号化は、アドオン機能として利用できます。識別子フィールドレベルの暗号化を始めるには、Brazeアカウントマネージャーにお問い合わせください。
@@ -34,11 +34,12 @@ page_type: reference
     - **Braze EUクラスター:** `eu-central-1`
     - **Braze AUクラスター:** `ap-southeast-2`
     - **Braze IDクラスター:** `ap-southeast-3`
+    - **Braze JPクラスター:** `ap-northeast-1`
 4. AWS Key Management Serviceで2つのキーを作成し、IAMユーザーがキー使用権限に追加されていることを確認します:
     - **[暗号化/復号化](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** **Symmetric**キータイプと**Encrypt and Decrypt**キー使用法を選択します。
     - **[ハッシュ](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** **Symmetric**キータイプと**Generate and Verify MAC**キー使用法を選択します。キーの仕様は**HMAC_256**にする必要があります。キーを作成した後、HMACキーIDをどこかにメモしておいてください。Brazeで入力する必要があります。
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Symmetric、Generate and Verify MAC、HMAC_256が選択されたキー設定の構成画面。]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
 ## ステップ 1: AWS KMSキーを接続する {#step-1-connect-your-aws-kms-keys}
 
@@ -54,7 +55,7 @@ Brazeダッシュボードで、**データ設定** > **フィールドレベル
 
 フィールドの暗号化がオンになっている場合、復号化されたフィールドに戻すことはできません。これは暗号化が永続的な設定であることを意味します。メールアドレスの暗号化を設定する際、ワークスペースにメールアドレスを持つユーザーがいないことを確認してください。これにより、ワークスペースの機能を有効にするときに、プレーンテキストのメールアドレスがBrazeに保存されないようになります。
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![フィールドレベルの暗号化設定。]({% image_buster /assets/img/field_level_encryption.png %})
 
 ## ステップ 3: ユーザーをインポートして更新する {#step-3-import-and-update-users}
 
@@ -105,7 +106,7 @@ Brazeでメールアドレスを更新する際は、`email`が含まれるす�
 2. **Test Send**で、**Override recipients attributes with current preview user's attributes**を選択します。
 
 {%raw%}
-### このメールアドレスLiquid `{{${email_address}}}` をBrazeに追加するとどうなりますか？ {#what-happens-if-i-add-this-email-address-liquid-emailaddress-in-braze}
+### このメールアドレスLiquid `{{${email_address}}}` をBrazeに追加するとどうなりますか？ {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 Brazeはメールを送信する際にプレーンテキストのメールアドレスをレンダリングします。プレビューでは、メールの暗号化されたバージョンが表示されます。カスタムワンクリックURLでユーザーを参照する場合は、ユーザーのexternal IDを使用することをお勧めします。
 

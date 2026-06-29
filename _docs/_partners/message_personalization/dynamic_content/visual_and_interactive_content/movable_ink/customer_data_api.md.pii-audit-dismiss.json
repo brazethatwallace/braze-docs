@@ -1,0 +1,5 @@
+{
+  "reason": "customer_data_api.md uses sequential numeric external_id 123456789 in Braze event examples to show the expected field type.",
+  "dismiss_all": false,
+  "dismiss_ids": ["d7424e2c"]
+}

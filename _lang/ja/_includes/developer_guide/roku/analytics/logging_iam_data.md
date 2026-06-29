@@ -16,7 +16,7 @@ LogInAppMessageImpression(in_app_message.id, brazetask)
 
 ユーザーがメッセージをクリックしたら、クリックをロギングし、`in_app_message.click_action` を処理します。
 
-```brightscript
+`````````brightscript
 LogInAppMessageClick(in_app_message.id, brazetask)
 ```
 
@@ -24,7 +24,7 @@ LogInAppMessageClick(in_app_message.id, brazetask)
 
 ユーザーがボタンをクリックしたら、ボタンクリックをロギングし、`inappmessage.buttons[selected].click_action` を処理します。
 
-```brightscript
+`````````brightscript
 LogInAppMessageButtonClick(inappmessage.id, inappmessage.buttons[selected].id, brazetask)
 ```
 
@@ -32,6 +32,6 @@ LogInAppMessageButtonClick(inappmessage.id, inappmessage.buttons[selected].id, b
 
 アプリ内メッセージの処理後に、フィールドをクリアする必要があります。
 
-```brightscript
+`````````brightscript
 m.BrazeTask.BrazeInAppMessage = invalid
 ```

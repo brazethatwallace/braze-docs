@@ -32,6 +32,10 @@ O [guia de início rápido do Snowflake](https://quickstarts.snowflake.com/guide
 2. Na sua instância do Redshift, configure as tabelas ou views que deseja sincronizar com a Braze.
 3. Crie uma nova origem e sincronização no dashboard da Braze.
 4. Teste a integração e inicie a sincronização.
+
+{% alert note %}
+As linhas processadas por sincronização dependem do desempenho do seu warehouse, da latência de rede e da quantidade de dados novos que correspondem à consulta de sincronização. Use o **Histórico de sincronização** da integração no dashboard para ver a duração e a contagem de linhas das execuções recentes.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Crie uma conta de serviço e permita o acesso ao(s) projeto(s) e conjunto(s) de dados do BigQuery que contêm os dados que você deseja sincronizar.
@@ -144,7 +148,7 @@ Ao conectar diferentes espaços de trabalho à mesma conta do Snowflake, é nece
 
 Dependendo da configuração da sua conta do Snowflake, talvez seja necessário permitir os seguintes endereços IP na sua política de rede do Snowflake. Para saber mais sobre como ativar isso, consulte a documentação relevante do Snowflake sobre a [modificação de uma política de rede](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -207,7 +211,7 @@ Alguns aspectos importantes:
 
 Permita o acesso dos seguintes IPs correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -250,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.1: Preparar a tabela" }
 
 Você pode nomear o projeto, o conjunto de dados e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -290,7 +294,7 @@ Depois de criar a conta de serviço e conceder permissões, gere uma chave JSON.
 
 Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de rede à sua instância do BigQuery. Permita o acesso dos seguintes IPs correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -335,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.1: Preparar a tabela" }
 
 Você pode nomear o esquema e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -364,7 +368,7 @@ Mantenha o token em um local seguro até que seja necessário inseri-lo no dashb
 
 Se você tiver políticas de rede em vigor, deverá conceder à Braze acesso de rede à sua instância do Databricks. Permita o acesso dos seguintes IPs correspondentes à região do seu dashboard da Braze.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -453,7 +457,7 @@ Para recuperar o endpoint SQL do seu warehouse, acesse o **espaço de trabalho**
 
 Dependendo da configuração da sua conta Microsoft Fabric, talvez seja necessário permitir os seguintes endereços IP no seu firewall para permitir o tráfego da Braze. Para saber mais sobre como ativar esse recurso, consulte a documentação relevante sobre o [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -471,9 +475,16 @@ No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **S
 
 Escolha um nome para sua origem e insira suas credenciais e configuração do Snowflake, depois prossiga para a próxima etapa.
 
-{% alert note %}
-Para o campo **Snowflake Account Locator**, insira seu [identificador de conta do Snowflake](https://docs.snowflake.com/en/user-guide/admin-account-identifier), que normalmente segue um formato como `xy12345.us-east-1.aws`. Isso não é o mesmo que um nome de banco de dados ou nome de warehouse.
-{% endalert %}
+Antes de continuar, confirme o valor inserido em **Snowflake Account Locator**.
+
+Para o campo **Snowflake Account Locator**, insira seu [identificador de conta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) do Snowflake. Insira apenas o valor do identificador de conta, como `myorganization-myaccount`. Não inclua `https://`, `.snowflakecomputing.com` ou qualquer caminho.
+
+Para encontrar o identificador de conta do Snowflake:
+
+1. No Snowsight, selecione o menu da sua conta.
+2. Selecione **View account details**.
+3. Copie o valor de **Account identifier**.
+4. Se você copiar de uma URL do Snowflake, use apenas o valor antes de `.snowflakecomputing.com`.
 
 #### Etapa 2.2: Adicionar uma chave pública ao usuário da Braze {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -585,7 +596,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -618,7 +629,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -649,7 +660,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 
@@ -681,7 +692,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -714,7 +725,7 @@ Por fim, configure sua sincronização como não recorrente ou recorrente.
 
 Sincronizações não recorrentes podem ser disparadas manualmente ou via API.
 
-Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze usa o fuso horário configurado no seu dashboard da Braze para agendar a sincronização recorrente.
+Sincronizações recorrentes podem ter uma frequência de cada 15 minutos a uma vez por mês. A Braze agenda a sincronização recorrente no fuso horário UTC.
 
 {% endtab %}
 {% endtabs %}

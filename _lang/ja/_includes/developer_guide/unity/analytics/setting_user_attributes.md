@@ -188,7 +188,7 @@ AppboyBinding.SetPushNotificationSubscriptionType()`
 | `OPTED_IN` | 購読中、かつ明示的にオプトイン済み |
 | `SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
 | `UNSUBSCRIBED` | 配信停止済み、または明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 {% alert note %}
 Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)に関するドキュメントを参照してください。
@@ -198,7 +198,7 @@ Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオ�
 |------------------------------------------|-------------|
 | `EmailNotificationSubscriptionType` | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
 | `PushNotificationSubscriptionType` | 有効なプッシュ登録時に、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 {% alert note %}
 これらのタイプは`Appboy.Models.AppboyNotificationSubscriptionType`に属します。

@@ -10,7 +10,7 @@ description: "이 문서에서는 예약된 API 트리거 Canvases 업데이트 
 ---
 {% api %}
 # 예약된 API 트리거 Canvases 업데이트 {#update-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 

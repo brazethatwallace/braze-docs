@@ -168,6 +168,10 @@ Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwa
 Für weitere Unterstützung bei der Fehlerbehebung von Campaigns wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten Ihres Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage zur Verfügung stehen.
 {% endalert %}
 
+### Warum haben Nutzer:innen meine Campaign zweimal erhalten, nachdem ich sie bearbeitet habe? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Wenn Sie eine laufende Campaign bearbeiten, ohne sie vorher zu stoppen, können Nutzer:innen die Nachricht zweimal erhalten. Das passiert, weil das Bearbeiten einer laufenden Campaign Nutzer:innen für die aktualisierte Version erneut einreiht, während die ursprüngliche Warteschlange noch verarbeitet wird. Nutzer:innen, die die ursprüngliche Nachricht noch nicht erhalten haben, können in beiden Warteschlangen landen. Um dies zu verhindern, [stoppen Sie die Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) immer, bevor Sie Änderungen vornehmen.
+
 ### Was ist der Unterschied zwischen den Optionen „Nutzerdaten als CSV exportieren“ und „E-Mail-Adressen als CSV exportieren“ auf meiner Campaign-Analytics-Seite? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 Die Auswahl der Option **E-Mail-Adressen als CSV exportieren** lädt nur Daten für Nutzer:innen mit E-Mail-Adressen herunter. Wenn Sie beispielsweise ein Segment von 100.000 Nutzer:innen haben, aber nur 50.000 davon E-Mail-Adressen haben, und Sie auf **E-Mail-Adressen als CSV exportieren** klicken, enthält der Export nur 50.000 Datenzeilen. Im Vergleich dazu exportiert die Auswahl von **Nutzerdaten als CSV exportieren** alle Nutzerdaten.
@@ -189,6 +193,14 @@ Wenn Sie beispielsweise einen Campaign-Namen oder UTM-Parameter mit mehreren Lee
 API-getriggerte Campaigns ermöglichen es Ihnen, Campaign-Texte, multivariate Tests und Regeln zur erneuten Berechtigung im Braze-Dashboard zu verwalten, während Sie die Zustellung dieser Inhalte von Ihren eigenen Servern und Systemen aus triggern. Diese Nachrichten können auch zusätzliche Daten enthalten, die in Echtzeit in die Nachrichten eingebunden werden.
 
 API-Campaigns werden verwendet, um über die API gesendete Nachrichten zu tracken. Im Gegensatz zu den meisten Campaigns geben Sie nicht die Nachricht, die Empfänger:innen oder den Zeitplan an, sondern übergeben die Bezeichner in Ihren API-Aufrufen.
+
+### Wie kann ich bestätigen, ob meine Nutzer:innen eine API-getriggerte Campaign erhalten haben? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) mit dem Filter **Received Campaign** und dann die spezifische API-getriggerte Campaign auswählen, die Sie überprüfen möchten. Nachdem Sie das Segment gespeichert haben, verwenden Sie den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), um die Nutzer:innen in diesem Segment zu exportieren.
+
+### Kann ich eine Campaign löschen? {#can-i-delete-a-campaign}
+
+Nein, aber Sie können [eine Campaign archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### Was ist der Unterschied zwischen aktionsbasierten und API-getriggerten Campaigns? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -259,3 +271,21 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 - **Segment-Neubewertung:** Bei aktionsbasierten oder geplanten Campaigns, die zum Sendezeitpunkt neu ausgewertet werden, sind Nutzer:innen, die beim Einreihen der Campaign im Segment waren, möglicherweise nicht mehr qualifiziert, wenn die Nachricht tatsächlich gesendet wird.
 - **Sendeobergrenzen:** Eine maximale Anzahl von Nutzer:innen (oder eine ähnliche Obergrenze) unter **Zielgruppe** stoppt die Zustellung, wenn die Obergrenze erreicht ist.
 - **Strenge Geräte- oder Browser-Filter:** Filter, die nur die neuesten App-Versionen oder Browser abgleichen, verkleinern die erreichbare Menge zum Sendezeitpunkt im Vergleich zu einer breiten Segment-Vorschau.
+
+### Wo finde ich häufig gestellte Fragen zum globalen Frequency-Capping? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Bei E-Mail und SMS erhöht Braze die Anzahl der **eindeutigen Empfänger:innen** vor dem ESP-Sendeversuch und die Anzahl der **Sendungen** erst nach einer erfolgreichen ESP-Antwort. Permanente Fehler (z. B. ungültige E-Mail-Adressen) oder doppelte Adressen führen dazu, dass die eindeutigen Empfänger:innen die Sendungen übersteigen.
+
+### Warum stimmt **Zuletzt gesendet** nicht mit meinem geplanten Sendezeitpunkt überein? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Bei einer Campaign mit einem einzelnen geplanten Versand entspricht **Zuletzt gesendet** dem Startzeitpunkt. Bei wiederkehrenden Campaigns mit aktivierter Option **In Ortszeit senden** kann **Zuletzt gesendet** früher als der geplante Zeitpunkt erscheinen, da Sendungen an Nutzer:innen in früheren Zeitzonen (z. B. GMT vs. PST) vor dem Zeitplan Ihres Workspace abgeschlossen werden.
+
+### Warum zeigt eine gestoppte historische Campaign keine Metriken mehr auf der **Analytics**-Seite an? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+Der Tab **Analytics** zeigt standardmäßig die letzten 90 Tage an. Wenn die Campaign zuletzt außerhalb dieses Zeitfensters gesendet wurde, können Metriken als null erscheinen, bis Sie den Datumsbereich auf der **Analytics**-Seite anpassen, um den Zeitraum einzuschließen, in dem die Campaign gesendet wurde. Weitere Informationen finden Sie unter [Campaign-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Interaktionsdaten wiederherstellen** stellt keine Campaign-Analytics wieder her. Dies gilt nur für Retargeting-Filter und den Verlauf der Nutzerinteraktionen. Weitere Informationen finden Sie unter [Messaging-Interaktionsdaten]({{site.baseurl}}/messaging_interaction_data/).

@@ -29,7 +29,7 @@ Una vez que tu recomendación haya terminado el entrenamiento, puedes personaliz
 
 Puedes generar Liquid desde la sección **Add personalization** en tu creador de mensajes:
 
-1. En cualquier creador de mensajes que admita la personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> para abrir la ventana de personalización.
+1. En cualquier creador de mensajes que admita la personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> **Add personalization** para abrir la ventana de personalización.
 2. En **Personalization Type**, selecciona **Item Recommendation**.
 3. En **Item Recommendation Name**, selecciona la recomendación que acabas de crear.
 4. En **Number of Predicted Items**, introduce cuántos productos principales quieres que se inserten. Por ejemplo, puedes mostrar los tres artículos más comprados.

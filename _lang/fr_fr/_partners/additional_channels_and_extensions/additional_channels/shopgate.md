@@ -34,11 +34,11 @@ Avant de commencer, vous avez besoin des éléments suivants :
 | ----------- | ----------- |
 | Compte Shopgate Enterprise | Un compte [Shopgate](https://www.shopgate.com/) Enterprise est requis pour bénéficier de ce partenariat. |
 | Invitation Shopgate | Vous devez inviter Shopgate dans votre compte Braze pour configurer vos applications. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
 Pour savoir comment intégrer Shopgate avec Braze, consultez le [guide d'intégration Shopgate](https://support.shopgate.com/en/knowledge/braze-integration). Une fois l'intégration effectuée, vous pouvez utiliser les fonctionnalités Shopgate dans Braze décrites dans [Cas d'utilisation](#use-cases).
 {% alert note %}
-Pour toute question supplémentaire, contactez le support Shopgate à l'adresse support@shopgate.com.
+Pour toute question supplémentaire, contactez l'assistance Shopgate à l'adresse support@shopgate.com.
 {% endalert %}

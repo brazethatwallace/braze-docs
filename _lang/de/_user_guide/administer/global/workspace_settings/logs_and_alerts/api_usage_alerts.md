@@ -17,13 +17,13 @@ Sie können API-Nutzungswarnungen verwenden, um das Volumen der Anfragen für di
 |--------------|---------|
 | REST API-Endpunkte | Verfolgt die Nutzung aller REST API-Aufrufe, die an das Backend von Braze gesendet werden, wie beispielsweise das Versenden von Nachrichten, das Erstellen von Campaigns oder das Exportieren von Nutzer:innen. |
 | SDK-API-Anfragen | Verfolgt API-Anfragen, die von Braze-SDKs in Client-Apps gestellt werden, wie beispielsweise das Triggern von In-App-Nachrichten oder die Synchronisierung von Nutzerdaten.<br><br>_*Nur für Kund:innen verfügbar, die „Monatlich aktive:r Nutzer:in – CY 24-25“ erworben haben._ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informationen zu API-Nutzungswarnungen" }
 
 ## Erstellen einer API-Nutzungswarnung {#creating-an-api-usage-alert}
 
 Um eine API-Nutzungswarnung zu erstellen:
 
-1. Gehen Sie zu **Settings** > **APIs and Identifiers** > **API Usage Alerts** und erstellen Sie eine neue Warnung.
+1. Gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API Usage Alerts** und erstellen Sie eine neue Warnung.
 2. Geben Sie einen Namen für Ihre Warnung ein und wählen Sie die REST API-Endpunkte und API-Schlüssel aus, für die Sie benachrichtigt werden möchten.
 3. Definieren Sie Ihre Warnungskriterien, indem Sie einen oder mehrere Antwortcodes auswählen und die [Schwellenwerte für Warnungen](#api-usage-alert-thresholds) festlegen.
 4. Wenn Sie fertig sind, schalten Sie **Alert enabled** um.
@@ -33,7 +33,7 @@ Um eine API-Nutzungswarnung zu erstellen:
 
 Wenn Sie Ihre Warnungskriterien definieren, können Sie die folgenden Schwellenwerte anpassen:
 
-<table aria-label="Alert thresholds #api-usage-alert-thresholds">
+<table aria-label="Schwellenwerte für Warnungen">
   <caption>Schwellenwerte für Warnungen</caption>
   <thead>
     <tr>
@@ -63,11 +63,11 @@ Wenn Sie Ihre Warnungskriterien definieren, können Sie die folgenden Schwellenw
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schwellenwerte für Warnungen" }
 
 ## Einrichten von Warnungsbenachrichtigungen {#setting-up-alert-notifications}
 
-Sie können eine E-Mail-Warnung, eine Webhook-Warnung oder beides einrichten. Webhook-Warnungen können für Anwendungsfälle wie das Senden einer Warnung an externe Plattformen, z. B. einen Slack-Kanal, sehr nützlich sein. Ein Beispiel finden Sie in unserer [Dokumentation](https://www.braze.com/docs/user_guide/administer/global/admin_settings/notification_preferences#slack-incoming-webhook-integration) zur Integration von Warnungen mit Slack für unsere Benachrichtigungspräferenzen.
+Sie können eine E-Mail-Warnung, eine Webhook-Warnung oder beides einrichten. Webhook-Warnungen können für Anwendungsfälle wie das Senden einer Warnung an externe Plattformen, z. B. einen Slack-Kanal, sehr nützlich sein. Ein Beispiel finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration) zur Integration von Warnungen mit Slack für unsere Benachrichtigungspräferenzen.
 
 ![Eine E-Mail wird an die ausgewählte E-Mail-Adresse gesendet, wenn die Kriterien für die Warnung erreicht werden.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
@@ -108,7 +108,7 @@ Sie können Warnungen einrichten, um den allgemeinen Zustand Ihrer API zu überw
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | Alle Endpunkte | Alle API-Schlüssel | `4XX` und `5XX` | Increased by 10 % | 10 | 1 Stunde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Beispielwarnungen" }
 {% endtab %}
 
 {% tab Endpunkt-Rate-Limit %}
@@ -117,7 +117,7 @@ Lassen Sie sich benachrichtigen, wenn Ihr Workspace das Rate-Limit für den Endp
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | Alle API-Schlüssel | `429` | Greater than or equal | 100 | 1 Stunde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Beispielwarnungen" }
 {% endtab %}
 
 {% tab API-getriggerte Campaigns %}
@@ -126,7 +126,7 @@ Diese Warnungskonfiguration benachrichtigt Sie, wenn Fehler bei API-getriggerten
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Alle API-Schlüssel | `4XX` und `5XX` | Greater than or equal | 1 | 1 Stunde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Beispielwarnungen" }
 {% endtab %}
 
 {% tab Partnerintegrationen %}
@@ -135,7 +135,7 @@ Verwenden Sie die folgende Warnungskonfiguration, um benachrichtigt zu werden, w
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | Alle Endpunkte | Der API-Schlüssel, der für Ihre Partnerintegration verwendet wird | Alle Antwortcodes | Less than or equal | 0 | 1 Tag |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Beispielwarnungen" }
 {% endtab %}
 {% endtabs %}
 

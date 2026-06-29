@@ -1,12 +1,12 @@
 ---
-nav_title: Shopify Produkt-Synchronisation
-article_title: Shopify Produkt-Synchronisation
+nav_title: Shopify-Produktsynchronisierung
+article_title: Shopify-Produktsynchronisierung
 alias: /shopify_catalogs/
 page_order: 5
 description: "Dieser Referenzartikel beschreibt, wie Sie Ihre Produkte aus Shopify in Braze-Kataloge importieren."
 ---
 
-# Shopify Produkt-Synchronisation {#shopify-product-sync}
+# Shopify-Produktsynchronisierung {#shopify-product-sync}
 
 > Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-[Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) synchronisieren, um die Personalisierung von Nachrichten zu vertiefen.
 
@@ -14,15 +14,15 @@ Shopify-Kataloge werden nahezu in Realtime aktualisiert, wenn Sie die Produkte i
 
 Zusätzlich zu den [grundlegenden Shopify-Produktdaten](#supported-shopify-catalog-data) können Sie Shopify-Kollektionen, Produkt-Tags und Produkt-Metafelder mit Ihrem Braze-Katalog synchronisieren. Diese zusätzlichen Felder ermöglichen eine umfangreichere Personalisierung, präzisere Katalogauswahlen und eine leistungsstärkere Segmentierung durch [Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/).
 
-## Shopify Produkt-Synchronisation einrichten {#set-up}
+## Shopify-Produktsynchronisierung einrichten {#set-up}
 
 Wenn Sie Ihren Shopify-Shop bereits installiert haben, können Sie Ihre Produkte trotzdem synchronisieren, indem Sie die folgenden Anweisungen befolgen.
 
-### 1. Schritt: Synchronisation einschalten {#step-1-turn-on-the-sync}
+### 1. Schritt: Synchronisierung einschalten {#step-1-turn-on-the-sync}
 
 Sie können Ihre Produkte mit einem Braze-Katalog über den Shopify-Installationsablauf oder auf der Shopify-Partnerseite synchronisieren.
 
-![Schritt 3 der Einrichtung mit „Shopify Variant ID“ als „Catalog product identifier“.]({% image_buster /assets/img/Shopify/sync_products_step1.png %})
+![Schritt 3 der Einrichtung mit „Shopify Variant ID“ als „Catalog product identifier“.]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
 ### 2. Schritt: Produktbezeichner auswählen {#step-2-select-your-product-identifier}
 
@@ -48,7 +48,7 @@ Sie können optional die Synchronisierung für Produkt-Tags, Shopify-Kollektione
 Fügen Sie Produkt-Tags, Shopify-Kollektionen und Metafelder zuerst in Shopify hinzu. Wenn sie in Shopify nicht vorhanden sind, werden sie in Braze nicht angezeigt.
 {% endalert %}
 
-![Einstellungen zur Synchronisierung von Shopify-Produkten und -Varianten mit Braze.]({% image_buster /assets/img/Shopify/additional_product_data.png %})
+![Einstellungen zur Synchronisierung von Shopify-Produkten und -Varianten mit Braze.]({% image_buster /assets/img/shopify/additional_product_data.png %})
 
 {% tabs global %}
 {% tab Produkt-Tags %}
@@ -56,25 +56,25 @@ Fügen Sie Produkt-Tags, Shopify-Kollektionen und Metafelder zuerst in Shopify h
 1. Aktivieren Sie auf der Seite **Sync product data to Braze** das Kontrollkästchen **Sync product tags**, um das Modal **Select product tags** zu öffnen.
 2. Wählen Sie bis zu 20 Produkt-Tags aus, die mit Ihrem Braze-Katalog synchronisiert werden sollen. Nur die von Ihnen ausgewählten Tags werden synchronisiert.
 
-![Modal zur Auswahl von Produkt-Tags mit einer Auswahl an Tags.]({% image_buster /assets/img/Shopify/select_product_tags.png %}){: style="max-width:80%;"}
+![Modal zur Auswahl von Produkt-Tags mit einer Auswahl an Tags.]({% image_buster /assets/img/shopify/select_product_tags.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% tab Produkt-Metafelder %}
 
 1. Wenn Sie eine bestehende Shopify-Integration haben, autorisieren Sie die Braze Shopify-App erneut, um die neuen erforderlichen Berechtigungen für die Produktsynchronisierung zu installieren. Wenn Sie ein:e neue:r Kund:in sind, fahren Sie mit dem nächsten Schritt fort.
 
-![Banner mit der Aufforderung, die Braze Shopify-App erneut zu autorisieren.]({% image_buster /assets/img/Shopify/banner_to_reauthorize.png %})
+![Banner mit der Aufforderung, die Braze Shopify-App erneut zu autorisieren.]({% image_buster /assets/img/shopify/banner_to_reauthorize.png %})
 
 {: start="2"}
 2. Wählen Sie **Sync product metafields**, um das Konfigurationsmodal für Metafelder zu öffnen.
 
-![Abschnitt „Sync product data to Braze“ mit Optionen zur Auswahl aus mehreren Einstellungen, einschließlich Kollektionen.]({% image_buster /assets/img/Shopify/select_collections.png %})
+![Abschnitt „Sync product data to Braze“ mit Optionen zur Auswahl aus mehreren Einstellungen, einschließlich Kollektionen.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
 3. Wählen Sie bis zu 20 der durchsuchbaren Metafelder zur Synchronisierung aus. Jedes wird zu einer separaten Spalte in Ihrem Katalog, die Sie in Features wie Katalogauswahlen oder Segmenterweiterungen verwenden können.
 - Beachten Sie bei der Benennung von Metafeldern, dass Leerzeichen zu „_“ werden und alle Sonderzeichen entfernt werden, um den Benennungsbeschränkungen für Braze-Katalogfelder zu entsprechen.
 
-![Modal zur Auswahl von Produkt-Metafeldern.]({% image_buster /assets/img/Shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal zur Auswahl von Produkt-Metafeldern.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 {% subtabs %}
 {% subtab Unterstützte Metafelder %}
@@ -93,7 +93,9 @@ Braze unterstützt die folgenden Metafeld-Objekte und einige ihrer jeweiligen Ty
 | `number_integer` | Integer |
 | `single_line_text_field`, `list.single_line_text_field` | String, String-Array |
 | `url`, `list.url` | String (URL), String-Array (URLs) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
+| `metaobject_reference`, `list.metaobject_reference` | String, String-Array |
+| `mixed_reference`, `list.mixed_reference` | String, String-Array |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Zusätzliche Produktdaten konfigurieren (optional) #step-3" }
 
 {% endsubtab %}
 {% subtab Nicht unterstützte Metafelder %}
@@ -125,7 +127,7 @@ Braze unterstützt keine Metafeld-Objekte, einschließlich einiger jeweiliger Li
 Braze verwendet die Shopify-Kollektions-ID, um synchronisierte Kollektionen zu identifizieren, die dann beim Erstellen von Katalogauswahlen und Segment-Filtern verwendet werden.
 {% endalert %}
 
-![Modal zur Auswahl von Kollektionen aus einem Dropdown.]({% image_buster /assets/img/Shopify/selected_collections.png %}){: style="max-width:80%;"}
+![Modal zur Auswahl von Kollektionen aus einem Dropdown.]({% image_buster /assets/img/shopify/selected_collections.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -140,11 +142,11 @@ Nachdem Sie Ihre Konfiguration gespeichert haben, beginnt Braze mit der Synchron
 
 Sie können die Seite verlassen, sobald die Synchronisierung läuft; Braze sendet Ihnen eine Dashboard-Benachrichtigung, wenn die Synchronisierung abgeschlossen ist. Nach Abschluss wird der Status auf **Active** aktualisiert, und Sie können Ihre Produkte anzeigen, indem Sie den Katalognamen auf Ihrer Shopify-Partnerseite auswählen.
 
-![Seite mit Integrationseinstellungen und einem Status der Produkt-Synchronisation.]({% image_buster /assets/img/Shopify/track_sync_progress.png %})
+![Seite mit Integrationseinstellungen und einem Status der Produktsynchronisierung.]({% image_buster /assets/img/shopify/track_sync_progress.png %})
 
 Sie können auch synchronisierte Produkt-Tags, Metafelder und Kollektionen in Ihrem Shopify-Katalog als neue Spalten anzeigen.
 
-![Shopify-Katalog mit synchronisierten Daten.]({% image_buster /assets/img/Shopify/synced_catalog.png %})
+![Shopify-Katalog mit synchronisierten Daten.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
 Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren Customer-Success-Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
@@ -154,9 +156,9 @@ Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze
 
 Jeder Synchronisierungstyp hat eine Übersichtskarte auf der Shopify-Partnerseite, die die Gesamtanzahl der synchronisierten Elemente, den aktuellen Status und einen Link zu Ihrem Katalog anzeigt. Wählen Sie das Ansichtssymbol, um Ihre aktive Konfiguration anzuzeigen und zu bearbeiten.
 
-Sie können Ihre Shopify Produkt-Synchronisation jederzeit über die Shopify-Partnerseite ändern, einschließlich der Verwaltung Ihrer Produkt-Tags, Kollektionen und Produkt-Metafelder.
+Sie können Ihre Shopify-Produktsynchronisierung jederzeit über die Shopify-Partnerseite ändern, einschließlich der Verwaltung Ihrer Produkt-Tags, Kollektionen und Produkt-Metafelder.
 
-![Seite mit Integrationseinstellungen und einer aktiven Produkt-Katalogsynchronisation.]({% image_buster /assets/img/Shopify/active_catalog_sync.png %})
+![Seite mit Integrationseinstellungen und einer aktiven Produkt-Katalogsynchronisierung.]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
 {% alert important %}
 Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Canvases oder Katalogauswahlen auswirken, die darauf verweisen. Aktualisieren Sie aktive Inhalte, damit sie ordnungsgemäß funktionieren, wenn Sie die Änderungen übernehmen.
@@ -189,7 +191,7 @@ Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Can
 | `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Erfordert die Synchronisierung von Produkt-Tags. |
 | `collection_ids` | Array | `[123456789012, 987654321098]` (Shopify-Kollektions-IDs)<br><br>Erfordert die Synchronisierung von Shopify-Kollektionen. |
 | `Metafeld-Spalten` | Variiert je nach Typ | Jedes synchronisierte Metafeld erscheint als separate Spalte, benannt nach seinem Schlüssel. Informationen finden Sie unter [Unterstützte Metafelder](#step-3) im Tab „Produkt-Metafelder“ von Schritt 3. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte Shopify-Katalogdaten" }
 
 {% alert warning %}
 Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu aktualisieren, nehmen Sie Änderungen direkt in Ihrem Shopify-Shop vor, und sie werden automatisch mit Braze synchronisiert. Um Ihren Shopify-Katalog zu löschen, gehen Sie zur Shopify-Partnerseite in Braze und [deaktivieren Sie die Synchronisierung](#deactivate).
@@ -214,18 +216,22 @@ Produkt-Tags werden als Array-Feld für jeden Katalogartikel gespeichert. Inform
 
 1. Vergeben Sie in Shopify den relevanten Produkten den Produkt-Tag „Women's“.
 
-![Ein Produkttyp „Women's - Sweaters“ mit den Tags „Women's“, „Sweaters“ und „Men“.]({% image_buster /assets/img/Shopify/product_tag_womens.png %}){: style="max-width:40%;"}
+![Ein Produkttyp „Women's - Sweaters“ mit den Tags „Women's“, „Sweaters“ und „Men“.]({% image_buster /assets/img/shopify/product_tag_womens.png %}){: style="max-width:40%;"}
 
 {: start="2"}
 2. Aktivieren Sie in Braze die Tag-Synchronisierung und wählen Sie den Produkt-Tag „Women's“ aus.
 
-![Modal zur Auswahl von Shopify-Produkt-Tags mit 15 ausgewählten bekleidungsbezogenen Tags, darunter „Women's“.]({% image_buster /assets/img/Shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
+![Modal zur Auswahl von Shopify-Produkt-Tags mit 15 ausgewählten bekleidungsbezogenen Tags, darunter „Women's“.]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalisierung {#personalization}
 
+{% alert note %}
+Wenn Sie Produkt-Tags oder Kollektionen in Katalogauswahlen referenzieren, verwenden Sie nur den Wert selbst ohne die Array-Klammern `[]` oder Anführungszeichen `""`, die in den Katalogdaten erscheinen. Wenn ein Produkt-Tag beispielsweise als `["Women's"]` in Ihrem Katalog angezeigt wird, schreiben Sie `Women's` in Ihren Auswahlfilter.
+{% endalert %}
+
 1. Erstellen Sie eine Katalogauswahl, die nach Produkten mit dem jeweiligen Produkt-Tag filtert, z. B. „Women's“. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden, und bis zu 50 Produkte in Ihrer Katalogauswahl.
 
-![Eine Katalogauswahl, die nach Produkt-Tags mit dem Attribut „Women's“ filtert.]({% image_buster /assets/img/Shopify/edit_product_tags_selection.png %})
+![Eine Katalogauswahl, die nach Produkt-Tags mit dem Attribut „Women's“ filtert.]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
 
 {: start="2"}
 2. Fügen Sie im Nachrichten-Editor die Auswahl dort ein, wo Sie die Produkte aus der Katalogauswahl mit dem Tag „Women's“ einbinden möchten. Sie könnten beispielsweise einen HTML-Produktblock wie diesen verwenden:
@@ -287,7 +293,7 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Push-Benachrichtigungs-Editor mit einer Katalogauswahl, die drei Artikel mit einem Produkt-Tag einbindet.]({% image_buster /assets/img/Shopify/add_personalization_product_tags.png %})
+![Push-Benachrichtigungs-Editor mit einer Katalogauswahl, die drei Artikel mit einem Produkt-Tag einbindet.]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
 
 ### Katalogsegmentierung (SQL) {#catalog-segmentation-sql}
 
@@ -332,18 +338,18 @@ Jedes synchronisierte Metafeld wird zu einer separaten Spalte in Ihrem Katalog, 
 
 1. Setzen Sie in Shopify das Produkt-Metafeld `seasonal` bei den relevanten Produkten auf `summer` (dies ist ein Metafeld-Wert, kein Produkt-Tag).
 
-![Modal zum Hinzufügen von Produkt-Metafeldern, einschließlich des Metafelds „seasonal“ mit dem Wert „summer“.]({% image_buster /assets/img/Shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
+![Modal zum Hinzufügen von Produkt-Metafeldern, einschließlich des Metafelds „seasonal“ mit dem Wert „summer“.]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2. Aktivieren Sie in Braze die Metafeld-Synchronisierung und wählen Sie `custom.seasonal` (oder den Namespace und Schlüssel, die Ihrem Shopify-Metafeld entsprechen).
 
-![Modal zur Auswahl von Produkt-Metafeldern mit einem erweiterten Dropdown, in dem vier Elemente ausgewählt sind, darunter „custom.seasonal“.]({% image_buster /assets/img/Shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal zur Auswahl von Produkt-Metafeldern mit einem erweiterten Dropdown, in dem vier Elemente ausgewählt sind, darunter „custom.seasonal“.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 ### Personalisierung
 
 1. Erstellen Sie eine [Katalogauswahl]({{site.baseurl}}/catalog_selections/), die nach Metafeldern mit dem jeweiligen Wert filtert.
 
-![Eine Katalogauswahl, die nach Metafeldern mit dem Attribut „summer“ filtert.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
+![Eine Katalogauswahl, die nach Metafeldern mit dem Attribut „summer“ filtert.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
 {: start="2"}
 2. Fügen Sie im Nachrichten-Editor die Auswahl dort ein, wo Sie Produkt-Metafelder einbinden möchten. Sie könnten beispielsweise einen HTML-Produktblock wie diesen verwenden:
@@ -405,7 +411,7 @@ Check out the latest summer products:
 ```
 {% endraw %}
 
-![Push-Benachrichtigungs-Editor mit einer Katalogauswahl, die drei Artikel über eine metafeldbasierte Auswahl einbindet.]({% image_buster /assets/img/Shopify/add_personalization_metafields.png %})
+![Push-Benachrichtigungs-Editor mit einer Katalogauswahl, die drei Artikel über eine metafeldbasierte Auswahl einbindet.]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
 
 ### Katalogsegmentierung (SQL)
 
@@ -585,12 +591,12 @@ Verwenden Sie Shopify-Kollektionen, um kuratierte Produktgruppierungen in Ihre N
 
 1. Erstellen Sie in Shopify eine Kollektion „New Women's Products - In Stock“ mit Ihren leistungsstärksten Produkten.
 
-![Liste der Shopify-Kollektionen, einschließlich „New Women's Products - In Stock“.]({% image_buster /assets/img/Shopify/shopify_collections.png %})
+![Liste der Shopify-Kollektionen, einschließlich „New Women's Products - In Stock“.]({% image_buster /assets/img/shopify/shopify_collections.png %})
 
 {: start="2"}
 2. Aktivieren Sie in Braze die Kollektionssynchronisierung und wählen Sie „Women's Products - In Stock“.
 
-![Modal zur Auswahl von Kollektionen mit einem erweiterten Dropdown, in dem vier Kollektionen ausgewählt sind.]({% image_buster /assets/img/Shopify/select_collections_id.png %})
+![Modal zur Auswahl von Kollektionen mit einem erweiterten Dropdown, in dem vier Kollektionen ausgewählt sind.]({% image_buster /assets/img/shopify/select_collections_id.png %})
 
 {% alert note %}
 Für Shopify-Kollektionen müssen Sie die **Kollektions-ID** verwenden, die in der URL zu finden ist, wenn Sie die Kollektion anzeigen. Beispielsweise hat eine URL wie `https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446` die Kollektions-ID `470645342446`.
@@ -598,10 +604,14 @@ Für Shopify-Kollektionen müssen Sie die **Kollektions-ID** verwenden, die in d
 
 ### Personalisierung
 
+{% alert note %}
+Wenn Sie Kollektions-IDs in Katalogauswahlen referenzieren, verwenden Sie nur den numerischen ID-Wert ohne die Array-Klammern `[]`, die in den Katalogdaten erscheinen. Wenn Kollektions-IDs beispielsweise als `[123456789012, 987654321098]` in Ihrem Katalog angezeigt werden, schreiben Sie nur die numerische ID (z. B. `470645342446`) in Ihren Auswahlfilter.
+{% endalert %}
+
 1. Erstellen Sie eine Katalogauswahl mit dem Namen „New Women's Products - In Stock“, die nach Produkten mit der Kollektions-ID filtert. Sie können nur ein eindeutiges Array-Feld innerhalb einer einzelnen Katalogauswahl verwenden, und bis zu 50 Produkte in Ihrer Kollektion.
  - Sie können auch eigene angepasste Auswahlen erstellen, indem Sie mit dem Feld **Collections** filtern.
 
-![Eine Katalogauswahl, die nach Kollektionen mit dem Kollektions-ID-Attribut „470645342446“ filtert.]({% image_buster /assets/img/Shopify/collections_selection.png %})
+![Eine Katalogauswahl, die nach Kollektionen mit dem Kollektions-ID-Attribut „470645342446“ filtert.]({% image_buster /assets/img/shopify/collections_selection.png %})
 
 {: start="2"}
 2. Binden Sie in Ihrer Nachricht Ihre Kollektion ein, indem Sie Ihre erstellte Auswahl verwenden oder die Kollektion direkt referenzieren. Sie könnten beispielsweise einen HTML-Produktblock wie diesen verwenden:
@@ -663,7 +673,7 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Push-Benachrichtigungs-Editor mit einer Katalogauswahl, die drei Artikel mit einem Produkt-Tag einbindet.]({% image_buster /assets/img/Shopify/add_personalization_collections.png %})
+![Push-Benachrichtigungs-Editor mit einer Katalogauswahl, die drei Artikel mit einem Produkt-Tag einbindet.]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
 
 ### Katalogsegmentierung (SQL)
 
@@ -701,20 +711,20 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) und [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) einrichten!<br><br> Beachten Sie, dass Sie für jeden Anwendungsfall ein angepasstes Event erstellen müssen, das den Abo-Status einer Nutzerin oder eines Nutzers in Ihrem Katalog erfasst. Für das angepasste Event benötigen Sie eine Event-Eigenschaft, die entweder der [SKU oder der Shopify-Varianten-ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier) zugeordnet ist, die Sie im Rahmen Ihrer Shopify Produkt-Synchronisation ausgewählt haben.
+Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) und [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) einrichten!<br><br> Beachten Sie, dass Sie für jeden Anwendungsfall ein angepasstes Event erstellen müssen, das den Abo-Status einer Nutzerin oder eines Nutzers in Ihrem Katalog erfasst. Für das angepasste Event benötigen Sie eine Event-Eigenschaft, die entweder der [SKU oder der Shopify-Varianten-ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier) zugeordnet ist, die Sie im Rahmen Ihrer Shopify-Produktsynchronisierung ausgewählt haben.
 {% endalert %}
 
-## Produkt-Synchronisation deaktivieren {#deactivate}
+## Produktsynchronisierung deaktivieren {#deactivate}
 
-Wenn Sie das Shopify-Feature zur Produkt-Synchronisation deaktivieren, werden Ihr gesamter Katalog und Ihre Produkte gelöscht. Dies kann sich auch auf alle Nachrichten auswirken, die die Produktdaten dieses Katalogs aktiv nutzen. Vergewissern Sie sich, dass Sie diese Campaigns oder Canvases vor der Deaktivierung entweder aktualisiert oder pausiert haben, da dies dazu führen kann, dass Nachrichten ohne Produktangaben versendet werden. Löschen Sie den Shopify-Katalog nicht direkt auf der Katalogseite.
+Wenn Sie das Shopify-Feature zur Produktsynchronisierung deaktivieren, werden Ihr gesamter Katalog und Ihre Produkte gelöscht. Dies kann sich auch auf alle Nachrichten auswirken, die die Produktdaten dieses Katalogs aktiv nutzen. Vergewissern Sie sich, dass Sie diese Campaigns oder Canvases vor der Deaktivierung entweder aktualisiert oder pausiert haben, da dies dazu führen kann, dass Nachrichten ohne Produktangaben versendet werden. Löschen Sie den Shopify-Katalog nicht direkt auf der Katalogseite.
 
 ## Fehlerbehebung {#troubleshooting}
 
-Wenn bei der Shopify Produkt-Synchronisation ein Fehler auftritt, kann dies auf die folgenden Fehler zurückzuführen sein. Folgen Sie den Anweisungen, um das Problem zu beheben und die Synchronisierung wiederherzustellen:
+Wenn bei der Shopify-Produktsynchronisierung ein Fehler auftritt, kann dies auf die folgenden Fehler zurückzuführen sein. Folgen Sie den Anweisungen, um das Problem zu beheben und die Synchronisierung wiederherzustellen:
 
 | Fehler | Grund | Lösung |
 | --- | --- | --- |
 | Server-Fehler | Dies tritt auf, wenn ein Server-Fehler auf Seiten von Shopify auftritt, wenn wir versuchen, Ihre Produkte zu synchronisieren. | [Deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Doppelte SKU | Dies tritt auf, wenn Sie eine SKU als ID für Ihren Katalogartikel verwenden und Produkte mit der gleichen SKU haben. Da die ID des Katalogartikels eindeutig sein muss, müssen alle Ihre Produkte eindeutige SKUs haben. | Prüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass es keine doppelten SKUs gibt. Wenn es doppelte SKUs gibt, aktualisieren Sie diese so, dass sie nur in Ihrem Shopify-Konto eindeutige SKUs sind. Nachdem das Problem behoben ist, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Katalog-Limit überschritten | Dies geschieht, wenn Sie Ihr Katalog-Limit überschreiten. Braze ist nicht in der Lage, die Synchronisierung zu beenden oder aktiv zu halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Wenden Sie sich an Ihren Account Manager, um Ihre Stufe zu upgraden und Ihr Katalog-Limit zu erhöhen.<br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Auswahlen<br><br> Nachdem Sie eine der beiden Lösungen verwendet haben, müssen Sie die Synchronisierung deaktivieren und dann erneut synchronisieren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehlerbehebung" }

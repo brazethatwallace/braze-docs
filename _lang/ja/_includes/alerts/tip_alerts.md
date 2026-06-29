@@ -120,7 +120,7 @@ CSV および API のエクスポートに関するヘルプについては、�
 </form>
 <script type="text/javascript">
 (function() {
-// SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
+// SMS セグメント Calculator - Note: Uses fixed DOM IDs, include only once per page
 var unicodeToGsm = {
 0x000A: [0x0A],
 0x000C: [0x1B, 0x0A],
@@ -338,12 +338,12 @@ if(smsutil.unicodeCodePoints(s).every(function (x) {return x in unicodeToGsm})) 
   return "ucs2";
 }
 },
-_segmentWith: function (maxSingleSegmentSize, maxConcatSegmentSize, doEncode) {
+_segmentWith: function (maxSingleセグメントSize, maxConcatセグメントSize, doEncode) {
 return function (listOfUnichrs) {
     var bytes = smsutil.map(listOfUnichrs, doEncode);
     if (listOfUnichrs.length == 0) {
         return [];
-    } else if ([].concat.apply([], bytes).length <= maxSingleSegmentSize) {
+    } else if ([].concat.apply([], bytes).length <= maxSingleセグメントSize) {
         return [{text:listOfUnichrs, bytes: bytes}];
     }
     var segments = []
@@ -353,7 +353,7 @@ return function (listOfUnichrs) {
         function nextChrLen() {
             return bytes[0] === undefined ? length : length + bytes[0].length;
         }
-        while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatSegmentSize) {
+        while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatセグメントSize) {
             var c = listOfUnichrs.shift()
             var b = bytes.shift();
             segment.text.push(c);
@@ -427,19 +427,19 @@ function updateSMSSplit(){
     varsms_type  = $('#sms_split input[name=sms_type]:checked').val();
     var unicodeinput = smsutil.unicodeCharacters(sms_text);
     var encodedChars = encoder[sms_type](sms_text);
-    var smsSegments = segmenter[sms_type](unicodeinput);
+    var smsセグメント = segmenter[sms_type](unicodeinput);
     $('#sms_length').html(countLength(sms_type, sms_text));
-    $('#sms_segments').html(smsSegments.length);
+    $('#sms_segments').html(smsセグメント.length);
 
     // Display character encoding
     $('#character_encoding').html(displayCharacterEncoding(sms_text, sms_type));
 
     const segmentColors = (i) => `segment_color_${i > 3 ? i%3 : i}`;
-    const segmentsHtml = smsSegments.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
+    const segmentsHtml = smsセグメント.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
 
     // Create message output with both segment and character indexing
     let characterIndex = 0;
-    const messageOutput = smsSegments.map((segment,segment_index) =>
+    const messageOutput = smsセグメント.map((segment,segment_index) =>
       segment.text.map((ch, i) => {
         const safeCh = ch === " " ? "\u00A0" : escapeHtml(ch);
         const result = `<div id='message_output_data_${segment_index}-${i}' data-char-index='${characterIndex}' class='message_output_char ${segmentColors(segment_index)}'>${safeCh}</div>`;

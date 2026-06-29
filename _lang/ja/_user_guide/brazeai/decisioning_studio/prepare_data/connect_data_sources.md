@@ -110,7 +110,7 @@ APIキーの設定の詳細については、[Klaviyoドキュメント](https:/
 これが実現可能かどうかを判断するには、お使いのマーテクプラットフォームのドキュメントを参照してください。例えば：
 
 - mParticleは[Google Cloud Storageとのネイティブ統合](https://www.mparticle.com/integration/google-cloud-storage/)を提供しています
-- [Twilio Segment](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
+- [Twilio セグメント](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
 - [トレジャーデータ](https://docs.treasuredata.com/int/google-cloud-storage-export-integration)
 - [ActionIQ](https://info.actioniq.com/hubfs/ActionIQ%20Industry%20Brief%20Solutions/ActionIQ_Integrations_Brief.pdf)
 - [Adobe Experience Platform](https://experienceleague.adobe.com/en/docs/experience-platform/destinations/catalog/cloud-storage/google-cloud-storage)

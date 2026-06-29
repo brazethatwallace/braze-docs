@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "この記事では、BrazeとGrouparooのパートナーシップについて説明します。Grouparooは、データウェアハウスのデータを活用してマーケティング、セールス、サポートツールを強化するために使用されるオープンソースのリバースETLツールです。"
 page_type: update
+noindex: true
+description: "この記事では、BrazeとGrouparooのパートナーシップについて説明します。Grouparooは、データウェアハウスのデータを活用してマーケティング、セールス、サポートツールを強化するために使用されるオープンソースのリバースETLツールです。"
 
 ---
 
@@ -21,9 +22,9 @@ BrazeとGrouparooの統合により、データウェアハウスのデータを
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Grouparooのアカウントとプロジェクト | このパートナーシップを利用するには、Grouparooのアカウントとプロジェクトが必要です。<br><br>この統合は、Grouparooが提供する無料のコミュニティエディションおよびエンタープライズソリューションで使用できます。セットアップはGrouparooの設定ユーザーインターフェイスで行います。 |
-| Braze REST APIキー | ユーザーとトラックの権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | ユーザーとトラックの権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL](https://www.grouparoo.com/)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -31,7 +32,7 @@ BrazeとGrouparooの統合により、データウェアハウスのデータを
 
 Grouparooで、**Apps**に移動し、**Braze**を選択して新しいBrazeアプリを作成します。表示されたモーダルで、Braze APIキーとRESTエンドポイントを入力します。
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![GrouparooのBrazeアプリ作成モーダル。Braze APIキーとRESTエンドポイントの入力フィールドが表示されています。]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### ステップ 2:モデルとデータソースをセットアップする {#step-2-set-up-a-model-and-data-source}
 

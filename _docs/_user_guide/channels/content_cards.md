@@ -17,7 +17,7 @@ search_rank: 5
 
 Content Cards availability depends on your Braze package. Contact your account manager or customer success manager to get started.
 
-Before you can use Content Cards, you need to integrate the [Braze SDK]({{site.baseurl}}/developer_guide/content_cards/) into your app or website. No additional setup is required. To build your own UI instead, refer to the [Content Card customization guide]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/).
+Before you can use Content Cards, you need to integrate the [Braze SDK]({{site.baseurl}}/developer_guide/content_cards) into your app or website. No additional setup is required. To build your own UI instead, refer to the [Content Card customization guide]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
 
 ## Benefits of using Content Cards
 
@@ -84,11 +84,11 @@ Take advantage of Content Cards to highlight promotional messages and unclaimed 
 
 ### Other use cases
 
-Outside of these main use cases, customers use Content Cards in many different ways. The power of Content Cards is their flexibility. If the use case you want is not shown here, you can set up [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) and send the payloads to your app or website.
+Outside of these main use cases, customers use Content Cards in many different ways. The power of Content Cards is their flexibility. If the use case you want is not shown here, you can set up [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) and send the payloads to your app or website.
 
-For an overview on how to implement Content Card placements in your app or website, refer to [Creating custom Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+For an overview on how to implement Content Card placements in your app or website, refer to [Creating custom Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ## Next steps
 
-- [Create a Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)
-- [Creative details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/)
+- [Create a Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)
+- [Creative details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)

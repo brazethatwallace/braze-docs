@@ -16,51 +16,58 @@ Es posible que ocasionalmente identifiques atributos personalizados, eventos per
 
 Para evitar que estos datos se envíen a Braze, puedes bloquear un objeto de datos personalizados mientras tu equipo de ingeniería trabaja en eliminarlo del backend de tu aplicación o sitio web. El bloqueo impide que Braze registre un objeto de datos personalizados en particular de ahora en adelante, lo que significa que no aparecerá al buscar un usuario específico.
 
+### Elegir entre bloqueo o eliminación {#choosing-blocklisting-or-deletion}
+
+- **Bloqueo**: conserva los atributos personalizados, eventos o compras existentes en los perfiles de usuario, pero Braze ya no procesa datos nuevos para esos objetos.
+- **Eliminación**: quita esos datos de los perfiles de usuario. Los atributos personalizados y eventos eliminados pasan al estado **Trashed** durante siete días, durante los cuales puedes restaurarlos. Después de siete días, Braze los elimina permanentemente. La eliminación no impide que lleguen datos nuevos, así que confirma que tu SDK, API o importaciones CSV ya no envían esos datos antes de eliminarlos.
+
+El bloqueo envía la información de bloqueo al dispositivo de cada usuario y puede consumir muchos datos. Bloquear una cantidad muy grande de atributos, eventos o compras (por ejemplo, más de 100) puede afectar el rendimiento de la aplicación. Si ya no planeas enviar esos datos a Braze, la eliminación suele ser el mejor enfoque después de haber detenido la integración que los envía.
+
+Independientemente de si bloqueas o eliminas, esos atributos personalizados, eventos y compras ya no aparecen en la página **Manage Workspace** y se quitan como filtros de Segments. Si eliminas datos personalizados, Braze quita esos datos a nivel de usuario de los perfiles según [Cómo funciona la eliminación](#how-deletion-works).
+
 Para bloquear datos personalizados, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) del siguiente desplegable para tu espacio de trabajo.
 
 {% details Permisos de usuario para bloquear datos personalizados %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- View Frequency Capping Rules
-- Edit Frequency Capping Rules
-- View Message Prioritization
-- Edit Message Prioritization
-- View Content Blocks
-- View Feature Flags
-- Edit Feature Flags
-- Archive Feature Flags
-- View Segments
-- Edit Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- View Link Templates
-- Edit Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- View Locations
-- Edit Locations
-- Archive Locations
-- View Promotion Codes
-- Edit Promotion Codes
-- Export Promotion Codes
-- View Preference Centers
-- Edit Preference Centers
-- View Reports
-- Edit Reports
+- Ver Campaigns
+- Editar Campaigns
+- Archivar Campaigns
+- Ver Canvas
+- Editar Canvas
+- Archivar Canvas
+- Ver reglas de limitación de frecuencia
+- Editar reglas de limitación de frecuencia
+- Ver priorización de mensajes
+- Editar priorización de mensajes
+- Ver Content Blocks
+- Ver conmutadores de características
+- Editar conmutadores de características
+- Archivar conmutadores de características
+- Ver Segments
+- Editar Segments
+- Ver plantillas de IAM
+- Editar plantillas de IAM
+- Archivar plantillas de IAM
+- Ver plantillas de correo electrónico
+- Editar plantillas de correo electrónico
+- Archivar plantillas de correo electrónico
+- Ver plantillas de Webhook
+- Editar plantillas de Webhook
+- Ver plantillas de enlace
+- Editar plantillas de enlace
+- Ver activos de la biblioteca de medios
+- Editar activos de la biblioteca de medios
+- Eliminar activos de la biblioteca de medios
+- Ver ubicaciones
+- Editar ubicaciones
+- Archivar ubicaciones
+- Ver códigos promocionales
+- Editar códigos promocionales
+- Exportar códigos promocionales
+- Ver centros de preferencias
+- Editar centros de preferencias
+- Ver informes
+- Editar informes
 
 {% enddetails %}
 
@@ -78,7 +85,7 @@ Para dejar de rastrear un atributo personalizado, evento o producto específico,
 2. Selecciona el atributo personalizado, evento o producto. Para atributos personalizados y eventos, puedes seleccionar hasta 100 para bloquear a la vez.
 3. Selecciona **Blocklist**.
 
-![Múltiples atributos personalizados seleccionados que están bloqueados en la página de Atributos personalizados.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
+![Múltiples atributos personalizados seleccionados que están bloqueados en la página de atributos personalizados.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
 Puedes bloquear hasta 300 atributos personalizados y 300 eventos personalizados. Para evitar la recopilación de ciertos atributos de dispositivo, consulta nuestra [guía del SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection).
 
@@ -120,8 +127,8 @@ Para eliminar un evento personalizado o un atributo personalizado, haz lo siguie
 
 Cuando eliminas datos personalizados, ocurre lo siguiente:
 
-- **Para atributos personalizados:** Elimina permanentemente los datos del atributo del perfil de cada usuario.
-- **Para eventos personalizados:** Elimina permanentemente los metadatos del evento del perfil de cada usuario.
+- **Para atributos personalizados:** elimina permanentemente los datos del atributo del perfil de cada usuario.
+- **Para eventos personalizados:** elimina permanentemente los metadatos del evento del perfil de cada usuario.
 
 Cuando se selecciona un atributo o evento para eliminación, su estado cambia a **Trashed**. Durante los siguientes siete días, es posible restaurar el atributo o evento. Si no lo restauras después de siete días, los datos se eliminan permanentemente. Si restauras el atributo o evento, vuelve al estado de bloqueado.
 

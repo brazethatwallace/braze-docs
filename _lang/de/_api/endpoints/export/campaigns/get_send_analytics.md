@@ -18,6 +18,8 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Versa
 
 Braze speichert Versand-Analytics für 14 Tage nach dem Versand. Campaign-Conversions werden der letzten `send_id` zugeschrieben, die ein:e bestimmte:r Nutzer:in von der Campaign erhalten hat.
 
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
@@ -36,7 +38,7 @@ Dieser Endpunkt ist nur für API-Kampagnen gedacht. Um diesen Endpunkt zu verwen
 | `send_id` | Erforderlich | String | Siehe [Versand-API-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
 | `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Reihe enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
 | `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 

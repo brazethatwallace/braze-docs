@@ -80,7 +80,7 @@ Punchhの動的クーポンコードAPIを使用するには、JWTトークン�
 | プレースホルダー | 説明 |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | 動的クーポン生成トークン。 |
-| `CAMPAIGN_ID` | Campaign ID。 |
+| `CAMPAIGN_ID` | キャンペーン ID。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
 ### ステップ3：クーポンコードをメッセージ本文に追加する {#step-3-append-coupon-code-to-message-body}
@@ -104,7 +104,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 JSON応答を返すには、[先ほど作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成URLに`{% raw %}{{jwt}}{% endraw %}`を追加し、URL文字列のトークンの後に`.json`を追加します。リンクは以下のようになります。
 
 {% raw %}
-```liquid
+`````````liquid
 https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json?sign={{jwt}}
 ```
 {% endraw %}
@@ -112,10 +112,10 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 その後、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を活用して、コードをプレーンテキストとして任意のメッセージ本文に挿入できます。例：
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json?sign={{jwt}} :save punchh_coupon %}
 {{punchh_coupon.coupon}}
-````
+```
 {% endraw %}
 
 #### メールコンテンツ内の画像にリンクする {#linking-an-image-inside-email-content}
@@ -129,9 +129,9 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 {% tabs local %}
 {% tab 入力例 %}
 {% raw %}
-```liquid
+`````````liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
-````
+```
 {% endraw %}
 {% endtab %}
 

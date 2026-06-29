@@ -11,7 +11,7 @@ page_type: reference
 
 > Chiffrez les adresses e-mail afin de minimiser les informations personnelles identifiables (PII) partagées dans Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 Le chiffrement au niveau du champ de l'identifiant est disponible en tant que fonctionnalité supplémentaire. Pour commencer à utiliser le chiffrement au niveau du champ de l'identifiant, contactez votre gestionnaire de compte Braze.
@@ -34,11 +34,12 @@ Procédez comme suit pour configurer votre méthode d'authentification par clé 
     - **Clusters Braze dans l'UE :** `eu-central-1`
     - **Cluster Braze AU :** `ap-southeast-2`
     - **Cluster Braze ID :** `ap-southeast-3`
+    - **Cluster Braze JP :** `ap-northeast-1`
 4. Dans AWS Key Management Service, créez deux clés et assurez-vous que l'utilisateur IAM est ajouté dans les autorisations d'utilisation des clés :
     - **[Chiffrer/déchiffrer](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) :** Sélectionnez le type de clé **Symmetric** et l'utilisation de clé **Encrypt and Decrypt**.
     - **[Hacher](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html) :** Sélectionnez le type de clé **Symmetric** et l'utilisation de clé **Generate and Verify MAC**. La spécification de clé doit être **HMAC_256**. Après avoir créé la clé, prenez note de l'ID de la clé HMAC, car vous devrez le saisir dans Braze.
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Paramètres de configuration de la clé avec les options Symmetric, Generate and Verify MAC et HMAC_256 sélectionnées.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
 ## Étape 1 : Connectez vos clés AWS KMS {#step-1-connect-your-aws-kms-keys}
 
@@ -54,7 +55,7 @@ Ensuite, sélectionnez **Email address** pour chiffrer le champ.
 
 Lorsque le chiffrement est activé pour un champ, il n'est pas possible de revenir à un champ déchiffré. Cela signifie que le chiffrement est un paramètre permanent. Lorsque vous configurez le chiffrement de l'adresse e-mail, assurez-vous qu'aucun utilisateur ne dispose d'une adresse e-mail dans l'espace de travail. Cela garantit qu'aucune adresse e-mail en clair n'est stockée dans Braze lorsque vous activez la fonctionnalité pour l'espace de travail.
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![Paramètres de chiffrement au niveau du champ.]({% image_buster /assets/img/field_level_encryption.png %})
 
 ## Étape 3 : Importation et mise à jour des utilisateurs {#step-3-import-and-update-users}
 
@@ -105,7 +106,7 @@ Les adresses e-mail en clair sont prises en charge dans le cadre de l'envoi de t
 2. Dans **Test Send**, sélectionnez **Override recipients attributes with current preview user's attributes**.
 
 {%raw%}
-### Que se passe-t-il si j'ajoute cette adresse e-mail Liquid `{{${email_address}}}` dans Braze ? {#what-happens-if-i-add-this-email-address-liquid-emailaddress-in-braze}
+### Que se passe-t-il si j'ajoute cette adresse e-mail Liquid `{{${email_address}}}` dans Braze ? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 Braze affiche l'adresse e-mail en clair lors de l'envoi de l'e-mail. Dans les prévisualisations, la version chiffrée de l'adresse e-mail est affichée. Nous vous recommandons d'utiliser l'ID externe de l'utilisateur si vous faites référence à un utilisateur dans une URL personnalisée en un clic.
 

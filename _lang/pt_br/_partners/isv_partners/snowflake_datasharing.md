@@ -22,7 +22,7 @@ Atualmente, a Braze hospeda todos os dados de nível de usuário nas regiões AW
 {% endalert %}
 
 {% alert tip %}
-Baixe os [esquemas de tabelas brutas]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) aqui ou use este conjunto de [dados de eventos de amostra](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponível no marketplace do Snowflake para se familiarizar com os eventos compartilhados.
+Baixe os [esquemas de tabelas brutas](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) ou use este conjunto de [dados de eventos de amostra](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset) disponível no marketplace do Snowflake para se familiarizar com os eventos compartilhados.
 {% endalert %}
 
 ## Tratamento de eventos duplicados {#handling-duplicate-events}

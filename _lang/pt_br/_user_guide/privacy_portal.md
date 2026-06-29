@@ -58,7 +58,7 @@ guide_featured_list:
   link: /docs/user_archival/
   image: /assets/img/braze_icons/users-01.svg
 - name: Acesso a IPI do usuário
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: Recursos adicionais de privacidade
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy

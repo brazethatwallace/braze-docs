@@ -29,7 +29,7 @@ Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou 
 | Versão mínima do SDK                                                          | Versão recomendada do SDK                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK" }
 
 {% details Mais informações sobre SDKs mínimos %}
 
@@ -45,7 +45,7 @@ A seguir estão os requisitos mínimos individuais do SDK para esses recursos:
 | Links de texto*                                                         | Solicitar push primer                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK" }
 
 *Se você incluir um link na sua mensagem no app que redireciona para uma URL e o usuário final não estiver nas versões mínimas do SDK especificadas, selecionar o link fechará a mensagem e o usuário não poderá retornar à mensagem para enviar o formulário.
 
@@ -95,7 +95,7 @@ Você pode adicionar até 10 páginas por mensagem no app.
 
 Para duplicar uma página existente:
 
-1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> para abrir mais opções.
+1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> **Mais opções**.
 2. Selecione **Duplicate**.
 3. Dê um nome significativo à página. Isso ajudará quando você conectar as páginas entre si.
 
@@ -104,7 +104,7 @@ Para duplicar uma página existente:
 
 Para excluir ou renomear uma página:
 
-1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> para abrir mais opções.
+1. Passe o mouse sobre a página na lista e selecione <i class="fas fa-ellipsis-vertical" aria-label="Abrir mais opções"></i> **Mais opções**.
 2. Selecione **Rename** ou **Delete**.
 
 {% endtab %}
@@ -168,25 +168,25 @@ Considere as seguintes perguntas ao testar sua mensagem no app:
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-#### Por que os cliques no corpo não aparecem na minha página de análise de dados? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### Por que os cliques no corpo não aparecem na minha página de análise de dados? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Os cliques no corpo não são coletados automaticamente para mensagens no app criadas com o editor de arrastar e soltar. Para mais detalhes, consulte os changelogs do SDK para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) e [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Posso segmentar com base em cliques de botão? {#can-i-segment-based-on-button-clicks}
+### Posso segmentar com base em cliques de botão? {#can-i-segment-based-on-button-clicks}
 
 Sim, você pode segmentar com base em cliques de botão para até dois botões na sua mensagem. Para isso, defina o **Identifier for Reporting** dos seus botões como "0" e "1", que corresponderão aos filtros de segmentação "Clicked in-app message button 1" e "Clicked in-app message button 2", respectivamente.
 
 ![O campo "Identifier for Reporting" com o valor "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Posso personalizar minha mensagem no app usando HTML ou JavaScript personalizados ou transferir mensagens HTML existentes para o editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Posso personalizar minha mensagem no app usando HTML ou JavaScript personalizados ou transferir mensagens HTML existentes para o editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 Você não pode transferir diretamente mensagens HTML existentes para o editor, mas pode inserir HTML, CSS e JavaScript brutos em um bloco de código personalizado. Você pode usar blocos de código personalizado para incorporar vídeos de terceiros e Liquid avançado, como Conteúdo conectado ou instruções condicionais.
 
-#### Como posso criar uma mensagem no app do tipo slideup? {#how-can-i-create-a-slideup-in-app-message}
+### Como posso criar uma mensagem no app do tipo slideup? {#how-can-i-create-a-slideup-in-app-message}
 
 Atualmente, o editor é limitado apenas a mensagens modais e de tela cheia. Você pode alternar entre os tipos de exibição na seção **Message container** do painel **Message styles**.
 
-#### Posso salvar minha mensagem no app como modelo depois de criá-la na minha campanha ou Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Posso salvar minha mensagem no app como modelo depois de criá-la na minha campanha ou Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 Sim. Para qualquer mensagem no app que você queira reutilizar em uma futura campanha ou etapa do Canvas, você pode salvá-la como um modelo personalizado usando o botão **Save as template**, disponível após sair do editor. Antes de salvá-la como modelo, você deve primeiro lançar a campanha OU salvá-la como rascunho.
 

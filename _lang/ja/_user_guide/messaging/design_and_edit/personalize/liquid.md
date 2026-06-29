@@ -56,7 +56,7 @@ Liquidは、メッセージとユーザーデータの橋渡しをします。�
 Liquidテンプレート言語は、オブジェクト、タグ、フィルターの使用をサポートしています。
 
 - [**オブジェクト**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用すると、パーソナライズされた属性をメッセージに挿入できます。
-- [**タグ**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を使用すると、メッセージングにデータを挿入し、条件付きロジックを使用して特定の条件が満たされた場合にメッセージを送信できます。たとえば、タグを使用してCampaignに「if」文などのインテリジェントロジックを含めることができます。
+- [**タグ**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を使用すると、メッセージングにデータを挿入し、条件付きロジックを使用して特定の条件が満たされた場合にメッセージを送信できます。たとえば、タグを使用してキャンペーンに「if」文などのインテリジェントロジックを含めることができます。
 - [**フィルター**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/)を使用すると、パーソナライズされた属性やダイナミックなコンテンツの書式を変更できます。たとえば、[`date`フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#date-filter)を使用して、*2016-09-07 08:43:50 UTC*のようなタイムスタンプを*September 7, 2016*のような日付に変換できます。
 
 {% alert warning %}

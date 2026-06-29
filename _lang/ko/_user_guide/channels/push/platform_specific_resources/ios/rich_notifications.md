@@ -24,7 +24,6 @@ iOS용 리치 푸시 알림을 생성하기 전에 다음 세부 사항을 확�
 - 앱에서 리치 알림을 보낼 수 있도록 하려면 [iOS 푸시 통합]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#ios-10-rich-notifications) 지침을 따르세요. 개발자가 앱에 서비스 확장을 추가해야 합니다.
 - 현재 대시보드에서 직접 업로드할 수 있는 파일 형식은 JPEG, PNG 또는 GIF입니다. 이러한 파일은 템플릿 가능한 URL 필드에도 입력할 수 있으며, 추가 파일 형식으로 AIF, M4A, MP3, MP4 또는 WAV도 지원됩니다.
 - 미디어 제한 사항 및 사양은 [Apple 설명서](https://developer.apple.com/reference/usernotifications/unnotificationattachment)를 참조하세요.
-- iOS 리치 알림은 빠른 푸시 Campaign을 생성할 때는 사용할 수 없습니다.
 - iOS는 화면에 맞게 이미지를 조정하며, 활성 또는 잠금 화면 보기에 맞게 리치 이미지를 스케일링합니다.
 
 {% alert note %}
@@ -130,7 +129,7 @@ iOS 15에서는 시간 민감 및 긴급 표시가 제목을 타임스탬프 없
 
 ### 2단계: 미디어 추가 {#step-2-add-media}
 
-메시지 작성기의 **Rich Notification Media** 필드에 이미지, GIF, 오디오 또는 비디오 파일을 추가합니다. 콘텐츠 파일을 추가하는 방법은 [요구 사항](#requirements)을 참조하세요.
+메시지 작성기의 **iOS Notification Image** 필드에 이미지, GIF, 오디오 또는 비디오 파일을 추가합니다. 콘텐츠 파일을 추가하는 방법은 [요구 사항](#requirements)을 참조하세요.
 
 ![푸시 알림의 요약 텍스트 예시.]({% image_buster /assets/img_archive/rich_notification_add_image.png %}){: style="max-width:70%;" }
 

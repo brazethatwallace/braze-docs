@@ -8,9 +8,9 @@ alias: "/help/release_notes/2022/january/"
 ---
 # 2021年12月 {#december-2021}
 
-## Segmentごとのユーザーエクスポートエンドポイントの更新 {#update-to-export-users-by-segment-endpoint}
+## セグメントごとのユーザーエクスポートエンドポイントの更新 {#update-to-export-users-by-segment-endpoint}
 
-2021年12月より、[Segmentごとのユーザーエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)に以下の変更が適用されます。
+2021年12月より、[セグメントごとのユーザーエクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)に以下の変更が適用されます。
 
 1. このAPIリクエストの`fields_to_export`フィールドは必須となります。すべてのフィールドをデフォルトにするオプションは削除されます。
 2. `custom_events`、`purchases`、`campaigns_received`、`canvases_received`のフィールドには、過去90日間のデータのみが含まれます。
@@ -57,4 +57,4 @@ Amazon Personalizeは、Amazonの機械学習によるレコメンデーショ�
 
 ### Zeotap - 顧客データプラットフォーム {#zeotap-customer-data-platform}
 
-[Zeotap]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/zeotap/)とBrazeの統合により、Zeotapの顧客Segmentsを同期してZeotapのユーザーデータをBrazeのユーザーアカウントにマッピングすることで、Campaignsの規模とリーチを拡張できます。このデータに基づいてアクションを起こし、ユーザーにパーソナライズされたターゲット体験を提供することができます。
+[Zeotap]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/zeotap/)とBrazeの統合により、Zeotapの顧客セグメントを同期してZeotapのユーザーデータをBrazeのユーザーアカウントにマッピングすることで、キャンペーンの規模とリーチを拡張できます。このデータに基づいてアクションを起こし、ユーザーにパーソナライズされたターゲット体験を提供することができます。

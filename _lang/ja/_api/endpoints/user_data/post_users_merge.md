@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `merge_updates` | 必須 | 配列 | オブジェクトの配列。各オブジェクトには `identifier_to_merge` オブジェクトと `identifier_to_keep` オブジェクトが含まれている必要があり、それぞれが `external_id`、`user_alias`、`phone`、または `email` のいずれかでユーザーを参照する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### マージ動作 {#merge-behavior}
 
@@ -266,6 +266,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ## トラブルシューティング {#troubleshooting}
 
+### 成功応答が返されたがマージされたユーザーがまだ検索可能である {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+成功応答はリクエストが受け付けられたことを確認するものですが、マージ操作にはプロファイルのマージとソースプロファイルの削除という2つのステップが含まれます。このため、成功応答の後しばらくの間、`identifier_to_merge` プロファイルがダッシュボードで検索可能な状態のままになることがあります。これは想定される動作です。数分待ってからマージが完了したことを確認してください。
+
+マージされたユーザーが数分経っても存在する場合は、リクエスト内の識別子が正しく、リクエストに使用したAPIキーと同じワークスペースのユーザーに属していることを確認してください。
+
+### エラーリファレンス {#error-reference}
+
 以下の表は、発生する可能性のあるエラーメッセージの一覧です。
 
 | エラー | トラブルシューティング |
@@ -274,6 +282,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 1回のリクエストで指定できるマージ更新は50件までです。 |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | リクエストの識別子を確認してください。 |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates` に `identifier_to_merge` と `identifier_to_keep` の2つのオブジェクトのみが含まれていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

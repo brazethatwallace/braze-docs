@@ -31,7 +31,7 @@ Notez que chaque appel à cet endpoint renverra 50 attributs. Pour plus de 50 at
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `cursor` | Facultatif | Chaîne de caractères | Détermine la pagination des attributs personnalisés. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemples de requêtes {#example-requests}
 

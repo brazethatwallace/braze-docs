@@ -3,9 +3,9 @@ page_order: 0
 nav_title: ホーム
 layout: dev_guide
 guide_top_header: "Braze 開発者ガイド"
-guide_top_text: "ここでは、開発者が Braze SDK について知る必要のあるすべての情報を得ることができます。各SDKは、独自のGitHub公開リポジトリでホストされており、Brazeの機能をテストしたり、独自のアプリケーションと一緒に実装したりするために使用できる、完全にビルド可能なサンプルアプリが含まれている。詳しくは、<a href='https://www.braze.com/docs/developer_guide/references/'>参照資料、リポジトリ、サンプルアプリ</a>を参照してください。<br><br>Braze を使用して構築している他の開発者とつながり、学び、刺激を受けたいですか?<a href='https://www.braze.com/dev-portal'>Braze 開発者コミュニティ</a>に参加しましょう。"
+guide_top_text: "ここでは、開発者がBraze SDKについて知る必要のあるすべての情報を得ることができます。各SDKは独自のGitHub公開リポジトリでホストされており、Brazeの機能をテストしたり、独自のアプリケーションと一緒に実装したりするために使用できる、完全にビルド可能なサンプルアプリが含まれています。詳しくは、<a href='/docs/developer_guide/references/'>参照資料、リポジトリ、サンプルアプリ</a> をご覧ください。<br><br>Brazeを使って開発している他の開発者とつながり、学び、刺激を受けませんか？<a href='https://www.braze.com/dev-portal'>Braze 開発者コミュニティ</a> にぜひご参加ください！"
 article_title: Braze 開発者ガイド
-description: "このランディングページでは、開発者は Braze で利用可能なすべての統合を見つけることができます。"
+description: "このランディングページでは、開発者がBrazeで利用可能なすべての統合を確認できます。"
 
 guide_featured_title: "注目の統合"
 guide_featured_list:
@@ -21,7 +21,7 @@ guide_featured_list:
   link: /docs/developer_guide/sdk_integration/?sdktab=swift
   image: /assets/img/braze_icons/swift.svg
 
-guide_menu_title: "All integrations"
+guide_menu_title: "すべての統合"
 guide_menu_list:
   - name: Cordova
     link: /docs/developer_guide/sdk_integration/?sdktab=cordova
@@ -51,7 +51,7 @@ guide_menu_list:
     link: /docs/developer_guide/sdk_integration/?sdktab=.net%20maui%20(xamarin)
     image: /assets/img/xamarin.png
     nav_link: xamarin
-  - name: TV &amp; OTT
+  - name: TVとOTT
     link: /docs/developer_guide/platforms/tv_and_ott/
     image: /assets/img/braze_icons/tv-03.svg
     nav_link: tv_and_ott

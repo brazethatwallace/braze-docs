@@ -61,7 +61,7 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 | Mobile Apps | iOS, Android 및 Vega SDK |
 | Web Browsers | Web SDK |
 | Mobile Apps 및 Web Browsers 모두 | iOS, Android, Vega 및 Web SDK |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 전달 플랫폼 지정" }
 
 ## 3단계: 메시지 유형 지정 {#step-3-specify-your-message-types}
 
@@ -207,7 +207,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 
 ##### AI 문구 생성 {#generating-ai-copy}
 
-멋진 문구를 만드는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 문구를 생성합니다.
+멋진 문구를 만드는 데 도움이 필요하신가요? [AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면 AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 문구를 생성합니다.
 
 ![인앱 메시지 작성기의 메시지 필드에 있는 AI 카피라이터 시작 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
@@ -241,7 +241,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 | 커스텀 이벤트 기록 | 트리거할 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 선택합니다. 다른 인앱 메시지를 표시하거나 추가 메시징을 트리거하는 데 사용할 수 있습니다. |
 | 커스텀 속성 기록 | 현재 사용자에 대해 설정할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 선택합니다. |
 | 푸시 권한 요청 | 네이티브 푸시 권한을 표시합니다. [푸시 프라이밍]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)과 사용자에게 푸시를 안내하기 위한 [모범 사례]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices)에 대해 자세히 알아보세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 시 동작" }
 
 참고: __푸시 권한 요청__, __커스텀 이벤트 기록__ 및 __커스텀 속성 기록__ 옵션에는 다음 최소 SDK 버전이 필요합니다:
 
@@ -287,7 +287,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 | 배경색 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. 이것은 전체 메시지의 배경이며 텍스트 본문 뒤에 명확하게 표시됩니다. |
 | 화면 오버레이 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. 최신 Braze SDK 버전에서만 사용할 수 있습니다. 이것은 전체 메시지 주위의 프레임입니다. |
 | 셰브론 또는 기타 메시지 닫기 옵션 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="5단계: 인앱 메시지 스타일 지정" }
 
 전송하기 전에 항상 메시지를 [미리보기 및 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)하세요.
 
@@ -308,7 +308,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 
 캠페인의 나머지 부분을 구축합니다. 인앱 메시지를 구축하기 위한 도구 활용 방법에 대한 자세한 안내는 다음 섹션을 참조하세요.
 
-#### 트리거 선택 {#choose-a-trigger}
+### 트리거 선택 {#choose-a-trigger}
 
 메시지를 트리거할 동작과 캠페인 또는 Canvas의 시작 및 종료 시간을 선택합니다.
 
@@ -331,7 +331,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 
 [서버 측 이벤트 트리거]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) 및 [로컬 인앱 메시지 전달]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages)에 대한 개발자 설명서를 참조하세요.
 
-##### 온라인 대 오프라인 트리거 {#online-versus-offline-triggering}
+#### 온라인 대 오프라인 트리거 {#online-versus-offline-triggering}
 
 인앱 메시지는 메시지와 트리거를 사용자의 기기로 전송하는 방식으로 작동합니다. 인앱 메시지가 기기에 있으면 트리거 조건이 충족될 때까지 표시를 대기합니다. 인앱 메시지가 이미 사용자의 기기에 캐시되어 있으면 Braze에 연결되지 않은 오프라인 상태(예: 비행기 모드)에서도 인앱 메시지를 트리거할 수 있습니다.
 
@@ -339,7 +339,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 인앱 메시지가 중지된 후에도 메시지가 중지되기 전에 세션을 시작하고 이후에 트리거 이벤트를 수행한 일부 사용자에게는 메시지가 계속 표시될 수 있습니다. 이러한 사용자는 캠페인이 중지된 후에도 고유 노출 횟수로 집계됩니다.
 {% endalert %}
 
-#### 우선순위 선택 {#choose-a-priority}
+### 우선순위 선택 {#choose-a-priority}
 
 마지막으로, 인앱 메시지가 트리거될 동작을 선택한 후 우선순위도 설정해야 합니다. 동일한 동작에서 두 개의 메시지가 트리거되면 높은 우선순위의 메시지가 낮은 우선순위의 메시지보다 먼저 사용자의 기기에 표시되도록 스케줄됩니다.
 
@@ -358,7 +358,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 
 ![인앱 메시지 캠페인 및 Canvas에 대한 우선순위 설정 방법 예시.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### 타겟 사용자 선택 {#choose-users-to-target}
+### 타겟 사용자 선택 {#choose-users-to-target}
 
 다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 해당 대략적인 Segment 인구의 스냅샷이 자동으로 표시됩니다. 정확한 Segment 멤버십은 항상 메시지가 전송되기 직전에 계산된다는 점을 유의하세요.
 
@@ -366,7 +366,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 인앱 메시지 단계에 지연이 있는 경우, Segment 멤버십은 지연 후에 평가됩니다. 사용자가 자격이 있으면 인앱 메시지는 다음 사용 가능한 세션에서 동기화됩니다.
 {% endalert %}
 
-##### 캠페인 자격 및 Liquid 재평가 {#re-evaluate-campaign-eligibility-and-liquid}
+#### 캠페인 자격 및 Liquid 재평가 {#re-evaluate-campaign-eligibility-and-liquid}
 
 일부 시나리오에서는 인앱 메시지가 표시되도록 트리거될 때 사용자의 자격을 재평가하고 싶을 수 있습니다. 예를 들어 자주 변경되는 커스텀 속성을 타겟팅하는 캠페인이나 마지막 순간의 프로필 변경을 반영해야 하는 메시지가 있습니다.
 
@@ -382,13 +382,13 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 사용자가 오프라인 상태에서 트리거될 수 있는 메시지나 자격 및 Liquid 재평가가 필요하지 않은 메시지에는 이 옵션을 사용하지 마세요.
 {% endalert %}
 
-##### 메시지에서 REST API로 추가된 데이터 사용 {#use-data-added-by-rest-api-in-a-message}
+#### 메시지에서 REST API로 추가된 데이터 사용 {#use-data-added-by-rest-api-in-a-message}
 
 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)가 동일한 세션에서 추가한 사용자 데이터는 때때로 해당 사용자의 인앱 메시지에서 사용할 수 있습니다. 예를 들어, 사용자가 트리거를 기다리는 인앱 메시지의 오디언스에 있고, 세션을 시작한 후 동일한 세션에서 REST API가 프로필을 업데이트하면 **Re-evaluate campaign eligibility before displaying**이 선택된 경우 해당 새 데이터가 인앱 메시지에 나타날 수 있습니다. Braze는 렌더링할 시간이 될 때까지 인앱 메시지를 템플릿화하지 않습니다.
 
 하나의 트리거가 Braze에 데이터를 전송하고 인앱 메시지를 실행하는 경우, 스케줄된 지연이 있더라도 메시지는 새로 업데이트된 프로필 데이터를 사용할 수 없습니다. 대신 두 개의 별도 트리거를 사용하세요: 하나는 데이터를 전송하고, 다른 하나는 인앱 메시지를 트리거합니다.
 
-#### 전환 이벤트 선택 {#choose-conversion-events}
+### 전환 이벤트 선택 {#choose-conversion-events}
 
 Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)를 얼마나 자주 수행하는지 추적할 수 있습니다. 사용자가 지정된 동작을 수행하면 전환이 집계되는 최대 30일의 기간을 허용하는 옵션이 있습니다.
 

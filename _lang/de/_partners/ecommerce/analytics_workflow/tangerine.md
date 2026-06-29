@@ -49,7 +49,7 @@ Um die Besuche von Nutzer:innen im Shop und die Aktivitäten im Laden zusammen m
 
 Nutzen Sie die Vorteile der sicheren Datenfreigabe von Snowflake, um Ihre Braze-Rohdaten zu Campaigns und Impressionen mit Store360 Insight Analytics auszutauschen. So erhalten Sie ein vollständiges Bild des Lebenszyklus und der Aktivitäten der Nutzer:innen – von online bis offline.
 
-Als Referenz finden Sie hier alle [Braze-Felder]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df), die in Store360 Analytics integriert werden können. Die Details dieses Schrittes sind sehr kundenspezifisch und erfordern spezielle Konfigurationen. Sprechen Sie mit Ihrem Store360 Account Manager oder support@tangerine.io, um mehr zu erfahren.
+Als Referenz finden Sie hier alle [Braze-Felder](/docs/assets/download_file/data-sharing-raw-table-schemas.txt), die in Store360 Analytics integriert werden können. Die Details dieses Schrittes sind sehr kundenspezifisch und erfordern spezielle Konfigurationen. Sprechen Sie mit Ihrem Store360 Account Manager oder wenden Sie sich an support@tangerine.io, um mehr zu erfahren.
 
 ## Wichtige Informationen und Einschränkungen {#important-information-and-limitations}
 

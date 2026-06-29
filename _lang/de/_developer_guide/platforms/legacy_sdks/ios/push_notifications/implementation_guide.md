@@ -146,7 +146,6 @@ Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserwei
 3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Anmelden“ angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
 Beachten Sie, dass es sich bei den hier angeforderten Informationen um eine Vielzahl von Dingen handeln kann, wie z. B. die Erfassung von SMS-Nummern – sie müssen nicht unbedingt auf E-Mails bezogen sein.
 

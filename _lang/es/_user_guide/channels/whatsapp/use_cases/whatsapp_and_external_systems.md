@@ -19,7 +19,7 @@ channel:
 | - | - |
 | Sistema externo | Un sistema de IA o comunicación de terceros capaz de crear y administrar chatbots, sistemas automatizados de servicio al cliente mediante API, o ambos. |
 | Integración de Braze y WhatsApp | Un número de WhatsApp administrado por Braze |
-| Clave de API REST de Braze | Una clave de API REST con permisos de `campaigns.trigger.send`. Se puede crear en el panel de Braze yendo a **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST con permisos de `campaigns.trigger.send`. Se puede crear en el panel de Braze yendo a **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Cómo funciona {#how-it-works}
@@ -40,7 +40,7 @@ Para automatizar eficientemente esta comunicación, esta integración utiliza do
 Primero, crea una Campaign de webhook para establecer una forma de enviar los mensajes de WhatsApp recibidos por Braze a tu sistema externo.
 
 1. En Braze, crea una Campaign de webhook.
-2. En el creador de webhooks, selecciona **Compose webhook**.
+2. En el creador de webhooks, selecciona **Redactar webhook**.
 3. En el campo **Webhook URL**, introduce el punto de conexión de la API (URL) del sistema externo que recibirá el mensaje.
 4. Selecciona **Raw text** para el cuerpo de la solicitud e introduce una carga útil con personalización que contenga el `external_id` y el número de teléfono del usuario, el contenido del mensaje y otra información relevante, como:
 
@@ -55,7 +55,7 @@ Primero, crea una Campaign de webhook para establecer una forma de enviar los me
 {% endraw %}
 
 {: start="5"}
-5. En el paso **Schedule Delivery** del creador de tu Campaign, selecciona **Action-Based** para el tipo de entrega y **Send a WhatsApp inbound message** para el desencadenador de la Campaign.
+5. En el paso **Planificación de entrega** del creador de tu Campaign, selecciona **Basada en acciones** para el tipo de entrega y **Send a WhatsApp inbound message** para el desencadenador de la Campaign.
 
 ![Entrega basada en acciones con un desencadenador de envío de un mensaje de entrada de WhatsApp.]({% image_buster /assets/img/whatsapp/inbound_message_trigger.png %})
 
@@ -77,7 +77,7 @@ A continuación, crea una Campaign activada por API para establecer una forma en
 ![Creador de mensajes con el cuerpo del mensaje que contiene propiedades de desencadenador.]({% image_buster /assets/img/whatsapp/api_trigger_properties.png %})
 
 {: start="4"}
-4. En el paso **Schedule Delivery** del creador de tu Campaign, selecciona **Action-Based** para el tipo de entrega.
+4. En el paso **Planificación de entrega** del creador de tu Campaign, selecciona **Basada en acciones** para el tipo de entrega.
 5. Guarda la Campaign y toma nota del `campaign_id` único que Braze genera para esta Campaign. Necesitarás el ID para el siguiente paso.
 
 ### Paso 3: Conectar el sistema externo a la Campaign activada por API {#step-3-connect-the-external-system-to-the-api-triggered-campaign}

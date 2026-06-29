@@ -1,11 +1,3 @@
-{% if include.alert == "Shopify deprecation" %}
-
-{% alert important %}
-[Shopify 통합의 새로운 버전]({{site.baseurl}}/partners/shopify/#new-shopify-integration)이 2025년 4월부터 단계적으로 출시될 예정입니다. 단계는 Shopify 스토어 유형과 초기 통합 설정에 사용된 외부 ID를 기반으로 합니다. <br><br>**통합의 이전 버전은 2025년 8월 28일 이후 더 이상 사용할 수 없습니다. 이 날짜 이전에 새로운 버전으로 업데이트하여 통합을 문제 없이 계속 사용하세요.**
-{% endalert %}
-
-{% endif %}
-
 {% if include.alert == 'Web push private browsing' %}
 
 {% alert important %}

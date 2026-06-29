@@ -7,7 +7,7 @@
 | 機能 | 説明 |
 |-------|-----------|
 | Push Stories | AndroidのPush Storiesは、Braze Android SDKにデフォルトで組み込まれています。詳しくは[Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)を参照してください。|
-| プッシュプライマー | プッシュプライマーCampaignでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)を使用して、SDKのカスタマイズなしで行うことができます。|
+| プッシュプライマー | プッシュプライマーキャンペーンでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)を使用して、SDKのカスタマイズなしで行うことができます。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## プッシュ通知のライフサイクルについて {#push-notification-lifecycle}
@@ -85,7 +85,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 {% endtab %}
 
 {% tab Generating push tokens %}
-```mermaid
+`````````mermaid
 ---
 config:
   theme: neutral
@@ -134,7 +134,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 {% endtab %}
 
 {% tab Displaying notifications %}
-```mermaid
+`````````mermaid
 ---
 config:
   theme: neutral
@@ -197,13 +197,13 @@ Firebase Cloud Messaging（FCM）APIには、1分あたり600,000リクエスト
 
 次に、Cloud Messagingライブラリーをプロジェクトの依存関係に追加します。Androidプロジェクトで`build.gradle`を開き、`dependencies`ブロックに次の行を追加します。
 
-```gradle
+`````````gradle
 implementation "google.firebase:firebase-messaging:+"
 ```
 
 依存関係は次のようになります。
 
-```gradle
+`````````gradle
 dependencies {
   implementation project(':android-sdk-ui')
   implementation "com.google.firebase:firebase-messaging:+"
@@ -224,7 +224,6 @@ Google Cloudで、Androidアプリが使用しているプロジェクトを選�
 
 サービスアカウント名、ID、説明を入力して、**作成して続行**を選択します。
 
-![「サービスアカウントの詳細」のフォーム。]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 **ロール**フィールドで、ロールのリストから**Firebase Cloud Messaging API管理者**を見つけて選択します。アクセスをより制限する場合は、`cloudmessaging.messages.create`権限を持つ[カスタムロール](https://cloud.google.com/iam/docs/creating-custom-roles)を作成し、代わりにリストからそれを選択します。完了したら、**完了**を選択します。
 
@@ -286,14 +285,14 @@ Androidアプリの**プッシュ通知の設定**で**Firebase**を選択し、
 {% tab Braze.XML %}
 FCMトークンの自動登録を設定するには、`braze.xml`ファイルに以下の行を追加します。
 
-```xml
+`````````xml
 <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
 <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">FIREBASE_SENDER_ID</string>
 ```
 
 `FIREBASE_SENDER_ID`をFirebaseプロジェクトの設定からコピーした値に置き換えます。`braze.xml`は次のようになります。
 
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string translatable="false" name="com_braze_api_key">12345ABC-6789-DEFG-0123-HIJK456789LM</string>
@@ -308,13 +307,13 @@ FCMトークンの自動登録を設定するには、`BrazeConfig`に以下の�
 
 {% subtabs local %}
 {% subtab JAVA %}
-```java
+`````````java
 .setIsFirebaseCloudMessagingRegistrationEnabled(true)
 .setFirebaseCloudMessagingSenderIdKey("FIREBASE_SENDER_ID")
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 .setIsFirebaseCloudMessagingRegistrationEnabled(true)
 .setFirebaseCloudMessagingSenderIdKey("FIREBASE_SENDER_ID")
 ```
@@ -325,7 +324,7 @@ FCMトークンの自動登録を設定するには、`BrazeConfig`に以下の�
 
 {% subtabs local %}
 {% subtab JAVA %}
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setApiKey("12345ABC-6789-DEFG-0123-HIJK456789LM")
   .setCustomEndpoint("sdk.iad-01.braze.com")
@@ -339,7 +338,7 @@ Braze.configure(this, brazeConfig);
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
   .setApiKey("12345ABC-6789-DEFG-0123-HIJK456789LM")
   .setCustomEndpoint("sdk.iad-01.braze.com")
@@ -374,7 +373,7 @@ Braze.configure(this, brazeConfig)
 {% tab 新規 %}
 Brazeには、プッシュ受信インテントと開封インテントを処理するサービスが含まれています。`BrazeFirebaseMessagingService`クラスは`AndroidManifest.xml`に登録する必要があります。
 
-```xml
+`````````xml
 <service android:name="com.braze.push.BrazeFirebaseMessagingService"
   android:exported="false">
   <intent-filter>
@@ -396,7 +395,7 @@ Firebase Messaging Serviceがすでに登録されている場合は、[`RemoteM
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -415,7 +414,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class MyFirebaseMessagingService : FirebaseMessagingService() {
   override fun onMessageReceived(remoteMessage: RemoteMessage?) {
     super.onMessageReceived(remoteMessage)
@@ -439,7 +438,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 `braze.xml`で次のように指定します。
 
-```xml
+`````````xml
 <bool name="com_braze_fallback_firebase_cloud_messaging_service_enabled">true</bool>
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
@@ -449,7 +448,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setFallbackFirebaseMessagingServiceEnabled(true)
         .setFallbackFirebaseMessagingServiceClasspath("com.company.OurFirebaseMessagingService")
@@ -460,7 +459,7 @@ Braze.configure(this, brazeConfig);
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
         .setFallbackFirebaseMessagingServiceEnabled(true)
         .setFallbackFirebaseMessagingServiceClasspath("com.company.OurFirebaseMessagingService")
@@ -497,7 +496,7 @@ Android N以降、色を使った小さな通知アイコンアセットは更�
 
 Brazeでは、`braze.xml`内でdrawableリソースを指定することで、通知アイコンを設定できます。
 
-```xml
+`````````xml
 <drawable name="com_braze_push_small_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 <drawable name="com_braze_push_large_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 ```
@@ -510,13 +509,13 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 
 通知アイコンのアクセントカラーは、`braze.xml`でオーバーライドできます。色を指定しない場合、デフォルトの色はLollipopがシステム通知に使用するのと同じグレーになります。
 
-```xml
+`````````xml
 <integer name="com_braze_default_notification_accent_color">0xFFf33e3e</integer>
 ```
 
 オプションでカラーリファレンスを使用することもできます。
 
-```xml
+`````````xml
 <color name="com_braze_default_notification_accent_color">@color/my_color_here</color>
 ```
 
@@ -526,7 +525,7 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 
 プッシュ通知がクリックされたときにBrazeがアプリとディープリンクを自動的に開くようにするには、`braze.xml`で`com_braze_handle_push_deep_links_automatically`を`true`に設定します。
 
-```xml
+`````````xml
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
@@ -535,7 +534,7 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setHandlePushDeepLinksAutomatically(true)
         .build();
@@ -545,7 +544,7 @@ Braze.configure(this, brazeConfig);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
         .setHandlePushDeepLinksAutomatically(true)
         .build()
@@ -567,7 +566,7 @@ Androidでは、アプリがフォアグラウンドにあるときにプッシ�
 
 {% tabs %}
 {% tab JAVA %}
-```java
+`````````java
 package com.example.push;
 
 import com.braze.push.BrazeFirebaseMessagingService;
@@ -591,7 +590,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 {% endtab %}
 
 {% tab KOTLIN %}
-```kotlin
+`````````kotlin
 package com.example.push
 
 import com.braze.push.BrazeFirebaseMessagingService
@@ -631,7 +630,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 #### ディープリンクの追加 {#adding-deep-links}
 
-Brazeダッシュボードではプッシュ通知のCampaignやCanvasesで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
+Brazeダッシュボードではプッシュ通知のキャンペーンやキャンバスで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
 
 ![Brazeダッシュボードの「クリック時の動作」設定で、ドロップダウンから「アプリケーションへのディープリンク」を選択している状態。]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
@@ -644,7 +643,7 @@ Android SDKのデフォルトでは、プッシュのディープリンクを辿
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setPushDeepLinkBackStackActivityEnabled(true)
         .setPushDeepLinkBackStackActivityClass(YourMainActivity.class)
@@ -655,7 +654,7 @@ Braze.configure(this, brazeConfig);
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
         .setPushDeepLinkBackStackActivityEnabled(true)
         .setPushDeepLinkBackStackActivityClass(YourMainActivity.class)
@@ -668,7 +667,7 @@ Braze.configure(this, brazeConfig)
 
 `braze.xml`の同等の設定を参照してください。クラス名は`Class.forName()`で返されるものと同じでなければならないことに注意してください。
 
-```xml
+`````````xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">true</bool>
 <string name="com_braze_push_deep_link_back_stack_activity_class_name">your.package.name.YourMainActivity</string>
 ```
@@ -687,7 +686,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 
 デフォルトのチャネル名と説明も`braze.xml`で設定できます。
 
-```xml
+`````````xml
 <string name="com_braze_default_notification_channel_name">Your channel name</string>
 <string name="com_braze_default_notification_channel_description">Your channel description</string>
 ```
@@ -696,15 +695,15 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 
 #### 表示のテスト {#testing-display}
 
-この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**Campaigns**ページにアクセスし、**プッシュ通知**Campaignを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**Send Test**をクリックします。デバイスにプッシュが表示されます。
+この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**キャンペーン**ページにアクセスし、**プッシュ通知**キャンペーンを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**Send Test**をクリックします。デバイスにプッシュが表示されます。
 
-![Brazeダッシュボード内のプッシュ通知Campaignの「テスト」タブ。]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
+![Brazeダッシュボード内のプッシュ通知キャンペーンの「テスト」タブ。]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
 プッシュ表示に関する問題については、[トラブルシューティングガイド]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)を参照してください。
 
 #### 分析のテスト {#testing-analytics}
 
-この時点で、プッシュ通知の開封に関する分析ログも記録されているはずです。届いた通知をクリックすると、Campaign結果ページの**直接開封数**の値が1増えます。プッシュ分析の内訳については、[プッシュレポート]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/)の記事をご覧ください。
+この時点で、プッシュ通知の開封に関する分析ログも記録されているはずです。届いた通知をクリックすると、キャンペーン結果ページの**直接開封数**の値が1増えます。プッシュ分析の内訳については、[プッシュレポート]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/)の記事をご覧ください。
 
 プッシュ分析に関する問題については、[トラブルシューティングガイド]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)を参照してください。
 
@@ -717,7 +716,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 - `YOUR_KEY1`（省略可能）
 - `YOUR_VALUE1`（省略可能）
 
-```bash
+`````````bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
   "external_user_ids":["YOUR_EXTERNAL_USER_ID"],
   "messages": {

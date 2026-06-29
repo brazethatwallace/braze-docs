@@ -10,7 +10,7 @@ description: "この記事には2021年5月のリリースノートが含まれ�
 
 ## コンバージョンの相関 {#conversion-correlation}
 
-このガイドでは、**Campaign分析**ページの[コンバージョン相関]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/)分析について説明します。この分析では、Campaignに設定した成果に対して、どのようなユーザー属性や行動が役立つのか、あるいは不利になるのかについてインサイトを得ることができます。分析の概要、チェック対象、利用可能なタイミング、そしてBrazeがどのように有意性をチェックするのかについて説明します。
+このガイドでは、**キャンペーン分析**ページの[コンバージョン相関]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/)分析について説明します。この分析では、キャンペーンに設定した成果に対して、どのようなユーザー属性や行動が役立つのか、あるいは不利になるのかについてインサイトを得ることができます。分析の概要、チェック対象、利用可能なタイミング、そしてBrazeがどのように有意性をチェックするのかについて説明します。
 
 ## グローバルコントロールグループレポート {#global-control-group-report}
 
@@ -18,7 +18,7 @@ description: "この記事には2021年5月のリリースノートが含まれ�
 
 ## レポートの概要 {#reports-overview}
 
-CampaignやCanvasの分析について何から始めたらよいかわからない場合は、[レポートの概要]({{site.baseurl}}/user_guide/analytics/reports/)で、マーケティング戦略に関する一般的な質問に答えるために使用できるレポートや分析についてのガイダンスを提供しています。
+キャンペーンやキャンバスの分析について何から始めたらよいかわからない場合は、[レポートの概要]({{site.baseurl}}/user_guide/analytics/reports/)で、マーケティング戦略に関する一般的な質問に答えるために使用できるレポートや分析についてのガイダンスを提供しています。
 
 ## 新しいUS-05クラスター {#new-us-05-cluster}
 

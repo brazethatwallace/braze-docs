@@ -128,20 +128,20 @@ Braze recomienda subir activos a la biblioteca de medios por dos razones:
 
 Puedes añadir activos nuevos o existentes a tu campaña.
 
-Para añadir nuevos activos a tu campaña, usa la sección de arrastrar y soltar para cargar un archivo. Los activos añadidos en esta sección también se agregarán automáticamente a la biblioteca de medios. Para añadir activos que ya hayas subido a la biblioteca de medios, selecciona **Add from Media Library**.
+Para añadir nuevos activos a tu campaña, usa la sección de arrastrar y soltar para cargar un archivo. Los activos añadidos en esta sección también se agregarán automáticamente a la biblioteca de medios. Para añadir activos que ya hayas subido a la biblioteca de medios, selecciona **Añadir desde la biblioteca de medios**.
 
-Una vez añadidos tus activos, aparecerán en la sección **Assets for this campaign**.
+Una vez añadidos tus activos, aparecerán en la sección **Activos para esta campaña**.
 
 Si el nombre de un activo coincide con el de un activo HTML local, se reemplaza automáticamente (por ejemplo, se sube `cat.png` y existe `<img src="cat.png" />`).
 
-De lo contrario, pasa el cursor sobre un activo de la lista y selecciona <i class="fas fa-copy"></i> **Copy** para copiar la URL del archivo a tu portapapeles. Luego pega la URL del activo copiada en tu HTML como lo harías normalmente al hacer referencia a un activo remoto.
+De lo contrario, pasa el cursor sobre un activo de la lista y selecciona <i class="fas fa-copy"></i> **Copiar** para copiar la URL del archivo a tu portapapeles. Luego pega la URL del activo copiada en tu HTML como lo harías normalmente al hacer referencia a un activo remoto.
 
 ### Editor HTML {#html-editor}
 
 Los cambios que realices en el HTML se renderizan automáticamente en el panel de vista previa a medida que escribes. Los métodos JavaScript de [`brazeBridge`](#bridge) que uses en tu HTML no actualizarán los perfiles de usuario mientras previsualizas en el dashboard.
 
 {% alert tip %}
-Puedes seleccionar <i class="fa-solid fa-magnifying-glass"></i> **Search** dentro del editor HTML para buscar en tu código.
+Puedes seleccionar <i class="fa-solid fa-magnifying-glass"></i> **Buscar** dentro del editor HTML para buscar en tu código.
 {% endalert %}
 
 ### Seguimiento de botones {#button-tracking-improvements}
@@ -150,8 +150,8 @@ Puedes hacer seguimiento del rendimiento dentro de tu mensaje dentro de la aplic
 
 | Clics | Método |
 | ---------- | ---------------------------- |
-| Button 1 | `brazeBridge.logClick('0')` |
-| Button 2 | `brazeBridge.logClick('1')` |
+| Button 1   | `brazeBridge.logClick('0')` |
+| Button 2   | `brazeBridge.logClick('1')` |
 | Clic en el cuerpo | `brazeBridge.logClick()` |
 | Seguimiento de botón personalizado | `brazeBridge.logClick('your custom name here')` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de botones" }
@@ -159,6 +159,18 @@ Puedes hacer seguimiento del rendimiento dentro de tu mensaje dentro de la aplic
 {% alert note %}
 Este método de seguimiento de botones reemplaza los métodos anteriores de seguimiento automático de clics (como `?abButtonId=0`), que han sido eliminados.
 {% endalert %}
+
+Usa [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. Button 1 y Button 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por campaña). Para restricciones de caracteres en los ID de botón, consulta [Seguimiento de botones](#button-tracking-improvements).
+
+### Solución de problemas con enlaces HTML personalizados y comportamiento de cierre {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### Los clics en botones no abren el enlace {#button-clicks-do-not-open-the-link}
+
+Si un botón en tu mensaje dentro de la aplicación con HTML personalizado no se carga al hacer clic, verifica que el enlace use una URL válida o un esquema de vínculo profundo compatible. Las URL mal formadas o los esquemas personalizados no compatibles pueden impedir que la acción de clic se complete.
+
+#### Clics en el cuerpo al cerrar el mensaje {#body-clicks-when-closing-the-message}
+
+Llamar a `brazeBridge.closeMessage()` cierra el mensaje pero no registra análisis por sí solo. Para registrar un clic en el cuerpo cuando el usuario cierra el mensaje, llama a `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que el registro de clics sea consistente en todas las plataformas.
 
 ### Cambios incompatibles con versiones anteriores {#backward-incompatible-changes}
 

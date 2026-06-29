@@ -14,7 +14,7 @@ noindex: true
 
 Braze provides methods for assigning attributes to users. You'll be able to filter and segment your users according to these attributes on the dashboard.
 
-Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [best practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), as well as our notes on [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Before implementation, be sure to review examples of the segmentation options afforded by custom events, custom attributes, and purchase events in our [best practices]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), as well as our notes on [event naming conventions]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Assigning default user attributes
 
@@ -54,7 +54,7 @@ The following attributes should be set on the `ABKUser` object:
 
 ## Assigning custom user attributes
 
-Beyond the default user attributes, Braze also allows you to define custom attributes using several different data types. See our [user data collection]({{site.baseurl}}/developer_guide/analytics/) for more information on the segmentation options each of these attributes will afford you.
+Beyond the default user attributes, Braze also allows you to define custom attributes using several different data types. See our [user data collection]({{site.baseurl}}/developer_guide/analytics) for more information on the segmentation options each of these attributes will afford you.
 
 ### Custom attribute with a string value
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### Setting a custom attribute via the REST API
 
-You can also use our REST API to set user attributes. Refer to the [User API documentation]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) for details.
+You can also use our REST API to set user attributes. Refer to the [User API documentation]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) for details.
 
 ### Custom attribute value limits
 
@@ -257,7 +257,7 @@ To set up a subscription for your users (either email or push), call the functio
 
 Users who grant permission for an app to send them push notifications default to the status of `ABKOptedin` as iOS requires an explicit opt-in.
 
-Users will be set to `ABKSubscribed` automatically upon receipt of a valid email address; however, we suggest that you establish an explicit opt-in process and set this value to `OptedIn` upon receipt of explicit consent from your user. Refer to [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/) for more details.
+Users will be set to `ABKSubscribed` automatically upon receipt of a valid email address; however, we suggest that you establish an explicit opt-in process and set this value to `OptedIn` upon receipt of explicit consent from your user. Refer to [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions) for more details.
 
 ### Setting email subscriptions
 
@@ -297,5 +297,5 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Refer to [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/) for more details.
+Refer to [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions) for more details.
 

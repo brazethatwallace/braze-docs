@@ -15,7 +15,7 @@ channel:
 > Contact cards (sometimes known as vCard or Virtual Contact Files (VCF)) are a standardized file format for sending business and contact information that you can easily import into address books or contact books. 
 
 {% alert note %}
-Sending a contact card is charged as an MMS. Review your expected MMS volume and Message or Action Credits usage when you create contact cards, and confirm costs in your Braze [Billing page]({{site.baseurl}}/user_guide/administer/global/billing/).
+Sending a contact card is charged as an MMS. Review your expected MMS volume and Message or Action Credits usage when you create contact cards, and confirm costs in your Braze [Billing page]({{site.baseurl}}/user_guide/administer/global/billing).
 {% endalert %}
 
 Contact cards can be created [programmatically](https://www.twilio.com/blog/send-vcard-twilio-sms) and uploaded to the Braze [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) or created through our built-in contact card generator. These cards can be assigned common properties such as your company's name, phone number, address, email, and a small photo. To start making contact cards, first make sure you're set up to use MMS in Braze.
@@ -42,15 +42,21 @@ Note that alphanumeric codes are not compatible with two-way messaging and are n
 
 #### Upload contact card contact photo
 
-You can upload an optional thumbnail contact photo for your contact card. We recommend a 240 x 240&nbsp;px JPEG or PNG image. Any high-resolution images uploaded will be resized to 240 x 240&nbsp;px to ensure the deliverability of your message, as MMS messages larger than 5&nbsp;MB may fail.
+You can upload an optional contact photo for your contact card. We recommend a 240 x 240&nbsp;px JPEG or PNG image. Any high-resolution images uploaded are resized to 240 x 240&nbsp;px to support message deliverability, as MMS messages larger than 5&nbsp;MB may fail. 
+
+{% alert note %}
+The uploaded image appears on the contact card when the recipient opens it; the [**Full Name** field](#add-more-information) determines what appears in the message chat thumbnail.
+{% endalert %}
 
 #### Add more information
 
 Other fields allow you to insert your name, subheader, address, and other contact information that your user may want to have available. 
 
+The **Full Name** field determines the initials that appear in the message chat thumbnail. When the field is marked as optional and is left blank, recipients see a white circle instead of initials. 
+
 ### Step 4: Saving your contact card
 
-Once you've input all the necessary fields, click **Generate Contact Card**, and it will be automatically attached to your campaign or Canvas. From here, you can add a message, test your contact card, and launch your campaign or Canvas.
+After inputting all the necessary fields, select **Generate Contact Card**, and it automatically attaches to your campaign or Canvas. From here, you can add a message, test your contact card, and launch your campaign or Canvas.
 
 The contact card will also be saved in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) to easily reuse in future campaigns and Canvases.
 

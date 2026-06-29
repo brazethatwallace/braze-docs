@@ -57,7 +57,7 @@ Braze管理者の場合、以下の手順で以前に設定したドメインを
 
 ## DNSリソース {#dns-resources}
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## トラブルシューティング {#troubleshooting}
 

@@ -61,7 +61,7 @@ La pestaña **Total de uso de puntos de datos** proporciona una visión detallad
 La información de puntos de datos se almacena en caché cada 24 horas.
 {% endalert %}
 
-Si eres administrador y no puedes ver la pestaña **Total de uso de puntos de datos**, asegúrate de que tu navegador permita cookies de terceros para el dominio de tu panel de Braze y de que no esté en modo incógnito.
+Si eres administrador y no puedes ver la pestaña **Total de uso de puntos de datos**, asegúrate de que tu navegador permita cookies de terceros para el dominio de tu dashboard de Braze y de que no esté en modo incógnito.
 
 ![Filtrado del uso de puntos de datos por semanas]({% image_buster /assets/img/subscription_and_billing2.png %})
 
@@ -75,8 +75,6 @@ Los campos en esta sección se definen de la siguiente manera:
 - **Fecha de inicio y finalización del contrato:** Fecha de inicio y finalización del contrato completo.
 - **Puntos de datos asignados:** La cantidad de puntos de datos asignados en el contrato por período de facturación.
 - **Uso de puntos de datos del contrato:** Un total acumulado de todos los puntos de datos registrados durante la vigencia del contrato, que no se restablece en el siguiente período de facturación.
-
-![Sección de detalles del contrato en la pestaña de total de uso de puntos de datos]({% image_buster /assets/img/contract_details.png %})
 
 ### Datos de facturación de la empresa {#company-billing-data}
 
@@ -110,5 +108,5 @@ Este gráfico te permite ver rápidamente tu uso total de puntos de datos en com
 
 ## Próximos pasos {#next-steps}
 
-- [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
-- [Dashboard de uso de mensajes]({{site.baseurl}}/user_guide/administer/global/billing/message_usage_dashboard/) para supervisar el consumo de créditos de SMS, WhatsApp y RCS.
+- [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para configurar alertas de eventos relacionados con la facturación y umbrales de uso.
+- [Dashboard de uso de créditos]({{site.baseurl}}/credits_usage_dashboard) para supervisar el consumo de créditos de mensajes.

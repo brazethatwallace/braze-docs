@@ -48,7 +48,7 @@ Los envíos de prueba y los envíos de correo electrónico a grupos semilla cons
 
 ### Con extras de mensaje para Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Guardar códigos promocionales en perfiles de usuario {#save-to-profile}
 

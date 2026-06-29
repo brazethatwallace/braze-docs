@@ -15,11 +15,9 @@ channel:
 
 E-Mail-Zustellbarkeit ist der Kern des Kampagnenerfolgs. Mit dem Deliverability Center im Braze-Dashboard können Sie Ihre Domains nach **IP Reputation** oder **Delivery Errors** anzeigen, um potenzielle Probleme mit der E-Mail-Zustellbarkeit zu erkennen und zu beheben.
 
-Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Legacy-Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) „Access Campaigns, Canvases, Cards, Segments, Media Library“ und „View Usage Data“ oder die [granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions) im folgenden Dropdown für Ihren Workspace.
+Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) im folgenden Dropdown für Ihren Workspace.
 
 {% details Nutzer:innenberechtigungen für das Deliverability Center %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - Campaigns anzeigen
 - Campaigns bearbeiten
@@ -70,7 +68,7 @@ Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Legacy-Nutzer:
 Bevor Sie sich mit dem Deliverability Center verbinden, müssen Sie ein Google Postmaster Tools-Konto einrichten. Sie können ein geschäftliches oder persönliches Gmail-Konto verwenden, um Google Postmaster einzurichten.
 
 1. Gehen Sie zum [Google Postmaster Tools-Dashboard](https://postmaster.google.com/managedomains?pli=1).
-2. Wählen Sie unten rechts das <i class="fas fa-plus-circle" aria-label="Plus-Symbol"></i> Plus-Symbol aus.
+2. Wählen Sie unten rechts <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Geben Sie Ihre Root-(Eltern-)Domain ein, um Ihre E-Mail zu authentifizieren. Stellen Sie sicher, dass der TXT-Eintrag mit dieser Root-(Eltern-)Domain verknüpft ist, **nicht** mit der Subdomain, die Sie über Braze verwenden. Durch die Verifizierung der Root-(Eltern-)Domain können Sie später Subdomains in den Postmaster Tools hinzufügen, ohne zusätzliche TXT-Einträge erstellen zu müssen. Wenn Sie beispielsweise `braze.com` verifizieren, können Sie später `demo.braze.com` als separate Subdomain in den Postmaster Tools hinzufügen, um Metriken auf Subdomain-Ebene einzusehen.
 4. Google generiert einen TXT-Eintrag, der direkt zum DNS Ihrer Domain hinzugefügt werden kann. Dies wird in der Regel von der Person verwaltet, die für Ihr DNS zuständig ist. Informationen und Anleitungen zur Aktualisierung Ihres spezifischen DNS finden Sie unter [Domain verifizieren (hostspezifische Schritte)](https://support.google.com/a/topic/1409901).
 5. Wählen Sie **Next**. <br>![Eine Beispiel-Domain „demo.braze.com“ zur Authentifizierung einer E-Mail.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -87,7 +85,7 @@ Bevor Sie Ihr Deliverability Center einrichten, stellen Sie sicher, dass Ihre Do
 
 Folgen Sie diesen Schritten, um Google Postmaster zu integrieren und Ihr Deliverability Center einzurichten:
 
-1. Gehen Sie zu **Analytics** > **E-Mail-Performance**.
+1. Gehen Sie zu **Analytics** > **Email Performance**.
 2. Wählen Sie den Tab **Deliverability Center**. <br>![Ein Deliverability Center mit nicht verbundenem Google Postmaster.]({% image_buster /assets/img_archive/deliverability_center1.png %})
 3. Wählen Sie **Connect with Google Postmaster**.
 4. Wählen Sie Ihr Google-Konto aus und dann **Allow**, um Braze die Anzeige von E-Mail-Traffic-Metriken für die in den Postmaster Tools registrierten Domains zu erlauben.

@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `merge_updates` | Requis | Tableau | Un tableau d'objets. Chaque objet doit contenir un objet `identifier_to_merge` et un objet `identifier_to_keep`, qui doivent chacun référencer un utilisateur par `external_id`, `user_alias`, `phone` ou `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Comportement de fusion {#merge-behavior}
 
@@ -266,6 +266,14 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 
 ## Résolution des problèmes {#troubleshooting}
 
+### Une réponse de succès a été renvoyée mais l'utilisateur fusionné est toujours consultable {#a-success-response-was-returned-but-the-merged-user-is-still-searchable}
+
+Une réponse de succès confirme que la requête a été acceptée, mais l'opération de fusion comporte deux étapes : la fusion des profils, puis la suppression du profil source. De ce fait, le profil `identifier_to_merge` peut rester consultable dans le tableau de bord pendant une courte période après une réponse de succès. Il s'agit d'un comportement attendu — patientez quelques minutes, puis vérifiez que la fusion est terminée.
+
+Si l'utilisateur fusionné existe toujours après plusieurs minutes, vérifiez que les identifiants de votre requête sont corrects et appartiennent à des utilisateurs du même espace de travail que la clé API utilisée pour la requête.
+
+### Référence des erreurs {#error-reference}
+
 Le tableau suivant répertorie les messages d'erreur possibles.
 
 | Erreur | Résolution des problèmes |
@@ -274,6 +282,6 @@ Le tableau suivant répertorie les messages d'erreur possibles.
 | `a single request may not contain more than 50 merge updates` | Vous pouvez spécifier jusqu'à 50 fusions dans une seule requête. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Vérifiez les identifiants dans votre requête. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Vérifiez que `merge_updates` ne contient que les deux objets `identifier_to_merge` et `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

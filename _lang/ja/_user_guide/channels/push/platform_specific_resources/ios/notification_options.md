@@ -19,7 +19,7 @@ channel:
 
 メッセージをカテゴリ分けし、ユーザーの通知トレイでグループ化したい場合は、Brazeを通じてiOSの通知グループ機能を活用できます。
 
-iOSプッシュCampaignを作成し、**設定**タブに移動して**通知グループ**ドロップダウンを開きます。
+iOSプッシュキャンペーンを作成し、**設定**タブに移動して**通知グループ**ドロップダウンを開きます。
 
 ![「設定」タブに「通知グループ」ドロップダウンがあり、「Coupons」の値が選択されている画面。]({% image_buster /assets/img_archive/notification_group_dropdown.png %}){: style="max-width:50%;" }
 
@@ -29,11 +29,11 @@ iOSプッシュCampaignを作成し、**設定**タブに移動して**通知グ
 
 ![iOSプッシュ通知グループを管理するウィンドウ。]({% image_buster /assets/img_archive/managenotgroups.png %}){: style="max-width:70%;" }
 
-iOSプッシュCampaignを作成し、コンポーザーの上部を確認します。そこに**Notification Groups**というラベルのドロップダウンが表示されます。
+iOSプッシュキャンペーンを作成し、コンポーザーの上部を確認します。そこに**Notification Groups**というラベルのドロップダウンが表示されます。
 
 ### サマリー引数 {#summary-arguments}
 
-スレッドIDによる通知のグループ化に加えて、Appleでは通知がグループ化された際に表示されるサマリーを編集できます。Brazeユーザーは、プッシュCampaignを作成する際に、サマリーカテゴリ、サマリーカウント、サマリー引数を指定できます。
+スレッドIDによる通知のグループ化に加えて、Appleでは通知がグループ化された際に表示されるサマリーを編集できます。Brazeユーザーは、プッシュキャンペーンを作成する際に、サマリーカテゴリ、サマリーカウント、サマリー引数を指定できます。
 
 {% alert tip %}
 同じスレッドIDを持つ通知が通知トレイでどのようにグループ化されるかは、OSの制御下にあります。iOSは、最適と判断した内容に応じて、同じスレッドIDを持つ通知を個別に表示したり、グループ化して表示したりする場合があります。
@@ -86,7 +86,7 @@ Appleでは、ユーザーが正式に明示的にオプトインする前に、
 
 [セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を使用して、仮認証されているかどうかに基づいてユーザーをターゲットにできます。
 
-![Segmentの詳細パネルに、ユーザーをターゲットにするためのサンプルSegmentフィルター「Provisionally Authorized on iOS Stopwatch (iOS) is true」が表示されている画面。]({% image_buster /assets/img/segment-push-prov-auth.png %})
+![セグメントの詳細パネルに、ユーザーをターゲットにするためのサンプルセグメントフィルター「Provisionally Authorized on iOS Stopwatch (iOS) is true」が表示されている画面。]({% image_buster /assets/img/segment-push-prov-auth.png %})
 
 {% alert tip %}
 ユーザーが仮プッシュを「オフにする」ことを選択した場合、それ以降の仮プッシュメッセージは表示されなくなります。この機能を使用して送信するメッセージの内容と頻度には十分注意してください。

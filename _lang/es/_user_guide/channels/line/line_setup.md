@@ -101,6 +101,10 @@ Después de que se complete el proceso de integración, Braze extraerá automát
 | Channel access token | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Messaging API**. Si no hay un token de acceso del canal, selecciona **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2.1: Editar la configuración del webhook" }
 
+{% alert note %}
+Si necesitas actualizar o rotar el secreto del canal para un canal LINE ya integrado, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/) para solicitar una actualización.
+{% endalert %}
+
 {: start="3"}
 3. Ve a tu página de **Settings** > **Response settings** y haz lo siguiente:
    - Desactiva **Greeting message**. Esto se puede manejar en Braze mediante un desencadenador al seguir.
@@ -373,7 +377,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Flujos de trabajo {#user-account-linking-workflows}
+#### Flujos de trabajo
 
 ##### Un usuario existente sigue tu canal LINE {#existing-user-follows-your-line-channel}
 

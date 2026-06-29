@@ -135,20 +135,20 @@ Braze 구현에 따라 Quikly 활성화 내 이벤트가 추가 처리를 위해
 
 ### Braze에서 Quikly 웹훅 생성 {#create-a-quikly-webhook-in-braze}
 
-향후 Campaigns 또는 Canvases를 위한 Quikly 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **Templates** > **Webhook Templates**으로 이동합니다.
+향후 Campaigns 또는 Canvases를 위한 Quikly 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동한 다음 **웹훅 템플릿 생성**을 선택합니다.
 
-일회성 Quikly 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면, 새 Campaign을 생성할 때 Braze에서 **Webhook**을 선택합니다.
+일회성 Quikly 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면, 새 Campaign을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 
-**Blank Template**을 선택하고 웹훅 URL과 요청 본문에 다음을 입력합니다:
-- **Webhook URL**: https://api.quikly.com/webhook/braze
-- **Request Body**: JSON 키/값 쌍
+**빈 템플릿**을 선택하고 웹훅 URL과 요청 본문에 다음을 입력합니다:
+- **웹훅 URL**: https://api.quikly.com/webhook/braze
+- **요청 본문**: JSON 키/값 쌍
 
 #### 요청 헤더 및 메서드 {#request-headers-and-method}
 
 Quikly는 승인을 위해 `HTTP Header`가 필요합니다.
 
 - **HTTP Method**: POST
-- **Request Header**:
+- **요청 헤더**:
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
@@ -165,7 +165,7 @@ Quikly는 승인을 위해 `HTTP Header`가 필요합니다.
 
 ### 요청 미리보기 {#preview-your-request}
 
-**Preview** 패널에서 요청을 미리 보거나 `Test` 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 직접 커스터마이즈하여 웹훅을 테스트할 수 있습니다.
+**미리보기** 패널에서 요청을 미리 보거나 `Test` 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 직접 커스터마이즈하여 웹훅을 테스트할 수 있습니다.
 
 {% alert important %}
 페이지를 떠나기 전에 템플릿을 저장하세요! <br>업데이트된 웹훅 템플릿은 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)을 생성할 때 **저장된 웹훅 템플릿** 목록에서 찾을 수 있습니다.

@@ -44,7 +44,7 @@ En Sheetlabs, carga una hoja de cálculo de Excel o vincula tu cuenta de Google 
 
 También puedes optar por mantener tu hoja de Google sincronizada, lo que significa que Sheetlabs obtendrá automáticamente los datos más recientes de tu hoja de Google cuando cambien.
 
-Asegúrate de incluir el ID de usuario de Braze en tu hoja de cálculo o cualquier otra cosa que puedas utilizar como búsqueda más adelante.
+Asegúrate de incluir el ID de usuario de Braze en tu hoja de cálculo o cualquier otro dato que puedas utilizar como búsqueda más adelante.
 
 ### Paso 2: Crea una API en Sheetlabs {#step-2-create-an-api-in-sheetlabs}
 

@@ -19,7 +19,7 @@ Delays can make your Canvas look cleaner. You can also use this component to del
 
 To create a delay, add a step to your Canvas. Drag and drop the Delay component from the sidebar, or select the <i class="fas fa-plus-circle"></i> plus button at the bottom of a step and then choose **Delay**.
 
-#### Extended delays
+### Extended delays
 
 You can extend Delay steps up to two years (730 days). For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
 
@@ -48,14 +48,14 @@ As an example, let's say today is December 11, and our Delay step is set to **Du
 
 Selecting **Calendar date** allows you to hold users in the step until a specific date and time.
 
-#### Considerations
+### Considerations
 
-##### Users won't receive past-dated steps or messages
+#### Users won't receive past-dated steps or messages
 
 If the selected date and time have already passed by the time users proceed to the Delay step, users will exit the Canvas. There can be up to 31 days between the start of the Canvas and the dates chosen for "wait until an exact day" steps.
 
 {% alert important %}
-If you're participating in the [Canvas Context early access]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/), you can set delays of up to 2 years.
+If you're participating in the [Canvas Context early access]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), you can set delays of up to 2 years.
 {% endalert %}
 
 For example, users won't receive steps or messages in these scenarios:
@@ -63,7 +63,7 @@ For example, users won't receive steps or messages in these scenarios:
 - A message is scheduled to be sent on May 3rd at 9 pm, but the Delay step expires on May 3rd at 9 am. 
 - A Canvas step delays until a specific time in the user's local time zone, but the users don't have a time zone set on their user profile. The delay then defaults to the company time zone for these users, which has already passed the specified time. 
   
-##### Users will exit if a subsequent Delay step is within a prior Delay step's timeline
+#### Users will exit if a subsequent Delay step is within a prior Delay step's timeline
 
 If the Canvas has two Delay steps but the first Delay step is longer than the second Delay step, users will also exit the Canvas. 
 
@@ -101,9 +101,9 @@ If you add a Delay component to your Canvas and there are no subsequent steps, a
 
 ### Personalized delays
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-Select the **Personalize delay** toggle to set up a personalized delay for your users. You can use this with a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) to select the context variable to delay by. This will override the time of day set in the selected attribute or property. This is useful when applying an offset in days or weeks, and you want users to move forward at a specific time. The time zone comes from the attribute or property, or uses the fallback if none is available. 
+Select the **Personalize delay** toggle to set up a personalized delay for your users. You can use this with a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) to select the context variable to delay by. This will override the time of day set in the selected attribute or property. This is useful when applying an offset in days or weeks, and you want users to move forward at a specific time. The time zone comes from the attribute or property, or uses the fallback if none is available. 
 
 #### Time zone behavior for "at specific time"
 
@@ -149,3 +149,10 @@ Time series for these analytics are available in the expanded component view.
 
 If users aren't triggering a personalized delay, it could be because the Context step you set to qualify them for the Delay step is not working as you expected. When a [context variable is invalid]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), a user will continue through your Canvas without having their context set by the Context step. This can cause them to not qualify for steps later in your Canvas, such as personalized delays.
 
+## Troubleshooting
+
+### Users in a Delay step when a Canvas is stopped
+
+When you [stop a Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), users who are already waiting in a Delay step are not exited immediately. Braze still schedules delay completion, but **no further messages are sent** while the Canvas is stopped.
+
+If you re-enable the Canvas before a user's delay elapses, they can advance to the next step as scheduled. If the delay window has already passed while the Canvas was stopped, those users exit the Canvas instead of receiving the next step. For examples, see [What happens when you stop a Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) and [Stopping Canvases]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

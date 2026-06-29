@@ -1,0 +1,1 @@
+모든 메시지 작성기에서 Operator를 열어 개인화를 위한 Liquid를 생성하고 다듬을 수 있습니다. Operator는 [Liquid 구문]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/), 표준 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 이해하며, 코드가 어떤 역할을 하는지 설명할 수 있습니다.

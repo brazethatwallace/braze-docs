@@ -12,7 +12,7 @@ description: "この記事には2021年9月のリリースノートが含まれ�
 
 ### Apple Mailのプライバシー保護 {#apple-mail-privacy-protection}
 
-Appleのメールプライバシー保護 (MPP) は、9月中旬にリリースされたiOS 15、iPadOS 15、macOS Monterey、watchOS 8のApple Mailアプリのユーザーに提供されるプライバシーアップデートです。MPPにオプトインしたユーザーの場合、メールはプロキシサーバーを使用してプリロードされ、画像がキャッシュされ、[開封トラッキング]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/#open-tracking-pixel)などの指標のトラッキングピクセルを活用する機能が制限されます。MPPおよびメール到達率の指標に関する問題、またこれらの指標に基づいてトリガーされる既存のCampaignsやCanvasesに関する問題については、[ドキュメント]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp/)を参照してください。
+Appleのメールプライバシー保護 (MPP) は、9月中旬にリリースされたiOS 15、iPadOS 15、macOS Monterey、watchOS 8のApple Mailアプリのユーザーに提供されるプライバシーアップデートです。MPPにオプトインしたユーザーの場合、メールはプロキシサーバーを使用してプリロードされ、画像がキャッシュされ、[開封トラッキング]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/#open-tracking-pixel)などの指標のトラッキングピクセルを活用する機能が制限されます。MPPおよびメール到達率の指標に関する問題、またこれらの指標に基づいてトリガーされる既存のキャンペーンやキャンバスに関する問題については、[ドキュメント]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp/)を参照してください。
 
 ### プッシュ機能 {#push-features}
 
@@ -36,4 +36,4 @@ AndroidとFireOSの開発者ガイドが1つの場所に統合されました。
 
 ## ファネルレポートとリテンションレポートの更新 {#updates-to-funnel-and-retention-reports}
 
-[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)と[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)がSMS Campaignsで利用可能になりました。
+[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)と[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)がSMS キャンペーンで利用可能になりました。

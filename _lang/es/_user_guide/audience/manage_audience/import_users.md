@@ -22,7 +22,7 @@ Puedes usar la importación CSV para registrar y actualizar los siguientes atrib
 | Atributos predeterminados | Atributos de usuario reservados reconocidos por Braze. | `first_name`, `email` | 500 MB |
 | Atributos personalizados | Atributos de usuario exclusivos de tu empresa. | `last_destination_searched` | 500 MB |
 | Eventos personalizados | Eventos exclusivos de tu empresa que representan acciones de los usuarios. | `trip_booked` | 50 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Importación CSV de Braze" }
 
 #### Construir tu CSV {#constructing-your-csv}
 
@@ -38,7 +38,7 @@ Al importar eventos personalizados con propiedades, debes usar la notación de p
 
 Usa nuestro script de importación CSV Lambda S3 sin servidor para cargar atributos de usuario a Braze. Esta solución funciona como un cargador de CSV donde depositas tus archivos CSV en un contenedor de S3, y los scripts los cargan a través de nuestra API.
 
-Los tiempos de ejecución estimados para un archivo con 1 000 000 de filas deberían ser de alrededor de cinco minutos. Consulta [Importación de atributos de usuario CSV a Braze](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion) para más información.
+Los tiempos de ejecución estimados para un archivo con 1 000 000 de filas deberían ser de alrededor de cinco minutos. Consulta [Importación de atributos de usuario CSV a Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) para más información.
 
 ### REST API
 

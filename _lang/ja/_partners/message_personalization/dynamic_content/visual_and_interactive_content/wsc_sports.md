@@ -23,7 +23,7 @@ BrazeとWSC Sportsの統合により、Brazeのプッシュ通知にリッチで
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | WSCアカウント | このパートナーシップを利用するには、WSCアカウントが必要です。 |
-| Braze REST APIキー | **Messages**、**Segments**、**Campaigns**、**Canvas**の権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | **Messages**、**セグメント**、**キャンペーン**、**キャンバス**の権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
@@ -34,11 +34,11 @@ WSC Sportsアプリケーションは、動画の選択からエンドユーザ�
 
 ![]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-統合を開始する前に、Brazeで希望するCampaignとユーザーSegmentが構築されていることを確認してください。完了したら、WSC Sportsプラットフォームで希望する動画を選択し、送信設定で使用したいBrazeユーザーSegmentとCampaign IDを選択します。最後に、プッシュメッセージを送信したい時間を選択してください。
+統合を開始する前に、Brazeで希望するキャンペーンとユーザーセグメントが構築されていることを確認してください。完了したら、WSC Sportsプラットフォームで希望する動画を選択し、送信設定で使用したいBrazeユーザーセグメントとキャンペーン IDを選択します。最後に、プッシュメッセージを送信したい時間を選択してください。
 
 #### APIコール {#api-call}
 
-送信されると、WSC Sportsは選択されたオプションに基づいて、以下のBrazeエンドポイントを使用して、選択されたユーザーSegmentにプッシュ通知を配信します:
+送信されると、WSC Sportsは選択されたオプションに基づいて、以下のBrazeエンドポイントを使用して、選択されたユーザーセグメントにプッシュ通知を配信します:
 - [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages)
 - [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only)
 
@@ -57,4 +57,4 @@ WSC Sportsアプリケーションは、動画の選択からエンドユーザ�
 
 ### ステップ2:テスト送信 {#step-2-test-send}
 
-この時点で、Campaignはテストと送信の準備ができているはずです。エラーが発生した場合は、Brazeのエラーメッセージログを確認してください。
+この時点で、キャンペーンはテストと送信の準備ができているはずです。エラーが発生した場合は、Brazeのエラーメッセージログを確認してください。

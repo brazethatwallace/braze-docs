@@ -37,13 +37,14 @@ description: "이 문서에서는 Canvas 데이터 요약 분석 내보내기 Br
 | `include_variant_breakdown` | 선택 사항 | 부울 | 배리언트 통계를 포함할지 여부입니다(기본값은 `false`). |
 | `include_step_breakdown` | 선택 사항 | 부울 | 단계 통계를 포함할지 여부입니다(기본값은 `false`). |
 | `include_deleted_step_data` | 선택 사항 | 부울 | 삭제된 단계에 대한 단계 통계를 포함할지 여부입니다(기본값은 `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 {% alert important %}
-**시간대 정렬:** Braze 대시보드 분석은 대시보드에서 회사에 설정된 시간대에 따라 매일 집계됩니다. 타임스탬프가 회사의 시간대와 일치하는지 확인하여 통계가 대시보드와 일치하도록 하세요. 예를 들어, 회사 시간이 UTC+2인 경우 타임스탬프는 UTC+2 기준 오전 12시여야 합니다.
+Canvas 분석은 Braze에서 회사에 설정된 시간대(대시보드에서 사용하는 시간대와 동일)를 기준으로 일별로 집계됩니다. API는 `starting_at`과 `ending_at`을 해당 시간대의 자정으로 정규화합니다.
 {% endalert %}
 
 ## 요청 예시 {#example-request}
+
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
@@ -52,6 +53,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 {% endraw %}
 
 ## 응답 {#response}
+
+{% alert note %}
+`total_stats`, `variant_stats`, `step_stats`에서 `conversions`는 Canvas의 [주요 전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) 횟수입니다. 추가 전환 이벤트를 구성하면 페이로드에 두 번째, 세 번째 및 이후 이벤트에 대한 `conversions1`, `conversions2` 및 더 높은 인덱스의 필드가 포함될 수 있습니다. 이는 `/campaigns/data_series` 엔드포인트의 [다변량 응답]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response)과 유사합니다. `_by_entry_time`으로 끝나는 필드가 있는 경우, 해당 전환은 Canvas 진입 시간을 기준으로 귀속됩니다.
+{% endalert %}
 
 ```json
 {
@@ -99,11 +104,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ```
 
 {% alert important %}
-**`influenced_opens` 필드:** API 응답에서 `influenced_opens` 필드는 총 열람 수(직접 열람과 영향받은 열람을 모두 포함)를 나타냅니다. Braze 대시보드에서 '영향받은 열람'은 직접 열람을 제외한 영향받은 열람만을 의미합니다. 이는 API의 레거시 명명 규칙 때문입니다.
+API 응답에서 `influenced_opens` 필드는 총 열람 수(직접 열람과 영향받은 열람을 모두 포함)를 나타냅니다. Braze 대시보드에서 "영향받은 열람"은 직접 열람을 제외한 영향받은 열람만을 의미합니다. 이는 API의 레거시 명명 규칙 때문입니다.
 {% endalert %}
 
-{% alert tip %}
-CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
-{% endalert %}
+## 관련 문서 {#related-articles}
+
+- [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+
 
 {% endapi %}

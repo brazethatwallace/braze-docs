@@ -32,7 +32,7 @@ Campaignの再エントリ資格をオンにするには、**配信コントロ�
 
 また、再エントリ資格を0分に設定してメッセージを即座に送信しようとする場合、ユーザーがCampaignまたはCanvasの以前のバージョンをどのように受信したかに関係なく、常にすぐにスケジュールを試みます。
 
-#### APIトリガーCampaignの再エントリ資格 {#re-eligibility-with-api-triggered-campaigns}
+### APIトリガーCampaignの再エントリ資格 {#re-eligibility-with-api-triggered-campaigns}
 
 ユーザーがAPIトリガーCampaignを受信する回数は、再エントリ資格の設定で制限できます。つまり、APIトリガーが何回発火されたかに関係なく、ユーザーはCampaignを1回のみ、または指定された期間内に1回のみ受信します。
 
@@ -73,6 +73,14 @@ CampaignとCanvasの両方の再エントリ資格は、カレンダー日では
 * 2月15日から3月15日までは30日未満です。
 
 これは、2月15日にCampaignを受信したユーザーは、3月15日に送信されるCampaignの対象にならないことを意味します。（共有チャネル識別子により、ユーザーが「受信済み」としてマークされる場合があります。たとえば、メッセージを受信、開封、またはクリックした人とメールアドレスや電話番号を共有している場合です。）Campaignが毎日午前8時に送信するよう設定されており、再エントリ資格が1日の場合、メッセージの送信に遅延が発生すると、午前8時30分にCampaignを受信したユーザーは翌日の午前8時にはまだ再エントリ資格を得ていません。
+
+## Content Cardsの再エントリ資格 {#re-eligibility-for-content-cards}
+
+Content Cards CampaignまたはCanvasステップで再エントリ資格が有効になっている場合、同じCampaignからの以前のカードがまだフィードに残っている状態で、ユーザーが別のカードを受信する可能性があり、重複カードのように見えることがあります。重複を減らすには、再エントリ資格をオフにするか、最初のカードがユーザーが次の送信対象となる前に[フィードから期限切れになる]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility)よう、再エントリ資格の期間を長くしてください。
+
+## バナーの再エントリ資格 {#re-eligibility-for-banners}
+
+バナーCampaignで再エントリ資格が有効になっている場合、バナーを閉じたユーザーは、閉じた時点から始まる設定可能なクールダウン期間の後に再度対象となることができます。再エントリ資格がオンになっていない場合、閉じたユーザーは対象外のままです。再エントリ資格を設定するには、[再エントリ資格の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)を参照してください。Canvasのバナーステップでは、代わりにCanvasの再エントリ設定が使用されます。
 
 ## 多変量テスト {#multivariate-testing}
 

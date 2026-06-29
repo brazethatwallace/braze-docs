@@ -32,6 +32,10 @@ page_type: reference
 2. Redshiftインスタンスで、Brazeと同期するテーブルまたはビューを設定します。
 3. Brazeダッシュボードで新しいソースと同期を作成します。
 4. 連携のテストを行い、同期を開始します。
+
+{% alert note %}
+同期ごとに処理される行数は、ウェアハウスのパフォーマンス、ネットワークレイテンシー、および同期クエリに一致する新しいデータの量によって異なります。ダッシュボードの連携**同期履歴**を使用して、最近の実行の所要時間と行数を確認できます。
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. サービスアカウントを作成し、同期するデータを含むBigQueryのプロジェクトとデータセットへのアクセスを許可します。
@@ -140,11 +144,11 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 異なるワークスペースを同じSnowflakeアカウントに接続する場合は、連携を作成するBrazeワークスペースごとに一意のユーザーを作成する必要があります。ワークスペース内では、複数の連携にわたって同じユーザーを再利用できますが、同じSnowflakeアカウントのユーザーが複数のワークスペースで重複すると、連携の作成に失敗します。
 {% endalert %}
 
-#### ステップ 1.5: Snowflakeネットワークポリシーで Braze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
+#### ステップ 1.5: SnowflakeネットワークポリシーでBraze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシーで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -207,7 +211,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -250,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.1: テーブルの設定" }
 
 プロジェクト、データセット、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -290,7 +294,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 ネットワークポリシーを設定している場合は、BigQueryインスタンスへのBrazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -335,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.1: テーブルの設定" }
 
 スキーマとテーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -364,7 +368,7 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 
 ネットワークポリシーを設定している場合は、Databricksインスタンスへの Brazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -453,7 +457,7 @@ GO
 
 Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するために、ファイアウォールで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -471,9 +475,16 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 ソースの名前を選択し、Snowflakeの認証情報と設定を入力して、次のステップに進みます。
 
-{% alert note %}
-**Snowflake Account Locator**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。通常、`xy12345.us-east-1.aws`のような形式です。これはデータベース名やウェアハウス名とは異なります。
-{% endalert %}
+続行する前に、**Snowflake Account Locator**に入力する値を確認してください。
+
+**Snowflake Account Locator**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。`myorganization-myaccount`のようなアカウント識別子の値のみを入力してください。`https://`、`.snowflakecomputing.com`、またはパスは含めないでください。
+
+Snowflakeのアカウント識別子を確認するには:
+
+1. Snowsightで、アカウントメニューを選択します。
+2. **View account details**を選択します。
+3. **Account identifier**の値をコピーします。
+4. SnowflakeのURLからコピーする場合は、`.snowflakecomputing.com`より前の値のみを使用してください。
 
 #### ステップ 2.2: Brazeユーザーへの公開キーの追加 {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -585,7 +596,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 
@@ -618,7 +629,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 
@@ -649,7 +660,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 
@@ -681,7 +692,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -714,7 +725,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
 
-定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeダッシュボードで設定したタイムゾーンを使用して、定期的な同期がスケジュールされます。
+定期的な同期は、15分間隔から1か月に1回までの頻度で設定できます。Brazeは定期的な同期をUTCタイムゾーンでスケジュールします。
 
 {% endtab %}
 {% endtabs %}
@@ -763,26 +774,26 @@ Brazeとの連携を複数設定できますが、各連携は異なるテーブ
 
 {% tabs %}
 {% tab Snowflake %}
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab Redshift %}
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab BigQuery %}
 
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab Databricks %}
 
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
+有効にすると、セットアップ時に設定したスケジュールで同期が実行されます。通常のテストスケジュール以外で同期を実行したい場合や、最新のデータを取得したい場合は、**Sync Now**を選択します。この実行は、定期的にスケジュールされている将来の同期には影響しません。
 
 {% endtab %}
 

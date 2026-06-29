@@ -17,8 +17,6 @@ description: "この記事では、Canvasの翻訳ソースエンドポイント
 
 > このエンドポイントを使用して、Canvasの翻訳タグに対するすべてのデフォルト翻訳ソースを表示します。これらは {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %} が付いた値です。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、`canvas.translations.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。

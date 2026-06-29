@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Worthy](https://worthy.ai/)とBrazeの連携では、Worthyのドラッグアンドドロップエディターを使ってパーソナライズされたリッチなアプリ内エクスペリエンスを作成し、Brazeを通じて配信できます。さらに、Worthyは自動的に以下を実行します。
 
-*この連携はWorthyによって管理されています。*
+_この連携はWorthyによって管理されています。_
 
 ## 連携について {#about-the-integration}
 
@@ -48,6 +48,6 @@ Brazeで[アプリ内メッセージCampaign]({{site.baseurl}}/user_guide/channe
 
 ### ステップ3：パーソナライズされたメッセージをBrazeにコピーする {#step-3-copy-your-personalized-message-into-braze}
 
-Worthyメッセージクリエーターで**Export**をクリックし、**Braze**を選択して、パーソナライズされたメッセージをBraze Campaignで使用するためにエクスポートします。エクスポートされたコンテンツを、Braze Campaignエディターの**HTML + Asset Zip**の下にあるHTMLテキストボックスにコピーします。
+Worthyメッセージクリエーターで**エクスポート**をクリックし、**Braze**を選択して、パーソナライズされたメッセージをBraze Campaignで使用するためにエクスポートします。エクスポートされたコンテンツを、Braze Campaignエディターの**HTML + Asset Zip**の下にあるHTMLテキストボックスにコピーします。
 
 以上です！Braze Campaignエディターの**Test**タブを使用して、パーソナライズされたメッセージをすぐにテストできます。

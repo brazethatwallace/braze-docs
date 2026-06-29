@@ -67,10 +67,11 @@ A lógica condicional começa com a tag `if`, que define a primeira condição a
 
 Você tem a opção de incluir uma instrução `{% else %}` na sua lógica condicional. Se nenhuma das condições definidas for atendida, a instrução `{% else %}` especifica a mensagem que deve ser enviada. Neste exemplo, o padrão é inglês se o idioma do usuário não for inglês, espanhol ou chinês.
 
-#### Tags case e when {#case-and-when-tags}
-{: #case-and-when-tags}
+#### `case` e `when` {#case-and-when}
 
 `{% case %}`, `{% when %}` e `{% endcase %}` funcionam como uma instrução switch: você define uma expressão após `case`, e cada ramificação `when` é executada quando essa expressão é igual ao valor listado (o Liquid usa igualdade nos bastidores, semelhante a encadear `if` e `elsif` com `==`). Você pode listar vários valores em uma tag `when` separando-os com vírgula ou `or`. Use `{% else %}` como fallback quando nada corresponder e, em seguida, feche com `{% endcase %}`.
+
+Certifique-se de que o formato dos valores `when` corresponda ao tipo de dados. Para texto (como um código de idioma), use aspas: `{% when 'es' %}`. Para números, omita as aspas: `{% when 2 %}`.
 
 ```liquid
 {% assign handle = 'cake' %}

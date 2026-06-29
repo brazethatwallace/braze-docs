@@ -20,10 +20,10 @@ BrazeとKubitの統合により、[Kubitユーザーコホートをインポー�
 |---|---|
 | Kubitエンタープライズアカウント | このパートナーシップを利用するには、Kubitエンタープライズアカウントが必要です。 |
 | ユーザーIDの一致 | KubitとBrazeの顧客データは、2つのプラットフォーム間でユーザーIDが一致している必要があります。これには匿名UUIDも含まれます。BrazeがどのようにユーザーIDを設定するかについては、[ドキュメント]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## KubitでBrazeデータを分析する {#analyzing-braze-data-in-kubit}
 
 [Snowflakeセキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を活用して、Brazeの生のCampaignおよびインプレッションデータをKubitと共有し、Kubitのセルフサービス分析に組み込むことで、ユーザーのライフサイクルの全体像を把握できます。
 
-参考として、Kubit分析に組み込むことが可能なすべての[Brazeフィールド]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ed79384e6ac6a97fe3b3d9f76852b7c2)をこちらで確認できます。このステップの詳細は顧客ごとに大きく異なり、特別な設定が必要です。詳しくは、Kubitアカウントマネージャーまたは[support@kubit.ai](support@kubit.ai)までお問い合わせください。
+参考として、Kubit分析に組み込むことが可能なすべての[Brazeフィールド](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)をこちらで確認できます。このステップの詳細は顧客ごとに大きく異なり、特別な設定が必要です。詳しくは、Kubitアカウントマネージャーまたは[support@kubit.ai](support@kubit.ai)までお問い合わせください。

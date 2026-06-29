@@ -31,7 +31,7 @@ Amazon SES 설정을 시작하기 전에 다음 사항을 확인하세요:
 | --- | --- | --- | --- | --- |
 | `eu02_braze_marketing` | 1 IP | `eu02_braze_marketing_set1` | `demo.braze.com` | `clicks.demo.braze.com` |
 | `eu02_braze_transactional` | 1 IP | `eu02_braze_transactional_set1` | `dev.braze.com` | `clicks.dev.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Setup example" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="설정 예시" }
 
 {% alert note %}
 클러스터 및 하위 계정 이름은 IP 풀과 구성 세트에 자동으로 추가됩니다.
@@ -49,7 +49,7 @@ Amazon SES 설정을 시작하기 전에 다음 사항을 확인하세요:
 | braze_marketing - 1 IP | braze_marketing_set2 | `email2.example.com` | `clicks.email2.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set3 | `email3.example.com` | `clicks.email3.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set4 | `email4.example.com` | `clicks.email4.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="One click tracking domain for each sending domain" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="각 발송 도메인에 대해 하나의 클릭 추적 도메인 사용" }
 
 ### 모든 발송 도메인에 대해 하나의 클릭 추적 도메인 사용 {#one-click-tracking-domain-for-all-sending-domains}
 
@@ -61,7 +61,7 @@ Amazon SES 설정을 시작하기 전에 다음 사항을 확인하세요:
 | braze_marketing - 1 IP | braze_marketing_set | `email2.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email3.example.com` | `clicks.email1.example.com` |
 | braze_marketing - 1 IP | braze_marketing_set | `email4.example.com` | `clicks.email1.example.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="One click tracking domain for all sending domains" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="모든 발송 도메인에 대해 하나의 클릭 추적 도메인 사용" }
 
 ## 고려 사항 {#considerations}
 
@@ -71,7 +71,7 @@ Amazon SES 설정을 시작하기 전에 다음 사항을 확인하세요:
 - 각 발송 도메인에는 SPF 검증을 돕기 위한 MAIL FROM 식별자가 연결되어 있습니다.
     - 각 발송 도메인의 값은 "e"입니다.
     - MAIL FROM 값은 고객이 보는 발신자 주소를 변경하지 않습니다.
-- Amazon SES가 이메일 서비스 제공업체인 경우, Microsoft Smart Network Data Services(SNDS)는 지원되지 않습니다.
+- Amazon SES를 이메일 서비스 제공업체로 사용하는 경우, 트랩 메시지 기간 시작 및 트랩 메시지 기간 종료 기능은 사용할 수 없습니다.
 
 ## 다음 단계 {#next-steps}
 

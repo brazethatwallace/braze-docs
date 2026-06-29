@@ -49,7 +49,7 @@ Wählen Sie als Nächstes die Nachrichten-Engagement-Events aus, die Sie exporti
 
 Beachten Sie, dass Braze nur dann Event-Daten für Nutzer:innen ohne `external_user_id` sendet, wenn die Option **Include events from anonymous users** aktiviert ist.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Liste aller verfügbaren Nachrichten-Engagement-Events auf der Segment-Currents-Seite in Braze.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,7 +61,7 @@ Weitere Informationen finden Sie in der Segment-[Dokumentation](https://segment.
 
 ## Ihren Current aktualisieren {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 

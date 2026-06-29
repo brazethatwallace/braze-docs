@@ -155,6 +155,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
 
 <table aria-label="각 접근 방식에 대한 개요">
   <caption>각 접근 방식에 대한 개요</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">별도의 워크스페이스</th>
@@ -167,6 +168,8 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <th scope="col">장점</th>
         <th scope="col">단점</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">타겟팅</th>
         <td>커뮤니케이션을 분리하는 가장 안전한 방법입니다. Campaign은 특정 고객 프로필만 타겟팅하도록 보장됩니다.</td>
@@ -205,8 +208,8 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
     <tr>
         <th scope="row">콘텐츠 복제</th>
         <td>N/A</td>
-        <td>워크스페이스 간에 Segments, 푸시 또는 콘텐츠 카드 Campaign, Canvases를 복제할 수 없습니다.</td>
-        <td>다음 지원되는 채널에 대해 <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간 Campaign 복제</a> 를 할 수 있습니다: SMS, 인앱 메시지, 이메일, 이메일 템플릿, Content Blocks. <br><br>Segments, Campaign, Canvases를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
+        <td>Segments 및 콘텐츠 카드 캠페인 등 일부 콘텐츠는 워크스페이스 간에 복사할 수 없습니다.</td>
+        <td><a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간에 Campaigns, Canvases, 랜딩 페이지를 복사</a> 할 수 있습니다. 지원되는 콘텐츠에는 적격 채널의 Campaigns 및 Canvases, 랜딩 페이지, 이메일 템플릿, 기능 플래그, Content Blocks가 포함됩니다.<br><br>Segments, Campaigns, Canvases, 랜딩 페이지를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -216,6 +219,7 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
         <td>N/A</td>
         <td>홈 페이지의 워크스페이스에 있는 모든 앱 인스턴스에 대한 글로벌 통계가 집계됩니다.</td>
     </tr>
+    </tbody>
 </table>
 
 ## 모범 사례 {#best-practices}

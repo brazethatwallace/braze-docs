@@ -67,7 +67,7 @@ Facebookとの接続は、Brazeのワークスペースレベルで適用され�
 {% alert important %}
 これまでに[Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを受けたことがある顧客のシステムユーザートークンは、Facebook Audienceコンポーネントに対して引き続き有効です。FacebookパートナーページからFacebookシステムユーザートークンを編集したり、取り消したりすることはできません。その代わりに、Facebookアカウントに接続して、Brazeワークスペース内でFacebookシステムユーザートークンを置き換えることができます。
 
-<br><br>Facebook oAuthの設定は、[Segmentsを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
+<br><br>Facebook oAuthの設定は、[セグメントを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
 {% endalert %}
 
 ### ステップ2: カスタムオーディエンスの利用規約に同意する {#step-2-accept-custom-audiences-terms-of-service}
@@ -216,6 +216,14 @@ Facebookカスタムオーディエンスの利用規約に同意したら、以
 
 これにより、ユーザーがFacebook Audience Syncステップに到達するとすぐに、Brazeでユーザーを同期できます。
 
+### **Connected Facebook**フィルターと**Number of Facebook Friends Using App**フィルターはどうなりましたか？ {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+**Number of Facebook Friends Using App**および**Connected Facebook**のBrazeセグメンテーションフィルターは非推奨になりました。FacebookおよびBraze SDKは、これらのフィルターが依存していた基盤データを収集しなくなりました。
+
+非推奨のフィルターは、カスタム属性、カスタムイベント、またはエンゲージメントベースのセグメントに置き換えてください。例えば、**Connected Facebook**の代わりにFacebookログインやソーシャルリンキングを、**Number of Facebook Friends Using App**の代わりに紹介、招待、共有を使用できます。
+
+Canvasのリターゲティングについては、[ステップ4: 同期設定](#step-4-sync-setup)で示されているように、メール、電話、名、姓を使用してユーザーをマッチングします。リーチを拡大するには、高価値のセグメントをFacebookに同期し、Meta Ads Managerで類似オーディエンスを作成します。
+
 ## トラブルシューティング {#troubleshooting}
 
 <style>
@@ -234,7 +242,6 @@ table td {
 </style>
 
 <table aria-label="Troubleshooting">
-  <caption>トラブルシューティング</caption>
   <thead>
     <tr>
       <th>エラー</th>
@@ -279,6 +286,21 @@ table td {
       <td>Facebookテクノロジーパートナーのページでは「Connected」と表示されているにもかかわらず、Facebook Audience Syncステップでオーディエンスの同期時に「Failed to create audience 'audience name'」というエラーが表示されます。Facebookアカウントの認証に失敗しています。テクノロジーパートナーのページにアクセスして、アカウントを再接続してください。</td>
       <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>このトラブルシューティングセクション</a> の手順に従って、アカウントに問題がないかを確認してください。
       </td>
+    </tr>
+    <tr>
+      <td><b>広告アカウントがドロップダウンに表示されない</b></td>
+      <td>Facebook Audienceステップを設定する際に、期待する広告アカウントが広告アカウントピッカーに表示されません。</td>
+      <td>Facebookアプリが、Marketing APIの使用にFacebookが要求するアクセスレベルで<code>ads_management</code>の<a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">アプリレビュー</a> を完了していることを確認してください。<a href="https://business.facebook.com/">Facebook Business Manager</a> で、システムユーザートークンが適切な権限を持ち、Brazeで使用する広告アカウントに関連付けられていること、および広告アカウントの利用規約に同意していることを確認してください。<br><br>新しいCanvasではドロップダウンが機能するが、既に編集したCanvasでは機能しない場合は、ブラウザのハードリフレッシュ（またはキャッシュのクリア）を試し、それらの広告アカウントにアクセスできるユーザーとしてサインインしていることを確認してください。</td>
+    </tr>
+    <tr>
+      <td><b>アクセストークンの検証エラー</b></td>
+      <td>BrazeをFacebookに接続する際、またはオーディエンスを同期する際に、Facebookアクセストークンの検証に関するエラーが表示されます。</td>
+      <td>ブラウザでFacebookからサインアウトします。Brazeで<b>パートナー連携</b> &gt; <b>Facebook</b>に移動し、保存されたFacebook認証情報を削除してから、再度Facebookに接続します。FacebookのBraze向けテクノロジーパートナーページで、オプションが利用可能な場合は統合を切断してから再接続します。<br><br>問題が続く場合は、<a href="#audit-your-facebook-account">Facebookアカウントの監査</a> に従ってください。</td>
+    </tr>
+    <tr>
+      <td><b>オーディエンスのエクスポートまたは同期の権限エラー</b></td>
+      <td>Facebookオーディエンスのエクスポートまたは同期が、認証、管理者、または広告アカウントのエラーで失敗します。</td>
+      <td><a href="https://developers.facebook.com/">Meta for Developers</a> でアプリを開き、<b>App roles</b>でユーザーに<b>Admin</b>ロールがあることを確認します。<b>App settings</b> &gt; <b>Advanced</b>で、<b>Advertising accounts</b>にBrazeで使用するアカウントが含まれていることを確認します。<a href="https://business.facebook.com/latest/settings">ビジネス設定</a> で、接続ユーザーまたはシステムユーザーが正しい広告アカウントにアクセスできることを確認します。</td>
     </tr>
   </tbody>
 </table>

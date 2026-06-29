@@ -31,7 +31,7 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 억제 목록은 Braze 대시보드에서 `campaign_id`로 생성된 API 캠페인에 적용됩니다. 억제 목록은 연결된 `campaign_id` 없이 [Braze 메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 전송된 메시지에는 적용되지 않습니다.
 {% endalert %}
 
-![API 트리거 Campaign 및 Canvases에 억제 목록을 적용하지 않는 체크박스가 있는 '예외 설정' 섹션.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
+![API 트리거 Campaign 및 Canvases에 억제 목록을 적용하지 않는 체크박스가 있는 "예외 설정" 섹션.]({% image_buster /assets/img/suppression_list_checkbox.png %}){: style="max-width:70%;"}
 
 ## 억제 목록 설정하기 {#setup}
 
@@ -39,8 +39,8 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 모든 사용자가 억제 목록을 볼 수 있지만, [관리자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions?tab=admin)이 있는 사용자만 억제 목록을 생성하고 관리할 수 있습니다.
 {% endalert %}
 
-1. **오디언스** > **억제 목록**으로 이동합니다.<br><br>![세 개의 억제 목록이 나열된 '억제 목록' 페이지.]({% image_buster /assets/img/suppression_lists_home.png %})<br><br>
-2. **억제 목록 생성**을 선택하고 이름을 추가합니다.<br><br>![이름을 입력하는 필드가 있는 '억제 목록 생성' 창.]({% image_buster /assets/img/create_suppression_list.png %}){: style="max-width:80%;"}<br><br>
+1. **오디언스** > **억제 목록**으로 이동합니다.
+2. **억제 목록 생성**을 선택하고 이름을 추가합니다.
 3. Segment 필터를 사용하여 억제 목록에 포함할 사용자를 식별합니다. 최소 하나 이상을 선택해야 합니다.
 
 {% alert important %}
@@ -50,13 +50,13 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 ![90일 이상 이메일을 열지 않은 사용자에 대한 필터가 있는 억제 목록 빌더.]({% image_buster /assets/img/suppression_list_filters.png %})
 
 {: start="4"}
-4. Segment 이름 아래의 체크박스를 선택하여 태그 기반 예외를 설정할지 결정한 다음(자세한 내용은 [억제 목록을 사용하는 이유](#why-use-suppression-lists) 참조), 이 억제 목록의 사용자가 여전히 수신해야 하는 Campaign 또는 Canvases의 태그를 추가합니다.<br><br>즉, 예외 태그 "배송 확인"을 추가하면 억제 목록의 사용자는 "배송 확인" 태그를 사용하는 메시지를 제외한 모든 메시징에서 제외됩니다.<br><br>!['배송 확인'이라는 예외 태그가 적용된 '배송 목록 세부 정보' 섹션.]({% image_buster /assets/img/exception_tags.png %})<br><br>
+4. Segment 이름 아래의 체크박스를 선택하여 태그 기반 예외를 설정할지 결정한 다음(자세한 내용은 [억제 목록을 사용하는 이유](#why-use-suppression-lists) 참조), 이 억제 목록의 사용자가 여전히 수신해야 하는 Campaign 또는 Canvases의 태그를 추가합니다. <br><br>즉, 예외 태그 "배송 확인"을 추가하면 억제 목록의 사용자는 "배송 확인" 태그를 사용하는 메시지를 제외한 모든 메시징에서 제외됩니다.<br><br>!["배송 확인"이라는 예외 태그가 적용된 "배송 목록 세부 정보" 섹션.]({% image_buster /assets/img/exception_tags.png %})<br><br>
 5. 억제 목록을 저장하거나 활성화합니다.
 - 저장하면 억제 목록이 저장되지만 활성화되지 않으므로 효력이 발생하지 않습니다. 억제 목록은 활성화할 때까지 비활성 상태로 유지되며, 비활성 억제 목록은 메시징에 영향을 미치지 않습니다(사용자가 메시지에서 제외되지 않습니다).
 - 활성화하면 억제 목록이 저장되고 즉시 효력이 발생하여, 억제 목록의 사용자가 Campaign 또는 Canvases(예외 태그가 포함된 것 제외)에서 즉시 제외됩니다.
 
 {% alert note %}
-관리자만 억제 목록을 저장하거나 활성화할 수 있습니다. 베타 기간 동안 한 번에 최대 5개의 활성 억제 목록을 가질 수 있습니다.
+관리자만 억제 목록을 저장하거나 활성화할 수 있습니다. 베타 기간 동안 한 번에 최대 5개의 활성 억제 목록을 사용할 수 있습니다.
 {% endalert %}
 
 더 이상 필요하지 않은 억제 목록은 비활성화하거나 아카이브할 수 있습니다.
@@ -71,7 +71,7 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 억제 목록은 Campaign이 시작된 후가 아니라 메시지가 전송되기 전에 업데이트됩니다. 즉, Campaign 시작 후 메시지 전송 전에 억제 목록에 추가된 사용자는 여전히 메시지를 수신하지 못할 수 있습니다.
 {% endalert %}
 
-![사용자가 억제 목록에 있음을 보여주는 '사용자 조회' 창.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
+![사용자가 억제 목록에 있음을 보여주는 "사용자 조회" 창.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
 
 {% alert tip %}
 **요약** 단계에서도 적용된 억제 목록을 확인할 수 있습니다.
@@ -79,13 +79,13 @@ description: "이 페이지에서는 억제 목록을 사용하여 메시지를 
 
 Campaign 또는 Canvas를 생성하는 동안 **타겟 오디언스** 단계에서 **사용자 조회**를 사용하여 사용자를 검색하고, 해당 사용자가 타겟 오디언스에 포함되지 않은 경우 어떤 억제 목록에 포함되어 있는지 확인할 수 있습니다.
 
-![사용자가 억제 목록에 있음을 보여주는 '사용자 조회' 창.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
+![사용자가 억제 목록에 있음을 보여주는 "사용자 조회" 창.]({% image_buster /assets/img/suppression_list_user_lookup.png %}){: style="max-width:70%;"}
 
 ### Campaign
 
 사용자가 억제 목록에 있는 경우, 해당 억제 목록이 적용되는 Campaign을 수신하지 않습니다. 억제 목록이 적용되지 않는 경우에 대해서는 [억제 목록의 영향을 받는 메시지 유형 및 채널](#message-types-and-channels-affected-by-suppression-lists)을 참조하세요.
 
-!['낮은 마케팅 건강 점수'라는 하나의 활성 억제 목록이 있는 '억제 목록' 섹션.]({% image_buster /assets/img/active_suppression_list.png %})
+!["낮은 마케팅 건강 점수"라는 하나의 활성 억제 목록이 있는 "억제 목록" 섹션.]({% image_buster /assets/img/active_suppression_list.png %})
 
 ### Canvas
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Alpaco
 article_title: Alpaco
-alias: /partners/Alpaco
+alias: /partners/alpaco/
 description: "La integración de Braze y Alpaco te permite exportar a Braze plantillas de correo electrónico y bloques de contenido compatibles con Liquid, listos para su uso en correo electrónico y mensajería dentro de la aplicación."
 page_type: partner
 search_tag: Partner
@@ -22,7 +22,7 @@ Alpaco es [totalmente compatible con las variables de Liquid](https://shopify.gi
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta de Alpaco | Se necesita una cuenta de Alpaco para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Plantillas**. <br><br> Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
 | Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se corresponde con tu dashboard de Braze y tu punto de conexión REST. <br><br> Por ejemplo, si la URL de tu dashboard es `https://dashboard-03.braze.com`, tu punto de conexión será `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -32,7 +32,7 @@ Alpaco es [totalmente compatible con las variables de Liquid](https://shopify.gi
 - Crea y gestiona **bloques de contenido modulares** (por ejemplo, cabeceras, pies de página, promociones) que puedan reutilizarse en varios canales.
 - Diseña **mensajes dentro de la aplicación** atractivos con la misma flexibilidad creativa que los correos electrónicos, lo que facilita entregar experiencias coherentes y acordes con la marca en todos los canales.
 - Habilita la **personalización** incluyendo etiquetas de Liquid compatibles con Braze, como `{{first_name}}` o `{{custom_attribute}}`.
-- Mantén **la coherencia de la marca** centralizando el diseño creativo en Alpaco y enviando las actualizaciones a Braze con una sola exportación.
+- Mantén la **coherencia de marca** centralizando el diseño creativo en Alpaco y enviando las actualizaciones a Braze con una sola exportación.
 
 ## Integración {#integration}
 
@@ -68,7 +68,7 @@ Si haces cambios después de la exportación, puedes volver a exportar el conten
 
 Dependiendo del tipo de contenido que exportes, tu plantilla aparecerá en una de las siguientes secciones:
 
-- **Templates & Media > Email Templates**
-- **Templates & Media > Content Blocks**
+- **Plantillas y medios > Plantillas de correo electrónico**
+- **Plantillas y medios > Content Blocks**
 
-Las plantillas de Alpaco son ideales para las organizaciones que desean gestionar de forma centralizada la coherencia de la marca. También son compatibles con las etiquetas integradas de Braze para facilitar la categorización y la gestión de contenidos.
+Las plantillas de Alpaco son ideales para las organizaciones que desean gestionar de forma centralizada la coherencia de marca. También son compatibles con las etiquetas integradas de Braze para facilitar la categorización y la gestión de contenidos.

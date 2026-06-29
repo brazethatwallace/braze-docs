@@ -24,7 +24,7 @@ BrazeとJudoの統合により、CampaignsとCanvasesで特別にカスタマイ
 |---|---|
 | Judoアカウント | このパートナーシップを活用するには、[Judo](https://www.judo.app/)アカウントが必要です。 |
 | Judo SDK | Judo SDKは、[iOS](https://github.com/judoapp/judo-ios/)アプリおよび/または[Android](https://github.com/judoapp/judo-android)アプリに統合する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -84,4 +84,4 @@ Campaignに[カスタムキーバリューペア]({{site.baseurl}}/user_guide/me
 <br><br>
 ### ステップ3：Campaignを完了する {#step-3-finishing-the-campaign}
 
-最後に、Campaignを完了し、Campaignのトリガーを設定し、**配信**セクションと**ターゲットユーザー**セクションでSegmentsからユーザーを選択します。Brazeアプリ内メッセージのさまざまな構成要素については、アプリ内メッセージの[記事]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を参照してください。
+最後に、Campaignを完了し、Campaignのトリガーを設定し、**配信**セクションと**ターゲットユーザー**セクションでSegmentsからユーザーを選択します。Brazeアプリ内メッセージのさまざまなコンポーネントについては、アプリ内メッセージの[記事]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)を参照してください。

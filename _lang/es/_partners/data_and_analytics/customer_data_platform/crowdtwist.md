@@ -33,7 +33,7 @@ Por ejemplo, utiliza un Data Push para pasar eventos personalizados y atributos 
 | --- | --- |
 | Cuenta de Oracle Crowdtwist | Se necesita una [cuenta de Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) para aprovechar esta asociación. |
 | Punto de conexión de Transformación de datos de Braze | Esta integración se basa en la [herramienta de Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation/) de Braze. Cuando creas una Transformación de datos, Braze genera un punto de conexión único que puedes añadir como destino para el Data Push de Crowdtwist.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -41,7 +41,7 @@ Braze y Oracle Crowdtwist han creado [plantillas de Transformación de datos]({{
 
 ## Paso 1: Crear una Transformación de datos a partir de la plantilla de Oracle Crowdtwist {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-Ve a **Data Settings > Data Transformation > Create Transformations > Use a Template** y selecciona la plantilla "BRAZE <> CROWDTWIST" que prefieras.
+Ve a **Configuración de datos > Transformación de datos > Crear transformaciones > Usar una plantilla** y selecciona la plantilla "BRAZE <> CROWDTWIST" que prefieras.
 
 Encontrarás cuatro plantillas: una para transformar los eventos de perfil de usuario, actividad de usuario y canje de usuario, y una plantilla maestra que utiliza lógica condicional para aplicarla a varios eventos de Data Push.
 
@@ -241,11 +241,9 @@ Las plantillas de esta guía se han creado para entregar al destino "Track Users
 
 ### Pruebas {#testing}
 
-Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. Haz clic en **Validate** para obtener una vista previa de la salida de tu código y comprobar si es una solicitud aceptable para el destino elegido.
+Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validar** para generar una vista previa en la sección **Salida** y confirmar que Braze acepta la solicitud asignada para el destino elegido.
 
-![Captura de pantalla de la interfaz de Transformación de datos de Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-Cuando estés satisfecho con el objeto que ves en el campo "output", haz clic en **Activate** para que el punto de conexión de Transformación de datos esté listo para aceptar datos.
+Cuando estés satisfecho con el objeto que ves en el campo **Salida**, selecciona **Activar** para que el punto de conexión de Transformación de datos esté listo para aceptar datos.
 
 Encontrarás la URL del webhook de tu Transformación de datos en el panel lateral izquierdo. Cópiala y utilízala para la configuración dentro del Integration Hub de Oracle Crowdtwist.
 

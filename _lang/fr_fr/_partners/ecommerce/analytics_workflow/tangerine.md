@@ -47,9 +47,9 @@ Pour suivre et analyser les visites des utilisateurs de l'application mobile en 
 
 ## Analyser les données de Braze dans Store360 {#analyze-braze-data-in-store360}
 
-Profitez du partage sécurisé des données Snowflake pour partager vos données brutes de campagne et d'impression Braze avec les analyses Store360 Insight, offrant ainsi une image complète du cycle de vie et des activités des utilisateurs, du en ligne au hors ligne.
+Profitez du partage sécurisé des données Snowflake pour partager vos données brutes de campagne et d'impression Braze avec les analyses Store360 Insight, offrant ainsi une image complète du cycle de vie et des activités des utilisateurs, de l'en ligne au hors ligne.
 
-Pour référence, voici tous les [champs Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) disponibles pour être incorporés dans les analyses Store360. Les détails de cette étape sont très spécifiques au client et nécessitent des configurations particulières. Adressez-vous à votre gestionnaire de compte Store360 ou à support@tangerine.io pour en savoir plus.
+Pour référence, voici tous les [champs Braze](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) disponibles pour être incorporés dans les analyses Store360. Les détails de cette étape sont très spécifiques au client et nécessitent des configurations particulières. Adressez-vous à votre gestionnaire de compte Store360 ou à support@tangerine.io pour en savoir plus.
 
 ## Informations importantes et limitations {#important-information-and-limitations}
 

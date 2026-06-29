@@ -37,7 +37,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // For iOS 16.0+
 let center = UNUserNotificationCenter.current()
 do {

@@ -1,0 +1,1 @@
+Öffnen Sie in einem beliebigen Nachrichten-Editor den Operator, um Marketing-Texte zu entwerfen und zu verfeinern. Beschreiben Sie Ihr Produkt oder Ihre Campaign, und der Operator gibt Ihnen einen Text zurück, den Sie überprüfen und einfügen können.

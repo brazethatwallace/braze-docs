@@ -35,9 +35,9 @@ Avant de commencer, vous devez disposer des éléments suivants :
 |---|---|
 | Compte DOTS.ECO | Accès à un compte DOTS.ECO. |
 | Identifiants DOTS.ECO | La demande présentée dans cet article nécessite un jeton d'application DOTS.ECO, une clé API et un ID d'allocation. Pour les récupérer, contactez votre gestionnaire de la satisfaction client DOTS.ECO. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Créez cette clé dans le tableau de bord de Braze sous **Settings** > **API Keys**. |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Créez cette clé dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de DOTS.ECO {#integrating-dotseco}
 
@@ -51,7 +51,7 @@ Utilisez cette étape pour appeler l'API DOTS.ECO via le Contenu connecté et st
 
 ### Étape 2 : Rédiger du JSON avancé : effectuer une requête POST vers DOTS.ECO à l'aide du Contenu connecté {#step-2-compose-advanced-json-make-a-post-request-to-dotseco-using-connected-content}
 
-Dans l'étape **User Update**, passez à l'**Advanced JSON Editor** et utilisez le Contenu connecté pour effectuer une requête POST vers l'API de certificat DOTS.ECO.
+Dans l'étape **Mise à jour utilisateur**, passez à l'**Éditeur JSON avancé** et utilisez le Contenu connecté pour effectuer une requête POST vers l'API de certificat DOTS.ECO.
 
 Utilisez la balise `capture` et une requête de Contenu connecté pour appeler l'endpoint de certificat de DOTS.ECO. Enregistrez ensuite la réponse sur le profil utilisateur sous forme d'attributs personnalisés.
 
@@ -93,7 +93,7 @@ Envoyez la requête à `https://impact.dots.eco/api/v1/certificate/add?format=sd
 ![Étape de mise à jour utilisateur DOTS.ECO.]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-Cette intégration utilise le Contenu connecté à l'intérieur d'une étape Canvas **User Update** pour appeler l'API DOTS.ECO. Testez d'abord les requêtes avec un client API (par exemple, Postman) pour valider votre jeton et votre payload.
+Cette intégration utilise le Contenu connecté à l'intérieur d'une étape Canvas **Mise à jour utilisateur** pour appeler l'API DOTS.ECO. Testez d'abord les requêtes avec un client API (par exemple, Postman) pour valider votre jeton et votre payload.
 {% endalert %}
 
 ### Étape 3 : Afficher le certificat dans les messages {#step-3-display-the-certificate-in-messages}
@@ -117,12 +117,12 @@ Vous pouvez ainsi personnaliser les messages in-app, les Content Cards ou les no
 
 ## Résolution des problèmes {#troubleshooting}
 
-Consultez les erreurs de Contenu connecté dans le tableau de bord de Braze sous **Settings** > **Message Activity Log**.
+Consultez les erreurs de Contenu connecté dans le tableau de bord de Braze sous **Paramètres** > **Journal d'activité des messages**.
 
 - **Le Contenu connecté renvoie un résultat vide** : confirmez que `:save result` est défini et que vous faites référence aux champs de réponse attendus.
 - **Les attributs n'apparaissent pas dans l'étape de message** :
   - Confirmez que les noms des attributs personnalisés dans Braze correspondent exactement aux attributs que vous avez définis dans l'étape de mise à jour utilisateur.
-  - Dans l'étape de mise à jour utilisateur, utilisez l'onglet **Preview and test** pour confirmer que les attributs sont bien renseignés. Ensuite, envoyez un test à un utilisateur et confirmez que les attributs sont enregistrés sur son profil utilisateur.
+  - Dans l'étape de mise à jour utilisateur, utilisez l'onglet **Prévisualisation et test** pour confirmer que les attributs sont bien renseignés. Ensuite, envoyez un test à un utilisateur et confirmez que les attributs sont enregistrés sur son profil utilisateur.
 - **Erreur `422` (entité non traitable)** : confirmez que votre jeton d'application et votre quantité d'impact sont valides.
 - **Erreur `401`** : confirmez que le jeton d'authentification est présent et correct.
-- **Pas de prévisualisation d'image dans l'étape de message** : sélectionnez **Send Test to User** dans l'étape de mise à jour utilisateur, puis prévisualisez le message en utilisant ce même utilisateur.
+- **Pas de prévisualisation d'image dans l'étape de message** : sélectionnez **Envoyer le test à l'utilisateur** dans l'étape de mise à jour utilisateur, puis prévisualisez le message en utilisant ce même utilisateur.

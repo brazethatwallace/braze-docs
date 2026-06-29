@@ -11,7 +11,7 @@ page_type: reference
 
 > Criptografe endereços de e-mail para minimizar as informações de identificação pessoal (IPI) compartilhadas na Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 A criptografia em nível de campo do identificador está disponível como um recurso complementar. Para começar com a criptografia em nível de campo do identificador, entre em contato com seu gerente de conta da Braze.
@@ -34,11 +34,12 @@ Siga estas etapas para configurar seu método de autenticação de chave secreta
     - **Clusters da Braze na UE:** `eu-central-1`
     - **Cluster da Braze na AU:** `ap-southeast-2`
     - **Cluster da Braze na ID:** `ap-southeast-3`
+    - **Cluster da Braze no JP:** `ap-northeast-1`
 4. No AWS Key Management Service, crie duas chaves e certifique-se de que o usuário IAM seja adicionado às permissões de uso da chave:
     - **[Criptografar/descriptografar](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** Selecione o tipo de chave **Symmetric** e o uso de chave **Encrypt and Decrypt**.
     - **[Hash](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** Selecione o tipo de chave **Symmetric** e o uso de chave **Generate and Verify MAC**. A especificação da chave deve ser **HMAC_256**. Depois de criar a chave, anote o ID da chave HMAC em algum lugar, pois você precisará inseri-lo na Braze.
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Configurações da chave com as opções symmetric, generate and verify MAC e HMAC_256 selecionadas.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
 ## Etapa 1: Conecte suas chaves do AWS KMS {#step-1-connect-your-aws-kms-keys}
 
@@ -54,7 +55,7 @@ Em seguida, selecione **Email address** para criptografar o campo.
 
 Quando a criptografia é ativada para um campo, ela não pode ser revertida para um campo descriptografado. Isso significa que a criptografia é uma configuração permanente. Ao configurar a criptografia para o endereço de e-mail, confirme que nenhum usuário tem endereços de e-mail no espaço de trabalho. Isso garante que nenhum endereço de e-mail em texto simples seja armazenado na Braze ao ativar o recurso para o espaço de trabalho.
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![Configurações de criptografia em nível de campo.]({% image_buster /assets/img/field_level_encryption.png %})
 
 ## Etapa 3: Importar e atualizar usuários {#step-3-import-and-update-users}
 
@@ -105,7 +106,7 @@ Os endereços de e-mail em texto simples são aceitos no envio de testes. Para v
 2. Em **Test Send**, selecione **Override recipients attributes with current preview user's attributes**.
 
 {%raw%}
-### O que acontece se eu adicionar este endereço de e-mail Liquid `{{${email_address}}}` na Braze? {#what-happens-if-i-add-this-email-address-liquid-emailaddress-in-braze}
+### O que acontece se eu adicionar este endereço de e-mail Liquid `{{${email_address}}}` na Braze? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 A Braze renderizará o endereço de e-mail em texto simples ao enviar o e-mail. Nas pré-visualizações, exibiremos a versão criptografada do e-mail. Recomendamos usar o ID externo do usuário se estiver fazendo referência a um usuário em uma URL personalizada de um clique.
 

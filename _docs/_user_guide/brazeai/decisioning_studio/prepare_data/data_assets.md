@@ -18,7 +18,7 @@ The three required event assets (activations, engagements, and conversions) toge
 - **Engagements** tell the model how customers responded to the message
 - **Conversions** tell the model whether the ultimate business outcome was achieved
 
-Each of these must be structured as an incremental event stream (not a snapshot). See [Snapshots versus event streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) for details.
+Each of these must be structured as an incremental event stream (not a snapshot). See [Snapshots versus event streams]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) for details.
 
 {% alert note %}
 If Decisioning Studio is natively integrated with your customer engagement platform (such as Braze or Salesforce Marketing Cloud), activation and engagement data may be collected automatically without additional configuration. Consult your setup documentation to confirm.

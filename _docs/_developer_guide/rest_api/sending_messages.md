@@ -14,25 +14,25 @@ This approach works with any messaging channel supported by the API (WhatsApp, e
 
 ## Two ways to send
 
-| | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) |
+| | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) |
 | --- | --- | --- |
 | **Campaign ID** | Optional. Omit it to send without dashboard campaign tracking, or provide an API campaign ID plus `message_variation_id` in each message to track in the dashboard. | Required. |
 | **Message content** | You must include a `messages` object in the request (for example, `messages.whats_app`, `messages.email`). | Not accepted. Message content is defined in the campaign in the Braze dashboard. |
 | **Use case** | Send a message with content fully specified in the API request. | Trigger a pre-built campaign (content in the dashboard) to specific recipients via the API. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
-For full request and response details, see the [Send messages immediately (API only)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) and [Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) endpoint references.
+For full request and response details, see the [Send messages immediately (API only)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) and [Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) endpoint references.
 
 ---
 
 ## Option 1: Send with message content in the request (`/messages/send`)
 
-Use this endpoint when you want to specify the full message content in the API request. You **must** include a `messages` object (for example, `messages.whats_app`, `messages.email`, or `messages.sms`). You can omit `campaign_id` to send without campaign tracking, or include an API campaign ID and `message_variation_id` in each message to track sends in the dashboard (see the [endpoint reference]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) for details).
+Use this endpoint when you want to specify the full message content in the API request. You **must** include a `messages` object (for example, `messages.whats_app`, `messages.email`, or `messages.sms`). You can omit `campaign_id` to send without campaign tracking, or include an API campaign ID and `message_variation_id` in each message to track sends in the dashboard (see the [endpoint reference]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) for details).
 
 **Required:** API key with the `messages.send` permission.
 
 {% alert important %}
-Each recipient in `external_user_ids` must already exist in Braze. To create users as part of a send, use [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) first, or use [Option 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend) (API-triggered campaign) instead.
+Each recipient in `external_user_ids` must already exist in Braze. To create users as part of a send, use [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) first, or use [Option 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend) (API-triggered campaign) instead.
 {% endalert %}
 
 ### Example: WhatsApp template message
@@ -60,10 +60,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-For the full WhatsApp object specification, see [WhatsApp object]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object/).
+For the full WhatsApp object specification, see [WhatsApp object]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object).
 
 {% alert note %}
-The `/messages/send` endpoint only supports WhatsApp templates with TEXT or IMAGE headers. For DOCUMENT, VIDEO, or other media header types, use the [API-triggered campaign endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) or the Braze dashboard instead.
+The `/messages/send` endpoint only supports WhatsApp templates with TEXT or IMAGE headers. For DOCUMENT, VIDEO, or other media header types, use the [API-triggered campaign endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) or the Braze dashboard instead.
 {% endalert %}
 
 ### Example: Email
@@ -82,7 +82,7 @@ The `/messages/send` endpoint only supports WhatsApp templates with TEXT or IMAG
 }
 ```
 
-For other channels, see [Messaging objects]({{site.baseurl}}/api/objects_filters/#messaging-objects).
+For other channels, see [Messaging objects]({{site.baseurl}}/api/objects_filters#messaging-objects).
 
 ---
 
@@ -99,7 +99,7 @@ Use this endpoint when the message content is built in the Braze dashboard (API-
 3. Add your message channel (WhatsApp, email, SMS, etc.) and build the message content in the dashboard.
 4. Note the **Campaign ID** (and **Send ID** if you use multiple message variants). You'll use these in the API request.
 
-For more on building API-triggered campaigns, see [API-triggered delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+For more on building API-triggered campaigns, see [API-triggered delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 ### Step 2: Trigger the campaign via the API
 
@@ -122,7 +122,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-For the full request body (including `trigger_properties`, `send_to_existing_only`, `attributes`, etc.), see the [Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body) endpoint reference.
+For the full request body (including `trigger_properties`, `send_to_existing_only`, `attributes`, etc.), see the [Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body) endpoint reference.
 
 ---
 
@@ -134,6 +134,6 @@ For the full request body (including `trigger_properties`, `send_to_existing_onl
 
 ## Considerations
 
-- Use Braze [personalization features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) to tailor content where supported.
+- Use Braze [personalization features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) to tailor content where supported.
 - Ensure your messaging complies with relevant regulations and includes required opt-out options and privacy notices.
-- For more endpoints (scheduling, Canvas triggers, etc.), see [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging/).
+- For more endpoints (scheduling, Canvas triggers, etc.), see [Messaging endpoints]({{site.baseurl}}/api/endpoints/messaging).

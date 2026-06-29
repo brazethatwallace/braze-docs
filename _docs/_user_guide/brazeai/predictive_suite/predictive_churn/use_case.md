@@ -47,7 +47,7 @@ After the model finishes training, Braze assigns each eligible user a [Churn Ris
 To determine a starting threshold for targeting, Camila uses the prediction audience slider to preview how many users fall into each score range and how accurate the prediction is at that level. She balances coverage and precision based on expected true positives. Based on this, she decides to target risk scores higher than 70. 
 
 1. Camila navigates to Segments in Braze.
-2. She creates a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) using the [Churn Risk Score filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#churn-risk-score) and selects the churn prediction she created:
+2. She creates a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) using the [Churn Risk Score filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#churn-risk-score) and selects the churn prediction she created:
    - **Likely to churn:** Score more than 70
 
 ![Segment filtering for users with a churn risks score more than 70.]({% image_buster /assets/img/ai_use_cases/churn_risk_score.png %})
@@ -56,11 +56,11 @@ To determine a starting threshold for targeting, Camila uses the prediction audi
 
 With her prediction and segment ready, Camila sets up a recurring campaign that automatically reaches users who become at risk each week.
 
-1. Camila creates a recurring campaign and enables [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), so each message is delivered when each individual user is most likely to engage rather than relying on a fixed day and time.
+1. Camila creates a recurring campaign and enables [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), so each message is delivered when each individual user is most likely to engage rather than relying on a fixed day and time.
 2. She targets the "Likely to churn" segment she just created.
 3. She sets the campaign conversion event to the custom event `stream_started`, to track how many users actually return to view content.
 4. Camila chooses email as her primary channel—it gives her the space to highlight multiple personalized content picks in a visually rich format without too much pressure. The email includes:
-   - A personalized watchlist powered by [AI Item Recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), dynamically selected from MovieCanon’s catalog
+   - A personalized watchlist powered by [AI Item Recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations), dynamically selected from MovieCanon’s catalog
    - A call to action that brings them directly into the app.
 
 This ensures that each week, MovieCanon reaches only the users who need a nudge—no over-messaging, no guesswork.
@@ -74,7 +74,7 @@ This ensures that each week, MovieCanon reaches only the users who need a nudge�
 
 ## Step 4: Measure performance
 
-After a few weeks, Camila checks her [campaign analytics]({{site.baseurl}}/user_guide/channels/email/reporting/) to evaluate how well the strategy is performing. 
+After a few weeks, Camila checks her [campaign analytics]({{site.baseurl}}/user_guide/channels/email/reporting) to evaluate how well the strategy is performing. 
 
 She sees:
 
@@ -82,9 +82,9 @@ She sees:
 - *Click Rate:* 15%
 - *Conversion Rate* (started stream within 48 hours): 11%
 
-Compared to the old “We miss you” campaign (where conversion rates hovered around 3%), this new flow reduces churn in the target group by 28%. She digs into the [funnel report]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) to spot where users drop off. While open and click rates are strong, she notices slight friction between click and conversion—prompting her to consider testing CTA copy or experimenting with layout.
+Compared to the old “We miss you” campaign (where conversion rates hovered around 3%), this new flow reduces churn in the target group by 28%. She digs into the [funnel report]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) to spot where users drop off. While open and click rates are strong, she notices slight friction between click and conversion—prompting her to consider testing CTA copy or experimenting with layout.
 
-To understand long-term impact, Camila also tracks the volume of users entering the “Likely to churn” segment week over week. This helps her assess the overall health of the lifecycle and inform retention strategy at a broader level. Finally, she revisits the [Prediction Analytics]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) page for her churn prediction to compare predicted versus actual churners—a useful check to make sure the model is performing as expected.
+To understand long-term impact, Camila also tracks the volume of users entering the “Likely to churn” segment week over week. This helps her assess the overall health of the lifecycle and inform retention strategy at a broader level. Finally, she revisits the [Prediction Analytics]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) page for her churn prediction to compare predicted versus actual churners—a useful check to make sure the model is performing as expected.
 
 Based on these insights, Camila plans to A/B test subject lines, test different timing windows, and experiment with content formats like carousel-style recommendations in an in-app message.
 

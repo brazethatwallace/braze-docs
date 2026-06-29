@@ -1,16 +1,20 @@
 ---
-nav_title: カスタムHTTPコネクター
-article_title: カスタムHTTPコネクター
+nav_title: カスタムCurrentsエクスポート
+article_title: カスタムCurrentsエクスポート
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "このリファレンス記事では、カスタムHTTPコネクターを設定して、Braze Currentsのイベントデータを独自のHTTPエンドポイントにリアルタイムでストリーミングする方法について説明します。"
+description: "このリファレンス記事では、カスタムCurrentsエクスポートを設定して、Braze Currentsのイベントデータを独自のHTTPエンドポイントにリアルタイムでストリーミングする方法について説明します。"
 ---
 
-# カスタムHTTPコネクター {#custom-http-connector}
+# カスタムCurrentsエクスポート {#custom-currents-export}
 
 > カスタムCurrentsコネクターを統合して、Brazeからリアルタイムでイベントデータを取得し、よりカスタマイズされた分析、レポート、オートメーションを実現する方法を説明します。
+
+{% alert note %}
+この機能は、技術ドキュメントやAPIリファレンスではカスタムHTTPコネクターとも呼ばれています。
+{% endalert %}
 
 ## 前提条件 {#prerequisites}
 
@@ -20,11 +24,11 @@ BrazeでカスタムCurrentsコネクターを統合するには、エンドポ�
 
 ## 統合 {#integration}
 
-### ステップ 1:エンドポイントを設定する {#step-1-set-up-your-endpoint}
+### ステップ1:エンドポイントを設定する {#step-1-set-up-your-endpoint}
 
 この統合を設定するには、エンドポイントURLが必要です。エンドポイントはHTTP POSTリクエストを受信し、イベントの正常な受信を確認するために`2XX`ステータスコードを返す必要があります。Brazeからのリクエストを認証する場合は、ベアラートークンも必要です。
 
-### ステップ 2:Braze Currentsを設定する {#step-2-configure-braze-currents}
+### ステップ2:Braze Currentsを設定する {#step-2-configure-braze-currents}
 
 Brazeで、**パートナー連携** > **データのエクスポート**に移動し、**Create New Current**をクリックして、**Custom Currents Export**を選択します。
 
@@ -61,7 +65,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 
 ## バッチ処理とシリアライゼーション {#batching-and-serialization}
 
-ターゲットデータ形式はHTTPS経由のJSONです。デフォルトでは、イベントは最大100イベントのバッチでエンドポイントに送信されます。
+ターゲットデータ形式はHTTPS経由のJSONです。デフォルトでは、イベントは最大100件のバッチでエンドポイントに送信されます。
 
 イベントは、以下の形式ですべてのイベントのJSON配列としてエンドポイントに送信されます。
 

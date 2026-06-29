@@ -419,10 +419,10 @@ Rien de tout cela n'ayant été synchronisé avec Braze auparavant, ajoutez l'en
   </tbody>
 </table>
 
-Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé toutes les données disponibles jusqu'à « 2023-03-16 15:00:00 ». Ensuite, le matin du jour 2, un processus ETL s'exécute et certains champs de votre table d'utilisateurs sont mis à jour (en surbrillance) :
+Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé toutes les données disponibles jusqu'à « 2023-03-16 15:00:00 ». Ensuite, le matin du jour 2, un processus ETL s'exécute et certains champs de votre table d'utilisateurs sont mis à jour (indiqués par *) :
 
 <table aria-label="Exemple : gestion des mises à jour ultérieures">
-  <caption>Exemple : gestion des mises à jour ultérieures</caption>
+  <caption>Exemple : gestion des mises à jour ultérieures. * indique un champ mis à jour depuis la dernière synchronisation.</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -435,14 +435,14 @@ Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé to
     <tbody>
         <tr>
             <td>12345</td>
-            <td style="background-color: #FFFF00;">145</td>
-            <td style="background-color: #FFFF00;">red</td>
+            <td style="background-color: #FFFF00;">145*</td>
+            <td style="background-color: #FFFF00;">red*</td>
             <td>380</td>
-            <td style="background-color: #FFFF00;">TRUE</td>
+            <td style="background-color: #FFFF00;">TRUE*</td>
         </tr>
         <tr>
             <td>23456</td>
-            <td style="background-color: #FFFF00;">15</td>
+            <td style="background-color: #FFFF00;">15*</td>
             <td>blue</td>
             <td>823</td>
             <td>TRUE</td>
@@ -451,13 +451,13 @@ Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé to
             <td>34567</td>
             <td>234</td>
             <td>blue</td>
-            <td style="background-color: #FFFF00;">495</td>
-            <td style="background-color: #FFFF00;">FALSE</td>
+            <td style="background-color: #FFFF00;">495*</td>
+            <td style="background-color: #FFFF00;">FALSE*</td>
         </tr>
         <tr>
             <td>45678</td>
             <td>245</td>
-            <td style="background-color: #FFFF00;">green</td>
+            <td style="background-color: #FFFF00;">green*</td>
             <td>349</td>
             <td>TRUE</td>
         </tr>
@@ -465,7 +465,7 @@ Une synchronisation s'exécute et Braze enregistre que vous avez synchronisé to
             <td>56789</td>
             <td>1938</td>
             <td>red</td>
-            <td style="background-color: #FFFF00;">693</td>
+            <td style="background-color: #FFFF00;">693*</td>
             <td>FALSE</td>
         </tr>
     </tbody>
@@ -717,6 +717,6 @@ Nous recommandons que les requêtes soient exécutées en moins d'une heure pour
 | Type de données | Vous pouvez synchroniser les attributs utilisateur, les événements et les achats via l'ingestion de données cloud. |
 | Région Braze | Ce produit est disponible dans toutes les régions Braze. Toute région Braze peut se connecter à n'importe quelle région de données source. |
 | Région source | Braze se connectera à votre entrepôt de données ou à votre environnement cloud dans n'importe quelle région ou chez n'importe quel fournisseur cloud. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites du produit" }
 
 <br><br>
