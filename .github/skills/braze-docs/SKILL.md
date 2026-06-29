@@ -21,23 +21,25 @@ Detect mode from $ARGUMENTS first, then modified files, then ask.
 | Signal | Mode | Load |
 |--------|------|------|
 | $ARGUMENTS: "conflict", "merge", "resolve" | **Conflict** | *(workflow is in this file)* |
-| $ARGUMENTS: "link", "redirect", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
+| $ARGUMENTS: "redirect", "mredirects", "ulinks", "broken_redirect" | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
+| $ARGUMENTS: "link", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
 | $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
 | $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
 | $ARGUMENTS: "css", "layout", "component", "include", "i18n", "custom" | **Custom** | *(workflow is in this file — see Custom components and CSS)* |
-| Modified files include `broken_redirect_list.js` | **Links** | [site-conventions.md](references/site-conventions.md) |
+| Modified files include `broken_redirect_list.js` | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
 | Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
 
 If mode is still ambiguous, ask: "What are you working on?"
 
 If AskUserQuestion is available:
-- **Writing or editing content** — Drafting new articles or updating existing ones
-- **Fixing broken links** — Broken links, redirects, or cross-references
-- **Resolving merge conflicts** — Conflicts between branches
-- **Reviewing for style** — Checking existing content against style standards
+- **Writing or editing content** — Drafting new articles or updating existing ones → **Write**
+- **Fixing broken links** — Broken cross-references or internal links in Markdown (not `broken_redirect_list.js`) → **Links**
+- **Managing redirects** — Adding, updating, or validating entries in `broken_redirect_list.js` → **Redirects** (**REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md))
+- **Resolving merge conflicts** — Conflicts between branches → **Conflict**
+- **Reviewing for style** — Checking existing content against style standards → **Review**
 
-Otherwise ask: "What are you working on? (1) Writing/editing content, (2) Fixing broken links, (3) Resolving merge conflicts, (4) Reviewing for style"
+Otherwise ask: "What are you working on? (1) Writing/editing content, (2) Fixing broken links, (3) Managing redirects (`broken_redirect_list.js`), (4) Resolving merge conflicts, (5) Reviewing for style"
 
 ## Overview
 
