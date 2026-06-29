@@ -3,13 +3,13 @@
 > Learn about the Braze MCP server, a secure connection that lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, and provide insights.
 
 {% alert important %}
-This summer, Braze is launching a remote, Braze-hosted MCP server in Early Access. It replaces the locally hosted beta server (`braze-mcp-server` on [PyPI](https://pypi.org/project/braze-mcp-server/) and the Claude Desktop extension directory).
+This summer, Braze is launching a remote, Braze-hosted MCP server in early access. It replaces the locally hosted beta server (`braze-mcp-server` on [PyPI](https://pypi.org/project/braze-mcp-server/) and the Claude Desktop extension directory).<br><br>
 
-**What this means for you:**
+**What this means for you:**<br><br>
 
 - The locally hosted server will continue to work, but it is no longer supported. We won't be adding new endpoints or fixing issues in the beta.
-- When the remote server is available in Early Access, you'll need to switch to it. The remote server requires no local installation, uses OAuth instead of static API keys, and works with MCP clients like Claude, Copilot, Gemini CLI, Codex, and Cursor.
-- Watch this page for Early Access availability, or contact your Braze account team to express interest.
+- When the remote server is available in early access, you'll need to switch to it. The remote server requires no local installation, uses OAuth instead of static API keys, and works with MCP clients like Claude, Copilot, Gemini CLI, Codex, and Cursor.
+- Watch this page for early access availability, or contact your Braze account team to express interest.
 {% endalert %}
 
 ## What is Model Context Protocol (MCP)?
