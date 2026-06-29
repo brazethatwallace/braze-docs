@@ -115,5 +115,5 @@ Apple uses a randomized schedule to delay reporting when a push token becomes in
 
 ### How does uninstall tracking relate to silent or background push?
 
-Uninstall detection can use low-priority background pushes that do not surface as a visible notification. These are separate from campaign [**Sends**]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_analytics/) in standard messaging analytics. When analyzing uninstall trends, review uninstall charts alongside push engagement metrics rather than comparing uninstall pushes directly to marketing send totals.
+Uninstall detection can use low-priority background pushes that do not surface as a visible notification. These are separate from campaign [**Sends**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) in standard messaging analytics. When analyzing uninstall trends, review uninstall charts alongside push engagement metrics rather than comparing uninstall pushes directly to marketing send totals.
 
