@@ -194,6 +194,8 @@ If the custom event displays, further troubleshoot by doing the following:
 In-app messages can only be triggered by events sent through the SDK, not the REST API.
 {% endalert %}
 
-### Do action-based campaigns evaluate the segment before or after the trigger event occurs?
+### When do action-based campaigns evaluate audience membership?
 
-Segment membership is evaluated before the trigger event occurs. You can also configure campaigns to re-evaluate just before send time. This can be useful for instances where there is a delay between the trigger event and the actual send where the user could log the trigger event, then exit the audience before the send time.
+Braze evaluates audience membership when it processes the trigger event, before the message is sent. By default, Braze checks whether the user matches the target audience at enqueue time. If the campaign has a delay, you can select **Re-evaluate segment membership at send-time** to check audience criteria again immediately before send—for example, when a user could perform the trigger action and then exit the audience before the send completes.
+
+For more information, see [Audience criteria evaluation](#audience-criteria-evaluation).

@@ -280,8 +280,8 @@ For questions about calendar days, silent push, webhooks, Canvas behavior, and r
 
 If you find that your daily scheduled campaigns have lower sends, check for the following:
 
-- **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your campaign receive the message.
-- **Check if the campaign targets a static segment:** Because new users do not enter the segment, lower sends over time can be observed if there is also a rate limit applied at the campaign level.
+- **Check if re-eligibility is turned on:** Without re-eligibility, Braze messages each user only once. On daily scheduled campaigns, only users who match the audience and have not yet received the message are eligible for each send.
+- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Lower sends over time can also occur when a [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) is applied and most eligible users have already received the message.
 
 ### Why can unique recipients exceed sends for email and SMS?
 

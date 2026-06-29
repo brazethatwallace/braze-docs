@@ -123,8 +123,8 @@ For example, if a user receives a Canvas step on Monday and again on Friday and 
 
 If you find that your daily scheduled Canvas has lower send rates, check for the following:
 
-- **Check if re-eligibility is turned on:** Without re-eligibility, only new users who match the audience criteria for your Canvas receive the message.
-- **Check if the Canvas targets a static segment:** Because new users do not enter the segment, lower sends over time can be observed if there is also a rate limit applied at the Canvas level.
+- **Check if re-eligibility is turned on:** Without re-eligibility, Braze messages each user only once. On daily scheduled Canvases, only users who match the audience and have not yet entered the Canvas are eligible for each entry.
+- **Check if the audience has fixed membership:** Audiences built from a fixed user list (such as a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) used as a segment filter) do not gain new members automatically. Lower entry rates over time can also occur when a [delivery speed rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) is applied and most eligible users have already entered the Canvas.
 
 ## Analytics and conversions
 
