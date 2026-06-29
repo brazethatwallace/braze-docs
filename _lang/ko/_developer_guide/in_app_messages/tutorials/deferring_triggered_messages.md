@@ -1,20 +1,20 @@
 ---
-nav_title: 지연된 트리거 메시지
-article_title: "Tutorial: 트리거된 메시지를 연기하고 복원하기"
+nav_title: 트리거된 메시지 지연
+article_title: "튜토리얼: 트리거된 메시지 지연 및 복원"
 description: ""
 page_order: 1
 layout: scrolly
 ---
 
-# Tutorial: 트리거된 메시지를 연기하고 복원하기
+# 튜토리얼: 트리거된 메시지 지연 및 복원 {#tutorial-deferring-and-restoring-triggered-messages}
 
-> 이 튜토리얼의 샘플 코드를 따라 Braze SDK를 사용하여 인앱 메시지를 연기하고 복원하세요.
+> 이 튜토리얼의 샘플 코드를 따라 Braze SDK를 사용하여 트리거된 인앱 메시지를 지연하고 복원하는 방법을 알아보세요.
 
 {% sdktabs %}
 {% sdktab web %}
 {% multi_lang_include developer_guide/prerequisites/web.md %} 그러나 추가 설정은 필요하지 않습니다.
 
-## 웹을 위한 트리거된 메시지 지연 및 복원
+## 웹용 트리거된 메시지 지연 및 복원 {#deferring-and-restoring-triggered-messages-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Web" %}
 
@@ -47,60 +47,60 @@ document.getElementById("button").onclick = function () {
 };
 ```
 
-!!단계
+!!step
 lines-index.js=2
 
-#### 1\. `automaticallyShowInAppMessages()`에 대한 호출을 제거하십시오.
+### 1. `automaticallyShowInAppMessages()` 호출 제거 {#1-remove-calls-to-automaticallyshowinappmessages}
 
-나중에 구현하는 모든 사용자 정의 논리를 재정의하므로 [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages)에 대한 호출을 제거하십시오.
+나중에 구현할 커스텀 로직을 재정의하므로 [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages)에 대한 모든 호출을 제거하세요.
 
-!!단계
+!!step
 lines-index.js=6
 
-#### 2\. 디버깅 활성화(선택 사항)
+#### 2. 디버깅 활성화(선택 사항) {#2-enable-debugging-optional}
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-index.js=9-16
 
-#### 3\. 인앱 메시지 콜백 핸들러에 가입하십시오.
+#### 3. 인앱 메시지 콜백 핸들러 구독 {#3-subscribe-to-the-in-app-message-callback-handler}
 
-인앱 메시지가 트리거될 때마다 메시지를 받기 위해 [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)에 콜백을 등록하십시오.
+인앱 메시지가 트리거될 때마다 메시지를 수신하려면 [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)에 콜백을 등록하세요.
 
-!!단계
+!!step
 lines-index.js=11-12
 
-#### 4\. `message` 인스턴스를 지연하십시오.
+#### 4. `message` 인스턴스 지연 {#4-defer-the-message-instance}
 
-메시지를 지연시키려면 [`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage)을(를) 호출하십시오. Braze는 이 메시지를 직렬화하고 저장하여 향후 페이지 로드 시 표시할 수 있습니다.
+메시지를 지연하려면 [`deferInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#deferinappmessage)를 호출하세요. Braze는 이 메시지를 직렬화하고 저장하여 이후 페이지 로드 시 표시할 수 있도록 합니다.
 
-!!단계
+!!step
 lines-index.js=18-24
 
-#### 5\. 이전에 보류된 메시지를 검색하십시오
+#### 5. 이전에 지연된 메시지 검색 {#5-retrieve-a-previously-deferred-message}
 
-이전에 보류된 메시지를 검색하려면 [`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage)을 호출하십시오. 
+이전에 지연된 메시지를 검색하려면 [`getDeferredInAppMessage()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getdeferredinappmessage)를 호출하세요.
 
-!!단계
+!!step
 lines-index.js=21-23
 
-#### 6\. 보류된 메시지를 표시하십시오
+#### 6. 지연된 메시지 표시 {#6-display-the-deferred-message}
 
-보류된 메시지를 검색한 후, [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage)에 전달하여 표시하십시오.
+지연된 메시지를 검색한 후 [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage)에 전달하여 표시하세요.
 
-!!단계
+!!step
 lines-index.js=13-15
 
-#### 7\. 메시지를 즉시 표시하십시오
+#### 7. 메시지 즉시 표시 {#7-display-a-message-immediately}
 
-메시지를 보류하는 대신 표시하려면 [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage)을 `subscribeToInAppMessage` 콜백에서 직접 호출하십시오.
+메시지를 지연하지 않고 바로 표시하려면 `subscribeToInAppMessage` 콜백에서 [`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage)를 직접 호출하세요.
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} Android에 대한 [앱 내 메시지 활성화]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages)도 필요합니다.
+{% multi_lang_include developer_guide/prerequisites/android.md %} 또한 [Android용 인앱 메시지 활성화]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages)가 필요합니다.
 
-## Android용 트리거된 메시지 연기 및 복원하기
+## Android용 트리거된 메시지 지연 및 복원 {#deferring-and-restoring-triggered-messages-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Android" %}
 
@@ -202,61 +202,61 @@ fun ContentView() {
 }
 ```
 
-!!단계
-줄-MainApplication.kt=13-16
+!!step
+lines-MainApplication.kt=13-16
 
-#### 1\. 싱글톤 `Application` 인스턴스 생성하기
+### 1. 싱글톤 `Application` 인스턴스 생성 {#1-create-a-singleton-application-instance}
 
-동반 객체를 사용하여 `Application` 클래스를 싱글톤으로 노출하여 코드에서 나중에 접근할 수 있도록 합니다.
+컴패니언 오브젝트를 사용하여 `Application` 클래스를 싱글톤으로 노출하면 코드의 다른 곳에서 접근할 수 있습니다.
 
-!!단계
-줄-MainApplication.kt=25
+!!step
+lines-MainApplication.kt=25
 
-#### 2\. 디버깅 활성화(선택 사항)
+#### 2. 디버깅 활성화(선택 사항)
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
-줄-MainApplication.kt=34-36
+!!step
+lines-MainApplication.kt=34-36
 
-#### 3\. 활동 수명 주기 콜백 등록
+#### 3. 액티비티 라이프사이클 콜백 등록 {#3-register-activity-lifecycle-callbacks}
 
-Braze의 기본 리스너를 등록하여 인앱 메시지 생명 주기를 처리합니다.
+Braze의 기본 리스너를 등록하여 인앱 메시지 라이프사이클을 처리합니다.
 
-!!단계
-줄-MainApplication.kt=39-49
+!!step
+lines-MainApplication.kt=39-49
 
-#### 4\. 인앱 메시지 리스너 설정하기
+#### 4. 인앱 메시지 리스너 설정 {#4-set-up-an-in-app-message-listener}
 
-`BrazeInAppMessageManager`을 사용하여 메시지가 표시되기 전에 가변 리스너를 설정합니다.
+`BrazeInAppMessageManager`를 사용하여 메시지가 표시되기 전에 가로채는 커스텀 리스너를 설정합니다.
 
-!!단계
-줄-MainApplication.kt=43,46
+!!step
+lines-MainApplication.kt=43,46
 
-#### 5\. 조건 로직 생성하기
+#### 5. 조건 로직 생성 {#5-create-conditional-logic}
 
-타이밍을 제어하기 위해 `showMessage` 플래그를 사용하세요—지금 메시지를 표시하려면 `DISPLAY_NOW`를 반환하거나 연기하려면 `DISPLAY_LATER`을 반환하세요.
+`showMessage` 플래그를 사용하여 타이밍을 제어하세요&#8212;메시지를 지금 표시하려면 `DISPLAY_NOW`를 반환하고, 지연하려면 `DISPLAY_LATER`를 반환합니다.
 
-!!단계
+!!step
 lines-MainApplication.kt=52-55
 
-#### 6\. 지연된 메시지를 표시하는 메서드를 만드세요
+#### 6. 지연된 메시지를 표시하는 메서드 생성 {#6-create-a-method-for-displaying-deferred-messages}
 
-다음 인앱 메시지를 트리거하기 위해 `showDeferredMessage`을 사용하세요. `showMessage`가 `true`일 때, 리스너는 `DISPLAY_NOW`를 반환합니다.
+`showDeferredMessage`를 사용하여 다음 인앱 메시지를 트리거하세요. `showMessage`가 `true`이면 리스너가 `DISPLAY_NOW`를 반환합니다.
 
-!!단계
+!!step
 lines-MainActivity.kt=29
 
-#### 7\. UI에서 메서드를 트리거하세요
+#### 7. UI에서 메서드 트리거 {#7-trigger-the-method-from-your-ui}
 
-이전의 지연된 메시지를 표시하려면, 버튼이나 탭과 같은 UI에서 `showDeferredMessage(true)`을 호출하세요.
+이전에 지연된 메시지를 표시하려면 버튼이나 탭과 같은 UI에서 `showDeferredMessage(true)`를 호출하세요.
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} Swift에 대한 [앱 내 메시지 활성화]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)도 필요합니다.
+{% multi_lang_include developer_guide/prerequisites/swift.md %} 또한 [Swift용 인앱 메시지 활성화]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages)가 필요합니다.
 
-## Swift용 트리거된 메시지 지연 및 복원
+## Swift용 트리거된 메시지 지연 및 복원 {#deferring-and-restoring-triggered-messages-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Deferring Triggered Messages Swift" %}
 
@@ -344,47 +344,47 @@ struct ContentView: View {
 }
 ```
 
-!!단계
+!!step
 lines-AppDelegate.swift=5
 
-#### 1\. `BrazeInAppMessageUIDelegate`을 구현하세요
+### 1. `BrazeInAppMessageUIDelegate` 구현 {#1-implement-the-brazeinappmessageuidelegate}
 
-당신의 `AppDelegate` 클래스에서, 나중에 `inAppMessage` 메서드를 재정의할 수 있도록 [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate)를 구현하세요.
+`AppDelegate` 클래스에서 [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate)를 구현하여 나중에 `inAppMessage` 메서드를 재정의할 수 있도록 합니다.
 
-!!단계
+!!step
 lines-AppDelegate.swift=19
 
-#### 2\. 디버깅 활성화(선택 사항)
+#### 2. 디버깅 활성화(선택 사항)
 
 개발 중 문제 해결을 쉽게 하기 위해 디버깅을 활성화하는 것을 고려하세요.
 
-!!단계
+!!step
 lines-AppDelegate.swift=25-27
 
-#### 3\. Braze UI와 델리게이트를 설정하세요
+#### 3. Braze UI 및 델리게이트 설정 {#3-set-up-your-braze-ui-and-delegate}
 
-`BrazeInAppMessageUI()`은 기본적으로 인앱 메시지를 렌더링합니다. `self`를 델리게이트로 할당하면, 메시지가 표시되기 전에 가로채고 처리할 수 있습니다. 인스턴스를 저장하는 것을 잊지 마세요. 나중에 지연된 메시지를 복원하는 데 필요합니다.
+`BrazeInAppMessageUI()`는 기본적으로 인앱 메시지를 렌더링합니다. `self`를 델리게이트로 할당하면 메시지가 표시되기 전에 가로채고 처리할 수 있습니다. 나중에 지연된 메시지를 복원할 때 필요하므로 인스턴스를 반드시 저장하세요.
 
-!!단계
+!!step
 lines-AppDelegate.swift=32-41
 
-#### 4\. 조건 로직으로 `DisplayChoice`을 재정의하세요
+#### 4. 조건 로직으로 `DisplayChoice` 재정의 {#4-override-displaychoice-with-conditional-logic}
 
-메시지가 표시되어야 할 때를 결정하기 위해 [`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)을(를) 재정의하십시오. 즉시 표시하려면 `.now`을(를) 반환하고, 나중에 표시하려면 `.reenqueue`을(를) 반환하십시오.
+[`inAppMessage(_:displayChoiceForMessage:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:displaychoiceformessage:)-9w1nb)를 재정의하여 메시지를 표시할 시점을 결정합니다. 즉시 표시하려면 `.now`를 반환하고, 나중으로 지연하려면 `.reenqueue`를 반환합니다.
 
-!!단계
+!!step
 lines-AppDelegate.swift=43-46
 
-#### 5\. 지연된 메시지를 표시하는 메서드를 만드십시오.
+#### 5. 지연된 메시지를 표시하는 메서드 생성 {#5-create-a-method-to-show-deferred-messages}
 
-스택에서 다음 지연된 메시지를 표시하기 위해 `showDeferredMessage(true)`을(를) 호출하는 메서드를 만드십시오. 호출되면 `showMessage`는 `true`으로 설정되어 대리자가 `.now`를 반환합니다.
+`showDeferredMessage(true)`를 호출하여 스택의 다음 지연된 메시지를 표시하는 메서드를 생성합니다. 호출되면 `showMessage`가 `true`로 설정되어 델리게이트가 `.now`를 반환합니다.
 
-!!단계
+!!step
 lines-ContentView.swift=1-14
 
-#### 5\. UI에서 메서드를 트리거하세요
+#### 6. UI에서 메서드 트리거 {#5-trigger-the-method-from-your-ui}
 
-이전의 지연된 메시지를 표시하려면, 버튼이나 탭과 같은 UI에서 `showDeferredMessage(true)`을 호출하세요.
+이전에 지연된 메시지를 표시하려면 버튼이나 탭과 같은 UI에서 `showDeferredMessage(true)`를 호출하세요.
 
 {% endscrolly %}
 {% endsdktab %}

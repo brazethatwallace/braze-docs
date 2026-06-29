@@ -14,13 +14,13 @@ toc_headers: h2
 
 Choisissez parmi les guides de dépôts suivants par plateforme :
 
-- [SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)
-- [SDK Android]({{site.baseurl}}/developer_guide/sdk_repository_guides/android/)
-- [SDK Swift]({{site.baseurl}}/developer_guide/sdk_repository_guides/swift/)
-- [SDK JavaScript]({{site.baseurl}}/developer_guide/sdk_repository_guides/javascript/)
-- [SDK Cordova]({{site.baseurl}}/developer_guide/sdk_repository_guides/cordova/)
-- [SDK Flutter]({{site.baseurl}}/developer_guide/sdk_repository_guides/flutter/)
-- [SDK React Native]({{site.baseurl}}/developer_guide/sdk_repository_guides/react_native/)
-- [SDK Roku]({{site.baseurl}}/developer_guide/sdk_repository_guides/roku/)
-- [SDK Unity]({{site.baseurl}}/developer_guide/sdk_repository_guides/unity/)
-- [SDK .NET MAUI (Xamarin)]({{site.baseurl}}/developer_guide/sdk_repository_guides/xamarin/)
+- [SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web)
+- [SDK Android]({{site.baseurl}}/developer_guide/sdk_repository_guides/android)
+- [SDK Swift]({{site.baseurl}}/developer_guide/sdk_repository_guides/swift)
+- [SDK JavaScript]({{site.baseurl}}/developer_guide/sdk_repository_guides/javascript)
+- [SDK Cordova]({{site.baseurl}}/developer_guide/sdk_repository_guides/cordova)
+- [SDK Flutter]({{site.baseurl}}/developer_guide/sdk_repository_guides/flutter)
+- [SDK React Native]({{site.baseurl}}/developer_guide/sdk_repository_guides/react_native)
+- [SDK Roku]({{site.baseurl}}/developer_guide/sdk_repository_guides/roku)
+- [SDK Unity]({{site.baseurl}}/developer_guide/sdk_repository_guides/unity)
+- [SDK .NET MAUI (Xamarin)]({{site.baseurl}}/developer_guide/sdk_repository_guides/xamarin)

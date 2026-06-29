@@ -12,12 +12,12 @@ noindex: true
 
 # サンプルアプリ {#sample-apps}
 
-Braze SDKにはそれぞれ、利便性を高めるためにリポジトリ内にサンプルアプリケーションが付属しています。これらのアプリはそれぞれ完全にビルド可能であるため、独自のアプリケーション内で実装すると同時に、Braze 機能をテストできます。ご自身のアプリケーション内での動作のテストと、予期される動作のテスト、およびサンプルアプリケーション内でのコードパスは、問題が発生した場合に、それをデバッグするための優れた方法です。
+Braze SDKにはそれぞれ、利便性を高めるためにリポジトリ内にサンプルアプリケーションが付属しています。これらのアプリはそれぞれ完全にビルド可能であるため、独自のアプリケーション内で実装すると同時に、Brazeの機能をテストできます。ご自身のアプリケーション内での動作のテストと、サンプルアプリケーション内での予期される動作やコードパスとの比較は、問題が発生した場合にデバッグするための優れた方法です。
 
 ## テストアプリケーションのビルド {#building-test-applications}
 [iOS SDK GitHub リポジトリ](https://github.com/appboy/appboy-ios-sdk)では、いくつかのテストアプリケーションを使用できます。以下の手順に従って、テストアプリケーションをビルドして実行します。
 
-1. 新しい[ワークスペース]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration/#creating-your-app-group-in-my-apps)を作成し、アプリ識別子APIキーを書き留めます。
+1. 新しい[ワークスペース]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps)を作成し、アプリ識別子APIキーを書き留めます。
 2. APIキーを `AppDelegate.m` ファイルの適切なフィールドに配置します。
 
-iOSテストアプリケーションのプッシュ通知には、追加の設定が必要です。詳細については、[iOSプッシュ統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/)を参照してください。
+iOSテストアプリケーションのプッシュ通知には、追加の設定が必要です。詳細については、[iOSプッシュ統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration)を参照してください。

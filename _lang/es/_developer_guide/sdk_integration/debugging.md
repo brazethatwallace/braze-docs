@@ -10,7 +10,7 @@ description: "Aprende a utilizar el Depurador de SDK de Braze, para que puedas s
 > Aprende a utilizar el depurador integrado del SDK de Braze, para que puedas solucionar problemas de tus canales con SDK, sin necesidad de habilitar el registro detallado en tu aplicación.
 
 {% alert tip %}
-Para una investigación más profunda, también puedes [habilitar el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) para capturar la salida detallada del SDK y [aprender a leer los registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/) de canales específicos.
+Para una investigación más profunda, también puedes [habilitar el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para capturar la salida detallada del SDK y [aprender a leer los registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) de canales específicos.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
@@ -19,12 +19,12 @@ Para utilizar el Depurador de SDK de Braze, necesitarás los permisos "View PII"
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
-Para recopilar registros del depurador cuando `Braze.configuration.logger.level` es `.disabled`, usa Swift SDK 11.9.0 o posterior. Para más información, consulta el [registro de cambios de Swift]({{site.baseurl}}/developer_guide/changelogs/#swift_fixed-12).
+Para recopilar registros del depurador cuando `Braze.configuration.logger.level` es `.disabled`, usa Swift SDK 11.9.0 o posterior. Para más información, consulta el [registro de cambios de Swift]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12).
 
 ## Depuración del SDK de Braze
 
 {% alert tip %}
-Para habilitar la depuración del SDK Web de Braze, puedes [utilizar un parámetro de URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#logging).
+Para habilitar la depuración del SDK Web de Braze, puedes [utilizar un parámetro de URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging).
 {% endalert %}
 
 ### Paso 1: Cierra tu aplicación {#step-1-close-your-app}

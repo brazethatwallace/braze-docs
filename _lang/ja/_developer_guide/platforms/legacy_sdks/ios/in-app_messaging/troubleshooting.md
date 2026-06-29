@@ -16,13 +16,13 @@ noindex: true
 
 ## インプレッション {#impressions}
 
-#### インプレッション分析やクリック分析が記録されていない {#impression-or-click-analytics-arent-being-logged}
+### インプレッション分析やクリック分析が記録されていない {#impression-or-click-analytics-arent-being-logged}
 
 メッセージ表示またはクリックアクションを手動で処理するようにアプリ内メッセージデリゲートを設定している場合は、アプリ内メッセージのクリック数とインプレッション数を手動で記録する必要があります。
 
 #### インプレッションが予想より低い {#impressions-are-lower-than-expected}
 
-トリガーはセッション開始時にデバイスへの同期に時間がかかるため、ユーザーがセッション開始直後にイベントや購入を記録すると競合が発生する可能性があります。考えられる回避策の1つは、キャンペーンをセッション開始時にトリガーするよう変更し、目的のイベントまたは購入でセグメント化することです。なお、イベント発生後の次回セッション開始時にアプリ内メッセージが配信されることに注意してください。
+トリガーはセッション開始時にデバイスへの同期に時間がかかるため、ユーザーがセッション開始直後にイベントや購入を記録すると競合が発生する可能性があります。考えられる回避策の1つは、Campaignをセッション開始時にトリガーするよう変更し、目的のイベントまたは購入でセグメント化することです。なお、イベント発生後の次回セッション開始時にアプリ内メッセージが配信されることに注意してください。
 
 ## 予期したアプリ内メッセージが表示されなかった {#expected-in-app-message-did-not-display}
 
@@ -35,12 +35,12 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 #### メッセージがリクエストされ、返されたかどうかを確認する {#check-if-messages-are-requested-and-returned}
 
 1. ダッシュボードで自分自身を[テストユーザー]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users)として追加します。
-2. ユーザーを対象としたアプリ内メッセージキャンペーンを設定します。
+2. ユーザーを対象としたアプリ内メッセージCampaignを設定します。
 3. アプリケーションで新しいセッションが発生することを確認します。
 4. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使用して、セッション開始時にデバイスがアプリ内メッセージをリクエストしていることを確認します。テストユーザーのセッション開始イベントに関連付けられたSDKリクエストを見つけます。
   - トリガーされたアプリ内メッセージをリクエストするためのアプリであれば、**Response Data**の**Requested Responses**フィールドに `trigger` が表示されます。
   - アプリが元のアプリ内メッセージをリクエストするためのものだった場合、**Response Data**の**Requested Responses**フィールドに `in_app` が表示されます。
-5. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使って、レスポンスデータに正しいアプリ内メッセージが返されているか確認します。<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使って、レスポンスデータに正しいアプリ内メッセージが返されているか確認します。<br>![アプリ内メッセージリクエストのイベントユーザーログエントリ]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### リクエストされていないメッセージのトラブルシューティング {#troubleshoot-messages-not-being-requested}
 
@@ -50,23 +50,23 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 
 ### メッセージが返されない問題のトラブルシューティング {#troubleshoot-messages-not-being-returned}
 
-アプリ内メッセージが返されない場合、キャンペーンターゲティングの問題が発生している可能性があります。
+アプリ内メッセージが返されない場合、Campaignターゲティングの問題が発生している可能性があります。
 
-- セグメントにユーザーが含まれていない。
-  - ユーザーの[**エンゲージメント**]({{ site.baseurl }}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)タブを確認し、**セグメント**欄に正しいセグメントが表示されているか確認します。
+- Segmentにユーザーが含まれていない。
+  - ユーザーの[**エンゲージメント**]({{ site.baseurl }}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)タブを確認し、**Segments**欄に正しいSegmentが表示されているか確認します。
 - ユーザーが以前にアプリ内メッセージを受け取ったことがあり、再度受け取る資格がなかった。
-  - **キャンペーン Composer**の**配信**ステップにある[キャンペーンの再適格性設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)を確認し、再適格性設定がテスト設定と一致していることを確認します。
-- ユーザーがキャンペーンのフリークエンシーキャップに達した。
-  - キャンペーンの[フリークエンシーキャップ設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping)を確認し、テスト設定と一致していることを確認します。
-- キャンペーンにコントロールグループが存在した場合、ユーザーがコントロールグループに分類された可能性があります。
-  - キャンペーンバリアントが**コントロール**に設定されている受信キャンペーンバリアントフィルターでセグメントを作成し、ユーザーがそのセグメントに分類されたかどうかを確認することで、これが発生したかどうかを確認できます。
-  - 統合テスト目的でキャンペーンを作成する場合は、コントロールグループの追加をオプトアウトしてください。
+  - **Campaign Composer**の**配信**ステップにある[Campaignの再適格性設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/reeligibility/)を確認し、再適格性設定がテスト設定と一致していることを確認します。
+- ユーザーがCampaignのフリークエンシーキャップに達した。
+  - Campaignの[フリークエンシーキャップ設定]({{ site.baseurl }}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#frequency-capping)を確認し、テスト設定と一致していることを確認します。
+- Campaignにコントロールグループが存在した場合、ユーザーがコントロールグループに分類された可能性があります。
+  - Campaignバリアントが**コントロール**に設定されている受信Campaignバリアントフィルターでセグメントを作成し、ユーザーがそのSegmentに分類されたかどうかを確認することで、これが発生したかどうかを確認できます。
+  - 統合テスト目的でCampaignを作成する場合は、コントロールグループの追加をオプトアウトしてください。
 
 ### アプリ内メッセージ表示 {#troubleshooting-in-app-message-display}
 
 アプリがアプリ内メッセージのリクエストと受信に成功しているのに表示されない場合は、デバイス側のロジックによって表示が妨げられている可能性があります。
 
-- トリガーされたアプリ内メッセージは、[トリガー間の最小時間間隔]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers)（デフォルトは30秒）に基づいてレート制限されます。
+- トリガーされたアプリ内メッセージは、[トリガー間の最小時間間隔]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers)（デフォルトは30秒）に基づいてレート制限されます。
 - アプリ内メッセージ処理をカスタマイズするようにデリゲートを設定している場合は、デリゲートがアプリ内メッセージ表示に影響していないことを確認してください。
 - 画像のダウンロードに失敗すると、画像付きのアプリ内メッセージが表示されなくなります。`SDWebImage` フレームワークが正しく統合されていない場合、画像のダウンロードは常に失敗します。画像のダウンロードに失敗していないか、デバイスのログを確認してください。
 - デバイスの向きがアプリ内メッセージで指定された向きと一致しなかった場合、アプリ内メッセージは表示されません。デバイスの向きが正しいことを確認してください。

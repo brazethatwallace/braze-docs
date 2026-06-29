@@ -2,7 +2,7 @@
 nav_title: Localisation
 article_title: Localisation
 page_order: 3.50
-description: "Découvrez la localisation pour le SDK Braze."
+description: "Découvrez la localisation et les langues prises en charge pour le SDK Braze."
 platform:
   - Android
   - FireOS
@@ -11,7 +11,7 @@ platform:
 
 # Localisation {#localization}
 
-> Découvrez la localisation et les langues prises en charge pour le SDK Braze, afin de communiquer avec vos utilisateurs à travers le monde. Pour obtenir des conseils sur la configuration des messages localisés, consultez la section [Localisation]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) dans notre rubrique Principes fondamentaux de l'envoi de messages.
+> Découvrez la localisation et les langues prises en charge pour le SDK Braze, afin de communiquer avec vos utilisateurs à travers le monde. Pour obtenir des conseils sur la configuration des messages localisés, consultez la section [Localisation]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) dans notre rubrique Principes fondamentaux de l'envoi de messages.
 
 ## À propos de la localisation {#about-localization}
 

@@ -11,21 +11,21 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Passen Sie den Feed der Content-Cards an
+# Content-Card-Feed anpassen {#customize-the-content-cards-feed}
 
-Sie können Ihre eigene Content-Cards-Schnittstelle erstellen, indem Sie `ABKContentCardsTableViewController` erweitern, um alle UI-Elemente und das Verhalten der Content-Cards anzupassen. Die Content-Card-Zellen können auch unterklassifiziert und dann programmatisch oder mithilfe eines angepassten Storyboards, das die neuen Klassen registriert, verwendet werden. Ein vollständiges Beispiel finden Sie in der Content-Cards [App](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp). 
+Sie können Ihre eigene Content-Cards-Schnittstelle erstellen, indem Sie `ABKContentCardsTableViewController` erweitern, um alle UI-Elemente und das Verhalten der Content Cards anzupassen. Die Content-Card-Zellen können auch unterklassifiziert und dann programmatisch oder mithilfe eines angepassten Storyboards, das die neuen Klassen registriert, verwendet werden. Ein vollständiges Beispiel finden Sie in der Content Cards [Beispiel-App](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp).
 
-Es ist auch wichtig zu überlegen, ob Sie lieber eine Strategie der Unterklassifizierung oder einen vollständig angepassten View Controller verwenden und [Daten-Updates abonnieren]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/) wollen. Wenn Sie zum Beispiel die Unterklasse `ABKContentCardsTableViewController` verwenden, können Sie die [Methode`populateContentCards` ](#overriding-populated-content-cards) zum Filtern und Ordnen von Karten verwenden (empfohlen). Wenn Sie jedoch einen vollständig angepassten View-Controller verwenden, haben Sie mehr Kontrolle über das Verhalten der Karte - wie z.B. die Anzeige in einem Karussell oder das Hinzufügen interaktiver Elemente - aber Sie müssen sich dann auf einen Beobachter verlassen, um die Bestell- und Filterlogik zu implementieren. Sie müssen auch die entsprechenden Analytics-Methoden implementieren, um Impressionen, Abbrüche und Klicks ordnungsgemäß zu protokollieren.
+Es ist auch wichtig zu überlegen, ob Sie eine Strategie der Unterklassifizierung oder einen vollständig angepassten View Controller verwenden und [Daten-Updates abonnieren]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration) möchten. Wenn Sie zum Beispiel `ABKContentCardsTableViewController` unterklassifizieren, können Sie die [`populateContentCards`-Methode](#overriding-populated-content-cards) zum Filtern und Ordnen von Karten verwenden (empfohlen). Wenn Sie jedoch einen vollständig angepassten View Controller verwenden, haben Sie mehr Kontrolle über das Kartenverhalten – wie z. B. die Anzeige in einem Karussell oder das Hinzufügen interaktiver Elemente –, müssen sich dann aber auf einen Beobachter verlassen, um die Sortier- und Filterlogik zu implementieren. Sie müssen außerdem die entsprechenden Analytics-Methoden implementieren, um Impressionen, Abbrüche und Klicks ordnungsgemäß zu protokollieren.
 
-## Anpassen der UI
+## UI anpassen {#customizing-ui}
 
-Die folgenden Code-Snippets zeigen, wie Sie Content-Cards mit den vom SDK bereitgestellten Methoden gestalten und an Ihre UI-Anforderungen anpassen können. Diese Methoden erlauben es Ihnen, alle Aspekte der Content-Card UI anzupassen, einschließlich angepasster Schriftarten, angepasster Farbkomponenten, angepasster Texte und mehr. 
+Die folgenden Code-Snippets zeigen, wie Sie Content Cards mit den vom SDK bereitgestellten Methoden gestalten und an Ihre UI-Anforderungen anpassen können. Diese Methoden erlauben es Ihnen, alle Aspekte der Content-Card-UI anzupassen, einschließlich angepasster Schriftarten, angepasster Farbkomponenten, angepasster Texte und mehr.
 
-Es gibt zwei verschiedene Möglichkeiten, die Content-Card-UI anzupassen: 
-- Dynamische Methode: Update der UI für jede Karte
-- Statische Methode: Update des UI für alle Karten
+Es gibt zwei verschiedene Möglichkeiten, die Content-Card-UI anzupassen:
+- Dynamische Methode: Update der UI pro Karte
+- Statische Methode: Update der UI über alle Karten hinweg
 
-### Dynamische UI
+### Dynamische UI {#dynamic-ui}
 
 Die Content-Card-Methode `applyCard` kann das Kartenobjekt referenzieren und ihm Schlüssel-Wert-Paare übergeben, die für das Update der UI verwendet werden:
 
@@ -33,8 +33,8 @@ Die Content-Card-Methode `applyCard` kann das Kartenobjekt referenzieren und ihm
 {% tab Objective-C %}
 ```objc
 - (void)applyCard:(ABKCaptionedImageContentCard *)captionedImageCard {
-  [super applyCard:captionedImageCard];    
- 
+  [super applyCard:captionedImageCard];
+
   if ([card.extras objectForKey:ContentCardKeyBackgroundColorValue]) {
     NSString *backgroundColor = [card.extras objectForKey:ContentCardKeyBackgroundColor];
     if ([backgroundColor colorValue]) {
@@ -44,15 +44,15 @@ Die Content-Card-Methode `applyCard` kann das Kartenobjekt referenzieren und ihm
     }
   } else {
     self.rootView.backgroundColor = [UIColor lightGray];
-  }  
+  }
 }
 ```
 {% endtab %}
 {% tab Swift %}
 ```swift
 override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
-  super.apply(captionedImageCard)         
- 
+  super.apply(captionedImageCard)
+
   if let backgroundColor = card.extras?[ContentCardKey.backgroundColor.rawValue] as? String,
      let backgroundColorValue = backgroundColor.colorValue() {
     rootView.backgroundColor = backgroundColorValue
@@ -64,17 +64,17 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 {% endtab %}
 {% endtabs %}
 
-### Statische UI
+### Statische UI {#static-ui}
 
 Die Methode `setUpUI` kann den statischen Content-Card-Komponenten über alle Karten hinweg Werte zuweisen:
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
-#import "CustomClassicContentCardCell.h"  
- 
+#import "CustomClassicContentCardCell.h"
+
 @implementation CustomClassicContentCardCell
- 
+
 - (void)setUpUI {
   [super setUpUI];
   self.rootView.backgroundColor = [UIColor lightGrayColor];
@@ -88,7 +88,7 @@ Die Methode `setUpUI` kann den statischen Content-Card-Komponenten über alle Ka
 ```swift
 override func setUpUI() {
   super.setUpUI()
-     
+
   rootView.backgroundColor = .lightGray
   rootView.layer.borderColor = UIColor.purple.cgColor
   unviewedLineViewColor = .red
@@ -98,22 +98,22 @@ override func setUpUI() {
 {% endtab %}
 {% endtabs %}
 
-## Anpassen von Schnittstellen
+## Angepasste Schnittstellen bereitstellen {#providing-custom-interfaces}
 
-Angepasste Schnittstellen können durch die Registrierung von angepassten Klassen für jeden gewünschten Kartentyp bereitgestellt werden. 
+Angepasste Schnittstellen können durch die Registrierung von angepassten Klassen für jeden gewünschten Kartentyp bereitgestellt werden.
 
-![Eine Banner-Content-Card. Eine Banner-Content-Card zeigt rechts neben dem Banner ein Bild mit dem Text „Vielen Dank für den Download der Braze-Demo!“.]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
-![Eine Content-Card mit Bildunterschrift. Eine hervorgehobene Content-Card zeigt ein Braze-Bild mit der Beschriftung „Vielen Dank für den Download der Braze-Demo!“ am unteren Rand. ]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
-![Eine klassische Content-Card. Eine klassische Content-Card zeigt ein Bild in der Mitte der Karte mit dem Text „Vielen Dank für den Download der Braze-Demo“ darunter.]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
+![Eine Banner-Content-Card. Eine Banner-Content-Card zeigt rechts neben dem Banner ein Bild mit dem Text „Thanks for downloading Braze Demo!“.]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
+![Eine hervorgehobene Content-Card. Eine hervorgehobene Content-Card zeigt ein Braze-Bild mit der Beschriftung „Thanks for downloading Braze Demo!“ am unteren Rand.]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
+![Eine klassische Content-Card. Eine klassische Content-Card zeigt ein Bild in der Mitte der Karte mit dem Text „Thanks for downloading Braze Demo“ darunter.]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
 
-Braze bietet drei Content-Card-Templates (Banner, Bildunterschrift und klassisch). Wenn Sie eigene angepasste Schnittstellen bereitstellen möchten, referenzieren Sie die folgenden Code-Snippets:
+Braze bietet drei Content-Card-Templates (Banner, hervorgehobenes Bild und klassisch). Wenn Sie eigene angepasste Schnittstellen bereitstellen möchten, referenzieren Sie die folgenden Code-Snippets:
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
 - (void)registerTableViewCellClasses {
   [super registerTableViewCellClasses];
- 
+
   // Replace the default class registrations with custom classes for these two types of cards
   [self.tableView registerClass:[CustomCaptionedImageContentCardCell class] forCellReuseIdentifier:@"ABKCaptionedImageContentCardCell"];
   [self.tableView registerClass:[CustomClassicContentCardCell class] forCellReuseIdentifier:@"ABKClassicCardCell"];
@@ -124,7 +124,7 @@ Braze bietet drei Content-Card-Templates (Banner, Bildunterschrift und klassisch
 ```swift
 override func registerTableViewCellClasses() {
   super.registerTableViewCellClasses()
-     
+
   // Replace the default class registrations with custom classes
   tableView.register(CustomCaptionedImageContentCardCell.self, forCellReuseIdentifier: "ABKCaptionedImageContentCardCell")
   tableView.register(CustomBannerContentCardCell.self, forCellReuseIdentifier: "ABKBannerContentCardCell")
@@ -135,9 +135,9 @@ override func registerTableViewCellClasses() {
 {% endtab %}
 {% endtabs %}
 
-## Überschreiben von ausgefüllten Content-Cards
+## Ausgefüllte Content Cards überschreiben {#overriding-populated-content-cards}
 
-Content-Cards können programmatisch mit der Methode `populateContentCards` geändert werden:
+Content Cards können programmatisch mit der Methode `populateContentCards` geändert werden:
 
 {% tabs %}
 {% tab Objective-C %}

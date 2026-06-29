@@ -12,7 +12,7 @@ channel:
 
 # 딥링킹 문제 해결 {#deep-linking-troubleshooting}
 
-> 이 페이지는 iOS에서 발생하는 일반적인 딥링킹 문제와 그 진단 방법을 다룹니다. 적합한 링크 유형 선택에 대한 도움말은 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)를 참조하세요. 구현 세부 사항은 [딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift)을 참조하세요.
+> 이 페이지는 iOS에서 발생하는 일반적인 딥링킹 문제와 그 진단 방법을 다룹니다. 적합한 링크 유형 선택에 대한 도움말은 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)를 참조하세요. 구현 세부 사항은 [딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift)을 참조하세요.
 
 ## 커스텀 스킴 딥링크가 올바른 뷰를 열지 않는 경우 {#custom-scheme-deep-link-doesnt-open-the-correct-view}
 
@@ -100,7 +100,7 @@ configuration.forwardUniversalLinks = true
 2. `https://your-click-tracking-domain/.well-known/apple-app-site-association`에 AASA 파일을 호스팅하세요.
 3. 클릭 추적 도메인의 AASA 파일에 동일한 `appID`와 유효한 경로 패턴이 포함되어 있는지 확인하세요.
 
-이메일 서비스 공급자별 설정 지침은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)를 참조하세요.
+이메일 서비스 공급자별 설정 지침은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 참조하세요.
 
 ### 리디렉션 체인 확인 {#check-the-redirect-chain}
 
@@ -120,7 +120,7 @@ configuration.forwardUniversalLinks = true
 
 ### 상세 로깅 활성화 {#enable-verbose-logging}
 
-[상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)하고 문제를 재현하세요. `Opening` 로그 항목을 찾으세요:
+[상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하고 문제를 재현하세요. `Opening` 로그 항목을 찾으세요:
 
 ```
 Opening '<URL>':
@@ -146,7 +146,7 @@ Opening '<URL>':
 
 ## Braze에서 Branch 문제 해결 {#branch}
 
-[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)를 링크 제공업체로 사용하는 경우:
+[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)를 링크 제공업체로 사용하는 경우:
 
 ### BrazeDelegate가 Branch로 라우팅하는지 확인 {#verify-the-brazedelegate-routes-to-branch}
 
@@ -178,9 +178,9 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 
 링크가 체인에서 끊어지는 지점을 진단하려면:
 
-1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 활성화하세요 — SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
+1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)을 활성화하세요 — SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
 2. [Branch 테스트 모드](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)를 활성화하세요 — Branch 대시보드에서 링크 클릭 이벤트를 확인하세요.
-1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)을 활성화하세요. SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
+1. [Braze 상세 로깅]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)을 활성화하세요. SDK가 링크를 수신했는지 확인하기 위해 `Opening '<URL>':` 항목을 찾으세요.
 2. [Branch 테스트 모드](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)를 활성화하세요. Branch 대시보드에서 링크 클릭 이벤트를 확인하세요.
 3. Braze가 링크를 기록했지만 Branch에서 클릭이 감지되지 않는다면, `BrazeDelegate` 라우팅 로직에 문제가 있을 가능성이 높습니다.
 
@@ -203,7 +203,7 @@ Branch 대시보드에서 다음을 확인하세요:
 
 ### 상세 로깅 사용 {#use-verbose-logging}
 
-[상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)하여 SDK가 링크를 처리하는 방식을 정확히 확인하세요. 확인해야 할 주요 항목:
+[상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하여 SDK가 링크를 처리하는 방식을 정확히 확인하세요. 확인해야 할 주요 항목:
 
 | 로그 항목 | 의미 |
 |---|---|
@@ -214,7 +214,7 @@ Branch 대시보드에서 다음을 확인하세요:
 | `isUniversalLink: true` | SDK가 해당 URL을 유니버설 링크로 식별했습니다 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="상세 로깅 사용" }
 
-이러한 로그를 읽는 방법에 대한 자세한 내용은 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)를 참조하세요.
+이러한 로그를 읽는 방법에 대한 자세한 내용은 [상세 로그 읽기]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)를 참조하세요.
 
 ### 링크를 독립적으로 테스트 {#test-links-in-isolation}
 

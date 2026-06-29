@@ -11,27 +11,27 @@ channel:
 
 guide_top_header: "Personalização do push do iOS"
 guide_top_text: ""
-description: "Esta landing page aborda as opções de personalização de push do Braze iOS SDK, incluindo botões de ação, sons personalizados, notificações rich, emblemas e muito mais."
+description: "Esta landing page aborda as opções de personalização de push do SDK iOS da Braze, incluindo botões de ação, sons personalizados, notificações rich, emblemas e muito mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
   - name: Botões de ação
-    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/
+    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons
     image: /assets/img/braze_icons/annotation-alert.svg
   - name: Sons personalizados
-    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds/
+    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds
     image: /assets/img/braze_icons/play-square.svg
   - name: Notificações Rich
-    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/
+    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications
     image: /assets/img/braze_icons/brush-02.svg
   - name: Ícones
-    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges/
+    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges
     image: /assets/img/braze_icons/key-01.svg
   - name: Ignorando o push interno
-    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push/
+    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push
     image: /assets/img/braze_icons/eye-off.svg
   - name: Configurações avançadas
-    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/advanced_settings/
+    link: /docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/advanced_settings
     image: /assets/img/braze_icons/settings-01.svg
 
 

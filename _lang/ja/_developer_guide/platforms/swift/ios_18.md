@@ -17,15 +17,15 @@ Appleの[WWDC](https://developer.apple.com/wwdc24/)は、2024年6月9日〜11日
 
 ### Apple Watchでのライブアクティビティ {#live-activities-on-apple-watch}
 
-[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)は、watchOS 11でサポートされます。追加の設定は必要ありません。ただし、Appleではウォッチインターフェイスをカスタマイズするオプションが用意されています。
+[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)はwatchOS 11でサポートされます。追加の設定は必要ありません。ただし、Appleではウォッチインターフェイスをカスタマイズするオプションが用意されています。
 
 ### Apple Vision Pro
 
 Vision Proは現在、中国、日本、シンガポール、オーストラリア、カナダ、フランス、ドイツ、英国で販売されています。[BrazeがvisionOSをどのようにサポートしているか](https://www.braze.com/resources/articles/building-braze-a-new-era-of-customer-engagement-braze-announces-visionos-support)については、弊社のブログをご覧ください。
 
-### MacOSでのiPhone通知 {#iphone-notifications-on-macos}
+### macOSでのiPhone通知 {#iphone-notifications-on-macos}
 
-Appleの新しい[iPhoneミラーリング](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/)機能により、ユーザーはMacOSデバイスでiPhoneの通知を受け取ることができます。Push Storyの画像やGIFなど、一部のメディアタイプはMacOS通知としてレンダリングできないため、サポートされていない点にご注意ください。
+Appleの新しい[iPhoneミラーリング](https://www.apple.com/newsroom/2024/06/macos-sequoia-takes-productivity-and-intelligence-on-mac-to-new-heights/)機能により、ユーザーはmacOSデバイスでiPhoneの通知を受け取ることができます。Push Storyの画像やGIFなど、一部のメディアタイプはmacOS通知としてレンダリングできないため、サポートされていない点にご注意ください。
 
 ### Apple Intelligence
 

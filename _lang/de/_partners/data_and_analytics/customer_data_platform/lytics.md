@@ -24,7 +24,7 @@ Die Integration ermöglicht es Marken:
 
 ## Anwendungsfälle {#use-cases}
 
-Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzerprofile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
+Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -34,7 +34,7 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 | Lytics-Kontonummer | Für die Konfiguration der Webhook-Endpunkt-URL ist eine Lytics-Kontonummer erforderlich. |
 | Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in, wenn Sie sich nicht sicher sind. |
+| Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in, wenn Sie sich nicht sicher sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration {#integration}
@@ -139,7 +139,7 @@ Ersetzen Sie `<ACCOUNT-NUMBER>` durch Ihre Kontonummer und `<LYTICS-API-TOKEN>` 
 
 #### 3. Schritt: Einen Webhook in Braze erstellen {#step-3-create-a-webhook-on-braze}
 
-Erstellen Sie in Braze eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). Fügen Sie die Lytics-Webhook-URL in das Feld **Webhook URL** ein.
+Erstellen Sie in Braze eine neue [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook). Fügen Sie die Lytics-Webhook-URL in das Feld **Webhook URL** ein.
 
 Nachdem Sie den Anfragetyp (HTTP-`POST`-Methode) definiert und die restlichen Webhook-Details konfiguriert haben, ist Ihr Webhook bereit zum Testen und Bereitstellen. Hier sehen Sie einen Beispieltext für die POST-Anfrage nach der Konfiguration des Webhooks in Braze:
 
@@ -147,7 +147,7 @@ Nachdem Sie den Anfragetyp (HTTP-`POST`-Methode) definiert und die restlichen We
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,7 +155,7 @@ Nachdem Sie den Anfragetyp (HTTP-`POST`-Methode) definiert und die restlichen We
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx"
 }
 ```
@@ -182,7 +182,7 @@ Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization*
 
 #### 2. Schritt: Ihre Segmentdaten als CSV exportieren {#step-2-export-your-segment-data-to-csv}
 
-Navigieren Sie in Braze zu **Audience** > **Segments**. Suchen Sie das Segment, das Sie exportieren möchten, und wählen Sie dann <i class="fas fa-gear" aria-label="Einstellungen"></i> und dann **CSV Export User Data**. Sie können bis zu 500.000 Nutzer:innen in einem Segment exportieren. Weitere Informationen finden Sie unter [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/).
+Navigieren Sie in Braze zu **Zielgruppe** > **Segments**. Suchen Sie das Segment, das Sie exportieren möchten, und wählen Sie dann <i class="fas fa-gear" aria-label="Einstellungen"></i> und dann **Nutzerdaten als CSV exportieren**. Sie können bis zu 500.000 Nutzer:innen in einem Segment exportieren. Weitere Informationen finden Sie unter [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
 #### 3. Schritt: Einen CSV-Importauftrag konfigurieren {#step-3-configure-a-csv-import-job}
 

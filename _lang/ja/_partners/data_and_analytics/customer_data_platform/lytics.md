@@ -34,7 +34,7 @@ BrazeをLyticsに接続して、メール、SMS、プッシュアクティビテ
 | Lyticsアカウント番号 | WebhookエンドポイントURLを設定するには、Lyticsのアカウント番号が必要です。 |
 | Lytics APIトークン | データマネージャー権限を持つLytics REST APIトークン。<br><br> これは、Lyticsダッシュボード内の**Account Settings Console** > **Access Tokens** > **Create New Token**から作成できます。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Brazeインスタンス | お客様の[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)。不明な場合は、Brazeのオンボーディングマネージャーにお問い合わせください。 |
+| Brazeインスタンス | お客様の[Brazeインスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)。不明な場合は、Brazeのオンボーディングマネージャーにお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
@@ -139,7 +139,7 @@ https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
 
 #### ステップ3:BrazeでWebhookを作成する {#step-3-create-a-webhook-on-braze}
 
-Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成します。**Webhook URL**フィールドにLyticsのWebhook URLを追加します。
+Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)を作成します。**Webhook URL**フィールドにLyticsのWebhook URLを追加します。
 
 リクエストタイプ（HTTP `POST`メソッド）を定義し、残りのWebhookの詳細を設定したら、Webhookをテストおよびデプロイできます。以下は、BrazeでWebhookを設定した後のPOSTリクエスト本文のサンプルです。
 
@@ -147,7 +147,7 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
 {
   "city": "AnyTown",
   "country": "United States",
-  "first_name": "John",
+  "first_name": "Alex",
   "gender": "male",
   "language": "English",
   "last_name": "Smith",
@@ -155,14 +155,14 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
   "phone_number": "5551231234",
   "time_zone": "GMT+7",
   "twitter_handle": "johnsmith",
-  "email": "john.smith@email.com",
+  "email": "john.smith@example.com",
   "braze_id": "xxxxxx"
 }
 ```
 
 ### CSVファイルから {#from-a-csv-file}
 
-このセクションでは、BrazeのユーザーデータをセグメントからLyticsにインポートする方法を説明します。
+このセクションでは、BrazeのユーザーデータをSegmentからLyticsにインポートする方法を説明します。
 
 #### ステップ1:認証を作成する
 
@@ -182,7 +182,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Authori
 
 #### ステップ2:セグメントデータをCSVにエクスポートする {#step-2-export-your-segment-data-to-csv}
 
-Brazeで**オーディエンス** > **Segments**に移動します。エクスポートするセグメントを見つけ、<i class="fas fa-gear" aria-label="設定"></i>を選択し、次に**ユーザーデータをCSV形式でエクスポート**を選択します。1つのセグメントで最大500,000ユーザーをエクスポートできます。詳細については、「[CSVへのセグメントデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)」を参照してください。
+Brazeで**オーディエンス** > **Segments**に移動します。エクスポートするSegmentを見つけ、<i class="fas fa-gear" aria-label="設定"></i>を選択し、次に**ユーザーデータをCSV形式でエクスポート**を選択します。1つのSegmentで最大500,000ユーザーをエクスポートできます。詳細については、「[CSVへのセグメントデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)」を参照してください。
 
 #### ステップ3:CSVインポートジョブを設定する {#step-3-configure-a-csv-import-job}
 

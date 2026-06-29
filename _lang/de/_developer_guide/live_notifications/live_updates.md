@@ -11,7 +11,7 @@ hidden: true
 
 # Live Updates für Android {#live-updates-for-android}
 
-> Erfahren Sie, wie Sie Android Live Updates im Braze SDK verwenden, auch bekannt als [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Diese Benachrichtigungen ähneln den [Live-Aktivitäten für das Swift Braze SDK]({{site.baseurl}}/developer_guide/live_notifications/live_activities/) und ermöglichen es Ihnen, interaktive Sperrbildschirm-Benachrichtigungen anzuzeigen. Android 16 führt fortschrittsorientierte Benachrichtigungen ein, mit denen Nutzer:innen nahtlos von ihnen initiierte End-to-End-Journeys verfolgen können.
+> Erfahren Sie, wie Sie Android Live Updates im Braze SDK verwenden, auch bekannt als [Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Diese Benachrichtigungen ähneln den [Live-Aktivitäten für das Swift Braze SDK]({{site.baseurl}}/developer_guide/live_notifications/live_activities) und ermöglichen es Ihnen, interaktive Sperrbildschirm-Benachrichtigungen anzuzeigen. Android 16 führt fortschrittsorientierte Benachrichtigungen ein, mit denen Nutzer:innen nahtlos von ihnen initiierte End-to-End-Journeys verfolgen können.
 
 ## Funktionsweise {#how-it-works}
 
@@ -110,7 +110,7 @@ class MyApplication : Application() {
 
 ### 4. Schritt: Die Aktivität senden {#step-4-send-the-activity}
 
-Sie können den REST-API-Endpunkt [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) verwenden, um eine Push-Benachrichtigung an das Android-Gerät einer Nutzerin oder eines Nutzers zu senden.
+Sie können den REST-API-Endpunkt [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) verwenden, um eine Push-Benachrichtigung an das Android-Gerät einer Nutzerin oder eines Nutzers zu senden.
 
 #### Beispiel-curl-Befehl {#example-curl-command}
 
@@ -142,7 +142,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Auch wenn curl-Befehle für Tests hilfreich sind, empfehlen wir, diesen Aufruf in Ihrem Backend zu verarbeiten, wo Sie bereits Ihre [iOS Live-Aktivitäten]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) verwalten.
+Auch wenn curl-Befehle für Tests hilfreich sind, empfehlen wir, diesen Aufruf in Ihrem Backend zu verarbeiten, wo Sie bereits Ihre [iOS Live-Aktivitäten]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) verwalten.
 {% endalert %}
 
 #### Anfrageparameter {#request-parameters}
@@ -150,7 +150,7 @@ Auch wenn curl-Befehle für Tests hilfreich sind, empfehlen wir, diesen Aufruf i
 | Schlüssel | Beschreibung |
 |---------|------------|
 | `REST_API_KEY` | Ein Braze-REST-API-Schlüssel mit `messages.send`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| `BRAZE_REST_ENDPOINT` | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| `BRAZE_REST_ENDPOINT` | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 | `USER_ID` | Die ID der Nutzerin oder des Nutzers, an die bzw. den Sie die Benachrichtigung senden. |
 | `messages.android_push.title` | Der Titel der Nachricht. Standardmäßig wird dieser nicht für die Live-Benachrichtigungen der angepassten Benachrichtigungs-Factory verwendet, kann aber als Fallback dienen. |
 | `messages.android_push.alert` | Der Text der Nachricht. Standardmäßig wird dieser nicht für die Live-Benachrichtigungen der angepassten Benachrichtigungs-Factory verwendet, kann aber als Fallback dienen. |

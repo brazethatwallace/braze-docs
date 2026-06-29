@@ -15,9 +15,9 @@ La [WWDC](https://developer.apple.com/wwdc24/) de Apple tuvo lugar del 9 al 11 d
 
 ## Cambios en iOS 18 {#changes-in-ios-18}
 
-### Live Activities en el Apple Watch {#live-activities-on-apple-watch}
+### Live Activities en Apple Watch {#live-activities-on-apple-watch}
 
-Las [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) serán compatibles con watchOS 11. No se requiere ninguna configuración adicional. Sin embargo, Apple ofrece la opción de personalizar la interfaz del reloj.
+Las [Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) serán compatibles con watchOS 11. No se requiere ninguna configuración adicional. Sin embargo, Apple ofrece la opción de personalizar la interfaz del reloj.
 
 ### Apple Vision Pro
 

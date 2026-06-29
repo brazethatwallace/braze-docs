@@ -27,7 +27,7 @@ Braze iOS SDKのデフォルトのログレベルは最小（次の表では `8`
 | 2        | 警告。警告以上のログ情報がiOSコンソールに記録されます。  |
 | 4        | エラー。エラー以上のログ情報がiOSコンソールに記録されます。  |
 | 8        | 最小限。最小限の情報がiOSコンソールに記録されます。SDKのデフォルト設定です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Log levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ログレベル" }
 
 ### 詳細なログ記録 {#verbose-logging}
 
@@ -64,7 +64,7 @@ Braze iOS SDK v4.0.2より前では、辞書キー `Appboy` を `Braze` の代�
 {% subtabs %}
 {% subtab OBJECTIVE-C %}
 
-`````````objc
+```objc
 NSMutableDictionary *appboyOptions = [NSMutableDictionary dictionary];
 appboyOptions[ABKLogLevelKey] = @(0);
 [Appboy startWithApiKey:@"YOUR-API-KEY"
@@ -76,7 +76,7 @@ appboyOptions[ABKLogLevelKey] = @(0);
 {% endsubtab %}
 {% subtab swift %}
 
-`````````swift
+```swift
 let appboyOptions: [AnyHashable: Any] = [
   ABKLogLevelKey : 0
 ]
@@ -97,11 +97,11 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 Braze iOS Swift SDKの以前のバージョンでは、IDFV（Identifier for Vendor）フィールドがユーザーのデバイスIDとして自動的に収集されていました。
 
-Swift SDK v5.7.0以降では、IDFVフィールドをオプションで無効にすることができ、代わりにBrazeはランダムなUUIDをデバイスIDとして設定します。詳細については、「[IDFVの収集]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)」を参照してください。
+Swift SDK v5.7.0以降では、IDFVフィールドをオプションで無効にすることができ、代わりにBrazeはランダムなUUIDをデバイスIDとして設定します。詳細については、「[IDFVの収集]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift)」を参照してください。
 
 ## オプションのIDFA収集 {#optional-idfa-collection}
 
-IDFA収集はBraze SDK内ではオプションであり、デフォルトでは無効になっています。IDFA収集は、[インストールアトリビューション統合]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/)を利用する場合にのみBraze内で必要になります。IDFAを保存することを選択した場合は、無料で保存されるため、追加の開発作業を行わずに、リリース後すぐにこれらのオプションを利用できます。
+IDFA収集はBraze SDK内ではオプションであり、デフォルトでは無効になっています。IDFA収集は、[インストールアトリビューション統合]({{site.baseurl}}/partners/message_orchestration/attribution/adjust)を利用する場合にのみBraze内で必要になります。IDFAを保存することを選択した場合は、無料で保存されるため、追加の開発作業を行わずに、リリース後すぐにこれらのオプションを利用できます。
 
 そのため、次の基準のいずれかを満たしている場合は、引き続きIDFAを収集することをお勧めします。
 
@@ -112,7 +112,7 @@ IDFA収集はBraze SDK内ではオプションであり、デフォルトでは�
 
 Appleは、IDFAを収集するためにユーザーが許可プロンプトを通じてオプトインすることを要求しています。
 
-IDFAを収集するには、`ABKIDFADelegate` プロトコルを実装するだけでなく、アプリケーションではApp Tracking Transparencyフレームワークで Appleの `ATTrackingManager` を使用してユーザーから承認を要求する必要があります。詳細については、Appleの[ユーザープライバシーに関する記事](https://developer.apple.com/app-store/user-privacy-and-data-use/)を参照してください。
+IDFAを収集するには、`ABKIDFADelegate` プロトコルを実装するだけでなく、アプリケーションではApp Tracking TransparencyフレームワークでAppleの `ATTrackingManager` を使用してユーザーから承認を要求する必要があります。詳細については、Appleの[ユーザープライバシーに関する記事](https://developer.apple.com/app-store/user-privacy-and-data-use/)を参照してください。
 
 App Tracking Transparency承認のプロンプトには、識別子の使用法を説明する `Info.plist` エントリが必要です。
 
@@ -125,14 +125,14 @@ App Tracking Transparency承認のプロンプトには、識別子の使用法�
 
 IDFA収集を実装するには、次のステップに従います。
 
-##### ステップ 1:ABKIDFADelegateを実装する {#step-1-implement-abkidfadelegate}
+#### ステップ 1:ABKIDFADelegateを実装する {#step-1-implement-abkidfadelegate}
 
 [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h) プロトコルに準拠したクラスを作成します。
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-`````````objc
+```objc
 #import "IDFADelegate.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
@@ -156,7 +156,7 @@ IDFA収集を実装するには、次のステップに従います。
 {% endtab %}
 {% tab swift %}
 
-`````````swift
+```swift
 import Appboy_iOS_SDK
 import AdSupport
 import AppTrackingTransparency
@@ -183,7 +183,7 @@ class IDFADelegate: NSObject, ABKIDFADelegate {
 
 ## iOS SDKのおおよそのサイズ {#ios-sdk-size}
 
-iOS SDKフレームワークファイルのおおよそのサイズは30&nbsp;MBで、.ipa（アプリファイルへの追加）のおおよそのサイズは1&nbsp;MB～2&nbsp;MBです。
+iOS SDKフレームワークファイルのおおよそのサイズは30&nbsp;MBで、.ipa（アプリファイルへの追加）のおおよそのサイズは1&nbsp;MBから2&nbsp;MBです。
 
 Brazeは、[アプリのサイズ設定に関するAppleの推奨事項](https://developer.apple.com/library/content/qa/qa1795/_index.html)に従って、SDKが `.ipa` のサイズに与える影響を観察することで、iOS SDKのサイズを測定しています。アプリケーションに追加されるiOS SDKのサイズを計算する場合は、[アプリサイズレポートの取得](https://developer.apple.com/library/content/qa/qa1795/_index.html)に従って、Braze iOS SDKを統合する前と後の `.ipa` のサイズの違いを比較することをお勧めします。App Thinningサイズレポートからサイズを比較する場合は、Thinningされた `.ipa` ファイルのアプリサイズを確認することもお勧めします。ユニバーサル `.ipa` ファイルは、App Storeからダウンロードしてユーザーのデバイスにインストールされたバイナリーよりも大きくなるためです。
 

@@ -11,7 +11,7 @@ hidden: true
 
 # Actualizaciones en vivo para Android {#live-updates-for-android}
 
-> Aprende a utilizar las actualizaciones en vivo de Android en el SDK de Braze, también conocidas como [notificaciones centradas en el progreso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Estas notificaciones son similares a las [actividades en vivo del SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities/), lo que te permite mostrar notificaciones interactivas en la pantalla de bloqueo. Android 16 introduce notificaciones centradas en el progreso para ayudar a los usuarios a realizar fácilmente un seguimiento de los recorridos iniciados por el usuario, de principio a fin.
+> Aprende a utilizar las actualizaciones en vivo de Android en el SDK de Braze, también conocidas como [notificaciones centradas en el progreso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Estas notificaciones son similares a las [actividades en vivo del SDK Swift de Braze]({{site.baseurl}}/developer_guide/live_notifications/live_activities), lo que te permite mostrar notificaciones interactivas en la pantalla de bloqueo. Android 16 introduce notificaciones centradas en el progreso para ayudar a los usuarios a realizar fácilmente un seguimiento de los recorridos iniciados por el usuario, de principio a fin.
 
 ## Cómo funciona {#how-it-works}
 
@@ -110,7 +110,7 @@ class MyApplication : Application() {
 
 ### Paso 4: Enviar la actividad {#step-4-send-the-activity}
 
-Puedes utilizar el punto de conexión de la REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) para enviar una notificación push al dispositivo Android de un usuario.
+Puedes utilizar el punto de conexión de la REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar una notificación push al dispositivo Android de un usuario.
 
 #### Ejemplo de comando curl {#example-curl-command}
 
@@ -142,15 +142,15 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Aunque los comandos curl son útiles para realizar pruebas, recomendamos gestionar esta llamada en tu backend, donde ya gestionas tus [actividades en vivo de iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
+Aunque los comandos curl son útiles para realizar pruebas, recomendamos gestionar esta llamada en tu backend, donde ya gestionas tus [actividades en vivo de iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift).
 {% endalert %}
 
 #### Parámetros de la solicitud {#request-parameters}
 
 | Clave | Descripción |
 |------------------------------|------------|
-| `REST_API_KEY` | Una clave de API REST de Braze con permisos `messages.send`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| `BRAZE_REST_ENDPOINT` | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+| `REST_API_KEY` | Una clave de API REST de Braze con permisos `messages.send`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| `BRAZE_REST_ENDPOINT` | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 | `USER_ID` | El ID del usuario al que estás enviando la notificación. |
 | `messages.android_push.title` | El título del mensaje. De forma predeterminada, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede utilizarse como alternativa. |
 | `messages.android_push.alert` | El cuerpo del mensaje. De forma predeterminada, no se utiliza para las notificaciones en vivo de la fábrica de notificaciones personalizada, pero puede utilizarse como alternativa. |

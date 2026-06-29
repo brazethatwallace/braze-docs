@@ -12,17 +12,17 @@ noindex: true
 
 # iOS용 제거 추적 {#uninstall-tracking-for-ios}
 
-> 이 문서에서는 iOS 애플리케이션에 대한 제거 추적을 구성하는 방법과 앱이 Braze 제거 추적 푸시를 받을 때 원치 않는 자동 조치를 취하지 않도록 테스트하는 방법을 다룹니다.
+> 이 문서에서는 iOS 애플리케이션에 대한 제거 추적을 구성하는 방법과 앱이 Braze 제거 추적 푸시를 받을 때 원치 않는 자동 동작을 취하지 않도록 테스트하는 방법을 다룹니다.
 
-제거 추적은 페이로드에 Braze 플래그가 포함된 백그라운드 푸시 알림을 활용합니다. 자세한 내용은 사용자 안내서의 [제거 추적]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking/#uninstall-tracking)을 참조하세요.
+제거 추적은 페이로드에 Braze 플래그가 포함된 백그라운드 푸시 알림을 활용합니다. 자세한 내용은 사용자 안내서의 [제거 추적]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking#uninstall-tracking)을 참조하세요.
 
 ## 1단계: 백그라운드 푸시 활성화 {#step-1-enabling-background-push}
 
-Xcode 프로젝트의 **Capabilities** 탭에 있는 **Background Modes** 섹션에서 **Remote notifications** 옵션을 활성화했는지 확인합니다. 자세한 내용은 [무음 푸시 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications/) 설명서를 참조하세요.
+Xcode 프로젝트의 **Capabilities** 탭에 있는 **Background Modes** 섹션에서 **Remote notifications** 옵션을 활성화했는지 확인합니다. 자세한 내용은 [무음 푸시 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications) 설명서를 참조하세요.
 
 ## 2단계: Braze 백그라운드 푸시 확인 {#step-2-checking-for-braze-background-push}
 
-Braze는 백그라운드 푸시 알림을 사용하여 제거 추적 분석을 수집합니다. 제거 추적 알림을 받은 애플리케이션이 [원치 않는 동작]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push/)을 취하지 않는지 확인하세요.
+Braze는 백그라운드 푸시 알림을 사용하여 제거 추적 분석을 수집합니다. 제거 추적 알림을 받은 애플리케이션이 [원치 않는 동작]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push)을 취하지 않는지 확인하세요.
 
 ## 3단계: 대시보드에서 테스트 {#step-3-test-from-the-dashboard}
 
@@ -39,4 +39,4 @@ Braze는 백그라운드 푸시 알림을 사용하여 제거 추적 분석을 �
 
 ## 4단계: 제거 추적 활성화 {#step-4-enable-uninstall-tracking}
 
-[제거 추적 활성화]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking/#uninstall-tracking) 지침을 따릅니다.
+[제거 추적 활성화]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking#uninstall-tracking) 지침을 따릅니다.

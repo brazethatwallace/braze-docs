@@ -16,7 +16,7 @@ noindex: true
 
 Wenn Sie eine Push-Campaign erstellen, wählen Sie im Schritt „Verfassen“ die Option **Settings**, um die verfügbaren erweiterten Einstellungen anzuzeigen.
 
-![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Erweiterte Einstellungen für iOS-Push-Campaigns im Braze-Dashboard.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ## Extrahieren von Daten aus Push-Schlüssel-Wert-Paaren {#extracting-data-from-push-key-value-pairs}
 
@@ -28,19 +28,19 @@ Aktivieren Sie das Kontrollkästchen **Alert Options**, um eine Dropdown-Liste m
 
 ## Hinzufügen des Content-Available-Flags {#adding-content-available-flag}
 
-Aktivieren Sie das Kontrollkästchen **Add Content-Available Flag**, um die Geräte anzuweisen, neue Inhalte im Hintergrund herunterzuladen. In der Regel können Sie diese Option aktivieren, wenn Sie [stille Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications/) versenden möchten.
+Aktivieren Sie das Kontrollkästchen **Add Content-Available Flag**, um die Geräte anzuweisen, neue Inhalte im Hintergrund herunterzuladen. In der Regel können Sie diese Option aktivieren, wenn Sie [stille Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications) versenden möchten.
 
 ## Hinzufügen des Mutable-Content-Flags {#adding-mutable-content-flag}
 
-Aktivieren Sie das Kontrollkästchen **Add Mutable-Content Flag**, um die erweiterte Empfängeranpassung auf Geräten mit iOS 10+ zu aktivieren. Dieses Flag wird automatisch gesendet, wenn Sie eine [Rich-Benachrichtigung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/) verfassen, unabhängig vom Wert dieses Kontrollkästchens.
+Aktivieren Sie das Kontrollkästchen **Add Mutable-Content Flag**, um die erweiterte Empfängeranpassung auf Geräten mit iOS 10+ zu aktivieren. Dieses Flag wird automatisch gesendet, wenn Sie eine [Rich-Benachrichtigung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) verfassen, unabhängig vom Wert dieses Kontrollkästchens.
 
 ## App-Badge-Zähler aktualisieren {#update-app-badge-count}
 
-Geben Sie die Zahl ein, auf die Sie Ihren Badge-Zähler aktualisieren möchten, oder verwenden Sie die Liquid-Syntax, um Ihre angepassten Bedingungen festzulegen. Sie können Ihren Badge-Zähler auch manuell über die Eigenschaft `applicationIconBadgeNumber` Ihrer Anwendung oder die Payload der Push-Benachrichtigung aktualisieren. Weitere Informationen finden Sie in unserem Artikel über [Badge-Zähler]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges/).
+Geben Sie die Zahl ein, auf die Sie Ihren Badge-Zähler aktualisieren möchten, oder verwenden Sie die Liquid-Syntax, um Ihre angepassten Bedingungen festzulegen. Sie können Ihren Badge-Zähler auch manuell über die Eigenschaft `applicationIconBadgeNumber` Ihrer Anwendung oder die Payload der Push-Benachrichtigung aktualisieren. Weitere Informationen finden Sie in unserem Artikel über [Badge-Zähler]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges).
 
 ## Töne {#sounds}
 
-Hier können Sie einen Pfad zu einer Tondatei in Ihrem App-Bundle eingeben, um einen Sound festzulegen, der beim Empfang der Push-Nachricht abgespielt wird. Wenn die angegebene Tondatei nicht vorhanden ist oder das Schlüsselwort „default“ eingegeben wird, verwendet Braze den Standard-Gerätealarmton. Weitere Informationen zur Anpassung finden Sie in unserem Artikel über [angepasste Sounds]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds/).
+Hier können Sie einen Pfad zu einer Tondatei in Ihrem App-Bundle eingeben, um einen Sound festzulegen, der beim Empfang der Push-Nachricht abgespielt wird. Wenn die angegebene Tondatei nicht vorhanden ist oder das Schlüsselwort „default“ eingegeben wird, verwendet Braze den Standard-Gerätealarmton. Weitere Informationen zur Anpassung finden Sie in unserem Artikel über [angepasste Sounds]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds).
 
 ## Collapse-ID {#collapse-id}
 

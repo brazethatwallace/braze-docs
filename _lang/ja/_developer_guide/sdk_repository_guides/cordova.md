@@ -12,8 +12,8 @@ Braze Cordova SDKは、Brazeのメッセージング、分析、ユーザーエ�
 
 開始するには、以下のリソースを参照してください：
 
-- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction/)
-- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=cordova)
+- [Brazeユーザーガイド]({{site.baseurl}}/user_guide/introduction)
+- [Braze開発者ガイド]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=cordova)
 
 ## 最小バージョン要件 {#minimum-version-requirements}
 

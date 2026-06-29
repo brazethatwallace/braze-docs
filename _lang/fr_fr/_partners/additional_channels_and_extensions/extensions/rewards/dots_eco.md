@@ -36,7 +36,7 @@ Avant de commencer, vous devez disposer des éléments suivants :
 | Compte DOTS.ECO | Accès à un compte DOTS.ECO. |
 | Identifiants DOTS.ECO | La demande présentée dans cet article nécessite un jeton d'application DOTS.ECO, une clé API et un ID d'allocation. Pour les récupérer, contactez votre gestionnaire de la satisfaction client DOTS.ECO. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Créez cette clé dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de DOTS.ECO {#integrating-dotseco}
@@ -60,7 +60,7 @@ Utilisez la balise `capture` et une requête de Contenu connecté pour appeler l
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",

@@ -12,8 +12,8 @@ El SDK Swift de Braze te ayuda a integrar las capacidades de mensajería, análi
 
 Para empezar, consulta los siguientes recursos:
 
-- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction/)
-- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift)
+- [Guía del usuario de Braze]({{site.baseurl}}/user_guide/introduction)
+- [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)
 
 ## Inicio rápido {#quickstart}
 
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 AppDelegate.braze?.changeUser(userId: "Jane Doe")
 ```
 
-Para obtener más información sobre las opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift).
+Para obtener más información sobre las opciones de integración avanzadas, consulta la [Guía del desarrollador de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift).
 
 ## Compatibilidad de versiones {#version-support}
 

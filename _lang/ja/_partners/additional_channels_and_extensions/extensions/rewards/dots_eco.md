@@ -36,7 +36,7 @@ BrazeとDOTS.ECOは、カスタマーエンゲージメントジャーニーを�
 | DOTS.ECOアカウント | DOTS.ECOアカウントへのアクセス。 |
 | DOTS.ECO認証情報 | この記事のリクエストには、DOTS.ECOアプリトークン、APIキー、アロケーションIDが必要です。これらを取得するには、DOTS.ECOのカスタマーサクセスマネージャーにお問い合わせください。 |
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。このキーはBrazeダッシュボードの**設定** > **APIキー**で作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## DOTS.ECOの統合 {#integrating-dotseco}
@@ -60,7 +60,7 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",
@@ -122,7 +122,7 @@ Brazeダッシュボードの**設定** > **メッセージアクティビティ
 - **コネクテッドコンテンツが空を返す**：`:save result`が設定されていること、および期待されるレスポンスフィールドを参照していることを確認してください。
 - **属性がメッセージステップに表示されない**：
   - Brazeのカスタム属性名が、ユーザー更新ステップで設定した属性と完全に一致していることを確認してください。
-  - ユーザー更新ステップで、**Preview and test**タブを使用して属性が入力されていることを確認してください。次に、ユーザーにテストを送信し、ユーザープロファイルに属性が保存されていることを確認してください。
+  - ユーザー更新ステップで、**プレビューとテスト**タブを使用して属性が入力されていることを確認してください。次に、ユーザーにテストを送信し、ユーザープロファイルに属性が保存されていることを確認してください。
 - **`422`エラー（処理不能なエンティティ）**：アプリトークンとインパクト数量が有効であることを確認してください。
 - **`401`エラー**：認証トークンが存在し、正しいことを確認してください。
-- **メッセージステップに画像プレビューがない**：ユーザー更新ステップで**Send Test to User**を選択し、同じユーザーを使用してメッセージをプレビューしてください。
+- **メッセージステップに画像プレビューがない**：ユーザー更新ステップで**ユーザーにテスト送信**を選択し、同じユーザーを使用してメッセージをプレビューしてください。

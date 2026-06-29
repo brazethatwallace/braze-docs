@@ -11,13 +11,13 @@ description: "Dieser Artikel enthält Insights zum Release von iOS 18, damit Sie
 
 > Sind Sie neugierig, wie Braze sich auf das kommende iOS-Release vorbereitet? Dieser Artikel fasst unsere Insights zum iOS 18 Release zusammen, um Ihnen und Ihren Nutzer:innen ein nahtloses Erlebnis zu ermöglichen.
 
-Die [WWDC](https://developer.apple.com/wwdc24/) von Apple fand vom 9\. bis 11\. Juni 2024 statt. Erfahren Sie mehr über die Ankündigungen in unserem [Blogbeitrag](https://www.braze.com/resources/articles/wwdc-announcements-bring-apple-intelligence-rcs-and-more-to-ios-18) oder lesen Sie weiter, um zu erfahren, wie Sie iOS 18 mit Braze nutzen können.
+Die [WWDC](https://developer.apple.com/wwdc24/) von Apple fand vom 9. bis 11. Juni 2024 statt. Erfahren Sie mehr über die Ankündigungen in unserem [Blogbeitrag](https://www.braze.com/resources/articles/wwdc-announcements-bring-apple-intelligence-rcs-and-more-to-ios-18) oder lesen Sie weiter, um zu erfahren, wie Sie iOS 18 mit Braze nutzen können.
 
 ## Änderungen in iOS 18 {#changes-in-ios-18}
 
 ### Live Activities auf der Apple Watch {#live-activities-on-apple-watch}
 
-[Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) werden von watchOS 11 unterstützt. Es ist keine zusätzliche Einrichtung erforderlich. Apple bietet jedoch die Möglichkeit, die Oberfläche der Uhr anzupassen.
+[Live Activities]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) werden von watchOS 11 unterstützt. Es ist keine zusätzliche Einrichtung erforderlich. Apple bietet jedoch die Möglichkeit, die Oberfläche der Uhr anzupassen.
 
 ### Apple Vision Pro
 

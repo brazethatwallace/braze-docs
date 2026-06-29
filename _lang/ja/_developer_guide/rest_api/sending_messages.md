@@ -14,25 +14,25 @@ description: "このリファレンス記事では、Braze REST APIを使用し�
 
 ## 2つの送信方法 {#two-ways-to-send}
 
-| | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) |
+| | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) |
 | --- | --- | --- |
 | **キャンペーンID** | オプション。ダッシュボードでのキャンペーントラッキングなしで送信する場合は省略します。または、各メッセージにAPIキャンペーンIDと`message_variation_id`を付加してダッシュボードでトラッキングします。 | 必須。 |
 | **メッセージの内容** | リクエストに`messages`オブジェクトを含める必要があります（例：`messages.whats_app`、`messages.email`）。 | 受け付けられません。メッセージの内容は、Brazeダッシュボード内のキャンペーンで定義されます。 |
 | **ユースケース** | APIリクエストで内容を完全に指定したメッセージを送信します。 | APIを介して、特定の受信者に対して事前作成されたキャンペーン（ダッシュボード内のコンテンツ）をトリガーします。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2つの送信方法" }
 
-リクエストとレスポンスの詳細については、[メッセージを即時送信（APIのみ）]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)および[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)のエンドポイントリファレンスを参照してください。
+リクエストとレスポンスの詳細については、[メッセージを即時送信（APIのみ）]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)および[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)のエンドポイントリファレンスを参照してください。
 
 ---
 
 ## オプション1：リクエストにメッセージ内容を含めて送信する（`/messages/send`） {#option-1-send-with-message-content-in-the-request-messagessend}
 
-APIリクエストでメッセージの全内容を指定したい場合に、このエンドポイントを使用します。`messages`オブジェクトを含める**必要があります**（例：`messages.whats_app`、`messages.email`、`messages.sms`）。キャンペーントラッキングなしで送信するには`campaign_id`を省略できます。または、各メッセージにAPIキャンペーンIDと`message_variation_id`を含めることで、ダッシュボードで送信をトラッキングできます（詳細は[エンドポイントリファレンス]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)を参照してください）。
+APIリクエストでメッセージの全内容を指定したい場合に、このエンドポイントを使用します。`messages`オブジェクトを含める**必要があります**（例：`messages.whats_app`、`messages.email`、`messages.sms`）。キャンペーントラッキングなしで送信するには`campaign_id`を省略できます。または、各メッセージにAPIキャンペーンIDと`message_variation_id`を含めることで、ダッシュボードで送信をトラッキングできます（詳細は[エンドポイントリファレンス]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)を参照してください）。
 
-**必須：**`messages.send`権限付きのAPIキー。
+**必須：** `messages.send`権限付きのAPIキー。
 
 {% alert important %}
-`external_user_ids`の各受信者は、Brazeに既に存在している必要があります。送信の一環としてユーザーを作成するには、まず[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用するか、代わりに[オプション2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend)（APIトリガー型キャンペーン）を使用してください。
+`external_user_ids`の各受信者は、Brazeに既に存在している必要があります。送信の一環としてユーザーを作成するには、まず[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用するか、代わりに[オプション2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend)（APIトリガー型キャンペーン）を使用してください。
 {% endalert %}
 
 ### 例：WhatsAppテンプレートメッセージ {#example-whatsapp-template-message}
@@ -60,10 +60,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object/)を参照してください。
+WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object)を参照してください。
 
 {% alert note %}
-`/messages/send`エンドポイントは、TEXTまたはIMAGEヘッダーを持つWhatsAppテンプレートのみをサポートしています。DOCUMENT、VIDEO、その他のメディアヘッダータイプについては、代わりに[APIトリガー型キャンペーンエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)またはBrazeダッシュボードを使用してください。
+`/messages/send`エンドポイントは、TEXTまたはIMAGEヘッダーを持つWhatsAppテンプレートのみをサポートしています。DOCUMENT、VIDEO、その他のメディアヘッダータイプについては、代わりに[APIトリガー型キャンペーンエンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)またはBrazeダッシュボードを使用してください。
 {% endalert %}
 
 ### 例：メール {#example-email}
@@ -82,7 +82,7 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
 }
 ```
 
-他のチャネルについては、[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。
+他のチャネルについては、[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を参照してください。
 
 ---
 
@@ -90,16 +90,16 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
 
 メッセージの内容がBrazeダッシュボードで作成されている場合（APIトリガー型キャンペーン）に、このエンドポイントを使用します。**必須**の`campaign_id`と受信者を送信します。`messages`オブジェクトは送信**しません**。
 
-**必須：**`campaigns.trigger.send`権限付きのAPIキー。
+**必須：** `campaigns.trigger.send`権限付きのAPIキー。
 
 ### ステップ1：APIトリガー型キャンペーンを作成する {#step-1-create-an-api-triggered-campaign}
 
-1. Brazeダッシュボードで、**Messaging** > **キャンペーン**に移動します。
-2. **Create キャンペーン**を選択し、次に**API-Triggered キャンペーン**（「API キャンペーン」ではありません）を選択します。
+1. Brazeダッシュボードで、**Messaging** > **Campaigns**に移動します。
+2. **キャンペーンを作成**を選択し、次に**APIトリガー型キャンペーン**（「APIキャンペーン」ではありません）を選択します。
 3. メッセージチャネル（WhatsApp、メール、SMSなど）を追加し、ダッシュボードでメッセージ内容を作成します。
-4. **キャンペーン ID**（複数のメッセージバリアントを使用する場合は**Send ID**も）をメモしておきます。これらをAPIリクエストで使用します。
+4. **Campaign ID**（複数のメッセージバリアントを使用する場合は**Send ID**も）をメモしておきます。これらをAPIリクエストで使用します。
 
-APIトリガー型キャンペーンの作成に関する詳細は、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)を参照してください。
+APIトリガー型キャンペーンの作成に関する詳細は、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)を参照してください。
 
 ### ステップ2：API経由でキャンペーンをトリガーする {#step-2-trigger-the-campaign-via-the-api}
 
@@ -122,7 +122,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-リクエスト本文の全体（`trigger_properties`、`send_to_existing_only`、`attributes`などを含む）については、[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)のエンドポイントリファレンスを参照してください。
+リクエスト本文の全体（`trigger_properties`、`send_to_existing_only`、`attributes`などを含む）については、[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body)のエンドポイントリファレンスを参照してください。
 
 ---
 
@@ -134,6 +134,6 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## 考慮事項 {#considerations}
 
-- 対応している場合は、Brazeの[パーソナライゼーション機能]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)を使ってコンテンツをカスタマイズしてください。
+- 対応している場合は、Brazeの[パーソナライゼーション機能]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize)を使ってコンテンツをカスタマイズしてください。
 - メッセージングが関連規制に準拠していることを確認し、必要なオプトアウトオプションとプライバシー通知を含めてください。
-- その他のエンドポイント（スケジューリング、キャンバストリガーなど）については、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を参照してください。
+- その他のエンドポイント（スケジューリング、Canvasトリガーなど）については、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を参照してください。

@@ -1,6 +1,6 @@
 ---
 nav_title: Aktions-Buttons
-article_title: Push Action-Buttons für iOS
+article_title: Push-Action-Buttons für iOS
 platform: iOS
 page_order: 1
 description: "In diesem Referenzartikel erfahren Sie, wie Sie Aktions-Buttons in Ihren iOS Push-Benachrichtigungen implementieren."
@@ -14,15 +14,15 @@ noindex: true
 
 # Aktions-Buttons {#push-action-buttons-integration}
 
-Das Braze iOS SDK unterstützt die standardmäßigen Push-Kategorien, einschließlich URLs für jeden Push-Action-Button. Die Standard-Kategorien verfügen derzeit über vier Sets von Push-Action-Buttons: `Accept`/`Decline`, `Yes`/`No`, `Confirm`/`Cancel`, und `More`. 
+Das Braze iOS SDK unterstützt die standardmäßigen Push-Kategorien, einschließlich URL-Handling für jeden Push-Action-Button. Die Standard-Kategorien verfügen derzeit über vier Sets von Push-Action-Buttons: `Accept`/`Decline`, `Yes`/`No`, `Confirm`/`Cancel` und `More`.
 
 ![Ein GIF, das eine Push-Nachricht zeigt, die nach unten gezogen wird, um zwei anpassbare Aktions-Buttons anzuzeigen.]({% image_buster /assets/img_archive/iOS8Action.gif %})
 
 Um unsere Standard-Push-Kategorien zu registrieren, folgen Sie den Anweisungen zur Integration:
 
-## Schritt 1: Hinzufügen von Braze Standard Push-Kategorien
+## 1. Schritt: Hinzufügen von Braze Standard-Push-Kategorien {#step-1-adding-braze-default-push-categories}
 
-Verwenden Sie den folgenden Code, um sich für unsere Standard Push-Kategorien zu registrieren, wenn Sie [sich für Push anmelden]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration/#step-4-register-push-tokens-with-braze):
+Verwenden Sie den folgenden Code, um sich für unsere Standard-Push-Kategorien zu registrieren, wenn Sie [sich für Push anmelden]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -56,15 +56,15 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie auf Push-Action-Buttons mit Hintergrundaktivierung klicken, wird nur die Benachrichtigung verworfen und die App nicht geöffnet. Wenn der Nutzer die App das nächste Mal öffnet, werden die Analytics für die Klicks auf diese Aktionen auf den Server übertragen.
+Wenn Sie auf Push-Action-Buttons mit Hintergrundaktivierung klicken, wird nur die Benachrichtigung geschlossen und die App nicht geöffnet. Wenn Nutzer:innen die App das nächste Mal öffnen, werden die Klick-Analytics für diese Aktionen an den Server übertragen.
 
-Wenn Sie Ihre eigenen angepassten Benachrichtigungskategorien erstellen möchten, sehen Sie sich die [Anpassung der Aktions-Buttons an]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/customization/action_buttons/#push-category-customization).
+Wenn Sie Ihre eigenen angepassten Benachrichtigungskategorien erstellen möchten, lesen Sie den Abschnitt zur [Anpassung der Aktions-Buttons]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/customization/action_buttons#push-category-customization).
 
-## Schritt 2: Enablement der interaktiven Push-Bearbeitung
+## 2. Schritt: Aktivieren der interaktiven Push-Verarbeitung {#step-2-enable-interactive-push-handling}
 
-Wenn Sie das `UNNotification` Framework verwenden und Braze [Delegates]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration/#step-5-enable-push-handling) implementiert haben, sollten Sie diese Methode bereits integriert haben. 
+Wenn Sie das `UNNotification`-Framework verwenden und Braze-[Delegates]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling) implementiert haben, sollten Sie diese Methode bereits integriert haben.
 
-Um die Verarbeitung von Push-Action-Buttons, einschließlich Click Analytics und URL-Routing, zu aktivieren, fügen Sie den folgenden Code in die Delegate-Methode `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` Ihrer App ein:
+Um die Verarbeitung von Push-Action-Buttons, einschließlich Klick-Analytics und URL-Routing, zu aktivieren, fügen Sie den folgenden Code in die Delegate-Methode `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` Ihrer App ein:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -87,7 +87,7 @@ Appboy.sharedInstance()?.userNotificationCenter(center,
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie das UNNotification Framework nicht verwenden, müssen Sie den folgenden Code in Ihre App `application:handleActionWithIdentifier:forRemoteNotification:completionHandler:` einfügen, um die Handhabung unserer Push-Action-Buttons zu aktivieren:
+Wenn Sie das UNNotification-Framework nicht verwenden, müssen Sie den folgenden Code in die Methode `application:handleActionWithIdentifier:forRemoteNotification:completionHandler:` Ihrer App einfügen, um die Verarbeitung unserer Push-Action-Buttons zu aktivieren:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -111,17 +111,15 @@ Appboy.sharedInstance()?.getActionWithIdentifier(identifier,
 {% endtabs %}
 
 {% alert important %}
-Wir empfehlen bei Verwendung von `handleActionWithIdentifier` dringend, mit dem `UNNotification`-Framework zu beginnen. Wir empfehlen dies aufgrund der Veralterung von [`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc).
+Wir empfehlen Nutzer:innen von `handleActionWithIdentifier` dringend, auf das `UNNotification`-Framework umzusteigen. Wir empfehlen dies aufgrund der Deprecation von [`handleActionWithIdentifier`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623068-application?language=objc).
 {% endalert %}
 
-## Anpassung der Push-Kategorie
+## Anpassung der Push-Kategorie {#push-category-customization}
 
-Braze bietet nicht nur eine Reihe von [Standard Push-Kategorien]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons/), sondern unterstützt auch angepasste Benachrichtigungskategorien und Aktionen. Nachdem Sie Kategorien in Ihrer Anwendung registriert haben, können Sie das Braze-Dashboard verwenden, um Benachrichtigungskategorien an Ihre Nutzer:innen zu senden.
+Braze bietet nicht nur eine Reihe von [Standard-Push-Kategorien]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons), sondern unterstützt auch angepasste Benachrichtigungskategorien und Aktionen. Nachdem Sie Kategorien in Ihrer Anwendung registriert haben, können Sie das Braze-Dashboard verwenden, um Benachrichtigungskategorien an Ihre Nutzer:innen zu senden.
 
 Wenn Sie nicht das `UserNotifications`-Framework verwenden, lesen Sie die Dokumentation zu den [alternativen Kategorien](https://developer.apple.com/documentation/usernotifications/unnotificationcategory).
 
-Diese Kategorien können dann über unser Dashboard Push-Benachrichtigungen zugewiesen werden, um die Aktion-Button-Konfigurationen Ihres Designs zu triggern. Hier ist ein Beispiel, das die `LIKE_CATEGORY` nutzt, die auf dem Gerät angezeigt wird:
+Diese Kategorien können dann über unser Dashboard Push-Benachrichtigungen zugewiesen werden, um die Aktions-Button-Konfigurationen Ihres Designs zu triggern. Hier ist ein Beispiel, das die `LIKE_CATEGORY` nutzt, die auf dem Gerät angezeigt wird:
 
-![Eine Push-Nachricht, die zwei Push-Action-Buttons „Gefällt mir nicht“ und „Gefällt mir“ anzeigt.]({% image_buster /assets/img_archive/push_example_category.png %})
-
-
+![Eine Push-Nachricht, die zwei Push-Action-Buttons „unlike“ und „like“ anzeigt.]({% image_buster /assets/img_archive/push_example_category.png %})

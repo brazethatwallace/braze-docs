@@ -11,7 +11,7 @@ platform:
 
 # 현지화 {#localization}
 
-> 전 세계 사용자와 소통할 수 있도록 Braze SDK의 현지화 및 지원 언어에 대해 알아보세요. 현지화된 메시지를 설정하는 방법에 대한 안내는 메시징 기본 사항 섹션의 [현지화]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)를 참조하세요.
+> 전 세계 사용자와 소통할 수 있도록 Braze SDK의 현지화 및 지원 언어에 대해 알아보세요. 현지화된 메시지를 설정하는 방법에 대한 안내는 메시징 기본 사항 섹션의 [현지화]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)를 참조하세요.
 
 ## 현지화 정보 {#about-localization}
 

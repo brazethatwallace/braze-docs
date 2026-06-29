@@ -12,7 +12,7 @@ noindex: true
 
 # Deeplinking für iOS {#deep-linking-for-ios}
 
-Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
+Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
 
 ## 1. Schritt: Ein Schema registrieren {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Beispiel einer Deeplink-Konfiguration im Braze-Dashboard.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Universelle Links {#universal-links}
 
@@ -138,7 +138,7 @@ Weitere Informationen finden Sie bei [Apple](https://developer.apple.com/library
 Die Standard-Integration für universelle Links ist nicht mit Push-Benachrichtigungen oder In-App-Nachrichten von Braze kompatibel. Informationen zur Handhabung universeller Links innerhalb Ihrer Anwendung finden Sie unter [Anpassung der Link-Handhabung](#linking-handling-customization). Alternativ empfehlen wir, [schemabasierte Deeplinks](#step-1-registering-a-scheme) mit Push-Benachrichtigungen und In-App-Nachrichten zu verwenden.
 {% endalert%}
 
-## App Transport Security (ATS)
+## App Transport Security (ATS) {#app-transport-security-ats}
 Mit iOS 9 wurde eine grundlegende Änderung eingeführt, die in In-App-Nachrichten und Push-Benachrichtigungen eingebettete Internet-URLs betrifft.
 
 ### ATS-Anforderungen {#ats-requirements}
@@ -164,7 +164,7 @@ Die ATS-Konformität wird für Links durchgesetzt, die innerhalb der mobilen App
 Sie können ATS auf eine der folgenden drei Arten handhaben:
 
 #### Bestätigen, dass alle Links ATS-konform sind (empfohlen) {#confirm-all-links-are-ats-compliant-recommended}
-Ihre Braze-Integration kann die ATS-Anforderungen erfüllen, indem Sie sicherstellen, dass alle bestehenden Links, zu denen Sie Nutzer:innen führen (über In-App-Nachrichten und Push-Kampagnen), die ATS-Anforderungen erfüllen. Es gibt zwar Möglichkeiten, die ATS-Beschränkungen zu umgehen, aber wir empfehlen, zu überprüfen, ob alle verlinkten URLs ATS-konform sind. Da Apple immer mehr Wert auf die Sicherheit von Anwendungen legt, werden die folgenden Ansätze zur Zulassung von ATS-Ausnahmen von Apple nicht garantiert unterstützt.
+Ihre Braze-Integration kann die ATS-Anforderungen erfüllen, indem Sie sicherstellen, dass alle bestehenden Links, zu denen Sie Nutzer:innen führen (über In-App-Nachrichten und Push-Campaigns), die ATS-Anforderungen erfüllen. Es gibt zwar Möglichkeiten, die ATS-Beschränkungen zu umgehen, aber wir empfehlen, zu überprüfen, ob alle verlinkten URLs ATS-konform sind. Da Apple immer mehr Wert auf die Sicherheit von Anwendungen legt, werden die folgenden Ansätze zur Zulassung von ATS-Ausnahmen von Apple nicht garantiert unterstützt.
 
 Ein SSL-Tool kann Ihnen dabei helfen, Sicherheitsprobleme des Webservers zu erkennen. Dieser [SSL-Server-Test](https://www.ssllabs.com/ssltest/index.html) von Qualys, Inc. bietet einen Punkt speziell für die Einhaltung von Apple ATS 9 und iOS 9.
 

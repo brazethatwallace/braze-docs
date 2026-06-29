@@ -117,12 +117,12 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Para obtener más información sobre las propiedades de los dispositivos recopiladas automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Para obtener más información sobre las propiedades de los dispositivos recopiladas automáticamente, consulta [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 {% endalert %}
 
 ## Almacenamiento de cookies (solo Web) {#cookies}
 
-Después de [inicializar el SDK Web de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), este creará y almacenará cookies con una caducidad de 400 días que se renovarán automáticamente en nuevas sesiones.
+Después de [inicializar el SDK Web de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize), el SDK creará y almacenará cookies con una caducidad de 400 días que se renovarán automáticamente en nuevas sesiones.
 
 Se almacenan las siguientes cookies:
 
@@ -133,7 +133,7 @@ Se almacenan las siguientes cookies:
 | `ab.storage.deviceId.[your-api-key]` | Cadena generada aleatoriamente que se utiliza para identificar a los usuarios anónimos, diferenciar los dispositivos de los usuarios y habilitar la mensajería basada en dispositivos. | ~200 bytes |
 | `ab.optOut` | Se utiliza para almacenar la preferencia de exclusión de un usuario cuando se llama a `disableSDK`. | ~40 bytes |
 | `ab._gd` | Se crea temporalmente (y luego se elimina) para determinar el dominio de cookie de nivel raíz, lo que permite que el SDK funcione correctamente en subdominios. | n/a |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Almacenamiento de cookies (solo Web) #cookies" }
 
 ### Cambiar la caducidad de las cookies {#cookie-expiry}
 

@@ -27,7 +27,7 @@ iOS 15 a introduit de nouvelles fonctionnalités de notification pour aider les 
 
 Les utilisateurs d'iOS 15 peuvent désormais créer des « modes de concentration », des profils personnalisés utilisés pour déterminer les notifications qu'ils souhaitent voir franchir le mode de concentration et s'afficher en évidence.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Les utilisateurs d'iOS 15 peuvent désormais créer des « modes de concentration », des profils personnalisés utilisés pour déterminer les notifications qu'ils souhaitent voir franchir le mode de concentration et s'afficher en évidence.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### Niveaux d'interruption {#interruption-levels}
 
@@ -38,17 +38,17 @@ Dans iOS 15, les notifications push peuvent être envoyées avec l'un des quatre
 * **Urgent** (nouveau) — Permet le son, la vibration, le réveil de l'écran, peut franchir les contrôles système si autorisé.
 * **Critique** — Permet le son, la vibration, le réveil de l'écran, peut franchir les contrôles système et contourner le commutateur de sonnerie.
 
-Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level) pour en savoir plus sur la manière de définir cette option dans les notifications push iOS.
+Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) pour en savoir plus sur la manière de définir cette option dans les notifications push iOS.
 
 ### Résumé des notifications {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Capture d'écran relative au résumé des notifications.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 Dans iOS 15, les utilisateurs peuvent (facultativement) choisir certaines heures de la journée pour recevoir un résumé des notifications. Les notifications qui ne requièrent pas une attention immédiate (comme celles envoyées en mode « passif » ou lorsque l'utilisateur est en mode de concentration) seront regroupées pour éviter les interruptions constantes tout au long de la journée.
 
 Pour chaque notification que vous envoyez, vous serez bientôt en mesure de spécifier un « score de pertinence » pour contrôler quelle notification doit apparaître en haut du résumé.
 
-Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score) pour en savoir plus sur la manière de définir le « score de pertinence » d'une notification.
+Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) pour en savoir plus sur la manière de définir le « score de pertinence » d'une notification.
 
 ## Boutons de localisation {#location-buttons}
 

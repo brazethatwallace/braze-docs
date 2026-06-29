@@ -14,7 +14,7 @@ noindex: true
 
 ローカライゼーションはBraze iOS SDK内でサポートされています。Brazeは英語に加えて、組み込みSDKメッセージ用にいくつかの言語をサポートしています。これらは、接続に問題がある場合など、Brazeと統合されたアプリケーションに表示されるデフォルトのメッセージに関連します（例：「ネットワーク接続を確立できません。後でもう一度やり直してください。」）。スマートフォンの言語がサポートされている言語のいずれかに設定されている場合、統合アプリケーション内でトリガーされたBrazeのデフォルト文字列は、自動的にその言語で表示されます。
 
-ユーザーがプロファイルで選択できるサポート言語の完全なリストをお探しの場合は、[ユーザー言語リスト]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/)を参照してください。
+ユーザーがプロファイルで選択できるサポート言語の完全なリストをお探しの場合は、[ユーザー言語リスト]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes)を参照してください。
 
 ## サポートされている言語 {#languages-supported}
 - アラビア語
@@ -54,4 +54,4 @@ noindex: true
 - ウクライナ語
 - ベトナム語
 
-詳細については、[Apple のローカライゼーション](https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFLocaleRef/)に関する記事と [LOC 標準言語リスト](http://www.loc.gov/standards/iso639-2/php/English_list.php)を参照してください。
+詳細については、[Appleのローカライゼーション](https://developer.apple.com/library/ios/documentation/CoreFoundation/Reference/CFLocaleRef/)に関する記事と[LOC標準言語リスト](http://www.loc.gov/standards/iso639-2/php/English_list.php)を参照してください。

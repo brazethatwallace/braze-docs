@@ -21,7 +21,7 @@ La integración de Braze y RudderStack ofrece una integración de SDK nativa par
 | Fuente configurada | Una [fuente](https://www.rudderstack.com/docs/dashboard-guides/sources/) es esencialmente el origen de cualquier dato enviado a RudderStack, como sitios web, aplicaciones móviles o servidores backend. Es necesario configurar la fuente antes de configurar Braze como destino en RudderStack. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`, `users.identify`, `users.delete` y `users.alias.new`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Clave de la aplicación Braze | Para obtener la clave de tu aplicación en el panel de Braze, ve a **Configuración** > **Configuración de la aplicación** > **Identificación** y busca el nombre de tu aplicación. Guarda la cadena de identificador asociada.
-| Centro de datos | Tu centro de datos se alinea con tu [instancia]({{site.baseurl}}/api/basics/#endpoints) del panel de Braze.  |
+| Centro de datos | Tu centro de datos se alinea con tu [instancia]({{site.baseurl}}/api/basics#endpoints) del panel de Braze.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -35,8 +35,6 @@ Para empezar a enviar datos a Braze, primero debes asegurarte de que se ha confi
 Ahora que tu fuente de datos está configurada, en el dashboard de RudderStack, selecciona **ADD DESTINATION** en **Destinations**. En la lista de destinos disponibles, selecciona **Braze** y haz clic en **Next**.
 
 En el destino Braze, proporciona la clave de la aplicación, la clave de API REST de Braze, el clúster de datos y la opción de SDK nativo (solo en modo dispositivo). La opción de SDK nativo utilizará el SDK nativo de Braze para enviar eventos si está activada.
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### Paso 3: Elige el tipo de integración {#step-3-choose-the-type-of-integration}
 
@@ -95,7 +93,7 @@ Para [enviar eventos a través del modo híbrido](https://www.rudderstack.com/do
 Tras completar la configuración inicial, configura los siguientes ajustes para recibir correctamente tus datos en Braze:
 
 - **Enable subscription groups in group call**: Habilita esta configuración para enviar el estado del grupo de suscripción en tus eventos de grupo. Para más información, consulta [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Use Custom Attributes Operation**: Habilita esta configuración si deseas utilizar la funcionalidad de [atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) en Braze para crear segmentos y personalizar tus mensajes utilizando un objeto de atributo personalizado. Para más información, consulta [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
+- **Use Custom Attributes Operation**: Habilita esta configuración si deseas utilizar la funcionalidad de [atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) en Braze para crear segmentos y personalizar tus mensajes utilizando un objeto de atributo personalizado. Para más información, consulta [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
 - **Track events for anonymous users**: Habilita esta configuración para realizar un seguimiento de la actividad de usuarios anónimos y enviar esta información a Braze.
 
 ### Configuración del modo dispositivo {#device-mode-settings}
@@ -128,7 +126,7 @@ Puedes eliminar un usuario en Braze utilizando la [regulación de supresión con
 El [método `track`](https://rudderstack.com/docs/destinations/marketing/braze/#track) de RudderStack captura todas las actividades del usuario y las propiedades asociadas a dichas actividades.
 
 **Pedido completado**<br>
-Al utilizar la [API de comercio electrónico de RudderStack](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) para llamar al método track de un evento con el nombre `Order Completed`, RudderStack envía los productos incluidos en ese evento a Braze como [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+Al utilizar la [API de comercio electrónico de RudderStack](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) para llamar al método track de un evento con el nombre `Order Completed`, RudderStack envía los productos incluidos en ese evento a Braze como [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data).
 
 {% endtab %}
 {% tab Screen %}
@@ -146,7 +144,7 @@ El [método `page`](https://rudderstack.com/docs/destinations/marketing/braze/#p
 El [método `group`](https://rudderstack.com/docs/destinations/marketing/braze/#group) de RudderStack te permite asociar un usuario a un grupo.
 
 **Estado del grupo de suscripción**<br>
-Para actualizar el estado del grupo de suscripción, habilita el ajuste **Enable subscription groups in group call** en el dashboard de RudderStack y envía el estado del grupo de suscripción en la llamada de grupo.
+Para actualizar el estado del grupo de suscripción, habilita el ajuste "Enable subscription groups in group call" en el dashboard de RudderStack y envía el estado del grupo de suscripción en la llamada de grupo.
 
 {% endtab %}
 {% tab Alias %}
@@ -158,7 +156,7 @@ El [método `alias`](https://www.rudderstack.com/docs/destinations/streaming-des
 
 ## Enviar rasgos de usuario como atributos personalizados anidados {#send-user-traits-as-nested-custom-attributes}
 
-Puedes enviar los rasgos de usuario a Braze como atributos personalizados anidados y realizar operaciones de adición, actualización y eliminación en ellos. Para ello, habilita el ajuste **Use Custom Attributes Operation** en el dashboard de RudderStack mientras configuras el destino Braze. Esta función solo está disponible en modo nube.
+Puedes enviar los rasgos de usuario a Braze como atributos personalizados anidados y realizar operaciones de adición, actualización y eliminación en ellos. Para ello, habilita el ajuste "Use Custom Attributes Operation dashboard" en RudderStack mientras configuras el destino Braze. Esta función solo está disponible en modo nube.
 
 Puedes enviar los rasgos de usuario como atributos personalizados anidados en tus eventos `identify` con el siguiente formato:
 ```javascript
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,
@@ -253,5 +251,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-Para las operaciones de actualización y eliminación, `identifier` es una clave obligatoria. Si las operaciones add, update o remove no están presentes en el array anidado, RudderStack utiliza por defecto la operación create para crear las propiedades. Consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) para obtener más información sobre el envío de atributos personalizados anidados.
+Para las operaciones de actualización y eliminación, `identifier` es una clave obligatoria. Si las operaciones add, update o remove no están presentes en el array anidado, RudderStack utiliza por defecto la operación create para crear las propiedades. Consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) para obtener más información sobre el envío de atributos personalizados anidados.
 {% endalert %}

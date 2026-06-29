@@ -17,7 +17,7 @@ La [WWDC](https://developer.apple.com/wwdc24/) d'Apple a eu lieu du 9 au 11 juin
 
 ### Activités en direct sur l'Apple Watch {#live-activities-on-apple-watch}
 
-Les [activités en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift) seront prises en charge sur watchOS 11. Aucune configuration supplémentaire n'est nécessaire. Apple offre toutefois la possibilité de personnaliser l'interface de la montre.
+Les [activités en direct]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift) seront prises en charge sur watchOS 11. Aucune configuration supplémentaire n'est nécessaire. Apple offre toutefois la possibilité de personnaliser l'interface de la montre.
 
 ### Apple Vision Pro
 

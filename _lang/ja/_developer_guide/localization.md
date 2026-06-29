@@ -11,7 +11,7 @@ platform:
 
 # ローカライゼーション {#localization}
 
-> Braze SDKのローカライゼーションおよびサポートされている言語について説明します。これにより、世界中のユーザーとつながることができます。ローカライズされたメッセージの設定方法については、メッセージングの基本セクションの[ローカライゼーション]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/)を参照してください。
+> Braze SDKのローカライゼーションおよびサポートされている言語について説明します。これにより、世界中のユーザーとつながることができます。ローカライズされたメッセージの設定方法については、メッセージングの基本セクションの[ローカライゼーション]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)を参照してください。
 
 ## ローカライゼーションについて {#about-localization}
 

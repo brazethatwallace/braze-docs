@@ -12,8 +12,8 @@ O Braze JavaScript SDK ajuda você a integrar recursos de envio de mensagens, an
 
 Para começar, consulte os seguintes recursos:
 
-- [Guia do usuário da Braze]({{site.baseurl}}/user_guide/introduction/)
-- [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=javascript)
+- [Guia do usuário da Braze]({{site.baseurl}}/user_guide/introduction)
+- [Guia do desenvolvedor da Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=javascript)
 
 ### Visão geral da arquitetura {#architecture-overview}
 
@@ -28,8 +28,8 @@ O Braze JavaScript SDK é uma biblioteca **independente de plataforma** projetad
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
-- [Braze User Guide]({{site.baseurl}}/user_guide/introduction/)
-- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
+- [Braze User Guide]({{site.baseurl}}/user_guide/introduction)
+- [Initial Web SDK Setup]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup)
 - [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Início rápido {#quickstart}
@@ -107,7 +107,7 @@ interface StorageManager {
   clearData(storageKeys: string[]): Promise<void>;
 }
 ```
-- O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de opt-out. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
+- O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de descadastramento. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
 - Deve lidar com operações assíncronas para todas as operações de armazenamento
 
 **2. NetworkManager** (opcional) - Interface de requisição HTTP POST
@@ -664,7 +664,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 **Envio de dados:**
 - Envio automático a cada 10 segundos (configurável, mínimo: 3 segundos)
-- O envio pode falhar silenciosamente - use o retorno de chamada de `requestImmediateDataFlush()`
+- O envio pode falhar silenciosamente — use o retorno de chamada de `requestImmediateDataFlush()`
 - Os dados são enfileirados se a rede estiver indisponível e enviados quando a rede for restaurada
 
 ### Notas importantes de implementação {#important-implementation-notes}

@@ -57,7 +57,7 @@ Braze SDKには、効率を向上させ、バッテリー消費を抑え、さ�
 | 必要な場合にのみコンテンツを更新する | ユーザーアクション（スクロールイベントなど）のたびにコンテンツを更新する |
 | SDKにバッチ処理を自動的に行わせる | （どうしても必要な場合を除き）データの即時送信を強制する |
 | 分析に価値をもたらすイベントに焦点を当てる | 頻度を考慮せずにSDKメソッドを連続して呼び出す |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Best practices" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ベストプラクティス" }
 
 ## ヘルプを利用する {#getting-help}
 
@@ -69,7 +69,7 @@ SDKのレート制限の問題が発生している場合は、以下のネッ�
 - `logCustomEvent()`
 - `logPurchase()`
 
-[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)に連絡する際は、使用している各ネットワークSDKメソッドについて以下の詳細を記載してください。
+[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)に連絡する際は、使用している各ネットワークSDKメソッドについて以下の詳細を記載してください。
 
 ```plaintext
 Method name:
