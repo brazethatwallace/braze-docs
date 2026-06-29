@@ -113,7 +113,7 @@ Os usuários escolhem múltiplas opções; os valores definem ou são adicionado
 
 ### Texto longo {#long-text}
 
-Campo de texto com múltiplas linhas para fluxos no estilo de pesquisa. Se você não vir esse bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou com o seu gerente de sucesso do cliente.
+Campo de texto com múltiplas linhas para fluxos no estilo de pesquisa. Se você não vir esse bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou com o seu gerente de sucesso do cliente. Esse bloco não está disponível para landing pages padrão.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

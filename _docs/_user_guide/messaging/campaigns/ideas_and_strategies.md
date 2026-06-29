@@ -3,7 +3,7 @@ nav_title: Ideas and strategies
 article_title: Ideas and strategies
 layout: dev_guide
 guide_top_header: "Ideas and strategies"
-guide_top_text: "Learn more about how to build your ideal campaign with these use cases and other ideas."
+guide_top_text: "Find worked examples and patterns for common campaign goals. This section covers retargeting active and lapsed users, driving feature adoption and app updates, capturing install attribution, adding calendar links to messages, and automating registration workflows with external tools like Zoom. Browse these use cases to find approaches you can adapt for your own audiences."
 page_order: 5
 
 tool: Campaigns
@@ -13,7 +13,7 @@ description: "This landing page is home to campaign ideas and strategies. Here, 
 guide_featured_title: "Section articles"
 guide_featured_list:
   - name: Best practices
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: Active user campaigns
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns

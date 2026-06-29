@@ -48,7 +48,25 @@ RCSメッセージを送信する前に、RCS認証済み送信者を登録す�
 
 現在のキャリアカバレッジは国によって異なり、ユーザーのハードウェアやソフトウェアのサポートも個人によって異なるため、SMSフォールバックは現在のRCSプログラムを成功させるための重要な要素です。SMSフォールバックの設定をお勧めします。キャリアがRCSをサポートしていない場合やユーザーのデバイスがRCSメッセージを受信できない場合、SMSフォールバックによりメッセージが送信されるため、ユーザーとの重要な瞬間を逃すことがありません。
 
-最初のRCS Campaignをデプロイする前に、現在のSMSオプトイン体験、サブスクリプショングループ、およびオーディエンスのセグメンテーションを確認することを強くお勧めします。必要に応じて、カスタマーサクセスマネージャーがいつでもガイダンスを提供し、セットアッププロセスをサポートします。
+最初のRCSキャンペーンをデプロイする前に、現在のSMSオプトイン体験、サブスクリプショングループ、およびオーディエンスのセグメンテーションを確認することを強くお勧めします。必要に応じて、カスタマーサクセスマネージャーがいつでもガイダンスを提供し、セットアッププロセスをサポートします。
+
+#### SMSフォールバックとイベントおよびセグメンテーションの連携 {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab イベントの動作 %}
+
+RCSでSMSフォールバックを使用する場合、イベントの動作はメッセージがRCSで正常に送信されたか、SMSにフォールバックしたかによって異なります。
+
+- **RCS送信が成功した場合：** RCS送信イベントとRCS配信イベントを受信します。
+- **RCS送信がSMSにフォールバックした場合：** RCS送信イベント、RCS拒否イベント、およびSMS配信イベントを受信します。SMS配信イベントには`IS_SMS_FALLBACK=TRUE`が含まれます。
+
+{% endtab %}
+{% tab セグメンテーションの動作 %}
+
+SMSとRCSでは、受信メッセージの[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)（[Campaignからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign)や[キャンバスステップからメッセージを受信]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)など）は、メッセージがユーザーのデバイスに届いた時点ではなく、送信された時点で評価されます。SMSフォールバックが有効な場合、RCSメッセージが拒否されてSMSにフォールバックした場合や、フォールバックSMSがユーザーのデバイスに配信されなかった場合でも、ユーザーはこれらのフィルターに一致する可能性があります。
+
+{% endtab %}
+{% endtabs %}
 
 ### キャリア承認のタイムライン {#timeline-for-carrier-approval}
 
@@ -68,7 +86,7 @@ Brazeでは、最初は少数のユーザーにRCSを送信してテストし、
 
 ### ステップ 1:Canvasを作成し、エントリスケジュールを入力する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvasを作成し、簡単に識別できる名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでCampaignをスケジュールします。
+Canvasを作成し、簡単に識別できる名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
 
 ### ステップ 2:オーディエンスを定義する {#step-2-define-your-audience}
 
@@ -76,9 +94,9 @@ Canvasを作成し、簡単に識別できる名前を付けます（「SMS-RCS�
 
 | 方法 | 説明 |
 |---|---|
-| **Segmentを作成する** | サブスクリプショングループ内のすべてのユーザー、またはセグメンテーションフィルター（ランダムな5〜10%など）を使用したサブセットを含むSegmentを作成します。Segmentsは各送信前に更新され、現在のユーザー群を反映します。 |
+| **Segmentを作成する** | サブスクリプショングループ内のすべてのユーザー、またはセグメンテーションフィルター（ランダムな5〜10%など）を使用したサブセットを含むSegmentを作成します。Segmentは各送信前に更新され、現在のユーザー群を反映します。 |
 | **CampaignまたはCanvasフィルターを適用する** | CampaignまたはCanvasの**ターゲットオーディエンス**ステップでオーディエンスを絞り込みます。ページを離れることなくターゲティングオプションを調整でき、柔軟性が向上します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2:オーディエンスを定義する" }
 
 ### ステップ 3:ユーザーの更新ステップを設定する {#step-3-configure-a-user-update-step}
 
@@ -103,7 +121,7 @@ Canvasにユーザーの更新ステップを追加します。ステップ内�
 ```
 {% endraw %}
 
-![前述のJSONコードを含む「User Update Object」。]({% image_buster /assets/img/sms/user_update_object.png %})
+![前述のJSONコードを含む「ユーザーの更新オブジェクト」。]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### ステップ 4:Canvasをテストする {#step-4-test-the-canvas}
 

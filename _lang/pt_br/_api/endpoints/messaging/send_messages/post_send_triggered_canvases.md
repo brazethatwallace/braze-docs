@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para envio
 ---
 {% api %}
 # Enviar mensagens do Canvas usando entrega acionada por API {#send-canvas-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/send
 {% endapimethod %}
 
@@ -68,9 +68,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para todo o segmento configurado como o público-alvo do Canvas no dashboard da Braze. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `audience` | Opcional | Objeto de público conectado | Consulte [Público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). Quando você inclui `audience`, a mensagem é enviada apenas para usuários que correspondem aos filtros definidos, como atributos personalizados e status de inscrição. |
 | `recipients` | Opcional | Vetor | Consulte o [objeto Recipients]({{site.baseurl}}/api/objects_filters/recipient_object/). <br><br> Se `send_to_existing_only` for `false`, um objeto `attributes` deve ser incluído no destinatário. <br><br> Se não fornecido e `broadcast` estiver definido como `true`, a mensagem é enviada para todo o segmento configurado como o público-alvo do Canvas no dashboard da Braze.<br><br> O vetor `recipients` pode conter até 50 objetos. Cada objeto deve incluir exatamente um entre `external_user_id`, `user_alias` ou `email`, e pode incluir um objeto `context` por destinatário para propriedades de contexto do Canvas (as chaves por destinatário substituem o `context` de nível superior quando há conflito). <br><br> Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) no objeto de destinatários. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
+
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/send' \
 --header 'Content-Type: application/json' \
@@ -144,7 +145,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 
 ## Detalhes da resposta {#response-details}
 
-As respostas do endpoint de envio de mensagens incluem o `dispatch_id` da mensagem para referência ao despacho da mensagem. O `dispatch_id` é o ID do despacho de mensagens (ID exclusivo para cada "transmissão" enviada da plataforma Braze). Para saber mais, consulte [Comportamento do Dispatch ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+As respostas do endpoint de envio de mensagens incluem o `dispatch_id` da mensagem para referência ao despacho da mensagem. O `dispatch_id` é o ID do despacho de mensagens (ID exclusivo para cada "transmissão" enviada da plataforma Braze). Para saber mais, consulte [Comportamento do Dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 ### Exemplo de resposta bem-sucedida {#example-success-response}
 

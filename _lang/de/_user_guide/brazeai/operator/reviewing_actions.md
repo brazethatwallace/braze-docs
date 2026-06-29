@@ -5,13 +5,13 @@ page_order: 2
 description: "Erfahren Sie, wie Sie Aktionen überprüfen und genehmigen können, wenn BrazeAI Operator Änderungen im Dashboard vorschlägt."
 ---
 
-# Aktionen von BrazeAI Operator überprüfen
+# Aktionen von BrazeAI Operator überprüfen {#reviewing-brazeai-operator-actions}
 
 > Erfahren Sie, wie Sie Aktionen überprüfen und genehmigen können, wenn BrazeAI Operator<sup>TM</sup> Änderungen im Dashboard vorschlägt.
 
 ![Operator präsentiert vorgeschlagene Aktionskarten zur Überprüfung.]({% image_buster /assets/img/operator/suggested_actions.png %}){: style="max-width:40%; border:none; float:right; margin-left:15px;"}
 
-## Wie Aktionskarten funktionieren
+## Wie Aktionskarten funktionieren {#how-action-cards-work}
 
 Wenn Operator Änderungen im Dashboard vorschlägt (z. B. das Ausfüllen von Formularfeldern, das Aktualisieren von Einstellungen oder das Generieren von Bildern), wird jede Änderung als Aktionskarte zur Überprüfung angezeigt.
 
@@ -22,7 +22,7 @@ Wenn Operator Änderungen im Dashboard vorschlägt (z. B. das Ausfüllen von For
 
 Sollte eine Aktion nach der Genehmigung fehlschlagen, benachrichtigt Operator Sie mit Details zum aufgetretenen Fehler.
 
-### Verfügbarkeit
+### Verfügbarkeit {#availability}
 
 Aktionskarten werden in den folgenden Editoren und auf den folgenden Seiten unterstützt.
 
@@ -34,16 +34,16 @@ Aktionskarten werden in den folgenden Editoren und auf den folgenden Seiten unte
     - SMS/MMS/RCS
     - Webhooks
 - Seite [Angepassten Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
- 
+
 Auf anderen Seiten stellt Operator eine Liste von Schritten zur Verfügung, die in der UI ausgeführt werden müssen, anstatt selbst Aktionen auszuführen. Die Funktionalität von Operator wird regelmäßig verbessert, und eine erweiterte Abdeckung für Erstellungswerkzeuge ist geplant.
 
-## Einen Plan ändern
+## Einen Plan ändern {#modify-a-plan}
 
 Um den Plan von Operator zu ändern, genehmigen oder lehnen Sie zunächst die ausstehenden Aktionen ab. Beschreiben Sie dann die gewünschte Änderung in einer neuen Chat-Nachricht.
 
 Genehmigte Aktionen können nicht über Operator rückgängig gemacht werden. Beschreiben Sie die neue Änderung gegenüber Operator oder nehmen Sie die Änderungen manuell im Dashboard vor.
 
-## Aktionen automatisch genehmigen
+## Aktionen automatisch genehmigen {#auto-approve-actions}
 
 Der Schalter **Aktionen automatisch genehmigen** befindet sich im Chat-Panel von Operator.
 
@@ -53,3 +53,5 @@ Der Schalter **Aktionen automatisch genehmigen** befindet sich im Chat-Panel von
 ![Der Schalter für die automatische Genehmigung und das Bestätigungs-Modal im Chat-Panel von Operator.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
 Die automatische Genehmigung wird zurückgesetzt, wenn Sie die Seite aktualisieren, einen neuen Tab öffnen oder sich ab- und wieder anmelden. Das Wechseln zwischen Seiten im Dashboard setzt sie nicht zurück. Die automatische Genehmigung kann jederzeit deaktiviert werden.
+
+Informationen zur Einschränkung des Operator-Zugriffs und zur Überwachung der Team-Nutzung finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security/).

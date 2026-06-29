@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Este artículo describe los eventos personalizados y sus propiedades, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
+> Este artículo describe los eventos personalizados y sus propiedades, el historial de eventos del perfil de usuario, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
 
 Los eventos personalizados son acciones realizadas por tus usuarios o actualizaciones sobre ellos. Cuando se registran eventos personalizados, pueden desencadenar cualquier número y tipo de campañas de seguimiento. A continuación, puedes utilizar [filtros de segmentación](#segmentation-filters) para segmentar a los usuarios en función de lo recientes y frecuentes que hayan sido esos eventos personalizados. Esto hace que los eventos personalizados sean los más adecuados para el seguimiento de interacciones de usuario de alto valor dentro de tu aplicación.
 
@@ -45,10 +45,6 @@ Además, si un evento personalizado bloqueado está actualmente referenciado por
 
 Para más detalles sobre el bloqueo y la eliminación de datos personalizados, consulta [Bloquear datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
 
-### Marcar como información de identificación personal (PII) {#marking-as-personally-identifiable-information-pii}
-
-Los administradores también pueden crear eventos personalizados y marcarlos como PII desde esta página. Estos eventos solo son visibles para administradores y usuarios del dashboard con el permiso "Ver atributos personalizados marcados como PII".
-
 ### Añadir descripciones {#adding-descriptions}
 
 Puedes añadir una descripción a un evento personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) `Manage Events, Attributes, Purchases`. Selecciona **Editar descripción** para el evento personalizado e introduce lo que desees, como una nota para tu equipo.
@@ -60,6 +56,10 @@ Puedes añadir etiquetas a un evento personalizado después de crearlo si tienes
 ### Exportar datos {#exporting-data}
 
 Para exportar la lista de eventos personalizados como un archivo CSV, selecciona **Exportar todo** en la parte superior de la página. Se generará el archivo CSV y se te enviará un enlace de descarga por correo electrónico.
+
+{% alert note %}
+No existe un límite fijo en el dashboard sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuenta de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/) datos no utilizados).
+{% endalert %}
 
 ## Ver informes de uso {#viewing-usage-reports}
 
@@ -87,6 +87,38 @@ Los eventos personalizados requieren configuración adicional. Consulta la lista
 
 Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos de eventos personalizados (primera o última ocurrencia, recuento total y X en Y durante 30 días), se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_archival/#active-users).
 
+## Ver el historial de eventos de un usuario {#view-a-users-event-history}
+
+{% alert important %}
+El historial de eventos se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si te interesa participar.
+{% endalert %}
+
+Usa la pestaña **Historial de eventos** en el perfil de un usuario para ver sus eventos personalizados y compras recientes. Esto te ayuda a confirmar que tu integración está registrando eventos correctamente y a solucionar problemas a nivel de usuario directamente en el dashboard.
+
+Para ver el historial de eventos de un usuario:
+
+1. Ve a **Audiencia** > **Buscar usuarios** y selecciona un usuario para abrir su perfil.
+2. Selecciona la pestaña **Historial de eventos**.
+
+La pestaña muestra los eventos personalizados y las compras del usuario de los últimos 30 días, hasta los 100 eventos más recientes, ordenados del más nuevo al más antiguo.
+
+Cada evento incluye:
+
+- **Tipo de evento:** si el evento es un evento personalizado o una compra.
+- **Nombre del evento:** el nombre del evento tal como fue registrado.
+- **Hora:** cuándo ocurrió el evento.
+- **Propiedades:** las propiedades completas del evento para esa ocurrencia, mostradas como JSON.
+
+Los casos de uso habituales incluyen:
+
+- Verificar que tu integración de SDK o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
+- Solucionar problemas sobre por qué un usuario entró o no entró en una Campaign o Canvas desencadenados por eventos.
+- Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
+
+{% alert note %}
+Ver la pestaña **Historial de eventos** requiere los permisos de usuario **Buscar usuarios** y **Ver PII**, ya que las propiedades de eventos pueden contener datos personales. Para más información, consulta [Permisos de usuario de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+{% endalert %}
+
 ## Filtros de segmentación {#segmentation-filters}
 
 La siguiente tabla muestra los filtros disponibles para segmentar usuarios por eventos personalizados.
@@ -103,7 +135,7 @@ La siguiente tabla muestra los filtros disponibles para segmentar usuarios por e
 | Comprobar si el evento personalizado ocurrió **más de X (máx. = 50) veces** | **MÁS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **menos de X (máx. = 50) veces** | **MENOS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **exactamente X (máx. = 50) veces** | **EXACTAMENTE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtros de segmentación" }
 
 ## Análisis {#analytics}
 

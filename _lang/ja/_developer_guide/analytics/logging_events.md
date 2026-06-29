@@ -14,6 +14,8 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 リストされていないラッパーSDKの場合は、代わりに関連するネイティブAndroidまたはSwiftメソッドを使用してください。
 {% endalert %}
 
+eコマースの推奨イベントについては、[eコマースイベントを記録する]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)を参照してください。
+
 ## カスタムイベントをログに記録する {#logging-a-custom-event}
 
 カスタムイベントを記録するには、以下のイベントロギングメソッドを使用します。
@@ -351,9 +353,9 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 イベントプロパティが正常にトラッキングされていることを確認するには、**カスタムイベント**ページからすべてのイベントプロパティを表示できます。
 
-1. **データ設定** > **カスタムイベント** に移動します。
+1. **データ設定** > **カスタムイベント**に移動します。
 2. リストからカスタムイベントを探します。
-3. イベントの **Manage Properties** を選択すると、そのイベントに関連付けられたプロパティの名前が表示されます。
+3. イベントの**Manage Properties**を選択すると、そのイベントに関連付けられたプロパティの名前が表示されます。
 
 ### 値を確認する {#verify-values}
 
@@ -387,5 +389,5 @@ AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>
 
 - 開発者チームに、イベントが正しくログに記録され、期待されるユーザーアクションからトリガーされていることを確認するよう依頼してください。
 - チームがBrazeサポートにチケットを開く際は、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)と関連するコードスニペットを含めてください。
-- アプリがSwiftまたはAndroidを使用している場合、開発者チームは[SDKデバッガーの前提条件](https://www.braze.com/docs/developer_guide/sdk_integration/debugging/#prerequisites)を使用して詳細ログの生成を支援できます。
+- アプリがSwiftまたはAndroidを使用している場合、開発者チームは[SDKデバッガーの前提条件]({{site.baseurl}}/developer_guide/sdk_integration/debugging/#prerequisites)を使用して詳細ログの生成を支援できます。
 - 開発者チームが問題を特定できない場合は、[Brazeサポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support/)を開いてください。

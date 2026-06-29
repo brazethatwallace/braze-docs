@@ -11,6 +11,6 @@ description: "この記事には2020年1月のリリースノートが含まれ�
 
 ## SMS機能の追加 {#added-sms-capability}
 
-Brazeで、SMSメッセージの[頻度に上限を設定]({{ site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/rate-limiting/)できるようになりました。また、追加の[Segmentフィルター]({{ site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/)「Last Received SMS」を実装することもできます。
+Brazeで、SMSメッセージの[頻度に上限を設定]({{ site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/rate-limiting/)できるようになりました。また、追加の[セグメントフィルター]({{ site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/)「Last Received SMS」を実装することもできます。
 
 ユーザー設定と動作の詳細については、[SMSキーワード処理]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/)を参照してください。

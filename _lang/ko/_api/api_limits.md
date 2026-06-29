@@ -46,7 +46,9 @@ API 사용량 제한은 시스템의 적절한 사용에 따라 변경될 수 �
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | 분당 50건의 요청. |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | 분당 20건의 요청. |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) | 분당 100건의 요청. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | 시간당 100건의 요청. |
+| [`/media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file/) | 시간당 100건의 요청. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용량 제한이 다른 요청" }
 
 ### 공유 사용량 제한이 있는 요청 {#requests-with-shared-rate-limits}
 
@@ -186,7 +188,7 @@ Braze로 전송된 모든 API 요청은 응답 헤더에 다음 정보를 반환
 | `X-RateLimit-Limit` | 지정된 간격 내에 수행할 수 있는 최대 요청 수(사용량 제한)입니다. |
 | `X-RateLimit-Remaining` | 현재 사용량 제한 기간에 남은 요청 수입니다. |
 | `X-RateLimit-Reset` | 현재 사용량 제한 기간이 재설정되는 시간(UTC 에포크 초)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용량 제한 모니터링" }
 
 이 정보는 Braze 대시보드가 아닌 API 요청의 응답 헤더에 의도적으로 포함됩니다. 이를 통해 시스템이 API와 상호 작용할 때 실시간으로 더 잘 대응할 수 있습니다. 예를 들어, `X-RateLimit-Remaining` 값이 특정 임계값 이하로 떨어지면 모든 트랜잭션 이메일이 발송되도록 전송 속도를 늦출 수 있습니다. 또는 값이 0에 도달하면 `X-RateLimit-Reset`에 지정된 시간이 경과할 때까지 모든 전송을 일시 중지할 수 있습니다.
 
@@ -209,6 +211,12 @@ API 한도에 대한 질문이 있는 경우 고객 성공 매니저에게 문�
 엔드포인트 간의 최적 지연 시간을 이해하는 것은 Braze API에 연속 호출을 할 때 매우 중요합니다. 엔드포인트가 다른 엔드포인트의 성공적인 처리에 의존하는 경우 문제가 발생하며, 너무 빨리 호출하면 오류가 발생할 수 있습니다. 예를 들어, `/user/alias/new` 엔드포인트를 통해 사용자에게 별칭을 할당한 후 해당 별칭을 사용하여 `/users/track` 엔드포인트를 통해 커스텀 이벤트를 전송하는 경우, 얼마나 기다려야 할까요?
 
 정상적인 조건에서 데이터 최종 일관성이 발생하는 시간은 10~100ms(1/10초)입니다. 그러나 일관성이 발생하는 데 더 오랜 시간이 걸리는 경우가 있을 수 있으므로, 오류 확률을 최소화하기 위해 후속 호출 사이에 5분의 지연을 두는 것을 권장합니다.
+
+## 페이로드 크기 제한 {#payload-size-limits}
+
+Braze API 요청에는 사용량 제한과 별도로 페이로드 크기 제한이 적용됩니다. 대부분의 엔드포인트는 최대 4&nbsp;MB의 요청 본문을 허용합니다. 요청이 해당 한도를 초과하면 Braze는 엔드포인트에 따라 HTTP `413 Request Entity Too Large` 또는 HTTP `400 Bad Request`로 요청을 거부할 수 있습니다.
+
+[`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/) 엔드포인트는 2&nbsp;MB의 페이로드 한도가 있으며, 요청 본문이 해당 한도를 초과하면 HTTP `400`을 반환합니다. 엔드포인트별 한도 및 오류 처리에 대한 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/)를 참조하세요.
 
 ### 사용량 제한 재설정 {#rate-limit-reset}
 

@@ -8,7 +8,7 @@ noindex: true
 
 > 개요 레이아웃은 사용자가 버튼을 클릭하여 페이지의 특정 부분 또는 완전히 다른 페이지로 이동할 수 있도록 페이지 상단에 특정 탐색 옵션을 만드는 데 유용합니다.
 
-셀렉터 레이아웃의 대표적인 예로는 [SDK 체인지로그](https://www.braze.com/docs/developer_guide/changelogs) 페이지 또는 [인앱 메시지 크리에이티브 세부 정보 페이지](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/)가 있습니다.
+셀렉터 레이아웃의 대표적인 예로는 [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/) 페이지 또는 [인앱 메시지 크리에이티브 세부 정보 페이지]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/)가 있습니다.
 
 ## 필수 구성요소 {#required-components}
 
@@ -25,9 +25,9 @@ noindex: true
 | `layout` | 영숫자 - 공백 없음 | 설명서의 [레이아웃 섹션](https://github.com/Appboy/braze-docs/tree/develop/_layouts)에서 레이아웃을 선택합니다. |
 | `guide_top_header` | 영숫자 | 페이지 제목을 지정합니다. |
 | `guide_top_text` | 영숫자 | 페이지에 대한 설명을 입력하면 버튼과 버튼 제목 바로 위에 표시됩니다. 콘텐츠 주위에 따옴표가 필요합니다. |
-| `guide_featured_title` | 영숫자 | 카드 제목을 지정합니다. 버튼 바로 위에 표시됩니다. |
+| `guide_featured_title` | 영숫자 | 카드 제목을 지정합니다. 버튼 바로 위에 표시됩니다.
 | `guide_featured_list` | 추가 YAML, 영숫자 | 아래 [가이드 목록 형식](#guide-listing-format)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 매개변수" }
 
 ### 가이드 목록 형식 {#guide-listing-format}
 
@@ -36,7 +36,7 @@ noindex: true
 | `name` | 영숫자 | 상자 이름을 지정합니다. |
 | `link` | URL 또는 경로 | 상자가 이동할 위치로 연결되는 링크입니다. 전체 URL 또는 (내부 링크인 경우) `/docs...`를 포함해야 합니다. |
 | `image` | 경로 | 이미지 위치로 연결되는 링크입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Guide Listing Format" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="가이드 목록 형식" }
 
 형식 예시:
 

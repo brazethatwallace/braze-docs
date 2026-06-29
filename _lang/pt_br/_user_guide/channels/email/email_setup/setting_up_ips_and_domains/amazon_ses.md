@@ -71,7 +71,7 @@ Isso se baseia na regra de que o domínio de rastreamento de cliques precisa cor
 - Cada domínio de envio tem um identificador MAIL FROM vinculado a ele para ajudar nas validações de SPF.
     - O valor para cada domínio de envio é "e".
     - O valor MAIL FROM não altera o endereço De que seus clientes visualizam.
-- Se o Amazon SES for seu prestador de serviço de e-mail, o Microsoft Smart Network Data Services (SNDS) não é compatível.
+- O início e o fim do período de mensagem trap não estão disponíveis se você estiver usando o Amazon SES como seu prestador de serviço de e-mail.
 
 ## Próximas etapas {#next-steps}
 

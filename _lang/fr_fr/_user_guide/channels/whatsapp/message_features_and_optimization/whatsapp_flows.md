@@ -81,10 +81,6 @@ Pour résoudre ce problème, procédez comme suit :
 
 1. Terminez la configuration de votre étape de message WhatsApp.
 2. Confirmez que vous avez coché **Save Flow responses as a custom attribute**.
-
-![Section Meta Flow avec une case à cocher pour enregistrer les réponses du Flow en tant qu'attribut personnalisé.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. Envoyez-vous un message test et complétez le Flow en tant qu'utilisateur.
 
 Braze dispose maintenant de la forme de la réponse JSON du Flow et peut générer l'attribut personnalisé.
@@ -190,7 +186,7 @@ Un nouveau message WhatsApp « efface » la capacité du Canvas à utiliser (et 
 
 Pour utiliser la réponse du Flow via Liquid avec les [étiquettes de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), procédez comme suit :
 
-1. Lors de la rédaction de votre message WhatsApp, sélectionnez l'icône plus pour ouvrir la fenêtre **Add Personalization**.
+1. Lors de la rédaction de votre message WhatsApp, sélectionnez <i class="fas fa-plus-circle"></i> **Add Personalization** pour ouvrir la fenêtre **Add Personalization**.
 2. Sélectionnez **WhatsApp Properties** pour le type de personnalisation et **inbound_flow_response** pour l'attribut personnalisé. Cela peut être utilisé pour enregistrer des informations dans les profils utilisateurs, les inclure dans des messages ou les transmettre à d'autres services, comme les webhooks.
 
 ![Compositeur de messages WhatsApp avec un composant « Add Personalization » pour insérer une personnalisation de propriétés WhatsApp avec l'attribut personnalisé inbound_flow_response.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}

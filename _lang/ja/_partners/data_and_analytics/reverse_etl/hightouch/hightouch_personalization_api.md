@@ -12,7 +12,7 @@ search_tag: Partner
 
 ![]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-BrazeとHightouchの統合により、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)とこのAPIを使用して、送信時に最新の顧客またはオブジェクトのデータをCampaignやCanvasesに取り込むことができます。
+BrazeとHightouchの統合により、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)とこのAPIを使用して、送信時に最新の顧客またはオブジェクトのデータをキャンペーンやキャンバスに取り込むことができます。
 
 HightouchのPersonalization APIは、Brazeの設定で使用するRESTエンドポイントを提供します。具体的には、Brazeのコネクテッドコンテンツを使用してPersonalization APIに対するGETリクエストを実行し、特定の識別子に関連するすべての情報を取得できます。このAPIによって公開されるデータは、顧客、製品、またはその他のオブジェクトデータを表す場合があります。
 
@@ -36,7 +36,7 @@ HightouchのPersonalization APIは、Brazeの設定で使用するRESTエンド�
 始める前に、Personalization APIをどのように使いたいかを正確に計画しておくと便利です。
 
 一般的なユースケースには以下のようなものがあります。
-- メールテンプレート、Campaign、アプリ内エクスペリエンスへのパーソナライズされた製品レコメンデーションの埋め込みを効率化する**製品レコメンデーション**
+- メールテンプレート、キャンペーン、アプリ内エクスペリエンスへのパーソナライズされた製品レコメンデーションの埋め込みを効率化する**製品レコメンデーション**
 - ダイナミックな製品レコメンデーションでマーケティングタッチポイントを充実させることで**パーソナライズされたマーケティングキャンペーンを強化する**
 - カスタマイズされた検索結果、コホートベースの価格設定、メッセージング、おすすめ記事、最寄りの店舗など、**アプリ内またはWebでパーソナライゼーションを提供する**
 - **財務データまたは医療データに基づくレコメンデーション** — 財務データには厳しい要件がありますが、Hightouchはその[厳格なデータセキュリティポリシー](https://hightouch.com/docs/security/overview#compliance)によってこれらの要件を満たしています。Hightouchを使用すると、セグメンテーション基準で使用される基本的な属性を公開せずに、財務データまたは医療データに基づいて顧客セグメントを作成できます。
@@ -100,7 +100,7 @@ APIは`https://personalization.{region}.hightouch.com`でアクセスできま�
 
 情報はエンドポイント`/v1/collections/:collection_name/records/:index_key/:index_value`を使用して取得できます。
 
-たとえば、CampaignやCanvasにこのスニペットを含めることができます。
+たとえば、キャンペーンやキャンバスにこのスニペットを含めることができます。
 
 {% raw %}
 

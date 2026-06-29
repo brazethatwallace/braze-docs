@@ -4,11 +4,11 @@ article_title: Race-Conditions
 alias: /race_conditions/
 page_order: 9
 page_type: reference
-description: "Dieser Artikel beschreibt bewährte Praktiken, um zu vermeiden, dass Race-Conditions Ihre Messaging-Kampagnen beeinträchtigen."
+description: "Dieser Artikel beschreibt Best Practices, um zu vermeiden, dass Race-Conditions Ihre Messaging-Kampagnen beeinträchtigen."
 toc_headers: h2
 ---
 
-# Race-Conditions
+# Race-Conditions {#race-conditions}
 
 > Eine Race-Condition tritt auf, wenn ein Ergebnis von der Reihenfolge oder dem Timing mehrerer Ereignisse abhängt. Wenn beispielsweise die gewünschte Reihenfolge der Ereignisse „Event A“ und dann „Event B“ ist, aber manchmal „Event A“ zuerst kommt und manchmal „Event B“ zuerst – dann spricht man von einer Race-Condition. Dies kann zu unerwarteten Ergebnissen oder Fehlern führen, da diese Ereignisse um den Zugriff auf gemeinsame Ressourcen oder Daten konkurrieren.
 
@@ -23,8 +23,9 @@ Die häufigsten Arten von Race-Conditions können auftreten, wenn Sie Folgendes 
 - Targeting von neuen Nutzer:innen
 - Mehrere API-Endpunkte verwenden
 - Passende aktionsbasierte Trigger und Zielgruppen-Filter
+- Den „Interact with Step“-Trigger verwenden
 
-Ziehen Sie die folgenden Szenarien in Betracht und wenden Sie bewährte Verfahren an, um diese Race-Conditions zu vermeiden.
+Ziehen Sie die folgenden Szenarien in Betracht und wenden Sie Best Practices an, um diese Race-Conditions zu vermeiden.
 
 ## Szenario 1: Targeting von neuen Nutzer:innen {#scenario-1-targeting-new-users}
 
@@ -41,7 +42,7 @@ Bei In-App-Nachrichten muss die In-App-Nachricht auf dem Gerät geladen werden, 
 
 Bei In-App-Nachrichten kann die Situation differenzierter sein. Eine In-App-Nachricht muss an das SDK zugestellt und dort zwischengespeichert werden – typischerweise zu Beginn einer Sitzung – bevor sie getriggert werden kann. Wenn das Trigger-Event Teil des Erstellungsprozesses ist oder wenn die In-App-Nachrichten-Campaign zugestellt wird, bevor die Nutzer:in die Zielgruppenkriterien erfüllt (oder nachdem sie diese nicht mehr erfüllt) während ihrer ersten Sitzung, sieht sie die In-App-Nachricht möglicherweise nicht.
 
-### Best Practices
+### Best Practices {#best-practices}
 
 #### Verzögerungen einführen {#introduce-delays}
 
@@ -86,7 +87,7 @@ Wenn diese Objekte mit dem Trigger eingeschlossen werden, werden die Attribute z
 
 Verwenden Sie den [`/users/track/sync/`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/), um angepasste Events und Käufe zu erfassen und Nutzerprofilattribute synchron zu aktualisieren. Die Verwendung dieses Endpunkts zur gleichzeitigen Aktualisierung von Nutzerprofilen in einem einzigen Aufruf kann helfen, potenzielle Race-Conditions zu vermeiden.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## Szenario 3: Passende aktionsbasierte Trigger und Zielgruppen-Filter {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
@@ -132,3 +133,21 @@ Wenn während der Canvas-Entry-Auswertung eine Race-Condition auftritt, können 
 Wenn eine Nutzer:in das Canvas-Entry-Event mehrmals innerhalb derselben Sekunde auslöst, erlaubt Braze nur einen Eintritt für diese Sekunde (auch wenn der erneute Eintritt aktiviert ist). Dies verhindert doppelte Eintritte, sodass die Gesamtzahl der Canvas-Eintritte niedriger sein kann als die Gesamtzahl der Trigger-Events.
 
 Wir empfehlen zu bestätigen, wie Nutzerdaten verwaltet und aktualisiert werden – insbesondere wann und wie bestimmte Attribute aktualisiert werden, z. B. per SDK, API, Batch-API und anderen Methoden. Dies kann helfen zu identifizieren und zu klären, warum eine Nutzer:in eine Campaign oder einen Canvas betreten hat, im Vergleich dazu, wann das Nutzerprofil aktualisiert wurde.
+
+## Szenario 4: Den „Interact with Step“-Trigger verwenden {#scenario-4-using-the-interact-with-step-trigger}
+
+Wenn in einem Canvas auf einen Nachrichtenschritt direkt ein Aktions-Pfad-Schritt folgt, der den „Interact With Step“-Trigger verwendet, kann eine Race-Condition auftreten. Da Nutzer:innen mit einer Nachricht interagieren können, sobald sie zugestellt wird, ist es möglich, dass eine Nutzer:in die getrackte Aktion abschließt, bevor sie offiziell den Aktions-Pfad-Schritt betritt.
+
+In diesem Fall registriert der Aktions-Pfad-Schritt die Interaktion nicht, da er nur Events auswertet, die nach dem Eintritt in den Schritt auftreten. Das bedeutet, dass die Nutzer:in möglicherweise einen unbeabsichtigten Pfad durchläuft.
+
+Ein Canvas sendet eine Push-Benachrichtigung in einem Nachrichtenschritt, gefolgt von einem Aktions-Pfad-Schritt, der prüft, ob die Nutzer:in diese Push-Benachrichtigung öffnet. Wenn eine Nutzer:in die Push-Benachrichtigung sofort nach dem Empfang öffnet (bevor sie den Aktions-Pfad-Schritt betritt), wird das Öffnungs-Event möglicherweise nicht erfasst. Die Nutzer:in könnte dann fälschlicherweise den „Nicht geöffnet“-Pfad durchlaufen, obwohl sie mit der Nachricht interagiert hat.
+
+### Best Practices {#best-practices}
+
+#### Engagement über ein angepasstes Event tracken {#track-engagement-using-a-custom-event}
+
+Vermeiden Sie es, sich auf „Interact With Step“ direkt nach einem Nachrichtenschritt zu verlassen, wenn Nutzerinteraktionen voraussichtlich schnell erfolgen. Tracken Sie Engagement stattdessen über ein angepasstes Event (z. B. ausgelöst von der App oder Website nach der Interaktion) und werten Sie dieses Event in einem nachfolgenden Schritt aus. So wird sichergestellt, dass das Event erfasst wird, nachdem die Nutzer:in den Schritt betreten hat.
+
+#### Branches vermeiden, die von der Interaktion abhängen {#avoid-branches-that-are-dependent-on-interaction}
+
+Gestalten Sie Ihren Canvas so, dass eine fehlende sofortige Interaktion die Nutzererfahrung nicht beeinträchtigt. Vermeiden Sie beispielsweise kritische Verzweigungsentscheidungen, die ausschließlich davon abhängen, ob die Interaktion im nächsten Schritt erfasst wird, oder fügen Sie Folgelogik hinzu, die die Pfade der Nutzer:innen korrigieren kann.

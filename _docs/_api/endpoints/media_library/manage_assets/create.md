@@ -15,19 +15,19 @@ description: "This article outlines details about the `POST /media_library/creat
 /media_library/create
 {% endapimethod %}
 
-> Use this endpoint to add an asset to the [Braze media library](https://www.braze.com/docs/user_guide/engagement_tools/templates_and_media/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`). This endpoint supports images and ZIP files that contain images.
+> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`). This endpoint supports images and ZIP files that contain images.
 
 {% alert tip %}
-You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) using the [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#media-library) function. This lets AI tools like Claude and Cursor upload assets to your media library through natural language prompts.
+You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server) using the [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) function. This lets AI tools like Claude and Cursor upload assets to your media library through natural language prompts.
 {% endalert %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `media_library.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `media_library.create` permission.
 
 ## Rate limit
 
-{% multi_lang_include rate_limits.md endpoint='default' %}
+{% multi_lang_include rate_limits.md endpoint='media_library' %}
 
 ## Request body
 
@@ -149,11 +149,12 @@ This table lists possible processing errors.
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | The file exceeds the maximum allowed size. Images have a 5 MB limit. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | The workspace has reached its maximum number of assets (200 by default for free trial companies, unlimited otherwise). The `meta` object includes the current `limit`. |
 | `ASSET_UPLOAD_FAILED` | 400 | The asset failed to upload due to processing issues. |
+| `INVALID_ASSET_URL` | 400 | The `asset_url` value is not a valid URI. The `meta` object includes `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | The ZIP file is corrupted or could not be opened. The `meta` object includes the `original_error` message. |
 | `ZIP_FILE_TOO_LARGE` | 400 | The total uncompressed size of the ZIP file exceeds the 5 MB limit. The `meta` object includes the `zip_file_name` and `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | A file entry inside the ZIP has no name. Ensure the ZIP file is not corrupted and add a name for any unnamed file entries. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | The ZIP file contains nested directories, which are not supported. All files must be at the root level of the ZIP. |
-| `GENERIC_ERROR` | 500 | An unexpected error occurred during upload. The `meta` object includes the `original_error` message for debugging. Try again or contact [Support]({{site.baseurl}}/support_contact/). |
+| `GENERIC_ERROR` | 500 | An unexpected error occurred during upload. The `meta` object includes the `original_error` message for debugging. Try again or contact [Support]({{site.baseurl}}/support_contact). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
 
 

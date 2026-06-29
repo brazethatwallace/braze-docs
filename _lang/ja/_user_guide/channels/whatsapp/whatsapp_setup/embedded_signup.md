@@ -31,7 +31,9 @@ Brazeワークスペースには[複数のWhatsApp Businessアカウント]({{si
 
 1. Meta（Facebook）ログインウィンドウで、**Login as**または**Continue**を選択します。<br><br>![Metaログインウィンドウ。]({% image_buster /assets/img/whatsapp/login_screen.png %}){: style="max-width:60%;"}<br><br>
 2. Brazeと共有する権限を確認し、**Get Started**を選択します。<br><br>![統合のためにBrazeと共有する権限のリスト。]({% image_buster /assets/img/whatsapp/get_started.png %}){: style="max-width:50%;"}<br><br>
-3. **Business portfolio**ドロップダウンでビジネスポートフォリオを選択し、**Next**を選択します。これはWhatsApp Businessアカウントに接続されるため、期待するビジネスポートフォリオが表示されない場合は、権限を確認してください。<br><br>![ビジネスポートフォリオ名を含むビジネス情報を入力するフィールドがあるウィンドウ。]({% image_buster /assets/img/whatsapp/business_info.png %}){: style="max-width:50%;"}<br><br>
+3. この画面で以下を設定し、**Next**を選択します。
+- **Business portfolio**ドロップダウンでビジネスポートフォリオを選択します。これはWhatsApp Businessアカウントに接続されるため、期待するビジネスポートフォリオが表示されない場合は、権限を確認してください。
+- **WhatsApp business account**フィールドで、**Create a new WhatsApp Business Account**を選択します。これは、ワークスペースに別のWhatsApp Businessアカウントを追加する場合や、そのアカウントがすでにMetaに存在する場合も同様です。ドロップダウンから既存のWhatsApp Businessアカウントを選択するのではなく、このオプションを選択してください。<br><br>![ビジネスポートフォリオ名を含むビジネス情報を入力するフィールドがあるウィンドウ。]({% image_buster /assets/img/whatsapp/business_info.png %}){: style="max-width:50%;"}<br><br>
 4. 以下のドロップダウンフィールドを選択し、**Next**を選択します。
 - **Choose a WhatsApp Business account**：WhatsApp Businessアカウントを作成
 - **Create or select a WhatsApp Business profile**：新しいWhatsApp Businessプロファイルを作成<br><br>![WhatsApp Businessアカウントとプロファイルを選択または作成するかを指定するフィールド。]({% image_buster /assets/img/whatsapp/create_select_waba.png %}){: style="max-width:50%;"}<br><br>
@@ -39,7 +41,7 @@ Brazeワークスペースには[複数のWhatsApp Businessアカウント]({{si
 - WhatsApp Businessアカウント名
 - WhatsApp Business表示名
 - カテゴリ<br><br>![新しいWhatsApp Businessアカウントの詳細を入力するフィールド。]({% image_buster /assets/img/whatsapp/waba_details.png %}){: style="max-width:50%;"}<br><br>
-6. 電話番号を入力し、**Text message**または**Phone call**を選択します。この番号は、他のWhatsAppアカウントに登録されていないことを含め、WhatsApp電話番号のすべての要件に従う必要があります。<br><br>![電話番号を追加するフィールド。]({% image_buster /assets/img/whatsapp/add_phone_number.png %}){: style="max-width:50%;"}<br><br>
+6. 電話番号を入力し、**Text message**または**Phone call**を選択します。新しい番号の場合、その番号は他のWhatsAppアカウントに登録されていないことを含め、WhatsAppの電話番号要件を満たしている必要があります。既存の番号を移行する場合（ステップ3を参照）、Metaでその番号がすでに使用中と表示されても、警告を無視して移行を完了してください。<br><br>![電話番号を追加するフィールド。]({% image_buster /assets/img/whatsapp/add_phone_number.png %}){: style="max-width:50%;"}<br><br>
 7. 2要素認証コードを入力し、**Next**を選択します。<br><br>![2要素認証コードの入力フィールド。]({% image_buster /assets/img/whatsapp/two_factor.png %}){: style="max-width:50%;"}<br><br>
 8. WhatsApp Businessアカウントが受け取る権限を確認し、**Continue**を選択します。<br><br>![WhatsApp Businessアカウントがリクエストする権限のリスト。]({% image_buster /assets/img/whatsapp/permissions.png %}){: style="max-width:50%;"}<br><br>
 9. 完了です！<br><br>![メッセージの送信を開始する準備ができたことを示すウィンドウ。]({% image_buster /assets/img/whatsapp/finish.png %}){: style="max-width:50%;"}

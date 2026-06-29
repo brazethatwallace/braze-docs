@@ -28,7 +28,7 @@ BrazeとAmazon S3の統合には、2つの統合戦略があります。
 | Amazon S3アカウント | この連携を利用するには、Amazon S3アカウントが必要です。 |
 | 専用S3バケット | Amazon S3と統合する前に、アプリ用のS3バケットを作成する必要があります。<br><br>すでにS3バケットがある場合でも、Braze専用の新しいバケットを作成して権限を制限することをお勧めします。新しいバケットの作成方法については、以下の手順を参照してください。 |
 | Currents | Amazon S3にデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。メッセージアーカイブの設定のみの場合、Currentsは必要ありません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### 新しいS3バケットの作成 {#creating-a-new-s3-bucket}
 
@@ -333,9 +333,17 @@ Brazeで、**統合**の**テクノロジーパートナー**ページに移動�
 {% endtab %}
 {% endtabs %}
 
+## Currents用のAmazon S3認証情報の更新 {#updating-currents-credentials}
+
+既存のBraze Currentsコネクタで、統合を停止したり、すでにバケットにエクスポートされたデータを失ったりすることなく、Amazon S3認証情報を更新できます。
+
+認証情報を更新する場合、または**AWS Secret Access Key**と**AWS Role ARN**を切り替える場合は、この記事の前半で説明した選択した方式のIAMおよびAWS側のステップ（ポリシー、ユーザーまたはロール、必要に応じて識別子）を完了してください。
+
+AWSで認証情報の準備が完了したら、Brazeで**パートナー連携** > **Currents**に移動し、リストからAmazon S3コネクタを見つけて**Edit**を選択し、**Credentials**を更新して**Update Current**を選択します。Brazeは入力された認証情報を検証します。コネクタは引き続き実行され、バケット内のデータは引き続き利用可能です。詳細については、[Currentsの設定でのCurrentsの更新]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents)を参照してください。
+
 ## エクスポートの動作 {#export-behavior}
 
-クラウドデータストレージソリューションを統合し、API、ダッシュボードレポート、またはCSVレポートをエクスポートしているユーザーは、以下のような動作を経験します。
+クラウドデータストレージソリューションを統合し、API、ダッシュボードレポート、またはCSVレポートをエクスポートしているユーザーは、以下のような動作になります。
 
 - すべてのAPIエクスポートは、レスポンスボディにダウンロードURLを返さず、データストレージを通じて取得する必要があります。
 - すべてのダッシュボードレポートとCSVレポートは、ユーザーのメールに送信されてダウンロードされ（ストレージ権限不要）、データストレージにバックアップされます。

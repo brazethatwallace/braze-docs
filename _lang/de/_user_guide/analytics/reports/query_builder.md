@@ -104,7 +104,7 @@ So zeigen Sie Tabellendetails im Abfrage-Builder an:
 
 1. Öffnen Sie auf der Seite **Query Builder** das Panel **Reference** und wählen Sie **Available Data Tables**, um die verfügbaren Datentabellen und ihre Namen anzuzeigen.
 3. Wählen Sie <i class="fas fa-chevron-down" alt=""></i> **See Details**, um die Tabellenbeschreibung und Informationen zu den Tabellenspalten wie Datentypen anzuzeigen.
-4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Tabellennamen in den SQL-Editor kopieren"></i>.
+4. Um den Tabellennamen in Ihr SQL einzufügen, wählen Sie <i class="fas fa-copy" title="Tabellennamen in den SQL-Editor kopieren"></i> **Copy table name to SQL editor**.
 
 Um von Braze bereitgestellte vorgefertigte Abfragen zu verwenden, wählen Sie **Query Template** beim Erstellen eines Berichts im Abfrage-Builder.
 

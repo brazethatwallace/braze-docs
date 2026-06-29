@@ -16,7 +16,7 @@ search_tag: Partner
 ![さまざまなTealium製品とBrazeプラットフォームがどのように連携してクロスチャネルキャンペーンをリアルタイムでアクティブにするかを示すTealiumの概要図。]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
 BrazeとTealiumの統合により、ユーザーを追跡し、さまざまなユーザー分析プロバイダーにデータをルーティングできます。Tealiumでは次の操作ができます。
-- [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)でTealiumオーディエンスをBrazeに同期し、BrazeのCampaignsやCanvasesのパーソナライズ、またはSegmentsの作成に使用できるようにします。
+- [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)でTealiumオーディエンスをBrazeに同期し、Brazeのキャンペーンやキャンバスのパーソナライズ、またはセグメントの作成に使用できるようにします。
 - [プラットフォーム間でデータをインポートします](#choose-your-integration-type)。Brazeは、Android、iOS、およびWebアプリケーション向けの[サイドバイサイド](#side-by-side-sdk-integration)SDK統合と、イベントデータをレポートできる任意のプラットフォームで使用できる[サーバー間](#server-to-server-integration)統合の両方を提供します。<br><br>
 
 {% tabs %}

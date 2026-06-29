@@ -48,7 +48,7 @@ Envios de teste e envios de e-mail para grupos de teste consomem códigos de pro
 
 ### Com extras de mensagem para Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Salvando códigos de promoção nos perfis de usuário {#save-to-profile}
 

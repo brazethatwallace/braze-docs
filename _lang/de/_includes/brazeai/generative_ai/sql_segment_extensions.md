@@ -40,17 +40,11 @@ So erstellen Sie eine SQL-Segmenterweiterung mit vollständiger Aktualisierung:
 So erstellen Sie eine SQL-Segmenterweiterung mit inkrementeller Aktualisierung:
 
 1. Gehen Sie zu **Zielgruppe** > **Segmenterweiterungen**.
-
-{% alert note %}
-Wenn Sie die [ältere Navigation]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/) verwenden, finden Sie diese Seite unter **Engagement** > **Segmente** > **Segmenterweiterungen**.
-{% endalert %}
-
-{:start="2"}
 2. Wählen Sie **Neu erstellen** und dann **Inkrementelle Aktualisierung**.<br><br>
    ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Fügen Sie einen Namen für Ihre Segmenterweiterung hinzu und geben Sie Ihr SQL ein. Anforderungen und Ressourcen finden Sie im Abschnitt [SQL schreiben](#writing-sql).<br><br>
    ![SQL-Editor, der ein Beispiel für eine inkrementelle SQL-Segmenterweiterung anzeigt.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
-4. Falls gewünscht, wählen Sie **Erweiterung täglich regenerieren**.<br><br>
+4. Falls gewünscht, wählen Sie **Regenerate Extension Daily**.<br><br>
    ![Kontrollkästchen, um die Erweiterung täglich neu zu generieren.]({% image_buster /assets/img_archive/sql_segments_regenerate.png %}){: style="max-width:60%" }<br><br>
    Wenn Sie diese Option auswählen, aktualisiert Braze die Segmentmitgliedschaft jeden Tag automatisch. Das bedeutet, dass Braze jeden Tag um Mitternacht in der Zeitzone Ihres Unternehmens (mit einer möglichen Verzögerung von einer Stunde) nach neuen Nutzer:innen in Ihrem Segment sucht und diese automatisch zu Ihrem Segment hinzufügt. Wenn eine Segmenterweiterung 7 Tage lang nicht verwendet wurde, pausiert Braze automatisch die tägliche Regeneration. Eine ungenutzte Segmenterweiterung ist eine, die nicht Teil einer Campaign oder eines Canvas ist (die Campaign oder das Canvas muss nicht aktiv sein, damit die Erweiterung als „genutzt“ gilt).<br><br>
 5. Speichern Sie Ihre Segmenterweiterung.
@@ -69,8 +63,8 @@ Der KI-SQL-Generator nutzt [GPT](https://openai.com/gpt-4), powered by OpenAI, u
 
 Um den KI-SQL-Generator zu verwenden, gehen Sie wie folgt vor:
 
-1. Wählen Sie **KI-SQL-Generator starten**, nachdem Sie ein [SQL-Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) mit vollständiger oder inkrementeller Aktualisierung erstellt haben.
-2. Geben Sie Ihren Prompt ein und wählen Sie **Generieren**, um ihn in SQL zu übersetzen.
+1. Wählen Sie **Launch AI SQL Generator**, nachdem Sie ein [SQL-Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/) mit vollständiger oder inkrementeller Aktualisierung erstellt haben.
+2. Geben Sie Ihren Prompt ein und wählen Sie **Generate**, um ihn in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und speichern Sie dann Ihr Segment.
 
 #### Beispiel-Prompts {#example-prompts}
@@ -148,7 +142,7 @@ Im folgenden Beispiel würde das resultierende Segment Nutzer:innen enthalten, d
 Segmente mit inkrementeller Aktualisierung berücksichtigen späte Events, d. h. Events, die mehr als 2 Tage zurückliegen (z. B. SDK-Events, die zum Zeitpunkt ihrer Erfassung noch nicht gesendet wurden).
 {% endalert %}
 
-#### Zusätzliche Regeln {#additional-rules}
+#### Zusätzliche Regeln
 
 Außerdem muss Ihre Abfrage zur inkrementellen Aktualisierung die folgenden Regeln einhalten:
 
@@ -177,23 +171,23 @@ Bei inkrementellen SQL-Segmenterweiterungen enthält die Vorschau nicht die zus�
 
 ### 4. Schritt: Prüfen Sie, ob Sie SQL invertieren müssen {#step-4-determine-if-you-need-to-invert-sql}
 
-Als Nächstes sollten Sie feststellen, ob Sie SQL invertieren müssen. Es ist zwar nicht möglich, direkt nach Nutzer:innen mit null Events zu suchen, jedoch können Sie **SQL invertieren** verwenden, um diese Nutzer:innen anzusprechen.
+Als Nächstes sollten Sie feststellen, ob Sie SQL invertieren müssen. Es ist zwar nicht möglich, direkt nach Nutzer:innen mit null Events zu suchen, jedoch können Sie **Invert SQL** verwenden, um diese Nutzer:innen anzusprechen.
 
 {% alert note %}
-Standardmäßig ist **SQL invertieren** nicht aktiviert. Wenn Sie jedoch den KI-SQL-Generator verwenden, um eine SQL-Anweisung zu generieren, die negiert werden muss, könnte ChatGPT eine Ausgabe zurückgeben, die dieses Feature automatisch aktiviert.
+Standardmäßig ist **Invert SQL** nicht aktiviert. Wenn Sie jedoch den KI-SQL-Generator verwenden, um eine SQL-Anweisung zu generieren, die negiert werden muss, könnte ChatGPT eine Ausgabe zurückgeben, die dieses Feature automatisch aktiviert.
 {% endalert %}
 
-Um beispielsweise Nutzer:innen anzusprechen, die weniger als drei Käufe getätigt haben, erstellen Sie zunächst eine Abfrage, um Nutzer:innen auszuwählen, die drei oder mehr Käufe getätigt haben. Wählen Sie anschließend **SQL invertieren**, um Nutzer:innen mit weniger als drei Käufen (einschließlich derjenigen mit null Käufen) anzusprechen.
+Um beispielsweise Nutzer:innen anzusprechen, die weniger als drei Käufe getätigt haben, erstellen Sie zunächst eine Abfrage, um Nutzer:innen auszuwählen, die drei oder mehr Käufe getätigt haben. Wählen Sie anschließend **Invert SQL**, um Nutzer:innen mit weniger als drei Käufen (einschließlich derjenigen mit null Käufen) anzusprechen.
 
 {% alert important %}
-Sofern Sie nicht gezielt Nutzer:innen mit null Events ansprechen möchten, ist es nicht erforderlich, SQL zu invertieren. Wenn **SQL invertieren** ausgewählt ist, vergewissern Sie sich, dass das Feature erforderlich ist und dass das Segment Ihrer gewünschten Zielgruppe entspricht. Wenn eine Abfrage beispielsweise auf Nutzer:innen mit mindestens einem Event abzielt, wird sie bei einer Invertierung nur auf Nutzer:innen mit null Events angewendet.
+Sofern Sie nicht gezielt Nutzer:innen mit null Events ansprechen möchten, ist es nicht erforderlich, SQL zu invertieren. Wenn **Invert SQL** ausgewählt ist, vergewissern Sie sich, dass das Feature erforderlich ist und dass das Segment Ihrer gewünschten Zielgruppe entspricht. Wenn eine Abfrage beispielsweise auf Nutzer:innen mit mindestens einem Event abzielt, wird sie bei einer Invertierung nur auf Nutzer:innen mit null Events angewendet.
 {% endalert %}
 
 ![Segmenterweiterung mit dem Namen „1–4 E-Mails in den letzten 30 Tagen angeklickt“ mit der Option „SQL invertieren“ ausgewählt.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:90%;"}
 
 ## Segmentmitgliedschaft aktualisieren {#refreshing-segment-membership}
 
-Um die Segmentmitgliedschaft einer mit SQL erstellten Segmenterweiterung zu aktualisieren, öffnen Sie die Segmenterweiterung und wählen Sie **Aktualisieren**.
+Um die Segmentmitgliedschaft einer mit SQL erstellten Segmenterweiterung zu aktualisieren, öffnen Sie die Segmenterweiterung und wählen Sie **Refresh**.
 
 {% alert tip %}
 Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen regelmäßig ein- und austreten, aktualisieren Sie die verwendete Segmenterweiterung manuell, bevor Sie dieses Segment in einer Campaign oder einem Canvas ansprechen.
@@ -209,7 +203,7 @@ Wählen Sie eine SQL-Segmenterweiterung aus, um zu sehen, wo die Erweiterung ver
 
 ### Festlegen der Aktualisierungseinstellungen {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Snowflake-Credits {#credits}
 
@@ -223,7 +217,7 @@ Der Credit-Verbrauch hängt von der Laufzeit Ihrer SQL-Anfrage ab. Je länger di
 
 Um Credits zu sparen, sollten Sie eine Vorschau Ihrer Abfrage anzeigen, um sicherzustellen, dass sie korrekt ist, bevor Sie die SQL-Segmenterweiterung speichern.
 
-Ihre Credits werden am ersten eines jeden Monats um 12 Uhr UTC auf 5 zurückgesetzt. Sie können Ihren Credit-Verbrauch im Laufe des Monats im Panel für die Credit-Nutzung überwachen. Klicken Sie auf der Seite **Segmenterweiterungen** auf <i class="fa-solid fa-chart-column"></i> **SQL-Credit-Nutzung anzeigen**.
+Ihre Credits werden am ersten eines jeden Monats um 12 Uhr UTC auf 5 zurückgesetzt. Sie können Ihren Credit-Verbrauch im Laufe des Monats im Panel für die Credit-Nutzung überwachen. Klicken Sie auf der Seite **Segmenterweiterungen** auf <i class="fa-solid fa-chart-column"></i> **View SQL Credit Usage**.
 
 ![Panel für die SQL-Credit-Nutzung auf der Seite „SQL-Segmenterweiterungen“]({% image_buster /assets/img_archive/sql_segments_credits.png %}){: style="max-width:60%"}
 

@@ -20,7 +20,7 @@ channel:
 Cada botão interativo pode direcionar para uma página da web, um deep link ou abrir o app.
 
 - Para Campaigns de push padrão, você pode especificar seus botões de ação por push na seção **Comportamento ao clicar** do criador de mensagens push no dashboard.
-- Para [Campaigns de push rápido]({{site.baseurl}}/quick_push/), os botões de ação podem ser configurados separadamente para cada plataforma na guia **Configurações**.
+- Para [Campaigns de push multiplataforma]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), os botões de ação podem ser configurados separadamente para cada plataforma na guia **Configurações**.
 
 {% tabs %}
 {% tab iOS %}
@@ -28,7 +28,7 @@ Cada botão interativo pode direcionar para uma página da web, um deep link ou 
 
 Para usar botões de ação nas suas mensagens push do iOS, faça o seguinte:
 
-1. Ative os botões de ação na guia **Redigir** para uma Campaign padrão ou na guia **Configurações** para push rápido.
+1. Ative os botões de ação na guia **Redigir**
 2. Selecione sua **iOS Notification Category** entre as seguintes combinações de botões disponíveis:
  - Accept / Decline
  - Yes / No
@@ -49,7 +49,7 @@ Pares predefinidos como **Yes** / **No** mapeiam o segundo botão para uma açã
 
 Para usar botões de ação nas suas mensagens push do Android, faça o seguinte:
 
-1. Ative os botões de ação na guia **Redigir** para uma Campaign padrão ou na guia **Configurações** para push rápido.
+1. Ative os botões de ação na guia **Redigir**
 2. Selecione <i class="fas fa-plus-circle"></i> **Add Button** e especifique o texto do botão e o **Comportamento ao clicar**. Você pode selecionar entre as seguintes ações disponíveis:
   - Open App
   - Redirect to Web URL
@@ -72,6 +72,6 @@ A tabela a seguir mostra quantos caracteres você pode adicionar antes que o tex
 | 1 | 46 caracteres |
 | 2 | 20 caracteres |
 | 3 | 11 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres no Android" }
 {% endtab %}
 {% endtabs %}

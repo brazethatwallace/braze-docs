@@ -38,20 +38,15 @@ Tu número de teléfono debe cumplir con estos requisitos de la API de WhatsApp:
 
 ### Paso 2: Configurar tu número de teléfono {#step-2-configure-your-phone-number}
 
-Sigue las instrucciones de Twilio para configurar tu número de teléfono de Twilio y recibir el código de verificación por correo electrónico usando **únicamente** [Twilio Voice](https://www.twilio.com/docs/whatsapp/self-sign-up#add-your-whatsapp-phone-number). **No sigas las instrucciones de los demás pasos.**
+Configura tu número de teléfono de Twilio para recibir códigos de verificación por correo electrónico. **No vincules tu número de teléfono a WhatsApp en la consola de Twilio.**
 
 {% alert warning %}
-Solo sigue las instrucciones de Twilio para recibir un código de verificación.
-Si sigues los pasos siguientes, conectarás tu número de teléfono a Twilio, lo que significa que no podrás conectar ese número a Braze a menos que realices una migración o compres un número diferente.
+No vincules tu número de teléfono a WhatsApp en la consola de Twilio. Si lo haces, el número se registrará en la cuenta de WhatsApp Business de Twilio, lo que te impedirá conectarlo a Braze a través del flujo de registro integrado.
 {% endalert %}
 
 1. En la consola de Twilio, ve a la [página de Active Numbers](https://www.twilio.com/console/phone-numbers/incoming) y selecciona el número de teléfono que compraste.
 2. Ve a la sección **Voice Configuration** y en el menú desplegable **Configure with**, selecciona **Webhook, TwiML Bin, Function, Studio Flow, Proxy Service**.
 3. En la fila **A call comes in**, selecciona **Webhook** y establece la URL como `https://twimlets.com/voicemail?Email=YOUR_EMAIL_ADDRESS`, reemplazando `YOUR_EMAIL_ADDRESS` con tu dirección de correo electrónico.
-4. En la consola de Twilio, ve a **2. Link WhatsApp Business Account with your number** > **2. Copy the phone number you register** y selecciona **Copy** junto al número de teléfono.
-5. En la ventana **Self Sign-up**, en la página **Add your WhatsApp phone number**, selecciona **Add a new phone number** y pega el número de teléfono.
-6. Selecciona **Phone call** como método de verificación y luego selecciona **Next**.
-7. Recibirás el código de verificación en tu correo electrónico en un plazo de 10 minutos.
 
 ### Paso 3: Completar el flujo de registro integrado {#step-3-complete-the-embedded-sign-up-workflow}
 

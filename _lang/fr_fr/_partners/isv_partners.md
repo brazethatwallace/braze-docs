@@ -15,8 +15,8 @@ guide_featured_list:
 - name: "Intégration de l'importation de cohortes"
   link: /docs/partners/isv_partners/cohort_import
   image: /assets/img/braze_icons/users-01.svg
-- name: Connecteur Currents personnalisé
-  link: /docs/partners/isv_partners/currents_integration
+- name: Connecteur HTTP personnalisé
+  link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/
   image: /assets/img/braze_icons/waves.svg
 - name: Partage de données Snowflake
   link: /docs/partners/isv_partners/snowflake_datasharing

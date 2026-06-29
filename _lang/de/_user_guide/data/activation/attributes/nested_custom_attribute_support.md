@@ -24,11 +24,13 @@ description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter an
 - Punkte (`.`) und Dollarzeichen (`$`) sind keine unterstützten Zeichen in einer API-Nutzlast, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
 - Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
+- Standardmäßig enthält der Segmentfilter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ Objekt, Array-of-Object-Attribute und angepasste Attribute vom Typ Array. Wenn Sie ein Attribut auswählen, enthält der Eigenschafts-Schema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute auf oberster Ebene vom Typ Array aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/).
+- Wenn Sie Nachrichten im Dashboard mit **Als angepasste Nutzer:in anzeigen** in der Vorschau betrachten, können Sie Testdaten nur als String oder String-Array eingeben – verschachtelte Objekte werden nicht unterstützt. Um eine Nachricht in der Vorschau anzuzeigen, die auf verschachtelte angepasste Attribute verweist, wählen Sie eine vorhandene Nutzer:in aus, die das verschachtelte Attribut bereits in ihrem Profil hat. Für verschachtelte angepasste Event-Eigenschaften müssen Sie eine Live-Kampagne starten, die auf eine Testnutzer:in ausgerichtet ist, um das Rendering zu überprüfen.
 
 ## API-Beispiel {#api-example}
 
 {% tabs local %}
-{% tab Create %}
+{% tab Erstellen %}
 Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song“-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekt-Eigenschaften auflistet.
 
 ```json
@@ -52,7 +54,7 @@ Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played
 ```
 
 {% endtab %}
-{% tab Update %}
+{% tab Aktualisieren %}
 Um ein bestehendes Objekt zu aktualisieren, senden Sie einen POST an `users/track` mit dem Parameter `_merge_objects` in der Anfrage. Dadurch wird Ihr Update per Deep Merge mit den vorhandenen Objektdaten zusammengeführt. Deep Merging stellt sicher, dass alle Ebenen eines Objekts in ein anderes Objekt zusammengeführt werden und nicht nur die erste Ebene. In diesem Beispiel haben wir bereits ein `most_played_song`-Objekt in Braze und fügen nun ein neues Feld, `year_released`, zum `most_played_song`-Objekt hinzu.
 
 ```json
@@ -90,7 +92,7 @@ Sie müssen `_merge_objects` auf `true` setzen, da Ihre Objekte sonst überschri
 {% endalert %}
 
 {% endtab %}
-{% tab Delete %}
+{% tab Löschen %}
 Um ein angepasstes Attribut-Objekt zu löschen, senden Sie einen POST an `users/track`, wobei das angepasste Attribut-Objekt auf `null` gesetzt wird.
 
 ```json
@@ -263,15 +265,31 @@ Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punkt-Notatio
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — „1000“
 {% endraw %}
 
-![Verwendung von Liquid zum Einfügen eines Songnamens und der Anzahl der Wiedergaben in eine Nachricht]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+Um verschachtelte angepasste Attribute als Liquid in Ihrer Nachricht zu verwenden:
+
+1. Gehen Sie zu einer Kampagne oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
+2. Fügen Sie im Nachrichten-Editor das Liquid-Snippet an der Stelle ein, an der der Wert erscheinen soll.
+3. Verwenden Sie **Vorschau und Test** mit einer vorhandenen Nutzer:in, die das verschachtelte angepasste Attribut bereits in ihrem Profil hat, um zu bestätigen, dass der Wert wie erwartet gerendert wird.
 
 ### Personalisierung {#personalization}
 
-Über das Modal **Personalisierung hinzufügen** können Sie auch verschachtelte angepasste Attribute in Ihr Messaging einfügen. Wählen Sie **Verschachtelte angepasste Attribute** als Personalisierungstyp aus. Wählen Sie dann das übergeordnete Attribut und den Attribut-Schlüssel aus.
+Sie können **Personalisierung hinzufügen** verwenden, um ein verschachteltes angepasstes Attribut in Ihre Nachricht einzufügen.
 
-Im folgenden Personalisierungs-Modal wird beispielsweise das verschachtelte angepasste Attribut eines lokalen Nachbarschaftsbüros basierend auf den Präferenzen der Nutzer:innen eingefügt.
+So öffnen Sie **Personalisierung hinzufügen**:
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Gehen Sie zu einer Kampagne oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
+2. Wählen Sie im Nachrichten-Editor **Personalisierung** aus, um die Seitenleiste **Personalisierung hinzufügen** zu öffnen, in der Sie Personalisierungsoptionen auswählen können.
+
+So konfigurieren Sie die Personalisierung mit verschachtelten angepassten Attributen:
+
+1. Wählen Sie unter **Personalisierungstyp** die Option **Verschachtelte angepasste Attribute** aus.
+2. Wählen Sie unter **Übergeordnetes Attribut** den Pfad des verschachtelten angepassten Attributs aus, den Sie einfügen möchten.
+   Wählen Sie beispielsweise `preferences.neighborhood_office` aus.
+3. Optional: Geben Sie unter **Standardwert** einen Fallback-Wert für Nutzer:innen ein, die keinen eigenen Wert für dieses Attribut haben.
+4. Überprüfen Sie das generierte **Liquid-Snippet**, um sicherzustellen, dass es dem erwarteten Pfad entspricht.
+5. Wählen Sie **Einfügen** aus.
+
+In diesem Beispiel fügt Braze den verschachtelten Wert für `preferences.neighborhood_office` in Ihre Nachricht ein. Standardwerte sind Fallbacks, die Ihre Nachricht für Nutzer:innen enthält, die keinen eigenen Wert für ein Attribut haben.
 
 {% alert tip %}
 Überprüfen Sie, ob ein Schema generiert wurde, wenn Sie die Option zum Einfügen verschachtelter angepasster Attribute nicht sehen.
@@ -279,16 +297,16 @@ Im folgenden Personalisierungs-Modal wird beispielsweise das verschachtelte ange
 
 ## Schemas neu generieren {#regenerate-schema}
 
-Nachdem ein Schema generiert wurde, kann es einmal alle 24 Stunden neu generiert werden. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Nachdem ein Schema generiert wurde, können Sie es **einmal pro Kalendertag** (basierend auf der Zeitzone Ihres Unternehmens) neu generieren. Dieser Abschnitt beschreibt, wie Sie Ihr Schema neu generieren. Ausführlichere Informationen zu Schemas finden Sie unter [Schema mit dem Nested-Object-Explorer generieren]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
-3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus" aria-label="Schema verwalten"></i> aus, um das Schema zu verwalten.
+3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus" aria-label="Schema verwalten"></i> **Schema verwalten** aus, um das Schema zu verwalten.
 4. Ein Modal wird angezeigt. Wählen Sie **Schema neu generieren**.
 
-Die Option zur Schema-Neugenerierung ist deaktiviert, wenn seit der letzten Neugenerierung weniger als 24 Stunden vergangen sind. Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
+Die Aktion **Schema neu generieren** ist auf **einmal pro Kalendertag** in der Zeitzone Ihres Unternehmens beschränkt. Sie können keine weitere Neugenerierung starten, während ein Schema-Job bereits **in Bearbeitung** ist (die Option ist nicht verfügbar, solange der Status **Wird generiert** lautet). Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
 
 {% alert important %}
 Um das Schema für ein Objekt-Array mit einem vorhandenen Objekt zurückzusetzen, müssen Sie ein neues angepasstes Attribut erstellen. Die Schema-Neugenerierung löscht keine vorhandenen Objekte.
@@ -300,9 +318,16 @@ Wenn Daten nach der Schema-Neugenerierung nicht wie erwartet angezeigt werden, w
 
 Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt ändert. Diese Option ist für Änderungen an Objekt-Arrays nicht verfügbar. Wenn Sie keine Option zum Anzeigen des Pfad-Explorers sehen, überprüfen Sie, ob Sie ein Schema generiert haben.
 
-In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Angepassten Attributwert ändern**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
+In einer aktionsbasierten Kampagne können Sie beispielsweise eine neue Aktion triggern für **Change Custom Attribute Value**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
-![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+So konfigurieren Sie diesen Trigger in einer aktionsbasierten Kampagne:
+
+1. Erstellen oder bearbeiten Sie eine Kampagne und setzen Sie den Zustellungstyp auf **Aktionsbasierte Zustellung**.
+2. Wählen Sie in den Trigger-Einstellungen **Change Custom Attribute Value** aus.
+3. Wählen Sie den Pfad des verschachtelten angepassten Attributs aus, den Sie überwachen möchten.
+   Wählen Sie beispielsweise `preferences.neighborhood_office` aus.
+4. Wählen Sie die gewünschte Trigger-Bedingung aus, z. B. **any new value**.
+5. Konfigurieren Sie Ihre Kampagnennachricht und Zielgruppe fertig und starten Sie dann die Kampagne.
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 

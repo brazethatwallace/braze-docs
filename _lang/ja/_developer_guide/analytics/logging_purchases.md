@@ -40,7 +40,7 @@ braze.logPurchase(product_id, price, "USD", quantity);
 {% subtabs %}
 {% subtab java %}
 
-```java
+`````````java
 Braze.getInstance(context).logPurchase(
    String productId,
    String currencyCode,
@@ -52,7 +52,7 @@ Braze.getInstance(context).logPurchase(
 {% endsubtab %}
 {% subtab kotlin %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).logPurchase(
   productId: String,
   currencyCode: String,
@@ -69,14 +69,14 @@ Braze.getInstance(context).logPurchase(
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: price)
 ```
 
 {% endsubtab %}
 {% subtab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze logPurchase:"product_id"
                       currency:@"USD"
                          price:price];
@@ -88,7 +88,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 
 {% tab cordova %}
 
-```javascript
+`````````javascript
 var properties = {};
 properties["KEY"] = "VALUE";
 BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
@@ -98,7 +98,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 {% tab flutter %}
 
-```dart
+`````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: properties);
 ```
 
@@ -106,7 +106,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 
 {% tab react native %}
 
-```javascript
+`````````javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, properties);
 ```
 
@@ -114,7 +114,7 @@ Braze.logPurchase(productId, price, currencyCode, quantity, properties);
 
 {% tab roku %}
 
-```brightscript
+`````````brightscript
 m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantity)
 ```
 
@@ -122,7 +122,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 {% tab unity %}
 
-```csharp
+`````````csharp
 AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 ```
 
@@ -141,7 +141,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 {% tab web %}
 標準のWeb SDK 実装では、以下の方法を使用できます。
 
-```javascript
+`````````javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
@@ -168,7 +168,7 @@ items: [{
 {% subtabs %}
 {% subtab java %}
 
-```java
+`````````java
 BrazeProperties purchaseProperties = new BrazeProperties();
 purchaseProperties.addProperty("key", "value");
 Braze.getInstance(context).logPurchase(..., purchaseProperties);
@@ -177,7 +177,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties);
 {% endsubtab %}
 {% subtab kotlin %}
 
-```kotlin
+`````````kotlin
 val purchaseProperties = BrazeProperties()
 purchaseProperties.addProperty("key", "value")
 Braze.getInstance(context).logPurchase(..., purchaseProperties)
@@ -191,7 +191,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties)
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 let purchaseProperties = ["key": "value"]
 AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: price, properties: purchaseProperties)
 ```
@@ -199,7 +199,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 {% endsubtab %}
 {% subtab objective-c %}
 
-```objc
+`````````objc
 NSDictionary *purchaseProperties = @{@"key": @"value"};
 [AppDelegate.braze logPurchase:@"product_id"
                       currency:@"USD"
@@ -213,7 +213,7 @@ NSDictionary *purchaseProperties = @{@"key": @"value"};
 
 {% tab cordova %}
 
-```javascript
+`````````javascript
 var properties = {};
 properties["key"] = "value";
 BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
@@ -223,7 +223,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 {% tab flutter %}
 
-```dart
+`````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": "value"});
 ```
 
@@ -231,7 +231,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": 
 
 {% tab react native %}
 
-```javascript
+`````````javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
 ```
 
@@ -239,7 +239,7 @@ Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
 
 {% tab roku %}
 
-```brightscript
+`````````brightscript
 m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantity, {"stringPropKey" : "stringPropValue", "intPropKey" : Integer intPropValue})
 ```
 
@@ -247,7 +247,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 {% tab unity %}
 
-```csharp
+`````````csharp
 Dictionary<string, object> purchaseProperties = new Dictionary<string, object>
 {
     { "key", "value" }

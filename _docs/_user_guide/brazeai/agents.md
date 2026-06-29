@@ -37,7 +37,7 @@ In contrast, other BrazeAI tools are designed to maximize the metrics that they 
 
 Features for Braze Agents include:
 
-- **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, or Google Gemini).
+- **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, Google Gemini, or Databricks Mosaic).
 - **Seamless integration:** Deploy agents directly in Canvas steps or catalog fields.
 - **Testing and logging tools:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run.
 - **Usage controls:** Daily limits help manage performance and costs.
@@ -50,13 +50,13 @@ Agents are configured with instructions (system prompts) that define how they be
 
 | Term | Definition |
 | --- | --- |
-| [Model]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) | The agent’s “brain,” in this case a large language model (LLM). It interprets inputs, generates responses, and performs reasoning. A stronger model (trained on more relevant data) makes the agent more capable and versatile. |
-| [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | The rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. Clear instructions make the agent more reliable and predictable. |
+| [Model]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) | The agent’s “brain,” in this case a large language model (LLM). It interprets inputs, generates responses, and performs reasoning. A stronger model (trained on more relevant data) makes the agent more capable and versatile. |
+| [Instructions]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) | The rules or guidelines you give the agent (system prompt). They define how the agent should behave each time it runs. Clear instructions make the agent more reliable and predictable. |
 | Context | Data passed into the agent at runtime, wherever it is deployed, such as user profile fields or catalog rows. This input provides the information the agent uses to generate outputs. |
-| [Canvas context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Temporary pieces of data you can create and use within a user’s journey through a specific Canvas. |
-| [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
+| [Canvas context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#how-context-variables-work) | Temporary pieces of data you can create and use within a user’s journey through a specific Canvas. |
+| [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
 | [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
-| [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | The predefined data structure of the agent's response. |
+| [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | The predefined data structure of the agent's response. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Limitations
@@ -68,6 +68,18 @@ The following limitations apply:
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
 
+## Best practices
+
+Target high-value use cases where agents can drive the biggest return on investment (ROI), and choose audiences who are likely to respond. A smaller, high-opportunity audience often outperforms a large audience with low opportunity—for example, retargeting users who searched recently but did not convert, rather than sending agent-generated copy to your entire user base.
+
+To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step to send only part of your audience through an Agent step. For more deployment guidance, see [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
+
+## Error handling
+
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider during a **Canvas Agent step**, Braze continuously retries the request using exponential backoff. Catalog agents do not retry rate-limited invocations. For other failures (such as a timeout or invalid API key), the Canvas agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console (Canvas step agents only). If an agent reaches its daily invocation limit, Braze applies configured fallback values when present; otherwise the output is set to `null`.
+
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configure fallback values in Agent Console for Canvas agents so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) in downstream Message steps.
+
 ## How is my data used and sent to Braze-provided LLMs?
 
 In order to generate AI output through Braze AI features that Braze identifies as leveraging Braze-provided LLMs (“Output”), Braze will send your system prompt or any other input, as applicable (“Input”) to the Braze-provided LLM. Data sent to the applicable Braze-provided LLM is not used to train or improve the Braze-provided LLM. Between you and Braze, Output is your intellectual property. Braze will not assert any claims of copyright ownership on such Output. Braze makes no warranty of any kind with respect to any AI-generated content generally, including Output.
@@ -78,5 +90,5 @@ The Braze-provided LLM for Braze Agents, identified as “Auto”, uses Google G
 
 Now that you know about Braze Agents, you’re ready for the next steps:
 
-- [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
-- [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
+- [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)
+- [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)

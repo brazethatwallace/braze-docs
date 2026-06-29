@@ -10,7 +10,7 @@ search_tag: Partner
 > Esta é a lista de relacionamentos de entidades entre o Snowflake e a Braze para cada canal de envio de mensagens.
 
 {% alert important %}
-Os diagramas de relacionamento de entidades destacam campos compartilhados e relacionamentos entre tabelas, e não são esquemas completos de tabelas. Para uma lista completa de campos, consulte os [esquemas individuais de tabelas]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Os diagramas de relacionamento de entidades destacam campos compartilhados e relacionamentos entre tabelas, e não são esquemas completos de tabelas. Para uma lista completa de campos, consulte os [esquemas individuais de tabelas](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 {% endalert %}
 
 {% sdktabs %}

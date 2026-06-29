@@ -3,6 +3,7 @@ page_order: 2
 nav_title: Gatilhos de catálogo
 article_title: Gatilhos de catálogo
 layout: dev_guide
+noindex: true
 guide_top_header: "Gatilhos de catálogo"
 guide_top_text: "Os gatilhos de catálogo são notificações automatizadas acionadas por alterações nos dados do seu catálogo. Use-os para notificar os clientes quando itens de interesse voltam a estar disponíveis ou têm queda de preço, sem precisar configurar campanhas manualmente."
 

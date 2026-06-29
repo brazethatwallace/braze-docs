@@ -18,7 +18,7 @@ guide_featured_list:
   - name: 옵트인 및 옵트아웃
     link: /docs/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs
     image: /assets/img/braze_icons/toggle-01-left.svg
-  - name: 사용자에게 메시지 보내기
+  - name: 사용자 메시지
     link: /docs/user_guide/channels/whatsapp/message_processing/messaging_users
     image: /assets/img/braze_icons/send-01.svg
   - name: 알 수 없는 전화번호 처리

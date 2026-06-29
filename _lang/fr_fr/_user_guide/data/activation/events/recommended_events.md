@@ -23,7 +23,7 @@ Comme ces événements suivent un schéma défini, chaque fonctionnalité prise 
 
 ### Fonctionnement des événements eCommerce {#how-ecommerce-events-work}
 
-Les événements eCommerce sont des événements personnalisés avec des noms et des schémas de propriétés prédéfinis. Vous les envoyez à l'aide du SDK Braze ou de l'[endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), et Braze valide chaque événement par rapport à son schéma lors de l'ingestion. Lorsque la validation réussit, Braze applique automatiquement un post-traitement spécifique à ce type d'événement, comme le calcul des champs de chiffre d'affaires et la gestion de l'état du panier sur les profils utilisateurs.
+Les événements eCommerce sont des événements personnalisés avec des noms et des schémas de propriétés prédéfinis. Vous les envoyez à l'aide du [SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) ou de l'[endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), et Braze valide chaque événement par rapport à son schéma lors de l'ingestion. Lorsque la validation réussit, Braze applique automatiquement un post-traitement spécifique à ce type d'événement, comme le calcul des champs de chiffre d'affaires et la gestion de l'état du panier sur les profils utilisateurs.
 
 Les événements eCommerce fonctionnent partout où les autres événements personnalisés fonctionnent : déclencheurs et filtres pour les événements personnalisés effectués, rapports d'événements personnalisés, et plus encore. Cependant, leur validation de schéma débloque des fonctionnalités supplémentaires, notamment :
 
@@ -47,12 +47,21 @@ Vous ne pouvez pas personnaliser ni renommer les événements.
 
 Les six événements recommandés eCommerce correspondent aux étapes du parcours d'achat. Déclenchez chaque événement au moment où l'utilisateur effectue l'action correspondante.
 
-![Diagramme du parcours utilisateur à travers les six événements recommandés eCommerce : product_viewed, cart_updated, checkout_started, order_placed, order_cancelled et order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagramme du parcours utilisateur à travers les six événements recommandés eCommerce : product_viewed, cart_updated, checkout_started, order_placed, order_cancelled et order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
+
+{% alert tip %}
+Les exemples suivants montrent le payload REST API pour chaque événement.
+Pour la journalisation côté client, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` et `ecommerce.order_placed` utilisent les API d'événements eCommerce du SDK lorsqu'elles sont disponibles, tandis que `ecommerce.order_cancelled` et `ecommerce.order_refunded` utilisent `logCustomEvent`. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+{% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
 Se déclenche lorsqu'un utilisateur consulte une page de détail produit. Cet événement est compatible avec les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) et les [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) du catalogue Braze.
+
+#### Implémentation côté client {#client-side-implementation}
+
+Utilisez les API d'événements eCommerce du SDK lorsqu'elles sont disponibles. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Propriétés de l'événement {#event-properties}
 
@@ -68,7 +77,7 @@ Se déclenche lorsqu'un utilisateur consulte une page de détail produit. Cet é
 | `source`       | String           | Oui      | Source d'origine de l'événement (par exemple, `web`, `ios` ou `android`). |
 | `type`         | Tableau de chaînes de caractères | Non | Requis pour utiliser les fonctionnalités de déclenchement par catalogue de Braze pour les alertes de retour en stock et de baisse de prix. Valeurs acceptées : `"price_drop"`, `"back_in_stock"` |
 | `metadata`     | Objet           | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `sku` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Exemple REST API {#rest-api-example}
 
@@ -105,6 +114,10 @@ Se déclenche lorsqu'un utilisateur consulte une page de détail produit. Cet é
 
 Se déclenche chaque fois que le contenu du panier d'un utilisateur change.
 
+#### Implémentation côté client
+
+Utilisez les API d'événements eCommerce du SDK lorsqu'elles sont disponibles. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 Vous pouvez envoyer cet événement de deux manières :
 
 - **Remplacement complet du panier :** omettez `action` ou définissez `action` sur `replace`. Incluez l'ensemble complet des lignes d'articles dans `products` avec des quantités absolues (nombre total d'unités par variante dans le panier). Vous devez inclure `total_value`.
@@ -134,7 +147,7 @@ Le panier crée un objet de mappage des paniers sur le profil utilisateur qui al
 | `products`      | Tableau   | Oui      | Lignes d'articles pour cette mise à jour. Pour le remplacement complet (pas d'`action` ou `replace`), incluez le panier complet avec des quantités absolues. Pour `add` ou `remove`, n'incluez que les lignes modifiées ; voir les propriétés de produit. |
 | `source`        | String    | Oui      | Source d'origine de l'événement. |
 | `metadata`      | Objet    | Non      | Paires clé-valeur flexibles pour des données supplémentaires au niveau de l'événement. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Propriétés de produit (`products[]`) {#product-properties-products}
 
@@ -148,18 +161,16 @@ Le panier crée un objet de mappage des paniers sur le profil utilisateur qui al
 | `quantity`      | Integer   | Oui      | Pour le remplacement complet (pas d'`action` ou `replace`), nombre d'unités dans le panier pour cette ligne. Pour `add` ou `remove`, nombre d'unités à ajouter ou à retirer. |
 | `price`         | Float     | Oui      | Prix unitaire de la variante. |
 | `metadata`      | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de produit (products[])" }
 
-#### Exemples de code {#code-examples}
-
-Chaque onglet de plateforme ci-dessous utilise la disposition d'extrait de code correspondant à ce chemin d'intégration (par exemple, titres ou libellés à l'intérieur d'un bloc de code). Les payloads `add`, `remove` et `replace` sont identiques sur toutes les plateformes ; seule la surface SDK ou API diffère.
+{% comment %}
 
 {% subtabs local %}
 {% subtab Web %}
 
 ##### `add`
 
-`add` augmente la quantité ou ajoute une nouvelle ligne. La propriété `quantity` correspond au nombre d'unités à ajouter.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -180,7 +191,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 ```
 ##### `remove`
 
-`remove` diminue la quantité du montant indiqué dans `quantity`. La ligne est supprimée lorsque la quantité atteint `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -202,7 +213,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 ##### `replace`
 
-`replace` (ou omettez `action`) envoie le panier complet. `total_value` est requis.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -237,9 +248,9 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Ajouter
+##### Add
 
-`add` augmente la quantité ou ajoute une nouvelle ligne. La propriété `quantity` correspond au nombre d'unités à ajouter.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```text
 Kotlin
@@ -286,9 +297,9 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Retirer
+##### Remove
 
-`remove` diminue la quantité du montant indiqué dans `quantity`. La ligne est supprimée lorsque la quantité atteint `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```text
 Kotlin
@@ -335,9 +346,9 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Remplacer
+##### Replace
 
-`replace` (ou omettez `action`) envoie le panier complet. `total_value` est requis.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```text
 Kotlin
@@ -404,9 +415,9 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Ajouter
+##### Add
 
-`add` augmente la quantité ou ajoute une nouvelle ligne. La propriété `quantity` correspond au nombre d'unités à ajouter.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```text
 Swift
@@ -450,9 +461,9 @@ Objective-C
 }];
 ```
 
-##### Retirer
+##### Remove
 
-`remove` diminue la quantité du montant indiqué dans `quantity`. La ligne est supprimée lorsque la quantité atteint `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```text
 Swift
@@ -496,9 +507,9 @@ Objective-C
 }];
 ```
 
-##### Remplacer
+##### Replace
 
-`replace` (ou omettez `action`) envoie le panier complet. `total_value` est requis.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```text
 Swift
@@ -565,7 +576,7 @@ Objective-C
 
 ##### `add`
 
-`add` augmente la quantité ou ajoute une nouvelle ligne. La propriété `quantity` correspond au nombre d'unités à ajouter.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```json
 {
@@ -596,7 +607,7 @@ Objective-C
 
 ##### `remove`
 
-`remove` diminue la quantité du montant indiqué dans `quantity`. La ligne est supprimée lorsque la quantité atteint `0`.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```json
 {
@@ -627,7 +638,7 @@ Objective-C
 
 ##### `replace`
 
-`replace` (ou omettez `action`) envoie le panier complet. `total_value` est requis.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```json
 {
@@ -684,11 +695,16 @@ Objective-C
 
 {% endsubtab %}
 {% endsubtabs %}
+{% endcomment %}
 
 {% endtab %}
 {% tab ecommerce.checkout_started %}
 
 Se déclenche lorsque l'utilisateur initie le processus de paiement (par exemple, sélectionne « Paiement » ou arrive sur la page de paiement).
+
+#### Implémentation côté client
+
+Utilisez les API d'événements eCommerce du SDK lorsqu'elles sont disponibles. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Propriétés de l'événement
 
@@ -704,7 +720,7 @@ Se déclenche lorsque l'utilisateur initie le processus de paiement (par exemple
 | products       | Tableau | Oui      | Articles en cours de paiement. Voir le sous-tableau des propriétés de produit. |
 | source         | String  | Oui      | Source d'origine de l'événement. |
 | metadata       | Objet   | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `checkout_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Propriétés de produit (`products[]`)
 
@@ -718,7 +734,7 @@ Se déclenche lorsque l'utilisateur initie le processus de paiement (par exemple
 | `quantity`     | Integer   | Oui      | Nombre d'unités dans le panier. |
 | `price`        | Float     | Oui      | Prix unitaire de la variante. |
 | `metadata`     | Objet    | Non      | Paires clé-valeur flexibles (par exemple, couleur, taille). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de produit (products[])" }
 
 #### Exemple REST API
 
@@ -781,6 +797,10 @@ Se déclenche lorsque l'utilisateur initie le processus de paiement (par exemple
 
 Se déclenche lorsqu'une commande est finalisée avec succès ou que le paiement est confirmé.
 
+#### Implémentation côté client
+
+Utilisez les API d'événements eCommerce du SDK lorsqu'elles sont disponibles. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 Cet événement est le principal moteur de chiffre d'affaires. Il incrémente `total_revenue` de la valeur de `total_value` et incrémente `total_orders` de 1 sur le profil utilisateur.
 {% endalert %}
@@ -801,7 +821,7 @@ Cet événement est le principal moteur de chiffre d'affaires. Il incrémente `t
 | `products`      | Tableau   | Oui      | Articles de la commande. Voir le sous-tableau des propriétés de produit. |
 | `source`        | String    | Oui      | Source d'origine de l'événement. |
 | `metadata`      | Objet    | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Propriétés de produit (`products[]`)
 
@@ -815,7 +835,7 @@ Cet événement est le principal moteur de chiffre d'affaires. Il incrémente `t
 | `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier. |
 | `price`         | Float     | Oui      | Prix unitaire de la variante. |
 | `metadata`      | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de produit (products[])" }
 
 #### Exemple REST API
 
@@ -885,6 +905,10 @@ Cet événement est le principal moteur de chiffre d'affaires. Il incrémente `t
 
 Se déclenche lorsqu'une commande est annulée.
 
+#### Implémentation côté client
+
+Utilisez `logCustomEvent`. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 Cet événement décrémente `total_orders` de 1 sur le profil utilisateur. Il n'affecte pas `total_revenue` ; utilisez `order_refunded` pour ajuster le chiffre d'affaires.
 {% endalert %}
@@ -905,7 +929,7 @@ Cet événement décrémente `total_orders` de 1 sur le profil utilisateur. Il n
 | `products`       | Tableau | Oui      | Articles de la commande annulée. Voir le sous-tableau des propriétés de produit. |
 | `source`         | String  | Oui      | Source d'origine de l'événement. |
 | `metadata`       | Objet   | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Propriétés de produit (`products[]`)
 
@@ -919,7 +943,7 @@ Cet événement décrémente `total_orders` de 1 sur le profil utilisateur. Il n
 | `quantity`     | Integer   | Oui      | Nombre d'unités dans le panier. |
 | `price`        | Float     | Oui      | Prix unitaire de la variante. |
 | `metadata`     | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de produit (products[])" }
 
 #### Exemple REST API
 
@@ -978,6 +1002,10 @@ Cet événement décrémente `total_orders` de 1 sur le profil utilisateur. Il n
 
 Se déclenche lorsqu'un remboursement total ou partiel est émis.
 
+#### Implémentation côté client
+
+Utilisez `logCustomEvent`. Pour des exemples d'implémentation spécifiques à chaque plateforme, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 Cet événement décrémente `total_revenue` de la valeur de `total_value` et incrémente `total_refunds` sur le profil utilisateur. Pour les remboursements partiels, définissez `total_value` sur le montant remboursé uniquement, et non sur le total de la commande d'origine.
 {% endalert %}
@@ -994,7 +1022,7 @@ Cet événement décrémente `total_revenue` de la valeur de `total_value` et in
 | `products`        | Tableau   | Oui      | Articles remboursés. Voir le sous-tableau des propriétés de produit. |
 | `source`          | String    | Oui      | Source d'origine de l'événement. |
 | `metadata`        | Objet    | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Propriétés de produit (`products[]`)
 
@@ -1008,7 +1036,7 @@ Cet événement décrémente `total_revenue` de la valeur de `total_value` et in
 | `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier. |
 | `price`         | Float     | Oui      | Prix unitaire de la variante. |
 | `metadata`      | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de produit (products[])" }
 
 #### Exemples REST API {#rest-api-examples}
 
@@ -1108,7 +1136,7 @@ Le tableau suivant résume ce que Braze fait automatiquement pour chaque événe
 | `ecommerce.cart_updated`     | Crée ou met à jour l'objet de mappage des paniers sur le profil utilisateur (payloads de panier complet, ou mises à jour incrémentales du panier avec `action` facultatif : `add`, `remove` ou `replace`). Le panier expire après 30 jours sans mise à jour. |
 | `ecommerce.product_viewed`   | Aucune modification du profil utilisateur. Disponible pour la segmentation, le déclenchement et les fonctionnalités BrazeAI<sup>TM</sup> (comme les recommandations d'articles). |
 | `ecommerce.checkout_started` | Aucune modification du profil utilisateur. Disponible pour la segmentation et le déclenchement (par exemple, les flux de paiement abandonné). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Post-traitement des événements eCommerce" }
 
 {% alert important %}
 Les valeurs dans des devises autres que l'USD sont automatiquement converties en USD en utilisant le taux de change à la date à laquelle l'événement est signalé. Si vous déclarez déjà en USD, codez en dur `USD` comme devise pour éviter toute conversion involontaire.
@@ -1116,7 +1144,7 @@ Les valeurs dans des devises autres que l'USD sont automatiquement converties en
 
 ## Implémenter les événements eCommerce {#implement-ecommerce-events}
 
-Vous pouvez envoyer des événements eCommerce via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (côté serveur) ou la [méthode SDK]({{site.baseurl}}/developer_guide/sdk_integration/) client `logCustomEvent`.
+Vous pouvez envoyer des événements eCommerce via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (côté serveur) ou via les SDK Braze (côté client). Pour des exemples d'implémentation SDK, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 ### Envoyer des événements côté serveur {#send-events-server-side}
 
@@ -1206,7 +1234,7 @@ Pour chaque événement dont le nom correspond à un événement recommandé eCo
 | Pas de propriétés supplémentaires au niveau supérieur | Les champs personnalisés sous properties provoquent un échec. Utilisez l'objet `metadata` à la place. |
 | Contraintes de valeur | Les champs monétaires doivent être ≥ `0`. `currency` doit être une chaîne ISO 4217 valide. |
 | Champs par produit | Chaque élément de `products[]` doit inclure `product_id`, `product_name`, `variant_id`, `quantity` et `price`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ce que nous validons" }
 
 ### Pourquoi nous validons {#why-we-validate}
 
@@ -1257,7 +1285,7 @@ Les échecs sont également classés en interne et agrégés pour l'e-mail réca
 | `missing_property`     | Un champ requis est absent. | `order_placed` envoyé sans `order_id`. |
 | `extra_property`       | Un champ a été ajouté que le schéma ne définit pas. | Un champ personnalisé `gift_wrapped` au niveau supérieur de `properties` au lieu d'être dans `metadata`. |
 | `unexpected_data_type` | Un champ est du mauvais type. | `total_value: "29.99"` (chaîne de caractères) au lieu de `29.99` (nombre). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemple de réponse d'erreur API" }
 
 {% alert note %}
 Les noms d'événements qui ne correspondent pas exactement à un événement recommandé (par exemple, `ecommerce.OrderPlaced`) ignorent entièrement la validation et sont enregistrés comme des événements personnalisés ordinaires. Ils apparaissent dans Currents et la segmentation sous le nom que vous avez envoyé, mais ne reçoivent aucun traitement d'événement recommandé et aucune entrée `errors` dans la réponse.

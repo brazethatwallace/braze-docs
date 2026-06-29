@@ -53,7 +53,7 @@ Geofence-triggered campaigns are available on iOS and Android. To support geofen
 Braze location collection is disabled by default. To verify that it's enabled on Android, confirm that `com_braze_enable_location_collection` is set to `true` in your `braze.xml`.
 {% endalert %}
 
-For platform-specific setup instructions, see [Geofences]({{site.baseurl}}/developer_guide/geofences/) in the developer guide.
+For platform-specific setup instructions, see [Geofences]({{site.baseurl}}/developer_guide/geofences) in the developer guide.
 
 ### Location permissions
 
@@ -114,7 +114,7 @@ Because Braze in-app messages don't include a built-in button action to invoke t
 - A deep link that triggers the native location permission prompt from within your app.
 - A deep link that opens the app's location settings page in the device's OS settings, which is useful for re-prompting users who previously denied or limited their permissions.
 
-For more information about deep links, see [Deep linking to in-app content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/). For platform-specific guidance on location and geofence integration, see [Geofences]({{site.baseurl}}/developer_guide/geofences/) in the developer guide.
+For more information about deep links, see [Deep linking to in-app content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). For platform-specific guidance on location and geofence integration, see [Geofences]({{site.baseurl}}/developer_guide/geofences) in the developer guide.
 
 ### Step 2: Build the location primer in-app message
 
@@ -149,7 +149,7 @@ In both cases, remind users to keep **Precise Location** turned on for the best 
 
 If a user previously denied location access or selected a limited permission, you can't trigger the native prompt again from within the app on most OS versions. Instead, direct them to update their permissions in device settings.
 
-Use a deep link inside a custom [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) to navigate the user to the app's location settings page in the OS. Your development team can set up a deep link for this as part of your app's location permission handling (refer to [Step 1](#step-1-work-with-your-development-team)).
+Use a deep link inside a custom [in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) to navigate the user to the app's location settings page in the OS. Your development team can set up a deep link for this as part of your app's location permission handling (refer to [Step 1](#step-1-work-with-your-development-team)).
 
 When building this in-app message, consider the following:
 
@@ -202,7 +202,7 @@ Next, add geofences to your geofence set.
 1. Select **Draw Geofence** to click and drag the circle on the map. Repeat to add more geofences to your set as needed.
 2. (Optional) Select **Edit** and replace the geofence description with a name.
 3. (Optional) Select **Show Advanced Settings**, then use these settings to control how geofence analytics are recorded:
-  - Select **Enable Analytics for Enter** and **Enable Analytics for Exit** to log enter and exit activity in the [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED` SQL table]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) for reporting and analysis.
+  - Select **Enable Analytics for Enter** and **Enable Analytics for Exit** to log enter and exit activity in the [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED` SQL table]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) for reporting and analysis.
   - Configure a cooldown period to set how many seconds must pass before the same user can trigger another enter or exit event for that geofence. If you don't set a cooldown, the default is six hours.
   - Use **Android Notification Responsiveness** to set the maximum delay, in seconds, that Android devices use when delivering enter or exit events to your app.
 
@@ -302,20 +302,16 @@ If the geofences aren't loaded onto the device locally, the user can't trigger t
 - Your application's users must grant location permissions, see the [Location permissions](#location-permissions) section for more information.
 
 {% alert note %}
-Basic SDK integration enables location tracking only. Geofencing requires additional setup steps for both iOS and Android. For details, see [Geofences]({{site.baseurl}}/developer_guide/geofences/) in the developer guide.
+Basic SDK integration enables location tracking only. Geofencing requires additional setup steps for both iOS and Android. For details, see [Geofences]({{site.baseurl}}/developer_guide/geofences) in the developer guide.
 {% endalert %}
 
-You can also use geofences with Braze Technology Partners, such as [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) and [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
+You can also use geofences with Braze Technology Partners, such as [Radar]({{site.baseurl}}/partners/message_personalization/location/radar) and [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare).
+
+## Differences between geofences and location tracking
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## Frequently asked questions
-
-### What's the difference between geofences and location tracking?
-
-In Braze, a geofence is a different concept from location tracking. Geofences are used as triggers for certain actions—when a user enters or exits a virtual boundary set up around a geographical location, it can trigger a specific action, such as sending a message.
-
-Location tracking collects and stores a user's most recent location data. This data can be used to segment users based on the `Most Recent Location` filter. For example, you could use the `Most Recent Location` filter to target users located in New York.
-
-For more information, see [Location tracking]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### How accurate are Braze geofences?
 

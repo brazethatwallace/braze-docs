@@ -20,22 +20,22 @@ Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de
 {% tabs %}
 {% tab Paramètres régionaux multilingues %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Types de messages %}
 
 | Fonctionnalité | Autorisations utilisateur requises |
 | --- | --- |
-| Types&nbsp;de&nbsp;messages | Vous avez besoin de ces autorisations pour ajouter des paramètres régionaux et des traductions aux Campaigns et aux Canvas :<br><br> {::nomarkdown}Autorisations granulaires : <ul><li>Modifier les Campaigns</li><li>Modifier les Canvas</li></ul> Autorisations héritées : <ul><li>Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia, emplacements, codes de promotion et centres de préférences</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+| Types&nbsp;de&nbsp;messages | Vous avez besoin de ces autorisations pour ajouter des paramètres régionaux et des traductions aux Campaigns et aux Canvas :<br><br> <ul><li>Modifier les Campaigns</li><li>Modifier les Canvas</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables"}
 
 {% endtab %}
 {% tab Modèles %}
 
 | Fonctionnalité | Autorisations utilisateur requises |
 | --- | --- |
-| Modèles | Vous avez besoin de ces autorisations pour le type de modèle auquel vous souhaitez ajouter des paramètres régionaux et des traductions :<br><br> {::nomarkdown}Autorisations granulaires : <ul><li>Modifier les modèles d'e-mail</li><li>Modifier les modèles de messages in-app</li><li>Modifier les modèles de Content Blocks</li></ul> Autorisations héritées : <ul><li>Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia, emplacements, codes de promotion et centres de préférences</li></ul>{:/} |
+| Modèles | Vous avez besoin de ces autorisations pour le type de modèle auquel vous souhaitez ajouter des paramètres régionaux et des traductions :<br><br> <ul><li>Modifier les modèles d'e-mail</li><li>Modifier les modèles de messages in-app</li><li>Modifier les modèles de Content Blocks</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}

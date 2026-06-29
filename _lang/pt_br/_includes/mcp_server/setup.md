@@ -13,7 +13,7 @@ Antes de começar, você precisará do seguinte:
 | Chave de API da Braze | Uma chave de API da Braze com as permissões necessárias. Você criará uma nova chave quando [configurar seu servidor Braze MCP](#create-api-key). |
 | Cliente MCP | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) e [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) são oficialmente suportados. Você deve ter uma conta em um desses clientes para usar o servidor Braze MCP. |
 | Terminal | Um app de terminal para que você possa executar comandos e instalar ferramentas. Use seu app de terminal preferido ou o que já está instalado no seu computador. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Configurando o servidor Braze MCP
 
@@ -100,7 +100,7 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
-#### Catálogos {#catalogs}
+#### Catalogs
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -109,7 +109,7 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### Ingestão de dados na nuvem {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -129,14 +129,14 @@ As permissões `content_blocks.create` e `content_blocks.update` são permissõe
 | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### Atributos personalizados {#custom-attributes}
+#### Custom Attributes
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### Eventos {#events}
+#### Events
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -155,7 +155,7 @@ As permissões `content_blocks.create` e `content_blocks.update` são permissõe
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### Biblioteca de mídia {#media-library}
+#### Media Library
 
 A permissão `media_library.create` é uma permissão de escrita. Adicione-a apenas se quiser que seu agente faça upload de ativos para sua biblioteca de mídia.
 
@@ -164,14 +164,14 @@ A permissão `media_library.create` é uma permissão de escrita. Adicione-a ape
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
-#### Mensagens {#messages}
+#### Messages
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
-#### Central de Preferências {#preference-center}
+#### Preference Center
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -179,7 +179,7 @@ A permissão `media_library.create` é uma permissão de escrita. Adicione-a ape
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
-#### Compras {#purchases}
+#### Purchases
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -197,28 +197,28 @@ A permissão `media_library.create` é uma permissão de escrita. Adicione-a ape
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
-#### Envios {#sends}
+#### Sends
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
 
-#### Sessões {#sessions}
+#### Sessions
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
-#### Chaves de autenticação do SDK {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
-#### Inscrição {#subscription}
+#### Subscription
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -226,7 +226,7 @@ A permissão `media_library.create` é uma permissão de escrita. Adicione-a ape
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
-#### Modelos {#templates}
+#### Templates
 
 As permissões `templates.email.create` e `templates.email.update` são permissões de escrita. Adicione-as apenas se quiser que seu agente crie ou atualize modelos de e-mail no seu espaço de trabalho.
 
@@ -347,15 +347,18 @@ Depois de configurar o servidor Braze MCP, tente enviar um prompt de teste para 
 
 {% tabs %}
 {% tab Claude %}
-!["Quais são minhas funções Braze disponíveis?" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Prompt de exemplo:** `What are my available Braze functions?`
+**Resposta de exemplo:** Usou `list_functions` e retornou as categorias de funções disponíveis do Braze MCP.
 {% endtab %}
 
 {% tab Cursor %}
-!["Quais são minhas funções Braze disponíveis?" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Prompt de exemplo:** `What are my available Braze functions?`
+**Resposta de exemplo:** Consultou `list_functions` e listou funções como `get_canvas_list`.
 {% endtab %}
 
 {% tab Gemini CLI %}
-!["Quais são minhas funções Braze disponíveis?" sendo perguntado e respondido no Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+**Prompt de exemplo:** `What are my available Braze functions?`
+**Resposta de exemplo:** Consultou `list_functions` no Gemini CLI e retornou as categorias de funções disponíveis do Braze MCP e funções de exemplo.
 {% endtab %}
 {% endtabs %}
 
@@ -400,6 +403,21 @@ uvx --python 3.12 braze-mcp-server@latest
 ```
 
 ### Configuração do cliente {#client-configuration}
+
+#### "Esta extensão não é compatível com seu dispositivo" {#this-extension-is-not-compatible-with-your-device}
+
+Se você vir esse erro ao instalar a extensão do servidor Braze MCP, isso pode indicar uma das seguintes situações:
+
+- **Seu dispositivo não atende aos requisitos**: Algumas extensões de servidor MCP exigem versões específicas do sistema operacional ou hardware.
+- **Ferramentas de desenvolvimento ausentes (somente macOS)**: No macOS, a instalação da extensão requer ferramentas de desenvolvedor de linha de comando para executar comandos Python. Se essas ferramentas não estiverem instaladas, a instalação falhará com esse erro.
+
+Para instalar as ferramentas de desenvolvedor de linha de comando no macOS, execute o seguinte no seu terminal:
+
+```bash
+xcode-select --install
+```
+
+Após a conclusão da instalação, reinicie seu cliente MCP e tente instalar a extensão novamente.
 
 #### O cliente MCP não consegue encontrar o servidor Braze {#mcp-client-cant-find-the-braze-server}
 

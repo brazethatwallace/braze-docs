@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 `AppDelegate.m` ファイルの先頭にある `BrazeLocation` モジュールをインポートします。Braze の構成に `BrazeLocationProvider` インスタンスを追加し、構成に対するすべての変更が `Braze(configuration:)` を呼び出す前に実行されるようにします。利用可能な構成については、`BRZConfigurationLocation` を参照してください。
 
-```objc
+`````````objc
 #import "AppDelegate.h"
 
 @import BrazeKit;
@@ -102,12 +102,12 @@ static Braze *_braze = nil;
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
                                              longitude:longitude)
 ```
 
-```swift
+`````````swift
 AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
                                              longitude:longitude,
                                              altitude:altitude,
@@ -118,14 +118,14 @@ AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
 {% endtab %}
 {% tab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze.user setLastKnownLocationWithLatitude:latitude
                                                longitude:longitude
                                       horizontalAccuracy:horizontalAccuracy];
 
 ```
 
-```objc
+`````````objc
 [AppDelegate.braze.user setLastKnownLocationWithLatitude:latitude
                                                longitude:longitude
                                       horizontalAccuracy:horizontalAccuracy

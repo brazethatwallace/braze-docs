@@ -56,7 +56,7 @@ Content Cardsを既存のフィードにシームレスにブレンドし、複�
 
 ### APIトリガーのキーと値のペア {#api-triggered-key-value-pairs}
 
-[APIトリガーCampaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)は、カードの値が外部要因に依存してユーザーに表示するコンテンツを決定する場合に使用するのに適した戦略です。たとえば、補足的なコンテンツを表示するには、Liquidを使用してキーと値のペアを設定します。なお、`class_type`はセットアップ時に把握しておく必要があります。
+[APIトリガーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)は、カードの値が外部要因に依存してユーザーに表示するコンテンツを決定する場合に使用するのに適した戦略です。たとえば、補足的なコンテンツを表示するには、Liquidを使用してキーと値のペアを設定します。なお、`class_type`はセットアップ時に把握しておく必要があります。
 
 ![補足Content Cardsのユースケースのキーと値のペア。この例では、「tile_id」、「tile_deeplink」、「tile_title」などカードのさまざまな要素がLiquidを使って設定されています。]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -100,14 +100,14 @@ braze.getCachedContentCards().getUnviewedCardCount();
 {% subtabs %}
 {% subtab Java %}
 
-```java
+`````````java
 Braze.getInstance(context).getContentCardUnviewedCount();
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).contentCardUnviewedCount
 ```
 
@@ -125,13 +125,13 @@ Braze.getInstance(context).contentCardUnviewedCount
 {% subtabs %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 func applicationDidEnterBackground(_ application: UIApplication)
 ```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
-```swift
+`````````swift
 let unreadCards = AppDelegate.braze?.contentCards.cards.filter { $0.viewed == false }
 UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 ```
@@ -139,13 +139,13 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% endsubtab %}
 {% subtab Objective-C %}
 
-```objc
+`````````objc
 (void)applicationDidEnterBackground:(UIApplication *)application
 ```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
-```objc
+`````````objc
 NSInteger unreadCardCount = 0;
 for (BRZContentCardRaw *card in AppDelegate.braze.contentCards.cards) {
   if (card.viewed == NO) {

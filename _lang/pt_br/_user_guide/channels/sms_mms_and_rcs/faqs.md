@@ -17,7 +17,7 @@ channel:
 
 ## Geral {#general}
 
-### O que é um `app_id` no objeto de API de SMS? {#what-is-an-appid-in-the-sms-api-object}
+### O que é um `app_id` no objeto de API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
 
 A chave de API do identificador do app, ou `app_id`, é um parâmetro que associa a atividade a um app específico no seu espaço de trabalho. Ele designa com qual app dentro do espaço de trabalho você está interagindo. Por exemplo, você terá um `app_id` para o seu app iOS, um `app_id` para o seu app Android e um `app_id` para a sua integração web.
 
@@ -25,7 +25,7 @@ Você pode encontrar seu `app_id` navegando até **Configurações** > **Configu
 
 ### O que acontece se vários usuários tiverem o mesmo número de telefone? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
-Quando vários perfis de usuário que compartilham o mesmo número de telefone (habilitado para SMS) são elegíveis para uma campanha baseada em ação ou componente do Canvas ao mesmo tempo, disparados pelo evento de um SMS recebido, a Braze fará a deduplicação dos usuários no nível do componente do Canvas. Isso impedirá que os usuários recebam mais de um SMS para um componente do Canvas, mesmo que vários usuários compartilhem o mesmo número de telefone.
+Quando vários perfis de usuário que compartilham o mesmo número de telefone (habilitado para SMS) são elegíveis para uma Campaign baseada em ação ou componente do Canvas ao mesmo tempo, disparados pelo evento de um SMS recebido, a Braze fará a deduplicação dos usuários no nível do componente do Canvas. Isso impedirá que os usuários recebam mais de um SMS para um componente do Canvas, mesmo que vários usuários compartilhem o mesmo número de telefone.
 
 {% alert note %}
 A Braze não faz deduplicação por número de telefone para Canvas agendados.
@@ -76,7 +76,7 @@ Embora não possamos prometer que você nunca terá um excedente, você pode seg
 ### Se uma mensagem for enviada para um telefone fixo, ela ainda contará no meu total de envios de SMS? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
 
 Nos EUA, Canadá e Reino Unido:
-- Se um SMS for enviado para um telefone fixo, ele será marcado como **Não entregue**. A Twilio ainda cobrará pela tentativa de entrega, então mensagens marcadas como **Enviada**, **Entregue** ou **Não entregue** nos seus registros de mensagens serão cobradas.
+- Se um SMS for enviado para um telefone fixo, ele será marcado como **Undelivered**. A Twilio ainda cobrará pela tentativa de entrega, então mensagens marcadas como **Sent**, **Delivered** ou **Undelivered** nos seus registros de mensagens serão cobradas.
 - No Reino Unido, algumas operadoras converterão o SMS em uma mensagem de voz, entregando a mensagem.
 
 Em outros países:
@@ -144,7 +144,7 @@ Sim, contam. Tenha isso em mente ao testar mensagens.
 
 ### Um usuário precisa fazer parte de um grupo de inscrições de SMS para receber mensagens de teste de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Sim. Os usuários devem ter um número de telefone válido e fazer parte do grupo de inscrições de SMS usado para o envio de teste.
+Sim. Os usuários devem ter um número de telefone válido, fazer parte do grupo de inscrições de SMS usado para o envio de teste e ter pelo menos um país selecionado em **Geographic Permissions** para SMS.
 
 ### Existe uma maneira de verificar se um alias existe em um perfil de usuário? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
@@ -181,6 +181,23 @@ Além disso, certas situações exigirão que a Twilio reautorize a habilitaçã
 
 ## RCS
 
+### Por que minha mensagem RCS não é renderizada corretamente em dispositivos iOS? {#why-doesnt-my-rcs-message-render-accurately-on-ios-devices}
+
+As mensagens RCS podem ser renderizadas de forma diferente em dispositivos iOS dependendo do sistema operacional e do app de mensagens. Em dispositivos iOS, os seguintes comportamentos podem ocorrer:
+
+- Ações sugeridas de diferentes mensagens RCS na mesma conversa podem ser agrupadas e exibidas na ordem errada.
+- Botões de rich cards e ações sugeridas que estão fora do rich card podem permanecer visíveis mesmo após tocar em um botão de rich card ou em uma ação sugerida.
+
+{% alert note %}
+A Braze envia a carga útil de RCS que você compõe, enquanto o cliente de mensagens controla como as ações sugeridas são ordenadas, agrupadas e ocultadas. Certifique-se de testar as mensagens RCS, especialmente aquelas que usam rich cards com ações sugeridas ou respostas sugeridas, em dispositivos Android e iOS antes de enviar.
+{% endalert %}
+
 ### Posso enviar mensagens de voz pré-gravadas com RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
-Sim, você pode usar mensagens de mídia para suportar arquivos de áudio.
+Sim, você pode usar mensagens de mídia para enviar arquivos de áudio.
+
+### Por que os opt-ins de SMS via REST API não correspondem ao **Total de opt-ins** no desempenho de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards/) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST API, pelo dashboard ou por outras fontes.
+
+Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **Rest API** versus **Inbound Message**).

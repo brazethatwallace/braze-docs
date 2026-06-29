@@ -72,7 +72,7 @@ Se você criou um segment em que espera que os usuários entrem e saiam regularm
 
 ### Definindo configurações de atualização {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Casos de uso {#use-cases}
 

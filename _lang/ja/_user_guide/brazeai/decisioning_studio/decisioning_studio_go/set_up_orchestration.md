@@ -16,9 +16,9 @@ Decisioning Studio Goは、以下のカスタマーエンゲージメントプ�
 
 | CEP | 統合タイプ | 主要な機能 |
 |-----|-----------------|--------------|
-| **Braze** | APIトリガーキャンペーン | ネイティブ統合、リアルタイムトリガー |
+| **Braze** | APIトリガーCampaigns | ネイティブ統合、リアルタイムトリガー |
 | **Salesforce Marketing Cloud** | APIイベント付きJourney Builder | SQLクエリのオートメーション、データエクステンション |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="サポートされているCEP" }
 
 以下からCEPを選択して、統合設定を開始しましょう。
 
@@ -27,7 +27,7 @@ Decisioning Studio Goは、以下のカスタマーエンゲージメントプ�
 
 ## Braze統合を設定する {#set-up-braze-integration}
 
-Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、APIトリガーキャンペーンを設定し、必要な識別子をDecisioning Studio Goポータルに提供します。
+Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、APIトリガーCampaignを設定し、必要な識別子をDecisioning Studio Goポータルに提供します。
 
 ### ステップ1: REST APIキーを作成する {#step-1-create-a-rest-api-key}
 
@@ -36,7 +36,7 @@ Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、API
 3. APIキーの名前を入力します。例：「DecisioningStudioGoEmail」
 4. 以下のカテゴリに基づいて権限を選択します。
     - **ユーザーデータ：** `users.track`、`users.delete`、`users.export.ids`、`users.export.segment`を選択
-    - **メッセージ：** `messages.send`を選択
+    - **メッセージ：** `messages.send`、`messages.schedule.create`、`messages.schedule.update`、`messages.schedule.delete`を選択
     - **Campaigns：** リストされているすべての権限を選択
     - **Canvas：** リストされているすべての権限を選択
     - **Segments：** リストされているすべての権限を選択
@@ -69,32 +69,32 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 2. トラッキングしたいアプリに移動します。
 3. **APIキー**をコピーし、BrazeAI Decisioning Studio™ Goポータルに貼り付けます。
 
-### ステップ4: APIトリガーキャンペーンを作成する {#step-4-create-an-api-triggered-campaign}
+### ステップ4: APIトリガーCampaignを作成する {#step-4-create-an-api-triggered-campaign}
 
-1. Brazeダッシュボードで、**Messaging** > **Campaigns**に移動します。
+1. Brazeダッシュボードで、**メッセージング** > **Campaigns**に移動します。
 2. **キャンペーンを作成**を選択します。
-3. キャンペーンタイプとして、**API campaign**を選択します。
-4. キャンペーン名を入力します。例：「Decisioning Studio Go Email」
+3. Campaignタイプとして、**API campaign**を選択します。
+4. Campaign名を入力します。例：「Decisioning Studio Go Email」
 
-![「Decisioning Studio Go Email」という名前のAPIキャンペーン。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
+![「Decisioning Studio Go Email」という名前のAPI Campaign。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
 
 {: start="5"}
 5. メッセージングチャネルとして、**Email**を選択します。
 
-![APIキャンペーンのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
+![API Campaignのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. **追加オプション**で、**ユーザーがキャンペーンの受信資格を再取得できるようにする**チェックボックスを選択します。
+6. **追加オプション**で、**ユーザーがCampaignの受信資格を再取得できるようにする**チェックボックスを選択します。
 7. 再資格取得までの時間として、**1**を入力し、ドロップダウンから**Hours**を選択します。
 
-![APIキャンペーンの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
+![API Campaignの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
 8. **Save Campaign**を選択します。
 
-### ステップ5: キャンペーンIDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
+### ステップ5: Campaign IDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
 
-1. APIキャンペーンで、**Campaign ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**Campaign ID**を貼り付けます。
+1. API Campaignで、**Campaign ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**Campaign ID**を貼り付けます。
 
 ![コピーして貼り付けるメッセージバリエーションIDの例。]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 

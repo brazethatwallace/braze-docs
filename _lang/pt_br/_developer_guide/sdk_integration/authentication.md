@@ -53,19 +53,19 @@ Ao gerar o JWT, os seguintes campos são esperados:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Sim  | O algoritmo suportado é `RS256`. |
 | `typ` | Sim  | O tipo deve ser igual a `JWT`.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.2: Crie um JSON Web Token para o usuário atual" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.2: Crie um JSON Web Token para o usuário atual #create-jwt" }
 
 **Carga útil do JWT**
 
 | Campo | Obrigatória | Descrição                                                                            |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Sim  | O "assunto" deve ser igual ao ID do usuário que você fornece ao SDK da Braze ao chamar `changeUser`  |
-| `exp` | Sim | A "expiração" de quando você deseja que esse token expire.                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+| `exp` | Sim | A "expiração" de quando você deseja que esse token expire, como um timestamp Unix em segundos (por exemplo, `1893456000` para 1º de janeiro de 2030).                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.2: Crie um JSON Web Token para o usuário atual" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.2: Crie um JSON Web Token para o usuário atual #create-jwt" }
 
 {% alert tip %}
 Para saber mais sobre os JSON Web Tokens ou para navegar pelas muitas bibliotecas de código aberto que simplificam esse processo de assinatura, consulte [https://jwt.io](https://jwt.io).
@@ -722,7 +722,7 @@ Na página **Gerenciar configurações** do dashboard, cada app tem três estado
 | **Desativado** | A Braze não verificará o JWT fornecido para um usuário. (Configuração padrão) |
 | **Opcional** | A Braze verificará as solicitações de usuários registrados, mas não rejeitará solicitações inválidas. |
 | **Obrigatória** | A Braze verificará as solicitações de usuários registrados e rejeitará JWTs inválidos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opções de aplicação #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -779,7 +779,7 @@ Os dados estão disponíveis em tempo real, e você pode passar o mouse sobre os
 | 26 | `MISSING_TOKEN` | Nenhum token foi fornecido na solicitação. | Certifique-se de que está passando um token ao chamar `changeUser(id, token)` e que seu token não está em branco. |
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | Nenhuma chave pública corresponde ao token fornecido. | A chave privada usada no JWT não corresponde a nenhuma chave pública configurada para o seu app. Confirme se você adicionou as chaves públicas ao app correto em seu espaço de trabalho que corresponde a esta chave de API. |
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | Nem todos os IDs de usuário na carga útil da solicitação correspondem conforme necessário. | Isso é inesperado e pode resultar em uma carga útil malformada. Abra um ticket de suporte para obter assistência. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Códigos de erro #error-codes" }
 
 ## Perguntas frequentes (FAQ) {#faq}
 

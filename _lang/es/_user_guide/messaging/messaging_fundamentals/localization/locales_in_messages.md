@@ -20,22 +20,22 @@ Mira el siguiente video para obtener un resumen opcional sobre cómo configurar 
 {% tabs %}
 {% tab Configuraciones regionales multilingües %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Tipos de mensaje %}
 
 | Característica | Permisos de usuario requeridos |
 | --- | --- |
-| Tipos&nbsp;de&nbsp;mensaje | Necesitas estos permisos para añadir configuraciones regionales y traducciones a Campaigns y Canvas:<br><br> {::nomarkdown}Permisos granulares: <ul><li>Editar Campaigns</li><li>Editar Canvas</li></ul> Permisos heredados: <ul><li>Acceder a Campaigns, Canvas, Cards, Content Blocks, conmutadores de características, Segments, biblioteca de medios, ubicaciones, códigos promocionales y centros de preferencias</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
+| Tipos&nbsp;de&nbsp;mensaje | Necesitas estos permisos para añadir configuraciones regionales y traducciones a Campaigns y Canvas:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos"}
 
 {% endtab %}
 {% tab Plantillas %}
 
 | Característica | Permisos de usuario requeridos |
 | --- | --- |
-| Plantillas | Necesitas estos permisos para el tipo de plantilla a la que deseas añadir configuraciones regionales y traducciones:<br><br> {::nomarkdown}Permisos granulares: <ul><li>Editar plantillas de correo electrónico</li><li>Editar plantillas IAM</li><li>Editar plantillas de Content Blocks</li></ul> Permisos heredados: <ul><li>Acceder a Campaigns, Canvas, Cards, Content Blocks, conmutadores de características, Segments, biblioteca de medios, ubicaciones, códigos promocionales y centros de preferencias</li></ul>{:/} |
+| Plantillas | Necesitas estos permisos para el tipo de plantilla a la que deseas añadir configuraciones regionales y traducciones:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% endtab %}
@@ -191,9 +191,9 @@ Para previsualizar tu mensaje, selecciona la opción **Multi-Language User** en 
 
 ## Administrar traducciones {#manage-translations}
 
-### Duplicar pasos en Canvas o campañas, y traducciones {#duplicate-canvas-steps-or-campaigns-and-translations}
+### Duplicar pasos en Canvas o Campaigns, y traducciones {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Cuando duplicas un paso en Canvas, una campaña o una variante, las traducciones se incluyen. Esto también aplica al copiar entre espacios de trabajo, siempre que las configuraciones regionales estén definidas en ese espacio de trabajo de destino. Asegúrate de revisar y actualizar las traducciones en consecuencia al hacer modificaciones a tu Canvas o campaña.
+Cuando duplicas un paso en Canvas, una Campaign o una variante, las traducciones se incluyen. Esto también aplica al copiar entre espacios de trabajo, siempre que las configuraciones regionales estén definidas en ese espacio de trabajo de destino. Asegúrate de revisar y actualizar las traducciones en consecuencia al hacer modificaciones a tu Canvas o Campaign.
 
 ### Guardar traducciones en Content Blocks {#save-translations-in-content-blocks}
 
@@ -213,7 +213,7 @@ Al completar el archivo de traducción para idiomas que se escriben de derecha a
 
 ### Seguimiento de enlaces de correo electrónico {#email-link-tracking}
 
-En las campañas de correo electrónico, Braze rastrea los enlaces añadiendo información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+En las Campaigns de correo electrónico, Braze rastrea los enlaces añadiendo información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
 
 Cuando una URL está envuelta en etiquetas de traducción, es posible que Braze no pueda determinar dónde añadir esta información de seguimiento. Para asegurar que esto funcione correctamente, debes incluir un carácter especial al final de la URL para indicar dónde debe añadirse el seguimiento.
 

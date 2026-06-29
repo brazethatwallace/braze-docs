@@ -8,7 +8,7 @@ tool: Segments
 search_rank: 3
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}세그먼트 생성 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}세그먼트 생성 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
 > 세분화를 사용하면 인구통계학적, 행동적 또는 기술적 특성과 행동을 기반으로 사용자를 타겟팅할 수 있습니다. 세분화와 메시징 자동화를 창의적이고 지능적으로 활용하면 사용자를 첫 접점에서 장기 고객으로 원활하게 전환할 수 있습니다. Segment는 데이터가 변경될 때 실시간으로 업데이트되며, 타겟팅 및 메시징 목적에 필요한 만큼 Segment를 생성할 수 있습니다.
 
@@ -41,7 +41,7 @@ Segment에 최소 하나의 필터를 추가합니다. 세분화를 더 구체�
 
 {% multi_lang_include alerts/note_alerts.md alert='Segment profiles first app use' %}
 
-#### 필터 그룹 {#filter-groups}
+### 필터 그룹 {#filter-groups}
 
 필터는 필터 그룹으로 구성됩니다. 모든 필터는 최소 하나의 필터가 있는 필터 그룹에 속해야 합니다. Segment에는 여러 필터 그룹이 있을 수 있습니다. 필터 그룹을 추가하려면 **필터 그룹 추가**를 선택합니다. 필터 그룹 이름 옆에 마우스를 올리면 나타나는 아이콘을 선택하여 필터 그룹 이름을 편집합니다.
 
@@ -49,7 +49,7 @@ Segment에 최소 하나의 필터를 추가합니다. 세분화를 더 구체�
 
 각 필터 옆의 아이콘을 선택하여 필터 편집기를 접거나 개별 필터를 복제합니다. 필터를 복제한 후 각 드롭다운에서 값을 조정할 수 있습니다.
 
-#### AND 및 OR을 사용한 세분화 로직 {#segmentation-logic-using-and-and-or}
+### AND 및 OR을 사용한 세분화 로직 {#segmentation-logic-using-and-and-or}
 
 필터 그룹 내에서 필터는 "AND" 또는 "OR"로 결합할 수 있습니다. 필터 그룹 간에도 "AND" 또는 "OR"로 결합할 수 있습니다. 필터 그룹을 사용하면 다음과 같은 세분화 로직을 만들 수 있습니다:
 - (A AND B AND C) OR (C AND E AND F)
@@ -80,7 +80,7 @@ Segment에 최소 하나의 필터를 추가합니다. 세분화를 더 구체�
 
 {% enddetails %}
 
-#### 필터 연산자 {#filter-operators}
+### 필터 연산자 {#filter-operators}
 
 선택한 특정 필터에 따라 필터 값을 식별하기 위한 다양한 연산자가 제공됩니다. 다양한 유형의 커스텀 속성에 사용할 수 있는 연산자에 대해 자세히 알아보려면 [커스텀 속성 저장]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes)을 참조하세요. "is any of" 연산자를 사용할 때 해당 필드에 포함할 수 있는 최대 항목 수는 256개입니다.
 
@@ -96,7 +96,7 @@ Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하�
 또한 이와 같이 Segment를 중첩하면 복잡성이 증가하고 속도가 느려질 수 있습니다. 대신 포함하려는 Segment를 동일한 필터를 사용하여 다시 생성하세요.
 {% endalert %}
 
-#### 제외 그룹(선택 사항) {#exclusion}
+### 제외 그룹(선택 사항) {#exclusion}
 
 Segment를 구축할 때 하나 이상의 제외 그룹을 적용할 수 있습니다. 제외 그룹에는 Segment에서 제외할 사용자를 식별하는 기준이 포함되며, 항상 "AND NOT" 연산자로 필터 그룹에 연결됩니다.
 
@@ -108,7 +108,7 @@ Segment를 구축할 때 하나 이상의 제외 그룹을 적용할 수 있습�
 
 ![두 개의 필터가 있는 제외 그룹.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-#### 퍼널 통계 보기 {#viewing-funnel-statistics}
+### 퍼널 통계 보기 {#viewing-funnel-statistics}
 
 **퍼널 통계 보기**를 선택하여 해당 필터 그룹의 통계를 표시하고 추가된 각 필터가 Segment 통계에 미치는 영향을 확인합니다. 해당 시점까지의 모든 필터에 의해 타겟팅된 사용자의 예상 수와 비율을 볼 수 있습니다. 필터 그룹에 대한 통계가 표시되면 필터를 변경할 때마다 자동으로 업데이트됩니다. 이 통계는 추정치이며 생성하는 데 시간이 걸릴 수 있습니다.
 
@@ -118,9 +118,13 @@ Segment를 구축할 때 하나 이상의 제외 그룹을 적용할 수 있습�
 
 사용자 흐름을 기록하는 필터를 추가하면 사용자가 이탈하는 지점을 확인할 수 있습니다. 예를 들어, 소셜 네트워킹 앱에서 온보딩 과정 중 사용자를 잃는 지점을 확인하려면 가입, 친구 추가, 첫 메시지 보내기에 대한 커스텀 데이터 필터를 추가할 수 있습니다. 85%의 사용자가 가입하고 친구를 추가하지만 45%만 첫 메시지를 보냈다면, 온보딩 및 마케팅 Campaigns에서 더 많은 메시지 발송을 장려하는 데 집중해야 한다는 것을 알 수 있습니다.
 
-#### Segment 테스트 {#testing-segments}
+### Segment 테스트 {#testing-segments}
 
-Segment에 앱과 필터를 추가한 후, 사용자를 조회하여 Segment 기준에 일치하는지 확인함으로써 Segment가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색합니다. **사용자 조회**에서는 이메일 주소로 검색할 수 없습니다.
+Segment에 앱과 필터를 추가한 후, 사용자를 조회하여 Segment 기준에 일치하는지 확인함으로써 Segment가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색합니다.
+
+{% alert note %}
+**사용자 조회**에서는 `external_id`와 `braze_id`만 사용할 수 있습니다. 이메일 주소, 전화번호 또는 기타 식별자는 사용할 수 없습니다. 이메일, 전화번호 또는 기타 필드로 프로필을 찾으려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles)을 사용하세요.
+{% endalert %}
 
 ![검색 필드가 있는 사용자 조회 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
@@ -137,7 +141,7 @@ Segment에 앱과 필터를 추가한 후, 사용자를 조회하여 Segment 기
 
 !['test1 does not match the following targeting criteria:'라는 알림과 함께 누락된 기준을 표시하는 사용자 조회.]({% image_buster /assets/img_archive/user_lookup_nomatch.png %})
 
-#### 단일 사용자 Segment {#single-user-segments}
+### 단일 사용자 Segment {#single-user-segments}
 
 사용자 이름이나 사용자 ID와 같은 고유 속성을 사용하여 단일 사용자 Segment(또는 소수의 사용자 Segment)를 만들 수 있습니다.
 

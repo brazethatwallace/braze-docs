@@ -26,12 +26,12 @@ Brazeの**アプリ設定**ページの**設定の管理**で Android アプリ�
 {% tab Swift %}
 #### ステップ 1.1: 統合方法を確認する {#step-11-verify-integration-method}
 
-Braze は、iOS プッシュ統合を自動化するための Unity ネイティブソリューションを提供します。代わりに手動で統合の設定と管理を行いたい場合は、[Swift: プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
+Brazeは、iOSプッシュ統合を自動化するためのUnityネイティブソリューションを提供します。代わりに手動で統合の設定と管理を行いたい場合は、[Swift: プッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)を参照してください。
 
 それ以外の場合は、次のステップに進みます。
 
 {% alert note %}
-自動プッシュ通知ソリューションは、iOS 12 の暫定認証機能を利用しており、ネイティブのプッシュプロンプトポップアップでは使用できません。
+自動プッシュ通知ソリューションは、iOS 12の暫定認証機能を利用しており、ネイティブのプッシュプロンプトポップアップでは使用できません。
 {% endalert %}
 {% endtab %}
 
@@ -53,17 +53,22 @@ Braze は、iOS プッシュ統合を自動化するための Unity ネイティ
 
 {% tabs %}
 {% tab Android %}
-#### ステップ 2.1: プッシュ設定を行う {#step-21-configure-push-settings}
+#### ステップ 2.1: プッシュ設定を行う {#unity_step-21-configure-push-settings}
 
-Braze SDKは、Firebase Cloud Messaging サーバーへのプッシュ登録を自動的に処理して、デバイスがプッシュ通知を受信できるようにすることができます。Unity で **Automate Unity Android Integration** を有効にし、以下の**プッシュ通知**設定を行います。
+Braze SDKは、Firebase Cloud Messaging サーバーへのプッシュ登録を自動的に処理して、デバイスがプッシュ通知を受信できるようにすることができます。Unityで **Automate Unity Android Integration** を有効にし、以下の**プッシュ通知**設定を行います。
 
-| 設定                                | 説明                                                                                                                                              |
+| 設定 | 説明 |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | デバイスの FCM プッシュトークンを自動的に取得して送信するように Braze SDKに指示します。                                                                |
-| Firebase Cloud Messaging Sender ID     | Firebase コンソールの送信者 ID。                                                                                                                |
-| Handle Push Deeplinks Automatically    | プッシュ通知がクリックされたときに、ディープリンクを開くかアプリを開くかをSDKで処理するかどうか。                                                  |
-| Small Notification Icon Drawable       | プッシュ通知を受信するたびに小さなアイコンとして表示される Drawable。アイコンが提供されていない場合、通知はアプリケーションアイコンを小さなアイコンとして使用します。 |
+| Automatic Firebase Cloud Messaging Registration Enabled | デバイスのFCMプッシュトークンを自動的に取得して送信するようにBraze SDKに指示します。 |
+| Firebase Cloud Messaging Sender ID | Firebaseコンソールの送信者 ID。 |
+| Handle Push Deeplinks Automatically | プッシュ通知がクリックされたときに、ディープリンクを開くかアプリを開くかをSDKで処理するかどうか。 |
+| Small Notification Icon Drawable | プッシュ通知が届いたときに表示される小さなアイコンのAndroid Drawableリソース参照。`@drawable/` プレフィックスを含む完全な参照を入力します（例: `@drawable/hourglass_icon`）。自動統合はこの値をそのまま `braze.xml` に書き込みます。空のままにすると、通知はアプリケーションアイコンを小さなアイコンとして使用します。 |
+| Large Notification Icon Drawable | 通知用のオプションの大きなアイコン。小さなアイコンと同じ `@drawable/` 形式を使用します（例: `@drawable/my_large_icon`）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** と **Large Notification Icon Drawable** は、**Braze > Braze Configuration** の **Push Configuration** の下に表示されます。両方の値は入力したとおりに `braze.xml` に書き込まれます。`@drawable/` プレフィックスは自分で含めてください。Braze Unity統合では自動的に追加されません（例: `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`）。
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -75,26 +80,26 @@ Braze SDKは、Firebase Cloud Messaging サーバーへのプッシュ登録を�
 
 Unity エディターで **Braze** > **Braze Configuration** の順に移動して、Braze 構成設定を開きます。
 
-**Integrate Push With Braze** をチェックして、プッシュ通知用にユーザーを自動的に登録し、プッシュトークンを Braze に渡し、プッシュ開封の分析を追跡し、デフォルトのプッシュ通知処理を利用します。
+**Integrate Push With Braze** をチェックして、プッシュ通知用にユーザーを自動的に登録し、プッシュトークンをBrazeに渡し、プッシュ開封の分析を追跡し、デフォルトのプッシュ通知処理を利用します。
 
 #### ステップ 2.3: バックグラウンドプッシュを有効にする（オプション） {#step-23-enable-background-push-optional}
 
 プッシュ通知で `background mode` を有効にする場合は、**Enable Background Push** をチェックします。これにより、プッシュ通知が到着したときにシステムがアプリケーションを `suspended` 状態から復帰させ、アプリケーションがプッシュ通知に応答してコンテンツをダウンロードできるようになります。アンインストール追跡機能を使用するには、このオプションをチェックする必要があります。
 
-![Unity エディターに Braze の設定オプションが表示されています。このエディターでは、「Automate Unity iOS integration」、「Integrate push with braze」、および「Enable background push」が有効になっています。]({% image_buster /assets/img/unity/ios/unity_ios_enable_background.png %})
+![Unity エディターにBrazeの設定オプションが表示されています。このエディターでは、「Automate Unity iOS integration」、「Integrate push with braze」、および「Enable background push」が有効になっています。]({% image_buster /assets/img/unity/ios/unity_ios_enable_background.png %})
 
 #### ステップ 2.4: 自動登録を無効にする（オプション） {#step-24-disable-automatic-registration-optional}
 
 まだプッシュ通知をオプトインしていないユーザーは、アプリケーションを開くと自動的にプッシュの許可が付与されます。この機能を無効にし、手動でユーザーをプッシュ登録するには、**Disable Automatic Push Registration** をチェックします。
 
-- iOS 12 以降で **Disable Provisional Authorization** がチェックされていない場合、ユーザーはサイレントプッシュを受信することを暫定的に（サイレントに）許可されます。チェックした場合、ユーザーにネイティブのプッシュプロンプトが表示されます。
-- 実行時にプロンプトが表示されるタイミングを正確に設定する必要がある場合は、Braze 構成エディターから自動登録を無効にし、代わりに `AppboyBinding.PromptUserForPushPermissions()` を使用します。
+- iOS 12以降で **Disable Provisional Authorization** がチェックされていない場合、ユーザーはサイレントプッシュを受信することを暫定的に（サイレントに）許可されます。チェックした場合、ユーザーにネイティブのプッシュプロンプトが表示されます。
+- 実行時にプロンプトが表示されるタイミングを正確に設定する必要がある場合は、Braze構成エディターから自動登録を無効にし、代わりに `AppboyBinding.PromptUserForPushPermissions()` を使用します。
 
-![Unity エディターに Braze の設定オプションが表示されています。このエディターでは、「Automate Unity iOS integration」、「Integrate push with braze」、および「Disable automatic push registration」が有効になっています。]({% image_buster /assets/img/unity/ios/unity_ios_disable_auto_push.png %})
+![Unity エディターにBrazeの設定オプションが表示されています。このエディターでは、「Automate Unity iOS integration」、「Integrate push with braze」、および「Disable automatic push registration」が有効になっています。]({% image_buster /assets/img/unity/ios/unity_ios_disable_auto_push.png %})
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### ステップ 2.1: `AndroidManifest.xml` を更新する {#step-21-update-androidmanifestxml}
+#### ステップ 2.1: `AndroidManifest.xml` を更新する {#unity_step-21-update-androidmanifestxml}
 
 アプリに `AndroidManifest.xml` がない場合は、以下をテンプレートとして使用できます。それ以外の場合、すでに `AndroidManifest.xml` がある場合は、以下の不足しているセクションが既存の `AndroidManifest.xml` に追加されていることを確認してください。
 
@@ -140,15 +145,15 @@ Unity エディターで **Braze** > **Braze Configuration** の順に移動し�
 
 #### ステップ 2.2: ADM API キーを保存する {#step-22-store-your-adm-api-key}
 
-まず、[アプリ用の ADM API キーを生成](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials)し、そのキーを `api_key.txt` という名前のファイルに保存して、プロジェクトの [`Assets/`](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) ディレクトリに追加します。
+まず、[アプリ用のADM API キーを生成](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials)し、そのキーを `api_key.txt` という名前のファイルに保存して、プロジェクトの [`Assets/`](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) ディレクトリに追加します。
 
 {% alert important %}
-`api_key.txt` に末尾の改行などの空白文字が含まれている場合、Amazon はキーを認識しません。
+`api_key.txt` に末尾の改行などの空白文字が含まれている場合、Amazonはキーを認識しません。
 {% endalert %}
 
 次に、`mainTemplate.gradle` ファイルに以下を追加します。
 
-```gradle
+`````````gradle
 task copyAmazon(type: Copy) {
     def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
     from unityProjectPath + '/Assets/api_key.txt'
@@ -158,13 +163,13 @@ task copyAmazon(type: Copy) {
 preBuild.dependsOn(copyAmazon)
 ```
 
-#### ステップ 2.3: ADM Jar を追加する {#step-23-add-adm-jar}
+#### ステップ 2.3: ADM Jarを追加する {#step-23-add-adm-jar}
 
-必要な ADM Jar ファイルは、[Unity JAR ドキュメント](https://docs.unity3d.com/Manual/AndroidJARPlugins.html)に従ってプロジェクト内の任意の場所に配置できます。
+必要なADM Jarファイルは、[Unity JAR ドキュメント](https://docs.unity3d.com/Manual/AndroidJARPlugins.html)に従ってプロジェクト内の任意の場所に配置できます。
 
-#### ステップ 2.4: クライアントシークレットとクライアント ID を Braze ダッシュボードに追加する {#step-24-add-client-secret-and-client-id-to-your-braze-dashboard}
+#### ステップ 2.4: クライアントシークレットとクライアント ID をBrazeダッシュボードに追加する {#step-24-add-client-secret-and-client-id-to-your-braze-dashboard}
 
-最後に、[ステップ 1](#unity_step-1-enable-adm) で取得したクライアントシークレットとクライアント ID を Braze ダッシュボードの**設定の管理**ページに追加する必要があります。
+最後に、[ステップ 1](#unity_step-1-enable-adm) で取得したクライアントシークレットとクライアント ID をBrazeダッシュボードの**設定の管理**ページに追加する必要があります。
 
 ![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
@@ -190,9 +195,9 @@ preBuild.dependsOn(copyAmazon)
 
 次の例では、コールバックメソッド名 `PushNotificationReceivedCallback`、`PushNotificationOpenedCallback`、および `PushNotificationDeletedCallback` をそれぞれ使用して、`BrazeCallback` ゲームオブジェクトを実装します。
 
-![この実装例の図は、前のセクションで述べた Braze の構成オプションと、C# のコードスニペットを示しています。]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
+![この実装例の図は、前のセクションで述べたBrazeの構成オプションと、C#のコードスニペットを示しています。]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
 
-```csharp
+`````````csharp
 public class MainMenu : MonoBehaviour {
   void PushNotificationReceivedCallback(string message) {
 #if UNITY_ANDROID
@@ -230,15 +235,15 @@ public class MainMenu : MonoBehaviour {
 {% tab Swift %}
 #### ステップ 3.1: プッシュ受信リスナーを有効にする
 
-プッシュ受信リスナーは、ユーザーがアプリケーションをアクティブに使用しているとき（アプリがフォアグラウンドになっているときなど）にプッシュ通知を受信すると起動されます。Braze 構成エディターでプッシュ受信リスナーを設定します。ゲームオブジェクトのリスナーを実行時に設定する必要がある場合は、`AppboyBinding.ConfigureListener()` を使用し、`BrazeUnityMessageType.PUSH_RECEIVED` を指定します。
+プッシュ受信リスナーは、ユーザーがアプリケーションをアクティブに使用しているとき（アプリがフォアグラウンドになっているときなど）にプッシュ通知を受信すると起動されます。Braze構成エディターでプッシュ受信リスナーを設定します。ゲームオブジェクトのリスナーを実行時に設定する必要がある場合は、`AppboyBinding.ConfigureListener()` を使用し、`BrazeUnityMessageType.PUSH_RECEIVED` を指定します。
 
-![Unity エディターに Braze の設定オプションが表示されています。このエディターでは、「Set Push Received Listener」オプションが展開され、「Game Object Name」(AppBoyCallback) と「Callback Method Name」(PushNotificationReceivedCallback) が指定されています。]({% image_buster /assets/img/unity/ios/unity_ios_push_received.png %})
+![Unity エディターにBrazeの設定オプションが表示されています。このエディターでは、「Set Push Received Listener」オプションが展開され、「Game Object Name」(AppBoyCallback) と「Callback Method Name」(PushNotificationReceivedCallback) が指定されています。]({% image_buster /assets/img/unity/ios/unity_ios_push_received.png %})
 
 #### ステップ 3.2: プッシュ開封リスナーを有効にする
 
 プッシュ開封リスナーは、ユーザーがプッシュ通知をクリックしてアプリを起動したときに起動されます。Unityにプッシュペイロードを送信するには、ゲームオブジェクトの名前を設定し、**Set Push Opened Listener** オプションの下でプッシュ開封リスナーのコールバックメソッドを指定します。
 
-![Unity エディターに Braze の設定オプションが表示されています。このエディターでは、「Set Push Opened Listener」オプションが展開され、「Game Object Name」(AppBoyCallback) と「Callback Method Name」(PushNotificationOpenedCallback) が指定されています。]({% image_buster /assets/img/unity/ios/unity_ios_push_opened.png %})
+![Unity エディターにBrazeの設定オプションが表示されています。このエディターでは、「Set Push Opened Listener」オプションが展開され、「Game Object Name」(AppBoyCallback) と「Callback Method Name」(PushNotificationOpenedCallback) が指定されています。]({% image_buster /assets/img/unity/ios/unity_ios_push_opened.png %})
 
 ゲームオブジェクトのリスナーを実行時に設定する必要がある場合は、`AppboyBinding.ConfigureListener()` を使用し、`BrazeUnityMessageType.PUSH_OPENED` を指定します。
 
@@ -246,9 +251,9 @@ public class MainMenu : MonoBehaviour {
 
 次の例では、コールバックメソッド名 `PushNotificationReceivedCallback` および `PushNotificationOpenedCallback` をそれぞれ使用して、`AppboyCallback` ゲームオブジェクトを実装します。
 
-![この実装例の図は、前のセクションで述べた Braze の構成オプションと、C# のコードスニペットを示しています。]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
+![この実装例の図は、前のセクションで述べたBrazeの構成オプションと、C#のコードスニペットを示しています。]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
 
-```csharp
+`````````csharp
 public class MainMenu : MonoBehaviour {
   void PushNotificationReceivedCallback(string message) {
 #if UNITY_ANDROID
@@ -278,13 +283,13 @@ public class MainMenu : MonoBehaviour {
 {% tab Amazon Device Messaging %}
 [前のステップ](#unity_step-21-update-androidmanifestxml)で `AndroidManifest.xml` を更新した際に、以下の行を追加したことでプッシュリスナーが自動的に設定されています。そのため、追加の設定は必要ありません。
 
-```xml
+`````````xml
 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
 <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 ```
 
 {% alert note %}
-ADM プッシュリスナーについて詳しくは、[Amazon: Amazon Device Messaging を統合する](https://developer.amazon.com/docs/video-skills-fire-tv-apps/integrate-adm.html)を参照してください。
+ADMプッシュリスナーについて詳しくは、[Amazon: Amazon Device Messagingを統合する](https://developer.amazon.com/docs/video-skills-fire-tv-apps/integrate-adm.html)を参照してください。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -295,19 +300,25 @@ ADM プッシュリスナーについて詳しくは、[Amazon: Amazon Device Me
 {% tab Android %}
 #### アプリ内リソースへのディープリンク {#deep-linking-to-in-app-resources}
 
-Braze はデフォルトで標準的なディープリンク（Web サイトの URL、Android の URI など）を処理できますが、カスタムディープリンクを作成するには、追加のマニフェスト設定が必要です。
+Brazeはデフォルトで標準的なディープリンク（WebサイトのURL、AndroidのURIなど）を処理できますが、カスタムディープリンクを作成するには、追加のマニフェスト設定が必要です。
 
 設定ガイダンスについては、[アプリ内リソースへのディープリンク](https://developer.android.com/training/app-links/deep-linking)を参照してください。
 
-#### Braze プッシュ通知アイコンの追加 {#adding-braze-push-notification-icons}
+#### Brazeプッシュ通知アイコンの追加 {#adding-braze-push-notification-icons}
 
-プロジェクトにプッシュアイコンを追加するには、アイコンイメージファイルを含む Android アーカイブ（AAR）プラグインまたは Android ライブラリを作成します。手順と情報については、Unity のドキュメント「[Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html)」を参照してください。
+{% alert important %}
+通知アイコンの画像を `Assets/Plugins/Android/res` に追加しないでください。Unityは[このパスでのAndroidリソースの提供を非推奨](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated)としており、ビルド警告やバリデーションエラーが発生する可能性があります。アイコンのDrawableは[Android Archive（AAR）プラグイン](https://docs.unity3d.com/Manual/AndroidAARPlugins.html)またはAndroidライブラリプロジェクトにパッケージ化して、他のDrawableと同様にビルドされたアプリのリソースにマージされるようにしてください。
+{% endalert %}
+
+プロジェクトにプッシュアイコンを追加するには、`res/drawable*`（または密度別フォルダー）の下にアイコン画像ファイルを含むAARプラグインまたはAndroidライブラリを作成し、**Braze > Braze Configuration** で完全な `@drawable/` リソース名を使用して各アイコンを参照します（[ステップ 2.1: プッシュ設定を行う](#unity_step-21-configure-push-settings)を参照）。Unityのパッケージングとインポートの手順については、[Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html)を参照してください。
+
+小さなアイコンのアートワークルール（アルファのみ、色なし）については、[Androidプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)のステップ 2: 小さなアイコンをデザインガイドラインに準拠させるを参照してください。
 {% endtab %}
 
 {% tab Swift %}
 #### プッシュトークンコールバック {#push-token-callback}
 
-OS から Braze デバイストークンのコピーを受け取るには、`AppboyBinding.SetPushTokenReceivedFromSystemDelegate()` を使用してデリゲートを設定します。
+OSからBrazeデバイストークンのコピーを受け取るには、`AppboyBinding.SetPushTokenReceivedFromSystemDelegate()` を使用してデリゲートを設定します。
 {% endtab %}
 
 {% tab Amazon Device Messaging %}

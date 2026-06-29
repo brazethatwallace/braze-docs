@@ -48,7 +48,7 @@ description: "캠페인과 캔버스에서 프로모션 코드를 사용하고 �
 
 ### 커런츠용 메시지 추가 정보와 함께 사용
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## 고객 프로필에 프로모션 코드 저장 {#save-to-profile}
 

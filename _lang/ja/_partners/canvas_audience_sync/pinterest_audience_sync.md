@@ -35,9 +35,9 @@ CanvasでPinterestオーディエンスステップを設定する前に、以�
 | 要件 | 提供元 | 説明 |
 | --- | --- | --- |
 | Pinterestビジネスハブ | [Pinterest](https://www.pinterest.com/business/hub/) | ブランドのPinterestアセット（広告アカウント、ページ、アプリなど）を管理するための集中管理ツールです。 |
-| Pinterest広告アカウント | [Pinterest](https://ads.pinterest.com/) | ブランドのPinterestビジネスハブに関連付けられたアクティブなPinterest広告アカウント。<br><br>Pinterest Business Hub管理者が、Brazeで使用するPinterest広告アカウントの管理者権限を付与していることを確認してください。 |
+| Pinterest広告アカウント | [Pinterest](https://ads.pinterest.com/) | ブランドのPinterestビジネスハブに関連付けられたアクティブなPinterest広告アカウント。<br><br>Pinterestビジネスハブの管理者が、Brazeで使用するPinterest広告アカウントの管理者権限を付与していることを確認してください。 |
 | Pinterestの利用規約とポリシー | Pinterest | Pinterest Audience Syncの利用に関連するPinterestのすべての必須条件、ポリシー、ガイドライン、ドキュメントを遵守することに同意するものとします。これには、引用により組み込まれるすべての条件、ポリシー、ガイドライン、およびドキュメント（利用規約、ビジネス利用規約、プライバシーポリシー、開発者およびAPI利用規約、広告データ利用規約、広告ガイドライン、広告サービス契約、コミュニティガイドライン、ブランドガイドラインなどを含む）が含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -61,9 +61,9 @@ Brazeダッシュボードで、**パートナー連携** > **テクノロジー
 
 ![広告アカウントが正常に接続されたことを示す更新後のPinterestテクノロジーパートナーページ。]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
 
-Pinterest接続はBrazeワークスペースレベルで適用されます。Pinterest管理者がPinterest Business Hubからユーザーを削除したり、接続されているPinterestアカウントへのアクセスを取り消したりすると、Brazeは無効なトークンを検出します。その結果、Pinterestオーディエンスコンポーネントを使用しているアクティブなCanvasesにはエラーが表示され、Brazeはユーザーを同期できなくなります。
+Pinterest接続はBrazeワークスペースレベルで適用されます。Pinterest管理者がPinterestビジネスハブからユーザーを削除したり、接続されているPinterestアカウントへのアクセスを取り消したりすると、Brazeは無効なトークンを検出します。その結果、Pinterestオーディエンスコンポーネントを使用しているアクティブなCanvasesにはエラーが表示され、Brazeはユーザーを同期できなくなります。
 
-### ステップ2:Pinterestを使用したAudience Syncステップの追加 {#step-2-add-an-audience-sync-step-with-pinterest}
+### ステップ2:PinterestでAudience Syncステップを追加する {#step-2-add-an-audience-sync-step-with-pinterest}
 
 Canvasにコンポーネントを追加し、**Audience Sync**を選択します。
 
@@ -102,7 +102,7 @@ Brazeは、既存のPinterestオーディエンスにユーザーを追加して
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:Canvasの起動 {#step-4-launch-canvas}
+### ステップ4:Canvasを起動する {#step-4-launch-canvas}
 
 Audience Sync to Pinterestを設定したら、Canvasを起動します。新しいオーディエンスが作成され、Audience Syncステップを通過するユーザーはPinterest上のこのオーディエンスに送られます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
@@ -114,7 +114,7 @@ Pinterestでオーディエンスを表示するには、広告マネージャ�
 
 ユーザーがAudience Syncステップに達すると、BrazeはPinterestのマーケティングAPIのレート制限を尊重しながら、ほぼリアルタイムで同期します。Brazeは5秒ごとに可能な限り多くのユーザーをバッチ処理してからPinterestに送信します。
 
-PinterestのSegment APIのレート制限では、ユーザー1人あたり毎秒7クエリ、1リクエストあたり1,900ユーザーを超えることはできません。顧客がこの制限に達した場合、Brazeは最大約13時間まで同期を再試行します。それでも同期できない場合、BrazeはこれらのユーザーをUsers Errored指標の下にリストします。
+Pinterestのセグメント APIのレート制限では、ユーザー1人あたり毎秒7クエリ、1リクエストあたり1,900ユーザーを超えることはできません。顧客がこの制限に達した場合、Brazeは最大約13時間まで同期を再試行します。それでも同期できない場合、BrazeはこれらのユーザーをUsers Errored指標の下にリストします。
 
 ## 分析の理解 {#understanding-analytics}
 
@@ -129,7 +129,7 @@ PinterestのSegment APIのレート制限では、ユーザー1人あたり毎�
 | 保留中のユーザー | BrazeがPinterestへの同期のために現在処理しているユーザーの数。 |
 | エラーが発生したユーザー数 | 約13時間の再試行後にAPIエラーのためにPinterestに同期されなかったユーザーの数。エラーの原因としては、Pinterestトークンが無効である場合や、Pinterestでオーディエンスが削除された場合などが考えられます。 |
 | Canvasを終了 | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがAudience Syncコンポーネントである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
 一括フラッシャーと13時間の再試行により、同期されたユーザーとエラーが発生したユーザーの指標のレポートにそれぞれ遅延が発生することに注意してください。
@@ -147,7 +147,7 @@ Pinterestは、独自のデータプライバシーポリシーによりこの�
 
 ### 無効なトークンエラーが表示された場合、次に何をすればよいですか？ {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-同期する広告アカウントに対する適切な権限があることを、Pinterest Business Hubの管理者に確認してください。また、PinterestパートナーページでPinterestアカウントを切断してから再接続することもできます。
+同期する広告アカウントに対する適切な権限があることを、Pinterestビジネスハブの管理者に確認してください。また、PinterestパートナーページでPinterestアカウントを切断してから再接続することもできます。
 
 ### Canvasを起動できないのはなぜですか？ {#why-is-my-canvas-not-allowed-to-launch}
 

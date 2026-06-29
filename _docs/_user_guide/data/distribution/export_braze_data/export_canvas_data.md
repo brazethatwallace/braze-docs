@@ -33,6 +33,6 @@ Canvas results can be exported on an individual component basis for the original
 ![User Data dropdown on the Canvas Details page.]({% image_buster /assets/img/canvas_csv_export.png %})
 
 {% alert tip %}
-For help with CSV and API exports, visit our [export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) article.
+For help with CSV and API exports, visit our [export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting) article.
 {% endalert %}
 

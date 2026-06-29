@@ -3,7 +3,8 @@
 #
 # Compares scripts/glossaries/*.json against the actual UI translations in
 # the Braze platform dashboard, Android SDK, Swift SDK, and GrapesJS editor.
-# Auto-fixes exact mismatches and adds missing terms, then opens a PR.
+# Auto-fixes exact mismatches and adds missing terms, propagates new/updated
+# terms into _lang/ locale docs, then opens a PR.
 name: Audit glossaries
 
 on:
@@ -23,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout braze-docs
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -97,7 +98,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: glossary-audit/${{ github.run_id }}
           base: develop
-          title: "Glossary sync: ${{ steps.audit.outputs.fixes_applied }} fixes, ${{ steps.audit.outputs.terms_added }} new terms"
+          title: "Glossary sync: ${{ steps.audit.outputs.fixes_applied }} fixes, ${{ steps.audit.outputs.terms_added }} new terms, ${{ steps.audit.outputs.locale_files_changed }} locale files"
           body-path: glossary_audit_report.md
           labels: |
             glossary-audit
@@ -106,3 +107,4 @@ jobs:
           delete-branch: true
           add-paths: |
             scripts/glossaries/
+            _lang/

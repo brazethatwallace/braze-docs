@@ -10,7 +10,7 @@ search_tag: Partner
 > 各メッセージングチャネルにおけるSnowflakeとBrazeの間のエンティティリレーションシップの一覧です。
 
 {% alert important %}
-エンティティリレーションシップ図は、テーブル間の共有フィールドとリレーションシップを示したものであり、完全なテーブルスキーマではありません。フィールドの完全なリストについては、[個別のテーブルスキーマ]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt)を参照してください。
+エンティティリレーションシップ図は、テーブル間の共有フィールドとリレーションシップを示したものであり、完全なテーブルスキーマではありません。フィールドの完全なリストについては、[個別のテーブルスキーマ](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)を参照してください。
 {% endalert %}
 
 {% sdktabs %}

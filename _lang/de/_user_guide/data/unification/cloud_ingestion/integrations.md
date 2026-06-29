@@ -32,6 +32,10 @@ Die [Snowflake-Schnellstartanleitung](https://quickstarts.snowflake.com/guide/br
 2. Richten Sie in Ihrer Redshift-Instanz die Tabellen oder Ansichten ein, die Sie mit Braze synchronisieren möchten.
 3. Erstellen Sie eine neue Quelle und Synchronisierung im Braze-Dashboard.
 4. Testen Sie die Integration und starten Sie die Synchronisierung.
+
+{% alert note %}
+Die pro Synchronisierung verarbeiteten Zeilen hängen von der Performance Ihres Warehouse, der Netzwerklatenz und der Menge neuer Daten ab, die der Synchronisierungsabfrage entsprechen. Verwenden Sie den **Sync-Verlauf** der Integration im Dashboard, um die Dauer und Zeilenanzahl der letzten Durchläufe einzusehen.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. Erstellen Sie ein Dienstkonto und erlauben Sie den Zugriff auf das/die BigQuery-Projekt(e) und den/die Datensatz/Datensätze, die die zu synchronisierenden Daten enthalten.
@@ -144,7 +148,7 @@ Wenn Sie verschiedene Workspaces mit demselben Snowflake-Konto verbinden, müsse
 
 Je nach Konfiguration Ihres Snowflake-Kontos müssen Sie möglicherweise die folgenden IP-Adressen in Ihrer Snowflake-Netzwerkrichtlinie zulassen. Weitere Informationen dazu finden Sie in der entsprechenden Snowflake-Dokumentation zum [Ändern einer Netzwerkrichtlinie](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -207,7 +211,7 @@ Einige wichtige Hinweise:
 
 Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -250,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.1: Tabelle einrichten" }
 
 Sie können das Projekt, den Datensatz und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -290,7 +294,7 @@ Wenn Sie das Dienstkonto erstellt und die Berechtigungen erteilt haben, erzeugen
 
 Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre BigQuery-Instanz gewähren. Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -335,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.1: Tabelle einrichten" }
 
 Sie können das Schema und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -364,7 +368,7 @@ Bewahren Sie das Token an einem sicheren Ort auf, bis Sie es im Braze-Dashboard 
 
 Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Databricks-Instanz gewähren. Erlauben Sie den Zugriff von den folgenden IPs, die der Region Ihres Braze-Dashboards entsprechen.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -453,7 +457,7 @@ Um den SQL-Endpunkt für Ihr Warehouse abzurufen, gehen Sie zum **Workspace** in
 
 Je nach Konfiguration Ihres Microsoft Fabric-Kontos müssen Sie möglicherweise die folgenden IP-Adressen in Ihrer Firewall zulassen, um den Datenverkehr von Braze zuzulassen. Weitere Informationen dazu finden Sie in der entsprechenden Dokumentation zu [Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access).
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -471,9 +475,16 @@ Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud Data Ingestion*
 
 Wählen Sie einen Namen für Ihre Quelle und geben Sie Ihre Snowflake-Zugangsdaten und -Konfiguration ein. Fahren Sie dann mit dem nächsten Schritt fort.
 
-{% alert note %}
-Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein, der in der Regel einem Format wie `xy12345.us-east-1.aws` entspricht. Dies ist nicht dasselbe wie ein Datenbankname oder Warehouse-Name.
-{% endalert %}
+Bevor Sie fortfahren, überprüfen Sie den Wert, den Sie im Feld **Snowflake Account Locator** eingeben.
+
+Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein. Geben Sie nur den Wert des Kontobezeichners ein, z. B. `myorganization-myaccount`. Fügen Sie weder `https://`, `.snowflakecomputing.com` noch einen Pfad hinzu.
+
+So finden Sie Ihren Snowflake-Kontobezeichner:
+
+1. Wählen Sie in Snowsight Ihr Kontomenü aus.
+2. Wählen Sie **View account details**.
+3. Kopieren Sie den Wert des **Account identifier**.
+4. Wenn Sie aus einer Snowflake-URL kopieren, verwenden Sie nur den Wert vor `.snowflakecomputing.com`.
 
 #### Schritt 2.2: Public Key zur Braze-Nutzerin oder zum Braze-Nutzer hinzufügen {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -585,7 +596,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 
@@ -618,7 +629,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 
@@ -649,7 +660,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 
@@ -681,7 +692,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -714,7 +725,7 @@ Konfigurieren Sie abschließend Ihre Synchronisierung als einmalig oder wiederke
 
 Einmalige Synchronisierungen können manuell oder über die API ausgelöst werden.
 
-Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze verwendet die in Ihrem Braze-Dashboard konfigurierte Zeitzone, um die wiederkehrende Synchronisierung zu planen.
+Wiederkehrende Synchronisierungen können eine Häufigkeit von alle 15 Minuten bis einmal pro Monat haben. Braze plant die wiederkehrende Synchronisierung in der UTC-Zeitzone.
 
 {% endtab %}
 {% endtabs %}
@@ -763,26 +774,26 @@ Wenn Sie dieselbe Nutzerin oder denselben Nutzer bei verschiedenen Integrationen
 
 {% tabs %}
 {% tab Snowflake %}
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab Redshift %}
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab BigQuery %}
 
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab Databricks %}
 
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Zeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
+Nach der Aktivierung wird Ihre Synchronisierung nach dem bei der Einrichtung konfigurierten Zeitplan ausgeführt. Wenn Sie die Synchronisierung außerhalb des normalen Testzeitplans durchführen oder die neuesten Daten abrufen möchten, wählen Sie **Sync Now**. Dieser Lauf hat keine Auswirkungen auf regelmäßig geplante zukünftige Synchronisierungen.
 
 {% endtab %}
 

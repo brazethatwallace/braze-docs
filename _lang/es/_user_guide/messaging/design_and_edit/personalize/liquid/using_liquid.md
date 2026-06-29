@@ -82,7 +82,7 @@ Los operadores (como `==`, `!=`, `>`, `and`, `or`) y los filtros (como `| size`,
 | `case`, `when` | Solo coincidencia de igualdad[^case_when_ops] | No compatible |
 | `for` | No compatible | No compatible |
 | Acceso a arrays (`[ ]`) | No compatible | No compatible |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dónde usar operadores y filtros" }
 
 [^case_when_ops]: En las etiquetas `case` y `when`, Liquid compara la expresión `case` con cada valor `when` usando igualdad (similar a encadenar `if` y `elsif` con `==`). No puedes usar operadores de comparación arbitrarios ni operadores lógicos dentro de una cláusula `when` como lo haces con `if` y `elsif`. Para ver ejemplos, consulta [Lógica de mensajería condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
 
@@ -207,6 +207,10 @@ Si usas Liquid en tus mensajes de correo electrónico, asegúrate de:
 2. Colocar el código Liquid solo dentro de la etiqueta `<body>`. Colocarlo fuera de esta etiqueta puede causar un renderizado inconsistente en la entrega.
 
 {% endalert %}
+
+### Cambiar entre los editores HTML y clásico {#switching-between-html-and-classic-editors}
+
+Cuando cambias entre los editores HTML y clásico, los fragmentos de código de Liquid y los Content Blocks pueden cambiar de posición en tu mensaje. Revisa tu plantilla después de cambiar de editor. Si necesitas un control de diseño más predecible, usa el editor de arrastrar y soltar.
 
 ### Insertar variables preformateadas {#inserting-pre-formatted-variables}
 

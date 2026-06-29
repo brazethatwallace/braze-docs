@@ -39,7 +39,7 @@ Dynamic Yieldでエクスペリエンスブロックを作成するには、**Em
 
 次の画像は、ビルダーでゼロから作成するメールを示しています。<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield5.png %})
 
-1. 見出しエリアにCampaign名、メモ、Campaignのラベルを入力します。<br><br>
+1. 見出しエリアにキャンペーン名、メモ、キャンペーンのラベルを入力します。<br><br>
 2. エクスペリエンスブロックを挿入します。エクスペリエンスブロックには、次のものがあります。
   - [レコメンデーション](#configure-a-recommendations-block): 完全にパーソナライズされたレコメンデーションをユーザーに提供するウィジェット。
   - [ダイナミックコンテンツ](#configure-a-dynamic-content-block): さまざまなプロモーションやメッセージを、さまざまなオーディエンスに向けて発信します。<br><br>
@@ -72,7 +72,7 @@ Dynamic Yieldでエクスペリエンスブロックを作成するには、**Em
 
 ### ステップ3: メールをBrazeと統合する {#step-3-integrate-your-email-with-braze}
 
-この統合により、パーソナライズされたレコメンデーションウィジェットとDynamic Yieldを利用したダイナミックコンテンツをBrazeのメールキャンペーンに追加できます。これらのCampaignをBrazeのCampaignに埋め込むには、Brazeのメールエディターに貼り付ける簡単な埋め込みコードを使用します。
+この統合により、パーソナライズされたレコメンデーションウィジェットとDynamic Yieldを利用したダイナミックコンテンツをBrazeのメールキャンペーンに追加できます。これらのキャンペーンをBrazeのキャンペーンに埋め込むには、Brazeのメールエディターに貼り付ける簡単な埋め込みコードを使用します。
 
 1. エクスペリエンスメールの一覧ページで、ESP統合アイコンをクリックします。<br><br>
 2. ユーザーのCUIDとメールIDを挿入するBrazeの関連トークンを入力します。<br>![]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})

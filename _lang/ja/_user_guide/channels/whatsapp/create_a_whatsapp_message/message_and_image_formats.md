@@ -98,7 +98,7 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 
 応答メッセージ（Metaでは「セッションメッセージ」とも呼ばれます）は、24時間の会話時間枠内でのみ送信できます。ユーザーがビジネスにメッセージを送信すると、時間枠が開かれリセットされます。
 
-BrazeのCampaignまたはCanvasエディターで直接作成された応答メッセージは、Metaの承認を必要としません。
+Brazeのキャンペーンまたはキャンバスエディターで直接作成された応答メッセージは、Metaの承認を必要としません。
 
 Brazeは7つの応答メッセージレイアウトをサポートしています。
 
@@ -142,11 +142,11 @@ Brazeは7つの応答メッセージレイアウトをサポートしていま�
 
 ### 画像 {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### 動画 {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Androidの互換性 {#android-compatibility}
 

@@ -14,11 +14,17 @@ SDKバージョン6.0.0以降、BrazeはReact Native Turbo Moduleを採用して
 iOSアプリが`RCTAppDelegate`に準拠し、以前の`AppDelegate`設定手順に従っている場合、Turbo Moduleでイベントを購読する際のクラッシュを防ぐため、[完全なネイティブ設定](#reactnative_step-2-complete-native-setup)のサンプルを確認してください。
 {% endalert %}
 
+## ReactとReact Nativeのバージョン要件 {#react-and-react-native-version-requirements}
+
+Brazeは、React Native SDKがサポートする範囲を超えて、個別のReact最小バージョンを公開していません。SDKを統合するには、React Nativeバージョン0.71以降を使用してください。サポートされているReact Nativeバージョンの完全なリストについては、[React Native SDK GitHubリポジトリ](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)を参照してください。
+
+React、React Native、またはBraze SDKをアップグレードする際は、デプロイ前にSDKの[CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)で破壊的変更を確認してください。
+
 ## React Native SDKの統合 {#integrating-the-react-native-sdk}
 
 ### 前提条件 {#prerequisites}
 
-SDKを統合するには、React Nativeバージョン0.71以降が必要です。サポートされているバージョンの完全なリストについては、[React Native SDK GitHubリポジトリ](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support)を参照してください。
+サポートされているReact Nativeバージョンとアップグレードガイダンスについては、[ReactとReact Nativeのバージョン要件](#react-and-react-native-version-requirements)を参照してください。
 
 ### ステップ 1: Brazeライブラリーの統合 {#step-1-integrate-the-braze-library}
 
@@ -47,7 +53,7 @@ yarn add @braze/react-native-sdk
 
 #### 方法 1: Expoプラグインの使用 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
+##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin}
 
 Braze Expoプラグインのバージョンが4.1.0以上であることを確認してください。サポートされているバージョンの完全なリストについては、[Braze Expoプラグインリポジトリ](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)を参照してください。
 
@@ -57,7 +63,7 @@ Braze Expoプラグインのバージョンが4.1.0以上であることを確�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
+##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson}
 
 `app.json`で、Braze Expoプラグインを追加します。APIキーとエンドポイントはここでは設定しません。JavaScriptから`Braze.initialize()`を使用してランタイムで提供します。実装のニーズに応じて、以下のオプション設定パラメーターを追加してください。
 
@@ -67,7 +73,7 @@ npx expo install @braze/expo-plugin
 | `enableFirebaseCloudMessaging`                | boolean | Androidのみ。プッシュ通知にFirebase Cloud Messagingを使用するかどうか。             |
 | `firebaseCloudMessagingSenderId`              | string  | Androidのみ。Firebase Cloud Messagingの送信者ID。                                    |
 | `sessionTimeout`                              | integer | アプリケーションのBrazeセッションタイムアウト（秒単位）。                                                                                               |
-| `enableSdkAuthentication`                     | boolean | [SDK認証](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication)機能を有効にするかどうか。      |
+| `enableSdkAuthentication`                     | boolean | [SDK認証]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication)機能を有効にするかどうか。      |
 | `logLevel`                                    | integer | アプリケーションのログレベル。デフォルトのログレベルは8で、最低限の情報を記録します。デバッグのために詳細ログを有効にするには、ログレベル0を使用してください。    |
 | `minimumTriggerIntervalInSeconds`             | integer | トリガー間の最小時間間隔（秒単位）。デフォルトは30秒です。                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | 自動位置情報収集が有効かどうか（ユーザーが許可した場合）。                                                                                  |
@@ -85,7 +91,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup`                        | string  | iOSのみ。iOS Push Storiesに使用されるアプリグループ。                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOSのみ。デバイスIDがランダムに生成されたUUIDを使用するかどうか。                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOSのみ。SDKがユニバーサルリンクを自動的に認識し、システムメソッドに転送するかどうかを指定します（デフォルト：`false`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="app.jsonにプラグインを追加する" }
 
 以下のコードスニペットは、`app.json`の設定例です。
 
@@ -140,10 +146,10 @@ Braze Expoプラグインは、Androidのdrawableリソースシステムを使�
 
 **アイコンの要件**
 
-- **小アイコン：**透明なバックグラウンドに白いシルエットでなければなりません（これはAndroidプラットフォームの要件です）
-- **大アイコン：**フルカラーの画像を使用できます。
-- **形式：**PNG形式が推奨されます。
-- **命名：**小文字、数字、アンダースコアのみを使用してください（例：`my_large_icon.png`）
+- **小アイコン：** 透明なバックグラウンドに白いシルエットでなければなりません（これはAndroidプラットフォームの要件です）
+- **大アイコン：** フルカラーの画像を使用できます。
+- **形式：** PNG形式が推奨されます。
+- **命名：** 小文字、数字、アンダースコアのみを使用してください（例：`my_large_icon.png`）
 
 **app.jsonでの設定**
 
@@ -175,7 +181,7 @@ Braze Expoプラグインは、Androidの`drawable`ディレクトリからア�
 
 Android通知アイコンの詳細については、[Androidの通知アイコンガイドライン](https://developer.android.com/develop/ui/views/notifications#icon)を参照してください。
 
-##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application} {#23-build-and-run-your-application}
+##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application}
 
 アプリケーションをプリビルドすると、Braze Expoプラグインが動作するために必要なネイティブファイルが生成されます。
 
@@ -426,7 +432,7 @@ npx expo install @braze/expo-plugin
 | `enableFirebaseCloudMessaging`                | boolean | Androidのみ。プッシュ通知にFirebase Cloud Messagingを使用するかどうか。React Native SDK v1.38.0およびExpo Plugin v0.4.0で導入されました。             |
 | `firebaseCloudMessagingSenderId`              | string  | Androidのみ。Firebase Cloud Messagingの送信者ID。React Native SDK v1.38.0およびExpo Plugin v0.4.0で導入されました。                                    |
 | `sessionTimeout`                              | integer | アプリケーションのBrazeセッションタイムアウト（秒単位）。                                                                                               |
-| `enableSdkAuthentication`                     | boolean | [SDK認証](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication)機能を有効にするかどうか。      |
+| `enableSdkAuthentication`                     | boolean | [SDK認証]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication)機能を有効にするかどうか。      |
 | `logLevel`                                    | integer | アプリケーションのログレベル。デフォルトのログレベルは8で、最低限の情報を記録します。デバッグのために詳細ログを有効にするには、ログレベル0を使用してください。    |
 | `minimumTriggerIntervalInSeconds`             | integer | トリガー間の最小時間間隔（秒単位）。デフォルトは30秒です。                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | 自動位置情報収集が有効かどうか（ユーザーが許可した場合）。                                                                                  |
@@ -444,7 +450,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup`                        | string  | iOSのみ。iOS Push Storiesに使用されるアプリグループ。                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOSのみ。デバイスIDがランダムに生成されたUUIDを使用するかどうか。                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOSのみ。SDKがユニバーサルリンクを自動的に認識し、システムメソッドに転送するかどうかを指定します（デフォルト：`false`）。有効にすると、SDKは[アプリでのユニバーサルリンクのサポート](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)で定義されたシステムメソッドにユニバーサルリンクを自動的に転送します。React Native SDK v11.1.0およびExpo Plugin v3.2.0で導入されました。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="app.jsonにプラグインを追加する" }
 
 以下のコードスニペットは、`app.json`の設定例です。
 
@@ -501,10 +507,10 @@ Braze Expoプラグインは、Androidのdrawableリソースシステムを使�
 
 **アイコンの要件**
 
-- **小アイコン：**透明なバックグラウンドに白いシルエットでなければなりません（これはAndroidプラットフォームの要件です）
-- **大アイコン：**フルカラーの画像を使用できます。
-- **形式：**PNG形式が推奨されます。
-- **命名：**小文字、数字、アンダースコアのみを使用してください（例：`my_large_icon.png`）
+- **小アイコン：** 透明なバックグラウンドに白いシルエットでなければなりません（これはAndroidプラットフォームの要件です）
+- **大アイコン：** フルカラーの画像を使用できます。
+- **形式：** PNG形式が推奨されます。
+- **命名：** 小文字、数字、アンダースコアのみを使用してください（例：`my_large_icon.png`）
 
 **app.jsonでの設定**
 

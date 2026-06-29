@@ -86,7 +86,7 @@ Al dirigirte a usuarios durante la creación de una campaña, puedes navegar a *
 Ten en cuenta que las campañas sin límite de velocidad pueden superar estos límites de entrega. Sin embargo, ten en cuenta que los mensajes se abortarán si se retrasan 72 horas o más debido a un límite de velocidad bajo. Si el límite de velocidad es demasiado bajo, el creador de la campaña recibirá alertas en el dashboard y por correo electrónico.
 
 {% alert tip %}
-Establece un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para aplicar un límite de velocidad en todo un espacio de trabajo.
+Establece un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) para aplicar un límite de velocidad en todo un espacio de trabajo.
 {% endalert %}
 
 #### Ejemplo {#example}
@@ -139,17 +139,17 @@ Algunas notas a tener en cuenta al configurar límites de velocidad y qué compo
 - Los siguientes mensajes no serán limitados ni contarán para el límite de velocidad:
     - Envíos de prueba
     - Grupos semilla
-    - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas).
+    - Content Cards configuradas para crearse "en la primera impresión" (esto será controlado por la tasa de impresiones de la aplicación. Consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) para más información sobre las diferencias entre las opciones de creación de tarjetas).
 - Los límites de velocidad de entrega no son compatibles con lo siguiente:
     - Respuestas automáticas de SMS
-    - Mensajes respaldados por SLA (como [correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/))
+    - Mensajes respaldados por SLA (como [correo electrónico transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - Mensajes dentro de la aplicación
     - Conmutadores de características
     - Banners
 
 #### Límite de velocidad y reintentos de contenido conectado {#rate-limiting-and-connected-content-retries}
 
-Cuando el [reintento de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/) está activado, Braze reintentará las llamadas fallidas respetando el límite de velocidad que hayas establecido para cada reenvío. Consideremos el escenario de enviar 75 000 mensajes con un límite de velocidad de 10 000 por minuto. Imagina que en el primer minuto, la llamada falla o es lenta y solo envía 4000 mensajes.
+Cuando el [reintento de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries) está activado, Braze reintentará las llamadas fallidas respetando el límite de velocidad que hayas establecido para cada reenvío. Consideremos el escenario de enviar 75 000 mensajes con un límite de velocidad de 10 000 por minuto. Imagina que en el primer minuto, la llamada falla o es lenta y solo envía 4000 mensajes.
 
 En lugar de intentar compensar el retraso y enviar los 6000 mensajes restantes en el segundo minuto o añadirlos a los 10 000 que ya están programados para enviar, Braze moverá esos 6000 mensajes al "final de la cola" y añadirá un minuto, si es necesario, al total de minutos que tardaría en enviar tu mensaje.
 
@@ -164,7 +164,7 @@ En lugar de intentar compensar el retraso y enviar los 6000 mensajes restantes e
 | 7      | 10 000     | 10 000                    |
 | 8      | 5000      | 10 000                    |
 | 9      | 0          | 6000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Límite de velocidad y reintentos de contenido conectado" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rate limiting and Connected Content retries" }
 
 Las solicitudes de contenido conectado no tienen un límite de velocidad independiente y seguirán el límite de velocidad del webhook. Esto significa que si hay una llamada de contenido conectado a un punto de conexión único por webhook, esperarías 5000 webhooks y también 5000 llamadas de contenido conectado por minuto. Ten en cuenta que el almacenamiento en caché puede afectar esto y reducir el número de llamadas de contenido conectado. Además, los reintentos pueden aumentar las llamadas de contenido conectado, por lo que recomendamos verificar que el punto de conexión de contenido conectado pueda manejar cierta fluctuación aquí.
 
@@ -193,9 +193,11 @@ Cada línea de límites de frecuencia está conectada usando el operador `AND`, 
 
 ![Sección de limitación de frecuencia con listas de campañas y Canvas a las que las reglas se aplicarán y no se aplicarán.]({% image_buster /assets/img_archive/rate_limiting_overview_2.png %}){: style="max-width:90%;"}
 
-#### Comportamiento cuando los usuarios alcanzan el límite de frecuencia en un paso de Canvas {#behavior-when-users-are-frequency-capped-on-a-canvas-step}
+#### Comportamiento cuando los usuarios alcanzan el límite de frecuencia o un mensaje se aborta en un paso de Canvas {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
-Si un usuario de Canvas tiene limitación de frecuencia debido a la configuración global de limitación de frecuencia, el usuario avanzará inmediatamente al siguiente paso de Canvas. El usuario no saldrá del Canvas debido al límite de frecuencia.
+La limitación de frecuencia global por sí sola no hace que los usuarios salgan de un Canvas. En los [pasos de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), los usuarios siguen avanzando cuando un mensaje no se envía debido a la limitación de frecuencia global, en línea con [cómo avanzan los usuarios]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) a través del paso. Lo mismo aplica cuando un mensaje se aborta (por ejemplo, por una condición de aborto de Liquid): el usuario continúa a través del Canvas como si el mensaje se hubiera enviado.
+
+Esto es independiente de las **validaciones de entrega** en un paso de mensaje. Si un usuario no cumple con los criterios de validación de entrega en el momento del envío, puede salir del Canvas en ese paso.
 
 ### Reglas de entrega {#delivery-rules}
 
@@ -205,7 +207,7 @@ Si quieres que una campaña en particular anule las reglas de limitación de fre
 
 Después de esto, se te preguntará si aún quieres que esta campaña cuente para tu límite de frecuencia. Los mensajes que cuentan para la limitación de frecuencia se incluyen en los cálculos del filtro de canal inteligente.
 
-Al enviar [campañas de API]({{site.baseurl}}/developer_guide/rest_api/messaging/#messaging), que a menudo son transaccionales, tendrás la capacidad de especificar que una campaña debe ignorar las reglas de limitación de frecuencia estableciendo `override_frequency_capping` en `true` en la solicitud de API.
+Al enviar [campañas de API]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), que a menudo son transaccionales, tendrás la capacidad de especificar que una campaña debe ignorar las reglas de limitación de frecuencia estableciendo `override_frequency_capping` en `true` en la solicitud de API.
 
 De forma predeterminada, las nuevas campañas y Canvas que no obedecen los límites de frecuencia tampoco contarán para ellos. Esto es configurable para cada campaña y Canvas.
 
@@ -215,7 +217,13 @@ Este comportamiento cambia el comportamiento predeterminado cuando desactivas la
 
 ![Sección de controles de entrega con la limitación de frecuencia activada.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
 
-Los diferentes canales dentro de una campaña multicanal cuentan individualmente para el límite de frecuencia. Por ejemplo, si creas una campaña multicanal con push y correo electrónico y tienes configurada la limitación de frecuencia para ambos canales, entonces el push cuenta como una campaña push y el mensaje de correo electrónico cuenta como una campaña de correo electrónico. La campaña también cuenta como una "campaña de cualquier tipo". Si los usuarios están limitados a una campaña push y una de correo electrónico por día, y un usuario recibe esta campaña multicanal, entonces ya no son elegibles para campañas push o de correo electrónico durante el resto del día (a menos que una campaña ignore las reglas de limitación de frecuencia).
+#### Cómo cuentan los envíos para los límites {#how-sends-count-toward-caps}
+
+La limitación de frecuencia se aplica por despacho: cada vez que Braze envía una campaña o componente de Canvas a un usuario cuenta para tus límites, no cada variante de mensaje o plataforma dentro de ese envío. Por ejemplo, si los usuarios están limitados a cinco campañas push por semana, no recibirán ninguna campaña push después del quinto despacho hasta que se restablezca el límite.
+
+##### Envíos multicanal {#multichannel-sends}
+
+Cuando un solo despacho usa múltiples canales, ese despacho cuenta como máximo una vez por cada regla de limitación de frecuencia que aplique. Por ejemplo, si creas una campaña multicanal que envía correo electrónico, push de iOS y push de Android en una sola entrega y tu espacio de trabajo tiene reglas para push y correo electrónico, y una regla que aplica a todos los canales, esa entrega cuenta una vez para la regla de push, una vez para la regla de correo electrónico y una vez para la regla de todos los canales; no cuenta una vez por plataforma push ni por mensaje dentro del envío. Si los usuarios están limitados a una campaña push y una de correo electrónico por día y reciben esta campaña multicanal, no son elegibles para campañas push o de correo electrónico adicionales durante el resto del día, a menos que una campaña ignore las reglas de limitación de frecuencia.
 
 Los mensajes dentro de la aplicación y Content Cards no se cuentan como ni para los límites de campañas o componentes de Canvas de ningún tipo.
 
@@ -325,14 +333,32 @@ Esta regla determina que ningún usuario reciba más de 100 correos electrónico
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
-### Si cambio un límite de envío en un Canvas activo, ¿afecta a los usuarios que ya están en el Canvas? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
+### Si cambio la limitación de envío en un Canvas activo, ¿afecta a los usuarios que ya están en el Canvas? {#if-i-change-a-send-throttle-on-an-active-canvas-does-it-affect-users-already-in-the-canvas}
 
-Sí, cuando aumentas o disminuyes un límite de velocidad de Canvas, el límite actualizado entrará en vigor para los nuevos mensajes en aproximadamente 30 segundos del cambio debido al almacenamiento en caché.
+Sí, cuando aumentas o reduces un límite de velocidad de Canvas, el límite actualizado se aplica a los nuevos mensajes en aproximadamente 30 segundos desde el cambio debido al almacenamiento en caché.
 
 ### ¿La limitación de frecuencia hace que los usuarios salgan de un Canvas? {#does-frequency-capping-cause-users-to-exit-a-canvas}
 
-No. Si un usuario de Canvas tiene limitación de frecuencia debido a la configuración global de limitación de frecuencia, el usuario avanzará inmediatamente al siguiente paso de Canvas. El usuario **no** saldrá del Canvas debido al límite de frecuencia.
+No. Si un usuario de Canvas tiene limitación de frecuencia debido a la configuración de limitación de frecuencia global, el usuario avanza inmediatamente al siguiente paso de Canvas. El usuario **no** sale del Canvas debido al límite de frecuencia.
 
 ### ¿Cómo puedo identificar a los usuarios que fueron limitados por frecuencia en un Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-Los usuarios que tienen limitación de frecuencia no generan un evento de envío para ese paso. Para identificar a estos usuarios, puedes usar [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para rastrear eventos de mensajes con limitación de frecuencia. Alternativamente, puedes crear una [extensión de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para analizar a los usuarios que entraron en el Canvas pero no recibieron el mensaje esperado.
+Los usuarios con limitación de frecuencia no generan un evento de envío para ese paso. Para identificar a estos usuarios, puedes usar [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear eventos de limitación de frecuencia de mensajes. Alternativamente, puedes crear una [extensión de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para analizar a los usuarios que entraron en el Canvas pero no recibieron el mensaje esperado.
+
+### ¿Por qué el dashboard muestra un error de límite de velocidad para mi campaña? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+
+Esto generalmente significa que el [límite de velocidad de entrega](#delivery-speed-rate-limiting) de la campaña está configurado demasiado bajo para el tamaño de la audiencia, por lo que completar el envío tardaría más de la ventana permitida y Braze muestra una advertencia. Aumenta el límite de velocidad de entrega, reduce la audiencia o usa **Limit send volume** para que cada envío planificado se complete dentro de la ventana de envío permitida. También puedes establecer un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) para aplicar un límite en todas las campañas.
+
+**Limit send volume** controla cuántos usuarios son elegibles para un envío, no cuántos mensajes envía Braze por minuto. Solo un límite de velocidad de entrega establece el rendimiento por minuto.
+
+### ¿Qué significa "Enviado" para la limitación de frecuencia? {#what-does-sent-mean-for-frequency-capping}
+
+En análisis y limitación de frecuencia, _Enviado_ se refiere a cuando Braze despacha el mensaje (el envío se registra), no a la entrega final garantizada al dispositivo o buzón de entrada. La limitación de frecuencia y los recuentos de envío usan estos eventos de envío registrados, que pueden diferir de las métricas de "entregado" posteriores.
+
+### ¿Por qué veo rebotes o aplazamientos de correo electrónico? {#why-am-i-seeing-email-bounces-or-deferrals}
+
+Los mensajes de rebote y aplazamiento de correo electrónico usan muchos códigos diferentes y texto específico del proveedor. No trates un código en particular como señal de un problema de límite de velocidad, ya que la causa depende de tu contexto de envío y la retroalimentación del proveedor de buzón.
+
+Si los mensajes se aplazan temporalmente, enviar menos puede ayudar a corto plazo. Usa un [límite de velocidad de entrega](#delivery-speed-rate-limiting), **Limit send volume**, o ambos.
+
+Para una solución a largo plazo, trabaja con un experto en capacidad de entrega para revisar tus datos de rebotes y aplazamientos.

@@ -3,19 +3,19 @@ nav_title: "ユニバーサルリンクとApp Links"
 article_title: "ユニバーサルリンクとApp Links"
 page_order: 6.4
 page_type: reference
-description: "この記事では、Apple ユニバーサルリンクと Android App Links の設定方法について説明します。"
+description: "この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。"
 channel: email
 ---
 
 # ユニバーサルリンクとApp Links {#universal-links-and-app-links}
 
-> この記事では、Apple ユニバーサルリンクと Android App Links の設定方法について説明します。
+> この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。
 
 {% alert tip %}
-すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASA ファイルが必要なタイミングに関するガイダンスについては、[iOS ディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
+すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
 {% endalert %}
 
-Apple ユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
+Appleユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
 
 ## ユニバーサルリンクとApp Linksの仕組み {#how-universal-links-and-app-links-work}
 
@@ -33,7 +33,7 @@ Apple ユニバーサルリンクと Android App Linksは、Webコンテンツ�
 | 目的                | iOSおよびAndroidデバイスでWebとアプリのコンテンツをシームレスにリンク | 特定のアプリコンテンツにリンク |
 | 機能               | コンテキストに基づいてWebページまたはアプリコンテンツに誘導           | 特定のアプリ画面を開く   |
 | アプリのインストール       | アプリがインストールされている場合はアプリを開き、それ以外の場合はWebコンテンツを開く | アプリのインストールが必要 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユニバーサルリンクとApp Linksの仕組み" }
 
 ## ユースケース {#use-cases}
 
@@ -75,7 +75,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 ### ステップ1:アプリのエンタイトルメントを設定する {#step-1-configure-your-app-entitlements}
 
 {% alert note %}
-[Xcode 13以降](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/)では、Xcodeがエンタイトルメントのプロビジョニングを自動的に処理できます。[ステップ1c](#step-1c)に進み、問題が発生した場合にこれらの手順を参照してください。
+[Xcode 13以降](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/)では、Xcodeがエンタイトルメントのプロビジョニングを自動的に処理できます。[ステップ&nbsp;1c](#step-1c)に進み、問題が発生した場合にこれらの手順を参照してください。
 {% endalert %}
 
 #### ステップ1a:アプリを登録する {#step-1a}
@@ -93,7 +93,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 2. **Associated Domains**を選択します。
 3. **Save**をクリックします。
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![App Servicesセクション]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする {#step-1c}
 
@@ -113,7 +113,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 
 ドメインセクションで、適切なドメインタグを追加します。`applinks:`をプレフィックスとして付ける必要があります。この例では、`applinks:yourdomain.com`を追加しています。
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Associated Domainsセクション]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### ステップ1e:エンタイトルメントファイルがビルドに含まれていることを確認する {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -225,15 +225,16 @@ Androidアプリで、受信するディープリンクを処理する必要が�
 クリックトラッキングリンクは通常、メールのオンボーディングの一環として設定されます。顧客のオンボーディング中に完了しなかった場合は、アカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-メール送信パートナーであるSendGridとSparkPostは、クリックトラッキングドメインを使用してすべてのリンクをラップし、BrazeメールのクリックトラッキングのURLパラメーターを含めます。
+メール送信パートナーは、クリックトラッキングドメインを使用してすべてのリンクをラップし、BrazeメールのクリックトラッキングのURLパラメーターを含めます。
 
 たとえば、`https://www.example.com`のようなリンクは`https://links.email.example.com/uni/wf/click?upn=abcdef123456…`のようになります。
 
 クリックトラッキング付きのメールリンクをユニバーサルリンクまたはApp Linksとして機能させるには、追加の設定が必要です。クリックトラッキングドメイン（`links.email.example.com`）を、アプリが開くことを許可されるドメインとして追加してください。さらに、クリックトラッキングドメインはAASA（iOS）またはDigital Asset Links（Android）ファイルを提供する必要があります。これにより、クリックトラッキング付きのメールリンクがシームレスに機能するようになります。
 
-すべてのクリックトラッキングリンクをユニバーサルリンクまたはApp Linkにしたくない場合は、メール送信パートナーに基づいてどのリンクをユニバーサルリンクにするかを指定できます。詳細については、以下のセクションを参照してください。
+すべてのクリックトラッキングリンクをユニバーサルリンクまたはApp Linkにしたくない場合は、メール送信パートナーに基づいてどのリンクをユニバーサルリンクにするかを指定できます。詳細については、以下のタブを参照してください。
 
-### SendGrid
+{% tabs %}
+{% tab SendGrid %}
 
 SendGridのクリックトラッキングリンクをユニバーサルリンクとして扱うには、以下を行います。
 
@@ -255,7 +256,8 @@ AMPメールの場合、この属性はdata-universal="true"にする必要が�
 
 この設定により、URLパスに`/uni/`を含むリンクはユニバーサルリンクとして機能し、その他のすべてのリンクはWebリンクとして機能します。
 
-### SparkPost
+{% endtab %}
+{% tab SparkPost %}
 
 SparkPostのクリックトラッキングリンクをユニバーサルリンクとして扱うには、メールのドラッグ＆ドロップエディターの属性セクションに以下の属性を追加するか、リンクのHTMLを手動で編集してリンクのアンカータグに以下の属性を含めます：`data-msys-sublink="custom_path"`。
 
@@ -268,6 +270,83 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 ```
 
 次に、アプリがカスタムパスを適切に処理するように設定されていることを確認します。SparkPostの記事[Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links)を参照してください。この記事には[iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost)と[Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost)のサンプルコードが含まれています。
+
+{% endtab %}
+{% tab Amazon SES %}
+
+カスタムパスを使用して、メールのクリックトラッキングURLにパスセグメントを追加します。これにより、モバイルオペレーティングシステムがユニバーサルリンクやApp Linksとして認識できる予測可能なURLパターンが作成されます。
+
+ユーザーがモバイルデバイスでメールリンクをタップした際、カスタムパスを使用することで、リンクをメインのモバイルアプリ、専用アプリ、またはモバイルブラウザー（たとえば商品ページ、ロイヤルティプログラム、配信停止リンク、法的ページなど）のいずれで開くかを制御できます。
+
+Amazon SESのクリックトラッキングリンクをユニバーサルリンクまたはApp Linkとして扱うには、以下を行います。
+
+1. メールHTMLのアンカータグに`ses:custom-path`属性を追加するか、メールのドラッグ＆ドロップエディターの**属性**セクションで属性を追加します。カスタムパスはラップされたクリックトラッキングURLに挿入されます。
+
+例：
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+カスタムパスが以下の要件に従っていることを確認してください。
+
+- **形式:** 英数字、ドット、アンダースコア、ハイフンのみ
+- **長さ:** 1〜32文字
+- **大文字と小文字の区別:** パスはモバイルOSの要件に合わせて大文字と小文字が区別されます
+
+{:start="2"}
+2. ラップされたトラッキングURLにカスタムパスセグメントが含まれていることを確認します。リンクは次の形式に従います：`track.yourstore.com/L1/{customPath}/...`
+
+例：
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. クリックトラッキングドメインのサイトアソシエーションファイルを設定して、パスが`/L1/{customPath}/`に一致するようにします。
+
+**iOS（Apple App Site Association）：**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android（Digital Asset Links）：**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+アプリがこれらのラップされたリンクを処理するように設定されていることを確認してください。クリックトラッキングドメインをアプリのAssociated Domains（iOS）またはインテントフィルター（Android）に追加し、この記事で前述したとおりにAASAまたはDigital Asset Linksファイルをそのドメインにホストしてください。
+
+{% endtab %}
+{% endtabs %}
 
 ### リンクごとのクリックトラッキングの無効化 {#turning-off-click-tracking-on-a-link-to-link-basis}
 
@@ -317,7 +396,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 - **Name:** `data-msys-clicktrack`
 - **Value:** `0`
 
-![テキストリンクのカスタム属性。]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
+![テキストリンクのカスタム属性]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ##### ボタンまたは画像のカスタム属性 {#custom-attribute-for-a-button-or-image}
 
@@ -337,11 +416,15 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 - **Value:** `0`
 - **Type:** Link
 
-![ボタンのカスタム属性。]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
+![ボタンのカスタム属性]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ### クリックトラッキング付きユニバーサルリンクのトラブルシューティング {#troubleshooting-universal-links-with-click-tracking}
 
 メール内のユニバーサルリンクが期待どおりに機能しない場合（受信者がメールアプリからWebブラウザーに移動し、最終的にアプリにリダイレクトされるなど）、以下のヒントを参照してユニバーサルリンクの設定をトラブルシューティングしてください。
+
+#### Outlookでボタンの代わりに`[?it=`や生のURLテキストが表示される {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+
+Outlookでは、リンクが有効な**`http://`または`https://`** URLスキームを使用していない場合、コールトゥアクションテキストとして`[?it=`が表示されたり、`href`の一部が印刷されたりすることがあります。カスタムスキーム、スキームの欠落、または不正なURLはハイパーリンクとして扱われないため、クライアントは属性テキストを代わりに表示します。すべてのボタン、画像リンク、およびトラッキングURLが完全な`https://`（または`http://`）の送信先を使用していることを確認してください。これはユニバーサルリンクと標準的なWebリンクの両方に適用されます。
 
 #### リンクファイルの場所を確認する {#verify-link-file-location}
 
@@ -356,5 +439,12 @@ AASAファイル（iOS）またはDigital Asset Linksファイル（Android）�
 
 アプリが開くことを許可されるドメインの定義が正しいことを確認します。
 
-- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
+- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 - **Android:** アプリ情報ページを開きます（アプリアイコンを長押しして ⓘ をクリック）。アプリ情報メニュー内で**Open by default**を見つけてタップします。アプリが開くことを許可されているすべての検証済みリンクが表示される画面が表示されます。クリックトラッキングドメインがそのリストに含まれていることを確認します。
+
+#### トラッキングドメインが.well-knownファイルを提供できない場合 {#tracking-domain-cant-serve-well-known-files}
+
+場合によっては、ESPの制限やインフラの制約により、クリックトラッキングドメインが必要な`.well-known`ファイルをホストできないことがあります。トラッキングドメインにAASAまたはDigital Asset Linksファイルをホストできない場合は、以下のオプションを検討してください。
+
+- **ディープリンクURLのクリックトラッキングを選択的に無効にする:** 特定のユニバーサルリンクのクリックトラッキングを無効にして、メインドメイン（AASAまたはDigital Asset Linksファイルをホストできる場所）に直接移動するようにできます。この方法では、それらの特定のリンクのクリック分析が失われる可能性があることに注意してください。手順については、[リンクごとのクリックトラッキングの無効化](#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
+- **トラッキングサブドメインの前にCDNを配置する:** 完全なクリックトラッキングカバレッジとディープリンクの両方が必要な場合は、トラッキングサブドメインの前にCDN（CloudflareやCloudFrontなど）を配置できます。CDNを設定して`.well-known`ファイルをローカルで提供し、その他のすべてのトラフィックをESPにプロキシします。このアプローチはより複雑ですが、クリックトラッキングとユニバーサルリンクの両方を完全に制御できます。

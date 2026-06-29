@@ -104,7 +104,7 @@ AIクエリビルダーでSQLを生成するには:
 
 1. **クエリビルダー**ページから、**Reference**パネルを開き、**Available Data Tables**を選択して、利用可能なデータテーブルとその名前を表示します。
 3. <i class="fas fa-chevron-down" alt=""></i> **See Details**を選択して、テーブルの説明やデータタイプなどのテーブルカラムに関する情報を表示します。
-4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
+4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i> **Copy table name to SQL editor**を選択します。
 
 Brazeが提供するビルド済みクエリを使用するには、クエリビルダーでレポートを最初に作成するときに**Query Template**を選択します。
 
@@ -131,7 +131,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 | `CANVAS_ID` | Canvas名 |
 | `CANVAS_VARIATION_API_ID` | Canvasバリアント名 |
 | `CAMPAIGN_ID` | Campaign名 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Writing custom SQL queries" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムSQLクエリの記述" }
 
 このクエリは、3つのIDすべてとそれに関連する名前カラムを最大100行で取得します:
 
@@ -215,7 +215,7 @@ LIMIT 100
 | 開始日 | 開始日を指定します | `start_date`が必要 |
 | 終了日 | 終了日を指定します | `end_date`が必要 |
 | 日付範囲 | 開始日と終了日の両方を指定します | `start_date`と`end_date`の両方が必要 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example values" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="値の例" }
 
 - **置換値:** `start_date`と`end_date`を、UTCで指定された日付のUnixタイムスタンプ（秒単位）に置き換えます（`1696517353`など）。
 - **使用例:** 相対、開始日、終了日、日付範囲のすべての変数について:

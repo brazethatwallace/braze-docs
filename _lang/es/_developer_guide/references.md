@@ -10,6 +10,8 @@ toc_headers: h2
 
 > Esta es una lista de documentación de referencia, repositorios GitHub y aplicaciones de ejemplo pertenecientes a cada SDK de Braze. La documentación de referencia de un SDK detalla las clases, tipos, funciones y variables disponibles. El repositorio GitHub proporciona información sobre las declaraciones de funciones y atributos de ese SDK, los cambios en el código y el versionado. Cada repositorio también incluye aplicaciones de ejemplo totalmente compilables que puedes utilizar para probar las características de Braze o implementar junto con tus propias aplicaciones.
 
+Para ver el contenido del README del repositorio reflejado en la documentación, consulta [Guías de repositorios]({{site.baseurl}}/developer_guide/sdk_repository_guides/).
+
 ## Lista de recursos {#list-of-resources}
 
 {% alert note %}
@@ -24,7 +26,8 @@ Actualmente, algunos SDK no cuentan con documentación de referencia específica
 | SDK de Javascript | [Documentación de referencia](https://braze-inc.github.io/braze-javascript-sdk/) | [Repositorio GitHub](https://github.com/braze-inc/braze-javascript-sdk/tree/main) | N/A |
 | SDK de Cordova | [Archivo de declaración](https://github.com/braze-inc/braze-cordova-sdk/blob/master/www/BrazePlugin.js) | [Repositorio GitHub](https://github.com/braze-inc/braze-cordova-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-cordova-sdk/tree/master/sample-project) |
 | SDK de Flutter | [Documentación de referencia](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/) | [Repositorio GitHub](https://github.com/braze-inc/braze-flutter-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-flutter-sdk/tree/master/example) |
-| SDK de React Native | [Archivo de declaración](https://github.com/braze-inc/braze-react-native-sdk/blob/master/src/index.d.ts) | [Repositorio GitHub](https://github.com/braze-inc/braze-react-native-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| SDK de React Native | [Documentación de referencia](https://braze-inc.github.io/braze-react-native-sdk/) | [Repositorio GitHub](https://github.com/braze-inc/braze-react-native-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject) |
+| SDK de Vega | [Documentación de referencia](https://braze-inc.github.io/braze-vega-sdk/) | [Repositorio GitHub](https://github.com/braze-inc/braze-vega-sdk) | N/A |
 | SDK de Roku | N/A | [Repositorio GitHub](https://github.com/braze-inc/braze-roku-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-roku-sdk/tree/main/torchietv) |
 | SDK de Unity | [Archivo de declaración](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs) | [Repositorio GitHub](https://github.com/braze-inc/braze-unity-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) |
 | SDK de .NET MAUI (antes Xamarin) | N/A | [Repositorio GitHub](https://github.com/braze-inc/braze-xamarin-sdk) | [Aplicación de ejemplo](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples) |

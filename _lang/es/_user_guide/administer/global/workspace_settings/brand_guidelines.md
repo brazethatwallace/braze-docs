@@ -3,14 +3,14 @@ nav_title: Directrices de marca
 article_title: Directrices de marca
 page_order: 1
 page_type: reference
-description: "Este artículo de referencia describe cómo crear, administrar y utilizar directrices de marca que pueden aplicarse a tus mensajes a través del asistente de redacción con inteligencia artificial."
+description: "Este artículo de referencia describe cómo crear, administrar y utilizar directrices de marca que Operator aplica al generar textos, plantillas e imágenes."
 ---
 
 # Directrices de marca {#brand-guidelines}
 
 > Adapta el estilo de tus textos generados por IA para que coincidan con la voz, el tono y la personalidad de tu marca con directrices de marca personalizadas.
 
-Puedes crear y administrar tus directrices de marca yendo a **Configuración** > **Directrices de marca**. También puedes crearlas en el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/brand_guidelines/).
+Crea y administra directrices de marca desde **Contenido** > **Directrices de marca**.
 
 ## Creación de directrices de marca {#creating-brand-guidelines}
 
@@ -20,7 +20,7 @@ En la página **Directrices de marca**, selecciona **Crear nuevo**. Si quieres q
 
 ### Paso 2: Describe la personalidad de tu marca {#step-2-describe-your-brand-personality}
 
-Para la **Personalidad de marca**, piensa en lo que hace única a tu marca. Incluye rasgos, valores, voz y cualquier arquetipo que defina tu marca. Aquí tienes algunas características a tener en cuenta:
+Para **Personalidad de marca**, piensa en lo que hace única a tu marca. Incluye rasgos, valores, voz y cualquier arquetipo que defina tu marca. Aquí tienes algunas características a tener en cuenta:
 
 | **Característica**       | **Definición**                                                                       | **Ejemplo**                                                        |
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -44,7 +44,7 @@ Prueba tus directrices para ver cómo funcionan. Expande **Probar tus directrice
 
 ### Paso 5: Guarda tus directrices {#step-5-save-your-guidelines}
 
-Cuando estés conforme con tus directrices, selecciona **Guardar directriz de marca**. Tus nuevas directrices se guardarán en tu espacio de trabajo para uso futuro.
+Cuando estés conforme con tus directrices, selecciona **Guardar directriz de marca**. Tus directrices se guardarán en tu espacio de trabajo para uso futuro.
 
 {% alert important %}
 Puedes cambiar el idioma de salida independientemente del idioma en el que esté tu texto, pero ni Braze ni OpenAI garantizan la calidad de la traducción. Siempre prueba y verifica las traducciones antes de usarlas.
@@ -52,14 +52,12 @@ Puedes cambiar el idioma de salida independientemente del idioma en el que esté
 
 ## Administrar directrices de marca {#managing-brand-guidelines}
 
-Puedes editar las directrices de marca seleccionándolas en la página **Directrices de marca**. Archiva una directriz de marca para desactivarla y quitarla del asistente de redacción con inteligencia artificial. Para activarla y que sea seleccionable de nuevo, puedes filtrar por directrices de marca archivadas y luego desarchivarla.
-
-![La página «Directrices de marca» filtrada por directrices de marca archivadas.]({% image_buster /assets/img/unarchive_brand_guideline.png %})
+Puedes editar las directrices de marca seleccionándolas en la página **Directrices de marca**. Archiva una directriz de marca para desactivarla y que no esté disponible en los creadores de mensajes. Para activarla y que sea seleccionable de nuevo, puedes filtrar por directrices de marca archivadas y luego desarchivarla.
 
 ## Usar directrices de marca {#using-brand-guidelines}
 
-Al redactar un mensaje, abre el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) y selecciona tu directriz de marca en el menú desplegable **Aplicar directriz de marca**. Si designas una directriz de marca específica como predeterminada, se seleccionará automáticamente en el menú desplegable, pero puedes elegir una directriz diferente.
+Al redactar un mensaje, abre Operator para [generar texto]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) y selecciona tu directriz de marca en el menú desplegable **Aplicar directriz de marca**. Si designas una directriz de marca específica como predeterminada, Braze la selecciona automáticamente en el menú desplegable, pero puedes elegir una directriz diferente.
 
-![El asistente de redacción con inteligencia artificial con «Important Alerts!!» seleccionado como directriz de marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
+![Operator con «Important Alerts!!» seleccionado como directriz de marca.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

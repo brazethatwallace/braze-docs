@@ -20,22 +20,22 @@ Assista ao vídeo a seguir para uma visão geral opcional sobre como configurar 
 {% tabs %}
 {% tab Locais multilíngues %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Tipos de mensagem %}
 
 | Recurso | Permissões de usuário necessárias |
 | --- | --- |
-| Tipos&nbsp;de&nbsp;mensagem | Você precisa destas permissões para adicionar locais e traduções a Campaigns e Canvas:<br><br> {::nomarkdown}Permissões granulares: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> Permissões legadas: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
+| Tipos&nbsp;de&nbsp;mensagem | Você precisa destas permissões para adicionar locais e traduções a Campaigns e Canvas:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos"}
 
 {% endtab %}
 {% tab Modelos %}
 
 | Recurso | Permissões de usuário necessárias |
 | --- | --- |
-| Modelos | Você precisa destas permissões para o tipo de modelo ao qual deseja adicionar locais e traduções:<br><br> {::nomarkdown}Permissões granulares: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> Permissões legadas: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
+| Modelos | Você precisa destas permissões para o tipo de modelo ao qual deseja adicionar locais e traduções:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% endtab %}

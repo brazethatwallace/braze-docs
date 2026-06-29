@@ -17,8 +17,6 @@ description: "이 문서에서는 이메일 템플릿에 대한 번역 업데이
 
 > 이 엔드포인트를 사용하여 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)에 대한 번역을 업데이트합니다. 번역 기능에 대한 자세한 내용은 [메시지의 로케일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)을 참조하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `templates.translations.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.

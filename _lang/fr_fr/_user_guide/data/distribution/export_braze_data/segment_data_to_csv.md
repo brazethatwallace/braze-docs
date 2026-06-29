@@ -114,6 +114,10 @@ Lorsque vous exportez les données utilisateur d'une étape Canvas, le fichier C
 Pour obtenir de l'aide sur les exportations CSV et API, consultez notre article de [résolution des problèmes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
+{% alert note %}
+Les données des groupes d'abonnement ne sont pas disponibles via les exportations de segment. Pour identifier les utilisateurs par statut d'abonnement, créez un segment distinct basé sur l'appartenance à un groupe d'abonnement et exportez ce segment.
+{% endalert %}
+
 ## Exporter des segments volumineux {#exporting-large-segments}
 
 Il existe plusieurs méthodes pour exporter un segment d'utilisateurs volumineux contenant plus de 500 000 utilisateurs.
@@ -133,9 +137,11 @@ Vous pouvez également utiliser des [numéros de compartiment aléatoire]({{site
 {% endtab %}
 {% tab Endpoints %}
 
-Vous pouvez également tirer parti des endpoints suivants pour exporter les données utilisateur d'un segment spécifique. Notez que ces endpoints sont soumis à des limites de données.
+Vous pouvez également tirer parti des endpoints suivants pour exporter les données utilisateur d'un segment spécifique. Notez que ces endpoints sont soumis à des limites de données et à des [limites de débit]({{site.baseurl}}/api/basics/).
 - [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
 - [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+
+Si vous avez connecté vos [identifiants Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration), les exportations volumineuses peuvent être livrées dans votre compartiment en plus du lien de téléchargement envoyé par e-mail, comme décrit dans [Détails de l'exportation CSV de segment](#segment-csv-export-details).
 
 {% endtab %}
 {% endtabs %}

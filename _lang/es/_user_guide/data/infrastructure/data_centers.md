@@ -22,27 +22,27 @@ Supongamos que tienes una aplicación móvil que envía notificaciones push a lo
 
 ### Australia {#australia}
 
-{% multi_lang_include data_centers.md datacenters='AU' %}
+{% multi_lang_include administer/data_centers.md datacenters='AU' %}
 
 ### Unión Europea {#european-union}
 
-{% multi_lang_include data_centers.md datacenters='EU' %}
+{% multi_lang_include administer/data_centers.md datacenters='EU' %}
 
 ### Indonesia {#indonesia}
 
-{% multi_lang_include data_centers.md datacenters='ID' %}
+{% multi_lang_include administer/data_centers.md datacenters='ID' %}
 
 ### Japón {#japan}
 
-{% multi_lang_include data_centers.md datacenters='JP' %}
+{% multi_lang_include administer/data_centers.md datacenters='JP' %}
 
 ### Corea del Sur {#south-korea}
 
-{% multi_lang_include data_centers.md datacenters='KR' %}
+{% multi_lang_include administer/data_centers.md datacenters='KR' %}
 
 ### Estados Unidos {#united-states}
 
-{% multi_lang_include data_centers.md datacenters='US' %}
+{% multi_lang_include administer/data_centers.md datacenters='US' %}
 
 ## Registrarse en centros de datos específicos de una región {#signing-up-for-region-specific-data-centers}
 

@@ -27,7 +27,7 @@ After upgrading the SDK, your mobile users must upgrade their app. You can filte
 {% tabs %}
 {% tab Campaign %}
 
-You can choose when Braze creates a card on the **Delivery** step when creating a new [Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) with scheduled delivery.
+You can choose when Braze creates a card on the **Delivery** step when creating a new [Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) with scheduled delivery.
 
 ![Content Card Controls section when editing the delivery of a scheduled Content Card.]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -41,7 +41,7 @@ Regardless of your selected option, the Content Card expiration date countdown b
 {% endtab %}
 {% tab Canvas %}
 
-You can choose when Braze creates a card on the **Messaging Channels** tab of a Content Card [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+You can choose when Braze creates a card on the **Messaging Channels** tab of a Content Card [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
 
 ![Content Card Controls section when editing the delivery of a scheduled Content Card.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
@@ -67,6 +67,10 @@ Select the option to remove Content Cards when users complete a purchase or perf
 In the **Expiration (Time in Feed)** settings, you can select **Personalize duration** to set the expiration of the Content Card using context variables.
 
 ![Expiration settings showing Personalize duration configured with a context variable for Content Card expiration.]({% image_buster /assets/img/content_card_personalize_duration.png %})
+
+{% alert important %}
+Content Cards have a maximum expiration of 30 days, even when using personalized duration with context variables. Any value set beyond 30 days is capped at 30 days. For more details, refer to [Card expiration]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#card-expiration).
+{% endalert %}
 
 {% endtab %}
 {% endtabs %}
@@ -127,11 +131,15 @@ This section describes the main differences between card creation at campaign la
 
 ## Considerations
 
-### Using Canvas context properties
+### Multichannel campaigns
 
-When personalizing Content Cards with [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), use the `${...}` syntax (for example, {%raw%}`{{context.${property_name}}}`{%endraw%}). Dot notation without the syntax (for example, {%raw%}`{{context.property_name}}`{%endraw%}) may not resolve correctly in Content Cards, even if it works in other channels like push and email.
+Multichannel campaigns do not support at-first impression cards, so all Content Cards are sent at campaign launch. 
 
-### Changing card creation after launch
+### Use Canvas context properties {#using-canvas-context-properties}
+
+When personalizing Content Cards with [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), use the `${...}` syntax (for example, {%raw%}`{{context.${property_name}}}`{%endraw%}). Dot notation without the syntax (for example, {%raw%}`{{context.property_name}}`{%endraw%}) may not resolve correctly in Content Cards, even if it works in other channels like push and email.
+
+### Change card creation after launch {#changing-card-creation-after-launch}
 
 Braze recommends not changing how cards are created after a campaign has launched. Due to the differences in how Messages Sent is calculated between the two card creation types, changing how cards are created after the campaign has launched can affect the accuracy of your send volume.
 
@@ -139,9 +147,8 @@ Braze recommends not changing how cards are created after a campaign has launche
 
 For large audiences, select the option to create cards at first impression so cards are available quickly after launch. Campaigns triggered on session start may also benefit from moving to create at first impression (available through scheduled delivery) to improve performance.
 
-When cards are created at first impression, it may take 1-2 seconds for the cards to process. The length of this processing time depends on various factors, such as the card size and the complexity of the message templating options. For example, the processing time for cards using Connected Content will be at least as long as the Connected Content response time.
+When cards are created at first impression, it may take a few seconds for the cards to process. The length of this processing time depends on various factors, such as the card size and the complexity of the message templating options. For example, the processing time for cards using Connected Content is at least as long as the Connected Content response time.
 
 ### Previous SDK versions
 
 If a user's app runs a previous SDK version, they still receive Content Cards you send. However, cards take longer to appear and may not show until the next Content Card sync.
-

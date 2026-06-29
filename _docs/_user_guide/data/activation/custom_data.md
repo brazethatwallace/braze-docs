@@ -24,7 +24,7 @@ Think of custom attributes as the persistent traits or properties of your users.
 - **Personalization:** Attributes are perfect for personalization. You can pull a user's `favorite_category` into an email subject line to catch their eye.
 - **Storage:** This data stays on a user's profile indefinitely as long as the profile remains active.
 
-For more information, refer to [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+For more information, refer to [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 
 ### Custom events: What your users do
 
@@ -35,7 +35,7 @@ Custom events track specific actions your users take at a single point in time. 
 - **Metadata:** You can add extra details to an event using event properties, such as the name of the item added to a cart.
 - **Analytics:** Events power segmentation, reporting, and analytics so you can measure engagement and optimize your messaging.
 
-For more information, refer to [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/).
+For more information, refer to [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
 ## Catalogs
 
@@ -43,13 +43,13 @@ While attributes and events focus on your users, catalogs allow you to bring in 
 
 By importing this metadata through CSV or API, you can enrich your messages with information that isn't stored on the user profile. For example, you can use a catalog to automatically notify customers when an item they previously viewed is back in stock or has dropped in price.
 
-For more information, refer to [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/).
+For more information, refer to [Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs).
 
 ## Data types
 
 Braze supports several data types for your custom data—including boolean, number, string, array, time, and object types—each with specific behaviors and segmentation options. The data type you choose affects how you can filter and personalize in campaigns and segments.
 
-For a full reference of supported data types for custom attributes, event properties, and catalogs, refer to [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/).
+For a full reference of supported data types for custom attributes, event properties, and catalogs, refer to [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
 ## Managing your data integrity
 
@@ -66,4 +66,4 @@ If you find that certain attributes or events are no longer useful or were added
 - **Blocklist:** This stops Braze from collecting new data for that object. It prevents the data from appearing in filters or graphs but keeps the existing data on profiles.
 - **Delete:** This permanently removes the data from all user profiles. You must blocklist a data object for 7 days before it becomes eligible for deletion.
 
-For more information, refer to [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) and [Blocklist custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/).
+For more information, refer to [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) and [Blocklist custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).

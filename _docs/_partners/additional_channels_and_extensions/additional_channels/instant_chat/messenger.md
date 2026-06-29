@@ -12,13 +12,14 @@ search_tag: Partner
 
 > [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) is one of the world's most popular instant messaging platforms, used by nearly one billion monthly active users. Through this platform, brands can create engaging chatbots to interact intelligently and automatically with their customers.
 
-The Braze and Facebook integration leverages Braze webhooks, segmentation, personalization, and triggering features to message your users in Facebook Messenger through the Messenger Platform API. A custom Facebook Messenger webhook template is included in our platform under **Templates** > **Webhook Templates**.
+The Braze and Facebook integration leverages Braze webhooks, segmentation, personalization, and triggering features to message your users in Facebook Messenger through the Messenger Platform API. A custom Facebook Messenger webhook template is included in our platform under **Content** > **Webhook**.
 
 The Facebook Messenger platform is intended for "non-promotional messages that facilitate a pre-existing transaction, provide other customer support actions, or deliver content requested by a person." To read more, see [Facebook's platform guidelines](https://developers.facebook.com/docs/messenger-platform) and [examples of acceptable use cases](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable).
 
 ## Prerequisites
 
 Acknowledge the following before proceeding with integration:
+
 - Facebook does not allow the usage of the Messenger platform to send marketing messages. 
 - You will need the user's explicit permission for messages from your page. 
 - To send messages to users who are not test users of your Facebook App, your app will need to pass Facebook's [app review](https://developers.facebook.com/docs/messenger-platform/app-review).<br><br>
@@ -70,7 +71,12 @@ Once you are confident that you are receiving PSIDs, coordinate and share this w
 
 ### Step 3: Set up your webhook template
 
-From **Templates & Media**, go to **Webhook Templates** and choose the **Facebook Messenger Webhook Template**.
+To create a Facebook Messenger webhook template:
+
+1. Go to **Content** > **Webhook** and select **Create webhook template**.
+2. Select **Templates** > **Braze templates**.
+3. Find and select the "Facebook Messenger" template.
+4. Select **Select template**.
 
 1. Provide a template name and add teams and tags, as necessary.
 2. Enter your message or choose a message template from [those made available by Facebook](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages). You can also choose your message [type](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) or [tag](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags).

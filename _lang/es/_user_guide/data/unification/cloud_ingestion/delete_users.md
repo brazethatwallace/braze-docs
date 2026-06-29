@@ -13,13 +13,13 @@ description: "Esta página ofrece un resumen del proceso para eliminar usuarios 
 
 Las sincronizaciones de eliminación de usuarios son compatibles con todos los orígenes de datos disponibles de la Ingesta de datos de Cloud.
 
-## Configurar la integración {#configuring-the-integration}
+## Configurar la integración {#configure-the-integration}
 
 Sigue el proceso estándar para [crear una nueva integración en el panel de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) para el almacén de datos al que quieras conectarte. Asegúrate de incluir un rol que pueda acceder a la tabla de eliminación. En la página **Create import sync**, configura el **Data Type** en **Delete Users** para que se realicen las acciones adecuadas durante la ejecución de la integración para eliminar usuarios.
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
-## Configuración del origen de datos {#configuring-source-data}
+## Configurar los datos de origen {#configure-source-data}
 
 Las tablas de origen para las eliminaciones de usuarios deben incluir uno o más tipos de identificadores de usuario y una marca de tiempo `UPDATED_AT`. Las columnas de carga útil no son compatibles con los datos de eliminación de usuarios.
 
@@ -120,7 +120,7 @@ Con la Ingesta de datos de Cloud de Braze, configuras una integración entre tu 
 Cuando se ejecuta una sincronización, Braze se conecta directamente a tu instancia de almacén de datos, recupera todos los datos nuevos de la tabla especificada y elimina los perfiles de usuario correspondientes en tu panel de Braze.
 
 {% alert warning %}
-La eliminación de perfiles de usuario no se puede deshacer. Eliminará permanentemente a los usuarios, lo que puede causar discrepancias en tus datos. Consulta [eliminar un perfil de usuario]({{site.baseurl}}/help/help_articles/api/delete_user/) para obtener más información.
+La eliminación de perfiles de usuario no se puede deshacer. La acción de eliminación borra permanentemente a los usuarios, lo que puede causar discrepancias en tus datos. Para más detalles, consulta [Efectos de eliminar perfiles de usuario]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

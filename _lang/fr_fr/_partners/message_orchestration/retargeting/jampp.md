@@ -40,7 +40,7 @@ Cette intégration prend en charge les applications iOS et Android.
 
 ### Étape 1 : Créer un modèle de webhook dans Braze {#step-1-create-a-webhook-template-in-braze}
 
-Pour créer un modèle de webhook Jampp à utiliser dans de futures Campaigns ou Canvas, accédez à **Templates** > **Webhook Templates** dans la plateforme Braze.
+Pour créer un modèle de webhook Jampp à utiliser dans de futures Campaigns ou Canvas, accédez à **Contenu** > **Webhook** dans le tableau de bord de Braze. Ensuite, sélectionnez **Créer un modèle de webhook**.
 
 Si vous souhaitez réaliser une Campaign webhook Jampp ponctuelle ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle Campaign.
 
@@ -78,8 +78,8 @@ Braze ne collecte pas automatiquement l'IDFA/AAID de l'appareil, vous devez donc
 
 Le webhook Jampp nécessite une méthode HTTP et un en-tête de requête.
 
-- **HTTP Method** : GET
-- **Request Headers** :
+- **Méthode HTTP** : GET
+- **En-têtes de requête** :
   - **Content-Type** : application/json
 
 ![Les en-têtes de requête, la méthode HTTP et la prévisualisation du message affichés dans le générateur de webhooks Braze.]({% image_buster /assets/img/jampp_method.png %})
@@ -93,5 +93,5 @@ Vous n'avez pas besoin de définir un corps de requête pour ce webhook.
 Prévisualisez le message pour vous assurer que la requête s'affiche correctement pour les différents utilisateurs. Nous vous recommandons de prévisualiser et d'envoyer des requêtes de test pour les utilisateurs Android et iOS. Si la requête aboutit, l'API répondra par `HTTP 204`.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Saved Webhook Templates** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

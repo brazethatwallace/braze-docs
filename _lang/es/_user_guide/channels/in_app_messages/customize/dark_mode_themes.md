@@ -34,9 +34,13 @@ Puedes usar esta característica incluso si tu aplicación no ofrece su propio t
 
 ### Usar el modo oscuro de forma consistente {#using-dark-mode-consistently}
 
-Para usar el modo oscuro en todos los mensajes dentro de la aplicación, ve a **Plantillas** > **Plantillas de mensajes dentro de la aplicación**.
+Para usar el modo oscuro en todos los mensajes dentro de la aplicación, primero crea un perfil de color que se alinee con tu tema de modo oscuro.
 
-Desde allí, selecciona [Crear perfil de color]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) en el menú desplegable. Crea un perfil de color que se alinee con tu tema de modo oscuro. Luego, cada vez que crees una versión de modo oscuro de un mensaje dentro de la aplicación, puedes seleccionar ese perfil de color y mantener la apariencia de tus mensajes dentro de la aplicación de forma consistente.
+1. Ve a **Content** > **In-App Message**.
+2. Selecciona **Create Templates** y elige [Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/#color-profile) en el menú desplegable.
+3. Crea y guarda tu perfil de color.
+
+Al crear una versión de modo oscuro de un mensaje dentro de la aplicación, puedes seleccionar ese perfil de color para mantener la apariencia de tus mensajes dentro de la aplicación de forma consistente.
 
 ## Compatibilidad {#compatibility}
 
@@ -44,7 +48,7 @@ Desde allí, selecciona [Crear perfil de color]({{site.baseurl}}/user_guide/chan
 - Se requiere Braze iOS SDK v3.21.0+ y Braze Android SDK v3.8.0+.
 
 {% alert note %}
-Las aplicaciones con modo oscuro se introdujeron con Android 10 e iOS 13. Los usuarios que no hayan actualizado sus teléfonos al menos a estas versiones solo verán el tema claro. <br><br>Las campañas seguirán entregándose a todos los usuarios que sean elegibles para la audiencia que hayas seleccionado, independientemente de la configuración de modo oscuro o la versión del sistema operativo de los usuarios.
+Las aplicaciones con modo oscuro se introdujeron con Android 10 e iOS 13. Los usuarios que no hayan actualizado sus teléfonos al menos a estas versiones solo verán el tema claro. <br><br>Las Campaigns seguirán entregándose a todos los usuarios que sean elegibles para la audiencia que hayas seleccionado, independientemente de la configuración de modo oscuro o la versión del sistema operativo de los usuarios.
 {% endalert %}
 
 ## Usar mensajes dentro de la aplicación HTML {#using-html-in-app-messages}

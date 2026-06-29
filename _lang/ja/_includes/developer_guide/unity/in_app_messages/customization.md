@@ -17,7 +17,7 @@ Appboy.AppboyBinding.SetInAppMessageDisplayAction(BrazeUnityInAppMessageDisplayA
 
 ユーザーがアプリ内メッセージを操作する方法をより細かくコントロールする必要がある場合は、`BrazeInAppMessageListener` を使用してそれを `Appboy.AppboyBinding.inAppMessageListener` に割り当てます。使用しないデリゲートについては、単に `null` のままにしておくことができます。
 
-```csharp
+`````````csharp
 BrazeInAppMessageListener listener = new BrazeInAppMessageListener() {
   BeforeInAppMessageDisplayed = BeforeInAppMessageDisplayed,
   OnInAppMessageButtonClicked = OnInAppMessageButtonClicked,

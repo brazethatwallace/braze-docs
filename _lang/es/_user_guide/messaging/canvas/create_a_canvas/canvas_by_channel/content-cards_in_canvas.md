@@ -41,6 +41,16 @@ Aunque puedes especificar una duración de expiración superior a 30 días, la C
 
 Ten precaución al establecer una fecha de expiración con más de 30 días de anticipación respecto al lanzamiento del Canvas. Si un usuario llega al paso de mensaje más de 30 días antes de la fecha de expiración especificada, la tarjeta no se enviará.
 
+#### Caducidad personalizada con Liquid {#personalized-expiry-with-liquid}
+
+Cuando usas personalización con Liquid para establecer la duración de la caducidad (por ejemplo, usando atributos personalizados o propiedades de entrada de Canvas), el comportamiento difiere de las fechas absolutas o relativas:
+
+- Si la caducidad personalizada se resuelve en una duración superior a 30 días, Braze la limita automáticamente al máximo de 30 días.
+- La Content Card se sigue enviando al usuario con la caducidad limitada.
+- El usuario avanza al siguiente paso en el Canvas.
+
+Esta limitación garantiza que las tarjetas con caducidad personalizada se entreguen incluso cuando la duración resuelta supere el límite de la plataforma. El resultado del registro de procesamiento mostrará "Personalized expiration capped by max TTL" con detalles que indican `reason=capped_by_max_ttl` y `capped=true`.
+
 ### Comportamiento de expiración {#expiration-behavior}
 
 La Content Card permanece disponible en la fuente del usuario hasta que alcanza su fecha de expiración, incluso si el usuario avanza a pasos posteriores en el recorrido de Canvas. Si no quieres que la Content Card esté activa cuando se entreguen los siguientes pasos del Canvas, asegúrate de que la expiración sea más corta que el retraso en los pasos posteriores.
@@ -49,13 +59,13 @@ Después de que una Content Card expire, se eliminará automáticamente de la fu
 
 ## Eliminación de Content Cards {#removal}
 
-Las Content Cards pueden eliminarse cuando los usuarios completan una compra o realizan un evento personalizado. Puedes seleccionar uno de los siguientes como evento de eliminación: **Perform Custom Event** y **Place Order**. Luego, selecciona **Add Trigger**.
+Las Content Cards pueden eliminarse cuando los usuarios completan una compra o realizan un evento personalizado. Puedes seleccionar uno de los siguientes como evento de eliminación: **Realizar evento personalizado** y **Realizar pedido**. Luego, selecciona **Añadir desencadenante**.
 
 !["Quitar tarjetas cuando los usuarios completen una compra o realicen un evento personalizado." seleccionado con el desencadenante para quitar tarjetas de usuarios que realizan una compra específica.]({% image_buster /assets/img_archive/content-cards-in-canvas-removal-event.png %})
 
 ## Informes y análisis {#reporting-and-analytics}
 
-Después de lanzar un paso de Content Cards en Canvas, puedes comenzar a analizar varias métricas diferentes para este paso. Estas métricas incluyen el número de mensajes enviados, destinatarios únicos, tasas de conversión, ingresos totales y más.
+Después de lanzar un paso de Content Cards en Canvas, puedes comenzar a analizar varias métricas diferentes para este paso. Estas métricas incluyen el número de mensajes enviados, impresiones diarias únicas, tasas de conversión, ingresos totales y más.
 
 ![Análisis de un paso de mensaje con el rendimiento del mensaje de Content Card.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
@@ -63,16 +73,16 @@ Para más información sobre las métricas disponibles y sus definiciones, consu
 
 ## Casos de uso {#use-cases}
 
-#### Ofertas promocionales {#promotional-offers}
+### Ofertas promocionales {#promotional-offers}
 
 Añade tarjetas a la fuente de un usuario a medida que califique para promociones y anuncios específicos. Por ejemplo, si un usuario se vuelve elegible para una nueva oferta después de realizar una acción o hacer una compra, usando Canvas puedes enviarle una Content Card, además de otros canales de mensajería, para que la próxima vez que abra la aplicación la oferta esté disponible.
 
-#### Buzón de entrada de notificaciones push {#push-notification-inbox}
+### Buzón de entrada de notificaciones push {#push-notification-inbox}
 
 Hay ocasiones en las que un usuario puede descartar una notificación push o eliminar un correo electrónico, pero quieres recordarle o promocionar la oferta en caso de que cambie de opinión.
 
 Usando Canvas, puedes añadir un componente que envíe tanto una Content Card como una notificación push para dar a los usuarios un "buzón de entrada" persistente de tarjetas que se alineen con los mensajes promocionales enviados a través de push.
 
-#### Múltiples fuentes basadas en categorías {#multiple-feeds-based-on-categories}
+### Múltiples fuentes basadas en categorías {#multiple-feeds-based-on-categories}
 
 Puedes separar tus Content Cards en múltiples fuentes basadas en categorías, como diferentes temas que los usuarios pueden examinar, o fuentes transaccionales y de marketing. Para más información sobre cómo crear múltiples fuentes usando pares clave-valor, consulta nuestra guía para [Personalizar fuentes de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).

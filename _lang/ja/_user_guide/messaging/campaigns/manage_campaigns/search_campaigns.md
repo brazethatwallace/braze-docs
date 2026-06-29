@@ -5,7 +5,7 @@ page_order: 10
 page_type: reference
 description: "この記事では、キャンペーンリストページでキャンペーンを検索するさまざまな方法について説明します。"
 tool:
-  - Campaigns
+  - キャンペーン
 
 ---
 

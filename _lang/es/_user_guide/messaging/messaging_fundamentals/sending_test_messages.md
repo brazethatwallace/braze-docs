@@ -159,7 +159,7 @@ Desde ahí, puedes revisar la configuración y el contenido de tu mensaje para p
 Si tu campaña de correo electrónico incluye una imagen grande y no se muestra como se espera en Outlook, considera reducir las dimensiones reales del archivo de la imagen con una herramienta de edición o redimensionamiento de imágenes en lugar de solo escalarla con CSS o HTML.
 
 {% endtab %}
-{% tab In-app message %}
+{% tab Mensaje dentro de la aplicación %}
 
 {% alert warning %}
 Para enviar una prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o usuarios individuales, las notificaciones push deben estar habilitadas en tus dispositivos de prueba antes de enviar. Por ejemplo, debes tener las notificaciones push habilitadas en tu dispositivo iOS para poder tocar la notificación antes de que se muestre el mensaje de prueba. {% endalert %}
@@ -243,6 +243,8 @@ El escáner se ejecuta automáticamente en mensajes HTML personalizados y evalú
 
 ![Prueba de push]({% image_buster /assets/img_archive/testpush.png %})
 
+Si ves un error que indica que ninguno de los usuarios seleccionados tiene tokens de push coincidentes, el usuario de prueba no tiene un token de push válido para la plataforma seleccionada. El usuario debe haber iniciado una sesión en la aplicación y habilitado las notificaciones push para ese dispositivo. Para más información, consulta [Habilitación de push y estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+
 #### Push web {#web-push}
 
 1. Crea tu notificación push web.
@@ -271,8 +273,6 @@ Después de crear tu mensaje de SMS, MMS o RCS, puedes enviar un mensaje de prue
 {% tab Webhook %}
 
 Después de crear tu webhook, puedes hacer un envío de prueba para verificar la respuesta del webhook. Selecciona la pestaña **Test** y selecciona **Send Test** para enviar un envío de prueba a la URL del webhook proporcionada. También puedes seleccionar un usuario individual para previsualizar la respuesta como un usuario específico.
-
-![Prueba de webhook]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}

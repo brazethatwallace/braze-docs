@@ -188,7 +188,7 @@ Se sua conta tiver políticas de rede, inclua os IPs da Braze na lista de permis
 {% endtab %}
 {% tab Databricks %}
 
-##### Etapa 1.1: Crie um catálogo ou esquema para sua tabela de origem {#step-11-create-a-catalog-or-schema-for-your-source-table}
+##### Etapa 1.1: Crie um catálogo ou esquema para sua tabela de origem. {#step-11-create-a-catalog-or-schema-for-your-source-table}
 
 ```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
@@ -286,7 +286,7 @@ Para sincronizar os gatilhos do Canvas a partir do armazenamento de arquivos, cr
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.3: Configurar políticas de rede" }
 
 {% alert tip %}
-Os nomes dos arquivos devem seguir as regras da AWS e ser únicos. Adicione carimbos de data/hora para ajudar a garantir a exclusividade. Para saber mais sobre a sincronização com o Amazon S3, consulte [Integrações de armazenamento de arquivos](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Os nomes dos arquivos devem seguir as regras da AWS e ser únicos. Adicione carimbos de data/hora para ajudar a garantir a exclusividade. Para saber mais sobre a sincronização com o Amazon S3, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
 {% endalert %}
 
 {% endtab %}

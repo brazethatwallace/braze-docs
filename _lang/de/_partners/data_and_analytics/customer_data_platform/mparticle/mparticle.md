@@ -104,7 +104,7 @@ So erstellen Sie eine Zielgruppe in mParticle:
 
 | Feldname | Beschreibung |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**.<br><br>Wenn Sie die ältere Navigation verwenden, finden Sie API-Schlüssel unter **Developer Console** > **API Settings**. |
+| API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**. |
 | API key operating system | Wählen Sie aus, welchem Betriebssystem Ihr Braze-API-Schlüssel entspricht. Diese Auswahl begrenzt die Arten von Push-Token, die bei einem Zielgruppen-Update weitergeleitet werden. |
 | Send segments as | Die Methode zum Senden von Zielgruppen an Braze. Weitere Details finden Sie im Abschnitt [Weiterleitung von Zielgruppen](#forwarding-audiences). |
 | Workspace REST API key | Braze-REST-API-Schlüssel mit vollständigen Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
@@ -150,7 +150,7 @@ Navigieren Sie in mParticle zu **Setup > Outputs > Add Outputs** und wählen Sie
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Email“ beizubehalten. |
 | Braze instance | Der Cluster, an den Ihre Braze-Daten weitergeleitet werden; dieser sollte derselbe Cluster sein, auf dem sich Ihr Dashboard befindet. |
 | Enable event stream forwarding | (Server-zu-Server) Wenn aktiviert, werden alle Events in Echtzeit weitergeleitet. Andernfalls werden alle Events in Batches weitergeleitet. Wenn Sie die Event-Stream-Weiterleitung aktivieren, stellen Sie sicher, dass die Daten, die Sie an Braze senden, die [Rate-Limits]({{site.baseurl}}/api/api_limits/) einhalten. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Konfigurieren Sie Ihre Braze-Ausgabeeinstellungen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Ausgabeeinstellungen konfigurieren" }
 
 ![]({% image_buster /assets/img_archive/configure_settings.png %})
 
@@ -276,6 +276,7 @@ Wenn Push-Benachrichtigungen bei Verwendung des Braze-Event-Kits (Embedded-Kit-I
 3. **Method Swizzling:** Das mParticle-Apple-Kit verwendet Method Swizzling, um Push-Token automatisch weiterzuleiten und Push-Benachrichtigungs-Events zu verarbeiten. Wenn Sie Swizzling deaktiviert haben oder ein anderes SDK interferiert, erreichen Push-Token möglicherweise Braze nicht. Überprüfen Sie, ob Swizzling in Ihrer mParticle-Konfiguration aktiviert ist.
 4. **Manuelle Token-Verarbeitung:** Wenn Sie Push-Token manuell verwalten (z. B. durch Implementierung von `application:didRegisterForRemoteNotificationsWithDeviceToken:`), stellen Sie sicher, dass Sie das Token an mParticle übergeben, indem Sie es der Push-Benachrichtigungs-Token-Eigenschaft zuweisen, z. B.: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. Das Kit leitet es dann an Braze weiter.
 5. **Umgebungsabweichung:** Bestätigen Sie, dass die APNs-Berechtigungsumgebung (Entwicklung vs. Produktion) mit dem Build Ihrer App übereinstimmt. Weitere Details finden Sie unter [iOS-Push-Fehlerbehebung]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
+6. **Kit-Initialisierungszeitpunkt:** Wenn Sie auf die Braze-Instanz über `didFinishLaunchingWithOptions` zugreifen, ist das mParticle-Kit möglicherweise noch nicht bereit, wenn eine Push-Benachrichtigung eintrifft. Initialisieren Sie die Push-Verarbeitung in [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (oder dem entsprechenden Notification-Response-Delegate), damit das Braze-Kit aktiv ist, wenn Nutzer:innen eine Benachrichtigung öffnen.
 
 ### Senden unnötiger oder doppelter Daten an Braze {#sending-unnecessary-or-duplicate-data-to-braze}
 Braze zählt jedes Mal einen Datenpunkt, wenn ein Attribut an Braze übergeben wird, auch wenn der Wert unverändert ist. Aus diesem Grund empfiehlt Braze, nur Daten weiterzuleiten, die für Aktionen innerhalb von Braze benötigt werden, und sicherzustellen, dass nur Deltas von Attributen übergeben werden.

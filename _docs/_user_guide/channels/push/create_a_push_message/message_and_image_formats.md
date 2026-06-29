@@ -26,13 +26,7 @@ For best results, refer to the following image size and message length guideline
 (Android) Expanded notification | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
-{% alert note %}
-GIFs are not supported in Android push notifications. This is an Android platform limitation, not a Braze limitation.
-
-For in-app messages and Content Cards on Android, you can support GIFs by integrating a third-party image library, such as [Glide](https://bumptech.github.io/glide/) or [Fresco](https://frescolib.org/).
-
-On iOS, push notifications support GIFs. In-app messages and Content Cards require a custom GIF image provider.
-{% endalert %}
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 {% endtab %}
 {% tab Text %}
@@ -46,7 +40,7 @@ On iOS, push notifications support GIFs. In-app messages and Content Cards requi
 (Android) Notification Drawer | 597 characters | N/A
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
 
-Wondering how many characters you can use in an iOS push notification without it being truncated? Check out our [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Wondering how many characters you can use in an iOS push notification without it being truncated? Check out our [iOS character count guidelines]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 {% endtab %}
 {% tab Payload Size %}

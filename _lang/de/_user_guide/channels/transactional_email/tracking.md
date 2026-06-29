@@ -23,4 +23,4 @@ Nutzen Sie dieses Feature, um:
 
 ## Ihre Transaktions-E-Mails tracken {#tracking-your-transactional-emails}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}

@@ -12,7 +12,7 @@ page_order: 1.5
 
 ## 解約予測分析について {#about-predictive-churn-analytics}
 
-予測のトレーニングが完了し、このページにデータが表示されたら、すぐにSegmentsやCampaignsで[フィルター]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters)を使用して、モデルの出力を活用し始めることができます。しかし、誰をターゲットにするのか、なぜターゲットにするのかを決めるのに助けが必要な場合は、このページがモデルの過去の精度とお客様自身のビジネス目標に基づいて役立ちます。
+予測のトレーニングが完了し、このページにデータが表示されたら、すぐにセグメントやキャンペーンで[フィルター]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters)を使用して、モデルの出力を活用し始めることができます。しかし、誰をターゲットにするのか、なぜターゲットにするのかを決めるのに助けが必要な場合は、このページがモデルの過去の精度とお客様自身のビジネス目標に基づいて役立ちます。
 
 解約予測分析を構成するコンポーネントは以下のとおりです。
 

@@ -8,6 +8,16 @@ Google Tag Manager (GTM) lets you remotely add, remove, and edit tags on your we
 | Action tag | This tag lets you [create Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [set user attributes]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web), and [manage data collection]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
 
+## Tag sequencing for Braze action tags
+
+Custom events and other Braze action tags can fail when they fire before the **Braze Initialization** tag finishes loading the Web SDK. In Google Tag Manager, open the action tag, go to **Advanced Settings** > **Tag Sequencing**, select **A tag that fires before [this tag] is fired**, and choose your Braze Initialization tag.
+
+For more detail, see [Verify tag sequencing for custom events]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
+
+## Log purchases with GTM
+
+In Braze action tags and Custom HTML tags, call `braze.logPurchase()` to record revenue. The legacy `appboy.logPurchase()` namespace is not supported in current Web SDK integrations.
+
 ## Logging custom events with GTM
 
 You can log custom events using a **Custom HTML** tag in GTM. This approach uses the GTM [data layer](https://developers.google.com/tag-platform/tag-manager/datalayer) to pass event data from your site to a GTM tag that calls the Braze Web SDK.

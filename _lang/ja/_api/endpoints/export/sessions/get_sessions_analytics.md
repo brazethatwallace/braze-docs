@@ -34,7 +34,7 @@ description: "この記事では、「アプリセッション分析の時間ご
 | `unit` | オプション | 文字列 | データポイント間の時間の単位。`day` または `hour` を指定でき、デフォルトは `day` です。 |
 | `ending_at` | オプション | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |
 | `app_id` | オプション | 文字列 | 特定のアプリに分析を限定するために、[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから取得したアプリAPI識別子。 |
-| `segment_id` | オプション | 文字列 | [セグメントAPI識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。セッションを返す対象となる、分析が有効なSegmentを示すSegment ID。 |
+| `segment_id` | オプション | 文字列 | [セグメントAPI識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。セッションを返す対象となる、分析が有効なセグメントを示すセグメント ID。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}

@@ -11,7 +11,7 @@ channel: email
 
 > Nutzen Sie automatisiertes IP-Warming, um das E-Mail-Volumen von einer neuen IP-Adresse schrittweise zu erhöhen und so die Absender-Reputation bei Posteingangsanbietern aufzubauen.
 
-{% multi_lang_include early_access_beta_alert.md feature='Automated IP warming' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Automated IP warming' %}
 
 ## Funktionsweise {#how-it-works}
 

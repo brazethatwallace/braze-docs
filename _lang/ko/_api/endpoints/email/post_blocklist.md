@@ -10,7 +10,7 @@ description: "이 문서에서는 차단 목록 이메일 Braze 엔드포인트�
 ---
 {% api %}
 # 차단 목록 이메일 {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | -----------|----------| --------|------- |
 | `email` | 필수 | 문자열 또는 배열 | 차단 목록에 추가할 이메일 주소 문자열 또는 최대 50개의 이메일 주소 배열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 ```

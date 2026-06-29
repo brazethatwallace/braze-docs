@@ -31,12 +31,28 @@ Link-Bezeichner werden auch aktualisiert, wenn eine E-Mail-Campaign, ein Canvas 
 
 ## Einen Link-Alias erstellen {#creating-a-link-alias}
 
-Um einen Link-Alias zu erstellen, führen Sie die folgenden Schritte aus:
+{% alert important %}
+**Link Management** erscheint im Campaign- oder Canvas-E-Mail-Composer, wenn Braze Link Management für Ihr Konto aktiviert. Um **Link-Aliase** zu erstellen und zu bearbeiten, muss Link Aliasing aktiviert sein. Wenn **Link Management** fehlt, wenden Sie sich an Ihren Account Manager, um Link Aliasing zu aktivieren.
+{% endalert %}
 
-1. Gehen Sie in Ihrer Campaign oder Canvas-Komponente zum E-Mail-Body.
-2. Wählen Sie den Tab **Link Management** aus.
-3. Braze generiert automatisch eindeutige Standard-Link-Aliase für jeden Ihrer Links.
-4. Geben Sie dem Alias einen Namen. Aliase müssen pro E-Mail-Kampagnenvariante oder Canvas-Komponente eindeutig benannt sein.
+Um einen Link-Alias zu erstellen, öffnen Sie Ihren E-Mail-Body in der Campaign oder Canvas-Komponente und öffnen Sie dann **Link Management** im Bereich **Content**. Der Drag-and-Drop- und der HTML-Composer verwenden dasselbe Seitenleisten-Layout:
+
+### Drag-and-Drop-Editor {#drag-and-drop-editor}
+
+1. Wählen Sie **Edit Email Body** aus, um den Drag-and-Drop-Composer zu öffnen.
+2. Wählen Sie in der Composer-Seitenleiste **Content** aus (neben **Sending Settings** und **Preview & Test**). Weitere Informationen zu diesem Layout finden Sie unter [Eine E-Mail mit Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/).
+3. Wählen Sie im Untermenü **Content** die Option **Link Management** aus (unter **Design and Build**). Wenn das Untermenü eingeklappt ist, erweitern Sie es mit dem Pfeil-Steuerelement in der Seitenleiste.
+
+### HTML-Editor {#html-editor}
+
+1. Navigieren Sie zu Ihrem E-Mail-Body im Composer.
+2. Wählen Sie in der Composer-Seitenleiste **Content** aus.
+3. Wählen Sie im Untermenü **Content** die Option **Link Management** unter **Design and Build** aus.
+
+In **Link Management**:
+
+1. Braze generiert automatisch eindeutige Standard-Link-Aliase für jeden Ihrer Links.
+2. Geben Sie dem Alias einen Namen. Aliase müssen pro E-Mail-Kampagnenvariante oder Canvas-Komponente eindeutig benannt sein.
 
 Sie können auch einen Alias festlegen, der verwendet wird, um einen bestimmten Link beim Reporting oder bei der Segmentierung zu referenzieren.
 
@@ -52,10 +68,6 @@ Um alle Ihre verfolgten Link-Aliase anzuzeigen, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** unter **Workspace-Einstellungen**.
 2. Wählen Sie den Tab **Link Aliasing Settings** aus.
-
-{% alert important %}
-Wenn Sie die [ältere Navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) verwenden, finden Sie diese Einstellungen unter **Einstellungen verwalten**.
-{% endalert %}
 
 Hier können Sie Link-Aliase sortieren, suchen und das Tracking deaktivieren.
 
@@ -77,7 +89,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 
 **Logik:** Braze fügt ein Fragezeichen (?) ein und fügt den ersten Query-Parameter in die URL ein.
 
-| Link im E-Mail-Body    | Link mit Aliasing                     |
+| Link im E-Mail-Body | Link mit Aliasing |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permalink" }
@@ -86,7 +98,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 
 **Logik:** Braze erkennt andere Query-Parameter und hängt `lid=` am Ende der URL an.
 
-| Link im E-Mail-Body                                            | Link mit Aliasing                                                             |
+| Link im E-Mail-Body | Link mit Aliasing |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit weiteren Query-Parametern" }
@@ -95,7 +107,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 
 **Logik:** Braze erkennt, dass ein Link eine URL ist und bereits ein Fragezeichen (?) vorhanden ist, sodass der `lid`-Query-Parameter nach dem Fragezeichen angehängt wird.
 
-| Link im E-Mail-Body                                                | Link mit Aliasing                                                                |
+| Link im E-Mail-Body | Link mit Aliasing |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML-Link" }
@@ -104,7 +116,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 
 **Logik:** Braze erwartet, dass die URL eine Standardstruktur verwendet, bei der Anker (#) nach einem Fragezeichen (?) stehen. Da Braze von links nach rechts liest, werden das Fragezeichen und der `lid`-Wert vor dem Anker angehängt.
 
-| Link im E-Mail-Body                               | Link mit Aliasing                                                |
+| Link im E-Mail-Body | Link mit Aliasing |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker" }
@@ -113,14 +125,14 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 
 **Logik:** Bei der Verwendung von Link Aliasing mit URLs, die Anker (#) enthalten, erwartet Braze, dass der Anker nach den Query-Parametern platziert wird. Das bedeutet, dass der `lid`-Wert **vor** dem Anker angehängt werden muss, damit das Tracking korrekt funktioniert, und da Braze die URL von links nach rechts liest, sollten das Fragezeichen (?) und `lid` vor dem Anker stehen.
 
-| Link im E-Mail-Body                                                                        | Link mit Aliasing                                                                                           |
+| Link im E-Mail-Body | Link mit Aliasing |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
+| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker und Capture-Tag" }
 
 ## Link-Aliase verfolgen {#tracking-link-aliases}
 
-Wählen Sie im Tab **Link Management** aus, welche Aliase für Segmentierungszwecke als „verfolgt“ markiert und in Segmentierungsfiltern verfügbar sein sollen. Beachten Sie, dass verfolgte Aliase nur für Segmentierungszwecke gelten und keinen Einfluss auf das Tracking Ihres Links für Reporting-Zwecke haben.
+Wählen Sie in der Composer-Seitenleiste **Content** > **Link Management** (unter **Design and Build**) aus und wählen Sie dann aus, welche Aliase **verfolgt** werden sollen. Verfolgte Aliase sind in Segmentierungsfiltern verfügbar, die auf Link-Aliase verweisen (siehe [Segmentierungsfilter](#segmentation-filters)). Sie können auch aktionsbasierte Nachrichten senden oder Nutzer:innen durch einen Canvas bewegen, wenn sie auf einen Link-Alias in einer E-Mail klicken – siehe [Aktionsbasierte Filter](#action-based-filters). Die Einstellung **Verfolgt** hat keinen Einfluss darauf, ob Klicks auf diesen Link im E-Mail-Performance-Reporting gezählt werden.
 
 {% alert tip %}
 Um Link-Engagement-Metriken zu verfolgen, stellen Sie sicher, dass Ihr Link mit HTTP oder HTTPS beginnt. Um das Klick-Tracking für bestimmte Links zu deaktivieren, lesen Sie [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis).
@@ -156,7 +168,7 @@ Das Aufheben des Trackings eines Links ordnet bestehende Segmente mit dem Filter
 
 Links in archivierten Nachrichten werden automatisch nicht mehr verfolgt. Wenn archivierte Nachrichten jedoch wiederhergestellt werden, müssen die Links erneut verfolgt werden. Wenn Link-Aliase verfolgt werden, wird das Link-Reporting nach dem Alias indexiert, anstatt nach Top-Level-Domains oder vollständigen URLs.
 
-Um alle Links in Ihrer E-Mail-Campaign und deren jeweilige Gesamtklicks anzuzeigen, gehen Sie zu **Message Analytics** > **E-Mail-Performance** > **Vorschau und Heatmap** und wählen Sie den Schalter **Heatmap anzeigen** aus.
+Um alle Links in Ihrer E-Mail-Campaign und deren jeweilige Gesamtklicks anzuzeigen, gehen Sie zu **Message Analytics** > **Email Performance** > **Preview & Heatmap** und aktivieren Sie den Schalter **Show Heatmap**.
 
 ![Panel „Link-Tabelle nach Gesamtklicks“ mit Link-Aliasen und deren Gesamtklicks.]({% image_buster /assets/img/link_alias_total_clicks.png %}){: style="max-width:60%;"}
 
@@ -194,7 +206,7 @@ Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-
 ```
 
 {% alert update %}
-Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvas und Campaigns.
+Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvas und Campaigns.
 
 _Update vermerkt im August 2019._
 {% endalert %}
@@ -213,47 +225,133 @@ Für Content Blocks empfiehlt Braze, Kopien bestehender Content Blocks zu erstel
 
 ## Link Aliasing für durch Liquid generierte URLs {#link-aliasing-for-urls-generated-by-liquid}
 
-Für URLs, die durch Liquid generiert werden, wie z. B. `assign`-Anweisungen im HTML oder aus einem Content Block, müssen Sie ein Fragezeichen (`?`) zum Liquid-Tag hinzufügen. Dies ermöglicht es Braze, Query-Parameter (`lid=somevalue`) anzuhängen, damit Link Aliasing korrekt funktioniert.
+Für URLs, die durch Liquid generiert werden (z. B. `assign` im HTML, Werte aus einem Content Block oder Liquid in einem angepassten Attribut), benötigt Braze eine eindeutige Stelle, um den `lid`-Query-Parameter einzufügen. In den meisten Fällen, wenn Liquid in der URL verbleibt, leitet Braze nicht ab, ob ein neuer Query-String mit `?` begonnen oder ein bestehender Query mit `&` verbunden werden soll, es sei denn, Sie fügen dieses Trennzeichen selbst hinzu.
 
-Ohne die Identifizierung, wo Query-Parameter angehängt werden sollen, erkennt Link Aliasing diese URLs nicht und Link-Templates werden nicht angewendet.
+Gehen Sie wie folgt vor:
+
+- Wenn die URL **noch keinen** Query-String enthält, hängen Sie `?` nach dem Liquid an (z. B. `{{my_url}}?`).
+- Wenn die URL **bereits** `?` und Query-Parameter enthält, hängen Sie `&` nach dem Liquid an (z. B. `{{my_url}}&`).
+
+{% alert note %}
+Wenn Sie [Link-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/) mit durch Liquid generierten URLs verwenden, kann Braze die gerenderte URL nach der Liquid-Ausführung konservativ normalisieren, wenn sie genau zwei `?`-Zeichen als Query-Trennzeichen enthält. Das zweite `?` kann in `&` umgeschrieben werden, damit Braze so wenig wie möglich an der URL ändert. <br><br>Braze versucht nicht, jedes doppelte `?`-Muster zu korrigieren, und die Behandlung komplexerer URLs bleibt absichtlich begrenzt. Fügen Sie zuerst das korrekte `?` oder `&` in Ihrem Markup hinzu und betrachten Sie jede Normalisierung als begrenzte Absicherung – nicht als Ersatz für wohlgeformte URLs oder dafür, dass Links in **Link Management** erkannt werden, wenn kein Trennzeichen vorhanden ist.
+{% endalert %}
+
+Ohne ein abschließendes `?` oder `&` (oder einen anderen unterstützten Einfügepunkt) erkennt Link Aliasing die URL nicht, **Link Management** listet sie nicht auf und Link-Templates werden nicht angewendet.
+
+### URL-Fragmente (`#`) und Tracking-Parameter {#url-fragments-and-tracking-parameters}
+
+Das Fragment (`#` und alles danach) wird bei einer normalen Link-Anfrage nicht an den Server gesendet. Braze fügt `lid` in den Query-String ein, der vor dem `#` stehen muss. Wenn Ihr `href` Liquid und ein `#`-Fragment enthält, aber kein `?` oder `&` vor dem `#`, kann Braze `lid` nicht sicher anhängen, sodass der Link möglicherweise nicht in **Link Management** erscheint oder als Link-Alias verfolgt wird.
+
+Dies kommt besonders häufig im Drag-and-Drop-Editor vor, wenn eine Button-URL Liquid mit einem Hash-basierten Muster kombiniert (z. B. ein statischer Pfad, dann `#`, dann zusätzliche Schlüssel-Wert-Paare). Fügen Sie in diesem Fall `?` direkt vor dem `#` ein, damit der Query-String (einschließlich `lid`) vor dem Fragment geparst wird.
+
+{% raw %}
+```text
+https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
+```
+{% endraw %}
+
+Im vorherigen Beispiel gibt das `?` vor `#` Braze ein Query-Segment, an das `lid` angehängt werden kann. Ohne dieses erscheint der Link möglicherweise nicht in **Link Management**.
+
+Ohne die Möglichkeit zu erkennen, wo Query-Parameter angehängt werden sollen, erkennt Link Aliasing diese URLs nicht und Link-Templates werden nicht angewendet. Wenn Sie Fehler wie **Failed to be assigned an LID** für eine dynamische URL sehen, überprüfen Sie, ob das `href` das in den Beispielen in diesem Abschnitt gezeigte `?`- oder `&`-Muster verwendet.
+
+### Überlegungen zum Drag-and-Drop-Editor {#drag-and-drop-editor-considerations}
+
+Im Drag-and-Drop-Editor validieren Felder, die einen Link enthalten (z. B. eine Button-**URL**), das zugrunde liegende `href`, bevor Liquid ausgeführt wird. Leerzeichen, Zeilenumbrüche und andere nicht URL-sichere Zeichen können unerwartetes Verhalten verursachen, wenn Braze Link-Templates oder Link-Aliasing-Parameter anhängt. Wenn Sie verzweigendes Liquid für das Ziel benötigen, setzen Sie die URL in einem HTML-Block mit `assign` (siehe folgenden Abschnitt) und referenzieren Sie eine einzelne Variable im Drag-and-Drop-URL-Feld, anstatt komplexes Liquid direkt in dieses Feld einzufügen.
+
+### Content-Block-Beispiel {#content-block-example}
+
+{% raw %}
+Wenn ein Content Block einen Link wie `https://www.braze.com/{{custom_attribute.${offer_id}}}` ohne abschließendes `?` oder `&` enthält, weiß Braze nicht, wo `lid` angehängt werden soll, sodass der Link nicht für **Link Management** erfasst wird. Fügen Sie `?` oder `&` am Ende der URL im Content Block hinzu (je nachdem, ob bereits ein Query-String vorhanden ist), speichern Sie den Content Block, und der Link kann erkannt werden.
+{% endraw %}
+
+### Reporting, wenn die URL pro Nutzer:in variiert {#reporting-when-the-url-varies-per-user}
+
+Jedes eindeutige `href` in der Nachricht wird **einer** Link-ID und einem Link-Alias für **Link Management** und Alias-basiertes Reporting zugeordnet. Wenn Link-Aliase verfolgt werden, wird das E-Mail-Reporting im Dashboard nach dem Alias indexiert, anstatt nach jeder möglichen aufgelösten URL.
+
+Verwenden Sie zunächst die folgenden Ansätze in Braze:
+
+- **Campaign- und Canvas-E-Mail-Analytics:** Überprüfen Sie aggregierte Klicks nach Link unter **Message Analytics** > **Email Performance** > **Preview & Heatmap** mit aktiviertem **Show Heatmap**, wie unter [Tracking von Links aufheben](#untracking-links) beschrieben.
+- **Klicks pro Empfänger:in im Abfrage-Builder:** Führen Sie das **Email URLs clicked**-[Abfrage-Builder-Template]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/#email-templates) für eine Campaign oder einen Canvas aus. Das Template zeigt depersonalisierte Links für zusammenfassende Zählungen an; der CSV-Export enthält die Nutzer-IDs der Klickenden, den angeklickten Link und einen Zeitstempel. (Depersonalisierte URLs entfernen Liquid-Tags für die Zusammenfassungsansicht; Details finden Sie in der Template-Beschreibung.)
+- **Aufschlüsselungen auf Alias-Ebene im Composer:** Wenn jedes Ziel (z. B. jede `offer_id`) als eigene Zeile in **Link Management** und im Alias-basierten Reporting erscheinen soll, verwenden Sie separate `href`-Werte (und damit separate Aliase) – z. B. unterschiedliche Links pro Branch – anstatt eines Links, dessen Pfad sich pro Nutzer:in ändert.
+
+Wenn Sie auch Streaming-Engagement-Exporte verwenden, enthalten E-Mail-Klick-Ereignisse ein **`url`**-Feld; siehe [E-Mail-Klick-Ereignis](#email-clicks-event) auf dieser Seite für die Beziehung dieses Payloads zu Link Aliasing.
 
 ### Beispiel {#example}
 
-Sehen Sie sich dieses Link-Aliasing-Beispiel für die empfohlene Formatierung des Links an:
+Verwenden Sie dieses Muster, wenn die zugewiesene URL keine Query-Parameter hat:
 
 {% raw %}
 ```liquid
 {% assign link1 = "https://www.braze1.com" %}
 
-<a href="{{link1}}?">Click Here</a>
+<a href="{{link1}}?">Visit Braze</a>
 ```
 {% endraw %}
 
-Wenn der Link Parameter enthält, die ein Fragezeichen (`?`) beinhalten, können Sie es im Anchor-Tag durch ein kaufmännisches Und (`&`) ersetzen, wie in diesem Beispiel:
+Wenn die zugewiesene URL bereits `?` und Query-Parameter enthält, hängen Sie `&` nach dem Liquid an, anstatt `?`:
 
 {% raw %}
 ```liquid
-{% assign link_with_params = "https://www.braze1.com?param_1&param_2" %}
+{% assign link_with_params = "https://www.braze1.com?campaign=test" %}
 
-<a href="{{link_with_params}}&">Click Here</a>
+<a href="{{link_with_params}}&">Visit Braze</a>
 ```
 {% endraw %}
 
 ### URLs mit bedingtem Liquid {#urls-with-conditional-liquid}
 
-Wenn bedingte Liquid-Tags innerhalb eines `href` verwendet werden (z. B. um eine URL bedingt mit {% raw %}`{% if %}`, `{% unless %}`{% endraw %} festzulegen), wird Link Aliasing nicht auf diese Links angewendet. Das bedeutet, dass diese Links nicht in **Link Management** erscheinen und kein `lid` für das Klick-Tracking erhalten.
+Wenn bedingte Liquid-Tags innerhalb eines `href` verwendet werden (z. B. um eine URL mit {% raw %}`{% if %}`, `{% elsif %}` oder `{% unless %}`{% endraw %} festzulegen), wird Link Aliasing nicht auf diese Links angewendet. Das bedeutet, dass diese Links nicht in **Link Management** erscheinen und kein `lid` für das Klick-Tracking erhalten.
 
-Sie können den {% raw %}`{% capture %}`{% endraw %}-Block verwenden, um die URL außerhalb des `href` zu erstellen, und sie dann als Variable referenzieren, wie im folgenden Beispiel:
+**Empfohlen:** Erstellen Sie die endgültige URL in einem HTML-Block mit `assign` (oder {% raw %}`{% capture %}`{% endraw %}) und referenzieren Sie diese Variable dann überall dort, wo Sie den Link benötigen. Im Drag-and-Drop-Editor fügen Sie die Variable in das Button-**URL**-Feld mit einem abschließenden `?` oder `&` ein – z. B. `{{url}}?`.
 
 {% raw %}
 ```liquid
+{% if {{custom_attribute.${account_tier}}} == "pro" %}
+{% assign url = "https://example.com/pro/verify" %}
+{% else %}
+{% assign url = "https://example.com/retail/account" %}
+{% endif %}
+```
+{% endraw %}
+
+Im Button-**URL**-Feld (Drag-and-Drop) oder in HTML verweisen Sie das `href` mit einem Trennzeichen auf die Variable:
+
+{% raw %}
+```liquid
+<a href="{{ url }}?">Go to account</a>
+```
+{% endraw %}
+
+Alternativ können Sie die URL in einer Variablen erfassen:
+
+{% raw %}
+```liquid
+{% capture url %}
   {%- if condition -%}
     https://example.com/url1
   {%- else -%}
     https://example.com/url2
   {%- endif -%}
-{%- endcapture -%}
+{% endcapture %}
 
-<a href="{{ url }}?">Click here</a>
+<a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}
+
+## Fehlerbehebung {#troubleshooting}
+
+### Ziele, die den `lid`-Parameter nicht akzeptieren {#destinations-that-dont-accept-the-lid-parameter}
+
+Wenn Sie eine Testnachricht aus dem E-Mail-Editor senden, hängt Braze {% raw %}`lid={{placeholder}}`{% endraw %} an Ihre Links an (der Platzhalter wird zum Sendezeitpunkt zu einem eindeutigen Wert). Wenn die Zielseite oder API keine zusätzlichen Query-Parameter toleriert, kann der Link im Editor funktionieren, aber beim Öffnen aus der E-Mail fehlschlagen.
+
+Ohne den `lid`-Wert behandelt Braze die URL nicht als Link-Alias für Tracking und Segmentierung. Wir empfehlen, Ihr Backend oder Ihre Website so zu aktualisieren, dass der `lid`-Query-Parameter ignoriert wird, wenn er vorhanden ist. Dadurch bleiben Link Aliasing, Reporting und die in diesem Artikel beschriebenen Segment-Anwendungsfälle erhalten.
+
+Alternativ können Sie Link Aliasing im Dashboard deaktivieren, während Sie eine Backend-Änderung planen. Gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Link Aliasing Settings**.
+
+Wenn Sie Ihre Zielsysteme nicht ändern können, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/), um Link Aliasing für Ihren Workspace zu deaktivieren. Beachten Sie die folgenden Hinweise, wenn Link Aliasing für Ihren Workspace deaktiviert wird:
+
+- Neue E-Mail-Nachrichten und Content Blocks erhalten in der Regel kein neues Link-Alias-Markup (wie den `lid`-Query-Parameter).
+- Bestehende Nachrichten, die erstellt wurden, als Link Aliasing aktiviert war, können weiterhin Link-Alias-Markup im HTML enthalten. Möglicherweise müssen Sie verbleibende `lid`-Parameter manuell entfernen, wo Sie sie nicht mehr benötigen.
+- Wenn Sie eine bestehende Campaign, einen Canvas-E-Mail-Schritt oder einen Content Block bearbeiten, müssen Sie möglicherweise Link-Templates erneut hinzufügen, damit Template-Links korrekt angezeigt werden.
+- Das Klick-Reporting für Sendungen, die durchgeführt wurden, als Link Aliasing aktiviert war, stimmt möglicherweise nicht sauber mit dem Reporting überein, nachdem das Feature deaktiviert wurde.
+- Segmente, die Link-Alias-basierte Filter verwenden (z. B. **Alias angeklickt**-Filter), liefern möglicherweise nicht mehr die erwarteten Zielgruppen.

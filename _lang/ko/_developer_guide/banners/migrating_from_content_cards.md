@@ -64,7 +64,7 @@ Content Cards를 다음 용도로 사용 중이라면 배너로 마이그레이�
 
 마이그레이션하기 전에 Braze SDK가 최소 버전 요구 사항을 충족하는지 확인하세요:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 ### 업데이트 구독 {#subscribe-to-updates}
 

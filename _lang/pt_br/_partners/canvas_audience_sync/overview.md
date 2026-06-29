@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/D | O Snapchat processa 10 consultas por segundo e 100.000 usuários por solicitação. A Braze agrupa usuários em lote a cada 5 segundos. | Sim | O Snapchat suporta até 1.000 públicos de anúncios. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Até 24 horas | N/D | Sim | {::nomarkdown}<ul><li>Não há tamanho mínimo de público para públicos de CRM no The Trade Desk.</li><li>Não há limite para a quantidade de públicos que o The Trade Desk suporta.</li><li>Se você sincronizar com um público com a região definida como UE, o número de telefone não é suportado.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Entre 24 e 48 horas | O TikTok processa 50 consultas por segundo e 10.000 usuários por solicitação. A Braze agrupa usuários em lote a cada 5 segundos. | Sim | {::nomarkdown}<ul><li>O TikTok suporta até 400 públicos de anúncios.</li><li>O público do TikTok precisa de pelo menos 1.000 usuários para começar a veicular anúncios.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Visão geral" }
 <sup>Quando o limite de taxa for atingido, a Braze tentará novamente as sincronizações por 13 horas.</sup>
 
 ## Como funciona {#how-it-works}
@@ -87,6 +87,22 @@ Depois de selecionar seus destinos do Audience Sync Pro, conecte a conta de anú
 ![Configurações do Snapchat Audience Sync com a mensagem: "Você conectou com sucesso 1 conta do Snapchat".]({% image_buster /assets/img/audience_sync/audience_sync_pro4.png %}){: style="max-width:70%;"}
 
 Por fim, crie sua etapa do Audience Sync no Canvas usando esse destino do Audience Sync Pro.
+
+### Processamento em lote e latência {#batching-and-latency}
+
+Quando os usuários entram em uma etapa do Audience Sync no Canvas, a Braze os enfileira em um sistema de lotes que agrega as atualizações de usuários antes de enviá-las à API do parceiro. Um lote é enviado quando uma das seguintes condições ocorre:
+
+- **O lote atinge seu limite de tamanho.** Isso varia por parceiro:
+  - O padrão suporta até 2.000 usuários
+  - O Google Ads suporta até 10.000 usuários
+  - O Facebook e o TikTok suportam até 2.000 usuários
+- **O temporizador de latência do lote expira.** O padrão é uma hora, mas isso é configurável por parceiro. Por exemplo, o The Trade Desk usa 10 minutos.
+
+Canvas de alto volume podem despachar mais cedo porque os lotes são preenchidos mais rapidamente. Canvas de baixo volume aguardam até que o temporizador de latência expire. A Braze não garante um tempo fixo de despacho; o tempo depende do tamanho do lote e da janela de latência configurada.
+
+A Braze registra a atividade de despacho em registros internos para monitoramento e solução de problemas, mas esses carimbos de data/hora não são expostos como campos consultáveis. Depois que a Braze despacha um lote para a API do parceiro, o parceiro processa a atualização do público de acordo com seus próprios acordos de nível de serviço — normalmente de 6 a 48 horas.
+
+A Braze não recebe confirmação dos parceiros de que usuários individuais foram correspondidos ou sincronizados. As respostas dos parceiros são confirmações HTTP de recebimento, não confirmações de correspondência. Para verificar se um público foi preenchido, confira a plataforma de anúncios do parceiro (como o Google Ads Audience Manager ou o Meta Business Manager).
 
 ### E-mails de erro do Audience Sync {#audience-sync-error-emails}
 

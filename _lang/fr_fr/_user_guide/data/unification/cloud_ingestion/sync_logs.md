@@ -35,8 +35,6 @@ Les journaux de synchronisation fournissent également les détails suivants pou
 * **Heure de début de l'exécution :** le moment où la tâche de synchronisation a démarré.
 * **Durée de l'exécution :** la durée totale nécessaire à l'achèvement de la tâche de synchronisation.
 
-![Détails d'un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Conservation des données {#data-retention}
 
 Les données du journal de synchronisation, y compris tous les payloads au niveau des lignes et les détails des erreurs, sont conservées pendant une durée maximale de **30 jours**. Les journaux datant de plus de 30 jours sont automatiquement supprimés.
@@ -73,8 +71,6 @@ Ce tableau offre une visibilité au niveau des lignes sur les données traitées
 
 Pour afficher les données exactes envoyées à Braze pour une ligne spécifique, sélectionnez **View payload** dans la colonne **Source** payload. Cela affiche le payload JSON brut qui a été traité pour cet utilisateur.
 
-![Exemple de payload pour une ligne spécifique dans un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Exportation des journaux de synchronisation {#exporting-sync-logs}
 
 Sélectionnez **Export rows** pour exporter les journaux au niveau des lignes pour une exécution de synchronisation. Choisissez ensuite d'exporter par :
@@ -82,7 +78,7 @@ Sélectionnez **Export rows** pour exporter les journaux au niveau des lignes po
 * **Lignes contenant des erreurs :** télécharge un fichier contenant uniquement les lignes ayant un statut **Error**.
 * **Toutes les lignes :** télécharge un fichier contenant toutes les lignes traitées lors de l'exécution.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Les journaux ne peuvent pas être exportés directement depuis le tableau de bord. Une fois l'exportation générée, vous recevrez un e-mail contenant un lien pour télécharger le fichier d'exportation du journal.
 

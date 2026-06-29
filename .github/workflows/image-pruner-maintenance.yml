@@ -1,0 +1,211 @@
+# Image pruner (maintenance): twice-yearly scan on develop — opens a draft [IP] PR.
+#
+# Scans for unreferenced images, deletes up to 100 candidates (secondary verify,
+# open-PR exclusions), and opens a draft pull request for docs team review.
+# Human review happens at merge time — do not auto-merge.
+#
+# Schedule: June 1 and December 1 at 10:00 America/New_York (IANA timezone).
+# See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+#
+# Skill: .github/skills/image-pruner/SKILL.md
+#
+# Optional Slack (#docs_request): SLACK_BOT_TOKEN, SLACK_DOCS_REQUEST_CHANNEL (channel ID).
+# Falls back to SLACK_DEPLOY_NOTIFY_CHANNEL if SLACK_DOCS_REQUEST_CHANNEL is unset.
+name: Image pruner (maintenance)
+
+on:
+  schedule:
+    - cron: "0 10 1 6 *"
+      timezone: "America/New_York"
+    - cron: "0 10 1 12 *"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scan-and-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      ymd: ${{ steps.stamp.outputs.ymd }}
+      scan_count: ${{ steps.scan.outputs.count }}
+      bytes_human: ${{ steps.scan.outputs.bytes_human }}
+      deleted_count: ${{ steps.batch.outputs.deleted_count }}
+      skip_reason: ${{ steps.batch.outputs.skip_reason }}
+      pr_url: ${{ steps.maintenance_pr.outputs.pull-request-url }}
+      pr_number: ${{ steps.maintenance_pr.outputs.pull-request-number }}
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: develop
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Date stamp (Eastern)
+        id: stamp
+        run: echo "ymd=$(TZ=America/New_York date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Run unreferenced image scan
+        id: scan
+        env:
+          SCAN_LOG: ${{ runner.temp }}/scan.log
+          SCAN_CSV: ${{ runner.temp }}/unreferenced_images.csv
+        run: |
+          python3 scripts/image-pruner/find_unreferenced_images.py --csv "$SCAN_CSV" | tee "$SCAN_LOG"
+
+          count=$(python3 -c "
+          import os, re
+          text = open(os.environ['SCAN_LOG']).read()
+          m = re.search(r'Unreferenced \(deletable\):\s+(\d+)', text)
+          print(m.group(1) if m else '0')
+          ")
+
+          bytes_human=$(python3 -c "
+          import os, re
+          text = open(os.environ['SCAN_LOG']).read()
+          m = re.search(r'Unreferenced \(deletable\):\s+\d+\s+\(([^)]+)\)', text)
+          print(m.group(1) if m else 'unknown')
+          ")
+
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "bytes_human=$bytes_human" >> "$GITHUB_OUTPUT"
+
+      - name: Upload scan CSV
+        uses: actions/upload-artifact@v7
+        with:
+          name: image-pruner-unreferenced-${{ github.run_id }}
+          path: ${{ runner.temp }}/unreferenced_images.csv
+          if-no-files-found: error
+
+      - name: Run maintenance delete batch
+        id: batch
+        env:
+          UNREFERENCED_IMAGE_DELETE_FORCE: "1"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 scripts/image-pruner/run_maintenance_batch.py \
+            --limit 100 \
+            --skip-if-open-ip-pr \
+            --scan-date "${{ steps.stamp.outputs.ymd }}" \
+            --run-url "$RUN_URL" \
+            --github-output "$GITHUB_OUTPUT" \
+            --pr-body "${{ runner.temp }}/pr-body.md"
+
+      - name: Open draft pull request
+        id: maintenance_pr
+        if: ${{ steps.batch.outputs.deleted_count != '' && fromJSON(steps.batch.outputs.deleted_count) > 0 }}
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          branch: image-pruner/maintenance-${{ steps.stamp.outputs.ymd }}-${{ github.run_id }}
+          base: develop
+          title: ${{ steps.batch.outputs.pr_title }} (maintenance ${{ steps.stamp.outputs.ymd }})
+          body-path: ${{ runner.temp }}/pr-body.md
+          commit-message: "chore: remove unreferenced images (scheduled maintenance)"
+          delete-branch: true
+          add-paths: |
+            assets/img/
+
+      - name: Write workflow summary
+        run: |
+          {
+            echo "## Image pruner maintenance"
+            echo ""
+            echo "| Metric | Value |"
+            echo "|--------|-------|"
+            echo "| Date | ${{ steps.stamp.outputs.ymd }} |"
+            echo "| Unreferenced (scan) | ${{ steps.scan.outputs.count }} |"
+            echo "| Approx. size | ${{ steps.scan.outputs.bytes_human }} |"
+            if [ -n "${{ steps.batch.outputs.deleted_count }}" ]; then
+              echo "| Deleted (this run) | ${{ steps.batch.outputs.deleted_count }} |"
+              echo "| Skipped (secondary verify) | ${{ steps.batch.outputs.skipped_count }} |"
+              echo "| Remaining (estimate) | ${{ steps.batch.outputs.remaining_count }} |"
+            fi
+            echo ""
+            echo "CSV attached as workflow artifact \`image-pruner-unreferenced-${{ github.run_id }}\`."
+            echo ""
+            if [ "${{ steps.batch.outputs.skip_reason }}" = "open_ip_pr" ]; then
+              echo "**Status:** Skipped — an open \`[IP]\` deletion PR already exists. Merge or close it, then re-run."
+            elif [ -n "${{ steps.maintenance_pr.outputs.pull-request-url }}" ]; then
+              echo "**Action:** Draft PR opened for review: ${{ steps.maintenance_pr.outputs.pull-request-url }}"
+            else
+              echo "**Status:** No draft PR opened (zero unreferenced images, secondary verify skipped all candidates, or nothing to delete)."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  notify:
+    name: Slack notification
+    needs: scan-and-pr
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Image pruner result to Slack (#docs_request)
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DOCS_REQUEST_CHANNEL: ${{ secrets.SLACK_DOCS_REQUEST_CHANNEL }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          JOB_RESULT: ${{ needs.scan-and-pr.result }}
+          YMD: ${{ needs.scan-and-pr.outputs.ymd }}
+          SCAN_COUNT: ${{ needs.scan-and-pr.outputs.scan_count }}
+          BYTES_HUMAN: ${{ needs.scan-and-pr.outputs.bytes_human }}
+          DELETED_COUNT: ${{ needs.scan-and-pr.outputs.deleted_count }}
+          SKIP_REASON: ${{ needs.scan-and-pr.outputs.skip_reason }}
+          PR_URL: ${{ needs.scan-and-pr.outputs.pr_url }}
+          PR_NUMBER: ${{ needs.scan-and-pr.outputs.pr_number }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          CHANNEL="${SLACK_DOCS_REQUEST_CHANNEL:-${SLACK_DEPLOY_NOTIFY_CHANNEL:-}}"
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${CHANNEL}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DOCS_REQUEST_CHANNEL); skipping."
+            exit 0
+          fi
+
+          CONTEXT=
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+            CONTEXT=" (manual run)"
+          fi
+
+          if [ "$JOB_RESULT" = "failure" ]; then
+            TEXT=":x: *Image pruner (maintenance)* failed${CONTEXT}\n${RUN_URL}"
+          elif [ "$JOB_RESULT" != "success" ]; then
+            TEXT=":warning: *Image pruner (maintenance)* ended (${JOB_RESULT})${CONTEXT}\n${RUN_URL}"
+          elif [ "${SKIP_REASON:-}" = "open_ip_pr" ]; then
+            TEXT=":warning: *Image pruner (maintenance)* — skipped (open \`[IP]\` deletion PR exists)${CONTEXT}\n${RUN_URL}"
+          elif [ -n "${PR_URL:-}" ] && [ -n "${PR_NUMBER:-}" ]; then
+            TEXT=":white_check_mark: *Image pruner (maintenance)* — opened draft PR <${PR_URL}|#${PR_NUMBER}> (${DELETED_COUNT:-0} images removed; ${SCAN_COUNT:-0} unreferenced in scan, ~${BYTES_HUMAN:-unknown})"
+          elif [ "${SCAN_COUNT:-0}" = "0" ]; then
+            TEXT=":white_check_mark: *Image pruner (maintenance)* — no PR (0 unreferenced images)${CONTEXT}\n${RUN_URL}"
+          elif [ -z "${DELETED_COUNT:-}" ] || [ "${DELETED_COUNT:-0}" = "0" ]; then
+            TEXT=":white_check_mark: *Image pruner (maintenance)* — no PR (${SCAN_COUNT:-0} unreferenced in scan; candidates skipped or none deleted)${CONTEXT}\n${RUN_URL}"
+          else
+            TEXT="*Image pruner (maintenance)* finished${CONTEXT} (${RUN_URL})"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

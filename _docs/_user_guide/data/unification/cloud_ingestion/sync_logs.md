@@ -35,11 +35,9 @@ Sync logs also provide the following details for each sync:
 * **Run start time:** When the sync job began.  
 * **Run duration:** The total time the sync job took to complete.
 
-![Details for a sync log.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Data retention
 
-Sync log data, including all row-level payloads and error details, is retained for up to **30 days**. Logs older than 30 days will be automatically purged.
+Sync log data, including all row-level payloads and error details, is retained for up to **30 days**. Logs older than 30 days are automatically purged.
 
 Sync run metadata such as the number of rows processed is retained for at least 12 months.
 
@@ -73,8 +71,6 @@ This table provides row-level visibility into the data processed during the sync
 
 To see the exact data sent to Braze for a specific row, select **View payload** in the **Source** payload column. This displays the raw JSON payload that was processed for that user.
 
-![Payload example for a specific row in a sync log.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Exporting sync logs
 
 Select **Export rows** to export the row-level logs for a sync run. Then, choose to export by:
@@ -82,7 +78,7 @@ Select **Export rows** to export the row-level logs for a sync run. Then, choose
 * **Rows with errors:** Downloads a file containing only the rows that had an **Error** status.
 * **All rows:** Downloads a file containing every row processed in the run.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Logs can't be exported directly from the dashboard. After the export is generated, you’ll receive an email with a link to download the log export file. 
 

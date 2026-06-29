@@ -53,23 +53,30 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!copyBtn) return;
   
   function getMarkdownPath(pathname) {
-    if (!pathname) {
-      return '/index.md';
+    const siteBaseUrl = '{{ site.baseurl }}';
+    let normalizedPath = pathname || '/';
+
+    normalizedPath = normalizedPath.split('?')[0].split('#')[0];
+
+    if (siteBaseUrl && siteBaseUrl !== '/' &&
+        !normalizedPath.startsWith(siteBaseUrl + '/') &&
+        normalizedPath !== siteBaseUrl) {
+      normalizedPath = siteBaseUrl + (normalizedPath.startsWith('/') ? normalizedPath : '/' + normalizedPath);
     }
 
-    if (pathname.endsWith('/index.md')) {
-      return pathname;
+    if (normalizedPath.endsWith('/index.md') || normalizedPath.endsWith('.md')) {
+      return normalizedPath;
     }
 
-    if (pathname.endsWith('/')) {
-      return pathname.slice(0, -1) + '/index.md';
+    if (normalizedPath.endsWith('/')) {
+      return normalizedPath + 'index.md';
     }
 
-    if (pathname.endsWith('.html')) {
-      return pathname.replace('.html', '/index.md');
+    if (normalizedPath.endsWith('.html')) {
+      return normalizedPath.replace('.html', '/index.md');
     }
 
-    return pathname + '/index.md';
+    return normalizedPath + '/index.md';
   }
 
   function repositionCopyButtons() {
@@ -239,9 +246,9 @@ document.addEventListener('DOMContentLoaded', function() {
   gap: 0.5rem;
   font-size: 0.875rem;
   padding: 0.375rem 0.75rem;
-  border: 1px solid #801ED7;
+  border: 1px solid var(--ai-button-color);
   background-color: transparent;
-  color: #801ED7;
+  color: var(--ai-button-color);
   border-radius: 0.375rem;
   transition: all 0.15s ease-in-out;
   cursor: pointer;
@@ -252,21 +259,27 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .copy-for-llm-button:hover {
-  background-color: #801ED7;
+  background-color: var(--ai-button-color);
   color: white;
-  border-color: #801ED7;
+  border-color: var(--ai-button-color);
   box-shadow: none;
   text-decoration: none;
 }
 
-.copy-for-llm-button:focus {
+.copy-for-llm-button:focus:not(:focus-visible) {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(128, 30, 215, 0.25);
+  box-shadow: none;
+}
+
+.copy-for-llm-button:focus-visible {
+  outline: 2px solid var(--ai-button-color);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 .copy-for-llm-button:active {
-  background-color: #300266;
-  border-color: #300266;
+  background-color: var(--ai-button-color-active);
+  border-color: var(--ai-button-color-active);
 }
 
 .copy-for-llm-feedback {

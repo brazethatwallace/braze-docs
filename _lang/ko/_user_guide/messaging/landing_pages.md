@@ -31,12 +31,14 @@ alias: /landing_pages/
 
 ## 플랜 티어 {#plan-tiers}
 
-게시할 수 있는 랜딩 페이지 및 커스텀 도메인의 수는 플랜 유형(무료 또는 유료(증분))에 따라 다릅니다.
+게시할 수 있는 랜딩 페이지, 커스텀 도메인의 수 및 사용할 수 있는 기능은 플랜 유형(무료 또는 유료(증분))에 따라 다릅니다.
 
 | 기능 | 무료 티어 | 유료 티어(증분) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | 게시된 랜딩 페이지 | 회사당 5개 | 추가 20개 |
 | 커스텀 도메인 | 회사당 1개 | 추가 5개 |
+| [Liquid 개인화]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | 사용 불가 | 사용 가능 |
+| 미리 채워진 양식 필드 | 사용 불가 | 사용 가능 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## 랜딩 페이지에 Google Tag Manager 추가하기 {#adding-google-tag-manager-to-a-landing-page}

@@ -1,0 +1,1 @@
+[미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 자산 업로드 패널의 **Operator로 생성**을 선택합니다. 원하는 이미지를 설명하면 Operator가 이미지를 생성하여 미디어 라이브러리에 직접 저장합니다.

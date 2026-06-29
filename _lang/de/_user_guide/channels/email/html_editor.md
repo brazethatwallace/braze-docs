@@ -29,7 +29,7 @@ Verwenden Sie Campaigns für einfache, einzelne Nachrichten. Verwenden Sie Canva
 {% tabs %}
 {% tab Campaign %}
 
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Create Campaign**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
 2. Wählen Sie **Email** oder, für Campaigns, die mehrere Kanäle ansprechen, **Multichannel**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu.
@@ -83,14 +83,13 @@ Braze aktualisiert die Klartext-Version automatisch aus der HTML-Version, bis ei
 Um Bewegung in einer E-Mail mit genauer Vorschau hinzuzufügen, verwenden Sie GIFs anstelle von Elementen, die JavaScript erfordern, da die meisten Postfächer JavaScript nicht unterstützen.
 {% endalert %}
 
-![E-Mail-Varianten-Panel zum Verfassen Ihrer E-Mail.]({% image_buster /assets/img/email.png %}){: style="max-width:75%" }
 
 {% alert important %}
 Braze entfernt automatisch HTML-Event-Handler, die als Attribute referenziert werden. Dadurch wird das HTML modifiziert – überprüfen Sie die E-Mail daher erneut, nachdem Sie fertig sind. Erfahren Sie mehr über [HTML-Handler](https://www.w3schools.com/tags/ref_eventattributes.asp).
 {% endalert %}
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte für Ihre Nachrichten.
+Brauchen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte für Ihre Nachrichten.
 
 ![Button „KI-Texter starten“ im Tab „Body“ des E-Mail-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
@@ -113,7 +112,6 @@ Ersetzen Sie `#ffffff` durch Ihre gewünschte Farbe.
 
 {% alert note %}
 Dieser Ansatz funktioniert nicht zuverlässig allein auf `<table>`-Elementen. Setzen Sie den Gradienten daher auf die Zelle statt nur auf die Tabelle.
-  <caption>Gmail-Mobil-App und Dark Mode</caption>
 {% endalert %}
 
 Weitere Informationen zur Gradient-Syntax finden Sie unter [CSS-Gradienten auf W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -129,13 +127,23 @@ Nachdem Sie Ihre E-Mail-Nachricht fertig gestaltet und erstellt haben, fügen Si
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-Eine Vorschau im rechten Panel wird mit den von Ihnen hinzugefügten Sendeinformationen befüllt. Diese Informationen können auch aktualisiert werden, indem Sie zu **Settings** > **Email Preferences** > **Sending Configuration** gehen.
+Eine Vorschau im rechten Panel wird mit den von Ihnen hinzugefügten Sendeinformationen befüllt. Diese Informationen können auch aktualisiert werden, indem Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Sendekonfiguration** gehen.
 
 #### Erweitert {#advanced}
 
 Unter **Sending Settings** > **Advanced** aktivieren Sie **Inline-CSS** für die breiteste Client-Unterstützung. Wenn Nachrichten abgeschnitten werden oder Bilder auf Zeilenhöhe gestreckt werden, versuchen Sie, Inline-CSS vorübergehend zu **deaktivieren**. Einige Templates verhalten sich ohne Inlining besser.
 
 Sie können auch Personalisierung für E-Mail-Header und E-Mail-Extras hinzufügen, um zusätzliche Daten an andere E-Mail-Anbieter zurückzusenden.
+
+##### E-Mail-Anhänge {#email-attachments}
+
+Sie können E-Mail-Anhänge auch mit den folgenden Methoden hinzufügen:
+
+- **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt hochzuladen. Braze validiert den Dateityp und die Größe (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen, anschließend werden diese Dateien in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
+- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
+- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt erzwungen. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
+
+Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
 
 ##### E-Mail-Header {#email-headers}
 
@@ -152,7 +160,7 @@ Vermeiden Sie die Verwendung der folgenden Schlüssel:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="E-Mail-Header" id="reserved-fields">
   <caption>E-Mail-Header</caption>
 <thead>
   <tr>
@@ -233,6 +241,10 @@ E-Mail-Clients, die Vorschautext unterstützen, ziehen immer genügend Zeichen e
 Für den Drag-and-Drop-Editor fügen Sie nur die Zero-Width-Non-Joiner (‌`&zwnj;`) ohne die `<div>`-Formatierung direkt im Preheader im Bereich **Sending Settings** hinzu.
 {% endalert %}
 
+{% alert note %}
+In der Apple-Mail-App müssen Bild-Links in HTML-E-Mails `https://`-URLs verwenden, um klickbar zu sein. Verwenden Sie sichere Links für jedes Bild, das in einem Anker-Tag eingebettet ist, wenn Sie Klicks von Apple-Mail-Empfänger:innen erwarten.
+{% endalert %}
+
 ### Schritt 3.3: Auf E-Mail-Fehler prüfen {#step-33-check-for-email-errors}
 
 Vor dem Senden markiert der Editor häufige Probleme:
@@ -254,7 +266,7 @@ Vor dem Senden markiert der Editor häufige Probleme:
 {% tab Campaign %}
 Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie Details zur Verwendung der Braze-Tools zum Erstellen Ihrer E-Mail-Kampagne.
 
-#### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
 Liefern Sie E-Mails basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -262,13 +274,13 @@ Liefern Sie E-Mails basierend auf einem geplanten Zeitpunkt, einer Aktion oder e
 Bei API-getriggerten Campaigns, bei denen die Trigger-Aktion auf **Mit Campaign interagieren** eingestellt ist, führt die Auswahl einer **Empfangen**-Option als Interaktion dazu, dass Ihre neue Campaign ausgelöst wird, sobald Braze die ausgewählte Campaign als gesendet markiert, selbst wenn diese Nachricht bounct oder nicht zugestellt werden kann.
 {% endalert %}
 
-Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) angeben und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln einrichten.
+Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) angeben und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln einrichten.
 
-#### Zielnutzer:innen auswählen {#choose-users-to-target}
+### Zielnutzer:innen auswählen {#choose-users-to-target}
 
 Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen. Braze zeigt eine Live-Vorschau der Segment-Population an, einschließlich der Anzahl der per E-Mail erreichbaren Nutzer:innen. Die genaue Segment-Zugehörigkeit wird kurz vor dem Versand berechnet.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 Sie können auch wählen, Ihre Campaign nur an Nutzer:innen mit einem bestimmten [Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions/) zu senden, z. B. an diejenigen, die abonniert und für E-Mail angemeldet sind.
 
@@ -278,7 +290,7 @@ Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:in
 Beim Erstellen einer neuen E-Mail-Kampagne ist die Kontrollgruppe standardmäßig auf 20 % eingestellt und kann je nach Bedarf für Ihre Campaign angepasst oder entfernt werden.
 {% endalert %}
 
-##### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
+#### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
 
 Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen, möchten Sie Ihre Campaign möglicherweise so einschränken, dass nur Nutzer:innen die Nachricht erhalten, die ausdrücklich angemeldet sind (unter Ausschluss von abonnierten oder abgemeldeten Nutzer:innen). Nehmen wir beispielsweise an, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
@@ -286,13 +298,13 @@ Bei Multichannel-Campaigns, die sowohl E-Mail- als auch Push-Kanäle ansprechen,
 - **Nutzer:in B** ist für E-Mail angemeldet, aber nicht Push-aktiviert. Diese Person wird die E-Mail erhalten, erhält aber nicht den Push.
 - **Nutzer:in C** ist für E-Mail angemeldet und Push-aktiviert. Diese Person wird sowohl die E-Mail als auch den Push erhalten.
 
-Wählen Sie dazu unter **Audience Summary** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, die Push-aktiviert sind.
+Wählen Sie dazu unter **Zielgruppen-Zusammenfassung** aus, diese Campaign nur an „nur angemeldete Nutzer:innen“ zu senden. Diese Option stellt sicher, dass nur angemeldete Nutzer:innen Ihre E-Mail erhalten, und Braze sendet Ihren Push standardmäßig nur an Nutzer:innen, die Push-aktiviert sind.
 
 {% alert important %}
 Fügen Sie bei dieser Konfiguration keine Filter im Schritt **Target Audiences** hinzu, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Konversions-Events wählen {#choose-conversion-events}
+### Konversions-Events wählen {#choose-conversion-events}
 
 Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), nach Erhalt einer Campaign ausführen. Sie können jede der folgenden Aktionen als Konversions-Event festlegen:
 

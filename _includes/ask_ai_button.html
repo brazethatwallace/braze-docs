@@ -11,9 +11,9 @@
   gap: 0.5rem;
   font-size: 0.875rem;
   padding: 0.375rem 0.75rem;
-  border: 1px solid #801ED7;
+  border: 1px solid var(--ai-button-color);
   background-color: transparent;
-  color: #801ED7;
+  color: var(--ai-button-color);
   border-radius: 0.375rem;
   transition: all 0.15s ease-in-out;
   cursor: pointer;
@@ -23,15 +23,21 @@
   line-height: 1.5;
 }
 .ask-ai-inline-btn:hover {
-  background-color: #801ED7;
+  background-color: var(--ai-button-color);
   color: white;
-  border-color: #801ED7;
+  border-color: var(--ai-button-color);
   box-shadow: none;
   text-decoration: none;
 }
-.ask-ai-inline-btn:focus {
+.ask-ai-inline-btn:focus:not(:focus-visible) {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(128, 30, 215, 0.25);
+  box-shadow: none;
+}
+
+.ask-ai-inline-btn:focus-visible {
+  outline: 2px solid var(--ai-button-color);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 .ask-ai-inline-chevron {
   width: 10px;
@@ -93,7 +99,7 @@
   background-color: #f9fafb !important;
 }
 .ask-ai-inline-dropdown a.ask-ai-inline-option:focus-visible {
-  outline: 2px solid #801ED7 !important;
+  outline: 2px solid var(--ai-button-color) !important;
   outline-offset: -2px !important;
   background-color: #f9fafb !important;
 }
@@ -135,23 +141,30 @@
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
     function getMarkdownPath(pathname) {
-      if (!pathname) {
-        return '/index.md';
+      var siteBaseUrl = '{{ site.baseurl }}';
+      var normalizedPath = pathname || '/';
+
+      normalizedPath = normalizedPath.split('?')[0].split('#')[0];
+
+      if (siteBaseUrl && siteBaseUrl !== '/' &&
+          normalizedPath.indexOf(siteBaseUrl + '/') !== 0 &&
+          normalizedPath !== siteBaseUrl) {
+        normalizedPath = siteBaseUrl + (normalizedPath.charAt(0) === '/' ? normalizedPath : '/' + normalizedPath);
       }
 
-      if (pathname.endsWith('/index.md')) {
-        return pathname;
+      if (normalizedPath.endsWith('/index.md') || normalizedPath.endsWith('.md')) {
+        return normalizedPath;
       }
 
-      if (pathname.endsWith('/')) {
-        return pathname.slice(0, -1) + '/index.md';
+      if (normalizedPath.endsWith('/')) {
+        return normalizedPath + 'index.md';
       }
 
-      if (pathname.endsWith('.html')) {
-        return pathname.replace('.html', '/index.md');
+      if (normalizedPath.endsWith('.html')) {
+        return normalizedPath.replace('.html', '/index.md');
       }
 
-      return pathname + '/index.md';
+      return normalizedPath + '/index.md';
     }
 
     function logAskAiEvent(eventName, properties) {
@@ -199,7 +212,7 @@
           '<span class="ask-ai-inline-option-name">ChatGPT</span>' +
           '<span class="sr-only"> (opens in new tab)</span>' +
         '</a>' +
-        '<a class="ask-ai-inline-option extignore" role="menuitem" tabindex="-1" data-ai-option="docs_mcp" href="https://www.braze.com/docs/developer_guide/getting_started/build_with_llm" target="_blank" rel="noopener noreferrer">' +
+        '<a class="ask-ai-inline-option extignore" role="menuitem" tabindex="-1" data-ai-option="docs_mcp" href="{{ site.homeurl }}{{ site.baseurl }}/developer_guide/getting_started/build_with_llm" target="_blank" rel="noopener noreferrer">' +
           '<svg class="ask-ai-inline-option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
             '<path d="M4 6h16M4 12h16M4 18h10" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>' +
             '<circle cx="20" cy="18" r="2.5" stroke="#6b7280" stroke-width="1.5" fill="none"/>' +

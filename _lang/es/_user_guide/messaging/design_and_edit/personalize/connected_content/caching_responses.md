@@ -7,7 +7,7 @@ description: "Este artículo explica cómo almacenar en caché las respuestas de
 
 # Almacenar en caché las respuestas de Contenido conectado {#cache-connected-content-responses}
 
-> Las respuestas de Contenido conectado se pueden almacenar en caché en diferentes Campaigns o mensajes (en el mismo espacio de trabajo) para optimizar las velocidades de envío.
+> Las respuestas de Contenido conectado se pueden almacenar en caché en diferentes campañas o mensajes (en el mismo espacio de trabajo) para optimizar las velocidades de envío.
 
 Braze no registra ni almacena de forma permanente los **cuerpos de respuesta** de Contenido conectado. Durante la representación de mensajes, las respuestas se pueden mantener temporalmente (por ejemplo, en memoria y en caché) para que Braze pueda representar Liquid y enviar el mensaje.
 
@@ -16,13 +16,13 @@ Para evitar el almacenamiento en caché, puedes especificar `:no_cache`, lo que 
 {% details Representación de Contenido conectado y manejo de datos (avanzado) %}
 Esta sección proporciona una vista más detallada y de extremo a extremo de cómo Braze representa Liquid y Contenido conectado, y dónde pueden existir temporalmente los datos antes de que se envíe un mensaje. Esto puede ser útil para revisiones de privacidad y manejo de datos.
 
-#### Qué se almacena y qué no {#what-is-and-isnt-stored}
+## Qué se almacena y qué no {#what-is-and-isnt-stored}
 
 - **Cuerpo de respuesta de Contenido conectado:** No se almacena de forma permanente en Braze. Se puede mantener temporalmente en memoria y, cuando el almacenamiento en caché está habilitado, se almacena en caché con un tiempo de vida (TTL).
 - **Metadatos de solicitud de Contenido conectado:** Los metadatos de solicitud, como la URL completamente representada, el código de estado HTTP y la duración de la respuesta, se registran para la solución de problemas y la supervisión. Estos registros se conservan durante un máximo de 30 días.
 - **Mensaje final representado:** Existe en memoria durante la representación. También puede almacenarse en otro lugar dependiendo de tu configuración y canal (por ejemplo, Archivado de mensajes o Content Cards).
 
-#### Flujo de representación (nivel alto) {#rendering-flow-high-level}
+## Flujo de representación (nivel alto) {#rendering-flow-high-level}
 
 El siguiente flujo describe cómo Braze representa y envía mensajes para canales basados en proveedores, como correo electrónico, SMS y push. Los canales entregados por SDK, como Content Cards, utilizan la misma representación subyacente de Liquid y Contenido conectado, pero difieren en cuándo se genera el contenido y cómo se entrega.
 
@@ -32,7 +32,7 @@ El siguiente flujo describe cómo Braze representa y envía mensajes para canale
 4. La respuesta se inyecta en la plantilla Liquid y el mensaje se representa completamente.
 5. Para canales basados en proveedores, el mensaje representado se envía al proveedor del canal y luego al usuario. Para canales entregados por SDK, como Content Cards, el contenido representado se sincroniza con el SDK de Braze y puede generarse en la primera impresión o en el momento de visualización, momento en el cual se muestra al usuario.
 
-#### Dónde pueden existir temporalmente las respuestas de Contenido conectado {#where-connected-content-responses-can-live-temporarily}
+## Dónde pueden existir temporalmente las respuestas de Contenido conectado {#where-connected-content-responses-can-live-temporarily}
 
 Braze utiliza una caché de múltiples niveles para las respuestas de Contenido conectado con TTL entre cinco minutos y cuatro horas, dependiendo de tu uso de `:cache_max_age` y otras reglas de almacenamiento en caché:
 
@@ -42,11 +42,11 @@ Braze utiliza una caché de múltiples niveles para las respuestas de Contenido 
 
 Estas capas de caché son volátiles y pueden desalojar datos antes del TTL configurado.
 
-#### Qué cambia cuando usas `:no_cache` {#what-changes-when-you-use-nocache}
+## Qué cambia cuando usas `:no_cache` {#what-changes-when-you-use-no_cache}
 
 Para puntos de conexión que no están alojados dentro de la infraestructura de Braze, usar `:no_cache` evita que el cuerpo de respuesta de Contenido conectado se almacene en Memcached. En estos casos, la respuesta solo existe en la memoria del proceso del trabajador durante la duración del trabajo de representación (hasta ~11 minutos). Para puntos de conexión que resuelven a hosts internos de Braze, las respuestas aún pueden almacenarse en caché como se describe en [Invalidación de caché](#cache-busting).
 
-#### Dónde puede existir la salida final representada {#where-the-final-rendered-output-can-live}
+## Dónde puede existir la salida final representada {#where-the-final-rendered-output-can-live}
 
 - **Archivado de mensajes:** Si el Archivado de mensajes está habilitado, Braze puede escribir el mensaje final representado en tu contenedor de almacenamiento en la nube configurado. Si tu respuesta de Contenido conectado está incluida en el mensaje representado, se incluirá en la copia archivada.
 - **Dispositivos de los usuarios:** Después de la entrega, el contenido del mensaje completamente representado puede persistir en los dispositivos de los usuarios durante un período de tiempo indeterminado.
@@ -63,9 +63,9 @@ La duración de la caché es de hasta cinco minutos (300 segundos). Puedes actua
 ```
 {% endraw %}
 
-Las solicitudes GET se almacenan en caché. Puedes configurar esto añadiendo el parámetro `:no_cache` a la llamada de Contenido conectado.
+Las solicitudes GET se almacenan en caché de forma predeterminada. Puedes deshabilitar el almacenamiento en caché añadiendo el parámetro `:no_cache` a la llamada de Contenido conectado.
 
-Las solicitudes POST no se almacenan en caché de forma predeterminada, pero se pueden almacenar en caché añadiendo el parámetro `:cache_max_age` a la llamada de Contenido conectado. El tiempo mínimo de caché es de 5 minutos y el tiempo máximo de caché es de 4 horas.
+Las solicitudes POST no se almacenan en caché de forma predeterminada, pero puedes habilitar el almacenamiento en caché añadiendo el parámetro `:cache_max_age` a la llamada de Contenido conectado. El tiempo mínimo de caché es de 5 minutos y el tiempo máximo de caché es de 4 horas.
 
 {% alert note %}
 La configuración de caché no está garantizada. El almacenamiento en caché puede reducir las llamadas a tus puntos de conexión, por lo que recomendamos usar múltiples llamadas por punto de conexión dentro de la duración de la caché en lugar de depender excesivamente del almacenamiento en caché.
@@ -113,8 +113,8 @@ Con un POST no necesitas invalidar la caché, ya que las solicitudes POST no se 
 
 {% raw %}
 - El almacenamiento en caché puede ayudar a reducir las llamadas duplicadas de Contenido conectado. Sin embargo, no se garantiza que siempre resulte en una única llamada de Contenido conectado por usuario.
-- El almacenamiento en caché de Contenido conectado se basa en la URL y el espacio de trabajo. Si la llamada de Contenido conectado es a la misma URL, se puede almacenar en caché entre campañas y Canvas.
-- La caché se basa en una URL única, no en un ID de usuario o una campaña. Esto significa que la versión en caché de una llamada de Contenido conectado podría usarse entre múltiples usuarios y campañas en un espacio de trabajo si la URL es la misma.
+- El almacenamiento en caché de Contenido conectado se basa en el espacio de trabajo, la URL de solicitud, el tipo de contenido de la solicitud y el cuerpo de la solicitud. Si la llamada de Contenido conectado es a la misma URL, se puede almacenar en caché entre campañas y Canvas.
+- La caché se basa en una combinación única de URL, tipo de contenido y cuerpo de la solicitud, no en un ID de usuario o una campaña. Esto significa que la versión en caché de una llamada de Contenido conectado podría usarse entre múltiples usuarios y campañas en un espacio de trabajo si la URL, el tipo de contenido y el cuerpo de la solicitud son los mismos.
 - El almacenamiento en caché de Contenido conectado puede omitirse si el marcado de la etiqueta incluye alguno de los siguientes fragmentos de alta cardinalidad:
     - `{{${user_id}}}`
     - `{{${braze_id}}}`

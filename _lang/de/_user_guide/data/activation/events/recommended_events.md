@@ -23,7 +23,7 @@ Da diese Events einem definierten Schema folgen, kann jedes unterstützte Featur
 
 ### So funktionieren E-Commerce-Events {#how-ecommerce-events-work}
 
-E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das Braze SDK oder den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) oder den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
 
 E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger und Filter für durchgeführte angepasste Events, Reporting zu angepassten Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
 
@@ -47,12 +47,21 @@ Sie können Events nicht anpassen oder umbenennen.
 
 Die sechs empfohlenen E-Commerce-Events bilden Phasen der Kauf-Journey ab. Lösen Sie jedes Event in dem Moment aus, in dem die Nutzer:in die entsprechende Aktion abschließt.
 
-![Diagramm der Nutzer-Journey durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagramm der Nutzer-Journey durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
+
+{% alert tip %}
+Die folgenden Beispiele zeigen die REST-API-Payload für jedes Event.
+Für die clientseitige Protokollierung verwenden `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` und `ecommerce.order_placed` die SDK-E-Commerce-Event-APIs, sofern verfügbar, während `ecommerce.order_cancelled` und `ecommerce.order_refunded` `logCustomEvent` verwenden. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+{% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
 Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft. Dieses Event ist kompatibel mit den Braze-Katalog-Funktionen [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/).
+
+#### Clientseitige Implementierung {#client-side-implementation}
+
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Event-Eigenschaften {#event-properties}
 
@@ -63,10 +72,10 @@ Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft
 | `variant_id`   | String           | Ja      | Produktvarianten-Bezeichner (z. B. `shirt_medium_blue`). |
 | `image_url`    | String           | Nein       | Produktbild-URL. |
 | `product_url`  | String           | Nein       | URL zur Produktseite für weitere Details. |
-| `price`        | Gleitkommazahl            | Ja      | Varianten-Stückpreis zum Zeitpunkt der Ansicht. |
+| `price`        | Gleitkommazahl   | Ja      | Varianten-Stückpreis zum Zeitpunkt der Ansicht. |
 | `currency`     | String           | Ja      | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
 | `source`       | String           | Ja      | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
-| `type`         | String-Array | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
+| `type`         | String-Array     | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
 | `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `sku` (String) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
@@ -105,6 +114,10 @@ Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft
 
 Lösen Sie dieses Event jedes Mal aus, wenn sich der Inhalt des Warenkorbs einer Nutzer:in ändert.
 
+#### Clientseitige Implementierung
+
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 Sie können dieses Event auf zwei Arten senden:
 
 - **Vollständiger Warenkorb-Ersatz:** Lassen Sie `action` weg oder setzen Sie `action` auf `replace`. Fügen Sie den vollständigen Satz an Positionen in `products` mit absoluten Mengen (Gesamteinheiten pro Variante im Warenkorb) ein. Sie müssen `total_value` angeben.
@@ -126,10 +139,10 @@ Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% 
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `cart_id`       | String    | Ja      | Eindeutiger Bezeichner für den Warenkorb. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
 | `action`        | String    | Nein       | `add` (Menge erhöhen oder neue Position hinzufügen), `remove` (Menge verringern; Position wird bei `0` entfernt) oder `replace` (vollständiger Warenkorb-Ersatz, identisch mit dem Weglassen von `action`). |
-| `total_value`   | Gleitkommazahl     | Bedingt | Erforderlich, wenn `action` weggelassen wird oder `replace` ist. Optional bei `action` `add` oder `remove`. |
-| `subtotal_value`| Gleitkommazahl     | Nein       | Zwischensumme des Warenkorbs (nach Rabatt, vor Steuern/Versand). |
-| `tax`           | Gleitkommazahl     | Nein       | Gesamte auf den Warenkorb angewandte Steuer. |
-| `shipping`      | Gleitkommazahl     | Nein       | Gesamte Versandkosten für den Warenkorb. |
+| `total_value`   | Gleitkommazahl | Bedingt | Erforderlich, wenn `action` weggelassen wird oder `replace` ist. Optional bei `action` `add` oder `remove`. |
+| `subtotal_value`| Gleitkommazahl | Nein       | Zwischensumme des Warenkorbs (nach Rabatt, vor Steuern/Versand). |
+| `tax`           | Gleitkommazahl | Nein       | Gesamte auf den Warenkorb angewandte Steuer. |
+| `shipping`      | Gleitkommazahl | Nein       | Gesamte Versandkosten für den Warenkorb. |
 | `currency`      | String    | Ja      | Dreistelliger ISO-4217-Code. |
 | `products`      | Array     | Ja      | Positionen für dieses Update. Beim vollständigen Ersatz (kein `action` oder `replace`) den vollständigen Warenkorb mit absoluten Mengen einfügen. Bei `add` oder `remove` nur geänderte Positionen einfügen; siehe Produkteigenschaften. |
 | `source`        | String    | Ja      | Quelle, von der das Event stammt. |
@@ -146,20 +159,18 @@ Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% 
 | `image_url`     | String    | Nein       | Produktbild-URL. |
 | `product_url`   | String    | Nein       | URL zur Produktseite. |
 | `quantity`      | Integer   | Ja      | Beim vollständigen Ersatz (kein `action` oder `replace`) die Einheiten im Warenkorb für diese Position. Bei `add` oder `remove` die Anzahl der hinzuzufügenden oder zu entfernenden Einheiten. |
-| `price`         | Gleitkommazahl     | Ja      | Varianten-Stückpreis. |
+| `price`         | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
 | `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### Code-Beispiele {#code-examples}
-
-Jeder Plattform-Tab unten verwendet das Snippet-Layout, das zu diesem Integrationspfad passt (z. B. Überschriften oder Labels innerhalb eines Code-Blocks). Die `add`-, `remove`- und `replace`-Payloads sind plattformübergreifend identisch; nur die SDK- oder API-Oberfläche unterscheidet sich.
+{% comment %}
 
 {% subtabs local %}
 {% subtab Web %}
 
 ##### `add`
 
-`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -180,7 +191,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 ```
 ##### `remove`
 
-`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -202,7 +213,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 ##### `replace`
 
-`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
@@ -237,9 +248,9 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 {% endsubtab %}
 {% subtab Android %}
 
-##### Hinzufügen
+##### Add
 
-`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```text
 Kotlin
@@ -286,9 +297,9 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 189.99)))));
 ```
 
-##### Entfernen
+##### Remove
 
-`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```text
 Kotlin
@@ -335,9 +346,9 @@ Braze.getInstance(context).logCustomEvent(
                 .put("price", 14.99)))));
 ```
 
-##### Ersetzen
+##### Replace
 
-`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```text
 Kotlin
@@ -404,9 +415,9 @@ Braze.getInstance(context).logCustomEvent(
 {% endsubtab %}
 {% subtab Swift %}
 
-##### Hinzufügen
+##### Add
 
-`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```text
 Swift
@@ -450,9 +461,9 @@ Objective-C
 }];
 ```
 
-##### Entfernen
+##### Remove
 
-`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```text
 Swift
@@ -496,9 +507,9 @@ Objective-C
 }];
 ```
 
-##### Ersetzen
+##### Replace
 
-`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```text
 Swift
@@ -565,7 +576,7 @@ Objective-C
 
 ##### `add`
 
-`add` erhöht die Menge oder fügt eine neue Position hinzu. Die Eigenschaft `quantity` gibt an, wie viele Einheiten hinzugefügt werden sollen.
+`add` increases quantity or adds a new line. The `quantity` property is how many units to add.
 
 ```json
 {
@@ -596,7 +607,7 @@ Objective-C
 
 ##### `remove`
 
-`remove` verringert die Menge um den Wert in `quantity`. Die Position wird entfernt, wenn die Menge `0` erreicht.
+`remove` decreases quantity by the amount in `quantity`. The line is removed when quantity reaches `0`.
 
 ```json
 {
@@ -627,7 +638,7 @@ Objective-C
 
 ##### `replace`
 
-`replace` (oder `action` weglassen) sendet den vollständigen Warenkorb. `total_value` ist erforderlich.
+`replace` (or omit `action`) sends the full cart. `total_value` is required.
 
 ```json
 {
@@ -684,11 +695,16 @@ Objective-C
 
 {% endsubtab %}
 {% endsubtabs %}
+{% endcomment %}
 
 {% endtab %}
 {% tab ecommerce.checkout_started %}
 
 Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z. B. „Zur Kasse“ auswählt oder auf der Checkout-Seite landet).
+
+#### Clientseitige Implementierung
+
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 #### Event-Eigenschaften
 
@@ -696,10 +712,10 @@ Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z.
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
 | checkout_id    | String  | Ja      | Eindeutiger Bezeichner für die Checkout-Sitzung. |
 | cart_id        | String  | Nein       | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| total_value    | Gleitkommazahl   | Ja      | Gesamter Geldwert des Checkouts. |
-| subtotal_value | Gleitkommazahl   | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| tax            | Gleitkommazahl   | Nein       | Gesamte auf den Checkout angewandte Steuer. |
-| shipping       | Gleitkommazahl   | Nein       | Gesamte Versandkosten. |
+| total_value    | Gleitkommazahl | Ja      | Gesamter Geldwert des Checkouts. |
+| subtotal_value | Gleitkommazahl | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
+| tax            | Gleitkommazahl | Nein       | Gesamte auf den Checkout angewandte Steuer. |
+| shipping       | Gleitkommazahl | Nein       | Gesamte Versandkosten. |
 | currency       | String  | Ja      | Dreistelliger ISO-4217-Code. |
 | products       | Array   | Ja      | Artikel im Checkout. Siehe Produkteigenschaften-Untertabelle. |
 | source         | String  | Ja      | Quelle, von der das Event stammt. |
@@ -716,7 +732,7 @@ Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z.
 | `image_url`    | String    | Nein       | Produktbild-URL. |
 | `product_url`  | String    | Nein       | URL zur Produktseite. |
 | `quantity`     | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
-| `price`        | Gleitkommazahl     | Ja      | Varianten-Stückpreis. |
+| `price`        | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
 | `metadata`     | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. Farbe, Größe). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
@@ -781,6 +797,10 @@ Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z.
 
 Lösen Sie dieses Event aus, wenn eine Bestellung erfolgreich abgeschlossen oder die Zahlung bestätigt wurde.
 
+#### Clientseitige Implementierung
+
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Nutzerprofil.
 {% endalert %}
@@ -791,12 +811,12 @@ Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den W
 |-----------------|-----------|----------|-----------------------------------------------------------------------------------------------|
 | `order_id`      | String    | Ja      | Eindeutiger Bezeichner für die Bestellung. |
 | `cart_id`       | String    | Nein       | Warenkorb-Bezeichner. Wird über Warenkorb-, Checkout- und Bestell-Events für das Warenkorb-Mapping der Nutzer:in geteilt. |
-| `total_value`   | Gleitkommazahl     | Ja      | Gesamter Geldwert der Bestellung. |
-| `subtotal_value`| Gleitkommazahl     | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| `tax`           | Gleitkommazahl     | Nein       | Gesamte auf die Bestellung angewandte Steuer. |
-| `shipping`      | Gleitkommazahl     | Nein       | Gesamte Versandkosten. |
+| `total_value`   | Gleitkommazahl | Ja      | Gesamter Geldwert der Bestellung. |
+| `subtotal_value`| Gleitkommazahl | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
+| `tax`           | Gleitkommazahl | Nein       | Gesamte auf die Bestellung angewandte Steuer. |
+| `shipping`      | Gleitkommazahl | Nein       | Gesamte Versandkosten. |
 | `currency`      | String    | Ja      | Dreistelliger ISO-4217-Code. |
-| `total_discounts`| Gleitkommazahl    | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
+| `total_discounts`| Gleitkommazahl | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
 | `discounts`     | Array     | Nein       | Detaillierte Liste der angewandten Rabatte. |
 | `products`      | Array     | Ja      | Artikel in der Bestellung. Siehe Produkteigenschaften-Untertabelle. |
 | `source`        | String    | Ja      | Quelle, von der das Event stammt. |
@@ -812,8 +832,8 @@ Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den W
 | `variant_id`    | String    | Ja      | Varianten-Bezeichner. |
 | `image_url`     | String    | Nein       | Produktbild-URL. |
 | `product_url`   | String    | Nein       | URL zur Produktseite. |
-| `quantity`      | Integer   | Ja      | Anzahl der Einheiten in der Bestellung. |
-| `price`         | Gleitkommazahl     | Ja      | Varianten-Stückpreis. |
+| `quantity`      | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
+| `price`         | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
 | `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
@@ -885,6 +905,10 @@ Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den W
 
 Lösen Sie dieses Event aus, wenn eine Bestellung storniert wird.
 
+#### Clientseitige Implementierung
+
+Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
 {% endalert %}
@@ -894,12 +918,12 @@ Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfl
 | Eigenschaft | Typ | Erforderlich | Beschreibung |
 |------------------|---------|----------|--------------------------------------------------------------------------------------------------|
 | `order_id`       | String  | Ja      | Eindeutiger Bezeichner für die Bestellung. |
-| `total_value`    | Gleitkommazahl   | Ja      | Gesamter Geldwert der stornierten Bestellung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Verringerung. |
-| `subtotal_value` | Gleitkommazahl   | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
-| `tax`            | Gleitkommazahl   | Nein       | Gesamte auf die Bestellung angewandte Steuer. |
-| `shipping`       | Gleitkommazahl   | Nein       | Gesamte Versandkosten. |
+| `total_value`    | Gleitkommazahl | Ja      | Gesamter Geldwert der stornierten Bestellung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Verringerung. |
+| `subtotal_value` | Gleitkommazahl | Nein       | Zwischensumme (nach Rabatt, vor Steuern/Versand). |
+| `tax`            | Gleitkommazahl | Nein       | Gesamte auf die Bestellung angewandte Steuer. |
+| `shipping`       | Gleitkommazahl | Nein       | Gesamte Versandkosten. |
 | `currency`       | String  | Ja      | Dreistelliger ISO-4217-Code. |
-| `total_discounts`| Gleitkommazahl   | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
+| `total_discounts`| Gleitkommazahl | Nein       | Gesamtbetrag der auf die Bestellung angewandten Rabatte. |
 | `discounts`      | Array   | Nein       | Detaillierte Liste der angewandten Rabatte. |
 | `cancel_reason`  | String  | Ja      | Grund für die Stornierung der Bestellung. |
 | `products`       | Array   | Ja      | Artikel in der stornierten Bestellung. Siehe Produkteigenschaften-Untertabelle. |
@@ -916,8 +940,8 @@ Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfl
 | `variant_id`   | String    | Ja      | Varianten-Bezeichner. |
 | `image_url`    | String    | Nein       | Produktbild-URL. |
 | `product_url`  | String    | Nein       | URL zur Produktseite. |
-| `quantity`     | Integer   | Ja      | Anzahl der Einheiten in der Bestellung. |
-| `price`        | Gleitkommazahl     | Ja      | Varianten-Stückpreis. |
+| `quantity`     | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
+| `price`        | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
 | `metadata`     | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
@@ -978,6 +1002,10 @@ Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfl
 
 Lösen Sie dieses Event aus, wenn eine vollständige oder teilweise Erstattung erfolgt.
 
+#### Clientseitige Implementierung
+
+Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+
 {% alert important %}
 Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Nutzerprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
 {% endalert %}
@@ -987,9 +1015,9 @@ Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht
 | Eigenschaft | Datentyp | Erforderlich | Beschreibung |
 |-------------------|-----------|----------|------------------------------------------------------------------------------------------------------|
 | `order_id`        | String    | Ja      | Eindeutiger Bezeichner für die ursprüngliche Bestellung. |
-| `total_value`     | Gleitkommazahl     | Ja      | Gesamter Geldwert der Erstattung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Erhöhung von total_refunds. |
+| `total_value`     | Gleitkommazahl | Ja      | Gesamter Geldwert der Erstattung. Muss ≥ 0 sein – senden Sie den absoluten Betrag; Braze übernimmt die Erhöhung von total_refunds. |
 | `currency`        | String    | Ja      | Dreistelliger ISO-4217-Code. |
-| `total_discounts` | Gleitkommazahl     | Nein       | Gesamtbetrag der ursprünglich angewandten Rabatte. |
+| `total_discounts` | Gleitkommazahl | Nein       | Gesamtbetrag der ursprünglich angewandten Rabatte. |
 | `discounts`       | Array     | Nein       | Detaillierte Liste der Rabatte. |
 | `products`        | Array     | Ja      | Erstattete Artikel. Siehe Produkteigenschaften-Untertabelle. |
 | `source`          | String    | Ja      | Quelle, von der das Event stammt. |
@@ -1005,8 +1033,8 @@ Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht
 | `variant_id`    | String    | Ja      | Varianten-Bezeichner. |
 | `image_url`     | String    | Nein       | Produktbild-URL. |
 | `product_url`   | String    | Nein       | URL zur Produktseite. |
-| `quantity`      | Integer   | Ja      | Anzahl der erstatteten Einheiten. |
-| `price`         | Gleitkommazahl     | Ja      | Varianten-Stückpreis. |
+| `quantity`      | Integer   | Ja      | Anzahl der Einheiten im Warenkorb. |
+| `price`         | Gleitkommazahl | Ja      | Varianten-Stückpreis. |
 | `metadata`      | Objekt    | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
@@ -1116,7 +1144,7 @@ Nicht-USD-Währungswerte werden automatisch anhand des Wechselkurses am Tag der 
 
 ## E-Commerce-Events implementieren {#implement-ecommerce-events}
 
-Sie können E-Commerce-Events über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (serverseitig) oder die Client-[SDK-Methode]({{site.baseurl}}/developer_guide/sdk_integration/) `logCustomEvent` senden.
+Sie können E-Commerce-Events über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (serverseitig) oder über die Braze SDKs (clientseitig) senden. SDK-Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
 
 ### Events serverseitig senden {#send-events-server-side}
 

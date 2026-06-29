@@ -50,31 +50,23 @@ window.addEventListener("ab.BridgeReady", function(){
 }
 </style>
 
-{% alert note %}
-Liquid을 참조하여 <code>customAttributes</code>를 JavaScript 브리지 메서드에 삽입할 수 없습니다.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
 ### 버튼 클릭 추적 {#button-click-tracking}
 
 커스텀 HTML에서 클릭을 추적하려면 `brazeBridge.logClick(button_id)` 메서드를 사용합니다.
 
-{% alert note %}
-**배너:** `brazeBridge.logClick()`(인수 없이)만 지원됩니다. 버튼 ID 및 커스텀 버튼 추적은 인앱 메시지에만 지원됩니다.
-{% endalert %}
-
 인앱 메시지의 경우, `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, `brazeBridge.logClick()`을 사용하여 각각 "Button 1", "Button 2", "Body Clicks"를 프로그래밍 방식으로 추적할 수 있습니다.
 
-| 클릭     | 메서드                       | 지원 범위 |
+| 클릭 | 메서드 | 지원 범위 |
 | ---------- | ---------------------------- | --------- |
-| 본문 클릭 | `brazeBridge.logClick()`    | 인앱 메시지 및 배너 |
-| Button 1   | `brazeBridge.logClick('0')` | 인앱 메시지만 |
-| Button 2   | `brazeBridge.logClick('1')` | 인앱 메시지만 |
-| 커스텀 버튼 추적 | `brazeBridge.logClick('your custom name here')` | 인앱 메시지만 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Button click tracking" }
+| 본문 클릭 | `brazeBridge.logClick()` | 인앱 메시지 및 배너 |
+| Button 1 | `brazeBridge.logClick('0')` | 인앱 메시지만 |
+| Button 2 | `brazeBridge.logClick('1')` | 인앱 메시지만 |
+| 커스텀 버튼 추적 | `brazeBridge.logClick('your custom name here')` | 인앱 메시지 및 배너 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="버튼 클릭 추적" }
 
-인앱 메시지의 경우, 노출 횟수당 여러 버튼 클릭 이벤트를 추적할 수 있습니다. 예를 들어, 메시지를 닫고 Button 2 클릭을 기록하려면:
+인앱 메시지의 경우, 노출당 여러 버튼 클릭 이벤트를 추적할 수 있습니다. 예를 들어, 메시지를 닫고 Button 2 클릭을 기록하려면:
 
 ```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>

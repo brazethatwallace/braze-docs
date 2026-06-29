@@ -12,14 +12,14 @@ description: "このランディングページでは、キャンペーンの管
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
-  - name: 起動後のキャンペーン変更
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/change_your_campaign_after_launch
+  - name: 起動後のキャンペーン編集
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: キャンペーンアラート
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts
     image: /assets/img/braze_icons/bell-03.svg
   - name: キャンペーンの検索
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/search_campaigns
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/search_campaigns
     image: /assets/img/braze_icons/search-refraction.svg
 
 guide_menu_title: "その他のリソース"

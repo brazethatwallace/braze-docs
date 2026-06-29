@@ -22,27 +22,27 @@ Nehmen wir an, Sie haben eine mobile App, die Push-Benachrichtigungen an Nutzer:
 
 ### Australien {#australia}
 
-{% multi_lang_include data_centers.md datacenters='AU' %}
+{% multi_lang_include administer/data_centers.md datacenters='AU' %}
 
 ### Europäische Union {#european-union}
 
-{% multi_lang_include data_centers.md datacenters='EU' %}
+{% multi_lang_include administer/data_centers.md datacenters='EU' %}
 
 ### Indonesien {#indonesia}
 
-{% multi_lang_include data_centers.md datacenters='ID' %}
+{% multi_lang_include administer/data_centers.md datacenters='ID' %}
 
 ### Japan {#japan}
 
-{% multi_lang_include data_centers.md datacenters='JP' %}
+{% multi_lang_include administer/data_centers.md datacenters='JP' %}
 
 ### Südkorea {#south-korea}
 
-{% multi_lang_include data_centers.md datacenters='KR' %}
+{% multi_lang_include administer/data_centers.md datacenters='KR' %}
 
 ### Vereinigte Staaten {#united-states}
 
-{% multi_lang_include data_centers.md datacenters='US' %}
+{% multi_lang_include administer/data_centers.md datacenters='US' %}
 
 ## Registrierung für regionsspezifische Datenzentren {#signing-up-for-region-specific-data-centers}
 

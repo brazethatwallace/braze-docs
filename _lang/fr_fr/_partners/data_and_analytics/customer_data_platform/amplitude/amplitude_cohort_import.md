@@ -1,6 +1,6 @@
 ---
 nav_title: Amplitude
-article_title: "Importation de cohortes d'Amplitude"
+article_title: Importation de cohortes d'Amplitude
 description: "Cet article de référence décrit la fonctionnalité d'importation de la cohorte d'Amplitude, une plateforme d'analyse de produits et d'aide à la décision."
 page_type: partner
 search_tag: Partner
@@ -28,10 +28,9 @@ Dans Amplitude, accédez à **Sources & Destinations** > **[nom du projet]** > *
 
 ### Étape 3 : Exporter une cohorte Amplitude vers Braze {#step-3-export-an-amplitude-cohort-to-braze}
 
-Tout d'abord, pour exporter des utilisateurs d'Amplitude vers Braze, créez une [cohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) d'utilisateurs que vous souhaitez exporter. Amplitude peut synchroniser les cohortes avec Braze à l'aide des identifiants suivants :
-- Alias d'utilisateur
-- ID de l'appareil
+Tout d'abord, pour exporter des utilisateurs d'Amplitude vers Braze, créez une [cohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) d'utilisateurs que vous souhaitez exporter. Ensuite, pour capturer les utilisateurs identifiés et anonymes, configurez deux synchronisations pour cette cohorte avec les propriétés de mappage d'identifiants suivantes :
 - ID utilisateur (ID externe)
+- ID de l'appareil
 
 Vous pouvez configurer plusieurs connexions Braze dans votre compte Amplitude. Cela vous permet de configurer une connexion pour synchroniser les ID utilisateur des utilisateurs connus et une autre pour synchroniser les ID d'appareil des utilisateurs anonymes.
 

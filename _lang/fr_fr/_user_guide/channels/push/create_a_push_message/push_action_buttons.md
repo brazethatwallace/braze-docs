@@ -20,7 +20,7 @@ channel:
 Chaque bouton interactif peut renvoyer vers une page web, un lien profond ou ouvrir l'application.
 
 - Pour les Campaigns push standard, vous pouvez spécifier vos boutons d'action push dans la section **On-Click Behavior** du compositeur de messages push dans le tableau de bord.
-- Pour les [Campaigns push rapides]({{site.baseurl}}/quick_push/), les boutons d'action peuvent être configurés séparément pour chaque plateforme sous l'onglet **Paramètres**.
+- Pour les [Campaigns push multiplateformes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/), les boutons d'action peuvent être configurés séparément pour chaque plateforme sous l'onglet **Paramètres**.
 
 {% tabs %}
 {% tab iOS %}
@@ -28,7 +28,7 @@ Chaque bouton interactif peut renvoyer vers une page web, un lien profond ou ouv
 
 Pour utiliser les boutons d'action dans vos messages push iOS, procédez comme suit :
 
-1. Activez les boutons d'action dans l'onglet **Rédiger** pour une Campaign standard ou dans l'onglet **Paramètres** pour le push rapide.
+1. Activez les boutons d'action dans l'onglet **Rédiger**.
 2. Sélectionnez votre **iOS Notification Category** parmi les combinaisons de boutons disponibles suivantes :
  - Accept / Decline
  - Yes / No
@@ -49,7 +49,7 @@ Les paires prédéfinies telles que **Yes** / **No** associent le deuxième bout
 
 Pour utiliser les boutons d'action dans vos messages push Android, procédez comme suit :
 
-1. Activez les boutons d'action dans l'onglet **Rédiger** pour une Campaign standard ou dans l'onglet **Paramètres** pour le push rapide.
+1. Activez les boutons d'action dans l'onglet **Rédiger**.
 2. Sélectionnez <i class="fas fa-plus-circle"></i> **Add Button** et spécifiez le texte de votre bouton ainsi que le **On-Click Behavior**. Vous pouvez choisir parmi les actions disponibles suivantes :
   - Open App
   - Redirect to Web URL
@@ -72,6 +72,6 @@ Le tableau suivant indique le nombre de caractères que vous pouvez ajouter avan
 | 1 | 46 caractères |
 | 2 | 20 caractères |
 | 3 | 11 caractères |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caractères Android" }
 {% endtab %}
 {% endtabs %}

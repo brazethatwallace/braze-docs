@@ -26,7 +26,7 @@ WHERE time > 1555354920
 LIMIT 10;
 ```
 また、`sf_created_at` を使用して、Snowflakeデータウェアハウスにイベントが永続化された時刻でフィルタリングすることもできます。`sf_created_at` と `time` は同一ではありませんが通常は近い値になるため、このクエリも同様のパフォーマンス特性を持ちます。
-```sql
+`````````sql
 -- find custom events that arrived in Snowflake after time 04/15/2019 @ 7:02pm (UTC)
 SELECT *
 FROM users_behaviors_customevent_shared
@@ -40,11 +40,11 @@ LIMIT 10;
 
 {% tab Querying Changelogs%}
 
-Campaign名とCanvas名はイベント自体には含まれていません。代わりに、変更ログテーブルに公開されます。
+キャンペーン名とキャンバス名はイベント自体には含まれていません。代わりに、変更ログテーブルに公開されます。
 
-次のようなクエリでCampaignの変更ログテーブルと結合することで、Campaignに関連するイベントのCampaign名を確認できます。
+次のようなクエリでキャンペーンの変更ログテーブルと結合することで、キャンペーンに関連するイベントのキャンペーン名を確認できます。
 
-```sql
+`````````sql
 SELECT event.id, event.time, ccs.time, ccs.name, ccs.conversion_behaviors[event.conversion_behavior_index]
 FROM USERS_CAMPAIGNS_CONVERSION_SHARED event
 LEFT JOIN CHANGELOGS_CAMPAIGN_SHARED ccs
@@ -54,12 +54,12 @@ qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
 ```
 いくつかの重要な注意点があります。
 - ここではSnowflakeの[window](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)関数を使用しています。
-- 左結合により、Campaignに関連しないイベントも含まれます。
+- 左結合により、キャンペーンに関連しないイベントも含まれます。
 - `campaign_id` があるにもかかわらずCampaign名が表示されないイベントがある場合、そのCampaignはデータ共有が製品として存在する前に作成された可能性があります。
-- `CHANGELOGS_CANVAS_SHARED` テーブルと結合する同様のクエリを使用して、Canvas名を確認することもできます。
+- `CHANGELOGS_CANVAS_SHARED` テーブルと結合する同様のクエリを使用して、キャンバス名を確認することもできます。
 
-CampaignとCanvasの両方の名前を表示したい場合は、次のサブクエリを使用する必要があります。
-```sql
+キャンペーンとキャンバスの両方の名前を表示したい場合は、次のサブクエリを使用する必要があります。
+`````````sql
 SELECT campaign_join.*, canvas.name AS canvas_name
 FROM
 (SELECT e.id AS event_id, e.external_user_id, e.time, e.user_id, e.device_id, e.sf_created_at,
@@ -77,7 +77,7 @@ qualify row_number() over (partition by campaign_join.event_id ORDER BY canvas.t
 
 このプッシュファネルクエリを使用して、プッシュ送信の生イベントデータから配信の生イベントデータ、さらに開封の生イベントデータまでを集約できます。このクエリは、各生イベントが通常個別のテーブルを持つため、すべてのテーブルを結合する方法を示しています。
 
-```sql
+`````````sql
 
 SELECT
     COUNT(DISTINCT send."ID" ) AS "users_messages_pushnotification_send.push_sent",
@@ -107,7 +107,7 @@ LIMIT 500;
 
 たとえば、ユーザーが1日に2通のメールを受信した場合、`0 "days since last received"` に該当します。月曜日に1通、火曜日に1通受信した場合は、`1 "days since last received"` コホートに分類されます。
 
-```sql
+`````````sql
 WITH email_messaging_cadence AS (WITH deliveries AS
       (SELECT TO_TIMESTAMP(time) AS delivered_timestamp,
       email_address AS delivered_address,
@@ -154,7 +154,7 @@ LIMIT 500;
 
 Snowflakeの[ウィンドウ関数](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)を使用してこれを実現できます。次のクエリは、過去365日間のすべてのメールクリックを返し、`is_unique` 列でどのイベントがユニークであるかを示します。
 
-```sql
+`````````sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
   LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
@@ -167,7 +167,7 @@ WHERE
 ```
 
 ユニークイベントのみを表示したい場合は、`QUALIFY` 句を使用します。
-```sql
+`````````sql
 SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
   LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
@@ -180,7 +180,7 @@ WHERE
 QUALIFY is_unique = true;
 ```
 メールアドレスごとにグループ化されたユニークイベント数をさらに確認するには、次のようにします。
-```sql
+`````````sql
 WITH unique_events AS(
   SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
   ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
@@ -208,10 +208,10 @@ GROUP BY email_address;
 - **Unique Opens (for emails delivered within same timeframe)：** 対応する配信イベントも同じ期間内に発生したユニーク開封数です（その期間内に配信されたメッセージに紐づく開封のみを確認したい場合に便利です）。
 
 {% raw %}
-```sql
+`````````sql
 /*
     Set or comment out variables if not required. These are set per session.
-    You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
+    You can obtain the from and to dates from the Campaign/キャンバス/キャンバス step URL. These are the startDate and endDate parameters.
 
     For example, endDate=1656799199&startDate=1656194400
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Zendesk Chat
 
-> [Zendesk Chat](https://www.zendesk.com/service/messaging/)は、各プラットフォームのwebhookを使用して双方向のSMS会話を設定します。ユーザーがサポートをリクエストすると、Zendeskにチケットが作成されます。エージェントの応答はAPIトリガーのSMS Campaignを通じてBrazeに転送され、ユーザーの返信はZendeskに送り返されます。
+> [Zendesk Chat](https://www.zendesk.com/service/messaging/)は、各プラットフォームのwebhookを使用して双方向のSMS会話を設定します。ユーザーがサポートをリクエストすると、Zendeskにチケットが作成されます。エージェントの応答はAPIトリガーのSMS キャンペーンを通じてBrazeに転送され、ユーザーの返信はZendeskに送り返されます。
 
 ## 前提条件 {#prerequisites}
 
@@ -37,9 +37,9 @@ Braze SMS機能とZendeskライブエージェントの応答を組み合わせ�
 
 ![Zendesk Webhookの例。]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 
-### ステップ2：アウトバウンドSMS Campaignを作成する {#step-2-create-an-outbound-sms-campaign}
+### ステップ2：アウトバウンドSMS キャンペーンを作成する {#step-2-create-an-outbound-sms-campaign}
 
-次に、ZendeskからのWebhookをリッスンし、顧客にカスタムSMSレスポンスを送信するSMS Campaignを作成します。
+次に、ZendeskからのWebhookをリッスンし、顧客にカスタムSMSレスポンスを送信するSMS キャンペーンを作成します。
 
 #### ステップ2.1：メッセージを作成する {#step-21-compose-your-message}
 
@@ -56,7 +56,7 @@ ZendeskがAPIを介してメッセージのコンテンツを送信する場合�
 **Message**テキストボックスに、次のLiquidコードとオプトアウト言語またはその他の静的コンテンツを追加します：
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign body = {{api_trigger_properties.${msg_body}}} %}
 {% assign msg = body | split: "
 " %}
@@ -71,7 +71,7 @@ Feel free to respond directly to this number!
 
 #### ステップ2.2：配信をスケジュールする {#step-22-schedule-the-delivery}
 
-配信タイプは**API-Triggered delivery**を選択し、次のステップで使用するCampaign IDをコピーします。
+配信タイプは**API-Triggered delivery**を選択し、次のステップで使用するキャンペーン IDをコピーします。
 
 ![API Triggered delivery]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
 
@@ -96,7 +96,7 @@ Feel free to respond directly to this number!
 ![Respond via SMS Braze JSON本文。]({% image_buster /assets/img/zendesk/instant_chat/chat7.png %}){: style="max-width:70%;"}
 
 {% raw %}
-```liquid
+`````````liquid
 {
     "campaign_id": "{{YOUR_CAMPAIGN_ID}}",
     "recipients": [
@@ -118,11 +118,11 @@ Feel free to respond directly to this number!
 
 ### ステップ4：チケットのクローズ時にユーザーを更新するトリガーをZendeskに作成する {#step-4-create-a-trigger-in-zendesk-to-update-a-user-when-a-ticket-is-closed}
 
-チケットがクローズされたことをユーザーに通知したい場合は、テンプレート化されたレスポンスボディを使ってBrazeで新しいCampaignを作成します。
+チケットがクローズされたことをユーザーに通知したい場合は、テンプレート化されたレスポンスボディを使ってBrazeで新しいキャンペーンを作成します。
 
 ![チケットがクローズされたときにユーザーを更新する。]({% image_buster /assets/img/zendesk/instant_chat/chat8.png %}){: style="max-width:70%;"}
 
-**API Triggered delivery**を選択し、Campaign IDをコピーします。
+**API Triggered delivery**を選択し、キャンペーン IDをコピーします。
 
 次に、チケットがクローズされたときにBrazeに通知するトリガーを設定します：
 - カテゴリー：**Trigger a message**
@@ -135,7 +135,7 @@ Feel free to respond directly to this number!
 ![解決済みチケットのJSON本文。]({% image_buster /assets/img/zendesk/instant_chat/chat10.png %}){: style="max-width:70%;"}
 
 {% raw %}
-```liquid
+`````````liquid
 {
     "campaign_id": "{{YOUR_API_KEY}}",
     "recipients": [
@@ -160,12 +160,12 @@ Feel free to respond directly to this number!
 
 ### ステップ6：インバウンドSMS転送を設定する {#step-6-set-up-inbound-sms-forwarding}
 
-次に、Brazeで2つの新しいWebhook Campaignを作成します。これにより、顧客からのインバウンドSMSをZendeskの受信トレイに転送できます。
+次に、Brazeで2つの新しいWebhook キャンペーンを作成します。これにより、顧客からのインバウンドSMSをZendeskの受信トレイに転送できます。
 
-| Campaign | 目的 |
+| キャンペーン | 目的 |
 |--------------------|--------------------------------------------------------------------------------------|
-| Webhook Campaign 1 | Zendeskに新しいチケットを作成します。 |
-| Webhook Campaign 2 | 顧客からインバウンドで送信されたすべての会話型SMSレスポンスをZendeskに転送します。 |
+| Webhook キャンペーン 1 | Zendeskに新しいチケットを作成します。 |
+| Webhook キャンペーン 2 | 顧客からインバウンドで送信されたすべての会話型SMSレスポンスをZendeskに転送します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ6：インバウンドSMS転送を設定する" }
 
 #### ステップ6.1：SMSキーワードカテゴリを作成する {#step-61-create-an-sms-keyword-category}
@@ -181,9 +181,9 @@ Brazeダッシュボードで、**Audience**に移動し、**SMSサブスクリ�
 
 ![BrazeのSMSキーワードカテゴリの例。]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 
-#### ステップ6.2：最初のWebhook Campaignを作成する {#step-62-create-your-first-webhook-campaign}
+#### ステップ6.2：最初のWebhook キャンペーンを作成する {#step-62-create-your-first-webhook-campaign}
 
-Brazeダッシュボードで、最初のWebhook Campaignを作成します。このメッセージはZendeskにサポートがリクエストされていることを通知します。
+Brazeダッシュボードで、最初のWebhook キャンペーンを作成します。このメッセージはZendeskにサポートがリクエストされていることを通知します。
 
 Webhookコンポーザーで、以下のフィールドに入力します：
 - Webhook URL：{% raw %}https://{{url}}.zendesk.com/api/v2/tickets{% endraw %}
@@ -194,7 +194,7 @@ Webhookコンポーザーで、以下のフィールドに入力します：
 - リクエスト本文：
 
 {% raw %}
-```liquid
+`````````liquid
 {
   "ticket": {
     "subject": "Action Needed",
@@ -221,20 +221,20 @@ Webhookコンポーザーで、以下のフィールドに入力します：
 
 **Schedule Delivery**で**Action-Based Delivery**を選択し、トリガータイプとして**Send an SMS Inbound Message**を選択します。また、以前に設定したSMSサブスクリプショングループとキーワードカテゴリも追加します。
 
-![最初のWebhook Campaignの「Schedule Delivery」ページ。]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
+![最初のWebhook キャンペーンの「Schedule Delivery」ページ。]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
 
 **Delivery Controls**で再適格性をオンにします。
 
-![最初のWebhook Campaignの「Delivery Controls」で再適格性が選択されている。]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
+![最初のWebhook キャンペーンの「Delivery Controls」で再適格性が選択されている。]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
 
-#### ステップ6.4：2番目のWebhook Campaignを作成する {#step-64-create-your-second-webhook-campaign}
+#### ステップ6.4：2番目のWebhook キャンペーンを作成する {#step-64-create-your-second-webhook-campaign}
 
-ユーザーからの残りのSMSメッセージをZendeskに転送するWebhook Campaignを設定します：
+ユーザーからの残りのSMSメッセージをZendeskに転送するWebhook キャンペーンを設定します：
 
 ZendeskはチケットIDを文字列として送信するため、コンテンツブロックを作成して文字列を整数に変換し、ZendeskのWebhookで使用できるようにします。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign var = {{custom_attribute.${zendesk_ticket}}} | to_i %}{{var}}
 ```
 {% endraw %}
@@ -249,7 +249,7 @@ Webhookコンポーザー内で：
 本文のサンプル：
 
 {% raw %}
-```liquid
+`````````liquid
 {
   "ticket": {
     "comment": {
@@ -260,7 +260,7 @@ Webhookコンポーザー内で：
 ```
 {% endraw %}
 
-#### ステップ6.5：2番目のWebhook Campaignのセットアップを完了する {#step-65-complete-second-webhook-campaign-setup}
+#### ステップ6.5：2番目のWebhook キャンペーンのセットアップを完了する {#step-65-complete-second-webhook-campaign-setup}
 - 「Other」カテゴリでインバウンドメッセージを送信したユーザーに対して、アクションベースのトリガーを設定します。
 - 再適格性基準を設定します。
 - 該当するオーディエンスを追加します（この場合、カスタム属性**zendesk_ticket_open**が**true**であること）。

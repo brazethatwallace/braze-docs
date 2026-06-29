@@ -17,7 +17,7 @@ noindex: true
 To support geofences for iOS:
 
 1. Your integration must support background push notifications.
-2. Braze Geofences [must be enabled]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/location_tracking/#enabling-automatic-location-tracking) through the SDK either implicitly by enabling location collection or explicitly by enabling geofence collection. They are not enabled by default.
+2. Braze Geofences [must be enabled]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/location_tracking#enabling-automatic-location-tracking) through the SDK either implicitly by enabling location collection or explicitly by enabling geofence collection. They are not enabled by default.
 
 {% alert important %}
 As of iOS 14, Geofences do not work reliably for users who choose to give their approximate location permission.
@@ -25,7 +25,7 @@ As of iOS 14, Geofences do not work reliably for users who choose to give their 
 
 ## Step 1: Enable background push
 
-To fully use our geofence syncing strategy, you must have [background push]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications/#use-silent-remote-notifications-to-trigger-background-work) enabled in addition to completing the standard push integration.
+To fully use our geofence syncing strategy, you must have [background push]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/silent_push_notifications#use-silent-remote-notifications-to-trigger-background-work) enabled in addition to completing the standard push integration.
 
 ## Step 2: Enable geofences
 
@@ -58,7 +58,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 
 ## Step 3: Check for Braze background push
 
-Braze syncs geofences to devices using background push notifications. Follow the [iOS customization]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push/) article to ensure that your application does not take any unwanted actions upon receiving Braze geofence sync notifications.
+Braze syncs geofences to devices using background push notifications. Follow the [iOS customization]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push) article to ensure that your application does not take any unwanted actions upon receiving Braze geofence sync notifications.
 
 ## Step 4: Add NSLocationAlwaysUsageDescription to your Info.plist
 

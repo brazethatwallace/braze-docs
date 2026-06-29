@@ -5,7 +5,7 @@ page_order: 2
 description: "このリファレンス記事では、トランザクションメールキャンペーンのリアルタイムトラッキングの設定方法について説明します。"
 page_type: reference
 tool:
-  - Campaigns
+  - キャンペーン
 channel: email
 
 ---
@@ -23,4 +23,4 @@ channel: email
 
 ## トランザクションメールのトラッキング {#tracking-your-transactional-emails}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}

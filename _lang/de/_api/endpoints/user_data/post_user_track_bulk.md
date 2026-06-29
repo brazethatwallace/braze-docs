@@ -12,7 +12,7 @@ description: "Dieser Artikel beschreibt Details zum Bulk-Endpunkt „Nutzer:inne
 ---
 {% api %}
 # Nutzer:innen erstellen und aktualisieren (Bulk) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -79,7 +79,7 @@ Für jedes Anfrageobjekt müssen Sie eines der folgenden Felder angeben: `extern
 | `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
 | `events` | Optional | Array von Event-Objekten | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Optional | Array von Kauf-Objekten | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfragen {#example-requests}
 
@@ -178,9 +178,9 @@ Erfolgreiche Nachrichten geben die folgende Antwort zurück:
 }
 ```
 
-### Erfolgreiche Nachricht mit nicht-schwerwiegenden Fehlern {#successful-message-with-non-fatal-errors}
+### Erfolgreiche Nachricht mit nicht schwerwiegenden Fehlern {#successful-message-with-non-fatal-errors}
 
-Wenn Ihre Anfrage erfolgreich ist, aber nicht-schwerwiegende Fehler enthält (zum Beispiel ein ungültiges Event-Objekt in einem großen Batch), erhalten Sie die folgende Antwort:
+Wenn Ihre Anfrage erfolgreich ist, aber nicht schwerwiegende Fehler enthält (zum Beispiel ein ungültiges Event-Objekt in einem großen Batch), erhalten Sie die folgende Antwort:
 
 ```json
 {

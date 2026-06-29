@@ -63,7 +63,7 @@ If you want more creative control, the image-only card is for you. Create your i
 
 ## Global creative details {#general}
 
-Content Cards support text and images, including GIFs, out of the box. At this time, custom styling for the card, such as different font colors or multiple images, can't be done in the dashboard. You can custom style your Content Card and feed during integration. For more details, refer to [Customize cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/) for the Braze SDK.
+Content Cards support text and images, including GIFs, out of the box. At this time, custom styling for the card, such as different font colors or multiple images, can't be done in the dashboard. You can custom style your Content Card and feed during integration. For more details, refer to [Customize cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) for the Braze SDK.
 
 ### Dismissal behavior
 
@@ -83,6 +83,6 @@ Keep Content Cards relevant by setting them to dismiss when a user takes relevan
 
 | Content Cards for Android | Content Cards for iOS | Content Cards for Web |
 | --- | --- |---|
-| The Android SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs/?sdktab=android). | The Swift SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to the [GIF support tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF support is included by default in the Web SDK integration. |
+| The Android SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | The Swift SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to the [GIF support tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF support is included by default in the Web SDK integration. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using GIFs in Content Cards" }
 

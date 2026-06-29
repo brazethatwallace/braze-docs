@@ -10,7 +10,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 ---
 {% api %}
 # Programar Canvas desencadenados por la API {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
@@ -70,7 +70,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado como false (a partir del 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `context` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Ver [objeto de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
 | `schedule` | Obligatorio | Objeto de planificación | Ver [objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 ```

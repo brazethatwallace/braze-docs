@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para exclu
 ---
 {% api %}
 # Excluir Canvas programados disparados pela API {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
@@ -48,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `canvas_id` | Obrigatória | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types/). |
 | `schedule_id` | Obrigatória | String | O `schedule_id` a ser excluído (obtido da resposta à programação de criação). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 
 ## Exemplo de solicitação {#example-request}

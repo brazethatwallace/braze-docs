@@ -53,17 +53,22 @@ Notre solution de notification push automatique tire parti de la fonctionnalité
 
 {% tabs %}
 {% tab Android %}
-#### Étape 2.1 : Configurer les paramètres push {#step-21-configure-push-settings}
+#### Étape 2.1 : Configurer les paramètres push {#unity_step-21-configure-push-settings}
 
 Le SDK Braze peut gérer automatiquement l'enregistrement push auprès des serveurs Firebase Cloud Messaging pour que les appareils reçoivent des notifications push. Dans Unity, activez **Automate Unity Android Integration**, puis configurez les paramètres de **Push Notification** suivants.
 
-| Paramètre                              | Description                                                                                                                                              |
+| Paramètre | Description |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | Indique au SDK Braze de récupérer et d'envoyer automatiquement un jeton de notification push FCM pour un appareil.                                                                |
-| Firebase Cloud Messaging Sender ID     | L'ID de l'expéditeur provenant de votre console Firebase.                                                                                                                |
-| Handle Push Deeplinks Automatically    | Indique si le SDK doit gérer l'ouverture des liens profonds ou de l'application lorsque des notifications push sont cliquées.                                                  |
-| Small Notification Icon Drawable       | Le drawable à afficher comme petite icône chaque fois qu'une notification push est reçue. La notification utilisera l'icône de l'application comme petite icône si aucune icône n'est fournie. |
+| Automatic Firebase Cloud Messaging Registration Enabled | Indique au SDK Braze de récupérer et d'envoyer automatiquement un jeton de notification push FCM pour un appareil. |
+| Firebase Cloud Messaging Sender ID | L'ID de l'expéditeur provenant de votre console Firebase. |
+| Handle Push Deeplinks Automatically | Indique si le SDK doit gérer l'ouverture des liens profonds ou de l'application lorsque des notifications push sont cliquées. |
+| Small Notification Icon Drawable | Référence de ressource drawable Android pour la petite icône affichée lorsqu'une notification push arrive. Saisissez la référence complète incluant le préfixe `@drawable/` (par exemple, `@drawable/hourglass_icon`). L'intégration automatique écrit cette valeur dans `braze.xml` telle que saisie. Si vous laissez ce champ vide, la notification utilise l'icône de l'application comme petite icône. |
+| Large Notification Icon Drawable | Grande icône facultative pour les notifications. Utilisez le même format `@drawable/` que pour la petite icône (par exemple, `@drawable/my_large_icon`). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** et **Large Notification Icon Drawable** apparaissent sous **Push Configuration** dans **Braze > Braze Configuration**. Les deux valeurs sont écrites dans `braze.xml` telles que vous les saisissez. Incluez le préfixe `@drawable/` vous-même — l'intégration Braze Unity ne l'ajoute pas pour vous (par exemple, `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -94,7 +99,7 @@ Les utilisateurs qui n'ont pas encore accepté les notifications push seront aut
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Étape 2.1 : Mettre à jour `AndroidManifest.xml` {#step-21-update-androidmanifestxml}
+#### Étape 2.1 : Mettre à jour `AndroidManifest.xml` {#unity_step-21-update-androidmanifestxml}
 
 Si votre application n'a pas de `AndroidManifest.xml`, vous pouvez utiliser le modèle suivant. Sinon, si vous avez déjà un `AndroidManifest.xml`, assurez-vous que toutes les sections manquantes suivantes sont ajoutées à votre `AndroidManifest.xml` existant.
 
@@ -301,7 +306,13 @@ Pour obtenir des conseils sur la configuration, consultez [Liens profonds vers d
 
 #### Ajout d'icônes de notification push Braze {#adding-braze-push-notification-icons}
 
-Pour ajouter des icônes push à votre projet, créez un plug-in Android Archive (AAR) ou une bibliothèque Android contenant les fichiers d'image des icônes. Pour connaître les étapes et les informations nécessaires, reportez-vous à la documentation d'Unity : [Projets de bibliothèques Android et plug-ins Android Archive](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+N'ajoutez pas d'images d'icônes de notification sous `Assets/Plugins/Android/res`. Unity [a déprécié la fourniture de ressources Android dans ce chemin](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), ce qui peut générer des avertissements de build ou des erreurs de validation. Empaquetez vos drawables d'icônes dans un [plug-in Android Archive (AAR)](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) ou un projet de bibliothèque Android afin qu'ils soient fusionnés dans les ressources de l'application compilée comme tout autre drawable.
+{% endalert %}
+
+Pour ajouter des icônes push à votre projet, créez un plug-in AAR ou une bibliothèque Android contenant les fichiers d'image des icônes sous `res/drawable*` (ou des dossiers spécifiques à la densité), puis référencez chaque icône dans **Braze > Braze Configuration** en utilisant le nom complet de la ressource `@drawable/` (voir [Étape 2.1 : Configurer les paramètres push](#unity_step-21-configure-push-settings)). Pour les étapes d'empaquetage et d'importation dans Unity, consultez [Projets de bibliothèques Android et plug-ins Android Archive](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+
+Pour les règles de conception des petites icônes (alpha uniquement, sans couleur), consultez [Notifications push Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), Étape 2 : Conformer les petites icônes aux directives de conception.
 {% endtab %}
 
 {% tab Swift %}

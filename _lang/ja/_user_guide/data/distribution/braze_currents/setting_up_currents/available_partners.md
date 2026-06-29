@@ -1,6 +1,6 @@
 ---
 nav_title: 利用可能なパートナー
-article_title: 利用可能なCurrentsのパートナー
+article_title: 利用可能なCurrentsパートナー
 page_order: 1
 page_type: reference
 description: "このリファレンス記事では、Braze Currentsとの連携に使用できるデータパートナーとそのユースケースについて概説します。"
@@ -13,7 +13,7 @@ tool: Currents
 > このページでは、Braze Currentsと連携できるデータパートナーの一覧と、そのユースケースの概要を説明します。
 
 {% alert note %}
-Brazeから配信されるイベントの命名規則は、パートナーによって異なる場合があります。たとえば、Segmentでの Currentsメール開封イベントは `Email Opened` ですが、Mixpanelでは `Email Open` になります。
+Brazeから配信されるイベントの命名規則は、パートナーによって異なる場合があります。たとえば、セグメントでのCurrentsメール開封イベントは `Email Opened` ですが、Mixpanelでは `Email Open` になります。
 {% endalert %}
 
 ## データウェアハウスストレージ {#data-warehouse-storage}
@@ -23,11 +23,11 @@ Brazeから配信されるイベントの命名規則は、パートナーによ
 * [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/)
 * [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)
 
-弊社はCurrentsとデータウェアハウスの組み合わせの力を確信しており、[社内でも活用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)。
+Brazeでは、Currentsとデータウェアハウスの組み合わせの力を確信しており、[社内でも活用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)。
 
 ## 顧客データ {#customer-data}
 
-ここに示す顧客データプラットフォームは、複数のソースから情報を収集してさまざまな場所に転送するため、Brazeのデータを可能な限り最も優れた方法で活用できます。
+ここに示す顧客データプラットフォームは、複数のソースから情報を収集してさまざまな場所に転送するため、Brazeのデータを最大限に活用できます。
 
 * [mParticle]({{site.baseurl}}/partners/mparticle_for_currents/)
 * [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/)

@@ -19,7 +19,7 @@ channel:
 > In addition to changing the user's subscription state and sending auto-responses based on incoming keywords, Braze will also record interactions to the user profile for filtering and triggering messages.<br><br>These filters and triggers allow you to filter actions based on users who have been sent or have responded to SMS, MMS, and RCS campaigns, or further engage with users who have clicked shorted URLs.
 
 {% alert tip %}
-To read more about custom keywords and how to set up two-way messaging to take advantage of these retargeting options, visit our [custom keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) article.
+To read more about custom keywords and how to set up two-way messaging to take advantage of these retargeting options, visit our [custom keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling) article.
 {% endalert %}  
 
 ## Retargeting options
@@ -50,11 +50,11 @@ Filters users who have received a message from a specific campaign. With this fi
 
 To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select **Interact with Campaign** as the trigger action for an action-based campaign. Next, select **Receive SMS** and the SMS, MMS, or RCS campaign you would like to use.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select Interact with Campaign as the trigger action for an action-based campaign. Next, select Receive SMS and the SMS, MMS, or RCS campaign you would like to use.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### Filter by advanced tracking links
 
-Retarget users who have clicked campaigns with [advanced tracking links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/).
+Retarget users who have clicked campaigns with [advanced tracking links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 Only campaigns that have advanced tracking enabled appear in the following dropdowns:
 
 #### Retarget users who have clicked a specific SMS, MMS, or RCS Campaign
@@ -63,7 +63,7 @@ Only campaigns that have advanced tracking enabled appear in the following dropd
 2. Select **clicked shortened sms link**.
 3. Choose the desired campaign.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![Screenshot related to retarget users who have clicked a specific sms, mms, or rcs campaign.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### Retarget users who have clicked a specific Canvas Step
 
@@ -71,11 +71,11 @@ Only campaigns that have advanced tracking enabled appear in the following dropd
 2. Select **clicked shortened sms link**.
 3. Choose the desired Canvas and Canvas step.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![Screenshot related to retarget users who have clicked a specific canvas step.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## Keyword category-specific retargeting
 
-In addition to the three default keyword categories (Opt-in, Opt-out, and Help), you are also able to create up to 25 of your own keyword categories, allowing you to identify arbitrary keywords and responses. These categories can be used for filtering and retargeting. To read more about Global keyword categories and how to set them up, refer to [Keyword processing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/). 
+In addition to the three default keyword categories (Opt-in, Opt-out, and Help), you are also able to create up to 25 of your own keyword categories, allowing you to identify arbitrary keywords and responses. These categories can be used for filtering and retargeting. To read more about Global keyword categories and how to set them up, refer to [Keyword processing]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing). 
 
 ### Filter by recency
 
@@ -106,7 +106,7 @@ Messages can be triggered as users send messages inbound based on keyword catego
 When evaluating if an inbound message meets a defined trigger event, the leading and trailing spaces are removed before evaluation begins.
 
 {% alert tip %} 
-If an action-based Canvas is triggered by an inbound SMS or MMS message, you can reference [supported SMS Liquid properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) in any Canvas step until the next action path.
+If an action-based Canvas is triggered by an inbound SMS or MMS message, you can reference [supported SMS Liquid properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) in any Canvas step until the next action path.
 {% endalert %}
 
 #### Trigger by inbound keyword category

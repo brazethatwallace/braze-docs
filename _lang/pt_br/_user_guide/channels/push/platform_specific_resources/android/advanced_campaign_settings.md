@@ -3,7 +3,7 @@ nav_title: "Configurações avançadas de push para Campaigns"
 article_title: "Configurações avançadas de push para Campaigns"
 page_order: 5
 page_layout: reference
-description: "Este artigo de referência aborda algumas configurações avançadas de push para Campaigns, como prioridade, URLs personalizadas, opções de entrega e mais."
+description: "Este artigo de referência aborda configurações avançadas de push para Campaigns no Android, como prioridade, URLs personalizadas, opções de entrega e mais."
 platform: Android
 channel:
   - Push
@@ -20,7 +20,7 @@ tool:
 
 Um ID de notificação é um identificador único para uma categoria de mensagem de sua escolha que informa ao serviço de envio de mensagens para considerar apenas a mensagem mais recente daquele ID. Definir um ID de notificação permite enviar apenas a mensagem mais recente e relevante, em vez de um acúmulo de mensagens desatualizadas e irrelevantes.
 
-Para atribuir um ID de notificação, navegue até a página de composição do push ao qual deseja adicionar o ID e selecione a guia **Settings**. Insira um número inteiro na seção **Notification ID**. Para atualizar essa notificação após tê-la enviado, envie outra notificação com o mesmo ID que você usou anteriormente.
+Para atribuir um ID de notificação, acesse a página de composição do push que deseja atualizar, selecione a guia **Settings** e insira um número inteiro na seção **Notification ID**. Para atualizar essa notificação após tê-la enviado, envie outra notificação com o mesmo ID que você usou anteriormente.
 
 ![Campo Notification ID.]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
@@ -36,7 +36,7 @@ Por exemplo, digamos que seu app hospeda um concurso semanal de trivia. Você en
 
 {% details Práticas recomendadas %}
 
-#### Quando usar TTL mais curto {#when-to-use-shorter-ttl}
+### Quando usar TTL mais curto {#when-to-use-shorter-ttl}
 
 TTLs mais curtos garantem que os usuários recebam notificações oportunas para eventos ou promoções que perdem relevância rapidamente. Por exemplo:
 
@@ -45,7 +45,7 @@ TTLs mais curtos garantem que os usuários recebam notificações oportunas para
 - **Apps de transporte:** Compartilhar atualizações de chegada de corrida (TTL: alguns minutos)
 - **Lembretes de eventos:** Notificar os usuários quando um webinar está prestes a começar (TTL: menos de 1 hora)
 
-#### Quando evitar TTL mais curto {#when-to-avoid-shorter-ttl}
+### Quando evitar TTL mais curto {#when-to-avoid-shorter-ttl}
 
 - Se a mensagem da sua Campaign permanece relevante por vários dias ou semanas, como lembretes de renovação de assinatura ou promoções em andamento.
 - Quando maximizar o alcance é mais importante do que a urgência, como em anúncios de atualização de app ou promoções de recursos.
@@ -60,9 +60,9 @@ O campo **Firebase Messaging Delivery Priority** permite controlar se um push é
 |---------|-------------|----------|
 | Normal | Entrega otimizada para bateria que pode ser atrasada para economizar energia | Conteúdo não urgente, ofertas promocionais, atualizações de notícias |
 | Alta | Entrega imediata com maior consumo de bateria | Notificações urgentes, alertas críticos, atualizações de eventos ao vivo, alertas de conta, notícias de última hora ou lembretes urgentes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prioridade de entrega do Firebase Messaging" }
 
-#### Considerações {#considerations}
+### Considerações {#considerations}
 
 - **Configuração padrão**: Você pode definir uma prioridade FCM padrão para todas as Campaigns Android nas suas [Configurações de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/). Essa configuração no nível da Campaign substituirá o padrão, se necessário.
 - **Despriorização**: Se o FCM detectar que seu app envia frequentemente mensagens de alta prioridade que não resultam em notificações visíveis ao usuário ou engajamento, essas mensagens podem ser automaticamente despriorizadas para prioridade normal.
@@ -109,7 +109,7 @@ Consulte a tabela a seguir para os níveis de prioridade que você pode definir 
 | Padrão | A maioria das notificações. Use se sua mensagem não se enquadra explicitamente em nenhum dos outros tipos de prioridade. | `0` |
 | Baixa | Informações que você deseja que os usuários saibam, mas que não exigem ação imediata. | `-1`|
 | Mínima | Informações contextuais ou de segundo plano. | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prioridade de exibição da notificação" }
 
 Para saber mais, consulte a documentação do Google sobre [notificações Android](http://developer.android.com/design/patterns/notifications.html).
 
@@ -137,7 +137,7 @@ As notificações por push Android oferecem a opção de especificar se sua noti
 | Status | Informação contínua sobre o dispositivo ou status contextual. |
 | System | Atualização de status do sistema ou dispositivo. Reservado para uso do sistema. |
 | Transport | Controle de transporte de mídia para reprodução. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Categoria de push" }
 
 ## Visibilidade do push {#push-visibility}
 
@@ -148,7 +148,7 @@ As notificações por push Android fornecem um campo opcional para determinar co
 | Pública | A notificação aparece na tela de bloqueio |
 | Privada | A notificação é exibida com "Conteúdo oculto" como mensagem |
 | Secreta | A notificação não é exibida na tela de bloqueio |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Visibilidade do push" }
 
 Além disso, os usuários Android podem substituir a forma como as notificações por push aparecem na tela de bloqueio alterando a configuração de privacidade de notificação em seu dispositivo. Essa configuração substituirá a visibilidade da notificação por push.
 
