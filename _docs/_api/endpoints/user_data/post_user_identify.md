@@ -171,7 +171,7 @@ For more information on `alias_name` and `alias_label`, check out our [user alia
 
 ### Why does my identify request return success but the profile did not merge?
 
-`201 Created` with `message: success` means the request was accepted. It does not guarantee that every alias or email in the payload matched an existing profile—case mismatches on `alias_name`, duplicate profiles, or prioritization rules can result in no visible merge even though the call succeeded. Verify exact alias casing, check for duplicate profiles with [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/), and review [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) when using `emails_to_identify`.
+`201 Created` with `message: success` means the request was accepted. It does not guarantee that every alias or email in the payload matched an existing profile—case mismatches on `alias_name`, duplicate profiles, or prioritization rules can result in no visible merge even though the call succeeded. Verify exact alias casing, check for duplicate profiles with [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/), and review [`prioritization`](#identifying-users-by-email) when using `emails_to_identify`.
 
 ## Response
 

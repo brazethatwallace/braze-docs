@@ -217,6 +217,6 @@ Looking for the Canvas version of this endpoint? Check out [Sending Canvas messa
 
 ### Why doesn't Liquid render when I put it directly in my JSON body?
 
-Liquid in API payloads is evaluated server-side when the request is valid JSON. If you embed Liquid as raw strings, validate quoting and escaping so the overall body remains valid JSON (for example, escape double quotes inside strings). If the payload fails JSON parsing, Braze returns a `400` before Liquid runs. Use [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) where supported to pass dynamic values cleanly from your server into the campaign template.
+When your request body is valid JSON, Braze evaluates any Liquid in the payload on the server. If you embed Liquid as raw strings, quote and escape those strings so the body stays valid JSON—for example, escape double quotes inside strings. If the body fails JSON parsing, Braze returns a `400` before it evaluates any Liquid. Where supported, pass dynamic values through [`trigger_properties`]({{site.baseurl}}/api/objects_filters/trigger_properties_object/) instead of embedding Liquid directly in the payload.
 
 {% endapi %}
