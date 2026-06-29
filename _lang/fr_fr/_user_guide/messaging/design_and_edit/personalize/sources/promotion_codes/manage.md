@@ -48,7 +48,7 @@ Les envois de test et les envois d'e-mails au groupe initiateur consomment des c
 
 ### Avec les extras de message pour Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Enregistrer les codes de promotion dans les profils utilisateur {#save-to-profile}
 

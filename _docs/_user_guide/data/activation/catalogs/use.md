@@ -7,7 +7,7 @@ description: "This reference article covers how to use catalogs to reference non
 
 # Using catalogs
 
-> After creating a catalog, you can reference non-user data in your Braze campaigns through [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). You can use catalogs in all of your messaging channels, including anywhere in the drag-and-drop editor where Liquid is supported.
+> After creating a catalog, you can reference non-user data in your Braze campaigns through [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). You can use catalogs in all of your messaging channels, including anywhere in the drag-and-drop editor where Liquid is supported.
 
 ## Using catalogs in a message
 
@@ -17,9 +17,9 @@ The following video walks through how to use catalogs in a message.
 
 ### Step 1: Add personalization type {#step-one-personalization}
 
-In the message composer of your choice, select the <i class="fas fa-plus-circle"></i> plus icon to open the **Add Personalization** modal and select **Catalog Items** for the **Personalization type**. Then, select your catalog name. Using our previous example, we'll select the "Games" catalog.
+In the message composer of your choice, select <i class="fas fa-plus-circle"></i> **Add Personalization** and select **Catalog Items** for the **Personalization type**. Then, select your catalog name. Using our previous example, we'll select the "Games" catalog.
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Add Personalization modal with Catalog Items selected, Games catalog chosen, and a Liquid preview showing the catalog_items tag.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 We can immediately see the following Liquid preview:
 
@@ -64,7 +64,7 @@ You aren't limited to one item in a message. Use the **Add Personalization** mod
 
 Check out this example where we add the `id` of three games, Tales, Teslagrad, and Acaratus, for **Catalog Items** and select `title` for **Information to Display**.
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![Add Personalization modal showing three catalog item IDs selected and title chosen for Information to Display, with a Liquid preview listing each item title.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 We can further personalize our message by adding some text around our Liquid:
 
@@ -80,7 +80,7 @@ This returns as the following:
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -119,6 +119,14 @@ Message if the venue name's size is 10 characters or fewer.
 
 In this example, different messages display based on whether the `venue_name` field has more or fewer than 10 characters. If `venue_name` is blank, the message is aborted.
 
+To output how many items a selection returns, use the Liquid `size` filter on the `items` array after the tag, not on a single field:
+
+{% raw %}
+```liquid
+{% catalog_selection_items item-list selections %}{{ items | size }}
+```
+{% endraw %}
+
 {% alert tip %}
 To avoid Liquid syntax errors, select the **+** plus button in the message composer to insert catalog Liquid tags automatically.
 {% endalert %}
@@ -142,6 +150,10 @@ For example, to add the `image_link` from our Games catalog to our promotional m
 Here's what this looks like when the Liquid is rendered:
 
 ![Example Content Card with catalog Liquid tags rendered.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+
+{% alert important %}
+In **HTML** channels such as email, avoid extra spaces or line breaks between the closing `{% raw %}{% catalog_items ... %}{% endraw %}` tag and the Liquid that prints the image URL (for example, `{% raw %}{{ items[0].image_link }}{% endraw %}`). Extra whitespace in the template can prevent the image URL from resolving correctly in the rendered message. Keep the URL expression immediately adjacent to the catalog tag, as in: `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
+{% endalert %}
 
 ### Templating catalog items
 
@@ -194,13 +206,13 @@ You can also manually piece together catalogs with Liquid logic. However, note t
 
 #### Templating catalog items including Liquid
 
-Similar to [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), you must use the `:rerender` flag in a Liquid tag to render a catalog item's Liquid content. Note that the `:rerender` flag is only one level deep, meaning it won't apply to any nested Liquid tag calls.
+Similar to [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), you must use the `:rerender` flag in a Liquid tag to render a catalog item's Liquid content. Note that the `:rerender` flag is only one level deep, meaning it won't apply to any nested Liquid tag calls.
 
 If a catalog item contains user profile fields (within a Liquid personalization tag), these values must be defined in Liquid earlier in the message and before the templating in order to render the Liquid properly. If the `:rerender` flag isn't provided, it will render the raw Liquid content.
 
 For example, if a catalog named "Messages" has an item with this Liquid:
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![Catalog table row with id greet_msg and Welcome_Message column containing Welcome to our store with a first name Liquid variable.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 To render the following Liquid content:
 
@@ -227,6 +239,20 @@ Welcome to our store, Peter!
 Catalog Liquid tags can't be used recursively inside catalogs.
 {% endalert %}
 
+## Troubleshooting catalog personalization
+
+If catalog or selection Liquid doesn't display as you expect in a message or Canvas step, check the following:
+
+| Symptom | What to check |
+| --- | --- |
+| Preview shows items but live sends are empty | Confirm catalog **item IDs** exist at send time. If the ID in your Liquid doesn't match a row, Braze returns an empty items array—see [Using Liquid](#using-liquid). Check for typos and for ID sources (such as event properties) that are missing on the trigger or user profile. |
+| Composer preview works in a campaign but not in Canvas | Confirm you're using the right Liquid context—**Canvas context properties** versus **event properties**—and that those fields exist on the trigger. See [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| A selection returns no items | Review [selection filters]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) and limits; confirm that the catalog data is synced and that the column names match your filters. |
+| `:rerender` or templated delivery looks wrong | For nested Liquid inside catalog fields, you need `:rerender` and correct ordering of variables—see [Templating catalog items including Liquid](#templating-catalog-items-including-liquid). Templated in-app messages resolve at trigger time; see [What are templated in-app messages?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Some channels restrict catalog tags (for example, certain **:rerender** uses with Banners)—see [Are all Liquid tags supported?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) in the Banners FAQ. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting catalog personalization" }
+
+For general Liquid behavior, see [Liquid use cases]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) and [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
+
 ## Structuring your catalog data
 
 When planning how to structure your catalog data, start from your intended use case and design the catalog around it. Each row in the catalog represents an item (with a unique `id`). The columns should contain the attributes for that item, such as URLs, description copy, image URLs, price, rating, size, or color.
@@ -244,7 +270,7 @@ With standard catalog calls, you match a value against the `id` column. By inser
 
 ### When to use catalog selections
 
-[Catalog selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) let you filter across any column in your catalog and return up to 50 matching items. By inserting custom attributes or event properties into the selection filters, the results are personalized for each user. Common use cases include:
+[Catalog selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) let you filter across any column in your catalog and return up to 50 matching items. By inserting custom attributes or event properties into the selection filters, the results are personalized for each user. Common use cases include:
 
 - Items where category equals a user's preference
 - Items matching a user's preferred brand, cuisine, or size

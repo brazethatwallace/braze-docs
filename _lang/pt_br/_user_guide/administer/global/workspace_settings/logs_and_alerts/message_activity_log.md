@@ -24,7 +24,7 @@ Além deste artigo, também recomendamos conferir nosso curso do Braze Learning 
 Você pode filtrar pelo seguinte conteúdo registrado no **Registro de atividades de envio de mensagem**:
 
 - Erros de notificação por push
-- Erros de mensagens abortadas
+- Erros de mensagens no app com modelo abortado
 - Erros de webhook
 - Erros de e-mail
 - Registros de mensagens da API
@@ -59,7 +59,7 @@ As mensagens listadas a seguir são apenas para fins de exemplo e podem não cor
 | Hard Bounce | A conta de e-mail que você tentou alcançar não existe. Tente verificar novamente o endereço de e-mail do destinatário em busca de erros de digitação ou espaços desnecessários. | Sua mensagem nunca chegou à caixa de entrada dessa pessoa porque não havia caixa de entrada para alcançar. Se quiser investigar mais, mensagens como essa às vezes podem ter links na coluna **Ver informações** que permitem visualizar o perfil do destinatário pretendido.|
 | Bloqueio | A mensagem de spam foi rejeitada por causa da política anti-spam. | Sua mensagem foi categorizada como spam. Esse erro de e-mail é registrado para um usuário se recebermos um evento do ESP indicando que o e-mail foi descartado. Pode ser apenas para aquele destinatário específico, mas se você está vendo essa mensagem com frequência, talvez queira reavaliar seus hábitos de envio ou o conteúdo da sua mensagem. Além disso, pense: você [aqueceu seu IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? Se não, fale com a Braze para obter orientações sobre como fazer isso.|
 | Erro de mensagem abortada | empty-cart_web | Se você tem um app com carrinho ou cria um envio com uma mensagem de aborto no Liquid, pode personalizar qual mensagem é retornada se o envio for abortado. Neste caso, a mensagem retornada é empty-cart_web.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensagens comuns" }
 
 ### Por que minha mensagem não está listada aqui? {#why-isnt-my-message-listed-here}
 
@@ -78,7 +78,7 @@ Erros das últimas 60 horas estão disponíveis no Registro de atividades de env
 
 ### Número de registros de erro armazenados {#number-of-error-logs-stored}
 
-O número de registros salvos é influenciado por diversas condições. Por exemplo, se uma Campaign agendada é enviada para milhares de usuários, potencialmente veríamos uma amostra dos erros no Registro de atividades de envio de mensagem em vez de todos os erros. A seguir, uma visão geral das condições que afetam quantos registros são salvos:
+O número de registros salvos é influenciado por diversas condições. Por exemplo, se uma campanha agendada é enviada para milhares de usuários, potencialmente veríamos uma amostra dos erros no Registro de atividades de envio de mensagem em vez de todos os erros. A seguir, uma visão geral das condições que afetam quantos registros são salvos:
 - Até 20 registros de erro do mesmo tipo são salvos para a mesma Campaign ou etapa do Canvas dentro de uma hora fixa de relógio para os seguintes tipos de erro:
     - Erros de Conteúdo conectado
     - Erros de mensagem abortada

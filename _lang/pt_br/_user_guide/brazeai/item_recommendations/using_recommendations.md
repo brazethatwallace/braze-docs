@@ -27,9 +27,9 @@ Depois que sua recomendação terminar o treinamento, você pode personalizar su
 {% tab código pré-formatado %}
 ![Modal "Adicionar personalização" com recomendação de item como o tipo de personalização.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
-Você pode gerar Liquid na seção **Adicionar personalização** no seu criador de mensagens:
+Você pode gerar Liquid na seção **Adicionar personalização** no seu Criador de mensagens:
 
-1. Em qualquer criador de mensagens que suporte personalização, selecione <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Adicionar personalização"></i> para abrir a janela de personalização.
+1. Em qualquer Criador de mensagens que suporte personalização, selecione <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Adicionar personalização"></i> **Adicionar personalização** para abrir a janela de personalização.
 2. Em **Tipo de personalização**, selecione **Recomendação de item**.
 3. Em **Nome da recomendação de item**, selecione a recomendação que você acabou de criar.
 4. Em **Número de itens previstos**, digite quantos produtos principais você gostaria que fossem inseridos. Por exemplo, você pode exibir os três itens mais comprados.

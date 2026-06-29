@@ -20,7 +20,7 @@ _Cette intégration est maintenue par Oppizi._
 | Compte Oppizi | Un compte Oppizi actif est nécessaire pour utiliser cette intégration. |
 | Clé API Oppizi | Disponible dans votre compte Oppizi sous **Integrations** > **Braze**. |
 | ID de flux de travail de publipostage Oppizi | Créez un flux de travail dans Oppizi sur la page **Direct Mail Workflow** pour obtenir un ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -45,11 +45,12 @@ Vous pouvez gérer, révoquer et créer vos clés à partir de cette page si né
 
 ### Étape 2 : Créer un modèle de webhook Braze {#step-2-create-a-braze-webhook-template}
 
-Ensuite, créez un modèle de webhook pour Oppizi dans Braze afin de l'utiliser dans vos futures campagnes ou Canvas.
+Ensuite, créez un modèle de webhook pour Oppizi dans Braze afin de l'utiliser dans vos futures campagnes ou Canvas :
 
-1. Dans Braze, allez dans **Templates** > **Webhook Templates**.
-
-Dans votre modèle de webhook, remplissez les champs suivants :
+1. Dans Braze, allez dans **Contenu** > **Webhook**.
+2. Sélectionnez **Créer un modèle de webhook**.
+3. Donnez un nom à votre modèle.
+4. Dans votre modèle de webhook, remplissez les champs suivants :
 
 - **Webhook URL :** `https://webhooks.oppizi.com/events`
 - **Request Body :** **Raw Text**

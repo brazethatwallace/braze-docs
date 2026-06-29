@@ -39,7 +39,7 @@ Essas plataformas de dados do cliente coletam e direcionam informações de múl
 
 ## Análise de dados comportamentais {#behavioral-analytics}
 
-Esses parceiros são especializados em análise de dados de produto e business intelligence, e podem ajudar você a interagir com seus usuários com base nas ações deles.
+Esses parceiros são especializados em análise de dados de produto e business intelligence e podem ajudar você a interagir com seus usuários com base nas ações deles.
 
 * [Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents/)
 * [Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/)
@@ -49,4 +49,4 @@ Esses parceiros são especializados em análise de dados de produto e business i
 
 Crie sua própria integração personalizada transmitindo dados de eventos do Currents diretamente para um endpoint HTTP que você possui e opera.
 
-* [Custom HTTP Connector]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
+* [Conector HTTP personalizado]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)

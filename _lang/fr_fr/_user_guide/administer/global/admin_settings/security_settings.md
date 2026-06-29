@@ -44,7 +44,7 @@ Utilisez ce champ pour définir la durée pendant laquelle Braze maintient votre
 
 Vous pouvez restreindre la connexion de vos utilisateurs à un mot de passe ou à l'authentification unique (SSO).
 
-Pour l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), les clients doivent configurer leurs paramètres SAML avant d'appliquer cette restriction. Si les clients utilisent Google SSO, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
+Pour l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), les clients doivent configurer leurs paramètres SAML avant d'appliquer cette restriction. Si les clients utilisent Google SSO, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
 
 ## Liste d'adresses IP autorisées du tableau de bord {#dashboard-ip-allowlisting}
 
@@ -99,39 +99,21 @@ Si la 2FA est appliquée au niveau de l'entreprise, les utilisateurs qui ne la c
 La 2FA est requise pour tous les utilisateurs de l'entreprise uniquement si l'authentification unique (SSO) n'est pas activée. Si le SSO est utilisé, la 2FA n'a pas besoin d'être appliquée au niveau de l'entreprise.
 {% endalert %}
 
-## Configuration de l'authentification à deux facteurs (2FA) {#setting-up-two-factor-authentication-2fa}
+## Configurer manuellement la 2FA {#manually-set-up-2fa}
 
-### Configuration de la 2FA avec Authy {#setting-up-2fa-with-authy}
+Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre compte Braze, suivez ces étapes :
 
-1. Téléchargez l'application Authy depuis la boutique d'applications de votre appareil.
-2. Dans Braze, saisissez votre numéro de téléphone.
-3. Appuyez sur la notification envoyée à votre appareil vous invitant à ouvrir l'application Authy.
-4. Lancez l'application Authy sur votre appareil pour récupérer le code.
-5. Dans Braze, saisissez le code de vérification que vous avez reçu d'Authy.
-
-Si vous rencontrez des problèmes pendant le processus de configuration et êtes redirigé vers la page d'accueil ou l'écran de connexion de Braze, essayez ce qui suit :
-
-- Utilisez le mode navigation privée : tentez à nouveau la configuration dans une fenêtre de navigation privée. Cela peut contourner les problèmes causés par les extensions ou plugins du navigateur.
-- Essayez un autre profil de navigateur : si le problème persiste, envisagez d'utiliser un autre profil de navigateur pour éliminer les conflits avec les plugins installés.
-
-### Configuration de la 2FA lorsqu'elle n'est pas appliquée {#setting-up-2fa-when-it-isnt-enforced}
-
-Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre compte Braze lorsqu'elle n'est pas appliquée, suivez ces étapes :
-
-1. Téléchargez une application 2FA comme Authy, Google Authenticator, Okta Verify ou similaire depuis l'App Store (iOS), le Google Play Store (Android) ou le web. Ou, si vous préférez configurer la 2FA par e-mail ou SMS, passez à l'étape 2.
-2. Dans Braze, allez dans Gérer le compte, faites défiler jusqu'à la section **Authentification à deux facteurs**, puis sélectionnez **Démarrer la configuration**.
-3. Saisissez votre mot de passe dans la fenêtre modale de connexion, puis sélectionnez **Vérifier le mot de passe**.
-4. Dans la fenêtre modale **Configuration de l'authentification à deux facteurs**, saisissez votre numéro de téléphone, puis sélectionnez **Activer**.
-5. Copiez le code à sept chiffres généré depuis votre application 2FA, votre e-mail ou votre SMS, puis retournez dans Braze et collez-le dans la fenêtre modale **Configuration de l'authentification à deux facteurs**. Sélectionnez **Vérifier**.
-6. (Facultatif) Pour éviter de saisir la 2FA pendant les 30 prochains jours, activez l'option **Se souvenir de ce compte pendant 30 jours**.
+1. Dans Braze, sélectionnez votre icône de profil dans l'en-tête global, puis sélectionnez **Gérer votre compte**. Faites défiler jusqu'à la section **Authentification à deux facteurs**, puis sélectionnez **Démarrer la configuration**.
+2. Saisissez votre mot de passe dans la fenêtre modale de connexion, puis sélectionnez **Vérifier le mot de passe**.
+3. Dans la fenêtre modale **Configuration de l'authentification à deux facteurs**, saisissez votre numéro de téléphone, puis sélectionnez **Activer**.
+4. Copiez le code à sept chiffres généré depuis votre e-mail ou votre SMS, puis retournez dans Braze et collez-le dans la fenêtre modale **Configuration de l'authentification à deux facteurs**. Sélectionnez **Vérifier**.
+5. (Facultatif) Pour éviter de saisir la 2FA pendant les 30 prochains jours, activez l'option **Se souvenir de ce compte pendant 30 jours**.
 
 ## Accès élevé {#elevated-access}
 
 L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord Braze. Lorsqu'il est actif, les utilisateurs doivent re-vérifier leur compte avant d'exporter un Segment ou de consulter une clé API. Pour utiliser l'accès élevé, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
 
 Si un utilisateur ne peut pas re-vérifier son identité, il sera redirigé vers l'endroit où il se trouvait et ne pourra pas poursuivre l'action sensible. Après une re-vérification réussie, il n'aura pas besoin de le refaire pendant l'heure suivante, sauf s'il se déconnecte entre-temps.
-
-![Bouton d'activation de l'accès élevé.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Téléchargement d'un rapport d'événements de sécurité {#security-event-report}
 
@@ -145,7 +127,23 @@ Pour télécharger ce rapport, procédez comme suit :
 
 Ce téléchargement manuel de rapport contient uniquement les 10 000 événements de sécurité les plus récents pour votre compte.
 
-Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation d'événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation des événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### Définitions des colonnes CSV {#csv-column-definitions}
+
+Le rapport CSV des événements de sécurité contient les colonnes suivantes :
+
+| Colonne | Description |
+|---------|-------------|
+| CreatedAt | Horodatage de l'enregistrement de l'événement, en UTC. |
+| EmailAtTimeOfEvent | Adresse e-mail de l'utilisateur du tableau de bord qui a déclenché l'événement, telle qu'enregistrée au moment de l'événement. |
+| CurrentEmail | Adresse e-mail actuelle de l'utilisateur du tableau de bord qui a déclenché l'événement. Si l'utilisateur n'existe plus, son identifiant développeur est utilisé à la place. |
+| EventName | Type d'événement de sécurité. Consultez la liste des événements de sécurité signalés ci-dessous. |
+| OtherAccount | Adresse e-mail d'un autre utilisateur du tableau de bord affecté par l'événement, le cas échéant (par exemple, lorsqu'un compte est ajouté ou supprimé). |
+| JsonProperties | Propriétés spécifiques à l'événement au format JSON. Les champs inclus varient selon le type d'événement. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définitions des colonnes CSV" }
+
+Les [exportations S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluent ces colonnes ainsi que `Version`, la version du schéma pour le format d'exportation (actuellement `1`).
 
 {% details Événements de sécurité signalés %}
 ### Connexion et compte {#login-and-account}
@@ -177,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -231,8 +229,8 @@ Canvas
 - Updated Email Template
 
 ### Identifiant push {#push-credential}
-Updated Push Credential
-Removed Push Credential
+- Updated Push Credential
+- Removed Push Credential
 
 ### Outil de débogage du SDK {#sdk-debugger}
 - Started SDK Debugger Session
@@ -265,15 +263,15 @@ Removed Push Credential
 L'autorisation **Voir les PII** n'est accessible qu'à quelques utilisateurs sélectionnés de l'entreprise. Par défaut, tous les administrateurs ont leur autorisation **Voir les PII** activée dans les autorisations utilisateur. Cela signifie qu'ils peuvent voir tous les attributs standard et personnalisés que votre entreprise a définis comme PII dans l'ensemble du tableau de bord. Lorsque cette autorisation est désactivée pour des utilisateurs, ces derniers ne peuvent voir aucun de ces attributs.
 
 {% alert note %}
-Vous avez besoin de l'autorisation **Voir les PII** pour utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), car il permet un accès direct à certaines données client.
+Vous avez besoin de l'autorisation **Voir les PII** pour utiliser le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), car il permet un accès direct à certaines données client.
 {% endalert %}
 
-Pour les capacités existantes d'autorisations d'équipe, consultez [Définir les autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Pour les capacités existantes d'autorisations d'équipe, consultez [Définir les autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Définition des PII {#defining-pii}
 
 {% alert important %}
-La sélection et la définition de certains champs comme champs PII n'affectent que ce que les utilisateurs peuvent voir sur le tableau de bord de Braze et n'ont aucun impact sur la manière dont les données des utilisateurs finaux dans ces champs PII sont traitées.<br><br>Consultez votre équipe juridique pour aligner les paramètres de votre tableau de bord avec les réglementations et politiques de confidentialité applicables à votre entreprise, y compris celles relatives à la [conservation des données]({{site.baseurl}}/data_retention/).
+La sélection et la définition de certains champs comme champs PII n'affectent que ce que les utilisateurs peuvent voir sur le tableau de bord de Braze et n'ont aucun impact sur la manière dont les données des utilisateurs finaux dans ces champs PII sont traitées.<br><br>Consultez votre équipe juridique pour aligner les paramètres de votre tableau de bord avec les réglementations et politiques de confidentialité applicables à votre entreprise, y compris celles relatives à la [conservation des données]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 Vous pouvez sélectionner les champs que votre entreprise désigne comme PII dans le tableau de bord. Pour ce faire, allez dans **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
@@ -284,7 +282,7 @@ Les attributs suivants peuvent être désignés comme PII et masqués aux utilis
 
 | Attributs standard | Attributs personnalisés |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Adresse e-mail </li> <li> Numéro de téléphone </li> <li> Prénom </li> <li> Nom </li> <li> Genre </li> <li> Date de naissance </li> <li> ID d'appareil </li> <li> Emplacement le plus récent </li> </ul> {:/} | {::nomarkdown} <ul> <li> Tous les attributs personnalisés<ul><li>Les attributs personnalisés individuels peuvent être marqués comme PII si vous n'avez pas besoin de masquer tous les attributs.</li></ul></li> </ul> {:/} |
+| {::nomarkdown}<ul> <li>Adresse e-mail </li> <li> Numéro de téléphone </li> <li> Prénom </li> <li> Nom </li> <li> Genre </li> <li> Date de naissance </li> <li> ID d'appareil </li> <li> LINE ID </li> <li> Emplacement le plus récent </li> </ul> {:/} | {::nomarkdown} <ul> <li> Tous les attributs personnalisés<ul><li>Les attributs personnalisés individuels peuvent être marqués comme PII si vous n'avez pas besoin de masquer tous les attributs.</li></ul></li> </ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs PII potentiels" }
 
 ### Zones restreintes {#limited-areas}
@@ -344,7 +342,7 @@ Si vous vous retrouvez dans une boucle après avoir saisi avec succès votre num
 3. Redémarrez votre PC ou ordinateur portable.
 4. Tentez à nouveau de configurer la 2FA.
 
-Si le problème persiste après ces étapes, contactez l'[Assistance]({{site.baseurl}}/braze_support/) pour obtenir de l'aide.
+Si le problème persiste après ces étapes, contactez l'[Assistance]({{site.baseurl}}/braze_support) pour obtenir de l'aide.
 
 ### Impossible d'activer l'authentification à deux facteurs (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -368,5 +366,5 @@ Si les problèmes persistent, supprimez l'ancien profil dans l'application Authy
 
 Pour plus d'informations sur l'authentification et l'accès, consultez :
 
-- [SAML et authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) pour configurer le SSO avec votre fournisseur d'identité.
-- [Autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) pour contrôler les actions que les utilisateurs peuvent effectuer dans le tableau de bord.
+- [SAML et authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) pour configurer le SSO avec votre fournisseur d'identité.
+- [Autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) pour contrôler les actions que les utilisateurs peuvent effectuer dans le tableau de bord.

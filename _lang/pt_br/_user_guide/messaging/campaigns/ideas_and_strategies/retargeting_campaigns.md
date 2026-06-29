@@ -81,7 +81,7 @@ Use este filtro para encontrar usuários que estão ou não no grupo de controle
 
 Use este filtro para encontrar usuários que receberam pela última vez uma campanha específica antes ou depois de uma data ou número de dias especificado. Este filtro não considera quando os usuários receberam outras campanhas.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/last_received_specific_campaign.png %})
 
@@ -95,7 +95,7 @@ Use este filtro para encontrar usuários que receberam pela última vez uma camp
 
 Use este filtro para encontrar usuários que receberam ou não a sua campanha alvo.
 
-{% multi_lang_include segments.md section='same channel identifier' %}
+{% multi_lang_include audience/segments.md section='same channel identifier' %}
 
 ![]({% image_buster /assets/img_archive/receivedcamp.png %})
 

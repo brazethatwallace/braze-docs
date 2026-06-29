@@ -40,7 +40,7 @@ Segment를 추가하지 않고 사용자를 타겟팅하려면 일련의 필터�
 ![두 개의 Segments를 포함하고 30일 이내에 마지막 구매가 이루어진 추가 필터가 있는 메시지의 타겟팅 옵션.]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab Specific apps %}
+{% tab 특정 앱 %}
 
 Campaign 메시지 또는 캔버스 단계를 특정 앱에 전달할 수 있습니다. 예를 들어 인앱 메시지나 푸시 알림을 Android 또는 iOS 앱에만 보낼 수 있습니다.
 
@@ -55,7 +55,7 @@ Android 앱에만 인앱 메시지를 보내고 싶다고 가정해 보겠습니
 ![특정 앱 "Test_Android"의 사용자를 타겟팅하는 Segment.]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. Campaign 또는 Canvas에서 **타겟 오디언스** 단계로 이동하여 **세그먼트별로 사용자 타겟팅** 섹션에 Segment가 추가되었는지 확인합니다.
+2. **타겟 오디언스** 단계에서 **세그먼트별로 사용자 타겟팅** 섹션에 Segment가 추가되었는지 확인합니다.
 
 ![예시 Segment가 선택된 "타겟 오디언스" 단계.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
@@ -97,7 +97,7 @@ Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제�
 
 ##### 타겟 오디언스 수와 도달 가능 사용자 수가 다를 수 있는 이유 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![각 타겟팅된 채널의 도달 가능 사용자에 대한 추정 수가 포함된 "전체 모집단" 섹션.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

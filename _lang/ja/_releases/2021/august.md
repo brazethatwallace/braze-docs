@@ -10,7 +10,7 @@ description: "この記事には2021年8月のリリースノートが含まれ�
 
 ## Googleオーディエンスの同期 {#google-audience-sync}
 
-Brazeの[Googleへのオーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)統合により、ブランドはクロスチャネルのカスタマージャーニーの範囲をGoogle検索、Googleショッピング、Gmail、YouTube、およびGoogleディスプレイに拡張できます。ファーストパーティの顧客データを使用して、ダイナミックな行動トリガー、セグメンテーションなどに基づいて安全に広告を配信できます。通常、Braze Canvasの一部としてメッセージ（プッシュ、メール、SMSなど）をトリガーするために使用する基準は、Googleのカスタマーマッチを介してそのユーザーに広告をトリガーするために使用できます。
+Brazeの[Googleへのオーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)統合により、ブランドはクロスチャネルのカスタマージャーニーの範囲をGoogle検索、Googleショッピング、Gmail、YouTube、およびGoogleディスプレイに拡張できます。ファーストパーティの顧客データを使用して、ダイナミックな行動トリガー、セグメンテーションなどに基づいて安全に広告を配信できます。通常、Braze キャンバスの一部としてメッセージ（プッシュ、メール、SMSなど）をトリガーするために使用する基準は、Googleのカスタマーマッチを介してそのユーザーに広告をトリガーするために使用できます。
 
 ## ベストプラクティスiOS SDK統合ガイド {#best-practice-ios-sdk-integration-guide}
 
@@ -22,7 +22,7 @@ Predictive Purchasesは、マーケターに購入の可能性に基づいてユ
 
 ## ドラッグアンドドロップエディター {#drag-and-drop-editor}
 
-Brazeメールでは、新しい[ドラッグアンドドロップ編集エクスペリエンス]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)を使用して、CampaignsまたはCanvasesのいずれかで完全にカスタマイズおよびパーソナライズされたメールメッセージを作成できます。ユーザーはエディターブロックをメールにドラッグできるようになり、より直感的なカスタマイズが可能になりました。
+Brazeメールでは、新しい[ドラッグアンドドロップ編集エクスペリエンス]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)を使用して、キャンペーンまたはキャンバスのいずれかで完全にカスタマイズおよびパーソナライズされたメールメッセージを作成できます。ユーザーはエディターブロックをメールにドラッグできるようになり、より直感的なカスタマイズが可能になりました。
 
 ## ユーザーエイリアスインポート {#user-alias-import}
 
@@ -50,7 +50,7 @@ A2P 10DLCとは、企業が標準的な10桁のロングコード（10DLC）電�
 
 ### Hightouch - ワークフローオートメーション {#hightouch-workflow-automation}
 
-Brazeと[Hightouch]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/)の統合により、データウェアハウスからの最新の顧客データを使用して、Brazeでより優れたCampaignsを構築できます。顧客に関連性がありタイムリーなやり取りを提供するには、Brazeアカウントのデータが正確で最新であることが非常に重要です。顧客データをデータウェアハウスからBrazeに自動的に同期させることで、データの整合性を心配する必要がなくなり、世界レベルのカスタマーエクスペリエンスの構築に集中できます。
+Brazeと[Hightouch]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/)の統合により、データウェアハウスからの最新の顧客データを使用して、Brazeでより優れたキャンペーンを構築できます。顧客に関連性がありタイムリーなやり取りを提供するには、Brazeアカウントのデータが正確で最新であることが非常に重要です。顧客データをデータウェアハウスからBrazeに自動的に同期させることで、データの整合性を心配する必要がなくなり、世界レベルのカスタマーエクスペリエンスの構築に集中できます。
 
 ### Transcend - データプライバシーとコンプライアンス {#transcend-data-privacy-compliance}
 
@@ -58,8 +58,8 @@ Brazeと[Transcend]({{site.baseurl}}/partners/ecommerce/payments/transcend/)の�
 
 ### Tinyclues - コホートインポート {#tinyclues-cohort-import}
 
-[Tinyclues]({{site.baseurl}}/partners/splio/)は、カスタマーエクスペリエンスを損なうことなくCampaigns数と収益を増加させる機能を提供するオーディエンス構築機能であり、オンラインおよびオフラインのCRM Campaignsのパフォーマンスを追跡するための分析を提供します。BrazeとTinycluesの統合により、ユーザーはより優れたCRM計画と戦略へのパスを得ることができ、よりターゲティングされたCampaignsを送信し、新しい製品機会を見つけ、非常にユーザーフレンドリーなUIを使用して収益を向上させることができます。
+[Tinyclues]({{site.baseurl}}/partners/splio/)は、カスタマーエクスペリエンスを損なうことなくキャンペーン数と収益を増加させる機能を提供するオーディエンス構築機能であり、オンラインおよびオフラインのCRM キャンペーンのパフォーマンスを追跡するための分析を提供します。BrazeとTinycluesの統合により、ユーザーはより優れたCRM計画と戦略へのパスを得ることができ、よりターゲティングされたキャンペーンを送信し、新しい製品機会を見つけ、非常にユーザーフレンドリーなUIを使用して収益を向上させることができます。
 
 ### optilyz - ダイレクトメール {#optilyz-direct-mail}
 
-[optilyz]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/optilyz/)は、より顧客中心で持続可能かつ収益性の高いダイレクトメールCampaignsを実行できるダイレクトメールオートメーションプラットフォームです。optilyzはヨーロッパ中の何百もの企業で使用されており、手紙、はがき、セルフメーラーをクロスチャネルマーケティングに統合し、Campaignsを自動化してよりパーソナライズすることができます。optilyzとBrazeのWebhook統合を使用して、顧客にダイレクトメールを送信できます。
+[optilyz]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/direct_mail/optilyz/)は、より顧客中心で持続可能かつ収益性の高いダイレクトメールキャンペーンを実行できるダイレクトメールオートメーションプラットフォームです。optilyzはヨーロッパ中の何百もの企業で使用されており、手紙、はがき、セルフメーラーをクロスチャネルマーケティングに統合し、キャンペーンを自動化してよりパーソナライズすることができます。optilyzとBrazeのWebhook統合を使用して、顧客にダイレクトメールを送信できます。

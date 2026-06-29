@@ -23,7 +23,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 
 ### 1. Schritt: Ein Canvas erstellen {#step-1-create-a-canvas}
 
-1. Gehen Sie zu **Messaging** > **Canvas** und wählen Sie **Create Canvas**. Füllen Sie dann die Canvas-Grundlagen aus.
+1. Gehen Sie zu **Messaging** > **Canvas** und wählen Sie **Canvas erstellen**. Füllen Sie dann die Canvas-Grundlagen aus.
 
 2. Geben Sie Ihrem Canvas einen aussagekräftigen Namen, z. B. „Lead Scoring Canvas“, und versehen Sie es zur besseren Auffindbarkeit mit einem Tag wie „Lead Management“.<br><br>![1. Schritt der Erstellung eines Canvas mit dem Namen „Lead Scoring Canvas“ und dem Tag „Lead Management“.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
@@ -68,9 +68,9 @@ Wählen Sie unter **Subscription Settings** bei **Send to these users:** die Opt
 
 #### Schritt 4a: Einen Aktions-Pfad hinzufügen {#step-4a-add-an-action-path}
 
-Wählen Sie unter Ihrer Variante das Plus-Symbol und dann **Action Paths**.
+Wählen Sie unter Ihrer Variante <i class="fas fa-plus" aria-label="Hinzufügen"></i> **Hinzufügen** und dann **Aktionspfade**.
 
-![Canvas mit „Action Paths“, die im über das Plus-Symbol geöffneten Menü angezeigt werden.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
+![Canvas mit „Aktionspfade“, die im über das Plus-Symbol geöffneten Menü angezeigt werden.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
 #### Schritt 4b: Aktionsgruppen erstellen {#step-4b-create-action-groups}
 
@@ -87,7 +87,7 @@ Fügen Sie die folgenden Gruppen zu Ihrem Aktions-Pfad hinzu:
 
 #### Schritt 4c: Jede Gruppe mit den relevanten Events konfigurieren {#step-4c-configure-each-group-to-include-the-relevant-events}
 
-Wählen Sie in jeder Aktionsgruppe **Select trigger** und wählen Sie das Event, das die Anzahl der Punkte für die jeweilige Aktionsgruppe hinzufügen wird. Fügen Sie weitere Trigger hinzu, um alle Events zu berücksichtigen, die den Lead Score um eins erhöhen. Nutzer:innen könnten beispielsweise ihren Punktestand um eins erhöhen, wenn sie eine Sitzung in einer beliebigen App starten oder ein angepasstes Event durchführen (z. B. die Registrierung oder Teilnahme an einem Webinar).
+Wählen Sie in jeder Aktionsgruppe **Trigger auswählen** und wählen Sie das Event, das die Anzahl der Punkte für die jeweilige Aktionsgruppe hinzufügen wird. Fügen Sie weitere Trigger hinzu, um alle Events zu berücksichtigen, die den Lead Score um eins erhöhen. Nutzer:innen könnten beispielsweise ihren Punktestand um eins erhöhen, wenn sie eine Sitzung in einer beliebigen App starten oder ein angepasstes Event durchführen (z. B. die Registrierung oder Teilnahme an einem Webinar).
 
 ![Aktionsgruppe zum Hinzufügen eines Punktes mit den Triggern „Starting Session in Any App“ und „Performing Custom Event“.]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
 
@@ -102,10 +102,10 @@ Führen Sie auf dem Tab **Verfassen** jedes Nutzeraktualisierungsschritts die fo
 
 | Feld | Aktion |
 | --- | --- |
-| **Attribute Name** | Wählen Sie das Lead-Score-Attribut aus, das Sie in Schritt 2 ausgewählt haben (`lead score`). |
-| **Action** | Ändern Sie die Aktion in **Increment By**, wenn der Pfad die Punktzahl erhöht, oder **Decrement By**, wenn der Pfad die Punktzahl verringert. |
+| **Attributname** | Wählen Sie das Lead-Score-Attribut aus, das Sie in Schritt 2 ausgewählt haben (`lead score`). |
+| **Aktion** | Ändern Sie die Aktion in **Increment By**, wenn der Pfad die Punktzahl erhöht, oder **Decrement By**, wenn der Pfad die Punktzahl verringert. |
 | **Increment By** oder **Decrement By** | Geben Sie die Anzahl der Punkte ein, um die der Lead Score erhöht oder verringert werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4d: Schritte zur Nutzeraktualisierung hinzufügen" }
 
 ### 5. Schritt: Canvas starten {#step-5-launch-your-canvas}
 
@@ -184,7 +184,7 @@ Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisier
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Um ein Token abzurufen, [konfigurieren Sie eine Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) für den OAuth 2.0 Client-Credentials-Flow und verwenden Sie dann Connected-Content, um den Bearer von Salesforce abzurufen: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2a: Webhook verfassen" }
 
 ![Webhook, der mit einer Salesforce-Webhook-URL, der HTTP-Methode PATCH, einem Rohtext-Anfragetext und Anfrage-Headern verfasst wird.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
@@ -204,4 +204,4 @@ Fügen Sie im Schritt **Target Audiences** einen Filter ein, der Nutzer:innen au
 
 ### 3. Schritt: Kampagne starten {#step-3-launch-campaign}
 
-Wählen Sie **Launch** und beobachten Sie, wie sich Ihr Lead-Status in Salesforce ändert, wenn Ihre Kund:innen den MQL-Lead-Score-Schwellenwert überschreiten.
+Wählen Sie **Starten** und beobachten Sie, wie sich Ihr Lead-Status in Salesforce ändert, wenn Ihre Kund:innen den MQL-Lead-Score-Schwellenwert überschreiten.

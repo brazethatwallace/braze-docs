@@ -1,3 +1,3 @@
 {% alert important %}
-Braze MCP 서버는 베타 버전입니다. 사용하기 위해 별도의 액세스 요청은 필요하지 않습니다. 설정 안내에 따라 시작하세요. Braze MCP 서버를 사용하면 [Braze 베타 약관](https://www.braze.com/company/legal/beta-terms)에 동의하는 것으로 간주됩니다. 더 나은 제품을 만들 수 있도록 [mcp-product@braze.com](mailto:mcp-product@braze.com)으로 피드백을 보내주세요.
+로컬 호스팅 Braze MCP 서버(베타)는 올여름 서비스 종료 예정입니다. 기존 기능은 계속 작동하지만, 더 이상 엔드포인트를 추가하거나 베타를 지원하지 않습니다. 원격 Braze 호스팅 MCP 서버가 올여름 얼리 액세스로 제공될 예정입니다.
 {% endalert %}

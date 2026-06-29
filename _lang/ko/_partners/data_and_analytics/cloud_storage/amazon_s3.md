@@ -28,7 +28,7 @@ Braze와 Amazon S3 통합에는 두 가지 통합 전략이 있습니다:
 | Amazon S3 계정 | 이 파트너십을 이용하려면 Amazon S3 계정이 필요합니다. |
 | 전용 S3 버킷 | Amazon S3와 통합하기 전에 앱용 S3 버킷을 생성해야 합니다.<br><br>이미 S3 버킷이 있는 경우에도 권한을 제한할 수 있도록 Braze 전용 새 버킷을 만드는 것을 권장합니다. 새 버킷을 만드는 방법은 다음 지침을 참조하세요. |
 | Currents | 데이터를 Amazon S3로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### 새 S3 버킷 만들기 {#creating-a-new-s3-bucket}
 
@@ -332,6 +332,14 @@ AWS 콘솔의 **Security Credentials** 탭에서 사용자로 이동하여 **Cre
 
 {% endtab %}
 {% endtabs %}
+
+## Currents의 Amazon S3 자격 증명 업데이트 {#updating-currents-credentials}
+
+통합을 중지하거나 이미 버킷으로 내보낸 데이터를 잃지 않고 기존 Braze Currents 커넥터의 Amazon S3 자격 증명을 업데이트할 수 있습니다.
+
+자격 증명을 새로고침하거나 **AWS Secret Access Key**와 **AWS Role ARN** 간에 전환하려면, 이 문서 앞부분에서 선택한 방법에 대한 IAM 및 AWS 측 단계(정책, 사용자 또는 역할, 필요한 식별자)를 완료하세요.
+
+AWS에서 자격 증명 준비를 마쳤으면 Braze에서 **파트너 통합** > **Currents**로 이동하여 목록에서 Amazon S3 커넥터를 찾고 **Edit**을 선택한 다음 **Credentials**를 업데이트하고 **Update Current**을 선택합니다. Braze가 입력한 자격 증명을 검증하며, 커넥터는 계속 실행되고 버킷에 이미 있는 데이터는 그대로 사용할 수 있습니다. 자세한 내용은 [Currents 설정에서 Currents 업데이트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents)를 참조하세요.
 
 ## 내보내기 동작 {#export-behavior}
 

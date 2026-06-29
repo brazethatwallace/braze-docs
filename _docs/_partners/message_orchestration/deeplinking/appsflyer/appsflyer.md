@@ -108,13 +108,17 @@ Here, you find the REST endpoint and generate your Braze data import key. After 
 3. Provide the data import key and REST endpoint that you found in the Braze dashboard. 
 4. Toggle **Advanced Privacy** off and save your configuration.
 
+{% alert important %}
+When entering the Braze REST endpoint in AppsFlyer's Integration tab, enter only the domain (for example, `rest.fra-02.braze.eu`) without the `https://` protocol and without the `/attribution/appsflyer` path. AppsFlyer automatically prepends the protocol and appends the path. Including either in your input causes postback failures.
+{% endalert %}
+
 Additional information on these instructions is available in [AppsFlyer's documentation](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Step 4: Confirm the integration
 
-After Braze receives attribution data from AppsFlyer, the status connection indicator on the AppsFlyer technology partners page in Braze changes from "Not Connected" to "Connected" and includes a timestamp of the last successful request.
+On the AppsFlyer technology partners page in Braze, the connection indicator shows **Not Connected** until you generate a data import API key in Step 2. After you generate the key, the indicator changes to **Connected** and displays a timestamp. That timestamp reflects when the integration was first set up in Braze (when the data import key was created), not when AppsFlyer last sent a postback.
 
-This status changes only after Braze receives data about an attributed install. Braze ignores organic installs (excludes them from the AppsFlyer postback) and does not count them when determining if the connection is successful.
+To confirm that install attribution data is flowing from AppsFlyer, use Step 5 to verify that non-organic install data appears in Braze segment filters. Braze ignores organic installs from AppsFlyer postbacks and does not store them as attributed install data.
 
 ### Step 5: Viewing user attribution data
 
@@ -215,7 +219,7 @@ Appsflyer [offers guidance](https://support.appsflyer.com/hc/en-us/articles/2696
 
 ## Step 5: Confirm SSL Click-tracking is enabled with Braze
 
-At this stage, after you share and validate the CTD details in Appsflyer, we recommend performing a test send to confirm if your Onelink sending domain has an SSL certificate. This is in line with our [Email Setup](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) guide.
+At this stage, after you share and validate the CTD details in Appsflyer, we recommend performing a test send to confirm if your Onelink sending domain has an SSL certificate. This is in line with our [Email Setup]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) guide.
 
 You can perform quality assurance and troubleshooting by sending a deep link using OneLink. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) for details on using OneLink.
 

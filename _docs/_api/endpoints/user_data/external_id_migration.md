@@ -14,9 +14,9 @@ guide_top_text: "The External ID Migration API allows you to rename existing ext
 guide_featured_title: "External ID Migration Endpoints"
 guide_featured_list:
   - name: "POST: Rename External IDs"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: Remove Deprecated External IDs"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

@@ -10,7 +10,7 @@ description: "この記事では、「スケジュールされたAPIトリガー
 ---
 {% api %}
 # スケジュールされたAPIトリガーCanvasesを更新する {#update-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `schedule_id` | オプション | 文字列 | 更新する`schedule_id`（スケジュール作成の応答から取得）。 |
 | `schedule` | 必須 | オブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

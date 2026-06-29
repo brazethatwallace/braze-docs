@@ -23,4 +23,4 @@ channel: email
 
 ## 트랜잭션 이메일 추적하기 {#tracking-your-transactional-emails}
 
-{% multi_lang_include http_event_postback.md %}
+{% multi_lang_include channels/transactional_email/http_event_postback.md %}

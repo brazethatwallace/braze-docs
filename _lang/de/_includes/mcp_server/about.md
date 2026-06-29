@@ -4,6 +4,18 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
+{% alert important %}
+## Sunsetting des lokal gehosteten Braze MCP-Servers {#sunsetting-the-locally-hosted-braze-mcp-server}
+
+In diesem Sommer wird Braze einen remote, von Braze gehosteten MCP-Server im Early Access veröffentlichen. Er ersetzt den lokal gehosteten Beta-Server (`braze-mcp-server` auf [PyPI](https://pypi.org/project/braze-mcp-server/) und im Claude Desktop-Erweiterungsverzeichnis).
+
+**Was das für Sie bedeutet:**
+
+- Der lokal gehostete Server funktioniert weiterhin, wird aber nicht mehr unterstützt. Wir werden keine neuen Endpunkte hinzufügen oder Probleme in der Beta beheben.
+- Sobald der Remote-Server im Early Access verfügbar ist, müssen Sie zu diesem wechseln. Der Remote-Server erfordert keine lokale Installation, verwendet OAuth anstelle statischer API-Schlüssel und funktioniert mit MCP-Clients wie Claude, Copilot, Gemini CLI, Codex und Cursor.
+- Behalten Sie diese Seite im Blick, um über die Early-Access-Verfügbarkeit informiert zu werden, oder kontaktieren Sie Ihr Braze-Account-Team, um Ihr Interesse zu bekunden.
+{% endalert %}
+
 ## Was ist das Model Context Protocol (MCP)? {#what-is-model-context-protocol-mcp}
 
 ​​Das Model Context Protocol (MCP) ist ein Standard, der es KI-Agenten ermöglicht, sich mit Daten aus einer anderen Plattform zu verbinden und mit diesen zu arbeiten. Es besteht aus zwei Hauptteilen:
@@ -31,11 +43,13 @@ Sie können mit Braze über natürliche Sprache interagieren, indem Sie Tools wi
 
 {% tabs %}
 {% tab Claude %}
-![„Welche Braze-Funktionen stehen mir zur Verfügung?“ – diese Frage wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Beispiel-Prompt:** `What are my available Braze functions?`
+**Beispielantwort:** `list_functions` wurde verwendet und die verfügbaren Braze MCP-Funktionskategorien wurden zurückgegeben.
 {% endtab %}
 
 {% tab Cursor %}
-![Die Frage „Welche Braze-Funktionen stehen mir zur Verfügung?“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Beispiel-Prompt:** `What are my available Braze functions?`
+**Beispielantwort:** `list_functions` wurde abgefragt und Funktionen wie `get_canvas_list` wurden aufgelistet.
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +81,7 @@ Nein. Sie müssen einen neuen API-Schlüssel für Ihren MCP-Client erstellen. Ge
 
 ### Wird der Braze MCP-Server lokal oder remote gehostet? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-Der Braze MCP-Server wird lokal gehostet.
+Der derzeit verfügbare Braze MCP-Server wird lokal gehostet. Ein remote, von Braze gehosteter MCP-Server wird in diesem Sommer im Early Access verfügbar sein und den lokal gehosteten Beta-Server ersetzen.
 
 ### Warum listet Cursor ausschließlich Funktionen auf? {#why-is-cursor-only-listing-functions}
 

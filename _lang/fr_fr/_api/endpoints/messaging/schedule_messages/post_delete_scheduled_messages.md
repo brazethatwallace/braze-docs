@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer les me
 ---
 {% api %}
 # Supprimer les messages planifiés {#delete-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/delete
 {% endapimethod %}
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | Requis | Chaîne de caractères | Le `schedule_id` à supprimer (obtenu à partir de la réponse de création de planification). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 ```

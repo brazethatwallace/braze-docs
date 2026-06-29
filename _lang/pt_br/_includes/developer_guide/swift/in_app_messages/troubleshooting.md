@@ -1,10 +1,10 @@
-{% multi_lang_include inapp_message_troubleshooting.md sdk="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
 
-### Solução de problemas de carregamento de ativos (`NSURLError` código `-1008`)
+### Solução de problemas de carregamento de ativos (`NSURLError` código `-1008`) {#asset-loading}
 
-Ao integrar a Braze com bibliotecas de registro de rede de terceiros, os desenvolvedores geralmente se deparam com um `NSURLError` com o código de domínio `-1008`. Esse erro indica que ativos como imagens e fontes não puderam ser recuperados ou não foram armazenados em cache. Para contornar tais casos, você precisará registrar as URLs do CDN do Braze na lista de domínios que devem ser ignorados por essas bibliotecas.
+Ao integrar a Braze com bibliotecas de registro de rede de terceiros, os desenvolvedores geralmente se deparam com um `NSURLError` com o código de domínio `-1008`. Esse erro indica que ativos como imagens e fontes não puderam ser recuperados ou não foram armazenados em cache. Para contornar esses casos, você precisa registrar as URLs do CDN da Braze na lista de domínios que devem ser ignorados por essas bibliotecas.
 
-#### Domínios
+#### Domínios {#domains}
 
 A lista completa de domínios CDN está listada abaixo:
 
@@ -13,9 +13,9 @@ A lista completa de domínios CDN está listada abaixo:
 * `"cdn.braze.eu"`
 * `"cdn.braze.com"`
 
-#### Exemplos
+#### Exemplos {#examples}
 
-Abaixo estão as bibliotecas que são conhecidas por entrar em conflito com o cache de ativos do Braze, juntamente com um código de exemplo para contornar o problema. Se seu projeto usa uma biblioteca que causa um erro de recurso indisponível e não está listada abaixo, consulte a documentação dessa biblioteca para obter APIs de uso semelhantes.
+Abaixo estão as bibliotecas conhecidas por entrar em conflito com o cache de ativos da Braze, juntamente com código de exemplo para contornar o problema. Se seu projeto usa uma biblioteca que causa um erro de recurso indisponível e não está listada abaixo, consulte a documentação dessa biblioteca para APIs de uso semelhantes.
 
 ##### Netfox
 
@@ -65,5 +65,3 @@ XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"http
 ```
 {% endtab %}
 {% endtabs %}
-
-

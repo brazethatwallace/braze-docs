@@ -4,7 +4,7 @@ article_title: Hilfeartikel
 page_order: 1
 layout: dev_guide
 guide_top_header: "Hilfeartikel"
-guide_top_text: "Wir haben eine Vielzahl von Hilfeartikeln, die Ihnen helfen können, Probleme zu lösen und Abhängigkeiten in Ihren Kampagnen aufzudecken. Wenn Sie einen Vorschlag für einen neuen Hilfeartikel haben, hinterlassen Sie bitte Feedback am Ende dieser oder einer anderen Hilfeartikelseite. <br> <br>Wählen Sie aus den folgenden beliebten Themen oder sehen Sie sich die anderen Artikel im Navigations-Panel an."
+guide_top_text: "Wir haben eine Vielzahl von Hilfeartikeln, die Ihnen helfen können, Probleme zu lösen und Abhängigkeiten in Ihren Campaigns aufzudecken. Wenn Sie einen Vorschlag für einen neuen Hilfeartikel haben, hinterlassen Sie bitte Feedback am Ende dieser oder einer anderen Hilfeartikelseite. <br> <br>Wählen Sie aus den folgenden beliebten Themen oder sehen Sie sich die anderen Artikel im Navigations-Panel an."
 
 page_type: landing
 description: "Auf dieser Landing-Page finden Sie Hilfeartikel, die Ihnen bei der Lösung von Problemen und der Aufdeckung von Abhängigkeiten bei der Verwendung von Braze helfen können."
@@ -15,7 +15,7 @@ guide_featured_list:
     link: /docs/user_guide/administer/personal/accessing_your_account/
     image: /assets/img/braze_icons/user-circle.svg
   - name: API
-    link: /docs/help/help_articles/api/
+    link: /docs/api/basics/
     image: /assets/img/braze_icons/terminal-square.svg
   - name: Campaigns und Canvas
     link: /docs/user_guide/messaging/
@@ -24,7 +24,7 @@ guide_featured_list:
     link: /docs/user_guide/channels/content_cards/
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Daten
-    link: /docs/help/help_articles/data/
+    link: /docs/user_guide/data/
     image: /assets/img/braze_icons/line-chart-up-01.svg
   - name: Dokumentation
     link: /docs/user_guide/

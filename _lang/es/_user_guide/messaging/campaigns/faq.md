@@ -168,6 +168,10 @@ El número de usuarios que entran a una campaña puede diferir de tu número esp
 Para obtener más ayuda con la solución de problemas de campañas, asegúrate de contactar a soporte de Braze dentro de los 30 días posteriores a la ocurrencia de tu problema, ya que solo tenemos los últimos 30 días de registros de diagnóstico.
 {% endalert %}
 
+### ¿Por qué los usuarios recibieron mi campaña dos veces después de editarla? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Si editas una campaña en vivo sin detenerla primero, los usuarios pueden recibir el mensaje dos veces. Esto sucede porque editar una campaña en vivo vuelve a poner en cola a los usuarios para la versión actualizada mientras la cola original aún se está procesando. Los usuarios que aún no han recibido el mensaje original pueden terminar en ambas colas. Para evitar esto, siempre [detén la campaña]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch/#stopping-your-campaign) antes de hacer cambios.
+
 ### ¿Cuál es la diferencia entre las opciones Exportación de datos de usuario a CSV y Exportación de direcciones de correo electrónico a CSV en mi página de análisis de campaña? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
 Seleccionar la opción **CSV Export Email Addresses** descarga datos solo para los usuarios con direcciones de correo electrónico. Por ejemplo, si tienes un segmento de 100,000 usuarios, pero solo 50,000 de esos usuarios tienen direcciones de correo electrónico, y haces clic en **CSV Export Email Addresses**, la exportación contiene solo 50,000 filas de datos. En comparación, seleccionar **CSV Export User Data** exporta todos los datos de usuario.
@@ -190,6 +194,14 @@ Las campañas activadas por API te permiten gestionar el texto de la campaña, l
 
 Las campañas de API se usan para rastrear los mensajes enviados usando la API. A diferencia de la mayoría de las campañas, no especificas el mensaje, los destinatarios ni la programación, sino que pasas los identificadores en tus llamadas a la API.
 
+### ¿Cómo puedo confirmar si mis usuarios recibieron una campaña activada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Puedes [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando el filtro **Received Campaign** y luego seleccionar la campaña activada por API específica que deseas verificar. Después de guardar el segmento, usa el [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar los usuarios en ese segmento.
+
+### ¿Puedo eliminar una campaña? {#can-i-delete-a-campaign}
+
+No, pero puedes [archivar una campaña]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### ¿Cuál es la diferencia entre campañas basadas en acciones y campañas activadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
@@ -208,7 +220,7 @@ Las campañas de entrega basada en acciones o campañas activadas por eventos so
 | Ventajas | Desventajas |
 | ---- | ---- |
 | • Visibilidad de las cargas útiles JSON entrantes en la plataforma (si el evento es activado por un usuario de prueba) a través del **Registro de actividad de mensajes**<br><br>• Los elementos de personalización se incluyen en las propiedades del evento personalizado<br><br>• El evento personalizado se puede usar para crear segmentos de usuarios elegibles para el mensaje | • Consume puntos de datos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Basadas en acciones" }
 
 #### Activadas por API {#api-triggered}
 
@@ -217,7 +229,7 @@ Las campañas activadas por API y activadas por servidor son ideales para maneja
 | Beneficios | Consideraciones |
 | ---- | ---- |
 | • No registra puntos de datos<br><br>• Los elementos de personalización se incluyen en las propiedades de la carga útil JSON | • No te permite crear un segmento de usuarios elegibles para el mensaje en las propiedades de la carga útil JSON<br><br>• No es posible ver las cargas útiles JSON entrantes con el **Registro de actividad de mensajes** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Activadas por API" }
 
 ### ¿Qué debo incluir al enviar un ticket de soporte por un error de "Tiempo de solicitud agotado"? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
@@ -252,10 +264,28 @@ Varios factores pueden causar que el número de envíos sea menor que el tamaño
 - **Filtros de capacidad de entrega de correo electrónico:** Para campañas de correo electrónico, Braze excluye a los usuarios que han tenido rebotes duros, se han dado de baja de correos electrónicos, han sido marcados como correo no deseado, no tienen dirección de correo electrónico en su perfil o no están suscritos a un grupo de suscripción requerido. Estas verificaciones se ejecutan en el momento del envío, por lo que un usuario presente en tu segmento aún puede ser excluido del recuento real de envíos.
 - **Limitación de frecuencia global:** Los límites a nivel de espacio de trabajo pueden evitar que usuarios elegibles reciban otro mensaje en la misma ventana, lo que reduce los envíos realizados.
 - **Usuarios recién importados:** Los perfiles que acaban de volverse elegibles pueden no recibir hasta la siguiente evaluación o pasada de envío, por lo que los recuentos se actualizan en una ejecución posterior.
-- **Alcanzabilidad push:** Para campañas push, confirma que la audiencia tiene push habilitado para la aplicación correcta. Si no filtras por usuarios con push habilitado, la audiencia estimada puede incluir perfiles que no pueden recibir push. Verifica **Reachable Users** en el paso **Target Users** para una estimación operativa más cercana.
+- **Alcanzabilidad push:** Para campañas push, confirma que la audiencia tiene push habilitado para la aplicación correcta. Si no filtras por usuarios con push habilitado, la audiencia estimada puede incluir perfiles que no pueden recibir push. Verifica **Usuarios alcanzables** en el paso **Público objetivo** para una estimación operativa más cercana.
 - **Límite de velocidad:** Si se aplica un límite de velocidad, los mensajes se distribuyen a lo largo del tiempo y algunos envíos pueden diferirse o aún no reflejarse en el recuento.
 - **Ventanas de reelegibilidad:** Los usuarios que aún no son reelegibles no recibirán nuevamente durante el período de espera, por lo que los envíos quedan por debajo del tamaño estimado de la audiencia para ese período.
 - **Ventana de informes:** El rango de tiempo de los análisis puede no incluir todos los envíos.
 - **Reevaluación del segmento:** Para campañas basadas en acciones o programadas que reevalúan en el momento del envío, los usuarios que estaban en el segmento cuando la campaña se puso en cola pueden ya no cumplir los criterios cuando el mensaje se envía realmente.
 - **Límites de envío:** Un número máximo de usuarios (o límite similar) en **Target Audiences** detiene la entrega cuando se alcanza el límite.
 - **Filtros estrictos de dispositivo o navegador:** Los filtros que solo coinciden con las versiones más recientes de aplicaciones o navegadores reducen el conjunto alcanzable en el momento del envío en comparación con una vista previa de segmento amplia.
+
+### ¿Dónde están las preguntas frecuentes sobre la limitación de frecuencia global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Para preguntas sobre días calendario, push silencioso, webhooks, comportamiento de Canvas y temas relacionados, consulta las [Preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) de [Límite de velocidad y limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+
+### ¿Por qué los destinatarios únicos pueden superar los envíos en correo electrónico y SMS? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Para correo electrónico y SMS, Braze incrementa **Destinatarios únicos** antes del intento de envío al ESP e incrementa **Envíos** después de una respuesta exitosa del ESP. Los errores permanentes (como direcciones de correo electrónico no válidas) o direcciones duplicadas hacen que los destinatarios únicos superen los envíos.
+
+### ¿Por qué **Último envío** no coincide con mi hora de envío programada? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Para una campaña con un único envío programado, **Último envío** coincide con la hora de lanzamiento. Para campañas recurrentes con **Send in local time zone** habilitado, **Último envío** puede aparecer antes de la hora programada porque los envíos a usuarios en zonas horarias más tempranas (por ejemplo, GMT frente a PST) se completan antes de la hora programada de tu espacio de trabajo.
+
+### ¿Por qué una campaña histórica detenida ya no muestra métricas en la página de **Analytics**? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+La pestaña **Analytics** muestra de forma predeterminada los últimos 90 días. Si la campaña se envió por última vez fuera de esa ventana, las métricas pueden aparecer como cero hasta que ajustes el rango de fechas en la página de **Analytics** para incluir el período en que la campaña se envió. Para más información, consulta [Análisis de campaña]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+
+**Restaurar datos de interacción** no restaura los análisis de campaña. Solo se aplica a los filtros de retargeting y al historial de interacciones del usuario. Para más información, consulta [Datos de interacción de mensajería]({{site.baseurl}}/messaging_interaction_data/).

@@ -33,7 +33,7 @@ Action cards are supported in the following editors and pages.
     - Push notifications
     - SMS/MMS/RCS
     - Webhooks
-- [Create custom agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) page
+- [Create custom agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) page
  
 On other pages, Operator provides a list of steps to follow in the UI instead of taking action itself. Operator functionality is regularly being improved, and expanded coverage for create tools is expected.
 
@@ -53,3 +53,5 @@ The **Auto-approve actions** toggle is located in the Operator chat panel.
 ![The auto-approve toggle and confirmation modal in the Operator chat panel.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
 Auto-approve resets when you refresh the page, open a new tab, or log out and back in. Moving between pages in the dashboard does not reset it. Auto-approve can be turned off at any time.
+
+For information about restricting Operator access and auditing team usage, see [Data privacy and security]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).

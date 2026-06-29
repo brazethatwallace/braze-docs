@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-For steps to save templates from the composer, create color profiles or CSS templates, and manage your library, see [Create an in-app message template]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/).
+For steps to save templates from the composer, create color profiles or CSS templates, and manage your library, see [Create an in-app message template]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

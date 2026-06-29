@@ -525,4 +525,18 @@ Dans les payloads des journaux détaillés, Braze utilise des noms d'événement
 | `ccc` | Clic sur Content Card |
 | `ccd` | Content Card rejetée |
 | `lr` | Localisation enregistrée |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abréviations courantes des événements" }
+
+## Résolution des problèmes {#troubleshooting}
+
+### Quand un utilisateur peut-il avoir 0 session enregistrée sur son profil ? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+Un profil utilisateur peut afficher 0 session lorsque vous importez l'utilisateur via la REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) ou par importation CSV sans les champs **First session** ou **Last session**. Les sessions sont enregistrées lorsque les utilisateurs interagissent avec votre application via le SDK. Pour plus de détails, consultez [Le profil utilisateur a 0 session]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions).
+
+### Divergences de données utilisateur lors de l'utilisation simultanée du SDK et de la REST API {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+Lorsque vous utilisez le SDK et la REST API en même temps, des conditions de concurrence peuvent entraîner des divergences de données. Après avoir appelé `changeUser()`, laissez le SDK vider les données en attente avant d'effectuer des appels critiques à la REST API, évitez de regrouper les mises à jour sensibles au temps et envisagez d'ajouter un court délai entre les requêtes SDK et API. Pour le comportement de `changeUser()`, consultez [Fonctionnement de changeUser()]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works).
+
+### Les données n'atteignent pas Braze {#data-not-reaching-braze}
+
+Si les données n'atteignent pas Braze, confirmez que votre pare-feu autorise le trafic sortant vers les endpoints de l'API Braze et les fournisseurs de réseau de diffusion de contenu. Exécutez un test MTR et utilisez [Fastly Debug](https://www.fastly-debug.com/) pendant que le problème se produit. Pour la mise en liste d'autorisation et la résolution des problèmes de connectivité, consultez [Problèmes de connectivité réseau de l'API]({{site.baseurl}}/api/network_connectivity_issues/).

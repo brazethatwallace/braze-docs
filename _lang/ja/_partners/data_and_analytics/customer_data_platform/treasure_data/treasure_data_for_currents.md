@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Treasure Data for Currents
 
-> [トレジャーデータ](https://www.treasuredata.com/)は、複数のソースから情報を収集し、マーケティングスタックの他のさまざまな場所にルーティングする顧客データプラットフォーム（CDP）です。
+> [トレジャーデータ](https://www.treasuredata.com/)は、複数のソースから情報を収集し、マーケティングスタックの他のさまざまなロケーションにルーティングする顧客データプラットフォーム（CDP）です。
 
 Brazeとトレジャーデータの統合により、2つのシステム間の情報の流れをシームレスに制御できます。Currentsを使用すると、データをトレジャーデータに接続し、グローススタック全体で実用的なデータにすることもできます。
 
@@ -22,7 +22,7 @@ Brazeとトレジャーデータの統合により、2つのシステム間の�
 | トレジャーデータ | このパートナーシップを活用するには、[トレジャーデータのアカウント](https://console.treasuredata.com/users/sign_in)が必要です。 |
 | Currents | トレジャーデータにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
 | トレジャーデータURL | トレジャーデータのダッシュボードに移動し、取り込みURLをコピーすることで取得できます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% alert note %}
 トレジャーデータは各イベントをバッチ単位でログに記録します。トレジャーデータにクエリしてイベント数を取得する方法については、「[データのクエリ](https://docs.treasuredata.com/articles/int/braze-currents-import-integration/a/h2__592056238)」を参照してください。<br><br>トレジャーデータの新しいBrazeストリーミングコネクターとの統合をお考えの場合は、[Braze Currents Streaming Import Integration](https://docs.treasuredata.com/articles/#!int/braze-currents-import-integration/q/braze/qid/72364/qp/4)の詳細なセットアップ手順を参照してください。Brazeとの統合やセットアップに関するご質問は、Brazeアカウントチームまでお問い合わせください。

@@ -1,0 +1,212 @@
+# Checks changed Markdown and HTML include files for WCAG 2.2 AA content violations:
+#
+#   WCAG 1.1.1  Images missing alt text
+#   WCAG 2.4.4  Non-descriptive link text ("here", "click here", "learn more", etc.)
+#   WCAG 2.4.6  Heading level skips (e.g. h2 → h4)
+#   WCAG 4.1.2  Inline <iframe> tags without a title attribute
+#
+# WARNING MODE: violations are reported but do NOT block merging. This is intentional
+# while false-positive rates are being validated. Upgrade to a required status check
+# once baseline quality is confirmed. See track-a11y-telemetry.yml for the data
+# collection that informs that decision.
+#
+# If you believe a violation is a false positive, add the "a11y-false-positive" label
+# to this PR. The telemetry workflow will record it alongside the violation type.
+#
+# Table accessible names (WCAG 1.3.1) are handled by check-table-accessibility.yml.
+#
+# Fix guidance — run locally before pushing:
+#   python3 scripts/check_content_accessibility.py path/to/file.md
+#
+# Or use the Cursor skill for guided fixes (including auto-fix for tables):
+#   /check-accessibility markdown
+
+name: Check content accessibility (WCAG 2.2 AA)
+
+on:
+  pull_request:
+    paths:
+      - "_docs/**/*.md"
+      - "_includes/**/*.md"
+      - "_includes/**/*.html"
+      - "scripts/check_content_accessibility.py"
+      - ".github/workflows/check-content-accessibility.yml"
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  check-content-accessibility:
+    name: Content accessibility — WCAG 2.2 AA (changed files)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Fetch base branch for three-dot diff
+        run: git fetch --no-tags origin "${{ github.base_ref }}"
+
+      - name: Get changed files
+        id: changed
+        shell: bash
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          mapfile -t FILES < <(
+            git diff --name-only --diff-filter=ACMRT "$BASE"...HEAD \
+              -- '_docs/**' '_includes/**' \
+            | grep -E '\.(md|html)$' \
+            | grep -v '^_docs/_hidden/' \
+            | grep -v '^_lang/' \
+            || true
+          )
+          if ((${#FILES[@]} == 0)); then
+            echo "ran=false" >> "$GITHUB_OUTPUT"
+            echo "No changed files to check."
+            exit 0
+          fi
+          echo "ran=true" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${FILES[@]}" > /tmp/changed_files.txt
+          echo "Checking ${#FILES[@]} file(s):"
+          printf '  %s\n' "${FILES[@]}"
+
+      - name: Check content accessibility
+        id: lint
+        if: steps.changed.outputs.ran == 'true'
+        continue-on-error: true   # Warning-only: violations are reported but do not block merge.
+        shell: bash
+        run: |
+          set +e
+          mapfile -t FILES < /tmp/changed_files.txt
+
+          python3 scripts/check_content_accessibility.py \
+            --json violations.json \
+            "${FILES[@]}" 2>&1 | tee lint-output.txt
+          LINT_EXIT=${PIPESTATUS[0]}
+
+          echo "exit_code=${LINT_EXIT}" >> "$GITHUB_OUTPUT"
+          exit "${LINT_EXIT}"
+
+      - name: Emit GitHub annotations for violations
+        if: steps.changed.outputs.ran == 'true' && steps.lint.outputs.exit_code == '1'
+        shell: bash
+        run: python3 scripts/check_content_accessibility.py --github-annotations violations.json
+
+      - name: Upload violations artifact
+        if: always() && steps.changed.outputs.ran == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: a11y-content-violations-pr${{ github.event.pull_request.number }}-run${{ github.run_number }}
+          path: violations.json
+          retention-days: 90
+          if-no-files-found: ignore
+
+      - name: Post violations as PR comment
+        if: always() && steps.changed.outputs.ran == 'true' && steps.lint.outcome == 'failure'
+        uses: actions/github-script@v9
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-content-a11y-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+            const headSha = process.env.HEAD_SHA;
+
+            const fs = require('fs');
+            let violations = [];
+            try {
+              violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
+            } catch (e) {
+              core.warning('Could not read violations.json: ' + e.message);
+              return;
+            }
+
+            if (violations.length === 0) return;
+
+            // Group violations by WCAG criterion for a clear summary
+            const byCriterion = {};
+            const criterionNames = {
+              '1.1.1': 'Non-text Content (missing alt text)',
+              '2.4.4': 'Link Purpose (non-descriptive link text)',
+              '2.4.6': 'Headings and Labels (heading level skip)',
+              '4.1.2': 'Name, Role, Value (inline iframe missing title)',
+            };
+
+            for (const v of violations) {
+              const c = v.wcag_criterion || '?';
+              if (!byCriterion[c]) byCriterion[c] = [];
+              byCriterion[c].push(v);
+            }
+
+            const lines = [marker, ''];
+            lines.push('### ⚠️ Content accessibility: action required before merging');
+            lines.push('');
+            lines.push(
+              `**${violations.length} WCAG 2.2 AA violation(s)** found in this PR. ` +
+              `Fix each one before merging — see file paths and guidance below.`
+            );
+            lines.push('');
+            lines.push(
+              '_Run `/check-accessibility markdown` in the Cursor chat for guided fixes, ' +
+              'or install the pre-commit hook (`bash scripts/install_hooks.sh`) to catch ' +
+              'these before pushing._'
+            );
+            lines.push('');
+            lines.push(
+              '> **This check is advisory — it will not block your merge.** ' +
+              'If a violation above is incorrect, add the `a11y-false-positive` label to this PR. ' +
+              'We track that signal to improve detection accuracy.'
+            );
+
+            for (const [criterion, cvs] of Object.entries(byCriterion).sort()) {
+              const name = criterionNames[criterion] || criterion;
+              lines.push('');
+              lines.push(`#### WCAG ${criterion} — ${name}`);
+              lines.push('');
+              for (const v of cvs) {
+                lines.push(`**\`${v.file}:${v.table_start_line}\`**`);
+                lines.push('```');
+                lines.push(v.fix_hint);
+                lines.push('```');
+              }
+            }
+
+            // Upsert the comment
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            const body = lines.join('\n');
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+              core.info(`Updated content-accessibility comment ${existing.id}`);
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+              core.info('Created content-accessibility comment');
+            }
+
+      - name: Remove resolved comment on clean pass
+        if: always() && steps.changed.outputs.ran == 'true' && steps.lint.outcome == 'success'
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const marker = '<!-- braze-docs-content-a11y-bot -->';
+            const { owner, repo } = context.repo;
+            const prNumber = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: prNumber, per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.deleteComment({ owner, repo, comment_id: existing.id });
+              core.info(`Deleted resolved content-accessibility comment ${existing.id}`);
+            }

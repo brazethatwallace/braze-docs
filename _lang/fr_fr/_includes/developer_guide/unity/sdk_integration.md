@@ -23,6 +23,8 @@ Plusieurs packages Braze Unity sont disponibles au téléchargement sur la [page
 
 {% alert note %}
 À partir d'Unity 2.6.0, l'artefact groupé du SDK Android de Braze nécessite les dépendances [AndroidX](https://developer.android.com/jetpack/androidx). Si vous utilisiez auparavant un `jetified unitypackage`, vous pouvez effectuer la transition en toute sécurité vers le `unitypackage` correspondant.
+
+Si les compilations Android échouent avec le message « This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled », activez [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) dans vos paramètres de publication Unity. Ouvrez ensuite `Assets/Plugins/Android/gradleTemplate.properties` et définissez `android.useAndroidX=true`. Pour un modèle fonctionnel, consultez l'[application exemple Braze Unity](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) et son fichier [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties).
 {% endalert %}
 {% endtab %}
 

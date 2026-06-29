@@ -2,7 +2,7 @@
 nav_title: 高度なフィルター
 article_title: 高度な Liquid フィルター
 page_order: 4
-description: "このリファレンス記事では、高度なフィルター、例、およびCampaignでの使用方法について説明します。"
+description: "このリファレンス記事では、高度なフィルター、例、およびキャンペーンでの使用方法について説明します。"
 
 ---
 
@@ -15,7 +15,6 @@ description: "このリファレンス記事では、高度なフィルター、
 {% raw %}
 | フィルター名 | フィルターの説明 | 入力例 | 出力例 |
 |---|---|---|---|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Encoding filters" }
 | `md5` | md5 エンコードされた文字列を返します | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
 | `sha1` | sha1 エンコードされた文字列を返します | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
 | `sha2` | sha2（256ビット、SHA-256とも呼ばれます）エンコードされた文字列を返します | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
@@ -24,7 +23,7 @@ description: "このリファレンス記事では、高度なフィルター、
 | `hmac_sha1_base64` | base64 文字列としてエンコードされた hmac-sha1 署名を返します | `{{'hey' | hmac_sha1_base64: 'secret_key'}}` | KjlpvtJb/u+wCspAY+uVkLTfjw4= |
 | `hmac_sha256_hex` | 16進文字列としてエンコードされた hmac-sha256 署名を返します | `{{'hey' | hmac_sha256_hex: 'secret_key'}}` | 8df897f8da3d7992fe57c8dbc6f27578cfbf2dcc4d0fbb4000b8c924841d508e |
 | `hmac_sha256_base64` | base64 文字列としてエンコードされた hmac-sha256 署名を返します | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Encoding filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Encoding filters" }
 
 ## URL フィルター {#url-filters}
 
@@ -33,7 +32,7 @@ description: "このリファレンス記事では、高度なフィルター、
 | `url_escape` | URLで許可されていない文字列内のすべての文字を識別し、エスケープされた形式に置き換えます | `{{'hey<>hi' | url_escape}}` | hey%3C%3Ehi |
 | `url_param_escape` | URLで許可されていない文字列内のすべての文字を、アンパサンド（&）を含め、エスケープされた形式に置き換えます | `{{'hey<&>hi' | url_param_escape}}` | hey%3C%26%3Ehi |
 | `url_encode` | URLに適した形式で文字列をエンコードします | `{{ 'google search' | url_encode }}` | google+search |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="URL filters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="URL filters" }
 
 {% endraw %}
 {% alert tip %}
@@ -75,12 +74,12 @@ Braze内のLiquidでは、ハッシュを変数（式など）としてインス
 | `number_with_delimiter` | 数値をカンマ区切りでフォーマットします | `{{ 123456 | number_with_delimiter }}` | 123,456 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number formatting filters" }
 
-## JSON エスケープ / 文字列エスケープフィルター {#json-escape-string-escape-filter}
+## JSON エスケープ / 文字列エスケープフィルター {#json-escape-or-string-escape-filter}
 
 | フィルター名 | フィルターの説明 |
 |---|---|
 | `json_escape` | 文字列内の特殊文字（ダブルクォート `""` やバックスラッシュ '\' など）をエスケープします。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON escape / string escape filter" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON escape or string escape filter" }
 
 このフィルターは、JSON ディクショナリ内の文字列をパーソナライズする際に常に使用する必要があり、特にWebhookで役立ちます。
 
@@ -99,14 +98,14 @@ Braze内のLiquidでは、ハッシュを変数（式など）としてインス
 ### 入力 {#input}
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign my_data_string = '[{"id":"1","store_name":"demo-store"}]'  %}
 {% assign my_data = my_data_string | json_parse %}
 ```
 
 ### 出力 {#output}
 
-```liquid
+`````````liquid
 {% for item in my_data %}
 Item ID: {{ item.id }}
 Item Name: {{ item.store_name }}
@@ -121,7 +120,7 @@ Item Name: {{ item.store_name }}
 ### 入力
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign my_data_string = '[{"id":"1","store_name":"demo-store"}]'  %}
 {% assign my_data = my_data_string | json_parse %}
 {% assign json_string = my_data | as_json_string %}
@@ -129,7 +128,7 @@ Item Name: {{ item.store_name }}
 
 ### 出力
 
-```liquid
+`````````liquid
 {{json_string}}
 ```
 {% endraw %}

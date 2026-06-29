@@ -1,0 +1,1 @@
+[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation/)エディターで、**コードを挿入**を選択して、受信Webhookペイロードを有効なBraze APIリクエストに変換する変換コードを生成します。

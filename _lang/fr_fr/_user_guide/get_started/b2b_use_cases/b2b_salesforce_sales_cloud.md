@@ -41,7 +41,7 @@ Lorsque vous configurez les paramètres OAuth nécessaires pour l'application co
 
 En tant que plateforme d'engagement client, Braze peut générer de nouveaux prospects en fonction des flux utilisateurs, par exemple lorsqu'un formulaire est rempli sur une page d'accueil. Lorsque cela se produit, vous pouvez utiliser un webhook Braze Salesforce Sales Cloud pour créer un prospect correspondant dans Salesforce.
 
-### Étape 1 : Récupérez vos `client_id` et `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Étape 1 : Récupérez vos `client_id` et `client_secret` {#step-1-collect-your-client_id-and-client_secret}
 
 1. Dans Salesforce, accédez à **Platform Tools** > **Apps** > **App Manager**.
 2. Recherchez votre application Braze nouvellement créée et sélectionnez **View**.
@@ -52,9 +52,9 @@ En tant que plateforme d'engagement client, Braze peut générer de nouveaux pro
 
 Utilisez des modèles pour réutiliser rapidement ce webhook sur la plateforme Braze.
 
-1. Dans Braze, accédez à **Templates**, sélectionnez **Webhook Templates**, puis sélectionnez **+ Create Webhook Template**.
+1. Dans Braze, accédez à **Modèles**, sélectionnez **Modèles de webhook**, puis sélectionnez **+ Create Webhook Template**.
 2. Donnez un nom au modèle, par exemple « Salesforce Sales Cloud > Créer un prospect ».
-3. Dans l'onglet **Compose**, saisissez les informations suivantes :
+3. Dans l'onglet **Rédiger**, saisissez les informations suivantes :
 
 #### Rédiger le webhook {#compose-webhook}
 
@@ -63,7 +63,7 @@ Utilisez des modèles pour réutiliser rapidement ce webhook sur la plateforme B
 | URL du webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | Méthode HTTP | `POST` |
 | Corps de la requête | Paires clé/valeur JSON |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rédiger le webhook" }
 
 #### Valeurs clés des propriétés du corps {#body-property-key-values}
 
@@ -75,7 +75,7 @@ Sélectionnez **+ Add New Body Property** pour chacune des paires clé/valeur qu
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valeurs clés des propriétés du corps" }
 
 #### En-têtes de requête {#request-headers}
 
@@ -85,7 +85,7 @@ Sélectionnez **+ Add New Header** pour chacun des en-têtes de requête suivant
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="En-têtes de requête" }
 
 {: start="4" }
 4. Sélectionnez **Save Template**.
@@ -108,9 +108,9 @@ Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect
 
 ### Étape 2 : Configurez votre modèle de webhook
 
-1. Dans Braze, accédez à **Templates**, sélectionnez **Webhook Templates**, puis sélectionnez **+ Create Webhook Template**.
+1. Dans Braze, accédez à **Modèles**, sélectionnez **Modèles de webhook**, puis sélectionnez **+ Create Webhook Template**.
 2. Donnez un nom au modèle, par exemple « Salesforce Sales Cloud > Mettre à jour le prospect en MQL ».
-3. Dans l'onglet **Compose**, saisissez les informations suivantes :
+3. Dans l'onglet **Rédiger**, saisissez les informations suivantes :
 
 #### Rédiger le webhook
 
@@ -119,7 +119,7 @@ Cet exemple montre spécifiquement comment mettre à jour le stade d'un prospect
 | URL du webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | Méthode HTTP | `PATCH` |
 | Corps de la requête | Paires clé/valeur JSON |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rédiger le webhook" }
 
 #### Valeurs clés des propriétés du corps
 
@@ -128,7 +128,7 @@ Sélectionnez **+ Add New Body Property** pour la paire clé/valeur suivante. No
 | Clé | Valeur |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valeurs clés des propriétés du corps" }
 
 #### En-têtes de requête
 
@@ -138,7 +138,7 @@ Sélectionnez **+ Add New Header** pour chacun des en-têtes de requête suivant
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="En-têtes de requête" }
 
 {: start="4"}
 4. Sélectionnez **Save Template**.

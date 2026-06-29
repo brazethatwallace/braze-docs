@@ -22,4 +22,4 @@ description: "この記事には2019年4月のリリースノートが含まれ�
 
 ## サブスクリプショングループのアーカイブ {#subscription-groups-archiving}
 
-[サブスクリプショングループのアーカイブ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#archiving-groups)が可能になりました！アーカイブされたサブスクリプショングループは編集できず、Segmentフィルターに表示されなくなります。メール、Campaign、またはCanvasでSegmentフィルターとして使用されているグループをアーカイブしようとすると、エラーメッセージが表示され、そのグループの使用をすべて削除するまでアーカイブできません。
+[サブスクリプショングループのアーカイブ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#archiving-groups)が可能になりました！アーカイブされたサブスクリプショングループは編集できず、セグメントフィルターに表示されなくなります。メール、キャンペーン、またはキャンバスでセグメントフィルターとして使用されているグループをアーカイブしようとすると、エラーメッセージが表示され、そのグループの使用をすべて削除するまでアーカイブできません。

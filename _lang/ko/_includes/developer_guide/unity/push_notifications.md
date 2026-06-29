@@ -53,17 +53,22 @@ Braze는 iOS 푸시 통합 자동화를 위한 네이티브 Unity 솔루션을 �
 
 {% tabs %}
 {% tab Android %}
-#### 2.1단계: 푸시 설정 구성하기 {#step-21-configure-push-settings}
+#### 2.1단계: 푸시 설정 구성하기 {#unity_step-21-configure-push-settings}
 
 Braze SDK는 기기가 푸시 알림을 받을 수 있도록 Firebase 클라우드 메시징 서버에 푸시 등록을 자동으로 처리할 수 있습니다. Unity에서 **Automate Unity Android Integration**을 활성화한 다음 다음 **Push Notification** 설정을 구성합니다.
 
-| 설정                                | 설명                                                                                                                                              |
+| 설정 | 설명 |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | Braze SDK가 기기에 대한 FCM 푸시 토큰을 자동으로 검색하고 전송하도록 지시합니다.                                                                |
-| Firebase Cloud Messaging Sender ID     | Firebase 콘솔의 발신자 ID.                                                                                                                |
-| Handle Push Deeplinks Automatically    | SDK가 푸시 알림을 클릭할 때 딥링크 열기 또는 앱 열기를 처리해야 하는지 여부.                                                  |
-| Small Notification Icon Drawable       | 푸시 알림을 받을 때마다 작은 아이콘으로 표시되어야 하는 드로어블. 아이콘이 제공되지 않은 경우 알림은 애플리케이션 아이콘을 작은 아이콘으로 사용합니다. |
+| Automatic Firebase Cloud Messaging Registration Enabled | Braze SDK가 기기에 대한 FCM 푸시 토큰을 자동으로 검색하고 전송하도록 지시합니다. |
+| Firebase Cloud Messaging Sender ID | Firebase 콘솔의 발신자 ID. |
+| Handle Push Deeplinks Automatically | SDK가 푸시 알림을 클릭할 때 딥링크 열기 또는 앱 열기를 처리해야 하는지 여부. |
+| Small Notification Icon Drawable | 푸시가 도착할 때 표시되는 작은 아이콘에 대한 Android 드로어블 리소스 참조. `@drawable/` 접두사를 포함한 전체 참조를 입력합니다(예: `@drawable/hourglass_icon`). 자동 통합은 이 값을 입력한 그대로 `braze.xml`에 기록합니다. 비워 두면 알림은 애플리케이션 아이콘을 작은 아이콘으로 사용합니다. |
+| Large Notification Icon Drawable | 알림에 사용할 선택적 큰 아이콘. 작은 아이콘과 동일한 `@drawable/` 형식을 사용합니다(예: `@drawable/my_large_icon`). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable**과 **Large Notification Icon Drawable**은 **Braze > Braze Configuration**의 **Push Configuration** 아래에 표시됩니다. 두 값 모두 입력한 그대로 `braze.xml`에 기록됩니다. `@drawable/` 접두사를 직접 포함하세요. Braze Unity 통합에서 자동으로 추가하지 않습니다(예: `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -94,7 +99,7 @@ Unity 편집기에서 **Braze > Braze Configuration**으로 이동하여 Braze �
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### 2.1단계: `AndroidManifest.xml` 업데이트 {#step-21-update-androidmanifestxml}
+#### 2.1단계: `AndroidManifest.xml` 업데이트 {#unity_step-21-update-androidmanifestxml}
 
 앱에 `AndroidManifest.xml`이 없는 경우 다음을 템플릿으로 사용할 수 있습니다. 그렇지 않으면 이미 `AndroidManifest.xml`이 있는 경우 기존 `AndroidManifest.xml`에 다음 중 누락된 섹션이 추가되었는지 확인합니다.
 
@@ -301,7 +306,13 @@ Braze는 기본적으로 표준 딥링크(웹사이트 URL, Android URI 등)를 
 
 #### Braze 푸시 알림 아이콘 추가 {#adding-braze-push-notification-icons}
 
-프로젝트에 푸시 아이콘을 추가하려면 아이콘 이미지 파일이 포함된 Android 아카이브(AAR) 플러그인 또는 Android 라이브러리를 생성하세요. 단계와 자세한 내용은 Unity 설명서를 참조하세요: [Android 라이브러리 프로젝트 및 Android 아카이브 플러그인](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+`Assets/Plugins/Android/res` 아래에 알림 아이콘 이미지를 추가하지 마세요. Unity는 [해당 경로에서 Android 리소스를 제공하는 방식을 더 이상 사용하지 않으며](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), 빌드 경고 또는 유효성 검사 오류가 발생할 수 있습니다. 아이콘 드로어블을 [Android 아카이브(AAR) 플러그인](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) 또는 Android 라이브러리 프로젝트에 패키징하여 다른 드로어블처럼 빌드된 앱의 리소스에 병합되도록 하세요.
+{% endalert %}
+
+프로젝트에 푸시 아이콘을 추가하려면 `res/drawable*`(또는 밀도별 폴더) 아래에 아이콘 이미지 파일이 포함된 AAR 플러그인 또는 Android 라이브러리를 생성한 다음, **Braze > Braze Configuration**에서 전체 `@drawable/` 리소스 이름을 사용하여 각 아이콘을 참조합니다([2.1단계: 푸시 설정 구성하기](#unity_step-21-configure-push-settings) 참조). Unity의 패키징 및 가져오기 단계는 [Android 라이브러리 프로젝트 및 Android 아카이브 플러그인](https://docs.unity3d.com/Manual/AndroidAARPlugins.html)을 참조하세요.
+
+작은 아이콘 아트워크 규칙(알파 전용, 색상 없음)에 대해서는 [Android 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), 2단계: 디자인 가이드라인에 맞게 작은 아이콘 조정을 참조하세요.
 {% endtab %}
 
 {% tab Swift %}

@@ -689,8 +689,8 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Event**: `shopify_cancelled_order`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_cancelled`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is cancelled<br> 
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Order cancellation confirmation
@@ -725,8 +725,8 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Event**: `shopify_order_refunded`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_refunded`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is refunded<br>
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Refund confirmation
@@ -824,11 +824,11 @@ This page will be updated after Shopify resolves this issue.
 
 To add Liquid personalization for your Shopify custom attributes, select **+ Personalization**. Then select **Custom Attributes** as your personalization type.
 
-![The "Add Personalization" section with the "Attribute" dropdown extended.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![The "Add Personalization" section with the "Attribute" dropdown extended.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 After selecting your custom attribute, input a default value and copy the Liquid snippet into your message.
 
-![Pasting a Liquid snippet into a message.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Pasting a Liquid snippet into a message.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -863,19 +863,19 @@ When Braze imports your Shopify customers, we assign the `external_id` type that
 If you're an existing Braze customer with active campaigns or Canvases, review how imported customers and order events affect your segments and journeys before you enable historical backfill.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Setting up Shopify historical backfill
 
 1. Turn on historical backfill in the **Track Shopify data** step.
 
-![The "Track Shopify data" step of the Shopify integration showing historical backfill selected.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![The "Track Shopify data" step of the Shopify integration showing historical backfill selected.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. After you complete your integration setup, Braze will begin the initial data sync. You can monitor progress on the **Shopify Data** tab of your integration settings. 
 
-![The Shopify Integration Settings page with a spinner showing that events are actively syncing.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![The Shopify Integration Settings page with a spinner showing that events are actively syncing.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### Synced data
 

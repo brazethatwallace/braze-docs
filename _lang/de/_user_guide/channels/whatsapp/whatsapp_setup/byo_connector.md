@@ -64,7 +64,7 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 
 ## 2. Schritt: Embedded Signup starten {#step-2-start-the-embedded-signup}
 
-1. Gehen Sie in Braze zu **Partner Integrations** > **Technology Partners** > **WhatsApp**.
+1. Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** > **WhatsApp**.
 2. Wählen Sie den Tab **BYO Connector - Infobip**.
 
 ![Die WhatsApp-Technologie-Partner-Seite.]({% image_buster /assets/img/whatsapp/byo_connector/byo_tab_tech_parners.png %})
@@ -105,8 +105,6 @@ Bestätigen Sie, dass Ihr WhatsApp Business-Konto nicht mit einem anderen Braze-
 
 1. Bestätigen Sie, dass Ihr WhatsApp Business-Konto nicht mit Braze oder einem anderen Partner verbunden ist.
 2. Bestätigen Sie, dass keine Telefonnummern in Ihrem WhatsApp Business-Konto mit einem anderen Infobip-Konto verbunden sind. Für importierte Nummern können Sie die Nummer in Infobip finden und **Cancel number** auswählen.
-
-![Der Button „Cancel number“ für eine Infobip-Nummer.]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
 
 ## Hinweise {#considerations}
 

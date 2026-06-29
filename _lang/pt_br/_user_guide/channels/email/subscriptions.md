@@ -23,7 +23,7 @@ A Braze possui três estados globais de inscrição para usuários de e-mail. Es
 | Opted-in | O usuário confirmou explicitamente que deseja receber e-mails. Recomendamos um processo de opt-in explícito para obter o consentimento dos usuários para o envio de e-mails. |
 | Subscribed | O usuário não cancelou a inscrição nem optou explicitamente por receber e-mails. Este é o estado de inscrição padrão quando um perfil de usuário é criado. |
 | Unsubscribed | O usuário cancelou explicitamente a inscrição dos seus e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição" }
 
 {% alert note %}
 A Braze não contabiliza alterações no estado de inscrição como pontos de dados, tanto globalmente quanto em relação a grupos de inscrições.
@@ -62,7 +62,7 @@ Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_us
 1. Encontre o usuário em **Search Users**.
 2. Em **Engagement**, selecione **Unsubscribed**, **Subscribed** ou **Opted In** para alterar o status de inscrição do usuário.
 
-Se disponível, o perfil de usuário também exibe um registro de data e hora de quando a inscrição do usuário foi alterada pela última vez.
+O perfil de usuário também exibe um registro de data e hora de quando a inscrição do usuário foi alterada pela última vez. Um registro de data e hora é gravado quando o estado é **Opted-in** ou **Unsubscribed**, mas não quando o estado é **Subscribed** — por exemplo, um perfil recém-criado que nunca fez opt-in ou opt-out explicitamente não possui registro de data e hora de inscrição.
 
 #### Central de Preferências {#preference-center}
 
@@ -72,14 +72,28 @@ Inclua o Liquid da [Central de Preferências](#email-preference-center) na parte
 
 ![Perfil de usuário de John Doe com o estado de inscrição de e-mail definido como Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Você pode verificar o estado de inscrição de e-mail de um usuário das seguintes maneiras:
+Use qualquer um dos métodos a seguir para verificar o estado de inscrição de e-mail de um usuário:
 
 1. **Exportação via REST API:** Use os endpoints [Exportar usuários por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Exportar usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) para exportar perfis de usuários individuais em formato JSON.
 2. **Perfil de usuário:** Encontre o perfil do usuário na página [Search Users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/), depois selecione a guia **Engagement** para visualizar e atualizar manualmente o estado de inscrição de um usuário.
 
 Quando um usuário atualiza seu endereço de e-mail, o estado de inscrição é definido como subscribed. Se o endereço de e-mail atualizado já existir em outro lugar em um espaço de trabalho da Braze, o usuário herda o estado de inscrição desse usuário existente, a menos que a opção **Resubscribe users when they update their email setting** esteja ativada em **Sending Configuration**.
 
-Para solucionar problemas de alterações no estado de inscrição, consulte **Email Subscription-State Changes** nos registros do perfil de usuário para ver o histórico e a origem (API ou SDK).
+Para solucionar problemas de alterações no estado de inscrição, consulte **Email Subscription-State Changes** nos registros do perfil de usuário para ver o histórico e a origem. As seguintes origens podem acionar uma alteração no estado de inscrição de e-mail:
+
+| Origem | Descrição |
+| ------ | ----------- |
+| SDK | Atualização de atributo de usuário enviada por meio de um SDK da Braze |
+| REST API | Atualização de atributo de usuário enviada por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) |
+| Dashboard | Estado de inscrição alterado manualmente na página de perfil de usuário |
+| Importação CSV | Estado de inscrição definido durante uma importação de CSV de usuários |
+| Central de Preferências | Usuário atualizou sua preferência a partir de uma Central de Preferências hospedada pela Braze |
+| Página de inscrição | Usuário selecionou um link de cancelamento de inscrição em um e-mail e acessou a página de inscrição da Braze |
+| List-Unsubscribe | Usuário cancelou a inscrição por meio do cabeçalho nativo de list-unsubscribe do cliente de e-mail |
+| Etapa de Atualização de usuário no Canvas | Estado de inscrição atualizado por uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/) em um Canvas |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Origens de atualização do estado de inscrição de e-mail" }
+
+Quando o estado global de inscrição de e-mail de um usuário muda, a Braze propaga esse estado para outros perfis que compartilham o mesmo endereço de e-mail, até 100 perfis por alteração. A Braze não garante a propagação quando mais de 100 perfis compartilham o mesmo endereço de e-mail. Se usuários que compartilham um e-mail apresentarem estados de inscrição diferentes, entre em contato com o suporte da Braze.
 
 ## Grupos de inscrições {#subscription-groups}
 
@@ -104,7 +118,7 @@ Todos os grupos de inscrições são adicionados automaticamente à sua Central 
 
 ### Segmentando com um grupo de inscrições {#segmenting-with-a-subscription-group}
 
-Ao criar seus segmentos, defina o nome do grupo de inscrições como filtro. Isso garantirá que os usuários que optaram pelo seu grupo receberão seus e-mails. Isso é ótimo para newsletters mensais, cupons, níveis de associação e muito mais.
+Ao criar seus segmentos, defina o nome do grupo de inscrições como filtro para direcionar usuários que optaram pelo seu grupo. Isso é útil para newsletters mensais, cupons, níveis de associação e muito mais.
 
 ![Exemplo de direcionamento de usuários no segmento "Lapsed Users" com o filtro para usuários no grupo de inscrições "Weekly Emails".]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 

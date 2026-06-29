@@ -12,7 +12,7 @@ description: "Dieser Referenzartikel behandelt allgemeine unternehmensübergreif
 
 > Als Administrator steht die Sicherheit ganz oben auf Ihrer Liste der Anliegen. Die Seite **Sicherheitseinstellungen** hilft Ihnen bei der Verwaltung der allgemeinen, unternehmensübergreifenden Sicherheitseinstellungen, einschließlich Authentifizierungsregeln, IP-Zulassungsliste und Zwei-Faktor-Authentifizierung.
 
-Um auf diese Seite zuzugreifen, gehen Sie zu **Settings** > **Admin Settings** > **Security Settings**.
+Um auf diese Seite zuzugreifen, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen**.
 
 ## Regeln für die Authentifizierung {#authentication-rules}
 
@@ -44,7 +44,7 @@ Verwenden Sie dieses Feld, um festzulegen, wie lange Braze Ihre Sitzung aufrecht
 
 Sie können Ihre Nutzer:innen darauf beschränken, sich entweder mit einem Passwort oder per SSO anzumelden.
 
-Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie die Erzwingung aktivieren. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
+Für [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) müssen Kund:innen ihre SAML-Einstellungen konfigurieren, bevor sie die Erzwingung aktivieren. Wenn Kund:innen Google SSO verwenden, müssen sie lediglich die Sicherheitseinstellungen-Seite erzwingen, ohne zusätzlichen Aufwand.
 
 ## Dashboard-IP-Zulassungsliste {#dashboard-ip-allowlisting}
 
@@ -77,7 +77,7 @@ Kund:innen mit mehreren Konten unter einem Dashboard-Unternehmen können Problem
 
 Wenn Sie Probleme bei der Anmeldung mit der Zwei-Faktor-Authentifizierung haben, wenden Sie sich an Ihre Unternehmensadministratoren, um Ihre Zwei-Faktor-Authentifizierung zurückzusetzen. Administratoren können die folgenden Schritte ausführen:
 
-1. Gehen Sie zu **Settings** > **Company Users**.
+1. Gehen Sie zu **Einstellungen** > **Unternehmensnutzer:innen**.
 2. Wählen Sie den/die Nutzer:in aus der bereitgestellten Liste aus.
 3. Wählen Sie **Reset** unter **Two Factor Authentication**.
 
@@ -85,7 +85,7 @@ Ein Zurücksetzen kann häufige Authentifizierungsprobleme lösen, wie z. B. Sch
 
 ### Anforderungen für 2FA auf Unternehmensebene {#requirements-for-2fa-at-the-company-level}
 
-Überprüfen Sie zunächst, ob 2FA für Ihr Dashboard aktiviert ist, indem Sie zu **Company Settings** > **Security Settings** > **Two Factor Authentication** gehen. Wenn der Schalter grau ist, wurde 2FA für Ihr Unternehmen nicht aktiviert und ist nicht für alle Unternehmensnutzer:innen verpflichtend.
+Überprüfen Sie zunächst, ob 2FA für Ihr Dashboard aktiviert ist, indem Sie zu **Unternehmenseinstellungen** > **Sicherheitseinstellungen** > **Two Factor Authentication** gehen. Wenn der Schalter grau ist, wurde 2FA für Ihr Unternehmen nicht aktiviert und ist nicht für alle Unternehmensnutzer:innen verpflichtend.
 
 #### Nutzeroptionen, wenn 2FA nicht verpflichtend ist {#user-options-when-2fa-isnt-mandatory}
 
@@ -99,39 +99,21 @@ Wenn 2FA auf Unternehmensebene erzwungen wird, werden Nutzer:innen, die es nicht
 2FA ist nur dann für alle Unternehmensnutzer:innen erforderlich, wenn Single Sign-on (SSO) nicht aktiviert ist. Wenn SSO verwendet wird, muss 2FA nicht auf Unternehmensebene erzwungen werden.
 {% endalert %}
 
-## Einrichten der Zwei-Faktor-Authentifizierung (2FA) {#setting-up-two-factor-authentication-2fa}
+## 2FA manuell einrichten {#manually-set-up-2fa}
 
-### 2FA mit Authy einrichten {#setting-up-2fa-with-authy}
+Um die Zwei-Faktor-Authentifizierung (2FA) manuell in Ihrem Braze-Konto zu aktivieren, folgen Sie diesen Schritten:
 
-1. Laden Sie die Authy-App aus dem App Store Ihres Geräts herunter.
-2. Geben Sie in Braze Ihre Telefonnummer ein.
-3. Tippen Sie auf die Benachrichtigung, die an Ihr Gerät gesendet wird und Sie auffordert, die Authy-App zu öffnen.
-4. Starten Sie die Authy-App auf Ihrem Gerät, um den Code abzurufen.
-5. Geben Sie in Braze den Verifizierungscode ein, den Sie von Authy erhalten haben.
-
-Wenn Sie während des Einrichtungsprozesses auf Probleme stoßen und zur Braze-Startseite oder Anmeldeseite weitergeleitet werden, versuchen Sie Folgendes:
-
-- Verwenden Sie den Inkognito- oder privaten Browsermodus: Versuchen Sie die Einrichtung erneut in einem Inkognito- oder privaten Browserfenster. Dies kann Probleme umgehen, die durch Browsererweiterungen oder Plugins verursacht werden.
-- Versuchen Sie ein anderes Browserprofil: Wenn das Problem weiterhin besteht, verwenden Sie ein anderes Browserprofil, um Konflikte mit installierten Plugins auszuschließen.
-
-### 2FA einrichten, wenn es nicht erzwungen wird {#setting-up-2fa-when-it-isnt-enforced}
-
-Um die Zwei-Faktor-Authentifizierung (2FA) manuell in Ihrem Braze-Konto zu aktivieren, wenn sie nicht erzwungen wird, folgen Sie diesen Schritten:
-
-1. Laden Sie eine 2FA-App wie Authy, Google Authenticator, Okta Verify oder eine ähnliche App aus dem App Store (iOS), Google Play Store (Android) oder dem Web herunter. Wenn Sie 2FA lieber per E-Mail oder SMS einrichten möchten, fahren Sie mit Schritt 2 fort.
-2. Gehen Sie in Braze zu „Konto verwalten“, scrollen Sie zum Abschnitt **Two-Factor Authentication** und wählen Sie **Start Setup**.
-3. Geben Sie Ihr Passwort in das Anmelde-Modal ein und wählen Sie **Check Password**.
-4. Geben Sie im Modal **Two-Factor Authentication Setup** Ihre Telefonnummer ein und wählen Sie **Enable**.
-5. Kopieren Sie den generierten siebenstelligen Code aus Ihrer 2FA-App, E-Mail oder SMS-Nachricht, gehen Sie zurück zu Braze und fügen Sie ihn in das Modal **Two-Factor Authentication Setup** ein. Wählen Sie **Verify**.
-6. (Optional) Um die 2FA-Eingabe für die nächsten 30 Tage zu vermeiden, aktivieren Sie die Option **Remember this account for 30 days**.
+1. Wählen Sie in Braze Ihr Profilsymbol in der globalen Kopfzeile und dann **Konto verwalten**. Scrollen Sie zum Abschnitt **Two-Factor Authentication** und wählen Sie **Start Setup**.
+2. Geben Sie Ihr Passwort in das Anmelde-Modal ein und wählen Sie **Check Password**.
+3. Geben Sie im Modal **Two-Factor Authentication Setup** Ihre Telefonnummer ein und wählen Sie **Enable**.
+4. Kopieren Sie den generierten siebenstelligen Code aus Ihrer E-Mail oder SMS-Nachricht, gehen Sie zurück zu Braze und fügen Sie ihn in das Modal **Two-Factor Authentication Setup** ein. Wählen Sie **Verify**.
+5. (Optional) Um die 2FA-Eingabe für die nächsten 30 Tage zu vermeiden, aktivieren Sie die Option **Remember this account for 30 days**.
 
 ## Elevated Access {#elevated-access}
 
-Elevated Access fügt eine zusätzliche Sicherheitsebene für sensible Aktionen in Ihrem Braze-Dashboard hinzu. Wenn es aktiv ist, müssen Nutzer:innen ihr Konto erneut verifizieren, bevor sie ein Segment exportieren oder einen API-Schlüssel anzeigen. Um Elevated Access zu verwenden, gehen Sie zu **Settings** > **Admin Settings** > **Security Settings** und schalten Sie es ein.
+Elevated Access fügt eine zusätzliche Sicherheitsebene für sensible Aktionen in Ihrem Braze-Dashboard hinzu. Wenn es aktiv ist, müssen Nutzer:innen ihr Konto erneut verifizieren, bevor sie ein Segment exportieren oder einen API-Schlüssel anzeigen. Um Elevated Access zu verwenden, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen** und schalten Sie es ein.
 
 Wenn ein:e Nutzer:in die erneute Verifizierung nicht durchführen kann, wird er/sie dorthin zurückgeleitet, wo er/sie aufgehört hat, und kann die sensible Aktion nicht fortsetzen. Nach einer erfolgreichen erneuten Verifizierung muss dies für die nächste Stunde nicht erneut durchgeführt werden – es sei denn, der/die Nutzer:in meldet sich vorher ab.
-
-![Elevated-Access-Schalter.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Herunterladen eines Sicherheitsereignisberichts {#security-event-report}
 
@@ -139,13 +121,29 @@ Der Sicherheitsereignisbericht ist ein CSV-Bericht über Sicherheitsereignisse w
 
 Um diesen Bericht herunterzuladen, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Settings** > **Admin Settings**.
-2. Wählen Sie den Tab **Security Settings** und gehen Sie zum Abschnitt **Security Event Download**.
+1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen**.
+2. Wählen Sie den Tab **Sicherheitseinstellungen** und gehen Sie zum Abschnitt **Security Event Download**.
 3. Wählen Sie **Download report**.
 
 Dieser manuelle Berichtsdownload enthält nur die letzten 10.000 Sicherheitsereignisse für Ihr Konto.
 
-Um Sicherheitsereignisse ohne diese Zeilenbegrenzung nach Amazon S3 zu exportieren, siehe [Export von Sicherheitsereignissen mit Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Um Sicherheitsereignisse ohne diese Zeilenbegrenzung nach Amazon S3 zu exportieren, siehe [Export von Sicherheitsereignissen mit Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### Spaltendefinitionen der CSV-Datei {#csv-column-definitions}
+
+Die CSV-Datei des Sicherheitsereignisberichts enthält die folgenden Spalten:
+
+| Spalte | Beschreibung |
+|--------|-------------|
+| CreatedAt | Zeitstempel, wann das Ereignis aufgezeichnet wurde, in UTC. |
+| EmailAtTimeOfEvent | E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat, wie zum Zeitpunkt des Ereignisses erfasst. |
+| CurrentEmail | Aktuelle E-Mail-Adresse des/der Dashboard-Nutzer:in, der/die das Ereignis ausgelöst hat. Wenn der/die Nutzer:in nicht mehr existiert, wird stattdessen die Entwickler-ID verwendet. |
+| EventName | Art des Sicherheitsereignisses. Siehe die Liste der gemeldeten Sicherheitsereignisse unten. |
+| OtherAccount | E-Mail-Adresse eines/einer anderen Dashboard-Nutzer:in, der/die von dem Ereignis betroffen ist, sofern zutreffend (z. B. wenn ein Konto hinzugefügt oder entfernt wird). |
+| JsonProperties | Ereignisspezifische Eigenschaften im JSON-Format. Die enthaltenen Felder variieren je nach Ereignistyp. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spaltendefinitionen der CSV-Datei" }
+
+[S3-Exporte]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) enthalten diese Spalten plus `Version`, die Schemaversion für das Exportformat (derzeit `1`).
 
 {% details Gemeldete Sicherheitsereignisse %}
 ### Anmeldung und Konto {#login-and-account}
@@ -177,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -265,18 +263,18 @@ Canvas
 Die Berechtigung **View PII** ist nur für einige ausgewählte Unternehmensnutzer:innen zugänglich. Standardmäßig ist bei allen Administratoren die Berechtigung **View PII** in den Nutzerberechtigungen aktiviert. Das bedeutet, dass sie alle Standard- und angepassten Attribute sehen können, die Ihr Unternehmen als PII im gesamten Dashboard definiert hat. Wenn diese Berechtigung für Nutzer:innen deaktiviert ist, können diese Nutzer:innen keines dieser Attribute sehen.
 
 {% alert note %}
-Sie benötigen die Berechtigung **View PII**, um den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/) zu verwenden, da dieser direkten Zugriff auf einige Kundendaten ermöglicht.
+Sie benötigen die Berechtigung **View PII**, um den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries) zu verwenden, da dieser direkten Zugriff auf einige Kundendaten ermöglicht.
 {% endalert %}
 
-Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### PII definieren {#defining-pii}
 
 {% alert important %}
-Das Auswählen und Definieren bestimmter Felder als PII-Felder wirkt sich nur darauf aus, was Nutzer:innen im Braze-Dashboard sehen können, und hat keinen Einfluss darauf, wie die Endnutzerdaten in solchen PII-Feldern verarbeitet werden.<br><br>Wenden Sie sich an Ihr Rechtsteam, um die Einstellungen Ihres Dashboards mit allen für Ihr Unternehmen geltenden Datenschutzvorschriften und -richtlinien abzustimmen, einschließlich derjenigen im Zusammenhang mit der [Datenaufbewahrung]({{site.baseurl}}/data_retention/).
+Das Auswählen und Definieren bestimmter Felder als PII-Felder wirkt sich nur darauf aus, was Nutzer:innen im Braze-Dashboard sehen können, und hat keinen Einfluss darauf, wie die Endnutzerdaten in solchen PII-Feldern verarbeitet werden.<br><br>Wenden Sie sich an Ihr Rechtsteam, um die Einstellungen Ihres Dashboards mit allen für Ihr Unternehmen geltenden Datenschutzvorschriften und -richtlinien abzustimmen, einschließlich derjenigen im Zusammenhang mit der [Datenaufbewahrung]({{site.baseurl}}/data_retention).
 {% endalert %}
 
-Sie können die Felder auswählen, die Ihr Unternehmen als PII im Dashboard kennzeichnet. Gehen Sie dazu zu **Company Settings** > **Admin Settings** > **Security Settings**.
+Sie können die Felder auswählen, die Ihr Unternehmen als PII im Dashboard kennzeichnet. Gehen Sie dazu zu **Unternehmenseinstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen**.
 
 Die folgenden Attribute können als PII gekennzeichnet und vor Unternehmensnutzer:innen verborgen werden, die keine Berechtigung **View PII** haben.
 
@@ -284,8 +282,8 @@ Die folgenden Attribute können als PII gekennzeichnet und vor Unternehmensnutze
 
 | Standardattribute | Angepasste Attribute |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>E-Mail-Adresse </li> <li> Telefonnummer </li> <li> Vorname </li> <li> Nachname </li> <li> Geschlecht </li> <li> Geburtstag </li> <li> Geräte-IDs </li> <li> Letzter bekannter Standort </li> </ul> {:/} | {::nomarkdown} <ul> <li> Alle angepassten Attribute<ul><li>Einzelne angepasste Attribute können als PII markiert werden, wenn Sie nicht alle Attribute ausblenden müssen.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {::nomarkdown}<ul> <li>E-Mail-Adresse </li> <li> Telefonnummer </li> <li> Vorname </li> <li> Nachname </li> <li> Geschlecht </li> <li> Geburtstag </li> <li> Geräte-IDs </li> <li> LINE-ID </li> <li> Letzter bekannter Standort </li> </ul> {:/} | {::nomarkdown} <ul> <li> Alle angepassten Attribute<ul><li>Einzelne angepasste Attribute können als PII markiert werden, wenn Sie nicht alle Attribute ausblenden müssen.</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Potenzielle PII-Attribute" }
 
 ### Eingeschränkte Bereiche {#limited-areas}
 
@@ -298,7 +296,7 @@ Im Folgenden wird davon ausgegangen, dass alle Felder als PII festgelegt sind un
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | Im Dropdown **User Data**: {::nomarkdown} <ul> <li> Der/die Nutzer:in hat nicht die Option <b>CSV Export Email Address</b>. </li> <li> Dem/der Nutzer:in werden die vorstehenden Standard- und angepassten Attribute in der CSV-Datei nicht bereitgestellt, wenn <b>CSV Export User Data</b> ausgewählt wird. </li> </ul> {:/} | |
 | Interne Testgruppe | Der/die Nutzer:in hat keinen Zugriff auf die vorstehenden Standardattribute von Nutzer:innen, die der internen Testgruppe hinzugefügt wurden. | |
 | Nachrichten-Aktivitätsprotokoll | Der/die Nutzer:in hat keinen Zugriff auf die vorstehenden Standardattribute für Nutzer:innen, die im Nachrichten-Aktivitätsprotokoll identifiziert wurden. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Eingeschränkte Bereiche" }
 
 {% alert note %}
 Bei der Vorschau einer Nachricht wird die Berechtigung **View PII** nicht angewendet, sodass Nutzer:innen die [vorstehenden Standardattribute](#potential-pii-attributes) sehen können, wenn sie in der Nachricht über Liquid referenziert wurden.
@@ -306,23 +304,23 @@ Bei der Vorschau einer Nachricht wird die Berechtigung **View PII** nicht angewe
 
 ## Einstellungen zur Datenlöschung {#data-deletion-preferences}
 
-Sie können diese Einstellung verwenden, um Präferenzen festzulegen, ob Braze bestimmte Felder während des Nutzerlöschungsprozesses für Events löschen soll. Diese Präferenzen betreffen nur Daten von Nutzer:innen, die Braze gelöscht hat.
+Sie können diese Einstellung verwenden, um Präferenzen festzulegen, ob Braze bestimmte Felder während des Nutzerlöschungsprozesses für Ereignisse löschen soll. Diese Präferenzen betreffen nur Daten von Nutzer:innen, die Braze gelöscht hat.
 
-Wenn ein:e Nutzer:in gelöscht wird, entfernt Braze alle PII aus den Event-Daten, behält aber die anonymisierten Daten für Analytics-Zwecke bei. Einige nutzerdefinierte Felder können PII enthalten, wenn Sie Endnutzerinformationen an Braze senden. Wenn diese Felder PII enthalten, können Sie die Daten löschen lassen, wenn Braze Event-Daten für gelöschte Nutzer:innen anonymisiert. Wenn die Felder keine PII enthalten, können Sie sie für Analytics beibehalten.
+Wenn ein:e Nutzer:in gelöscht wird, entfernt Braze alle PII aus den Ereignisdaten, behält aber die anonymisierten Daten für Analytics-Zwecke bei. Einige nutzerdefinierte Felder können PII enthalten, wenn Sie Endnutzerinformationen an Braze senden. Wenn diese Felder PII enthalten, können Sie die Daten löschen lassen, wenn Braze Ereignisdaten für gelöschte Nutzer:innen anonymisiert. Wenn die Felder keine PII enthalten, können Sie sie für Analytics beibehalten.
 
-Sie sind dafür verantwortlich, die richtigen Präferenzen für Ihren Workspace festzulegen. Der beste Weg, die geeigneten Einstellungen zu bestimmen, ist die Überprüfung mit internen Teams, die Event-Daten an Braze senden, und mit Teams, die Message Extras in Braze verwenden, um zu bestätigen, ob die Felder PII enthalten können.
+Sie sind dafür verantwortlich, die richtigen Präferenzen für Ihren Workspace festzulegen. Der beste Weg, die geeigneten Einstellungen zu bestimmen, ist die Überprüfung mit internen Teams, die Ereignisdaten an Braze senden, und mit Teams, die Message Extras in Braze verwenden, um zu bestätigen, ob die Felder PII enthalten können.
 
 ### Relevante Felder {#relevant-fields}
 
-| Event-Name oder -Typ | Feld | Hinweise |
+| Ereignisname oder -typ | Feld | Hinweise |
 | -------------------- | ------ | ----- |
 | Angepasstes Event | properties |  |
 | Kauf-Event | properties |  |
-| Nachrichtenversand | message_extras | Mehrere Event-Typen enthalten ein `message_extras`-Feld. Die Präferenz gilt für alle Nachrichtenversand-Event-Typen, die `message_extras` unterstützen, einschließlich zukünftig hinzugefügter Event-Typen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Nachrichtenversand | message_extras | Mehrere Ereignistypen enthalten ein `message_extras`-Feld. Die Präferenz gilt für alle Nachrichtenversand-Ereignistypen, die `message_extras` unterstützen, einschließlich zukünftig hinzugefügter Ereignistypen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevante Felder" }
 
 {% alert warning %}
-**Die Löschung ist dauerhaft!** Wenn Sie sich dafür entscheiden, Felder aus Snowflake für gelöschte Nutzer:innen zu entfernen, gilt die Einstellung für alle historischen Daten in Ihren Workspaces und alle Events für zukünftig gelöschte Nutzer:innen. Nachdem Braze den Prozess zur Anwendung der Einstellungen auf historische Event-Daten für gelöschte Nutzer:innen ausgeführt hat, können Sie die Daten **nicht wiederherstellen**.
+**Die Löschung ist dauerhaft!** Wenn Sie sich dafür entscheiden, Felder aus Snowflake für gelöschte Nutzer:innen zu entfernen, gilt die Einstellung für alle historischen Daten in Ihren Workspaces und alle Ereignisse für zukünftig gelöschte Nutzer:innen. Nachdem Braze den Prozess zur Anwendung der Einstellungen auf historische Ereignisdaten für gelöschte Nutzer:innen ausgeführt hat, können Sie die Daten **nicht wiederherstellen**.
 {% endalert %}
 
 ### Präferenzen konfigurieren {#configure-preferences}
@@ -344,7 +342,7 @@ Wenn Sie nach erfolgreicher Eingabe Ihrer Telefonnummer für 2FA in einer Schlei
 3. Starten Sie Ihren PC oder Laptop neu.
 4. Versuchen Sie erneut, 2FA einzurichten.
 
-Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/braze_support/) für Unterstützung.
+Wenn das Problem nach diesen Schritten weiterhin besteht, wenden Sie sich an den [Support]({{site.baseurl}}/braze_support) für Unterstützung.
 
 ### Zwei-Faktor-Authentifizierung (2FA) kann nicht aktiviert werden {#cant-enable-two-factor-authentication-2fa}
 
@@ -368,5 +366,5 @@ Wenn die Probleme weiterhin bestehen, löschen Sie das alte Profil in der Authy-
 
 Weitere Informationen zu Authentifizierung und Zugriff finden Sie unter:
 
-- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) zur Einrichtung von SSO mit Ihrem Identitätsanbieter.
-- [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) zur Steuerung, welche Aktionen Nutzer:innen im Dashboard ausführen können.
+- [SAML und Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) zur Einrichtung von SSO mit Ihrem Identitätsanbieter.
+- [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) zur Steuerung, welche Aktionen Nutzer:innen im Dashboard ausführen können.

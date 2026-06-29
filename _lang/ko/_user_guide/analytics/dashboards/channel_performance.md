@@ -11,7 +11,7 @@ toc_headers: h2
 
 # 채널 성과 대시보드 {#channel-performance-dashboards}
 
-> 채널 성과 대시보드는 Campaign과 Canvas 전반에 걸쳐 전체 채널의 집계 성과 측정기준을 보여줍니다. 이 대시보드는 현재 이메일과 SMS에서 사용할 수 있습니다.
+> 채널 성과 대시보드는 Campaign과 Canvas 전반에 걸쳐 전체 채널의 집계 성과 측정기준을 보여줍니다. 이 대시보드는 현재 이메일, 푸시, SMS에서 사용할 수 있습니다.
 
 ## 대시보드 {#dashboards}
 
@@ -26,13 +26,11 @@ toc_headers: h2
 
 ![최근 30일간의 이메일 채널 참여를 표시하는 이메일 성과 대시보드.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
-#### 측정기준 계산 방식 {#how-metrics-are-calculated}
-
 ![335,630건의 발송과 일일 평균 11,187.667건을 보여주는 이메일 Campaign 예시.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-이메일 성과 대시보드의 다양한 측정기준 계산 방식은 개별 메시지 수준(예: Campaign 분석)의 계산 방식과 동일합니다. 이 대시보드에서는 선택한 날짜 범위에 대해 모든 Campaign과 Canvas의 측정기준이 집계됩니다. 이러한 정의에 대해 자세히 알아보려면 [이메일 측정기준]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics)을 참조하세요.
+#### 측정기준 계산 방식 {#how-metrics-are-calculated}
 
-각 타일은 비율 측정기준을 먼저 표시한 다음 수량 측정기준을 표시합니다(*발송*은 예외로, 수량 측정기준을 먼저 표시한 다음 일일 평균을 표시합니다). 예를 들어, 고유 클릭 타일에는 선택한 기간의 *고유 클릭률*과 해당 기간의 총 고유 클릭 수가 포함됩니다. 각 타일에는 [이전 기간과의 비교](#comparing-time-periods)도 표시됩니다.
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="email" %}
 
 | 측정기준 | 유형 | 계산 |
 | --- | --- | ---- |
@@ -101,13 +99,11 @@ CDN으로 CloudFront를 사용하는 경우, 사용자의 사용자 에이전트
 
 SMS 성과 대시보드를 사용하려면 **Analytics** > **SMS Performance**로 이동하여 데이터를 확인할 기간의 날짜 범위를 선택하세요. 날짜 범위는 최대 1년 전까지 설정할 수 있습니다.
 
-#### 측정기준 계산 방식
-
 ![335,630건의 발송과 일일 평균 11,187.667건을 보여주는 SMS Campaign 예시.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
-SMS 성과 대시보드의 다양한 측정기준 계산 방식은 개별 메시지 수준(예: Campaign 분석)의 계산 방식과 동일합니다. 이 대시보드에서는 선택한 날짜 범위에 대해 모든 Campaign과 Canvas의 측정기준이 집계됩니다. 이러한 정의에 대해 자세히 알아보려면 [SMS 측정기준]({{site.baseurl}}/sms_mms_rcs_reporting/)을 참조하세요.
+#### 측정기준 계산 방식
 
-각 타일은 비율 측정기준을 먼저 표시한 다음 수량 측정기준을 표시합니다(_발송_은 예외로, 수량 측정기준을 먼저 표시한 다음 일일 평균을 표시합니다). 각 타일에는 [이전 기간과의 비교](#comparison-to-last-period-change-in-totals-or-rates)도 표시됩니다.
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
 
 | 측정기준 | 유형 | 계산 |
 | --- | --- | ---- |
@@ -121,6 +117,31 @@ SMS 성과 대시보드의 다양한 측정기준 계산 방식은 개별 메시
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
 
 {% endtab %}
+{% tab 푸시 성과 %}
+
+### 푸시 성과 대시보드 {#push-performance-dashboard}
+
+**Push Performance** 대시보드는 발송, 반송, 전달, 직접 열람, 영향받은 열람 및 총 열람률을 포함한 푸시 참여에 대한 단일 채널 수준의 뷰를 제공하며, 설정 가능한 기간 내에서 확인할 수 있습니다. 개별 Campaign이나 Canvas의 데이터를 직접 집계하지 않고도 푸시 채널의 전반적인 상태를 파악하는 데 활용하세요.
+
+대시보드를 열려면 **Analytics** > **Dashboard Builder**로 이동한 다음 **Push Channel Dashboard**를 선택하세요. 날짜 범위는 최대 1년 전까지 설정할 수 있습니다.
+
+![6,300만 건 이상의 발송을 보여주는 푸시 Campaign 예시.]({% image_buster /assets/img_archive/push_performance_dashboard.png %})
+
+#### 측정기준 계산 방식
+
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="push" %}
+
+| 측정기준 | 유형 | 계산 |
+| --- | --- | ---- |
+| 발송 | 수량 | 날짜 범위 내 각 일자의 총 발송 수 |
+| 반송률 | 비율 | (날짜 범위 내 각 일자의 총 반송 수) / (날짜 범위 내 각 일자의 총 발송 수) |
+| 전달률 | 비율 | (날짜 범위 내 각 일자의 총 전달 수) / (날짜 범위 내 각 일자의 총 발송 수) |
+| 직접 열람률 | 비율 | (날짜 범위 내 각 일자의 총 직접 열람 수) / (날짜 범위 내 각 일자의 총 전달 수) |
+| 영향받은 열람률 | 비율 | (날짜 범위 내 각 일자의 총 영향받은 열람 수) / (날짜 범위 내 각 일자의 총 전달 수) |
+| 총 열람률 | 비율 | (날짜 범위 내 각 일자의 총 열람 수) / (날짜 범위 내 각 일자의 총 전달 수)<br><br>총 열람에는 직접 열람과 영향받은 열람이 모두 포함됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+
+{% endtab %}
 {% endtabs %}
 
 ## 대시보드 필터 {#dashboard-filters}
@@ -128,6 +149,7 @@ SMS 성과 대시보드의 다양한 측정기준 계산 방식은 개별 메시
 다음 필터 옵션을 사용하여 대시보드의 데이터를 필터링할 수 있습니다:
 
 - **태그:** 하나의 태그를 선택합니다. 적용하면 대시보드에 선택한 태그에 대한 측정기준만 표시됩니다.
+- **플랫폼:** (푸시 성과 대시보드 전용) **All Push**, **Android**, **iOS**, **Mobile combined**, **Kindle** 또는 **Web**과 같은 푸시 플랫폼을 선택합니다. 적용하면 대시보드에 선택한 플랫폼에 대한 측정기준만 표시됩니다.
 - **Canvas:** 최대 10개의 Canvas를 선택합니다. 적용하면 대시보드에 선택한 Canvas에 대한 측정기준만 표시됩니다. 태그 필터를 먼저 선택하면 Canvas 필터 옵션에는 선택한 태그가 있는 Canvas만 포함됩니다.
 - **Campaign:** 최대 10개의 Campaign을 선택합니다. 적용하면 대시보드에 선택한 Campaign에 대한 측정기준만 표시됩니다. 태그 필터를 먼저 선택하면 Campaign 필터 옵션에는 선택한 태그가 있는 Campaign만 포함됩니다.
 

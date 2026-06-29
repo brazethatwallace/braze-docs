@@ -71,7 +71,7 @@ Dies basiert auf der Regel, dass die Klick-Tracking-Domain mindestens einer Vers
 - Jeder Versand-Domain ist ein MAIL FROM-Bezeichner zugeordnet, der bei SPF-Validierungen hilft.
     - Der Wert für jede Versand-Domain ist „e“.
     - Der MAIL FROM-Wert ändert nicht die Absenderadresse, die Ihre Kund:innen sehen.
-- Wenn Amazon SES Ihr E-Mail-Anbieter ist, wird Microsoft Smart Network Data Services (SNDS) nicht unterstützt.
+- Die Optionen „Trap-Nachrichtenzeitraum Beginn“ und „Trap-Nachrichtenzeitraum Ende“ sind nicht verfügbar, wenn Sie Amazon SES als Ihren E-Mail-Anbieter verwenden.
 
 ## Nächste Schritte {#next-steps}
 

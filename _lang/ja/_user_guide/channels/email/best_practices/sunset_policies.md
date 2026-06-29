@@ -19,19 +19,19 @@ channel: email
 - 「エンゲージメントの低い」ユーザーとは何を指しますか？
 - エンゲージメントはクリック、購入、アプリの使用、またはこれらの動作の組み合わせで定義されますか？
 - メッセージの送信を停止するまでに、どのくらいの期間エンゲージメントが途絶えている必要がありますか？
-- Segment から除外する前に、ユーザーに特別なキャンペーンを配信しますか？
+- セグメント から除外する前に、ユーザーに特別なキャンペーンを配信しますか？
 - サンセットポリシーはどのメッセージングチャネルに適用しますか？
 
 たとえば、[Apple のメールプライバシー保護 (MPP)]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp/) にオプトインしているユーザーがいる場合、これがメールキャンペーンや配信到達性の指標にどのような影響を与えるかを検討し、サンセットポリシーの最適な構成方法を決定してください。
 
-サンセットポリシーをキャンペーンに組み込むには、メールをスパムとしてマークしたユーザーや、一定期間メッセージに反応していないユーザーを自動的に除外する [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#creating-a-segment) を作成します。
+サンセットポリシーをキャンペーンに組み込むには、メールをスパムとしてマークしたユーザーや、一定期間メッセージに反応していないユーザーを自動的に除外する [セグメント]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#creating-a-segment) を作成します。
 
-これらの Segment を設定するには、フィルタードロップダウンの **リターゲティング** セクションにある `Has Marked You As Spam` フィルターと `Last Engaged With Message` フィルターを選択します。
+これらの セグメント を設定するには、フィルタードロップダウンの **リターゲティング** セクションにある `Has Marked You As Spam` フィルターと `Last Engaged With Message` フィルターを選択します。
 
-`Last Engaged With Message` フィルターを適用する際は、ユーザーが反応した、または反応していないメッセージングの種類（プッシュ、メール、またはアプリ内通知）と、ユーザーが最後に反応してからの日数を指定します。Segment を作成したら、任意の[メッセージングチャネル]({{site.baseurl}}/user_guide/channels/)でこの Segment をターゲットに設定できます。
+`Last Engaged With Message` フィルターを適用する際は、ユーザーが反応した、または反応していないメッセージングの種類（プッシュ、メール、またはアプリ内通知）と、ユーザーが最後に反応してからの日数を指定します。セグメント を作成したら、任意の[メッセージングチャネル]({{site.baseurl}}/user_guide/channels/)でこの セグメント をターゲットに設定できます。
 
-![「Last Engaged with Message」フィルターが選択された Segment 詳細ページ。]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
+![「Last Engaged with Message」フィルターが選択された セグメント 詳細ページ。]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
 
-Braze はスパムとしてマークしたユーザーへのメール送信を自動的に停止しますが、`Has Marked You As Spam` フィルターを使用すると、これらのユーザーにターゲットを絞ったプッシュメッセージやアプリ内通知を送信することもできます。このフィルターは[リターゲティング Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns) に役立ちます。たとえば、エンゲージメントの低いユーザーに、メールを開封しないことで見逃している機能やお得な情報を思い出させるメッセージを送信できます。
+Braze はスパムとしてマークしたユーザーへのメール送信を自動的に停止しますが、`Has Marked You As Spam` フィルターを使用すると、これらのユーザーにターゲットを絞ったプッシュメッセージやアプリ内通知を送信することもできます。このフィルターは[リターゲティング キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns) に役立ちます。たとえば、エンゲージメントの低いユーザーに、メールを開封しないことで見逃している機能やお得な情報を思い出させるメッセージを送信できます。
 
-サンセットポリシーは、離脱ユーザーをターゲットにしたメールキャンペーンで特に役立ちます。これらのキャンペーンは一定期間アプリを利用していない Segment に焦点を当てていますが、エンゲージメントの低い受信者を繰り返し含めると、メールの配信到達性が低下するリスクがあります。サンセットポリシーを使用すると、スパムフォルダーに振り分けられることなく、離脱ユーザーをターゲットにすることができます。
+サンセットポリシーは、離脱ユーザーをターゲットにしたメールキャンペーンで特に役立ちます。これらのキャンペーンは一定期間アプリを利用していない セグメント に焦点を当てていますが、エンゲージメントの低い受信者を繰り返し含めると、メールの配信到達性が低下するリスクがあります。サンセットポリシーを使用すると、スパムフォルダーに振り分けられることなく、離脱ユーザーをターゲットにすることができます。

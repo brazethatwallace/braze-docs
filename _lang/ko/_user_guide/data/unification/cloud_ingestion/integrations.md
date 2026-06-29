@@ -32,6 +32,10 @@ page_type: reference
 2. Redshift 인스턴스에서 Braze에 동기화하려는 테이블 또는 뷰를 설정합니다.
 3. Braze 대시보드에서 새 소스와 동기화를 생성합니다.
 4. 통합을 테스트하고 동기화를 시작합니다.
+
+{% alert note %}
+동기화당 처리되는 행 수는 웨어하우스 성능, 네트워크 지연 시간, 동기화 쿼리와 일치하는 새 데이터의 양에 따라 달라집니다. 대시보드의 통합 **동기화 기록**을 사용하여 최근 실행의 소요 시간과 행 수를 확인하세요.
+{% endalert %}
 {% endtab %}
 {% tab BigQuery %}
 1. 서비스 계정을 만들고 동기화하려는 데이터가 포함된 BigQuery 프로젝트 및 데이터셋에 대한 액세스를 허용합니다.
@@ -94,7 +98,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 데이터베이스, 스키마 및 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
 - `UPDATED_AT` - 이 행이 테이블에 업데이트되거나 추가된 시간입니다. Braze는 `UPDATED_AT`이 마지막으로 동기화된 값보다 이후인 행을 동기화합니다. 새 행이 동일한 타임스탬프를 공유하는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
-- **사용자 식별자 열** \- 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
+- **사용자 식별자 열** - 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
     - `EXTERNAL_ID` - 업데이트하려는 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다.
     - `ALIAS_NAME` 및 `ALIAS_LABEL` - 이 두 열은 사용자 별칭 오브젝트를 만듭니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭의 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
     - `BRAZE_ID` - Braze 사용자 식별자입니다. 이것은 Braze SDK에 의해 생성되며, 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수 없습니다. 새 사용자를 만들려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요.
@@ -144,7 +148,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 Snowflake 계정의 구성에 따라 Snowflake 네트워크 정책에서 다음 IP 주소를 허용해야 할 수 있습니다. 이를 활성화하는 방법에 대한 자세한 내용은 [네트워크 정책 수정](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)에 대한 Snowflake 설명서를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Redshift %}
@@ -177,7 +181,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 데이터베이스, 스키마 및 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
 - `UPDATED_AT` - 이 행이 테이블에 업데이트되거나 추가된 시간입니다. Braze는 `UPDATED_AT`이 마지막으로 동기화된 값보다 이후인 행을 동기화합니다. 새 행이 동일한 타임스탬프를 공유하는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
-- **사용자 식별자 열** \- 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
+- **사용자 식별자 열** - 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
     - `EXTERNAL_ID` - 업데이트하려는 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다.
     - `ALIAS_NAME` 및 `ALIAS_LABEL` - 이 두 열은 사용자 별칭 오브젝트를 만듭니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭의 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
     - `BRAZE_ID` - Braze 사용자 식별자입니다. 이것은 Braze SDK에 의해 생성되며, 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수 없습니다. 새 사용자를 만들려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요.
@@ -207,7 +211,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 Braze 대시보드의 지역에 해당하는 다음 IP에서의 액세스를 허용합니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab BigQuery %}
@@ -242,20 +246,20 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 
 | 필드 이름 | 유형 | 모드 |
 |---|---|---|
-| `UPDATED_AT`| TIMESTAMP | REQUIRED |
-| `PAYLOAD`| JSON | REQUIRED |
-| `EXTERNAL_ID`| STRING | NULLABLE |
-| `ALIAS_NAME`| STRING | NULLABLE |
-| `ALIAS_LABEL`| STRING | NULLABLE |
-| `BRAZE_ID`| STRING | NULLABLE |
-| `EMAIL`| STRING | NULLABLE |
-| `PHONE`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+| `UPDATED_AT` | TIMESTAMP | REQUIRED |
+| `PAYLOAD` | JSON | REQUIRED |
+| `EXTERNAL_ID` | STRING | NULLABLE |
+| `ALIAS_NAME` | STRING | NULLABLE |
+| `ALIAS_LABEL` | STRING | NULLABLE |
+| `BRAZE_ID` | STRING | NULLABLE |
+| `EMAIL` | STRING | NULLABLE |
+| `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.1단계: 테이블 설정" }
 
 프로젝트, 데이터셋 및 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
 - `UPDATED_AT` - 이 행이 테이블에 업데이트되거나 추가된 시간입니다. Braze는 `UPDATED_AT`이 마지막으로 동기화된 값보다 이후인 행을 동기화합니다. 새 행이 동일한 타임스탬프를 공유하는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
-- **사용자 식별자 열** \- 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
+- **사용자 식별자 열** - 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
     - `EXTERNAL_ID` - 업데이트하려는 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다.
     - `ALIAS_NAME` 및 `ALIAS_LABEL` - 이 두 열은 사용자 별칭 오브젝트를 만듭니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭의 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
     - `BRAZE_ID` - Braze 사용자 식별자입니다. 이것은 Braze SDK에 의해 생성되며, 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수 없습니다. 새 사용자를 만들려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요.
@@ -290,7 +294,7 @@ GCP에서 Braze가 테이블에 연결하고 데이터를 읽을 수 있도록 �
 
 네트워크 정책이 있는 경우 Braze 네트워크에 BigQuery 인스턴스에 대한 액세스 권한을 부여해야 합니다. Braze 대시보드의 지역에 해당하는 다음 IP에서의 액세스를 허용합니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Databricks %}
@@ -327,20 +331,20 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 
 | 필드 이름 | 유형 | 모드 |
 |---|---|---|
-| `UPDATED_AT`| TIMESTAMP | REQUIRED |
-| `PAYLOAD`| STRING, STRUCT, or MAP | REQUIRED |
-| `EXTERNAL_ID`| STRING | NULLABLE |
-| `ALIAS_NAME`| STRING | NULLABLE |
-| `ALIAS_LABEL`| STRING | NULLABLE |
-| `BRAZE_ID`| STRING | NULLABLE |
-| `EMAIL`| STRING | NULLABLE |
-| `PHONE`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
+| `UPDATED_AT` | TIMESTAMP | REQUIRED |
+| `PAYLOAD` | STRING, STRUCT, or MAP | REQUIRED |
+| `EXTERNAL_ID` | STRING | NULLABLE |
+| `ALIAS_NAME` | STRING | NULLABLE |
+| `ALIAS_LABEL` | STRING | NULLABLE |
+| `BRAZE_ID` | STRING | NULLABLE |
+| `EMAIL` | STRING | NULLABLE |
+| `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.1단계: 테이블 설정" }
 
 스키마와 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
 - `UPDATED_AT` - 이 행이 테이블에 업데이트되거나 추가된 시간입니다. Braze는 `UPDATED_AT`이 마지막으로 동기화된 값보다 이후인 행을 동기화합니다. 새 행이 동일한 타임스탬프를 공유하는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
-- **사용자 식별자 열** \- 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
+- **사용자 식별자 열** - 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
     - `EXTERNAL_ID` - 업데이트하려는 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다.
     - `ALIAS_NAME` 및 `ALIAS_LABEL` - 이 두 열은 사용자 별칭 오브젝트를 만듭니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭의 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
     - `BRAZE_ID` - Braze 사용자 식별자입니다. 이것은 Braze SDK에 의해 생성되며, 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수 없습니다. 새 사용자를 만들려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요.
@@ -364,7 +368,7 @@ Braze가 Databricks에 액세스하려면 개인 액세스 토큰을 생성해�
 
 네트워크 정책이 있는 경우 Braze 네트워크에 Databricks 인스턴스에 대한 액세스 권한을 부여해야 합니다. Braze 대시보드의 지역에 해당하는 다음 IP에서의 액세스를 허용합니다.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -434,7 +438,7 @@ GO
 웨어하우스, 스키마, 테이블 또는 뷰의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
 - `UPDATED_AT` - 이 행이 테이블에 업데이트되거나 추가된 시간입니다. Braze는 `UPDATED_AT`이 마지막으로 동기화된 값보다 이후인 행을 동기화합니다. 새 행이 동일한 타임스탬프를 공유하는 경우 정확한 경계 타임스탬프의 행이 다시 동기화될 수 있습니다.
-- **사용자 식별자 열** \- 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
+- **사용자 식별자 열** - 테이블에는 하나 이상의 사용자 식별자 열이 포함될 수 있습니다. 각 행에는 하나의 식별자(`external_id`, `alias_name`과 `alias_label`의 조합, `braze_id`, `email` 또는 `phone`)만 포함해야 합니다. 소스 테이블에는 하나, 둘, 셋, 넷 또는 다섯 가지 식별자 유형 모두에 대한 열이 있을 수 있습니다.
     - `EXTERNAL_ID` - 업데이트하려는 사용자를 식별합니다. 이 값은 Braze에서 사용하는 `external_id` 값과 일치해야 합니다.
     - `ALIAS_NAME` 및 `ALIAS_LABEL` - 이 두 열은 사용자 별칭 오브젝트를 만듭니다. `alias_name`은 고유 식별자여야 하며, `alias_label`은 별칭의 유형을 지정합니다. 사용자는 서로 다른 레이블을 가진 여러 별칭을 가질 수 있지만, `alias_label`당 하나의 `alias_name`만 가질 수 있습니다.
     - `BRAZE_ID` - Braze 사용자 식별자입니다. 이것은 Braze SDK에 의해 생성되며, 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수 없습니다. 새 사용자를 만들려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요.
@@ -453,7 +457,7 @@ GO
 
 Microsoft Fabric 계정의 구성에 따라 방화벽에서 다음 IP 주소를 허용하여 Braze의 트래픽을 허용해야 할 수 있습니다. 이를 활성화하는 방법에 대한 자세한 내용은 [Entra 조건부 액세스](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)에 대한 관련 설명서를 참조하세요.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 
@@ -471,9 +475,16 @@ Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집*
 
 소스의 이름을 선택하고 Snowflake 자격 증명 및 구성을 입력한 다음 다음 단계로 진행합니다.
 
-{% alert note %}
-**Snowflake Account Locator** 필드에 Snowflake [계정 식별자](https://docs.snowflake.com/en/user-guide/admin-account-identifier)를 입력하세요. 일반적으로 `xy12345.us-east-1.aws`와 같은 형식입니다. 이는 데이터베이스 이름이나 웨어하우스 이름과 다릅니다.
-{% endalert %}
+계속하기 전에 **Snowflake Account Locator**에 입력하는 값을 확인하세요.
+
+**Snowflake Account Locator** 필드에 Snowflake [계정 식별자](https://docs.snowflake.com/en/user-guide/admin-account-identifier)를 입력하세요. `myorganization-myaccount`와 같은 계정 식별자 값만 입력합니다. `https://`, `.snowflakecomputing.com` 또는 경로를 포함하지 마세요.
+
+Snowflake 계정 식별자를 찾으려면:
+
+1. Snowsight에서 계정 메뉴를 선택합니다.
+2. **View account details**를 선택합니다.
+3. **Account identifier** 값을 복사합니다.
+4. Snowflake URL에서 복사하는 경우 `.snowflakecomputing.com` 앞의 값만 사용합니다.
 
 #### 2.2단계: Braze 사용자에게 공개 키 추가 {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -533,7 +544,7 @@ Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집*
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소스로 이동하여 **데이터 소스 추가**를 선택한 다음 **Microsoft Fabric**을 선택합니다.
+Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집** > **소스**로 이동하여 **데이터 소스 추가**를 선택한 다음 **Microsoft Fabric**을 선택합니다.
 
 #### 2.1단계: 클라우드 데이터 수집 동기화 설정 {#step-21-set-up-a-cloud-data-ingestion-sync}
 
@@ -565,7 +576,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 성공하면 데이터 미리보기가 표시됩니다. **Next: Notifications**를 선택하여 계속합니다. 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
 {% alert note %}
-다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **Save as draft**를 클릭하여 진행 중인 작업을 유지하세요.
+다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **임시저장**을 클릭하여 진행 중인 작업을 유지하세요.
 {% endalert %}
 
 #### 3.2단계: 알림 환경설정 추가 {#step-32-add-notification-preferences}
@@ -585,7 +596,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 
 비반복 동기화는 수동으로 또는 API를 통해 트리거할 수 있습니다.
 
-반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 Braze 대시보드에 구성된 시간대를 사용하여 반복 동기화를 예약합니다.
+반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 UTC 시간대로 반복 동기화를 예약합니다.
 
 {% endtab %}
 
@@ -597,7 +608,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 성공하면 데이터 미리보기가 표시됩니다. **Next: Notifications**를 선택하여 계속합니다. 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
 {% alert note %}
-다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **Save as draft**를 클릭하여 진행 중인 작업을 유지하세요.
+다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **임시저장**을 클릭하여 진행 중인 작업을 유지하세요.
 {% endalert %}
 
 #### 3.2단계: 알림 환경설정 추가
@@ -618,7 +629,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 
 비반복 동기화는 수동으로 또는 API를 통해 트리거할 수 있습니다.
 
-반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 Braze 대시보드에 구성된 시간대를 사용하여 반복 동기화를 예약합니다.
+반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 UTC 시간대로 반복 동기화를 예약합니다.
 
 {% endtab %}
 
@@ -630,7 +641,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 성공하면 데이터 미리보기가 표시됩니다. **Next: Notifications**를 선택하여 계속합니다. 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
 {% alert note %}
-다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **Save as draft**를 클릭하여 진행 중인 작업을 유지하세요.
+다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **임시저장**을 클릭하여 진행 중인 작업을 유지하세요.
 {% endalert %}
 
 #### 3.2단계: 알림 환경설정 추가
@@ -649,7 +660,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 
 비반복 동기화는 수동으로 또는 API를 통해 트리거할 수 있습니다.
 
-반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 Braze 대시보드에 구성된 시간대를 사용하여 반복 동기화를 예약합니다.
+반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 UTC 시간대로 반복 동기화를 예약합니다.
 
 {% endtab %}
 
@@ -661,7 +672,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 성공하면 데이터 미리보기가 표시됩니다. **Next: Notifications**를 선택하여 계속합니다. 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
 {% alert note %}
-다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **Save as draft**를 클릭하여 진행 중인 작업을 유지하세요.
+다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **임시저장**을 클릭하여 진행 중인 작업을 유지하세요.
 {% endalert %}
 
 #### 3.2단계: 알림 환경설정 추가
@@ -681,7 +692,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 
 비반복 동기화는 수동으로 또는 API를 통해 트리거할 수 있습니다.
 
-반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 Braze 대시보드에 구성된 시간대를 사용하여 반복 동기화를 예약합니다.
+반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 UTC 시간대로 반복 동기화를 예약합니다.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -693,7 +704,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 성공하면 데이터 미리보기가 표시됩니다. **Next: Notifications**를 선택하여 계속합니다. 연결에 실패하면 문제 해결에 도움이 되는 오류 메시지가 표시됩니다.
 
 {% alert note %}
-다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **Save as draft**를 클릭하여 진행 중인 작업을 유지하세요.
+다음 단계로 진행하려면 먼저 동기화 테스트를 성공적으로 완료해야 합니다. 동기화 생성 페이지를 닫아야 하는 경우 **임시저장**을 클릭하여 진행 중인 작업을 유지하세요.
 {% endalert %}
 
 #### 3.2단계: 알림 환경설정 추가
@@ -714,7 +725,7 @@ Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소�
 
 비반복 동기화는 수동으로 또는 API를 통해 트리거할 수 있습니다.
 
-반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 Braze 대시보드에 구성된 시간대를 사용하여 반복 동기화를 예약합니다.
+반복 동기화는 15분마다에서 한 달에 한 번까지 빈도를 설정할 수 있습니다. Braze는 UTC 시간대로 반복 동기화를 예약합니다.
 
 {% endtab %}
 {% endtabs %}

@@ -21,7 +21,7 @@ Braze와 Eppo 통합을 사용하면 Braze에서 A/B 테스트를 설정하고 E
 |------------------------------------|-------------------------------------------------------------------------------------|
 | Eppo 계정                       | 이 파트너십을 활용하려면 Eppo 계정이 필요합니다.                   |
 | Currents 또는 Snowflake 데이터 공유 | Eppo가 실험 데이터를 분석하려면 Currents 또는 Snowflake 데이터 공유가 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -31,11 +31,11 @@ Eppo는 데이터 웨어하우스에서 직접 실험을 분석합니다. 통합
 
 ### 2단계: Braze Campaign 또는 Canvas에서 실험 설정 {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-Campaigns와 Canvases에서 기본 A/B 테스트 기능을 사용할 수 있습니다. 자세한 내용은 [다변량 및 A/B 테스트](https://www.braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing)를 참조하세요.
+Campaigns와 Canvases에서 기본 A/B 테스트 기능을 사용할 수 있습니다. 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing)를 참조하세요.
 
 ### 3단계: Braze 실험을 측정하도록 Eppo 설정 {#step-3-set-up-eppo-to-measure-braze-experiments}
 
-Eppo에서 Braze 데이터를 사용하여 실험을 실행하려면, Braze에서 내보낸 사용자 수준 메시지 이벤트 데이터를 기반으로 웨어하우스에 [할당 테이블](https://docs.geteppo.com/data-management/definitions/assignment-sql/)을 생성하세요. Canvas와 캠페인 실험은 서로 다른 메타데이터에 의존하므로 별도의 테이블을 사용하는 것이 좋습니다.
+Eppo에서 Braze 데이터를 사용하여 실험을 실행하려면, Braze에서 내보낸 사용자 수준 메시지 이벤트 데이터를 기반으로 웨어하우스에 [할당 테이블](https://docs.geteppo.com/data-management/definitions/assignment-sql/)을 생성하세요. Canvas와 Campaign 실험은 서로 다른 메타데이터에 의존하므로 별도의 테이블을 사용하는 것이 좋습니다.
 
 {% tabs local %}
 {% tab 캔버스 실험 %}
@@ -54,7 +54,7 @@ Eppo에서 Braze 데이터를 사용하여 실험을 실행하려면, Braze에�
 {% endtab %}
 {% endtabs %}
 
-메시지별 측정기준(클릭 수나 열람 등)을 추적하려면, 사용자 ID와 캠페인 또는 Canvas 이름을 결합하는 `combined_id`를 생성하여 **보조 엔티티**를 포함하세요. 이 `combined_id`는 팩트 테이블에서도 측정기준을 올바른 실험 및 배리언트에 맞추는 데 사용됩니다.
+메시지별 측정기준(클릭 수나 열람 등)을 추적하려면, 사용자 ID와 Campaign 또는 Canvas 이름을 결합하는 `combined_id`를 생성하여 **보조 엔티티**를 포함하세요. 이 `combined_id`는 팩트 테이블에서도 측정기준을 올바른 실험 및 배리언트에 맞추는 데 사용됩니다.
 
 Eppo는 이러한 할당 및 팩트 테이블을 사용하여 결과를 분석하며, 향후 실험 설정을 표준화하기 위해 Eppo에서 **프로토콜**을 설정하는 것이 좋습니다. 자세한 내용은 [Eppo 설명서](https://docs.geteppo.com/guides/marketing/integrating-with-braze/)를 참조하세요.
 

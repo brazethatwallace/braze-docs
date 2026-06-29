@@ -18,7 +18,7 @@ _This integration is maintained by Tapcart._
 | Requirement              | Description                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tapcart Enterprise Account | The integration is available for **Tapcart Enterprise customers** only.                                                                              |
-| Braze App API key         | The [Braze App identifier API key](https://www.braze.com/docs/api/identifier_types) is required. Each platform (such as iOS or Android) has its own app identifier. In the Braze dashboard, go to **Settings** > **APIs and Identifiers** > **App Identifiers**. |
+| Braze App API key         | The [Braze App identifier API key]({{site.baseurl}}/api/identifier_types) is required. Each platform (such as iOS or Android) has its own app identifier. In the Braze dashboard, go to **Settings** > **APIs and Identifiers** > **App Identifiers**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## About the integration

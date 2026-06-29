@@ -98,7 +98,7 @@ Braze経由でメールを送信する場合、メールサービスプロバイ
 |---|---|
 | AASAファイル | 不要 |
 | アプリデリゲートメソッド | 不要 — SDKが自動的に処理します |
-| Braze SDKの設定 | なし — Campaignコンポーザーで**Open Web URL Inside App**を選択します |
+| Braze SDKの設定 | なし — キャンペーンコンポーザーで**Open Web URL Inside App**を選択します |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Open Web URL Inside App" }
 
 ## AASAファイルが必要な場合 {#when-aasa}

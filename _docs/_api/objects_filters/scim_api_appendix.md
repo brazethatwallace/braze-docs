@@ -13,12 +13,12 @@ alias: /scim_api_appendix/
 {% sdktabs %}
 {% sdktab Legacy SCIM API %}
 
-{% multi_lang_include permissions_temp/legacy_scim.md %}
+{% multi_lang_include permissions/legacy_scim.md %}
 
 {% endsdktab %}
 {% sdktab Granular SCIM API %}
 
-{% multi_lang_include permissions_temp/granular_scim.md %}
+{% multi_lang_include permissions/granular_scim.md %}
 
 {% endsdktab %}
 {% endsdktabs %}

@@ -15,9 +15,13 @@ tool:
 
 ## How it works
 
-Every time a message is sent in a multivariate campaign, the system independently selects a random option according to the percentages you set and assigns a variant based on the result. It's like flipping a coin—anomalies are possible. If you've ever flipped a coin 100 times, you know that you probably won't get an exact 50-50 split between heads and tails every time, even though you only have two choices. You might get 52 heads and 48 tails.
+The distribution between variants is not always even. Every time a message sends in a multivariate campaign, Braze independently selects a random option according to the percentages you set and assigns a variant based on the result. It's like flipping a coin—anomalies are possible. If you flip a coin 100 times, you probably won't get an exact 50-50 split between heads and tails, even though you only have two choices. You might get 52 heads and 48 tails.
 
-If you have multiple variants that you want to split evenly, make sure the number of variants is a multiple of 100. Otherwise, some variants will have a higher percentage of users distributed to that variant compared to others. For example, if your campaign has 7 variants, there can't be an even variant distribution since 7 does not equally divide by 100 as a whole number. In this case, you would have 2 variants of 15% and 5 variants of 14%.
+Similarly, if you want to split multiple variants evenly using whole-number percentages, ensure the number of variants evenly divides 100. Otherwise, some variants have a higher percentage of users distributed to that variant compared to others. For example, if your campaign has seven variants, there can't be an even variant distribution because seven does not equally divide by 100 as a whole number. In this case, you would have two variants of 15% and five variants of 14%. 
+
+{% alert tip %}
+To distribute users in a Canvas, you could add a [Decision Split step]({{site.baseurl}}/decision_split) and separate users based on their [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
+{% endalert %}
 
 ## In-app message distribution
 

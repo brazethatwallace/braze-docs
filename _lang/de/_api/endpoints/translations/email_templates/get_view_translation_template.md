@@ -17,8 +17,6 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts „Alle Übers
 
 > Verwenden Sie diesen Endpunkt, um alle Übersetzungen und Lokalisierungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/) anzuzeigen. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Lokalisierungen in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `templates.translations.get`.

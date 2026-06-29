@@ -12,7 +12,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="G2ZoJqZGqrU" align="right" %}
 
-> [Foursquare](https://foursquare.com/) は、BrazeのCampaignsに位置情報データターゲティング機能を提供する位置情報データプラットフォームです。iOSとAndroidアプリでFoursquareのPilgrim SDKを使用して、位置情報に基づいたリアルタイムのイベントトリガーを提供し、Foursquareの強力なジオターゲティング機能を活用して、Brazeで関連性の高いパーソナライズされたメッセージを送信できます。
+> [Foursquare](https://foursquare.com/) は、Brazeのキャンペーンに位置情報データターゲティング機能を提供する位置情報データプラットフォームです。iOSとAndroidアプリでFoursquareのPilgrim SDKを使用して、位置情報に基づいたリアルタイムのイベントトリガーを提供し、Foursquareの強力なジオターゲティング機能を活用して、Brazeで関連性の高いパーソナライズされたメッセージを送信できます。
 
 _この統合はFoursquareによって管理されています。_
 
@@ -46,18 +46,18 @@ Pilgrim SDKを使用するには、位置情報サービスを有効にする必
 
 ## メッセージのトリガー {#triggering-messages}
 
-統合が設定されたら、Pilgrim SDKにより生成される位置情報イベントからアクションを実行するCampaignやCanvasを設定できます。この統合ルートは、ユーザーが特定の会場に入った直後にリアルタイムメッセージを送信する場合、または退場後にフォローアップコミュニケーション（お礼やリマインダーなど）を行う場合に最適です。
+統合が設定されたら、Pilgrim SDKにより生成される位置情報イベントからアクションを実行するキャンペーンやキャンバスを設定できます。この統合ルートは、ユーザーが特定の会場に入った直後にリアルタイムメッセージを送信する場合、または退場後にフォローアップコミュニケーション（お礼やリマインダーなど）を行う場合に最適です。
 
-設定した場所に基づいてメッセージを送信するCampaignを作成するには：
-- **アクションベースの配信**で送信するBrazeのCampaignまたはCanvasを作成します
+設定した場所に基づいてメッセージを送信するキャンペーンを作成するには：
+- **アクションベースの配信**で送信するBrazeのキャンペーンまたはキャンバスを作成します
 - トリガーには、以下のスクリーンショットに示すように、`locationType`のイベントプロパティフィルターを含むカスタムイベント`arrival`を使用します。
 
-![配信ステップ内のアクションベースのCampaignで、「カスタムイベントを実行」オプションとして「arrival」が選択され、「locationType」が「home」に設定されている画面。]({% image_buster /assets/img_archive/action-based-campaign.png %})
+![配信ステップ内のアクションベースのキャンペーンで、「カスタムイベントを実行」オプションとして「arrival」が選択され、「locationType」が「home」に設定されている画面。]({% image_buster /assets/img_archive/action-based-campaign.png %})
 
 ## リターゲティング {#retargeting}
 
 ユーザーをリターゲティングするには、Pilgrim SDKを使用して、Brazeユーザーのユーザープロファイルに`last_location`カスタム属性を設定します。そして、`matches regex`の比較を使って、現実世界で特定の場所に行ったユーザーをリターゲティングできます。例えば、最近ピザ屋に行ったすべてのユーザーをセグメント化できます。
 
-![ターゲットユーザーステップのアクションベースのCampaignで、「last_location」が「Pizza Place」に設定されている画面。]({% image_buster /assets/img_archive/last-location-segment.png %})
+![ターゲットユーザーステップのアクションベースのキャンペーンで、「last_location」が「Pizza Place」に設定されている画面。]({% image_buster /assets/img_archive/last-location-segment.png %})
 
 またBrazeで、特定のタイプの会場を訪問したユーザーを、特定の時間枠内のFoursquareの`primaryCategoryId`に基づいてセグメント化することもできます。このデータポイントをリターゲティングのユースケースに利用するには、オーディエンスのセグメンテーションプロセスでイベントプロパティとして`primaryCategoryId`をログに記録します。Foursquare APIとPilgrim SDKで使用されるユーザーとプロパティを確認するには、[Foursquare開発者サイト](https://developer.foursquare.com/)を参照してください。

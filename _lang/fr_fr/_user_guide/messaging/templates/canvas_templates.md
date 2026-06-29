@@ -24,7 +24,6 @@ Dans le tableau de bord de Braze, allez dans **Messaging** > **Canvas** et séle
 
 Dans l'éditeur Canvas, sélectionnez **Edit Canvas** ou **Edit draft**, selon que votre Canvas est actif ou en brouillon. Développez le menu déroulant **Save as draft** dans le pied de page et sélectionnez **Save as template**.
 
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
 
 ### Étape 3 : Enregistrer votre modèle {#step-3-save-your-template}
 
@@ -34,11 +33,7 @@ Ensuite, donnez un nom à votre modèle et ajoutez les étiquettes pertinentes. 
 
 ### Étape 1 : Accéder à l'éditeur de modèles Canvas {#step-1-go-to-the-canvas-template-editor}
 
-Dans le tableau de bord de Braze, allez dans **Templates** > **Canvas Templates**.
-
-{% alert note %}
-Si vous utilisez l'ancienne navigation, vous pouvez trouver cette page sous **Engagement** > **Templates & Media** > **Canvas Templates**.
-{% endalert %}
+Dans le tableau de bord de Braze, allez dans **Contenu** > **Canvas**.
 
 ### Étape 2 : Créer un nouveau modèle {#step-2-create-a-new-template}
 
@@ -59,17 +54,17 @@ Une fois la personnalisation de votre modèle terminée, sélectionnez le bouton
 Il existe deux façons d'utiliser votre modèle lors de la composition d'un Canvas :
 
 - **Depuis Messaging** : Allez dans **Messaging** > **Canvas**. Sélectionnez le bouton **Create Canvas** puis **Use a Canvas Template**.
-- **Depuis Templates** : Allez dans **Templates** > **Canvas Templates** et trouvez le modèle souhaité. Ensuite, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> suivi de **Apply template**. Cela vous amènera à un nouveau Canvas avec le modèle appliqué dans le compositeur Canvas.
+- **Depuis Contenu** : Allez dans **Contenu** > **Canvas** et trouvez le modèle souhaité dans **Modèles de Canvas**. Ensuite, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> suivi de **Apply template**. Cela vous amènera à un nouveau Canvas avec le modèle appliqué dans le compositeur Canvas.
 
 ### Modèles Braze disponibles {#available-braze-templates}
 
-Pour une liste des modèles de Canvas disponibles, consultez [Modèles Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Pour plus de détails sur l'utilisation des modèles Canvas eCommerce, consultez [Comment utiliser les événements recommandés eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
+Pour une liste des modèles de Canvas disponibles, consultez [Utiliser les modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Pour plus de détails sur l'utilisation des modèles Canvas eCommerce, consultez [Comment utiliser les événements recommandés eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
 
 ## Gérer les modèles de Canvas {#managing-canvas-templates}
 
 Les modèles de Canvas peuvent être dupliqués et archivés, de manière similaire à un Canvas réel. Pour modifier un modèle de Canvas, sélectionnez le modèle puis **<i class="fas fa-pencil-alt"></i>Edit**.
 
-Au niveau de l'espace de travail, vous pouvez mettre à jour les autorisations des utilisateurs pour autoriser ou limiter l'accès à la création, la modification, la consultation ou l'archivage des modèles de Canvas.
+À un niveau d'espace de travail, vous pouvez mettre à jour les autorisations des utilisateurs pour autoriser ou limiter l'accès à la création, la modification, la consultation ou l'archivage des modèles de Canvas.
 
 ### Autorisations pour les équipes et les espaces de travail {#permissions-for-teams-and-workspaces}
 

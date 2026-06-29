@@ -17,7 +17,7 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 
 ## 필수 조건 {#prerequisites}
 
-내부 그룹을 생성하고 관리하려면 [개발자 콘솔 액세스 레거시 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) 또는 다음 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions)이 필요합니다:
+내부 그룹을 생성하고 관리하려면 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다:
 
 - API 키 보기
 - API 키 편집
@@ -33,15 +33,13 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 - SDK 디버거 편집
 - SDK 디버거 보기
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ## 내부 그룹 생성하기 {#creating-an-internal-group}
 
 내부 그룹을 생성하려면:
 
 1. **설정** > **내부 그룹**으로 이동합니다.
 2. **내부 그룹 생성**을 선택합니다.
-3. 그룹에 '이메일 테스트 그룹'과 같은 이름을 지정합니다.
+3. 그룹에 "이메일 테스트 그룹"과 같은 이름을 지정합니다.
 4. 다음 표에 나열된 그룹 유형 중 하나 이상을 선택합니다.
 
 | 그룹 유형 | 설명 |
@@ -49,7 +47,7 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 | **사용자 이벤트 그룹** | 테스트 기기에서 이벤트 또는 로그를 확인하는 데 사용합니다. |
 | **콘텐츠 테스트 그룹** | 푸시, 이메일, 인앱 메시지 전반에서 렌더링된 메시지 사본을 발송하는 데 사용합니다. |
 | **시드 그룹** | 발송 시 시드 그룹의 모든 구성원에게 이메일 사본을 자동으로 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating an internal group" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="내부 그룹 생성하기" }
 
 {:start="5"}
 
@@ -65,18 +63,16 @@ description: "이 참조 문서에서는 SDK 통합을 테스트할 때 테스�
 | 방법 | 설명 |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **식별된 사용자 추가** | 외부 사용자 ID, 이메일 주소, 전화번호 또는 푸시 토큰으로 사용자를 검색합니다. |
-| **익명 사용자 추가** | IP 주소로 검색합니다. 그런 다음 추가하는 각 테스트 사용자에 대해 이름을 입력합니다. 이 이름은 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) 페이지에서 모든 이벤트 로그와 연결되는 이름입니다. |
-| **사용자 일괄 추가** | 이메일 주소 또는 외부 ID 목록을 복사하여 붙여넣습니다. 대시보드에 이미 알려진 사용자만 추가할 수 있습니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Adding test users" }
-
-![새 내부 그룹을 생성할 때의 내부 그룹 설정]({% image_buster /assets/img_archive/internal_group_add_user.png %})
+| **익명 사용자 추가** | IP 주소로 검색합니다. 그런 다음 추가하는 각 테스트 사용자에 대해 이름을 입력합니다. 이 이름은 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) 페이지에서 모든 이벤트 로그와 연결되는 이름입니다. |
+| **사용자 일괄 추가** | 이메일 주소 또는 외부 ID 목록을 복사하여 붙여넣습니다. 대시보드에 이미 알려진 사용자만 추가할 수 있습니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="테스트 사용자 추가하기" }
 
 ### 콘텐츠 테스트 그룹 {#content-test-groups}
 
 메시지의 미리보기 테스트를 발송하는 것과 유사하게, 콘텐츠 테스트 그룹은 시간을 절약하고 사전 정의된 Braze 사용자 목록에 동시에 테스트를 시작할 수 있게 해줍니다. Braze에서 푸시, 인앱 메시지, SMS, 이메일 및 Content Cards에 사용할 수 있습니다. 콘텐츠 테스트 그룹으로 태그된 그룹만 메시지의 미리보기 섹션에서 사용할 수 있습니다.
 
 {% alert note %}
-[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) 테스트 메시지는 데이터베이스에 있는 유효한 전화번호로만 발송할 수 있습니다.
+[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) 테스트 메시지는 데이터베이스에 있는 유효한 전화번호로만 발송할 수 있습니다.
 {% endalert %}
 
 개별 Braze 사용자 또는 원하는 수의 내부 그룹을 선택하여 메시지를 발송합니다. 메시지에 Liquid 또는 기타 동적 개인화가 포함된 경우, Braze는 각 사용자에게 사용 가능한 속성을 사용하여 메시지 콘텐츠를 개인화합니다. 속성이 없는 사용자의 경우 Braze는 설정된 기본값을 사용합니다.
@@ -93,7 +89,7 @@ IP 풀을 사용하여 이메일을 발송하는 경우, 사용 가능한 드롭
 
 시드 그룹은 API 캠페인에서는 사용할 수 없지만, 캠페인에서 API 트리거 항목을 사용하여 시드 그룹을 포함할 수 있습니다. 전달 가능성 측정기준을 측정하고 이메일 콘텐츠의 기록을 보관 및 아카이브 목적으로 유지하는 데 사용합니다.
 
-내부 그룹을 생성하고 시드 그룹으로 사용하도록 태그한 후, 캠페인 편집기의 **Target Audiences** 단계 또는 Canvas의 **Send Settings** 단계에서 선택합니다.
+내부 그룹을 생성하고 시드 그룹으로 사용하도록 태그한 후, 캠페인 편집기의 **타겟 오디언스** 단계 또는 Canvas의 **발송 설정** 단계에서 선택합니다.
 
 시드 이메일에는 제목란 앞에 `[SEED]`가 추가됩니다. 시드 이메일은 다음을 **수행하지 않습니다**:
 
@@ -110,29 +106,29 @@ IP 풀을 사용하여 이메일을 발송하는 경우, 사용 가능한 드롭
 {% alert tip %}
 시드 그룹 구성원이 메시지를 받지 못하는 경우, 내부 그룹에 포함되어 있는지 확인하고, Gmail에서 메시지가 스레드로 묶이지 않도록 고유한 제목란을 사용하며, 스팸 폴더를 확인하도록 요청하세요.
 
-이메일이 [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)를 사용하는 경우, 시드 그룹 구성원도 발송을 수신하려면 중단 조건을 충족해야 합니다.
+이메일이 [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 사용하는 경우, 시드 그룹 구성원도 발송을 수신하려면 중단 조건을 충족해야 합니다.
 {% endalert %}
 
-#### 캠페인의 경우 {#for-campaigns}
+#### Campaign의 경우 {#for-campaigns}
 
-이메일 캠페인을 작성할 때 편집기의 **Target Audiences** 섹션에서 시드 그룹을 편집합니다.
+이메일 Campaign을 작성할 때 편집기의 **타겟 오디언스** 섹션에서 시드 그룹을 편집합니다.
 
 {% alert important %}
-시드 그룹이 모든 캠페인에 자동으로 첨부되도록 구성한 경우, 이는 새 캠페인에만 적용됩니다. 기존 캠페인을 복사할 때는 적용되지 않습니다. 복사된 캠페인의 **Target Audiences** 섹션에서 원하는 시드 그룹을 수동으로 적용해야 합니다.
+시드 그룹이 모든 Campaign에 자동으로 첨부되도록 구성한 경우, 이는 새 Campaign에만 적용됩니다. 기존 Campaign을 복사할 때는 적용되지 않습니다. 복사된 Campaign의 **타겟 오디언스** 섹션에서 원하는 시드 그룹을 수동으로 적용해야 합니다.
 {% endalert %}
 
-시드 그룹은 각 이메일 배리언트에 대해 한 번 발송되며, 사용자가 해당 특정 배리언트를 처음 수신할 때 전달됩니다. 스케줄된 메시지의 경우, 이는 일반적으로 캠페인이 처음 시작될 때입니다. 액션 기반 또는 API 트리거 캠페인의 경우, 첫 번째 사용자에게 메시지가 발송되는 시점입니다.
+시드 그룹은 각 이메일 배리언트에 대해 한 번 발송되며, 사용자가 해당 특정 배리언트를 처음 수신할 때 전달됩니다. 스케줄된 메시지의 경우, 이는 일반적으로 Campaign이 처음 시작될 때입니다. 액션 기반 또는 API 트리거 Campaign의 경우, 첫 번째 사용자에게 메시지가 발송되는 시점입니다.
 
-캠페인이 다변량이고 배리언트의 발송 비율이 0%인 경우, 시드 그룹에 발송되지 않습니다. 또한 배리언트가 이미 발송되었고 **Target** 단계의 **Edit Seed Groups**에서 재발송하도록 업데이트되지 않은 경우, 기본적으로 다시 발송되지 않습니다.
+Campaign이 다변량이고 배리언트의 발송 비율이 0%인 경우, 시드 그룹에 발송되지 않습니다. 또한 배리언트가 이미 발송되었고 **타겟** 단계의 **시드 그룹 편집**에서 재발송하도록 업데이트되지 않은 경우, 기본적으로 다시 발송되지 않습니다.
 
 {% alert note %}
-반복 캠페인이 있고 배리언트 중 하나가 업데이트된 경우, 업데이트된 배리언트만 다시 발송하거나, 모든 배리언트를 다시 발송하거나, 업데이트 시 시드 그룹 발송을 끌 수 있습니다.
+반복 Campaign이 있고 배리언트 중 하나가 업데이트된 경우, 업데이트된 배리언트만 다시 발송하거나, 모든 배리언트를 다시 발송하거나, 업데이트 시 시드 그룹 발송을 끌 수 있습니다.
 {% endalert %}
 
-![배리언트 1 이메일 캠페인을 발송하도록 선택된 '이메일 시드 테스트' 시드 그룹]({% image_buster /assets/img_archive/seed_group_campaign.png %})
+![배리언트 1 이메일 Campaign을 발송하도록 선택된 "이메일 시드 테스트" 시드 그룹]({% image_buster /assets/img_archive/seed_group_campaign.png %})
 
 #### Canvas의 경우 {#for-canvas}
 
-Canvas의 시드 그룹은 트리거된 캠페인과 유사하게 작동합니다. Braze는 이메일 메시지가 포함된 모든 단계를 자동으로 감지하고, 사용자가 해당 특정 이메일 단계에 처음 도달할 때 발송합니다.
+Canvas의 시드 그룹은 트리거된 Campaign과 유사하게 작동합니다. Braze는 이메일 메시지가 포함된 모든 단계를 자동으로 감지하고, 사용자가 해당 특정 이메일 단계에 처음 도달할 때 발송합니다.
 
 시드 그룹에 메일이 발송된 후 이메일 단계가 업데이트된 경우, Braze는 업데이트된 단계에만 발송하거나, 모든 단계에 발송하거나, 시드를 끄는 옵션을 제공합니다.

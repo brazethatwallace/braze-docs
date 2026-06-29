@@ -1,0 +1,25 @@
+{
+  "github_token": "ghp_YOUR_GITHUB_TOKEN_HERE",
+
+  "repo": "braze-inc/braze-docs",
+
+  "stale_days": 7,
+
+  "slack_bot_token": "xoxb_YOUR_SLACK_BOT_TOKEN_HERE",
+  "slack_channel": "C0CHANNELID",
+
+  "oncall_docs_mention": "<!subteam^S096J5PE2TB|oncall-docs>",
+
+  "github_to_slack": {
+    "_comment": "Values can be Slack user IDs (e.g. 'U0A1B2C3D' — enables real @pings) OR display names (e.g. 'adam.evans' — visible but won't ping). To find a user ID: open their Slack profile > ⋮ > Copy member ID.",
+    "github-username": "USLACKUSERID"
+  },
+
+  "extra_docs_team_members": [
+    "_comment: Only needed if your GitHub token lacks read:org scope and can't auto-fetch the braze-inc/docs-team member list. Add GitHub usernames here as a fallback."
+  ],
+
+  "ignored_reviewers": [
+    "_comment: GitHub logins to exclude from non-docs approval/stale checks (e.g. bots or service accounts)."
+  ]
+}

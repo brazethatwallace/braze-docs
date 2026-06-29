@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Envio d
 ---
 {% api %}
 # Envio de e-mails para listas de bloqueio {#blocklist-emails}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | -----------|----------| --------|------- |
 | `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para adicionar à lista de bloqueio, ou uma matriz de até 50 endereços de e-mail para adicionar à lista de bloqueio. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

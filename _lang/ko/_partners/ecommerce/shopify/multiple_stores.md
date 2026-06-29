@@ -25,23 +25,23 @@ description: "이 참조 문서에서는 여러 Shopify 스토어를 단일 워�
 ## 추가 스토어 연결 {#connecting-an-additional-store}
 Shopify 스토어에 Braze 앱을 설치하고 첫 번째 스토어를 설치한 후 **+ Connect New Store**를 선택합니다.
 
-![Shopify 통합 페이지의 "+ Connect New Store" 버튼.]({% image_buster /assets/img/Shopify/begin_setup_button.png %}){: style="max-width:80%;"}
+![Shopify 통합 페이지의 "+ Connect New Store" 버튼.]({% image_buster /assets/img/shopify/begin_setup_button.png %}){: style="max-width:80%;"}
 
 추가 Shopify 지역 스토어의 경우 **Begin setup**을 선택합니다.
 
-!["Begin setup" 버튼이 있는 "Integration settings" 섹션.]({% image_buster /assets/img/Shopify/multiple_stores.png %}){: style="max-width:80%;"}
+!["Begin setup" 버튼이 있는 "Integration settings" 섹션.]({% image_buster /assets/img/shopify/multiple_stores.png %}){: style="max-width:80%;"}
 
 첫 번째 Shopify 스토어 통합과 마찬가지로 표준 또는 커스텀 설정 중에서 선택할 수 있습니다.
 
-![표준 또는 커스텀 설정으로 Braze 웹 SDK를 구현할 수 있는 옵션이 있는 "Enable the Braze SDKs" 섹션.]({% image_buster /assets/img/Shopify/standard_or_custom.png %}){: style="max-width:80%;"}
+![표준 또는 커스텀 설정으로 Braze 웹 SDK를 구현할 수 있는 옵션이 있는 "Enable the Braze SDKs" 섹션.]({% image_buster /assets/img/shopify/standard_or_custom.png %}){: style="max-width:80%;"}
 
 필요에 가장 적합한 옵션을 선택하세요:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 각 스토어 통합을 확인하고 고급 설정을 구성하려면 드롭다운 메뉴에서 스토어를 선택합니다.
 
-![Shopify 스토어를 선택할 수 있는 드롭다운 메뉴가 있는 "Integration settings".]({% image_buster /assets/img/Shopify/store_dropdown_menu.png %})
+![Shopify 스토어를 선택할 수 있는 드롭다운 메뉴가 있는 "Integration settings".]({% image_buster /assets/img/shopify/store_dropdown_menu.png %})
 
 ## 스토어 간 사용자 동기화 {#syncing-users-across-stores}
 
@@ -122,7 +122,7 @@ Shopify 커넥터 설정의 **사용자 관리** 단계에서 Braze를 사용하
 
 여러 스토어를 연결하면 수신되는 eCommerce 권장 이벤트에 소스 이벤트 속성정보가 포함됩니다. 이 속성정보는 이벤트가 발생한 스토어프론트 URL을 식별하여 세분화 또는 특정 사용 사례 트리거에 이 정보를 활용할 수 있게 합니다.
 
-![`ecommerce.order_placed` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![`ecommerce.order_placed` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
 Shopify 통합 내에서 지원되는 eCommerce 권장 이벤트는 다음과 같습니다:
 
@@ -137,7 +137,7 @@ Shopify 통합 내에서 지원되는 eCommerce 권장 이벤트는 다음과 �
 
 수신되는 Shopify 커스텀 이벤트에는 `shopify_storefront`라는 이벤트 속성정보가 포함됩니다. 이 속성정보는 이벤트가 발생한 스토어프론트 URL을 나타내며, 세분화 또는 사용 사례 트리거에 활용할 수 있습니다.
 
-![`shopify_paid_order` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![`shopify_paid_order` 커스텀 이벤트를 수행하는 사용자가 진입하도록 트리거가 설정된 액션 기반 Canvas.]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
 지원되는 Shopify 커스텀 이벤트는 다음과 같습니다:
 
@@ -154,4 +154,4 @@ Braze에서 각 Shopify 스토어를 연결하고 구성할 때 통합의 일부
 
 각 스토어에 대해 제품 동기화를 활성화하면 Braze는 카탈로그 이름에 Shopify 스토어 이름을 포함합니다. 이렇게 하면 서로 다른 스토어의 제품을 구분할 수 있습니다.
 
-![카탈로그 이름에 Shopify 스토어 이름이 포함된 Shopify 카탈로그.]({% image_buster /assets/img/Shopify/catalog_store_name.png %})
+![카탈로그 이름에 Shopify 스토어 이름이 포함된 Shopify 카탈로그.]({% image_buster /assets/img/shopify/catalog_store_name.png %})

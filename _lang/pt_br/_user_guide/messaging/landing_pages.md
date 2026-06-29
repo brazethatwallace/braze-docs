@@ -31,12 +31,14 @@ Antes de acessar, criar e publicar landing pages, você precisa ter [permissões
 
 ## Níveis de plano {#plan-tiers}
 
-O número de landing pages publicadas e domínios personalizados que você pode usar depende do seu tipo de plano: gratuito ou pago (incremental).
+O número de landing pages publicadas, domínios personalizados e recursos que você pode usar depende do seu tipo de plano: gratuito ou pago (incremental).
 
 | Recurso                                                                                                   | Nível gratuito     | Nível pago (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Landing pages publicadas                                                                 | Cinco por empresa | 20 adicionais |
 | Domínios personalizados          | Um por empresa | Cinco adicionais |
+| [Personalização com Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/) | Não disponível | Disponível |
+| Campos de formulário pré-preenchidos | Não disponível | Disponível |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de plano" }
 
 ## Adicionando o Google Tag Manager a uma landing page {#adding-google-tag-manager-to-a-landing-page}

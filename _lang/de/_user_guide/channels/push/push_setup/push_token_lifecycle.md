@@ -31,7 +31,7 @@ Push-Token werden sowohl für Vordergrund- als auch für Hintergrund-Push-Benach
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
 | Vordergrund-Push | Ja | Eine Benachrichtigung wird sichtbar angezeigt, während die App im Vordergrund ist. |
 | Hintergrund-Push | Nein | Eine Benachrichtigung wird im Hintergrund still zugestellt, ohne angezeigt zu werden. Wird häufig für Funktionen wie Uninstall-Tracking verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Foreground vs. background push #foreground-vs-background" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Vordergrund- vs. Hintergrund-Push" }
 
 Wenn Nutzer:innen Push-Benachrichtigungen für Ihre App aktivieren, gelten sie als „push-registriert“, was bedeutet, dass sie mit dem Segmentierungsfilter `Foreground Push Enabled for App` in Braze angesprochen werden können.
 
@@ -71,7 +71,7 @@ Wenn Ihre App installiert wird, wird automatisch ein Push-Token für Ihre App ge
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Android 13** | Die Push-Berechtigung muss von den Nutzer:innen angefordert und gewährt werden. Ihre App kann die Berechtigung manuell anfordern, oder Nutzer:innen werden automatisch aufgefordert, nachdem ein [Benachrichtigungskanal](https://developer.android.com/reference/android/app/NotificationChannel) erstellt wurde. |
 | **Android 12 und früher** | Alle Nutzer:innen gelten nach ihrer ersten Sitzung als `Subscribed`. Braze fordert zu diesem Zeitpunkt automatisch ein Push-Token an, wodurch die Nutzer:innen mit einem gültigen Token und dem Standard-Abo-Status `Subscribed` push-fähig werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token registration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Token-Registrierung" }
 {% endtab %}
 
 {% tab iOS %}
@@ -81,13 +81,13 @@ iOS generiert nicht automatisch Push-Token für eine App bei der Installation. Z
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **iOS 12** | Ja | Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, erhalten Sie eine Standard-Autorisierung, die es Ihnen ermöglicht, [Vordergrund-Push-Benachrichtigungen](#foreground-vs-background) zu senden. Sie können jedoch auch eine [vorläufige Autorisierung]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push) anfordern, die es Ihnen ermöglicht, stille [Hintergrund-Push-Benachrichtigungen](#foreground-vs-background) direkt an die Mitteilungszentrale zu senden. |
 | **iOS 11 oder früher** | Nein | Alle Nutzer:innen müssen explizit zustimmen, um Push-Benachrichtigungen zu erhalten. Ein Push-Token wird erst nach Erteilung der Berechtigung generiert. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push token registration" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Token-Registrierung" }
 {% endtab %}
 {% endtabs %}
 
 ### Push-Abo-Status von Nutzer:innen prüfen {#checking-users-push-subscription-state}
 
-![Nutzerprofil für John Doe mit dem Push-Abo-Status „Abonniert“.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Nutzerprofil für Jane Doe mit dem Push-Abo-Status und Push-Registrierungsdetails auf dem Tab „Engagement“.]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Es gibt zwei Möglichkeiten, den Push-Abo-Status von Nutzer:innen mit Braze zu prüfen:
 
@@ -115,7 +115,7 @@ In der folgenden Tabelle finden Sie Aktionen, die zu Änderungen oder zur Entfer
 | Methode `changeUser()` wird aufgerufen | Die Braze-Methode `changeUser()` wechselt die Nutzer-ID, der die SDKs Nutzerverhaltens-Daten zuweisen. Diese Methode wird normalerweise aufgerufen, wenn sich Nutzer:innen in einer Anwendung anmelden. Wenn `changeUser()` mit einer anderen oder neuen Nutzer-ID auf einem bestimmten Gerät aufgerufen wird, wird das Push-Token dieses Geräts zum entsprechenden Braze-Profil mit der zugehörigen Nutzer-ID verschoben. |
 | Push-Fehler tritt auf | Einige häufige Push-Fehler, die zur Token-Entfernung führen, sind `MismatchSenderId`, `InvalidRegistration` und andere Arten von Push-Bounces. <br><br>Sehen Sie sich unsere vollständige Liste häufiger [Push-Fehler]({{site.baseurl}}/user_guide/channels/push/push_error_codes/) an. |
 | Nutzer:in deinstalliert die App | Wenn Nutzer:innen die Anwendung von einem Gerät deinstallieren, entfernt Braze das Push-Token aus dem Profil. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Push token management" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Token-Verwaltung" }
 
 ### Wie sieht das im größeren Maßstab aus? {#what-does-this-look-like-on-a-broader-scale}
 
@@ -128,7 +128,7 @@ Wenn wir eine Campaign starten möchten, erstellen wir eine Campaign in Braze, d
 | Registrierungsschritte | Messaging-Schritte |
 | ------------------ | --------------- |
 | 1. Kund:in (Gerät) registriert sich beim Push-Anbieter<br>2. Anbieter generiert und liefert Push-Token<br>3. Token an Braze übermitteln |1. Braze sendet Push-Payload an den Anbieter<br>2. Anbieter liefert den Push-Payload an das Gerät<br>3. SDK übergibt Messaging-Statistiken an Braze |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What does this look like on a broader scale?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wie sieht das im größeren Maßstab aus?" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

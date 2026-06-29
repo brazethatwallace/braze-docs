@@ -8,7 +8,7 @@ tool: Segments
 search_rank: 3
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Segment erstellen {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Segment erstellen {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordercreate-a-segment}
 
 > Mit der Segmentierung können Sie Nutzer:innen anhand ihrer demografischen, verhaltensbezogenen oder technischen Merkmale und Aktionen ansprechen. Der kreative und intelligente Einsatz von Segmentierung und Messaging-Automatisierung ermöglicht es Ihnen, Ihre Nutzer:innen nahtlos vom ersten Kontakt bis hin zu langfristigen Kund:innen zu begleiten. Segmente werden in Realtime aktualisiert, wenn sich Daten ändern, und Sie können so viele Segmente erstellen, wie Sie für Ihr Targeting und Ihre Messaging-Zwecke benötigen.
 
@@ -41,7 +41,7 @@ Fügen Sie mindestens einen Filter zu Ihrem Segment hinzu. Sie können beliebig 
 
 {% multi_lang_include alerts/note_alerts.md alert='Segment profiles first app use' %}
 
-#### Filtergruppen {#filter-groups}
+### Filtergruppen {#filter-groups}
 
 Filter sind in Filtergruppen organisiert. Jeder Filter muss Teil einer Filtergruppe sein, die mindestens einen Filter enthält. Ein Segment kann mehrere Filtergruppen haben. Um eine hinzuzufügen, wählen Sie **Filtergruppe hinzufügen**. Bearbeiten Sie den Namen der Filtergruppe, indem Sie auf das Symbol klicken, das erscheint, wenn Sie mit der Maus darüber fahren.
 
@@ -49,7 +49,7 @@ Filter sind in Filtergruppen organisiert. Jeder Filter muss Teil einer Filtergru
 
 Wählen Sie die Symbole neben jedem Filter, um den Filtereditor ein- oder auszuklappen oder einzelne Filter zu duplizieren. Nach dem Duplizieren eines Filters können Sie seine Werte in jedem Dropdown anpassen.
 
-#### Segmentierungslogik mit AND und OR {#segmentation-logic-using-and-and-or}
+### Segmentierungslogik mit AND und OR {#segmentation-logic-using-and-and-or}
 
 Innerhalb einer Filtergruppe können Filter entweder mit „AND“ oder „OR“ verknüpft werden. Zwischen Filtergruppen können Gruppen ebenfalls mit „AND“ oder „OR“ verknüpft werden. Mit Filtergruppen können Sie Segmentierungslogik wie die folgende erstellen:
 - (A AND B AND C) OR (C AND E AND F)
@@ -80,7 +80,7 @@ Wenn `not included`, `is not`, `does not equal` oder `does not match regex` mit 
 
 {% enddetails %}
 
-#### Filteroperatoren {#filter-operators}
+### Filteroperatoren {#filter-operators}
 
 Je nach dem spezifischen Filter, den Sie auswählen, stehen Ihnen verschiedene Operatoren zur Identifizierung von Filterwerten zur Verfügung. Um tiefer in die verfügbaren Operatoren für verschiedene Typen angepasster Attribute einzutauchen, lesen Sie [Speicherung angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes). Beachten Sie, dass bei Verwendung des Operators „is any of“ die maximale Anzahl von Elementen, die Sie in dieses Feld aufnehmen können, 256 beträgt.
 
@@ -96,7 +96,7 @@ Segmente, die bereits den Filter **Segmentzugehörigkeit** verwenden, können ni
 Außerdem erhöht die Verschachtelung von Segmenten die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu.
 {% endalert %}
 
-#### Ausschlussgruppen (optional) {#exclusion}
+### Ausschlussgruppen (optional) {#exclusion}
 
 Beim Erstellen eines Segments können Sie eine oder mehrere Ausschlussgruppen anwenden. Ausschlussgruppen enthalten Kriterien, die Nutzer:innen identifizieren, die von Ihrem Segment ausgeschlossen werden sollen, und sind immer mit einem „AND NOT“-Operator mit Ihren Filtergruppen verbunden.
 
@@ -108,7 +108,7 @@ Ausgeschlossene Nutzer:innen werden nicht in der Statistik *Gesamte erreichbare 
 
 ![Eine Ausschlussgruppe mit zwei Filtern.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-#### Funnel-Statistiken anzeigen {#viewing-funnel-statistics}
+### Funnel-Statistiken anzeigen {#viewing-funnel-statistics}
 
 Wählen Sie **Funnel-Statistiken anzeigen**, um die Statistiken für diese Filtergruppe anzuzeigen und zu sehen, wie sich jeder hinzugefügte Filter auf Ihre Segmentstatistiken auswirkt. Sie sehen eine geschätzte Anzahl und einen Prozentsatz der Nutzer:innen, die von allen Filtern bis zu diesem Punkt angesprochen werden. Sobald die Statistiken für eine Filtergruppe angezeigt werden, aktualisieren sie sich automatisch, wenn Sie die Filter ändern. Diese Statistiken sind Schätzungen und können einen Moment zur Generierung benötigen.
 
@@ -118,9 +118,13 @@ Beachten Sie, dass bei Verwendung von AND zwischen Ihren Filtern die Funnel-Stat
 
 Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte erkennen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine Social-Networking-App betreiben und sehen möchten, wo Sie während Ihres Onboarding-Prozesses Nutzer:innen verlieren, können Sie angepasste Datenfilter für die Registrierung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich registrieren und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, wissen Sie, dass Sie sich darauf konzentrieren sollten, während Ihres Onboardings und Ihrer Marketing-Kampagnen mehr Nachrichtenversand zu fördern.
 
-#### Segmente testen {#testing-segments}
+### Segmente testen {#testing-segments}
 
-Nachdem Sie Apps und Filter zu Ihrem Segment hinzugefügt haben, können Sie testen, ob Ihr Segment wie erwartet eingerichtet ist, indem Sie eine:n Nutzer:in nachschlagen, um zu bestätigen, ob er/sie die Segmentkriterien erfüllt. Suchen Sie dazu nach der `external_id` oder `braze_id` eines/einer Nutzer:in im Abschnitt **User Lookup**. Beachten Sie, dass Sie in **User Lookup** nicht nach E-Mail-Adresse suchen können.
+Nachdem Sie Apps und Filter zu Ihrem Segment hinzugefügt haben, können Sie testen, ob Ihr Segment wie erwartet eingerichtet ist, indem Sie eine:n Nutzer:in nachschlagen, um zu bestätigen, ob er/sie die Segmentkriterien erfüllt. Suchen Sie dazu nach der `external_id` oder `braze_id` eines/einer Nutzer:in im Abschnitt **User Lookup**.
+
+{% alert note %}
+**User Lookup** akzeptiert nur `external_id` und `braze_id`. E-Mail-Adressen, Telefonnummern oder andere Bezeichner werden nicht akzeptiert. Um ein Profil anhand von E-Mail, Telefonnummer oder anderen Feldern zu finden, verwenden Sie stattdessen [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#access-profiles).
+{% endalert %}
 
 ![Abschnitt „User Lookup“ mit einem Suchfeld.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
@@ -137,7 +141,7 @@ Wenn ein:e Nutzer:in einen Teil oder alle Segment-, Filter- oder App-Kriterien n
 
 ![Ein User Lookup mit einer Meldung, die besagt: „test1 does not match the following targeting criteria:“ und die fehlenden Kriterien anzeigt.]({% image_buster /assets/img_archive/user_lookup_nomatch.png %})
 
-#### Einzelnutzer-Segmente {#single-user-segments}
+### Einzelnutzer-Segmente {#single-user-segments}
 
 Sie können Einzelnutzer-Segmente (oder Segmente mit einer Handvoll Nutzer:innen) mithilfe eindeutiger Attribute erstellen, die Nutzer:innen identifizieren, wie z. B. ein Nutzername oder eine Nutzer-ID.
 

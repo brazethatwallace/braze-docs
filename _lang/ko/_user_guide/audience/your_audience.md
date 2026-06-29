@@ -167,4 +167,4 @@ Braze는 통합을 통해 [Segment]({{site.baseurl}}/partners/segment/), 데이�
 | 자동화 및 오케스트레이션 | 다음을 기반으로 메시지 및 여정을 트리거합니다: {::nomarkdown}<ul><li>사용자 동작</li> <li>속성 변경</li> <li>시간 기반 조건</li></ul>{:/} |
 | 크로스채널 조율 | 다음을 준수하면서 가장 적절한 채널로 사용자에게 도달합니다: {::nomarkdown}<ul><li>옵트인 상태</li> <li>빈도 제한</li> <li>채널 환경설정</li></ul>{:/} |
 | [분석 및 인사이트]({{site.baseurl}}/user_guide/analytics/) | 다음을 분석하여 다양한 오디언스의 행동을 파악합니다: {::nomarkdown}<ul><li>참여율</li> <li>전환 경로</li> <li>시간에 따른 Segment 성과</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="오디언스 데이터 기능" }

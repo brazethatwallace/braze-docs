@@ -21,7 +21,7 @@ Los mensajes dentro de la aplicación se desencadenan cuando el SDK registra uno
 Al inicio de la sesión de un usuario, Braze entregará todos los mensajes dentro de la aplicación elegibles a su dispositivo, al tiempo que precargará los activos para minimizar la latencia de visualización. Si el evento desencadenante tiene más de un mensaje dentro de la aplicación elegible, solo se entregará el mensaje con la prioridad más alta. Para obtener más información, consulta [Ciclo de vida de la sesión]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#about-the-session-lifecycle).
 
 {% alert note %}
-Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de la API, solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+Los mensajes dentro de la aplicación no se pueden desencadenar a través de la API ni mediante eventos de la API&#8212;solo mediante eventos personalizados registrados por el SDK. Para obtener más información sobre el registro, consulta [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
 ## Tipos de mensajes dentro de la aplicación {#types-of-in-app-messages}
@@ -32,7 +32,7 @@ Braze envía los siguientes tipos de mensajes dentro de la aplicación a los dis
 
 Un mensaje dentro de la aplicación `inapp` (o "[estándar]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)") ya está plantillado con la información necesaria, como los atributos personalizados que Braze ya conoce. Generalmente, cuando el mensaje dentro de la aplicación se descarga en el dispositivo, el evento desencadenante hace que el SDK muestre el mensaje dentro de la aplicación `inapp` incluso cuando el dispositivo está sin conexión o en modo avión.
 
-### `templated_iam` (plantillado) {#templatediam-templated}
+### `templated_iam` (plantillado) {#templated_iam-templated}
 
 Un mensaje dentro de la aplicación `templated_iam` (o "plantillado") aún no está plantillado con la información necesaria. Braze debe realizar otra solicitud para obtener la información antes de que el mensaje pueda aparecer.
 
@@ -40,7 +40,7 @@ Un mensaje dentro de la aplicación `templated_iam` (o "plantillado") aún no es
 
 ## Pares clave-valor {#key-value-pairs}
 
-Cuando creas una campaña en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación.
+Cuando creas una Campaign en Braze, puedes establecer pares clave-valor como `extras`, que el objeto de mensajería dentro de la aplicación puede utilizar para enviar datos a tu aplicación.
 
 {% tabs %}
 {% tab web %}
@@ -152,10 +152,10 @@ Para obtener un control más avanzado sobre la temporización de los mensajes, i
 {% endtab %}
 
 {% tab android %}
-1. Implementa el [`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para establecer un oyente personalizado.
+1. Implementa el [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para establecer un oyente personalizado.
 2. Actualiza tu método [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) para que devuelva [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
 
-Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo la visualización posterior y la reincorporación a la cola, consulta nuestra página [Personalización de mensajes](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
+Para obtener un control más avanzado sobre la temporización de los mensajes, incluyendo la visualización posterior y la reincorporación a la cola, consulta nuestra página [Personalización de mensajes]({{site.baseurl}}/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
 {% endtab %}
 
 {% tab swift %}
@@ -306,7 +306,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 Crea una [campaña push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) desencadenada a través del evento enviado por el servidor.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Paso de entrega de una campaña push silenciosa configurada para entrega basada en acciones con un desencadenante de evento personalizado server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 La campaña push debe incluir extras de par clave-valor que indiquen que esta campaña push se envía para registrar un evento personalizado del SDK. Este evento se utilizará para desencadenar el mensaje dentro de la aplicación.
 
@@ -379,7 +379,7 @@ El código del método `application(_:didReceiveRemoteNotification:fetchCompleti
 
 Puedes modificar el nombre o las propiedades del evento enviando el valor deseado dentro de los extras del par clave-valor de la carga útil push. Al registrar el evento personalizado, estos extras se pueden utilizar como parámetro del nombre del evento o como propiedad del evento.
 
-#### Paso 3: Crea una campaña de mensajes dentro de la aplicación {#step-3-create-an-in-app-message-campaign}
+#### Paso 3: Crea una campaña de mensajes dentro de la aplicación
 
 Crea tu campaña de mensajes dentro de la aplicación visible para el usuario en el panel de Braze. Esta campaña debe tener una entrega basada en acciones y desencadenarse desde el evento personalizado registrado en el método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`.
 

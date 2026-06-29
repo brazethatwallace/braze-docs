@@ -9,9 +9,9 @@ page_type: partner
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location

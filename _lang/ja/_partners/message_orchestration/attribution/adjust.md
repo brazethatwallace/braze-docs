@@ -2,7 +2,7 @@
 nav_title: Adjust
 article_title: Adjust
 alias: /partners/adjust/
-description: "この参考記事では、Brazeとモバイルアトリビューション・分析企業であるAdjustとの提携について概説しています。Adjustは、オーガニックインストール以外のアトリビューションデータをインポートし、ライフサイクルCampaign内でよりインテリジェントにセグメントすることを可能にします。"
+description: "この参考記事では、Brazeとモバイルアトリビューション・分析企業であるAdjustとの提携について概説しています。Adjustは、オーガニックインストール以外のアトリビューションデータをインポートし、ライフサイクルキャンペーン内でよりインテリジェントにセグメントすることを可能にします。"
 page_type: partner
 search_tag: Partner
 
@@ -16,7 +16,7 @@ _この統合はAdjustによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとAdjustの統合により、オーガニックインストール以外のアトリビューションデータをインポートし、ライフサイクルCampaign内でよりインテリジェントにセグメントできます。
+BrazeとAdjustの統合により、オーガニックインストール以外のアトリビューションデータをインポートし、ライフサイクルキャンペーン内でよりインテリジェントにセグメントできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -90,25 +90,25 @@ BrazeがAdjustからアトリビューションデータを受信すると、Bra
 
 ## 利用可能なデータフィールド {#available-data-fields}
 
-提案されたとおりに統合を設定すると、次の表に示すように、BrazeによりAdjustのデータがSegmentフィルターにマッピングされます。
+提案されたとおりに統合を設定すると、次の表に示すように、BrazeによりAdjustのデータがセグメントフィルターにマッピングされます。
 
-| Adjustデータフィールド | Braze Segmentフィルター |
+| Adjustデータフィールド | Braze セグメントフィルター |
 | --- | --- |
 | `{network_name}` | Attributed Source |
-| `{campaign_name}` | Attributed Campaign |
+| `{campaign_name}` | Attributed キャンペーン |
 | `{adgroup_name}` | Attributed Adgroup |
 | `{creative_name}` | Attributed Ad |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能なデータフィールド" }
 
 ## FacebookとX（旧Twitter）のアトリビューションデータ {#facebook-and-x-formerly-twitter-attribution-data}
 
-FacebookおよびX（旧Twitter）Campaignのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、パートナーはそのデータをBrazeに送信することができません。
+FacebookおよびX（旧Twitter）キャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、パートナーはそのデータをBrazeに送信することができません。
 
 ## BrazeでのAdjustクリックトラッキングURL（オプション） {#adjust-click-tracking-urls-in-braze-optional}
 
-BrazeのCampaignでクリックトラッキングリンクを使用すると、どのCampaignがアプリのインストールと再エンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
+Brazeのキャンペーンでクリックトラッキングリンクを使用すると、どのキャンペーンがアプリのインストールと再エンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
 
-Adjustクリックトラッキングリンクの使用を開始するには、[ドキュメント](https://help.adjust.com/tracking/attribution/tracker-urls)を参照してください。BrazeのCampaignにAdjustクリックトラッキングリンクを直接挿入できます。Adjustは、[確率的アトリビューション手法](https://www.adjust.com/blog/attribution-compatible-with-ios14/)を使って、リンクをクリックしたユーザーをアトリビュートします。BrazeのCampaignからのアトリビューションの精度を高めるために、Adjustトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
+Adjustクリックトラッキングリンクの使用を開始するには、[ドキュメント](https://help.adjust.com/tracking/attribution/tracker-urls)を参照してください。BrazeのキャンペーンにAdjustクリックトラッキングリンクを直接挿入できます。Adjustは、[確率的アトリビューション手法](https://www.adjust.com/blog/attribution-compatible-with-ios14/)を使って、リンクをクリックしたユーザーをアトリビュートします。Brazeのキャンペーンからのアトリビューションの精度を高めるために、Adjustトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
 
 {% tabs local %}
 {% tab Android %}

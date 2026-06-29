@@ -10,12 +10,12 @@ page_order: 4
 > Use Liquid personalization in landing pages to dynamically tailor the content with user profile data. For example, you can personalize headlines based on different user attributes without managing multiple static landing pages.
 
 {% alert important %}
-Liquid personalization for landing pages is only available on the Pro tier of landing pages. Currently, [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), [multi-language]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/), and [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) are not supported with Liquid personalization in landing pages.
+Liquid personalization for landing pages is only available on the Pro tier of landing pages. Currently, [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), [multi-language]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings), and [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) are not supported with Liquid personalization in landing pages.
 {% endalert %}
 
 ## Inserting Liquid
 
-In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#using-liquid).
+In the drag-and-drop editor, you can insert Liquid personalization both in the editor and in the page or block settings in the right-hand panel. For instructions on implementing Liquid, check out our dedicated [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
 
 ![Landing page editor with Liquid personalization added.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -41,21 +41,38 @@ To prevent your page from exceeding size limits or experiencing slow load times,
 - Doesn't continuously loops through or references large data sets.
 - Doesn't rely on extensive mathematical or conditional logic within the Liquid block.
 
-Additionally, avoid embedding large scripts, stylesheets, and base64-encoded assets directly in your landing page code. These inline assets count toward the page size limit and can slow down rendering. Instead, upload fonts, images, stylesheets, and scripts to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Assets served from the media library are hosted on Braze's CDN, so they do not get processed for Liquid rendering and do not count toward the page size limit.
+Additionally, avoid embedding large scripts, stylesheets, and base64-encoded assets directly in your landing page code. These inline assets count toward the page size limit and can slow down rendering. Instead, upload fonts, images, stylesheets, and scripts to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Assets served from the media library are hosted on Braze's CDN, so they do not get processed for Liquid rendering and do not count toward the page size limit.
 
 ### Use Liquid for identified and anonymous users 
 
 Liquid can customize the landing page experience for both identified and anonymous visitors.
 
-- **Identified users:** Link to the landing page from a Braze message and include the [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags). This associates the user with their Braze profile and personalizes the page experience.
+- **Identified users:** Link to the landing page from a Braze message and include the [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). This associates the user with their Braze profile and personalizes the page experience.
 - **Anonymous visitors:** Use Liquid for contextual, non-profile-based content, such as a random number or a time-of-day greeting.
+
+### Pre-fill form fields
+
+If a landing page form field maps to a user profile attribute, you can pre-fill that field for returning users. This helps reduce form friction and improves completion rates for known visitors.
+
+Use pre-fill form fields:
+
+1. Select your form field in the drag-and-drop editor.
+2. In the right-hand settings panel, map the field to the appropriate profile attribute.
+3. Select **Pre-fill from user profile**.
+
+![Landing page form field settings showing the option to pre-fill from user profile data.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+
+Pre-filling only works for [identified users](#use-liquid-for-identified-and-anonymous-users). For anonymous visitors, form fields keep their default state:
+
+- **Input fields:** Display their placeholder text.
+- **Checkboxes, radio buttons, and similar controls:** Remain unselected until the user interacts with them.
 
 ## Fetching external data with custom code
 
 You can use a **Custom Code** block to fetch data from external endpoints and display it in your landing page. This approach makes the request on the client side (in the user's browser), so the page loads quickly without server-side rendering delays.
 
 {% alert warning %}
-When fetching external data, you are responsible for the security of your implementation. External identifiers used in API calls should be UUIDs or use an equivalently secure naming scheme, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+When fetching external data, you are responsible for the security of your implementation. External identifiers used in API calls should be UUIDs or use an equivalently secure naming scheme, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Use case
@@ -110,7 +127,7 @@ When fetching external data in landing pages:
 - **Loading states:** Users will see placeholder text until the endpoint responds. Consider adding a loading indicator or skeleton screen.
 - **Error handling:** If the endpoint fails or is slow to respond, the page may appear broken. Implement appropriate error messages and fallbacks.
 - **Performance:** The page loads immediately, but data appears after the external request completes. Keep your API responses fast for the best user experience.
-- **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices).
+- **Security:** Ensure your API endpoint validates the identifier and only returns data the user is authorized to see. Implement rate limiting to prevent abuse. For guidance on choosing secure identifiers, see [User ID naming best practices]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 ## Fallback pages
 

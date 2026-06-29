@@ -27,7 +27,7 @@ BrazeとAppsFlyerの統合により、AppsFlyerのモバイルインストール
 | AppsFlyer SDK | 必要なBraze SDKに加えて、[AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)をインストールする必要があります。 |
 | メールドメインのセットアップ完了 | Brazeオンボーディング時にメールを設定するには、[IPとドメインの設定ステップ]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)を完了している必要があります。 |
 | SSL証明書 | [SSL証明書]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -108,13 +108,17 @@ Brazeで、**Partner Integrations** > **Technology Partners**に移動し、**Ap
 3. Brazeダッシュボードで確認したデータインポートキーとRESTエンドポイントを入力します。
 4. **Advanced Privacy**をオフに切り替え、設定を保存します。
 
+{% alert important %}
+AppsFlyerのIntegrationタブでBraze RESTエンドポイントを入力する際は、`https://`プロトコルや`/attribution/appsflyer`パスを含めず、ドメインのみ（例：`rest.fra-02.braze.eu`）を入力してください。AppsFlyerが自動的にプロトコルを付加し、パスを追加します。いずれかを入力に含めると、ポストバックが失敗します。
+{% endalert %}
+
 これらの手順に関する追加情報は、[AppsFlyerのドキュメント](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration)に掲載されています。
 
 ### ステップ4: 統合を確認する {#step-4-confirm-the-integration}
 
-BrazeがAppsFlyerからアトリビューションデータを受信すると、BrazeのAppsFlyerテクノロジーパートナーページのステータス接続インジケータが「Not Connected」から「Connected」に変わり、最後にリクエストが成功したタイムスタンプが含まれます。
+BrazeのAppsFlyerテクノロジーパートナーページでは、ステップ2でデータインポートAPIキーを生成するまで、接続インジケーターに**Not Connected**と表示されます。キーを生成すると、インジケーターが**Connected**に変わり、タイムスタンプが表示されます。このタイムスタンプは、AppsFlyerが最後にポストバックを送信した時点ではなく、Brazeで統合が最初にセットアップされた時点（データインポートキーが作成された時点）を反映しています。
 
-このステータスは、アトリビューション付きインストールに関するデータをBrazeが受信した後にのみ変更されます。Brazeはオーガニックインストールを無視し（AppsFlyerのポストバックから除外し）、接続が成功したかどうかを判断する際にカウントしません。
+インストールアトリビューションデータがAppsFlyerから流入していることを確認するには、ステップ5を使用して、非オーガニックインストールデータがBrazeのSegmentフィルターに表示されることを検証してください。BrazeはAppsFlyerのポストバックからのオーガニックインストールを無視し、アトリビューション付きインストールデータとして保存しません。
 
 ### ステップ5: ユーザーアトリビューションデータを確認する {#step-5-viewing-user-attribution-data}
 
@@ -128,7 +132,7 @@ BrazeがAppsFlyerからアトリビューションデータを受信すると、
 | `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能なデータフィールド" }
 
 Brazeダッシュボードでは、インストールアトリビューションフィルターを使用して、アトリビューションデータでユーザー群をセグメンテーションできます。
 
@@ -144,7 +148,7 @@ FacebookおよびX（旧Twitter）Campaignsのアトリビューションデー�
 
 ディープリンク&#8212;アプリやWebサイト内の特定のページや場所にユーザーを誘導するリンク&#8212;は、カスタマイズされたユーザー体験を作り出すために使用されます。
 
-広く使われている一方で、ユーザーデータの収集に使われるもう一つの重要な機能であるクリックトラッキング#8212でメールによるディープリンクを使用する場合、問題が発生する可能性があります。これらの問題は、メールサービスプロバイダー（ESP）がディープリンクをクリック記録ドメインでラッピングし、元のリンクを壊してしまうことに起因します。そのため、ディープリンクをサポートするには追加の設定が必要です。
+広く使われている一方で、ユーザーデータの収集に使われるもう一つの重要な機能であるクリックトラッキング&#8212;でメールによるディープリンクを使用する場合、問題が発生する可能性があります。これらの問題は、メールサービスプロバイダー（ESP）がディープリンクをクリック記録ドメインでラッピングし、元のリンクを壊してしまうことに起因します。そのため、ディープリンクをサポートするには追加の設定が必要です。
 
 AppsFlyerはこのような問題を回避する[サービス](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer)を提供しており、ESPサーバーとお客様のドメイン名の間にAppsFlyerを仲介として介在させることができます。プロキシとしての役割により、ディープリンクを容易にするアソシエーションファイル（AASA/アセットリンク）の提供が可能になります。
 
@@ -215,7 +219,7 @@ AppsFlyerは、ユニバーサルリンクをサポートするためにWebチ�
 
 ## ステップ5: BrazeでSSLクリックトラッキングが有効になっていることを確認する {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-この段階で、AppsFlyerでCTDの詳細を共有し検証した後、OneLinkの送信ドメインにSSL証明書があるかどうかを確認するため、テスト送信を実行することを推奨します。これは[メール設定](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)ガイドに沿ったものです。
+この段階で、AppsFlyerでCTDの詳細を共有し検証した後、OneLinkの送信ドメインにSSL証明書があるかどうかを確認するため、テスト送信を実行することを推奨します。これは[メール設定]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)ガイドに沿ったものです。
 
 OneLinkを使ってディープリンクを送信することで、品質保証やトラブルシューティングを行うことができます。OneLinkの使い方の詳細については、[AppsFlyerのドキュメント](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a)を参照してください。
 

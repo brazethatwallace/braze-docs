@@ -10,7 +10,7 @@ search_tag: Partner
 > Dies ist eine Liste der Entity-Beziehungen zwischen Snowflake und Braze für jeden Messaging-Kanal.
 
 {% alert important %}
-Die Entity-Relationship-Diagramme heben gemeinsame Felder und Beziehungen zwischen Tabellen hervor und stellen keine vollständigen Tabellenschemata dar. Eine vollständige Liste der Felder finden Sie in den [einzelnen Tabellenschemata]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Die Entity-Relationship-Diagramme heben gemeinsame Felder und Beziehungen zwischen Tabellen hervor und stellen keine vollständigen Tabellenschemata dar. Eine vollständige Liste der Felder finden Sie in den [einzelnen Tabellenschemata](/docs/assets/download_file/data-sharing-raw-table-schemas.txt).
 {% endalert %}
 
 {% sdktabs %}

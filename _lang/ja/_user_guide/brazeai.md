@@ -16,7 +16,7 @@ guide_featured_list:
   - name: エージェント
     link: /docs/user_guide/brazeai/agents
     image: /assets/img/braze_icons/star-06.svg
-  - name: Braze MCP サーバー
+  - name: Braze MCPサーバー
     link: /docs/user_guide/brazeai/mcp_server
     image: /assets/img/braze_icons/dataflow-01.svg
   - name: コンテンツオプティマイザー
@@ -28,16 +28,16 @@ guide_featured_list:
   - name: 生成 AI
     link: /docs/user_guide/brazeai/generative_ai
     image: /assets/img/braze_icons/lightbulb-02.svg
-  - name: Intelligence Suite
+  - name: インテリジェントスイート
     link: /docs/user_guide/brazeai/intelligence_suite
     image: /assets/img/braze_icons/clock.svg
   - name: アイテムのおすすめ
     link: /docs/user_guide/brazeai/item_recommendations
     image: /assets/img/braze_icons/hearts.svg
-  - name: Operator
+  - name: オペレーター
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Predictive Suite
+  - name: 予測スイート
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: パーソナライズ済みパス
@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## 機能の概要 {#feature-overview}
+
+| 目標 | おすすめの機能 |
+| --- | --- |
+| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | Brazeエージェント（キャンバスまたはカタログ）、単発の下書きコピーには生成 AI |
+| どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | コンテンツオプティマイザー（メール、プッシュ通知、またはSMS/MMS/RCS）または勝者バリアント |
+| オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | Decisioning Studio |
+| チャーンする可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | Predictive ChurnまたはPredictive Events |
+| メッセージ内でカタログから特定の製品をおすすめする | アイテムのおすすめ |
+| ユーザーごとに最適な時間や最適なチャネルで送信する | インテリジェントタイミング、インテリジェントチャネル |
+| ダッシュボードで直接コピーやクリエイティブを作成・改善する | 生成 AI（コピーライティング、画像、QA）、サポートにはオペレーター |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }

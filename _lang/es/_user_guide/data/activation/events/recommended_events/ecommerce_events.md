@@ -18,7 +18,7 @@ Los eventos de comercio electrónico de Braze y sus propiedades de eventos segme
 
 <a id="transactions-tab" aria-hidden="true"></a>
 
-## Pestaña Comercio {#commerce-tab}
+## Pestaña Commerce {#commerce-tab}
 
 La pestaña **Commerce** en cada perfil de usuario combina dos módulos: **Order activity** (métricas calculadas de ingresos y pedidos) y **Active cart** (el carrito más reciente de los eventos `ecommerce.cart_updated`).
 
@@ -52,12 +52,14 @@ El módulo **Active cart** muestra el carrito más reciente en el perfil de usua
 
 ### Segmentación {#segmentation}
 
-Los eventos de comercio electrónico se comportan como eventos personalizados, por lo que todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, podrías filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces".
+Braze ofrece tres formas de segmentar usuarios basándose en datos de comercio electrónico:
 
-Para la segmentación basada en datos de productos anidados (como ID de producto específicos, nombres de variantes o umbrales de precio), usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) con filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios entre diferentes propiedades del mismo pedido.
+- **Filtros de comercio electrónico:** Usa la categoría **eCommerce** en el segmentador, que contiene filtros impulsados por eventos recomendados de comercio electrónico (como **Last Order Placed**, **Total Revenue** y **Average Order Value**). Para una lista completa de filtros disponibles, consulta [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Filtros de eventos personalizados:** Dado que los eventos de comercio electrónico se comportan como eventos personalizados, todos los filtros de eventos personalizados existentes funcionan de inmediato. Por ejemplo, puedes filtrar por "Ha realizado el evento personalizado `ecommerce.order_placed` más de X veces" o "Realizó por primera vez el evento personalizado `ecommerce.order_placed`".
+- **Extensiones de segmento:** Para segmentar por propiedades de eventos anidados, incluyendo el arreglo de productos anidados o las propiedades de los objetos de metadatos, usa [Extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) con filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios entre diferentes propiedades del mismo pedido.
 
 {% alert important %}
-Las Extensiones de segmento son una característica de pago. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
+Las Extensiones de segmento para eventos recomendados de comercio electrónico son una característica de pago y están en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
 {% endalert %}
 
 ### Desencadenamiento {#triggering}
@@ -160,15 +162,15 @@ Los eventos recomendados de comercio electrónico alimentan las mismas superfici
 | Informe | Qué muestra |
 |---------------------------------------------|-------------------------------------------|
 | Informe de ingresos | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y aplicaciones seleccionados. |
-| Dashboard de ingresos de atribución de último toque | Ingresos atribuidos a la última Campaign o Canvas con los que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
-| Análisis de Campaign y Canvas | Ingresos totales atribuidos a una Campaign o Canvas específicos dentro de la ventana de conversión primaria. |
-| Informe de conversiones | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la Campaign o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
+| Dashboard de ingresos de atribución de último toque | Ingresos atribuidos a la última campaña o Canvas con los que un usuario interactuó antes de realizar un pedido. Los eventos de toque incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
+| Análisis de Campaign y Canvas | Ingresos totales atribuidos a una campaña o Canvas específicos dentro de la ventana de conversión primaria. |
+| Informe de conversiones | Ingresos vinculados a eventos de conversión en campañas y Canvas.<br> **Nota:** Para contar los ingresos de `ecommerce.order_placed`, la campaña o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión. |
 | Información del segmento | Comparaciones de ingresos entre segmentos en el dashboard de información del segmento. |
 | Generador de informes | Métricas de ingresos en informes personalizados creados en el Generador de informes. |
 | Generador de dashboards | Métricas de ingresos en dashboards personalizados creados en el Generador de dashboards. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
-Para campos calculados que no son de usuario (por ejemplo, ingresos de una Campaign o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
+Para campos calculados que no son de usuario (por ejemplo, ingresos de una campaña o Canvas), los ingresos se calculan de la misma manera en todos los informes: `price` multiplicado por `quantity` por producto en el pedido, sumado entre los productos de cada evento `order_placed`.
 
 {% alert note %}
 Para evitar el doble conteo de ingresos, no envíes tanto compras heredadas como eventos recomendados de comercio electrónico para los mismos pedidos. Si planeas hacer la transición de compras heredadas a eventos recomendados, coordina el cambio con tu equipo de cuenta de Braze antes de realizar cualquier cambio en la integración.<br><br>

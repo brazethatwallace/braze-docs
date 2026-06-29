@@ -18,7 +18,7 @@ _この連携はBlingsによって管理されています。_
 | 要件 | 説明 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blingsアカウント | このパートナーシップを利用するには、Blingsアカウントが必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 
@@ -31,8 +31,8 @@ _この連携はBlingsによって管理されています。_
 
 BlingsアプリでHTMLスニペットを直接見つけてコピーします。
 
-1. 選択したMP5プロジェクトの**Connect**タブに移動します。
-2. Blingsの**Connect**ページで、対応する変数にBraze Liquidタグを追加します。タグによってHTMLスニペット内の値がダイナミックに入力されます。
+1. 選択したMP5プロジェクトの**接続**タブに移動します。
+2. Blingsの**接続**ページで、対応する変数にBraze Liquidタグを追加します。タグによってHTMLスニペット内の値がダイナミックに入力されます。
 
 ![BlingsのHTMLスニペット。]({% image_buster /assets/img/blings/blings_connect_audience.png %}){: style="max-width:70%;"}
 
@@ -48,15 +48,13 @@ Blingsの担当者にHTMLスニペットをリクエストしてください。
 
 ### ステップ 2: BrazeでCampaignを作成する {#step-2-create-a-braze-campaign}
 
-Brazeで新しいメールまたはアプリ内メッセージのCampaignを作成し、BlingsのHTMLスニペットを挿入します。
-
-![Blings Braze Campaign。]({% image_buster /assets/img/blings/blings_braze_campaign.png %})
+Brazeで新しいメールまたはアプリ内メッセージのCampaignを作成し、BlingsのHTMLスニペットを挿入します。エディター内プレビューを使用して、パーソナライズされたフィールドとCreative Suiteのダイナミックなコンテンツが期待どおりに表示されることを確認します。
 
 ### ステップ 3: テストして起動する {#step-3-test-and-launch}
 
 BrazeでCampaignをプレビューし、パーソナライズされたフィールドが正しく入力されていることを確認します。その後、MP5 Campaignを大規模に展開します。
 
-![Blings Brazeプレビュー。]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
+![Braze Blingsプレビュー。]({% image_buster /assets/img/blings/blings_braze_preview.png %}){: style="max-width:70%;"}
 
 ## サポートを受ける {#getting-support}
 

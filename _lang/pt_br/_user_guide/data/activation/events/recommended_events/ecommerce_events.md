@@ -52,12 +52,14 @@ O **Carrinho ativo** inclui o seguinte:
 
 ### Segmentação {#segmentation}
 
-Os eventos de eCommerce se comportam como eventos personalizados, então todos os filtros de eventos personalizados existentes funcionam imediatamente. Por exemplo, você pode filtrar por "Realizou o evento personalizado `ecommerce.order_placed` mais de X vezes."
+A Braze oferece três formas de segmentar usuários com base em dados de eCommerce:
 
-Para direcionamento baseado em dados aninhados de produtos (como IDs de produto específicos, nomes de variantes ou faixas de preço), use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) com filtragem de propriedades de evento aninhadas. Isso permite criar públicos como "usuários que compraram o produto SKU-123 nos últimos 90 dias" ou combinar critérios de diferentes propriedades do mesmo pedido.
+- **Filtros de eCommerce:** Use a categoria **eCommerce** no segmentador, que contém filtros alimentados por eventos recomendados de eCommerce (como **Last Order Placed**, **Total Revenue** e **Average Order Value**). Para uma lista completa dos filtros disponíveis, consulte [Filtros de segmento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Filtros de evento personalizado:** Como os eventos de eCommerce se comportam como eventos personalizados, todos os filtros de eventos personalizados existentes funcionam imediatamente. Por exemplo, você pode filtrar por "Realizou o evento personalizado `ecommerce.order_placed` mais de X vezes" ou "Realizou pela primeira vez o evento personalizado `ecommerce.order_placed`".
+- **Extensões de segmento:** Para segmentar por propriedades de evento aninhadas, incluindo o array de produtos aninhados ou as propriedades dos objetos de metadados, use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) com filtragem de propriedades de evento aninhadas. Isso permite criar públicos como "usuários que compraram o produto SKU-123 nos últimos 90 dias" ou combinar critérios de diferentes propriedades do mesmo pedido.
 
 {% alert important %}
-Extensões de segmento são um recurso pago. Confirme se o seu plano inclui acesso antes de recomendar segmentação por propriedades aninhadas para sua equipe.
+As Extensões de segmento para eventos recomendados de eCommerce são um recurso pago e estão em acesso antecipado. Se você tem interesse em participar do acesso antecipado, entre em contato com seu gerente de sucesso do cliente. Confirme se o seu plano inclui acesso antes de recomendar segmentação por propriedades aninhadas para sua equipe.
 {% endalert %}
 
 ### Disparo {#triggering}

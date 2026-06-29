@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Aprende a eliminar un usuario individual o un segmento de usuarios directamente a través del panel de Braze.
 
-{% alert important %}
-La eliminación de usuarios se encuentra actualmente en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
 Para eliminar usuarios, debes ser administrador o tener el permiso **Delete Users**. Para ver los registros de eliminación de usuarios, debes ser administrador o tener el permiso **View User Deletion Records**. Los siguientes permisos controlan la eliminación de usuarios y los registros de eliminación:
@@ -31,7 +27,7 @@ La eliminación de usuarios te permite gestionar tu base de datos eliminando per
 
 | Consideración | Detalles |
 |---------------|---------|
-| Tamaño máximo | Puedes eliminar hasta 100 millones de perfiles de usuario al eliminar un segmento. |
+| Tamaño máximo | Puedes eliminar hasta 10 millones de perfiles de usuario al eliminar un segmento. |
 | Período de espera | Todas las eliminaciones de segmentos requieren un período de espera de 7 días más el tiempo necesario para procesar las eliminaciones. |
 | Límites de trabajos | Solo se puede eliminar un segmento a la vez, lo que incluye el período de espera de 7 días. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de la eliminación de usuarios" }
@@ -52,7 +48,6 @@ Las eliminaciones de un solo usuario son permanentes: los perfiles no se pueden 
 
 En la página de su perfil, selecciona <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. Ten en cuenta que puede tardar unos minutos en que el usuario se elimine completamente en Braze.
 
-![Un usuario en Braze con el menú de puntos suspensivos verticales abierto, mostrando la opción de eliminar al usuario.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Eliminar un segmento {#delete-segment}
 
@@ -90,7 +85,7 @@ Tienes 7 días para cancelar las eliminaciones de segmentos pendientes. Para can
 
 ![La pestaña "Delete Users" en la sección "Manage Audience" del panel de Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Junto a una eliminación de segmento pendiente, selecciona <i class="fa-solid fa-eye"></i> para abrir los detalles del registro de eliminación.
+Junto a una eliminación de segmento pendiente, selecciona <i class="fa-solid fa-eye"></i> **View details** para abrir los detalles del registro de eliminación.
 
 ![Una eliminación de segmento pendiente en la pestaña "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -134,7 +129,7 @@ En esta página, puedes encontrar la siguiente información general para todas l
 | Estado | Muestra si la solicitud de eliminación está pendiente, en curso o completada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar audiencia" }
 
-Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
+Para obtener más detalles sobre una solicitud específica, selecciona <i class="fa-solid fa-eye"></i> **View details** para mostrar los detalles del registro de eliminación. Aquí también puedes [cancelar eliminaciones de segmentos pendientes](#cancel).
 
 ![Una eliminación de segmento pendiente en la pestaña "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -144,21 +139,17 @@ También puedes verificar el estado de eliminaciones anteriores descargando un i
 
 ## Preguntas frecuentes {#faq}
 
-### ¿Puedo eliminar segmentos con más de 100 millones de usuarios? {#can-i-delete-segments-with-more-than-100-million-users}
+### ¿Puedo eliminar segmentos con más de 10 millones de usuarios? {#can-i-delete-segments-with-more-than-10-million-users}
 
-No. No puedes eliminar segmentos con más de 100 millones de usuarios. Si necesitas ayuda para eliminar un segmento de este tamaño, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+No. No puedes eliminar segmentos con más de 10 millones de usuarios. Si necesitas ayuda para eliminar un segmento de este tamaño, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
-### Parece que no puedo eliminar 100 millones de usuarios y estoy limitado a eliminar solo 10 millones. ¿Es un error? {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### Solo puedo eliminar hasta 10 millones de usuarios a la vez. ¿Es un error? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-No, esto no es un error. Ciertos clientes tienen un límite en el número de usuarios que pueden eliminar durante el programa de acceso anticipado (EA).
-
-A medida que el programa de EA avance, esta capacidad está diseñada para aumentar hasta que todos los clientes puedan eliminar hasta 100 millones de usuarios.
-
-Si deseas aumentar esta capacidad, ponte en contacto con tu director de cuentas de Braze. Las solicitudes se conceden a discreción del equipo de producto.
+No, esto no es un error. El número máximo de perfiles de usuario que se pueden eliminar en una sola ejecución de eliminación de segmento es de 10 millones.
 
 ### ¿La fusión automatizada de usuarios afecta la eliminación de usuarios? {#does-automated-user-merging-affect-user-deletion}
 
-Si una fusión programada incluye perfiles de usuario pendientes de eliminación, Braze omite esos perfiles y no los fusiona. Para fusionar estos perfiles, primero debes eliminarlos de la eliminación pendiente.
+Si una fusión programada incluye perfiles de usuario pendientes de eliminación, Braze omite esos perfiles y no los fusiona. Para fusionar estos perfiles, primero debes quitarlos de la eliminación pendiente.
 
 ### ¿Qué sucede con los datos enviados a usuarios pendientes de eliminación? {#what-happens-to-data-sent-to-users-pending-deletion}
 
@@ -173,3 +164,7 @@ Sí. Sin embargo, puedes añadir un filtro de inclusión de segmento para exclui
 Las eliminaciones de usuarios individuales son permanentes.
 
 Puedes [cancelar eliminaciones de segmentos](#cancel) dentro de los primeros 7 días. Sin embargo, los usuarios que ya se hayan eliminado antes de la cancelación no se pueden restaurar.
+
+### ¿Puedo eliminar usuarios con la API en lugar del dashboard? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Sí. Para lotes más pequeños, puedes usar el [punto de conexión `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/), que acepta hasta 50 identificadores por solicitud y está sujeto al [límite de velocidad]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#rate-limit) de ese punto de conexión. La eliminación basada en segmentos desde el dashboard es más adecuada para audiencias muy grandes, pero incluye el [período de espera de 7 días](#about-user-deletion).

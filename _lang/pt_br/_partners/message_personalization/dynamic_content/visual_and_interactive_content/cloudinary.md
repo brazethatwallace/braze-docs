@@ -75,7 +75,7 @@ A maneira mais direta de usar imagens e vídeos diretamente do DAM do Cloudinary
 Consulte [Vídeo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) para considerações específicas sobre Android e iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Converter vídeos em GIFs %}
 
 ## Converta vídeos em GIFs para e-mails {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Atributos de direcionamento %}
 
 ## Selecione dinamicamente os ativos da campanha com base nos atributos de direcionamento {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -140,8 +140,8 @@ Este exemplo presume que os ativos no Cloudinary têm dois campos SMD definidos 
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,19 +149,19 @@ Este exemplo presume que os ativos no Cloudinary têm dois campos SMD definidos 
 
 - URL de saída para usuários com público `internal` e locale `en`:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL de saída para usuários com público `external` e locale `es`:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL da imagem de fallback:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Geração de imagens personalizadas %}
 
 ## Geração de imagens personalizadas {#personalized-image-generation}
 
@@ -171,7 +171,7 @@ O exemplo a seguir demonstra como a transformação `l_text` pode ser usada para
 
 Para mais orientações sobre como os parâmetros de transformação podem ser usados para projetar um ativo, entre em contato com a equipe de suporte do Cloudinary.
 
-### Exemplo de transformação `l_text` {#example-ltext-transformation}
+### Exemplo de transformação `l_text` {#example-l_text-transformation}
 
 {% raw %}
 ```bash

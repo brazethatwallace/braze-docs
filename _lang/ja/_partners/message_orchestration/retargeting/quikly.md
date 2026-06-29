@@ -135,9 +135,9 @@ Webhookを使用して、カスタマージャーニーの特定のイベント�
 
 ### BrazeでQuiklyのWebhookを作成する {#create-a-quikly-webhook-in-braze}
 
-将来のCampaignsやCanvasesのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
+将来のCampaignsやCanvasesのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**Content** > **Webhook**に移動します。次に、**Create webhook template**を選択します。
 
-新しいCampaignを作成する際に、QuiklyのWebhook Campaignを一度だけ作成するか、既存のテンプレートを使用する場合は、Brazeで**Webhook**を選択してください。
+QuiklyのWebhook Campaignを一度だけ作成するか、既存のテンプレートを使用する場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択してください。
 
 **Blank Template**を選択し、Webhook URLとリクエストボディに次の内容を入力します。
 - **Webhook URL**: https://api.quikly.com/webhook/braze

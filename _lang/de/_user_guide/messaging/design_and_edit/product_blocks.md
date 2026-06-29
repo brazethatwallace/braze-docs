@@ -21,11 +21,11 @@ Das Feature für Drag-and-Drop-Produkt-Blöcke befindet sich im Early Access und
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Empfohlene E-Commerce-Ereignisse | [Empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events/) bieten standardisierte Datenschemata für wichtige Verhaltens-Ereignisse, die vor und nach einer Bestellung auftreten. Diese Ereignisse werden langfristig das bisherige Braze-Kauf-Event ersetzen und zum Standard für das Tracking von Commerce-bezogenem Verhalten werden. <br><br> Empfohlene E-Commerce-Ereignisse sind für dynamische Produkt-Blöcke erforderlich.<br><br> Empfohlene E-Commerce-Ereignisse befinden sich derzeit im Early Access. Wenden Sie sich an Ihren Braze Customer-Success-Manager, wenn Sie am Early Access teilnehmen möchten. |
+| Empfohlene E-Commerce-Ereignisse | [Empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events/) bieten standardisierte Datenschemata für wichtige Verhaltens-Ereignisse, die vor und nach einer Bestellung auftreten. Diese Ereignisse werden langfristig das bisherige Braze-Kauf-Event ersetzen und zum Standard für das Tracking von Commerce-bezogenem Verhalten werden. <br><br> Empfohlene E-Commerce-Ereignisse sind für dynamische Produkt-Blöcke erforderlich. |
 | E-Commerce-Canvas-Templates | Die empfohlenen E-Commerce-Ereignisse unterstützen vorgefertigte Templates, einschließlich E-Commerce-Canvas-Templates für wesentliche Anwendungsfälle wie abgebrochenes Browsing, Warenkorb-Abbruch und Bestellbestätigungen. <br><br>Wenn Sie einen dieser wesentlichen E-Commerce-Anwendungsfälle mit den [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases/) umsetzen möchten, müssen Sie das bereitgestellte Canvas-Template verwenden oder sich daran orientieren. |
 | Braze-Katalog | Sie müssen einen Braze-Katalog erstellen, der die folgenden Felder enthält, die Sie in Ihrer Produkt-Block-Konfiguration verwenden:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | Katalogauswahl | Für statische Produkt-Blöcke müssen Sie eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) erstellen, um festzulegen, welche Produkte in Ihrem Produkt-Block enthalten sein sollen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Typen von Drag-and-Drop-Produkt-Blöcken {#types-of-drag-and-drop-product-blocks}
 
@@ -33,7 +33,7 @@ Das Feature für Drag-and-Drop-Produkt-Blöcke befindet sich im Early Access und
 | --- | --- | --- | --- |
 | Dynamisch | Personalisieren Sie Ihre Nachrichten mit einer Produktpräsentation basierend auf Kundeninteraktionen, indem Sie [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events/) und Kataloge innerhalb unserer [E-Commerce-Canvas-Templates]({{site.baseurl}}/ecommerce_use_cases/) verwenden. | {::nomarkdown}<ul><li>Abgebrochenes Browsing</li><li>Warenkorb-Abbruch</li><li>Abgebrochener Checkout</li><li>Bestellbestätigungen</li></ul>{:/} | Nur in Canvas verfügbar. |
 | Statisch | Personalisieren Sie Produkte mithilfe von Daten, die in einem Braze-Katalog gespeichert sind. Sie müssen eine [Katalogauswahl]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) verwenden, um festzulegen, welche Produkte enthalten sein sollen. | Ideal für die Präsentation neuer Produkteinführungen oder kategoriespezifischer Angebote. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types of drag-and-drop product blocks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Typen von Drag-and-Drop-Produkt-Blöcken" }
 
 ## Inhaltskonfiguration von Produkt-Blöcken {#product-block-content-configuration}
 
@@ -52,7 +52,7 @@ Wählen Sie im Abschnitt **Product Fields** Ihren Produkt-Block-Typ aus und akti
 | Button für Produkt-URL | Kataloge |
 | Preis | Eigenschaft des empfohlenen E-Commerce-Ereignisses |
 | Menge | Eigenschaft des empfohlenen E-Commerce-Ereignisses |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamic product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamischer Produkt-Block" }
 
 ![Produktfelder für einen dynamischen Produkt-Block, unterteilt in Katalogdaten und Ereignisdaten]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
@@ -64,7 +64,7 @@ Wählen Sie im Abschnitt **Product Fields** Ihren Produkt-Block-Typ aus und akti
 | Produkttitel | Kataloge |
 | Button für Produkt-URL | Kataloge |
 | Preis | Kataloge |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Static product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Statischer Produkt-Block" }
 
 ![Produktfelder für einen statischen Produkt-Block, die alle als Katalogdaten kategorisiert sind.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,7 +78,7 @@ Verwenden Sie Layout-Optionen, um anzupassen, wie Ihre Produkte innerhalb Ihres 
 | Ausrichtung | Passen Sie die Ausrichtung der Textfelder und des Buttons innerhalb des Blocks an. |
 | Maximale Produkte pro Zeile | Zeigen Sie bis zu drei Produkte pro Zeile an, insgesamt bis zu 12 Produkte für statische Produkt-Blöcke und bis zu 24 Produkte für dynamische Produkt-Blöcke. |
 | Produktabstand | Legen Sie den Abstand zwischen den Produkten fest. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout-Optionen" }
 
 ![Layout-Optionen für Produktausrichtung, Ausrichtung, maximale Produkte pro Zeile und Produktabstand.]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
@@ -105,9 +105,9 @@ Um Drag-and-Drop-Produkt-Blöcke zu verwenden, müssen Sie einen Braze-Katalog m
 | `product_title` | Der Titel des Produkts. |
 | `product_url` | Die URL, unter der Kund:innen das Produkt ansehen oder kaufen können. |
 | `variant_image_url` | Die URL für das Variantenbild. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Katalog-Einrichtung" }
 
-Starten Sie direkt mit diesem [Beispiel-Produktkatalog]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), der die erforderlichen Felder enthält.
+Starten Sie direkt mit diesem [Beispiel-Produktkatalog](/docs/assets/download_file/ecommerce_product_catalog_sample.csv), der die erforderlichen Felder enthält.
 
 ![Eine Beispiel-CSV-Datei mit den erforderlichen Feldern sowie weiteren Feldern.]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 

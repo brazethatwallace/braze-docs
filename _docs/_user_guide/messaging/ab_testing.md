@@ -42,4 +42,4 @@ guide_featured_list:
 - **Know what you're testing.** Isolating a single change identifies which element had the greatest impact; testing multiple differences lets you compare broader approaches.
 - **Set a test duration upfront** and don't end the test early, even if early results look promising.
 - **Add tests before launch.** Adding a test to a running campaign produces inaccurate results. Clone the campaign, stop the original, and add the test to the clone.
-- **Include a [control group]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#including-a-control-group)** to measure impact versus sending no message at all.
+- **Include a [control group]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#including-a-control-group)** to measure impact versus sending no message at all.

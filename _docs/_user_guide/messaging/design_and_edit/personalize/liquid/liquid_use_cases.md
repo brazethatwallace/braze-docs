@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personalize a message based on matching custom attributes](#attribute-matching)
+- [Format currency for European number conventions](#european-currency-format)
 - [Subtract two custom attributes to display the difference as a monetary value](#attribute-monetary-difference)
 - [Reference a user's first name if their full name is stored in the first_name field](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Format currency for European number conventions {#european-currency-format}
+
+For locales that use a comma as the decimal separator and a period as the thousands separator (for example, Germany or Italy), use the [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) and [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) filters with `replace` to swap separators. Use `#` as a temporary placeholder so periods and commas aren't swapped in the same pass.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Output:** `1.234.567,89`
+
+**Explanation:** The `money` filter adds decimal places but doesn't add a currency symbol or locale-specific separators. `number_with_delimiter` adds US-style thousands separators, and the `replace` filters convert them to European formatting.
 {% endraw %}
 
 ### Subtract two custom attributes to display the difference as a monetary value {#attribute-monetary-difference}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 This use case allows users to set up upcoming reminders based on custom events. The example scenario allows a user to set a reminder for a policy renewal date that is 26 or more days away, where reminders are sent 26, 13, 7, or 2 days before the policy renewal date.
 
-With this use case, the following should go in the body of a [webhook campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) or Canvas step.
+With this use case, the following should go in the body of a [webhook campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) or Canvas step.
 
 {% raw %}
 ```liquid
@@ -1373,6 +1388,10 @@ Time zones
 - [Abort a message outside an hour range at send time](#abort-send-time-hour-range)
 - [Abort a message outside a time window in a fixed time zone](#abort-fixed-timezone-window)
 
+{% alert note %}
+If a user receives a message at an unexpected local time, their device or profile time zone may have changed (for example, after traveling). Local-time delivery uses the time zone on the profile at send time; users may need a new session in their usual region before values such as {% raw %}`{{${time_zone}}}`{% endraw %} reflect what you expect. However, you can [template in the user's time zone](#users-time-zone).
+{% endalert %}
+
 ### Template in the user's time zone {#users-time-zone}
 
 By default, dates and times in Liquid are rendered in Coordinated Universal Time (UTC). To display dates and times in the user's local time zone, use the `time_zone` filter with the `date` filter.
@@ -1520,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} This is the opposite of [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} This is the opposite of [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Abort a message outside an hour range at send time {#abort-send-time-hour-range}
 
@@ -1797,4 +1816,4 @@ This use case aborts the message when Liquid runs on a given weekday (`Wednesday
 
 {% endapi %}
 
-Many examples in this library use the `abort_message` tag to skip a send when conditions aren't met. For a full reference on aborting sends with Liquid, including date- and time-based patterns, see [Abort Liquid Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Many examples in this library use the `abort_message` tag to skip a send when conditions aren't met. For a full reference on aborting sends with Liquid, including date- and time-based patterns, see [Abort Liquid Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

@@ -30,14 +30,14 @@ description: "この記事では、「カタログセレクションの作成」
 | パラメーター | 必須 | データタイプ | 説明 |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `selection` | 必須 | オブジェクト | セレクション条件を含むオブジェクト。オブジェクトとそのフィールドの詳細については、[カタログセレクションオブジェクト]({{site.baseurl}}/api/objects_filters/catalog_selection_object/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### セレクションオブジェクトのパラメーター {#selection-object-parameters}
 
@@ -46,12 +46,12 @@ description: "この記事では、「カタログセレクションの作成」
 | `name` | 必須 | 文字列 | カタログセレクションの名前。 |
 | `description` | オプション | 文字列 | カタログセレクションの説明。 |
 | `external_id` | 必須 | 文字列 | セレクションの一意の識別子。 |
-| `source` | オプション | 文字列 | カタログデータのソース。Shopifyカタログの場合は `"Shopify"` を使用します。有効な値は `"Shopify"` と `"Braze"` です。 |
+| `source` | 必須 | 文字列 | カタログデータのソース。Shopifyカタログの場合は `"Shopify"` を使用します。カスタムカタログの場合は `"custom"` を使用します。 |
 | `filters` | オプション | 配列 | カタログアイテムに適用するフィルターオブジェクトの配列。リクエストごとに最大4つのフィルターを指定できます。フィルターが指定されていない場合、カタログ内のすべてのアイテムが含まれます。 |
 | `results_limit` | オプション | 整数 | 返す結果の最大数。1から50までの数値を指定する必要があります。 |
 | `sort_field` | オプション | 文字列 | 結果をソートするフィールド。`sort_order`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
 | `sort_order` | オプション | 文字列 | 結果のソート順。有効な値は `"asc"`（昇順）または `"desc"`（降順）です。`sort_field`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Selection object parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
 `sort_field`と`sort_order`パラメーターは必ず一緒に使用する必要があります。一方のみを指定した場合、または両方を省略した場合、セレクション結果はランダムな順序で返されます。
@@ -68,6 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
+    "source": "custom",
     "filters": [
       {
         "field": "City",
@@ -96,10 +97,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean` | `is` |
 | `time` | `before`, `after` |
 | `array` | `includes value`, `does not include value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter operators" }
+| `geo` | `geo within`, `geo outside` |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 APIは、1回のセレクションリクエストにつき最大4つのフィルターをサポートしています。Brazeダッシュボードでは、セレクションごとに最大10個のフィルターを追加できます。フィルターは配列に記載された順序で適用されます。
+{% endalert %}
+
+{% alert note %}
+`geo`フィルターを適用すると、`sort_field`および`sort_order`パラメーターに関係なく、システムは自動的に距離順（最も近いアイテムが先頭）で結果をソートします。
 {% endalert %}
 
 ## 応答 {#response}
@@ -156,6 +162,6 @@ APIは、1回のセレクションリクエストにつき最大4つのフィル
 | `invalid-sort-field` | セレクションのソートフィールドが有効かどうか確認してください。 |
 | `invalid-sort-order` | セレクションのソート順が有効かどうか確認してください。 |
 | `selection-contains-too-many-arrays` | セレクションに `array` 型のフィールドが複数含まれていないか確認してください。サポートされているのは1つのみです。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

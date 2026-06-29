@@ -87,8 +87,6 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 이벤트 속성정보 빈도 및 최근성을 기반으로 Segment를 생성하려면 "Edit Custom Event Property Segmentation" [사용자 권한]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage)이 필요합니다.
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 기본적으로 워크스페이스당 20개의 세분화 가능한 이벤트 속성정보를 사용할 수 있습니다. 이 제한을 늘리려면 Braze 계정 매니저에게 문의하세요.
 
 세분화를 위한 이벤트 속성정보를 추가하려면 다음을 수행하세요:
@@ -115,7 +113,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 ### Canvas 진입 속성정보 및 이벤트 속성정보 {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### 중첩 오브젝트 {#nested-objects}
 

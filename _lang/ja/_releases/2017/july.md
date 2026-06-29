@@ -22,7 +22,7 @@ WindowsおよびAndroidのChrome用Webプッシュで大きな画像のサポー
 
 ## Liquidテンプレーティングの更新 {#updates-to-liquid-templating}
 
-CanvasesおよびCampaignsでバリアント属性をテンプレート化する機能を追加しました。Canvasではバリアントの API IDと名前を、Campaignsではメッセージの `message_api_id` と `message_name` をテンプレート化できるようになりました。これらの更新により、メッセージングの柔軟性が向上し、パーソナライズされたCampaignsを構築できるようになります。[パーソナライズされたメッセージング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)について詳しくはこちらをご覧ください。
+キャンバスおよびキャンペーンでバリアント属性をテンプレート化する機能を追加しました。キャンバスではバリアントの API IDと名前を、キャンペーンではメッセージの `message_api_id` と `message_name` をテンプレート化できるようになりました。これらの更新により、メッセージングの柔軟性が向上し、パーソナライズされたキャンペーンを構築できるようになります。[パーソナライズされたメッセージング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)について詳しくはこちらをご覧ください。
 
 ## 新しいHTMLメールエディター {#new-html-email-editor}
 
@@ -30,11 +30,11 @@ CanvasesおよびCampaignsでバリアント属性をテンプレート化する
 
 ## プレビューの更新 {#updates-to-previews}
 
-CampaignsおよびCanvasesでメッセージプレビューを下にスクロールしても画面ウィンドウが追従するようになり、変更が常に反映されていることを確認できます。詳細については、[プレビューとテスト]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/campaigns_in_multiple_languages/#step-6-preview-message)を参照してください。
+キャンペーンおよびキャンバスでメッセージプレビューを下にスクロールしても画面ウィンドウが追従するようになり、変更が常に反映されていることを確認できます。詳細については、[プレビューとテスト]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/campaigns_in_multiple_languages/#step-6-preview-message)を参照してください。
 
-## 新しいSegmentメンバーシップフィルター {#new-segment-membership-filter}
+## 新しいセグメントメンバーシップフィルター {#new-segment-membership-filter}
 
-[Segmentメンバーシップフィルター]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters)を追加しました。これにより、既存のSegmentsのいずれかへのメンバーシップに基づいてユーザーをターゲット設定できます。さらに、Segmentフィルターで「And」と「Or」ロジックの両方を使用する機能、およびSegmentsを相互にネストする機能を追加しました。これらの更新により、カスタマイズされたメッセージをより正確に顧客に送信できるようになります。
+[セグメントメンバーシップフィルター]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters)を追加しました。これにより、既存のセグメントのいずれかへのメンバーシップに基づいてユーザーをターゲット設定できます。さらに、セグメントフィルターで「And」と「Or」ロジックの両方を使用する機能、およびセグメントを相互にネストする機能を追加しました。これらの更新により、カスタマイズされたメッセージをより正確に顧客に送信できるようになります。
 
 ## Androidプレビューの更新 {#update-to-android-preview}
 

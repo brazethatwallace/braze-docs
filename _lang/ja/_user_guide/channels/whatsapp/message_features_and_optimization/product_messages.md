@@ -6,7 +6,7 @@ description: "このページでは、WhatsApp製品メッセージを使用し�
 page_type: reference
 alias: "/whatsapp_product_messages/"
 tool:
- - Campaigns
+ - キャンペーン
 channel:
  - WhatsApp
 ---
@@ -107,7 +107,7 @@ Metaカタログ作成時のベストプラクティスについては、[Commer
 
 1. Meta Business Managerで、**Message Templates**に移動します。
 2. フォーマットとして**Catalog**を選択し、**Catalog message**（カタログ全体を表示）または**Multi-product catalog message**（特定のアイテムをハイライト）を選択します。
-3. Brazeで、WhatsApp CampaignまたはCanvasメッセージステップを作成します。
+3. Brazeで、WhatsApp キャンペーンまたはキャンバスメッセージステップを作成します。
 4. テンプレートを送信したサブスクリプショングループと一致するものを選択します。
 5. **WhatsApp Template Message**を選択します。
 6. 使用するテンプレートを選択します。
@@ -123,7 +123,7 @@ Metaカタログ作成時のベストプラクティスについては、[Commer
 {% endtab %}
 {% tab 応答メッセージ %}
 
-1. Brazeで、WhatsApp CampaignまたはCanvasメッセージステップを作成します。
+1. Brazeで、WhatsApp キャンペーンまたはキャンバスメッセージステップを作成します。
 2. サブスクリプショングループを選択します。
 3. **Response Message**を選択します。
 4. **Meta Product Messages**を選択します。
@@ -184,7 +184,7 @@ Meta Business Managerで、**Commerce Manager**に移動し、組織を選択し
 顧客がWhatsAppで注文すると、Brazeは自動的に以下を行います。
 1. WhatsAppからカートの内容（製品ID、数量、その他の注文データ）を受信します。
 2. `source = whats_app`を含むすべての関連データを持つ`ecommerce.cart_update` eコマースイベントを作成します。
-3. 応答をトリガーし、注文に応答する自動Campaignを設定できるようにします。
+3. 応答をトリガーし、注文に応答する自動キャンペーンを設定できるようにします。
 
 `ecommerce.cart_update` eコマースイベントは、イベントが送信された後にのみBrazeにリストされます。これは、Brazeからテスト製品メッセージを生成し、カートイベントを送信することで実行できます。
 カートイベントには以下が含まれます。
@@ -203,7 +203,7 @@ Brazeカートイベントの追加情報については、[eコマース推奨�
 1. `ecommerce.cart_updated`のカスタムイベントトリガーを作成します。
 2. `source = "whats_app"`のプロパティフィルターを追加します。
 
-![基本プロパティ「source」が`whats_app`に等しい`ecommerce.cart_updated`カスタムイベントトリガーのCanvasステップ。]({% image_buster /assets/img/whatsapp/product_message_canvas_step.png %})
+![基本プロパティ「source」が`whats_app`に等しい`ecommerce.cart_updated`カスタムイベントトリガーのキャンバスステップ。]({% image_buster /assets/img/whatsapp/product_message_canvas_step.png %})
 
 {: start="3"}
 3. カートデータに基づいてフォローアップアクションを設定します。
@@ -235,7 +235,7 @@ Liquidを使用して、応答メッセージ内で直接カートURLを構築�
 
 #### 設定 {#setup}
 
-1. `ecommerce.cart_update` eコマースイベントをトリガーとするWhatsApp応答メッセージCampaignを作成します。
+1. `ecommerce.cart_update` eコマースイベントをトリガーとするWhatsApp応答メッセージキャンペーンを作成します。
 2. カートURLを含む後続メッセージを作成します。
 3. LiquidでカートURLを構築します。Shopifyを使用している場合は、上記のLiquidの例を使用して[カートパーマリンクを作成](https://shopify.dev/docs/apps/build/checkout/create-cart-permalinks)できます。
 
@@ -248,8 +248,8 @@ eコマースシステムにAPI呼び出しを行い、パーソナライズさ�
 
 #### 設定
 
-1. [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated) eコマースイベントによってトリガーされるWebhook CampaignまたはCanvasステップを作成し、カートデータをeコマースシステムに送信します。
-2. 同じeコマースイベントによってトリガーされるWhatsApp CampaignまたはCanvasメッセージステップを作成し、カートURL付きのWhatsApp応答メッセージをユーザーに送信します。後続の応答メッセージの指示に従い、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用してください。
+1. [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated) eコマースイベントによってトリガーされるWebhook キャンペーンまたはキャンバスステップを作成し、カートデータをeコマースシステムに送信します。
+2. 同じeコマースイベントによってトリガーされるWhatsApp キャンペーンまたはキャンバスメッセージステップを作成し、カートURL付きのWhatsApp応答メッセージをユーザーに送信します。後続の応答メッセージの指示に従い、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用してください。
 
 ![コネクテッドコンテンツ呼び出しのチェックアウト体験ワークフローを示す図：Metaが注文受信メッセージをBrazeに送信し、Brazeがeコマースプラットフォームと双方向の呼び出しを行い、WhatsAppメッセージを送信します。]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 
@@ -260,7 +260,7 @@ webhookを使用してカートデータをシステムに送信し、カスタ�
 
 #### 設定
 
-`ecommerce.cart_update` eコマースイベントによってトリガーされるWebhook CampaignまたはCanvasステップを作成し、カートデータをeコマースシステムに送信します。APIは以下を行います。
+`ecommerce.cart_update` eコマースイベントによってトリガーされるWebhook キャンペーンまたはキャンバスステップを作成し、カートデータをeコマースシステムに送信します。APIは以下を行います。
 1. カートデータを受信する
 2. システム内にカートを作成する
 3. チェックアウトURLを生成する

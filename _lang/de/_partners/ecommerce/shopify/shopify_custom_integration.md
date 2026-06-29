@@ -576,7 +576,7 @@ function CartLineUpdateButton({children, lines}) {
 
 Rufen Sie die Shopify-Partnerseite auf, um Ihre Einrichtung zu starten. Wählen Sie zunächst **Begin Setup**, um die Braze-Anwendung aus dem Shopify App Store zu installieren. Folgen Sie den geführten Schritten, um den Installationsvorgang abzuschließen.
 
-![Einrichtungsseite für die Shopify-Integration im Braze-Dashboard.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Einrichtungsseite für die Shopify-Integration im Braze-Dashboard.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### 2. Schritt: Braze SDKs aktivieren {#step-2-enable-braze-sdks}
 
@@ -584,13 +584,13 @@ Für Shopify Hydrogen oder Headless-Shops wählen Sie die Option **Custom setup*
 
 Bevor Sie mit dem Onboarding-Prozess fortfahren, vergewissern Sie sich, dass Sie das Braze SDK auf Ihrer Shopify-Website aktiviert haben.
 
-![Einrichtungsschritt zur Aktivierung der Braze SDKs.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Einrichtungsschritt zur Aktivierung der Braze SDKs.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
 ### 3. Schritt: Shopify-Daten tracken {#step-3-track-shopify-data}
 
 Verbessern Sie Ihre Integration, indem Sie weitere Shopify-Events und -Attribute hinzufügen, die von Shopify-Webhooks unterstützt werden. Ausführliche Informationen zu den Daten, die durch diese Integration getrackt werden, finden Sie unter [Shopify-Daten-Features]({{site.baseurl}}/shopify_data_features/).
 
-![Einrichtungsschritt zum Tracking von Shopify-Daten.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Einrichtungsschritt zum Tracking von Shopify-Daten.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### 4. Schritt: Historisches Backfill (optional) {#step-4-historical-backfill-optional}
 
@@ -598,7 +598,7 @@ Durch die angepasste Einrichtung können Sie optional denselben historischen Sho
 
 Wenn Sie das Backfill lieber später durchführen möchten, können Sie die Ersteinrichtung jetzt abschließen und zu einem späteren Zeitpunkt zu diesem Schritt zurückkehren.
 
-![Abschnitt zum Einrichten des historischen Daten-Backfills.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![Abschnitt zum Einrichten des historischen Daten-Backfills.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
 Die vollständige Liste der Daten im initialen Ladevorgang, das Verhalten der Umsatzberichte und die Überwachung der Synchronisierung finden Sie unter [Historisches Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
@@ -646,7 +646,7 @@ Das SDK muss auf dem Gerät der Nutzer:innen initialisiert sein (auf Aktivitäte
 
 Wählen Sie Ihren `external_id`-Typ aus der Dropdown-Liste aus.
 
-![Abschnitt „Abonnent:innen sammeln“.]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![Abschnitt „Abonnent:innen sammeln“.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 Die Verwendung einer E-Mail-Adresse oder einer gehashten E-Mail-Adresse als externe Braze-ID kann die Identitätsverwaltung über Ihre Datenquellen hinweg vereinfachen. Es ist jedoch wichtig, die potenziellen Risiken für den Datenschutz und die Datensicherheit zu berücksichtigen.<br><br>
@@ -734,7 +734,7 @@ Sie haben die Möglichkeit, Ihre E-Mail- oder SMS-Marketing-Opt-ins von Shopify 
 
 Wenn Sie die E-Mail- oder SMS-Kanäle nutzen, können Sie Ihre E-Mail- und SMS-Marketing-Opt-in-Status mit Braze synchronisieren. Wenn Sie E-Mail-Marketing-Opt-ins von Shopify synchronisieren, erstellt Braze automatisch eine E-Mail-Abo-Gruppe für alle Nutzer:innen, die mit diesem Shop verknüpft sind. Sie müssen einen eindeutigen Namen für diese Abo-Gruppe erstellen.
 
-![Abschnitt „Abonnent:innen sammeln“ mit der Option, E-Mail- oder SMS-Marketing-Opt-ins zu sammeln.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![Abschnitt „Abonnent:innen sammeln“ mit der Option, E-Mail- oder SMS-Marketing-Opt-ins zu sammeln.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 Wie in der [Shopify-Übersicht]({{site.baseurl}}/shopify_overview/) erwähnt, müssen Ihre Entwickler:innen den Braze-SDK-Code integrieren, wenn Sie ein Erfassungsformular eines Drittanbieters verwenden möchten. So können Sie die E-Mail-Adresse und den globalen E-Mail-Abo-Status aus Formularübermittlungen erfassen. Konkret müssen Sie diese Methoden in Ihrer `theme.liquid`-Datei implementieren und testen:<br><br>
@@ -746,7 +746,7 @@ Wie in der [Shopify-Übersicht]({{site.baseurl}}/shopify_overview/) erwähnt, m�
 
 Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchronisieren, um die Personalisierung von Nachrichten zu vertiefen. Automatische Updates erfolgen nahezu in Realtime, sodass Ihr Katalog immer die neuesten Produktdetails enthält. Weitere Informationen finden Sie unter [Shopify-Produktsynchronisation]({{site.baseurl}}/shopify_catalogs/).
 
-![Einrichtungsschritt zur Synchronisierung von Produktdaten mit Braze.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Einrichtungsschritt zur Synchronisierung von Produktdaten mit Braze.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
 ### 8. Schritt: Kanäle aktivieren {#step-8-activate-channels}
 
@@ -760,7 +760,7 @@ Um In-App-Nachrichten, Content Cards und Feature-Flags über die direkte Shopify
 
 Nachdem Sie alle Schritte durchlaufen haben, wählen Sie **Finish Setup**, um zur Partnerseite zurückzukehren. Aktivieren Sie dann die Braze-App-Einbettung auf Ihrer Shopify-Admin-Seite, wie durch das angezeigte Banner angezeigt.
 
-![Banner, das Sie auffordert, die Braze-App-Einbettung in Shopify zu aktivieren, damit Sie die Einrichtung Ihrer Integration abschließen können.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![Banner, das Sie auffordert, die Braze-App-Einbettung in Shopify zu aktivieren, damit Sie die Einrichtung Ihrer Integration abschließen können.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### Beispiel-Code {#example-code}
 

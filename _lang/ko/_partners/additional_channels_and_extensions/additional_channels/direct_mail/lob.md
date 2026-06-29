@@ -27,7 +27,7 @@ _이 통합은 Lob에서 유지 관리합니다._
 | ---| ---|
 | Lob 계정 | 이 파트너십을 활용하려면 Lob 계정이 필요합니다. |
 | Lob API 키 | Lob API 키는 Lob 대시보드에서 이름 아래의 설정 섹션에서 찾을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Braze 웹훅을 사용하여 우편 발송하기 {#sending-mail-using-braze-webhooks}
 
@@ -38,11 +38,11 @@ Lob에서 수행하려는 작업에 따라 웹훅의 HTTP 요청에서 해당 �
 | 기본 URL | 사용 가능한 엔드포인트 |
 | ------------ | ------------------- |
 | `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Choose a Lob endpoint" }
 
 ### 2단계: Braze 웹훅 템플릿 만들기 {#step-2-create-your-braze-webhook-template}
 
-향후 Campaign 또는 Canvas에서 사용할 Lob 웹훅 템플릿을 만들려면 Braze 대시보드에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+향후 Campaign 또는 Canvas에서 사용할 Lob 웹훅 템플릿을 만들려면 Braze 대시보드에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 Lob 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **웹훅**을 선택합니다.
 

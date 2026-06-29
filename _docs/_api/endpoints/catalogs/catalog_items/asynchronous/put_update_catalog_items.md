@@ -23,7 +23,7 @@ If a catalog item doesn't exist, this endpoint will create the item in your cata
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.replace_items` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.replace_items` permission.
 
 ## Rate limit
 
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -77,6 +78,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
   ]
 }'
 ```
+
+{% alert note %}
+The `Location` field uses the `geo` data type, which expects an array formatted as `[longitude, latitude]`.
+{% endalert %}
 
 ## Response
 

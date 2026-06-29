@@ -26,13 +26,13 @@ Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케�
 
 Braze는 이커머스 비즈니스의 다양한 요구를 충족하도록 설계된 두 가지 Shopify 통합 옵션을 제공합니다: **표준 통합**과 **커스텀 통합**.
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 ## 통합 작동 방식 {#how-the-integration-works}
 
 구성 설정에서 이미 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 설정하고 활성화한 경우, 초기 데이터 동기화가 즉시 시작됩니다.
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 초기 데이터 동기화 이후, Braze는 Shopify 및 Braze SDK에서 직접 새로운 데이터와 업데이트를 지속적으로 추적합니다.
 

@@ -43,7 +43,7 @@ Test Connection läuft auf Ihrem Data Warehouse, sodass eine Erhöhung der Data-
 
 Versuchen Sie, die offiziellen Braze-IPs zu Ihrer IP-Zulassungsliste hinzuzufügen. Weitere Informationen finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), oder erlauben Sie die entsprechenden IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Fehler bei der Ausführung von SQL aufgrund der Kund:innen-Konfiguration: 002003 (42S02): SQL-Kompilierungsfehler: existiert nicht oder ist nicht autorisiert {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 

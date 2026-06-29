@@ -8,10 +8,10 @@ description: "This article provides an overview of the eCommerce Revenue - Last 
 
 # eCommerce revenue dashboard
 
-> The **eCommerce Revenue - Last Touch Attribution** dashboard tracks last-touch attributed revenue for campaigns and Canvases using [eCommerce recommended events]({{site.baseurl}}/ecommerce_events/). Use this dashboard to understand which messages drive revenue and to monitor overall eCommerce performance over time.
+> The **eCommerce Revenue - Last Touch Attribution** dashboard tracks last-touch attributed revenue for campaigns and Canvases using [eCommerce recommended events]({{site.baseurl}}/ecommerce_events). Use this dashboard to understand which messages drive revenue and to monitor overall eCommerce performance over time.
 
 {% alert note %}
-If you're using the new [Shopify connector]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), eCommerce recommended events are automatically available through the integration. Otherwise, these events must be implemented before data appears in this dashboard.
+If you're using the new [Shopify connector]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector), eCommerce recommended events are automatically available through the integration. Otherwise, these events must be implemented before data appears in this dashboard.
 {% endalert %}
 
 To view your eCommerce revenue dashboard, go to **Analytics** > **Dashboard Builder**, then select **eCommerce Revenue - Last Touch Attribution**. This dashboard reports on revenue attributed to the last campaign or Canvas a user interacted with before placing an order, within the selected conversion window.

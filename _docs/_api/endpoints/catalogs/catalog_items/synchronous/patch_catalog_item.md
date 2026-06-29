@@ -21,7 +21,7 @@ description: "This article outlines details about the Edit catalog item Braze en
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.update_item` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.update_item` permission.
 
 ## Rate limit
 
@@ -53,9 +53,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -73,7 +74,8 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-The `$add` and `$remove` operators are only applicable to array type fields, and are only supported by PATCH endpoints.
+- The `Location` field uses the `geo` data type, which expects an array formatted as `[longitude, latitude]`.
+- The `$add` and `$remove` operators are only applicable to array type fields, and are only supported by PATCH endpoints.
 {% endalert %}
 
 ## Response
@@ -118,7 +120,7 @@ The following table lists possible returned errors and their associated troubles
 
 | Error | Troubleshooting |
 | --- | --- |
-| `arbitrary-error` | An arbitrary error occurred. Please try again or contact [Support]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | An arbitrary error occurred. Please try again or contact [Support]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Check that the catalog name is valid. |
 | `filtered-set-field-too-long` | The field value is being used in a filtered set that exceeds the character limit for an item. |
 | `id-in-body` | An item ID already exists in the catalog. |

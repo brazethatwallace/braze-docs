@@ -11,10 +11,10 @@ description: "Este artículo ofrece un resumen del dashboard de ingresos de come
 > El dashboard **eCommerce Revenue - Last Touch Attribution** realiza un seguimiento de los ingresos atribuidos por último toque para Campaigns y Canvas mediante [eventos recomendados de comercio electrónico]({{site.baseurl}}/ecommerce_events/). Usa este dashboard para entender qué mensajes generan ingresos y para monitorear el rendimiento general de comercio electrónico a lo largo del tiempo.
 
 {% alert note %}
-Los eventos recomendados de comercio electrónico se encuentran actualmente en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente de Braze si te interesa participar en este acceso anticipado. <br><br>Si estás usando el nuevo [conector de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), estos eventos recomendados estarán disponibles automáticamente a través de la integración. De lo contrario, estos eventos deben implementarse antes de que los datos aparezcan en este dashboard.
+Si estás usando el nuevo [conector de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), los eventos recomendados de comercio electrónico estarán disponibles automáticamente a través de la integración. De lo contrario, estos eventos deben implementarse antes de que los datos aparezcan en este dashboard.
 {% endalert %}
 
-Para ver tu dashboard de ingresos de comercio electrónico, ve a **Analytics** > **Dashboard Builder** y selecciona **eCommerce Revenue - Last Touch Attribution**. Este dashboard informa sobre los ingresos atribuidos a la última Campaign o Canvas con la que un usuario interactuó antes de realizar un pedido, dentro de la ventana de conversión seleccionada.
+Para ver tu dashboard de ingresos de comercio electrónico, ve a **Analytics** > **Dashboard Builder** y selecciona **eCommerce Revenue - Last Touch Attribution**. Este dashboard informa sobre los ingresos atribuidos a la última campaña o Canvas con la que un usuario interactuó antes de realizar un pedido, dentro de la ventana de conversión seleccionada.
 
 ![Dashboard eCommerce Revenue - Last Touch Attribution que muestra estadísticas de ingresos de comercio electrónico, pedidos diarios realizados e ingresos diarios promedio de comercio electrónico, y un gráfico de ingresos de comercio electrónico a lo largo del tiempo.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
 
@@ -34,7 +34,7 @@ Para ver tu dashboard de ingresos de comercio electrónico, ve a **Analytics** >
 
 ## Modelo de atribución {#attribution-model}
 
-El dashboard **eCommerce Revenue - Last Touch Attribution** utiliza la atribución de último toque. Esto significa que los ingresos se atribuyen a la Campaign o Canvas de Braze más reciente con la que un usuario interactuó antes de realizar un pedido.
+El dashboard **eCommerce Revenue - Last Touch Attribution** utiliza la atribución de último toque. Esto significa que los ingresos se atribuyen a la campaña o Canvas de Braze más reciente con la que un usuario interactuó antes de realizar un pedido.
 
 Las siguientes interacciones con mensajes califican como eventos de toque para la atribución:
 

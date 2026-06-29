@@ -17,8 +17,6 @@ description: "Cet article présente en détail l'endpoint source de traduction C
 
 > Utilisez cet endpoint pour afficher toutes les sources de traduction par défaut des étiquettes de traduction d'un Canvas. Il s'agit des valeurs avec le {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour plus d'informations sur les fonctionnalités de traduction.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.translations.get`.

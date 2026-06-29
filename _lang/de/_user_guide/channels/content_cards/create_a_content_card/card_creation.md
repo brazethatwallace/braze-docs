@@ -68,6 +68,10 @@ In den Einstellungen **Ablauf (Verweildauer im Feed)** können Sie **Dauer perso
 
 ![Ablaufeinstellungen mit „Dauer personalisieren“, konfiguriert mit einer Kontextvariable für den Content-Card-Ablauf.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cards haben eine maximale Ablaufzeit von 30 Tagen, auch bei Verwendung personalisierter Dauer mit Kontextvariablen. Jeder Wert über 30 Tage wird auf 30 Tage begrenzt. Weitere Informationen finden Sie unter [Kartenablauf]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -127,6 +131,10 @@ Dieser Abschnitt beschreibt die wesentlichen Unterschiede zwischen der Karteners
 
 ## Hinweise {#considerations}
 
+### Mehrkanalige Kampagnen {#multichannel-campaigns}
+
+Mehrkanalige Kampagnen unterstützen keine Karten bei der ersten Impression, sodass alle Content Cards beim Kampagnenstart gesendet werden.
+
 ### Verwendung von Canvas-Kontexteigenschaften {#using-canvas-context-properties}
 
 Wenn Sie Content Cards mit [Canvas-Kontexteigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) personalisieren, verwenden Sie die `${...}`-Syntax (zum Beispiel {%raw%}`{{context.${property_name}}}`{%endraw%}). Punktnotation ohne diese Syntax (zum Beispiel {%raw%}`{{context.property_name}}`{%endraw%}) wird in Content Cards möglicherweise nicht korrekt aufgelöst, auch wenn sie in anderen Kanälen wie Push und E-Mail funktioniert.
@@ -139,7 +147,7 @@ Braze empfiehlt, die Art der Kartenerstellung nach dem Start einer Kampagne nich
 
 Wählen Sie bei großen Zielgruppen die Option zur Kartenerstellung bei der ersten Impression, damit Karten nach dem Start schnell verfügbar sind. Kampagnen, die beim Sitzungsstart getriggert werden, können ebenfalls von der Umstellung auf die Erstellung bei der ersten Impression profitieren (verfügbar über geplante Zustellung), um die Performance zu verbessern.
 
-Wenn Karten bei der ersten Impression erstellt werden, kann die Verarbeitung 1–2 Sekunden dauern. Die Dauer dieser Verarbeitungszeit hängt von verschiedenen Faktoren ab, wie der Kartengröße und der Komplexität der Nachrichten-Template-Optionen. Beispielsweise ist die Verarbeitungszeit für Karten mit Connected-Content mindestens so lang wie die Antwortzeit des Connected-Content.
+Wenn Karten bei der ersten Impression erstellt werden, kann die Verarbeitung einige Sekunden dauern. Die Dauer dieser Verarbeitungszeit hängt von verschiedenen Faktoren ab, wie der Kartengröße und der Komplexität der Nachrichten-Template-Optionen. Beispielsweise ist die Verarbeitungszeit für Karten mit Connected-Content mindestens so lang wie die Antwortzeit des Connected-Content.
 
 ### Frühere SDK-Versionen {#previous-sdk-versions}
 

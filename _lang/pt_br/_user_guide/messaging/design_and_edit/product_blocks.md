@@ -21,11 +21,11 @@ O recurso de bloco de produto de arrastar e soltar está em acesso antecipado e,
 
 | Requisito | Descrição |
 | --- | --- |
-| Eventos recomendados de eCommerce | Os [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) fornecem esquemas de dados padronizados para eventos comportamentais importantes que ocorrem antes e depois de um pedido ser realizado. Esses eventos eventualmente substituirão o evento de compra legado da Braze e se tornarão o padrão para rastreamento de comportamento relacionado a comércio. <br><br> Os eventos recomendados de eCommerce são obrigatórios para blocos de produto dinâmicos.<br><br> Os eventos recomendados de eCommerce estão atualmente em acesso antecipado. Fale com o seu gerente de sucesso do cliente na Braze se tiver interesse em participar deste acesso antecipado. |
+| Eventos recomendados de eCommerce | Os [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) fornecem esquemas de dados padronizados para eventos comportamentais importantes que ocorrem antes e depois de um pedido ser realizado. Esses eventos eventualmente substituirão o evento de compra legado da Braze e se tornarão o padrão para rastreamento de comportamento relacionado a comércio. <br><br> Os eventos recomendados de eCommerce são obrigatórios para blocos de produto dinâmicos. |
 | Modelos de Canvas de eCommerce | Os eventos recomendados de eCommerce oferecem suporte a modelos pré-construídos, incluindo modelos de Canvas de eCommerce projetados para casos de uso essenciais, como navegação abandonada, carrinho abandonado e confirmações de pedido. <br><br>Se você planeja implementar qualquer um desses casos de uso essenciais de eCommerce usando os [modelos de Canvas de eCommerce]({{site.baseurl}}/ecommerce_use_cases/), é necessário usar ou seguir o modelo de Canvas fornecido. |
 | Catálogo da Braze | Você precisa criar um catálogo da Braze que inclua os seguintes campos, que serão usados na configuração do seu bloco de produto:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | Seleção de catálogo | Para blocos de produto estáticos, você precisa criar uma [seleção de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para especificar quais produtos incluir no seu bloco de produto. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Tipos de blocos de produto de arrastar e soltar {#types-of-drag-and-drop-product-blocks}
 
@@ -33,7 +33,7 @@ O recurso de bloco de produto de arrastar e soltar está em acesso antecipado e,
 | --- | --- | --- | --- |
 | Dinâmico | Personalize suas mensagens com uma vitrine de produtos baseada nas interações do cliente, usando [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/) e catálogos dentro dos nossos [modelos de Canvas de eCommerce]({{site.baseurl}}/ecommerce_use_cases/). | {::nomarkdown}<ul><li>Navegação abandonada</li><li>Carrinho abandonado</li><li>Checkout abandonado</li><li>Confirmações de pedido</li></ul>{:/} | Disponível apenas em Canvas. |
 | Estático | Personalize produtos usando dados armazenados em um catálogo da Braze. Você precisa usar uma [seleção de catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para especificar quais produtos incluir. | Ideal para destacar lançamentos de novos produtos ou ofertas específicas por categoria. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types of drag-and-drop product blocks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de blocos de produto de arrastar e soltar" }
 
 ## Configuração de conteúdo do bloco de produto {#product-block-content-configuration}
 
@@ -52,7 +52,7 @@ Na seção **Product Fields**, selecione o tipo de bloco de produto e ative os c
 | Botão para URL do produto | Catálogos |
 | Preço | Propriedade do evento recomendado de eCommerce |
 | Quantidade | Propriedade do evento recomendado de eCommerce |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dynamic product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloco de produto dinâmico" }
 
 ![Campos de produto para um bloco de produto dinâmico, divididos em dados do catálogo e dados do evento.]({% image_buster /assets/img/product_blocks/dynamic_fields.png %}){: style="max-width:50%;"}
 
@@ -64,7 +64,7 @@ Na seção **Product Fields**, selecione o tipo de bloco de produto e ative os c
 | Título do produto | Catálogos |
 | Botão para URL do produto | Catálogos |
 | Preço | Catálogos |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Static product block" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloco de produto estático" }
 
 ![Campos de produto para um bloco de produto estático, todos categorizados como dados do catálogo.]({% image_buster /assets/img/product_blocks/static_fields.png %}){: style="max-width:50%;"}
 
@@ -78,7 +78,7 @@ Use as opções de layout para personalizar como seus produtos são exibidos den
 | Alinhamento | Ajuste o alinhamento dos campos de texto e do botão dentro do bloco. |
 | Máximo de produtos por linha | Exiba até três produtos por linha, até 12 produtos no total para blocos de produto estáticos e até 24 produtos no total para blocos de produto dinâmicos. |
 | Espaçamento entre produtos | Defina o espaçamento entre os produtos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Layout options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Opções de layout" }
 
 ![Opções de layout para orientação do produto, alinhamento, máximo de produtos por linha e espaçamento entre produtos.]({% image_buster /assets/img/product_blocks/layout_options.png %}){: style="max-width:50%;"}
 
@@ -105,9 +105,9 @@ Para usar blocos de produto de arrastar e soltar, você precisa configurar um ca
 | `product_title` | O título do produto. |
 | `product_url` | A URL onde os clientes podem visualizar ou comprar o produto. |
 | `variant_image_url` | A URL da imagem da variante. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuração do catálogo" }
 
-Comece rapidamente usando este [catálogo de produtos de exemplo]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv), que inclui os campos obrigatórios.
+Comece rapidamente usando este [catálogo de produtos de exemplo](/docs/assets/download_file/ecommerce_product_catalog_sample.csv), que inclui os campos obrigatórios.
 
 ![Um arquivo CSV de exemplo com os campos obrigatórios, além de outros.]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 

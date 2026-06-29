@@ -92,8 +92,8 @@ tool: Campaigns
 | 설명 | 선택 사항. 협업자를 위한 의도 또는 브리프 링크를 설명하세요. |
 | 팀 | 선택 사항. 적절한 그룹이 이 발송을 편집하거나 보고할 수 있도록 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)를 할당하세요. |
 | 태그 | 선택 사항. [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) 등의 목록 및 도구에서 필터링할 수 있도록 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가하세요. |
-| 캠페인 ID | 작성기 또는 요약에 표시되는 경우, 특정 캠페인을 참조하는 API 호출, 보고 및 통합을 위해 이 식별자를 복사하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
+| Campaign ID | 작성기 또는 요약에 표시되는 경우, 특정 캠페인을 참조하는 API 호출, 보고 및 통합을 위해 이 식별자를 복사하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="캠페인 세부 정보" }
 
 ### 채널 및 편집기 {#channels-and-editors}
 
@@ -116,13 +116,13 @@ tool: Campaigns
 | [스케줄 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | 지정된 시간 또는 주기에 발송합니다. |
 | [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | 사용자가 정의한 동작을 수행하거나 조건을 충족할 때 발송합니다. |
 | [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | 시스템이 Braze를 호출하여 자격이 있는 사용자에게 캠페인을 트리거할 때 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 전달 스케줄" }
 
 Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
 ### 전달 제어 {#delivery-controls}
 
-전달 유형에 따라 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)(사용자가 캠페인에 다시 진입할 수 있는지 여부)을 조정하고 워크스페이스 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 규칙을 준수할 수 있습니다. 또한 제한된 기간 동안 메시지가 발송되지 않도록 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 구성할 수도 있습니다.
+전달 유형에 따라 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)(사용자가 캠페인에 다시 진입할 수 있는지 여부)을 조정하고 워크스페이스 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 규칙을 준수할 수 있습니다. 또한 제한된 기간 동안 메시지가 발송되지 않도록 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 구성할 수도 있습니다.
 
 ## 3단계: 타겟 오디언스 {#step-3-target-audiences}
 
@@ -130,17 +130,17 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 ### 타겟팅 옵션 {#targeting-options}
 
-이 섹션에서는 Segments 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타겟팅할 수 있습니다. 자격이 있는 사용자는 여전히 **전달 스케줄** 단계에서 정의한 트리거 또는 기준을 충족해야 합니다. 타겟 오디언스는 대기실과 같습니다. 이미 안에 있는 사람만 다음 동작이 발생할 때 앞으로 나아갈 수 있습니다.
+이 섹션에서는 세그먼트 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타겟팅할 수 있습니다. 자격이 있는 사용자는 여전히 **전달 스케줄** 단계에서 정의한 트리거 또는 기준을 충족해야 합니다. 타겟 오디언스는 대기실과 같습니다. 이미 안에 있는 사람만 다음 동작이 발생할 때 앞으로 나아갈 수 있습니다.
 
 워크스페이스 [억제 목록]({{site.baseurl}}/user_guide/audience/suppression_lists/)은 이 캠페인에 대한 예외를 허용하지 않는 한 목록에 있는 사용자를 자동으로 제외합니다.
 
 ### 오디언스 요약 {#audience-summary}
 
-Segments 또는 필터를 추가한 후, **오디언스 요약**은 해당 세그먼트 모집단의 모습을 미리 보여주며, 해당 세그먼트 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 세그먼트 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
+세그먼트 또는 필터를 추가한 후, **오디언스 요약**은 해당 세그먼트 모집단의 모습을 미리 보여주며, 해당 세그먼트 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 세그먼트 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
 
 ### 사용자 조회 {#user-lookup}
 
-Segments 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [세그먼트 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
+세그먼트 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [세그먼트 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments)를 참조하세요.
 
 사용자가 세그먼트, 필터 및 앱 기준에 일치하면 알림이 표시됩니다. 사용자가 세그먼트, 필터 또는 앱 기준의 일부 또는 전부에 일치하지 않으면, 문제 해결을 위해 누락된 기준이 나열됩니다.
 
@@ -158,7 +158,7 @@ Segments 또는 필터를 추가한 후, 사용자를 조회하여 세그먼트 
 
 ### A/B 테스트 {#ab-testing}
 
-단일 채널 및 단일 기기를 타겟팅하는 모든 캠페인에 대해 [다변량 또는 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 생성할 수 있습니다. 예를 들어, 푸시 캠페인에 다변량 또는 A/B 테스트를 사용하려면 iOS 기기만 또는 Android 기기만 타겟팅할 수 있으며, 동일한 캠페인에서 두 기기 유형을 모두 타겟팅할 수는 없습니다.
+단일 채널을 타겟팅하는 모든 캠페인에 대해 [다변량 또는 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 생성할 수 있으며, 단일 채널에 여러 기기가 포함되어 있어도 가능합니다. 예를 들어, 푸시 캠페인에 다변량 또는 A/B 테스트를 사용하려면 iOS 기기만 또는 Android 기기만 타겟팅할 수 있으며, 동일한 캠페인에서 두 기기 유형을 모두 타겟팅할 수는 없습니다.
 
 푸시, 이메일 및 웹훅 캠페인이 1회 발송으로 스케줄된 경우, [최적화]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/)도 사용할 수 있습니다. 최적화는 A/B 테스트에서 타겟 오디언스의 일부를 예약하고, 첫 번째 테스트 결과를 기반으로 두 번째 최적화된 발송을 위해 보류합니다.
 

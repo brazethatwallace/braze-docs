@@ -25,7 +25,7 @@ Braze와 Microsoft Azure Blob Storage 통합을 사용하면 데이터를 Azure�
 | ----------- | ----------- |
 | Microsoft Azure 및 Azure 스토리지 계정 | 이 파트너십을 활용하려면 Microsoft Azure 및 Azure 스토리지 계정이 필요합니다. |
 | Currents | Currents로 데이터를 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -37,7 +37,7 @@ Microsoft Azure에서 사이드바의 **Storage Accounts**로 이동하고 **+ A
 
 이미 스토리지 계정이 있더라도 Braze 데이터 전용으로 새 계정을 생성하는 것을 권장합니다.
 
-![]({% image_buster /assets/img/azure-currents-step-1.png %})
+![기본 탭의 Microsoft Azure 스토리지 계정 생성 페이지에서 스토리지 계정 이름 필드가 강조 표시되어 있습니다.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### 2단계: 연결 문자열 가져오기 {#step-2-get-the-connection-string}
 
@@ -49,7 +49,7 @@ Microsoft는 하나의 키를 재생성하는 동안 다른 키를 사용하여 
 Braze는 이 메뉴의 키가 아닌 연결 문자열을 사용합니다.
 {% endalert %}
 
-![]({% image_buster /assets/img/azure-currents-step-2.png %})
+![Azure 스토리지 계정의 액세스 키 페이지에서 key1 아래의 연결 문자열 필드가 강조 표시되어 있습니다.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### 3단계: Blob 서비스 컨테이너 생성 {#step-3-create-a-blob-service-container}
 
@@ -57,7 +57,7 @@ Braze는 이 메뉴의 키가 아닌 연결 문자열을 사용합니다.
 
 Blob 서비스 컨테이너의 이름을 입력합니다. 다른 기본값 설정은 업데이트할 필요가 없습니다.
 
-![]({% image_buster /assets/img/azure-currents-step-3.png %})
+![Blob Service 아래 Azure 스토리지 계정의 Blobs 페이지에서 컨테이너 추가 옵션이 표시되어 있습니다.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### 4단계: Currents 설정 {#step-4-set-up-currents}
 
@@ -76,7 +76,7 @@ Braze에서 **Currents > + Create Current > Azure Blob Data Export**로 이동�
 2. CSV 내보내기(Campaign, Segment, Canvas 사용자 데이터를 대시보드를 통해 내보내기)
 3. 참여 보고서
 
-Braze에서 **Partner Integrations** > **Technology Partners** > **Microsoft Azure**로 이동하여 연결 문자열, Azure 스토리지 컨테이너 이름, Azure 스토리지 접두사를 입력합니다.
+Braze에서 **파트너 통합** > **기술 파트너** > **Microsoft Azure**로 이동하여 연결 문자열, Azure 스토리지 컨테이너 이름, Azure 스토리지 접두사를 입력합니다.
 
 다음으로 **Make this the default data export destination** 체크박스가 선택되어 있는지 확인합니다. 이렇게 하면 내보낸 데이터가 Azure로 전송됩니다. 완료되면 통합을 저장합니다.
 
@@ -94,7 +94,13 @@ Braze에서 **Partner Integrations** > **Technology Partners** > **Microsoft Azu
 - 모든 대시보드 보고서 및 CSV 보고서는 다운로드를 위해 사용자의 이메일로 전송되며(스토리지 권한 불필요) 데이터 스토리지에 백업됩니다.
 
 {% alert important %}
-**JSON 형식 요구 사항**: JSON 내보내기의 경우 Braze는 각 줄에 별도의 JSON 오브젝트가 포함되는 JSONL(줄 바꿈으로 구분된 JSON) 형식을 사용합니다. 이 형식은 단일 JSON 배열 또는 오브젝트인 표준 JSON과는 다릅니다. 내보낸 파일의 각 줄은 유효한 JSON 오브젝트이지만 파일 전체가 하나의 유효한 JSON 문서는 아닙니다. 이러한 파일을 처리할 때는 전체 파일을 하나의 JSON 문서로 구문 분석하지 말고 각 줄을 별도의 JSON 오브젝트로 개별적으로 구문 분석하세요.
-
-Currents 내보내기는 JSON이 아닌 Apache Avro 형식(`.avro` 파일)을 사용합니다. 이 JSON 형식 요구 사항은 JSON 형식을 사용하는 대시보드 데이터 내보내기 및 API 내보내기에 적용됩니다.
+**JSON 형식 요구 사항**: JSON 내보내기의 경우 Braze는 각 줄에 별도의 JSON 오브젝트가 포함되는 [JSONL](https://jsonlines.org/)(줄 바꿈으로 구분된 JSON) 형식을 사용합니다. 이 형식은 단일 JSON 배열 또는 오브젝트인 표준 JSON과는 다릅니다. 내보낸 파일의 각 줄은 유효한 JSON 오브젝트이지만 파일 전체가 하나의 유효한 JSON 문서는 아닙니다. 이러한 파일을 처리할 때는 전체 파일을 하나의 JSON 문서로 구문 분석하지 말고 각 줄을 별도의 JSON 오브젝트로 개별적으로 구문 분석하세요. <br><br> Currents 내보내기는 JSON이 아닌 [Apache Avro](https://avro.apache.org/) 형식(`.avro` 파일)을 사용합니다. 이 JSON 형식 요구 사항은 JSON 형식을 사용하는 대시보드 데이터 내보내기 및 API 내보내기에 적용됩니다.
 {% endalert %}
+
+## FAQ
+
+### Braze에서 Azure Blob Storage에 대한 허용 목록용 IP 주소를 제공할 수 있나요? {#can-braze-provide-ip-addresses-to-allowlist-for-azure-blob-storage}
+
+Braze는 Currents 또는 대시보드 내보내기를 위한 Azure Blob Storage용 고정 IP 허용 목록을 게시하지 않습니다. Braze는 사용자가 제공한 연결 문자열과 컨테이너 이름을 사용하여 컨테이너에 데이터를 기록하며, Azure는 스토리지 계정 설정(예: 스토리지 계정의 방화벽 규칙 또는 프라이빗 엔드포인트)을 통해 네트워크 액세스를 제어합니다.
+
+보안 팀에서 IP 기반 제한이 필요한 경우, Braze의 IP 목록 대신 스토리지 계정의 Azure 네트워킹 기능을 사용하세요. 설정 단계는 [Azure Storage 보안에 대한 Microsoft 설명서](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security)를 참조하세요.

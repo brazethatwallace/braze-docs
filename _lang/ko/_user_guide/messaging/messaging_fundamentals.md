@@ -4,7 +4,7 @@ article_title: 메시징 기본 사항
 layout: dev_guide
 page_order: 1
 guide_top_header: "기본 사항"
-guide_top_text: "메시지를 받을 대상, 발송 시점, 성과 측정 방법을 설정합니다. 이러한 개념은 <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign 또는 Canvas</a> 중 어떤 것을 사용하든 동일하게 적용됩니다."
+guide_top_text: "메시지를 받을 대상, 발송 시점, 성과 측정 방법을 설정합니다. <a href='/docs/user_guide/get_started/campaigns_and_canvases'>Campaign 또는 Canvas</a> 중 어떤 것을 사용하든 동일하게 적용됩니다. 이 섹션에서는 오디언스 타겟팅, 전달 및 진입 유형, 전환 이벤트 추적, 최대 게재빈도 설정, 재자격 규칙, 현지화, 접근성, 출시 전 체크리스트를 다룹니다. 메시지를 구축하기 전에 이러한 개념을 검토하여 적절한 사용자에게 과도하지 않게 메시지를 전달하세요."
 page_type: landing
 tool:
   - Campaigns
@@ -19,6 +19,9 @@ guide_featured_list:
   - name: 전달 및 진입 유형
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: 디스패치 ID
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
+    image: /assets/img/braze_icons/key-01.svg
   - name: 재자격
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/users-01.svg

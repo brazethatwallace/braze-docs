@@ -24,7 +24,7 @@ Además de este artículo, también te recomendamos consultar nuestro curso de B
 Puedes filtrar por el siguiente contenido registrado en el **Registro de actividad de mensajes**:
 
 - Errores de notificaciones push
-- Errores de mensajes cancelados
+- Errores de mensajes dentro de la aplicación con plantilla cancelados
 - Errores de webhooks
 - Errores de correo electrónico
 - Registros de mensajes de API

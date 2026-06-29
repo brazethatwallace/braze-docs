@@ -33,7 +33,8 @@ L'intégration de Braze et Remerge vous permet de développer des campagnes mark
 
 ### Étape 1 : Créer votre modèle de webhook Braze {#step-1-create-your-braze-webhook-template}
 
-Pour créer un modèle de webhook Remerge pour de futures campagnes ou Canvas, accédez à **Templates** > **Webhook Templates** dans la plateforme Braze.
+Pour créer un modèle de webhook Remerge pour de futures campagnes ou Canvas, accédez à **Contenu** > **Webhook** dans la plateforme Braze. Sélectionnez ensuite **Créer un modèle de webhook**.
+
 
 Si vous souhaitez créer une campagne webhook Remerge ponctuelle ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
 
@@ -87,5 +88,5 @@ Vous n'avez pas besoin de définir un corps de requête pour ce webhook.
 Prévisualisez le message pour vous assurer que la requête s'affiche correctement pour les différents utilisateurs. Nous vous recommandons de prévisualiser et d'envoyer des requêtes de test pour les utilisateurs Android et iOS. Si la requête aboutit, l'API répondra avec `HTTP 204`.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Saved Webhook Templates** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

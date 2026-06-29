@@ -16,32 +16,71 @@ _この統合はLokaliseによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとLokaliseの統合では、コネクテッドコンテンツを使用して、ユーザーの言語設定に基づいて翻訳されたコンテンツをBraze Campaignsに簡単に挿入できます。
+Lokaliseは、Brazeとの統合オプションを2つ提供しています。
 
-## 前提条件 {#prerequisites}
+- **多言語統合（推奨）**：Brazeの[多言語コンポジションAPI]({{site.baseurl}}/api/endpoints/translations/)を使用して、LokaliseとBraze間の直接的な双方向同期を提供します。この統合は、Campaigns、Canvases、メールテンプレートのローカライズされたメッセージバリアントに対応しており、プッシュ、メール、In-App Messagesの起動前および起動後のワークフローをサポートしています。
+- **コネクテッドコンテンツ統合（レガシー）**：Brazeのコネクテッドコンテンツを使用して、ユーザーの言語設定に基づいて翻訳されたコンテンツを挿入します。
+
+この記事では、両方の統合のセットアップについて説明します。
+
+## 多言語統合（推奨） {#multi-language-integration-recommended}
+
+多言語統合は、Brazeの多言語コンポジションAPIを使用して、Lokalise内で多言語Brazeコンテンツを管理するための効率的で自動化された方法を提供します。
+
+### 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Lokaliseアカウント | このパートナーシップを活用するには、Lokaliseアカウントが必要です。 |
-| Lokalise翻訳プロジェクト | この統合を設定する前に、Lokalise翻訳プロジェクトを作成する必要があります。 |
+| Lokalise翻訳プロジェクト | **Marketing and support**タイプでLokaliseプロジェクトを作成し、**Content integration**として**Braze**を選択します。 |
+| Braze多言語設定 | Brazeワークスペースで[多言語サポート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)が有効になっている必要があります。 |
+| Braze REST APIキー | Campaigns、Canvases、メールテンプレートの読み取りおよび更新権限を持つBraze REST APIキー。Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Brazeサーバーリージョン | お使いの[Brazeサーバーリージョン]({{site.baseurl}}/api/basics/#endpoints)（例：US-01、EU-01）。Brazeダッシュボードで確認できます。 |
+| Brazeコンテンツ内の翻訳タグ | メッセージでは、翻訳可能なコンテンツを識別するために[翻訳タグ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を使用する必要があります。翻訳可能な各ブロックを、一意のIDを持つ{% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %}タグで囲みます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+
+### セットアップと使用方法 {#setup-and-usage}
+
+Lokaliseでの Braze多言語統合の接続、コンテンツのインポート、翻訳、およびBrazeへの翻訳のエクスポートに関する詳細な手順については、[LokaliseのBraze統合ドキュメント](https://docs.lokalise.com/en/articles/13654162-braze)を参照してください。
+
+この統合は以下をサポートしています：
+- LokaliseとBraze間の直接的な双方向同期（手動のファイル処理不要）
+- Campaigns、Canvases、メールテンプレートのローカライズされたメッセージバリアント
+- 起動前および起動後の翻訳ワークフロー
+
+{% alert note %}
+Brazeで多言語用に設定され、翻訳タグで囲まれたコンテンツのみがLokaliseへのインポートに利用できます。翻訳が正しく同期されるためには、BrazeとLokaliseの両方で言語コードが正確に一致している必要があります。
+{% endalert %}
+
+## コネクテッドコンテンツ統合（レガシー） {#connected-content-integration-legacy}
+
+レガシー統合は、Brazeのコネクテッドコンテンツを使用して、ユーザーの言語設定に基づいて翻訳されたコンテンツを挿入します。
+
+### 前提条件
+
+| 必要条件 | 説明 |
+| ----------- | ----------- |
+| Lokaliseアカウント | このパートナーシップを活用するには、Lokaliseアカウントが必要です。 |
+| Lokalise翻訳プロジェクト | **Software Localization**プロジェクトタイプでLokaliseプロジェクトを作成します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### 新しいLokaliseプロジェクトを作成する {#create-a-new-lokalise-project}
 
 新しい翻訳プロジェクトを作成するには、Lokaliseにログインして**New Project**を選択します。次に、プロジェクトに名前を付け、**Base Language**（翻訳元の言語）を選択し、1つ以上の**Target Languages**を追加し、**Software Localization**プロジェクトタイプを選択します。準備ができたら、**Proceed**をクリックします。
 
-## 統合 {#integration}
+### 統合 {#integration}
 
 Lokaliseで、Brazeで定義したコネクテッドコンテンツ変数ごとに翻訳キーを作成します。翻訳の準備ができたら、言語ごとに1つのJSONファイルを生成し、コネクテッドコンテンツを提供するURLに公開できます。
 
-### ステップ1:ユーザー言語を設定する {#step-1-configuring-user-languages}
+#### ステップ1：ユーザー言語を設定する {#step-1-configure-user-languages}
 
 まだ設定していない場合は、Brazeダッシュボードを開いて**Users > User Import**に移動します。ここでユーザーをインポートできます。インポート用のCSVファイルを準備する際には、ユーザーの言語を記載した言語カラムを必ず含めてください。この言語フィールドは、後で翻訳を表示するときに使用されます。
 
 {% alert important %}
 使用する言語コードは、BrazeとLokaliseの両方で一致している必要があります。
 {% endalert %}
-### ステップ2:Lokaliseで翻訳を準備する {#step-2-preparing-your-translations-on-lokalise}
+
+#### ステップ2：Lokaliseで翻訳を準備する {#step-2-prepare-your-translations-on-lokalise}
 
 次に、Lokaliseで翻訳を準備するには、Brazeのコネクテッドコンテンツ変数で使用しているのと同じ名前の翻訳キーを手動で作成する必要があります。
 
@@ -57,12 +96,12 @@ Lokaliseで、Brazeで定義したコネクテッドコンテンツ変数ごと�
 
 ![]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
 
-#### 既知の問題 {#known-issues}
+##### 既知の問題 {#known-issues}
 
 - キーは**Web**プラットフォームに割り当てられている必要があります。
 - ピリオド（`.`）や`_on`文字列を含むキーの使用は避けてください。たとえば、`this.is.the.key`の代わりに`this_is_the_key`を使用し、`join_us_on_instagram`の代わりに`join_us_instagram`を使用してください。
 
-### ステップ3:LokaliseでBrazeアプリを設定する {#step-3-configuring-the-braze-app-on-lokalise}
+#### ステップ3：LokaliseでBrazeアプリを設定する {#step-3-configure-the-braze-app-on-lokalise}
 
 Lokaliseプロジェクトを開いて**Apps**をクリックします。ここでBrazeアプリを検索してインストールします。以下の画面が表示されます：
 
@@ -75,15 +114,15 @@ Lokaliseプロジェクトを開いて**Apps**をクリックします。ここ�
 
 翻訳ファイルのURLは、Braze Campaignを設定する際に必要となるURLです。JSONファイルのコンテンツを更新するには**Refresh**をクリックします。URLは変更されないため、Brazeでコネクテッドコンテンツ呼び出しを変更する必要はありません。
 
-### テストURL {#test-url}
+##### テストURL {#test-url}
 
 このURLをテストするには、URLをコピーし、{% raw %}`{{${language}}}`{% endraw %}を言語コード（たとえば`en`）に置き換えて、ブラウザでこのURLを開きます。キーと翻訳を含むJSONファイルが表示されます：
 
 ![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
-### ステップ4:Braze Campaignで翻訳を使用する {#step-4-using-translations-in-braze-campaign}
+#### ステップ4：Braze Campaignで翻訳を使用する {#step-4-use-translations-in-braze-campaign}
 
-#### コネクテッドコンテンツ呼び出しを挿入する {#insert-connected-content-call}
+##### コネクテッドコンテンツ呼び出しを挿入する {#insert-connected-content-call}
 
 準備ができたら、Brazeに戻り、既存のCampaignを開くか、新しいCampaignを作成します。この例では、サンプルコンテンツで新しいメールCampaignを作成します。**Edit Email Body**をクリックします。
 
@@ -101,7 +140,7 @@ Lokaliseプロジェクトを開いて**Apps**をクリックします。ここ�
   - 各ユーザーに適切な翻訳JSONファイルが取得されるようにするには、`{{${language}}}`プロファイル属性か、ユーザーの言語を保持する別の同様のカスタム属性を翻訳ファイルURLの末尾に配置する必要があります（たとえば、`/{{${language}}}.json`）。これらの属性に保持される値は、翻訳されたJSONファイルのそれぞれのプレフィックスと一致しなければなりません。これにより、各ユーザーに対して正しい翻訳ファイルが返されるようになります。
 - `:save translations`により、JSONコンテンツがtranslations変数に保存されます。
 
-#### 翻訳を表示する {#display-translations}
+##### 翻訳を表示する {#display-translations}
 
 translations変数を使用して、必要な翻訳をキーで表示します。
 

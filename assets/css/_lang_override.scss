@@ -27,18 +27,3 @@
     }
   }
 }
-
-#doc-search-form_div, .algolia_overlay {
-  #doc-search-panel {
-    #algolia_footer {
-      .algolia-docsearch-footer--logo {
-          background-image: url(#{$base_url}/assets/img/algolia.svg) !important;
-      }
-    }
-  }
-}
-#search_page{
-  .algolia-docsearch-footer--logo {
-      background-image: url(#{$base_url}/assets/img/algolia.svg) !important;
-  }
-}

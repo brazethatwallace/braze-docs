@@ -27,19 +27,19 @@ Primero, necesitarás crear tu plantilla de correo electrónico HTML. Debe ser u
 
 ### Paso 1: Ve al editor de plantillas de correo electrónico {#step-1-go-to-the-email-template-editor}
 
-Ve a **Templates** > **Email Templates**.
+Ve a **Content** > **Email**. Selecciona **Create email template**.
 
-### Paso 2: Abre el cargador {#step-2-open-the-uploader}
+### Paso 2: Agrega los detalles de la plantilla {#step-2-add-template-details}
 
-En la sección **Template Type**, selecciona **HTML Editor** y desplázate hasta la sección **Start from a Basic HTML Template**. Selecciona **From File**.
+Proporciona un nombre para la plantilla. Opcionalmente, agrega una descripción, equipos y etiquetas.
 
 ### Paso 3: Carga tu plantilla {#step-3-upload-your-template}
 
-Selecciona **Upload From File** y elige tu plantilla desde tu computadora. Consulta la sección [Requisitos](#upload-requirements) para asegurarte de que tu plantilla cumple con los requisitos de carga.
+En la sección **Template content**, selecciona **Upload file** debajo del mosaico **HTML code editor**. Selecciona tu plantilla desde tu computadora. Consulta la sección [Requisitos](#upload-requirements) para asegurarte de que tu plantilla cumple con los requisitos de carga.
 
 ### Paso 4: Finaliza y guarda tu plantilla {#step-4-finish-and-save-your-template}
 
-Asegúrate de guardar tu plantilla seleccionando **Save Template**. ¡Ya puedes usar esta plantilla en cualquier campaña o Canvas que elijas!
+Asegúrate de guardar tu plantilla seleccionando **Save template**. ¡Ya puedes usar esta plantilla en cualquier campaña o Canvas que elijas!
 
 {% alert note %}
 Si realizas alguna edición en una plantilla existente, esos cambios no se reflejarán en las campañas que se crearon usando versiones anteriores de esa plantilla.

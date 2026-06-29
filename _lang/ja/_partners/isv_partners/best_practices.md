@@ -110,7 +110,7 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 ## Brazeへのユーザーオーディエンスの送信 {#sending-audiences-of-users-to-braze}
 
 [コホートインポート同期パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/cohort_import/)<br>
-- ユーザーのオーディエンスは、Braze Cohort Import APIエンドポイントを使用して、コホートとしてBrazeに同期できます。これらのオーディエンスをユーザー属性としてユーザープロファイルに保存するのではなく、セグメンテーションツール内のパートナーブランドフィルターを使用してこのコホートを作成し、ターゲットに設定できます。これにより、特定のユーザーSegmentをより効率的に見つけてターゲットにすることができます。
+- ユーザーのオーディエンスは、Braze Cohort Import APIエンドポイントを使用して、コホートとしてBrazeに同期できます。これらのオーディエンスをユーザー属性としてユーザープロファイルに保存するのではなく、セグメンテーションツール内のパートナーブランドフィルターを使用してこのコホートを作成し、ターゲットに設定できます。これにより、特定のユーザーセグメントをより効率的に見つけてターゲットにすることができます。
 - コホートインポートエンドポイントはパブリックではなく、各パートナーに固有です。このため、コホートエンドポイントへの同期は、顧客のワークスペースのレート制限にカウントされません。
 
 [ユーザートラック]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)<br>
@@ -125,7 +125,7 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 
 ### Currents
 
-Currentsは、Brazeのほぼリアルタイムのメッセージエンゲージメント分析ストリーミングツールです。顧客のワークスペースから送信されたCampaignsおよびCanvasesのすべての送信、配信、開封、クリックなどに関するユーザーレベルのデータがストリーミングされます。いくつかの注意点があります。Currentsの価格は顧客のコネクターあたりで設定されるため、すべての新しいCurrentsパートナーはEAプロセスを経る必要があります。カスタムブランドのUIを構築し、コネクターを一般に公開する前に、パートナーにはEAの一部として5社の顧客を確保していただくようお願いしています。
+Currentsは、Brazeのほぼリアルタイムのメッセージエンゲージメント分析ストリーミングツールです。顧客のワークスペースから送信されたキャンペーンおよびキャンバスのすべての送信、配信、開封、クリックなどに関するユーザーレベルのデータがストリーミングされます。いくつかの注意点があります。Currentsの価格は顧客のコネクターあたりで設定されるため、すべての新しいCurrentsパートナーはEAプロセスを経る必要があります。カスタムブランドのUIを構築し、コネクターを一般に公開する前に、パートナーにはEAの一部として5社の顧客を確保していただくようお願いしています。
 - [パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - Currentsコネクターを購入したすべての顧客がこれらのイベントにアクセスできます。
 - [ユーザー行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) - Currentsコネクターを購入したすべての顧客が、これらのイベントを含む「すべてのイベント」コネクターを購入するとは限りません。
@@ -135,10 +135,10 @@ Currentsは、Brazeのほぼリアルタイムのメッセージエンゲージ�
 Snowflakeデータシェアコネクターを購入した顧客は、メッセージエンゲージメントイベントとユーザー行動イベントの両方に自動的にアクセスできるようになります。Snowflakeデータシェアがパートナー連携として使用される場合、Brazeは顧客に代わってパートナーのSnowflakeインスタンスに共有をプロビジョニングします。クロスリージョンのデータ共有は顧客にとってより高い価格帯となるため、Snowflakeとの連携を希望するパートナーには`US-EAST-1`および/または`EU-CENTRAL-1`にアカウントが必要であるというガイダンスをお伝えしています。
 - [パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
-## CampaignsとCanvasesの構築とトリガー {#building-and-triggering-campaigns-and-canvases}
+## キャンペーンとキャンバスの構築とトリガー {#building-and-triggering-campaigns-and-canvases}
 
 ### Brazeでのアセット作成 {#creating-assets-in-braze}
-Brazeは、顧客やパートナーが顧客のワークスペース内でメールテンプレートやContent Blocksを作成・更新できるエンドポイントを多数提供しています。これらのテンプレートとContent Blocksは、顧客のBraze CampaignsおよびCanvases全体で使用できます。
+Brazeは、顧客やパートナーが顧客のワークスペース内でメールテンプレートやContent Blocksを作成・更新できるエンドポイントを多数提供しています。これらのテンプレートとContent Blocksは、顧客のBraze キャンペーンおよびキャンバス全体で使用できます。
 - メールテンプレート
     - [テンプレート作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/)
     - [テンプレート更新エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/#rate-limit)
@@ -146,20 +146,20 @@ Brazeは、顧客やパートナーが顧客のワークスペース内でメー
     - [Content Block作成エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/)
     - [Content Block更新エンドポイント]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)
 
-### APIトリガーによるCampaignsとCanvases {#api-triggered-campaigns-and-canvases}
+### APIトリガーによるキャンペーンとキャンバス {#api-triggered-campaigns-and-canvases}
 
-顧客はCampaignsやCanvasesをAPIトリガーで起動するように設定できます。これらのCampaignsをトリガーするAPIリクエストを使用して、APIトリガープロパティとオーディエンスパラメーターまたは受信者パラメーターを渡すことで、Campaignをさらにパーソナライズおよびセグメント化できます。
-- [APIを使用したCampaignsのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)
-    - Campaignsは、個々のメールのような単発のメッセージです。
-- [APIを使用したCanvasesのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#request-body)
-    - Canvasは、マーケターが複数のメッセージとステップでCampaignsを作成し、一貫性のあるジャーニーを形成するための統合インターフェイスです。Canvasをトリガーすると、ユーザーがキャンバスフローに入り、Canvasの条件に合わなくなるまでメッセージングを受け取り続けます。
-- [APIトリガープロパティ/Canvasエントリープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)
+顧客はキャンペーンやキャンバスをAPIトリガーで起動するように設定できます。これらのキャンペーンをトリガーするAPIリクエストを使用して、APIトリガープロパティとオーディエンスパラメーターまたは受信者パラメーターを渡すことで、キャンペーンをさらにパーソナライズおよびセグメント化できます。
+- [APIを使用したキャンペーンのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)
+    - キャンペーンは、個々のメールのような単発のメッセージです。
+- [APIを使用したキャンバスのトリガー]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#request-body)
+    - キャンバスは、マーケターが複数のメッセージとステップでキャンペーンを作成し、一貫性のあるジャーニーを形成するための統合インターフェイスです。キャンバスをトリガーすると、ユーザーがキャンバスフローに入り、キャンバスの条件に合わなくなるまでメッセージングを受け取り続けます。
+- [APIトリガープロパティ/キャンバスエントリープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)
     - 送信時にメッセージに動的に入力できるデータです。
 
-### API Campaign {#api-campaigns}
-API Campaign（上記のAPIトリガーによるCampaignsとは異なります）を作成する場合、Brazeダッシュボードは`campaign_id`を生成するためにのみ使用されます。これにより顧客はCampaignレポートのために分析を追跡できます。Campaignメッセージ自体はAPIリクエスト内で定義されます。
-- [API Campaignをすぐに送信する]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
-- [API Campaignをスケジュールする]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
+### API キャンペーン {#api-campaigns}
+API キャンペーン（上記のAPIトリガーによるキャンペーンとは異なります）を作成する場合、Brazeダッシュボードは`campaign_id`を生成するためにのみ使用されます。これにより顧客はキャンペーンレポートのために分析を追跡できます。キャンペーンメッセージ自体はAPIリクエスト内で定義されます。
+- [API キャンペーンをすぐに送信する]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
+- [API キャンペーンをスケジュールする]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 
 ### 送信ID {#send-ids}
 Brazeエンドポイントを使用して送信IDを生成し、Campaign分析を送信別に分類できるようにします。たとえば、ロケーションごとに`campaign_id`（API Campaign）が作成されている場合、送信ごとに送信IDを生成して、特定のロケーションに対して異なるメッセージングがどの程度効果的に機能しているかを追跡できます。

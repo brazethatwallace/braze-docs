@@ -135,12 +135,12 @@ Meta will limit the number of marketing template messages a user can receive acr
 
 One exception is, if a person responds to a marketing message, it will start a 24-hour customer service window. Marketing messages sent within this window will not count towards a person’s limit.
 
-The specific limit varies by user, depending on their engagement level. Learn more about WhatsApp's per-user marketing template message limits [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits). 
+The specific limit varies by user, depending on their engagement level. Learn more about WhatsApp's per-user marketing template message limits [WhatsApp's per-user marketing template message limits documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits). 
 
 ### January 2025: WhatsApp pausing marketing message sending to US users starting April 1
 *Last Updated January 2025*
 
-WhatsApp will pause marketing message sending to US users (people with US phone numbers) starting April 1, 2025. [Utility, service, authentication](https://developers.facebook.com/docs/whatsapp/pricing/), and [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) will still be allowed in the US. 
+WhatsApp will pause marketing message sending to US users (people with US phone numbers) starting April 1, 2025. [Utility, service, authentication](https://developers.facebook.com/docs/whatsapp/pricing/), and [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) will still be allowed in the US. 
 
 Marketing message sending (plus all other message types) to all other countries or regions is still allowed and will not be affected.
 

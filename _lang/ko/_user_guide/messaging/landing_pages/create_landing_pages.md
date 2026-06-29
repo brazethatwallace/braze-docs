@@ -1,13 +1,13 @@
 ---
 nav_title: 랜딩 페이지 만들기
 article_title: 랜딩 페이지 만들기
-description: "이 문서에서는 드래그 앤 드롭 에디터를 사용하여 Braze 랜딩 페이지를 만들고 커스터마이즈하는 방법을 다룹니다."
+description: "이 문서에서는 드래그 앤 드롭 편집기를 사용하여 Braze 랜딩 페이지를 만들고 커스터마이즈하는 방법을 다룹니다."
 page_order: 0
 ---
 
 # 랜딩 페이지 만들기 {#create-landing-pages}
 
-> 드래그 앤 드롭 에디터를 사용하여 랜딩 페이지를 만들고 커스터마이즈하는 방법을 알아보세요. Braze에서 직접 오디언스를 확장하고 선호도를 수집할 수 있습니다.
+> 드래그 앤 드롭 편집기를 사용하여 랜딩 페이지를 만들고 커스터마이즈하는 방법을 알아보세요. Braze에서 직접 오디언스를 확장하고 선호도를 수집할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -17,9 +17,7 @@ page_order: 0
 
 ### 1단계: 새 초안 만들기 {#step-1-create-a-new-draft}
 
-**Messaging** > **Landing Pages**로 이동한 다음 **Create landing page**를 선택합니다. 기존 랜딩 페이지의 이름을 선택하여 복제하거나 변경할 수도 있습니다.
-
-![Braze 대시보드의 랜딩 페이지 섹션.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
+**메시징** > **랜딩 페이지**로 이동한 다음 **랜딩 페이지 만들기**를 선택합니다. 기존 랜딩 페이지의 이름을 선택하여 복제하거나 변경할 수도 있습니다.
 
 ### 2단계: 페이지 세부 정보 입력 {#step-2-enter-the-page-details}
 
@@ -45,11 +43,11 @@ page_order: 0
 
 ### 3단계: 페이지 커스터마이즈 {#step-3-customize-the-page}
 
-아직 저장하지 않았다면 **Save as draft**를 선택합니다. 페이지 커스터마이즈를 시작하려면 **Edit landing page**를 선택합니다. 드래그 앤 드롭 에디터에 기본 템플릿이 미리 로드되며, 사용 사례에 맞게 커스터마이즈할 수 있습니다.
+아직 저장하지 않았다면 **초안으로 저장**을 선택합니다. 페이지 커스터마이즈를 시작하려면 **랜딩 페이지 편집**을 선택합니다. 드래그 앤 드롭 편집기에 기본 템플릿이 미리 로드되며, 사용 사례에 맞게 커스터마이즈할 수 있습니다.
 
-![드래그 앤 드롭 에디터에서 생성 중인 랜딩 페이지 예시.]({% image_buster /assets/img/landing_pages/template.png %})
+![드래그 앤 드롭 편집기에서 생성 중인 랜딩 페이지 예시.]({% image_buster /assets/img/landing_pages/template.png %})
 
-에디터는 랜딩 페이지 구성을 위해 기본 블록과 양식 블록이라는 두 가지 유형의 구성요소를 사용합니다. 모든 블록은 행 안에 배치해야 합니다. 각 블록과 속성에 대한 전용 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)을 확인하세요.
+편집기는 랜딩 페이지 구성을 위해 기본 블록과 양식 블록이라는 두 가지 유형의 구성요소를 사용합니다. 모든 블록은 행 안에 배치해야 합니다. 각 블록과 속성에 대한 전용 참조는 [편집기 블록(랜딩 페이지)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages)을 확인하세요.
 
 !['행'과 '양식 블록'이 포함된 'Build' 섹션.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -70,9 +68,9 @@ page_order: 0
 | 커스텀 코드 | 고급 커스터마이즈를 위해 커스텀 HTML, CSS 또는 JavaScript를 삽입하고 실행할 수 있는 블록입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 페이지 커스터마이즈" }
 
-##### 스팬 텍스트 {#span-text}
+#### 스팬 텍스트 {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab 양식 블록 %}
@@ -140,9 +138,9 @@ page_order: 0
 
 ### 5단계: 페이지 미리보기 {#step-5-preview-the-page}
 
-에디터의 **Preview** 탭에서 랜딩 페이지를 미리볼 수 있습니다. 랜딩 페이지를 초안으로 저장한 후 **Landing Pages**로 이동하여 랜딩 페이지 옆의 **Copy URL**을 선택하면 URL을 방문할 수 있습니다. 공동 작업자와 URL을 공유할 수도 있습니다.
+편집기의 **미리보기** 탭에서 랜딩 페이지를 미리볼 수 있습니다. 랜딩 페이지를 초안으로 저장한 후 **랜딩 페이지**로 이동하여 랜딩 페이지 옆의 **URL 복사**를 선택하면 URL을 방문할 수 있습니다. 공동 작업자와 URL을 공유할 수도 있습니다.
 
-![메뉴가 열려 'Copy URL' 옵션이 표시된 랜딩 페이지.]({% image_buster /assets/img/landing_pages/copy-url.png %})
+![메뉴가 열려 'URL 복사' 옵션이 표시된 랜딩 페이지.]({% image_buster /assets/img/landing_pages/copy-url.png %})
 
 게시하기 전에 다음을 확인하세요:
 
@@ -150,7 +148,7 @@ page_order: 0
 - 각 양식 기반 페이지가 **Open web URL** 동작을 사용하여 [확인 페이지](#step-4-create-a-confirmation-page)에 연결되어 있는지
 - 모든 필수 페이지 필드(URL 경로 및 제목 등)가 완료되었는지
 
-준비가 되면 **Publish Landing Page**를 선택합니다.
+준비가 되면 **랜딩 페이지 게시**를 선택합니다.
 
 {% alert note %}
 iOS 및 Safari의 공격적인 팝업 차단기와 광고 차단기(Safari의 내장 제어 기능 및 서드파티 확장 프로그램 포함)는 양식 **Submit** 버튼이 다른 URL도 여는 경우, 해당 URL이 같은 탭에서 열리든 새 탭에서 열리든 랜딩 페이지의 동작에 부정적인 영향을 미칠 수 있습니다.
@@ -158,17 +156,17 @@ iOS 및 Safari의 공격적인 팝업 차단기와 광고 차단기(Safari의 �
 
 ## 템플릿 사용 {#using-templates}
 
-랜딩 페이지 템플릿을 사용하여 다음 Campaign을 위한 템플릿을 만드세요. 이 템플릿은 랜딩 페이지 에디터와 대시보드의 **Templates** 섹션(**Templates** > **Landing Page Templates**)에서 모두 접근하고 관리할 수 있습니다. 랜딩 페이지 템플릿에는 이름이 필수이며, 설명은 선택 사항입니다.
+랜딩 페이지 템플릿을 사용하여 다음 Campaign을 위한 템플릿을 만드세요. 이 템플릿은 랜딩 페이지 편집기와 **랜딩 페이지 템플릿** 페이지(**콘텐츠** > **랜딩 페이지**)에서 모두 접근하고 관리할 수 있습니다. 랜딩 페이지 템플릿에는 이름이 필수이며, 설명은 선택 사항입니다.
 
 ## 템플릿 관리 {#managing-templates}
 
-랜딩 페이지 템플릿을 미리보기, 아카이브 또는 편집할 수 있습니다. 자신의 랜딩 페이지 템플릿(**Your Templates**에 위치)은 복제할 수 있지만, Braze 템플릿은 복제할 수 없습니다. 랜딩 페이지를 편집할 때 랜딩 페이지를 템플릿으로 저장하거나, 템플릿을 변경하거나, 랜딩 페이지의 콘텐츠를 삭제할 수 있습니다.
+랜딩 페이지 템플릿을 미리보기, 아카이브 또는 편집할 수 있습니다. 자신의 랜딩 페이지 템플릿(**내 템플릿**에 위치)은 복제할 수 있지만, Braze 템플릿은 복제할 수 없습니다. 랜딩 페이지를 편집할 때 랜딩 페이지를 템플릿으로 저장하거나, 템플릿을 변경하거나, 랜딩 페이지의 콘텐츠를 삭제할 수 있습니다.
 
 ![랜딩 페이지를 저장, 변경 및 삭제하는 옵션이 있는 드롭다운.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
 ## 분석 보기 {#viewing-analytics}
 
-랜딩 페이지의 효과를 분석하려면 **Messaging** > **Landing Pages**로 이동한 다음 게시한 랜딩 페이지를 선택합니다. 여기에서 랜딩 페이지의 페이지 조회수, 페이지 클릭 수, 페이지 제출 수 및 제출률을 추적할 수 있습니다.
+랜딩 페이지의 효과를 분석하려면 **메시징** > **랜딩 페이지**로 이동한 다음 게시한 랜딩 페이지를 선택합니다. 여기에서 랜딩 페이지의 페이지 조회수, 페이지 클릭 수, 페이지 제출 수 및 제출률을 추적할 수 있습니다.
 
 ![랜딩 페이지의 분석 섹션.]({% image_buster /assets/img/landing_pages/analytics.png %})
 

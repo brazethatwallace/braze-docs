@@ -50,6 +50,8 @@ function refresh() {
 }
 ```
 
+Um Content-Card-Links in einem neuen Browser-Tab statt im selben Tab zu öffnen, setzen Sie `openCardsInNewTab: true` in Ihren Initialisierungsoptionen des Internet-SDK. Weitere Informationen zu Initialisierungsoptionen finden Sie im [Leitfaden zum Internet-SDK-Repository]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/).
+
 {% endtab %}
 {% tab android %}
 
@@ -81,7 +83,7 @@ Sie können jederzeit eine manuelle Aktualisierung der Braze Content Cards über
 
 In Swift können Content Cards entweder mit einem optionalen Completion Handler oder mit einer asynchronen Rückgabe unter Verwendung der nativen Swift-Concurrency-APIs aktualisiert werden.
 
-#### Completion Handler
+#### Completion Handler {#completion-handler}
 
 ```swift
 AppDelegate.braze?.contentCards.requestRefresh { result in

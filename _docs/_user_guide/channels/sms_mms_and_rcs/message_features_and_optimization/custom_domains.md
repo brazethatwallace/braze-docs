@@ -64,7 +64,7 @@ After your domain is verified, your custom domains will appear in the table on t
 
 ![List of custom domains and statuses.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-Live monitoring will alert you in the Braze dashboard if any of your active domains have an issue, so that your custom links remain usable. If you encounter any issues, refer to the in-app error details or contact Braze [Support]({{site.baseurl}}/braze_support/) for assistance.
+Live monitoring will alert you in the Braze dashboard if any of your active domains have an issue, so that your custom links remain usable. If you encounter any issues, refer to the in-app error details or contact Braze [Support]({{site.baseurl}}/braze_support) for assistance.
 
 ## Assigning custom domains to subscription groups
 
@@ -72,9 +72,7 @@ After they're configured, custom domains can be assigned to one or multiple SMS,
 
 1. Go to **Audience** > **Subscription Group Management**.
 2. Find and select your subscription group in the list.
-3. Under **Subscription Group Details**, select your custom domain as the **Link Shortening Domain**.
-
-![Subscription groups settings that allow you to select a link-shortening domain.]({% image_buster /assets/img/custom_domain.png %})
+3. Under **Subscription Group Details**, select your custom domain in the **Link Shortening Domain** dropdown.
 
 Campaigns sent with link shortening turned on will use the assigned domain associated with your SMS, RCS, or WhatsApp subscription group.
 
@@ -108,4 +106,4 @@ Yes. After a custom domain is verified, it can be used in all SMS, RCS, and What
 
 ### What if I have questions or need further support?
 
-For more detailed guidance on setting up and managing custom domains, including troubleshooting steps and technical requirements, [contact Support]({{site.baseurl}}/braze_support/).
+For more detailed guidance on setting up and managing custom domains, including troubleshooting steps and technical requirements, [contact Support]({{site.baseurl}}/braze_support).

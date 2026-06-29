@@ -113,7 +113,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 長文テキスト {#long-text}
 
-調査スタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。
+調査スタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。このブロックは標準のランディングページでは使用できません。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

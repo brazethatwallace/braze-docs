@@ -95,7 +95,7 @@ This example uses Braze user attributes for the first name and last name:
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}

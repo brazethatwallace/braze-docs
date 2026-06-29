@@ -2,7 +2,6 @@
 nav_title: Spécifications des images
 article_title: Spécifications des images
 page_order: 1
-
 page_type: reference
 description: "Cet article de référence décrit les tailles et spécifications d'images recommandées pour chaque type de canal."
 tool:
@@ -19,7 +18,7 @@ Vous devriez toujours [prévisualiser et tester vos messages]({{site.baseurl}}/u
 
 ## Comportement des images {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Vidéo {#video}
 
@@ -29,19 +28,21 @@ Les vidéos téléchargées dans la bibliothèque multimédia ne peuvent être u
 
 Les GIF sont pris en charge dans les notifications push iOS, les messages in-app, les e-mails, les Content Cards et les messages MMS ou RCS. Les GIF avec des formes très allongées (par exemple, 3000 x 2 pixels) ou comportant 300 images ou plus peuvent échouer au téléchargement, même si la taille totale du fichier est faible.
 
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
+
 ## Recommandations par canal {#channel-guidance}
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### E-mail {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### Messages in-app {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger le ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
@@ -53,9 +54,9 @@ Braze prend en charge l'utilisation de [Font Awesome v4.3.0](https://fontawesome
 
 ### Notifications push {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Longueurs de message recommandées {#recommended-message-lengths}
 

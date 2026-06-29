@@ -1,39 +1,49 @@
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Antes de implementar o deep linking em seu app Flutter, você precisará configurar o deep linking na camada nativa do [Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android) ou [iOS]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift).
+{% tabs local %}
+{% tab iOS %}
+Antes de implementar o deep linking em seu app Flutter para iOS, configure seus esquemas de URL no arquivo `Info.plist`. Para mais detalhes, consulte [Deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes).
+{% endtab %}
 
-## Implementação de deep linking
+{% tab Android %}
+Para Flutter Android, nenhuma configuração nativa adicional é necessária se você estiver lidando com deep links na camada Dart. A implementação mínima mostrada neste artigo é suficiente para a maioria dos apps Flutter.
 
-### Etapa 1: Configurar o manuseio integrado do Flutter
+Se você precisar de tratamento avançado de links na camada nativa (como implementações personalizadas de `IBrazeDeeplinkHandler`), consulte [Deep linking para Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android).
+{% endtab %}
+{% endtabs %}
+
+## Implementação de deep linking {#implementing-deep-linking}
+
+### Etapa 1: Configurar o tratamento integrado do Flutter {#step-1-set-up-flutters-built-in-handling}
 
 {% tabs %}
 {% tab iOS %}
 1. Em seu projeto Xcode, abra o arquivo `Info.plist`.
-2. Adicionar um novo par chave-valor.
-3. Coloque a tecla em `FlutterDeepLinkingEnabled`.
+2. Adicione um novo par chave-valor.
+3. Defina a chave como `FlutterDeepLinkingEnabled`.
 4. Defina o tipo como `Boolean`.
-5. Defina o valor para `YES`.
-    ![Um exemplo de projeto \`Info.plist\` com o par chave-valor adicionado.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+5. Defina o valor como `YES`.
+    ![Exemplo do arquivo `Info.plist` de um projeto com o par chave-valor adicionado.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
 {% endtab %}
 
 {% tab Android %}
 1. Em seu projeto do Android Studio, abra o arquivo `AndroidManifest.xml`.
-2. Localize `.MainActivity` em suas tags `activity`.
-3. Na tag `activity`, adicione a seguinte tag `meta-data`:
+2. Localize `.MainActivity` nas tags `activity`.
+3. Dentro da tag `activity`, adicione a seguinte tag `meta-data`:
     ```xml
     <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
     ```
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Encaminhar dados para a camada Dart (opcional)
+### Etapa 2: Encaminhar dados para a camada Dart (opcional) {#step-2-forward-data-to-the-dart-layer-optional}
 
-É possível usar o tratamento de links nativos, próprios ou de terceiros para casos de uso complexos, como enviar um usuário para um local específico em seu app ou chamar uma função específica.
+Você pode usar o tratamento de links nativos, próprios ou de terceiros para casos de uso complexos, como enviar um usuário para um local específico em seu app ou chamar uma função específica.
 
-#### Exemplo: Deep linking para uma caixa de diálogo de alerta
+#### Exemplo: Deep linking para uma caixa de diálogo de alerta {#example-deep-linking-to-an-alert-dialog}
 
 {% alert note %}
-Embora o exemplo a seguir não dependa de pacotes adicionais, você pode usar uma abordagem semelhante para implementar pacotes nativos, próprios ou de terceiros, como [`go_router`](https://pub.dev/packages/go_router). Pode ser necessário um código Dart adicional.
+Embora o exemplo a seguir não dependa de pacotes adicionais, você pode usar uma abordagem semelhante para implementar pacotes nativos, próprios ou de terceiros, como [`go_router`](https://pub.dev/packages/go_router). Pode ser necessário código Dart adicional.
 {% endalert %}
 
 Primeiro, um canal de método é usado na camada nativa para encaminhar os dados da string de URL do deep link para a camada Dart.
@@ -42,13 +52,13 @@ Primeiro, um canal de método é usado na camada nativa para encaminhar os dados
 {% tab iOS %}
 ```swift
 extension AppDelegate {
-  
+
   // Delegate method for handling custom scheme links.
   override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     forwardURL(url)
     return true
   }
-  
+
   // Delegate method for handling universal links.
   override func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
@@ -96,7 +106,7 @@ class MainActivity : FlutterActivity() {
 {% endtab %}
 {% endtabs %}
 
-Em seguida, uma função de retorno de chamada é usada na camada Dart para exibir um diálogo de alerta usando os dados da string de URL enviados anteriormente.
+Em seguida, uma função de retorno de chamada é usada na camada Dart para exibir uma caixa de diálogo de alerta usando os dados da string de URL enviados anteriormente.
 
 ```dart
 MethodChannel('deepLinkChannel').setMethodCallHandler((call) async {

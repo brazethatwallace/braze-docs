@@ -26,10 +26,10 @@ There are two changes required when integrating with Smart TVs:
 
 ## Analytics
 
-All of the same Web SDK methods for analytics can be used on Smart TVs. For a full walkthrough for tracking custom events, custom attributes, and more, see [Analytics]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+All of the same Web SDK methods for analytics can be used on Smart TVs. For a full walkthrough for tracking custom events, custom attributes, and more, see [Analytics]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ## In-app messages and Content Cards
 
-The Braze Web SDK supports both [in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=web) and [Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web) on Smart TVs. Note that you must use the ["Core" Web SDK](https://www.npmjs.com/package/@braze/web-sdk) as rendering in-app messages and Content Cards is not supported using our standard UI display and should instead be customized by your app to fit into your TV App's experience.
+The Braze Web SDK supports both [in-app messages]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=web) and [Content Cards]({{site.baseurl}}/developer_guide/content_cards?sdktab=web) on Smart TVs. Note that you must use the ["Core" Web SDK](https://www.npmjs.com/package/@braze/web-sdk) as rendering in-app messages and Content Cards is not supported using our standard UI display and should instead be customized by your app to fit into your TV App's experience.
 
-For more information on how your Smart TV App can receive and display in-app messages, see [Triggering messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
+For more information on how your Smart TV App can receive and display in-app messages, see [Triggering messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web).

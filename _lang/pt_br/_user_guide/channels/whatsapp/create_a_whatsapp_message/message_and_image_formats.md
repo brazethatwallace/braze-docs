@@ -142,11 +142,11 @@ As especificações a seguir se aplicam a todas as mídias em cabeçalhos de mod
 
 ### Imagens {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Vídeo {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Compatibilidade com Android {#android-compatibility}
 

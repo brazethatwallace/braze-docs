@@ -166,8 +166,8 @@ Braze開発者ガイドのドキュメントは、AIツールやLLM向けに最�
 
 | ファイル | 説明 |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Braze開発者向けドキュメントページのタイトルと説明のインデックスです。利用可能なドキュメントを見つけるための出発点として使用できます。 |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | Braze開発者向けドキュメントの完全版を、LLMが利用しやすい形式でフォーマットした単一のプレーンテキストファイルです。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plain text documentation" }
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Braze開発者向けドキュメントページのタイトルと説明のインデックスです。利用可能なドキュメントを見つけるための出発点として使用できます。 |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | Braze開発者向けドキュメントの完全版を、LLMが利用しやすい形式でフォーマットした単一のプレーンテキストファイルです。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プレーンテキストドキュメント" }
 
 これらのファイルは[llms.txt標準](https://llmstxt.org/)に準拠しています。これはAIツールがドキュメントにアクセスしやすくするための新しい規約です。プロンプト内でこれらのファイルを直接参照したり、内容をLLMに貼り付けてコンテキストとして使用したりできます。

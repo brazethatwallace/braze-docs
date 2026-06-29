@@ -31,7 +31,7 @@ Braze offers four eCommerce Canvas templates.
 
 ## Message personalization
 
-[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) is a powerful templating language used by Braze that allows you to create dynamic and personalized content for your customers. By using Liquid tags, you can customize messages based on customer data, product information, and other variables, enhancing the shopping experience and driving engagement.
+[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) is a powerful templating language used by Braze that allows you to create dynamic and personalized content for your customers. By using Liquid tags, you can customize messages based on customer data, product information, and other variables, enhancing the shopping experience and driving engagement.
 
 ### Key features of Liquid
 
@@ -43,8 +43,8 @@ Braze offers four eCommerce Canvas templates.
 
 To begin personalizing your messages using Liquid tags, you can refer to the following resources:
 
-- [Shopify data]({{site.baseurl}}/shopify_features/#shopify-data) reference with pre-defined liquid tags
-- [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)
+- [Shopify data]({{site.baseurl}}/shopify_features#shopify-data) reference with pre-defined liquid tags
+- [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)
 
 ## Segmentation
 
@@ -54,14 +54,14 @@ For more information on getting started with segments, check out [About Braze se
 
 ### Recommended events
 
-eCommerce events are based on [recommended events]({{site.baseurl}}/recommended_events/).
+eCommerce events are based on [recommended events]({{site.baseurl}}/recommended_events).
 Because recommended events are more opinionated custom events, you can search for the recommended eCommerce event names by selecting any [custom event filter]({{site.baseurl}}/user_guide/data/activation/events/custom_events#segmentation-filters).
 
 ### eCommerce filters
 
 Segment your users with eCommerce filters, like **Ecommerce Source** and **Total Revenue**, by going to the **Ecommerce** section within the segmenter. 
 
-For a list of eCommerce filters and their definitions, refer to [Segment filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) and select the "eCommerce" search category.
+For a list of eCommerce filters and their definitions, refer to [Segment filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) and select the "eCommerce" search category.
 
 ![Segment filters dropdown with "Ecommerce" filters.]({% image_buster /assets/img_archive/ecommerce_filters.png %}){: style="max-width:50%"}
 
@@ -89,8 +89,8 @@ After you launch a campaign or Canvas using the "Places Order" conversion event,
 
 #### eCommerce revenue dashboard
 
-To gain insights into revenue attributed to the last campaign or Canvas a user interacted with before placing an order, use the [eCommerce revenue dashboard]({{site.baseurl}}/ecommerce_revenue_dashboard/) and select a conversion window.
+To gain insights into revenue attributed to the last campaign or Canvas a user interacted with before placing an order, use the [eCommerce revenue dashboard]({{site.baseurl}}/ecommerce_revenue_dashboard) and select a conversion window.
 
 ### Revenue report 
 
-To analyze data from these new events, go to the [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) and view the [**eCommerce Revenue - Last Touch Attribution** dashboard]({{site.baseurl}}/ecommerce_revenue_dashboard/).
+To analyze data from these new events, go to the [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) and view the [**eCommerce Revenue - Last Touch Attribution** dashboard]({{site.baseurl}}/ecommerce_revenue_dashboard).

@@ -68,6 +68,10 @@ Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/ca
 
 ![콘텐츠 카드 만료를 위한 컨텍스트 변수로 구성된 기간 개인화를 보여주는 만료 설정.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cards의 최대 만료 기간은 컨텍스트 변수를 사용한 개인화된 기간을 설정하더라도 30일입니다. 30일을 초과하는 값은 30일로 제한됩니다. 자세한 내용은 [카드 만료]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration)를 참조하세요.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -127,6 +131,10 @@ Content Cards [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/ca
 
 ## 고려 사항 {#considerations}
 
+### 멀티채널 Campaign {#multichannel-campaigns}
+
+멀티채널 Campaign은 첫 번째 노출 시 카드 생성을 지원하지 않으므로 모든 Content Cards는 Campaign 시작 시 발송됩니다.
+
 ### Canvas 컨텍스트 등록정보 사용 {#using-canvas-context-properties}
 
 Content Cards를 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)로 개인화할 때는 `${...}` 구문을 사용하세요(예: {%raw%}`{{context.${property_name}}}`{%endraw%}). 이 구문 없이 점 표기법을 사용하면(예: {%raw%}`{{context.property_name}}`{%endraw%}) 푸시나 이메일 같은 다른 채널에서는 작동하더라도 Content Cards에서는 올바르게 처리되지 않을 수 있습니다.
@@ -139,7 +147,7 @@ Braze는 Campaign이 시작된 후에는 카드 생성 방식을 변경하지 �
 
 대규모 오디언스의 경우 첫 번째 노출 시 카드를 생성하는 옵션을 선택하면 시작 후 카드를 빠르게 사용할 수 있습니다. 세션 시작 시 트리거되는 Campaign도 성과 향상을 위해 첫 번째 노출 시 생성으로 전환하면(예약 전달을 통해 사용 가능) 도움이 될 수 있습니다.
 
-첫 번째 노출 시 카드를 생성하면 카드 처리에 1~2초가 걸릴 수 있습니다. 이 처리 시간은 카드 크기와 메시지 템플릿 옵션의 복잡성 등 다양한 요인에 따라 달라집니다. 예를 들어, 연결된 콘텐츠를 사용하는 카드의 처리 시간은 최소한 연결된 콘텐츠 응답 시간만큼 걸립니다.
+첫 번째 노출 시 카드를 생성하면 카드 처리에 몇 초가 걸릴 수 있습니다. 이 처리 시간은 카드 크기와 메시지 템플릿 옵션의 복잡성 등 다양한 요인에 따라 달라집니다. 예를 들어, 연결된 콘텐츠를 사용하는 카드의 처리 시간은 최소한 연결된 콘텐츠 응답 시간만큼 걸립니다.
 
 ### 이전 SDK 버전 {#previous-sdk-versions}
 

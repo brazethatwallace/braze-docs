@@ -36,7 +36,7 @@ Para lidar com vários eventos da Olo dentro desta única transformação, procu
 
 ### Etapa 1: Configure a Transformação de dados da Braze para aceitar o evento de teste da Olo {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### Etapa 2: Configure os webhooks da Olo {#step-2-set-up-olo-webhooks}
 

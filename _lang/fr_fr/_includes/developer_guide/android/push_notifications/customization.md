@@ -362,7 +362,7 @@ Un **ID de notification** est un identifiant unique pour une catégorie de messa
 
 ### Priorité de distribution de Firebase Messaging {#fcm-priority}
 
-Le champ [Priorité de distribution de Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) vous permet de contrôler si une notification push est envoyée avec une priorité « normale » ou « élevée » à Firebase Cloud Messaging.
+Le champ [Priorité de distribution de Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) vous permet de contrôler si une notification push est envoyée avec une priorité « normale » ou « élevée » à Firebase Cloud Messaging.
 
 ### Durée de vie (TTL) {#ttl}
 
@@ -392,7 +392,7 @@ La fonctionnalité **URI personnalisé** vous permet de spécifier une URL Web o
 Le paramètre de priorité d'affichage de notification n'est plus utilisé sur les appareils exécutant Android O ou plus récents. Pour les appareils plus récents, définissez la priorité par le biais de la [configuration du canal de notification](https://developer.android.com/training/notify-user/channels#importance).
 {% endalert %}
 
-Le niveau de priorité d'une notification push affecte la manière dont votre notification est affichée dans la barre de notification par rapport à d'autres notifications. Il peut également affecter la vitesse et la manière de livrer, car les messages normaux et moins prioritaires peuvent être envoyés avec une latence légèrement plus élevée ou groupés pour préserver la durée de vie de la batterie, alors que les messages haute priorité sont toujours envoyés immédiatement.
+Le niveau de priorité d'une notification push affecte la manière dont votre notification est affichée dans la barre de notification par rapport à d'autres notifications. Il peut également affecter la vitesse et la manière de distribution, car les messages normaux et moins prioritaires peuvent être envoyés avec une latence légèrement plus élevée ou groupés pour préserver la durée de vie de la batterie, alors que les messages haute priorité sont toujours envoyés immédiatement.
 
 Dans Android O, la priorité de notification est devenue une propriété des canaux de notification. Vous devrez travailler avec votre développeur pour définir la priorité d'un canal pendant sa configuration, puis utiliser le tableau de bord pour sélectionner le canal approprié lors de l'envoi de vos sons de notification. Pour les appareils fonctionnant sous des versions d'Android antérieures à O, il est possible de définir un niveau de priorité pour les notifications Android via le tableau de bord de Braze et l'API de messagerie.
 
@@ -407,7 +407,7 @@ Les niveaux de priorité que vous pouvez définir sur les notifications push And
 | Par défaut  | La plupart des notifications : utilisez « par défaut » si votre message ne tombe pas explicitement dans les autres types de priorité | `0` |
 | Faible      | Informations que vous voulez que les utilisateurs connaissent, mais ne nécessitant pas d'action immédiate | `-1` |
 | Min      | Informations contextuelles ou d'arrière-plan | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority #notification-priority" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Priorité d'affichage de la notification" }
 
 Pour plus d'informations, veuillez consulter la documentation de Google sur les [notifications Android](http://developer.android.com/design/patterns/notifications.html).
 

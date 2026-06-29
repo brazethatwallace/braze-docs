@@ -15,7 +15,7 @@ Braze verwaltet eine Reihe verschiedener Instanzen für unser Dashboard, SDK und
 
 Wenn Sie sich unter [dashboard.braze.com](https://dashboard.braze.com) anmelden, werden Sie automatisch an die richtige Cluster-Adresse weitergeleitet.
 
-{% multi_lang_include data_centers.md datacenters='instances' %}
+{% multi_lang_include administer/data_centers.md datacenters='instances' %}
 
 {% alert important %}
 Verwenden Sie bei der Integration Ihres SDK den SDK-Endpunkt. Verwenden Sie bei Aufrufen an unsere REST API den REST-Endpunkt.

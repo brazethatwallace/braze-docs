@@ -1,0 +1,26 @@
+[
+  {
+    "id": "3054628b",
+    "file": "_docs/_partners/data_and_analytics/analytics/kickbox.md",
+    "violation_type": "email_address",
+    "match": "example2@exampl.com",
+    "message": "Code snippet may contain a real email address ('example2@exampl.com').",
+    "fix_hint": "Use name@example.com placeholders per the style guide.",
+    "dismissed": true,
+    "dismiss_reason": "Kickbox API sample uses example2@exampl.com intentionally to demonstrate did_you_mean typo correction to example2@example.com.",
+    "line_start": 45,
+    "line_end": 82
+  },
+  {
+    "id": "fdcc4ba9",
+    "file": "_docs/_user_guide/channels/webhooks/create_a_webhook.md",
+    "violation_type": "email_address",
+    "match": "support@lob.com",
+    "message": "Code snippet may contain a real email address ('support@lob.com').",
+    "fix_hint": "Use name@example.com placeholders per the style guide.",
+    "dismissed": true,
+    "dismiss_reason": "Sample Lob API 404 error JSON must quote support@lob.com verbatim from the vendor response.",
+    "line_start": 155,
+    "line_end": 163
+  }
+]

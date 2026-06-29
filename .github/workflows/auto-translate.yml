@@ -105,7 +105,7 @@ jobs:
       count: ${{ steps.changes.outputs.count }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -189,6 +189,11 @@ jobs:
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       PYTHONUNBUFFERED: "1"
+      TRANSLATION_API_RETRIES: "6"
+      TRANSLATION_FAILED_PASS_RETRIES: "6"
+      TRANSLATION_FAILED_PASS_ROUNDS: "2"
+      TRANSLATION_HTTP_TIMEOUT: "240"
+      TRANSLATION_WORKERS: "8"
     strategy:
       fail-fast: false
       matrix:
@@ -207,7 +212,7 @@ jobs:
             lang_dir: de
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -285,7 +290,7 @@ jobs:
       pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -379,7 +384,7 @@ jobs:
       pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           persist-credentials: false

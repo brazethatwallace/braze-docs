@@ -1,2 +1,3 @@
+# Local config contains secrets — never commit it
 config.json
 run.log

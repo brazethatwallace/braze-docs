@@ -40,7 +40,7 @@ The `message_extras` tag is supported for all message types with a send event, a
 
 {: start="2"}
 
-2. Enter the [key-value pair]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) for each `message_extras` tag. 
+2. Enter the [key-value pair]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) for each `message_extras` tag. 
 
 ![An example of key-value pairs for the message extras tag. The title field reads "Your New Favorites." The message reads key-value pairs for the message extras tag and the following sentence: "We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites"]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
@@ -60,7 +60,7 @@ Any other input that doesn't match the tag standard discussed above may fail to 
 
 ## Sending promotion code information to Currents
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Considerations
 
@@ -72,9 +72,9 @@ Any other input that doesn't match the tag standard discussed above may fail to 
 
 ## Frequently asked questions
 
-#### How can I associate the message_extras field in the send events to my engagement events like opens and clicks? 
+### How can I associate the message_extras field in the send events to my engagement events like opens and clicks? 
 
-A `dispatch_id` is generated and provided in your send events, which can be used as a unique identifier to tie to specific click, open or delivered events. You'll be able to use and query this field in Currents or Snowflake. Learn more about [`dispatch_id` behavior]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+A `dispatch_id` is generated and provided in your send events, which you can use as a unique identifier to tie to specific click, open, or delivered events. Query this field in Currents or Snowflake. For more information, see [Dispatch ID behavior]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### Can I use message_extras with in-app messages? {#iam-sdk}
 

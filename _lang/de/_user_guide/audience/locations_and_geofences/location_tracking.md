@@ -68,6 +68,10 @@ Die Kombination bestehender Beacon- oder Geofence-Unterstützung mit unseren Tar
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
 
+## Unterschiede zwischen Geofences und Standort-Tracking {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
 ### Wann erfasst Braze Standortdaten? {#when-does-braze-collect-location-data}

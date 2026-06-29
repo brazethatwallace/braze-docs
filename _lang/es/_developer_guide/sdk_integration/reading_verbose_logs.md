@@ -525,4 +525,18 @@ En las cargas útiles de registros detallados, Braze utiliza nombres de eventos 
 | `ccc` | Clic en Content Card |
 | `ccd` | Descarte de Content Card |
 | `lr` | Ubicación registrada |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abreviaturas comunes de eventos" }
+
+## Solución de problemas {#troubleshooting}
+
+### ¿Cuándo puede un usuario tener 0 sesiones registradas en su perfil? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+Un perfil de usuario puede mostrar 0 sesiones cuando importas al usuario a través de la REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) o mediante importación CSV sin los campos **First session** o **Last session**. Las sesiones se registran cuando los usuarios interactúan con tu aplicación a través del SDK. Para más detalles, consulta [El perfil de usuario tiene 0 sesiones]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions).
+
+### Discrepancias en los datos de usuario al usar el SDK y la REST API juntos {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+Cuando usas el SDK y la REST API al mismo tiempo, las condiciones de carrera pueden causar discrepancias en los datos. Después de llamar a `changeUser()`, permite que el SDK vacíe los datos pendientes antes de realizar llamadas críticas a la REST API, evita agrupar actualizaciones sensibles al tiempo y considera agregar un breve retraso entre las solicitudes del SDK y de la API. Para conocer el comportamiento de `changeUser()`, consulta [Cómo funciona changeUser()]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works).
+
+### Los datos no llegan a Braze {#data-not-reaching-braze}
+
+Si los datos no llegan a Braze, confirma que tu firewall permite el tráfico saliente a los puntos de conexión de la API de Braze y a los proveedores de CDN. Ejecuta una prueba MTR y usa [Fastly Debug](https://www.fastly-debug.com/) mientras ocurre el problema. Para la lista de permitidos y la solución de problemas de conectividad, consulta [Problemas de conectividad de red de la API]({{site.baseurl}}/api/network_connectivity_issues/).

@@ -2,7 +2,6 @@
 nav_title: 이미지 사양
 article_title: 이미지 사양
 page_order: 1
-
 page_type: reference
 description: "이 참조 문서에서는 각 채널 유형에 대한 권장 이미지 크기 및 사양을 설명합니다."
 tool:
@@ -19,7 +18,7 @@ tool:
 
 ## 이미지 동작 {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## 동영상 {#video}
 
@@ -29,19 +28,21 @@ tool:
 
 GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS 메시지에서 지원됩니다. 매우 길쭉한 형태(예: 3000 x 2 픽셀)이거나 300프레임 이상인 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다.
 
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
+
 ## 채널 가이드 {#channel-guidance}
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### 이메일 {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### 인앱 메시지 {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} 자신 있게 자산을 만들어 보세요! 인앱 메시지 이미지 템플릿과 세이프 존 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
@@ -53,9 +54,9 @@ Braze는 모달 인앱 메시지 아이콘에 [Font Awesome v4.3.0](https://font
 
 ### 푸시 알림 {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### 권장 메시지 길이 {#recommended-message-lengths}
 

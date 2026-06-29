@@ -19,8 +19,6 @@ Pour accéder au générateur de pages d'accueil, vous avez besoin de [certaines
 
 Accédez à **Messaging** > **Landing Pages**, puis sélectionnez **Create landing page**. Vous pouvez également sélectionner le nom d'une page d'accueil existante pour la dupliquer ou y apporter des modifications.
 
-![La section des pages d'accueil dans le tableau de bord de Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
-
 ### Étape 2 : Saisir les détails de la page {#step-2-enter-the-page-details}
 
 Ajoutez des détails internes et publics qui vous aident à organiser, personnaliser et partager votre page d'accueil.
@@ -41,7 +39,7 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 | Méta-description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
 | Favicon | L'icône qui apparaît à côté du titre du site dans l'onglet du navigateur. | Utilisez un rapport hauteur/largeur de 1:1 et un type de fichier pris en charge : PNG, JPEG ou ICO. |
 | URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Détails du site" }
 
 ### Étape 3 : Personnaliser la page {#step-3-customize-the-page}
 
@@ -68,11 +66,11 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la disposition et la lisibilité. |
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Personnaliser la page" }
 
-##### Span text {#span-text}
+#### Span text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Blocs de formulaire %}
@@ -158,7 +156,7 @@ Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y c
 
 ## Utiliser des modèles {#using-templates}
 
-Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines Campaigns. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et dans la section **Templates** du tableau de bord (**Templates** > **Landing Page Templates**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
+Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
 
 ## Gérer les modèles {#managing-templates}
 

@@ -19,7 +19,6 @@
         display: inline-flex !important;
         line-height: 20px;
         max-width: 100%;
-        outline: none;
         overflow: hidden;
         position: relative;
         text-decoration: none !important;
@@ -34,6 +33,15 @@
         height: 32px;
         border: 1px solid transparent !important;
         padding: 6px 17px !important;
+        // Design review: chips have colored backgrounds; verify purple ring
+        // reads well on each chip color. outline-offset: 0 used because
+        // overflow: hidden would clip a positive offset.
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+        &:focus-visible {
+            @include focus-ring($offset: 0, $radius: 16px);
+        }
     }
 
     .sdk-versions--chip.web-sdk {

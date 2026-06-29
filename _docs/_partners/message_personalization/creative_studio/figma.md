@@ -15,6 +15,10 @@ search_tag: Partner
 
 The Braze and Figma integration allows you to send images and visual assets from Figma directly into the Braze media library.
 
+Watch this video for an overview of how the integration works.
+
+{% multi_lang_include video.html id="ab5ywsi72n" source="wistia" %}
+
 ## Prerequisites
 
 | Requirement | Description |

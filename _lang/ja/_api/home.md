@@ -34,8 +34,8 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
-  - name: Campaigns
-  - name: Canvas
+  - name: キャンペーン
+  - name: キャンバス
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
@@ -48,7 +48,7 @@ glossary_tags:
   - name: Schedule Messages
   - name: SCIM
   - name: SDK Authentication
-  - name: Segments
+  - name: セグメント
   - name: Send Messages
   - name: SMS
   - name: Subscription Groups
@@ -104,7 +104,7 @@ glossaries:
   - name: "<a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/'>/campaigns/trigger/send</a>"
     description: API トリガー配信を介して、指定したユーザーに即時の1回限りのメッセージを送信します。 - メッセージを送信
   - name: "<a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_canvases/'>/canvas/trigger/send</a>"
-    description: APIトリガー配信でCanvasメッセージを送る。- メッセージを送信する
+    description: APIトリガー配信でキャンバスメッセージを送る。- メッセージを送信する
   - name: "<a href='/docs/api/endpoints/messaging/send_messages/post_send_messages/'>/messages/send</a>"
     description: Braze API を介して、指定したユーザーに即座に単発のメッセージを送信します。
     tags:
@@ -134,7 +134,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: "<a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/'>/canvas/trigger/schedule/create</a>"
-    description: APIトリガー配信でCanvasメッセージをスケジュールする。
+    description: APIトリガー配信でキャンバスメッセージをスケジュールする。
     tags:
       - Schedule Messages
   - name: "<a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages/'>/messages/schedule/update</a>"
@@ -220,51 +220,51 @@ glossaries:
   - name: "<a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics/'>/campaigns/data_series</a>"
     description: キャンペーンに関する様々な統計情報を日次で取得する。
     tags:
-      - Campaigns
+      - キャンペーン
   - name: "<a href='/docs/api/endpoints/export/campaigns/get_campaign_details/'>/campaigns/details</a>"
     description: 指定したキャンペーンの関連情報を取得する。
     tags:
-      - Campaigns
+      - キャンペーン
   - name: "<a href='/docs/api/endpoints/export/campaigns/get_campaigns/'>/campaigns/list</a>"
     description: キャンペーンs の一覧をエクスポートします。それぞれの一覧には、名前、キャンペーン API 識別子、API キャンペーンかどうか、およびキャンペーンに関連付けられたタグs が含まれます。
     tags:
-      - Campaigns
+      - キャンペーン
   - name: "<a href='/docs/api/endpoints/export/campaigns/get_send_analytics/'>/sends/data_series</a>"
     description: 追跡対象のさまざまな統計の日次情報を取得します <code>send_id</code>.
     tags:
-      - Campaigns
+      - キャンペーン
   - name: "<a href='/docs/api/endpoints/export/canvas/get_canvas_analytics/'>/canvas/data_series</a>"
     description: キャンバスの時系列データをエクスポートする。
     tags:
-      - Canvas
+      - キャンバス
   - name: "<a href='/docs/api/endpoints/export/canvas/get_canvas_analytics_summary/'>/canvas/data_summary</a>"
     description: キャンバスの時系列データのロールアップをエクスポートし、キャンバスの結果の簡潔な要約を提供する。
     tags:
-      - Canvas
+      - キャンバス
   - name: "<a href='/docs/api/endpoints/export/canvas/get_canvas_details/'>/canvas/details</a>"
     description: 名前、作成時間、現在のステータスなど、キャンバスに関するメタデータをエクスポートします。
     tags:
-      - Canvas
+      - キャンバス
   - name: "<a href='/docs/api/endpoints/export/canvas/get_canvases/'>/canvas/list</a>"
     description: 名前、キャンバスの API 識別子、関連タグを含むキャンバスのリストをエクスポートします。
     tags:
-      - Canvas
+      - キャンバス
   - name: "<a href='/docs/api/endpoints/export/segments/get_segment_analytics/'>/segments/data_series</a>"
     description: 時間の経過に伴うセグメントの推定サイズの日次情報を取得します。
     tags:
-      - Segments
+      - セグメント
   - name: "<a href='/docs/api/endpoints/export/segments/get_segment_details/'>/segments/details</a>"
     description: セグメントの関連情報を取得する。
     tags:
-      - Segments
+      - セグメント
   - name: "<a href='/docs/api/endpoints/export/segments/get_segment/'>/segments/list</a>"
     description: "セグメントs の一覧をエクスポートします。それぞれに名前、セグメント API 識別子、および分析 \"トラッキングが有効になっているかどうかが含まれます。"
     tags:
-      - Segments
+      - セグメント
   - name: "<a href='/docs/api/endpoints/export/segments/post_cancel_export/'>/export/セグメント/キャンセル</a>"
     description: 指定されたセグメント ID のエクスポートを取り消します。
     tags:
-      - Segments
+      - セグメント
   - name: "<a href='/docs/api/endpoints/export/sessions/get_sessions_analytics/'>/sessions/data_series</a>"
     description: 指定した期間におけるアプリの一連のセッション数を取得します。
     tags:
