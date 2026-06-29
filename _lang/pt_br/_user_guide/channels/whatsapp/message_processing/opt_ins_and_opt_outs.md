@@ -91,6 +91,19 @@ Use o modelo de [formulário de captura de número de telefone]({{site.baseurl}}
 
 ## Configurar descadastramentos para o seu canal WhatsApp da Braze {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
+### Botão "Ofertas e Anúncios" do WhatsApp {#whatsapp-offers-and-announcements-toggle}
+
+O WhatsApp oferece um botão "Ofertas e Anúncios" nas configurações do app que permite aos usuários cancelar o recebimento de mensagens de marketing. Esse botão funciona de forma independente dos grupos de inscrições da Braze:
+
+- **Grupos de inscrições da Braze** são gerenciados por meio da sua integração com a Braze (API, Central de Preferências ou SDK) e controlam quais usuários você segmenta para envio de mensagens.
+- **O botão nativo do WhatsApp** é controlado pela Meta e aplicado no nível da plataforma, fora da Braze.
+
+Essas duas camadas não sincronizam automaticamente por design. Quando um usuário desativa o botão "Ofertas e Anúncios" no WhatsApp, a Meta bloqueia a entrega de mensagens de marketing no nível da plataforma, mesmo que o status de inscrição do usuário na Braze mostre como "Subscribed". A preferência do usuário é respeitada no momento da entrega.
+
+{% alert note %}
+Como a Braze não recebe um sinal de descadastramento até que uma tentativa de envio seja feita e a Meta retorne um erro, as contagens de inscrições na Braze podem não refletir os usuários que cancelaram pelo botão do WhatsApp até que uma mensagem seja tentada. Isso significa que as estimativas de alcance podem ser ligeiramente superestimadas até que esse ciclo de feedback ocorra.
+{% endalert %}
+
 ### Palavras-chave gerais de descadastramento {#general-opt-out-keywords}
 
 Você pode configurar uma Campaign ou Canvas que permita que usuários que enviem determinadas palavras cancelem o recebimento de mensagens futuras. Canvas pode ser especialmente benéfico, pois permite incluir uma mensagem de acompanhamento confirmando o descadastramento bem-sucedido.
@@ -228,4 +241,4 @@ Nesta tabela, `STOP` é usado como exemplo de palavra de gatilho para demonstrar
 | `Is` | `STOP` | Captura qualquer uso da palavra inteira "stop", independentemente de maiúsculas ou minúsculas. Por exemplo, captura "stop", mas não "please stop". |
 | `Matches regex` | `STOP` | Captura qualquer uso de "STOP" exatamente nessa formatação de maiúsculas. Por exemplo, captura "STOP" e "PLEASE STOP", mas não "stop". |
 | `Matches regex` | `(?i)STOP(?-i)` | Captura qualquer uso de "STOP" em qualquer formatação de maiúsculas ou minúsculas. Por exemplo, captura "stop", "please stop" e "never stop sending me messages". |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Entendendo a diferença entre os modificadores regex e is" }

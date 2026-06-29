@@ -5,7 +5,7 @@ page_order: 2
 page_type: reference
 alias: /api/objects_filters/canvas_entry_properties_object/
 tool:
-  - Canvas
+  - キャンバス
 description: "この記事は、Braze キャンバスのコンテキストオブジェクトについて説明する。"
 
 ---

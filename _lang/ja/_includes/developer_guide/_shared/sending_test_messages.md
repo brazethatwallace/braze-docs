@@ -1,16 +1,16 @@
 # テストメッセージの送信 {#sending-test-messages}
 
-> メッセージングCampaignをユーザーに送信する前に、正しく表示され、意図した通りに動作することを確認するためにテストを行うことをお勧めします。ダッシュボードを使用して、プッシュ通知、アプリ内メッセージ（IAM）、またはメールでテストメッセージを作成して送信できます。
+> メッセージングキャンペーンをユーザーに送信する前に、正しく表示され、意図した通りに動作することを確認するためにテストを行うことをお勧めします。ダッシュボードを使用して、プッシュ通知、アプリ内メッセージ（IAM）、またはメールでテストメッセージを作成して送信できます。
 
 ## テストメッセージの送信 {#sending-a-test-message}
 
-### ステップ 1: 指定したテストSegmentを作成する <a class="margin-fix" name="test-segment"></a> {#step-1-create-a-designated-test-segment}
+### ステップ 1: 指定したテストセグメントを作成する <a class="margin-fix" name="test-segment"></a> {#step-1-create-a-designated-test-segment}
 
-テストSegmentを設定すると、Brazeのあらゆるメッセージングチャネルのテストに使用できます。正しく設定されていれば、この作業は一度だけ行えば済みます。
+テストセグメントを設定すると、Brazeのあらゆるメッセージングチャネルのテストに使用できます。正しく設定されていれば、この作業は一度だけ行えば済みます。
 
-テストSegmentを設定するには、**Segments**に移動して新しいSegmentを作成します。**Add Filter**を選択し、テストフィルターのいずれかを選択します。
+テストセグメントを設定するには、**セグメント**に移動して新しいセグメントを作成します。**Add Filter**を選択し、テストフィルターのいずれかを選択します。
 
-![ターゲットステップで使用可能なフィルターを表示するBrazeテストCampaign。]({% image_buster /assets/img_archive/testmessages1.png %})
+![ターゲットステップで使用可能なフィルターを表示するBrazeテストキャンペーン。]({% image_buster /assets/img_archive/testmessages1.png %})
 
 テストフィルターを使用すると、指定したメールアドレスまたは[外部ユーザーID]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#setting-user-ids)を持つユーザーのみにテストメッセージが送信されるようにできます。
 
@@ -20,19 +20,19 @@
 
 | 演算子 | 説明 |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `equals` | 指定したメールまたはユーザーIDと完全に一致するものを検索します。1つのメールまたはユーザーIDに関連付けられたデバイスにのみテストCampaignを送信する場合に使用します。 |
-| `does not equal` | 特定のメールまたはユーザーIDをテストCampaignから除外する場合に使用します。 |
+| `equals` | 指定したメールまたはユーザーIDと完全に一致するものを検索します。1つのメールまたはユーザーIDに関連付けられたデバイスにのみテストキャンペーンを送信する場合に使用します。 |
+| `does not equal` | 特定のメールまたはユーザーIDをテストキャンペーンから除外する場合に使用します。 |
 | `matches` | 指定した検索語句の一部と一致するメールアドレスまたはユーザーIDを持つユーザーを検索します。これを使用して`@yourcompany.com`アドレスを持つユーザーのみを検索し、チーム全員にメッセージを送信できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create a designated test segment a class="margin-fix" name="test-segment"/a" }
 
-「`matches`」オプションを使用し、メールアドレスを &#124; 文字で区切ることで、複数のメールを選択できます。例：「`matches`」「`email1@braze.com` &#124; `email2@braze.com`」。複数の演算子を組み合わせることもできます。たとえば、テストSegmentには「`matches`」「`@braze.com`」というメールアドレスフィルターと、「`does not equal`」「`sales@braze.com`」という別のフィルターを含めることができます。
+「`matches`」オプションを使用し、メールアドレスを &#124; 文字で区切ることで、複数のメールを選択できます。例：「`matches`」「`email1@braze.com` &#124; `email2@braze.com`」。複数の演算子を組み合わせることもできます。たとえば、テストセグメントには「`matches`」「`@braze.com`」というメールアドレスフィルターと、「`does not equal`」「`sales@braze.com`」という別のフィルターを含めることができます。
 
-テストフィルターをテストSegmentに追加した後、**Preview**を選択するか、**Settings** > **CSV Export All User Data**を選択してそのSegmentのユーザーデータをCSVファイルにエクスポートすることで、正しく動作していることを確認できます。
+テストフィルターをテストセグメントに追加した後、**Preview**を選択するか、**Settings** > **CSV Export All User Data**を選択してそのセグメントのユーザーデータをCSVファイルにエクスポートすることで、正しく動作していることを確認できます。
 
-![「Segment Details」というタイトルのBraze Campaignのセクション]({% image_buster /assets/img_archive/testmessages3.png %})
+![「セグメント Details」というタイトルのBraze キャンペーンのセクション]({% image_buster /assets/img_archive/testmessages3.png %})
 
 {% alert note %}
-SegmentのユーザーデータをCSVファイルにエクスポートすることが最も正確な確認方法です。プレビューではユーザーのサンプルのみが表示され、すべてのユーザーが含まれているとは限りません。
+セグメントのユーザーデータをCSVファイルにエクスポートすることが最も正確な確認方法です。プレビューではユーザーのサンプルのみが表示され、すべてのユーザーが含まれているとは限りません。
 {% endalert %}
 
 ### ステップ 2: メッセージを送信する {#step-2-send-the-message}
@@ -43,21 +43,21 @@ Brazeダッシュボードまたはコマンドラインを使用してメッセ
 {% tab ダッシュボードを使用する %}
 {% subtabs %}
 {% subtab プッシュ通知またはアプリ内メッセージ %}
-テストプッシュ通知またはアプリ内メッセージを送信するには、以前に作成したテストSegmentをターゲットにする必要があります。まずCampaignを作成し、通常のステップに従います。**Target Audiences**ステップに到達したら、ドロップダウンメニューからテストSegmentを選択します。
+テストプッシュ通知またはアプリ内メッセージを送信するには、以前に作成したテストセグメントをターゲットにする必要があります。まずキャンペーンを作成し、通常のステップに従います。**Target Audiences**ステップに到達したら、ドロップダウンメニューからテストセグメントを選択します。
 
-![ターゲットステップで使用可能なSegmentを表示するBrazeテストCampaign。]({% image_buster /assets/img_archive/test_segment.png %})
+![ターゲットステップで使用可能なセグメントを表示するBrazeテストキャンペーン。]({% image_buster /assets/img_archive/test_segment.png %})
 
-Campaignを確認して起動し、プッシュ通知とアプリ内メッセージをテストします。
+キャンペーンを確認して起動し、プッシュ通知とアプリ内メッセージをテストします。
 
 {% alert note %}
-1つのCampaignを使用して自分自身にテストメッセージを複数回送信する場合は、Campaignコンポーザーの**Schedule**部分で**Allow users to become re-eligible to receive campaign**を選択してください。
+1つのキャンペーンを使用して自分自身にテストメッセージを複数回送信する場合は、キャンペーンコンポーザーの**Schedule**部分で**Allow users to become re-eligible to receive campaign**を選択してください。
 {% endalert %}
 {% endsubtab %}
 
 {% subtab メールメッセージ %}
-メールメッセージのみをテストする場合は、必ずしもテストSegmentを設定する必要はありません。Campaignコンポーザーの最初のステップでCampaignのメールメッセージを作成する際に、**Send Test**をクリックし、テストメールを送信したいメールアドレスを入力します。
+メールメッセージのみをテストする場合は、必ずしもテストセグメントを設定する必要はありません。キャンペーンコンポーザーの最初のステップでキャンペーンのメールメッセージを作成する際に、**Send Test**をクリックし、テストメールを送信したいメールアドレスを入力します。
 
-![テスト送信タブが選択されたBraze Campaign]({% image_buster /assets/img_archive/testmessages45.png %})
+![テスト送信タブが選択されたBraze キャンペーン]({% image_buster /assets/img_archive/testmessages45.png %})
 
 {% alert tip %}
 テストメッセージに[TEST（またはSEED）]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/#append-email-subject-lines)が追加されるのを有効または無効にすることもできます。
@@ -88,7 +88,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZ
 {% endsubtab %}
 
 {% subtab swift %}
-```bash
+`````````bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZE_API_KEY}" -d '{
   "external_user_ids":["EXTERNAL_USER_ID"],
   "messages": {
@@ -104,7 +104,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZ
 {% endsubtab %}
 
 {% subtab kindle %}
-```bash
+`````````bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZE_API_KEY}" -d '{
   "external_user_ids":["EXTERNAL_USER_ID"],
   "messages": {
@@ -135,7 +135,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZ
 
 ## テストの制限事項 {#test-limitations}
 
-テストメッセージは、CampaignやCanvasを実際のユーザーに対して起動する場合と完全な機能パリティがない場合があります。このような場合、動作を検証するには、限られたテストユーザーに対してCampaignまたはCanvasを起動する必要があります。
+テストメッセージは、キャンペーンやキャンバスを実際のユーザーに対して起動する場合と完全な機能パリティがない場合があります。このような場合、動作を検証するには、限られたテストユーザーに対してキャンペーンまたはキャンバスを起動する必要があります。
 
 - Brazeの[ユーザー設定センター]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups)を**テストメッセージ**から表示すると、送信ボタンがグレーアウトされます。
 - list-unsubscribeヘッダーは、テストメッセージ機能によって送信されるメールには含まれません。

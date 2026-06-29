@@ -14,13 +14,13 @@ page_order: 4
 As ferramentas nesta página mesclam perfis duplicados no dashboard. Você também pode combinar ou redirecionar perfis por meio dos [endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data/) da Braze:
 
 - [POST: Identificar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`): Combina um perfil somente com alias, somente com e-mail ou somente com número de telefone com um perfil que tenha um `external_id`.
-- [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): Mescla um perfil de usuário em outro, inclusive quando ambos os perfis já possuem um `external_id`. Revise os [Pré-requisitos]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) e o [Comportamento da mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) antes de chamar esse endpoint.
+- [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): Mescla um perfil de usuário em outro, inclusive quando ambos os perfis já possuem um `external_id`. Revise os [Pré-requisitos]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) e o [Comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) antes de chamar esse endpoint.
 
 Quando um perfil anônimo é associado a um perfil identificado existente (por exemplo, por meio de uma chamada `changeUser()` do SDK ou `/users/identify`), a Braze descarta o perfil anônimo e copia apenas determinados campos para o perfil identificado. Para saber mais, consulte [O que acontece quando você identifica usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
 
 Mesclagens de usuários são difíceis de desfazer. Se você está planejando uma mesclagem complexa envolvendo múltiplos valores de `external_id` ou grandes migrações de perfis, entre em contato com seu gerente de sucesso do cliente da Braze para orientação antes de usar `/users/merge`.
 
-A Braze trata três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para mais informações, consulte [Comportamento da mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+A Braze trata três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para mais informações, consulte [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
 
 ## Mesclagem individual {#individual-merging}
 
@@ -44,7 +44,6 @@ Para iniciar o processo de mesclagem, selecione **Merge duplicates**.
 
 Escolha qual perfil de usuário manter e qual mesclar e selecione **Merge profiles**. Repita esse processo até que todos os perfis duplicados tenham sido mesclados.
 
-![A página de mesclagem individual para um perfil duplicado.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/select_merge_profiles.png %}){: style="max-width:80%;"}
 
 {% alert warning %}
 Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
@@ -68,7 +67,6 @@ Para pré-visualizar os resultados antes de mesclar os duplicados, selecione **G
 
 A Braze gerará a pré-visualização e a enviará para o seu endereço de e-mail como um arquivo CSV.
 
-![Um e-mail da Braze com um link para o arquivo CSV gerado.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/example_email.png %}){: style="max-width:60%;"}
 
 No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis duplicados e identificar qual deve ser mantido. Se esses perfis forem mesclados em massa, a Braze usará o perfil com um ID externo como o novo perfil principal do usuário.
 
@@ -83,9 +81,9 @@ No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis 
 {% endtab %}
 {% endtabs %}
 
-#### Comportamento da mesclagem {#merge-behavior}
+#### Comportamento de mesclagem {#merge-behavior}
 
-A Braze preencherá os campos vazios no perfil mantido com valores do perfil mesclado. Para ver a lista de campos que serão preenchidos, consulte [Comportamento da mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior).
+A Braze preencherá os campos vazios no perfil mantido com valores do perfil mesclado. Para ver a lista de campos que serão preenchidos, consulte [Comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior).
 
 ### Etapa 3: Mesclar os duplicados {#step-3-merge-your-duplicates}
 
@@ -95,7 +93,6 @@ Se estiver satisfeito com os resultados da pré-visualização, selecione **Merg
 Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
 {% endalert %}
 
-![A página "Manage Audience" com "Merge all duplicates" destacado.]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_merge_profiles.png %}){: style="max-width:70%;"}
 
 ## Mesclagem baseada em regras {#rules-based-merging}
 
@@ -137,8 +134,14 @@ Após a ativação do recurso, a Braze atribuirá automaticamente um horário pa
 Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
 {% endalert %}
 
+## Por que vários perfis de usuário estão associados ao mesmo endereço de e-mail? {#why-are-multiple-user-profiles-associated-with-the-same-email-address}
+
+A Braze armazena vários perfis de usuário que compartilham o mesmo endereço de e-mail quando os perfis são criados por meio de diferentes identificadores, importações ou sessões anônimas antes da identificação. Esse é o comportamento esperado quando os usuários não compartilham um único `external_id`.
+
+Antes de mesclar duplicados, use o [endpoint Exportar perfil de usuário por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) para confirmar quais perfis existem para um endereço de e-mail e quais campos cada perfil contém. Você também pode pesquisar por e-mail em **Audience** > **User Search** para revisar duplicados no dashboard.
+
 ## Artigos relacionados {#related-articles}
 
-- [Comportamento da mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
 - [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
 - [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

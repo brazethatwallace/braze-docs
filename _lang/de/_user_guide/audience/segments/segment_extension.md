@@ -99,7 +99,7 @@ Sie benötigen keine Segmenterweiterungen, um Event-Eigenschaften oder verschach
 
 ### 4. Schritt: Aktualisierungseinstellungen festlegen (optional) {#step-4-designate-refresh-settings-optional}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ### 5. Schritt: Ihre Segmenterweiterung speichern {#step-5-save-your-segment-extension}
 

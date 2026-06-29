@@ -21,7 +21,7 @@ A integração entre a Braze e a Tangerine permite integrar dados brutos de camp
 | Conta do Store360 | É necessário ter uma conta no Store360 para aproveitar essa parceria. |
 | ID da conta da Braze | Seu ID de grupo de apps da Braze. |
 | Correspondência de IDs de usuário | Os dados de seus clientes no Store360 e na Braze devem ter IDs de usuário correspondentes nas duas plataformas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -33,13 +33,13 @@ Usando o recurso de análise do Store360 Insight, as marcas podem visualizar os 
 
 ## Integração {#integration}
 
-### Etapa 1: Ativar o compartilhamento seguro de dados do Snowflake {#step-1-enable-snowflake-secure-data-share}
+### Etapa 1: Ativar o Snowflake Secure Data Share {#step-1-enable-snowflake-secure-data-share}
 
 Trabalhe com a equipe da Braze para ativar e configurar o Snowflake Secure Data Share.
 
 ### Etapa 2: Configurar o Store360 para obter dados da Braze {#step-2-configure-store360-to-get-braze-data}
 
-Configure o ID do grupo de app da Braze na sua conta de serviço do Store360 usando o console da web do gerenciador de administração do Store360. Isso solicitará que a equipe de administração da Tangerine sincronize os dados da Braze com o Store360 usando o compartilhamento de dados do Snowflake.
+Configure o ID do grupo de app da Braze na sua conta de serviço do Store360 usando o console da web do gerenciador de administração do Store360. Isso solicitará que a equipe de administração da Tangerine sincronize os dados da Braze com o Store360 usando o Snowflake Data Sharing.
 
 ### Etapa 3: Integrar os SDKs do Store360 ao app móvel {#step-3-integrate-store360-sdks-to-mobile-app}
 
@@ -49,7 +49,7 @@ Para rastrear e analisar as visitas dos usuários do app móvel à loja e as ati
 
 Aproveite o compartilhamento seguro de dados do Snowflake para compartilhar seus dados brutos de campanhas e impressões da Braze com a análise do Store360 Insight, fornecendo uma visão completa do ciclo de vida e das atividades dos usuários, do on-line ao off-line.
 
-Para referência, aqui estão todos os [campos da Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df) disponíveis para serem incorporados à análise de dados do Store360. Os detalhes dessa etapa são muito específicos para cada cliente e exigem configurações especiais. Fale com seu gerente de conta do Store360 ou support@tangerine.io para saber mais.
+Para referência, aqui estão todos os [campos da Braze](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) disponíveis para serem incorporados à análise de dados do Store360. Os detalhes dessa etapa são muito específicos para cada cliente e exigem configurações especiais. Fale com seu gerente de conta do Store360 ou support@tangerine.io para saber mais.
 
 ## Informações importantes e limitações {#important-information-and-limitations}
 

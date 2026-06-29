@@ -17,8 +17,6 @@ description: "Este artigo descreve detalhes sobre o endpoint de origem da tradu�
 
 > Use este endpoint para ver todas as fontes de tradução padrão para as tags de tradução de uma campanha. Estes são os valores dentro do {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `campaigns.translations.get`.

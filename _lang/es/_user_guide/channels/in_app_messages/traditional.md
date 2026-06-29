@@ -27,7 +27,7 @@ toc_headers: h2
 3. Ponle a tu Campaign un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
 Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
@@ -207,7 +207,7 @@ Algunos tipos de mensaje no necesitan y, por lo tanto, no solicitan encabezados.
 
 ##### Generar texto con IA {#generating-ai-copy}
 
-¿Necesitas ayuda para crear un texto increíble? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto y la IA generará un texto de marketing similar al humano para usar en tu mensajería.
+¿Necesitas ayuda para crear un texto increíble? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-copy). Introduce un nombre o descripción de producto y la IA generará un texto de marketing similar al humano para usar en tu mensajería.
 
 ![Botón Lanzar redactor con IA, ubicado en el campo Mensaje del compositor de mensajes dentro de la aplicación.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_iam.png %}){: style="max-width:60%"}
 
@@ -308,7 +308,7 @@ Puedes añadir [pares clave-valor]({{site.baseurl}}/user_guide/messaging/design_
 
 Construye el resto de tu Campaign; consulta las siguientes secciones para obtener más orientación sobre cómo usar mejor nuestras herramientas para crear mensajes dentro de la aplicación.
 
-#### Elige un desencadenante {#choose-a-trigger}
+### Elige un desencadenante {#choose-a-trigger}
 
 Selecciona la acción que deseas que desencadene tu mensaje, así como las horas de inicio y fin de tu Campaign o Canvas.
 
@@ -331,7 +331,7 @@ Se debe seleccionar una fecha y hora de inicio; sin embargo, una fecha de fin es
 
 Consulta nuestra documentación para desarrolladores sobre [desencadenamiento de eventos del lado del servidor]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) y [entrega local de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Desencadenamiento en línea versus sin conexión {#online-versus-offline-triggering}
+#### Desencadenamiento en línea versus sin conexión {#online-versus-offline-triggering}
 
 Los mensajes dentro de la aplicación funcionan enviando el mensaje y los desencadenantes al dispositivo del usuario. Una vez que los mensajes dentro de la aplicación están en un dispositivo, esperan para mostrarse hasta que se cumpla la condición del desencadenante. Si los mensajes dentro de la aplicación ya están almacenados en caché en el dispositivo del usuario, incluso puedes desencadenar mensajes dentro de la aplicación sin conexión, sin conexión a Braze (por ejemplo, en modo avión).
 
@@ -339,7 +339,7 @@ Los mensajes dentro de la aplicación funcionan enviando el mensaje y los desenc
 Una vez que un mensaje dentro de la aplicación ha sido detenido, puede haber algunos usuarios que continúen viendo el mensaje si iniciaron una sesión antes de que el mensaje fuera detenido y posteriormente realizan el evento desencadenante. Estos usuarios se contarán como una impresión única incluso después de que la Campaign haya sido detenida.
 {% endalert %}
 
-#### Elige una prioridad {#choose-a-priority}
+### Elige una prioridad {#choose-a-priority}
 
 Finalmente, después de haber seleccionado la acción que desencadenará el mensaje dentro de la aplicación, también debes establecer una prioridad. Si dos mensajes se desencadenan por la misma acción, los mensajes de alta prioridad se programarán para aparecer en los dispositivos de los usuarios antes que los mensajes con prioridades más bajas.
 
@@ -358,7 +358,7 @@ Para establecer prioridades dentro de estos contenedores, haz clic en **Establec
 
 ![Un ejemplo de cómo se establece la prioridad para una Campaign y un Canvas de mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
-#### Elige los usuarios objetivo {#choose-users-to-target}
+### Elige los usuarios objetivo {#choose-users-to-target}
 
 A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) eligiendo Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Ten en cuenta que la pertenencia exacta al Segment siempre se calcula antes de que se envíe el mensaje.
 
@@ -366,7 +366,7 @@ A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/me
 Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenencia al Segment se evaluará después del retraso. Si el usuario es elegible, el mensaje dentro de la aplicación se sincronizará en la siguiente sesión disponible.
 {% endalert %}
 
-##### Reevaluar la elegibilidad de la Campaign y Liquid {#re-evaluate-campaign-eligibility-and-liquid}
+#### Reevaluar la elegibilidad de la Campaign y Liquid {#re-evaluate-campaign-eligibility-and-liquid}
 
 En algunos escenarios, es posible que desees reevaluar la elegibilidad de un usuario cuando desencadena un mensaje dentro de la aplicación para mostrarse. Los ejemplos incluyen Campaigns que se dirigen a un atributo personalizado que cambia con frecuencia o mensajes que deben reflejar cualquier cambio de perfil de último momento.
 
@@ -382,20 +382,20 @@ Habilitar esta opción resultará en un ligero retraso (< 100 ms) entre el momen
 No uses esta opción para mensajes que pueden desencadenarse mientras un usuario está sin conexión o cuando la reevaluación de elegibilidad y Liquid no es necesaria.
 {% endalert %}
 
-##### Usar datos añadidos por REST API en un mensaje {#use-data-added-by-rest-api-in-a-message}
+#### Usar datos añadidos por REST API en un mensaje {#use-data-added-by-rest-api-in-a-message}
 
 Los datos de usuario que el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) añade en la misma sesión a veces se pueden usar en el mensaje dentro de la aplicación de ese usuario. Por ejemplo, si un usuario está en la audiencia de un mensaje dentro de la aplicación que está esperando un desencadenante, inicia una sesión, y en esa misma sesión la REST API actualiza su perfil, esos nuevos datos pueden aparecer en el mensaje dentro de la aplicación cuando se selecciona **Re-evaluate campaign eligibility before displaying**. Braze no procesará la plantilla del mensaje dentro de la aplicación hasta que sea el momento de renderizarlo.
 
 Si un desencadenante envía datos a Braze y dispara el mensaje dentro de la aplicación simultáneamente, el mensaje no puede usar esos datos de perfil recién actualizados, incluso con un retraso planificado. Usa dos desencadenantes separados en su lugar: uno para enviar los datos y otro para desencadenar el mensaje dentro de la aplicación.
 
-#### Elige eventos de conversión {#choose-conversion-events}
+### Elige eventos de conversión {#choose-conversion-events}
 
 Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas, [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), después de recibir una Campaign. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se contará una conversión si el usuario realiza la acción especificada.
 
 {% endtab %}
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes e Intelligent Selection, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante e Intelligent Selection, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
 
 Para información sobre opciones de mensajes dentro de la aplicación específicas de Canvas, consulta [Mensajes dentro de la aplicación en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas).
 

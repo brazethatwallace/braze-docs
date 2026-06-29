@@ -8,6 +8,7 @@ tool:
   - Canvas
   - Reports
 
+
 ---
 
 # Analytique Canvas {#canvas-analytics}
@@ -22,7 +23,18 @@ Le haut de la page **Canvas Details** contient les statistiques principales du C
 
 C'est l'endroit idéal pour obtenir un aperçu général et vérifier si votre Canvas atteint ses objectifs.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Utilisateurs pouvant être atteints et statistiques exactes {#reachable-users-and-exact-statistics}
+
+Lorsque l'option **[Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)** est en cours d'exécution pour les audiences liées à votre Canvas, Braze peut brièvement afficher une estimation arrondie dans la zone **Utilisateurs pouvant être atteints**. Le total exact remplace l'estimation une fois le calcul terminé. Sélectionnez **Show Additional Stats** pour obtenir une répartition complète par canal. Le générateur de Canvas documente le même flux sous **Target Population** ; consultez [Calcul de la population cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+
+![La page Canvas Details affichant les statistiques principales, notamment les messages envoyés, le taux de conversion, le nombre total d'entrées, le chiffre d'affaires total, le nombre total de sorties et l'audience estimée, avec des filtres par canal et par statistiques.]({% image_buster /assets/img_archive/Journey_5.png %})
+
+{% alert tip %}
+Si un segment que vous avez créé à partir de l'activité Canvas affiche moins d'utilisateurs pouvant être atteints que ce à quoi vous vous attendiez d'après l'analytique Canvas, il y a deux raisons courantes :
+
+- **Échantillonnage d'estimation :** les statistiques du segment peuvent afficher une estimation basée sur un échantillon aléatoire avec un intervalle de confiance de 95 % de ±1 %, plutôt qu'un décompte exact.
+- **Utilisateurs ne correspondant plus aux critères :** certains utilisateurs comptabilisés dans l'analytique Canvas peuvent ne plus remplir les conditions du segment, par exemple parce qu'ils se sont désabonnés ou que les données de leur profil ont changé depuis l'exécution du Canvas. Consultez les **performances historiques** du Canvas pour vérifier un volume élevé de désabonnements.
+{% endalert %}
 
 ### Changes Since Last Viewed {#changes-since-last-viewed}
 
@@ -54,15 +66,15 @@ Dans l'onglet **Analyze Variants**, vous pouvez voir une répartition des perfor
 
 Vous pouvez rapidement identifier les variantes les plus efficaces et déterminer les bonnes cadences, contenus, déclencheurs, timings, et bien plus encore.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![La fenêtre modale Analyze Canvas avec l'onglet Analyze Variants sélectionné, affichant un tableau comparatif pour Path 1 et Path 2 avec les entrées, les envois, le chiffre d'affaires, les taux de conversion, le pourcentage de variation et les indicateurs de confiance.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Les indicateurs de base incluent les éléments suivants :
 
-- **Variant API Identifier :** L'identifiant API de votre variante, que vous pouvez utiliser dans vos appels API.
-- **Total Entries :** Le nombre total d'utilisateurs qui sont entrés dans la variante du Canvas.
-- **Total Sends :** Le nombre total de messages envoyés dans la variante du Canvas.
-- **Total Steps :** Le nombre total d'étapes dans la variante du Canvas.
-- **Total Revenue :** Le chiffre d'affaires total en dollars provenant des destinataires du Canvas dans la fenêtre de conversion principale définie. Le *chiffre d'affaires total* est la somme des achats attribués aux utilisateurs ayant reçu cette variante pendant cette fenêtre. Les achats sont toujours comptabilisés dans le *chiffre d'affaires total* même lorsque l'utilisateur n'effectue pas l'événement de conversion principal configuré, tant que l'achat respecte les règles d'attribution de la fenêtre.
+- **Variant API Identifier :** l'identifiant API de votre variante, que vous pouvez utiliser dans vos appels API.
+- **Total Entries :** le nombre total d'utilisateurs qui sont entrés dans la variante du Canvas.
+- **Total Sends :** le nombre total de messages envoyés dans la variante du Canvas.
+- **Total Steps :** le nombre total d'étapes dans la variante du Canvas.
+- **Total Revenue :** le chiffre d'affaires total en dollars provenant des destinataires du Canvas dans la fenêtre de conversion principale définie. Le *chiffre d'affaires total* est la somme des achats attribués aux utilisateurs ayant reçu cette variante pendant cette fenêtre. Les achats sont toujours comptabilisés dans le *chiffre d'affaires total* même lorsque l'utilisateur n'effectue pas l'événement de conversion principal configuré, tant que l'achat respecte les règles d'attribution de la fenêtre.
 
 {% alert note %}
 Comme les conversions, le chiffre d'affaires est techniquement suivi au niveau du Canvas, mais il est attribué au composant le plus récent et à la variante la plus récente à partir desquels l'utilisateur a reçu un message (ou dans lesquels il est entré, s'il n'a pas encore reçu de message).<br><br>

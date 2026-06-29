@@ -4,26 +4,26 @@ article_title: ワークスペース間でコピー
 page_order: 3
 alias: "/copying_to_workspaces/"
 page_type: reference
-description: "このリファレンス記事では、CampaignやCanvasesを異なるワークスペースにコピーする方法の概要を説明します。"
+description: "このリファレンス記事では、Campaign、Canvas、ランディングページを異なるワークスペースにコピーする方法の概要を説明します。"
 tool:
     - Campaigns
     - Canvas
 ---
 
-# CampaignやCanvasesをワークスペース間でコピーする {#copy-campaigns-and-canvases-across-workspaces}
+# Campaign、Canvas、ランディングページをワークスペース間でコピーする {#copy-campaigns-canvases-and-landing-pages-across-workspaces}
 
-> ワークスペース間でCampaignをコピーすると、別のワークスペースにあるCampaignのコピーから始めることで、メッセージ作成をすばやく開始できます。このページでは、Campaignを異なるワークスペースにコピーする方法と、コピーされるものとされないものについて説明します。
+> ワークスペース間でCampaign、Canvas、ランディングページをコピーすると、別のワークスペースにある既存のコンテンツを出発点として利用し、コンテンツ作成をすばやく開始できます。このページでは、Campaign、Canvas、ランディングページを異なるワークスペースにコピーする方法と、コピーされるものとされないものについて説明します。
 
-CampaignやCanvasを別のワークスペースにコピーすると、コピーは編集して起動するまで下書きのままになるため、成功したメッセージング戦略を維持し、それを基に構築できます。
+CampaignやCanvas、ランディングページを別のワークスペースにコピーすると、コピーは編集してCampaignやCanvasを起動するか、ランディングページを公開するまで下書きのままになります。これにより、成功したメッセージング戦略を維持し、それを基に構築できます。
 
 {% tabs local %}
 {% tab campaigns %}
 
 {% alert important %}
-ワークスペース間でのCampaignのコピーは一般提供されています。Content Cardsのチャネルサポートは現在利用できません。
+ワークスペース間でのCampaignsのコピーは一般提供されています。Content Cardsのチャネルサポートは現在利用できません。
 {% endalert %}
 
-以下のサポートされているチャネルでワークスペース間でCampaignをコピーできます：SMS、アプリ内メッセージ、プッシュ通知、メール、webhook。また、メールテンプレート、フィーチャーフラグ、Content Blocksもコピーできます。サポートされていないチャネルを含むマルチチャネルCampaignは、別のワークスペースにコピーできないことに注意してください。
+以下のサポートされているチャネルでワークスペース間でCampaignsをコピーできます：SMS、アプリ内メッセージ、プッシュ通知、メール、webhook。また、メールテンプレート、フィーチャーフラグ、Content Blocksもコピーできます。サポートされていないチャネルを含むマルチチャネルCampaignsは、別のワークスペースにコピーできないことに注意してください。
 
 Campaignを別のワークスペースにコピーするには：
 
@@ -49,11 +49,25 @@ Canvasを別のワークスペースにコピーするには：
 Audience Syncステップを含むCanvasをコピーする場合、設定はコピー先のワークスペースにコピーされませんが、ジャーニー内のステップはコピーされます。
 
 {% endtab %}
+{% tab ランディングページ %}
+
+ワークスペース間でランディングページをコピーできます。
+
+ランディングページを別のワークスペースにコピーするには：
+
+1. **メッセージング** > **ランディングページ**に移動します。
+2. 選択したランディングページの横にある<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;メニューを選択します。
+3. **ワークスペースにコピー**を選択します。
+4. ランディングページを確認してテストし、すべてのフィールドが正しく機能することを確認します。
+
+{% endtab %}
 {% endtabs %}
 
 ## ワークスペース間でコピーされるもの {#whats-copied-across-workspaces}
 
-以下は、ワークスペース間でコピーされるものと省略されるものの包括的なリストではないことに注意してください。ベストプラクティスとして、CampaignとCanvasの詳細を確認し、テストしてメッセージが期待どおりに機能することを確認してください。
+以下の表はCampaignとCanvasのフィールドを対象としており、ワークスペース間でコピーされるものと省略されるものの包括的なリストではないことに注意してください。ベストプラクティスとして、Campaign、Canvas、ランディングページの詳細を確認し、テストしてメッセージが期待どおりに機能することを確認してください。
+
+ランディングページは下書きとしてコピーされます。コピーしたランディングページを公開する前に、ページURL、カスタムドメイン設定、フォーム送信処理、およびLiquidやワークスペース固有の参照を確認してください。
 
 ### 詳細 {#details}
 
@@ -71,7 +85,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | 受信者のサブスクリプション状態 |  |
 | 繰り返しスケジュール |  |
 | トランザクション |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="詳細" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,9 +101,9 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | 受信者のサブスクリプション状態 |  |
 | 繰り返しスケジュール | 離脱条件 |
 | トランザクション |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="詳細" }
 
-Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
+キャンバスステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
 
 {% endtab %}
 {% endtabs %}
@@ -102,10 +116,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Campaignインタラクション |  Campaign ID |
+| Campaignインタラクション | Campaign ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン動作" }
 
 {% endtab %}
 {% tab canvas %}
@@ -113,10 +127,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Canvasインタラクション |  Canvas ID |
+| Canvasインタラクション | Canvas ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンバージョン動作" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,10 +143,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Campaignインタラクション |  Campaign ID |
+| Campaignインタラクション | Campaign ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
 
 {% endtab %}
 {% tab canvas %}
@@ -140,10 +154,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Canvasインタラクション |  Canvas ID |
+| Canvasインタラクション | Canvas ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
 
 {% endtab %}
 {% endtabs %}
@@ -156,10 +170,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | 送信割合 | API ID |
-| タイプ |  シードグループID |
-|  |  リンクテンプレートID |
-|  |  内部ユーザーグループID |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
+| タイプ | シードグループID |
+|  | リンクテンプレートID |
+|  | 内部ユーザーグループID |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージバリエーション" }
 
 {% endtab %}
 {% tab canvas %}
@@ -167,10 +181,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | 送信割合 | API ID |
-| タイプ |  シードグループID |
-|  |  リンクテンプレートID |
-|  |  内部ユーザーグループID |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
+| タイプ | シードグループID |
+|  | リンクテンプレートID |
+|  | 内部ユーザーグループID |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージバリエーション" }
 
 {% endtab %}
 {% endtabs %}
@@ -184,12 +198,12 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | メール本文 | 送信元アドレス |
-| メッセージエクストラ |  返信先 |
-| タイトル |  BCC |
-| 件名 |  リンクテンプレート |
-|  |  リンクエイリアス |
+| メッセージエクストラ | 返信先 |
+| タイトル | BCC |
+| 件名 | リンクテンプレート |
+|  | リンクエイリアス |
 |  | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メールメッセージバリエーション" }
 
 {% endtab %}
 {% tab canvas %}
@@ -197,12 +211,12 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | メール本文 | 送信元アドレス |
-| メッセージエクストラ |  返信先 |
-| タイトル |  BCC |
-| 件名 |  リンクテンプレート |
-|  |  リンクエイリアス |
+| メッセージエクストラ | 返信先 |
+| タイトル | BCC |
+| 件名 | リンクテンプレート |
+|  | リンクエイリアス |
 |  | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メールメッセージバリエーション" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +233,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | プリヘッダー |  |
 | インラインCSS |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メール本文" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +245,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | プリヘッダー |  |
 | インラインCSS |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メール本文" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +262,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | 件名 | テリトリー |
 | ヘッダー | タグ |
 | | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メールテンプレート" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +274,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | 件名 | テリトリー |
 | ヘッダー | タグ |
 | | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="メールテンプレート" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +317,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | リンク短縮 | VCFメディアアイテム |
 | クリックトラッキング |  |
 | メディアアイテム |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMSメッセージバリエーション" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +328,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | リンク短縮 | VCFメディアアイテム |
 | クリックトラッキング |  |
 | メディアアイテム |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMSメッセージバリエーション" }
 
 {% endtab %}
 {% endtabs %}
@@ -323,7 +337,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 
 メッセージ本文内のLiquid参照はコピー先のワークスペースにコピーされますが、参照が期待どおりに機能しない場合があります。つまり、ワークスペースAのCanvasをワークスペースBにコピーした場合、ワークスペースBはLiquid参照を含むワークスペースAの詳細を参照できません。例えば、トリガーアクション、オーディエンスフィルター、[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)のフィルター条件などのフィールドはコピーされません。
 
-ワークスペース間でCampaignやCanvasesをコピーする際は、依存関係のある以下のLiquid参照に注意してください：
+ワークスペース間でCampaign、Canvas、ランディングページをコピーする際は、依存関係のある以下のLiquid参照に注意してください：
 
 - カタログアイテムタグ
 - コネクテッドコンテンツタグ

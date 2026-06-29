@@ -4,12 +4,12 @@ article_title: Gouvernance
 layout: dev_guide
 page_order: 2
 guide_top_header: "Gouvernance"
-guide_top_text: "Gérez le cycle de vie et l'organisation de vos campagnes et Canvas. Consultez les articles ci-dessous pour configurer des flux de travail d'approbation, archiver ou dupliquer des éléments, les copier vers d'autres espaces de travail, et utiliser des états et des étiquettes pour organiser votre espace de travail."
+guide_top_text: "Gérez le cycle de vie et l'organisation de vos campagnes, Canvas et pages d'accueil. Consultez les articles ci-dessous pour configurer des flux de travail d'approbation, archiver ou dupliquer des éléments, les copier vers d'autres espaces de travail, et utiliser des états et des étiquettes pour organiser votre espace de travail."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Approbations, archivage, duplication, copie vers d'autres espaces de travail, états et étiquettes pour les campagnes et les Canvas."
+description: "Approbations, archivage, duplication, copie vers d'autres espaces de travail, états et étiquettes pour les campagnes, les Canvas et les pages d'accueil."
 
 guide_featured_title: "Articles de cette section"
 guide_featured_list:

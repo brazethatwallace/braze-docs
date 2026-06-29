@@ -26,6 +26,10 @@ Pour accéder au profil d'un utilisateur, rendez-vous sur la page **Rechercher d
 
 Si une correspondance est trouvée, vous pouvez consulter les informations que vous avez enregistrées pour cet utilisateur avec le SDK Braze. Sinon, si votre recherche renvoie plusieurs profils utilisateur, vous pouvez fusionner chaque profil individuellement ou effectuer une fusion groupée d'utilisateurs. Pour un guide complet, consultez [Fusionner les utilisateurs en double]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/).
 
+{% alert note %}
+**Rechercher des utilisateurs** n'est pas la même chose que **Recherche d'utilisateur** dans le compositeur de segment ou de campagne. **Recherche d'utilisateur** teste si un utilisateur spécifique correspond à votre audience et n'accepte que `external_id` ou `braze_id`. **Rechercher des utilisateurs** sur cette page prend en charge l'e-mail, le téléphone, le jeton de notification push et l'alias d'utilisateur. Pour plus d'informations, consultez [Tester les segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#testing-segments).
+{% endalert %}
+
 {% alert important %}
 Lorsqu'un numéro de téléphone est utilisé dans la recherche, il est converti au format [`E.164`](https://en.wikipedia.org/wiki/e.164). Les utilisateurs dont les numéros de téléphone ne peuvent pas être convertis au format `E.164` (par exemple, parce que le numéro de téléphone a un indicatif de pays ou de zone invalide) ne peuvent pas être recherchés par numéro de téléphone.
 {% endalert %}
@@ -42,12 +46,16 @@ Vous pouvez utiliser l'[onglet Engagement](#engagement-tab) pour vérifier si un
 
 ## Éléments du profil utilisateur {#elements-of-user-profile}
 
-Un profil utilisateur comporte quatre sections principales.
+Un profil utilisateur comporte cinq sections principales.
 
 - **Aperçu :** informations de base sur l'utilisateur, données de session, attributs personnalisés, événements personnalisés, achats et dernier appareil sur lequel l'utilisateur s'est connecté.
 - **Engagement :** informations sur les paramètres de contact de l'utilisateur, les campagnes reçues, les segments, les statistiques de communication, l'attribution d'installation et le numéro de compartiment aléatoire.
+- **Historique des événements :** événements personnalisés et achats des 30 derniers jours, avec les propriétés d'événement complètes affichées en JSON.
 - **Historique de messagerie :** événements récents liés à la messagerie pour cet utilisateur au cours des 30 derniers jours.
 - **Éligibilité aux indicateurs de fonctionnalité :** vérifiez les indicateurs de fonctionnalité auxquels un utilisateur est actuellement éligible à travers les déploiements, les étapes du Canvas et les expériences.
+
+{% tabs %}
+{% tab Onglet Aperçu %}
 
 ### Onglet Aperçu {#overview-tab}
 
@@ -61,11 +69,13 @@ L'onglet **Aperçu** contient les informations de base sur un utilisateur et ses
 | Appareils récents | Nombre d'appareils sur lesquels l'utilisateur s'est connecté, détails de chaque appareil et identifiants publicitaires associés (le cas échéant). |
 | Événements personnalisés | Quels événements personnalisés cet utilisateur a effectués, combien de fois, et quand il a effectué chaque événement pour la dernière fois. |
 | Achats | Chiffre d'affaires total attribué à cet utilisateur, son dernier achat, le nombre total d'achats et une liste de chaque achat. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Aperçu" }
 
 Pour plus d'informations sur ces données, consultez [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
-![L'onglet Aperçu d'un profil utilisateur.]({% image_buster /assets/img_archive/user_profile2.png %})
+{% endtab %}
+<a id="engagement-tab"></a>
+{% tab Onglet Engagement %}
 
 ### Onglet Engagement {#engagement-tab}
 
@@ -74,14 +84,38 @@ L'onglet **Engagement** contient des informations sur les interactions d'un util
 | Catégorie d'engagement | Contient |
 | --- | --- |
 | Paramètres de contact | État d'abonnement pour les e-mails, les SMS et les notifications push, ainsi que les groupes d'abonnement auxquels cet utilisateur est associé pour ces trois canaux. Cette section inclut également les informations du journal des modifications pour les jetons de notification push. Consultez [e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) et [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) pour en savoir plus sur la configuration des abonnements et des opt-ins. |
-| Campaigns reçues | **Campaigns reçues** reflète le moment d'envoi et de consultation spécifique à chaque canal. La plupart des canaux enregistrent un envoi lorsque Braze transmet le message au fournisseur de distribution, même si le message n'est finalement pas distribué. Les **Content Cards** fonctionnent différemment : les campagnes n'apparaissent ici qu'après que l'utilisateur a consulté la carte dans l'application. Pour un détail par canal, consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received). Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez une campagne dans la liste pour la consulter. |
+| Campaigns reçues | **Campaigns reçues** reflète le moment d'envoi et de consultation spécifique à chaque canal. La plupart des canaux enregistrent un envoi lorsque Braze transmet le message au fournisseur de distribution, même si le message n'est finalement pas distribué. Les **Content Cards** fonctionnent différemment : les campagnes n'apparaissent ici qu'après que l'utilisateur a consulté la carte dans l'application. Pour un détail par canal, consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received). <br><br>Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Ces listes utilisent les [données d'interaction de messagerie]({{site.baseurl}}/api/data_retention/messaging_interaction_data/) (y compris les règles d'expiration) pour déterminer ce qui apparaît pour le reciblage et l'historique.<br><br>Sélectionnez une campagne dans la liste pour la consulter. |
 | Segments | Segments auxquels cet utilisateur appartient. Sélectionnez un segment dans la liste pour le consulter. |
 | Statistiques de communication | Date à laquelle cet utilisateur a reçu pour la dernière fois des messages de votre part pour chaque canal. |
 | Attribution d'installation | Informations sur la manière et le moment où un utilisateur a installé votre application. En savoir plus sur la [compréhension des installations utilisateur]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Divers | Le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) de l'utilisateur. |
-| Messages Canvas reçus | Messages Canvas que cet utilisateur a reçus et quand. Le moment d'envoi suit les mêmes règles par canal que **Campaigns reçues** ; consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received). Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez un message dans la liste pour le consulter. |
+| Messages Canvas reçus | Messages Canvas que cet utilisateur a reçus et quand. Le moment d'envoi suit les mêmes règles par canal que **Campaigns reçues** ; consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received).<br><br>Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez un message dans la liste pour le consulter. |
 | Prédictions | Scores de [prédiction d'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) et de [prédiction des événements]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) pour cet utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Engagement" }
+
+{% endtab %}
+<a id="event-history-tab"></a>
+{% tab Onglet Historique des événements %}
+
+### Onglet Historique des événements {#event-history-tab}
+
+{% alert note %}
+Pour consulter l'onglet **Historique des événements**, vous devez disposer des [autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) **Search Users** et **View PII**, car les propriétés d'événement peuvent contenir des données personnelles.
+{% endalert %}
+
+L'onglet **Historique des événements** affiche les événements personnalisés et les achats qu'un utilisateur a enregistrés. Utilisez-le pour vérifier que les données d'événement arrivent correctement et résoudre les problèmes au niveau de l'utilisateur directement dans le tableau de bord, sans avoir besoin d'exporter des données ou d'utiliser des outils externes.
+
+| Catégorie de l'historique des événements | Contient |
+| --- | --- |
+| Liste des événements | Événements personnalisés et achats des 30 derniers jours (jusqu'aux 100 plus récents), classés du plus récent au plus ancien. |
+| Type d'événement | Indique si la ligne est un **événement personnalisé** ou un **achat**. |
+| Horodatage | Date et heure auxquelles l'événement a été enregistré. |
+| Nom de l'événement | Le nom de l'événement personnalisé ou de l'achat. |
+| Propriétés d'événement | Les propriétés d'événement complètes pour l'événement, affichées en JSON. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Historique des événements" }
+
+{% endtab %}
+{% endtabs %}
 
 ### Quand les campagnes apparaissent dans Campaigns reçues {#when-campaigns-appear-in-campaigns-received}
 
@@ -126,7 +160,7 @@ Les événements d'engagement liés aux messages suivants sont disponibles pour 
 | Content Cards | Clic<br>Rejet<br>Impression<br>Envoi |
 | Webhooks | Envoi |
 | WhatsApp | Abandon<br>Distribution<br>Échec<br>Limite de fréquence atteinte<br>Réception entrante<br>Lecture<br>Envoi |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Événements d'engagement liés aux messages" }
 
 ##### Événements d'abandon de message {#message-abort-events}
 
@@ -165,6 +199,7 @@ Certains champs peuvent être absents dans l'onglet **Historique de messagerie**
 - Lorsqu'un événement ne contient pas de données pour **Campaign/Canvas** et **Message envoyé**, cela indique que ce message a été envoyé depuis une campagne API (et non des campagnes déclenchées par API) qui n'a pas spécifié les paramètres `campaign_id` et `message_variation_id`. Ces champs sont facultatifs et peuvent être omis du corps de la requête. Lorsque ces champs sont spécifiés, ces informations sont renseignées dans les journaux de l'historique de messagerie.
    - Si un message particulier est totalement absent de l'historique de messagerie mais apparaît dans le journal **Campaigns reçues**, il est probable que l'utilisateur ait reçu la campagne avant d'être identifié comme l'utilisateur actuel. Si un profil existant est orphelin, le journal **Campaigns reçues** est transféré, mais l'historique de messagerie ne l'est pas.
 - Lorsque des données sont manquantes pour **Campaign/Canvas**, un test manuel a peut-être été envoyé. Les tests manuels sont enregistrés dans l'onglet **Historique de messagerie**, mais la campagne ou le Canvas envoyé ne sera pas enregistré.
+- Lorsqu'un utilisateur fait partie d'un groupe initiateur ou d'une autre audience de test interne, l'**Historique de messagerie** peut afficher des métadonnées de campagne ou de Canvas limitées par rapport aux envois en production.
 
 ## Articles connexes {#related-articles}
 

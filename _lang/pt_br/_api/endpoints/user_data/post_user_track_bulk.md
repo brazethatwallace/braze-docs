@@ -12,7 +12,7 @@ description: "Este artigo descreve detalhes sobre o endpoint de rastreamento de 
 ---
 {% api %}
 # Criar e atualizar usuários (em massa) {#create-and-update-users-bulk}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -79,7 +79,7 @@ Para cada objeto de solicitação, você deve incluir um dos seguintes: `externa
 | `attributes` | Opcional | Array de objetos de atributos | Consulte [objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
 | `events` | Opcional | Array de objetos de eventos | Consulte [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Opcional | Array de objetos de compras | Consulte [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros da solicitação" }
 
 ## Exemplos de solicitações {#example-requests}
 

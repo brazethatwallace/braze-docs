@@ -6,7 +6,7 @@ description: "Cet article de référence explique comment utiliser et stocker le
 search_rank: 1
 ---
 
-# Variables locales de Contenu connecté
+# Variables locales de Contenu connecté {#local-connected-content-variables}
 
 > Cette page offre un aperçu des variables locales de Contenu connecté et explique comment les utiliser et les stocker.
 
@@ -24,9 +24,13 @@ Vous pouvez également spécifier `:save your_variable_name` après l'URL pour e
 
 Metaweather est une API météo gratuite qui utilise un identifiant « Where-on-Earth ID » pour renvoyer la météo d'une zone. Utilisez ce code uniquement à des fins de test et d'apprentissage.
 
->  La variable stockée n'est accessible que dans le champ qui contient la requête `connected_content`. Par exemple, si vous souhaitez utiliser la variable `localweather` à la fois dans le champ du message et dans le champ du titre, vous devez effectuer la requête `connected_content` dans les deux champs. Si la requête est identique, Braze utilisera les résultats mis en cache plutôt que d'effectuer une seconde requête vers le serveur de destination. Cependant, les appels de Contenu connecté effectués via HTTP POST ne sont pas mis en cache par défaut et effectueront une seconde requête vers le serveur de destination. Si vous souhaitez ajouter la mise en cache aux appels POST, consultez l'option [`cache_max_age`](#configurable-caching).
+La variable stockée n'est accessible que dans le champ qui contient la requête `connected_content`. Par exemple, si vous souhaitez utiliser la variable `localweather` à la fois dans le champ du message et dans le champ du titre, vous devez effectuer la requête `connected_content` dans les deux champs.
 
-## Analyse du JSON
+Les requêtes GET sont généralement mises en cache par défaut, avec quelques exceptions (comme les URL contenant des attributs utilisateur à haute cardinalité, `:no_cache`, ou les corps de réponse supérieurs à 1 Mo). Lorsque des requêtes GET identiques apparaissent dans plusieurs champs, Braze réutilise la réponse mise en cache au lieu d'appeler à nouveau l'endpoint. Pour plus de détails sur le comportement de mise en cache, consultez [Mise en cache des réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+
+Les appels de Contenu connecté effectués via HTTP POST ne sont pas mis en cache par défaut. Pour mettre en cache les réponses POST, ajoutez `:cache_max_age` à la balise. Consultez [Paramètres de cache par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/#default-cache-settings).
+
+## Analyse du JSON {#json-parsing}
 
 Le Contenu connecté interprète tout résultat au format JSON dans une variable locale lorsque vous spécifiez `:save`. Par exemple, un endpoint de Contenu connecté lié à la météo renvoie l'objet JSON suivant, que vous stockez dans une variable locale `localweather` en spécifiant `:save localweather`.
 {% raw %}
@@ -62,7 +66,7 @@ Le Contenu connecté interprète tout résultat au format JSON dans une variable
   }
 ```
 
-Vous pouvez vérifier s'il pleut ou non en référençant `{{localweather.consolidated_weather[0].weather_state_name}}`, qui, utilisé sur cet objet, renverrait `Clear`. Si vous souhaitez également personnaliser avec le nom de la localisation résultante, `{{localweather.title}}` renvoie `New York`.
+Vous pouvez vérifier s'il pleut ou non en référençant `{{localweather.consolidated_weather[0].weather_state_name}}`, qui, utilisé sur cet objet, renverrait `Clear`. Si vous souhaitez également personnaliser avec le nom de l'emplacement résultant, `{{localweather.title}}` renvoie `New York`.
 {% endraw %}
 
 L'image suivante illustre le type de coloration syntaxique que vous devriez voir dans le tableau de bord si vous avez correctement configuré les choses. Elle montre également comment vous pourriez exploiter l'exemple de requête `connected_content` !
@@ -86,24 +90,24 @@ Si l'API répondait avec {%raw%}`{{localweather.consolidated_weather[0].weather_
 
 ![Notification push avec le message « It's raining! Grab an umbrella! »]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
-### Fournir un payload JSON
+### Fournir un payload JSON {#providing-json-body}
 
 Si vous souhaitez fournir votre propre payload JSON, vous pouvez l'écrire en ligne s'il ne contient pas d'espaces. Si votre payload contient des espaces, vous devez utiliser une instruction assign ou capture. Autrement dit, les trois approches suivantes sont acceptables :
 
 {% raw %}
-##### En ligne : espaces non autorisés
+##### En ligne : espaces non autorisés {#inline-spaces-not-allowed}
 
 ```js
 {% connected_content https://example.com/api/endpoint :method post :body {"foo":"bar","baz":"{{1|plus:1}}"} :content_type application/json %}
 ```
 
-##### Corps dans une instruction capture : espaces autorisés
+##### Corps dans une instruction capture : espaces autorisés {#body-in-a-capture-statement-spaces-allowed}
 
 ```js
 {% capture postbody %}
@@ -134,7 +138,7 @@ Si vous souhaitez fournir votre propre payload JSON, vous pouvez l'écrire en li
 {% endraw %}
 
 {% raw %}
-##### Corps dans une instruction assign : espaces autorisés
+##### Corps dans une instruction assign : espaces autorisés {#body-in-an-assign-statement-spaces-allowed}
 
 ```js
 {% assign postbody = '{"foo":"bar", "baz": "2"}' %}
@@ -142,7 +146,7 @@ Si vous souhaitez fournir votre propre payload JSON, vous pouvez l'écrire en li
 ```
 {% endraw %}
 
-## Codes de statut HTTP
+## Codes de statut HTTP {#http-status-codes}
 
 Vous pouvez utiliser le statut HTTP d'un appel de Contenu connecté en l'enregistrant d'abord en tant que variable locale, puis en utilisant la clé `__http_status_code__`. Par exemple :
 

@@ -72,7 +72,7 @@ Si vous avez créé un segment dans lequel vous vous attendez à ce que des util
 
 ### Définir les paramètres d'actualisation {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Cas d'utilisation {#use-cases}
 

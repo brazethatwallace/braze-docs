@@ -24,18 +24,9 @@ Le connecteur Braze prend en charge les traductions des messages dans les Campai
 | [Push]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/?tab=push) | ✅ | s/o |
 | Modèle d'e-mail | ✅ | ✅ |
 | Bannières | s/o | ✅ |
-| Content Blocks |  ✅* |  ✅* |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="À propos de l'intégration" }
+| Content Blocks | ✅ | ✅ |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="About the integration" }
 
-*Pour plus d'informations, reportez-vous à la section [Gestion des traductions pour les Content Blocks](#managing-translations-for-content-blocks).
-
-### Flux de travail hérité {#legacy-workflow}
-
-En fonction de votre cas d'utilisation, vous pouvez gérer les traductions pour les Content Blocks en utilisant soit l'ancien flux de travail de traduction, soit le flux de travail mis à jour.
-
-Dans le flux de travail mis à jour, grâce à la prise en charge multilingue de Braze et aux locales dans les messages, des étiquettes de traduction sont ajoutées au Content Block. Cependant, Smartling exécute les traductions au niveau du message. Le contenu n'est traduit que lorsqu'il est inclus dans une Campaign ou un Canvas et que la locale cible est définie. Pour en savoir plus, consultez la section [Gestion des traductions pour les Content Blocks](#managing-translations-for-content-blocks).
-
-Pour en savoir plus sur l'ancien flux de travail, consultez la section [Gérer les traductions à l'aide du flux de travail existant](#managing-translations-using-the-legacy-workflow).
 
 ## Conditions préalables {#prerequisites}
 
@@ -46,7 +37,7 @@ Pour en savoir plus sur l'ancien flux de travail, consultez la section [Gérer l
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations suivantes : <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres > Clés API**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
 | Paramètres multilingues de Braze | [Complétez les paramètres multilingues dans Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -132,25 +123,6 @@ Smartling propose des fonctionnalités avancées pour rechercher et sélectionne
 Dans Braze, prévisualisez votre Campaign en tant qu'utilisateur multilingue pour vérifier que les traductions sont appliquées correctement.
 
 ![Aperçu utilisateur multilingue.]({% image_buster /assets/img/smartling/image11_preview.png %})
-
-## Gestion des traductions pour les Content Blocks {#managing-translations-for-content-blocks}
-
-Les Content Blocks sont gérés dans la section **Modèles et médias** de Braze.
-
-### Traduction stockée au niveau du composant de message {#translation-stored-as-part-of-the-message-component}
-
-Les étiquettes de traduction sont placées dans le Content Block. Cependant, Smartling exécute les traductions au niveau du message : le contenu n'est traduit que lorsqu'il est inclus dans une Campaign ou un Canvas et que la locale cible est définie.
-
-### Points importants {#considerations}
-
-- Les étiquettes de traduction doivent être ajoutées manuellement au Content Block, que ce soit pour l'éditeur HTML ou l'éditeur par glisser-déposer.
-- Les locales sont sélectionnées au niveau du message, et non au niveau des Content Blocks eux-mêmes.
-- Pour Canvas, nous vous recommandons d'utiliser les lignes pour insérer des Content Blocks dans votre message au lieu de les ajouter manuellement avec une étiquette Liquid. Faire glisser un Content Block depuis l'aperçu vers un e-mail en crée une copie locale ; les modifications apportées au Content Block « parent » ne sont pas répercutées sur les autres Campaigns utilisant ce bloc.
-- Si vous utilisez une étiquette Liquid de Content Block, veillez à inclure au moins une étiquette de traduction directement dans le corps de l'e-mail. L'ajout manuel de l'étiquette de traduction vous permet de sélectionner les locales dans le menu déroulant multilingue. Smartling récupère les étiquettes de traduction du Content Block. Vous pouvez ajouter une étiquette `comment` pour que le texte ne soit pas visible par l'utilisateur.
-
-## Gérer les traductions à l'aide du flux de travail existant {#managing-translations-using-the-legacy-workflow}
-
-Si vous préférez gérer les traductions directement dans un Content Block, consultez les instructions relatives au flux de travail hérité dans la [documentation de Smartling](https://help.smartling.com/hc/en-us/articles/13248577069979-Translating-with-the-Braze-Connector). Cette méthode utilise un attribut de langue et une logique Liquid if/else pour afficher le texte dans différentes langues.
 
 ## Foire aux questions {#frequently-asked-questions}
 

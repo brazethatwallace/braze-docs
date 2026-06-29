@@ -31,7 +31,7 @@ Esta es una prueba separada de la puntuación de confianza, que solo describe el
 
 ### ¿Por qué la distribución de variantes no es uniforme? {#why-isnt-the-variant-distribution-even}
 
-La asignación de variantes se aleatoriza en cada envío, por lo que la distribución real puede no coincidir exactamente con los porcentajes configurados, especialmente con tamaños de muestra más pequeños. Para más información, consulta [Distribución de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/).
+La asignación de variantes se aleatoriza en cada envío, por lo que la distribución real puede no coincidir exactamente con los porcentajes configurados, especialmente con tamaños de muestra más pequeños. Para más información, consulta [Distribución de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution).
 
 ## Ejecución y conclusión de pruebas {#running-and-concluding-tests}
 
@@ -57,7 +57,7 @@ Lo mismo aplica porque los recorridos de Canvas que siguen a un experimento tamb
 
 #### ¿Puedo tomar acciones para redistribuir usuarios en campañas y Canvas? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-La única forma de redistribuir usuarios en Canvas es usar [Recorridos aleatorios en recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution), que siempre aleatorizará las asignaciones de recorridos cuando los usuarios vuelvan a entrar en el Canvas. Sin embargo, esto no es un experimento estándar y podría invalidar cualquier resultado del experimento porque el grupo de control puede contaminarse con usuarios del tratamiento.
+La única forma de redistribuir usuarios en Canvas es usar [Recorridos aleatorios en recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), que siempre aleatorizará las asignaciones de recorridos cuando los usuarios vuelvan a entrar en el Canvas. Sin embargo, esto no es un experimento estándar y podría invalidar cualquier resultado del experimento porque el grupo de control puede contaminarse con usuarios del tratamiento.
 
 ## Confianza y sesgo {#confidence-and-bias}
 
@@ -67,6 +67,8 @@ La confianza aumenta con el tiempo si todo lo demás se mantiene constante. Mant
 
 La confianza es una medida de cuán seguro está Braze de que la variante es diferente del control. A medida que se envían más mensajes, el poder estadístico de la prueba aumenta, lo que incrementaría la confianza en que las diferencias medidas en el rendimiento no se deben al azar. Generalmente, un tamaño de muestra más grande aumenta nuestra confianza para identificar diferencias más pequeñas en el rendimiento entre variantes y control.
 
+Sin embargo, si las tasas de conversión entre las variantes y el control convergen (se acercan entre sí) a medida que se envían más mensajes, la confianza puede disminuir, porque la diferencia medida que te interesa se está reduciendo, lo que puede superar el beneficio de un tamaño de muestra más grande.
+
 ### ¿Pueden las asignaciones de grupo de control y prueba introducir sesgo en las pruebas? {#can-control-and-test-group-assignments-introduce-bias-to-testing}
 
 No hay una forma práctica en que los atributos o comportamientos de un usuario antes de la creación de una campaña o Canvas particular puedan variar sistemáticamente entre variantes y control.
@@ -75,4 +77,4 @@ Para asignar usuarios a variantes de mensaje, variantes de Canvas o sus respecti
 
 ### ¿Por qué no puedo usar límites de velocidad con un grupo de control? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze actualmente no admite límites de velocidad con pruebas A/B que tienen un grupo de control. Esto se debe a que los límites de velocidad no se aplican al grupo de control de la misma manera que a las variantes, lo que introduce sesgo. En su lugar, considera usar [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), que ajusta automáticamente el porcentaje de usuarios que recibirán cada variante basándose en los análisis y el rendimiento de la campaña.
+Braze actualmente no admite límites de velocidad con pruebas A/B que tienen un grupo de control. Esto se debe a que los límites de velocidad no se aplican al grupo de control de la misma manera que a las variantes, lo que introduce sesgo. En su lugar, considera usar [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), que ajusta automáticamente el porcentaje de usuarios que recibirán cada variante basándose en los análisis y el rendimiento de la campaña.

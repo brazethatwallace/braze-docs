@@ -21,7 +21,7 @@ Agent-Schritte verwenden [Canvas-Kontextvariablen]({{site.baseurl}}/user_guide/m
 
 ## So funktioniert es {#how-it-works}
 
-Wenn ein:e Nutzer:in einen Agent-Schritt in einem Canvas erreicht, sendet Braze die von Ihnen konfigurierten Eingabedaten (vollständiger Kontext oder ausgewählte Felder) an den gewählten Agent. Der Agent verarbeitet dann die Eingabe mithilfe seines Modells und seiner Anweisungen und gibt eine Ausgabe zurück. Diese Ausgabe wird in der Ausgabevariable gespeichert, die Sie im Schritt definiert haben.
+Wenn Nutzer:innen einen Agent-Schritt in einem Canvas erreichen, sendet Braze die von Ihnen konfigurierten Eingabedaten (vollständiger Kontext oder ausgewählte Felder) an den gewählten Agent. Der Agent verarbeitet dann die Eingabe mithilfe seines Modells und seiner Anweisungen und gibt eine Ausgabe zurück. Diese Ausgabe wird in der Ausgabevariable gespeichert, die Sie im Schritt definiert haben.
 
 Sie können diese Variable auf drei Hauptarten verwenden:
 
@@ -37,7 +37,11 @@ Ziehen Sie die **Agent**-Komponente per Drag-and-Drop aus der Seitenleiste, oder
 
 ### 2. Schritt: Agent auswählen {#step-2-choose-your-agent}
 
-Wählen Sie den Agent aus, der die Daten in diesem Schritt verarbeiten soll. Wählen Sie einen vorhandenen Agent. Eine Anleitung zur Einrichtung finden Sie unter [Benutzerdefinierte Agents erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+Wählen Sie den Agent aus, der die Daten in diesem Schritt verarbeiten soll. Eine Anleitung zur Einrichtung finden Sie unter [Benutzerdefinierte Agents erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/).
+
+In der Agent-Liste ist jeder Agent mit seinem [täglichen Aufruf-Limit]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#step-3-set-up-details) gekennzeichnet. Bewegen Sie den Mauszeiger über das Limit, um den heutigen Fortschritt in Richtung dieses Limits zu sehen, einschließlich des genutzten Prozentsatzes und der Anzahl der heute genutzten Aufrufe im Vergleich zum Limit.
+
+![Das Panel „Agent-Schritt konfigurieren“ mit dem Agent-Dropdown, in dem zwei Agents aufgelistet sind. Jeder Agent ist mit seinem täglichen Aufruf-Limit gekennzeichnet. Ein Tooltip beim ersten Agent zeigt den genutzten Prozentsatz und die heute genutzten Aufrufe.]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
 ### 3. Schritt: Ausgabe des Agents festlegen {#define-the-output-variable}
 
@@ -51,9 +55,9 @@ Beachten Sie, dass der Datentyp der Ausgabevariable in der [Agentenkonsole]({{si
 | Zahl | Scoring, Schwellenwerte, Routing in [Zielgruppenpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Boolescher Wert | Ja/Nein-Verzweigung in [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Objekt | Nutzen Sie einen oder mehrere der oben genannten Datentypen mit einem einzigen LLM-Aufruf in einer vorhersagbaren Datenstruktur |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Ausgabe des Agents festlegen" }
 
-Sie können eine Ausgabevariable im gesamten Canvas verwenden, indem Sie dieselbe Template-Syntax wie bei einer Kontextvariable nutzen. Verwenden Sie entweder den Segment-Filter **Context Variable** oder templaten Sie Agent-Antworten direkt mit Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
+Sie können eine Ausgabevariable im gesamten Canvas verwenden, indem Sie dieselbe Template-Syntax wie bei einer Kontextvariable nutzen. Verwenden Sie entweder den Segment-Filter **Context Variable** oder templaten Sie Agent-Antworten direkt mit Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
 
 Um eine bestimmte Eigenschaft aus einer Objekt-Ausgabevariable zu verwenden, nutzen Sie die Punkt-Notation, um mit Liquid auf diese Eigenschaft zuzugreifen: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -77,13 +81,14 @@ Nachdem Sie Ihren Agent-Schritt eingerichtet haben, können Sie die Ausgabe dies
 
 ## Fehlerbehandlung {#error-handling}
 
-- Wenn das verbundene Modell einen Rate-Limit-Fehler zurückgibt, versucht Braze es bis zu fünf Mal mit exponentiellem Backoff erneut.
-- Wenn der Agent aus einem anderen Grund fehlschlägt (z. B. ein Timeout-Fehler oder ein ungültiger API-Schlüssel), wird die Ausgabevariable auf `null` gesetzt.
-    - Wenn ein Agent sein tägliches Aufruf-Limit erreicht, wird die Ausgabevariable auf `null` gesetzt.
-- Verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/), um sich gegen Fehler abzusichern. Beispielsweise können Sie im Modal **Add Personalization** einen Standard-Liquid-Wert eingeben wie {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} oder {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
+Informationen dazu, wie Braze mit Agent-Fehlern, Rate-Limit-Fehlern und Aufruf-Flusssteuerungen umgeht, finden Sie unter [Fehlerbehandlung und Fallback-Verhalten]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#fallback-behavior) in „Agents bereitstellen“ und [Fehlerbehandlung]({{site.baseurl}}/user_guide/brazeai/agents/#error-handling) in „Braze Agents“.
+
+- Wenn das verbundene Modell einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference/#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann; Nutzer:innen gehen dann zum nächsten Canvas-Schritt weiter.
+- Bei anderen Fehlern (z. B. einem Timeout-Fehler oder einem ungültigen API-Schlüssel) oder wenn ein Agent sein tägliches Aufruf-Limit erreicht, wird die Ausgabevariable auf `null` gesetzt, es sei denn, der Agent hat [Fallback-Werte konfiguriert]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#configure-fallback-values) in der Agentenkonsole. Wenn Fallback-Werte konfiguriert sind, rendert Braze den Fallback mit Liquid pro Nutzer:in und speichert das Ergebnis in der Ausgabevariable, auch wenn das tägliche Limit einen Aufruf blockiert.
+- Wenn Sie keine Fallback-Werte konfigurieren, verwenden Sie [Standard-Liquid-Werte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) in nachgelagerten Nachrichten-Schritten, um Null-Ausgaben zu behandeln. Beispielsweise können Sie im Modal **Add Personalization** einen Standard-Liquid-Wert eingeben wie {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} oder {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - Antworten werden bei identischen Eingaben zwischengespeichert und können bei wiederholten identischen Aufrufen innerhalb weniger Minuten wiederverwendet werden.
     - Antworten, die zwischengespeicherte Werte verwenden, zählen dennoch zu den Gesamt- und täglichen Aufrufen.
-- Agent-Schritte können bei der Verarbeitung einer großen Anzahl von Nutzer:innen Zeit in Anspruch nehmen. Wenn Sie Nutzer:innen sehen, die in diesem Schritt noch ausstehend sind, überprüfen Sie Ihre Logs, um sicherzustellen, dass Aufrufe stattfinden.
+- Agent-Schritte können bei der Verarbeitung einer großen Anzahl von Nutzer:innen Zeit in Anspruch nehmen. Braze reiht Aufrufe gemäß den [Aufruf-Flusssteuerungen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#invocation-flow-controls) in eine Warteschlange ein, sodass Nutzer:innen bei Versendungen mit hohem Volumen möglicherweise ausstehend bleiben. Überprüfen Sie Ihre Logs, um sicherzustellen, dass Aufrufe stattfinden.
 
 ## Analytics {#analytics}
 
@@ -108,11 +113,11 @@ Das folgende Muster verwendet drei Agents für ein Reisebeispiel: Jemand hat kü
 - Agent 2 gibt einen Routing-Wert zurück, auf dem Ihr Canvas verzweigen kann. Verwenden Sie eine Zahl, einen Booleschen Wert oder ein strukturiertes Objekt, damit die Ausgabe zu Ihrer Verzweigungslogik passt. Ordnen Sie diesen Wert einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)-Schritt zu. Erwägen Sie beispielsweise separate Pfade für Treue-basiertes Messaging im Vergleich zu Angebots-basiertem Messaging.
 - Agent 3 verfasst generierten Nachrichtentext nur in Branches, in denen Sie dies wünschen. Übergeben Sie die Zusammenfassung von Agent 1 (und jeden Branch-spezifischen Kontext), damit sich dieser Agent auf Tonalität und Kanallimits konzentriert, anstatt im selben Prompt Eingaben zu normalisieren und eine Strategie zu wählen.
 
-### Experimentpfad-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
+### Den Experimentpfad-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
 Um die Performance und den Credit-Verbrauch Ihres Agents im Vergleich zu Ihren bestehenden Journeys zu testen, fügen Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt hinzu, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 
-Senden Sie beispielsweise mit etwa 25.000 Aufrufen 2.000 Nutzer:innen pro Tag auf einen Pfad mit dem Agent und den Rest auf einen Kontrollpfad oder einen Pfad ohne Agent. Sammeln Sie 1–2 Wochen lang Daten und vergleichen Sie Leistungskennzahlen (KPIs), Gegenmetriken und den Agent-Credit-Verbrauch zwischen den Pfaden, bevor Sie den Traffic zum Agent-aktivierten Branch erhöhen.
+Senden Sie beispielsweise zunächst einige Tausend Nutzer:innen pro Tag auf einen Pfad mit dem Agent und den Rest auf einen Kontrollpfad oder einen Pfad ohne Agent. Sammeln Sie 1–2 Wochen lang Daten und vergleichen Sie Leistungskennzahlen (KPIs), Gegenmetriken und den Agent-Credit-Verbrauch zwischen den Pfaden. So können Sie Vertrauen aufbauen und den ROI nachweisen, bevor Sie den Traffic zum Agent-aktivierten Branch erhöhen, und gleichzeitig den Aufrufverbrauch begrenzen.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -120,10 +125,10 @@ Senden Sie beispielsweise mit etwa 25.000 Aufrufen 2.000 Nutzer:innen pro Tag au
 
 Generell empfehlen wir die Verwendung eines Agent-Schritts, wenn Sie bestimmte kontextuelle Daten in ein LLM einspeisen und es agentisch eine Canvas-Kontextvariable intelligent in einem Umfang zuweisen lassen möchten, der für Menschen unmöglich wäre.
 
-Angenommen, Sie senden eine personalisierte Nachricht, um einem:einer Nutzer:in, der/die zuvor Schokolade und Erdbeere bestellt hat, eine neue Eissorte zu empfehlen. Hier ist der Unterschied zwischen der Verwendung eines Agent-Schritts und KI-Artikelempfehlungen:
+Angenommen, Sie senden eine personalisierte Nachricht, um Nutzer:innen, die zuvor Schokolade und Erdbeere bestellt haben, eine neue Eissorte zu empfehlen. Hier ist der Unterschied zwischen der Verwendung eines Agent-Schritts und KI-Artikelempfehlungen:
 
-- **Agent-Schritt:** Verwendet LLMs, um eine qualitative Entscheidung darüber zu treffen, was der/die Nutzer:in basierend auf den Anweisungen und Kontext-Datenpunkten, die dem Agent gegeben wurden, möchten könnte. In diesem Beispiel könnte ein Agent-Schritt eine neue Sorte empfehlen, basierend auf der Möglichkeit, dass der/die Nutzer:in verschiedene Sorten ausprobieren möchte.
-- **KI-Artikelempfehlungen:** Verwendet Modelle des maschinellen Lernens, um die Produkte vorherzusagen, die ein:e Nutzer:in am wahrscheinlichsten möchte, basierend auf vergangenen Nutzer-Ereignissen wie Käufen. In diesem Beispiel würden KI-Artikelempfehlungen eine Sorte (Vanille) vorschlagen, basierend auf den beiden vorherigen Bestellungen des/der Nutzer:in (Schokolade und Erdbeere) und wie diese im Vergleich zum Verhalten anderer Nutzer:innen in Ihrem Workspace stehen.
+- **Agent-Schritt:** Verwendet LLMs, um eine qualitative Entscheidung darüber zu treffen, was die Nutzer:innen basierend auf den Anweisungen und Kontext-Datenpunkten, die dem Agent gegeben wurden, möchten könnten. In diesem Beispiel könnte ein Agent-Schritt eine neue Sorte empfehlen, basierend auf der Möglichkeit, dass die Nutzer:innen verschiedene Sorten ausprobieren möchten.
+- **KI-Artikelempfehlungen:** Verwendet Modelle des maschinellen Lernens, um die Produkte vorherzusagen, die Nutzer:innen am wahrscheinlichsten möchten, basierend auf vergangenen Nutzer-Events wie Käufen. In diesem Beispiel würden KI-Artikelempfehlungen eine Sorte (Vanille) vorschlagen, basierend auf den beiden vorherigen Bestellungen der Nutzer:innen (Schokolade und Erdbeere) und wie diese im Vergleich zum Verhalten anderer Nutzer:innen in Ihrem Workspace stehen.
 
 ### Wie verwenden Agent-Schritte Eingabedaten? {#how-do-agent-steps-use-input-data}
 

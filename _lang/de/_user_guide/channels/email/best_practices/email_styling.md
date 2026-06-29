@@ -137,6 +137,10 @@ Die folgende Tabelle enthält empfohlene Bildgrößen. Kleinere, hochwertige Bil
 | Maximal 5&nbsp;MB | Maximal 600 Pixel | Maximal 480 Pixel | PNG, JPEG, GIF |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
 
+{% alert note %}
+Gmail Web und die Gmail-Mobile-Apps rendern SVG häufig nicht (und die WEBP-Unterstützung ist inkonsistent). Verwenden Sie PNG oder JPEG für Bilder, die in Gmail zuverlässig angezeigt werden müssen.
+{% endalert %}
+
 ## Deeplinking {#deep-linking}
 
 Bei Push-Benachrichtigungen und In-App-Nachrichten führt ein [Deeplink]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) Nutzer:innen direkt zu einem bestimmten Ziel innerhalb einer App. Deeplinks erfordern jedoch, dass die App installiert ist, und E-Mails bieten keine Möglichkeit zu wissen, ob Empfänger:innen die App haben. Das bedeutet, dass Deeplinks in E-Mails zu Fehlern bei Empfänger:innen führen können, die die App nicht installiert haben.

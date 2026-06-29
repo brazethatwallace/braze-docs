@@ -10,7 +10,7 @@ description: "In diesem Artikel finden Sie Einzelheiten über den Braze-Endpunkt
 ---
 {% api %}
 # Campaign-Nachrichten mit API-getriggerter Zustellung versenden {#send-campaign-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [Verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). Wenn Sie `audience` einbeziehen, wird die Nachricht nur an Nutzer:innen gesendet, die den definierten Filtern entsprechen, wie z. B. angepasste Attribute und Abo-Status. |
 | `recipients` | Optional | Array | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Wenn `send_to_existing_only` `false` ist, muss ein `attributes`-Objekt enthalten sein.<br><br>Sie können den Abo-Gruppenstatus einer Nutzer:in aktualisieren, indem Sie `subscription_groups` in das verschachtelte `attributes`-Objekt aufnehmen. Weitere Einzelheiten finden Sie unter [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Wenn `recipients` nicht angegeben und `broadcast` auf true gesetzt ist, wird die Nachricht an das gesamte Segment gesendet, das im Braze-Dashboard als Zielgruppe der Campaign konfiguriert ist.<br><br>Wenn `email` der Bezeichner ist, müssen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) in das Empfänger:innen-Objekt aufnehmen. |
 | `attachments` | Optional | Array | Wenn `broadcast` auf true gesetzt ist, kann die Liste `attachments` nicht einbezogen werden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ### Verhalten bei der Empfänger:innen-Auflösung {#recipient-resolution-behavior}
 
@@ -114,6 +114,8 @@ Erfahren Sie, was passiert, wenn `prioritization` nicht genau ein Profil zurück
 
 - Wenn `prioritization` nicht genau ein Nutzerprofil zurückgibt, wiederholt Braze die Auflösung bis zu 40 Mal. Dieses Wiederholungsverhalten ist erwartungsgemäß.
 - Die Einstellung `send_to_existing_only` ändert das Gleichstandsverhalten von `prioritization` nicht. Dasselbe Gleichstands- und Wiederholungsverhalten gilt unabhängig davon, ob diese Einstellung `true` oder `false` ist.
+
+Wenn Sie eine reine E-Mail-Campaign für eine Empfänger:in triggern, die über `external_user_id` oder `user_alias` identifiziert wird, und dieses Nutzerprofil zum Zeitpunkt des Aufrufs keine E-Mail-Adresse hat, wiederholt Braze den Versand für bis zu ca. 2 Stunden. Dies deckt das gängige Muster ab, bei dem eine Nutzer:in erstellt und ihre E-Mail-Adresse kurz darauf festgelegt wird. Um ohne Verzögerung zu senden, fügen Sie das `email`-Attribut in `recipients[].attributes` ein, damit die Adresse im selben Aufruf wie der Trigger gesetzt wird.
 
 {% alert note %}
 Der Parameter `segment_id` wird für diesen Endpunkt nicht unterstützt. Um ein Segment anzusprechen, konfigurieren Sie das Segment in den Zielgruppen-Einstellungen der Campaign im Braze-Dashboard und verwenden Sie `"broadcast": true`, oder nutzen Sie den `audience`-Parameter mit [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience/)-Filtern.
@@ -201,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## Antwortdetails {#response-details}
 
-Die Antworten der Endpunkte zum Senden von Nachrichten enthalten die `dispatch_id` der Nachricht als Referenz zum Zurückverfolgen des Versands. Die `dispatch_id` ist die ID des Nachrichtenversands – eine eindeutige ID für jede von Braze gesendete Übertragung. Wenn Sie diesen Endpunkt verwenden, erhalten Sie eine einzige `dispatch_id` für eine gesamte Gruppe von Nutzer:innen. Weitere Informationen zu `dispatch_id` finden Sie in unserer Dokumentation über das [Verhalten der Dispatch-ID]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+Die Antworten der Endpunkte zum Senden von Nachrichten enthalten die `dispatch_id` der Nachricht als Referenz zum Zurückverfolgen des Versands. Die `dispatch_id` ist die ID des Nachrichtenversands – eine eindeutige ID für jede von Braze gesendete Übertragung. Wenn Sie diesen Endpunkt verwenden, erhalten Sie eine einzige `dispatch_id` für eine gesamte Gruppe von Nutzer:innen. Weitere Informationen zu `dispatch_id` finden Sie in unserer Dokumentation über das [Verhalten der Dispatch-ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 
 Wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors) den Fehlercode und die Beschreibung.
 

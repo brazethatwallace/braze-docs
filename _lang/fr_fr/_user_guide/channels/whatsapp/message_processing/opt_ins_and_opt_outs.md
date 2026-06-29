@@ -91,6 +91,19 @@ Utilisez le modèle de [formulaire de capture de numéro de téléphone]({{site.
 
 ## Configurer les désabonnements pour votre canal WhatsApp Braze {#set-up-opt-outs-for-your-braze-whatsapp-channel}
 
+### Bouton « Offres et annonces » de WhatsApp {#whatsapp-offers-and-announcements-toggle}
+
+WhatsApp propose un bouton « Offres et annonces » dans les paramètres de l'application qui permet aux utilisateurs de se désabonner des messages marketing. Ce bouton fonctionne indépendamment des groupes d'abonnement Braze :
+
+- **Les groupes d'abonnement Braze** sont gérés via votre intégration Braze (API, centre de préférences ou SDK) et contrôlent les utilisateurs que vous ciblez pour l'envoi de messages.
+- **Le bouton natif de WhatsApp** est contrôlé par Meta et appliqué au niveau de la plateforme, en dehors de Braze.
+
+Ces deux couches ne se synchronisent pas automatiquement par conception. Lorsqu'un utilisateur désactive le bouton « Offres et annonces » dans WhatsApp, Meta bloque la distribution des messages marketing au niveau de la plateforme, même si le statut d'abonnement de l'utilisateur dans Braze indique « Abonné ». La préférence de l'utilisateur est respectée au moment de la distribution.
+
+{% alert note %}
+Étant donné que Braze ne reçoit pas de signal de désabonnement tant qu'une tentative d'envoi n'a pas été effectuée et que Meta n'a pas renvoyé une erreur, les compteurs d'abonnement dans Braze peuvent ne pas refléter les utilisateurs qui se sont désabonnés via le bouton WhatsApp tant qu'un message n'a pas été tenté. Cela signifie que les estimations de portée peuvent être légèrement surestimées jusqu'à ce que cette boucle de rétroaction se produise.
+{% endalert %}
+
 ### Mots-clés de désabonnement généraux {#general-opt-out-keywords}
 
 Vous pouvez configurer une campagne ou un Canvas qui permet aux utilisateurs envoyant certains mots de se désabonner des futurs messages. Les Canvas peuvent être particulièrement utiles car ils vous permettent d'inclure un message de suivi confirmant le désabonnement réussi.
@@ -185,7 +198,7 @@ Vous n'avez pas besoin d'utiliser cette méthode pour les messages STOP. Le mess
 {: start="3"}
 3. Saisissez l'[URL de l'endpoint]({{site.baseurl}}/api/basics/) du client dans l'**URL du webhook**, suivie du lien de l'endpoint `campaigns/trigger/send`. Par exemple, `https://dashboard-02.braze.eu/campaigns/trigger/send`.
 
-![Champ URL du webhook sous la section « Compose Webhook ».]({% image_buster /assets/img/whatsapp/campaigns_webhook_url.png %}){: style="max-width:70%;"}
+![Champ URL du webhook sous la section « Rédiger le webhook ».]({% image_buster /assets/img/whatsapp/campaigns_webhook_url.png %}){: style="max-width:70%;"}
 
 {: start="4"}
 4. Dans le texte brut, saisissez le payload JSON suivant et remplacez `XXXXXXXXXXX` par l'ID de votre groupe d'abonnement. Vous devrez remplacer le `campaign_id` après avoir créé votre seconde campagne.
@@ -228,4 +241,4 @@ Dans ce tableau, `STOP` est utilisé comme exemple de mot déclencheur pour illu
 | `Is` | `STOP` | Capture toute utilisation du mot entier « stop » quelle que soit la casse. Par exemple, cela capture « stop » mais pas « veuillez stop ». |
 | `Matches regex` | `STOP` | Capture toute utilisation de « STOP » dans cette casse exacte. Par exemple, cela capture « STOP » et « VEUILLEZ STOP » mais pas « stop ». |
 | `Matches regex` | `(?i)STOP(?-i)` | Capture toute utilisation de « STOP » quelle que soit la casse. Par exemple, cela capture « stop », « veuillez stop » et « n'arrêtez jamais de m'envoyer des messages ». |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprendre la différence entre les modificateurs « expression régulière » et « est »" }

@@ -20,27 +20,27 @@ tool:
 Unter **Targeting-Optionen** können Sie die folgenden Optionen verwenden, um auszuwählen, welche Nutzer:innen Sie mit Ihrer Campaign oder Ihrem Canvas ansprechen möchten. Nur Nutzer:innen, die Ihren definierten Kriterien entsprechen, erhalten die Nachricht. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
 
 {% tabs local %}
-{% tab single segment %}
+{% tab Einzelnes Segment %}
 Um Mitglieder eines zuvor erstellten Segments anzusprechen, wählen Sie ein Segment aus dem Dropdown unter **Zielgruppen nach Segment zusammenstellen** aus.
 {% endtab %}
 
-{% tab multiple segments %}
+{% tab Mehrere Segmente %}
 Um Nutzer:innen anzusprechen, die in mehrere zuvor erstellte Segmente fallen, fügen Sie mehrere Segmente aus dem Dropdown unter **Zielgruppen nach Segment zusammenstellen** hinzu. Die resultierende Zielgruppe besteht aus Nutzer:innen, die sowohl im ersten Segment als auch im zweiten Segment und im dritten Segment usw. enthalten sind.
 {% endtab %}
 
-{% tab multiple filters %}
+{% tab Mehrere Filter %}
 Um Nutzer:innen ohne Hinzufügen eines Segments anzusprechen, können Sie eine Reihe von Filtern verwenden. Dies ist eine Ad-hoc-Zielgruppe während der Nachrichtenerstellung und ermöglicht es Ihnen, die Segment-Erstellung zu überspringen, wenn Sie an einmalige Zielgruppen senden.
 
 ![Zusätzliche Filter für eine Nachricht, die Nutzer:innen anspricht, die die App zuletzt innerhalb des Tages geöffnet haben, noch nie eine Campaign oder einen Canvas-Schritt erhalten haben und vor weniger als 30 Tagen einen Kauf getätigt haben.]({% image_buster /assets/img_archive/additional_filters.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab segments & filters %}
+{% tab Segmente und Filter %}
 Sie können auch Nutzer:innen eines oder mehrerer zuvor erstellter Segmente ansprechen, die zusätzlich unter weitere Filter fallen. Nachdem Sie zunächst Ihre Segmente ausgewählt haben, können Sie Ihre Zielgruppe im Abschnitt **Zusätzliche Filter** weiter eingrenzen. Dies wird im folgenden Screenshot demonstriert, der Nutzer:innen anspricht, die im Segment „Daily Active Users“ und im Segment „Never opened email“ enthalten sind und vor mehr als 30 Tagen einen Kauf getätigt haben.
 
 ![Targeting-Optionen für eine Nachricht, die zwei Segmente enthält und einen zusätzlichen Filter für einen letzten Kauf vor weniger als 30 Tagen hat.]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab Specific apps %}
+{% tab Bestimmte Apps %}
 
 Sie können eine Campaign-Nachricht oder einen Canvas-Schritt an bestimmte Apps senden, z. B. eine In-App-Nachricht oder Push-Benachrichtigung nur an Android- oder iOS-Apps.
 
@@ -55,7 +55,7 @@ Angenommen, Sie möchten eine In-App-Nachricht nur an Android-Apps senden.
 ![Ein Segment, das Nutzer:innen aus einer bestimmten App anspricht, „Test_Android“.]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. Gehen Sie in Ihrer Campaign oder Ihrem Canvas zum Schritt **Zielgruppe** und bestätigen Sie, dass Ihr Segment im Abschnitt **Zielgruppen nach Segment zusammenstellen** hinzugefügt ist.
+2. Bestätigen Sie im Schritt **Zielgruppe**, dass Ihr Segment im Abschnitt **Zielgruppen nach Segment zusammenstellen** hinzugefügt ist.
 
 ![Der Schritt „Zielgruppe“ mit einem ausgewählten Beispiel-Segment.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
@@ -97,7 +97,7 @@ Braze stellt detaillierte Zielgruppenstatistiken der angesprochenen Kanäle in d
 
 ##### Warum die Zielgruppengröße von der Anzahl erreichbarer Nutzer:innen abweichen kann {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![Der Abschnitt „Gesamtpopulation“ mit geschätzten Zahlen für erreichbare Nutzer:innen in jedem angesprochenen Kanal.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
@@ -147,7 +147,7 @@ Ein besserer Ansatz wäre, eine breitere Zielgruppe zu verwenden und den Filter 
 
 Auf diese Weise erfüllt ein qualifizierender Kauf sowohl den Filter als auch den Trigger für die Nachricht – keine zweite Aktion erforderlich.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 - Stellen Sie sicher, dass das Zielgruppen-Segment Nutzer:innen enthält, bevor die Eintrittskriterien eintreten.
 - Vermeiden Sie Zielgruppen-Filter, die erst nach Ihrem Ereignis greifen. Wenn ein Filter von etwas abhängt, das zum Zeitpunkt des Triggers geschieht (wie „Sitzungsanzahl = 0“), ist die:der Nutzer:in möglicherweise nicht mehr qualifiziert, wenn Braze die Prüfung durchführt.

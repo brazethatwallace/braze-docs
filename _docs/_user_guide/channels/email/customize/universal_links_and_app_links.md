@@ -93,7 +93,7 @@ These steps are adapted from the Apple developer documentation. For more informa
 2. Select **Associated Domains**.
 3. Click **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![App Services section]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Step 1c: Turn on Associated Domains in your Xcode project {#step-1c}
 
@@ -113,7 +113,7 @@ If you see the error "An App ID with Identifier 'your-app-id' is not available. 
 
 In the domains section, add the appropriate domain tag. You must prefix it with `applinks:`. In this case, you can see we added `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Associated Domains section]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Step 1e: Confirm that the entitlements file is included at build
 
@@ -225,15 +225,16 @@ Finally, you can test your deep links. Sending yourself a link through a messagi
 Click-tracking links are typically set up as part of your onboarding for email. If this was not completed during customer onboarding, contact your account manager for help.
 {% endalert %}
 
-Our email sending partners, SendGrid and SparkPost, use click-tracking domains to wrap all links and include URL parameters for click-tracking in Braze emails.
+Our email sending partners use click-tracking domains to wrap all links and include URL parameters for click-tracking in Braze emails.
 
 For example, a link like `https://www.example.com` becomes something like `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`.
 
 To allow email links with click-tracking to function as universal links or App Links, you'll need to perform some additional setup. Make sure to add the click-tracking domain (`links.email.example.com`) as a domain that the app is allowed to open. Furthermore, the click-tracking domain should serve the AASA (iOS) or Digital Asset Links (Android) files. This will help ensure that email links with click-tracking work seamlessly.
 
-If you don't want every click-tracking link to be a universal link or App Link, you can specify which links should be universal links based on the email sending partner. Refer to the following sections for details.
+If you don't want every click-tracking link to be a universal link or App Link, you can specify which links should be universal links based on the email sending partner. Refer to the following tabs for details.
 
-### SendGrid
+{% tabs %}
+{% tab SendGrid %}
 
 To treat a SendGrid click-tracking link as a universal link:
 
@@ -255,7 +256,8 @@ For example:
 
 With this configuration, links with `/uni/` in the URL path will function as universal links, while all other links will work as web links.
 
-### SparkPost
+{% endtab %}
+{% tab SparkPost %}
 
 To treat a SparkPost click-tracking link as a universal link, add the following attribute to the Attributes section of the drag-and-drop editor for email, or manually edit the link HTML to include the following attribute in your link's anchor tag: `data-msys-sublink="custom_path"`.
 
@@ -268,6 +270,83 @@ For example:
 ```
 
 Then, make sure your app is set up to handle the custom path properly. Refer to SparkPost's article on [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). This article contains example code for [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) and [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+
+{% endtab %}
+{% tab Amazon SES %}
+
+Use custom paths to add path segments to email click-tracking URLs. This creates predictable URL patterns that mobile operating systems can recognize for universal links and App Links.
+
+When users tap email links on mobile devices, custom paths help you control whether links open in your main mobile app, a specialized app, or the mobile browser (for example product pages, loyalty programs, unsubscribe links, or legal pages).
+
+To treat an Amazon SES click-tracking link as a universal link or App Link:
+
+1. Add `ses:custom-path` attributes to your anchor tags in email HTML, or add the attribute in the **Attributes** section of the drag-and-drop editor for email. The custom path is inserted into the wrapped click-tracking URL.
+
+For example:
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+Make sure your custom paths follow these requirements:
+
+- **Format:** Alphanumeric characters, dots, underscores, and hyphens only
+- **Length:** 1–32 characters
+- **Case sensitivity:** Paths are case-sensitive to match mobile OS requirements
+
+{:start="2"}
+2. Confirm your wrapped tracking URLs include the custom path segment. Links follow this format: `track.yourstore.com/L1/{customPath}/...`
+
+For example:
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. Configure your site association files on your click-tracking domain so paths match `/L1/{customPath}/`.
+
+**iOS (Apple App Site Association):**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android (Digital Asset Links):**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+Make sure your app is set up to handle these wrapped links. Add your click-tracking domain to your app's associated domains (iOS) or intent filters (Android), and host the AASA or Digital Asset Links file on that domain as described earlier in this article.
+
+{% endtab %}
+{% endtabs %}
 
 ### Turning off click-tracking on a link-to-link basis
 
@@ -343,6 +422,10 @@ Select the following for the custom attribute:
 
 If your universal links aren't working as expected in your emails, such as navigating the recipient from their email app to the web browser before finally redirecting to the app, refer to these tips to troubleshoot your universal link setup.
 
+#### Outlook shows `[?it=` or raw URL text instead of a button
+
+Outlook may display call-to-action text like `[?it=` or print part of the `href` when a link does not use a valid **`http://` or `https://`** URL scheme. Custom schemes, missing schemes, or malformed URLs are not treated as hyperlinks, so the client shows the attribute text instead. Confirm every button, image link, and tracked URL uses a full `https://` (or `http://`) destination. This applies to both universal links and standard web links.
+
 #### Verify link file location
 
 Make sure the AASA file (iOS) or Digital Asset Links file (Android) is located in the correct place:
@@ -356,6 +439,12 @@ It's important to ensure that these files are always publicly accessible. If you
 
 Make sure you have the correct definitions for domains your app is allowed to open.
 
-- **iOS:** Review the Associated Domains set up in Xcode for your app ([step 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
+- **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
 
+#### Tracking domain can't serve .well-known files
+
+In some cases, your click-tracking domain may not be able to host the required `.well-known` files due to ESP limitations or infrastructure constraints. If you can't host the AASA or Digital Asset Links file on your tracking domain, consider the following options:
+
+- **Selectively disable click-tracking on deep-link URLs:** You can disable click-tracking for specific universal links so they go directly to your main domain (where you can host the AASA or Digital Asset Links file). Note that this method can cause loss of click analytics for those specific links. Refer to [Turning off click-tracking on a link-to-link basis](#turning-off-click-tracking-on-a-link-to-link-basis) for instructions.
+- **Front the tracking subdomain with a CDN:** If you need full click-tracking coverage and deep linking, you can place a CDN (such as Cloudflare or CloudFront) in front of your tracking subdomain. Configure the CDN to serve the `.well-known` files locally and proxy all other traffic to your ESP. This approach is more involved but gives you full control over both click-tracking and universal links.

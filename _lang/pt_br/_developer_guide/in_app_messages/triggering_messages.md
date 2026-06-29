@@ -21,7 +21,7 @@ As mensagens no app são disparadas quando o SDK registra um dos seguintes tipos
 No início da sessão de um usuário, a Braze entregará todas as mensagens no app elegíveis para seu dispositivo, enquanto simultaneamente pré-carrega ativos para minimizar a latência de exibição. Se o evento de gatilho tiver mais de uma mensagem no app elegível, apenas a mensagem com a maior prioridade será entregue. Para saber mais, veja [Ciclo de vida da sessão]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#about-the-session-lifecycle).
 
 {% alert note %}
-Mensagens no app não podem ser disparadas através da API ou por eventos da API—apenas eventos personalizados registrados pelo SDK. Para saber mais sobre registro, veja [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
+Mensagens no app não podem ser disparadas através da API ou por eventos da API&#8212;apenas eventos personalizados registrados pelo SDK. Para saber mais sobre registro, veja [Registro de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events/).
 {% endalert %}
 
 ## Tipos de mensagens no app {#types-of-in-app-messages}
@@ -32,7 +32,7 @@ A Braze envia os seguintes tipos de mensagens no app para os dispositivos dos us
 
 Uma mensagem no app `inapp` (ou "[padrão]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)") já vem com o modelo preenchido com as informações necessárias, como atributos personalizados que a Braze já conhece. Geralmente, quando a mensagem no app é baixada para o dispositivo, o evento de gatilho faz com que o SDK exiba a mensagem no app `inapp` mesmo quando o dispositivo está offline ou em modo avião.
 
-### `templated_iam` (com modelo) {#templatediam-templated}
+### `templated_iam` (com modelo) {#templated_iam-templated}
 
 Uma mensagem no app `templated_iam` (ou "com modelo") ainda não tem o modelo preenchido com as informações necessárias. A Braze precisa fazer outra solicitação para obter as informações antes que a mensagem possa aparecer.
 
@@ -40,7 +40,7 @@ Uma mensagem no app `templated_iam` (ou "com modelo") ainda não tem o modelo pr
 
 ## Pares de chave-valor {#key-value-pairs}
 
-Quando você cria uma campanha na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagens no app pode usar para enviar dados para seu app.
+Quando você cria uma Campaign na Braze, pode definir pares de chave-valor como `extras`, que o objeto de mensagens no app pode usar para enviar dados para seu app.
 
 {% tabs %}
 {% tab web %}
@@ -152,10 +152,10 @@ Para um controle mais avançado sobre o tempo das mensagens, incluindo adiamento
 {% endtab %}
 
 {% tab android %}
-1. Implemente o [`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para definir um ouvinte personalizado.
+1. Implemente o [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) para definir um ouvinte personalizado.
 2. Atualize seu método [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) para retornar [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
 
-Para um controle mais avançado sobre o tempo das mensagens, incluindo exibições posteriores e reenfileiramento, consulte nossa página [Personalizando mensagens](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
+Para um controle mais avançado sobre o tempo das mensagens, incluindo exibições posteriores e reenfileiramento, consulte nossa página [Personalizando mensagens]({{site.baseurl}}/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
 {% endtab %}
 
 {% tab swift %}
@@ -302,11 +302,11 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Etapa 2: Crie uma Campaign de push {#step-2-create-a-push-campaign}
+#### Etapa 2: Crie uma Campaign de push silenciosa {#step-2-create-a-push-campaign}
 
 Crie uma [Campaign de push silenciosa]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) acionada pelo evento enviado pelo servidor.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Etapa de entrega de uma Campaign de push silenciosa configurada para entrega baseada em ação com um gatilho de evento personalizado server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 A Campaign de push deve incluir extras de pares de chave-valor que indiquem que esta Campaign de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app.
 
@@ -379,7 +379,7 @@ O código dentro do método `application(_:didReceiveRemoteNotification:fetchCom
 
 Você pode alterar o nome do evento ou as propriedades do evento enviando o valor desejado dentro dos extras de pares de chave-valor da carga útil push. Ao registrar o evento personalizado, esses extras podem ser usados como parâmetro do nome do evento ou como uma propriedade do evento.
 
-#### Etapa 3: Crie uma Campaign de mensagem no app {#step-3-create-an-in-app-message-campaign}
+#### Etapa 3: Crie uma Campaign de mensagem no app
 
 Crie sua Campaign de mensagem no app visível para o usuário no dashboard da Braze. Essa Campaign deve ter uma entrega baseada em ação e ser acionada a partir do evento personalizado registrado dentro do método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`.
 

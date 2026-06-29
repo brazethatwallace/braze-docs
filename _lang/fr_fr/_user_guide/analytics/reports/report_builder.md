@@ -95,11 +95,13 @@ Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, 
 | Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
 | Impressions uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
 | Destinataires uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilité des indicateurs" }
 
 ### Variantes de message supprimées {#deleted-message-variants}
 
 Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous décomposez votre rapport par Campaigns ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les *envois* pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par Campaign, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
+
+Dans le même rapport, les *destinataires uniques* peuvent être supérieurs aux *impressions uniques* lorsqu'une variante de message a été supprimée après l'envoi. Les *destinataires uniques* au niveau de la Campaign peuvent toujours inclure les utilisateurs qui ont reçu la variante supprimée, tandis que les *impressions uniques* omettent les statistiques des variantes supprimées dans les agrégations au niveau du message.
 
 ## Consulter un rapport {#viewing-a-report}
 
@@ -150,3 +152,9 @@ Vous pouvez partager un lien vers le rapport en sélectionnant **Share** et l'un
 Une Campaign ou un Canvas apparaît dans le rapport lorsque sa date de **Last sent** se situe dans la fenêtre de **Last sent** que vous avez configurée. Les **Sends** et les autres indicateurs ne se remplissent que pour l'activité comprise dans la plage de dates **Show data for**. Si le message n'a pas été envoyé pendant la période **Show data for**, la ligne peut tout de même lister la Campaign ou le Canvas avec zéro envoi.
 
 Par exemple, supposons que **Last sent** est du 1er janvier 2025 au 14 avril 2025, de sorte qu'une Campaign est incluse, mais **Show data for** est du 1er décembre 2024 au 14 janvier 2025. Si cette Campaign n'a eu aucun envoi en décembre ou en janvier, elle apparaît tout de même dans le tableau sans indicateurs d'envoi.
+
+### Le lien de téléchargement a expiré {#download-link-has-expired}
+
+Les liens de téléchargement de rapport expirent après une heure. Si votre lien a expiré, générez un nouveau rapport et téléchargez-le dans l'heure. Il n'est pas possible de prolonger le délai d'expiration.
+
+Si vous avez un [compartiment Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3/) connecté dans **Partner Integrations**, vous pouvez éventuellement récupérer les données de rapports plus anciens en parcourant directement votre compartiment S3.

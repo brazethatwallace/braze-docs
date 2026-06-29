@@ -67,13 +67,13 @@ description: "Braze プラットフォームでの操作はすべて、ワーク
 - [アプリインスタンス](#app-instances)
 - [チーム](#teams)
 - [会社ユーザーの権限](#company-user-permissions)（ただし会社ユーザーそのものではありません）
-- [Currentsコネクター](#currents-connectors)
+- [Currents コネクター](#currents-connectors)
 - [ユーザープロファイル](#user-profiles)と関連するユーザーデータ
 - [Segments、Campaigns、Canvases](#segments-campaigns-and-canvases)
 
 #### アプリインスタンス {#app-instances}
 
-各プラットフォームでアプリのバージョンごとに別々のアプリインスタンスを作成する必要があります。たとえば、iOS と Android の両方に無料版とプロ版のアプリがある場合は、ワークスペース内に 4 つのアプリインスタンス（無料版 iOS アプリ、無料版 Android アプリ、プロ版 iOS アプリ、プロ版 Android アプリ）を作成します。これにより、アプリインスタンスごとに 1 つずつ、使用する APIキーが 4 つ得られます。
+各プラットフォームでアプリのバージョンごとに別々のアプリインスタンスを作成する必要があります。たとえば、iOS と Android の両方に無料版とプロ版のアプリがある場合は、ワークスペース内に 4 つのアプリインスタンス（無料版 iOS アプリ、無料版 Android アプリ、プロ版 iOS アプリ、プロ版 Android アプリ）を作成します。これにより、アプリインスタンスごとに 1 つずつ、使用する API キーが 4 つ得られます。
 
 #### チーム {#teams}
 
@@ -83,17 +83,17 @@ description: "Braze プラットフォームでの操作はすべて、ワーク
 
 ワークスペースには、独立したアクセスとユーザー権限の定義があります。[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を使用すると、個々のダッシュボードユーザーまたはチームが 1 つのワークスペース内でアクセスできるコンテンツに関する詳細なコントロールを作成できます。
 
-#### Currentsコネクター {#currents-connectors}
+#### Currents コネクター {#currents-connectors}
 
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)ツールは、エンゲージメントイベントのリアルタイムデータストリームで、Braze プラットフォームから最も堅牢でありながらきめ細かいエクスポートが可能です。Currentsコネクターは特定の Braze パッケージに含まれており、当初はワークスペースが 1 つであることを前提として付属している場合もあります。
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ツールは、エンゲージメントイベントのリアルタイムデータストリームで、Braze プラットフォームから最も堅牢でありながらきめ細かいエクスポートが可能です。Currents コネクターは特定の Braze パッケージに含まれており、当初はワークスペースが 1 つであることを前提として付属している場合もあります。
 
-Currentsコネクターはワークスペース間で共有されないため、独立したワークスペースを作成するか、統合したワークスペースを作成するかを決める際には、使用する Currentsコネクターの数を考慮することが重要です。
+Currents コネクターはワークスペース間で共有されないため、独立したワークスペースを作成するか、統合したワークスペースを作成するかを決める際には、使用する Currents コネクターの数を考慮することが重要です。
 
-たとえば、同じアプリの開発環境と本番環境に別々のワークスペースがある場合は、本番ワークスペースで Currentsコネクターをアクティブにします。両方のワークスペースで Currentsを有効にするには、Currentsコネクターを追加購入する必要があります。
+たとえば、同じアプリの開発環境と本番環境に別々のワークスペースがある場合は、本番ワークスペースで Currents コネクターをアクティブにします。両方のワークスペースで Currents を有効にするには、Currents コネクターを追加購入する必要があります。
 
 #### ユーザープロファイル {#user-profiles}
 
-ユーザーに関連するすべての永続データは、その[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)に格納されます。しかし、ユーザープロファイルは、ユーザーのエンゲージメント履歴、Segmentメンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストにも最適なリソースです。
+ユーザーに関連するすべての永続データは、その[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)に格納されます。しかし、ユーザープロファイルは、ユーザーのエンゲージメント履歴、セグメント メンバーシップ、デバイス、オペレーティングシステムに関する情報に簡単にアクセスできるため、トラブルシューティングやテストにも最適なリソースです。
 
 #### Segments、Campaigns、Canvases {#segments-campaigns-and-canvases}
 
@@ -155,6 +155,7 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
 
 <table aria-label="各アプローチの概要">
   <caption>各アプローチの概要</caption>
+    <thead>
     <tr>
         <th></th>
         <th colspan="2" scope="colgroup">独立したワークスペース</th>
@@ -167,6 +168,8 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
         <th scope="col">メリット</th>
         <th scope="col">欠点</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <th scope="row">ターゲティング</th>
         <td>コミュニケーションを分離する最も安全な方法です。Campaignは特定のユーザープロファイルのみをターゲットにすることが保証されます。</td>
@@ -177,7 +180,7 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
     <tr>
         <th scope="row">カスタムイベントと属性</th>
         <td>カスタム属性とイベントは、アプリインスタンスに固有であることが保証されます。</td>
-        <td>ワークスペース間でユーザーの行動を追跡できません。<br><br><b>ヒント:</b> 複数のCurrentsコネクターを活用して実現できます。</td>
+        <td>ワークスペース間でユーザーの行動を追跡できません。<br><br><b>ヒント:</b> 複数の Currents コネクターを活用して実現できます。</td>
         <td>ワークスペース内のすべてのアプリインスタンスでユーザーの行動を追跡できます。</td>
         <td>カスタム属性とイベントはすべてのアプリインスタンスに適用されるため、ユーザープロファイルのどのデータがどのアプリインスタンスに関連しているのかを判断しにくくなる可能性があります。たとえば、「date_of_parking」はアプリ 1 とアプリ 2 のどちらに関連するのでしょうか？これに対処するには、適切に構造化された命名規則を使用してください。</td>
     </tr>
@@ -205,8 +208,8 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
     <tr>
         <th scope="row">コンテンツの複製</th>
         <td>該当なし</td>
-        <td>Segments、プッシュやコンテンツカードのCampaigns、Canvasesをワークスペース間で複製することはできません。</td>
-        <td>以下のサポート対象チャネルについて、<a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>ワークスペース間でCampaignを複製</a> できます: SMS、アプリ内メッセージ、メール、メールテンプレート、Content Blocks。<br><br>Segments、Campaigns、Canvasesを複製して、アプリインスタンス間でコンテンツを再利用できます。</td>
+        <td>セグメントやコンテンツカードの Campaign など、一部のコンテンツはワークスペース間でコピーできません。</td>
+        <td><a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>ワークスペース間で Campaign、Canvas、ランディングページをコピー</a> できます。サポート対象のコンテンツには、対象チャネルの Campaignと Canvas、ランディングページ、メールテンプレート、フィーチャーフラグ、Content Blocksが含まれます。<br><br>セグメント、Campaign、Canvas、ランディングページを複製して、アプリインスタンス間でコンテンツを再利用できます。</td>
         <td>該当なし</td>
     </tr>
     <tr>
@@ -216,6 +219,7 @@ Segment、Campaign、Canvasは、別のワークスペース内にあるデー�
         <td>該当なし</td>
         <td>グローバル統計は、ホームページ上でワークスペース内のすべてのアプリインスタンスについて集計されます。</td>
     </tr>
+    </tbody>
 </table>
 
 ## ベストプラクティス {#best-practices}

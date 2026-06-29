@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Amperity
 
-> [A Amperity](https://amperity.com/) é uma plataforma abrangente de dados do cliente, que ajuda as marcas a conhecerem seus clientes, a tomarem decisões estratégicas e a adotarem consistentemente o curso de ação correto para atender melhor seus consumidores. A Amperity fornece recursos inteligentes para a unificação do gerenciamento de dados, análise de dados, insights e ativação.
+> A [Amperity](https://amperity.com/) é uma plataforma abrangente de dados do cliente, que ajuda as marcas a conhecerem seus clientes, a tomarem decisões estratégicas e a adotarem consistentemente o curso de ação correto para atender melhor seus consumidores. A Amperity fornece recursos inteligentes para a unificação do gerenciamento de dados, análise de dados, insights e ativação.
 
 _Essa integração é mantida pela Amperity._
 
@@ -32,7 +32,7 @@ A integração da Braze e da Amperity oferece uma visão unificada de seus clien
 | Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints). |
 | Endpoint REST da Braze | A URL do seu endpoint da Braze. Seu endpoint dependerá da sua instância da Braze. |
 | Conector Currents (opcional) | O conector S3 Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Mapeamento de dados {#data-mapping}
 
@@ -72,7 +72,7 @@ Os públicos sincronizados da Amperity para a Braze serão registrados nos perfi
 
 Os tipos de dados compatíveis incluem:
 - Booleano
-- Data
+- Date
 - Datetime
 - Decimal
 - Float

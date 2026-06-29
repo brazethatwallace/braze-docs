@@ -15,7 +15,6 @@ description: "Cet article de référence répertorie les filtres avancés, des e
 {% raw %}
 | Nom du filtre | Description du filtre | Exemple d'entrée | Exemple de sortie |
 |---|---|---|---|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filtres d'encodage" }
 | `md5` | Renvoie une chaîne de caractères encodée en md5 | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
 | `sha1` | Renvoie une chaîne de caractères encodée en sha1 | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
 | `sha2` | Renvoie une chaîne de caractères encodée en sha2 (256 bits, également connu sous le nom de SHA-256) | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
@@ -24,7 +23,7 @@ description: "Cet article de référence répertorie les filtres avancés, des e
 | `hmac_sha1_base64` | Renvoie une signature hmac-sha1, encodée sous forme de chaîne base64 | `{{'hey' | hmac_sha1_base64: 'secret_key'}}` | KjlpvtJb/u+wCspAY+uVkLTfjw4= |
 | `hmac_sha256_hex` | Renvoie une signature hmac-sha256, encodée sous forme de chaîne hexadécimale | `{{'hey' | hmac_sha256_hex: 'secret_key'}}` | 8df897f8da3d7992fe57c8dbc6f27578cfbf2dcc4d0fbb4000b8c924841d508e |
 | `hmac_sha256_base64` | Renvoie une signature hmac-sha256, encodée sous forme de chaîne base64 | `{{'hey' | hmac_sha256_base64: 'secret_key'}}` | jfiX+No9eZL+V8jbxvJ1eM+/LcxND7tAALjJJIQdUI4= |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres d'encodage" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Encoding filters" }
 
 ## Filtres d'URL {#url-filters}
 
@@ -33,7 +32,7 @@ description: "Cet article de référence répertorie les filtres avancés, des e
 | `url_escape` | Identifie tous les caractères d'une chaîne qui ne sont pas autorisés dans les URL et les remplace par leurs variantes échappées | `{{'hey<>hi' | url_escape}}` | hey%3C%3Ehi |
 | `url_param_escape` | Remplace tous les caractères d'une chaîne qui ne sont pas autorisés dans les URL par leurs variantes échappées, y compris l'esperluette (&) | `{{'hey<&>hi' | url_param_escape}}` | hey%3C%26%3Ehi |
 | `url_encode` | Encode une chaîne de caractères compatible avec les URL | `{{ 'google search' | url_encode }}` | google+search |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres d'URL" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="URL filters" }
 
 {% endraw %}
 {% alert tip %}
@@ -52,7 +51,7 @@ L'étiquette `assign` peut être combinée avec du HTML pour vous faire gagner d
 | Nom du filtre | Description du filtre |
 | --- | --- |
 | `property_accessor` | Prend un hash et une clé de hash, puis renvoie la valeur correspondant à cette clé dans le hash |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtre d'accès aux propriétés" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Property accessor filter" }
 
 **Exemple de hash :** `{"a" => 42, "b" => 0}`
 **Exemple d'entrée :** `{{hash | property_accessor: 'a'}}`
@@ -73,14 +72,14 @@ Il n'est pas possible d'instancier un hash en tant que variable (comme une expre
 | Nom du filtre | Description du filtre | Exemple d'entrée | Exemple de sortie |
 |---|---|---|---|
 | `number_with_delimiter` | Formate un nombre avec des séparateurs de milliers | `{{ 123456 | number_with_delimiter }}` | 123,456 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filtres de formatage des nombres" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number formatting filters" }
 
-## Filtre d'échappement JSON / d'échappement de chaîne de caractères {#json-escape-string-escape-filter}
+## Filtre d'échappement JSON ou d'échappement de chaîne de caractères {#json-escape-or-string-escape-filter}
 
 | Nom du filtre | Description du filtre |
 |---|---|
 | `json_escape` | Échappe tous les caractères spéciaux d'une chaîne de caractères (tels que les guillemets doubles `""` et la barre oblique inversée '\'). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtre d'échappement JSON / d'échappement de chaîne de caractères" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON escape or string escape filter" }
 
 Ce filtre doit toujours être utilisé lors de la personnalisation d'une chaîne de caractères dans un dictionnaire JSON. Il est particulièrement utile pour les webhooks.
 
@@ -90,7 +89,7 @@ Ce filtre doit toujours être utilisé lors de la personnalisation d'une chaîne
 |---|---|
 | `json_parse` | Convertit une chaîne JSON en une structure de données correspondante, telle qu'un objet ou un tableau. |
 | `as_json_string` | Convertit une structure de données, telle qu'un objet ou un tableau, en une chaîne JSON correspondante. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtres de formatage JSON" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON-formatting filters" }
 
 {% endraw %}
 

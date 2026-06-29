@@ -16,13 +16,13 @@ Para evitar o armazenamento em cache, você pode especificar `:no_cache`, o que 
 {% details Renderização de Conteúdo conectado e tratamento de dados (avançado) %}
 Esta seção oferece uma visão mais detalhada e de ponta a ponta de como a Braze renderiza Liquid e Conteúdo conectado e onde os dados podem existir temporariamente antes de uma mensagem ser enviada. Isso pode ajudar em revisões de privacidade e tratamento de dados.
 
-#### O que é e o que não é armazenado {#what-is-and-isnt-stored}
+## O que é e o que não é armazenado {#what-is-and-isnt-stored}
 
 - **Corpo da resposta do Conteúdo conectado:** Não é armazenado permanentemente pela Braze. Pode ser mantido temporariamente em memória e, quando o cache está ativado, armazenado em cache com um tempo de vida (TTL).
 - **Metadados da solicitação de Conteúdo conectado:** Metadados da solicitação, como a URL totalmente renderizada, o código de status HTTP e a duração da resposta, são registrados para solução de problemas e monitoramento. Esses registros são mantidos por até 30 dias.
 - **Mensagem final renderizada:** Existe em memória durante a renderização. Também pode ser armazenada em outro lugar dependendo da sua configuração e canal (por exemplo, Arquivamento de mensagem ou Content Cards).
 
-#### Fluxo de renderização (visão geral) {#rendering-flow-high-level}
+## Fluxo de renderização (visão geral) {#rendering-flow-high-level}
 
 O fluxo a seguir descreve como a Braze renderiza e envia mensagens para canais baseados em provedor, como e-mail, SMS e push. Canais entregues via SDK, como Content Cards, usam a mesma renderização subjacente de Liquid e Conteúdo conectado, mas diferem em quando o conteúdo é gerado e como é entregue.
 
@@ -32,7 +32,7 @@ O fluxo a seguir descreve como a Braze renderiza e envia mensagens para canais b
 4. A resposta é injetada no modelo Liquid e a mensagem é totalmente renderizada.
 5. Para canais baseados em provedor, a mensagem renderizada é enviada ao provedor do canal e depois ao usuário. Para canais entregues via SDK, como Content Cards, o conteúdo renderizado é sincronizado com o SDK da Braze e pode ser gerado na primeira impressão ou no momento da exibição, quando é mostrado ao usuário.
 
-#### Onde as respostas de Conteúdo conectado podem existir temporariamente {#where-connected-content-responses-can-live-temporarily}
+## Onde as respostas de Conteúdo conectado podem existir temporariamente {#where-connected-content-responses-can-live-temporarily}
 
 A Braze usa um cache de múltiplas camadas para respostas de Conteúdo conectado com TTLs entre cinco minutos e quatro horas, dependendo do uso de `:cache_max_age` e outras regras de cache:
 
@@ -42,11 +42,11 @@ A Braze usa um cache de múltiplas camadas para respostas de Conteúdo conectado
 
 Essas camadas de cache são voláteis e podem remover dados antes do TTL configurado.
 
-#### O que muda quando você usa `:no_cache` {#what-changes-when-you-use-nocache}
+## O que muda quando você usa `:no_cache` {#what-changes-when-you-use-no_cache}
 
 Para endpoints que não estão hospedados dentro da infraestrutura da Braze, usar `:no_cache` impede que o corpo da resposta do Conteúdo conectado seja armazenado no Memcached. Nesses casos, a resposta existe apenas na memória do processo do worker durante a execução do job de renderização (até ~11 minutos). Para endpoints que resolvem para hosts internos da Braze, as respostas ainda podem ser armazenadas em cache conforme descrito em [Invalidação de cache](#cache-busting).
 
-#### Onde a saída final renderizada pode existir {#where-the-final-rendered-output-can-live}
+## Onde a saída final renderizada pode existir {#where-the-final-rendered-output-can-live}
 
 - **Arquivamento de mensagem:** Se o Arquivamento de mensagem estiver ativado, a Braze pode gravar a mensagem final renderizada no bucket de armazenamento em nuvem configurado. Se a resposta do Conteúdo conectado estiver incluída na mensagem renderizada, ela será incluída na cópia arquivada.
 - **Dispositivos dos usuários:** Após a entrega, o conteúdo da mensagem totalmente renderizada pode persistir nos dispositivos dos usuários por um período indeterminado.
@@ -63,9 +63,9 @@ O tempo de cache é de até cinco minutos (300 segundos). Você pode atualizar i
 ```
 {% endraw %}
 
-Solicitações GET são armazenadas em cache. Você pode configurar isso adicionando o parâmetro `:no_cache` à chamada de Conteúdo conectado.
+Solicitações GET são armazenadas em cache por padrão. Você pode desativar o cache adicionando o parâmetro `:no_cache` à chamada de Conteúdo conectado.
 
-Solicitações POST não são armazenadas em cache por padrão, mas podem ser armazenadas adicionando o parâmetro `:cache_max_age` à chamada de Conteúdo conectado. O tempo mínimo de cache é 5 minutos e o tempo máximo é 4 horas.
+Solicitações POST não são armazenadas em cache por padrão, mas você pode ativar o cache adicionando o parâmetro `:cache_max_age` à chamada de Conteúdo conectado. O tempo mínimo de cache é 5 minutos e o tempo máximo é 4 horas.
 
 {% alert note %}
 As configurações de cache não são garantidas. O cache pode reduzir as chamadas aos seus endpoints, então recomendamos usar múltiplas chamadas por endpoint dentro da duração do cache em vez de depender excessivamente do armazenamento em cache.
@@ -113,8 +113,8 @@ Com um POST, não é necessário invalidar o cache, pois solicitações POST nã
 
 {% raw %}
 - O cache pode ajudar a reduzir chamadas duplicadas de Conteúdo conectado. No entanto, não é garantido que sempre resulte em uma única chamada de Conteúdo conectado por usuário.
-- O cache de Conteúdo conectado é baseado na URL e no espaço de trabalho. Se a chamada de Conteúdo conectado for para a mesma URL, ela pode ser armazenada em cache entre Campaigns e Canvas.
-- O cache é baseado em uma URL única, não em um ID de usuário ou Campaign. Isso significa que a versão em cache de uma chamada de Conteúdo conectado pode ser usada por múltiplos usuários e Campaigns em um espaço de trabalho se a URL for a mesma.
+- O cache de Conteúdo conectado é baseado no espaço de trabalho, na URL da solicitação, no tipo de conteúdo da solicitação e no corpo da solicitação. Se a chamada de Conteúdo conectado for para a mesma URL, ela pode ser armazenada em cache entre Campaigns e Canvas.
+- O cache é baseado em uma combinação única de URL, tipo de conteúdo e corpo da solicitação, não em um ID de usuário ou Campaign. Isso significa que a versão em cache de uma chamada de Conteúdo conectado pode ser usada por múltiplos usuários e Campaigns em um espaço de trabalho se a URL, o tipo de conteúdo e o corpo da solicitação forem os mesmos.
 - O cache de Conteúdo conectado pode ser ignorado se a marcação da tag incluir qualquer um dos seguintes trechos de alta cardinalidade:
     - `{{${user_id}}}`
     - `{{${braze_id}}}`

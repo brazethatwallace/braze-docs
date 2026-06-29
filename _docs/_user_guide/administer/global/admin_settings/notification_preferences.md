@@ -13,8 +13,6 @@ description: "This reference article covers your available options for monitorin
 
 The **Notification Preferences** page is where you can configure who (if anyone) receives notifications about your company. You can configure who should receive notifications about campaign delivery or technical errors. You can also specify recipients for the weekly analytics report. For most notifications, Braze supports email and webhook channels.
 
-![Notification Preferences page in the Braze dashboard]({% image_buster /assets/img_archive/notification_preferences.png %})
-
 To access this page, go to **Settings** > **Admin Settings** > **Notification Preferences**.
 
 {% alert tip %}
@@ -26,12 +24,12 @@ You can also integrate with Slack to receive notifications. For steps, refer to 
 The following table describes available notifications and which channels are used to deliver them.
 
 {% alert note %}
-If you delete the default **Recipients** value of **All Dashboard Users** and want to add it back, you can manually enter it into the dropdown field.
+Depending on the notification type, **All Dashboard Users** and **All Admins** might not appear in the recipients dropdown. You can manually type them; recipient values are case-sensitive and must match exactly. For dashboards localized outside English, use the exact recipient tag Braze shows when suggestions are available for that notification, rather than translating the phrase yourself.
 {% endalert %}
 
 | Notification | Description | Available notification channels |
 |--------------|-------------|-----------------|
-| API Usage Alerts | Selecting this takes you to the **API Usage Dashboard**, where you can then go to the [**API Usage Alerts**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts/) tab and set up alerts to track key API request volumes. | Email, Webhook |
+| API Usage Alerts | Selecting this takes you to the **API Usage Dashboard**, where you can then go to the [**API Usage Alerts**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) tab and set up alerts to track key API request volumes. | Email, Webhook |
 | AWS Credential Errors | Notifies recipients when Braze receives an error while attempting to use your Amazon Web Services credentials for a data export. This includes credential error notifications for Google Cloud Services and Azure (Microsoft Cloud Services). | Email, Webhook |
 | Campaign Automatically Stopped | Notifies recipients when Braze has stopped a campaign. | Email |
 | Canvas Automatically Stopped | Notifies recipients when Braze has stopped a Canvas. | Email |
@@ -47,7 +45,7 @@ If you delete the default **Recipients** value of **All Dashboard Users** and wa
 | Webhook Errors | Notifies recipients when a webhook endpoint has errors. | Email |
 | Weekly Analytics Report | Sends a summary of the past week's workspace activity to recipients every Monday. Recipients receive a summary for each workspace that they belong to. | Email |
 | Daily Canvas/Campaign Entry Volume Limits | Sends notifications each time a send limit is reached. | Email |
-| Agents Console Error | Notifies recipients when an [Agent Console agent]({{site.baseurl}}/user_guide/brazeai/agents) has met its execution limit with the current functionality or when an agent uses models that have become unavailable. | Email |
+| Agents Console Error | Notifies recipients when an [Agent Console agent]({{site.baseurl}}/user_guide/brazeai/agents) has met its invocation limit, uses a model that has become unavailable, or encounters a billing error with its LLM provider (bring-your-own API key only). | Email |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available notifications" }
 
 {% alert note %}

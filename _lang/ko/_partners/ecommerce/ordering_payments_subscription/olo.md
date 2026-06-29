@@ -36,7 +36,7 @@ Olo에서는 승인된 브랜드당 환경별로 하나의 웹훅만 사용할 �
 
 ### 1단계: Olo의 테스트 이벤트를 수신하도록 Braze 데이터 변환 설정 {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### 2단계: Olo 웹훅 설정 {#step-2-set-up-olo-webhooks}
 

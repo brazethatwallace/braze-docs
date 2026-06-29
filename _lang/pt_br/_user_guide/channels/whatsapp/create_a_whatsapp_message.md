@@ -138,11 +138,49 @@ A Braze sempre recomenda pré-visualizar e testar sua mensagem antes de enviá-l
 Uma janela de conversa é necessária para enviar mensagens de resposta, incluindo mensagens de teste. Para iniciar uma janela de conversa, envie uma mensagem de WhatsApp para o número de telefone associado ao grupo de inscrições que você está usando para esta mensagem. O número de telefone associado está listado no alerta na guia **Test**.
 {% endalert %}
 
-![Um alerta que diz: "Para testar, primeiro abra uma janela de conversa enviando uma mensagem de WhatsApp para +1 217-582-9414. Em seguida, envie sua mensagem de resposta para o usuário teste."]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![Um alerta que diz para abrir uma janela de mensagem enviando uma mensagem de WhatsApp e, em seguida, enviar uma mensagem para o usuário teste.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp).
 
-### Etapa 4: Crie o restante da sua campanha ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### Etapa 4: Visualize os resultados do envio de teste {#step-4-view-test-send-results}
+
+Após enviar uma mensagem de teste do WhatsApp, você pode visualizar um relatório detalhado de entrega diretamente no criador de mensagens. Isso ajuda a confirmar que sua mensagem chegou ao destinatário pretendido e a solucionar falhas antes do lançamento.
+
+O botão **View test results** aparece quando há dados de envio de teste disponíveis para a campanha ou etapa do Canvas atual. Selecione-o para abrir o painel de resultados.
+
+O painel de resultados mostra cada estágio pelo qual sua mensagem passou até chegar ao destinatário:
+- **Braze:** Se a Braze processou e despachou a mensagem com sucesso
+- **Meta:** Se o Meta aceitou a mensagem para entrega
+- **Dispositivo do usuário:** Se a mensagem foi entregue ao dispositivo do destinatário
+
+Cada estágio exibe seu status atual. Se um estágio falhou, o painel mostra o erro encontrado e orientações sobre como resolvê-lo. Os resultados persistem se você fechar e reabrir a mesma campanha ou Canvas.
+
+![Painel de resultados de teste mostrando dois envios de teste bem-sucedidos e um envio de teste com falha.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+
+#### Novas tentativas e tentativas anteriores {#retries-and-past-attempts}
+
+Se um envio de teste falhar, a Braze tenta automaticamente a entrega novamente por até 24 horas. O painel de resultados reflete isso com duas guias:
+
+- **Mais recente:** A tentativa de entrega mais recente, atualizada em tempo real conforme as novas tentativas ocorrem
+- **Tentativas anteriores:** Um histórico das tentativas anteriores, cada uma mostrando os status dos estágios e quaisquer erros encontrados
+
+Quando o resultado final é determinado (entrega bem-sucedida, tentativas esgotadas ou uma falha que novas tentativas não resolverão), as guias são renomeadas respectivamente para **Resultado** e **Histórico de tentativas**.
+
+{% alert note %}
+Como as novas tentativas podem continuar por até 24 horas, você pode não ver um resultado final imediatamente após um envio com falha.
+{% endalert %}
+
+#### Solução de problemas de falhas {#troubleshoot-failures}
+
+Se um estágio mostrar uma falha, o painel exibe o erro e as próximas etapas sugeridas. Motivos comuns pelos quais um envio de teste pode falhar incluem:
+
+- O modelo de mensagem está pausado ou ainda não foi aprovado no Meta
+- O número de telefone do destinatário está com limite de taxa
+- As variáveis Liquid na mensagem não foram preenchidas para o usuário teste selecionado
+
+Para problemas persistentes, verifique o status do seu modelo no Meta Business Manager ou confirme que o destinatário do teste possui os atributos de usuário necessários preenchidos na Braze.
+
+### Etapa 5: Crie o restante da sua campanha ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -153,7 +191,7 @@ Em seguida, crie o restante da sua campanha. Consulte as seções a seguir para 
 
 Mensagens de WhatsApp podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a campanha, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
@@ -161,7 +199,7 @@ Nesta etapa, você também pode especificar controles de entrega, como permitir 
 
 Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo segmentos ou filtros para refinar seu público. Você já deve ter escolhido o grupo de inscrições, que restringe os usuários pelo nível ou categoria de comunicação que desejam ter com você. Nesta etapa, você seleciona o público maior dos seus segmentos e refina ainda mais esse segmento com nossos filtros. Você recebe automaticamente um resumo de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 
@@ -202,7 +240,7 @@ Os seguintes recursos são suportados para mensagens de saída do WhatsApp que v
 | Documentos | Os documentos podem ser incorporados no texto do corpo. Os arquivos devem ser hospedados via URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | Vídeos | Os vídeos podem ser incorporados no texto do corpo. Os arquivos devem ser hospedados via URL ou na [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | < 16 MB | `.3gp`, `.mp4` |
 | Áudio | O áudio é suportado apenas por meio de mensagens de resposta. Os arquivos devem ser hospedados via URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensagens de saída" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +256,7 @@ Os seguintes recursos são suportados para mensagens de entrada do WhatsApp que 
 | Documentos | Os documentos são suportados por meio de anexo de mensagem. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | Vídeo | Apenas o codec de vídeo H.264 e o codec de áudio AAC são suportados. Os vídeos devem ter uma única faixa de áudio ou nenhuma faixa de áudio. | `.mp4`, `.3gp` |
 | Links CTA | Vários tipos de chamada para ação (CTA) são suportados. Para mais detalhes, consulte [Tipos de chamada para ação](#ctas). | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensagens de entrada" }
 
 ### Tipos de chamada para ação {#ctas}
 
@@ -233,4 +271,4 @@ Os seguintes tipos de chamada para ação são suportados para mensagens de What
 | Modelos de mensagem com código de cupom | Disponível apenas para modelos de mensagem. <br>Eles podem ser abertos e editados como outros modelos de mensagem e são compatíveis com Liquid e códigos de promoção da Braze. |
 | Mensagens de resposta com CTA | Crie uma mensagem de resposta que inclua um botão de chamada para ação. |
 | [Mensagens de resposta com lista]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Crie uma mensagem de resposta que inclua uma lista de até 10 opções para os usuários escolherem. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de chamada para ação" }

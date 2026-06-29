@@ -307,15 +307,11 @@ A integração básica do SDK ativa apenas o rastreamento de localização. O ge
 
 Você também pode usar geofences com Parceiros de tecnologia da Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) e [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
 
+## Diferenças entre geofences e rastreamento de localização {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Perguntas frequentes {#frequently-asked-questions}
-
-### Qual é a diferença entre geofences e rastreamento de localização? {#whats-the-difference-between-geofences-and-location-tracking}
-
-Na Braze, uma geofence é um conceito diferente do rastreamento de localização. Geofences são usadas como gatilhos para determinadas ações — quando um usuário entra ou sai de um limite virtual configurado ao redor de uma localização geográfica, isso pode disparar uma ação específica, como enviar uma mensagem.
-
-O rastreamento de localização coleta e armazena os dados de localização mais recentes de um usuário. Esses dados podem ser usados para segmentar usuários com base no filtro `Most Recent Location`. Por exemplo, você poderia usar o filtro `Most Recent Location` para direcionar usuários localizados em Nova York.
-
-Para saber mais, consulte [Rastreamento de localização]({{site.baseurl}}/user_guide/audience/locations_and_geofences/location_tracking/).
 
 ### Quão precisas são as geofences da Braze? {#how-accurate-are-braze-geofences}
 

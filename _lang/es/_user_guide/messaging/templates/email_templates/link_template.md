@@ -31,7 +31,7 @@ Supongamos que estás ejecutando una campaña promocional de correo electrónico
 
 Puedes crear un número ilimitado de plantillas de enlaces para cubrir tus diversas necesidades. Para crear una plantilla de enlaces, haz lo siguiente:
 
-1. Ve a **Plantillas** > **Plantillas de enlaces de correo electrónico**.
+1. Ve a **Contenido** > **Enlace de correo electrónico**.
 2. Selecciona **Crear plantilla de enlace de correo electrónico**.
 3. Dale un nombre a tu plantilla de enlaces.
 4. (Opcional) Añade una descripción, equipo o etiqueta para agregar detalles sobre la plantilla de enlaces.

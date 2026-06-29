@@ -4,7 +4,7 @@ article_title: Design and edit
 page_order: 4
 layout: dev_guide
 guide_top_header: "Design and edit"
-guide_top_text: "Design and build message content with the drag-and-drop editor, manage assets in the media library, personalize messages with <a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a> and <a href='/docs/user_guide/messaging/design_and_edit/personalize/connected_content'>Connected Content</a>, and create reusable Content Blocks and Product Blocks."
+guide_top_text: "Design and build message content in Braze using the drag-and-drop editor, media library, and reusable blocks. Personalize messages with <a href='/docs/user_guide/messaging/design_and_edit/personalize/liquid'>Liquid</a> and <a href='/docs/user_guide/messaging/design_and_edit/personalize/connected_content'>Connected Content</a>, pull data from catalogs and user profiles, and save Content Blocks and Product Blocks for consistent reuse across campaigns and Canvases."
 
 page_type: landing
 description: "Design and edit message content in Braze, including editor blocks, media library, personalization, Content Blocks, and Product Blocks."

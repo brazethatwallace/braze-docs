@@ -57,7 +57,7 @@ Braze 관리자인 경우 다음 단계를 완료하여 이전에 구성한 도�
 
 ## DNS 리소스 {#dns-resources}
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## 문제 해결 {#troubleshooting}
 

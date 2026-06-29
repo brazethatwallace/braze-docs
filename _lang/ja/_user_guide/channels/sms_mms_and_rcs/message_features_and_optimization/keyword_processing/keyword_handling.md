@@ -30,13 +30,13 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 {% tabs %}
 {% tab キーワードトリガーの追加 %}
 
-#### キーワードトリガーの追加 {#add-keyword-triggers}
+### キーワードトリガーの追加 {#add-keyword-triggers}
 
 デフォルトのオプトインおよびオプトアウトキーワードに加えて、オプトイン、オプトアウト、ヘルプの応答をトリガーする独自のキーワードを定義することもできます。
 
 独自のキーワードを定義するには、以下の手順に従ってください。
 
-1. Brazeダッシュボードで、**Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。<br><br>
+1. Brazeダッシュボードで、**Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。
 2. **Global Keywords**の下で、キーワードを追加したいキーワードカテゴリの横にある鉛筆アイコンを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. 開いたタブで、このキーワードカテゴリをトリガーするキーワードを追加します。キーワードは大文字と小文字を区別せず、`START`、`YES`、`UNSTOP`などのユニバーサルキーワードは変更できません。![「オプトイン」カテゴリのキーワード編集画面。追加されたキーワードは「START」、「UNSTOP」、「YES」。返信メッセージフィールドには「この番号からのメッセージの配信を停止しました。ヘルプが必要な場合はHELPと返信してください。配信停止するにはSTOPと返信してください。メッセージおよびデータ料金が適用される場合があります。」と表示されています。]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -54,16 +54,16 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 {% tab 応答の管理 %}
 
-#### 応答の管理 {#manage-responses}
+### 応答の管理 {#manage-responses}
 
 特定のキーワードカテゴリにキーワードをテキスト送信したユーザーに送信される応答を管理できます。
 
 1. Brazeダッシュボードで、**Audience** > **Subscription Group Management**に移動し、**SMS/MMS/RCS**サブスクリプショングループを選択します。<br><br>
 2. **Global Keywords**の下で、鉛筆アイコンを選択して応答を編集するキーワードカテゴリを選択します。![鉛筆アイコンが表示されたオプトインキーワード。]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。![応答画面]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
+3. 開いたタブで応答を編集します。応答を作成する際は、[コンプライアンスを正しく守るための6つのルール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right)に留意し、キーワードとキーワード応答に適用される以下のルールをお読みください。<br><br>
 4. 応答内の静的URLを自動的に短縮するには、**Link Shortening**トグルを選択します。文字カウンターが更新され、短縮URLの予想される長さが表示されます。![「Link Shortening」トグルがオンのときに文字カウンターが更新される様子を示すGIF。]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
-##### 考慮事項 {#considerations}
+#### 考慮事項 {#considerations}
 
 | キーワード | キーワード応答 |
 | -------- | ----------------- |
@@ -116,7 +116,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 ### ライフサイクル固有のキーワード {#lifecycle-specific-keywords}
 
-ライフサイクル中の特定の時点（例えば、最初のオンボーディング中）で顧客が特定のキーワードを送信して応答を受け取ることを制限したいユースケースがある場合は、CampaignまたはCanvasでトリガー**サブスクリプショングループ内のキーワードカテゴリOTHERに受信SMSを送信**を使用し、ユーザーが特定の時点で送信できるキーワードを定義できます。
+ライフサイクル中の特定の時点（例えば、最初のオンボーディング中）で顧客が特定のキーワードを送信して応答を受け取ることを制限したいユースケースがある場合は、CampaignまたはCanvasでトリガー**サブスクリプショングループ内のキーワードカテゴリOTHERへの受信SMS送信**を使用し、ユーザーが特定の時点で送信できるキーワードを定義できます。
 
 このトリガーは、メッセージの「一致する」または「一致しない」比較、および正規表現の「マッチする」または「マッチしない」ルールを使用して、特定の受信メッセージのフィルタリングをサポートし、ユーザーの入力を検証します。
 
@@ -134,7 +134,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 デフォルトの返信（例えば「申し訳ありません。そのキーワードは認識できませんでした。」）を送信するには、以下の手順に従ってください。
 
-1. [SMS Campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)を作成します。
+1. [SMSキャンペーン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)を作成します。
 2. **ターゲットオーディエンス**で、**すべてのユーザー**を選択します（トリガーによってメッセージを受信するユーザーは制限されます）。
 3. **スケジュール**で、**アクションベースの配信**を選択します。
 4. トリガーを、適切なサブスクリプショングループの**キーワードカテゴリOTHER内への受信SMS送信**に設定します。

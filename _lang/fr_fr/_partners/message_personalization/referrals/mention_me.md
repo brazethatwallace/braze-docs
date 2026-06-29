@@ -20,9 +20,9 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Prérequis | Description |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Un compte Mention Me | Un compte [Mention Me](https://mention-me.com/login) est nécessaire pour bénéficier de ce partenariat. |
-| Une clé REST API Braze | Une clé REST API Braze avec les autorisations `users.track` et `templates.email.create`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Une clé REST API Braze | Une clé REST API Braze avec les autorisations `users.track` et `templates.email.create`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 

@@ -38,7 +38,7 @@ Lors de l'importation d'événements personnalisés avec des propriétés, vous 
 
 Utilisez notre script d'importation CSV Lambda S3 sans serveur pour charger des attributs utilisateur dans Braze. Cette solution fonctionne comme un outil de chargement CSV : vous déposez vos fichiers CSV dans un compartiment S3, et les scripts les chargent via notre API.
 
-Les temps d'exécution estimés pour un fichier d'un million de lignes sont d'environ cinq minutes. Consultez [Importation d'attributs utilisateur CSV vers Braze](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion) pour plus d'informations.
+Les temps d'exécution estimés pour un fichier d'un million de lignes sont d'environ cinq minutes. Consultez [Importation d'attributs utilisateur CSV vers Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) pour plus d'informations.
 
 ### REST API
 

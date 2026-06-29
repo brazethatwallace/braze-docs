@@ -30,7 +30,7 @@ Ao aproveitar os recursos conjuntos da Braze e do Sendbird Notifications, as emp
 | Sendbird UIKit | Você deve ter o Sendbird UIKit instalado em seu app para [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) ou [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit). |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -87,7 +87,7 @@ Na Braze, em **Modelos e mídia**, acesse **Modelos de webhook** e escolha o **m
 
 ### Campaigns
 
-1. No dashboard da Braze, na página **Campaigns**, clique em **Create Campaign** > **Webhook**.
+1. No dashboard da Braze, na página **Campaigns**, clique em **Criar campanha** > **Webhook**.
 2. Selecione o modelo de webhook que você criou acima. É altamente recomendável que você use o endpoint Batch para Campaigns.
 3. Personalize o modelo editando suas variáveis na guia **Compose**.
 
@@ -104,7 +104,7 @@ Na Braze, em **Modelos e mídia**, acesse **Modelos de webhook** e escolha o **m
 
 Para integrar a entrega das notificações e o evento de status de abertura com a métrica de conversão de uma campanha, adicione um evento personalizado no dashboard da Braze.
 
-1. No dashboard da Braze, acesse **Settings** > **Manage Settings** > **Custom Events** e clique em **+ Add Custom Event**.
+1. No dashboard da Braze, acesse **Configurações** > **Gerenciar configurações** > **Eventos personalizados** e clique em **+ Add Custom Event**.
 2. Depois de criar um evento personalizado, clique em **Manage Properties**, adicione uma propriedade chamada "status" e escolha "String" como o tipo de propriedade.
 3. Ao criar uma notificação em Campaigns ou Canvas, insira o nome do evento personalizado no campo **Event Name**.
 

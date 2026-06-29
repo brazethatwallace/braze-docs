@@ -14,7 +14,7 @@ page_order: 4
 
 ## 추적되는 Shopify 이벤트 {#tracked-shopify-events}
 
-Shopify 통합은 [전자상거래 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)를 사용하여 주요 쇼핑 동작을 캡처합니다. 이러한 이벤트를 활용한 구현 사례 및 마케팅 전략은 [이커머스 활용 사례]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)를 참조하세요.
+Shopify 통합은 [이커머스 추천 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)를 사용하여 주요 쇼핑 동작을 캡처합니다. 이러한 이벤트를 활용한 구현 사례 및 마케팅 전략은 [이커머스 활용 사례]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)를 참조하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -485,7 +485,7 @@ Liquid `for` 루프를 구축하여 이메일에 모든 제품을 동적으로 �
 **활용 사례**: 결제 이탈
 
 {% alert important %}
-고객이 Shop Pay를 빠른 결제 옵션으로 사용하는 경우, Shopify가 특정 표준 결제 이벤트(예: Shopify 결제 시작 웹훅)를 건너뛸 수 있습니다. 이 경우 Braze가 결제 토큰 별칭을 추가하는 데 필요한 데이터를 수신하지 못할 수 있으며, 결제 이탈 추적 및 고객 프로필 조정에 영향을 줄 수 있습니다.
+고객이 Shop Pay를 빠른 결제 옵션으로 사용하는 경우, Shopify가 특정 표준 결제 이벤트(예: Shopify 결제 시작 웹훅)를 건너뛸 수 있습니다. 이 경우 Braze가 결제 토큰 별칭을 추가하는 데 필요한 데이터를 수신하지 못할 수 있으며, 결제 이탈 추적 및 사용자 프로필 조정에 영향을 줄 수 있습니다.
 {% endalert %}
 
 결제 이탈 Canvas의 경우, 먼저 다음 Liquid 태그를 사용해야 합니다:
@@ -689,8 +689,8 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**이벤트**: `shopify_cancelled_order`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**이벤트**: `ecommerce.order_cancelled`<br>
+**유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자의 주문이 취소될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 주문 취소 확인
@@ -725,8 +725,8 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**이벤트**: `shopify_order_refunded`<br>
-**유형**: [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**이벤트**: `ecommerce.order_refunded`<br>
+**유형**: 추천 이벤트<br>
 **트리거 조건**: 사용자의 주문이 환불될 때<br>
 **데이터 소스**: Braze REST API<br>
 **활용 사례**: (트랜잭션) 환불 확인
@@ -824,11 +824,11 @@ Shopify 통합은 현재 Braze [구매 이벤트]({{site.baseurl}}/user_guide/da
 
 Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **Custom Attributes**를 선택합니다.
 
-!['속성' 드롭다운이 확장된 '개인화 추가' 섹션.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+!['속성' 드롭다운이 확장된 '개인화 추가' 섹션]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 커스텀 속성을 선택한 후 기본값을 입력하고 Liquid 스니펫을 메시지에 복사합니다.
 
-![Liquid 스니펫을 메시지에 붙여넣기.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Liquid 스니펫을 메시지에 붙여넣기]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -844,7 +844,7 @@ Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Perso
 - Country
 
 {% alert note %}
-Braze는 기존 고객 프로필의 데이터와 차이가 있는 경우에만 지원되는 Shopify 커스텀 속성 및 Braze 표준 속성을 업데이트합니다. 예를 들어, 수신된 Shopify 데이터에 이름이 Bob으로 포함되어 있고 Braze 고객 프로필에 이미 Bob이 이름으로 존재하는 경우, Braze는 업데이트를 트리거하지 않으며 데이터 포인트가 차감되지 않습니다.
+Braze는 기존 사용자 프로필의 데이터와 차이가 있는 경우에만 지원되는 Shopify 커스텀 속성 및 Braze 표준 속성을 업데이트합니다. 예를 들어, 수신된 Shopify 데이터에 이름이 Bob으로 포함되어 있고 Braze 사용자 프로필에 이미 Bob이 이름으로 존재하는 경우, Braze는 업데이트를 트리거하지 않으며 데이터 포인트가 차감되지 않습니다.
 {% endalert %}
 
 ## SDK 데이터 수집 {#sdk-data-collection}
@@ -855,7 +855,7 @@ Braze SDK가 수집하는 데이터에 대한 자세한 내용은 [SDK 데이터
 
 > 과거 Shopify 데이터는 Braze를 연결하기 전에 가져옵니다. 지난 90일간의 주문 이벤트와 지난 1년간의 고객 데이터가 포함됩니다. 두 기간 모두 통합을 완료한 날짜를 기준으로 역산됩니다.
 
-[Shopify 표준 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) 또는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)을 통해 과거 데이터 백필을 활성화하여 이전 고객을 타겟팅할 수 있습니다. 이를 통해 지난 90일간의 Shopify 주문(주문 관련 이벤트)과 지난 1년간의 고객 프로필을 가져옵니다. 두 기간 모두 통합을 완료한 날짜를 기준으로 역산됩니다.
+[Shopify 표준 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) 또는 [Shopify 커스텀 통합 설정]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)을 통해 과거 데이터 백필을 활성화하여 이전 고객을 타겟팅할 수 있습니다. 이를 통해 지난 90일간의 Shopify 주문(주문 관련 이벤트)과 지난 1년간의 사용자 프로필을 가져옵니다. 두 기간 모두 통합을 완료한 날짜를 기준으로 역산됩니다.
 
 Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
 
@@ -863,23 +863,23 @@ Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external
 활성 Campaigns 또는 Canvases가 있는 기존 Braze 고객인 경우, 과거 데이터 백필을 활성화하기 전에 가져온 고객과 주문 이벤트가 세그먼트 및 여정에 미치는 영향을 검토하세요.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Shopify 과거 데이터 백필 설정 {#setting-up-shopify-historical-backfill}
 
 1. **Track Shopify data** 단계에서 과거 데이터 백필을 켭니다.
 
-![과거 데이터 백필이 선택된 Shopify 통합의 'Shopify 데이터 추적' 단계.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![과거 데이터 백필이 선택된 Shopify 통합의 'Shopify 데이터 추적' 단계]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. 통합 설정을 완료하면 Braze가 초기 데이터 동기화를 시작합니다. 통합 설정의 **Shopify Data** 탭에서 진행 상황을 모니터링할 수 있습니다.
 
-![이벤트가 활발하게 동기화 중임을 나타내는 스피너가 있는 Shopify 통합 설정 페이지.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![이벤트가 활발하게 동기화 중임을 나타내는 스피너가 있는 Shopify 통합 설정 페이지]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### 동기화된 데이터 {#synced-data}
 
-초기 데이터 동기화에서 Braze는 지난 90일간의 주문 이벤트와 지난 1년간의 고객 프로필을 가져오며, 각각 통합을 완료한 날짜를 기준으로 역산됩니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
+초기 데이터 동기화에서 Braze는 지난 90일간의 주문 이벤트와 지난 1년간의 사용자 프로필을 가져오며, 각각 통합을 완료한 날짜를 기준으로 역산됩니다. Braze가 Shopify 고객을 가져올 때 구성 설정에서 선택한 `external_id` 유형을 할당합니다.
 
 다음 표는 초기 로드에 포함되는 데이터를 요약합니다.
 

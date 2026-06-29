@@ -526,3 +526,17 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 | `ccd` | Content Cardsの非表示 |
 | `lr` | 位置情報の記録 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="一般的なイベントの略称" }
+
+## トラブルシューティング {#troubleshooting}
+
+### ユーザープロファイルのセッション数が0と記録されるのはどのような場合ですか？ {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+
+ユーザープロファイルのセッション数が0と表示されるのは、REST API（[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)）またはCSVインポートで**初回セッション**や**最終セッション**のフィールドを含めずにユーザーをインポートした場合です。セッションは、ユーザーがSDKを通じてアプリを操作した際に記録されます。詳細については、[ユーザープロファイルのセッション数が0]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#user-profile-has-0-sessions)を参照してください。
+
+### SDKとREST APIを同時に使用した場合のユーザーデータの不一致 {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+
+SDKとREST APIを同時に使用すると、競合によりデータの不一致が発生する可能性があります。`changeUser()`を呼び出した後は、重要なREST API呼び出しを行う前にSDKが保留中のデータをフラッシュするのを待ち、時間的に重要な更新のバッチ処理を避け、SDKとAPIリクエストの間に短い遅延を入れることを検討してください。`changeUser()`の動作については、[changeUser()の仕組み]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#how-changeuser-works)を参照してください。
+
+### データがBrazeに到達しない {#data-not-reaching-braze}
+
+データがBrazeに到達しない場合は、ファイアウォールがBraze APIエンドポイントおよびCDNプロバイダーへの送信トラフィックを許可していることを確認してください。問題が発生している間にMTRテストを実行し、[Fastly Debug](https://www.fastly-debug.com/)を使用してください。許可リストへの登録と接続のトラブルシューティングについては、[APIネットワーク接続の問題]({{site.baseurl}}/api/network_connectivity_issues/)を参照してください。

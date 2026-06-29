@@ -283,10 +283,10 @@ Um Canvas-Trigger aus dem Dateispeicher zu synchronisieren, erstellen Sie eine Q
 | `EXTERNAL_ID` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Diese beiden Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
 | `PROPERTIES` | Ja | JSON-String von Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.3: Netzwerkrichtlinien konfigurieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Netzwerkrichtlinien konfigurieren" }
 
 {% alert tip %}
-Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Synchronisierung mit Amazon S3 finden Sie unter [Dateispeicher-Integrationen](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Synchronisierung mit Amazon S3 finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
 {% endalert %}
 
 {% endtab %}
@@ -297,7 +297,7 @@ Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zei
 1. Richten Sie Ihren Ziel-Canvas für Canvas-Trigger ein. Erstellen Sie einen neuen oder wählen Sie einen vorhandenen API-getriggerten Canvas aus. Anweisungen zum Erstellen eines Canvas mit einem API-getriggerten Zustellungszeitplan finden Sie unter [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types).
 2. Nachdem Sie den API-getriggerten Zustellungszeitplan ausgewählt haben, fahren Sie mit der Canvas-Einrichtung fort und erstellen Sie Ihren Canvas. Canvases können von einfachen Einzelnachrichten bis hin zu komplexen Kunden-Workflows mit mehreren Schritten reichen.
 3. Verwenden Sie innerhalb Ihrer Canvas-Schritte [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), um Nachrichten mit Eigenschaftsfeldern zu personalisieren, die Sie aus Ihrer Quelltabelle synchronisieren möchten.
-  * Wenn Sie beispielsweise in Schritt 1 ein Eigenschaftsfeld für `account_balance` eingerichtet haben, würden Sie die folgende Liquid-Vorlage verwenden, um Ihre Nachricht zu personalisieren: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
+  * Wenn Sie beispielsweise in [Schritt 1](#step-1-set-up-data-source-for-canvas-triggers) ein Eigenschaftsfeld für `account_balance` eingerichtet haben, würden Sie die folgende Liquid-Vorlage verwenden, um Ihre Nachricht zu personalisieren: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. Nachdem Sie Ihren Canvas erstellt haben, starten Sie ihn und fahren Sie mit [Schritt 3](#step-3-create-your-zero-copy-sync) fort.
 
 #### 3. Schritt: Zero-Copy-Synchronisierung erstellen {#step-3-create-your-zero-copy-sync}

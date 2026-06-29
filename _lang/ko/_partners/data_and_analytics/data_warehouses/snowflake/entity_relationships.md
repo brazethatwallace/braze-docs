@@ -10,7 +10,7 @@ search_tag: Partner
 > 각 메시징 채널에 대한 Snowflake와 Braze 간의 엔티티 관계 목록입니다.
 
 {% alert important %}
-엔티티 관계 다이어그램은 테이블 간의 공유 필드와 관계를 강조하며, 전체 테이블 스키마가 아닙니다. 전체 필드 목록은 [개별 테이블 스키마]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt)를 참조하세요.
+엔티티 관계 다이어그램은 테이블 간의 공유 필드와 관계를 강조하며, 전체 테이블 스키마가 아닙니다. 전체 필드 목록은 [개별 테이블 스키마](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)를 참조하세요.
 {% endalert %}
 
 {% sdktabs %}

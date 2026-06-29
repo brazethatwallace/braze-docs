@@ -65,6 +65,8 @@ Lorsque les heures calmes sont activées, Braze n'envoie pas de messages pendant
 
 Par exemple, si les heures calmes sont définies entre 22 h 00 et 6 h 00, et que l'heure optimale d'un utilisateur est 5 h 30, Braze mettra le message en attente et l'enverra à 6 h 00, soit l'heure la plus proche en dehors de la fenêtre de silence.
 
+Pour plus d'informations, consultez [Heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+
 #### Prévisualiser les horaires de réception/distribution {#preview-delivery-times}
 
 Pour afficher une estimation du nombre d'utilisateurs qui recevront le message à chaque heure de la journée, utilisez le graphique de prévisualisation (uniquement pour les campagnes).

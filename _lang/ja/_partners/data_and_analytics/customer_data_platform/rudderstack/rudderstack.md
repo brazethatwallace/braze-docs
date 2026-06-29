@@ -204,7 +204,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
 ```
 
 `track`、`page`、または`screen`呼び出しでユーザー特性をカスタムユーザー属性として送信するには、イベントのコンテキストフィールドとして`traits`を渡します。
-```javascript
+`````````javascript
 rudderanalytics.track("Product Viewed", {
     revenue: 8.99,
     currency: "USD",

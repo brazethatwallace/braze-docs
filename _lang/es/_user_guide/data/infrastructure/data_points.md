@@ -42,6 +42,8 @@ En resumen, los puntos de datos se acumulan cuando se actualizan los datos del p
 
 Puedes encontrar un desglose de cómo Braze acumula puntos de datos en las siguientes secciones. Si alguna vez tienes preguntas sobre los matices de los puntos de datos de Braze, tu director de cuentas de Braze puede respondértelas.
 
+Para la ingesta a través de la API, cada actualización facturable mediante [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) sigue las mismas reglas que otras actualizaciones de perfil: por ejemplo, cada **evento personalizado** registrado cuenta como un punto de datos, y los **atributos personalizados** generalmente cuentan por atributo actualizado en esa solicitud (consulta las tablas facturables a continuación y las [Circunstancias especiales](#special-circumstances)).
+
 Las siguientes acciones no registran puntos de datos:
 - Eliminar usuarios de Braze
 - Uso de contenido conectado en la mensajería
@@ -76,7 +78,7 @@ Además, como los cambios de estado de suscripción no registran puntos de datos
 ## Puntos de datos
 
 {% alert note %}
-Las tablas siguientes tienen carácter ilustrativo. Para conocer las convenciones de nomenclatura exactas, las mayúsculas y los valores aceptados para determinados campos, consulta la documentación correspondiente a tu método de ingestión.
+Las tablas siguientes tienen carácter ilustrativo. Para conocer las convenciones de nomenclatura exactas, las mayúsculas y los valores aceptados para determinados campos, consulta la documentación correspondiente a tu método de ingesta.
 {% endalert %}
 
 {% tabs %}

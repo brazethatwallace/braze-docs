@@ -76,7 +76,7 @@ Note that you can still set individual rate limits in your campaigns and Canvase
 
 ### Messages not included in the workspace messaging rate limits
 
-- Messages sent using [Transactional Email campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/) are not included in the workspace messaging rate limits. This means they are rate-limited and are not counted toward any set workspace messaging rate limits.
-- Messages to [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) and [test sends]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) are not included in the workspace messaging rate limits. This means they are not rate-limited and are not counted toward any set workspace messaging rate limits.
+- Messages sent using [Transactional Email campaigns]({{site.baseurl}}/user_guide/channels/transactional_email) are not included in the workspace messaging rate limits. This means they are rate-limited and are not counted toward any set workspace messaging rate limits.
+- Messages to [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) and [test sends]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) are not included in the workspace messaging rate limits. This means they are not rate-limited and are not counted toward any set workspace messaging rate limits.
 - SMS auto-responses are not included in the workspace messaging rate limits. This means they are not rate-limited and are not counted toward any set workspace messaging rate limits.
 - Workspace messaging rate limits aren't supported for in-app messages, feature flags, and Banners.

@@ -50,6 +50,24 @@ Lorsque vous aurez soumis vos formulaires complétés à Braze, nous finaliseron
 
 Nous vous recommandons vivement de revoir votre expérience actuelle d'abonnement SMS, vos groupes d'abonnement et la segmentation de votre audience avant de déployer votre première campagne RCS. Si nécessaire, votre gestionnaire de la satisfaction client est toujours disponible pour vous guider et vous aider tout au long du processus de configuration.
 
+#### Fonctionnement de la solution de repli SMS avec les événements et la segmentation {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Comportement des événements %}
+
+Lorsque vous utilisez la solution de repli SMS avec le RCS, le comportement des événements dépend de la réussite ou non de l'envoi du message via RCS :
+
+- **Si l'envoi RCS réussit :** vous recevez un événement d'envoi RCS et un événement de réception/distribution RCS.
+- **Si l'envoi RCS bascule vers le SMS :** vous recevez un événement d'envoi RCS, un événement de rejet RCS et un événement de réception/distribution SMS. L'événement de réception/distribution SMS contient `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Comportement de la segmentation %}
+
+Pour le SMS et le RCS, les [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) de messages reçus (tels que [Message reçu d'une campagne]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-campaign) et [Message reçu d'une étape Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-message-from-canvas-step)) sont évalués au moment de l'envoi du message, et non lorsqu'il atteint l'appareil de l'utilisateur. Avec la solution de repli SMS activée, les utilisateurs peuvent toujours correspondre à ces filtres si un message RCS est rejeté et bascule vers le SMS, ou si le SMS de repli n'est pas distribué sur l'appareil de l'utilisateur.
+
+{% endtab %}
+{% endtabs %}
+
 ### Délai d'approbation par les opérateurs {#timeline-for-carrier-approval}
 
 Le délai d'approbation par les opérateurs varie selon les pays et peut également varier au sein d'un même pays. Gardez à l'esprit que le marché du RCS en est encore à ses débuts, de sorte que les processus des opérateurs et des agrégateurs évoluent rapidement. Aux États-Unis, Braze estime que le délai d'approbation par les opérateurs pour un expéditeur vérifié RCS se situe généralement dans une fourchette de 4 à 6 semaines, un expéditeur de test étant généralement approuvé en une semaine.
@@ -72,13 +90,13 @@ Créez un Canvas et donnez-lui un nom facilement identifiable (par exemple « Tr
 
 ### Étape 2 : Définir votre audience {#step-2-define-your-audience}
 
-Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Users who are subscribed or opted-in**.
+Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Utilisateurs abonnés ou inscrits**.
 
 | Méthode | Description |
 |---------|-------------|
 | **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
 | **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience à l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Définir votre audience" }
 
 ### Étape 3 : Configurer une étape de mise à jour utilisateur {#step-3-configure-a-user-update-step}
 

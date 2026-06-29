@@ -19,8 +19,6 @@ Para acessar o construtor de landing pages, você precisa de [determinadas permi
 
 Acesse **Messaging** > **Landing Pages** e selecione **Create landing page**. Você também pode selecionar o nome de uma landing page existente para duplicá-la ou fazer alterações.
 
-![A seção de landing pages no dashboard da Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
-
 ### Etapa 2: Inserir os detalhes da página {#step-2-enter-the-page-details}
 
 Adicione detalhes internos e públicos que ajudam a organizar, personalizar a marca e compartilhar sua landing page.
@@ -41,7 +39,7 @@ Sugerimos seguir estas práticas recomendadas:
 | Meta descrição | Um trecho de texto exibido nos resultados de busca. | Use entre 140 e 160 caracteres. |
 | Favicon | O ícone que aparece ao lado do título do site na aba do navegador. | Use uma proporção de 1:1 e um tipo de arquivo compatível: PNG, JPEG ou ICO. |
 | URL da página | Este é o caminho da URL para sua landing page. Esse valor também é referenciado ao usar [Liquid tags de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que você pode incorporar em uma mensagem para identificar automaticamente quando os usuários enviam seu formulário. | Esse valor deve ser único em todo o seu espaço de trabalho. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes do site" }
 
 ### Etapa 3: Personalizar a página {#step-3-customize-the-page}
 
@@ -68,11 +66,11 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 | Link | Um hiperlink que os usuários podem clicar para navegar até uma URL específica. Pode ser incorporado dentro do texto ou independente. |
 | Espaçador | Um bloco invisível que adiciona espaçamento vertical entre elementos para melhorar o layout e a legibilidade. |
 | Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Personalizar a página" }
 
-##### Span text {#span-text}
+#### Span text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Blocos de formulário %}
@@ -158,7 +156,7 @@ Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo o
 
 ## Usando modelos {#using-templates}
 
-Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na seção **Templates** do dashboard (**Templates** > **Landing Page Templates**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
+Use modelos de landing page para criar templates para suas próximas Campaigns. Esses modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Modelos de landing page** (**Content** > **Landing Page**). Modelos de landing page exigem um nome e, opcionalmente, uma descrição.
 
 ## Gerenciando modelos {#managing-templates}
 

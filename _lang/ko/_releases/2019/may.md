@@ -56,7 +56,7 @@ Campaign 제작 과정에서 이 단계를 강조하는 플랫폼 선택 기능�
 ## 이메일용 발송 ID Currents 필드 {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트가 기록되었습니다._
 {% endalert %}
@@ -88,7 +88,7 @@ Currents 기능을 지속적으로 개선하기 위해 모든 커넥터 유형�
 업데이트된 용어는 [보고서 측정기준 용어집]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)에서 검색할 수 있습니다.
 
 {% alert update %}
-`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. [Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/)에 대해 자세히 알아보세요.
+`dispatch_id`에 대한 동작은 Canvas와 Campaigns 간에 다르며, 이는 Braze가 캔버스 단계(스케줄 가능한 엔트리 단계 제외)를 "스케줄된" 경우에도 트리거된 이벤트로 취급하기 때문입니다. [Canvas와 Campaigns의 [`dispatch_id` 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/)에 대해 자세히 알아보세요.
 
 _2019년 8월에 업데이트가 기록되었습니다._
 {% endalert %}

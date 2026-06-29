@@ -30,7 +30,7 @@ Les fonctionnalités des bannières comprennent :
 
 - **Création de contenu simplifiée :** Créez et prévisualisez votre bannière à l'aide d'un éditeur visuel par glisser-déposer prenant en charge les images, le texte, les boutons, les formulaires de saisie d'adresse e-mail, le code personnalisé, et plus encore.
 - **Emplacements flexibles :** Définissez plusieurs emplacements au sein de votre application ou site web où les bannières peuvent apparaître, ce qui permet un ciblage précis en fonction de contextes ou d'expériences utilisateur spécifiques.
-- **Personnalisation dynamique :** Les bannières ne peuvent être actualisées qu'au début d'une nouvelle session ou en cours de session si le client demande explicitement l'actualisation. Les bannières ne se mettent pas à jour automatiquement lors d'une nouvelle session. Si le client ne demande pas l'actualisation, la bannière ne sera pas mise à jour.
+- **Personnalisation dynamique :** Les bannières ne peuvent être actualisées qu'au début d'une nouvelle session ou en cours de session si vous demandez explicitement l'actualisation. Les bannières ne se mettent pas à jour automatiquement lors d'une nouvelle session. Si vous ne demandez pas l'actualisation, la bannière ne sera pas mise à jour.
 - **Priorisation native :** Définissez la priorité d'affichage lorsque plusieurs bannières ciblent le même emplacement, afin de garantir que le bon message parvienne aux utilisateurs au bon moment.
 - **Bloc éditeur de code personnalisé :** Utilisez le bloc éditeur de code personnalisé pour ajouter du HTML personnalisé afin de bénéficier d'une personnalisation avancée ou d'une intégration fluide avec vos styles web existants.
 
@@ -84,11 +84,6 @@ De plus, les messages de bannière ne prennent pas en charge les fonctionnalité
 - Contenu connecté
 - Codes promotionnels
 - `catalog_items` utilisant [l'étiquette `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Fermeture par l'utilisateur (accès anticipé uniquement)
-
-{% alert important %}
-La possibilité pour les utilisateurs de fermer manuellement une bannière est en accès anticipé. Consultez [Configurer le comportement de fermeture]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) pour plus de détails. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
 
 ## Étapes suivantes {#next-steps}
 

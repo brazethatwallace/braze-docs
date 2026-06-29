@@ -26,7 +26,7 @@ Mira este video para obtener un resumen de cómo funciona la integración.
 | Cuenta de Figma | Se necesita una cuenta de Figma para aprovechar esta asociación. |
 | Acceso a la biblioteca de medios de Braze | Debes tener el permiso "Manage Media Library Assets" para añadir, editar y eliminar activos de la biblioteca de medios en Braze. |
 | Acceso al espacio de trabajo de Braze | Debes tener acceso a los espacios de trabajo a los que quieras cargar estas imágenes y activos visuales de Figma en Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

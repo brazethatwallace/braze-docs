@@ -11,19 +11,19 @@ tool: in-app messages
 
 > Este artigo fornece respostas para algumas perguntas frequentes sobre mensagens no app.
 
-### O que é uma mensagem no navegador e como ela difere de uma mensagem no app? {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
+## O que é uma mensagem no navegador e como ela difere de uma mensagem no app? {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
 
 Mensagens no navegador são mensagens no app enviadas para navegadores web. Para criar uma mensagem no navegador, selecione **Web Browser** no campo **Send To** ao criar sua Campaign de mensagem no app ou Canvas.
 
-### Uma mensagem no app será exibida se o dispositivo estiver offline? {#will-an-in-app-message-display-if-a-device-is-offline}
+## Uma mensagem no app será exibida se o dispositivo estiver offline? {#does-an-in-app-message-display-if-a-device-is-offline}
 
 Depende. Como as mensagens no app são entregues no início da sessão, se o dispositivo conseguir baixar a carga útil antes de ficar offline, a mensagem no app ainda poderá ser exibida enquanto estiver offline. Se a carga útil não for baixada, a mensagem no app não será exibida.
 
-### Se um usuário já tiver a carga útil de uma mensagem no app em seu dispositivo e a expiração da mensagem for alterada, a expiração será atualizada no dispositivo? {#if-a-user-already-has-an-in-app-message-payload-on-their-device-and-the-message-expiration-is-changed-will-the-expiration-be-updated-on-their-device}
+## Se um usuário já tiver a carga útil de uma mensagem no app em seu dispositivo e a expiração da mensagem for alterada, a expiração será atualizada no dispositivo? {#if-a-user-already-has-an-in-app-message-payload-on-their-device-and-the-message-expiration-is-changed-does-the-expiration-update-on-their-device}
 
 Quando um usuário inicia uma sessão, a Braze verifica se houve alterações em quaisquer mensagens no app para as quais ele é elegível e as atualiza de acordo. Portanto, se a expiração foi alterada e o usuário registrar uma sessão, a mensagem no app será enviada ao dispositivo com as informações atualizadas.
 
-### Como configuro o horário de silêncio para uma Campaign de mensagem no app? {#how-do-i-set-up-quiet-hours-for-an-in-app-message-campaign}
+## Como configuro o horário de silêncio para uma Campaign de mensagem no app? {#how-do-i-set-up-quiet-hours-for-an-in-app-message-campaign}
 
 O recurso de horário de silêncio não está disponível para uso com Campaigns de mensagem no app. Esse recurso é usado para impedir que mensagens sejam enviadas aos seus usuários durante horários específicos. Para Campaigns de mensagem no app, seus usuários só receberão mensagens no app se estiverem ativos dentro do app.
 
@@ -39,43 +39,43 @@ MESSAGE HERE
 ```
 {% endraw %}
 
-### Os usuários podem receber uma mensagem no app novamente após descartá-la? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
+## Os usuários podem receber uma mensagem no app novamente após descartá-la? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-#### Campaigns
+### Campaigns
 
 Para Campaigns de mensagem no app, você pode permitir que os usuários se tornem elegíveis para receber a Campaign novamente ativando a reelegibilidade em **Controles de entrega** (**Permitir que os usuários se tornem reelegíveis para receber a Campaign**). A rapidez com que podem recebê-la novamente depende do período de reelegibilidade que você definir e de como a Braze registrou o envio anterior. Consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) para o comportamento de Campaigns, incluindo como a reelegibilidade se relaciona com o recebimento da mensagem.
 
 Se a reelegibilidade estiver desativada, os usuários geralmente não receberão a mesma Campaign novamente com base apenas nos critérios de qualificação após já terem recebido.
 
-#### Canvas {#canvases}
+### Canvas {#canvases}
 
 Para mensagens no app enviadas a partir de um Canvas, se um usuário pode ver a mensagem novamente depende dos controles de entrada do Canvas (como permitir que os usuários reentrem no Canvas) e da configuração da sua etapa — não apenas dos controles de entrega da Campaign.
 
-### Quando a elegibilidade para uma mensagem no app é calculada? {#when-is-eligibility-for-an-in-app-message-calculated}
+## Quando a elegibilidade para uma mensagem no app é calculada? {#when-is-eligibility-for-an-in-app-message-calculated}
 
 A elegibilidade para uma mensagem no app é calculada no momento da entrega. Se uma mensagem no app estiver programada para envio às 7h, a elegibilidade será verificada para essa mensagem no app às 7h.
 
-Depois que a mensagem no app é exibida, a elegibilidade dependerá de quando a mensagem no app foi baixada e disparada.
+Depois que a mensagem no app é exibida, a elegibilidade depende de quando a mensagem no app foi baixada e disparada.
 
-### Por que minha Campaign de mensagem no app arquivada ainda está gerando impressões de mensagem no app? {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
+## Por que minha Campaign de mensagem no app arquivada ainda está gerando impressões de mensagem no app? {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
 Isso pode ocorrer para usuários que atenderam aos critérios do segmento quando a Campaign de mensagem no app estava ativa.
 
 Para evitar isso, durante a configuração da sua Campaign, selecione **Re-evaluate campaign eligibility before displaying**.
 
-### Várias mensagens no app podem ser exibidas na mesma sessão? {#can-multiple-in-app-messages-display-in-the-same-session}
+## Várias mensagens no app podem ser exibidas na mesma sessão? {#can-multiple-in-app-messages-display-in-the-same-session}
 
 Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [evento de gatilho]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger). Se várias Campaigns de mensagem no app compartilharem o mesmo gatilho (por exemplo, início de sessão), apenas a mensagem de maior prioridade será exibida cada vez que esse gatilho ocorrer. Para gatilhos de início de sessão, isso significa que apenas uma mensagem pode ser exibida por sessão, e a próxima oportunidade de mostrar outra mensagem elegível será na próxima sessão.
 
 Quando várias mensagens compartilham o mesmo nível de prioridade, a mensagem criada mais recentemente é exibida primeiro. Para gatilhos de início de sessão, a próxima mensagem mais recente é exibida em uma sessão subsequente; para outros tipos de gatilho, a próxima mensagem mais recente é exibida na próxima vez que o evento de gatilho ocorrer, o que pode ser dentro da mesma sessão ou em uma sessão posterior.
 
-Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Set Exact Priority**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Definir prioridade exata**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
-### Como a Braze calcula a expiração de uma mensagem no app definida como "após 1 dia(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
+## Como a Braze calcula a expiração de uma mensagem no app definida como "após 1 dia(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
 A Braze calcula o tempo de expiração de um dia como 24 horas após os usuários se tornarem elegíveis para receber a mensagem.
 
-### O que são mensagens no app com modelo? {#what-are-templated-in-app-messages}
+## O que são mensagens no app com modelo? {#what-are-templated-in-app-messages}
 
 As mensagens no app são entregues como mensagens no app com modelo quando **Re-evaluate campaign eligibility before displaying** está selecionado ou se qualquer uma das seguintes Liquid tags existir na mensagem:
 
@@ -92,7 +92,7 @@ Isso significa que, durante o início da sessão, o dispositivo recebe o gatilho
 A mensagem não será entregue se o dispositivo não tiver acesso à internet. A mensagem pode não ser entregue se a lógica Liquid demorar muito para ser resolvida.
 {% endalert %}
 
-### Como funciona o comportamento de aborto para mensagens no app? {#how-does-abort-behavior-work-for-in-app-messages}
+## Como funciona o comportamento de aborto para mensagens no app? {#how-does-abort-behavior-work-for-in-app-messages}
 
 Na Braze, um aborto ocorre quando um usuário realiza uma ação que o torna elegível para receber uma mensagem, mas ele não a recebe porque a lógica Liquid o marca como inelegível. Por exemplo:
 
@@ -104,7 +104,7 @@ Na Braze, um aborto ocorre quando um usuário realiza uma ação que o torna ele
 
 No entanto, como as mensagens no app são um canal pull, os abortos funcionam de forma um pouco diferente para elas.
 
-#### Comportamento padrão de aborto de mensagem no app {#standard-in-app-message-abort-behavior}
+### Comportamento padrão de aborto de mensagem no app {#standard-in-app-message-abort-behavior}
 
 As mensagens no app são puxadas pelo dispositivo no início da sessão e armazenadas em cache no dispositivo, de modo que, independentemente da qualidade da conexão com a internet, a mensagem pode ser entregue instantaneamente ao usuário. Por exemplo, se um usuário receber cinco mensagens no app dentro de sua sessão, ele receberá todas as cinco no início da sessão. As mensagens são armazenadas em cache localmente e aparecem quando seus eventos de gatilho definidos ocorrem (início de sessão, o usuário clica em um botão que registra um evento personalizado, ou outros).
 
@@ -119,7 +119,7 @@ Em outras palavras, a lógica que determina se uma mensagem no app deve ser abor
 
 A Braze não registra nenhum evento de aborto no caso de Sam porque isso não atende à definição de um aborto; Sam **não** realizou nenhuma ação que dispararia as mensagens. Para mensagens no app, os usuários nunca realizam de fato o gatilho antes de a Braze determinar que eles não devem ver a mensagem.
 
-#### Comportamento de aborto de mensagem no app com modelo {#templated-in-app-message-abort-behavior}
+### Comportamento de aborto de mensagem no app com modelo {#templated-in-app-message-abort-behavior}
 
 [Mensagens no app com modelo](#what-are-templated-in-app-messages) forçam o SDK a reavaliar se uma mensagem deve ser exibida quando o evento de gatilho ocorre. Isso tem um comportamento de aborto diferente. Para demonstrar, considere este exemplo:
 
@@ -129,7 +129,7 @@ A Braze não registra nenhum evento de aborto no caso de Sam porque isso não at
 4. O dispositivo de Sam faz uma solicitação de rede para buscar a mensagem no app.
 5. A lógica Liquid da mensagem leva a um aborto, então a Braze registra isso como um aborto; Sam realizou a ação-gatilho antes dessa avaliação.
 
-#### Comparando o comportamento de aborto de mensagens no app {#comparing-in-app-message-abort-behavior}
+### Comparando o comportamento de aborto de mensagens no app {#comparing-in-app-message-abort-behavior}
 
 Esta tabela compara os fluxos de mensagem no app que Sam experimentou:
 
@@ -137,4 +137,64 @@ Esta tabela compara os fluxos de mensagem no app que Sam experimentou:
 | --- | --- |
 | Padrão | Um evento de aborto não foi registrado porque Sam não realizou nenhuma ação que dispararia uma mensagem.<br><br>Mensagens no app padrão não registram abortos porque a definição de um aborto é "não viu a mensagem apesar de ter realizado a ação-gatilho". Como as mensagens no app são entregues ao dispositivo antes das ações de gatilho ocorrerem, não faz sentido considerar mensagens no app omitidas por causa da lógica Liquid. |
 | Com modelo | Um evento de aborto foi registrado porque Sam realizou a ação-gatilho para disparar a mensagem no app com modelo, mas recebeu um aborto no modelo Liquid.<br><br>Mensagens no app com modelo registram abortos porque a avaliação Liquid ocorre após a ação-gatilho ter sido realizada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparação do comportamento de aborto de mensagens no app" }
+
+### Quando o Conteúdo conectado é executado para mensagens no app? {#when-does-connected-content-run-for-in-app-messages}
+
+Para [mensagens no app com modelo](#what-are-templated-in-app-messages), o Conteúdo conectado e outras Liquid tags são resolvidos quando o evento de gatilho ocorre e o dispositivo solicita a carga útil da mensagem — não quando o usuário clica em um botão dentro da mensagem. Cada busca de modelo pode incluir chamadas de Conteúdo conectado para aquela exibição.
+
+Se o seu HTML faz referência a dados REST retornados pelo Conteúdo conectado, esses dados ficam disponíveis para a sessão em que a mensagem foi modelada. Vários botões podem fazer referência à mesma resposta de Conteúdo conectado sem disparar chamadas adicionais ao clicar.
+
+### Por que há um atraso antes de minha mensagem no app ser exibida? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+Mensagens no app padrão são exibidas assim que a carga útil em cache estiver pronta após o evento de gatilho. No Android e iOS, imagens grandes ou outros ativos hospedados em CDN referenciados na mensagem podem adicionar um pequeno atraso enquanto esses recursos terminam de ser baixados antes de a mensagem no app aparecer.
+
+[Mensagens no app com modelo](#what-are-templated-in-app-messages) e Campaigns com **Re-evaluate campaign eligibility before displaying** selecionado exigem uma solicitação de rede adicional após o gatilho antes de a mensagem aparecer. Isso pode adicionar um pequeno atraso (normalmente menos de 100 ms em uma conexão estável). Para saber mais, consulte [Escolher usuários para segmentar]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target).
+
+### Por que minha mensagem no app parece diferente da pré-visualização do dashboard? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+Mensagens no app entregues podem diferir da pré-visualização do dashboard quando:
+
+- Sua integração aplica estilos personalizados ou substitui a interface padrão de mensagens no app em determinadas plataformas
+- A pré-visualização usa um perfil de usuário teste com atributos diferentes dos do destinatário
+- O conteúdo com modelo é resolvido de forma diferente no momento do envio em comparação com o modo de pré-visualização
+
+Use [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) com um usuário teste cujo perfil corresponda ao seu público-alvo ao validar a aparência.
+
+### Por que uma mensagem no app de várias páginas usa o mesmo fundo em todas as páginas? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+Quando a **Imagem de fundo** está ativada em uma página de uma mensagem no app de várias páginas, esse fundo se aplica a todas as páginas da mensagem. Para usar fundos diferentes por página, use um bloco HTML personalizado com JavaScript para trocar as imagens entre as páginas.
+
+### Como testo mensagens no app na web? {#how-do-i-test-web-in-app-messages}
+
+O envio de teste de mensagens no app na web exige que o push esteja ativado no dispositivo de teste, pois o fluxo de teste entrega uma notificação por push que abre o app ou site onde a mensagem no app é exibida. O mesmo caminho de teste baseado em push se aplica em qualquer plataforma onde o push não esteja configurado com a Braze, embora a ausência de push seja mais frequentemente encontrada na web, já que muitas integrações mobile já têm o push ativado. Em vez disso, use uma Campaign ativa para um Segment de teste interno. Para ver as etapas, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+
+## Por que o botão de fechar está oculto em mensagens no app HTML de tela inteira no Android? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
+
+Em dispositivos com telas de borda a borda (incluindo Android 15+), mensagens no app HTML de tela inteira podem ser desenhadas atrás da barra de status do sistema e ocultar um controle de fechar no topo do layout.
+
+O SDK da Braze para Android versão 37.0.0 e posteriores aplicam insets de janela a mensagens no app HTML por padrão, para que os controles permaneçam na área segura. Se os usuários ainda virem sobreposição, faça upgrade para a versão mais recente do SDK da Braze para Android.
+
+Em versões anteriores do SDK, os desenvolvedores podiam ativar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de esse comportamento se tornar o padrão.
+
+## O que devo saber ao personalizar mensagens no app de arrastar e soltar? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
+
+O [editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) suporta os tipos de exibição modal e tela inteira. Você constrói o conteúdo dentro desses contêineres com blocos do editor.
+
+Tenha em mente:
+
+- **Links e deep links:** Cada ação ao clicar tem um campo de URL por padrão. Use Liquid na URL para variar links por dispositivo, tipo de app ou atributos do usuário. No **Contêiner da mensagem**, você também pode ativar o comportamento ao clicar específico por plataforma para definir links diferentes por plataforma.
+- **Opacidade e fundos:** A opacidade no contêiner da mensagem afeta todo o fundo da mensagem. Blocos individuais podem definir suas próprias cores de fundo. Para um controle mais refinado, adicione CSS personalizado em um bloco de código personalizado.
+- **Largura da mensagem:** A largura máxima do **Contêiner da mensagem** não pode ser definida abaixo de 325 px no editor, o que mantém o conteúdo legível em telas menores. Use CSS personalizado se precisar de um layout mais estreito.
+- **Fundos específicos por plataforma:** Uma única mensagem usa a mesma imagem de fundo e cores na web e no celular. Não é possível definir fundos diferentes por plataforma no editor.
+- **Mensagens de várias páginas:** Imagens de fundo e ações ao clicar no nível da mensagem se aplicam a todas as páginas em uma mensagem de várias páginas. Para usar imagens completas diferentes em cada página, adicione botões que direcionem para a próxima página.
+- **Estilos no nível da mensagem:** Estilos no nível da mensagem se aplicam à mensagem inteira.
+- **Imagens de fundo:** Imagens de fundo são esticadas para caber no modal.
+
+Para mais considerações sobre o editor, consulte o [Guia de preparação de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations).
+
+## O que significa "Event was published, but no subscribers were found" nos logs do SDK Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+
+Essa linha de log geralmente não é um erro. Ela aparece frequentemente quando a Braze publica um evento interno (como `NoMatchingTriggerEvent`) e nenhum listener de mensagem no app ou Content Cards está inscrito naquele momento.
+
+Se você vir esse log quando espera que um evento personalizado dispare uma mensagem no app, confirme que o evento está sendo registrado, que o usuário está no público da Campaign ou Canvas e que os Content Cards estão sincronizados quando a mensagem depende deles.

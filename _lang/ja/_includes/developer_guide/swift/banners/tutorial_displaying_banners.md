@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main
@@ -55,7 +55,7 @@ struct SampleApp: App {
 }
 ```
 
-```swift file=BannerViewController.swift
+`````````swift file=BannerViewController.swift
 import UIKit
 import BrazeKit
 import BrazeUI
@@ -157,7 +157,7 @@ lines-BannerViewController.swift=43-58
 {% tab SwiftUI %}
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import BrazeKit
 import BrazeUI
 
@@ -183,7 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main
@@ -199,7 +199,7 @@ struct SampleApp: App {
 }
 ```
 
-```swift file=BannerSwiftUIView.swift
+`````````swift file=BannerSwiftUIView.swift
 import BrazeKit
 import BrazeUI
 import SwiftUI

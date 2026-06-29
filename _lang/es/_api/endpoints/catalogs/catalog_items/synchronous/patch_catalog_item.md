@@ -53,9 +53,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -73,7 +74,8 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-Los operadores `$add` y `$remove` solo son aplicables a campos de tipo array, y solo son compatibles con los puntos de conexión PATCH.
+- El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el formato `[longitude, latitude]`.
+- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo array, y solo son compatibles con los puntos de conexión PATCH.
 {% endalert %}
 
 ## Respuesta {#response}

@@ -22,7 +22,7 @@
 
 ## 既存のContent Cardsフィードでバナーを使用できますか？ {#can-i-use-banners-in-my-existing-content-card-feed}
 
-バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
+バナーはContent Cardsとは異なるため、同じフィード内でバナーとContent Cardsを併用することはできません。既存のContent CardsフィードをバナーにContent Cardsフィードをバナーに置き換えるには、[アプリやWebサイト内にプレースメントを作成]({{site.baseurl}}/developer_guide/banners/placements/)する必要があります。
 
 ## バナーに動画を含めることはできますか？ {#can-banners-include-video}
 
@@ -32,49 +32,45 @@
 
 バナーは[アクションベースの配信]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)をサポートしていませんが、セグメンテーションと優先度を活用して、ユーザーの過去のアクションに基づいてターゲティングできます。
 
-例えば、`purchase` イベントを完了したユーザーにのみ特別なバナーを表示するには：
-1. **ターゲティング：** Campaignで、カスタムイベント `purchase` を少なくとも1回実行したユーザーのSegmentをターゲットに設定します。
+例えば、`purchase`イベントを完了したユーザーにのみ特別なバナーを表示するには：
+1. **ターゲティング：** Campaignで、カスタムイベント`purchase`を少なくとも1回実行したユーザーのSegmentをターゲットに設定します。
 2. **優先度：** すべてのユーザー向けの一般的なバナーと、購入者向けの特定のバナーが同じプレースメントをターゲットにしている場合、特定のバナーの優先度を**高**に、一般的なバナーを**中**または**低**に設定します。
 
-ユーザーが新しいセッションを開始するか、アクション実行後にバナーをリフレッシュすると、Brazeは適格性を評価します。「購入」Segmentに一致する場合、優先度の高いバナーが表示されます。
+ユーザーが新しいセッションを開始するか、アクション実行後にバナーをリフレッシュすると、Brazeは適格性を評価します。「購入」セグメントに一致する場合、優先度の高いバナーが表示されます。
 
 
 ## ユーザーはバナーを閉じることができますか？ {#can-users-dismiss-a-banner}
 
-{% alert important %}
-ユーザーが手動でバナーを閉じる機能は、早期アクセス段階です。詳細については、[閉じる動作の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)を参照してください。早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
+はい。バナーコンポーザーで閉じる動作を有効にすることで、ユーザーが手動でバナーを閉じることを許可できます。閉じる動作の有効化と閉じるボタンのカスタマイズについては、[閉じる動作の設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)を参照してください。
 
-ユーザーが手動でバナーを閉じることができるのは、閉じる動作が有効で、ワークスペースが早期アクセスに参加している場合のみです。閉じる動作が有効でない場合やワークスペースで利用できない場合は、ユーザーSegmentの適格性を管理することでバナーの表示をコントロールできます。ユーザーがバナーCampaignのターゲティング条件を満たさなくなると、次のセッションではそのバナーが表示されなくなります。
+ユーザーが手動でバナーを閉じることができるのは、閉じる動作が有効になっている場合のみです。閉じる動作が有効でない場合は、ユーザーSegmentの適格性を管理することでバナーの表示をコントロールできます。ユーザーがバナーCampaignのターゲティング条件を満たさなくなると、次のセッションではそのバナーが表示されなくなります。
 
-{% alert important %}
-[バナーの閉じる操作]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals)は現在、早期アクセス段階です。早期アクセスへの参加にご興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
-{% endalert %}
+ユーザーがバナーを閉じると、デフォルトではそのCampaignの対象外となります。閉じたユーザーに再度バナーを表示するには、Campaignの**配信コントロール**ステップで[再適格性を設定]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)してください。Canvasのバナーステップでは、再適格性の制御にCanvasの再エントリ設定が使用されます。
 
-例えば、ユーザーが購入するまでプロモーションバナーを表示する場合、`purchase_completed` などのイベントを記録することで、そのユーザーをターゲットSegmentから除外し、その後のセッションでバナーを非表示にできます。
+例えば、ユーザーが購入するまでプロモーションバナーを表示する場合、`purchase_completed`などのイベントを記録することで、そのユーザーをターゲットSegmentから除外し、その後のセッションでバナーを非表示にできます。
 
 ## Braze APIを使ってバナーCampaignの分析データをエクスポートできますか？ {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
-はい。[`/campaigns/data_series` エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)を使用して、バナーCampaignの表示回数、クリック数、コンバージョン数に関するデータを取得できます。
+はい。[`/campaigns/data_series`エンドポイント]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)を使用して、バナーCampaignの表示回数、クリック数、コンバージョン数に関するデータを取得できます。
 
 ## ユーザーはいつセグメンテーションされますか？ {#when-are-users-segmented}
 
-ユーザーはセッションの開始時にセグメンテーションされます。Campaignのターゲットセグメントがカスタム属性、カスタムイベント、その他のターゲティング属性に依存する場合、それらはセッション開始時点でユーザーに存在している必要があります。
+ユーザーはセッションの開始時にセグメンテーションされます。CampaignのターゲットSegmentsがカスタム属性、カスタムイベント、その他のターゲティング属性に依存する場合、それらはセッション開始時点でユーザーに存在している必要があります。
 
 ## レイテンシーを最小限に抑えるために、バナーをどのように構成すればよいですか？ {#how-can-i-compose-banners-to-ensure-the-lowest-latency}
 
-バナーのメッセージがシンプルであるほど、レンダリングが速くなります。ユースケースに対して想定されるレイテンシーでバナーCampaignをテストすることをお勧めします。例えば、`catalog_items` などのLiquid属性は必ずテストしてください。
+バナーのメッセージがシンプルであるほど、レンダリングが速くなります。ユースケースに対して想定されるレイテンシーでバナーCampaignをテストすることをお勧めします。例えば、`catalog_items`などのLiquid属性は必ずテストしてください。
 
 ## すべてのLiquidタグはサポートされていますか？ {#are-all-liquid-tags-supported}
 
-いいえ。ただし、ほとんどのLiquidタグはバナーメッセージでサポートされています。例外として、[`:rerender` タグ]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)を使用して再レンダリングされる `catalog_items` はサポートされていません。
+いいえ。ただし、ほとんどのLiquidタグはバナーメッセージでサポートされています。例外として、[`:rerender`タグ]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)を使用して再レンダリングされる`catalog_items`はサポートされていません。
 
 ## クリックイベントをキャプチャできますか？ {#can-i-capture-click-events}
 
 はい。クリックイベントのキャプチャ方法は、バナーのレンダリング方法によって異なります。
 
 - **標準エディターコンポーネント：** バナーが標準のエディターコンポーネント（画像、ボタン、テキスト）を使用している場合、SDKの挿入メソッドを使用するとクリックは自動的にトラッキングされます。
-- **カスタムコードブロック：** カスタムコードエディターブロック内の要素のクリックをトラッキングしたい場合、カスタムHTML内から `brazeBridge.logClick()` を呼び出してクリックをトラッキングする必要があります。これは、SDKメソッドを使用してバナーを挿入およびレンダリングする場合にも適用されます。完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge)を参照してください。
-- **カスタムUI（ヘッドレス）：** バナーのHTMLをレンダリングせずに、バナーのカスタムプロパティを使用して完全にカスタムのUIを構築する場合は、アプリケーションコードからバナーオブジェクトの `logClick()` を呼び出してください。
+- **カスタムコードブロック：** カスタムコードエディターブロック内の要素のクリックをトラッキングしたい場合、カスタムHTML内から`brazeBridge.logClick()`を呼び出してクリックをトラッキングする必要があります。これは、SDKメソッドを使用してバナーを挿入およびレンダリングする場合にも適用されます。完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge)を参照してください。
+- **カスタムUI（ヘッドレス）：** バナーのHTMLをレンダリングせずに、バナーのカスタムプロパティを使用して完全にカスタムのUIを構築する場合は、アプリケーションコードからバナーオブジェクトの`logClick()`を呼び出してください。
 
 詳細については、[クリックの記録]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks)を参照してください。

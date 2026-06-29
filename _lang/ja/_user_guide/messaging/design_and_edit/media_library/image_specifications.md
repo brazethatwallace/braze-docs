@@ -2,7 +2,6 @@
 nav_title: 画像の仕様
 article_title: 画像の仕様
 page_order: 1
-
 page_type: reference
 description: "このリファレンス記事では、各チャネルタイプの推奨画像サイズと仕様について説明します。"
 tool:
@@ -19,7 +18,7 @@ tool:
 
 ## 画像の動作 {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## 動画 {#video}
 
@@ -27,21 +26,23 @@ tool:
 
 ## GIF {#gifs}
 
-GIFは、iOSプッシュ通知、アプリ内メッセージ、メール、コンテンツカード、MMSまたはRCSメッセージでサポートされています。非常に細長い形状のGIF（例：3000 x 2ピクセル）や300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。
+GIFは、iOSプッシュ通知、アプリ内メッセージ、メール、Content Cards、MMSまたはRCSメッセージでサポートされています。非常に細長い形状のGIF（例：3000 x 2ピクセル）や300フレーム以上のGIFは、合計ファイルサイズが小さくてもアップロードに失敗する場合があります。
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## チャネルガイダンス {#channel-guidance}
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### メール {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### アプリ内メッセージ {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %}自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するように設計されています。[デザインテンプレートZIPをダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %})。{% endalert %}
 
@@ -53,9 +54,9 @@ Brazeは、モーダルアプリ内メッセージアイコンに[Font Awesome v
 
 ### プッシュ通知 {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### 推奨メッセージ長 {#recommended-message-lengths}
 

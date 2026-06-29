@@ -62,10 +62,18 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     {
       "name": "Created_At",
       "type": "time"
+    },
+    {
+      "name": "Location",
+      "type": "geo"
     }
   ]
 }'
 ```
+
+{% alert note %}
+位置情報フィールドの値は `[longitude, latitude]` 配列として指定する必要があります（例: `[-73.988103, 40.779109]`）。緯度は -90 から 90 の範囲、経度は -180 から 180 の範囲でなければなりません。
+{% endalert %}
 
 ## 応答 {#response}
 

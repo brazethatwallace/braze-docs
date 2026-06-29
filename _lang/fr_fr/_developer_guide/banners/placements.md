@@ -25,13 +25,13 @@ platform:
 
 Voici les versions minimales du SDK requises pour créer des emplacements de bannières :
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
 ### Étape 2 : Actualiser les placements dans votre application {#requestBannersRefresh}
 
-Les placements peuvent être actualisés en appelant les méthodes d'actualisation décrites ci-dessous. Ces placements seront automatiquement mis en cache lorsque la session d'un utilisateur expirera ou lorsque vous changerez d'utilisateur identifié à l'aide de la méthode `changeUser`.
+Les placements peuvent être actualisés en appelant les méthodes d'actualisation décrites ci-dessous. Si `subscribeToBannersUpdates` est actif, le SDK republie automatiquement vos ID de placement mis en cache au début de chaque nouvelle session et lorsque vous appelez `changeUser`. Cette actualisation automatique ne consomme pas de jeton de limite de débit.
 
 {% alert tip %}
 Actualisez les placements dès que possible afin d'éviter tout retard dans le téléchargement ou l'affichage des bannières.
@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+Votre écouteur de mise à jour de bannière reflète l'état en mémoire des bannières du SDK. Une seule mise à jour peut inclure des placements déjà mis en cache (par exemple, à partir d'une actualisation précédente, d'un autre écran ou d'un travail automatique du SDK), et pas uniquement les ID de placement de votre appel `requestRefresh` le plus récent. Si vous ne vous intéressez qu'à certains placements, vérifiez l'ID de placement de chaque bannière dans votre écouteur et ignorez les autres. Après avoir enregistré votre écouteur, appelez `requestRefresh` pour les placements que vous souhaitez synchroniser depuis Braze.
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+Votre écouteur de mise à jour de bannière reflète l'état en mémoire des bannières du SDK. Une seule mise à jour peut inclure des placements déjà mis en cache (par exemple, à partir d'une actualisation précédente, d'un autre écran ou d'un travail automatique du SDK), et pas uniquement les ID de placement de votre appel `requestBannersRefresh` le plus récent. Si vous ne vous intéressez qu'à certains placements, vérifiez l'ID de placement de chaque bannière dans votre écouteur et ignorez les autres. Après avoir enregistré votre écouteur, appelez `requestBannersRefresh` pour les placements que vous souhaitez synchroniser depuis Braze.
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -410,10 +430,45 @@ Si vous utilisez Android Views, utilisez ce XML :
     app:placementId="global_banner" />
 ```
 
-Si vous utilisez Jetpack Compose, vous pouvez utiliser ceci :
+Pour utiliser Jetpack Compose, ajoutez l'artefact `com.braze:android-sdk-jetpack-compose` au module de votre application. Utilisez la même version que vos autres dépendances du SDK Braze pour Android. Ce module est distinct de `android-sdk-ui` et fournit le composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) sous `com.braze.jetpackcompose.banners`.
+
+{% alert note %}
+Certaines bibliothèques d'interface Compose définissent leur propre composable `Banner`. Importez `com.braze.jetpackcompose.banners.Banner` explicitement pour appeler l'API de Braze.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+Vous pouvez éventuellement passer `heightCallback` pour recevoir la hauteur rendue en dp lorsque la taille de la bannière change. Pour référence, consultez la [KDoc pour `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+
+Si vous n'ajoutez pas le module Jetpack Compose, encapsulez [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) dans [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView) :
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Pour obtenir la bannière en Kotlin, utilisez :
@@ -500,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### Étape 5 : Envoyer une bannière de test (facultatif) {#handling-test-cards}
 
-Avant de lancer une Campaign de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) pour vérifier votre intégration. Les bannières de test seront stockées dans un cache en mémoire distinct et ne persisteront pas lors des redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
+Avant de lancer une campagne de bannières, vous pouvez [envoyer une bannière de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) pour vérifier votre intégration. Les bannières de test sont stockées dans un cache en mémoire distinct et ne persistent pas lors des redémarrages de l'application. Bien qu'aucune configuration supplémentaire ne soit nécessaire, votre appareil de test doit être capable de recevoir des notifications push au premier plan pour pouvoir afficher le test.
 
 {% alert note %}
 Les bannières de test fonctionnent comme toutes les autres bannières, sauf qu'elles sont supprimées lors de la session d'application suivante.
@@ -508,7 +563,7 @@ Les bannières de test fonctionnent comme toutes les autres bannières, sauf qu'
 
 ## Enregistrer les impressions {#log-impressions}
 
-Braze enregistre automatiquement les impressions pour les bannières visibles lorsque vous utilisez les méthodes SDK pour insérer une bannière — il n'est donc pas nécessaire de suivre les impressions manuellement.
+Braze enregistre automatiquement les impressions pour les bannières visibles lorsque vous utilisez les méthodes SDK pour insérer une bannière&#8212;il n'est donc pas nécessaire de suivre les impressions manuellement.
 
 ## Enregistrer les clics {#logging-clicks}
 
@@ -653,11 +708,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 ## Enregistrer les fermetures {#log-dismissals}
 
-Les fermetures de bannières suppriment programmatiquement une bannière d'un placement lorsqu'un utilisateur la ferme activement. Une fois fermée, la bannière est masquée pour cet utilisateur. La prochaine fois que la liste des placements est actualisée, une nouvelle bannière sera renvoyée si l'utilisateur est éligible.
-
-{% alert important %}
-Les fermetures de bannières sont actuellement en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
-{% endalert %}
+Les fermetures de bannières suppriment programmatiquement une bannière d'un placement lorsqu'un utilisateur la ferme activement. Une fois fermée, la bannière est masquée pour cet utilisateur. La prochaine fois que la liste des placements est actualisée, une nouvelle bannière est renvoyée si l'utilisateur est éligible.
 
 ### Conditions préalables
 
@@ -666,9 +717,10 @@ Voici les versions minimales du SDK requises pour enregistrer les fermetures de 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Intégrations {#integrations}
+
 #### Intégrations de bannières standard (éditeur par glisser-déposer) {#standard-banner-integrations-drag-and-drop-editor}
 
-Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message sera masqué, déclenchera une fermeture puis enregistrera un événement de fermeture pour les analyses.
+Si votre bannière utilise l'éditeur par glisser-déposer et inclut un composant de bouton de fermeture, aucun code supplémentaire n'est nécessaire. Lorsqu'un utilisateur clique sur le bouton de fermeture, le message est masqué, déclenche une fermeture, puis enregistre un événement de fermeture pour les analyses.
 
 #### Blocs de code personnalisés
 
@@ -807,7 +859,7 @@ Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 
 ## Propriétés personnalisées {#custom-properties}
 
-Vous pouvez utiliser les propriétés personnalisées de votre Campaign de bannières pour récupérer des données clé-valeur via le SDK et modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
+Vous pouvez utiliser les propriétés personnalisées de votre campagne de bannières pour récupérer des données clé-valeur via le SDK et modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
 
 - Envoyer des métadonnées pour vos analyses ou intégrations tierces.
 - Utiliser des métadonnées telles qu'un `timestamp` ou un objet JSON pour déclencher une logique conditionnelle.
@@ -815,7 +867,7 @@ Vous pouvez utiliser les propriétés personnalisées de votre Campaign de banni
 
 ### Conditions préalables
 
-Vous devrez [ajouter des propriétés personnalisées]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) à votre Campaign de bannières. De plus, voici les versions minimales du SDK requises pour accéder aux propriétés personnalisées :
+Vous devez [ajouter des propriétés personnalisées]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) à votre campagne de bannières. De plus, voici les versions minimales du SDK requises pour accéder aux propriétés personnalisées :
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

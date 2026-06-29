@@ -51,10 +51,10 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
             .setStyledByProgress(false)
             .setProgress(200)
             .setProgressTrackerIcon(IconCompat.createWithResource(context, R.drawable.notification_small_icon))
-            .setProgressSegments(
+            .setProgressセグメント(
                 mutableListOf(
-                    NotificationCompat.ProgressStyle.Segment(1000).setColor(Color.GRAY),
-                    NotificationCompat.ProgressStyle.Segment(200).setColor(Color.BLUE),
+                    NotificationCompat.ProgressStyle.セグメント(1000).setColor(Color.GRAY),
+                    NotificationCompat.ProgressStyle.セグメント(200).setColor(Color.BLUE),
                 )
             )
             .setProgressPoints(
@@ -75,7 +75,7 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 
 Superb Owlは、各チームの名前とロゴを拡張されたライブ更新にマッピングするために、以下のメソッドを作成しました。
 
-```kotlin
+`````````kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
     override fun createNotification(payload: BrazeNotificationPayload): Notification? {
         // Your existing code
@@ -97,7 +97,7 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 
 アプリケーションクラスで[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用して、カスタム通知ファクトリーを設定します。
 
-```kotlin
+`````````kotlin
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()

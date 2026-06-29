@@ -1,17 +1,17 @@
 ## Visualização de análises de dados {#viewing-analytics}
 
-Uma vez que você lançou sua campanha, pode retornar à página de detalhes dessa campanha para visualizar métricas-chave. Navegue até a página **Campaigns** e selecione sua campanha para abrir a página de detalhes.{% if include.channel != "banner" %} Para {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}e-mail {% elsif include.channel == "in-app message" %}mensagens no app {% elsif include.channel == "KakaoTalk" %}mensagens KakaoTalk {% elsif include.channel == "push" %}mensagens push {% elsif include.channel == "SMS" %}mensagens SMS {% elsif include.channel == "whatsapp" %}mensagens WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}enviados no Canvas, consulte [Análise de dados do Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
+Uma vez que você lançou sua campanha, pode retornar à página de detalhes dessa campanha para visualizar métricas-chave. Navegue até a página **Campaigns** e selecione sua campanha para abrir a página de detalhes.{% if include.channel != "banner" %} Para {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}e-mail {% elsif include.channel == "in-app message" %}mensagens no app {% elsif include.channel == "KakaoTalk" %}mensagens KakaoTalk {% elsif include.channel == "push" %}mensagens push {% elsif include.channel == "SMS" %}mensagens SMS {% elsif include.channel == "whatsapp" %}mensagens WhatsApp {% elsif include.channel == "webhook" %}webhooks {% endif %}enviados no Canvas, consulte [Análise de dados do Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).{% endif %}
 
 {% alert tip %}
 Procurando definições para os termos e métricas listados em seu relatório? Consulte nosso
-  {% if include.channel == "email" %}[Glossário de análise de dados de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/)
-  {% elsif include.channel == "banner" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por Banners.
-  {% elsif include.channel == "Content Card" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por in-app message.
-  {% elsif include.channel == "push" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por Push.
-  {% elsif include.channel == "SMS" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por SMS/MMS e RCS.
-  {% elsif include.channel == "whatsapp" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por WhatsApp.
-  {% elsif include.channel == "webhook" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/) e filtre por Webhook.{% endif %}
+  {% if include.channel == "email" %}[Glossário de análise de dados de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary)
+  {% elsif include.channel == "banner" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Banners.
+  {% elsif include.channel == "Content Card" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Content Cards.
+  {% elsif include.channel == "in-app message" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por in-app message.
+  {% elsif include.channel == "push" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Push.
+  {% elsif include.channel == "SMS" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por SMS/MMS e RCS.
+  {% elsif include.channel == "whatsapp" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por WhatsApp.
+  {% elsif include.channel == "webhook" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Webhook.{% endif %}
 {% endalert %}
 
 Na aba **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções abaixo, mas cada um tem seu próprio propósito útil.
@@ -35,6 +35,10 @@ O painel **Campaign Details** mostra uma visão geral de alto nível de toda a p
   {% endif %}
 
 Revise este painel para ver métricas gerais, como o número de mensagens enviadas para o número de destinatários, a taxa de conversão primária e a receita total gerada por esta mensagem. Você também pode revisar as configurações de entrega, público e conversão a partir desta página.
+
+{% alert note %}
+Os números de análise de dados no dashboard e no Snowflake podem diferir ligeiramente. A Braze mede os números no dashboard e registra as linhas no Snowflake separadamente. O Snowflake é a fonte de dados mais precisa, então se você perceber discrepâncias entre essas fontes, recomendamos consultar os dados do Snowflake.
+{% endalert %}
 
 {% if include.channel == "whatsapp" %}
 {% alert note %}
@@ -62,7 +66,7 @@ O canal do WhatsApp inclui a taxa de leitura. Esta métrica é entregue apenas p
 
 No Canvas, você verá a performance da mensagem no app mapeada no Canvas que você criou. Você pode usar o painel de controle na parte superior da página para limpar outros tipos de envio de mensagens (canais) e visualizar apenas as mensagens no app em seu Canvas.
 
-![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
+![Uma opção para selecionar o canal, com a caixa de seleção In-App Message marcada.]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ![A seção de informações da campanha.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
@@ -82,33 +86,33 @@ A tabela a seguir resume o que cada rótulo significa.
 | --- | --- |
 | **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **Usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
 | **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience e Current Audience" }
 
-Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable Users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable Users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 {% if include.channel == "Content Card" %}
 
 #### Grupos de controle {#cc-control-group}
 
-Para medir o impacto de um cartão de conteúdo individual, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
+Para medir o impacto de um cartão de conteúdo individual, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
 
 {% elsif include.channel == "SMS" %}
 
 #### Grupos de controle {#sms-control-group}
 
-Para medir o impacto de uma mensagem SMS, MMS ou RCS individual, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
+Para medir o impacto de uma mensagem SMS, MMS ou RCS individual, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
 
 {% elsif include.channel == "whatsapp" %}
 
 #### Grupos de controle {#whatsapp-control-group}
 
-Para medir o impacto de uma mensagem individual do WhatsApp, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
+Para medir o impacto de uma mensagem individual do WhatsApp, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
 
 {% elsif include.channel == "webhook" %}
 
 #### Grupos de controle {#webhook-control-group}
 
-Para medir o impacto de uma mensagem de webhook individual, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
+Para medir o impacto de uma mensagem de webhook individual, você pode adicionar um [grupo de controle]({{site.baseurl}}/user_guide/intelligence/multivariate_testing#step-4-choose-a-segment-and-distribute-your-users-across-variants) a um teste A/B. O painel **Campaign Details** de nível superior não inclui métricas da variante do grupo de controle.
 
 {% endif %}
 
@@ -131,7 +135,7 @@ O painel **Content Card Performance** descreve o desempenho da sua mensagem em v
 {% elsif include.channel == "email" %}
 ### Performance de e-mail {#email-performance}
 
-O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
+O painel **Email Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode selecionar o ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
 
 ![Análise de performance da mensagem de e-mail]({% image_buster /assets/img_archive/email_message_performance.png %})
 
@@ -161,7 +165,7 @@ O painel **SMS/MMS/RCS Performance** descreve o desempenho da sua mensagem em v�
 
 O painel **Banner Performance** descreve o desempenho da sua mensagem em várias dimensões. Essas métricas variam dependendo do seu canal de envio de mensagens e se você está ou não realizando um teste multivariante.
 
-![Painel de performance de Banner que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![Painel de performance de SMS/MMS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### Performance do KakaoTalk {#kakaotalk-performance}
@@ -192,6 +196,10 @@ Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"
 
 Usando mapas de calor, você pode ver o desempenho dos diferentes links em uma única campanha de e-mail. Na seção **Message Analytics**, acesse o painel **Email Performance**. Selecione **Preview & Heatmap** para visualizar uma prévia da sua campanha de e-mail e o mapa de calor. Alternativamente, você pode selecionar o hyperlink no nome da variante para ver o mapa de calor.
 
+{% alert note %}
+A análise de dados da campanha exibe dados de cliques para até 100 URLs únicas por variante, classificadas por total de cliques. As URLs são agrupadas pela sua forma normalizada, que não inclui parâmetros de consulta. Se uma variante tiver mais de 100 URLs únicas normalizadas, apenas as 100 com mais cliques são exibidas. Os dados de cliques para URLs além desse limite ainda existem, mas não aparecerão no dashboard ou no mapa de calor. Quando o alias de link está ativado, os cliques são rastreados por ID de link em vez de URL bruta, o que normalmente resulta em menos entradas únicas e torna esse limite menos provável de ser atingido.
+{% endalert %}
+
 Nesta visualização, você pode usar o botão **Show Heatmap** para exibir uma visão visual do seu e-mail que mostra a frequência geral e a localização dos cliques durante a duração da campanha. No painel **Link Table by Total Clicks**, você pode ver todos os links na sua campanha de e-mail e classificar por total de cliques. Isso pode fornecer um insight adicional sobre onde seus usuários navegam. Para salvar uma cópia do mapa de calor para referência, selecione o botão de baixar.
 
 {% alert note %}
@@ -212,7 +220,7 @@ Se as imagens estiverem faltando em uma exportação, trabalhe com seus desenvol
 
 #### Métricas do cartão de conteúdo {#content-card-metrics}
 
-Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar o desempenho da sua mensagem. Para as definições completas de todas as métricas de Content Cards, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) e filtre por Content Cards.
+Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar o desempenho da sua mensagem. Para as definições completas de todas as métricas de Content Cards, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) e filtre por Content Cards.
 
 <style>
     .no-split {
@@ -220,7 +228,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="Content Card metrics">
+<table aria-label="Métricas de Content Card">
     <caption class="sr-only">Métricas de performance de Content Card</caption>
     <thead>
         <tr>
@@ -249,8 +257,8 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">Essa contagem</span> não é incrementada na segunda vez que um usuário visualiza um Content Card.</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Como um usuário pode ser um destinatário único a cada dia, você deve esperar que isso seja maior que <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Como um usuário pode ter uma impressão diária única todos os dias, você deve esperar que esse valor seja maior do que o de <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
@@ -267,11 +275,11 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 Em relação a como as impressões são registradas, existem algumas nuances entre web, Android e iOS. De maneira geral, a Braze registra uma impressão quando um cartão é visto, o que ocorre após um usuário rolar até o Content Card específico em seu feed.
 {% endalert %}
 
-#### Unique Recipients versus Unique Impressions
+#### Unique Daily Impressions versus Unique Impressions
 
-Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Recipients_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
+Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Daily Impressions_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
 
-Vamos supor que você visualize um Content Card hoje, depois receba um novo cartão da mesma campanha amanhã e novamente depois de amanhã — você será contado como _Unique Recipient_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_. Você também será incluído no número de _Messages Sent_, já que o cartão estava disponível no seu dispositivo.
+Vamos supor que você visualize um Content Card hoje, depois receba um novo cartão da mesma campanha amanhã e novamente depois de amanhã — você será contado como _Unique Daily Impression_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_. Você também será incluído no número de _Messages Sent_, já que o cartão estava disponível no seu dispositivo.
 
 Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma campanha de Content Card mostrando 150.000 _Messages Sent_. Isso significa que o cartão foi disponibilizado (no backend) para um público de 150.000 usuários, mas apenas cinco dispositivos de usuários realizaram todas as seguintes etapas após o envio ocorrer:
 
@@ -279,7 +287,7 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 2. Navegaram para a visualização de Content Cards
 3. O SDK registrou uma impressão e a enviou ao servidor
 
-Suas _Messages Sent_ referem-se a Content Cards disponíveis para serem vistos, enquanto _Unique Recipients_ referem-se a Content Cards que foram realmente vistos.
+Suas _Messages Sent_ referem-se a Content Cards disponíveis para serem vistos, enquanto _Unique Daily Impressions_ referem-se a Content Cards que foram realmente vistos.
 
 {% elsif include.channel == "banner" %}
 
@@ -287,7 +295,7 @@ Suas _Messages Sent_ referem-se a Content Cards disponíveis para serem vistos, 
 
 Essas são as principais métricas a serem acompanhadas ao revisar o desempenho da sua campanha de Banner. Cliques e impressões para Banners são rastreados automaticamente com o SDK.
 
-Para as definições completas de todas as métricas de Banners, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) e filtre por Banners.
+Para as definições completas de todas as métricas de Banners, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) e filtre por Banners.
 
 <style>
     .no-split {
@@ -295,7 +303,7 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
     }
 </style>
 
-<table aria-label="Banner metrics">
+<table aria-label="Métricas de Banner">
     <caption class="sr-only">Métricas de performance de Banner</caption>
     <thead>
         <tr>
@@ -317,6 +325,10 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
             <td class="no-split"><i>Total Clicks</i> é o número total (e a porcentagem) de usuários que clicaram na mensagem entregue, independentemente de o mesmo usuário clicar várias vezes.</td>
         </tr>
         <tr>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-dismissals">Total Dismissals</a></td>
+            <td class="no-split"><i>Total Dismissals</i> é o número total de vezes que os usuários descartaram o Banner. Disponível apenas para Banners com comportamento de descarte ativado.</td>
+        </tr>
+        <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} Cada usuário é contado apenas uma vez.</td>
         </tr>
@@ -325,8 +337,8 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> Como um espectador pode ser um destinatário único todos os dias, você deve esperar que esse valor seja maior do que o de <i>Unique Impressions</i>.</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-daily-impressions">Unique Daily Impressions</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Daily Impressions' %} <br><br> Como um espectador pode ter uma impressão diária única todos os dias, você deve esperar que esse valor seja maior do que o de <i>Unique Impressions</i>.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
@@ -341,9 +353,9 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
 
 #### Exemplos de cálculo de métricas de Banner {#banner-metrics-calculation-examples}
 
-Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Recipients_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
+Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem. Isso inclui _Unique Daily Impressions_ e _Unique Impressions_. Vamos usar alguns cenários de exemplo para entender melhor essas métricas.
 
-Vamos supor que você veja um Banner hoje, depois veja o mesmo Banner amanhã e novamente depois de amanhã — você será contado como _Unique Recipient_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_.
+Vamos supor que você veja um Banner hoje, depois veja o mesmo Banner amanhã e novamente depois de amanhã — você será contado como _Unique Daily Impression_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_.
 
 Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma campanha de Banner. Isso significa que apenas os dispositivos de cinco usuários realizaram todos os seguintes passos:
 
@@ -351,13 +363,13 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 2. Navegaram para a visualização de Banners
 3. O SDK registrou uma impressão e a enviou ao servidor
 
-_Unique Recipients_ refere-se aos Banners que foram realmente vistos.
+_Unique Daily Impressions_ refere-se aos Banners que foram realmente vistos.
 
 {% elsif include.channel == "email" %}
 
 #### Métricas de e-mail {#email-metrics}
 
-Aqui estão algumas métricas específicas de e-mail que você não verá em outros canais. Para ver as definições completas de todas as métricas de e-mail usadas na Braze, consulte nosso [Glossário de análise de dados de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/).
+Aqui estão algumas métricas específicas de e-mail que você não verá em outros canais. Para ver as definições completas de todas as métricas de e-mail usadas na Braze, consulte nosso [Glossário de análise de dados de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary).
 
 <style>
     .no-split {
@@ -365,7 +377,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
     }
 </style>
 
-<table aria-label="Email metrics">
+<table aria-label="Métricas de e-mail">
     <caption class="sr-only">Métricas de performance de e-mail</caption>
     <thead>
         <tr>
@@ -377,7 +389,7 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
-                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
+                {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Isso é rastreado ao longo de um período de sete dias para e-mail e medido por <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a>. Isso inclui cliques em links de cancelamento de inscrição fornecidos pela Braze. Este número deve estar entre 5–10%. Qualquer coisa acima de 10% é excepcional!
             </td>
         </tr>
         <tr>
@@ -437,7 +449,16 @@ O dashboard destaca os _Hard Bounces_. Alguns _Bounces_ podem ser soft bounces e
 
 _Envios − (Entregas + Hard Bounces) ≈ Soft Bounces_
 
-As _Entregas_ podem aumentar durante as primeiras 72 horas conforme as novas tentativas são bem-sucedidas, enquanto os _Envios_ e hard bounces para um envio único permanecem fixos após a conclusão do envio.
+As _Entregas_ podem aumentar durante a janela de novas tentativas do seu provedor de serviço de e-mail (ESP) conforme as novas tentativas são bem-sucedidas, enquanto os _Envios_ e hard bounces para um envio único permanecem fixos após a conclusão do envio. O SendGrid e o SparkPost fazem novas tentativas por até 72 horas; o Amazon SES faz novas tentativas por até 14 horas.
+
+###### Cenários comuns de solução de problemas de entrega {#common-delivery-troubleshooting-scenarios}
+
+Ao revisar sua análise de dados de e-mail, tenha estes padrões em mente:
+
+- **Diferença entre _Envios_ e (_Entregas_ + _Hard Bounces_):** Durante a janela de novas tentativas do ESP após um envio único, essa diferença geralmente reflete soft bounces ou adiamentos que ainda estão sendo tentados novamente. Após o término das novas tentativas, qualquer diferença restante geralmente significa mensagens que sofreram soft bounce e nunca foram entregues — esses envios não são contados nas _Entregas_ ou _Bounces_ da campanha. Use a fórmula acima para estimar os soft bounces em andamento.
+- **_Entregas_ baixas após o término das novas tentativas:** Se as taxas de entrega permanecerem baixas após o término das novas tentativas, compare o volume deste envio com seus padrões típicos. Os provedores de caixa de e-mail podem adiar, limitar ou fazer soft bounce de e-mails quando o volume aumenta em relação à sua reputação de remetente. Você pode ver mensagens como `Email was deferred due to the following reason(s): [IPs were throttled by recipient server]` no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Use o [limite de taxa de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) para controlar o ritmo de envios grandes, e consulte [IPs limitados]({{site.baseurl}}/user_guide/channels/email/reporting#throttled-ips) para etapas adicionais de solução de problemas.
+- **Soft bounces e adiamentos não exibidos na análise de dados da campanha:** A análise de dados da campanha destaca _Hard Bounces_, mas não inclui _Soft Bounces_ ou _Adiamentos_ como colunas separadas. Monitore esses eventos no Registro de atividades de envio de mensagem, com o [filtro de segmento Soft Bounced]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced), ou através de eventos de adiamento do Currents. Para saber como as novas tentativas funcionam, consulte [Adiamentos](#deferrals) abaixo.
+- **Porcentagens de entrega que podem não somar 100%:** _% de Entregas_, _% de Bounces_ e _% de Spam_ podem não somar 100% dos _Envios_. Mensagens que sofrem soft bounce e nunca são entregues após a janela de novas tentativas do ESP não são contadas nas _Entregas_ ou _Bounces_ da campanha, então podem deixar uma parte dos _Envios_ sem contabilização nessas taxas. Aguarde até que as novas tentativas terminem antes de avaliar o desempenho final de entrega, ou use a fórmula acima para estimar quantos envios ainda estão em nova tentativa.
 
 ##### Cliques sem um evento de abertura {#clicks-without-an-open-event}
 
@@ -445,17 +466,25 @@ Um clique pode ser registrado sem uma abertura quando o pixel de rastreamento de
 
 Um clique e uma abertura também podem ocorrer em dias diferentes: um usuário pode clicar em 16 de maio com imagens desativadas (sem abertura), e depois abrir no webmail em 17 de maio (abertura registrada então).
 
-##### _Unique clicks_ maior que _Unique opens_ {#higher-_unique-clicks_-than-_unique-opens_}
+##### _Unique clicks_ maior que _Unique opens_ {#higher-unique-clicks-than-unique-opens}
 
-_Unique clicks_ pode ser maior que _Unique opens_ quando as aberturas são subcontadas ou os cliques são inflados:
+Você pode ver _Unique clicks_ superando significativamente _Unique opens_ (por exemplo, vários cliques únicos para cada abertura única) mesmo quando espera uma proporção menor do seu público. Esse padrão geralmente significa que as aberturas estão sendo subcontadas, os cliques estão inflados, ou ambos. No entanto, isso não significa que a Braze está contando cliques incorretamente de forma isolada.
+
+A Braze registra uma abertura de e-mail quando o pixel de rastreamento de abertura é carregado. Esse pixel é uma pequena imagem transparente (geralmente descrita como 1 x 1&nbsp;px) que a Braze adiciona ao HTML da mensagem. Se o pixel nunca for carregado, nenhuma abertura é registrada para aquela visualização, mas os cliques em links ainda podem ser registrados — então sua taxa de clique-para-abertura e o equilíbrio entre essas duas métricas podem parecer distorcidos.
 
 **A caixa de entrada nunca carregou o pixel de rastreamento de abertura**
 
-Isso pode acontecer quando:
+O pixel pode não ser carregado quando:
 
-- A mensagem é longa e o pixel de rastreamento de abertura fica no final. Quando o cliente corta a mensagem, o pixel é removido.
-- A mensagem caiu no spam, onde imagens remotas (incluindo o pixel de rastreamento de abertura) geralmente não são carregadas.
-- A caixa de entrada usa segurança mais rigorosa (comum em contas corporativas) e o usuário ainda não optou por carregar imagens.
+- **A mensagem é cortada.** HTML longo empurra o conteúdo — incluindo o pixel no final — para trás de um corte do tipo "Ver mensagem completa". No Gmail, mensagens maiores que cerca de [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size) são frequentemente cortadas, o que pode impedir o carregamento do pixel até que a mensagem completa seja aberta (e às vezes nem assim, dependendo do cliente).
+- **As imagens estão bloqueadas ou restritas.** Segurança mais rigorosa da caixa de entrada (comum em contas corporativas) pode bloquear imagens remotas até que o destinatário opte por carregá-las, então o pixel de abertura não é acionado mesmo que eles cliquem em links rastreados.
+- **A mensagem está em pastas de spam ou lixo.** Muitos provedores não carregam imagens remotas (incluindo o pixel de abertura) nessas pastas por padrão.
+
+**O que você pode fazer**
+
+- **Corte:** Encurte e simplifique o HTML, remova estilos ou ativos não utilizados e mantenha o tamanho geral da mensagem dentro dos limites do cliente. Para o Gmail, mire em menos de cerca de 102&nbsp;KB conforme descrito em [Tamanho do e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size).
+- **Segurança da caixa de entrada e carregamento de imagens:** Apenas o destinatário (ou sua política de TI) pode alterar se as imagens são carregadas por padrão.
+- **Posicionamento em spam:** Concentre-se em [melhorar a entregabilidade de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) e a higiene da lista. Se o e-mail está consistentemente caindo no spam e as métricas parecem erradas, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 **Atividade de segurança ou bots nos links**
 
@@ -463,17 +492,17 @@ Alguns produtos de segurança de e-mail seguem links para verificar ameaças. Es
 
 ##### Adiamentos {#deferrals}
 
-Adiamento é quando um e-mail não foi entregue imediatamente, mas a Braze tentará reenviar o e-mail por até 72 horas após essa falha temporária de entrega para maximizar as chances de entrega bem-sucedida antes que as tentativas para essa campanha específica sejam interrompidas. As razões típicas para adiamentos incluem limitação de taxa de volume de e-mail baseada na reputação do provedor de caixa de entrada, problemas temporários de conectividade ou erros de DNS.
+Adiamento é quando um e-mail não foi entregue imediatamente, mas a Braze tenta reenviar o e-mail através do seu ESP após essa falha temporária de entrega para maximizar as chances de entrega bem-sucedida antes que as tentativas para essa campanha específica sejam interrompidas. O SendGrid e o SparkPost fazem novas tentativas por até 72 horas; o Amazon SES faz novas tentativas por até 14 horas. As razões típicas para adiamentos incluem limitação de taxa de volume de e-mail baseada na reputação do provedor de caixa de entrada, problemas temporários de conectividade ou erros de DNS.
 
 Os _Adiamentos_ diferem dos _Soft Bounces_. Se nenhum e-mail foi entregue com sucesso durante este período de nova tentativa, a Braze enviará um evento de soft bounce por campanha enviada. Antes de 25 de fevereiro de 2025, essas tentativas eram contadas como múltiplos soft bounces para 1 envio de campanha.
 
-Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recursos Currents ou Snowflake da Braze (como o Criador de consultas, SQL Segment, Compartilhamento de dados Snowflake). Se você gostaria de incluir isso na análise de dados de Campaign ou Canvas, [envie um feedback sobre o produto]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recursos Currents ou Snowflake da Braze (como o Criador de consultas, SQL Segment, Compartilhamento de dados Snowflake). Se você gostaria de incluir isso na análise de dados de Campaign ou Canvas, [envie um feedback sobre o produto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
 
 ##### Taxa de abertura real estimada {#estimated-real-open-rate}
 
 Esta estatística utiliza um modelo analítico proprietário criado pela Braze para reconstruir uma estimativa da taxa de abertura única da campanha como se as aberturas por máquina não existissem. Enquanto recebemos rótulos de *Machine Opens* em alguns eventos de abertura de remetentes de e-mail (veja acima), esses rótulos podem frequentemente classificar aberturas reais como aberturas por máquina. Em outras palavras, as *Other Opens* provavelmente são uma subestimação das aberturas reais (por usuários reais). Em vez disso, a Braze usa dados de cliques de cada campanha para inferir a taxa na qual humanos reais abriram a mensagem. Isso compensa vários mecanismos de abertura por máquina, incluindo o MPP da Apple.
 
-A _Estimated Real Open Rate_ é calculada 36 horas após o início do envio do e-mail e é recalculada a cada 24 horas a partir de então. Se uma campanha se repetir, a estimativa é recalculada 36 horas após outro envio ocorrer.
+A _Estimated Real Open Rate_ é calculada 24 horas após o início do envio do e-mail e é recalculada a cada 72 horas a partir de então.
 
 Como essa métrica é recalculada de forma contínua, o valor da _Estimated Real Open Rate_ pode mudar ao longo do tempo à medida que novos sinais de engajamento (como aberturas e cliques) são recebidos e incorporados ao modelo. Na prática, a _Estimated Real Open Rate_ pode continuar a ser atualizada diariamente enquanto uma campanha permanece ativa.
 
@@ -492,17 +521,17 @@ Além disso, o uso de ferramentas de verificação de segurança pode inflar as 
 Em última análise, depois que um e-mail sai de nossos servidores, temos visibilidade limitada sobre o que acontece a seguir, mas aqui estão recomendações para gerenciar NHI que afetam seus resultados:
 
 1. Esteja ciente de que isso pode acontecer com qualquer remetente e quase qualquer destinatário. Os cliques, assim como as aberturas, não são indicadores totalmente confiáveis da interação humana com suas mensagens, o que significa que o NHI não pode ser evitado.
-2. Um engajamento positivo mais alto tende a se correlacionar com um NHI mais baixo, por isso é importante seguir as [melhores práticas]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/) de envio de e-mails. Isso inclui obter permissão explícita de seus usuários para o envio de e-mail e fazer sunsetting de assinantes não engajados em uma cadência regular.
+2. Um engajamento positivo mais alto tende a se correlacionar com um NHI mais baixo, por isso é importante seguir as [melhores práticas]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices) de envio de e-mails. Isso inclui obter permissão explícita de seus usuários para o envio de e-mail e fazer sunsetting de assinantes não engajados em uma cadência regular.
 3. Use links HTTPS em seus e-mails sempre que possível. O NHI é menos comum para remetentes que usam links seguros.
-4. Se você usar um processo de cancelamento de inscrição com um único clique, considere criar uma [Central de Preferências]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/) que leve os usuários a uma página para editar e gerenciar suas preferências de notificação. Isso pode ser útil porque o NHI pode cancelar inadvertidamente a inscrição de usuários.
-5. Considere o uso de [outras métricas]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#email-performance) para medir o sucesso do seu e-mail marketing, como conversões, sessões de app ou visitas ao site.
+4. Se você usar um processo de cancelamento de inscrição com um único clique, considere criar uma [Central de Preferências]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview) que leve os usuários a uma página para editar e gerenciar suas preferências de notificação. Isso pode ser útil porque o NHI pode cancelar inadvertidamente a inscrição de usuários.
+5. Considere o uso de [outras métricas]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance) para medir o sucesso do seu e-mail marketing, como conversões, sessões de app ou visitas ao site.
 6. Adicione um link oculto em suas campanhas de e-mail. Esse link seria algo que um ser humano não perceberia, como um texto branco sobre branco ou um sinal de pontuação. Bots tendem a clicar em todos os links, então você pode concluir que os usuários que geram eventos de clique no link invisível são, na verdade, resultado de NHI, portanto, a abertura ou o clique não indicam necessariamente um engajamento positivo.
 
 {% elsif include.channel == "in-app message" %}
 
 #### Métricas de mensagem no app {#in-app-message-metrics}
 
-Aqui estão algumas métricas-chave de mensagem no app que você pode ver na análise de dados. Para ver as definições completas de todas as métricas de mensagem no app usadas na Braze, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Aqui estão algumas métricas-chave de mensagem no app que você pode ver na análise de dados. Para ver as definições completas de todas as métricas de mensagem no app usadas na Braze, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
 
 {% alert note %}
 Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quando você especifica o **Identifier for Reporting** como "0" e "1", respectivamente, na mensagem no app.
@@ -516,7 +545,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     }
 </style>
 
-<table aria-label="In-app message metrics">
+<table aria-label="Métricas de mensagem no app">
     <caption class="sr-only">Métricas de performance de mensagem no app</caption>
     <thead>
         <tr>
@@ -574,24 +603,28 @@ A distribuição entre os grupos de controle e variante é projetada para ser ap
 
 ### Métricas do KakaoTalk {#kakaotalk-metrics}
 
-Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise de dados. Para mais detalhes, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/).
+Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise de dados. Para mais detalhes, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics).
+
+{% alert note %}
+Atualmente, estatísticas de público estimadas ou exatas não estão disponíveis para Campaigns KakaoTalk.
+{% endalert %}
 
 | Termo | Definição |
 | --- | --- |
 | Público | _Público_ é a porcentagem de usuários que receberam uma mensagem específica. <br><br>_(Número de destinatários na variante) / (Destinatários únicos)_ |
-| Destinatários únicos | _Destinatários únicos_ é o número de destinatários diários únicos, ou usuários que receberam uma nova mensagem em um dia. Para que essa contagem seja incrementada para um usuário mais de uma vez, o usuário deve receber uma nova mensagem em um dia diferente. Este número é baseado no `user_id`. Para mais detalhes, consulte [Destinatários únicos no Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics/#unique-recipients). |
+| Destinatários únicos | _Destinatários únicos_ é o número de destinatários diários únicos, ou usuários que receberam uma nova mensagem em um dia. Para que essa contagem seja incrementada para um usuário mais de uma vez, o usuário deve receber uma nova mensagem em um dia diferente. Este número é baseado no `user_id`. Para mais detalhes, consulte [Destinatários únicos no Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics#unique-recipients). |
 | Envios | O número total de mensagens enviadas em uma Campaign. Isso não significa que a mensagem foi recebida ou entregue a um dispositivo, apenas que a mensagem foi enviada. |
 | Total de cliques | O número total de vezes que as mensagens KakaoTalk enviadas foram clicadas pelos usuários. |
 | Erros | _Erros_ é o número de erros retornados pelo provedor KakaoTalk (incrementado durante o processo de envio). |
 | Receita | _Receita_ é a receita em dólares dos destinatários da Campaign dentro da janela de conversão primária definida. |
 | Conversões primárias | _Conversões primárias_ é o número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas do KakaoTalk" }
 
 {% elsif include.channel == "push" %}
 
 #### Métricas de push {#push-metrics}
 
-Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar o desempenho da sua mensagem. Para as definições completas de todas as métricas de push, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) e filtre por push.
+Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar o desempenho da sua mensagem. Para as definições completas de todas as métricas de push, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) e filtre por push.
 
 <style>
     .no-split {
@@ -599,7 +632,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="Push metrics">
+<table aria-label="Métricas de push">
     <caption class="sr-only">Métricas de performance de push</caption>
     <thead>
         <tr>
@@ -634,7 +667,7 @@ No entanto, o rastreamento manual de cancelamentos de inscrição por push ainda
 {% tabs local %}
 {% tab Filtros de segmento %}
 
-Você pode criar um segmento para identificar usuários que não estão habilitados para push, o que significa que eles não estão inscritos ou não aceitaram receber e não têm um [token por push em primeiro plano]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens). Por exemplo, para ver o número de cancelamentos de inscrição em seu app, você usaria uma combinação "OU" dos seguintes segmentos:
+Você pode criar um segmento para identificar usuários que não estão habilitados para push, o que significa que eles não estão inscritos ou não aceitaram receber e não têm um [token por push em primeiro plano]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens). Por exemplo, para ver o número de cancelamentos de inscrição em seu app, você usaria uma combinação "OU" dos seguintes segmentos:
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
@@ -647,7 +680,7 @@ Observe que os filtros de segmentação são aproximados e não podem ser especi
 {% tab Filtros personalizados %}
 
 {% alert important %}
-Registrar um evento personalizado para alteração de inscrição registrará [pontos de dados]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Como alternativa, use filtros de segmento para identificar e direcionar usuários que não estejam com push habilitado.
+Registrar um evento personalizado para alteração de inscrição registrará [pontos de dados]({{site.baseurl}}/user_guide/data_and_analytics/data_points#consumption-count). Como alternativa, use filtros de segmento para identificar e direcionar usuários que não estejam com push habilitado.
 {% endalert %}
 
 Para uma solução alternativa, também recomendamos a criação de um evento personalizado para cancelamentos de inscrição por push com base no fato de o status de push habilitado de um usuário ser `true` ou `false` para rastrear essa métrica.
@@ -661,11 +694,11 @@ Mesmo que _Direct Opens_ e _Influenced Opens_ incluam a palavra "opens", na verd
 
 ##### Botões de ação por push e relatórios {#push-action-buttons-and-reporting}
 
-Quando você adiciona [botões de ação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), o painel **Push Performance** pode incluir **Body Clicks**, **Button 1 Clicks** e **Button 2 Clicks** junto com métricas como **Direct Opens**. Essas colunas medem interações diferentes, então compare-as ao interpretar o engajamento.
+Quando você adiciona [botões de ação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), o painel **Push Performance** pode incluir **Body Clicks**, **Button 1 Clicks** e **Button 2 Clicks** junto com métricas como **Direct Opens**. Essas colunas medem interações diferentes, então compare-as ao interpretar o engajamento.
 
-_Direct Opens_ reflete as métricas do dashboard para interações que contam como uma abertura direta da sua mensagem. Os eventos **Push Notification Open** no [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake descrevem interações de push de forma mais ampla e podem incluir campos opcionais como `button_action_type` (por exemplo, `close`) e `button_string`. Para definições de campos, consulte [Eventos de Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+_Direct Opens_ reflete as métricas do dashboard para interações que contam como uma abertura direta da sua mensagem. Os eventos **Push Notification Open** no [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou Snowflake descrevem interações de push de forma mais ampla e podem incluir campos opcionais como `button_action_type` (por exemplo, `close`) e `button_string`. Para definições de campos, consulte [Eventos de Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#push-notification-open-events).
 
-Para **iOS**, as categorias de notificação padrão da Braze (como **Yes** / **No**, **Accept** / **Decline** ou **Confirm** / **Cancel**) usam um pareamento fixo: a primeira ação suporta `OPEN_APP`, uma URI ou um deep link (alinhado com **On-Click Behavior** no criador). A ação complementar usa `CLOSE` por padrão — ela descarta a notificação e não abre o app. Veja o mapeamento padrão em [Objeto de botão de ação por push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+Para **iOS**, as categorias de notificação padrão da Braze (como **Yes** / **No**, **Accept** / **Decline** ou **Confirm** / **Cancel**) usam um pareamento fixo: a primeira ação suporta `OPEN_APP`, uma URI ou um deep link (alinhado com **On-Click Behavior** no criador). A ação complementar usa `CLOSE` por padrão — ela descarta a notificação e não abre o app. Veja o mapeamento padrão em [Objeto de botão de ação por push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
 
 Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados de Campaign com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
 
@@ -700,7 +733,7 @@ O Firebase Cloud Messaging (FCM) pode ter bounces em três casos:
 | Apps desinstalados | Quando uma mensagem tenta ser entregue a um dispositivo e o app pretendido está desinstalado nesse dispositivo, a mensagem será descartada e o ID de registro do dispositivo será invalidado. Qualquer tentativa futura de envio de mensagens para o dispositivo retornará um erro NotRegistered. |
 | App com backup | Quando um app é salvo em backup, seu ID de registro pode se tornar inválido antes que o app seja restaurado. Neste caso, o FCM não armazenará mais o ID de registro do app e o app não receberá mais mensagens. Assim, os IDs de registro **não** devem ser salvos quando um app é salvo em backup. |
 | App atualizado | Quando um app é atualizado, o ID de registro da versão anterior pode não funcionar mais. Assim, um app atualizado deve substituir seu ID de registro existente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Por que bounces ocorrem" }
 
 {% endtab %}
 {% endtabs %}
@@ -710,7 +743,7 @@ O Firebase Cloud Messaging (FCM) pode ter bounces em três casos:
 
 #### Métricas de SMS, MMS e RCS {#sms-mms-and-rcs-metrics}
 
-Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar o desempenho da sua mensagem. Para as definições completas de todas as métricas de SMS, MMS e RCS, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/) e filtre por SMS/MMS e RCS.
+Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar o desempenho da sua mensagem. Para as definições completas de todas as métricas de SMS, MMS e RCS, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics) e filtre por SMS/MMS e RCS.
 
 <style>
     .no-split {
@@ -718,7 +751,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table aria-label="SMS, MMS, and RCS metrics">
+<table aria-label="Métricas de SMS, MMS e RCS">
     <caption class="sr-only">Métricas de performance de SMS, MMS e RCS</caption>
     <thead>
         <tr>
@@ -762,7 +795,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 
 #### Métricas de webhook {#webhook-metrics}
 
-Aqui estão algumas métricas-chave de webhook que você pode ver na análise de dados. Para ver as definições completas de todas as métricas de webhook usadas na Braze, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Aqui estão algumas métricas-chave de webhook que você pode ver na análise de dados. Para ver as definições completas de todas as métricas de webhook usadas na Braze, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
 
 <style>
     .no-split {
@@ -770,7 +803,7 @@ Aqui estão algumas métricas-chave de webhook que você pode ver na análise de
     }
 </style>
 
-<table aria-label="Webhook metrics">
+<table aria-label="Métricas de webhook">
     <caption class="sr-only">Métricas de performance de webhook</caption>
     <thead>
         <tr>
@@ -798,7 +831,7 @@ Aqui estão algumas métricas-chave de webhook que você pode ver na análise de
 
 #### Métricas do WhatsApp {#whatsapp-metrics}
 
-Aqui estão algumas métricas importantes do WhatsApp que você pode ver na análise de dados. Para ver as definições completas de todas as métricas do WhatsApp usadas na Braze, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/).
+Aqui estão algumas métricas importantes do WhatsApp que você pode ver na análise de dados. Para ver as definições completas de todas as métricas do WhatsApp usadas na Braze, consulte nosso [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics).
 
 <style>
     .no-split {
@@ -806,7 +839,7 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
     }
 </style>
 
-<table aria-label="WhatsApp metrics">
+<table aria-label="Métricas do WhatsApp">
     <caption class="sr-only">Métricas de performance do WhatsApp</caption>
     <thead>
         <tr>
@@ -864,7 +897,7 @@ O painel **Keyword Responses** mostra uma linha do tempo das palavras-chave rece
 
 ![Painel de respostas de palavras-chave de SMS/MMS/RCS em nível de Campaign que inclui um gráfico de linha da distribuição de palavras-chave ao longo do tempo, e uma seção de categorias de palavras-chave com caixas de seleção marcadas para Opt-In, Opt-Out, Help, Other, More e Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
-Aqui, você também pode ver a distribuição de respostas de cada categoria de palavra-chave para determinar os próximos passos para [redirecionamento]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/) e para convenientemente [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Aqui, você também pode ver a distribuição de respostas de cada categoria de palavra-chave para determinar os próximos passos para [redirecionamento]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) e para convenientemente [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![A tabela abaixo do gráfico de linha que tem colunas para Keyword Category, Response Distribution e Retargeting, onde você tem a opção de criar um segmento com a categoria de palavra-chave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
@@ -872,13 +905,13 @@ Aqui, você também pode ver a distribuição de respostas de cada categoria de 
 
 ### Detalhes do evento de conversão {#conversion-event-details}
 
-O painel **Conversion Event Details** mostra a performance dos seus eventos de conversão para sua Campaign. Para saber mais, consulte [Eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results).
+O painel **Conversion Event Details** mostra a performance dos seus eventos de conversão para sua Campaign. Para saber mais, consulte [Eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events#step-3-view-results).
 
 ![O painel de Conversion Event Details.]({% image_buster /assets/img/cc-conversion.png %})
 
 ### Correlação de conversão {#conversion-correlation}
 
-O painel **Conversion Correlation** oferece insight sobre quais atributos e comportamentos dos usuários ajudam ou prejudicam os resultados que você definiu para as campanhas. Para saber mais, consulte [Correlação de conversão]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
+O painel **Conversion Correlation** oferece insight sobre quais atributos e comportamentos dos usuários ajudam ou prejudicam os resultados que você definiu para as campanhas. Para saber mais, consulte [Correlação de conversão]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation).
 
 ![O painel de Conversion Correlation com uma análise sobre atributos e comportamento do usuário a partir do Primary Conversion Event - A.]({% image_buster /assets/img/convcorr.png %})
 
@@ -886,7 +919,7 @@ O painel **Conversion Correlation** oferece insight sobre quais atributos e comp
 
 ## Criador de relatórios {#report-builder}
 
-Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) para criar relatórios personalizados para suas Campaigns KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas Campaigns KakaoTalk selecionando **KakaoTalk** em **Canais**, ou filtrando por quaisquer tags que você tenha aplicado às suas Campaigns KakaoTalk.
+Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas Campaigns KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas Campaigns KakaoTalk selecionando **KakaoTalk** em **Canais**, ou filtrando por quaisquer tags que você tenha aplicado às suas Campaigns KakaoTalk.
 
 {% endif %}
 
@@ -902,7 +935,7 @@ Além da análise de dados da Braze, a análise de dados em nível de modelo pod
 
 ### Eventos de Currents de SMS {#sms-currents-events}
 
-Assim como e-mail, a Braze recebe eventos em nível de usuário relacionados a uma mensagem SMS enquanto ela faz sua jornada até um usuário. Qualquer evento de SMS recebido também será enviado como um evento do Currents através do evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-inbound-received-events). Isso permite que você execute ações adicionais ou relatórios sobre as mensagens que seus usuários estão enviando fora da plataforma Braze.
+Assim como e-mail, a Braze recebe eventos em nível de usuário relacionados a uma mensagem SMS enquanto ela faz sua jornada até um usuário. Qualquer evento de SMS recebido também será enviado como um evento do Currents através do evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Isso permite que você execute ações adicionais ou relatórios sobre as mensagens que seus usuários estão enviando fora da plataforma Braze.
 
 {% alert note %}
 As mensagens de entrada são truncadas após 1.600 caracteres.
@@ -914,12 +947,12 @@ As mensagens de entrada são truncadas após 1.600 caracteres.
 
 ## Relatório de retenção {#retention-report}
 
-Os relatórios de retenção mostram as taxas em que seus usuários realizaram um evento de retenção selecionado ao longo de períodos de tempo em uma Campaign específica{% if include.channel != "banner" %} ou Canvas{% endif %}. Para saber mais, consulte [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/).
+Os relatórios de retenção mostram as taxas em que seus usuários realizaram um evento de retenção selecionado ao longo de períodos de tempo em uma Campaign específica{% if include.channel != "banner" %} ou Canvas{% endif %}. Para saber mais, consulte [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
 
 ## Relatório de funil {#funnel-report}
 
 Os relatórios de funil oferecem um relatório visual que permite analisar as jornadas que seus clientes fazem após receber uma Campaign{% if include.channel != "banner" %} ou Canvas{% endif %}. Se sua Campaign {% if include.channel != "banner" %}ou Canvas {% endif %}usar um grupo de controle ou múltiplas variantes, você poderá entender como as diferentes variantes impactaram o funil de conversão de forma mais granular e otimizar com base nesses dados.
 
-Para saber mais, consulte [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports/).
+Para saber mais, consulte [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
 
 {% endif %}

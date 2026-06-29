@@ -102,7 +102,7 @@ Los siguientes términos adicionales se aplican en relación con el uso del cana
 
 ### Términos aplicables del proveedor externo {#applicable-third-party-provider-terms}
 
-El cliente deberá cumplir con todos los requisitos previos, términos y políticas aplicables al canal WhatsApp, incluidos los términos requeridos por WhatsApp, LLC y sus empresas afiliadas, como se describe en la página de [configuración de WhatsApp](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
+El cliente deberá cumplir con todos los requisitos previos, términos y políticas aplicables al canal WhatsApp, incluidos los términos requeridos por WhatsApp, LLC y sus empresas afiliadas, como se describe en la página de [configuración de WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
 
 ### Términos de excepción para el uso de webhooks
 
@@ -126,6 +126,7 @@ Al utilizar el canal LINE, el cliente acepta cumplir y quedar vinculado por, seg
 
 Sin perjuicio de cualquier disposición en contrario en los Términos de LINE, el cliente sigue siendo el principal responsable de su uso de los servicios de LINE.
 
+
 ## 5. Documentación de conformidad de la integración con Shopify {#shopify-integration-compliance-documentation}
 
 Los siguientes términos adicionales se aplican en relación con el uso de la integración con Shopify por parte del cliente en conexión con los servicios de Braze ("**Integración con Shopify**"):
@@ -147,7 +148,6 @@ El cliente reconoce que los proveedores externos pueden revisar, examinar y/o el
 ## 7. Documentación de conformidad del archivado de mensajes y cifrado a nivel de campo {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Exención de responsabilidad
-
 El cliente reconoce que el uso del archivado de mensajes y/o el cifrado a nivel de campo (cada uno, la "**Característica**") puede afectar la velocidad de envío de los mensajes enviados a través de los servicios de Braze. Braze no será responsable de dicho impacto, y cualquier compromiso de velocidad de envío no se aplicará cuando el cliente esté utilizando la característica. La característica puede utilizarse para respaldar los esfuerzos de cumplimiento del cliente; sin embargo, el cliente reconoce que Braze no hace declaraciones ni garantías con respecto a si el uso de la característica en sí satisface las obligaciones de cumplimiento del cliente, y renuncia a toda responsabilidad en relación con ello.
 
 ## 8. Documentación de conformidad de la Consola de Agente {#agent-console-compliance-documentation}

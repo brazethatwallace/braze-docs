@@ -31,7 +31,7 @@ Los tokens de notificaciones push se utilizan para enviar tanto notificaciones p
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
 | Push en primer plano | Sí       | Se muestra visiblemente una notificación al usuario mientras la aplicación está en primer plano.           |
 | Push en segundo plano | No        | Una notificación se entrega silenciosamente en segundo plano sin mostrarse. Se utiliza a menudo para funcionalidades como Uninstall Tracking. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Foreground vs. background push #foreground-vs-background" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push en primer plano vs. en segundo plano" }
 
 Cuando un usuario acepta recibir notificaciones push de tu aplicación, se le considerará "registrado para push", lo que significa que ahora puede ser segmentado utilizando el filtro de segmentación `Foreground Push Enabled for App` en Braze.
 
@@ -87,7 +87,7 @@ iOS no genera automáticamente tokens de notificaciones push para una aplicació
 
 ### Comprobar el estado de suscripción push de un usuario {#checking-users-push-subscription-state}
 
-![Perfil de usuario de John Doe con su estado de suscripción push configurado como Suscrito.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Perfil de usuario de Jane Doe que muestra el estado de suscripción push y los detalles de registro push en la pestaña Interacción.]({% image_buster /assets/img/push_implementation_guide/checking-users-push-subscription-state.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Hay dos formas de comprobar el estado de suscripción push de un usuario con Braze:
 

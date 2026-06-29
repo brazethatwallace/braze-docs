@@ -10,7 +10,7 @@ description: "이 문서에서는 사용자 삭제 Braze 엔드포인트에 대�
 ---
 {% api %}
 # 사용자 삭제 {#delete-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/delete
 {% endapimethod %}
 
@@ -21,7 +21,7 @@ description: "이 문서에서는 사용자 삭제 Braze 엔드포인트에 대�
 API를 통한 대량 사용자 삭제로 해결할 수 없는 사용 사례가 있는 경우 [Braze 고객지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하여 도움을 받으세요.
 
 {% alert warning %}
-고객 프로필 삭제는 되돌릴 수 없습니다. 사용자가 영구적으로 제거되며 데이터에 불일치가 발생할 수 있습니다. [API를 사용하여 고객 프로필을 삭제하면]({{site.baseurl}}/help/help_articles/api/delete_user/) 어떤 일이 발생하는지 도움말 설명서에서 자세히 알아보세요.
+고객 프로필 삭제는 되돌릴 수 없습니다. 삭제 작업은 사용자를 영구적으로 제거하며, 데이터에 불일치가 발생할 수 있습니다. 자세한 내용은 [고객 프로필 삭제의 영향](#effects-of-deleting-user-profiles)을 참조하세요.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
@@ -59,9 +59,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | 선택 사항 | 문자열 배열 | 삭제할 Braze 사용자 식별자. |
 | `email_addresses` | 선택 사항 | 문자열 배열 | 삭제할 사용자 이메일. 자세한 내용은 [이메일로 사용자 삭제하기](#deleting-users-by-email)를 참조하세요. |
 | `phone_numbers` | 선택 사항 | 문자열 배열 | 삭제할 사용자 전화번호. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-### 이메일 주소 및 전화번호로 사용자 삭제하기 {#deleting-users-by-email}
+### 이메일 주소 및 전화번호로 사용자 삭제하기 {#deleting-users-by-email-addresses-and-phone-numbers}
 
 이메일 주소 또는 전화번호를 식별자로 지정하는 경우 식별자에 `prioritization` 값을 추가로 입력해야 합니다. `prioritization`은 정렬된 배열이어야 하며, 여러 사용자가 일치하는 경우 삭제할 사용자를 지정해야 합니다. 즉, 우선순위와 일치하는 사용자가 두 명 이상일 경우 삭제가 수행되지 않습니다.
 
@@ -109,6 +109,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
 ```
+
+## 고객 프로필 삭제의 영향 {#effects-of-deleting-user-profiles}
+
+이 엔드포인트로 사용자를 제거하면 다음과 같은 결과가 발생합니다:
+
+- 고객 프로필이 삭제(무효화)됩니다.
+- 워크스페이스 사용자 수([분석 홈]({{site.baseurl}}/user_guide/analytics/dashboards/home/)의 총 사용자 수 등)가 제거된 사용자를 반영하여 업데이트됩니다.
+- 제거된 사용자는 여전히 집계된 전환율에 포함됩니다. 커스텀 이벤트 수와 구매 수는 제거된 사용자에 대해 업데이트되지 않습니다.
+
+### 동일한 이메일 주소를 공유하는 여러 프로필 {#multiple-profiles-with-a-shared-email-address}
+
+동일한 이메일 주소를 공유하는 고객 프로필을 병합하려면 [`/users/merge` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)를 호출하세요.
 
 ## 문제 해결 {#troubleshooting}
 

@@ -53,19 +53,19 @@ Lors de la génération du JWT, les champs suivants sont attendus :
 | ----- | -------- | ----------------------------------- |
 | `alg` | Oui  | L'algorithme pris en charge est `RS256`. |
 | `typ` | Oui  | Le type doit être égal à `JWT`.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel #create-jwt" }
 
 **Payload JWT**
 
 | Champ | Requis | Description                                                                            |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Oui  | Le « sujet » doit être égal à l'ID utilisateur que vous fournissez au SDK Braze lorsque vous appelez `changeUser`  |
-| `exp` | Oui | L'« expiration » ou le moment où vous souhaitez que ce jeton expire.                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+| `exp` | Oui | L'« expiration » indiquant quand vous souhaitez que ce jeton expire, sous forme d'horodatage Unix en secondes (par exemple, `1893456000` pour le 1er janvier 2030).                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Créer un jeton Web JSON pour l'utilisateur actuel #create-jwt" }
 
 {% alert tip %}
 Pour en savoir plus sur les jetons Web JSON ou pour parcourir les nombreuses bibliothèques open source qui simplifient ce processus de signature, consultez [https://jwt.io](https://jwt.io).
@@ -722,7 +722,7 @@ Dans la page **Gérer les paramètres** du tableau de bord, chaque application d
 | **Désactivé** | Braze ne vérifiera pas le JWT fourni pour un utilisateur. (Paramètre par défaut) |
 | **Facultatif** | Braze vérifiera les requêtes pour les utilisateurs connectés, mais ne rejettera pas les requêtes invalides. |
 | **Requis** | Braze vérifiera les requêtes pour les utilisateurs connectés et rejettera les JWT invalides. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Options d'application #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -779,7 +779,7 @@ Les données sont disponibles en temps réel, et vous pouvez survoler les points
 | 26 | `MISSING_TOKEN` | Aucun jeton n'a été fourni dans la requête. | Assurez-vous que vous transmettez un jeton lors de l'appel à `changeUser(id, token)` et que votre jeton n'est pas vide. |
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | Aucune clé publique ne correspond au jeton fourni. | La clé privée utilisée dans le JWT ne correspond à aucune des clés publiques configurées pour votre application. Vérifiez que vous avez bien ajouté les clés publiques à l'application appropriée dans votre espace de travail correspondant à cette clé API. |
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | Tous les ID utilisateur dans le payload de la requête ne correspondent pas comme requis. | Ce cas est inattendu et peut entraîner un payload malformé. Ouvrez un ticket d'assistance pour obtenir de l'aide. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Codes d'erreur #error-codes" }
 
 ## Foire aux questions (FAQ) {#faq}
 

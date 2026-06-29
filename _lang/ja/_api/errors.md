@@ -42,7 +42,7 @@ POSTペイロードがサーバーで受理された場合、成功メッセー�
 
 ## 追跡された送信IDに対する応答 {#responses-for-tracked-send-ids}
 
-分析は常にCampaignsで利用できます。さらに、Campaignがブロードキャストとして送信された場合、特定のCampaign送信インスタンスに対して分析が利用できます。特定のCampaign送信インスタンスに対してトラッキングが利用可能な場合、以下の応答を受け取ります：
+分析は常にキャンペーンで利用できます。さらに、キャンペーンがブロードキャストとして送信された場合、特定のキャンペーン送信インスタンスに対して分析が利用できます。特定のキャンペーン送信インスタンスに対してトラッキングが利用可能な場合、以下の応答を受け取ります：
 
 ```json
 {
@@ -75,10 +75,10 @@ POSTペイロードがサーバーで受理された場合、成功メッセー�
 |---|---|
 | `5XX Internal Server Error` | エクスポネンシャルバックオフでリクエストを再試行してください。|
 | `400 Bad Request` | 構文が正しくありません。|
-| `400 No Recipients` | リクエストにexternal IDやSegment ID、プッシュトークンがありません。|
-| `400 Invalid Campaign ID` | 入力されたCampaign IDに該当するメッセージングAPI Campaignが見つかりませんでした。|
-| `400 Message Variant Unspecified` | Campaign IDは提供されていますが、メッセージバリエーションIDが提供されていません。|
-| `400 Invalid Message Variant` | 有効なCampaign IDを入力しましたが、メッセージバリエーションIDがそのCampaignのどのメッセージとも一致しません。|
+| `400 No Recipients` | リクエストにexternal IDやセグメント ID、プッシュトークンがありません。|
+| `400 Invalid キャンペーン ID` | 入力されたキャンペーン IDに該当するメッセージングAPI キャンペーンが見つかりませんでした。|
+| `400 Message Variant Unspecified` | キャンペーン IDは提供されていますが、メッセージバリエーションIDが提供されていません。|
+| `400 Invalid Message Variant` | 有効なキャンペーン IDを入力しましたが、メッセージバリエーションIDがそのキャンペーンのどのメッセージとも一致しません。|
 | `400 Mismatched Message Type` | 少なくとも1つのメッセージに、誤ったメッセージタイプのメッセージバリエーションを指定しました。|
 | `400 Invalid Extra Push Payload` | `apple_push`または`android_push`のいずれかに`extra`キーを指定しましたが、それはディクショナリではありません。|
 | `400 Max Input Length Exceeded` | `/users/track`の場合、このエラーは単一のリクエストで許可されるオブジェクトの最大数を超えたことが原因です。制限はレート制限モデルによって異なります。ほとんどのお客様の場合、各リクエストは`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクトをサポートします。レガシーレート制限を使用しているお客様の場合、各配列は最大75個のオブジェクトを独立してサポートします。詳細については、[POST: ユーザーの作成と更新]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を参照してください。|

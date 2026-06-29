@@ -40,7 +40,7 @@ Stellen Sie sicher, dass Ihr Trigger-Wort dem entspricht, was Sie von Nutzer:inn
 ## Nicht erkannte Antworten {#unrecognized-responses}
 
 Wir empfehlen, eine Option für nicht erkannte Antworten in interaktiven Canvases einzubauen. Dies hilft Nutzer:innen zu verstehen, welche Eingabeaufforderungen verfügbar sind, und setzt Erwartungen für den Kanal. Erwartungsmanagement kann besonders hilfreich sein, wenn Sie WhatsApp-Kanäle mit Live-Agent-Chat haben.
-- Erstellen Sie im Aktions-Schritt nach den Aktionsgruppen für die benutzerdefinierten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“, aber **aktivieren Sie nicht die Option „Wo der Nachrichtentext“**. Dies fängt alle nicht erkannten Nutzerantworten ab, ähnlich einer „else“-Klausel.
+- Erstellen Sie im Aktions-Schritt nach den Aktionsgruppen für die benutzerdefinierten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“, aber **aktivieren Sie nicht die Option „Where the message body“**. Dies fängt alle nicht erkannten Nutzerantworten ab, ähnlich einer „else“-Klausel.
 - Wir empfehlen, mit einer WhatsApp-Nachricht zu antworten, die die Nutzer:innen darüber informiert, dass dieser Kanal nicht betreut wird, und sie bei Bedarf an einen Support-Kanal weiterzuleiten.
 
 ## Schnellantworten {#quick-replies}
@@ -105,7 +105,7 @@ Sie können WhatsApp-Listennachrichten nur zu aktionsbasierten Canvases hinzufü
 
 #### 2. Schritt: WhatsApp-Nachrichten-Schritt erstellen {#step-2-create-a-whatsapp-message-step}
 
-Fügen Sie einen WhatsApp-[Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) hinzu und wählen Sie dann das Antwortnachrichten-Layout **Listennachricht** aus.
+Fügen Sie einen WhatsApp-[Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu und wählen Sie dann das Antwortnachrichten-Layout **Listennachricht** aus.
 
 ![Eine auswählbare Sammlung der verschiedenen Typen von WhatsApp-Antwortnachrichten, die Sie erstellen können, einschließlich „Listennachricht“.]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ Fügen Sie einen **Listen-Button**-Namen hinzu, den Nutzer:innen auswählen, um 
 
 ![Ziehen eines Listenabschnitts an eine neue Position.]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Fügen Sie im Canvas-Editor nach dem Nachrichten-Schritt einen [Aktions-Pfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) hinzu, der eine Gruppe für jede Listenantwort enthält. In jeder Gruppe:
+Fügen Sie im Canvas-Editor nach dem Nachrichten-Schritt einen [Aktions-Pfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) hinzu, der eine Gruppe für jede Listenantwort enthält. In jeder Gruppe:
 
 1. Fügen Sie einen Trigger für **Eingehende WhatsApp-Abo-Gruppe gesendet** hinzu und wählen Sie die entsprechende WhatsApp-Abo-Gruppe aus.
 2. Aktivieren Sie das Kontrollkästchen **Where the message body**.
@@ -133,9 +133,9 @@ Fahren Sie mit dem Aufbau Ihres Canvas fort.
 
 ### Aktions-Pfade für lange Beschreibungen erstellen {#creating-actions-paths-for-long-descriptions}
 
-Wenn Sie Zeilenbeschreibungen haben, müssen Sie **Matches regex** verwenden, um eine Zeile anzugeben. Wenn Sie beispielsweise eine Zeile mit der Beschreibung „Unser neuer Stil, der über Ihre Lieblings-Stiefeletten passt“ angeben möchten, könnten Sie [Regex]({{site.baseurl}}/user_guide/audience/segments/regex/) mit „Stiefeletten“ verwenden.
+Wenn Sie Zeilenbeschreibungen haben, müssen Sie **Matches regex** verwenden, um eine Zeile anzugeben. Wenn Sie beispielsweise eine Zeile mit der Beschreibung „Unser neuer Stil, der über Ihre Lieblings-Stiefeletten passt“ angeben möchten, könnten Sie [Regex]({{site.baseurl}}/user_guide/audience/segments/regex) mit „Stiefeletten“ verwenden.
 
-![Ein WhatsApp-Trigger, der den Filter „Matches regex“ verwendet, um Antwortnachrichten mit „ankle boots“ zu erfassen.]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
+![Ein WhatsApp-Trigger, der den Filter „Matches regex“ verwendet, um Antwortnachrichten mit „Stiefeletten“ zu erfassen.]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
 ## Überlegungen {#considerations}
 
@@ -146,16 +146,26 @@ Antwortnachrichten müssen innerhalb von 24 Stunden nach Erhalt einer Nutzernach
 Die folgenden Ereignisse schalten Antwortnachrichten frei:
 
 - Eingehende Nachricht
-  - [Aktions-Pfad]({{site.baseurl}}/action_paths/) oder [aktionsbasierter Einstieg]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) mit dem Trigger **Eine eingehende WhatsApp-Nachricht senden**.
+  - [Aktions-Pfad]({{site.baseurl}}/action_paths) oder [aktionsbasierter Einstieg]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit dem Trigger **Eine eingehende WhatsApp-Nachricht senden**.
 
 ![Ein aktionsbasierter Einstiegsschritt mit dem Trigger „Eine eingehende WhatsApp-Nachricht senden“.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [API-getriggerter Einstieg]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [API-getriggerter Einstieg]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - Eingehende Produktnachricht
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)-Event
 
 ![Ein Aktions-Pfad mit dem Trigger eines ausgeführten angepassten Events `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
 
-### Filtern nach einem benutzerdefinierten Zeitattribut {#filtering-by-a-custom-time-attribute}
+### Filtern nach einem angepassten Zeitattribut {#filtering-by-a-custom-time-attribute}
 
-Wenn Ihre aktionsbasierte WhatsApp-Campaign oder Canvas-Zielgruppe von einem benutzerdefinierten Zeitattribut abhängt, das in ein relatives Fenster fällt (z. B. zwischen jetzt und den nächsten 24 Stunden), kombinieren Sie zwei Filter wie unter [Zeit]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time) beschrieben.
+Wenn Ihre aktionsbasierte WhatsApp-Campaign oder Canvas-Zielgruppe von einem angepassten Zeitattribut abhängt, das in ein relatives Fenster fällt (z. B. zwischen jetzt und den nächsten 24 Stunden), kombinieren Sie zwei Filter wie unter [Zeit]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time) beschrieben.
+
+### Speicherung eingehender Medien und URL-Ablauf {#inbound-media-storage-and-url-expiration}
+
+Wenn Nutzer:innen eine WhatsApp-Nachricht mit Medien senden (z. B. ein Bild, eine Audio-Datei oder ein Dokument), speichert Braze diese Medien 30 Tage lang ab dem Zeitpunkt des Nachrichteneingangs in Amazon S3.
+
+Das Liquid-Feld `inbound_media_urls`, das auf die URL dieser Medien verweist, ist jedoch sieben Tage ab dem Zeitpunkt gültig, an dem Braze die eingehende Nachricht empfängt. Da die URL einmalig beim Empfang generiert und nicht erneut erstellt wird, gilt das Sieben-Tage-Fenster unabhängig davon, wann Sie auf das Feld zugreifen. Es gilt die kürzere der beiden Fristen, sodass `inbound_media_urls` in der Praxis als maximal sieben Tage gültig behandelt werden sollte.
+
+{% alert note %}
+Wenn Sie einen `inbound_media_urls`-Wert in einem angepassten Attribut für die spätere Verwendung speichern, beachten Sie diesen Ablauf nach sieben Tagen. Der Versuch, nach Ablauf auf die URL zuzugreifen, führt zu einem defekten Link.
+{% endalert %}

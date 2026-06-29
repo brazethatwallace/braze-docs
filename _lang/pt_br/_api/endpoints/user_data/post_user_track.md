@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # Criar e atualizar usuários {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -62,7 +62,7 @@ Para cada componente de solicitação listado na tabela a seguir, você deve inc
 | `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Opcional | Vetor de objetos de eventos | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Opcional | Vetor de objetos de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Resolução de identificadores {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Cada objeto de solicitação deve incluir pelo menos um identificador. A tabela 
 | --------------- | ----------- | -------- |
 | Primário | `external_id`, `user_alias`, `braze_id` | Usado para busca do perfil de usuário. Apenas um identificador primário é permitido por objeto de solicitação — incluir mais de um faz com que o objeto seja rejeitado. |
 | Secundário | `email`, `phone` | Usado para busca do perfil de usuário **somente** quando nenhum identificador primário está presente. Se tanto `email` quanto `phone` forem incluídos sem um identificador primário, `email` tem precedência. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resolução de identificadores" }
 
 Quando um identificador primário está presente, quaisquer valores de `email` ou `phone` no mesmo objeto de solicitação são tratados como atributos do perfil — não como identificadores para busca de usuário. Por exemplo, se uma solicitação inclui tanto um `external_id` quanto um `email`:
 
@@ -233,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -325,7 +324,7 @@ Os erros a seguir são específicos do endpoint `/users/track` e são retornados
 | `EMAIL_BAD_FORMAT` | O valor fornecido para `email` não é um endereço de e-mail válido. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | O `external_id` excede o comprimento máximo permitido de 987 bytes. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` não é um atributo válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erros específicos do endpoint" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
@@ -359,6 +358,32 @@ Cada objeto de evento no vetor de eventos representa uma única ocorrência de u
 
 Quando um atributo personalizado aninhado contém valores inválidos (como formatos de hora inválidos ou valores nulos), a Braze descarta do processamento todas as atualizações de atributos personalizados aninhados na solicitação. Isso se aplica a todas as estruturas aninhadas dentro desse atributo específico. Para garantir o processamento bem-sucedido, verifique se todos os valores dentro dos atributos personalizados aninhados são válidos antes do envio.
 
+### As solicitações ao `/users/track` são garantidamente processadas em ordem? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+Quando você faz várias chamadas de API separadas ao `/users/track` em rápida sucessão, a Braze não pode garantir que as solicitações sejam processadas na ordem exata em que foram enviadas ou recebidas. Isso ocorre porque a Braze usa processamento assíncrono para maximizar velocidade e flexibilidade.
+
+Por exemplo, se você enviar várias solicitações de atualização para o mesmo usuário em poucos segundos — algumas com valores de atributo nulos e outras com valores válidos — as solicitações contendo valores nulos podem ser processadas após as solicitações com valores válidos, mesmo que tenham sido enviadas antes. Isso pode fazer com que os valores dos atributos pareçam reverter ou não refletir a atualização enviada mais recentemente.
+
+Para evitar condições de corrida ao atualizar dados de usuários:
+
+- **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API, em vez de fazer chamadas consecutivas separadas.
+- **Adicione atrasos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um atraso (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
+- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um atraso para reduzir a chance de resultados fora de ordem.
+
+Para saber mais sobre condições de corrida e práticas recomendadas, consulte [Condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/).
+
+### Por que a resposta do `/users/track` está mais lenta do que eu esperava? {#why-is-my-userstrack-response-slower-than-i-expect}
+
+Chamadas bem-sucedidas ao `/users/track` geralmente são aceitas rapidamente, mas a Braze ainda processa atualizações de atributos, eventos e compras de forma assíncrona. A latência percebida pode aumentar quando as cargas úteis são grandes ou quando o roteamento de rede até o seu [endpoint REST]({{site.baseurl}}/api/basics/#endpoints) é lento. Se você precisar de uma confirmação síncrona por usuário ou de uma ordenação mais rigorosa entre chamadas, consulte [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/) (**beta limitado**).
+
+### Como os limites de taxa afetam o `/users/track`? {#how-do-rate-limits-affect-userstrack}
+
+Quando você se aproxima do seu [limite de taxa](#rate-limit), você recebe respostas `429`. Para respostas que não são `429` em contratos compatíveis, você pode usar os cabeçalhos de resposta `X-RateLimit-*` descritos em [Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau) para verificar quanto da sua janela atual ainda resta.
+
+### Por que recebo `400 Bad Request` com um erro de sintaxe ou análise? {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
+
+Um HTTP `400` com um erro de sintaxe ou análise geralmente significa que o corpo da solicitação não é um JSON válido. Causas comuns incluem vírgulas finais, comentários dentro do JSON, strings com aspas simples, uma chave `{` extra antes da carga útil ou o envio de um corpo que não é JSON enquanto o cabeçalho `Content-Type` é `application/json`. Valide as cargas úteis com um linter de JSON antes de enviar, confirme que seu cliente HTTP codifica objetos em JSON (em vez de concatenar strings brutas) e confirme que o corpo está codificado em UTF-8. Para outras respostas `400` (por exemplo, tamanho da carga útil e limites de objetos por solicitação), consulte [Erros fatais e respostas]({{site.baseurl}}/api/errors/#fatal-errors) e a tabela de [Erros específicos do endpoint](#endpoint-specific-errors) nesta página.
+
 ## Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
 Para clientes com novos preços, os limites de taxa são aplicados no nível da empresa. Os clientes podem definir limites de taxa do espaço de trabalho para limites por hora, mas os limites de burst ainda são compartilhados entre todos os espaços de trabalho.
@@ -368,7 +393,7 @@ Para os clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, We
 - Além do limite por hora, a Braze impõe um limite de burst no número de solicitações que podem ser enviadas a cada três segundos.
 - Cada solicitação pode conter até 75 atualizações combinadas entre objetos de atributo, evento ou compra.
 
-Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Settings** > **APIs and Identifiers** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
+Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Configurações** > **APIs e identificadores** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
 
 ### Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
@@ -379,7 +404,7 @@ Todas as respostas sem limite de taxa (ou seja, que não retornam `429`) contêm
 | `X-RateLimit-Limit`     | O número de solicitações permitidas por período de tempo |
 | `X-RateLimit-Remaining` | O número aproximado de solicitações restantes na janela atual |
 | `X-RateLimit-Reset`     | O número de segundos restantes antes da reinicialização da janela atual |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU" }
 
 Observe que os cabeçalhos `RateLimit-Limit`, `RateLimit-Remaining` e `RateLimit-Reset` não são retornados quando você recebe um erro HTTP `429`. Quando o erro ocorre, esses cabeçalhos são substituídos por um cabeçalho `X-Ratelimit-Retry-After` que retorna um número inteiro indicando o número de segundos antes que você possa voltar a fazer solicitações.
 

@@ -68,6 +68,10 @@ Combinar el soporte existente de balizas o geovallas con nuestras funciones de s
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
 
+## Diferencias entre geovallas y seguimiento de ubicación {#differences-between-geofences-and-location-tracking}
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
+
 ## Preguntas frecuentes {#frequently-asked-questions}
 
 ### ¿Cuándo recopila Braze los datos de ubicación? {#when-does-braze-collect-location-data}

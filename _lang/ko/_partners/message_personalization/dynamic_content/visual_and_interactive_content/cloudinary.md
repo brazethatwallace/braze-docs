@@ -140,8 +140,8 @@ Cloudinary는 [태그](https://cloudinary.com/documentation/assets_onboarding_me
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,15 +149,15 @@ Cloudinary는 [태그](https://cloudinary.com/documentation/assets_onboarding_me
 
 - 오디언스 `internal` 및 로캘 `en`을 가진 사용자를 위한 출력 URL:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - 오디언스 `external` 및 로캘 `es`을 가진 사용자를 위한 출력 URL:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - 대체 이미지 URL:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
@@ -171,7 +171,7 @@ Cloudinary의 [텍스트 오버레이 변환](https://cloudinary.com/documentati
 
 변환 매개변수를 사용하여 자산을 디자인하는 방법에 대한 자세한 안내는 Cloudinary 지원팀에 문의하세요.
 
-### `l_text` 변환 예시 {#example-ltext-transformation}
+### `l_text` 변환 예시 {#example-l_text-transformation}
 
 {% raw %}
 ```bash
@@ -190,7 +190,7 @@ Cloudinary의 [텍스트 오버레이 변환](https://cloudinary.com/documentati
 ```
 {% endraw %}
 
-![바다가 내려다보이는 파란 지붕의 흰색 교회, 이미지 왼쪽 상단에 반투명한 어두운 직사각형 위에 "John Smith"라는 글자가 표시되어 있습니다.]({% image_buster /assets/img/cloudinary/two.png %})
+![바다가 내려다보이는 파란 지붕의 흰색 교회, 이미지 왼쪽 상단에 반투명한 어두운 직사각형 위에 'John Smith'라는 글자가 표시되어 있습니다.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

@@ -7,9 +7,10 @@ layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del punto de conexión Actualizar el estado del grupo de suscripción del usuario de Braze."
 ---
+
 {% api %}
 # Actualizar el estado del grupo de suscripción del usuario {#update-users-subscription-group-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 
@@ -32,6 +33,8 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 {% alert note %}
 Si te interesa utilizar este punto de conexión con [grupos de suscripción de LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Límite de velocidad {#rate-limit}
 
@@ -93,11 +96,11 @@ Esta propiedad no debe utilizarse para actualizar la información del perfil de 
 |---|---|---|---|
 | [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obligatorio | Cadena | El `id` de tu grupo de suscripción. |
 | `subscription_state` | Obligatorio | Cadena | Los valores disponibles son `unsubscribed` (no en el grupo de suscripción) o `subscribed` (en el grupo de suscripción). |
-| `external_id` | Obligatorio* | Matriz de cadenas | El `external_id` del usuario o usuarios, puede incluir hasta 50 `id`s. |
-| `email` | Obligatorio* | Cadena o matriz de cadenas | La dirección de correo electrónico del usuario, se puede pasar como una matriz de cadenas. Debe incluir al menos una dirección de correo electrónico (con un máximo de 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten la misma dirección de correo electrónico, Braze actualiza a todos los usuarios que comparten la dirección de correo electrónico con los cambios del grupo de suscripción. |
-| `phone` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | El número de teléfono del usuario, puede pasarse como una matriz de cadenas. Debe incluir al menos un número de teléfono (hasta 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten el mismo número de teléfono, Braze actualiza a todos los usuarios que comparten el número de teléfono con los mismos cambios de grupo de suscripción. |
+| `external_id` | Obligatorio* | Matriz de cadenas | El `external_id` del usuario o usuarios; puede incluir hasta 50 `id`s. |
+| `email` | Obligatorio* | Cadena o matriz de cadenas | La dirección de correo electrónico del usuario; se puede pasar como una matriz de cadenas. Debe incluir al menos una dirección de correo electrónico (con un máximo de 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten la misma dirección de correo electrónico, Braze actualiza a todos los usuarios que comparten la dirección de correo electrónico con los cambios del grupo de suscripción. |
+| `phone` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | El número de teléfono del usuario; puede pasarse como una matriz de cadenas. Debe incluir al menos un número de teléfono (hasta 50). <br><br>Si varios usuarios (`external_id`) del mismo espacio de trabajo comparten el mismo número de teléfono, Braze actualiza a todos los usuarios que comparten el número de teléfono con los mismos cambios de grupo de suscripción. |
 | `use_double_opt_in_logic` | Opcional | Booleano | Se aplica solo a grupos de suscripción SMS; se ignora para correo electrónico y otros tipos de grupos de suscripción. El valor predeterminado es `false` si se omite. Para grupos de suscripción SMS, establécelo en `true` para que el usuario entre en el flujo de trabajo de [doble adhesión voluntaria de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) cuando su estado de suscripción se establezca en `subscribed`. Los usuarios que entran en el flujo de trabajo de doble adhesión voluntaria de esta manera reciben como máximo un mensaje de respuesta de adhesión voluntaria por día, independientemente del número de veces que entren en el flujo de trabajo. Si este parámetro se omite o se establece en `false`, los usuarios se suscriben sin entrar en el flujo de trabajo de doble adhesión voluntaria. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplos de solicitudes {#example-requests}
 
@@ -141,8 +144,14 @@ El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
+## Solución de problemas de fallos de actualización intermitentes {#troubleshooting-intermittent-update-failures}
+
+Si las actualizaciones de grupos de suscripción fallan de forma intermitente o parecen estar desincronizadas, espera varios minutos entre las solicitudes de actualización o llama a [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) para confirmar el estado del usuario antes de enviar otra actualización.
+
 {% alert important %}
 El punto de conexión solo acepta el valor `email` o `phone`, no ambos. Si proporcionas ambos, recibirás esta respuesta: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
+
+Para que tu actualización de suscripción se aplique a los números de teléfono, confirma que enviaste números de teléfono en formato E.164 (por ejemplo, `+15555550123`), que utilizaste el `subscription_group_id` correcto y que pasaste `phone` (no `phone` y `email` a la vez) en el mismo cuerpo de la solicitud. Para actualizaciones de varios números, utiliza el formato de matriz `phone` que se muestra en [SMS y RCS](#sms-and-rcs).
 
 {% endapi %}

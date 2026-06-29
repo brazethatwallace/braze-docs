@@ -22,7 +22,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 {% endalert %}
 
 {% alert tip %}
-[未加工のテーブルスキーマ]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df)をこちらからダウンロードするか、Snowflakeマーケットプレイスで入手可能な[サンプルイベントデータ](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset)セットを使用して、共有されるイベントに慣れることができます。
+[未加工のテーブルスキーマ](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)をダウンロードするか、Snowflakeマーケットプレイスで入手可能な[サンプルイベントデータ](https://app.snowflake.com/marketplace/listing/GZT0Z5I4XY0/braze-braze-user-event-demo-dataset)セットを使用して、共有されるイベントに慣れることができます。
 {% endalert %}
 
 ## 重複イベントの処理 {#handling-duplicate-events}
@@ -50,7 +50,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 
 ## SNAPSHOTSテーブルとCHANGELOGSテーブルが更新されるタイミング {#when-snapshots-and-changelogs-tables-are-updated}
 
-SNAPSHOTSテーブルとCHANGELOGSテーブルは、CampaignsとCanvasesの変更を追跡します。これらのテーブルがいつ更新されるかを理解することは、最新のメッセージバリエーションやCanvas設定をクエリする際に重要です。
+SNAPSHOTSテーブルとCHANGELOGSテーブルは、CampaignとCanvasの変更を追跡します。これらのテーブルがいつ更新されるかを理解することは、最新のメッセージバリエーションやCanvas設定をクエリする際に重要です。
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 

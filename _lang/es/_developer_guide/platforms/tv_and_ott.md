@@ -39,6 +39,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <th>Notificaciones push</th>
             <th>Canvas</th>
             <th>Conmutadores de características</th>
+            <th>Banners</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Kindle Fire</td>
@@ -59,6 +61,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Android TV</td>
@@ -68,6 +71,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>LG TV (webOS)</td>
@@ -77,6 +81,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push">N/A</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
@@ -86,6 +91,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push">N/A</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Roku</td>
@@ -95,6 +101,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push">N/A</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-times text-warning"></i></td>
         </tr>
         <tr>
             <td>Apple TV OS</td>
@@ -104,6 +111,7 @@ A continuación se enumeran las características y los canales de mensajería ad
             <td for="push"><i class="fa-solid fa-minus"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
        <tr>
           <td>Apple Vision Pro</td>
@@ -113,6 +121,7 @@ A continuación se enumeran las características y los canales de mensajería ad
           <td for="push"><i class="fa-solid fa-minus"></i></td>
           <td for="canvas"><i class="fas fa-check text-success"></i></td>
           <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+          <td for="banners"><i class="fas fa-check text-success"></i></td>
       </tr>
     </tbody>
 </table>
@@ -137,6 +146,8 @@ Entre sus características se incluyen:
 - Conmutadores de características
 - Mensajes dentro de la aplicación
   - Para mostrar mensajes HTML en entornos no táctiles como televisores, configura `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` en `false` (disponible a partir de [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu aplicación Fire TV.
 
 Para más información, visita la [guía de integración de Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -151,6 +162,8 @@ Entre sus características se incluyen:
 - Content Cards
 - Conmutadores de características
 - Mensajes dentro de la aplicación
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu Kindle Fire.
 
 Para más información, visita la [guía de integración de Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -167,6 +180,8 @@ Entre sus características se incluyen:
   - Para mostrar mensajes HTML en entornos no táctiles como televisores, configura `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` en `false` (disponible a partir de [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Notificaciones push (requiere integración manual)
   - Las notificaciones push no son compatibles de forma nativa con Android TV. Para saber por qué, consulta las [directrices de diseño](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) de Google. Sin embargo, puedes **hacer una integración manual de la interfaz de usuario de notificaciones push para conseguirlo**. Consulta nuestra [documentación]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv) sobre cómo configurarlo.
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu aplicación Android TV.
 
 Para más información, visita la [guía de integración del SDK de Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -184,6 +199,8 @@ Entre sus características se incluyen:
 - Content Cards (a través de [Headless UI](#custom-ui))
 - Conmutadores de características
 - Mensajes dentro de la aplicación (mediante [Headless UI](#custom-ui))
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu aplicación webOS.
 
 Para más información, visita la [guía de integración de Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -197,6 +214,8 @@ Entre sus características se incluyen:
 - Content Cards (a través de [Headless UI](#custom-ui))
 - Conmutadores de características
 - Mensajes dentro de la aplicación (mediante [Headless UI](#custom-ui))
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu aplicación Tizen.
 
 Para más información, visita la [guía de integración de Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -226,6 +245,8 @@ Entre sus características se incluyen:
   - Las vistas web no son compatibles con la plataforma tvOS, por lo que los mensajes HTML dentro de la aplicación tampoco son compatibles.
   - Consulta nuestra [aplicación de ejemplo](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) para saber más sobre cómo utilizar Headless UI para mensajería personalizada en tvOS.
 - Notificaciones push silenciosas y actualización de insignias
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu aplicación tvOS.
 
 Para obtener más información, visita la [guía de integración del SDK Swift de iOS](https://github.com/braze-inc/braze-swift-sdk).
 
@@ -243,11 +264,13 @@ Utiliza el SDK Swift de Braze para integrarte con visionOS. La mayoría de las c
 - Notificaciones push (visibles para el usuario con botones de acción y notificaciones silenciosas)
 - Conmutadores de características
 - Análisis de ubicación
+- Banners
+  - Usa las [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para insertar mensajes directamente en tu aplicación visionOS.
 
 Para obtener más información, visita la [guía de integración del SDK Swift de iOS](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Algunas características de iOS son parcialmente compatibles o no compatibles. Para ver la lista completa, consulta la [compatibilidad con visionOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Algunas características de iOS son parcialmente compatibles o no compatibles. Para ver la lista completa, consulta la [compatibilidad con visionOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/).
 {% endalert %}
 
 ## Segmentación por aplicaciones {#app-targeting}

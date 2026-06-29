@@ -19,8 +19,6 @@ Um auf den Landing-Page-Builder zugreifen zu können, benötigen Sie [bestimmte 
 
 Gehen Sie zu **Messaging** > **Landing Pages** und wählen Sie **Create landing page**. Sie können auch den Namen einer bestehenden Landing-Page auswählen, um diese zu duplizieren oder Änderungen vorzunehmen.
 
-![Der Bereich „Landing Pages“ im Braze-Dashboard.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
-
 ### 2. Schritt: Seitendetails eingeben {#step-2-enter-the-page-details}
 
 Fügen Sie interne und öffentlich sichtbare Details hinzu, die Ihnen helfen, Ihre Landing-Page zu organisieren, zu branden und zu teilen.
@@ -68,11 +66,11 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
 | Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Die Seite anpassen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Die Seite anpassen" }
 
-##### Span-Text {#span-text}
+#### Span-Text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Formularblöcke %}
@@ -89,7 +87,7 @@ Mit diesen Blöcken können Sie ein Formular erstellen, das von Nutzer:innen üb
 | Dropdown | Nutzer:innen können einen Eintrag aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen aktivieren, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht aktiviert wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formularblöcke" }
 
 {% alert important %}
 Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.
@@ -158,7 +156,7 @@ Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlic
 
 ## Templates verwenden {#using-templates}
 
-Verwenden Sie Landing-Page-Templates, um Templates für Ihre nächsten Campaigns zu erstellen. Diese Templates können sowohl im Landing-Page-Editor als auch im Bereich **Templates** des Dashboards (**Templates** > **Landing Page Templates**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und optional eine Beschreibung.
+Verwenden Sie Landing-Page-Templates, um Templates für Ihre nächsten Campaigns zu erstellen. Diese Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing Page Templates** (**Content** > **Landing Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und optional eine Beschreibung.
 
 ## Templates verwalten {#managing-templates}
 

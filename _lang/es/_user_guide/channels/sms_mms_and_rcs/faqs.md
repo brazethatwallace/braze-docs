@@ -15,17 +15,17 @@ channel:
 
 > Este artículo responde a las preguntas más frecuentes sobre la mensajería SMS, MMS y RCS.
 
-## General
+## General {#general}
 
-### ¿Qué es un `app_id` en el objeto de API de SMS? {#what-is-an-appid-in-the-sms-api-object}
+### ¿Qué es un `app_id` en el objeto de API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
 
 La clave de API del identificador de aplicación o `app_id` es un parámetro que asocia la actividad con una aplicación específica en tu espacio de trabajo. Designa con qué aplicación dentro del espacio de trabajo estás interactuando. Por ejemplo, tendrás un `app_id` para tu aplicación iOS, un `app_id` para tu aplicación Android y un `app_id` para tu integración web.
 
-Puedes encontrar tu `app_id` navegando a **Settings** > **App Settings** y localizando la sección **Identification**.
+Puedes encontrar tu `app_id` navegando a **Configuración** > **Configuración de la aplicación** y localizando la sección **Identification**.
 
 ### ¿Qué ocurre si varios usuarios tienen el mismo número de teléfono? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
-Cuando varios perfiles de usuario que comparten un número de teléfono (habilitado para SMS) son elegibles para una Campaign basada en acciones o un componente de Canvas al mismo tiempo, desencadenados por el evento de un SMS entrante, Braze deduplicará a los usuarios a nivel del componente de Canvas. Esto evitará que los usuarios reciban más de un mensaje de texto SMS por componente de Canvas, incluso si varios usuarios comparten el mismo número de teléfono.
+Cuando varios perfiles de usuario que comparten un número de teléfono (habilitado para SMS) son elegibles para una campaña basada en acciones o un componente de Canvas al mismo tiempo, desencadenados por el evento de un SMS entrante, Braze deduplicará a los usuarios a nivel del componente de Canvas. Esto evitará que los usuarios reciban más de un mensaje de texto SMS por componente de Canvas, incluso si varios usuarios comparten el mismo número de teléfono.
 
 {% alert note %}
 Braze no deduplica por número de teléfono para Canvas planificados.
@@ -58,7 +58,7 @@ Algunas desventajas de este enfoque incluyen:
 
 ### ¿Cómo se me facturará por SMS? {#how-will-i-be-billed-for-sms}
 
-Además de los cargos por códigos abreviados y largos, Braze proporciona una asignación de mensajes SMS para diferentes países. Es decir, trabajamos contigo para establecer un número determinado de segmentos de mensaje para diferentes países, que utilizarás para enviar Campaigns de SMS. La facturación se realiza por el número de segmentos de mensaje enviados por país. Para obtener más información sobre cómo se calculan los segmentos de mensaje, consulta nuestra guía de [Segmentos de mensaje y límites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Tu director de cuentas se pondrá en contacto contigo para informarte si estás cerca de alcanzar tu máximo, proporcionando informes relevantes para mantenerte informado. Para más preguntas sobre excedentes, ponte en contacto con tu representante de Braze.
+Además de los cargos por códigos abreviados y largos, Braze proporciona una asignación de mensajes SMS para diferentes países. Es decir, trabajamos contigo para establecer un número determinado de segmentos de mensaje para diferentes países, que utilizarás para enviar campañas de SMS. La facturación se realiza por el número de segmentos de mensaje enviados por país. Para obtener más información sobre cómo se calculan los segmentos de mensaje, consulta nuestra guía de [Segmentos de mensaje y límites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Tu director de cuentas se pondrá en contacto contigo para informarte si estás cerca de alcanzar tu máximo, proporcionando informes relevantes para mantenerte informado. Para más preguntas sobre excedentes, ponte en contacto con tu representante de Braze.
 
 ### ¿Los precios de MMS y SMS son diferentes? {#does-mms-and-sms-pricing-differ}
 
@@ -69,9 +69,9 @@ MMS y SMS tienen costos diferentes y se cobran por separado según el volumen. P
 Aunque no podemos prometer que no tendrás un excedente ocasionalmente, puedes seguir estas precauciones para disminuir las posibilidades de superar tus límites asignados:
 
 - Presta atención al número de caracteres en tu SMS. Enviar involuntariamente más de un segmento puede causar excedentes. Para más detalles, consulta nuestro [desglose de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
-- Calcula cuidadosamente los caracteres de tu SMS para tener en cuenta Liquid o contenido conectado. El compositor de SMS de Braze en tu dashboard no estima ni tiene en cuenta el uso de ninguna de estas características.
+- Calcula cuidadosamente los caracteres de tu SMS para tener en cuenta Liquid o Contenido conectado. El compositor de SMS de Braze en tu dashboard no estima ni tiene en cuenta el uso de ninguna de estas características.
 - Considera el tipo de codificación que utiliza tu mensaje: si tu mensaje usa codificación GSM-7, generalmente puedes estimar que puedes enviar un mensaje con 128 caracteres por segmento de mensaje. Si tu mensaje usa codificación [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), generalmente puedes estimar que puedes enviar un mensaje con 67 caracteres por segmento de mensaje.
-- ¡Prueba, prueba y prueba! Siempre prueba tus mensajes SMS antes del lanzamiento, especialmente cuando uses Liquid y contenido conectado.
+- ¡Prueba, prueba y prueba! Siempre prueba tus mensajes SMS antes del lanzamiento, especialmente cuando uses Liquid y Contenido conectado.
 
 ### Si se envía un mensaje a un teléfono fijo, ¿el mensaje seguirá contando para mi recuento de envíos de SMS? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
 
@@ -90,7 +90,7 @@ Es posible que se te cobren segmentos de mensaje adicionales si tienes personali
 
 ### ¿Se pueden incluir enlaces en un SMS? {#can-you-include-links-in-an-sms}
 
-Puedes incluir cualquier enlace en cualquier Campaign de SMS que desees. Sin embargo, hay algunas consideraciones a tener en cuenta:
+Puedes incluir cualquier enlace en cualquier campaña de SMS que desees. Sin embargo, hay algunas consideraciones a tener en cuenta:
 
 - Los enlaces pueden ocupar gran parte del límite de 160 caracteres para SMS. Si incluyes un enlace y texto, puede resultar en dos mensajes SMS en lugar de solo uno.
 - Las empresas a menudo usan acortadores de enlaces para limitar el impacto en el recuento de caracteres de un enlace. Sin embargo, si envías un enlace acortado a través de un código largo, los operadores pueden bloquear o rechazar el mensaje, ya que pueden sospechar de la redirección del enlace.
@@ -144,7 +144,7 @@ Sí, así es. Ten esto en cuenta al probar mensajes.
 
 ### ¿Un usuario necesita ser parte de un grupo de suscripción de SMS para recibir mensajes de prueba de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Sí, así es. Los usuarios deben tener un número de teléfono válido y ser parte del grupo de suscripción de SMS utilizado para el envío de prueba.
+Sí, así es. Los usuarios deben tener un número de teléfono válido, ser parte del grupo de suscripción de SMS utilizado para el envío de prueba y tener al menos un país seleccionado en **Geographic Permissions** para SMS.
 
 ### ¿Hay alguna forma de ver si existe un alias en un perfil de usuario? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
@@ -166,7 +166,7 @@ Braze no tiene control sobre el orden de visualización cuando se incluyen tanto
 
 ### ¿MMS requiere un proceso de incorporación separado? {#does-mms-require-a-separate-onboarding-process}
 
-No. MMS ahora está incluido en nuestro proceso de incorporación de SMS. Los clientes existentes que ya pasaron por la incorporación pueden comenzar a enviar Campaigns de MMS después de completar los siguientes pasos:
+No. MMS ahora está incluido en nuestro proceso de incorporación de SMS. Los clientes existentes que ya pasaron por la incorporación pueden comenzar a enviar campañas de MMS después de completar los siguientes pasos:
 
 1. Comprar MMS.
 2. Ponerse en contacto con el equipo de incorporación de Braze para solicitar que se active la función de MMS. Esto habilitará MMS y se creará o actualizará un grupo de suscripción de SMS/MMS para ti.
@@ -181,6 +181,23 @@ Además, ciertas situaciones requerirán que Twilio vuelva a aprobar la habilita
 
 ## RCS
 
+### ¿Por qué mi mensaje RCS no se muestra correctamente en dispositivos iOS? {#why-doesnt-my-rcs-message-render-accurately-on-ios-devices}
+
+Los mensajes RCS pueden mostrarse de forma diferente en un dispositivo iOS dependiendo del sistema operativo y la aplicación de mensajería. En dispositivos iOS, pueden ocurrir los siguientes comportamientos:
+
+- Las acciones sugeridas de diferentes mensajes RCS en el mismo hilo de conversación pueden agruparse y mostrarse en el orden incorrecto.
+- Los botones de tarjetas enriquecidas y las acciones sugeridas que están fuera de la tarjeta enriquecida pueden permanecer visibles incluso después de tocar un botón de tarjeta enriquecida o una acción sugerida.
+
+{% alert note %}
+Braze envía la carga útil de RCS que compones, mientras que el cliente de mensajería controla cómo se ordenan, agrupan y ocultan las acciones sugeridas. Asegúrate de probar los mensajes RCS, especialmente aquellos que usan tarjetas enriquecidas con acciones sugeridas o respuestas sugeridas, tanto en dispositivos Android como iOS antes de enviarlos.
+{% endalert %}
+
 ### ¿Puedo enviar mensajes de voz pregrabados con RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 Sí, puedes usar mensajes multimedia para admitir archivos de audio.
+
+### ¿Por qué las adhesiones voluntarias por REST API de SMS no coinciden con el **Total de adhesiones voluntarias** en el rendimiento de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+El **Total de adhesiones voluntarias** y el **Total de cancelaciones de suscripción** en el dashboard de [rendimiento de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards/) cuentan los cambios de suscripción impulsados por el manejo de palabras clave de SMS entrantes (por ejemplo, un usuario que envía una palabra clave de adhesión voluntaria a tu código abreviado). No incluyen todas las actualizaciones de suscripción realizadas a través de la REST API, el dashboard u otras fuentes.
+
+Para analizar las adhesiones voluntarias y las cancelaciones de suscripción por fuente, usa el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) en `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` y filtra por `STATE_CHANGE_SOURCE` (por ejemplo, **Rest API** frente a **Inbound Message**).

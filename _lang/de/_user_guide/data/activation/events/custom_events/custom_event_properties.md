@@ -85,9 +85,7 @@ Event-Eigenschaften für angepasste Events werden in Realtime für jedes Segment
 
 #### Event-Eigenschaften für die Segmentierung hinzufügen {#adding-event-properties-for-segmentation}
 
-Sie benötigen die [Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) „Edit Custom Event Property Segmentation“, um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
-
-{% multi_lang_include deprecations/user_permissions.md %}
+Sie benötigen die Nutzerberechtigung „Edit Custom Event Property Segmentation“ ([Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage)), um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
 
 Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Kontaktieren Sie Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 
@@ -115,7 +113,7 @@ In Bezug auf die Abo-Nutzung werden angepasste Event-Eigenschaften, die für die
 
 ### Canvas-Eingangs-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Verschachtelte Objekte {#nested-objects}
 

@@ -105,7 +105,7 @@ WhatsAppリストメッセージは、ユーザーメッセージへの応答と
 
 #### ステップ 2: WhatsAppメッセージステップを作成する {#step-2-create-a-whatsapp-message-step}
 
-WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加し、応答メッセージレイアウトとして**リストメッセージ**を選択します。
+WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加し、応答メッセージレイアウトとして**リストメッセージ**を選択します。
 
 ![「リストメッセージ」を含む、作成可能なさまざまなタイプのWhatsApp応答メッセージの選択可能なコレクション。]({% image_buster /assets/img/whatsapp/list_message_option.png %}){: style="max-width:70%;"}
 
@@ -121,7 +121,7 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 
 ![リストセクションを新しい位置にドラッグしている様子。]({% image_buster /assets/img/whatsapp/drag_list_order.png %}){: style="max-width:60%;"}
 
-Canvasコンポーザーに戻り、メッセージステップの後に各リスト応答のグループを持つ[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)を追加します。各グループで:
+Canvasコンポーザーに戻り、メッセージステップの後に各リスト応答のグループを持つ[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を追加します。各グループで:
 
 1. **受信WhatsAppサブスクリプショングループを送信**のトリガーを追加し、該当するWhatsAppサブスクリプショングループを選択します。
 2. **メッセージ本文の条件**チェックボックスをオンにします。
@@ -133,7 +133,7 @@ Canvasの構築を続けてください。
 
 ### 長い説明のアクションパスを作成する {#creating-actions-paths-for-long-descriptions}
 
-行の説明がある場合は、**正規表現に一致**を使用して行を指定する必要があります。たとえば、「お気に入りのアンクルブーツの上に履ける新しいスタイル」という説明の行を指定したい場合、「ankle boots」で[正規表現]({{site.baseurl}}/user_guide/audience/segments/regex/)を使用できます。
+行の説明がある場合は、**正規表現に一致**を使用して行を指定する必要があります。たとえば、「お気に入りのアンクルブーツの上に履ける新しいスタイル」という説明の行を指定したい場合、「ankle boots」で[正規表現]({{site.baseurl}}/user_guide/audience/segments/regex)を使用できます。
 
 ![「ankle boots」を含む応答メッセージをキャプチャするための「正規表現に一致」フィルターを使用したWhatsAppトリガー。]({% image_buster /assets/img/whatsapp/regex_list_message.png %})
 
@@ -146,11 +146,11 @@ Canvasの構築を続けてください。
 以下のイベントが応答メッセージのブロックを解除します:
 
 - 受信メッセージ
-  - トリガー**WhatsApp受信メッセージを送信**を持つ[アクションパス]({{site.baseurl}}/action_paths/)または[アクションベースのエントリ]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)。
+  - トリガー**WhatsApp受信メッセージを送信**を持つ[アクションパス]({{site.baseurl}}/action_paths)または[アクションベースのエントリ]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)。
 
 ![トリガー「WhatsApp受信メッセージを送信」を持つアクションベースのエントリステップ。]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
-- [APIトリガーエントリ]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)
+- [APIトリガーエントリ]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)
 - 受信製品メッセージ
   - [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)イベント
 
@@ -158,4 +158,14 @@ Canvasの構築を続けてください。
 
 ### カスタム時間属性によるフィルタリング {#filtering-by-a-custom-time-attribute}
 
-アクションベースのWhatsApp CampaignまたはCanvasのオーディエンスがカスタム時間属性の相対的な時間枠内（たとえば、現在から次の24時間の間）に依存している場合は、[時間]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/#time)で説明されているように2つのフィルターを組み合わせてください。
+アクションベースのWhatsApp CampaignまたはCanvasのオーディエンスがカスタム時間属性の相対的な時間枠内（たとえば、現在から次の24時間の間）に依存している場合は、[時間]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time)で説明されているように2つのフィルターを組み合わせてください。
+
+### 受信メディアの保存とURLの有効期限 {#inbound-media-storage-and-url-expiration}
+
+ユーザーがメディア（画像、オーディオファイル、ドキュメントなど）を含むWhatsAppメッセージを送信した場合、Brazeはそのメディアをメッセージ受信時から30日間Amazon S3に保存します。
+
+ただし、そのメディアのURLを参照する`inbound_media_urls` Liquidフィールドは、Brazeが受信メッセージを受け取った時点から7日間有効です。URLは受信時に一度生成され、再生成されないため、フィールドにアクセスするタイミングに関係なく7日間の有効期間が適用されます。2つの制限のうち短い方が適用されるため、実際には`inbound_media_urls`は最大7日間有効として扱う必要があります。
+
+{% alert note %}
+`inbound_media_urls`の値を後で使用するためにユーザーカスタム属性に保存する場合は、この7日間の有効期限に注意してください。有効期限が切れた後にURLにアクセスしようとすると、リンク切れになります。
+{% endalert %}

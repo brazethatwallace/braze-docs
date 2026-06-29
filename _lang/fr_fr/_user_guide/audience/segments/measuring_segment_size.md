@@ -30,9 +30,13 @@ Pour qu'un utilisateur soit répertorié comme pouvant être atteint via un cert
 
 Un même utilisateur peut appartenir à différents groupes d'utilisateurs pouvant être atteints. Par exemple, un utilisateur peut avoir à la fois une adresse e-mail valide et un jeton de notification push Android valide et avoir accepté les deux, mais ne pas avoir de jeton de notification push iOS associé. L'écart entre le nombre total d'utilisateurs pouvant être atteints et la somme des différents canaux correspond au nombre d'utilisateurs qui remplissent les critères du segment mais qui ne sont pas joignables via ces canaux de communication.
 
+{% alert note %}
+Le **nombre total d'utilisateurs pouvant être atteints** inclut tous les utilisateurs correspondant aux filtres de votre segment, même s'ils ne sont plus abonnés à un canal. Les lignes de canaux telles que **iOS** comptent les utilisateurs joignables uniquement sur ce canal selon les règles décrites dans [Utilisateurs pouvant être atteints par canal](#reachable-users-by-channel). Pour aligner les totaux du segment avec les utilisateurs abonnés, ajoutez des filtres comme **Push enabled for iOS** est vrai (ou l'équivalent pour votre canal).
+{% endalert %}
+
 ## Statistiques sur la taille du segment {#statistics-for-segment-size}
 
-Les statistiques estimées sont approximées en échantillonnant uniquement une partie de votre segment, vous devez donc vous attendre à voir des tailles estimées supérieures ou inférieures à la valeur réelle, les espaces de travail plus importants présentant potentiellement des marges d'erreur plus grandes. Pour obtenir un décompte précis des utilisateurs dans votre segment, sélectionnez **Calculate Exact Statistics**. L'appartenance exacte au segment sera toujours calculée avant qu'un segment ne soit affecté par un message envoyé dans une campagne ou un Canvas.
+Les statistiques estimées sont approximées en échantillonnant uniquement une partie de votre segment. Vous devez donc vous attendre à voir des tailles estimées supérieures ou inférieures à la valeur réelle, les espaces de travail plus importants présentant potentiellement des marges d'erreur plus grandes. Pour obtenir un décompte précis des utilisateurs dans votre segment, sélectionnez **Calculate Exact Statistics**. L'appartenance exacte au segment sera toujours calculée avant qu'un segment ne soit affecté par un message envoyé dans une campagne ou un Canvas.
 
 Braze fournit les statistiques suivantes sur la taille des segments.
 
@@ -108,7 +112,6 @@ Braze donne la priorité à un calcul à la fois par espace de travail, donc l'e
 
 Vous pouvez annuler un calcul de statistiques exactes en sélectionnant **Cancel**. Cela peut être utile s'il y a plusieurs calculs dans la file d'attente et que vous souhaitez donner la priorité à un autre calcul.
 
-![Un calcul actif avec l'option d'annulation]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## Consulter l'historique de la taille d'appartenance au segment {#viewing-historical-segment-membership-size}
 
@@ -138,4 +141,4 @@ Le décompte d'appartenance peut changer de manière significative pour plusieur
 | Des utilisateurs sont supprimés | Un nombre significatif d'utilisateurs a été supprimé. |
 | Une intégration partenaire s'est synchronisée avec Braze | Un tiers a envoyé des données à Braze qui ont significativement influencé l'appartenance au segment. |
 | Des utilisateurs dormants sont archivés | Un nombre significatif de profils inactifs a été archivé. Par exemple, un grand nombre d'utilisateurs importés par CSV n'enregistrent jamais d'activité et sont archivés en même temps. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Raisons des changements significatifs" }
+{: .reset-td-br_1 .reset-td-br-2 aria-label="Raisons des changements significatifs" }

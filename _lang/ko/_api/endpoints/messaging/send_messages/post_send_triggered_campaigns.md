@@ -9,8 +9,8 @@ description: "이 문서에서는 API 트리거 전송을 사용하여 캠페인
 
 ---
 {% api %}
-# API 트리거 전송을 사용하여 캠페인 메시지 보내기 {#send-campaign-messages-using-api-triggered-delivery}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+# API 트리거 전송을 사용하여 Campaign 메시지 보내기 {#send-campaign-messages-using-api-triggered-delivery}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/)를 참조하세요. `audience`를 포함하면, 커스텀 속성 및 구독 상태와 같은 정의된 필터와 일치하는 사용자에게만 메시지가 전송됩니다. |
 | `recipients` | 선택 사항 | 배열 | [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object/)를 참조하세요.<br><br>`send_to_existing_only`가 `false`인 경우 `attributes` 오브젝트를 포함해야 합니다.<br><br>중첩된 `attributes` 오브젝트에 `subscription_groups`를 포함하여 사용자의 구독 그룹 상태를 업데이트할 수 있습니다. 자세한 내용은 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/)를 참조하세요.<br><br>`recipients`가 제공되지 않고 `broadcast`가 true로 설정된 경우, Braze 대시보드에서 Campaign의 타겟 오디언스로 구성된 전체 Segment에 메시지가 전송됩니다.<br><br>`email`이 식별자인 경우 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)을 포함해야 합니다. |
 | `attachments` | 선택 사항 | 배열 | `broadcast`가 true로 설정되어 있으면 `attachments` 목록을 포함할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 수신자 확인 동작 {#recipient-resolution-behavior}
 
@@ -114,6 +114,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 - `prioritization`이 정확히 하나의 고객 프로필을 반환하지 않으면, Braze는 최대 40회까지 확인을 재시도합니다. 이 재시도 동작은 예상된 것입니다.
 - `send_to_existing_only` 설정은 `prioritization` 동점 동작을 변경하지 않습니다. 이 설정이 `true`이든 `false`이든 동일한 동점 및 재시도 동작이 적용됩니다.
+
+`external_user_id` 또는 `user_alias`로 식별된 수신자에 대해 이메일 전용 Campaign을 트리거했는데, 해당 고객 프로필에 호출 시점에 이메일 주소가 없는 경우, Braze는 약 2시간 동안 전송을 재시도합니다. 이는 사용자를 생성하고 이메일 주소를 연속적으로 설정하는 일반적인 패턴을 처리합니다. 지연 없이 전송하려면, `recipients[].attributes` 내에 `email` 속성을 포함하여 트리거와 동일한 호출에서 주소를 설정하세요.
 
 {% alert note %}
 이 엔드포인트에서는 `segment_id` 매개변수가 지원되지 않습니다. Segment를 타겟팅하려면, Braze 대시보드에서 Campaign의 타겟 오디언스 설정에서 Segment를 구성하고 `"broadcast": true`를 사용하거나, [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/) 필터와 함께 `audience` 매개변수를 사용하세요.
@@ -201,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 
 ## 응답 세부 정보 {#response-details}
 
-메시지 전송 엔드포인트 응답에는 메시지 발송을 참조할 수 있도록 메시지의 `dispatch_id`가 포함됩니다. `dispatch_id`는 메시지 발송의 ID로, Braze에서 전송하는 각 전송에 대한 고유 ID입니다. 이 엔드포인트를 사용하면 전체 배치 사용자 집합에 대해 단일 `dispatch_id`를 받게 됩니다. `dispatch_id`에 대한 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/help/help_articles/data/dispatch_id/) 설명서를 참조하세요.
+메시지 전송 엔드포인트 응답에는 메시지 발송을 참조할 수 있도록 메시지의 `dispatch_id`가 포함됩니다. `dispatch_id`는 메시지 발송의 ID로, Braze에서 전송하는 각 전송에 대한 고유 ID입니다. 이 엔드포인트를 사용하면 전체 배치 사용자 집합에 대해 단일 `dispatch_id`를 받게 됩니다. `dispatch_id`에 대한 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) 설명서를 참조하세요.
 
 요청에 심각한 오류가 발생하면 오류 코드와 설명은 [오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
 

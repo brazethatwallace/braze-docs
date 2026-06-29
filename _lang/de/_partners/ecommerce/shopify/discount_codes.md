@@ -20,7 +20,7 @@ Dies ist eine von der Community eingereichte Integration, die nicht direkt von B
 | --- | --- |
 | Einen Shopify-Shop einrichten | Bestätigen Sie, dass Sie bereits [einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_overview/) haben. |
 | Die App Bulk Discount Code Bot installieren | Laden Sie die App [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) im Shopify App Store herunter. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
 ## Eindeutige Rabattcodes generieren {#generating-unique-discount-codes}
 
@@ -85,9 +85,9 @@ Wenn ein Rabattcode in mehreren Schritten desselben Canvas oder in separaten Cam
 
 {% enddetails %}
 
-[1]: {% image_buster /assets/img/Shopify/configure_discount_codes.png %}
-[2]: {% image_buster /assets/img/Shopify/export_discount_codes.png %}
-[3]: {% image_buster /assets/img/Shopify/edited_codes_csv.png %}
-[4]: {% image_buster /assets/img/Shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/Shopify/liquid_promo_code.gif %}
-[6]: {% image_buster /assets/img/Shopify/user_update_step.png %}
+[1]: {% image_buster /assets/img/shopify/configure_discount_codes.png %}
+[2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
+[3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
+[4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
+[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
+[6]: {% image_buster /assets/img/shopify/user_update_step.png %}

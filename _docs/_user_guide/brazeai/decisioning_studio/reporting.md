@@ -21,8 +21,6 @@ Before you can view Decisioning Studio reports in the Braze, you must:
 
 To view metrics for a Decisioning Studio agent in Braze, go to **AI Decisioning** > **BrazeAI Decisioning Studio™**, then select an agent.
 
-![BrazeAI Decisioning Studio™ reporting home screen showing a dashboard with multiple report cards. Each card displays a report type such as Performance, Insights, Diagnostics, and Timeline, with brief descriptions and icons for each.]({% image_buster /assets/img/decisioning_studio/reporting_home.png %})
-
 Here, you can view reports like performance, insights, diagnostics, and timelines. For more details, see [Available reports](#available-reports).
 
 ## Change report dates
@@ -39,7 +37,7 @@ To set or exclude dates, select <i class="fa-solid fa-gear"></i> **Settings**, t
 
 ## Available reports {#available-reports}
 
-- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/): High-level agent metrics that compare treatment groups to control groups, with **Trending** and **Driver Tree** views.
-- [Insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/): How recommendation options in your action bank are generated, including agent preferences and SHAPs reports.
-- [Diagnostics]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/): Outbound and inbound data health, including recommendation volume and data feed monitoring.
-- [Timeline]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/): A visual record of key events (agent runs, configuration changes, guardrail updates) alongside performance metrics.
+- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance): High-level agent metrics that compare treatment groups to control groups, with **Trending** and **Driver Tree** views.
+- [Insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights): How recommendation options in your action bank are generated, including agent preferences and SHAPs reports.
+- [Diagnostics]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics): Outbound and inbound data health, including recommendation volume and data feed monitoring.
+- [Timeline]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline): A visual record of key events (agent runs, configuration changes, guardrail updates) alongside performance metrics.

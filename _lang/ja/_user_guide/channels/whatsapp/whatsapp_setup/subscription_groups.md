@@ -38,6 +38,18 @@ WhatsAppユーザーには、`subscribed`と`unsubscribed`の2つのサブスク
 
 - **REST API：** 個々のユーザープロファイルのサブスクリプショングループは、Braze REST APIを使用して[ユーザーのサブスクリプショングループを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/)または[ユーザーのサブスクリプショングループステータスを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)で確認できます。
 
+## サブスクリプショングループのアーカイブ {#archive-subscription-groups}
+
+WhatsAppサブスクリプショングループの使用を停止する必要がある場合、アーカイブして非アクティブとしてマークできます。
+
+サブスクリプショングループをアーカイブすると、非アクティブとしてマークされますが、ワークスペースからは削除されません。WhatsApp電話番号またはサブスクリプショングループを完全に削除する必要がある場合は、Brazeサポートに削除をリクエストする前に、まず購読グループ管理でサブスクリプショングループをアーカイブする必要があります。
+
+サブスクリプショングループをアーカイブするには：
+
+1. **オーディエンス** > **購読グループ管理**に移動します。
+2. アーカイブするWhatsAppサブスクリプショングループを見つけます。
+3. サブスクリプショングループのステータスにカーソルを合わせ、<i class="fa-solid fa-box-archive"></i> **アーカイブ**を選択します。
+
 ## WhatsAppのオプトインとオプトアウトのプロセス {#whatsapp-opt-in-and-opt-out-process}
 
 現在、ユーザーは[SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal)、Webサイト、WhatsAppスレッド、電話、対面など、さまざまな方法でWhatsAppメッセージングの購読や[オプトインとオプトアウト]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/)を行うことができます。オプトインは必須であることにご注意ください。

@@ -2,10 +2,20 @@
 nav_title: Create and manage workspaces
 article_title: Create and Manage Workspaces
 page_order: 0
+layout: dev_guide
+guide_top_header: "Create and manage workspaces"
+guide_top_text: "This article covers how to create, set up, and manage your workspaces."
 page_type: reference
 description: "This article covers how to create, set up, and manage your workspaces."
 
+guide_featured_title: "Section articles"
+guide_featured_list:
+- name: Migrate data between workspaces
+  link: /docs/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data
+  image: /assets/img/braze_icons/switch-horizontal-01.svg
 ---
+
+<br>
 
 # Create and manage workspaces
 
@@ -19,13 +29,13 @@ Everything you do in Braze happens within a workspace. Workspaces are a shared e
 
 ### Step 1: Have a plan
 
-Before you begin, make sure you've worked with your team and your Braze onboarding manager to determine the best workspace configuration for your use case. To learn more about planning your workspaces in Braze, check out our [Getting Started: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/) guide.
+Before you begin, make sure you've worked with your team and your Braze onboarding manager to determine the best workspace configuration for your use case. To learn more about planning your workspaces in Braze, check out our [Getting Started: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) guide.
 
 ### Step 2: Add your workspace
 
 You can create new workspaces or switch between existing workspaces from the workspace dropdown in the global header.
 
-1. Select the workspace dropdown, then select <i class="fa-solid fa-square-plus" style="color: #0b8294;"></i> **Create workspace**.
+1. Select the workspace dropdown, then select <i class="fa-solid fa-square-plus" style="color: #0b8294;" aria-hidden="true"></i> **Create workspace**.
 
 ![The workspace dropdown with the "Create workspace" button.]({% image_buster /assets/img/workspaces/workspace_create.png %}){: style="max-width:60%;"}
 
@@ -105,8 +115,8 @@ There's no limit to the number of workspaces you can favorite, but we recommend 
 To rename your workspace:
 
 1. Go to **Settings** > **App Settings**.
-2. Hover over your workspace’s name and select <i class="image: /assets/img/braze_icons/pencil-01.svg" style="color: #0b8294;"></i>.
-3. Give your workspace a new name, then select <i class="fa-solid fa-square-check" style="color: #0b8294;"></i> **Save**.
+2. Hover over your workspace’s name and select <i class="fa-solid fa-pencil" style="color: #0b8294;" aria-hidden="true"></i> **Edit**.
+3. Give your workspace a new name, then select <i class="fa-solid fa-square-check" style="color: #0b8294;" aria-hidden="true"></i> **Save**.
 
 ![The pencil icon appearing next to the workspace name.]({% image_buster /assets/img/workspaces/workspace_rename.gif %}){: style="max-width:50%;"}
 
@@ -117,7 +127,7 @@ To delete your workspace or app instance:
 1. Go to **Settings** > **App Settings**.
 2. Select **Delete workspace** to delete the respective workspace, or select the trash can icon next to the respective app instance.
 
-You cannot delete app instances or workspaces that are currently being used for targeting users or that have over 1,000 users. If you try to do so, you’ll receive an error message. To proceed and delete them, [create a Support case]({{site.baseurl}}/user_guide/administer/personal/braze_support/) that includes a dashboard link and the name of the app instance or workspace to be deleted.
+You cannot delete app instances or workspaces that are currently being used for targeting users or that have over 1,000 users. If you try to do so, you’ll receive an error message. To proceed and delete them, [create a Support case]({{site.baseurl}}/user_guide/administer/personal/braze_support) that includes a dashboard link and the name of the app instance or workspace to be deleted.
 
 {% alert warning %}
 Be careful when deleting workspaces! After a workspace is deleted, it can’t be restored. 
@@ -173,5 +183,5 @@ In the original Canvas workflow, add your segment to the Canvas component level 
 
 After creating your workspace, configure it:
 
-- [Workspace settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/) to set up API keys, email preferences, push settings, and more.
-- [Manage company users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) to add users and assign permissions for this workspace.
+- [Workspace settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings) to set up API keys, email preferences, push settings, and more.
+- [Manage company users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) to add users and assign permissions for this workspace.

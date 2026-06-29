@@ -17,8 +17,6 @@ description: "Este artículo describe los detalles sobre el punto de conexión A
 
 > Utiliza este punto de conexión para actualizar múltiples traducciones de un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Requisitos previos {#prerequisites}
 
 Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `content_blocks.translations.update`.

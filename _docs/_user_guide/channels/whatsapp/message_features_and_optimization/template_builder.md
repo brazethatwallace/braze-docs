@@ -20,7 +20,7 @@ channel:
 
 ### Step 1: Go to WhatsApp Templates
 
-Go to **Templates** > **WhatsApp Templates**, then select **Create new template**.
+Go to **Content** > **WhatsApp**, then select **Create new template**.
 
 ![WhatsApp templates page with button to create a new template.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -40,7 +40,7 @@ Fill in the following fields:
 Under **Layout**, select the template type:
 
 - **Default:** A standard WhatsApp message. This is the layout covered in this article.  
-- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### Step 4: Build your template
 
@@ -106,7 +106,7 @@ After Meta approves your template, you can use it in a WhatsApp campaign or Canv
 4. Update any variable content or personalization as needed. Fields locked by Meta (shown in gray) cannot be edited. To change locked content, you must edit and resubmit the template for approval.  
 5. Use the **Test** tab to preview the message, update body variables, and confirm the message looks as expected before launch.
 
-For more information about building WhatsApp campaigns, see [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+For more information about building WhatsApp campaigns, see [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Frequently asked questions
 

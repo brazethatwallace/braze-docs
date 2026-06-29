@@ -37,13 +37,14 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 | `include_variant_breakdown` | オプション | ブール値 | バリアント統計を含めるかどうか（デフォルトは `false`）。  |
 | `include_step_breakdown` | オプション | ブール値 | ステップ統計を含めるかどうか（デフォルトは `false`）。 |
 | `include_deleted_step_data` | オプション | ブール値 | 削除されたステップの統計を含めるかどうか（デフォルトは `false`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert important %}
-**タイムゾーンの整合:** Brazeダッシュボードの分析は、ダッシュボードで設定された会社のタイムゾーンに基づいて日次で集計されます。統計がダッシュボードと一致するように、タイムスタンプが会社のタイムゾーンと揃っていることを確認してください。たとえば、会社の時刻がUTC+2の場合、タイムスタンプは12AM UTC+2にする必要があります。
+Canvasの分析は、Brazeで設定された会社のタイムゾーン（ダッシュボードが使用するタイムゾーンと同じ）に基づいて日次で集計されます。APIは `starting_at` と `ending_at` をそのタイムゾーンの午前0時に正規化します。
 {% endalert %}
 
 ## リクエスト例 {#example-request}
+
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
@@ -52,6 +53,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 {% endraw %}
 
 ## 応答 {#response}
+
+{% alert note %}
+`total_stats`、`variant_stats`、`step_stats`において、`conversions`はCanvasの[1次コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)のカウントです。追加のコンバージョンイベントを設定すると、ペイロードには2番目、3番目、およびそれ以降のイベントに対応する `conversions1`、`conversions2`、およびより大きなインデックスのフィールドも含まれる場合があります。これは `/campaigns/data_series` エンドポイントの[多変量応答]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/#multivariate-response)と同様です。存在する場合、`_by_entry_time` で終わるフィールドは、Canvasエントリ時刻によるコンバージョンを示します。
+{% endalert %}
 
 ```json
 {
@@ -99,11 +104,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ```
 
 {% alert important %}
-**`influenced_opens` フィールド:** APIレスポンスでは、`influenced_opens` フィールドは開封の総数（直接開封と間接開封の両方を合わせたもの）を表します。Brazeダッシュボードでは、「間接開封」は直接開封を除いた間接開封のみを指します。これはAPIのレガシー命名規則によるものです。
+APIレスポンスでは、`influenced_opens` フィールドは開封の総数（直接開封と間接開封の両方を合わせたもの）を表します。Brazeダッシュボードでは、「間接開封」は直接開封を除いた間接開封のみを指します。これはAPIのレガシー命名規則によるものです。
 {% endalert %}
 
-{% alert tip %}
-CSVおよびAPIエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
-{% endalert %}
+## 関連記事 {#related-articles}
+
+- [エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)
+
 
 {% endapi %}

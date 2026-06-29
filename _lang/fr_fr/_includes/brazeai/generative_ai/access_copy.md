@@ -1,0 +1,1 @@
+Dans n'importe quel composeur de message, ouvrez Operator pour rédiger et affiner vos textes marketing. Décrivez votre produit ou votre campagne, et Operator vous renvoie un texte que vous pouvez vérifier et insérer.

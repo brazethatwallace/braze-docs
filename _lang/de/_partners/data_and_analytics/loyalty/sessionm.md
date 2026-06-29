@@ -27,10 +27,6 @@ search_tag: Partner
 | SessionM | Eine SessionM Connect REST-Retailer-ID | Eine eindeutige GUID-Kennung für den spezifischen Kunden, der mit Ihrer Instanz verbunden ist. Wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-{% alert note %}
-Wenn Sie die [ältere Navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) verwenden, können Sie einen API-Schlüssel unter **Entwicklungskonsole** > **API-Einstellungen** erstellen.
-{% endalert %}
-
 ## Anwendungsfälle {#use-cases}
 
 Die folgenden Anwendungsfälle zeigen einige Möglichkeiten, wie Sie die Integration von SessionM und Braze nutzen können.
@@ -193,7 +189,7 @@ Mit der Liquid-Dot-Notation kann dies in die Nachricht eingefügt werden. Um die
 Dies ist eine individuelle API. Wenn Sie beabsichtigen, einen Batch von mehr als 500 Nutzer:innen zu versenden, erkundigen Sie sich bei Ihrem SessionM-Team, wie Sie Massendaten in die Integration einbeziehen können.
 {% endalert %}
 
-## Getriggerte Nachrichten einrichten {#setting-up-triggered-messaging}
+## Getriggertes Messaging einrichten {#setting-up-triggered-messaging}
 
 Die Integration von SessionM und Braze ermöglicht es, Nutzerprofildaten, Angebotsdetails und Punktesalden dynamisch in Messaging einzubringen und in Echtzeit an die Kund:innen zu senden, sobald diese aktiv werden.
 

@@ -10,7 +10,7 @@ toc_headers: h2
 ---
 {% api %}
 # ユーザーの作成と更新 {#create-and-update-users}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
 {% endapimethod %}
 
@@ -18,7 +18,7 @@ toc_headers: h2
 
 {% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
 
-BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡す必要があります。
+BrazeはAPIを通じて渡されたデータを額面通りに処理します。不要なデータポイントのロギングを最小限にするために、デルタ（変化するデータ）のみを渡してください。
 
 ## ユーザーを一括更新する必要がありますか？ {#need-to-update-users-in-bulk}
 
@@ -233,7 +233,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
     "attributes": [
         {
             "_update_existing_only": false,
@@ -358,6 +357,32 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 ### `/users/track`は無効な階層化カスタム属性をどのように処理しますか？ {#how-does-userstrack-handle-invalid-nested-custom-attributes}
 
 階層化カスタム属性に無効な値（無効な時間形式やnull値など）が含まれる場合、Brazeはリクエスト内のすべての階層化カスタム属性の更新を処理から除外します。これは、その特定の属性内のすべての階層化構造に適用されます。処理を確実に成功させるために、送信前に階層化カスタム属性内のすべての値が有効であることを確認してください。
+
+### `/users/track`へのリクエストは順序通りに処理されることが保証されていますか？ {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
+
+`/users/track`に対して複数の個別のAPIコールを短時間に連続して行う場合、Brazeはリクエストが送信または受信された正確な順序で処理されることを保証できません。これは、Brazeが速度と柔軟性を最大化するために非同期処理を使用しているためです。
+
+たとえば、同じユーザーに対して数秒以内に複数の更新リクエストを送信した場合（一部はnull属性値、他は有効な値を含む）、null値を含むリクエストが、先に送信されたにもかかわらず、有効な値を含むリクエストの後に処理される可能性があります。これにより、属性値が元に戻ったり、最後に送信された更新が反映されないように見えることがあります。
+
+ユーザーデータの更新時に競合を避けるには：
+
+- **単一のリクエストに更新をバッチする：** 個別の連続したコールを行うのではなく、ユーザーのすべての属性更新を1つのAPIコールに含めてください。
+- **リクエスト間に遅延を追加する：** 同じユーザーに対して個別のコールを行う必要がある場合は、最初のリクエストの処理が完了するまでリクエスト間に遅延（数秒）を追加してください。
+- **同じフィールドの重複更新を避ける：** 2つのリクエストが同じ属性を異なる値で更新する場合、それらの更新を1つのリクエストにまとめるか、順序が前後する可能性を減らすために遅延を挟んで分離してください。
+
+競合とベストプラクティスの詳細については、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)を参照してください。
+
+### `/users/track`の応答が予想より遅いのはなぜですか？ {#why-is-my-userstrack-response-slower-than-i-expect}
+
+成功した`/users/track`コールは通常すぐに受け入れられますが、Brazeは属性、イベント、購入の更新を非同期で処理します。ペイロードが大きい場合や、[RESTエンドポイント]({{site.baseurl}}/api/basics/#endpoints)へのネットワークルーティングが遅い場合、体感レイテンシーが増加することがあります。ユーザーごとの同期的な確認応答やコール間のより厳密な順序付けが必要な場合は、[`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)（**限定ベータ**）を参照してください。
+
+### レート制限は`/users/track`にどのように影響しますか？ {#how-do-rate-limits-affect-userstrack}
+
+[レート制限](#rate-limit)に近づくと、`429`応答を受け取ります。サポートされている契約での`429`以外の応答については、[CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAUのレート制限ヘッダー](#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)に記載されている`X-RateLimit-*`応答ヘッダーを使用して、現在の時間枠の残量を確認できます。
+
+### `400 Bad Request`で構文またはパースエラーが返されるのはなぜですか？ {#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error}
+
+構文またはパースエラーを伴うHTTP `400`は、通常リクエスト本文が有効なJSONではないことを意味します。一般的な原因には、末尾のカンマ、JSON内のコメント、シングルクォートの文字列、ペイロードの前の余分な開き`{`、`Content-Type`ヘッダーが`application/json`であるにもかかわらず非JSON本文を送信していることなどがあります。送信前にJSONリンターでペイロードを検証し、HTTPクライアントがオブジェクトをJSONエンコードしていること（生の文字列を連結するのではなく）を確認し、本文がUTF-8エンコードされていることを確認してください。その他の`400`応答（ペイロードサイズやリクエストごとのオブジェクト制限など）については、[致命的エラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)およびこのページの[エンドポイント固有のエラー](#endpoint-specific-errors)テーブルを参照してください。
 
 ## CY 24-25の月間アクティブユーザー数、ユニバーサルMAU、Web MAU、モバイルMAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

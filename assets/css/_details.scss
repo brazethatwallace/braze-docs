@@ -23,10 +23,9 @@ details {
   }
 
  &:hover,
- &:active, &:focus  {
+ &:active {
     summary {
       color: $black-shark;
-      outline: none;
       font-size: 14px;
       &::-webkit-details-marker {
           color: $black-shark;
@@ -40,6 +39,12 @@ details {
         color: $black-shark;
       }
     }
+  }
+ > summary:focus:not(:focus-visible) {
+    outline: none;
+  }
+ > summary:focus-visible {
+    @include focus-ring();
   }
 
   h1, h2, h3, h4, h5, h6 {

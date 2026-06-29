@@ -3,7 +3,7 @@ nav_title: 아이디어 및 전략
 article_title: 아이디어 및 전략
 layout: dev_guide
 guide_top_header: "아이디어 및 전략"
-guide_top_text: "이러한 활용 사례와 다양한 아이디어를 통해 이상적인 캠페인을 구축하는 방법을 알아보세요."
+guide_top_text: "일반적인 캠페인 목표에 대한 실전 예제와 패턴을 확인하세요. 이 섹션에서는 활성 사용자 및 이탈 사용자 리타겟팅, 기능 도입 및 앱 업데이트 촉진, 설치 경로 캡처, 메시지에 캘린더 링크 추가, Zoom과 같은 외부 도구를 활용한 등록 워크플로 자동화 등을 다룹니다. 이러한 사용 사례를 살펴보고 자신의 오디언스에 맞게 적용할 수 있는 접근 방식을 찾아보세요."
 page_order: 5
 
 tool: Campaigns
@@ -13,7 +13,7 @@ description: "이 랜딩 페이지에서는 캠페인 아이디어와 전략을 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
   - name: 모범 사례
-    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/getting_high_ratings#high-ratings
+    link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/best_practices#high-ratings
     image: /assets/img/braze_icons/target-04.svg
   - name: 활성 사용자 캠페인
     link: /docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns

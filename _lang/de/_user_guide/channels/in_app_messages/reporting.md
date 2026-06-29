@@ -33,6 +33,10 @@ Für In-App-Nachrichten definiert diese Seite eindeutige Impressionen anhand ein
 | Konversionsrate | Die Metrik der täglichen eindeutigen Impressionen (*Eindeutige Impressionen*) wird zur Berechnung der Konversionsrate verwendet. <br><br> Konversionsrate = (Primäre Conversions) / (Eindeutige Impressionen) <br><br> Bei In-App-Nachrichten können *Eindeutige Impressionen* pro Kalendertag in der Zeitzone Ihres Workspace nur einmal gezählt werden. Die Anzahl der Ausführungen einer gewünschten Aktion (eine „Conversion“) kann innerhalb desselben Kalendertags steigen. Wenn eine Nutzer:in also eine Conversion innerhalb eines Tages mehrfach ausführt, kann die *Konversionsrate* entsprechend steigen, aber *Eindeutige Impressionen* werden für diesen Kalendertag nur einmal gezählt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="In-App-Nachrichten-Metriken" }
 
+{% alert note %}
+In A/B-Tests können die *Eindeutigen Impressionen* der Kontrollgruppe die *Eindeutigen Impressionen* der Variante übersteigen, und die *Gesamten Impressionen* der Kontrollgruppe können die *Gesamten Impressionen* der Variante übersteigen, wenn Varianten-Nachrichten Renderzeit benötigen (z. B. große Bilder oder templated Connected-Content). Nutzer:innen, die die Nachricht triggern, aber die App verlassen, bevor die Variante fertig gerendert ist, protokollieren möglicherweise keine Varianten-Impressionen, während die Kontrollgruppe Impressionen ohne das Rendern einer Nachricht protokolliert.
+{% endalert %}
+
 ## Wie werden Conversions bei erneuter Berechtigung inkrementiert? {#how-do-conversions-increment-with-re-eligibility}
 
 Braze weist jeder In-App-Nachrichten-Zustellung nur eine Conversion zu und ordnet sie der zuletzt erhaltenen Nachricht zu.

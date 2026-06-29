@@ -71,6 +71,9 @@ function string_to_slug(str) {
   }
   return str;
 }
+// TODO: The __algolia_user cookie and algolia_user variable below are remnants of Algolia
+// Insights tracking. The Algolia frontend has been removed; confirm with the team that this
+// cookie is no longer needed and remove in a follow-up PR.
 let algolia_user = Cookies.get('__algolia_user');
 if (!algolia_user){
   algolia_user = generateUUID();
@@ -143,7 +146,7 @@ var tab_track = {
   'bigquery': 'tb_data',
   'databricks': 'tb_data',
 }
-// Set cookie to auto expire after 30 days of inactivity
+// TODO: Remove this cookie set along with the algolia_user variable above in a follow-up PR.
 Cookies.set('__algolia_user', algolia_user, { expires: 30 });
 
 String.prototype.upCaseWord = function() {
@@ -249,16 +252,11 @@ $(document).ready(function() {
       var active_toc = $('#toc').find("a.nav-link.active").last().attr("href");
       var hash = active_toc;
       if (!hash){
-        hash = '.';
+        hash = window.location.pathname || '.';
         active_toc = '.';
-        if (window.location.pathname.substr(-1) != '/') {
-          hash = window.location.pathname + '/' ;
-        }
       }
       else {
-        if (window.location.pathname.substr(-1) != '/')  {
-          hash = window.location.pathname + '/' + hash;
-        }
+        hash = window.location.pathname + hash;
       }
 
       window.history.replaceState(null, null, hash);
@@ -316,12 +314,7 @@ $(document).ready(function() {
           'sdktab': sdk_tab
         };
         let query_str = replaceParams(window.location.search, tab_replace, true) + '#' + sdk_hash.attr('id');
-        if (window.location.pathname.substr(-1) != '/')  {
-          window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-        }
-        else {
-          window.history.replaceState(null, null,  window.location.pathname + query_str);
-        }
+        window.history.replaceState(null, null, window.location.pathname + query_str);
       }
     }
   }
@@ -332,12 +325,7 @@ $(document).ready(function() {
     let tab_replace = {};
     tab_replace[query_name] = encodeURIComponent(tab_norm);
     let query_str = replaceParams(window.location.search, tab_replace, true);
-    if (window.location.pathname.substr(-1) != '/')  {
-      window.history.replaceState(null, null, window.location.pathname + '/' + query_str);
-    }
-    else {
-      window.history.replaceState(null, null,  window.location.pathname + query_str);
-    }
+    window.history.replaceState(null, null, window.location.pathname + query_str);
     switch(query_name) {
       case 'sdktab': {
         Cookies.set('sdktab',tab_norm, { expires: 365 });
@@ -381,19 +369,12 @@ $(document).ready(function() {
       $this.attr('role','tab');
     }
   });
-  // set list - exclude <ul> directly inside <ul> to prevent aria_child_valid violation
-  var list_tabs = $('ul').not('.ab-nav').not('ul > ul');
-  list_tabs.each(function(i){
-    var $this = $(this);
-    if (!$this.attr('role')) {
-      $this.attr('role','list');
-    }
-  });
-  var list_tab = list_tabs.children('li')
-  list_tab.each(function(i){
-    var $this = $(this);
-    if (!$this.attr('role')) {
-      $this.attr('role','listitem');
+  // Safari/WebKit drops list semantics when list-style is removed. Prose lists keep
+  // native markers in CSS; role=list reinforces the group. Do not set role=listitem
+  // on native <li> - it interferes with bullet and position announcements.
+  $('#article-main ul').not('.ab-nav').add('#article-main ol').each(function() {
+    if (!$(this).attr('role')) {
+      $(this).attr('role', 'list');
     }
   });
 
@@ -422,7 +403,7 @@ $(document).ready(function() {
     var pg_prev = nav_links.eq(nav_index - 1);//nav_active.prevAll('[data-parent="' + data_parent + '"]').first();
     nav_bottom.addClass('flex');
     pg_prev_link.attr('href',pg_prev.attr('href') );
-    pg_prev_div.html(`<div class="nav_indicator"><i class="fas fa-long-arrow-alt-left"></i> ${site_i18n['previous'] || 'PREVIOUS'}</div> ${pg_prev.html()}`);
+    pg_prev_div.html(`<span class="nav_indicator"><i class="fas fa-long-arrow-alt-left"></i> ${site_i18n['previous'] || 'PREVIOUS'}</span> ${pg_prev.html()}`);
     pg_prev_div.css('display', 'inline-block');
     if (nav_index < (nav_links.length -1)) {
       pg_prev_div.css('border-right', '0px');
@@ -436,7 +417,7 @@ $(document).ready(function() {
     var pg_next = nav_links.eq(nav_index + 1);//nav_active.nextAll('[data-parent="' + data_parent + '"]').first();
     nav_bottom.addClass('flex');
     pg_next_link.attr('href',pg_next.attr('href') );
-    pg_next_div.html(`<div class="nav_indicator">${site_i18n['next'] || 'NEXT'} <i class="fas fa-long-arrow-alt-right"></i></div> ${pg_next.html()}`);
+    pg_next_div.html(`<span class="nav_indicator">${site_i18n['next'] || 'NEXT'} <i class="fas fa-long-arrow-alt-right"></i></span> ${pg_next.html()}`);
     pg_next_div.css('display', 'inline-block');
   }
   else {
@@ -444,6 +425,18 @@ $(document).ready(function() {
   }
   // link image fix for underline
   $('#article-main a:has(> img)').css('display','inline-block');
+
+  // Scroll the active nav item into view on page load. Active sections are
+  // pre-expanded server-side (no collapse animation), so no delay is needed.
+  // Uses scrollTop directly on #left_navmenu rather than scrollIntoView() to
+  // avoid scrollIntoView walking up to the main viewport and fighting URL fragments.
+  var $nav = $('#left_navmenu');
+  var $navActive = $nav.find('.nav-item.active').last();
+  if ($navActive.length) {
+    $nav.scrollTop(
+      $nav.scrollTop() + $navActive.offset().top - $nav.offset().top - ($nav.height() / 2) + ($navActive.outerHeight() / 2)
+    );
+  }
 
   function logDocNavRailCustomEvent(eventName, extraProps) {
     if (!window.braze || typeof window.braze.logCustomEvent !== 'function') {
@@ -797,6 +790,45 @@ $(document).ready(function() {
     $('#' + partab + ' div.' + curtab + postfix).addClass(prefix + 'active');
   }
 
+  // Sync aria-selected and roving tabindex on all [role="tablist"] from active <li> state.
+  // Called after every tab-switch (click handler or initialization).
+  function syncTabAriaFromActiveClass() {
+    $('ul[role="tablist"]').each(function() {
+      $(this).find('li').each(function() {
+        var isActive = $(this).hasClass('active') || $(this).hasClass('sub_active');
+        $(this).find('[role="tab"]').each(function() {
+          $(this).attr('aria-selected', isActive ? 'true' : 'false');
+          $(this).attr('tabindex', isActive ? '0' : '-1');
+        });
+      });
+    });
+  }
+
+  // Arrow-key navigation between tabs within a tablist (WAI-ARIA tabs pattern).
+  $(document).on('keydown', 'ul[role="tablist"] [role="tab"]', function(e) {
+    var $tabs = $(this).closest('ul[role="tablist"]').find('[role="tab"]');
+    var currentIndex = $tabs.index(this);
+    var nextIndex;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      nextIndex = (currentIndex + 1) % $tabs.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      nextIndex = (currentIndex - 1 + $tabs.length) % $tabs.length;
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      nextIndex = $tabs.length - 1;
+    } else {
+      return;
+    }
+
+    $tabs.eq(nextIndex).focus().trigger('click');
+  });
+
   // Updated Tab switcher
   $('.tab_toggle, .sdk-tab_toggle').click(function(e){
     e.preventDefault();
@@ -804,8 +836,9 @@ $(document).ready(function() {
     var tabtype = $this.attr("class").includes('sdk-') ? 'sdk-' : '';
     var curtab = $this.attr('data-' + tabtype  + 'tab');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdktab' : 'tab';
-    setTabClass(tabtype,'', '_tab', curtab)
+    setTabClass(tabtype,'', '_tab', curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.tab_toggle_only, .sdk-tab_toggle_only').click(function(e){
@@ -816,8 +849,9 @@ $(document).ready(function() {
     var curtab = $this.attr('data-' + tabtype + 'tab');
     var partab = $this.attr('data-' + tabtype + 'tab-target');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdktab' : 'tab';
-    setTabOnlyClass(tabtype,'','_tab', partab, curtab)
+    setTabOnlyClass(tabtype,'','_tab', partab, curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.sub_tab_toggle, .sub_sdk-tab_toggle').click(function(e){
@@ -827,8 +861,9 @@ $(document).ready(function() {
     var curtab = $this.attr('data-' + tabtype + 'sub_tab');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdksubtab' : 'subtab';
 
-    setTabClass('','sub_', '', curtab)
+    setTabClass('','sub_', '', curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   $('.sub_tab_toggle_only, .sub_sdk-tab_toggle_only').click(function(e){
@@ -840,8 +875,9 @@ $(document).ready(function() {
     var partab = $this.attr('data-' + tabtype + 'sub_tab-target');
     var tabstate = $this.attr("class").includes('sdk-') ? 'sdksubtab' : 'subtab';
 
-    setTabOnlyClass(tabtype,'sub_','', partab, curtab)
+    setTabOnlyClass(tabtype,'sub_','', partab, curtab);
     setTabState($this.text(), tabstate);
+    syncTabAriaFromActiveClass();
   });
 
   let tab_query = (new URLSearchParams(window.location.search).get('tab') || '').replace('_sub_tab','');
@@ -968,6 +1004,9 @@ $(document).ready(function() {
     }
   });
 
+
+  // Ensure aria-selected and tabindex reflect whichever tabs were activated by URL params or cookies.
+  syncTabAriaFromActiveClass();
 
   String.prototype.upCaseWord = function() {
     return this.toString().replace(/\b\w/g, function(l){ return l.toUpperCase() });

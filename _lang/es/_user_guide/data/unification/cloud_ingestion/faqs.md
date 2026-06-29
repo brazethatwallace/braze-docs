@@ -43,7 +43,7 @@ Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capac
 
 Intenta añadir las IP oficiales de Braze a tu lista de IP permitidas. Para obtener más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/) o permite las direcciones IP pertinentes:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Error al ejecutar SQL debido a la configuración del cliente: 002003 (42S02): error de compilación SQL: no existe o no está autorizado {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 

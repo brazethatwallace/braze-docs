@@ -16,7 +16,7 @@ channel: email
 
 The subject line is one of the first things that recipients see upon receiving your message. Keeping it to 6 to 10 words yields the highest open rates. 
 
-There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
+There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
 
 The "From" field should clearly show who the sender is. Try not to use a person's name or an uncommon abbreviation. Instead, use a recognizable name like your brand name. If using a person's name suits your brand's methods of personalizing email, stay consistent to develop a relationship with the recipient. The "From" name should be no more than 25 characters to display appropriately on mobile.
 
@@ -88,7 +88,7 @@ Here are some best practices to keep in mind when writing your preheaders:
 Email size refers to the size of your message HTML in Braze (the body you build and what Braze adds when the message is sent). 
 
 - Make sure to limit your email size. Email bodies larger than 102&nbsp;KB are not only extremely taxing on Braze servers, but they're also clipped by Gmail and other email clients. 
-- Hosted images that you reference by URL are not embedded in the HTML the same way as pasting huge inline assets. We recommend using the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) and linking by `href` helps keep the message smaller.
+- Hosted images that you reference by URL are not embedded in the HTML the same way as pasting huge inline assets. We recommend using the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) and linking by `href` helps keep the message smaller.
 
 |   Text Only   | Text with images |     Email width    |
 |:-------------:|:----------------:|:------------------:|
@@ -137,15 +137,19 @@ Refer to the following table for recommended image sizes. Smaller, high-quality 
 | 5&nbsp;MB maximum | 600 pixels maximum | 480 pixels maximum | PNG, JPEG, GIF |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Image size" }
 
+{% alert note %}
+Gmail web and Gmail mobile apps often do not render SVG (and WEBP support is inconsistent). Use PNG or JPEG for images that must display reliably in Gmail.
+{% endalert %}
+
 ## Deep linking
 
-With push notifications and in-app messages, a [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) takes users directly to a specified destination within an app. However, deep links require the app to be installed, and emails don't provide a way to know whether recipients have the app. This means deep links in emails can result in errors for recipients who don't have the app installed.
+With push notifications and in-app messages, a [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) takes users directly to a specified destination within an app. However, deep links require the app to be installed, and emails don't provide a way to know whether recipients have the app. This means deep links in emails can result in errors for recipients who don't have the app installed.
 
-Instead, use [universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), which function as standard URLs. You can configure them to open the app or direct users to a specific page. They can also redirect to the app store or fall back to a webpage when the app is not installed.
+Instead, use [universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), which function as standard URLs. You can configure them to open the app or direct users to a specific page. They can also redirect to the app store or fall back to a webpage when the app is not installed.
 
 ## Content Blocks with transparent images
 
-When a Content Block contains an image with a transparent background (for example, a logo) and is inserted by a Liquid tag, you may see a background color appear behind the image. This color comes from the drag-and-drop editor's [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/)—specifically the **Email Background Color**. If your global style settings use a color other than white, that color appears instead.
+When a Content Block contains an image with a transparent background (for example, a logo) and is inserted by a Liquid tag, you may see a background color appear behind the image. This color comes from the drag-and-drop editor's [email global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)—specifically the **Email Background Color**. If your global style settings use a color other than white, that color appears instead.
 
 To display the Content Block as intended:
 

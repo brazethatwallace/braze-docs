@@ -10,7 +10,7 @@ description: "Learn how Braze handles user merging for users marked for deletion
 
 > Learn how Braze handles user merging, including the three user types where the default behavior doesn't apply: users marked for deletion, test users, and Global Control Group users.
 
-This behavior applies to all merges, whether you're using [individual merging]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#individual-merging), [bulk merging]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#bulk-merging), or the [Merge users API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
+This behavior applies to all merges, whether you're using [individual merging]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#individual-merging), [bulk merging]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging), or the [Merge users API endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ## General merge behavior
 
@@ -45,9 +45,9 @@ This behavior works well for default and custom attributes. However, Braze handl
 
 ## Users marked for deletion
 
-When you use the [bulk user deletion tool]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/) to delete a segment, Braze flags those user profiles for deletion within the next 7 days. Braze doesn't merge profiles that are marked for deletion, whether they're the profile to keep or the profile to merge.
+When you use the [bulk user deletion tool]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) to delete a segment, Braze flags those user profiles for deletion within the next 7 days. Braze doesn't merge profiles that are marked for deletion, whether they're the profile to keep or the profile to merge.
 
-If you need to merge a profile that's marked for deletion, first [cancel the segment deletion]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/#cancel) or remove the user from deletion so the profile is no longer flagged.
+If you need to merge a profile that's marked for deletion, first [cancel the segment deletion]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel) or remove the user from deletion so the profile is no longer flagged.
 
 ## Test users
 
@@ -63,19 +63,19 @@ The following table shows the resulting test user status for each combination:
 | Not a test user | Test user | Test user |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-For more information about test users, see [Internal groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/).
+For more information about test users, see [Internal groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups).
 
 ## Global Control Group users
 
-Braze doesn't merge user profiles in a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group/), whether they're the profile to keep or the profile to merge.
+Braze doesn't merge user profiles in a [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group), whether they're the profile to keep or the profile to merge.
 
-Global Control Group membership is determined by a user's [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/). Merging would change which users belong to the group, which would affect your experiments and reporting.
+Global Control Group membership is determined by a user's [random bucket number]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers). Merging would change which users belong to the group, which would affect your experiments and reporting.
 
 ## Related articles
 
-- [Merge duplicate users]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/)
-- [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
-- [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)
-- [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group/)
-- [Random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)
-- [Internal groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)
+- [Merge duplicate users]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)
+- [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
+- [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)
+- [Global Control Group]({{site.baseurl}}/user_guide/audience/global_control_group)
+- [Random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)
+- [Internal groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)

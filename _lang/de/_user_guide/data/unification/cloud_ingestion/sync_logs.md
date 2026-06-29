@@ -35,8 +35,6 @@ Sync-Protokolle enthalten außerdem die folgenden Details zu jeder Synchronisier
 * **Startzeit des Laufs:** Wann der Synchronisierungsauftrag begonnen hat.
 * **Laufdauer:** Die Gesamtzeit, die der Synchronisierungsauftrag bis zum Abschluss benötigt hat.
 
-![Details zu einem Sync-Protokoll.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
-
 ### Datenaufbewahrung {#data-retention}
 
 Sync-Protokolldaten, einschließlich aller Payloads auf Zeilenebene und Fehlerdetails, werden bis zu **30 Tage** lang aufbewahrt. Protokolle, die älter als 30 Tage sind, werden automatisch gelöscht.
@@ -73,8 +71,6 @@ Diese Tabelle bietet Transparenz auf Zeilenebene hinsichtlich der während der S
 
 Um die genauen Daten anzuzeigen, die für eine bestimmte Zeile an Braze gesendet wurden, wählen Sie **View payload** in der Spalte **Source** payload aus. Hiermit wird der rohe JSON-Payload angezeigt, der für diese:n Nutzer:in verarbeitet wurde.
 
-![Payload-Beispiel für eine bestimmte Zeile in einem Sync-Protokoll.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Sync-Protokolle exportieren {#exporting-sync-logs}
 
 Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Synchronisierungslauf zu exportieren. Wählen Sie anschließend die Exportmethode:
@@ -82,7 +78,7 @@ Wählen Sie **Export rows** aus, um die Protokolle auf Zeilenebene für einen Sy
 * **Zeilen mit Fehlern:** Lädt eine Datei herunter, die ausschließlich die Zeilen mit dem Status **Error** enthält.
 * **Alle Zeilen:** Lädt eine Datei herunter, die alle in diesem Durchlauf verarbeiteten Zeilen enthält.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Protokolle können nicht direkt aus dem Dashboard exportiert werden. Nach der Erstellung des Exports erhalten Sie eine E-Mail mit einem Link zum Herunterladen der Protokollexportdatei.
 

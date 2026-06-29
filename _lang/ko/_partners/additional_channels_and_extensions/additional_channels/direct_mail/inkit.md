@@ -36,7 +36,7 @@ Inkit 플랫폼에서 Braze Campaign에 사용할 템플릿을 HTML, Word, Power
 
 ### 2단계: Braze 웹훅 템플릿 생성 {#step-2-create-your-braze-webhook-template}
 
-향후 Campaigns 또는 Canvases에서 사용할 Inkit 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+향후 Campaigns 또는 Canvases에서 사용할 Inkit 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 Inkit 웹훅 Campaign을 생성하거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 

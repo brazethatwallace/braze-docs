@@ -25,8 +25,6 @@ Wenn Sie Administrator sind, können Sie auf Workspace-Zeitzonen zugreifen und d
 
 Hier können Sie eine Liste aller Ihrer Workspaces, die jeweils festgelegte Zeitzone und den Zeitpunkt der letzten Bearbeitung einsehen. Verwenden Sie die Suchleiste, um bestimmte Workspaces nach Namen zu finden.
 
-![Seite „Workspace-Zeitzonen“ mit einer Liste von Workspaces, den jeweiligen Zeitzonen und dem Zeitpunkt der letzten Bearbeitung.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
 ### Zeitzone festlegen {#setting-a-time-zone}
 
 {% alert note %}
@@ -44,7 +42,6 @@ Es kann einige Minuten dauern, bis Änderungen an der Zeitzone wirksam werden.
 3. Wählen Sie im Dropdown-Menü die gewünschte Zeitzone für diesen Workspace aus.
 4. Wählen Sie **Speichern** aus.
 
-![Dropdown-Menü mit der ausgewählten GMT-Zeitzone.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Mehrere %}
 
@@ -68,7 +65,7 @@ Sie können eine bestimmte Zeitzone auf mehrere Workspaces gleichzeitig anwenden
 Informieren Sie die relevanten Teams und Stakeholder innerhalb jedes Workspaces über Änderungen an der Zeitzone, um Verwirrung bei den Zeitplänen von Kampagnen zu vermeiden.
 {% endalert %}
 
-- **Kampagnen mit Ortszeit und intelligentem Timing:** Kampagnen und Canvases, die die Ortszeit der Nutzer:innen oder [intelligentes Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing) für die Zustellung verwenden, funktionieren weiterhin wie bisher und werden von Workspace-Zeitzonen nicht beeinflusst.
+- **Kampagnen mit Ortszeit und intelligentem Timing:** Kampagnen und Canvases, die die Ortszeit der Nutzer:innen oder [intelligentes Timing]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing) für die Zustellung verwenden, funktionieren weiterhin wie bisher und werden von Workspace-Zeitzonen nicht beeinflusst.
 - **Geplante Kampagnen und Canvases:** Alle geplanten Kampagnen oder Canvases, die weder die Ortszeit der Nutzer:innen noch intelligentes Timing für die Zustellung verwenden, werden jetzt basierend auf der ausgewählten Zeitzone des Workspaces versendet.
 - **Kampagnen, die vor einer Zeitzonenänderung geplant wurden:** Wenn Sie eine Kampagne oder ein Canvas vor der Änderung der Workspace-Zeitzone geplant haben, behält Braze die ursprüngliche Versandzeit bei und plant sie nicht um. Wenn beispielsweise eine Kampagne für den Versand um 19:00 Uhr PST eingestellt ist und die Workspace-Zeitzone auf EST geändert wird, wird die Kampagne weiterhin um 19:00 Uhr PST versendet (was nun 22:00 Uhr EST entspricht). Das System referenziert weiterhin die ursprüngliche Zeit, interpretiert sie jedoch über die neue Workspace-Zeitzone.
 
@@ -85,7 +82,7 @@ Ein Workspace aktualisiert seine Zeitzone von Eastern Time (EST) auf Pacific Tim
 - **Bisheriger Stichtag:** 23:59 Uhr EST
 - **Neuer Stichtag:** 23:59 Uhr PST (was 2:59 Uhr EST am folgenden Tag entspricht)
 
-Nach dieser Änderung wird eine Nutzer:in, die das angepasste Event am 6. März 2026 um 22:00 Uhr PST ausführt (was 1:00 Uhr EST am 7. März 2026 entspricht), nun in die Zielgruppe aufgenommen, da sie innerhalb der PST-Kalendergrenze für dieses Datum lag.
+Nach dieser Änderung wird ein:e Nutzer:in, der/die das angepasste Event am 6. März 2026 um 22:00 Uhr PST ausführt (was 1:00 Uhr EST am 7. März 2026 entspricht), nun in die Zielgruppe aufgenommen, da er/sie innerhalb der PST-Kalendergrenze für dieses Datum lag.
 
 ## Auswirkungen auf Performance-Daten {#impact-on-performance-data}
 

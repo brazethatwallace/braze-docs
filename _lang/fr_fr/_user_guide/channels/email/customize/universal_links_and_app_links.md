@@ -33,11 +33,11 @@ Ce tableau présente les principales différences entre les liens universels et 
 | Objectif                | Lier de façon fluide le contenu web et applicatif sur les appareils iOS et Android | Lier vers un contenu spécifique de l'application |
 | Fonction               | Dirige vers des pages web ou du contenu applicatif selon le contexte           | Ouvre des écrans spécifiques de l'application   |
 | Installation de l'application       | Ouvre l'application si elle est installée, sinon ouvre le contenu web | Nécessite que l'application soit installée |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fonctionnement des liens universels et des App Links" }
 
 ## Cas d'utilisation {#use-cases}
 
-Les liens universels et les App Links sont le plus souvent utilisés pour les campagnes par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
+Les liens universels et les App Links sont le plus souvent utilisés pour les Campaigns par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
 
 Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les messages in-app et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
 
@@ -93,7 +93,7 @@ Ces étapes sont adaptées de la documentation développeur Apple. Pour plus d'i
 2. Sélectionnez **Associated Domains**.
 3. Cliquez sur **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Section App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Étape 1c : Activer les Associated Domains dans votre projet Xcode {#step-1c}
 
@@ -113,7 +113,7 @@ Si vous voyez l'erreur « An App ID with Identifier 'your-app-id' is not availab
 
 Dans la section des domaines, ajoutez l'étiquette de domaine appropriée. Vous devez la préfixer avec `applinks:`. Dans ce cas, vous pouvez voir que nous avons ajouté `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Section Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Étape 1e : Confirmer que le fichier de droits est inclus dans le build {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -225,15 +225,16 @@ Enfin, vous pouvez tester vos liens profonds. Envoyez-vous un lien via une appli
 Les liens de suivi des clics sont généralement configurés dans le cadre de votre onboarding pour l'e-mail. Si cela n'a pas été effectué lors de l'onboarding client, contactez votre gestionnaire de compte pour obtenir de l'aide.
 {% endalert %}
 
-Nos partenaires d'envoi d'e-mails, SendGrid et SparkPost, utilisent des domaines de suivi des clics pour encapsuler tous les liens et inclure des paramètres d'URL pour le suivi des clics dans les e-mails Braze.
+Nos partenaires d'envoi d'e-mails utilisent des domaines de suivi des clics pour encapsuler tous les liens et inclure des paramètres d'URL pour le suivi des clics dans les e-mails Braze.
 
 Par exemple, un lien comme `https://www.example.com` devient quelque chose comme `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`.
 
 Pour permettre aux liens d'e-mail avec suivi des clics de fonctionner comme des liens universels ou des App Links, vous devrez effectuer une configuration supplémentaire. Assurez-vous d'ajouter le domaine de suivi des clics (`links.email.example.com`) comme domaine que l'application est autorisée à ouvrir. De plus, le domaine de suivi des clics doit servir les fichiers AASA (iOS) ou Digital Asset Links (Android). Cela contribuera à garantir que les liens d'e-mail avec suivi des clics fonctionnent de façon fluide.
 
-Si vous ne souhaitez pas que chaque lien de suivi des clics soit un lien universel ou un App Link, vous pouvez spécifier quels liens doivent être des liens universels en fonction du partenaire d'envoi d'e-mails. Consultez les sections suivantes pour plus de détails.
+Si vous ne souhaitez pas que chaque lien de suivi des clics soit un lien universel ou un App Link, vous pouvez spécifier quels liens doivent être des liens universels en fonction du partenaire d'envoi d'e-mails. Consultez les onglets suivants pour plus de détails.
 
-### SendGrid
+{% tabs %}
+{% tab SendGrid %}
 
 Pour traiter un lien de suivi des clics SendGrid comme un lien universel :
 
@@ -255,7 +256,8 @@ Par exemple :
 
 Avec cette configuration, les liens contenant `/uni/` dans le chemin d'URL fonctionneront comme des liens universels, tandis que tous les autres liens fonctionneront comme des liens web.
 
-### SparkPost
+{% endtab %}
+{% tab SparkPost %}
 
 Pour traiter un lien de suivi des clics SparkPost comme un lien universel, ajoutez l'attribut suivant dans la section Attributs de l'éditeur par glisser-déposer pour l'e-mail, ou modifiez manuellement le HTML du lien pour inclure l'attribut suivant dans la balise d'ancrage de votre lien : `data-msys-sublink="custom_path"`.
 
@@ -268,6 +270,83 @@ Par exemple :
 ```
 
 Ensuite, assurez-vous que votre application est configurée pour gérer correctement le chemin personnalisé. Consultez l'article de SparkPost sur l'[utilisation du suivi des clics SparkPost sur les liens profonds](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Cet article contient des exemples de code pour [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) et [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+
+{% endtab %}
+{% tab Amazon SES %}
+
+Utilisez des chemins personnalisés pour ajouter des segments de chemin aux URL de suivi des clics des e-mails. Cela crée des modèles d'URL prévisibles que les systèmes d'exploitation mobiles peuvent reconnaître pour les liens universels et les App Links.
+
+Lorsque les utilisateurs appuient sur des liens d'e-mail sur des appareils mobiles, les chemins personnalisés vous aident à contrôler si les liens s'ouvrent dans votre application mobile principale, une application spécialisée ou le navigateur mobile (par exemple les pages produits, les programmes de fidélité, les liens de désabonnement ou les pages juridiques).
+
+Pour traiter un lien de suivi des clics Amazon SES comme un lien universel ou un App Link :
+
+1. Ajoutez des attributs `ses:custom-path` à vos balises d'ancrage dans le HTML de l'e-mail, ou ajoutez l'attribut dans la section **Attributs** de l'éditeur par glisser-déposer pour l'e-mail. Le chemin personnalisé est inséré dans l'URL de suivi des clics encapsulée.
+
+Par exemple :
+
+```html
+<!-- Opens main shopping app -->
+<a href="https://yourstore.com/product" ses:custom-path="shop">Shop Now</a>
+<!-- Opens loyalty app -->
+<a href="https://yourstore.com/rewards" ses:custom-path="rewards">My Rewards</a>
+<!-- Opens specialized app -->
+<a href="https://yourstore.com/limited" ses:custom-path="limited">Limited Edition</a>
+<!-- Stays in browser -->
+<a href="https://yourstore.com/unsubscribe" ses:no-track>Unsubscribe</a>
+```
+
+Assurez-vous que vos chemins personnalisés respectent ces exigences :
+
+- **Format :** caractères alphanumériques, points, tirets bas et tirets uniquement
+- **Longueur :** 1 à 32 caractères
+- **Sensibilité à la casse :** les chemins sont sensibles à la casse pour correspondre aux exigences des systèmes d'exploitation mobiles
+
+{:start="2"}
+2. Confirmez que vos URL de suivi encapsulées incluent le segment de chemin personnalisé. Les liens suivent ce format : `track.yourstore.com/L1/{customPath}/...`
+
+Par exemple :
+
+- `track.yourstore.com/L1/shop/...`
+- `track.yourstore.com/L1/rewards/...`
+
+{:start="3"}
+3. Configurez vos fichiers d'association de site sur votre domaine de suivi des clics afin que les chemins correspondent à `/L1/{customPath}/`.
+
+**iOS (Apple App Site Association) :**
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "TEAMID.com.yourcompany.mainapp",
+      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+    }, {
+      "appID": "TEAMID.com.yourcompany.limitedapp",
+      "paths": ["/L1/limited/*"]
+    }]
+  }
+}
+```
+
+**Android (Digital Asset Links) :**
+
+```json
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.yourcompany.mainapp",
+    "sha256_cert_fingerprints": ["..."]
+  },
+  "include": ["/L1/shop/*", "/L1/rewards/*"]
+}]
+```
+
+Assurez-vous que votre application est configurée pour gérer ces liens encapsulés. Ajoutez votre domaine de suivi des clics aux domaines associés de votre application (iOS) ou aux filtres d'intention (Android), et hébergez le fichier AASA ou Digital Asset Links sur ce domaine comme décrit précédemment dans cet article.
+
+{% endtab %}
+{% endtabs %}
 
 ### Désactiver le suivi des clics lien par lien {#turning-off-click-tracking-on-a-link-to-link-basis}
 
@@ -343,6 +422,10 @@ Sélectionnez les éléments suivants pour l'attribut personnalisé :
 
 Si vos liens universels ne fonctionnent pas comme prévu dans vos e-mails, par exemple en redirigeant le destinataire de son application de messagerie vers le navigateur web avant de finalement rediriger vers l'application, consultez ces conseils pour résoudre les problèmes de configuration de vos liens universels.
 
+#### Outlook affiche `[?it=` ou du texte d'URL brut au lieu d'un bouton {#outlook-shows-it-or-raw-url-text-instead-of-a-button}
+
+Outlook peut afficher du texte d'appel à l'action comme `[?it=` ou imprimer une partie du `href` lorsqu'un lien n'utilise pas un schéma d'URL **`http://` ou `https://`** valide. Les schémas personnalisés, les schémas manquants ou les URL mal formées ne sont pas traités comme des hyperliens, de sorte que le client affiche le texte de l'attribut à la place. Confirmez que chaque bouton, lien d'image et URL suivie utilise une destination `https://` (ou `http://`) complète. Cela s'applique aussi bien aux liens universels qu'aux liens web standard.
+
 #### Vérifier l'emplacement du fichier de liens {#verify-link-file-location}
 
 Assurez-vous que le fichier AASA (iOS) ou le fichier Digital Asset Links (Android) se trouve au bon emplacement :
@@ -356,5 +439,12 @@ Il est important de s'assurer que ces fichiers sont toujours accessibles publiqu
 
 Assurez-vous que les définitions des domaines que votre application est autorisée à ouvrir sont correctes.
 
-- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([étape 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
+- **iOS :** vérifiez les Associated Domains configurés dans Xcode pour votre application ([Étape 1c : Activer les Associated Domains dans votre projet Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
 - **Android :** ouvrez la page d'informations de l'application (appui long sur l'icône de l'application et cliquez sur ⓘ). Dans le menu d'informations de l'application, localisez **Ouvrir par défaut** et appuyez dessus. Cela devrait afficher un écran avec tous les liens vérifiés que l'application est autorisée à ouvrir. Vérifiez que le domaine de suivi des clics est inclus dans cette liste.
+
+#### Le domaine de suivi ne peut pas servir les fichiers .well-known {#tracking-domain-cant-serve-well-known-files}
+
+Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure d'héberger les fichiers `.well-known` requis en raison de limitations de l'ESP ou de contraintes d'infrastructure. Si vous ne pouvez pas héberger le fichier AASA ou Digital Asset Links sur votre domaine de suivi, envisagez les options suivantes :
+
+- **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
+- **Placez un réseau de diffusion de contenu devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un réseau de diffusion de contenu (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le réseau de diffusion de contenu pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre ESP. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.

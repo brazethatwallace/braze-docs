@@ -6,7 +6,7 @@ layout: dev_guide
 guide_top_header: "Compliance and delivery"
 guide_top_text: "Ensure your SMS, MMS, and RCS messages comply with regulations and follow best practices for deliverability and user trust."
 page_type: landing
-description: "Manage compliance and deliverability for SMS, MMS, and RCS messaging, including laws and regulations, opt-ins, and geographic permissions."
+description: "Manage compliance and deliverability for SMS, MMS, and RCS messaging, including laws and regulations, opt-ins, and traffic pumping fraud."
 channel:
   - SMS
   - MMS
@@ -23,7 +23,7 @@ guide_featured_list:
   - name: Collecting user opt-ins
     link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins
     image: /assets/img/braze_icons/message-check-circle.svg
-  - name: Geographic permissions
-    link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions
-    image: /assets/img/braze_icons/globe-04.svg
+  - name: Preventing SMS, MMS, and RCS traffic pumping fraud
+    link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud
+    image: /assets/img/braze_icons/shield-01.svg
 ---

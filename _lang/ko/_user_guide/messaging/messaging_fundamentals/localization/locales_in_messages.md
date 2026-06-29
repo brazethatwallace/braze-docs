@@ -9,7 +9,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 
 # 다국어 메시지 {#multi-language-messages}
 
-> 워크스페이스에 로캘을 추가한 후, 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어로 사용자를 타겟팅할 수 있습니다.
+> 워크스페이스에 로캘을 추가한 후, 단일 푸시, 이메일, 배너, 인앱 메시지 또는 콘텐츠 블록 내에서 다양한 언어로 사용자를 타겟팅할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -20,22 +20,22 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 {% tabs %}
 {% tab 다국어 로캘 %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab 메시지 유형 %}
 
 | 기능 | 필수 사용자 권한 |
 | --- | --- |
-| 메시지&nbsp;유형 | Campaigns 및 Canvases에 로캘과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> {::nomarkdown}세분화된 권한: <ul><li>Campaigns 편집</li><li>Canvases 편집</li></ul> 레거시 권한: <ul><li>Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터에 접근</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| 메시지&nbsp;유형 | Campaigns 및 Canvases에 로캘과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> <ul><li>Campaigns 편집</li><li>Canvases 편집</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites"}
 
 {% endtab %}
 {% tab 템플릿 %}
 
 | 기능 | 필수 사용자 권한 |
 | --- | --- |
-| 템플릿 | 로캘과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> {::nomarkdown}세분화된 권한: <ul><li>이메일 템플릿 편집</li><li>IAM 템플릿 편집</li><li>콘텐츠 블록 템플릿 편집</li></ul> 레거시 권한: <ul><li>Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터에 접근</li></ul>{:/} |
+| 템플릿 | 로캘과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> <ul><li>이메일 템플릿 편집</li><li>IAM 템플릿 편집</li><li>콘텐츠 블록 템플릿 편집</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}

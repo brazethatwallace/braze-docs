@@ -18,7 +18,7 @@ _Diese Integration wird von Tapcart gepflegt._
 | Anforderung              | Beschreibung                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tapcart Enterprise-Konto | Die Integration ist nur für **Kund:innen von Tapcart Enterprise** verfügbar.                                                                              |
-| Braze-App-API-Schlüssel         | Der [Braze-App-Bezeichner-API-Schlüssel](https://www.braze.com/docs/api/identifier_types) ist erforderlich. Jede Plattform (z. B. iOS oder Android) hat einen eigenen App-Bezeichner. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner**. |
+| Braze-App-API-Schlüssel         | Der [Braze-App-Bezeichner-API-Schlüssel]({{site.baseurl}}/api/identifier_types/) ist erforderlich. Jede Plattform (z. B. iOS oder Android) hat einen eigenen App-Bezeichner. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Über die Integration {#about-the-integration}

@@ -36,18 +36,32 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 
 {% endraw %}
 
+{% alert note %}
+API-Trigger-Eigenschaften müssen zwei geschweifte Klammern pro Tag verwenden: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Dreifache Klammern (zum Beispiel `{{{...}}}`){% endraw %} sind keine gültige Braze-Personalisierungssyntax. Siehe [Warum schlägt mein API-getriggertes Liquid in Braze fehl?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
+
 ### Unterstützte Attribute {#supported-attributes}
 
-Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt (zum Beispiel ist `dispatch_id` nicht in In-App-Nachrichten-Campaigns verfügbar).
+Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt. Zum Beispiel wird `dispatch_id` in Liquid für Messaging-Kanäle wie E-Mail, Push, SMS und WhatsApp unterstützt, aber nicht für In-App-Nachrichten oder Banner.
 
-Lesen Sie diesen Hilfeartikel, um mehr darüber zu erfahren, [wie sich einige dieser Attribute je nach Quelle in Braze unterscheiden]({{site.baseurl}}/help/help_articles/api/attribute_name_id_across_sources/).
+Weitere Details finden Sie unter [Campaign- und Canvas-Attribute über verschiedene Quellen hinweg]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
 
 ### Unterschiede zwischen Canvas- und Campaign-Tags {#canvas-and-campaign-tag-differences}
 
 Das Verhalten der folgenden Tags unterscheidet sich zwischen Canvas und Campaigns:
 {% raw %}
-- Das Verhalten von `dispatch_id` unterscheidet sich, da Braze Canvas-Schritte als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind (mit Ausnahme von Eingangs-Schritten, die geplant werden können). Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/).
+- Das Verhalten von `dispatch_id` unterscheidet sich, da Braze Canvas-Schritte als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind (mit Ausnahme von Eingangs-Schritten, die geplant werden können). Weitere Informationen finden Sie unter [Dispatch-ID-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
 - Die Verwendung des Tags `{{campaign.${name}}}` mit Canvas zeigt den Namen der Canvas-Komponente an. Bei Verwendung dieses Tags mit Campaigns wird der Campaign-Name angezeigt.
+{% endraw %}
+
+#### Campaign-Namen in URLs {#campaign-names-in-urls}
+
+{% raw %}
+Campaign- und Nachrichtenvarianten-Namen können Zeichen enthalten, die nicht URL-sicher sind, wie z. B. `%`, Leerzeichen oder `&`. Wenn Sie `{{campaign.${name}}}` oder `{{campaign.${message_name}}}` in einen Link oder Query-String einfügen, z. B. als `utm_campaign`-Parameter, wenden Sie den [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters)-Filter an, damit die URL korrekt geparst wird. Zum Beispiel:
+
+```liquid
+https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
+```
 {% endraw %}
 
 ## Informationen zum zuletzt verwendeten Gerät {#most-recently-used-device-information}
@@ -62,7 +76,7 @@ Sie können die folgenden Attribute für das zuletzt verwendete Gerät der Nutze
 | `{{most_recently_used_device.${id}}}` | Der Braze-Gerätebezeichner. Unter iOS kann dies der Apple Identifier for Vendors (IDFV) oder eine UUID sein. Für Android und andere Plattformen ist es eine zufällig generierte UUID. |
 | `{{most_recently_used_device.${carrier}}}` | Der Mobilfunkanbieter des zuletzt verwendeten Geräts, falls verfügbar. Beispiele sind „Verizon“ und „Orange“. |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | Ob das Gerät Ad-Tracking aktiviert hat oder nicht. Dies ist ein boolescher Wert (`true` oder `false`). |
-| `{{most_recently_used_device.${idfa}}}` | Für iOS-Geräte ist dieser Wert der Identifier for Advertising (IDFA), wenn Ihre Anwendung mit unserer [optionalen IDFA-Erfassung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/) konfiguriert ist. Für Nicht-iOS-Geräte ist dieser Wert null. |
+| `{{most_recently_used_device.${idfa}}}` | Für iOS-Geräte ist dieser Wert der Identifier for Advertising (IDFA), wenn Ihre Anwendung mit unserer [optionalen IDFA-Erfassung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection) konfiguriert ist. Für Nicht-iOS-Geräte ist dieser Wert null. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Für Android-Geräte ist dieser Wert die Google Play Advertising Identifier, wenn Ihre Anwendung mit unserer optionalen Google Play Advertising ID-Erfassung konfiguriert ist. Für Nicht-Android-Geräte ist dieser Wert null. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Für Roku-Geräte ist dieser Wert die Roku Advertising Identifier, die erfasst wird, wenn Ihre Anwendung mit Braze konfiguriert ist. Für Nicht-Roku-Geräte ist dieser Wert null. |
 | `{{most_recently_used_device.${model}}}` | Der Modellname des Geräts, falls verfügbar. Beispiele sind „iPhone 6S“, „Nexus 6P“ und „Firefox“. |
@@ -101,7 +115,7 @@ Für Push-Benachrichtigungen, In-App-Nachrichten und Banner können Sie die folg
 |------------------|---|
 | `{{targeted_device.${id}}}` | Dies ist der Braze-Gerätebezeichner. Unter iOS kann dies der Apple Identifier for Vendors (IDFV) oder eine UUID sein. Für Android und andere Plattformen ist es eine zufällig generierte UUID. Wenn Nutzer:innen beispielsweise fünf Geräte haben, erfolgt ein Sendeversuch für alle fünf Geräte, jeweils mit dem entsprechenden Gerätebezeichner. Wenn eine Nachricht so konfiguriert ist, dass sie an das zuletzt verwendete Gerät der Nutzer:innen gesendet wird, erfolgt nur ein Sendeversuch an das zuletzt verwendete Gerät, das über Braze identifiziert wurde. |
 | `{{targeted_device.${carrier}}}` | Der Mobilfunkanbieter des zuletzt verwendeten Geräts, falls verfügbar. Beispiele sind „Verizon“ und „Orange“. |
-| `{{targeted_device.${idfa}}}` | Für iOS-Geräte ist dieser Wert der Identifier for Advertising (IDFA), wenn Ihre Anwendung mit unserer [optionalen IDFA-Erfassung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/) konfiguriert ist. Für Nicht-iOS-Geräte ist dieser Wert null. |
+| `{{targeted_device.${idfa}}}` | Für iOS-Geräte ist dieser Wert der Identifier for Advertising (IDFA), wenn Ihre Anwendung mit unserer [optionalen IDFA-Erfassung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection) konfiguriert ist. Für Nicht-iOS-Geräte ist dieser Wert null. |
 | `{{targeted_device.${google_ad_id}}}` | Für Android-Geräte ist dieser Wert die Google Play Advertising Identifier, wenn Ihre Anwendung mit unserer [optionalen Google Play Advertising ID-Erfassung] konfiguriert ist. Für Nicht-Android-Geräte ist dieser Wert null. |
 | `{{targeted_device.${roku_ad_id}}}` | Für Roku-Geräte ist dieser Wert die Roku Advertising Identifier, die erfasst wird, wenn Ihre Anwendung mit Braze konfiguriert ist. Für Nicht-Roku-Geräte ist dieser Wert null. |
 | `{{targeted_device.${model}}}` | Der Modellname des Geräts, falls verfügbar. Beispiele sind „iPhone 6S“, „Nexus 6P“ und „Firefox“. |

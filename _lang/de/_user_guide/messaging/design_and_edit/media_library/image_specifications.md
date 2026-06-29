@@ -2,7 +2,6 @@
 nav_title: Bildspezifikationen
 article_title: Bildspezifikationen
 page_order: 1
-
 page_type: reference
 description: "Dieser Referenzartikel beschreibt die empfohlenen Bildgrößen und Spezifikationen für jeden Kanaltyp."
 tool:
@@ -19,7 +18,7 @@ Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau a
 
 ## Bildverhalten {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Video {#video}
 
@@ -29,19 +28,21 @@ Videos, die in die Medienbibliothek hochgeladen werden, können nur in WhatsApp-
 
 GIFs werden in iOS-Push-Benachrichtigungen, In-App-Nachrichten, E-Mails, Content Cards sowie MMS- oder RCS-Nachrichten unterstützt. GIFs mit sehr langgestreckten Formen (z. B. 3000 x 2 Pixel) oder 300 oder mehr Frames können beim Hochladen fehlschlagen, selbst wenn die Gesamtdateigröße klein ist.
 
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
+
 ## Kanalrichtlinien {#channel-guidance}
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### E-Mail {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### In-App-Nachrichten {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} Erstellen Sie Assets mit Zuversicht! Unsere Bildvorlagen und Safe-Zone-Overlays für In-App-Nachrichten sind so konzipiert, dass sie auf Geräten aller Größen optimal funktionieren. [Design-Vorlagen-ZIP herunterladen]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
@@ -53,9 +54,9 @@ Braze unterstützt die Verwendung von [Font Awesome v4.3.0](https://fontawesome.
 
 ### Push-Benachrichtigungen {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Empfohlene Nachrichtenlängen {#recommended-message-lengths}
 

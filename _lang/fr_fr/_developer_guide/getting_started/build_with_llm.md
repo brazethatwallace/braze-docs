@@ -166,8 +166,8 @@ Vous pouvez accéder à la documentation du guide du développeur Braze sous for
 
 | Fichier | Description |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Un index des pages de documentation pour les développeurs Braze, avec titres et descriptions. Utilisez-le comme point de départ pour découvrir la documentation disponible. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | La documentation complète pour les développeurs Braze dans un seul fichier texte brut, formaté pour être utilisé par les LLM. |
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Un index des pages de documentation pour les développeurs Braze, avec titres et descriptions. Utilisez-le comme point de départ pour découvrir la documentation disponible. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | La documentation complète pour les développeurs Braze dans un seul fichier texte brut, formaté pour être utilisé par les LLM. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Documentation en texte brut" }
 
 Ces fichiers respectent la [norme llms.txt](https://llmstxt.org/), une convention émergente visant à rendre la documentation accessible aux outils d'intelligence artificielle. Vous pouvez référencer ces fichiers directement dans vos prompts ou coller leur contenu dans un LLM pour fournir du contexte.

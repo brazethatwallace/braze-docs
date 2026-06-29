@@ -7,11 +7,13 @@ page_type: reference
 description: "This reference article covers how to access and use the Braze Product Portal to provide feedback from the dashboard."
 ---
 
-# Product portal ![Resources menu in the Braze dashboard]({% image_buster /assets/img/portal.png %}){: style="float:right;max-width:33%;margin-left:15px;margin-top:15px;"}
+# Product portal
 
-> With the product portal, you can access the Braze product roadmap and submit ideas. This provides you with insight into what we've recently released, new features that we're working on, and ideas we're considering building. In the portal, you can vote for the features you want by ranking a feature's importance to you and leave a comment with feedback or a request. 
+> With the product portal, you can access the Braze product roadmap and submit ideas. This provides you with insight into what we've recently released, new features that we're working on, and ideas we're considering building. In the portal, you can vote for the features you want by ranking a feature's importance to you and leave a comment with feedback or a request.
 
-The product portal can be found at **Community** > **Product Roadmap**.
+The product portal can be found at **Community** > **Product roadmap**.
+
+![Resources menu in the Braze dashboard]({% image_buster /assets/img/portal.png %}){: style="max-width:40%;"}
 
 ## What's in the portal
 
@@ -51,5 +53,5 @@ The more information and context the better! Include links to campaigns, Canvase
 - Do you have any additional insight? (For example, how this would benefit you and your teams)
 - Are there any current workarounds? (This is not for our prioritization process, but may help with any solution discovery work) 
 
-For an example of a well-written product request, see this [Product Request Example]({{site.baseurl}}/product_request/). 
+For an example of a well-written product request, see this [Product Request Example]({{site.baseurl}}/product_request). 
 

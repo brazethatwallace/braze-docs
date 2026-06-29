@@ -3,7 +3,7 @@ nav_title: Suivi des désinstallations
 article_title: Suivi des désinstallations
 page_order: 1
 page_type: reference
-description: "Cet article de référence couvre la mise en œuvre du suivi des désinstallations pour les statistiques au niveau de la campagne et de l'application."
+description: "Cet article de référence couvre la mise en œuvre du suivi des désinstallations pour les statistiques au niveau de la Campaign et de l'application."
 tool: Reports
 
 ---
@@ -47,7 +47,7 @@ Les statistiques quotidiennes sur les désinstallations sont disponibles sur la 
 
 ![Segment de désinstallation.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
 
-Le graphique peut être décomposé par application et par segment, à l'instar d'autres statistiques fournies par Braze. Dans la section **Performance overview**, sélectionnez votre plage de dates et, si vous le souhaitez, une application. Ensuite, faites défiler la page jusqu'au graphique **Performance Over Time** et procédez comme suit :
+Le graphique peut être décomposé par application et par segment, à l'instar d'autres statistiques fournies par Braze. Dans la section **Aperçu des performances**, sélectionnez votre plage de dates et, si vous le souhaitez, une application. Ensuite, faites défiler la page jusqu'au graphique **Performance Over Time** et procédez comme suit :
 
 1. Dans le menu déroulant **Statistics For**, sélectionnez **Uninstalls**.
 2. Dans le menu déroulant **Breakdown**, sélectionnez **By Segment**.
@@ -81,6 +81,10 @@ Pour en savoir plus sur l'utilisation du suivi des désinstallations, consultez 
 
 ## Résolution des problèmes {#troubleshooting}
 
+### Quand le profil d'un utilisateur est-il marqué comme désinstallé ? Quand le marqueur de désinstallation est-il supprimé ? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+
+Braze marque un utilisateur comme ayant désinstallé l'application lorsque nous détectons que celle-ci n'est plus présente sur l'appareil (voir [Fonctionnement](#how-it-works) pour la détection via les notifications push classiques et le suivi optionnel des désinstallations). Après la réinstallation de votre application, le marqueur de désinstallation peut rester sur le profil de l'utilisateur jusqu'à ce qu'il **ouvre l'application et démarre une nouvelle session** — la réinstallation seule ne supprime pas le marqueur. Jusqu'à cette session, les segments et les filtres qui utilisent l'état de désinstallation (par exemple **N'a pas désinstallé**) continuent de considérer l'utilisateur comme ayant désinstallé.
+
 ### Pourquoi le nombre de désinstallations augmente-t-il soudainement ? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
 Si vous constatez un pic de désinstallations de l'application, cela peut être dû à la révocation des anciens jetons à une fréquence différente par Firebase Cloud Messaging (FCM) et Apple Push Notification Service (APNs).
@@ -97,7 +101,7 @@ Pour afficher les désinstallations par segment :
 1. Accédez à la page **d'accueil** du tableau de bord.
 2. Dans la section **Performance Over Time**, sélectionnez **Uninstalls** pour **Statistics For** et **By Segment** pour **Breakdown**.
 
-Si vous disposez d'un segment qui suit les utilisateurs inactifs avec le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) activé, comparez sa tendance de désinstallation à la tendance globale de l'application.
+Si vous disposez d'un segment qui suit les utilisateurs inactifs avec le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) activé, comparez sa tendance de désinstallation à la tendance globale de l'application.
 
 ### Comment confirmer que les désinstallations sont réelles ? {#how-do-i-confirm-uninstalls-are-genuine}
 

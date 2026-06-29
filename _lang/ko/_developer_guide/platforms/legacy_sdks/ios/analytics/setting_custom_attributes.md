@@ -253,7 +253,7 @@ REST API를 사용하여 사용자 속성을 설정할 수도 있습니다. 자�
 | `ABKOptedin` | 구독하고 명시적으로 옵트인한 경우 |
 | `ABKSubscribed` | 구독 중이지만 명시적으로 옵트인하지 않은 경우 |
 | `ABKUnsubscribed` | 구독 취소 및/또는 명시적으로 수신 거부한 경우 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting up user subscriptions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 앱에서 푸시 알림을 보낼 수 있도록 권한을 부여한 사용자의 기본 상태는 `ABKOptedin`입니다. iOS에서는 명시적인 옵트인이 필요하기 때문입니다.
 

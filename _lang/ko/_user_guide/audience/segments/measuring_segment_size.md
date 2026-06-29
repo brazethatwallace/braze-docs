@@ -30,6 +30,10 @@ Braze는 데이터가 서버로 전송되고 처리될 때 사용자의 Segment 
 
 단일 사용자가 여러 도달 가능 사용자 그룹에 속할 수 있습니다. 예를 들어, 사용자가 유효한 이메일 주소와 유효한 Android 푸시 토큰을 모두 가지고 있고 둘 다 옵트인했지만, 연결된 iOS 푸시 토큰이 없을 수 있습니다. 총 도달 가능 사용자와 각 채널 합계 간의 차이는 Segment에 해당하지만 해당 커뮤니케이션 채널을 통해 도달할 수 없는 사용자 수입니다.
 
+{% alert note %}
+**총 도달 가능 사용자**에는 더 이상 채널에 가입되어 있지 않더라도 Segment 필터에 일치하는 모든 사용자가 포함됩니다. **iOS**와 같은 채널 행은 [채널별 도달 가능 사용자](#reachable-users-by-channel)의 규칙에 따라 해당 채널에서만 도달 가능한 사용자를 카운트합니다. Segment 합계를 가입된 사용자와 일치시키려면 **Push enabled for iOS**가 true인 필터(또는 해당 채널에 해당하는 필터)를 추가하세요.
+{% endalert %}
+
 ## Segment 크기 통계 {#statistics-for-segment-size}
 
 추정 통계는 Segment의 일부만 샘플링하여 근사치를 구하므로, 추정 크기가 실제 값보다 크거나 작을 수 있으며, 워크스페이스가 클수록 오차 범위가 더 클 수 있습니다. Segment의 정확한 사용자 수를 확인하려면 **Calculate Exact Statistics**를 선택하세요. 정확한 Segment 멤버십은 Campaign 또는 Canvas에서 전송되는 메시지에 의해 Segment가 영향을 받기 전에 항상 계산됩니다.
@@ -84,7 +88,7 @@ _Total_이 채널 합계보다 높은 경우, 그 차이는 Segment에 해당하
 | 이메일 | **Email Available**이 true입니다. |
 | 푸시 | **Foreground Push Enabled**가 true입니다. |
 | SMS | **Subscription Group**이 SMS 구독 그룹 중 하나입니다. **Invalid Phone Number**가 false입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Applied filters for channel-specific reachable users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="채널별 도달 가능 사용자에 적용되는 필터" }
 
 ## 정확한 통계 계산 {#calculating-exact-statistics}
 
@@ -104,11 +108,10 @@ Segment의 정확한 사용자 수를 확인하려면 **Reachable users** 패널
 
 Braze는 워크스페이스당 한 번에 하나의 계산을 우선 처리하므로, 여러 계산을 동시에 실행하면 지연이 발생합니다. **View calculation queue**를 선택하면 앞에 있는 Segments, 진행 상황, 시작한 사람을 확인하고 계산이 언제 우선 처리될지 파악할 수 있습니다.
 
-![하나의 계산이 있는 계산 대기줄.]({% image_buster /assets/img_archive/calculation_queue.png %})
+![하나의 계산이 있는 계산 대기열.]({% image_buster /assets/img_archive/calculation_queue.png %})
 
-**Cancel**을 선택하여 정확한 통계 계산을 취소할 수 있습니다. 대기줄에 여러 계산이 있고 다른 계산을 먼저 우선 처리하고 싶을 때 유용합니다.
+**Cancel**을 선택하여 정확한 통계 계산을 취소할 수 있습니다. 대기열에 여러 계산이 있고 다른 계산을 먼저 우선 처리하고 싶을 때 유용합니다.
 
-![취소 옵션이 있는 활성 계산]({% image_buster /assets/img_archive/cancel_calculation.png %}){: style="max-width:35%"}
 
 ## 과거 Segment 멤버십 크기 보기 {#viewing-historical-segment-membership-size}
 
@@ -132,10 +135,10 @@ Braze는 사용자의 하위 집합을 쿼리한 다음 그 결과를 전체 오
 
 | 원인 | 예시 |
 | --- | --- |
-| 일반적인 사용자 행동 | 특히 성공적인 Campaign 이후 사용자가 가입합니다. |
+| 일반적인 사용자 동작 | 특히 성공적인 Campaign 이후 사용자가 가입합니다. |
 | CSV로 사용자 가져오기 | Segment 멤버십을 크게 증가시킨 사용자 CSV 파일을 가져왔습니다. |
 | Segment 오디언스 기준 수정 | 기존 Segment의 오디언스 규칙(예: 필터)이 변경되어 Segment 멤버십에 큰 변화가 발생했습니다. |
 | 사용자 삭제 | 상당수의 사용자가 삭제되었습니다. |
 | 파트너 통합이 Braze와 동기화 | 서드파티가 Braze에 데이터를 전송하여 Segment 멤버십에 큰 영향을 미쳤습니다. |
 | 휴면 사용자 아카이브 | 상당수의 비활성 프로필이 아카이브되었습니다. 예를 들어, CSV로 가져온 많은 사용자가 활동을 기록하지 않아 동시에 아카이브됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Reasons for significant changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="큰 변동의 원인" }

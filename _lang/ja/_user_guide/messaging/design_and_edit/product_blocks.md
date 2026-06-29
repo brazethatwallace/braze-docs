@@ -21,7 +21,7 @@ alias: /dnd_product_blocks/
 
 | 要件 | 説明 |
 | --- | --- |
-| eコマース推奨イベント | [eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、注文の前後に発生する主要な行動イベントに対して標準化されたデータスキーマを提供します。これらのイベントは、最終的にレガシーのBraze購入イベントに代わり、コマース関連の行動を追跡するための標準となります。<br><br> eコマース推奨イベントは、ダイナミック製品ブロックに必須です。<br><br> eコマース推奨イベントは現在早期アクセス段階にあります。この早期アクセスへの参加をご希望の場合は、Brazeカスタマーサクセスマネージャーにお問い合わせください。 |
+| eコマース推奨イベント | [eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、注文の前後に発生する主要な行動イベントに対して標準化されたデータスキーマを提供します。これらのイベントは、最終的にレガシーのBraze購入イベントに代わり、コマース関連の行動をトラッキングするための標準となります。<br><br> eコマース推奨イベントは、ダイナミック製品ブロックに必須です。 |
 | eコマースCanvasテンプレート | eコマース推奨イベントは、閲覧放棄、カート放棄、注文確認などの重要なユースケース向けに設計されたeコマースCanvasテンプレートを含む、事前構築済みテンプレートをサポートしています。<br><br>[eコマースCanvasテンプレート]({{site.baseurl}}/ecommerce_use_cases/)を使用してこれらの重要なeコマースユースケースを実装する場合は、提供されたCanvasテンプレートを使用するか、それに従う必要があります。 |
 | Brazeカタログ | 製品ブロックの設定で使用する以下のフィールドを含むBrazeカタログを作成する必要があります。{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | カタログセレクション | 静的製品ブロックの場合、製品ブロックに含める製品を指定するために[カタログセレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)を作成する必要があります。 |
@@ -107,7 +107,7 @@ BrazeとShopifyの統合を[製品同期]({{site.baseurl}}/shopify_catalogs/)に
 | `variant_image_url` | バリアント画像のURLです。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalog setup" }
 
-必須フィールドを含むこの[サンプル製品カタログ]({{site.baseurl}}/assets/download_file/ecommerce_product_catalog_sample.csv)を活用して、すばやく開始できます。
+必須フィールドを含むこの[サンプル製品カタログ](/docs/assets/download_file/ecommerce_product_catalog_sample.csv)を活用して、すばやく開始できます。
 
 ![必須フィールドとその他のフィールドを含むサンプルCSVファイル。]({% image_buster /assets/img/ecommerce/sample_product_catalog.png %})
 

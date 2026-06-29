@@ -1,24 +1,24 @@
 ---
-nav_title: "GET: Canvasリストをエクスポートする"
-article_title: "GET: Canvasリストをエクスポートする"
+nav_title: "GET: キャンバスリストをエクスポートする"
+article_title: "GET: キャンバスリストをエクスポートする"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「Canvasリストのエクスポート」Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、「キャンバスリストのエクスポート」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# Canvasリストをエクスポートする {#export-canvas-list}
+# キャンバスリストをエクスポートする {#export-canvas-list}
 {% apimethod get %}
 /canvas/list
 {% endapimethod %}
 
-> このエンドポイントを使用して、名前、Canvas API識別子、関連タグを含むCanvasesのリストをエクスポートします。
+> このエンドポイントを使用して、名前、キャンバス API識別子、関連タグを含むキャンバスのリストをエクスポートします。
 
-Canvasesは、作成時刻順（デフォルトでは古い順）に100件ずつのグループで返されます。
+キャンバスは、作成時刻順（デフォルトでは古い順）に100件ずつのグループで返されます。
 
-`include_archived`フィールドが指定されていない限り、アーカイブされたCanvasesはAPI応答に含まれません。ただし、停止しているがアーカイブされていないCanvasesは、デフォルトで返されます。
+`include_archived`フィールドが指定されていない限り、アーカイブされたキャンバスはAPI応答に含まれません。ただし、停止しているがアーカイブされていないキャンバスは、デフォルトで返されます。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e6c150d7-fceb-4b10-91e2-a9ca4d5806d1 {% endapiref %}
 
@@ -34,10 +34,10 @@ Canvasesは、作成時刻順（デフォルトでは古い順）に100件ずつ
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `page` | オプション | 整数 | 返すCanvasesのページ。デフォルトは`0`（最大100件の最初のセットを返します） |
-| `include_archived` | オプション | ブール値 | アーカイブされたCanvasesを含めるかどうか。デフォルトは`false`です。 |
+| `page` | オプション | 整数 | 返すキャンバスのページ。デフォルトは`0`（最大100件の最初のセットを返します） |
+| `include_archived` | オプション | ブール値 | アーカイブされたキャンバスを含めるかどうか。デフォルトは`false`です。 |
 | `sort_direction` | オプション | 文字列 | - 作成時刻を新しいものから古いものへ並べ替える場合: 値`desc`を渡します。<br> - 作成時刻を古いものから新しいものへ並べ替える場合: 値`asc`を渡します。<br><br>`sort_direction`が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
-| `last_edit.time[gt]` | オプション | 時刻 | 結果をフィルターし、指定された時刻以降に編集されたCanvasesのみを返します。形式は`yyyy-MM-DDTHH:mm:ss`です。 |
+| `last_edit.time[gt]` | オプション | 時刻 | 結果をフィルターし、指定された時刻以降に編集されたキャンバスのみを返します。形式は`yyyy-MM-DDTHH:mm:ss`です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
@@ -58,7 +58,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   		"name" : (string) the Canvas name,
   		"tags" : (array) the tag names associated with the Canvas formatted as strings,
   	},
-    ... (more Canvases)
+    ... (more キャンバス)
   ],
   "message": (required, string) the status of the export, returns 'success' when completed without errors
 }

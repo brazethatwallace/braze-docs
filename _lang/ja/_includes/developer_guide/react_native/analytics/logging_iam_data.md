@@ -60,7 +60,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 
 これらの値の詳細については、[Androidのドキュメント]({{site.baseurl}}/developer_guide/in_app_messages/)を参照してください。
 
-```java
+`````````java
 // In-app messaging
 @Override
 public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMessage) {
@@ -88,7 +88,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 これらの値の詳細については、[iOSのドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/)を参照してください。
 
-```objc
+`````````objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui
                             displayChoiceForMessage:(BRZInAppMessageRaw *)message {
   // Convert the message to a JavaScript representation.
@@ -113,7 +113,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 `BrazeUI` はObjective-CまたはSwiftでのみインポートできます。Objective-C++を使用している場合は、これを別のファイルで処理する必要があります。
 {% endalert %}
 
-```objc
+`````````objc
 @import BrazeUI;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -128,7 +128,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 ネイティブiOSレイヤーでアプリ内メッセージの表示を完全にカスタマイズしたい場合は、[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルに準拠し、以下のサンプルに従ってカスタムプレゼンターを割り当てます。
 
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKey endpoint:endpoint];
 Braze *braze = [BrazeReactBridge initBraze:configuration];
 braze.inAppMessagePresenter = [[MyCustomPresenter alloc] init];

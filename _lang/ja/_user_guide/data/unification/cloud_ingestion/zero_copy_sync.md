@@ -149,7 +149,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Set up your source table in BigQuery" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1.2: BigQuery でソーステーブルを設定する" }
 
 {% alert note %}
 プロパティはすべての行やユーザーに対して必須ではありません。ただし、プロパティの値は有効な JSON 文字列でなければなりません。行にプロパティがない場合は空の `{}` 文字列を入力してください。
@@ -178,7 +178,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 | BigQuery User | Braze によるクエリの実行、メタデータの読み取り、テーブルの一覧表示を許可します。 |
 | BigQuery Data Viewer | Braze によるデータセットとコンテンツの閲覧を許可します。 |
 | BigQuery Job User | Braze によるジョブの実行を許可します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.3: Set up credentials" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 1.3: 認証情報を設定する" }
 
 権限を付与した後、JSON キーを生成します。手順については [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) を参照してください。後で Braze のダッシュボードにアップロードします。
 
@@ -205,7 +205,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 | `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Set up your source table in Databricks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.2: Databricks でソーステーブルを設定する" }
 
 スキーマとテーブルの名前は自由に付けられますが、列名は前述の定義と一致させる必要があります。
 
@@ -283,10 +283,10 @@ GO
 | `EXTERNAL_ID` | はい、`external_id` または `alias_name` と `alias_label` のいずれか | 更新したいユーザーを識別します。これは Braze で使用されている `external_id` 値と一致する必要があります。 |
 | `ALIAS_NAME` と `ALIAS_LABEL` | はい、`external_id` または `alias_name` と `alias_label` のいずれか | これら2つの列は、ユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子でなければならず、`alias_label` はエイリアスのタイプを指定します。ユーザーは異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つしか持てません。 |
 | `PROPERTIES` | はい | Canvas内でパーソナライゼーションプロパティとして利用可能なフィールドの JSON 文字列です。ユーザー固有の情報を含める必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.3: ネットワークポリシーを設定する" }
 
 {% alert tip %}
-ファイル名は AWS の規則に従い、一意でなければなりません。一意性を確保するためにタイムスタンプを追加してください。Amazon S3 の同期に関する詳細は、[ファイルストレージの統合](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+ファイル名は AWS の規則に従い、一意でなければなりません。一意性を確保するためにタイムスタンプを追加してください。Amazon S3 の同期に関する詳細は、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
 {% endalert %}
 
 {% endtab %}

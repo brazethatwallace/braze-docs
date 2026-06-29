@@ -1,7 +1,7 @@
 ---
 nav_title: Alpaco
 article_title: Alpaco
-alias: /partners/Alpaco
+alias: /partners/alpaco/
 description: "Die Integration von Braze und Alpaco erlaubt Ihnen den Export von markenkonformen, Liquid-kompatiblen E-Mail-Templates und Content Blocks nach Braze, die sofort in E-Mails und In-App-Nachrichten einsatzbereit sind."
 page_type: partner
 search_tag: Partner

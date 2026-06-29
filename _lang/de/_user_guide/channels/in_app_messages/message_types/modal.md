@@ -20,7 +20,7 @@ Dieser Nachrichtentyp ist sowohl im [Drag-and-Drop-Editor]({{site.baseurl}}/user
 
 ## Bildspezifikationen {#image-specifications}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 ## Größere Bildschirme {#larger-screens}
 

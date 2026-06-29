@@ -19,11 +19,11 @@ user_menu_list:
     bg_color: '#F8D3E8'
     link: /docs/user_guide/administer/personal/accessing_your_account/
     description: SSOまたはBraze URLでサインインし、問題をトラブルシューティングします
-  - name: Canvasを作成する
+  - name: キャンバスを作成する
     bg_color: '#FFD4BC'
     link: /docs/user_guide/messaging/canvas/create_a_canvas/
     image: /assets/img/braze_icons/users-01-braze-orange-dark.svg
-    description: Canvasを最初から最後まで作成して起動します
+    description: キャンバスを最初から最後まで作成して起動します
 
 popular_topic_list:
   - name: 位置情報の追跡

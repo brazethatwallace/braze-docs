@@ -17,7 +17,7 @@ tool:
 > Los informes de interacción te permiten obtener estadísticas de interacción de mensajes específicos de campañas y Canvas para recibirlas por correo electrónico en el horario que prefieras.
 
 {% alert note %}
-Necesitas permisos de "Export User Data" para ejecutar informes de interacción.
+Necesitas permisos de "Exportar datos de usuario" para ejecutar informes de interacción.
 {% endalert %}
 
 Con los informes de interacción, puedes seleccionar manualmente las campañas y Canvas que deseas incluir en tu informe por correo electrónico, o especificar reglas para seleccionar automáticamente las campañas y Canvas relevantes.
@@ -43,7 +43,7 @@ Añade las campañas y los mensajes de Canvas que deseas compilar en tu informe.
 - Seleccionar manualmente campañas y Canvas
 - Seleccionar automáticamente campañas y Canvas en función de reglas específicas
 
-![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![Selección de mensajes del informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Seleccionar manualmente campañas o Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,7 @@ Las etiquetas deben coincidir con al menos una campaña o Canvas para que se gen
 
 El paso **Add Stats** te muestra las estadísticas para los tipos de campañas o Canvas que hayas seleccionado. Por ejemplo, si seleccionaste mensajes de correo electrónico, solo podrás ver las estadísticas relevantes de correo electrónico. Si elegiste una combinación de correo electrónico y push, podrás ver las estadísticas de esos dos canales.
 
-![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![Añadir estadísticas al informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
 Los informes de interacción agregan datos por campaña o Canvas, no a nivel de espacio de trabajo. Para monitorear el volumen total de envíos o impresiones en todas las campañas y Canvas activos, como los envíos e impresiones por canal en todo un espacio de trabajo, usa el [Generador de informes]({{site.baseurl}}/report_builder/).
 
@@ -77,7 +77,7 @@ Los informes de interacción agregan datos por campaña o Canvas, no a nivel de 
 | Mensaje dentro de la aplicación | Impresiones, Clics, Clics en el primer botón, Clics en el segundo botón |
 | Webhook  |  Envíos, Errores |
 | SMS | Envíos, Envíos al operador, Entregas confirmadas, Fallos de entrega, Rechazos |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Añadir estadísticas #add-statistics-to-your-reports" }
 
 ### Paso 4: Completar la configuración del informe {#step-4-complete-report-setup}
 
@@ -100,7 +100,7 @@ De forma predeterminada, el rango de datos mostrado se basa en la zona horaria d
 
 De forma predeterminada, los datos mostrados en los informes de interacción son diarios (un día). Para ver estos datos en diferentes intervalos, elige un número explícito de días o semanas para agregar los datos del informe. Así, en lugar de ver métricas diarias, puedes ver tu interacción por semana, mes, trimestre o similar. Si una agregación centrada en el tiempo no es suficiente, también puedes optar por exportar datos a nivel de campaña o Canvas.
 
-![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![Cobertura de datos del informe de interacción]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
 
 ##### Mostrar datos por campaña o Canvas completo {#show-data-by-entire-campaign-or-canvas}
 
@@ -117,7 +117,7 @@ Hay dos opciones al planificar tu informe:
 - **Enviar inmediatamente:** Después de lanzar el informe, Braze lo enviará de inmediato.
 - **Enviar en un horario designado:** Esta opción te da la flexibilidad de elegir con qué frecuencia recibes este informe. Puedes elegir enviar este informe cada cierto número de días, semanas o meses. También puedes definir cuándo dejar de enviar el informe.
 
-![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![Planificación del informe de interacción]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Paso 5: Revisar y lanzar {#step-5-review-and-launch}
 
@@ -131,13 +131,13 @@ El informe contiene todas las estadísticas seleccionadas en la sección [Añadi
 
 ## Solución de problemas {#troubleshooting}
 
-### El informe de interacción no coincide con las métricas de Canvas o la campaña {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
+### El informe de interacción no coincide con las métricas del Canvas o la campaña {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 
 #### Rango de tiempo no coincidente {#mismatched-time-range}
 
-Asegúrate de que las fechas en el informe de interacción coincidan con las fechas en los análisis de Canvas o la campaña (por ejemplo, que ambos cubran del 1 al 15 de diciembre), incluso si el Canvas solo envió una vez. En la configuración del informe de interacción, revisa **Data Display** para confirmar que estás viendo el Canvas o la campaña correctos. Si **Data Display** está configurado para mostrar datos cada *X* días, obtendrás una fila por fecha cuando se registraron métricas para cada paso.
+Asegúrate de que las fechas en el informe de interacción coincidan con las fechas en los análisis del Canvas o la campaña (por ejemplo, que ambos cubran del 1 al 15 de diciembre), incluso si el Canvas solo envió una vez. En la configuración del informe de interacción, revisa **Data Display** para confirmar que estás viendo el Canvas o la campaña correctos. Si **Data Display** está configurado para mostrar datos cada *X* días, obtendrás una fila por fecha cuando se registraron métricas para cada paso.
 
-Si los totales parecen incorrectos en una hoja de cálculo, limpia los filtros adicionales en la exportación. Puedes sumar las filas diarias para conciliarlas con los totales de Canvas o campaña para el mismo rango de tiempo.
+Si los totales parecen incorrectos en una hoja de cálculo, limpia los filtros adicionales en la exportación. Puedes sumar las filas diarias para conciliarlas con los totales del Canvas o la campaña para el mismo rango de tiempo.
 
 {% alert note %}
 Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedores diarios, semanales u otros recurrentes, configura **Data Display** en **Show Data by Entire Campaign or Canvas**. Si los recuentos de filas o las fechas parecen incorrectos en el CSV, consulta [Mostrar datos por campaña o Canvas completo](#show-data-by-entire-campaign-or-canvas).
@@ -146,3 +146,10 @@ Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedore
 #### Clics de botón duplicados en mensajes dentro de la aplicación HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
 Si utilizas mensajes dentro de la aplicación HTML y los **clics en el cuerpo** parecen altos en el informe de interacción, es posible que estés registrando clics dos veces, por ejemplo, al llamar a `brazeBridge.logClick()` para un clic genérico en el cuerpo y también `brazeBridge.logClick('body click')` (u otro ID) en la misma interacción. Busca en tu código `brazeBridge.logClick(` y alinea con un patrón por control. Para el uso recomendado, consulta [Seguimiento de botones]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#button-tracking-improvements).
+
+#### Enlaces rotos en los correos electrónicos de informes de interacción {#broken-links-in-emailed-engagement-reports}
+
+Si los enlaces en un correo electrónico de informe de interacción planificado no se abren correctamente en tu cliente de correo, prueba estos pasos:
+
+1. Reenvía el informe a una bandeja de entrada de Gmail y abre los enlaces en Google Chrome.
+2. En la configuración del informe de interacción, confirma que **Report Schedule** está configurado para enviar cuando esperas (por ejemplo, inmediatamente después de que se genere el informe en lugar de en una planificación diferida).

@@ -13,7 +13,7 @@ search_rank: 1
 
 # WhatsApp メッセージの作成 {#create-a-whatsapp-message}
 
-> WhatsApp Campaignsは、顧客に直接リーチし、プログラムによって会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> WhatsApp Campaignsは、顧客に直接リーチし、プログラムによって会話するのに最適です。Liquidやその他のダイナミックなコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -38,7 +38,7 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 **ステップ:**
 
 1. **Campaigns**ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成**をクリックします。
-2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**マルチチャネルキャンペーン**を選択します。
+2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignの場合は**マルチチャネルCampaign**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
@@ -83,7 +83,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### 言語 {#languages}
 
-各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにCampaignまたはCanvasステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するCanvasを構築する場合、インドネシア語テンプレート用のCanvasステップと英語テンプレート用のCanvasステップを作成する必要があります。
+各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにCampaignまたはキャンバスステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するCanvasを構築する場合、インドネシア語テンプレート用のキャンバスステップと英語テンプレート用のキャンバスステップを作成する必要があります。
 
 ![テンプレートのリスト。メッセージのプレビュー、割り当てられた言語、承認ステータスが表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
@@ -138,11 +138,49 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 応答メッセージ（テストメッセージを含む）を送信するには、会話ウィンドウが必要です。会話ウィンドウを開始するには、このメッセージに使用しているサブスクリプショングループに関連付けられた電話番号にWhatsAppメッセージを送信してください。関連付けられた電話番号は、**テスト**タブのアラートに記載されています。
 {% endalert %}
 
-![「テストするには、まず +1 217-582-9414 にWhatsAppメッセージを送信して会話ウィンドウを開いてください。その後、テストユーザーに応答メッセージを送信してください。」というアラート。]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![会話ウィンドウを開くためにWhatsAppメッセージを送信し、その後テストユーザーにメッセージを送信するよう案内するアラート。]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp)を参照してください。
 
-### ステップ 4:CampaignまたはCanvasの残りの部分を構築する {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### ステップ 4:テスト送信結果を確認する {#step-4-view-test-send-results}
+
+テストWhatsAppメッセージを送信した後、メッセージ作成画面で詳細な配信レポートを直接確認できます。これにより、メッセージが意図した受信者に届いたことを確認し、起動前に失敗のトラブルシューティングを行うことができます。
+
+**テスト結果を表示**ボタンは、現在のCampaignまたはキャンバスステップのテスト送信データが利用可能な場合に表示されます。選択すると結果パネルが開きます。
+
+結果パネルには、メッセージが受信者に届くまでに通過した各ステージが表示されます。
+- **Braze:** Brazeがメッセージを正常に処理してディスパッチしたかどうか
+- **Meta:** Metaがメッセージの配信を受け入れたかどうか
+- **ユーザーデバイス:** メッセージが受信者のデバイスに配信されたかどうか
+
+各ステージには現在のステータスが表示されます。ステージが失敗した場合、パネルには発生したエラーと解決方法のガイダンスが表示されます。結果は、同じCampaignまたはCanvasを閉じて再度開いても保持されます。
+
+![2件の成功したテスト送信と1件の失敗したテスト送信を示すテスト結果パネル。]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+
+#### リトライと過去の試行 {#retries-and-past-attempts}
+
+テスト送信が失敗した場合、Brazeは最大24時間自動的に配信をリトライします。結果パネルには2つのタブが表示されます。
+
+- **最新:** リトライが発生するとリアルタイムで更新される、最新の配信試行
+- **過去の試行:** 以前のリトライ実行の履歴。各ステージのステータスと発生したエラーが表示されます
+
+最終結果が確定すると（配信成功、リトライ回数の上限到達、またはリトライでは解決できない失敗）、タブはそれぞれ**結果**と**リトライ履歴**に名前が変わります。
+
+{% alert note %}
+リトライは最大24時間続く可能性があるため、送信失敗直後に最終結果が表示されない場合があります。
+{% endalert %}
+
+#### 失敗のトラブルシューティング {#troubleshoot-failures}
+
+ステージが失敗を示している場合、パネルにはエラーと推奨される次のステップが表示されます。テスト送信が失敗する一般的な理由には以下があります。
+
+- メッセージテンプレートがMetaで一時停止されているか、まだ承認されていない
+- 受信者の電話番号がレート制限されている
+- メッセージ内のLiquid変数が選択したテストユーザーに対して入力されなかった
+
+問題が解決しない場合は、Meta Business Managerでテンプレートのステータスを確認するか、テスト受信者がBrazeで必要なユーザー属性を設定しているかを確認してください。
+
+### ステップ 5:CampaignまたはCanvasの残りの部分を構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -153,15 +191,15 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を設定することもできます。
+アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定することもできます。
 
 このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、Segmentsからより大きなオーディエンスを選択し、フィルターを使用してそのSegmentをさらに絞り込みます。おおよそのSegment人口のスナップショットが自動的に表示されます。正確なSegmentメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
+次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、Segmentsからより大きなオーディエンスを選択し、フィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のスナップショットが自動的に表示されます。正確なセグメントメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
@@ -202,7 +240,7 @@ Brazeを通じて送信するWhatsApp送信メッセージでは、以下の機�
 | ドキュメント | ドキュメントは本文テキスト内に埋め込むことができます。ファイルはURL経由でホストされている必要があります。 | < 100 MB | `.txt`、`.xls`、`.xlsx`、`.doc`、`.docx`、`.ppt`、`.pttx`、`.pdf` |
 | 動画 | 動画は本文テキスト内に埋め込むことができます。ファイルはURL経由または[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)でホストされている必要があります。 | < 16 MB | `.3gp`、`.mp4` |
 | オーディオ | オーディオは応答メッセージングでのみサポートされています。ファイルはURL経由でホストされている必要があります。 | < 16 MB | `.aac`、`.amr`、`.mp3`、`.mp4`、`.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="送信メッセージ" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +256,7 @@ Brazeを通じて受信するWhatsApp受信メッセージでは、以下の機�
 | ドキュメント | ドキュメントはメッセージ添付ファイルを通じてサポートされています。 | `.txt`、`.pdf`、`.ppt`、`.doc`、`.xls`、`.docx`、`.pptx`、`.xlsx` |
 | 動画 | H.264ビデオコーデックとAACオーディオコーデックのみがサポートされています。動画は単一のオーディオストリームを持つか、オーディオストリームを持たない必要があります。 | `.mp4`、`.3gp` |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="受信メッセージ" }
 
 ### コールトゥアクションタイプ {#ctas}
 
@@ -233,4 +271,4 @@ Brazeを通じて送信するWhatsAppメッセージでは、以下のコール�
 | クーポンコードメッセージテンプレート | メッセージテンプレートでのみ利用可能。<br>他のメッセージテンプレートと同様に開いて編集でき、LiquidおよびBrazeプロモーションコードと互換性があります。 |
 | CTA応答メッセージ | コールトゥアクションボタンを含む応答メッセージを作成します。 |
 | [リスト応答メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | ユーザーが選択できる最大10個のオプションのリストを含む応答メッセージを作成します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コールトゥアクションタイプ" }

@@ -87,8 +87,6 @@ Les propriétés d'événement pour les événements personnalisés sont mises �
 
 Vous avez besoin de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) « Edit Custom Event Property Segmentation » pour créer des segments basés sur la récence et la fréquence des propriétés d'événement.
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 Par défaut, vous pouvez avoir 20 propriétés d'événement segmentables par espace de travail. Contactez votre gestionnaire de compte Braze pour augmenter cette limite.
 
 Pour ajouter des propriétés d'événement pour la segmentation, procédez comme suit :
@@ -115,13 +113,13 @@ En ce qui concerne l'utilisation de l'abonnement, les propriétés d'événement
 
 ### Propriétés d'entrée Canvas et propriétés d'événement {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Objets imbriqués {#nested-objects}
 
 Vous pouvez utiliser des objets imbriqués (des objets à l'intérieur d'un autre objet) pour envoyer des données JSON imbriquées en tant que propriétés d'événements personnalisés et d'achats. Ces données imbriquées peuvent être utilisées pour modéliser des informations personnalisées dans les messages, déclencher des envois de messages et segmenter les utilisateurs.
 
-Pour en savoir plus, consultez notre page dédiée aux [Objets imbriqués]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+Pour en savoir plus, consultez notre page dédiée aux [objets imbriqués]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 
 ## Stockage des propriétés d'événement personnalisé {#custom-event-property-storage}
 
@@ -130,6 +128,6 @@ Les propriétés d'événement personnalisé sont conçues pour vous aider à au
 Vous pouvez segmenter en fonction des valeurs des propriétés d'événement de deux manières :
 
 1. **Sur 30 jours :** Vous pouvez utiliser la segmentation par propriétés d'événement basée sur la fréquence et la récence de valeurs spécifiques de propriétés d'événement dans les segments Braze. Cette option a un impact sur l'utilisation des données.<br><br>
-2. **Au-delà de 30 jours :** Pour couvrir la segmentation par propriétés d'événement à court et à long terme, vous pouvez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Cette fonctionnalité segmente les utilisateurs en fonction des événements personnalisés et des propriétés d'événement suivis au cours des deux dernières années. Cette option n'a pas d'impact sur l'utilisation des données.
+2. **Au-delà de 30 jours :** Pour couvrir la segmentation par propriétés d'événement à court et à long terme, vous pouvez utiliser les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Cette fonctionnalité segmente les utilisateurs en fonction des événements personnalisés et des propriétés d'événement suivis au cours des deux dernières années. Cette option n'a pas d'impact sur l'utilisation des données.
 
 Contactez votre gestionnaire de la satisfaction client Braze pour obtenir des recommandations sur la meilleure approche en fonction de vos besoins spécifiques.

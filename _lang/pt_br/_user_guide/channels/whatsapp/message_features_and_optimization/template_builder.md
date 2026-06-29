@@ -20,7 +20,7 @@ channel:
 
 ### Etapa 1: Acessar os modelos de WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Acesse **Modelos** > **Modelos de WhatsApp** e selecione **Criar novo modelo**.
+Acesse **Conteúdo** > **WhatsApp** e selecione **Criar novo modelo**.
 
 ![Página de modelos de WhatsApp com botão para criar um novo modelo.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -98,7 +98,7 @@ Atualmente, apenas modelos de marketing são suportados no Criador de modelos de
 
 ## Usar um modelo aprovado em uma campanha {#use-an-approved-template-in-a-campaign}
 
-Depois que a Meta aprovar seu modelo, você pode usá-lo em uma campanha ou Canvas de WhatsApp.
+Depois que a Meta aprovar seu modelo, você pode usá-lo em uma Campaign ou Canvas de WhatsApp.
 
 1. Acesse **Campaigns** e selecione **Create Campaign** > **WhatsApp**.
 2. No criador de mensagens, selecione seu modelo aprovado.

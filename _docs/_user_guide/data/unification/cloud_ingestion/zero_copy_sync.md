@@ -14,7 +14,7 @@ description: "This page provides an overview of how to trigger Braze Canvases us
 
 ### Quick start steps
 
-If you’re already familiar with Braze CDI, note that the setup for a Canvas trigger sync closely follows the process for [user-data CDI integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), with the following caveats:
+If you’re already familiar with Braze CDI, note that the setup for a Canvas trigger sync closely follows the process for [user-data CDI integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), with the following caveats:
 
 - Only external ID or user alias identifiers are supported. Email and phone numbers are not supported identifiers.  
 - Only existing Braze users can be synced. New users cannot be created.  
@@ -81,7 +81,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 ##### Step 1.3: Configure network policies
 
-If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional).  
+If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-15-allow-braze-ips-in-snowflake-network-policy-optional).  
 
 {% endtab %}
 {% tab Redshift %}
@@ -128,7 +128,7 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 ##### Step 1.3: Configure network policies 
 
-If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=redshift#step-13-allow-access-to-braze-ips).
+If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=redshift#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -183,7 +183,7 @@ Create a user and grant permissions. If you already have credentials from anothe
 After granting permissions, generate a JSON key. See [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) for instructions. You’ll upload it in the Braze dashboard later.
 
 ##### Step 1.4: Configure network policies 
-If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=bigquery#step-13-allow-access-to-braze-ips).
+If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=bigquery#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab Databricks %}
@@ -244,7 +244,7 @@ Create a personal access token in Databricks:
 
 ##### Step 1.4: Configure network policies 
 
-If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=databricks#step-13-allow-access-to-braze-ips).
+If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=databricks#step-13-allow-access-to-braze-ips).
 
 {% endtab %}
 {% tab Fabric %}
@@ -271,7 +271,7 @@ Create a service principal and grant permissions. If you already have credential
 
 ##### Step 1.3: Configure network policies 
 
-If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
+If your account has network policies, allowlist the Braze IPs to enable the CDI service connection. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=microsoft%20fabric#step-15-allow-braze-ips-in-firewall-optional).
 
 {% endtab %}
 {% tab File Storage %}
@@ -286,7 +286,7 @@ To sync Canvas triggers from file storage, create a source file with the followi
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
 
 {% alert tip %}
-Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 {% endtab %}
@@ -296,7 +296,7 @@ Filenames must follow AWS rules and be unique. Append timestamps to help ensure 
 
 1. Set up your destination Canvas for Canvas triggers. Create a new or select an existing API-triggered Canvas. Refer to [Entry schedule types]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) for instructions on how to create a canvas with an API-triggered delivery schedule type.
 2. After selecting the API-triggered delivery schedule type, continue with Canvas setup and build your Canvas. Canvases can range from simple single-message sends to complex customer workflows with multiple steps.
-3. Within your Canvas steps, use [Canvas entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) to personalize messages with properties fields that you plan to sync from your source table.
+3. Within your Canvas steps, use [Canvas entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) to personalize messages with properties fields that you plan to sync from your source table.
   * For example, if in Step 1 you instrumented a properties field for `account_balance`, you would use the following Liquid templating to personalize your message: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. After building your Canvas, launch it and proceed to [Step 3](#step-3-create-your-zero-copy-sync).
 
@@ -327,7 +327,7 @@ CDI Canvas triggers utilize your REST API rate limit for `/canvas/trigger/send`.
 Each sync run enters users into its respective destination Canvas at a maximum rate of approximately 3.75 million users per hour. Be prepared for longer source-to-Canvas entry times when:
 
 * Syncing more than 3.75 million users per sync run.
-* Using CDI Canvas triggers when already saturating your REST API's [rate limit for `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Using CDI Canvas triggers when already saturating your REST API's [rate limit for `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit).
 
 Consider the following about zero-copy CDI when Message Archiving is enabled:
 

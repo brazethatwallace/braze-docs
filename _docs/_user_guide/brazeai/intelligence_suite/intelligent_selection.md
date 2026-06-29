@@ -39,10 +39,10 @@ A variant that appears to be performing better than others will get sent to more
 Intelligent Selection will:
 - Repeatedly look at performance data and shift campaign traffic toward Winning Variants gradually.
 - Check that more users receive your best-performing variant without sacrificing statistical confidence.
-- Rule out underperforming variants and identify high-performing variants faster than a [traditional A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+- Rule out underperforming variants and identify high-performing variants faster than a [traditional A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing).
 - Test more frequently and with greater confidence that your users will see your best message. 
 
-Intelligent Selection works best for campaigns that send more than once. It needs early performance data to start optimizing, so single-send campaigns won’t benefit. For those campaigns, we recommend using a traditional [A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing/) instead.
+Intelligent Selection works best for campaigns that send more than once. It needs early performance data to start optimizing, so single-send campaigns won’t benefit. For those campaigns, we recommend using a traditional [A/B test]({{site.baseurl}}/user_guide/messaging/ab_testing) instead.
 
 
 You can add Intelligent Selection to your campaigns and Canvases.
@@ -52,7 +52,7 @@ You can add Intelligent Selection to your campaigns and Canvases.
 Intelligent Selection can be added to any multi-send campaign in the **Target Audiences** step of the Braze campaign composer. Campaigns that send only once are unable to leverage this feature.
 
 {% alert note %}
-Intelligent Selection cannot be used in campaigns with a re-eligibility period of less than 24 hours because it would affect the integrity of the control variant. To learn more, refer to [Intelligence FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+Intelligent Selection cannot be used in campaigns with a re-eligibility period of less than 24 hours because it would affect the integrity of the control variant. To learn more, refer to [Intelligence FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endalert %}
 {% endtab %}
 
@@ -65,7 +65,11 @@ This allows you to edit the variant distribution and turn on Intelligent Selecti
 
 ![Intelligent Selection option turned on for a Canvas]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-Intelligent Selection will not be available if you haven't yet added conversion events to your Canvas or if your campaign is composed of a solo variant.
+Intelligent Selection will not be available if you haven't yet added conversion events to your Canvas or if your Canvas is composed of a solo variant.
+
+{% alert note %}
+Canvases can use Intelligent Selection with re-eligibility enabled, but Braze can't guarantee that a user receives the same variant on re-entry because optimum allocation shifts over time. Campaigns require a re-eligibility window of 24 hours or longer when Intelligent Selection is on. For more information, see [Why is re-eligibility in less than 24 hours not available when combined with Intelligent Selection?](#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+{% endalert %}
 {% endtab %}
 {% endtabs %}
 
@@ -121,6 +125,6 @@ Intelligent Selection will be unavailable if:
 
 - You haven't added conversion events to your campaign or Canvas
 - You are creating a single-send campaign
-- You have reeligibility enabled with a window less than 24 hours
+- Your campaign has re-eligibility enabled with a window less than 24 hours
 - Your Canvas is composed of a single variant with no additional variants or control groups added
 - Your Canvas is composed of a single control group, with no variants added

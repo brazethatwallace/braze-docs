@@ -51,7 +51,7 @@ hide_binary_feedback: false
       <div id="breadcrumb">
       </div>
       {%- endunless -%}
-      <h2 class="doc_menu_title"> {{ page.doc_top_header }} </h2>
+      <h1 class="doc_menu_title"> {{ page.doc_top_header }} </h1>
       <p>  {{ page.doc_top_text | markdownify }} </p>
 
 
@@ -63,19 +63,21 @@ hide_binary_feedback: false
         <div id="{{ doc_list.name | handle }}" class="doc_item">
           <div class="doc_img">
           {%- if doc_list.image -%}
-          <img src="{{site.baseurl}}{{ doc_list.image}} " alt="{{doc_list.name}} image" />
+          {%- comment -%} A11y (BD-6197): Decorative tile icon — the adjacent h2 and description carry the meaning. Keep alt=""; do not add aria-label or descriptive alt text. {%- endcomment -%}
+          <img src="{{site.baseurl}}{{ doc_list.image}} " alt="" />
           {%- endif -%}
           </div>
           <div class="doc_info">
-            <div class="doc_name">
+            <h2 class="doc_name">
                 <span>{{ doc_list.name }}</span>
-            </div>
+            </h2>
             <div class="doc_description">
                 {{ doc_list.description }}
             </div>
           </div>
           <div class="doc_img arrow">
-            <img src="{{site.baseurl}}/assets/img/braze_icons/arrow-circle-right-pink.svg" alt="Arrow Right" />
+            {%- comment -%} A11y (BD-6197): Decorative chevron — redundant with the tile link and text. Keep alt=""; do not add aria-label or descriptive alt text. {%- endcomment -%}
+            <img src="{{site.baseurl}}/assets/img/braze_icons/arrow-circle-right-pink.svg" alt="" />
           </div>
         </div>
           {%- if doc_list.link -%}
@@ -88,11 +90,12 @@ hide_binary_feedback: false
           <a href="https://learning.braze.com" target="_blank">
 
           <div id="doc_lab">
-            <div id="doc_lab_img"><img src="{{site.baseurl}}/assets/img/braze_learning.png" alt="Braze Learning" /></div>
+            {%- comment -%} A11y (BD-6197): Decorative Braze Learning logo — the adjacent h2 and description carry the meaning. Keep alt=""; do not add aria-label or descriptive alt text. {%- endcomment -%}
+            <div id="doc_lab_img"><img src="{{site.baseurl}}/assets/img/braze_learning.png" alt="" /></div>
             <div id="doc_lab_info" class="doc_info">
-              <div class="doc_name">
+              <h2 class="doc_name">
                 Braze Learning
-              </div>
+              </h2>
               <div class="doc_description">
                 {{ page.braze_learning }}
               </div>
@@ -107,7 +110,7 @@ hide_binary_feedback: false
               Help
             </div>
             <div class="doc_description">
-              Can't find what you're looking for? Search below, or visit our <a href="{{site.baseurl}}/help/home/">Help page</a>.
+              Can't find what you're looking for? Search below, or visit the <a href="{{site.baseurl}}/user_guide/home/">Braze User Guide</a>.
             </div>
             <form id="help-search-form"  action="{{site.baseurl}}/search/" method="get" class="form-inline">
               <div class="input-group ">
@@ -125,7 +128,7 @@ hide_binary_feedback: false
     <!-- popular -->
     <div id="doc_right" class="col-xl">
       <div id="doc_popular" class="doc_info">
-        <div class="doc_name">{{ site.data.i18n[site.language]['popular_topic'] | default: "Popular topics"}}</div>
+        <h2 class="doc_name">{{ site.data.i18n[site.language]['popular_topic'] | default: "Popular topics"}}</h2>
         <div class="doc_description">
         {%- for doc_list in page.popular_topic_list  -%}
           <div>
@@ -135,7 +138,7 @@ hide_binary_feedback: false
       </div>
       </div>
       <div id="doc_helpful" class="doc_info">
-        <div class="doc_name">{{ site.data.i18n[site.language]['helpful_resources'] | default: "Helpful resources"}}</div>
+        <h2 class="doc_name">{{ site.data.i18n[site.language]['helpful_resources'] | default: "Helpful resources"}}</h2>
         <div class="doc_description">
         {%- for doc_list in page.helpful_resources_list  -%}
           <div>
@@ -145,9 +148,9 @@ hide_binary_feedback: false
         </div>
       </div>
       <div id="gradient"></div>
-      <a id="status-indicator" href="https://braze.statuspage.io" target="_blank">
+      <a id="status-indicator-doc-rail" class="status-indicator" href="https://braze.statuspage.io" target="_blank">
         <div id="doc_status" class="doc_info">
-            <div class="status-title">{{ site.data.i18n[site.language]['braze_status'] | default: "BRAZE SYSTEM STATUS"}}</div>
+            <p class="status-title">{{ site.data.i18n[site.language]['braze_status'] | default: "BRAZE SYSTEM STATUS"}}</p>
             <div class="color-dot"></div><div class="color-description">{{ site.data.i18n[site.language]['braze_status_check'] | default: "Checking Status"}}</div>
         </div>
       </a>
@@ -163,7 +166,7 @@ hide_binary_feedback: false
               var sp = new StatusPage.page({page: '{{site.status_io_key}}'});
               sp.status({
                 success: function (data) {
-                  var sd = document.getElementById('status-indicator');
+                  var sd = document.getElementById('status-indicator-doc-rail');
                   sd.getElementsByClassName('color-description')[0].textContent = data.status.description;
                   sd.getElementsByClassName('color-dot')[0].className = "color-dot " + data.status.indicator;
                 }

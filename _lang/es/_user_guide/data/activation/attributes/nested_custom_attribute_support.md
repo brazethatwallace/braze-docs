@@ -24,6 +24,8 @@ description: "Este artículo de referencia cubre el uso de atributos personaliza
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los socios de Braze admiten atributos personalizados anidados. Consulta la [documentación del socio]({{site.baseurl}}/partners/home/) para confirmar si determinadas integraciones de socios admiten esta característica.
 - Los atributos personalizados anidados no se pueden utilizar como filtro al realizar una llamada a la API de Connected Audience.
+- De forma predeterminada, el filtro de segmento **Nested Custom Attributes** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/).
+- Al previsualizar mensajes en el dashboard usando **Preview as a Custom User**, solo puedes introducir datos simulados como cadena o matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
 
@@ -263,15 +265,31 @@ Usa la etiqueta de personalización `custom_attribute` y la notación de punto p
 <br> `{{custom_attribute.${most_played_song}[0].play_analytics.count}}` — "1000"
 {% endraw %}
 
-![Uso de Liquid para incluir en una plantilla el nombre de una canción y el número de veces que un oyente ha reproducido esa canción en un mensaje]({% image_buster /assets/img_archive/nca_liquid_2.png %})
+Para usar Liquid de atributos personalizados anidados en tu mensaje:
+
+1. Ve a una campaña o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
+3. Usa **Preview & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
 ### Personalización {#personalization}
 
-Usando el modal **Add Personalization**, también puedes insertar atributos personalizados anidados en tu mensajería. Selecciona **Nested Custom Attributes** como tipo de personalización. A continuación, selecciona el atributo de nivel superior y la clave del atributo.
+Puedes usar **Add Personalization** para insertar un atributo personalizado anidado en tu mensaje.
 
-Por ejemplo, en el modal de personalización a continuación, esto inserta el atributo personalizado anidado de una oficina de barrio local basándose en las preferencias de un usuario.
+Para abrir **Add Personalization**:
 
-![]({% image_buster /assets/img_archive/nca_personalization.png %}){: style="max-width:70%" }
+1. Ve a una campaña o Canvas, luego abre el paso de mensaje donde quieras añadir personalización.
+2. En el creador de mensajes, selecciona **Personalization** para abrir la barra lateral **Add Personalization**, donde puedes elegir opciones de personalización.
+
+Para configurar la personalización de atributos personalizados anidados:
+
+1. En **Personalization Type**, selecciona **Nested Custom Attributes**.
+2. En **Top Level Attribute**, selecciona la ruta del atributo personalizado anidado que quieras insertar.
+   Por ejemplo, selecciona `preferences.neighborhood_office`.
+3. Opcional: En **Default value**, introduce un valor alternativo para los usuarios que no tengan su propio valor para ese atributo.
+4. Revisa el **Liquid Snippet** generado para confirmar que coincide con la ruta esperada.
+5. Selecciona **Insert**.
+
+En este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
 
 {% alert tip %}
 Verifica que se haya generado un esquema si no ves la opción de insertar atributos personalizados anidados.
@@ -279,16 +297,16 @@ Verifica que se haya generado un esquema si no ves la opción de insertar atribu
 
 ## Regenerar esquemas {#regenerate-schema}
 
-Después de que se haya generado un esquema, se puede regenerar una vez cada 24 horas. Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.base}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
+Después de que se haya generado un esquema, puedes regenerarlo **una vez por día calendario** (según la zona horaria de tu empresa). Esta sección describe cómo regenerar tu esquema. Para información más detallada sobre esquemas, consulta [Generar un esquema usando el explorador de objetos anidados]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#generate-schema).
 
 Para regenerar el esquema de tu atributo personalizado anidado:
 
-1. Ve a **Data Settings** > **Custom Attributes**.
+1. Ve a **Configuración de datos** > **Atributos personalizados**.
 2. Busca tu atributo personalizado anidado.
-3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> para administrar el esquema.
-4. Aparecerá un modal. Selecciona **Regenerate Schema**.
+3. En la columna **Attribute Name** de tu atributo, selecciona <i class="fas fa-plus" aria-label="Administrar esquema"></i> **Administrar esquema** para administrar el esquema.
+4. Aparecerá un modal. Selecciona **Regenerar esquema**.
 
-La opción de regenerar esquema estará deshabilitada si han pasado menos de 24 horas desde la última regeneración del esquema. Regenerar el esquema solo detectará nuevos objetos y no eliminará objetos que actualmente existen en el esquema.
+La acción **Regenerar esquema** está limitada a **una vez por día calendario** en la zona horaria de tu empresa. No puedes iniciar otra regeneración mientras un trabajo de esquema ya está **en progreso** (la opción no está disponible mientras el estado es **Generating**). Regenerar el esquema solo detecta nuevos objetos y no elimina objetos que actualmente existen en el esquema.
 
 {% alert important %}
 Para restablecer el esquema de una matriz de objetos con un objeto existente, necesitas crear un nuevo atributo personalizado. La regeneración del esquema no elimina objetos existentes.
@@ -300,9 +318,16 @@ Si los datos no aparecen como se esperaba después de regenerar el esquema, es p
 
 Puedes desencadenar acciones cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, verifica que hayas generado un esquema.
 
-Por ejemplo, en una Campaign basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
+Por ejemplo, en una campaña basada en acciones, puedes añadir una nueva acción desencadenante para **Change Custom Attribute Value** para dirigirte a usuarios que hayan cambiado sus preferencias de oficina de barrio.
 
-![Configuración de entrega de Campaign basada en acciones con un desencadenador de cambio de valor de atributo personalizado para preferencias anidadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+Para configurar este desencadenador en una campaña basada en acciones:
+
+1. Crea o edita una campaña, luego establece el tipo de entrega en **Entrega basada en acciones**.
+2. En la configuración de desencadenadores, selecciona **Change Custom Attribute Value**.
+3. Selecciona la ruta del atributo personalizado anidado que quieras monitorear.
+   Por ejemplo, selecciona `preferences.neighborhood_office`.
+4. Selecciona la condición de desencadenamiento que desees, como **any new value**.
+5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lanza la campaña.
 
 ## Comportamiento de segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 

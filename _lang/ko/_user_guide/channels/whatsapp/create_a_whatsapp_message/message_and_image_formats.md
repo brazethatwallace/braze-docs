@@ -142,11 +142,11 @@ Braze는 7가지 응답 메시지 레이아웃을 지원합니다:
 
 ### 이미지 {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### 동영상 {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Android 호환성 {#android-compatibility}
 

@@ -10,7 +10,7 @@ description: "This article outlines details about the Delete scheduled messages 
 ---
 {% api %}
 # Delete scheduled messages
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/delete
 {% endapimethod %}
 
@@ -20,7 +20,7 @@ description: "This article outlines details about the Delete scheduled messages 
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `messages.schedule.delete` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `messages.schedule.delete` permission.
 
 ## Rate limit
 

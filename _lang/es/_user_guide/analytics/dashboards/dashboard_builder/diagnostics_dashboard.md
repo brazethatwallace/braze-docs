@@ -51,7 +51,7 @@ Para ejecutar el dashboard y ver tus datos:
 2. Selecciona una o más campañas o Canvas.
 3. Selecciona **Run Dashboard** para cargar los datos de los filtros seleccionados.
 
-![Ejemplo de diagnóstico de Campaign y Canvas del 25 al 31 de mayo de 2025 para una campaña de serie de bienvenida.]({% image_buster /assets/img/campaign_canvas_dashboard_example.png %}){: style="max-width:90%;"}
+![Ejemplo de diagnóstico de Campaign y Canvas del 25 al 31 de mayo de 2025 para una campaña de serie de bienvenida.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Ejemplo de diagnóstico de Campaign y Canvas con gráfico al pasar el cursor del 25 al 31 de mayo de 2025 para una campaña de serie de bienvenida.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
 
 ## Interpretar los datos {#interpreting-the-data}
 
@@ -78,11 +78,16 @@ Este gráfico de series temporales muestra un desglose día a día de las difere
 Para mantener el gráfico organizado, cualquier razón de cancelación o eliminación con cero ocurrencias en el rango de tiempo seleccionado no aparece en el gráfico.
 {% endalert %}
 
-### Desglose de resultados de mensajes {#message-outcomes-breakdown}
+### Registro granular de resultados de mensajes {#message-outcomes-granular-log}
 
-Este gráfico muestra el desglose de todos los resultados de mensajes dentro del rango de tiempo seleccionado. Proporciona una imagen completa de:
-- El número total de envíos como proporción de todos los resultados.
-- El desglose proporcional de cada razón de cancelación y eliminación. Esto te ayuda a identificar rápidamente las razones más comunes por las que los mensajes no se están enviando.
+Debajo del gráfico de series temporales, el dashboard muestra una tabla granular de resultados individuales de mensajes para los filtros y el rango de tiempo seleccionados. Usa esta tabla para revisar registros específicos, incluyendo la marca de tiempo, el ID de usuario, el paso en Canvas, el resultado y el canal.
+
+Puedes filtrar la tabla para enfocarte en registros específicos:
+
+- **Filtrar por resultado:** Selecciona un resultado del filtro de resultados para mostrar solo las filas con ese resultado (por ejemplo, `Frequency capped` o `User not eligible`).
+- **Buscar por ID de usuario:** Ingresa un ID de usuario en el campo de búsqueda para mostrar las filas de ese usuario específico.
+
+Cuando aplicas ambos filtros, la tabla devuelve las filas que coinciden tanto con el resultado seleccionado como con el ID de usuario ingresado.
 
 ### Resultados de cancelación {#abort-outcomes}
 
@@ -107,9 +112,9 @@ Las siguientes definiciones explican los resultados de cancelación que se muest
 | ---- | ---- |
 | Fallo en paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) falló, causando que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
 | Evento de excepción o salida | El usuario era previamente elegible para recibir el mensaje, pero {::nomarkdown}<ul><li> realizó un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de excepción</a> para una campaña basada en acciones, por lo que el mensaje fue cancelado, o </li><li> cumplió los <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">criterios de salida</a> del Canvas, por lo que fue eliminado a mitad del recorrido.</li></ul>{:/} |
-| Campaign inactiva | La campaña fue detenida mientras el mensaje estaba en tránsito, por lo que fue cancelado. |
-| Canvas inactivo | El Canvas fue detenido antes de que el usuario entrara al recorrido. |
-| Paso en Canvas inactivo | Esto puede ocurrir en el Canvas si: {::nomarkdown}<ul><li> El paso en Canvas fue eliminado </li> <li>El Canvas fue detenido, lo que causa que todos los pasos se vuelvan inactivos </li></ul>{:/} |
+| Inactive campaign | La campaña fue detenida mientras el mensaje estaba en tránsito, por lo que fue cancelado. |
+| Inactive Canvas | El Canvas fue detenido antes de que el usuario entrara al recorrido. |
+| Inactive Canvas step | Esto puede ocurrir en el Canvas si: {::nomarkdown}<ul><li> El paso en Canvas fue eliminado </li> <li>El Canvas fue detenido, lo que causa que todos los pasos se vuelvan inactivos </li></ul>{:/} |
 | Límite de volumen alcanzado | La campaña alcanzó el límite de volumen establecido, por lo que el envío fue cancelado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
 

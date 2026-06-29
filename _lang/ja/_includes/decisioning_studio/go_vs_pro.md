@@ -1,6 +1,6 @@
 ## Decisioning Studio Go vs.Decisioning Studio Pro 
 
-Decisioning Studioは二つのプランを提供している：プロになれ。各階層は、異なるニーズやユースケースに対応するように設計されている。
+Decisioning Studioは、「Go」と「Pro」という二つのプランを提供しています。各階層は、異なるニーズやユースケースに対応するように設計されている。
 
 ### Decisioning Studio Go
 

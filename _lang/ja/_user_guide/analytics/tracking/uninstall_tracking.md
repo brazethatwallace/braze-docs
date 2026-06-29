@@ -23,7 +23,7 @@ Brazeダッシュボードでアンインストール追跡をオプトインす
 
 ## 仕組み {#how-it-works}
 
-Brazeでは、通常のプッシュCampaignsから基本レベルのアンインストール情報を自動的に収集します。しかし、ユーザーによってプッシュCampaignsを受け取る頻度が異なる可能性があるため、アンインストール追跡を提供し、ユーザーのアンインストール活動をより正確に把握できるようにしています。
+Brazeでは、通常のプッシュキャンペーンから基本レベルのアンインストール情報を自動的に収集します。しかし、ユーザーによってプッシュキャンペーンを受け取る頻度が異なる可能性があるため、アンインストール追跡を提供し、ユーザーのアンインストール活動をより正確に把握できるようにしています。
 
 Brazeがアンインストールを検出すると、そのユーザーにはアンインストール済みのタグが付けられます。Campaignで**Has Not Uninstalled**フィルターを使用すると、これらのタグ付きユーザーは除外されます。ユーザーがアプリを再インストールしても開かなかった場合、アンインストールタグはプロファイルに残ります。タグが削除されるのは、再インストールしたアプリでユーザーが新しいセッションを開始したときのみです。つまり、再インストールしてもアプリを一度も開かないユーザーは、引き続きアンインストール済みとして表示されます。
 
@@ -31,13 +31,13 @@ Brazeがアンインストールを検出すると、そのユーザーにはア
 
 ## アンインストール追跡をオンにする {#turning-on-uninstall-tracking}
 
-アンインストール追跡は、追跡するアプリごとに、**Settings**の**App Settings**ページで有効にできます。
+アンインストール追跡は、追跡するアプリごとに、**設定**の**アプリ設定**ページで有効にできます。
 
 アプリのアンインストール追跡を有効にすると、Brazeは24時間以内にセッションを記録していない、またはプッシュ通知を受信していないユーザーに対し、毎晩バックグラウンドでプッシュメッセージを送信します。
 
 ### 設定 {#configuration}
 
-iOSアプリケーションのアンインストール追跡を設定するには、[ユーティリティメソッド]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)を使用します。Androidアプリケーションの場合は、[`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)を使用します。Brazeがアンインストールを検出した場合、アンインストール追跡または通常のプッシュCampaign配信のいずれであっても、ユーザーにおけるアンインストールの最良推定時間を記録します。この時刻はユーザープロファイルに標準属性項目として保存され、win-back CampaignsのユーザーSegmentを定義するために使用できます。
+iOSアプリケーションのアンインストール追跡を設定するには、[ユーティリティメソッド]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)を使用します。Androidアプリケーションの場合は、[`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html)を使用します。Brazeがアンインストールを検出した場合、アンインストール追跡または通常のプッシュキャンペーン配信のいずれであっても、ユーザーにおけるアンインストールの最良推定時間を記録します。この時刻はユーザープロファイルに標準属性項目として保存され、win-backキャンペーンのユーザーSegmentを定義するために使用できます。
 
 ## アンインストールによるSegmentのフィルタリング {#filtering-segments-by-uninstalls}
 
@@ -45,13 +45,13 @@ iOSアプリケーションのアンインストール追跡を設定するに�
 
 アンインストールに関する日次統計は**ホーム**ページに表示されます。
 
-![Segmentのアンインストール。]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
+![アンインストールSegment。]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
 
 このグラフは、Brazeが提供する他の統計と同様に、アプリやSegmentごとに分類できます。**Performance overview**セクションで、日付範囲と、必要であればアプリを選択します。次に、**Performance Over Time**グラフまでスクロールダウンし、以下を実行します。
 
 1. **Statistics For**ドロップダウンで、**Uninstalls**を選択します。
 2. **Breakdown**ドロップダウンで、**By segment**を選択します。
-3. **Breakdown Values**ドロップダウンで、グラフに含めるSegmentを選択します。
+3. **Breakdown Values**ドロップダウンで、グラフに含めるSegmentsを選択します。
 
 {% alert note %}
 アンインストール追跡が有効になっていないアプリでは、一部のユーザー（プッシュ通知対象のユーザー）のアンインストール数のみが報告されるため、日次アンインストール総数は表示されている数より多くなる可能性があります。
@@ -67,7 +67,7 @@ Campaignのアンインストール統計は、特定のCampaignの**Campaign An
 
 ### 仕組み
 
-Brazeは、ユーザーのデバイスに送信されたプッシュメッセージがFirebase Cloud Messaging (FCM) またはAppleプッシュ通知サービス (APNs) から、アプリがインストールされていないというシグナルを返すタイミングを観察することで、アンインストールを追跡します。アプリでグローバルアンインストール追跡を有効にすると、Brazeはユーザーがアンインストールしたかどうかを検知するため、毎日サイレントプッシュメッセージを送信します。Brazeはこの「サイレント」プッシュをすべてのユーザーに送信します（ユーザーがアプリ設定でサイレントプッシュを無効にしていない限り）。このプッシュはユーザーには表示されません。Brazeがユーザーのアンインストールを検知した場合、以下の処理を行います。
+Brazeは、ユーザーのデバイスに送信されたプッシュメッセージがFirebase Cloud Messaging (FCM) またはApple Push Notification Service (APNs) から、アプリがインストールされていないというシグナルを返すタイミングを観察することで、アンインストールを追跡します。アプリでグローバルアンインストール追跡を有効にすると、Brazeはユーザーがアンインストールしたかどうかを検知するため、毎日サイレントプッシュメッセージを送信します。Brazeはこの「サイレント」プッシュをすべてのユーザーに送信します（ユーザーがアプリ設定でサイレントプッシュを無効にしていない限り）。このプッシュはユーザーには表示されません。Brazeがユーザーのアンインストールを検知した場合、以下の処理を行います。
 
 * アプリの総アンインストール数を1増やします。
 * ユーザーが過去24時間に正常に受信したすべてのCampaignのアンインストール数を1増やします。
@@ -81,9 +81,13 @@ Brazeは、以下のFCMレスポンスをトークン削除（アンインスト
 
 ## トラブルシューティング {#troubleshooting}
 
+### ユーザーのプロファイルはいつアンインストール済みとしてフラグが付けられますか？アンインストールタグはいつクリアされますか？ {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+
+Brazeは、デバイス上にアプリが存在しないことを検出した時点で、ユーザーにアンインストール済みのフラグを付けます（検出方法については[仕組み](#how-it-works)を参照してください）。ユーザーがアプリを再インストールした後も、**アプリを開いて新しいセッションを開始する**まで、アンインストールタグはプロファイルに残ることがあります。再インストールだけではタグはクリアされません。そのセッションが開始されるまで、アンインストール状態を使用するSegmentやフィルター（例: **Has Not Uninstalled**）は、そのユーザーを引き続きアンインストール済みとして扱います。
+
 ### なぜ突然アンインストールが急増したのですか？ {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
-アプリのアンインストール数が急増している場合、Firebase Cloud Messaging (FCM) とAppleプッシュ通知サービス (APNs) が古いトークンを異なる頻度で取り消したことが原因である可能性があります。
+アプリのアンインストール数が急増している場合、Firebase Cloud Messaging (FCM) とApple Push Notification Service (APNs) が古いトークンを異なる頻度で取り消したことが原因である可能性があります。
 
 {% alert note %}
 プライバシー上の理由から、Brazeのプッシュプロバイダーは不定期にトークンを無効化する場合があります。つまり、特定の期間においてアンインストール数が急増することがあります。<br><br>これらの変更を検証するには、アンインストール追跡と、直接プッシュ開封率などのユーザー行動指標を併せて監視してください。アンインストール数が急増しても直接プッシュの開封率が安定している場合、この急増は実際のユーザー行動ではなく、パートナーが古いトークンを無効化したことを反映している可能性が高いです。
@@ -97,7 +101,7 @@ Segmentごとのアンインストールを表示するには:
 1. ダッシュボードの**ホーム**ページに移動します。
 2. **Performance Over Time**セクションで、**Statistics For**に**Uninstalls**を、**Breakdown**に**By Segment**を選択します。
 
-[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)が有効な離脱ユーザーを追跡するSegmentがある場合、そのアンインストール傾向をアプリ全体の傾向と比較してください。
+[分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)が有効な離脱ユーザーを追跡するSegmentがある場合、そのアンインストール傾向をアプリ全体の傾向と比較してください。
 
 ### アンインストールが本物であることを確認するにはどうすればよいですか？ {#how-do-i-confirm-uninstalls-are-genuine}
 

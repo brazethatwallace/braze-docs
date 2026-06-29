@@ -38,7 +38,7 @@ page_type: tutorial
 
 レコメンデーションのトレーニングが完了した後、カミラはユーザーがタイトルを見終わった直後に届くメッセージングフローを構築します。このメッセージには、カタログから直接取得された3つのパーソナライズされた提案のリストが含まれます。
 
-1. カミラはドラッグアンドドロップエディターを使用してアプリ内メッセージCampaignを作成します。
+1. カミラはドラッグアンドドロップエディターを使用してアプリ内メッセージキャンペーンを作成します。
 2. トリガーをカスタムイベント`Watched Content`に設定します。
 3. 彼女はタイトル画像、名前、「今すぐ視聴」CTAを含む複数ページのアプリ内メッセージをデザインします。
 
@@ -58,11 +58,11 @@ page_type: tutorial
 {% assign items = {{product_recommendation.${Post-viewing suggestions}}} %}{{ items[0].name }}
 ```
 
-```liquid
+`````````liquid
 {% assign items = {{product_recommendation.${Post-viewing suggestions}}} %}{{ items[0].description }}
 ```
 
-```liquid
+`````````liquid
 {% assign items = {{product_recommendation.${Post-viewing suggestions}}} %}{{ items[0].thumbnail }}
 ```
 
@@ -76,7 +76,7 @@ page_type: tutorial
 
 ## ステップ 3: 測定と最適化 {#step-3-measure-and-optimize}
 
-Campaignが稼働すると、カミラは開封率、CTR、フォローアップの視聴行動を監視します。彼女はパフォーマンスを以前の静的なレコメンデーションCampaignsと比較し、より高いエンゲージメントと、ユーザーあたりのコンテンツセッション数の増加を確認します。
+キャンペーンが稼働すると、カミラは開封率、CTR、フォローアップの視聴行動を監視します。彼女はパフォーマンスを以前の静的なレコメンデーションキャンペーンと比較し、より高いエンゲージメントと、ユーザーあたりのコンテンツセッション数の増加を確認します。
 
 また、A/Bテストも計画しています。
 

@@ -33,7 +33,7 @@ Braze 데이터 변환 템플릿을 사용하면 데이터 푸시의 요소 중 
 | --- | --- |
 | Oracle Crowdtwist 계정 | 이 파트너십을 활용하려면 [Oracle Crowdtwist 계정](https://www.oracle.com/uk/cx/marketing/customer-loyalty/)이 필요합니다. |
 | Braze 데이터 변환 엔드포인트 | 이 통합은 Braze의 [데이터 변환 도구]({{site.baseurl}}/user_guide/data/unification/data_transformation/)에 의존합니다. 데이터 변환을 생성하면 Braze는 고유한 엔드포인트를 생성하며, 이를 Crowdtwist의 데이터 푸시 대상으로 추가할 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -41,7 +41,7 @@ Braze와 Oracle Crowdtwist는 고객이 사용자 프로필, 사용자 리뎀션
 
 ## 1단계: Oracle Crowdtwist 템플릿에서 데이터 변환 생성 {#step-1-create-data-transformation-from-oracle-crowdtwist-template}
 
-**데이터 설정 > 데이터 변환 > 변환 생성 > 템플릿 사용**으로 이동하여 원하는 "BRAZE <> CROWDTWIST" 템플릿을 선택합니다.
+**데이터 설정** > **데이터 변환** > **변환 생성** > **템플릿 사용**으로 이동하여 원하는 "BRAZE <> CROWDTWIST" 템플릿을 선택합니다.
 
 사용자 프로필, 사용자 활동, 사용자 리뎀션 이벤트 변환을 위한 템플릿과 조건 로직을 사용하여 다양한 데이터 푸시 이벤트에 적용할 수 있는 마스터 템플릿이 각각 하나씩 총 네 개 제공됩니다.
 
@@ -58,7 +58,7 @@ Braze와 Oracle Crowdtwist는 고객이 사용자 프로필, 사용자 리뎀션
 {% endalert %}
 
 {% alert important %}
- Oracle Crowdtwist에서 전송된 오브젝트를 사용하여 Braze에서 사용자를 생성합니다. `update_existing_only` 키를 `false` 값으로 포함하면, 속성 또는 이벤트 오브젝트에 Braze에 존재하지 않는 식별자가 포함된 경우 Braze는 이벤트 또는 속성 오브젝트에 포함된 속성으로 고객 프로필을 생성합니다. Oracle Crowdtwist가 Braze에 이미 존재하는 프로필만 업데이트하도록 하려면 각 속성 또는 이벤트 오브젝트에서 이 속성을 `true`로 설정하세요.
+Oracle Crowdtwist에서 전송된 오브젝트를 사용하여 Braze에서 사용자를 생성합니다. `update_existing_only` 키를 `false` 값으로 포함하면, 속성 또는 이벤트 오브젝트에 Braze에 존재하지 않는 식별자가 포함된 경우 Braze는 이벤트 또는 속성 오브젝트에 포함된 속성으로 고객 프로필을 생성합니다. Oracle Crowdtwist가 Braze에 이미 존재하는 프로필만 업데이트하도록 하려면 각 속성 또는 이벤트 오브젝트에서 이 속성을 `true`로 설정하세요.
 {% endalert %}
 
 ### 데이터 변환 템플릿 {#data-transformation-templates}
@@ -241,11 +241,9 @@ return brazecall;
 
 ### 테스트 {#testing}
 
-템플릿을 원하는 대로 수정한 후에는 올바르게 작동하는지 확인해야 합니다. **Validate**를 클릭하여 코드 출력의 미리보기를 반환하고 선택한 대상에 대해 허용되는 요청인지 확인합니다.
+템플릿을 원하는 대로 수정한 후에는 올바르게 작동하는지 확인해야 합니다. 변환 편집기에서 **유효성 검사**를 선택하여 **출력** 섹션에 미리보기를 생성하고, 선택한 대상에 대해 Braze가 매핑된 요청을 수락하는지 확인합니다.
 
-![Braze 데이터 변환 UI 스크린샷]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
-
-"출력" 필드에 표시되는 오브젝트가 만족스러우면 **Activate**를 클릭하여 데이터 변환 엔드포인트가 데이터를 수신할 준비가 되도록 합니다.
+**출력** 필드에 표시되는 오브젝트가 만족스러우면 **활성화**를 선택하여 데이터 변환 엔드포인트가 데이터를 수신할 준비가 되도록 합니다.
 
 왼쪽 패널에서 데이터 변환의 웹훅 URL을 찾을 수 있습니다. 이를 복사하여 Oracle Crowdtwist의 Integration Hub 내에서 구성에 사용하세요.
 

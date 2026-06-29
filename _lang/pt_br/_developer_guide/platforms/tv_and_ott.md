@@ -39,6 +39,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <th>Notificações por push</th>
             <th>Canvas</th>
             <th>Feature Flags</th>
+            <th>Banners</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Kindle Fire</td>
@@ -59,6 +61,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Android TV</td>
@@ -68,6 +71,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push"><i class="fas fa-check text-success"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>LG TV (webOS)</td>
@@ -77,6 +81,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push">N/D</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
@@ -86,6 +91,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push">N/D</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
         <tr>
             <td>Roku</td>
@@ -95,6 +101,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push">N/D</td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-times text-warning"></i></td>
         </tr>
         <tr>
             <td>Apple TV OS</td>
@@ -104,6 +111,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
             <td for="push"><i class="fa-solid fa-minus"></i></td>
             <td for="canvas"><i class="fas fa-check text-success"></i></td>
             <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+            <td for="banners"><i class="fas fa-check text-success"></i></td>
         </tr>
        <tr>
           <td>Apple Vision Pro</td>
@@ -113,6 +121,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
           <td for="push"><i class="fa-solid fa-minus"></i></td>
           <td for="canvas"><i class="fas fa-check text-success"></i></td>
           <td for="feature-flags"><i class="fas fa-check text-success"></i></td>
+          <td for="banners"><i class="fas fa-check text-success"></i></td>
       </tr>
     </tbody>
 </table>
@@ -137,6 +146,8 @@ Os recursos incluem:
 - Feature Flags
 - Mensagens no app
   - Para exibir mensagens HTML em ambientes sem toque, como TVs, defina `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` como `false` (disponível a partir do [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app Fire TV.
 
 Para saber mais, visite o [guia de integração do Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -151,6 +162,8 @@ Os recursos incluem:
 - Content Cards
 - Feature Flags
 - Mensagens no app
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu Kindle Fire.
 
 Para saber mais, visite o [guia de integração do Fire OS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -167,6 +180,8 @@ Os recursos incluem:
   - Para exibir mensagens HTML em ambientes sem toque, como TVs, defina `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages` como `false` (disponível a partir do [Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310))
 - &#42; Notificações por push (integração manual necessária)
   - Notificações por push não são suportadas nativamente no Android TV. Para saber o motivo, consulte as [Diretrizes de design](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html) do Google. No entanto, você pode **fazer uma integração manual da interface de notificação por push para conseguir isso**. Consulte nossa [documentação]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv) sobre como configurar isso.
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app Android TV.
 
 Para saber mais, visite o [guia de integração do SDK Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
@@ -184,6 +199,8 @@ Os recursos incluem:
 - Content Cards (via [Headless UI](#custom-ui))
 - Feature Flags
 - Mensagens no app (via [Headless UI](#custom-ui))
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app webOS.
 
 Para saber mais, visite o [guia de integração da Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -197,6 +214,8 @@ Os recursos incluem:
 - Content Cards (via [Headless UI](#custom-ui))
 - Feature Flags
 - Mensagens no app (via [Headless UI](#custom-ui))
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app Tizen.
 
 Para saber mais, visite o [guia de integração da Web Smart TV]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/).
 
@@ -226,6 +245,8 @@ Os recursos incluem:
   - A plataforma tvOS não é compatível com webviews, portanto mensagens HTML no app não são suportadas.
   - Veja nosso [app de exemplo](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui) para saber mais sobre como usar uma Headless UI para envio de mensagens personalizadas no tvOS.
 - Notificações por push silenciosas e atualização de badging
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app tvOS.
 
 Para saber mais, acesse o [guia de integração do SDK Swift para iOS](https://github.com/braze-inc/braze-swift-sdk).
 
@@ -243,11 +264,13 @@ Use o SDK Braze Swift para integrar com o visionOS. A maioria dos recursos dispo
 - Notificações por push (visíveis ao usuário com botões de ação e notificações silenciosas)
 - Feature Flags
 - Análise de dados de localização
+- Banners
+  - Use [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements/) para incorporar mensagens diretamente no seu app visionOS.
 
 Para saber mais, acesse o [guia de integração do SDK Swift para iOS](https://github.com/braze-inc/braze-swift-sdk).
 
 {% alert important %}
-Alguns recursos do iOS são parcialmente compatíveis ou incompatíveis. Para a lista completa, consulte o [suporte ao visionOS](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos).
+Alguns recursos do iOS são parcialmente compatíveis ou incompatíveis. Para a lista completa, consulte o [suporte ao visionOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos/).
 {% endalert %}
 
 ## Direcionamento de apps {#app-targeting}
