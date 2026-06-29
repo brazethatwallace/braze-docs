@@ -4,6 +4,8 @@ This file is the authoritative reference for every agent skill in this repo. Ski
 
 Skill source files: [`.github/skills/`](.github/skills/)
 
+Cursor and Claude Code also discover skills through symlinks in [`.cursor/skills/`](.cursor/skills/) and [`.claude/skills/`](.claude/skills/) (each points at the matching folder under `.github/skills/`). When you add a new skill, update those symlink directories alongside the registry tables below.
+
 ---
 
 ## How to invoke
